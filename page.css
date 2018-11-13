@@ -1,0 +1,258 @@
+@font-face {
+    font-family: "Shrewsbury-Titling-Bold";
+    src: url("./resource/ui/Shrewsbury-Titling-Bold.ttf") format('truetype');
+}
+
+h3 {
+    margin-top: 0%;
+    margin-bottom: 0%;
+    font-size: 135%;
+}
+
+body {
+    background-image: url('resource/ui/background1.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+    height: 100vh;
+    width: 125vh;
+    position: relative;
+    margin: auto;
+}
+
+
+
+.buttonRow0 {
+    position: relative;
+}
+
+.buttonRow1 {
+    position: relative;
+    top: 55%;
+}
+
+.statsPanel {
+    position: relative;
+    height: 6.3%;
+    display: flex;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.statsInfo {
+    height: 100%;
+    width: 60%;
+}
+
+.statsName {
+    font-family: Consolas;
+}
+
+.statsBar {
+    height: 50%;
+    background-color: #690000;
+}
+
+.statsNumbers {
+    font-family: monospace;
+    font-size: 250%;
+    text-align: right;
+    height: 100%;
+    width: 40%;
+    overflow: hidden;
+}
+
+.button {
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 18vh;
+    height: 5vh;
+    font-family: Shrewsbury-Titling-Bold, Palatino, Georgia, serif;
+    font-size: 2.2vh;
+    font-weight: bold;
+    text-align: center;
+    line-height: 6vh;
+    color: #000000;
+    cursor: pointer;
+    position: absolute;
+    display: inline-block;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.button:hover {
+
+}
+
+#topRowButtons {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 6.5%;
+}
+
+#statsPanel {
+    background-image: url('resource/ui/sidebar1.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 6.5%;
+    width: 18.5%;
+    height: 74%;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+}
+
+#levelupIcon {
+    position: absolute;
+    width:20%;
+    left: 57%;
+}
+
+#timePanel {
+    position: relative;
+    top: 83%;
+    left: 1%;
+    width: 15%;
+    height: 7%;
+    background-image: url("resource/ui/time-bg.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    font-family: monospace;
+    font-size: 150%;
+    padding-left: 1%;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+#mainDisplay {
+    height: 74.8%;
+    width: 74.4%;
+    position: absolute;
+    left: 20.5%;
+    top: 6.5%;
+    padding: 0.5% 2% 0% 1%;
+    overflow-y: auto;
+}
+
+#mainSpriteDisplay {
+    position: absolute;
+    top: 91%;
+    left: 8%;
+}
+
+#bottomRowButtons {
+    position: absolute;
+    bottom: 5%;
+    left: 20%;
+    width: 80%;
+    height: 12%;
+}
+
+
+
+#buttontop0 {
+    background-image: url("resource/ui/button9.jpg");
+    left: 3%;
+}
+
+#buttontop1 {
+    background-image: url("resource/ui/button8.jpg");
+    left: 19%;
+}
+
+#buttontop2 {
+    background-image: url("resource/ui/button4.jpg");
+    left: 35%;
+}
+
+#buttontop3 {
+    background-image: url("resource/ui/button6.jpg");
+    left: 51%;
+}
+
+#buttontop4 {
+    background-image: url("resource/ui/button3.jpg");
+    left: 67%;
+}
+
+#buttontop5 {
+    background-image: url("resource/ui/button5.jpg");
+    left: 83%;
+}
+
+
+
+#button0 {
+    background-image: url("resource/ui/button3.jpg");
+}
+
+#button1 {
+    background-image: url("resource/ui/button9.jpg");
+}
+
+#button2 {
+    background-image: url("resource/ui/button5.jpg");
+}
+
+#button3 {
+    background-image: url("resource/ui/button6.jpg");
+}
+
+#button4 {
+    background-image: url("resource/ui/button2.jpg");
+}
+
+#button5 {
+    background-image: url("resource/ui/button1.jpg");
+}
+
+#button6 {
+    background-image: url("resource/ui/button4.jpg");
+}
+
+#button7 {
+    background-image: url("resource/ui/button0.jpg");
+}
+
+#button8 {
+    background-image: url("resource/ui/button7.jpg");
+}
+
+#button9 {
+    background-image: url("resource/ui/button8.jpg");
+}
+
+#button1, #button6 {
+    left: 20%;
+}
+
+#button2, #button7 {
+    left: 40%;
+}
+
+#button3, #button8 {
+    left: 60%;
+}
+
+#button4, #button9 {
+    left: 80%;
+}

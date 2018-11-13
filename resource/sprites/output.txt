@@ -1,0 +1,125 @@
+ Volume in drive C has no label.
+ Volume Serial Number is DCAA-E090
+
+ Directory of C:\Users\Steven\Documents\Repos\CoC-Web\src\resource\sprites
+
+12/13/2017  05:07 PM    <DIR>          .
+12/13/2017  05:07 PM    <DIR>          ..
+09/10/2017  12:48 PM               921 akbal.png
+09/10/2017  12:48 PM               574 amarok.png
+09/10/2017  12:48 PM               604 amily defurr.png
+09/10/2017  12:48 PM               604 amily.png
+09/10/2017  12:48 PM               647 anemone.png
+09/10/2017  12:48 PM             1,051 arian.png
+09/10/2017  12:48 PM               933 basilisk.png
+09/10/2017  12:48 PM               701 bee girl.png
+09/10/2017  12:48 PM               828 ceraph clothed.png
+09/10/2017  12:48 PM               521 ceraph goblin.png
+09/10/2017  12:48 PM               738 ceraph.png
+09/10/2017  12:48 PM               654 cerulean succubus.png
+09/10/2017  12:48 PM               652 chameleon.png
+09/10/2017  12:48 PM               606 chicken harpy.png
+09/10/2017  12:48 PM             1,413 chilly smith.png
+09/10/2017  12:48 PM               600 christmas elf.png
+09/10/2017  12:48 PM               602 cinnabar.png
+09/10/2017  12:48 PM               560 club gnoll.png
+09/10/2017  12:48 PM             1,011 corrupted glade.png
+09/10/2017  12:48 PM               576 cotton.png
+09/10/2017  12:48 PM               644 cumwitch.png
+09/10/2017  12:48 PM             3,067 dickworms.png
+09/10/2017  12:48 PM               561 dominika cloaked.png
+09/10/2017  12:48 PM               573 dominika uncloaked.png
+09/10/2017  12:48 PM             1,205 drider.png
+09/10/2017  12:48 PM               891 easter bunny.png
+09/10/2017  12:48 PM               998 edryn.png
+09/10/2017  12:48 PM               694 exgartuan.png
+09/10/2017  12:48 PM               832 factory omnibus.png
+09/10/2017  12:48 PM               370 faerie.png
+09/10/2017  12:48 PM             2,533 fenimp.png
+09/10/2017  12:48 PM               617 fetish cultist.png
+09/10/2017  12:48 PM               619 fetish zealot.png
+09/10/2017  12:48 PM             1,681 giacomo.png
+09/10/2017  12:48 PM               658 goblin elder.png
+09/10/2017  12:48 PM               902 goblin shaman.png
+09/10/2017  12:48 PM               840 goblin warrior.png
+09/10/2017  12:48 PM               742 goblin.png
+09/10/2017  12:48 PM               592 goo girl.png
+09/10/2017  12:48 PM               554 green slime.png
+09/10/2017  12:48 PM               764 harpy.png
+09/10/2017  12:48 PM               864 hel BB PF.png
+09/10/2017  12:48 PM               868 hel BB.png
+09/10/2017  12:48 PM               849 hel PF.png
+09/10/2017  12:48 PM               853 hel.png
+09/10/2017  12:48 PM             3,730 hel2.png
+09/10/2017  12:48 PM               985 hellhound.png
+09/10/2017  12:48 PM               604 ifris.png
+09/10/2017  12:48 PM               643 imp overlord.png
+09/10/2017  12:48 PM               608 imp warlord.png
+09/10/2017  12:48 PM               512 imp.png
+09/10/2017  12:48 PM             1,188 incubus mechanic.png
+09/10/2017  12:48 PM               667 isabella.png
+09/10/2017  12:48 PM               769 izma.png
+09/10/2017  12:48 PM             2,050 jasun.png
+09/10/2017  12:48 PM               646 jojo tentacle.png
+09/10/2017  12:48 PM               567 jojo.png
+09/10/2017  12:48 PM               598 katherine.png
+09/10/2017  12:48 PM             1,241 kelt.png
+09/10/2017  12:48 PM             3,212 kida.png
+09/10/2017  12:48 PM             3,288 kiha.png
+09/10/2017  12:48 PM               578 kitsune black.png
+09/10/2017  12:48 PM               623 kitsune blonde.png
+09/10/2017  12:48 PM               661 kitsune red.png
+09/10/2017  12:48 PM               579 lilium.png
+09/10/2017  12:48 PM               513 lottie.png
+09/10/2017  12:48 PM               552 lumi.png
+09/10/2017  12:48 PM               537 lynette.png
+09/10/2017  12:48 PM               794 maddie.png
+09/10/2017  12:48 PM             1,774 marae.png
+09/10/2017  12:48 PM               637 marble.png
+09/10/2017  12:48 PM             1,101 markus and lucia.png
+09/10/2017  12:48 PM               361 minerva corrupt.png
+09/10/2017  12:48 PM               371 minerva pure.png
+09/10/2017  12:48 PM             1,146 minerva.png
+09/10/2017  12:48 PM             2,133 minotaur sons.png
+09/10/2017  12:48 PM             1,105 minotaur.png
+09/10/2017  12:48 PM               593 mrs coffee.png
+09/10/2017  12:48 PM             1,022 naga.png
+09/10/2017  12:48 PM             1,713 oasis demons.png
+09/10/2017  12:48 PM               589 oswald.png
+12/13/2017  05:07 PM                 0 output.txt
+09/10/2017  12:48 PM             3,175 poisontail.png
+09/10/2017  12:48 PM               658 priscilla.png
+09/10/2017  12:48 PM             1,004 rathazul.png
+09/10/2017  12:48 PM               950 rogar.png
+09/10/2017  12:48 PM               735 rubi hornless.png
+09/10/2017  12:48 PM               761 rubi horns.png
+09/10/2017  12:48 PM               693 sandtrap.png
+09/10/2017  12:48 PM               627 sandwich.png
+09/10/2017  12:48 PM             1,013 satyr.png
+09/10/2017  12:48 PM               702 scylla and bear.png
+09/10/2017  12:48 PM               555 scylla.png
+09/10/2017  12:48 PM               583 sean.png
+09/10/2017  12:48 PM             3,150 sharkgirl.png
+09/10/2017  12:48 PM               945 sophie bimbo.png
+09/10/2017  12:48 PM               930 sophie.png
+09/10/2017  12:48 PM               669 spear gnoll.png
+09/10/2017  12:48 PM               538 spidergirl.png
+09/10/2017  12:48 PM               536 spiderguy.png
+09/10/2017  12:48 PM               887 stuck satyr.png
+09/10/2017  12:48 PM               678 succubus secretary.png
+09/10/2017  12:48 PM               798 tamani daughters.png
+09/10/2017  12:48 PM               584 tamani.png
+09/10/2017  12:48 PM             2,557 tentacle monster.png
+09/10/2017  12:48 PM               590 urta drunk.png
+09/10/2017  12:48 PM               508 urta.png
+09/10/2017  12:48 PM               874 vagrant cats.png
+09/10/2017  12:48 PM               737 vala slave.png
+09/10/2017  12:48 PM               832 vala.png
+09/10/2017  12:48 PM             3,119 valeria.png
+09/10/2017  12:48 PM               780 venus.png
+09/10/2017  12:48 PM               640 victoria.png
+09/10/2017  12:48 PM             3,070 weaponsmith.png
+09/10/2017  12:48 PM               602 yara.png
+09/10/2017  12:48 PM               741 yvonne.png
+             116 File(s)        113,478 bytes
+               2 Dir(s)  36,514,566,144 bytes free

@@ -1,0 +1,7 @@
+Build/
+**/.vscode/*
+!**/.vscode/tasks.json
+*.map
+.cache/
+dist/
+node_modules/

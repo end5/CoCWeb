@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="page.css" rel="stylesheet">
+    <script src='./Loader.ts' defer></script>
+</head>
+
+<body>
+    <div id="topRowButtons">
+        <a id="buttontop0" class="button">Main Menu</a>
+        <a id="buttontop1" class="button">Data</a>
+        <a id="buttontop2" class="button">Stats</a>
+        <a id="buttontop3" class="button">Perk Up</a>
+        <a id="buttontop4" class="button">Perks</a>
+        <a id="buttontop5" class="button">Appearance</a>
+    </div>
+    <div id="statsPanel">
+        <div id="nameDisplay">
+            <h3>Name : </h3>
+        </div>
+        <h3>Core Stats</h3>
+        <div id="strengthPanel" class="statsPanel">
+            <div class="statsInfo">
+                <div class="statsName">Strength</div>
+                <div class="statsBar"></div>
+                <!-- <div class="statsMax"></div> -->
+            </div>
+            <div class="statsNumbers">
+                <span class="statsCurrent">98</span>
+            </div>
+        </div>
+        <div id="toughnessPanel" class="statsPanel">
+            <div class="statsInfo">
+                <div class="statsName">Toughness</div>
+                <div class="statsBar"></div>
+                <!-- <div class="statsMax"></div> -->
+            </div>
+            <div class="statsNumbers">
+                <span class="statsCurrent">98</span>
+            </div>
+        </div>
+        <div id="speedPanel" class="statsPanel">
+            <div class="statsInfo">
+                <div class="statsName">Speed</div>
+                <div class="statsBar"></div>
+                <!-- <div class="statsMax"></div> -->
+            </div>
+            <div class="statsNumbers">
+                <span class="statsCurrent">98</span>
+            </div>
+        </div>
+        <div id="intelligencePanel" class="statsPanel">
+            <div class="statsInfo">
+                <div class="statsName">Intelligence</div>
+                <div class="statsBar"></div>
+                <!-- <div class="statsMax"></div> -->
+            </div>
+            <div class="statsNumbers">
+                <span class="statsCurrent">98</span>
+            </div>
+        </div>
+        <div id="libidoPanel" class="statsPanel">
+            <div class="statsInfo">
+                <div class="statsName">Libido</div>
+                <div class="statsBar"></div>
+                <!-- <div class="statsMax"></div> -->
+            </div>
+            <div class="statsNumbers">
+                <span class="statsCurrent">98</span>
+            </div>
+        </div>
+        <div id="sensitivityPanel" class="statsPanel">
+            <div class="statsInfo">
+                <div class="statsName">Sensitivity</div>
+                <div class="statsBar"></div>
+                <!-- <div class="statsMax"></div> -->
+            </div>
+            <div class="statsNumbers">
+                <span class="statsCurrent">98</span>
+            </div>
+        </div>
+        <div id="corruptionPanel" class="statsPanel">
+            <div class="statsInfo">
+                <div class="statsName">Corruption</div>
+                <div class="statsBar"></div>
+                <!-- <div class="statsMax"></div> -->
+            </div>
+            <div class="statsNumbers">
+                <span class="statsCurrent">98</span>
+            </div>
+        </div>
+        <h3>Combat Stats</h3>
+        <div id="hpPanel" class="statsPanel">
+            <div class="statsInfo">
+                <div class="statsName">HP</div>
+                <div class="statsBar"></div>
+                <!-- <div class="statsMax"></div> -->
+            </div>
+            <div class="statsNumbers">
+                <span class="statsCurrent">98</span>
+            </div>
+        </div>
+        <div id="lustPanel" class="statsPanel">
+            <div class="statsInfo">
+                <div class="statsName">Lust</div>
+                <div class="statsBar"></div>
+                <!-- <div class="statsMax"></div> -->
+            </div>
+            <div class="statsNumbers">
+                <span class="statsCurrent">98</span>
+            </div>
+        </div>
+        <div id="fatiguePanel" class="statsPanel">
+            <div class="statsInfo">
+                <div class="statsName">Fatigue</div>
+                <div class="statsBar"></div>
+                <!-- <div class="statsMax"></div> -->
+            </div>
+            <div class="statsNumbers">
+                <span class="statsCurrent">98</span>
+            </div>
+        </div>
+        <h3>Advancement</h3>
+        <div id="levelPanel" class="statsPanel">
+            <div class="statsInfo">
+                <div class="statsName">Level</div>
+                <!-- <div class="statsBar"></div> -->
+                <!-- <div class="statsMax"></div> -->
+            </div>
+            <img id="levelupIcon" src="resource/ui/arrow-up.png" />
+            <div class="statsNumbers">
+                <span class="statsCurrent">98</span>
+            </div>
+        </div>
+        <div id="xpPanel" class="statsPanel">
+            <div class="statsInfo">
+                <div class="statsName">Experience</div>
+                <!-- <div class="statsBar"></div> -->
+                <!-- <div class="statsMax"></div> -->
+            </div>
+            <div class="statsNumbers">
+                <span class="statsCurrent">98</span>
+            </div>
+        </div>
+        <div id="gemsPanel" class="statsPanel">
+            <div class="statsInfo">
+                <div class="statsName">Gems</div>
+                <!-- <div class="statsBar"></div> -->
+                <!-- <div class="statsMax"></div> -->
+            </div>
+            <div class="statsNumbers">
+                <span class="statsCurrent">98</span>
+            </div>
+        </div>
+    </div>
+    <div id="timePanel">
+        <div>Day #:<span id="timeDay"></span>
+        </div>
+        <div>Time:<span id="timeHour"></span>
+        </div>
+    </div>
+    <div id="mainDisplay">
+        <img id="mainImageDisplay" />
+        <p id="mainTextDisplay"></p>
+    </div>
+    <img id="mainSpriteDisplay" />
+    <div id="bottomRowButtons">
+        <div class="buttonRow0">
+            <a id="button0" class="button">Button</a>
+            <a id="button1" class="button">Button</a>
+            <a id="button2" class="button">Button</a>
+            <a id="button3" class="button">Button</a>
+            <a id="button4" class="button">Button</a>
+        </div>
+        <div class="buttonRow1">
+            <a id="button5" class="button">Button</a>
+            <a id="button6" class="button">Button</a>
+            <a id="button7" class="button">Button</a>
+            <a id="button8" class="button">Button</a>
+            <a id="button9" class="button">Button</a>
+        </div>
+    </div>
+</body>
+
+</html>

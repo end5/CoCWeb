@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "sourceMap": true,
+        "outDir": "Build",
+        "strict": true,
+        // "noUnusedParameters": true,
+        "noUnusedLocals": true,
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitReturns": true,
+    },
+    "exclude": [
+        "Scripts",
+        "main.js",
+        "Build",
+        "Converter",
+        "dist",
+    ]
+}
