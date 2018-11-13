@@ -1,5 +1,6 @@
 import { ArmorName } from './ArmorName';
 import { Character } from '../../Character/Character';
+import { PerkType } from '../../Effects/PerkType';
 import { EquipableItem } from '../EquipableItem';
 import { ItemDesc } from '../ItemDesc';
 import { ItemType } from '../ItemType';
@@ -51,5 +52,9 @@ export class Armor extends EquipableItem {
      * @param character
      */
     public onUnequip(character: Character) {
+        while (character.perks.has(PerkType.BulgeArmor))
+            character.perks.remove(PerkType.BulgeArmor); // TODO remove this Exgartuan hack
+        if (character.inventory.armorDescMod.length > 0)
+            character.inventory.armorDescMod = "";
     }
 }

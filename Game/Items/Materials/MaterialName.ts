@@ -1,3 +1,5 @@
 export enum MaterialName {
-    None = "None"
+    BlackChitin = "B.Chitn",
+    GreenGel = "GreenGl",
+    ToughSpiderSilk = "T.SSilk"
 }

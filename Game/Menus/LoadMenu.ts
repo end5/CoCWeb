@@ -3,8 +3,8 @@ import { SaveManager } from '../../Engine/Save/SaveManager';
 import { loadFromSave, SaveFile } from '../SaveFile';
 import { NextScreenChoices } from '../ScreenDisplay';
 import { CView } from '../../Page/ContentView';
+import { playerMenu } from './InGame/PlayerMenu';
 import { dataMenu } from './DataMenu';
-import { mainMenu } from './MainMenu';
 
 export function loadMenu(): NextScreenChoices {
     CView.clear();
@@ -25,5 +25,5 @@ export function loadMenu(): NextScreenChoices {
 function loaded(): NextScreenChoices {
     CView.clear();
     CView.text("Load Successful.");
-    return { next: mainMenu };
+    return { next: playerMenu };
 }
