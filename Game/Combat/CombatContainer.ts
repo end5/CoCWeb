@@ -39,12 +39,7 @@ export class CombatContainer {
     }
 
     public spellCount(): number {
-        return [StatusEffectType.KnowsArouse,
-        StatusEffectType.KnowsHeal,
-        StatusEffectType.KnowsMight,
-        StatusEffectType.KnowsCharge,
-        StatusEffectType.KnowsBlind,
-        StatusEffectType.KnowsWhitefire]
+        return []
             .filter((name: StatusEffectType) => {
                 return this.character.effects.has(name);
             })
