@@ -44,7 +44,7 @@ export class Armor extends EquipableItem {
 
     public equipText(): void { }
     public unequipText(): void { }
-    public onEquip(_character: Character) { }
+    public onEquip(_character: Character): void | Armor { }
 
     /**
      * This item is being unequiped by the character. Remove any perks, etc. - This should only handle mechanics, not text output
