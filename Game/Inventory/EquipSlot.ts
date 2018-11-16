@@ -42,8 +42,13 @@ export class EquipSlot<T extends EquipableItem> implements ISerializable<IEquipS
             let unequippedItem;
             if (this.isEquipped())
                 unequippedItem = this.unequip();
-            this.equippedItem = item;
-            item.onEquip(this.character);
+
+            const itemToEquip = item.onEquip(this.character);
+            if (itemToEquip)
+                this.equippedItem = itemToEquip as T;
+            else
+                this.equippedItem = item;
+
             for (const effect of this.onEquipEffects) {
                 effect(item, this.character);
             }

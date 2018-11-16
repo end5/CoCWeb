@@ -1,12 +1,16 @@
-import { CharacterHolder } from './CharacterHolder';
 import { randInt } from '../../Engine/Utilities/SMath';
 import { Character } from '../Character/Character';
 import { CView } from '../../Page/ContentView';
 import { StatWithEffects } from '../Body/Stat/StatWithEffects';
 
-export class CombatStats extends CharacterHolder {
+export class CombatStats {
     public readonly attackStat = new StatWithEffects();
     public readonly defenseStat = new StatWithEffects();
+
+    protected char: Character;
+    public constructor(character: Character) {
+        this.char = character;
+    }
 
     public HP(): number {
         return this.char.stats.HP;

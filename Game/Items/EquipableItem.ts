@@ -5,27 +5,18 @@ import { EquipSlot } from '../Inventory/EquipSlot';
 export abstract class EquipableItem extends Item {
     protected slot: EquipSlot<EquipableItem> | undefined;
     /**
-     * This item is being equipped by the character. Add any perks, etc. - This should only handle mechanics, not text output
+     * Called when this item is being equipped by the character.
+     * Can return a new item to be equipped.
+     * Add any perks, etc. - This should only handle mechanics, not text output
      * @param slot
      */
-    public abstract onEquip(character: Character): void;
-
-    // public equip(slot: EquipSlot<EquipableItem>): void {
-    //     this.slot = slot;
-    //     slot.equip(this);
-    // }
+    public abstract onEquip(character: Character): void | EquipableItem;
 
     /**
      * This item is being unequiped by the character. Remove any perks, etc. - This should only handle mechanics, not text output
      * @param character
      */
     public abstract onUnequip(character: Character): void;
-
-    // public unequip(): this {
-    //     this.slot.unequip();
-    //     this.slot = undefined;
-    //     return this;
-    // }
 
     /**
      * Produces any text seen when equiping the item normally

@@ -1,15 +1,14 @@
 import { combatCleanup } from './CombatCleanup';
 import { CombatParty } from './CombatParty';
-import { combatRegeneration } from './CombatUtils';
 import { DefeatType } from './DefeatEvent';
 import { Character } from '../Character/Character';
 import { NextScreenChoices, ScreenChoice, choiceWrapWithChar } from '../ScreenDisplay';
 import { awardPlayer } from './CombatDrops';
 import { CharDict } from '../CharDict';
-import { playerMenu } from '../Menus/InGame/PlayerMenu';
-import { combatMenu } from '../Menus/InGame/PlayerCombatMenu';
 import { randomChoice } from '../../Engine/Utilities/SMath';
 import { CombatManager } from './CombatManager';
+import { playerMenu } from '../Menus/InGame/PlayerMenu';
+import { combatMenu } from '../Menus/InGame/CombatMenu';
 
 export class Encounter {
     private mainCharacter: Character;
@@ -70,8 +69,6 @@ export class Encounter {
             for (const combatEffect of selectedChar.combat.effects) {
                 combatEffect.update(selectedChar, enemyChar);
             }
-
-        combatRegeneration(selectedChar);
     }
 
     private resolveEndTurn(character: Character): void {

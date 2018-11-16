@@ -1,10 +1,14 @@
-import { CharacterHolder } from './CharacterHolder';
 import { DefeatType } from './DefeatEvent';
 import { randInt } from '../../Engine/Utilities/SMath';
 import { Character } from '../Character/Character';
 import { NextScreenChoices } from '../ScreenDisplay';
 
-export abstract class EndScenes extends CharacterHolder {
+export abstract class EndScenes {
+    protected char: Character;
+    public constructor(character: Character) {
+        this.char = character;
+    }
+
     /**
      * The default number of hours that pass when losing a fight.
      */

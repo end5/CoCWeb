@@ -3,9 +3,9 @@ import { EquipSlot } from '../Inventory/EquipSlot';
 import { Item } from '../Items/Item';
 import { CockSockName } from '../Items/Misc/CockSockName';
 import { NextScreenChoices } from '../ScreenDisplay';
-import { playerMenu } from '../Menus/InGame/PlayerMenu';
 import { getItemFromName } from '../Items/ItemLookup';
 import { CView } from '../../Page/ContentView';
+import { playerMenu } from '../Menus/InGame/PlayerMenu';
 
 export function awardPlayer(character: Character, enemy: Character): NextScreenChoices {
     const gildedCockSock = character.inventory.cockSocks.find(EquipSlot.FilterName(CockSockName.Gilded));

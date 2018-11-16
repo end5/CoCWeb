@@ -1,8 +1,13 @@
-import { CharacterHolder } from './CharacterHolder';
 import { CombatParty } from './CombatParty';
 import { NextScreenChoices } from '../ScreenDisplay';
+import { Character } from '../Character/Character';
 
-export abstract class PartyEndScenes extends CharacterHolder {
+export abstract class PartyEndScenes {
+    protected char: Character;
+    public constructor(character: Character) {
+        this.char = character;
+    }
+
     /**
      * The default number of hours that pass when losing a fight.
      */
