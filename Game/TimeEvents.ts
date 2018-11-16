@@ -1,30 +1,30 @@
-import { ITimeEvent } from './ITimeEvent';
 import { CharDict } from './CharDict';
 import { NextScreenChoices } from './ScreenDisplay';
+import { Dictionary } from '../Engine/Utilities/Dictionary';
+import { Character } from './Character/Character';
 
-class TimeEventManager {
-    private timeEvents: ITimeEvent[];
+export type TimeEventFunc = (player: Character) => void | boolean | NextScreenChoices;
+
+class TimeEventManager extends Dictionary<string, TimeEventFunc>  {
     private currentIndex: number = 0;
 
-    public constructor() {
-        this.timeEvents = [];
-    }
-
-    public add(timeEvent: ITimeEvent) {
-        this.timeEvents.push(timeEvent);
-    }
-
     public update(hours: number): void | NextScreenChoices {
-        let nextScreen: void | NextScreenChoices;
-        while (nextScreen !== undefined && this.currentIndex < this.timeEvents.length) {
-            nextScreen = this.timeEvents[this.currentIndex].update(CharDict.player!);
+    }
+
+    private runEvents(this: TimeEventManager, times: number, index: number = 0) {
+        let nextScreen: void | boolean | NextScreenChoices;
+        const events = this.entries();
+        while (!nextScreen && this.currentIndex < events.length) {
+            nextScreen = events[this.currentIndex][1](CharDict.player!);
             this.currentIndex++;
         }
 
-        if (this.currentIndex >= this.timeEvents.length) {
+        if (this.currentIndex >= events.length) {
             this.currentIndex = 0;
             return;
         }
+
+        if (nextScreen === true) return { next: ((player: Character) => this.runEvents(times, index)) as void | boolean | NextScreenChoices };
 
         return nextScreen;
     }
