@@ -2,7 +2,7 @@ import { IRangedStatEffect, RangedStatEffect } from "../Body/Stat/RangedStatEffe
 import { IStatModifier, StatModifier } from "../Body/Stat/StatModifier";
 
 export interface IEffectValues {
-    duration?: number;
+    expireCountdown?: number;
     attack?: IRangedStatEffect;
     weapon?: IRangedStatEffect;
     spell?: IRangedStatEffect;
@@ -27,7 +27,7 @@ export interface IEffectValues {
 }
 
 export class EffectValues implements IEffectValues {
-    public duration = 0;
+    public expireCountdown = 0;
     public readonly attack: RangedStatEffect;
     public readonly weapon: RangedStatEffect;
     public readonly spell: RangedStatEffect;
