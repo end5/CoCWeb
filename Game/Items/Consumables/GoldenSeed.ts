@@ -99,7 +99,7 @@ export class GoldenSeed extends Consumable {
             // (sub 40 lib)
             if (character.stats.lib < 40) {
                 CView.text("\n\nA passing flush colors your " + describeFaceShort(character) + " for a second as you daydream about sex. You blink it away, realizing the item seems to have affected your libido.");
-                if (character.body.vaginas.length > 0) CView.text(" The moistness of your " +  describeVagina(character, character.body.vaginas.get(0)) + " seems to agree.");
+                if (character.body.vaginas.length > 0) CView.text(" The moistness of your " + describeVagina(character, character.body.vaginas.get(0)) + " seems to agree.");
                 else if (character.body.cocks.length > 0) CView.text(" The hardness of " + describeOneOfYourCocks(character) + " seems to agree.");
                 character.stats.lust += 5;
             }

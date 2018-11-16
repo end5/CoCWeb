@@ -15,6 +15,8 @@ export const MinotaurCumFlags = {
     MINOTAUR_CUM_ADDICTION_STATE: 0,
     MINOTAUR_CUM_ADDICTION_TRACKER: 0,
     MINOTAUR_CUM_REALLY_ADDICTED_STATE: 0,
+    TIME_SINCE_LAST_CONSUMED_MINOTAUR_CUM: 0,
+    TIMES_DRANK_MINOTAUR_CUM: 0,
 };
 
 Flags.set(FlagType.MinotaurCum, MinotaurCumFlags);
@@ -26,7 +28,7 @@ export class MinotaurCum extends Consumable {
 
     public use(character: Character) {
         // Minotaur cum addiction
-        // character.minoCumAddiction(7);
+        minoCumAddiction(7);
         CView.clear();
         CView.text("As soon as you crack the seal on the bottled white fluid, a ");
         if (MinotaurCumFlags.MINOTAUR_CUM_ADDICTION_STATE === 0) CView.text("potent musk washes over you.");
@@ -76,4 +78,33 @@ export class MinotaurCum extends Consumable {
             CView.text("\n\n<b>Your body feels so amazing and sensitive.  Experimentally you pinch yourself and discover that even pain is turning you on!</b>");
         }
     }
+}
+
+export function minoCumAddiction(raw: number = 10) {
+    // Increment minotaur cum intake count
+    MinotaurCumFlags.TIMES_DRANK_MINOTAUR_CUM++;
+    // Fix if variables go out of range.
+    if (MinotaurCumFlags.MINOTAUR_CUM_ADDICTION_TRACKER < 0) MinotaurCumFlags.MINOTAUR_CUM_ADDICTION_TRACKER = 0;
+    if (MinotaurCumFlags.MINOTAUR_CUM_ADDICTION_STATE < 0) MinotaurCumFlags.MINOTAUR_CUM_ADDICTION_STATE = 0;
+    if (MinotaurCumFlags.MINOTAUR_CUM_ADDICTION_TRACKER > 120) MinotaurCumFlags.MINOTAUR_CUM_ADDICTION_TRACKER = 120;
+
+    // Turn off withdrawal
+    // if(flags[kFLAGS.MINOTAUR_CUM_ADDICTION_STATE] > 1) flags[kFLAGS.MINOTAUR_CUM_ADDICTION_STATE] = 1;
+    // Reset counter
+    MinotaurCumFlags.TIME_SINCE_LAST_CONSUMED_MINOTAUR_CUM = 0;
+    // If highly addicted, rises slower
+    if (MinotaurCumFlags.MINOTAUR_CUM_ADDICTION_TRACKER >= 60) raw /= 2;
+    if (MinotaurCumFlags.MINOTAUR_CUM_ADDICTION_TRACKER >= 80) raw /= 2;
+    if (MinotaurCumFlags.MINOTAUR_CUM_ADDICTION_TRACKER >= 90) raw /= 2;
+    // If in withdrawl, readdiction is potent!
+    if (MinotaurCumFlags.MINOTAUR_CUM_ADDICTION_STATE === 3) raw += 10;
+    if (MinotaurCumFlags.MINOTAUR_CUM_ADDICTION_STATE === 2) raw += 5;
+    raw = Math.round(raw * 100) / 100;
+    // PUT SOME CAPS ON DAT' SHIT
+    if (raw > 50) raw = 50;
+    if (raw < -50) raw = -50;
+    MinotaurCumFlags.MINOTAUR_CUM_ADDICTION_TRACKER += raw;
+    // Recheck to make sure shit didn't break
+    if (MinotaurCumFlags.MINOTAUR_CUM_ADDICTION_TRACKER > 120) MinotaurCumFlags.MINOTAUR_CUM_ADDICTION_TRACKER = 120;
+    if (MinotaurCumFlags.MINOTAUR_CUM_ADDICTION_TRACKER < 0) MinotaurCumFlags.MINOTAUR_CUM_ADDICTION_TRACKER = 0;
 }

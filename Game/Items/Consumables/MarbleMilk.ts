@@ -52,8 +52,8 @@ export class MarbleMilk extends Consumable {
         character.stats.fatigue -= 25;
         // If the character is addicted, this item negates the withdrawal effects for a few hours (suggest 6), there will need to be a check here to make sure the withdrawal effect doesn't reactivate while the character is under the effect of 'Marble's Milk'.
         if (character.effects.has(StatusEffectType.BottledMilk)) {
-            character.effects.get(StatusEffectType.BottledMilk)!.values.duration = (6 + randInt(6));
+            character.effects.get(StatusEffectType.BottledMilk)!.values.expireCountdown = (6 + randInt(6));
         }
-        else character.effects.add(StatusEffectType.BottledMilk, { duration: 12 });
+        else character.effects.add(StatusEffectType.BottledMilk, { expireCountdown: 12 });
     }
 }

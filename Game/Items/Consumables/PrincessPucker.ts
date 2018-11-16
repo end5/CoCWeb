@@ -22,12 +22,10 @@ export class PrincessPucker extends Consumable {
         if (randInt(2) === 0) {
             character.stats.lust -= 20;
             character.stats.lib -= 2;
-            // dynStats("lus-", 20, "lib-", 2);
         }
         else {
             character.stats.lust -= 20;
             character.stats.sens -= 2;
-            // dynStats("lus-", 20, "sen-", 2);
         }
 
         if (character.body.hair.color !== "pink") {

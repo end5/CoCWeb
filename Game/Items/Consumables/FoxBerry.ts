@@ -26,11 +26,11 @@ import { Flags } from '../../Flags';
 import { Settings } from '../../Settings';
 import { gameOverMenu } from '../../Menus/InGame/GameOverMenu';
 
-export const foxBerryFlags = {
+export const FoxBerryFlags = {
     FOX_BAD_END_WARNING: 0,
 };
 
-Flags.set(FlagType.FoxBerry, foxBerryFlags);
+Flags.set(FlagType.FoxBerry, FoxBerryFlags);
 
 export class FoxBerry extends Consumable {
     private enhanced: boolean;
@@ -58,9 +58,9 @@ export class FoxBerry extends Consumable {
             character.body.legs.type === LegType.FOX &&
             character.body.skin.type === SkinType.FUR && randInt(3) === 0
         ) {
-            if (foxBerryFlags.FOX_BAD_END_WARNING === 0) {
+            if (FoxBerryFlags.FOX_BAD_END_WARNING === 0) {
                 CView.text("\n\nYou get a massive headache and a craving to raid a henhouse.  Thankfully, both pass in seconds, but <b>maybe you should cut back on the vulpine items...</b>");
-                foxBerryFlags.FOX_BAD_END_WARNING = 1;
+                FoxBerryFlags.FOX_BAD_END_WARNING = 1;
             }
             else {
                 CView.text("\n\nYou scarf down the ");

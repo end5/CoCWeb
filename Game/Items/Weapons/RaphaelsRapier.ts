@@ -1,7 +1,7 @@
 import { Weapon } from './Weapon';
 import { WeaponName } from './WeaponName';
 import { ItemDesc } from '../ItemDesc';
-import { PlayerFlags } from '../../Character/Player/PlayerFlags';
+import { RaphaelFlags } from '../../Scenes/NPCs/Raphael';
 
 export class RaphaelsRapier extends Weapon {
     public constructor() {
@@ -9,6 +9,6 @@ export class RaphaelsRapier extends Weapon {
     }
 
     public get attack(): number {
-        return 8 + PlayerFlags.RAPHAEL_RAPIER_TRANING * 2;
+        return 8 + RaphaelFlags.RAPHAEL_RAPIER_TRANING * 2;
     }
 }

@@ -106,7 +106,7 @@ export class PhoukaWhiskey extends Consumable {
                 phoukaWhiskeyEffect.values.other!.drinksSoFar = 8 - (2 * drinksSoFar);
             else
                 phoukaWhiskeyEffect.values.other!.drinksSoFar = 1; // Always get at least one more hour of drunkenness
-            phoukaWhiskeyEffect.values.duration = 1;
+            phoukaWhiskeyEffect.values.expireCountdown = 1;
             phoukaWhiskeyEffect.values.lib.value.flat = libidoChange;
             phoukaWhiskeyEffect.values.sens.value.flat = sensChange;
             phoukaWhiskeyEffect.values.spe.value.flat = speedChange;
@@ -115,7 +115,7 @@ export class PhoukaWhiskey extends Consumable {
         }
         else { // First time
             character.effects.add(StatusEffectType.PhoukaWhiskeyAffect, {
-                duration: 1,
+                expireCountdown: 1,
                 lib: { value: { flat: libidoChange } },
                 sens: { value: { flat: sensChange } },
                 spe: { value: { flat: speedChange } },

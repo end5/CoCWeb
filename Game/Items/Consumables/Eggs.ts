@@ -74,6 +74,17 @@ export enum EggType {
     White
 }
 
+export function randEggType(): EggType {
+    return randomChoice(
+        EggType.Black,
+        EggType.Blue,
+        EggType.Brown,
+        EggType.Pink,
+        EggType.Purple,
+        EggType.White,
+    );
+}
+
 export class Eggs extends Consumable {
     private large: boolean;
     private eggType: EggType;

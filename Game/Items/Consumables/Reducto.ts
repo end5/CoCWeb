@@ -168,7 +168,5 @@ export class Reducto extends Consumable {
         CView.clear();
         CView.text("You put the salve away.\n\n");
         return character.inventory.items.createAdd(character, ConsumableName.Reducto, inventoryMenu);
-        // InventoryDisplay.reverseAction();
-        // return { next: Inventory };
     }
 }

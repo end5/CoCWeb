@@ -306,7 +306,7 @@ export class LaBova extends Consumable {
                     character.effects.add(StatusEffectType.CuntStretched);
                 // Reset the timer on it to 0 when restretched.
                 else
-                    character.effects.get(StatusEffectType.CuntStretched)!.values.duration = 0;
+                    character.effects.get(StatusEffectType.CuntStretched)!.values.expireCountdown = 0;
                 character.body.vaginas.get(0)!.looseness++;
                 changes++;
                 character.stats.lust += 10;

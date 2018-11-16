@@ -6,8 +6,11 @@ import { HairDyeType, HairDye } from './HairDye';
 import { Dictionary } from '../../../Engine/Utilities/Dictionary';
 import { BeeHoney } from './BeeHoney';
 import { BimboLiqueur } from './BimboLiqueur';
+import { BlackCatBeer } from './BlackCatBeer';
 import { BlackSpellbook } from './BlackSpellbook';
 import { BroBrew } from './BroBrew';
+import { CeruleanPotion } from './CeruleanPotion';
+import { Coal } from './Coal';
 import { DeBimbo } from './DeBimbo';
 import { DragonEgg } from './DragonEgg';
 import { Ectoplasm } from './Ectoplasm';
@@ -36,8 +39,10 @@ import { LustStick } from './LustStick';
 import { MarbleMilk } from './MarbleMilk';
 import { MinotaurBlood } from './MinotaurBlood';
 import { MinotaurCum } from './MinotaurCum';
+import { MouseCocoa } from './MouseCocoa';
 import { NeonPinkEgg } from './NeonPinkEgg';
 import { NumbRock } from './NumbRock';
+import { OvipositionElixir } from './OvipositionElixir';
 import { PeppermintWhite } from './PeppermintWhite';
 import { PhoukaWhiskey } from './PhoukaWhiskey';
 import { PrincessPucker } from './PrincessPucker';
@@ -61,6 +66,7 @@ import { SweetGossamer } from './SweetGossamer';
 import { TatteredScroll } from './TatteredScroll';
 import { TrapOil } from './TrapOil';
 import { VitalityTincture } from './VitalityTincture';
+import { WetCloth } from './WetCloth';
 import { WhiskerFruit } from './WhiskerFruit';
 import { WhiteSpellbook } from './WhiteSpellbook';
 
@@ -70,7 +76,7 @@ ConsumableLib.set(ConsumableName.BeeHoney, new BeeHoney(false, false));
 ConsumableLib.set(ConsumableName.BeeHoneyPure, new BeeHoney(true, false));
 ConsumableLib.set(ConsumableName.BeeHoneySpecial, new BeeHoney(false, true));
 ConsumableLib.set(ConsumableName.BimboLiqueur, new BimboLiqueur());
-
+ConsumableLib.set(ConsumableName.BlackCatBeer, new BlackCatBeer());
 ConsumableLib.set(ConsumableName.BlackSpellbook, new BlackSpellbook());
 ConsumableLib.set(ConsumableName.BroBrew, new BroBrew());
 ConsumableLib.set(ConsumableName.CaninePepper, new CaninePepper(CaninePepperType.Normal));
@@ -79,7 +85,8 @@ ConsumableLib.set(ConsumableName.CaninePepperDouble, new CaninePepper(CaninePepp
 ConsumableLib.set(ConsumableName.CaninePepperBlack, new CaninePepper(CaninePepperType.Black));
 ConsumableLib.set(ConsumableName.CaninePepperKnotty, new CaninePepper(CaninePepperType.Knotty));
 ConsumableLib.set(ConsumableName.CaninePepperBulbous, new CaninePepper(CaninePepperType.Bulbous));
-
+ConsumableLib.set(ConsumableName.CeruleanPotion, new CeruleanPotion());
+ConsumableLib.set(ConsumableName.Coal, new Coal());
 ConsumableLib.set(ConsumableName.DeBimbo, new DeBimbo());
 ConsumableLib.set(ConsumableName.DragonEgg, new DragonEgg());
 ConsumableLib.set(ConsumableName.Ectoplasm, new Ectoplasm());
@@ -140,11 +147,11 @@ ConsumableLib.set(ConsumableName.LustStick, new LustStick());
 ConsumableLib.set(ConsumableName.MarbleMilk, new MarbleMilk());
 ConsumableLib.set(ConsumableName.MinotaurBlood, new MinotaurBlood());
 ConsumableLib.set(ConsumableName.MinotaurCum, new MinotaurCum());
-
+ConsumableLib.set(ConsumableName.MouseCocoa, new MouseCocoa());
 ConsumableLib.set(ConsumableName.NeonPinkEgg, new NeonPinkEgg(false));
 ConsumableLib.set(ConsumableName.NeonPinkEggPreg, new NeonPinkEgg(true));
 ConsumableLib.set(ConsumableName.NumbRock, new NumbRock());
-
+ConsumableLib.set(ConsumableName.OvipositionElixir, new OvipositionElixir());
 ConsumableLib.set(ConsumableName.PeppermintWhite, new PeppermintWhite());
 ConsumableLib.set(ConsumableName.PhoukaWhiskey, new PhoukaWhiskey());
 ConsumableLib.set(ConsumableName.PrincessPucker, new PrincessPucker());
@@ -172,6 +179,7 @@ ConsumableLib.set(ConsumableName.SweetGossamer, new SweetGossamer(true));
 ConsumableLib.set(ConsumableName.TatteredScroll, new TatteredScroll());
 ConsumableLib.set(ConsumableName.TrapOil, new TrapOil());
 ConsumableLib.set(ConsumableName.VitalityTincture, new VitalityTincture());
-
+ConsumableLib.set(ConsumableName.WetCloth, new WetCloth());
 ConsumableLib.set(ConsumableName.WhiskerFruit, new WhiskerFruit());
 ConsumableLib.set(ConsumableName.WhiteSpellbook, new WhiteSpellbook());
+        // ConsumableLib.set(ConsumableName.WingStick, new WingStick());

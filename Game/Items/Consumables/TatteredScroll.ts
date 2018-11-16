@@ -7,6 +7,8 @@ import { describeLegs } from '../../Descriptors/LegDescriptor';
 import { CView } from '../../../Page/ContentView';
 import { boostLactation } from '../../Modifiers/BreastModifier';
 import { passTime } from '../../Menus/InGame/PlayerMenu';
+import { CombatManager } from '../../Combat/CombatManager';
+import { SpriteName } from '../../../Page/SpriteName';
 
 export class TatteredScroll extends Consumable {
     public constructor() {
@@ -86,22 +88,21 @@ export class TatteredScroll extends Consumable {
                 }
             }
             CView.text("\n\nYour mouth curls into a sick smile and, with a voice that isn't your own, speaks, \"<i>I ALWAYS get what I want, dear...</i>\"");
-            return { next: passTime(1) };
         }
         else {
             CView.text("Your mouth forms a smile of its own volition, reading, \"<i>nuf erutuf rof riah ydnas, nus tresed eht sa ydnas.</i>\"\n\nYou feel a tingling in your scalp, and realize your hair has become a sandy blonde!");
             character.body.hair.color = "sandy blonde";
             CView.text("\n\nYour mouth curls with a sick smile, speaking with a voice that isn't your own, \"<i>I ALWAYS get what I want, dear...</i>\"");
-            return { next: passTime(1) };
         }
-        // if (!Game.inCombat) {
-        // RAEP
-        // DisplaySprite(SpriteName.Sandwich);
-        // CView.text("\n\nYou hear the soft impact of clothes hitting the ground behind you, and turn to see that the sand witch has found you! You cannot resist a peek at your uninvited guest, beholding a curvy dark-skinned beauty, her form dominated by a quartet of lactating breasts.  Somewhere in your lust-fogged mind you register the top two as something close to double-Ds, and her lower pair to be about Cs.  She smiles and leans over you, pushing you to the ground violently.\n\nShe turns around and drops, planting her slick honey-pot firmly against your mouth.  Her scent is strong, overpowering in its intensity.  Your tongue darts out for a taste and finds a treasure trove of sticky sweetness.  Instinctively you tongue-fuck her, greedily devouring her cunny-juice, shoving your tongue in as far as possible while suckling her clit.  Dimly you feel the milk spattering over you, splashing off you and into the cracked earth.  Everywhere the milk touches feels silky smooth and sensitive, and your hands begin stroking your body, rubbing it in as the witch sprays more and more of it.  You lose track of time, orgasming many times, slick and sticky with sexual fluids.");
-        // character.orgasm();
-        // character.stats.lib += 1;
-        // character.stats.sens += 5;
-        // character.slimeFeed();
-        // }
+        if (!CombatManager.inCombat) {
+            // RAEP
+            CView.sprite(SpriteName.SandWitch);
+            CView.text("\n\nYou hear the soft impact of clothes hitting the ground behind you, and turn to see that the sand witch has found you! You cannot resist a peek at your uninvited guest, beholding a curvy dark-skinned beauty, her form dominated by a quartet of lactating breasts.  Somewhere in your lust-fogged mind you register the top two as something close to double-Ds, and her lower pair to be about Cs.  She smiles and leans over you, pushing you to the ground violently.\n\nShe turns around and drops, planting her slick honey-pot firmly against your mouth.  Her scent is strong, overpowering in its intensity.  Your tongue darts out for a taste and finds a treasure trove of sticky sweetness.  Instinctively you tongue-fuck her, greedily devouring her cunny-juice, shoving your tongue in as far as possible while suckling her clit.  Dimly you feel the milk spattering over you, splashing off you and into the cracked earth.  Everywhere the milk touches feels silky smooth and sensitive, and your hands begin stroking your body, rubbing it in as the witch sprays more and more of it.  You lose track of time, orgasming many times, slick and sticky with sexual fluids.");
+            character.orgasm();
+            character.stats.lib += 1;
+            character.stats.sens += 5;
+            character.slimeFeed();
+        }
+        return { next: passTime(1) };
     }
 }

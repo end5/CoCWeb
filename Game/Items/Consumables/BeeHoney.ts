@@ -22,6 +22,7 @@ import { CView } from '../../../Page/ContentView';
 import { Womb } from '../../Body/Pregnancy/Womb';
 import { PlayerFlags } from '../../Character/Player/PlayerFlags';
 import { Settings } from '../../Settings';
+import { ExgartuanFlags } from '../../Scenes/NPCs/Exgartuan';
 
 export class BeeHoney extends Consumable {
     private static PURE_HONEY_VALUE: number = 40;
@@ -48,10 +49,10 @@ export class BeeHoney extends Consumable {
     }
 
     public canUse(character: Character) {
-        // if (this.value === BeeHoney.SPECIAL_HONEY_VALUE && character.effects.has(StatusEffectType.Exgartuan) && character.effects.get(StatusEffectType.Exgartuan)!.values === 1) { // Exgartuan doesn't like the special honey
-        //     CView.text("You uncork the bottle only to hear Exgartuan suddenly speak up.  <i>“Hey kid, this beautiful cock here doesn’t need any of that special bee shit.  Cork that bottle up right now or I’m going to make it so that you can’t drink anything but me.”</i>  You give an exasperated sigh and put the cork back in the bottle.");
-        //     return false;
-        // }
+        if (this.value === BeeHoney.SPECIAL_HONEY_VALUE && ExgartuanFlags.LOCATION === 1) { // Exgartuan doesn't like the special honey
+            CView.text("You uncork the bottle only to hear Exgartuan suddenly speak up.  <i>“Hey kid, this beautiful cock here doesn’t need any of that special bee shit.  Cork that bottle up right now or I’m going to make it so that you can’t drink anything but me.”</i>  You give an exasperated sigh and put the cork back in the bottle.");
+            return false;
+        }
         return true;
     }
 

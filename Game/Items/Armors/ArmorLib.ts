@@ -10,6 +10,9 @@ import { Dictionary } from '../../../Engine/Utilities/Dictionary';
 import { PerkType } from '../../Effects/PerkType';
 import { ItemDesc } from '../ItemDesc';
 import { Perk } from '../../Effects/Perk';
+import { LustyMaidensArmor } from './LustyMaidensArmor';
+import { GooArmor } from './GooArmor';
+import { SeductiveArmor } from './SeductiveArmor';
 
 // key: string, shortName: string, displayname: string, longName: string, defense: number, value: number = 0, description: string = undefined, armorClass: ArmorClass = "Light", supportsBulge: boolean = false
 export const ArmorLib = new Dictionary<ArmorName, Armor>();
@@ -67,10 +70,10 @@ ArmorLib.set(ArmorName.FullPlatemail, new Armor(
 // Not used in game:		ArmorLib.set(new FurLoincloth());
 ArmorLib.set(ArmorName.GelArmor, new Armor(
     ArmorName.GelArmor,
-    new ItemDesc("GelArmr", "a suit of gel armor", "This suit of interlocking plates is made from a strange green material.  It feels spongy to the touch but is amazingly resiliant.  (DEF: +10) (Cost: 150)"),
+    new ItemDesc("GelArmr", "a suit of gel armor", "This suit of interlocking plates is made from a strange green material.  It feels spongy to the touch but is amazingly resiliant."),
     "glistening gel-armor plates", 10, 150, "", true
 ));
-
+ArmorLib.set(ArmorName.GooArmor, new GooArmor());
 ArmorLib.set(ArmorName.InquisitorsCorset, new InquisitorsCorset());
 ArmorLib.set(ArmorName.InquisitorsRobes, new InquisitorsRobes());
 ArmorLib.set(ArmorName.IndecentSteelArmor, new ArmorWithPerk(
@@ -85,7 +88,7 @@ ArmorLib.set(ArmorName.LeatherArmor, new Armor(
     "leather armor segments", 5, 76, "Light"
 ));
 ArmorLib.set(ArmorName.LeatherArmorSegments, new LeatherArmorSegments());
-
+ArmorLib.set(ArmorName.LustyMaidensArmor, new LustyMaidensArmor());
 ArmorLib.set(ArmorName.TightLeatherPants, new Armor(
     ArmorName.TightLeatherPants,
     new ItemDesc("T.Lthr Pants", "a pair of leather pants and a white silk shirt", "A flowing silk shirt and tight black leather pants.  Suave!"),
@@ -130,7 +133,7 @@ ArmorLib.set(ArmorName.Scalemail, new Armor(
     new ItemDesc("Scale Mail", "a set of scale-mail armor", "This suit of scale-mail covers the entire body with layered steel scales, providing flexibility and protection."),
     "scale-mail armor", 12, 170, "", true
 ));
-
+ArmorLib.set(ArmorName.SeductiveArmor, new SeductiveArmor());
 ArmorLib.set(ArmorName.SpidersilkRobes, new ArmorWithPerk(
     ArmorName.SpidersilkRobes,
     new ItemDesc("SS.Robe", "a spider-silk robes", "This robe looks incredibly comfortable.  It's made from alchemically enhanced spider-silk, and embroidered with what looks like magical glyphs around the sleeves and hood."),

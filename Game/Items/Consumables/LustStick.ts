@@ -23,12 +23,12 @@ export class LustStick extends Consumable {
 
     public use(character: Character) {
         if (character.effects.has(StatusEffectType.LustStickApplied)) {
-            character.effects.get(StatusEffectType.LustStickApplied)!.values.duration = randInt(12) + 12;
+            character.effects.get(StatusEffectType.LustStickApplied)!.values.expireCountdown = randInt(12) + 12;
             CView.text("You carefully open the sweet-smelling tube and smear the lipstick over the coat you already have on your lips.  <b>No doubt another layer will make it last even longer!</b>  ");
             CView.text("You finish and pucker your lips, feeling fairly sexy with your new, thicker makeup on.\n\n");
         }
         else {
-            character.effects.add(StatusEffectType.LustStickApplied, { duration: 24 });
+            character.effects.add(StatusEffectType.LustStickApplied, { expireCountdown: 24 });
             CView.text("You carefully open the sweet-smelling tube and smear the lipstick over your lips.  ");
             if (character.body.cocks.length > 0) CView.text("It tingles a little, but the drugs have little to no effect on you now.");
             else CView.text("Honestly, it amazes you that something as little as a kiss can make a man putty in your hands.");

@@ -13,12 +13,14 @@ import { RaphaelsRapier } from './RaphaelsRapier';
 import { Spellblade } from './Spellblade';
 import { WizardsStaff } from './WizardsStaff';
 import { HugeWarhammer } from './HugeWarhammer';
+import { BeautifulSword } from './BeautifulSword';
 
 // key: string, shortName: string, displayname: string, longName: string, verb: string, attack: number, value: number = 0, description: string = undefined, perk: string = ""
 export const WeaponLib = new Dictionary<WeaponName, Weapon>();
 
 WeaponLib.set(WeaponName.Fists, new Weapon(WeaponName.Fists, new ItemDesc("Fists", "fists"), "fists", "punch", 0));
 
+WeaponLib.set(WeaponName.BeautifulSword, new BeautifulSword());
 WeaponLib.set(WeaponName.LargeClaymore, new LargeClaymore());
 WeaponLib.set(WeaponName.DragonShellShield, new DragonShellShield());
 WeaponLib.set(WeaponName.EldritchStaff, new EldritchStaff());

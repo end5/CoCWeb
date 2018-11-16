@@ -114,7 +114,7 @@ function showMonsterLust(enemy: Character): void {
     // Venom stuff!
     if (enemy.combat.effects.has(CombatEffectType.NagaVenom)) {
         if (enemy.desc.plural) {
-            if (enemy.combat.effects.get(CombatEffectType.NagaVenom)!.values.duration <= 1) {
+            if (enemy.combat.effects.get(CombatEffectType.NagaVenom)!.values.expireCountdown <= 1) {
                 CView.text("You notice " + enemy.desc.subjectivePronoun + " are beginning to show signs of weakening, but there still appears to be plenty of fight left in " + enemy.desc.objectivePronoun + ".  ");
             }
             else {
@@ -123,7 +123,7 @@ function showMonsterLust(enemy: Character): void {
         }
         // Not plural
         else {
-            if (enemy.combat.effects.get(CombatEffectType.NagaVenom)!.values.duration <= 1) {
+            if (enemy.combat.effects.get(CombatEffectType.NagaVenom)!.values.expireCountdown <= 1) {
                 CView.text("You notice " + enemy.desc.subjectivePronoun + " is beginning to show signs of weakening, but there still appears to be plenty of fight left in " + enemy.desc.objectivePronoun + ".  ");
             }
             else {

@@ -8,6 +8,7 @@ import { describeVagina } from '../../Descriptors/VaginaDescriptor';
 import { Gender } from '../../Body/GenderIdentity';
 import { CView } from '../../../Page/ContentView';
 import { displayGoIntoHeat, displayGoIntoRut } from '../../Modifiers/BodyModifier';
+import { CombatManager } from '../../Combat/CombatManager';
 
 export class LustDraft extends Consumable {
     private enhanced: boolean;
@@ -35,7 +36,7 @@ export class LustDraft extends Consumable {
             displayGoIntoRut(character);
         }
         // ORGAZMO
-        if (character.stats.lust >= 100){ // && !Game.inCombat) {
+        if (character.stats.lust >= 100 && !CombatManager.inCombat) {
             CView.text("\n\nThe arousal from the potion overwhelms your senses and causes you to spontaneously orgasm.  You rip off your " + character.inventory.armor.displayName + " and look down as your ");
             if (character.body.cocks.length > 0) {
                 CView.text(describeCocksLight(character) + " erupts in front of you, liberally spraying the ground around you.  ");

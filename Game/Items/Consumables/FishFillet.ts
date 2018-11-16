@@ -4,6 +4,7 @@ import { Character } from '../../Character/Character';
 import { StatusEffectType } from '../../Effects/StatusEffectType';
 import { ItemDesc } from '../ItemDesc';
 import { CView } from '../../../Page/ContentView';
+import { CombatManager } from '../../Combat/CombatManager';
 
 export class FishFillet extends Consumable {
     public constructor() {
@@ -12,11 +13,11 @@ export class FishFillet extends Consumable {
 
     public use(character: Character) {
         CView.clear();
-        // if (!Game.inCombat)
-        //     CView.text("You sit down and unwrap your fish fillet. It's perfectly flaky, allowing you to break it off in bite-sized chunks.  The salty meal disappears quickly, and your stomach gives an appreciative gurgle.");
-        // // (In combat?)
-        // else
-        CView.text("You produce the fish fillet from your bag.  Rather than unwrap it and savor the taste as you normally would, you take a large bite out of it, leaf wrapping and all.  In no time your salty meal is gone, your stomach giving an appreciative gurgle.");
+        if (!CombatManager.inCombat)
+            CView.text("You sit down and unwrap your fish fillet. It's perfectly flaky, allowing you to break it off in bite-sized chunks.  The salty meal disappears quickly, and your stomach gives an appreciative gurgle.");
+        // (In combat?)
+        else
+            CView.text("You produce the fish fillet from your bag.  Rather than unwrap it and savor the taste as you normally would, you take a large bite out of it, leaf wrapping and all.  In no time your salty meal is gone, your stomach giving an appreciative gurgle.");
 
         // Increase HP by quite a bit!)
         // (Slight chance at increasing Toughness?)

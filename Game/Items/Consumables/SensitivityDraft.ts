@@ -25,7 +25,7 @@ export class SensitivityDraft extends Consumable {
             else CView.text("a woman's");
             CView.text(" lower lips.  You'll have to be careful not to lick them!");
             // (Lustytongue status)
-            character.effects.add(StatusEffectType.LustyTongue, { duration: 25 });
+            character.effects.add(StatusEffectType.LustyTongue, { expireCountdown: 25 });
         }
         CView.text("\n\nAfter the wave of sensation passes, your " + character.body.skin.desc + " feels a little more receptive to touch.  ");
         if (character.stats.lust > 70 || character.stats.lib > 70) {
