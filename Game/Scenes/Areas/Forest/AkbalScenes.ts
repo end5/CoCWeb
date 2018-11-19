@@ -14,7 +14,7 @@ import { describeLeg, describeFoot, describeLegs } from "../../../Descriptors/Le
 import { PerkType } from "../../../Effects/PerkType";
 import { describeChest, describeNipple } from "../../../Descriptors/BreastDescriptor";
 import { Womb } from "../../../Body/Pregnancy/Womb";
-import { Pregnancy, PregnancyType, IncubationTime } from "../../../Body/Pregnancy/Pregnancy";
+import { PregnancyType, IncubationTime } from "../../../Body/Pregnancy/Pregnancy";
 import { displayStretchVagina } from "../../../Modifiers/VaginaModifier";
 import { mf } from "../../../Descriptors/GenderDescriptor";
 import { describeFaceShort } from "../../../Descriptors/FaceDescriptor";
@@ -483,7 +483,7 @@ function girlsRapeAkbalPart2(player: Character, akbal: Character): NextScreenCho
         // Preggers chance!
         const notPregWomb = player.body.wombs.find(Womb.NotPregnant);
         if (notPregWomb)
-            notPregWomb.knockUp(new Pregnancy(PregnancyType.IMP, IncubationTime.IMP), ImpPregEvent, 101);
+            notPregWomb.knockUp(PregnancyType.IMP, IncubationTime.IMP, ImpPregEvent, 101);
 
         displayStretchVagina(player, akbal.body.cocks.get(0)!.area, true, true, false);
         player.orgasm();
@@ -582,7 +582,7 @@ function girlsRapeAkbalPart2(player: Character, akbal: Character): NextScreenCho
         // Preggers chance!
         const notPregWomb = player.body.wombs.find(Womb.NotPregnant);
         if (notPregWomb)
-            notPregWomb.knockUp(new Pregnancy(PregnancyType.IMP, IncubationTime.IMP), ImpPregEvent, 101);
+            notPregWomb.knockUp(PregnancyType.IMP, IncubationTime.IMP, ImpPregEvent, 101);
     }
     return { next: passTime(1) };
 }
@@ -1338,7 +1338,7 @@ function topAkbitchFromBottomDuex(player: Character): NextScreenChoices {
     player.stats.cor += 3;
 
     if (player.body.wombs.find(Womb.NotPregnant))
-        player.body.wombs.find(Womb.NotPregnant)!.knockUp(new Pregnancy(PregnancyType.IMP, IncubationTime.IMP), ImpPregEvent, 101);
+        player.body.wombs.find(Womb.NotPregnant)!.knockUp(PregnancyType.IMP, IncubationTime.IMP, ImpPregEvent, 101);
     return { next: passTime(1) };
 }
 
@@ -1459,7 +1459,7 @@ function akbitchHighStrengthVariant(player: Character): NextScreenChoices {
         player.stats.cor += 3;
 
         if (player.body.wombs.find(Womb.NotPregnant))
-            player.body.wombs.find(Womb.NotPregnant)!.knockUp(new Pregnancy(PregnancyType.IMP, IncubationTime.IMP), ImpPregEvent, 101);
+            player.body.wombs.find(Womb.NotPregnant)!.knockUp(PregnancyType.IMP, IncubationTime.IMP, ImpPregEvent, 101);
         return { next: passTime(1) };
     }
 }
@@ -1547,7 +1547,7 @@ function akbalBitchSpeed(player: Character): NextScreenChoices {
             CView.text("\n\nYour body begins to convulse as you call out. Your [ass] feels as though the demon’s dick is a lightning rod expelling a constant torrent of elation.");
         CView.text("\n\nYour [vagOrAss] is blissfully sore and crazy sensitive as you ease yourself off the demon’s wonderful dick.  With a smile on your [face] you gather your [armor] and turn to leave the forest.  Lost in giddy elation you walk, each movement sending an almost painful jolt of post orgasm pleasure through your [vagOrAss].  It isn’t until you hear the cackling of imps and goblins that you remember that you left Akbal bound and vulnerable... oops.");
         if (player.body.wombs.find(Womb.NotPregnant))
-            player.body.wombs.find(Womb.NotPregnant)!.knockUp(new Pregnancy(PregnancyType.IMP, IncubationTime.IMP), ImpPregEvent, 101);
+            player.body.wombs.find(Womb.NotPregnant)!.knockUp(PregnancyType.IMP, IncubationTime.IMP, ImpPregEvent, 101);
     }
     player.orgasm();
     player.stats.cor += 3;
@@ -1695,7 +1695,7 @@ function akbitchToughness(player: Character): NextScreenChoices {
         CView.text("\n\nWithout a backwards glance, you gather your [armor] and leave the forest with a big smile on your [face].");
     }
     if (player.body.wombs.find(Womb.NotPregnant))
-        player.body.wombs.find(Womb.NotPregnant)!.knockUp(new Pregnancy(PregnancyType.IMP, IncubationTime.IMP), ImpPregEvent, 101);
+        player.body.wombs.find(Womb.NotPregnant)!.knockUp(PregnancyType.IMP, IncubationTime.IMP, ImpPregEvent, 101);
     player.orgasm();
     player.stats.cor += 3;
 

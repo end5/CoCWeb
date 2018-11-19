@@ -274,7 +274,7 @@ export class Akbal extends Character {
 
         this.inventory = new CharacterInventory(this,
             new Weapon("claws" as WeaponName, new ItemDesc("claws"), "claws", "claw-slash", 5),
-            new Armor("shimmering pelt" as ArmorName, new ItemDesc("shimmering pelt"), "shimmering pelt", 0)
+            new Armor("shimmering pelt" as ArmorName, new ItemDesc("shimmering pelt"), "shimmering pelt", 5)
         );
 
         this.combatContainer = new CombatContainer(this, new AkbalAction(), new Dictionary<string, IReaction>(), new AkbalEndScenes(this), {
@@ -284,6 +284,5 @@ export class Akbal extends Character {
                 add(ConsumableName.WhiskerFruit, 3).
                 add(WeaponName.Pipe, 1),
         });
-        this.combat.stats.defenseStat.value = 5;
     }
 }
