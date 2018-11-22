@@ -1,23 +1,21 @@
-import { CombatActionFlags } from './CombatActionFlag';
 import { CombatEffectType } from './CombatEffectType';
 import { Effect } from './Effect';
 import { EffectDesc } from './EffectDescription';
 import { Character } from '../Character/Character';
-import { IEffectValues } from './EffectValues';
+import { CombatEffectValues, ICombatEffectValues } from './CombatEffectValues';
 
-export class CombatEffect extends Effect<CombatEffectType> {
-    public readonly abilityFlag: CombatActionFlags;
+export class CombatEffect extends Effect<CombatEffectType, EffectDesc, CombatEffectValues> {
     public readonly inflictedBy: Character;
+    public values: CombatEffectValues;
 
     public constructor(
         type: CombatEffectType,
-        abilityFlag: CombatActionFlags = CombatActionFlags.All,
         inflictedBy: Character,
-        values?: IEffectValues
+        values?: ICombatEffectValues
     ) {
         super(type, new EffectDesc(type, type, ""), values);
-        this.abilityFlag = abilityFlag;
         this.inflictedBy = inflictedBy;
+        this.values = new CombatEffectValues(values);
     }
 
     public onAdd(_character: Character): void { }

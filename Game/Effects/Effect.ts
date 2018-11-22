@@ -7,16 +7,15 @@ export interface IEffect {
     values?: IEffectValues;
 }
 
-export abstract class Effect<Type extends string, Desc extends EffectDesc = EffectDesc> implements ISerializable<IEffect> {
+export abstract class Effect<Type extends string, Desc extends EffectDesc = EffectDesc, Values extends EffectValues = EffectValues> implements ISerializable<IEffect> {
     // desc does not need to be serialized
     private effectType: Type;
     public readonly desc: Desc;
-    public values: EffectValues;
+    public abstract values: Values;
     protected reducedValues?: IEffectValues;
     public constructor(type: Type, desc: Desc, values?: IEffectValues) {
         this.effectType = type;
         this.desc = desc;
-        this.values = new EffectValues(values);
         this.reducedValues = values;
     }
 
@@ -38,7 +37,6 @@ export abstract class Effect<Type extends string, Desc extends EffectDesc = Effe
 
     public deserialize(saveObject: IEffect) {
         this.effectType = saveObject.type as Type;
-        this.values = new EffectValues(saveObject.values);
         this.reducedValues = saveObject.values;
     }
 }
