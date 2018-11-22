@@ -1,5 +1,5 @@
 import { FlagType } from './FlagType';
-import { Dictionary } from '../Engine/Utilities/Dictionary';
+import { Dictionary, IDictionary } from '../Engine/Utilities/Dictionary';
 
 class FlagDict extends Dictionary<FlagType, object> {
     private baseValues: IDictionary<object> = {};
