@@ -191,9 +191,9 @@ export class BeeGirl extends Character {
         this.stats.base.lib.value = 60;
         this.stats.base.sens.value = 55;
         this.stats.base.cor.value = 0;
-        this.stats.lust = 20 + randInt(40);
-        this.stats.lustVuln = 0.9;
-        this.stats.level = 4;
+        this.stats.base.lust.value = 20 + randInt(40);
+        this.stats.base.lustVuln = 0.9;
+        this.stats.base.level.value = 4;
 
         this.inventory = new CharacterInventory(this,
             new Weapon("chitin-plated fist" as WeaponName, new ItemDesc("chitin-plated fist"), "chitin-plated fist", "armored punch", 1),

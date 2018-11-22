@@ -1401,10 +1401,10 @@ function akbitchHighStrengthVariant(player: Character): NextScreenChoices {
 
         // {corruption < 90}
         if (player.stats.cor < 90)
-            CView.text("\n\nYou stand, allowing Akbal to relax as you gather your [armor].  Once you’re dressed you reach down and untie him before heading back to ");
+            CView.text("\n\nYou stand, allowing Akbal to relax as you gather your [armor].  Once you’re dressed you reach down and untie him before heading back to camp.");
         // {corruption > 90}
         else
-            CView.text("\n\nYou stand and Akbal’s legs flop from where you had them pinned to his chest.  You gather your [armor] and dress before aiming a wicked slap at Akbal’s tender cheeks and leaving him tied up for the imps and goblins you spy watching the two of you from the trees.\n\nYou tell him he is all theirs and share a conspiratorial grin as you head back to ");
+            CView.text("\n\nYou stand and Akbal’s legs flop from where you had them pinned to his chest.  You gather your [armor] and dress before aiming a wicked slap at Akbal’s tender cheeks and leaving him tied up for the imps and goblins you spy watching the two of you from the trees.\n\nYou tell him he is all theirs and share a conspiratorial grin as you head back to camp.");
         player.orgasm();
         player.stats.cor += 3;
 

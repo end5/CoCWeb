@@ -266,11 +266,11 @@ export class Akbal extends Character {
         this.stats.base.lib.value = 50;
         this.stats.base.sens.value = 50;
         this.stats.base.cor.value = 100;
-        this.stats.lust = 30;
-        this.stats.lustVuln = 0.8;
+        this.stats.base.lust.value = 30;
+        this.stats.base.lustVuln = 0.8;
         this.stats.base.HP.max += 20;
         this.stats.base.HP.value += 20;
-        this.stats.level = 6;
+        this.stats.base.level.value = 6;
 
         this.inventory = new CharacterInventory(this,
             new Weapon("claws" as WeaponName, new ItemDesc("claws"), "claws", "claw-slash", 5),
