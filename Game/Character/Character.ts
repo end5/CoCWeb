@@ -61,7 +61,7 @@ export abstract class Character implements ISerializable<ICharacter> {
 
     public body: Body = new Body();
 
-    protected baseStats = new Stats();
+    private baseStats = new Stats();
     public stats = new StatsFacade(this, this.baseStats);
     public effects = new StatusEffectDict(this);
     public perks = new PerkDict();
