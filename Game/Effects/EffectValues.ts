@@ -23,18 +23,21 @@ export interface IEffectValues {
     femininity?: IRangedStatEffect;
     fertility?: IRangedStatEffect;
     cumQuantity?: IRangedStatEffect;
+    virility?: number;
+    vaginalCapacity?: number;
+    analCapacity?: number;
     other?: { [x: string]: any };
 }
 
 export class EffectValues implements IEffectValues {
-    public expireCountdown = 0;
+    public expireCountdown: number;
     public readonly attack: RangedStatEffect;
     public readonly weapon: RangedStatEffect;
     public readonly spell: RangedStatEffect;
     public readonly spellCost: StatModifier;
     public readonly defense: RangedStatEffect;
-    public teaseChance = 0;
-    public teaseDamage = 0;
+    public teaseChance: number;
+    public teaseDamage: number;
     public readonly str: RangedStatEffect;
     public readonly tou: RangedStatEffect;
     public readonly spe: RangedStatEffect;
@@ -48,14 +51,20 @@ export class EffectValues implements IEffectValues {
     public readonly femininity: RangedStatEffect;
     public readonly fertility: RangedStatEffect;
     public readonly cumQuantity: RangedStatEffect;
+    public readonly virility: number;
+    public readonly vaginalCapacity: number;
+    public readonly analCapacity: number;
     public other?: { [x: string]: any };
 
     public constructor(values?: IEffectValues) {
+        this.expireCountdown = values && values.expireCountdown ? values.expireCountdown : 0;
         this.attack = values && values.attack ? new RangedStatEffect(values.attack) : new RangedStatEffect();
         this.weapon = values && values.weapon ? new RangedStatEffect(values.weapon) : new RangedStatEffect();
         this.spell = values && values.spell ? new RangedStatEffect(values.spell) : new RangedStatEffect();
         this.spellCost = values && values.spellCost ? new StatModifier(values.spellCost) : new StatModifier();
         this.defense = values && values.defense ? new RangedStatEffect(values.defense) : new RangedStatEffect();
+        this.teaseChance = values && values.teaseChance ? values.teaseChance : 0;
+        this.teaseDamage = values && values.teaseDamage ? values.teaseDamage : 0;
         this.str = values && values.str ? new RangedStatEffect(values.str) : new RangedStatEffect();
         this.tou = values && values.tou ? new RangedStatEffect(values.tou) : new RangedStatEffect();
         this.spe = values && values.spe ? new RangedStatEffect(values.spe) : new RangedStatEffect();
@@ -69,5 +78,8 @@ export class EffectValues implements IEffectValues {
         this.femininity = values && values.femininity ? new RangedStatEffect(values.femininity) : new RangedStatEffect();
         this.fertility = values && values.fertility ? new RangedStatEffect(values.fertility) : new RangedStatEffect();
         this.cumQuantity = values && values.cumQuantity ? new RangedStatEffect(values.cumQuantity) : new RangedStatEffect();
+        this.virility = values && values.virility ? values.virility : 0;
+        this.vaginalCapacity = values && values.vaginalCapacity ? values.vaginalCapacity : 0;
+        this.analCapacity = values && values.analCapacity ? values.analCapacity : 0;
     }
 }
