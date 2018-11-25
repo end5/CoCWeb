@@ -1,15 +1,15 @@
 import { IEffectValues, EffectValues } from "./EffectValues";
-import { CombatActionFlags } from "./CombatActionFlag";
+import { CombatActionType } from "../Combat/Actions/CombatActionType";
 
 export interface ICombatEffectValues extends IEffectValues {
-    abilityFlags?: CombatActionFlags;
+    blockedTypes?: CombatActionType;
 }
 
 export class CombatEffectValues extends EffectValues implements ICombatEffectValues {
-    public abilityFlags: CombatActionFlags;
+    public blockedTypes: CombatActionType;
 
     public constructor(values?: ICombatEffectValues) {
         super(values);
-        this.abilityFlags = values && values.abilityFlags ? values.abilityFlags : CombatActionFlags.All;
+        this.blockedTypes = values && values.blockedTypes ? values.blockedTypes : CombatActionType.None;
     }
 }

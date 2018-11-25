@@ -1,4 +1,3 @@
-import { CombatActionFlags } from './CombatActionFlag';
 import { CombatEffect } from './CombatEffect';
 import { CombatEffectType } from './CombatEffectType';
 import { Dictionary } from '../../Engine/Utilities/Dictionary';
@@ -12,5 +11,3 @@ interface CombatEffectConstructor {
     ): CombatEffect;
 }
 export const CombatEffectConstructorLib = new Dictionary<CombatEffectType, CombatEffectConstructor>();
-
-export const AbilityFlagsLib = new Dictionary<CombatEffectType, CombatActionFlags>();
