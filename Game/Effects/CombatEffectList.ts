@@ -1,6 +1,6 @@
-import { CombatActionFlags } from './CombatActionFlag';
+import { CombatActionType } from '../Combat/Actions/CombatActionType';
 import { CombatEffect } from './CombatEffect';
-import { CombatEffectConstructorLib, AbilityFlagsLib } from './CombatEffectLib';
+import { CombatEffectConstructorLib } from './CombatEffectConstructorLib';
 import { CombatEffectType } from './CombatEffectType';
 import { Dictionary } from '../../Engine/Utilities/Dictionary';
 import { Character } from '../Character/Character';
@@ -15,14 +15,13 @@ export class CombatEffectList extends Dictionary<CombatEffectType, CombatEffect>
 
     public add(type: CombatEffectType, inflictedBy: Character, values?: ICombatEffectValues) {
         let newEffect;
-        const abilityFlag = AbilityFlagsLib.has(type) ? CombatActionFlags.All : AbilityFlagsLib.get(type);
+
         const effectConstr = CombatEffectConstructorLib.get(type);
-        if (abilityFlag && effectConstr) {
+        if (effectConstr) {
             newEffect = new effectConstr(type, inflictedBy, values);
         }
         newEffect = new CombatEffect(type, inflictedBy, values);
-        if (AbilityFlagsLib.has(type))
-        newEffect.values.abilityFlags = AbilityFlagsLib.get(type)!;
+
         this.set(type, newEffect);
         newEffect.onAdd(this.character);
     }
@@ -42,13 +41,13 @@ export class CombatEffectList extends Dictionary<CombatEffectType, CombatEffect>
         super.clear();
     }
 
-    public get combatAbilityFlag(): CombatActionFlags {
-        let flag = CombatActionFlags.All;
+    public get combatAbilityFlag(): CombatActionType {
+        let flag = CombatActionType.None;
         let effect;
         for (const key of this.keys()) {
             effect = this.get(key);
             if (effect)
-                flag &= effect.values.abilityFlags;
+                flag &= effect.values.blockedTypes;
         }
         return flag;
     }

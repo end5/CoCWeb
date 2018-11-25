@@ -1,5 +1,5 @@
 import { Character } from '../../Character/Character';
-import { CombatActionFlags } from '../../Effects/CombatActionFlag';
+import { CombatActionType } from './CombatActionType';
 
 export interface IActionDamage {
     damage?: number;
@@ -7,13 +7,34 @@ export interface IActionDamage {
     crit?: boolean;
 }
 
+export interface CanUseResult {
+    canUse: boolean;
+    reasonCannotUse?: string;
+}
+
+/*
+</> = can break order
+
+call use
+</> enemy reaction - usually instant counter
+consume required components
+</> enemy reaction - usually instant counter
+use action
+</> enemy reaction - usually instant counter
+if miss
+    </> enemy reaction to miss
+    apply miss
+else hit
+    calc damage
+    </> enemy reaction
+    apply damage
+*/
 export abstract class CombatAction {
     public abstract name: string;
-    public abstract flag: CombatActionFlags;
-    public abstract reasonCannotUse: string;
-    public abstract subActions: CombatAction[];
-    public abstract isPossible(character: Character): boolean;
-    public abstract canUse(character: Character, target: Character): boolean;
+    public type = CombatActionType.None;
+    public subActions: CombatAction[] = [];
+    public isPossible(character: Character): boolean { return true; }
+    public canUse(character: Character, target: Character): CanUseResult { return { canUse: true }; }
 
     protected consumeComponents?(char: Character, enemy: Character): void;
     protected useAction?(char: Character, enemy: Character): void;
@@ -68,39 +89,3 @@ export abstract class CombatAction {
         }
     }
 }
-
-    // public consumeComponents(player: Character, monster: Character): void {
-    // }
-
-    // public useAction(player: Character, monster: Character): void {
-    // }
-
-    // public checkMiss(player: Character, monster: Character): boolean {
-    // }
-
-    // public missed(player: Character, monster: Character): void {
-    // }
-
-    // public calcDamage(player: Character, monster: Character): void | IActionDamage {
-    // }
-
-    // public applyDamage(player: Character, monster: Character, damage: number, lust: number, crit: boolean): void {
-    // }
-
-/*
-</ = can break order
-
-call use
-</ enemy reaction - usually instant counter
-consume required components
-</ enemy reaction - usually instant counter
-use action
-</ enemy reaction - usually instant counter
-if miss
-    </ enemy reaction to miss
-    apply miss
-else hit
-    calc damage
-    </ enemy reaction
-    apply damage
-*/

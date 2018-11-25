@@ -7,8 +7,7 @@ import { StatusEffectType } from '../Effects/StatusEffectType';
 import { Dictionary } from '../../Engine/Utilities/Dictionary';
 import { IReaction } from './Actions/IReaction';
 import { CombatAction } from './Actions/CombatAction';
-
-export type ActionResponse = (self: Character, enemy: Character, damage: number, crit?: boolean) => void;
+import { MainAction } from './Actions/MainAction';
 
 export class CombatContainer {
     private character: Character;
@@ -21,17 +20,23 @@ export class CombatContainer {
     public readonly stats: CombatStats;
     public readonly effects: CombatEffectList;
 
-    public grappledEnemy?: Character;
-
-    public constructor(character: Character, mainAction: CombatAction, reactions: Dictionary<string, IReaction>, endScenes: EndScenes, rewards: ICombatRewards) {
+    public constructor(character: Character, values: { mainAction?: CombatAction, endScenes: EndScenes, rewards: ICombatRewards, reactions?: Dictionary<string, IReaction> }) {
         this.character = character;
         this.stats = new CombatStats(character);
         this.effects = new CombatEffectList(character);
 
-        this.action = mainAction;
-        this.endScenes = endScenes;
-        this.rewards = rewards;
-        this.reactions = reactions;
+        if (values.mainAction)
+            this.action = values.mainAction;
+        else
+            this.action = new MainAction();
+
+        if (values.reactions)
+            this.reactions = values.reactions;
+        else
+            this.reactions = new Dictionary();
+
+        this.endScenes = values.endScenes;
+        this.rewards = values.rewards;
     }
 
     public hasSpells(): boolean {
