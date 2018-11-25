@@ -24,25 +24,14 @@ import { WeaponName } from "../../../Items/Weapons/WeaponName";
 import { ItemDesc } from "../../../Items/ItemDesc";
 import { Armor } from "../../../Items/Armors/Armor";
 import { ArmorName } from "../../../Items/Armors/ArmorName";
-import { Dictionary } from "../../../../Engine/Utilities/Dictionary";
 import { EndScenes } from "../../../Combat/EndScenes";
 import { DefeatType } from "../../../Combat/DefeatEvent";
 import { CombatAction } from "../../../Combat/Actions/CombatAction";
-import { CombatActionFlags } from "../../../Effects/CombatActionFlag";
 import { CombatEffectType } from "../../../Effects/CombatEffectType";
 import { tentacleVictoryRape, tentacleLossRape } from "./TentacleBeastScene";
 
 class Attack extends CombatAction {
     public name: string = "Attack";
-    public flag: CombatActionFlags = CombatActionFlags.All;
-    public reasonCannotUse: string = "";
-    public subActions: CombatAction[] = [];
-    public isPossible(character: Character): boolean {
-        return true;
-    }
-    public canUse(character: Character, target: Character): boolean {
-        return true;
-    }
     public useAction(char: Character, enemy: Character) {
         CView.text("The shambling horror throws its tentacles at you with a murderous force.\n");
         let temp: number = Math.floor((char.stats.str + char.combat.stats.attack()) - Math.random() * (enemy.stats.tou) - enemy.combat.stats.defense());
@@ -61,15 +50,6 @@ class Attack extends CombatAction {
 
 class Entwine extends CombatAction {
     public name: string = "Entwine";
-    public flag: CombatActionFlags = CombatActionFlags.All;
-    public reasonCannotUse: string = "";
-    public subActions: CombatAction[] = [];
-    public isPossible(character: Character): boolean {
-        return true;
-    }
-    public canUse(character: Character, target: Character): boolean {
-        return true;
-    }
     public useAction(char: Character, enemy: Character) {
         CView.text("The beast lunges its tentacles at you from all directions in an attempt to immobilize you.\n");
         // Not Trapped yet
@@ -95,17 +75,9 @@ class Entwine extends CombatAction {
     }
 }
 
-class TentacleBeastAction extends CombatAction {
+class TentacleBeastMainAction extends CombatAction {
     public name: string = "Action";
-    public flag: CombatActionFlags = CombatActionFlags.All;
-    public reasonCannotUse: string = "";
     public subActions: CombatAction[] = [new Attack(), new Entwine()];
-    public isPossible(character: Character): boolean {
-        return true;
-    }
-    public canUse(character: Character, target: Character): boolean {
-        return true;
-    }
     public use(char: Character, enemy: Character) {
         // tentacle beasts have special AI
         if (randInt(2) === 0 || char.combat.effects.has(CombatEffectType.TentacleCoolDown))
@@ -189,9 +161,14 @@ export class TentacleBeast extends Character {
             new Armor("rubbery skin" as ArmorName, new ItemDesc("rubbery skin"), "rubbery skin", 1)
         );
 
-        this.combatContainer = new CombatContainer(this, new TentacleBeastAction(), new Dictionary(), new TentacleBeastEndScenes(this), {
-            gems: randInt(15) + 5,
-            drop: new WeightedDrop(undefined, 1)
-        });
+        this.combatContainer = new CombatContainer(this,
+            {
+                mainAction: new TentacleBeastMainAction(),
+                endScenes: new TentacleBeastEndScenes(this),
+                rewards: {
+                    gems: randInt(15) + 5,
+                    drop: new WeightedDrop(undefined, 1)
+                }
+            });
     }
 }

@@ -2,7 +2,7 @@ import { Character } from "../../../Character/Character";
 import { NextScreenChoices } from "../../../ScreenDisplay";
 import { CView } from "../../../../Page/ContentView";
 import { PerkType } from "../../../Effects/PerkType";
-import { randInt, randomChoice } from "../../../../Engine/Utilities/SMath";
+import { randInt } from "../../../../Engine/Utilities/SMath";
 import { CharacterType } from "../../../Character/CharacterType";
 import { Cock, CockType } from "../../../Body/Cock";
 import { BreastRow } from "../../../Body/BreastRow";
@@ -21,25 +21,13 @@ import { ItemDesc } from "../../../Items/ItemDesc";
 import { ArmorName } from "../../../Items/Armors/ArmorName";
 import { CombatContainer } from "../../../Combat/CombatContainer";
 import { CombatAction } from "../../../Combat/Actions/CombatAction";
-import { CombatActionFlags } from "../../../Effects/CombatActionFlag";
 import { CombatEffectType } from "../../../Effects/CombatEffectType";
 import { EndScenes } from "../../../Combat/EndScenes";
 import { DefeatType } from "../../../Combat/DefeatEvent";
-import { Dictionary } from "../../../../Engine/Utilities/Dictionary";
-import { IReaction } from "../../../Combat/Actions/IReaction";
 import { akbalWon, akbalDefeated } from "./AkbalScenes";
 
 class Attack extends CombatAction {
     public name: string = "Attack";
-    public flag: CombatActionFlags = CombatActionFlags.All;
-    public reasonCannotUse: string = "";
-    public subActions: CombatAction[] = [];
-    public isPossible(character: Character): boolean {
-        return true;
-    }
-    public canUse(character: Character, target: Character): boolean {
-        return true;
-    }
     public useAction(char: Character, enemy: Character) {
         // Chances to miss:
         let damage: number = 0;
@@ -101,15 +89,6 @@ class Attack extends CombatAction {
 
 class Lust extends CombatAction {
     public name: string = "Special";
-    public flag: CombatActionFlags = CombatActionFlags.All;
-    public reasonCannotUse: string = "";
-    public subActions: CombatAction[] = [];
-    public isPossible(character: Character): boolean {
-        return true;
-    }
-    public canUse(character: Character, target: Character): boolean {
-        return true;
-    }
     public useAction(char: Character, enemy: Character) {
         // *Lust Attack -
         if (!enemy.combat.effects.has(CombatEffectType.Whispered)) {
@@ -131,15 +110,6 @@ class Lust extends CombatAction {
 
 class Special extends CombatAction {
     public name: string = "Special";
-    public flag: CombatActionFlags = CombatActionFlags.All;
-    public reasonCannotUse: string = "";
-    public subActions: CombatAction[] = [];
-    public isPossible(character: Character): boolean {
-        return true;
-    }
-    public canUse(character: Character, target: Character): boolean {
-        return true;
-    }
     public useAction(char: Character, enemy: Character) {
         // *Special Attack A -
         if (randInt(2) === 0 && enemy.stats.spe > 20) {
@@ -187,15 +157,6 @@ class Special extends CombatAction {
 // *Support ability -
 class Heal extends CombatAction {
     public name: string = "Heal";
-    public flag: CombatActionFlags = CombatActionFlags.All;
-    public reasonCannotUse: string = "";
-    public subActions: CombatAction[] = [];
-    public isPossible(character: Character): boolean {
-        return true;
-    }
-    public canUse(character: Character, target: Character): boolean {
-        return true;
-    }
     public useAction(char: Character, enemy: Character) {
         if (char.combat.stats.HPRatio() >= 1)
             CView.text("Akbal licks himself, ignoring you for now.");
@@ -203,22 +164,6 @@ class Heal extends CombatAction {
             CView.text("Akbal licks one of his wounds, and you scowl as the injury quickly heals itself.");
         char.stats.HP += 30;
         char.stats.lust += 10;
-    }
-}
-
-class AkbalAction extends CombatAction {
-    public name: string = "Action";
-    public flag: CombatActionFlags = CombatActionFlags.All;
-    public reasonCannotUse: string = "";
-    public subActions: CombatAction[] = [new Attack(), new Lust(), new Special(), new Heal()];
-    public isPossible(character: Character): boolean {
-        return true;
-    }
-    public canUse(character: Character, target: Character): boolean {
-        return true;
-    }
-    public use() {
-        return randomChoice(...this.subActions);
     }
 }
 
@@ -277,12 +222,17 @@ export class Akbal extends Character {
             new Armor("shimmering pelt" as ArmorName, new ItemDesc("shimmering pelt"), "shimmering pelt", 5)
         );
 
-        this.combatContainer = new CombatContainer(this, new AkbalAction(), new Dictionary<string, IReaction>(), new AkbalEndScenes(this), {
-            gems: 15,
-            drop: new WeightedDrop<string>().
-                add(ConsumableName.IncubusDraft, 6).
-                add(ConsumableName.WhiskerFruit, 3).
-                add(WeaponName.Pipe, 1),
-        });
+        this.combatContainer = new CombatContainer(this,
+            {
+                endScenes: new AkbalEndScenes(this),
+                rewards: {
+                    gems: 15,
+                    drop: new WeightedDrop<string>().
+                        add(ConsumableName.IncubusDraft, 6).
+                        add(ConsumableName.WhiskerFruit, 3).
+                        add(WeaponName.Pipe, 1),
+                }
+            });
+        this.combat.action.subActions = [new Attack(), new Lust(), new Special(), new Heal()];
     }
 }

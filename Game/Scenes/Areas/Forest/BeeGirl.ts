@@ -29,9 +29,7 @@ import { ItemDesc } from "../../../Items/ItemDesc";
 import { Armor } from "../../../Items/Armors/Armor";
 import { ArmorName } from "../../../Items/Armors/ArmorName";
 import { CombatContainer } from "../../../Combat/CombatContainer";
-import { Dictionary } from "../../../../Engine/Utilities/Dictionary";
 import { CombatAction } from "../../../Combat/Actions/CombatAction";
-import { CombatActionFlags } from "../../../Effects/CombatActionFlag";
 import { CombatEffectType } from "../../../Effects/CombatEffectType";
 
 export const BeeGirlFlags = {
@@ -92,17 +90,8 @@ function leaveAfterDefeating(beeGirl: Character): NextScreenChoices {
     return { next: passTime(1) };
 }
 
-class BeeGirlAction extends CombatAction {
-    public name: string = "Action";
-    public flag: CombatActionFlags = CombatActionFlags.All;
-    public reasonCannotUse: string = "";
-    public subActions: CombatAction[] = [];
-    public isPossible(character: Character): boolean {
-        return true;
-    }
-    public canUse(character: Character, target: Character): boolean {
-        return true;
-    }
+class BeeSting extends CombatAction {
+    public name: string = "Bee Sting";
     public useAction(beeGirl: Character, player: Character) {
         // Blind dodge change
         if (beeGirl.combat.effects.has(CombatEffectType.Blind)) {
@@ -200,11 +189,15 @@ export class BeeGirl extends Character {
             new Armor("chitin" as ArmorName, new ItemDesc("chitin"), "chitin", 9)
         );
 
-        this.combatContainer = new CombatContainer(this, new BeeGirlAction(), new Dictionary(), new BeeGirlEndScenes(this), {
-            gems: randInt(15) + 1,
-            drop: new WeightedDrop<string>()
-                .add(ConsumableName.BeeHoney, 4)
-                .addMany(1, ConsumableName.OvipositionElixir, ConsumableName.WhiteSpellbook, MaterialName.BlackChitin)
+        this.combatContainer = new CombatContainer(this, {
+            endScenes: new BeeGirlEndScenes(this),
+            rewards: {
+                gems: randInt(15) + 1,
+                drop: new WeightedDrop<string>()
+                    .add(ConsumableName.BeeHoney, 4)
+                    .addMany(1, ConsumableName.OvipositionElixir, ConsumableName.WhiteSpellbook, MaterialName.BlackChitin)
+            }
         });
+        this.combat.action.subActions.push(new BeeSting());
     }
 }

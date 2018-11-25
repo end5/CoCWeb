@@ -34,11 +34,11 @@ function showMenu(char: Character, mainAction?: CombatAction, prevMenu?: ClickOp
         const enemies = getEnemies(CombatManager.encounter!, char);
         const curMenu = () => showMenu(char, mainAction, prevMenu);
         for (const action of mainAction.subActions) {
-            if (char.combat.effects.combatAbilityFlag & action.flag && action.isPossible(char)) {
+            if (char.combat.effects.combatAbilityFlag & action.type && action.isPossible(char)) {
                 if (action.subActions.length > 0) {
                     choices.push([action.name, () => showMenu(char, action, curMenu)]);
                 }
-                else if (enemies.ableMembers.find((enemy) => action.isPossible(char) && action.canUse(char, enemy))) {
+                else if (enemies.ableMembers.find((enemy) => action.isPossible(char) && action.canUse(char, enemy).canUse)) {
                     choices.push([action.name, () => selectTarget(char, action, curMenu)]);
                 }
                 else {
