@@ -5,6 +5,9 @@ import { PerkType } from '../Effects/PerkType';
 import { StatusEffectType } from '../Effects/StatusEffectType';
 import { describeVagina } from '../Descriptors/VaginaDescriptor';
 import { CView } from '../../Page/ContentView';
+import { PregnancyType, IncubationTime } from '../Body/Pregnancy/Pregnancy';
+import { IPregnancyEvent } from '../Body/Pregnancy/IPregnancyEvent';
+import { Womb } from '../Body/Pregnancy/Womb';
 
 export function stretchVagina(character: Character, vaginaArea: number): boolean {
     if (character.body.vaginas.length <= 0)
@@ -91,4 +94,10 @@ export function displayStretchVagina(character: Character, cArea: number, displa
         if (spacingsB) CView.text("  ");
     }
     return stretched;
+}
+
+export function attemptKnockUp(char: Character, type: PregnancyType, time: IncubationTime, event: IPregnancyEvent, virility?: number) {
+    const notPregWomb = char.body.wombs.find(Womb.NotPregnant);
+    if (notPregWomb)
+        notPregWomb.knockUp(type, time, event, virility);
 }

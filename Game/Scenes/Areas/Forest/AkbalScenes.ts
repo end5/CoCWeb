@@ -13,9 +13,8 @@ import { describeHips } from "../../../Descriptors/HipDescriptor";
 import { describeLeg, describeFoot, describeLegs } from "../../../Descriptors/LegDescriptor";
 import { PerkType } from "../../../Effects/PerkType";
 import { describeChest, describeNipple } from "../../../Descriptors/BreastDescriptor";
-import { Womb } from "../../../Body/Pregnancy/Womb";
 import { PregnancyType, IncubationTime } from "../../../Body/Pregnancy/Pregnancy";
-import { displayStretchVagina } from "../../../Modifiers/VaginaModifier";
+import { displayStretchVagina, attemptKnockUp } from "../../../Modifiers/VaginaModifier";
 import { mf } from "../../../Descriptors/GenderDescriptor";
 import { describeFaceShort } from "../../../Descriptors/FaceDescriptor";
 import { describeButt, describeButthole } from "../../../Descriptors/ButtDescriptor";
@@ -481,9 +480,7 @@ function girlsRapeAkbalPart2(player: Character, akbal: Character): NextScreenCho
         CView.text("Your body trembles as the demon sags down onto your lower back, clutching your equine hips lightly, as you want nothing more but to simply sag down with him, his weight oddly comfortable on your back. Shaking your head to clear it, you begin to turn round, careful not to dislodge Akbal from his obviously comfortable position as you feel him slowly start to shift back into his quadruped form, his dripping shaft slipping out of your pussy with an obscene slurping noise. Lowering your tail, you let the demon slip off, fumbling with the vines around his feet, releasing him as he sprawls on the ground in pure contentment. As you straighten up and start to head back to camp, you realize you feel the same way; perfectly content. Maybe it wouldn't be a bad idea to look out for the God in the future...");
         // Imp pregnancy
         // Preggers chance!
-        const notPregWomb = player.body.wombs.find(Womb.NotPregnant);
-        if (notPregWomb)
-            notPregWomb.knockUp(PregnancyType.IMP, IncubationTime.IMP, ImpPregEvent, 101);
+        attemptKnockUp(player, PregnancyType.IMP, IncubationTime.IMP, ImpPregEvent, 101);
 
         displayStretchVagina(player, akbal.body.cocks.get(0)!.area, true, true, false);
         player.orgasm();
@@ -580,9 +577,7 @@ function girlsRapeAkbalPart2(player: Character, akbal: Character): NextScreenCho
 
         // Imp pregnancy
         // Preggers chance!
-        const notPregWomb = player.body.wombs.find(Womb.NotPregnant);
-        if (notPregWomb)
-            notPregWomb.knockUp(PregnancyType.IMP, IncubationTime.IMP, ImpPregEvent, 101);
+        attemptKnockUp(player, PregnancyType.IMP, IncubationTime.IMP, ImpPregEvent, 101);
     }
     return { next: passTime(1) };
 }
@@ -671,11 +666,11 @@ function loseToAckballllllz(player: Character, akbal: Character): NextScreenChoi
 // 2. AKBAL'S MY BITCH
 
 // [First Encounter]
-export function supahAkabalEdition(player: Character, akbal: Character): NextScreenChoices {
+export function supahAkabalEdition(player: Character): NextScreenChoices {
     CView.sprite(SpriteName.Akbal); // 2;
     // Make sure that the buttchange is set correctly
     // when submitting.  Gotta stretch em all!
-    akbal.body.cocks.add(new Cock(15, 2.5, CockType.HUMAN));
+    const akbal = new Akbal();
     if (AkbalFlags.AKBAL_BITCH_Q >= 2) {
         return akbitchEncounter(player);
     }
@@ -1337,8 +1332,7 @@ function topAkbitchFromBottomDuex(player: Character): NextScreenChoices {
     player.orgasm();
     player.stats.cor += 3;
 
-    if (player.body.wombs.find(Womb.NotPregnant))
-        player.body.wombs.find(Womb.NotPregnant)!.knockUp(PregnancyType.IMP, IncubationTime.IMP, ImpPregEvent, 101);
+    attemptKnockUp(player, PregnancyType.IMP, IncubationTime.IMP, ImpPregEvent, 101);
     return { next: passTime(1) };
 }
 
@@ -1458,8 +1452,7 @@ function akbitchHighStrengthVariant(player: Character): NextScreenChoices {
         player.orgasm();
         player.stats.cor += 3;
 
-        if (player.body.wombs.find(Womb.NotPregnant))
-            player.body.wombs.find(Womb.NotPregnant)!.knockUp(PregnancyType.IMP, IncubationTime.IMP, ImpPregEvent, 101);
+        attemptKnockUp(player, PregnancyType.IMP, IncubationTime.IMP, ImpPregEvent, 101);
         return { next: passTime(1) };
     }
 }
@@ -1546,8 +1539,7 @@ function akbalBitchSpeed(player: Character): NextScreenChoices {
         if (player.gender === 0)
             CView.text("\n\nYour body begins to convulse as you call out. Your [ass] feels as though the demon’s dick is a lightning rod expelling a constant torrent of elation.");
         CView.text("\n\nYour [vagOrAss] is blissfully sore and crazy sensitive as you ease yourself off the demon’s wonderful dick.  With a smile on your [face] you gather your [armor] and turn to leave the forest.  Lost in giddy elation you walk, each movement sending an almost painful jolt of post orgasm pleasure through your [vagOrAss].  It isn’t until you hear the cackling of imps and goblins that you remember that you left Akbal bound and vulnerable... oops.");
-        if (player.body.wombs.find(Womb.NotPregnant))
-            player.body.wombs.find(Womb.NotPregnant)!.knockUp(PregnancyType.IMP, IncubationTime.IMP, ImpPregEvent, 101);
+        attemptKnockUp(player, PregnancyType.IMP, IncubationTime.IMP, ImpPregEvent, 101);
     }
     player.orgasm();
     player.stats.cor += 3;
@@ -1694,8 +1686,7 @@ function akbitchToughness(player: Character): NextScreenChoices {
 
         CView.text("\n\nWithout a backwards glance, you gather your [armor] and leave the forest with a big smile on your [face].");
     }
-    if (player.body.wombs.find(Womb.NotPregnant))
-        player.body.wombs.find(Womb.NotPregnant)!.knockUp(PregnancyType.IMP, IncubationTime.IMP, ImpPregEvent, 101);
+    attemptKnockUp(player, PregnancyType.IMP, IncubationTime.IMP, ImpPregEvent, 101);
     player.orgasm();
     player.stats.cor += 3;
 
