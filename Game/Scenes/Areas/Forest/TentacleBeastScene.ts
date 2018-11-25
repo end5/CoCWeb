@@ -24,6 +24,7 @@ import { displayStretchButt } from "../../../Modifiers/ButtModifier";
 import { numToCardinalCapText, numToCardinalText } from "../../../Utilities/NumToText";
 import { PerkType } from "../../../Effects/PerkType";
 import { VaginaLooseness } from "../../../Body/Vagina";
+import { GiacomoFlags } from "../BeyondCamp/Giacomo";
 
 export const TentacleBeastFlags = {
     UNKNOWN_FLAG_NUMBER_00247: 0,
@@ -178,7 +179,7 @@ function futaTentacleEpilogue(player: Character): NextScreenChoices {
 
     CView.sprite(SpriteName.TentacleBeast); // 100;
     // [Met Giacomo at least once]
-    if (giacomo > 0) {
+    if (GiacomoFlags.MET > 0) {
         CView.text("\"<i>Well, well, well. You aren't a total loss, I see.</i>\", says a sharp, masculine voice.\n\n");
         CView.text("While the fog of your brain has yet to lift completely, you recognize the voice to be the seedy merchant, Giacomo.\n\n");
         CView.text("\"<i>It is a good thing I happened to be out and about today.</i>\", Giacomo says. \"<i>I was testing out a new weapon to sell and I happened to see one of those nasty tentacle beasties. I had no idea they captured prey! Hell, you must have spent a few months inside that thing feeding it!</i>\"\n\n");
@@ -648,7 +649,7 @@ function tentacleRapeContinuationForFemales(player: Character): NextScreenChoice
     // If has big-clit grow to max of 6"
     if (player.body.clit.length < 7 && player.body.clit.length >= 3.5 && player.perks.has(PerkType.BigClit)) {
         player.body.clit.length += .1 + player.stats.cor / 100;
-        CView.text("Your massive clitty eventually diminishes, retaining a fair portion of its former glory.  It is now " + int(player.body.clit.length * 10) / 10 + " inches long when aroused, ");
+        CView.text("Your massive clitty eventually diminishes, retaining a fair portion of its former glory.  It is now " + Math.floor(player.body.clit.length * 10) / 10 + " inches long when aroused, ");
         if (player.body.clit.length < 5)
             CView.text("like a tiny cock.");
         if (player.body.clit.length >= 5 && player.body.clit.length < 7)
@@ -731,7 +732,7 @@ function centaurGenderlessRetardation(player: Character): NextScreenChoices {
 
         CView.text("\"<i>Q.E.D., MOTHERFUCKER!</i>\" it shouts, gesticulating in the air wildly with its tentacles as it turns and clumps back into the dense brush.");
     }
-    player.takeDamage(5);
+    player.stats.HP -= 5;
     return { next: passTime(1) };
 }
 
@@ -750,7 +751,7 @@ function genderlessHilarityForNagaKenDolls(player: Character): NextScreenChoices
     CView.text("Sensing an opportunity to get out of this situation, you respond with your own series of hisses and hand gestures as if to say you have no idea what the beast wants.  It responds with a sigh and you're released from its grip, landing on the ground in a bit of a heap.\n\n");
 
     CView.text("\"<i>Fucking tourists.</i>\"  It slams its tentacles down in a brutal blow, knocking you out.");
-    player.takeDamage(15);
+    player.stats.HP -= 15;
     return { next: passTime(1) };
 }
 

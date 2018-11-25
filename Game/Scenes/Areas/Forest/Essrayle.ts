@@ -22,6 +22,7 @@ export const EssrayleFlags = {
     ESSRAYLE_ESCAPED_DUNGEON: 0,
     SAND_WITCHES_COWED: 0,
     TOLD_MOTHER_TO_RELEASE_ESSY: 0,
+    ESSY_MET_IN_DUNGEON: 0
 };
 Flags.set(FlagType.Essrayle, EssrayleFlags);
 

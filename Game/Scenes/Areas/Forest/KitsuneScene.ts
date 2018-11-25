@@ -36,7 +36,11 @@ import { MaterialName } from "../../../Items/Materials/MaterialName";
 import { TailType, Tail } from "../../../Body/Tail";
 import { EarType } from "../../../Body/Ears";
 import { randLargeEgg, randEgg } from "../../../Items/Consumables/Eggs";
-import { CombatEffectType } from "../../../Effects/CombatEffectType";
+import { Imp, ImpMagicLustAttack } from "../BeyondCamp/Imp";
+import { WeightedDrop } from "../../../Utilities/Drops/WeightedDrop";
+import { CombatContainer } from "../../../Combat/CombatContainer";
+import { EndScenes } from "../../../Combat/EndScenes";
+import { DefeatType } from "../../../Combat/DefeatEvent";
 
 export const KitsuneFlags = {
     MET_KITSUNES: 0,
@@ -59,6 +63,34 @@ function kitsuneSprite() {
     else CView.sprite(SpriteName.Kitsune_Red); // 106;
 }
 
+class KitsuneImpEndScenes extends EndScenes {
+    protected victoryScene?(howYouWon: DefeatType, enemy: Character): NextScreenChoices {
+        return loseKitsuneImpFight(enemy, this.char);
+    }
+
+    protected defeatScene?(howYouLost: DefeatType, enemy: Character): NextScreenChoices {
+        return winKitsuneImpFight(enemy);
+    }
+}
+
+class KitsuneImp extends Imp {
+    public constructor() {
+        super();
+        this.combatContainer = new CombatContainer(this,
+            {
+                endScenes: new KitsuneImpEndScenes(this),
+                rewards: {
+                    gems: randInt(5) + 5,
+                    drop: new WeightedDrop<string>().
+                        add(ConsumableName.SuccubiMilk, 3).
+                        add(ConsumableName.IncubusDraft, 3).
+                        add(ConsumableName.ImpFood, 4)
+                }
+            });
+        this.combat.action.subActions.push(new ImpMagicLustAttack());
+    }
+}
+
 // [Enter the Trickster] (Coded)
 export function enterTheTrickster(player: Character): NextScreenChoices {
     if (KitsuneFlags.MET_KITSUNES > 0) {
@@ -70,8 +102,7 @@ export function enterTheTrickster(player: Character): NextScreenChoices {
     CView.text("\"<i>Th-thank goodness!  Please, you must help me!</i>\"  she cries, darting around to take shelter behind you.  \"<i>I was out picking wild berries, and, and...  the wretched, terrible little things attacked me!</i>\"\n\n");
     CView.text("You are about to question her, but are interrupted as an imp flies out of the thicket, growling and clawing at you menacingly.  At least...  clearly it's <i>trying</i> to be menacing.  The melodramatic display comes off as more hilarious than anything, but the woman cowering behind you obviously feels threatened, so you might as well deal with the pest.");
     // -> Standard Imp Battle
-    const imp = new Imp();
-    imp.combat.effects.add(CombatEffectType.KitsuneFight);
+    const imp = new KitsuneImp();
     KitsuneFlags.MET_KITSUNES++;
     return CombatManager.beginBattle(player, imp);
 }
@@ -232,11 +263,11 @@ function talkAfterResistingKitsunellusion(player: Character): NextScreenChoices 
 }
 
 // [Leave] (C)
-function leaveKitsune(player: Character, talked: boolean = false): NextScreenChoices {
+function leaveKitsune(player: Character, talkedNoCombat: boolean = false): NextScreenChoices {
     CView.clear();
     kitsuneSprite();
     // if PC was Talking to the kitsune
-    if (talked) CView.text("Nervously, you thank her for her generous offer, but decline, turning to leave.");
+    if (talkedNoCombat) CView.text("Nervously, you thank her for her generous offer, but decline, turning to leave.");
     // if PC defeated her in combat
     else CView.text("You turn to leave, ready to put some distance between yourself and the fallen trickster.");
     // MERGE:
@@ -245,7 +276,7 @@ function leaveKitsune(player: Character, talked: boolean = false): NextScreenCho
 
     CView.text("She holds out a small white package tied with string, grinning eagerly.  You hesitate, wondering whether it would be wise to take a gift from this strange woman, but before you can protest, she shoves the package into your hands.  When you look up from the featureless wrapping, there is no sign of her save for the echo of a mischievous giggle through the trees.\n\n");
     CView.text("<b>You have received a Kitsune's Gift!</b>\n");
-    if (inCombat) {
+    if (talkedNoCombat) {
         KitsuneFlags.BONUS_ITEM_AFTER_COMBAT_ID = ConsumableName.KitsuneGift;
         return { next: passTime(1) };
     }

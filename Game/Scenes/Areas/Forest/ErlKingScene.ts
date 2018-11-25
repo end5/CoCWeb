@@ -21,6 +21,7 @@ import { BreastRow } from "../../../Body/BreastRow";
 import { passTime } from "../../../Menus/InGame/PlayerMenu";
 
 export const ErlKingFlags = {
+    ERLKING_ENCOUNTER_COUNTER: 0,
     WILD_HUNT_ENCOUNTERS: 0,
     ERLKING_DISABLED: 0,
     TIMES_ENCOUNTERED_PRINCESS_GWYNN: 0,
