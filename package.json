@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/end5/CoCWeb#readme",
   "dependencies": {
+    "codemirror": "^5.42.0",
     "parcel": "^1.10.3",
     "ts-loader": "^5.3.0",
     "tslint": "^5.11.0",

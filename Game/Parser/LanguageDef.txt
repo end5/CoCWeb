@@ -1,0 +1,64 @@
+
+definition          =
+concatenation       ' '
+termination         \n
+alternation         |
+optional            [ ... ]
+repetition          { ... }
+grouping            ( ... )
+terminal string     " ... "
+special sequence    ? ... ?
+exception           -
+
+ANY = ? any unicode character ?
+IDENTITY = /[a-zA-Z][a-zA-Z\d]* /
+NUMBER = /\d/
+ESCAPE = "\"
+BRACKET_OPEN = "["
+BRACKET_CLOSE = "]"
+PARENTHESIS_OPEN = "("
+PARENTHESIS_CLOSE = ")"
+WHITESPACE = /\s+/
+EQUAL = "=="
+OTHER_EQUAL = "="
+NOT_EQUAL = "!="
+LESS_THAN_OR_EQUAL = "<="
+LESS_THAN = "<"
+GREATER_THAN_OR_EQUAL = ">="
+GREATER_THAN = ">"
+BAR = "|"
+
+ESCAPED_CHAR = ESCAPE ANY
+
+STRING = { ESCAPED_CHAR | ANY - BRACKET_OPEN }
+NO_BAR_STRING = STRING - BAR
+
+_               = WHITESPACE
+Text            = { STRING | CodeBlock }
+CodeBlock       = BRACKET_OPEN _ (Deep | Shallow)  _ BRACKET_CLOSE
+
+Shallow Parser aka Vanilla
+
+Shallow         = IfStatement | Lookup
+IfStatement     = IF _ PARENTHESIS_OPEN _ Conditional _ PARENTHESIS_CLOSE InnerString [ BAR InnerString ]
+InnerString     = { NO_BAR_STRING | CodeBlock }
+Conditional     = Value _ Operator _ Value
+Operator        = EQUAL | OTHER_EQUAL | NOT_EQUAL | LESS_THAN_OR_EQUAL | LESS_THAN | GREATER_THAN_OR_EQUAL | GREATER_THAN
+Value           = NUMBER | IDENTITY
+
+Lookup          = IDENTITY { _ (STRING | NUMBER | CodeBlock) }
+
+
+
+Deep Parser
+Conditional     = Expression [ _ QUESTION_MARK INSIDE_STRING [ PIPE INSIDE_STRING ] ]
+Function        = Lookup [ InnerArgs ]
+Lookup          = IDENTITY { ACCESSOR IDENTITY }
+InnerArgs       = _ Value _ { _ Value }
+
+Expression      = Unary { _ Operator _ Unary }
+Unary           = [ MINUS | NOT ] _ Value
+
+Operator        = AND | OR | EQUAL | NOT_EQUAL | LESS_THAN_OR_EQUAL | LESS_THAN | GREATER_THAN_OR_EQUAL | GREATER_THAN | PLUS | MINUS | MULTIPLY | DIVIDE
+
+Value           = BOOLEAN | NUMBER | INSIDE_STRING | CodeBlock

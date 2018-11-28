@@ -1,0 +1,86 @@
+body {
+    font-family: monospace;
+    margin: unset;
+    background-color: #262626;
+}
+
+text { background: #262626; color: #EBEFE7; text-shadow: 0 -1px 1px #262626; }
+
+#mainTabs {
+    height: 45px;
+}
+
+#mainContent {
+    height: calc(100vh - 45px - 10px);
+}
+
+button {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+button.fieldTitle {
+    width: 100%;
+}
+
+.disclaimer {
+    text-align: center;
+    margin: auto;
+}
+
+.disclaimer>.accordion {
+    width: auto;
+}
+
+.tab {
+    width: 20% !important;
+    text-align: center !important;
+    height: 100%;
+    font-size: 1.5em;
+}
+
+.tabcontent.active {
+    display: block;
+    background-color: #45443B;
+}
+
+.tabcontent {
+    display: none;
+    background-color: #262626;
+    padding: 5px;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.accordion {
+    background-color: #262626;
+    color: #EBEFE7;
+    cursor: pointer;
+    padding: 5px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+.active,
+.accordion:hover {
+    background-color: #45443B;
+}
+
+.content {
+    height: 100%;
+    background-color: #262626;
+    color: #EBEFE7;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    margin: unset;
+    tab-size: 4;
+}

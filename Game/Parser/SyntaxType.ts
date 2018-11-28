@@ -1,0 +1,18 @@
+export enum SyntaxType {
+    Equal = 'equal',
+    NotEqual = 'not equal',
+    LessThan = 'less than',
+    LessThanOrEqual = 'less than or equal',
+    GreaterThan = 'greater than',
+    GreaterThanOrEqual = 'greater than or equal',
+    Combine = 'combine',
+    Number = "Number",
+    String = 'string',
+    TagIdentity = 'tag identity',
+    ConditionalTagIdentity = "conditional tag identity",
+    Caller = "Caller",
+    Args = 'args',
+    If = 'if',
+    Else = 'else',
+    Error = 'error',
+}
