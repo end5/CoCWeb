@@ -1,6 +1,6 @@
 ﻿import { Nipples, INipples } from './Nipples';
+import { SortOption, FilterOption, ReduceOption } from 'Engine/Utilities/List';
 import { ISerializable } from 'Engine/Utilities/ISerializable';
-import { FilterOption, ReduceOption, SortOption } from 'Engine/Utilities/List';
 
 export enum BreastCup {
     FLAT, A, B, C, D, DD, DD_BIG, E, E_BIG, EE, EE_BIG, F, F_BIG, FF, FF_BIG,
@@ -16,8 +16,6 @@ export enum BreastCup {
 export interface IBreastRow {
     rating: BreastCup;
     lactationMultiplier: number;
-    milkFullness: number;
-    fullness: number;
     nipples: INipples;
     count: number;
 }
@@ -37,22 +35,6 @@ export class BreastRow implements IBreastRow, ISerializable<IBreastRow> {
 
     public static readonly LactationLeast: SortOption<BreastRow> = (a: BreastRow, b: BreastRow) => {
         return b.lactationMultiplier - a.lactationMultiplier;
-    }
-
-    public static readonly MilkFullnessMost: SortOption<BreastRow> = (a: BreastRow, b: BreastRow) => {
-        return a.milkFullness - b.milkFullness;
-    }
-
-    public static readonly MilkFullnessLeast: SortOption<BreastRow> = (a: BreastRow, b: BreastRow) => {
-        return b.milkFullness - a.milkFullness;
-    }
-
-    public static readonly FullnessMost: SortOption<BreastRow> = (a: BreastRow, b: BreastRow) => {
-        return a.fullness - b.fullness;
-    }
-
-    public static readonly FullnessLeast: SortOption<BreastRow> = (a: BreastRow, b: BreastRow) => {
-        return b.fullness - a.fullness;
     }
 
     public static readonly NipplesPerBreastMost: SortOption<BreastRow> = (a: BreastRow, b: BreastRow) => {
@@ -117,10 +99,6 @@ export class BreastRow implements IBreastRow, ISerializable<IBreastRow> {
 
     public rating: BreastCup;
     public lactationMultiplier: number;
-    // Fullness used for lactation....if 75 or greater warning bells start going off!
-    // If it reaches 100 it reduces lactation multiplier.
-    public milkFullness: number = 0;
-    public fullness: number = 0;
     public nipples: Nipples = new Nipples();
     public count: number = 2;
 
@@ -133,8 +111,6 @@ export class BreastRow implements IBreastRow, ISerializable<IBreastRow> {
         return {
             rating: this.rating,
             lactationMultiplier: this.lactationMultiplier,
-            milkFullness: this.milkFullness,
-            fullness: this.fullness,
             nipples: this.nipples.serialize(),
             count: this.count
         };
@@ -143,8 +119,6 @@ export class BreastRow implements IBreastRow, ISerializable<IBreastRow> {
     public deserialize(saveObject: IBreastRow) {
         this.rating = saveObject.rating;
         this.lactationMultiplier = saveObject.lactationMultiplier;
-        this.milkFullness = saveObject.milkFullness;
-        this.fullness = saveObject.fullness;
         this.nipples.deserialize(saveObject.nipples);
         this.count = saveObject.count;
     }

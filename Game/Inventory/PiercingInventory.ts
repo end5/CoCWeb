@@ -51,43 +51,11 @@ export class PiercingInventory implements ISerializable<IPiercingInventory> {
         this.nose = new EquipSlot(character);
         this.tongue = new EquipSlot(character);
         this.labia = new EquipSlot(character);
-        this.addEquipEffects();
 
         this.nipplesMonitor = new ListMonitor<BreastRow, NipplePiercingSlot, EquipSlotList<Piercing, NipplePiercingSlot>>(this.nipples, ObservingEquipSlot, character);
         this.cocksMonitor = new ListMonitor<Cock, CockPiercingSlot, EquipSlotList<Piercing, CockPiercingSlot>>(this.cocks, ObservingEquipSlot, character);
         character.body.chest.observers.add(this.nipplesMonitor);
         character.body.cocks.observers.add(this.cocksMonitor);
-    }
-
-    // 0) **Clit (+2 sens)
-    // 1) **Dick (+2 lib) adds the word 'pierced' sometimes to the description
-    // 2) **Ears
-    // 3) **Eyebrow (-.5 def)
-    // 4) **Lip (-.5 def)
-    // 5) **Nipples (+1 sens, +1 lib)
-    // 6) **Nose (+.5 attack)
-    // 7) **Tongue (+1 sens)
-    // 8) **Labia (+1 sens)
-
-    private addEquipEffects() {
-        this.clit.addEquipEffect((_item: EquipableItem, char: Character) => {
-            char.stats.sens += 2;
-        });
-        this.eyebrow.addEquipEffect((_item: EquipableItem, char: Character) => {
-            char.stats.tou -= 0.5;
-        });
-        this.lip.addEquipEffect((_item: EquipableItem, char: Character) => {
-            char.stats.tou -= 0.5;
-        });
-        this.nose.addEquipEffect((_item: EquipableItem, char: Character) => {
-            char.stats.str += 0.5;
-        });
-        this.tongue.addEquipEffect((_item: EquipableItem, char: Character) => {
-            char.stats.sens += 1;
-        });
-        this.labia.addEquipEffect((_item: EquipableItem, char: Character) => {
-            char.stats.sens += 1;
-        });
     }
 
     public serialize(): IPiercingInventory {

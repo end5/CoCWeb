@@ -24,23 +24,18 @@ export interface IButt {
     rating: ButtRating;
     wetness: ButtWetness;
     looseness: ButtLooseness;
-    fullness: number;
 }
 
 export class Butt implements IButt, ISerializable<IButt> {
     public rating: ButtRating = ButtRating.BUTTLESS;
     public wetness: ButtWetness = ButtWetness.DRY;
     public looseness: ButtLooseness = ButtLooseness.VIRGIN;
-    // Used to determine thickness of knot relative to normal thickness
-    // Used during sex to determine how full it currently is.  For multi-dick sex.
-    public fullness: number = 0;
 
     public serialize(): IButt {
         return {
             rating: this.rating,
             wetness: this.wetness,
             looseness: this.looseness,
-            fullness: this.fullness
         };
     }
 
@@ -48,6 +43,5 @@ export class Butt implements IButt, ISerializable<IButt> {
         this.rating = saveObject.rating;
         this.wetness = saveObject.wetness;
         this.looseness = saveObject.looseness;
-        this.fullness = saveObject.fullness;
     }
 }
