@@ -8,14 +8,14 @@ export type FindOption<T> = (value: T, index: number, array: T[]) => boolean;
 
 export class List<T> implements Iterable<T>, ISerializable<T[]> {
     protected list: T[] = [];
-    private minLength: number = 0;
 
     public add(item: T) {
         this.list.push(item);
     }
 
-    public remove(index: number) {
-        if (index >= 0 && index < this.list.length && this.minLength <= this.list.length - 1)
+    public remove(item: T) {
+        const index = this.list.indexOf(item);
+        if (index >= 0 )
             this.list.splice(index, 1);
     }
 
@@ -35,10 +35,6 @@ export class List<T> implements Iterable<T>, ISerializable<T[]> {
 
     public get length(): number {
         return this.list.length;
-    }
-
-    public set minCount(min: number) {
-        this.minLength = min;
     }
 
     /**
