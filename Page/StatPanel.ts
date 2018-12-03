@@ -1,25 +1,15 @@
-import { ScreenElement } from '../Engine/Display/Elements/ScreenElement';
 import { loadFromClassName } from '../Engine/Utilities/Html';
+import { BlankElement } from '../Engine/Display/Elements/BlankElement';
 
-export class StatPanel extends ScreenElement<HTMLElement> {
+export class StatPanel extends BlankElement {
     private statBarElement: HTMLElement | undefined;
-    private statCurrentElement: HTMLElement;
+    private statCurrentElement: HTMLElement | undefined;
     private statMaxElement: HTMLElement | undefined;
-    private statValue: number;
-    private statMin: number;
-    private statMax: number;
+    private statValue: number = 0;
+    private statMin: number = 0;
+    private statMax: number = 100;
 
-    public constructor(element: HTMLElement) {
-        super(element);
-        this.statBarElement = this.htmlElement.getElementsByClassName("statsBar")[0] as HTMLElement;
-        this.statCurrentElement = loadFromClassName("statsCurrent", this.htmlElement);
-        this.statMaxElement = this.htmlElement.getElementsByClassName("statsMax")[0] as HTMLElement;
-        this.statValue = 0;
-        this.statMin = 0;
-        this.statMax = 100;
-    }
-
-    public setHTMLElement(element: HTMLElement) {
+    public setHTMLElement(element: HTMLDivElement) {
         super.setHTMLElement(element);
         this.setStats();
     }
@@ -58,15 +48,17 @@ export class StatPanel extends ScreenElement<HTMLElement> {
     }
 
     private update() {
-        this.statCurrentElement.innerHTML = this.statValue.toString();
-        if (this.statBarElement) {
-            if (this.statMaxElement && this.statMax >= 0) {
-                this.statMaxElement.innerHTML = this.statMax.toString();
+        if (this.statCurrentElement) {
+            this.statCurrentElement.innerHTML = this.statValue.toString();
+            if (this.statBarElement) {
+                if (this.statMaxElement && this.statMax >= 0) {
+                    this.statMaxElement.innerHTML = this.statMax.toString();
+                }
+                if (this.statMax <= 0 || this.statValue <= 0)
+                    this.statBarElement.style.width = "0%";
+                else
+                    this.statBarElement.style.width = (this.statValue / this.statMax * 100).toString() + "%";
             }
-            if (this.statMax <= 0 || this.statValue <= 0)
-                this.statBarElement.style.width = "0%";
-            else
-                this.statBarElement.style.width = (this.statValue / this.statMax * 100).toString() + "%";
         }
     }
 }

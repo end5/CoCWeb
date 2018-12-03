@@ -1,7 +1,6 @@
 import { SpriteLib } from "./SpriteLibrary";
 import { ImageElement } from "../Engine/Display/Elements/ImageElement";
 import { ParagraphElement } from "../Engine/Display/Elements/ParagraphElement";
-import { loadFromId } from "../Engine/Utilities/Html";
 import { SpriteName } from "./SpriteName";
 import { getImage } from "./ImageLibrary";
 import { List } from "../Engine/Utilities/List";
@@ -11,12 +10,6 @@ class ContentView {
     public readonly textElement: ParagraphElement = new ParagraphElement();
     public readonly spriteElement: ImageElement = new ImageElement();
     public readonly parsers: List<(text: string) => string> = new List();
-
-    public constructor() {
-        this.imageElement.setHTMLElement(loadFromId("mainImageDisplay") as HTMLImageElement);
-        this.textElement.setHTMLElement(loadFromId("mainTextDisplay") as HTMLParagraphElement);
-        this.spriteElement.setHTMLElement(loadFromId("mainSpriteDisplay") as HTMLImageElement);
-    }
 
     public text(content: string): ContentView {
         for (const parser of this.parsers)
