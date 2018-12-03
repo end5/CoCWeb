@@ -1,6 +1,6 @@
 import { ItemDesc } from './ItemDesc';
 import { ItemType } from './ItemType';
-import { ISerializable } from '../../Engine/Utilities/ISerializable';
+import { ISerializable } from 'Engine/Utilities/ISerializable';
 import { Character } from '../Character/Character';
 
 export interface IItem {

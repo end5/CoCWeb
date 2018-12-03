@@ -1,12 +1,12 @@
 import { EquipSlot, IEquipSlot } from './EquipSlot';
 import { EquipSlotList } from './EquipSlotList';
-import { ISerializable } from '../../Engine/Utilities/ISerializable';
-import { Character } from '../Character/Character';
+import { ISerializable } from 'Engine/Utilities/ISerializable';
+import { Character } from 'Game/Character/Character';
 import { EquipableItem } from '../Items/EquipableItem';
-import { Piercing } from '../Items/Misc/Piercing';
-import { ListMonitor } from '../Utilities/ListMonitor';
-import { Cock } from '../Body/Cock';
-import { BreastRow } from '../Body/BreastRow';
+import { Piercing } from 'Game/Items/Misc/Piercing';
+import { ListMonitor } from 'Game/Utilities/ListMonitor';
+import { Cock } from 'Game/Character/Body/Cock';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
 import { ObservingEquipSlot } from './ObservingEquipSlot';
 
 type PiercingSlot = EquipSlot<Piercing>;

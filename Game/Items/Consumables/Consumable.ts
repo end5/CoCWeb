@@ -1,5 +1,5 @@
 import { ConsumableName } from './ConsumableName';
-import { Character } from '../../Character/Character';
+import { Character } from 'Game/Character/Character';
 import { Item } from '../Item';
 import { ItemDesc } from '../ItemDesc';
 import { ItemType } from '../ItemType';

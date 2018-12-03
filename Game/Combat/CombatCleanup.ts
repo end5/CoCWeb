@@ -1,4 +1,4 @@
-import { Character } from '../Character/Character';
+import { Character } from 'Game/Character/Character';
 
 export function combatCleanup(mainCharacter: Character, allyParty: Character[], enemyParty: Character[]) {
     mainCharacter.combat.effects.clear();

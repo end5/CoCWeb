@@ -1,20 +1,20 @@
 import { Inventory, IInventory } from './Inventory';
 import { KeyItemDict } from './KeyItemDict';
-import { ISerializable } from '../../Engine/Utilities/ISerializable';
-import { Character } from '../Character/Character';
-import { Item } from '../Items/Item';
-import { KeyItem, IKeyItem } from '../Items/KeyItem';
-import { Weapon } from '../Items/Weapons/Weapon';
-import { Armor } from '../Items/Armors/Armor';
-import { StatWithEffects, IStatWithEffects } from '../Body/Stat/StatWithEffects';
-import { IDictionary } from '../../Engine/Utilities/Dictionary';
+import { ISerializable } from 'Engine/Utilities/ISerializable';
+import { Character } from 'Game/Character/Character';
+import { Item } from 'Game/Items/Item';
+import { IKeyItem, KeyItem } from 'Game/Items/KeyItem';
+import { Weapon } from 'Game/Items/Weapons/Weapon';
+import { Armor } from 'Game/Items/Armors/Armor';
+import { IStatWithEffects, StatWithEffects } from 'Game/Character/Stats/Stat/StatWithEffects';
+import { IDictionary } from 'Engine/Utilities/Dictionary';
 import { IEquipSlot, EquipSlot } from './EquipSlot';
 import { IPiercingInventory, PiercingInventory } from './PiercingInventory';
 import { EquipSlotList } from './EquipSlotList';
-import { CockSock } from '../Items/Misc/CockSock';
+import { CockSock } from 'Game/Items/Misc/CockSock';
 import { ObservingEquipSlot } from './ObservingEquipSlot';
-import { Cock } from '../Body/Cock';
-import { ListMonitor } from '../Utilities/ListMonitor';
+import { Cock } from 'Game/Character/Body/Cock';
+import { ListMonitor } from 'Game/Utilities/ListMonitor';
 
 export interface ICharInv {
     items: IInventory;

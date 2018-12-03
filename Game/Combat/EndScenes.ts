@@ -1,7 +1,7 @@
 import { DefeatType } from './DefeatEvent';
-import { randInt } from '../../Engine/Utilities/SMath';
-import { Character } from '../Character/Character';
-import { NextScreenChoices } from '../ScreenDisplay';
+import { randInt } from 'Engine/Utilities/SMath';
+import { Character } from 'Game/Character/Character';
+import { NextScreenChoices } from 'Game/ScreenDisplay';
 
 export abstract class EndScenes {
     protected char: Character;

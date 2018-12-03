@@ -1,5 +1,5 @@
 import { IListObserver } from './IListObserver';
-import { List } from '../../Engine/Utilities/List';
+import { List } from 'Engine/Utilities/List';
 
 export interface ObjectObserver<T> {
     observedObject: T;

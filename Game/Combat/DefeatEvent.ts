@@ -1,4 +1,4 @@
-import { Character } from '../Character/Character';
+import { Character } from 'Game/Character/Character';
 
 export enum DefeatType {
     Special,

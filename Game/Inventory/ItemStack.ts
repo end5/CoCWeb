@@ -1,6 +1,6 @@
-﻿import { ISerializable } from '../../Engine/Utilities/ISerializable';
-import { Item, IItem } from '../Items/Item';
-import { getItemFromName } from '../Items/ItemLookup';
+﻿import { ISerializable } from 'Engine/Utilities/ISerializable';
+import { Item, IItem } from 'Game/Items/Item';
+import { getItemFromName } from 'Game/Items/ItemLookup';
 
 export interface IItemStack {
     item: IItem;

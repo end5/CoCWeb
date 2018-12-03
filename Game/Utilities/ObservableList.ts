@@ -1,5 +1,5 @@
 import { IListObserver } from './IListObserver';
-import { List } from '../../Engine/Utilities/List';
+import { List } from 'Engine/Utilities/List';
 
 export class ObservableList<T> extends List<T> {
     public readonly observers: List<IListObserver<T>> = new List();

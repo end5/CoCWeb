@@ -1,6 +1,6 @@
-import { CombatAction } from "./CombatAction";
-import { Character } from "../../Character/Character";
-import { randomChoice } from "../../../Engine/Utilities/SMath";
+import { CombatAction } from './CombatAction';
+import { Character } from 'Game/Character/Character';
+import { randomChoice } from 'Engine/Utilities/SMath';
 
 export class MainAction extends CombatAction {
     public name: string = "Action";

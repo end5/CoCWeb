@@ -1,14 +1,14 @@
 import { combatCleanup } from './CombatCleanup';
 import { CombatParty } from './CombatParty';
 import { DefeatType } from './DefeatEvent';
-import { Character } from '../Character/Character';
-import { NextScreenChoices, ScreenChoice, choiceWrapWithChar } from '../ScreenDisplay';
+import { Character } from 'Game/Character/Character';
+import { NextScreenChoices, choiceWrapWithChar, ScreenChoice } from 'Game/ScreenDisplay';
 import { awardPlayer } from './CombatDrops';
-import { CharDict } from '../CharDict';
-import { randomChoice } from '../../Engine/Utilities/SMath';
+import { CharDict } from 'Game/CharDict';
+import { randomChoice } from 'Engine/Utilities/SMath';
 import { CombatManager } from './CombatManager';
-import { playerMenu } from '../Menus/InGame/PlayerMenu';
-import { combatMenu } from '../Menus/InGame/CombatMenu';
+import { playerMenu } from 'Game/Menus/InGame/PlayerMenu';
+import { combatMenu } from 'Game/Menus/InGame/CombatMenu';
 
 export class Encounter {
     private mainCharacter: Character;

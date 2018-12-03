@@ -1,9 +1,9 @@
 import { ArmorName } from './ArmorName';
-import { Character } from '../../Character/Character';
+import { Character } from 'Game/Character/Character';
 import { EquipableItem } from '../EquipableItem';
 import { ItemDesc } from '../ItemDesc';
 import { ItemType } from '../ItemType';
-import { CView } from '../../../Page/ContentView';
+import { CView } from 'Page/ContentView';
 
 export type ArmorClass = "Light" | "Medium" | "Heavy" | "";
 

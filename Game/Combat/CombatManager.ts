@@ -1,12 +1,12 @@
 import { CombatParty } from './CombatParty';
 import { Encounter } from './Encounter';
-import { MainScreen } from '../../Page/MainScreen';
-import { List } from '../../Engine/Utilities/List';
-import { Character } from '../Character/Character';
-import { CombatEffectType } from '../Effects/CombatEffectType';
-import { Item } from '../Items/Item';
-import { NextScreenChoices } from '../ScreenDisplay';
-import { PartyDict } from '../PartyDict';
+import { MainScreen } from 'Page/MainScreen';
+import { List } from 'Engine/Utilities/List';
+import { Character } from 'Game/Character/Character';
+import { CombatEffectType } from 'Game/Effects/CombatEffectType';
+import { Item } from 'Game/Items/Item';
+import { NextScreenChoices } from 'Game/ScreenDisplay';
+import { PartyDict } from 'Game/PartyDict';
 
 export function getEnemies(encounter: Encounter, character: Character) {
     return encounter.allyParty.allMembers.find((char) => char === character) ? encounter.enemyParty : encounter.allyParty;

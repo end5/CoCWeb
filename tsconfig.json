@@ -9,6 +9,13 @@
         "noUnusedLocals": true,
         "forceConsistentCasingInFileNames": true,
         "noImplicitReturns": true,
+        "baseUrl": ".",
+        "paths": {
+            "Engine": ["Engine"],
+            "Game": ["Game"],
+            "Page": ["Page"],
+            "Resource": ["resource"]
+        }
     },
     "exclude": [
         "Scripts",

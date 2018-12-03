@@ -1,5 +1,5 @@
 import { CockSockName } from './CockSockName';
-import { Character } from '../../Character/Character';
+import { Character } from 'Game/Character/Character';
 import { EquipableItem } from '../EquipableItem';
 import { ItemType } from '../ItemType';
 import { ItemDesc } from '../ItemDesc';

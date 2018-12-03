@@ -1,6 +1,6 @@
 import { DefeatEvent, DefeatType } from './DefeatEvent';
 import { PartyEndScenes } from './PartyEndScenes';
-import { Character } from '../Character/Character';
+import { Character } from 'Game/Character/Character';
 
 export class CombatParty {
     public readonly allMembers: Character[];

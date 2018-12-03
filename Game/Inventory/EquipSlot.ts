@@ -1,11 +1,10 @@
-import { ISerializable } from '../../Engine/Utilities/ISerializable';
-import { FilterOption } from '../../Engine/Utilities/List';
-import { Character } from '../Character/Character';
-import { EquipableItem } from '../Items/EquipableItem';
-import { getItemFromName } from '../Items/ItemLookup';
-import { IItem } from '../Items/Item';
-
-export type EquipEffect = (item: EquipableItem, character: Character) => void;
+import { ISerializable } from 'Engine/Utilities/ISerializable';
+import { FilterOption } from 'Engine/Utilities/List';
+import { Character } from 'Game/Character/Character';
+import { EquipableItem } from 'Game/Items/EquipableItem';
+import { getItemFromName } from 'Game/Items/ItemLookup';
+import { IItem } from 'Game/Items/Item';
+import { EffectList } from 'Game/Effects/EffectList';
 
 export interface IEquipSlot {
     item: IItem;

@@ -1,6 +1,6 @@
 import { CombatParty } from './CombatParty';
-import { NextScreenChoices } from '../ScreenDisplay';
-import { Character } from '../Character/Character';
+import { NextScreenChoices } from 'Game/ScreenDisplay';
+import { Character } from 'Game/Character/Character';
 
 export abstract class PartyEndScenes {
     protected char: Character;

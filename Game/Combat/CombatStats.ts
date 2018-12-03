@@ -1,7 +1,7 @@
-import { randInt } from '../../Engine/Utilities/SMath';
-import { Character } from '../Character/Character';
-import { CView } from '../../Page/ContentView';
-import { StatWithEffects } from '../Body/Stat/StatWithEffects';
+import { randInt } from 'Engine/Utilities/SMath';
+import { Character } from 'Game/Character/Character';
+import { CView } from 'Page/ContentView';
+import { StatWithEffects } from 'Game/Character/Stats/Stat/StatWithEffects';
 
 export class CombatStats {
     public readonly attackStat = new StatWithEffects();

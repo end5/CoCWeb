@@ -1,4 +1,4 @@
-import { Gender } from './Body/GenderIdentity';
+import { Gender } from './Character/Body/GenderIdentity';
 import { Time } from './Utilities/Time';
 import { ISettings, Settings } from './Settings';
 import { Character, ICharacter } from './Character/Character';

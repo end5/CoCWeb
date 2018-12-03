@@ -1,10 +1,10 @@
 import { ICombatRewards } from './ICombatRewards';
 import { CombatStats } from './CombatStats';
 import { EndScenes } from './EndScenes';
-import { Character } from '../Character/Character';
-import { CombatEffectList } from '../Effects/CombatEffectList';
+import { Character } from 'Game/Character/Character';
+import { CombatEffectDict } from 'Game/Effects/CombatEffectDict';
 import { StatusEffectType } from '../Effects/StatusEffectType';
-import { Dictionary } from '../../Engine/Utilities/Dictionary';
+import { Dictionary } from 'Engine/Utilities/Dictionary';
 import { IReaction } from './Actions/IReaction';
 import { CombatAction } from './Actions/CombatAction';
 import { MainAction } from './Actions/MainAction';

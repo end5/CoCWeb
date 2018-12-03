@@ -1,5 +1,5 @@
-import { EffectDesc } from './EffectDescription';
-import { ISerializable } from '../../Engine/Utilities/ISerializable';
+import { EffectDesc } from './EffectDesc';
+import { ISerializable } from 'Engine/Utilities/ISerializable';
 import { EffectValues, IEffectValues } from './EffectValues';
 
 export interface IEffect {

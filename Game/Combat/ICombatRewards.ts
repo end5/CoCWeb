@@ -1,4 +1,4 @@
-import { IDrop } from '../Utilities/Drops/IDrop';
+import { IDrop } from 'Game/Utilities/Drops/IDrop';
 
 export interface ICombatRewards {
     drop?: IDrop<string>;

@@ -1,5 +1,5 @@
-import { Dictionary } from '../../../Engine/Utilities/Dictionary';
-import { Character } from '../../Character/Character';
+import { Dictionary } from 'Engine/Utilities/Dictionary';
+import { Character } from 'Game/Character/Character';
 
 export enum WeaponPerkType {
     None = "None"
