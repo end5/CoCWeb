@@ -1,17 +1,17 @@
-import { IStatEffect, StatEffect } from "./StatEffect";
-import { Dictionary, IDictionary } from "../../../Engine/Utilities/Dictionary";
-import { Stat, IStat } from "./Stat";
+import { IStat, Stat } from './Stat';
+import { IStatEffect, StatEffect } from './StatEffect';
+import { List } from 'Engine/Utilities/List';
 
 export interface IStatWithEffects extends IStat {
-    effects: IDictionary<IStatEffect>;
+    effects: IStatEffect[];
 }
 
 export class StatWithEffects extends Stat {
-    public effects = new Dictionary<string, IStatEffect>();
+    public effects = new List<IStatEffect>();
 
     public get value() {
         const calc = this.calculate();
-        return this.curValue * calc.value.multi + calc.value.flat;
+        return this.value * calc.value.multi + calc.value.flat;
     }
     public set value(num: number) { super.value = num; }
 

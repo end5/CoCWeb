@@ -1,5 +1,5 @@
-import { IRangedStatEffect, RangedStatEffect } from "../Body/Stat/RangedStatEffect";
-import { IStatModifier, StatModifier } from "../Body/Stat/StatModifier";
+import { IRangedStatEffect, RangedStatEffect } from 'Game/Character/Stats/Stat/RangedStatEffect';
+import { IStatModifier, StatModifier } from 'Game/Character/Stats/Stat/StatModifier';
 
 export interface IEffectValues {
     expireCountdown?: number;

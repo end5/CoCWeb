@@ -1,26 +1,23 @@
 ﻿import { CharacterDescription } from './CharacterDescription';
 import { CharacterType } from './CharacterType';
-import { ISerializable } from 'Engine/Utilities/ISerializable';
-import { randInt } from 'Engine/Utilities/SMath';
-import { LegType } from './Body/Legs';
-import { TailType, Tail } from './Body/Tail';
-import { CombatContainer } from 'Game/Combat/CombatContainer';
-import { ICharInv, CharacterInventory } from 'Game/Inventory/CharacterInventory';
-import { generateUUID } from 'Game/Utilities/Uuid';
 import { Gender, GenderIdentity } from './Body/GenderIdentity';
 import { IBody, Body } from './Body/Body';
 import { IStats, Stats } from './Stats/Stats';
+import { IEffect, Effect } from 'Game/Effects/Effect';
+import { ICharInv, CharacterInventory } from 'Game/Inventory/CharacterInventory';
+import { ISerializable } from 'Engine/Utilities/ISerializable';
+import { CombatContainer } from 'Game/Combat/CombatContainer';
 import { StatsFacade } from './Stats/StatsFacade';
-import { StatusEffectDict } from '../Effects/StatusEffectDict';
-import { PerkDict } from '../Effects/PerkDict';
-import { WingType } from './Body/Wings';
-import { BreastRow } from './Body/BreastRow';
+import { generateUUID } from 'Game/Utilities/Uuid';
+import { LegType } from './Body/Legs';
 import { Vagina } from './Body/Vagina';
+import { BreastRow } from './Body/BreastRow';
+import { WingType } from './Body/Wings';
 import { Womb } from './Body/Pregnancy/Womb';
-import { StatusEffect } from '../Effects/StatusEffect';
-import { Perk } from '../Effects/Perk';
-import { IEffect } from 'Game/Effects/Effect';
-import { IDictionary } from 'Engine/Utilities/Dictionary';
+import { randInt } from 'Engine/Utilities/SMath';
+import { TailType, Tail } from './Body/Tail';
+import { EffectList } from 'Game/Effects/EffectList';
+import { EffectApplicator } from 'Game/Effects/EffectApplicator';
 
 export interface ICharacter {
     type: CharacterType;
@@ -30,8 +27,7 @@ export interface ICharacter {
     hoursSinceCum: number;
     body: IBody;
     stats: IStats;
-    effects: IDictionary<IEffect>;
-    perks: IDictionary<IEffect>;
+    effects: IEffect[];
     inventory: ICharInv;
 }
 
@@ -63,8 +59,19 @@ export abstract class Character implements ISerializable<ICharacter> {
 
     private baseStats = new Stats();
     public stats = new StatsFacade(this, this.baseStats);
-    public effects = new StatusEffectDict(this);
-    public perks = new PerkDict();
+    public effects = new EffectList();
+    public perks = this.effects;
+    private effectApplicator = new EffectApplicator(this, this.effects);
+
+    public constructor(type: CharacterType) {
+        this.charType = type;
+        this.UUID = generateUUID();
+        if (type !== CharacterType.Player) {
+            this.stats.XP = this.totalXP();
+        }
+
+        this.effects.observers.add(this.effectApplicator);
+    }
 
     public get gender(): Gender {
         return this.genderManager.gender;
@@ -78,14 +85,6 @@ export abstract class Character implements ISerializable<ICharacter> {
         this.genderManager.preference = gender;
     }
 
-    public constructor(type: CharacterType) {
-        this.charType = type;
-        this.UUID = generateUUID();
-        if (type !== CharacterType.Player) {
-            this.stats.XP = this.totalXP();
-        }
-    }
-
     public serialize(): ICharacter {
         const save: ICharacter = {
             type: this.charType,
@@ -95,7 +94,6 @@ export abstract class Character implements ISerializable<ICharacter> {
             body: this.body.serialize(),
             stats: this.baseStats.serialize(),
             effects: this.effects.serialize(),
-            perks: this.perks.serialize(),
             inventory: this.inventory.serialize(),
         };
         if (this.partyUUID)
@@ -112,8 +110,7 @@ export abstract class Character implements ISerializable<ICharacter> {
         this.hoursSinceCum = saveObject.hoursSinceCum;
         this.body.deserialize(saveObject.body);
         this.baseStats.deserialize(saveObject.stats);
-        this.effects.deserialize(saveObject.effects, StatusEffect);
-        this.perks.deserialize(saveObject.perks, Perk);
+        this.effects.deserialize(saveObject.effects, Effect);
         this.inventory.deserialize(saveObject.inventory);
     }
 

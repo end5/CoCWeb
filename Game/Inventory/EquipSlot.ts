@@ -19,13 +19,10 @@ export class EquipSlot<T extends EquipableItem> implements ISerializable<IEquipS
 
     private character: Character;
     private equippedItem?: T;
-    private onEquipEffects: EquipEffect[];
-    private onUnequipEffects: EquipEffect[];
+    public readonly slotEffects = new EffectList();
 
     public constructor(character: Character) {
         this.character = character;
-        this.onEquipEffects = [];
-        this.onUnequipEffects = [];
     }
 
     public get item(): T | undefined {
@@ -43,14 +40,18 @@ export class EquipSlot<T extends EquipableItem> implements ISerializable<IEquipS
                 unequippedItem = this.unequip();
 
             const itemToEquip = item.onEquip(this.character);
+
+            for (const effect of item.effects)
+                this.character.effects.add(effect);
+
+            for (const effect of this.slotEffects)
+                this.character.effects.add(effect);
+
             if (itemToEquip)
                 this.equippedItem = itemToEquip as T;
             else
                 this.equippedItem = item;
 
-            for (const effect of this.onEquipEffects) {
-                effect(item, this.character);
-            }
             if (unequippedItem)
                 return unequippedItem;
         }
@@ -59,21 +60,17 @@ export class EquipSlot<T extends EquipableItem> implements ISerializable<IEquipS
 
     public unequip(): T | undefined {
         if (!this.equippedItem) return;
-        for (const effect of this.onEquipEffects) {
-            effect(this.equippedItem, this.character);
-        }
-        this.equippedItem.onUnequip(this.character);
         const unequippedItem = this.equippedItem;
+        this.equippedItem.onUnequip(this.character);
         this.equippedItem = undefined;
+
+        for (const effect of unequippedItem.effects)
+            this.character.effects.remove(this.character.effects.indexOf(effect));
+
+        for (const effect of this.slotEffects)
+            this.character.effects.remove(this.character.effects.indexOf(effect));
+
         return unequippedItem;
-    }
-
-    public addEquipEffect(equipEffect: EquipEffect) {
-        this.onEquipEffects.push(equipEffect);
-    }
-
-    public addUnequipEffect(equipEffect: EquipEffect) {
-        this.onUnequipEffects.push(equipEffect);
     }
 
     public serialize(): IEquipSlot | void {

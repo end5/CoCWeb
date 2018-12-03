@@ -3,6 +3,6 @@
  */
 export interface IListObserver<EntryType> {
     onAdd(item: EntryType): void;
-    onRemove(index: number): void;
+    onRemove(item: EntryType): void;
     onClear(): void;
 }

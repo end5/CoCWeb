@@ -1,13 +1,13 @@
-import { Dictionary, IDictionary } from "../../../Engine/Utilities/Dictionary";
-import { RangedStat, IRangedStat } from "./RangedStat";
-import { IRangedStatEffect, RangedStatEffect } from "./RangedStatEffect";
+import { IRangedStat, RangedStat } from './RangedStat';
+import { IRangedStatEffect, RangedStatEffect } from './RangedStatEffect';
+import { List } from 'Engine/Utilities/List';
 
 export interface IRangedStatWithEffects extends IRangedStat {
-    effects: IDictionary<IRangedStatEffect>;
+    effects: IRangedStatEffect[];
 }
 
 export class RangedStatWithEffects extends RangedStat {
-    public effects = new Dictionary<string, IRangedStatEffect>();
+    public effects = new List<IRangedStatEffect>();
 
     public get value() {
         const calc = this.calculate();

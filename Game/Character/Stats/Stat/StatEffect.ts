@@ -1,5 +1,5 @@
-import { IStatModifier, StatModifier } from "./StatModifier";
-import { IRangedStatEffect } from "./RangedStatEffect";
+import { IStatModifier, StatModifier } from './StatModifier';
+import { IRangedStatEffect } from './RangedStatEffect';
 
 export interface IStatEffect {
     value?: IStatModifier;
