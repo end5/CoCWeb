@@ -5,7 +5,6 @@ import { Character, ICharacter } from './Character/Character';
 import { CharConstructorLib } from './Character/CharConstructorLib';
 import { CharDict } from './CharDict';
 import { Flags } from './Flags';
-import { attachCharToUI } from './ScreenDisplay';
 import { MainScreen } from '../Page/MainScreen';
 import { CombatManager } from './Combat/CombatManager';
 import { IDictionary } from '../Engine/Utilities/Dictionary';
@@ -63,7 +62,6 @@ export function loadFromSave(save: SaveFile) {
     if (!player) throw new Error('Player does not exist');
     CharDict.player = player;
 
-    attachCharToUI(player);
     MainScreen.statsPanel.show();
 
     Settings.deserialize(save.user.settings);

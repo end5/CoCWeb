@@ -2,6 +2,7 @@ import { MainScreen } from '../Page/MainScreen';
 import { Character } from './Character/Character';
 import { CharDict } from './CharDict';
 import { BottomButtons } from '../Page/BottomButtons';
+import { updateDisplay } from './UpdateDisplay';
 
 export type ClickFunction = ((char: Character, event?: Event) => NextScreenChoices);
 export interface ClickObject {
@@ -135,6 +136,7 @@ function doYesNo(yesFunc: ClickOption, noFunc: ClickOption, needEvents?: boolean
 
 export function displayNextScreenChoices(nextScreen: void | NextScreenChoices) {
     if (nextScreen) {
+        updateDisplay();
         if (nextScreen.yes && nextScreen.no) {
             doYesNo(nextScreen.yes, nextScreen.no, nextScreen.needEvent);
         }
@@ -199,99 +201,4 @@ export function choiceWrapWithChar(func: (char: Character, ...args: any[]) => Ne
     };
     Object.defineProperty(wrapper, "name", { value: func.name });
     return wrapper;
-}
-
-export function attachCharToUI(char: Character) {
-    char.stats.base.str.observers.set('ui', {
-        onValue: () => MainScreen.statsPanel.str.value = char.stats.base.str.value,
-        onMin: () => MainScreen.statsPanel.str.min = char.stats.base.str.min,
-        onMax: () => MainScreen.statsPanel.str.max = char.stats.base.str.max
-    });
-    char.stats.str = char.stats.str;
-    char.stats.base.tou.observers.set('ui', {
-        onValue: () => MainScreen.statsPanel.tou.value = char.stats.base.tou.value,
-        onMin: () => MainScreen.statsPanel.tou.min = char.stats.base.tou.min,
-        onMax: () => MainScreen.statsPanel.tou.max = char.stats.base.tou.max
-    });
-    char.stats.tou = char.stats.tou;
-    char.stats.base.spe.observers.set('ui', {
-        onValue: () => MainScreen.statsPanel.spe.value = char.stats.base.spe.value,
-        onMin: () => MainScreen.statsPanel.spe.min = char.stats.base.spe.min,
-        onMax: () => MainScreen.statsPanel.spe.max = char.stats.base.spe.max
-    });
-    char.stats.spe = char.stats.spe;
-    char.stats.base.int.observers.set('ui', {
-        onValue: () => MainScreen.statsPanel.int.value = char.stats.base.int.value,
-        onMin: () => MainScreen.statsPanel.int.min = char.stats.base.int.min,
-        onMax: () => MainScreen.statsPanel.int.max = char.stats.base.int.max
-    });
-    char.stats.int = char.stats.int;
-    char.stats.base.lib.observers.set('ui', {
-        onValue: () => MainScreen.statsPanel.lib.value = char.stats.base.lib.value,
-        onMin: () => MainScreen.statsPanel.lib.min = char.stats.base.lib.min,
-        onMax: () => MainScreen.statsPanel.lib.max = char.stats.base.lib.max
-    });
-    char.stats.lib = char.stats.lib;
-    char.stats.base.sens.observers.set('ui', {
-        onValue: () => MainScreen.statsPanel.sens.value = char.stats.base.sens.value,
-        onMin: () => MainScreen.statsPanel.sens.min = char.stats.base.sens.min,
-        onMax: () => MainScreen.statsPanel.sens.max = char.stats.base.sens.max
-    });
-    char.stats.sens = char.stats.sens;
-    char.stats.base.cor.observers.set('ui', {
-        onValue: () => MainScreen.statsPanel.cor.value = char.stats.base.cor.value,
-        onMin: () => MainScreen.statsPanel.cor.min = char.stats.base.cor.min,
-        onMax: () => MainScreen.statsPanel.cor.max = char.stats.base.cor.max
-    });
-    char.stats.cor = char.stats.cor;
-    char.stats.base.HP.observers.set('ui', {
-        onValue: () => MainScreen.statsPanel.hp.value = char.stats.base.HP.value,
-        onMin: () => MainScreen.statsPanel.hp.min = char.stats.base.HP.min,
-        onMax: () => MainScreen.statsPanel.hp.max = char.stats.base.HP.max
-    });
-    char.stats.HP = char.stats.HP;
-    char.stats.base.lust.observers.set('ui', {
-        onValue: () => MainScreen.statsPanel.lust.value = char.stats.base.lust.value,
-        onMin: () => MainScreen.statsPanel.lust.min = char.stats.base.lust.min,
-        onMax: () => MainScreen.statsPanel.lust.max = char.stats.base.lust.max
-    });
-    char.stats.lust = char.stats.lust;
-    char.stats.base.fatigue.observers.set('ui', {
-        onValue: () => MainScreen.statsPanel.fatigue.value = char.stats.base.fatigue.value,
-        onMin: () => MainScreen.statsPanel.fatigue.min = char.stats.base.fatigue.min,
-        onMax: () => MainScreen.statsPanel.fatigue.max = char.stats.base.fatigue.max
-    });
-    char.stats.fatigue = char.stats.fatigue;
-    char.stats.base.level.observers.set('ui', {
-        onValue: () => MainScreen.statsPanel.level.value = char.stats.base.level.value,
-    });
-    char.stats.level = char.stats.level;
-    char.stats.base.XP.observers.set('ui', {
-        onValue: () => {
-            MainScreen.statsPanel.xp.value = char.roundXPToLevel();
-            if (char.canLevelUp())
-                MainScreen.levelupIcon.show();
-        }
-    });
-    char.stats.XP = char.stats.XP;
-    char.inventory.gemsStat.observers.set('ui', {
-        onValue: () => MainScreen.statsPanel.gems.value = char.inventory.gemsStat.value,
-    });
-    char.inventory.gems = char.inventory.gems;
-}
-
-export function removeCharFromUI(char: Character) {
-    char.stats.base.str.observers.remove('ui');
-    char.stats.base.tou.observers.remove('ui');
-    char.stats.base.spe.observers.remove('ui');
-    char.stats.base.int.observers.remove('ui');
-    char.stats.base.lib.observers.remove('ui');
-    char.stats.base.sens.observers.remove('ui');
-    char.stats.base.cor.observers.remove('ui');
-    char.stats.base.HP.observers.remove('ui');
-    char.stats.base.lust.observers.remove('ui');
-    char.stats.base.fatigue.observers.remove('ui');
-    char.stats.base.level.observers.remove('ui');
-    char.stats.base.XP.observers.remove('ui');
-    char.inventory.gemsStat.observers.remove('ui');
 }

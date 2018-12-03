@@ -1,11 +1,4 @@
-import { IStatObserver } from "./Stat";
-import { Dictionary } from "../../../Engine/Utilities/Dictionary";
-import { ISerializable } from "../../../Engine/Utilities/ISerializable";
-
-export interface IRangedStatObserver extends IStatObserver {
-    onMin(num: number): void;
-    onMax(num: number): void;
-}
+import { ISerializable } from 'Engine/Utilities/ISerializable';
 
 export interface IRangedStat {
     value: number;
@@ -14,7 +7,6 @@ export interface IRangedStat {
 }
 
 export class RangedStat implements IRangedStat, ISerializable<IRangedStat> {
-    public observers = new Dictionary<string, IRangedStatObserver>();
     protected curValue = 50;
     protected minValue = 0;
     protected maxValue = 100;
@@ -26,22 +18,16 @@ export class RangedStat implements IRangedStat, ISerializable<IRangedStat> {
             this.curValue = this.minValue;
         if (this.curValue > this.maxValue)
             this.curValue = this.maxValue;
-        for (const observers of this.observers)
-            observers.onValue(this.curValue);
     }
 
     public get min() { return this.minValue; }
     public set min(num: number) {
         this.minValue += num;
-        for (const observers of this.observers)
-            observers.onMin(this.curValue);
     }
 
     public get max() { return this.maxValue; }
     public set max(num: number) {
         this.maxValue += num;
-        for (const observers of this.observers)
-            observers.onMax(this.curValue);
     }
 
     public serialize(): IRangedStat {
