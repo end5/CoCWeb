@@ -1,15 +1,15 @@
-import { Pregnancy, IPregnancy } from './Pregnancy';
+import { Pregnancy, IPregnancy, PregnancyType, IncubationTime } from './Pregnancy';
 import { ISerializable } from 'Engine/Utilities/ISerializable';
+import { Dictionary } from 'Engine/Utilities/Dictionary';
 
 export interface IFlagWomb {
     pregnancy?: IPregnancy;
-    events: number[];
     lastEvent: number;
 }
 
 export class FlagWomb implements ISerializable<IFlagWomb> {
     protected currentPregnancy?: Pregnancy;
-    protected events: number[] = [];
+    public readonly eventSets: Dictionary<PregnancyType, number[]> = new Dictionary();
     protected lastEvent: number = 0;
 
     public get pregnancy(): Pregnancy | undefined {
@@ -17,9 +17,14 @@ export class FlagWomb implements ISerializable<IFlagWomb> {
     }
 
     public get event(): number {
-        if (this.currentPregnancy && this.currentPregnancy.incubation <= 0) return 0;
-        for (let index = 0; index < this.events.length; index++) {
-            if (this.currentPregnancy && this.currentPregnancy.incubation > this.events[index]) return index;
+        if (this.currentPregnancy) {
+            if (this.currentPregnancy.incubation <= 0) return 0;
+
+            const eventSet = this.eventSets.get(this.currentPregnancy.type);
+            if (eventSet)
+                for (let index = 0; index < eventSet.length; index++) {
+                    if (this.currentPregnancy && this.currentPregnancy.incubation > eventSet[index]) return index;
+                }
         }
         return 1;
     }
@@ -34,15 +39,13 @@ export class FlagWomb implements ISerializable<IFlagWomb> {
         return !!this.pregnancy;
     }
 
-    public knockUp(pregnancy: Pregnancy, events: number[]): void {
-        this.currentPregnancy = pregnancy;
-        this.events = events;
+    public knockUp(type: PregnancyType, time: IncubationTime): void {
+        this.currentPregnancy = new Pregnancy(type, time);
         this.lastEvent = 0;
     }
 
     public clear() {
         this.currentPregnancy = undefined;
-        this.events = [];
         this.lastEvent = 0;
     }
 
@@ -59,7 +62,6 @@ export class FlagWomb implements ISerializable<IFlagWomb> {
         if (this.currentPregnancy)
             return {
                 pregnancy: this.currentPregnancy.serialize(),
-                events: this.events,
                 lastEvent: this.lastEvent,
             };
     }
@@ -70,7 +72,6 @@ export class FlagWomb implements ISerializable<IFlagWomb> {
                 this.currentPregnancy = new Pregnancy();
                 this.currentPregnancy.deserialize(saveObject.pregnancy);
             }
-            this.events = saveObject.events;
             this.lastEvent = saveObject.lastEvent;
         }
     }

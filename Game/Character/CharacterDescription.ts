@@ -61,6 +61,10 @@ export class CharacterDescription implements ISerializable<ICharDesc> {
         return this.longDesc;
     }
 
+    public set long(value: string) {
+        this.longDesc = value;
+    }
+
     public get plural(): boolean {
         return this.isPlural;
     }
