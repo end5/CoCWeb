@@ -1,26 +1,22 @@
 ﻿import { CharacterDescription } from './CharacterDescription';
 import { CharacterType } from './CharacterType';
-import { ISerializable } from '../../Engine/Utilities/ISerializable';
-import { randInt } from '../../Engine/Utilities/SMath';
-import { LegType } from '../Body/Legs';
-import { Tail, TailType } from '../Body/Tail';
-import { CombatContainer } from '../Combat/CombatContainer';
-import { CharacterInventory, ICharInv } from '../Inventory/CharacterInventory';
-import { generateUUID } from '../Utilities/Uuid';
-import { GenderIdentity, Gender } from '../Body/GenderIdentity';
-import { Body, IBody } from '../Body/Body';
-import { Stats, IStats } from '../Body/Stats';
-import { StatsFacade } from '../Body/StatsFacade';
-import { StatusEffectDict } from '../Effects/StatusEffectDict';
-import { PerkDict } from '../Effects/PerkDict';
-import { WingType } from '../Body/Wings';
-import { BreastRow } from '../Body/BreastRow';
-import { Vagina } from '../Body/Vagina';
-import { Womb } from '../Body/Pregnancy/Womb';
-import { StatusEffect } from '../Effects/StatusEffect';
-import { Perk } from '../Effects/Perk';
-import { IEffect } from '../Effects/Effect';
-import { IDictionary } from '../../Engine/Utilities/Dictionary';
+import { Gender, GenderIdentity } from './Body/GenderIdentity';
+import { IBody, Body } from './Body/Body';
+import { IStats, Stats } from './Stats/Stats';
+import { IEffect, Effect } from 'Game/Effects/Effect';
+import { ICharInv, CharacterInventory } from 'Game/Inventory/CharacterInventory';
+import { ISerializable } from 'Engine/Utilities/ISerializable';
+import { CombatContainer } from 'Game/Combat/CombatContainer';
+import { StatsFacade } from './Stats/StatsFacade';
+import { generateUUID } from 'Game/Utilities/Uuid';
+import { LegType } from './Body/Legs';
+import { Vagina } from './Body/Vagina';
+import { BreastRow } from './Body/BreastRow';
+import { WingType } from './Body/Wings';
+import { Womb } from './Body/Pregnancy/Womb';
+import { randInt } from 'Engine/Utilities/SMath';
+import { TailType, Tail } from './Body/Tail';
+import { EffectList } from 'Game/Effects/EffectList';
 
 export interface ICharacter {
     type: CharacterType;
@@ -30,8 +26,7 @@ export interface ICharacter {
     hoursSinceCum: number;
     body: IBody;
     stats: IStats;
-    effects: IDictionary<IEffect>;
-    perks: IDictionary<IEffect>;
+    effects: IEffect[];
     inventory: ICharInv;
 }
 
@@ -63,8 +58,47 @@ export abstract class Character implements ISerializable<ICharacter> {
 
     private baseStats = new Stats();
     public stats = new StatsFacade(this, this.baseStats);
-    public effects = new StatusEffectDict(this);
-    public perks = new PerkDict();
+    public effects = new EffectList();
+    public perks = this.effects;
+
+    public constructor(type: CharacterType) {
+        this.charType = type;
+        this.UUID = generateUUID();
+        if (type !== CharacterType.Player) {
+            this.stats.XP = this.totalXP();
+        }
+
+        this.effects.on('add', (effect) => {
+            const values = effect.values;
+            this.stats.base.str.effects.add(values.str);
+            this.stats.base.tou.effects.add(values.tou);
+            this.stats.base.spe.effects.add(values.spe);
+            this.stats.base.int.effects.add(values.int);
+            this.stats.base.lib.effects.add(values.lib);
+            this.stats.base.sens.effects.add(values.sens);
+            this.stats.base.cor.effects.add(values.cor);
+            this.stats.base.fatigue.effects.add(values.fatigue);
+            this.stats.base.HP.effects.add(values.hp);
+            this.stats.base.lust.effects.add(values.lust);
+            this.body.femEffects.add(values.femininity);
+            this.body.fertEffects.add(values.fertility);
+        });
+        this.effects.on('remove', (effect) => {
+            const values = effect.values;
+            this.stats.base.str.effects.removeEntry(values.str);
+            this.stats.base.tou.effects.removeEntry(values.tou);
+            this.stats.base.spe.effects.removeEntry(values.spe);
+            this.stats.base.int.effects.removeEntry(values.int);
+            this.stats.base.lib.effects.removeEntry(values.lib);
+            this.stats.base.sens.effects.removeEntry(values.sens);
+            this.stats.base.cor.effects.removeEntry(values.cor);
+            this.stats.base.fatigue.effects.removeEntry(values.fatigue);
+            this.stats.base.HP.effects.removeEntry(values.hp);
+            this.stats.base.lust.effects.removeEntry(values.lust);
+            this.body.femEffects.removeEntry(values.femininity);
+            this.body.fertEffects.removeEntry(values.fertility);
+        });
+    }
 
     public get gender(): Gender {
         return this.genderManager.gender;
@@ -78,14 +112,6 @@ export abstract class Character implements ISerializable<ICharacter> {
         this.genderManager.preference = gender;
     }
 
-    public constructor(type: CharacterType) {
-        this.charType = type;
-        this.UUID = generateUUID();
-        if (type !== CharacterType.Player) {
-            this.stats.XP = this.totalXP();
-        }
-    }
-
     public serialize(): ICharacter {
         const save: ICharacter = {
             type: this.charType,
@@ -95,7 +121,6 @@ export abstract class Character implements ISerializable<ICharacter> {
             body: this.body.serialize(),
             stats: this.baseStats.serialize(),
             effects: this.effects.serialize(),
-            perks: this.perks.serialize(),
             inventory: this.inventory.serialize(),
         };
         if (this.partyUUID)
@@ -112,8 +137,7 @@ export abstract class Character implements ISerializable<ICharacter> {
         this.hoursSinceCum = saveObject.hoursSinceCum;
         this.body.deserialize(saveObject.body);
         this.baseStats.deserialize(saveObject.stats);
-        this.effects.deserialize(saveObject.effects, StatusEffect);
-        this.perks.deserialize(saveObject.perks, Perk);
+        this.effects.deserialize(saveObject.effects, Effect);
         this.inventory.deserialize(saveObject.inventory);
     }
 

@@ -1,5 +1,5 @@
-import { Character } from "../../Character/Character";
-import { IActionDamage } from "./CombatAction";
+import { Character } from 'Game/Character/Character';
+import { IActionDamage } from './CombatAction';
 
 export interface IReaction {
     /**

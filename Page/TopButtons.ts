@@ -1,55 +1,49 @@
 import { ButtonElement } from "./ButtonElement";
-import { loadFromId } from "../Engine/Utilities/Html";
 
 export class TopButtons {
     public static readonly NUM_TOP_BUTTONS = 6;
-    private topButtons: ButtonElement[] = [];
+    public readonly buttons: ButtonElement[] = [];
 
     public constructor() {
-        for (let index = 0; index < TopButtons.NUM_TOP_BUTTONS; index++) {
-            const newButton = new ButtonElement();
-            newButton.setHTMLElement(loadFromId("buttontop" + index) as HTMLAnchorElement);
-            this.topButtons.push(newButton);
-        }
     }
 
     public get(buttonNumber: number): ButtonElement | undefined {
-        return this.topButtons[buttonNumber];
+        return this.buttons[buttonNumber];
     }
 
     public show() {
         for (let buttonNumber: number = 0; buttonNumber < TopButtons.NUM_TOP_BUTTONS; buttonNumber++) {
-            this.topButtons[buttonNumber].show();
+            this.buttons[buttonNumber].show();
         }
     }
 
     public hide() {
         for (let buttonNumber: number = 0; buttonNumber < TopButtons.NUM_TOP_BUTTONS; buttonNumber++) {
-            this.topButtons[buttonNumber].hide();
+            this.buttons[buttonNumber].hide();
         }
     }
 
     public get mainMenu() {
-        return this.topButtons[0];
+        return this.buttons[0];
     }
 
     public get data() {
-        return this.topButtons[1];
+        return this.buttons[1];
     }
 
     public get stats() {
-        return this.topButtons[2];
+        return this.buttons[2];
     }
 
     public get levelUp() {
-        return this.topButtons[3];
+        return this.buttons[3];
     }
 
     public get perks() {
-        return this.topButtons[4];
+        return this.buttons[4];
     }
 
     public get appearance() {
-        return this.topButtons[5];
+        return this.buttons[5];
     }
 }

@@ -1,6 +1,6 @@
-﻿import { BreastRow } from '../Body/BreastRow';
-import { Gender } from '../Body/GenderIdentity';
-import { Character } from '../Character/Character';
+﻿import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { Gender } from 'Game/Character/Body/GenderIdentity';
+import { Character } from 'Game/Character/Character';
 
 export function genderText(gender: Gender, male: string = "man", female: string = "woman", futa: string = "herm", eunuch: string = "eunuch"): string {
     if (gender === Gender.HERM)

@@ -1,8 +1,8 @@
 ﻿import { BindableAction } from './BindableAction';
 import { DefaultKeyBinds } from './DefaultKeyBinds';
 import { KeyPair } from './KeyPair';
-import { ISerializable } from '../../Engine/Utilities/ISerializable';
 import { List } from '../Utilities/List';
+import { ISerializable } from 'Engine/Utilities/ISerializable';
 
 export interface IInputManager {
     keyBinds: KeyPair[];

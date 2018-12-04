@@ -1,27 +1,34 @@
-import { EffectDesc } from './EffectDescription';
-import { ISerializable } from '../../Engine/Utilities/ISerializable';
+import { EffectDesc } from './EffectDesc';
+import { ISerializable } from 'Engine/Utilities/ISerializable';
 import { EffectValues, IEffectValues } from './EffectValues';
+import { EffectDescLib } from './EffectDescLib';
+import { Character } from 'Game/Character/Character';
 
 export interface IEffect {
     type: string;
     values?: IEffectValues;
 }
 
-export abstract class Effect<Type extends string, Desc extends EffectDesc = EffectDesc, Values extends EffectValues = EffectValues> implements ISerializable<IEffect> {
-    // desc does not need to be serialized
-    private effectType: Type;
-    public readonly desc: Desc;
-    public abstract values: Values;
+export class Effect implements ISerializable<IEffect> {
+    private effectType: string;
+    public readonly desc: EffectDesc;
+    public readonly values: EffectValues;
     protected reducedValues?: IEffectValues;
-    public constructor(type: Type, desc: Desc, values?: IEffectValues) {
+    public constructor(type: string, values?: IEffectValues) {
         this.effectType = type;
-        this.desc = desc;
+        this.desc = EffectDescLib.get(name);
         this.reducedValues = values;
+        this.values = new EffectValues(values);
     }
 
-    public get type(): Type {
+    public get type(): string {
         return this.effectType;
     }
+
+    public combatStart(char: Character): void { }
+    public combatTurnStart(char: Character, ...enemies: Character[]): void { }
+    public combatTurnEnd(char: Character, ...enemies: Character[]): void { }
+    public combatEnd(char: Character): void { }
 
     public serialize(): IEffect {
         if (this.reducedValues)
@@ -36,7 +43,7 @@ export abstract class Effect<Type extends string, Desc extends EffectDesc = Effe
     }
 
     public deserialize(saveObject: IEffect) {
-        this.effectType = saveObject.type as Type;
+        this.effectType = saveObject.type;
         this.reducedValues = saveObject.values;
     }
 }

@@ -8,21 +8,30 @@ export type FindOption<T> = (value: T, index: number, array: T[]) => boolean;
 
 export class List<T> implements Iterable<T>, ISerializable<T[]> {
     protected list: T[] = [];
-    private minLength: number = 0;
 
     public add(item: T) {
         this.list.push(item);
     }
 
     public remove(index: number) {
-        if (index >= 0 && index < this.list.length && this.minLength <= this.list.length - 1)
-            this.list.splice(index, 1);
+        if (index < 0 || index >= this.list.length)
+            throw new RangeError('List index out of bounds');
+        this.list.splice(index, 1);
+    }
+
+    public removeEntry(entry: T): boolean {
+        const index = this.list.indexOf(entry);
+        if (index >= 0) {
+            this.remove(index);
+            return true;
+        }
+        return false;
     }
 
     public get(index: number): T | undefined {
-        if (index >= 0 && index < this.list.length)
-            return this.list[index];
-        throw new Error("Array index out of bounds");
+        if (index < 0 || index >= this.list.length)
+            throw new RangeError('List index out of bounds');
+        return this.list[index];
     }
 
     public indexOf(object: T): number {
@@ -35,10 +44,6 @@ export class List<T> implements Iterable<T>, ISerializable<T[]> {
 
     public get length(): number {
         return this.list.length;
-    }
-
-    public set minCount(min: number) {
-        this.minLength = min;
     }
 
     /**
@@ -75,6 +80,17 @@ export class List<T> implements Iterable<T>, ISerializable<T[]> {
      */
     public find(option: FindOption<T> | ((value: T, index: number, array: T[]) => boolean)): T | undefined {
         return this.list.find(option);
+    }
+
+    /**
+     * Returns the index of the first element in the array where option is true, and -1
+     * otherwise.
+     * @param option find calls option once for each element of the array, in ascending
+     * order, until it finds one where option returns true. If such an element is found,
+     * findIndex immediately returns that element index. Otherwise, findIndex returns -1.
+     */
+    public findIndex(option: FindOption<T> | ((value: T, index: number, array: T[]) => boolean)): number {
+        return this.list.findIndex(option);
     }
 
     public map<U>(option: MapOption<T, U> | ((value: T, index: number, array: T[]) => U)): List<U> {

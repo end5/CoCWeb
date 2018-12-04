@@ -1,7 +1,7 @@
 import { ListEntryElement } from '../../Engine/Display/Elements/ListEntryElement';
 import { UnorderedListElement } from '../../Engine/Display/Elements/UnorderedListElement';
 import { SaveManager } from '../../Engine/Save/SaveManager';
-import { Gender } from '../Body/GenderIdentity';
+import { Gender } from 'Game/Character/Body/GenderIdentity';
 import { SaveFile } from '../SaveFile';
 import { ClickOption, NextScreenChoices, ScreenChoice } from '../ScreenDisplay';
 import { CView } from '../../Page/ContentView';

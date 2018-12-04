@@ -1,11 +1,11 @@
 import { ItemStack, IItemStack } from './ItemStack';
-import { ISerializable } from '../../Engine/Utilities/ISerializable';
-import { FilterOption, List, ReduceOption, SortOption } from '../../Engine/Utilities/List';
-import { Character } from '../Character/Character';
-import { Item } from '../Items/Item';
-import { displayCharInventoryFull } from '../Menus/InGame/InventoryDisplay';
-import { NextScreenChoices, ClickFunction } from '../ScreenDisplay';
-import { getItemFromName } from '../Items/ItemLookup';
+import { ISerializable } from 'Engine/Utilities/ISerializable';
+import { List, SortOption, FilterOption, ReduceOption } from 'Engine/Utilities/List';
+import { Character } from 'Game/Character/Character';
+import { Item } from 'Game/Items/Item';
+import { displayCharInventoryFull } from 'Game/Menus/InGame/InventoryDisplay';
+import { ClickFunction, NextScreenChoices } from 'Game/ScreenDisplay';
+import { getItemFromName } from 'Game/Items/ItemLookup';
 
 export interface IInventory {
     slots: IItemStack[];

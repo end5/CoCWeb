@@ -1,4 +1,4 @@
-import { ISerializable } from '../../Engine/Utilities/ISerializable';
+import { ISerializable } from 'Engine/Utilities/ISerializable';
 
 export interface IKeyCombination {
     keyCode: number;

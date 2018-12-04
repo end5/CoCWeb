@@ -1,5 +1,5 @@
-import { ISerializable } from '../../../Engine/Utilities/ISerializable';
-import { Character } from '../../Character/Character';
+import { ISerializable } from 'Engine/Utilities/ISerializable';
+import { Character } from 'Game/Character/Character';
 import { EquipableItem } from '../EquipableItem';
 import { ItemType } from '../ItemType';
 import { ItemDesc } from '../ItemDesc';

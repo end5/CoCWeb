@@ -1,4 +1,4 @@
-import { Character } from '../../Character/Character';
+import { Character } from 'Game/Character/Character';
 import { CombatActionType } from './CombatActionType';
 
 export interface IActionDamage {

@@ -1,9 +1,9 @@
 import { MaterialName } from './MaterialName';
-import { Character } from '../../Character/Character';
+import { Character } from 'Game/Character/Character';
 import { Item } from '../Item';
 import { ItemDesc } from '../ItemDesc';
 import { ItemType } from '../ItemType';
-import { CView } from '../../../Page/ContentView';
+import { CView } from 'Page/ContentView';
 
 export class Material extends Item {
     private readonly useDesc: string = '';

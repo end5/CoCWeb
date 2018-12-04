@@ -1,5 +1,5 @@
 import { KeyCombination, IKeyCombination } from './KeyCombination';
-import { ISerializable } from '../../Engine/Utilities/ISerializable';
+import { ISerializable } from 'Engine/Utilities/ISerializable';
 
 export interface IKeyPair {
     primaryKey?: IKeyCombination;

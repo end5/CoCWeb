@@ -1,4 +1,4 @@
-import { Character } from '../../Character/Character';
+import { Character } from 'Game/Character/Character';
 
 export interface ISpellAction {
     readonly baseCost: number;

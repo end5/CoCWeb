@@ -1,10 +1,9 @@
 import { ArmorName } from './ArmorName';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
+import { Character } from 'Game/Character/Character';
 import { EquipableItem } from '../EquipableItem';
 import { ItemDesc } from '../ItemDesc';
 import { ItemType } from '../ItemType';
-import { CView } from '../../../Page/ContentView';
+import { CView } from 'Page/ContentView';
 
 export type ArmorClass = "Light" | "Medium" | "Heavy" | "";
 
@@ -52,9 +51,5 @@ export class Armor extends EquipableItem {
      * @param character
      */
     public onUnequip(character: Character) {
-        while (character.perks.has(PerkType.BulgeArmor))
-            character.perks.remove(PerkType.BulgeArmor); // TODO remove this Exgartuan hack
-        if (character.inventory.armorDescMod.length > 0)
-            character.inventory.armorDescMod = "";
     }
 }

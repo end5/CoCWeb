@@ -1,5 +1,3 @@
-import { MainScreen } from '../../Page/MainScreen';
-
 class TimeHandler {
     private date: Date;
     public constructor() {
@@ -12,7 +10,6 @@ class TimeHandler {
 
     public set hour(value: number) {
         this.date.setHours(value);
-        this.updateDisplay();
     }
 
     public get day(): number {
@@ -21,14 +18,6 @@ class TimeHandler {
 
     public set day(value: number) {
         this.date.setDate(value);
-        this.updateDisplay();
-    }
-
-    private updateDisplay() {
-        MainScreen.timeHourElement.clear();
-        MainScreen.timeHourElement.text(this.hour + ":00");
-        MainScreen.timeDayElement.clear();
-        MainScreen.timeDayElement.text(this.day.toString());
     }
 }
 
