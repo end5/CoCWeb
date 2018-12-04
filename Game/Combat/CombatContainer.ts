@@ -1,29 +1,24 @@
 import { ICombatRewards } from './ICombatRewards';
-import { CombatStats } from './CombatStats';
 import { EndScenes } from './EndScenes';
 import { Character } from 'Game/Character/Character';
-import { CombatEffectDict } from 'Game/Effects/CombatEffectDict';
-import { StatusEffectType } from '../Effects/StatusEffectType';
 import { Dictionary } from 'Engine/Utilities/Dictionary';
 import { IReaction } from './Actions/IReaction';
 import { CombatAction } from './Actions/CombatAction';
 import { MainAction } from './Actions/MainAction';
+import { randInt } from 'Engine/Utilities/SMath';
+import { CView } from 'Page/ContentView';
 
 export class CombatContainer {
-    private character: Character;
     public useAI: boolean = true;
     public readonly action: CombatAction;
     public readonly endScenes: EndScenes;
     public readonly rewards: ICombatRewards;
     public readonly reactions: Dictionary<string, IReaction>;
 
-    public readonly stats: CombatStats;
-    public readonly effects: CombatEffectList;
+    private char: Character;
 
     public constructor(character: Character, values: { mainAction?: CombatAction, endScenes: EndScenes, rewards: ICombatRewards, reactions?: Dictionary<string, IReaction> }) {
-        this.character = character;
-        this.stats = new CombatStats(character);
-        this.effects = new CombatEffectList(character);
+        this.char = character;
 
         if (values.mainAction)
             this.action = values.mainAction;
@@ -45,9 +40,67 @@ export class CombatContainer {
 
     public spellCount(): number {
         return []
-            .filter((name: StatusEffectType) => {
-                return this.character.effects.has(name);
+            .filter((name: string) => {
+                return this.char.effects.has(name);
             })
             .length;
+    }
+
+    public HP(): number {
+        return this.char.stats.HP;
+    }
+
+    public HPRatio(): number {
+        return this.char.stats.HP / this.char.stats.maxHP();
+    }
+
+    public gainHP(value: number): number {
+        const oldHP = this.char.stats.HP;
+        this.char.stats.HP += value;
+        return oldHP - this.char.stats.HP;
+    }
+
+    public loseHP(value: number): number {
+        const oldHP = this.char.stats.HP;
+        this.char.stats.HP -= value;
+        return oldHP - this.char.stats.HP;
+    }
+
+    /**
+     * @return 0: did not avoid; 1-3: avoid with varying difference between
+     * speeds (1: narrowly avoid, 3: deftly avoid)
+     */
+    public speedDodge(enemy: Character): number {
+        const diff: number = this.char.stats.spe - enemy.stats.spe;
+        const rnd: number = randInt((diff / 4) + 80);
+        if (rnd <= 80) return 0;
+        else if (diff < 8) return 1;
+        else if (diff < 20) return 2;
+        else return 3;
+    }
+
+    public defense(): number {
+        return this.char.inventory.armor.defense;
+    }
+
+    public attack(enemy: Character): number {
+        return this.char.inventory.weapon.attack + enemy.combat.defense();
+    }
+
+    public spellMod(): number {
+        return 1;
+    }
+
+    public teaseXP(XP: number = 0) {
+        while (XP > 0) {
+            XP--;
+            this.char.stats.teaseXP++;
+            // Level dat shit up!
+            if (this.char.stats.teaseLevel < 5 && this.char.stats.teaseXP >= 10 + (this.char.stats.teaseLevel + 1) * 5 * (this.char.stats.teaseLevel + 1)) {
+                CView.text("\n<b>Tease skill leveled up to " + (this.char.stats.teaseLevel + 1) + "!</b>");
+                this.char.stats.teaseLevel++;
+                this.char.stats.teaseXP = 0;
+            }
+        }
     }
 }
