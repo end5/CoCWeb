@@ -1,4 +1,3 @@
-import { combatCleanup } from './CombatCleanup';
 import { CombatParty } from './CombatParty';
 import { DefeatType } from './DefeatEvent';
 import { Character } from 'Game/Character/Character';
@@ -12,8 +11,6 @@ import { combatMenu } from 'Game/Menus/InGame/CombatMenu';
 
 export class Encounter {
     private mainCharacter: Character;
-    private allyList: Character[];
-    private enemyList: Character[];
     public allyParty: CombatParty;
     public enemyParty: CombatParty;
     private allyPartyTurn: boolean;
@@ -21,12 +18,20 @@ export class Encounter {
 
     public constructor(mainCharacter: Character, allyParty: Character[], enemyParty: Character[]) {
         this.mainCharacter = mainCharacter;
-        this.allyList = allyParty;
-        this.enemyList = enemyParty;
         this.allyParty = new CombatParty([mainCharacter].concat(allyParty));
         this.enemyParty = new CombatParty(enemyParty);
 
+        this.effectsCombatStart(this.allyParty);
+        this.effectsCombatStart(this.enemyParty);
+
         this.allyPartyTurn = true;
+    }
+
+    private effectsCombatStart(party: CombatParty) {
+        for (const member of party.ableMembers)
+            for (const effect of member.effects)
+                if (effect.values.combatStart)
+                    effect.values.combatStart(member);
     }
 
     public performRound(): NextScreenChoices {
@@ -47,6 +52,9 @@ export class Encounter {
             encounter.resolveEndTurn(activeMember);
             return encounter.endCombatOrNextRound();
         };
+
+        this.effectsTurnStart(activeMember, this.allyPartyTurn ? this.allyParty.ableMembers : this.enemyParty.ableMembers);
+
         if (!activeMember) {
             return { next: playerMenu };
         }
@@ -62,33 +70,52 @@ export class Encounter {
         }
     }
 
-    private combatEffectUpdate(selectedChar: Character, enemyParty: Character[]): void {
-        const enemyChar: Character = enemyParty[0];
-
-        if (selectedChar.combat.effects.keys.length > 0)
-            for (const combatEffect of selectedChar.combat.effects) {
-                combatEffect.update(selectedChar, enemyChar);
-            }
+    private effectsTurnStart(selectedChar: Character, enemyParty: Character[]): void {
+        for (const effect of selectedChar.effects)
+            if (effect.values.combatTurnStart)
+                effect.values.combatTurnStart(selectedChar, ...enemyParty);
     }
 
     private resolveEndTurn(character: Character): void {
         if (this.allyPartyTurn) {
-            this.combatEffectUpdate(character, this.enemyParty.ableMembers);
+            this.effectsTurnEnd(character, this.enemyParty.ableMembers);
             this.allyParty.selectNextPartyMember();
         }
         else {
-            this.combatEffectUpdate(character, this.allyParty.ableMembers);
+            this.effectsTurnEnd(character, this.allyParty.ableMembers);
             this.enemyParty.selectNextPartyMember();
         }
         this.allyPartyTurn = !this.allyPartyTurn;
     }
 
+    private effectsTurnEnd(selectedChar: Character, enemyParty: Character[]): void {
+        for (const effect of selectedChar.effects)
+            if (effect.values.combatTurnEnd)
+                effect.values.combatTurnEnd(selectedChar, ...enemyParty);
+    }
+
     private endCombatOrNextRound(): NextScreenChoices {
         if (this.allyParty.ableMembers.length === 0 || this.enemyParty.ableMembers.length === 0) {
-            combatCleanup(this.mainCharacter, this.allyList, this.enemyList);
+            this.combatCleanup();
             return this.displayDefeatEvent();
         }
         return this.performRound();
+    }
+
+    private combatCleanup() {
+        this.effectsCombatEnd(this.mainCharacter);
+        for (const member of this.allyParty.allMembers) {
+            this.effectsCombatEnd(member);
+        }
+        for (const member of this.enemyParty.allMembers) {
+            this.effectsCombatEnd(member);
+        }
+    }
+
+    private effectsCombatEnd(char: Character) {
+        for (const effect of char.effects)
+            if (effect.values.combatEnd)
+                effect.values.combatEnd(char);
     }
 
     private displayDefeatEvent(): NextScreenChoices {

@@ -1,9 +1,7 @@
-import { CombatParty } from './CombatParty';
 import { Encounter } from './Encounter';
 import { MainScreen } from 'Page/MainScreen';
 import { List } from 'Engine/Utilities/List';
 import { Character } from 'Game/Character/Character';
-import { CombatEffectType } from 'Game/Effects/CombatEffectType';
 import { Item } from 'Game/Items/Item';
 import { NextScreenChoices } from 'Game/ScreenDisplay';
 import { PartyDict } from 'Game/PartyDict';
@@ -23,34 +21,11 @@ class CombatManager {
         MainScreen.topButtons.levelUp.hide();
         MainScreen.topButtons.perks.hide();
 
-        this.loadPartyCombatEffects(this.encounter.allyParty);
-        this.loadPartyCombatEffects(this.encounter.enemyParty);
-
         return this.encounter.performRound();
     }
 
     public get inCombat(): boolean {
         return !!this.encounter && !!this.encounter.performTurnEnd;
-    }
-
-    private loadPartyCombatEffects(party: CombatParty) {
-        for (const member of party.ableMembers) {
-            this.loadCombatEffects(member);
-        }
-    }
-
-    private loadCombatEffects(character: Character) {
-        let effectType: CombatEffectType;
-        for (const type of character.effects.keys()) {
-            effectType = CombatEffectType[type as keyof typeof CombatEffectType];
-            if (effectType)
-                character.combat.effects.add(effectType, character);
-        }
-        for (const type of character.perks.keys()) {
-            effectType = CombatEffectType[type as keyof typeof CombatEffectType];
-            if (effectType)
-                character.combat.effects.add(effectType, character);
-        }
     }
 }
 
