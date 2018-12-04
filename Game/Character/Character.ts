@@ -80,6 +80,8 @@ export abstract class Character implements ISerializable<ICharacter> {
             this.stats.base.fatigue.effects.add(values.fatigue);
             this.stats.base.HP.effects.add(values.hp);
             this.stats.base.lust.effects.add(values.lust);
+            this.body.femEffects.add(values.femininity);
+            this.body.fertEffects.add(values.fertility);
         });
         this.effects.on('remove', (effect) => {
             const values = effect.values;
@@ -93,6 +95,8 @@ export abstract class Character implements ISerializable<ICharacter> {
             this.stats.base.fatigue.effects.removeEntry(values.fatigue);
             this.stats.base.HP.effects.removeEntry(values.hp);
             this.stats.base.lust.effects.removeEntry(values.lust);
+            this.body.femEffects.removeEntry(values.femininity);
+            this.body.fertEffects.removeEntry(values.fertility);
         });
     }
 

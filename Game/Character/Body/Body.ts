@@ -92,6 +92,7 @@ export class Body implements ISerializable<IBody> {
 
     public cumMultiplier: number = 0;
     private femStat = new RangedStatWithEffects();
+    public readonly femEffects = this.femStat.effects;
 
     public get femininity(): number {
         return this.femStat.value;
@@ -102,6 +103,7 @@ export class Body implements ISerializable<IBody> {
     }
 
     private fertStat = new RangedStatWithEffects();
+    public readonly fertEffects = this.fertStat.effects;
 
     public get fertility(): number {
         return this.fertStat.value;
