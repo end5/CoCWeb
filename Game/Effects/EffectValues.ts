@@ -1,5 +1,7 @@
 import { IRangedStatEffect, RangedStatEffect } from 'Game/Character/Stats/Stat/RangedStatEffect';
 import { IStatModifier, StatModifier } from 'Game/Character/Stats/Stat/StatModifier';
+import { CombatActionType } from 'Game/Combat/Actions/CombatActionType';
+import { Character } from 'Game/Character/Character';
 
 export interface IEffectValues {
     expireCountdown?: number;
@@ -26,7 +28,11 @@ export interface IEffectValues {
     virility?: number;
     vaginalCapacity?: number;
     analCapacity?: number;
-    other?: { [x: string]: any };
+    blockedTypes?: CombatActionType;
+    combatStart?: (char: Character) => void;
+    combatTurnStart?: (char: Character, ...enemies: Character[]) => void;
+    combatTurnEnd?: (char: Character, ...enemies: Character[]) => void;
+    combatEnd?: (char: Character) => void;
 }
 
 export class EffectValues implements IEffectValues {
@@ -54,7 +60,11 @@ export class EffectValues implements IEffectValues {
     public readonly virility: number;
     public readonly vaginalCapacity: number;
     public readonly analCapacity: number;
-    public other?: { [x: string]: any };
+    public readonly blockedTypes: CombatActionType;
+    public readonly combatStart?: (char: Character) => void;
+    public readonly combatTurnStart?: (char: Character, ...enemies: Character[]) => void;
+    public readonly combatTurnEnd?: (char: Character, ...enemies: Character[]) => void;
+    public readonly combatEnd?: (char: Character) => void;
 
     public constructor(values?: IEffectValues) {
         this.expireCountdown = values && values.expireCountdown ? values.expireCountdown : 0;
@@ -81,5 +91,10 @@ export class EffectValues implements IEffectValues {
         this.virility = values && values.virility ? values.virility : 0;
         this.vaginalCapacity = values && values.vaginalCapacity ? values.vaginalCapacity : 0;
         this.analCapacity = values && values.analCapacity ? values.analCapacity : 0;
+        this.blockedTypes = values && values.blockedTypes ? values.blockedTypes : CombatActionType.None;
+        if (values && values.combatStart) this.combatStart = values.combatStart;
+        if (values && values.combatTurnStart) this.combatTurnStart = values.combatTurnStart;
+        if (values && values.combatTurnEnd) this.combatTurnEnd = values.combatTurnEnd;
+        if (values && values.combatEnd) this.combatEnd = values.combatEnd;
     }
 }
