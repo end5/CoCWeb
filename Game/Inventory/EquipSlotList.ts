@@ -2,7 +2,7 @@ import { EquipSlot } from './EquipSlot';
 import { List } from '../../Engine/Utilities/List';
 import { EquipableItem } from '../Items/EquipableItem';
 
-export class EquipSlotList<T extends EquipableItem, EquipSlotType extends EquipSlot<T> = EquipSlot<T>> extends List<EquipSlotType> {
+export class EquipSlotList<T extends EquipableItem> extends List<EquipSlot<T>> {
     public remove(index: number) {
         if (index >= 0 && index < this.list.length && this.list[index])
             this.list[index].unequip();

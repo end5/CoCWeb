@@ -12,9 +12,6 @@ import { IEquipSlot, EquipSlot } from './EquipSlot';
 import { IPiercingInventory, PiercingInventory } from './PiercingInventory';
 import { EquipSlotList } from './EquipSlotList';
 import { CockSock } from 'Game/Items/Misc/CockSock';
-import { ObservingEquipSlot } from './ObservingEquipSlot';
-import { Cock } from 'Game/Character/Body/Cock';
-import { ListMonitor } from 'Game/Utilities/ListMonitor';
 
 export interface ICharInv {
     items: IInventory;
@@ -27,9 +24,8 @@ export interface ICharInv {
     armorDescMod: string;
 }
 
-type CockSockSlot = ObservingEquipSlot<CockSock, Cock>;
-
 export class CharacterInventory implements ISerializable<ICharInv> {
+    private char: Character;
     public readonly items: Inventory<Item>;
     public gemsStat: StatWithEffects;
     public readonly keyItems: KeyItemDict;
@@ -38,12 +34,11 @@ export class CharacterInventory implements ISerializable<ICharInv> {
     public readonly noArmorSlot: EquipSlot<Armor>;
     public readonly equippedArmorSlot: EquipSlot<Armor>;
     public readonly piercings: PiercingInventory;
-    public readonly cockSocks = new EquipSlotList<CockSock, CockSockSlot>();
-    private cocksMonitor: ListMonitor<Cock, CockSockSlot, EquipSlotList<CockSock, CockSockSlot>>;
+    public readonly cockSocks = new EquipSlotList<CockSock>();
     public armorDescMod: string;
-    private character: Character;
 
     public constructor(character: Character, unarmedWeapon: Weapon, noArmor: Armor) {
+        this.char = character;
         this.items = new Inventory<Item>();
         this.gemsStat = new StatWithEffects();
         this.keyItems = new KeyItemDict();
@@ -54,10 +49,13 @@ export class CharacterInventory implements ISerializable<ICharInv> {
         this.noArmorSlot.equip(noArmor);
         this.equippedArmorSlot = new EquipSlot(character);
         this.piercings = new PiercingInventory(character);
-        this.cocksMonitor = new ListMonitor<Cock, CockSockSlot, EquipSlotList<CockSock, CockSockSlot>>(this.cockSocks, ObservingEquipSlot, character);
-        character.body.cocks.observers.add(this.cocksMonitor);
         this.armorDescMod = "";
-        this.character = character;
+        character.body.cocks.on('add', () => {
+            this.cockSocks.add(new EquipSlot(character));
+        });
+        character.body.cocks.on('remove', (cock, index) => {
+            this.cockSocks.remove(index);
+        });
     }
 
     public get gems() { return this.gemsStat.value; }
@@ -96,14 +94,7 @@ export class CharacterInventory implements ISerializable<ICharInv> {
         if (saveObject.armor)
             this.equippedArmorSlot.deserialize(saveObject.armor);
         this.piercings.deserialize(saveObject.piercings);
-        this.cockSocks.deserialize(saveObject.cockSocks, ObservingEquipSlot, this.character);
-        // if (saveObject.cockSocks && saveObject.cockSocks.length) {
-        //     for (let index = 0; index < saveObject.cockSocks.length; index++) {
-        //         if (saveObject.cockSocks[index] && saveObject.cockSocks[index].item && this.cockSocks.get(index)) {
-        //             this.cockSocks.get(index)!.equip(new CockSock(saveObject.cockSocks[index].item.name as CockSockName));
-        //         }
-        //     }
-        // }
+        this.cockSocks.deserialize(saveObject.cockSocks, EquipSlot, this.char);
         this.armorDescMod = saveObject.armorDescMod;
     }
 }

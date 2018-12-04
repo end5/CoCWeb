@@ -17,7 +17,6 @@ import { Womb } from './Body/Pregnancy/Womb';
 import { randInt } from 'Engine/Utilities/SMath';
 import { TailType, Tail } from './Body/Tail';
 import { EffectList } from 'Game/Effects/EffectList';
-import { EffectApplicator } from 'Game/Effects/EffectApplicator';
 
 export interface ICharacter {
     type: CharacterType;
@@ -61,7 +60,6 @@ export abstract class Character implements ISerializable<ICharacter> {
     public stats = new StatsFacade(this, this.baseStats);
     public effects = new EffectList();
     public perks = this.effects;
-    private effectApplicator = new EffectApplicator(this, this.effects);
 
     public constructor(type: CharacterType) {
         this.charType = type;
@@ -70,7 +68,32 @@ export abstract class Character implements ISerializable<ICharacter> {
             this.stats.XP = this.totalXP();
         }
 
-        this.effects.observers.add(this.effectApplicator);
+        this.effects.on('add', (effect) => {
+            const values = effect.values;
+            this.stats.base.str.effects.add(values.str);
+            this.stats.base.tou.effects.add(values.tou);
+            this.stats.base.spe.effects.add(values.spe);
+            this.stats.base.int.effects.add(values.int);
+            this.stats.base.lib.effects.add(values.lib);
+            this.stats.base.sens.effects.add(values.sens);
+            this.stats.base.cor.effects.add(values.cor);
+            this.stats.base.fatigue.effects.add(values.fatigue);
+            this.stats.base.HP.effects.add(values.hp);
+            this.stats.base.lust.effects.add(values.lust);
+        });
+        this.effects.on('remove', (effect) => {
+            const values = effect.values;
+            this.stats.base.str.effects.removeEntry(values.str);
+            this.stats.base.tou.effects.removeEntry(values.tou);
+            this.stats.base.spe.effects.removeEntry(values.spe);
+            this.stats.base.int.effects.removeEntry(values.int);
+            this.stats.base.lib.effects.removeEntry(values.lib);
+            this.stats.base.sens.effects.removeEntry(values.sens);
+            this.stats.base.cor.effects.removeEntry(values.cor);
+            this.stats.base.fatigue.effects.removeEntry(values.fatigue);
+            this.stats.base.HP.effects.removeEntry(values.hp);
+            this.stats.base.lust.effects.removeEntry(values.lust);
+        });
     }
 
     public get gender(): Gender {

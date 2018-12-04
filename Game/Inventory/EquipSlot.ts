@@ -19,10 +19,11 @@ export class EquipSlot<T extends EquipableItem> implements ISerializable<IEquipS
 
     private character: Character;
     private equippedItem?: T;
-    public readonly slotEffects = new EffectList();
+    public readonly slotEffects: EffectList;
 
     public constructor(character: Character) {
         this.character = character;
+        this.slotEffects = new EffectList();
     }
 
     public get item(): T | undefined {
@@ -65,10 +66,10 @@ export class EquipSlot<T extends EquipableItem> implements ISerializable<IEquipS
         this.equippedItem = undefined;
 
         for (const effect of unequippedItem.effects)
-            this.character.effects.remove(this.character.effects.indexOf(effect));
+            this.character.effects.removeEntry(effect);
 
         for (const effect of this.slotEffects)
-            this.character.effects.remove(this.character.effects.indexOf(effect));
+            this.character.effects.removeEntry(effect);
 
         return unequippedItem;
     }

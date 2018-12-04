@@ -2,18 +2,9 @@ import { EquipSlot, IEquipSlot } from './EquipSlot';
 import { EquipSlotList } from './EquipSlotList';
 import { ISerializable } from 'Engine/Utilities/ISerializable';
 import { Character } from 'Game/Character/Character';
-import { EquipableItem } from '../Items/EquipableItem';
 import { Piercing } from 'Game/Items/Misc/Piercing';
-import { ListMonitor } from 'Game/Utilities/ListMonitor';
-import { Cock } from 'Game/Character/Body/Cock';
-import { BreastRow } from 'Game/Character/Body/BreastRow';
-import { ObservingEquipSlot } from './ObservingEquipSlot';
 
 type PiercingSlot = EquipSlot<Piercing>;
-type CockPiercingSlot = ObservingEquipSlot<Piercing, Cock>;
-type NipplePiercingSlot = ObservingEquipSlot<Piercing, BreastRow>;
-type BreastRowMonitor = ListMonitor<BreastRow, NipplePiercingSlot, EquipSlotList<Piercing, NipplePiercingSlot>>;
-type CockMonitor = ListMonitor<Cock, CockPiercingSlot, EquipSlotList<Piercing, CockPiercingSlot>>;
 
 export interface IPiercingInventory {
     clit?: IEquipSlot;
@@ -29,6 +20,7 @@ export interface IPiercingInventory {
 }
 
 export class PiercingInventory implements ISerializable<IPiercingInventory> {
+    private char: Character;
     public readonly clit: PiercingSlot;
     public readonly ears: PiercingSlot;
     public readonly eyebrow: PiercingSlot;
@@ -37,13 +29,11 @@ export class PiercingInventory implements ISerializable<IPiercingInventory> {
     public readonly tongue: PiercingSlot;
     public readonly labia: PiercingSlot;
 
-    public readonly nipples = new EquipSlotList<Piercing, NipplePiercingSlot>();
-    public readonly cocks = new EquipSlotList<Piercing, CockPiercingSlot>();
-
-    private nipplesMonitor: BreastRowMonitor;
-    private cocksMonitor: CockMonitor;
+    public readonly nipples = new EquipSlotList<Piercing>();
+    public readonly cocks = new EquipSlotList<Piercing>();
 
     public constructor(character: Character) {
+        this.char = character;
         this.clit = new EquipSlot(character);
         this.ears = new EquipSlot(character);
         this.eyebrow = new EquipSlot(character);
@@ -52,10 +42,18 @@ export class PiercingInventory implements ISerializable<IPiercingInventory> {
         this.tongue = new EquipSlot(character);
         this.labia = new EquipSlot(character);
 
-        this.nipplesMonitor = new ListMonitor<BreastRow, NipplePiercingSlot, EquipSlotList<Piercing, NipplePiercingSlot>>(this.nipples, ObservingEquipSlot, character);
-        this.cocksMonitor = new ListMonitor<Cock, CockPiercingSlot, EquipSlotList<Piercing, CockPiercingSlot>>(this.cocks, ObservingEquipSlot, character);
-        character.body.chest.observers.add(this.nipplesMonitor);
-        character.body.cocks.observers.add(this.cocksMonitor);
+        character.body.chest.on('add', () => {
+            this.nipples.add(new EquipSlot(character));
+        });
+        character.body.chest.on('remove', (cock, index) => {
+            this.nipples.remove(index);
+        });
+        character.body.cocks.on('add', () => {
+            this.cocks.add(new EquipSlot(character));
+        });
+        character.body.cocks.on('remove', (cock, index) => {
+            this.cocks.remove(index);
+        });
     }
 
     public serialize(): IPiercingInventory {
@@ -80,7 +78,7 @@ export class PiercingInventory implements ISerializable<IPiercingInventory> {
         if (saveObject.nose) this.nose.deserialize(saveObject.nose);
         if (saveObject.tongue) this.tongue.deserialize(saveObject.tongue);
         if (saveObject.labia) this.labia.deserialize(saveObject.labia);
-        this.nipples.deserialize(saveObject.nipples, Piercing);
-        this.cocks.deserialize(saveObject.cocks, Piercing);
+        this.nipples.deserialize(saveObject.nipples, EquipSlot, this.char);
+        this.cocks.deserialize(saveObject.cocks, EquipSlot, this.char);
     }
 }

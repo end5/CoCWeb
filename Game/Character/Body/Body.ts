@@ -25,29 +25,7 @@ import { Antennae, IAntennae } from './Antennae';
 import { Womb, IWomb } from './Pregnancy/Womb';
 import { Ovipositor, IOvipositor } from './Pregnancy/Ovipositor';
 import { ButtWomb } from './Pregnancy/ButtWomb';
-import { IListObserver } from 'Game/Utilities/IListObserver';
 import { IRangedStatWithEffects, RangedStatWithEffects } from '../Stats/Stat/RangedStatWithEffects';
-
-class VaginaObserver implements IListObserver<Vagina> {
-    public constructor(
-        private readonly body: Body,
-        private readonly wombs: ObservableList<Womb>
-    ) { }
-
-    public onAdd(): void {
-        this.wombs.add(new Womb(this.body));
-    }
-
-    public onRemove(index: number): void {
-        this.wombs.remove(index);
-    }
-
-    public onClear(): void {
-        this.wombs.clear();
-    }
-
-    public update(): void { }
-}
 
 export interface IBody {
     antennae: IAntennae;
@@ -145,7 +123,12 @@ export class Body implements ISerializable<IBody> {
         this.fertStat.max = 100;
         this.fertStat.min = 0;
 
-        this.vaginas.observers.add(new VaginaObserver(this, this.wombs));
+        this.vaginas.on('add', () => {
+            this.wombs.add(new Womb(this));
+        });
+        this.vaginas.on('remove', (vagina, index) => {
+            this.wombs.remove(index);
+        });
     }
 
     public update(hours: number) {

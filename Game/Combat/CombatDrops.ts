@@ -8,9 +8,9 @@ import { CView } from 'Page/ContentView';
 import { playerMenu } from 'Game/Menus/InGame/PlayerMenu';
 
 export function awardPlayer(character: Character, enemy: Character): NextScreenChoices {
-    const gildedCockSock = character.inventory.cockSocks.find(EquipSlot.FilterName(CockSockName.Gilded));
-    if (gildedCockSock && gildedCockSock.observedObject) {
-        enemy.inventory.gems += enemy.inventory.gems * 0.15 + 5 * gildedCockSock.observedObject.length;
+    const gildedCockSockIndex = character.inventory.cockSocks.findIndex(EquipSlot.FilterName(CockSockName.Gilded));
+    if (gildedCockSockIndex !== -1) {
+        enemy.inventory.gems += enemy.inventory.gems * 0.15 + 5 * character.body.cocks.get(gildedCockSockIndex)!.length;
     }
     const XP = enemy.stats.XP;
     let gems = 0;
