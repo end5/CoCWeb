@@ -12,13 +12,16 @@ export interface IEffect {
 export class Effect implements ISerializable<IEffect> {
     private effectType: string;
     public readonly desc: EffectDesc;
-    public readonly values: EffectValues;
-    protected reducedValues?: IEffectValues;
+    private effectValues: EffectValues;
+
     public constructor(type: string, values?: IEffectValues) {
         this.effectType = type;
         this.desc = EffectDescLib.get(name);
-        this.reducedValues = values;
-        this.values = new EffectValues(values);
+        this.effectValues = new EffectValues(values);
+    }
+
+    public get values() {
+        return this.effectValues;
     }
 
     public get type(): string {
@@ -31,19 +34,14 @@ export class Effect implements ISerializable<IEffect> {
     public combatEnd(char: Character): void { }
 
     public serialize(): IEffect {
-        if (this.reducedValues)
-            return {
-                type: this.effectType,
-            };
-        else
-            return {
-                type: this.effectType,
-                values: this.reducedValues
-            };
+        return {
+            type: this.effectType,
+            values: this.values
+        };
     }
 
     public deserialize(saveObject: IEffect) {
         this.effectType = saveObject.type;
-        this.reducedValues = saveObject.values;
+        this.effectValues = new EffectValues(saveObject.values);
     }
 }
