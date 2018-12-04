@@ -2,6 +2,7 @@ import { EffectDesc } from './EffectDesc';
 import { ISerializable } from 'Engine/Utilities/ISerializable';
 import { EffectValues, IEffectValues } from './EffectValues';
 import { EffectDescLib } from './EffectDescLib';
+import { Character } from 'Game/Character/Character';
 
 export interface IEffect {
     type: string;
@@ -23,6 +24,11 @@ export class Effect implements ISerializable<IEffect> {
     public get type(): string {
         return this.effectType;
     }
+
+    public combatStart(char: Character): void { }
+    public combatTurnStart(char: Character, ...enemies: Character[]): void { }
+    public combatTurnEnd(char: Character, ...enemies: Character[]): void { }
+    public combatEnd(char: Character): void { }
 
     public serialize(): IEffect {
         if (this.reducedValues)

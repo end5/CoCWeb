@@ -30,8 +30,7 @@ export class Encounter {
     private effectsCombatStart(party: CombatParty) {
         for (const member of party.ableMembers)
             for (const effect of member.effects)
-                if (effect.values.combatStart)
-                    effect.values.combatStart(member);
+                effect.combatStart(member);
     }
 
     public performRound(): NextScreenChoices {
@@ -72,8 +71,7 @@ export class Encounter {
 
     private effectsTurnStart(selectedChar: Character, enemyParty: Character[]): void {
         for (const effect of selectedChar.effects)
-            if (effect.values.combatTurnStart)
-                effect.values.combatTurnStart(selectedChar, ...enemyParty);
+            effect.combatTurnStart(selectedChar, ...enemyParty);
     }
 
     private resolveEndTurn(character: Character): void {
@@ -90,8 +88,7 @@ export class Encounter {
 
     private effectsTurnEnd(selectedChar: Character, enemyParty: Character[]): void {
         for (const effect of selectedChar.effects)
-            if (effect.values.combatTurnEnd)
-                effect.values.combatTurnEnd(selectedChar, ...enemyParty);
+            effect.combatTurnEnd(selectedChar, ...enemyParty);
     }
 
     private endCombatOrNextRound(): NextScreenChoices {
@@ -114,8 +111,7 @@ export class Encounter {
 
     private effectsCombatEnd(char: Character) {
         for (const effect of char.effects)
-            if (effect.values.combatEnd)
-                effect.values.combatEnd(char);
+            effect.combatEnd(char);
     }
 
     private displayDefeatEvent(): NextScreenChoices {
