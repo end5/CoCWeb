@@ -1,3 +1,6 @@
+import { Effect } from "./Effect";
+import { Character } from "Game/Character/Character";
+
 export class EffectDesc {
     public readonly key: string;
     public readonly name: string;
@@ -10,7 +13,7 @@ export class EffectDesc {
         this.longDesc = longDesc || this.desc;
     }
 
-    public description(): string {
+    public description(effect?: Effect, char?: Character): string {
         return this.desc;
     }
 }

@@ -1,10 +1,10 @@
-import { Character } from '../../Character/Character';
-import { Perk } from '../Perk';
-import { PerkDesc } from '../PerkDesc';
+import { Character } from 'Game/Character/Character';
+import { Effect } from '../Effect';
+import { EffectDesc } from '../EffectDesc';
 
-export class ControlledBreath extends PerkDesc {
-    public description(perk?: Perk, character?: Character): string {
-        if (character && character.stats.cor >= 30)
+export class ControlledBreath extends EffectDesc {
+    public description(effect: Effect, character: Character): string {
+        if (character.stats.cor >= 30)
             return "<b>DISABLED</b> - Corruption too high!";
         else
             return super.description();

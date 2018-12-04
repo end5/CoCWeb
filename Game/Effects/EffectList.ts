@@ -15,6 +15,17 @@ export class EffectList extends ObservableList<Effect> {
         this.add(newEffect);
     }
 
+    public getByName(name: string): Effect | undefined {
+        return this.list.find((effect) => effect.type === name);
+    }
+
+    public removeByName(name: string) {
+        const index = this.list.findIndex((effect) => effect.type === name);
+        if (index !== -1)
+            this.remove(index);
+        return index !== -1;
+    }
+
     public has(name: string): Effect | undefined {
         return this.list.find((effect) => effect.type === name);
     }

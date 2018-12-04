@@ -1,11 +1,11 @@
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { Character } from '../../Character/Character';
-import { CharacterType } from '../../Character/CharacterType';
-import { CombatEffect } from '../CombatEffect';
-import { CView } from '../../../Page/ContentView';
+import { randInt } from 'Engine/Utilities/SMath';
+import { Character } from 'Game/Character/Character';
+import { CharacterType } from 'Game/Character/CharacterType';
+import { CView } from 'Page/ContentView';
+import { Effect } from '../Effect';
 
-export class LustAura extends CombatEffect {
-    public update(character: Character, enemy: Character) {
+export class LustAura extends Effect {
+    public combatTurnStart(character: Character, enemy: Character) {
         if (enemy.charType === CharacterType.Player) {
             // [LUST GAINED PER ROUND] - Omnibus
             enemy.stats.lust += 3 + Math.floor(enemy.stats.lib / 20 + enemy.stats.cor / 30);
