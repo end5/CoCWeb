@@ -1,5 +1,5 @@
-import { ISerializable } from 'ISerializable';
-import { IDictionary } from '../../Engine/Utilities/Dictionary';
+import { ISerializable } from 'Engine/Utilities/ISerializable';
+import { IDictionary } from 'Engine/Utilities/Dictionary';
 
 export interface IKeyItem {
     name: string;
