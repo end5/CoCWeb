@@ -1,20 +1,19 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { HairType } from '../../Body/Hair';
-import { Character } from '../../Character/Character';
+import { HairType } from 'Game/Character/Body/Hair';
+import { Character } from 'Game/Character/Character';
 import { ItemDesc } from '../ItemDesc';
-import { describeHair } from '../../Descriptors/HairDescriptor';
+import { describeHair } from 'Game/Descriptors/HairDescriptor';
 import { ReptilumFlags } from './Reptilum';
-import { CView } from '../../../Page/ContentView';
-import { FlagType } from '../../FlagType';
-import { Flags } from '../../Flags';
+import { CView } from 'Page/ContentView';
+import { Flags } from 'Game/Flags';
 
 export const HairExtensionSerumFlags = {
     INCREASED_HAIR_GROWTH_SERUM_TIMES_APPLIED: 0,
     INCREASED_HAIR_GROWTH_TIME_REMAINING: 0,
 };
 
-Flags.set(FlagType.HairExtensionSerum, HairExtensionSerumFlags);
+Flags.set("Hair Extension Serum", HairExtensionSerumFlags);
 
 export class HairExtensionSerum extends Consumable {
     public constructor() {

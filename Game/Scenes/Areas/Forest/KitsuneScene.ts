@@ -1,56 +1,54 @@
-import { NextScreenChoices, choiceWrap, ClickFunction, ScreenChoice } from "../../../ScreenDisplay";
-import { Character } from "../../../Character/Character";
-import { Flags } from "../../../Flags";
-import { FlagType } from "../../../FlagType";
-import { CView } from "../../../../Page/ContentView";
-import { SpriteName } from "../../../../Page/SpriteName";
-import { CombatManager } from "../../../Combat/CombatManager";
-import { StatusEffectType } from "../../../Effects/StatusEffectType";
-import { passTime } from "../../../Menus/InGame/PlayerMenu";
-import { randInt, randomChoice } from "../../../../Engine/Utilities/SMath";
-import { PerkType } from "../../../Effects/PerkType";
-import { describeLegs, describeLeg, describeFeet, describeFoot } from "../../../Descriptors/LegDescriptor";
-import { skinFurScales, describeSkin } from "../../../Descriptors/SkinDescriptor";
-import { ConsumableName } from "../../../Items/Consumables/ConsumableName";
-import { Cock, CockType } from "../../../Body/Cock";
-import { describeCock, describeCockHead, describeOneOfYourCocks } from "../../../Descriptors/CockDescriptor";
-import { describeHips } from "../../../Descriptors/HipDescriptor";
-import { describeVagina, describeClit } from "../../../Descriptors/VaginaDescriptor";
-import { describeButthole, describeButt } from "../../../Descriptors/ButtDescriptor";
-import { displayStretchButt } from "../../../Modifiers/ButtModifier";
-import { displayStretchVagina } from "../../../Modifiers/VaginaModifier";
-import { describeBalls, describeSack } from "../../../Descriptors/BallsDescriptor";
-import { numToCardinalText } from "../../../Utilities/NumToText";
-import { describeNipple } from "../../../Descriptors/BreastDescriptor";
-import { describeHair } from "../../../Descriptors/HairDescriptor";
-import { BreastRow } from "../../../Body/BreastRow";
-import { boostLactation } from "../../../Modifiers/BreastModifier";
-import { Time } from "../../../Utilities/Time";
-import { gameOverMenu } from "../../../Menus/InGame/GameOverMenu";
-import { Kitsune } from "./Kitsune";
-import { mf } from "../../../Descriptors/GenderDescriptor";
-import { VaginaLooseness, VaginaWetness } from "../../../Body/Vagina";
-import { lustyMaidenPaizuri } from "../../../Items/Armors/LustyMaidensArmor";
-import { Settings } from "../../../Settings";
-import { MaterialName } from "../../../Items/Materials/MaterialName";
-import { TailType, Tail } from "../../../Body/Tail";
-import { EarType } from "../../../Body/Ears";
-import { randLargeEgg, randEgg } from "../../../Items/Consumables/Eggs";
-import { Imp, ImpMagicLustAttack } from "../BeyondCamp/Imp";
-import { WeightedDrop } from "../../../Utilities/Drops/WeightedDrop";
-import { CombatContainer } from "../../../Combat/CombatContainer";
-import { EndScenes } from "../../../Combat/EndScenes";
-import { DefeatType } from "../../../Combat/DefeatEvent";
+import { NextScreenChoices, choiceWrap, ClickFunction, ScreenChoice } from 'Game/ScreenDisplay';
+import { Character } from 'Game/Character/Character';
+import { Flags } from 'Game/Flags';
+import { CView } from 'Page/ContentView';
+import { SpriteName } from 'Page/SpriteName';
+import { CombatManager } from 'Game/Combat/CombatManager';
+import { EffectType } from 'Game/Effects/EffectType';
+import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { randInt, randomChoice } from 'Engine/Utilities/SMath';
+import { describeLegs, describeLeg, describeFeet, describeFoot } from 'Game/Descriptors/LegDescriptor';
+import { skinFurScales, describeSkin } from 'Game/Descriptors/SkinDescriptor';
+import { ConsumableName } from 'Game/Items/Consumables/ConsumableName';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { describeCock, describeCockHead, describeOneOfYourCocks } from 'Game/Descriptors/CockDescriptor';
+import { describeHips } from 'Game/Descriptors/HipDescriptor';
+import { describeVagina, describeClit } from 'Game/Descriptors/VaginaDescriptor';
+import { describeButthole, describeButt } from 'Game/Descriptors/ButtDescriptor';
+import { displayStretchButt } from 'Game/Modifiers/ButtModifier';
+import { displayStretchVagina } from 'Game/Modifiers/VaginaModifier';
+import { describeBalls, describeSack } from 'Game/Descriptors/BallsDescriptor';
+import { numToCardinalText } from 'Game/Utilities/NumToText';
+import { describeNipple } from 'Game/Descriptors/BreastDescriptor';
+import { describeHair } from 'Game/Descriptors/HairDescriptor';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { boostLactation } from 'Game/Modifiers/BreastModifier';
+import { Time } from 'Game/Utilities/Time';
+import { gameOverMenu } from 'Game/Menus/InGame/GameOverMenu';
+import { Kitsune } from './Kitsune';
+import { mf } from 'Game/Descriptors/GenderDescriptor';
+import { VaginaLooseness, VaginaWetness } from 'Game/Character/Body/Vagina';
+import { lustyMaidenPaizuri } from 'Game/Items/Armors/LustyMaidensArmor';
+import { Settings } from 'Game/Settings';
+import { MaterialName } from 'Game/Items/Materials/MaterialName';
+import { TailType, Tail } from 'Game/Character/Body/Tail';
+import { EarType } from 'Game/Character/Body/Ears';
+import { randLargeEgg, randEgg } from 'Game/Items/Consumables/Eggs';
+import { Imp, ImpMagicLustAttack } from '../BeyondCamp/Imp';
+import { WeightedDrop } from 'Game/Utilities/Drops/WeightedDrop';
+import { CombatContainer } from 'Game/Combat/CombatContainer';
+import { EndScenes } from 'Game/Combat/EndScenes';
+import { DefeatType } from 'Game/Combat/DefeatEvent';
 
 export const KitsuneFlags = {
     MET_KITSUNES: 0,
-    BONUS_ITEM_AFTER_COMBAT_ID: 0,
+    BONUS_ITEM_AFTER_COMBAT_ID: '',
     MANSION_VISITED: 0,
     redheadIsFuta: 0,
     KITSUNE_SHRINE_VISIT: 0,
     TOOK_KITSUNE_STATUE: 0,
 };
-Flags.set(FlagType.Kitsune, KitsuneFlags);
+Flags.set("Kitsune", KitsuneFlags);
 /**
  * Created by aimozg on 04.01.14.
  */
@@ -148,7 +146,7 @@ export function winKitsuneImpFight(player: Character): NextScreenChoices {
         return { next: choiceWrap(followTheWillOWisp, true) };
     }// PC did NOT see through glamour
     // With Religious BG:
-    else if (player.perks.has(PerkType.HistoryReligious)) {
+    else if (player.effects.has(EffectType.HistoryReligious)) {
         CView.text("The instant she touches you, she recoils with a yelp, a brilliant flash temporarily blinding you both.\n\n");
         CView.text("\"<i>Ow, ow, ow!</i>\"\n\n");
         CView.text("When the spots clear from your eyes, the kitsune's glamour has been dispelled, revealing her for what she truly is.  A pair of large triangular fox ears poke up from her ");
@@ -976,10 +974,7 @@ function loseToBlackHairLatexWhileMilky(player: Character): NextScreenChoices {
     player.stats.sens += 1;
 
     boostLactation(player, 1.5);
-    if (player.perks.has(PerkType.Feeder)) {
-        player.effects.get(StatusEffectType.Feeder).value1 += 1;
-        player.effects.get(StatusEffectType.Feeder).value2 = 0;
-    }
+    player.milked();
     return { next: passTime(1) };
 }
 
@@ -1172,7 +1167,7 @@ export function defeatTheKitsunes(player: Character, kitsune: Character, display
             kitsuneChoice(choices, "B.Titfuck", choiceWrap(lustyMaidenPaizuri, kitsune));
     }
     // [Feeder]
-    if (player.perks.has(PerkType.Feeder))
+    if (player.effects.has(EffectType.Feeder))
         kitsuneChoice(choices, "Breastfeed", feederTheKitsunes);
     choices[9] = ["Leave", choiceWrap(leaveKitsune)];
     return { choices };
@@ -1499,7 +1494,7 @@ function fuckDraftBlond(player: Character): NextScreenChoices {
 
     CView.text("She cries out in protest as you wrestle her to the ground, uncorking the draft with your thumb and using your other hand to plug her nose.  You press the mouth of the vial up to her lips insistently, and it isn't long before she has to gasp for fresh air, allowing you to dump the contents down her throat.  She coughs and sputters a little, trying to spit it out, but you put a bit of pressure on her jaw to prevent exactly that, massaging her neck gently to help coerce her to swallow.  The moment the potent aphrodisiac begins to flow down her throat, you can feel the surface of her skin turn feverish with lust, a blush of deepest crimson spreading across her face.\n\n");
 
-    CView.text("The powerful scent of feminine musk fills the air almost instantly, a viscous puddle spreading between her legs and soaking through the crotch of her robes." + (hasDogCock || (player.effects.has(StatusEffectType.Rut)) ? "  As the potent smell fills your nostrils, your " + describeCock(player, selCock) + " swells in anticipation, reacting instinctively to the scent of a female in heat.  Lurid fantasies of plugging her sloppy snatch with your " + (hasDogCock ? "knot" : describeCock(player, selCock)) + " and stuffing her belly full of kits rush into your mind unbidden" + ((player.stats.cor < 20) ? ", disturbing you slightly" : "") + "." : "") + "  Her body trembles and quakes with carnal need, pure animalistic desire burning in her eyes.  As the effects of her chemical-induced heat come into full swing, she struggles to maintain some semblance of rational thought, desperately willing herself to crawl away.\n\n");
+    CView.text("The powerful scent of feminine musk fills the air almost instantly, a viscous puddle spreading between her legs and soaking through the crotch of her robes." + (hasDogCock || (player.effects.has(EffectType.Rut)) ? "  As the potent smell fills your nostrils, your " + describeCock(player, selCock) + " swells in anticipation, reacting instinctively to the scent of a female in heat.  Lurid fantasies of plugging her sloppy snatch with your " + (hasDogCock ? "knot" : describeCock(player, selCock)) + " and stuffing her belly full of kits rush into your mind unbidden" + ((player.stats.cor < 20) ? ", disturbing you slightly" : "") + "." : "") + "  Her body trembles and quakes with carnal need, pure animalistic desire burning in her eyes.  As the effects of her chemical-induced heat come into full swing, she struggles to maintain some semblance of rational thought, desperately willing herself to crawl away.\n\n");
 
     CView.text("You look on with mild amusement as she drags herself one, two, three feet away, and collapses in a shivering wreck, raising her ample rear into the air.  Her hips flex and pump in defiance of her will, all six of her golden tails raised high and fanned out as she claws out of her robes, exposing her drenched fuckhole and gorgeous tattooed ass.\n\n");
 
@@ -1513,7 +1508,7 @@ function fuckDraftBlond(player: Character): NextScreenChoices {
 
     CView.text("You grin a bit at her declaration, reaching forward and sliding your finger down her spine gently.  She practically collapses under your light touch, convulsing in pleasure as every one of her tails bristles in response, nearly orgasming again from that alone." + ((player.stats.cor < 33) ? "  You wonder if you've gone too far, and whether you should be somewhat concerned for the poor thing's sanity.  If you don't do something to satisfy her insatiable lust, though, that alone might be enough to break her." : "  You grin evilly, dragging your fingertips down your new pet's back and laughing as she spasms uncontrollably, spraying femcum unceasingly.  The little cocktease was so keen on making a fool of you before - where's her smug sense of superiority now?") + "\n\n");
 
-    if (hasDogCock || player.effects.has(StatusEffectType.Rut)) CView.text("The sweet musk of her voluminous fem-jizz fills your mind with a lustful haze, higher-order thought processes gradually shutting down as animalistic mating instinct begins to take over.  ");
+    if (hasDogCock || player.effects.has(EffectType.Rut)) CView.text("The sweet musk of her voluminous fem-jizz fills your mind with a lustful haze, higher-order thought processes gradually shutting down as animalistic mating instinct begins to take over.  ");
     CView.text("You slide your " + describeCock(player, selCock) + " up between the supple mounds of her ass, groaning in pleasure as she begins to glide her hips back and forth along the shaft, cooing softly.  The warm, moist breath radiating off her sodden vagina caresses your ");
     if (player.body.balls.count > 0) CView.text(describeBalls(true, true, player));
     else CView.text(describeLegs(player));
@@ -1522,7 +1517,7 @@ function fuckDraftBlond(player: Character): NextScreenChoices {
     CView.text("  She raises her hips higher, whimpering a little as she desperately tries to line up your " + describeCock(player, selCock) + " with her hungry fuckhole.\n\n");
 
     CView.text("\"<i>S-stop t-teasing...</i>\" she says breathlessly, whimpering as she fails to catch your " + describeCockHead(selCock) + " in her quivering snatch for the third time in a row.  Her hips clumsily rock back, a desperate whine escaping her throat as she tries to calm her shaking body enough to finally impale herself on your ever-hardening rod.");
-    if (hasDogCock || player.effects.has(StatusEffectType.Rut)) {
+    if (hasDogCock || player.effects.has(EffectType.Rut)) {
         CView.text("  Your animalistic need to impregnate the fertile female in front of you battles with your desire to tease her, but impulse is quickly winning out over rationality.  You can only hold yourself back for a few moments longer before you give in to baser instincts and plunge your shaft into her needy pussy");
         if (selCock.area > 50) CView.text(" heedless of whether she can handle it or not.  Thankfully, you needn't worry - her cunt eagerly swallows your cock whole with room to spare, somehow");
     }
@@ -1537,7 +1532,7 @@ function fuckDraftBlond(player: Character): NextScreenChoices {
     CView.text("\"<i>Nngah!  Fuck!  I-it feels s-so good!</i>\"\n\n");
 
     CView.text("You dig your fingertips into her massive, plush ass and begin to pound her wet snatch with all your might, grunting and groaning passionately.");
-    if (hasDogCock || player.effects.has(StatusEffectType.Rut)) CView.text("  Vivid fantasies of stuffing her pussy full of your virile semen race through your mind, unable to think of anything else.  Come whatever may, you know you MUST impregnate her - there's simply no other option.");
+    if (hasDogCock || player.effects.has(EffectType.Rut)) CView.text("  Vivid fantasies of stuffing her pussy full of your virile semen race through your mind, unable to think of anything else.  Come whatever may, you know you MUST impregnate her - there's simply no other option.");
     CView.text("  The force with which she mashes her voluptuous derriere back into your pelvis would surely leave you sore in the morning were it not for the expansive tattoo-adorned ass cushioning the blows.\n\n");
 
     // if (dogCocks > 0)
@@ -1550,7 +1545,7 @@ function fuckDraftBlond(player: Character): NextScreenChoices {
     }
     CView.text("Gathering her tails into your arms, you pull them tight to your chest, eliciting a pleasured moan from the lust-maddened kitsune.  She lets out a pained squeal when you tug on them suddenly, using them for additional leverage as you redouble your powerful thrusting.  You can feel every pulse of her fluttering heartbeat through the walls of her vagina, liquid heat caressing and milking your cock as more juices squirt out around your " + ((hasDogCock) ? "knot" : describeCock(player, selCock)) + ".\n\n");
 
-    CView.text("Your pleasure begins to rise to a head, every passionate thrust bringing you closer and closer to your final, incredible release.  In preparation, you drop down over her, placing your hands on top of " + ((player.stats.cor < 33) ? "hers." : "her wrists to pin her down.") + (((hasDogCock) || player.effects.has(StatusEffectType.Rut)) ? "  You are stricken with the urge to bite her neck, and indulge it, pinching the scruff of her shoulder between your teeth." : "") + "  With a roaring moan, you buck your hips one last time, slamming down against her well-cushioned rear with one final thrust, holding there as the pressure in your " + ((player.body.balls.count > 0) ? describeBalls(true, true, player) : "prostate") + " finally boils over.  ");
+    CView.text("Your pleasure begins to rise to a head, every passionate thrust bringing you closer and closer to your final, incredible release.  In preparation, you drop down over her, placing your hands on top of " + ((player.stats.cor < 33) ? "hers." : "her wrists to pin her down.") + (((hasDogCock) || player.effects.has(EffectType.Rut)) ? "  You are stricken with the urge to bite her neck, and indulge it, pinching the scruff of her shoulder between your teeth." : "") + "  With a roaring moan, you buck your hips one last time, slamming down against her well-cushioned rear with one final thrust, holding there as the pressure in your " + ((player.body.balls.count > 0) ? describeBalls(true, true, player) : "prostate") + " finally boils over.  ");
 
     if (player.cumQ() <= 150) {
         CView.text("Your cock spasms uncontrollably, spewing stream after stream of potent jizz into her hungry snatch.  The instant it begins to flow inside her, she locks down into another incredible orgasm, fingers digging into the dirt while tears flow from the corner of her eyes, moaning powerfully.  Her walls milk and massage you, drinking deeply of your virile cum.");
@@ -1845,8 +1840,7 @@ function feederTheKitsunes(player: Character): NextScreenChoices {
     CView.text("You carefully lay her on the ground, standing and donning your " + player.inventory.armor.displayName + " once again.  The kitsune remains rooted in the spot, weighed down by her oversized tummy.  Something tells you she won't be moving from that spot for some time.");
     // Advance time 1hr and return to camp. +Sensitivity
     // You've now been milked, reset the timer for that
-    player.effects.get(StatusEffectType.Feeder).value1 += 1;
-    player.effects.get(StatusEffectType.Feeder).value2 = 0;
+    player.milked();
     player.orgasm();
     player.stats.sens += 3;
 
@@ -2347,8 +2341,8 @@ function meditateLikeAKitsuneEhQuestionMark(player: Character): NextScreenChoice
         player.body.tails.length + 1 <= player.stats.level &&
         player.body.tails.length + 1 <= player.stats.int / 10 &&
         player.body.ears.type === EarType.FOX &&
-        !player.perks.has(PerkType.CorruptedNinetails) &&
-        !player.perks.has(PerkType.EnlightenedNinetails)
+        !player.effects.has(EffectType.CorruptedNinetails) &&
+        !player.effects.has(EffectType.EnlightenedNinetails)
     ) {
         // 20% chance if PC has fox ears, 1 or more fox tails, carries a Fox Jewel, and meets level & INT requirements for the next tail:
         CView.text("You sit down carefully on a small mat in front of the shrine and clear your mind.  Closing your eyes, you meditate on the things you've learned in your journey thus far, and resolve to continue fighting against the forces of corruption that permeate the land.\n\n");
@@ -2366,7 +2360,7 @@ function meditateLikeAKitsuneEhQuestionMark(player: Character): NextScreenChoice
             // Increment tail by 1, consume Fox Jewel, -2 COR, -20 LUST, +2 INT, Advance 1 hr and return to camp.
             // Apply Nine-Tails perk if applicable.
             player.body.tails.add(new Tail(TailType.FOX));
-            player.perks.add(PerkType.EnlightenedNinetails);
+            player.effects.create(EffectType.EnlightenedNinetails);
             player.stats.int += 2;
             player.stats.lust += -20;
             player.stats.cor += -2;
@@ -2425,10 +2419,4 @@ function putKitsuneStatueBack(player: Character): NextScreenChoices {
     KitsuneFlags.TOOK_KITSUNE_STATUE = 0;
     player.inventory.items.consumeItem(MaterialName.GoldenStatue);
     return { next: passTime(1) };
-}
-
-// Use:
-export function kitsuneStatue(player: Character) {
-    CView.text("You pull out the gold statue and turn it around in your hands a few times, carefully examining the intricate filigree and inscriptions covering the masterfully crafted idol.  Whoever made this certainly put a lot of time and love into their craft." + ((player.stats.cor < 50) ? "  Examining the painstaking detail that went into it, you feel a slight pang of guilt for having stolen it from its rightful place.  You push the thoughts away, reasoning that it won't be missed - after all, the owner was long gone before you arrived." : "") + "\n\n");
-    CView.text("It's not much use to you other than decoration, but based on the craftsmanship alone you judge that you could get a fair price for it if you pawned it off.");
 }

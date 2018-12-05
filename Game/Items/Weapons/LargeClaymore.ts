@@ -1,9 +1,9 @@
 import { Weapon } from './Weapon';
 import { WeaponName } from './WeaponName';
 import { WeaponPerkType } from './WeaponPerk';
-import { Character } from '../../Character/Character';
+import { Character } from 'Game/Character/Character';
 import { ItemDesc } from '../ItemDesc';
-import { CView } from '../../../Page/ContentView';
+import { CView } from 'Page/ContentView';
 
 export class LargeClaymore extends Weapon {
     public constructor() {

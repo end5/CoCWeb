@@ -1,22 +1,21 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { EarType } from '../../Body/Ears';
-import { SkinType } from '../../Body/Skin';
-import { Tail, TailType } from '../../Body/Tail';
-import { VaginaType } from '../../Body/Vagina';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
-import { numToCardinalText } from '../../Utilities/NumToText';
+import { randInt } from 'Engine/Utilities/SMath';
+import { EarType } from 'Game/Character/Body/Ears';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { Tail, TailType } from 'Game/Character/Body/Tail';
+import { VaginaType } from 'Game/Character/Body/Vagina';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
+import { numToCardinalText } from 'Game/Utilities/NumToText';
 import { ItemDesc } from '../ItemDesc';
-import { skinFurScales, describeSkin } from '../../Descriptors/SkinDescriptor';
-import { describeHair } from '../../Descriptors/HairDescriptor';
-import { describeVagina } from '../../Descriptors/VaginaDescriptor';
-import { describeNipple } from '../../Descriptors/BreastDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { displayModFem } from '../../Modifiers/BodyModifier';
-import { Settings } from '../../Settings';
+import { skinFurScales, describeSkin } from 'Game/Descriptors/SkinDescriptor';
+import { describeHair } from 'Game/Descriptors/HairDescriptor';
+import { describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { describeNipple } from 'Game/Descriptors/BreastDescriptor';
+import { CView } from 'Page/ContentView';
+import { displayModFem } from 'Game/Modifiers/BodyModifier';
+import { Settings } from 'Game/Settings';
 
 export class FoxJewel extends Consumable {
     private mystic: boolean;
@@ -36,7 +35,7 @@ export class FoxJewel extends Consumable {
         if (randInt(2) === 0) changeLimit++;
         if (randInt(3) === 0) changeLimit++;
         if (this.mystic) changeLimit += 2;
-        if (character.perks.has(PerkType.HistoryAlchemist)) changeLimit++;
+        if (character.effects.has(EffectType.HistoryAlchemist)) changeLimit++;
         if (this.mystic) CView.text("You examine the jewel for a bit, rolling it around in your hand as you ponder its mysteries.  You hold it up to the light with fascinated curiosity, watching the eerie purple flame dancing within.  Without warning, the gem splits down the center, dissolving into nothing in your hand.  As the pale lavender flames swirl around you, the air is filled with a sickly sweet scent that drips with the bitter aroma of licorice, filling you with a dire warmth.");
         else CView.text("You examine the jewel for a bit, rolling it around in your hand as you ponder its mysteries.  You hold it up to the light with fascinated curiosity, watching the eerie blue flame dancing within.  Without warning, the gem splits down the center, dissolving into nothing in your hand.  As the pale azure flames swirl around you, the air is filled with a sweet scent that drips with the aroma of wintergreen, sending chills down your spine.");
 
@@ -132,21 +131,21 @@ export class FoxJewel extends Consumable {
             changes++;
         }
         // [Increase Vaginal Capacity] - requires vagina, of course
-        const bonusVCap = character.effects.get(StatusEffectType.BonusVCapacity);
-        if (character.body.vaginas.length > 0 && ((this.mystic && randInt(2) === 0) || (!this.mystic && randInt(3) === 0)) && bonusVCap && bonusVCap.values.other!.capacity < 200 && changes < changeLimit) {
+        const bonusVCap = character.effects.getByName(EffectType.BonusVCapacity);
+        if (character.body.vaginas.length > 0 && ((this.mystic && randInt(2) === 0) || (!this.mystic && randInt(3) === 0)) && bonusVCap && bonusVCap.values.vaginalCapacity < 200 && changes < changeLimit) {
             CView.text("\n\nA gurgling sound issues from your abdomen, and you double over as a trembling ripple passes through your womb.  The flesh of your stomach roils as your internal organs begin to shift, and when the sensation finally passes, you are instinctively aware that your " + describeVagina(character, character.body.vaginas.get(0)) + " is a bit deeper than it was before.");
-            if (!character.effects.has(StatusEffectType.BonusVCapacity)) {
-                character.effects.add(StatusEffectType.BonusVCapacity);
+            if (!character.effects.has(EffectType.BonusVCapacity)) {
+                character.effects.create(EffectType.BonusVCapacity);
             }
-            bonusVCap.values.other!.capacity = 5 + randInt(10);
+            bonusVCap.values.vaginalCapacity = 5 + randInt(10);
             changes++;
         }
         // [Vag of Holding] - rare effect, only if PC has high vaginal looseness
-        else if (character.body.vaginas.length > 0 && ((this.mystic) || (!this.mystic && randInt(5) === 0)) && bonusVCap && bonusVCap.values.other!.capacity >= 200 && bonusVCap.values.other!.capacity < 8000 && changes < changeLimit) {
+        else if (character.body.vaginas.length > 0 && ((this.mystic) || (!this.mystic && randInt(5) === 0)) && bonusVCap && bonusVCap.values.vaginalCapacity >= 200 && bonusVCap.values.vaginalCapacity < 8000 && changes < changeLimit) {
             CView.text("\n\nYou clutch your stomach with both hands, dropping to the ground in pain as your internal organs begin to twist and shift violently inside you.  As you clench your eyes shut in agony, you are overcome with a sudden calm.  The pain in your abdomen subsides, and you feel at one with the unfathomable infinity of the universe, warmth radiating through you from the vast swirling cosmos contained within your womb.");
             if (Settings.silly()) CView.text("  <b>Your vagina has become a universe unto itself, capable of accepting colossal insertions beyond the scope of human comprehension!</b>");
             else CView.text("  <b>Your vagina is now capable of accepting even the most ludicrously sized insertions with no ill effects.</b>");
-            bonusVCap.values.other!.capacity = 8000;
+            bonusVCap.values.vaginalCapacity = 8000;
             changes++;
         }
 
@@ -202,13 +201,13 @@ export class FoxJewel extends Consumable {
             character.stats.level >= 9 &&
             character.body.ears.type === EarType.FOX &&
             character.stats.int >= 90 &&
-            !character.perks.has(PerkType.CorruptedNinetails) &&
-            !character.perks.has(PerkType.EnlightenedNinetails)
+            !character.effects.has(EffectType.CorruptedNinetails) &&
+            !character.effects.has(EffectType.EnlightenedNinetails)
         ) {
             CView.text("Your bushy tails begin to glow with an eerie, ghostly light, and with a crackle of electrical energy, split into nine tails.  <b>You are now a nine-tails!  But something is wrong...  The cosmic power radiating from your body feels...  tainted somehow.  The corruption pouring off your body feels...  good.</b>");
             CView.text("\n\nYou have the inexplicable urge to set fire to the world, just to watch it burn.  With your newfound power, it's a goal that is well within reach.");
             CView.text("\n\n(Perk Gained: Corrupted Nine-tails - Grants two magical special attacks.)");
-            character.perks.add(PerkType.CorruptedNinetails);
+            character.effects.create(EffectType.CorruptedNinetails);
             character.stats.lib += 2;
             character.stats.lust += 10;
             character.stats.cor += 10;
@@ -295,10 +294,10 @@ export class FoxJewel extends Consumable {
             //9999 - pending tats system
         }*/
         // Nipples Turn Back:
-        if (character.effects.has(StatusEffectType.BlackNipples) && changes < changeLimit && randInt(3) === 0) {
+        if (character.effects.has(EffectType.BlackNipples) && changes < changeLimit && randInt(3) === 0) {
             CView.text("\n\nSomething invisible brushes against your " + describeNipple(character, character.body.chest.firstRow) + ", making you twitch.  Undoing your clothes, you take a look at your chest and find that your nipples have turned back to their natural flesh colour.");
             changes++;
-            character.effects.remove(StatusEffectType.BlackNipples);
+            character.effects.removeByName(EffectType.BlackNipples);
         }
         // Debugcunt
         if (changes < changeLimit && randInt(3) === 0 && character.body.vaginas.length > 0 && character.body.vaginas.get(0)!.type !== VaginaType.HUMAN) {

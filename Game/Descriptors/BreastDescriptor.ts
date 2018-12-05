@@ -1,9 +1,9 @@
-﻿import { randInt, randomChoice } from '../../Engine/Utilities/SMath';
-import { BreastCup, BreastRow } from '../Body/BreastRow';
-import { Chest } from '../Body/Chest';
-import { Character } from '../Character/Character';
-import { StatusEffectType } from '../Effects/StatusEffectType';
-import { PiercingType } from '../Items/Misc/Piercing';
+﻿import { randInt, randomChoice } from 'Engine/Utilities/SMath';
+import { BreastCup, BreastRow } from 'Game/Character/Body/BreastRow';
+import { Chest } from 'Game/Character/Body/Chest';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
+import { PiercingType } from 'Game/Items/Misc/Piercing';
 
 export function describeBreastRow(breastRow: BreastRow | undefined): string {
     if (!breastRow) return "";
@@ -181,7 +181,7 @@ export function describeNipple(character: Character, breastRow: BreastRow | unde
             "slippery "];
         description += randomChoice(options);
     }
-    if (!haveDescription && character.effects.has(StatusEffectType.BlackNipples)) {
+    if (!haveDescription && character.effects.has(EffectType.BlackNipples)) {
         options = ["black ",
             "ebony ",
             "sable "];

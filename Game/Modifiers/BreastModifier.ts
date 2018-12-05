@@ -1,10 +1,9 @@
-﻿import { randInt } from '../../Engine/Utilities/SMath';
-import { BreastRow } from '../Body/BreastRow';
+﻿import { randInt } from 'Engine/Utilities/SMath';
+import { BreastRow } from '../Character/Body/BreastRow';
 import { Character } from '../Character/Character';
-import { PerkType } from '../Effects/PerkType';
-import { StatusEffectType } from '../Effects/StatusEffectType';
+import { EffectType } from '../Effects/EffectType';
 import { breastCup, describeBreastRow } from '../Descriptors/BreastDescriptor';
-import { CView } from '../../Page/ContentView';
+import { CView } from 'Page/ContentView';
 import { Settings } from '../Settings';
 
 /**
@@ -20,7 +19,7 @@ export function growSmallestBreastRow(character: Character, amount: number, time
         return;
 
     // Chance for "big tits" perked characters to grow larger!
-    if (character.perks.has(PerkType.BigTits) && randInt(3) === 0 && amount < 1)
+    if (character.effects.has(EffectType.BigTits) && randInt(3) === 0 && amount < 1)
         amount = 1;
     // Select smallest breast, grow it, move on
     let smallestBreastRow: BreastRow;
@@ -29,7 +28,7 @@ export function growSmallestBreastRow(character: Character, amount: number, time
         smallestBreastRow = chest.sort(BreastRow.Smallest).get(0)!;
         if (!Settings.hyperHappy) {
             // Diminishing returns!
-            if (character.perks.has(PerkType.BigTits)) {
+            if (character.effects.has(EffectType.BigTits)) {
                 growthAmount /= smallestBreastRow.rating > 3 ? 1.3 : 1.5;
                 growthAmount /= smallestBreastRow.rating > 7 ? 1.5 : 2;
                 growthAmount /= smallestBreastRow.rating > 9 ? 1.5 : 2;
@@ -54,14 +53,14 @@ export function growTopBreastRowDownwards(character: Character, amount: number, 
     if (chest.length === 0)
         return;
 
-    if (character.perks.has(PerkType.BigTits) && randInt(3) === 0 && amount < 1)
+    if (character.effects.has(EffectType.BigTits) && randInt(3) === 0 && amount < 1)
         amount = 1;
 
     if (!Settings.hyperHappy) {
         const topBreastRow: number = chest.firstRow.rating;
 
         // Diminishing returns!
-        if (character.perks.has(PerkType.BigTits)) {
+        if (character.effects.has(EffectType.BigTits)) {
             amount /= topBreastRow > 3 ? 1.3 : 1.5;
             amount /= topBreastRow > 7 ? 1.5 : 2;
             amount /= topBreastRow > 9 ? 1.5 : 2;
@@ -93,14 +92,14 @@ export function growTopBreastRow(character: Character, amount: number, times: nu
     if (chest.length === 0)
         return;
 
-    if (character.perks.has(PerkType.BigTits) && randInt(3) === 0 && amount < 1)
+    if (character.effects.has(EffectType.BigTits) && randInt(3) === 0 && amount < 1)
         amount = 1;
 
     if (!Settings.hyperHappy) {
         const topBreastRow: number = chest.firstRow.rating;
 
         // Diminishing returns!
-        if (character.perks.has(PerkType.BigTits)) {
+        if (character.effects.has(EffectType.BigTits)) {
             amount /= topBreastRow > 3 ? 1.3 : 1.5;
             amount /= topBreastRow > 7 ? 1.5 : 2;
             amount /= topBreastRow > 9 ? 1.5 : 2;
@@ -139,7 +138,7 @@ export function shrinkTits(character: Character, ignoreHyperHappy: boolean = fal
             let superShrink: boolean = false;
             topRow.rating--;
             // Shrink again 50% chance
-            if (topRow.rating >= 1 && randInt(100 / 2) && !character.perks.has(PerkType.BigTits)) {
+            if (topRow.rating >= 1 && randInt(100 / 2) && !character.effects.has(EffectType.BigTits)) {
                 superShrink = true;
                 topRow.rating--;
             }
@@ -186,16 +185,16 @@ export function boostLactation(character: Character, boostAmt: number): number {
     let temp2: number = 0;
     // Prevent lactation decrease if lactating.
     if (boostAmt >= 0) {
-        if (character.effects.has(StatusEffectType.LactationReduction))
-            character.effects.get(StatusEffectType.LactationReduction)!.values.expireCountdown = 0;
-        if (character.effects.has(StatusEffectType.LactationReduc0))
-            character.effects.remove(StatusEffectType.LactationReduc0);
-        if (character.effects.has(StatusEffectType.LactationReduc1))
-            character.effects.remove(StatusEffectType.LactationReduc1);
-        if (character.effects.has(StatusEffectType.LactationReduc2))
-            character.effects.remove(StatusEffectType.LactationReduc2);
-        if (character.effects.has(StatusEffectType.LactationReduc3))
-            character.effects.remove(StatusEffectType.LactationReduc3);
+        if (character.effects.has(EffectType.LactationReduction))
+            character.effects.getByName(EffectType.LactationReduction)!.values.expireCountdown = 0;
+        if (character.effects.has(EffectType.LactationReduc0))
+            character.effects.removeByName(EffectType.LactationReduc0);
+        if (character.effects.has(EffectType.LactationReduc1))
+            character.effects.removeByName(EffectType.LactationReduc1);
+        if (character.effects.has(EffectType.LactationReduc2))
+            character.effects.removeByName(EffectType.LactationReduc2);
+        if (character.effects.has(EffectType.LactationReduc3))
+            character.effects.removeByName(EffectType.LactationReduc3);
     }
     if (boostAmt > 0) {
         while (boostAmt > 0) {

@@ -1,38 +1,36 @@
-import { Character } from "../../../Character/Character";
-import { NextScreenChoices } from "../../../ScreenDisplay";
-import { CView } from "../../../../Page/ContentView";
-import { describeLeg, describeLegs } from "../../../Descriptors/LegDescriptor";
-import { StatusEffectType } from "../../../Effects/StatusEffectType";
-import { randInt, randomChoice } from "../../../../Engine/Utilities/SMath";
-import { Settings } from "../../../Settings";
-import { PerkType } from "../../../Effects/PerkType";
-import { CharacterType } from "../../../Character/CharacterType";
-import { Cock, CockType } from "../../../Body/Cock";
-import { Vagina, VaginaWetness, VaginaLooseness } from "../../../Body/Vagina";
-import { BreastRow, BreastCup } from "../../../Body/BreastRow";
-import { breastCupInverse } from "../../../Descriptors/BreastDescriptor";
-import { ButtLooseness, ButtWetness, ButtRating } from "../../../Body/Butt";
-import { HipRating } from "../../../Body/Hips";
-import { WeightedDrop } from "../../../Utilities/Drops/WeightedDrop";
-import { ConsumableName } from "../../../Items/Consumables/ConsumableName";
-import { TailType, Tail } from "../../../Body/Tail";
-import { CharacterDescription } from "../../../Character/CharacterDescription";
-import { CharacterInventory } from "../../../Inventory/CharacterInventory";
-import { Weapon } from "../../../Items/Weapons/Weapon";
-import { WeaponName } from "../../../Items/Weapons/WeaponName";
-import { ItemDesc } from "../../../Items/ItemDesc";
-import { Armor } from "../../../Items/Armors/Armor";
-import { ArmorName } from "../../../Items/Armors/ArmorName";
-import { CombatContainer } from "../../../Combat/CombatContainer";
-import { Dictionary } from "../../../../Engine/Utilities/Dictionary";
-import { EndScenes } from "../../../Combat/EndScenes";
-import { DefeatType } from "../../../Combat/DefeatEvent";
-import { defeatTheKitsunes, loseToKitsunes, KitsuneFlags } from "./KitsuneScene";
-import { CombatEffectType } from "../../../Effects/CombatEffectType";
-import { CombatAction } from "../../../Combat/Actions/CombatAction";
-import { IReaction } from "../../../Combat/Actions/IReaction";
-import { BasicAttack } from "../../../Combat/Actions/BasicAttack";
-import { CombatActionType } from "../../../Combat/Actions/CombatActionType";
+import { Character } from 'Game/Character/Character';
+import { NextScreenChoices } from 'Game/ScreenDisplay';
+import { CView } from 'Page/ContentView';
+import { describeLeg, describeLegs } from 'Game/Descriptors/LegDescriptor';
+import { EffectType } from 'Game/Effects/EffectType';
+import { randInt, randomChoice } from 'Engine/Utilities/SMath';
+import { Settings } from 'Game/Settings';
+import { CharacterType } from 'Game/Character/CharacterType';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { Vagina, VaginaWetness, VaginaLooseness } from 'Game/Character/Body/Vagina';
+import { BreastRow, BreastCup } from 'Game/Character/Body/BreastRow';
+import { breastCupInverse } from 'Game/Descriptors/BreastDescriptor';
+import { ButtLooseness, ButtWetness, ButtRating } from 'Game/Character/Body/Butt';
+import { HipRating } from 'Game/Character/Body/Hips';
+import { WeightedDrop } from 'Game/Utilities/Drops/WeightedDrop';
+import { ConsumableName } from 'Game/Items/Consumables/ConsumableName';
+import { TailType, Tail } from 'Game/Character/Body/Tail';
+import { CharacterDescription } from 'Game/Character/CharacterDescription';
+import { CharacterInventory } from 'Game/Inventory/CharacterInventory';
+import { Weapon } from 'Game/Items/Weapons/Weapon';
+import { WeaponName } from 'Game/Items/Weapons/WeaponName';
+import { ItemDesc } from 'Game/Items/ItemDesc';
+import { Armor } from 'Game/Items/Armors/Armor';
+import { ArmorName } from 'Game/Items/Armors/ArmorName';
+import { CombatContainer } from 'Game/Combat/CombatContainer';
+import { Dictionary } from 'Engine/Utilities/Dictionary';
+import { EndScenes } from 'Game/Combat/EndScenes';
+import { DefeatType } from 'Game/Combat/DefeatEvent';
+import { defeatTheKitsunes, loseToKitsunes, KitsuneFlags } from './KitsuneScene';
+import { CombatAction } from 'Game/Combat/Actions/CombatAction';
+import { IReaction } from 'Game/Combat/Actions/IReaction';
+import { BasicAttack } from 'Game/Combat/Actions/BasicAttack';
+import { CombatActionType } from 'Game/Combat/Actions/CombatActionType';
 
 // Combat Abilities:
 // the kitsune are an almost purely magical mob, relying mainly on tease attacks and spells that raise lust.
@@ -42,7 +40,7 @@ class Entwine extends CombatAction {
     public useAction(char: Character, enemy: Character) {
         CView.text("The kitsune closes in on you with a mischievous glint in her eyes.  You raise your guard, keeping your eyes trained on her to ensure that she doesn't try to pull anything.  Suddenly, you feel something coiling around your " + describeLeg(enemy) + ", and let out a yelp as you are suddenly lifted into the air, entangled in the kitsune's tails!");
         CView.text("\n\nYour limbs are bound tightly while coils of delightfully soft fur caress you on all sides.  You can do little besides struggle against your furry bonds as the constant writhing of her tails sends shudders flying up and down your spine.");
-        char.combat.effects.add(CombatEffectType.PCTailTangle, enemy, { other: { counter: 0 } });
+        char.effects.create(EffectType.PCTailTangle, { other: { counter: 0 } });
         enemy.stats.lust += 10 + enemy.stats.sens / 8;
     }
 }
@@ -54,7 +52,7 @@ class FoxFire extends CombatAction {
         CView.text("The kitsune makes a small circle in the air with her fingers, conjuring up a pale blue flame into her palm with the sound of flint striking against steel.  Pursing her lips, she blows it toward you with a kiss.");
         CView.text("\n\nThe flames burn furiously, but leave you with an incredibly pleasant tingling sensation all over your body.  Your skin flushes with excitement, and you can feel blood rushing to your extremities, making you shudder with pleasure.");
         let damage: number = 5 + randInt(20);
-        damage = enemy.combat.stats.loseHP(damage);
+        damage = enemy.combat.loseHP(damage);
         CView.text(" (" + damage + ")");
         enemy.stats.lust += 15 + enemy.stats.sens / 10;
     }
@@ -71,13 +69,13 @@ class Illusion extends CombatAction {
         let resist: number = 0;
         if (enemy.stats.int < 30) resist = Math.round(enemy.stats.int);
         else resist = 30;
-        if (enemy.perks.has(PerkType.Whispered)) resist += 20;
-        if (enemy.perks.has(PerkType.HistoryReligious) && enemy.stats.cor < 20) resist += 20 - enemy.stats.cor;
+        if (enemy.effects.has(EffectType.Whispered)) resist += 20;
+        if (enemy.effects.has(EffectType.HistoryReligious) && enemy.stats.cor < 20) resist += 20 - enemy.stats.cor;
         if (randInt(100) < resist) {
             CView.text("\n\nThe kitsune seems to melt away before your eyes for a moment, as though the edges of reality are blurring around her.  You tighten your focus, keeping your eyes trained on her, and she suddenly reels in pain, clutching her forehead as she is thrust back into view.  She lets out a frustrated huff of disappointment, realizing that you have resisted her illusions.");
         }
         else {
-            char.combat.effects.add(CombatEffectType.Illusion, char, { spe: { value: { flat: 20 } } });
+            char.effects.create(EffectType.Illusion, { spe: { value: { flat: 20 } } });
         }
     }
 }
@@ -90,8 +88,8 @@ class Seal extends CombatAction {
         let resist: number = 0;
         if (enemy.stats.int < 30) resist = Math.round(enemy.stats.int);
         else resist = 30;
-        if (enemy.perks.has(PerkType.Whispered)) resist += 20;
-        if (enemy.perks.has(PerkType.HistoryReligious) && enemy.stats.cor < 20) resist += 20 - enemy.stats.cor;
+        if (enemy.effects.has(EffectType.Whispered)) resist += 20;
+        if (enemy.effects.has(EffectType.HistoryReligious) && enemy.stats.cor < 20) resist += 20 - enemy.stats.cor;
         const select: number = randInt(7);
         // Attack:
         if (select === 0) {
@@ -99,45 +97,45 @@ class Seal extends CombatAction {
             CView.text("\n\n\"<i>Naughty naughty, you should be careful with that.</i>\"");
 
             CView.text("\n\nDespite your best efforts, every time you attempt to attack her, your muscles recoil involuntarily and prevent you from going through with it.  <b>The kitsune's spell has sealed your attack!</b>  You'll have to wait for it to wear off before you can use your basic attacks.");
-            enemy.combat.effects.add(CombatEffectType.Sealed, char, { expireCountdown: 4, blockedTypes: CombatActionType.Attack });
+            enemy.effects.create(EffectType.Sealed, { expireCountdown: 4, blockedTypes: CombatActionType.Attack });
         }
         else if (select === 1) {
             // Tease:
             CView.text("You are taken by surprise when the kitsune appears in front of you out of nowhere, trailing a fingertip down your chest.  She draws a small circle, leaving behind a glowing, sparking rune made of flames.  You suddenly find that all your knowledge of seduction and titillation escapes you.  <b>The kitsune's spell has sealed your ability to tease!</b>  Seems you won't be getting anyone hot and bothered until it wears off.");
-            enemy.combat.effects.add(CombatEffectType.Sealed, char, { expireCountdown: 4, blockedTypes: CombatActionType.Tease });
+            enemy.effects.create(EffectType.Sealed, { expireCountdown: 4, blockedTypes: CombatActionType.Tease });
         }
         // Spells:
         else if (select === 2) {
             CView.text("\"<i>Oh silly, trying to beat me at my own game are you?</i>\"  the kitsune says with a smirk, surprising you as she appears right in front of you.  She traces a small circle around your mouth, and you find yourself stricken mute!  You try to remember the arcane gestures to cast your spell and find that you've forgotten them too.  <b>The kitsune's spell has sealed your magic!</b>  You won't be able to cast any spells until it wears off.");
-            enemy.combat.effects.add(CombatEffectType.Sealed, char, { expireCountdown: 4, blockedTypes: CombatActionType.Spells });
+            enemy.effects.create(EffectType.Sealed, { expireCountdown: 4, blockedTypes: CombatActionType.Spells });
         }
         // Items:
         else if (select === 3) {
             CView.text("\"<i>Tsk tsk, using items?  That's cheating!</i>\"  the kitsune says as she appears right in front of you, taking you off guard.  Her finger traces a small circle on your pouch, leaving behind a glowing rune made of crackling flames.  No matter how hard you try, you can't seem to pry it open.  <b>The kitsune's spell has sealed your item pouch!</b>  Looks like you won't be using any items until the spell wears off.");
-            enemy.combat.effects.add(CombatEffectType.Sealed, char, { expireCountdown: 4, blockedTypes: CombatActionType.Items });
+            enemy.effects.create(EffectType.Sealed, { expireCountdown: 4, blockedTypes: CombatActionType.Items });
         }
         // Run:
         else if (select === 4) {
             CView.text("\"<i>Tsk tsk, leaving so soon?</i>\"  the kitsune says, popping up in front of you suddenly as you attempt to make your escape.  Before you can react, she draws a small circle on your chest with her fingertip, leaving behind a glowing rune made of crackling blue flames.  You try to run the other way, but your " + describeLegs(enemy) + " won't budge!\n\n\"<i>Sorry baby, you'll just have to stay and play~.</i>\" she says in a singsong tone, appearing in front of you again.  <b>The kitsune's spell prevents your escape!</b>  You'll have to tough it out until the spell wears off.");
-            enemy.combat.effects.add(CombatEffectType.Sealed, char, { expireCountdown: 4, blockedTypes: CombatActionType.MoveAway });
+            enemy.effects.create(EffectType.Sealed, { expireCountdown: 4, blockedTypes: CombatActionType.MoveAway });
         }
         // P.Special:
         else if (select === 5) {
             CView.text("You jump with surprise as the kitsune appears in front of you, grinning coyly.  As she draws a small circle on your forehead with her fingertip, you find that you suddenly can't remember how to use any of your physical skills!");
             CView.text("\n\n\"<i>Oh no darling, </i>I'm<i> the one with all the tricks here.</i>\"");
             CView.text("\n\n<b>The kitsune's spell has sealed your physical skills!</b>  You won't be able to use any of them until the spell wears off.");
-            enemy.combat.effects.add(CombatEffectType.Sealed, char, { expireCountdown: 4, blockedTypes: CombatActionType.PhysSpec });
+            enemy.effects.create(EffectType.Sealed, { expireCountdown: 4, blockedTypes: CombatActionType.PhysSpec });
         }
         // M.Special:
         else {
             CView.text("You jump with surprise as the kitsune appears in front of you, grinning coyly.  As she draws a small circle on your forehead with her fingertip, you find that you suddenly can't remember how to use any of your magical skills!");
             CView.text("\n\n\"<i>Oh no darling, </i>I'm<i> the one with all the tricks here.</i>\"");
             CView.text("\n\n<b>The kitsune's spell has sealed your magical skills!</b>  You won't be able to use any of them until the spell wears off.");
-            enemy.combat.effects.add(CombatEffectType.Sealed, char, { expireCountdown: 4, blockedTypes: CombatActionType.MagicSpec });
+            enemy.effects.create(EffectType.Sealed, { expireCountdown: 4, blockedTypes: CombatActionType.MagicSpec });
         }
         if (resist >= randInt(100)) {
             CView.text("\n\nUpon your touch, the seal dissipates, and you are free of the kitsune's magic!  She pouts in disappointment, looking thoroughly irritated, but quickly resumes her coy trickster facade.");
-            enemy.combat.effects.remove(CombatEffectType.Sealed);
+            enemy.effects.removeByName(EffectType.Sealed);
         }
     }
 }
@@ -161,10 +159,10 @@ class KitsuneMainAction extends CombatAction {
     public subActions: CombatAction[] = [new BasicAttack(), new FoxFire(), new Tease(), new Seal(), new Entwine(), new Illusion()];
     public use(char: Character, enemy: Character) {
         const moves = [new FoxFire(), new FoxFire(), new Tease(), new Tease()];
-        if (!enemy.combat.effects.has(CombatEffectType.Sealed)) moves.push(new Seal());
-        if (!enemy.combat.effects.has(CombatEffectType.Sealed)) moves.push(new Seal());
-        if (!char.combat.effects.has(CombatEffectType.PCTailTangle)) moves.push(new Entwine());
-        if (!char.combat.effects.has(CombatEffectType.Illusion)) moves.push(new Illusion());
+        if (!enemy.effects.has(EffectType.Sealed)) moves.push(new Seal());
+        if (!enemy.effects.has(EffectType.Sealed)) moves.push(new Seal());
+        if (!char.effects.has(EffectType.PCTailTangle)) moves.push(new Entwine());
+        if (!char.effects.has(EffectType.Illusion)) moves.push(new Illusion());
         return randomChoice(...moves);
     }
 }
@@ -172,7 +170,7 @@ class KitsuneMainAction extends CombatAction {
 const KitsuneReactions = new Dictionary<string, IReaction>();
 KitsuneReactions.set("Wait", {
     beforeUseAction: (kitsune: Character, enemy: Character) => {
-        if (!kitsune.combat.effects.has(CombatEffectType.PCTailTangle)) return false;
+        if (!kitsune.effects.has(EffectType.PCTailTangle)) return false;
         CView.clear();
         CView.text("Happily, you slump deeper into the fluffy tails, eliciting an amused giggle from the kitsune.");
         if (Settings.silly()) CView.text("  You're so glad you got to touch fluffy tail.");
@@ -183,14 +181,14 @@ KitsuneReactions.set("Wait", {
 });
 KitsuneReactions.set("Struggle", {
     beforeUseAction: (kitsune: Character, enemy: Character) => {
-        if (!kitsune.combat.effects.has(CombatEffectType.PCTailTangle)) return false;
+        if (!kitsune.effects.has(EffectType.PCTailTangle)) return false;
         CView.clear();
         // Struggle:
         CView.text("You struggle against the kitsune's tails with all your might, desperately trying to free yourself before she has her way with you.");
         // Success
-        if (randInt(20) + enemy.stats.str / 20 + kitsune.combat.effects.get(CombatEffectType.PCTailTangle)!.values.other!.counter >= 12) {
+        if (randInt(20) + enemy.stats.str / 20 + kitsune.effects.getByName(EffectType.PCTailTangle)!.values.other!.counter >= 12) {
             CView.text("  Summoning up reserves of strength you didn't know you had, you wrench yourself free of her tails, pushing her away.\n\n");
-            kitsune.combat.effects.remove(CombatEffectType.PCTailTangle);
+            kitsune.effects.removeByName(EffectType.PCTailTangle);
             kitsune.combat.action.use(kitsune, enemy);
         }
         // Failure - +5-10 LUST
@@ -199,7 +197,7 @@ KitsuneReactions.set("Struggle", {
             CView.text("\n\nShe licks her lips, running her hands along you wherever she can find exposed flesh.  Her fingertips leave small trails of dazzling blue that make you flush with lust - you must escape her grasp soon or else you will be like putty in her hands!");
             enemy.stats.lust += 5 + enemy.stats.sens / 10;
 
-            kitsune.combat.effects.get(CombatEffectType.PCTailTangle)!.values.other!.counter += 3;
+            kitsune.effects.getByName(EffectType.PCTailTangle)!.values.other!.counter += 3;
         }
         return true;
     }
@@ -246,12 +244,12 @@ export class Kitsune extends Character {
             this.hoursSinceCum = this.body.balls.size * 10;
         }
         this.body.vaginas.add(new Vagina(VaginaWetness.SLICK, VaginaLooseness.NORMAL, false));
-        this.effects.add(StatusEffectType.BonusVCapacity, { vaginalCapacity: 20 });
+        this.effects.create(EffectType.BonusVCapacity, { vaginalCapacity: 20 });
         this.body.chest.add(new BreastRow(breastCupInverse("D")));
         this.body.chest.firstRow.rating = BreastCup.D;
         this.body.butt.looseness = ButtLooseness.TIGHT;
         this.body.butt.wetness = ButtWetness.NORMAL;
-        this.effects.add(StatusEffectType.BonusACapacity, { analCapacity: 20 });
+        this.effects.create(EffectType.BonusACapacity, { analCapacity: 20 });
         this.body.tallness = randInt(24) + 60;
         this.body.hips.rating = HipRating.AMPLE;
         this.body.butt.rating = ButtRating.AVERAGE + 1;

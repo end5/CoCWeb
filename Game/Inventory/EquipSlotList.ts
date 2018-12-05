@@ -1,5 +1,5 @@
 import { EquipSlot } from './EquipSlot';
-import { List } from '../../Engine/Utilities/List';
+import { List } from 'Engine/Utilities/List';
 import { EquipableItem } from '../Items/EquipableItem';
 
 export class EquipSlotList<T extends EquipableItem> extends List<EquipSlot<T>> {

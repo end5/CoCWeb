@@ -1,10 +1,10 @@
 import { Weapon } from './Weapon';
 import { WeaponName } from './WeaponName';
 import { WeaponPerkType } from './WeaponPerk';
-import { Character } from '../../Character/Character';
+import { Character } from 'Game/Character/Character';
 import { ItemDesc } from '../ItemDesc';
-import { CView } from '../../../Page/ContentView';
-import { CharDict } from '../../CharDict';
+import { CView } from 'Page/ContentView';
+import { CharDict } from 'Game/CharDict';
 
 export class BeautifulSword extends Weapon {
     public constructor() {

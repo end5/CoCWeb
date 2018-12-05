@@ -1,20 +1,19 @@
 ﻿import { randInt } from '../../Engine/Utilities/SMath';
-import { Vagina, VaginaLooseness } from '../Body/Vagina';
+import { Vagina, VaginaLooseness } from '../Character/Body/Vagina';
 import { Character } from '../Character/Character';
-import { PerkType } from '../Effects/PerkType';
-import { StatusEffectType } from '../Effects/StatusEffectType';
+import { EffectType } from '../Effects/EffectType';
 import { describeVagina } from '../Descriptors/VaginaDescriptor';
 import { CView } from '../../Page/ContentView';
 import { PregnancyType, IncubationTime } from '../Body/Pregnancy/Pregnancy';
-import { IPregnancyEvent } from '../Body/Pregnancy/IPregnancyEvent';
-import { Womb } from '../Body/Pregnancy/Womb';
+import { IPregnancyEvent } from '../Character/Body/Pregnancy/IPregnancyEvent';
+import { Womb } from '../Character/Body/Pregnancy/Womb';
 
 export function stretchVagina(character: Character, vaginaArea: number): boolean {
     if (character.body.vaginas.length <= 0)
         return false;
     let stretched: boolean = false;
     const loosestVagina = character.body.vaginas.sort(Vagina.LoosenessMost).get(0)!;
-    if (character.perks.has(PerkType.FerasBoonMilkingTwat) || loosestVagina.looseness <= VaginaLooseness.NORMAL) {
+    if (character.effects.has(EffectType.FerasBoonMilkingTwat) || loosestVagina.looseness <= VaginaLooseness.NORMAL) {
         // cArea > capacity = autostreeeeetch.
         if (vaginaArea >= character.vaginalCapacity()) {
             if (loosestVagina.looseness >= VaginaLooseness.LEVEL_CLOWN_CAR)
@@ -40,9 +39,9 @@ export function stretchVagina(character: Character, vaginaArea: number): boolean
     // Delay anti-stretching
     if (vaginaArea >= .5 * character.vaginalCapacity()) {
         // Cunt Stretched used to determine how long since last enlargement
-        const effect = character.effects.get(StatusEffectType.CuntStretched);
+        const effect = character.effects.getByName(EffectType.CuntStretched);
         if (!effect)
-            character.effects.add(StatusEffectType.CuntStretched);
+            character.effects.create(EffectType.CuntStretched);
         // Reset the timer on it to 0 when restretched.
         else
             effect.values.expireCountdown = 0;

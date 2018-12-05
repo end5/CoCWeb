@@ -1,27 +1,26 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { BreastRow } from '../../Body/BreastRow';
-import { Cock, CockType } from '../../Body/Cock';
-import { EarType } from '../../Body/Ears';
-import { FaceType } from '../../Body/Face';
-import { LegType } from '../../Body/Legs';
-import { SkinType } from '../../Body/Skin';
-import { Tail, TailType } from '../../Body/Tail';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
-import { numToOrdinalText } from '../../Utilities/NumToText';
+import { randInt } from 'Engine/Utilities/SMath';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { EarType } from 'Game/Character/Body/Ears';
+import { FaceType } from 'Game/Character/Body/Face';
+import { LegType } from 'Game/Character/Body/Legs';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { Tail, TailType } from 'Game/Character/Body/Tail';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
+import { numToOrdinalText } from 'Game/Utilities/NumToText';
 import { ItemDesc } from '../ItemDesc';
-import { describeFaceShort } from '../../Descriptors/FaceDescriptor';
-import { describeCock, nounCock } from '../../Descriptors/CockDescriptor';
-import { describeVagina } from '../../Descriptors/VaginaDescriptor';
-import { describeBreastRow } from '../../Descriptors/BreastDescriptor';
-import { describeFeet } from '../../Descriptors/LegDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { displayCharacterHPChange } from '../../Modifiers/StatModifier';
-import { displayModThickness, displayModTone, displayModFem } from '../../Modifiers/BodyModifier';
-import { Settings } from '../../Settings';
+import { describeFaceShort } from 'Game/Descriptors/FaceDescriptor';
+import { describeCock, nounCock } from 'Game/Descriptors/CockDescriptor';
+import { describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { describeBreastRow } from 'Game/Descriptors/BreastDescriptor';
+import { describeFeet } from 'Game/Descriptors/LegDescriptor';
+import { CView } from 'Page/ContentView';
+import { displayCharacterHPChange } from 'Game/Modifiers/StatModifier';
+import { displayModThickness, displayModTone, displayModFem } from 'Game/Modifiers/BodyModifier';
+import { Settings } from 'Game/Settings';
 
 export class WhiskerFruit extends Consumable {
     public constructor() {
@@ -34,7 +33,7 @@ export class WhiskerFruit extends Consumable {
         if (randInt(2) === 0) changeLimit++;
         if (randInt(2) === 0) changeLimit++;
         if (randInt(3) === 0) changeLimit++;
-        if (character.perks.has(PerkType.HistoryAlchemist)) changeLimit++;
+        if (character.effects.has(EffectType.HistoryAlchemist)) changeLimit++;
         // Text go!
         CView.clear();
         CView.text("You take a bite of the fruit and gulp it down. It's thick and juicy and has an almost overpowering sweetness. Nevertheless, it is delicious and you certainly could use a meal.  You devour the fruit, stopping only when the hard, nubby pit is left; which you toss aside.");
@@ -122,7 +121,7 @@ export class WhiskerFruit extends Consumable {
         // Sexual changes would go here if I wasn't a tard.
         // Heat
         if (randInt(4) === 0 && changes < changeLimit) {
-            const intensified: boolean = character.effects.has(StatusEffectType.Heat);
+            const intensified = character.effects.has(EffectType.Heat);
 
             if (character.body.vaginas.length > 0) {
                 if (intensified) {

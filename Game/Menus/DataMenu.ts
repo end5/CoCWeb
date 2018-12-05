@@ -1,9 +1,9 @@
-import { AnchorElement } from '../../Engine/Display/Elements/AnchorElement';
-import { SaveManager } from '../../Engine/Save/SaveManager';
+import { AnchorElement } from 'Engine/Display/Elements/AnchorElement';
+import { SaveManager } from 'Engine/Save/SaveManager';
 import { Character } from '../Character/Character';
 import { generateSave, loadFromSave } from '../SaveFile';
 import { displayNextScreenChoices, NextScreenChoices, ScreenChoice } from '../ScreenDisplay';
-import { CView } from '../../Page/ContentView';
+import { CView } from 'Page/ContentView';
 import { saveMenu } from './SaveMenu';
 import { loadMenu } from './LoadMenu';
 import { deleteMenu } from './DeleteMenu';

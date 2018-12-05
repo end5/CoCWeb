@@ -1,10 +1,10 @@
-import { Character } from '../../Character/Character';
-import { CombatAction } from '../../Combat/Actions/CombatAction';
-import { CombatManager, getEnemies } from '../../Combat/CombatManager';
-import { NextScreenChoices, ScreenChoice, ClickOption } from '../../ScreenDisplay';
-import { describeVagina } from '../../Descriptors/VaginaDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { CombatEffectType } from '../../Effects/CombatEffectType';
+import { Character } from 'Game/Character/Character';
+import { CombatAction } from 'Game/Combat/Actions/CombatAction';
+import { CombatManager, getEnemies } from 'Game/Combat/CombatManager';
+import { NextScreenChoices, ScreenChoice, ClickOption } from 'Game/ScreenDisplay';
+import { describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { CView } from 'Page/ContentView';
+import { EffectType } from 'Game/Effects/EffectType';
 import { playerMenu } from './PlayerMenu';
 
 export function combatMenu(character: Character): NextScreenChoices {
@@ -34,7 +34,7 @@ function showMenu(char: Character, mainAction?: CombatAction, prevMenu?: ClickOp
         const enemies = getEnemies(CombatManager.encounter!, char);
         const curMenu = () => showMenu(char, mainAction, prevMenu);
         for (const action of mainAction.subActions) {
-            if (char.combat.effects.combatAbilityFlag & action.type && action.isPossible(char)) {
+            if (char.effects.blockedCombatActions & action.type && action.isPossible(char)) {
                 if (action.subActions.length > 0) {
                     choices.push([action.name, () => showMenu(char, action, curMenu)]);
                 }
@@ -80,11 +80,11 @@ function selectTarget(character: Character, action: CombatAction, prevMenu?: Cli
 
 function enemyDescription(character: Character, enemy: Character): void {
     let percent: string = "";
-    const hpRatio: number = enemy.combat.stats.HPRatio();
+    const hpRatio: number = enemy.combat.HPRatio();
     percent = "(<b>" + String(Math.floor(hpRatio * 1000) / 10) + "% HP</b>)";
 
     CView.text("<b>You are fighting " + enemy.desc.a + enemy.desc.short + ":</b> (Level: " + enemy.stats.level + ")\n");
-    if (character.combat.effects.has(CombatEffectType.Blind)) CView.text("It's impossible to see anything!\n");
+    if (character.effects.has(EffectType.Blind)) CView.text("It's impossible to see anything!\n");
     else {
         CView.text(enemy.desc.long + "\n");
         if (enemy.desc.plural) {
@@ -108,13 +108,13 @@ function enemyDescription(character: Character, enemy: Character): void {
 
 function showMonsterLust(enemy: Character): void {
     // Entrapped
-    if (enemy.combat.effects.has(CombatEffectType.Constricted)) {
+    if (enemy.effects.has(EffectType.Constricted)) {
         CView.text(enemy.desc.capitalA + enemy.desc.short + " is currently wrapped up in your tail-coils!  ");
     }
     // Venom stuff!
-    if (enemy.combat.effects.has(CombatEffectType.NagaVenom)) {
+    if (enemy.effects.has(EffectType.NagaVenom)) {
         if (enemy.desc.plural) {
-            if (enemy.combat.effects.get(CombatEffectType.NagaVenom)!.values.expireCountdown <= 1) {
+            if (enemy.effects.getByName(EffectType.NagaVenom)!.values.expireCountdown <= 1) {
                 CView.text("You notice " + enemy.desc.subjectivePronoun + " are beginning to show signs of weakening, but there still appears to be plenty of fight left in " + enemy.desc.objectivePronoun + ".  ");
             }
             else {
@@ -123,7 +123,7 @@ function showMonsterLust(enemy: Character): void {
         }
         // Not plural
         else {
-            if (enemy.combat.effects.get(CombatEffectType.NagaVenom)!.values.expireCountdown <= 1) {
+            if (enemy.effects.getByName(EffectType.NagaVenom)!.values.expireCountdown <= 1) {
                 CView.text("You notice " + enemy.desc.subjectivePronoun + " is beginning to show signs of weakening, but there still appears to be plenty of fight left in " + enemy.desc.objectivePronoun + ".  ");
             }
             else {

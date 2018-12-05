@@ -1,28 +1,27 @@
-import { Character } from "../../../Character/Character";
-import { NextScreenChoices } from "../../../ScreenDisplay";
-import { CView } from "../../../../Page/ContentView";
-import { SpriteName } from "../../../../Page/SpriteName";
-import { randInt } from "../../../../Engine/Utilities/SMath";
-import { StatusEffectType } from "../../../Effects/StatusEffectType";
-import { guyGirl } from "../../../Descriptors/GenderDescriptor";
-import { passTime } from "../../../Menus/InGame/PlayerMenu";
-import { describeVagina, describeClit } from "../../../Descriptors/VaginaDescriptor";
-import { VaginaWetness } from "../../../Body/Vagina";
-import { describeButt } from "../../../Descriptors/ButtDescriptor";
-import { describeLegs, describeLeg } from "../../../Descriptors/LegDescriptor";
-import { BreastRow } from "../../../Body/BreastRow";
-import { describeCocksLight, describeCock, nounCock } from "../../../Descriptors/CockDescriptor";
-import { CockType } from "../../../Body/Cock";
-import { describeBalls } from "../../../Descriptors/BallsDescriptor";
-import { Flags } from "../../../Flags";
-import { FlagType } from "../../../FlagType";
-import { TimeEvents } from "../../../TimeEvents";
+import { Character } from 'Game/Character/Character';
+import { NextScreenChoices } from 'Game/ScreenDisplay';
+import { CView } from 'Page/ContentView';
+import { SpriteName } from 'Page/SpriteName';
+import { randInt } from 'Engine/Utilities/SMath';
+import { guyGirl } from 'Game/Descriptors/GenderDescriptor';
+import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { describeVagina, describeClit } from 'Game/Descriptors/VaginaDescriptor';
+import { VaginaWetness } from 'Game/Character/Body/Vagina';
+import { describeButt } from 'Game/Descriptors/ButtDescriptor';
+import { describeLegs, describeLeg } from 'Game/Descriptors/LegDescriptor';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { describeCocksLight, describeCock, nounCock } from 'Game/Descriptors/CockDescriptor';
+import { CockType } from 'Game/Character/Body/Cock';
+import { describeBalls } from 'Game/Descriptors/BallsDescriptor';
+import { Flags } from 'Game/Flags';
+import { TimeEvents } from 'Game/TimeEvents';
+import { EffectType } from 'Game/Effects/EffectType';
 
 export const FaerieFlags = {
     Fucked: 0,
     FemFuck: 0
 };
-Flags.set(FlagType.Faerie, FaerieFlags);
+Flags.set("Faerie", FaerieFlags);
 
 // faerie Encounter
 export function encounterFaerie(player: Character): NextScreenChoices {
@@ -291,18 +290,18 @@ function faerieCaptureHJ(player: Character): NextScreenChoices {
         player.orgasm();
         player.stats.lib += -.5;
 
-        if (!player.effects.has(StatusEffectType.Jizzpants))
-            player.effects.add(StatusEffectType.Jizzpants);
+        if (!player.effects.has(EffectType.Jizzpants))
+            player.effects.create(EffectType.Jizzpants);
     }
     return { next: passTime(1) };
 }
 
 TimeEvents.set("Jizzed Pants", (player: Character): void | boolean => {
-    if (player.effects.has(StatusEffectType.Jizzpants)) {
+    if (player.effects.has(EffectType.Jizzpants)) {
         CView.text("\nYour " + player.inventory.armor.displayName + " squishes wetly with all the semen you unloaded into them, arousing you more and more with every movement.\n");
         player.stats.lust += 10 + player.stats.sens / 5;
 
-        player.effects.remove(StatusEffectType.Jizzpants);
+        player.effects.removeByName(EffectType.Jizzpants);
         return true;
     }
 });

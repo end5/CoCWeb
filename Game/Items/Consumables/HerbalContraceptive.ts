@@ -1,9 +1,9 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { Character } from '../../Character/Character';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { CView } from '../../../Page/ContentView';
+import { CView } from 'Page/ContentView';
 
 export class HerbalContraceptive extends Consumable {
     public constructor() {
@@ -16,6 +16,6 @@ export class HerbalContraceptive extends Consumable {
         // Placeholder, sue me
         CView.text("You chew on the frankly awfully bitter leaves as quickly as possible before swallowing them down.");
 
-        character.effects.add(StatusEffectType.Contraceptives, { expireCountdown: 48 });
+        character.effects.create(EffectType.Contraceptives, { expireCountdown: 48 });
     }
 }

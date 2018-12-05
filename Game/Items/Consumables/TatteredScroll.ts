@@ -1,14 +1,14 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { BreastRow } from '../../Body/BreastRow';
-import { Character } from '../../Character/Character';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { Character } from 'Game/Character/Character';
 import { ItemDesc } from '../ItemDesc';
-import { describeLegs } from '../../Descriptors/LegDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { boostLactation } from '../../Modifiers/BreastModifier';
-import { passTime } from '../../Menus/InGame/PlayerMenu';
-import { CombatManager } from '../../Combat/CombatManager';
-import { SpriteName } from '../../../Page/SpriteName';
+import { describeLegs } from 'Game/Descriptors/LegDescriptor';
+import { CView } from 'Page/ContentView';
+import { boostLactation } from 'Game/Modifiers/BreastModifier';
+import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { CombatManager } from 'Game/Combat/CombatManager';
+import { SpriteName } from 'Page/SpriteName';
 
 export class TatteredScroll extends Consumable {
     public constructor() {

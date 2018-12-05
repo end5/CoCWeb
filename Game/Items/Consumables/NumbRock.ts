@@ -1,15 +1,14 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { SkinType } from '../../Body/Skin';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
+import { randInt } from 'Engine/Utilities/SMath';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { describeOneOfYourCocks } from '../../Descriptors/CockDescriptor';
-import { describeVagina } from '../../Descriptors/VaginaDescriptor';
-import { describeButthole } from '../../Descriptors/ButtDescriptor';
-import { CView } from '../../../Page/ContentView';
+import { describeOneOfYourCocks } from 'Game/Descriptors/CockDescriptor';
+import { describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { describeButthole } from 'Game/Descriptors/ButtDescriptor';
+import { CView } from 'Page/ContentView';
 
 export class NumbRock extends Consumable {
     public constructor() {
@@ -26,7 +25,7 @@ export class NumbRock extends Consumable {
             character.stats.lust -= 20 + randInt(40);
         }
         if (randInt(5) === 0) {
-            if (!character.effects.has(StatusEffectType.Dysfunction)) {
+            if (!character.effects.has(EffectType.Dysfunction)) {
                 CView.text("\n\nUnfortunately, the skin of ");
                 if (character.body.cocks.length > 0) {
                     CView.text(describeOneOfYourCocks(character));
@@ -39,23 +38,23 @@ export class NumbRock extends Consumable {
                 }
                 if (!(character.body.cocks.length > 0 || character.body.vaginas.length > 0)) CView.text(describeButthole(character.body.butt) + " ");
                 CView.text(" numbs up too.  You give yourself a gentle touch, but are quite disturbed when you realize you can barely feel it.  You can probably still fuck something to get off, but regular masturbation is out of the question...");
-                character.effects.add(StatusEffectType.Dysfunction, { expireCountdown: 50 + randInt(100) });
+                character.effects.create(EffectType.Dysfunction, { expireCountdown: 50 + randInt(100) });
             }
             else {
                 CView.text("\n\nSadly your groin becomes even more deadened to sensation.  You wonder how much longer you'll have to wait until you can please yourself again.");
-                character.effects.get(StatusEffectType.Dysfunction)!.values.expireCountdown = 50 + randInt(100);
+                character.effects.getByName(EffectType.Dysfunction)!.values.expireCountdown = 50 + randInt(100);
             }
         }
         else if (randInt(4) === 0 && character.stats.int > 15) {
             CView.text("\n\nNumbness clouds your mind, making you feel slow witted and dull.  Maybe these candies weren't such a exceptio... fantas... good idea.");
             character.stats.int -= 1 + randInt(5);
         }
-        if (!character.perks.has(PerkType.ThickSkin) && character.stats.sens < 30 && randInt(4) === 0) {
+        if (!character.effects.has(EffectType.ThickSkin) && character.stats.sens < 30 && randInt(4) === 0) {
             CView.text("Slowly, ");
             if (character.body.skin.type === SkinType.PLAIN) CView.text("your skin");
             else CView.text("the skin under your " + character.body.skin.desc);
             CView.text(" begins to feel duller, almost... thicker.  You pinch yourself and find that your epidermis feels more resistant to damage, almost like natural armor!\n<b>(Thick Skin - Perk Gained!)</b>");
-            character.perks.add(PerkType.ThickSkin);
+            character.effects.create(EffectType.ThickSkin);
         }
         CView.text("\n\nAfter the sensations pass, your " + character.body.skin.desc + " feels a little less receptive to touch.");
         character.stats.sens += -3;

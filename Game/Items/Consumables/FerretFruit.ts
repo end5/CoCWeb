@@ -1,33 +1,32 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { BreastRow } from '../../Body/BreastRow';
-import { Cock } from '../../Body/Cock';
-import { EarType } from '../../Body/Ears';
-import { EyeType } from '../../Body/Eyes';
-import { FaceType } from '../../Body/Face';
-import { HairType } from '../../Body/Hair';
-import { LegType } from '../../Body/Legs';
-import { SkinType } from '../../Body/Skin';
-import { Tail, TailType } from '../../Body/Tail';
-import { Character } from '../../Character/Character';
+import { randInt } from 'Engine/Utilities/SMath';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { Cock } from 'Game/Character/Body/Cock';
+import { EarType } from 'Game/Character/Body/Ears';
+import { EyeType } from 'Game/Character/Body/Eyes';
+import { FaceType } from 'Game/Character/Body/Face';
+import { HairType } from 'Game/Character/Body/Hair';
+import { LegType } from 'Game/Character/Body/Legs';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { Tail, TailType } from 'Game/Character/Body/Tail';
+import { Character } from 'Game/Character/Character';
 import { ItemDesc } from '../ItemDesc';
-import { describeCock } from '../../Descriptors/CockDescriptor';
+import { describeCock } from 'Game/Descriptors/CockDescriptor';
 import { ReptilumFlags } from './Reptilum';
-import { CView } from '../../../Page/ContentView';
-import { ferretRaceScore } from '../../Body/RaceScore';
-import { displayGoIntoHeat } from '../../Modifiers/BodyModifier';
-import { FlagType } from '../../FlagType';
-import { NextScreenChoices } from '../../ScreenDisplay';
-import { Flags } from '../../Flags';
-import { Settings } from '../../Settings';
-import { gameOverMenu } from '../../Menus/InGame/GameOverMenu';
+import { CView } from 'Page/ContentView';
+import { ferretRaceScore } from 'Game/Character/RaceScore';
+import { displayGoIntoHeat } from 'Game/Modifiers/BodyModifier';
+import { NextScreenChoices } from 'Game/ScreenDisplay';
+import { Flags } from 'Game/Flags';
+import { Settings } from 'Game/Settings';
+import { gameOverMenu } from 'Game/Menus/InGame/GameOverMenu';
 
 export const ferretFruitFlags = {
     FERRET_BAD_END_WARNING: 0,
 };
 
-Flags.set(FlagType.FerretFruit, ferretFruitFlags);
+Flags.set("Ferret Fruit", ferretFruitFlags);
 
 export class FerretFruit extends Consumable {
     public constructor() {

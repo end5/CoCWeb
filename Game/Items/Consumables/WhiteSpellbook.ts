@@ -1,9 +1,9 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { Character } from '../../Character/Character';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { CView } from '../../../Page/ContentView';
+import { CView } from 'Page/ContentView';
 
 export class WhiteSpellbook extends Consumable {
     public constructor() {
@@ -30,21 +30,21 @@ export class WhiteSpellbook extends Consumable {
             character.stats.int += .6;
         }
         // Smart enough for arouse and doesnt have it
-        if (character.stats.int >= 25 && !character.effects.has(StatusEffectType.KnowsCharge)) {
+        if (character.stats.int >= 25 && !character.effects.has(EffectType.KnowsCharge)) {
             CView.text("\n\nYou blink in surprise, assaulted by the knowledge of a <b>new spell: Charge Weapon.</b>");
-            character.effects.add(StatusEffectType.KnowsCharge);
+            character.effects.create(EffectType.KnowsCharge);
             return;
         }
         // Smart enough for arouse and doesnt have it
-        if (character.stats.int >= 30 && !character.effects.has(StatusEffectType.KnowsBlind)) {
+        if (character.stats.int >= 30 && !character.effects.has(EffectType.KnowsBlind)) {
             CView.text("\n\nYou blink in surprise, assaulted by the knowledge of a <b>new spell: Blind.</b>");
-            character.effects.add(StatusEffectType.KnowsBlind);
+            character.effects.create(EffectType.KnowsBlind);
             return;
         }
         // Smart enough for arouse and doesnt have it
-        if (character.stats.int >= 40 && !character.effects.has(StatusEffectType.KnowsWhitefire)) {
+        if (character.stats.int >= 40 && !character.effects.has(EffectType.KnowsWhitefire)) {
             CView.text("\n\nYou blink in surprise, assaulted by the knowledge of a <b>new spell: Whitefire.</b>");
-            character.effects.add(StatusEffectType.KnowsWhitefire);
+            character.effects.create(EffectType.KnowsWhitefire);
         }
     }
 }

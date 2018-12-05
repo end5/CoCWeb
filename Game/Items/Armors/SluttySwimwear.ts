@@ -1,18 +1,18 @@
 import { ArmorName } from './ArmorName';
-import { ArmorWithPerk } from './ArmorWithPerk';
-import { BreastRow } from '../../Body/BreastRow';
-import { Cock } from '../../Body/Cock';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
+import { Armor } from './Armor';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { Cock } from 'Game/Character/Body/Cock';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { describeBalls } from '../../Descriptors/BallsDescriptor';
-import { describeCock, describeCocksLight } from '../../Descriptors/CockDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { Perk } from '../../Effects/Perk';
+import { describeBalls } from 'Game/Descriptors/BallsDescriptor';
+import { describeCock, describeCocksLight } from 'Game/Descriptors/CockDescriptor';
+import { CView } from 'Page/ContentView';
 
-export class SluttySwimwear extends ArmorWithPerk {
+export class SluttySwimwear extends Armor {
     public constructor() {
-        super(ArmorName.SluttySwimwear, new ItemDesc("S.Swmwr", "a skimpy black bikini", "An impossibly skimpy black bikini. You feel dirty just looking at it... and a little aroused, actually."), "slutty swimwear", 0, 6, "Light", new Perk(PerkType.SluttySeduction, { teaseChance: 6 }), "", true);
+        super(ArmorName.SluttySwimwear, new ItemDesc("S.Swmwr", "a skimpy black bikini", "An impossibly skimpy black bikini. You feel dirty just looking at it... and a little aroused, actually."), "slutty swimwear", 0, 6, "Light", true);
+        this.effects.create(EffectType.SluttySeduction, { teaseChance: 6 });
     }
 
     public useText(character: Character): void {

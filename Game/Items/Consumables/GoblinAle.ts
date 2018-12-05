@@ -1,26 +1,25 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { ArmType } from '../../Body/Arms';
-import { EarType } from '../../Body/Ears';
-import { EyeType } from '../../Body/Eyes';
-import { FaceType } from '../../Body/Face';
-import { AntennaeType } from '../../Body/Antennae';
-import { SkinType } from '../../Body/Skin';
-import { VaginaType } from '../../Body/Vagina';
-import { WingType } from '../../Body/Wings';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
+import { randInt } from 'Engine/Utilities/SMath';
+import { ArmType } from 'Game/Character/Body/Arms';
+import { EarType } from 'Game/Character/Body/Ears';
+import { EyeType } from 'Game/Character/Body/Eyes';
+import { FaceType } from 'Game/Character/Body/Face';
+import { AntennaeType } from 'Game/Character/Body/Antennae';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { VaginaType } from 'Game/Character/Body/Vagina';
+import { WingType } from 'Game/Character/Body/Wings';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { describeVagina } from '../../Descriptors/VaginaDescriptor';
-import { describeHair } from '../../Descriptors/HairDescriptor';
-import { describeFeet } from '../../Descriptors/LegDescriptor';
-import { describeBreastRow, describeNipple } from '../../Descriptors/BreastDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { displayKillCocks, growCock, displayLengthChange } from '../../Modifiers/CockModifier';
-import { displayModFem, displayModThickness, displayModTone } from '../../Modifiers/BodyModifier';
-import { Settings } from '../../Settings';
+import { describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { describeHair } from 'Game/Descriptors/HairDescriptor';
+import { describeFeet } from 'Game/Descriptors/LegDescriptor';
+import { describeBreastRow, describeNipple } from 'Game/Descriptors/BreastDescriptor';
+import { CView } from 'Page/ContentView';
+import { displayKillCocks, growCock, displayLengthChange } from 'Game/Modifiers/CockModifier';
+import { displayModFem, displayModThickness, displayModTone } from 'Game/Modifiers/BodyModifier';
+import { Settings } from 'Game/Settings';
 
 export class GoblinAle extends Consumable {
     public constructor() {
@@ -34,7 +33,7 @@ export class GoblinAle extends Consumable {
         if (randInt(3) === 0) changeLimit++;
         if (randInt(4) === 0) changeLimit++;
         if (randInt(5) === 0) changeLimit++;
-        if (character.perks.has(PerkType.HistoryAlchemist)) changeLimit++;
+        if (character.effects.has(EffectType.HistoryAlchemist)) changeLimit++;
         CView.clear();
         CView.text("You drink the ale, finding it to have a remarkably smooth yet potent taste.  You lick your lips and sneeze, feeling slightly tipsy.");
         character.stats.lust += 15;
@@ -91,11 +90,11 @@ export class GoblinAle extends Consumable {
             changes++;
         }
         // Boost vaginal capacity without gaping
-        const bonusVCap = character.effects.get(StatusEffectType.BonusVCapacity);
-        if (changes < changeLimit && randInt(3) === 0 && character.body.vaginas.length > 0 && bonusVCap && bonusVCap.values.other!.capacity < 40) {
-            if (!character.effects.has(StatusEffectType.BonusVCapacity))
-                character.effects.add(StatusEffectType.BonusVCapacity);
-            bonusVCap.values.other!.capacity = 5;
+        const bonusVCap = character.effects.getByName(EffectType.BonusVCapacity);
+        if (changes < changeLimit && randInt(3) === 0 && character.body.vaginas.length > 0 && bonusVCap && bonusVCap.values.vaginalCapacity < 40) {
+            if (!character.effects.has(EffectType.BonusVCapacity))
+                character.effects.create(EffectType.BonusVCapacity);
+            bonusVCap.values.vaginalCapacity = 5;
             CView.text("\n\nThere is a sudden... emptiness within your " + describeVagina(character, character.body.vaginas.get(0)) + ".  Somehow you know you could accommodate even larger... insertions.");
             changes++;
         }
@@ -203,10 +202,10 @@ export class GoblinAle extends Consumable {
             changes++;
         }
         // Nipples Turn Back:
-        if (character.effects.has(StatusEffectType.BlackNipples) && changes < changeLimit && randInt(3) === 0) {
+        if (character.effects.has(EffectType.BlackNipples) && changes < changeLimit && randInt(3) === 0) {
             CView.text("\n\nSomething invisible brushes against your " + describeNipple(character, character.body.chest.firstRow) + ", making you twitch.  Undoing your clothes, you take a look at your chest and find that your nipples have turned back to their natural flesh colour.");
             changes++;
-            character.effects.remove(StatusEffectType.BlackNipples);
+            character.effects.removeByName(EffectType.BlackNipples);
         }
         // Debugcunt
         if (changes < changeLimit && randInt(3) === 0 && character.body.vaginas.length > 0 && character.body.vaginas.get(0)!.type !== VaginaType.HUMAN) {
@@ -214,7 +213,7 @@ export class GoblinAle extends Consumable {
             character.body.vaginas.get(0)!.type = VaginaType.HUMAN;
             changes++;
         }
-        if (changes < changeLimit && randInt(4) === 0 && ((character.body.butt.wetness > 0 && !character.perks.has(PerkType.MaraesGiftButtslut)) || character.body.butt.wetness > 1)) {
+        if (changes < changeLimit && randInt(4) === 0 && ((character.body.butt.wetness > 0 && !character.effects.has(EffectType.MaraesGiftButtslut)) || character.body.butt.wetness > 1)) {
             CView.text("\n\nYou feel a tightening up in your colon and your [asshole] sucks into itself.  You feel sharp pain at first but that thankfully fades.  Your ass seems to have dried and tightened up.");
             character.body.butt.wetness--;
             if (character.body.butt.looseness > 1) character.body.butt.looseness--;

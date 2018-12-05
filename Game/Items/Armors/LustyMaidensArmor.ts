@@ -1,27 +1,26 @@
 import { Armor } from './Armor';
 import { ArmorName } from './ArmorName';
-import { BreastCup, BreastRow } from '../../Body/BreastRow';
-import { Vagina } from '../../Body/Vagina';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
+import { BreastCup, BreastRow } from 'Game/Character/Body/BreastRow';
+import { Vagina } from 'Game/Character/Body/Vagina';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { describeCocksLight, describeCockShort, describeCockHead } from '../../Descriptors/CockDescriptor';
-import { NextScreenChoices } from '../../ScreenDisplay';
-import { mf } from '../../Descriptors/GenderDescriptor';
-import { Flags } from '../../Flags';
-import { FlagType } from '../../FlagType';
-import { CharDict } from '../../CharDict';
-import { CView } from '../../../Page/ContentView';
-import { CharacterType } from '../../Character/CharacterType';
-import { CeraphFlags } from '../../Scenes/NPCs/Ceraph';
+import { describeCocksLight, describeCockShort, describeCockHead } from 'Game/Descriptors/CockDescriptor';
+import { NextScreenChoices } from 'Game/ScreenDisplay';
+import { mf } from 'Game/Descriptors/GenderDescriptor';
+import { Flags } from 'Game/Flags';
+import { CharDict } from 'Game/CharDict';
+import { CView } from 'Page/ContentView';
+import { CharacterType } from 'Game/Character/CharacterType';
+import { CeraphFlags } from 'Game/Scenes/NPCs/Ceraph';
 import { minoCumAddiction } from '../Consumables/MinotaurCum';
-import { passTime } from '../../Menus/InGame/PlayerMenu';
+import { passTime } from 'Game/Menus/InGame/PlayerMenu';
 
 export const LustyMaidensArmorFlags = {
     BIKINI_ARMOR_BONUS: 0
 };
 
-Flags.set(FlagType.LustyMaidensArmor, LustyMaidensArmorFlags);
+Flags.set("Lusty Maiden's Armor", LustyMaidensArmorFlags);
 
 export class LustyMaidensArmor extends Armor {
     public constructor() {
@@ -79,20 +78,20 @@ export class LustyMaidensArmor extends Armor {
     }
 
     public onEquip(character: Character): void {
-        while (character.perks.has(PerkType.SluttySeduction))
-            character.perks.remove(PerkType.SluttySeduction);
+        while (character.effects.has(EffectType.SluttySeduction))
+            character.effects.removeByName(EffectType.SluttySeduction);
         if (character.body.vaginas.find(Vagina.Virgin)) {
-            character.perks.add(PerkType.SluttySeduction, { teaseChance: 10, teaseDamage: 10 + LustyMaidensArmorFlags.BIKINI_ARMOR_BONUS });
+            character.effects.create(EffectType.SluttySeduction, { teaseChance: 10, teaseDamage: 10 + LustyMaidensArmorFlags.BIKINI_ARMOR_BONUS });
         }
         else {
-            character.perks.add(PerkType.SluttySeduction, { teaseChance: 10, teaseDamage: 6 + LustyMaidensArmorFlags.BIKINI_ARMOR_BONUS });
+            character.effects.create(EffectType.SluttySeduction, { teaseChance: 10, teaseDamage: 6 + LustyMaidensArmorFlags.BIKINI_ARMOR_BONUS });
         }
         super.onEquip(character);
     }
 
     public onUnequip(character: Character): void {
-        while (character.perks.has(PerkType.SluttySeduction))
-            character.perks.remove(PerkType.SluttySeduction);
+        while (character.effects.has(EffectType.SluttySeduction))
+            character.effects.removeByName(EffectType.SluttySeduction);
         super.onUnequip(character);
     }
 }

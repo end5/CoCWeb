@@ -1,6 +1,6 @@
-import { MainScreen } from '../../Page/MainScreen';
+import { MainScreen } from 'Page/MainScreen';
 import { NextScreenChoices } from '../ScreenDisplay';
-import { CView } from '../../Page/ContentView';
+import { CView } from 'Page/ContentView';
 import { Settings } from '../Settings';
 import { controlsMenu } from './ControlsMenu';
 import { mainMenu } from './MainMenu';

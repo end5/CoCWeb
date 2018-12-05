@@ -1,31 +1,30 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { ArmType } from '../../Body/Arms';
-import { BreastRow } from '../../Body/BreastRow';
-import { Cock, CockType } from '../../Body/Cock';
-import { EarType } from '../../Body/Ears';
-import { FaceType } from '../../Body/Face';
-import { HornType } from '../../Body/Horns';
-import { LegType } from '../../Body/Legs';
-import { SkinType } from '../../Body/Skin';
-import { Tail, TailType } from '../../Body/Tail';
-import { VaginaLooseness } from '../../Body/Vagina';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
+import { randInt } from 'Engine/Utilities/SMath';
+import { ArmType } from 'Game/Character/Body/Arms';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { EarType } from 'Game/Character/Body/Ears';
+import { FaceType } from 'Game/Character/Body/Face';
+import { HornType } from 'Game/Character/Body/Horns';
+import { LegType } from 'Game/Character/Body/Legs';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { Tail, TailType } from 'Game/Character/Body/Tail';
+import { VaginaLooseness } from 'Game/Character/Body/Vagina';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { describeBalls, describeSack } from '../../Descriptors/BallsDescriptor';
-import { describeFeet } from '../../Descriptors/LegDescriptor';
-import { describeVagina } from '../../Descriptors/VaginaDescriptor';
-import { describeBreastRow, describeNipple, breastCup } from '../../Descriptors/BreastDescriptor';
-import { describeCock, nounCock } from '../../Descriptors/CockDescriptor';
-import { describeButt } from '../../Descriptors/ButtDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { growCock, thickenCock } from '../../Modifiers/CockModifier';
-import { displayGoIntoRut, displayModFem, displayModTone, displayModThickness } from '../../Modifiers/BodyModifier';
-import { displayCharacterHPChange } from '../../Modifiers/StatModifier';
-import { Settings } from '../../Settings';
+import { describeBalls, describeSack } from 'Game/Descriptors/BallsDescriptor';
+import { describeFeet } from 'Game/Descriptors/LegDescriptor';
+import { describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { describeBreastRow, describeNipple, breastCup } from 'Game/Descriptors/BreastDescriptor';
+import { describeCock, nounCock } from 'Game/Descriptors/CockDescriptor';
+import { describeButt } from 'Game/Descriptors/ButtDescriptor';
+import { CView } from 'Page/ContentView';
+import { growCock, thickenCock } from 'Game/Modifiers/CockModifier';
+import { displayGoIntoRut, displayModFem, displayModTone, displayModThickness } from 'Game/Modifiers/BodyModifier';
+import { displayCharacterHPChange } from 'Game/Modifiers/StatModifier';
+import { Settings } from 'Game/Settings';
 
 export class MinotaurBlood extends Consumable {
     public constructor() {
@@ -44,7 +43,7 @@ export class MinotaurBlood extends Consumable {
         if (randInt(2) === 0) changeLimit++;
         if (randInt(3) === 0) changeLimit++;
         if (randInt(3) === 0) changeLimit++;
-        if (character.perks.has(PerkType.HistoryAlchemist)) changeLimit++;
+        if (character.effects.has(EffectType.HistoryAlchemist)) changeLimit++;
         if (changeLimit === 1) changeLimit = 2;
         // Set up output
         CView.clear();
@@ -296,11 +295,11 @@ export class MinotaurBlood extends Consumable {
         }
 
         // Anti-masturbation status
-        if (randInt(4) === 0 && changes < changeLimit && !character.effects.has(StatusEffectType.Dysfunction)) {
+        if (randInt(4) === 0 && changes < changeLimit && !character.effects.has(EffectType.Dysfunction)) {
             if (cocks.length > 0) CView.text("\n\nYour " + describeCock(character, cocks.get(0)) + " tingles abruptly, then stops.  Worried, you reach down to check it, only to discover that it feels... numb.  It will be very hard to masturbate like this.");
             else if (vaginas.length > 0) CView.text("\n\nYour " + describeVagina(character, vaginas.get(0)) + " tingles abruptly, then stops.  Worried, you reach down to check it, only to discover that it feels... numb.  It will be very hard to masturbate like this.");
             if (cocks.length > 0 || vaginas.length > 0) {
-                character.effects.add(StatusEffectType.Dysfunction, { expireCountdown: 96 });
+                character.effects.create(EffectType.Dysfunction, { expireCountdown: 96 });
                 changes++;
             }
         }
@@ -415,7 +414,7 @@ export class MinotaurBlood extends Consumable {
             character.body.neck.gills = false;
             changes++;
         }
-        if (changes < changeLimit && randInt(4) === 0 && ((character.body.butt.wetness > 0 && !character.perks.has(PerkType.MaraesGiftButtslut)) || character.body.butt.wetness > 1)) {
+        if (changes < changeLimit && randInt(4) === 0 && ((character.body.butt.wetness > 0 && !character.effects.has(EffectType.MaraesGiftButtslut)) || character.body.butt.wetness > 1)) {
             CView.text("\n\nYou feel a tightening up in your colon and your [asshole] sucks into itself.  You feel sharp pain at first but that thankfully fades.  Your ass seems to have dried and tightened up.");
             character.body.butt.wetness--;
             if (character.body.butt.looseness > 1) character.body.butt.looseness--;

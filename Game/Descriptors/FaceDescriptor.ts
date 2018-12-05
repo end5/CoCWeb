@@ -1,7 +1,7 @@
-import { randInt } from '../../Engine/Utilities/SMath';
-import { FaceType } from '../Body/Face';
-import { TongueType } from '../Body/Tongue';
-import { Character } from '../Character/Character';
+import { randInt } from 'Engine/Utilities/SMath';
+import { FaceType } from 'Game/Character/Body/Face';
+import { TongueType } from 'Game/Character/Body/Tongue';
+import { Character } from 'Game/Character/Character';
 
 /**
  * Describe tongue. Monsters don't have tongues, apparently.

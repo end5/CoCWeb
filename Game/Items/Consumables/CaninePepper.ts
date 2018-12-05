@@ -1,31 +1,30 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { ArmType } from '../../Body/Arms';
-import { BreastRow } from '../../Body/BreastRow';
-import { Cock, CockType } from '../../Body/Cock';
-import { EarType } from '../../Body/Ears';
-import { EyeType } from '../../Body/Eyes';
-import { FaceType } from '../../Body/Face';
-import { LegType } from '../../Body/Legs';
-import { SkinType } from '../../Body/Skin';
-import { Tail, TailType } from '../../Body/Tail';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
+import { randInt } from 'Engine/Utilities/SMath';
+import { ArmType } from 'Game/Character/Body/Arms';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { EarType } from 'Game/Character/Body/Ears';
+import { EyeType } from 'Game/Character/Body/Eyes';
+import { FaceType } from 'Game/Character/Body/Face';
+import { LegType } from 'Game/Character/Body/Legs';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { Tail, TailType } from 'Game/Character/Body/Tail';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { describeCock, nounCock, describeCocksLight } from '../../Descriptors/CockDescriptor';
-import { describeBalls, describeSack, describeBallsShort } from '../../Descriptors/BallsDescriptor';
-import { describeBreastRow, breastCup } from '../../Descriptors/BreastDescriptor';
-import { Gender } from '../../Body/GenderIdentity';
-import { describeVagina } from '../../Descriptors/VaginaDescriptor';
-import { describeLegs, describeFeet } from '../../Descriptors/LegDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { thickenCock, growCock } from '../../Modifiers/CockModifier';
-import { displayGoIntoHeat } from '../../Modifiers/BodyModifier';
-import { dogRaceScore } from '../../Body/RaceScore';
-import { displayCharacterHPChange } from '../../Modifiers/StatModifier';
-import { gameOverMenu } from '../../Menus/InGame/GameOverMenu';
+import { describeCock, nounCock, describeCocksLight } from 'Game/Descriptors/CockDescriptor';
+import { describeBalls, describeSack, describeBallsShort } from 'Game/Descriptors/BallsDescriptor';
+import { describeBreastRow, breastCup } from 'Game/Descriptors/BreastDescriptor';
+import { Gender } from 'Game/Character/Body/GenderIdentity';
+import { describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { describeLegs, describeFeet } from 'Game/Descriptors/LegDescriptor';
+import { CView } from 'Page/ContentView';
+import { thickenCock, growCock } from 'Game/Modifiers/CockModifier';
+import { displayGoIntoHeat } from 'Game/Modifiers/BodyModifier';
+import { dogRaceScore } from 'Game/Character/RaceScore';
+import { displayCharacterHPChange } from 'Game/Modifiers/StatModifier';
+import { gameOverMenu } from 'Game/Menus/InGame/GameOverMenu';
 
 export enum CaninePepperType {
     Normal,
@@ -114,10 +113,10 @@ export class CaninePepper extends Consumable {
             character.body.tails.length > 0 &&
             character.body.tails.get(0)!.type === TailType.DOG &&
             randInt(2) === 0 &&
-            character.effects.has(StatusEffectType.DogWarning)) {
+            character.effects.has(EffectType.DogWarning)) {
             if (randInt(2) === 0) {
                 CView.text("\n\nAs you swallow the pepper, you note that the spicy hotness on your tongue seems to be spreading. Your entire body seems to tingle and burn, making you feel far warmer than normal, feverish even. Unable to stand it any longer you tear away your clothes, hoping to cool down a little. Sadly, this does nothing to aid you with your problem. On the bright side, the sudden feeling of vertigo you've developed is more than enough to take your mind off your temperature issues. You fall forward onto your hands and knees, well not really hands and knees to be honest. More like paws and knees. That can't be good, you think for a moment, before the sensation of your bones shifting into a quadrupedal configuration robs you of your concentration. After that, it is only a short time before your form is remade completely into that of a large dog, or perhaps a wolf. The distinction would mean little to you now, even if you were capable of comprehending it. ");
-                if (character.perks.has(PerkType.MarblesMilk))
+                if (character.effects.has(EffectType.MarblesMilk))
                     CView.text("All you know is that there is a scent on the wind, it is time to hunt, and at the end of the day you need to come home for your milk.");
                 else
                     CView.text("All you know is that there is a scent on the wind, and it is time to hunt.");
@@ -272,7 +271,7 @@ export class CaninePepper extends Consumable {
         let changeLimit: number = 1;
         if (randInt(2) === 0) changeLimit++;
         if (randInt(2) === 0) changeLimit++;
-        if (character.perks.has(PerkType.HistoryAlchemist)) changeLimit++;
+        if (character.effects.has(EffectType.HistoryAlchemist)) changeLimit++;
         // Initial outputs & crit level
         CView.clear();
         crit = this.eatPepperDesc();
@@ -280,12 +279,12 @@ export class CaninePepper extends Consumable {
         // OVERDOSE Bad End!
         this.overdoseBadEnd(character, crit);
         // WARNING, overdose VERY close!
-        if (this.pepperType <= 0 && character.body.skin.type === SkinType.FUR && character.body.face.type === FaceType.DOG && character.body.tails.reduce(Tail.HasType(TailType.DOG), false) && character.body.ears.type === EarType.DOG && character.body.legs.type === LegType.DOG && character.effects.has(StatusEffectType.DogWarning) && randInt(3) === 0) {
+        if (this.pepperType <= 0 && character.body.skin.type === SkinType.FUR && character.body.face.type === FaceType.DOG && character.body.tails.reduce(Tail.HasType(TailType.DOG), false) && character.body.ears.type === EarType.DOG && character.body.legs.type === LegType.DOG && character.effects.has(EffectType.DogWarning) && randInt(3) === 0) {
             CView.text("<b>\n\nEating the pepper, you realize how dog-like you've become, and you wonder what else the peppers could change...</b>");
         }
         // WARNING, overdose is close!
-        if (this.pepperType <= 0 && character.body.skin.type === SkinType.FUR && character.body.face.type === FaceType.DOG && character.body.tails.reduce(Tail.HasType(TailType.DOG), false) && character.body.ears.type === EarType.DOG && character.body.legs.type === LegType.DOG && !character.effects.has(StatusEffectType.DogWarning)) {
-            character.effects.add(StatusEffectType.DogWarning);
+        if (this.pepperType <= 0 && character.body.skin.type === SkinType.FUR && character.body.face.type === FaceType.DOG && character.body.tails.reduce(Tail.HasType(TailType.DOG), false) && character.body.ears.type === EarType.DOG && character.body.legs.type === LegType.DOG && !character.effects.has(EffectType.DogWarning)) {
+            character.effects.create(EffectType.DogWarning);
             CView.text("<b>\n\nEating the pepper, you realize how dog-like you've become, and you wonder what else the peppers could change...</b>");
         }
         if (this.pepperType === 3) {
@@ -433,7 +432,7 @@ export class CaninePepper extends Consumable {
             if (character.body.cumMultiplier < 2 && randInt(2) === 0 && changes < changeLimit) {
                 let cumMultiplierIncrease = 1.5;
                 // Lots of cum raises cum multiplier cap to 2 instead of 1.5
-                if (character.perks.has(PerkType.MessyOrgasms))
+                if (character.effects.has(EffectType.MessyOrgasms))
                     cumMultiplierIncrease = 2;
                 if (cumMultiplierIncrease < character.body.cumMultiplier + .05 * crit) {
                     changes--;
@@ -731,7 +730,6 @@ export class CaninePepper extends Consumable {
             if (character.body.ears.type === EarType.HORSE) CView.text("\n\nYour equine ears twist as they transform into canine versions.  ");
             if (character.body.ears.type > EarType.DOG) CView.text("\n\nYour ears transform, becoming more canine in appearance.  ");
             character.body.ears.type = EarType.DOG;
-            character.body.ears.value = 2;
             CView.text("<b>You now have dog ears.</b>");
             changes++;
         }

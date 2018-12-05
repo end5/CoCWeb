@@ -1,12 +1,11 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
+import { randInt } from 'Engine/Utilities/SMath';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { CView } from '../../../Page/ContentView';
-import { displayCharacterHPChange } from '../../Modifiers/StatModifier';
+import { CView } from 'Page/ContentView';
+import { displayCharacterHPChange } from 'Game/Modifiers/StatModifier';
 
 export class MarbleMilk extends Consumable {
     public constructor() {
@@ -19,8 +18,8 @@ export class MarbleMilk extends Consumable {
         CView.clear();
         // Text for when the character uses the bottle:
         // [before the character is addicted, Addiction < 30]
-        const marbleEffect = character.effects.get(StatusEffectType.Marble);
-        const marblesMilkEffect = character.effects.get(StatusEffectType.MarblesMilk);
+        const marbleEffect = character.effects.getByName(EffectType.Marble);
+        const marblesMilkEffect = character.effects.getByName(EffectType.MarblesMilk);
         if (marbleEffect && marbleEffect.values.str.value.flat < 30 && marblesMilkEffect && marblesMilkEffect.values.tou.value.flat === 0)
             CView.text("You gulp down the bottle's contents; Marble makes some good tasting milk.\n\n");
         // [before the character is addicted, Addiction < 50]
@@ -28,10 +27,10 @@ export class MarbleMilk extends Consumable {
             CView.text("You gulp down the bottle's contents; Marble makes some really good tasting milk.\n\n");
         else if (marblesMilkEffect && marblesMilkEffect.values.tou.value.flat > 0) {
             // [character is completely addicted]
-            if (character.perks.has(PerkType.MarblesMilk)) CView.text("You gulp down the bottle's contents; it's no substitute for the real thing, but it's a nice pick me up.\n\n");
+            if (character.effects.has(EffectType.MarblesMilk)) CView.text("You gulp down the bottle's contents; it's no substitute for the real thing, but it's a nice pick me up.\n\n");
             else {
                 // [character is no longer addicted]
-                if (character.perks.has(PerkType.MarbleResistant)) CView.text("You gulp down the bottle's contents; you're careful not to get too attached to the taste.\n\n");
+                if (character.effects.has(EffectType.MarbleResistant)) CView.text("You gulp down the bottle's contents; you're careful not to get too attached to the taste.\n\n");
                 // [character is addicted]
                 else CView.text("You gulp down the bottle's contents; you really needed that.\n\n");
             }
@@ -40,8 +39,8 @@ export class MarbleMilk extends Consumable {
         // Scenes.marbleScene.marbleStatusChange(0, 5);
         // Does not apply the 'Marble's Milk' effect
         // Purge withdrawl
-        if (character.effects.has(StatusEffectType.MarbleWithdrawl)) {
-            character.effects.remove(StatusEffectType.MarbleWithdrawl);
+        if (character.effects.has(EffectType.MarbleWithdrawl)) {
+            character.effects.removeByName(EffectType.MarbleWithdrawl);
             character.stats.tou += 5;
             character.stats.int += 5;
             CView.text("You no longer feel the symptoms of withdrawal.\n\n");
@@ -51,9 +50,9 @@ export class MarbleMilk extends Consumable {
         // Restores a portion of fatigue (once implemented)
         character.stats.fatigue -= 25;
         // If the character is addicted, this item negates the withdrawal effects for a few hours (suggest 6), there will need to be a check here to make sure the withdrawal effect doesn't reactivate while the character is under the effect of 'Marble's Milk'.
-        if (character.effects.has(StatusEffectType.BottledMilk)) {
-            character.effects.get(StatusEffectType.BottledMilk)!.values.expireCountdown = (6 + randInt(6));
+        if (character.effects.has(EffectType.BottledMilk)) {
+            character.effects.create(EffectType.BottledMilk)!.values.expireCountdown = (6 + randInt(6));
         }
-        else character.effects.add(StatusEffectType.BottledMilk, { expireCountdown: 12 });
+        else character.effects.create(EffectType.BottledMilk, { expireCountdown: 12 });
     }
 }

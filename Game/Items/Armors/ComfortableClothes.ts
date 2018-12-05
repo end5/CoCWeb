@@ -1,6 +1,6 @@
 import { Armor } from './Armor';
 import { ArmorName } from './ArmorName';
-import { Character } from '../../Character/Character';
+import { Character } from 'Game/Character/Character';
 import { ItemDesc } from '../ItemDesc';
 
 export class ComfortableClothes extends Armor {

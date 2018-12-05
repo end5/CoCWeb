@@ -1,6 +1,6 @@
 import { Character } from '../Character/Character';
 import { describeHair } from '../Descriptors/HairDescriptor';
-import { CView } from '../../Page/ContentView';
+import { CView } from 'Page/ContentView';
 
 export function displayGrowHair(character: Character, amount: number = .1): boolean {
     // Grow hair!

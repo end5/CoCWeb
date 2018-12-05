@@ -1,5 +1,5 @@
-import { Effect } from "./Effect";
-import { Character } from "Game/Character/Character";
+import { Effect } from './Effect';
+import { Character } from 'Game/Character/Character';
 
 export class EffectDesc {
     public readonly key: string;

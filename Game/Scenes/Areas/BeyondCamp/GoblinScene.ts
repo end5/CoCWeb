@@ -1,27 +1,26 @@
-import { Character } from "../../../Character/Character";
-import { NextScreenChoices, ClickFunction, choiceWrap } from "../../../ScreenDisplay";
-import { CView } from "../../../../Page/ContentView";
-import { SpriteName } from "../../../../Page/SpriteName";
-import { PerkType } from "../../../Effects/PerkType";
-import { describeNipple, describeBiggestBreastRow, describeBreastRow, describeAllBreasts } from "../../../Descriptors/BreastDescriptor";
-import { describeVagina, describeClit } from "../../../Descriptors/VaginaDescriptor";
-import { BreastRow } from "../../../Body/BreastRow";
-import { displayStretchVagina } from "../../../Modifiers/VaginaModifier";
-import { passTime } from "../../../Menus/InGame/PlayerMenu";
-import { VaginaWetness, VaginaLooseness } from "../../../Body/Vagina";
-import { randInt } from "../../../../Engine/Utilities/SMath";
-import { describeCock, describeCocksLight, describeCockHead, nounCock } from "../../../Descriptors/CockDescriptor";
-import { describeBalls, describeSack } from "../../../Descriptors/BallsDescriptor";
-import { assholeOrPussy } from "../../../Descriptors/BodyDescriptor";
-import { CockType, Cock } from "../../../Body/Cock";
-import { StatusEffectType } from "../../../Effects/StatusEffectType";
-import { TailType, Tail } from "../../../Body/Tail";
-import { mf } from "../../../Descriptors/GenderDescriptor";
-import { describeHips } from "../../../Descriptors/HipDescriptor";
-import { FaceType } from "../../../Body/Face";
-import { skinFurScales } from "../../../Descriptors/SkinDescriptor";
-import { describeButt } from "../../../Descriptors/ButtDescriptor";
-import { JojoFlags } from "../../NPCs/Jojo";
+import { Character } from 'Game/Character/Character';
+import { NextScreenChoices, ClickFunction, choiceWrap } from 'Game/ScreenDisplay';
+import { CView } from 'Page/ContentView';
+import { SpriteName } from 'Page/SpriteName';
+import { EffectType } from 'Game/Effects/EffectType';
+import { describeNipple, describeBiggestBreastRow, describeBreastRow, describeAllBreasts } from 'Game/Descriptors/BreastDescriptor';
+import { describeVagina, describeClit } from 'Game/Descriptors/VaginaDescriptor';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { displayStretchVagina } from 'Game/Modifiers/VaginaModifier';
+import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { VaginaWetness, VaginaLooseness } from 'Game/Character/Body/Vagina';
+import { randInt } from 'Engine/Utilities/SMath';
+import { describeCock, describeCocksLight, describeCockHead, nounCock } from 'Game/Descriptors/CockDescriptor';
+import { describeBalls, describeSack } from 'Game/Descriptors/BallsDescriptor';
+import { assholeOrPussy } from 'Game/Descriptors/BodyDescriptor';
+import { CockType, Cock } from 'Game/Character/Body/Cock';
+import { TailType, Tail } from 'Game/Character/Body/Tail';
+import { mf } from 'Game/Descriptors/GenderDescriptor';
+import { describeHips } from 'Game/Descriptors/HipDescriptor';
+import { FaceType } from 'Game/Character/Body/Face';
+import { skinFurScales } from 'Game/Descriptors/SkinDescriptor';
+import { describeButt } from 'Game/Descriptors/ButtDescriptor';
+import { JojoFlags } from '../../NPCs/Jojo';
 
 /**
  * Created by aimozg on 03.01.14.
@@ -59,7 +58,7 @@ import { JojoFlags } from "../../NPCs/Jojo";
 export function goblinRapesPlayer(player: Character, goblin: Character): NextScreenChoices {
     CView.sprite(SpriteName.Goblin); // 24;
 
-    if (player.perks.has(PerkType.BimboBrains) || player.perks.has(PerkType.FutaFaculties)) {
+    if (player.effects.has(EffectType.BimboBrains) || player.effects.has(EffectType.FutaFaculties)) {
         // [Female Bimbo Loss Against Goblin]
         if (player.body.vaginas.length > 0) {
             CView.image("goblin-loss-female-bimbodildo");
@@ -219,7 +218,7 @@ export function gobboRapeIntro(player: Character, goblin: Character): NextScreen
 
     }
     // If cant rape or breastfeed
-    if (player.stats.lust < 30 && !player.effects.has(StatusEffectType.Feeder)) {
+    if (player.stats.lust < 30 && !player.effects.has(EffectType.Feeder)) {
         return { next: passTime(1) };
     }
     let buttseks: ClickFunction | undefined;
@@ -256,7 +255,7 @@ export function gobboRapeIntro(player: Character, goblin: Character): NextScreen
             spiderCondom = choiceWrap(goblinCondomed, goblin);
     }
     // Breastfeed adds an option
-    if (player.effects.has(StatusEffectType.Feeder)) {
+    if (player.effects.has(EffectType.Feeder)) {
         feeder = giveGoblinAMilkMustache;
     }
     if (player.stats.lust >= 33 &&
@@ -309,8 +308,7 @@ function giveGoblinAMilkMustache(player: Character): NextScreenChoices {
     player.stats.lust += -50;
 
     // You've now been milked, reset the timer for that
-    player.effects.get(StatusEffectType.Feeder).value1 += 1;
-    player.effects.get(StatusEffectType.Feeder).value2 = 0;
+    player.milked();
     return { next: passTime(1) };
 }
 function gobboButtSecks(player: Character, goblin: Character): NextScreenChoices {

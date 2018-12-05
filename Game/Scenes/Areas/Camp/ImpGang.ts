@@ -1,15 +1,15 @@
-import { Character } from "../../../Character/Character";
-import { CharacterType } from "../../../Character/CharacterType";
-import { Cock, CockType } from "../../../Body/Cock";
-import { CharacterInventory } from "../../../Inventory/CharacterInventory";
-import { CharacterDescription } from "../../../Character/CharacterDescription";
-import { CombatContainer } from "../../../Combat/CombatContainer";
-import { Weapon } from "../../../Items/Weapons/Weapon";
-import { ItemDesc } from "../../../Items/ItemDesc";
-import { Armor } from "../../../Items/Armors/Armor";
-import { ArmorName } from "../../../Items/Armors/ArmorName";
-import { WeaponName } from "../../../Items/Weapons/WeaponName";
-import { EndScenes } from "../../../Combat/EndScenes";
+import { Character } from 'Game/Character/Character';
+import { CharacterType } from 'Game/Character/CharacterType';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { CharacterInventory } from 'Game/Inventory/CharacterInventory';
+import { CharacterDescription } from 'Game/Character/CharacterDescription';
+import { CombatContainer } from 'Game/Combat/CombatContainer';
+import { Weapon } from 'Game/Items/Weapons/Weapon';
+import { ItemDesc } from 'Game/Items/ItemDesc';
+import { Armor } from 'Game/Items/Armors/Armor';
+import { ArmorName } from 'Game/Items/Armors/ArmorName';
+import { WeaponName } from 'Game/Items/Weapons/WeaponName';
+import { EndScenes } from 'Game/Combat/EndScenes';
 
 class ImpGangDesc extends CharacterDescription {
     public get capitalA(): string {

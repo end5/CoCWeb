@@ -1,10 +1,10 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { Character } from '../../Character/Character';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { CView } from '../../../Page/ContentView';
-import { CombatManager } from '../../Combat/CombatManager';
+import { CView } from 'Page/ContentView';
+import { CombatManager } from 'Game/Combat/CombatManager';
 
 export class FishFillet extends Consumable {
     public constructor() {
@@ -22,7 +22,7 @@ export class FishFillet extends Consumable {
         // Increase HP by quite a bit!)
         // (Slight chance at increasing Toughness?)
         // (If lake has been tainted, +1 Corruption?)
-        if (character.effects.has(StatusEffectType.FactoryOverload)) character.stats.cor += 0.5;
+        if (character.effects.has(EffectType.FactoryOverload)) character.stats.cor += 0.5;
         character.stats.cor += 0.1;
         character.stats.HP += Math.round(character.stats.maxHP() * .25);
     }

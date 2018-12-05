@@ -1,13 +1,12 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { IncubationTime, Pregnancy, PregnancyType } from '../../Body/Pregnancy/Pregnancy';
-import { Character } from '../../Character/Character';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
+import { randInt } from 'Engine/Utilities/SMath';
+import { PregnancyType } from 'Game/Character/Body/Pregnancy/Pregnancy';
+import { Character } from 'Game/Character/Character';
 import { ItemDesc } from '../ItemDesc';
-import { CView } from '../../../Page/ContentView';
-import { Womb } from '../../Body/Pregnancy/Womb';
 import { randEgg } from './Eggs';
+import { CView } from 'Page/ContentView';
+import { Womb } from 'Game/Character/Body/Pregnancy/Womb';
 
 export class OvipositionElixir extends Consumable {
     public constructor() {

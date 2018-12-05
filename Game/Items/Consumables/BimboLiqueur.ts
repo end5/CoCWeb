@@ -1,17 +1,17 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { BreastRow } from '../../Body/BreastRow';
-import { Vagina, VaginaWetness } from '../../Body/Vagina';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
+import { randInt } from 'Engine/Utilities/SMath';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { Vagina, VaginaWetness } from 'Game/Character/Body/Vagina';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { describeHair } from '../../Descriptors/HairDescriptor';
-import { describeLegs } from '../../Descriptors/LegDescriptor';
-import { describeNipple, breastCup } from '../../Descriptors/BreastDescriptor';
-import { describeVagina, describeClit } from '../../Descriptors/VaginaDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { displayModFem } from '../../Modifiers/BodyModifier';
+import { describeHair } from 'Game/Descriptors/HairDescriptor';
+import { describeLegs } from 'Game/Descriptors/LegDescriptor';
+import { describeNipple, breastCup } from 'Game/Descriptors/BreastDescriptor';
+import { describeVagina, describeClit } from 'Game/Descriptors/VaginaDescriptor';
+import { CView } from 'Page/ContentView';
+import { displayModFem } from 'Game/Modifiers/BodyModifier';
 
 export class BimboLiqueur extends Consumable {
     public constructor() {
@@ -19,14 +19,14 @@ export class BimboLiqueur extends Consumable {
     }
 
     public canUse(character: Character) {
-        if (!character.perks.has(PerkType.FutaForm))
+        if (!character.effects.has(EffectType.FutaForm))
             return true;
         CView.text("Ugh.  This stuff is so, like... last year.  Maybe you can find someone else to feed it to?\n\n");
         return false;
     }
 
     public use(character: Character) {
-        if (character.perks.has(PerkType.BroBody)) {
+        if (character.effects.has(EffectType.BroBody)) {
             CView.text("You wince as the stuff hits your stomach, already feeling the insidious effects beginning to take hold.  A lengthy belch escapes your lips as your stomach gurgles, and you giggle abashedly to yourself.");
             if (character.body.tallness < 77) {
                 CView.text(" ...Did the ground just get farther away?  You glance down and realize, you're growing!  Like a sped-up flower sprout, you keep on getting taller until finally stopping around... six and a half feet, you assume.  Huh.  You didn't expect that to happen!");
@@ -58,14 +58,14 @@ export class BimboLiqueur extends Consumable {
 
             CView.text("Your surging, absurdly potent libido surges through your body, reminding you that you need to fuck.  Not just bitches, but guys too.  Hard cocks, wet pussies, hell, you don't care.  They can have both or a dozen of either.  You just want to get laid and bone something, hopefully at the same time!");
             CView.text("\n\n<b>(Perks Lost: Bro Body");
-            if (character.perks.has(PerkType.BroBrains))
+            if (character.effects.has(EffectType.BroBrains))
                 CView.text(", Bro Brains");
             CView.text(")\n");
             CView.text("(Perks Gained: Futa Form, Futa Faculties)\n");
-            character.perks.remove(PerkType.BroBody);
-            character.perks.remove(PerkType.BroBrains);
-            character.perks.add(PerkType.FutaFaculties);
-            character.perks.add(PerkType.FutaForm);
+            character.effects.removeByName(EffectType.BroBody);
+            character.effects.removeByName(EffectType.BroBrains);
+            character.effects.create(EffectType.FutaFaculties);
+            character.effects.create(EffectType.FutaForm);
             if (character.stats.int > 35) {
                 character.stats.int = 35;
                 character.stats.int -= 0.1;
@@ -176,13 +176,13 @@ export class BimboLiqueur extends Consumable {
                 }
                 CView.text("\n\n");
             }
-            if (!character.perks.has(PerkType.BimboBody)) {
+            if (!character.effects.has(EffectType.BimboBody)) {
                 CView.text("<b>(Bimbo Body - Perk Gained!)\n");
-                character.perks.add(PerkType.BimboBody);
+                character.effects.create(EffectType.BimboBody);
             }
-            if (!character.perks.has(PerkType.BimboBrains)) {
+            if (!character.effects.has(EffectType.BimboBrains)) {
                 CView.text("(Bimbo Brains - Perk Gained!)\n"); // int to 20.  max int 50
-                character.perks.add(PerkType.BimboBrains);
+                character.effects.create(EffectType.BimboBrains);
                 if (character.stats.int > 21)
                     character.stats.int = 21;
             }

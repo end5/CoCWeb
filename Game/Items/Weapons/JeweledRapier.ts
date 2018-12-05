@@ -2,7 +2,7 @@ import { Weapon } from './Weapon';
 import { WeaponName } from './WeaponName';
 import { WeaponPerkType } from './WeaponPerk';
 import { ItemDesc } from '../ItemDesc';
-import { RaphaelFlags } from '../../Scenes/NPCs/Raphael';
+import { RaphaelFlags } from 'Game/Scenes/NPCs/Raphael';
 
 export class JeweledRapier extends Weapon {
     public constructor() {

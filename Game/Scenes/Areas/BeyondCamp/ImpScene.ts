@@ -1,32 +1,32 @@
-import { Character } from "../../../Character/Character";
-import { NextScreenChoices, ClickFunction, choiceWrap, ScreenChoice } from "../../../ScreenDisplay";
-import { CView } from "../../../../Page/ContentView";
-import { StatusEffectType } from "../../../Effects/StatusEffectType";
-import { BreastRow } from "../../../Body/BreastRow";
-import { passTime, playerMenu } from "../../../Menus/InGame/PlayerMenu";
-import { Cock, CockType } from "../../../Body/Cock";
-import { describeEachOfYourCocks, describeCock, describeCockShort, describeCocksLight, nounCock } from "../../../Descriptors/CockDescriptor";
-import { lustyMaidenPaizuri } from "../../../Items/Armors/LustyMaidensArmor";
-import { LegType } from "../../../Body/Legs";
-import { describeBreastRow, describeAllBreasts, describeNipple, describeChest, describeBiggestBreastRow } from "../../../Descriptors/BreastDescriptor";
-import { describeVagina, describeClit } from "../../../Descriptors/VaginaDescriptor";
-import { describeLegs } from "../../../Descriptors/LegDescriptor";
-import { displayStretchVagina, attemptKnockUp } from "../../../Modifiers/VaginaModifier";
-import { Womb } from "../../../Body/Pregnancy/Womb";
-import { PregnancyType, IncubationTime } from "../../../Body/Pregnancy/Pregnancy";
-import { describeButthole, describeButt } from "../../../Descriptors/ButtDescriptor";
-import { displayStretchButt } from "../../../Modifiers/ButtModifier";
-import { describeHips } from "../../../Descriptors/HipDescriptor";
-import { describeBalls, describeSack } from "../../../Descriptors/BallsDescriptor";
-import { VaginaLooseness } from "../../../Body/Vagina";
-import { SpriteName } from "../../../../Page/SpriteName";
-import { randInt } from "../../../../Engine/Utilities/SMath";
-import { describeHair } from "../../../Descriptors/HairDescriptor";
-import { growSmallestBreastRow, boostLactation } from "../../../Modifiers/BreastModifier";
-import { PerkType } from "../../../Effects/PerkType";
-import { Settings } from "../../../Settings";
-import { ArmorName } from "../../../Items/Armors/ArmorName";
-import { ImpPregEvent } from "../../Pregnancy/Imp";
+import { Character } from 'Game/Character/Character';
+import { NextScreenChoices, ClickFunction, choiceWrap, ScreenChoice } from 'Game/ScreenDisplay';
+import { CView } from 'Page/ContentView';
+import { EffectType } from 'Game/Effects/EffectType';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { passTime, playerMenu } from 'Game/Menus/InGame/PlayerMenu';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { describeEachOfYourCocks, describeCock, describeCockShort, describeCocksLight, nounCock } from 'Game/Descriptors/CockDescriptor';
+import { lustyMaidenPaizuri } from 'Game/Items/Armors/LustyMaidensArmor';
+import { LegType } from 'Game/Character/Body/Legs';
+import { describeBreastRow, describeAllBreasts, describeNipple, describeChest, describeBiggestBreastRow } from 'Game/Descriptors/BreastDescriptor';
+import { describeVagina, describeClit } from 'Game/Descriptors/VaginaDescriptor';
+import { describeLegs } from 'Game/Descriptors/LegDescriptor';
+import { displayStretchVagina, attemptKnockUp } from 'Game/Modifiers/VaginaModifier';
+import { Womb } from 'Game/Character/Body/Pregnancy/Womb';
+import { PregnancyType, IncubationTime } from 'Game/Character/Body/Pregnancy/Pregnancy';
+import { describeButthole, describeButt } from 'Game/Descriptors/ButtDescriptor';
+import { displayStretchButt } from 'Game/Modifiers/ButtModifier';
+import { describeHips } from 'Game/Descriptors/HipDescriptor';
+import { describeBalls, describeSack } from 'Game/Descriptors/BallsDescriptor';
+import { VaginaLooseness } from 'Game/Character/Body/Vagina';
+import { SpriteName } from 'Page/SpriteName';
+import { randInt } from 'Engine/Utilities/SMath';
+import { describeHair } from 'Game/Descriptors/HairDescriptor';
+import { growSmallestBreastRow, boostLactation } from 'Game/Modifiers/BreastModifier';
+import { Settings } from 'Game/Settings';
+import { ArmorName } from 'Game/Items/Armors/ArmorName';
+import { ImpPregEvent } from '../../Pregnancy/Imp';
+import { ImpGang } from '../Camp/ImpGang';
 
 /**
  * Created by aimozg on 04.01.14.
@@ -34,7 +34,7 @@ import { ImpPregEvent } from "../../Pregnancy/Imp";
 
 export function impVictory(player: Character, imp: Character): NextScreenChoices {
     CView.clear();
-    const canFeed = (player.effects.has(StatusEffectType.Feeder));
+    const canFeed = (player.effects.has(EffectType.Feeder));
     const canBikiniTits = (player.body.vaginas.length > 0 && player.body.chest.sort(BreastRow.Largest).get(0)!.rating >= 4 && player.inventory.armor.name === ArmorName.LustyMaidensArmor);
     CView.text("You smile in satisfaction as " + imp.desc.a + imp.desc.name + " collapses and begins masturbating feverishly.");
     if (canFeed) {
@@ -601,9 +601,9 @@ export function impGangabangaEXPLOSIONS(player: Character): NextScreenChoices {
     if (player.body.legs.type === LegType.CENTAUR) {
         if (randInt(2) === 0 && (player.body.cocks.length === 0 || player.gender === 3)) {
             // (First encounter)
-            if (!player.effects.has(StatusEffectType.ImpGangBang)) {
+            if (!player.effects.has(EffectType.ImpGangBang)) {
                 CView.text("The imps stand anywhere from two to four feet tall, with scrawny builds and tiny demonic wings. Their red and orange skin is dirty, and their dark hair looks greasy. Some are naked, but most are dressed in ragged loincloths that do little to hide their groins. They all have a " + describeCockShort(monster.body.cocks.get(0)) + " as long and thick as a man's arm, far oversized for their bodies. Watching an imp trip over its " + describeCockShort(monster.body.cocks.get(0)) + " would be funny, if you weren't surrounded by a horde of leering imps closing in from all sides...\n\n");
-                player.effects.add(StatusEffectType.ImpGangBang);
+                player.effects.create(EffectType.ImpGangBang);
                 CView.text("The imps leap forward just as you start to ready your " + player.inventory.weapon.displayName + ", one sweaty imp clinging to your arm");
                 // (If the player has a weapon)
                 if (player.inventory.weapon.displayName !== "fists") CView.text(" while another kicks your weapon out of reach");
@@ -676,7 +676,7 @@ export function impGangabangaEXPLOSIONS(player: Character): NextScreenChoices {
             else CView.text(", panting in lust as the monstrous " + nounCock(CockType.HORSE) + " pushes your flesh aside to make room for itself");
             CView.text(". ");
             // (This is a good place for the virginity-loss message, if needed)
-            displayStretchVagina(player, monster.body.cocks.get(1).area, true);
+            displayStretchVagina(player, monster.body.cocks.get(1)!.area, true);
             CView.text("You can feel every ridge and pulsing vein of his cock pulling on the lining of your stretched cunt. You tremble helplessly around the huge shaft, fully impaled on the imp's mutated bull-cock.\n\n");
 
             CView.text("Every pulse of his heart makes his cock twitch, making you shake in time to the shaft pulsing in your cunt. The imps jeer at you, masturbating over your shaking body. The big imp flexes his thighs, and his cock-head throbs deep in your belly. The other imps laugh as you ");
@@ -769,7 +769,7 @@ export function impGangabangaEXPLOSIONS(player: Character): NextScreenChoices {
         // Scene number 2 - male possible.
         else {
             // Scene 2 (Centaur, vaginal)
-            if (player.effects.has(StatusEffectType.ImpGangBang)) {
+            if (player.effects.has(EffectType.ImpGangBang)) {
                 // (Subsequent encounters - Low Corruption)
                 if (player.stats.cor < 50) CView.text("You can't tell if this is the same " + monster.desc.name + " as last time or not. You're not racist, but all imps look alike to you. " + monster.desc.capitalA + " surges forward, grabbing at your legs and arms and running their hands over your body. You struggle, but there are just too many to fight. The result is the same as last time...\n\n");
                 // (Subsequent encounters - High Corruption)
@@ -943,10 +943,10 @@ export function impGangabangaEXPLOSIONS(player: Character): NextScreenChoices {
             attemptKnockUp(player, PregnancyType.IMP, IncubationTime.IMP - 14, ImpPregEvent); // Bigger imp means faster pregnancy
             // Stretch!
             if (player.body.vaginas.length > 0) {
-                if (displayStretchVagina(player, monster.body.cocks.get(2).area, true)) CView.text("\n");
+                if (displayStretchVagina(player, monster.body.cocks.get(2)!.area, true)) CView.text("\n");
             }
             else {
-                if (displayStretchButt(player, monster.body.cocks.get(2).area, true)) CView.text("\n");
+                if (displayStretchButt(player, monster.body.cocks.get(2)!.area, true)) CView.text("\n");
             }
         }
     }
@@ -954,9 +954,9 @@ export function impGangabangaEXPLOSIONS(player: Character): NextScreenChoices {
     else {
         if (randInt(2) === 0 && (player.body.cocks.length === 0 || player.gender === 3)) {
             // (First encounter)
-            if (!player.effects.has(StatusEffectType.ImpGangBang)) {
+            if (!player.effects.has(EffectType.ImpGangBang)) {
                 CView.text("The imps stand anywhere from two to four feet tall, with scrawny builds and tiny demonic wings. Their red and orange skin is dirty, and their dark hair looks greasy. Some are naked, but most are dressed in ragged loincloths that do little to hide their groins. They all have a " + describeCockShort(monster.body.cocks.get(0)) + " as long and thick as a man's arm, far oversized for their bodies. Watching an imp trip over its " + describeCockShort(monster.body.cocks.get(0)) + " would be funny, if you weren't surrounded by a horde of leering imps closing in from all sides...\n\n");
-                player.effects.add(StatusEffectType.ImpGangBang);
+                player.effects.create(EffectType.ImpGangBang);
             }
             CView.text("The imps leap forward just as you start to ready your " + player.inventory.weapon.displayName + ", one sweaty imp clinging to your arm");
             if (player.inventory.weapon.displayName !== "fists") CView.text(" while another kicks your weapon out of reach");
@@ -998,7 +998,7 @@ export function impGangabangaEXPLOSIONS(player: Character): NextScreenChoices {
             else CView.text("panting in lust as the monstrous " + nounCock(CockType.HORSE) + " pushes your flesh aside to make room for itself");
             CView.text(". ");
             // (This is a good place for the virginity-loss message, if needed)
-            displayStretchVagina(player, monster.body.cocks.get(1).area, true);
+            displayStretchVagina(player, monster.body.cocks.get(1)!.area, true);
             CView.text("\n\n");
             CView.text("You can feel every ridge and pulsing vein of his cock pulling on the lining of your stretched cunt. You tremble helplessly around the huge shaft, fully impaled on the imp's mutated bull-cock.\n\n");
             CView.text("Every pulse of his heart makes his cock twitch, making you shake in time to the shaft pulsing in your cunt. The imps jeer at you, masturbating over your shaking body. The big imp flexes his thighs, and the bulge of his cock-head bounces high in your belly. The other imps laugh as you ");
@@ -1083,7 +1083,7 @@ export function impGangabangaEXPLOSIONS(player: Character): NextScreenChoices {
             // Tag-team
             // Include milking alt text in separate blocks.
             // Work cock and multicock alt text directly into main text blocks.
-            if (player.effects.has(StatusEffectType.ImpGangBang)) {
+            if (player.effects.has(EffectType.ImpGangBang)) {
                 // (Subsequent encounters - Low Corruption)
                 if (player.stats.cor < 50) CView.text("You can't tell if this is the same " + monster.desc.name + " as last time or not - all imps look alike to you.  The " + monster.desc.capitalA + " surges forward, grabbing at your " + describeLegs(player) + " and arms and running their hands over your body. You struggle, but there are just too many to fight. The result is the same as last time...\n\n");
                 // (Subsequent encounters - High Corruption)
@@ -1257,10 +1257,10 @@ export function impGangabangaEXPLOSIONS(player: Character): NextScreenChoices {
             attemptKnockUp(player, PregnancyType.IMP, IncubationTime.IMP - 14, ImpPregEvent); // Bigger imp means faster pregnancy
             // Stretch!
             if (player.body.vaginas.length > 0) {
-                if (displayStretchVagina(player, monster.body.cocks.get(2).area, true)) CView.text("\n");
+                if (displayStretchVagina(player, monster.body.cocks.get(2)!.area, true)) CView.text("\n");
             }
             else {
-                if (displayStretchButt(player, monster.body.cocks.get(2).area, true)) CView.text("\n");
+                if (displayStretchButt(player, monster.body.cocks.get(2)!.area, true)) CView.text("\n");
             }
         }
     }
@@ -1269,7 +1269,7 @@ export function impGangabangaEXPLOSIONS(player: Character): NextScreenChoices {
 
 export function impRapesYou(player: Character, imp: Character): NextScreenChoices {
 
-    if ((player.perks.has(PerkType.BimboBrains) || player.perks.has(PerkType.FutaFaculties)) && !player.body.legs.isTaur() && player.body.vaginas.length > 0) {
+    if ((player.effects.has(EffectType.BimboBrains) || player.effects.has(EffectType.FutaFaculties)) && !player.body.legs.isTaur() && player.body.vaginas.length > 0) {
         CView.image("imp-loss-female-fuck");
         CView.text("You sink to the ground, assuming a position that feels all too natural to you now, leaning forward to let your " + describeAllBreasts(player) + " hang down slightly. The imp looks you up and down, wickedly eyeing your ready, slightly open lips. He drops his loin-cloth to reveal a hardening cock. Your eyes bulge as it grows larger... and larger... and larger! The imp's cock finally bulges to a full twelve inches... and it's moving closer. You struggle to think... but you just can't! You want that in your mouth, like, so bad!\n\n");
         CView.text("Your " + describeVagina(player, player.body.vaginas.get(0)) + " drips in anticipation, and you find yourself involuntarily moving your knees farther apart to prepare yourself to be filled. He smiles and presses his cock against your " + describeVagina(player, player.body.vaginas.get(0)) + ", pushing you back to get a better angle. You try to make words, but your brain can only think of so much at once! Right now, it's thinking of cock, which, naturally, makes you open your mouth and let out a slutty moan.\n\n");
@@ -1327,7 +1327,7 @@ export function impRapesYou(player: Character, imp: Character): NextScreenChoice
                 CView.text("You wonder what this will do to whatever is growing in your womb...  ");
             }
             else {
-                if (player.effects.has(StatusEffectType.Heat)) CView.text("You find yourself hoping you're pregnant as you swiftly lose consciousness.");
+                if (player.effects.has(EffectType.Heat)) CView.text("You find yourself hoping you're pregnant as you swiftly lose consciousness.");
                 else if (player.body.wombs.find(Womb.NotPregnant)) {
                     if (player.stats.cor > 75) CView.text("With an appreciative moan, you bury your fingers in its slimy warmth, hoping you are pregnant with some fiendish offspring, and lose consciousness.");
                     else CView.text("You hope you don't become pregnant, but promptly lose consciousness before you can contemplate the prospect any further.");

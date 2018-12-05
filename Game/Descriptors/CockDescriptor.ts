@@ -1,7 +1,7 @@
 ﻿import { percentChance, randomChoice } from '../../Engine/Utilities/SMath';
-import { Cock, CockType } from '../Body/Cock';
-import { SkinType } from '../Body/Skin';
-import { Character } from '../Character/Character';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { Character } from 'Game/Character/Character';
 
 export function describeCock(character: Character, cock: Cock | undefined): string {
     if (character.body.cocks.length > 0 || !cock)

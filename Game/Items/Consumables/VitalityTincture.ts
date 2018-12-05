@@ -1,10 +1,10 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { Character } from '../../Character/Character';
+import { randInt } from 'Engine/Utilities/SMath';
+import { Character } from 'Game/Character/Character';
 import { ItemDesc } from '../ItemDesc';
-import { CView } from '../../../Page/ContentView';
-import { displayModTone } from '../../Modifiers/BodyModifier';
+import { CView } from 'Page/ContentView';
+import { displayModTone } from 'Game/Modifiers/BodyModifier';
 
 export class VitalityTincture extends Consumable {
     public constructor() {

@@ -1,6 +1,6 @@
-﻿import { randInt, randomChoice } from '../../Engine/Utilities/SMath';
-import { Character } from '../Character/Character';
-import { StatusEffectType } from '../Effects/StatusEffectType';
+﻿import { randInt, randomChoice } from 'Engine/Utilities/SMath';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 
 // ballsDescriptLight(forcedSize, true, this)
 /**
@@ -18,7 +18,7 @@ export function describeBalls(forceDisplaySize: boolean, plural: boolean, charac
     let description: string = "";
     let options: string[] = [];
 
-    if (plural && (!character.effects.has(StatusEffectType.Uniball))) {
+    if (plural && (!character.effects.has(EffectType.Uniball))) {
         if (character.body.balls.count === 1) {
             if (withArticle) {
                 options = ["a single",
@@ -100,7 +100,7 @@ export function describeBalls(forceDisplaySize: boolean, plural: boolean, charac
 
     }
     // UNIBALL
-    if (character.effects.has(StatusEffectType.Uniball)) {
+    if (character.effects.has(EffectType.Uniball)) {
         if (description)
             description += " ";
         options = ["tightly-compressed",
@@ -164,7 +164,7 @@ export function describeBalls(forceDisplaySize: boolean, plural: boolean, charac
     if (plural)
         description += "s";
 
-    if (character.effects.has(StatusEffectType.Uniball) && randInt(2) === 0) {
+    if (character.effects.has(EffectType.Uniball) && randInt(2) === 0) {
         if (randInt(3) === 0)
             description += " merged into a cute, spherical package";
         else if (randInt(2) === 0)

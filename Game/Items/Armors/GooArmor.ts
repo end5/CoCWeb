@@ -1,11 +1,11 @@
 import { Armor } from './Armor';
 import { ArmorName } from './ArmorName';
-import { Character } from '../../Character/Character';
+import { Character } from 'Game/Character/Character';
 import { ItemDesc } from '../ItemDesc';
-import { describeCocksLight } from '../../Descriptors/CockDescriptor';
-import { Gender } from '../../Body/GenderIdentity';
-import { CView } from '../../../Page/ContentView';
-import { ValeriaFlags } from '../../Scenes/NPCs/Valeria';
+import { describeCocksLight } from 'Game/Descriptors/CockDescriptor';
+import { Gender } from 'Game/Character/Body/GenderIdentity';
+import { CView } from 'Page/ContentView';
+import { ValeriaFlags } from 'Game/Scenes/NPCs/Valeria';
 
 export class GooArmor extends Armor {
     public constructor() {

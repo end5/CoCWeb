@@ -1,4 +1,4 @@
-﻿import { CockType } from '../Body/Cock';
+﻿import { CockType } from 'Game/Character/Body/Cock';
 
 export const CockDescLib = {
     [CockType.HUMAN]: "human",

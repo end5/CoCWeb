@@ -1,19 +1,19 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { BreastRow } from '../../Body/BreastRow';
-import { Cock } from '../../Body/Cock';
-import { Character } from '../../Character/Character';
-import { ClickOption, NextScreenChoices } from '../../ScreenDisplay';
+import { randInt } from 'Engine/Utilities/SMath';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { Cock } from 'Game/Character/Body/Cock';
+import { Character } from 'Game/Character/Character';
+import { ClickOption, NextScreenChoices } from 'Game/ScreenDisplay';
 import { ItemDesc } from '../ItemDesc';
-import { describeSack, describeBallsShort } from '../../Descriptors/BallsDescriptor';
-import { describeAllBreasts, describeNipple, describeBreastGrowth } from '../../Descriptors/BreastDescriptor';
-import { describeClit } from '../../Descriptors/VaginaDescriptor';
-import { describeCocksLight, describeCock } from '../../Descriptors/CockDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { growSmallestBreastRow } from '../../Modifiers/BreastModifier';
-import { growCock } from '../../Modifiers/CockModifier';
-import { inventoryMenu } from '../../Menus/InGame/PlayerInventoryMenu';
+import { describeSack, describeBallsShort } from 'Game/Descriptors/BallsDescriptor';
+import { describeAllBreasts, describeNipple, describeBreastGrowth } from 'Game/Descriptors/BreastDescriptor';
+import { describeClit } from 'Game/Descriptors/VaginaDescriptor';
+import { describeCocksLight, describeCock } from 'Game/Descriptors/CockDescriptor';
+import { CView } from 'Page/ContentView';
+import { growSmallestBreastRow } from 'Game/Modifiers/BreastModifier';
+import { growCock } from 'Game/Modifiers/CockModifier';
+import { inventoryMenu } from 'Game/Menus/InGame/PlayerInventoryMenu';
 
 export class GroPlus extends Consumable {
     public constructor() {

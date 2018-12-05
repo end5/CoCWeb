@@ -1,7 +1,7 @@
-import { MainScreen } from '../../Page/MainScreen';
+import { MainScreen } from 'Page/MainScreen';
 import { clickFuncWrapper, NextScreenChoices } from '../ScreenDisplay';
 import { isEaster, isValentine } from '../Utilities/Dates';
-import { CView } from '../../Page/ContentView';
+import { CView } from 'Page/ContentView';
 import { CharDict } from '../CharDict';
 import { Settings } from '../Settings';
 import { statsMenu } from './InGame/StatsMenu';

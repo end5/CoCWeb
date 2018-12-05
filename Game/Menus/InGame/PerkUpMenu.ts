@@ -1,19 +1,19 @@
-import { ButtonElement } from '../../../Page/ButtonElement';
-import { UnorderedListElement } from '../../../Engine/Display/Elements/UnorderedListElement';
-import { MainScreen } from '../../../Page/MainScreen';
-import { Character } from '../../Character/Character';
-import { Perk } from '../../Effects/Perk';
-import { PerkType } from '../../Effects/PerkType';
-import { displayNextScreenChoices, NextScreenChoices, choiceWrap } from '../../ScreenDisplay';
-import { CView } from '../../../Page/ContentView';
-import { ListEntryElement } from '../../../Engine/Display/Elements/ListEntryElement';
-import { ParagraphElement } from '../../../Engine/Display/Elements/ParagraphElement';
+import { ButtonElement } from 'Page/ButtonElement';
+import { UnorderedListElement } from 'Engine/Display/Elements/UnorderedListElement';
+import { MainScreen } from 'Page/MainScreen';
+import { Character } from 'Game/Character/Character';
+import { Effect } from 'Game/Effects/Effect';
+import { EffectType } from 'Game/Effects/EffectType';
+import { displayNextScreenChoices, NextScreenChoices, choiceWrap } from 'Game/ScreenDisplay';
+import { CView } from 'Page/ContentView';
+import { ListEntryElement } from 'Engine/Display/Elements/ListEntryElement';
+import { ParagraphElement } from 'Engine/Display/Elements/ParagraphElement';
 import { playerMenu } from './PlayerMenu';
-import { numToCardinalText } from '../../Utilities/NumToText';
+import { numToCardinalText } from 'Game/Utilities/NumToText';
 
 export function perkUpMenu(character: Character): NextScreenChoices {
     CView.clear();
-    const perkList: Perk[] = getAvailablePerks(character);
+    const perkList: Effect[] = getAvailablePerks(character);
 
     if (perkList.length === 0) {
         CView.text("<b>You do not qualify for any perks at present.  </b>In case you qualify for any in the future, you will keep your " + numToCardinalText(character.stats.perkPoints) + " perk point");
@@ -33,7 +33,7 @@ export function perkUpMenu(character: Character): NextScreenChoices {
     }
 }
 
-function confirmPerk(character: Character, selectedPerk: Perk): NextScreenChoices {
+function confirmPerk(character: Character, selectedPerk: Effect): NextScreenChoices {
     CView.clear();
     CView.text("You have selected the following perk:");
     CView.text("\n\n");
@@ -66,146 +66,146 @@ function displayPerkList(character: Character) {
     });
 }
 
-function getAvailablePerks(character: Character): Perk[] {
-    let perkList: Perk[] = [];
+function getAvailablePerks(character: Character): Effect[] {
+    let perkList: Effect[] = [];
 
     // STRENGTH PERKS
     if (character.stats.str >= 25) {
-        perkList.push(new Perk(PerkType.StrongBack));
+        perkList.push(new Effect(EffectType.StrongBack));
     }
-    if (character.perks.has(PerkType.StrongBack) && character.stats.str >= 50) {
-        perkList.push(new Perk(PerkType.StrongBack2));
+    if (character.effects.has(EffectType.StrongBack) && character.stats.str >= 50) {
+        perkList.push(new Effect(EffectType.StrongBack2));
     }
     // Tier 1 Strength Perks
     if (character.stats.level >= 6) {
         // Thunderous Strikes - +20% basic attack damage while str > 80.
         if (character.stats.str >= 80) {
-            perkList.push(new Perk(PerkType.ThunderousStrikes));
+            perkList.push(new Effect(EffectType.ThunderousStrikes));
         }
         // Weapon Mastery - Doubles weapon damage bonus of 'large' type weapons. (Minotaur Axe, M. Hammer, etc)
         if (character.stats.str > 60) {
-            perkList.push(new Perk(PerkType.WeaponMastery));
+            perkList.push(new Effect(EffectType.WeaponMastery));
         }
         if (character.stats.str >= 75)
-            perkList.push(new Perk(PerkType.BrutalBlows));
+            perkList.push(new Effect(EffectType.BrutalBlows));
     }
     // Tier 2 Strength Perks
     if (character.stats.level >= 12) {
         if (character.stats.str >= 75)
-            perkList.push(new Perk(PerkType.Berzerker));
+            perkList.push(new Effect(EffectType.Berzerker));
     }
     // slot 2 - toughness perk 1
-    if (!character.perks.has(PerkType.Tank) && character.stats.tou >= 25) {
-        perkList.push(new Perk(PerkType.Tank));
+    if (!character.effects.has(EffectType.Tank) && character.stats.tou >= 25) {
+        perkList.push(new Effect(EffectType.Tank));
     }
     // slot 2 - regeneration perk
-    if (character.perks.has(PerkType.Tank) && character.stats.tou >= 50) {
-        perkList.push(new Perk(PerkType.Regeneration));
+    if (character.effects.has(EffectType.Tank) && character.stats.tou >= 50) {
+        perkList.push(new Effect(EffectType.Regeneration));
     }
     // Tier 1 Toughness Perks
     if (character.stats.level >= 6) {
-        if (character.perks.has(PerkType.Tank) && character.stats.tou >= 60) {
-            perkList.push(new Perk(PerkType.Tank2));
+        if (character.effects.has(EffectType.Tank) && character.stats.tou >= 60) {
+            perkList.push(new Effect(EffectType.Tank2));
         }
-        if (character.perks.has(PerkType.Regeneration) && character.stats.tou >= 70) {
-            perkList.push(new Perk(PerkType.Regeneration2));
+        if (character.effects.has(EffectType.Regeneration) && character.stats.tou >= 70) {
+            perkList.push(new Effect(EffectType.Regeneration2));
         }
         if (character.stats.tou >= 75) {
-            perkList.push(new Perk(PerkType.ImmovableObject));
+            perkList.push(new Effect(EffectType.ImmovableObject));
         }
     }
     // Tier 2 Toughness Perks
     if (character.stats.level >= 12) {
         if (character.stats.tou >= 75) {
-            perkList.push(new Perk(PerkType.Resolute));
+            perkList.push(new Effect(EffectType.Resolute));
         }
         if (character.stats.tou >= 60) {
-            perkList.push(new Perk(PerkType.IronMan));
+            perkList.push(new Effect(EffectType.IronMan));
         }
     }
     // slot 3 - speed perk
     if (character.stats.spe >= 25) {
-        perkList.push(new Perk(PerkType.Evade));
+        perkList.push(new Effect(EffectType.Evade));
     }
     // slot 3 - run perk
     if (character.stats.spe >= 25) {
-        perkList.push(new Perk(PerkType.Runner));
+        perkList.push(new Effect(EffectType.Runner));
     }
     // slot 3 - Double Attack perk
-    if (character.perks.has(PerkType.Evade) && character.perks.has(PerkType.Runner) && character.stats.spe >= 50) {
-        perkList.push(new Perk(PerkType.DoubleAttack));
+    if (character.effects.has(EffectType.Evade) && character.effects.has(EffectType.Runner) && character.stats.spe >= 50) {
+        perkList.push(new Effect(EffectType.DoubleAttack));
     }
     // Tier 1 Speed Perks
     if (character.stats.level >= 6) {
         // Speedy Recovery - Regain Fatigue 50% faster speed.
-        if (character.perks.has(PerkType.Evade) && character.stats.spe >= 60) {
-            perkList.push(new Perk(PerkType.SpeedyRecovery));
+        if (character.effects.has(EffectType.Evade) && character.stats.spe >= 60) {
+            perkList.push(new Effect(EffectType.SpeedyRecovery));
         }
         // Agility - A small portion of your speed is applied to your defense rating when wearing light armors.
-        if (character.stats.spe > 75 && character.perks.has(PerkType.Runner) &&
+        if (character.stats.spe > 75 && character.effects.has(EffectType.Runner) &&
             (character.inventory.armor.armorClass === "Light" || character.inventory.armor.armorClass === "Medium")) {
-            perkList.push(new Perk(PerkType.Agility));
+            perkList.push(new Effect(EffectType.Agility));
         }
         if (character.stats.spe >= 60) {
-            perkList.push(new Perk(PerkType.LightningStrikes));
+            perkList.push(new Effect(EffectType.LightningStrikes));
         }
     }
     // Tier 2 Speed Perks
     if (character.stats.level >= 12) {
         if (character.stats.spe >= 75) {
-            perkList.push(new Perk(PerkType.LungingAttacks));
+            perkList.push(new Effect(EffectType.LungingAttacks));
         }
     }
     // Slot 4 - precision - -10 enemy toughness for damage calc
     if (character.stats.int >= 25) {
-        perkList.push(new Perk(PerkType.Precision));
+        perkList.push(new Effect(EffectType.Precision));
     }
     // Spellpower - boosts spell power
     if (character.stats.int >= 50) {
-        perkList.push(new Perk(PerkType.Spellpower));
+        perkList.push(new Effect(EffectType.Spellpower));
     }
-    if (character.perks.has(PerkType.Spellpower) && character.stats.int >= 50) {
-        perkList.push(new Perk(PerkType.Mage));
+    if (character.effects.has(EffectType.Spellpower) && character.stats.int >= 50) {
+        perkList.push(new Effect(EffectType.Mage));
     }
     // Tier 1 Intelligence Perks
     if (character.stats.level >= 6) {
         if (character.stats.int >= 50)
-            perkList.push(new Perk(PerkType.Tactician));
-        if (character.combat.spellCount() > 0 && character.perks.has(PerkType.Spellpower) && character.perks.has(PerkType.Mage) && character.stats.int >= 60) {
-            perkList.push(new Perk(PerkType.Channeling));
+            perkList.push(new Effect(EffectType.Tactician));
+        if (character.combat.spellCount() > 0 && character.effects.has(EffectType.Spellpower) && character.effects.has(EffectType.Mage) && character.stats.int >= 60) {
+            perkList.push(new Effect(EffectType.Channeling));
         }
         if (character.stats.int >= 60) {
-            perkList.push(new Perk(PerkType.Medicine));
+            perkList.push(new Effect(EffectType.Medicine));
         }
     }
     // Tier 2 Intelligence perks
     if (character.stats.level >= 12) {
-        if (character.perks.has(PerkType.Mage) && character.stats.int >= 75) {
-            perkList.push(new Perk(PerkType.Archmage));
+        if (character.effects.has(EffectType.Mage) && character.stats.int >= 75) {
+            perkList.push(new Effect(EffectType.Archmage));
         }
     }
     // LIBIDO PERKZ
     // slot 5 - libido perks
     // Slot 5 - Fertile+ increases cum production and fertility (+15%)
     if (character.stats.lib >= 25) {
-        perkList.push(new Perk(PerkType.FertilityPlus, {
+        perkList.push(new Effect(EffectType.FertilityPlus, {
             fertility: { value: { multi: 0.15 } },
             cumQuantity: { value: { multi: 1.75 } }
         }));
     }
     // Slot 5 - minimum libido
     if (character.stats.lib >= 50) {
-        perkList.push(new Perk(PerkType.HotBlooded, { lust: { min: { flat: 20 } } }));
+        perkList.push(new Effect(EffectType.HotBlooded, { lust: { min: { flat: 20 } } }));
     }
     // Tier 1 Libido Perks
     if (character.stats.level >= 6) {
         // Slot 5 - minimum libido
         if (character.stats.lib >= 60) {
-            perkList.push(new Perk(PerkType.WellAdjusted));
+            perkList.push(new Effect(EffectType.WellAdjusted));
         }
         // Slot 5 - minimum libido
         if (character.stats.lib >= 60 && character.stats.cor >= 50) {
-            perkList.push(new Perk(PerkType.Masochist));
+            perkList.push(new Effect(EffectType.Masochist));
         }
     }
     // Corruption Perks - slot 7
@@ -218,42 +218,42 @@ function getAvailablePerks(character: Character): Perk[] {
     //     perkList.push(new Perk(PerkType.Seduction));
     // }
     // Slot 7 - Nymphomania
-    else if (character.perks.has(PerkType.CorruptedLibido) && character.stats.cor >= 75) {
-        perkList.push(new Perk(PerkType.Nymphomania));
+    else if (character.effects.has(EffectType.CorruptedLibido) && character.stats.cor >= 75) {
+        perkList.push(new Effect(EffectType.Nymphomania));
     }
     // Slot 7 - UNFINISHED :3
-    if (character.stats.minLust() >= 20 && character.perks.has(PerkType.CorruptedLibido) && character.stats.cor >= 50) {
-        perkList.push(new Perk(PerkType.Acclimation));
+    if (character.stats.minLust() >= 20 && character.effects.has(EffectType.CorruptedLibido) && character.stats.cor >= 50) {
+        perkList.push(new Effect(EffectType.Acclimation));
     }
     // Tier 1 Corruption Perks - acclimation over-rides
     if (character.stats.level >= 6) {
-        if (character.stats.cor >= 60 && character.perks.has(PerkType.CorruptedLibido)) {
-            perkList.push(new Perk(PerkType.Sadist));
+        if (character.stats.cor >= 60 && character.effects.has(EffectType.CorruptedLibido)) {
+            perkList.push(new Effect(EffectType.Sadist));
         }
-        if (character.perks.has(PerkType.CorruptedLibido) && character.stats.cor >= 70) {
-            perkList.push(new Perk(PerkType.ArousingAura));
+        if (character.effects.has(EffectType.CorruptedLibido) && character.stats.cor >= 70) {
+            perkList.push(new Effect(EffectType.ArousingAura));
         }
     }
     // Tier 1 Misc Perks
     if (character.stats.level >= 6) {
-        perkList.push(new Perk(PerkType.Resistance));
+        perkList.push(new Effect(EffectType.Resistance));
     }
     // FILTER PERKS
-    perkList = perkList.filter((perk: Perk) => !character.perks.has(perk.type) ? perk : undefined);
+    perkList = perkList.filter((perk: Effect) => !character.effects.has(perk.type) ? perk : undefined);
 
     return perkList;
 }
 
-function applyPerk(character: Character, selectedPerk: Perk) {
+function applyPerk(character: Character, selectedPerk: Effect) {
     CView.clear();
     character.stats.perkPoints--;
     // Apply perk here.
     CView.text("<b>" + selectedPerk.type + "</b>");
     CView.text(" gained!");
-    character.perks.add(selectedPerk.type);
-    if (selectedPerk.type === PerkType.StrongBack2) character.inventory.items.unlock();
-    if (selectedPerk.type === PerkType.StrongBack) character.inventory.items.unlock();
-    if (selectedPerk.type === PerkType.Tank2) {
+    character.effects.create(selectedPerk.type);
+    if (selectedPerk.type === EffectType.StrongBack2) character.inventory.items.unlock();
+    if (selectedPerk.type === EffectType.StrongBack) character.inventory.items.unlock();
+    if (selectedPerk.type === EffectType.Tank2) {
         character.stats.HP += character.stats.tou;
     }
     return { next: playerMenu };

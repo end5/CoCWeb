@@ -1,31 +1,30 @@
-import { NextScreenChoices, choiceWrap } from "../../../ScreenDisplay";
-import { Flags } from "../../../Flags";
-import { FlagType } from "../../../FlagType";
-import { PregnancyType } from "../../../Body/Pregnancy/Pregnancy";
-import { Character } from "../../../Character/Character";
-import { randInt } from "../../../../Engine/Utilities/SMath";
-import { CView } from "../../../../Page/ContentView";
-import { SpriteName } from "../../../../Page/SpriteName";
-import { passTime } from "../../../Menus/InGame/PlayerMenu";
-import { BreastRow } from "../../../Body/BreastRow";
-import { describeAllBreasts, describeNipple, describeBreastRow } from "../../../Descriptors/BreastDescriptor";
-import { describeCock, describeCockHead, describeOneOfYourCocks, describeCocksLight, nounCock } from "../../../Descriptors/CockDescriptor";
-import { describeBalls } from "../../../Descriptors/BallsDescriptor";
-import { mf, boyGirl } from "../../../Descriptors/GenderDescriptor";
-import { Cock, CockType } from "../../../Body/Cock";
-import { CombatManager } from "../../../Combat/CombatManager";
-import { Tamani } from "./Tamani";
-import { LegType } from "../../../Body/Legs";
-import { assholeOrPussy } from "../../../Descriptors/BodyDescriptor";
-import { displayStretchVagina } from "../../../Modifiers/VaginaModifier";
-import { displayStretchButt } from "../../../Modifiers/ButtModifier";
-import { describeButt } from "../../../Descriptors/ButtDescriptor";
-import { describeLegs } from "../../../Descriptors/LegDescriptor";
-import { numToCardinalText } from "../../../Utilities/NumToText";
-import { PerkType } from "../../../Effects/PerkType";
-import { SkinType } from "../../../Body/Skin";
-import { TimeEvents } from "../../../TimeEvents";
-import { FlagWomb } from "../../../Body/Pregnancy/FlagWomb";
+import { NextScreenChoices, choiceWrap } from 'Game/ScreenDisplay';
+import { Flags } from 'Game/Flags';
+import { PregnancyType } from 'Game/Character/Body/Pregnancy/Pregnancy';
+import { Character } from 'Game/Character/Character';
+import { randInt } from 'Engine/Utilities/SMath';
+import { CView } from 'Page/ContentView';
+import { SpriteName } from 'Page/SpriteName';
+import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { describeAllBreasts, describeNipple, describeBreastRow } from 'Game/Descriptors/BreastDescriptor';
+import { describeCock, describeCockHead, describeOneOfYourCocks, describeCocksLight, nounCock } from 'Game/Descriptors/CockDescriptor';
+import { describeBalls } from 'Game/Descriptors/BallsDescriptor';
+import { mf, boyGirl } from 'Game/Descriptors/GenderDescriptor';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { CombatManager } from 'Game/Combat/CombatManager';
+import { Tamani } from './Tamani';
+import { LegType } from 'Game/Character/Body/Legs';
+import { assholeOrPussy } from 'Game/Descriptors/BodyDescriptor';
+import { displayStretchVagina } from 'Game/Modifiers/VaginaModifier';
+import { displayStretchButt } from 'Game/Modifiers/ButtModifier';
+import { describeButt } from 'Game/Descriptors/ButtDescriptor';
+import { describeLegs } from 'Game/Descriptors/LegDescriptor';
+import { numToCardinalText } from 'Game/Utilities/NumToText';
+import { EffectType } from 'Game/Effects/EffectType';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { TimeEvents } from 'Game/TimeEvents';
+import { FlagWomb } from 'Game/Character/Body/Pregnancy/FlagWomb';
 
 export const TamaniFlags = {
     TAMANI_NUMBER_OF_DAUGHTERS: 0,
@@ -37,7 +36,7 @@ export const TamaniFlags = {
     TAMANI_TIME_OUT: 0,
     TAMANI_WOMB: new FlagWomb()
 };
-Flags.set(FlagType.Tamani, TamaniFlags);
+Flags.set("Tamani", TamaniFlags);
 
 // const TIMES_OVIPOSITED_TAMANI: number = 581;
 // const TAMANI_TIME_OUT: number = 580;
@@ -705,7 +704,7 @@ export function tamaniKnockUp(player: Character) {
     TamaniFlags.TAMANI_PREGNANCY_COUNT = 2;
     const cum: number = player.cumQ();
     // Breeder perk is awesome
-    if (player.perks.has(PerkType.MaraesGiftStud)) TamaniFlags.TAMANI_PREGNANCY_COUNT += 3;
+    if (player.effects.has(EffectType.MaraesGiftStud)) TamaniFlags.TAMANI_PREGNANCY_COUNT += 3;
     if (cum >= 50 && randInt(2) === 0) TamaniFlags.TAMANI_PREGNANCY_COUNT++;
     if (cum >= 100 && randInt(2) === 0) TamaniFlags.TAMANI_PREGNANCY_COUNT++;
     if (cum >= 200 && randInt(2) === 0) TamaniFlags.TAMANI_PREGNANCY_COUNT++;

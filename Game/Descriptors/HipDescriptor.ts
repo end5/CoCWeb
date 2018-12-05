@@ -1,5 +1,5 @@
-import { percentChance, randomChoice } from '../../Engine/Utilities/SMath';
-import { Character } from '../Character/Character';
+import { percentChance, randomChoice } from 'Engine/Utilities/SMath';
+import { Character } from 'Game/Character/Character';
 
 export function describeHips(character: Character): string {
     let description: string = "";

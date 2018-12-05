@@ -1,13 +1,13 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { BreastRow } from '../../Body/BreastRow';
-import { Character } from '../../Character/Character';
+import { randInt } from 'Engine/Utilities/SMath';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { Character } from 'Game/Character/Character';
 import { ItemDesc } from '../ItemDesc';
-import { describeNipple, describeBreastGrowth } from '../../Descriptors/BreastDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { growSmallestBreastRow } from '../../Modifiers/BreastModifier';
-import { displayModFem } from '../../Modifiers/BodyModifier';
+import { describeNipple, describeBreastGrowth } from 'Game/Descriptors/BreastDescriptor';
+import { CView } from 'Page/ContentView';
+import { growSmallestBreastRow } from 'Game/Modifiers/BreastModifier';
+import { displayModFem } from 'Game/Modifiers/BodyModifier';
 
 export class Lactaid extends Consumable {
     public constructor() {

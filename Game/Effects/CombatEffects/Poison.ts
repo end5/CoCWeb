@@ -6,7 +6,7 @@ import { Effect } from '../Effect';
 
 export class Poison extends Effect {
     public combatTurnStart(character: Character) {
-        if (character.perks.has(EffectType.Medicine) && randInt(100) <= 14) {
+        if (character.effects.has(EffectType.Medicine) && randInt(100) <= 14) {
             character.effects.removeByName(EffectType.Poison);
             CView.text("You manage to cleanse the poison from your system with your knowledge of medicine!");
         }

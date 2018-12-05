@@ -1,13 +1,13 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
+import { randInt } from 'Engine/Utilities/SMath';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { describeBalls, describeSack } from '../../Descriptors/BallsDescriptor';
-import { describeCocksLight } from '../../Descriptors/CockDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { displayModFem } from '../../Modifiers/BodyModifier';
+import { describeBalls, describeSack } from 'Game/Descriptors/BallsDescriptor';
+import { describeCocksLight } from 'Game/Descriptors/CockDescriptor';
+import { CView } from 'Page/ContentView';
+import { displayModFem } from 'Game/Modifiers/BodyModifier';
 
 export class SuccubisDelight extends Consumable {
     public readonly tainted: boolean;
@@ -28,7 +28,7 @@ export class SuccubisDelight extends Consumable {
         // Chances to up the max number of changes
         if (randInt(2) === 0) changeLimit++;
         if (randInt(2) === 0) changeLimit++;
-        if (character.perks.has(PerkType.HistoryAlchemist)) changeLimit++;
+        if (character.effects.has(EffectType.HistoryAlchemist)) changeLimit++;
         // Generic drinking text
         CView.clear();
         CView.text("You uncork the bottle and drink down the strange substance, struggling to down the thick liquid.");
@@ -66,7 +66,7 @@ export class SuccubisDelight extends Consumable {
                 // Temp is the max it can be raised to
                 let cumMultiplerMax: number = 3;
                 // Lots of cum raises cum multiplier cap to 6 instead of 3
-                if (character.perks.has(PerkType.MessyOrgasms)) cumMultiplerMax = 6;
+                if (character.effects.has(EffectType.MessyOrgasms)) cumMultiplerMax = 6;
                 if (cumMultiplerMax < character.body.cumMultiplier + .4 * crit) {
                     changes--;
                 }

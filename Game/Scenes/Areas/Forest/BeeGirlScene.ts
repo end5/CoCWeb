@@ -1,37 +1,37 @@
-import { Character } from "../../../Character/Character";
-import { BeeGirlFlags, BeeGirl } from "./BeeGirl";
-import { NextScreenChoices, ClickFunction, choiceWrap } from "../../../ScreenDisplay";
-import { CView } from "../../../../Page/ContentView";
-import { SpriteName } from "../../../../Page/SpriteName";
-import { randInt } from "../../../../Engine/Utilities/SMath";
-import { StatusEffectType } from "../../../Effects/StatusEffectType";
-import { describeRace } from "../../../Descriptors/BodyDescriptor";
-import { CockType, Cock } from "../../../Body/Cock";
-import { describeCocksLight, describeCock, describeOneOfYourCocks, describeCocks, nounCock, describeEachOfYourCocks } from "../../../Descriptors/CockDescriptor";
-import { describeVagina, describeClit } from "../../../Descriptors/VaginaDescriptor";
-import { displayStretchVagina } from "../../../Modifiers/VaginaModifier";
-import { describeChest, describeNipple, describeAllBreasts, describeBreastRow, describeBiggestBreastRow } from "../../../Descriptors/BreastDescriptor";
-import { VaginaWetness } from "../../../Body/Vagina";
-import { beeRaceScore } from "../../../Body/RaceScore";
-import { describeButt, describeButthole } from "../../../Descriptors/ButtDescriptor";
-import { ButtLooseness } from "../../../Body/Butt";
-import { PregnancyType, IncubationTime } from "../../../Body/Pregnancy/Pregnancy";
-import { ConsumableName } from "../../../Items/Consumables/ConsumableName";
-import { MaterialName } from "../../../Items/Materials/MaterialName";
-import { mf } from "../../../Descriptors/GenderDescriptor";
-import { displayStretchButt } from "../../../Modifiers/ButtModifier";
-import { CombatManager } from "../../../Combat/CombatManager";
-import { describeBalls, describeSack } from "../../../Descriptors/BallsDescriptor";
-import { BreastRow } from "../../../Body/BreastRow";
-import { passTime } from "../../../Menus/InGame/PlayerMenu";
-import { WingType } from "../../../Body/Wings";
-import { gameOverMenu } from "../../../Menus/InGame/GameOverMenu";
-import { LegType } from "../../../Body/Legs";
-import { FaceType } from "../../../Body/Face";
-import { TongueType } from "../../../Body/Tongue";
-import { numToCardinalText } from "../../../Utilities/NumToText";
-import { describeHips } from "../../../Descriptors/HipDescriptor";
-import { BeeButtPregEvent } from "../../Pregnancy/Bee";
+import { Character } from 'Game/Character/Character';
+import { BeeGirlFlags, BeeGirl } from './BeeGirl';
+import { NextScreenChoices, choiceWrap, ClickFunction } from 'Game/ScreenDisplay';
+import { CView } from 'Page/ContentView';
+import { SpriteName } from 'Page/SpriteName';
+import { randInt } from 'Engine/Utilities/SMath';
+import { EffectType } from 'Game/Effects/EffectType';
+import { describeRace } from 'Game/Descriptors/BodyDescriptor';
+import { CockType, Cock } from 'Game/Character/Body/Cock';
+import { describeCocksLight, describeCock, describeOneOfYourCocks, describeCocks, nounCock, describeEachOfYourCocks } from 'Game/Descriptors/CockDescriptor';
+import { describeVagina, describeClit } from 'Game/Descriptors/VaginaDescriptor';
+import { displayStretchVagina } from 'Game/Modifiers/VaginaModifier';
+import { describeChest, describeNipple, describeAllBreasts, describeBreastRow, describeBiggestBreastRow } from 'Game/Descriptors/BreastDescriptor';
+import { VaginaWetness } from 'Game/Character/Body/Vagina';
+import { beeRaceScore } from 'Game/Character/RaceScore';
+import { describeButt, describeButthole } from 'Game/Descriptors/ButtDescriptor';
+import { ButtLooseness } from 'Game/Character/Body/Butt';
+import { PregnancyType, IncubationTime } from 'Game/Character/Body/Pregnancy/Pregnancy';
+import { ConsumableName } from 'Game/Items/Consumables/ConsumableName';
+import { MaterialName } from 'Game/Items/Materials/MaterialName';
+import { mf } from 'Game/Descriptors/GenderDescriptor';
+import { displayStretchButt } from 'Game/Modifiers/ButtModifier';
+import { CombatManager } from 'Game/Combat/CombatManager';
+import { describeBalls, describeSack } from 'Game/Descriptors/BallsDescriptor';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { WingType } from 'Game/Character/Body/Wings';
+import { gameOverMenu } from 'Game/Menus/InGame/GameOverMenu';
+import { LegType } from 'Game/Character/Body/Legs';
+import { FaceType } from 'Game/Character/Body/Face';
+import { TongueType } from 'Game/Character/Body/Tongue';
+import { numToCardinalText } from 'Game/Utilities/NumToText';
+import { describeHips } from 'Game/Descriptors/HipDescriptor';
+import { BeeButtPregEvent } from 'Game/Scenes/Pregnancy/Bee';
 
 /**
  * Created by aimozg on 03.01.14.
@@ -90,10 +90,10 @@ function beeEncounterSelect(player: Character, clearScreen: boolean = true): Nex
     CView.sprite(SpriteName.BeeGirl); // 6;
     // Bee appears!
     CView.text("That's when she comes into view.  A great woman, yellow and black, a Bee-like handmaiden would be the best comparison.  She sits atop a great flower while humming her tune, happily picking the petals off of another flower.  Her body is thin, save her abdomen.  Her head is more humanoid than bee, with black eyes, antennae, and luscious black lips that glimmer wetly");
-    if (player.effects.get(StatusEffectType.Exgartuan).value1 === 1 && player.body.cocks.length > 0 && player.body.cocks.get(0)!.area > 100 && player.effects.get(StatusEffectType.Exgartuan).value2 === 0) { // Exgartuan messes with things!
+    if (player.effects.getByName(EffectType.Exgartuan).value1 === 1 && player.body.cocks.length > 0 && player.body.cocks.get(0)!.area > 100 && player.effects.getByName(EffectType.Exgartuan).value2 === 0) { // Exgartuan messes with things!
         return beeEncounterWithExgartuan(player);
     }
-    if (player.effects.has(StatusEffectType.Infested) || player.effects.has(StatusEffectType.WormPlugged)) { // Worms now mess with things too!
+    if (player.effects.has(EffectType.Infested) || player.effects.has(EffectType.WormPlugged)) { // Worms now mess with things too!
         return beeEncounterWithWorms(player);
     }
     const isBeeMorph: boolean = describeRace(player) === "bee-morph";
@@ -401,7 +401,7 @@ function beeEncounterWithWorms(player: Character): NextScreenChoices { // If she
     CView.clear();
     CView.sprite(SpriteName.BeeGirl); // 6;
     CView.text("You slowly " + (player.body.legs.isTaur() ? "trot" : "walk") + " toward the bee girl, your mind in a haze.  Her antennae wiggle in anticipation and she gives you a lusty smile, eager to fill your ass with her payload.  You start to take off your clothes, the last of your underwear falling to the forest floor as you reach her.\n\n");
-    CView.text("The bee maiden puts her hands on your shoulders.  She draws you gently into a kiss, but as her sweet saliva prepares you for what is to come you feel one of your annelid passengers slither down " + (player.effects.has(StatusEffectType.WormPlugged) ? "from your cervix and poke out of your cunt" : "your urethra and wrap itself around the tip of your cock") + ".  The bee girl pulls back from the kiss, looks down and jumps back, the color draining from her face.\n\n");
+    CView.text("The bee maiden puts her hands on your shoulders.  She draws you gently into a kiss, but as her sweet saliva prepares you for what is to come you feel one of your annelid passengers slither down " + (player.effects.has(EffectType.WormPlugged) ? "from your cervix and poke out of your cunt" : "your urethra and wrap itself around the tip of your cock") + ".  The bee girl pulls back from the kiss, looks down and jumps back, the color draining from her face.\n\n");
     CView.text("<i>“By my queen!  That izzz dizzzguzzting!  How can you zzztand it?  Ugh, no, I can't lay my queen'zzz preciouzzz eggzzz in a body with thozzze.”</i>  A few drips of fluid dribble from the tip of her ovipositor and she adds, <i>“and I zzzo wanted to.  I really have to find zzzomeone who can take thezzze and keep them zzzafe.”</i>\n\n");
     CView.text("She lifts off, hovering a few feet off the ground.  <i>“Good luck getting rid of thozzze thingzzz.  When you do, come find me and I'll fill you zzzo full of lovely eggzzz,”</i> she promises, her fingers idly stroking her sex.  She shakes her head, deliberately getting control of herself and forcing her fingers away from her slit, then flies up through a hole in the canopy.\n\n");
     CView.text("Alone and aroused, all you can do is put your clothes back on and travel back to your camp, hoping no imps ambush you on the way.");
@@ -1241,7 +1241,7 @@ export function beeRapesYou(player: Character): NextScreenChoices {
     }
     else {
         // Male + venomz
-        if ((player.effects.has(StatusEffectType.ParalyzeVenom) || player.effects.has(StatusEffectType.lustvenom)) && !sexed && player.body.cocks.length === 1) {
+        if ((player.effects.has(EffectType.ParalyzeVenom) || player.effects.has(EffectType.lustvenom)) && !sexed && player.body.cocks.length === 1) {
             CView.text("The bee-girl stands directly over you, looking down at you with a triumphant cute smile across her face, her eyes surveying every millimeter of your body. All you can do is lay there looking up at her fine figure and a profile of her ample breasts with a knowing smile on your face. She crouches down on all fours, just out of your reach, and begins to rhythmically shake her extended abdomen like a child's toy.\n\n");
 
             CView.text("Suddenly reality kicks in as you feel the venom coursing though your body, and your heart begins to race faster and faster by the minute. A dull pain swells deep inside your head as if it were about to explode; you try to lift your arms to cradle your head but can't, and slowly a new sensation takes over as your manhood begins to swell in size and length, trying to break through your clothes. A faint buzzing sound comes seemingly from nowhere, growing louder and getting closer every second. As the pain in your head decreases, you suddenly feel parched, your mouth as dry as the desert sands.  You try to let out a moan but all you can do is breathe rapidly, as if you are burning up inside.\n\n");
@@ -2035,8 +2035,8 @@ export function milkAndHoneyAreKindaFunny(player: Character): NextScreenChoices 
     player.stats.lust += -50;
 
     // You've now been milked, reset the timer for that
-    player.effects.get(StatusEffectType.Feeder).value1 += 1;
-    player.effects.get(StatusEffectType.Feeder).value2 = 0;
+    player.effects.get(EffectType.Feeder).value1 += 1;
+    player.effects.get(EffectType.Feeder).value2 = 0;
     return { next: passTime(1) };
 }
 

@@ -1,7 +1,7 @@
 import { Weapon } from './Weapon';
 import { WeaponName } from './WeaponName';
 import { ItemDesc } from '../ItemDesc';
-import { RaphaelFlags } from '../../Scenes/NPCs/Raphael';
+import { RaphaelFlags } from 'Game/Scenes/NPCs/Raphael';
 
 export class RaphaelsRapier extends Weapon {
     public constructor() {

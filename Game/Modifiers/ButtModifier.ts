@@ -1,7 +1,7 @@
 ﻿import { randInt } from '../../Engine/Utilities/SMath';
-import { ButtLooseness } from '../Body/Butt';
+import { ButtLooseness } from '../Character/Body/Butt';
 import { Character } from '../Character/Character';
-import { StatusEffectType } from '../Effects/StatusEffectType';
+import { EffectType } from '../Effects/EffectType';
 import { describeButthole } from '../Descriptors/ButtDescriptor';
 import { CView } from '../../Page/ContentView';
 
@@ -13,7 +13,7 @@ export function stretchButt(character: Character, buttArea: number): boolean {
             character.body.butt.looseness++;
         stretched = true;
         // Reset butt stretchin recovery time
-        const buttStretched = character.effects.get(StatusEffectType.ButtStretched);
+        const buttStretched = character.effects.getByName(EffectType.ButtStretched);
         if (buttStretched)
             buttStretched.values.expireCountdown = 0;
     }
@@ -35,9 +35,9 @@ export function stretchButt(character: Character, buttArea: number): boolean {
     // Delay un-stretching
     if (buttArea >= .5 * character.analCapacity()) {
         // Butt Stretched used to determine how long since last enlargement
-        const buttStretched = character.effects.get(StatusEffectType.ButtStretched);
+        const buttStretched = character.effects.getByName(EffectType.ButtStretched);
         if (!buttStretched)
-            character.effects.add(StatusEffectType.ButtStretched);
+            character.effects.create(EffectType.ButtStretched);
         // Reset the timer on it to 0 when restretched.
         else
             buttStretched.values.expireCountdown = 0;

@@ -1,13 +1,13 @@
-import { MainScreen } from '../../../Page/MainScreen';
-import { Character } from '../../Character/Character';
-import { CombatManager } from '../../Combat/CombatManager';
-import { clickFuncWrapper, NextScreenChoices, ClickFunction } from '../../ScreenDisplay';
-import { townSquare } from '../../Scenes/TownSquare';
+import { MainScreen } from 'Page/MainScreen';
+import { Character } from 'Game/Character/Character';
+import { CombatManager } from 'Game/Combat/CombatManager';
+import { clickFuncWrapper, NextScreenChoices, ClickFunction } from 'Game/ScreenDisplay';
 import { mainMenu } from '../MainMenu';
-import { Time } from '../../Utilities/Time';
-import { TimeManager } from '../../TimeManager';
+import { Time } from 'Game/Utilities/Time';
 import { levelUpMenu } from './LevelUpMenu';
 import { perkUpMenu } from './PerkUpMenu';
+import { TimeEvents } from 'Game/TimeEvents';
+import { ItemsOnFloor } from 'Game/Scenes/ItemsOnFloor';
 
 export function playerMenu(character: Character): NextScreenChoices {
     // Safe guard against combat breaking
@@ -23,13 +23,16 @@ export function playerMenu(character: Character): NextScreenChoices {
     else
         MainScreen.topButtons.levelUp.modify("Perk Up", clickFuncWrapper(perkUpMenu));
 
-    return townSquare();
+    for (const item of ItemsOnFloor)
+        character.inventory.items.add(character, item, playerMenu);
+
+    return camp();
 }
 
 export function passTime(num: number): ClickFunction {
     return function passHour(char: Character) {
         Time.hour += num;
-        TimeManager.update(num);
+        TimeEvents.update(num);
         return playerMenu(char);
     };
 }

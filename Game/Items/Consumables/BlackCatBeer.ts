@@ -1,6 +1,6 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { Character } from '../../Character/Character';
+import { Character } from 'Game/Character/Character';
 import { ItemDesc } from '../ItemDesc';
 
 export class BlackCatBeer extends Consumable {

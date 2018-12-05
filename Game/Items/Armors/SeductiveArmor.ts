@@ -1,13 +1,13 @@
 import { Armor } from './Armor';
 import { ArmorName } from './ArmorName';
-import { Character } from '../../Character/Character';
+import { Character } from 'Game/Character/Character';
 import { ItemDesc } from '../ItemDesc';
 import { Piercing, PiercingType } from '../Misc/Piercing';
-import { CView } from '../../../Page/ContentView';
-import { ceraphIsFollower } from '../../Scenes/NPCs/CeraphFollowerScene';
-import { mf } from '../../Descriptors/GenderDescriptor';
+import { CView } from 'Page/ContentView';
+import { ceraphIsFollower } from 'Game/Scenes/NPCs/CeraphFollowerScene';
+import { mf } from 'Game/Descriptors/GenderDescriptor';
 import { ArmorLib } from './ArmorLib';
-import { CeraphFlags } from '../../Scenes/NPCs/Ceraph';
+import { CeraphFlags } from 'Game/Scenes/NPCs/Ceraph';
 
 export class SeductiveArmor extends Armor {
     public constructor() {

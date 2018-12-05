@@ -1,8 +1,10 @@
 import { IRangedStatEffect, RangedStatEffect } from 'Game/Character/Stats/Stat/RangedStatEffect';
 import { IStatModifier, StatModifier } from 'Game/Character/Stats/Stat/StatModifier';
 import { CombatActionType } from 'Game/Combat/Actions/CombatActionType';
+import { IDictionary } from 'Engine/Utilities/Dictionary';
 
 export interface IEffectValues {
+    desc?: string;
     expireCountdown?: number;
     attack?: IRangedStatEffect;
     weapon?: IRangedStatEffect;
@@ -28,6 +30,7 @@ export interface IEffectValues {
     vaginalCapacity?: number;
     analCapacity?: number;
     blockedTypes?: CombatActionType;
+    other?: IDictionary<any>;
 }
 
 export class EffectValues implements IEffectValues {
@@ -52,10 +55,11 @@ export class EffectValues implements IEffectValues {
     public readonly femininity: RangedStatEffect;
     public readonly fertility: RangedStatEffect;
     public readonly cumQuantity: RangedStatEffect;
-    public readonly virility: number;
-    public readonly vaginalCapacity: number;
-    public readonly analCapacity: number;
-    public readonly blockedTypes: CombatActionType;
+    public virility: number;
+    public vaginalCapacity: number;
+    public analCapacity: number;
+    public blockedTypes: CombatActionType;
+    public readonly other?: IDictionary<any>;
 
     public constructor(values?: IEffectValues) {
         this.expireCountdown = values && values.expireCountdown ? values.expireCountdown : 0;
@@ -83,5 +87,7 @@ export class EffectValues implements IEffectValues {
         this.vaginalCapacity = values && values.vaginalCapacity ? values.vaginalCapacity : 0;
         this.analCapacity = values && values.analCapacity ? values.analCapacity : 0;
         this.blockedTypes = values && values.blockedTypes ? values.blockedTypes : CombatActionType.None;
+        if (values && values.other)
+            this.other = values.other;
     }
 }

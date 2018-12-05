@@ -1,13 +1,12 @@
-﻿import { BreastCup, BreastRow } from '../Body/BreastRow';
-import { Cock, CockType } from '../Body/Cock';
+﻿import { BreastCup, BreastRow } from '../Character/Body/BreastRow';
+import { Cock, CockType } from '../Character/Body/Cock';
 import { Character } from '../Character/Character';
-import { PerkType } from '../Effects/PerkType';
-import { StatusEffectType } from '../Effects/StatusEffectType';
+import { EffectType } from '../Effects/EffectType';
 import { CockSockName } from '../Items/Misc/CockSockName';
 import { numToCardinalText } from '../Utilities/NumToText';
 import { describeCock, describeCocksLight, describeCocks } from '../Descriptors/CockDescriptor';
 import { describeSack, describeBallsShort } from '../Descriptors/BallsDescriptor';
-import { CView } from '../../Page/ContentView';
+import { CView } from 'Page/ContentView';
 import { Settings } from '../Settings';
 
 export function growEachCock(character: Character, lengthDelta: number): number {
@@ -29,7 +28,7 @@ export function growEachCock(character: Character, lengthDelta: number): number 
 export function growCock(character: Character, cock: Cock, lengthDelta: number): number {
     let bigCock: boolean = false;
 
-    if (character.perks.has(PerkType.BigCock))
+    if (character.effects.has(EffectType.BigCock))
         bigCock = true;
 
     if (lengthDelta === 0) {
@@ -191,7 +190,7 @@ export function displayKillCocks(character: Character, numOfCocksToRemove: numbe
     if (removed === 1) {
         if (cocks.length === 0) {
             CView.text("<b>Your manhood shrinks into your body, disappearing completely.</b>");
-            if (character.effects.has(StatusEffectType.Infested)) CView.text("  Like rats fleeing a sinking ship, a stream of worms squirts free from your withering member, slithering away.");
+            if (character.effects.has(EffectType.Infested)) CView.text("  Like rats fleeing a sinking ship, a stream of worms squirts free from your withering member, slithering away.");
         }
         if (cocks.length === 1) {
             CView.text("<b>Your smallest penis disappears, shrinking into your body and leaving you with just one " + describeCock(character, character.body.cocks.get(0)) + ".</b>");
@@ -203,7 +202,7 @@ export function displayKillCocks(character: Character, numOfCocksToRemove: numbe
     if (removed > 1) {
         if (cocks.length === 0) {
             CView.text("<b>All your male endowments shrink smaller and smaller, disappearing one at a time.</b>");
-            if (character.effects.has(StatusEffectType.Infested)) CView.text("  Like rats fleeing a sinking ship, a stream of worms squirts free from your withering member, slithering away.");
+            if (character.effects.has(EffectType.Infested)) CView.text("  Like rats fleeing a sinking ship, a stream of worms squirts free from your withering member, slithering away.");
         }
         if (cocks.length === 1) {
             CView.text("<b>You feel " + numToCardinalText(removed) + " cocks disappear into your groin, leaving you with just your " + describeCock(character, character.body.cocks.get(0)) + ".");
@@ -213,8 +212,8 @@ export function displayKillCocks(character: Character, numOfCocksToRemove: numbe
         }
     }
     // remove infestation if cockless
-    if (cocks.length === 0 && character.effects.has(StatusEffectType.Infested))
-        character.effects.remove(StatusEffectType.Infested);
+    if (cocks.length === 0 && character.effects.has(EffectType.Infested))
+        character.effects.removeByName(EffectType.Infested);
     if (cocks.length === 0 && character.body.balls.count > 0) {
         CView.text("  <b>Your " + describeSack(character) + " and " + describeBallsShort(character) + " shrink and disappear, vanishing into your groin.</b>");
         character.body.balls.count = 0;

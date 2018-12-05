@@ -1,6 +1,6 @@
-import { Dictionary } from "../../Engine/Utilities/Dictionary";
-import { EffectDesc } from "./EffectDesc";
-import { EffectType } from "./EffectType";
+import { Dictionary } from 'Engine/Utilities/Dictionary';
+import { EffectDesc } from './EffectDesc';
+import { EffectType } from './EffectType';
 
 class EffectDescDict extends Dictionary<string, EffectDesc> {
     public add(key: string, name: string, desc: string, longDesc?: string) {
@@ -182,27 +182,27 @@ EffectDescLib.add(EffectType.WandererDemon, "WandererDemon", "wanderer demon");
 EffectDescLib.add(EffectType.WandererHuman, "WandererHuman", "wanderer human");
 EffectDescLib.add(EffectType.Yara, "Yara", "Yara");
 
-import { ControlledBreath } from './EffectDescriptions/ControlledBreath';
-import { Archmage } from './EffectDescriptions/Archmage';
-import { Berzerker } from './EffectDescriptions/Berzerker';
-import { BrutalBlows } from './EffectDescriptions/BrutalBlows';
-import { DoubleAttack } from './EffectDescriptions/DoubleAttack';
-import { ImmovableObject } from './EffectDescriptions/ImmovableObject';
-import { LightningStrikes } from './EffectDescriptions/LightningStrikes';
-import { LungingAttacks } from './EffectDescriptions/LungingAttacks';
-import { Resolute } from './EffectDescriptions/Resolute';
-import { Tactician } from './EffectDescriptions/Tactician';
-import { WeaponMastery } from './EffectDescriptions/WeaponMastery';
-import { PiercedCrimstone } from './EffectDescriptions/PiercedCrimstone';
-import { PiercedFertite } from './EffectDescriptions/PiercedFertite';
-import { PentUp } from './EffectDescriptions/PentUp';
-import { SluttySeduction } from './EffectDescriptions/SluttySeduction';
-import { WizardsEndurance } from './EffectDescriptions/WizardsEndurance';
-import { WizardsFocus } from './EffectDescriptions/WizardsFocus';
-import { SpellcastingAffinity } from './EffectDescriptions/SpellcastingAffinity';
-import { ElvenBounty } from './EffectDescriptions/ElvenBounty';
-import { Enlightened } from './EffectDescriptions/Enlightened';
-import { CleansingPalm } from './EffectDescriptions/CleansingPalm';
+import { ControlledBreath } from './Descriptions/ControlledBreath';
+import { Archmage } from './Descriptions/Archmage';
+import { Berzerker } from './Descriptions/Berzerker';
+import { BrutalBlows } from './Descriptions/BrutalBlows';
+import { DoubleAttack } from './Descriptions/DoubleAttack';
+import { ImmovableObject } from './Descriptions/ImmovableObject';
+import { LightningStrikes } from './Descriptions/LightningStrikes';
+import { LungingAttacks } from './Descriptions/LungingAttacks';
+import { Resolute } from './Descriptions/Resolute';
+import { Tactician } from './Descriptions/Tactician';
+import { WeaponMastery } from './Descriptions/WeaponMastery';
+import { PiercedCrimstone } from './Descriptions/PiercedCrimstone';
+import { PiercedFertite } from './Descriptions/PiercedFertite';
+import { PentUp } from './Descriptions/PentUp';
+import { SluttySeduction } from './Descriptions/SluttySeduction';
+import { WizardsEndurance } from './Descriptions/WizardsEndurance';
+import { WizardsFocus } from './Descriptions/WizardsFocus';
+import { SpellcastingAffinity } from './Descriptions/SpellcastingAffinity';
+import { ElvenBounty } from './Descriptions/ElvenBounty';
+import { Enlightened } from './Descriptions/Enlightened';
+import { CleansingPalm } from './Descriptions/CleansingPalm';
 
 EffectDescLib.add(EffectType.Brawler, "Brawler",
     "Brawling experience allows you to make two unarmed attacks in a turn.",

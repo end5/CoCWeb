@@ -1,8 +1,8 @@
 import { Weapon } from './Weapon';
 import { WeaponName } from './WeaponName';
 import { WeaponPerkType } from './WeaponPerk';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
 
 export class WizardsStaff extends Weapon {
@@ -11,13 +11,13 @@ export class WizardsStaff extends Weapon {
     }
 
     public onEquip(character: Character): void {
-        while (character.perks.has(PerkType.WizardsFocus))
-            character.perks.remove(PerkType.WizardsFocus);
-        character.perks.add(PerkType.WizardsFocus, { spellCost: { multi: 0.4 } });
+        while (character.effects.has(EffectType.WizardsFocus))
+            character.effects.removeByName(EffectType.WizardsFocus);
+        character.effects.create(EffectType.WizardsFocus, { spellCost: { multi: 0.4 } });
     }
 
     public onUnequip(character: Character): void {
-        while (character.perks.has(PerkType.WizardsFocus))
-            character.perks.remove(PerkType.WizardsFocus);
+        while (character.effects.has(EffectType.WizardsFocus))
+            character.effects.removeByName(EffectType.WizardsFocus);
     }
 }

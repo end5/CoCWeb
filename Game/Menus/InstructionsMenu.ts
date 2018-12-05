@@ -1,5 +1,5 @@
 import { NextScreenChoices } from '../ScreenDisplay';
-import { CView } from '../../Page/ContentView';
+import { CView } from 'Page/ContentView';
 import { mainMenu } from './MainMenu';
 
 export function instructionMenu(): NextScreenChoices {

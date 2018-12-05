@@ -1,36 +1,34 @@
-import { Flags } from "../../../Flags";
-import { FlagType } from "../../../FlagType";
-import { Character } from "../../../Character/Character";
-import { CView } from "../../../../Page/ContentView";
-import { NextScreenChoices, choiceWrap } from "../../../ScreenDisplay";
-import { StatusEffectType } from "../../../Effects/StatusEffectType";
-import { passTime } from "../../../Menus/InGame/PlayerMenu";
-import { randInt, randomChoice } from "../../../../Engine/Utilities/SMath";
-import { CharacterType } from "../../../Character/CharacterType";
-import { Vagina, VaginaWetness, VaginaLooseness } from "../../../Body/Vagina";
-import { BreastCup } from "../../../Body/BreastRow";
-import { ButtLooseness, ButtWetness, ButtRating } from "../../../Body/Butt";
-import { HipRating } from "../../../Body/Hips";
-import { LegType } from "../../../Body/Legs";
-import { WeightedDrop } from "../../../Utilities/Drops/WeightedDrop";
-import { ConsumableName } from "../../../Items/Consumables/ConsumableName";
-import { MaterialName } from "../../../Items/Materials/MaterialName";
-import { AntennaeType } from "../../../Body/Antennae";
-import { WingType } from "../../../Body/Wings";
-import { TailType, Tail } from "../../../Body/Tail";
-import { EndScenes } from "../../../Combat/EndScenes";
-import { beeRapesYou, beeGirlsGetsDildoed, milkAndHoneyAreKindaFunny, rapeTheBeeGirl } from "./BeeGirlScene";
-import { DefeatType } from "../../../Combat/DefeatEvent";
-import { CharacterDescription } from "../../../Character/CharacterDescription";
-import { CharacterInventory } from "../../../Inventory/CharacterInventory";
-import { Weapon } from "../../../Items/Weapons/Weapon";
-import { WeaponName } from "../../../Items/Weapons/WeaponName";
-import { ItemDesc } from "../../../Items/ItemDesc";
-import { Armor } from "../../../Items/Armors/Armor";
-import { ArmorName } from "../../../Items/Armors/ArmorName";
-import { CombatContainer } from "../../../Combat/CombatContainer";
-import { CombatAction } from "../../../Combat/Actions/CombatAction";
-import { CombatEffectType } from "../../../Effects/CombatEffectType";
+import { Flags } from 'Game/Flags';
+import { Character } from 'Game/Character/Character';
+import { CView } from 'Page/ContentView';
+import { NextScreenChoices, choiceWrap } from 'Game/ScreenDisplay';
+import { EffectType } from 'Game/Effects/EffectType';
+import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { randInt, randomChoice } from 'Engine/Utilities/SMath';
+import { CharacterType } from 'Game/Character/CharacterType';
+import { Vagina, VaginaWetness, VaginaLooseness } from 'Game/Character/Body/Vagina';
+import { BreastCup } from 'Game/Character/Body/BreastRow';
+import { ButtLooseness, ButtWetness, ButtRating } from 'Game/Character/Body/Butt';
+import { HipRating } from 'Game/Character/Body/Hips';
+import { LegType } from 'Game/Character/Body/Legs';
+import { WeightedDrop } from 'Game/Utilities/Drops/WeightedDrop';
+import { ConsumableName } from 'Game/Items/Consumables/ConsumableName';
+import { MaterialName } from 'Game/Items/Materials/MaterialName';
+import { AntennaeType } from 'Game/Character/Body/Antennae';
+import { WingType } from 'Game/Character/Body/Wings';
+import { TailType, Tail } from 'Game/Character/Body/Tail';
+import { EndScenes } from 'Game/Combat/EndScenes';
+import { beeRapesYou, beeGirlsGetsDildoed, milkAndHoneyAreKindaFunny, rapeTheBeeGirl } from './BeeGirlScene';
+import { DefeatType } from 'Game/Combat/DefeatEvent';
+import { CharacterDescription } from 'Game/Character/CharacterDescription';
+import { CharacterInventory } from 'Game/Inventory/CharacterInventory';
+import { Weapon } from 'Game/Items/Weapons/Weapon';
+import { WeaponName } from 'Game/Items/Weapons/WeaponName';
+import { ItemDesc } from 'Game/Items/ItemDesc';
+import { Armor } from 'Game/Items/Armors/Armor';
+import { ArmorName } from 'Game/Items/Armors/ArmorName';
+import { CombatContainer } from 'Game/Combat/CombatContainer';
+import { CombatAction } from 'Game/Combat/Actions/CombatAction';
 
 export const BeeGirlFlags = {
     BEE_GIRL_STATUS: 0,
@@ -40,7 +38,7 @@ export const BeeGirlFlags = {
     FORCE_BEE_TO_PRODUCE_HONEY: 0,
 };
 
-Flags.set(FlagType.BeeGirl, BeeGirlFlags);
+Flags.set("BeeGirl", BeeGirlFlags);
 class BeeGirlEndScenes extends EndScenes {
     protected victoryScene?(howYouWon: DefeatType, enemy: Character): NextScreenChoices {
         if (pcCameWorms) {
@@ -65,10 +63,10 @@ class BeeGirlEndScenes extends EndScenes {
             enemy.stats.lust += 1;
 
             const dildoRape = (enemy.inventory.keyItems.has("Deluxe Dildo") ? choiceWrap(beeGirlsGetsDildoed, this.char) : undefined);
-            const milkAndHoney = (enemy.effects.has(StatusEffectType.Feeder) ? choiceWrap(milkAndHoneyAreKindaFunny, this.char) : undefined);
+            const milkAndHoney = (enemy.effects.has(EffectType.Feeder) ? choiceWrap(milkAndHoneyAreKindaFunny, this.char) : undefined);
             return { choices: [["Rape", choiceWrap(rapeTheBeeGirl, this.char)], ["Dildo Rape", dildoRape], ["", undefined], ["B. Feed", milkAndHoney], ["Leave", leaveAfterDefeating]] };
         }
-        else if (enemy.effects.has(StatusEffectType.Feeder)) { // Genderless can still breastfeed
+        else if (enemy.effects.has(EffectType.Feeder)) { // Genderless can still breastfeed
             if (howYouLost === DefeatType.HP) {
                 CView.text("You smile in satisfaction as the " + this.char.desc.short + " collapses, unable to continue fighting.  The sweet scent oozing from between her legs is too much to bear, arousing you painfully.\n\nWhat do you do?");
             }
@@ -77,6 +75,7 @@ class BeeGirlEndScenes extends EndScenes {
             }
             return { choices: [["B. Feed", milkAndHoneyAreKindaFunny], ["", undefined], ["", undefined], ["", undefined], ["Leave", leaveAfterDefeating]] };
         }
+        return { next: passTime(1) };
     }
 }
 
@@ -94,7 +93,7 @@ class BeeSting extends CombatAction {
     public name: string = "Bee Sting";
     public useAction(beeGirl: Character, player: Character) {
         // Blind dodge change
-        if (beeGirl.combat.effects.has(CombatEffectType.Blind)) {
+        if (beeGirl.effects.has(EffectType.Blind)) {
             CView.text(beeGirl.desc.capitalA + beeGirl.desc.short + " completely misses you with a blind sting!!");
             return;
         }
@@ -106,7 +105,7 @@ class BeeSting extends CombatAction {
             return;
         }
         // determine if avoided with armor.
-        if (player.combat.stats.defense() >= 10 && randInt(4) > 0) {
+        if (player.combat.defense() >= 10 && randInt(4) > 0) {
             CView.text("Despite her best efforts, " + beeGirl.desc.a + beeGirl.desc.short + "'s sting attack can't penetrate your armor.");
             return;
         }
@@ -127,13 +126,13 @@ class BeeSting extends CombatAction {
                 if (player.stats.sens > 50) CView.text("  The sensitive nubs of your nipples rub tightly under your " + player.inventory.armor.displayName + ".");
             }
             else CView.text(" You shake your head and clear the thoughts from your head, focusing on the task at hand.");
-            if (!player.combat.effects.has(CombatEffectType.lustvenom))
-                player.combat.effects.add(CombatEffectType.lustvenom, beeGirl);
+            if (!player.effects.has(EffectType.lustvenom))
+                player.effects.create(EffectType.lustvenom);
         }
         // Paralise the other 50%!
         else {
             CView.text("Searing pain lances through you as " + beeGirl.desc.a + beeGirl.desc.short + " manages to sting you!  You stagger back a step and nearly trip, finding it hard to move yourself.");
-            const paralyzeEffect = player.combat.effects.get(CombatEffectType.ParalyzeVenom);
+            const paralyzeEffect = player.effects.getByName(EffectType.ParalyzeVenom);
             if (paralyzeEffect) {
                 paralyzeEffect.values.str.value.flat -= 3; // v1 - strenght penalty, v2 speed penalty
                 paralyzeEffect.values.spe.value.flat -= 3; // v1 - strenght penalty, v2 speed penalty
@@ -143,7 +142,7 @@ class BeeSting extends CombatAction {
                 CView.text("  It's getting much harder to move, you're not sure how many more stings like that you can take!");
             }
             else {
-                player.combat.effects.add(CombatEffectType.ParalyzeVenom, beeGirl, { str: { value: { flat: -2 } }, spe: { value: { flat: -2 } } });
+                player.effects.create(EffectType.ParalyzeVenom, { str: { value: { flat: -2 } }, spe: { value: { flat: -2 } } });
 
                 CView.text("  You've fallen prey to paralyzation venom!  Better end this quick!");
             }

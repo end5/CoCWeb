@@ -1,46 +1,44 @@
-import { Character } from "../../Character/Character";
-import { Flags } from "../../Flags";
-import { FlagType } from "../../FlagType";
-import { NextScreenChoices } from "../../ScreenDisplay";
-import { randInt } from "../../../Engine/Utilities/SMath";
-import { PerkType } from "../../Effects/PerkType";
-import { CView } from "../../../Page/ContentView";
-import { passTime } from "../../Menus/InGame/PlayerMenu";
-import { trace } from "console";
-import { Cock } from "../../Body/Cock";
-import { CombatManager } from "../../Combat/CombatManager";
-import { mf } from "../../Descriptors/GenderDescriptor";
-import { describeFeet, describeLegs } from "../../Descriptors/LegDescriptor";
-import { describeCocksLight, describeCock, nounCock, describeOneOfYourCocks } from "../../Descriptors/CockDescriptor";
-import { describeVagina, describeClit } from "../../Descriptors/VaginaDescriptor";
-import { MaterialName } from "../../Items/Materials/MaterialName";
-import { numToCardinalText } from "../../Utilities/NumToText";
-import { describeHips } from "../../Descriptors/HipDescriptor";
-import { BreastRow } from "../../Body/BreastRow";
-import { describeChest, describeNipple } from "../../Descriptors/BreastDescriptor";
-import { describeSack, describeBalls } from "../../Descriptors/BallsDescriptor";
-import { describeButt } from "../../Descriptors/ButtDescriptor";
-import { VaginaWetness } from "../../Body/Vagina";
-import { LegType } from "../../Body/Legs";
-import { encounterTamanisDaughters, TamanisDaughtersFlags } from "./Forest/TamanisDaughtersScene";
-import { encounterTamani, TamaniFlags } from "./Forest/TamaniScene";
-import { encounterWildHunt, ErlKingFlags } from "./Forest/ErlKingScene";
-import { encounterFaerie } from "./Forest/Faerie";
-import { encounter, TentacleBeastFlags } from "./Forest/TentacleBeastScene";
-import { intro } from "./Forest/CorruptedGlade";
-import { supahAkabalEdition } from "./Forest/AkbalScenes";
-import { kitsuneShrine, enterTheTrickster } from "./Forest/KitsuneScene";
-import { beeEncounter } from "./Forest/BeeGirlScene";
-import { essrayleMeetingI, EssrayleFlags } from "./Forest/Essrayle";
-import { impLordEncounter } from "./BeyondCamp/ImpLordScene";
-import { Imp } from "./BeyondCamp/Imp";
-import { Goblin } from "./BeyondCamp/Goblin";
+import { Character } from 'Game/Character/Character';
+import { Flags } from 'Game/Flags';
+import { NextScreenChoices } from 'Game/ScreenDisplay';
+import { randInt } from 'Engine/Utilities/SMath';
+import { EffectType } from 'Game/Effects/EffectType';
+import { CView } from 'Page/ContentView';
+import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { Cock } from 'Game/Character/Body/Cock';
+import { CombatManager } from 'Game/Combat/CombatManager';
+import { mf } from 'Game/Descriptors/GenderDescriptor';
+import { describeFeet, describeLegs } from 'Game/Descriptors/LegDescriptor';
+import { describeCocksLight, describeCock, nounCock, describeOneOfYourCocks } from 'Game/Descriptors/CockDescriptor';
+import { describeVagina, describeClit } from 'Game/Descriptors/VaginaDescriptor';
+import { MaterialName } from 'Game/Items/Materials/MaterialName';
+import { numToCardinalText } from 'Game/Utilities/NumToText';
+import { describeHips } from 'Game/Descriptors/HipDescriptor';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { describeChest, describeNipple } from 'Game/Descriptors/BreastDescriptor';
+import { describeSack, describeBalls } from 'Game/Descriptors/BallsDescriptor';
+import { describeButt } from 'Game/Descriptors/ButtDescriptor';
+import { VaginaWetness } from 'Game/Character/Body/Vagina';
+import { LegType } from 'Game/Character/Body/Legs';
+import { encounterTamanisDaughters, TamanisDaughtersFlags } from './Forest/TamanisDaughtersScene';
+import { encounterTamani, TamaniFlags } from './Forest/TamaniScene';
+import { encounterWildHunt, ErlKingFlags } from './Forest/ErlKingScene';
+import { encounterFaerie } from './Forest/Faerie';
+import { encounter, TentacleBeastFlags } from './Forest/TentacleBeastScene';
+import { intro } from './Forest/CorruptedGlade';
+import { supahAkabalEdition } from './Forest/AkbalScenes';
+import { kitsuneShrine, enterTheTrickster } from './Forest/KitsuneScene';
+import { beeEncounter } from './Forest/BeeGirlScene';
+import { essrayleMeetingI, EssrayleFlags } from './Forest/Essrayle';
+import { impLordEncounter } from './BeyondCamp/ImpLordScene';
+import { Imp } from './BeyondCamp/Imp';
+import { Goblin } from './BeyondCamp/Goblin';
 
 export const ForestFlags = {
     TIMES_EXPLORED: 0,
     DEEPWOODS_EXPLORED: 0,
 };
-Flags.set(FlagType.Forest, ForestFlags);
+Flags.set("Forest", ForestFlags);
 /**
  * Created by aimozg on 06.01.14.
  */
@@ -105,7 +103,6 @@ export function exploreDeepwoods(player: Character): NextScreenChoices {
         if (player.gender > 0) TentacleBeastFlags.UNKNOWN_FLAG_NUMBER_00247 = 0;
         // Tentacle avoidance chance due to dangerous plants
         if (player.inventory.keyItems.has("Dangerous Plants") && player.stats.int / 2 > randInt(50)) {
-            trace("TENTACLE'S AVOIDED DUE TO BOOK!");
             CView.clear().text("Using the knowledge contained in your 'Dangerous Plants' book, you determine a tentacle beast's lair is nearby, do you continue?  If not you could return to camp.\n\n");
             return { choices: [["Continue", encounter], ["", undefined], ["", undefined], ["", undefined], ["Leave", passTime(1)]] };
         }
@@ -208,7 +205,7 @@ export function exploreForest(player: Character): NextScreenChoices {
         if (player.body.vaginas.length > 0) impGob++;
         if (player.totalFertility() >= 30) impGob++;
         if (player.cumQ() >= 200) impGob--;
-        if (player.perks.has(PerkType.PiercedLethite)) {
+        if (player.effects.has(EffectType.PiercedLethite)) {
             if (impGob <= 3) impGob += 2;
             else if (impGob < 7) impGob = 7;
         }

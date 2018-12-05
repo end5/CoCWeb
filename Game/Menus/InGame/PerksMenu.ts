@@ -1,15 +1,15 @@
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
-import { NextScreenChoices, ScreenChoice } from '../../ScreenDisplay';
-import { numToCardinalText } from '../../Utilities/NumToText';
-import { CView } from '../../../Page/ContentView';
-import { PlayerFlags } from '../../Character/Player/PlayerFlags';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
+import { NextScreenChoices, ScreenChoice } from 'Game/ScreenDisplay';
+import { numToCardinalText } from 'Game/Utilities/NumToText';
+import { CView } from 'Game/../Page/ContentView';
+import { PlayerFlags } from 'Game/Character/Player/PlayerFlags';
 import { playerMenu } from './PlayerMenu';
 import { perkUpMenu } from './PerkUpMenu';
 
 export function perksMenu(character: Character): NextScreenChoices {
     CView.clear();
-    for (const parks of character.perks) {
+    for (const parks of character.effects) {
         CView.text("<b>" + parks.type + "</b>");
         CView.text(" - " + parks.desc.longDesc);
         CView.text("\n\n");
@@ -23,7 +23,7 @@ export function perksMenu(character: Character): NextScreenChoices {
         CView.text(" to spend.</b>");
         choices.push(["Perk Up", perkUpMenu]);
     }
-    if (character.perks.has(PerkType.DoubleAttack)) {
+    if (character.effects.has(EffectType.DoubleAttack)) {
         CView.text("<b>You can adjust your double attack settings.</b>");
         choices.push(["Dbl Options", doubleAttackOptions]);
     }

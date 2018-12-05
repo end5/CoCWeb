@@ -1,35 +1,33 @@
-import { Flags } from "../../../Flags";
-import { FlagType } from "../../../FlagType";
-import { Character } from "../../../Character/Character";
-import { NextScreenChoices, ClickFunction, choiceWrap, ScreenChoice } from "../../../ScreenDisplay";
-import { CView } from "../../../../Page/ContentView";
-import { BreastRow } from "../../../Body/BreastRow";
-import { lustyMaidenPaizuri } from "../../../Items/Armors/LustyMaidensArmor";
-import { describeVagina, describeClit } from "../../../Descriptors/VaginaDescriptor";
-import { Cock, CockType } from "../../../Body/Cock";
-import { LegType } from "../../../Body/Legs";
-import { describeCock, describeOneOfYourCocks, describeEachOfYourCocks } from "../../../Descriptors/CockDescriptor";
-import { describeHips } from "../../../Descriptors/HipDescriptor";
-import { describeLeg, describeFoot, describeLegs } from "../../../Descriptors/LegDescriptor";
-import { PerkType } from "../../../Effects/PerkType";
-import { describeChest, describeNipple } from "../../../Descriptors/BreastDescriptor";
-import { PregnancyType, IncubationTime } from "../../../Body/Pregnancy/Pregnancy";
-import { displayStretchVagina, attemptKnockUp } from "../../../Modifiers/VaginaModifier";
-import { mf } from "../../../Descriptors/GenderDescriptor";
-import { describeFaceShort } from "../../../Descriptors/FaceDescriptor";
-import { describeButt, describeButthole } from "../../../Descriptors/ButtDescriptor";
-import { displayStretchButt } from "../../../Modifiers/ButtModifier";
-import { Akbal } from "./Akbal";
-import { randInt } from "../../../../Engine/Utilities/SMath";
-import { SpriteName } from "../../../../Page/SpriteName";
-import { CombatManager } from "../../../Combat/CombatManager";
-import { StatusEffectType } from "../../../Effects/StatusEffectType";
-import { describeSack, describeBalls } from "../../../Descriptors/BallsDescriptor";
-import { playerMenu, passTime } from "../../../Menus/InGame/PlayerMenu";
-import { skinFurScales } from "../../../Descriptors/SkinDescriptor";
-import { ArmorName } from "../../../Items/Armors/ArmorName";
-import { ImpPregEvent } from "../../Pregnancy/Imp";
-import { displayModTone } from "../../../Modifiers/BodyModifier";
+import { Flags } from 'Game/Flags';
+import { Character } from 'Game/Character/Character';
+import { NextScreenChoices, ClickFunction, choiceWrap, ScreenChoice } from 'Game/ScreenDisplay';
+import { CView } from 'Page/ContentView';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { lustyMaidenPaizuri } from 'Game/Items/Armors/LustyMaidensArmor';
+import { describeVagina, describeClit } from 'Game/Descriptors/VaginaDescriptor';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { LegType } from 'Game/Character/Body/Legs';
+import { describeCock, describeOneOfYourCocks, describeEachOfYourCocks } from 'Game/Descriptors/CockDescriptor';
+import { describeHips } from 'Game/Descriptors/HipDescriptor';
+import { describeLeg, describeFoot, describeLegs } from 'Game/Descriptors/LegDescriptor';
+import { EffectType } from 'Game/Effects/EffectType';
+import { describeChest, describeNipple } from 'Game/Descriptors/BreastDescriptor';
+import { PregnancyType, IncubationTime } from 'Game/Character/Body/Pregnancy/Pregnancy';
+import { displayStretchVagina, attemptKnockUp } from 'Game/Modifiers/VaginaModifier';
+import { mf } from 'Game/Descriptors/GenderDescriptor';
+import { describeFaceShort } from 'Game/Descriptors/FaceDescriptor';
+import { describeButt, describeButthole } from 'Game/Descriptors/ButtDescriptor';
+import { displayStretchButt } from 'Game/Modifiers/ButtModifier';
+import { Akbal } from './Akbal';
+import { randInt } from 'Engine/Utilities/SMath';
+import { SpriteName } from 'Page/SpriteName';
+import { CombatManager } from 'Game/Combat/CombatManager';
+import { describeSack, describeBalls } from 'Game/Descriptors/BallsDescriptor';
+import { playerMenu, passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { skinFurScales } from 'Game/Descriptors/SkinDescriptor';
+import { ArmorName } from 'Game/Items/Armors/ArmorName';
+import { ImpPregEvent } from 'Game/Scenes/Pregnancy/Imp';
+import { displayModTone } from 'Game/Modifiers/BodyModifier';
 
 export const AkbalFlags = {
     AKBAL_SUBMISSION_STATE: 0,
@@ -38,7 +36,7 @@ export const AkbalFlags = {
     AKBAL_SUBMISSION_COUNTER: 0,
     AKBAL_TIMES_BITCHED: 0,
 };
-Flags.set(FlagType.Akbal, AkbalFlags);
+Flags.set("Akbal", AkbalFlags);
 /**
  * Created by aimozg on 01.01.14.
  */
@@ -407,7 +405,7 @@ function girlsRapeAkbal(player: Character, akbal: Character): NextScreenChoices 
         CView.text("You grin as you flip him over onto his back, staring down at his breeding tool between his legs, firmly erect as it rests on his rather full set of balls. Quite clearly, this \"<i>God</i>\" hasn't had much action for quite some time, hence his aggressive nature towards you. You finger yourself slightly as you examine his feline shaft, coated with layers of barbs that look as though they would be quite painful. Leaning down, you run your fingers over them, smirking as they bend slightly. They may not be enough to harm you, but sex would definitely be unpleasant... unless you happened to have a source of suitable lube nearby.\n\n");
         CView.text("Remembering the cats back home");
         // ({If player has the flexibility Perk}
-        if (player.perks.has(PerkType.Flexibility))
+        if (player.effects.has(EffectType.Flexibility))
             CView.text(" and your own experience with such matters");
         CView.text(", you figure you have a pretty good idea where a reliable source of lube could be. You grin as you grab the demon cat by the scruff of his neck, ");
         // ({If strength >60}
@@ -828,7 +826,7 @@ function akbalSubmit(player: Character, akbal: Character): NextScreenChoices {
             CView.text("\n\nIn your sleep, your ass plumps up slightly, growing to accomodate the demon's wishes...");
             player.body.butt.rating++;
         }
-        player.effects.add(StatusEffectType.PostAkbalSubmission);
+        player.effects.create(EffectType.PostAkbalSubmission);
         return { next: passTime(8) };
     }
     // Taur variant goez here
@@ -902,7 +900,7 @@ function akbalSubmit(player: Character, akbal: Character): NextScreenChoices {
             CView.text("\n\nIn your sleep, your ass plumps up slightly, growing to accomodate the demon's wishes...");
             player.body.butt.rating++;
         }
-        player.effects.add(StatusEffectType.PostAkbalSubmission);
+        player.effects.create(EffectType.PostAkbalSubmission);
         return { next: passTime(8) };
     }
 
@@ -977,7 +975,7 @@ function akbalSubmit(player: Character, akbal: Character): NextScreenChoices {
         CView.text("\n\nIn your sleep, your ass plumps up slightly, growing to accomodate the demon's wishes...");
         player.body.butt.rating++;
     }
-    player.effects.add(StatusEffectType.PostAkbalSubmission);
+    player.effects.create(EffectType.PostAkbalSubmission);
     return { next: passTime(8) };
 }
 
@@ -993,7 +991,7 @@ export function akbalSubmissionFollowup(player: Character): NextScreenChoices {
     // [After 8th submission, if whispered and corruption is greater than 80%]
     // (fighting Akbal disables this scene, but you retain the ability if you rape him after)
     else if (AkbalFlags.PLAYER_RESISTED_AKBAL === 0 && AkbalFlags.AKBAL_SUBMISSION_COUNTER >= 8 && player.stats.cor > 80) {
-        if (player.stats.cor < 80 || player.perks.has(PerkType.FireLord)) {
+        if (player.stats.cor < 80 || player.effects.has(EffectType.FireLord)) {
             CView.text("You awake in your camp feeling dangerous, powerful and fiercely satisfied.");
         }
         else {
@@ -1004,15 +1002,15 @@ export function akbalSubmissionFollowup(player: Character): NextScreenChoices {
             CView.text("(You are now capable of breathing Akbal's fire.)");
             // ['LOTF' or 'Terrestrial Fire Lord' appears as perk]
             // [Gain 'Terrestrial Fire' in Specials]
-            player.perks.add(PerkType.FireLord);
+            player.effects.create(EffectType.FireLord);
         }
     }
     // [After 4th submission if corruption is greater than 40%]
-    else if (!player.perks.has(PerkType.Whispered) && player.stats.cor >= 40) {
+    else if (!player.effects.has(EffectType.Whispered) && player.stats.cor >= 40) {
         CView.text("You awake in your camp with Akbal standing over you, the chorus of voices in your head reaching the apex of an agonizingly beautiful song, and then falling silent.  When you rise, Akbal licks your face before turning away and sprinting into the forest.\n\n");
-        if (!player.perks.has(PerkType.Whispered)) {
+        if (!player.effects.has(EffectType.Whispered)) {
             CView.text("(You are now Whispered.)");
-            player.perks.add(PerkType.Whispered);
+            player.effects.create(EffectType.Whispered);
             // ['Whispered' appears as perk]
             // [Gain 'Whisper' in Specials]
         }
@@ -1103,7 +1101,7 @@ function akbalBigButtSubmit(player: Character): NextScreenChoices {
     player.stats.cor += 5;
 
     player.slimeFeed();
-    player.effects.add(StatusEffectType.PostAkbalSubmission);
+    player.effects.create(EffectType.PostAkbalSubmission);
     return { next: passTime(8) };
 }
 

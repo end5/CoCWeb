@@ -1,22 +1,23 @@
-﻿import { PlayerAction } from './CombatActions/PlayerActionPerform';
-import { PlayerEndScenes } from './PlayerEndScenes';
-import { ButtLooseness, ButtWetness } from '../../Body/Butt';
-import { FaceType } from '../../Body/Face';
-import { SkinType } from '../../Body/Skin';
-import { TongueType } from '../../Body/Tongue';
-import { CombatContainer } from '../../Combat/CombatContainer';
-import { Armor } from '../../Items/Armors/Armor';
-import { ArmorName } from '../../Items/Armors/ArmorName';
-import { Weapon } from '../../Items/Weapons/Weapon';
-import { WeaponName } from '../../Items/Weapons/WeaponName';
+﻿import { EndScenes } from 'Game/Combat/EndScenes';
+import { ButtLooseness, ButtWetness } from 'Game/Character/Body/Butt';
+import { FaceType } from 'Game/Character/Body/Face';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { TongueType } from 'Game/Character/Body/Tongue';
+import { CombatContainer } from 'Game/Combat/CombatContainer';
+import { Armor } from 'Game/Items/Armors/Armor';
+import { ArmorName } from 'Game/Items/Armors/ArmorName';
+import { Weapon } from 'Game/Items/Weapons/Weapon';
+import { WeaponName } from 'Game/Items/Weapons/WeaponName';
 import { Character } from '../Character';
 import { CharacterType } from '../CharacterType';
-import { WeaponLib } from '../../Items/Weapons/WeaponLib';
-import { ArmorLib } from '../../Items/Armors/ArmorLib';
-import { CharacterInventory } from '../../Inventory/CharacterInventory';
+import { WeaponLib } from 'Game/Items/Weapons/WeaponLib';
+import { ArmorLib } from 'Game/Items/Armors/ArmorLib';
+import { CharacterInventory } from 'Game/Inventory/CharacterInventory';
 import { CharacterDescription } from '../CharacterDescription';
-import { randInt } from '../../../Engine/Utilities/SMath';
+import { randInt } from 'Engine/Utilities/SMath';
 import { PlayerResponses } from './PlayerResponses';
+
+class BlankEndScenes extends EndScenes {}
 
 export class Player extends Character {
     protected description: CharacterDescription = new CharacterDescription(this, "", "", "");
@@ -25,17 +26,18 @@ export class Player extends Character {
     public constructor() {
         super(CharacterType.Player);
         this.desc.isPlayer = true;
-        this.baseStats.str.value = 15;
-        this.baseStats.tou.value = 15;
-        this.baseStats.spe.value = 15;
-        this.baseStats.int.value = 15;
-        this.baseStats.sens.value = 15;
-        this.baseStats.lib.value = 15;
-        this.baseStats.cor.value = 0;
-        this.baseStats.lust.value = 15;
-
+        this.stats.base.str.value = 15;
+        this.stats.base.tou.value = 15;
+        this.stats.base.spe.value = 15;
+        this.stats.base.int.value = 15;
+        this.stats.base.sens.value = 15;
+        this.stats.base.lib.value = 15;
+        this.stats.base.cor.value = 0;
+        this.stats.base.lust.value = 15;
+        this.stats.base.fatigue.value = 0;
         this.stats.level = 1;
         this.stats.HP = this.stats.maxHP();
+
         this.body.skin.type = SkinType.PLAIN;
         this.body.skin.desc = "skin";
         this.body.face.type = FaceType.HUMAN;
@@ -44,17 +46,15 @@ export class Player extends Character {
         this.hoursSinceCum = 0;
         this.body.butt.looseness = ButtLooseness.VIRGIN;
         this.body.butt.wetness = ButtWetness.DRY;
-        this.body.butt.fullness = 0;
-        this.baseStats.fatigue.value = 0;
 
         // Inventory
         this.inventory = new CharacterInventory(this, WeaponLib.get(WeaponName.Fists) as Weapon, ArmorLib.get(ArmorName.ComfortUndercloth) as Armor);
         this.inventory.items.unlock(6);
 
         // Combat
-        this.combatContainer = new CombatContainer(this, new PlayerAction(), PlayerResponses, new PlayerEndScenes(this), {
+        this.combatContainer = new CombatContainer(this, { reactions: PlayerResponses, endScenes: new BlankEndScenes(this), rewards: {
             gems: () => randInt(10)
-        });
+        }});
         this.combatContainer.useAI = false;
     }
 }

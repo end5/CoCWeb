@@ -1,8 +1,8 @@
 import { Armor } from './Armor';
 import { ArmorName } from './ArmorName';
-import { Character } from '../../Character/Character';
+import { Character } from 'Game/Character/Character';
 import { ItemDesc } from '../ItemDesc';
-import { describeButt } from '../../Descriptors/ButtDescriptor';
+import { describeButt } from 'Game/Descriptors/ButtDescriptor';
 
 export class FurLoincloth extends Armor {
     public constructor() {

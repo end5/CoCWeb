@@ -1,20 +1,19 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { PregnancyType } from '../../Body/Pregnancy/Pregnancy';
-import { Character } from '../../Character/Character';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
+import { randInt } from 'Engine/Utilities/SMath';
+import { PregnancyType } from 'Game/Character/Body/Pregnancy/Pregnancy';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { CView } from '../../../Page/ContentView';
-import { Womb } from '../../Body/Pregnancy/Womb';
-import { FlagType } from '../../FlagType';
-import { Flags } from '../../Flags';
+import { CView } from 'Page/ContentView';
+import { Womb } from 'Game/Character/Body/Pregnancy/Womb';
+import { Flags } from 'Game/Flags';
 
 export const PhoukaWhiskeyFlags = {
     PREGNANCY_CORRUPTION: 0,
 };
 
-Flags.set(FlagType.PhoukaWhiskey, PhoukaWhiskeyFlags);
+Flags.set("Phouka Whiskey", PhoukaWhiskeyFlags);
 
 export class PhoukaWhiskey extends Consumable {
     public constructor() {
@@ -99,7 +98,7 @@ export class PhoukaWhiskey extends Consumable {
         const sensChange: number = -(character.stats.sens < 10 ? character.stats.sens : 10);
         const speedChange: number = -(character.stats.spe < 20 ? character.stats.spe : 20);
         const intChange: number = -(character.stats.int < 20 ? character.stats.int : 20);
-        const phoukaWhiskeyEffect = character.effects.get(StatusEffectType.PhoukaWhiskeyAffect);
+        const phoukaWhiskeyEffect = character.effects.getByName(EffectType.PhoukaWhiskeyAffect);
         if (phoukaWhiskeyEffect) {
             const drinksSoFar: number = phoukaWhiskeyEffect.values.other!.drinksSoFar;
             if (drinksSoFar < 4)
@@ -114,7 +113,7 @@ export class PhoukaWhiskey extends Consumable {
             CView.text("\n\nOh, it tastes so good.  This stuff just slides down your throat.");
         }
         else { // First time
-            character.effects.add(StatusEffectType.PhoukaWhiskeyAffect, {
+            character.effects.add(EffectType.PhoukaWhiskeyAffect, {
                 expireCountdown: 1,
                 lib: { value: { flat: libidoChange } },
                 sens: { value: { flat: sensChange } },
@@ -127,11 +126,11 @@ export class PhoukaWhiskey extends Consumable {
     }
 
     public phoukaWhiskeyExpires(character: Character) {
-        const phoukaWhiskeyEffect = character.effects.get(StatusEffectType.PhoukaWhiskeyAffect);
+        const phoukaWhiskeyEffect = character.effects.get(EffectType.PhoukaWhiskeyAffect);
         if (phoukaWhiskeyEffect) {
             const numDrunk: number = phoukaWhiskeyEffect.values.other!.drinksSoFar;
             // Get back all the stats you lost
-            character.effects.remove(StatusEffectType.PhoukaWhiskeyAffect);
+            character.effects.remove(EffectType.PhoukaWhiskeyAffect);
             if (numDrunk > 3)
                 CView.text("\n<b>The dizzy sensation dies away and is replaced by a throbbing pain that starts in your skull and then seems to run all through your body, seizing up your joints and making your stomach turn.  The world feels like it’s off kilter and you aren’t in any shape to face it.  You suppose you could down another whiskey, but right now that doesn’t seem like such a good idea.</b>\n");
             else if (numDrunk > 1)

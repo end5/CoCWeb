@@ -1,22 +1,22 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { BreastRow } from '../../Body/BreastRow';
-import { Cock } from '../../Body/Cock';
-import { Vagina, VaginaLooseness, VaginaWetness } from '../../Body/Vagina';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
+import { randInt } from 'Engine/Utilities/SMath';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { Cock } from 'Game/Character/Body/Cock';
+import { Vagina, VaginaLooseness, VaginaWetness } from 'Game/Character/Body/Vagina';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { Gender } from '../../Body/GenderIdentity';
-import { describeVagina } from '../../Descriptors/VaginaDescriptor';
-import { describeCocks } from '../../Descriptors/CockDescriptor';
+import { Gender } from 'Game/Character/Body/GenderIdentity';
+import { describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { describeCocks } from 'Game/Descriptors/CockDescriptor';
 import { demonChanges } from './IncubusDraft';
-import { CView } from '../../../Page/ContentView';
-import { growTopBreastRow } from '../../Modifiers/BreastModifier';
-import { growCock, displayLengthChange, displayKillCocks } from '../../Modifiers/CockModifier';
-import { displayModFem, displayModTone } from '../../Modifiers/BodyModifier';
-import { describeTopRowBreastGrowth } from '../../Descriptors/BreastDescriptor';
-import { Settings } from '../../Settings';
+import { CView } from 'Page/ContentView';
+import { growTopBreastRow } from 'Game/Modifiers/BreastModifier';
+import { growCock, displayLengthChange, displayKillCocks } from 'Game/Modifiers/CockModifier';
+import { displayModFem, displayModTone } from 'Game/Modifiers/BodyModifier';
+import { describeTopRowBreastGrowth } from 'Game/Descriptors/BreastDescriptor';
+import { Settings } from 'Game/Settings';
 
 export class SuccubiMilk extends Consumable {
     public readonly tainted: boolean;
@@ -31,7 +31,7 @@ export class SuccubiMilk extends Consumable {
 
     public use(character: Character) {
         let chance: number = randInt(100);
-        if (character.perks.has(PerkType.HistoryAlchemist)) chance += 10;
+        if (character.effects.has(EffectType.HistoryAlchemist)) chance += 10;
         if (chance >= 90 && !this.tainted) chance -= 10;
         CView.clear();
         if (character.stats.cor < 35) CView.text("You wonder why in the gods' names you would drink such a thing, but you have to admit, it is the best thing you have ever tasted.");
@@ -187,9 +187,9 @@ export class SuccubiMilk extends Consumable {
             if (character.body.skin.tone === "blue" || character.body.skin.tone === "purple" || character.body.skin.tone === "indigo" || character.body.skin.tone === "shiny black") {
                 if (character.body.vaginas.length > 0) {
                     CView.text("\n\nYour heart begins beating harder and harder as heat floods to your groin.  You feel your clit peeking out from under its hood, growing larger and longer as it takes in more and more blood.");
-                    if (character.body.clit.length > 3 && !character.perks.has(PerkType.BigClit)) CView.text("  After some time it shrinks, returning to its normal aroused size.  You guess it can't get any bigger.");
-                    if (character.body.clit.length > 5 && character.perks.has(PerkType.BigClit)) CView.text("  Eventually it shrinks back down to its normal (but still HUGE) size.  You guess it can't get any bigger.");
-                    if (((character.perks.has(PerkType.BigClit)) && character.body.clit.length < 6)
+                    if (character.body.clit.length > 3 && !character.effects.has(EffectType.BigClit)) CView.text("  After some time it shrinks, returning to its normal aroused size.  You guess it can't get any bigger.");
+                    if (character.body.clit.length > 5 && character.effects.has(EffectType.BigClit)) CView.text("  Eventually it shrinks back down to its normal (but still HUGE) size.  You guess it can't get any bigger.");
+                    if (((character.effects.has(EffectType.BigClit)) && character.body.clit.length < 6)
                         || character.body.clit.length < 3) {
                         character.body.clit.length += (randInt(4) + 2) / 10;
                     }

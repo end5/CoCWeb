@@ -83,8 +83,8 @@ export class CombatContainer {
         return this.char.inventory.armor.defense;
     }
 
-    public attack(enemy: Character): number {
-        return this.char.inventory.weapon.attack + enemy.combat.defense();
+    public attack(): number {
+        return this.char.inventory.weapon.attack;
     }
 
     public spellMod(): number {

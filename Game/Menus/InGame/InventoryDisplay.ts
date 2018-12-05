@@ -1,9 +1,9 @@
-import { Character } from '../../Character/Character';
-import { Inventory } from '../../Inventory/Inventory';
-import { ItemStack } from '../../Inventory/ItemStack';
-import { Item } from '../../Items/Item';
-import { ClickOption, NextScreenChoices, ScreenChoice, ClickFunction } from '../../ScreenDisplay';
-import { CView } from '../../../Page/ContentView';
+import { Character } from 'Game/Character/Character';
+import { Inventory } from 'Game/Inventory/Inventory';
+import { ItemStack } from 'Game/Inventory/ItemStack';
+import { Item } from 'Game/Items/Item';
+import { ClickOption, NextScreenChoices, ScreenChoice, ClickFunction } from 'Game/ScreenDisplay';
+import { CView } from 'Page/ContentView';
 import { playerMenu } from './PlayerMenu';
 
 /* better inventory system

@@ -1,38 +1,36 @@
-import { Character } from "../../../Character/Character";
-import { Flags } from "../../../Flags";
-import { FlagType } from "../../../FlagType";
-import { Time } from "../../../Utilities/Time";
-import { NextScreenChoices, choiceWrap } from "../../../ScreenDisplay";
-import { CView } from "../../../../Page/ContentView";
-import { SpriteName } from "../../../../Page/SpriteName";
-import { randInt } from "../../../../Engine/Utilities/SMath";
-import { numToCardinalText } from "../../../Utilities/NumToText";
-import { mf } from "../../../Descriptors/GenderDescriptor";
-import { passTime } from "../../../Menus/InGame/PlayerMenu";
-import { CombatManager } from "../../../Combat/CombatManager";
-import { TamanisDaughters } from "./TamanisDaughters";
-import { describeCocksLight, describeCock, describeCockHead, nounCock, describeOneOfYourCocks } from "../../../Descriptors/CockDescriptor";
-import { Cock, CockType } from "../../../Body/Cock";
-import { describeLegs, describeFeet } from "../../../Descriptors/LegDescriptor";
-import { describeBalls } from "../../../Descriptors/BallsDescriptor";
-import { describeBreastRow, describeAllBreasts, describeNipple } from "../../../Descriptors/BreastDescriptor";
-import { describeFaceShort } from "../../../Descriptors/FaceDescriptor";
-import { describeButthole, describeButt } from "../../../Descriptors/ButtDescriptor";
-import { describeVagina } from "../../../Descriptors/VaginaDescriptor";
-import { assholeOrPussy } from "../../../Descriptors/BodyDescriptor";
-import { BreastRow } from "../../../Body/BreastRow";
-import { describeHips } from "../../../Descriptors/HipDescriptor";
-import { describeHair } from "../../../Descriptors/HairDescriptor";
-import { LegType } from "../../../Body/Legs";
-import { StatusEffectType } from "../../../Effects/StatusEffectType";
-import { gameOverMenu } from "../../../Menus/InGame/GameOverMenu";
-import { SkinType } from "../../../Body/Skin";
-import { PregnancyType } from "../../../Body/Pregnancy/Pregnancy";
-import { PerkType } from "../../../Effects/PerkType";
-import { TimeEvents } from "../../../TimeEvents";
-import { FlagWomb } from "../../../Body/Pregnancy/FlagWomb";
-import { TamaniFlags, tamaniKnockUp } from "./TamaniScene";
-import { CeraphFlags } from "../../NPCs/Ceraph";
+import { Character } from 'Game/Character/Character';
+import { Flags } from 'Game/Flags';
+import { Time } from 'Game/Utilities/Time';
+import { NextScreenChoices, choiceWrap } from 'Game/ScreenDisplay';
+import { CView } from 'Page/ContentView';
+import { SpriteName } from 'Page/SpriteName';
+import { randInt } from 'Engine/Utilities/SMath';
+import { numToCardinalText } from 'Game/Utilities/NumToText';
+import { mf } from 'Game/Descriptors/GenderDescriptor';
+import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { CombatManager } from 'Game/Combat/CombatManager';
+import { TamanisDaughters } from './TamanisDaughters';
+import { describeCocksLight, describeCock, describeCockHead, nounCock, describeOneOfYourCocks } from 'Game/Descriptors/CockDescriptor';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { describeLegs, describeFeet } from 'Game/Descriptors/LegDescriptor';
+import { describeBalls } from 'Game/Descriptors/BallsDescriptor';
+import { describeBreastRow, describeAllBreasts, describeNipple } from 'Game/Descriptors/BreastDescriptor';
+import { describeFaceShort } from 'Game/Descriptors/FaceDescriptor';
+import { describeButthole, describeButt } from 'Game/Descriptors/ButtDescriptor';
+import { describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { assholeOrPussy } from 'Game/Descriptors/BodyDescriptor';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { describeHips } from 'Game/Descriptors/HipDescriptor';
+import { describeHair } from 'Game/Descriptors/HairDescriptor';
+import { LegType } from 'Game/Character/Body/Legs';
+import { EffectType } from 'Game/Effects/EffectType';
+import { gameOverMenu } from 'Game/Menus/InGame/GameOverMenu';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { PregnancyType } from 'Game/Character/Body/Pregnancy/Pregnancy';
+import { TimeEvents } from 'Game/TimeEvents';
+import { FlagWomb } from 'Game/Character/Body/Pregnancy/FlagWomb';
+import { TamaniFlags, tamaniKnockUp } from './TamaniScene';
+import { CeraphFlags } from 'Game/Scenes/NPCs/Ceraph';
 
 export const TamanisDaughtersFlags = {
     TIMES_ENCOUNTED_TAMANIS_DAUGHTERS: 0,
@@ -43,7 +41,7 @@ export const TamanisDaughtersFlags = {
     WOMB: new FlagWomb(),
     TAMANI_PRESENT: false  // Used to communicate between this class and TamanisDaughters.as
 };
-Flags.set(FlagType.TamainsDaughters, TamanisDaughtersFlags);
+Flags.set("Tamani's Daughters", TamanisDaughtersFlags);
 
 // New Status:
 // +Tamani's Husband – (Still need too big loss scene and centaur version)
@@ -889,7 +887,7 @@ function tamaniDaughtersBadEndChoice(player: Character): NextScreenChoices {
 
     CView.text("A goblin leans over your face and hugs her jiggling breasts against you as she gushes, \"<i>Thank you so much daddy!   You probably can't see with all the straps holding you down, but you got me and my sisters totally pregnant.  There's even enough of your spunk left over to knock us up a few more times!  We decided that even though we don't need you to cum right now, we'd let you keep coming forever.  Do you want that?</i>\"\n\n");
 
-    if (player.effects.get(StatusEffectType.Exgartuan).value1 === 1) CView.text("Exgartuan barks, \"<i>Hell yes I do!</i>\" but the goblin only smirks down for a moment before looking back at you.\n\n");
+    if (player.effects.getByName(EffectType.Exgartuan).value1 === 1) CView.text("Exgartuan barks, \"<i>Hell yes I do!</i>\" but the goblin only smirks down for a moment before looking back at you.\n\n");
 
     CView.text("(Options: Yes, No, I'd rather fill your cunts individually & personally)");
     return { choices: [["Yes", tamaniDaughtersYesBadEndMePlease], ["No", tamaniDaughtersDeclineBadEnd], ["Individual", tamanisDaughtersFillIndividuallyBADEND]] };
@@ -902,7 +900,7 @@ function tamaniDaughtersYesBadEndMePlease(player: Character): NextScreenChoices 
     CView.text("\"<i>Wonderful!</i>\" cries the excited pregnant slut.   She gives you a quick peck on the cheek as she prances back over to the machine.  You brace yourself in anticipation, eager to lose yourself to an eternal orgasm.  A switch clicks, and a dial whirs as it's turned up to the maximum.  The fluids pumping into your backside and directly into your veins suddenly jump in pressure, stinging painfully for a moment before the pleasure returns.  Your eyes slowly roll back, your jaw goes slack, and your " + describeCocksLight(player) + " spew");
     if (player.body.cocks.length === 1) CView.text("s");
     CView.text(" cum into the tubes.\n\n");
-    if (player.effects.get(StatusEffectType.Exgartuan).value1 === 1) CView.text("Exgartuan moans, \"<i>Ohhhhhh yeeeeaaaaahhhh...</i>\" before slipping into silence.\n\n");
+    if (player.effects.getByName(EffectType.Exgartuan).value1 === 1) CView.text("Exgartuan moans, \"<i>Ohhhhhh yeeeeaaaaahhhh...</i>\" before slipping into silence.\n\n");
 
     CView.text("You spend the rest of your life trapped in orgasm, constantly feeding the growth of what becomes the biggest goblin tribe in all the land of Mareth.  Even when every single one of them is pregnant, they let you enjoy your reward.  Over time your capacity for memory, morals, or anything other feeling besides pleasure dwindles.  Trapped in a heaven of your own choosing, you gave up everything that you were for never-ending bliss.");
     return gameOverMenu(player);
@@ -1066,7 +1064,7 @@ function knockUpDaughters(player: Character) {
     TamanisDaughtersFlags.TAMANI_DAUGHTERS_PREGNANCY_COUNT = 2;
     const cum: number = player.cumQ();
     // Breeder perk is awesome
-    if (player.perks.has(PerkType.MaraesGiftStud)) TamanisDaughtersFlags.TAMANI_DAUGHTERS_PREGNANCY_COUNT += 3;
+    if (player.effects.has(EffectType.MaraesGiftStud)) TamanisDaughtersFlags.TAMANI_DAUGHTERS_PREGNANCY_COUNT += 3;
     if (cum >= 50 && randInt(2) === 0) TamanisDaughtersFlags.TAMANI_DAUGHTERS_PREGNANCY_COUNT++;
     if (cum >= 100 && randInt(2) === 0) TamanisDaughtersFlags.TAMANI_DAUGHTERS_PREGNANCY_COUNT++;
     if (cum >= 200 && randInt(2) === 0) TamanisDaughtersFlags.TAMANI_DAUGHTERS_PREGNANCY_COUNT++;
@@ -1102,7 +1100,7 @@ export function loseToDaughters(player: Character): NextScreenChoices {
     CView.sprite(SpriteName.TamainsDaughters); // 57;
     if (player.stats.lust > 99) {
         // worms r gross mmmmkay?
-        if (player.effects.has(StatusEffectType.Infested)) {
+        if (player.effects.has(EffectType.Infested)) {
             infestOrgasm();
             CView.text("\n\nThe goblins sigh and say, \"<i>Dad, that's just gross.  Don't get me wrong, we're still gonna have you knock us up, but I hate the feeling of those worms inside me.</i>\"");
             player.orgasm();

@@ -1,22 +1,21 @@
-import { Character } from "../../../Character/Character";
-import { NextScreenChoices, ScreenChoice, choiceWrap } from "../../../ScreenDisplay";
-import { CView } from "../../../../Page/ContentView";
-import { CombatManager } from "../../../Combat/CombatManager";
-import { passTime } from "../../../Menus/InGame/PlayerMenu";
-import { randInt } from "../../../../Engine/Utilities/SMath";
-import { describeCockShort, describeCock, describeCockHead, nounCock, describeCocksLight } from "../../../Descriptors/CockDescriptor";
-import { Cock, CockType } from "../../../Body/Cock";
-import { PerkType } from "../../../Effects/PerkType";
-import { BreastRow } from "../../../Body/BreastRow";
-import { describeVagina } from "../../../Descriptors/VaginaDescriptor";
-import { displayStretchVagina } from "../../../Modifiers/VaginaModifier";
-import { LegType } from "../../../Body/Legs";
-import { displayStretchButt } from "../../../Modifiers/ButtModifier";
-import { describeBreastRow, describeNipple } from "../../../Descriptors/BreastDescriptor";
-import { StatusEffectType } from "../../../Effects/StatusEffectType";
-import { boostLactation } from "../../../Modifiers/BreastModifier";
-import { describeButthole } from "../../../Descriptors/ButtDescriptor";
-import { ImpLord } from "./ImpLord";
+import { Character } from 'Game/Character/Character';
+import { NextScreenChoices, ScreenChoice, choiceWrap } from 'Game/ScreenDisplay';
+import { CView } from 'Page/ContentView';
+import { CombatManager } from 'Game/Combat/CombatManager';
+import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { randInt } from 'Engine/Utilities/SMath';
+import { describeCockShort, describeCock, describeCockHead, nounCock, describeCocksLight } from 'Game/Descriptors/CockDescriptor';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { EffectType } from 'Game/Effects/EffectType';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { displayStretchVagina } from 'Game/Modifiers/VaginaModifier';
+import { LegType } from 'Game/Character/Body/Legs';
+import { displayStretchButt } from 'Game/Modifiers/ButtModifier';
+import { describeBreastRow, describeNipple } from 'Game/Descriptors/BreastDescriptor';
+import { boostLactation } from 'Game/Modifiers/BreastModifier';
+import { describeButthole } from 'Game/Descriptors/ButtDescriptor';
+import { ImpLord } from './ImpLord';
 
 // IMP LORD
 export function impLordEncounter(player: Character): NextScreenChoices {
@@ -74,7 +73,7 @@ function sexAnImpLord(player: Character, impLord: Character): NextScreenChoices 
         if (player.body.cocks.length > 0 && player.body.cocks.find(Cock.CockThatFits(impLord.analCapacity()))) choices[0] = ["FuckHisAss", choiceWrap(impLordBumPlug, impLord)];
         if (player.body.cocks.length > 0) choices[1] = ["Get Blown", getBlownByAnImpLord];
         if (player.body.vaginas.length > 0) choices[2] = ["Ride Cock", choiceWrap(femaleVagRape, impLord)];
-        if (player.perks.has(PerkType.Feeder)) choices[3] = ["Breastfeed", choiceWrap(feederBreastfeedRape, impLord)];
+        if (player.effects.has(EffectType.Feeder)) choices[3] = ["Breastfeed", choiceWrap(feederBreastfeedRape, impLord)];
     }
 
     return { choices };
@@ -300,8 +299,7 @@ export function feederBreastfeedRape(player: Character, impLord: Character): Nex
 
     }
     // You've now been milked, reset the timer for that
-    player.effects.get(StatusEffectType.Feeder).value1 += 1;
-    player.effects.get(StatusEffectType.Feeder).value2 = 0;
+    player.milked();
     boostLactation(player, 0.1);
     return { next: passTime(1) };
 }

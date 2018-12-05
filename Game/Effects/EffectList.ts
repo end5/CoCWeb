@@ -1,11 +1,11 @@
-import { IEffectValues } from "./EffectValues";
-import { Effect } from "./Effect";
+import { IEffectValues } from './EffectValues';
+import { Effect } from './Effect';
 import { ObservableList } from 'Game/Utilities/ObservableList';
 import { EffectConstructorLib } from './EffectConstructorLib';
 import { CombatActionType } from 'Game/Combat/Actions/CombatActionType';
 
 export class EffectList extends ObservableList<Effect> {
-    public create(key: string, values?: IEffectValues) {
+    public create(key: string, values?: IEffectValues): Effect {
         let newEffect;
         const effectConstr = EffectConstructorLib.get(key);
         if (effectConstr) {
@@ -13,6 +13,7 @@ export class EffectList extends ObservableList<Effect> {
         }
         newEffect = new Effect(key, values);
         this.add(newEffect);
+        return newEffect;
     }
 
     public getByName(name: string): Effect | undefined {
@@ -26,8 +27,8 @@ export class EffectList extends ObservableList<Effect> {
         return index !== -1;
     }
 
-    public has(name: string): Effect | undefined {
-        return this.list.find((effect) => effect.type === name);
+    public has(name: string): boolean {
+        return !!this.list.find((effect) => effect.type === name);
     }
 
     public get blockedCombatActions(): CombatActionType {

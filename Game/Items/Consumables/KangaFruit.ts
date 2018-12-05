@@ -1,25 +1,25 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { ArmType } from '../../Body/Arms';
-import { Cock, CockType } from '../../Body/Cock';
-import { EarType } from '../../Body/Ears';
-import { EyeType } from '../../Body/Eyes';
-import { FaceType } from '../../Body/Face';
-import { LegType } from '../../Body/Legs';
-import { SkinType } from '../../Body/Skin';
-import { Tail, TailType } from '../../Body/Tail';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
+import { randInt } from 'Engine/Utilities/SMath';
+import { ArmType } from 'Game/Character/Body/Arms';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { EarType } from 'Game/Character/Body/Ears';
+import { EyeType } from 'Game/Character/Body/Eyes';
+import { FaceType } from 'Game/Character/Body/Face';
+import { LegType } from 'Game/Character/Body/Legs';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { Tail, TailType } from 'Game/Character/Body/Tail';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { describeFeet } from '../../Descriptors/LegDescriptor';
-import { describeSack, describeBallsShort } from '../../Descriptors/BallsDescriptor';
-import { describeClit } from '../../Descriptors/VaginaDescriptor';
-import { describeCock } from '../../Descriptors/CockDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { kangaRaceScore } from '../../Body/RaceScore';
-import { NextScreenChoices } from '../../ScreenDisplay';
-import { gameOverMenu } from '../../Menus/InGame/GameOverMenu';
+import { describeFeet } from 'Game/Descriptors/LegDescriptor';
+import { describeSack, describeBallsShort } from 'Game/Descriptors/BallsDescriptor';
+import { describeClit } from 'Game/Descriptors/VaginaDescriptor';
+import { describeCock } from 'Game/Descriptors/CockDescriptor';
+import { CView } from 'Page/ContentView';
+import { kangaRaceScore } from 'Game/Character/RaceScore';
+import { NextScreenChoices } from 'Game/ScreenDisplay';
+import { gameOverMenu } from 'Game/Menus/InGame/GameOverMenu';
 
 /*
  General Effects:
@@ -64,7 +64,7 @@ export class KangaFruit extends Consumable {
         if (this.enhanced) changeLimit += 2;
         if (randInt(2) === 0) changeLimit++;
         if (randInt(2) === 0) changeLimit++;
-        if (character.perks.has(PerkType.HistoryAlchemist)) changeLimit++;
+        if (character.effects.has(EffectType.HistoryAlchemist)) changeLimit++;
         // ****************
         // General Effects:
         // ****************
@@ -252,9 +252,9 @@ export class KangaFruit extends Consumable {
         }
         // UBEROOOO
         // kangaroo perk: - any liquid or food intake will accelerate a pregnancy, but it will not progress otherwise
-        if (!character.perks.has(PerkType.Diapause) && kangaRaceScore(character) > 4 && randInt(4) === 0 && changes < changeLimit && character.body.vaginas.length > 0) {
+        if (!character.effects.has(EffectType.Diapause) && kangaRaceScore(character) > 4 && randInt(4) === 0 && changes < changeLimit && character.body.vaginas.length > 0) {
             // Perk name and description:
-            character.perks.add(PerkType.Diapause);
+            character.effects.create(EffectType.Diapause);
             CView.text("\n\nYour womb rumbles as something inside it changes.\n<b>(You have gained the Diapause perk.  Pregnancies will not progress when fluid intake is scarce, and will progress much faster when it isn't.)");
             changes++;
             // trigger effect: Your body reacts to the influx of nutrition, accelerating your pregnancy. Your belly bulges outward slightly.

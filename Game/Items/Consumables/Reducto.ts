@@ -1,19 +1,19 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { BreastRow } from '../../Body/BreastRow';
-import { Cock, CockType } from '../../Body/Cock';
-import { Character } from '../../Character/Character';
-import { ClickOption, NextScreenChoices } from '../../ScreenDisplay';
+import { randInt } from 'Engine/Utilities/SMath';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { Character } from 'Game/Character/Character';
+import { ClickOption, NextScreenChoices } from 'Game/ScreenDisplay';
 import { ItemDesc } from '../ItemDesc';
-import { describeSack, describeBallsShort } from '../../Descriptors/BallsDescriptor';
-import { describeAllBreasts, describeNipple } from '../../Descriptors/BreastDescriptor';
-import { describeButt } from '../../Descriptors/ButtDescriptor';
-import { describeClit, describeVagina } from '../../Descriptors/VaginaDescriptor';
-import { describeCock, describeCocksLight } from '../../Descriptors/CockDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { shrinkTits } from '../../Modifiers/BreastModifier';
-import { inventoryMenu } from '../../Menus/InGame/PlayerInventoryMenu';
+import { describeSack, describeBallsShort } from 'Game/Descriptors/BallsDescriptor';
+import { describeAllBreasts, describeNipple } from 'Game/Descriptors/BreastDescriptor';
+import { describeButt } from 'Game/Descriptors/ButtDescriptor';
+import { describeClit, describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { describeCock, describeCocksLight } from 'Game/Descriptors/CockDescriptor';
+import { CView } from 'Page/ContentView';
+import { shrinkTits } from 'Game/Modifiers/BreastModifier';
+import { inventoryMenu } from 'Game/Menus/InGame/PlayerInventoryMenu';
 
 export class Reducto extends Consumable {
     public constructor() {

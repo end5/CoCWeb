@@ -1,40 +1,39 @@
-import { Character } from "../../../Character/Character";
-import { CharacterType } from "../../../Character/CharacterType";
-import { NextScreenChoices, choiceWrap } from "../../../ScreenDisplay";
-import { CView } from "../../../../Page/ContentView";
-import { PerkType } from "../../../Effects/PerkType";
-import { describeFoot } from "../../../Descriptors/LegDescriptor";
-import { describeCock } from "../../../Descriptors/CockDescriptor";
-import { describeClit } from "../../../Descriptors/VaginaDescriptor";
-import { describeButthole } from "../../../Descriptors/ButtDescriptor";
-import { passTime } from "../../../Menus/InGame/PlayerMenu";
-import { randInt } from "../../../../Engine/Utilities/SMath";
-import { CharacterInventory } from "../../../Inventory/CharacterInventory";
-import { CharacterDescription } from "../../../Character/CharacterDescription";
-import { CombatContainer } from "../../../Combat/CombatContainer";
-import { Cock } from "../../../Body/Cock";
-import { ButtLooseness, ButtWetness, ButtRating } from "../../../Body/Butt";
-import { HipRating } from "../../../Body/Hips";
-import { SkinType } from "../../../Body/Skin";
-import { WeightedDrop } from "../../../Utilities/Drops/WeightedDrop";
-import { TailType, Tail } from "../../../Body/Tail";
-import { Gender } from "../../../Body/GenderIdentity";
-import { Weapon } from "../../../Items/Weapons/Weapon";
-import { WeaponName } from "../../../Items/Weapons/WeaponName";
-import { ItemDesc } from "../../../Items/ItemDesc";
-import { Armor } from "../../../Items/Armors/Armor";
-import { ArmorName } from "../../../Items/Armors/ArmorName";
-import { EndScenes } from "../../../Combat/EndScenes";
-import { DefeatType } from "../../../Combat/DefeatEvent";
-import { CombatAction } from "../../../Combat/Actions/CombatAction";
-import { CombatEffectType } from "../../../Effects/CombatEffectType";
-import { tentacleVictoryRape, tentacleLossRape } from "./TentacleBeastScene";
+import { Character } from 'Game/Character/Character';
+import { CharacterType } from 'Game/Character/CharacterType';
+import { NextScreenChoices, choiceWrap } from 'Game/ScreenDisplay';
+import { CView } from 'Page/ContentView';
+import { EffectType } from 'Game/Effects/EffectType';
+import { describeFoot } from 'Game/Descriptors/LegDescriptor';
+import { describeCock } from 'Game/Descriptors/CockDescriptor';
+import { describeClit } from 'Game/Descriptors/VaginaDescriptor';
+import { describeButthole } from 'Game/Descriptors/ButtDescriptor';
+import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { randInt } from 'Engine/Utilities/SMath';
+import { CharacterInventory } from 'Game/Inventory/CharacterInventory';
+import { CharacterDescription } from 'Game/Character/CharacterDescription';
+import { CombatContainer } from 'Game/Combat/CombatContainer';
+import { Cock } from 'Game/Character/Body/Cock';
+import { ButtLooseness, ButtWetness, ButtRating } from 'Game/Character/Body/Butt';
+import { HipRating } from 'Game/Character/Body/Hips';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { WeightedDrop } from 'Game/Utilities/Drops/WeightedDrop';
+import { TailType, Tail } from 'Game/Character/Body/Tail';
+import { Gender } from 'Game/Character/Body/GenderIdentity';
+import { Weapon } from 'Game/Items/Weapons/Weapon';
+import { WeaponName } from 'Game/Items/Weapons/WeaponName';
+import { ItemDesc } from 'Game/Items/ItemDesc';
+import { Armor } from 'Game/Items/Armors/Armor';
+import { ArmorName } from 'Game/Items/Armors/ArmorName';
+import { EndScenes } from 'Game/Combat/EndScenes';
+import { DefeatType } from 'Game/Combat/DefeatEvent';
+import { CombatAction } from 'Game/Combat/Actions/CombatAction';
+import { tentacleVictoryRape, tentacleLossRape } from './TentacleBeastScene';
 
 class Attack extends CombatAction {
     public name: string = "Attack";
     public useAction(char: Character, enemy: Character) {
         CView.text("The shambling horror throws its tentacles at you with a murderous force.\n");
-        let temp: number = Math.floor((char.stats.str + char.combat.stats.attack()) - Math.random() * (enemy.stats.tou) - enemy.combat.stats.defense());
+        let temp: number = Math.floor((char.stats.str + char.combat.attack()) - Math.random() * (enemy.stats.tou) - enemy.combat.defense());
         if (temp < 0) temp = 0;
         // Miss
         if (temp === 0 || (enemy.stats.spe - char.stats.spe > 0 && Math.floor(Math.random() * (((enemy.stats.spe - char.stats.spe) / 4) + 80)) > 80)) {
@@ -42,7 +41,7 @@ class Attack extends CombatAction {
         }
         // Hit
         else {
-            temp = enemy.combat.stats.loseHP(temp);
+            temp = enemy.combat.loseHP(temp);
             CView.text("The tentacles crash upon your body mercilessly for " + temp + " damage.");
         }
     }
@@ -53,9 +52,9 @@ class Entwine extends CombatAction {
     public useAction(char: Character, enemy: Character) {
         CView.text("The beast lunges its tentacles at you from all directions in an attempt to immobilize you.\n");
         // Not Trapped yet
-        if (!enemy.combat.effects.has(CombatEffectType.TentacleBind)) {
+        if (!enemy.effects.has(EffectType.TentacleBind)) {
             // Success
-            if (Math.floor(Math.random() * (((enemy.stats.spe) / 2))) > 15 || (enemy.perks.has(PerkType.Evade) && Math.floor(Math.random() * (((enemy.stats.spe) / 2))) > 15)) {
+            if (Math.floor(Math.random() * (((enemy.stats.spe) / 2))) > 15 || (enemy.effects.has(EffectType.Evade) && Math.floor(Math.random() * (((enemy.stats.spe) / 2))) > 15)) {
                 CView.text("In an impressive display of gymnastics, you dodge, duck, dip, dive, and roll away from the shower of grab-happy arms trying to hold you. Your instincts tell you that this was a GOOD thing.\n");
             }
             // Fail
@@ -69,7 +68,7 @@ class Entwine extends CombatAction {
                 else CView.text("The creature quickly positions a long tentacle against your " + describeButthole(enemy.body.butt) + ". It circles your pucker with slow, delicate strokes that bring unexpected warmth to your body.\n");
                 enemy.stats.lust += (8 + enemy.stats.sens / 20);
 
-                enemy.combat.effects.add(CombatEffectType.TentacleBind, char);
+                enemy.effects.create(EffectType.TentacleBind);
             }
         }
     }
@@ -80,7 +79,7 @@ class TentacleBeastMainAction extends CombatAction {
     public subActions: CombatAction[] = [new Attack(), new Entwine()];
     public use(char: Character, enemy: Character) {
         // tentacle beasts have special AI
-        if (randInt(2) === 0 || char.combat.effects.has(CombatEffectType.TentacleCoolDown))
+        if (randInt(2) === 0 || char.effects.has(EffectType.TentacleCoolDown))
             this.subActions[0].use(char, enemy);
         else this.subActions[1].use(char, enemy);
     }

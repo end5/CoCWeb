@@ -1,34 +1,41 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { ArmType } from '../../Body/Arms';
-import { BreastRow } from '../../Body/BreastRow';
-import { Cock, CockType } from '../../Body/Cock';
-import { EarType } from '../../Body/Ears';
-import { EyeType } from '../../Body/Eyes';
-import { FaceType } from '../../Body/Face';
-import { Gender } from '../../Body/GenderIdentity';
-import { LegType } from '../../Body/Legs';
-import { SkinType } from '../../Body/Skin';
-import { Tail, TailType } from '../../Body/Tail';
-import { Vagina, VaginaLooseness, VaginaWetness } from '../../Body/Vagina';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
+import { randInt } from 'Engine/Utilities/SMath';
+import { ArmType } from 'Game/Character/Body/Arms';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { EarType } from 'Game/Character/Body/Ears';
+import { EyeType } from 'Game/Character/Body/Eyes';
+import { FaceType } from 'Game/Character/Body/Face';
+import { Gender } from 'Game/Character/Body/GenderIdentity';
+import { LegType } from 'Game/Character/Body/Legs';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { Tail, TailType } from 'Game/Character/Body/Tail';
+import { Vagina, VaginaLooseness, VaginaWetness } from 'Game/Character/Body/Vagina';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { describeCock, nounCock } from '../../Descriptors/CockDescriptor';
-import { describeBalls, describeSack } from '../../Descriptors/BallsDescriptor';
-import { describeVagina } from '../../Descriptors/VaginaDescriptor';
-import { describeBreastRow, breastCup } from '../../Descriptors/BreastDescriptor';
-import { describeFeet } from '../../Descriptors/LegDescriptor';
-import { describeButthole } from '../../Descriptors/ButtDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { growCock, thickenCock } from '../../Modifiers/CockModifier';
-import { displayGoIntoHeat, displayModTone } from '../../Modifiers/BodyModifier';
-import { displayCharacterHPChange } from '../../Modifiers/StatModifier';
-import { NextScreenChoices } from '../../ScreenDisplay';
-import { Settings } from '../../Settings';
-import { gameOverMenu } from '../../Menus/InGame/GameOverMenu';
+import { describeCock, nounCock } from 'Game/Descriptors/CockDescriptor';
+import { describeBalls, describeSack } from 'Game/Descriptors/BallsDescriptor';
+import { describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { describeBreastRow, breastCup } from 'Game/Descriptors/BreastDescriptor';
+import { describeFeet } from 'Game/Descriptors/LegDescriptor';
+import { describeButthole } from 'Game/Descriptors/ButtDescriptor';
+import { CView } from 'Page/ContentView';
+import { growCock, thickenCock } from 'Game/Modifiers/CockModifier';
+import { displayGoIntoHeat, displayModTone } from 'Game/Modifiers/BodyModifier';
+import { displayCharacterHPChange } from 'Game/Modifiers/StatModifier';
+import { NextScreenChoices } from 'Game/ScreenDisplay';
+import { Settings } from 'Game/Settings';
+import { gameOverMenu } from 'Game/Menus/InGame/GameOverMenu';
+import { Flags } from 'Game/Flags';
+
+export const EquinumFlags = {
+    WARNED: false,
+    BAD_END_COUNTER: 0,
+};
+
+Flags.set("Equinum", EquinumFlags);
 
 export class Equinum extends Consumable {
     public constructor() {
@@ -39,22 +46,20 @@ export class Equinum extends Consumable {
         if (character.body.skin.type === SkinType.FUR && character.body.face.type === FaceType.HORSE && character.body.tails.reduce(Tail.HasType(TailType.HORSE), false) && (character.body.legs.type !== LegType.HOOFED)) {
             // WARNINGS
             // Repeat warnings
-            let horseWarning = character.effects.get(StatusEffectType.HorseWarning);
-            if (horseWarning && randInt(3) === 0) {
-                if (horseWarning.values.other!.times === 0) CView.text("<b>\n\nYou feel a creeping chill down your back as your entire body shivers, as if rejecting something foreign.  Maybe you ought to cut back on the horse potions.</b>");
-                if (horseWarning.values.other!.times > 0) CView.text("<b>\n\nYou wonder how many more of these you can drink before you become a horse...</b>");
-                horseWarning.values.other!.times = 1;
+            if (EquinumFlags.WARNED && randInt(3) === 0) {
+                if (EquinumFlags.BAD_END_COUNTER === 0) CView.text("<b>\n\nYou feel a creeping chill down your back as your entire body shivers, as if rejecting something foreign.  Maybe you ought to cut back on the horse potions.</b>");
+                if (EquinumFlags.BAD_END_COUNTER > 0) CView.text("<b>\n\nYou wonder how many more of these you can drink before you become a horse...</b>");
+                EquinumFlags.BAD_END_COUNTER = 1;
             }
             // First warning
-            if (!horseWarning) {
+            if (!EquinumFlags.WARNED) {
                 CView.text("<b>\n\nWhile you drink the tasty potion, you realize how horse-like you already are, and wonder what else the potion could possibly change...</b>");
-                character.effects.add(StatusEffectType.HorseWarning, { other: { times: 0 } });
-                horseWarning = character.effects.get(StatusEffectType.HorseWarning);
+                EquinumFlags.WARNED = true;
             }
             // Bad End
-            if (randInt(4) === 0 && horseWarning) {
+            if (randInt(4) === 0 && EquinumFlags.WARNED) {
                 // Must have been warned first...
-                if (horseWarning.values.other!.times > 0) {
+                if (EquinumFlags.BAD_END_COUNTER > 0) {
                     // If character has dicks check for horsedicks
                     if (character.body.cocks.length > 0) {
                         // If character has horsedicks
@@ -102,7 +107,7 @@ export class Equinum extends Consumable {
         // Chance to raise limit
         if (randInt(2) === 0) changeLimit++;
         if (randInt(3) === 0) changeLimit++;
-        if (character.perks.has(PerkType.HistoryAlchemist)) changeLimit++;
+        if (character.effects.has(EffectType.HistoryAlchemist)) changeLimit++;
         // Used for randIntom chances
         // Set up output
         CView.clear();
@@ -367,7 +372,7 @@ export class Equinum extends Consumable {
                     changes++;
                 }
             }
-            if (character.effects.get(StatusEffectType.Heat)!.values.lib.value.flat < 30 && randInt(2) === 0 && changes < changeLimit) {
+            if (character.effects.getByName(EffectType.Heat)!.values.lib.value.flat < 30 && randInt(2) === 0 && changes < changeLimit) {
                 if (character.canGoIntoHeat()) {
                     displayGoIntoHeat(character);
                     changes++;
@@ -476,7 +481,6 @@ export class Equinum extends Consumable {
             if (character.body.ears.type === EarType.DOG) CView.text("\n\nYour ears change shape, morphing into from their doglike shape into equine-like ears!  ");
             if (character.body.ears.type > EarType.DOG) CView.text("\n\nYour ears change shape, morphing into teardrop-shaped horse ears!  ");
             character.body.ears.type = EarType.HORSE;
-            character.body.ears.value = 0;
             CView.text("<b>You now have horse ears.</b>");
             changes++;
         }

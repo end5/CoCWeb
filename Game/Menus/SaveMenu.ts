@@ -1,9 +1,9 @@
 import { displaySaves, saveSlotChoices } from './SaveDisplay';
-import { InputTextElement } from '../../Engine/Display/Elements/InputTextElement';
-import { SaveManager } from '../../Engine/Save/SaveManager';
+import { InputTextElement } from 'Engine/Display/Elements/InputTextElement';
+import { SaveManager } from 'Engine/Save/SaveManager';
 import { generateSave, SaveFile } from '../SaveFile';
 import { ClickOption, NextScreenChoices } from '../ScreenDisplay';
-import { CView } from '../../Page/ContentView';
+import { CView } from 'Page/ContentView';
 import { dataMenu } from './DataMenu';
 
 export function saveMenu(): NextScreenChoices {

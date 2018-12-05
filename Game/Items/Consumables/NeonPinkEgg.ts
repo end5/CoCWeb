@@ -1,30 +1,30 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { BreastRow } from '../../Body/BreastRow';
-import { EarType } from '../../Body/Ears';
-import { FaceType } from '../../Body/Face';
-import { LegType } from '../../Body/Legs';
-import { PregnancyType } from '../../Body/Pregnancy/Pregnancy';
-import { SkinType } from '../../Body/Skin';
-import { Tail, TailType } from '../../Body/Tail';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
+import { randInt } from 'Engine/Utilities/SMath';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { EarType } from 'Game/Character/Body/Ears';
+import { FaceType } from 'Game/Character/Body/Face';
+import { LegType } from 'Game/Character/Body/Legs';
+import { PregnancyType } from 'Game/Character/Body/Pregnancy/Pregnancy';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { Tail, TailType } from 'Game/Character/Body/Tail';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { Gender } from '../../Body/GenderIdentity';
-import { assholeOrPussy } from '../../Descriptors/BodyDescriptor';
-import { describeOneOfYourCocks } from '../../Descriptors/CockDescriptor';
-import { describeButthole, describeButt } from '../../Descriptors/ButtDescriptor';
-import { describeNipple } from '../../Descriptors/BreastDescriptor';
-import { describeBalls, describeSack } from '../../Descriptors/BallsDescriptor';
-import { describeVagina, describeClit } from '../../Descriptors/VaginaDescriptor';
-import { describeLegs, describeLeg } from '../../Descriptors/LegDescriptor';
-import { mf } from '../../Descriptors/GenderDescriptor';
-import { describeFaceShort } from '../../Descriptors/FaceDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { Womb } from '../../Body/Pregnancy/Womb';
-import { displayModFem } from '../../Modifiers/BodyModifier';
-import { bunnyRaceScore } from '../../Body/RaceScore';
+import { Gender } from 'Game/Character/Body/GenderIdentity';
+import { assholeOrPussy } from 'Game/Descriptors/BodyDescriptor';
+import { describeOneOfYourCocks } from 'Game/Descriptors/CockDescriptor';
+import { describeButthole, describeButt } from 'Game/Descriptors/ButtDescriptor';
+import { describeNipple } from 'Game/Descriptors/BreastDescriptor';
+import { describeBalls, describeSack } from 'Game/Descriptors/BallsDescriptor';
+import { describeVagina, describeClit } from 'Game/Descriptors/VaginaDescriptor';
+import { describeLegs, describeLeg } from 'Game/Descriptors/LegDescriptor';
+import { mf } from 'Game/Descriptors/GenderDescriptor';
+import { describeFaceShort } from 'Game/Descriptors/FaceDescriptor';
+import { CView } from 'Page/ContentView';
+import { Womb } from 'Game/Character/Body/Pregnancy/Womb';
+import { displayModFem } from 'Game/Modifiers/BodyModifier';
+import { bunnyRaceScore } from 'Game/Character/RaceScore';
 
 export class NeonPinkEgg extends Consumable {
     public constructor(pregnantChange: boolean) {
@@ -39,7 +39,7 @@ export class NeonPinkEgg extends Consumable {
         let changeLimit: number = 1;
         if (randInt(2) === 0) changeLimit++;
         if (randInt(2) === 0) changeLimit++;
-        if (character.perks.has(PerkType.HistoryAlchemist)) changeLimit++;
+        if (character.effects.has(EffectType.HistoryAlchemist)) changeLimit++;
         // If this is a pregnancy change, only 1 change per proc.
         if (this.name === ConsumableName.NeonPinkEggPreg) changeLimit = 1;
         else CView.clear();
@@ -194,10 +194,10 @@ export class NeonPinkEgg extends Consumable {
             CView.text("\n\nYou feel strange.  Fertile... somehow.  You don't know how else to think of it, but you know your body is just aching to be pregnant and give birth.");
         }
         // -VAGs
-        if (character.body.vaginas.length > 0 && !character.perks.has(PerkType.BunnyEggs) && changes < changeLimit && randInt(4) === 0 && bunnyRaceScore(character) > 3) {
+        if (character.body.vaginas.length > 0 && !character.effects.has(EffectType.BunnyEggs) && changes < changeLimit && randInt(4) === 0 && bunnyRaceScore(character) > 3) {
             CView.text("\n\nDeep inside yourself there is a change.  It makes you feel a little woozy, but passes quickly.  Beyond that, you aren't sure exactly what just happened, but you are sure it originated from your womb.\n\n");
             CView.text("(<b>Perk Gained: Bunny Eggs</b>)");
-            character.perks.add(PerkType.BunnyEggs);
+            character.effects.create(EffectType.BunnyEggs);
             changes++;
         }
         // Shrink Balls!

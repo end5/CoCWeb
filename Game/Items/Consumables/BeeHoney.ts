@@ -1,28 +1,28 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { BreastRow } from '../../Body/BreastRow';
-import { Cock, CockType } from '../../Body/Cock';
-import { AntennaeType } from '../../Body/Antennae';
-import { HornType } from '../../Body/Horns';
-import { LegType } from '../../Body/Legs';
-import { PregnancyType } from '../../Body/Pregnancy/Pregnancy';
-import { SkinType } from '../../Body/Skin';
-import { Tail, TailType } from '../../Body/Tail';
-import { WingType } from '../../Body/Wings';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
+import { randInt } from 'Engine/Utilities/SMath';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { AntennaeType } from 'Game/Character/Body/Antennae';
+import { HornType } from 'Game/Character/Body/Horns';
+import { LegType } from 'Game/Character/Body/Legs';
+import { PregnancyType } from 'Game/Character/Body/Pregnancy/Pregnancy';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { Tail, TailType } from 'Game/Character/Body/Tail';
+import { WingType } from 'Game/Character/Body/Wings';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { describeHair } from '../../Descriptors/HairDescriptor';
-import { describeBreastRow, describeNipple, describeAllBreasts } from '../../Descriptors/BreastDescriptor';
-import { describeButt } from '../../Descriptors/ButtDescriptor';
-import { describeCocksLight, describeCock } from '../../Descriptors/CockDescriptor';
-import { describeRace } from '../../Descriptors/BodyDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { Womb } from '../../Body/Pregnancy/Womb';
-import { PlayerFlags } from '../../Character/Player/PlayerFlags';
-import { Settings } from '../../Settings';
-import { ExgartuanFlags } from '../../Scenes/NPCs/Exgartuan';
+import { describeHair } from 'Game/Descriptors/HairDescriptor';
+import { describeBreastRow, describeNipple, describeAllBreasts } from 'Game/Descriptors/BreastDescriptor';
+import { describeButt } from 'Game/Descriptors/ButtDescriptor';
+import { describeCocksLight, describeCock } from 'Game/Descriptors/CockDescriptor';
+import { describeRace } from 'Game/Descriptors/BodyDescriptor';
+import { CView } from 'Page/ContentView';
+import { Womb } from 'Game/Character/Body/Pregnancy/Womb';
+import { PlayerFlags } from 'Game/Character/Player/PlayerFlags';
+import { Settings } from 'Game/Settings';
+import { ExgartuanFlags } from 'Game/Scenes/NPCs/Exgartuan';
 
 export class BeeHoney extends Consumable {
     private static PURE_HONEY_VALUE: number = 40;
@@ -74,7 +74,7 @@ export class BeeHoney extends Consumable {
         if (randInt(2) === 0) changeLimit++;
         if (randInt(2) === 0) changeLimit++;
         if (randInt(2) === 0) changeLimit++;
-        if (character.perks.has(PerkType.HistoryAlchemist)) changeLimit++;
+        if (character.effects.has(EffectType.HistoryAlchemist)) changeLimit++;
         // Drink text
         if (special) {
             CView.text("You uncork the bottle and pour the incredibly strong smelling concentrated honey down your throat.  Its taste is also mighty intense.  All at once you feel the effects of the substance start to course through your body.");
@@ -200,10 +200,10 @@ export class BeeHoney extends Consumable {
             }
         }
         // Gain oviposition!
-        if (changes < changeLimit && !character.perks.has(PerkType.BeeOvipositor) && character.body.tails.filter(Tail.FilterType(TailType.BEE_ABDOMEN)).length > 1 && randInt(2) === 0) {
+        if (changes < changeLimit && !character.effects.has(EffectType.BeeOvipositor) && character.body.tails.filter(Tail.FilterType(TailType.BEE_ABDOMEN)).length > 1 && randInt(2) === 0) {
             CView.text("\n\nAn odd swelling starts in your insectile abdomen, somewhere along the underside.  Curling around, you reach back to your extended, bulbous bee part and run your fingers along the underside.  You gasp when you feel a tender, yielding slit near the stinger.  As you probe this new orifice, a shock of pleasure runs through you, and a tubular, black, semi-hard appendage drops out, pulsating as heavily as any sexual organ.  <b>The new organ is clearly an ovipositor!</b>  A few gentle prods confirm that it's just as sensitive; you can already feel your internals changing, adjusting to begin the production of unfertilized eggs.  You idly wonder what laying them with your new bee ovipositor will feel like...");
             CView.text("\n\n(<b>Perk Gained:  Bee Ovipositor - Allows you to lay eggs in your foes!</b>)");
-            character.perks.add(PerkType.BeeOvipositor);
+            character.effects.create(EffectType.BeeOvipositor);
             changes++;
         }
         // Bee butt - 66% lower chance if already has a tail

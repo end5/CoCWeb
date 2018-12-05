@@ -1,22 +1,21 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { BreastRow } from '../../Body/BreastRow';
-import { Cock } from '../../Body/Cock';
-import { EyeType } from '../../Body/Eyes';
-import { VaginaType } from '../../Body/Vagina';
-import { WingType } from '../../Body/Wings';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
-import { numToCardinalText } from '../../Utilities/NumToText';
+import { randInt } from 'Engine/Utilities/SMath';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { Cock } from 'Game/Character/Body/Cock';
+import { EyeType } from 'Game/Character/Body/Eyes';
+import { VaginaType } from 'Game/Character/Body/Vagina';
+import { WingType } from 'Game/Character/Body/Wings';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
+import { numToCardinalText } from 'Game/Utilities/NumToText';
 import { ItemDesc } from '../ItemDesc';
-import { describeCocksLight } from '../../Descriptors/CockDescriptor';
-import { Gender } from '../../Body/GenderIdentity';
-import { describeFeet } from '../../Descriptors/LegDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { displayModThickness } from '../../Modifiers/BodyModifier';
-import { growCock } from '../../Modifiers/CockModifier';
+import { describeCocksLight } from 'Game/Descriptors/CockDescriptor';
+import { Gender } from 'Game/Character/Body/GenderIdentity';
+import { describeFeet } from 'Game/Descriptors/LegDescriptor';
+import { CView } from 'Page/ContentView';
+import { displayModThickness } from 'Game/Modifiers/BodyModifier';
+import { growCock } from 'Game/Modifiers/CockModifier';
 
 export class TrapOil extends Consumable {
     public constructor() {
@@ -30,7 +29,7 @@ export class TrapOil extends Consumable {
         if (randInt(2) === 0) changeLimit++;
         if (randInt(3) === 0) changeLimit++;
         if (randInt(3) === 0) changeLimit++;
-        if (character.perks.has(PerkType.HistoryAlchemist)) changeLimit++;
+        if (character.effects.has(EffectType.HistoryAlchemist)) changeLimit++;
         CView.text("You pour some of the oil onto your hands and ");
         if (character.stats.cor < 30) CView.text("hesitantly ");
         else if (character.stats.cor > 70) CView.text("eagerly ");
@@ -134,7 +133,7 @@ export class TrapOil extends Consumable {
             changes++;
         }
         // Testicle Reduction:
-        if (character.body.balls.count > 0 && character.body.cocks.length > 0 && (character.body.balls.size > 1 || !character.effects.has(StatusEffectType.Uniball)) && randInt(4) === 0 && changes < changeLimit) {
+        if (character.body.balls.count > 0 && character.body.cocks.length > 0 && (character.body.balls.size > 1 || !character.effects.has(EffectType.Uniball)) && randInt(4) === 0 && changes < changeLimit) {
             CView.text("\n\nYou feel a delicate tightening sensation around your [balls].  The sensation upon this most sensitive part of your anatomy isn't painful, but the feeling of your balls getting smaller is intense enough that you stifle anything more than a sharp intake of breath only with difficulty.");
             character.body.balls.size--;
             if (character.body.balls.size > 8) character.body.balls.size--;
@@ -143,11 +142,11 @@ export class TrapOil extends Consumable {
             if (character.body.balls.size > 15) character.body.balls.size--;
             if (character.body.balls.size > 20) character.body.balls.size--;
             // Testicle Reduction final:
-            if (character.body.balls.size < 1 && !character.effects.has(StatusEffectType.Uniball)) {
+            if (character.body.balls.size < 1 && !character.effects.has(EffectType.Uniball)) {
                 CView.text("  You whimper as once again, your balls tighten and shrink.  Your eyes widen when you feel the gentle weight of your testicles pushing against the top of your [hips], and a few hesitant swings of your rear confirm what you can feel - you've tightened your balls up so much they no longer hang beneath your " + describeCocksLight(character) + ", but press perkily upwards.  Heat ringing your ears, you explore your new sack with a careful hand.  You are deeply grateful you apparently haven't reversed puberty, but you discover that though you still have " + numToCardinalText(character.body.balls.count) + ", your balls now look and feel like one: one cute, tight little sissy parcel, its warm, insistent pressure upwards upon the joining of your thighs a never-ending reminder of it.");
                 // [Note: Balls description should no longer say �swings heavily beneath�.  For simplicity's sake sex scenes should continue to assume two balls]
                 character.body.balls.size = 1;
-                character.effects.add(StatusEffectType.Uniball);
+                character.effects.create(EffectType.Uniball);
             }
             else if (character.body.balls.size < 1) character.body.balls.size = 1;
             changes++;
@@ -189,8 +188,8 @@ export class TrapOil extends Consumable {
             if (randInt(4) === 0 && changes < changeLimit) {
                 if (character.body.femininity < 70 && character.body.femininity >= 60) {
                     CView.text("\n\nYou laugh as you feel your features once again soften, before stopping abruptly.  Your laugh sounded more like a girly giggle than anything else.  Feeling slightly more sober, you touch the soft flesh of your face prospectively.  The trap oil has changed you profoundly, making your innate maleness... difficult to discern, to say the least.  You suspect you could make yourself look even more like a girl now if you wanted to.");
-                    if (!character.perks.has(PerkType.Androgyny)) {
-                        character.perks.add(PerkType.Androgyny);
+                    if (!character.effects.has(EffectType.Androgyny)) {
+                        character.effects.create(EffectType.Androgyny);
                         CView.text("\n\n(<b>Perk Gained: Androgyny</b>)");
                     }
                     character.body.femininity += 10;
@@ -220,8 +219,8 @@ export class TrapOil extends Consumable {
                     character.body.femininity = 30;
                     // Masculinity Increase Final (max masculinity allowed increased by +10):
                     CView.text("\n\nYou laugh as you feel your features once again soften, before stopping abruptly.  Your laugh sounded more like a boyish crow than anything else.  Feeling slightly more sober, you touch the defined lines of your face prospectively.  The trap oil has changed you profoundly, making your innate femaleness... difficult to discern, to say the least.  You suspect you could make yourself look even more like a boy now if you wanted to.");
-                    if (!character.perks.has(PerkType.Androgyny)) {
-                        character.perks.add(PerkType.Androgyny);
+                    if (!character.effects.has(EffectType.Androgyny)) {
+                        character.effects.create(EffectType.Androgyny);
                         CView.text("\n\n(<b>Perk Gained: Androgyny</b>)");
                     }
                 }
@@ -238,9 +237,9 @@ export class TrapOil extends Consumable {
             }
         }
         // Nipples Turn Black:
-        if (!character.effects.has(StatusEffectType.BlackNipples) && randInt(6) === 0 && changes < changeLimit) {
+        if (!character.effects.has(EffectType.BlackNipples) && randInt(6) === 0 && changes < changeLimit) {
             CView.text("\n\nA tickling sensation plucks at your nipples and you cringe, trying not to giggle.  Looking down you are in time to see the last spot of flesh tone disappear from your [nipples].  They have turned an onyx black!");
-            character.effects.add(StatusEffectType.BlackNipples);
+            character.effects.create(EffectType.BlackNipples);
             changes++;
         }
         // Remove odd eyes

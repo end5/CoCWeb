@@ -1,34 +1,33 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { ArmType } from '../../Body/Arms';
-import { BreastRow } from '../../Body/BreastRow';
-import { EarType } from '../../Body/Ears';
-import { EyeType } from '../../Body/Eyes';
-import { FaceType } from '../../Body/Face';
-import { Gender } from '../../Body/GenderIdentity';
-import { LegType } from '../../Body/Legs';
-import { SkinType } from '../../Body/Skin';
-import { Tail, TailType } from '../../Body/Tail';
-import { Vagina, VaginaType } from '../../Body/Vagina';
-import { WingType } from '../../Body/Wings';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
+import { randInt } from 'Engine/Utilities/SMath';
+import { ArmType } from 'Game/Character/Body/Arms';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { EarType } from 'Game/Character/Body/Ears';
+import { EyeType } from 'Game/Character/Body/Eyes';
+import { FaceType } from 'Game/Character/Body/Face';
+import { Gender } from 'Game/Character/Body/GenderIdentity';
+import { LegType } from 'Game/Character/Body/Legs';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { Tail, TailType } from 'Game/Character/Body/Tail';
+import { Vagina, VaginaType } from 'Game/Character/Body/Vagina';
+import { WingType } from 'Game/Character/Body/Wings';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { describeFaceShort } from '../../Descriptors/FaceDescriptor';
-import { describeVagina } from '../../Descriptors/VaginaDescriptor';
-import { describeOneOfYourCocks, describeCocksLight } from '../../Descriptors/CockDescriptor';
-import { describeHair } from '../../Descriptors/HairDescriptor';
-import { describeNipple, describeBreastRow, breastCup } from '../../Descriptors/BreastDescriptor';
-import { describeBallsShort, describeSack } from '../../Descriptors/BallsDescriptor';
-import { describeHips } from '../../Descriptors/HipDescriptor';
-import { describeButt } from '../../Descriptors/ButtDescriptor';
-import { describeFeet, describeLegs } from '../../Descriptors/LegDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { shrinkTits } from '../../Modifiers/BreastModifier';
-import { displayModFem, displayModThickness } from '../../Modifiers/BodyModifier';
-import { Settings } from '../../Settings';
+import { describeFaceShort } from 'Game/Descriptors/FaceDescriptor';
+import { describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { describeOneOfYourCocks, describeCocksLight } from 'Game/Descriptors/CockDescriptor';
+import { describeHair } from 'Game/Descriptors/HairDescriptor';
+import { describeNipple, describeBreastRow, breastCup } from 'Game/Descriptors/BreastDescriptor';
+import { describeBallsShort, describeSack } from 'Game/Descriptors/BallsDescriptor';
+import { describeHips } from 'Game/Descriptors/HipDescriptor';
+import { describeButt } from 'Game/Descriptors/ButtDescriptor';
+import { describeFeet, describeLegs } from 'Game/Descriptors/LegDescriptor';
+import { CView } from 'Page/ContentView';
+import { shrinkTits } from 'Game/Modifiers/BreastModifier';
+import { displayModFem, displayModThickness } from 'Game/Modifiers/BodyModifier';
+import { Settings } from 'Game/Settings';
 
 export class GoldenSeed extends Consumable {
     private enhanced: boolean;
@@ -50,7 +49,7 @@ export class GoldenSeed extends Consumable {
         if (this.enhanced) changeLimit += 2;
         if (randInt(2) === 0) changeLimit++;
         if (randInt(2) === 0) changeLimit++;
-        if (character.perks.has(PerkType.HistoryAlchemist)) changeLimit++;
+        if (character.effects.has(EffectType.HistoryAlchemist)) changeLimit++;
         // Generic eating text:
         CView.clear();
         CView.text("You pop the nut into your mouth, chewing the delicious treat and swallowing it quickly.  No wonder harpies love these things so much!");
@@ -336,22 +335,22 @@ export class GoldenSeed extends Consumable {
         }
         // SPECIAL:
         // Harpy Womb � All eggs are automatically upgraded to large, requires legs + tail to be harpy.
-        if (!character.perks.has(PerkType.HarpyWomb) && character.body.legs.type === LegType.HARPY && character.body.tails.reduce(Tail.HasType(TailType.HARPY), false) && randInt(4) === 0 && changes < changeLimit) {
-            character.perks.add(PerkType.HarpyWomb);
+        if (!character.effects.has(EffectType.HarpyWomb) && character.body.legs.type === LegType.HARPY && character.body.tails.reduce(Tail.HasType(TailType.HARPY), false) && randInt(4) === 0 && changes < changeLimit) {
+            character.effects.create(EffectType.HarpyWomb);
             CView.text("\n\nThere's a rumbling in your womb, signifying that some strange change has taken place in your most feminine area. No doubt something in it has changed to be more like a harpy. (<b>You've gained the Harpy Womb perk! All the eggs you lay will always be large so long as you have harpy legs and a harpy tail.</b>)");
             changes++;
         }
-        if (changes < changeLimit && randInt(4) === 0 && ((character.body.butt.wetness > 0 && !character.perks.has(PerkType.MaraesGiftButtslut)) || character.body.butt.wetness > 1)) {
+        if (changes < changeLimit && randInt(4) === 0 && ((character.body.butt.wetness > 0 && !character.effects.has(EffectType.MaraesGiftButtslut)) || character.body.butt.wetness > 1)) {
             CView.text("\n\nYou feel a tightening up in your colon and your [asshole] sucks into itself.  You feel sharp pain at first but that thankfully fades.  Your ass seems to have dried and tightened up.");
             character.body.butt.wetness--;
             if (character.body.butt.looseness > 1) character.body.butt.looseness--;
             changes++;
         }
         // Nipples Turn Back:
-        if (character.effects.has(StatusEffectType.BlackNipples) && changes < changeLimit && randInt(3) === 0) {
+        if (character.effects.has(EffectType.BlackNipples) && changes < changeLimit && randInt(3) === 0) {
             CView.text("\n\nSomething invisible brushes against your " + describeNipple(character, character.body.chest.firstRow) + ", making you twitch.  Undoing your clothes, you take a look at your chest and find that your nipples have turned back to their natural flesh colour.");
             changes++;
-            character.effects.remove(StatusEffectType.BlackNipples);
+            character.effects.removeByName(EffectType.BlackNipples);
         }
         // Debugcunt
         if (changes < changeLimit && randInt(3) === 0 && character.body.vaginas.length > 0 && character.body.vaginas.get(0)!.type !== VaginaType.HUMAN) {

@@ -1,31 +1,30 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { BreastRow } from '../../Body/BreastRow';
-import { Cock } from '../../Body/Cock';
-import { EarType } from '../../Body/Ears';
-import { FaceType } from '../../Body/Face';
-import { HornType } from '../../Body/Horns';
-import { LegType } from '../../Body/Legs';
-import { SkinType } from '../../Body/Skin';
-import { Tail, TailType } from '../../Body/Tail';
-import { Vagina, VaginaLooseness, VaginaWetness } from '../../Body/Vagina';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
-import { numToCardinalText } from '../../Utilities/NumToText';
+import { randInt } from 'Engine/Utilities/SMath';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { Cock } from 'Game/Character/Body/Cock';
+import { EarType } from 'Game/Character/Body/Ears';
+import { FaceType } from 'Game/Character/Body/Face';
+import { HornType } from 'Game/Character/Body/Horns';
+import { LegType } from 'Game/Character/Body/Legs';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { Tail, TailType } from 'Game/Character/Body/Tail';
+import { Vagina, VaginaLooseness, VaginaWetness } from 'Game/Character/Body/Vagina';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
+import { numToCardinalText } from 'Game/Utilities/NumToText';
 import { ItemDesc } from '../ItemDesc';
-import { describeCock } from '../../Descriptors/CockDescriptor';
-import { describeBallsShort } from '../../Descriptors/BallsDescriptor';
-import { describeVagina } from '../../Descriptors/VaginaDescriptor';
-import { describeBreastRow, describeNipple } from '../../Descriptors/BreastDescriptor';
-import { describeButt } from '../../Descriptors/ButtDescriptor';
-import { describeFeet } from '../../Descriptors/LegDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { growCock, displayLengthChange, displayKillCocks } from '../../Modifiers/CockModifier';
-import { growTopBreastRow, boostLactation } from '../../Modifiers/BreastModifier';
-import { displayModFem, displayModThickness, displayModTone } from '../../Modifiers/BodyModifier';
-import { Settings } from '../../Settings';
+import { describeCock } from 'Game/Descriptors/CockDescriptor';
+import { describeBallsShort } from 'Game/Descriptors/BallsDescriptor';
+import { describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { describeBreastRow, describeNipple } from 'Game/Descriptors/BreastDescriptor';
+import { describeButt } from 'Game/Descriptors/ButtDescriptor';
+import { describeFeet } from 'Game/Descriptors/LegDescriptor';
+import { CView } from 'Page/ContentView';
+import { growCock, displayLengthChange, displayKillCocks } from 'Game/Modifiers/CockModifier';
+import { growTopBreastRow, boostLactation } from 'Game/Modifiers/BreastModifier';
+import { displayModFem, displayModThickness, displayModTone } from 'Game/Modifiers/BodyModifier';
+import { Settings } from 'Game/Settings';
 
 export class LaBova extends Consumable {
     /*Purified LaBova:
@@ -67,7 +66,7 @@ export class LaBova extends Consumable {
         if (randInt(2) === 0) changeLimit++;
         if (randInt(3) === 0) changeLimit++;
         if (randInt(3) === 0) changeLimit++;
-        if (character.perks.has(PerkType.HistoryAlchemist)) changeLimit++;
+        if (character.effects.has(EffectType.HistoryAlchemist)) changeLimit++;
         if (this.enhanced) changeLimit += 2;
         // LaBova:
         // ItemDesc: "A bottle containing a misty fluid with a grainy texture, it has a long neck and a ball-like base.  The label has a stylized picture of a well endowed cowgirl nursing two guys while they jerk themselves off.  "
@@ -274,7 +273,7 @@ export class LaBova extends Consumable {
                     }
                     changes++;
                 }
-                if ((character.body.chest.firstRow.lactationMultiplier > 2 && character.effects.has(StatusEffectType.Feeder)) || character.body.chest.firstRow.lactationMultiplier > 5) {
+                if ((character.body.chest.firstRow.lactationMultiplier > 2 && character.effects.has(EffectType.Feeder)) || character.body.chest.firstRow.lactationMultiplier > 5) {
                     if (randInt(2) === 0) CView.text("\n\nYour breasts suddenly feel less full, it seems you aren't lactating at quite the level you were.");
                     else CView.text("\n\nThe insides of your breasts suddenly feel bloated.  There is a spray of milk from them, and they settle closer to a more natural level of lactation.");
                     changes++;
@@ -288,10 +287,9 @@ export class LaBova extends Consumable {
         // apply an effect where the character really wants
         // to give their milk to other creatures
         // (capable of getting them addicted):
-        if (!character.effects.has(StatusEffectType.Feeder) && character.body.chest.sort(BreastRow.LactationMost).get(0)!.lactationMultiplier >= 3 && randInt(2) === 0 && character.body.chest.sort(BreastRow.Largest).get(0)!.rating >= 5 && character.stats.cor >= 35) {
+        if (!character.effects.has(EffectType.Feeder) && character.body.chest.sort(BreastRow.LactationMost).get(0)!.lactationMultiplier >= 3 && randInt(2) === 0 && character.body.chest.sort(BreastRow.Largest).get(0)!.rating >= 5 && character.stats.cor >= 35) {
             CView.text("\n\nYou start to feel a strange desire to give your milk to other creatures.  For some reason, you know it will be very satisfying.\n\n<b>(You have gained the 'Feeder' perk!)</b>");
-            character.effects.add(StatusEffectType.Feeder);
-            character.perks.add(PerkType.Feeder);
+            character.effects.create(EffectType.Feeder);
             changes++;
         }
         // UNFINISHED
@@ -302,11 +300,11 @@ export class LaBova extends Consumable {
                 CView.text("\n\nYou feel a relaxing sensation in your groin.  On further inspection you discover your " + describeVagina(character, character.body.vaginas.get(0)!) + " has somehow relaxed, permanently loosening.");
                 character.body.vaginas.get(0)!.looseness++;
                 // Cunt Stretched used to determine how long since last enlargement
-                if (!character.effects.has(StatusEffectType.CuntStretched))
-                    character.effects.add(StatusEffectType.CuntStretched);
+                if (!character.effects.has(EffectType.CuntStretched))
+                    character.effects.create(EffectType.CuntStretched);
                 // Reset the timer on it to 0 when restretched.
                 else
-                    character.effects.get(StatusEffectType.CuntStretched)!.values.expireCountdown = 0;
+                    character.effects.getByName(EffectType.CuntStretched)!.values.expireCountdown = 0;
                 character.body.vaginas.get(0)!.looseness++;
                 changes++;
                 character.stats.lust += 10;
@@ -447,10 +445,10 @@ export class LaBova extends Consumable {
             }
         }
         // Nipples Turn Back:
-        if (character.effects.has(StatusEffectType.BlackNipples) && changes < changeLimit && randInt(3) === 0) {
+        if (character.effects.has(EffectType.BlackNipples) && changes < changeLimit && randInt(3) === 0) {
             CView.text("\n\nSomething invisible brushes against your " + describeNipple(character, character.body.chest.firstRow) + ", making you twitch.  Undoing your clothes, you take a look at your chest and find that your nipples have turned back to their natural flesh colour.");
             changes++;
-            character.effects.remove(StatusEffectType.BlackNipples);
+            character.effects.removeByName(EffectType.BlackNipples);
         }
         // Debugcunt
         if (changes < changeLimit && randInt(3) === 0 && character.body.vaginas.get(0)!.type === 5 && character.body.vaginas.length > 0) {

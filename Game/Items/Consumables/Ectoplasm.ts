@@ -1,17 +1,17 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { CockType } from '../../Body/Cock';
-import { SkinType } from '../../Body/Skin';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
+import { randInt } from 'Engine/Utilities/SMath';
+import { CockType } from 'Game/Character/Body/Cock';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { describeSkin } from '../../Descriptors/SkinDescriptor';
-import { describeCock } from '../../Descriptors/CockDescriptor';
-import { describeHips } from '../../Descriptors/HipDescriptor';
-import { describeLegs } from '../../Descriptors/LegDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { displayCharacterHPChange } from '../../Modifiers/StatModifier';
+import { describeSkin } from 'Game/Descriptors/SkinDescriptor';
+import { describeCock } from 'Game/Descriptors/CockDescriptor';
+import { describeHips } from 'Game/Descriptors/HipDescriptor';
+import { describeLegs } from 'Game/Descriptors/LegDescriptor';
+import { CView } from 'Page/ContentView';
+import { displayCharacterHPChange } from 'Game/Modifiers/StatModifier';
 
 // Miscellaneous
 // ITEM GAINED FROM LUST WINS
@@ -31,7 +31,7 @@ export class Ectoplasm extends Consumable {
         let changeLimit: number = 1;
         if (randInt(2) === 0) changeLimit++;
         if (randInt(3) === 0) changeLimit++;
-        if (character.perks.has(PerkType.HistoryAlchemist)) changeLimit++;
+        if (character.effects.has(EffectType.HistoryAlchemist)) changeLimit++;
         // Effect script 1:  (higher intelligence)
         if (character.stats.int < 100 && randInt(3) === 0 && changes < changeLimit) {
             CView.text("\n\nYou groan softly as your head begins pounding something fierce.  Wincing in pain, you massage your temples as the throbbing continues, and soon, the pain begins to fade; in its place comes a strange sense of sureness and wit.");
@@ -94,11 +94,11 @@ export class Ectoplasm extends Consumable {
             changes++;
         }
         // Legs
-        if (changes < changeLimit && !character.perks.has(PerkType.Incorporeality) && (character.body.skin.tone === "white" || character.body.skin.tone === "sable") && character.body.hair.type === 2) {
+        if (changes < changeLimit && !character.effects.has(EffectType.Incorporeality) && (character.body.skin.tone === "white" || character.body.skin.tone === "sable") && character.body.hair.type === 2) {
             // (ghost-legs!  Absolutely no problem with regular encounters, though! [if you somehow got this with a centaur it'd probably do nothing cuz you're not supposed to be a centaur with ectoplasm ya dingus])
             CView.text("\n\nAn otherworldly sensation begins in your belly, working its way to your " + describeHips(character) + ". Before you can react, your " + describeLegs(character) + " begin to tingle, and you fall on your rump as a large shudder runs through them. As you watch, your lower body shimmers, becoming ethereal, wisps rising from the newly ghost-like " + describeLegs(character) + ". You manage to rise, surprised to find your new, ghostly form to be as sturdy as its former corporeal version. Suddenly, like a dam breaking, fleeting visions and images flow into your head, never lasting long enough for you to concentrate on one. You don't even realize it, but your arms fly up to your head, grasping your temples as you groan in pain. As fast as the mental bombardment came, it disappears, leaving you with a surprising sense of spiritual superiority.  <b>You have ghost legs!</b>\n\n");
             CView.text("<b>(Gained Perk:  Incorporeality</b>)");
-            character.perks.add(PerkType.Incorporeality);
+            character.effects.create(EffectType.Incorporeality);
         }
         // Effect Script 8: 100% chance of healing
         if (changes === 0) {

@@ -1,7 +1,7 @@
 import { displaySaves, saveSlotChoices } from './SaveDisplay';
-import { SaveManager } from '../../Engine/Save/SaveManager';
+import { SaveManager } from 'Engine/Save/SaveManager';
 import { NextScreenChoices, ClickFunction } from '../ScreenDisplay';
-import { CView } from '../../Page/ContentView';
+import { CView } from 'Page/ContentView';
 import { dataMenu } from './DataMenu';
 
 export function deleteMenu(): NextScreenChoices {

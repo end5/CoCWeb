@@ -1,7 +1,7 @@
-﻿import { BreastRow } from '../Body/BreastRow';
-import * as RaceScore from '../Body/RaceScore';
-import { Character } from '../Character/Character';
-import { Gender } from '../Body/GenderIdentity';
+﻿import { BreastRow } from 'Game/Character/Body/BreastRow';
+import * as RaceScore from 'Game/Character/RaceScore';
+import { Character } from 'Game/Character/Character';
+import { Gender } from 'Game/Character/Body/GenderIdentity';
 import { mf } from './GenderDescriptor';
 import { describeVagina } from './VaginaDescriptor';
 import { describeButthole } from './ButtDescriptor';

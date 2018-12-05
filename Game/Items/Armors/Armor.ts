@@ -4,6 +4,7 @@ import { EquipableItem } from '../EquipableItem';
 import { ItemDesc } from '../ItemDesc';
 import { ItemType } from '../ItemType';
 import { CView } from 'Page/ContentView';
+import { EffectType } from 'Game/Effects/EffectType';
 
 export type ArmorClass = "Light" | "Medium" | "Heavy" | "";
 
@@ -51,5 +52,9 @@ export class Armor extends EquipableItem {
      * @param character
      */
     public onUnequip(character: Character) {
+        while (character.effects.has(EffectType.BulgeArmor))
+            character.effects.removeByName(EffectType.BulgeArmor); // TODO remove this Exgartuan hack
+        if (character.inventory.armorDescMod.length > 0)
+            character.inventory.armorDescMod = "";
     }
 }

@@ -1,29 +1,28 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt, randomChoice } from '../../../Engine/Utilities/SMath';
-import { BreastRow } from '../../Body/BreastRow';
-import { SkinType } from '../../Body/Skin';
-import { Character } from '../../Character/Character';
+import { randInt, randomChoice } from 'Engine/Utilities/SMath';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { Character } from 'Game/Character/Character';
 import { ItemDesc } from '../ItemDesc';
-import { describeButt } from '../../Descriptors/ButtDescriptor';
-import { describeHips } from '../../Descriptors/HipDescriptor';
-import { describeBalls } from '../../Descriptors/BallsDescriptor';
-import { describeVagina } from '../../Descriptors/VaginaDescriptor';
-import { describeCocks, describeCocksLight } from '../../Descriptors/CockDescriptor';
-import { describeBreastRow, describeAllBreasts } from '../../Descriptors/BreastDescriptor';
-import { describeHair } from '../../Descriptors/HairDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { displayModThickness, displayModFem } from '../../Modifiers/BodyModifier';
-import { displayKillCocks, growCock, thickenCock, displayLengthChange } from '../../Modifiers/CockModifier';
-import { shrinkTits } from '../../Modifiers/BreastModifier';
-import { FlagType } from '../../FlagType';
-import { Flags } from '../../Flags';
+import { describeButt } from 'Game/Descriptors/ButtDescriptor';
+import { describeHips } from 'Game/Descriptors/HipDescriptor';
+import { describeBalls } from 'Game/Descriptors/BallsDescriptor';
+import { describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { describeCocks, describeCocksLight } from 'Game/Descriptors/CockDescriptor';
+import { describeBreastRow, describeAllBreasts } from 'Game/Descriptors/BreastDescriptor';
+import { describeHair } from 'Game/Descriptors/HairDescriptor';
+import { CView } from 'Page/ContentView';
+import { displayModThickness, displayModFem } from 'Game/Modifiers/BodyModifier';
+import { displayKillCocks, growCock, thickenCock, displayLengthChange } from 'Game/Modifiers/CockModifier';
+import { shrinkTits } from 'Game/Modifiers/BreastModifier';
+import { Flags } from 'Game/Flags';
 
 export const EggFlags = {
     PC_KNOWS_ABOUT_BLACK_EGGS: 0,
 };
 
-Flags.set(FlagType.Eggs, EggFlags);
+Flags.set("Eggs", EggFlags);
 
 export function randLargeEgg(): ConsumableName {
     return randomChoice(

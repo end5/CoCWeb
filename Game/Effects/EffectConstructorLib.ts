@@ -1,4 +1,4 @@
-import { Dictionary } from '../../Engine/Utilities/Dictionary';
+import { Dictionary } from 'Engine/Utilities/Dictionary';
 import { IEffectValues } from './EffectValues';
 import { Effect } from './Effect';
 import { EffectType } from './EffectType';

@@ -1,27 +1,26 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { Cock, CockType } from '../../Body/Cock';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
-import { numToCardinalText } from '../../Utilities/NumToText';
+import { randInt } from 'Engine/Utilities/SMath';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
+import { numToCardinalText } from 'Game/Utilities/NumToText';
 import { ItemDesc } from '../ItemDesc';
-import { describeCock, describeCocksLight } from '../../Descriptors/CockDescriptor';
-import { Tail, TailType } from '../../Body/Tail';
-import { HornType } from '../../Body/Horns';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
-import { describeNipple } from '../../Descriptors/BreastDescriptor';
-import { FaceType } from '../../Body/Face';
-import { SkinType } from '../../Body/Skin';
-import { TongueType } from '../../Body/Tongue';
-import { LegType } from '../../Body/Legs';
-import { describeFeet } from '../../Descriptors/LegDescriptor';
-import { WingType } from '../../Body/Wings';
-import { CView } from '../../../Page/ContentView';
-import { displayModFem, displayModThickness } from '../../Modifiers/BodyModifier';
-import { growCock, thickenCock, displayLengthChange } from '../../Modifiers/CockModifier';
-import { shrinkTits } from '../../Modifiers/BreastModifier';
-import { Settings } from '../../Settings';
+import { describeCock, describeCocksLight } from 'Game/Descriptors/CockDescriptor';
+import { Tail, TailType } from 'Game/Character/Body/Tail';
+import { HornType } from 'Game/Character/Body/Horns';
+import { describeNipple } from 'Game/Descriptors/BreastDescriptor';
+import { FaceType } from 'Game/Character/Body/Face';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { TongueType } from 'Game/Character/Body/Tongue';
+import { LegType } from 'Game/Character/Body/Legs';
+import { describeFeet } from 'Game/Descriptors/LegDescriptor';
+import { WingType } from 'Game/Character/Body/Wings';
+import { CView } from 'Page/ContentView';
+import { displayModFem, displayModThickness } from 'Game/Modifiers/BodyModifier';
+import { growCock, thickenCock, displayLengthChange } from 'Game/Modifiers/CockModifier';
+import { shrinkTits } from 'Game/Modifiers/BreastModifier';
+import { Settings } from 'Game/Settings';
 
 export class IncubusDraft extends Consumable {
     public readonly tainted: boolean;
@@ -35,7 +34,7 @@ export class IncubusDraft extends Consumable {
 
     public use(character: Character) {
         let changeAmount: number = randInt(100);
-        if (character.perks.has(PerkType.HistoryAlchemist))
+        if (character.effects.has(EffectType.HistoryAlchemist))
             changeAmount += 10;
         CView.clear();
         CView.text("The draft is slick and sticky, ");
@@ -311,9 +310,9 @@ export function demonChanges(character: Character): void {
         }
     }
     // Nipples Turn Back:
-    if (character.effects.has(StatusEffectType.BlackNipples) && randInt(3) === 0) {
+    if (character.effects.has(EffectType.BlackNipples) && randInt(3) === 0) {
         CView.text("\n\nSomething invisible brushes against your " + describeNipple(character, character.body.chest.firstRow) + ", making you twitch.  Undoing your clothes, you take a look at your chest and find that your nipples have turned back to their natural flesh colour.");
-        character.effects.remove(StatusEffectType.BlackNipples);
+        character.effects.removeByName(EffectType.BlackNipples);
     }
     // remove fur
     if ((character.body.face.type !== FaceType.HUMAN || character.body.skin.type !== SkinType.PLAIN) && randInt(3) === 0) {

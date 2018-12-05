@@ -1,10 +1,9 @@
-import { CombatAction } from "./CombatAction";
-import { Character } from "../../Character/Character";
-import { CView } from "../../../Page/ContentView";
-import { randInt } from "../../../Engine/Utilities/SMath";
-import { CombatEffectType } from "../../Effects/CombatEffectType";
-import { CharacterType } from "../../Character/CharacterType";
-import { PerkType } from "../../Effects/PerkType";
+import { CombatAction } from './CombatAction';
+import { Character } from 'Game/Character/Character';
+import { CView } from 'Page/ContentView';
+import { randInt } from 'Engine/Utilities/SMath';
+import { CharacterType } from 'Game/Character/CharacterType';
+import { EffectType } from 'Game/Effects/EffectType';
 
 export class BasicAttack extends CombatAction {
     public name: string = "Attack";
@@ -20,13 +19,13 @@ export class BasicAttack extends CombatAction {
 
 function eOneAttack(char: Character, enemy: Character): number {
     // Determine damage - str modified by enemy toughness!
-    return enemy.combat.stats.loseHP(char.stats.str + char.combat.stats.attack());
+    return enemy.combat.loseHP(char.stats.str + char.combat.attack());
 }
 
 function attackSucceeded(char: Character, enemy: Character): boolean {
     let attack: boolean = true;
     // Blind dodge change
-    if (char.combat.effects.has(CombatEffectType.Blind)) {
+    if (char.effects.has(EffectType.Blind)) {
         attack = handleBlind(char);
     }
     attack = !enemyDodged(enemy, char);
@@ -59,19 +58,19 @@ function enemyDodged(char: Character, enemy: Character): boolean {
         return true;
     }
     // Determine if evaded
-    if (!(enemy.charType === CharacterType.Kiha) && char.perks.has(PerkType.Evade) && randInt(100) < 10) {
+    if (!(enemy.charType === CharacterType.Kiha) && char.effects.has(EffectType.Evade) && randInt(100) < 10) {
         CView.text("Using your skills at evading attacks, you anticipate and sidestep " + enemy.desc.a + enemy.desc.short + "'");
         if (!enemy.desc.plural) CView.text("s");
         CView.text(" attack.\n");
         return true;
     }
     // ("Misdirection"
-    if (char.perks.has(PerkType.Misdirection) && randInt(100) < 10 && char.inventory.armor.name === "red, high-society bodysuit") {
+    if (char.effects.has(EffectType.Misdirection) && randInt(100) < 10 && char.inventory.armor.name === "red, high-society bodysuit") {
         CView.text("Using Raphael's teachings, you anticipate and sidestep " + enemy.desc.a + enemy.desc.short + "' attacks.\n");
         return true;
     }
     // Determine if cat'ed
-    if (char.perks.has(PerkType.Flexibility) && randInt(100) < 6) {
+    if (char.effects.has(EffectType.Flexibility) && randInt(100) < 6) {
         CView.text("With your incredible flexibility, you squeeze out of the way of " + enemy.desc.a + enemy.desc.short + "");
         if (enemy.desc.plural) CView.text("' attacks.\n");
         else CView.text("'s attack.\n");
@@ -94,7 +93,7 @@ function outputEnemyDodged(char: Character, dodge: number) {
 function outputAttack(char: Character, enemy: Character, damage: number) {
     if (damage <= 0) {
         // Due to toughness or amor...
-        if (randInt(enemy.combat.stats.defense() + enemy.stats.tou) < enemy.combat.stats.defense())
+        if (randInt(enemy.combat.defense() + enemy.stats.tou) < enemy.combat.defense())
             CView.text("You absorb and deflect every " + char.inventory.weapon.verb + " with your " + enemy.inventory.armor.displayName + ".");
         else {
             if (char.desc.plural) CView.text("You deflect and block every " + char.inventory.weapon.verb + " " + char.desc.a + char.desc.short + " throw at you.");

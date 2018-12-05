@@ -1,12 +1,12 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { SkinType } from '../../Body/Skin';
-import { Character } from '../../Character/Character';
+import { randInt } from 'Engine/Utilities/SMath';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { Character } from 'Game/Character/Character';
 import { ItemDesc } from '../ItemDesc';
-import { CView } from '../../../Page/ContentView';
-import { growCock, displayLengthChange } from '../../Modifiers/CockModifier';
-import { displayCharacterHPChange } from '../../Modifiers/StatModifier';
+import { CView } from 'Page/ContentView';
+import { growCock, displayLengthChange } from 'Game/Modifiers/CockModifier';
+import { displayCharacterHPChange } from 'Game/Modifiers/StatModifier';
 
 export class ImpFood extends Consumable {
     public constructor() {

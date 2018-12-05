@@ -1,8 +1,8 @@
 import { displaySaves, saveSlotChoices } from './SaveDisplay';
-import { SaveManager } from '../../Engine/Save/SaveManager';
+import { SaveManager } from 'Engine/Save/SaveManager';
 import { loadFromSave, SaveFile } from '../SaveFile';
 import { NextScreenChoices } from '../ScreenDisplay';
-import { CView } from '../../Page/ContentView';
+import { CView } from 'Page/ContentView';
 import { playerMenu } from './InGame/PlayerMenu';
 import { dataMenu } from './DataMenu';
 

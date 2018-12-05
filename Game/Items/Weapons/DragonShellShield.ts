@@ -1,17 +1,16 @@
 import { Weapon } from './Weapon';
 import { WeaponName } from './WeaponName';
 import { WeaponPerkType } from './WeaponPerk';
-import { Character } from '../../Character/Character';
+import { Character } from 'Game/Character/Character';
 import { ItemDesc } from '../ItemDesc';
-import { CView } from '../../../Page/ContentView';
-import { FlagType } from '../../FlagType';
-import { Flags } from '../../Flags';
+import { CView } from 'Page/ContentView';
+import { Flags } from 'Game/Flags';
 
 export const DragonShellShieldFlags = {
     TIMES_EQUIPPED_EMBER_SHIELD: 0,
 };
 
-Flags.set(FlagType.DragonShellShield, DragonShellShieldFlags);
+Flags.set("Dragon-Shell Shield", DragonShellShieldFlags);
 
 export class DragonShellShield extends Weapon {
     public constructor() {

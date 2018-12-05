@@ -1,9 +1,8 @@
-import { FlagType } from "../../FlagType";
-import { Flags } from "../../Flags";
+import { Flags } from 'Game/Flags';
 
 export const PlayerFlags = {
     PREGNANCY_CORRUPTION: 0,
     DOUBLE_ATTACK_STYLE: 0,
 };
 
-Flags.set(FlagType.Player, PlayerFlags);
+Flags.set("Player", PlayerFlags);

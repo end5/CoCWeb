@@ -1,39 +1,37 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { BreastRow } from '../../Body/BreastRow';
-import { Cock, CockType } from '../../Body/Cock';
-import { EarType } from '../../Body/Ears';
-import { EyeType } from '../../Body/Eyes';
-import { FaceType } from '../../Body/Face';
-import { HornType } from '../../Body/Horns';
-import { LegType } from '../../Body/Legs';
-import { SkinType } from '../../Body/Skin';
-import { Tail, TailType } from '../../Body/Tail';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
-import { numToCardinalText } from '../../Utilities/NumToText';
+import { randInt } from 'Engine/Utilities/SMath';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { EarType } from 'Game/Character/Body/Ears';
+import { EyeType } from 'Game/Character/Body/Eyes';
+import { FaceType } from 'Game/Character/Body/Face';
+import { HornType } from 'Game/Character/Body/Horns';
+import { LegType } from 'Game/Character/Body/Legs';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { Tail, TailType } from 'Game/Character/Body/Tail';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
+import { numToCardinalText } from 'Game/Utilities/NumToText';
 import { ItemDesc } from '../ItemDesc';
-import { describeCocksLight, describeCock, nounCock } from '../../Descriptors/CockDescriptor';
-import { describeVagina } from '../../Descriptors/VaginaDescriptor';
-import { describeButt } from '../../Descriptors/ButtDescriptor';
-import { describeFeet, describeLegs } from '../../Descriptors/LegDescriptor';
-import { Gender } from '../../Body/GenderIdentity';
-import { describeAllBreasts } from '../../Descriptors/BreastDescriptor';
-import { describeHair } from '../../Descriptors/HairDescriptor';
-import { describeFaceShort } from '../../Descriptors/FaceDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { lizardRaceScore } from '../../Body/RaceScore';
-import { displayCharacterHPChange } from '../../Modifiers/StatModifier';
-import { FlagType } from '../../FlagType';
-import { Flags } from '../../Flags';
+import { describeCocksLight, describeCock, nounCock } from 'Game/Descriptors/CockDescriptor';
+import { describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { describeButt } from 'Game/Descriptors/ButtDescriptor';
+import { describeFeet, describeLegs } from 'Game/Descriptors/LegDescriptor';
+import { Gender } from 'Game/Character/Body/GenderIdentity';
+import { describeAllBreasts } from 'Game/Descriptors/BreastDescriptor';
+import { describeHair } from 'Game/Descriptors/HairDescriptor';
+import { describeFaceShort } from 'Game/Descriptors/FaceDescriptor';
+import { CView } from 'Page/ContentView';
+import { lizardRaceScore } from 'Game/Character/RaceScore';
+import { displayCharacterHPChange } from 'Game/Modifiers/StatModifier';
+import { Flags } from 'Game/Flags';
 
 export const ReptilumFlags = {
     HAIR_GROWTH_STOPPED_BECAUSE_LIZARD: 0,
 };
 
-Flags.set(FlagType.Reptilum, ReptilumFlags);
+Flags.set("Reptilum", ReptilumFlags);
 
 export class Reptilum extends Consumable {
     public constructor() {
@@ -52,7 +50,7 @@ export class Reptilum extends Consumable {
         if (randInt(2) === 0) changeLimit++;
         if (randInt(2) === 0) changeLimit++;
         if (randInt(4) === 0) changeLimit++;
-        if (character.perks.has(PerkType.HistoryAlchemist)) changeLimit++;
+        if (character.effects.has(EffectType.HistoryAlchemist)) changeLimit++;
         // clear screen
         CView.clear();
         CView.text("You uncork the vial of fluid and drink it down.  The taste is sour, like a dry wine with an aftertaste not entirely dissimilar to alcohol.  Instead of the warmth you'd expect, it leaves your throat feeling cold and a little numb.");
@@ -183,11 +181,11 @@ export class Reptilum extends Consumable {
         }
         // --Worms leave if 100% lizard dicks?
         // Require mammals?
-        if (character.body.cocks.filter(Cock.FilterType(CockType.LIZARD)).length === character.body.cocks.length && changes < changeLimit && character.effects.has(StatusEffectType.Infested)) {
+        if (character.body.cocks.filter(Cock.FilterType(CockType.LIZARD)).length === character.body.cocks.length && changes < changeLimit && character.effects.has(EffectType.Infested)) {
             CView.text("\n\nLike rats from a sinking ship, worms escape from your body in a steady stream.  Surprisingly, the sensation is remarkably pleasant, similar to the pleasure of sexual release in a way.  Though they seem inexhaustible, the tiny, cum-slimed invertebrates slow to a trickle.  The larger worm-kin inside you stirs as if disturbed from a nap, coming loose from whatever moorings it had attached itself to in the interior of your form.  It slowly works its way up your urethra, stretching to an almost painful degree with every lurching motion.  Your dick bloats out around the base, stretched like the ovipositor on a bee-girl in order to handle the parasitic creature, but thankfully, the ordeal is a brief one.");
             if (character.body.balls.count > 1) CView.text("  The remaining " + numToCardinalText(character.body.balls.count - 1) + " slither out the pre-stretched holes with ease, though the last one hangs from your tip for a moment before dropping to the ground.");
             CView.text("  The white creature joins its kin on the ground and slowly slithers away.  Perhaps they prefer mammals? In any event, <b>you are no longer infected with worms</b>.");
-            character.effects.remove(StatusEffectType.Infested);
+            character.effects.removeByName(EffectType.Infested);
             changes++;
         }
         // -Breasts vanish to 0 rating if male
@@ -219,10 +217,10 @@ export class Reptilum extends Consumable {
             CView.text(" nipples relax.  It's a strange feeling, and you pull back your top to touch one.  It feels fine, though there doesn't seem to be any milk leaking out.  You give it a squeeze and marvel when nothing ");
             if (character.body.chest.find(BreastRow.FuckableNipples)) CView.text("but sexual fluid ");
             CView.text("escapes it.  <b>You are no longer lactating.</b>  That makes sense, only mammals lactate!  Smiling, you muse at how much time this will save you when cleaning your gear.");
-            if (character.perks.has(PerkType.Feeder) || character.effects.has(StatusEffectType.Feeder)) {
+            if (character.effects.has(EffectType.Feeder) || character.effects.has(EffectType.Feeder)) {
                 CView.text("\n\n(<b>Feeder perk lost!</b>)");
-                character.perks.remove(PerkType.Feeder);
-                character.effects.remove(StatusEffectType.Feeder);
+                character.effects.removeByName(EffectType.Feeder);
+                character.effects.removeByName(EffectType.Feeder);
             }
             changes++;
             // Loop through and reset lactation
@@ -242,10 +240,10 @@ export class Reptilum extends Consumable {
             }
         }
         // -VAGs
-        if (character.body.vaginas.length > 0 && !character.perks.has(PerkType.Oviposition) && changes < changeLimit && randInt(5) === 0 && lizardRaceScore(character) > 3) {
+        if (character.body.vaginas.length > 0 && !character.effects.has(EffectType.Oviposition) && changes < changeLimit && randInt(5) === 0 && lizardRaceScore(character) > 3) {
             CView.text("\n\nDeep inside yourself there is a change.  It makes you feel a little woozy, but passes quickly.  Beyond that, you aren't sure exactly what just happened, but you are sure it originated from your womb.\n");
             CView.text("(<b>Perk Gained: Oviposition</b>)");
-            character.perks.add(PerkType.Oviposition);
+            character.effects.create(EffectType.Oviposition);
             changes++;
         }
 

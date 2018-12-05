@@ -1,23 +1,23 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { ArmType } from '../../Body/Arms';
-import { BreastRow } from '../../Body/BreastRow';
-import { Cock } from '../../Body/Cock';
-import { EyeType } from '../../Body/Eyes';
-import { FaceType } from '../../Body/Face';
-import { AntennaeType } from '../../Body/Antennae';
-import { HornType } from '../../Body/Horns';
-import { LegType } from '../../Body/Legs';
-import { SkinType } from '../../Body/Skin';
-import { TongueType } from '../../Body/Tongue';
-import { Vagina, VaginaType } from '../../Body/Vagina';
-import { WingType } from '../../Body/Wings';
-import { Character } from '../../Character/Character';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
+import { ArmType } from 'Game/Character/Body/Arms';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { Cock } from 'Game/Character/Body/Cock';
+import { EyeType } from 'Game/Character/Body/Eyes';
+import { FaceType } from 'Game/Character/Body/Face';
+import { AntennaeType } from 'Game/Character/Body/Antennae';
+import { HornType } from 'Game/Character/Body/Horns';
+import { LegType } from 'Game/Character/Body/Legs';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { TongueType } from 'Game/Character/Body/Tongue';
+import { Vagina, VaginaType } from 'Game/Character/Body/Vagina';
+import { WingType } from 'Game/Character/Body/Wings';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { Gender } from '../../Body/GenderIdentity';
-import { CView } from '../../../Page/ContentView';
-import { humanRaceScore } from '../../Body/RaceScore';
+import { Gender } from 'Game/Character/Body/GenderIdentity';
+import { CView } from 'Page/ContentView';
+import { humanRaceScore } from 'Game/Character/RaceScore';
 
 export class Hummus extends Consumable {
     public constructor() {
@@ -109,7 +109,7 @@ export class Hummus extends Consumable {
         }
         else character.body.chest.firstRow.rating = 0;
         character.body.neck.gills = false;
-        character.effects.remove(StatusEffectType.Uniball);
-        character.effects.remove(StatusEffectType.BlackNipples);
+        character.effects.removeByName(EffectType.Uniball);
+        character.effects.removeByName(EffectType.BlackNipples);
     }
 }

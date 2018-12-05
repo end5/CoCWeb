@@ -1,23 +1,23 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { Cock } from '../../Body/Cock';
-import { EyeType } from '../../Body/Eyes';
-import { FaceType } from '../../Body/Face';
-import { SkinType } from '../../Body/Skin';
-import { Tail, TailType } from '../../Body/Tail';
-import { Vagina } from '../../Body/Vagina';
-import { WingType } from '../../Body/Wings';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
+import { randInt } from 'Engine/Utilities/SMath';
+import { Cock } from 'Game/Character/Body/Cock';
+import { EyeType } from 'Game/Character/Body/Eyes';
+import { FaceType } from 'Game/Character/Body/Face';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { Tail, TailType } from 'Game/Character/Body/Tail';
+import { Vagina } from 'Game/Character/Body/Vagina';
+import { WingType } from 'Game/Character/Body/Wings';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { Gender } from '../../Body/GenderIdentity';
-import { describeBalls, describeSack } from '../../Descriptors/BallsDescriptor';
-import { describeCocksLight } from '../../Descriptors/CockDescriptor';
-import { describeVagina } from '../../Descriptors/VaginaDescriptor';
-import { describeFaceShort } from '../../Descriptors/FaceDescriptor';
-import { describeFeet } from '../../Descriptors/LegDescriptor';
-import { CView } from '../../../Page/ContentView';
+import { Gender } from 'Game/Character/Body/GenderIdentity';
+import { describeBalls, describeSack } from 'Game/Descriptors/BallsDescriptor';
+import { describeCocksLight } from 'Game/Descriptors/CockDescriptor';
+import { describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { describeFaceShort } from 'Game/Descriptors/FaceDescriptor';
+import { describeFeet } from 'Game/Descriptors/LegDescriptor';
+import { CView } from 'Page/ContentView';
 
 export class SharkTooth extends Consumable {
     private enhanced: boolean;
@@ -35,7 +35,7 @@ export class SharkTooth extends Consumable {
         let changeLimit: number = 2;
         if (randInt(2) === 0) changeLimit++;
         if (randInt(2) === 0) changeLimit++;
-        if (character.perks.has(PerkType.HistoryAlchemist)) changeLimit++;
+        if (character.effects.has(EffectType.HistoryAlchemist)) changeLimit++;
         CView.clear();
         if (!this.enhanced)
             CView.text("You have no idea why, but you decide to eat the pointed tooth. To your surprise, it's actually quite brittle, turning into a fishy-tasting dust. You figure it must just be a tablet made to look like a shark's tooth.");

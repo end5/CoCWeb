@@ -1,10 +1,10 @@
 import { displayCharInventory } from './InventoryDisplay';
-import { SpriteName } from '../../../Page/SpriteName';
-import { MainScreen } from '../../../Page/MainScreen';
-import { Character } from '../../Character/Character';
-import { CombatManager } from '../../Combat/CombatManager';
-import { NextScreenChoices, ScreenChoice } from '../../ScreenDisplay';
-import { CView } from '../../../Page/ContentView';
+import { SpriteName } from 'Page/SpriteName';
+import { MainScreen } from 'Page/MainScreen';
+import { Character } from 'Game/Character/Character';
+import { CombatManager } from 'Game/Combat/CombatManager';
+import { NextScreenChoices, ScreenChoice } from 'Game/ScreenDisplay';
+import { CView } from 'Page/ContentView';
 import { playerMenu } from './PlayerMenu';
 import { combatMenu } from './PlayerCombatMenu';
 

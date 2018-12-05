@@ -1,9 +1,9 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { Character } from '../../Character/Character';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { CView } from '../../../Page/ContentView';
+import { CView } from 'Page/ContentView';
 
 export class BlackSpellbook extends Consumable {
     public constructor() {
@@ -30,21 +30,21 @@ export class BlackSpellbook extends Consumable {
             character.stats.int += 0.6;
         }
         // Smart enough for arouse and doesnt have it
-        if (character.stats.int >= 25 && !character.effects.has(StatusEffectType.KnowsArouse)) {
+        if (character.stats.int >= 25 && !character.effects.has(EffectType.KnowsArouse)) {
             CView.text("\n\nYou blink in surprise, assaulted by the knowledge of a <b>new spell: Arouse.</b>");
-            character.effects.add(StatusEffectType.KnowsArouse);
+            character.effects.create(EffectType.KnowsArouse);
             return;
         }
         // Smart enough for arouse and doesnt have it
-        if (character.stats.int >= 30 && !character.effects.has(StatusEffectType.KnowsHeal)) {
+        if (character.stats.int >= 30 && !character.effects.has(EffectType.KnowsHeal)) {
             CView.text("\n\nYou blink in surprise, assaulted by the knowledge of a <b>new spell: Heal.</b>");
-            character.effects.add(StatusEffectType.KnowsHeal);
+            character.effects.create(EffectType.KnowsHeal);
             return;
         }
         // Smart enough for arouse and doesnt have it
-        if (character.stats.int >= 40 && !character.effects.has(StatusEffectType.KnowsMight)) {
+        if (character.stats.int >= 40 && !character.effects.has(EffectType.KnowsMight)) {
             CView.text("\n\nYou blink in surprise, assaulted by the knowledge of a <b>new spell: Might.</b>");
-            character.effects.add(StatusEffectType.KnowsMight);
+            character.effects.create(EffectType.KnowsMight);
         }
     }
 }

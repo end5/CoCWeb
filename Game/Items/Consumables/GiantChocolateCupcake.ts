@@ -1,9 +1,9 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { Character } from '../../Character/Character';
+import { Character } from 'Game/Character/Character';
 import { ItemDesc } from '../ItemDesc';
-import { CView } from '../../../Page/ContentView';
-import { displayModTone, displayModThickness } from '../../Modifiers/BodyModifier';
+import { CView } from 'Page/ContentView';
+import { displayModTone, displayModThickness } from 'Game/Modifiers/BodyModifier';
 
 export class GiantChocolateCupcake extends Consumable {
     public constructor() {

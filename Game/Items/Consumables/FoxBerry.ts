@@ -1,36 +1,34 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { BreastRow } from '../../Body/BreastRow';
-import { Cock, CockType } from '../../Body/Cock';
-import { EarType } from '../../Body/Ears';
-import { FaceType } from '../../Body/Face';
-import { LegType } from '../../Body/Legs';
-import { SkinType } from '../../Body/Skin';
-import { Tail, TailType } from '../../Body/Tail';
-import { VaginaType } from '../../Body/Vagina';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
-import { numToCardinalText, numToOrdinalText } from '../../Utilities/NumToText';
+import { randInt } from 'Engine/Utilities/SMath';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { EarType } from 'Game/Character/Body/Ears';
+import { FaceType } from 'Game/Character/Body/Face';
+import { LegType } from 'Game/Character/Body/Legs';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { Tail, TailType } from 'Game/Character/Body/Tail';
+import { VaginaType } from 'Game/Character/Body/Vagina';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
+import { numToCardinalText, numToOrdinalText } from 'Game/Utilities/NumToText';
 import { ItemDesc } from '../ItemDesc';
-import { describeCock, nounCock, describeCocksLight } from '../../Descriptors/CockDescriptor';
-import { describeBalls } from '../../Descriptors/BallsDescriptor';
-import { describeAllBreasts, breastCup, describeBreastRow, describeNipple } from '../../Descriptors/BreastDescriptor';
-import { describeSkin, skinFurScales } from '../../Descriptors/SkinDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { displayGoIntoHeat } from '../../Modifiers/BodyModifier';
-import { FlagType } from '../../FlagType';
-import { NextScreenChoices } from '../../ScreenDisplay';
-import { Flags } from '../../Flags';
-import { Settings } from '../../Settings';
-import { gameOverMenu } from '../../Menus/InGame/GameOverMenu';
+import { describeCock, nounCock, describeCocksLight } from 'Game/Descriptors/CockDescriptor';
+import { describeBalls } from 'Game/Descriptors/BallsDescriptor';
+import { describeAllBreasts, breastCup, describeBreastRow, describeNipple } from 'Game/Descriptors/BreastDescriptor';
+import { describeSkin, skinFurScales } from 'Game/Descriptors/SkinDescriptor';
+import { CView } from 'Page/ContentView';
+import { displayGoIntoHeat } from 'Game/Modifiers/BodyModifier';
+import { NextScreenChoices } from 'Game/ScreenDisplay';
+import { Flags } from 'Game/Flags';
+import { Settings } from 'Game/Settings';
+import { gameOverMenu } from 'Game/Menus/InGame/GameOverMenu';
 
 export const FoxBerryFlags = {
     FOX_BAD_END_WARNING: 0,
 };
 
-Flags.set(FlagType.FoxBerry, FoxBerryFlags);
+Flags.set("Fox Berry", FoxBerryFlags);
 
 export class FoxBerry extends Consumable {
     private enhanced: boolean;
@@ -202,7 +200,7 @@ export class FoxBerry extends Consumable {
         if (character.cumQ() < 5000 && randInt(3) === 0 && changes < changeLimit && character.body.cocks.length > 0) {
             let cumMultiplierChange: number = 2 + randInt(4);
             // Lots of cum raises cum multiplier cap to 2 instead of 1.5
-            if (character.perks.has(PerkType.MessyOrgasms)) cumMultiplierChange += randInt(10);
+            if (character.effects.has(EffectType.MessyOrgasms)) cumMultiplierChange += randInt(10);
             character.body.cumMultiplier += cumMultiplierChange;
             // Flavor text
             if (character.body.balls.count === 0) CView.text("\n\nYou feel a churning inside your gut as something inside you changes.");
@@ -285,7 +283,7 @@ export class FoxBerry extends Consumable {
             }
         }
         // HEAT!
-        const heatEffect = character.effects.get(StatusEffectType.Heat);
+        const heatEffect = character.effects.getByName(EffectType.Heat);
         if (heatEffect && heatEffect.values.lib.value.flat < 30 && randInt(6) === 0 && changes < changeLimit) {
             if (character.canGoIntoHeat()) {
                 displayGoIntoHeat(character);
@@ -368,10 +366,10 @@ export class FoxBerry extends Consumable {
             character.body.tone -= 4;
         }
         // Nipples Turn Back:
-        if (character.effects.has(StatusEffectType.BlackNipples) && changes < changeLimit && randInt(3) === 0) {
+        if (character.effects.has(EffectType.BlackNipples) && changes < changeLimit && randInt(3) === 0) {
             CView.text("\n\nSomething invisible brushes against your " + describeNipple(character, character.body.chest.firstRow) + ", making you twitch.  Undoing your clothes, you take a look at your chest and find that your nipples have turned back to their natural flesh colour.");
             changes++;
-            character.effects.remove(StatusEffectType.BlackNipples);
+            character.effects.removeByName(EffectType.BlackNipples);
         }
         // Debugcunt
         if (changes < changeLimit && randInt(3) === 0 && character.body.vaginas.length > 0 && character.body.vaginas.get(0)!.type !== VaginaType.HUMAN) {

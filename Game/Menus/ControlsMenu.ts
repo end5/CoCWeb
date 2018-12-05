@@ -1,11 +1,11 @@
-import { ButtonElement } from '../../Page/ButtonElement';
-import { ListEntryElement } from '../../Engine/Display/Elements/ListEntryElement';
-import { UnorderedListElement } from '../../Engine/Display/Elements/UnorderedListElement';
-import { BindableAction } from '../../Engine/Input/BindableAction';
-import { InputManager } from '../../Engine/Input/InputManager';
-import { KeyCombination } from '../../Engine/Input/KeyCombination';
+import { ButtonElement } from 'Page/ButtonElement';
+import { ListEntryElement } from 'Engine/Display/Elements/ListEntryElement';
+import { UnorderedListElement } from 'Engine/Display/Elements/UnorderedListElement';
+import { BindableAction } from 'Engine/Input/BindableAction';
+import { InputManager } from 'Engine/Input/InputManager';
+import { KeyCombination } from 'Engine/Input/KeyCombination';
 import { NextScreenChoices } from '../ScreenDisplay';
-import { CView } from '../../Page/ContentView';
+import { CView } from 'Page/ContentView';
 import { settingsMenu } from './SettingsMenu';
 
 export function controlsMenu(): NextScreenChoices {

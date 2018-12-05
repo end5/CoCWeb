@@ -1,36 +1,34 @@
-import { Character } from "../../../Character/Character";
-import { Flags } from "../../../Flags";
-import { FlagType } from "../../../FlagType";
-import { NextScreenChoices, choiceWrap } from "../../../ScreenDisplay";
-import { CView } from "../../../../Page/ContentView";
-import { SpriteName } from "../../../../Page/SpriteName";
-import { randInt } from "../../../../Engine/Utilities/SMath";
-import { passTime } from "../../../Menus/InGame/PlayerMenu";
-import { StatusEffectType } from "../../../Effects/StatusEffectType";
-import { CombatManager } from "../../../Combat/CombatManager";
-import { TentacleBeast } from "./TentacleBeast";
-import { describeButt, describeButthole } from "../../../Descriptors/ButtDescriptor";
-import { describeAllBreasts, describeNipple, describeBreastRow } from "../../../Descriptors/BreastDescriptor";
-import { displayStretchVagina } from "../../../Modifiers/VaginaModifier";
-import { describeCock, describeOneOfYourCocks, describeCocksLight } from "../../../Descriptors/CockDescriptor";
-import { gameOverMenu } from "../../../Menus/InGame/GameOverMenu";
-import { Cock, CockType } from "../../../Body/Cock";
-import { describeBalls, describeSack } from "../../../Descriptors/BallsDescriptor";
-import { describeSkin } from "../../../Descriptors/SkinDescriptor";
-import { describeVagina } from "../../../Descriptors/VaginaDescriptor";
-import { BreastRow } from "../../../Body/BreastRow";
-import { boostLactation, growTopBreastRowDownwards } from "../../../Modifiers/BreastModifier";
-import { displayStretchButt } from "../../../Modifiers/ButtModifier";
-import { numToCardinalCapText, numToCardinalText } from "../../../Utilities/NumToText";
-import { PerkType } from "../../../Effects/PerkType";
-import { VaginaLooseness } from "../../../Body/Vagina";
-import { GiacomoFlags } from "../BeyondCamp/Giacomo";
+import { Character } from 'Game/Character/Character';
+import { Flags } from 'Game/Flags';
+import { NextScreenChoices, choiceWrap } from 'Game/ScreenDisplay';
+import { CView } from 'Page/ContentView';
+import { SpriteName } from 'Page/SpriteName';
+import { randInt } from 'Engine/Utilities/SMath';
+import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { EffectType } from 'Game/Effects/EffectType';
+import { CombatManager } from 'Game/Combat/CombatManager';
+import { TentacleBeast } from './TentacleBeast';
+import { describeButthole, describeButt } from 'Game/Descriptors/ButtDescriptor';
+import { describeAllBreasts, describeNipple, describeBreastRow } from 'Game/Descriptors/BreastDescriptor';
+import { displayStretchVagina } from 'Game/Modifiers/VaginaModifier';
+import { describeCock, describeOneOfYourCocks, describeCocksLight } from 'Game/Descriptors/CockDescriptor';
+import { gameOverMenu } from 'Game/Menus/InGame/GameOverMenu';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { describeBalls, describeSack } from 'Game/Descriptors/BallsDescriptor';
+import { describeSkin } from 'Game/Descriptors/SkinDescriptor';
+import { describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { boostLactation, growTopBreastRowDownwards } from 'Game/Modifiers/BreastModifier';
+import { displayStretchButt } from 'Game/Modifiers/ButtModifier';
+import { numToCardinalCapText, numToCardinalText } from 'Game/Utilities/NumToText';
+import { VaginaLooseness } from 'Game/Character/Body/Vagina';
+import { GiacomoFlags } from '../BeyondCamp/Giacomo';
 
 export const TentacleBeastFlags = {
     UNKNOWN_FLAG_NUMBER_00247: 0,
     BAD_END_COUNTER: 0,
 };
-Flags.set(FlagType.TentacleBeast, TentacleBeastFlags);
+Flags.set("Tentacle Beast", TentacleBeastFlags);
 
 // Tentacle Encounter - beware legalese!
 /*
@@ -108,7 +106,7 @@ export function encounter(player: Character): NextScreenChoices {
     if (player.stats.cor > 75)
         CView.text("You smile and stride forward, welcoming the pleasure you expect from such a monster.\n\n");
     // Worms get nothing!
-    if (player.effects.has(StatusEffectType.Infested)) {
+    if (player.effects.has(EffectType.Infested)) {
         CView.text("It stops itself completely in a moment and twitches, as if sniffing the air, before turning around and disappearing into the underbrush.");
         return { next: passTime(1) };
     }
@@ -632,7 +630,7 @@ function tentacleRapeContinuationForFemales(player: Character): NextScreenChoice
     if (player.body.vaginas.length === 1) { // single coochie
         CView.text("Satisfied, the creature drops you smartly, withdraws its limbs from you, and lumbers away.  Covered completely in cum, you see that your clitoris has swollen up to ");
         // Big clit girls get huge clits
-        if ((player.perks.has(PerkType.BigClit) && player.body.clit.length > 2) || player.body.clit.length > 3)
+        if ((player.effects.has(EffectType.BigClit) && player.body.clit.length > 2) || player.body.clit.length > 3)
             CView.text("almost " + numToCardinalText(Math.floor(player.body.clit.length * 1.75)) + " inches in length. ");
         // normal girls get big clits
         else
@@ -647,7 +645,7 @@ function tentacleRapeContinuationForFemales(player: Character): NextScreenChoice
     // Very corrupt
     else CView.text("too intoxicated with lust to continue the pleasure. ");
     // If has big-clit grow to max of 6"
-    if (player.body.clit.length < 7 && player.body.clit.length >= 3.5 && player.perks.has(PerkType.BigClit)) {
+    if (player.body.clit.length < 7 && player.body.clit.length >= 3.5 && player.effects.has(EffectType.BigClit)) {
         player.body.clit.length += .1 + player.stats.cor / 100;
         CView.text("Your massive clitty eventually diminishes, retaining a fair portion of its former glory.  It is now " + Math.floor(player.body.clit.length * 10) / 10 + " inches long when aroused, ");
         if (player.body.clit.length < 5)

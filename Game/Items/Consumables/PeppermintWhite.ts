@@ -1,9 +1,9 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { Character } from '../../Character/Character';
+import { Character } from 'Game/Character/Character';
 import { ItemDesc } from '../ItemDesc';
-import { CView } from '../../../Page/ContentView';
-import { displayCharacterHPChange } from '../../Modifiers/StatModifier';
+import { CView } from 'Page/ContentView';
+import { displayCharacterHPChange } from 'Game/Modifiers/StatModifier';
 
 export class PeppermintWhite extends Consumable {
     public constructor() {

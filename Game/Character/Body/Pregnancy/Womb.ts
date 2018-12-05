@@ -1,5 +1,5 @@
 import { IPregnancyEvent } from './IPregnancyEvent';
-import { Pregnancy, PregnancyType, IPregnancy, IncubationTime } from './Pregnancy';
+import { Pregnancy, PregnancyType, IPregnancy } from './Pregnancy';
 import { ISerializable } from 'Engine/Utilities/ISerializable';
 import { SortOption, FilterOption } from 'Engine/Utilities/List';
 import { randInt } from 'Engine/Utilities/SMath';

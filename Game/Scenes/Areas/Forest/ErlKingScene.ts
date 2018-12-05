@@ -1,24 +1,22 @@
-import { Character } from "../../../Character/Character";
-import { Flags } from "../../../Flags";
-import { FlagType } from "../../../FlagType";
-import { NextScreenChoices, choiceWrap, ScreenChoice } from "../../../ScreenDisplay";
-import { PerkType } from "../../../Effects/PerkType";
-import { kitsuneRaceScore, bunnyRaceScore, harpyRaceScore, gooRaceScore } from "../../../Body/RaceScore";
-import { CView } from "../../../../Page/ContentView";
-import { Time } from "../../../Utilities/Time";
-import { StatusEffectType } from "../../../Effects/StatusEffectType";
-import { ConsumableName } from "../../../Items/Consumables/ConsumableName";
-import { WingType } from "../../../Body/Wings";
-import { randInt, randomChoice } from "../../../../Engine/Utilities/SMath";
-import { displayStretchButt } from "../../../Modifiers/ButtModifier";
-import { SkinType } from "../../../Body/Skin";
-import { LegType } from "../../../Body/Legs";
-import { CockType } from "../../../Body/Cock";
-import { FaceType } from "../../../Body/Face";
-import { gameOverMenu } from "../../../Menus/InGame/GameOverMenu";
-import { displayStretchVagina } from "../../../Modifiers/VaginaModifier";
-import { BreastRow } from "../../../Body/BreastRow";
-import { passTime } from "../../../Menus/InGame/PlayerMenu";
+import { Character } from 'Game/Character/Character';
+import { Flags } from 'Game/Flags';
+import { NextScreenChoices, choiceWrap, ScreenChoice } from 'Game/ScreenDisplay';
+import { EffectType } from 'Game/Effects/EffectType';
+import { kitsuneRaceScore, bunnyRaceScore, harpyRaceScore, gooRaceScore } from 'Game/Character/RaceScore';
+import { CView } from 'Page/ContentView';
+import { Time } from 'Game/Utilities/Time';
+import { ConsumableName } from 'Game/Items/Consumables/ConsumableName';
+import { WingType } from 'Game/Character/Body/Wings';
+import { randInt, randomChoice } from 'Engine/Utilities/SMath';
+import { displayStretchButt } from 'Game/Modifiers/ButtModifier';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { LegType } from 'Game/Character/Body/Legs';
+import { CockType } from 'Game/Character/Body/Cock';
+import { FaceType } from 'Game/Character/Body/Face';
+import { gameOverMenu } from 'Game/Menus/InGame/GameOverMenu';
+import { displayStretchVagina } from 'Game/Modifiers/VaginaModifier';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { passTime } from 'Game/Menus/InGame/PlayerMenu';
 
 export const ErlKingFlags = {
     ERLKING_ENCOUNTER_COUNTER: 0,
@@ -26,7 +24,7 @@ export const ErlKingFlags = {
     ERLKING_DISABLED: 0,
     TIMES_ENCOUNTERED_PRINCESS_GWYNN: 0,
 };
-Flags.set(FlagType.ErlKing, ErlKingFlags);
+Flags.set("ErlKing", ErlKingFlags);
 
 export function encounterWildHunt(player: Character): NextScreenChoices {
     ErlKingFlags.WILD_HUNT_ENCOUNTERS++;
@@ -61,11 +59,11 @@ export function playerHuntScore(player: Character): number {
             -10 for Centaur Half
     */
 
-    if (player.perks.has(PerkType.Evade)) {
+    if (player.effects.has(EffectType.Evade)) {
         baseVal += 20;
         // trace("+20 for Evade");
     }
-    if (player.perks.has(PerkType.Runner)) {
+    if (player.effects.has(EffectType.Runner)) {
         baseVal += 20;
         // trace("+20 for Runner");
     }
@@ -73,30 +71,30 @@ export function playerHuntScore(player: Character): number {
         baseVal += 20;
         // trace("+20 for Drider");
     }
-    if (player.perks.has(PerkType.CorruptedNinetails)) {
+    if (player.effects.has(EffectType.CorruptedNinetails)) {
         baseVal += 30;
         // trace("+30 For Ninetails");
     }
-    if (player.perks.has(PerkType.EnlightenedNinetails)) {
+    if (player.effects.has(EffectType.EnlightenedNinetails)) {
         baseVal += 30;
         // trace("+30 for Ninetails");
     }
 
     // Akbal Blessings
-    if (player.perks.has(PerkType.FireLord)) {
+    if (player.effects.has(EffectType.FireLord)) {
         baseVal += 10;
         // trace("+10 for Firelord");
     }
-    if (player.perks.has(PerkType.Whispered)) {
+    if (player.effects.has(EffectType.Whispered)) {
         baseVal += 10;
         // trace("+10 for Whispered");
     }
 
-    if (player.perks.has(PerkType.Fast)) {
+    if (player.effects.has(EffectType.Fast)) {
         baseVal += 10;
         // trace("+10 for Fast");
     }
-    if (player.perks.has(PerkType.Incorporeality)) {
+    if (player.effects.has(EffectType.Incorporeality)) {
         baseVal += 10;
         // trace("+10 for Incorporeal");
     }
@@ -165,7 +163,7 @@ function firstWildHuntChase(player: Character, waited: boolean = false): NextScr
     }
     else {
         CView.text("The baying of hounds fills the air, and the trees echo with the distant thunder of hooves as the first of the creatures bursts through the fog.  Stooped and low, this beast-man is mostly canine, with a sharp-toothed muzzle spread wide and panting.  His red-black tongue dangles with each breath, steam rising up from his jaws.  The hound’s pelt is midnight black, covering his muscular frame.  Strong arms hang low, almost touching the ground, muscles flexing as his surprisingly human hands open and close restlessly.  His legs are distinctly dog-like, ending in wide, black-clawed paws.  Between its stocky legs; you catch a glimpse of an arm-thick sheath and a heavy sack behind.  A broad tail wags behind him, swinging slowly and menacingly");
-        if (player.effects.has(StatusEffectType.MetWhitney)) CView.text(", and for a moment all you can think of are Whitney’s canine peppers");
+        if (player.effects.has(EffectType.MetWhitney)) CView.text(", and for a moment all you can think of are Whitney’s canine peppers");
         CView.text(".\n\n");
 
         CView.text("His baleful red eyes glare at you from beneath a dark brow.  The hound takes in a deep breath, his nostrils flaring, then throws his head back to howl.  The deafening sound is answered instantly by the crashing of brush as another beast man leaps through the undergrowth.  The fog falls to shreds as he leaps out behind you, flanking you with his fellow Hound.\n\n");

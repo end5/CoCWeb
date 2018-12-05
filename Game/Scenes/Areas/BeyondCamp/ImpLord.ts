@@ -1,28 +1,28 @@
-import { Character } from "../../../Character/Character";
-import { defeatImpLord, loseToAnImpLord } from "./ImpLordScene";
-import { NextScreenChoices } from "../../../ScreenDisplay";
-import { CView } from "../../../../Page/ContentView";
-import { randInt } from "../../../../Engine/Utilities/SMath";
-import { combatDodge } from "../../../Combat/CombatUtils";
-import { EndScenes } from "../../../Combat/EndScenes";
-import { DefeatType } from "../../../Combat/DefeatEvent";
-import { Cock, CockType } from "../../../Body/Cock";
-import { ButtLooseness, ButtWetness, ButtRating } from "../../../Body/Butt";
-import { HipRating } from "../../../Body/Hips";
-import { LegType } from "../../../Body/Legs";
-import { WeightedDrop } from "../../../Utilities/Drops/WeightedDrop";
-import { ConsumableName } from "../../../Items/Consumables/ConsumableName";
-import { WingType } from "../../../Body/Wings";
-import { CharacterInventory } from "../../../Inventory/CharacterInventory";
-import { CharacterDescription } from "../../../Character/CharacterDescription";
-import { CombatContainer } from "../../../Combat/CombatContainer";
-import { Weapon } from "../../../Items/Weapons/Weapon";
-import { WeaponName } from "../../../Items/Weapons/WeaponName";
-import { ItemDesc } from "../../../Items/ItemDesc";
-import { Armor } from "../../../Items/Armors/Armor";
-import { ArmorName } from "../../../Items/Armors/ArmorName";
-import { CharacterType } from "../../../Character/CharacterType";
-import { CombatAction } from "../../../Combat/Actions/CombatAction";
+import { Character } from 'Game/Character/Character';
+import { defeatImpLord, loseToAnImpLord } from './ImpLordScene';
+import { NextScreenChoices } from 'Game/ScreenDisplay';
+import { CView } from 'Page/ContentView';
+import { randInt } from 'Engine/Utilities/SMath';
+import { combatDodge } from 'Game/Combat/CombatUtils';
+import { EndScenes } from 'Game/Combat/EndScenes';
+import { DefeatType } from 'Game/Combat/DefeatEvent';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { ButtLooseness, ButtWetness, ButtRating } from 'Game/Character/Body/Butt';
+import { HipRating } from 'Game/Character/Body/Hips';
+import { LegType } from 'Game/Character/Body/Legs';
+import { WeightedDrop } from 'Game/Utilities/Drops/WeightedDrop';
+import { ConsumableName } from 'Game/Items/Consumables/ConsumableName';
+import { WingType } from 'Game/Character/Body/Wings';
+import { CharacterInventory } from 'Game/Inventory/CharacterInventory';
+import { CharacterDescription } from 'Game/Character/CharacterDescription';
+import { CombatContainer } from 'Game/Combat/CombatContainer';
+import { Weapon } from 'Game/Items/Weapons/Weapon';
+import { WeaponName } from 'Game/Items/Weapons/WeaponName';
+import { ItemDesc } from 'Game/Items/ItemDesc';
+import { Armor } from 'Game/Items/Armors/Armor';
+import { ArmorName } from 'Game/Items/Armors/ArmorName';
+import { CharacterType } from 'Game/Character/CharacterType';
+import { CombatAction } from 'Game/Combat/Actions/CombatAction';
 
 // Special Attack 1
 class Fire extends CombatAction {
@@ -31,7 +31,7 @@ class Fire extends CombatAction {
         CView.text("The imp mutters something to himself. Before you have time to react the demonic creature's hand is filled with a bright red fire that he hurls at you.  The flames lick at your body leaving a painful burn on you torso, as well as an arousing heat in your groin.");
         // [-HP // +Lust(minor)]
         const damage: number = 40 + randInt(10);
-        enemy.combat.stats.loseHP(damage);
+        enemy.combat.loseHP(damage);
         enemy.stats.lust += 20 + enemy.stats.cor / 10;
     }
 }
@@ -40,13 +40,13 @@ class Fire extends CombatAction {
 class HeavyAttack extends CombatAction {
     public name: string = "Heavy Attack";
     public useAction(char: Character, enemy: Character) {
-        let damage: number = Math.floor((char.stats.str + char.combat.stats.attack() + 20) - randInt(enemy.stats.tou) - enemy.combat.stats.defense());
+        let damage: number = Math.floor((char.stats.str + char.combat.attack() + 20) - randInt(enemy.stats.tou) - enemy.combat.defense());
         CView.text("The demonic creature slashes a clawed hand towards your stomach,");
         if (combatDodge(char, enemy)) CView.text(" but you handily avoid it.");
         else if (damage <= 0) CView.text(" but the attack proves ineffectual.");
         else {
             CView.text("leaving a large gash. The attack leaves you slightly stunned, but you recover. ");
-            damage = enemy.combat.stats.loseHP(damage);
+            damage = enemy.combat.loseHP(damage);
             CView.text("(" + damage + ")");
         }
     }
@@ -68,7 +68,7 @@ class LustAttackWithDamage extends CombatAction {
     public useAction(char: Character, enemy: Character) {
         CView.text("Reaching into his satchel the devilish creature pulls out a leather riding crop.  He quickly rushes forward, but somehow manages to get behind you.  Before you can react the imp lashes out, striking your [butt] twice with the riding crop.  The strikes leave a slight burning feeling, as well as a strange sense of arousal.");
         let damage: number = 3 + randInt(10);
-        damage = enemy.combat.stats.loseHP(damage);
+        damage = enemy.combat.loseHP(damage);
         CView.text(" (" + damage + ")");
         // [-HP(minor) // +Lust]
         enemy.stats.lust += 5 + enemy.stats.sens / 4 + enemy.stats.cor / 10;

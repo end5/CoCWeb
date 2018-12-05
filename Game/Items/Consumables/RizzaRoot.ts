@@ -1,11 +1,11 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
+import { randInt } from 'Engine/Utilities/SMath';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { describeHair } from '../../Descriptors/HairDescriptor';
-import { CView } from '../../../Page/ContentView';
+import { describeHair } from 'Game/Descriptors/HairDescriptor';
+import { CView } from 'Page/ContentView';
 
 export class RizzaRoot extends Consumable {
     public constructor() {
@@ -23,7 +23,7 @@ export class RizzaRoot extends Consumable {
         if (randInt(2) === 0) changeLimit++;
         if (randInt(3) === 0) changeLimit++;
         if (randInt(4) === 0) changeLimit++;
-        if (character.perks.has(PerkType.HistoryAlchemist)) changeLimit++;
+        if (character.effects.has(EffectType.HistoryAlchemist)) changeLimit++;
         CView.text("You chew on the thin red roots.  They have a rubbery texture and the taste is something like lemons and oranges mixed together.  The roots dry out your mouth as you chew them but at the same time they cause a cooling and numbing sensation that’s rather pleasant.");
         if ((changes < changeLimit) && (character.body.skin.type !== 0) && (randInt(6) === 0)) {
             if (character.body.skin.type === 1)

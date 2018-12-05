@@ -1,9 +1,9 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { CView } from '../../../Page/ContentView';
+import { CView } from 'Page/ContentView';
 
 export class PurePearl extends Consumable {
     public constructor() {
@@ -16,7 +16,7 @@ export class PurePearl extends Consumable {
         character.stats.lib += -5;
         character.stats.lust += -25;
         character.stats.cor += -10;
-        if (!character.perks.has(PerkType.PurityBlessing))
-            character.perks.add(PerkType.PurityBlessing);
+        if (!character.effects.has(EffectType.PurityBlessing))
+            character.effects.create(EffectType.PurityBlessing);
     }
 }

@@ -1,9 +1,9 @@
-import { NextScreenChoices, ScreenChoice } from '../../ScreenDisplay';
-import { CView } from '../../../Page/ContentView';
-import { Character } from '../../Character/Character';
+import { NextScreenChoices, ScreenChoice } from 'Game/ScreenDisplay';
+import { CView } from 'Page/ContentView';
+import { Character } from 'Game/Character/Character';
 import { playerMenu } from './PlayerMenu';
-import { RangedStatWithEffects } from '../../Body/Stat/RangedStatWithEffects';
-import { StatWithEffects } from '../../Body/Stat/StatWithEffects';
+import { RangedStatWithEffects } from 'Game/Character/Stats/Stat/RangedStatWithEffects';
+import { StatWithEffects } from 'Game/Character/Stats/Stat/StatWithEffects';
 
 export function statsMenu(player: Character): NextScreenChoices {
     return stats(player);
@@ -23,8 +23,8 @@ function menuChoices(player: Character, screen: (player: Character) => NextScree
 function combatStats(player: Character): NextScreenChoices {
     CView.clear();
     CView.text('<b><u>Combat Stats: </u></b>');
-    CView.text('Attack: ' + player.combat.stats.attack(player));
-    CView.text('Defense: ' + player.combat.stats.defense());
+    CView.text('Attack: ' + player.combat.attack());
+    CView.text('Defense: ' + player.combat.defense());
     return menuChoices(player, combatStats);
 }
 
@@ -68,9 +68,9 @@ function stats(player: Character): NextScreenChoices {
         }
         else {
             CView.text(statKey + ': ' + stat.value + '\n');
-            for (const mod of player.stats.base.str.effects.entries()) {
-                if (mod[1].toString() !== '')
-                    CView.text('  ' + mod[0] + ': ' + mod[1].toString() + '\n');
+            for (const effect of stat.effects) {
+                if (effect.value && effect.value.toString() !== '')
+                    CView.text('  ' + statKey + ': ' + effect.value.toString() + '\n');
             }
         }
     }

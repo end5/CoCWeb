@@ -1,19 +1,18 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { Cock } from '../../Body/Cock';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
+import { Cock } from 'Game/Character/Body/Cock';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { describeLegs } from '../../Descriptors/LegDescriptor';
-import { describeNipple, describeAllBreasts } from '../../Descriptors/BreastDescriptor';
-import { describeCock } from '../../Descriptors/CockDescriptor';
-import { describeSack } from '../../Descriptors/BallsDescriptor';
-import { describeHips } from '../../Descriptors/HipDescriptor';
-import { describeVagina } from '../../Descriptors/VaginaDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { displayCharacterHPChange } from '../../Modifiers/StatModifier';
-import { displayModFem, displayModTone, displayModThickness } from '../../Modifiers/BodyModifier';
+import { describeLegs } from 'Game/Descriptors/LegDescriptor';
+import { describeNipple, describeAllBreasts } from 'Game/Descriptors/BreastDescriptor';
+import { describeCock } from 'Game/Descriptors/CockDescriptor';
+import { describeSack } from 'Game/Descriptors/BallsDescriptor';
+import { describeHips } from 'Game/Descriptors/HipDescriptor';
+import { describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { CView } from 'Page/ContentView';
+import { displayCharacterHPChange } from 'Game/Modifiers/StatModifier';
+import { displayModFem, displayModTone, displayModThickness } from 'Game/Modifiers/BodyModifier';
 
 export class BroBrew extends Consumable {
     public constructor() {
@@ -23,7 +22,7 @@ export class BroBrew extends Consumable {
     public use(character: Character) {
         CView.clear();
         // no drink for bimbos!
-        if (character.perks.has(PerkType.BimboBody)) {
+        if (character.effects.has(EffectType.BimboBody)) {
             CView.text("The stuff hits you like a giant cube, nearly staggering you as it begins to settle.");
             if (character.body.tallness < 77) {
                 character.body.tallness = 77;
@@ -62,19 +61,19 @@ export class BroBrew extends Consumable {
                 character.stats.lib += 0.1;
             }
             CView.text("\n\n");
-            if (character.perks.has(PerkType.BimboBrains))
+            if (character.effects.has(EffectType.BimboBrains))
                 CView.text("<b>(Lost Perks - Bimbo Brains, Bimbo Body)\n");
             else
                 CView.text("<b>(Lost Perk - Bimbo Body)\n");
-            character.perks.remove(PerkType.BimboBrains);
-            character.perks.remove(PerkType.BimboBody);
-            character.perks.add(PerkType.FutaForm);
-            character.perks.add(PerkType.FutaFaculties);
+            character.effects.removeByName(EffectType.BimboBrains);
+            character.effects.removeByName(EffectType.BimboBody);
+            character.effects.create(EffectType.FutaForm);
+            character.effects.create(EffectType.FutaFaculties);
             CView.text("(Gained Perks - Futa Form, Futa Faculties)</b>");
             return;
         }
         // HP restore for bros!
-        if (character.perks.has(PerkType.BroBody) || character.perks.has(PerkType.FutaForm)) {
+        if (character.effects.has(EffectType.BroBody) || character.effects.has(EffectType.FutaForm)) {
             CView.text("You crack open the can and guzzle it in a hurry.  Goddamn, this shit is the best.  As you crush the can against your forehead, you wonder if you can find a six-pack of it somewhere?\n\n");
             character.stats.fatigue -= 33;
             displayCharacterHPChange(character, 100);
@@ -110,8 +109,7 @@ export class BroBrew extends Consumable {
                 if (topBreastRow.nipples.length > .5)
                     topBreastRow.nipples.length = .25;
                 topBreastRow.lactationMultiplier = 0;
-                character.effects.remove(StatusEffectType.Feeder);
-                character.perks.remove(PerkType.Feeder);
+                character.effects.removeByName(EffectType.Feeder);
                 CView.text("All too soon, your boobs are gone.  Whoa!\n\n");
             }
         }
@@ -175,13 +173,13 @@ export class BroBrew extends Consumable {
         displayModTone(character, 100, 100);
         displayModThickness(character, 100, 50);
         // Bonus cum production!
-        character.perks.add(PerkType.BroBrains);
-        character.perks.add(PerkType.BroBody);
+        character.effects.create(EffectType.BroBrains);
+        character.effects.create(EffectType.BroBody);
         CView.text("<b>(Bro Body - Perk Gained!)\n");
         CView.text("(Bro Brains - Perk Gained!)</b>\n"); // int to 20.  max int 50
-        if (character.perks.has(PerkType.Feeder)) {
+        if (character.effects.has(EffectType.Feeder)) {
             CView.text("<b>(Perk Lost - Feeder!)</b>\n");
-            character.perks.remove(PerkType.Feeder);
+            character.effects.removeByName(EffectType.Feeder);
         }
         if (character.stats.int > 21)
             character.stats.int = 21;

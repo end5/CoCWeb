@@ -1,15 +1,15 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { Tail, TailType } from '../../Body/Tail';
-import { WingType } from '../../Body/Wings';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
-import { numToCardinalText } from '../../Utilities/NumToText';
+import { randInt } from 'Engine/Utilities/SMath';
+import { Tail, TailType } from 'Game/Character/Body/Tail';
+import { WingType } from 'Game/Character/Body/Wings';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
+import { numToCardinalText } from 'Game/Utilities/NumToText';
 import { ItemDesc } from '../ItemDesc';
-import { describeNipple } from '../../Descriptors/BreastDescriptor';
+import { describeNipple } from 'Game/Descriptors/BreastDescriptor';
 import { ReptilumFlags } from './Reptilum';
-import { CView } from '../../../Page/ContentView';
+import { CView } from 'Page/ContentView';
 
 export class ShriveledTentacle extends Consumable {
     public constructor() {
@@ -23,7 +23,7 @@ export class ShriveledTentacle extends Consumable {
         let changeLimit: number = 1;
         if (randInt(2) === 0) changeLimit++;
         if (randInt(3) === 0) changeLimit++;
-        if (character.perks.has(PerkType.HistoryAlchemist)) changeLimit++;
+        if (character.effects.has(EffectType.HistoryAlchemist)) changeLimit++;
 
         // possible use effects:
         // - toughess up, sensitivity down

@@ -1,20 +1,20 @@
-import { NextScreenChoices, ScreenChoice, attachCharToUI } from "../../ScreenDisplay";
-import { MainScreen } from "../../../Page/MainScreen";
-import { Player } from "../../Character/Player/Player";
-import { Time } from "../../Utilities/Time";
-import { CView } from "../../../Page/ContentView";
-import { InputTextElement } from "../../../Engine/Display/Elements/InputTextElement";
-import { BreastRow, BreastCup } from "../../Body/BreastRow";
-import { Cock, CockType } from "../../Body/Cock";
-import { Gender } from "../../Body/GenderIdentity";
-import { Vagina, VaginaWetness, VaginaLooseness } from "../../Body/Vagina";
-import { ButtRating } from "../../Body/Butt";
-import { HipRating } from "../../Body/Hips";
-import { describeHair } from "../../Descriptors/HairDescriptor";
-import { PerkType } from "../../Effects/PerkType";
-import { Character } from "../../Character/Character";
-import { CharDict } from "../../CharDict";
-import { playerMenu } from "./PlayerMenu";
+import { NextScreenChoices, ScreenChoice } from 'Game/ScreenDisplay';
+import { MainScreen } from 'Page/MainScreen';
+import { Player } from 'Game/Character/Player/Player';
+import { Time } from 'Game/Utilities/Time';
+import { CView } from 'Page/ContentView';
+import { InputTextElement } from 'Engine/Display/Elements/InputTextElement';
+import { BreastRow, BreastCup } from 'Game/Character/Body/BreastRow';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { Gender } from 'Game/Character/Body/GenderIdentity';
+import { Vagina, VaginaWetness, VaginaLooseness } from 'Game/Character/Body/Vagina';
+import { ButtRating } from 'Game/Character/Body/Butt';
+import { HipRating } from 'Game/Character/Body/Hips';
+import { describeHair } from 'Game/Descriptors/HairDescriptor';
+import { EffectType } from 'Game/Effects/EffectType';
+import { Character } from 'Game/Character/Character';
+import { CharDict } from 'Game/CharDict';
+import { playerMenu } from './PlayerMenu';
 
 export function charCreationMenu(): NextScreenChoices {
     MainScreen.statsPanel.hide();
@@ -341,7 +341,7 @@ function setEndowmentStrength(player: Character): NextScreenChoices {
     player.body.tone += 7;
     player.body.thickness += 3;
     // Add bonus +25% strength gain
-    player.perks.add(PerkType.Strong, { str: { value: { multi: (val) => val + val * 0.25 } } });
+    player.effects.create(EffectType.Strong, { str: { value: { multi: (val) => val + val * 0.25 } } });
     return chooseHistory();
 }
 
@@ -349,7 +349,7 @@ function setEndowmentToughness(player: Character): NextScreenChoices {
     player.stats.tou += 5;
     player.body.tone += 5;
     player.body.thickness += 5;
-    player.perks.add(PerkType.Tough, { tou: { value: { multi: (val) => val + val * 0.25 } } });
+    player.effects.create(EffectType.Tough, { tou: { value: { multi: (val) => val + val * 0.25 } } });
     player.stats.HP = player.stats.maxHP();
     return chooseHistory();
 }
@@ -357,26 +357,26 @@ function setEndowmentToughness(player: Character): NextScreenChoices {
 function setEndowmentSpeed(player: Character): NextScreenChoices {
     player.stats.spe += 5;
     player.body.tone += 10;
-    player.perks.add(PerkType.Fast, { spe: { value: { multi: (val) => val + val * 0.25 } } });
+    player.effects.create(EffectType.Fast, { spe: { value: { multi: (val) => val + val * 0.25 } } });
     return chooseHistory();
 }
 
 function setEndowmentSmarts(player: Character): NextScreenChoices {
     player.stats.int += 5;
     player.body.thickness -= 5;
-    player.perks.add(PerkType.Smart, { int: { value: { multi: (val) => val + val * 0.25 } } });
+    player.effects.create(EffectType.Smart, { int: { value: { multi: (val) => val + val * 0.25 } } });
     return chooseHistory();
 }
 
 function setEndowmentLibido(player: Character): NextScreenChoices {
     player.stats.lib += 5;
-    player.perks.add(PerkType.Lusty, { lib: { value: { multi: (val) => val + val * 0.25 } } });
+    player.effects.create(EffectType.Lusty, { lib: { value: { multi: (val) => val + val * 0.25 } } });
     return chooseHistory();
 }
 
 function setEndowmentTouch(player: Character): NextScreenChoices {
     player.stats.sens += 5;
-    player.perks.add(PerkType.Sensitive, { sens: { value: { multi: (val) => val + val * 0.25 } } });
+    player.effects.create(EffectType.Sensitive, { sens: { value: { multi: (val) => val + val * 0.25 } } });
     return chooseHistory();
 }
 
@@ -384,28 +384,28 @@ function setEndowmentBigCock(player: Character): NextScreenChoices {
     player.body.femininity -= 5;
     player.body.cocks.get(0)!.length = 8;
     player.body.cocks.get(0)!.thickness = 1.5;
-    player.perks.add(PerkType.BigCock);
+    player.effects.create(EffectType.BigCock);
     return chooseHistory();
 }
 
 function setEndowmentMessyOrgasms(player: Character): NextScreenChoices {
     player.body.femininity -= 2;
     player.body.cumMultiplier = 1.5;
-    player.perks.add(PerkType.MessyOrgasms);
+    player.effects.create(EffectType.MessyOrgasms);
     return chooseHistory();
 }
 
 function setEndowmentBigBreasts(player: Character): NextScreenChoices {
     player.body.femininity += 5;
     player.body.chest.firstRow.rating += 2;
-    player.perks.add(PerkType.BigTits);
+    player.effects.create(EffectType.BigTits);
     return chooseHistory();
 }
 
 function setEndowmentBigClit(player: Character): NextScreenChoices {
     player.body.femininity -= 5;
     player.body.clit.length = 1;
-    player.perks.add(PerkType.BigClit);
+    player.effects.create(EffectType.BigClit);
     return chooseHistory();
 }
 
@@ -413,14 +413,14 @@ function setEndowmentFertile(player: Character): NextScreenChoices {
     player.body.femininity += 5;
     player.body.fertility += 25;
     player.body.hips.rating += 2;
-    player.perks.add(PerkType.Fertile);
+    player.effects.create(EffectType.Fertile);
     return chooseHistory();
 }
 
 function setEndowmentWetVagina(player: Character): NextScreenChoices {
     player.body.femininity += 7;
     player.body.vaginas.get(0)!.wetness = VaginaWetness.WET;
-    player.perks.add(PerkType.WetPussy);
+    player.effects.create(EffectType.WetPussy);
     return chooseHistory();
 }
 
@@ -429,44 +429,44 @@ function chooseHistory(): NextScreenChoices {
     CView.text("Before you became a champion, you had other plans for your life.  What were you doing before?");
     return {
         choices: [
-            ["Alchemy", () => confirmHistory(PerkType.HistoryAlchemist)],
-            ["Fighting", () => confirmHistory(PerkType.HistoryFighter)],
-            ["Healing", () => confirmHistory(PerkType.HistoryHealer)],
-            ["Religion", () => confirmHistory(PerkType.HistoryReligious)],
-            ["Schooling", () => confirmHistory(PerkType.HistoryScholar)],
-            ["Slacking", () => confirmHistory(PerkType.HistorySlacker)],
-            ["Slutting", () => confirmHistory(PerkType.HistorySlut)],
-            ["Smithing", () => confirmHistory(PerkType.HistorySmith)],
-            ["Whoring", () => confirmHistory(PerkType.HistoryWhore)],
+            ["Alchemy", () => confirmHistory(EffectType.HistoryAlchemist)],
+            ["Fighting", () => confirmHistory(EffectType.HistoryFighter)],
+            ["Healing", () => confirmHistory(EffectType.HistoryHealer)],
+            ["Religion", () => confirmHistory(EffectType.HistoryReligious)],
+            ["Schooling", () => confirmHistory(EffectType.HistoryScholar)],
+            ["Slacking", () => confirmHistory(EffectType.HistorySlacker)],
+            ["Slutting", () => confirmHistory(EffectType.HistorySlut)],
+            ["Smithing", () => confirmHistory(EffectType.HistorySmith)],
+            ["Whoring", () => confirmHistory(EffectType.HistoryWhore)],
         ]
     };
 }
 
-function confirmHistory(choice: PerkType): NextScreenChoices {
+function confirmHistory(choice: EffectType): NextScreenChoices {
     CView.clear();
     switch (choice) {
-        case PerkType.HistoryAlchemist:
+        case EffectType.HistoryAlchemist:
             CView.text("You spent some time as an alchemist's assistant, and alchemical items always seem to be more reactive in your hands.  Is this your history?");
             break;
-        case PerkType.HistoryFighter:
+        case EffectType.HistoryFighter:
             CView.text("You spent much of your time fighting other children, and you had plans to find work as a guard when you grew up.  You do 10% more damage with physical attacks.  Is this your history?");
             break;
-        case PerkType.HistoryHealer:
+        case EffectType.HistoryHealer:
             CView.text("You often spent your free time with the village healer, learning how to tend to wounds.  Healing items and effects are 20% more effective.  Is this your history?");
             break;
-        case PerkType.HistoryReligious:
+        case EffectType.HistoryReligious:
             CView.text("You spent a lot of time at the village temple, and learned how to meditate.  The 'masturbation' option is replaced with 'meditate' when corruption is at or below 66.  Is this your history?");
             break;
-        case PerkType.HistoryScholar:
+        case EffectType.HistoryScholar:
             CView.text("You spent much of your time in school, and even begged the richest man in town, Mr. Savin, to let you read some of his books.  You are much better at focusing, and spellcasting uses 20% less fatigue.  Is this your history?");
             break;
-        case PerkType.HistorySlacker:
+        case EffectType.HistorySlacker:
             CView.text("You spent a lot of time slacking, avoiding work, and otherwise making a nuisance of yourself.  Your efforts at slacking have made you quite adept at resting, and your fatigue comes back 20% faster.  Is this your history?");
             break;
-        case PerkType.HistorySlut:
+        case EffectType.HistorySlut:
             CView.text("You managed to spend most of your time having sex.  Quite simply, when it came to sex, you were the village bicycle - everyone got a ride.  Because of this, your body is a bit more resistant to penetrative stretching, and has a higher upper limit on what exactly can be inserted.  Is this your history?");
             break;
-        case PerkType.HistorySmith:
+        case EffectType.HistorySmith:
             CView.text("You managed to get an apprenticeship with the local blacksmith.  Because of your time spent at the blacksmith's side, you've learned how to fit armor for maximum protection.  Is this your history?");
             break;
         default:
@@ -475,9 +475,9 @@ function confirmHistory(choice: PerkType): NextScreenChoices {
     return { yes: (player: Character) => setHistory(player, choice), no: chooseHistory };
 }
 
-function setHistory(player: Character, choice: PerkType): NextScreenChoices {
-    player.perks.add(choice);
-    if (choice === PerkType.HistorySlut || choice === PerkType.HistoryWhore) {
+function setHistory(player: Character, choice: EffectType): NextScreenChoices {
+    player.effects.create(choice);
+    if (choice === EffectType.HistorySlut || choice === EffectType.HistoryWhore) {
         if (player.body.vaginas.length > 0) {
             player.body.vaginas.get(0)!.virgin = false;
             player.body.vaginas.get(0)!.looseness = VaginaLooseness.LOOSE;
@@ -507,7 +507,6 @@ function arrival(player: Character): NextScreenChoices {
     else CView.text("and your body reacts with a sense of growing warmth focusing in your groin, your manhood hardening for no apparent reason. ");
     CView.text("You were warned of this and press forward, ignoring your body's growing needs.  A glowing purple-pink portal swirls and flares with demonic light along the back wall.  Cringing, you press forward, keenly aware that your body seems to be anticipating coming in contact with the tainted magical construct.  Closing your eyes, you gather your resolve and leap forwards.  Vertigo overwhelms you and you black out...");
     MainScreen.statsPanel.show();
-    attachCharToUI(player);
     player.stats.lust += 15;
     return { next: arrivalPartTwo };
 }

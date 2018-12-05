@@ -1,18 +1,17 @@
-import { Character } from "../../../Character/Character";
-import { Flags } from "../../../Flags";
-import { FlagType } from "../../../FlagType";
-import { NextScreenChoices, choiceWrap, ScreenChoice } from "../../../ScreenDisplay";
-import { CView } from "../../../../Page/ContentView";
-import { BreastRow } from "../../../Body/BreastRow";
-import { passTime, playerMenu } from "../../../Menus/InGame/PlayerMenu";
-import { breastCup } from "../../../Descriptors/BreastDescriptor";
-import { displayStretchButt } from "../../../Modifiers/ButtModifier";
-import { describeHair } from "../../../Descriptors/HairDescriptor";
-import { numToCardinalCapText } from "../../../Utilities/NumToText";
-import { growTopBreastRowDownwards, boostLactation } from "../../../Modifiers/BreastModifier";
-import { Cock } from "../../../Body/Cock";
-import { ConsumableName } from "../../../Items/Consumables/ConsumableName";
-import { randInt } from "../../../../Engine/Utilities/SMath";
+import { Character } from 'Game/Character/Character';
+import { Flags } from 'Game/Flags';
+import { NextScreenChoices, choiceWrap, ScreenChoice } from 'Game/ScreenDisplay';
+import { CView } from 'Page/ContentView';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { passTime, playerMenu } from 'Game/Menus/InGame/PlayerMenu';
+import { breastCup } from 'Game/Descriptors/BreastDescriptor';
+import { displayStretchButt } from 'Game/Modifiers/ButtModifier';
+import { describeHair } from 'Game/Descriptors/HairDescriptor';
+import { numToCardinalCapText } from 'Game/Utilities/NumToText';
+import { growTopBreastRowDownwards, boostLactation } from 'Game/Modifiers/BreastModifier';
+import { Cock } from 'Game/Character/Body/Cock';
+import { ConsumableName } from 'Game/Items/Consumables/ConsumableName';
+import { randInt } from 'Engine/Utilities/SMath';
 
 export const EssrayleFlags = {
     MET_ESSY: 0,
@@ -24,7 +23,7 @@ export const EssrayleFlags = {
     TOLD_MOTHER_TO_RELEASE_ESSY: 0,
     ESSY_MET_IN_DUNGEON: 0
 };
-Flags.set(FlagType.Essrayle, EssrayleFlags);
+Flags.set("Essrayle", EssrayleFlags);
 
 // const MET_ESSY: number = 772;
 // const TURNED_DOWN_ESSY_FIRST_MEETING: number = 773;

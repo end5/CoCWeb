@@ -1,13 +1,13 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { Character } from '../../Character/Character';
-import { numToCardinalText } from '../../Utilities/NumToText';
+import { randInt } from 'Engine/Utilities/SMath';
+import { Character } from 'Game/Character/Character';
+import { numToCardinalText } from 'Game/Utilities/NumToText';
 import { ItemDesc } from '../ItemDesc';
 import { MaterialName } from '../Materials/MaterialName';
-import { CView } from '../../../Page/ContentView';
+import { CView } from 'Page/ContentView';
 import { getItemFromName } from '../ItemLookup';
-import { inventoryMenu } from '../../Menus/InGame/PlayerInventoryMenu';
+import { inventoryMenu } from 'Game/Menus/InGame/PlayerInventoryMenu';
 
 export class KitsuneGift extends Consumable {
     public constructor() {

@@ -1,12 +1,11 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { Gender } from '../../Body/GenderIdentity';
-import { Character } from '../../Character/Character';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
+import { Gender } from 'Game/Character/Body/GenderIdentity';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { CView } from '../../../Page/ContentView';
-import { FlagType } from '../../FlagType';
-import { Flags } from '../../Flags';
+import { CView } from 'Page/ContentView';
+import { Flags } from 'Game/Flags';
 
 export const CeruleanPotionFlags = {
     CERULEAN_POTION_NEUTER_ATTEMPTED: 0,
@@ -14,7 +13,7 @@ export const CeruleanPotionFlags = {
     TIMES_DRANK: 0,
 };
 
-Flags.set(FlagType.CeruleanPotion, CeruleanPotionFlags);
+Flags.set("Cerulean Potion", CeruleanPotionFlags);
 
 export class CeruleanPotion extends Consumable {
     public constructor() {
@@ -35,7 +34,7 @@ export class CeruleanPotion extends Consumable {
         else {
             CView.text("The liquid tastes rather bland and goes down easily. ");
             // Special repeat texts
-            if (character.effects.has(StatusEffectType.RepeatSuccubi))
+            if (character.effects.has(EffectType.RepeatSuccubi))
                 CView.text("You look forwards to tonight's encounter.");
             // First timer huh?
             else CView.text("You do not notice any real effects.  Did the merchant con you?");

@@ -1,11 +1,11 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { Character } from '../../Character/Character';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { describeButthole } from '../../Descriptors/ButtDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { displayGoIntoHeat, displayGoIntoRut } from '../../Modifiers/BodyModifier';
+import { describeButthole } from 'Game/Descriptors/ButtDescriptor';
+import { CView } from 'Page/ContentView';
+import { displayGoIntoHeat, displayGoIntoRut } from 'Game/Modifiers/BodyModifier';
 
 export class Coal extends Consumable {
     public constructor() {
@@ -28,11 +28,11 @@ export class Coal extends Consumable {
         }
         else {
             // Boost anal capacity without gaping
-            const bonusACapacity = character.effects.get(StatusEffectType.BonusACapacity);
+            let bonusACapacity = character.effects.getByName(EffectType.BonusACapacity);
             if (!bonusACapacity)
-                character.effects.add(StatusEffectType.BonusACapacity);
-            if (bonusACapacity && bonusACapacity.values.other!.capacity < 80) {
-                bonusACapacity.values.other!.capacity = 5;
+                bonusACapacity = character.effects.create(EffectType.BonusACapacity);
+            if (bonusACapacity.values.analCapacity < 80) {
+                bonusACapacity.values.analCapacity = 5;
                 CView.text("\n\nYou feel... more accommodating somehow.  Your " + describeButthole(character.body.butt) + " is tingling a bit, and though it doesn't seem to have loosened, it has grown more elastic.");
                 // changes++;
             }

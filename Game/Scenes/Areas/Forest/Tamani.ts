@@ -1,33 +1,31 @@
-import { Character } from "../../../Character/Character";
-import { NextScreenChoices, ClickFunction, choiceWrap } from "../../../ScreenDisplay";
-import { randInt, randomChoice } from "../../../../Engine/Utilities/SMath";
-import { CView } from "../../../../Page/ContentView";
-import { describeCocksLight } from "../../../Descriptors/CockDescriptor";
-import { Cock } from "../../../Body/Cock";
-import { passTime } from "../../../Menus/InGame/PlayerMenu";
-import { Vagina, VaginaWetness, VaginaLooseness } from "../../../Body/Vagina";
-import { StatusEffectType } from "../../../Effects/StatusEffectType";
-import { BreastCup } from "../../../Body/BreastRow";
-import { ButtLooseness, ButtWetness, ButtRating } from "../../../Body/Butt";
-import { HipRating } from "../../../Body/Hips";
-import { WeightedDrop } from "../../../Utilities/Drops/WeightedDrop";
-import { ConsumableName } from "../../../Items/Consumables/ConsumableName";
-import { TamaniFlags, tamaniChest, tamaniSexLost, tamaniSexLetHer, getRapedByTamaniYouHypnoSlut, tamaniAnalShits, tamaniBeaten, tamaniSexWon } from "./TamaniScene";
-import { CharacterInventory } from "../../../Inventory/CharacterInventory";
-import { CharacterDescription } from "../../../Character/CharacterDescription";
-import { CombatContainer } from "../../../Combat/CombatContainer";
-import { CharacterType } from "../../../Character/CharacterType";
-import { Weapon } from "../../../Items/Weapons/Weapon";
-import { WeaponName } from "../../../Items/Weapons/WeaponName";
-import { ItemDesc } from "../../../Items/ItemDesc";
-import { Armor } from "../../../Items/Armors/Armor";
-import { ArmorName } from "../../../Items/Armors/ArmorName";
-import { EndScenes } from "../../../Combat/EndScenes";
-import { DefeatType } from "../../../Combat/DefeatEvent";
-import { CombatAction } from "../../../Combat/Actions/CombatAction";
-import { PerkType } from "../../../Effects/PerkType";
-import { CombatEffectType } from "../../../Effects/CombatEffectType";
-import { GoblinTeaseAttack } from "../BeyondCamp/Goblin";
+import { Character } from 'Game/Character/Character';
+import { NextScreenChoices, ClickFunction, choiceWrap } from 'Game/ScreenDisplay';
+import { randInt, randomChoice } from 'Engine/Utilities/SMath';
+import { CView } from 'Page/ContentView';
+import { describeCocksLight } from 'Game/Descriptors/CockDescriptor';
+import { Cock } from 'Game/Character/Body/Cock';
+import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { Vagina, VaginaWetness, VaginaLooseness } from 'Game/Character/Body/Vagina';
+import { EffectType } from 'Game/Effects/EffectType';
+import { BreastCup } from 'Game/Character/Body/BreastRow';
+import { ButtLooseness, ButtWetness, ButtRating } from 'Game/Character/Body/Butt';
+import { HipRating } from 'Game/Character/Body/Hips';
+import { WeightedDrop } from 'Game/Utilities/Drops/WeightedDrop';
+import { ConsumableName } from 'Game/Items/Consumables/ConsumableName';
+import { TamaniFlags, tamaniChest, tamaniSexLost, tamaniSexLetHer, getRapedByTamaniYouHypnoSlut, tamaniAnalShits, tamaniBeaten, tamaniSexWon } from './TamaniScene';
+import { CharacterInventory } from 'Game/Inventory/CharacterInventory';
+import { CharacterDescription } from 'Game/Character/CharacterDescription';
+import { CombatContainer } from 'Game/Combat/CombatContainer';
+import { CharacterType } from 'Game/Character/CharacterType';
+import { Weapon } from 'Game/Items/Weapons/Weapon';
+import { WeaponName } from 'Game/Items/Weapons/WeaponName';
+import { ItemDesc } from 'Game/Items/ItemDesc';
+import { Armor } from 'Game/Items/Armors/Armor';
+import { ArmorName } from 'Game/Items/Armors/ArmorName';
+import { EndScenes } from 'Game/Combat/EndScenes';
+import { DefeatType } from 'Game/Combat/DefeatEvent';
+import { CombatAction } from 'Game/Combat/Actions/CombatAction';
+import { GoblinTeaseAttack } from '../BeyondCamp/Goblin';
 
 // New Tease option:
 class TamaniTease extends CombatAction {
@@ -105,7 +103,7 @@ export class TamaniDrugAttack extends CombatAction {
         // Drink blue pots
         else {
             CView.text(char.desc.capitalA + char.desc.short + " pulls out a blue vial and uncaps it, swiftly downing its contents.");
-            if (char.combat.stats.HPRatio() < 1) {
+            if (char.combat.HPRatio() < 1) {
                 CView.text("  She looks to have recovered from some of her wounds!\n");
                 char.stats.HP += (char.stats.maxHP() / 2);
             }
@@ -113,7 +111,7 @@ export class TamaniDrugAttack extends CombatAction {
             return;
         }
         // Dodge chance!
-        if ((enemy.perks.has(PerkType.Evade) && randInt(10) <= 3) || (randInt(100) < enemy.stats.spe / 5)) {
+        if ((enemy.effects.has(EffectType.Evade) && randInt(10) <= 3) || (randInt(100) < enemy.stats.spe / 5)) {
             CView.text("\nYou narrowly avoid the gush of alchemic fluids!\n");
         }
         else {
@@ -121,17 +119,17 @@ export class TamaniDrugAttack extends CombatAction {
             if (color === "red") {
                 // Temporary heat
                 CView.text("\nThe red fluids hit you and instantly soak into your skin, disappearing.  Your skin flushes and you feel warm.  Oh no...\n");
-                if (!enemy.combat.effects.has(CombatEffectType.TemporaryHeat)) enemy.combat.effects.add(CombatEffectType.TemporaryHeat, char);
+                if (!enemy.effects.has(EffectType.TemporaryHeat)) enemy.effects.create(EffectType.TemporaryHeat);
             }
             else if (color === "green") {
                 // Green poison
                 CView.text("\nThe greenish fluids splash over you, making you feel slimy and gross.  Nausea plagues you immediately - you have been poisoned!\n");
-                if (!enemy.combat.effects.has(CombatEffectType.Poison)) enemy.combat.effects.add(CombatEffectType.Poison, char);
+                if (!enemy.effects.has(EffectType.Poison)) enemy.effects.create(EffectType.Poison);
             }
             else if (color === "white") {
                 // sticky flee prevention
                 CView.text("\nYou try to avoid it, but it splatters the ground around you with very sticky white fluid, making it difficult to run.  You'll have a hard time escaping now!\n");
-                if (!enemy.combat.effects.has(CombatEffectType.NoFlee)) enemy.combat.effects.add(CombatEffectType.NoFlee, char);
+                if (!enemy.effects.has(EffectType.NoFlee)) enemy.effects.create(EffectType.NoFlee);
             }
             else if (color === "black") {
                 // Increase fatigue
@@ -201,11 +199,11 @@ export class Tamani extends Character {
         super(CharacterType.Tamani);
         this.description = new CharacterDescription(this, "", "Tamani", "She keeps her arms folded across her " + tamaniChest() + " and glares at you.  The little thing is only about four feet tall, with pink and black dyed hair cut into a cute little 'do.  The greenish-gray skin of her breasts bulges out around her arms, supported by a few leather straps, amplifying her cleavage.  Her cunt lips are pierced multiple times, inflamed, and slightly parted.  There really isn't any clothing on her to hide them, just more of the ever-present straps wrapping around her thighs.");
         this.body.vaginas.add(new Vagina(VaginaWetness.DROOLING, VaginaLooseness.NORMAL, false));
-        this.effects.add(StatusEffectType.BonusVCapacity, { vaginalCapacity: 55 });
+        this.effects.create(EffectType.BonusVCapacity, { vaginalCapacity: 55 });
         this.body.chest.firstRow.rating = BreastCup.E;
         this.body.butt.looseness = ButtLooseness.TIGHT;
         this.body.butt.wetness = ButtWetness.DRY;
-        this.effects.add(StatusEffectType.BonusACapacity, { analCapacity: 40 });
+        this.effects.create(EffectType.BonusACapacity, { analCapacity: 40 });
         this.body.tallness = 40;
         this.body.hips.rating = HipRating.AMPLE + 2;
         this.body.butt.rating = ButtRating.LARGE;

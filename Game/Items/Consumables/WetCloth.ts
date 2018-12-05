@@ -1,17 +1,17 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { LegType } from '../../Body/Legs';
-import { SkinType } from '../../Body/Skin';
-import { Vagina, VaginaLooseness, VaginaWetness } from '../../Body/Vagina';
-import { WingType } from '../../Body/Wings';
-import { Character } from '../../Character/Character';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
+import { randInt } from 'Engine/Utilities/SMath';
+import { LegType } from 'Game/Character/Body/Legs';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { Vagina, VaginaLooseness, VaginaWetness } from 'Game/Character/Body/Vagina';
+import { WingType } from 'Game/Character/Body/Wings';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { describeButt } from '../../Descriptors/ButtDescriptor';
-import { describeVagina } from '../../Descriptors/VaginaDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { displayModFem, displayModThickness, displayModTone } from '../../Modifiers/BodyModifier';
+import { describeButt } from 'Game/Descriptors/ButtDescriptor';
+import { describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { CView } from 'Page/ContentView';
+import { displayModFem, displayModThickness, displayModTone } from 'Game/Modifiers/BodyModifier';
 
 export class WetCloth extends Consumable {
     public constructor() {
@@ -130,9 +130,9 @@ export class WetCloth extends Consumable {
         }
         // 3b.Infinite Vagina
         if (character.vaginalCapacity() < 9000) {
-            if (!character.effects.has(StatusEffectType.BonusVCapacity))
-                character.effects.add(StatusEffectType.BonusVCapacity, { other: { capacity: 9000 } });
-            else character.effects.get(StatusEffectType.BonusVCapacity)!.values.other!.capacity = 9000;
+            if (!character.effects.has(EffectType.BonusVCapacity))
+                character.effects.create(EffectType.BonusVCapacity, { vaginalCapacity: 9000 });
+            else character.effects.getByName(EffectType.BonusVCapacity)!.values.vaginalCapacity = 9000;
             CView.text("\n\nYour " + describeVagina(character, character.body.vaginas.get(0)) + "'s internal walls feel a tingly wave of strange tightness.  Experimentally, you slip a few fingers, then your hand, then most of your forearm inside yourself.  <b>It seems you're now able to accommodate just about ANYTHING inside your sex.</b>");
             return;
         }
@@ -144,13 +144,13 @@ export class WetCloth extends Consumable {
         }
         // Big slime girl
         else {
-            if (!character.effects.has(StatusEffectType.SlimeCraving)) {
+            if (!character.effects.has(EffectType.SlimeCraving)) {
                 CView.text("\n\nYou feel a growing gnawing in your gut.  You feel... hungry, but not for food.  No, you need something wet and goopy pumped into you.  You NEED it.  You can feel it in your bones.  <b>If you don't feed that need... you'll get weaker and maybe die.</b>");
-                character.effects.add(StatusEffectType.SlimeCraving, { other: { duration: 0 } }); // Value four indicates this tracks strength and speed separately
+                character.effects.create(EffectType.SlimeCraving, { other: { duration: 0 } }); // Value four indicates this tracks strength and speed separately
             }
             else {
                 CView.text("\n\nYou feel full for a moment, but you know it's just a temporary respite from your constant need to be 'injected' with fluid.");
-                character.effects.get(StatusEffectType.SlimeCraving)!.values.other!.duration = 0;
+                character.effects.getByName(EffectType.SlimeCraving)!.values.other!.duration = 0;
             }
         }
         if (randInt(2) === 0) CView.text(displayModFem(character, 85, 3));

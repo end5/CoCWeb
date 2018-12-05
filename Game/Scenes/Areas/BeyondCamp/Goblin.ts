@@ -1,30 +1,28 @@
-import { Character } from "../../../Character/Character";
-import { NextScreenChoices } from "../../../ScreenDisplay";
-import { randInt, randomChoice } from "../../../../Engine/Utilities/SMath";
-import { CView } from "../../../../Page/ContentView";
-import { PerkType } from "../../../Effects/PerkType";
-import { StatusEffectType } from "../../../Effects/StatusEffectType";
-import { passTime } from "../../../Menus/InGame/PlayerMenu";
-import { CharacterType } from "../../../Character/CharacterType";
-import { Vagina, VaginaWetness, VaginaLooseness } from "../../../Body/Vagina";
-import { BreastCup } from "../../../Body/BreastRow";
-import { ButtLooseness, ButtWetness, ButtRating } from "../../../Body/Butt";
-import { HipRating } from "../../../Body/Hips";
-import { WeightedDrop } from "../../../Utilities/Drops/WeightedDrop";
-import { ConsumableName } from "../../../Items/Consumables/ConsumableName";
-import { CharacterInventory } from "../../../Inventory/CharacterInventory";
-import { CharacterDescription } from "../../../Character/CharacterDescription";
-import { CombatContainer } from "../../../Combat/CombatContainer";
-import { Weapon } from "../../../Items/Weapons/Weapon";
-import { WeaponName } from "../../../Items/Weapons/WeaponName";
-import { ItemDesc } from "../../../Items/ItemDesc";
-import { Armor } from "../../../Items/Armors/Armor";
-import { ArmorName } from "../../../Items/Armors/ArmorName";
-import { EndScenes } from "../../../Combat/EndScenes";
-import { DefeatType } from "../../../Combat/DefeatEvent";
-import { CombatAction } from "../../../Combat/Actions/CombatAction";
-import { CombatEffectType } from "../../../Effects/CombatEffectType";
-import { goblinRapesPlayer, gobboRapeIntro } from "./GoblinScene";
+import { Character } from 'Game/Character/Character';
+import { NextScreenChoices } from 'Game/ScreenDisplay';
+import { randInt, randomChoice } from 'Engine/Utilities/SMath';
+import { CView } from 'Page/ContentView';
+import { EffectType } from 'Game/Effects/EffectType';
+import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { CharacterType } from 'Game/Character/CharacterType';
+import { Vagina, VaginaWetness, VaginaLooseness } from 'Game/Character/Body/Vagina';
+import { BreastCup } from 'Game/Character/Body/BreastRow';
+import { ButtLooseness, ButtWetness, ButtRating } from 'Game/Character/Body/Butt';
+import { HipRating } from 'Game/Character/Body/Hips';
+import { WeightedDrop } from 'Game/Utilities/Drops/WeightedDrop';
+import { ConsumableName } from 'Game/Items/Consumables/ConsumableName';
+import { CharacterInventory } from 'Game/Inventory/CharacterInventory';
+import { CharacterDescription } from 'Game/Character/CharacterDescription';
+import { CombatContainer } from 'Game/Combat/CombatContainer';
+import { Weapon } from 'Game/Items/Weapons/Weapon';
+import { WeaponName } from 'Game/Items/Weapons/WeaponName';
+import { ItemDesc } from 'Game/Items/ItemDesc';
+import { Armor } from 'Game/Items/Armors/Armor';
+import { ArmorName } from 'Game/Items/Armors/ArmorName';
+import { EndScenes } from 'Game/Combat/EndScenes';
+import { DefeatType } from 'Game/Combat/DefeatEvent';
+import { CombatAction } from 'Game/Combat/Actions/CombatAction';
+import { goblinRapesPlayer, gobboRapeIntro } from './GoblinScene';
 
 class DrugAttack extends CombatAction {
     public name: string = "Drug Attack";
@@ -37,7 +35,7 @@ class DrugAttack extends CombatAction {
         // Drink blue pots
         else {
             CView.text(char.desc.capitalA + char.desc.short + " pulls out a blue vial and uncaps it, swiftly downing its contents.");
-            if (char.combat.stats.HPRatio() < 1) {
+            if (char.combat.HPRatio() < 1) {
                 CView.text("  She looks to have recovered from some of her wounds!\n");
                 char.stats.HP += (char.stats.maxHP() / 4);
             }
@@ -45,7 +43,7 @@ class DrugAttack extends CombatAction {
             return;
         }
         // Dodge chance!
-        if ((enemy.perks.has(PerkType.Evade) && randInt(10) <= 3) || (randInt(100) < enemy.stats.spe / 5)) {
+        if ((enemy.effects.has(EffectType.Evade) && randInt(10) <= 3) || (randInt(100) < enemy.stats.spe / 5)) {
             CView.text("\nYou narrowly avoid the gush of alchemic fluids!\n");
         }
         else {
@@ -53,17 +51,17 @@ class DrugAttack extends CombatAction {
             if (color === "red") {
                 // Temporary heat
                 CView.text("\nThe red fluids hit you and instantly soak into your skin, disappearing.  Your skin flushes and you feel warm.  Oh no...\n");
-                if (!enemy.combat.effects.has(CombatEffectType.TemporaryHeat)) enemy.combat.effects.add(CombatEffectType.TemporaryHeat, char);
+                if (!enemy.effects.has(EffectType.TemporaryHeat)) enemy.effects.create(EffectType.TemporaryHeat);
             }
             else if (color === "green") {
                 // Green poison
                 CView.text("\nThe greenish fluids splash over you, making you feel slimy and gross.  Nausea plagues you immediately - you have been poisoned!\n");
-                if (!enemy.combat.effects.has(CombatEffectType.Poison)) enemy.combat.effects.add(CombatEffectType.Poison, char);
+                if (!enemy.effects.has(EffectType.Poison)) enemy.effects.create(EffectType.Poison);
             }
             else if (color === "white") {
                 // sticky flee prevention
                 CView.text("\nYou try to avoid it, but it splatters the ground around you with very sticky white fluid, making it difficult to run.  You'll have a hard time escaping now!\n");
-                if (!enemy.combat.effects.has(CombatEffectType.NoFlee)) enemy.combat.effects.add(CombatEffectType.NoFlee, char);
+                if (!enemy.effects.has(EffectType.NoFlee)) enemy.effects.create(EffectType.NoFlee);
             }
             else if (color === "black") {
                 // Increase fatigue
@@ -94,7 +92,7 @@ class GoblinEndScenes extends EndScenes {
             CView.text("You collapse in front of the goblin, too wounded to fight.  She giggles and takes out a tube of lipstick smearing it whorishly on your face.  You pass into unconsciousness immediately.  It must have been drugged.");
             return { next: passTime(1) };
         }
-        else if (pcCameWorms) {
+        else if (enemy.effects.has(EffectType.CameWorms)) {
             CView.text("\n\nThe goblin's eyes go wide and she turns to leave, no longer interested in you.");
             enemy.orgasm();
             return { next: passTime(1) };
@@ -117,11 +115,11 @@ export class Goblin extends Character {
         super(CharacterType.Goblin);
         this.description = new CharacterDescription(this, "the ", "goblin", "The goblin before you is a typical example of her species, with dark green skin, pointed ears, and purple hair that would look more at home on a punk-rocker.  She's only about three feet tall, but makes up for it with her curvy body, sporting hips and breasts that would entice any of the men in your village were she full-size.  There isn't a single scrap of clothing on her, just lewd leather straps and a few clinking pouches.  She does sport quite a lot of piercings – the most noticeable being large studs hanging from her purple nipples.  Her eyes are fiery red, and practically glow with lust.  This one isn't going to be satisfied until she has her way with you.  It shouldn't be too hard to subdue such a little creature, right?");
         this.body.vaginas.add(new Vagina(VaginaWetness.DROOLING, VaginaLooseness.NORMAL, false));
-        this.effects.add(StatusEffectType.BonusVCapacity, { vaginalCapacity: 40 });
+        this.effects.create(EffectType.BonusVCapacity, { vaginalCapacity: 40 });
         this.body.chest.firstRow.rating = BreastCup.E;
         this.body.butt.looseness = ButtLooseness.TIGHT;
         this.body.butt.wetness = ButtWetness.DRY;
-        this.effects.add(StatusEffectType.BonusACapacity, { analCapacity: 30 });
+        this.effects.create(EffectType.BonusACapacity, { analCapacity: 30 });
         this.body.tallness = 35 + randInt(4);
         this.body.hips.rating = HipRating.AMPLE + 2;
         this.body.butt.rating = ButtRating.LARGE;

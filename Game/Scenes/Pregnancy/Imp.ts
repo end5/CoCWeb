@@ -1,15 +1,15 @@
-import { IPregnancyEvent } from "../../Body/Pregnancy/IPregnancyEvent";
-import { CView } from "../../../Page/ContentView";
-import { PregnancyType } from "../../Body/Pregnancy/Pregnancy";
-import { Womb } from "../../Body/Pregnancy/Womb";
-import { Character } from "../../Character/Character";
-import { StatusEffectType } from "../../Effects/StatusEffectType";
-import { Vagina, VaginaLooseness, VaginaWetness } from "../../Body/Vagina";
-import { randInt } from "../../../Engine/Utilities/SMath";
-import { BreastRow } from "../../Body/BreastRow";
-import { boostLactation, growTopBreastRow } from "../../Modifiers/BreastModifier";
-import { describeButt } from "../../Descriptors/ButtDescriptor";
-import { describeHips } from "../../Descriptors/HipDescriptor";
+import { IPregnancyEvent } from 'Game/Character/Body/Pregnancy/IPregnancyEvent';
+import { CView } from 'Page/ContentView';
+import { PregnancyType } from 'Game/Character/Body/Pregnancy/Pregnancy';
+import { Womb } from 'Game/Character/Body/Pregnancy/Womb';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
+import { Vagina, VaginaLooseness, VaginaWetness } from 'Game/Character/Body/Vagina';
+import { randInt } from 'Engine/Utilities/SMath';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { boostLactation, growTopBreastRow } from 'Game/Modifiers/BreastModifier';
+import { describeButt } from 'Game/Descriptors/ButtDescriptor';
+import { describeHips } from 'Game/Descriptors/HipDescriptor';
 
 class ImpPregnancyEvents implements IPregnancyEvent {
     public incubationDisplay(player: Character, womb: Womb): void {
@@ -66,11 +66,11 @@ class ImpPregnancyEvents implements IPregnancyEvent {
     public birthScene(player: Character, womb: Womb): void {
         CView.text("\n");
         // Add imp birth status - used to control frequency of night imp gangbag
-        const birthedImps = player.effects.get(StatusEffectType.BirthedImps);
-        if (birthedImps)
+        const birthedImps = player.effects.getByName(EffectType.BirthedImps);
+        if (birthedImps && birthedImps.values.other && birthedImps.values.other.amount)
             birthedImps.values.other!.amount++;
         else
-            player.effects.add(StatusEffectType.BirthedImps, { other: { amount: 0 } });
+            player.effects.create(EffectType.BirthedImps, { other: { amount: 0 } });
         if (player.body.vaginas.length === 0) {
             CView.text("You feel a terrible pressure in your groin... then an incredible pain accompanied by the rending of flesh.  You look down and behold a vagina.  ");
             player.body.vaginas.add(new Vagina());

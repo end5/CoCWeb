@@ -1,17 +1,17 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { EarType } from '../../Body/Ears';
-import { FaceType } from '../../Body/Face';
-import { LegType } from '../../Body/Legs';
-import { SkinType } from '../../Body/Skin';
-import { Tail, TailType } from '../../Body/Tail';
-import { Character } from '../../Character/Character';
+import { randInt } from 'Engine/Utilities/SMath';
+import { EarType } from 'Game/Character/Body/Ears';
+import { FaceType } from 'Game/Character/Body/Face';
+import { LegType } from 'Game/Character/Body/Legs';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { Tail, TailType } from 'Game/Character/Body/Tail';
+import { Character } from 'Game/Character/Character';
 import { ItemDesc } from '../ItemDesc';
-import { skinFurScales } from '../../Descriptors/SkinDescriptor';
-import { describeHair } from '../../Descriptors/HairDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { displayModThickness } from '../../Modifiers/BodyModifier';
+import { skinFurScales } from 'Game/Descriptors/SkinDescriptor';
+import { describeHair } from 'Game/Descriptors/HairDescriptor';
+import { CView } from 'Page/ContentView';
+import { displayModThickness } from 'Game/Modifiers/BodyModifier';
 
 export class RingtailFig extends Consumable {
     public constructor() {

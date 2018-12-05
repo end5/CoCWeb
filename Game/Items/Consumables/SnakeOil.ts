@@ -1,17 +1,17 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { FaceType } from '../../Body/Face';
-import { AntennaeType } from '../../Body/Antennae';
-import { LegType } from '../../Body/Legs';
-import { TongueType } from '../../Body/Tongue';
-import { WingType } from '../../Body/Wings';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
+import { randInt } from 'Engine/Utilities/SMath';
+import { FaceType } from 'Game/Character/Body/Face';
+import { AntennaeType } from 'Game/Character/Body/Antennae';
+import { LegType } from 'Game/Character/Body/Legs';
+import { TongueType } from 'Game/Character/Body/Tongue';
+import { WingType } from 'Game/Character/Body/Wings';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { describeFaceShort } from '../../Descriptors/FaceDescriptor';
-import { describeLegs, describeFeet } from '../../Descriptors/LegDescriptor';
-import { CView } from '../../../Page/ContentView';
+import { describeFaceShort } from 'Game/Descriptors/FaceDescriptor';
+import { describeLegs, describeFeet } from 'Game/Descriptors/LegDescriptor';
+import { CView } from 'Page/ContentView';
 
 // 9)  Transformation Item - Snake Oil (S. Oil)
 /*Effects:
@@ -47,7 +47,7 @@ export class SnakeOil extends Consumable {
         let changeLimit: number = 1;
         if (randInt(2) === 0) changeLimit++;
         if (randInt(2) === 0) changeLimit++;
-        if (character.perks.has(PerkType.HistoryAlchemist)) changeLimit++;
+        if (character.effects.has(EffectType.HistoryAlchemist)) changeLimit++;
         // b) Description while used
         CView.text("Pinching your nose, you quickly uncork the vial and bring it to your mouth, determined to see what effects it might have on your body. Pouring in as much as you can take, you painfully swallow before going for another shot, emptying the bottle.");
         // (if outside combat)

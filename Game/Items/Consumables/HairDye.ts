@@ -1,9 +1,9 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { Character } from '../../Character/Character';
+import { Character } from 'Game/Character/Character';
 import { ItemDesc } from '../ItemDesc';
-import { describeHair } from '../../Descriptors/HairDescriptor';
-import { CView } from '../../../Page/ContentView';
+import { describeHair } from 'Game/Descriptors/HairDescriptor';
+import { CView } from 'Page/ContentView';
 
 export enum HairDyeType {
     Auburn,

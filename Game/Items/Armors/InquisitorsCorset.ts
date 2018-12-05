@@ -1,11 +1,11 @@
 import { Armor } from './Armor';
 import { ArmorName } from './ArmorName';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { describeNipple } from '../../Descriptors/BreastDescriptor';
-import { describeButt } from '../../Descriptors/ButtDescriptor';
-import { CView } from '../../../Page/ContentView';
+import { describeNipple } from 'Game/Descriptors/BreastDescriptor';
+import { describeButt } from 'Game/Descriptors/ButtDescriptor';
+import { CView } from 'Page/ContentView';
 
 export class InquisitorsCorset extends Armor {
     public constructor() {
@@ -35,20 +35,20 @@ export class InquisitorsCorset extends Armor {
     }
 
     public onEquip(character: Character): void {
-        while (character.perks.has(PerkType.BloodMage))
-            character.perks.remove(PerkType.BloodMage);
-        while (character.perks.has(PerkType.SluttySeduction))
-            character.perks.remove(PerkType.SluttySeduction);
-        character.perks.add(PerkType.BloodMage);
-        character.perks.add(PerkType.SluttySeduction, { teaseChance: 10 });
+        while (character.effects.has(EffectType.BloodMage))
+            character.effects.removeByName(EffectType.BloodMage);
+        while (character.effects.has(EffectType.SluttySeduction))
+            character.effects.removeByName(EffectType.SluttySeduction);
+        character.effects.create(EffectType.BloodMage);
+        character.effects.create(EffectType.SluttySeduction, { teaseChance: 10 });
         super.onEquip(character);
     }
 
     public onUnequip(character: Character): void {
-        while (character.perks.has(PerkType.BloodMage))
-            character.perks.remove(PerkType.BloodMage);
-        while (character.perks.has(PerkType.SluttySeduction))
-            character.perks.remove(PerkType.SluttySeduction);
+        while (character.effects.has(EffectType.BloodMage))
+            character.effects.removeByName(EffectType.BloodMage);
+        while (character.effects.has(EffectType.SluttySeduction))
+            character.effects.removeByName(EffectType.SluttySeduction);
         super.onUnequip(character);
     }
 }

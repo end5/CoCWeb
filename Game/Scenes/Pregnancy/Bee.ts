@@ -1,16 +1,16 @@
-import { IPregnancyEvent } from "../../Body/Pregnancy/IPregnancyEvent";
-import { Character } from "../../Character/Character";
-import { Womb } from "../../Body/Pregnancy/Womb";
-import { PregnancyType } from "../../Body/Pregnancy/Pregnancy";
-import { CView } from "../../../Page/ContentView";
-import { describeCock, describeCocksLight } from "../../Descriptors/CockDescriptor";
-import { Cock, CockType } from "../../Body/Cock";
-import { describeVagina } from "../../Descriptors/VaginaDescriptor";
-import { BreastRow } from "../../Body/BreastRow";
-import { describeBreastRow } from "../../Descriptors/BreastDescriptor";
-import { displayStretchButt } from "../../Modifiers/ButtModifier";
-import { describeButt } from "../../Descriptors/ButtDescriptor";
-import { randInt } from "../../../Engine/Utilities/SMath";
+import { IPregnancyEvent } from 'Game/Character/Body/Pregnancy/IPregnancyEvent';
+import { Character } from 'Game/Character/Character';
+import { Womb } from 'Game/Character/Body/Pregnancy/Womb';
+import { PregnancyType } from 'Game/Character/Body/Pregnancy/Pregnancy';
+import { CView } from 'Page/ContentView';
+import { describeCock, describeCocksLight } from 'Game/Descriptors/CockDescriptor';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { describeBreastRow } from 'Game/Descriptors/BreastDescriptor';
+import { displayStretchButt } from 'Game/Modifiers/ButtModifier';
+import { describeButt } from 'Game/Descriptors/ButtDescriptor';
+import { randInt } from 'Engine/Utilities/SMath';
 
 class BeeButtPregnancyEvent implements IPregnancyEvent {
     public incubationDisplay(player: Character, womb: Womb): void {

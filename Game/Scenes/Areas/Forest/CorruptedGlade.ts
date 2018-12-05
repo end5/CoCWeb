@@ -1,22 +1,21 @@
-import { Character } from "../../../Character/Character";
-import { NextScreenChoices } from "../../../ScreenDisplay";
-import { CView } from "../../../../Page/ContentView";
-import { SpriteName } from "../../../../Page/SpriteName";
-import { randInt } from "../../../../Engine/Utilities/SMath";
-import { describeCock, describeCocksLight } from "../../../Descriptors/CockDescriptor";
-import { describeLegs } from "../../../Descriptors/LegDescriptor";
-import { describeBalls } from "../../../Descriptors/BallsDescriptor";
-import { PerkType } from "../../../Effects/PerkType";
-import { VaginaLooseness } from "../../../Body/Vagina";
-import { describeVagina } from "../../../Descriptors/VaginaDescriptor";
-import { displayStretchVagina } from "../../../Modifiers/VaginaModifier";
-import { describeHips } from "../../../Descriptors/HipDescriptor";
-import { describeButt } from "../../../Descriptors/ButtDescriptor";
-import { Cock, CockType } from "../../../Body/Cock";
-import { StatusEffectType } from "../../../Effects/StatusEffectType";
-import { BreastRow } from "../../../Body/BreastRow";
-import { growSmallestBreastRow } from "../../../Modifiers/BreastModifier";
-import { passTime } from "../../../Menus/InGame/PlayerMenu";
+import { Character } from 'Game/Character/Character';
+import { NextScreenChoices } from 'Game/ScreenDisplay';
+import { CView } from 'Page/ContentView';
+import { SpriteName } from 'Page/SpriteName';
+import { randInt } from 'Engine/Utilities/SMath';
+import { describeCock, describeCocksLight } from 'Game/Descriptors/CockDescriptor';
+import { describeLegs } from 'Game/Descriptors/LegDescriptor';
+import { describeBalls } from 'Game/Descriptors/BallsDescriptor';
+import { EffectType } from 'Game/Effects/EffectType';
+import { VaginaLooseness } from 'Game/Character/Body/Vagina';
+import { describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { displayStretchVagina } from 'Game/Modifiers/VaginaModifier';
+import { describeHips } from 'Game/Descriptors/HipDescriptor';
+import { describeButt } from 'Game/Descriptors/ButtDescriptor';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { growSmallestBreastRow } from 'Game/Modifiers/BreastModifier';
+import { passTime } from 'Game/Menus/InGame/PlayerMenu';
 
 export function intro(player: Character): NextScreenChoices {
     CView.sprite(SpriteName.CorruptedGlade); // 92;
@@ -102,7 +101,7 @@ function flowerFun(player: Character): NextScreenChoices {
             booster += 3;
         else if (player.body.balls.size < 6)
             booster += 2;
-        if (player.perks.has(PerkType.MessyOrgasms) && player.body.cumMultiplier < 3) booster += 1;
+        if (player.effects.has(EffectType.MessyOrgasms) && player.body.cumMultiplier < 3) booster += 1;
         player.body.cumMultiplier += booster;
     }
     else { // Oral sex for those without!
@@ -257,10 +256,10 @@ function treeBoobFun(player: Character): NextScreenChoices {
     player.stats.cor += .5;
 
     player.slimeFeed();
-    if (!player.effects.has(StatusEffectType.LustyTongue)) {
+    if (!player.effects.has(EffectType.LustyTongue)) {
         if (randInt(4) === 0) { // 25% Chance of sensitive mouth status – increased lust gain/hour due to licking your lips :3
             CView.text("  The feeling doesn't seem to fade, only becoming more and more intense over the coming hour.  It will be hard to keep from getting turned on any time you lick your lips or eat some food.");
-            player.effects.add(StatusEffectType.LustyTongue, { expireCountdown: 24 });
+            player.effects.create(EffectType.LustyTongue, { expireCountdown: 24 });
         }
         else CView.text("  Thankfully, the feeling goes away after a few minutes, leaving you feeling just a bit more sensitive.");
     }

@@ -1,5 +1,5 @@
 import { Character } from '../Character/Character';
-import { CView } from '../../Page/ContentView';
+import { CView } from 'Page/ContentView';
 
 export function displayCharacterHPChange(character: Character, changeAmount: number) {
     if (changeAmount > 0 && character.stats.HP === character.stats.maxHP()) {

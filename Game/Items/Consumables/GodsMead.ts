@@ -1,10 +1,10 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { Character } from '../../Character/Character';
+import { randInt } from 'Engine/Utilities/SMath';
+import { Character } from 'Game/Character/Character';
 import { ItemDesc } from '../ItemDesc';
-import { CView } from '../../../Page/ContentView';
-import { Settings } from '../../Settings';
+import { CView } from 'Page/ContentView';
+import { Settings } from 'Game/Settings';
 
 export class GodsMead extends Consumable {
     public constructor() {

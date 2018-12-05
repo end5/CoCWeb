@@ -59,7 +59,6 @@ export abstract class Character implements ISerializable<ICharacter> {
     private baseStats = new Stats();
     public stats = new StatsFacade(this, this.baseStats);
     public effects = new EffectList();
-    public perks = this.effects;
 
     public constructor(type: CharacterType) {
         this.charType = type;
@@ -339,5 +338,13 @@ export abstract class Character implements ISerializable<ICharacter> {
 
     public roundXPToLevel(): number {
         return this.canLevelUp() ? this.stats.level * 100 : this.stats.base.XP.value;
+    }
+
+    public slimeFeed() {
+
+    }
+
+    public milked() {
+
     }
 }

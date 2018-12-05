@@ -1,27 +1,26 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { ArmType } from '../../Body/Arms';
-import { BreastRow } from '../../Body/BreastRow';
-import { EarType } from '../../Body/Ears';
-import { EyeType } from '../../Body/Eyes';
-import { FaceType } from '../../Body/Face';
-import { LegType } from '../../Body/Legs';
-import { SkinType } from '../../Body/Skin';
-import { Tail, TailType } from '../../Body/Tail';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
+import { randInt } from 'Engine/Utilities/SMath';
+import { ArmType } from 'Game/Character/Body/Arms';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { EarType } from 'Game/Character/Body/Ears';
+import { EyeType } from 'Game/Character/Body/Eyes';
+import { FaceType } from 'Game/Character/Body/Face';
+import { LegType } from 'Game/Character/Body/Legs';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { Tail, TailType } from 'Game/Character/Body/Tail';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { skinFurScales } from '../../Descriptors/SkinDescriptor';
-import { describeVagina } from '../../Descriptors/VaginaDescriptor';
-import { describeButthole, describeButt } from '../../Descriptors/ButtDescriptor';
-import { describeCocksLight } from '../../Descriptors/CockDescriptor';
-import { describeBreastRow, describeNipple, describeAllBreasts } from '../../Descriptors/BreastDescriptor';
-import { describeFeet, describeLegs } from '../../Descriptors/LegDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { spiderRaceScore } from '../../Body/RaceScore';
-import { Settings } from '../../Settings';
+import { skinFurScales } from 'Game/Descriptors/SkinDescriptor';
+import { describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { describeButthole, describeButt } from 'Game/Descriptors/ButtDescriptor';
+import { describeCocksLight } from 'Game/Descriptors/CockDescriptor';
+import { describeBreastRow, describeNipple, describeAllBreasts } from 'Game/Descriptors/BreastDescriptor';
+import { describeFeet, describeLegs } from 'Game/Descriptors/LegDescriptor';
+import { CView } from 'Page/ContentView';
+import { spiderRaceScore } from 'Game/Character/RaceScore';
+import { Settings } from 'Game/Settings';
 
 export class SweetGossamer extends Consumable {
     private sweet: boolean;
@@ -39,7 +38,7 @@ export class SweetGossamer extends Consumable {
         let changeLimit: number = 1;
         if (randInt(2) === 0) changeLimit++;
         if (randInt(2) === 0) changeLimit++;
-        if (character.perks.has(PerkType.HistoryAlchemist)) changeLimit++;
+        if (character.effects.has(EffectType.HistoryAlchemist)) changeLimit++;
         // Consuming Text
         if (this.sweet) CView.text("You wad up the sweet, pink gossamer and eat it, finding it to be delicious and chewy, almost like gum.  Munching away, your mouth generates an enormous amount of spit until you're drooling all over yourself while you devour the sweet treat.");
         else if (!this.sweet) CView.text("You wad up the sweet, black gossamer and eat it, finding it to be delicious and chewy, almost like licorice.  Munching away, your mouth generates an enormous amount of spit until you're drooling all over yourself while you devour the sweet treat.");
@@ -205,9 +204,9 @@ export class SweetGossamer extends Consumable {
             }
         }
         // Nipples Turn Black:
-        if (!character.effects.has(StatusEffectType.BlackNipples) && randInt(6) === 0 && changes < changeLimit) {
+        if (!character.effects.has(EffectType.BlackNipples) && randInt(6) === 0 && changes < changeLimit) {
             CView.text("\n\nA tickling sensation plucks at your nipples and you cringe, trying not to giggle.  Looking down you are in time to see the last spot of flesh tone disappear from your [nipples].  They have turned an onyx black!");
-            character.effects.add(StatusEffectType.BlackNipples);
+            character.effects.create(EffectType.BlackNipples);
             changes++;
         }
         // eyes!
@@ -251,12 +250,12 @@ export class SweetGossamer extends Consumable {
             changes++;
         }
         // Drider butt
-        if (!this.sweet && !character.perks.has(PerkType.SpiderOvipositor) && character.body.legs.isDrider() && character.body.tails.reduce(Tail.HasType(TailType.SPIDER_ABDOMEN), false) && changes < changeLimit && randInt(3) === 0 && (character.body.vaginas.length > 0 || randInt(2) === 0)) {
+        if (!this.sweet && !character.effects.has(EffectType.SpiderOvipositor) && character.body.legs.isDrider() && character.body.tails.reduce(Tail.HasType(TailType.SPIDER_ABDOMEN), false) && changes < changeLimit && randInt(3) === 0 && (character.body.vaginas.length > 0 || randInt(2) === 0)) {
             CView.text("\n\nAn odd swelling sensation floods your spider half.  Curling your abdomen underneath you for a better look, you gasp in recognition at your new 'equipment'!  Your semi-violent run-ins with the swamp's population have left you <i>intimately</i> familiar with the new appendage.  <b>It's a drider ovipositor!</b>  A few light prods confirm that it's just as sensitive as any of your other sexual organs.  You idly wonder what laying eggs with this thing will feel like...");
             CView.text("\n\n(<b>Perk Gained:  Spider Ovipositor - Allows you to lay eggs in your foes!</b>)");
             // V1 - Egg Count
             // V2 - Fertilized Count
-            character.perks.add(PerkType.SpiderOvipositor);
+            character.effects.create(EffectType.SpiderOvipositor);
             // Opens up drider ovipositor scenes from available mobs. The character begins producing unfertilized eggs in their arachnid abdomen. Egg buildup raises minimum lust and eventually lowers speed until the character has gotten rid of them.  This perk may only be used with the drider lower body, so your scenes should reflect that.
             // Any PC can get an Ovipositor perk, but it will be much rarer for characters without vaginas.
             // Eggs are unfertilized by default, but can be fertilized:

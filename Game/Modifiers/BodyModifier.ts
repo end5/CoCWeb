@@ -1,7 +1,6 @@
-import { Gender } from '../Body/GenderIdentity';
+import { Gender } from 'Game/Character/Body/GenderIdentity';
 import { Character } from '../Character/Character';
-import { PerkType } from '../Effects/PerkType';
-import { StatusEffectType } from '../Effects/StatusEffectType';
+import { EffectType } from '../Effects/EffectType';
 import { describeVagina } from '../Descriptors/VaginaDescriptor';
 import { describeCock } from '../Descriptors/CockDescriptor';
 import { describeFaceShort, describeBeard } from '../Descriptors/FaceDescriptor';
@@ -89,7 +88,7 @@ export function displayModFem(character: Character, goal: number, strength: numb
         Changed = true;
     }
     // Fix if it went out of bounds!
-    if (!character.perks.has(PerkType.Androgyny))
+    if (!character.effects.has(EffectType.Androgyny))
         displayFixFemininity(character);
     // Abort if nothing changed!
     if (!Changed)
@@ -174,7 +173,7 @@ export function displayFixFemininity(character: Character): string {
 // duration and intensity. Defaults to 1.
 export function displayGoIntoHeat(character: Character, intensity: number = 1): string {
     // Already in heat, intensify further.
-    const statusAffectHeat = character.effects.get(StatusEffectType.Heat);
+    const statusAffectHeat = character.effects.getByName(EffectType.Heat);
     if (statusAffectHeat) {
         statusAffectHeat.values.fertility.value.flat += 5 * intensity;
         statusAffectHeat.values.lib.value.flat += 5 * intensity;
@@ -185,7 +184,7 @@ export function displayGoIntoHeat(character: Character, intensity: number = 1): 
     // Go into heat.  Heats v1 is bonus fertility, v2 is bonus libido, v3 is hours till it's gone
     else {
         // character.effects.add(StatusEffectType.Heat, 10 * intensity, 15 * intensity, 48 * intensity, 0);
-        character.effects.add(StatusEffectType.Heat, {
+        character.effects.create(EffectType.Heat, {
             fertility: { value: { flat: 10 * intensity } },
             lib: { value: { flat: 15 * intensity } },
             expireCountdown: 48 * intensity
@@ -204,7 +203,7 @@ export function displayGoIntoHeat(character: Character, intensity: number = 1): 
 // duration and intensity. Defaults to 1.
 export function displayGoIntoRut(character: Character, intensity: number = 1): string {
     // Has rut, intensify it!
-    const statusAffectRut = character.effects.get(StatusEffectType.Rut);
+    const statusAffectRut = character.effects.getByName(EffectType.Rut);
     if (statusAffectRut) {
         statusAffectRut.values.cumQuantity.value.flat = 100 * intensity;
         statusAffectRut.values.lib.value.flat = 5 * intensity;
@@ -217,7 +216,7 @@ export function displayGoIntoRut(character: Character, intensity: number = 1): s
         // v2 - bonus libido
         // v3 - time remaining!
         // character.effects.add(StatusEffectType.Rut, 150 * intensity, 5 * intensity, 100 * intensity, 0);
-        character.effects.add(StatusEffectType.Rut, {
+        character.effects.create(EffectType.Rut, {
             cumQuantity: { value: { flat: 150 * intensity } },
             lib: { value: { flat: 5 * intensity } },
             expireCountdown: 100 * intensity

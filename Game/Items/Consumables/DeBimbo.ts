@@ -1,9 +1,9 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { CView } from '../../../Page/ContentView';
+import { CView } from 'Page/ContentView';
 
 export class DeBimbo extends Consumable {
     public constructor() {
@@ -11,27 +11,27 @@ export class DeBimbo extends Consumable {
     }
 
     public description(character: Character): string {
-        if (character.perks.has(PerkType.BimboBrains) || character.perks.has(PerkType.FutaFaculties))
+        if (character.effects.has(EffectType.BimboBrains) || character.effects.has(EffectType.FutaFaculties))
             return "This should totally like, fix your brain and stuff.  You don't really think anything is wrong with your head - it feels all pink and giggly all the time.";
         else
             return "This draft is concocted from five scholar's teas and who knows what else.  Supposedly it will correct the stupifying effects of Bimbo Liqueur.";
     }
 
     public canUse(character: Character): boolean {
-        if (character.perks.has(PerkType.BimboBrains) || character.perks.has(PerkType.FutaFaculties))
+        if (character.effects.has(EffectType.BimboBrains) || character.effects.has(EffectType.FutaFaculties))
             return true;
         CView.text("You can't use this right now, and it's too expensive to waste!\n\n");
         return false;
     }
 
     public use(character: Character) {
-        if (character.perks.has(PerkType.BimboBrains)) {
+        if (character.effects.has(EffectType.BimboBrains)) {
             CView.text("\n\n(<b>Perk Removed:  Bimbo Brains - Your intelligence and speech patterns are no longer limited to that of a bimbo.</b>)");
-            character.perks.remove(PerkType.BimboBrains);
+            character.effects.removeByName(EffectType.BimboBrains);
         }
-        else if (character.perks.has(PerkType.FutaFaculties)) {
+        else if (character.effects.has(EffectType.FutaFaculties)) {
             CView.text("\n\n(<b>Perk Removed:  Futa Faculties - Your intelligence and speech patterns are no longer limited to that of a futanari bimbo.</b>)");
-            character.perks.remove(PerkType.FutaFaculties);
+            character.effects.removeByName(EffectType.FutaFaculties);
         }
     }
 

@@ -1,7 +1,7 @@
-import { MainScreen } from '../../../Page/MainScreen';
-import { Character } from '../../Character/Character';
-import { NextScreenChoices } from '../../ScreenDisplay';
-import { CView } from '../../../Page/ContentView';
+import { MainScreen } from 'Page/MainScreen';
+import { Character } from 'Game/Character/Character';
+import { NextScreenChoices } from 'Game/ScreenDisplay';
+import { CView } from 'Page/ContentView';
 import { playerMenu } from './PlayerMenu';
 import { perkUpMenu } from './PerkUpMenu';
 

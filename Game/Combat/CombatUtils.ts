@@ -1,11 +1,11 @@
-﻿import { randInt } from '../../Engine/Utilities/SMath';
-import { Character } from '../Character/Character';
-import { PerkType } from '../Effects/PerkType';
+﻿import { EffectType } from 'Game/Effects/EffectType';
+import { Character } from 'Game/Character/Character';
+import { randInt } from 'Engine/Utilities/SMath';
 
 /**
  * Performs a combat dodge calculation
- * @param char The current char
- * @param dodgingChar The char performing the dodge
+ * @param char The char performing the action
+ * @param dodgingChar The char responding to the action by dodging
  */
 export function combatDodge(char: Character, dodgingChar: Character): boolean {
     return combatMiss(dodgingChar, char) || combatEvade(dodgingChar, char) || combatFlexibility(dodgingChar, char) || combatMisdirect(dodgingChar, char);
@@ -13,37 +13,34 @@ export function combatDodge(char: Character, dodgingChar: Character): boolean {
 
 export function combatMiss(character: Character, monster: Character): boolean {
     return character.stats.spe - monster.stats.spe > 0 && randInt(((character.stats.spe - monster.stats.spe) / 4) + 80) > 80;
-
 }
 
 export function combatEvade(character: Character, monster: Character): boolean {
-    return monster.desc.short !== "Kiha" && character.perks.has(PerkType.Evade) && randInt(100) < 10;
-
+    return monster.desc.short !== "Kiha" && character.effects.has(EffectType.Evade) && randInt(100) < 10;
 }
 
 export function combatFlexibility(character: Character, monster: Character): boolean {
-    return character.perks.has(PerkType.Flexibility) && randInt(100) < 6;
-
+    return character.effects.has(EffectType.Flexibility) && randInt(100) < 6;
 }
 
 export function combatMisdirect(character: Character, monster: Character): boolean {
-    return character.perks.has(PerkType.Misdirection) && randInt(100) < 10 && character.inventory.equipment.armor.displayName === "red, high-society bodysuit";
+    return character.effects.has(EffectType.Misdirection) && randInt(100) < 10 && character.inventory.armor.displayName === "red, high-society bodysuit";
 }
 
 export function combatRegeneration(character: Character): void {
     let healingPercent: number = 0;
-    if (character.perks.has(PerkType.Regeneration)) healingPercent += 1;
-    if (character.perks.has(PerkType.Regeneration2)) healingPercent += 2;
-    if (character.inventory.equipment.armor.displayName === "skimpy nurse's outfit") healingPercent += 2;
-    if (character.inventory.equipment.armor.displayName === "goo armor") healingPercent += 2;
-    if (character.perks.has(PerkType.LustyRegeneration)) healingPercent += 1;
+    if (character.effects.has(EffectType.Regeneration)) healingPercent += 1;
+    if (character.effects.has(EffectType.Regeneration2)) healingPercent += 2;
+    if (character.inventory.armor.displayName === "skimpy nurse's outfit") healingPercent += 2;
+    if (character.inventory.armor.displayName === "goo armor") healingPercent += 2;
+    if (character.effects.has(EffectType.LustyRegeneration)) healingPercent += 1;
     if (healingPercent > 5) healingPercent = 5;
     character.stats.HP += (Math.round(character.stats.maxHP() * healingPercent / 100));
 }
 
 export function fatigueRecovery(character: Character): void {
     character.stats.fatigue--;
-    if (character.perks.has(PerkType.EnlightenedNinetails) || character.perks.has(PerkType.CorruptedNinetails))
+    if (character.effects.has(EffectType.EnlightenedNinetails) || character.effects.has(EffectType.CorruptedNinetails))
         character.stats.fatigue -= (1 + randInt(3));
 }
 
@@ -53,15 +50,15 @@ export function fatigueRecovery(character: Character): void {
 //         DisplayText("You duck, weave, and dodge.  Despite their best efforts, the throng of demons only hit the air and each other.");
 //     }
 //     // Determine if evaded
-//     else if (player.perks.has(PerkType.Evade) && randInt(100) < 10) {
+//     else if (player.perks.has(EffectType.Evade) && randInt(100) < 10) {
 //         DisplayText("Using your skills at evading attacks, you anticipate and sidestep " + monster.desc.a + monster.desc.short + "' attacks.");
 //     }
 //     // ("Misdirection"
-//     else if (player.perks.has(PerkType.Misdirection) && randInt(100) < 15 && player.inventory.equipment.armor.displayName === "red, high-society bodysuit") {
+//     else if (player.perks.has(EffectType.Misdirection) && randInt(100) < 15 && player.inventory.equipment.armor.displayName === "red, high-society bodysuit") {
 //         DisplayText("Using Raphael's teachings, you anticipate and sidestep " + monster.desc.a + monster.desc.short + "' attacks.");
 //     }
 //     // Determine if cat'ed
-//     else if (player.perks.has(PerkType.Flexibility) && randInt(100) < 6) {
+//     else if (player.perks.has(EffectType.Flexibility) && randInt(100) < 6) {
 //         DisplayText("With your incredible flexibility, you squeeze out of the way of " + monster.desc.a + monster.desc.short + "' attacks.");
 //     }
 //     else {
@@ -202,7 +199,7 @@ export function fatigueRecovery(character: Character): void {
     //     let escapeMod: number = 20 + monster.level * 3;
     //     if (debug) escapeMod -= 300;
     //     if (player.canFly()) escapeMod -= 20;
-    //     if (player.torso.tailType === TailType.RACCOON && player.torso.neck.head.earType === EarType.RACCOON && player.perks.has(PerkType.Runner)) escapeMod -= 25;
+    //     if (player.torso.tailType === TailType.RACCOON && player.torso.neck.head.earType === EarType.RACCOON && player.perks.has(EffectType.Runner)) escapeMod -= 25;
 
     //     // Big tits doesn't matter as much if ya can fly!
     //     else {
@@ -249,8 +246,8 @@ export function fatigueRecovery(character: Character): void {
     //     // Ember is SPUCIAL
     //     if (monster.desc.short === "Ember") {
     //         // GET AWAY
-    //         if (player.stats.spe > randInt(monster.stats.spe + escapeMod) || (player.perks.has(PerkType.Runner) && randInt(100) < 50)) {
-    //             if (player.perks.has(PerkType.Runner)) DisplayText("Using your skill at running, y");
+    //         if (player.stats.spe > randInt(monster.stats.spe + escapeMod) || (player.perks.has(EffectType.Runner) && randInt(100) < 50)) {
+    //             if (player.perks.has(EffectType.Runner)) DisplayText("Using your skill at running, y");
     //             else DisplayText("Y");
     //             DisplayText("ou easily outpace the dragon, who begins hurling imprecations at you.  \"What the hell, [name], you weenie; are you so scared that you can't even stick out your punishment?\"");
     //             DisplayText("\n\nNot to be outdone, you call back, \"Sucks to you!  If even the mighty Last Ember of Hope can't catch me, why do I need to train?  Later, little bird!\"");
@@ -270,7 +267,7 @@ export function fatigueRecovery(character: Character): void {
     //         // Fliers flee!
     //         if (player.canFly()) DisplayText(monster.desc.capitalA + monster.desc.short + " can't catch you.");
     //         // sekrit benefit: if you have coon ears, coon tail, and Runner perk, change normal Runner escape to flight-type escape
-    //         else if (player.torso.tailType === TailType.RACCOON && player.torso.neck.head.earType === EarType.RACCOON && player.perks.has(PerkType.Runner)) {
+    //         else if (player.torso.tailType === TailType.RACCOON && player.torso.neck.head.earType === EarType.RACCOON && player.perks.has(EffectType.Runner)) {
     //             DisplayText("Using your running skill, you build up a head of steam and jump, then spread your arms and flail your tail wildly; your opponent dogs you as best " + monster.desc.subjectivePronoun + " can, but stops and stares dumbly as your spastic tail slowly propels you several meters into the air!  You leave " + monster.desc.objectivePronoun + " behind with your clumsy, jerky, short-range flight.");
     //         }
     //         // Non-fliers flee
@@ -284,7 +281,7 @@ export function fatigueRecovery(character: Character): void {
     //         return;
     //     }
     //     // Runner perk chance
-    //     else if (player.perks.has(PerkType.Runner) && randInt(100) < 50) {
+    //     else if (player.perks.has(EffectType.Runner) && randInt(100) < 50) {
     //         inCombat = false;
     //         DisplayText("Thanks to your talent for running, you manage to escape.");
     //         if (monster.desc.short === "Izma") {
@@ -306,7 +303,7 @@ export function fatigueRecovery(character: Character): void {
     //             else DisplayText(monster.desc.capitalA + monster.desc.short + " manages to grab your " + describeLegs(player) + " and drag you back to the ground before you can fly away!");
     //         }
     //         // fail
-    //         else if (player.torso.tailType === TailType.RACCOON && player.torso.neck.head.earType === EarType.RACCOON && player.perks.has(PerkType.Runner)) DisplayText("Using your running skill, you build up a head of steam and jump, but before you can clear the ground more than a foot, your opponent latches onto you and drags you back down with a thud!");
+    //         else if (player.torso.tailType === TailType.RACCOON && player.torso.neck.head.earType === EarType.RACCOON && player.perks.has(EffectType.Runner)) DisplayText("Using your running skill, you build up a head of steam and jump, but before you can clear the ground more than a foot, your opponent latches onto you and drags you back down with a thud!");
     //         // Nonflyer messages
     //         else {
     //             // Huge balls messages
@@ -365,30 +362,30 @@ export function fatigueRecovery(character: Character): void {
 //         menu();
 
 //         // Berserk
-//         if (player.perks.has(PerkType.Berzerker)) {
+//         if (player.perks.has(EffectType.Berzerker)) {
 //             DisplayText.addButton(0, "Berzerk", berzerk);
 //         }
-//         if (player.perks.has(PerkType.Dragonfire)) {
+//         if (player.perks.has(EffectType.Dragonfire)) {
 //             DisplayText.addButton(1, "DragonFire", dragonBreath);
 //         }
-//         if (player.perks.has(PerkType.FireLord)) {
+//         if (player.perks.has(EffectType.FireLord)) {
 //             DisplayText.addButton(2, "Fire Breath", fireballuuuuu);
 //         }
-//         if (player.perks.has(PerkType.Hellfire)) {
+//         if (player.perks.has(EffectType.Hellfire)) {
 //             DisplayText.addButton(3, "Hellfire", hellFire);
 //         }
 //         // Possess ability.
-//         if (player.perks.has(PerkType.Incorporeality)) {
+//         if (player.perks.has(EffectType.Incorporeality)) {
 //             DisplayText.addButton(4, "Possess", possess);
 //         }
-//         if (player.perks.has(PerkType.Whispered)) {
+//         if (player.perks.has(EffectType.Whispered)) {
 //             DisplayText.addButton(5, "Whisper", superWhisperAttack);
 //         }
-//         if (player.perks.has(PerkType.CorruptedNinetails)) {
+//         if (player.perks.has(EffectType.CorruptedNinetails)) {
 //             DisplayText.addButton(6, "C.FoxFire", corruptedFoxFire);
 //             DisplayText.addButton(7, "Terror", kitsuneTerror);
 //         }
-//         if (player.perks.has(PerkType.EnlightenedNinetails)) {
+//         if (player.perks.has(EffectType.EnlightenedNinetails)) {
 //             DisplayText.addButton(6, "FoxFire", foxFire);
 //             DisplayText.addButton(7, "Illusion", kitsuneIllusion);
 //         }

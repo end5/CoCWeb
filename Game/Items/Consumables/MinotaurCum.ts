@@ -1,15 +1,14 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { VaginaWetness } from '../../Body/Vagina';
-import { Character } from '../../Character/Character';
-import { PerkType } from '../../Effects/PerkType';
+import { randInt } from 'Engine/Utilities/SMath';
+import { VaginaWetness } from 'Game/Character/Body/Vagina';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { describeCocksLight } from '../../Descriptors/CockDescriptor';
-import { describeClit, describeVagina } from '../../Descriptors/VaginaDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { FlagType } from '../../FlagType';
-import { Flags } from '../../Flags';
+import { describeCocksLight } from 'Game/Descriptors/CockDescriptor';
+import { describeClit, describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { CView } from 'Page/ContentView';
+import { Flags } from 'Game/Flags';
 
 export const MinotaurCumFlags = {
     MINOTAUR_CUM_ADDICTION_STATE: 0,
@@ -19,7 +18,7 @@ export const MinotaurCumFlags = {
     TIMES_DRANK_MINOTAUR_CUM: 0,
 };
 
-Flags.set(FlagType.MinotaurCum, MinotaurCumFlags);
+Flags.set("Minotaur Cum", MinotaurCumFlags);
 
 export class MinotaurCum extends Consumable {
     public constructor() {
@@ -68,12 +67,12 @@ export class MinotaurCum extends Consumable {
             character.stats.lust += randInt(5) + character.stats.cor / 20 + MinotaurCumFlags.MINOTAUR_CUM_ADDICTION_TRACKER / 5;
         }
         // (Healing � if hurt and uber-addicted (hasperk))
-        if (character.stats.HP < character.stats.maxHP() && character.perks.has(PerkType.MinotaurCumAddict)) {
+        if (character.stats.HP < character.stats.maxHP() && character.effects.has(EffectType.MinotaurCumAddict)) {
             CView.text("\n\nThe fire of your arousal consumes your body, leaving vitality in its wake.  You feel much better!");
             character.stats.HP += Math.floor(character.stats.maxHP() / 4);
         }
         // Uber-addicted status!
-        if (character.perks.has(PerkType.MinotaurCumAddict) && MinotaurCumFlags.MINOTAUR_CUM_REALLY_ADDICTED_STATE <= 0) {
+        if (character.effects.has(EffectType.MinotaurCumAddict) && MinotaurCumFlags.MINOTAUR_CUM_REALLY_ADDICTED_STATE <= 0) {
             MinotaurCumFlags.MINOTAUR_CUM_REALLY_ADDICTED_STATE = 3 + randInt(2);
             CView.text("\n\n<b>Your body feels so amazing and sensitive.  Experimentally you pinch yourself and discover that even pain is turning you on!</b>");
         }

@@ -1,19 +1,19 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { EarType } from '../../Body/Ears';
-import { FaceType } from '../../Body/Face';
-import { IncubationTime, Pregnancy, PregnancyType } from '../../Body/Pregnancy/Pregnancy';
-import { SkinType } from '../../Body/Skin';
-import { Tail, TailType } from '../../Body/Tail';
-import { Character } from '../../Character/Character';
-import { StatusEffectType } from '../../Effects/StatusEffectType';
+import { randInt } from 'Engine/Utilities/SMath';
+import { EarType } from 'Game/Character/Body/Ears';
+import { FaceType } from 'Game/Character/Body/Face';
+import { IncubationTime, PregnancyType, Pregnancy } from 'Game/Character/Body/Pregnancy/Pregnancy';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { Tail, TailType } from 'Game/Character/Body/Tail';
+import { Character } from 'Game/Character/Character';
+import { EffectType } from 'Game/Effects/EffectType';
 import { ItemDesc } from '../ItemDesc';
-import { describeHair } from '../../Descriptors/HairDescriptor';
-import { skinFurScales } from '../../Descriptors/SkinDescriptor';
-import { CView } from '../../../Page/ContentView';
-import { Womb } from '../../Body/Pregnancy/Womb';
-import { displayGoIntoHeat } from '../../Modifiers/BodyModifier';
+import { describeHair } from 'Game/Descriptors/HairDescriptor';
+import { skinFurScales } from 'Game/Descriptors/SkinDescriptor';
+import { CView } from 'Page/ContentView';
+import { Womb } from 'Game/Character/Body/Pregnancy/Womb';
+import { displayGoIntoHeat } from 'Game/Modifiers/BodyModifier';
 import { minoCumAddiction } from './MinotaurCum';
 
 export class MouseCocoa extends Consumable {
@@ -76,21 +76,21 @@ export class MouseCocoa extends Consumable {
             // adds some lust
             character.stats.lust += character.stats.sens / 5;
             if (character.vaginalCapacity() < 100 && character.body.vaginas.length > 0) {
-                if (!character.effects.has(StatusEffectType.BonusVCapacity))
-                    character.effects.add(StatusEffectType.BonusVCapacity, { other: { capacity: 0 } });
-                character.effects.get(StatusEffectType.BonusVCapacity)!.values.other!.capacity = 5;
+                if (!character.effects.has(EffectType.BonusVCapacity))
+                    character.effects.create(EffectType.BonusVCapacity, { vaginalCapacity: 0 });
+                character.effects.getByName(EffectType.BonusVCapacity)!.values.vaginalCapacity = 5;
             }
             else {
-                if (!character.effects.has(StatusEffectType.BonusACapacity))
-                    character.effects.add(StatusEffectType.BonusACapacity, { other: { capacity: 0 } });
-                character.effects.get(StatusEffectType.BonusACapacity)!.values.other!.capacity = 5;
+                if (!character.effects.has(EffectType.BonusACapacity))
+                    character.effects.create(EffectType.BonusACapacity, { analCapacity: 0 });
+                character.effects.getByName(EffectType.BonusACapacity)!.values.analCapacity = 5;
             }
             changes++;
         }
         // fem fertility up and heat (suppress if pregnant)
         // not already in heat (add heat and lust)
-        const intensified: boolean = character.effects.has(StatusEffectType.Heat);
-        if (intensified && character.effects.get(StatusEffectType.Heat)!.values.lib.value.flat < 30 && randInt(2) === 0 && changes < changeLimit) {
+        const intensified = character.effects.has(EffectType.Heat);
+        if (intensified && character.effects.getByName(EffectType.Heat)!.values.lib.value.flat < 30 && randInt(2) === 0 && changes < changeLimit) {
             if (character.canGoIntoHeat()) {
                 displayGoIntoHeat(character);
                 if (intensified) {

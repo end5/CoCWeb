@@ -1,14 +1,14 @@
 import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
-import { randInt } from '../../../Engine/Utilities/SMath';
-import { Character } from '../../Character/Character';
+import { randInt } from 'Engine/Utilities/SMath';
+import { Character } from 'Game/Character/Character';
 import { ItemDesc } from '../ItemDesc';
-import { describeCocksLight } from '../../Descriptors/CockDescriptor';
-import { describeVagina } from '../../Descriptors/VaginaDescriptor';
-import { Gender } from '../../Body/GenderIdentity';
-import { CView } from '../../../Page/ContentView';
-import { displayGoIntoHeat, displayGoIntoRut } from '../../Modifiers/BodyModifier';
-import { CombatManager } from '../../Combat/CombatManager';
+import { describeCocksLight } from 'Game/Descriptors/CockDescriptor';
+import { describeVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { Gender } from 'Game/Character/Body/GenderIdentity';
+import { CView } from 'Page/ContentView';
+import { displayGoIntoHeat, displayGoIntoRut } from 'Game/Modifiers/BodyModifier';
+import { CombatManager } from 'Game/Combat/CombatManager';
 
 export class LustDraft extends Consumable {
     private enhanced: boolean;
