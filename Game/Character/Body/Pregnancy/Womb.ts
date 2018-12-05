@@ -4,6 +4,7 @@ import { ISerializable } from 'Engine/Utilities/ISerializable';
 import { SortOption, FilterOption } from 'Engine/Utilities/List';
 import { randInt } from 'Engine/Utilities/SMath';
 import { Body } from '../Body';
+import { CView } from 'Page/ContentView';
 
 export interface IWomb {
     pregnancy: IPregnancy;
@@ -51,15 +52,21 @@ export class Womb implements ISerializable<IWomb> {
         return !this.pregnancy && this.body.vaginas.length > 0;
     }
 
-    public knockUp(type: PregnancyType, time: IncubationTime, event: IPregnancyEvent, virility: number = 100, guarantee?: boolean): void {
+    private removeHeat() {
+        CView.text("\nYou calm down a bit and realize you no longer fantasize about getting fucked constantly.  It seems your heat has ended.\n");
+    }
+
+    public knockUp(pregnancy: Pregnancy, event: IPregnancyEvent, virility: number = 100, guarantee?: boolean): void {
         if (guarantee || this.canKnockUp()) {
+            this.removeHeat();
 
             if (guarantee || this.body.fertility > randInt(virility)) {
-                this.currentPregnancy = new Pregnancy(type, time);
+                this.currentPregnancy = pregnancy;
                 this.pregEvent = event;
             }
 
-            if (guarantee || this.body.fertility > randInt(virility))
+            if (pregnancy.type !== PregnancyType.IMP && pregnancy.type !== PregnancyType.OVIELIXIR_EGGS && pregnancy.type !== PregnancyType.ANEMONE &&
+                (guarantee || this.body.fertility > randInt(virility)))
                 this.body.ovipositor.fertilizeEggs();
         }
     }

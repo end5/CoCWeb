@@ -15,7 +15,7 @@ import { VaginaWetness } from 'Game/Character/Body/Vagina';
 import { beeRaceScore } from 'Game/Character/RaceScore';
 import { describeButt, describeButthole } from 'Game/Descriptors/ButtDescriptor';
 import { ButtLooseness } from 'Game/Character/Body/Butt';
-import { PregnancyType, IncubationTime } from 'Game/Character/Body/Pregnancy/Pregnancy';
+import { PregnancyType, IncubationTime, Pregnancy } from 'Game/Character/Body/Pregnancy/Pregnancy';
 import { ConsumableName } from 'Game/Items/Consumables/ConsumableName';
 import { MaterialName } from 'Game/Items/Materials/MaterialName';
 import { mf } from 'Game/Descriptors/GenderDescriptor';
@@ -255,7 +255,7 @@ function beeEncounterAfraidRepeatSex(player: Character): NextScreenChoices {
     }
     CView.text("The two of you remain connected to one another for the better part of an hour.  Despite all the other sources of pleasure available to you here, you find yourself focusing the most on the organ inserted into your rear end.  The handmaiden seems to catch onto this, and start to pull her organ in and out of your back entrance.  Each time the lowest knot on her passes through your hole, both of you let out great moans of pleasure.\n\n");
     CView.text("Eventually, her supply of eggs runs out, and she thanks you for the time that you spent together.  With the amount of pleasure you experienced, there is no question in your mind that it was quite worth it.  She does hand you a gift as a final thank you for your service before flying off.\n\n");
-    if (!player.body.buttWomb.isPregnant()) player.body.buttWomb.knockUp(PregnancyType.BEE_EGGS, IncubationTime.BEE, BeeButtPregEvent, 0, true);
+    if (!player.body.buttWomb.isPregnant()) player.body.buttWomb.knockUp(new Pregnancy(PregnancyType.BEE_EGGS, IncubationTime.BEE), BeeButtPregEvent, 0, true);
     player.orgasm();
     player.slimeFeed();
     switch (randInt(10)) {
@@ -377,7 +377,7 @@ function beeEncounterSheBeatsYouRegularlyAndYouLetHerLaysEggs(player: Character,
     player.stats.int += -.5;
 
     player.slimeFeed();
-    if (randInt(2) === 0) player.body.buttWomb.knockUp(PregnancyType.BEE_EGGS, IncubationTime.BEE, BeeButtPregEvent, 1, true); // Anal bee pregnancy!
+    if (randInt(2) === 0) player.body.buttWomb.knockUp(new Pregnancy(PregnancyType.BEE_EGGS, IncubationTime.BEE), BeeButtPregEvent, 1, true); // Anal bee pregnancy!
     displayStretchButt(player, 25, true);
     return { next: passTime(4) };
 }
@@ -560,7 +560,7 @@ function beeEncounterClassicSex(player: Character, postCombat: boolean = true): 
 
         player.slimeFeed();
         // Anal bee pregnancy!
-        if (randInt(3) === 0) player.body.buttWomb.knockUp(PregnancyType.BEE_EGGS, IncubationTime.BEE, BeeButtPregEvent, 1, true);
+        if (randInt(3) === 0) player.body.buttWomb.knockUp(new Pregnancy(PregnancyType.BEE_EGGS, IncubationTime.BEE), BeeButtPregEvent, 1, true);
         displayStretchButt(player, 25, true);
     }
     // NON TAURS
@@ -583,7 +583,7 @@ function beeEncounterClassicSex(player: Character, postCombat: boolean = true): 
         player.stats.int += -.5;
 
         // Anal bee pregnancy!
-        if (randInt(3) === 0) player.body.buttWomb.knockUp(PregnancyType.BEE_EGGS, IncubationTime.BEE, BeeButtPregEvent, 1, true);
+        if (randInt(3) === 0) player.body.buttWomb.knockUp(new Pregnancy(PregnancyType.BEE_EGGS, IncubationTime.BEE), BeeButtPregEvent, 1, true);
     }
     // non-dicked version
     else {
@@ -633,7 +633,7 @@ function beeEncounterClassicSex(player: Character, postCombat: boolean = true): 
 
         player.slimeFeed();
         // Anal bee pregnancy!
-        if (randInt(3) === 0) player.body.buttWomb.knockUp(PregnancyType.BEE_EGGS, IncubationTime.BEE, BeeButtPregEvent, 1, true);
+        if (randInt(3) === 0) player.body.buttWomb.knockUp(new Pregnancy(PregnancyType.BEE_EGGS, IncubationTime.BEE), BeeButtPregEvent, 1, true);
         displayStretchButt(player, 25, true);
     }
     return { next: passTime(4) };
@@ -1234,7 +1234,7 @@ export function beeRapesYou(player: Character): NextScreenChoices {
             player.stats.lust = 100;
 
             // Anal bee pregnancy!
-            player.body.buttWomb.knockUp(PregnancyType.BEE_EGGS, IncubationTime.BEE, BeeButtPregEvent, 1, true);
+            player.body.buttWomb.knockUp(new Pregnancy(PregnancyType.BEE_EGGS, IncubationTime.BEE), BeeButtPregEvent, 1, true);
         }
         player.slimeFeed();
         return { next: passTime(1) };
@@ -1271,7 +1271,7 @@ export function beeRapesYou(player: Character): NextScreenChoices {
             player.stats.int += -.5;
 
             // Anal bee pregnancy!
-            if (randInt(3) === 0) player.body.buttWomb.knockUp(PregnancyType.BEE_EGGS, IncubationTime.BEE, BeeButtPregEvent, 1, true);
+            if (randInt(3) === 0) player.body.buttWomb.knockUp(new Pregnancy(PregnancyType.BEE_EGGS, IncubationTime.BEE), BeeButtPregEvent, 1, true);
             displayStretchButt(player, 25, true, true, false);
 
             return { next: passTime(1) };

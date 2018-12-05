@@ -4,9 +4,10 @@ import { randInt } from 'Engine/Utilities/SMath';
 import { PregnancyType } from 'Game/Character/Body/Pregnancy/Pregnancy';
 import { Character } from 'Game/Character/Character';
 import { ItemDesc } from '../ItemDesc';
-import { randEgg } from './Eggs';
 import { CView } from 'Page/ContentView';
 import { Womb } from 'Game/Character/Body/Pregnancy/Womb';
+import { randEggType } from './Eggs';
+import { EggPregnancy } from 'Game/Character/Body/Pregnancy/EggPregnancy';
 
 export class OvipositionElixir extends Consumable {
     public constructor() {
@@ -45,19 +46,19 @@ export class OvipositionElixir extends Consumable {
         }
         if (character.body.wombs.find(Womb.NotPregnant)) { // If the character is not pregnant, get preggers with eggs!
             CView.text("\n\nThe elixir has an immediate effect on your belly, causing it to swell out slightly as if pregnant.  You guess you'll be laying eggs sometime soon!");
-            character.body.wombs.find(Womb.NotPregnant)!.knockUp(new Pregnancy(PregnancyType.OVIELIXIR_EGGS, IncubationTime.OVIELIXIR_EGGS), 1, true);
-            character.effects.add(StatusEffectType.Eggs, { other: { type: randEgg(), large: false, quantity: randInt(3) + 5 } });
+            character.body.wombs.find(Womb.NotPregnant)!.knockUp(new EggPregnancy(randEggType(), false, randInt(3) + 5), 1, true);
             return;
         }
         let changeOccurred: boolean = false;
-        if (character.body.wombs.find(Womb.PregnantWithType(PregnancyType.OVIELIXIR_EGGS))) { // If character already has eggs, chance of size increase!
-            const eggEffect = character.effects.get(StatusEffectType.Eggs);
-            if (eggEffect) {
+        const wombPregWithEggs = character.body.wombs.find(Womb.PregnantWithType(PregnancyType.OVIELIXIR_EGGS));
+        if (wombPregWithEggs) { // If character already has eggs, chance of size increase!
+            const eggPreg = wombPregWithEggs.pregnancy as EggPregnancy;
+            if (eggPreg) {
                 // If eggs are small, chance of increase!
-                if (!eggEffect.values.other!.large) {
+                if (!wombPregWithEggs.pregnancy!) {
                     // 1 in 2 chance!
                     if (randInt(3) === 0) {
-                        eggEffect.values.other!.large = true;
+                        eggPreg.large = true;
                         CView.text("\n\nYour pregnant belly suddenly feels heavier and more bloated than before.  You wonder what the elixir just did.");
                         changeOccurred = true;
                     }
@@ -65,7 +66,7 @@ export class OvipositionElixir extends Consumable {
                 // Chance of quantity increase!
                 if (randInt(2) === 0) {
                     CView.text("\n\nA rumble radiates from your uterus as it shifts uncomfortably and your belly gets a bit larger.");
-                    eggEffect.values.other!.quantity = randInt(4 + 1);
+                    eggPreg.amount = randInt(4 + 1);
                     changeOccurred = true;
                 }
             }

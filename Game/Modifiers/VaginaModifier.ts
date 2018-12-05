@@ -4,7 +4,7 @@ import { Character } from '../Character/Character';
 import { EffectType } from '../Effects/EffectType';
 import { describeVagina } from '../Descriptors/VaginaDescriptor';
 import { CView } from '../../Page/ContentView';
-import { PregnancyType, IncubationTime } from '../Body/Pregnancy/Pregnancy';
+import { PregnancyType, IncubationTime, Pregnancy } from '../Character/Body/Pregnancy/Pregnancy';
 import { IPregnancyEvent } from '../Character/Body/Pregnancy/IPregnancyEvent';
 import { Womb } from '../Character/Body/Pregnancy/Womb';
 
@@ -98,5 +98,5 @@ export function displayStretchVagina(character: Character, cArea: number, displa
 export function attemptKnockUp(char: Character, type: PregnancyType, time: IncubationTime, event: IPregnancyEvent, virility?: number) {
     const notPregWomb = char.body.wombs.find(Womb.NotPregnant);
     if (notPregWomb)
-        notPregWomb.knockUp(type, time, event, virility);
+        notPregWomb.knockUp(new Pregnancy(type, time), event, virility);
 }

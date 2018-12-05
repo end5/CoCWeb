@@ -98,7 +98,7 @@ export class Pregnancy implements ISerializable<IPregnancy> {
     public type: PregnancyType;
     public incubation: IncubationTime;
 
-    public constructor(type: PregnancyType = PregnancyType.NONE, incubation: number = IncubationTime.NONE) {
+    public constructor(type: PregnancyType = PregnancyType.IMP, incubation: number = IncubationTime.IMP) {
         this.type = type;
         this.incubation = incubation;
     }
