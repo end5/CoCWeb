@@ -1,10 +1,10 @@
 import * as CodeMirror from 'codemirror';
 
-import 'codemirror/mode/javascript/javascript.js';
-import 'codemirror/mode/css/css.js';
-import 'codemirror/mode/htmlmixed/htmlmixed.js';
-import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/lesser-dark.css';
+import 'codemirror/mode/javascript/javascript';
+import 'codemirror/mode/css/css';
+import 'codemirror/mode/htmlmixed/htmlmixed';
+// import 'codemirror/lib/codemirror.css';
+// import 'codemirror/theme/lesser-dark.css';
 import { cocMode } from '../../EditorModes';
 import { Lex } from '../../../Game/Parser/Lexer';
 import { Parser } from '../../../Game/Parser/Parser';

@@ -1,0 +1,212 @@
+body {
+    font-family: monospace;
+    margin: unset;
+    background-color: #262626;
+}
+
+text { background: #262626; color: #EBEFE7; text-shadow: 0 -1px 1px #262626; }
+
+#mainTabs {
+    height: 45px;
+}
+
+#mainContent {
+    height: calc(100vh - 45px - 10px);
+}
+
+button {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+button.fieldTitle {
+    width: 100%;
+}
+
+.disclaimer {
+    text-align: center;
+    margin: auto;
+}
+
+.disclaimer>.accordion {
+    width: auto;
+}
+
+.tab {
+    width: 20% !important;
+    text-align: center !important;
+    height: 100%;
+    font-size: 1.5em;
+}
+
+.tabcontent.active {
+    display: block;
+    background-color: #45443B;
+}
+
+.tabcontent {
+    display: none;
+    background-color: #262626;
+    padding: 5px;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.accordion {
+    background-color: #262626;
+    color: #EBEFE7;
+    cursor: pointer;
+    padding: 5px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+.active,
+.accordion:hover {
+    background-color: #45443B;
+}
+
+.content {
+    height: 100%;
+    background-color: #262626;
+    color: #EBEFE7;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    margin: unset;
+    tab-size: 4;
+}
+
+
+#editorPane {
+    width: calc(50% - 1px);
+    height: calc(100% - 10px);
+    position: absolute;
+}
+
+.CodeMirror {
+    height: calc(100% - 150px) !important;
+}
+
+#outputPane {
+    width: calc(50% - 1px);
+    height: calc(100% - 10px);
+    position: absolute;
+    left: calc(50% + 1px);
+}
+
+#outputTabs .tab {
+    font-size: 1em;
+}
+
+#outputContent {
+    height: calc(100% - 30px);
+}
+
+#previewContent .buttons {
+    width: calc(100% - 5px);
+    position: absolute;
+}
+
+#previewContent .row {
+    display: flex;
+}
+
+#previewContent .button {
+    background-color: #262626;
+    color: #EBEFE7;
+    cursor: pointer;
+    padding: 5px;
+    width: 100%;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    height: 25px;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+#previewContent .button:hover {
+    background-color: #45443B;
+}
+
+#errorPane {
+    margin-top: 5px;
+    width: 100%;
+    height: 145px;
+}
+
+#charContent input {
+    resize: none;
+    background-color: inherit;
+    color: inherit;
+    border: 0px;
+    font-family: inherit;
+    padding-left: 2px;
+}
+
+#charContent select {
+    background-color: inherit;
+    color: inherit;
+    border: 0px;
+    width: 20%;
+    border-color: #262626;
+    font-family: inherit;
+}
+
+#charContent button {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+#charContent button.fieldTitle {
+    width: 100%;
+}
+
+#charContent .active,
+#charContent .accordion:hover {
+    background-color: #45443B;
+}
+
+#charContent .panel {
+    display: none;
+    padding: 2px 5px;
+}
+
+#charContent .panel.active {
+    display: block;
+    padding: 2px 5px;
+}
+
+#charContent .fieldEntry {
+    display: flex;
+    width: auto !important;
+}
+
+#charContent .fieldEntry fieldset {
+    margin: unset;
+    border: unset;
+    padding: unset;
+    width: 80%;
+}
+
+#charContent .fieldTitle {
+    width: 20%;
+}
+
+#charContent .addRemoveButtons {
+    display: flex;
+}
+
+#charContent .addRemoveButton {
+    width: 1em;
+    text-align: center;
+}
