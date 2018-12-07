@@ -1,8 +1,7 @@
-import { Flags } from "../../Flags";
-import { FlagType } from "../../FlagType";
+import { Flags } from 'Game/Flags';
 
 export const JojoFlags = {
     monk: 0,
 };
 
-Flags.set(FlagType.Jojo, JojoFlags);
+Flags.set("Jojo", JojoFlags);

@@ -1,8 +1,7 @@
-import { Flags } from "../../Flags";
-import { FlagType } from "../../FlagType";
+import { Flags } from 'Game/Flags';
 
 export const RaphaelFlags = {
     RAPHAEL_RAPIER_TRANING: 0,
 };
 
-Flags.set(FlagType.Raphael, RaphaelFlags);
+Flags.set("Raphael", RaphaelFlags);

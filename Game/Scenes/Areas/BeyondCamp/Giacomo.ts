@@ -1,7 +1,6 @@
-import { Flags } from "../../../Flags";
-import { FlagType } from "../../../FlagType";
+import { Flags } from 'Game/Flags';
 
 export const GiacomoFlags = {
     MET: 0,
 };
-Flags.set(FlagType.Giacomo, GiacomoFlags);
+Flags.set("Giacomo", GiacomoFlags);

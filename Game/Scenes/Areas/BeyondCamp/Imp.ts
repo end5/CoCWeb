@@ -24,6 +24,7 @@ import { ArmorName } from 'Game/Items/Armors/ArmorName';
 import { CombatAction } from 'Game/Combat/Actions/CombatAction';
 import { impRapesYou, impVictory } from './ImpScene';
 import { describeAllVagina } from 'Game/Descriptors/VaginaDescriptor';
+import { EffectType } from 'Game/Effects/EffectType';
 
 export class ImpMagicLustAttack extends CombatAction {
     public name: string = "Magic Lust Attack";
@@ -69,7 +70,7 @@ export class ImpMagicLustAttack extends CombatAction {
 
 class ImpEndScenes extends EndScenes {
     protected victoryScene?(howYouWon: DefeatType, enemy: Character): NextScreenChoices {
-        if (pcCameWorms) {
+        if (enemy.effects.has(EffectType.CameWorms)) {
             CView.text("\n\nThe imp grins at your already corrupted state...");
             enemy.stats.lust = 100;
             return { next: choiceWrap(impRapesYou, this.char) };

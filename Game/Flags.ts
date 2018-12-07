@@ -1,14 +1,13 @@
-import { FlagType } from './FlagType';
 import { Dictionary, IDictionary } from '../Engine/Utilities/Dictionary';
 
-class FlagDict extends Dictionary<FlagType, object> {
+class FlagDict extends Dictionary<string, object> {
     private baseValues: IDictionary<object> = {};
 
     /**
      * Gets the entry at the key. If no entry is found, an empty object is returned.
      * @param key
      */
-    public get<F extends object>(key: FlagType): F {
+    public get<F extends object>(key: string): F {
         if (!this.has(key))
             this.dictionary[key] = {};
         return super.get(key) as F;
@@ -19,7 +18,7 @@ class FlagDict extends Dictionary<FlagType, object> {
      * @param key
      * @param entry
      */
-    public set(key: FlagType, entry: object) {
+    public set(key: string, entry: object) {
         this.baseValues[key] = entry;
         super.set(key, JSON.parse(JSON.stringify(entry)));
     }

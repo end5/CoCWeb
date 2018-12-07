@@ -41,7 +41,7 @@ export const BeeGirlFlags = {
 Flags.set("BeeGirl", BeeGirlFlags);
 class BeeGirlEndScenes extends EndScenes {
     protected victoryScene?(howYouWon: DefeatType, enemy: Character): NextScreenChoices {
-        if (pcCameWorms) {
+        if (enemy.effects.has(EffectType.CameWorms)) {
             CView.text("\n\nThe bee-girl goes white and backs away with a disgusted look on her face.\n\n");
             return { next: passTime(1) };
         }

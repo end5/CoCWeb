@@ -8,6 +8,7 @@ import { levelUpMenu } from './LevelUpMenu';
 import { perkUpMenu } from './PerkUpMenu';
 import { TimeEvents } from 'Game/TimeEvents';
 import { ItemsOnFloor } from 'Game/Scenes/ItemsOnFloor';
+import { camp } from 'Game/Scenes/Camp';
 
 export function playerMenu(character: Character): NextScreenChoices {
     // Safe guard against combat breaking
@@ -26,7 +27,7 @@ export function playerMenu(character: Character): NextScreenChoices {
     for (const item of ItemsOnFloor)
         character.inventory.items.add(character, item, playerMenu);
 
-    return camp();
+    return camp(character);
 }
 
 export function passTime(num: number): ClickFunction {

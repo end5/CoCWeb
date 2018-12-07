@@ -2,6 +2,7 @@ import { Consumable } from './Consumable';
 import { ConsumableName } from './ConsumableName';
 import { Character } from 'Game/Character/Character';
 import { ItemDesc } from '../ItemDesc';
+import { blackCatBeerEffects } from 'Game/Scenes/Places/TelAdre/Niamh';
 
 export class BlackCatBeer extends Consumable {
     public constructor() {

@@ -15,6 +15,7 @@ import { CView } from 'Page/ContentView';
 import { Womb } from 'Game/Character/Body/Pregnancy/Womb';
 import { displayGoIntoHeat } from 'Game/Modifiers/BodyModifier';
 import { minoCumAddiction } from './MinotaurCum';
+import { MinotaurPregEvent } from 'Game/Scenes/Pregnancy/Minotaur';
 
 export class MouseCocoa extends Consumable {
     public constructor() {
@@ -107,7 +108,7 @@ export class MouseCocoa extends Consumable {
                         minoCumAddiction(5);
                         const notPregWomb = character.body.wombs.find(Womb.NotPregnant);
                         if (notPregWomb)
-                            notPregWomb.knockUp(new Pregnancy(PregnancyType.MINOTAUR, IncubationTime.MINOTAUR), 175);
+                            notPregWomb.knockUp(new Pregnancy(PregnancyType.MINOTAUR, IncubationTime.MINOTAUR), MinotaurPregEvent, 175);
                         character.inventory.items.consumeItem(ConsumableName.MinotaurCum);
                     }
                 }

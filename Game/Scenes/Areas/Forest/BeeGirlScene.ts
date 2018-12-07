@@ -32,6 +32,7 @@ import { TongueType } from 'Game/Character/Body/Tongue';
 import { numToCardinalText } from 'Game/Utilities/NumToText';
 import { describeHips } from 'Game/Descriptors/HipDescriptor';
 import { BeeButtPregEvent } from 'Game/Scenes/Pregnancy/Bee';
+import { ExgartuanFlags, exgartuanBeeRape } from 'Game/Scenes/NPCs/Exgartuan';
 
 /**
  * Created by aimozg on 03.01.14.
@@ -90,7 +91,7 @@ function beeEncounterSelect(player: Character, clearScreen: boolean = true): Nex
     CView.sprite(SpriteName.BeeGirl); // 6;
     // Bee appears!
     CView.text("That's when she comes into view.  A great woman, yellow and black, a Bee-like handmaiden would be the best comparison.  She sits atop a great flower while humming her tune, happily picking the petals off of another flower.  Her body is thin, save her abdomen.  Her head is more humanoid than bee, with black eyes, antennae, and luscious black lips that glimmer wetly");
-    if (player.effects.getByName(EffectType.Exgartuan).value1 === 1 && player.body.cocks.length > 0 && player.body.cocks.get(0)!.area > 100 && player.effects.getByName(EffectType.Exgartuan).value2 === 0) { // Exgartuan messes with things!
+    if (ExgartuanFlags.LOCATION === 1 && player.body.cocks.length > 0 && player.body.cocks.get(0)!.area > 100 && ExgartuanFlags.SLEEP_COUNTER === 0) { // Exgartuan messes with things!
         return beeEncounterWithExgartuan(player);
     }
     if (player.effects.has(EffectType.Infested) || player.effects.has(EffectType.WormPlugged)) { // Worms now mess with things too!
@@ -2035,8 +2036,7 @@ export function milkAndHoneyAreKindaFunny(player: Character): NextScreenChoices 
     player.stats.lust += -50;
 
     // You've now been milked, reset the timer for that
-    player.effects.get(EffectType.Feeder).value1 += 1;
-    player.effects.get(EffectType.Feeder).value2 = 0;
+    player.milked();
     return { next: passTime(1) };
 }
 

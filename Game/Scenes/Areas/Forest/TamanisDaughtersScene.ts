@@ -31,6 +31,8 @@ import { TimeEvents } from 'Game/TimeEvents';
 import { FlagWomb } from 'Game/Character/Body/Pregnancy/FlagWomb';
 import { TamaniFlags, tamaniKnockUp } from './TamaniScene';
 import { CeraphFlags } from 'Game/Scenes/NPCs/Ceraph';
+import { ExgartuanFlags } from 'Game/Scenes/NPCs/Exgartuan';
+import { infestOrgasm } from '../Mountains/Worms';
 
 export const TamanisDaughtersFlags = {
     TIMES_ENCOUNTED_TAMANIS_DAUGHTERS: 0,
@@ -887,7 +889,7 @@ function tamaniDaughtersBadEndChoice(player: Character): NextScreenChoices {
 
     CView.text("A goblin leans over your face and hugs her jiggling breasts against you as she gushes, \"<i>Thank you so much daddy!   You probably can't see with all the straps holding you down, but you got me and my sisters totally pregnant.  There's even enough of your spunk left over to knock us up a few more times!  We decided that even though we don't need you to cum right now, we'd let you keep coming forever.  Do you want that?</i>\"\n\n");
 
-    if (player.effects.getByName(EffectType.Exgartuan).value1 === 1) CView.text("Exgartuan barks, \"<i>Hell yes I do!</i>\" but the goblin only smirks down for a moment before looking back at you.\n\n");
+    if (ExgartuanFlags.LOCATION === 1) CView.text("Exgartuan barks, \"<i>Hell yes I do!</i>\" but the goblin only smirks down for a moment before looking back at you.\n\n");
 
     CView.text("(Options: Yes, No, I'd rather fill your cunts individually & personally)");
     return { choices: [["Yes", tamaniDaughtersYesBadEndMePlease], ["No", tamaniDaughtersDeclineBadEnd], ["Individual", tamanisDaughtersFillIndividuallyBADEND]] };
@@ -900,7 +902,7 @@ function tamaniDaughtersYesBadEndMePlease(player: Character): NextScreenChoices 
     CView.text("\"<i>Wonderful!</i>\" cries the excited pregnant slut.   She gives you a quick peck on the cheek as she prances back over to the machine.  You brace yourself in anticipation, eager to lose yourself to an eternal orgasm.  A switch clicks, and a dial whirs as it's turned up to the maximum.  The fluids pumping into your backside and directly into your veins suddenly jump in pressure, stinging painfully for a moment before the pleasure returns.  Your eyes slowly roll back, your jaw goes slack, and your " + describeCocksLight(player) + " spew");
     if (player.body.cocks.length === 1) CView.text("s");
     CView.text(" cum into the tubes.\n\n");
-    if (player.effects.getByName(EffectType.Exgartuan).value1 === 1) CView.text("Exgartuan moans, \"<i>Ohhhhhh yeeeeaaaaahhhh...</i>\" before slipping into silence.\n\n");
+    if (ExgartuanFlags.LOCATION === 1) CView.text("Exgartuan moans, \"<i>Ohhhhhh yeeeeaaaaahhhh...</i>\" before slipping into silence.\n\n");
 
     CView.text("You spend the rest of your life trapped in orgasm, constantly feeding the growth of what becomes the biggest goblin tribe in all the land of Mareth.  Even when every single one of them is pregnant, they let you enjoy your reward.  Over time your capacity for memory, morals, or anything other feeling besides pleasure dwindles.  Trapped in a heaven of your own choosing, you gave up everything that you were for never-ending bliss.");
     return gameOverMenu(player);
@@ -1101,9 +1103,10 @@ export function loseToDaughters(player: Character): NextScreenChoices {
     if (player.stats.lust > 99) {
         // worms r gross mmmmkay?
         if (player.effects.has(EffectType.Infested)) {
-            infestOrgasm();
+            const result = infestOrgasm(player);
             CView.text("\n\nThe goblins sigh and say, \"<i>Dad, that's just gross.  Don't get me wrong, we're still gonna have you knock us up, but I hate the feeling of those worms inside me.</i>\"");
             player.orgasm();
+            return result;
         }
         CView.text("\n\nYou give up, you're just too turned on by the sea of sexually charged deviants to resist them anymore.  You're ready to fuck them all.");
         if (player.body.cocks.length === 0) {

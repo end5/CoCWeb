@@ -8,6 +8,7 @@ import { CView } from 'Page/ContentView';
 import { Womb } from 'Game/Character/Body/Pregnancy/Womb';
 import { randEggType } from './Eggs';
 import { EggPregnancy } from 'Game/Character/Body/Pregnancy/EggPregnancy';
+import { OvielixirPregEvent } from 'Game/Scenes/Pregnancy/Ovielixir';
 
 export class OvipositionElixir extends Consumable {
     public constructor() {
@@ -46,7 +47,7 @@ export class OvipositionElixir extends Consumable {
         }
         if (character.body.wombs.find(Womb.NotPregnant)) { // If the character is not pregnant, get preggers with eggs!
             CView.text("\n\nThe elixir has an immediate effect on your belly, causing it to swell out slightly as if pregnant.  You guess you'll be laying eggs sometime soon!");
-            character.body.wombs.find(Womb.NotPregnant)!.knockUp(new EggPregnancy(randEggType(), false, randInt(3) + 5), 1, true);
+            character.body.wombs.find(Womb.NotPregnant)!.knockUp(new EggPregnancy(randEggType(), false, randInt(3) + 5), OvielixirPregEvent, 1, true);
             return;
         }
         let changeOccurred: boolean = false;

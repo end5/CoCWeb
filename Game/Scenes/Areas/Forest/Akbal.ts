@@ -169,7 +169,7 @@ class Heal extends CombatAction {
 class AkbalEndScenes extends EndScenes {
     protected victoryScene?(howYouWon: DefeatType, enemy: Character): NextScreenChoices {
         // $> Need Fix for pcCameWorms
-        return akbalWon(enemy, this.char, howYouWon === DefeatType.HP, false);
+        return akbalWon(enemy, this.char, howYouWon === DefeatType.HP, enemy.effects.has(EffectType.CameWorms));
     }
 
     protected defeatScene?(howYouLost: DefeatType, enemy: Character): NextScreenChoices {

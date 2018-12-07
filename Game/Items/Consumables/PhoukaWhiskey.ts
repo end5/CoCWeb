@@ -113,7 +113,7 @@ export class PhoukaWhiskey extends Consumable {
             CView.text("\n\nOh, it tastes so good.  This stuff just slides down your throat.");
         }
         else { // First time
-            character.effects.add(EffectType.PhoukaWhiskeyAffect, {
+            character.effects.create(EffectType.PhoukaWhiskeyAffect, {
                 expireCountdown: 1,
                 lib: { value: { flat: libidoChange } },
                 sens: { value: { flat: sensChange } },
@@ -126,11 +126,11 @@ export class PhoukaWhiskey extends Consumable {
     }
 
     public phoukaWhiskeyExpires(character: Character) {
-        const phoukaWhiskeyEffect = character.effects.get(EffectType.PhoukaWhiskeyAffect);
+        const phoukaWhiskeyEffect = character.effects.getByName(EffectType.PhoukaWhiskeyAffect);
         if (phoukaWhiskeyEffect) {
             const numDrunk: number = phoukaWhiskeyEffect.values.other!.drinksSoFar;
             // Get back all the stats you lost
-            character.effects.remove(EffectType.PhoukaWhiskeyAffect);
+            character.effects.removeByName(EffectType.PhoukaWhiskeyAffect);
             if (numDrunk > 3)
                 CView.text("\n<b>The dizzy sensation dies away and is replaced by a throbbing pain that starts in your skull and then seems to run all through your body, seizing up your joints and making your stomach turn.  The world feels like it’s off kilter and you aren’t in any shape to face it.  You suppose you could down another whiskey, but right now that doesn’t seem like such a good idea.</b>\n");
             else if (numDrunk > 1)
