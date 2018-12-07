@@ -1,5 +1,7 @@
 const contentElements: { [x: string]: any } = {};
 
+export type EventFunc = (evnt: Event) => void;
+
 export function createContentView(id: string): HTMLElement {
     const content = document.createElement("div");
     content.className = "content";
@@ -20,7 +22,7 @@ export function createTabContent(id: string): HTMLElement {
     return content;
 }
 
-export function createTextInput(initialValue: string, className: string, changeFunc: () => void) {
+export function createTextInput(initialValue: string, className: string, changeFunc: EventFunc) {
     const textAreaEl = document.createElement("input");
     textAreaEl.type = "text";
     textAreaEl.className = className;
@@ -30,7 +32,7 @@ export function createTextInput(initialValue: string, className: string, changeF
     return textAreaEl;
 }
 
-export function createCheckBox(checked: boolean, className: string, changeFunc: () => void) {
+export function createCheckBox(checked: boolean, className: string, changeFunc: EventFunc) {
     const checkBoxEl = document.createElement("input");
     checkBoxEl.className = className;
     checkBoxEl.checked = checked;

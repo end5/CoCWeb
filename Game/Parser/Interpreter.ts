@@ -1,7 +1,7 @@
 import { SyntaxNode, ValueNode, ErrorNode } from "./SyntaxNode";
 import { parserLog } from "./Logger";
 import { SyntaxType } from "./SyntaxType";
-import { ParserTags, ParserCondTags } from "./ParserTags";
+import { ParserFuncTags, ParserCondTags } from "./ParserTags";
 
 class InterpreterTracker {
     private stack: string[] = [];
@@ -102,7 +102,7 @@ function visit(tracker: InterpreterTracker, node: SyntaxNode, values: any[]): an
         case SyntaxType.Number: { return +((node as ValueNode).value); }
         case SyntaxType.String: { return (node as ValueNode).value; }
         case SyntaxType.TagIdentity: {
-            return ParserTags.get((node as ValueNode).value);
+            return ParserFuncTags.get((node as ValueNode).value);
         }
         case SyntaxType.ConditionalTagIdentity: {
             return ParserCondTags.get((node as ValueNode).value);

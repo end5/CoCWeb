@@ -11,9 +11,9 @@ import { Parser } from '../../../Game/Parser/Parser';
 import { Interpret } from '../../../Game/Parser/Interpreter';
 import { parserLog } from '../../../Game/Parser/Logger';
 import { createTabContent, createAccordButton, createContentView } from '../Create';
+import { CView } from '../../../Page/ContentView';
 
 let errorContentEl: HTMLElement;
-let previewContentEl: HTMLElement;
 let debugContentEl: HTMLElement;
 
 parserLog.on = true;
@@ -75,7 +75,7 @@ function loadPreviewTab(tabs: HTMLElement, content: HTMLElement) {
 
     const textContent = createContentView("previewContentView");
     previewContent.appendChild(textContent);
-    previewContentEl = textContent;
+    CView.textElement.setHTMLElement(textContent as HTMLParagraphElement);
 }
 
 function createError(parentEl: HTMLElement) {
@@ -87,7 +87,6 @@ function createError(parentEl: HTMLElement) {
 }
 
 function createEditor(parentEl: HTMLElement) {
-    const parser = new Parser();
     CodeMirror.defineMode(cocMode.name, cocMode.factoryFunc as any);
     const editor = CodeMirror.fromTextArea(parentEl as HTMLTextAreaElement, {
         lineNumbers: true,
@@ -120,9 +119,15 @@ function createEditor(parentEl: HTMLElement) {
         if (debugContentEl)
             debugContentEl.innerHTML = '';
 
-        if (previewContentEl)
-            previewContentEl.innerHTML = Interpret(parser.parse(Lex(text)));
+        CView.clear();
+        CView.text(text);
 
         parserLog.flush();
     });
 }
+
+const parser = new Parser();
+
+CView.parsers.add((text) => {
+    return Interpret(parser.parse(Lex(text)));
+});

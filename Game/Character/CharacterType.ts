@@ -10,5 +10,14 @@ export enum CharacterType {
     Ember = "Ember",
     Kiha = "Kiha",
     Hel = "Hel",
-    Isabella = "Isabella"
+    Isabella = "Isabella",
+    Akbal = "Akbal",
+    Kitsune = "Kitsune",
+    TentacleBeast = "TentacleBeast",
+    Imp = "Imp",
+    ImpLord = "ImpLord",
+    Tamani = "Tamani",
+    TamanisDaughters = "TamanisDaughters",
+    Goblin = "Goblin",
+    ImpGang = "ImpGang"
 }
