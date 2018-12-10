@@ -210,3 +210,70 @@ button.fieldTitle {
     width: 1em;
     text-align: center;
 }
+
+#flagContent input {
+    resize: none;
+    background-color: inherit;
+    color: inherit;
+    border: 0px;
+    font-family: inherit;
+    padding-left: 2px;
+}
+
+#flagContent select {
+    background-color: inherit;
+    color: inherit;
+    border: 0px;
+    width: 20%;
+    border-color: #262626;
+    font-family: inherit;
+}
+
+#flagContent button {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+#flagContent button.fieldTitle {
+    width: 100%;
+}
+
+#flagContent .active,
+#flagContent .accordion:hover {
+    background-color: #45443B;
+}
+
+#flagContent .panel {
+    display: none;
+    padding: 2px 5px;
+}
+
+#flagContent .panel.active {
+    display: block;
+    padding: 2px 5px;
+}
+
+#flagContent .fieldEntry {
+    display: flex;
+    width: auto !important;
+}
+
+#flagContent .fieldEntry fieldset {
+    margin: unset;
+    border: unset;
+    padding: unset;
+    width: 80%;
+}
+
+#flagContent .fieldTitle {
+    width: 20%;
+}
+
+#flagContent .addRemoveButtons {
+    display: flex;
+}
+
+#flagContent .addRemoveButton {
+    width: 1em;
+    text-align: center;
+}

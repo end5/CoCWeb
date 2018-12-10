@@ -46,6 +46,9 @@ export function selectField(name: string, initialValue: string | number, options
     const div = fieldLabel(name);
     const selector = document.createElement("select");
     if (!Array.isArray(options)) options = Object.keys(options).map((key: string) => (options as IDictionary<any>)[key]);
+    // Incase of enums, filter out number values
+    if (options.find((value: any) => isNaN(value)) && options.find((value: any) => !isNaN(value)))
+        options = options.filter((value: any) => !isNaN(value));
     options.forEach((value: any, index: number) => {
         const option = document.createElement("option");
         option.value = '' + index;

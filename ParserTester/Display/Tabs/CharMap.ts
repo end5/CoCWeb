@@ -298,8 +298,8 @@ export const CharMap: PropDict = {
             thickness: { label: "Thickness", type: "number", },
             tone: { label: "Tone", type: "number", },
             cumMultiplier: { label: "Cum Multiplier", type: "number", },
-            femininity: createRangedValueMap("Femininity"),
-            fertility: createRangedValueMap("Fertility"),
+            femininity: createRangedStatMap("Femininity"),
+            fertility: createRangedStatMap("Fertility"),
             wombs: {
                 label: "Wombs",
                 type: "array",
@@ -326,19 +326,19 @@ export const CharMap: PropDict = {
         label: "Stats",
         type: "object",
         properties: {
-            str: createRangedValueMap("Strength"),
-            tou: createRangedValueMap("Toughness"),
-            spe: createRangedValueMap("Speed"),
-            int: createRangedValueMap("Intelligence"),
-            lib: createRangedValueMap("Libido"),
-            sens: createRangedValueMap("Sensitivity"),
-            cor: createRangedValueMap("Corruption"),
-            fatigue: createRangedValueMap("Fatigue"),
-            HP: createRangedValueMap("Hit Points"),
-            lust: createRangedValueMap("Lust"),
+            str: createRangedStatMap("Strength"),
+            tou: createRangedStatMap("Toughness"),
+            spe: createRangedStatMap("Speed"),
+            int: createRangedStatMap("Intelligence"),
+            lib: createRangedStatMap("Libido"),
+            sens: createRangedStatMap("Sensitivity"),
+            cor: createRangedStatMap("Corruption"),
+            fatigue: createRangedStatMap("Fatigue"),
+            HP: createRangedStatMap("Hit Points"),
+            lust: createRangedStatMap("Lust"),
             lustVuln: { label: "Lust Vulnerability", type: "number" },
-            XP: createValueMap("Experience"),
-            level: createValueMap("Level"),
+            XP: createStatMap("Experience"),
+            level: createStatMap("Level"),
             perkPoints: { label: "Perk Points", type: "number" },
             teaseXP: { label: "Tease XP", type: "number" },
             teaseLevel: { label: "Tease Level", type: "number" },
@@ -385,7 +385,7 @@ export const CharMap: PropDict = {
                 create: createItem,
                 properties: {}
             },
-            gems: createValueMap("Gems"),
+            gems: createStatMap("Gems"),
             weapon: createEquipSlotMap("Equipped Weapon", WeaponName),
             armor: createEquipSlotMap("Equipped Armor", ArmorName),
             piercings: {
@@ -492,26 +492,26 @@ function createEffectValuesMap(): ObjectProp & Prop {
         properties:
         {
             expireCountdown: { label: "Expiration Countdown", type: "number" },
-            attack: createRangedValueMap("Attack"),
-            weapon: createRangedValueMap("Weapon"),
-            spell: createRangedValueMap("Spell"),
-            spellCost: createValueMap("Spell Cost"),
-            defense: createRangedValueMap("Defense"),
+            attack: createRangedStatMap("Attack"),
+            weapon: createRangedStatMap("Weapon"),
+            spell: createRangedStatMap("Spell"),
+            spellCost: createStatMap("Spell Cost"),
+            defense: createRangedStatMap("Defense"),
             teaseChance: { label: "Tease Chance", type: "number" },
             teaseDamage: { label: "Tease Damage", type: "number" },
-            str: createRangedValueMap("Strength"),
-            tou: createRangedValueMap("Toughness"),
-            spe: createRangedValueMap("Speed"),
-            int: createRangedValueMap("Intelligence"),
-            lib: createRangedValueMap("Libido"),
-            sens: createRangedValueMap("Sensitivity"),
-            cor: createRangedValueMap("Corruption"),
-            fatigue: createRangedValueMap("Fatigue"),
-            hp: createRangedValueMap("Hit Points"),
-            lust: createRangedValueMap("Lust"),
-            femininity: createRangedValueMap("Femininity"),
-            fertility: createRangedValueMap("Fertility"),
-            cumQuantity: createRangedValueMap("Cum Quanitity"),
+            str: createRangedStatMap("Strength"),
+            tou: createRangedStatMap("Toughness"),
+            spe: createRangedStatMap("Speed"),
+            int: createRangedStatMap("Intelligence"),
+            lib: createRangedStatMap("Libido"),
+            sens: createRangedStatMap("Sensitivity"),
+            cor: createRangedStatMap("Corruption"),
+            fatigue: createRangedStatMap("Fatigue"),
+            hp: createRangedStatMap("Hit Points"),
+            lust: createRangedStatMap("Lust"),
+            femininity: createRangedStatMap("Femininity"),
+            fertility: createRangedStatMap("Fertility"),
+            cumQuantity: createRangedStatMap("Cum Quanitity"),
             virility: { label: "Virility", type: "number" },
             vaginalCapacity: { label: "Vaginal Capacity", type: "number" },
             analCapacity: { label: "Anal Capacity", type: "number" },
@@ -519,28 +519,50 @@ function createEffectValuesMap(): ObjectProp & Prop {
     };
 }
 
-function createRangedValueMap(name: string): ObjectProp & Prop {
+function createRangedStatMap(name: string): ObjectProp & Prop {
     return {
         label: name,
         type: "object",
         properties: {
-            value: createValueMap("Raw"),
-            min: createValueMap("Min"),
-            max: createValueMap("Max"),
+            value: { label: "Value", type: "number" },
+            min: { label: "Min", type: "number" },
+            max: { label: "Max", type: "number" },
         }
     };
 }
 
-function createValueMap(name: string): ObjectProp & Prop {
+function createStatMap(name: string): ObjectProp & Prop {
     return {
         label: name,
         type: "object",
         properties: {
-            flat: { label: "Flat", type: "number" },
-            multi: { label: "Multiplier", type: "number" },
+            value: { label: "Value", type: "number" },
         }
     };
 }
+
+// function createRangedEffectMap(name: string): ObjectProp & Prop {
+//     return {
+//         label: name,
+//         type: "object",
+//         properties: {
+//             value: createStatMap("Raw"),
+//             min: createStatMap("Min"),
+//             max: createStatMap("Max"),
+//         }
+//     };
+// }
+
+// function createEffectMap(name: string): ObjectProp & Prop {
+//     return {
+//         label: name,
+//         type: "object",
+//         properties: {
+//             flat: { label: "Flat", type: "number" },
+//             multi: { label: "Multiplier", type: "number" },
+//         }
+//     };
+// }
 
 //
 // Default create functions
