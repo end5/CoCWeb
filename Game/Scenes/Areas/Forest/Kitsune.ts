@@ -163,7 +163,7 @@ class KitsuneMainAction extends CombatAction {
         if (!enemy.effects.has(EffectType.Sealed)) moves.push(new Seal());
         if (!char.effects.has(EffectType.PCTailTangle)) moves.push(new Entwine());
         if (!char.effects.has(EffectType.Illusion)) moves.push(new Illusion());
-        return randomChoice(...moves);
+        return randomChoice(moves);
     }
 }
 

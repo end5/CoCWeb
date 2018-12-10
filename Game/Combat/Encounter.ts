@@ -62,9 +62,9 @@ export class Encounter {
         }
         else {
             if (this.allyPartyTurn)
-                activeMember.combat.action.use(activeMember, randomChoice(...this.enemyParty.ableMembers));
+                activeMember.combat.action.use(activeMember, randomChoice(this.enemyParty.ableMembers));
             else
-                activeMember.combat.action.use(activeMember, randomChoice(...this.allyParty.ableMembers));
+                activeMember.combat.action.use(activeMember, randomChoice(this.allyParty.ableMembers));
             return this.performTurnEnd();
         }
     }

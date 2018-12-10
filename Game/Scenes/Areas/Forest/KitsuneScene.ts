@@ -796,7 +796,7 @@ export function loseToKitsunes(player: Character, kitsune: Character): NextScree
         if (kitsune.stats.lust > 70) scene.push(getRapedByRedHeadFutaKitsune);
         if (kitsune.stats.lust > 85) scene.push(getRapedByRedHeadFutaKitsune);
     }
-    return randomChoice(...scene)(player);
+    return randomChoice(scene)(player);
 }
 
 // [LOSE FIGHT]
