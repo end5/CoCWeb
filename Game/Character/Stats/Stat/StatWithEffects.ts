@@ -11,7 +11,7 @@ export class StatWithEffects extends Stat {
 
     public get value() {
         const calc = this.calculate();
-        return this.value * calc.value.multi + calc.value.flat;
+        return this.curValue * calc.value.multi + calc.value.flat;
     }
     public set value(num: number) { super.value = num; }
 

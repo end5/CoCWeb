@@ -8,7 +8,9 @@ export function updateDisplay() {
 }
 
 function updateTime() {
+    MainScreen.timeDayElement.clear();
     MainScreen.timeDayElement.text(Time.day.toString());
+    MainScreen.timeHourElement.clear();
     MainScreen.timeHourElement.text(Time.hour.toString());
 }
 
