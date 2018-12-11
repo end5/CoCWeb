@@ -1,5 +1,5 @@
 import { ScreenElement } from '../Engine/Display/Elements/ScreenElement';
-import { randInt } from '../Engine/Utilities/SMath';
+import { randInt } from 'Engine/Utilities/SMath';
 
 type EventFunction = (event: Event) => void;
 
