@@ -1,5 +1,5 @@
 import { IPregnancyEvent } from './IPregnancyEvent';
-import { Pregnancy, PregnancyType, IPregnancy, IncubationTime } from './Pregnancy';
+import { Pregnancy, PregnancyType, IPregnancy } from './Pregnancy';
 import { ISerializable } from 'Engine/Utilities/ISerializable';
 import { SortOption, FilterOption } from 'Engine/Utilities/List';
 import { randInt } from 'Engine/Utilities/SMath';
@@ -51,11 +51,11 @@ export class Womb implements ISerializable<IWomb> {
         return !this.pregnancy && this.body.vaginas.length > 0;
     }
 
-    public knockUp(type: PregnancyType, time: IncubationTime, event: IPregnancyEvent, virility: number = 100, guarantee?: boolean): void {
+    public knockUp(pregnancy: Pregnancy, event: IPregnancyEvent, virility: number = 100, guarantee?: boolean): void {
         if (guarantee || this.canKnockUp()) {
 
             if (guarantee || this.body.fertility > randInt(virility)) {
-                this.currentPregnancy = new Pregnancy(type, time);
+                this.currentPregnancy = pregnancy;
                 this.pregEvent = event;
             }
 
