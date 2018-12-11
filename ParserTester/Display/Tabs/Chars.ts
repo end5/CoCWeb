@@ -2,12 +2,12 @@ import { CharDict } from "../../../Game/CharDict";
 import { Player } from "../../../Game/Character/Player/Player";
 import { createPanel, EventFunc } from "../Create";
 import { IDictionary } from "../../../Engine/Utilities/Dictionary";
-import { Character } from "../../../Game/Character/Character";
+import { Character, ICharacter } from "../../../Game/Character/Character";
 import { CharMap, PropDict, ValueProp, ArrayProp, ObjectProp, ArrayEntryProp, AnyProp } from "./CharMap";
 import { objectField, selectField, setSelectorStringCallback, stringField, setStringCallback, setNumberCallback, booleanField, setBooleanCallback } from "../Fields";
-// import '../../charTab.css';
 
 let selChar: Character;
+export let serializedChar: ICharacter;
 
 interface Info {
     obj: IDictionary<any>;
@@ -20,9 +20,16 @@ export function loadCharContent(charContent: HTMLElement) {
     if (!CharDict.player)
         CharDict.player = new Player();
     selChar = CharDict.player;
+    serializedChar = selChar.serialize();
 
-    generateMappedFields(Object.keys(CharMap).reverse().map((key) => ({ obj: selChar.serialize(), key, element: charContent, map: CharMap })));
+    generateMappedFields(Object.keys(CharMap).reverse().map((key) => ({ obj: serializedChar, key, element: charContent, map: CharMap })));
+}
 
+function charDeserializerWrapper(callback: (obj: IDictionary<any>, key: string) => EventFunc, obj: IDictionary<any>, key: string) {
+    return (evnt: Event) => {
+        callback(obj, key);
+        selChar.deserialize(serializedChar);
+    };
 }
 
 function generateAddRemoveButtons(panel: HTMLElement, addCallback: EventFunc, removeCallback: EventFunc) {
@@ -82,6 +89,7 @@ function processInfo(info: Info): Info | Info[] | undefined {
                             generateMappedFields(Object.keys(mapp.properties).reverse().map((mapKey) =>
                                 ({ obj: objj[keyy], key: mapKey, element: parent, map: mapp.properties })
                             ));
+                            selChar.deserialize(serializedChar);
                         }
                     };
                 }(panel, obj, key, mapEntry),
@@ -92,6 +100,7 @@ function processInfo(info: Info): Info | Info[] | undefined {
                                 parent.removeChild(parent.lastChild);
                             }
                             objj[keyy] = undefined;
+                            selChar.deserialize(serializedChar);
                         }
                     };
                 }(panel, obj, key, mapEntry)
@@ -113,6 +122,7 @@ function processInfo(info: Info): Info | Info[] | undefined {
                                     generateMappedFields(processInfo({ obj: objj[keyy], key: Object.keys(objj[keyy]).length + '', element: parent, map: mapp.entry })!);
                                 else
                                     generateMappedFields(processInfo({ obj: objj[keyy], key: objj[keyy].length, element: parent, map: mapp.entry })!);
+                                selChar.deserialize(serializedChar);
                             }
                         };
                     }(panel, obj, key, mapEntry),
@@ -124,6 +134,7 @@ function processInfo(info: Info): Info | Info[] | undefined {
                                     if (typeof objj[keyy].pop() === "object")
                                         parent.removeChild(parent.lastChild);
                                 }
+                                selChar.deserialize(serializedChar);
                             }
                         };
                     }(panel, obj, key, mapEntry)
@@ -141,18 +152,18 @@ function processInfo(info: Info): Info | Info[] | undefined {
     }
     else if (mapEntry.type === "string") {
         if (mapEntry.options)
-            parentElement.appendChild(selectField(label, obj[key], mapEntry.options, setSelectorStringCallback(obj, key)));
+            parentElement.appendChild(selectField(label, obj[key], mapEntry.options, charDeserializerWrapper(setSelectorStringCallback, obj, key)));
         else
-            parentElement.appendChild(stringField(label, obj[key], setStringCallback(obj, key)));
+            parentElement.appendChild(stringField(label, obj[key], charDeserializerWrapper(setStringCallback, obj, key)));
     }
     else if (mapEntry.type === "number") {
         if (mapEntry.options)
-            parentElement.appendChild(selectField(label, obj[key], mapEntry.options, setNumberCallback(obj, key)));
+            parentElement.appendChild(selectField(label, obj[key], mapEntry.options, charDeserializerWrapper(setNumberCallback, obj, key)));
         else
-            parentElement.appendChild(stringField(label, obj[key], setNumberCallback(obj, key)));
+            parentElement.appendChild(stringField(label, obj[key], charDeserializerWrapper(setNumberCallback, obj, key)));
     }
     else if (mapEntry.type === "boolean") {
-        parentElement.appendChild(booleanField(label, obj[key], setBooleanCallback(obj, key)));
+        parentElement.appendChild(booleanField(label, obj[key], charDeserializerWrapper(setBooleanCallback, obj, key)));
     }
     return;
 }

@@ -61,10 +61,10 @@ export function selectField(name: string, initialValue: string | number, options
     return div;
 }
 
-export function setNumberCallback(obj: IDictionary<any>, key: string, modFunc?: (value: string) => number) {
+export function setNumberCallback(obj: IDictionary<any>, key: string) {
     return (evnt: Event) => {
         if (evnt.target)
-            obj[key] = modFunc ? modFunc((evnt.target as HTMLInputElement).value) : +(evnt.target as HTMLInputElement).value;
+            obj[key] = +(evnt.target as HTMLInputElement).value;
     };
 }
 
