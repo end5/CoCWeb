@@ -34,11 +34,10 @@ import { impLordEncounter } from './BeyondCamp/ImpLordScene';
 import { Imp } from './BeyondCamp/Imp';
 import { Goblin } from './BeyondCamp/Goblin';
 
-export const ForestFlags = {
+export const ForestFlags = Flags.register("Forest", {
     TIMES_EXPLORED: 0,
     DEEPWOODS_EXPLORED: 0,
-};
-Flags.set("Forest", ForestFlags);
+});
 /**
  * Created by aimozg on 06.01.14.
  */

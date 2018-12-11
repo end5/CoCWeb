@@ -22,11 +22,9 @@ import { Flags } from 'Game/Flags';
 import { Settings } from 'Game/Settings';
 import { gameOverMenu } from 'Game/Menus/InGame/GameOverMenu';
 
-export const ferretFruitFlags = {
+export const ferretFruitFlags = Flags.register("Ferret Fruit", {
     FERRET_BAD_END_WARNING: 0,
-};
-
-Flags.set("Ferret Fruit", ferretFruitFlags);
+});
 
 export class FerretFruit extends Consumable {
     public constructor() {

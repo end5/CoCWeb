@@ -26,7 +26,7 @@ import { SkinType } from 'Game/Character/Body/Skin';
 import { TimeEvents } from 'Game/TimeEvents';
 import { FlagWomb } from 'Game/Character/Body/Pregnancy/FlagWomb';
 
-export const TamaniFlags = {
+export const TamaniFlags = Flags.register("Tamani", {
     TAMANI_NUMBER_OF_DAUGHTERS: 0,
     TAMANI_PREGNANCY_COUNT: 0,
     TAMANI_TIMES_IMPREGNATED: 0,
@@ -35,8 +35,7 @@ export const TamaniFlags = {
     TIMES_OVIPOSITED_TAMANI: 0,
     TAMANI_TIME_OUT: 0,
     TAMANI_WOMB: new FlagWomb()
-};
-Flags.set("Tamani", TamaniFlags);
+});
 
 // const TIMES_OVIPOSITED_TAMANI: number = 581;
 // const TAMANI_TIME_OUT: number = 580;

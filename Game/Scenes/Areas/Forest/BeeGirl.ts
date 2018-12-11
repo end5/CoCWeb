@@ -30,15 +30,14 @@ import { ArmorName } from 'Game/Items/Armors/ArmorName';
 import { CombatContainer } from 'Game/Combat/CombatContainer';
 import { CombatAction } from 'Game/Combat/Actions/CombatAction';
 
-export const BeeGirlFlags = {
+export const BeeGirlFlags = Flags.register("BeeGirl", {
     BEE_GIRL_STATUS: 0,
     BEE_GIRL_COMBAT_LOSSES: 0,
     BEE_GIRL_COMBAT_WINS_WITH_RAPE: 0,
     BEE_GIRL_COMBAT_WINS_WITHOUT_RAPE: 0,
     FORCE_BEE_TO_PRODUCE_HONEY: 0,
-};
+});
 
-Flags.set("BeeGirl", BeeGirlFlags);
 class BeeGirlEndScenes extends EndScenes {
     protected victoryScene?(howYouWon: DefeatType, enemy: Character): NextScreenChoices {
         if (enemy.effects.has(EffectType.CameWorms)) {

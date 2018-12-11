@@ -16,11 +16,9 @@ import { CeraphFlags } from 'Game/Scenes/NPCs/Ceraph';
 import { minoCumAddiction } from '../Consumables/MinotaurCum';
 import { passTime } from 'Game/Menus/InGame/PlayerMenu';
 
-export const LustyMaidensArmorFlags = {
+export const LustyMaidensArmorFlags = Flags.register("Lusty Maiden's Armor", {
     BIKINI_ARMOR_BONUS: 0
-};
-
-Flags.set("Lusty Maiden's Armor", LustyMaidensArmorFlags);
+});
 
 export class LustyMaidensArmor extends Armor {
     public constructor() {

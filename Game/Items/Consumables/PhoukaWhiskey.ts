@@ -9,11 +9,9 @@ import { CView } from 'Page/ContentView';
 import { Womb } from 'Game/Character/Body/Pregnancy/Womb';
 import { Flags } from 'Game/Flags';
 
-export const PhoukaWhiskeyFlags = {
+export const PhoukaWhiskeyFlags = Flags.register("Phouka Whiskey", {
     PREGNANCY_CORRUPTION: 0,
-};
-
-Flags.set("Phouka Whiskey", PhoukaWhiskeyFlags);
+});
 
 export class PhoukaWhiskey extends Consumable {
     public constructor() {

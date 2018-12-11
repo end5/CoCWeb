@@ -6,11 +6,9 @@ import { ItemDesc } from '../ItemDesc';
 import { CView } from 'Page/ContentView';
 import { Flags } from 'Game/Flags';
 
-export const DragonShellShieldFlags = {
+export const DragonShellShieldFlags = Flags.register("Dragon-Shell Shield", {
     TIMES_EQUIPPED_EMBER_SHIELD: 0,
-};
-
-Flags.set("Dragon-Shell Shield", DragonShellShieldFlags);
+});
 
 export class DragonShellShield extends Weapon {
     public constructor() {

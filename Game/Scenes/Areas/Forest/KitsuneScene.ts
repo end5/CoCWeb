@@ -40,15 +40,14 @@ import { CombatContainer } from 'Game/Combat/CombatContainer';
 import { EndScenes } from 'Game/Combat/EndScenes';
 import { DefeatType } from 'Game/Combat/DefeatEvent';
 
-export const KitsuneFlags = {
+export const KitsuneFlags = Flags.register("Kitsune", {
     MET_KITSUNES: 0,
     BONUS_ITEM_AFTER_COMBAT_ID: '',
     MANSION_VISITED: 0,
     redheadIsFuta: 0,
     KITSUNE_SHRINE_VISIT: 0,
     TOOK_KITSUNE_STATUE: 0,
-};
-Flags.set("Kitsune", KitsuneFlags);
+});
 /**
  * Created by aimozg on 04.01.14.
  */

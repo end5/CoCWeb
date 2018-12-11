@@ -18,11 +18,9 @@ import { displayKillCocks, growCock, thickenCock, displayLengthChange } from 'Ga
 import { shrinkTits } from 'Game/Modifiers/BreastModifier';
 import { Flags } from 'Game/Flags';
 
-export const EggFlags = {
+export const EggFlags = Flags.register("Eggs", {
     PC_KNOWS_ABOUT_BLACK_EGGS: 0,
-};
-
-Flags.set("Eggs", EggFlags);
+});
 
 export function randLargeEgg(): ConsumableName {
     return randomChoice(

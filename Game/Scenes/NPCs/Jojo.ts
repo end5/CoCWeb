@@ -1,7 +1,5 @@
 import { Flags } from 'Game/Flags';
 
-export const JojoFlags = {
+export const JojoFlags = Flags.register("Jojo", {
     monk: 0,
-};
-
-Flags.set("Jojo", JojoFlags);
+});

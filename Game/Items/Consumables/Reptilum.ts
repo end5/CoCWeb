@@ -27,11 +27,9 @@ import { lizardRaceScore } from 'Game/Character/RaceScore';
 import { displayCharacterHPChange } from 'Game/Modifiers/StatModifier';
 import { Flags } from 'Game/Flags';
 
-export const ReptilumFlags = {
+export const ReptilumFlags = Flags.register("Reptilum", {
     HAIR_GROWTH_STOPPED_BECAUSE_LIZARD: 0,
-};
-
-Flags.set("Reptilum", ReptilumFlags);
+});
 
 export class Reptilum extends Consumable {
     public constructor() {

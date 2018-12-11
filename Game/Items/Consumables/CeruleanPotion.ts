@@ -7,13 +7,11 @@ import { ItemDesc } from '../ItemDesc';
 import { CView } from 'Page/ContentView';
 import { Flags } from 'Game/Flags';
 
-export const CeruleanPotionFlags = {
+export const CeruleanPotionFlags = Flags.register("Cerulean Potion", {
     CERULEAN_POTION_NEUTER_ATTEMPTED: 0,
     CERULEAN_POTION_HERM_USED: 0,
     TIMES_DRANK: 0,
-};
-
-Flags.set("Cerulean Potion", CeruleanPotionFlags);
+});
 
 export class CeruleanPotion extends Consumable {
     public constructor() {

@@ -24,11 +24,10 @@ import { numToCardinalCapText, numToCardinalText } from 'Game/Utilities/NumToTex
 import { VaginaLooseness } from 'Game/Character/Body/Vagina';
 import { GiacomoFlags } from '../BeyondCamp/Giacomo';
 
-export const TentacleBeastFlags = {
+export const TentacleBeastFlags = Flags.register("Tentacle Beast", {
     UNKNOWN_FLAG_NUMBER_00247: 0,
     BAD_END_COUNTER: 0,
-};
-Flags.set("Tentacle Beast", TentacleBeastFlags);
+});
 
 // Tentacle Encounter - beware legalese!
 /*

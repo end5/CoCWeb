@@ -29,14 +29,14 @@ import { ArmorName } from 'Game/Items/Armors/ArmorName';
 import { ImpPregEvent } from 'Game/Scenes/Pregnancy/Imp';
 import { displayModTone } from 'Game/Modifiers/BodyModifier';
 
-export const AkbalFlags = {
+export const AkbalFlags = Flags.register("Akbal", {
     AKBAL_SUBMISSION_STATE: 0,
     AKBAL_BITCH_Q: 0,
     PLAYER_RESISTED_AKBAL: 0,
     AKBAL_SUBMISSION_COUNTER: 0,
     AKBAL_TIMES_BITCHED: 0,
-};
-Flags.set("Akbal", AkbalFlags);
+});
+
 /**
  * Created by aimozg on 01.01.14.
  */

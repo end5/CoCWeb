@@ -34,7 +34,7 @@ import { CeraphFlags } from 'Game/Scenes/NPCs/Ceraph';
 import { ExgartuanFlags } from 'Game/Scenes/NPCs/Exgartuan';
 import { infestOrgasm } from '../Mountains/Worms';
 
-export const TamanisDaughtersFlags = {
+export const TamanisDaughtersFlags = Flags.register("Tamani's Daughters", {
     TIMES_ENCOUNTED_TAMANIS_DAUGHTERS: 0,
     TAMANI_DAUGHTER_PREGGO_COUNTDOWN: 0,
     TAMANI_DAUGHTERS_PREGNANCY_COUNT: 0,
@@ -42,8 +42,7 @@ export const TamanisDaughtersFlags = {
     TIMES_USED_CHAIR: 0,
     WOMB: new FlagWomb(),
     TAMANI_PRESENT: false  // Used to communicate between this class and TamanisDaughters.as
-};
-Flags.set("Tamani's Daughters", TamanisDaughtersFlags);
+});
 
 // New Status:
 // +Tamani's Husband – (Still need too big loss scene and centaur version)

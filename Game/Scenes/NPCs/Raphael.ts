@@ -1,7 +1,5 @@
 import { Flags } from 'Game/Flags';
 
-export const RaphaelFlags = {
+export const RaphaelFlags = Flags.register("Raphael", {
     RAPHAEL_RAPIER_TRANING: 0,
-};
-
-Flags.set("Raphael", RaphaelFlags);
+});

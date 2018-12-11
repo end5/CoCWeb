@@ -18,13 +18,12 @@ import { displayStretchVagina } from 'Game/Modifiers/VaginaModifier';
 import { BreastRow } from 'Game/Character/Body/BreastRow';
 import { passTime } from 'Game/Menus/InGame/PlayerMenu';
 
-export const ErlKingFlags = {
+export const ErlKingFlags = Flags.register("Erlking", {
     ERLKING_ENCOUNTER_COUNTER: 0,
     WILD_HUNT_ENCOUNTERS: 0,
     ERLKING_DISABLED: 0,
     TIMES_ENCOUNTERED_PRINCESS_GWYNN: 0,
-};
-Flags.set("ErlKing", ErlKingFlags);
+});
 
 export function encounterWildHunt(player: Character): NextScreenChoices {
     ErlKingFlags.WILD_HUNT_ENCOUNTERS++;

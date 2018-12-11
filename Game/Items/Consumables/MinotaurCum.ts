@@ -10,15 +10,13 @@ import { describeClit, describeVagina } from 'Game/Descriptors/VaginaDescriptor'
 import { CView } from 'Page/ContentView';
 import { Flags } from 'Game/Flags';
 
-export const MinotaurCumFlags = {
+export const MinotaurCumFlags = Flags.register("Minotaur Cum", {
     MINOTAUR_CUM_ADDICTION_STATE: 0,
     MINOTAUR_CUM_ADDICTION_TRACKER: 0,
     MINOTAUR_CUM_REALLY_ADDICTED_STATE: 0,
     TIME_SINCE_LAST_CONSUMED_MINOTAUR_CUM: 0,
     TIMES_DRANK_MINOTAUR_CUM: 0,
-};
-
-Flags.set("Minotaur Cum", MinotaurCumFlags);
+});
 
 export class MinotaurCum extends Consumable {
     public constructor() {

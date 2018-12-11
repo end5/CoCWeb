@@ -13,7 +13,7 @@ import { Cock } from 'Game/Character/Body/Cock';
 import { ConsumableName } from 'Game/Items/Consumables/ConsumableName';
 import { randInt } from 'Engine/Utilities/SMath';
 
-export const EssrayleFlags = {
+export const EssrayleFlags = Flags.register("Essrayle", {
     MET_ESSY: 0,
     TURNED_DOWN_ESSY_FIRST_MEETING: 0,
     ACCEPTED_ESSY_FIRST_MEETING: 0,
@@ -22,8 +22,7 @@ export const EssrayleFlags = {
     SAND_WITCHES_COWED: 0,
     TOLD_MOTHER_TO_RELEASE_ESSY: 0,
     ESSY_MET_IN_DUNGEON: 0
-};
-Flags.set("Essrayle", EssrayleFlags);
+});
 
 // const MET_ESSY: number = 772;
 // const TURNED_DOWN_ESSY_FIRST_MEETING: number = 773;

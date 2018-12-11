@@ -24,11 +24,9 @@ import { Flags } from 'Game/Flags';
 import { Settings } from 'Game/Settings';
 import { gameOverMenu } from 'Game/Menus/InGame/GameOverMenu';
 
-export const FoxBerryFlags = {
+export const FoxBerryFlags = Flags.register("Fox Berry", {
     FOX_BAD_END_WARNING: 0,
-};
-
-Flags.set("Fox Berry", FoxBerryFlags);
+});
 
 export class FoxBerry extends Consumable {
     private enhanced: boolean;

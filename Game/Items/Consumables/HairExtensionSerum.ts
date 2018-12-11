@@ -8,12 +8,10 @@ import { ReptilumFlags } from './Reptilum';
 import { CView } from 'Page/ContentView';
 import { Flags } from 'Game/Flags';
 
-export const HairExtensionSerumFlags = {
+export const HairExtensionSerumFlags = Flags.register("Hair Extension Serum", {
     INCREASED_HAIR_GROWTH_SERUM_TIMES_APPLIED: 0,
     INCREASED_HAIR_GROWTH_TIME_REMAINING: 0,
-};
-
-Flags.set("Hair Extension Serum", HairExtensionSerumFlags);
+});
 
 export class HairExtensionSerum extends Consumable {
     public constructor() {

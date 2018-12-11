@@ -30,12 +30,10 @@ import { Settings } from 'Game/Settings';
 import { gameOverMenu } from 'Game/Menus/InGame/GameOverMenu';
 import { Flags } from 'Game/Flags';
 
-export const EquinumFlags = {
+export const EquinumFlags = Flags.register("Equinum", {
     WARNED: false,
     BAD_END_COUNTER: 0,
-};
-
-Flags.set("Equinum", EquinumFlags);
+});
 
 export class Equinum extends Consumable {
     public constructor() {

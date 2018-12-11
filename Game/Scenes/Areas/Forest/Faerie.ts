@@ -17,11 +17,10 @@ import { Flags } from 'Game/Flags';
 import { TimeEvents } from 'Game/TimeEvents';
 import { EffectType } from 'Game/Effects/EffectType';
 
-export const FaerieFlags = {
+export const FaerieFlags = Flags.register("Faerie", {
     Fucked: 0,
     FemFuck: 0
-};
-Flags.set("Faerie", FaerieFlags);
+});
 
 // faerie Encounter
 export function encounterFaerie(player: Character): NextScreenChoices {
