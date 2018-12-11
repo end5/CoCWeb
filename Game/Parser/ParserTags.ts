@@ -51,11 +51,31 @@ ParserFuncTags.set("butthole", wrapper((player: Character) => describeButthole(p
 ParserFuncTags.set("chest", wrapper((player: Character) => describeChest(player)));
 ParserFuncTags.set("clit", wrapper((player: Character) => describeClit(player)));
 ParserFuncTags.set("cock", wrapper((player: Character, arg: string, ...args: any[]) => {
+    if (player.body.cocks.length <= 0) return "<b>(Attempt to parse cock when none present.)</b>";
     if (ParserFuncTags.get(arg) !== undefined)
         return ParserFuncTags.get(arg)!(player, args);
+    if (typeof arg === "number") {
+        if (arg - 1 >= 0 && arg - 1 < player.body.cocks.length)
+            return describeCock(player, player.body.cocks.get(arg - 1));
+        else
+            return "<b>(Attempt To Parse CockDescript for Invalid Cock)</b>";
+    }
     return describeCock(player, player.body.cocks.get(0));
 }));
-ParserFuncTags.set("cockhead", wrapper((player: Character) => describeCockHead(player.body.cocks.get(0))));
+ParserFuncTags.set("cockhead", wrapper((player: Character, arg: string, ...args: any[]) => {
+    if (player.body.cocks.length <= 0)
+        return "<b>(Attempt to parse cockHead when none present.)</b>";
+    if (ParserFuncTags.get(arg) !== undefined)
+        return ParserFuncTags.get(arg)!(player, args);
+    if (typeof arg === "number") {
+        const numOffset: number = Math.floor(arg - 1);
+        if (numOffset >= 0 && numOffset < player.body.cocks.length)
+            return describeCockHead(player.body.cocks.get(numOffset));
+        else
+            return "<b>(Attempt To Parse CockHeadDescript for Invalid Cock)</b>";
+    }
+    return describeCockHead(player.body.cocks.get(0));
+}));
 ParserFuncTags.set("cocks", wrapper((player: Character) => describeCocksLight(player)));
 ParserFuncTags.set("cunt", wrapper((player: Character) => describeVagina(player, player.body.vaginas.get(0))));
 ParserFuncTags.set("eachcock", wrapper((player: Character) => describeOneOfYourCocks(player)));
@@ -222,18 +242,13 @@ ParserFuncTags.set("cockheadfit2", wrapper((player: Character, num: number) => {
         else return describeCockHead(player.body.cocks.sort(Cock.Smallest).get(0));
     }
 }));
-ParserFuncTags.set("cock", wrapper((player: Character, num: number) => {
-    if (player.body.cocks.length <= 0) return "<b>(Attempt to parse cock when none present.)</b>";
-    else {
-        if (num - 1 >= 0 && num - 1 < player.body.cocks.length) return describeCock(player, player.body.cocks.get(num - 1));
-        else return "<b>(Attempt To Parse CockDescript for Invalid Cock)</b>";
-    }
-}));
-ParserFuncTags.set("cockhead", wrapper((player: Character, num: number) => {
-    if (player.body.cocks.length <= 0) return "<b>(Attempt to parse cockHead when none present.)</b>";
-    else {
-        const numOffset: number = Math.floor(num - 1);
-        if (numOffset >= 0 && numOffset < player.body.cocks.length) return describeCockHead(player.body.cocks.get(numOffset));
-        else return "<b>(Attempt To Parse CockHeadDescript for Invalid Cock)</b>";
-    }
-}));
+
+// Add previous tags with the first letter of each key uppercased for first letter uppercase
+for (const tag of ParserFuncTags.entries()) {
+    ParserFuncTags.set(tag[0][0].toUpperCase() + tag[0].slice(1), (...args: any[]) => {
+        const results = tag[1](args);
+        if (typeof results === "string" && results.length > 0)
+            return results[0].toUpperCase() + results.slice(1);
+        return results;
+    });
+}
