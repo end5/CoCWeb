@@ -95,6 +95,13 @@ export class CharacterInventory implements ISerializable<ICharInv> {
             this.equippedArmorSlot.deserialize(saveObject.armor);
         this.piercings.deserialize(saveObject.piercings);
         this.cockSocks.deserialize(saveObject.cockSocks, EquipSlot, this.char);
+        while (this.cockSocks.length < this.char.body.cocks.length) {
+            this.cockSocks.add(new EquipSlot(this.char));
+        }
+        while (this.cockSocks.length > this.char.body.cocks.length) {
+            this.cockSocks.remove(this.cockSocks.length - 1);
+        }
+
         this.armorDescMod = saveObject.armorDescMod;
     }
 }

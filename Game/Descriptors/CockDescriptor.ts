@@ -4,7 +4,7 @@ import { SkinType } from 'Game/Character/Body/Skin';
 import { Character } from 'Game/Character/Character';
 
 export function describeCock(character: Character, cock: Cock | undefined): string {
-    if (character.body.cocks.length > 0 || !cock)
+    if (character.body.cocks.length <= 0 || !cock)
         return "<b>ERROR: CockDescript Called But No Cock Present</b>";
 
     // Only describe as pierced or sock covered if the creature has just one cock

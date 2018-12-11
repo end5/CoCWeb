@@ -79,6 +79,20 @@ export class PiercingInventory implements ISerializable<IPiercingInventory> {
         if (saveObject.tongue) this.tongue.deserialize(saveObject.tongue);
         if (saveObject.labia) this.labia.deserialize(saveObject.labia);
         this.nipples.deserialize(saveObject.nipples, EquipSlot, this.char);
+        while (this.nipples.length < this.char.body.chest.length) {
+            this.nipples.add(new EquipSlot(this.char));
+        }
+        while (this.nipples.length > this.char.body.chest.length) {
+            this.nipples.remove(this.nipples.length - 1);
+        }
+
         this.cocks.deserialize(saveObject.cocks, EquipSlot, this.char);
+        while (this.cocks.length < this.char.body.cocks.length) {
+            this.cocks.add(new EquipSlot(this.char));
+        }
+        while (this.cocks.length > this.char.body.cocks.length) {
+            this.cocks.remove(this.cocks.length - 1);
+        }
+
     }
 }

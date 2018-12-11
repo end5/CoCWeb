@@ -22,6 +22,11 @@ export class Chest extends ObservableList<BreastRow> {
             super.remove(index);
     }
 
+    public clear() {
+        while (this.length > 1)
+            this.remove(0);
+    }
+
     public lactationSpeed(): number {
         // Lactation * breastSize x 10 (milkPerBreast) determines scene
         return this.sort(BreastRow.LactationMost).get(0)!.lactationMultiplier * this.sort(BreastRow.Largest).get(0)!.rating * 10;
