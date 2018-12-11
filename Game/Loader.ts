@@ -1,11 +1,11 @@
-import { displayNextScreenChoices } from './Game/ScreenDisplay';
-import { mainMenu } from './Game/Menus/MainMenu';
-import { CView } from './Page/ContentView';
-import { loadFromId } from './Engine/Utilities/Html';
-import { MainScreen } from './Page/MainScreen';
-import { BottomButtons } from './Page/BottomButtons';
-import { ButtonElement } from './Page/ButtonElement';
-import { TopButtons } from './Page/TopButtons';
+import { displayNextScreenChoices } from './ScreenDisplay';
+import { mainMenu } from './Menus/MainMenu';
+import { CView } from '../Page/ContentView';
+import { loadFromId } from '../Engine/Utilities/Html';
+import { MainScreen } from '../Page/MainScreen';
+import { BottomButtons } from '../Page/BottomButtons';
+import { ButtonElement } from '../Page/ButtonElement';
+import { TopButtons } from '../Page/TopButtons';
 
 for (let index = 0; index < TopButtons.NUM_TOP_BUTTONS; index++) {
     const newButton = new ButtonElement();

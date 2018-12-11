@@ -8,18 +8,12 @@
             "problemMatcher": [
                 "$tsc"
             ],
-            "group": "build",
+            "group": {
+                "kind":"build",
+                "isDefault": true
+            },
             "presentation": {
                 "reveal": "silent"
-            }
-        },
-        {
-            "label": "Parcel build",
-            "type": "shell",
-            "command": "parcel index.html --public-url .",
-            "group": {
-                "kind": "build",
-                "isDefault": true
             }
         }
     ]

@@ -6,7 +6,12 @@
     <meta charset="utf-8" />
     <title></title>
     <link href="page.css" rel="stylesheet">
-    <script src='./Loader.ts' defer></script>
+    <script>
+        var require = {
+            baseUrl: "Build"
+        };
+    </script>
+    <script src="Build/require.js" data-main="Game/Loader"></script>
 </head>
 
 <body>
