@@ -1,9 +1,9 @@
-import { Character } from '../../Character/Character';
-import { Inventory } from '../../Inventory/Inventory';
-import { ItemStack } from '../../Inventory/ItemStack';
-import { Item } from '../../Items/Item';
-import { ClickOption, NextScreenChoices, ScreenChoice, ClickFunction } from '../../ScreenDisplay';
-import { CView } from '../../../Page/ContentView';
+import { Character } from 'Game/Character/Character';
+import { Inventory } from 'Game/Inventory/Inventory';
+import { ItemStack } from 'Game/Inventory/ItemStack';
+import { Item } from 'Game/Items/Item';
+import { ClickOption, NextScreenChoices, ScreenChoice, ClickFunction } from 'Game/ScreenDisplay';
+import { CView } from 'Page/ContentView';
 import { playerMenu } from './PlayerMenu';
 
 /* better inventory system
@@ -50,7 +50,7 @@ interface AddItemsRequest<T extends Item> {
 export function displayCharInventory(character: Character, persistantChoices: ScreenChoice[]): NextScreenChoices {
     const choices: ScreenChoice[] = [];
     const inventory = character.inventory.items;
-    for (let index = 0; index < inventory.slotCount; index++) {
+    for (let index = 0; index < inventory.length; index++) {
         const itemSlot = inventory.get(index)!;
         if (itemSlot.item) {
             choices.push([
@@ -79,7 +79,7 @@ export function displayInventoryTake<T extends Item>(inventory: Inventory<T>, ch
     const choices: ScreenChoice[] = [];
     const invTakingFrom = inventory;
     const invAddingTo = character.inventory.items;
-    for (let index = 0; index < invTakingFrom.slotCount; index++) {
+    for (let index = 0; index < invTakingFrom.length; index++) {
         const itemSlot = invTakingFrom.get(index)!;
         if (itemSlot.item) {
             choices.push([
@@ -104,7 +104,7 @@ function inventoryPut<T extends Item>(inventory: Inventory<T>, character: Charac
     const choices: ScreenChoice[] = [];
     const invTakingFrom = character.inventory.items;
     const invAddingTo = inventory;
-    for (let index = 0; index < invTakingFrom.slotCount; index++) {
+    for (let index = 0; index < invTakingFrom.length; index++) {
         const itemSlot = invTakingFrom.get(index)!;
         if (itemSlot.item) {
             choices.push([
@@ -158,7 +158,7 @@ function invFull<T extends Item>(request: AddItemsRequest<T>): NextScreenChoices
     const choices: ScreenChoice[] = [];
     const inventory = request.character.inventory.items;
     const itemToAdd = request.itemList[0];
-    for (let index = 0; index < inventory.slotCount; index++) {
+    for (let index = 0; index < inventory.length; index++) {
         const itemSlot = inventory.get(index)!;
         if (itemSlot.item) {
             choices.push([

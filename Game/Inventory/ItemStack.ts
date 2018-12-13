@@ -1,6 +1,7 @@
 ﻿import { ISerializable } from 'Engine/Utilities/ISerializable';
 import { Item, IItem } from 'Game/Items/Item';
 import { getItemFromName } from 'Game/Items/ItemLookup';
+import { FilterOption, ReduceOption, SortOption } from 'Engine/Utilities/List';
 
 export interface IItemStack {
     item: IItem;
@@ -9,6 +10,40 @@ export interface IItemStack {
 }
 
 export class ItemStack<T extends Item> implements ISerializable<IItemStack> {
+    public static FilterName(name: string): FilterOption<ItemStack<Item>> {
+        return (itemStack: ItemStack<Item>) => {
+            return itemStack.quantity > 0 && !!itemStack.item && itemStack.item.name === name;
+        };
+    }
+
+    public static TotalQuantity: ReduceOption<ItemStack<Item>, number> = (previousValue: number, currentValue: ItemStack<Item>) => {
+        return previousValue + currentValue.quantity;
+    }
+
+    public static TotalQuantityOf(name: string): ReduceOption<ItemStack<Item>, number> {
+        return (prev: number, curr: ItemStack<Item>) => {
+            if (curr.item && curr.item.name === name)
+                return prev + curr.quantity;
+            return prev;
+        };
+    }
+
+    public static EmptySlot: FilterOption<ItemStack<Item>> = (a: ItemStack<Item>) => {
+        return a.quantity === 0;
+    }
+
+    public static NotMaxStack: FilterOption<ItemStack<Item>> = (a: ItemStack<Item>) => {
+        return a.quantity < a.maxQuantity;
+    }
+
+    public static HighestQuantity: SortOption<ItemStack<Item>> = (a: ItemStack<Item>, b: ItemStack<Item>) => {
+        return a.quantity - b.quantity;
+    }
+
+    public static LowestQuantity: SortOption<ItemStack<Item>> = (a: ItemStack<Item>, b: ItemStack<Item>) => {
+        return b.quantity - a.quantity;
+    }
+
     public item?: Item;
     private amount: number;
     private maxAmount: number;

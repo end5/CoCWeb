@@ -1,4 +1,4 @@
-import { Inventory, IInventory } from './Inventory';
+import { Inventory } from './Inventory';
 import { ISerializable } from 'Engine/Utilities/ISerializable';
 import { Character } from 'Game/Character/Character';
 import { Item } from 'Game/Items/Item';
@@ -9,9 +9,10 @@ import { IEquipSlot, EquipSlot } from './EquipSlot';
 import { IPiercingInventory, PiercingInventory } from './PiercingInventory';
 import { EquipSlotList } from './EquipSlotList';
 import { CockSock } from 'Game/Items/Misc/CockSock';
+import { IItemStack } from './ItemStack';
 
 export interface ICharInv {
-    items: IInventory;
+    items: IItemStack[];
     gems: IStatWithEffects;
     weapon?: IEquipSlot;
     armor?: IEquipSlot;
