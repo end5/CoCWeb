@@ -1,43 +1,28 @@
-import { ItemStack, IItemStack } from './ItemStack';
-import { ISerializable } from 'Engine/Utilities/ISerializable';
-import { List, SortOption, FilterOption, ReduceOption } from 'Engine/Utilities/List';
+import { ItemStack } from './ItemStack';
+import { List } from 'Engine/Utilities/List';
 import { Character } from 'Game/Character/Character';
 import { Item } from 'Game/Items/Item';
 import { displayCharInventoryFull } from 'Game/Menus/InGame/InventoryDisplay';
 import { ClickFunction, NextScreenChoices } from 'Game/ScreenDisplay';
 import { getItemFromName } from 'Game/Items/ItemLookup';
 
-export interface IInventory {
-    slots: IItemStack[];
-}
-
-export class Inventory<T extends Item> implements ISerializable<IInventory> {
-    private itemSlots: List<ItemStack<T>> = new List();
-
+export class Inventory<T extends Item> extends List<ItemStack<T>> {
     public unlock(amount: number = 1) {
         while (amount > 0) {
-            this.itemSlots.add(new ItemStack());
+            this.add(new ItemStack());
             amount--;
         }
     }
 
     public lock(amount: number = 1) {
         while (amount > 0) {
-            this.itemSlots.remove(this.itemSlots.length - 1);
+            this.remove(this.list.length - 1);
             amount--;
         }
     }
 
-    public get slotCount(): number {
-        return this.itemSlots.length;
-    }
-
     public has(itemName: string): boolean {
-        return !!this.itemSlots.find(Inventory.FilterName(itemName));
-    }
-
-    public get(index: number): ItemStack<T> | undefined {
-        return this.itemSlots.get(index);
+        return !!this.list.find(ItemStack.FilterName(itemName));
     }
 
     /**
@@ -63,7 +48,7 @@ export class Inventory<T extends Item> implements ISerializable<IInventory> {
         return this.addList(characterAddingItems, [new ItemStack(getItemFromName(itemName), 1)], nextMenu);
     }
 
-    public add(characterAddingItems: Character, item: Item, nextMenu: ClickFunction): NextScreenChoices {
+    public addItem(characterAddingItems: Character, item: Item, nextMenu: ClickFunction): NextScreenChoices {
         return this.addList(characterAddingItems, [new ItemStack<Item>(item, 1)], nextMenu);
     }
     /**
@@ -75,7 +60,7 @@ export class Inventory<T extends Item> implements ISerializable<IInventory> {
         while (itemsToAdd.length > 0) {
             const itemToAdd = itemsToAdd.shift()!;
             if (itemToAdd.item) {
-                const filteredInventory = this.filter(Inventory.FilterName(itemToAdd.item.name)).filter(Inventory.NotMaxStack).sort(Inventory.HighestQuantity).concat(this.filter(Inventory.EmptySlot));
+                const filteredInventory = this.filter(ItemStack.FilterName(itemToAdd.item.name)).filter(ItemStack.NotMaxStack).sort(ItemStack.HighestQuantity).concat(this.filter(ItemStack.EmptySlot));
                 while (filteredInventory.length > 0 && itemToAdd.quantity > 0) {
                     const item = filteredInventory.toArray().shift()!;
                     if (item.quantity + itemToAdd.quantity > item.maxQuantity) {
@@ -96,67 +81,9 @@ export class Inventory<T extends Item> implements ISerializable<IInventory> {
         return returnList;
     }
 
-    /**
-     * Returns a sorted copy of the list using the provided sort option
-     * @param option SortOption
-     */
-    public sort(option: SortOption<ItemStack<T>>): List<ItemStack<T>> | undefined {
-        return this.itemSlots.sort(option);
-    }
-
-    /**
-     * Returns a filtered copy of the list using the provided filter option
-     * @param option SortOption
-     */
-    public filter(option: FilterOption<ItemStack<T>>): List<ItemStack<T>> {
-        return this.itemSlots.filter(option);
-    }
-
-    /**
-     * Reduces the list using reduce option provided
-     * @param option SortOption
-     */
-    public reduce<U>(option: ReduceOption<ItemStack<T>, U>, initialValue: U): U {
-        return this.itemSlots.reduce(option, initialValue);
-    }
-
-    public static FilterName(name: string): FilterOption<ItemStack<Item>> {
-        return (itemStack: ItemStack<Item>) => {
-            return itemStack.quantity > 0 && !!itemStack.item && itemStack.item.name === name;
-        };
-    }
-
-    public static TotalQuantity: ReduceOption<ItemStack<Item>, number> = (previousValue: number, currentValue: ItemStack<Item>) => {
-        return previousValue + currentValue.quantity;
-    }
-
-    public static TotalQuantityOf(name: string): ReduceOption<ItemStack<Item>, number> {
-        return (prev: number, curr: ItemStack<Item>) => {
-            if (curr.item && curr.item.name === name)
-                return prev + curr.quantity;
-            return prev;
-        };
-    }
-
-    public static EmptySlot: FilterOption<ItemStack<Item>> = (a: ItemStack<Item>) => {
-        return a.quantity === 0;
-    }
-
-    public static NotMaxStack: FilterOption<ItemStack<Item>> = (a: ItemStack<Item>) => {
-        return a.quantity < a.maxQuantity;
-    }
-
-    public static HighestQuantity: SortOption<ItemStack<Item>> = (a: ItemStack<Item>, b: ItemStack<Item>) => {
-        return a.quantity - b.quantity;
-    }
-
-    public static LowestQuantity: SortOption<ItemStack<Item>> = (a: ItemStack<Item>, b: ItemStack<Item>) => {
-        return b.quantity - a.quantity;
-    }
-
     public consumeItem(itemName: string, amount: number = 1) {
-        if (this.filter(Inventory.FilterName(itemName)).length >= amount) {
-            const lowestItemStacks = this.filter(Inventory.FilterName(itemName)).sort(Inventory.LowestQuantity);
+        if (this.filter(ItemStack.FilterName(itemName)).length >= amount) {
+            const lowestItemStacks = this.filter(ItemStack.FilterName(itemName)).sort(ItemStack.LowestQuantity);
             for (const itemStack of lowestItemStacks) {
                 if (itemStack.quantity === 0)
                     continue;
@@ -172,15 +99,5 @@ export class Inventory<T extends Item> implements ISerializable<IInventory> {
                 }
             }
         }
-    }
-
-    public serialize(): IInventory {
-        return {
-            slots: this.itemSlots.serialize()
-        };
-    }
-
-    public deserialize(saveObject: IInventory) {
-        this.itemSlots.deserialize(saveObject.slots, ItemStack);
     }
 }
