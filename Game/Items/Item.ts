@@ -22,11 +22,11 @@ export abstract class Item implements ISerializable<IItem> {
         this.desc = desc;
     }
 
-    public abstract canUse(character: Character): boolean;
+    public abstract canUse(character: Character, enemy?: Character): boolean;
 
-    public abstract use(character: Character): void;
+    public abstract use(character: Character, enemy?: Character): void;
 
-    public abstract useText(character: Character): void;
+    public abstract useText(character: Character, enemy?: Character): void;
 
     public describe(): string {
         return this.desc.description + " (Cost: " + this.value + ")";

@@ -25,7 +25,7 @@ export function playerMenu(character: Character): NextScreenChoices {
         MainScreen.topButtons.levelUp.modify("Perk Up", clickFuncWrapper(perkUpMenu));
 
     for (const item of ItemsOnFloor)
-        character.inventory.items.add(character, item, playerMenu);
+        character.inventory.items.addItem(character, item, playerMenu);
 
     return camp(character);
 }

@@ -1,14 +1,14 @@
-import { CombatAction } from '../../../../Combat/Actions/CombatAction';
-import { Character } from '../../../Character';
+import { CombatAction } from 'Game/Combat/Actions/CombatAction';
+import { Character } from 'Game/Character/Character';
 import { Approach } from './Approach';
 import { Recover } from './Recover';
 import { Squeeze } from './Squeeze';
 import { Struggle } from './Struggle';
 import { Attack } from './Attack';
-import { CombatActionFlags } from '../../../../Effects/CombatActionFlag';
+import { CombatActionType } from 'Game/Combat/Actions/CombatActionType';
 
 export class MainAction extends CombatAction {
-    public flag: CombatActionFlags = CombatActionFlags.Attack;
+    public type: CombatActionType = CombatActionType.Attack;
     public name: string = "MainAction";
     public reasonCannotUse: string = "";
     public subActions: CombatAction[] = [];

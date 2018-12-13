@@ -7,7 +7,7 @@ import { CharDict } from 'Game/CharDict';
 import { randomChoice } from 'Engine/Utilities/SMath';
 import { CombatManager } from './CombatManager';
 import { playerMenu } from 'Game/Menus/InGame/PlayerMenu';
-import { combatMenu } from 'Game/Menus/InGame/CombatMenu';
+import { combatMenu } from 'Game/Menus/InGame/PlayerCombatMenu';
 
 export class Encounter {
     private mainCharacter: Character;
@@ -40,7 +40,9 @@ export class Encounter {
     }
 
     private performPartyTurn(): NextScreenChoices {
-        const activeMember = this.allyPartyTurn ? this.allyParty.activePartyMember() : this.enemyParty.activePartyMember();
+        const enemyParty = this.allyPartyTurn ? this.enemyParty : this.allyParty;
+        const activeParty = this.allyPartyTurn ? this.allyParty : this.enemyParty;
+        const activeMember = activeParty.activePartyMember();
         this.performTurnEnd = () => {
             const encounter = this;
             encounter.performTurnEnd = undefined;
@@ -52,13 +54,13 @@ export class Encounter {
             return encounter.endCombatOrNextRound();
         };
 
-        this.effectsTurnStart(activeMember, this.allyPartyTurn ? this.allyParty.ableMembers : this.enemyParty.ableMembers);
+        this.effectsTurnStart(activeMember, activeParty.ableMembers);
 
         if (!activeMember) {
             return { next: playerMenu };
         }
         else if (!activeMember.combat.useAI) {
-            return { next: choiceWrapWithChar(combatMenu, activeMember) };
+            return { next: choiceWrapWithChar(combatMenu, activeMember, enemyParty.ableMembers) };
         }
         else {
             if (this.allyPartyTurn)

@@ -7,51 +7,46 @@ import { CView } from 'Page/ContentView';
 import { EffectType } from 'Game/Effects/EffectType';
 import { playerMenu } from './PlayerMenu';
 
-export function combatMenu(character: Character): NextScreenChoices {
-    if (CombatManager.encounter) {
-        CView.clear();
-        const enemies = getEnemies(CombatManager.encounter, character);
-        for (const enemy of enemies.ableMembers) {
-            enemyDescription(character, enemy);
-        }
+export function combatMenu(player: Character, enemies: Character[]): NextScreenChoices {
+    if (!CombatManager.encounter)
+        throw new Error('Combat menu displayed when no combat encounter exists');
 
-        return showMenu(character, character.combat.action);
+    CView.clear();
+    for (const enemy of enemies) {
+        enemyDescription(player, enemy);
     }
-    throw new Error('Combat menu displayed when no combat encounter has been created');
+
+    return showMenu(player, player.combat.action);
 }
 
 function showMenu(char: Character, mainAction?: CombatAction, prevMenu?: ClickOption): NextScreenChoices {
-    if (CombatManager.encounter) {
+    const choices: ScreenChoice[] = [];
 
-        const choices: ScreenChoice[] = [];
+    // Main Action          Tease               Spells  Items       Move Away
+    // Physical Specials    Magical Specials    Wait    Fantasize   Inspect
 
-        // Main Action          Tease               Spells  Items       Move Away
-        // Physical Specials    Magical Specials    Wait    Fantasize   Inspect
+    if (!mainAction)
+        mainAction = char.combat.action;
 
-        if (!mainAction)
-            mainAction = char.combat.action;
-
-        const enemies = getEnemies(CombatManager.encounter!, char);
-        const curMenu = () => showMenu(char, mainAction, prevMenu);
-        for (const action of mainAction.subActions) {
-            if (char.effects.blockedCombatActions & action.type && action.isPossible(char)) {
-                if (action.subActions.length > 0) {
-                    choices.push([action.name, () => showMenu(char, action, curMenu)]);
-                }
-                else if (enemies.ableMembers.find((enemy) => action.isPossible(char) && action.canUse(char, enemy).canUse)) {
-                    choices.push([action.name, () => selectTarget(char, action, curMenu)]);
-                }
-                else {
-                    choices.push([action.name, undefined]);
-                }
+    const enemies = getEnemies(CombatManager.encounter!, char);
+    const curMenu = () => showMenu(char, mainAction, prevMenu);
+    for (const action of mainAction.subActions) {
+        if (char.effects.blockedCombatActions & action.type && action.isPossible(char)) {
+            if (action.subActions.length > 0) {
+                choices.push([action.name, () => showMenu(char, action, curMenu)]);
+            }
+            else if (enemies.ableMembers.find((enemy) => action.isPossible(char) && action.canUse(char, enemy).canUse)) {
+                choices.push([action.name, () => selectTarget(char, action, curMenu)]);
+            }
+            else {
+                choices.push([action.name, undefined]);
             }
         }
-        if (prevMenu && mainAction.subActions.length > 0)
-            return { choices, persistantChoices: [["Back", prevMenu]] };
-        else
-            return { choices };
     }
-    throw new Error('Combat menu displayed when no combat encounter has been created');
+    if (prevMenu && mainAction.subActions.length > 0)
+        return { choices, persistantChoices: [["Back", prevMenu]] };
+    else
+        return { choices };
 }
 
 function selectTarget(character: Character, action: CombatAction, prevMenu?: ClickOption): NextScreenChoices {

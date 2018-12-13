@@ -1,33 +1,33 @@
-import { CharacterType } from "../../../Game/Character/CharacterType";
-import { Gender } from "../../../Game/Character/Body/GenderIdentity";
-import { AntennaeType } from "../../../Game/Character/Body/Antennae";
-import { HornType } from "../../../Game/Character/Body/Horns";
-import { HairType } from "../../../Game/Character/Body/Hair";
-import { EarType } from "../../../Game/Character/Body/Ears";
-import { FaceType } from "../../../Game/Character/Body/Face";
-import { EyeType } from "../../../Game/Character/Body/Eyes";
-import { TongueType } from "../../../Game/Character/Body/Tongue";
-import { ArmType } from "../../../Game/Character/Body/Arms";
-import { BreastCup } from "../../../Game/Character/Body/BreastRow";
-import { WingType } from "../../../Game/Character/Body/Wings";
-import { HipRating } from "../../../Game/Character/Body/Hips";
-import { TailType } from "../../../Game/Character/Body/Tail";
-import { ButtRating, ButtWetness, ButtLooseness } from "../../../Game/Character/Body/Butt";
-import { CockType } from "../../../Game/Character/Body/Cock";
-import { VaginaType, VaginaWetness, VaginaLooseness } from "../../../Game/Character/Body/Vagina";
-import { LegType } from "../../../Game/Character/Body/Legs";
-import { SkinType } from "../../../Game/Character/Body/Skin";
-import { EffectType } from "../../../Game/Effects/EffectType";
-import { PregnancyType, IncubationTime } from "../../../Game/Character/Body/Pregnancy/Pregnancy";
-import { EffectValues } from "../../../Game/Effects/EffectValues";
-import { WeaponName } from "../../../Game/Items/Weapons/WeaponName";
-import { ArmorName } from "../../../Game/Items/Armors/ArmorName";
-import { ConsumableName } from "../../../Game/Items/Consumables/ConsumableName";
-import { MaterialName } from "../../../Game/Items/Materials/MaterialName";
-import { CockSockName } from "../../../Game/Items/Misc/CockSockName";
-import { PiercingType } from "../../../Game/Items/Misc/Piercing";
-import { ItemType } from "../../../Game/Items/ItemType";
-import { IDictionary } from "../../../Engine/Utilities/Dictionary";
+import { CharacterType } from 'Game/Character/CharacterType';
+import { Gender } from 'Game/Character/Body/GenderIdentity';
+import { AntennaeType } from 'Game/Character/Body/Antennae';
+import { HornType } from 'Game/Character/Body/Horns';
+import { HairType } from 'Game/Character/Body/Hair';
+import { EarType } from 'Game/Character/Body/Ears';
+import { FaceType } from 'Game/Character/Body/Face';
+import { EyeType } from 'Game/Character/Body/Eyes';
+import { TongueType } from 'Game/Character/Body/Tongue';
+import { ArmType } from 'Game/Character/Body/Arms';
+import { BreastCup } from 'Game/Character/Body/BreastRow';
+import { WingType } from 'Game/Character/Body/Wings';
+import { HipRating } from 'Game/Character/Body/Hips';
+import { TailType } from 'Game/Character/Body/Tail';
+import { ButtRating, ButtWetness, ButtLooseness } from 'Game/Character/Body/Butt';
+import { CockType } from 'Game/Character/Body/Cock';
+import { VaginaType, VaginaWetness, VaginaLooseness } from 'Game/Character/Body/Vagina';
+import { LegType } from 'Game/Character/Body/Legs';
+import { SkinType } from 'Game/Character/Body/Skin';
+import { EffectType } from 'Game/Effects/EffectType';
+import { PregnancyType, IncubationTime } from 'Game/Character/Body/Pregnancy/Pregnancy';
+import { EffectValues } from 'Game/Effects/EffectValues';
+import { WeaponName } from 'Game/Items/Weapons/WeaponName';
+import { ArmorName } from 'Game/Items/Armors/ArmorName';
+import { ConsumableName } from 'Game/Items/Consumables/ConsumableName';
+import { MaterialName } from 'Game/Items/Materials/MaterialName';
+import { CockSockName } from 'Game/Items/Misc/CockSockName';
+import { PiercingType } from 'Game/Items/Misc/Piercing';
+import { ItemType } from 'Game/Items/ItemType';
+import { IDictionary } from 'Engine/Utilities/Dictionary';
 
 /*
     all
@@ -367,23 +367,11 @@ export const CharMap: PropDict = {
                     type: "object",
                     create: createItemStack,
                     properties: {
-                        slots: {
-                            label: "Item Slot",
-                            type: "object",
-                            properties: {
-                                item: createItemMap(allItemNames),
-                                amount: { label: "Amount", type: "number" },
-                                maxAmount: { label: "Max Amount", type: "number" },
-                            }
-                        }
+                        item: createItemMap(allItemNames),
+                        amount: { label: "Amount", type: "number" },
+                        maxAmount: { label: "Max Amount", type: "number" },
                     }
                 }
-            },
-            keyItems: {
-                label: "Key Items",
-                type: "object",
-                create: createItem,
-                properties: {}
             },
             gems: createStatMap("Gems"),
             weapon: createEquipSlotMap("Equipped Weapon", WeaponName),

@@ -68,7 +68,7 @@ export class KitsuneGift extends Consumable {
 
                 CView.text("\n\n<b>You've received " + hairDyeItem.desc.longName + " from the kitsune's gift!  How generous!</b>  ");
                 // add <color> Dye to inventory
-                character.inventory.items.add(character, hairDyeItem, inventoryMenu);
+                character.inventory.items.addItem(character, hairDyeItem, inventoryMenu);
                 break;
 
             // [Knowledge Spell]
