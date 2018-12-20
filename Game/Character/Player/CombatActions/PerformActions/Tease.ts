@@ -1,33 +1,31 @@
-import { randInt } from '../../../../../Engine/Utilities/SMath';
-import { BreastRow } from '../../../../Body/BreastRow';
-import { Cock, CockType } from '../../../../Body/Cock';
-import { Gender } from '../../../../Body/GenderIdentity';
-import { Tail, TailType } from '../../../../Body/Tail';
-import { Vagina } from '../../../../Body/Vagina';
-import { Character } from '../../../../Character/Character';
-import { fatigueRecovery } from '../../../../Combat/CombatUtils';
-import { PerkType } from '../../../../Effects/PerkType';
-import { StatusEffectType } from '../../../../Effects/StatusEffectType';
-import { ArmorName } from '../../../../Items/Armors/ArmorName';
+import { randInt } from 'Engine/Utilities/SMath';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { Cock, CockType } from 'Game/Character/Body/Cock';
+import { Gender } from 'Game/Character/Body/GenderIdentity';
+import { Tail, TailType } from 'Game/Character/Body/Tail';
+import { Vagina } from 'Game/Character/Body/Vagina';
+import { Character } from 'Game/Character/Character';
+import { fatigueRecovery } from 'Game/Combat/CombatUtils';
+import { EffectType } from 'Game/Effects/EffectType';
+import { ArmorName } from 'Game/Items/Armors/ArmorName';
 import { NagaTease } from './NagaTease';
-import { CView } from '../../../../../Page/ContentView';
-import { CombatAction } from '../../../../Combat/Actions/CombatAction';
-import { describeButt, describeButthole } from '../../../../Descriptors/ButtDescriptor';
-import { describeBreastRow, describeNipple, describeAllBreasts, describeChest } from '../../../../Descriptors/BreastDescriptor';
-import { describeCock, describeCocksLight, describeOneOfYourCocks } from '../../../../Descriptors/CockDescriptor';
-import { describeVagina, describeClit } from '../../../../Descriptors/VaginaDescriptor';
-import { describeHips } from '../../../../Descriptors/HipDescriptor';
-import { describeBalls } from '../../../../Descriptors/BallsDescriptor';
-import { describeHair } from '../../../../Descriptors/HairDescriptor';
-import { mf } from '../../../../Descriptors/GenderDescriptor';
-import { describeLeg, describeLegs } from '../../../../Descriptors/LegDescriptor';
-import { describeSkin } from '../../../../Descriptors/SkinDescriptor';
-import { PlayerFlags } from '../../PlayerFlags';
-import { Womb } from '../../../../Body/Pregnancy/Womb';
-import { dogRaceScore, spiderRaceScore, kitsuneRaceScore, cowRaceScore } from '../../../../Body/RaceScore';
-import { CombatActionFlags } from '../../../../Effects/CombatActionFlag';
-import { CombatEffectType } from '../../../../Effects/CombatEffectType';
-import { Settings } from '../../../../Settings';
+import { CView } from 'Page/ContentView';
+import { CombatAction } from 'Game/Combat/Actions/CombatAction';
+import { describeButt, describeButthole } from 'Game/Descriptors/ButtDescriptor';
+import { describeBreastRow, describeNipple, describeAllBreasts, describeChest } from 'Game/Descriptors/BreastDescriptor';
+import { describeCock, describeCocksLight, describeOneOfYourCocks } from 'Game/Descriptors/CockDescriptor';
+import { describeVagina, describeClit } from 'Game/Descriptors/VaginaDescriptor';
+import { describeHips } from 'Game/Descriptors/HipDescriptor';
+import { describeBalls } from 'Game/Descriptors/BallsDescriptor';
+import { describeHair } from 'Game/Descriptors/HairDescriptor';
+import { mf } from 'Game/Descriptors/GenderDescriptor';
+import { describeLeg, describeLegs } from 'Game/Descriptors/LegDescriptor';
+import { describeSkin } from 'Game/Descriptors/SkinDescriptor';
+import { Womb } from 'Game/Character/Body/Pregnancy/Womb';
+import { dogRaceScore, spiderRaceScore, kitsuneRaceScore, cowRaceScore } from 'Game/Character/RaceScore';
+import { CombatActionType } from 'Game/Combat/Actions/CombatActionType';
+import { Settings } from 'Game/Settings';
+import { CeraphFlags } from 'Game/Scenes/NPCs/Ceraph';
 
 const enum TeaseType {
     ButtShake,                  // 0 butt shake
@@ -84,9 +82,9 @@ const enum TeaseType {
 
 function determineBaseDamage(character: Character): number {
     let damage: number = 6 + randInt(3);
-    if (character.perks.has(PerkType.SensualLover))
+    if (character.effects.has(EffectType.SensualLover))
         damage += 2;
-    if (character.perks.has(PerkType.Seduction))
+    if (character.effects.has(EffectType.Seduction))
         damage += 5;
     damage += character.stats.level;
     damage += character.stats.teaseLevel * 2;
@@ -99,24 +97,24 @@ function determineBaseChance(character: Character): number {
     // 5% chance for each tease level.
     chance += character.stats.teaseLevel * 5;
     // 10% for seduction perk
-    if (character.perks.has(PerkType.Seduction)) chance += 10;
+    if (character.effects.has(EffectType.Seduction)) chance += 10;
     // 10% for sexy armor types
-    if (character.perks.has(PerkType.SluttySeduction)) chance += 10;
+    if (character.effects.has(EffectType.SluttySeduction)) chance += 10;
     // 10% for bimbo shits
-    if (character.perks.has(PerkType.BimboBody)) {
+    if (character.effects.has(EffectType.BimboBody)) {
         chance += 10;
     }
-    if (character.perks.has(PerkType.BroBody)) {
+    if (character.effects.has(EffectType.BroBody)) {
         chance += 10;
     }
-    if (character.perks.has(PerkType.FutaForm)) {
+    if (character.effects.has(EffectType.FutaForm)) {
         chance += 10;
     }
     // 2 & 2 for seductive valentines!
-    if (character.perks.has(PerkType.SensualLover)) {
+    if (character.effects.has(EffectType.SensualLover)) {
         chance += 2;
     }
-    // if (character.perks.has(PerkType.ChiReflowLust))
+    // if (character.perks.has(EffectType.ChiReflowLust))
     //     chance += UmasShop.NEEDLEWORK_LUST_TEASE_MULTI;
     return chance;
 }
@@ -253,7 +251,7 @@ function determineTeaseChoice(character: Character, monster: Character, bimbo: b
     }
     // ==EXTRAS========
     // 12 Cat flexibility.
-    if (character.perks.has(PerkType.Flexibility) && character.body.legs.isBiped() && hasVagina) {
+    if (character.effects.has(EffectType.Flexibility) && character.body.legs.isBiped() && hasVagina) {
         choices[TeaseType.CatFlexibility] += 2;
         if (vaginalWetness >= 3) choices[TeaseType.CatFlexibility]++;
         if (vaginalWetness >= 5) choices[TeaseType.CatFlexibility]++;
@@ -277,9 +275,9 @@ function determineTeaseChoice(character: Character, monster: Character, bimbo: b
         if (incubationTime <= 24) choices[TeaseType.Pregnant]++;
     }
     // 14 Brood Mother
-    if (monster.body.cocks.length > 0 && hasVagina && character.perks.has(PerkType.BroodMother) && !character.body.wombs.find(Womb.Pregnant) && !character.body.buttWomb.isPregnant()) {
+    if (monster.body.cocks.length > 0 && hasVagina && character.effects.has(EffectType.BroodMother) && !character.body.wombs.find(Womb.Pregnant) && !character.body.buttWomb.isPregnant()) {
         choices[TeaseType.BroodMother] += 3;
-        if (character.effects.has(StatusEffectType.Heat)) choices[TeaseType.BroodMother] += 7;
+        if (character.effects.has(EffectType.Heat)) choices[TeaseType.BroodMother] += 7;
     }
     // 15 Nipplecunts
     if (character.body.chest.find(BreastRow.FuckableNipples)) {
@@ -323,7 +321,7 @@ function determineTeaseChoice(character: Character, monster: Character, bimbo: b
         }
     }
     // 23 RUT
-    if (character.effects.has(StatusEffectType.Rut) && monster.body.vaginas.length > 0 && character.body.cocks.length > 0) {
+    if (character.effects.has(EffectType.Rut) && monster.body.vaginas.length > 0 && character.body.cocks.length > 0) {
         choices[TeaseType.Rut] += 5;
     }
     // 24 Poledance - req's staff! - Req's gender!  Req's TITS!
@@ -335,11 +333,11 @@ function determineTeaseChoice(character: Character, monster: Character, bimbo: b
         choices[TeaseType.TallTease] += 5;
     }
     // 26 SMART PEEPS! 70+ int, arouse spell!
-    if (character.stats.int >= 70 && character.effects.has(StatusEffectType.KnowsArouse)) {
+    if (character.stats.int >= 70 && character.effects.has(EffectType.KnowsArouse)) {
         choices[TeaseType.Smartness] += 3;
     }
     // 27 FEEDER
-    if (character.perks.has(PerkType.Feeder) && largestBreastRating >= 4) {
+    if (character.effects.has(EffectType.Feeder) && largestBreastRating >= 4) {
         choices[TeaseType.Feeder] += 3;
         if (largestBreastRating >= 10) choices[TeaseType.Feeder]++;
         if (largestBreastRating >= 15) choices[TeaseType.Feeder]++;
@@ -427,22 +425,13 @@ function selectChoice(list: number[]): number {
 }
 
 export class Tease extends CombatAction {
-    public flag: CombatActionFlags = CombatActionFlags.Tease;
-    public name: string = "Tease";
-    public reasonCannotUse: string = "";
-    public subActions: CombatAction[] = [];
-
-    public isPossible(character: Character): boolean {
-        return true;
-    }
-    public canUse(character: Character, target: Character): boolean {
-        return true;
-    }
+    public name = "Tease";
+    public type = CombatActionType.Tease;
 
     public use(character: Character, target: Character): void {
         CView.clear();
         // You cant tease a blind guy!
-        if (target.combat.effects.has(CombatEffectType.Blind)) {
+        if (target.effects.has(EffectType.Blind)) {
             CView.text("You do your best to tease " + target.desc.a + target.desc.short + " with your body.  It doesn't work - you blinded " + target.desc.objectivePronoun + ", remember?\n\n");
             return;
         }
@@ -463,9 +452,9 @@ export class Tease extends CombatAction {
             return;
         }
         fatigueRecovery(character);
-        let bimbo: boolean = character.perks.has(PerkType.BimboBody) ? true : false;
-        const bro: boolean = character.perks.has(PerkType.BroBody) ? true : false;
-        const futa: boolean = character.perks.has(PerkType.FutaForm) ? true : false;
+        let bimbo: boolean = character.effects.has(EffectType.BimboBody) ? true : false;
+        const bro: boolean = character.effects.has(EffectType.BroBody) ? true : false;
+        const futa: boolean = character.effects.has(EffectType.FutaForm) ? true : false;
         let chance: number = determineBaseChance(character);
         let damage: number = determineBaseDamage(character);
         // 10% for bimbo shits
@@ -534,7 +523,7 @@ export class Tease extends CombatAction {
                         if (character.body.cocks.length === 1) CView.text(describeCock(character, character.body.cocks.get(0)!));
                         if (character.body.cocks.length > 1) CView.text(describeCocksLight(character));
                         CView.text(" and ");
-                        if (character.perks.has(PerkType.BulgeArmor)) {
+                        if (character.effects.has(EffectType.BulgeArmor)) {
                             damage += 5;
                         }
                         penis = true;
@@ -548,7 +537,7 @@ export class Tease extends CombatAction {
             case TeaseType.CockFlash:
                 if (character.body.legs.isTaur() && character.body.cocks.filter(Cock.FilterType(CockType.HORSE)).length > 0) {
                     CView.text("You let out a bestial whinny and stomp your hooves at your enemy.  They prepare for an attack, but instead you kick your front hooves off the ground, revealing the hefty horsecock hanging beneath your belly.  You let it flop around, quickly getting rigid and to its full erect length.  You buck your hips as if you were fucking a mare in heat, letting your opponent know just what's in store for them if they surrender to pleasure...");
-                    if (character.perks.has(PerkType.BulgeArmor)) damage += 5;
+                    if (character.effects.has(EffectType.BulgeArmor)) damage += 5;
                 }
                 else {
                     CView.text("You open your " + character.inventory.armor.displayName + ", revealing your ");
@@ -556,7 +545,7 @@ export class Tease extends CombatAction {
                     if (character.body.cocks.length > 1) CView.text(describeCocksLight(character));
                     if (character.body.vaginas.length > 0) CView.text(" and ");
                     // Bulgy bonus!
-                    if (character.perks.has(PerkType.BulgeArmor)) {
+                    if (character.effects.has(EffectType.BulgeArmor)) {
                         damage += 5;
                         chance++;
                     }
@@ -604,13 +593,13 @@ export class Tease extends CombatAction {
                 break;
             // 6 pussy flash
             case TeaseType.BimboPussyFlash:
-                if (character.perks.has(PerkType.BimboBrains) || character.perks.has(PerkType.FutaFaculties)) {
+                if (character.effects.has(EffectType.BimboBrains) || character.effects.has(EffectType.FutaFaculties)) {
                     CView.text("You coyly open your " + character.inventory.armor.displayName + " and giggle, \"<i>Is this, like, what you wanted to see?</i>\"  ");
                 }
                 else {
                     CView.text("You coyly open your " + character.inventory.armor.displayName + " and purr, \"<i>Does the thought of a hot, ");
                     if (futa) CView.text("futanari ");
-                    else if (character.perks.has(PerkType.BimboBody)) CView.text("bimbo ");
+                    else if (character.effects.has(EffectType.BimboBody)) CView.text("bimbo ");
                     else CView.text("sexy ");
                     CView.text("body turn you on?</i>\"  ");
                 }
@@ -623,7 +612,7 @@ export class Tease extends CombatAction {
                 if (character.body.cocks.length > 0) CView.text("  Meanwhile, " + describeOneOfYourCocks(character) + " bobs back and forth with your gyrating hips, adding to the display.");
                 // BONUSES!
                 if (character.body.cocks.length > 0) {
-                    if (character.perks.has(PerkType.BulgeArmor)) damage += 5;
+                    if (character.effects.has(EffectType.BulgeArmor)) damage += 5;
                     penis = true;
                 }
                 vagina = true;
@@ -640,7 +629,7 @@ export class Tease extends CombatAction {
             // 8 Pec Dance
             case TeaseType.BroPecDance:
                 CView.text("You place your hands on your hips and flex repeatedly, skillfully making your pecs alternatively bounce in a muscular dance.  ");
-                if (character.perks.has(PerkType.BroBrains)) CView.text("Damn, " + target.desc.a + target.desc.short + " has got to love this!");
+                if (character.effects.has(EffectType.BroBrains)) CView.text("Damn, " + target.desc.a + target.desc.short + " has got to love this!");
                 else CView.text(target.desc.capitalA + target.desc.short + " will probably enjoy the show, but you feel a bit silly doing this.");
                 chance += (character.body.tone - 75) / 5;
                 damage += (character.body.tone - 70) / 5;
@@ -649,7 +638,7 @@ export class Tease extends CombatAction {
             // 9 Heroic Pose
             case TeaseType.BroHeroicPose:
                 CView.text("You lift your arms and flex your incredibly muscular arms while flashing your most disarming smile.  ");
-                if (character.perks.has(PerkType.BroBrains)) CView.text(target.desc.capitalA + target.desc.short + " can't resist such a heroic pose!");
+                if (character.effects.has(EffectType.BroBrains)) CView.text(target.desc.capitalA + target.desc.short + " can't resist such a heroic pose!");
                 else CView.text("At least the physical changes to your body are proving useful!");
                 chance += (character.body.tone - 75) / 5;
                 damage += (character.body.tone - 70) / 5;
@@ -658,12 +647,12 @@ export class Tease extends CombatAction {
             // 10 Bulgy groin thrust
             case TeaseType.BroBulgyGroinThrust:
                 CView.text("You lean back and pump your hips at " + target.desc.a + target.desc.short + " in an incredibly vulgar display.  The bulging, barely-contained outline of your " + describeCock(character, character.body.cocks.get(0)!) + " presses hard into your gear.  ");
-                if (character.perks.has(PerkType.BroBrains)) CView.text("No way could " + target.desc.subjectivePronoun + " resist your huge cock!");
+                if (character.effects.has(EffectType.BroBrains)) CView.text("No way could " + target.desc.subjectivePronoun + " resist your huge cock!");
                 else CView.text("This is so crude, but at the same time, you know it'll likely be effective.");
                 CView.text("  You go on like that, humping the air for your foe");
                 CView.text("'s");
                 CView.text(" benefit, trying to entice them with your man-meat.");
-                if (character.perks.has(PerkType.BulgeArmor)) damage += 5;
+                if (character.effects.has(EffectType.BulgeArmor)) damage += 5;
                 penis = true;
                 break;
             // 11 Show off dick
@@ -671,10 +660,10 @@ export class Tease extends CombatAction {
                 if (Settings.silly() && randInt(2) === 0) CView.text("You strike a herculean pose and flex, whispering, \"<i>Do you even lift?</i>\" to " + target.desc.a + target.desc.short + ".");
                 else {
                     CView.text("You open your " + character.inventory.armor.displayName + " just enough to let your " + describeCock(character, character.body.cocks.get(0)!) + " and " + describeBalls(true, true, character) + " dangle free.  A shiny rope of pre-cum dangles from your cock, showing that your reproductive system is every bit as fit as the rest of you.  ");
-                    if (character.perks.has(PerkType.BroBrains)) CView.text("Bitches love a cum-leaking cock.");
+                    if (character.effects.has(EffectType.BroBrains)) CView.text("Bitches love a cum-leaking cock.");
                     else CView.text("You've got to admit, you look pretty good down there.");
                 }
-                if (character.perks.has(PerkType.BulgeArmor)) damage += 5;
+                if (character.effects.has(EffectType.BulgeArmor)) damage += 5;
                 penis = true;
                 break;
             // ==EXTRAS========
@@ -713,7 +702,7 @@ export class Tease extends CombatAction {
                 else CView.text("You wiggle your " + describeHips(character) + " at your enemy, giving them a long, tantalizing look at the hips that have passed so very many offspring.  \"<i>Oh, like what you see, bad boy?  Well why don't you just come on over and stuff that cock inside me?  Give me your seed, and I'll give you suuuuch beautiful offspring.  Oh?  Does that turn you on?  It does!  Come on, just let loose and fuck me full of your babies!</i>\"");
                 chance += 2;
                 damage += 4;
-                if (character.effects.has(StatusEffectType.Heat)) {
+                if (character.effects.has(EffectType.Heat)) {
                     chance += 2;
                     damage += 4;
                 }
@@ -1277,7 +1266,7 @@ export class Tease extends CombatAction {
             // NERF TEASE DAMAGE
             damage *= .7;
             bonusDamage *= .7;
-            if (character.perks.has(PerkType.HistoryWhore)) {
+            if (character.effects.has(EffectType.HistoryWhore)) {
                 damage *= 1.15;
                 bonusDamage *= 1.15;
             }
@@ -1286,17 +1275,17 @@ export class Tease extends CombatAction {
 
             target.stats.lust += damage;
 
-            if (PlayerFlags.FETISH >= 1) {
+            if (CeraphFlags.PC_FETISH >= 1) {
                 if (character.stats.lust < 75) CView.text("\nFlaunting your body in such a way gets you a little hot and bothered.");
                 else CView.text("\nIf you keep exposing yourself you're going to get too horny to fight back.  This exhibitionism fetish makes it hard to resist just stripping naked and giving up.");
                 character.stats.lust += 2 + randInt(3);
             }
 
-            character.combat.stats.teaseXP(1);
+            character.combat.teaseXP(1);
         }
         // Nuttin honey
         else {
-            character.combat.stats.teaseXP(5);
+            character.combat.teaseXP(5);
 
             CView.text("\n" + target.desc.capitalA + target.desc.short + " seems unimpressed.");
         }

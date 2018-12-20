@@ -1,34 +1,21 @@
-import { Character } from '../../../Character';
-import { AnemoneSting } from '../PhysicalAttacks/AnemoneSting';
-import { Bite } from '../PhysicalAttacks/Bite';
-import { Constrict } from '../PhysicalAttacks/Constrict';
-import { Kick } from '../PhysicalAttacks/Kick';
-import { Gore } from '../PhysicalAttacks/Gore';
-import { randomChoice } from '../../../../../Engine/Utilities/SMath';
-import { CombatActionFlags } from '../../../../Effects/CombatActionFlag';
-import { CombatAction } from '../../../../Combat/Actions/CombatAction';
+import { CombatAction } from 'Game/Combat/Actions/CombatAction';
+import { SubAction } from 'Game/Combat/Actions/SubAction';
+import { CombatActionType } from 'Game/Combat/Actions/CombatActionType';
+// import { AnemoneSting } from '../PhysicalAttacks/AnemoneSting';
+// import { Bite } from '../PhysicalAttacks/Bite';
+// import { Constrict } from '../PhysicalAttacks/Constrict';
+// import { Kick } from '../PhysicalAttacks/Kick';
+// import { Gore } from '../PhysicalAttacks/Gore';
 
-export class PhysicalSpecials extends CombatAction {
-    public flag: CombatActionFlags = CombatActionFlags.PhysSpec;
-    public name: string = "P. Special";
-    public reasonCannotUse: string = "";
+export class PhysicalSpecials extends SubAction {
+    public name = "P. Special";
+    public type = CombatActionType.PhysSpec;
+
     public subActions: CombatAction[] = [
-        new AnemoneSting(),
-        new Bite(),
-        new Constrict(),
-        new Kick(),
-        new Gore(),
+        // new AnemoneSting(),
+        // new Bite(),
+        // new Constrict(),
+        // new Kick(),
+        // new Gore(),
     ];
-
-    public isPossible(character: Character): boolean {
-        return true;
-    }
-
-    public canUse(character: Character, target: Character): boolean {
-        return !!this.subActions.find((action) => action.canUse(character, target));
-    }
-
-    public use(character: Character, target: Character): void {
-        randomChoice(...this.subActions).use(character, target);
-    }
 }

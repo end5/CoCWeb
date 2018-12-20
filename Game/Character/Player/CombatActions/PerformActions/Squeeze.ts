@@ -1,22 +1,16 @@
-import { CombatAction } from '../../../../Combat/Actions/CombatAction';
-import { Character } from '../../../Character';
-import { randInt } from '../../../../../Engine/Utilities/SMath';
-import { CView } from '../../../../../Page/ContentView';
-import { CombatActionFlags } from '../../../../Effects/CombatActionFlag';
-import { CombatEffectType } from '../../../../Effects/CombatEffectType';
+import { CombatAction, CanUseResult } from 'Game/Combat/Actions/CombatAction';
+import { Character } from 'Game/Character/Character';
+import { randInt } from 'Engine/Utilities/SMath';
+import { CView } from 'Page/ContentView';
+import { CombatActionType } from 'Game/Combat/Actions/CombatActionType';
+import { EffectType } from 'Game/Effects/EffectType';
 
 export class Squeeze extends CombatAction {
-    public flag: CombatActionFlags = CombatActionFlags.Attack;
-    public name: string = "Squeeze";
-    public reasonCannotUse: string = "";
-    public subActions: CombatAction[] = [];
+    public name = "Squeeze";
+    public type = CombatActionType.Attack;
 
-    public isPossible(character: Character): boolean {
-        return true;
-    }
-
-    public canUse(character: Character, target: Character): boolean {
-        return !!target && target.combat.effects.has(CombatEffectType.Constricted);
+    public canUse(character: Character, target: Character): CanUseResult {
+        return { canUse: !!target && target.effects.has(EffectType.Constricted) };
     }
 
     public use(character: Character, target: Character): void {

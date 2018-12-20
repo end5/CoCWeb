@@ -1,36 +1,30 @@
-import { CombatAction } from '../../../../Combat/Actions/CombatAction';
-import { Character } from '../../../Character';
+import { CombatAction, CanUseResult } from 'Game/Combat/Actions/CombatAction';
+import { Character } from 'Game/Character/Character';
 import { Release } from './Release';
 import { Run } from './Run';
-import { CombatActionFlags } from '../../../../Effects/CombatActionFlag';
+import { CombatActionType } from 'Game/Combat/Actions/CombatActionType';
 
-export class MoveAway implements CombatAction {
-    public flag: CombatActionFlags = CombatActionFlags.MoveAway;
-    public name: string = "Flee";
-    public reasonCannotUse: string = "";
-    public subActions: CombatAction[] = [];
+export class MoveAway extends CombatAction {
+    public name = "Flee";
+    public type = CombatActionType.MoveAway;
 
     private release = new Release();
     private run = new Run();
 
-    public isPossible(character: Character): boolean {
-        return true;
-    }
-
-    public canUse(character: Character, target: Character): boolean {
+    public canUse(character: Character, target: Character): CanUseResult {
         if (target) {
-            if (this.release.canUse(character, target)) {
+            if (this.release.canUse(character, target).canUse) {
                 this.name = this.release.name;
             }
         }
         else {
             this.name = this.run.name;
         }
-        return true;
+        return super.canUse(character, target);
     }
 
     public use(character: Character, target: Character): void {
-        if (this.release.canUse(character, target)) {
+        if (this.release.canUse(character, target).canUse) {
             this.release.use(character, target);
         }
         else {

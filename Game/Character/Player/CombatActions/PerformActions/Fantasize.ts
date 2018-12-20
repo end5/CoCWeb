@@ -1,25 +1,15 @@
-import { randInt } from '../../../../../Engine/Utilities/SMath';
-import { BreastRow } from '../../../../Body/BreastRow';
-import { Character } from '../../../Character';
-import { CombatAction } from '../../../../Combat/Actions/CombatAction';
-import { CView } from '../../../../../Page/ContentView';
-import { describeBalls } from '../../../../Descriptors/BallsDescriptor';
-import { describeNipple } from '../../../../Descriptors/BreastDescriptor';
-import { CombatActionFlags } from '../../../../Effects/CombatActionFlag';
+import { randInt } from 'Engine/Utilities/SMath';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { Character } from 'Game/Character/Character';
+import { CombatAction } from 'Game/Combat/Actions/CombatAction';
+import { CView } from 'Page/ContentView';
+import { describeBalls } from 'Game/Descriptors/BallsDescriptor';
+import { describeNipple } from 'Game/Descriptors/BreastDescriptor';
+import { CombatActionType } from 'Game/Combat/Actions/CombatActionType';
 
 export class Fantasize extends CombatAction {
-    public flag: CombatActionFlags = CombatActionFlags.Fantasize;
-    public name: string = "Fantasize";
-    public reasonCannotUse: string = "";
-    public subActions: CombatAction[] = [];
-
-    public isPossible(character: Character): boolean {
-        return true;
-    }
-
-    public canUse(character: Character, target: Character): boolean {
-        return true;
-    }
+    public name = "Fantasize";
+    public type = CombatActionType.Fantasize;
 
     public useAction(character: Character, target: Character): void {
         let lustChange: number = 0;

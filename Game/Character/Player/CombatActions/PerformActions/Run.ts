@@ -1,38 +1,26 @@
-import { randInt } from '../../../../../Engine/Utilities/SMath';
-import { BreastRow } from '../../../../Body/BreastRow';
-import { EarType } from '../../../../Body/Ears';
-import { Tail, TailType } from '../../../../Body/Tail';
-import { CombatEffectType } from '../../../../Effects/CombatEffectType';
-import { PerkType } from '../../../../Effects/PerkType';
-import { StatusEffectType } from '../../../../Effects/StatusEffectType';
-import { Character } from '../../../Character';
-import { CombatAction } from '../../../../Combat/Actions/CombatAction';
-import { CView } from '../../../../../Page/ContentView';
-import { describeLegs } from '../../../../Descriptors/LegDescriptor';
-import { describeBalls } from '../../../../Descriptors/BallsDescriptor';
-import { describeHips } from '../../../../Descriptors/HipDescriptor';
-import { describeButt } from '../../../../Descriptors/ButtDescriptor';
-import { describeChest } from '../../../../Descriptors/BreastDescriptor';
-import { CombatActionFlags } from '../../../../Effects/CombatActionFlag';
+import { randInt } from 'Engine/Utilities/SMath';
+import { BreastRow } from 'Game/Character/Body/BreastRow';
+import { EarType } from 'Game/Character/Body/Ears';
+import { Tail, TailType } from 'Game/Character/Body/Tail';
+import { EffectType } from 'Game/Effects/EffectType';
+import { Character } from 'Game/Character/Character';
+import { CombatAction } from 'Game/Combat/Actions/CombatAction';
+import { CView } from 'Page/ContentView';
+import { describeLegs } from 'Game/Descriptors/LegDescriptor';
+import { describeBalls } from 'Game/Descriptors/BallsDescriptor';
+import { describeHips } from 'Game/Descriptors/HipDescriptor';
+import { describeButt } from 'Game/Descriptors/ButtDescriptor';
+import { describeChest } from 'Game/Descriptors/BreastDescriptor';
+import { CombatActionType } from 'Game/Combat/Actions/CombatActionType';
 
 export class Run extends CombatAction {
-    public flag: CombatActionFlags = CombatActionFlags.MoveAway;
-    public name: string = "Run";
-    public reasonCannotUse: string = "";
-    public subActions: CombatAction[] = [];
-
-    public isPossible(character: Character): boolean {
-        return true;
-    }
-
-    public canUse(character: Character, target: Character): boolean {
-        return true;
-    }
+    public name = "Run";
+    public type = CombatActionType.MoveAway;
 
     public use(character: Character, target: Character): void {
         CView.clear();
         // Rut doesnt let you run from dicks.
-        if (character.effects.has(StatusEffectType.Rut) && target.body.cocks.length > 0) {
+        if (character.effects.has(EffectType.Rut) && target.body.cocks.length > 0) {
             CView.text("The thought of another male in your area competing for all the pussy infuriates you!  No way will you run!");
             return;
         }
@@ -40,7 +28,7 @@ export class Run extends CombatAction {
         // Nonflying PCs
         else {
             // Stuck!
-            if (character.combat.effects.has(CombatEffectType.NoFlee)) {
+            if (character.effects.has(EffectType.NoFlee)) {
                 if (target.desc.short === "goblin")
                     CView.text("You try to flee but get stuck in the sticky white goop surrounding you.\n\n");
                 else
@@ -58,7 +46,7 @@ export class Run extends CombatAction {
         if (
             character.body.tails.reduce(Tail.HasType(TailType.RACCOON), false) &&
             character.body.ears.type === EarType.RACCOON &&
-            character.perks.has(PerkType.Runner)
+            character.effects.has(EffectType.Runner)
         )
             escapeMod -= 25;
 
@@ -84,7 +72,7 @@ export class Run extends CombatAction {
             if (character.canFly())
                 CView.text(target.desc.capitalA + target.desc.short + " can't catch you.");
             // sekrit benefit: if you have coon ears, coon tail, and Runner perk, change normal Runner escape to flight-type escape
-            else if (character.body.tails.reduce(Tail.HasType(TailType.RACCOON), false) && character.body.ears.type === EarType.RACCOON && character.perks.has(PerkType.Runner)) {
+            else if (character.body.tails.reduce(Tail.HasType(TailType.RACCOON), false) && character.body.ears.type === EarType.RACCOON && character.effects.has(EffectType.Runner)) {
                 CView.text("Using your running skill, you build up a head of steam and jump, then spread your arms and flail your tail wildly; your opponent dogs you as best " + target.desc.subjectivePronoun + " can, but stops and stares dumbly as your spastic tail slowly propels you several meters into the air!  You leave " + target.desc.objectivePronoun + " behind with your clumsy, jerky, short-range flight.");
             }
             // Non-fliers flee
@@ -93,7 +81,7 @@ export class Run extends CombatAction {
             return;
         }
         // Runner perk chance
-        else if (character.perks.has(PerkType.Runner) && randInt(100) < 50) {
+        else if (character.effects.has(EffectType.Runner) && randInt(100) < 50) {
             CView.text("Thanks to your talent for running, you manage to escape.");
             return;
         }
@@ -107,7 +95,7 @@ export class Run extends CombatAction {
                     CView.text(target.desc.capitalA + target.desc.short + " manages to grab your " + describeLegs(character) + " and drag you back to the ground before you can fly away!");
             }
             // fail
-            else if (character.body.tails.reduce(Tail.HasType(TailType.RACCOON), false) && character.body.ears.type === EarType.RACCOON && character.perks.has(PerkType.Runner))
+            else if (character.body.tails.reduce(Tail.HasType(TailType.RACCOON), false) && character.body.ears.type === EarType.RACCOON && character.effects.has(EffectType.Runner))
                 CView.text("Using your running skill, you build up a head of steam and jump, but before you can clear the ground more than a foot, your opponent latches onto you and drags you back down with a thud!");
             // Nonflyer messages
             else {

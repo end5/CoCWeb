@@ -1,32 +1,25 @@
-import { Character } from "../../../Character";
-import { Gender } from "../../../../Body/GenderIdentity";
-import { PerkType } from "../../../../Effects/PerkType";
-import { randInt } from "../../../../../Engine/Utilities/SMath";
-import { CView } from "../../../../../Page/ContentView";
-import { CombatAction } from "../../../../Combat/Actions/CombatAction";
-import { describeCockShort } from "../../../../Descriptors/CockDescriptor";
-import { fatigueRecovery } from "../../../../Combat/CombatUtils";
-import { CombatActionFlags } from "../../../../Effects/CombatActionFlag";
-import { CombatEffectType } from "../../../../Effects/CombatEffectType";
+import { Character } from 'Game/Character/Character';
+import { Gender } from 'Game/Character/Body/GenderIdentity';
+import { EffectType } from 'Game/Effects/EffectType';
+import { randInt } from 'Engine/Utilities/SMath';
+import { CView } from 'Page/ContentView';
+import { CombatAction, CanUseResult } from 'Game/Combat/Actions/CombatAction';
+import { describeCockShort } from 'Game/Descriptors/CockDescriptor';
+import { fatigueRecovery } from 'Game/Combat/CombatUtils';
+import { CombatActionType } from 'Game/Combat/Actions/CombatActionType';
 
 export class NagaTease extends CombatAction {
-    public flag: CombatActionFlags = CombatActionFlags.Tease;
-    public name: string = "NagaTease";
-    public reasonCannotUse: string = "";
-    public subActions: CombatAction[] = [];
+    public name = "NagaTease";
+    public type = CombatActionType.Tease;
 
-    public isPossible(character: Character): boolean {
-        return true;
-    }
-
-    public canUse(character: Character, target: Character): boolean {
-        return target.combat.effects.has(CombatEffectType.Constricted);
+    public canUse(character: Character, target: Character): CanUseResult {
+        return { canUse: target.effects.has(EffectType.Constricted) };
     }
 
     public use(character: Character, target: Character): void {
         CView.clear();
         // (if poisoned)
-        if (target.combat.effects.has(CombatEffectType.NagaVenom)) {
+        if (target.effects.has(EffectType.NagaVenom)) {
             CView.text("You attempt to stimulate " + target.desc.a + target.desc.short + " by rubbing " + target.desc.possessivePronoun + " nether regions, but " + target.desc.possessivePronoun + " seems too affected by your poison to react.\n\n");
         }
         else if (target.gender === Gender.NONE) {
@@ -47,36 +40,36 @@ export class NagaTease extends CombatAction {
             // 5% chance for each tease level.
             chance += character.stats.teaseLevel * 5;
             // 10% for seduction perk
-            if (character.perks.has(PerkType.Seduction)) chance += 10;
+            if (character.effects.has(EffectType.Seduction)) chance += 10;
             // 10% for sexy armor types
-            if (character.perks.has(PerkType.SluttySeduction)) chance += 10;
+            if (character.effects.has(EffectType.SluttySeduction)) chance += 10;
             // 10% for bimbo shits
-            if (character.perks.has(PerkType.BimboBody)) {
+            if (character.effects.has(EffectType.BimboBody)) {
                 chance += 10;
                 bimbo = true;
             }
-            if (character.perks.has(PerkType.BroBody)) {
+            if (character.effects.has(EffectType.BroBody)) {
                 chance += 10;
                 bro = true;
             }
-            if (character.perks.has(PerkType.FutaForm)) {
+            if (character.effects.has(EffectType.FutaForm)) {
                 chance += 10;
                 futa = true;
             }
             // 2 & 2 for seductive valentines!
-            if (character.perks.has(PerkType.SensualLover)) {
+            if (character.effects.has(EffectType.SensualLover)) {
                 chance += 2;
             }
             // ==============================
             // Determine basic damage.
             // ==============================
             damage = 6 + randInt(3);
-            if (character.perks.has(PerkType.SensualLover)) {
+            if (character.effects.has(EffectType.SensualLover)) {
                 damage += 2;
             }
-            if (character.perks.has(PerkType.Seduction)) damage += 5;
+            if (character.effects.has(EffectType.Seduction)) damage += 5;
             // + slutty armor bonus
-            // if (character.perks.has(PerkType.SluttySeduction)) damage += character.perks.get(PerkType.SluttySeduction).value1;
+            // if (character.perks.has(EffectType.SluttySeduction)) damage += character.perks.get(EffectType.SluttySeduction).value1;
             // 10% for bimbo shits
             if (bimbo || bro || futa) {
                 damage += 5;
@@ -100,7 +93,7 @@ export class NagaTease extends CombatAction {
             if (randInt(100) <= chance) {
                 // NERF TEASE DAMAGE
                 damage *= .9;
-                if (character.perks.has(PerkType.HistoryWhore)) {
+                if (character.effects.has(EffectType.HistoryWhore)) {
                     damage *= 1.15;
                 }
                 target.stats.lust += damage;

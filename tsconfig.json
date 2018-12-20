@@ -18,10 +18,11 @@
         }
     },
     "exclude": [
-        "Scripts",
-        "main.js",
         "Build",
-        "Converter",
-        "dist",
+        "node_modules",
+        "resource",
+        "Game/Character/Player/CombatActions/MagicalAttacks/",
+        "Game/Character/Player/CombatActions/PhysicalAttacks/",
+        "Game/Character/Player/CombatActions/Spells/",
     ]
 }
