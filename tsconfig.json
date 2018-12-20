@@ -17,12 +17,14 @@
             "Resource": ["resource"]
         }
     },
+    "include": [
+        "Engine",
+        "Page",
+        "Game"
+    ],
     "exclude": [
-        "Build",
-        "node_modules",
-        "resource",
-        "Game/Character/Player/CombatActions/MagicalAttacks/",
-        "Game/Character/Player/CombatActions/PhysicalAttacks/",
-        "Game/Character/Player/CombatActions/Spells/",
+        "Game/Character/Player/CombatActions/MagicalAttacks",
+        "Game/Character/Player/CombatActions/PhysicalAttacks",
+        "Game/Character/Player/CombatActions/Spells",
     ]
 }
