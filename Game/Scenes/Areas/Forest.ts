@@ -4,7 +4,7 @@ import { NextScreenChoices } from 'Game/ScreenDisplay';
 import { randInt } from 'Engine/Utilities/SMath';
 import { EffectType } from 'Game/Effects/EffectType';
 import { CView } from 'Page/ContentView';
-import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { passTime } from "Game/Scenes/PassTime";
 import { Cock } from 'Game/Character/Body/Cock';
 import { CombatManager } from 'Game/Combat/CombatManager';
 import { mf } from 'Game/Descriptors/GenderDescriptor';
@@ -22,109 +22,22 @@ import { VaginaWetness } from 'Game/Character/Body/Vagina';
 import { LegType } from 'Game/Character/Body/Legs';
 import { encounterTamanisDaughters, TamanisDaughtersFlags } from './Forest/TamanisDaughtersScene';
 import { encounterTamani, TamaniFlags } from './Forest/TamaniScene';
-import { encounterWildHunt, ErlKingFlags } from './Forest/ErlKingScene';
-import { encounterFaerie } from './Forest/Faerie';
-import { encounter, TentacleBeastFlags } from './Forest/TentacleBeastScene';
+import { encounter } from './Forest/TentacleBeastScene';
 import { intro } from './Forest/CorruptedGlade';
-import { supahAkabalEdition } from './Forest/AkbalScenes';
-import { kitsuneShrine, enterTheTrickster } from './Forest/KitsuneScene';
 import { beeEncounter } from './Forest/BeeGirlScene';
 import { essrayleMeetingI, EssrayleFlags } from './Forest/Essrayle';
 import { impLordEncounter } from './BeyondCamp/ImpLordScene';
 import { Imp } from './BeyondCamp/Imp';
 import { Goblin } from './BeyondCamp/Goblin';
+import { GiacomoFlags } from './BeyondCamp/Giacomo';
+import { DeepwoodsFlags } from './Deepwoods';
 
 export const ForestFlags = Flags.register("Forest", {
     TIMES_EXPLORED: 0,
-    DEEPWOODS_EXPLORED: 0,
 });
 /**
  * Created by aimozg on 06.01.14.
  */
-
-export function exploreDeepwoods(player: Character): NextScreenChoices {
-    ForestFlags.DEEPWOODS_EXPLORED++;
-
-    // $> Commented out for testing
-    // // Every tenth exploration finds a pumpkin if eligible!
-    // if (ForestFlags.DEEPWOODS_EXPLORED % 10 === 0 && isHalloween()) {
-    //     // If Fera isn't free yet...
-    //     if (!player.perks.has(PerkType.FerasBoonBreedingBitch) && !player.perks.has(PerkType.FerasBoonAlpha)) {
-    //         if (date.fullYear > ForestFlags.PUMPKIN_FUCK_YEAR_DONE) {
-    //             return pumpkinFuckEncounter();
-    //         }
-    //     }
-    //     // Fera is free!
-    //     else {
-    //         if (ForestFlags.FERAS_TRAP_SPRUNG_YEAR === 0) {
-    //             if (date.fullYear > ForestFlags.FERAS_GLADE_EXPLORED_YEAR) {
-    //                 return feraSceneTwoIntroduction();
-    //             }
-    //         }
-    //     }
-    // }
-    // // Hel jumps you for sex.
-    // if (ForestFlags.PC_PROMISED_HEL_MONOGAMY_FUCKS === 1 && ForestFlags.HEL_RAPED_TODAY === 0 && randInt(10) === 0 && player.gender > 0 && !followerHel()) {
-    //     return helSexualAmbush();
-    // }
-    // // Every 5th exploration encounters d2 if hasnt been met yet and factory done
-    // if (ForestFlags.DISCOVERED_DUNGEON_2_ZETAZ === 0 && ForestFlags.DEEPWOODS_EXPLORED % 5 === 0 && player.effects.has(StatusEffectType.DungeonShutDown)) {
-    //     CView.clear().text("While you explore the deepwoods, you do your best to forge into new, unexplored locations.  While you're pushing away vegetation and slapping at plant-life, you spot a half-overgrown orifice buried in the side of a ravine.  There's a large number of imp-tracks around the cavern's darkened entryway.  Perhaps this is where the imp, Zetaz, makes his lair?  In any event, it's past time you checked back on the portal.  You make a mental note of the cave's location so that you can return when you're ready.");
-    //     CView.text("\n\n<b>You've discovered the location of Zetaz's lair!</b>");
-    //     ForestFlags.DISCOVERED_DUNGEON_2_ZETAZ++;
-    //     return { choices: [["Enter", enterZetazsLair], ["", undefined], ["", undefined], ["", undefined], ["Leave", passTime(1)]] };
-    // }
-    // Tamani 20% encounter rate
-    if (TamaniFlags.TAMANI_TIME_OUT === 0 && randInt(5) === 0 && player.gender > 0 && (player.body.cocks.length > 0 || !player.inventory.keyItems.has("Deluxe Dildo"))) {
-        if (player.body.cocks.length > 0 && TamanisDaughtersFlags.TAMANI_DAUGHTER_PREGGO_COUNTDOWN === 0 && TamaniFlags.TAMANI_NUMBER_OF_DAUGHTERS >= 24) {
-            return encounterTamanisDaughters(player);
-        }
-        else
-            return encounterTamani(player);
-    }
-
-    if (ErlKingFlags.ERLKING_DISABLED === 0 && ErlKingFlags.ERLKING_ENCOUNTER_COUNTER === 4) {
-        ErlKingFlags.ERLKING_ENCOUNTER_COUNTER = 0;
-        return encounterWildHunt(player);
-    }
-    else {
-        ErlKingFlags.ERLKING_ENCOUNTER_COUNTER++;
-    }
-
-    const chooser: number = randInt(5);
-    // Faerie
-    if (chooser === 0) {
-        return encounterFaerie(player);
-    }
-    // Tentacle monster
-    if (chooser === 1) {
-        // Reset hilarious shit
-        if (player.gender > 0) TentacleBeastFlags.UNKNOWN_FLAG_NUMBER_00247 = 0;
-        // Tentacle avoidance chance due to dangerous plants
-        if (player.inventory.keyItems.has("Dangerous Plants") && player.stats.int / 2 > randInt(50)) {
-            CView.clear().text("Using the knowledge contained in your 'Dangerous Plants' book, you determine a tentacle beast's lair is nearby, do you continue?  If not you could return to camp.\n\n");
-            return { choices: [["Continue", encounter], ["", undefined], ["", undefined], ["", undefined], ["Leave", passTime(1)]] };
-        }
-        else {
-            return encounter(player);
-        }
-    }
-    // Corrupted Glade
-    if (chooser === 2) {
-        // $> Implement later
-        // if (randInt(4) === 0) {
-        //     return trappedSatyr(player);
-        // }
-        return intro(player);
-    }
-    if (chooser === 3) {
-        return supahAkabalEdition(player);
-    }
-    else {
-        if (randInt(3) === 0) return kitsuneShrine(player);
-        else return enterTheTrickster(player);
-    }
-}
 
 // Explore forest
 export function exploreForest(player: Character): NextScreenChoices {
@@ -160,8 +73,8 @@ export function exploreForest(player: Character): NextScreenChoices {
     //     if (chooser >= 1) chooser++;
     // }
     // Chance to discover deepwoods
-    if ((ForestFlags.TIMES_EXPLORED >= 20) && ForestFlags.DEEPWOODS_EXPLORED === 0) {
-        ForestFlags.DEEPWOODS_EXPLORED++;
+    if ((ForestFlags.TIMES_EXPLORED >= 20) && DeepwoodsFlags.TIMES_EXPLORED === 0) {
+        DeepwoodsFlags.TIMES_EXPLORED++;
         CView.clear().text("After exploring the forest so many times, you decide to really push it, and plunge deeper and deeper into the woods.  The further you go the darker it gets, but you courageously press on.  The plant-life changes too, and you spot more and more lichens and fungi, many of which are luminescent.  Finally, a wall of tree-trunks as wide as houses blocks your progress.  There is a knot-hole like opening in the center, and a small sign marking it as the entrance to the 'Deepwoods'.  You don't press on for now, but you could easily find your way back to explore the Deepwoods.\n\n<b>Deepwoods exploration unlocked!</b>");
         return { next: passTime(1) };
     }
@@ -221,7 +134,7 @@ export function exploreForest(player: Character): NextScreenChoices {
         // Encounter Gobbalin!
         else {
             // Tamani 25% of all goblin encounters encounter rate
-            if (randInt(4) <= 0 && TamaniFlags.TAMANI_TIME_OUT === 0 && player.gender > 0 && (player.body.cocks.length > 0 || !player.inventory.keyItems.has("Deluxe Dildo"))) {
+            if (randInt(4) <= 0 && TamaniFlags.TAMANI_TIME_OUT === 0 && player.gender > 0 && (player.body.cocks.length > 0 || !TamaniFlags.DELUXE_DILDO)) {
                 if (player.body.cocks.length > 0 && TamanisDaughtersFlags.TAMANI_DAUGHTER_PREGGO_COUNTDOWN === 0 && TamaniFlags.TAMANI_NUMBER_OF_DAUGHTERS >= 24) {
                     return encounterTamanisDaughters(player);
                 }
@@ -307,7 +220,7 @@ export function exploreForest(player: Character): NextScreenChoices {
         // Oh noes, tentacles!
         if (dickDragChance === 0) {
             // Tentacle avoidance chance due to dangerous plants
-            if (player.inventory.keyItems.has("Dangerous Plants") && player.stats.int / 2 > randInt(50)) {
+            if (GiacomoFlags.DangerousPlants && player.stats.int / 2 > randInt(50)) {
                 CView.text("Using the knowledge contained in your 'Dangerous Plants' book, you determine a tentacle beast's lair is nearby, do you continue?  If not you could return to camp.\n\n");
                 return { choices: [["Continue", encounter], ["", undefined], ["", undefined], ["", undefined], ["Leave", passTime(1)]] };
             }

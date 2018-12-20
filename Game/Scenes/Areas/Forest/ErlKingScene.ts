@@ -16,13 +16,14 @@ import { FaceType } from 'Game/Character/Body/Face';
 import { gameOverMenu } from 'Game/Menus/InGame/GameOverMenu';
 import { displayStretchVagina } from 'Game/Modifiers/VaginaModifier';
 import { BreastRow } from 'Game/Character/Body/BreastRow';
-import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { passTime } from "Game/Scenes/PassTime";
 
 export const ErlKingFlags = Flags.register("Erlking", {
     ERLKING_ENCOUNTER_COUNTER: 0,
     WILD_HUNT_ENCOUNTERS: 0,
     ERLKING_DISABLED: 0,
     TIMES_ENCOUNTERED_PRINCESS_GWYNN: 0,
+    GoldenAntlers: false,
 });
 
 export function encounterWildHunt(player: Character): NextScreenChoices {
@@ -31,7 +32,7 @@ export function encounterWildHunt(player: Character): NextScreenChoices {
     if (ErlKingFlags.WILD_HUNT_ENCOUNTERS === 0) {
         return firstWildHuntEncounter(player);
     }
-    else if (!player.inventory.keyItems.has("Golden Antlers")) {
+    else if (!ErlKingFlags.GoldenAntlers) {
         return repeatWildHuntEncounter(player);
     }
     else {
@@ -726,7 +727,7 @@ function howDareYou(player: Character): NextScreenChoices {
         CView.text("“<i>No, my Lord,</i>” She croons, rising up to her knees, lapping at your dick.  Once she’s finished cleaning, she helps you with your [armor].  You nod a goodbye to her and begin walking, smirking in amusement at the trickle of cum running down her taut cheeks and down her legs as she waves farewell.\n\n");
     }
 
-    player.inventory.keyItems.add("Golden Antlers");
+    ErlKingFlags.GoldenAntlers = true;
     player.orgasm();
     player.stats.lust = 0;
 

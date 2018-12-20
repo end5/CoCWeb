@@ -7,7 +7,7 @@ import { SpriteName } from 'Page/SpriteName';
 import { randInt } from 'Engine/Utilities/SMath';
 import { numToCardinalText } from 'Game/Utilities/NumToText';
 import { mf } from 'Game/Descriptors/GenderDescriptor';
-import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { passTime } from "Game/Scenes/PassTime";
 import { CombatManager } from 'Game/Combat/CombatManager';
 import { TamanisDaughters } from './TamanisDaughters';
 import { describeCocksLight, describeCock, describeCockHead, nounCock, describeOneOfYourCocks } from 'Game/Descriptors/CockDescriptor';

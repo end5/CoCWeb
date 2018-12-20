@@ -5,7 +5,7 @@ import { CView } from 'Page/ContentView';
 import { SpriteName } from 'Page/SpriteName';
 import { CombatManager } from 'Game/Combat/CombatManager';
 import { EffectType } from 'Game/Effects/EffectType';
-import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { passTime } from "Game/Scenes/PassTime";
 import { randInt, randomChoice } from 'Engine/Utilities/SMath';
 import { describeLegs, describeLeg, describeFeet, describeFoot } from 'Game/Descriptors/LegDescriptor';
 import { skinFurScales, describeSkin } from 'Game/Descriptors/SkinDescriptor';
@@ -39,6 +39,7 @@ import { WeightedDrop } from 'Game/Utilities/Drops/WeightedDrop';
 import { CombatContainer } from 'Game/Combat/CombatContainer';
 import { EndScenes } from 'Game/Combat/EndScenes';
 import { DefeatType } from 'Game/Combat/DefeatEvent';
+import { GiacomoFlags } from '../BeyondCamp/Giacomo';
 
 export const KitsuneFlags = Flags.register("Kitsune", {
     MET_KITSUNES: 0,
@@ -179,7 +180,7 @@ function willOWisp(player: Character): NextScreenChoices {
     CView.text("Catching a glimpse of motion out of the corner of your eye, you whip around to face it, but are surprised to see that the only thing there is a small, pale blue flame, flitting about idly.  It dances around hypnotically, and as you stare into its ghostly light, you find your conscious mind growing hazy.  Your concerns suddenly seem trivial, and you find yourself relaxing gradually as the ethereal wisp glides along your arms, leaving behind a cool tingle where it touches you.\n\n");
     CView.text("It seems to be beckoning you to follow it.");
     // If player has Traveler's Guide
-    if (player.inventory.keyItems.has("Traveler's Guide")) {
+    if (GiacomoFlags.TravelersGuide) {
         CView.text("\n\nYour mind is jogged out of its haze when you remember a note from the Traveler's Guide.  It warned about mysterious flames in the forest that lead hapless adventurers astray.  You hesitate now, wondering what to do.");
         // [Turn Back] [Follow] //automatically follow without traveler's guide.
         return { choices: [["Turn Back", turnBackFromWillOWisp], ["Follow", choiceWrap(followTheWillOWisp)]] };

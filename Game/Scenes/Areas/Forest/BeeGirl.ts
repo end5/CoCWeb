@@ -3,7 +3,7 @@ import { Character } from 'Game/Character/Character';
 import { CView } from 'Page/ContentView';
 import { NextScreenChoices, choiceWrap } from 'Game/ScreenDisplay';
 import { EffectType } from 'Game/Effects/EffectType';
-import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { passTime } from "Game/Scenes/PassTime";
 import { randInt, randomChoice } from 'Engine/Utilities/SMath';
 import { CharacterType } from 'Game/Character/CharacterType';
 import { Vagina, VaginaWetness, VaginaLooseness } from 'Game/Character/Body/Vagina';
@@ -29,6 +29,7 @@ import { Armor } from 'Game/Items/Armors/Armor';
 import { ArmorName } from 'Game/Items/Armors/ArmorName';
 import { CombatContainer } from 'Game/Combat/CombatContainer';
 import { CombatAction } from 'Game/Combat/Actions/CombatAction';
+import { TamaniFlags } from './TamaniScene';
 
 export const BeeGirlFlags = Flags.register("BeeGirl", {
     BEE_GIRL_STATUS: 0,
@@ -61,7 +62,7 @@ class BeeGirlEndScenes extends EndScenes {
             enemy.stats.lust = 98;
             enemy.stats.lust += 1;
 
-            const dildoRape = (enemy.inventory.keyItems.has("Deluxe Dildo") ? choiceWrap(beeGirlsGetsDildoed, this.char) : undefined);
+            const dildoRape = (TamaniFlags.DELUXE_DILDO ? choiceWrap(beeGirlsGetsDildoed, this.char) : undefined);
             const milkAndHoney = (enemy.effects.has(EffectType.Feeder) ? choiceWrap(milkAndHoneyAreKindaFunny, this.char) : undefined);
             return { choices: [["Rape", choiceWrap(rapeTheBeeGirl, this.char)], ["Dildo Rape", dildoRape], ["", undefined], ["B. Feed", milkAndHoney], ["Leave", leaveAfterDefeating]] };
         }

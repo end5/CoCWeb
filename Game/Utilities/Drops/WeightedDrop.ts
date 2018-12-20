@@ -4,7 +4,7 @@ export class WeightedDrop<T> implements IDrop<T> {
     private items: [T, number][] = [];
     private sum: number = 0;
 
-    public constructor(first: T, firstWeight: number = 0) {
+    public constructor(first?: T, firstWeight: number = 0) {
         if (first) {
             this.items.push([first, firstWeight]);
             this.sum += firstWeight;

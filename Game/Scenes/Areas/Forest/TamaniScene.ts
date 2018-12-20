@@ -5,7 +5,7 @@ import { Character } from 'Game/Character/Character';
 import { randInt } from 'Engine/Utilities/SMath';
 import { CView } from 'Page/ContentView';
 import { SpriteName } from 'Page/SpriteName';
-import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { passTime } from "Game/Scenes/PassTime";
 import { BreastRow } from 'Game/Character/Body/BreastRow';
 import { describeAllBreasts, describeNipple, describeBreastRow } from 'Game/Descriptors/BreastDescriptor';
 import { describeCock, describeCockHead, describeOneOfYourCocks, describeCocksLight, nounCock } from 'Game/Descriptors/CockDescriptor';
@@ -34,7 +34,8 @@ export const TamaniFlags = Flags.register("Tamani", {
     TAMANI_TIMES_HYPNOTISED: 0,
     TIMES_OVIPOSITED_TAMANI: 0,
     TAMANI_TIME_OUT: 0,
-    TAMANI_WOMB: new FlagWomb()
+    TAMANI_WOMB: new FlagWomb(),
+    DELUXE_DILDO: false,
 });
 
 // const TIMES_OVIPOSITED_TAMANI: number = 581;
@@ -129,7 +130,7 @@ function tamaniFemaleYes(player: Character): NextScreenChoices {
     else CView.text("Getting cock-slapped would've been kind of hot...\n\n");
     CView.text("The goblin leaves you with a warning, \"<i>Be careful, it likes to leak aphrodisiacs like crazy.  Believe me, those are FUN to get addicted to.  Oh, and remember – Tamani owns all the cocks around here, so if you ever grow one, come pay your dues!</i>\"\n\n");
     CView.text("(<b>Deluxe Dildo acquired!</b>)");
-    player.inventory.keyItems.add("Deluxe Dildo");
+    TamaniFlags.DELUXE_DILDO = true;
     return { next: passTime(1) };
 }
 // [No]

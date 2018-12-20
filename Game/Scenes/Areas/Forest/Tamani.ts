@@ -4,7 +4,7 @@ import { randInt, randomChoice } from 'Engine/Utilities/SMath';
 import { CView } from 'Page/ContentView';
 import { describeCocksLight } from 'Game/Descriptors/CockDescriptor';
 import { Cock } from 'Game/Character/Body/Cock';
-import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { passTime } from "Game/Scenes/PassTime";
 import { Vagina, VaginaWetness, VaginaLooseness } from 'Game/Character/Body/Vagina';
 import { EffectType } from 'Game/Effects/EffectType';
 import { BreastCup } from 'Game/Character/Body/BreastRow';

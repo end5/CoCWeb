@@ -23,7 +23,7 @@ import { displayStretchButt } from 'Game/Modifiers/ButtModifier';
 import { CombatManager } from 'Game/Combat/CombatManager';
 import { describeBalls, describeSack } from 'Game/Descriptors/BallsDescriptor';
 import { BreastRow } from 'Game/Character/Body/BreastRow';
-import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { passTime } from "Game/Scenes/PassTime";
 import { WingType } from 'Game/Character/Body/Wings';
 import { gameOverMenu } from 'Game/Menus/InGame/GameOverMenu';
 import { LegType } from 'Game/Character/Body/Legs';
@@ -33,6 +33,7 @@ import { numToCardinalText } from 'Game/Utilities/NumToText';
 import { describeHips } from 'Game/Descriptors/HipDescriptor';
 import { BeeButtPregEvent } from 'Game/Scenes/Pregnancy/Bee';
 import { ExgartuanFlags, exgartuanBeeRape } from 'Game/Scenes/NPCs/Exgartuan';
+import { GiacomoFlags } from '../BeyondCamp/Giacomo';
 
 /**
  * Created by aimozg on 03.01.14.
@@ -77,7 +78,7 @@ export function beeEncounter(player: Character): NextScreenChoices {
     // Intro text...
     CView.text("As you approach the edge of the forest, a sweet scent wafts into your nose. Tantalizing, teasing, alluring. As you sniff the air, you find yourself following it, as if an invisible hand is pulling you toward its origin.  Little do you know, that is essentially what's happening. The further and further you go, the more heavy the scent grows, as well as a sound. A sound of a buzz, but not in a maddening tone, as if someone is humming. It's a lovely tune, one that would stick in the back of the mind, but not in a bad way.\n\n");
     // Chance to avoid the bee or not if smart enough...
-    if (player.inventory.keyItems.has("Traveler's Guide") && player.stats.int / 2 > randInt(40)) {
+    if (GiacomoFlags.TravelersGuide && player.stats.int / 2 > randInt(40)) {
         CView.text("You suddenly remember a passage from the Traveler's Guide about monstrous bees that lay eggs in unmentionable places.  Of course, a brave champion would face any danger.\n\n<b>Do you proceed?</b>");
         // Yes goes to beeEncounterLevel2(), no goes to camp
         return { choices: [["Yes", choiceWrap(beeEncounterSelect)], ["", undefined], ["", undefined], ["", undefined], ["Back", passTime(1)]] };
