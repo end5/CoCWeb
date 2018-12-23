@@ -68,35 +68,12 @@ export abstract class Character implements ISerializable<ICharacter> {
         }
 
         this.effects.on('add', (effect) => {
-            const values = effect.values;
-            this.stats.base.str.effects.add(values.str);
-            this.stats.base.tou.effects.add(values.tou);
-            this.stats.base.spe.effects.add(values.spe);
-            this.stats.base.int.effects.add(values.int);
-            this.stats.base.lib.effects.add(values.lib);
-            this.stats.base.sens.effects.add(values.sens);
-            this.stats.base.cor.effects.add(values.cor);
-            this.stats.base.fatigue.effects.add(values.fatigue);
-            this.stats.base.HP.effects.add(values.hp);
-            this.stats.base.lust.effects.add(values.lust);
-            this.body.femEffects.add(values.femininity);
-            this.body.fertEffects.add(values.fertility);
-        });
+            this.stats.addEffect(effect);
+            console.log(effect);
+        }, false);
         this.effects.on('remove', (effect) => {
-            const values = effect.values;
-            this.stats.base.str.effects.removeEntry(values.str);
-            this.stats.base.tou.effects.removeEntry(values.tou);
-            this.stats.base.spe.effects.removeEntry(values.spe);
-            this.stats.base.int.effects.removeEntry(values.int);
-            this.stats.base.lib.effects.removeEntry(values.lib);
-            this.stats.base.sens.effects.removeEntry(values.sens);
-            this.stats.base.cor.effects.removeEntry(values.cor);
-            this.stats.base.fatigue.effects.removeEntry(values.fatigue);
-            this.stats.base.HP.effects.removeEntry(values.hp);
-            this.stats.base.lust.effects.removeEntry(values.lust);
-            this.body.femEffects.removeEntry(values.femininity);
-            this.body.fertEffects.removeEntry(values.fertility);
-        });
+            this.stats.removeEffect(effect);
+        }, false);
     }
 
     public get gender(): Gender {
@@ -337,7 +314,7 @@ export abstract class Character implements ISerializable<ICharacter> {
     }
 
     public roundXPToLevel(): number {
-        return this.canLevelUp() ? this.stats.level * 100 : this.stats.base.XP.value;
+        return this.canLevelUp() ? this.stats.level * 100 : this.stats.core.XP.raw;
     }
 
     public slimeFeed() {

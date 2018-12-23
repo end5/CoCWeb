@@ -2,6 +2,7 @@
 import { Gender } from '../Body/GenderIdentity';
 import { Character } from '../Character';
 import { Settings } from 'Game/Settings';
+import { Effect } from 'Game/Effects/Effect';
 
 export enum StatType {
     str, tou, spe, int, lib, sens, cor, fatigue, hp, lust, fullness
@@ -16,7 +17,7 @@ export class StatsFacade {
         this.stats = baseStats;
     }
 
-    public get base(): Stats {
+    public get core(): Stats {
         return this.stats;
     }
 
@@ -25,8 +26,7 @@ export class StatsFacade {
     }
 
     public set str(value: number) {
-        value -= this.str;
-        this.stats.str.value += value;
+        this.stats.str.value = value;
     }
 
     public get tou(): number {
@@ -34,8 +34,7 @@ export class StatsFacade {
     }
 
     public set tou(value: number) {
-        value -= this.stats.tou.value;
-        this.stats.tou.value += value;
+        this.stats.tou.value = value;
 
         // Add HP for toughness change.
         this.HP += value * 2;
@@ -46,8 +45,7 @@ export class StatsFacade {
     }
 
     public set spe(value: number) {
-        value -= this.stats.spe.value;
-        this.stats.spe.value += value;
+        this.stats.spe.value = value;
     }
 
     public get int(): number {
@@ -150,7 +148,7 @@ export class StatsFacade {
     }
 
     public maxHP(): number {
-        return this.stats.HP.max;
+        return this.stats.HP.max.raw;
     }
 
     public get lust(): number {
@@ -177,14 +175,14 @@ export class StatsFacade {
     }
 
     public minLust(): number {
-        return this.stats.lust.min;
+        return this.stats.lust.min.raw;
     }
 
     public lustPercent(): number {
         let lust: number = 100;
         // 2.5% lust resistance per level - max 75.
-        if (this.stats.level.value < 21)
-            lust -= (this.stats.level.value - 1) * 3;
+        if (this.stats.level.raw < 21)
+            lust -= (this.stats.level.raw - 1) * 3;
         else lust = 40;
 
         lust = Math.round(lust);
@@ -200,19 +198,19 @@ export class StatsFacade {
     }
 
     public set XP(value: number) {
-        this.stats.XP.value = value;
+        this.stats.XP.raw = value;
     }
 
     public get XP(): number {
-        return this.stats.XP.value;
+        return this.stats.XP.raw;
     }
 
     public set level(value: number) {
-        this.stats.level.value = value;
+        this.stats.level.raw = value;
     }
 
     public get level(): number {
-        return this.stats.level.value;
+        return this.stats.level.raw;
     }
 
     public set perkPoints(value: number) {
@@ -237,5 +235,33 @@ export class StatsFacade {
 
     public get teaseXP(): number {
         return this.stats.teaseLevel;
+    }
+
+    public addEffect(effect: Effect) {
+        const values = effect.values;
+        this.stats.str.addEffect(values.str);
+        this.stats.tou.addEffect(values.tou);
+        this.stats.spe.addEffect(values.spe);
+        this.stats.int.addEffect(values.int);
+        this.stats.lib.addEffect(values.lib);
+        this.stats.sens.addEffect(values.sens);
+        this.stats.cor.addEffect(values.cor);
+        this.stats.fatigue.addEffect(values.fatigue);
+        this.stats.HP.addEffect(values.hp);
+        this.stats.lust.addEffect(values.lust);
+    }
+
+    public removeEffect(effect: Effect) {
+        const values = effect.values;
+        this.stats.str.removeEffect(values.str);
+        this.stats.tou.removeEffect(values.tou);
+        this.stats.spe.removeEffect(values.spe);
+        this.stats.int.removeEffect(values.int);
+        this.stats.lib.removeEffect(values.lib);
+        this.stats.sens.removeEffect(values.sens);
+        this.stats.cor.removeEffect(values.cor);
+        this.stats.fatigue.removeEffect(values.fatigue);
+        this.stats.HP.removeEffect(values.hp);
+        this.stats.lust.removeEffect(values.lust);
     }
 }

@@ -20,12 +20,12 @@ export class MarbleMilk extends Consumable {
         // [before the character is addicted, Addiction < 30]
         const marbleEffect = character.effects.getByName(EffectType.Marble);
         const marblesMilkEffect = character.effects.getByName(EffectType.MarblesMilk);
-        if (marbleEffect && marbleEffect.values.str.value.flat < 30 && marblesMilkEffect && marblesMilkEffect.values.tou.value.flat === 0)
+        if (marbleEffect && marbleEffect.values.str.total.flat < 30 && marblesMilkEffect && marblesMilkEffect.values.tou.total.flat === 0)
             CView.text("You gulp down the bottle's contents; Marble makes some good tasting milk.\n\n");
         // [before the character is addicted, Addiction < 50]
-        else if (marblesMilkEffect && marblesMilkEffect.values.tou.value.flat <= 0)
+        else if (marblesMilkEffect && marblesMilkEffect.values.tou.total.flat <= 0)
             CView.text("You gulp down the bottle's contents; Marble makes some really good tasting milk.\n\n");
-        else if (marblesMilkEffect && marblesMilkEffect.values.tou.value.flat > 0) {
+        else if (marblesMilkEffect && marblesMilkEffect.values.tou.total.flat > 0) {
             // [character is completely addicted]
             if (character.effects.has(EffectType.MarblesMilk)) CView.text("You gulp down the bottle's contents; it's no substitute for the real thing, but it's a nice pick me up.\n\n");
             else {

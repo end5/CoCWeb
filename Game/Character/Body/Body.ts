@@ -25,7 +25,7 @@ import { Antennae, IAntennae } from './Antennae';
 import { Womb, IWomb } from './Pregnancy/Womb';
 import { Ovipositor, IOvipositor } from './Pregnancy/Ovipositor';
 import { ButtWomb } from './Pregnancy/ButtWomb';
-import { IRangedStatWithEffects, RangedStatWithEffects } from '../Stats/Stat/RangedStatWithEffects';
+import { IRangedStat, RangedStat } from 'Game/Character/Stats/Stat/RangedStat';
 
 export interface IBody {
     antennae: IAntennae;
@@ -53,8 +53,8 @@ export interface IBody {
     thickness: number;
     tone: number;
     cumMultiplier: number;
-    femininity: IRangedStatWithEffects;
-    fertility: IRangedStatWithEffects;
+    femininity: IRangedStat;
+    fertility: IRangedStat;
     wombs: Womb[];
     buttWomb: IWomb | void;
     ovipositor: IOvipositor;
@@ -91,8 +91,7 @@ export class Body implements ISerializable<IBody> {
     public tone: number = 0;
 
     public cumMultiplier: number = 0;
-    private femStat = new RangedStatWithEffects();
-    public readonly femEffects = this.femStat.effects;
+    public readonly femStat = new RangedStat(0, 50, 100);
 
     public get femininity(): number {
         return this.femStat.value;
@@ -102,8 +101,7 @@ export class Body implements ISerializable<IBody> {
         this.femStat.value = value;
     }
 
-    private fertStat = new RangedStatWithEffects();
-    public readonly fertEffects = this.fertStat.effects;
+    public readonly fertStat = new RangedStat(0, 10, 100);
 
     public get fertility(): number {
         return this.fertStat.value;
@@ -118,19 +116,12 @@ export class Body implements ISerializable<IBody> {
     public ovipositor = new Ovipositor();
 
     public constructor() {
-        this.femStat.value = 50;
-        this.femStat.max = 100;
-        this.femStat.min = 0;
-        this.fertStat.value = 10;
-        this.fertStat.max = 100;
-        this.fertStat.min = 0;
-
         this.vaginas.on('add', () => {
             this.wombs.add(new Womb(this));
-        });
+        }, false);
         this.vaginas.on('remove', (vagina, index) => {
             this.wombs.remove(index);
-        });
+        }, false);
     }
 
     public update(hours: number) {

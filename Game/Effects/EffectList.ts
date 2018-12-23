@@ -28,7 +28,7 @@ export class EffectList extends ObservableList<Effect> {
     }
 
     public has(name: string): boolean {
-        return !!this.list.find((effect) => effect.type === name);
+        return this.list.some((effect) => effect.type === name);
     }
 
     public get blockedCombatActions(): CombatActionType {

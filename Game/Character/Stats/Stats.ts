@@ -1,21 +1,21 @@
 import { ISerializable } from 'Engine/Utilities/ISerializable';
-import { IRangedStatWithEffects, RangedStatWithEffects } from './Stat/RangedStatWithEffects';
-import { IStatWithEffects, StatWithEffects } from './Stat/StatWithEffects';
+import { RangedStat, IRangedStat } from 'Game/Character/Stats/Stat/RangedStat';
+import { IStat, Stat } from 'Game/Character/Stats/Stat/Stat';
 
 export interface IStats {
-    str: IRangedStatWithEffects;
-    tou: IRangedStatWithEffects;
-    spe: IRangedStatWithEffects;
-    int: IRangedStatWithEffects;
-    lib: IRangedStatWithEffects;
-    sens: IRangedStatWithEffects;
-    cor: IRangedStatWithEffects;
-    fatigue: IRangedStatWithEffects;
-    HP: IRangedStatWithEffects;
-    lust: IRangedStatWithEffects;
+    str: IRangedStat;
+    tou: IRangedStat;
+    spe: IRangedStat;
+    int: IRangedStat;
+    lib: IRangedStat;
+    sens: IRangedStat;
+    cor: IRangedStat;
+    fatigue: IRangedStat;
+    HP: IRangedStat;
+    lust: IRangedStat;
     lustVuln: number;
-    XP: IStatWithEffects;
-    level: IStatWithEffects;
+    XP: IStat;
+    level: IStat;
     perkPoints: number;
     teaseXP: number;
     teaseLevel: number;
@@ -23,23 +23,23 @@ export interface IStats {
 
 export class Stats implements ISerializable<IStats> {
     // Primary stats
-    public str = new RangedStatWithEffects();
-    public tou = new RangedStatWithEffects();
-    public spe = new RangedStatWithEffects();
-    public int = new RangedStatWithEffects();
-    public lib = new RangedStatWithEffects();
-    public sens = new RangedStatWithEffects();
-    public cor = new RangedStatWithEffects();
-    public fatigue = new RangedStatWithEffects();
+    public str = new RangedStat(0, 15, 100);
+    public tou = new RangedStat(0, 15, 100);
+    public spe = new RangedStat(0, 15, 100);
+    public int = new RangedStat(0, 15, 100);
+    public lib = new RangedStat(0, 5, 100);
+    public sens = new RangedStat(0, 5, 100);
+    public cor = new RangedStat(0, 0, 100);
+    public fatigue = new RangedStat(0, 100, 100);
 
     // Combat Stats
-    public HP = new RangedStatWithEffects();
-    public lust = new RangedStatWithEffects();
+    public HP = new RangedStat(0, 0, 100);
+    public lust = new RangedStat(0, 0, 100);
     public lustVuln: number = 0;
 
     // Level Stats
-    public XP = new StatWithEffects();
-    public level = new StatWithEffects();
+    public XP = new Stat(0);
+    public level = new Stat(1);
     public perkPoints: number = 0;
     public teaseXP: number = 0;
     public teaseLevel: number = 0;

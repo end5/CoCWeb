@@ -1,23 +1,21 @@
-import { IStatModifier, StatModifier } from './StatModifier';
-import { IRangedStatEffect } from './RangedStatEffect';
-
 export interface IStatEffect {
-    value?: IStatModifier;
+    multi?: number;
+    flat?: number;
 }
 
-export class StatEffect implements IRangedStatEffect {
-    public value = new StatModifier();
-    public constructor(values?: IRangedStatEffect) {
+export class StatEffect implements IStatEffect {
+    public multi: number = 1;
+    public flat: number = 0;
+    public constructor(values?: IStatEffect) {
         if (values) {
-            if (values.value)
-                this.value = new StatModifier(values.value);
+            if (values.flat) this.flat = values.flat;
+            if (values.multi) this.multi = values.multi;
         }
     }
+
     public toString() {
-        let out = '';
-        if (this.value.toString() !== '') {
-            out += 'Value - ' + this.value.toString();
-        }
-        return out;
+        if (this.multi !== 1 || this.flat !== 0)
+            return 'x' + this.multi + ' + ' + this.flat;
+        return '';
     }
 }

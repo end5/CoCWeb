@@ -104,19 +104,19 @@ export class PhoukaWhiskey extends Consumable {
             else
                 phoukaWhiskeyEffect.values.other!.drinksSoFar = 1; // Always get at least one more hour of drunkenness
             phoukaWhiskeyEffect.values.expireCountdown = 1;
-            phoukaWhiskeyEffect.values.lib.value.flat = libidoChange;
-            phoukaWhiskeyEffect.values.sens.value.flat = sensChange;
-            phoukaWhiskeyEffect.values.spe.value.flat = speedChange;
-            phoukaWhiskeyEffect.values.int.value.flat = intChange;
+            phoukaWhiskeyEffect.values.lib.total.flat = libidoChange;
+            phoukaWhiskeyEffect.values.sens.total.flat = sensChange;
+            phoukaWhiskeyEffect.values.spe.total.flat = speedChange;
+            phoukaWhiskeyEffect.values.int.total.flat = intChange;
             CView.text("\n\nOh, it tastes so good.  This stuff just slides down your throat.");
         }
         else { // First time
             character.effects.create(EffectType.PhoukaWhiskeyAffect, {
                 expireCountdown: 1,
-                lib: { value: { flat: libidoChange } },
-                sens: { value: { flat: sensChange } },
-                spe: { value: { flat: speedChange } },
-                int: { value: { flat: intChange } },
+                lib: { total: { flat: libidoChange } },
+                sens: { total: { flat: sensChange } },
+                spe: { total: { flat: speedChange } },
+                int: { total: { flat: intChange } },
                 other: { drinksSoFar: 8 },
             });
             // The four stats we’re affecting get paired together to save space. This way we don’t need a second StatusAffect to store more info.

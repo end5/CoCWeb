@@ -16,6 +16,7 @@ import { CharacterInventory } from 'Game/Inventory/CharacterInventory';
 import { CharacterDescription } from '../CharacterDescription';
 import { randInt } from 'Engine/Utilities/SMath';
 import { PlayerResponses } from './PlayerResponses';
+import { PlayerAction } from 'Game/Character/Player/CombatActions/PlayerActionPerform';
 
 class BlankEndScenes extends EndScenes {}
 
@@ -26,15 +27,15 @@ export class Player extends Character {
     public constructor() {
         super(CharacterType.Player);
         this.desc.isPlayer = true;
-        this.stats.base.str.value = 15;
-        this.stats.base.tou.value = 15;
-        this.stats.base.spe.value = 15;
-        this.stats.base.int.value = 15;
-        this.stats.base.sens.value = 15;
-        this.stats.base.lib.value = 15;
-        this.stats.base.cor.value = 0;
-        this.stats.base.lust.value = 15;
-        this.stats.base.fatigue.value = 0;
+        this.stats.core.str.base.raw = 15;
+        this.stats.core.tou.base.raw = 15;
+        this.stats.core.spe.base.raw = 15;
+        this.stats.core.int.base.raw = 15;
+        this.stats.core.sens.base.raw = 15;
+        this.stats.core.lib.base.raw = 15;
+        this.stats.core.cor.base.raw = 0;
+        this.stats.core.lust.base.raw = 15;
+        this.stats.core.fatigue.base.raw = 0;
         this.stats.level = 1;
         this.stats.HP = this.stats.maxHP();
 
@@ -52,7 +53,7 @@ export class Player extends Character {
         this.inventory.items.unlock(6);
 
         // Combat
-        this.combatContainer = new CombatContainer(this, { reactions: PlayerResponses, endScenes: new BlankEndScenes(this), rewards: {
+        this.combatContainer = new CombatContainer(this, { mainAction: new PlayerAction(this), reactions: PlayerResponses, endScenes: new BlankEndScenes(this), rewards: {
             gems: () => randInt(10)
         }});
         this.combatContainer.useAI = false;

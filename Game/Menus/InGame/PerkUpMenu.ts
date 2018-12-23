@@ -189,8 +189,8 @@ function getAvailablePerks(character: Character): Effect[] {
     // Slot 5 - Fertile+ increases cum production and fertility (+15%)
     if (character.stats.lib >= 25) {
         perkList.push(new Effect(EffectType.FertilityPlus, {
-            fertility: { value: { multi: 0.15 } },
-            cumQuantity: { value: { multi: 1.75 } }
+            fertility: { total: { multi: 0.15 } },
+            cumQuantity: { total: { multi: 1.75 } }
         }));
     }
     // Slot 5 - minimum libido

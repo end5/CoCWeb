@@ -119,9 +119,9 @@ class Special extends CombatAction {
 
             const akbalSpeed = enemy.effects.getByName(EffectType.AkbalSpeed);
             if (akbalSpeed)
-                akbalSpeed.values.spe.value.flat += speedChange;
+                akbalSpeed.values.spe.total.flat += speedChange;
             else
-                enemy.effects.create(EffectType.AkbalSpeed, { spe: { value: { flat: speedChange } } });
+                enemy.effects.create(EffectType.AkbalSpeed, { spe: { total: { flat: speedChange } } });
         }
         // *Special Attack B -
         else {
@@ -203,18 +203,18 @@ export class Akbal extends Character {
         this.body.tails.add(new Tail(TailType.DOG));
         this.hoursSinceCum = 400;
 
-        this.stats.base.str.value = 55;
-        this.stats.base.tou.value = 53;
-        this.stats.base.spe.value = 50;
-        this.stats.base.int.value = 75;
-        this.stats.base.lib.value = 50;
-        this.stats.base.sens.value = 50;
-        this.stats.base.cor.value = 100;
-        this.stats.base.lust.value = 30;
-        this.stats.base.lustVuln = 0.8;
-        this.stats.base.HP.max += 20;
-        this.stats.base.HP.value += 20;
-        this.stats.base.level.value = 6;
+        this.stats.core.str.base.raw = 55;
+        this.stats.core.tou.base.raw = 53;
+        this.stats.core.spe.base.raw = 50;
+        this.stats.core.int.base.raw = 75;
+        this.stats.core.lib.base.raw = 50;
+        this.stats.core.sens.base.raw = 50;
+        this.stats.core.cor.base.raw = 100;
+        this.stats.core.lust.base.raw = 30;
+        this.stats.core.lustVuln = 0.8;
+        this.stats.core.HP.max.raw += 20;
+        this.stats.core.HP.base.raw += 20;
+        this.stats.core.level.raw = 6;
 
         this.inventory = new CharacterInventory(this,
             new Weapon("claws" as WeaponName, new ItemDesc("claws"), "claws", "claw-slash", 5),

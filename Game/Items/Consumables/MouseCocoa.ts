@@ -91,7 +91,7 @@ export class MouseCocoa extends Consumable {
         // fem fertility up and heat (suppress if pregnant)
         // not already in heat (add heat and lust)
         const intensified = character.effects.has(EffectType.Heat);
-        if (intensified && character.effects.getByName(EffectType.Heat)!.values.lib.value.flat < 30 && randInt(2) === 0 && changes < changeLimit) {
+        if (intensified && character.effects.getByName(EffectType.Heat)!.values.lib.total.flat < 30 && randInt(2) === 0 && changes < changeLimit) {
             if (character.canGoIntoHeat()) {
                 displayGoIntoHeat(character);
                 if (intensified) {

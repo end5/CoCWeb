@@ -1,7 +1,7 @@
-import { IRangedStatEffect, RangedStatEffect } from 'Game/Character/Stats/Stat/RangedStatEffect';
-import { IStatModifier, StatModifier } from 'Game/Character/Stats/Stat/StatModifier';
 import { CombatActionType } from 'Game/Combat/Actions/CombatActionType';
 import { IDictionary } from 'Engine/Utilities/Dictionary';
+import { IRangedStatEffect, RangedStatEffect } from 'Game/Character/Stats/Stat/RangedStatEffect';
+import { IStatEffect, StatEffect } from 'Game/Character/Stats/Stat/StatEffect';
 
 export interface IEffectValues {
     desc?: string;
@@ -9,7 +9,7 @@ export interface IEffectValues {
     attack?: IRangedStatEffect;
     weapon?: IRangedStatEffect;
     spell?: IRangedStatEffect;
-    spellCost?: IStatModifier;
+    spellCost?: IStatEffect;
     defense?: IRangedStatEffect;
     teaseChance?: number;
     teaseDamage?: number;
@@ -38,7 +38,7 @@ export class EffectValues implements IEffectValues {
     public readonly attack: RangedStatEffect;
     public readonly weapon: RangedStatEffect;
     public readonly spell: RangedStatEffect;
-    public readonly spellCost: StatModifier;
+    public readonly spellCost: StatEffect;
     public readonly defense: RangedStatEffect;
     public teaseChance: number;
     public teaseDamage: number;
@@ -66,7 +66,7 @@ export class EffectValues implements IEffectValues {
         this.attack = values && values.attack ? new RangedStatEffect(values.attack) : new RangedStatEffect();
         this.weapon = values && values.weapon ? new RangedStatEffect(values.weapon) : new RangedStatEffect();
         this.spell = values && values.spell ? new RangedStatEffect(values.spell) : new RangedStatEffect();
-        this.spellCost = values && values.spellCost ? new StatModifier(values.spellCost) : new StatModifier();
+        this.spellCost = values && values.spellCost ? new StatEffect(values.spellCost) : new StatEffect();
         this.defense = values && values.defense ? new RangedStatEffect(values.defense) : new RangedStatEffect();
         this.teaseChance = values && values.teaseChance ? values.teaseChance : 0;
         this.teaseDamage = values && values.teaseDamage ? values.teaseDamage : 0;

@@ -337,46 +337,46 @@ function confirmEndowmentWetVagina(): NextScreenChoices {
 }
 
 function setEndowmentStrength(player: Character): NextScreenChoices {
-    player.stats.str += 5;
+    player.stats.core.str.base.raw += 5;
     player.body.tone += 7;
     player.body.thickness += 3;
     // Add bonus +25% strength gain
-    player.effects.create(EffectType.Strong, { str: { value: { multi: (val) => val + val * 0.25 } } });
+    player.effects.create(EffectType.Strong, { str: { delta: { multi: 0.25 } } });
     return chooseHistory();
 }
 
 function setEndowmentToughness(player: Character): NextScreenChoices {
-    player.stats.tou += 5;
+    player.stats.core.tou.base.raw += 5;
     player.body.tone += 5;
     player.body.thickness += 5;
-    player.effects.create(EffectType.Tough, { tou: { value: { multi: (val) => val + val * 0.25 } } });
+    player.effects.create(EffectType.Tough, { tou: { delta: { multi: 0.25 } } });
     player.stats.HP = player.stats.maxHP();
     return chooseHistory();
 }
 
 function setEndowmentSpeed(player: Character): NextScreenChoices {
-    player.stats.spe += 5;
+    player.stats.core.spe.base.raw += 5;
     player.body.tone += 10;
-    player.effects.create(EffectType.Fast, { spe: { value: { multi: (val) => val + val * 0.25 } } });
+    player.effects.create(EffectType.Fast, { spe: { delta: { multi: 0.25 } } });
     return chooseHistory();
 }
 
 function setEndowmentSmarts(player: Character): NextScreenChoices {
-    player.stats.int += 5;
+    player.stats.core.int.base.raw += 5;
     player.body.thickness -= 5;
-    player.effects.create(EffectType.Smart, { int: { value: { multi: (val) => val + val * 0.25 } } });
+    player.effects.create(EffectType.Smart, { int: { delta: { multi: 0.25 } } });
     return chooseHistory();
 }
 
 function setEndowmentLibido(player: Character): NextScreenChoices {
-    player.stats.lib += 5;
-    player.effects.create(EffectType.Lusty, { lib: { value: { multi: (val) => val + val * 0.25 } } });
+    player.stats.core.lib.base.raw += 5;
+    player.effects.create(EffectType.Lusty, { lib: { delta: { multi: 0.25 } } });
     return chooseHistory();
 }
 
 function setEndowmentTouch(player: Character): NextScreenChoices {
-    player.stats.sens += 5;
-    player.effects.create(EffectType.Sensitive, { sens: { value: { multi: (val) => val + val * 0.25 } } });
+    player.stats.core.sens.base.raw += 5;
+    player.effects.create(EffectType.Sensitive, { sens: { delta: { multi: 0.25 } } });
     return chooseHistory();
 }
 

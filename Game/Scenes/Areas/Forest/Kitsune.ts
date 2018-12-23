@@ -75,7 +75,7 @@ class Illusion extends CombatAction {
             CView.text("\n\nThe kitsune seems to melt away before your eyes for a moment, as though the edges of reality are blurring around her.  You tighten your focus, keeping your eyes trained on her, and she suddenly reels in pain, clutching her forehead as she is thrust back into view.  She lets out a frustrated huff of disappointment, realizing that you have resisted her illusions.");
         }
         else {
-            char.effects.create(EffectType.Illusion, { spe: { value: { flat: 20 } } });
+            char.effects.create(EffectType.Illusion, { spe: { total: { flat: 20 } } });
         }
     }
 }
@@ -258,18 +258,18 @@ export class Kitsune extends Character {
         this.body.hair.length = 13 + randInt(20);
         this.body.tails.add(new Tail(TailType.FOX));
 
-        this.stats.base.str.value = 35;
-        this.stats.base.tou.value = 45;
-        this.stats.base.spe.value = 90;
-        this.stats.base.int.value = 95;
-        this.stats.base.lib.value = 60;
-        this.stats.base.sens.value = 65;
-        this.stats.base.cor.value = 45;
-        this.stats.base.HP.max += 120;
-        this.stats.base.HP.value += 120;
-        this.stats.base.lust.value = 20;
-        this.stats.base.lustVuln = 0.9;
-        this.stats.base.level.value = 6;
+        this.stats.core.str.base.raw = 35;
+        this.stats.core.tou.base.raw = 45;
+        this.stats.core.spe.base.raw = 90;
+        this.stats.core.int.base.raw = 95;
+        this.stats.core.lib.base.raw = 60;
+        this.stats.core.sens.base.raw = 65;
+        this.stats.core.cor.base.raw = 45;
+        this.stats.core.HP.max.raw += 120;
+        this.stats.core.HP.base.raw += 120;
+        this.stats.core.lust.base.raw = 20;
+        this.stats.core.lustVuln = 0.9;
+        this.stats.core.level.raw = 6;
 
         this.inventory = new CharacterInventory(this,
             new Weapon("claws" as WeaponName, new ItemDesc("claws"), "claws", "punch", 1),

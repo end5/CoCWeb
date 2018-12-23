@@ -134,15 +134,15 @@ class BeeSting extends CombatAction {
             CView.text("Searing pain lances through you as " + beeGirl.desc.a + beeGirl.desc.short + " manages to sting you!  You stagger back a step and nearly trip, finding it hard to move yourself.");
             const paralyzeEffect = player.effects.getByName(EffectType.ParalyzeVenom);
             if (paralyzeEffect) {
-                paralyzeEffect.values.str.value.flat -= 3; // v1 - strenght penalty, v2 speed penalty
-                paralyzeEffect.values.spe.value.flat -= 3; // v1 - strenght penalty, v2 speed penalty
+                paralyzeEffect.values.str.total.flat -= 3; // v1 - strenght penalty, v2 speed penalty
+                paralyzeEffect.values.spe.total.flat -= 3; // v1 - strenght penalty, v2 speed penalty
                 // paralyzeEffect.value1 += 2.9;
                 // paralyzeEffect.value2 += 2.9;
 
                 CView.text("  It's getting much harder to move, you're not sure how many more stings like that you can take!");
             }
             else {
-                player.effects.create(EffectType.ParalyzeVenom, { str: { value: { flat: -2 } }, spe: { value: { flat: -2 } } });
+                player.effects.create(EffectType.ParalyzeVenom, { str: { total: { flat: -2 } }, spe: { total: { flat: -2 } } });
 
                 CView.text("  You've fallen prey to paralyzation venom!  Better end this quick!");
             }
@@ -172,16 +172,16 @@ export class BeeGirl extends Character {
         this.body.wings.type = WingType.BEE_LIKE_SMALL;
         this.body.tails.add(new Tail(TailType.BEE_ABDOMEN, 100));
 
-        this.stats.base.str.value = 30;
-        this.stats.base.tou.value = 30;
-        this.stats.base.spe.value = 30;
-        this.stats.base.int.value = 20;
-        this.stats.base.lib.value = 60;
-        this.stats.base.sens.value = 55;
-        this.stats.base.cor.value = 0;
-        this.stats.base.lust.value = 20 + randInt(40);
-        this.stats.base.lustVuln = 0.9;
-        this.stats.base.level.value = 4;
+        this.stats.core.str.base.raw = 30;
+        this.stats.core.tou.base.raw = 30;
+        this.stats.core.spe.base.raw = 30;
+        this.stats.core.int.base.raw = 20;
+        this.stats.core.lib.base.raw = 60;
+        this.stats.core.sens.base.raw = 55;
+        this.stats.core.cor.base.raw = 0;
+        this.stats.core.lust.base.raw = 20 + randInt(40);
+        this.stats.core.lustVuln = 0.9;
+        this.stats.core.level.raw = 4;
 
         this.inventory = new CharacterInventory(this,
             new Weapon("chitin-plated fist" as WeaponName, new ItemDesc("chitin-plated fist"), "chitin-plated fist", "armored punch", 1),

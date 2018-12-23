@@ -181,18 +181,18 @@ export class TamanisDaughters extends Character {
         this.body.hair.color = "pink";
         this.body.hair.length = 16;
 
-        this.stats.base.str.value = 55;
-        this.stats.base.tou.value = 30;
-        this.stats.base.spe.value = 45;
-        this.stats.base.int.value = 50;
-        this.stats.base.lib.value = 70;
-        this.stats.base.sens.value = 70;
-        this.stats.base.cor.value = 50;
-        this.stats.base.HP.max += 50 + (Math.floor(TamaniFlags.TAMANI_NUMBER_OF_DAUGHTERS / 2) * 15);
-        this.stats.base.HP.value = this.stats.base.HP.max;
-        this.stats.base.lust.value = 30;
-        this.stats.base.lustVuln = .65;
-        this.stats.base.level.value = 8 + (Math.floor(TamaniFlags.TAMANI_NUMBER_OF_DAUGHTERS / 20));
+        this.stats.core.str.base.raw = 55;
+        this.stats.core.tou.base.raw = 30;
+        this.stats.core.spe.base.raw = 45;
+        this.stats.core.int.base.raw = 50;
+        this.stats.core.lib.base.raw = 70;
+        this.stats.core.sens.base.raw = 70;
+        this.stats.core.cor.base.raw = 50;
+        this.stats.core.HP.max.raw += 50 + (Math.floor(TamaniFlags.TAMANI_NUMBER_OF_DAUGHTERS / 2) * 15);
+        this.stats.core.HP.base.raw = this.stats.core.HP.max.raw;
+        this.stats.core.lust.base.raw = 30;
+        this.stats.core.lustVuln = .65;
+        this.stats.core.level.raw = 8 + (Math.floor(TamaniFlags.TAMANI_NUMBER_OF_DAUGHTERS / 20));
 
         this.inventory = new CharacterInventory(this,
             new Weapon("fists" as WeaponName, new ItemDesc("fists"), "fists", "tiny punch", 0),

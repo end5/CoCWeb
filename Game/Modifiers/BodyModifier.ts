@@ -175,8 +175,8 @@ export function displayGoIntoHeat(character: Character, intensity: number = 1): 
     // Already in heat, intensify further.
     const statusAffectHeat = character.effects.getByName(EffectType.Heat);
     if (statusAffectHeat) {
-        statusAffectHeat.values.fertility.value.flat += 5 * intensity;
-        statusAffectHeat.values.lib.value.flat += 5 * intensity;
+        statusAffectHeat.values.fertility.total.flat += 5 * intensity;
+        statusAffectHeat.values.lib.total.flat += 5 * intensity;
         statusAffectHeat.values.expireCountdown += 48 * intensity;
         character.stats.libBimbo += 5 * intensity;
         return "\n\nYour mind clouds as your " + describeVagina(character, character.body.vaginas.get(0)) + " moistens.  Despite already being in heat, the desire to copulate constantly grows even larger.";
@@ -185,8 +185,8 @@ export function displayGoIntoHeat(character: Character, intensity: number = 1): 
     else {
         // character.effects.add(StatusEffectType.Heat, 10 * intensity, 15 * intensity, 48 * intensity, 0);
         character.effects.create(EffectType.Heat, {
-            fertility: { value: { flat: 10 * intensity } },
-            lib: { value: { flat: 15 * intensity } },
+            fertility: { total: { flat: 10 * intensity } },
+            lib: { total: { flat: 15 * intensity } },
             expireCountdown: 48 * intensity
         });
         character.stats.libBimbo += 15 * intensity;
@@ -205,8 +205,8 @@ export function displayGoIntoRut(character: Character, intensity: number = 1): s
     // Has rut, intensify it!
     const statusAffectRut = character.effects.getByName(EffectType.Rut);
     if (statusAffectRut) {
-        statusAffectRut.values.cumQuantity.value.flat = 100 * intensity;
-        statusAffectRut.values.lib.value.flat = 5 * intensity;
+        statusAffectRut.values.cumQuantity.total.flat = 100 * intensity;
+        statusAffectRut.values.lib.total.flat = 5 * intensity;
         statusAffectRut.values.expireCountdown = 48 * intensity;
         character.stats.libBimbo += 5 * intensity;
         return "\n\nYour " + describeCock(character, character.body.cocks.get(0)) + " throbs and dribbles as your desire to mate intensifies.  You know that <b>you've sunken deeper into rut</b>, but all that really matters is unloading into a cum-hungry cunt.";
@@ -217,8 +217,8 @@ export function displayGoIntoRut(character: Character, intensity: number = 1): s
         // v3 - time remaining!
         // character.effects.add(StatusEffectType.Rut, 150 * intensity, 5 * intensity, 100 * intensity, 0);
         character.effects.create(EffectType.Rut, {
-            cumQuantity: { value: { flat: 150 * intensity } },
-            lib: { value: { flat: 5 * intensity } },
+            cumQuantity: { total: { flat: 150 * intensity } },
+            lib: { total: { flat: 5 * intensity } },
             expireCountdown: 100 * intensity
         });
         character.stats.libBimbo += 5 * intensity;

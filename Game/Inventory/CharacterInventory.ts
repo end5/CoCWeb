@@ -4,7 +4,7 @@ import { Character } from 'Game/Character/Character';
 import { Item } from 'Game/Items/Item';
 import { Weapon } from 'Game/Items/Weapons/Weapon';
 import { Armor } from 'Game/Items/Armors/Armor';
-import { IStatWithEffects, StatWithEffects } from 'Game/Character/Stats/Stat/StatWithEffects';
+import { IStat, Stat } from 'Game/Character/Stats/Stat/Stat';
 import { IEquipSlot, EquipSlot } from './EquipSlot';
 import { IPiercingInventory, PiercingInventory } from './PiercingInventory';
 import { EquipSlotList } from './EquipSlotList';
@@ -13,7 +13,7 @@ import { IItemStack } from './ItemStack';
 
 export interface ICharInv {
     items: IItemStack[];
-    gems: IStatWithEffects;
+    gems: IStat;
     weapon?: IEquipSlot;
     armor?: IEquipSlot;
     piercings: IPiercingInventory;
@@ -24,7 +24,7 @@ export interface ICharInv {
 export class CharacterInventory implements ISerializable<ICharInv> {
     private char: Character;
     public readonly items: Inventory<Item>;
-    public gemsStat: StatWithEffects;
+    public gemsStat: Stat;
     public readonly unarmedWeaponSlot: EquipSlot<Weapon>;
     public readonly equippedWeaponSlot: EquipSlot<Weapon>;
     public readonly noArmorSlot: EquipSlot<Armor>;
@@ -36,7 +36,7 @@ export class CharacterInventory implements ISerializable<ICharInv> {
     public constructor(character: Character, unarmedWeapon: Weapon, noArmor: Armor) {
         this.char = character;
         this.items = new Inventory<Item>();
-        this.gemsStat = new StatWithEffects();
+        this.gemsStat = new Stat(0);
         this.unarmedWeaponSlot = new EquipSlot(character);
         this.unarmedWeaponSlot.equip(unarmedWeapon);
         this.equippedWeaponSlot = new EquipSlot(character);
@@ -47,14 +47,14 @@ export class CharacterInventory implements ISerializable<ICharInv> {
         this.armorDescMod = "";
         character.body.cocks.on('add', () => {
             this.cockSocks.add(new EquipSlot(character));
-        });
+        }, false);
         character.body.cocks.on('remove', (cock, index) => {
             this.cockSocks.remove(index);
-        });
+        }, false);
     }
 
-    public get gems() { return this.gemsStat.value; }
-    public set gems(num: number) { this.gemsStat.value = num; }
+    public get gems() { return this.gemsStat.raw; }
+    public set gems(num: number) { this.gemsStat.raw = num; }
 
     public get weapon(): Weapon {
         return this.equippedWeaponSlot.item ? this.equippedWeaponSlot.item : this.unarmedWeaponSlot.item!;
