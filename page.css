@@ -159,6 +159,10 @@ body {
     left: 8%;
 }
 
+#mainTextDisplay {
+    white-space: pre-wrap;
+}
+
 #bottomRowButtons {
     position: absolute;
     bottom: 5%;

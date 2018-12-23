@@ -35,5 +35,6 @@ CView.spriteElement.setHTMLElement(loadFromId("mainSpriteDisplay") as HTMLImageE
 
 const parser = new Parser();
 CView.parsers.add((text: string) => Interpret(parser.parse(Lex(text))));
+// CView.parsers.add((text: string) => text.replace('\n', '<br>'));
 
 displayNextScreenChoices(mainMenu());
