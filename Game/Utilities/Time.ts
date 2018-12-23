@@ -1,23 +1,26 @@
 class TimeHandler {
-    private date: Date;
-    public constructor() {
-        this.date = new Date(0);
-    }
+    private hours = 0;
+    private days = 0;
 
     public get hour(): number {
-        return this.date.getHours();
+        return this.hours;
     }
 
+    /**
+     * Increments the time forward by hours.
+     * If hour goes over 24, a day is added.
+     */
     public set hour(value: number) {
-        this.date.setHours(value);
+        this.days += Math.floor(value / 24);
+        this.hours = value % 24;
     }
 
     public get day(): number {
-        return this.date.getDay();
+        return this.days;
     }
 
     public set day(value: number) {
-        this.date.setDate(value);
+        this.days = value;
     }
 }
 

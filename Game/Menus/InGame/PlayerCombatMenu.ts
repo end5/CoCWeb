@@ -1,6 +1,6 @@
 import { Character } from 'Game/Character/Character';
 import { CombatAction } from 'Game/Combat/Actions/CombatAction';
-import { CombatManager, getEnemies } from 'Game/Combat/CombatManager';
+import { CombatManager } from 'Game/Combat/CombatManager';
 import { NextScreenChoices, ScreenChoice, ClickOption } from 'Game/ScreenDisplay';
 import { describeVagina } from 'Game/Descriptors/VaginaDescriptor';
 import { CView } from 'Page/ContentView';
@@ -16,10 +16,10 @@ export function combatMenu(player: Character, enemies: Character[]): NextScreenC
         enemyDescription(player, enemy);
     }
 
-    return showMenu(player, player.combat.action);
+    return showMenu(player, enemies, player.combat.action);
 }
 
-function showMenu(char: Character, mainAction?: CombatAction, prevMenu?: ClickOption): NextScreenChoices {
+function showMenu(char: Character, enemies: Character[], mainAction?: CombatAction, prevMenu?: ClickOption): NextScreenChoices {
     const choices: ScreenChoice[] = [];
 
     // Main Action          Tease               Spells  Items       Move Away
@@ -28,15 +28,14 @@ function showMenu(char: Character, mainAction?: CombatAction, prevMenu?: ClickOp
     if (!mainAction)
         mainAction = char.combat.action;
 
-    const enemies = getEnemies(CombatManager.encounter!, char);
-    const curMenu = () => showMenu(char, mainAction, prevMenu);
+    const curMenu = () => showMenu(char, enemies, mainAction, prevMenu);
     for (const action of mainAction.subActions) {
-        if (char.effects.blockedCombatActions & action.type && action.isPossible(char)) {
+        if (!(action.type & char.effects.blockedCombatActions) && action.isPossible(char)) {
             if (action.subActions.length > 0) {
-                choices.push([action.name, () => showMenu(char, action, curMenu)]);
+                choices.push([action.name, () => showMenu(char, enemies, action, curMenu)]);
             }
-            else if (enemies.ableMembers.find((enemy) => action.isPossible(char) && action.canUse(char, enemy).canUse)) {
-                choices.push([action.name, () => selectTarget(char, action, curMenu)]);
+            else if (enemies.find((enemy) => action.isPossible(char) && action.canUse(char, enemy).canUse)) {
+                choices.push([action.name, () => selectTarget(char, enemies, action, curMenu)]);
             }
             else {
                 choices.push([action.name, undefined]);
@@ -49,16 +48,15 @@ function showMenu(char: Character, mainAction?: CombatAction, prevMenu?: ClickOp
         return { choices };
 }
 
-function selectTarget(character: Character, action: CombatAction, prevMenu?: ClickOption): NextScreenChoices {
+function selectTarget(character: Character, enemies: Character[], action: CombatAction, prevMenu?: ClickOption): NextScreenChoices {
     if (CombatManager.encounter) {
-        const enemies = getEnemies(CombatManager.encounter, character);
-        if (enemies.ableMembers.length === 1) {
-            action.use(character, enemies.ableMembers[0]);
+        if (enemies.length === 1) {
+            action.use(character, enemies[0]);
             return CombatManager.encounter.performRound();
         }
         else {
             const choices: ScreenChoice[] = [];
-            for (const enemy of enemies.ableMembers) {
+            for (const enemy of enemies) {
                 choices.push([enemy.desc.name, () => {
                     action.use(character, enemy);
                     return { next: playerMenu };
@@ -76,7 +74,7 @@ function selectTarget(character: Character, action: CombatAction, prevMenu?: Cli
 function enemyDescription(character: Character, enemy: Character): void {
     let percent: string = "";
     const hpRatio: number = enemy.combat.HPRatio();
-    percent = "(<b>" + String(Math.floor(hpRatio * 1000) / 10) + "% HP</b>)";
+    percent = "(<b>" + (Math.floor(hpRatio * 1000) / 10) + "% HP</b>)";
 
     CView.text("<b>You are fighting " + enemy.desc.a + enemy.desc.short + ":</b> (Level: " + enemy.stats.level + ")\n");
     if (character.effects.has(EffectType.Blind)) CView.text("It's impossible to see anything!\n");
