@@ -6,7 +6,7 @@ import { ItemDesc } from '../ItemDesc';
 import { describeLegs } from 'Game/Descriptors/LegDescriptor';
 import { CView } from 'Page/ContentView';
 import { boostLactation } from 'Game/Modifiers/BreastModifier';
-import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { passTime } from "Game/Scenes/PassTime";
 import { CombatManager } from 'Game/Combat/CombatManager';
 import { SpriteName } from 'Page/SpriteName';
 

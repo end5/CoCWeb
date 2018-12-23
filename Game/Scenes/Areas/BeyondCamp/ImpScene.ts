@@ -3,7 +3,8 @@ import { NextScreenChoices, ClickFunction, choiceWrap, ScreenChoice } from 'Game
 import { CView } from 'Page/ContentView';
 import { EffectType } from 'Game/Effects/EffectType';
 import { BreastRow } from 'Game/Character/Body/BreastRow';
-import { passTime, playerMenu } from 'Game/Menus/InGame/PlayerMenu';
+import { playerMenu } from 'Game/Menus/InGame/PlayerMenu';
+import { passTime } from "Game/Scenes/PassTime";
 import { Cock, CockType } from 'Game/Character/Body/Cock';
 import { describeEachOfYourCocks, describeCock, describeCockShort, describeCocksLight, nounCock } from 'Game/Descriptors/CockDescriptor';
 import { lustyMaidenPaizuri } from 'Game/Items/Armors/LustyMaidensArmor';

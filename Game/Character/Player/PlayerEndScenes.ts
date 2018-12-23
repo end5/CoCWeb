@@ -4,7 +4,7 @@ import { EndScenes } from '../../Combat/EndScenes';
 import { NextScreenChoices } from '../../ScreenDisplay';
 import { Character } from '../Character';
 import { CView } from '../../../Page/ContentView';
-import { passTime } from '../../Menus/InGame/PlayerMenu';
+import { passTime } from "../../Scenes/PassTime";
 
 export class PlayerEndScenes extends EndScenes {
     public hasEscaped(enemy: Character): boolean {

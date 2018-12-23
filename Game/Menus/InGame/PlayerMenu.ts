@@ -1,12 +1,10 @@
 import { MainScreen } from 'Page/MainScreen';
 import { Character } from 'Game/Character/Character';
 import { CombatManager } from 'Game/Combat/CombatManager';
-import { clickFuncWrapper, NextScreenChoices, ClickFunction } from 'Game/ScreenDisplay';
+import { clickFuncWrapper, NextScreenChoices } from 'Game/ScreenDisplay';
 import { mainMenu } from '../MainMenu';
-import { Time } from 'Game/Utilities/Time';
 import { levelUpMenu } from './LevelUpMenu';
 import { perkUpMenu } from './PerkUpMenu';
-import { TimeEvents } from 'Game/TimeEvents';
 import { ItemsOnFloor } from 'Game/Scenes/ItemsOnFloor';
 import { camp } from 'Game/Scenes/Camp';
 
@@ -28,12 +26,4 @@ export function playerMenu(character: Character): NextScreenChoices {
         character.inventory.items.addItem(character, item, playerMenu);
 
     return camp(character);
-}
-
-export function passTime(num: number): ClickFunction {
-    return function passHour(char: Character) {
-        Time.hour += num;
-        TimeEvents.update(num);
-        return playerMenu(char);
-    };
 }

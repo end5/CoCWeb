@@ -7,7 +7,7 @@ import { describeNipple, describeBiggestBreastRow, describeBreastRow, describeAl
 import { describeVagina, describeClit } from 'Game/Descriptors/VaginaDescriptor';
 import { BreastRow } from 'Game/Character/Body/BreastRow';
 import { displayStretchVagina } from 'Game/Modifiers/VaginaModifier';
-import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { passTime } from "Game/Scenes/PassTime";
 import { VaginaWetness, VaginaLooseness } from 'Game/Character/Body/Vagina';
 import { randInt } from 'Engine/Utilities/SMath';
 import { describeCock, describeCocksLight, describeCockHead, nounCock } from 'Game/Descriptors/CockDescriptor';

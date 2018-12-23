@@ -15,7 +15,7 @@ import { describeButt } from 'Game/Descriptors/ButtDescriptor';
 import { Cock, CockType } from 'Game/Character/Body/Cock';
 import { BreastRow } from 'Game/Character/Body/BreastRow';
 import { growSmallestBreastRow } from 'Game/Modifiers/BreastModifier';
-import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { passTime } from "Game/Scenes/PassTime";
 
 export function intro(player: Character): NextScreenChoices {
     CView.sprite(SpriteName.CorruptedGlade); // 92;

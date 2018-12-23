@@ -14,7 +14,7 @@ import { CView } from 'Page/ContentView';
 import { CharacterType } from 'Game/Character/CharacterType';
 import { CeraphFlags } from 'Game/Scenes/NPCs/Ceraph';
 import { minoCumAddiction } from '../Consumables/MinotaurCum';
-import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { passTime } from "Game/Scenes/PassTime";
 
 export const LustyMaidensArmorFlags = Flags.register("Lusty Maiden's Armor", {
     BIKINI_ARMOR_BONUS: 0

@@ -2,7 +2,7 @@ import { Character } from 'Game/Character/Character';
 import { NextScreenChoices, ScreenChoice, choiceWrap } from 'Game/ScreenDisplay';
 import { CView } from 'Page/ContentView';
 import { CombatManager } from 'Game/Combat/CombatManager';
-import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { passTime } from "Game/Scenes/PassTime";
 import { randInt } from 'Engine/Utilities/SMath';
 import { describeCockShort, describeCock, describeCockHead, nounCock, describeCocksLight } from 'Game/Descriptors/CockDescriptor';
 import { Cock, CockType } from 'Game/Character/Body/Cock';

@@ -4,7 +4,7 @@ import { NextScreenChoices, choiceWrap } from 'Game/ScreenDisplay';
 import { CView } from 'Page/ContentView';
 import { SpriteName } from 'Page/SpriteName';
 import { randInt } from 'Engine/Utilities/SMath';
-import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { passTime } from "Game/Scenes/PassTime";
 import { EffectType } from 'Game/Effects/EffectType';
 import { CombatManager } from 'Game/Combat/CombatManager';
 import { TentacleBeast } from './TentacleBeast';

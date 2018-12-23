@@ -7,7 +7,7 @@ import { describeFoot } from 'Game/Descriptors/LegDescriptor';
 import { describeCock } from 'Game/Descriptors/CockDescriptor';
 import { describeClit } from 'Game/Descriptors/VaginaDescriptor';
 import { describeButthole } from 'Game/Descriptors/ButtDescriptor';
-import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { passTime } from "Game/Scenes/PassTime";
 import { randInt } from 'Engine/Utilities/SMath';
 import { CharacterInventory } from 'Game/Inventory/CharacterInventory';
 import { CharacterDescription } from 'Game/Character/CharacterDescription';

@@ -3,7 +3,7 @@ import { NextScreenChoices } from 'Game/ScreenDisplay';
 import { randInt, randomChoice } from 'Engine/Utilities/SMath';
 import { CView } from 'Page/ContentView';
 import { EffectType } from 'Game/Effects/EffectType';
-import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { passTime } from "Game/Scenes/PassTime";
 import { CharacterType } from 'Game/Character/CharacterType';
 import { Vagina, VaginaWetness, VaginaLooseness } from 'Game/Character/Body/Vagina';
 import { BreastCup } from 'Game/Character/Body/BreastRow';

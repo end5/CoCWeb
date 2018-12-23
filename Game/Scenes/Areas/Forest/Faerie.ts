@@ -4,7 +4,7 @@ import { CView } from 'Page/ContentView';
 import { SpriteName } from 'Page/SpriteName';
 import { randInt } from 'Engine/Utilities/SMath';
 import { guyGirl } from 'Game/Descriptors/GenderDescriptor';
-import { passTime } from 'Game/Menus/InGame/PlayerMenu';
+import { passTime } from "Game/Scenes/PassTime";
 import { describeVagina, describeClit } from 'Game/Descriptors/VaginaDescriptor';
 import { VaginaWetness } from 'Game/Character/Body/Vagina';
 import { describeButt } from 'Game/Descriptors/ButtDescriptor';
