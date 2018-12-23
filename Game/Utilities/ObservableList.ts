@@ -14,7 +14,7 @@ export class ObservableList<T> extends List<T> {
     public add(item: T) {
         this.dispatch('add', item, this.length - 1, true);
         this.list.push(item);
-        this.dispatch('add', item, this.length - 1);
+        this.dispatch('add', item, this.length - 1, false);
     }
 
     public remove(index: number) {
@@ -23,7 +23,7 @@ export class ObservableList<T> extends List<T> {
 
         this.dispatch('remove', this.get(index)!, index, true);
         const values = this.list.splice(index, 1);
-        this.dispatch('remove', values[0], index);
+        this.dispatch('remove', values[0], index, false);
     }
 
     public clear() {
@@ -37,7 +37,7 @@ export class ObservableList<T> extends List<T> {
 
     public dispatch(key: 'add' | 'remove', value: T, index: number, beforeChange?: boolean) {
         for (const entry of this.listeners)
-            if (entry.key === key && entry.beforeChange === beforeChange)
+            if (entry.key === key && entry.beforeChange === !!beforeChange)
                 entry.listener(value, index, this);
     }
 
@@ -45,7 +45,7 @@ export class ObservableList<T> extends List<T> {
         const index = this.listeners.findIndex((entry) =>
             entry.key === key &&
             entry.listener === listener &&
-            entry.beforeChange === beforeChange
+            entry.beforeChange === !!beforeChange
         );
         if (index !== -1)
             this.listeners.splice(index, 1);

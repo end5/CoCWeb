@@ -68,8 +68,8 @@ export class List<T> implements Iterable<T>, ISerializable<T[]> {
      * @param initialValue If initialValue is specified, it is used as the initial value to start the accumulation. The first call to the callbackfn function provides this value as an argument instead of an array value.
      */
     public reduce(option: ReduceOption<T, T> | ((prev: T, curr: T, index: number, array: T[]) => T), initialValue?: T): T;
-    public reduce<U>(option: ReduceOption<T, U> | ((prev: U, curr: T, index: number, array: U[]) => U), initialValue: U): U;
-    public reduce(option: any, initialValue?: any) {
+    public reduce<U>(option: ReduceOption<T, U> | ((prev: U, curr: T, index: number, array: T[]) => U), initialValue: U): U;
+    public reduce<U = T>(option: ReduceOption<T, U> | ((prev: U, curr: T, index: number, array: T[]) => U), initialValue: U): U {
         return this.list.reduce(option, initialValue);
     }
 
@@ -160,9 +160,9 @@ export class List<T> implements Iterable<T>, ISerializable<T[]> {
         saveObject.forEach((entry, index) => {
             if (entryConstructor) {
                 const newObj = new (Function.prototype.bind.apply(entryConstructor, [args]))();
-                this.add(newObj);
                 if (entry && typeof entry === 'object' && (newObj as any).deserialize)
                     newObj.deserialize(entry);
+                this.add(newObj);
             }
             else
                 this.add(entry as any as T);
