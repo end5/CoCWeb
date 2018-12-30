@@ -9,20 +9,20 @@ export interface IRangedStat extends IDeltaStat {
 }
 
 export class RangedStat extends DeltaStat implements ISerializable<IRangedStat> {
-    public readonly min: Stat;
-    public readonly max: Stat;
+    private minStat: Stat;
+    private maxStat: Stat;
 
     public constructor(min: number, raw: number, max: number) {
         super(raw, 0);
-        this.min = new Stat(min);
-        this.max = new Stat(max);
+        this.minStat = new Stat(min);
+        this.maxStat = new Stat(max);
     }
 
     public get value() {
-        if (super.value > this.max.raw)
-            return this.max.raw;
-        if (super.value < this.min.raw)
-            return this.min.raw;
+        if (super.value > this.maxStat.raw)
+            return this.maxStat.raw;
+        if (super.value < this.minStat.raw)
+            return this.minStat.raw;
         return super.value;
     }
 
@@ -30,12 +30,18 @@ export class RangedStat extends DeltaStat implements ISerializable<IRangedStat> 
         super.value = num;
     }
 
+    public get min() { return this.minStat.calculated; }
+    public set min(num: number) { this.minStat.raw = num; }
+
+    public get max() { return this.maxStat.calculated; }
+    public set max(num: number) { this.maxStat.raw = num; }
+
     public addEffect(values: IRangedStatEffect) {
         if (values) {
             if (values.max)
-                this.max.effects.add(values.max);
+                this.maxStat.effects.add(values.max);
             if (values.min)
-                this.min.effects.add(values.min);
+                this.minStat.effects.add(values.min);
         }
         super.addEffect(values);
     }
@@ -43,27 +49,27 @@ export class RangedStat extends DeltaStat implements ISerializable<IRangedStat> 
     public removeEffect(values: IRangedStatEffect) {
         if (values) {
             if (values.max)
-                this.max.effects.removeEntry(values.max);
+                this.maxStat.effects.removeEntry(values.max);
             if (values.min)
-                this.min.effects.removeEntry(values.min);
+                this.minStat.effects.removeEntry(values.min);
         }
         super.removeEffect(values);
     }
 
     public toString() {
-        return `Min[${this.min.toString()}] Max[${this.max.toString()}] ${super.toString()}`;
+        return `Min[${this.minStat.toString()}] Max[${this.maxStat.toString()}] ${super.toString()}`;
     }
 
     public serialize(): IRangedStat {
         return Object.assign({
-            min: this.min.serialize(),
-            max: this.max.serialize(),
+            min: this.minStat.serialize(),
+            max: this.maxStat.serialize(),
         }, super.serialize());
     }
 
     public deserialize(saveObject: IRangedStat) {
-        this.min.deserialize(saveObject.min);
-        this.max.deserialize(saveObject.max);
+        this.minStat.deserialize(saveObject.min);
+        this.maxStat.deserialize(saveObject.max);
         super.deserialize(saveObject);
     }
 }

@@ -17,7 +17,7 @@ export class StatsFacade {
         this.stats = baseStats;
     }
 
-    public get core(): Stats {
+    public get base(): Stats {
         return this.stats;
     }
 
@@ -148,7 +148,7 @@ export class StatsFacade {
     }
 
     public maxHP(): number {
-        return this.stats.HP.max.raw;
+        return this.stats.HP.max;
     }
 
     public get lust(): number {
@@ -175,7 +175,7 @@ export class StatsFacade {
     }
 
     public minLust(): number {
-        return this.stats.lust.min.raw;
+        return this.stats.lust.min;
     }
 
     public lustPercent(): number {

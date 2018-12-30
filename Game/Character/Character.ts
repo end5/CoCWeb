@@ -314,7 +314,7 @@ export abstract class Character implements ISerializable<ICharacter> {
     }
 
     public roundXPToLevel(): number {
-        return this.canLevelUp() ? this.stats.level * 100 : this.stats.core.XP.raw;
+        return this.canLevelUp() ? this.stats.level * 100 : this.stats.base.XP.raw;
     }
 
     public slimeFeed() {

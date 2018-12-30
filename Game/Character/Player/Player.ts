@@ -27,15 +27,15 @@ export class Player extends Character {
     public constructor() {
         super(CharacterType.Player);
         this.desc.isPlayer = true;
-        this.stats.core.str.base.raw = 15;
-        this.stats.core.tou.base.raw = 15;
-        this.stats.core.spe.base.raw = 15;
-        this.stats.core.int.base.raw = 15;
-        this.stats.core.sens.base.raw = 15;
-        this.stats.core.lib.base.raw = 15;
-        this.stats.core.cor.base.raw = 0;
-        this.stats.core.lust.base.raw = 15;
-        this.stats.core.fatigue.base.raw = 0;
+        this.stats.base.str.raw = 15;
+        this.stats.base.tou.raw = 15;
+        this.stats.base.spe.raw = 15;
+        this.stats.base.int.raw = 15;
+        this.stats.base.sens.raw = 15;
+        this.stats.base.lib.raw = 15;
+        this.stats.base.cor.raw = 0;
+        this.stats.base.lust.raw = 15;
+        this.stats.base.fatigue.raw = 0;
         this.stats.level = 1;
         this.stats.HP = this.stats.maxHP();
 

@@ -211,18 +211,18 @@ export class Tamani extends Character {
         this.body.hair.color = "pink and black";
         this.body.hair.length = 16;
 
-        this.stats.core.str.base.raw = 32;
-        this.stats.core.tou.base.raw = 43;
-        this.stats.core.spe.base.raw = 55;
-        this.stats.core.int.base.raw = 62;
-        this.stats.core.lib.base.raw = 65;
-        this.stats.core.sens.base.raw = 65;
-        this.stats.core.cor.base.raw = 50;
-        this.stats.core.HP.max.raw += 40;
-        this.stats.core.HP.base.raw += 40;
-        this.stats.core.lust.base.raw = 40;
-        this.stats.core.lustVuln = 0.9;
-        this.stats.core.level.raw = 4;
+        this.stats.base.str.raw = 32;
+        this.stats.base.tou.raw = 43;
+        this.stats.base.spe.raw = 55;
+        this.stats.base.int.raw = 62;
+        this.stats.base.lib.raw = 65;
+        this.stats.base.sens.raw = 65;
+        this.stats.base.cor.raw = 50;
+        this.stats.base.HP.max += 40;
+        this.stats.base.HP.raw += 40;
+        this.stats.base.lust.raw = 40;
+        this.stats.base.lustVuln = 0.9;
+        this.stats.base.level.raw = 4;
 
         this.inventory = new CharacterInventory(this,
             new Weapon("fists" as WeaponName, new ItemDesc("fists"), "fists", "tiny punch", 0),

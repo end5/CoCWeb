@@ -337,7 +337,7 @@ function confirmEndowmentWetVagina(): NextScreenChoices {
 }
 
 function setEndowmentStrength(player: Character): NextScreenChoices {
-    player.stats.core.str.base.raw += 5;
+    player.stats.base.str.base.raw += 5;
     player.body.tone += 7;
     player.body.thickness += 3;
     // Add bonus +25% strength gain
@@ -346,7 +346,7 @@ function setEndowmentStrength(player: Character): NextScreenChoices {
 }
 
 function setEndowmentToughness(player: Character): NextScreenChoices {
-    player.stats.core.tou.base.raw += 5;
+    player.stats.base.tou.base.raw += 5;
     player.body.tone += 5;
     player.body.thickness += 5;
     player.effects.create(EffectType.Tough, { tou: { delta: { multi: 0.25 } } });
@@ -355,27 +355,27 @@ function setEndowmentToughness(player: Character): NextScreenChoices {
 }
 
 function setEndowmentSpeed(player: Character): NextScreenChoices {
-    player.stats.core.spe.base.raw += 5;
+    player.stats.base.spe.base.raw += 5;
     player.body.tone += 10;
     player.effects.create(EffectType.Fast, { spe: { delta: { multi: 0.25 } } });
     return chooseHistory();
 }
 
 function setEndowmentSmarts(player: Character): NextScreenChoices {
-    player.stats.core.int.base.raw += 5;
+    player.stats.base.int.base.raw += 5;
     player.body.thickness -= 5;
     player.effects.create(EffectType.Smart, { int: { delta: { multi: 0.25 } } });
     return chooseHistory();
 }
 
 function setEndowmentLibido(player: Character): NextScreenChoices {
-    player.stats.core.lib.base.raw += 5;
+    player.stats.base.lib.base.raw += 5;
     player.effects.create(EffectType.Lusty, { lib: { delta: { multi: 0.25 } } });
     return chooseHistory();
 }
 
 function setEndowmentTouch(player: Character): NextScreenChoices {
-    player.stats.core.sens.base.raw += 5;
+    player.stats.base.sens.base.raw += 5;
     player.effects.create(EffectType.Sensitive, { sens: { delta: { multi: 0.25 } } });
     return chooseHistory();
 }

@@ -203,18 +203,18 @@ export class Akbal extends Character {
         this.body.tails.add(new Tail(TailType.DOG));
         this.hoursSinceCum = 400;
 
-        this.stats.core.str.base.raw = 55;
-        this.stats.core.tou.base.raw = 53;
-        this.stats.core.spe.base.raw = 50;
-        this.stats.core.int.base.raw = 75;
-        this.stats.core.lib.base.raw = 50;
-        this.stats.core.sens.base.raw = 50;
-        this.stats.core.cor.base.raw = 100;
-        this.stats.core.lust.base.raw = 30;
-        this.stats.core.lustVuln = 0.8;
-        this.stats.core.HP.max.raw += 20;
-        this.stats.core.HP.base.raw += 20;
-        this.stats.core.level.raw = 6;
+        this.stats.base.str.raw = 55;
+        this.stats.base.tou.raw = 53;
+        this.stats.base.spe.raw = 50;
+        this.stats.base.int.raw = 75;
+        this.stats.base.lib.raw = 50;
+        this.stats.base.sens.raw = 50;
+        this.stats.base.cor.raw = 100;
+        this.stats.base.lust.raw = 30;
+        this.stats.base.lustVuln = 0.8;
+        this.stats.base.HP.max += 20;
+        this.stats.base.HP.raw += 20;
+        this.stats.base.level.raw = 6;
 
         this.inventory = new CharacterInventory(this,
             new Weapon("claws" as WeaponName, new ItemDesc("claws"), "claws", "claw-slash", 5),

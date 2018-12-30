@@ -20,7 +20,7 @@ export class Stat implements IStat, ISerializable<IStat> {
     }
 
     public toString() {
-        return 'Raw :' + this.raw + ' Calculated: ' + this.calculated;
+        return this.raw + ': ' + this.effects.toString();
     }
 
     public serialize(): IStat {

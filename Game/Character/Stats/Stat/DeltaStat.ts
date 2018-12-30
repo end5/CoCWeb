@@ -9,9 +9,9 @@ export interface IDeltaStat {
 }
 
 export class DeltaStat implements ISerializable<IDeltaStat> {
-    public readonly base: Stat;
-    public readonly delta: Stat;
-    public readonly total: Stat;
+    private base: Stat;
+    private delta: Stat;
+    private total: Stat;
 
     public constructor(base: number, delta: number) {
         this.base = new Stat(base);
@@ -26,6 +26,9 @@ export class DeltaStat implements ISerializable<IDeltaStat> {
     public set value(num: number) {
         this.delta.raw = num - this.base.raw;
     }
+
+    public get raw() { return this.base.calculated; }
+    public set raw(num: number) { this.base.raw = num; }
 
     public addEffect(values: IDeltaStatEffect) {
         if (values) {

@@ -127,15 +127,15 @@ export class Goblin extends Character {
         this.body.hair.color = "purple";
         this.body.hair.length = 4;
 
-        this.stats.core.str.base.raw = 12;
-        this.stats.core.tou.base.raw = 13;
-        this.stats.core.spe.base.raw = 35;
-        this.stats.core.int.base.raw = 42;
-        this.stats.core.lib.base.raw = 45;
-        this.stats.core.sens.base.raw = 45;
-        this.stats.core.cor.base.raw = 60;
-        this.stats.core.lust.base.raw = 50;
-        this.stats.core.level.raw = 1;
+        this.stats.base.str.raw = 12;
+        this.stats.base.tou.raw = 13;
+        this.stats.base.spe.raw = 35;
+        this.stats.base.int.raw = 42;
+        this.stats.base.lib.raw = 45;
+        this.stats.base.sens.raw = 45;
+        this.stats.base.cor.raw = 60;
+        this.stats.base.lust.raw = 50;
+        this.stats.base.level.raw = 1;
 
         this.inventory = new CharacterInventory(this,
             new Weapon("fists" as WeaponName, new ItemDesc("fists"), "fists", "tiny punch", 0),

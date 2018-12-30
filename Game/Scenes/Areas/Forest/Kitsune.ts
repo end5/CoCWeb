@@ -258,18 +258,18 @@ export class Kitsune extends Character {
         this.body.hair.length = 13 + randInt(20);
         this.body.tails.add(new Tail(TailType.FOX));
 
-        this.stats.core.str.base.raw = 35;
-        this.stats.core.tou.base.raw = 45;
-        this.stats.core.spe.base.raw = 90;
-        this.stats.core.int.base.raw = 95;
-        this.stats.core.lib.base.raw = 60;
-        this.stats.core.sens.base.raw = 65;
-        this.stats.core.cor.base.raw = 45;
-        this.stats.core.HP.max.raw += 120;
-        this.stats.core.HP.base.raw += 120;
-        this.stats.core.lust.base.raw = 20;
-        this.stats.core.lustVuln = 0.9;
-        this.stats.core.level.raw = 6;
+        this.stats.base.str.raw = 35;
+        this.stats.base.tou.raw = 45;
+        this.stats.base.spe.raw = 90;
+        this.stats.base.int.raw = 95;
+        this.stats.base.lib.raw = 60;
+        this.stats.base.sens.raw = 65;
+        this.stats.base.cor.raw = 45;
+        this.stats.base.HP.max += 120;
+        this.stats.base.HP.raw += 120;
+        this.stats.base.lust.raw = 20;
+        this.stats.base.lustVuln = 0.9;
+        this.stats.base.level.raw = 6;
 
         this.inventory = new CharacterInventory(this,
             new Weapon("claws" as WeaponName, new ItemDesc("claws"), "claws", "punch", 1),
