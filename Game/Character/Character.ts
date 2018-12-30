@@ -66,10 +66,10 @@ export abstract class Character implements ISerializable<ICharacter> {
         if (type !== CharacterType.Player) {
             this.stats.XP = this.totalXP();
         }
+        this.stats.HP = this.stats.maxHP();
 
         this.effects.on('add', (effect) => {
             this.stats.addEffect(effect);
-            console.log(effect);
         }, false);
         this.effects.on('remove', (effect) => {
             this.stats.removeEffect(effect);

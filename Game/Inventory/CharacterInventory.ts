@@ -9,7 +9,7 @@ import { IEquipSlot, EquipSlot } from './EquipSlot';
 import { IPiercingInventory, PiercingInventory } from './PiercingInventory';
 import { EquipSlotList } from './EquipSlotList';
 import { CockSock } from 'Game/Items/Misc/CockSock';
-import { IItemStack } from './ItemStack';
+import { IItemStack, ItemStack } from './ItemStack';
 
 export interface ICharInv {
     items: IItemStack[];
@@ -45,6 +45,9 @@ export class CharacterInventory implements ISerializable<ICharInv> {
         this.equippedArmorSlot = new EquipSlot(character);
         this.piercings = new PiercingInventory(character);
         this.armorDescMod = "";
+
+        character.body.cocks.forEach(() => this.cockSocks.add(new EquipSlot(character)));
+
         character.body.cocks.on('add', () => {
             this.cockSocks.add(new EquipSlot(character));
         }, false);
@@ -81,7 +84,7 @@ export class CharacterInventory implements ISerializable<ICharInv> {
 
     public deserialize(saveObject: ICharInv) {
         this.gemsStat.deserialize(saveObject.gems);
-        this.items.deserialize(saveObject.items);
+        this.items.deserialize(saveObject.items, ItemStack);
         if (saveObject.weapon)
             this.equippedWeaponSlot.deserialize(saveObject.weapon);
         if (saveObject.armor)

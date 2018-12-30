@@ -44,14 +44,13 @@ export class Encounter {
         const activeParty = this.allyPartyTurn ? this.allyParty : this.enemyParty;
         const activeMember = activeParty.activePartyMember();
         this.performTurnEnd = () => {
-            const encounter = this;
-            encounter.performTurnEnd = undefined;
-            if (encounter.allyPartyTurn)
-                encounter.enemyParty.resolveAttacker(activeMember);
+            this.performTurnEnd = undefined;
+            if (this.allyPartyTurn)
+                this.enemyParty.resolveAttacker(activeMember);
             else
-                encounter.allyParty.resolveAttacker(activeMember);
-            encounter.resolveEndTurn(activeMember);
-            return encounter.endCombatOrNextRound();
+                this.allyParty.resolveAttacker(activeMember);
+            this.resolveEndTurn(activeMember);
+            return this.endCombatOrNextRound();
         };
 
         this.effectsTurnStart(activeMember, activeParty.ableMembers);

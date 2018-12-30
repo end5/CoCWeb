@@ -15,14 +15,14 @@ import { describeVagina, describeClit } from 'Game/Descriptors/VaginaDescriptor'
 import { VaginaWetness } from 'Game/Character/Body/Vagina';
 import { describeFeet, describeLegs } from 'Game/Descriptors/LegDescriptor';
 import { randInt } from 'Engine/Utilities/SMath';
+import { sceneNotImplimented } from 'Game/Scenes/NotImplemented';
 
 export const DesertFlags = Flags.register("Desert", {
     TIMES_EXPLORED: 0,
 });
 
 export function exploreDesert(player: Character): NextScreenChoices {
-    CView.clear().text("Not Implemented");
-    return { next: passTime(1) };
+    return sceneNotImplimented();
 }
 
 // Massive bodyparts scene

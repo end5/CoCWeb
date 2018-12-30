@@ -31,6 +31,9 @@ import { Imp } from './BeyondCamp/Imp';
 import { Goblin } from './BeyondCamp/Goblin';
 import { GiacomoFlags } from './BeyondCamp/Giacomo';
 import { DeepwoodsFlags } from './Deepwoods';
+import { sceneNotImplimented } from 'Game/Scenes/NotImplemented';
+
+// $> Reimplement this later
 
 export const ForestFlags = Flags.register("Forest", {
     TIMES_EXPLORED: 0,
@@ -47,31 +50,6 @@ export function exploreForest(player: Character): NextScreenChoices {
     let dickDragChance = 0;
     // Cut bee encounter rate 50%
     if (chooser === 3 && randInt(2)) chooser = randInt(3);
-    // $> Commented out for testing
-    // Quick changes:
-    // If monk is fully corrupted, encounter him less (unless haz ferriiite).
-    // if (chooser === 1 && monk >= 2) {
-    //     dickDragChance = randInt(4);
-    //     if (dickDragChance === 0) chooser = 0;
-    //     if (dickDragChance === 1) chooser = 2;
-    //     if (dickDragChance === 2) chooser = 3;
-    // }
-    // $> Commented out for testing
-    // Helia monogamy fucks
-    // if (ForestFlags.PC_PROMISED_HEL_MONOGAMY_FUCKS === 1 && ForestFlags.HEL_RAPED_TODAY === 0 && randInt(10) === 0 && player.gender > 0 && !followerHel()) {
-    //     return helSexualAmbush();
-    // }
-    // $> Commented out for testing
-    // Raise Jojo chances for furrite
-    // if (player.perks.has(PerkType.PiercedFurrite) && randInt(5) === 0 && (player.stats.cor > 25 || monk > 0)) {
-    //     chooser = 1;
-    // }
-    // $> Commented out for testing
-    // If Jojo lives in camp, never encounter him
-    // if (player.effects.has(StatusEffectType.PureCampJojo) || ForestFlags.JOJO_DEAD_OR_GONE === 1) {
-    //     chooser = randInt(3);
-    //     if (chooser >= 1) chooser++;
-    // }
     // Chance to discover deepwoods
     if ((ForestFlags.TIMES_EXPLORED >= 20) && DeepwoodsFlags.TIMES_EXPLORED === 0) {
         DeepwoodsFlags.TIMES_EXPLORED++;
@@ -88,24 +66,6 @@ export function exploreForest(player: Character): NextScreenChoices {
     if (dickDragChance > randInt(100) && player.body.cocks.sort(Cock.Longest).get(0)!.length >= player.body.tallness && player.body.cocks.reduce(Cock.TotalThickness, 0) >= 12) {
         return bigJunkForestScene(player);
     }
-    // $> Commented out for testing
-    // Marble randomness
-    // if (
-    //     ForestFlags.TIMES_EXPLORED % 50 === 0 &&
-    //     ForestFlags.TIMES_EXPLORED > 0 &&
-    //     !player.effects.has(StatusEffectType.MarbleRapeAttempted) &&
-    //     !player.effects.has(StatusEffectType.NoMoreMarble) &&
-    //     player.effects.has(StatusEffectType.Marble) &&
-    //     MarbleFlags.MARBLE_WARNING === 0
-    // ) {
-    //     // can be triggered one time after Marble has been met, but before the addiction quest starts.
-    //     CView.clear();
-    //     CView.text("While you're moving through the trees, you suddenly hear yelling ahead, followed by a crash and a scream as an imp comes flying at high speed through the foliage and impacts a nearby tree.  The small demon slowly slides down the tree before landing at the base, still.  A moment later, a familiar-looking cow-girl steps through the bushes brandishing a huge two-handed hammer with an angry look on her face.");
-    //     CView.text("\n\nShe goes up to the imp, and kicks it once.  Satisfied that the creature isn't moving, she turns around to face you and gives you a smile.  \"<i>Sorry about that, but I prefer to take care of these buggers quickly.  If they get the chance to call on their friends, they can actually become a nuisance.</i>\"  She disappears back into the foliage briefly before reappearing holding two large pile of logs under her arms, with a fire axe and her hammer strapped to her back.  \"<i>I'm gathering firewood for the farm, as you can see; what brings you to the forest, sweetie?</i>\"  You inform her that you're just exploring.");
-    //     CView.text("\n\nShe gives a wistful sigh. \"<i>I haven't really explored much since getting to the farm.  Between the jobs Whitney gives me, keeping in practice with my hammer, milking to make sure I don't get too full, cooking, and beauty sleep, I don't get a lot of free time to do much else.</i>\"  She sighs again.  \"<i>Well, I need to get this back, so I'll see you later!</i>\"");
-    //     // end event
-    //     return { next: passTime(1) };
-    // }
     if (chooser === 0) {
         // Determines likelyhood of imp/goblins
         // Below - goblin, Equal and up - imp
@@ -141,11 +101,6 @@ export function exploreForest(player: Character): NextScreenChoices {
                 else
                     return encounterTamani(player);
             }
-            // $> Implement Later
-            // 50% of the time, goblin assassin!
-            // if (player.stats.level >= 10 && randInt(2) === 0) {
-            //     return goblinAssassinEncounter(player);
-            // }
             if (player.gender > 0) {
                 CView.clear().text("A goblin saunters out of the bushes with a dangerous glint in her eyes.\n\nShe says, \"<i>Time to get fucked, " + mf(player, "stud", "slut"));
                 CView.text(".</i>\"");
@@ -159,60 +114,7 @@ export function exploreForest(player: Character): NextScreenChoices {
         }
     }
     if (chooser === 1) {
-        // $> Commented out for testing
-        // if (monk === 0) {
-        //     if (player.stats.cor < 25) {
-        //         if (player.stats.level >= 4) {
-        //             monk = 1;
-        //             return lowCorruptionJojoEncounter();
-        //         }
-        //         else {
-        //             CView.clear().text("You enjoy a peaceful walk in the woods.  It gives you time to think over the recent, disturbing events.");
-        //             player.stats.tou += .5;
-        //             player.stats.int += 1;
-
-        //             return { next: passTime(1) };
-        //         }
-        //     }
-
-        //     monk = 1;
-        //     jojoSprite();
-        //     CView.text("While marvelling at the strange trees and vegetation of the forest, the bushes ruffle ominously.  A bush seems to explode into a flurry of swirling leaves and movement.  Before you can react you feel your " + describeFeet(player) + " being swept out from under you, and land hard on your back.\n\n");
-        //     CView.text("The angry visage of a lithe white mouse gazes down on your prone form with a look of confusion.");
-        //     CView.text("\n\n\"<i>I'm sorry, I sensed a great deal of corruption, and thought a demon or monster had come to my woods,</i>\" says the mouse, \"<i>Oh, where are my manners!</i>\"\n\nHe helps you to your feet and introduces himself as Jojo.  Now that you have a good look at him, it is obvious this mouse is some kind of monk, dressed in robes, holy symbols, and draped with prayer beads.\n\nHe smiles knowingly, \"<i>Yes I am a monk, and yes this is a strange place for one such as I... this world was not always this way.  Long ago this world was home to many villages, including my own.  But then the demons came.  I'm not sure if they were summoned, created, or simply a perversion of magic or breeding, but they came swarming out of the mountains to destroy everything in their path.</i>\"");
-        //     CView.text("\n\nJojo sighs sadly, \"<i>Enough of my woes.  You are very corrupted.  If you cannot be sufficiently purified you WILL become one of them in time.  Will you let me help you?");
-        //     if (player.gender > 0) {
-        //         trace("Gender != 0");
-        //         return { choices: [["Accept", meditateInForest], ["Rape Him", jojoRape], ["BWUH?", undefined], ["Decline", passTime(1)]] };
-        //     }
-        //     else {
-        //         trace("Gender == 0");
-        //         return { choices: [["Accept", meditateInForest], ["Rape Him", undefined], ["BWUH?", undefined], ["Decline", passTime(1)]] };
-        //     }
-        // }
-        // if (monk === 1) {
-        //     if (player.effects.has(StatusEffectType.Infested)) {
-        //         jojoSprite();
-        //         CView.clear().text("As you approach the serene monk, you see his nose twitch, disturbing his meditation.\n\n");
-        //         CView.text("\"<i>It seems that the agents of corruption have taken residence within the temple that is your body.</i>\", Jojo says flatly. \"<i>This is a most unfortunate development. There is no reason to despair as there are always ways to fight the corruption. However, great effort will be needed to combat this form of corruption and may leave lasting impressions upon you. If you are ready, we can purge your being of the rogue creatures of lust.</i>\"\n\n");
-        //         if (player.gender > 0) return { choices: [["Purge", wormRemoval], ["Meditate", meditateInForest], ["Rape", jojoRape], ["", undefined], ["Leave", passTime(1)]] };
-        //         else return { choices: [["Purge", wormRemoval], ["Meditate", meditateInForest], ["Rape", undefined], ["", undefined], ["Leave", passTime(1)]] };
-        //     }
-        //     jojoSprite();
-        //     CView.text("Jojo the monk appears before you, robes and soft white fur fluttering in the breeze.  He asks, \"<i>Are you ready for a meditation session?</i>\"");
-        //     if (player.gender > 0) return { choices: [["Yes", meditateInForest], ["No", passTime(1)], ["BWUH", undefined], ["Rape Him", jojoRape]] };
-        //     else return { choices: [["Yes", meditateInForest], ["No", passTime(1)], ["BWUH", undefined], ["Rape Him", undefined]] };
-        // }
-        // if (monk >= 2) {
-        //     jojoSprite();
-        //     CView.clear().text("You are enjoying a peaceful walk through the woods when Jojo drops out of the trees ahead, ");
-        //     if (monk === 2) CView.text("his mousey visage twisted into a ferocious snarl.  \"YOU!\" he screams, launching himself towards you, claws extended.");
-        //     if (monk === 3) CView.text("unsteady on his feet, but looking for a fight!");
-        //     if (monk === 4) CView.text("visibly tenting his robes, but intent on fighting you.");
-        //     if (monk === 5) CView.text("panting and nude, his fur rustling in the breeze, a twitching behemoth of a cock pulsing between his legs.");
-        //     return CombatManager.beginBattle(player, new Jojo());
-        // }
-        return { next: passTime(1) };
+        return sceneNotImplimented();
     }
     // Tentacles 25% of the time...
     if (chooser === 2) {
@@ -250,10 +152,6 @@ export function exploreForest(player: Character): NextScreenChoices {
         }
         // CORRUPTED GLADE
         if (dickDragChance === 2 || dickDragChance >= 4) {
-            // $> Implement later
-            // if (randInt(4) === 0) {
-            //     return trappedSatyr(player);
-            // }
             return intro(player);
         }
         // Trip on a root!
@@ -375,122 +273,3 @@ function bigJunkForestScene(player: Character, lake: boolean = false): NextScree
     player.stats.fatigue += 5;
     return { next: passTime(1) };
 }
-// $> Implement later
-// Catch a Satyr using the corrupt glade and either leave or have your way with him.
-// Suggested to Fen as the MaleXMale submission.
-// Will be standalone
-// function trappedSatyr(player: Character): NextScreenChoices {
-
-//     CView.sprite(SpriteName.Forest); // 99;
-//     CView.text("As you wander through the woods, you find yourself straying into yet another corrupt glade.  However, this time the perverse grove isn't unoccupied; loud bleatings and brayings of pleasure split the air, and as you push past a bush covered in dripping, glans-shaped berries, you spot the source.\n\n");
-
-//     CView.text("A humanoid figure with a set of goat-like horns and legs - a satyr - is currently buried balls-deep in one of the vagina-flowers that scatter the grove, whooping in delight as he hungrily pounds into its ravenously sucking depths.  He stops on occasion to turn and take a slobbering suckle from a nearby breast-like growth; evidently, he doesn't care that he's stuck there until the flower's done with him.\n\n");
-
-//     // (Player lacks a penis:
-//     if (player.body.cocks.length <= 0) {
-//         CView.text("You can't really see any way to take advantage of this scenario, so you simply turn back and leave the way you came.");
-//         return { next: passTime(1) };
-//     }
-//     // Player returns to camp)
-//     // (Player has penis:
-//     else {
-//         CView.text("You can see his goat tail flitting happily above his tight, squeezable asscheeks, the loincloth discarded beside him failing to obscure his black cherry, ripe for the picking.  Do you take advantage of his distraction and ravage his ass while he's helpless?\n\n");
-//         // [Yes] [No]
-//         return { choices: [["Ravage", rapeSatyr], ["", undefined], ["", undefined], ["", undefined], ["Leave", ignoreSatyr]] };
-//     }
-// }
-
-// // [=No=]
-// function ignoreSatyr(player: Character): NextScreenChoices {
-
-//     CView.sprite(SpriteName.Forest); // 99;
-//     CView.text("You shake your head, ");
-//     if (player.stats.cor < 50) CView.text("disgusted by the strange thoughts this place seems to put into your mind");
-//     else CView.text("not feeling inclined to rape some satyr butt right now");
-//     CView.text(", and silently leave him to his pleasures.");
-//     player.stats.lust += 5 + player.stats.lib / 20;
-
-//     return { next: passTime(1) };
-// }
-// // Player returns to camp
-// function rapeSatyr(player: Character): NextScreenChoices {
-
-//     CView.sprite(SpriteName.Forest); // 99;
-//     const largestCock = player.body.cocks.sort(Cock.Largest).get(0)!;
-
-//     // (Low Corruption)
-//     if (player.stats.cor < 33) CView.text("For a moment you hesitate... taking someone from behind without their consent seems wrong... but then again you doubt a satyr would pass on the opportunity if you were in his position.");
-//     // (Medium Corruption)
-//     else if (player.stats.cor < 66) CView.text("You smirk; normally you would have given this some thought, but the idea of free booty is all you need to make a decision.");
-//     // High Corruption
-//     else CView.text("You grin; this is not even a choice!  Passing on free anal is just not something a decent person does, is it?");
-
-//     CView.text("  You silently strip your " + player.inventory.armor.displayName + " and ");
-//     if (player.body.legs.isNaga()) CView.text("slither");
-//     else CView.text("sneak");
-
-//     CView.text(" towards the distracted satyr; stopping a few feet away, you stroke your " + describeCock(player, largestCock) + ", urging it to full erection and coaxing a few beads of pre, which you smear along your " + describeCockHead(largestCock) + ".  With no warning, you lunge forward, grabbing and pulling his hips towards your " + describeCock(player, largestCock) + " and shoving as much of yourself inside his tight ass as you can.\n\n");
-
-//     CView.text("The satyr lets out a startled yelp, struggling against you, but between his awkward position and the mutant flower ravenously sucking on his sizable cock, he's helpless.\n\n");
-
-//     CView.text("You slap his butt with a open palm, leaving a clear mark on his taut behind.  He bleats, bucking wildly, but this serves only to slam his butt into your crotch until the flower hungrily sucks him back, sliding him off your prick.  You smile as a wicked idea hits you; you hit his ass again and again, making him buck into your throbbing " + nounCock(largestCock.type) + ", while the flower keeps pulling him back inside; effectively making the satyr fuck himself.\n\n");
-
-//     CView.text("Eventually, his bleating and screaming start to annoy you, so you silence him by grabbing at his horns and shoving his head to the side, into one of the breast-like growths nearby.  The satyr unthinkingly latches onto the floral nipple and starts to suckle, quieting him as you hoped.  You're not sure why, but he starts to voluntarily buck back and forth between you and the flower; maybe he's getting into the spirit of things, or maybe the vegetal teat he's pulling on has introduced an aphrodisiac chemical after so many violent attempts to pull out of the kindred flower.\n\n");
-
-//     CView.text("You resolve not to think about it right now and just enjoy pounding the satyr's ass.  With his bucking you're able to thrust even farther into his tight puckered cherry, ");
-//     if (largestCock.area >= 100) CView.text("stretching it all out of normal proportion and ruining it for whomever might happen to use it next.");
-//     else CView.text("stretching it to fit your " + describeCock(player, largestCock) + " like a condom.");
-//     CView.text("  Your groin throbs, ");
-//     if (player.body.balls.count > 0) CView.text("your balls churn, ");
-//     CView.text("and you grunt as you feel the first shots of cum flowing along " + describeOneOfYourCocks(player) + ", only to pour out into");
-//     if (player.body.cocks.length > 1) CView.text(" and onto");
-//     CView.text(" the satyr's abused ass; you continue pounding him even as you climax, causing rivulets of cum to run down his cheeks and legs.\n\n");
-
-//     CView.text("Still slurping obscenely on the fake breast, the satyr groans and murmurs; you're not sure how much of a role the sap he's swallowing or the cunt-flower on his cock is playing, but it looks like he's actually enjoying himself now.");
-
-//     // (Low Cum Amount)
-//     if (player.cumQ() < 250) CView.text("  As much as you'd love to fill his belly so full of spunk he'd look pregnant, you just can't muster any more, and pull out with a sigh.\n\n");
-//     // (Medium Cum Amount)
-//     else if (player.cumQ() < 1000) CView.text("  You cum and cum, filling every crevice of his anal passage with warm jism, the slutty goatman doesn't seem to mind this in the least.  When you're finally spent, you pull out with a sigh, and watch as your cum backflows out of his ass to fall on the grass below.\n\n");
-//     // (Large Cum Amount)
-//     else CView.text("  You cum and cum, filling every crevice of his anal passage with warm jism, and the slutty goatman doesn't seem to mind this in the least - yet.  You push him to his limits; cum backflows out of his ass and around your spewing prick, but still you dump more and more of your heavy load inside your now-willing cock-sleeve, inflating his belly like a balloon.  When you're finally spent, you pull out with a sigh and look at your handiwork; cum pours out of his ass like an open tap and his belly is absolutely bulging, making him look pregnant.\n\n");
-
-//     CView.text("The satyr is too absorbed in his own fucking of the plant-pussy, and his nursing of the tree boob to bewail your absence");
-//     if (player.cumQ() >= 1000) CView.text(", although his eyes have widened perceptibly along with the stretching of his stomach");
-//     CView.text(".\n\n");
-
-//     CView.text("You can't help but smile inwardly at the helpless goatman's eagerness, and decide to stick around and watch him a little longer.  It's not everyday you see a creature like him at your mercy.  Every once in awhile you egg him on with a fresh slapping of his butt. The satyr grumbles and huffs, but continues to thrust and rut mindlessly into the vegetative pussy feeding on his cock. You don't think it'll be long before he cums...\n\n");
-
-//     CView.text("As you watch the lewd display, you feel your arousal building and your " + describeCock(player, largestCock) + " growing back into full mast. Figuring you already have a willing slut readily available, you consider using him to relieve yourself once more... What do you do?");
-//     player.orgasm();
-//     // [Again][Leave]
-//     return { choices: [["Again", secondSatyrFuck], ["", undefined], ["", undefined], ["", undefined], ["Leave", dontRepeatFuckSatyr]] };
-// }
-
-// // [=Leave=]
-// function dontRepeatFuckSatyr(player: Character): NextScreenChoices {
-
-//     CView.sprite(SpriteName.Forest); // 99;
-//     CView.text("You've had your fun, and you don't really want to fool around in the forest all day, so you grab your " + player.inventory.armor.displayName + " and leave the rutting satyr behind.\n\n");
-//     return { next: passTime(1) };
-// }
-// // [=Again=]
-// function secondSatyrFuck(player: Character): NextScreenChoices {
-//     let cockThatFits = player.body.cocks.find(Cock.CockThatFits(new Satyr().analCapacity()));
-//     if (!cockThatFits) cockThatFits = player.body.cocks.sort(Cock.Smallest).get(0);
-
-//     CView.text("There's no harm in using the helpless goat once more... This time though, you decide you'll use his mouth.  With a yank on his horns, you forcefully dislodge him from the breast-plant and force him to his knees, turning his head towards you; he doesn't put up much resistance and when you present your erect shaft to him, he licks his lips in excitement and latches onto your " + describeCock(player, cockThatFits) + ".\n\n");
-
-//     CView.text("His mouth is exquisite; it feels slippery and warm and his lips are soft while his tongue wriggles about your shaft, trying to embrace and massage it.  He gloms onto your manhood with eager hunger, desperate to ravish you with his mouth.  Quivers of pleasure ripple and shudder through his body as he slobbers and gulps - and no wonder!  From the remnants of sap still in his mouth, you can feel currents of arousal tingling down your cock; if he's been drinking it straight, his mouth must be as sensitive as a cunt from the effects of this stuff.\n\n");
-
-//     CView.text("Having had your first orgasm mere minutes ago, you don't last long.  Within a few moments of his beginning you flood his mouth with a second load of cum, pulling out to paint his face with the last couple jets.\n\n");
-
-//     CView.text("With a great, garbled cry, the satyr cums on his own, gurgling through the sap-tinted cum drooling from his mouth as he spews into the waiting opening of his rapacious plant lover.  It swells and bloats as it gorges itself on his thick, stinking seed, stretching its stem until it is almost spherical, finally releasing him to collapse on his knees, free at last of the plant's grip.  He moans and bleats softly, leaking cummy sap from his chin onto his hairy chest, too overwhelmed by the combined fucking of yourself and the flower and too poisoned by whatever aphrodisiac he's been slurping on to move.\n\n");
-
-//     CView.text("You give your sensitive member a few trembling, almost-painful strokes... maybe you overdid it a bit.  Shrugging, you gather your " + player.inventory.armor.displayName + " and leave the passed-out satyr behind as you go back to your camp.");
-//     player.orgasm();
-//     player.stats.lib += 1;
-//     player.stats.sens += -5;
-
-//     return { next: passTime(1) };
-// }

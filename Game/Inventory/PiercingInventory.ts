@@ -42,6 +42,9 @@ export class PiercingInventory implements ISerializable<IPiercingInventory> {
         this.tongue = new EquipSlot(character);
         this.labia = new EquipSlot(character);
 
+        character.body.chest.forEach(() => this.nipples.add(new EquipSlot(character)));
+        character.body.cocks.forEach(() => this.cocks.add(new EquipSlot(character)));
+
         character.body.chest.on('add', () => {
             this.nipples.add(new EquipSlot(character));
         });
