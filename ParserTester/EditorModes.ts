@@ -1,4 +1,4 @@
-import { HighlightLexer } from "./HighlightLexer";
+import { HighlightLexer } from './HighlightLexer';
 
 export const cocMode = {
     name: "CoC",

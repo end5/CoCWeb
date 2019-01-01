@@ -1,5 +1,5 @@
-import { HighlightSymbol } from "./HighlightSymbol";
-import { LexerState, tokenizer } from "../Game/Parser/Lexer";
+import { HighlightSymbol } from './HighlightSymbol';
+import { LexerState, tokenizer } from 'Content/Parser/Lexer';
 
 export class HighlightLexer implements CodeMirror.Mode<LexerState> {
     public startState(): LexerState {

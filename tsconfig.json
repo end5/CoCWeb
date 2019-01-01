@@ -12,19 +12,16 @@
         "baseUrl": ".",
         "paths": {
             "Engine": ["Engine"],
-            "Game": ["Game"],
-            "Page": ["Page"],
-            "Resource": ["resource"]
+            "Content": ["Content"]
         }
     },
     "include": [
         "Engine",
-        "Page",
-        "Game"
+        "Content"
     ],
     "exclude": [
-        "Game/Character/Player/CombatActions/MagicalAttacks",
-        "Game/Character/Player/CombatActions/PhysicalAttacks",
-        "Game/Character/Player/CombatActions/Spells",
+        "Content/Player/CombatActions/MagicalAttacks",
+        "Content/Player/CombatActions/PhysicalAttacks",
+        "Content/Player/CombatActions/Spells",
     ]
 }

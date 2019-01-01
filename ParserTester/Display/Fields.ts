@@ -1,5 +1,5 @@
-import { createTextInput, createAccordButton, EventFunc, createCheckBox } from "./Create";
-import { IDictionary } from "../../Engine/Utilities/Dictionary";
+import { createTextInput, createAccordButton, EventFunc, createCheckBox } from './Create';
+import { IDictionary } from 'Engine/Utilities/Dictionary';
 
 export function fieldTitle(key: string) {
     const title = document.createElement("div");

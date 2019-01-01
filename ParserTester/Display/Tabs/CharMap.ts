@@ -1,33 +1,34 @@
-import { CharacterType } from 'Game/Character/CharacterType';
-import { Gender } from 'Game/Character/Body/GenderIdentity';
-import { AntennaeType } from 'Game/Character/Body/Antennae';
-import { HornType } from 'Game/Character/Body/Horns';
-import { HairType } from 'Game/Character/Body/Hair';
-import { EarType } from 'Game/Character/Body/Ears';
-import { FaceType } from 'Game/Character/Body/Face';
-import { EyeType } from 'Game/Character/Body/Eyes';
-import { TongueType } from 'Game/Character/Body/Tongue';
-import { ArmType } from 'Game/Character/Body/Arms';
-import { BreastCup } from 'Game/Character/Body/BreastRow';
-import { WingType } from 'Game/Character/Body/Wings';
-import { HipRating } from 'Game/Character/Body/Hips';
-import { TailType } from 'Game/Character/Body/Tail';
-import { ButtRating, ButtWetness, ButtLooseness } from 'Game/Character/Body/Butt';
-import { CockType } from 'Game/Character/Body/Cock';
-import { VaginaType, VaginaWetness, VaginaLooseness } from 'Game/Character/Body/Vagina';
-import { LegType } from 'Game/Character/Body/Legs';
-import { SkinType } from 'Game/Character/Body/Skin';
-import { EffectType } from 'Game/Effects/EffectType';
-import { PregnancyType, IncubationTime } from 'Game/Character/Body/Pregnancy/Pregnancy';
-import { EffectValues } from 'Game/Effects/EffectValues';
-import { WeaponName } from 'Game/Items/Weapons/WeaponName';
-import { ArmorName } from 'Game/Items/Armors/ArmorName';
-import { ConsumableName } from 'Game/Items/Consumables/ConsumableName';
-import { MaterialName } from 'Game/Items/Materials/MaterialName';
-import { CockSockName } from 'Game/Items/Misc/CockSockName';
-import { PiercingType } from 'Game/Items/Misc/Piercing';
-import { ItemType } from 'Game/Items/ItemType';
+import { CharacterType } from 'Content/Character/CharacterType';
+import { Gender } from 'Engine/Body/GenderIdentity';
+import { AntennaeType } from 'Engine/Body/Antennae';
+import { HornType } from 'Engine/Body/Horns';
+import { HairType } from 'Engine/Body/Hair';
+import { EarType } from 'Engine/Body/Ears';
+import { FaceType } from 'Engine/Body/Face';
+import { EyeType } from 'Engine/Body/Eyes';
+import { TongueType } from 'Engine/Body/Tongue';
+import { ArmType } from 'Engine/Body/Arms';
+import { BreastCup } from 'Engine/Body/BreastRow';
+import { WingType } from 'Engine/Body/Wings';
+import { HipRating } from 'Engine/Body/Hips';
+import { TailType } from 'Engine/Body/Tail';
+import { ButtRating, ButtWetness, ButtLooseness } from 'Engine/Body/Butt';
+import { CockType } from 'Engine/Body/Cock';
+import { VaginaType, VaginaWetness, VaginaLooseness } from 'Engine/Body/Vagina';
+import { LegType } from 'Engine/Body/Legs';
+import { SkinType } from 'Engine/Body/Skin';
+import { EffectType } from 'Content/Effects/EffectType';
+import { EffectValues } from 'Engine/Effects/EffectValues';
+import { WeaponName } from 'Content/Items/WeaponName';
+import { ArmorName } from 'Content/Items/ArmorName';
+import { ConsumableName } from 'Content/Items/ConsumableName';
+import { MaterialName } from 'Content/Items/MaterialName';
+import { CockSockName } from 'Content/Items/CockSockName';
+import { PiercingName } from 'Content/Items/PiercingName';
+import { ItemType } from 'Engine/Items/ItemType';
 import { IDictionary } from 'Engine/Utilities/Dictionary';
+import { PregnancyType } from 'Content/Body/Pregnancy/PregnancyType';
+import { IncubationTime } from 'Content/Body/Pregnancy/IncubationTime';
 
 /*
     all
@@ -83,7 +84,7 @@ export interface ArrayProp {
     entry: ArrayEntryProp;
 }
 
-const allItemNames = Object.assign({}, WeaponName, ArmorName, ConsumableName, MaterialName, CockSockName, PiercingType);
+const allItemNames = Object.assign({}, WeaponName, ArmorName, ConsumableName, MaterialName, CockSockName, PiercingName);
 
 export const CharMap: PropDict = {
     type: { label: "Type", type: "string", options: CharacterType },
@@ -380,13 +381,13 @@ export const CharMap: PropDict = {
                 label: "Piercings",
                 type: "object",
                 properties: {
-                    clit: createPiercingSlotMap("Clit", PiercingType),
-                    ears: createPiercingSlotMap("Ears", PiercingType),
-                    eyebrow: createPiercingSlotMap("Eyebrow", PiercingType),
-                    lip: createPiercingSlotMap("Lip", PiercingType),
-                    nose: createPiercingSlotMap("Nose", PiercingType),
-                    tongue: createPiercingSlotMap("Tongue", PiercingType),
-                    labia: createPiercingSlotMap("Labia", PiercingType),
+                    clit: createPiercingSlotMap("Clit", PiercingName),
+                    ears: createPiercingSlotMap("Ears", PiercingName),
+                    eyebrow: createPiercingSlotMap("Eyebrow", PiercingName),
+                    lip: createPiercingSlotMap("Lip", PiercingName),
+                    nose: createPiercingSlotMap("Nose", PiercingName),
+                    tongue: createPiercingSlotMap("Tongue", PiercingName),
+                    labia: createPiercingSlotMap("Labia", PiercingName),
                     nipples: {
                         label: "Nipples",
                         type: "array",
@@ -394,7 +395,7 @@ export const CharMap: PropDict = {
                             type: "object",
                             create: createPiercing,
                             properties: {
-                                item: createPiercingSlotMap("Nipple", PiercingType)
+                                item: createPiercingSlotMap("Nipple", PiercingName)
                             }
                         }
                     },
@@ -406,7 +407,7 @@ export const CharMap: PropDict = {
                             type: "object",
                             create: createPiercing,
                             properties: {
-                                item: createPiercingSlotMap("Cock", PiercingType)
+                                item: createPiercingSlotMap("Cock", PiercingName)
                             }
                         }
                     },
@@ -423,7 +424,7 @@ export const CharMap: PropDict = {
 };
 
 function createPiercingSlotMap(name: string, itemNames: any): ObjectProp & Prop {
-    return createEquipSlotMap(name, PiercingType, {
+    return createEquipSlotMap(name, PiercingName, {
         shortDesc: { label: "Short Desc", type: "string" },
         longDesc: { label: "Long Desc", type: "string" },
     });
@@ -558,7 +559,7 @@ function createStatMap(name: string): ObjectProp & Prop {
 
 function createPiercing() {
     return {
-        name: PiercingType.Chain,
+        name: PiercingName.Chain,
         type: ItemType.Misc,
         shortDesc: "",
         longDesc: ""

@@ -3,3 +3,4 @@ Build/
 !**/.vscode/tasks.json
 node_modules/
 package*.json
+img

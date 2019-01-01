@@ -1,7 +1,7 @@
-import { IDictionary } from "../../../Engine/Utilities/Dictionary";
-import { stringField, booleanField, objectField, setStringCallback, setNumberCallback, setBooleanCallback } from "../Fields";
-import { createPanel } from "../Create";
-import { Flags } from "../../../Game/Flags";
+import { IDictionary } from 'Engine/Utilities/Dictionary';
+import { stringField, booleanField, objectField, setStringCallback, setNumberCallback, setBooleanCallback } from '../Fields';
+import { createPanel } from '../Create';
+import { Flags } from 'Engine/Flags';
 
 export function loadFlagContent(flagContent: HTMLElement) {
     generateFields(Flags.serialize(), flagContent);

@@ -1,10 +1,10 @@
-import { CharDict } from "../../../Game/CharDict";
-import { Player } from "../../../Game/Character/Player/Player";
-import { createPanel, EventFunc } from "../Create";
-import { IDictionary } from "../../../Engine/Utilities/Dictionary";
-import { Character, ICharacter } from "../../../Game/Character/Character";
-import { CharMap, PropDict, ValueProp, ArrayProp, ObjectProp, ArrayEntryProp, AnyProp } from "./CharMap";
-import { objectField, selectField, setSelectorStringCallback, stringField, setStringCallback, setNumberCallback, booleanField, setBooleanCallback } from "../Fields";
+import { CharDict } from 'Engine/CharDict';
+import { Player } from 'Content/Player/Player';
+import { createPanel, EventFunc } from '../Create';
+import { IDictionary } from 'Engine/Utilities/Dictionary';
+import { Character, ICharacter } from 'Engine/Character/Character';
+import { CharMap, PropDict, ValueProp, ArrayProp, ObjectProp, ArrayEntryProp, AnyProp } from './CharMap';
+import { objectField, selectField, setSelectorStringCallback, stringField, setStringCallback, setNumberCallback, booleanField, setBooleanCallback } from '../Fields';
 
 let selChar: Character;
 export let serializedChar: ICharacter;

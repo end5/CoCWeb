@@ -6,12 +6,12 @@ import 'codemirror/mode/htmlmixed/htmlmixed';
 // import 'codemirror/lib/codemirror.css';
 // import 'codemirror/theme/lesser-dark.css';
 import { cocMode } from '../../EditorModes';
-import { Lex } from '../../../Game/Parser/Lexer';
-import { Parser } from '../../../Game/Parser/Parser';
-import { Interpret } from '../../../Game/Parser/Interpreter';
-import { parserLog } from '../../../Game/Parser/Logger';
+import { Lex } from 'Content/Parser/Lexer';
+import { Parser } from 'Content/Parser/Parser';
+import { Interpret } from 'Content/Parser/Interpreter';
+import { parserLog } from 'Content/Parser/Logger';
 import { createTabContent, createAccordButton, createContentView } from '../Create';
-import { CView } from '../../../Page/ContentView';
+import { CView } from 'Engine/Display/ContentView';
 
 let errorContentEl: HTMLElement;
 let debugContentEl: HTMLElement;

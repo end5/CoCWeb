@@ -1,4 +1,4 @@
-import { TokenType } from "../Game/Parser/TokenTypes";
+import { TokenType } from 'Content/Parser/TokenTypes';
 
 export const HighlightSymbol: { [x: string]: string } = {
     [TokenType.Number]: 'number',
