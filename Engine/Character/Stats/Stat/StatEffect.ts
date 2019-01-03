@@ -1,11 +1,13 @@
+export type StatEffectValue = number | ((val: number) => number);
+
 export interface IStatEffect {
-    multi?: number;
-    flat?: number;
+    multi?: StatEffectValue;
+    flat?: StatEffectValue;
 }
 
 export class StatEffect implements IStatEffect {
-    public multi: number = 1;
-    public flat: number = 0;
+    public multi: StatEffectValue = 1;
+    public flat: StatEffectValue = 0;
     public constructor(values?: IStatEffect) {
         if (values) {
             if (values.flat) this.flat = values.flat;

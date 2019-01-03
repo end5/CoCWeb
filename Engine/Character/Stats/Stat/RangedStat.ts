@@ -18,23 +18,25 @@ export class RangedStat extends DeltaStat implements ISerializable<IRangedStat> 
         this.maxStat = new Stat(max);
     }
 
-    public get value() {
-        if (super.value > this.maxStat.raw)
-            return this.maxStat.raw;
-        if (super.value < this.minStat.raw)
-            return this.minStat.raw;
-        return super.value;
-    }
-
-    public set value(num: number) {
-        super.value = num;
+    protected recalculate() {
+        super.recalculate();
+        if (this.calculatedValue > this.maxStat.calculated)
+            this.calculatedValue = this.maxStat.calculated;
+        if (this.calculatedValue < this.minStat.calculated)
+            this.calculatedValue = this.minStat.calculated;
     }
 
     public get min() { return this.minStat.calculated; }
-    public set min(num: number) { this.minStat.raw = num; }
+    public set min(num: number) {
+        this.minStat.raw = num;
+        this.recalculate();
+    }
 
     public get max() { return this.maxStat.calculated; }
-    public set max(num: number) { this.maxStat.raw = num; }
+    public set max(num: number) {
+        this.maxStat.raw = num;
+        this.recalculate();
+    }
 
     public addEffect(values: IRangedStatEffect) {
         if (values) {

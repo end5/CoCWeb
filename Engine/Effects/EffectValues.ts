@@ -23,6 +23,7 @@ export interface IEffectValues {
     fatigue?: IRangedStatEffect;
     hp?: IRangedStatEffect;
     lust?: IRangedStatEffect;
+    lustResist?: IRangedStatEffect;
     femininity?: IRangedStatEffect;
     fertility?: IRangedStatEffect;
     cumQuantity?: IRangedStatEffect;
@@ -52,6 +53,7 @@ export class EffectValues implements IEffectValues {
     public readonly fatigue: RangedStatEffect;
     public readonly hp: RangedStatEffect;
     public readonly lust: RangedStatEffect;
+    public readonly lustResist: RangedStatEffect;
     public readonly femininity: RangedStatEffect;
     public readonly fertility: RangedStatEffect;
     public readonly cumQuantity: RangedStatEffect;
@@ -80,6 +82,7 @@ export class EffectValues implements IEffectValues {
         this.fatigue = values && values.fatigue ? new RangedStatEffect(values.fatigue) : new RangedStatEffect();
         this.hp = values && values.hp ? new RangedStatEffect(values.hp) : new RangedStatEffect();
         this.lust = values && values.lust ? new RangedStatEffect(values.lust) : new RangedStatEffect();
+        this.lustResist = values && values.lustResist ? new RangedStatEffect(values.lustResist) : new RangedStatEffect();
         this.femininity = values && values.femininity ? new RangedStatEffect(values.femininity) : new RangedStatEffect();
         this.fertility = values && values.fertility ? new RangedStatEffect(values.fertility) : new RangedStatEffect();
         this.cumQuantity = values && values.cumQuantity ? new RangedStatEffect(values.cumQuantity) : new RangedStatEffect();

@@ -17,7 +17,7 @@ import { PlayerResponses } from './PlayerResponses';
 import { PlayerAction } from './CombatActions/PlayerActionPerform';
 import { ItemDict } from 'Engine/Items/ItemDict';
 
-class BlankEndScenes extends EndScenes {}
+class BlankEndScenes extends EndScenes { }
 
 export class Player extends Character {
     protected description: CharacterDescription = new CharacterDescription(this, "", "", "");
@@ -51,9 +51,14 @@ export class Player extends Character {
         this.inventory.items.unlock(6);
 
         // Combat
-        this.combatContainer = new CombatContainer(this, { mainAction: new PlayerAction(this), reactions: PlayerResponses, endScenes: new BlankEndScenes(this), rewards: {
-            gems: () => randInt(10)
-        }});
+        this.combatContainer = new CombatContainer(this, {
+            mainAction: new PlayerAction(this),
+            reactions: PlayerResponses,
+            endScenes: new BlankEndScenes(this),
+            rewards: {
+                gems: () => randInt(10)
+            }
+        });
         this.combatContainer.useAI = false;
     }
 }

@@ -54,7 +54,7 @@ export abstract class Character implements ISerializable<ICharacter> {
     public genderManager: GenderIdentity = new GenderIdentity(this);
 
     public readonly body: Body = new Body();
-    public readonly stats = new StatsWrapper(this);
+    public readonly stats = new StatsWrapper();
     public readonly effects = new EffectList();
     public hoursSinceCum: number = 0;
 

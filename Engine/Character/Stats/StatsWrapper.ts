@@ -1,17 +1,9 @@
 import { Stats, IStats } from 'Engine/Character/Stats/Stats';
 import { Effect } from 'Engine/Effects/Effect';
 import { ISerializable } from 'Engine/Utilities/ISerializable';
-import { Settings } from 'Content/Settings';
-import { Character } from 'Engine/Character/Character';
-import { Gender } from 'Engine/Body/GenderIdentity';
 
 export class StatsWrapper implements ISerializable<IStats> {
     protected stats: Stats = new Stats();
-    private char: Character;
-
-    public constructor(char: Character) {
-        this.char = char;
-    }
 
     public get base(): Stats { return this.stats; }
 
@@ -30,55 +22,13 @@ export class StatsWrapper implements ISerializable<IStats> {
     public set spe(value: number) { this.stats.spe.value = value; }
 
     public get int(): number { return this.stats.int.value; }
-    public set int(value: number) {
-        value -= this.stats.int.value;
-        this.intChange(value);
-    }
-
-    public set intBimbo(value: number) {
-        value -= this.stats.int.value;
-        this.intChange(value, true);
-    }
-
-    private intChange(value: number, _bimboIntReduction: boolean = false) {
-        this.stats.int.value += value;
-    }
+    public set int(value: number) { this.stats.int.value = value; }
 
     public get lib(): number { return this.stats.lib.value; }
-    public set lib(value: number) {
-        value -= this.stats.lib.value;
-        this.libChange(value);
-    }
-
-    public set libBimbo(value: number) {
-        value -= this.stats.lib.value;
-        this.libChange(value, true);
-    }
-
-    private libChange(value: number, _bimboIntReduction: boolean = false) {
-        this.stats.lib.value += value;
-
-        if (this.stats.lib.value < 15 && this.char.gender > 0)
-            this.stats.lib.value = 15;
-        else if (this.stats.lib.value < 10 && this.char.gender === Gender.NONE)
-            this.stats.lib.value = 10;
-        if (this.stats.lib.value < this.base.lust.min * 2 / 3)
-            this.stats.lib.value = this.base.lust.min * 2 / 3;
-    }
+    public set lib(value: number) { this.stats.lib.value = value; }
 
     public get sens(): number { return this.stats.sens.value; }
-    public set sens(value: number) {
-        value -= this.stats.sens.value;
-
-        if (this.stats.sens.value > 50 && value > 0) value /= 2;
-        if (this.stats.sens.value > 75 && value > 0) value /= 2;
-        if (this.stats.sens.value > 90 && value > 0) value /= 2;
-        if (this.stats.sens.value > 50 && value < 0) value *= 2;
-        if (this.stats.sens.value > 75 && value < 0) value *= 2;
-        if (this.stats.sens.value > 90 && value < 0) value *= 2;
-
-        this.stats.sens.value += value;
-    }
+    public set sens(value: number) { this.stats.sens.value = value; }
 
     public get cor(): number { return this.stats.cor.value; }
     public set cor(value: number) { this.stats.cor.value = value; }
@@ -92,35 +42,11 @@ export class StatsWrapper implements ISerializable<IStats> {
     public set HP(value: number) { this.stats.HP.value = value; }
 
     public get lust(): number { return this.stats.lust.value; }
-    public set lust(value: number) {
-        value -= this.stats.lust.value;
-        this.lustChange(value, true);
-    }
+    public set lust(value: number) { this.stats.lust.value = value; }
 
-    public set lustNoResist(value: number) {
-        value -= this.stats.lust.value;
-        this.lustChange(value, false);
-    }
+    public set lustNoResist(value: number) { this.stats.lust.delta = value; }
 
-    private lustChange(value: number, lustResisted: boolean = true) {
-        if (Settings.easyMode && value > 0 && lustResisted)
-            value /= 2;
-        if (value > 0 && lustResisted)
-            value *= this.lustPercent() / 100;
-
-        this.stats.lust.value += value;
-    }
-
-    public lustPercent(): number {
-        let lust: number = 100;
-        // 2.5% lust resistance per level - max 75.
-        if (this.stats.level.raw < 21)
-            lust -= (this.stats.level.raw - 1) * 3;
-        else lust = 40;
-
-        lust = Math.round(lust);
-        return lust;
-    }
+    public lustPercent(): number { return this.stats.lustResist.value; }
 
     public set lustVuln(value: number) { this.stats.lustVuln = value; }
     public get lustVuln(): number { return this.stats.lustVuln; }

@@ -14,6 +14,7 @@ export interface IStats {
     HP: IRangedStat;
     lust: IRangedStat;
     lustVuln: number;
+    lustResist: IRangedStat;
     XP: IStat;
     level: IStat;
     perkPoints: number;
@@ -36,6 +37,7 @@ export class Stats implements ISerializable<IStats> {
     public HP = new RangedStat(0, 0, 100);
     public lust = new RangedStat(0, 0, 100);
     public lustVuln: number = 0;
+    public lustResist = new RangedStat(25, 100, 75);
 
     // Level Stats
     public XP = new Stat(0);
@@ -58,6 +60,7 @@ export class Stats implements ISerializable<IStats> {
             HP: this.HP.serialize(),
             lust: this.lust.serialize(),
             lustVuln: this.lustVuln,
+            lustResist: this.lustResist.serialize(),
 
             XP: this.XP.serialize(),
             level: this.level.serialize(),
@@ -80,6 +83,7 @@ export class Stats implements ISerializable<IStats> {
         this.HP.deserialize(saveObject.HP);
         this.lust.deserialize(saveObject.lust);
         this.lustVuln = saveObject.lustVuln;
+        this.lustResist.deserialize(saveObject.lustResist);
 
         this.XP.deserialize(saveObject.XP);
         this.level.deserialize(saveObject.level);
