@@ -29,12 +29,18 @@ MainScreen.timeHourElement.setHTMLElement(loadFromId("timeHour") as HTMLParagrap
 
 MainScreen.statsPanel.setHTMLElement(loadFromId("statsPanel") as HTMLDivElement);
 
-CView.textElement.setHTMLElement(loadFromId("mainTextDisplay") as HTMLParagraphElement);
-CView.imageElement.setHTMLElement(loadFromId("mainImageDisplay") as HTMLImageElement);
-CView.spriteElement.setHTMLElement(loadFromId("mainSpriteDisplay") as HTMLImageElement);
+MainScreen.textElement.setHTMLElement(loadFromId("mainTextDisplay") as HTMLParagraphElement);
+MainScreen.imageElement.setHTMLElement(loadFromId("mainImageDisplay") as HTMLImageElement);
+MainScreen.spriteElement.setHTMLElement(loadFromId("mainSpriteDisplay") as HTMLImageElement);
+
+CView.imageElement = MainScreen.imageElement;
+CView.spriteElement = MainScreen.spriteElement;
 
 const parser = new Parser();
-CView.parsers.add((text: string) => Interpret(parser.parse(Lex(text))));
+CView.textBuffer.emitter.on('modified', (text) => {
+    MainScreen.textElement.text(Interpret(parser.parse(Lex(text))));
+});
+
 // CView.parsers.add((text: string) => text.replace('\n', '<br>'));
 
 import './Character/CharConstructors';

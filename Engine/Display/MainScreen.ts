@@ -5,25 +5,16 @@ import { TopButtons } from './TopButtons';
 import { BottomButtons } from './BottomButtons';
 
 class MainScreenFacade {
-    public readonly botButtons: BottomButtons;
-    public readonly topButtons: TopButtons;
-    public readonly nameDisplay: ParagraphElement;
-    public readonly statsPanel: StatsPanel;
-    public readonly levelupIcon: ImageElement;
-    public readonly timeDayElement: ParagraphElement;
-    public readonly timeHourElement: ParagraphElement;
-
-    public constructor() {
-        this.topButtons = new TopButtons();
-        this.botButtons = new BottomButtons();
-
-        this.statsPanel = new StatsPanel();
-        this.nameDisplay = new ParagraphElement();
-
-        this.levelupIcon = new ImageElement();
-        this.timeDayElement = new ParagraphElement();
-        this.timeHourElement = new ParagraphElement();
-    }
+    public readonly botButtons = new BottomButtons();
+    public readonly topButtons = new TopButtons();
+    public readonly nameDisplay = new ParagraphElement();
+    public readonly statsPanel = new StatsPanel();
+    public readonly levelupIcon = new ImageElement();
+    public readonly timeDayElement = new ParagraphElement();
+    public readonly timeHourElement = new ParagraphElement();
+    public readonly imageElement = new ImageElement();
+    public readonly textElement = new ParagraphElement();
+    public readonly spriteElement = new ImageElement();
 }
 
 export const MainScreen = new MainScreenFacade();

@@ -1,48 +1,68 @@
-import { SpriteLib } from 'Engine/Display/SpriteLib';
-import { ImageElement } from './Elements/ImageElement';
-import { ParagraphElement } from './Elements/ParagraphElement';
-import { List } from 'Engine/Utilities/List';
 import { ImageLib } from 'Engine/Display/ImageLib';
+import { TextBuffer } from 'Engine/Display/TextBuffer';
+import { loadImages } from 'Engine/Display/ImageLoading';
+import { ImageElement } from 'Engine/Display/Elements/ImageElement';
+import { randomChoice } from 'Engine/Utilities/SMath';
 
 class ContentView {
-    public readonly imageElement: ImageElement = new ImageElement();
-    public readonly textElement: ParagraphElement = new ParagraphElement();
-    public readonly spriteElement: ImageElement = new ImageElement();
-    public readonly parsers: List<(text: string) => string> = new List();
+    public readonly textBuffer = new TextBuffer();
+    public imageElement?: ImageElement;
+    public spriteElement?: ImageElement;
 
     public text(content: string): ContentView {
-        for (const parser of this.parsers)
-            content = parser(content);
-        this.textElement.text(content);
+        this.textBuffer.text(content);
         return this;
     }
 
     public image(imageName: string): ContentView {
-        ImageLib.loadRandom(imageName, (imagePath) => {
-            if (imagePath && imagePath !== '') {
-                this.imageElement.load(imagePath);
-                this.imageElement.show();
+        const info = ImageLib.get(imageName);
+
+        if (info)
+            if (info.absolutePaths.length === 0) {
+                loadImages(info.arbitraryPath, (paths) => {
+                    info.absolutePaths = paths;
+                    if (this.imageElement)
+                        this.loadRandomImage(this.imageElement, paths);
+                });
             }
-            else
-                this.imageElement.hide();
-        });
+            else if (this.imageElement)
+                this.loadRandomImage(this.imageElement, info.absolutePaths);
+
         return this;
     }
 
-    public sprite(spriteName: string): ContentView {
-        if (SpriteLib.get(spriteName) === undefined)
-            console.error('Unknown sprite');
-        else {
-            this.spriteElement.load(SpriteLib.get(spriteName)!);
-            this.spriteElement.show();
+    private loadRandomImage(element: ImageElement, list: string[]) {
+        if (list.length > 0) {
+            element.load(randomChoice(list));
+            element.show();
         }
+        else
+            element.hide();
+    }
+
+    public sprite(spriteName: string): ContentView {
+        const info = ImageLib.get(spriteName);
+
+        if (info)
+            if (info.absolutePaths.length === 0) {
+                loadImages(info.arbitraryPath, (paths) => {
+                    info.absolutePaths = paths;
+                    if (this.spriteElement)
+                        this.loadRandomImage(this.spriteElement, paths);
+                });
+            }
+            else if (this.spriteElement)
+                this.loadRandomImage(this.spriteElement, info.absolutePaths);
+
         return this;
     }
 
     public clear(): ContentView {
-        this.textElement.clear();
-        this.imageElement.hide();
-        this.spriteElement.hide();
+        this.textBuffer.clear();
+        if (this.imageElement)
+            this.imageElement.hide();
+        if (this.spriteElement)
+            this.spriteElement.hide();
         return this;
     }
 }
