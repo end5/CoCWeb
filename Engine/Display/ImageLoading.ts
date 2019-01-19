@@ -27,7 +27,10 @@ function loadNextImage(info: ImageLoadInfo) {
     const img = new Image();
     img.onload = () => {
         info.paths.push(info.concretePath);
-        loadNextImage(info);
+        info.fileExtension.shift();
+        if (info.fileExtension.length > 0) {
+            loadNextImage(info);
+        }
     };
     img.onerror = () => {
         info.fileExtension.shift();

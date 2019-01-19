@@ -36,9 +36,19 @@ MainScreen.spriteElement.element = loadFromId("mainSpriteDisplay");
 CView.imageElement = MainScreen.imageElement;
 CView.spriteElement = MainScreen.spriteElement;
 
+MainScreen.imageElement.hide = () => {
+    MainScreen.imageElement.element.style.display = "none"
+};
+MainScreen.imageElement.show = () => {
+    MainScreen.imageElement.element.style.display = "inline"
+};
 const parser = new Parser();
 CView.textBuffer.emitter.on('modified', (text) => {
     MainScreen.textElement.text(Interpret(parser.parse(Lex(text))));
+});
+
+CView.textBuffer.emitter.on('clear', () => {
+    MainScreen.textElement.clear();
 });
 
 // CView.parsers.add((text: string) => text.replace('\n', '<br>'));

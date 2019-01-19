@@ -1,5 +1,4 @@
 import { ButtonElement } from 'Engine/Display/ButtonElement';
-import { UnorderedListElement } from 'Engine/Display/Elements/UnorderedListElement';
 import { BindableAction } from 'Engine/Input/BindableAction';
 import { InputManager } from 'Engine/Input/InputManager';
 import { KeyCombination } from 'Engine/Input/KeyCombination';
@@ -7,7 +6,7 @@ import { NextScreenChoices } from 'Engine/Display/ScreenDisplay';
 import { CView } from 'Engine/Display/ContentView';
 import { settingsMenu } from './SettingsMenu';
 import { MainScreen } from 'Engine/Display/MainScreen';
-import { TextElement } from 'Engine/Display/Elements/TextElement';
+import { ScreenElement } from "../../Engine/Display/Elements/ScreenElement";
 
 export function controlsMenu(): NextScreenChoices {
     CView.clear();
@@ -18,53 +17,55 @@ export function controlsMenu(): NextScreenChoices {
     CView.text("<b>Reset Ctrls</b> will reset all of the control bindings to their defaults.\n\n");
     CView.text("<b>Clear Ctrls</b> will remove all of the current control bindings, leaving everything Unbound.\n\n");
 
-    const bindListElement = new UnorderedListElement(document.createElement('ul'));
-    MainScreen.textElement.appendChild(bindListElement);
-
-    listBindableAction(bindListElement, "Stats", BindableAction.Stats);
-    listBindableAction(bindListElement, "Level Up", BindableAction.LevelUp);
-    listBindableAction(bindListElement, "Quicksave 1", BindableAction.Quicksave1);
-    listBindableAction(bindListElement, "Quicksave 2", BindableAction.Quicksave2);
-    listBindableAction(bindListElement, "Quicksave 3", BindableAction.Quicksave3);
-    listBindableAction(bindListElement, "Quicksave 4", BindableAction.Quicksave4);
-    listBindableAction(bindListElement, "Quicksave 5", BindableAction.Quicksave5);
-    listBindableAction(bindListElement, "Quickload 1", BindableAction.Quickload1);
-    listBindableAction(bindListElement, "Quickload 2", BindableAction.Quickload2);
-    listBindableAction(bindListElement, "Quickload 3", BindableAction.Quickload3);
-    listBindableAction(bindListElement, "Quickload 4", BindableAction.Quickload4);
-    listBindableAction(bindListElement, "Quickload 5", BindableAction.Quickload5);
-    listBindableAction(bindListElement, "Show Menu", BindableAction.MainMenu);
-    listBindableAction(bindListElement, "Data Menu", BindableAction.SaveLoad);
-    listBindableAction(bindListElement, "Appearance Page", BindableAction.Appearance);
-    listBindableAction(bindListElement, "No", BindableAction.No);
-    listBindableAction(bindListElement, "Yes", BindableAction.Yes);
-    listBindableAction(bindListElement, "Show Perks", BindableAction.Perks);
-    listBindableAction(bindListElement, "Continue", BindableAction.Back);
-    listBindableAction(bindListElement, "Cycle Background", BindableAction.CycleBackground);
-    listBindableAction(bindListElement, "Button 1", BindableAction.Button0);
-    listBindableAction(bindListElement, "Button 2", BindableAction.Button1);
-    listBindableAction(bindListElement, "Button 3", BindableAction.Button2);
-    listBindableAction(bindListElement, "Button 4", BindableAction.Button3);
-    listBindableAction(bindListElement, "Button 5", BindableAction.Button4);
-    listBindableAction(bindListElement, "Button 6", BindableAction.Button5);
-    listBindableAction(bindListElement, "Button 7", BindableAction.Button6);
-    listBindableAction(bindListElement, "Button 8", BindableAction.Button7);
-    listBindableAction(bindListElement, "Button 9", BindableAction.Button8);
-    listBindableAction(bindListElement, "Button 10", BindableAction.Button9);
+    const bindListGrid = document.createElement('table');
+    MainScreen.textElement.appendChild(new ScreenElement(bindListGrid));
+    const listBind = (l:string, b:BindableAction) => {listBindableAction(bindListGrid, l, b)};
+    listBind("Stats"           , BindableAction.Stats);
+    listBind("Level Up"        , BindableAction.LevelUp);
+    listBind("Quicksave 1"     , BindableAction.Quicksave1);
+    listBind("Quicksave 2"     , BindableAction.Quicksave2);
+    listBind("Quicksave 3"     , BindableAction.Quicksave3);
+    listBind("Quicksave 4"     , BindableAction.Quicksave4);
+    listBind("Quicksave 5"     , BindableAction.Quicksave5);
+    listBind("Quickload 1"     , BindableAction.Quickload1);
+    listBind("Quickload 2"     , BindableAction.Quickload2);
+    listBind("Quickload 3"     , BindableAction.Quickload3);
+    listBind("Quickload 4"     , BindableAction.Quickload4);
+    listBind("Quickload 5"     , BindableAction.Quickload5);
+    listBind("Show Menu"       , BindableAction.MainMenu);
+    listBind("Data Menu"       , BindableAction.SaveLoad);
+    listBind("Appearance Page" , BindableAction.Appearance);
+    listBind("No"              , BindableAction.No);
+    listBind("Yes"             , BindableAction.Yes);
+    listBind("Show Perks"      , BindableAction.Perks);
+    listBind("Continue"        , BindableAction.Back);
+    listBind("Cycle Background", BindableAction.CycleBackground);
+    listBind("Button 1"        , BindableAction.Button0);
+    listBind("Button 2"        , BindableAction.Button1);
+    listBind("Button 3"        , BindableAction.Button2);
+    listBind("Button 4"        , BindableAction.Button3);
+    listBind("Button 5"        , BindableAction.Button4);
+    listBind("Button 6"        , BindableAction.Button5);
+    listBind("Button 7"        , BindableAction.Button6);
+    listBind("Button 8"        , BindableAction.Button7);
+    listBind("Button 9"        , BindableAction.Button8);
+    listBind("Button 10"       , BindableAction.Button9);
 
     return { choices: [["Reset Ctrls", resetControls], ["Clear Ctrls", clearControls]], persistantChoices: [["Back", settingsMenu]] };
 }
 
-function listBindableAction(bindListElement: UnorderedListElement, text: string, bindableAction: BindableAction) {
+function listBindableAction(bindListElement: HTMLTableElement, text: string, bindableAction: BindableAction) {
     const keyPair = InputManager.get(bindableAction);
     if (!keyPair) throw new Error('Incorrect bindable action');
 
-    const bindElement = new TextElement(document.createElement('li'));
+    let bindElement = bindListElement.insertRow();
     bindListElement.appendChild(bindElement);
-    bindElement.text("<b>" + text + "</b>");
+    bindElement.insertCell().innerHTML = "<b>" + text + "</b>";
+
 
     const button1 = new ButtonElement();
-    bindElement.appendChild(button1);
+    button1.element = document.createElement("a");
+    bindElement.insertCell().appendChild(button1.element);
     let primaryKeyName = "";
     if (keyPair.primaryKey)
         primaryKeyName = keyPair.primaryKey.toString();
@@ -84,7 +85,8 @@ function listBindableAction(bindListElement: UnorderedListElement, text: string,
     });
 
     const button2 = new ButtonElement();
-    bindElement.appendChild(button2);
+    button2.element = document.createElement("a");
+    bindElement.insertCell().appendChild(button2.element);
     let secondaryKeyName = "";
     if (keyPair.secondaryKey)
         secondaryKeyName = keyPair.secondaryKey.toString();

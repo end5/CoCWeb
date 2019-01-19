@@ -50,7 +50,7 @@ body {
 }
 
 .statsName {
-    font-family: Consolas;
+    font-family: Consolas, monospace;
 }
 
 .statsBar {
@@ -158,8 +158,13 @@ body {
     top: 91%;
     left: 8%;
 }
-
+#mainImageDisplay {
+    max-height: 50%;
+    max-width: 100%;
+}
 #mainTextDisplay {
+    margin-block-start: 0.5em;
+    display: inline-block;
     white-space: pre-wrap;
 }
 
