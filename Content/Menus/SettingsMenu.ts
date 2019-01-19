@@ -78,14 +78,14 @@ export function settingsMenu(): NextScreenChoices {
 }
 
 function incFontSize(): NextScreenChoices {
-    Settings.customFontSize++;
-    MainScreen.textElement.style.fontSize = Settings.customFontSize + "px";
+    Settings.customFontSize+= 0.1;
+    MainScreen.textElement.style.fontSize = Settings.customFontSize + "em";
     return settingsMenu();
 }
 
 function decFontSize(): NextScreenChoices {
-    Settings.customFontSize--;
-    MainScreen.textElement.style.fontSize = Settings.customFontSize + "px";
+    Settings.customFontSize-= 0.1;
+    MainScreen.textElement.style.fontSize = Settings.customFontSize + "em";
     return settingsMenu();
 }
 

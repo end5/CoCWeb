@@ -10,17 +10,23 @@ h3 {
 }
 
 body {
-    background-image: url('resource/ui/background1.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: top;
+    background-color: #262626;
     height: 100vh;
     width: 125vh;
     position: relative;
     margin: auto;
 }
 
-
+#mainBackground {
+    background-image: url('resource/ui/background1.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: #262626;
+    background-position: top;
+    font-size: 1.5vh;
+    height: 100%;
+    width: 100%;
+}
 
 .buttonRow0 {
     position: relative;
@@ -51,6 +57,7 @@ body {
 
 .statsName {
     font-family: Consolas, monospace;
+    font-size: 1.25em;
 }
 
 .statsBar {
@@ -60,7 +67,7 @@ body {
 
 .statsNumbers {
     font-family: monospace;
-    font-size: 250%;
+    font-size: 1.75em;
     text-align: right;
     height: 100%;
     width: 40%;
@@ -73,7 +80,7 @@ body {
     width: 18vh;
     height: 5vh;
     font-family: Shrewsbury-Titling-Bold, Palatino, Georgia, serif;
-    font-size: 2.2vh;
+    font-size: 1.5em;
     font-weight: bold;
     text-align: center;
     line-height: 6vh;
@@ -114,6 +121,7 @@ body {
     padding-right: 1%;
     padding-top: 0.5%;
     padding-bottom: 0.5%;
+    font-size: 1.25em;
 }
 
 #levelupIcon {
@@ -132,7 +140,7 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     font-family: monospace;
-    font-size: 150%;
+    font-size: 1.5em;
     padding-left: 1%;
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -163,6 +171,7 @@ body {
     max-width: 100%;
 }
 #mainTextDisplay {
+    font-size: 1.5em;
     margin-block-start: 0.5em;
     display: inline-block;
     white-space: pre-wrap;

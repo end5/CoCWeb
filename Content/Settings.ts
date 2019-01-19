@@ -1,7 +1,7 @@
 import { Flags } from 'Engine/Flags';
 
 export const Settings = Flags.register('Settings', {
-    customFontSize: 16,
+    customFontSize: 1.5,
     lowStandards: false,
     hyperHappy: false,
     debug: false,
