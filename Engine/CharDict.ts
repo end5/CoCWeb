@@ -10,6 +10,3 @@ class CharacterDict extends Dictionary<string, Character> {
 }
 
 export const CharDict = new CharacterDict();
-
-// tslint:disable-next-line:no-string-literal
-(window as any)["chars"] = CharDict;

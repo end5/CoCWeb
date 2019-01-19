@@ -3,7 +3,7 @@ import { MainScreen } from 'Engine/Display/MainScreen';
 import { Player } from 'Content/Player/Player';
 import { Time } from 'Engine/Utilities/Time';
 import { CView } from 'Engine/Display/ContentView';
-import { InputTextElement } from 'Engine/Display/Elements/InputTextElement';
+import { InputElement } from 'Engine/Display/Elements/InputElement';
 import { BreastRow, BreastCup } from 'Engine/Body/BreastRow';
 import { Cock, CockType } from 'Engine/Body/Cock';
 import { Gender } from 'Engine/Body/GenderIdentity';
@@ -37,19 +37,19 @@ function enterName(player: Character): NextScreenChoices {
     CView.clear();
     CView.text("You grew up in the small village of Ingnam, a remote village with rich traditions, buried deep in the wilds.  Every year for as long as you can remember, your village has chosen a champion to send to the cursed Demon Realm.  Legend has it that in years Ingnam has failed to produce a champion, chaos has reigned over the countryside.  Children disappear, crops wilt, and disease spreads like wildfire.  This year, <b>you</b> have been selected to be the champion.\n\nWhat is your name?");
 
-    const nameField = new InputTextElement();
-    CView.textElement.appendElement(nameField);
+    const nameField = new InputElement('text');
+    MainScreen.textElement.appendChild(nameField);
 
     return { choices: [["OK", () => chooseName(player, nameField)]] };
 }
 
-function chooseName(player: Character, nameField: InputTextElement): NextScreenChoices {
-    if (nameField.text === "") {
+function chooseName(player: Character, nameField: InputElement): NextScreenChoices {
+    if (nameField.value === "") {
         enterName(player);
         CView.text("\n\n\n<b>You must select a name.</b>");
         return enterName(player);
     }
-    player.desc.name = nameField.text;
+    player.desc.name = nameField.value;
     CView.clear();
     CView.text("\n\n\n\nAre you a man or a woman?");
     return { choices: [["Man", isAMan], ["Woman", isAWoman]] };

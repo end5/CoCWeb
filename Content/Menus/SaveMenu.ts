@@ -1,10 +1,11 @@
 import { displaySaves, saveSlotChoices } from './SaveDisplay';
-import { InputTextElement } from 'Engine/Display/Elements/InputTextElement';
+import { InputElement } from 'Engine/Display/Elements/InputElement';
 import { SaveManager } from 'Engine/Save/SaveManager';
 import { generateSave, SaveFile } from 'Engine/Save/SaveFile';
 import { ClickOption, NextScreenChoices } from 'Engine/Display/ScreenDisplay';
 import { CView } from 'Engine/Display/ContentView';
 import { dataMenu } from './DataMenu';
+import { MainScreen } from 'Engine/Display/MainScreen';
 
 export function saveMenu(): NextScreenChoices {
     CView.clear();
@@ -17,11 +18,11 @@ export function saveMenu(): NextScreenChoices {
     CView.text("<b>Leave the notes box blank if you don't wish to change notes.</b>");
     CView.text("<b><u>NOTES:</u></b>");
 
-    const notesInputElement = new InputTextElement();
-    CView.textElement.appendElement(notesInputElement);
+    const notesInputElement = new InputElement('text');
+    MainScreen.textElement.appendChild(notesInputElement);
     notesInputElement.style.position = "fixed";
 
-    return saveSlotChoices(createSaveFuncCallback(generateSave(notesInputElement.text)), dataMenu);
+    return saveSlotChoices(createSaveFuncCallback(generateSave(notesInputElement.value)), dataMenu);
 }
 
 function createSaveFuncCallback(save: SaveFile): (index: number) => ClickOption {

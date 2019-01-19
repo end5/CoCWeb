@@ -10,6 +10,7 @@ import { deleteMenu } from './DeleteMenu';
 import { mainMenu } from './MainMenu';
 import { CharDict } from 'Engine/CharDict';
 import { playerMenu } from './InGame/PlayerMenu';
+import { MainScreen } from 'Engine/Display/MainScreen';
 
 export function dataMenu(): NextScreenChoices {
     CView.clear();
@@ -47,7 +48,7 @@ function autosaveToggle(): NextScreenChoices {
 function saveToFile(): NextScreenChoices {
     const saveFile = generateSave();
     const anchor = new AnchorElement();
-    CView.textElement.appendElement(anchor);
+    MainScreen.textElement.appendChild(anchor);
     const blob = new Blob([JSON.stringify(saveFile)], { type: 'text/json' });
     // if (!!window["StyleMedia"]) // IE Edge
     // window.navigator.msSaveBlob(blob, saveFile.name);

@@ -1,39 +1,42 @@
-export abstract class ScreenElement<T extends HTMLElement> {
-    protected htmlElement: T;
+export class ScreenElement<T extends HTMLElement> {
+    private htmlElement?: T;
 
-    public constructor(htmlElement: T) {
+    public constructor(htmlElement?: T) {
+        if (htmlElement)
+            this.element = htmlElement;
+    }
+
+    public get element(): T {
+        if (this.htmlElement)
+            return this.htmlElement;
+        throw new Error("No html element");
+    }
+
+    public set element(htmlElement: T) {
         this.htmlElement = htmlElement;
     }
 
-    public setHTMLElement(element: T) {
-        this.htmlElement = element;
-    }
-
     public hide() {
-        if (this.htmlElement)
-            this.htmlElement.style.visibility = "hidden";
+        this.element.style.visibility = "hidden";
     }
 
     public show() {
-        if (this.htmlElement)
-            this.htmlElement.style.visibility = "visible";
+        this.element.style.visibility = "visible";
     }
 
-    public appendElement(element: ScreenElement<HTMLElement>) {
-        if (this.htmlElement)
-            element.htmlElement = this.htmlElement.appendChild(element.htmlElement);
+    public appendChild(child: ScreenElement<HTMLElement>) {
+        child.element = this.element.appendChild(child.element);
     }
 
-    public removeElement(element: ScreenElement<HTMLElement>) {
-        if (this.htmlElement)
-            this.htmlElement.removeChild(element.htmlElement);
+    public removeChild(child: ScreenElement<HTMLElement>) {
+        this.element.removeChild(child.element);
     }
 
     public get style(): CSSStyleDeclaration {
-        return this.htmlElement.style;
+        return this.element.style;
     }
 
     public get computedStyle(): CSSStyleDeclaration {
-        return window.getComputedStyle(this.htmlElement);
+        return window.getComputedStyle(this.element);
     }
 }

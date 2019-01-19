@@ -79,13 +79,13 @@ export function settingsMenu(): NextScreenChoices {
 
 function incFontSize(): NextScreenChoices {
     Settings.customFontSize++;
-    CView.textElement.style.fontSize = Settings.customFontSize + "px";
+    MainScreen.textElement.style.fontSize = Settings.customFontSize + "px";
     return settingsMenu();
 }
 
 function decFontSize(): NextScreenChoices {
     Settings.customFontSize--;
-    CView.textElement.style.fontSize = Settings.customFontSize + "px";
+    MainScreen.textElement.style.fontSize = Settings.customFontSize + "px";
     return settingsMenu();
 }
 

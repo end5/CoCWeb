@@ -1,10 +1,10 @@
-import { ListEntryElement } from 'Engine/Display/Elements/ListEntryElement';
 import { UnorderedListElement } from 'Engine/Display/Elements/UnorderedListElement';
 import { SaveManager } from 'Engine/Save/SaveManager';
 import { Gender } from 'Engine/Body/GenderIdentity';
 import { SaveFile } from 'Engine/Save/SaveFile';
 import { ClickOption, NextScreenChoices, ScreenChoice } from 'Engine/Display/ScreenDisplay';
-import { CView } from 'Engine/Display/ContentView';
+import { MainScreen } from 'Engine/Display/MainScreen';
+import { TextElement } from 'Engine/Display/Elements/TextElement';
 
 export function saveSlotChoices(saveSlotCallback: (index: number) => ClickOption, prevMenu: ClickOption): NextScreenChoices {
     const choices: ScreenChoice[] = [];
@@ -16,16 +16,16 @@ export function saveSlotChoices(saveSlotCallback: (index: number) => ClickOption
 
 export function displaySaves() {
     const saveListElement = new UnorderedListElement();
-    CView.textElement.appendElement(saveListElement);
+    MainScreen.textElement.appendChild(saveListElement);
 
     for (let index: number = 0; index < SaveManager.saveSlotCount(); index++) {
-        const saveElement = new ListEntryElement();
-        saveListElement.appendElement(saveElement);
+        const saveElement = new TextElement(document.createElement('li'));
+        saveListElement.appendChild(saveElement);
         saveInfo(SaveManager.get(index) as SaveFile, (index + 1).toString(), saveElement);
     }
 }
 
-export function saveInfo(saveFile: SaveFile, slotName: string, element: ListEntryElement) {
+export function saveInfo(saveFile: SaveFile, slotName: string, element: TextElement<HTMLLIElement>) {
     element.text(slotName + ":  ");
     if (saveFile) {
         element.text("<b>" + saveFile.name + "</b>");

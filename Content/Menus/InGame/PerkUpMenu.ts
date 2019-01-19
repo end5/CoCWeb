@@ -6,10 +6,9 @@ import { Effect } from 'Engine/Effects/Effect';
 import { EffectType } from 'Content/Effects/EffectType';
 import { displayNextScreenChoices, NextScreenChoices, choiceWrap } from 'Engine/Display/ScreenDisplay';
 import { CView } from 'Engine/Display/ContentView';
-import { ListEntryElement } from 'Engine/Display/Elements/ListEntryElement';
-import { ParagraphElement } from 'Engine/Display/Elements/ParagraphElement';
 import { playerMenu } from './PlayerMenu';
 import { numToCardinalText } from 'Content/Utilities/NumToText';
+import { TextElement } from 'Engine/Display/Elements/TextElement';
 
 export function perkUpMenu(character: Character): NextScreenChoices {
     CView.clear();
@@ -47,21 +46,21 @@ function confirmPerk(character: Character, selectedPerk: Effect): NextScreenChoi
 function displayPerkList(character: Character) {
     const perkList = getAvailablePerks(character);
     const perkListDisplay = new UnorderedListElement();
-    CView.textElement.appendElement(perkListDisplay);
+    MainScreen.textElement.appendChild(perkListDisplay);
     perkList.forEach((perk) => {
-        const listEntry = new ListEntryElement();
-        perkListDisplay.appendElement(listEntry);
+        const listEntry = new TextElement(document.createElement('li'));
+        perkListDisplay.appendChild(listEntry);
 
         const buttonElement = new ButtonElement();
         buttonElement.style.position = "inherit";
-        listEntry.appendElement(buttonElement);
+        listEntry.appendChild(buttonElement);
         buttonElement.modify(perk.desc.name, () => {
             // Okay button is disabled until perk is selected
             displayNextScreenChoices({ choices: [["Okay", choiceWrap(confirmPerk, perk)], ["Skip", playerMenu]] });
         });
 
-        const longDescElement = new ParagraphElement();
-        listEntry.appendElement(longDescElement);
+        const longDescElement = new TextElement(document.createElement('p'));
+        listEntry.appendChild(longDescElement);
         longDescElement.text(perk.desc.description(perk, character));
     });
 }

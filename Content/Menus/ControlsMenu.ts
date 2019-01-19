@@ -1,5 +1,4 @@
 import { ButtonElement } from 'Engine/Display/ButtonElement';
-import { ListEntryElement } from 'Engine/Display/Elements/ListEntryElement';
 import { UnorderedListElement } from 'Engine/Display/Elements/UnorderedListElement';
 import { BindableAction } from 'Engine/Input/BindableAction';
 import { InputManager } from 'Engine/Input/InputManager';
@@ -7,6 +6,8 @@ import { KeyCombination } from 'Engine/Input/KeyCombination';
 import { NextScreenChoices } from 'Engine/Display/ScreenDisplay';
 import { CView } from 'Engine/Display/ContentView';
 import { settingsMenu } from './SettingsMenu';
+import { MainScreen } from 'Engine/Display/MainScreen';
+import { TextElement } from 'Engine/Display/Elements/TextElement';
 
 export function controlsMenu(): NextScreenChoices {
     CView.clear();
@@ -18,7 +19,7 @@ export function controlsMenu(): NextScreenChoices {
     CView.text("<b>Clear Ctrls</b> will remove all of the current control bindings, leaving everything Unbound.\n\n");
 
     const bindListElement = new UnorderedListElement();
-    CView.textElement.appendElement(bindListElement);
+    MainScreen.textElement.appendChild(bindListElement);
 
     listBindableAction(bindListElement, "Stats", BindableAction.Stats);
     listBindableAction(bindListElement, "Level Up", BindableAction.LevelUp);
@@ -58,12 +59,12 @@ function listBindableAction(bindListElement: UnorderedListElement, text: string,
     const keyPair = InputManager.get(bindableAction);
     if (!keyPair) throw new Error('Incorrect bindable action');
 
-    const bindElement = new ListEntryElement();
-    bindListElement.appendElement(bindElement);
+    const bindElement = new TextElement(document.createElement('li'));
+    bindListElement.appendChild(bindElement);
     bindElement.text("<b>" + text + "</b>");
 
     const button1 = new ButtonElement();
-    bindElement.appendElement(button1);
+    bindElement.appendChild(button1);
     let primaryKeyName = "";
     if (keyPair.primaryKey)
         primaryKeyName = keyPair.primaryKey.toString();
@@ -83,7 +84,7 @@ function listBindableAction(bindListElement: UnorderedListElement, text: string,
     });
 
     const button2 = new ButtonElement();
-    bindElement.appendElement(button2);
+    bindElement.appendChild(button2);
     let secondaryKeyName = "";
     if (keyPair.secondaryKey)
         secondaryKeyName = keyPair.secondaryKey.toString();

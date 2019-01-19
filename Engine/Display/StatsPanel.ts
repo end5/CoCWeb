@@ -1,8 +1,8 @@
 import { StatPanel } from './StatPanel';
 import { loadFromId } from 'Engine/Utilities/Html';
-import { BlankElement } from './Elements/BlankElement';
+import { ScreenElement } from 'Engine/Display/Elements/ScreenElement';
 
-export class StatsPanel extends BlankElement {
+export class StatsPanel extends ScreenElement<HTMLDivElement> {
     public str: StatPanel = new StatPanel();
     public tou: StatPanel = new StatPanel();
     public spe: StatPanel = new StatPanel();
@@ -17,24 +17,28 @@ export class StatsPanel extends BlankElement {
     public xp: StatPanel = new StatPanel();
     public gems: StatPanel = new StatPanel();
 
-    public setHTMLElement(element: HTMLDivElement) {
-        super.setHTMLElement(element);
+    public get element(): HTMLDivElement {
+        return super.element;
+    }
+
+    public set element(htmlElement: HTMLDivElement) {
+        super.element = htmlElement;
         this.setStatPanels();
     }
 
     private setStatPanels() {
-        this.str.setHTMLElement(loadFromId("strengthPanel") as HTMLDivElement);
-        this.tou.setHTMLElement(loadFromId("toughnessPanel") as HTMLDivElement);
-        this.spe.setHTMLElement(loadFromId("speedPanel") as HTMLDivElement);
-        this.int.setHTMLElement(loadFromId("intelligencePanel") as HTMLDivElement);
-        this.lib.setHTMLElement(loadFromId("libidoPanel") as HTMLDivElement);
-        this.sens.setHTMLElement(loadFromId("sensitivityPanel") as HTMLDivElement);
-        this.cor.setHTMLElement(loadFromId("corruptionPanel") as HTMLDivElement);
-        this.hp.setHTMLElement(loadFromId("hpPanel") as HTMLDivElement);
-        this.lust.setHTMLElement(loadFromId("lustPanel") as HTMLDivElement);
-        this.fatigue.setHTMLElement(loadFromId("fatiguePanel") as HTMLDivElement);
-        this.level.setHTMLElement(loadFromId("levelPanel") as HTMLDivElement);
-        this.xp.setHTMLElement(loadFromId("xpPanel") as HTMLDivElement);
-        this.gems.setHTMLElement(loadFromId("gemsPanel") as HTMLDivElement);
+        this.str.element = loadFromId("strengthPanel");
+        this.tou.element = loadFromId("toughnessPanel");
+        this.spe.element = loadFromId("speedPanel");
+        this.int.element = loadFromId("intelligencePanel");
+        this.lib.element = loadFromId("libidoPanel");
+        this.sens.element = loadFromId("sensitivityPanel");
+        this.cor.element = loadFromId("corruptionPanel");
+        this.hp.element = loadFromId("hpPanel");
+        this.lust.element = loadFromId("lustPanel");
+        this.fatigue.element = loadFromId("fatiguePanel");
+        this.level.element = loadFromId("levelPanel");
+        this.xp.element = loadFromId("xpPanel");
+        this.gems.element = loadFromId("gemsPanel");
     }
 }

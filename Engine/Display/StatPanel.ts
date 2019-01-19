@@ -1,23 +1,27 @@
 import { loadFromClassName } from 'Engine/Utilities/Html';
-import { BlankElement } from './Elements/BlankElement';
+import { ScreenElement } from 'Engine/Display/Elements/ScreenElement';
 
-export class StatPanel extends BlankElement {
-    private statBarElement: HTMLElement | undefined;
-    private statCurrentElement: HTMLElement | undefined;
-    private statMaxElement: HTMLElement | undefined;
+export class StatPanel extends ScreenElement<HTMLDivElement> {
+    private statBarElement?: HTMLElement;
+    private statCurrentElement?: HTMLElement;
+    private statMaxElement?: HTMLElement;
     private statValue: number = 0;
     private statMin: number = 0;
     private statMax: number = 100;
 
-    public setHTMLElement(element: HTMLDivElement) {
-        super.setHTMLElement(element);
+    public get element(): HTMLDivElement {
+        return super.element;
+    }
+
+    public set element(htmlElement: HTMLDivElement) {
+        super.element = htmlElement;
         this.setStats();
     }
 
     private setStats() {
-        this.statBarElement = this.htmlElement.getElementsByClassName("statsBar")[0] as HTMLElement;
-        this.statCurrentElement = loadFromClassName("statsCurrent", this.htmlElement);
-        this.statMaxElement = this.htmlElement.getElementsByClassName("statsMax")[0] as HTMLElement;
+        this.statBarElement = this.element.getElementsByClassName("statsBar")[0] as HTMLElement;
+        this.statCurrentElement = loadFromClassName("statsCurrent", this.element);
+        this.statMaxElement = this.element.getElementsByClassName("statsMax")[0] as HTMLElement;
         this.statValue = 0;
         this.statMin = 0;
         this.statMax = 100;

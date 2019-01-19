@@ -122,7 +122,7 @@ function tdCup(): string {
 
 // ENCOUNTER:
 export function encounterTamanisDaughters(player: Character): NextScreenChoices {
-    CView.sprite(SpriteName.TamainsDaughters); // 57;
+    CView.sprite(SpriteName.Tamani_Daughters); // 57;
     TamanisDaughtersFlags.TIMES_ENCOUNTED_TAMANIS_DAUGHTERS++;
 
     if (TamanisDaughtersFlags.TIMES_ENCOUNTED_TAMANIS_DAUGHTERS > 0 && randInt(10) === 0) {
@@ -153,7 +153,7 @@ export function encounterTamanisDaughters(player: Character): NextScreenChoices 
 
 // [Play Dumb]
 function playDumbToTamanisDaughters(player: Character): NextScreenChoices {
-    CView.sprite(SpriteName.TamainsDaughters); // 57;
+    CView.sprite(SpriteName.Tamani_Daughters); // 57;
 
     CView.text("You shrug and ask, \"<i>What exactly is it you want again?  I'm not sure you have the right " + mf(player, "guy", "person") + ".</i>\"\n\n");
 
@@ -175,7 +175,7 @@ function playDumbToTamanisDaughters(player: Character): NextScreenChoices {
 // [Fight Them]
 function fightTamanisDaughters(player: Character): NextScreenChoices {
     CView.text("You whirl around threateningly, intent on putting Tamani's wayward brood back in their place.\n\n");
-    CView.sprite(SpriteName.TamainsDaughters); // 57;
+    CView.sprite(SpriteName.Tamani_Daughters); // 57;
     const tamanisDaughters = new TamanisDaughters();
     if (TamanisDaughtersFlags.TAMANI_PRESENT) {
         // (+5 mob strength)
@@ -197,7 +197,7 @@ function fightTamanisDaughters(player: Character): NextScreenChoices {
 
 // [Fuck them]
 function fuckYoDaughtersHomie(player: Character, inCombat?: boolean): NextScreenChoices {
-    CView.sprite(SpriteName.TamainsDaughters); // 57;
+    CView.sprite(SpriteName.Tamani_Daughters); // 57;
     TamanisDaughtersFlags.TIMES_FUCKED_TAMANIS_DAUGHTERS++;
     const cocks: number = player.body.cocks.length;
     const daughters: number = Math.floor(TamaniFlags.TAMANI_NUMBER_OF_DAUGHTERS / 2);
@@ -383,7 +383,7 @@ function fuckYoDaughtersHomie(player: Character, inCombat?: boolean): NextScreen
 
 // [Let them]
 function legTamanisDaughtersRAEPYou(player: Character, inCombat?: boolean): NextScreenChoices {
-    CView.sprite(SpriteName.TamainsDaughters); // 57;
+    CView.sprite(SpriteName.Tamani_Daughters); // 57;
     TamanisDaughtersFlags.TIMES_FUCKED_TAMANIS_DAUGHTERS++;
     const cocks: number = player.body.cocks.length;
     const daughters: number = Math.floor(TamaniFlags.TAMANI_NUMBER_OF_DAUGHTERS / 2);
@@ -743,7 +743,7 @@ function legTamanisDaughtersRAEPYou(player: Character, inCombat?: boolean): Next
 
 // [Lose Combat, Get Your Dick DRAINED]
 function tamaniDaughtersCombatLossDrain(player: Character): NextScreenChoices {
-    CView.sprite(SpriteName.TamainsDaughters); // 57;
+    CView.sprite(SpriteName.Tamani_Daughters); // 57;
     TamanisDaughtersFlags.TIMES_FUCKED_TAMANIS_DAUGHTERS++;
 
     // Vars
@@ -884,7 +884,7 @@ function tamaniDaughtersCombatLossDrain(player: Character): NextScreenChoices {
 }
 
 function tamaniDaughtersBadEndChoice(player: Character): NextScreenChoices {
-    CView.sprite(SpriteName.TamainsDaughters); // 57;
+    CView.sprite(SpriteName.Tamani_Daughters); // 57;
     CView.text("The next morning your unfocused eyes blink open, and you find yourself in the same situation as before.  Thankfully your orgasm has been allowed to end, though you still feel dopey and unfocused from whatever is flowing into you.  You manage to twist your head around to get a better look at the situation and discover a pair of IV's lodged in your arms.  Twisting your body, you realize you can still feel the drug-enema tube lodged in your " + describeButthole(player.body.butt) + ".  Oddly, it's hard to feel worried or concerned about the situation.\n\n");
 
     CView.text("A goblin leans over your face and hugs her jiggling breasts against you as she gushes, \"<i>Thank you so much daddy!   You probably can't see with all the straps holding you down, but you got me and my sisters totally pregnant.  There's even enough of your spunk left over to knock us up a few more times!  We decided that even though we don't need you to cum right now, we'd let you keep coming forever.  Do you want that?</i>\"\n\n");
@@ -897,7 +897,7 @@ function tamaniDaughtersBadEndChoice(player: Character): NextScreenChoices {
 
 // [Yes]
 function tamaniDaughtersYesBadEndMePlease(player: Character): NextScreenChoices {
-    CView.sprite(SpriteName.TamainsDaughters); // 57;
+    CView.sprite(SpriteName.Tamani_Daughters); // 57;
 
     CView.text("\"<i>Wonderful!</i>\" cries the excited pregnant slut.   She gives you a quick peck on the cheek as she prances back over to the machine.  You brace yourself in anticipation, eager to lose yourself to an eternal orgasm.  A switch clicks, and a dial whirs as it's turned up to the maximum.  The fluids pumping into your backside and directly into your veins suddenly jump in pressure, stinging painfully for a moment before the pleasure returns.  Your eyes slowly roll back, your jaw goes slack, and your " + describeCocksLight(player) + " spew");
     if (player.body.cocks.length === 1) CView.text("s");
@@ -910,7 +910,7 @@ function tamaniDaughtersYesBadEndMePlease(player: Character): NextScreenChoices 
 
 // [NO]
 function tamaniDaughtersDeclineBadEnd(player: Character): NextScreenChoices {
-    CView.sprite(SpriteName.TamainsDaughters); // 57;
+    CView.sprite(SpriteName.Tamani_Daughters); // 57;
 
     CView.text("\"<i>Seriously!?</i>\" exclaims the pregnant slut, \"<i>What kind of person wouldn't want to cum all the time?  Fuck, just the idea of it is making me drip!</i>\"\n\n");
 
@@ -923,7 +923,7 @@ function tamaniDaughtersDeclineBadEnd(player: Character): NextScreenChoices {
 }
 // [Rather Fill Individually]
 function tamanisDaughtersFillIndividuallyBADEND(player: Character): NextScreenChoices {
-    CView.sprite(SpriteName.TamainsDaughters); // 57;
+    CView.sprite(SpriteName.Tamani_Daughters); // 57;
 
     CView.text("\"<i>Really?</i>\" asks the pregnant goblin before she exclaims, \"<i>You do love us!  Oh Dad, once mom comes home will you fuck all of us?  I want to feel you make love to my drippy, pregnant pussy while she watches!</i>\"\n\n");
 
@@ -947,7 +947,7 @@ function tamanisDaughtersFillIndividuallyBADEND(player: Character): NextScreenCh
 
 // [Lose to Daughters With Tamani There]
 function loseToDaughtersWithTamaniThere(player: Character): NextScreenChoices {
-    CView.sprite(SpriteName.TamainsDaughters); // 57;
+    CView.sprite(SpriteName.Tamani_Daughters); // 57;
 
     TamanisDaughtersFlags.TIMES_FUCKED_TAMANIS_DAUGHTERS++;
     // Find a dick that fits
@@ -1077,7 +1077,7 @@ function knockUpDaughters(player: Character) {
 }
 
 export function combatWinAgainstDaughters(player: Character, tamanisDaughters: Character): NextScreenChoices {
-    CView.sprite(SpriteName.TamainsDaughters); // 57;
+    CView.sprite(SpriteName.Tamani_Daughters); // 57;
     if (tamanisDaughters.stats.HP < 1) {
         CView.clear().text("You smile in satisfaction as " + tamanisDaughters.desc.a + tamanisDaughters.desc.name + " collapses, unable to continue fighting.");
         if (player.stats.lust >= 33 && player.body.cocks.length > 0) {
@@ -1099,7 +1099,7 @@ export function combatWinAgainstDaughters(player: Character, tamanisDaughters: C
 }
 
 export function loseToDaughters(player: Character): NextScreenChoices {
-    CView.sprite(SpriteName.TamainsDaughters); // 57;
+    CView.sprite(SpriteName.Tamani_Daughters); // 57;
     if (player.stats.lust > 99) {
         // worms r gross mmmmkay?
         if (player.effects.has(EffectType.Infested)) {

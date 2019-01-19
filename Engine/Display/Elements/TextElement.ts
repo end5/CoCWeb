@@ -1,16 +1,14 @@
 import { ScreenElement } from './ScreenElement';
 
-export abstract class TextElement<T extends HTMLElement> extends ScreenElement<T> {
+export class TextElement<T extends HTMLElement> extends ScreenElement<T> {
     public text(text: string) {
-        this.htmlElement.innerHTML += text;
+        this.element.innerHTML += text;
     }
 
     public clear() {
-        if (this.htmlElement) {
-            while (this.htmlElement.lastChild) {
-                this.htmlElement.removeChild(this.htmlElement.lastChild);
-            }
-            this.htmlElement.innerHTML = "";
+        while (this.element.lastChild) {
+            this.element.removeChild(this.element.lastChild);
         }
+        this.element.innerHTML = "";
     }
 }

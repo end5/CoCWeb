@@ -12,26 +12,26 @@ import { TopButtons } from 'Engine/Display/TopButtons';
 
 for (let index = 0; index < TopButtons.NUM_TOP_BUTTONS; index++) {
     const newButton = new ButtonElement();
-    newButton.setHTMLElement(loadFromId("buttontop" + index) as HTMLAnchorElement);
+    newButton.element = loadFromId("buttontop" + index);
     MainScreen.topButtons.buttons.push(newButton);
 }
 
 for (let index = 0; index < BottomButtons.NUM_BOT_BUTTONS; index++) {
     const newButton = new ButtonElement();
-    newButton.setHTMLElement(loadFromId("button" + index) as HTMLAnchorElement);
+    newButton.element = loadFromId("button" + index);
     MainScreen.botButtons.buttons.push(newButton);
 }
 
-MainScreen.nameDisplay.setHTMLElement(loadFromId("nameDisplay") as HTMLParagraphElement);
-MainScreen.levelupIcon.setHTMLElement(loadFromId("levelupIcon") as HTMLImageElement);
-MainScreen.timeDayElement.setHTMLElement(loadFromId("timeDay") as HTMLParagraphElement);
-MainScreen.timeHourElement.setHTMLElement(loadFromId("timeHour") as HTMLParagraphElement);
+MainScreen.nameDisplay.element = loadFromId("nameDisplay");
+MainScreen.levelupIcon.element = loadFromId("levelupIcon");
+MainScreen.timeDayElement.element = loadFromId("timeDay");
+MainScreen.timeHourElement.element = loadFromId("timeHour");
 
-MainScreen.statsPanel.setHTMLElement(loadFromId("statsPanel") as HTMLDivElement);
+MainScreen.statsPanel.element = loadFromId("statsPanel");
 
-MainScreen.textElement.setHTMLElement(loadFromId("mainTextDisplay") as HTMLParagraphElement);
-MainScreen.imageElement.setHTMLElement(loadFromId("mainImageDisplay") as HTMLImageElement);
-MainScreen.spriteElement.setHTMLElement(loadFromId("mainSpriteDisplay") as HTMLImageElement);
+MainScreen.textElement.element = loadFromId("mainTextDisplay");
+MainScreen.imageElement.element = loadFromId("mainImageDisplay");
+MainScreen.spriteElement.element = loadFromId("mainSpriteDisplay");
 
 CView.imageElement = MainScreen.imageElement;
 CView.spriteElement = MainScreen.spriteElement;
@@ -57,3 +57,7 @@ import './Effects/EffectConstructors';
 import './Effects/EffectDescriptions';
 
 displayNextScreenChoices(mainMenu());
+
+import { CharDict } from 'Engine/CharDict';
+// tslint:disable-next-line:no-string-literal
+(window as any)["chars"] = CharDict;
