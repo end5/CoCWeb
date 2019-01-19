@@ -1,6 +1,6 @@
 import { ISerializable } from 'Engine/Utilities/ISerializable';
 import { Stat, IStat } from 'Engine/Character/Stats/Stat/Stat';
-import { IDeltaStatEffect } from 'Engine/Character/Stats/Stat/DeltaStatEffect';
+import { DeltaStatEffect } from 'Engine/Character/Stats/Stat/DeltaStatEffect';
 
 export interface IDeltaStat {
     base: IStat;
@@ -11,19 +11,19 @@ export interface IDeltaStat {
 export class DeltaStat implements ISerializable<IDeltaStat> {
     private base: Stat;
     private deltaStat: Stat;
-    private total: Stat;
+    private totalStat: Stat;
     protected calculatedValue: number = 0;
 
     public constructor(base: number, delta: number) {
         this.base = new Stat(base);
         this.deltaStat = new Stat(delta);
-        this.total = new Stat(this.base.raw + this.deltaStat.raw);
-        this.calculatedValue = this.total.calculated;
+        this.totalStat = new Stat(this.base.raw + this.deltaStat.raw);
+        this.calculatedValue = this.totalStat.calculated;
     }
 
     protected recalculate() {
-        this.total.raw = this.base.calculated + this.deltaStat.calculated;
-        this.calculatedValue = this.total.calculated;
+        this.totalStat.raw = this.base.calculated + this.deltaStat.calculated;
+        this.calculatedValue = this.totalStat.calculated;
     }
 
     public get raw() { return this.base.calculated; }
@@ -38,40 +38,36 @@ export class DeltaStat implements ISerializable<IDeltaStat> {
         this.recalculate();
     }
 
+    public get total() { return this.totalStat.calculated; }
+    public set total(num: number) {
+        this.totalStat.raw = num;
+        this.recalculate();
+    }
+
     public get value() { return this.calculatedValue; }
     public set value(num: number) {
         this.deltaStat.raw = num - this.base.raw;
         this.recalculate();
     }
 
-    public addEffect(values: IDeltaStatEffect) {
-        if (values) {
-            if (values.base)
-                this.base.effects.add(values.base);
-            if (values.delta)
-                this.deltaStat.effects.add(values.delta);
-            if (values.total)
-                this.total.effects.add(values.total);
-        }
+    public addEffect(values: DeltaStatEffect) {
+        this.base.effects.add(values.base);
+        this.deltaStat.effects.add(values.delta);
+        this.totalStat.effects.add(values.total);
         this.recalculate();
     }
 
-    public removeEffect(values: IDeltaStatEffect) {
-        if (values) {
-            if (values.base)
-                this.base.effects.removeEntry(values.base);
-            if (values.delta)
-                this.deltaStat.effects.removeEntry(values.delta);
-            if (values.total)
-                this.total.effects.removeEntry(values.total);
-        }
+    public removeEffect(values: DeltaStatEffect) {
+        this.base.effects.removeEntry(values.base);
+        this.deltaStat.effects.removeEntry(values.delta);
+        this.totalStat.effects.removeEntry(values.total);
         this.recalculate();
     }
 
     public toString() {
         return 'Base[' + this.base.toString() + '] ' +
             'Delta[' + this.deltaStat.toString() + '] ' +
-            'Total[' + this.total.toString() + '] ' +
+            'Total[' + this.totalStat.toString() + '] ' +
             'Value: ' + this.value.toString();
     }
 
@@ -79,13 +75,13 @@ export class DeltaStat implements ISerializable<IDeltaStat> {
         return {
             base: this.base.serialize(),
             delta: this.deltaStat.serialize(),
-            total: this.total.serialize(),
+            total: this.totalStat.serialize(),
         };
     }
 
     public deserialize(saveObject: IDeltaStat) {
         this.base.deserialize(saveObject.base);
         this.deltaStat.deserialize(saveObject.delta);
-        this.total.deserialize(saveObject.total);
+        this.totalStat.deserialize(saveObject.total);
     }
 }

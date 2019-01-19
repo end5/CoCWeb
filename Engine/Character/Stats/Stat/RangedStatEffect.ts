@@ -7,15 +7,13 @@ export interface IRangedStatEffect extends IDeltaStatEffect {
 }
 
 export class RangedStatEffect extends DeltaStatEffect implements IRangedStatEffect {
-    public min = new StatEffect();
-    public max = new StatEffect();
+    public min: StatEffect;
+    public max: StatEffect;
 
     public constructor(values?: IRangedStatEffect) {
         super(values);
-        if (values) {
-            if (values.min) this.min = new StatEffect(values.min);
-            if (values.max) this.max = new StatEffect(values.max);
-        }
+        this.min = new StatEffect(values ? values.min : undefined);
+        this.max = new StatEffect(values ? values.max : undefined);
     }
 
     public toString() {

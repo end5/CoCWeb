@@ -110,7 +110,7 @@ export abstract class Character implements ISerializable<ICharacter> {
         this.genderPref = saveObject.genderPref;
         this.body.deserialize(saveObject.body);
         this.stats.deserialize(saveObject.stats);
-        this.effects.deserialize(saveObject.effects, Effect);
+        this.effects.deserialize(saveObject.effects, Effect, this);
         this.inventory.deserialize(saveObject.inventory);
         this.hoursSinceCum = saveObject.hoursSinceCum;
     }

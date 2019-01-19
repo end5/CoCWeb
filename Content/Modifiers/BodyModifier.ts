@@ -178,7 +178,8 @@ export function displayGoIntoHeat(character: Character, intensity: number = 1): 
         statusAffectHeat.values.fertility.total.flat += 5 * intensity;
         statusAffectHeat.values.lib.total.flat += 5 * intensity;
         statusAffectHeat.values.expireCountdown += 48 * intensity;
-        character.stats.libBimbo += 5 * intensity;
+        // $> Fix this
+        // character.stats.libBimbo += 5 * intensity;
         return "\n\nYour mind clouds as your " + describeVagina(character, character.body.vaginas.get(0)) + " moistens.  Despite already being in heat, the desire to copulate constantly grows even larger.";
     }
     // Go into heat.  Heats v1 is bonus fertility, v2 is bonus libido, v3 is hours till it's gone
@@ -189,7 +190,8 @@ export function displayGoIntoHeat(character: Character, intensity: number = 1): 
             lib: { total: { flat: 15 * intensity } },
             expireCountdown: 48 * intensity
         });
-        character.stats.libBimbo += 15 * intensity;
+        // $> Fix this
+        // character.stats.libBimbo += 15 * intensity;
         return "\n\nYour mind clouds as your " + describeVagina(character, character.body.vaginas.get(0)) + " moistens.  Your hands begin stroking your body from top to bottom, your sensitive skin burning with desire.  Fantasies about bending over and presenting your needy pussy to a male overwhelm you as <b>you realize you have gone into heat!</b>";
     }
 }
@@ -208,7 +210,8 @@ export function displayGoIntoRut(character: Character, intensity: number = 1): s
         statusAffectRut.values.cumQuantity.total.flat = 100 * intensity;
         statusAffectRut.values.lib.total.flat = 5 * intensity;
         statusAffectRut.values.expireCountdown = 48 * intensity;
-        character.stats.libBimbo += 5 * intensity;
+        // $> Fix this
+        //   character.stats.libBimbo += 5 * intensity;
         return "\n\nYour " + describeCock(character, character.body.cocks.get(0)) + " throbs and dribbles as your desire to mate intensifies.  You know that <b>you've sunken deeper into rut</b>, but all that really matters is unloading into a cum-hungry cunt.";
     }
     else {
@@ -221,7 +224,8 @@ export function displayGoIntoRut(character: Character, intensity: number = 1): s
             lib: { total: { flat: 5 * intensity } },
             expireCountdown: 100 * intensity
         });
-        character.stats.libBimbo += 5 * intensity;
+        // $> Fix this
+        //  character.stats.libBimbo += 5 * intensity;
         return "\n\nYou stand up a bit straighter and look around, sniffing the air and searching for a mate.  Wait, what!?  It's hard to shake the thought from your head - you really could use a nice fertile hole to impregnate.  You slap your forehead and realize <b>you've gone into rut</b>!";
     }
 }

@@ -1,7 +1,7 @@
 import { ISerializable } from 'Engine/Utilities/ISerializable';
 import { IStat, Stat } from 'Engine/Character/Stats/Stat/Stat';
 import { DeltaStat, IDeltaStat } from 'Engine/Character/Stats/Stat/DeltaStat';
-import { IRangedStatEffect } from 'Engine/Character/Stats/Stat/RangedStatEffect';
+import { RangedStatEffect } from 'Engine/Character/Stats/Stat/RangedStatEffect';
 
 export interface IRangedStat extends IDeltaStat {
     min: IStat;
@@ -38,23 +38,15 @@ export class RangedStat extends DeltaStat implements ISerializable<IRangedStat> 
         this.recalculate();
     }
 
-    public addEffect(values: IRangedStatEffect) {
-        if (values) {
-            if (values.max)
-                this.maxStat.effects.add(values.max);
-            if (values.min)
-                this.minStat.effects.add(values.min);
-        }
+    public addEffect(values: RangedStatEffect) {
+        this.maxStat.effects.add(values.max);
+        this.minStat.effects.add(values.min);
         super.addEffect(values);
     }
 
-    public removeEffect(values: IRangedStatEffect) {
-        if (values) {
-            if (values.max)
-                this.maxStat.effects.removeEntry(values.max);
-            if (values.min)
-                this.minStat.effects.removeEntry(values.min);
-        }
+    public removeEffect(values: RangedStatEffect) {
+        this.maxStat.effects.removeEntry(values.max);
+        this.minStat.effects.removeEntry(values.min);
         super.removeEffect(values);
     }
 

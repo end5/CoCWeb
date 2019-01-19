@@ -7,15 +7,14 @@ export interface IDeltaStatEffect {
 }
 
 export class DeltaStatEffect implements IDeltaStatEffect {
-    public base = new StatEffect();
-    public delta = new StatEffect();
-    public total = new StatEffect();
+    public base: StatEffect;
+    public delta: StatEffect;
+    public total: StatEffect;
+
     public constructor(values?: IDeltaStatEffect) {
-        if (values) {
-            if (values.base) this.base = new StatEffect(values.base);
-            if (values.delta) this.delta = new StatEffect(values.delta);
-            if (values.total) this.total = new StatEffect(values.total);
-        }
+        this.base = new StatEffect(values ? values.base : undefined);
+        this.delta = new StatEffect(values ? values.delta : undefined);
+        this.total = new StatEffect(values ? values.total : undefined);
     }
 
     public toString() {

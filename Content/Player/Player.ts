@@ -17,6 +17,7 @@ import { PlayerResponses } from './PlayerResponses';
 import { PlayerAction } from './CombatActions/PlayerActionPerform';
 import { ItemDict } from 'Engine/Items/ItemDict';
 import { Settings } from 'Content/Settings';
+import { IConcreteStatEffect } from 'Engine/Character/Stats/Stat/StatEffect';
 
 class BlankEndScenes extends EndScenes { }
 
@@ -62,19 +63,54 @@ export class Player extends Character {
         });
         this.combatContainer.useAI = false;
 
-        this.effects.create("Easy Mode", { lust: { delta: { multi: () => Settings.easyMode && this.stats.base.lust.delta > 0 ? 0.5 : 1 } } });
-        this.effects.create("Lust Resistance", { lust: { delta: { multi: (val) => val > 0 ? this.stats.lustPercent() / 100 : 1 } } });
+        this.effects.create("Easy Mode", {
+            lust: {
+                delta: {
+                    recalculate: (values: IConcreteStatEffect) => {
+                        if (Settings.easyMode && this.stats.base.lust.delta > 0)
+                            values.multi = 0.5;
+                        else
+                            values.multi = 1;
+                    }
+                }
+            }
+        });
+        this.effects.create("Lust Resistance", {
+            lust: {
+                delta: {
+                    recalculate: (values: IConcreteStatEffect) => {
+                        if (this.stats.base.lust.delta > 0)
+                            values.multi = this.stats.lustPercent() / 100;
+                        else
+                            values.multi = 1;
+                    }
+                }
+            }
+        });
         this.effects.create("Sensitivity", {
             sens: {
                 delta: {
-                    multi: (val) => {
-                        if (this.stats.sens > 50 && val > 0) return 0.5;
-                        if (this.stats.sens > 75 && val > 0) return 0.5;
-                        if (this.stats.sens > 90 && val > 0) return 0.5;
-                        if (this.stats.sens > 50 && val < 0) return 2;
-                        if (this.stats.sens > 75 && val < 0) return 2;
-                        if (this.stats.sens > 90 && val < 0) return 2;
-                        return 1;
+                    recalculate: (values: IConcreteStatEffect) => {
+                        if (this.stats.base.sens.value <= 50)
+                            values.multi = 1;
+                        else {
+                            if (this.stats.base.sens.delta > 0)
+                                values.multi = 0.5;
+                            else if (this.stats.base.sens.delta < 0)
+                                values.multi = 2;
+                        }
+                        if (this.stats.base.sens.value > 75) {
+                            if (this.stats.base.sens.delta > 0)
+                                values.multi *= 0.5;
+                            if (this.stats.base.sens.delta < 0)
+                                values.multi *= 2;
+                        }
+                        if (this.stats.base.sens.value > 90) {
+                            if (this.stats.base.sens.delta > 0)
+                                values.multi *= 0.5;
+                            if (this.stats.base.sens.delta < 0)
+                                values.multi *= 2;
+                        }
                     }
                 }
             }
@@ -82,23 +118,37 @@ export class Player extends Character {
         this.effects.create("Gender", {
             lib: {
                 min: {
-                    flat: () => {
-                        if (this.stats.lib < 15 && this.gender > 0)
-                            return 15;
-                        if (this.stats.lib < 10 && this.gender === 0)
-                            return 10;
-                        return 0;
+                    recalculate: (values: IConcreteStatEffect) => {
+                        if (this.gender > 0)
+                            values.flat = 15;
+                        else if (this.gender === 0)
+                            values.flat = 10;
+                        else
+                            values.flat = 0;
                     }
                 }
             }
         });
-        this.effects.create("Lust", { lib: { min: { flat: () => this.stats.lib < this.stats.base.lust.min * 2 / 3 ? this.stats.base.lust.min * 2 / 3 : 0 } } });
+        this.effects.create("Lust", {
+            lib: {
+                min: {
+                    recalculate: (values: IConcreteStatEffect) => {
+                        if (this.stats.lib < this.stats.base.lust.min * 2 / 3)
+                            values.flat = this.stats.base.lust.min * 2 / 3;
+                        else
+                            values.flat = 0;
+                    }
+                }
+            }
+        });
         this.effects.create("Level", {
             lustResist: {
                 total: {
-                    flat: (val) => {
-                        if (this.stats.level < 21) return val - (this.stats.level - 1) * 3;
-                        else return 40;
+                    recalculate: (values: IConcreteStatEffect) => {
+                        if (this.stats.level < 21)
+                            values.flat = -(this.stats.level - 1) * 3;
+                        else
+                            values.flat = 40;
                     }
                 }
             }
