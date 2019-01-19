@@ -18,7 +18,7 @@ export function controlsMenu(): NextScreenChoices {
     CView.text("<b>Reset Ctrls</b> will reset all of the control bindings to their defaults.\n\n");
     CView.text("<b>Clear Ctrls</b> will remove all of the current control bindings, leaving everything Unbound.\n\n");
 
-    const bindListElement = new UnorderedListElement();
+    const bindListElement = new UnorderedListElement(document.createElement('ul'));
     MainScreen.textElement.appendChild(bindListElement);
 
     listBindableAction(bindListElement, "Stats", BindableAction.Stats);

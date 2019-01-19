@@ -18,7 +18,7 @@ export function saveMenu(): NextScreenChoices {
     CView.text("<b>Leave the notes box blank if you don't wish to change notes.</b>");
     CView.text("<b><u>NOTES:</u></b>");
 
-    const notesInputElement = new InputElement('text');
+    const notesInputElement = new InputElement('text', document.createElement('input'));
     MainScreen.textElement.appendChild(notesInputElement);
     notesInputElement.style.position = "fixed";
 

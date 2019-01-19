@@ -15,7 +15,7 @@ export function saveSlotChoices(saveSlotCallback: (index: number) => ClickOption
 }
 
 export function displaySaves() {
-    const saveListElement = new UnorderedListElement();
+    const saveListElement = new UnorderedListElement(document.createElement('ul'));
     MainScreen.textElement.appendChild(saveListElement);
 
     for (let index: number = 0; index < SaveManager.saveSlotCount(); index++) {

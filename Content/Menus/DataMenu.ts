@@ -47,7 +47,7 @@ function autosaveToggle(): NextScreenChoices {
 
 function saveToFile(): NextScreenChoices {
     const saveFile = generateSave();
-    const anchor = new AnchorElement();
+    const anchor = new AnchorElement(document.createElement('a'));
     MainScreen.textElement.appendChild(anchor);
     const blob = new Blob([JSON.stringify(saveFile)], { type: 'text/json' });
     // if (!!window["StyleMedia"]) // IE Edge
