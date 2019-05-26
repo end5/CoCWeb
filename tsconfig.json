@@ -9,5 +9,6 @@
         "forceConsistentCasingInFileNames": true,
         "noImplicitReturns": true,
     },
-    "include": ["classes", "includes/appearanceDefs"]
+    "include": ["classes", "view", "includes/appearanceDefs", "classes/classes/Parser/Parser"],
+    "exclude": ["classes/classes/Parser"]
 }
