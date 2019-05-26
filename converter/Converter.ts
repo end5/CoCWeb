@@ -21,7 +21,7 @@ function replace(text: string, searchValue: string | RegExp, replaceValue: strin
 const classDeclareRegExp = /^(\s*)((?:dynamic\s+)?(?:(?:(public)|internal)\s+)?(?:final\s+)?)class\s+([\w\d_]+)/;
 
 // [override] [public | protected | private | internal] [static | final] [const | function | var] name
-const declareRegExp = /^(\s*)((?:override\s+)?(?:(?:(public|protected|private)|internal)?\s+)(?:(?:(static)|final)\s+)?(const|function|var))/;
+const declareRegExp = /^(\s*)((?:override\s+)?(?:(public|protected|private|internal)?\s+)(?:(?:(static)|final)\s+)?(const|function|var))/;
 
 export function fixText(text: string): string {
     const lines = text.split('\n');
@@ -64,13 +64,16 @@ export function fixText(text: string): string {
             lines[index] = start + lines[index].slice(classDeclareMatch[1].length + classDeclareMatch[2].length);
         }
 
-        // [match, whitespace, pre declare, (public | protected | private)?, static?, (const | function | var)]
+        // [match, whitespace, pre declare, (public | protected | private | internal)?, static?, (const | function | var)]
         const declareMatch = lines[index].match(declareRegExp);
         if (declareMatch) {
             let line = declareMatch[1];
 
-            if (declareMatch[3]) // public | protected | private
-                line += declareMatch[3] + ' ';
+            if (declareMatch[3]) // public | protected | private | internal
+                if (declareMatch[3] === 'internal')
+                    line += 'public ';
+                else
+                    line += declareMatch[3] + ' ';
 
             if (declareMatch[4]) // static
                 line += declareMatch[4] + ' ';

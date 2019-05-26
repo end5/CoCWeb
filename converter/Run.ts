@@ -32,6 +32,7 @@ export function walk(dir: PathLike, modify: (file: string) => void, done: (err: 
 // walk('Game/Scenes', (file) => fix(file, true), (err) => console.error(err));
 walk('classes', (file) => fix(file, true), (err) => console.error(err));
 walk('includes', (file) => fix(file, true), (err) => console.error(err));
+walk('lib/src/coc/view', (file) => fix(file, true), (err) => console.error(err));
 // fix('test.as');
 
 function fix(file: string, overwrite?: boolean) {
