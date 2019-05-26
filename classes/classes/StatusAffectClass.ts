@@ -1,0 +1,24 @@
+export class StatusAffectClass {
+    //constructor
+    public constructor(stype: StatusAffectType, value1: number = 0, value2: number = 0, value3: number = 0, value4: number = 0) {
+        this._stype = stype;
+        this.value1 = value1;
+        this.value2 = value2;
+        this.value3 = value3;
+        this.value4 = value4;
+    }
+    //data
+    private _stype: StatusAffectType;
+    public value1: number;
+    public value2: number;
+    public value3: number;
+    public value4: number;
+    //MEMBER FUNCTIONS
+    public get stype(): StatusAffectType {
+        return _stype;
+    }
+
+    public toString(): string {
+        return "[" + _stype + "," + value1 + "," + value2 + "," + value3 + "," + value4 + "]";
+    }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "corruption-of-champions-master",
+  "version": "1.0.0",
+  "description": "Corruption-of-Champions =======================",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^3.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^12.0.2"
+  }
+}
