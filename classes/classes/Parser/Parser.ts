@@ -1,9 +1,7 @@
 ﻿import { trace } from "console";
-import { kGAMECLASS } from "../GlobalFlags/kGAMECLASS";
-import { kFLAGS } from "../GlobalFlags/kFLAGS";
-import { CoC } from "../CoC";
-
-// import classes.CoC;
+import { conditionalOptions } from "./conditionalConverters";
+import { singleArgConverters } from "./singleArgLookups";
+import { twoWordNumericTagsLookup, twoWordTagsLookup } from "./doubleArgLookups";
 
 export class Parser {
 
@@ -21,7 +19,7 @@ export class Parser {
     public logErrors: boolean = true;
 
 
-    public Parser(ownerClass: any, settingsClass: any) {
+    public constructor(ownerClass: any, settingsClass: any) {
         this._ownerClass = ownerClass;
         this._settingsClass = settingsClass;
     }
@@ -75,86 +73,6 @@ export class Parser {
     // provides singleArgConverters
     // include "./singleArgLookups.as";
 
-    public singleArgConverters: Record<string, any> =
-        {
-            // all the errors related to trying to parse stuff if not present are
-            // already handled in the various *Descript() functions.
-            // no need to duplicate them.
-
-            // Note: all key strings MUST be ENTIRELY lowercase.
-
-            "agility": function (thisPtr: any): any { return "[Agility]"; },
-            "armor": function (thisPtr: any): any { return kGAMECLASS.player.armorName; },
-            "armorname": function (thisPtr: any): any { return kGAMECLASS.player.armorName; },
-            "ass": function (thisPtr: any): any { return kGAMECLASS.buttDescript(); },
-            "asshole": function (thisPtr: any): any { return kGAMECLASS.assholeDescript(); },
-            "balls": function (thisPtr: any): any { return kGAMECLASS.ballsDescriptLight(); },
-            "boyfriend": function (thisPtr: any): any { return kGAMECLASS.player.mf("boyfriend", "girlfriend"); },
-            "butt": function (thisPtr: any): any { return kGAMECLASS.buttDescript(); },
-            "butthole": function (thisPtr: any): any { return kGAMECLASS.assholeDescript(); },
-            "chest": function (thisPtr: any): any { return kGAMECLASS.chestDesc(); },
-            "clit": function (thisPtr: any): any { return kGAMECLASS.clitDescript(); },
-            "cock": function (thisPtr: any): any { return kGAMECLASS.player.cockDescript(0); },
-            "cockhead": function (thisPtr: any): any { return kGAMECLASS.player.cockHead(0); },
-            "cocks": function (thisPtr: any): any { return kGAMECLASS.player.multiCockDescriptLight(); },
-            "cunt": function (thisPtr: any): any { return kGAMECLASS.vaginaDescript(); },
-            "eachcock": function (thisPtr: any): any { return kGAMECLASS.player.sMultiCockDesc(); },
-            "evade": function (thisPtr: any): any { return "[Evade]"; },
-            "face": function (thisPtr: any): any { return kGAMECLASS.player.face(); },
-            "feet": function (thisPtr: any): any { return kGAMECLASS.player.feet(); },
-            "foot": function (thisPtr: any): any { return kGAMECLASS.player.foot(); },
-            "fullchest": function (thisPtr: any): any { return kGAMECLASS.player.allChestDesc(); },
-            "hair": function (thisPtr: any): any { return kGAMECLASS.hairDescript(); },
-            "hairorfur": function (thisPtr: any): any { return kGAMECLASS.hairOrFur(); },
-            "he": function (thisPtr: any): any { return kGAMECLASS.player.mf("he", "she"); },
-            "he2": function (thisPtr: any): any { return kGAMECLASS.player2.mf("he", "she"); },
-            "him": function (thisPtr: any): any { return kGAMECLASS.player.mf("him", "her"); },
-            "him2": function (thisPtr: any): any { return kGAMECLASS.player2.mf("him", "her"); },
-            "himself": function (thisPtr: any): any { return kGAMECLASS.player.mf("himself", "herself"); },
-            "herself": function (thisPtr: any): any { return kGAMECLASS.player.mf("himself", "herself"); },
-            "hips": function (thisPtr: any): any { return kGAMECLASS.hipDescript(); },
-            "his": function (thisPtr: any): any { return kGAMECLASS.player.mf("his", "her"); },
-            "his2": function (thisPtr: any): any { return kGAMECLASS.player2.mf("his", "her"); },
-            "leg": function (thisPtr: any): any { return kGAMECLASS.player.leg(); },
-            "legs": function (thisPtr: any): any { return kGAMECLASS.player.legs(); },
-            "man": function (thisPtr: any): any { return kGAMECLASS.player.mf("man", "woman"); },
-            "men": function (thisPtr: any): any { return kGAMECLASS.player.mf("men", "women"); },
-            "master": function (thisPtr: any): any { return kGAMECLASS.player.mf("master", "mistress"); },
-            "misdirection": function (thisPtr: any): any { return "[Misdirection]"; },
-            "multicock": function (thisPtr: any): any { return kGAMECLASS.player.multiCockDescriptLight(); },
-            "multicockdescriptlight": function (thisPtr: any): any { return kGAMECLASS.player.multiCockDescriptLight(); },
-            "name": function (thisPtr: any): any { return kGAMECLASS.player.short; },
-            "nipple": function (thisPtr: any): any { return kGAMECLASS.nippleDescript(0); },
-            "nipples": function (thisPtr: any): any { return kGAMECLASS.nippleDescript(0) + "s"; },
-            "onecock": function (thisPtr: any): any { return kGAMECLASS.player.oMultiCockDesc(); },
-            "pg": function (thisPtr: any): any { return "\n\n"; },
-            "pussy": function (thisPtr: any): any { return kGAMECLASS.vaginaDescript(); },
-            "race": function (thisPtr: any): any { return kGAMECLASS.player.race(); },
-            "sack": function (thisPtr: any): any { return kGAMECLASS.sackDescript(); },
-            "sheath": function (thisPtr: any): any { return kGAMECLASS.player.sheathDescription(); },
-            "skin": function (thisPtr: any): any { return kGAMECLASS.player.skin(); },
-            "skinfurscales": function (thisPtr: any): any { return kGAMECLASS.player.skinFurScales(); },
-            "teasetext": function (thisPtr: any): any { return kGAMECLASS.teaseText(); },
-            "tongue": function (thisPtr: any): any { return kGAMECLASS.tongueDescript(); },
-            "vag": function (thisPtr: any): any { return kGAMECLASS.vaginaDescript(); },
-            "vagina": function (thisPtr: any): any { return kGAMECLASS.vaginaDescript(); },
-            "vagorass": function (thisPtr: any): any { return (kGAMECLASS.player.hasVagina() ? kGAMECLASS.vaginaDescript() : kGAMECLASS.assholeDescript()); },
-            "weapon": function (thisPtr: any): any { return kGAMECLASS.player.weaponName; },
-            "weaponname": function (thisPtr: any): any { return kGAMECLASS.player.weaponName; },
-
-            "latexyname": function (thisPtr: any): any { return kGAMECLASS.flags[kFLAGS.GOO_NAME]; },
-            "bathgirlname": function (thisPtr: any): any { return kGAMECLASS.flags[kFLAGS.MILK_NAME]; },
-            "cockplural": function (thisPtr: any): any { return (kGAMECLASS.player.cocks.length == 1) ? "cock" : "cocks"; },
-            "dickplural": function (thisPtr: any): any { return (kGAMECLASS.player.cocks.length == 1) ? "dick" : "dicks"; },
-            "headplural": function (thisPtr: any): any { return (kGAMECLASS.player.cocks.length == 1) ? "head" : "heads"; },
-            "prickplural": function (thisPtr: any): any { return (kGAMECLASS.player.cocks.length == 1) ? "prick" : "pricks"; },
-            "boy": function (thisPtr: any): any { return kGAMECLASS.player.mf("boy", "girl"); },
-            "guy": function (thisPtr: any): any { return kGAMECLASS.player.mf("guy", "girl"); },
-            "wings": function (thisPtr: any): any { return kGAMECLASS.wingsDescript(); },
-            "tail": function (thisPtr: any): any { return kGAMECLASS.tailDescript(); },
-            "onetail": function (thisPtr: any): any { return kGAMECLASS.oneTailDescript(); }
-        }
-
     // Does lookup of single argument tags ("[cock]", "[armor]", etc...) in singleArgConverters
     // Supported variables are the options listed in the above
     // singleArgConverters object. If the passed argument is found in the above object,
@@ -168,9 +86,9 @@ export class Parser {
 
         var argLower: string;
         argLower = arg.toLowerCase()
-        if (argLower in this.singleArgConverters) {
+        if (argLower in singleArgConverters) {
             //if (logErrors) trace("WARNING: Found corresponding anonymous function");
-            argResult = this.singleArgConverters[argLower](this._ownerClass);
+            argResult = singleArgConverters[argLower](this._ownerClass);
 
             if (this.lookupParserDebug) trace("WARNING: Called, return = ", argResult);
 
@@ -222,186 +140,9 @@ export class Parser {
 
     }
 
-
     // provides twoWordNumericTagsLookup and twoWordTagsLookup, which use
     // cockLookups/cockHeadLookups, and rubiLookups/arianLookups respectively
     // include "./doubleArgLookups.as";
-
-
-    // provides rubiLookups and arianLookups
-    // note that these are only used in doubleArgLookups, not in Parser.as itself
-    //
-    // =!= NOTE: MUST BE IMPORTED BEFORE "./doubleArgLookups.as" =!=
-    // 
-    //Calls are now made through kGAMECLASS rather than thisPtr. This allows the compiler to detect if/when a function is inaccessible.
-    // include "./npcLookups.as";
-
-    //Calls are now made through kGAMECLASS rather than thisPtr. This allows the compiler to detect if/when a function is inaccessible.
-
-    // PRONOUNS: The parser uses Elverson/Spivak Pronouns specifically to allow characters to be written with non-specific genders.
-    // http://en.wikipedia.org/wiki/Spivak_pronoun
-    //
-    // Cheat Table:
-    //           | Subject    | Object       | Possessive Adjective | Possessive Pronoun | Reflexive         |
-    // Agendered | ey laughs  | I hugged em  | eir heart warmed     | that is eirs       | ey loves emself   |
-    // Masculine | he laughs  | I hugged him | his heart warmed     | that is his        | he loves himself  |
-    // Feminine  | she laughs | I hugged her | her heart warmed     | that is hers       | she loves herself |
-
-    // (Is it bad that half my development time so far has been researching non-gendered nouns? ~~~~Fake-Name)
-
-
-    public arianLookups: Record<string, any> = // For subject: "arian"
-        {
-            "man": function (thisPtr: CoC): string { return kGAMECLASS.arianScene.arianMF("man", "woman") },
-            // argh! "Man" is the mass-noun for humanity, and I'm loathe to choose an even more esoteric variant.
-            // Elverson/Spivak terminology is already esoteric enough, and it lacks a ungendered mass noun.
-
-            "ey": function (thisPtr: CoC): string { return kGAMECLASS.arianScene.arianMF("he", "she") },
-            "em": function (thisPtr: CoC): string { return kGAMECLASS.arianScene.arianMF("him", "her") },
-            "eir": function (thisPtr: CoC): string { return kGAMECLASS.arianScene.arianMF("his", "her") },
-            "eirs": function (thisPtr: CoC): string { return kGAMECLASS.arianScene.arianMF("his", "hers") },
-            "emself": function (thisPtr: CoC): string { return kGAMECLASS.arianScene.arianMF("himself", "herself") },
-
-            "chestadj": function (thisPtr: CoC): string { return kGAMECLASS.arianScene.arianChestAdjective() },
-            "chest": function (thisPtr: CoC): string { return kGAMECLASS.arianScene.arianChest() }
-        }
-    // Arian unhandled terms (I have not decided how to support them yet):
-    // arianMF("mas","mis")
-    // arianMF("master","mistress")
-    // arianMF("male","girly")
-
-
-
-    public rubiLookups: Record<string, any> = // For subject: "rubi"
-        {
-            "man": function (thisPtr: CoC): string { return kGAMECLASS.telAdre.rubi.rubiMF("man", "woman") },
-
-            "ey": function (thisPtr: CoC): string { return kGAMECLASS.telAdre.rubi.rubiMF("he", "she") },
-            "em": function (thisPtr: CoC): string { return kGAMECLASS.telAdre.rubi.rubiMF("him", "her") },
-            "eir": function (thisPtr: CoC): string { return kGAMECLASS.telAdre.rubi.rubiMF("his", "her") },
-            "eirs": function (thisPtr: CoC): string { return kGAMECLASS.telAdre.rubi.rubiMF("his", "hers") },
-            "emself": function (thisPtr: CoC): string { return kGAMECLASS.telAdre.rubi.rubiMF("himself", "herself") },
-
-            "cock": function (thisPtr: CoC): string { return kGAMECLASS.telAdre.rubi.rubiCock() },
-            "breasts": function (thisPtr: CoC): string { return kGAMECLASS.telAdre.rubi.rubiBreasts() }
-
-        }
-    //Rubi unhandled terms :
-    // rubiMF("boy","girl")
-    // rubiMF("demon","demoness")
-    // rubiMF("gentleman","lady")
-
-    // PC ASCII Aspect lookups
-
-    public cockLookups: Record<string, any> = // For subject: "cock"
-        {
-            "all": function (thisPtr: any): any { return kGAMECLASS.player.multiCockDescriptLight(); },
-            "each": function (thisPtr: any): any { return kGAMECLASS.player.sMultiCockDesc(); },
-            "one": function (thisPtr: any): any { return kGAMECLASS.player.oMultiCockDesc(); },
-            "largest": function (thisPtr: any): any { return kGAMECLASS.player.cockDescript(kGAMECLASS.player.biggestCockIndex()); },
-            "biggest": function (thisPtr: any): any { return kGAMECLASS.player.cockDescript(kGAMECLASS.player.biggestCockIndex()); },
-            "biggest2": function (thisPtr: any): any { return kGAMECLASS.player.cockDescript(kGAMECLASS.player.biggestCockIndex2()); },
-            "biggest3": function (thisPtr: any): any { return kGAMECLASS.player.cockDescript(kGAMECLASS.player.biggestCockIndex3()); },
-            "smallest": function (thisPtr: any): any { return kGAMECLASS.player.cockDescript(kGAMECLASS.player.smallestCockIndex()); },
-            "smallest2": function (thisPtr: any): any { return kGAMECLASS.player.cockDescript(kGAMECLASS.player.smallestCockIndex2()); },
-            "longest": function (thisPtr: any): any { return kGAMECLASS.player.cockDescript(kGAMECLASS.player.longestCock()); },
-            "shortest": function (thisPtr: any): any { return kGAMECLASS.player.cockDescript(kGAMECLASS.player.shortestCockIndex()); }
-        }
-
-
-    public cockHeadLookups: Record<string, any> = // For subject: "cockHead"
-        {
-            "biggest": function (thisPtr: any): any { return kGAMECLASS.player.cockHead(kGAMECLASS.player.biggestCockIndex()); },
-            "biggest2": function (thisPtr: any): any { return kGAMECLASS.player.cockHead(kGAMECLASS.player.biggestCockIndex2()); },
-            "biggest3": function (thisPtr: any): any { return kGAMECLASS.player.cockHead(kGAMECLASS.player.biggestCockIndex3()); },
-            "largest": function (thisPtr: any): any { return kGAMECLASS.player.cockHead(kGAMECLASS.player.biggestCockIndex()); },
-            "smallest": function (thisPtr: any): any { return kGAMECLASS.player.cockHead(kGAMECLASS.player.smallestCockIndex()); },
-            "smallest2": function (thisPtr: any): any { return kGAMECLASS.player.cockHead(kGAMECLASS.player.smallestCockIndex2()); },
-            "longest": function (thisPtr: any): any { return kGAMECLASS.player.cockHead(kGAMECLASS.player.longestCock()); },			// the *head* of a cock has a length? Wut?
-            "shortest": function (thisPtr: any): any { return kGAMECLASS.player.cockHead(kGAMECLASS.player.shortestCockIndex()); }
-        }
-
-
-    // These tags take a two-word tag with a **numberic** attribute for lookup.
-    // [object NUMERIC-attribute]
-    // if "NUMERIC-attribute" can be cast to a Number, the parser looks for "object" in twoWordNumericTagsLookup.
-    // If it finds twoWordNumericTagsLookup["object"], it calls the anonymous function stored with said key "object"
-    // like so: twoWordNumericTagsLookup["object"](Number("NUMERIC-attribute"))
-    //
-    // if attribute cannot be case to a number, the parser looks for "object" in twoWordTagsLookup.
-    public twoWordNumericTagsLookup: Record<string, any> =
-        {
-            "cockfit":
-                function (thisPtr: any, aspect: any): any {
-                    if (!kGAMECLASS.player.hasCock()) return "<b>(Attempt to parse cock when none present.)</b>";
-                    else {
-                        if (kGAMECLASS.player.cockThatFits(aspect) >= 0) return kGAMECLASS.player.cockDescript(kGAMECLASS.player.cockThatFits(aspect));
-                        else return kGAMECLASS.player.cockDescript(kGAMECLASS.player.smallestCockIndex());
-                    }
-                },
-            "cockfit2":
-                function (thisPtr: any, aspect: any): any {
-                    if (!kGAMECLASS.player.hasCock()) return "<b>(Attempt to parse cock when none present.)</b>";
-                    else {
-                        if (kGAMECLASS.player.cockThatFits2(aspect) >= 0) return kGAMECLASS.player.cockDescript(kGAMECLASS.player.cockThatFits2(aspect));
-                        else return kGAMECLASS.player.cockDescript(kGAMECLASS.player.smallestCockIndex());
-                    }
-                },
-            "cockheadfit":
-                function (thisPtr: any, aspect: any): any {
-                    if (!kGAMECLASS.player.hasCock()) {
-                        return "<b>(Attempt to parse cockhead when none present.)</b>";
-                    }
-                    else {
-                        if (kGAMECLASS.player.cockThatFits(aspect) >= 0) return kGAMECLASS.player.cockHead(kGAMECLASS.player.cockThatFits(aspect));
-                        else return kGAMECLASS.player.cockHead(kGAMECLASS.player.smallestCockIndex());
-                    }
-                },
-            "cockheadfit2":
-                function (thisPtr: any, aspect: any): any {
-                    if (!kGAMECLASS.player.hasCock()) return "<b>(Attempt to parse cockhead when none present.)</b>";
-                    else {
-                        if (kGAMECLASS.player.cockThatFits2(aspect) >= 0) return kGAMECLASS.player.cockHead(kGAMECLASS.player.cockThatFits2(aspect));
-                        else return kGAMECLASS.player.cockHead(kGAMECLASS.player.smallestCockIndex());
-                    }
-                },
-            "cock":
-                function (thisPtr: any, aspect: any): any {
-                    if (!kGAMECLASS.player.hasCock()) return "<b>(Attempt to parse cock when none present.)</b>";
-                    else {
-                        if (aspect - 1 >= 0 && aspect - 1 < kGAMECLASS.player.cockTotal()) return kGAMECLASS.player.cockDescript(aspect - 1);
-                        else return "<b>(Attempt To Parse CockDescript for Invalid Cock)</b>";
-                    }
-                },
-            "cockhead":
-                function (thisPtr: any, aspect: any): any {
-                    if (!kGAMECLASS.player.hasCock()) return "<b>(Attempt to parse cockHead when none present.)</b>";
-                    else {
-                        var intAspect: number = Math.floor(aspect - 1);
-                        if (intAspect >= 0 && intAspect < kGAMECLASS.player.cockTotal()) return kGAMECLASS.player.cockHead(intAspect);
-                        else return "<b>(Attempt To Parse CockHeadDescript for Invalid Cock)</b>";
-                    }
-                }
-
-        }
-
-    // These tags take an ascii attribute for lookup.
-    // [object attribute]
-    // if attribute cannot be cast to a number, the parser looks for "object" in twoWordTagsLookup,
-    // and then uses the corresponding object to determine the value of "attribute", by looking for
-    // "attribute" twoWordTagsLookup["object"]["attribute"]
-    public twoWordTagsLookup: Record<string, any> =
-        {
-            // NPCs:
-            "rubi": this.rubiLookups,
-            "arian": this.arianLookups,
-
-            // PC Attributes:
-
-            "cock": this.cockLookups,
-            "cockhead": this.cockHeadLookups
-        }
-
 
     private convertDoubleArg(inputArg: string): string {
         var argResult: string;
@@ -426,11 +167,11 @@ export class Parser {
 
         // Only perform lookup in twoWordNumericTagsLookup if aspect can be cast to a valid number
 
-        if ((subjectLower in this.twoWordNumericTagsLookup) && !isNaN(Number(aspect))) {
+        if ((subjectLower in twoWordNumericTagsLookup) && !isNaN(Number(aspect))) {
             aspectLower = Number(aspectLower);
 
             if (this.lookupParserDebug) trace("WARNING: Found corresponding anonymous function");
-            argResult = this.twoWordNumericTagsLookup[subjectLower](this._ownerClass, aspectLower);
+            argResult = twoWordNumericTagsLookup[subjectLower](this._ownerClass, aspectLower);
             if (capitalize)
                 argResult = this.capitalizeFirstWord(argResult);
             if (this.lookupParserDebug) trace("WARNING: Called two word numeric lookup, return = ", argResult);
@@ -438,11 +179,11 @@ export class Parser {
         }
 
         // aspect isn't a number. Look for subject in the normal twoWordTagsLookup
-        if (subjectLower in this.twoWordTagsLookup) {
-            if (aspectLower in this.twoWordTagsLookup[subjectLower]) {
+        if (subjectLower in twoWordTagsLookup) {
+            if (aspectLower in twoWordTagsLookup[subjectLower]) {
 
                 if (this.lookupParserDebug) trace("WARNING: Found corresponding anonymous function");
-                argResult = this.twoWordTagsLookup[subjectLower][aspectLower](this._ownerClass);
+                argResult = twoWordTagsLookup[subjectLower][aspectLower](this._ownerClass);
                 if (capitalize)
                     argResult = this.capitalizeFirstWord(argResult);
                 if (this.lookupParserDebug) trace("WARNING: Called two word lookup, return = ", argResult);
@@ -529,71 +270,8 @@ export class Parser {
         return argResult;
     }
 
-
-
-
-
     // Provides the conditionalOptions object
     // include "./conditionalConverters.as";
-
-    //Calls are now made through kGAMECLASS rather than thisPtr. This allows the compiler to detect if/when a function is inaccessible.
-
-
-
-    // Possible text arguments in the conditional of a if statement
-    // First, there is an attempt to cast the argument to a Number. If that fails,
-    // a dictionary lookup is performed to see if the argument is in the conditionalOptions[]
-    // object. If that fails, we just fall back to returning 0
-    public conditionalOptions: Record<string, any> =
-        {
-            "strength": function (thisPtr: any): any { return kGAMECLASS.player.str; },
-            "toughness": function (thisPtr: any): any { return kGAMECLASS.player.tou; },
-            "speed": function (thisPtr: any): any { return kGAMECLASS.player.spe; },
-            "intelligence": function (thisPtr: any): any { return kGAMECLASS.player.inte; },
-            "libido": function (thisPtr: any): any { return kGAMECLASS.player.lib; },
-            "sensitivity": function (thisPtr: any): any { return kGAMECLASS.player.sens; },
-            "corruption": function (thisPtr: any): any { return kGAMECLASS.player.cor; },
-            "fatigue": function (thisPtr: any): any { return kGAMECLASS.player.fatigue; },
-            "hp": function (thisPtr: any): any { return kGAMECLASS.player.HP; },
-            "hour": function (thisPtr: any): any { return kGAMECLASS.model.time.hours; },
-            "days": function (thisPtr: any): any { return kGAMECLASS.model.time.days; },
-            "tallness": function (thisPtr: any): any { return kGAMECLASS.player.tallness; },
-            "hairlength": function (thisPtr: any): any { return kGAMECLASS.player.hairLength; },
-            "femininity": function (thisPtr: any): any { return kGAMECLASS.player.femininity; },
-            "masculinity": function (thisPtr: any): any { return 100 - kGAMECLASS.player.femininity; },
-            "cocks": function (thisPtr: any): any { return kGAMECLASS.player.cockTotal(); },
-            "breastrows": function (thisPtr: any): any { return kGAMECLASS.player.bRows(); },
-            "biggesttitsize": function (thisPtr: any): any { return kGAMECLASS.player.biggestTitSize(); },
-            "vagcapacity": function (thisPtr: any): any { return kGAMECLASS.player.vaginalCapacity(); },
-            "analcapacity": function (thisPtr: any): any { return kGAMECLASS.player.analCapacity(); },
-            "balls": function (thisPtr: any): any { return kGAMECLASS.player.balls; },
-            "cumquantity": function (thisPtr: any): any { return kGAMECLASS.player.cumQ(); },
-            // "biggesttitsize": function (thisPtr: any): any { return kGAMECLASS.player.biggestTitSize(); },
-            "milkquantity": function (thisPtr: any): any { return kGAMECLASS.player.lactationQ(); },
-            "hasvagina": function (thisPtr: any): any { return kGAMECLASS.player.hasVagina(); },
-            "istaur": function (thisPtr: any): any { return kGAMECLASS.player.isTaur(); },
-            "isnaga": function (thisPtr: any): any { return kGAMECLASS.player.isNaga(); },
-            "isgoo": function (thisPtr: any): any { return kGAMECLASS.player.isGoo(); },
-            "isbiped": function (thisPtr: any): any { return kGAMECLASS.player.isBiped(); },
-            "hasbreasts": function (thisPtr: any): any { return (kGAMECLASS.player.biggestTitSize() >= 1); },
-            "hasballs": function (thisPtr: any): any { return (kGAMECLASS.player.balls > 0); },
-            "hascock": function (thisPtr: any): any { return kGAMECLASS.player.hasCock(); },
-            "isherm": function (thisPtr: any): any { return (kGAMECLASS.player.gender == 3); },
-            "cumnormal": function (thisPtr: any): any { return (kGAMECLASS.player.cumQ() <= 150); },
-            "cummedium": function (thisPtr: any): any { return (kGAMECLASS.player.cumQ() > 150 && kGAMECLASS.player.cumQ() <= 350); },
-            "cumhigh": function (thisPtr: any): any { return (kGAMECLASS.player.cumQ() > 350 && kGAMECLASS.player.cumQ() <= 1000); },
-            "cumveryhigh": function (thisPtr: any): any { return (kGAMECLASS.player.cumQ() > 1000 && kGAMECLASS.player.cumQ() <= 2500); },
-            "cumextreme": function (thisPtr: any): any { return (kGAMECLASS.player.cumQ() > 2500); },
-            "issquirter": function (thisPtr: any): any { return (kGAMECLASS.player.wetness() >= 4); },
-            "ispregnant": function (thisPtr: any): any { return (kGAMECLASS.player.pregnancyIncubation > 0); },
-            "isbuttpregnant": function (thisPtr: any): any { return (kGAMECLASS.player.buttPregnancyIncubation > 0); },
-            "hasnipplecunts": function (thisPtr: any): any { return kGAMECLASS.player.hasFuckableNipples(); },
-            "canfly": function (thisPtr: any): any { return kGAMECLASS.player.canFly(); },
-            "islactating": function (thisPtr: any): any { return (kGAMECLASS.player.lactationQ() > 0); },
-            "true": function (thisPtr: any): any { return true; },
-            "false": function (thisPtr: any): any { return false; }
-        }
-
 
     // converts a single argument to a conditional to
     // the relevant value, either by simply converting to a Number, or
@@ -613,9 +291,9 @@ export class Parser {
             if (this.printConditionalEvalDebug) trace("WARNING: Converted to float. Number = ", Number(arg))
             return Number(arg);
         }
-        if (argLower in this.conditionalOptions) {
+        if (argLower in conditionalOptions) {
             if (this.printConditionalEvalDebug) trace("WARNING: Found corresponding anonymous function");
-            argResult = this.conditionalOptions[argLower](this._ownerClass);
+            argResult = conditionalOptions[argLower](this._ownerClass);
             if (this.printConditionalEvalDebug) trace("WARNING: Called, return = ", argResult);
             return argResult;
         }
@@ -929,8 +607,6 @@ export class Parser {
 
 
     private getSceneSectionToInsert(inputArg: string): string {
-        var argResult: string;
-
 
         var argTemp: any[] = inputArg.split(" ");
         if (argTemp.length != 2) {
