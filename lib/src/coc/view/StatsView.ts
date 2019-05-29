@@ -1,177 +1,116 @@
+import { MainView } from "./MainView";
+import { GameModel } from "../../../../classes/coc/model/GameModel";
+import { StatView, StatViewWithBar } from "./StatView";
+import { TimeView } from "./TimeView";
+import { Player } from "../../../../classes/classes/Player";
+import { NameView } from "./NameView";
 
+export type StatKeys = 'str' | 'tou' | 'spe' | 'int' | 'lib' | 'sens' | 'cor' | 'hp' | 'lust' | 'fatigue';
+export type OtherKeys = 'level' | 'xp' | 'gems';
 
-
-// Remove dynamic once you've added all the DOs as instance properties.
 export class StatsView {
-    // add things from main view here?
-    // yes because we'll need to update all the TFs and progress bars.
-    public upDownsContainer: Sprite;
-    public levelUp: Sprite;
+    private model: GameModel;
+    private element: HTMLElement;
+    private name: NameView;
 
-    protected model: GameModel;
+    private stats = {} as Record<StatKeys, StatViewWithBar> & Record<OtherKeys, StatView>;
 
-    public constructor(mainView: MovieClip, model: any) {
+    private time: TimeView;
 
+    public constructor(mainView: MainView, model: GameModel) {
         this.model = model;
 
-        var statsThingsNames: any[] = [
-            "strBar", "strText", "strNum",      // "strUp",      "strDown",
-            "touBar", "touText", "touNum",      // "touUp",      "touDown",
-            "speBar", "speText", "speNum",      // "speUp",      "speDown",
-            "inteBar", "inteText", "inteNum",     // "inteUp",     "inteDown",
-            "libBar", "libText", "libNum",      // "libUp",      "libDown",
-            "sensBar", "senText", "senNum",      // "sensUp",     "sensDown",
-            "corBar", "corText", "corNum",      // "corUp",      "corDown",
-            "lustBar", "lustText", "lustNum",     // "lustUp",     "lustDown",
-            "fatigueBar", "fatigueText", "fatigueNum",  // "fatigueUp",  "fatigueDown",
-            "HPBar", "HPText", "HPNum",       // "hpUp",       "hpDown",
-            "levelText", "levelNum",    // "levelUp",
-            "xpText", "xpNum",       // "xpUp",       "xpDown",
-            "coreStatsText",
-            "advancementText",
-            "combatStatsText",
-            "gemsText", "gemsNum",
-            "timeText",
-            "timeBG",
-            "sideBarBG"
-        ];
+        this.element = document.createElement('div');
+        this.element.id = 'statsPanel';
 
-        var statsUpDownsNames: any[] = [
-            "strUp", "strDown",
-            "touUp", "touDown",
-            "speUp", "speDown",
-            "inteUp", "inteDown",
-            "libUp", "libDown",
-            "sensUp", "sensDown",
-            "corUp", "corDown",
-            "fatigueUp", "fatigueDown",
-            "hpUp", "hpDown",
-            "lustUp", "lustDown",
-            // "levelUp",
-            "xpUp", "xpDown"
-        ];
+        this.name = new NameView('nameDisplay');
 
-        for (var statsDOName of statsThingsNames) {
-            // adding at 0 because BG is at the end.
-            this.addChildAt(mainView.getChildByName(statsDOName), 0);
-        }
+        this.stats.str = new StatViewWithBar('strengthPanel', 'Strength');
+        this.stats.tou = new StatViewWithBar('toughnessPanel', 'Toughness');
+        this.stats.spe = new StatViewWithBar('speedPanel', 'Speed');
+        this.stats.int = new StatViewWithBar('intelligencePanel', 'Intelligence');
+        this.stats.lib = new StatViewWithBar('libidoPanel', 'Libido');
+        this.stats.sens = new StatViewWithBar('sensitivityPanel', 'Sensitivity');
+        this.stats.cor = new StatViewWithBar('corruptionPanel', 'Corruption');
 
-        this.upDownsContainer = new Sprite();
-        this.addChild(this.upDownsContainer);
+        this.stats.hp = new StatViewWithBar('hpPanel', 'HP');
+        this.stats.lust = new StatViewWithBar('lustPanel', 'Lust');
+        this.stats.fatigue = new StatViewWithBar('fatiguePanel', 'Fatigue');
 
-        for (var statsUpDownDOName of statsUpDownsNames) {
-            this.upDownsContainer.addChild(mainView.getChildByName(statsUpDownDOName));
-        }
+        this.stats.level = new StatView('levelPanel', 'Level');
+        this.stats.xp = new StatView('xpPanel', 'Experience');
+        this.stats.gems = new StatView('gemsPanel', 'Gems');
 
-        this.levelUp = mainView.getChildByName('levelUp') as Sprite;
-        this.addChild(this.levelUp);
+        this.time = new TimeView();
+
     };
 
-    protected setStatText(name: string, value: any) {
-        if (/Num$/.test(name)) {
-            var fVal: any = Math.floor(value);
-            var dispText: string;
-
-            if (fVal >= 10000) {
-                dispText = "++++";
-            }
-            else {
-                dispText = String(fVal);
-            }
-
-            (this.getChildByName(name) as TextField).htmlText = dispText
-        }
-        else
-            (this.getChildByName(name) as TextField).htmlText = value;
-    };
-
-    protected setStatBar(name: string, progress: number) {
-        this.getChildByName(name).width = Math.round(progress * 115);
-    };
+    public setName(name: string) {
+        this.name.setText(name);
+    }
 
     // <- statsScreenRefresh
     public refresh(): void {
-        // this.show();
-        // this.visible = true;
+        this.name.setText(this.model.player.short);
 
-        this.setStatText("coreStatsText",
-            "<b><u>Name : {NAME}</u>\nCore Stats</b>"
-                .replace("{NAME}", this.model.player.short));
+        this.stats.str.setNumber(this.model.player.str);
+        this.stats.tou.setNumber(this.model.player.tou);
+        this.stats.spe.setNumber(this.model.player.spe);
+        this.stats.int.setNumber(this.model.player.inte);
+        this.stats.lib.setNumber(this.model.player.lib);
+        this.stats.sens.setNumber(this.model.player.sens);
+        this.stats.cor.setNumber(this.model.player.cor);
+        this.stats.fatigue.setNumber(this.model.player.fatigue);
+        this.stats.hp.setNumber(this.model.player.HP);
+        this.stats.lust.setNumber(this.model.player.lust);
 
-        this.setStatText("strNum", this.model.player.str);
-        this.setStatText("touNum", this.model.player.tou);
-        this.setStatText("speNum", this.model.player.spe);
-        this.setStatText("inteNum", this.model.player.inte);
-        this.setStatText("libNum", this.model.player.lib);
-        this.setStatText("senNum", this.model.player.sens);
-        this.setStatText("corNum", this.model.player.cor);
-        this.setStatText("fatigueNum", this.model.player.fatigue);
-        this.setStatText("HPNum", this.model.player.HP);
-        this.setStatText("lustNum", this.model.player.lust);
-        this.setStatText("levelNum", this.model.player.level);
-        this.setStatText("xpNum", this.model.player.XP);
+        this.stats.str.setBar(this.model.player.str / 100);
+        this.stats.tou.setBar(this.model.player.tou / 100);
+        this.stats.spe.setBar(this.model.player.spe / 100);
+        this.stats.int.setBar(this.model.player.inte / 100);
+        this.stats.lib.setBar(this.model.player.lib / 100);
+        this.stats.sens.setBar(this.model.player.sens / 100);
+        this.stats.cor.setBar(this.model.player.cor / 100);
+        this.stats.fatigue.setBar(this.model.player.fatigue / 100);
+        this.stats.hp.setBar(this.model.player.HP / this.model.maxHP());
+        this.stats.lust.setBar(this.model.player.lust / 100);
 
-        this.setStatText("timeText",
-            "<b><u>Day #: {DAYS}</u></b>\n<b>Time : {HOURS}:00</b>"
-                .replace("{DAYS}", this.model.time.days)
-                .replace("{HOURS}", this.model.time.hours));
+        this.stats.level.setNumber(this.model.player.level);
+        this.stats.xp.setNumber(this.model.player.XP);
+        this.stats.gems.setNumber(this.model.player.gems);
 
-        this.setStatBar("strBar", this.model.player.str / 100);
-        this.setStatBar("touBar", this.model.player.tou / 100);
-        this.setStatBar("speBar", this.model.player.spe / 100);
-        this.setStatBar("inteBar", this.model.player.inte / 100);
-        this.setStatBar("libBar", this.model.player.lib / 100);
-        this.setStatBar("sensBar", this.model.player.sens / 100);
-        this.setStatBar("corBar", this.model.player.cor / 100);
-        this.setStatBar("fatigueBar", this.model.player.fatigue / 100);
-        this.setStatBar("HPBar", this.model.player.HP / this.model.maxHP());
-        this.setStatBar("lustBar", this.model.player.lust / 100);
-        this.setStatText("gemsNum", this.model.player.gems);
+        this.time.setDay(this.model.time.days);
+        this.time.setHour(this.model.time.hours);
+
     };
 
     // <- showStats
     public show() {
         // make all the stats DOs visible.
         this.refresh();
-        this.visible = true;
+        this.element.classList.remove('hidden');
     };
 
     // <- hideStats
     public hide() {
         // body...
-        this.visible = false;
+        this.element.classList.add('hidden');
     };
 
     // <- hideUpDown
     public hideUpDown() {
-        var ci,
-            cc = this.upDownsContainer.numChildren;
-
-        this.upDownsContainer.visible = false;
-
-        // children also need to be hidden because they're selectively shown on change.
-        for (ci = 0; ci < cc; ++ci) {
-            this.upDownsContainer.getChildAt(ci).visible = false;
+        for (const key of Object.keys(this.stats) as (StatKeys | OtherKeys)[]) {
+            this.stats[key].hideArrows();
         }
 
         this.hideLevelUp();
     };
 
     public showUpDown() {
-        function _oldStatNameFor(statName: string) {
-            return 'old' + statName.charAt(0).toUpperCase() + statName.substr(1);
-        }
+        const allStats = ["str", "tou", "spe", "inte", "lib", "sens", "cor", "lust"] as (Extract<StatKeys, keyof Player>)[];
 
-        var statName: string,
-            oldStatName: string,
-            allStats: any[];
-
-        this.upDownsContainer.visible = true;
-
-        allStats = ["str", "tou", "spe", "inte", "lib", "sens", "cor", "lust"];
-
-        for (statName of allStats) {
-            oldStatName = _oldStatNameFor(statName);
+        for (const statName of allStats) {
+            const oldStatName = 'old' + statName.charAt(0).toUpperCase() + statName.substr(1) as keyof Player;
 
             if (this.model.player[statName] > this.model.oldStats[oldStatName]) {
                 this.showStatUp(statName);
@@ -183,32 +122,18 @@ export class StatsView {
     };
 
     public showLevelUp(): void {
-        this.levelUp.visible = true;
+        this.stats.level.showUp();
     };
 
     public hideLevelUp(): void {
-        this.levelUp.visible = false;
+        this.stats.level.hideArrows();
     };
 
-    public showStatUp(statName: string): void {
-        var statUp: DisplayObject,
-            statDown: DisplayObject;
-
-        statUp = this.upDownsContainer.getChildByName(statName + 'Up');
-        statDown = this.upDownsContainer.getChildByName(statName + 'Down');
-
-        statUp.visible = true;
-        statDown.visible = false;
+    public showStatUp(statName: StatKeys | OtherKeys): void {
+        this.stats[statName].showUp();
     };
 
-    public showStatDown(statName: string): void {
-        var statUp: DisplayObject,
-            statDown: DisplayObject;
-
-        statUp = this.upDownsContainer.getChildByName(statName + 'Up');
-        statDown = this.upDownsContainer.getChildByName(statName + 'Down');
-
-        statUp.visible = false;
-        statDown.visible = true;
+    public showStatDown(statName: StatKeys | OtherKeys): void {
+        this.stats[statName].showDown();
     };
 }
