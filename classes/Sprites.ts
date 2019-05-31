@@ -1,4 +1,4 @@
-export const Sprites = {
+export const Sprites: Record<number, string> = {
     1: "urta",
     2: "akbal",
     3: "amily",

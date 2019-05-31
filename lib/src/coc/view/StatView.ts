@@ -1,3 +1,5 @@
+import { loadId, loadClass } from "./LoadUtils";
+
 export class StatView {
     public element: HTMLElement;
     protected info: HTMLElement;
@@ -9,22 +11,19 @@ export class StatView {
     protected arrowDown: HTMLElement;
 
     public constructor(id: string, name: string) {
-        let element = document.getElementById(id);
-        if (!element)
-            throw new Error('Could not load element with id: "' + id + '"');
-        this.element = element;
+        this.element = loadId(id);
 
-        this.info = this.loadClass('statInfo');
-        this.name = this.loadClass('statName');
+        this.info = loadClass('statInfo', this.element);
+        this.name = loadClass('statName', this.element);
         this.name.textContent = name;
 
-        this.numbers = this.loadClass('statNumbers');
+        this.numbers = loadClass('statNumbers', this.element);
 
-        this.currNumber = this.loadClass('statCurrent');
+        this.currNumber = loadClass('statCurrent', this.element);
         this.currNumber.textContent = '0';
 
-        this.arrowUp = this.loadClass('arrowUp');
-        this.arrowDown = this.loadClass('arrowDown');
+        this.arrowUp = loadClass('arrowUp', this.element);
+        this.arrowDown = loadClass('arrowDown', this.element);
     }
 
     protected loadClass(className: string) {

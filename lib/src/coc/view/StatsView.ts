@@ -1,9 +1,9 @@
-import { MainView } from "./MainView";
 import { GameModel } from "../../../../classes/coc/model/GameModel";
 import { StatView, StatViewWithBar } from "./StatView";
 import { TimeView } from "./TimeView";
 import { Player } from "../../../../classes/classes/Player";
 import { NameView } from "./NameView";
+import { loadId } from "./LoadUtils";
 
 export type StatKeys = 'str' | 'tou' | 'spe' | 'int' | 'lib' | 'sens' | 'cor' | 'hp' | 'lust' | 'fatigue';
 export type OtherKeys = 'level' | 'xp' | 'gems';
@@ -17,11 +17,10 @@ export class StatsView {
 
     private time: TimeView;
 
-    public constructor(mainView: MainView, model: GameModel) {
+    public constructor(model: GameModel) {
         this.model = model;
 
-        this.element = document.createElement('div');
-        this.element.id = 'statsPanel';
+        this.element = loadId('statsPanel');
 
         this.name = new NameView('nameDisplay');
 

@@ -1,17 +1,15 @@
+import { loadId } from "./LoadUtils";
+
 export class TimeView {
     public element: HTMLElement;
     private day: HTMLElement;
     private hour: HTMLElement;
 
     public constructor() {
-        this.element = document.createElement('div');
-        this.element.id = 'timePanel';
+        this.element = loadId('timePanel');
         
-        this.day = document.createElement('div');
-        this.hour = document.createElement('div');
-
-        this.element.appendChild(this.day);
-        this.element.appendChild(this.hour);
+        this.day = loadId('timeDay');
+        this.hour = loadId('timeHour');
     }
 
     public setDay(day: number) {
