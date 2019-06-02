@@ -14,6 +14,9 @@ import { Inventory } from "./Scenes/Inventory";
 import { TimeModel } from "../coc/model/TimeModel";
 import { GameModel } from "../coc/model/GameModel";
 import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
+import { MainView } from "../../lib/src/coc/view/MainView";
+import { OtherKeys, StatKeys } from "../../lib/src/coc/view/StatsView";
+import { ASDate } from "./ASDate";
 
 /**
  * Quick hacky method to wrap new content in a class-based structure
@@ -70,7 +73,7 @@ export class BaseContent extends Utils {
         return kGAMECLASS.isThanksgiving();
     }
 
-    protected get date(): Date {
+    protected get date(): ASDate {
         return kGAMECLASS.date;
     }
 
@@ -128,8 +131,8 @@ export class BaseContent extends Utils {
         kGAMECLASS.cleanupAfterCombat(nextFunc);
     }
 
-    protected combatRoundOver(): void {
-        kGAMECLASS.combatRoundOver();
+    protected combatRoundOver() {
+        return kGAMECLASS.combatRoundOver();
     }
 
     protected enemyAI(): void {
@@ -718,19 +721,19 @@ export class BaseContent extends Utils {
         kGAMECLASS.model = val;
     }
 
-    protected get flags(): Record<string, any> {
+    protected get flags() {
         return kGAMECLASS.flags;
     }
 
-    protected set flags(val: Record<string, any>) {
+    protected set flags(val) {
         kGAMECLASS.flags = val;
     }
 
-    protected showStatDown(arg: string): void {
+    protected showStatDown(arg: StatKeys | OtherKeys): void {
         kGAMECLASS.mainView.statsView.showStatDown(arg);
     }
 
-    protected showStatUp(arg: string): void {
+    protected showStatUp(arg: StatKeys | OtherKeys): void {
         kGAMECLASS.mainView.statsView.showStatUp(arg);
     }
 

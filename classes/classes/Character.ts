@@ -6,6 +6,7 @@ import { PregnancyStore } from "./PregnancyStore";
 import { KeyItemClass } from "./KeyItemClass";
 import { CockTypesEnum } from "./CockTypesEnum";
 import { Appearance } from "./Appearance";
+import { PerkLib } from "./PerkLib";
 
 /**
 	 * Character class for player and NPCs. Has subclasses Player and NonPlayer.

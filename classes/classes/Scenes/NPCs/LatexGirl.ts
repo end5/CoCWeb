@@ -109,7 +109,7 @@ export class LatexGirl extends NPCAwareContent {
         return Appearance.cockDescription(this.gooGetCockType(), this.flags[kFLAGS.GOO_DICK_LENGTH], this.flags[kFLAGS.GOO_DICK_LENGTH] / 6, 50, 100);
     }
     public gooGetCockType(): CockTypesEnum {
-        return CockTypesEnum.ParseConstantByIndex(this.flags[kFLAGS.GOO_DICK_TYPE]);
+        return this.flags[kFLAGS.GOO_DICK_TYPE];
     }
 
     public latexGooFollower(): boolean {
@@ -204,31 +204,27 @@ export class LatexGirl extends NPCAwareContent {
         this.clearOutput();
         this.outputText("\"<i>Call me what you want, my name doesn't matter.</i>\"");
         this.outputText("\n\nWhat will you name her?");
+        const input = document.createElement('input');
+        this.mainView.mainText.appendChild(input);
         this.menu();
-        this.addButton(0, "Next", this.nameZeLatexGoo);
-        this.mainView.nameBox.text = "";
-        this.mainView.nameBox.visible = true;
-        this.mainView.nameBox.width = 165;
-        this.mainView.nameBox.x = this.mainView.mainText.x + 5;
-        this.mainView.nameBox.y = this.mainView.mainText.y + 3 + this.mainView.mainText.textHeight;
+        this.addButton(0, "Next", () => this.nameZeLatexGoo(input));
     }
-    private nameZeLatexGoo(): void {
-        if (kGAMECLASS.testingBlockExiting) {
+    private nameZeLatexGoo(input: HTMLInputElement): void {
+        // if (kGAMECLASS.testingBlockExiting) {
             // We're running under the testing script.
             // Stuff a name in the box and go go go
-            this.mainView.nameBox.text = "Derptexy";
-        }
-        else if (this.mainView.nameBox.text == "") {
+            // this.mainView.nameBox.text = "Derptexy";
+        // }
+        // else if (this.mainView.nameBox.text == "") {
+        if (input.value == "") {
             this.clearOutput();
             this.outputText("<b>You must select a name.</b>", false);
-            this.mainView.nameBox.x = this.mainView.mainText.x + 5;
-            this.mainView.nameBox.y = this.mainView.mainText.y + 3 + this.mainView.mainText.textHeight;
+            this.mainView.mainText.appendChild(input);
             this.menu();
             this.addButton(0, "Next", this.nameZeLatexGoo);
             return;
         }
-        this.flags[kFLAGS.GOO_NAME] = this.mainView.nameBox.text;
-        this.mainView.nameBox.visible = false;
+        this.flags[kFLAGS.GOO_NAME] = input.value;
         //After Naming Her:
         this.clearOutput();
         this.outputText("\"<i>");
@@ -311,13 +307,10 @@ export class LatexGirl extends NPCAwareContent {
         this.outputText("\"<i>Call me what you want, my name doesn't matter.</i>\"");
         this.outputText("\n\nWhat will you name her?");
         //{To standard name prompts}
+        const input = document.createElement('input');
+        this.mainView.mainText.appendChild(input);
         this.menu();
-        this.addButton(0, "Next", this.nameZeLatexGoo);
-        this.mainView.nameBox.text = "";
-        this.mainView.nameBox.visible = true;
-        this.mainView.nameBox.width = 165;
-        this.mainView.nameBox.x = this.mainView.mainText.x + 5;
-        this.mainView.nameBox.y = this.mainView.mainText.y + 3 + this.mainView.mainText.textHeight;
+        this.addButton(0, "Next", () => this.nameZeLatexGoo(input));
     }
 
     //Pure Characters Intro(F):
@@ -400,28 +393,22 @@ export class LatexGirl extends NPCAwareContent {
         this.outputText("\"<i>Call me what you want, my name doesn't matter.</i>\"");
         this.outputText("\n\nWhat will you name her?");
         this.menu();
-        this.addButton(0, "Next", this.nameZeLatexGooNice);
-        this.mainView.nameBox.text = "";
-        this.mainView.nameBox.visible = true;
-        this.mainView.nameBox.width = 165;
-        this.mainView.nameBox.x = this.mainView.mainText.x + 5;
-        this.mainView.nameBox.y = this.mainView.mainText.y + 3 + this.mainView.mainText.textHeight;
-
+        const inputField = document.createElement('input');
+        this.mainView.mainText.appendChild(inputField);
+        this.addButton(0, "Next", () => this.nameZeLatexGooNice(inputField));
     }
 
     //After Naming Latexy(F):
-    private nameZeLatexGooNice(): void {
-        if (this.mainView.nameBox.text == "") {
+    private nameZeLatexGooNice(input: HTMLInputElement): void {
+        if (input.value == "") {
             this.clearOutput();
             this.outputText("<b>You must select a name.</b>", false);
-            this.mainView.nameBox.x = this.mainView.mainText.x + 5;
-            this.mainView.nameBox.y = this.mainView.mainText.y + 3 + this.mainView.mainText.textHeight;
             this.menu();
-            this.addButton(0, "Next", this.nameZeLatexGoo);
+            this.addButton(0, "Next", () => this.nameZeLatexGoo(input));
+            this.mainView.mainText.appendChild(input);
             return;
         }
-        this.flags[kFLAGS.GOO_NAME] = this.mainView.nameBox.text;
-        this.mainView.nameBox.visible = false;
+        this.flags[kFLAGS.GOO_NAME] = input.value;
         this.clearOutput();
         this.outputText("\"<i>");
         if (this.flags[kFLAGS.GOO_NAME] == "Cattleya") this.outputText("Cattleya, huh?  I don't know if my tits are big enough to live up to that name,");

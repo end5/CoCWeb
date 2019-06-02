@@ -260,7 +260,7 @@ export class GnollScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    private yoDawgIHeardULiekGNollBallzzzdahdakjldh(): void {
+    public yoDawgIHeardULiekGNollBallzzzdahdakjldh(): void {
         this.outputText("", true);
         this.player.consumeItem(this.consumables.S_DREAM);
         //[either Gnoll loss, if the player has a succubi's dream in inventory]

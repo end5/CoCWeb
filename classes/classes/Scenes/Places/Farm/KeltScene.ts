@@ -449,7 +449,7 @@ STATUSES:
     //Normal Encounter 2
     private keltMainEncounter2(): void {
         //Used for randomization
-        var temporary: number = 0;
+        // var temporary: number = 0;
         //(No bow equipped)
         if (this.player.hasKeyItem("Bow") < 0) {
             this.outputText("\"<i>Here,</i>\" Kelt says, tossing you a spare bow.  \"<i>You can use this, for right now.  We train colts on it... you know, before their balls drop.  Should be just about right for your level.  Keep it if you want.</i>\"\r\r", false);

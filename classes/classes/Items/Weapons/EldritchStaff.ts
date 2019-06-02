@@ -18,7 +18,7 @@ export class EldritchStaff extends Weapon {
         return super.playerEquip();
     }
 
-    public playerRemove(): Weapon {
+    public playerRemove() {
         while (this.game.player.findPerk(PerkLib.WizardsFocus) >= 0) this.game.player.removePerk(PerkLib.WizardsFocus);
         return super.playerRemove();
     }

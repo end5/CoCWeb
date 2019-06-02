@@ -41,7 +41,7 @@ export class MainView {
     public perksButton: CoCButton;
     public appearanceButton: CoCButton;
 
-    private mainText: HTMLElement;
+    public mainText: HTMLElement;
     private sprite: HTMLImageElement;
 
     public statsView: StatsView;

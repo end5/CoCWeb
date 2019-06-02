@@ -56,7 +56,7 @@ export class KihaFollower extends NPCAwareContent {
     private kihaAffection(changes: number = 0): boolean {
         if (this.flags[kFLAGS.KIHA_AFFECTION_LEVEL] == 2) this.flags[kFLAGS.KIHA_AFFECTION] += changes;
         if (this.flags[kFLAGS.KIHA_AFFECTION] > 100) this.flags[kFLAGS.KIHA_AFFECTION] = 100;
-        return this.flags[kFLAGS.KIHA_AFFECTION];
+        return !!this.flags[kFLAGS.KIHA_AFFECTION];
     }
 
     //Introduction
@@ -886,7 +886,7 @@ export class KihaFollower extends NPCAwareContent {
         var dickWorship = undefined;
         var fuckVag = undefined;
         var dom = undefined;
-        var backFunc = (allowBack ? this.kihaScene.encounterKiha : this.camp.returnToCampUseOneHour);
+        // var backFunc = (allowBack ? this.kihaScene.encounterKiha : this.camp.returnToCampUseOneHour);
         if (display) this.outputText("\n");
         //REQUIRES CAMP FOLLOWER:
         if (this.followerKiha()) {

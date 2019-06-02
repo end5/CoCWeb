@@ -3642,7 +3642,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         //(if watch)
         else {
             this.outputText("\n\nYou grin and get up, and Sheila tails you to your bed.  ");
-            if (this.flags[kFLAGS.SLEEP_WITH] != 0 && this.flags[kFLAGS.SLEEP_WITH] != "") this.outputText("She looks with some distaste at the nearby sleeper, and steps past.  You pick up the bedroll and follow her, reasoning that if she keeps her promise to be gone before dawn, it shouldn't raise any questions.  \"<i>Making friends, I see,</i>\" Sheila mutters... but as you unroll the bed again, her eyes zero in on it like a drowning man's on a raft, and she says nothing else.  ");
+            if (this.flags[kFLAGS.SLEEP_WITH] != "") this.outputText("She looks with some distaste at the nearby sleeper, and steps past.  You pick up the bedroll and follow her, reasoning that if she keeps her promise to be gone before dawn, it shouldn't raise any questions.  \"<i>Making friends, I see,</i>\" Sheila mutters... but as you unroll the bed again, her eyes zero in on it like a drowning man's on a raft, and she says nothing else.  ");
             this.outputText("She lies down first, allowing you to cozy up to her as far as you dare.  Just as you're about to drift off, you feel Sheila take your hand and pull your arm over her body.");
         }
         this.outputText("\n\nShe's gone in the morning.");
@@ -4074,7 +4074,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
     //Loss - normal cocks get rode (for cockarea <= 56)
     private loseToNormalSheilaAndGetRidden(): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(56);
+        // var x: number = this.player.cockThatFits(56);
         this.outputText("Sheila pushes you onto the ground");
         if (this.player.isTaur()) this.outputText(" and you're forced to put your forelegs down for support as you come to rest on your haunches");
         else this.outputText(", spreading your legs.  The demon unfastens your [armor] and strips it from your bottoms easily");

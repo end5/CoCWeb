@@ -1,7 +1,7 @@
 import { Consumable } from "../Consumable";
 import { PerkLib } from "../../PerkLib";
-import { Appearance } from "../../Appearance";
 import { Utils } from "../../internals/Utils";
+import { VAGINA_WETNESS_SLICK } from "../../../../includes/appearanceDefs";
 
 /**
  * Created by aimozg on 18.01.14.
@@ -81,21 +81,21 @@ export class BimboLiqueur extends Consumable {
             if (!this.game.player.hasVagina()) {
                 this.game.player.createVagina();
                 this.game.player.clitLength = 0.25;
-                this.game.player.vaginas[0].vaginalWetness = Appearance.VAGINA_WETNESS_SLICK;
+                this.game.player.vaginas[0].vaginalWetness = VAGINA_WETNESS_SLICK;
                 if (this.game.player.isTaur()) this.outputText("Wait!? Wet? You wish you could touch yourself between the " + this.game.player.legs() + ", but you can tell from the fluid running down your hind-legs just how soaked your new vagina is.");
                 else this.outputText("Wait!?  Wet?  You touch yourself between the " + this.game.player.legs() + " and groan when your fingers sink into a sloppy, wet cunt.");
             }
             else {
                 if (this.game.player.isTaur()) {
                     this.outputText("You wish you could sink your fingers into your sloppy, wet cunt, but as a centaur, you can't quite reach.");
-                    if (this.game.player.vaginas[0].vaginalWetness < Appearance.VAGINA_WETNESS_SLICK)
-                        this.game.player.vaginas[0].vaginalWetness = Appearance.VAGINA_WETNESS_SLICK;
+                    if (this.game.player.vaginas[0].vaginalWetness < VAGINA_WETNESS_SLICK)
+                        this.game.player.vaginas[0].vaginalWetness = VAGINA_WETNESS_SLICK;
                 }
                 else {
                     this.outputText("You sink your fingers into your ");
-                    if (this.game.player.vaginas[0].vaginalWetness < Appearance.VAGINA_WETNESS_SLICK) {
+                    if (this.game.player.vaginas[0].vaginalWetness < VAGINA_WETNESS_SLICK) {
                         this.outputText("now ");
-                        this.game.player.vaginas[0].vaginalWetness = Appearance.VAGINA_WETNESS_SLICK;
+                        this.game.player.vaginas[0].vaginalWetness = VAGINA_WETNESS_SLICK;
                     }
                     this.outputText("sloppy, wet cunt with a groan of satisfaction.");
                 }

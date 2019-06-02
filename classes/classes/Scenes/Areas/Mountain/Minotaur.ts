@@ -55,7 +55,7 @@ export class Minotaur extends Monster {
         this.a = "the ";
         this.short = "minotaur";
         this.imageName = "minotaur";
-        this.long = "";
+        // this.long = "";
         // this.plural = false;
         this.createCock(Minotaur.rand(13) + 24, 2 + Minotaur.rand(3), CockTypesEnum.HORSE);
         this.balls = 2;

@@ -191,7 +191,7 @@ export class Izumi extends Monster {
     public chokeSlamStruggle(): void {
         this.clearOutput();
 
-        var brokeFree: boolean;
+        var brokeFree: boolean = false;
 
         if (Izumi.rand(this.player.str) > this.str / 2) {
             brokeFree = true;
@@ -335,7 +335,7 @@ export class Izumi extends Monster {
     public titSmotherStruggle(): void {
         if (this.combatDebug) trace("Titsmother Struggle");
 
-        var brokeFree: boolean;
+        var brokeFree: boolean = false;
 
         if (Izumi.rand(this.player.str) > this.str / 4) {
             brokeFree = true;

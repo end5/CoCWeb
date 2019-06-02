@@ -666,10 +666,10 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
                 if (this.farm.farmCorruption.numTattoos("kelly") > 1) this.outputText("She has the following tattoos emblazoned across her body:\n");
                 else this.outputText("She has ");
 
-                if (this.flags[kFLAGS.KELLY_TATTOO_COLLARBONE] != 0) this.outputText(this.flags[kFLAGS.KELLY_TATTOO_COLLARBONE] + "\n");
-                if (this.flags[kFLAGS.KELLY_TATTOO_SHOULDERS] != 0) this.outputText(this.flags[kFLAGS.KELLY_TATTOO_SHOULDERS] + "\n");
-                if (this.flags[kFLAGS.KELLY_TATTOO_LOWERBACK] != 0) this.outputText(this.flags[kFLAGS.KELLY_TATTOO_LOWERBACK] + "\n");
-                if (this.flags[kFLAGS.KELLY_TATTOO_BUTT] != 0) this.outputText(this.flags[kFLAGS.KELLY_TATTOO_BUTT] + "\n");
+                if (this.flags[kFLAGS.KELLY_TATTOO_COLLARBONE] != '') this.outputText(this.flags[kFLAGS.KELLY_TATTOO_COLLARBONE] + "\n");
+                if (this.flags[kFLAGS.KELLY_TATTOO_SHOULDERS] != '') this.outputText(this.flags[kFLAGS.KELLY_TATTOO_SHOULDERS] + "\n");
+                if (this.flags[kFLAGS.KELLY_TATTOO_LOWERBACK] != '') this.outputText(this.flags[kFLAGS.KELLY_TATTOO_LOWERBACK] + "\n");
+                if (this.flags[kFLAGS.KELLY_TATTOO_BUTT] != '') this.outputText(this.flags[kFLAGS.KELLY_TATTOO_BUTT] + "\n");
                 this.outputText("\n");
             }
         }
@@ -694,7 +694,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
     private approachKelly(): void {
         this.clearOutput();
         //Fix hair color!
-        if (this.flags[kFLAGS.KELLY_HAIR_COLOR] == 0) this.flags[kFLAGS.KELLY_HAIR_COLOR] = "chestnut brown";
+        if (this.flags[kFLAGS.KELLY_HAIR_COLOR] == '') this.flags[kFLAGS.KELLY_HAIR_COLOR] = "chestnut brown";
         //PUNISH SCENES IF APPROPRIATE
         if (this.flags[kFLAGS.KELLY_VAGINALLY_FUCKED_COUNT] > 0 && this.flags[kFLAGS.TIMES_PUNISHED_KELLY] == 0 && Kelly.rand(3) == 0 && this.player.hasCock()) {
             this.flags[kFLAGS.KELLY_DISOBEYING_COUNTER] = 0;

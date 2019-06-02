@@ -274,7 +274,7 @@ export class Kaiju extends AbstractLakeContent {
         this.spriteSelect(103);
         this.outputText("As you row through the lake you encounter a familiar sight, a giant shell as big as an island.  As you row near it the terrapin giantess, Venus emerges from the corrupted waters.  One giant green hand plays with her titanic jugs as the other remains in the water playing with her unseen sex.  It takes several moments before she notices you.  \"<i>Oh my, it's you again, my favorite voyeur!  Did you come back for a little peek, or do you want to have some real fun?</i>\"");
         this.menu();
-        var drafts: number = 0;
+        // var drafts: number = 0;
         //[If PC has 15 incubus drafts (regular or pure) and Venus is not already a herm]
         if (this.player.itemCount(this.consumables.INCUBID) + this.player.itemCount(this.consumables.P_DRAFT) >= 10 && !this.kaijuCock()) {
             this.outputText("\n\nIt occurs to you that you have enough Incubi Drafts on you to even affect someone of the turtle girl’s great size.  Maybe you could give her a cock?");

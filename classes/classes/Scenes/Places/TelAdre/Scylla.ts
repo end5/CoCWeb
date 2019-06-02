@@ -18,8 +18,8 @@ export class Scylla extends TelAdreAbstractContent {
     public static SCYLLA_ACTION_FUCKING_URTA: number = 8;
     public static SCYLLA_ACTION_FURRY_FOURSOME: number = 9;
 
-    private scyllaAction: number;
-    private scyllaLastActionSelectionTime: number;
+    private scyllaAction: number = 0;
+    private scyllaLastActionSelectionTime: number = 0;
     public get action(): number { return this.scyllaAction; }
     //const TIMES_SOLO_FED_NUN: number = 778;
     //const FED_SCYLLA_TODAY: number = 779;
@@ -1122,7 +1122,7 @@ export class Scylla extends TelAdreAbstractContent {
         else this.outputText("Scylla guides you with polite little directions, pointing demurely at houses you pass by and letting you know a bit about their inhabitants. The cobbler over there just recovered from a terrible accident and has regained the use of his legs. That baker caught ill last week and is finally on the upswing. The family there found their missing daughter after searching high and low yesterday night. She seems happy to be able to tell you all the positive, encouraging things that would've seemed to be mundane back home. Here, in this demon-tainted land, every small blessing seems a miracle.\n\n", false);
         this.dynStats("lus", 5 + this.player.lib / 20);
         this.outputText("The nun guides you down an alley, talking about how she saw a bunny the other day when a couple of felines rush past, jostling you as they do so. You pat your pockets and notice they're emptier than usual, so you let go of Scylla's hand and turn around to chase the thieves. As you do so, you hear a soft shuffling behind you and the nun gasps.\n\n", false);
-        var duck: number = 0;
+        // var duck: number = 0;
         //[Next][Duck! (high int/speed only)]
         this.simpleChoices("Next", this.Scylla6SLOW, "Duck!", this.Scylla6DUCK, "", undefined, "", undefined, "", undefined);
     }

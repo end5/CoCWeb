@@ -149,10 +149,10 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                     if (kGAMECLASS.farm.farmCorruption.numTattoos("jojo") > 1) this.outputText("He has the following tattoos emblazoned across his body:\n");
                     else this.outputText("He has ");
 
-                    if (this.flags[kFLAGS.JOJO_TATTOO_COLLARBONE] != 0) this.outputText(this.flags[kFLAGS.JOJO_TATTOO_COLLARBONE] + "\n");
-                    if (this.flags[kFLAGS.JOJO_TATTOO_SHOULDERS] != 0) this.outputText(this.flags[kFLAGS.JOJO_TATTOO_SHOULDERS] + "\n");
-                    if (this.flags[kFLAGS.JOJO_TATTOO_LOWERBACK] != 0) this.outputText(this.flags[kFLAGS.JOJO_TATTOO_LOWERBACK] + "\n");
-                    if (this.flags[kFLAGS.JOJO_TATTOO_BUTT] != 0) this.outputText(this.flags[kFLAGS.JOJO_TATTOO_BUTT] + "\n");
+                    if (this.flags[kFLAGS.JOJO_TATTOO_COLLARBONE] != '') this.outputText(this.flags[kFLAGS.JOJO_TATTOO_COLLARBONE] + "\n");
+                    if (this.flags[kFLAGS.JOJO_TATTOO_SHOULDERS] != '') this.outputText(this.flags[kFLAGS.JOJO_TATTOO_SHOULDERS] + "\n");
+                    if (this.flags[kFLAGS.JOJO_TATTOO_LOWERBACK] != '') this.outputText(this.flags[kFLAGS.JOJO_TATTOO_LOWERBACK] + "\n");
+                    if (this.flags[kFLAGS.JOJO_TATTOO_BUTT] != '') this.outputText(this.flags[kFLAGS.JOJO_TATTOO_BUTT] + "\n");
                     this.outputText("\n");
                 }
             }
@@ -341,7 +341,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.jojoSprite();
         this.player.slimeFeed();
         var nippleSucking: boolean = false;
-        var clitSucking: boolean = false;
+        // var clitSucking: boolean = false;
         var mouthFucking: boolean = false;
         var titFucking: boolean = false;
         var cumPuddle: boolean = false;

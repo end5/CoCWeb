@@ -37,7 +37,7 @@ export class Armor extends Useable //Equipable
         return this;
     }
 
-    public playerRemove(): Armor { //This item is being removed by the player. Remove any perks, etc. - This function should only handle mechanics, not text output
+    public playerRemove(): Armor | undefined { //This item is being removed by the player. Remove any perks, etc. - This function should only handle mechanics, not text output
         while (this.game.player.findPerk(PerkLib.BulgeArmor) >= 0) this.game.player.removePerk(PerkLib.BulgeArmor); //TODO remove this Exgartuan hack
         if (this.game.player.modArmorName.length > 0) this.game.player.modArmorName = "";
         return this;

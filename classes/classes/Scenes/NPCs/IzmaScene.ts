@@ -36,8 +36,8 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         CoC.timeAwareClassAdd(this);
     }
 
-    private checkedIzmaLatexy: number; //Make sure we test each of these events just once in timeChangeLarge
-    private checkedIzmaSophie: number;
+    private checkedIzmaLatexy: number = 0; //Make sure we test each of these events just once in timeChangeLarge
+    private checkedIzmaSophie: number = 0;
 
     //Implementation of TimeAwareInterface
     public timeChange(): boolean {
@@ -1722,9 +1722,9 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         //69 - non-0 gender
         var sixty = undefined;
         if (this.player.gender > 0) sixty = this.followerIzmaTakesIt69;
-        var kids: string = "";
-        if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00249] == 1) kids = "NoKidsPlease";
-        else kids = "Have Kids?";
+        // var kids: string = "";
+        // if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00249] == 1) kids = "NoKidsPlease";
+        // else kids = "Have Kids?";
         var analCatch = undefined;
         var assDom = undefined;
         if (this.flags[kFLAGS.IZMA_NO_COCK] == 0) {
@@ -3210,7 +3210,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.clearOutput();
         var x: number = this.player.cockThatFits(65);
         if (x < 0) x = 0;
-        var y: number = this.player.cockThatFits2(65);
+        // var y: number = this.player.cockThatFits2(65);
         //Just dick
         if (choice == 0) {
             this.outputText("To answer the question her peepers pose to you, you slide another pre-cum drenched tentacle cock down her tail and onto her pelvis, coiling around her engorged member tightly until your huge, perverted dick runs out of length... which suits you just fine as you grind your cock against the head of her own, ferociously crossing swords with her as she wails in overwhelmed joy at the bizarre but perverted felicity of your efforts.");

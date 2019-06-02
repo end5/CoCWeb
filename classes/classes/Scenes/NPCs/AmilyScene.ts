@@ -2493,7 +2493,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             return;
         }
         this.amilySprite();
-        if (this.flags[kFLAGS.AMILY_CLOTHING] == 0) this.flags[kFLAGS.AMILY_CLOTHING] = "rags";
+        if (this.flags[kFLAGS.AMILY_CLOTHING] == '') this.flags[kFLAGS.AMILY_CLOTHING] = "rags";
         //Amily freakout
         if (this.player.cor >= 50 && this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00173] == 0 && this.flags[kFLAGS.AMILY_FOLLOWER] == 1) {
             this.amilyTaintWarning();
@@ -2730,10 +2730,10 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     if (kGAMECLASS.farm.farmCorruption.numTattoos("amily") > 1) this.outputText("She has the following tattoos emblazoned across her body:\n");
                     else this.outputText("\nShe has ");
 
-                    if (this.flags[kFLAGS.AMILY_TATTOO_COLLARBONE] != 0) this.outputText(this.flags[kFLAGS.AMILY_TATTOO_COLLARBONE] + "\n");
-                    if (this.flags[kFLAGS.AMILY_TATTOO_SHOULDERS] != 0) this.outputText(this.flags[kFLAGS.AMILY_TATTOO_SHOULDERS] + "\n");
-                    if (this.flags[kFLAGS.AMILY_TATTOO_LOWERBACK] != 0) this.outputText(this.flags[kFLAGS.AMILY_TATTOO_LOWERBACK] + "\n");
-                    if (this.flags[kFLAGS.AMILY_TATTOO_BUTT] != 0) this.outputText(this.flags[kFLAGS.AMILY_TATTOO_BUTT] + "\n");
+                    if (this.flags[kFLAGS.AMILY_TATTOO_COLLARBONE] != '') this.outputText(this.flags[kFLAGS.AMILY_TATTOO_COLLARBONE] + "\n");
+                    if (this.flags[kFLAGS.AMILY_TATTOO_SHOULDERS] != '') this.outputText(this.flags[kFLAGS.AMILY_TATTOO_SHOULDERS] + "\n");
+                    if (this.flags[kFLAGS.AMILY_TATTOO_LOWERBACK] != '') this.outputText(this.flags[kFLAGS.AMILY_TATTOO_LOWERBACK] + "\n");
+                    if (this.flags[kFLAGS.AMILY_TATTOO_BUTT] != '') this.outputText(this.flags[kFLAGS.AMILY_TATTOO_BUTT] + "\n");
                 }
             }
         }
@@ -3818,7 +3818,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.amilySprite();
         this.outputText("You offer her a set of comfortable clothes, asking if she'd like to wear these instead of her " + this.flags[kFLAGS.AMILY_CLOTHING] + " she's wearing.\n\n", false);
         //If you played an early build that didnt initialize clothes.
-        if (this.flags[kFLAGS.AMILY_CLOTHING] == 0) this.flags[kFLAGS.AMILY_CLOTHING] = "rags";
+        if (this.flags[kFLAGS.AMILY_CLOTHING] == '') this.flags[kFLAGS.AMILY_CLOTHING] = "rags";
         //(If Amily is wearing Tattered Rags:
         if (this.flags[kFLAGS.AMILY_CLOTHING] == "rags" || this.flags[kFLAGS.AMILY_CLOTHING] == "sexy rags") {
             this.outputText("Her eyes light up with glee. \"<i>Oh, I've always wanted some more clothes! Please, let me have them!</i>\" she squeaks with delight as you hand them over, carelessly stripping herself and throwing her old clothes aside before pulling on her new gear. She spins idly in place as she strives to examine how she looks, then she runs off to the stream to get a better view of her reflection.", false);

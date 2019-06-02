@@ -14,6 +14,7 @@ import { Appearance } from "./Appearance";
 import { trace } from "console";
 import { ItemType } from "./ItemType";
 import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
+import { PerkLib } from "./PerkLib";
 
 /**
  * ...
@@ -74,40 +75,40 @@ export class Player extends Character {
     private _armor: Armor = ArmorLib.COMFORTABLE_UNDERCLOTHES;
     private _modArmorName: string = "";
 
-    public set armorValue(value: number): void {
+    public set armorValue(value: number) {
         CoC_Settings.error("ERROR: attempt to directly set player.armorValue.");
     }
 
-    public set armorName(value: string): void {
+    public set armorName(value: string) {
         CoC_Settings.error("ERROR: attempt to directly set player.armorName.");
     }
 
-    public set armorDef(value: number): void {
+    public set armorDef(value: number) {
         CoC_Settings.error("ERROR: attempt to directly set player.armorDef.");
     }
 
-    public set armorPerk(value: string): void {
+    public set armorPerk(value: string) {
         CoC_Settings.error("ERROR: attempt to directly set player.armorPerk.");
     }
 
 
-    public set weaponName(value: string): void {
+    public set weaponName(value: string) {
         CoC_Settings.error("ERROR: attempt to directly set player.weaponName.");
     }
 
-    public set weaponVerb(value: string): void {
+    public set weaponVerb(value: string) {
         CoC_Settings.error("ERROR: attempt to directly set player.weaponVerb.");
     }
 
-    public set weaponAttack(value: number): void {
+    public set weaponAttack(value: number) {
         CoC_Settings.error("ERROR: attempt to directly set player.weaponAttack.");
     }
 
-    public set weaponPerk(value: string): void {
+    public set weaponPerk(value: string) {
         CoC_Settings.error("ERROR: attempt to directly set player.weaponPerk.");
     }
 
-    public set weaponValue(value: number): void {
+    public set weaponValue(value: number) {
         CoC_Settings.error("ERROR: attempt to directly set player.weaponValue.");
     }
 
@@ -116,7 +117,7 @@ export class Player extends Character {
         return this._modArmorName;
     }
 
-    public set modArmorName(value: string): void {
+    public set modArmorName(value: string) {
         if (value == undefined) value = "";
         this._modArmorName = value;
     }
@@ -200,10 +201,10 @@ export class Player extends Character {
         return this._armor;
     }
 
-    public setArmor(newArmor: Armor): Armor {
+    public setArmor(newArmor: Armor): Armor | undefined {
         //Returns the old armor, allowing the caller to discard it, store it or try to place it in the player's inventory
         //Can return undefined, in which case caller should discard.
-        var oldArmor: Armor = this._armor.playerRemove(); //The armor is responsible for removing any bonuses, perks, etc.
+        var oldArmor = this._armor.playerRemove(); //The armor is responsible for removing any bonuses, perks, etc.
         if (newArmor == undefined) {
             CoC_Settings.error(this.short + ".armor is set to undefined");
             newArmor = ArmorLib.COMFORTABLE_UNDERCLOTHES;
@@ -232,10 +233,10 @@ export class Player extends Character {
         return this._weapon;
     }
 
-    public setWeapon(newWeapon: Weapon): Weapon {
+    public setWeapon(newWeapon: Weapon) {
         //Returns the old weapon, allowing the caller to discard it, store it or try to place it in the player's inventory
         //Can return undefined, in which case caller should discard.
-        var oldWeapon: Weapon = this._weapon.playerRemove(); //The weapon is responsible for removing any bonuses, perks, etc.
+        var oldWeapon = this._weapon.playerRemove(); //The weapon is responsible for removing any bonuses, perks, etc.
         if (newWeapon == undefined) {
             CoC_Settings.error(this.short + ".weapon is set to undefined");
             newWeapon = WeaponLib.FISTS;
@@ -261,7 +262,7 @@ export class Player extends Character {
     }
 
     public reduceDamage(damage: number): number {
-        damage = int(damage - Player.rand(this.tou) - this.armorDef);
+        damage = Math.floor(damage - Player.rand(this.tou) - this.armorDef);
         //EZ MOAD half damage
         if (this.flags[kFLAGS.EASY_MODE_ENABLE_FLAG] == 1) damage /= 2;
         if (this.findStatusAffect(StatusAffects.Shielding) >= 0) {
@@ -310,7 +311,7 @@ export class Player extends Character {
             this.HP -= damage;
             this.game.mainView.statsView.showStatDown('hp');
             if (this.flags[kFLAGS.MINOTAUR_CUM_REALLY_ADDICTED_STATE] > 0) {
-                this.game.dynStats("lus", int(damage / 2));
+                this.game.dynStats("lus", Math.floor(damage / 2));
             }
             //Prevent negatives
             if (this.HP <= 0) {
@@ -327,7 +328,7 @@ export class Player extends Character {
      */
     public speedDodge(monster: Monster): number {
         var diff: number = this.spe - monster.spe;
-        var rnd: number = int(Math.random() * ((diff / 4) + 80));
+        var rnd: number = Math.floor(Math.random() * ((diff / 4) + 80));
         if (rnd <= 80) return 0;
         else if (diff < 8) return 1;
         else if (diff < 20) return 2;
@@ -472,7 +473,7 @@ export class Player extends Character {
         }
         if (this.raccoonScore() >= 4) {
             race = "raccoon-morph";
-            if (balls > 0 && this.ballSize > 5)
+            if (this.balls > 0 && this.ballSize > 5)
                 race = "tanuki-morph";
         }
         if (this.dogScore() >= 4) {
@@ -557,9 +558,9 @@ export class Player extends Character {
     //determine demon rating
     public demonScore(): number {
         var demonCounter: number = 0;
-        if (this.hornType == 1 && horns > 0)
+        if (this.hornType == 1 && this.horns > 0)
             demonCounter++;
-        if (this.hornType == 1 && horns > 4)
+        if (this.hornType == 1 && this.horns > 4)
             demonCounter++;
         if (this.tailType == 3)
             demonCounter++;
@@ -583,7 +584,7 @@ export class Player extends Character {
             humanCounter++;
         if (this.skinType == 0)
             humanCounter++;
-        if (horns == 0)
+        if (this.horns == 0)
             humanCounter++;
         if (this.tailType == 0)
             humanCounter++;
@@ -762,7 +763,7 @@ export class Player extends Character {
             coonCounter++;
         if (this.lowerBody == 19)
             coonCounter++;
-        if (coonCounter > 0 && balls > 0)
+        if (coonCounter > 0 && this.balls > 0)
             coonCounter++;
         //Fur only counts if some canine features are present
         if (this.skinType == 1 && coonCounter > 0)
@@ -833,7 +834,7 @@ export class Player extends Character {
             lizardCounter++;
         if (this.lizardCocks() > 0)
             lizardCounter++;
-        if (horns > 0 && (this.hornType == 3 || this.hornType == 4))
+        if (this.horns > 0 && (this.hornType == 3 || this.hornType == 4))
             lizardCounter++;
         if (this.skinType == 2)
             lizardCounter++;
@@ -1016,7 +1017,7 @@ export class Player extends Character {
         if (this.lowerBody == 12)
             bunnyCounter++;
         //More than 2 balls reduces bunny score
-        if (balls > 2 && bunnyCounter > 0)
+        if (this.balls > 2 && bunnyCounter > 0)
             bunnyCounter--;
         //Human skin on bunmorph adds
         if (this.skinType == 0 && bunnyCounter > 1)
@@ -1174,11 +1175,11 @@ export class Player extends Character {
     }
 
     public buttChangeDisplay(): void {	//Allows the test for stretching and the text output to be separated
-        if (ass.analLooseness == 5) this.outputText("<b>Your " + Appearance.assholeDescript(this) + " is stretched even wider, capable of taking even the largest of demons and beasts.</b>");
-        if (ass.analLooseness == 4) this.outputText("<b>Your " + Appearance.assholeDescript(this) + " becomes so stretched that it gapes continually.</b>", false);
-        if (ass.analLooseness == 3) this.outputText("<b>Your " + Appearance.assholeDescript(this) + " is now very loose.</b>");
-        if (ass.analLooseness == 2) this.outputText("<b>Your " + Appearance.assholeDescript(this) + " is now a little loose.</b>");
-        if (ass.analLooseness == 1) this.outputText("<b>You have lost your anal virginity.</b>", false);
+        if (this.ass.analLooseness == 5) this.outputText("<b>Your " + Appearance.assholeDescript(this) + " is stretched even wider, capable of taking even the largest of demons and beasts.</b>");
+        if (this.ass.analLooseness == 4) this.outputText("<b>Your " + Appearance.assholeDescript(this) + " becomes so stretched that it gapes continually.</b>", false);
+        if (this.ass.analLooseness == 3) this.outputText("<b>Your " + Appearance.assholeDescript(this) + " is now very loose.</b>");
+        if (this.ass.analLooseness == 2) this.outputText("<b>Your " + Appearance.assholeDescript(this) + " is now a little loose.</b>");
+        if (this.ass.analLooseness == 1) this.outputText("<b>You have lost your anal virginity.</b>", false);
     }
 
     public slimeFeed(): void {
@@ -1232,11 +1233,8 @@ export class Player extends Character {
     }
 
     public spellCount(): number {
-        return [StatusAffects.KnowsArouse, StatusAffects.KnowsHeal, StatusAffects.KnowsMight, StatusAffects.KnowsCharge, StatusAffects.KnowsBlind, StatusAffects.KnowsWhitefire]
-            .filter(function (item: StatusAffectType, index: number, array: any[]): boolean {
-                return this.findStatusAffect(item) >= 0;
-            }, this)
-            .length;
+        const spells = [StatusAffects.KnowsArouse, StatusAffects.KnowsHeal, StatusAffects.KnowsMight, StatusAffects.KnowsCharge, StatusAffects.KnowsBlind, StatusAffects.KnowsWhitefire];
+        return this.statusAffects.filter((effect) => spells.find((spell) => spell === effect.stype)).length;
     }
 
     public hairDescript(): string {
@@ -1296,7 +1294,7 @@ export class Player extends Character {
         //GrowthType 2 = Top Row working downward
         //GrowthType 3 = Only top row
         var temp2: number = 0;
-        var temp3: number = 0;
+        // var temp3: number = 0;
         //Chance for "big tits" perked characters to grow larger!
         if (this.findPerk(PerkLib.BigTits) >= 0 && Player.rand(3) == 0 && amount < 1) amount = 1;
 
@@ -1315,7 +1313,7 @@ export class Player extends Character {
                     if (this.breastRows[temp].breastRating < this.breastRows[temp2].breastRating) temp2 = temp;
                 }
                 //Temp 3 tracks total amount grown
-                temp3 += amount;
+                // temp3 += amount;
                 trace("Breastrow chosen for growth: " + String(temp2) + ".");
                 //Reuse temp to store growth amount for diminishing returns.
                 temp = amount;
@@ -1383,7 +1381,7 @@ export class Player extends Character {
                 this.breastRows[temp].breastRating += amount;
                 trace("Breasts increased by " + amount + " on row " + temp);
                 temp++;
-                temp3 += amount;
+                // temp3 += amount;
                 rowsGrown--;
             }
         }
@@ -1391,7 +1389,7 @@ export class Player extends Character {
             while (rowsGrown > 0) {
                 rowsGrown--;
                 this.breastRows[0].breastRating += amount;
-                temp3 += amount;
+                // temp3 += amount;
             }
         }
         //Breast Growth Finished...talk about changes.
@@ -1731,8 +1729,8 @@ export class Player extends Character {
     }
 
     public getLowestSlot(itype: ItemType): ItemSlotClass {
-        var minslot: ItemSlotClass = undefined;
-        for each(var slot: ItemSlotClass in this.itemSlots) {
+        var minslot;
+        for(var slot of this.itemSlots) {
             if (slot.itype == itype) {
                 if (minslot == undefined || slot.quantity < minslot.quantity) {
                     minslot = slot;
@@ -1748,7 +1746,7 @@ export class Player extends Character {
 
     public itemCount(itype: ItemType): number {
         var count: number = 0;
-        for each(var itemSlot: ItemSlotClass in this.itemSlots) {
+        for(var itemSlot of this.itemSlots) {
             if (itemSlot.itype == itype) count += itemSlot.quantity;
         }
         return count;
@@ -1938,9 +1936,9 @@ export class Player extends Character {
         }
         //remove infestation if cockless
         if (this.cocks.length == 0) this.removeStatusAffect(StatusAffects.Infested);
-        if (this.cocks.length == 0 && balls > 0) {
+        if (this.cocks.length == 0 && this.balls > 0) {
             this.outputText("  <b>Your " + this.sackDescript() + " and " + this.ballsDescriptLight() + " shrink and disappear, vanishing into your groin.</b>", false);
-            balls = 0;
+            this.balls = 0;
             this.ballSize = 1;
         }
     }
@@ -1985,7 +1983,7 @@ export class Player extends Character {
 
         for (var i: number = 0; i < this.cocks.length; i++) {
             trace("increaseEachCock at: " + i);
-            totalGrowth += this.increaseCock(i as Number, lengthDelta);
+            totalGrowth += this.increaseCock(i, lengthDelta);
         }
 
         return totalGrowth;
@@ -2064,3 +2062,4 @@ export class Player extends Character {
 
         return true;
     }
+}

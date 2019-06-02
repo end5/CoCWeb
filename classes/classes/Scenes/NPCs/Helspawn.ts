@@ -150,7 +150,7 @@ export class Helspawn extends Monster {
 
     public constructor() {
         super();
-        var weapon: string = this.game.flags[kFLAGS.HELSPAWN_WEAPON];
+        var weapon = this.game.flags[kFLAGS.HELSPAWN_WEAPON];
         this.a = "";
         this.short = this.game.flags[kFLAGS.HELSPAWN_NAME];
         this.imageName = "hollispawn";
@@ -163,7 +163,7 @@ export class Helspawn extends Monster {
                 'bow': "recurve bow, using blunted, soft-tipped arrows",
                 'scimitar': "scimitar, just like her mom's, and holds it in the same berzerk stance Helia is wont to use",
                 'scimitar and shield': "scimitar and shield, giving her a balanced fighting style"
-            }[weapon as 'bow' | 'scimitar' | 'scimitar and shield'] +
+            }[weapon] +
             ".  Pacing around you, the well-built young warrior intently studies her mentor's defenses, readying for your next attack.";
         // this.plural = false;
         this.createVagina(false, VAGINA_WETNESS_NORMAL, VAGINA_LOOSENESS_NORMAL);
@@ -185,7 +185,7 @@ export class Helspawn extends Monster {
             'bow': "blunted arrow",
             'scimitar': "slash",
             'scimitar and shield': "slash"
-        }[weapon as 'bow' | 'scimitar' | 'scimitar and shield'];
+        }[weapon];
         this.weaponAttack = 20;
         this.armorName = "scales";
         this.armorDef = 12;

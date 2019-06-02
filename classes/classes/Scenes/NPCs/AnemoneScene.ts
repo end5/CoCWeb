@@ -1114,7 +1114,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             item = this.getAnemoneItem;
         }
         //[(if Kid A has been given a weapon)
-        if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] != 0) {
+        if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] != '') {
             this.outputText("She has " + ItemType.lookupItem(this.flags[kFLAGS.ANEMONE_WEAPON_ID]).longName + " sitting next to it.  ");
             //outputText("Kid A pokes her head out and smiles at you.  What do you need from her?");
             weaponT = "Take Weapon";
@@ -1134,7 +1134,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         this.addButton(0, "Item", item);
         this.addButton(1, weaponT, weaponB);
         if (this.flags[kFLAGS.KID_SITTER] <= 1) {
-            if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] != 0 && this.player.fatigue <= 90) this.addButton(3, "Tutor", this.tutorAnemoneKid);
+            if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] != '' && this.player.fatigue <= 90) this.addButton(3, "Tutor", this.tutorAnemoneKid);
             else if (this.player.fatigue > 90) this.outputText("\n\nYou're too tired to tutor Kid A.");
             this.addButton(4, "Watch", this.anemoneWatchToggle);
             this.addButton(8, "Evict", this.evictANemone);
@@ -1209,10 +1209,10 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             if (AnemoneScene.rand(100) == 0) itype = this.consumables.BROBREW;
             if (AnemoneScene.rand(100) == 0) itype = this.consumables.BIMBOLQ;
         }
-        this.outputText(itype.longName + ".");
-        if (itype == this.weapons.L__AXE) this.outputText("  Holy... how did she drag this thing home!?");
+        this.outputText(itype!.longName + ".");
+        if (itype! == this.weapons.L__AXE) this.outputText("  Holy... how did she drag this thing home!?");
         this.outputText("\n\n");
-        this.inventory.takeItem(itype, this.playerMenu);
+        this.inventory.takeItem(itype!, this.playerMenu);
         //(set hourssinceKiditem = 0)
         this.flags[kFLAGS.KID_ITEM_FIND_HOURS] = 0;
     }
@@ -1222,8 +1222,8 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         this.clearOutput();
         this.spriteSelect(71);
         this.outputText("What do you want to give her?");
-        function giveableToAnemone(item: ItemType): boolean {
-            return item == consumables.W__BOOK || item == consumables.B__BOOK || item == consumables.W_STICK || item instanceof Weapon;
+        const giveableToAnemone = (item: ItemType): boolean => {
+            return item == this.consumables.W__BOOK || item == this.consumables.B__BOOK || item == this.consumables.W_STICK || item instanceof Weapon;
         }
         this.menu();
         kGAMECLASS.hideUpDown();
@@ -1260,7 +1260,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         }
         this.inventory.takeItem(itype, this.playerMenu);
         //(add weapon to inventory, then revert Kidweapon to empty)
-        this.flags[kFLAGS.ANEMONE_WEAPON_ID] = 0;
+        this.flags[kFLAGS.ANEMONE_WEAPON_ID] = '';
     }
 
     //[N.Watch]
@@ -1274,7 +1274,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             this.flags[kFLAGS.ANEMONE_WATCH] = 0;
         }
         else {
-            if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] == 0) {
+            if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] == '') {
                 this.outputText("You're not really going to set this featherweight against the night barehanded, are you?!  Her hair hasn't even grown out!  You'd better hand her some kind of weapon.");
             }
             else {
@@ -1294,28 +1294,30 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
+        const weaponID = this.flags[kFLAGS.ANEMONE_WEAPON_ID];
+
         this.outputText("The anemone obediently climbs out of her barrel, ");
         //[(KidXP < 33)]
         if (this.kidAXP() < 33) {
-            this.outputText("holding " + ItemType.lookupItem(this.flags[kFLAGS.ANEMONE_WEAPON_ID]).longName + " protectively across her chest.");
+            this.outputText("holding " + ItemType.lookupItem(weaponID).longName + " protectively across her chest.");
         }
-        else this.outputText("taking up an attentive stance with " + ItemType.lookupItem(this.flags[kFLAGS.ANEMONE_WEAPON_ID]).longName + " in her hands.");
+        else this.outputText("taking up an attentive stance with " + ItemType.lookupItem(weaponID).longName + " in her hands.");
 
         this.outputText("  You spend some time instructing Kid A in the finer points of the equipment you've provided her with, and then finish up with a practice duel.");
 
         //duel effects by weapon, output in new PG
         //[Pipe] or [Wizard Staff] or [Eldritch Staff]
-        if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.weapons.PIPE.id ||
-            this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.weapons.W_STAFF.id ||
-            this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.weapons.E_STAFF.id) {
+        if (weaponID == this.weapons.PIPE.id ||
+            weaponID == this.weapons.W_STAFF.id ||
+            weaponID == this.weapons.E_STAFF.id) {
             this.outputText("\n\nThough she acts like she's not serious and pulls her swings more often than not, the heft of the ");
-            if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.weapons.PIPE.id) this.outputText("pipe");
+            if (weaponID == this.weapons.PIPE.id) this.outputText("pipe");
             else this.outputText("stick");
             this.outputText(" is still enough to bruise you a bit.");
         }
         //(HP - 5, KidXP + 1)
         //[Riding Crop]
-        else if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.weapons.RIDINGC.id) {
+        else if (weaponID == this.weapons.RIDINGC.id) {
             this.outputText("\n\nShe seems to enjoy smacking you with the riding crop, making sultry eyes at you and pursing her lips whenever she lands a crack on your [butt] or [chest].  So much so, in fact, that her own penis is betraying her arousal, bobbing in time as she swishes the weapon around.  The humiliation ");
             if (this.player.lib < 50) this.outputText("is");
             else this.outputText("isn't");
@@ -1326,7 +1328,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             this.kidAXP(6);
         }
         //[Lust Dagger]
-        else if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.weapons.L_DAGGR.id) {
+        else if (weaponID == this.weapons.L_DAGGR.id) {
             this.outputText("\n\nThe enchanted dagger is light enough for the anemone to use one-handed, and she makes a good practice of turning aside your mock blows with it while reaching in to stimulate you with her other hand.  For good measure, she nicks you with the blade itself whenever her caress elicits a distracted flush.");
             //(HP -5, lust +10, KidXP + 3)
             this.HPChange(-5, false);
@@ -1334,7 +1336,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             this.kidAXP(5);
         }
         //[Beautiful Sword]
-        else if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.weapons.B_SWORD.id) {
+        else if (weaponID == this.weapons.B_SWORD.id) {
             this.outputText("\n\nThe sword seems to dance in the air, as though it were the perfect weight and balance for your daughter.  She delivers several playful thrusts at you and though you deflect all but the last, that one slips by your guard.  The girl's eyes widen as the point lunges at your breast, but it delivers barely a scratch before twisting away.");
             this.outputText("\n\nPerhaps anemones are a bit too corrupt to use the sword effectively?");
             //(HP -1, KidXP - 2)
@@ -1342,63 +1344,63 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             this.kidAXP(-2);
         }
         //[Jeweled Rapier] or [Raphael's Rapier]
-        else if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.weapons.RRAPIER.id ||
-            this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.weapons.JRAPIER.id) {
+        else if (weaponID == this.weapons.RRAPIER.id ||
+            weaponID == this.weapons.JRAPIER.id) {
             this.outputText("\n\nThe rapier is light enough for the girl, but it takes a multitude of reminders before she handles the slender blade with the care and style it deserves.  She seems to regard it as little more than a tool for thwacking you in the butt that, coincidentally, has a pointy end.");
             //(no effect, señorita)
         }
         //[Large Axe], [Large Hammer], [Large Claymore], or [Huge Warhammer]
-        else if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.weapons.L__AXE.id ||
-            this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.weapons.L_HAMMR.id ||
-            this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.weapons.WARHAMR.id ||
-            this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.weapons.L__AXE.id) {
+        else if (weaponID == this.weapons.L__AXE.id ||
+            weaponID == this.weapons.L_HAMMR.id ||
+            weaponID == this.weapons.WARHAMR.id ||
+            weaponID == this.weapons.L__AXE.id) {
             this.outputText("\n\nShe can barely lift the weapon you've given her, although for a while she does manage to support one end with the ground and tilt it by the haft to ward off your blows with cleverness.  Distracting her by way of a feint, you part her from it and advance with a smile full of playful menace... whereupon she shrieks and pushes you backwards, causing you to trip over the weapon and fall with a crash.");
             //(HP - 5, KidXP - 4)
             this.kidAXP(-4);
             this.HPChange(-5, false);
         }
         //[Katana] or [Spellsword]
-        else if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.weapons.KATANA.id ||
-            this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.weapons.S_BLADE.id) {
+        else if (weaponID == this.weapons.KATANA.id ||
+            weaponID == this.weapons.S_BLADE.id) {
             this.outputText("\n\nThe light sword and the light anemone seem to be a good match, and she actually manages to make several deft moves with it after your instruction.  One is a bit too deft, as she fails to rein in her swing and delivers a long, drawing cut that connects with your [leg].");
             //(HP - 20, KidXP + 2)
             this.kidAXP(4);
             this.HPChange(-20, false);
         }
         //[Spear]
-        else if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.weapons.SPEAR.id) {
+        else if (weaponID == this.weapons.SPEAR.id) {
             this.outputText("\n\nThe natural length of the spear and the anemone racial mindset to get close and communicate by touch don't mesh well; she chokes up well past halfway on the haft despite your repeated instruction and pokes at you from close range with very little force, the idle end of the weapon waggling through the air behind her.");
             //(HP -5, KidXP - 1)
             this.kidAXP(-1);
             this.HPChange(-5, false);
         }
         //[Whip] or [Succubi's Whip]
-        else if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.weapons.WHIP.id ||
-            this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.weapons.SUCWHIP.id) {
+        else if (weaponID == this.weapons.WHIP.id ||
+            weaponID == this.weapons.SUCWHIP.id) {
             this.outputText("\n\nThe whip seems almost like an extension of her hand once she decides its purpose is to tangle things up as opposed to lashing and lacerating flesh.  One of her overzealous swings finds you <i>both</i> tied in its coils; her petite body presses against yours as she colors in embarrassment.  Her distracted struggles to loosen the bonds accomplish little except to rub her sensitive parts along yours.");
-            if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.weapons.SUCWHIP.id) this.outputText("  The demonic enchantment chooses then to activate, and her color deepens as her lust peaks, as does your own.");
+            if (weaponID == this.weapons.SUCWHIP.id) this.outputText("  The demonic enchantment chooses then to activate, and her color deepens as her lust peaks, as does your own.");
             this.outputText("  You feel a point digging into your groin as her prick hardens and her struggles cease; she begins to moan openly in arousal.  As she relaxes, the coils of the whip finally loosen enough for you to extricate yourself.");
             //(HP -0, lust +10 if normal whip or +20 if succubus, KidXP + 3)
             this.dynStats("lus", 10, "resisted", false);
-            if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.weapons.SUCWHIP.id) this.dynStats("lus", 10, "resisted", false);
+            if (weaponID == this.weapons.SUCWHIP.id) this.dynStats("lus", 10, "resisted", false);
             this.kidAXP(6);
         }
         //[Spiked Gauntlets] or [Hooked Gauntlets]
-        else if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.weapons.S_GAUNT.id ||
-            this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.weapons.H_GAUNT.id) {
+        else if (weaponID == this.weapons.S_GAUNT.id ||
+            weaponID == this.weapons.H_GAUNT.id) {
             this.outputText("\n\nThe anemone wears the gauntlets easily and comfortably, but doesn't seem to understand that to attack she needs to ball up her fists and swing them, no matter how many times you tell her.  The most she manages is to deflect a few of your mock lunges by batting them aside with the metal atop her knuckles.");
             //(no tigereffect)
         }
         //[Wingstick]
-        else if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.consumables.W_STICK.id) {
+        else if (weaponID == this.consumables.W_STICK.id) {
             this.outputText("\n\nThe girl stares at the stick, still uncomprehending how you intend her to use it.  One last time, you take the weapon from her and make a throwing motion, then return it.  She looks from it back to you once more, then tosses it at your head.  As it impacts with a clunk and your vision jars, she clutches her stomach in laughter.");
             //(HP - 10, set Kidweapon to empty, KidXP + 1)
             this.HPChange(-10, false);
-            this.flags[kFLAGS.ANEMONE_WEAPON_ID] = 0;
+            this.flags[kFLAGS.ANEMONE_WEAPON_ID] = '';
             this.kidAXP(5);
         }
         //[Dragonshell Shield]
-        else if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.weapons.DRGNSHL.id) {
+        else if (weaponID == this.weapons.DRGNSHL.id) {
             this.outputText("\n\nYour protégé takes to the shield quite well, hiding behind it like... well, like a portable water barrel.  Even the way she peeks over the top is reminiscent.  She makes effective use of her cover, pushing forward relentlessly and delivering soft headbutts to spread venom to unprotected areas.");
             //(lust + 5, temp str/spd down, KidXP + 5)
             //str/spd loss reverts after clicking Next button
@@ -1406,13 +1408,13 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             this.dynStats("lus", 10, "resisted", false);
         }
         //[White Book]
-        else if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.consumables.W__BOOK.id) {
+        else if (weaponID == this.consumables.W__BOOK.id) {
             this.outputText("\n\nPart literacy training and part magic instruction, your progress through the book is painstakingly slow.  After almost an hour of trying to get the anemone to concentrate on the words, she finally manages to cause a small flash of white light on the page in front of her - whereupon she shrieks and drops the book, covering her head with her arms and backing away.");
             //(KidXP - 5)
             this.kidAXP(-5);
         }
         //[Black Book]
-        else if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.consumables.B__BOOK.id) {
+        else if (weaponID == this.consumables.B__BOOK.id) {
             this.outputText("\n\nThe girl sits attentively with you, resting her head against your arm, as you teach her the words needed to evoke the formulae in the book.  When you suggest she try one out, however, she shakes her head with wide eyes.  Insisting, you stand apart from her and fold your arms.  Blushing a deep blue, the anemone resigns herself to focusing on your crotch as she mouths quiet syllables.  After a few moments, you actually feel a small glow of lust where she's staring.  The girl giggles nervously and looks away as you flush and your garments ");
             if (this.player.hasCock()) this.outputText("tighten");
             else if (this.player.hasVagina()) this.outputText("dampen");
@@ -1428,7 +1430,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             //[(if corr <=70)
             if (this.player.cor <= 70) this.outputText("  The blade's edge flashes toward you as well, when you try to pick it up.  After a few frustrated attempts, it becomes clear that you'll have to abandon it for now.");
             //empty Kidweapon, KidXP - 5; if corr <=70, set sheilacite = 5, else add Scarred Blade to inventory)
-            this.flags[kFLAGS.ANEMONE_WEAPON_ID] = 0;
+            this.flags[kFLAGS.ANEMONE_WEAPON_ID] = '';
             this.kidAXP(-5);
             if (this.player.cor <= 70) {
                 //9999
@@ -1437,14 +1439,14 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         }
         //[Any new weapon added without text written for it, or any custom item name set by a save editor]
         else {
-            this.outputText("\n\nFor the life of her, Kid A can't seem to grasp how to use the " + ItemType.lookupItem(this.flags[kFLAGS.ANEMONE_WEAPON_ID]).longName + " you've provided her with.  You have to interrupt the practice for explanations so many times that you don't actually get to do any sparring.");
+            this.outputText("\n\nFor the life of her, Kid A can't seem to grasp how to use the " + ItemType.lookupItem(weaponID).longName + " you've provided her with.  You have to interrupt the practice for explanations so many times that you don't actually get to do any sparring.");
             //(no effect, but you can just save edit the values you want anyway)
         }
         //if hp = 0 after tutor, override any other result and output new PG:
         if (this.player.HP < 1) {
             this.outputText("\n\nWith a groan, you fall flat on your back and close your eyes.  As if from far away, you hear ");
-            if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] != this.weapons.S_GAUNT.id &&
-                this.flags[kFLAGS.ANEMONE_WEAPON_ID] != this.weapons.H_GAUNT.id) this.outputText("the thump of something hitting the ground and ");
+            if (weaponID != this.weapons.S_GAUNT.id &&
+                weaponID != this.weapons.H_GAUNT.id) this.outputText("the thump of something hitting the ground and ");
             this.outputText("the anemone gasp, and then the world slips away from you.");
 
             this.outputText("\n\n<b>Eight hours later...</b>");
@@ -1745,7 +1747,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         this.clearOutput();
         this.outputText("As you look over your shark family playing in the shallow stream, a soft, wet footstep sounds behind you.  Kid A is there when you turn around, holding empty waterskins and looking desperately at the running water.");
         //[(KidXP < 40 or Kidweapon is empty)
-        if (this.kidAXP() < 40 || this.flags[kFLAGS.ANEMONE_WEAPON_ID] == 0) this.outputText("\n\nThe sharks notice as well and stand up, baring their teeth in wide, unwelcoming smiles.  Kid A whimpers and shuffles behind you, placing her hands on your back and attempting to push you in front of her.  Your shark-daughters watch in amusement as she tries to maneuver close enough to fill her waterskins while still using you as cover.  Awkwardly, she manages to cap them off and then departs as fast as she can.");
+        if (this.kidAXP() < 40 || this.flags[kFLAGS.ANEMONE_WEAPON_ID] == '') this.outputText("\n\nThe sharks notice as well and stand up, baring their teeth in wide, unwelcoming smiles.  Kid A whimpers and shuffles behind you, placing her hands on your back and attempting to push you in front of her.  Your shark-daughters watch in amusement as she tries to maneuver close enough to fill her waterskins while still using you as cover.  Awkwardly, she manages to cap them off and then departs as fast as she can.");
 
         //(else KidXP < 75 and Kidweapon = White Book or Black Book)
         else if (this.kidAXP() < 40 && (this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.consumables.B__BOOK.id || this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.consumables.W__BOOK.id)) {

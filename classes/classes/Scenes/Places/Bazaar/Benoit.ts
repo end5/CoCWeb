@@ -285,7 +285,7 @@ export class Benoit extends BazaarAbstractContent {
 
     public benoitsBuyMenu(): void {
         this.clearOutput();
-        if (this.flags[kFLAGS.BENOIT_1] == 0) this.updateBenoitInventory();
+        if (this.flags[kFLAGS.BENOIT_1] == '') this.updateBenoitInventory();
         if (this.flags[kFLAGS.BENOIT_EXPLAINED_SHOP] == 0) this.buyOrSellExplanationFirstTime();
         var buyMod: number = 2;
 

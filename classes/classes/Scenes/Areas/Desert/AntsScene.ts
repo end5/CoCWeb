@@ -227,7 +227,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
 
     //►Console ant-morph
     //After whuppin' demons!
-    private consolePhylla(): void {
+    public consolePhylla(): void {
         this.clearOutput();
         this.outputText("As the demons flee over the dunes, you gather your thoughts and survey the chaotic scene.  The woman you saved has taken refuge under the ruined cart, trying to conceal herself.  Her upper torso, at least, is 'hidden' inside it, but her large abdomen and black legs jut outward, giving away her poor attempts at stealth.  ");
         if (this.player.lib >= 50) this.outputText("After taking an eyeful of her smooth, enticing pussy, revealed in her current position by the inadequacies of her loincloth, y");

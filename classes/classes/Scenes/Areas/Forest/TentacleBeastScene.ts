@@ -209,7 +209,7 @@ export class TentacleBeastScene extends BaseContent {
         this.getGame().gameOver();
     }
 
-    private tentacleLossRape(): void {
+    public tentacleLossRape(): void {
         this.clearOutput();
         this.spriteSelect(100);
         //Genderless madness

@@ -67,7 +67,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
         this.pregnancy.knockUpForce(); //Clear Pregnancy
     }
 
-    private tamaniChest(): string {
+    public tamaniChest(): string {
         var descript: string = "";
         switch (this.flags[kFLAGS.TAMANI_TIMES_IMPREGNATED]) {
             case -1:
@@ -247,7 +247,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
 
     //[Let Her (Or Combat Rape)]
     //[let her]
-    private tamaniSexLetHer(): void {
+    public tamaniSexLetHer(): void {
         this.spriteSelect(56);
         this.tamaniKnockUp();
         this.outputText("", true);
@@ -457,7 +457,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
     }
 
     //[NORMAL COMBAT – LOSS TEXT]
-    private tamaniSexLost(): void {
+    public tamaniSexLost(): void {
         this.spriteSelect(56);
         this.tamaniKnockUp();
         this.outputText("", true);
@@ -502,7 +502,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
 
     //[NORMAL COMBAT – VICTORY RAEEP]
     //Shove her face in the mud and fuck her
-    private tamaniSexWon(): void {
+    public tamaniSexWon(): void {
         this.spriteSelect(56);
         this.tamaniKnockUp();
         var x: number = this.player.cockThatFits(90);
@@ -675,7 +675,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    private tamaniKnockUp(): void {
+    public tamaniKnockUp(): void {
         if (this.pregnancy.isPregnant) return; //Already preggers
         this.pregnancy.knockUpForce(PregnancyStore.PREGNANCY_PLAYER, 216); //Nine day long pregnancy
         //Determine how many kids...
@@ -712,7 +712,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
     //TAMANI HYPNO SHIT
 
     //[GIVE IN TO TAMANI'S HYPNO SHENANIGANS]
-    private getRapedByTamaniYouHypnoSlut(): void {
+    public getRapedByTamaniYouHypnoSlut(): void {
         this.spriteSelect(56);
         this.outputText("", true);
         //Find a dick that fits
@@ -846,7 +846,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    private tamaniAnalShits(): void {
+    public tamaniAnalShits(): void {
         this.spriteSelect(56);
         var x: number = this.player.cockThatFits(this.monster.analCapacity());
         this.outputText("", true);
@@ -866,7 +866,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
         this.cleanupAfterCombat();
     }
 
-    private tamaniBeaten(): void {
+    public tamaniBeaten(): void {
         this.clearOutput();
         this.outputText("With the goblin defeated, you're finally free to tend to your body's true desires, even if they may be different than the ones the goblin was intent on stoking.  You shed your [armor] like a second skin, shrugging out of the offending garments with ease.  With your nude form revealed, Tamani ");
         if (this.player.hasCock()) this.outputText("licks her lips in anticipation, eyes locked on [eachCock]");

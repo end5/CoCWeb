@@ -25,7 +25,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         CoC.timeAwareClassAdd(this);
     }
 
-    private checkedIsabella: number; //Make sure we test this event just once in timeChangeLarge
+    private checkedIsabella: number = 0; //Make sure we test this event just once in timeChangeLarge
 
     //Implementation of TimeAwareInterface
     public timeChange(): boolean {

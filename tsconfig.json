@@ -9,5 +9,5 @@
         "forceConsistentCasingInFileNames": true,
         "noImplicitReturns": true,
     },
-    "include": ["classes", "lib", "includes/appearanceDefs"]
+    "include": ["classes", "lib"]
 }

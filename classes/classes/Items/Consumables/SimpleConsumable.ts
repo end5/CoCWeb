@@ -5,7 +5,7 @@ import { Consumable } from "../Consumable";
  */
 
 export class SimpleConsumable extends Consumable {
-    private effect: any;
+    protected effect: any;
 
     /**
      * @param effect Function(player:Player)

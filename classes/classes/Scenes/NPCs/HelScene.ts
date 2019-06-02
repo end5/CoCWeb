@@ -21,7 +21,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         CoC.timeAwareClassAdd(this);
     }
 
-    private checkedHeliaIsabellaThreesome: number;
+    private checkedHeliaIsabellaThreesome: number = 0;
 
     //Implementation of TimeAwareInterface
     public timeChange(): boolean {
@@ -1443,8 +1443,8 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("lus", 40);
         this.fatigue(-40);
         var dick = undefined;
-        var dick2: number = 0;
-        var dick4: number = 0;
+        // var dick2: number = 0;
+        // var dick4: number = 0;
         var vag = undefined;
         //(If PC is Herm::)
         if (this.player.hasCock() && this.player.hasVagina()) {

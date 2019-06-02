@@ -73,7 +73,7 @@ export class LustyMaidensArmor extends Armor {
         return super.playerEquip();
     }
 
-    public playerRemove(): Armor {
+    public playerRemove() {
         while (this.game.player.findPerk(PerkLib.SluttySeduction) >= 0) this.game.player.removePerk(PerkLib.SluttySeduction);
         return super.playerRemove();
     }

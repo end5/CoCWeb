@@ -141,7 +141,7 @@ export class SandTrapScene extends BaseContent {
         else this.doNext(this.genderlessLoss);
     }
 
-    private pcBeatsATrap(): void {
+    public pcBeatsATrap(): void {
         this.clearOutput();
         this.spriteSelect(97);
         this.flags[kFLAGS.SANDTRAP_LOSS_REPEATS] = 0;

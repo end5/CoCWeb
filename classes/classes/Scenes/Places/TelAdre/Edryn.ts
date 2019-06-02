@@ -524,7 +524,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
     //Introduction -- Hel x Edryn -- Wet Bitch Entrance
     //(PC goes to the Wet Bitch during Edryn's hours)
 
-    private edrynHeliaLastThreesomeCheck: number;
+    private edrynHeliaLastThreesomeCheck: number = 0;
 
     public edrynHeliaThreesomePossible(): boolean {
         if (this.model.time.totalTime == this.edrynHeliaLastThreesomeCheck || this.model.time.totalTime == -this.edrynHeliaLastThreesomeCheck) //Only choose action once per visit to the bar

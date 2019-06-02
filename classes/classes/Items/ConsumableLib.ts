@@ -25,9 +25,9 @@ export class ConsumableLib extends BaseContent {
     public AUBURND: SimpleConsumable = ConsumableLib.mk("AuburnD", "AuburnD", "a vial of auburn hair dye", ConsumableLib.curry(this.m.hairDye, "auburn"), "This bottle of dye will allow you to change the color of your hair.  Of course if you don't have hair, using this would be a waste.");
     public B__BOOK: SimpleConsumable = ConsumableLib.mk("B. Book", "B. Book", "a small book with a midnight-black cover", this.m.blackSpellbook, "This solid black book is totally unmarked, saved for a blood red clasp that holds the covers closed until you are ready to read it.  The pages are edged with gold, like some of the fancy books in the monastary back home.", 40);
     public B_GOSSR: SimpleConsumable = ConsumableLib.mk("B.Gossr", "B.Gossr", "a bundle of black, gossamer webbing", ConsumableLib.curry(this.m.sweetGossamer, 1), "These strands of gooey black gossamer seem quite unlike the normal silk that driders produce.  It smells sweet and is clearly edible, but who knows what it might do to you?");
-    public BC_BEER: SimpleConsumable = ConsumableLib.mk("BC Beer", "BC Beer", "a mug of Black Cat Beer", function (player: Player): void { getGame().telAdre.niamh.blackCatBeerEffects(player) }, "A capped mug containing an alcoholic drink secreted from the breasts of Niamh.  It smells tasty.", 1);
+    public BC_BEER: SimpleConsumable = ConsumableLib.mk("BC Beer", "BC Beer", "a mug of Black Cat Beer", (player: Player) => { this.getGame().telAdre.niamh.blackCatBeerEffects(player) }, "A capped mug containing an alcoholic drink secreted from the breasts of Niamh.  It smells tasty.", 1);
     public BEEHONY: Consumable = new BeeHoney(false, false);
-    public BIMBOCH: SimpleConsumable = ConsumableLib.mk("BimboCh", "BimboCh", "a bottle of bimbo champagne", ConsumableLib.curry(function (player: Player): void { getGame().telAdre.niamh.bimboChampagne(player, true, true) }), undefined, 1);
+    public BIMBOCH: SimpleConsumable = ConsumableLib.mk("BimboCh", "BimboCh", "a bottle of bimbo champagne", ConsumableLib.curry((player: Player) => { this.getGame().telAdre.niamh.bimboChampagne(player, true, true) }), '', 1);
     public BIMBOLQ: BimboLiqueur = new BimboLiqueur();
     public BLACK_D: SimpleConsumable = ConsumableLib.mk("Black D", "Black D", "a vial of black hair dye", ConsumableLib.curry(this.m.hairDye, "black"), "This bottle of dye will allow you to change the color of your hair.  Of course if you don't have hair, using this would be a waste.");
     public BLACKEG: SimpleConsumable = ConsumableLib.mk("BlackEg", "BlackEg", "a rubbery black egg", ConsumableLib.curry(this.m.blackRubberEgg, false), "This is an oblong egg, not much different from a chicken egg in appearance (save for the color).  Something tells you it's more than just food.");
@@ -40,9 +40,9 @@ export class ConsumableLib extends BaseContent {
     public BROWNEG: SimpleConsumable = ConsumableLib.mk("BrownEg", "BrownEg", "a brown and white mottled egg", ConsumableLib.curry(this.m.brownEgg, false), "This is an oblong egg, not much different from a chicken egg in appearance (save for the color).  Something tells you it's more than just food.");
     public BULBYPP: SimpleConsumable = ConsumableLib.mk("BulbyPp", "BulbyPp", "a bulbous pepper", ConsumableLib.curry(this.m.caninePepper, 5), "This bulbous pepper has a slightly different shape than the other canine peppers, with two large orb-like protrusions at the base.", 10);
     public CANINEP: SimpleConsumable = ConsumableLib.mk("CanineP", "CanineP", "a Canine pepper", ConsumableLib.curry(this.m.caninePepper, 0), "The pepper is shiny and red, bulbous at the base but long and narrow at the tip.  It smells spicy.");
-    public CCUPCAK: SimpleConsumable = ConsumableLib.mk("CCupcak", "CCupcak", "a gigantic, chocolate cupcake", this.m.giantChocolateCupcake, undefined, 250);
+    public CCUPCAK: SimpleConsumable = ConsumableLib.mk("CCupcak", "CCupcak", "a gigantic, chocolate cupcake", this.m.giantChocolateCupcake, '', 250);
     public CERUL_P: SimpleConsumable = ConsumableLib.mk("Cerul P", "Cerulean P.", "a cerulean-tinted potion", this.m.ceruleanPotion, "This is a mysterious bottle filled with a sky-blue liquid that sloshes gently inside.  Supposedly it will make you irresistible, though to what or who you cannot say.");
-    public COAL___: SimpleConsumable = ConsumableLib.mk("Coal   ", "Coal   ", "two pieces of coal", this.m.coal, undefined);
+    public COAL___: SimpleConsumable = ConsumableLib.mk("Coal   ", "Coal   ", "two pieces of coal", this.m.coal, '');
     public DBLPEPP: SimpleConsumable = ConsumableLib.mk("DblPepp", "DblPepp", "a double canine pepper", ConsumableLib.curry(this.m.caninePepper, 2), "This canine pepper is actually two that have grown together due to some freak coincidence.", 10);
     public DEBIMBO: DeBimbo = new DeBimbo();
     public DRGNEGG: SimpleConsumable = ConsumableLib.mk("DrgnEgg", "DrgnEgg", "an unfertilized dragon egg", this.m.eatEmberEgg, "A large, solid egg, easily the size of your clenched fist.  Its shell color is reddish-white, with blue splotches.");
@@ -56,7 +56,7 @@ export class ConsumableLib extends BaseContent {
     public FRRTFRT: SimpleConsumable = ConsumableLib.mk("Frrtfrt", "Frrtfrt", "a ferret fruit", this.m.ferretTF, "This fruit is curved oddly, just like the tree it came from.  The skin is fuzzy and brown, like the skin of a peach.");
     public FOXJEWL: SimpleConsumable = ConsumableLib.mk("FoxJewl", "Fox Jewel", "a fox jewel", ConsumableLib.curry(this.m.foxJewel, false), "A shining teardrop-shaped jewel.  An eerie blue flame dances beneath the surface.");
     public GLDSEED: SimpleConsumable = ConsumableLib.mk("GldSeed", "GoldenSeed", "a golden seed", ConsumableLib.curry(this.m.goldenSeed, 0), "This seed looks and smells absolutely delicious.  Though it has an unusual color, the harpies prize these nuts as delicious treats.  Eating one might induce some physical transformations.");
-    public GODMEAD: SimpleConsumable = ConsumableLib.mk("GodMead", "GodMead", "a pint of god's mead", this.m.godMead, undefined);
+    public GODMEAD: SimpleConsumable = ConsumableLib.mk("GodMead", "GodMead", "a pint of god's mead", this.m.godMead, '');
     public GOB_ALE: SimpleConsumable = ConsumableLib.mk("Gob.Ale", "Gob.Ale", "a flagon of potent goblin ale", this.m.goblinAle, "This sealed flagon of 'Goblin Ale' sloshes noisily with alcoholic brew.  Judging by the markings on the flagon, it's a VERY strong drink, and not to be trifled with.");
     public GRAYDYE: SimpleConsumable = ConsumableLib.mk("GrayDye", "GrayDye", "a vial of gray hair dye", ConsumableLib.curry(this.m.hairDye, "gray"), "This bottle of dye will allow you to change the color of your hair.  Of course if you don't have hair, using this would be a waste.");
     public GREEN_D: SimpleConsumable = ConsumableLib.mk("Green D", "Green D", "a vial of green hair dye", ConsumableLib.curry(this.m.hairDye, "green"), "This bottle of dye will allow you to change the color of your hair.  Of course if you don't have hair, using this would be a waste.");
@@ -93,10 +93,10 @@ export class ConsumableLib extends BaseContent {
     public OVIELIX: Consumable = new OvipositionElixir();
     public P_DRAFT: SimpleConsumable = ConsumableLib.mk("P.Draft", "P.Draft", "an untainted Incubi draft", ConsumableLib.curry(this.m.incubiDraft, false), "The cork-topped flask swishes with a slimy looking off-white fluid, purported to give incubi-like powers.  A stylized picture of a humanoid with a huge penis is etched into the glass. Rathazul has purified this to prevent corruption upon use.", 20);
     public P_LBOVA: SimpleConsumable = ConsumableLib.mk("P.LBova", "P.LBova", "a bottle containing a white fluid labeled \"Pure LaBova\"", ConsumableLib.curry(this.m.laBova, false, false), "A bottle containing a misty fluid with a grainy texture; it has a long neck and a ball-like base.  The label has a stylized picture of a well-endowed cow-girl nursing two guys while they jerk themselves off. It has been purified by Rathazul.");
-    public P_PEARL: SimpleConsumable = ConsumableLib.mk("P.Pearl", "P.Pearl", "a pure pearl", this.m.purePearl, undefined, 1000);
+    public P_PEARL: SimpleConsumable = ConsumableLib.mk("P.Pearl", "P.Pearl", "a pure pearl", this.m.purePearl, '', 1000);
     public P_S_MLK: SimpleConsumable = ConsumableLib.mk("P.S.Mlk", "P.S.Mlk", "an untainted bottle of Succubi milk", ConsumableLib.curry(this.m.succubiMilk, false), "This milk-bottle is filled to the brim with a creamy white milk of dubious origin.  A pink label proudly labels it as \"<i>Succubi Milk</i>\".  In small text at the bottom of the label it reads: \"<i>To bring out the succubus in YOU!</i>\"  Purified by Rathazul to prevent corruption.", 20);
     public P_WHSKY: PhoukaWhiskey = new PhoukaWhiskey();
-    public PEPPWHT: SimpleConsumable = ConsumableLib.mk("PeppWht", "PeppWht", "a vial of peppermint white", function (player: Player): void { getGame().peppermintWhite(player) }, "This tightly corked glass bottle gives off a pepperminty smell and reminds you of the winter holidays.  How odd.", 120);
+    public PEPPWHT: SimpleConsumable = ConsumableLib.mk("PeppWht", "PeppWht", "a vial of peppermint white", (player: Player) => { this.getGame().peppermintWhite(player) }, "This tightly corked glass bottle gives off a pepperminty smell and reminds you of the winter holidays.  How odd.", 120);
     public PINKDYE: SimpleConsumable = ConsumableLib.mk("PinkDye", "PinkDye", "a vial of bright pink hair dye", ConsumableLib.curry(this.m.hairDye, "neon pink"), "This bottle of dye will allow you to change the color of your hair.  Of course if you don't have hair, using this would be a waste.");
     public PINKEGG: SimpleConsumable = ConsumableLib.mk("PinkEgg", "PinkEgg", "a pink and white mottled egg", ConsumableLib.curry(this.m.pinkEgg, false), "This is an oblong egg, not much different from a chicken egg in appearance (save for the color).  Something tells you it's more than just food.");
     public PRFRUIT: SimpleConsumable = ConsumableLib.mk("PrFruit", "PrFruit", "a purple fruit", this.m.purpleFruitEssrayle, "This sweet-smelling produce looks like an eggplant, but feels almost squishy, and rubbery to the touch. Holding it to your ear, you think you can hear some fluid sloshing around inside.");
@@ -139,7 +139,7 @@ export class ConsumableLib extends BaseContent {
 
     public LARGE_EGGS: any[] = [this.L_BLKEG, this.L_BLUEG, this.L_BRNEG, this.L_PNKEG, this.L_PRPEG, this.L_WHTEG];
     public SMALL_EGGS: any[] = [this.BLACKEG, this.BLUEEGG, this.BROWNEG, this.PINKEGG, this.PURPLEG, this.WHITEEG];
-    private mutations: Mutations;
+    private mutations?: Mutations;
 
     /**
      * A handy function to create SimpleConsumables (useable by any player, effect is a function accepting player:Player,

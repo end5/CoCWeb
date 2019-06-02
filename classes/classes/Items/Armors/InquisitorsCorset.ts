@@ -39,7 +39,7 @@ export class InquisitorsCorset extends Armor {
         return super.playerEquip();
     }
 
-    public playerRemove(): Armor {
+    public playerRemove() {
         while (this.game.player.findPerk(PerkLib.BloodMage) >= 0) this.game.player.removePerk(PerkLib.BloodMage);
         while (this.game.player.findPerk(PerkLib.SluttySeduction) >= 0) this.game.player.removePerk(PerkLib.SluttySeduction);
         return super.playerRemove();

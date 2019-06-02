@@ -154,7 +154,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
     private hairDresserRepeatGreeting(): void {
         this.clearOutput();
         this.spriteSelect(38);
-        var minoCum: number = 0;
+        // var minoCum: number = 0;
         //Chance for mino craziness here
         if (Salon.rand(5) == 0 && (this.player.findPerk(PerkLib.MinotaurCumAddict) >= 0 || this.flags[kFLAGS.MINOTAUR_CUM_ADDICTION_STATE] > 0)) {
             this.minotaurCumBukkakeInSalon();

@@ -112,8 +112,8 @@ export class FapArena extends BazaarAbstractContent {
         if (this.player.hasVagina()) this.outputText("other ", false);
         this.outputText("dick-girls in that room: cute face, jiggling breasts, curvy body, squeezable hips; they would almost look like normal females if it weren't for that huge pre-cum-spilling, protruding cock.  They seem as deep in concentration as the others, the only difference being their feminine fluids spilling freely from their wet cunts and the occasional girlish moans that escape their lips.  The warm, musky smell of male genitalia starts impregnating the whole room as the temperature rises higher and higher and you find yourself all the more aroused.  You close your eyes in order to stop torturing yourself with the sight of hot, horny, naked bodies. You don't know if you will be able to hold on much longer.\n\n", false);
 
-        var winner: boolean = true;
-        if (FapArena.rand(100) <= 4) winner = false;
+        // var winner: boolean = true;
+        // if (FapArena.rand(100) <= 4) winner = false;
         //[how the game rolls:
         //5% chance of losing no matter what.
         //If that check fails,

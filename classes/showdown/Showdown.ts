@@ -46,8 +46,8 @@ export class Showdown {
 
     private static _HashHTMLBlocks(text: string): string {
         text = text.replace(/\n/g, "\n\n");
-        var block_tags_a: string = "p|div|h[1-6]|blockquote|pre|table|dl|ol|ul|script|noscript|form|fieldset|iframe|math|ins|del";
-        var block_tags_b: string = "p|div|h[1-6]|blockquote|pre|table|dl|ol|ul|script|noscript|form|fieldset|iframe|math";
+        // var block_tags_a: string = "p|div|h[1-6]|blockquote|pre|table|dl|ol|ul|script|noscript|form|fieldset|iframe|math|ins|del";
+        // var block_tags_b: string = "p|div|h[1-6]|blockquote|pre|table|dl|ol|ul|script|noscript|form|fieldset|iframe|math";
         text = text.replace(/^(<(p|div|h[1-6]|blockquote|pre|table|dl|ol|ul|script|noscript|form|fieldset|iframe|math|ins|del)\b[^\r]*?\n<\/\2>[ \t]*(?=\n+))/gm, Showdown.hashElement);
         text = text.replace(/^(<(p|div|h[1-6]|blockquote|pre|table|dl|ol|ul|script|noscript|form|fieldset|iframe|math)\b[^\r]*?.*<\/\2>[ \t]*(?=\n+)\n)/gm, Showdown.hashElement);
         text = text.replace(/(\n[ ]{0,3}(<(hr)\b([^<>])*?\/?>)[ \t]*(?=\n{2,}))/g, Showdown.hashElement);
@@ -125,10 +125,10 @@ export class Showdown {
                 link_id = link_text.toLowerCase().replace(/ ?\n/g, " ");
             }
             url = "#" + link_id;
-            if (Showdown.g_urls[link_id] != undefined) {
-                url = Showdown.g_urls[link_id];
-                if (Showdown.g_titles[link_id] != undefined) {
-                    title = Showdown.g_titles[link_id];
+            if (Showdown.g_urls[parseInt(link_id)] != undefined) {
+                url = Showdown.g_urls[parseInt(link_id)];
+                if (Showdown.g_titles[parseInt(link_id)] != undefined) {
+                    title = Showdown.g_titles[parseInt(link_id)];
                 }
             }
             else if (whole_match.search(/\(\s*\)$/m) > -1) {
@@ -169,10 +169,10 @@ export class Showdown {
                 link_id = alt_text.toLowerCase().replace(/ ?\n/g, " ");
             }
             url = "#" + link_id;
-            if (Showdown.g_urls[link_id] != undefined) {
-                url = Showdown.g_urls[link_id];
-                if (Showdown.g_titles[link_id] != undefined) {
-                    title = Showdown.g_titles[link_id];
+            if (Showdown.g_urls[parseInt(link_id)] != undefined) {
+                url = Showdown.g_urls[parseInt(link_id)];
+                if (Showdown.g_titles[parseInt(link_id)] != undefined) {
+                    title = Showdown.g_titles[parseInt(link_id)];
                 }
             }
             else {
@@ -261,7 +261,7 @@ export class Showdown {
         list_str = list_str.replace(/(\n)?(^[ \t]*)([*+-]|\d+[.])[ \t]+([^\r]+?(\n{1,2}))(?=\n*(~0|\2([*+-]|\d+[.])[ \t]+))/gm, function (wholeMatch: string, m1: string, m2: string, m3: string, m4: string, ...args): string {
             var item: any = m4;
             var leading_line: any = m1;
-            var leading_space: any = m2;
+            // var leading_space: any = m2;
             if (leading_line || item.search(/\n{2,}/) > -1) {
                 item = Showdown._RunBlockGamut(Showdown._Outdent(item));
             }
@@ -349,9 +349,9 @@ export class Showdown {
         var blockText;
         text = text.replace(/^\n+/g, "");
         text = text.replace(/\n+$/g, "");
-        var grafs: Array = text.split(/\n{2,}/g);
-        var grafsOut: Array = [];
-        var end: int = grafs.length;
+        var grafs = text.split(/\n{2,}/g);
+        var grafsOut = [];
+        var end = grafs.length;
         for (i = 0; i < end; i++) {
             str = grafs[i];
             if (str.search(/~K(\d+)K/g) >= 0) {
@@ -368,7 +368,7 @@ export class Showdown {
         for (i = 0; i < end; i++) {
             while (grafsOut[i].search(/~K(\d+)K/) >= 0) {
                 firstGroup = /~K(\d+)K/.exec(grafsOut[i])![1];
-                blockText = Showdown.g_html_blocks[firstGroup];
+                blockText = Showdown.g_html_blocks[parseInt(firstGroup)];
                 blockText = blockText.replace(/\$/g, "$$$$");
                 grafsOut[i] = grafsOut[i].replace(/~K\d+K/, blockText);
             }

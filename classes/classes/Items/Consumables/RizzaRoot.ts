@@ -13,7 +13,7 @@ export class RizzaRoot extends SimpleConsumable {
         this.clearOutput();
         var changes: number = 0;
         var changeLimit: number = 1;
-        var counter: number = 0;
+        // var counter: number = 0;
         if (Utils.rand(2) == 0) changeLimit++;
         if (Utils.rand(3) == 0) changeLimit++;
         if (Utils.rand(4) == 0) changeLimit++;
@@ -46,7 +46,8 @@ export class RizzaRoot extends SimpleConsumable {
     }
 
     public constructor() {
-        super("RizzaRt", "Rizza Root", "a tube of rizza root strands", this.rizzaRootEffect, 10, "A small ceramic tube full of fine red root strands.  They smell something like citrus fruit.");
+        super("RizzaRt", "Rizza Root", "a tube of rizza root strands", undefined, 10, "A small ceramic tube full of fine red root strands.  They smell something like citrus fruit.");
+        this.effect = this.rizzaRootEffect;
     }
 
 }

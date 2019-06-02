@@ -161,7 +161,7 @@ export class SatyrScene extends BaseContent {
     //Sex Scenes
     //Loss Rape (Z)
     //If PC has a vagina, Satyrs will use that. If not, use ass instead.
-    private loseToSatyr(): void {
+    public loseToSatyr(): void {
         this.clearOutput();
         this.spriteSelect(98);
         //[Lust loss
@@ -219,7 +219,7 @@ export class SatyrScene extends BaseContent {
     }
 
     //Victory Rapes
-    private defeatASatyr(): void {
+    public defeatASatyr(): void {
         this.clearOutput();
         this.spriteSelect(98);
         //Lust Victory

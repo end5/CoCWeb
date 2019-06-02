@@ -86,10 +86,10 @@ export class FarmCorruption extends AbstractFarmContent {
     }
 
     public whitneyHasTattoo(): boolean {
-        if (this.flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE] != 0) return true;
-        if (this.flags[kFLAGS.WHITNEY_TATTOO_SHOULDERS] != 0) return true;
-        if (this.flags[kFLAGS.WHITNEY_TATTOO_LOWERBACK] != 0) return true;
-        if (this.flags[kFLAGS.WHITNEY_TATTOO_BUTT] != 0) return true;
+        if (this.flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE] != '') return true;
+        if (this.flags[kFLAGS.WHITNEY_TATTOO_SHOULDERS] != '') return true;
+        if (this.flags[kFLAGS.WHITNEY_TATTOO_LOWERBACK] != '') return true;
+        if (this.flags[kFLAGS.WHITNEY_TATTOO_BUTT] != '') return true;
         return false;
     }
 
@@ -334,17 +334,17 @@ export class FarmCorruption extends AbstractFarmContent {
         this.addButton(9, "Back", this.rootScene);
     }
 
-    private getItemObj(flag: number): SimpleConsumable {
+    private getItemObj(flag: kFLAGS.FARM_SUCCUMILK_STORED | kFLAGS.FARM_INCUDRAFT_STORED | kFLAGS.FARM_EGG_STORED | kFLAGS.FARM_CONTRACEPTIVE_STORED): SimpleConsumable {
         if (flag == kFLAGS.FARM_SUCCUMILK_STORED) return this.consumables.SUCMILK;
         if (flag == kFLAGS.FARM_INCUDRAFT_STORED) return this.consumables.INCUBID;
         if (flag == kFLAGS.FARM_EGG_STORED) return kGAMECLASS.sophieBimbo.eggTypes[kGAMECLASS.sophieBimbo.eggColors.indexOf(this.flags[kFLAGS.FOLLOWER_PRODUCTION_SOPHIE_COLORCHOICE])];
         if (flag == kFLAGS.FARM_CONTRACEPTIVE_STORED) return this.consumables.HRBCNT;
 
         trace("No valid argument given.");
-        return undefined;
+        throw new Error("FarmCorruption getItemObj flag arg out of range");
     }
 
-    private takeItems(flag: number): void {
+    private takeItems(flag: kFLAGS.FARM_SUCCUMILK_STORED | kFLAGS.FARM_INCUDRAFT_STORED | kFLAGS.FARM_EGG_STORED | kFLAGS.FARM_CONTRACEPTIVE_STORED): void {
         var item: SimpleConsumable = this.getItemObj(flag);
 
         if (flag == kFLAGS.FARM_EGG_STORED) this.flags[kFLAGS.FARM_EGG_COUNTDOWN] = 7;
@@ -1095,10 +1095,10 @@ export class FarmCorruption extends AbstractFarmContent {
         if (this.whitneyHasTattoo()) {
             if (this.numTattoos("whitney") > 1) this.outputText("\nShe has the following tattoos emblazoned across her body:\n");
             else this.outputText("\nShe has ")
-            if (this.flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE] != 0) this.outputText(this.flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE] + "\n");
-            if (this.flags[kFLAGS.WHITNEY_TATTOO_SHOULDERS] != 0) this.outputText(this.flags[kFLAGS.WHITNEY_TATTOO_SHOULDERS] + "\n");
-            if (this.flags[kFLAGS.WHITNEY_TATTOO_LOWERBACK] != 0) this.outputText(this.flags[kFLAGS.WHITNEY_TATTOO_LOWERBACK] + "\n");
-            if (this.flags[kFLAGS.WHITNEY_TATTOO_BUTT] != 0) this.outputText(this.flags[kFLAGS.WHITNEY_TATTOO_BUTT] + "\n");
+            if (this.flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE] != '') this.outputText(this.flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE] + "\n");
+            if (this.flags[kFLAGS.WHITNEY_TATTOO_SHOULDERS] != '') this.outputText(this.flags[kFLAGS.WHITNEY_TATTOO_SHOULDERS] + "\n");
+            if (this.flags[kFLAGS.WHITNEY_TATTOO_LOWERBACK] != '') this.outputText(this.flags[kFLAGS.WHITNEY_TATTOO_LOWERBACK] + "\n");
+            if (this.flags[kFLAGS.WHITNEY_TATTOO_BUTT] != '') this.outputText(this.flags[kFLAGS.WHITNEY_TATTOO_BUTT] + "\n");
         }
 
         this.outputText("\n");
@@ -1116,8 +1116,8 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.outputText("You ask her how the help is coming on.");
 
-        var lowProtection: boolean;
-        var lowValue: boolean;
+        var lowProtection = false;
+        var lowValue = false;
 
         if (this.farmProtection() < 12) lowProtection = true;
         if (this.farmValue() < 12) lowValue = true;
@@ -3130,52 +3130,52 @@ export class FarmCorruption extends AbstractFarmContent {
 
     private hasFreeTattooSlot(name: string): boolean {
         if (name == "whitney") {
-            if (this.flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE] == 0) return true;
-            if (this.flags[kFLAGS.WHITNEY_TATTOO_LOWERBACK] == 0) return true;
-            if (this.flags[kFLAGS.WHITNEY_TATTOO_SHOULDERS] == 0) return true;
-            if (this.flags[kFLAGS.WHITNEY_TATTOO_BUTT] == 0) return true;
+            if (this.flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE] == '') return true;
+            if (this.flags[kFLAGS.WHITNEY_TATTOO_LOWERBACK] == '') return true;
+            if (this.flags[kFLAGS.WHITNEY_TATTOO_SHOULDERS] == '') return true;
+            if (this.flags[kFLAGS.WHITNEY_TATTOO_BUTT] == '') return true;
             return false;
         }
         else if (name == "amily") {
-            if (this.flags[kFLAGS.AMILY_TATTOO_COLLARBONE] == 0) return true;
-            if (this.flags[kFLAGS.AMILY_TATTOO_LOWERBACK] == 0) return true;
-            if (this.flags[kFLAGS.AMILY_TATTOO_SHOULDERS] == 0) return true;
-            if (this.flags[kFLAGS.AMILY_TATTOO_BUTT] == 0) return true;
+            if (this.flags[kFLAGS.AMILY_TATTOO_COLLARBONE] == '') return true;
+            if (this.flags[kFLAGS.AMILY_TATTOO_LOWERBACK] == '') return true;
+            if (this.flags[kFLAGS.AMILY_TATTOO_SHOULDERS] == '') return true;
+            if (this.flags[kFLAGS.AMILY_TATTOO_BUTT] == '') return true;
             return false;
         }
         else if (name == "jojo") {
-            if (this.flags[kFLAGS.JOJO_TATTOO_COLLARBONE] == 0) return true;
-            if (this.flags[kFLAGS.JOJO_TATTOO_LOWERBACK] == 0) return true;
-            if (this.flags[kFLAGS.JOJO_TATTOO_SHOULDERS] == 0) return true;
-            if (this.flags[kFLAGS.JOJO_TATTOO_BUTT] == 0) return true;
+            if (this.flags[kFLAGS.JOJO_TATTOO_COLLARBONE] == '') return true;
+            if (this.flags[kFLAGS.JOJO_TATTOO_LOWERBACK] == '') return true;
+            if (this.flags[kFLAGS.JOJO_TATTOO_SHOULDERS] == '') return true;
+            if (this.flags[kFLAGS.JOJO_TATTOO_BUTT] == '') return true;
             return false;
         }
         else if (name == "sophie") {
-            if (this.flags[kFLAGS.SOPHIE_TATTOO_COLLARBONE] == 0) return true;
-            if (this.flags[kFLAGS.SOPHIE_TATTOO_LOWERBACK] == 0) return true;
-            if (this.flags[kFLAGS.SOPHIE_TATTOO_SHOULDERS] == 0) return true;
-            if (this.flags[kFLAGS.SOPHIE_TATTOO_BUTT] == 0) return true;
+            if (this.flags[kFLAGS.SOPHIE_TATTOO_COLLARBONE] == '') return true;
+            if (this.flags[kFLAGS.SOPHIE_TATTOO_LOWERBACK] == '') return true;
+            if (this.flags[kFLAGS.SOPHIE_TATTOO_SHOULDERS] == '') return true;
+            if (this.flags[kFLAGS.SOPHIE_TATTOO_BUTT] == '') return true;
             return false;
         }
         else if (name == "vapula") {
-            if (this.flags[kFLAGS.VAPULA_TATTOO_COLLARBONE] == 0) return true;
-            if (this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] == 0) return true;
-            if (this.flags[kFLAGS.VAPULA_TATTOO_SHOULDERS] == 0) return true;
-            if (this.flags[kFLAGS.VAPULA_TATTOO_BUTT] == 0) return true;
+            if (this.flags[kFLAGS.VAPULA_TATTOO_COLLARBONE] == '') return true;
+            if (this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] == '') return true;
+            if (this.flags[kFLAGS.VAPULA_TATTOO_SHOULDERS] == '') return true;
+            if (this.flags[kFLAGS.VAPULA_TATTOO_BUTT] == '') return true;
             return false;
         }
         else if (name == "kelly") {
-            if (this.flags[kFLAGS.KELLY_TATTOO_COLLARBONE] == 0) return true;
-            if (this.flags[kFLAGS.KELLY_TATTOO_LOWERBACK] == 0) return true;
-            if (this.flags[kFLAGS.KELLY_TATTOO_SHOULDERS] == 0) return true;
-            if (this.flags[kFLAGS.KELLY_TATTOO_BUTT] == 0) return true;
+            if (this.flags[kFLAGS.KELLY_TATTOO_COLLARBONE] == '') return true;
+            if (this.flags[kFLAGS.KELLY_TATTOO_LOWERBACK] == '') return true;
+            if (this.flags[kFLAGS.KELLY_TATTOO_SHOULDERS] == '') return true;
+            if (this.flags[kFLAGS.KELLY_TATTOO_BUTT] == '') return true;
             return false;
         }
         else if (name == "milky") {
-            if (this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] == 0) return true;
-            if (this.flags[kFLAGS.MILKY_TATTOO_LOWERBACK] == 0) return true;
-            if (this.flags[kFLAGS.MILKY_TATTOO_SHOULDERS] == 0) return true;
-            if (this.flags[kFLAGS.MILKY_TATTOO_BUTT] == 0) return true;
+            if (this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] == '') return true;
+            if (this.flags[kFLAGS.MILKY_TATTOO_LOWERBACK] == '') return true;
+            if (this.flags[kFLAGS.MILKY_TATTOO_SHOULDERS] == '') return true;
+            if (this.flags[kFLAGS.MILKY_TATTOO_BUTT] == '') return true;
             return false;
         }
         else {
@@ -3185,52 +3185,52 @@ export class FarmCorruption extends AbstractFarmContent {
 
     public hasTattoo(name: string): boolean {
         if (name == "whitney") {
-            if (this.flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE] != 0) return true;
-            if (this.flags[kFLAGS.WHITNEY_TATTOO_LOWERBACK] != 0) return true;
-            if (this.flags[kFLAGS.WHITNEY_TATTOO_SHOULDERS] != 0) return true;
-            if (this.flags[kFLAGS.WHITNEY_TATTOO_BUTT] != 0) return true;
+            if (this.flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE] != '') return true;
+            if (this.flags[kFLAGS.WHITNEY_TATTOO_LOWERBACK] != '') return true;
+            if (this.flags[kFLAGS.WHITNEY_TATTOO_SHOULDERS] != '') return true;
+            if (this.flags[kFLAGS.WHITNEY_TATTOO_BUTT] != '') return true;
             return false;
         }
         else if (name == "amily") {
-            if (this.flags[kFLAGS.AMILY_TATTOO_COLLARBONE] != 0) return true;
-            if (this.flags[kFLAGS.AMILY_TATTOO_LOWERBACK] != 0) return true;
-            if (this.flags[kFLAGS.AMILY_TATTOO_SHOULDERS] != 0) return true;
-            if (this.flags[kFLAGS.AMILY_TATTOO_BUTT] != 0) return true;
+            if (this.flags[kFLAGS.AMILY_TATTOO_COLLARBONE] != '') return true;
+            if (this.flags[kFLAGS.AMILY_TATTOO_LOWERBACK] != '') return true;
+            if (this.flags[kFLAGS.AMILY_TATTOO_SHOULDERS] != '') return true;
+            if (this.flags[kFLAGS.AMILY_TATTOO_BUTT] != '') return true;
             return false;
         }
         else if (name == "jojo") {
-            if (this.flags[kFLAGS.JOJO_TATTOO_COLLARBONE] != 0) return true;
-            if (this.flags[kFLAGS.JOJO_TATTOO_LOWERBACK] != 0) return true;
-            if (this.flags[kFLAGS.JOJO_TATTOO_SHOULDERS] != 0) return true;
-            if (this.flags[kFLAGS.JOJO_TATTOO_BUTT] != 0) return true;
+            if (this.flags[kFLAGS.JOJO_TATTOO_COLLARBONE] != '') return true;
+            if (this.flags[kFLAGS.JOJO_TATTOO_LOWERBACK] != '') return true;
+            if (this.flags[kFLAGS.JOJO_TATTOO_SHOULDERS] != '') return true;
+            if (this.flags[kFLAGS.JOJO_TATTOO_BUTT] != '') return true;
             return false;
         }
         else if (name == "sophie") {
-            if (this.flags[kFLAGS.SOPHIE_TATTOO_COLLARBONE] != 0) return true;
-            if (this.flags[kFLAGS.SOPHIE_TATTOO_LOWERBACK] != 0) return true;
-            if (this.flags[kFLAGS.SOPHIE_TATTOO_SHOULDERS] != 0) return true;
-            if (this.flags[kFLAGS.SOPHIE_TATTOO_BUTT] != 0) return true;
+            if (this.flags[kFLAGS.SOPHIE_TATTOO_COLLARBONE] != '') return true;
+            if (this.flags[kFLAGS.SOPHIE_TATTOO_LOWERBACK] != '') return true;
+            if (this.flags[kFLAGS.SOPHIE_TATTOO_SHOULDERS] != '') return true;
+            if (this.flags[kFLAGS.SOPHIE_TATTOO_BUTT] != '') return true;
             return false;
         }
         else if (name == "vapula") {
-            if (this.flags[kFLAGS.VAPULA_TATTOO_COLLARBONE] != 0) return true;
-            if (this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] != 0) return true;
-            if (this.flags[kFLAGS.VAPULA_TATTOO_SHOULDERS] != 0) return true;
-            if (this.flags[kFLAGS.VAPULA_TATTOO_BUTT] != 0) return true;
+            if (this.flags[kFLAGS.VAPULA_TATTOO_COLLARBONE] != '') return true;
+            if (this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] != '') return true;
+            if (this.flags[kFLAGS.VAPULA_TATTOO_SHOULDERS] != '') return true;
+            if (this.flags[kFLAGS.VAPULA_TATTOO_BUTT] != '') return true;
             return false;
         }
         else if (name == "kelly") {
-            if (this.flags[kFLAGS.KELLY_TATTOO_COLLARBONE] != 0) return true;
-            if (this.flags[kFLAGS.KELLY_TATTOO_LOWERBACK] != 0) return true;
-            if (this.flags[kFLAGS.KELLY_TATTOO_SHOULDERS] != 0) return true;
-            if (this.flags[kFLAGS.KELLY_TATTOO_BUTT] != 0) return true;
+            if (this.flags[kFLAGS.KELLY_TATTOO_COLLARBONE] != '') return true;
+            if (this.flags[kFLAGS.KELLY_TATTOO_LOWERBACK] != '') return true;
+            if (this.flags[kFLAGS.KELLY_TATTOO_SHOULDERS] != '') return true;
+            if (this.flags[kFLAGS.KELLY_TATTOO_BUTT] != '') return true;
             return false;
         }
         else if (name == "milky") {
-            if (this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] != 0) return true;
-            if (this.flags[kFLAGS.MILKY_TATTOO_LOWERBACK] != 0) return true;
-            if (this.flags[kFLAGS.MILKY_TATTOO_SHOULDERS] != 0) return true;
-            if (this.flags[kFLAGS.MILKY_TATTOO_BUTT] != 0) return true;
+            if (this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] != '') return true;
+            if (this.flags[kFLAGS.MILKY_TATTOO_LOWERBACK] != '') return true;
+            if (this.flags[kFLAGS.MILKY_TATTOO_SHOULDERS] != '') return true;
+            if (this.flags[kFLAGS.MILKY_TATTOO_BUTT] != '') return true;
             return false;
         }
         else {
@@ -3242,46 +3242,46 @@ export class FarmCorruption extends AbstractFarmContent {
         var count: number = 0;
 
         if (name == "whitney") {
-            if (this.flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE] != 0) count++;
-            if (this.flags[kFLAGS.WHITNEY_TATTOO_LOWERBACK] != 0) count++;
-            if (this.flags[kFLAGS.WHITNEY_TATTOO_SHOULDERS] != 0) count++;
-            if (this.flags[kFLAGS.WHITNEY_TATTOO_BUTT] != 0) count++;
+            if (this.flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE] != '') count++;
+            if (this.flags[kFLAGS.WHITNEY_TATTOO_LOWERBACK] != '') count++;
+            if (this.flags[kFLAGS.WHITNEY_TATTOO_SHOULDERS] != '') count++;
+            if (this.flags[kFLAGS.WHITNEY_TATTOO_BUTT] != '') count++;
         }
         else if (name == "amily") {
-            if (this.flags[kFLAGS.AMILY_TATTOO_COLLARBONE] != 0) count++;
-            if (this.flags[kFLAGS.AMILY_TATTOO_LOWERBACK] != 0) count++;
-            if (this.flags[kFLAGS.AMILY_TATTOO_SHOULDERS] != 0) count++;
-            if (this.flags[kFLAGS.AMILY_TATTOO_BUTT] != 0) count++;
+            if (this.flags[kFLAGS.AMILY_TATTOO_COLLARBONE] != '') count++;
+            if (this.flags[kFLAGS.AMILY_TATTOO_LOWERBACK] != '') count++;
+            if (this.flags[kFLAGS.AMILY_TATTOO_SHOULDERS] != '') count++;
+            if (this.flags[kFLAGS.AMILY_TATTOO_BUTT] != '') count++;
         }
         else if (name == "jojo") {
-            if (this.flags[kFLAGS.JOJO_TATTOO_COLLARBONE] != 0) count++;
-            if (this.flags[kFLAGS.JOJO_TATTOO_LOWERBACK] != 0) count++;
-            if (this.flags[kFLAGS.JOJO_TATTOO_SHOULDERS] != 0) count++;
-            if (this.flags[kFLAGS.JOJO_TATTOO_BUTT] != 0) count++;
+            if (this.flags[kFLAGS.JOJO_TATTOO_COLLARBONE] != '') count++;
+            if (this.flags[kFLAGS.JOJO_TATTOO_LOWERBACK] != '') count++;
+            if (this.flags[kFLAGS.JOJO_TATTOO_SHOULDERS] != '') count++;
+            if (this.flags[kFLAGS.JOJO_TATTOO_BUTT] != '') count++;
         }
         else if (name == "sophie") {
-            if (this.flags[kFLAGS.SOPHIE_TATTOO_COLLARBONE] != 0) count++;
-            if (this.flags[kFLAGS.SOPHIE_TATTOO_LOWERBACK] != 0) count++;
-            if (this.flags[kFLAGS.SOPHIE_TATTOO_SHOULDERS] != 0) count++;
-            if (this.flags[kFLAGS.SOPHIE_TATTOO_BUTT] != 0) count++;
+            if (this.flags[kFLAGS.SOPHIE_TATTOO_COLLARBONE] != '') count++;
+            if (this.flags[kFLAGS.SOPHIE_TATTOO_LOWERBACK] != '') count++;
+            if (this.flags[kFLAGS.SOPHIE_TATTOO_SHOULDERS] != '') count++;
+            if (this.flags[kFLAGS.SOPHIE_TATTOO_BUTT] != '') count++;
         }
         else if (name == "vapula") {
-            if (this.flags[kFLAGS.VAPULA_TATTOO_COLLARBONE] != 0) count++;
-            if (this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] != 0) count++;
-            if (this.flags[kFLAGS.VAPULA_TATTOO_SHOULDERS] != 0) count++;
-            if (this.flags[kFLAGS.VAPULA_TATTOO_BUTT] != 0) count++;
+            if (this.flags[kFLAGS.VAPULA_TATTOO_COLLARBONE] != '') count++;
+            if (this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] != '') count++;
+            if (this.flags[kFLAGS.VAPULA_TATTOO_SHOULDERS] != '') count++;
+            if (this.flags[kFLAGS.VAPULA_TATTOO_BUTT] != '') count++;
         }
         else if (name == "kelly") {
-            if (this.flags[kFLAGS.KELLY_TATTOO_COLLARBONE] != 0) count++;
-            if (this.flags[kFLAGS.KELLY_TATTOO_LOWERBACK] != 0) count++;
-            if (this.flags[kFLAGS.KELLY_TATTOO_SHOULDERS] != 0) count++;
-            if (this.flags[kFLAGS.KELLY_TATTOO_BUTT] != 0) count++;
+            if (this.flags[kFLAGS.KELLY_TATTOO_COLLARBONE] != '') count++;
+            if (this.flags[kFLAGS.KELLY_TATTOO_LOWERBACK] != '') count++;
+            if (this.flags[kFLAGS.KELLY_TATTOO_SHOULDERS] != '') count++;
+            if (this.flags[kFLAGS.KELLY_TATTOO_BUTT] != '') count++;
         }
         else if (name == "milky") {
-            if (this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] != 0) count++;
-            if (this.flags[kFLAGS.MILKY_TATTOO_LOWERBACK] != 0) count++;
-            if (this.flags[kFLAGS.MILKY_TATTOO_SHOULDERS] != 0) count++;
-            if (this.flags[kFLAGS.MILKY_TATTOO_BUTT] != 0) count++;
+            if (this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] != '') count++;
+            if (this.flags[kFLAGS.MILKY_TATTOO_LOWERBACK] != '') count++;
+            if (this.flags[kFLAGS.MILKY_TATTOO_SHOULDERS] != '') count++;
+            if (this.flags[kFLAGS.MILKY_TATTOO_BUTT] != '') count++;
         }
         else {
             throw new Error("Unable to determine correct NPC flags.");
@@ -3475,66 +3475,66 @@ export class FarmCorruption extends AbstractFarmContent {
 
     public brandSlotSelect(): void {
         this.menu();
-        if (this.flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE] == 0) this.addButton(0, "Collarbone", this.brandSelect, 0)
-        if (this.flags[kFLAGS.WHITNEY_TATTOO_SHOULDERS] == 0) this.addButton(1, "Shoulders", this.brandSelect, 1);
-        if (this.flags[kFLAGS.WHITNEY_TATTOO_LOWERBACK] == 0) this.addButton(2, "Lower Back", this.brandSelect, 2);
-        if (this.flags[kFLAGS.WHITNEY_TATTOO_BUTT] == 0) this.addButton(3, "Butt", this.brandSelect, 3);
+        if (this.flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE] == '') this.addButton(0, "Collarbone", this.brandSelect, 0)
+        if (this.flags[kFLAGS.WHITNEY_TATTOO_SHOULDERS] == '') this.addButton(1, "Shoulders", this.brandSelect, 1);
+        if (this.flags[kFLAGS.WHITNEY_TATTOO_LOWERBACK] == '') this.addButton(2, "Lower Back", this.brandSelect, 2);
+        if (this.flags[kFLAGS.WHITNEY_TATTOO_BUTT] == '') this.addButton(3, "Butt", this.brandSelect, 3);
     }
 
     public amilyBrandSlotSelect(): void {
         this.menu();
-        if (this.flags[kFLAGS.AMILY_TATTOO_COLLARBONE] == 0) this.addButton(0, "Collarbone", this.amilyBrandSelect, 0)
-        if (this.flags[kFLAGS.AMILY_TATTOO_SHOULDERS] == 0) this.addButton(1, "Shoulders", this.amilyBrandSelect, 1);
-        if (this.flags[kFLAGS.AMILY_TATTOO_LOWERBACK] == 0) this.addButton(2, "Lower Back", this.amilyBrandSelect, 2);
-        if (this.flags[kFLAGS.AMILY_TATTOO_BUTT] == 0) this.addButton(3, "Butt", this.amilyBrandSelect, 3);
+        if (this.flags[kFLAGS.AMILY_TATTOO_COLLARBONE] == '') this.addButton(0, "Collarbone", this.amilyBrandSelect, 0)
+        if (this.flags[kFLAGS.AMILY_TATTOO_SHOULDERS] == '') this.addButton(1, "Shoulders", this.amilyBrandSelect, 1);
+        if (this.flags[kFLAGS.AMILY_TATTOO_LOWERBACK] == '') this.addButton(2, "Lower Back", this.amilyBrandSelect, 2);
+        if (this.flags[kFLAGS.AMILY_TATTOO_BUTT] == '') this.addButton(3, "Butt", this.amilyBrandSelect, 3);
     }
 
     public jojoBrandSlotSelect(): void {
         this.menu();
-        if (this.flags[kFLAGS.JOJO_TATTOO_COLLARBONE] == 0) this.addButton(0, "Collarbone", this.jojoBrandSelect, 0)
-        if (this.flags[kFLAGS.JOJO_TATTOO_SHOULDERS] == 0) this.addButton(1, "Shoulders", this.jojoBrandSelect, 1);
-        if (this.flags[kFLAGS.JOJO_TATTOO_LOWERBACK] == 0) this.addButton(2, "Lower Back", this.jojoBrandSelect, 2);
-        if (this.flags[kFLAGS.JOJO_TATTOO_BUTT] == 0) this.addButton(3, "Butt", this.jojoBrandSelect, 3);
+        if (this.flags[kFLAGS.JOJO_TATTOO_COLLARBONE] == '') this.addButton(0, "Collarbone", this.jojoBrandSelect, 0)
+        if (this.flags[kFLAGS.JOJO_TATTOO_SHOULDERS] == '') this.addButton(1, "Shoulders", this.jojoBrandSelect, 1);
+        if (this.flags[kFLAGS.JOJO_TATTOO_LOWERBACK] == '') this.addButton(2, "Lower Back", this.jojoBrandSelect, 2);
+        if (this.flags[kFLAGS.JOJO_TATTOO_BUTT] == '') this.addButton(3, "Butt", this.jojoBrandSelect, 3);
     }
 
     public bimboSophieSlotSelect(): void {
         this.menu();
-        if (this.flags[kFLAGS.SOPHIE_TATTOO_COLLARBONE] == 0) this.addButton(0, "Collarbone", this.bimboSophieBrandSelect, 0)
-        if (this.flags[kFLAGS.SOPHIE_TATTOO_SHOULDERS] == 0) this.addButton(1, "Shoulders", this.bimboSophieBrandSelect, 1);
-        if (this.flags[kFLAGS.SOPHIE_TATTOO_LOWERBACK] == 0) this.addButton(2, "Lower Back", this.bimboSophieBrandSelect, 2);
-        if (this.flags[kFLAGS.SOPHIE_TATTOO_BUTT] == 0) this.addButton(3, "Butt", this.bimboSophieBrandSelect, 3);
+        if (this.flags[kFLAGS.SOPHIE_TATTOO_COLLARBONE] == '') this.addButton(0, "Collarbone", this.bimboSophieBrandSelect, 0)
+        if (this.flags[kFLAGS.SOPHIE_TATTOO_SHOULDERS] == '') this.addButton(1, "Shoulders", this.bimboSophieBrandSelect, 1);
+        if (this.flags[kFLAGS.SOPHIE_TATTOO_LOWERBACK] == '') this.addButton(2, "Lower Back", this.bimboSophieBrandSelect, 2);
+        if (this.flags[kFLAGS.SOPHIE_TATTOO_BUTT] == '') this.addButton(3, "Butt", this.bimboSophieBrandSelect, 3);
     }
 
     public vapulaSlotSelect(): void {
         this.menu();
-        if (this.flags[kFLAGS.VAPULA_TATTOO_COLLARBONE] == 0) this.addButton(0, "Collarbone", this.vapulaBrandSelect, 0)
-        if (this.flags[kFLAGS.VAPULA_TATTOO_SHOULDERS] == 0) this.addButton(1, "Shoulders", this.vapulaBrandSelect, 1);
-        if (this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] == 0) this.addButton(2, "Lower Back", this.vapulaBrandSelect, 2);
-        if (this.flags[kFLAGS.VAPULA_TATTOO_BUTT] == 0) this.addButton(3, "Butt", this.vapulaBrandSelect, 3);
+        if (this.flags[kFLAGS.VAPULA_TATTOO_COLLARBONE] == '') this.addButton(0, "Collarbone", this.vapulaBrandSelect, 0)
+        if (this.flags[kFLAGS.VAPULA_TATTOO_SHOULDERS] == '') this.addButton(1, "Shoulders", this.vapulaBrandSelect, 1);
+        if (this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] == '') this.addButton(2, "Lower Back", this.vapulaBrandSelect, 2);
+        if (this.flags[kFLAGS.VAPULA_TATTOO_BUTT] == '') this.addButton(3, "Butt", this.vapulaBrandSelect, 3);
     }
 
     public kellySlotSelect(): void {
         this.menu();
-        if (this.flags[kFLAGS.KELLY_TATTOO_COLLARBONE] == 0) this.addButton(0, "Collarbone", this.kellyBrandSelect, 0)
-        if (this.flags[kFLAGS.KELLY_TATTOO_SHOULDERS] == 0) this.addButton(1, "Shoulders", this.kellyBrandSelect, 1);
-        if (this.flags[kFLAGS.KELLY_TATTOO_LOWERBACK] == 0) this.addButton(2, "Lower Back", this.kellyBrandSelect, 2);
-        if (this.flags[kFLAGS.KELLY_TATTOO_BUTT] == 0) this.addButton(3, "Butt", this.kellyBrandSelect, 3);
+        if (this.flags[kFLAGS.KELLY_TATTOO_COLLARBONE] == '') this.addButton(0, "Collarbone", this.kellyBrandSelect, 0)
+        if (this.flags[kFLAGS.KELLY_TATTOO_SHOULDERS] == '') this.addButton(1, "Shoulders", this.kellyBrandSelect, 1);
+        if (this.flags[kFLAGS.KELLY_TATTOO_LOWERBACK] == '') this.addButton(2, "Lower Back", this.kellyBrandSelect, 2);
+        if (this.flags[kFLAGS.KELLY_TATTOO_BUTT] == '') this.addButton(3, "Butt", this.kellyBrandSelect, 3);
     }
 
     public smallMilkySlotSelect(): void {
         this.menu();
-        if (this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] == 0) this.addButton(0, "Collarbone", this.smallMilkyBrandSelect, 0)
-        if (this.flags[kFLAGS.MILKY_TATTOO_SHOULDERS] == 0) this.addButton(1, "Shoulders", this.smallMilkyBrandSelect, 1);
-        if (this.flags[kFLAGS.MILKY_TATTOO_LOWERBACK] == 0) this.addButton(2, "Lower Back", this.smallMilkyBrandSelect, 2);
-        if (this.flags[kFLAGS.MILKY_TATTOO_BUTT] == 0) this.addButton(3, "Butt", this.smallMilkyBrandSelect, 3);
+        if (this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] == '') this.addButton(0, "Collarbone", this.smallMilkyBrandSelect, 0)
+        if (this.flags[kFLAGS.MILKY_TATTOO_SHOULDERS] == '') this.addButton(1, "Shoulders", this.smallMilkyBrandSelect, 1);
+        if (this.flags[kFLAGS.MILKY_TATTOO_LOWERBACK] == '') this.addButton(2, "Lower Back", this.smallMilkyBrandSelect, 2);
+        if (this.flags[kFLAGS.MILKY_TATTOO_BUTT] == '') this.addButton(3, "Butt", this.smallMilkyBrandSelect, 3);
     }
 
     public bigMilkySlotSelect(): void {
         this.menu();
-        if (this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] == 0) this.addButton(0, "Collarbone", this.bigMilkyBrandSelect, 0)
-        if (this.flags[kFLAGS.MILKY_TATTOO_SHOULDERS] == 0) this.addButton(1, "Shoulders", this.bigMilkyBrandSelect, 1);
-        if (this.flags[kFLAGS.MILKY_TATTOO_LOWERBACK] == 0) this.addButton(2, "Lower Back", this.bigMilkyBrandSelect, 2);
-        if (this.flags[kFLAGS.MILKY_TATTOO_BUTT] == 0) this.addButton(3, "Butt", this.bigMilkyBrandSelect, 3);
+        if (this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] == '') this.addButton(0, "Collarbone", this.bigMilkyBrandSelect, 0)
+        if (this.flags[kFLAGS.MILKY_TATTOO_SHOULDERS] == '') this.addButton(1, "Shoulders", this.bigMilkyBrandSelect, 1);
+        if (this.flags[kFLAGS.MILKY_TATTOO_LOWERBACK] == '') this.addButton(2, "Lower Back", this.bigMilkyBrandSelect, 2);
+        if (this.flags[kFLAGS.MILKY_TATTOO_BUTT] == '') this.addButton(3, "Butt", this.bigMilkyBrandSelect, 3);
     }
 
     public brandSelect(slot: number): void {

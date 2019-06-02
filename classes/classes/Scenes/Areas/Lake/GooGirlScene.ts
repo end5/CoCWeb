@@ -290,7 +290,7 @@ export class GooGirlScene extends AbstractLakeContent {
             var sex3N = undefined;
             var sex4S: string = "";
             var sex4N = undefined;
-            var valeria = kGAMECLASS.valeria.valeriaAndGooThreeStuff;
+            var valeria: any = kGAMECLASS.valeria.valeriaAndGooThreeStuff;
             if (this.player.armorName != "goo armor" || this.player.isButtPregnant() || this.player.isPregnant()) valeria = undefined;
             var eggs = undefined;
             if (this.player.canOvipositBee()) eggs = this.layBeeEggsInGoo;

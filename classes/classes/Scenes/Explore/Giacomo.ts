@@ -38,7 +38,7 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
         CoC.timeAwareClassAdd(this);
     }
 
-    private checkedSuccubi: number;
+    private checkedSuccubi: number = 0;
 
     //Implementation of TimeAwareInterface
     public timeChange(): boolean {

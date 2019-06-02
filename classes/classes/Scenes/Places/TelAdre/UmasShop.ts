@@ -28,13 +28,9 @@ export class UmasShop extends TelAdreAbstractContent {
 
     public constructor() {
         super();
-        this.initLoppeTalks();
-    }
-
-    /**
-     * Builds an array of the sub-scenes for Loppe conversations. No point continually building the shit every time, right?
-     */
-    private initLoppeTalks(): void {
+        /**
+         * Builds an array of the sub-scenes for Loppe conversations. No point continually building the shit every time, right?
+         */
         this._loppeTalks = [];
         this._loppeTalks.push(this.talkLoppeAttitudes);
         this._loppeTalks.push(this.talkLoppeCarrotIncident);
@@ -442,7 +438,7 @@ export class UmasShop extends TelAdreAbstractContent {
         }
         else {
             var statIndex: number = this.player.findStatusAffect(StatusAffects.UmasMassage);
-            var bonusValue: number;
+            var bonusValue: number = 0;
 
             // Remove the old massage bonus if present
             if (statIndex >= 0) {
@@ -620,7 +616,7 @@ export class UmasShop extends TelAdreAbstractContent {
      * @return	true if player has a needlework perk
      */
     public hasNeedleworkPerk(): boolean {
-        var pType: PerkType = this.getNeedleworkPerk();
+        var pType = this.getNeedleworkPerk();
         if (pType != undefined) {
             return true;
         }
@@ -633,7 +629,7 @@ export class UmasShop extends TelAdreAbstractContent {
      * Figure out exactly WHICH needlework perk the player has
      * @return	Perk name that the player currently has
      */
-    public getNeedleworkPerk(): PerkType {
+    public getNeedleworkPerk(): PerkType | undefined {
         for (var perk of [
             PerkLib.ChiReflowAttack,
             PerkLib.ChiReflowDefense,
@@ -656,7 +652,7 @@ export class UmasShop extends TelAdreAbstractContent {
      */
     public applyNeedlework(selectedSession: number): void {
         if (selectedSession == UmasShop.NEEDLEWORK_UNDO) {
-            this.player.removePerk(this.getNeedleworkPerk());
+            this.player.removePerk(this.getNeedleworkPerk()!);
             this.flags[kFLAGS.UMA_TIMES_ACUPUNCTURE_UNDO]++;
         }
         else if (selectedSession == UmasShop.NEEDLEWORK_SPEED) {
@@ -911,7 +907,7 @@ export class UmasShop extends TelAdreAbstractContent {
         this._loppeTalks[UmasShop.rand(this._loppeTalks.length)]();
     }
 
-    private _sceneNum: number = 0;
+    // private _sceneNum: number = 0;
 
     /**
      * Centralise the end-of-talk loppe stuffs

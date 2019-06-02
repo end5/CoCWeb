@@ -391,11 +391,11 @@ export class Creature extends Utils {
 
     //Monsters have few perks, which I think should be a status effect for clarity's sake.
     //TODO: Move perks into monster status effects.
-    private _perks: any[];
+    private _perks: PerkClass[];
     public perk(i: number): PerkClass {
         return this._perks[i];
     }
-    public get perks(): any[] {
+    public get perks(): PerkClass[] {
         return this._perks;
     }
     public get numPerks(): number {
@@ -404,7 +404,7 @@ export class Creature extends Utils {
     //Current status effects. This has got very muddy between perks and status effects. Will have to look into it.
     //Someone call the grammar police!
     //TODO: Move monster status effects into perks. Needs investigation though.
-    public statusAffects: any[];
+    public statusAffects: StatusAffectClass[];
 
     //Constructor
     public constructor() {

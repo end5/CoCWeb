@@ -187,7 +187,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.model.player = this.player;
 
         // See called method comment.
-        this.player.fixFuckingCockTypesEnum();
+        // this.player.fixFuckingCockTypesEnum();
     }
 
 
@@ -513,12 +513,12 @@ export class UrtaQuest extends NPCAwareContent {
             else if (this.player2.cor < 66) this.outputText(this.player2.mf("he", "she") + " nods understandingly, not surprised that you have to handle this quest alone.  The two of you are alike in that way - each with their own burden to bear.");
             else this.outputText(this.player2.mf("he", "she") + " nods dismissively, trusting you to handle it alone you suppose.  " + this.player2.short + " always was hard like that, even though " + this.player2.mf("he", "she") + " clearly likes you.");
             this.outputText("  You hold on to " + this.player2.mf("him", "her") + ", for comfort, dreading the long day ahead.  " + this.player2.mf("He", "She") + " pats your back comfortingly as you cry, and when you break from the hug, " + this.player2.mf("he", "she") + "'s looking at you expectantly.");
-            if (this.flags[kFLAGS.SLEEP_WITH] != "" && this.flags[kFLAGS.SLEEP_WITH] != 0) this.outputText("  " + this.player2.short + " suggests the two of you move off, so as not to wake " + this.flags[kFLAGS.SLEEP_WITH] + " in the night.");
+            if (this.flags[kFLAGS.SLEEP_WITH] != "" && this.flags[kFLAGS.SLEEP_WITH] != '') this.outputText("  " + this.player2.short + " suggests the two of you move off, so as not to wake " + this.flags[kFLAGS.SLEEP_WITH] + " in the night.");
         }
         //{LIE}
         else {
             this.outputText("\n\nYou sit down across from " + this.player2.mf("him", "her") + ", helping " + this.player2.mf("him", "her") + " up to a sitting position as you tell " + this.player2.mf("him", "her") + " that you just wanted to sneak away for a little while, to be with " + this.player2.mf("him", "her") + " as proper lovers, for the night.  " + this.player2.short + " smiles a little at that, looking up at you expectantly.  Since you came all this way, you must have something in mind for how you plan to stay the night with " + this.player2.mf("him", "her") + ".");
-            if (this.flags[kFLAGS.SLEEP_WITH] != "" && this.flags[kFLAGS.SLEEP_WITH] != 0) this.outputText("  " + this.player2.short + " suggests the two of you move off, so as not to wake " + this.flags[kFLAGS.SLEEP_WITH] + " in the night.");
+            if (this.flags[kFLAGS.SLEEP_WITH] != "" && this.flags[kFLAGS.SLEEP_WITH] != '') this.outputText("  " + this.player2.short + " suggests the two of you move off, so as not to wake " + this.flags[kFLAGS.SLEEP_WITH] + " in the night.");
         }
         //[SEX OPTIONS GO HURRRR]
         //Snuggle, put cock in cocked PC ass, ride PC cock vaginally, Fuck Girlvag with yer dick, maybe a sixtynine?

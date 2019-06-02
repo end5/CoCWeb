@@ -431,6 +431,9 @@ export const ImageSets = {
     "katherine-give-her-blowjobs": [
         "./img/katherine-give-her-blowjobs",
     ],
+    "katherine-gives-you-blowjobs": [
+        "./img/katherine-gives-you-blowjobs",
+    ],
     "katherine-suck-and-fucks-you": [
         "./img/katherine-suck-and-fucks-you",
     ],

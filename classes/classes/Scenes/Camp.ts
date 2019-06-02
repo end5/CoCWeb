@@ -4,8 +4,9 @@ import { ItemType } from "../ItemType";
 import { StatusAffects } from "../StatusAffects";
 import { kFLAGS } from "../GlobalFlags/kFLAGS";
 import { PerkLib } from "../PerkLib";
-import { time, trace } from "console";
+import { trace } from "console";
 import { PregnancyStore } from "../PregnancyStore";
+import { MainView } from "../../../lib/src/coc/view/MainView";
 
 
 export class Camp extends NPCAwareContent {
@@ -129,7 +130,7 @@ export class Camp extends NPCAwareContent {
                     return;
                 }
             }
-            if (this.flags[kFLAGS.MARBLE_RATHAZUL_COUNTER_1] == 1 && (time.hours == 6 || time.hours == 7)) {
+            if (this.flags[kFLAGS.MARBLE_RATHAZUL_COUNTER_1] == 1 && (this.time.hours == 6 || this.time.hours == 7)) {
                 this.hideMenus();
                 this.marblePurification.rathazulsMurbelReport();
                 return;
@@ -461,7 +462,7 @@ export class Camp extends NPCAwareContent {
             this.mainView.statsView.hideLevelUp();
         }
         //Build main menu
-        var exploreEvent = this.getGame().exploration.doExplore;
+        var exploreEvent: (() => void) | undefined = this.getGame().exploration.doExplore;
         var masturbate = (this.player.lust > 30 ? this.getGame().masturbation.masturbateMenu : undefined);
         this.clearOutput();
 
@@ -1229,15 +1230,15 @@ export class Camp extends NPCAwareContent {
             this.HPChange(this.timeQ * 10, true);
             this.dynStats("tou", -.1, "int", -.1);
             //fatigue
-            this.fatigue(-int(this.player.fatigue / 2));
-            if (this.player.findPerk(PerkLib.SpeedyRecovery) >= 0) this.fatigue(-int(this.player.fatigue / 4));
+            this.fatigue(-Math.floor(this.player.fatigue / 2));
+            if (this.player.findPerk(PerkLib.SpeedyRecovery) >= 0) this.fatigue(-Math.floor(this.player.fatigue / 4));
         }
         //Mino withdrawal
         else if (this.flags[kFLAGS.MINOTAUR_CUM_ADDICTION_STATE] == 3) {
             if (display) this.outputText("\nYou spend much of the night tossing and turning, aching for a taste of minotaur cum.\n", false);
             this.HPChange(this.timeQ * 15, true);
-            this.fatigue(-int(this.player.fatigue / 2));
-            if (this.player.findPerk(PerkLib.SpeedyRecovery) >= 0) this.fatigue(-int(this.player.fatigue / 4));
+            this.fatigue(-Math.floor(this.player.fatigue / 2));
+            if (this.player.findPerk(PerkLib.SpeedyRecovery) >= 0) this.fatigue(-Math.floor(this.player.fatigue / 4));
         }
         //REGULAR HP/FATIGUE RECOVERY
         else {

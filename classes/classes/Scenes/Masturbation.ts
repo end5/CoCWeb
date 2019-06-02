@@ -4,6 +4,7 @@ import { StatusAffects } from "../StatusAffects";
 import { kFLAGS } from "../GlobalFlags/kFLAGS";
 import { VAGINA_WETNESS_DRY, VAGINA_WETNESS_NORMAL, VAGINA_WETNESS_WET, VAGINA_WETNESS_SLICK, VAGINA_WETNESS_DROOLING, VAGINA_WETNESS_SLAVERING, TAIL_TYPE_NONE } from "../../../includes/appearanceDefs";
 import { trace } from "console";
+import { PerkLib } from "../PerkLib";
 
 //	import classes.Scenes.NPCs.*;
 
@@ -152,7 +153,7 @@ export class Masturbation extends BaseContent {
             return;
         }
         var autofellatio: boolean = false;
-        var hermtastic: boolean = false;
+        // var hermtastic: boolean = false;
         var nippleFuck: boolean = false;
         //Early prep
         if (this.player.cor < 15)
@@ -1348,7 +1349,7 @@ export class Masturbation extends BaseContent {
             else {
                 if (this.player.normalCocks() > 0)
                     this.outputText("girl-lube pours out of your swollen nipple over your " + this.player.cockDescript() + " and hands, pooling on the ground below you. ");
-                else if (this.player.hasSheath() > 0)
+                else if (this.player.hasSheath())
                     this.outputText("girl-lube drizzles down the length of your " + this.player.cockDescript() + " in thick streams, pooling in and around your sheath. ");
                 else if (this.player.tentacleCocks() > 0)
                     this.outputText("girl-lube pours out of your swollen nipple over your " + this.player.cockDescript() + " and hands, pooling on the ground below you. ");
@@ -1911,7 +1912,7 @@ export class Masturbation extends BaseContent {
 
     private onaholeFutaContinuation(): void {
         this.outputText("\n\nThe blessing - or curse, depending on how you feel - of your gender catches up with you. As with all members of your gender, you are incapable of having just ONE orgasm. You feel the muscles deep in your crotch bear down hard. Your eyes widen as you realize you are about to blow a monumental load. The pressure works its way through you and towards your cock as, with one final push, you force a torrent of semen out of your body. Your grip was not sufficient on the onahole and you launch it ");
-        this.outputText(String(int(((Math.random() * this.player.str / 12) + this.player.str / 6) * 10) / 10));
+        this.outputText(String(Math.floor(((Math.random() * this.player.str / 12) + this.player.str / 6) * 10) / 10));
         this.outputText(" feet away from you. Delirious with pleasure, you continue your 'impression' of a semen volcano, covering yourself and the area with your seed. ");
         this.outputText(" As your orgasms fade, you find yourself a well-fucked mess, and pass out.");
         this.dynStats("sen", -1);
@@ -2903,25 +2904,25 @@ export class Masturbation extends BaseContent {
     private tentacleSelfFuck(): void {
         var x: number = -1;
         var y: number = -1;
-        temp = 0;
-        while (temp < this.player.cocks.length) {
-            if (this.player.cocks[temp].cockType == CockTypesEnum.TENTACLE) {
-                if (x == -1) x = temp;
+        this.temp = 0;
+        while (this.temp < this.player.cocks.length) {
+            if (this.player.cocks[this.temp].cockType == CockTypesEnum.TENTACLE) {
+                if (x == -1) x = this.temp;
             }
-            temp++;
+            this.temp++;
         }
         //Pick a second dick that isn't the first.
-        temp = 0;
-        while (temp < this.player.cocks.length) {
-            if (temp != x) {
+        this.temp = 0;
+        while (this.temp < this.player.cocks.length) {
+            if (this.temp != x) {
                 if (y < 0)
-                    y = temp;
+                    y = this.temp;
                 else if (Masturbation.rand(2) == 0 && this.player.cocks[y].cockType != CockTypesEnum.TENTACLE)
-                    y = temp;
-                else if (this.player.cocks[temp].cockType == CockTypesEnum.TENTACLE)
-                    y = temp;
+                    y = this.temp;
+                else if (this.player.cocks[this.temp].cockType == CockTypesEnum.TENTACLE)
+                    y = this.temp;
             }
-            temp++;
+            this.temp++;
         }
         this.clearOutput();
         if (this.player.cor < 15) this.outputText("You sheepishly find some rocks to hide in, where you remove your clothes.\n\n");

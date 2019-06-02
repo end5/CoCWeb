@@ -1276,7 +1276,7 @@ export class MinervaScene extends BaseContent {
     }
 
 
-    private loseToMinerva(): void {
+    public loseToMinerva(): void {
         this.clearOutput();
         this.spriteSelect(95);
         //PC loss by physical
@@ -1300,7 +1300,7 @@ export class MinervaScene extends BaseContent {
     }
 
     //Victory text for tainted
-    private beatUpDatSharpie(): void {
+    public beatUpDatSharpie(): void {
         this.clearOutput();
         this.spriteSelect(95);
         //Win by damage

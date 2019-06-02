@@ -2,6 +2,7 @@
 import { conditionalOptions } from "./conditionalConverters";
 import { singleArgConverters } from "./singleArgLookups";
 import { twoWordNumericTagsLookup, twoWordTagsLookup } from "./doubleArgLookups";
+import { Showdown } from "../../showdown/Showdown";
 
 export class Parser {
 

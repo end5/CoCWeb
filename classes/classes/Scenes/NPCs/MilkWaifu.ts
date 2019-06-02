@@ -27,38 +27,38 @@ export class MilkWaifu extends NPCAwareContent {
 
         this.outputText("\n\nSpeaking of which, you don't really have anything to call this dusky beauty.  You suppose you could just keep calling her \"Bath Slut,\" but that's hardly a fitting name for a free girl...");
 
+        const input = document.createElement('input');
+        this.mainView.mainText.appendChild(input);
+
         //[Name Field.  If left empty, defaults to "Bath Slut"]
         this.menu();
-        this.addButton(0, "Next", this.nameZeMilkBath);
-        this.mainView.nameBox.text = "";
+        this.addButton(0, "Next",()=> this.nameZeMilkBath(input));
     }
 
 
-    private nameZeMilkBath(): void {
-        if (kGAMECLASS.testingBlockExiting) {
+    private nameZeMilkBath(input: HTMLInputElement): void {
+        // if (kGAMECLASS.testingBlockExiting) {
             // We're running under the testing script.
             // Stuff a name in the box and go go go
-            this.mainView.nameBox.text = "Milkderp";
-        }
-        else if (this.mainView.nameBox.text == "" || typeof this.mainView.nameBox.text == 'number')
+            // this.mainView.nameBox.text = "Milkderp";
+        // }
+        // else if (this.mainView.nameBox.text == "" || typeof this.mainView.nameBox.text == 'number')
+        if (input.value == "")
         {
             this.clearOutput();
             this.outputText("<b>You must give her a name.</b>", false);
             this.menu();
-            this.addButton(0, "Next", this.nameZeMilkBath);
-            this.mainView.nameBox.visible = true;
-            this.mainView.nameBox.text = "Bath Slut";
-            this.mainView.nameBox.x = this.mainView.mainText.x + 5;
-            this.mainView.nameBox.y = this.mainView.mainText.y + 3 + this.mainView.mainText.textHeight;
+            this.addButton(0, "Next",()=> this.nameZeMilkBath(input));
+
+            input.value = "Bath Slut";
             return;
         }
         this.clearOutput();
-        this.flags[kFLAGS.MILK_NAME] = this.mainView.nameBox.text;
-        this.mainView.nameBox.text = "";
-        this.mainView.nameBox.visible = false;
+        this.flags[kFLAGS.MILK_NAME] = input.value;
+
         //Call her Bath Slut (You Asshole)
-        if (this.mainView.nameBox.text == "Bath Slut") this.outputText("Fuck it, Bath Slut it is.  At least she won't get confused.");
-        else if (this.mainView.nameBox.text == "Biscuit") this.outputText("Fuck it, you may as well butter her buns!");
+        if (input.value == "Bath Slut") this.outputText("Fuck it, Bath Slut it is.  At least she won't get confused.");
+        else if (input.value == "Biscuit") this.outputText("Fuck it, you may as well butter her buns!");
         //Variable: " + flags[kFLAGS.MILK_NAME] + "
         //Having Named the Girl (Didn't name her Bath Slut)
         else {
@@ -234,10 +234,10 @@ export class MilkWaifu extends NPCAwareContent {
                 if (kGAMECLASS.farm.farmCorruption.numTattoos("milky") > 1) this.outputText("She has the following tattoos emblazoned across her body:\n");
                 else this.outputText("She has ");
 
-                if (this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] != 0) this.outputText(this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] + "\n");
-                if (this.flags[kFLAGS.MILKY_TATTOO_SHOULDERS] != 0) this.outputText(this.flags[kFLAGS.MILKY_TATTOO_SHOULDERS] + "\n");
-                if (this.flags[kFLAGS.MILKY_TATTOO_LOWERBACK] != 0) this.outputText(this.flags[kFLAGS.MILKY_TATTOO_LOWERBACK] + "\n");
-                if (this.flags[kFLAGS.MILKY_TATTOO_BUTT] != 0) this.outputText(this.flags[kFLAGS.MILKY_TATTOO_BUTT] + "\n");
+                if (this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] != '') this.outputText(this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] + "\n");
+                if (this.flags[kFLAGS.MILKY_TATTOO_SHOULDERS] != '') this.outputText(this.flags[kFLAGS.MILKY_TATTOO_SHOULDERS] + "\n");
+                if (this.flags[kFLAGS.MILKY_TATTOO_LOWERBACK] != '') this.outputText(this.flags[kFLAGS.MILKY_TATTOO_LOWERBACK] + "\n");
+                if (this.flags[kFLAGS.MILKY_TATTOO_BUTT] != '') this.outputText(this.flags[kFLAGS.MILKY_TATTOO_BUTT] + "\n");
             }
         }
 

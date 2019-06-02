@@ -27,7 +27,7 @@ export class ArmorWithPerk extends Armor {
         return super.playerEquip();
     }
 
-    public playerRemove(): Armor { //This item is being removed by the player. Remove any perks, etc.
+    public playerRemove() { //This item is being removed by the player. Remove any perks, etc.
         while (this.game.player.findPerk(this.playerPerk) >= 0) this.game.player.removePerk(this.playerPerk);
         return super.playerRemove();
     }

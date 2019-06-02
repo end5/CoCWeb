@@ -12,8 +12,8 @@ export class Fists extends Weapon {
 
     public useText(): void { } //No text for equipping fists
 
-    public playerRemove(): Weapon {
-        return;
+    public playerRemove() {
+        return undefined;
     }
 
     /*

@@ -122,7 +122,7 @@ export class Rubi extends TelAdreAbstractContent {
     }
 
     public rubiGetCockType(): CockTypesEnum {
-        return CockTypesEnum.ParseConstantByIndex(this.flags[kFLAGS.RUBI_COCK_TYPE]);
+        return this.flags[kFLAGS.RUBI_COCK_TYPE];
     }
     public rubiBreasts(): string {
         var ret: string = "pair of ";
@@ -792,7 +792,7 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText(".");
 
         var size: number = 0;
-        var cock: boolean = this.player.hasCock();
+        // var cock: boolean = this.player.hasCock();
         //(If player cock/clit at or under 4</i>\")
         if (this.player.hasCock()) {
             if (this.player.cocks[x].cockLength <= 4) size = 0;
@@ -2027,7 +2027,7 @@ export class Rubi extends TelAdreAbstractContent {
     }
 
     //Dates
-    private dateIntro(date): void {
+    private dateIntro(date: any): void {
         this.clearOutput();
         this.rubiSprite();
         //(First Time)

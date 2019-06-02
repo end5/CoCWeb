@@ -10,6 +10,8 @@ import { PerkType } from "./PerkType";
 import { StatusAffects } from "./StatusAffects";
 import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
 import { PerkLib } from "./PerkLib";
+import { MainView } from "../../lib/src/coc/view/MainView";
+import { Flags } from "./FlagTypeOverrides";
 
 
 //	import flash.events.MouseEvent;
@@ -32,49 +34,30 @@ export class CharCreation extends BaseContent {
     public newGameGo(): void {
         this.funcs = [];
         this.args = [];
-        this.mainView.eventTestInput.x = -10207.5;
-        this.mainView.eventTestInput.y = -1055.1;
+        // this.mainView.eventTestInput.x = -10207.5;
+        // this.mainView.eventTestInput.y = -1055.1;
         this.hideStats();
         this.hideUpDown();
-        this.mainView.nameBox.visible = true;
-        this.mainView.nameBox.width = 165;
+        const input = document.createElement('input');
         this.mainView.hideMenuButton(MainView.MENU_NEW_MAIN);
         this.mainView.hideMenuButton(MainView.MENU_DATA);
         this.mainView.hideMenuButton(MainView.MENU_LEVEL);
         this.mainView.hideMenuButton(MainView.MENU_PERKS);
         //Hide perk boxes
-        this.mainView.aCb.visible = false;
+        // this.mainView.aCb.visible = false;
         //If first PC, track status of EZ mode and other such nonsense.
-        var silly: boolean = this.flags[kFLAGS.SILLY_MODE_ENABLE_FLAG];
-        var easy: boolean = this.flags[kFLAGS.EASY_MODE_ENABLE_FLAG];
-        var sprite: boolean = this.flags[kFLAGS.SHOW_SPRITES_FLAG];
-        this.mainView.setButtonText(0, "Newgame"); // b1Text.text = "Newgame";
+        var silly: boolean = !!this.flags[kFLAGS.SILLY_MODE_ENABLE_FLAG];
+        var easy: boolean = !!this.flags[kFLAGS.EASY_MODE_ENABLE_FLAG];
+        var sprite: boolean = !!this.flags[kFLAGS.SHOW_SPRITES_FLAG];
+        this.mainView.newGameButton.labelText = "Newgame"; // b1Text.text = "Newgame";
         //flags[kFLAGS.CUSTOM_PC_ENABLED] = 0;
 
         this.clearOutput();
         this.outputText("You grew up in the small village of Ingnam, a remote village with rich traditions, buried deep in the wilds.  Every year for as long as you can remember, your village has chosen a champion to send to the cursed Demon Realm.  Legend has it that in years Ingnam has failed to produce a champion, chaos has reigned over the countryside.  Children disappear, crops wilt, and disease spreads like wildfire.  This year, <b>you</b> have been selected to be the champion.\n\nWhat is your name?");
 
-        /*CODE FROM CMACLOAD HERE
-        Multiple line case. A text field GeneralTextField, positioning a movieclip AskQuestions below it
-        GeneralTextField.wordWrap = true;
-        GeneralTextField.autoSize = true;
-        GeneralTextField.htmlText = &quot;whatevevr.......&quot;;
-        AskQuestions._x = GeneralTextField._x;
-        AskQuestions._y = GeneralTextField._y + 3 + GeneralTextField._height;
-        again replace _x, _y, _width with x, y, width*/
-        //mainView.mainText.autoSize = true;
-
-        //mainView.mainText.autoSize = TextFieldAutoSize.LEFT;
+        this.mainView.mainText.appendChild(input);
         this.menu();
-        this.addButton(0, "OK", this.chooseName);
-        //	simpleChoices("OK",10034,"",0,"",0,"",0,"",0);
-        this.mainView.nameBox.x = this.mainView.mainText.x + 5;
-        this.mainView.nameBox.y = this.mainView.mainText.y + 3 + this.mainView.mainText.textHeight;
-
-        //OLD
-        //mainView.nameBox.x = 510;
-        //mainView.nameBox.y = 265;
-        this.mainView.nameBox.text = "";
+        this.addButton(0, "OK", () => this.chooseName(input));
 
         //Reset autosave
         this.player.slotName = "VOID";
@@ -186,7 +169,7 @@ export class CharCreation extends BaseContent {
             this.player.setWeapon(WeaponLib.FISTS);
         }
         //Clear plot storage array!
-        this.flags = {};
+        this.flags = {} as Flags;
 
         //Remember silly/sprite/etc
         if (sprite) this.flags[kFLAGS.SHOW_SPRITES_FLAG] = 1;
@@ -222,14 +205,14 @@ export class CharCreation extends BaseContent {
         this.inventory.initializeGearStorage();
     }
 
-    private chooseName(): void {
-        if (kGAMECLASS.testingBlockExiting) {
+    private chooseName(input: HTMLInputElement): void {
+        // if (kGAMECLASS.testingBlockExiting) {
             // We're running under the testing script.
             // Stuff a name in the box and go go go
-            this.mainView.nameBox.text = "Derpy";
-            return;
-        }
-        if (this.mainView.nameBox.text == "") {
+            // input.value = "Derpy";
+            // return;
+        // }
+        if (input.value == "") {
             //If part of newgame+, don't fully wipe.
             if (this.player.XP > 0 && this.player.explored == 0) {
                 this.flags[kFLAGS.NEW_GAME_PLUS_BONUS_STORED_XP] = this.player.XP;
@@ -242,16 +225,16 @@ export class CharCreation extends BaseContent {
             }
             this.newGameGo();
             this.outputText("\n\n\n<b>You must select a name.</b>");
+            // this.mainView.mainText.appendChild(input);
             return;
         }
         this.clearOutput();
-        this.mainView.nameBox.visible = false;
-        this.player.short = this.mainView.nameBox.text;
-        this.customPlayerProfile = this.customName(this.mainView.nameBox.text);
+        this.player.short = input.value;
+        this.customPlayerProfile = this.customName(input.value);
         this.menu();
         if (this.customPlayerProfile != undefined) {
             this.outputText("This name, like you, is special.  Do you live up to your name or continue on, assuming it to be coincidence?");
-            this.addButton(0, "SpecialName", this.useCustomProfile);
+            this.addButton(0, "SpecialName", () => this.useCustomProfile(input.value));
             this.addButton(1, "Continue On", this.noCustomProfile);
         }
         else { //Proceed with normal character creation
@@ -261,9 +244,9 @@ export class CharCreation extends BaseContent {
         }
     }
 
-    private useCustomProfile(): void {
+    private useCustomProfile(name: string): void {
         this.clearOutput();
-        if (this.specialName(this.mainView.nameBox.text) != undefined) {
+        if (this.specialName(name) != undefined) {
             this.clearOutput();
             this.outputText("Your name defines everything about you, and as such, it is time to wake...\n\n");
             this.flags[kFLAGS.HISTORY_PERK_SELECTED] = 1;

@@ -125,7 +125,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
         this.startCombat(new SandWitch());
     }
 
-    private sandwitchRape(): void {
+    public sandwitchRape(): void {
         this.spriteSelect(50);
         this.player.clearStatuses(false);
         //LUST DEFEAT
@@ -608,7 +608,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
         this.cleanupAfterCombat();
     }
 
-    private beatSandwitch(): void {
+    public beatSandwitch(): void {
         this.spriteSelect(50);
         if (this.monster.lust > 99) this.outputText("You smile in satisfaction as the " + this.monster.short + " drops down on all fours and begins masturbating feverishly.  Sadly you realize your own needs have not been met.  Of course you could always fuck the horny witch...\n\nDo you rape her?", true);
         else this.outputText("You smile in satisfaction as the " + this.monster.short + " drops down on all fours and struggles to rise.  Sadly you realize your own needs have not been met.  Of course, you could always fuck the witch...", true);

@@ -2918,7 +2918,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(" off your [armor] until you are standing naked before her, letting her see what you have to offer in terms of phallic delights.");
 
         var x: number;
-        var y: number;
+        // var y: number;
         //If the PC is too big
         if (this.player.cockThatFits(this.emberVaginalCapacity()) == -1) {
             this.outputText("\n\nEmber looks at your " + this.multiCockDescriptLight() + ", then touches her pussy in thought.  Finally, she growls in exasperation.  \"<i>");

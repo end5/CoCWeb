@@ -39,7 +39,7 @@ export class Forest extends BaseContent {
 
         var chooser: number = Forest.rand(5);
 
-        var temp2: number = 0;
+        // var temp2: number = 0;
         //Every tenth exploration finds a pumpkin if eligible!
         if (this.player.statusAffectv1(StatusAffects.ExploredDeepwoods) % 10 == 0 && this.isHalloween()) {
             //If Fera isn't free yet...
@@ -135,7 +135,7 @@ export class Forest extends BaseContent {
 
         trace("FOREST EVENT CALLED");
         var chooser: number = Forest.rand(4);
-        var temp2: number = 0;
+        // var temp2: number = 0;
         //Cut bee encounter rate 50%
         if (chooser == 3 && Forest.rand(2)) chooser = Forest.rand(3);
         //Quick changes:
@@ -374,7 +374,7 @@ export class Forest extends BaseContent {
     }
     //[FOREST]
     //[RANDOM SCENE IF CHARACTER HAS AT LEAST ONE COCK LARGER THAN THEIR HEIGHT, AND THE TOTAL COMBINED WIDTH OF ALL THEIR COCKS IS TWELVE INCHES OR GREATER]
-    private bigJunkForestScene(lake: boolean = false): void {
+    public bigJunkForestScene(lake: boolean = false): void {
         this.outputText("", true);
         var x: number = this.player.longestCock();
 

@@ -19,7 +19,7 @@ export class MinotaurScene extends BaseContent {
        return player.minotaurNeed();
    }
     */
-    private minoVictoryRapeChoices(): void {
+   public minoVictoryRapeChoices(): void {
         this.spriteSelect(44);
         //Determine if PC can rape with a dick!
         var x: number = this.player.cockThatFits(this.monster.analCapacity());
@@ -124,15 +124,15 @@ export class MinotaurScene extends BaseContent {
             return;
         }
         this.minoRapeIntro();
-        var x: number = 0;
-        var counter: number = 0;
-        while (counter < this.player.cockTotal()) {
-            if (this.player.cocks[counter].cockType == CockTypesEnum.TENTACLE) {
-                x = counter;
-                break;
-            }
-            counter++;
-        }
+        // var x: number = 0;
+        // var counter: number = 0;
+        // while (counter < this.player.cockTotal()) {
+        //     if (this.player.cocks[counter].cockType == CockTypesEnum.TENTACLE) {
+        //         x = counter;
+        //         break;
+        //     }
+        //     counter++;
+        // }
         var mismatched: boolean = false;
         var temp2: number = 0;
         this.outputText("", true);

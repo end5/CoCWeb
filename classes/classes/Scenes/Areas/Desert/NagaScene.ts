@@ -424,7 +424,7 @@ export class NagaScene extends BaseContent {
         return;
     }
 
-    private nagaFUCKSJOOOOOO(): void {
+    public nagaFUCKSJOOOOOO(): void {
         this.outputText("", true);
         //BIMBO!  LIKE, TOTALLY AWESOME AND CUM!
         //[Naga-on-Female Bimbo Loss Scene]
@@ -670,7 +670,7 @@ export class NagaScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    private nagaRapeChoice(): void {
+    public nagaRapeChoice(): void {
         if (this.monster.HP < 1) this.outputText("You've defeated the naga!  ", true);
         else this.outputText("The naga writhes in the sand, masturbating feverishly!  She's completely forgotten about fighting you.  ", true);
 
@@ -787,17 +787,17 @@ export class NagaScene extends BaseContent {
             var bimbo: boolean = false;
             var bro: boolean = false;
             var futa: boolean = false;
-            var choices: any[] = new Array();
-            var select: number = 0;
+            // var choices: any[] = new Array();
+            // var select: number = 0;
             //Tags used for bonus damage and chance later on
-            var breasts: boolean = false;
-            var penis: boolean = false;
-            var balls: boolean = false;
-            var vagina: boolean = false;
-            var anus: boolean = false;
-            var ass: boolean = false;
+            // var breasts: boolean = false;
+            // var penis: boolean = false;
+            // var balls: boolean = false;
+            // var vagina: boolean = false;
+            // var anus: boolean = false;
+            // var ass: boolean = false;
             //If auto = true, set up bonuses using above flags
-            var auto: boolean = true;
+            // var auto: boolean = true;
             //==============================
             //Determine basic success chance.
             //==============================

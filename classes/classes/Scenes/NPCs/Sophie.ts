@@ -203,7 +203,7 @@ export class Sophie extends Harpy {
     protected performCombatAction(): void {
         //Sophie has special AI in harpySophie.as
         this.game.sophieBimbo.sophieSprite();
-        var select: number = 1;
+        // var select: number = 1;
         var rando: number = 1;
         //Update attacks for girls/neuters
         if (!this.player.hasCock() || this.findStatusAffect(StatusAffects.BimboBrawl) >= 0) {

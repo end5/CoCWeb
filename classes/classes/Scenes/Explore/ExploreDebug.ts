@@ -37,7 +37,7 @@ import { Akbal } from "../Areas/Forest/Akbal";
 import { Amily } from "../NPCs/Amily";
 import { Brigid } from "../Dungeons/HelDungeon/Brigid";
 import { Ceraph } from "../NPCs/Ceraph";
-import { GooArmor } from "../../Items/Armors/GooArmor";
+import { GooArmor } from "../NPCs/GooArmor";
 import { Farmers } from "../Places/Owca/Farmers";
 import { GoblinBroodmother } from "../Quests/UrtaQuest/GoblinBroodmother";
 import { HarpyMob } from "../Dungeons/HelDungeon/HarpyMob";
@@ -192,34 +192,34 @@ export class ExploreDebug extends BaseContent {
             this.outputText("You have fought every monster.");
         } else {
             var m: Monster = this.allMonsters[monsterIdx]();
-            m.onDefeated = function (hpVictory: boolean): void {
-                getGame().inCombat = false;
-                getGame().clearStatuses(false);
-                statScreenRefresh();
-                exploreDebugMonsters(monsterIdx + 1);
+            m.onDefeated = (hpVictory: boolean): void => {
+                this.getGame().inCombat = false;
+                this.getGame().clearStatuses(false);
+                this.statScreenRefresh();
+                this.exploreDebugMonsters(monsterIdx + 1);
             };
-            m.onWon = function (hpVictory: boolean, pcCameWorms: boolean): void {
-                getGame().inCombat = false;
-                getGame().clearStatuses(false);
-                statScreenRefresh();
-                exploreDebugMonsters(monsterIdx + 1);
+            m.onWon = (hpVictory: boolean, pcCameWorms: boolean): void => {
+                this.getGame().inCombat = false;
+                this.getGame().clearStatuses(false);
+                this.statScreenRefresh();
+                this.exploreDebugMonsters(monsterIdx + 1);
             };
-            m.onPcRunAttempt = function (): void {
-                getGame().inCombat = false;
-                getGame().clearStatuses(false);
-                statScreenRefresh();
-                exploreDebugMonsters(monsterIdx + 1);
+            m.onPcRunAttempt = (): void => {
+                this.getGame().inCombat = false;
+                this.getGame().clearStatuses(false);
+                this.statScreenRefresh();
+                this.exploreDebugMonsters(monsterIdx + 1);
             };
             this.outputText("You are going to fight " + m.a + " " + m.short + ".");
-            this.addButton(0, "Fight", function (): void {
-                outputText("\n\nStarting combat...");
-                startCombat(m);
+            this.addButton(0, "Fight", (): void => {
+                this.outputText("\n\nStarting combat...");
+                this.startCombat(m);
             });
             this.addButton(1, "Skip", this.exploreDebugMonsters, monsterIdx + 1);
-            this.addButton(2, "Heal", function (): void {
-                player.HP = player.maxHP();
-                player.lust = 0;
-                statScreenRefresh();
+            this.addButton(2, "Heal", (): void => {
+                this.player.HP = this.player.maxHP();
+                this.player.lust = 0;
+                this.statScreenRefresh();
             });
         }
         if (monsterIdx > 1) this.addButton(6, "Go Back", this.exploreDebugMonsters, monsterIdx - 1);

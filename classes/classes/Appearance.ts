@@ -3,7 +3,7 @@ import { Creature } from "./Creature";
 import { Character } from "./Character";
 import { CoC_Settings } from "./CoC_Settings";
 import { StatusAffects } from "./StatusAffects";
-import { CockTypesEnum } from "./CockTypesEnum";
+import { CockTypesEnum, CockTypesGroup } from "./CockTypesEnum";
 import { CoC } from "./CoC";
 import { trace } from "console";
 import { ANAL_WETNESS_DRY, ANAL_WETNESS_NORMAL, ANAL_WETNESS_MOIST, ANAL_WETNESS_SLIMY, ANAL_WETNESS_DROOLING, ANAL_WETNESS_SLIME_DROOLING, ANAL_LOOSENESS_VIRGIN, ANAL_LOOSENESS_TIGHT, ANAL_LOOSENESS_NORMAL, ANAL_LOOSENESS_LOOSE, ANAL_LOOSENESS_STRETCHED, ANAL_LOOSENESS_GAPING, GENDER_NONE, GENDER_MALE, GENDER_FEMALE, GENDER_HERM, SKIN_TYPE_PLAIN, SKIN_TYPE_FUR, SKIN_TYPE_SCALES, SKIN_TYPE_GOO, SKIN_TYPE_UNDEFINED, HAIR_NORMAL, HAIR_FEATHER, HAIR_GHOST, HAIR_GOO, HAIR_ANEMONE, FACE_HUMAN, FACE_HORSE, FACE_DOG, FACE_COW_MINOTAUR, FACE_SHARK_TEETH, FACE_SNAKE_FANGS, FACE_CAT, FACE_LIZARD, FACE_BUNNY, FACE_KANGAROO, FACE_SPIDER_FANGS, FACE_FOX, FACE_DRAGON, FACE_RACCOON_MASK, FACE_RACCOON, FACE_BUCKTEETH, FACE_MOUSE, TONUGE_HUMAN, TONUGE_SNAKE, TONUGE_DEMONIC, TONUGE_DRACONIC, EYES_HUMAN, EYES_FOUR_SPIDER_EYES, EYES_BLACK_EYES_SAND_TRAP, EARS_HUMAN, EARS_HORSE, EARS_DOG, EARS_COW, EARS_ELFIN, EARS_CAT, EARS_LIZARD, EARS_BUNNY, EARS_KANGAROO, EARS_FOX, EARS_DRAGON, EARS_RACCOON, EARS_MOUSE, HORNS_NONE, HORNS_DEMON, HORNS_COW_MINOTAUR, HORNS_DRACONIC_X2, HORNS_DRACONIC_X4_12_INCH_LONG, HORNS_ANTLERS, ANTENNAE_NONE, ANTENNAE_BEE, ARM_TYPE_HUMAN, ARM_TYPE_HARPY, ARM_TYPE_SPIDER, TAIL_TYPE_NONE, TAIL_TYPE_HORSE, TAIL_TYPE_DOG, TAIL_TYPE_DEMONIC, TAIL_TYPE_COW, TAIL_TYPE_SPIDER_ADBOMEN, TAIL_TYPE_BEE_ABDOMEN, TAIL_TYPE_SHARK, TAIL_TYPE_CAT, TAIL_TYPE_LIZARD, TAIL_TYPE_RABBIT, TAIL_TYPE_HARPY, TAIL_TYPE_KANGAROO, TAIL_TYPE_FOX, TAIL_TYPE_DRACONIC, TAIL_TYPE_RACCOON, TAIL_TYPE_MOUSE, WING_TYPE_NONE, WING_TYPE_BEE_LIKE_SMALL, WING_TYPE_BEE_LIKE_LARGE, WING_TYPE_HARPY, WING_TYPE_IMP, WING_TYPE_BAT_LIKE_TINY, WING_TYPE_BAT_LIKE_LARGE, WING_TYPE_SHARK_FIN, WING_TYPE_FEATHERED_LARGE, WING_TYPE_DRACONIC_SMALL, WING_TYPE_DRACONIC_LARGE, WING_TYPE_GIANT_DRAGONFLY, LOWER_BODY_TYPE_HUMAN, LOWER_BODY_TYPE_HOOFED, LOWER_BODY_TYPE_DOG, LOWER_BODY_TYPE_NAGA, LOWER_BODY_TYPE_CENTAUR, LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS, LOWER_BODY_TYPE_DEMONIC_CLAWS, LOWER_BODY_TYPE_BEE, LOWER_BODY_TYPE_GOO, LOWER_BODY_TYPE_CAT, LOWER_BODY_TYPE_LIZARD, LOWER_BODY_TYPE_PONY, LOWER_BODY_TYPE_BUNNY, LOWER_BODY_TYPE_HARPY, LOWER_BODY_TYPE_KANGAROO, LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS, LOWER_BODY_TYPE_DRIDER_LOWER_BODY, LOWER_BODY_TYPE_FOX, LOWER_BODY_TYPE_DRAGON, LOWER_BODY_TYPE_RACCOON, PIERCING_TYPE_NONE, PIERCING_TYPE_STUD, PIERCING_TYPE_RING, PIERCING_TYPE_LADDER, PIERCING_TYPE_HOOP, PIERCING_TYPE_CHAIN, VAGINA_TYPE_HUMAN, VAGINA_TYPE_BLACK_SAND_TRAP, VAGINA_WETNESS_DRY, VAGINA_WETNESS_NORMAL, VAGINA_WETNESS_WET, VAGINA_WETNESS_SLICK, VAGINA_WETNESS_DROOLING, VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_TIGHT, VAGINA_LOOSENESS_NORMAL, VAGINA_LOOSENESS_LOOSE, VAGINA_LOOSENESS_GAPING, VAGINA_LOOSENESS_GAPING_WIDE, VAGINA_LOOSENESS_LEVEL_CLOWN_CAR, HIP_RATING_BOYISH, HIP_RATING_SLENDER, HIP_RATING_AVERAGE, HIP_RATING_AMPLE, HIP_RATING_CURVY, HIP_RATING_FERTILE, HIP_RATING_INHUMANLY_WIDE, BUTT_RATING_BUTTLESS, BUTT_RATING_TIGHT, BUTT_RATING_AVERAGE, BUTT_RATING_NOTICEABLE, BUTT_RATING_LARGE, BUTT_RATING_JIGGLY, BUTT_RATING_EXPANSIVE, BUTT_RATING_HUGE, BUTT_RATING_INCONCEIVABLY_BIG } from "../../includes/appearanceDefs";
@@ -124,7 +124,7 @@ export class Appearance extends Utils {
         var haveDescription: boolean = false;
         var description: string = "";
         var options: any[];
-        var rando: number = 0;
+        // var rando: number = 0;
         //Size descriptors 33% chance
         if (Appearance.rand(4) == 0) {
             //TINAHHHH
@@ -941,14 +941,14 @@ export class Appearance extends Utils {
             //lots of cum? drippy.
             if (i_creature.cumQ() > 50 && i_creature.cumQ() < 200 && Appearance.rand(2) == 0) {
                 //for hroses and dogs
-                if (i_cockType.Group == "animal") description += "animal-pre leaking";
+                if (CockTypesGroup[i_cockType] == "animal") description += "animal-pre leaking";
                 else description += "pre-slickened";
                 descripts = 1;
             }
             //Tons of cum
             if (i_creature.cumQ() >= 200 && Appearance.rand(2) == 0) {
                 //for horses and dogs
-                if (i_cockType.Group == "animal") description += "animal-spunk dripping";
+                if (CockTypesGroup[i_cockType] == "animal") description += "animal-spunk dripping";
                 else description += "cum-drooling";
                 descripts = 1;
             }
@@ -1171,8 +1171,8 @@ export class Appearance extends Utils {
     public static ballsDescription(i_forcedSize: boolean, i_plural: boolean, i_creature: Creature, i_withArticle: boolean = false): string {
         if (i_creature.balls == 0) return "prostate";
 
-        var haveDescription: boolean = false;
-        var rando: number = 0;
+        // var haveDescription: boolean = false;
+        // var rando: number = 0;
         var description: string = "";
         var options: any[];
 
@@ -1371,7 +1371,7 @@ export class Appearance extends Utils {
 
         var description: string = "";
         var weighting: number = 0;
-        var haveDescription: boolean = false;
+        // var haveDescription: boolean = false;
         var options: any[];
 
         //Very confusing way to display values.
@@ -2618,14 +2618,14 @@ export class Appearance extends Utils {
         var dogCocks: number = 0;
         var horseCocks: number = 0;
         var normalCocks: number = 0;
-        var normalCockKey: number = 0;
-        var dogCockKey: number = 0;
-        var horseCockKey: number = 0;
-        var averageLength: number = 0;
-        var averageThickness: number = 0;
+        // var normalCockKey: number = 0;
+        // var dogCockKey: number = 0;
+        // var horseCockKey: number = 0;
+        // var averageLength: number = 0;
+        // var averageThickness: number = 0;
         var same: boolean = true;
         //For temp14 random values
-        var rando: number = 0;
+        // var rando: number = 0;
         var descripted: boolean = false;
         //If one, return normal cock descript
         if (totCock == 1) return creature.cockDescript(0);
@@ -2633,25 +2633,25 @@ export class Appearance extends Utils {
         while (currCock <= totCock - 1) {
             if (creature.cocks[currCock].cockType == CockTypesEnum.HUMAN) {
                 normalCocks++;
-                normalCockKey = currCock;
+                // normalCockKey = currCock;
             }
             if (creature.cocks[currCock].cockType == CockTypesEnum.HORSE) {
                 horseCocks++;
-                horseCockKey = currCock;
+                // horseCockKey = currCock;
             }
             if (creature.cocks[currCock].cockType == CockTypesEnum.DOG) {
                 dogCocks++;
-                dogCockKey = currCock;
+                // dogCockKey = currCock;
             }
-            averageLength += creature.cocks[currCock].cockLength;
-            averageThickness += creature.cocks[currCock].cockThickness;
+            // averageLength += creature.cocks[currCock].cockLength;
+            // averageThickness += creature.cocks[currCock].cockThickness;
             //If cocks are matched make sure they still are
             if (same && currCock > 0 && creature.cocks[currCock].cockType != creature.cocks[currCock - 1].cockType) same = false;
             currCock++;
         }
         //Crunch averages
-        averageLength /= currCock;
-        averageThickness /= currCock;
+        // averageLength /= currCock;
+        // averageThickness /= currCock;
         //Quantity descriptors
         if (creature.cockTotal() == 1) {
             if (dogCocks == 1) return Appearance.cockNoun(CockTypesEnum.DOG);
@@ -2744,29 +2744,29 @@ export class Appearance extends Utils {
         var dogCocks: number = 0;
         var horseCocks: number = 0;
         var normalCocks: number = 0;
-        var normalCockKey: number = 0;
-        var dogCockKey: number = 0;
-        var horseCockKey: number = 0;
+        // var normalCockKey: number = 0;
+        // var dogCockKey: number = 0;
+        // var horseCockKey: number = 0;
         var averageLength: number = 0;
         var averageThickness: number = 0;
         var same: boolean = true;
         //For temp14 random values
-        var rando: number = 0;
+        // var rando: number = 0;
         var descripted: boolean = false;
         //Count cocks & Prep average totals
         while (currCock <= totCock - 1) {
             //trace("Counting cocks!");
             if (creature.cocks[currCock].cockType == CockTypesEnum.HUMAN) {
                 normalCocks++;
-                normalCockKey = currCock;
+                // normalCockKey = currCock;
             }
             if (creature.cocks[currCock].cockType == CockTypesEnum.HORSE) {
                 horseCocks++;
-                horseCockKey = currCock;
+                // horseCockKey = currCock;
             }
             if (creature.cocks[currCock].cockType == CockTypesEnum.DOG) {
                 dogCocks++;
-                dogCockKey = currCock;
+                // dogCockKey = currCock;
             }
             averageLength += creature.cocks[currCock].cockLength;
             averageThickness += creature.cocks[currCock].cockThickness;
@@ -2857,7 +2857,7 @@ export class Appearance extends Utils {
             //If mixed
             if (!descripted) {
                 descript += Appearance.cockAdjectives(averageLength, averageThickness, creature.cocks[0].cockType, creature) + ", ";
-                rando = Appearance.rand(4);
+                // rando = Appearance.rand(4);
                 descript += Appearance.randomChoice("mutated cocks", "mutated dicks", "mixed cocks", "mismatched dicks");
             }
         }

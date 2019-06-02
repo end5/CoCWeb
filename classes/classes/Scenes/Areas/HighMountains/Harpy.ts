@@ -49,7 +49,7 @@ export class Harpy extends Monster {
 
 
     protected performCombatAction(): void {
-        var select: number = 1;
+        // var select: number = 1;
         if (this.findStatusAffect(StatusAffects.Uber) >= 0) {
             this.harpyUberCharge();
             return;

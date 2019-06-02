@@ -3942,7 +3942,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         else if (this.flags[kFLAGS.ARIAN_EGG_COLOR] == "pink") itype = this.consumables.L_PNKEG;
         else if (this.flags[kFLAGS.ARIAN_EGG_COLOR] == "white") itype = this.consumables.L_WHTEG;
         else if (this.flags[kFLAGS.ARIAN_EGG_COLOR] == "rubbery black") itype = this.consumables.L_BLKEG;
-        this.inventory.takeItem(itype, this.camp.returnToCampUseOneHour);
+        this.inventory.takeItem(itype!, this.camp.returnToCampUseOneHour);
     }
     //DildoFun
     private arianDildoFun(): void {

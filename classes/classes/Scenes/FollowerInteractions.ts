@@ -3,6 +3,7 @@ import { kFLAGS } from "../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../StatusAffects";
 import { WeaponLib } from "../Items/WeaponLib";
 import { kGAMECLASS } from "../GlobalFlags/kGAMECLASS";
+import { PerkLib } from "../PerkLib";
 
 export class FollowerInteractions extends NPCAwareContent {
 
@@ -117,7 +118,7 @@ export class FollowerInteractions extends NPCAwareContent {
     }
 
     //[Find note from jojo @ followers menu after pufying him]
-    private findJojosNote(): void {
+    public findJojosNote(): void {
         this.flags[kFLAGS.JOJO_FIXED_STATUS] = 2;
         this.outputText("", true);
         this.outputText("There is a note left on your bedroll. You pick it up and unseal it – it's from Jojo!\n\n", false);
@@ -276,7 +277,7 @@ export class FollowerInteractions extends NPCAwareContent {
     }
 
     //[Rathazul and Corrupt/Tentacle Jojo] – Occurs instead of camp
-    private rathazulFreaksOverJojo(): void {
+    public rathazulFreaksOverJojo(): void {
         this.clearOutput();
         this.flags[kFLAGS.RATHAZUL_CORRUPT_JOJO_FREAKOUT]++;
         this.outputText("Rathazul comes up to you with a serious, worried expression.  You ask him what's wrong, and he explains, \"<i>There is a creature in the woods.  I've seen glimpses of it numerous times, and I believe it to be some kind of demon-tainted mouse.  We must deal with it, lest it strike while we are unawares!</i>\"\n\n");
@@ -347,7 +348,7 @@ export class FollowerInteractions extends NPCAwareContent {
         this.doNext(this.jojoScene.jojoCamp);
     }
 
-    private marbleVsAmilyFreakout(): void {
+    public marbleVsAmilyFreakout(): void {
         this.outputText("", true);
         this.flags[kFLAGS.AMILY_NOT_FREAKED_OUT]++;
         //Marble is in camp first
@@ -507,7 +508,7 @@ export class FollowerInteractions extends NPCAwareContent {
     //urtaLove()
 
     //AMILY_VISITING_URTA = 346;
-    private amilyUrtaReaction(): void {
+    public amilyUrtaReaction(): void {
         this.outputText("", true);
         this.outputText("As you finish making your way back to camp, Amily surprises you from behind a rock, her arms folded across her chest.  \"<i>Hey, remember when you told me about that city in the desert?  I decided to check it out.</i>\"  You don't remember, but you're too busy absorbing the implications to respond.  \"<i>You'll never guess what I heard!  It seems someone just like you has been seen in the company of one of their prominent citizens,</i>\" she continues.  \"<i>I can't say I didn't expect something like this might happen.  I mean... she's not some demon, right?  Still... I thought we had something special, " + this.player.short + ".</i>\"  As you try to formulate a reply, she seizes her tail and twists it pensively in her hands, already deciding her next move.  \"<i>I-I've got to meet her... to know what you see in her.</i>\"\n\n", false);
 

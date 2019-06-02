@@ -2464,7 +2464,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         }
         else if (this.knotSize >= 4) { //Need submissiveness 1+ to grow
             this.outputText("Kath takes the pepper a little uncertainly.  “<i>It brings back some good memories, from after I met you; it also brings back memories of being an outcast among my own kind.</i>”\n\n");
-            this.outputText("She tries to give the pepper back but you close your hand around hers and tell her to concentrate on the good memories.  She knows you won’t think she’s ugly.  The two of you got along just fine when she had a massive knot.  In a way it’s what brought you two together." + (this.flags[kFLAGS.KATHERINE_URTA_AFFECTION > 10] ? "  Besides, wouldn’t it be fun to share it with Urta?" : "") + "\n\n");
+            this.outputText("She tries to give the pepper back but you close your hand around hers and tell her to concentrate on the good memories.  She knows you won’t think she’s ugly.  The two of you got along just fine when she had a massive knot.  In a way it’s what brought you two together." + (this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] > 10 ? "  Besides, wouldn’t it be fun to share it with Urta?" : "") + "\n\n");
             if (this.submissiveness() < 1) {
                 this.outputText("Kath shakes her head and says, “<i>I don’t know if I’m ready for that.  I spent so long hating my giant knot.</i>”\n\n");
                 this.outputText("You tease her 4\" knot" + this.cockMultiple("", "s") + " with your fingers.  Kath’s body wriggles and she smiles at you but she pushes the pepper back into your free hand.\n\n");
@@ -3837,7 +3837,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
 
     //Get Penetrated
     private letKatKnotYou(): void {
-        var x: number;
+        // var x: number;
         this.clearOutput();
         if (this.isAt(Katherine.KLOC_BAR) || this.isAt(Katherine.KLOC_BAR_DRUNK) || this.isAt(Katherine.KLOC_BAR_URTA_REFUSED)) { //At the bar
             this.outputText("As you wait for Katherine to finish off her drink you start rubbing " + (this.player.isNaga() ? "the tip of your tail" : "your toe") + " up and down her leg.\n\n");
@@ -4520,7 +4520,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     private katherineLicksAllTheBoyPenises(): void {
         var x: number = this.player.biggestCockIndex();
         this.clearOutput();
-        this.outputText(this.images.showImage("katherine-gives-you-blowjobs/"));
+        this.outputText(this.images.showImage("katherine-gives-you-blowjobs"));
         this.outputText("She takes your shaft eagerly, gently stroking it with her fingers to coax it erect, then leaning in to lick the head with her softly bristled tongue, caressing and suckling at the " + this.player.cockHead(x) + ".");
         if (this.player.hasVagina()) {
             this.outputText("  One of her hands slides down your shaft");

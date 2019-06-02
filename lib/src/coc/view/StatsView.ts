@@ -5,7 +5,7 @@ import { Player } from "../../../../classes/classes/Player";
 import { NameView } from "./NameView";
 import { loadId } from "./LoadUtils";
 
-export type StatKeys = 'str' | 'tou' | 'spe' | 'int' | 'lib' | 'sens' | 'cor' | 'hp' | 'lust' | 'fatigue';
+export type StatKeys = 'str' | 'tou' | 'spe' | 'inte' | 'lib' | 'sens' | 'cor' | 'hp' | 'lust' | 'fatigue';
 export type OtherKeys = 'level' | 'xp' | 'gems';
 
 export class StatsView {
@@ -27,7 +27,7 @@ export class StatsView {
         this.stats.str = new StatViewWithBar('strengthPanel', 'Strength');
         this.stats.tou = new StatViewWithBar('toughnessPanel', 'Toughness');
         this.stats.spe = new StatViewWithBar('speedPanel', 'Speed');
-        this.stats.int = new StatViewWithBar('intelligencePanel', 'Intelligence');
+        this.stats.inte = new StatViewWithBar('intelligencePanel', 'Intelligence');
         this.stats.lib = new StatViewWithBar('libidoPanel', 'Libido');
         this.stats.sens = new StatViewWithBar('sensitivityPanel', 'Sensitivity');
         this.stats.cor = new StatViewWithBar('corruptionPanel', 'Corruption');
@@ -55,7 +55,7 @@ export class StatsView {
         this.stats.str.setNumber(this.model.player.str);
         this.stats.tou.setNumber(this.model.player.tou);
         this.stats.spe.setNumber(this.model.player.spe);
-        this.stats.int.setNumber(this.model.player.inte);
+        this.stats.inte.setNumber(this.model.player.inte);
         this.stats.lib.setNumber(this.model.player.lib);
         this.stats.sens.setNumber(this.model.player.sens);
         this.stats.cor.setNumber(this.model.player.cor);
@@ -66,7 +66,7 @@ export class StatsView {
         this.stats.str.setBar(this.model.player.str / 100);
         this.stats.tou.setBar(this.model.player.tou / 100);
         this.stats.spe.setBar(this.model.player.spe / 100);
-        this.stats.int.setBar(this.model.player.inte / 100);
+        this.stats.inte.setBar(this.model.player.inte / 100);
         this.stats.lib.setBar(this.model.player.lib / 100);
         this.stats.sens.setBar(this.model.player.sens / 100);
         this.stats.cor.setBar(this.model.player.cor / 100);

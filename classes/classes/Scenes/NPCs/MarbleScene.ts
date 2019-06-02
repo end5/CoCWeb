@@ -56,7 +56,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         CoC.timeAwareClassAdd(this);
     }
 
-    private checkedMarbleMilk: number; //Make sure we test each of these events just once in timeChangeLarge
+    private checkedMarbleMilk: number = 0; //Make sure we test each of these events just once in timeChangeLarge
 
     //Implementation of TimeAwareInterface
     public timeChange(): boolean {

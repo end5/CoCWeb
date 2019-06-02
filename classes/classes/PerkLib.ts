@@ -1,4 +1,15 @@
 import { PerkType } from "./PerkType";
+import { PiercedCrimstonePerk } from "./Perks/PiercedCrimstonePerk";
+import { PiercedFertitePerk } from "./Perks/PiercedFertitePerk";
+import { PentUpPerk } from "./Perks/PentUpPerk";
+import { SluttySeductionPerk } from "./Perks/SluttySeductionPerk";
+import { WizardsEndurancePerk } from "./Perks/WizardsEndurancePerk";
+import { WizardsFocusPerk } from "./Perks/WizardsFocusPerk";
+import { SpellcastingAffinityPerk } from "./Perks/SpellcastingAffinityPerk";
+import { ElvenBountyPerk } from "./Perks/ElvenBountyPerk";
+import { ControlledBreathPerk } from "./Perks/ControlledBreathPerk";
+import { CleansingPalmPerk } from "./Perks/CleansingPalmPerk";
+import { EnlightenedPerk } from "./Perks/EnlightenedPerk";
 
 /**
  * Created by aimozg on 26.01.14.
@@ -386,7 +397,7 @@ export class PerkLib {
     // Monster perks
     public static Acid: PerkType = PerkLib.mk("Acid", "Acid", "");
 
-    private static mk(id: string, name: string, desc: string, longDesc: string = undefined): PerkType {
+    private static mk(id: string, name: string, desc: string, longDesc?: string): PerkType {
         return new PerkType(id, name, desc, longDesc);
     }
 }

@@ -309,10 +309,10 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
                 if (kGAMECLASS.farm.farmCorruption.numTattoos("vapula") > 1) this.outputText("She has the following tattoos emblazoned across her body:\n");
                 else this.outputText("She has ");
 
-                if (this.flags[kFLAGS.VAPULA_TATTOO_COLLARBONE] != 0) this.outputText(this.flags[kFLAGS.VAPULA_TATTOO_COLLARBONE] + "\n");
-                if (this.flags[kFLAGS.VAPULA_TATTOO_SHOULDERS] != 0) this.outputText(this.flags[kFLAGS.VAPULA_TATTOO_SHOULDERS] + "\n");
-                if (this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] != 0) this.outputText(this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] + "\n");
-                if (this.flags[kFLAGS.VAPULA_TATTOO_BUTT] != 0) this.outputText(this.flags[kFLAGS.VAPULA_TATTOO_BUTT] + "\n");
+                if (this.flags[kFLAGS.VAPULA_TATTOO_COLLARBONE] != '') this.outputText(this.flags[kFLAGS.VAPULA_TATTOO_COLLARBONE] + "\n");
+                if (this.flags[kFLAGS.VAPULA_TATTOO_SHOULDERS] != '') this.outputText(this.flags[kFLAGS.VAPULA_TATTOO_SHOULDERS] + "\n");
+                if (this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] != '') this.outputText(this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] + "\n");
+                if (this.flags[kFLAGS.VAPULA_TATTOO_BUTT] != '') this.outputText(this.flags[kFLAGS.VAPULA_TATTOO_BUTT] + "\n");
             }
         }
 

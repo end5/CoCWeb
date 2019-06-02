@@ -23,7 +23,7 @@ export class Inventory extends BaseContent {
     private gearStorage: any[];
     private callNext: any;		//These are used so that we know what has to happen once the player finishes with an item
     private callOnAbandon: any;	//They simplify dealing with items that have a sub menu. Set in inventoryMenu and in takeItem
-    private currentItemSlot: ItemSlotClass;	//The slot previously occupied by the current item - only needed for stashes and items with a sub menu.
+    private currentItemSlot: ItemSlotClass | undefined;	//The slot previously occupied by the current item - only needed for stashes and items with a sub menu.
 
     public constructor(saveSystem: Saves) {
         super();
@@ -202,11 +202,11 @@ export class Inventory extends BaseContent {
     public hasItemInStorage(itype: ItemType): boolean { return this.itemTypeInStorage(this.itemStorage, 0, this.itemStorage.length, itype); }
 
     public consumeItemInStorage(itype: ItemType): boolean {
-        temp = this.itemStorage.length;
-        while (temp > 0) {
-            temp--;
-            if (this.itemStorage[temp].itype == itype && this.itemStorage[temp].quantity > 0) {
-                this.itemStorage[temp].quantity--;
+        this.temp = this.itemStorage.length;
+        while (this.temp > 0) {
+            this.temp--;
+            if (this.itemStorage[this.temp].itype == itype && this.itemStorage[this.temp].quantity > 0) {
+                this.itemStorage[this.temp].quantity--;
                 return true;
             }
         }
@@ -302,17 +302,17 @@ export class Inventory extends BaseContent {
         item.useText();
         if (item instanceof Armor) {
             this.player.armor.removeText();
-            item = this.player.setArmor(item as Armor); //Item is now the player's old armor
-            if (item == undefined)
+            let oldItem = this.player.setArmor(item as Armor); //Item is now the player's old armor
+            if (oldItem == undefined)
                 this.itemGoNext();
-            else this.takeItem(item, this.callNext);
+            else this.takeItem(oldItem, this.callNext);
         }
         else if (item instanceof Weapon) {
             this.player.weapon.removeText();
-            item = this.player.setWeapon(item as Weapon); //Item is now the player's old weapon
-            if (item == undefined)
+            let oldItem = this.player.setWeapon(item as Weapon); //Item is now the player's old weapon
+            if (oldItem == undefined)
                 this.itemGoNext();
-            else this.takeItem(item, this.callNext);
+            else this.takeItem(oldItem, this.callNext);
         }
         else {
             this.currentItemSlot = fromSlot;
@@ -323,7 +323,7 @@ export class Inventory extends BaseContent {
         }
     }
 
-    private takeItemFull(itype: ItemType, showUseNow: boolean, source: ItemSlotClass): void {
+    private takeItemFull(itype: ItemType, showUseNow: boolean, source?: ItemSlotClass): void {
         this.outputText("There is no room for " + itype.longName + " in your inventory.  You may replace the contents of a pouch with " + itype.longName + " or abandon it.");
         this.menu();
         for (var x: number = 0; x < 5; x++) {
@@ -362,7 +362,11 @@ export class Inventory extends BaseContent {
 
     private unequipWeapon(): void {
         this.clearOutput();
-        this.takeItem(this.player.setWeapon(WeaponLib.FISTS), this.inventoryMenu);
+        const otherItem = this.player.setWeapon(WeaponLib.FISTS);
+        if (otherItem)
+            this.takeItem(otherItem, this.inventoryMenu);
+        else
+        this.inventoryMenu();
     }
 
     /* Never called

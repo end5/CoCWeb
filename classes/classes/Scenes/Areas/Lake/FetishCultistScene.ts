@@ -595,7 +595,7 @@ export class FetishCultistScene extends AbstractLakeContent {
         this.doNext(this.cultistBadEnd2);
     }
 
-    private cultistBadEnd2(): void {
+    public cultistBadEnd2(): void {
         var genderTag: string = "";
         this.outputText("On a hill sits a large cathedral overlooking a river that feeds into a massive lake.  It is a surprisingly grand structure in a land almost devoid of any signs of civilization in any direction.  The design is quite clear; its entrance lined with statues of lewd naked figures and its windows are made of stain glass depicting acts of sexuality.  Even without hearing the sounds of ecstasy that usually emanate from inside, it is quite clear this is a place of debauchery.\n\n", true);
         this.outputText("Within, a ", false);

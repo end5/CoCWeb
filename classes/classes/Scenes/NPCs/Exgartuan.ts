@@ -64,7 +64,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
         CoC.timeAwareClassAdd(this);
     }
 
-    private checkedExgartuan: number;
+    private checkedExgartuan: number = 0;
 
     //Implementation of TimeAwareInterface
     public timeChange(): boolean {

@@ -74,7 +74,7 @@ export class HelSpawnScene extends NPCAwareContent {
         //if Isabella is cool: 
         if (this.flags[kFLAGS.HEL_ISABELLA_THREESOME_ENABLED] >= 1) this.outputText("; she’s got her blue bandanna wrapped around her head, mostly obscured by her fiery hair");
         this.outputText(".  She has a human face, with bright red eyes, gentle, feminine features and a smattering of pale scales on her cheeks, like freckles.  Hel has long, bright-red hair bound in a pony-tail that hangs down her back.  She has wide-flared hips and a soft, squishy butt.  Her two reptilian legs are visibly adorned with scales and claws, ending in soft, leathery soles.");
-        if (this.flags[kFLAGS.HELSPAWN_NAME] != 0) {
+        if (this.flags[kFLAGS.HELSPAWN_NAME] != '') {
             this.outputText("  A dark trio of scars run down Hel’s thighs, left by " + this.flags[kFLAGS.HELSPAWN_NAME] + "’s youthful claws.");
         }
         else {
@@ -651,46 +651,47 @@ export class HelSpawnScene extends NPCAwareContent {
         else this.outputText("her ");
         this.outputText("little girl as she suckles.  After a few happy, blissful minutes though, Hel turns to you with a question:");
         this.outputText("\n\n\"<i>So... what do we name her, love?  I honestly hadn't put that much thought into girl names.  Kind of expected a boy, I guess, but... it's up to you, [name].  What do you think?</i>\"");
+
+        const input = document.createElement('input');
+        this.mainView.mainText.appendChild(input);
+
         this.menu();
-        this.addButton(0, "Next", this.applyHelspawnName);
-        this.mainView.nameBox.text = "";
-        this.mainView.nameBox.visible = true;
-        this.mainView.nameBox.width = 165;
-        this.mainView.nameBox.x = this.mainView.mainText.x + 5;
-        this.mainView.nameBox.y = this.mainView.mainText.y + 3 + this.mainView.mainText.textHeight;
+        this.addButton(0, "Next", () => this.applyHelspawnName(input));
     }
-    private applyHelspawnName(): void {
+    private applyHelspawnName(input: HTMLInputElement): void {
         this.spriteSelect(68);
         //Easter Egg Names Hel WILL NOT ALLOW:
-        if (kGAMECLASS.testingBlockExiting) {
-            // We're running under the testing script.
-            // Stuff a name in the box and go go go
-            this.mainView.nameBox.text = "Kiderp";
-        }
-        else if (this.mainView.nameBox.text == ""
-            || this.mainView.nameBox.text == "Hellgirl"
-            || this.mainView.nameBox.text == "Kid"
-            || this.mainView.nameBox.text == "Phoenix"
-            || this.mainView.nameBox.text == "Savin"
-            || this.mainView.nameBox.text == "Helia"
-            || this.mainView.nameBox.text == "Mini-doofus") {
+        // if (kGAMECLASS.testingBlockExiting) {
+        // We're running under the testing script.
+        // Stuff a name in the box and go go go
+        // this.mainView.nameBox.text = "Kiderp";
+        // }
+        // else if (this.mainView.nameBox.text == ""
+        if (input.value == ""
+            || input.value == "Hellgirl"
+            || input.value == "Kid"
+            || input.value == "Phoenix"
+            || input.value == "Savin"
+            || input.value == "Helia"
+            || input.value == "Mini-doofus") {
             this.clearOutput();
-            if (this.mainView.nameBox.text == "") this.outputText("<b>You must select a name.</b>", false);
-            else if (this.mainView.nameBox.text == "Hellgirl") this.outputText("\"<i>Hey, that's copyright infringement.  Probably.</i>\"");
-            else if (this.mainView.nameBox.text == "Kid") this.outputText("\"<i>Wow, what are you, five?</i>\"");
-            else if (this.mainView.nameBox.text == "Phoenix") this.outputText("\"<i>Oh hell no.  You're not naming my little girl after one of those... things!  Sorry Kiri, but still!</i>\"");
-            else if (this.mainView.nameBox.text == "Savin") this.outputText("\"<i>That's a boy's name, dumbass.</i>\"");
-            else if (this.mainView.nameBox.text == "Helia") this.outputText("\"<i>My favorite name!  Except it's kinda taken, love.  Don't want things to get too confusing around here, do you?</i>\"");
-            else if (this.mainView.nameBox.text == "Mini-doofus") this.outputText("\"<i>Oh yeah, Kiha'll get a laugh out of that.  You ass.</i>\"");
+            if (input.value == "") this.outputText("<b>You must select a name.</b>", false);
+            else if (input.value == "Hellgirl") this.outputText("\"<i>Hey, that's copyright infringement.  Probably.</i>\"");
+            else if (input.value == "Kid") this.outputText("\"<i>Wow, what are you, five?</i>\"");
+            else if (input.value == "Phoenix") this.outputText("\"<i>Oh hell no.  You're not naming my little girl after one of those... things!  Sorry Kiri, but still!</i>\"");
+            else if (input.value == "Savin") this.outputText("\"<i>That's a boy's name, dumbass.</i>\"");
+            else if (input.value == "Helia") this.outputText("\"<i>My favorite name!  Except it's kinda taken, love.  Don't want things to get too confusing around here, do you?</i>\"");
+            else if (input.value == "Mini-doofus") this.outputText("\"<i>Oh yeah, Kiha'll get a laugh out of that.  You ass.</i>\"");
             //[Back to the name field you go!]
+
+            this.mainView.mainText.appendChild(input);
+
             this.menu();
-            this.mainView.nameBox.x = this.mainView.mainText.x + 5;
-            this.mainView.nameBox.y = this.mainView.mainText.y + 3 + this.mainView.mainText.textHeight;
-            this.addButton(0, "Next", this.applyHelspawnName);
+            this.addButton(0, "Next", () => this.applyHelspawnName(input));
             return;
         }
-        this.flags[kFLAGS.HELSPAWN_NAME] = this.mainView.nameBox.text;
-        this.mainView.nameBox.visible = false;
+        this.flags[kFLAGS.HELSPAWN_NAME] = input.value;
+
         //[Name Field]
         //Easter Egg Names:
         this.clearOutput();

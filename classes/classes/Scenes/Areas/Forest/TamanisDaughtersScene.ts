@@ -725,7 +725,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
 
         //Vars
         var cocks: number = this.player.totalCocks();
-        var daughters: number = Math.floor(this.flags[kFLAGS.TAMANI_NUMBER_OF_DAUGHTERS] / 2);
+        // var daughters: number = Math.floor(this.flags[kFLAGS.TAMANI_NUMBER_OF_DAUGHTERS] / 2);
 
         this.outputText("Your efforts to resist were in vain – there's simply too many of your slutty daughters to fight off.  The crowd flows over your ", false);
         if (this.player.HP < 1) this.outputText("defeated", false);
@@ -1048,7 +1048,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         if (cum >= 600 && TamainsDaughtersScene.rand(2) == 0) this.flags[kFLAGS.TAMANI_DAUGHTERS_PREGNANCY_COUNT]++;
     }
 
-    private combatWinAgainstDaughters(): void {
+    public combatWinAgainstDaughters(): void {
         this.spriteSelect(57);
         if (this.monster.HP < 1) {
             this.outputText("You smile in satisfaction as " + this.monster.a + this.monster.short + " collapses, unable to continue fighting.", true);
@@ -1071,7 +1071,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         }
     }
 
-    private loseToDaughters(): void {
+    public loseToDaughters(): void {
         this.spriteSelect(57);
         if (this.player.lust > 99) {
             //worms r gross mmmmkay?

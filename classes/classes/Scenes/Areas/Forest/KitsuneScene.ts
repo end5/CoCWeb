@@ -752,7 +752,7 @@ export class KitsuneScene extends BaseContent {
     private loseFightToHerms(): void {
         this.clearOutput();
         this.kitsuneSprite();
-        var biggest: number = this.player.biggestCockIndex();
+        // var biggest: number = this.player.biggestCockIndex();
         this.outputText("\"<i>If you were going to give up that easily, you could have said so in the beginning and saved yourself the trouble!</i>\"\n\n");
         this.outputText("Her tittering laughter rings in your ears, broken momentarily as she grunts with the effort of rolling you onto your back.\n\n");
         this.outputText("\"<i>Time to claim my prize...</i>\"\n\n");

@@ -57,7 +57,7 @@ export class Urta extends NPCAwareContent implements TimeAwareInterface {
     //const URTA_PETPLAY_DONE: number = 857;
 
     public pregnancy: PregnancyStore;
-    public drainedByKath: boolean;
+    public drainedByKath: boolean = false;
 
     public constructor() {
         super();

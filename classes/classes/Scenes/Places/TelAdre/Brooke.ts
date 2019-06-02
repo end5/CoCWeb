@@ -489,7 +489,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.clearOutput();
         var x: number = this.player.cockThatFits(this.brookeCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
-        var y: number = this.player.cockThatFits2(this.brookeCapacity());
+        // var y: number = this.player.cockThatFits2(this.brookeCapacity());
 
         //[if {cockFit >= 61}
         if (this.player.cockArea(x) >= 61) {
@@ -680,7 +680,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.clearOutput();
         var x: number = this.player.cockThatFits(this.brookeCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
-        var y: number = this.player.cockThatFits2(this.brookeCapacity());
+        // var y: number = this.player.cockThatFits2(this.brookeCapacity());
 
         this.outputText("You step closer into her, wrapping your left arm around her torso diagonally, so that your hand rests on her right hip, and you reach over her chest with your right hand, grasping her left boob.  You pull her into you, and she coos at the affection, enjoying your loving embrace, but doesn't say anything, allowing you to have your way with her for now.");
 

@@ -7,6 +7,7 @@ import { StatusAffects } from "./StatusAffects";
 import { CockTypesEnum } from "./CockTypesEnum";
 import { PregnancyStore } from "./PregnancyStore";
 import { trace } from "console";
+import { PerkLib } from "./PerkLib";
 
 
 export class PlayerEvents extends BaseContent implements TimeAwareInterface {
@@ -16,8 +17,8 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
         CoC.timeAwareClassAdd(this);
     }
 
-    private checkedTurkey: number; //Make sure we test each of these events just once in timeChangeLarge
-    private checkedDream: number;
+    private checkedTurkey: number = 0; //Make sure we test each of these events just once in timeChangeLarge
+    private checkedDream: number = 0;
 
     //Implementation of TimeAwareInterface
     public timeChange(): boolean {

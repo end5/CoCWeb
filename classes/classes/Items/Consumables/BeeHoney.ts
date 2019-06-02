@@ -13,8 +13,8 @@ import { CockTypesEnum } from "../../CockTypesEnum";
  */
 
 export class BeeHoney extends Consumable {
-    private PURE_HONEY_VALUE: number = 40;
-    private SPECIAL_HONEY_VALUE: number = 20;
+    private static PURE_HONEY_VALUE: number = 40;
+    private static SPECIAL_HONEY_VALUE: number = 20;
 
     public constructor(pure: boolean, special: boolean) {
         var honeyName: string;
@@ -25,19 +25,19 @@ export class BeeHoney extends Consumable {
             honeyName = "SpHoney";
             honeyLong = "a bottle of special bee honey";
             honeyDesc = "A clear crystal bottle of a dark brown fluid that you got from the bee handmaiden.  It gives off a strong sweet smell even though the bottle is still corked.";
-            honeyValue = this.SPECIAL_HONEY_VALUE;
+            honeyValue = BeeHoney.SPECIAL_HONEY_VALUE;
         }
         else {
             honeyName = (pure ? "PurHony" : "BeeHony");
             honeyLong = (pure ? "a crystal vial filled with glittering honey" : "a small vial filled with giant-bee honey");
             honeyDesc = "This fine crystal vial is filled with a thick amber liquid that glitters " + (pure ? "" : "dully ") + "in the light.  You can smell a sweet scent, even though it is tightly corked.";
-            honeyValue = (pure ? this.PURE_HONEY_VALUE : 6);
+            honeyValue = (pure ? BeeHoney.PURE_HONEY_VALUE : 6);
         }
         super(honeyName, honeyName, honeyLong, honeyValue, honeyDesc);
     }
 
     public canUse(): boolean {
-        if (this.value == this.SPECIAL_HONEY_VALUE && this.getGame().player.statusAffectv1(StatusAffects.Exgartuan) == 1) { //Exgartuan doesn't like the special honey
+        if (this.value == BeeHoney.SPECIAL_HONEY_VALUE && this.getGame().player.statusAffectv1(StatusAffects.Exgartuan) == 1) { //Exgartuan doesn't like the special honey
             this.outputText("You uncork the bottle only to hear Exgartuan suddenly speak up.  <i>“Hey kid, this beautiful cock here doesn’t need any of that special bee shit.  Cork that bottle up right now or I’m going to make it so that you can’t drink anything but me.”</i>  You give an exasperated sigh and put the cork back in the bottle.");
             return false;
         }
@@ -46,8 +46,8 @@ export class BeeHoney extends Consumable {
 
     public useItem(): boolean {
         var player: Player = this.getGame().player;
-        var pure: boolean = (this.value == this.PURE_HONEY_VALUE);
-        var special: boolean = (this.value == this.SPECIAL_HONEY_VALUE);
+        var pure: boolean = (this.value == BeeHoney.PURE_HONEY_VALUE);
+        var special: boolean = (this.value == BeeHoney.SPECIAL_HONEY_VALUE);
         var changes: number = 0;
         var changeLimit: number = 1;
         this.clearOutput();

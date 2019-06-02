@@ -18,7 +18,7 @@ import { SuccubusGardener } from "./SuccubusGardener";
  */
 export class D3 extends BaseContent {
     public rooms: Record<string, any> = {};
-    private _currentRoom: string; // I don't think we'll need to save/load this, as we're not gonna allow saving in the dungeon, and it'll be overwritten by calling enterD3();
+    private _currentRoom: string = ''; // I don't think we'll need to save/load this, as we're not gonna allow saving in the dungeon, and it'll be overwritten by calling enterD3();
 
     public jeanClaude: JeanClaudeScenes = new JeanClaudeScenes();
     public doppleganger: DopplegangerScenes = new DopplegangerScenes();
@@ -446,10 +446,10 @@ export class D3 extends BaseContent {
         // Should actually be handled by the fallthrough of doNext(1) in the takeItem shit
 
         this.clearOutput();
-        this.outputText("You pluck out " + item.longName + " ");
+        this.outputText("You pluck out " + item!.longName + " ");
 
         this.flags[kFLAGS.D3_EGGS_AVAILABLE] += eggMask;
-        this.inventory.takeItem(item, this.playerMenu); //playerMenu is equivalent to doNext(1)
+        this.inventory.takeItem(item!, this.playerMenu); //playerMenu is equivalent to doNext(1)
     }
 
     private fallbackFromMagpieHallS(): void {

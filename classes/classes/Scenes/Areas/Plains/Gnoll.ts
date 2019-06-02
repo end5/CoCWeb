@@ -228,8 +228,8 @@ export class Gnoll extends Monster {
             }
             this.combatRoundOver();
         }
-        var select: number = 1;
-        var rando: number = 1;
+        // var select: number = 1;
+        // var rando: number = 1;
         //Exgartuan gets to do stuff!
         if (this.player.findStatusAffect(StatusAffects.Exgartuan) >= 0 && this.player.statusAffectv2(StatusAffects.Exgartuan) == 0 && Gnoll.rand(3) == 0) {
             this.game.exgartuan.exgartuanCombatUpdate();

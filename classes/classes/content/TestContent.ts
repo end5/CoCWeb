@@ -18,7 +18,7 @@ export class TestContent extends BaseContent {
         this.outputText("\nsackDescript " + this.sackDescript());
         this.outputText("\ncockClit " + this.cockClit);
         //			outputText("\nballs " + balls(0, 0));
-        this.outputText("\nsheathDesc " + this.player.sheathDesc());
+        this.outputText("\nsheathDesc " + this.player.sheathDescription());
         this.outputText("\nchestDesc " + this.chestDesc());
         this.outputText("\nallChestDesc " + this.allChestDesc());
         this.outputText("\nsMultiCockDesc " + this.player.sMultiCockDesc());
@@ -48,7 +48,7 @@ export class TestContent extends BaseContent {
         this.outputText("\nbreaseSize 5" + this.breastSize(5));
         this.outputText("\nbreastDescript " + this.breastDescript(0));
         this.outputText("\ncockHead " + this.player.cockHead());
-        this.outputText("\nbreastCup 5 " + breastCup(5));
+        this.outputText("\nbreastCup 5 " + this.player.breastCup(5));
 
         this.outputText("\n\nParser Tags (Single)L\n");
         this.outputText("\naagility [agility]");

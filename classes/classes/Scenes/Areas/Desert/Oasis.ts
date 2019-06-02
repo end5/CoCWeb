@@ -73,7 +73,7 @@ export class Oasis extends BaseContent {
         //TO THE SECKSIN!
         this.doNext(this.oasisSexing);
     }
-    private oasisSexing(): void {
+    public oasisSexing(): void {
         this.spriteSelect(46);
         this.player.slimeFeed();
         //New screen

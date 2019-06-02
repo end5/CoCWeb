@@ -22,6 +22,8 @@ import { MilkySuccubus } from "./Scenes/Quests/UrtaQuest/MilkySuccubus";
 import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
 import { RandomDrop } from "./internals/RandomDrop";
 import { PerkLib } from "./PerkLib";
+import { OtherKeys, StatKeys } from "../../lib/src/coc/view/StatsView";
+import { GENDER_NONE, TAIL_TYPE_NONE, HORNS_NONE, WING_TYPE_NONE, ANTENNAE_NONE } from "../../includes/appearanceDefs";
 
 
 /**
@@ -42,7 +44,7 @@ export class Monster extends Creature {
     protected cleanupAfterCombat(): void {
         this.game.cleanupAfterCombat();
     }
-    protected static showStatDown(a: string): void {
+    protected static showStatDown(a: StatKeys | OtherKeys): void {
         kGAMECLASS.mainView.statsView.showStatDown(a);
     }
     protected statScreenRefresh(): void {
@@ -596,7 +598,7 @@ export class Monster extends Creature {
             if (this.lustVuln > 0 && this.player.armorName == "barely-decent bondage straps") {
                 if (!this.plural) this.outputText("\n" + this.capitalA + this.short + " brushes against your exposed skin and jerks back in surprise, coloring slightly from seeing so much of you revealed.", false);
                 else this.outputText("\n" + this.capitalA + this.short + " brush against your exposed skin and jerk back in surprise, coloring slightly from seeing so much of you revealed.", false);
-                lust += 5 * this.lustVuln;
+                this.lust += 5 * this.lustVuln;
             }
         }
     }
@@ -855,7 +857,7 @@ export class Monster extends Creature {
                 this.outputText("\nThe imps in the back stumble over their spell, their loincloths tenting obviously as your display interrupts their casting.  One of them spontaneously orgasms, having managed to have his spell backfire.  He falls over, weakly twitching as a growing puddle of whiteness surrounds his defeated form.", false);
                 //(-5% of max enemy HP)
                 this.HP -= this.bonusHP * .05;
-                lust -= 15;
+                this.lust -= 15;
                 this.removeStatusAffect(StatusAffects.ImpUber);
                 this.createStatusAffect(StatusAffects.ImpSkip, 0, 0, 0, 0);
             }
@@ -895,7 +897,7 @@ export class Monster extends Creature {
     }
 
     protected applyTease(lustDelta: number): void {
-        lust += lustDelta;
+        this.lust += lustDelta;
         lustDelta = Math.round(lustDelta * 10) / 10;
         this.outputText(" (" + lustDelta + ")", false);
     }
@@ -906,7 +908,7 @@ export class Monster extends Creature {
         var have: string = this.plural ? "have" : "has";
         var Heis: string = this.Pronoun1 + " " + be + " ";
         var Hehas: string = this.Pronoun1 + " " + have + " ";
-        result = "You are inspecting " + this.a + this.short + " (imageName='" + this.imageName + "', class='" + getQualifiedClassName(this) + "'). You are fighting " + this.pronoun2 + ".\n\n";
+        result = "You are inspecting " + this.a + this.short + " (imageName='" + this.imageName + "', class='" + this.constructor.name + "'). You are fighting " + this.pronoun2 + ".\n\n";
         result += Heis + (Appearance.DEFAULT_GENDER_NAMES[this.gender] || ("gender#" + this.gender)) +
             " with " + Appearance.numberOfThings(this.cocks.length, "cock") +
             ", " + Appearance.numberOfThings(this.vaginas.length, "vagina") +
@@ -933,7 +935,7 @@ export class Monster extends Creature {
         if (this.tailType == TAIL_TYPE_NONE) result += "no tail, ";
         else result += (Appearance.DEFAULT_TAIL_NAMES[this.tailType] || ("tailType#" + this.tailType)) + " tail with venom=" + this.tailVenom + " and recharge=" + this.tailRecharge + ", ";
         if (this.hornType == HORNS_NONE) result += "no horns, ";
-        else result += horns + " " + (Appearance.DEFAULT_HORNS_NAMES[this.hornType] || ("hornType#" + this.hornType)) + " horns, ";
+        else result += this.horns + " " + (Appearance.DEFAULT_HORNS_NAMES[this.hornType] || ("hornType#" + this.hornType)) + " horns, ";
         if (this.wingType == WING_TYPE_NONE) result += "no wings, ";
         else result += this.wingDesc + " wings (type " + (Appearance.DEFAULT_WING_NAMES[this.wingType] || ("wingType#" + this.wingType)) + "), ";
         if (this.antennae == ANTENNAE_NONE) result += "no antennae.\n\n";
@@ -948,7 +950,7 @@ export class Monster extends Creature {
             if (cock.knotMultiplier != 1) result += ", with knot of size " + cock.knotMultiplier;
             result += ".\n";
         }
-        if (balls > 0 || this.ballSize > 0) result += Hehas + Appearance.numberOfThings(balls, "ball") + " of size " + this.ballSize + ".\n";
+        if (this.balls > 0 || this.ballSize > 0) result += Hehas + Appearance.numberOfThings(this.balls, "ball") + " of size " + this.ballSize + ".\n";
         if (this.cumMultiplier != 1 || this.cocks.length > 0) result += this.Pronoun1 + " " + have + " cum multiplier " + this.cumMultiplier + ". ";
         if (this.hoursSinceCum > 0 || this.cocks.length > 0) result += "It were " + this.hoursSinceCum + " hours since " + this.pronoun1 + " came.\n\n";
         for (i = 0; i < this.vaginas.length; i++) {
@@ -973,7 +975,7 @@ export class Monster extends Creature {
                 result += Appearance.numberOfThings(row.nipplesPerBreast, nipple + (row.fuckable ? "fuckable nipple" : "unfuckable nipple")) + " on each.\n";
             }
         }
-        result += this.Pronoun3 + " ass is " + Appearance.describeByScale(ass.analLooseness, Appearance.DEFAULT_ANAL_LOOSENESS_SCALES, "tighter than", "looser than") + ", " + Appearance.describeByScale(ass.analWetness, Appearance.DEFAULT_ANAL_WETNESS_SCALES, "drier than", "wetter than");
+        result += this.Pronoun3 + " ass is " + Appearance.describeByScale(this.ass.analLooseness, Appearance.DEFAULT_ANAL_LOOSENESS_SCALES, "tighter than", "looser than") + ", " + Appearance.describeByScale(this.ass.analWetness, Appearance.DEFAULT_ANAL_WETNESS_SCALES, "drier than", "wetter than");
         if (this.statusAffectv1(StatusAffects.BonusACapacity) > 0) {
             result += "; anal capacity is increased by " + this.statusAffectv1(StatusAffects.BonusACapacity);
         }
@@ -983,7 +985,7 @@ export class Monster extends Creature {
         result += Hehas + "str=" + this.str + ", tou=" + this.tou + ", spe=" + this.spe + ", inte=" + this.inte + ", lib=" + this.lib + ", sens=" + this.sens + ", cor=" + this.cor + ".\n";
         result += this.Pronoun1 + " can " + this.weaponVerb + " you with  " + this.weaponPerk + " " + this.weaponName + " (attack " + this.weaponAttack + ", value " + this.weaponValue + ").\n";
         result += this.Pronoun1 + " is guarded with " + this.armorPerk + " " + this.armorName + " (defense " + this.armorDef + ", value " + this.armorValue + ").\n";
-        result += Hehas + this.HP + "/" + this.eMaxHP() + " HP, " + lust + "/100 lust, " + this.fatigue + "/100 fatigue. " + this.Pronoun3 + " bonus HP=" + this.bonusHP + ", and lust vulnerability=" + this.lustVuln + ".\n";
+        result += Hehas + this.HP + "/" + this.eMaxHP() + " HP, " + this.lust + "/100 lust, " + this.fatigue + "/100 fatigue. " + this.Pronoun3 + " bonus HP=" + this.bonusHP + ", and lust vulnerability=" + this.lustVuln + ".\n";
         result += Heis + "level " + this.level + " and " + have + " " + this.gems + " gems. You will be awarded " + this.XP + " XP.\n";
 
         var numSpec: number = (this.special1 != undefined ? 1 : 0) + (this.special2 != undefined ? 1 : 0) + (this.special3 != undefined ? 1 : 0);
@@ -1127,7 +1129,7 @@ export class Monster extends Creature {
             this.addStatusValue(StatusAffects.LustStick, 1, 1);
             //Damage = 5 + bonus score minus
             //Reduced by lust vuln of course
-            lust += Math.round(this.lustVuln * (5 + this.statusAffectv2(StatusAffects.LustStick)));
+            this.lust += Math.round(this.lustVuln * (5 + this.statusAffectv2(StatusAffects.LustStick)));
         }
         if (this.findStatusAffect(StatusAffects.PCTailTangle) >= 0) {
             //when Entwined

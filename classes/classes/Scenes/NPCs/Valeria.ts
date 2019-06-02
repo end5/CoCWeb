@@ -3,8 +3,7 @@ import { TimeAwareInterface } from "../../TimeAwareInterface";
 import { CoC } from "../../CoC";
 import { StatusAffects } from "../../StatusAffects";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { GooArmor } from "../../Items/Armors/GooArmor";
-import { Armor } from "../../Items/Armor";
+import { GooArmor } from "./GooArmor";
 import { GooGirl } from "../Areas/Lake/GooGirl";
 import { PregnancyStore } from "../../PregnancyStore";
 import { SKIN_TYPE_FUR } from "../../../../includes/appearanceDefs";
@@ -439,7 +438,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.spriteSelect(79);
         this.armors.GOOARMR.useText();
         this.player.armor.removeText();
-        var item: Armor = this.player.setArmor(this.armors.GOOARMR); //Item is now the player's old armor
+        var item = this.player.setArmor(this.armors.GOOARMR); //Item is now the player's old armor
         if (item == undefined)
             this.doNext(this.playerMenu);
         else this.inventory.takeItem(item, this.playerMenu);

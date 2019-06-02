@@ -2,6 +2,7 @@ import { Utils } from "./internals/Utils";
 import { SaveAwareInterface } from "./SaveAwareInterface";
 import { CoC } from "./CoC";
 import { Appearance } from "./Appearance";
+import { trace } from "console";
 
 export class BreastStore extends Utils implements SaveAwareInterface {
     private static MAX_FLAG_VALUE: number = 2999;
@@ -32,7 +33,7 @@ export class BreastStore extends Utils implements SaveAwareInterface {
         super();
         this._breastFlag = breastFlag;
         if (this._breastFlag < 1 || this._breastFlag > BreastStore.MAX_FLAG_VALUE)
-            // trace("Error: BreastStore created with invalid flag value. BreastStore(" + breastFlag + ")");
+            trace("Error: BreastStore created with invalid flag value. BreastStore(" + breastFlag + ")");
     }
 
     //Implementation of SaveAwareInterface
@@ -93,7 +94,7 @@ export class BreastStore extends Utils implements SaveAwareInterface {
 
     public get cupSize(): number { return this._cupSize; }
 
-    public set cupSize(value: number): void {
+    public set cupSize(value: number) {
         if (value < CoC.BREAST_CUP_FLAT) value = CoC.BREAST_CUP_FLAT;
         if (value > CoC.BREAST_CUP_ZZZ_LARGE) value = CoC.BREAST_CUP_ZZZ_LARGE;
         this._cupSize = value;
@@ -101,7 +102,7 @@ export class BreastStore extends Utils implements SaveAwareInterface {
 
     public get lactationLevel(): number { return this._lactation; }
 
-    public set lactationLevel(value: number): void {
+    public set lactationLevel(value: number) {
         if (value < BreastStore.LACTATION_DISABLED) value = BreastStore.LACTATION_DISABLED;
         if (value > BreastStore.LACTATION_EPIC) value = BreastStore.LACTATION_EPIC;
         if (this._lactation <= BreastStore.LACTATION_NONE && value >= BreastStore.LACTATION_LIGHT) { //Lactation is just starting - zero the other vars involved
@@ -224,10 +225,10 @@ export class BreastStore extends Utils implements SaveAwareInterface {
         return true;
     }
 
-    public milkIsFull(): boolean { return (this._lactation <= BreastStore.LACTATION_NONE ? 0 : this._fullness >= 50); }
+    public milkIsFull(): boolean { return (this._lactation <= BreastStore.LACTATION_NONE ? false : this._fullness >= 50); }
 
     public milkIsOverflowing(): boolean {
-        return (this._lactation <= BreastStore.LACTATION_NONE ? 0 : this._fullness >= 60 + 5 * BreastStore.LACTATION_BOOST[this._lactation]); //Probably pretty desperate to be milked by this point
+        return (this._lactation <= BreastStore.LACTATION_NONE ? false : this._fullness >= 60 + 5 * BreastStore.LACTATION_BOOST[this._lactation]); //Probably pretty desperate to be milked by this point
     }
 
     //At fullness == 50 the maximum amount of milk is produced. When overfull, lactation level is reduced and fullness drops to 50.
@@ -247,14 +248,14 @@ export class BreastStore extends Utils implements SaveAwareInterface {
 
     public get nippleLength(): number { return this._nippleLength; }
 
-    public set nippleLength(value: number): void {
+    public set nippleLength(value: number) {
         if (value < 0) value = 0;
         this._nippleLength = 0.1 * Math.round(10 * value); //Ensure nipple length only goes to one decimal place
     }
 
     public get rows(): number { return this._rows; }
 
-    public set rows(value: number): void {
+    public set rows(value: number) {
         if (value < 1) value = 1;
         this._rows = value;
     }

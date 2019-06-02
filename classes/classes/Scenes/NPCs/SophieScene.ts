@@ -26,7 +26,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         CoC.timeAwareClassAdd(this);
     }
 
-    private checkedSophie: number; //Make sure we test this event just once in timeChangeLarge
+    private checkedSophie: number = 0; //Make sure we test this event just once in timeChangeLarge
 
     //Implementation of TimeAwareInterface
     public timeChange(): boolean {

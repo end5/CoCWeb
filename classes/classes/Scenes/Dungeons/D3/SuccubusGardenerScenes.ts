@@ -12,7 +12,7 @@ import { SKIN_TYPE_FUR } from "../../../../../includes/appearanceDefs";
 export class SuccubusGardenerScenes extends BaseContent {
 
     private GARDENER_LEFT: number = 1;
-    private GARDENER_FUCKED: number = 2;
+    // private GARDENER_FUCKED: number = 2;
     private GARDENER_KILLED: number = 3;
 
     public gardenerDefeated(): boolean {

@@ -1,5 +1,6 @@
 import { CommonItem } from "./CommonItem";
 import { CoC_Settings } from "../CoC_Settings";
+import { Player } from "../Player";
 
 /**
  * Created by aimozg on 09.01.14.
@@ -11,7 +12,7 @@ import { CoC_Settings } from "../CoC_Settings";
  */
 export class Useable extends CommonItem {
 
-    public canUse(): boolean { return true; } //If an item cannot be used it should provide some description of why not
+    public canUse(player?: Player, output?: boolean): boolean { return true; } //If an item cannot be used it should provide some description of why not
 
     //		public function hasSubMenu(): boolean { return false; } //Only GroPlus and Reducto use this. //Replaced with a return
 

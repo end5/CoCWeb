@@ -402,7 +402,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         kGAMECLASS.awardPlayer(); //This will provide loot and return to camp, 1 hour used
     }
 
-    private phoukaPlayerWins(hpVictory: boolean): void {
+    public phoukaPlayerWins(hpVictory: boolean): void {
         this.clearOutput();
         if (hpVictory) { //You win by physical damage, the phouka cheats and runs
             this.outputText("The seriously injured " + this.phoukaName() + " stumbles backward, but before you can strike again it twists and stretches in mid-air, dropping to the ground in the form of a long black eel.  You're pretty sure you hear the eel curse at you as it dives into the mire and sinks out of view.\n\nWith your attacker gone you struggle and strain to get yourself free of the thick mass of roots and muck around your [legs].  Your lower half is soaked and you decide to head home.");
@@ -519,7 +519,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         this.addButton(3, "Goat", this.phoukaSexGoatChoice);
     }
 
-    private phoukaSexBunny(postCombat: boolean, lustLoss: boolean): void { //Player must have a vagina for bunny-morph sex
+    public phoukaSexBunny(postCombat: boolean, lustLoss: boolean): void { //Player must have a vagina for bunny-morph sex
         this.clearOutput();
         if (postCombat) {
             this.outputText("As you collapse the " + this.phoukaName());
@@ -566,7 +566,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         this.phoukaSexBunny(false, false);
     }
 
-    private phoukaSexGoat(postCombat: boolean, lustLoss: boolean): void { //Player does not have a vagina or has chosen anal
+    public phoukaSexGoat(postCombat: boolean, lustLoss: boolean): void { //Player does not have a vagina or has chosen anal
         this.clearOutput();
         if (postCombat) {
             if (lustLoss)
@@ -620,7 +620,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         this.phoukaSexGoat(false, false);
     }
 
-    private phoukaSexHorse(postCombat: boolean, lustLoss: boolean): void { //Player has a vagina
+    public phoukaSexHorse(postCombat: boolean, lustLoss: boolean): void { //Player has a vagina
         this.clearOutput();
         if (postCombat) {
             this.outputText("As you collapse the " + this.phoukaName());

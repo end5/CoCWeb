@@ -10,7 +10,7 @@ export class ComfortableUnderclothes extends Armor {
         super("c.under", "c.under", "comfortable underclothes", "comfortable underclothes", 0, 0, "comfortable underclothes", "");
     }
 
-    public playerRemove(): Armor {
+    public playerRemove(): undefined {
         return; //Player never picks up their underclothes
     }
 

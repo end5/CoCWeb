@@ -1,5 +1,4 @@
 import { NPCAwareContent } from "./NPCAwareContent";
-import { PregnancyStore } from "../../PregnancyStore";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { Sophie } from "./Sophie";
 import { StatusAffects } from "../../StatusAffects";
@@ -10,7 +9,7 @@ import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 export class SophieFollowerScene extends NPCAwareContent {
 
-    private get pregnancy(): PregnancyStore { return kGAMECLASS.sophieScene.pregnancy; } //Quick way to access sophie's pregnancyStore
+    // private get pregnancy(): PregnancyStore { return kGAMECLASS.sophieScene.pregnancy; } //Quick way to access sophie's pregnancyStore
 
     //Make Sophie \"smart\" again: Doing the Deed
     //Visit Rathazul and he bitches.
@@ -366,7 +365,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         "White",
     ]
 
-    private _eggTypes: any[]
+    private _eggTypes: any[] = [];
 
     public get eggTypes(): any[] {
         if (this._eggTypes == undefined) {
@@ -475,10 +474,10 @@ export class SophieFollowerScene extends NPCAwareContent {
                 if (kGAMECLASS.farm.farmCorruption.numTattoos("sophie") > 1) this.outputText("She has the following tattoos emblazoned across her body:\n");
                 else this.outputText("She has ");
 
-                if (this.flags[kFLAGS.SOPHIE_TATTOO_COLLARBONE] != 0) this.outputText(this.flags[kFLAGS.SOPHIE_TATTOO_COLLARBONE] + "\n");
-                if (this.flags[kFLAGS.SOPHIE_TATTOO_SHOULDERS] != 0) this.outputText(this.flags[kFLAGS.SOPHIE_TATTOO_SHOULDERS] + "\n");
-                if (this.flags[kFLAGS.SOPHIE_TATTOO_LOWERBACK] != 0) this.outputText(this.flags[kFLAGS.SOPHIE_TATTOO_LOWERBACK] + "\n");
-                if (this.flags[kFLAGS.SOPHIE_TATTOO_BUTT] != 0) this.outputText(this.flags[kFLAGS.SOPHIE_TATTOO_BUTT] + "\n");
+                if (this.flags[kFLAGS.SOPHIE_TATTOO_COLLARBONE] != '') this.outputText(this.flags[kFLAGS.SOPHIE_TATTOO_COLLARBONE] + "\n");
+                if (this.flags[kFLAGS.SOPHIE_TATTOO_SHOULDERS] != '') this.outputText(this.flags[kFLAGS.SOPHIE_TATTOO_SHOULDERS] + "\n");
+                if (this.flags[kFLAGS.SOPHIE_TATTOO_LOWERBACK] != '') this.outputText(this.flags[kFLAGS.SOPHIE_TATTOO_LOWERBACK] + "\n");
+                if (this.flags[kFLAGS.SOPHIE_TATTOO_BUTT] != '') this.outputText(this.flags[kFLAGS.SOPHIE_TATTOO_BUTT] + "\n");
             }
         }
 
@@ -613,7 +612,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.clearOutput();
         var x: number = this.player.cockThatFits(this.sophieBimbo.sophieCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
-        var y: number = this.player.cockThatFits2(this.sophieBimbo.sophieCapacity());
+        // var y: number = this.player.cockThatFits2(this.sophieBimbo.sophieCapacity());
 
         this.outputText("You're roused a few moments later by a smiling Sophie, the proof of your union dripping between her thighs.  She quips, \"<i>");
         if (this.sophieBimbo.sophieIsInSeason()) this.outputText("If that didn't take, I don't know what will!");
@@ -1146,9 +1145,9 @@ export class SophieFollowerScene extends NPCAwareContent {
 
         this.outputText("\n\nBetween your legs, [eachCock] flops free, your " + this.cockDescript(x) + " achingly hard and ready for your fuck-hungry daughter.  The mass of masculine flesh throbs with your arousal, the insatiable organ longing to be sheathed within the welcoming depths of your daughter's soaking cunt, her tight, velvety folds ready to accept your potent, virile essence.");
 
+        var bimbo = false;
         if (this.flags[kFLAGS.DAUGHTER_FOUR_BIMBO] > 0 && this.flags[kFLAGS.SOPHIES_DAUGHTERS_DEBIMBOED] == 0)
-
-            var bimbo: boolean = (((daughter == 4 && this.flags[kFLAGS.DAUGHTER_FOUR_BIMBO] > 0) || (daughter == 3 && this.flags[kFLAGS.DAUGHTER_THREE_BIMBO] > 0) || (daughter == 2 && this.flags[kFLAGS.DAUGHTER_TWO_BIMBO] > 0) || (daughter == 1 && this.flags[kFLAGS.DAUGHTER_ONE_BIMBO] > 0)) && this.flags[kFLAGS.SOPHIES_DAUGHTERS_DEBIMBOED] == 0);
+            bimbo = (((daughter == 4 && this.flags[kFLAGS.DAUGHTER_FOUR_BIMBO] > 0) || (daughter == 3 && this.flags[kFLAGS.DAUGHTER_THREE_BIMBO] > 0) || (daughter == 2 && this.flags[kFLAGS.DAUGHTER_TWO_BIMBO] > 0) || (daughter == 1 && this.flags[kFLAGS.DAUGHTER_ONE_BIMBO] > 0)) && this.flags[kFLAGS.SOPHIES_DAUGHTERS_DEBIMBOED] == 0);
 
         if (bimbo) this.outputText("\n\n\"<i>Yessss!  Please, " + this.player.mf("Daddy", "Mommy") + "!  Give it to me!  Like, fuck my brains out till I can't think of anything but your, like, totally amazing cock!</i>\"");
         else this.outputText("\n\n\"<i>Yesssss! Please, " + this.player.mf("Daddy", "Mommy") + ", I've been wanting this so badly!  Give it to me, fuck me like the stud you are and fuck my cunt full of spunk!</i>\"");

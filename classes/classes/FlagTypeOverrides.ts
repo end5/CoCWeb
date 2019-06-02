@@ -1,0 +1,55 @@
+import { kFLAGS } from "./GlobalFlags/kFLAGS";
+
+export type Flags = FlagTypeOverrides & Record<Exclude<kFLAGS, keyof FlagTypeOverrides>, number>;
+
+type FlagTypeOverrides = {
+    [kFLAGS.SILLY_MODE_ENABLE_FLAG]: boolean;
+    [kFLAGS.BONUS_ITEM_AFTER_COMBAT_ID]: string;
+    [kFLAGS.BENOIT_1]: string;
+    [kFLAGS.BENOIT_2]: string;
+    [kFLAGS.BENOIT_3]: string;
+    [kFLAGS.HELSPAWN_NAME]: string;
+    [kFLAGS.HELSPAWN_WEAPON]: 'bow' | 'scimitar' | 'scimitar and shield';
+    [kFLAGS.GAR_NAME]: string;
+    [kFLAGS.MILK_NAME]: string;
+    [kFLAGS.GOO_NAME]: string;
+    [kFLAGS.GOO_EYES]: string;
+    [kFLAGS.KELLY_HAIR_COLOR]: string;
+    [kFLAGS.TEMP_STORAGE_PASTRY_NAME]: string;
+    [kFLAGS.PLAYER_DISARMED_WEAPON_ID]: string;
+    [kFLAGS.KATHERINE_HAIR_COLOR]: string;
+    [kFLAGS.ANEMONE_WEAPON_ID]: string;
+    [kFLAGS.SLEEP_WITH]: string;
+    [kFLAGS.FOLLOWER_PRODUCTION_SOPHIE_COLORCHOICE]: string;
+    [kFLAGS.SOCK_HOLDING]: string;
+    [kFLAGS.AMILY_CLOTHING]: string;
+    [kFLAGS.ARIAN_EGG_COLOR]: string;
+    [kFLAGS.WHITNEY_TATTOO_COLLARBONE]: string;
+    [kFLAGS.WHITNEY_TATTOO_SHOULDERS]: string;
+    [kFLAGS.WHITNEY_TATTOO_LOWERBACK]: string;
+    [kFLAGS.WHITNEY_TATTOO_BUTT]: string;
+    [kFLAGS.AMILY_TATTOO_COLLARBONE]: string;
+    [kFLAGS.AMILY_TATTOO_LOWERBACK]: string;
+    [kFLAGS.AMILY_TATTOO_SHOULDERS]: string;
+    [kFLAGS.AMILY_TATTOO_BUTT]: string;
+    [kFLAGS.JOJO_TATTOO_COLLARBONE]: string;
+    [kFLAGS.JOJO_TATTOO_LOWERBACK]: string;
+    [kFLAGS.JOJO_TATTOO_SHOULDERS]: string;
+    [kFLAGS.JOJO_TATTOO_BUTT]: string;
+    [kFLAGS.SOPHIE_TATTOO_COLLARBONE]: string;
+    [kFLAGS.SOPHIE_TATTOO_LOWERBACK]: string;
+    [kFLAGS.SOPHIE_TATTOO_SHOULDERS]: string;
+    [kFLAGS.SOPHIE_TATTOO_BUTT]: string;
+    [kFLAGS.VAPULA_TATTOO_COLLARBONE]: string;
+    [kFLAGS.VAPULA_TATTOO_LOWERBACK]: string;
+    [kFLAGS.VAPULA_TATTOO_SHOULDERS]: string;
+    [kFLAGS.VAPULA_TATTOO_BUTT]: string;
+    [kFLAGS.KELLY_TATTOO_COLLARBONE]: string;
+    [kFLAGS.KELLY_TATTOO_LOWERBACK]: string;
+    [kFLAGS.KELLY_TATTOO_SHOULDERS]: string;
+    [kFLAGS.KELLY_TATTOO_BUTT]: string;
+    [kFLAGS.MILKY_TATTOO_COLLARBONE]: string;
+    [kFLAGS.MILKY_TATTOO_LOWERBACK]: string;
+    [kFLAGS.MILKY_TATTOO_SHOULDERS]: string;
+    [kFLAGS.MILKY_TATTOO_BUTT]: string;
+}

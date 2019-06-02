@@ -43,7 +43,7 @@ export class Farm extends BaseContent {
             return;
         }
 
-        var temporary: number = 0;
+        // var temporary: number = 0;
         //Farm not yet discovered
         if (this.player.statusAffectv1(StatusAffects.MetWhitney) < 2) {
             this.spriteSelect(62);
@@ -75,11 +75,11 @@ export class Farm extends BaseContent {
             else if (this.flags[kFLAGS.WHITNEY_FLIPPED_OUT_OVER_KELLY] == 1) this.outputText("You aren't welcome on the farm proper, but you can see Kelly cantering about the fields, looking for you.", true);
             else this.outputText("Whitney's farm is remarkably large for such a humble operation.  What do you want to do?", true);
             this.menu();
-            var keltEvent: number = 0;
-            var milkYou: number = 0;
-            var milkJojo: number = 0;
-            var cockMilk: number = 0;
-            var marble: number = 0;
+            // var keltEvent: number = 0;
+            // var milkYou: number = 0;
+            // var milkJojo: number = 0;
+            // var cockMilk: number = 0;
+            // var marble: number = 0;
             if (this.player.findStatusAffect(StatusAffects.Kelt) >= 0 && this.player.findStatusAffect(StatusAffects.KeltOff) < 0) {
                 if (this.flags[kFLAGS.KELT_BREAK_LEVEL] >= 4) this.addButton(1, "Kelly", this.kelly.breakingKeltOptions);
                 else this.addButton(1, "Kelt", this.kelly.breakingKeltOptions);
@@ -427,8 +427,8 @@ export class Farm extends BaseContent {
             //-Bulbous Pepper (+ball size or fresh balls)
             if (this.temp == 4) itype = this.consumables.BULBYPP;
         }
-        trace("FARM SHIT: " + itype.shortName);
-        this.inventory.takeItem(itype, this.camp.returnToCampUseTwoHours);
+        trace("FARM SHIT: " + itype!.shortName);
+        this.inventory.takeItem(itype!, this.camp.returnToCampUseTwoHours);
     }
 
     public meetMarble(): void {
@@ -468,7 +468,7 @@ export class Farm extends BaseContent {
     }
 
     public exploreFarm(): void {
-        var marbling: number = 0;
+        // var marbling: number = 0;
         var explore: number = 0;
 
         //Marble after-rape

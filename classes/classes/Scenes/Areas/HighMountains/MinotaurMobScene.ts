@@ -271,7 +271,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
         this.spriteSelect(94);
     }
 
-    private minotaurDeFeet(): void {
+    public minotaurDeFeet(): void {
         this.outputText("", true);
         if (!this.player.hasVagina()) {
             this.outputText("As you slump down in defeat, your horny beast-children take note of your missing femininity.  They growl in displeasure and depart, but not before kicking you unconsciousness.  \"<i>Bitch.</i>\"");
@@ -604,7 +604,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
 
 
     //*[Victory - Generic Text] 
-    private victoryMinotaurGang(): void {
+    public victoryMinotaurGang(): void {
         this.outputText("", true);
         this.spriteSelect(94);
         //(HP) 

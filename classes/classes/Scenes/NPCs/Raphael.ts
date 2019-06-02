@@ -22,7 +22,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
         CoC.timeAwareClassAdd(this);
     }
 
-    private checkedRussetRogue: number;
+    private checkedRussetRogue: number = 0;
 
     //Implementation of TimeAwareInterface
     public timeChange(): boolean {

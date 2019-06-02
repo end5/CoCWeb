@@ -782,7 +782,7 @@ export class Bazaar extends BaseContent {
 
     private noCockSock(): void {
         this.clearOutput();
-        this.flags[kFLAGS.SOCK_HOLDING] = 0;
+        this.flags[kFLAGS.SOCK_HOLDING] = '';
         this.outputText("You shake your head.  Greta sighs, \"<i>Figures.  Here's your money back, honey.  Come back when you change your mind.</i>\"");
         //(Back to menu)
         this.menu();

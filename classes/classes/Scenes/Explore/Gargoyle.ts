@@ -106,36 +106,35 @@ export class Gargoyle extends BaseContent {
         this.outputText("\n\nThat raised more questions than it answered.  Taking things slow for now, you ask her name.\n\n\"<i>I... I am... I simply am.  What would Master call me?</i>\"");
 
         //[Display a textbox, into which the player can type in a name. This new value will be called " + flags[kFLAGS.GAR_NAME] + ", henceforth. ] (Confidence +10)
-        this.mainView.nameBox.text = "";
+
+        const input = document.createElement('input');
+        this.mainView.mainText.appendChild(input);
+
         this.menu();
-        this.addButton(0, "Next", this.nameZeGargoyle);
+        this.addButton(0, "Next", () => this.nameZeGargoyle(input));
     }
 
-    private nameZeGargoyle(): void {
-        if (kGAMECLASSs.testingBlockExiting) {
-            // We're running under the testing script.
-            // Stuff a name in the box and go go go
-            this.mainView.nameBox.text = "Derpgoyle";
-        }
-        else if (this.mainView.nameBox.text == "" || this.mainView.nameBox.text == "0") {
+    private nameZeGargoyle(input: HTMLInputElement): void {
+        // if (kGAMECLASS.testingBlockExiting) {
+        // We're running under the testing script.
+        // Stuff a name in the box and go go go
+        // this.mainView.nameBox.text = "Derpgoyle";
+        // }
+        // else if (this.mainView.nameBox.text == "" || this.mainView.nameBox.text == "0") {
+        if (input.value == "") {
             // Name flag is used to track access into Gargoyles content. Default is "0" so somewhere the "0" string is coalescing to integer 0.
             // Solution? Fuck you for naming your Gargoyle "0".
             this.clearOutput();
             this.outputText("<b>You must name her.</b>", false);
-            this.mainView.nameBox.text = "";
-            this.mainView.nameBox.visible = true;
-            this.mainView.nameBox.width = 165;
+            this.mainView.mainText.appendChild(input);
+
             this.menu();
-            this.mainView.nameBox.x = this.mainView.mainText.x + 5;
 
-            this.mainView.nameBox.y = this.mainView.mainText.y + 3 + this.mainView.mainText.textHeight;
-
-            this.addButton(0, "Next", this.nameZeGargoyle);
+            this.addButton(0, "Next", () => this.nameZeGargoyle(input));
             return;
         }
-        this.flags[kFLAGS.GAR_NAME] = this.mainView.nameBox.text;
-        this.mainView.nameBox.text = "";
-        this.mainView.nameBox.visible = false;
+        this.flags[kFLAGS.GAR_NAME] = input.value;
+
         this.clearOutput();
         this.outputText("\"<i>" + this.flags[kFLAGS.GAR_NAME] + ",</i>\" she purrs, \"<i>" + this.flags[kFLAGS.GAR_NAME] + ", " + this.flags[kFLAGS.GAR_NAME] + ".  Master has interesting taste.</i>\"");
 

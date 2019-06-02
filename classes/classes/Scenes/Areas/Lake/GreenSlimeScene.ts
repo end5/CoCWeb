@@ -618,7 +618,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
     }
 
 
-    private rapeOozeWithMilk(): void {
+    public rapeOozeWithMilk(): void {
         this.outputText("", true);
         this.outputText("You look over the ooze, wondering what to do about your need to nurse now that it has lost cohesion. After a while of puzzling things out, you decide to wing it, removing the top of your " + this.player.armorName + " and pressing the mess of a monster to your " + this.breastDescript(0) + " and giving it a squeeze to get the milk to it. The slime responds almost immediately, applying pressure from the base of your " + this.breastDescript(0) + " to the tip of your " + this.nippleDescript(0) + ", earning it a shot of milk to your immense satisfaction. As it tends to your " + this.nippleDescript(0) + ", it slowly works its way down your body, almost lovingly ", false);
 
