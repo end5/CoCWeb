@@ -1,4 +1,4 @@
-import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "./CoC";
 import { trace } from "console";
 
 export class PregnancyStore {

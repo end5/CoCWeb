@@ -1,4 +1,4 @@
-﻿import { kGAMECLASS } from "../GlobalFlags/kGAMECLASS";
+﻿import { kGAMECLASS } from "../CoC";
 import { arianLookups, rubiLookups } from "./npcLookups";
 
 // provides rubiLookups and arianLookups

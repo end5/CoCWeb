@@ -10,7 +10,7 @@ import { Useable } from "../Items/Useable";
 import { debug, trace } from "console";
 import { Armor } from "../Items/Armor";
 import { Weapon } from "../Items/Weapon";
-import { kGAMECLASS } from "../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../CoC";
 
 /**
  * Created by aimozg on 12.01.14.
@@ -142,7 +142,7 @@ export class Inventory extends BaseContent {
         this.addButton(9, "Back", this.playerMenu);
     }
 
-    public takeItem(itype: ItemType, nextAction: any, overrideAbandon?: any, source?: ItemSlotClass): void {
+    public takeItem(itype: ItemType | undefined, nextAction: any, overrideAbandon?: any, source?: ItemSlotClass): void {
         if (itype == undefined) {
             CoC_Settings.error("takeItem(undefined)");
             return;

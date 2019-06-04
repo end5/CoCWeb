@@ -9,7 +9,7 @@ import { PerkLib } from "../../PerkLib";
 import { CockTypesEnum } from "../../CockTypesEnum";
 import { FACE_DRAGON, HORNS_DRACONIC_X4_12_INCH_LONG, HORNS_DRACONIC_X2, HORNS_DEMON, EARS_DRAGON, TONUGE_DRACONIC, SKIN_TYPE_SCALES, LOWER_BODY_TYPE_DRAGON, LOWER_BODY_TYPE_DRIDER_LOWER_BODY, LOWER_BODY_TYPE_HOOFED, TAIL_TYPE_DRACONIC, TAIL_TYPE_NONE, WING_TYPE_DRACONIC_LARGE, WING_TYPE_NONE, WING_TYPE_DRACONIC_SMALL, WING_TYPE_SHARK_FIN, TONUGE_HUMAN } from "../../../../includes/appearanceDefs";
 import { Ember } from "./Ember";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../CoC";
 
 /**
  * Created by aimozg on 04.01.14.

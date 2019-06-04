@@ -6,7 +6,7 @@ import { StatusAffects } from "../../../StatusAffects";
 import { PerkLib } from "../../../PerkLib";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { PregnancyStore } from "../../../PregnancyStore";
-import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../../CoC";
 
 /**
  * Created by aimozg on 04.01.14.

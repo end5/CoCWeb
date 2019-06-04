@@ -26,7 +26,7 @@ import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { PregnancyStore } from "../../PregnancyStore";
 import { trace } from "console";
 import { ItemType } from "../../ItemType";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../CoC";
 import { PerkLib } from "../../PerkLib";
 
 /**

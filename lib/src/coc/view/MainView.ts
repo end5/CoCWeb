@@ -100,7 +100,7 @@ export class MainView {
 
     //////// Internal(?) view update methods ////////
 
-    public showBottomButton(index: number, label: string, callback = undefined, toolTipViewText: string = ''): void {
+    public showBottomButton(index: number, label: string, callback?: any, toolTipViewText: string = ''): void {
         // var buttonTF :TextField = this.bottomButtonTexts[ index ] as TextField,
         // 	buttonBG :MovieClip = this.bottomButtonBGs[ index ] as MovieClip;
         const button = this.bottomButtons[index];
@@ -228,6 +228,16 @@ export class MainView {
         this.hideMenuButton(MainView.MENU_PERKS);
         this.hideMenuButton(MainView.MENU_APPEARANCE);
     };
+
+    public hideCurrentBottomButtons() {
+        for (const button of this.bottomButtons)
+            button.visible = false;
+    }
+
+    public showCurrentBottomButtons() {
+        for (const button of this.bottomButtons)
+            button.visible = true;
+    }
 
     //////// misc... ////////
 

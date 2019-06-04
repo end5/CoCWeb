@@ -150,7 +150,7 @@ export class Helspawn extends Monster {
 
     public constructor() {
         super();
-        var weapon = this.game.flags[kFLAGS.HELSPAWN_WEAPON];
+        var weapon = this.game.flags[kFLAGS.HELSPAWN_WEAPON] || 'bow';
         this.a = "";
         this.short = this.game.flags[kFLAGS.HELSPAWN_NAME];
         this.imageName = "hollispawn";

@@ -1,15 +1,21 @@
 import { kFLAGS } from "./GlobalFlags/kFLAGS";
 
-export type Flags = FlagTypeOverrides & Record<Exclude<kFLAGS, keyof FlagTypeOverrides>, number>;
+export type Flags = FlagTypeOverrides & Record<Exclude<kFLAGS, keyof FlagTypeOverrides>, number> & Record<number, any>;
 
 type FlagTypeOverrides = {
+    [kFLAGS.LOW_STANDARDS_FOR_ALL]: boolean;
+    [kFLAGS.HYPER_HAPPY]: boolean;
+    [kFLAGS.SHOW_SPRITES_FLAG]: boolean;
     [kFLAGS.SILLY_MODE_ENABLE_FLAG]: boolean;
     [kFLAGS.BONUS_ITEM_AFTER_COMBAT_ID]: string;
     [kFLAGS.BENOIT_1]: string;
     [kFLAGS.BENOIT_2]: string;
     [kFLAGS.BENOIT_3]: string;
+    [kFLAGS.RIDDLE_ONE]: (() => void) | undefined;
+    [kFLAGS.RIDDLE_TWO]: (() => void) | undefined;
+    [kFLAGS.RIDDLE_THREE]: (() => void) | undefined;
     [kFLAGS.HELSPAWN_NAME]: string;
-    [kFLAGS.HELSPAWN_WEAPON]: 'bow' | 'scimitar' | 'scimitar and shield';
+    [kFLAGS.HELSPAWN_WEAPON]: 'bow' | 'scimitar' | 'scimitar and shield' | '';
     [kFLAGS.GAR_NAME]: string;
     [kFLAGS.MILK_NAME]: string;
     [kFLAGS.GOO_NAME]: string;
@@ -24,6 +30,7 @@ type FlagTypeOverrides = {
     [kFLAGS.SOCK_HOLDING]: string;
     [kFLAGS.AMILY_CLOTHING]: string;
     [kFLAGS.ARIAN_EGG_COLOR]: string;
+    [kFLAGS.NIEVE_MOUTH]: string;
     [kFLAGS.WHITNEY_TATTOO_COLLARBONE]: string;
     [kFLAGS.WHITNEY_TATTOO_SHOULDERS]: string;
     [kFLAGS.WHITNEY_TATTOO_LOWERBACK]: string;

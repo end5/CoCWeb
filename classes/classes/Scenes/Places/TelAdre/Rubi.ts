@@ -6,7 +6,7 @@ import { BreastStore } from "../../../BreastStore";
 import { PerkLib } from "../../../PerkLib";
 import { trace } from "console";
 import { ItemType } from "../../../ItemType";
-import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../../CoC";
 
 export class Rubi extends TelAdreAbstractContent {
 

@@ -1,5 +1,5 @@
 import { AbstractFarmContent } from "./AbstractFarmContent";
-import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../../CoC";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { trace } from "console";
 import { SimpleConsumable } from "../../../Items/Consumables/SimpleConsumable";

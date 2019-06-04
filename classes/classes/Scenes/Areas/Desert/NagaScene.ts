@@ -3,7 +3,7 @@ import { StatusAffects } from "../../../StatusAffects";
 import { LOWER_BODY_TYPE_NAGA, FACE_SNAKE_FANGS, VAGINA_WETNESS_SLAVERING, LOWER_BODY_TYPE_CENTAUR, LOWER_BODY_TYPE_GOO } from "../../../../../includes/appearanceDefs";
 import { Naga } from "./Naga";
 import { PerkLib } from "../../../PerkLib";
-import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../../CoC";
 
 export class NagaScene extends BaseContent {
     //NAGA STATUS

@@ -1,7 +1,7 @@
 import { BaseContent } from "../../BaseContent";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../../StatusAffects";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../CoC";
 
 export class Gargoyle extends BaseContent {
 

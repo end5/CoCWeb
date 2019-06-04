@@ -3,7 +3,7 @@ import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../../../StatusAffects";
 import { PerkType } from "../../../PerkType";
 import { PerkLib } from "../../../PerkLib";
-import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../../CoC";
 
 /**
  * Whee!

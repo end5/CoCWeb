@@ -8,7 +8,7 @@ import { trace } from "console";
 import { CockTypesEnum } from "./CockTypesEnum";
 import { PerkType } from "./PerkType";
 import { StatusAffects } from "./StatusAffects";
-import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "./CoC";
 import { PerkLib } from "./PerkLib";
 import { MainView } from "../../lib/src/coc/view/MainView";
 import { Flags } from "./FlagTypeOverrides";
@@ -172,9 +172,9 @@ export class CharCreation extends BaseContent {
         this.flags = {} as Flags;
 
         //Remember silly/sprite/etc
-        if (sprite) this.flags[kFLAGS.SHOW_SPRITES_FLAG] = 1;
+        if (sprite) this.flags[kFLAGS.SHOW_SPRITES_FLAG] = true;
         if (easy) this.flags[kFLAGS.EASY_MODE_ENABLE_FLAG] = 1;
-        if (silly) this.flags[kFLAGS.SILLY_MODE_ENABLE_FLAG] = 1;
+        if (silly) this.flags[kFLAGS.SILLY_MODE_ENABLE_FLAG] = true;
         //Set that jojo debug doesn't need to run
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00102] = 1;
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_02999] = 3;

@@ -12,7 +12,7 @@ import { StatusAffects } from "../../StatusAffects";
 import { CockTypesEnum } from "../../CockTypesEnum";
 import { Katherine } from "../Places/TelAdre/Katherine";
 import { PerkLib } from "../../PerkLib";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../CoC";
 
 export class Urta extends NPCAwareContent implements TimeAwareInterface {
 

@@ -4,7 +4,7 @@ import { FemaleSpiderMorphScene } from "./Swamp/FemaleSpiderMorphScene";
 import { MaleSpiderMorphScene } from "./Swamp/MaleSpiderMorphScene";
 import { Rogar } from "./Swamp/Rogar";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../CoC";
 
 /**
  * Created by aimozg on 06.01.14.

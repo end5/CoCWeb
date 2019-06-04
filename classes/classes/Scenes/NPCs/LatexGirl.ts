@@ -6,7 +6,7 @@ import { CockTypesEnum } from "../../CockTypesEnum";
 import { ItemType } from "../../ItemType";
 import { PerkLib } from "../../PerkLib";
 import { StatusAffects } from "../../StatusAffects";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../CoC";
 
 export class LatexGirl extends NPCAwareContent {
     //const GOO_TFED_MEAN: number = 654;

@@ -5,7 +5,7 @@ import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { CoC } from "../../../CoC";
 import { trace } from "console";
 import { StatusAffects } from "../../../StatusAffects";
-import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../../CoC";
 
 export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface {
 

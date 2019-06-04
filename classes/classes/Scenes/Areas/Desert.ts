@@ -8,7 +8,7 @@ import { Wanderer } from "./Desert/Wanderer";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../../StatusAffects";
 import { PregnancyStore } from "../../PregnancyStore";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../CoC";
 
 /**
  * Created by aimozg on 06.01.14.

@@ -389,7 +389,7 @@ export class Character extends Creature {
         //12 - rootail
         //13 - foxtail
         //14 - dagron tail
-        if (isNaga())
+        if (this.isNaga())
             return true;
         if (this.tailType == 2 || this.tailType == 3 || this.tailType == 4 || this.tailType == 7 || this.tailType == 8 || this.tailType == 9 || this.tailType == 12 || this.tailType == 13 || this.tailType == 14)
             return true;
@@ -414,15 +414,15 @@ export class Character extends Creature {
         if (arg <= -1)
             bonus = -9000;
         //If unpregnant and fertility wins out:
-        if (this.pregnancyIncubation == 0 && totalFertility() + bonus > Math.floor(Math.random() * beat) && hasVagina()) {
+        if (this.pregnancyIncubation == 0 && this.totalFertility() + bonus > Math.floor(Math.random() * beat) && this.hasVagina()) {
             this.knockUpForce(type, incubation);
             trace("PC Knocked up with pregnancy type: " + type + " for " + incubation + " incubation.");
         }
         //Chance for eggs fertilization - ovi elixir and imps excluded!
         if (type != PregnancyStore.PREGNANCY_IMP && type != PregnancyStore.PREGNANCY_OVIELIXIR_EGGS && type != PregnancyStore.PREGNANCY_ANEMONE) {
             if (this.findPerk(PerkLib.SpiderOvipositor) >= 0 || this.findPerk(PerkLib.BeeOvipositor) >= 0) {
-                if (totalFertility() + bonus > Math.floor(Math.random() * beat)) {
-                    fertilizeEggs();
+                if (this.totalFertility() + bonus > Math.floor(Math.random() * beat)) {
+                    this.fertilizeEggs();
                 }
             }
         }
@@ -447,7 +447,7 @@ export class Character extends Creature {
         if (arg <= -1)
             bonus = -9000;
         //If unpregnant and fertility wins out:
-        if (this.buttPregnancyIncubation == 0 && totalFertility() + bonus > Math.floor(Math.random() * beat)) {
+        if (this.buttPregnancyIncubation == 0 && this.totalFertility() + bonus > Math.floor(Math.random() * beat)) {
             this.buttKnockUpForce(type, incubation);
             trace("PC Butt Knocked up with pregnancy type: " + type + " for " + incubation + " incubation.");
         }
@@ -696,7 +696,7 @@ export class Character extends Creature {
        return "massive custom-made";
      }*/
     public viridianChange(): boolean {
-        var count: number = cockTotal();
+        var count: number = this.cockTotal();
         if (count == 0)
             return false;
         while (count > 0) {
@@ -708,7 +708,7 @@ export class Character extends Creature {
     }
 
     public hasKnot(arg: number = 0): boolean {
-        if (arg > cockTotal() - 1 || arg < 0)
+        if (arg > this.cockTotal() - 1 || arg < 0)
             return false;
         return (this.cocks[arg].cockType == CockTypesEnum.DOG || this.cocks[arg].cockType == CockTypesEnum.FOX || this.cocks[arg].cockType == CockTypesEnum.DISPLACER);
     }
@@ -716,7 +716,7 @@ export class Character extends Creature {
 
     public maxHP(): number {
         var max: number = 0;
-        max += int(this.tou * 2 + 50);
+        max += Math.floor(this.tou * 2 + 50);
         if (this.findPerk(PerkLib.Tank) >= 0) max += 50;
         if (this.findPerk(PerkLib.Tank2) >= 0) max += Math.round(this.tou);
         if (this.findPerk(PerkLib.ChiReflowDefense) >= 0) max += UmasShop.NEEDLEWORK_DEFENSE_EXTRA_HP;

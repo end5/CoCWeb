@@ -6,7 +6,7 @@ import { PerkLib } from "../../PerkLib";
 import { trace } from "console";
 import { CockTypesEnum } from "../../CockTypesEnum";
 import { TAIL_TYPE_NONE } from "../../../../includes/appearanceDefs";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../CoC";
 
 /**
  * Created by aimozg on 03.01.14.

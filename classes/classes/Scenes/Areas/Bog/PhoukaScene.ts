@@ -5,7 +5,7 @@ import { StatusAffects } from "../../../StatusAffects";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { Phouka } from "./Phouka";
 import { PregnancyStore } from "../../../PregnancyStore";
-import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../../CoC";
 
 /**
  * Created by K.Quesom 11.06.14

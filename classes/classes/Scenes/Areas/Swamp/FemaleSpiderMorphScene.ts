@@ -6,7 +6,7 @@ import { CoC } from "../../../CoC";
 import { trace } from "console";
 import { FemaleSpiderMorph } from "./FemaleSpiderMorph";
 import { TONUGE_SNAKE, TONUGE_DEMONIC } from "../../../../../includes/appearanceDefs";
-import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../../CoC";
 
 /**
  * Created by aimozg on 03.01.14.

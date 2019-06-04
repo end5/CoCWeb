@@ -11,7 +11,7 @@ import { Minotaur } from "../Mountain/Minotaur";
 import { Gnoll } from "../Plains/Gnoll";
 import { TONUGE_SNAKE, VAGINA_LOOSENESS_GAPING } from "../../../../../includes/appearanceDefs";
 import { PerkLib } from "../../../PerkLib";
-import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../../CoC";
 
 /**
  * Created by aimozg on 05.01.14.

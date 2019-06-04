@@ -2,7 +2,7 @@ import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 import { StatusAffects } from "../../../StatusAffects";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { CockTypesEnum } from "../../../CockTypesEnum";
-import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../../CoC";
 
 export class Lottie extends TelAdreAbstractContent {
 

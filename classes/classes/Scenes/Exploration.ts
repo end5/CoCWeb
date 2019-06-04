@@ -2,7 +2,7 @@
 import { ExploreDebug } from "./Explore/ExploreDebug";
 import { Giacomo } from "./Explore/Giacomo";
 import { kFLAGS } from "../GlobalFlags/kFLAGS";
-import { kGAMECLASS } from "../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../CoC";
 import { StatusAffects } from "../StatusAffects";
 import { debug } from "console";
 import { LOWER_BODY_TYPE_HUMAN, LOWER_BODY_TYPE_HOOFED, LOWER_BODY_TYPE_DOG, LOWER_BODY_TYPE_NAGA, VAGINA_WETNESS_DROOLING } from "../../../includes/appearanceDefs";
@@ -143,7 +143,7 @@ export class Exploration extends BaseContent {
             }
             else if (choosey == 2) {
                 this.player.explored++;
-                if (this.flags[kFLAGS.GAR_NAME] == 0) kGAMECLASS.gargoyle.gargoylesTheShowNowOnWBNetwork();
+                if (this.flags[kFLAGS.GAR_NAME] == '') kGAMECLASS.gargoyle.gargoylesTheShowNowOnWBNetwork();
                 else kGAMECLASS.gargoyle.returnToCathedral();
                 return;
             }

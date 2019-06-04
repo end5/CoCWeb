@@ -1,7 +1,7 @@
 import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../../../StatusAffects";
-import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../../CoC";
 import { CockTypesEnum } from "../../../CockTypesEnum";
 import { PerkLib } from "../../../PerkLib";
 

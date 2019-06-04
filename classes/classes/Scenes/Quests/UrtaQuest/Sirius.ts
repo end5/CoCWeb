@@ -1,6 +1,6 @@
 import { Naga } from "../../Areas/Desert/Naga";
 import { StatusAffects } from "../../../StatusAffects";
-import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../../CoC";
 import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_AMPLE, BUTT_RATING_LARGE, LOWER_BODY_TYPE_NAGA } from "../../../../../includes/appearanceDefs";
 
 export class Sirius extends Naga {

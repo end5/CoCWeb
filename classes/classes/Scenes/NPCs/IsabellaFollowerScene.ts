@@ -4,7 +4,7 @@ import { CockTypesEnum } from "../../CockTypesEnum";
 import { TONUGE_DEMONIC, TONUGE_SNAKE, TONUGE_DRACONIC, LOWER_BODY_TYPE_HOOFED, HORNS_COW_MINOTAUR, HORNS_NONE, EARS_COW, TAIL_TYPE_COW, TAIL_TYPE_NONE } from "../../../../includes/appearanceDefs";
 import { Isabella } from "./Isabella";
 import { StatusAffects } from "../../StatusAffects";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../CoC";
 
 
 export class IsabellaFollowerScene extends NPCAwareContent {

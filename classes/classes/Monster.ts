@@ -19,7 +19,7 @@ import { ItemType } from "./ItemType";
 import { kFLAGS } from "./GlobalFlags/kFLAGS";
 import { SecretarialSuccubus } from "./Scenes/Dungeons/Factory/SecretarialSuccubus";
 import { MilkySuccubus } from "./Scenes/Quests/UrtaQuest/MilkySuccubus";
-import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "./CoC";
 import { RandomDrop } from "./internals/RandomDrop";
 import { PerkLib } from "./PerkLib";
 import { OtherKeys, StatKeys } from "../../lib/src/coc/view/StatsView";
@@ -1164,7 +1164,7 @@ export class Monster extends Creature {
         }
     }
 
-    public handleAwardItemText(itype: ItemType): void { //New Function, override this function in child classes if you want a monster to output special item drop text
+    public handleAwardItemText(itype?: ItemType): void { //New Function, override this function in child classes if you want a monster to output special item drop text
         if (itype != undefined) this.outputText("\nThere is " + itype.longName + " on your defeated opponent.  ");
     }
 

@@ -9,7 +9,7 @@ import { PerkLib } from "../../PerkLib";
 import { Marble } from "./Marble";
 import { EARS_HUMAN, VAGINA_WETNESS_WET, VAGINA_WETNESS_SLICK, LOWER_BODY_TYPE_CENTAUR, TONUGE_SNAKE, TONUGE_DEMONIC, TONUGE_HUMAN } from "../../../../includes/appearanceDefs";
 import { ItemType } from "../../ItemType";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../CoC";
 
 export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
 

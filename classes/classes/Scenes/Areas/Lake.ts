@@ -11,7 +11,7 @@ import { StatusAffects } from "../../StatusAffects";
 import { GreenSlime } from "./Lake/GreenSlime";
 import { CockTypesEnum } from "../../CockTypesEnum";
 import { TONUGE_DEMONIC } from "../../../../includes/appearanceDefs";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../CoC";
 
 /**
  * Created by aimozg on 06.01.14.

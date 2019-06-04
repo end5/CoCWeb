@@ -1,6 +1,6 @@
 ﻿import { BaseContent } from "../../../BaseContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../../CoC";
 import { GnollSpearThrower } from "./GnollSpearThrower";
 import { TAIL_TYPE_NONE, LOWER_BODY_TYPE_GOO } from "../../../../../includes/appearanceDefs";
 

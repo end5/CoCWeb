@@ -5,7 +5,7 @@ import { ImageSets, ImageExtensions } from "./ImageSets";
  * @author Yoffy, Fake-Name
  */
 
-type ImageSetKey = keyof typeof ImageSets;
+export type ImageSetKey = keyof typeof ImageSets;
 
 export class ImageManager {
     //Hashmap of all images

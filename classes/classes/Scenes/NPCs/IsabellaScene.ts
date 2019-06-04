@@ -8,7 +8,7 @@ import { StatusAffects } from "../../StatusAffects";
 import { HORNS_NONE, WING_TYPE_NONE, WING_TYPE_SHARK_FIN, TONUGE_HUMAN } from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
 import { CockTypesEnum } from "../../CockTypesEnum";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../CoC";
 
 export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface {
     //Isabella Flags:

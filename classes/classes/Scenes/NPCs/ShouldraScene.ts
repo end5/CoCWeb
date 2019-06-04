@@ -5,7 +5,7 @@ import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../../StatusAffects";
 import { FACE_HUMAN, LOWER_BODY_TYPE_HUMAN, TAIL_TYPE_NONE } from "../../../../includes/appearanceDefs";
 import { Shouldra } from "./Shouldra";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../CoC";
 
 export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface {
 

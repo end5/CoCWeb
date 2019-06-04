@@ -58,8 +58,15 @@ export class BreastStore extends Utils implements SaveAwareInterface {
 
     public updateBeforeSave(game: CoC): void {
         if (this._breastFlag < 1 || this._breastFlag > BreastStore.MAX_FLAG_VALUE) return;
-        game.flags[this._breastFlag] = BreastStore.BREAST_STORE_VERSION_1 + "^" + this.rows + "^" + this.cupSize + "^" + this.lactationLevel + "^" + this.nippleLength + "^" + this._fullness + "^" + this._timesMilked
-            + "^" + this.preventLactationIncrease + "^" + this.preventLactationDecrease;
+        game.flags[this._breastFlag] = BreastStore.BREAST_STORE_VERSION_1 + "^" +
+            this.rows + "^" +
+            this.cupSize + "^" +
+            this.lactationLevel + "^" +
+            this.nippleLength + "^" +
+            this._fullness + "^" +
+            this._timesMilked + "^" +
+            this.preventLactationIncrease + "^" +
+            this.preventLactationDecrease;
     }
     //End of Interface Implementation
 

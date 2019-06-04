@@ -13,7 +13,7 @@ import { ArmorLib } from "./Items/ArmorLib";
 import { Inventory } from "./Scenes/Inventory";
 import { TimeModel } from "../coc/model/TimeModel";
 import { GameModel } from "../coc/model/GameModel";
-import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "./CoC";
 import { MainView } from "../../lib/src/coc/view/MainView";
 import { OtherKeys, StatKeys } from "../../lib/src/coc/view/StatsView";
 import { ASDate } from "./ASDate";
@@ -177,7 +177,7 @@ export class BaseContent extends Utils {
     }
 
     protected createCallBackFunction2(func: any, ...args: any[]) {
-        return kGAMECLASS.createCallBackFunction2.apply(undefined, [func].concat(args));
+        return kGAMECLASS.createCallBackFunction2.apply(undefined, ([func].concat(args) as [any, ...any[]]));
     }
 
     protected startCombat(monster_: Monster, plotFight_: boolean = false): void {
@@ -258,9 +258,9 @@ export class BaseContent extends Utils {
         kGAMECLASS.addButton(pos, text, func1, arg1);
     }
 
-    protected hasButton(arg: any): boolean {
-        return kGAMECLASS.hasButton(arg);
-    }
+    // protected hasButton(arg: any): boolean {
+    //     return kGAMECLASS.hasButton(arg);
+    // }
 
     /* Replaced by Utils.formatStringArray, which does almost the same thing in one function
             protected  clearList(): void{

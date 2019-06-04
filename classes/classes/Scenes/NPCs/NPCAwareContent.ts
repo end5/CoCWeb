@@ -34,7 +34,7 @@ import { UrtaPregs } from "./UrtaPregs";
 import { UrtaHeatRut } from "./UrtaHeatRut";
 import { Valeria } from "./Valeria";
 import { Vapula } from "./Vapula";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../CoC";
 import { TelAdre } from "../Places/TelAdre";
 
 /**

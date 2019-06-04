@@ -1,5 +1,5 @@
 import { NPCAwareContent } from "./NPCs/NPCAwareContent";
-import { kGAMECLASS } from "../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../CoC";
 import { ItemType } from "../ItemType";
 import { StatusAffects } from "../StatusAffects";
 import { kFLAGS } from "../GlobalFlags/kFLAGS";
@@ -234,7 +234,7 @@ export class Camp extends NPCAwareContent {
             this.helSpawnScene.helspawnDiscoversBooze();
             return;
         }
-        if (this.flags[kFLAGS.HELSPAWN_AGE] == 2 && this.flags[kFLAGS.HELSPAWN_WEAPON] == 0 && this.flags[kFLAGS.HELSPAWN_GROWUP_COUNTER] == 3 && this.model.time.hours >= 10 && this.model.time.hours <= 18) {
+        if (this.flags[kFLAGS.HELSPAWN_AGE] == 2 && this.flags[kFLAGS.HELSPAWN_WEAPON] == '' && this.flags[kFLAGS.HELSPAWN_GROWUP_COUNTER] == 3 && this.model.time.hours >= 10 && this.model.time.hours <= 18) {
             this.hideMenus();
             this.helSpawnScene.helSpawnChoosesAFightingStyle();
             return;
@@ -1107,7 +1107,7 @@ export class Camp extends NPCAwareContent {
             if (this.model.time.hours == 4) this.timeQ = 2;
             if (this.model.time.hours == 5) this.timeQ = 1;
             //Autosave stuff		
-            if (this.player.slotName != "VOID" && this.player.autoSave && this.mainView.getButtonText(0) != "Game Over") {
+            if (this.player.slotName != "VOID" && this.player.autoSave && this.mainView.bottomButtons[0].labelText != "Game Over") {
                 trace("Autosaving to slot: " + this.player.slotName);
 
                 this.getGame().saves.saveGame(this.player.slotName);
@@ -1289,7 +1289,7 @@ export class Camp extends NPCAwareContent {
         if (this.flags[kFLAGS.BAZAAR_ENTERED] > 0) this.addButton(0, "Bazaar", this.getGame().bazaar.enterTheBazaar);
         if (this.player.findStatusAffect(StatusAffects.BoatDiscovery) >= 0) this.addButton(1, "Boat", this.getGame().boat.boatExplore);
         if (this.flags[kFLAGS.FOUND_CATHEDRAL] == 1) {
-            if (this.flags[kFLAGS.GAR_NAME] == 0)
+            if (this.flags[kFLAGS.GAR_NAME] == '')
                 this.addButton(2, "Cathedral", this.getGame().gargoyle.gargoylesTheShowNowOnWBNetwork);
             else this.addButton(2, "Cathedral", this.getGame().gargoyle.returnToCathedral);
         }

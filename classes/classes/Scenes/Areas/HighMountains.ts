@@ -9,7 +9,7 @@ import { PerkLib } from "../../PerkLib";
 import { trace } from "console";
 import { Harpy } from "./HighMountains/Harpy";
 import { ItemType } from "../../ItemType";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../CoC";
 
 /**
  * Created by aimozg on 06.01.14.

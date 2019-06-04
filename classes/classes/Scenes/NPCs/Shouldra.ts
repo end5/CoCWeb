@@ -4,7 +4,7 @@ import { VAGINA_WETNESS_WET, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_TIGHT, ANAL
 import { StatusAffects } from "../../StatusAffects";
 import { Appearance } from "../../Appearance";
 import { ChainedDrop } from "../../internals/ChainedDrop";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../CoC";
 
 /**
  * ...

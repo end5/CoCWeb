@@ -1,4 +1,4 @@
-﻿import { kGAMECLASS } from "../GlobalFlags/kGAMECLASS";
+﻿import { kGAMECLASS } from "../CoC";
 import { kFLAGS } from "../GlobalFlags/kFLAGS";
 
 

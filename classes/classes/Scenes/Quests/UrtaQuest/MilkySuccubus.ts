@@ -1,6 +1,6 @@
 import { AbstractSuccubus } from "../../Monsters/AbstractSuccubus";
 import { StatusAffects } from "../../../StatusAffects";
-import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../../CoC";
 import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_SLIME_DROOLING, HIP_RATING_CURVY, BUTT_RATING_LARGE, LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS, HORNS_DRACONIC_X2, WING_TYPE_BAT_LIKE_TINY, TAIL_TYPE_DEMONIC } from "../../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 

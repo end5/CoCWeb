@@ -1,6 +1,6 @@
 import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../../CoC";
 import { PerkLib } from "../../../PerkLib";
 
 export class BakeryScene extends TelAdreAbstractContent {

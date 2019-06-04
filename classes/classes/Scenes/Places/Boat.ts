@@ -3,7 +3,7 @@ import { SharkGirlScene } from "./Boat/SharkGirlScene";
 import { Marae } from "./Boat/Marae";
 import { StatusAffects } from "../../StatusAffects";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../CoC";
 
 /**
  * Created by aimozg on 06.01.14.

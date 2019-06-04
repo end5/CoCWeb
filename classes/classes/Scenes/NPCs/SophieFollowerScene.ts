@@ -4,7 +4,7 @@ import { Sophie } from "./Sophie";
 import { StatusAffects } from "../../StatusAffects";
 import { TONUGE_HUMAN, TONUGE_DRACONIC } from "../../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../CockTypesEnum";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../CoC";
 
 
 export class SophieFollowerScene extends NPCAwareContent {

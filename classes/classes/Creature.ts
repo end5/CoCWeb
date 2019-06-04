@@ -13,7 +13,7 @@ import { CockTypesEnum } from "./CockTypesEnum";
 import { Appearance } from "./Appearance";
 import { StatusAffects } from "./StatusAffects";
 import { BreastStore } from "./BreastStore";
-import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "./CoC";
 import { GENDER_NONE, HAIR_NORMAL, SKIN_TYPE_PLAIN, FACE_HUMAN, EARS_HUMAN, HORNS_NONE, WING_TYPE_NONE, LOWER_BODY_TYPE_HUMAN, TAIL_TYPE_NONE, HIP_RATING_BOYISH, BUTT_RATING_BUTTLESS, ANTENNAE_NONE, EYES_HUMAN, TONUGE_HUMAN, ARM_TYPE_HUMAN, GENDER_HERM, GENDER_MALE, GENDER_FEMALE, VAGINA_LOOSENESS_NORMAL, VAGINA_LOOSENESS_LEVEL_CLOWN_CAR, LOWER_BODY_TYPE_NAGA, LOWER_BODY_TYPE_CENTAUR, LOWER_BODY_TYPE_GOO, LOWER_BODY_TYPE_PONY, LOWER_BODY_TYPE_DRIDER_LOWER_BODY } from "../../includes/appearanceDefs";
 import { PerkClass } from "./PerkClass";
 import { PerkLib } from "./PerkLib";

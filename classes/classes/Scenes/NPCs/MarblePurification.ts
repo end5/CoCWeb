@@ -2,7 +2,7 @@
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../../StatusAffects";
 import { Clara } from "./Clara";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { kGAMECLASS } from "../../CoC";
 
 //MARBLE_BOYS = Number of boys birthed
 //MARBLE_PURIFIED = Marble purified
