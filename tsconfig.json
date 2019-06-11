@@ -1,13 +1,14 @@
 {
     "compilerOptions": {
         "target": "es6",
-        "module": "commonjs",
+        "module": "amd",
         "sourceMap": true,
         "outDir": "Build",
         "strict": true,
-        "noUnusedLocals": true,
+        "noUnusedLocals": false,
         "forceConsistentCasingInFileNames": true,
         "noImplicitReturns": true,
     },
+    "files": ["Loader.ts"],
     "include": ["classes", "lib"]
 }

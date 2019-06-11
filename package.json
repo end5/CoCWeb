@@ -1,23 +1,20 @@
 {
-  "name": "corruption-of-champions-master",
-  "version": "1.0.0",
-  "description": "Corruption-of-Champions =======================",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "file-saver": "^2.0.2",
-    "typescript": "^3.4.5"
-  },
-  "devDependencies": {
-    "@types/file-saver": "^2.0.1",
-    "@types/node": "^12.0.2"
-  }
+    "name": "corruption-of-champions-master",
+    "version": "1.0.0",
+    "description": "Corruption-of-Champions Web Port",
+    "scripts": {
+        "init": "node init.js",
+        "build": "tsc"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "file-saver": "^2.0.2",
+        "requirejs": "^2.3.6",
+        "typescript": "^3.4.5"
+    },
+    "devDependencies": {
+        "@types/file-saver": "^2.0.1",
+        "@types/node": "^12.0.2"
+    }
 }

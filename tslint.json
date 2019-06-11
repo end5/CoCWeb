@@ -20,6 +20,7 @@
         "object-literal-sort-keys": false,
         "no-console": false,
         "no-null-keyword": true,
+        "triple-equals": false,
         "variable-name": [
             true,
             "ban-keywords",
