@@ -3,7 +3,7 @@ import { TimeAwareInterface } from "../../TimeAwareInterface";
 import { PregnancyStore } from "../../PregnancyStore";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { CoC } from "../../CoC";
-import { trace, debug } from "console";
+import { trace } from "../../../console";
 import { StatusAffects } from "../../StatusAffects";
 import { PerkLib } from "../../PerkLib";
 import { CockTypesEnum } from "../../CockTypesEnum";
@@ -1415,7 +1415,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.clearOutput();
         this.outputText("You ask Ember if " + this.emberMF("he", "she") + " would be willing to give you a taste of " + this.emberMF("his", "her") + " blood, desirous of the power that lies within it.");
         //(If Ember hasn't recovered from the last time " + emberMF("he","she") + " shared her blood)
-        if (this.flags[kFLAGS.DRANK_EMBER_BLOOD_TODAY] == 1 && !debug) {
+        if (this.flags[kFLAGS.DRANK_EMBER_BLOOD_TODAY] == 1 && !this.debug) {
             this.outputText("\n\n\"<i>Sorry, but I'm still recovering from last time, so no blood for you,</i>\" Ember states matter-of-factly.");
             this.doNext(this.playerMenu);
             return;

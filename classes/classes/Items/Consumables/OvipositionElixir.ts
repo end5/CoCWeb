@@ -2,7 +2,7 @@ import { Consumable } from "../Consumable";
 import { PregnancyStore } from "../../PregnancyStore";
 import { StatusAffects } from "../../StatusAffects";
 import { Utils } from "../../internals/Utils";
-import { trace } from "console";
+import { trace } from "../../../console";
 
 /**
  * Created by aimozg on 18.01.14.

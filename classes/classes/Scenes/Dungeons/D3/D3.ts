@@ -7,7 +7,7 @@ import { SuccubusGardenerScenes } from "./SuccubusGardenerScenes";
 import { HermCentaurScenes } from "./HermCentaurScenes";
 import { room } from "../../../room";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { trace } from "console";
+import { trace } from "../../../../console";
 import { SimpleConsumable } from "../../../Items/Consumables/SimpleConsumable";
 import { SuccubusGardener } from "./SuccubusGardener";
 

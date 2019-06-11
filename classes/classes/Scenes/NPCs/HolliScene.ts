@@ -3,7 +3,7 @@ import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { Holli } from "./Holli";
 import { PerkLib } from "../../PerkLib";
 import { StatusAffects } from "../../StatusAffects";
-import { trace } from "console";
+import { trace } from "../../../console";
 import { PregnancyStore } from "../../PregnancyStore";
 import { CockTypesEnum } from "../../CockTypesEnum";
 import { SKIN_TYPE_FUR, SKIN_TYPE_SCALES } from "../../../../includes/appearanceDefs";

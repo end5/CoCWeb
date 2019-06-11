@@ -1,7 +1,7 @@
 import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { trace } from "console";
+import { trace } from "../../../../console";
 import { VAGINA_WETNESS_SLICK, VAGINA_LOOSENESS_GAPING_WIDE, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_INHUMANLY_WIDE, BUTT_RATING_EXPANSIVE, LOWER_BODY_TYPE_HARPY, SKIN_TYPE_PLAIN, WING_TYPE_HARPY } from "../../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 import { ChainedDrop } from "../../../internals/ChainedDrop";

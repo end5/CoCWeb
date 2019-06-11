@@ -1,6 +1,6 @@
 import { BaseContent } from "./BaseContent";
 import { kGAMECLASS } from "./CoC";
-import { trace } from "console";
+import { trace } from "../console";
 import { kFLAGS } from "./GlobalFlags/kFLAGS";
 import { CoC } from "./CoC";
 import { Player } from "./Player";

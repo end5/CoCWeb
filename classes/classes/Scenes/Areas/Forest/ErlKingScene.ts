@@ -1,6 +1,6 @@
 import { BaseContent } from "../../../BaseContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { trace } from "console";
+import { trace } from "../../../../console";
 import { PerkLib } from "../../../PerkLib";
 import { StatusAffects } from "../../../StatusAffects";
 import { WING_TYPE_NONE, TAIL_TYPE_NONE, SKIN_TYPE_FUR, LOWER_BODY_TYPE_DOG, FACE_DOG } from "../../../../../includes/appearanceDefs";

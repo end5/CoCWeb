@@ -3,7 +3,7 @@ import { TimeAwareInterface } from "../../../TimeAwareInterface";
 import { PregnancyStore } from "../../../PregnancyStore";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { CoC } from "../../../CoC";
-import { trace } from "console";
+import { trace } from "../../../../console";
 import { LOWER_BODY_TYPE_CENTAUR, SKIN_TYPE_FUR } from "../../../../../includes/appearanceDefs";
 import { PerkLib } from "../../../PerkLib";
 import { CockTypesEnum } from "../../../CockTypesEnum";

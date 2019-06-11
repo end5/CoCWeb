@@ -1,7 +1,7 @@
 import { AbstractLakeContent } from "./AbstractLakeContent";
 import { CockTypesEnum } from "../../../CockTypesEnum";
 import { CoC_Settings } from "../../../CoC_Settings";
-import { trace } from "console";
+import { trace } from "../../../../console";
 import { StatusAffects } from "../../../StatusAffects";
 
 export class GreenSlimeScene extends AbstractLakeContent {

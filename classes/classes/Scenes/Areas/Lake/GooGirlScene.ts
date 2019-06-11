@@ -1,6 +1,6 @@
 import { AbstractLakeContent } from "./AbstractLakeContent";
 import { GooGirl } from "./GooGirl";
-import { trace } from "console";
+import { trace } from "../../../../console";
 import { CoC_Settings } from "../../../CoC_Settings";
 import { StatusAffects } from "../../../StatusAffects";
 import { PerkLib } from "../../../PerkLib";

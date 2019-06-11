@@ -85,7 +85,7 @@ import { TelAdre } from "./Scenes/Places/TelAdre";
 import { PerkClass } from "./PerkClass";
 import { Appearance } from "./Appearance";
 import { PregnancyStore } from "./PregnancyStore";
-import { trace } from "console";
+import { trace } from "../console";
 import { ItemType } from "./ItemType";
 import { Ceraph } from "./Scenes/NPCs/Ceraph";
 import { Izumi } from "./Scenes/Areas/HighMountains/Izumi";

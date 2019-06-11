@@ -1,7 +1,7 @@
 import { AbstractFarmContent } from "./AbstractFarmContent";
 import { kGAMECLASS } from "../../../CoC";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { trace } from "console";
+import { trace } from "../../../../console";
 import { SimpleConsumable } from "../../../Items/Consumables/SimpleConsumable";
 import { StatusAffects } from "../../../StatusAffects";
 import { EYES_FOUR_SPIDER_EYES, LOWER_BODY_TYPE_HOOFED, LOWER_BODY_TYPE_NAGA, LOWER_BODY_TYPE_GOO, LOWER_BODY_TYPE_PONY, LOWER_BODY_TYPE_DEMONIC_CLAWS, LOWER_BODY_TYPE_LIZARD, LOWER_BODY_TYPE_HARPY, LOWER_BODY_TYPE_DRAGON, TONUGE_SNAKE } from "../../../../../includes/appearanceDefs";

@@ -3,7 +3,7 @@ import { CockTypesEnum } from "../CockTypesEnum";
 import { StatusAffects } from "../StatusAffects";
 import { kFLAGS } from "../GlobalFlags/kFLAGS";
 import { VAGINA_WETNESS_DRY, VAGINA_WETNESS_NORMAL, VAGINA_WETNESS_WET, VAGINA_WETNESS_SLICK, VAGINA_WETNESS_DROOLING, VAGINA_WETNESS_SLAVERING, TAIL_TYPE_NONE } from "../../../includes/appearanceDefs";
-import { trace } from "console";
+import { trace } from "../../console";
 import { PerkLib } from "../PerkLib";
 
 //	import classes.Scenes.NPCs.*;

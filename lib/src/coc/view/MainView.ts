@@ -1,5 +1,5 @@
 ﻿import { StatsView } from "./StatsView";
-import { trace } from "console";
+import { trace } from "../../../../classes/console";
 import { CoCButton } from "./CoCButton";
 import { GameModel } from "../../../../classes/coc/model/GameModel";
 import { kFLAGS } from "../../../../classes/classes/GlobalFlags/kFLAGS";

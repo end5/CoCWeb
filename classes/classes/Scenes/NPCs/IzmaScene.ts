@@ -3,7 +3,7 @@ import { TimeAwareInterface } from "../../TimeAwareInterface";
 import { PregnancyStore } from "../../PregnancyStore";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { CoC } from "../../CoC";
-import { trace, debug } from "console";
+import { trace } from "../../../console";
 import { StatusAffects } from "../../StatusAffects";
 import { Izma } from "./Izma";
 import { Appearance } from "../../Appearance";
@@ -59,7 +59,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             this.sophieBimbo.sophieAndIzmaPlay();
             return true;
         }
-        if (this.checkedIzmaLatexy++ == 0 && this.izmaFollower() && this.flags[kFLAGS.FOLLOWER_AT_FARM_IZMA] == 0 && this.flags[kFLAGS.IZMA_NO_COCK] == 0 && this.latexGirl.latexGooFollower() && this.flags[kFLAGS.FOLLOWER_AT_FARM_LATEXY] == 0 && this.flags[kFLAGS.TIMES_IZMA_DOMMED_LATEXY] == 0 && (debug || IzmaScene.rand(10) == 0)) {
+        if (this.checkedIzmaLatexy++ == 0 && this.izmaFollower() && this.flags[kFLAGS.FOLLOWER_AT_FARM_IZMA] == 0 && this.flags[kFLAGS.IZMA_NO_COCK] == 0 && this.latexGirl.latexGooFollower() && this.flags[kFLAGS.FOLLOWER_AT_FARM_LATEXY] == 0 && this.flags[kFLAGS.TIMES_IZMA_DOMMED_LATEXY] == 0 && (this.debug || IzmaScene.rand(10) == 0)) {
             this.izmaDomsLatexy();
             return true;
         }

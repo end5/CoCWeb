@@ -1,7 +1,7 @@
 import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
 import { PerkLib } from "../../../PerkLib";
-import { trace } from "console";
+import { trace } from "../../../../console";
 import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_SLIME_DROOLING, HIP_RATING_BOYISH, BUTT_RATING_BUTTLESS, SKIN_TYPE_PLAIN, TAIL_TYPE_DEMONIC } from "../../../../../includes/appearanceDefs";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
 

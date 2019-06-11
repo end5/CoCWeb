@@ -3,7 +3,7 @@ import { StatusAffects } from "../../../StatusAffects";
 import { LOWER_BODY_TYPE_CENTAUR, FACE_HORSE, FACE_DOG, FACE_SNAKE_FANGS, TONUGE_SNAKE, LOWER_BODY_TYPE_NAGA, VAGINA_WETNESS_SLICK } from "../../../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../../CockTypesEnum";
 import { PregnancyStore } from "../../../PregnancyStore";
-import { trace } from "console";
+import { trace } from "../../../../console";
 
 export class KeltScene extends AbstractFarmContent {
 

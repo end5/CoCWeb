@@ -2,7 +2,7 @@ import { NPCAwareContent } from "../NPCs/NPCAwareContent";
 import { ItemSlotClass } from "../../ItemSlotClass";
 import { PregnancyStore } from "../../PregnancyStore";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { trace } from "console";
+import { trace } from "../../../console";
 import { Player } from "../../Player";
 import { SKIN_TYPE_FUR, LOWER_BODY_TYPE_FOX, EARS_FOX, FACE_FOX, TAIL_TYPE_FOX, VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_NORMAL, TAIL_TYPE_NONE } from "../../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../CockTypesEnum";

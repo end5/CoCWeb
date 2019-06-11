@@ -1,7 +1,7 @@
 import { HellHound } from "./HellHound";
 import { StatusAffects } from "../../../StatusAffects";
 import { CoC_Settings } from "../../../CoC_Settings";
-import { trace } from "console";
+import { trace } from "../../../../console";
 import { ANAL_LOOSENESS_NORMAL, ANAL_WETNESS_NORMAL, HIP_RATING_AVERAGE, BUTT_RATING_AVERAGE, SKIN_TYPE_FUR, TAIL_TYPE_DOG } from "../../../../../includes/appearanceDefs";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
 

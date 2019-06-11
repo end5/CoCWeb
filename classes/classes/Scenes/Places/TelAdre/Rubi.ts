@@ -4,7 +4,7 @@ import { Appearance } from "../../../Appearance";
 import { CockTypesEnum } from "../../../CockTypesEnum";
 import { BreastStore } from "../../../BreastStore";
 import { PerkLib } from "../../../PerkLib";
-import { trace } from "console";
+import { trace } from "../../../../console";
 import { ItemType } from "../../../ItemType";
 import { kGAMECLASS } from "../../../CoC";
 

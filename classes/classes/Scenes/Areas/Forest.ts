@@ -12,7 +12,7 @@ import { ErlKingScene } from "./Forest/ErlKingScene";
 import { StatusAffects } from "../../StatusAffects";
 import { PerkLib } from "../../PerkLib";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { trace } from "console";
+import { trace } from "../../../console";
 import { Imp } from "../Monsters/Imp";
 import { Goblin } from "../Monsters/Goblin";
 import { Jojo } from "../NPCs/Jojo";

@@ -6,7 +6,7 @@ import { TAIL_TYPE_BEE_ABDOMEN, TAIL_TYPE_SPIDER_ADBOMEN, TAIL_TYPE_CAT, LOWER_B
 import { StatusAffects } from "./StatusAffects";
 import { CockTypesEnum } from "./CockTypesEnum";
 import { PregnancyStore } from "./PregnancyStore";
-import { trace } from "console";
+import { trace } from "../console";
 import { PerkLib } from "./PerkLib";
 
 

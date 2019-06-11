@@ -2,7 +2,7 @@ import { NPCAwareContent } from "./NPCAwareContent";
 import { TimeAwareInterface } from "../../TimeAwareInterface";
 import { CoC } from "../../CoC";
 import { StatusAffects } from "../../StatusAffects";
-import { trace } from "console";
+import { trace } from "../../../console";
 import { CockTypesEnum } from "../../CockTypesEnum";
 import { SKIN_TYPE_PLAIN, SKIN_TYPE_UNDEFINED, SKIN_TYPE_FUR, SKIN_TYPE_SCALES, VAGINA_WETNESS_WET, VAGINA_WETNESS_DROOLING } from "../../../../includes/appearanceDefs";
 import { PerkLib } from "../../PerkLib";

@@ -7,7 +7,7 @@ import { StatusAffects } from "../StatusAffects";
 import { ItemType } from "../ItemType";
 import { CoC_Settings } from "../CoC_Settings";
 import { Useable } from "../Items/Useable";
-import { debug, trace } from "console";
+import { trace } from "../../console";
 import { Armor } from "../Items/Armor";
 import { Weapon } from "../Items/Weapon";
 import { kGAMECLASS } from "../CoC";
@@ -176,7 +176,7 @@ export class Inventory extends BaseContent {
     }
 
     public returnItemToInventory(item: Useable, showNext: boolean = true): void { //Used only by items that have a sub menu if the player cancels
-        if (!debug) {
+        if (!this.debug) {
             if (this.currentItemSlot == undefined) {
                 this.takeItem(item, this.callNext, this.callNext, undefined); //Give player another chance to put item in inventory
             }
@@ -271,7 +271,7 @@ export class Inventory extends BaseContent {
         if (this.player.itemSlots[slotNum].itype instanceof Useable) {
             var item: Useable = this.player.itemSlots[slotNum].itype as Useable;
             if (item.canUse()) { //If an item cannot be used then canUse should provide a description of why the item cannot be used
-                if (!debug) this.player.itemSlots[slotNum].removeOneItem();
+                if (!this.debug) this.player.itemSlots[slotNum].removeOneItem();
                 this.useItem(item, this.player.itemSlots[slotNum]);
                 return;
             }

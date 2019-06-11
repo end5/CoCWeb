@@ -3,7 +3,7 @@ import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { GoblinAssassin } from "./GoblinAssassin";
 import { StatusAffects } from "../../StatusAffects";
 import { TAIL_TYPE_SPIDER_ADBOMEN, FACE_SNAKE_FANGS, VAGINA_WETNESS_WET, VAGINA_WETNESS_DROOLING, VAGINA_WETNESS_SLAVERING, VAGINA_WETNESS_SLICK } from "../../../../includes/appearanceDefs";
-import { trace } from "console";
+import { trace } from "../../../console";
 import { Appearance } from "../../Appearance";
 import { CockTypesEnum } from "../../CockTypesEnum";
 import { kGAMECLASS } from "../../CoC";

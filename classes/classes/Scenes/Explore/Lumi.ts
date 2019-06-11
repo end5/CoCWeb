@@ -1,7 +1,7 @@
 import { BaseContent } from "../../BaseContent";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { ItemType } from "../../ItemType";
-import { trace } from "console";
+import { trace } from "../../../console";
 
 export class Lumi extends BaseContent {
 

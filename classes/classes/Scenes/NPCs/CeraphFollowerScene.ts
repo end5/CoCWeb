@@ -3,7 +3,7 @@ import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../../StatusAffects";
 import { PregnancyStore } from "../../PregnancyStore";
 import { PerkLib } from "../../PerkLib";
-import { trace } from "console";
+import { trace } from "../../../console";
 import { CockTypesEnum } from "../../CockTypesEnum";
 import { TAIL_TYPE_NONE } from "../../../../includes/appearanceDefs";
 import { kGAMECLASS } from "../../CoC";

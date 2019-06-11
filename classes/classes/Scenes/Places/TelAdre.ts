@@ -24,7 +24,7 @@ import { UmasShop } from "./TelAdre/UmasShop";
 import { StatusAffects } from "../../StatusAffects";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { PregnancyStore } from "../../PregnancyStore";
-import { trace } from "console";
+import { trace } from "../../../console";
 import { ItemType } from "../../ItemType";
 import { kGAMECLASS } from "../../CoC";
 import { PerkLib } from "../../PerkLib";

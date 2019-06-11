@@ -1,6 +1,6 @@
 import { BaseContent } from "../BaseContent";
 
-import { trace } from "console";
+import { trace } from "../../console";
 
 /**
  * ...

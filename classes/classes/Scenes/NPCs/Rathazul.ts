@@ -4,7 +4,7 @@ import { CoC } from "../../CoC";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../../StatusAffects";
 import { PerkLib } from "../../PerkLib";
-import { debug, trace } from "console";
+import { trace } from "../../../console";
 import { TAIL_TYPE_SPIDER_ADBOMEN } from "../../../../includes/appearanceDefs";
 import { ItemType } from "../../ItemType";
 
@@ -316,7 +316,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             this.doNext(this.returnToRathazulMenu);
             return;
         }
-        if (!debug)
+        if (!this.debug)
             this.player.destroyItems(this.consumables.INCUBID, 1);
         this.inventory.takeItem(this.consumables.P_DRAFT, this.returnToRathazulMenu);
         this.player.gems -= 20;
@@ -332,7 +332,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             this.doNext(this.returnToRathazulMenu);
             return;
         }
-        if (!debug)
+        if (!this.debug)
             this.player.destroyItems(this.consumables.SUCMILK, 1);
         this.inventory.takeItem(this.consumables.P_S_MLK, this.returnToRathazulMenu);
         this.player.gems -= 20;
@@ -348,7 +348,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             this.doNext(this.returnToRathazulMenu);
             return;
         }
-        if (!debug)
+        if (!this.debug)
             this.player.destroyItems(this.consumables.SDELITE, 1);
         this.inventory.takeItem(this.consumables.PSDELIT, this.returnToRathazulMenu);
         this.player.gems -= 20;
@@ -364,7 +364,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             this.doNext(this.returnToRathazulMenu);
             return;
         }
-        if (!debug)
+        if (!this.debug)
             this.player.destroyItems(this.consumables.LABOVA_, 1);
         this.inventory.takeItem(this.consumables.P_LBOVA, this.returnToRathazulMenu);
         this.player.gems -= 20;

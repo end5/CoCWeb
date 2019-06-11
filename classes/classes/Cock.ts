@@ -1,6 +1,6 @@
 import { Utils } from "./internals/Utils";
 import { CockTypesEnum } from "./CockTypesEnum";
-import { trace } from "console";
+import { trace } from "../console";
 
 export class Cock {
     private _cockLength: number;

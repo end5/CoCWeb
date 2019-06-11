@@ -1,6 +1,6 @@
 import { Consumable } from "../Consumable";
 import { Utils } from "../../internals/Utils";
-import { trace } from "console";
+import { trace } from "../../../console";
 
 
 export class KitsuneGift extends Consumable {

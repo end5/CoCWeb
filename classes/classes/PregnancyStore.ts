@@ -1,5 +1,5 @@
 import { kGAMECLASS } from "./CoC";
-import { trace } from "console";
+import { trace } from "../console";
 
 export class PregnancyStore {
     //Pregancy types. Both butt and normal. Each type represents the father of this baby.

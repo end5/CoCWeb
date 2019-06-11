@@ -3,7 +3,7 @@ import { TimeAwareInterface } from "../../TimeAwareInterface";
 import { PregnancyStore } from "../../PregnancyStore";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { CoC } from "../../CoC";
-import { trace, debug } from "console";
+import { trace } from "../../../console";
 import { StatusAffects } from "../../StatusAffects";
 import { Appearance } from "../../Appearance";
 import { CockTypesEnum } from "../../CockTypesEnum";
@@ -627,7 +627,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         var cumQ: number = 0;
         //Ez mode cap doubles
         if (this.flags[kFLAGS.EASY_MODE_ENABLE_FLAG] == 1) cap *= 2;
-        if (debug) {
+        if (this.debug) {
             this.flags[kFLAGS.WHITNEY_GEMS_PAID_THIS_WEEK] = 0;
             cap = 9999;
         }

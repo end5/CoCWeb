@@ -1,5 +1,5 @@
 import { Monster } from "../../../Monster";
-import { trace } from "console";
+import { trace } from "../../../../console";
 import { ANAL_LOOSENESS_VIRGIN, ANAL_WETNESS_DRY, HIP_RATING_SLENDER, BUTT_RATING_BUTTLESS } from "../../../../../includes/appearanceDefs";
 
 export class WormMass extends Monster {

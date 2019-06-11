@@ -1,5 +1,5 @@
 import { BaseContent } from "../../../BaseContent";
-import { trace } from "console";
+import { trace } from "../../../../console";
 import { StatusAffects } from "../../../StatusAffects";
 import { TentacleBeast } from "./TentacleBeast";
 import { PerkLib } from "../../../PerkLib";

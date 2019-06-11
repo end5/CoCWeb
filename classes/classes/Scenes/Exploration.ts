@@ -4,7 +4,6 @@ import { Giacomo } from "./Explore/Giacomo";
 import { kFLAGS } from "../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../CoC";
 import { StatusAffects } from "../StatusAffects";
-import { debug } from "console";
 import { LOWER_BODY_TYPE_HUMAN, LOWER_BODY_TYPE_HOOFED, LOWER_BODY_TYPE_DOG, LOWER_BODY_TYPE_NAGA, VAGINA_WETNESS_DROOLING } from "../../../includes/appearanceDefs";
 import { Imp } from "./Monsters/Imp";
 import { Goblin } from "./Monsters/Goblin";
@@ -58,7 +57,7 @@ export class Exploration extends BaseContent {
         if (this.flags[kFLAGS.DISCOVERED_HIGH_MOUNTAIN] > 0) this.addButton(0, "High Mountain", kGAMECLASS.highMountains.exploreHighMountain);
         if (this.flags[kFLAGS.BOG_EXPLORED] > 0) this.addButton(1, "Bog", kGAMECLASS.bog.exploreBog);
         this.addButton(4, "Previous", this.goBackToPageI);
-        if (debug) this.addButton(8, "Debug", this.exploreDebug.doExploreDebug);
+        if (this.debug) this.addButton(8, "Debug", this.exploreDebug.doExploreDebug);
         this.addButton(9, "Back", this.playerMenu);
     }
 

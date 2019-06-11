@@ -3,7 +3,7 @@ import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../../StatusAffects";
 import { TONUGE_HUMAN, TONUGE_DEMONIC } from "../../../../includes/appearanceDefs";
 import { PerkLib } from "../../PerkLib";
-import { trace } from "console";
+import { trace } from "../../../console";
 import { CockTypesEnum } from "../../CockTypesEnum";
 import { kGAMECLASS } from "../../CoC";
 

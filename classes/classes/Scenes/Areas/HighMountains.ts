@@ -6,7 +6,7 @@ import { MinotaurMobScene } from "./HighMountains/MinotaurMobScene";
 import { IzumiScene } from "./HighMountains/IzumiScene";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { PerkLib } from "../../PerkLib";
-import { trace } from "console";
+import { trace } from "../../../console";
 import { Harpy } from "./HighMountains/Harpy";
 import { ItemType } from "../../ItemType";
 import { kGAMECLASS } from "../../CoC";

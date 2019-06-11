@@ -4,7 +4,7 @@ import { ItemType } from "../ItemType";
 import { StatusAffects } from "../StatusAffects";
 import { kFLAGS } from "../GlobalFlags/kFLAGS";
 import { PerkLib } from "../PerkLib";
-import { trace } from "console";
+import { trace } from "../../console";
 import { PregnancyStore } from "../PregnancyStore";
 import { MainView } from "../../../lib/src/coc/view/MainView";
 

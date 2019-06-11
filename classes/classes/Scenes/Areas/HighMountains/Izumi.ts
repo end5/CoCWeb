@@ -3,7 +3,7 @@ import { VAGINA_WETNESS_SLICK, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_TIGHT, AN
 import { Appearance } from "../../../Appearance";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../../../StatusAffects";
-import { trace } from "console";
+import { trace } from "../../../../console";
 
 export class Izumi extends Monster {
     // Set trace outout for this classes' content.

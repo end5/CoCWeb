@@ -1,6 +1,6 @@
 import { NPCAwareContent } from "./NPCAwareContent";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { trace } from "console";
+import { trace } from "../../../console";
 import { StatusAffects } from "../../StatusAffects";
 import { Hel } from "./Hel";
 import { TAIL_TYPE_NONE } from "../../../../includes/appearanceDefs";

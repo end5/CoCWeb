@@ -5,7 +5,7 @@ import { Cock } from "./Cock";
 import { VaginaClass } from "./VaginaClass";
 import { BreastRowClass } from "./BreastRowClass";
 import { PerkType } from "./PerkType";
-import { trace } from "console";
+import { trace } from "../console";
 import { CoC_Settings } from "./CoC_Settings";
 import { StatusAffectType } from "./StatusAffectType";
 import { StatusAffectClass } from "./StatusAffectClass";

@@ -1,6 +1,6 @@
 import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
-import { trace } from "console";
+import { trace } from "../../../../console";
 import { CockTypesEnum } from "../../../CockTypesEnum";
 import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_SLIME_DROOLING, HIP_RATING_AMPLE, BUTT_RATING_LARGE, LOWER_BODY_TYPE_GOO } from "../../../../../includes/appearanceDefs";
 import { ChainedDrop } from "../../../internals/ChainedDrop";

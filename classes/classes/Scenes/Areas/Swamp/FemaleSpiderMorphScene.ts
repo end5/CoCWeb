@@ -3,7 +3,7 @@ import { TimeAwareInterface } from "../../../TimeAwareInterface";
 import { PregnancyStore } from "../../../PregnancyStore";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { CoC } from "../../../CoC";
-import { trace } from "console";
+import { trace } from "../../../../console";
 import { FemaleSpiderMorph } from "./FemaleSpiderMorph";
 import { TONUGE_SNAKE, TONUGE_DEMONIC } from "../../../../../includes/appearanceDefs";
 import { kGAMECLASS } from "../../../CoC";

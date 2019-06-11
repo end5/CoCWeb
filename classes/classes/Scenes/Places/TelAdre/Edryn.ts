@@ -3,7 +3,7 @@ import { TimeAwareInterface } from "../../../TimeAwareInterface";
 import { PregnancyStore } from "../../../PregnancyStore";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { CoC } from "../../../CoC";
-import { trace } from "console";
+import { trace } from "../../../../console";
 import { kGAMECLASS } from "../../../CoC";
 import { StatusAffects } from "../../../StatusAffects";
 import { ItemType } from "../../../ItemType";

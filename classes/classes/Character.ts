@@ -1,7 +1,7 @@
 import { Creature } from "./Creature";
 import { StatusAffects } from "./StatusAffects";
 import { UmasShop } from "./Scenes/Places/TelAdre/UmasShop";
-import { trace } from "console";
+import { trace } from "../console";
 import { PregnancyStore } from "./PregnancyStore";
 import { KeyItemClass } from "./KeyItemClass";
 import { CockTypesEnum } from "./CockTypesEnum";

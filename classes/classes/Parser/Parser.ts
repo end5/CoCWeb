@@ -1,4 +1,4 @@
-﻿import { trace } from "console";
+﻿import { trace } from "../../console";
 import { conditionalOptions } from "./conditionalConverters";
 import { singleArgConverters } from "./singleArgLookups";
 import { twoWordNumericTagsLookup, twoWordTagsLookup } from "./doubleArgLookups";

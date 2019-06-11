@@ -9,7 +9,7 @@ import { StatusAffects } from "../../StatusAffects";
 import { PerkLib } from "../../PerkLib";
 import { FACE_DOG } from "../../../../includes/appearanceDefs";
 import { ItemType } from "../../ItemType";
-import { trace, debug } from "console";
+import { trace } from "../../../console";
 import { Appearance } from "../../Appearance";
 import { CockTypesEnum } from "../../CockTypesEnum";
 
@@ -755,7 +755,7 @@ export class Farm extends BaseContent {
         var cap: number = 500;
         //Ez mode cap doubles
         if (this.flags[kFLAGS.EASY_MODE_ENABLE_FLAG] == 1) cap *= 2;
-        if (debug) {
+        if (this.debug) {
             this.flags[kFLAGS.WHITNEY_GEMS_PAID_THIS_WEEK] = 0;
             cap = 9999;
         }
@@ -1045,7 +1045,7 @@ export class Farm extends BaseContent {
         var cap: number = 500;
         //Ez mode cap doubles
         if (this.flags[kFLAGS.EASY_MODE_ENABLE_FLAG] == 1) cap *= 2;
-        if (debug) {
+        if (this.debug) {
             this.flags[kFLAGS.WHITNEY_GEMS_PAID_THIS_WEEK] = 0;
             cap = 9999;
         }
