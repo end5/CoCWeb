@@ -445,7 +445,7 @@ export class CoC {
         model.mobile = this.mobile;
 
         this.images = new ImageManager();
-        this.inputManager = new InputManager(false);
+        this.inputManager = new InputManager(mainView);
         // include "../../includes/ControlBindings.as";
 
         // this.monkey = new ChaosMonkey(this);

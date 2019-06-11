@@ -33,34 +33,34 @@ export class CoCButton {
     //////// Getters and Setters ////////
 
     public get toolTipText() {
-        return this.tooltip.textContent || '';
+        return this.tooltip.innerHTML || '';
     }
 
-    public set toolTipText(text: string) {
-        this.tooltip.textContent = text;
+    public set toolTipText(text) {
+        this.tooltip.innerHTML = text;
     }
 
-    public get labelText(): string {
-        return this.button.textContent || '';
+    public get labelText() {
+        return this.button.innerHTML || '';
     };
 
-    public set labelText(value: string) {
-        this.button.textContent = value;
+    public set labelText(value) {
+        this.button.innerHTML = value;
     };
 
     public get callback() {
         return this._callback;
     };
 
-    public set callback(value: any) {
+    public set callback(value) {
         this._callback = value;
     };
 
-    public get visible(): boolean {
+    public get visible() {
         return !this.button.classList.contains('hidden');
     }
 
-    public set visible(vis: boolean) {
+    public set visible(vis) {
         if (vis)
             this.button.classList.remove('hidden');
         else

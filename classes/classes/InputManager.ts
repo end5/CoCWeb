@@ -1,4 +1,6 @@
 import { BoundControlMethod } from "./BoundControlMethod";
+import { MainView } from "../../lib/src/coc/view/MainView";
+import { BindingPane } from "./display/BindingPane";
 
 /**
  * Generic input manager
@@ -15,8 +17,8 @@ export class InputManager {
     public static CHEATCONTROL: boolean = true;
     public static UNBOUNDKEY: number = -1;
 
-    private _stage: Stage;
-    private _debug: boolean;
+    // private _stage: Stage;
+    // private _debug: boolean;
 
     private _defaultControlMethods: Record<string, any> = new Object();
     private _defaultAvailableControlMethods: number = 0;
@@ -36,38 +38,38 @@ export class InputManager {
 
     // Visual shit
     private _mainView: MainView;
-    private _mainText: TextField;
-    private _mainTextScollBar: UIScrollBar;
+    // private _mainText: TextField;
+    // private _mainTextScollBar: UIScrollBar;
 
     // A new UI element that we can embed buttons into to facilitate key rebinding
     private _bindingPane: BindingPane;
 
     // A flag to determine if we're listening for keyCodes to execute, or keyCodes to bind a method against
     private _bindingMode: boolean;
-    private _bindingFunc: string;
-    private _bindingSlot: boolean;
+    private _bindingFunc: string = '';
+    private _bindingSlot: boolean = false;
 
     /**
      * Init the InputManager. Attach the keyboard event listener to the stage and prepare the subobjects for usage.
      * @param	stage	Reference to core stage on which to add display objects
      * @param	debug	Emit debugging trace statements
      */
-    public constructor(stage: Stage, debug: boolean = true) {
+    public constructor(mainView: MainView) {
         this._bindingMode = false;
-        this._debug = debug;
+        // this._debug = debug;
 
-        this._stage = stage;
-        this._mainView = this._stage.getChildByName("mainView") as MainView;
+        // this._stage = stage;
+        this._mainView = mainView;
         this._availableControlMethods = 0;
         this._availableCheatControlMethods = 0;
 
-        this._stage.addEventListener(KeyboardEvent.KEY_DOWN, this.KeyHandler);
+        // this._stage.addEventListener(KeyboardEvent.KEY_DOWN, this.KeyHandler);
 
-        this._mainView = this._stage.getChildByName("mainView") as MainView;
-        this._mainText = (this._stage.getChildByName("mainView") as MovieClip).mainText as TextField;
-        this._mainTextScollBar = (this._stage.getChildByName("mainView") as MovieClip).scrollBar as UIScrollBar;
+        // this._mainView = mainView;
+        // this._mainText = (this._stage.getChildByName("mainView") as MovieClip).mainText as TextField;
+        // this._mainTextScollBar = (this._stage.getChildByName("mainView") as MovieClip).scrollBar as UIScrollBar;
 
-        this._bindingPane = new BindingPane(this, this._mainText.x, this._mainText.y, this._mainText.width, this._mainText.height, this._mainTextScollBar.width);
+        this._bindingPane = new BindingPane(this);
     }
 
     /**
@@ -79,24 +81,25 @@ export class InputManager {
      * @param	isPrimary	Specifies if the incoming bind will replace/set the primary or secondary bind for a control.
      */
     public ListenForNewBind(funcName: string, isPrimary: boolean = true): void {
-        if (this._debug) {
-            var slot: string = "";
+        // if (this._debug) {
+        //     var slot: string = "";
 
-            if (isPrimary) {
-                slot = "Primary";
-            }
-            else {
-                slot = "Secondary";
-            }
+        //     if (isPrimary) {
+        //         slot = "Primary";
+        //     }
+        //     else {
+        //         slot = "Secondary";
+        //     }
 
-            trace("Listening for a new " + slot + " bind for " + funcName);
-        }
+        //     trace("Listening for a new " + slot + " bind for " + funcName);
+        // }
 
         this._bindingMode = true;
         this._bindingFunc = funcName;
         this._bindingSlot = isPrimary;
 
-        this._mainText.htmlText = "<b>Hit the key that you want to bind " + funcName + " to!</b>";
+        // this._mainText.htmlText = "<b>Hit the key that you want to bind " + funcName + " to!</b>";
+        this._mainView.mainText.innerHTML = "<b>Hit the key that you want to bind " + funcName + " to!</b>";
 
         // hide some buttons that will fuck shit up
         this._mainView.hideCurrentBottomButtons();
@@ -141,7 +144,7 @@ export class InputManager {
      * @param	isPrimary	Specifies the primary or secondary binding slot
      */
     public BindKeyToControl(keyCode: number, funcName: string, isPrimary: boolean = true): void {
-        for (var key of this._controlMethods) {
+        for (var key of Object.keys(this._controlMethods)) {
             // Find the method we want to bind the incoming key to
             if (funcName == key) {
                 // Check if the incoming key is already bound to *something* and if it is, remove the bind.
@@ -174,7 +177,7 @@ export class InputManager {
             }
         }
 
-        if (this._debug) trace("Failed to bind control method [" + funcName + "] to keyCode [" + keyCode + "]");
+        // if (this._debug) trace("Failed to bind control method [" + funcName + "] to keyCode [" + keyCode + "]");
     }
 
     /**
@@ -199,16 +202,16 @@ export class InputManager {
      * @param	e		KeyboardEvent data
      */
     public KeyHandler(e: KeyboardEvent): void {
-        if (this._debug) trace("Got key input " + e.keyCode);
+        // if (this._debug) trace("Got key input " + e.keyCode);
 
         // Ignore key input during certain phases of gamestate
-        if (this._mainView.eventTestInput.x == 207.5) {
-            return;
-        }
+        // if (this._mainView.eventTestInput.x == 207.5) {
+        //     return;
+        // }
 
-        if (this._mainView.nameBox.visible && this._stage.focus == this._mainView.nameBox) {
-            return;
-        }
+        // if (this._mainView.nameBox.visible && this._stage.focus == this._mainView.nameBox) {
+        //     return;
+        // }
 
         // If we're not in binding mode, listen for key inputs to act on
         if (this._bindingMode == false) {
@@ -228,7 +231,7 @@ export class InputManager {
      */
     private ExecuteKeyCode(keyCode: number): void {
         if (this._keysToControlMethods[keyCode] != undefined) {
-            if (this._debug) trace("Attempting to exec func [" + this._controlMethods[this._keysToControlMethods[keyCode]].Name + "]");
+            // if (this._debug) trace("Attempting to exec func [" + this._controlMethods[this._keysToControlMethods[keyCode]].Name + "]");
 
             this._controlMethods[this._keysToControlMethods[keyCode]].ExecFunc();
         }
@@ -243,22 +246,24 @@ export class InputManager {
      * data and then show the binding scrollpane.
      */
     public DisplayBindingPane(): void {
-        this._mainText.visible = false;
-        this._mainTextScollBar.visible = false;
+        // this._mainText.visible = false;
+        // this._mainTextScollBar.visible = false;
 
         this._bindingPane.functions = this.GetAvailableFunctions();
         this._bindingPane.ListBindingOptions();
 
-        this._stage.addChild(this._bindingPane);
+        // this._stage.addChild(this._bindingPane);
+        this._mainView.mainText.appendChild(this._bindingPane.element);
     }
 
     /**
      * Hide the binding ScrollPane, and re-display the mainText object + Scrollbar.
      */
     public HideBindingPane(): void {
-        this._mainText.visible = true;
-        this._mainTextScollBar.visible = true;
-        this._stage.removeChild(this._bindingPane);
+        // this._mainText.visible = true;
+        // this._mainTextScollBar.visible = true;
+        // this._stage.removeChild(this._bindingPane);
+        this._mainView.mainText.innerHTML = '';
     }
 
     /**
@@ -266,7 +271,7 @@ export class InputManager {
      * TODO: Finish this shit off
      */
     public RegisterDefaults(): void {
-        for (var key: string in this._controlMethods) {
+        for (var key of Object.keys(this._controlMethods)) {
             this._defaultControlMethods[key] = new BoundControlMethod(
                 this._controlMethods[key].Func,
                 this._controlMethods[key].Name,
@@ -288,7 +293,7 @@ export class InputManager {
      * Reset the bound keys to the defaults previously registered.
      */
     public ResetToDefaults(): void {
-        for (var key: string in this._controlMethods) {
+        for (var key of Object.keys(this._controlMethods)) {
             this._controlMethods[key] = new BoundControlMethod(
                 this._defaultControlMethods[key].Func,
                 this._defaultControlMethods[key].Name,
@@ -310,16 +315,16 @@ export class InputManager {
      * Get an array of the available functions.
      * @return	Array of available BoundControlMethods.
      */
-    public GetAvailableFunctions(): any[] {
-        var funcs: any[] = new Array();
+    public GetAvailableFunctions(): BoundControlMethod[] {
+        // var funcs: any[] = new Array();
 
-        for (var key: string in this._controlMethods) {
-            if (this._debug) trace(key);
-            funcs.push(this._controlMethods[key]);
-        }
-        funcs.sortOn(["Index"], [Array.NUMERIC]);
+        // for (var key of Object.keys(this._controlMethods)) {
+        //     // if (this._debug) trace(key);
+        //     funcs.push(this._controlMethods[key]);
+        // }
+        // funcs.sortOn(["Index"], [Array.NUMERIC]);
 
-        return funcs;
+        return Object.keys(this._controlMethods).map((key) => this._controlMethods[key]);
     }
 
 
@@ -329,7 +334,7 @@ export class InputManager {
      */
     public GetControlMethods(): any[] {
         var buttons: any[] = new Array();
-        for (var key: any in this._keysToControlMethods) {
+        for (var key of Object.keys(this._keysToControlMethods)) {
             buttons.push(key);
         }
 
@@ -340,7 +345,7 @@ export class InputManager {
      * Clear all currently bound keys.
      */
     public ClearAllBinds(): void {
-        for (var key: string in this._controlMethods) {
+        for (var key of Object.keys(this._controlMethods)) {
             this._controlMethods[key].PrimaryKey = InputManager.UNBOUNDKEY;
             this._controlMethods[key].SecondaryKey = InputManager.UNBOUNDKEY;
         }
@@ -355,7 +360,7 @@ export class InputManager {
     public LoadBindsFromObj(source: Record<string, any>): void {
         this.ClearAllBinds();
 
-        for (var key: string in source) {
+        for (var key of Object.keys(source)) {
             var pKeyCode: number = source[key].PrimaryKey;
             var sKeyCode: number = source[key].SecondaryKey;
 
@@ -376,8 +381,8 @@ export class InputManager {
     public SaveBindsToObj(): Record<string, any> {
         var controls: Record<string, any> = new Object();
 
-        for (var key: string in this._controlMethods) {
-            if (this._debug) trace(key);
+        for (var key of Object.keys(this._controlMethods)) {
+            // if (this._debug) trace(key);
             var ctrlObj: any = new Object();
             ctrlObj.PrimaryKey = this._controlMethods[key].PrimaryKey;
             ctrlObj.SecondaryKey = this._controlMethods[key].SecondaryKey;
