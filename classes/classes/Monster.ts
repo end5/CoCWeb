@@ -11,14 +11,11 @@ import { Appearance } from "./Appearance";
 import { Utils } from "./internals/Utils";
 import { CoC_Settings } from "./CoC_Settings";
 import { StatusAffects } from "./StatusAffects";
-import { Kiha } from "./Scenes/NPCs/Kiha";
 import { Cock } from "./Cock";
 import { VaginaClass } from "./VaginaClass";
 import { BreastRowClass } from "./BreastRowClass";
 import { ItemType } from "./ItemType";
 import { kFLAGS } from "./GlobalFlags/kFLAGS";
-import { SecretarialSuccubus } from "./Scenes/Dungeons/Factory/SecretarialSuccubus";
-import { MilkySuccubus } from "./Scenes/Quests/UrtaQuest/MilkySuccubus";
 import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
 import { RandomDrop } from "./internals/RandomDrop";
 import { PerkLib } from "./PerkLib";
@@ -664,7 +661,7 @@ export class Monster extends Creature {
             return true;
         }
         //Determine if evaded
-        if (!(this instanceof Kiha) && this.player.findPerk(PerkLib.Evade) >= 0 && Monster.rand(100) < 10) {
+        if (!(this.short === "Kiha") && this.player.findPerk(PerkLib.Evade) >= 0 && Monster.rand(100) < 10) {
             this.outputText("Using your skills at evading attacks, you anticipate and sidestep " + this.a + this.short + "'");
             if (!this.plural) this.outputText("s");
             this.outputText(" attack.\n", false);
@@ -1141,7 +1138,7 @@ export class Monster extends Creature {
             this.outputText("You're utterly restrained by the Harpy Queen's magical ropes!\n\n");
             if (this.flags[kFLAGS.PC_FETISH] >= 2) this.game.dynStats("lus", 3);
         }
-        if (this instanceof SecretarialSuccubus || this instanceof MilkySuccubus) {
+        if (this.short === "secretarial succubus" || this.short === "milky succubus") {
             if (this.player.lust < 45) this.outputText("There is something in the air around your opponent that makes you feel warm.\n\n", false);
             if (this.player.lust >= 45 && this.player.lust < 70) this.outputText("You aren't sure why but you have difficulty keeping your eyes off your opponent's lewd form.\n\n", false);
             if (this.player.lust >= 70 && this.player.lust < 90) this.outputText("You blush when you catch yourself staring at your foe's rack, watching it wobble with every step she takes.\n\n", false);
