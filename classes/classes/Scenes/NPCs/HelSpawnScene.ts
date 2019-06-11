@@ -4,7 +4,7 @@ import { PregnancyStore } from "../../PregnancyStore";
 import { StatusAffects } from "../../StatusAffects";
 import { LOWER_BODY_TYPE_LIZARD } from "../../../../includes/appearanceDefs";
 import { Helspawn } from "./Helspawn";
-import { kGAMECLASS } from "../../CoC";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 export class HelSpawnScene extends NPCAwareContent {
 

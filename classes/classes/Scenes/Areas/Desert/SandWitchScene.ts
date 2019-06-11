@@ -8,7 +8,7 @@ import { StatusAffects } from "../../../StatusAffects";
 import { SandWitch } from "./SandWitch";
 import { PerkLib } from "../../../PerkLib";
 import { LOWER_BODY_TYPE_CENTAUR } from "../../../../../includes/appearanceDefs";
-import { kGAMECLASS } from "../../../CoC";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 
 export class SandWitchScene extends BaseContent implements TimeAwareInterface {
 

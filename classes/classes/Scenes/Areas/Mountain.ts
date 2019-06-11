@@ -11,7 +11,7 @@ import { StatusAffects } from "../../StatusAffects";
 import { PerkLib } from "../../PerkLib";
 import { Imp } from "../Monsters/Imp";
 import { Goblin } from "../Monsters/Goblin";
-import { kGAMECLASS } from "../../CoC";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 /**
  * Created by aimozg on 06.01.14.

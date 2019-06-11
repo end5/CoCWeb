@@ -10,7 +10,7 @@ import { CockTypesEnum } from "../../../CockTypesEnum";
 import { LOWER_BODY_TYPE_CENTAUR, SKIN_TYPE_FUR } from "../../../../../includes/appearanceDefs";
 import { StatusAffects } from "../../../StatusAffects";
 import { PerkLib } from "../../../PerkLib";
-import { kGAMECLASS } from "../../../CoC";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 
 export class TamainsDaughtersScene extends BaseContent implements TimeAwareInterface {
 

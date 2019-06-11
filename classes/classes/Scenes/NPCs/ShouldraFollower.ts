@@ -5,7 +5,7 @@ import { TONUGE_HUMAN, TONUGE_DEMONIC } from "../../../../includes/appearanceDef
 import { PerkLib } from "../../PerkLib";
 import { trace } from "../../../console";
 import { CockTypesEnum } from "../../CockTypesEnum";
-import { kGAMECLASS } from "../../CoC";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 export class ShouldraFollower extends NPCAwareContent {
 

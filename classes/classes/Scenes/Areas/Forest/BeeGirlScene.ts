@@ -7,7 +7,7 @@ import { PregnancyStore } from "../../../PregnancyStore";
 import { BeeGirl } from "./BeeGirl";
 import { VAGINA_WETNESS_WET, VAGINA_WETNESS_DROOLING, LOWER_BODY_TYPE_CENTAUR, FACE_SNAKE_FANGS, FACE_SPIDER_FANGS, TONUGE_SNAKE, VAGINA_WETNESS_SLICK, VAGINA_WETNESS_SLAVERING, VAGINA_WETNESS_NORMAL } from "../../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
-import { kGAMECLASS } from "../../../CoC";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 
 /**
  * Created by aimozg on 03.01.14.

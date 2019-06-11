@@ -1,6 +1,6 @@
 import { Weapon } from "../Weapon";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { kGAMECLASS } from "../../CoC";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 /**
  * Created by aimozg on 10.01.14.

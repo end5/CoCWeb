@@ -4,7 +4,7 @@ import { VAGINA_WETNESS_NORMAL, VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_GAPING
 import { CockTypesEnum } from "../../CockTypesEnum";
 import { StatusAffects } from "../../StatusAffects";
 import { Appearance } from "../../Appearance";
-import { kGAMECLASS } from "../../CoC";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 /**
  * Created by aimozg on 03.01.14.

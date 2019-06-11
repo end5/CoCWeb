@@ -7,7 +7,7 @@ import { PregnancyStore } from "../../../PregnancyStore";
 import { Akbal } from "./Akbal";
 import { CockTypesEnum } from "../../../CockTypesEnum";
 import { StatusAffects } from "../../../StatusAffects";
-import { kGAMECLASS } from "../../../CoC";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 
 /**
  * Created by aimozg on 01.01.14.

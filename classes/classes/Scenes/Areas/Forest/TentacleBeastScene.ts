@@ -5,7 +5,7 @@ import { TentacleBeast } from "./TentacleBeast";
 import { PerkLib } from "../../../PerkLib";
 import { VAGINA_LOOSENESS_TIGHT, VAGINA_LOOSENESS_NORMAL } from "../../../../../includes/appearanceDefs";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { kGAMECLASS } from "../../../CoC";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 
 export class TentacleBeastScene extends BaseContent {
     //Tentacle Encounter - beware legalese!

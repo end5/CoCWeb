@@ -10,7 +10,7 @@ import { CockTypesEnum } from "../../CockTypesEnum";
 import { Appearance } from "../../Appearance";
 import { TAIL_TYPE_NONE, LOWER_BODY_TYPE_HOOFED, LOWER_BODY_TYPE_GOO } from "../../../../includes/appearanceDefs";
 import { Amily } from "./Amily";
-import { kGAMECLASS } from "../../CoC";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 /**
  * Created by aimozg on 02.01.14.

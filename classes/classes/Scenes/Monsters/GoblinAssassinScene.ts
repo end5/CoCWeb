@@ -6,7 +6,7 @@ import { TAIL_TYPE_SPIDER_ADBOMEN, FACE_SNAKE_FANGS, VAGINA_WETNESS_WET, VAGINA_
 import { trace } from "../../../console";
 import { Appearance } from "../../Appearance";
 import { CockTypesEnum } from "../../CockTypesEnum";
-import { kGAMECLASS } from "../../CoC";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 /**
  * Created by Fenoxo on Jan 18th 2014

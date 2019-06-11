@@ -3,7 +3,7 @@ import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { Minerva } from "./Minerva";
 import { TONUGE_DEMONIC, TONUGE_DRACONIC } from "../../../../../includes/appearanceDefs";
 import { StatusAffects } from "../../../StatusAffects";
-import { kGAMECLASS } from "../../../CoC";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 
 export class MinervaScene extends BaseContent {
     //const MINERVA_LOVE: number = 813;

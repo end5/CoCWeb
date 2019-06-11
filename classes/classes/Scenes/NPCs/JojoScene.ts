@@ -9,7 +9,7 @@ import { Appearance } from "../../Appearance";
 import { CockTypesEnum } from "../../CockTypesEnum";
 import { VAGINA_LOOSENESS_GAPING_WIDE, VAGINA_WETNESS_SLICK, VAGINA_WETNESS_SLAVERING, LOWER_BODY_TYPE_NAGA, LOWER_BODY_TYPE_GOO } from "../../../../includes/appearanceDefs";
 import { PerkLib } from "../../PerkLib";
-import { kGAMECLASS } from "../../CoC";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
 

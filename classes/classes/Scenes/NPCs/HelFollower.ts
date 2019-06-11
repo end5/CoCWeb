@@ -5,7 +5,7 @@ import { StatusAffects } from "../../StatusAffects";
 import { Hel } from "./Hel";
 import { TAIL_TYPE_NONE } from "../../../../includes/appearanceDefs";
 import { PerkLib } from "../../PerkLib";
-import { kGAMECLASS } from "../../CoC";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 export class HelFollower extends NPCAwareContent {
 

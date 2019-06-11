@@ -13,7 +13,7 @@ import { ArmorLib } from "./Items/ArmorLib";
 import { Inventory } from "./Scenes/Inventory";
 import { TimeModel } from "../coc/model/TimeModel";
 import { GameModel } from "../coc/model/GameModel";
-import { kGAMECLASS } from "./CoC";
+import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
 import { MainView } from "../../lib/src/coc/view/MainView";
 import { OtherKeys, StatKeys } from "../../lib/src/coc/view/StatsView";
 import { ASDate } from "./ASDate";

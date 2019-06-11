@@ -5,7 +5,7 @@ import { TAIL_TYPE_NONE } from "../../../../../includes/appearanceDefs";
 import { StatusAffects } from "../../../StatusAffects";
 import { CockTypesEnum } from "../../../CockTypesEnum";
 import { PerkLib } from "../../../PerkLib";
-import { kGAMECLASS } from "../../../CoC";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 
 export class Rogar extends BaseContent {
     private get telAdre(): TelAdre {

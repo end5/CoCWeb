@@ -1,6 +1,6 @@
 import { ItemType } from "../ItemType";
 import { CoC } from "../CoC";
-import { kGAMECLASS } from "../CoC";
+import { kGAMECLASS } from "../GlobalFlags/kGAMECLASS";
 
 /**
  * Created by aimozg on 09.01.14.

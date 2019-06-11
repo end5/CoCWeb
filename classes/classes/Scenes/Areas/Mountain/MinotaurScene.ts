@@ -8,7 +8,7 @@ import { LOWER_BODY_TYPE_CENTAUR, VAGINA_LOOSENESS_GAPING, TAIL_TYPE_NONE } from
 import { PregnancyStore } from "../../../PregnancyStore";
 import { Minotaur } from "./Minotaur";
 import { Appearance } from "../../../Appearance";
-import { kGAMECLASS } from "../../../CoC";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 
 export class MinotaurScene extends BaseContent {
     /*

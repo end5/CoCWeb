@@ -1,7 +1,7 @@
 import { BaseContent } from "../../../BaseContent";
 import { FACE_SNAKE_FANGS, FACE_SPIDER_FANGS, SKIN_TYPE_PLAIN } from "../../../../../includes/appearanceDefs";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { kGAMECLASS } from "../../../CoC";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 
 /**
  * Created by aimozg on 04.01.14.

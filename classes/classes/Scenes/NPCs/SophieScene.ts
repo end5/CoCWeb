@@ -12,7 +12,7 @@ import { Harpy } from "../Areas/HighMountains/Harpy";
 import { StatusAffects } from "../../StatusAffects";
 import { CoC_Settings } from "../../CoC_Settings";
 import { VAGINA_WETNESS_SLAVERING, VAGINA_WETNESS_SLICK, VAGINA_WETNESS_WET, VAGINA_WETNESS_DROOLING } from "../../../../includes/appearanceDefs";
-import { kGAMECLASS } from "../../CoC";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 export class SophieScene extends BaseContent implements TimeAwareInterface {
 

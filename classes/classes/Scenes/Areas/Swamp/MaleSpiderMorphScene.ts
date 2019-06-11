@@ -2,7 +2,7 @@ import { BaseContent } from "../../../BaseContent";
 import { MaleSpiderMorph } from "./MaleSpiderMorph";
 import { LustyMaidensArmor } from "../../../Items/Armors/LustyMaidensArmor";
 import { PregnancyStore } from "../../../PregnancyStore";
-import { kGAMECLASS } from "../../../CoC";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 
 /**
  * Created by aimozg on 03.01.14.

@@ -2,7 +2,7 @@ import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 import { Edryn } from "./Edryn";
 import { Katherine } from "./Katherine";
 import { Urta } from "../../NPCs/Urta";
-import { kGAMECLASS } from "../../../CoC";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { BREAST_CUP_DD, GENDER_NONE } from "../../../../../includes/appearanceDefs";
 import { PregnancyStore } from "../../../PregnancyStore";

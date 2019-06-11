@@ -1,6 +1,6 @@
 import { BaseContent } from "../../../BaseContent";
 import { TelAdre } from "../TelAdre";
-import { kGAMECLASS } from "../../../CoC";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 
 /**
  * Created by aimozg on 05.01.14.

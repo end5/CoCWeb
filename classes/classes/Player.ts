@@ -13,7 +13,7 @@ import { Monster } from "./Monster";
 import { Appearance } from "./Appearance";
 import { trace } from "../console";
 import { ItemType } from "./ItemType";
-import { kGAMECLASS } from "./CoC";
+import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
 import { PerkLib } from "./PerkLib";
 
 /**

@@ -1,5 +1,5 @@
 import { Weapon } from "../Weapon";
-import { kGAMECLASS } from "../../CoC";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 
 /**

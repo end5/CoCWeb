@@ -3,7 +3,7 @@ import { FrogGirlScene } from "./Bog/FrogGirlScene";
 import { ChameleonGirlScene } from "./Bog/ChameleonGirlScene";
 import { PhoukaScene } from "./Bog/PhoukaScene";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { kGAMECLASS } from "../../CoC";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 /**
  * Created by aimozg on 06.01.14.

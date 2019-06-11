@@ -19,7 +19,7 @@ import { ItemType } from "./ItemType";
 import { kFLAGS } from "./GlobalFlags/kFLAGS";
 import { SecretarialSuccubus } from "./Scenes/Dungeons/Factory/SecretarialSuccubus";
 import { MilkySuccubus } from "./Scenes/Quests/UrtaQuest/MilkySuccubus";
-import { kGAMECLASS } from "./CoC";
+import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
 import { RandomDrop } from "./internals/RandomDrop";
 import { PerkLib } from "./PerkLib";
 import { OtherKeys, StatKeys } from "../../lib/src/coc/view/StatsView";

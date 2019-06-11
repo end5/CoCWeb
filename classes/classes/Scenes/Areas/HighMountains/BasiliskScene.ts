@@ -5,7 +5,7 @@ import { StatusAffects } from "../../../StatusAffects";
 import { PerkLib } from "../../../PerkLib";
 import { PregnancyStore } from "../../../PregnancyStore";
 import { WING_TYPE_BEE_LIKE_SMALL, WING_TYPE_BEE_LIKE_LARGE } from "../../../../../includes/appearanceDefs";
-import { kGAMECLASS } from "../../../CoC";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 
 /**
  * Created by aimozg on 03.01.14.

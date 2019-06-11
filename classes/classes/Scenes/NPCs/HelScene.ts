@@ -7,7 +7,7 @@ import { trace } from "../../../console";
 import { Hel } from "./Hel";
 import { PerkLib } from "../../PerkLib";
 import { StatusAffects } from "../../StatusAffects";
-import { kGAMECLASS } from "../../CoC";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 export class HelScene extends NPCAwareContent implements TimeAwareInterface {
 

@@ -1,6 +1,6 @@
 import { PerkType } from "../PerkType";
 import { PerkClass } from "../PerkClass";
-import { kGAMECLASS } from "../CoC";
+import { kGAMECLASS } from "../GlobalFlags/kGAMECLASS";
 
 export class EnlightenedPerk extends PerkType {
 

@@ -1,6 +1,6 @@
 import { BaseContent } from "../BaseContent";
 import { SimpleUseable } from "./Other/SimpleUseable";
-import { kGAMECLASS } from "../CoC";
+import { kGAMECLASS } from "../GlobalFlags/kGAMECLASS";
 
 /**
  * Created by aimozg on 10.01.14.

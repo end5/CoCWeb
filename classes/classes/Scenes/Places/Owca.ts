@@ -6,7 +6,7 @@ import { WeaponLib } from "../../Items/WeaponLib";
 import { PerkLib } from "../../PerkLib";
 import { ANTENNAE_NONE } from "../../../../includes/appearanceDefs";
 import { PregnancyStore } from "../../PregnancyStore";
-import { kGAMECLASS } from "../../CoC";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 import { ItemType } from "../../ItemType";
 import { Farmers } from "./Owca/Farmers";
 

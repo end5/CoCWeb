@@ -4,7 +4,7 @@ import { PregnancyStore } from "../../../PregnancyStore";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { CoC } from "../../../CoC";
 import { trace } from "../../../../console";
-import { kGAMECLASS } from "../../../CoC";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 import { StatusAffects } from "../../../StatusAffects";
 import { ItemType } from "../../../ItemType";
 import { LOWER_BODY_TYPE_CENTAUR, VAGINA_WETNESS_SLAVERING, TONUGE_HUMAN } from "../../../../../includes/appearanceDefs";

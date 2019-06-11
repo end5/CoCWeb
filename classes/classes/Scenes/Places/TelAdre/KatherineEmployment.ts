@@ -3,7 +3,7 @@ import { Edryn } from "./Edryn";
 import { Katherine } from "./Katherine";
 import { KatherineThreesome } from "./KatherineThreesome";
 import { Urta } from "../../NPCs/Urta";
-import { kGAMECLASS } from "../../../CoC";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { LOWER_BODY_TYPE_CENTAUR } from "../../../../../includes/appearanceDefs";
 import { StatusAffects } from "../../../StatusAffects";

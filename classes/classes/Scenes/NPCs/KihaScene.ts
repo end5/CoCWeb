@@ -5,7 +5,7 @@ import { ItemType } from "../../ItemType";
 import { TAIL_TYPE_LIZARD, TONUGE_SNAKE, TONUGE_DEMONIC } from "../../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../CockTypesEnum";
 import { Appearance } from "../../Appearance";
-import { kGAMECLASS } from "../../CoC";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 export class KihaScene extends NPCAwareContent {
 

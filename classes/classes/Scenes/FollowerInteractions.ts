@@ -2,7 +2,7 @@ import { NPCAwareContent } from "./NPCs/NPCAwareContent";
 import { kFLAGS } from "../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../StatusAffects";
 import { WeaponLib } from "../Items/WeaponLib";
-import { kGAMECLASS } from "../CoC";
+import { kGAMECLASS } from "../GlobalFlags/kGAMECLASS";
 import { PerkLib } from "../PerkLib";
 
 export class FollowerInteractions extends NPCAwareContent {

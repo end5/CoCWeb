@@ -3,7 +3,7 @@ import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { CockTypesEnum } from "../../../CockTypesEnum";
 import { ItemType } from "../../../ItemType";
 import { Appearance } from "../../../Appearance";
-import { kGAMECLASS } from "../../../CoC";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 
 export class FapArena extends BazaarAbstractContent {
 

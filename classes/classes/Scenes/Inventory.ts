@@ -10,7 +10,7 @@ import { Useable } from "../Items/Useable";
 import { trace } from "../../console";
 import { Armor } from "../Items/Armor";
 import { Weapon } from "../Items/Weapon";
-import { kGAMECLASS } from "../CoC";
+import { kGAMECLASS } from "../GlobalFlags/kGAMECLASS";
 
 /**
  * Created by aimozg on 12.01.14.

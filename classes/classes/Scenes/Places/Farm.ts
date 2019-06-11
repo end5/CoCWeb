@@ -2,7 +2,7 @@ import { BaseContent } from "../../BaseContent";
 import { KeltScene } from "./Farm/KeltScene";
 import { Kelly } from "./Farm/Kelly";
 import { MarbleScene } from "../NPCs/MarbleScene";
-import { kGAMECLASS } from "../../CoC";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 import { FarmCorruption } from "./Farm/FarmCorruption";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../../StatusAffects";

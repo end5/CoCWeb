@@ -8,7 +8,7 @@ import { trace } from "../console";
 import { CockTypesEnum } from "./CockTypesEnum";
 import { PerkType } from "./PerkType";
 import { StatusAffects } from "./StatusAffects";
-import { kGAMECLASS } from "./CoC";
+import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
 import { PerkLib } from "./PerkLib";
 import { MainView } from "../../lib/src/coc/view/MainView";
 import { Flags } from "./FlagTypeOverrides";

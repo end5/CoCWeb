@@ -2,7 +2,7 @@ import { NPCAwareContent } from "./NPCAwareContent";
 import { PregnancyStore } from "../../PregnancyStore";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { TONUGE_SNAKE, TONUGE_DEMONIC, TONUGE_DRACONIC, TONUGE_HUMAN, FACE_SHARK_TEETH, FACE_SNAKE_FANGS, FACE_SPIDER_FANGS } from "../../../../includes/appearanceDefs";
-import { kGAMECLASS } from "../../CoC";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 export class UrtaPregs extends NPCAwareContent {
 

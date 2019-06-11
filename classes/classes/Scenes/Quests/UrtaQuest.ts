@@ -10,7 +10,7 @@ import { StatusAffects } from "../../StatusAffects";
 import { PerkLib } from "../../PerkLib";
 import { ItemType } from "../../ItemType";
 import { GoblinBroodmother } from "./UrtaQuest/GoblinBroodmother";
-import { kGAMECLASS } from "../../CoC";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 import { Sirius } from "./UrtaQuest/Sirius";
 import { GnollSpearThrower } from "../Areas/Plains/GnollSpearThrower";
 import { MinotaurLord } from "./UrtaQuest/MinotaurLord";

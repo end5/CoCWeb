@@ -9,7 +9,7 @@ import { VAGINA_WETNESS_NORMAL, VAGINA_WETNESS_SLICK, VAGINA_WETNESS_DROOLING, A
 import { Appearance } from "../Appearance";
 import { CoC_Settings } from "../CoC_Settings";
 import { PregnancyStore } from "../PregnancyStore";
-import { kGAMECLASS } from "../CoC";
+import { kGAMECLASS } from "../GlobalFlags/kGAMECLASS";
 
 
 

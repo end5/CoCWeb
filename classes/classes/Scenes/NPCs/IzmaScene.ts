@@ -10,7 +10,7 @@ import { Appearance } from "../../Appearance";
 import { CockTypesEnum } from "../../CockTypesEnum";
 import { PerkLib } from "../../PerkLib";
 import { VAGINA_WETNESS_SLICK, VAGINA_WETNESS_DROOLING } from "../../../../includes/appearanceDefs";
-import { kGAMECLASS } from "../../CoC";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
 

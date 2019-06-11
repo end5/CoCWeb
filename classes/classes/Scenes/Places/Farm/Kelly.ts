@@ -8,7 +8,7 @@ import { StatusAffects } from "../../../StatusAffects";
 import { Kelt } from "./Kelt";
 import { CockTypesEnum } from "../../../CockTypesEnum";
 import { ItemType } from "../../../ItemType";
-import { kGAMECLASS } from "../../../CoC";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 
 export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
 

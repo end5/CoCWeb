@@ -1,5 +1,5 @@
 import { NPCAwareContent } from "./NPCs/NPCAwareContent";
-import { kGAMECLASS } from "../CoC";
+import { kGAMECLASS } from "../GlobalFlags/kGAMECLASS";
 import { ItemType } from "../ItemType";
 import { StatusAffects } from "../StatusAffects";
 import { kFLAGS } from "../GlobalFlags/kFLAGS";

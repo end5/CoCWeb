@@ -1,6 +1,6 @@
 import { BaseContent } from "../../../BaseContent";
 import { Farm } from "../Farm";
-import { kGAMECLASS } from "../../../CoC";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 
 /**
  * Created by aimozg on 08.01.14.

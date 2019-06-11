@@ -1,4 +1,4 @@
-﻿import { kGAMECLASS } from "../CoC";
+﻿import { kGAMECLASS } from "../GlobalFlags/kGAMECLASS";
 
 //Calls are now made through kGAMECLASS rather than thisPtr. This allows the compiler to detect if/when a function is inaccessible.
 

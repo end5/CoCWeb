@@ -1,5 +1,5 @@
 import { BaseContent } from "./BaseContent";
-import { kGAMECLASS } from "./CoC";
+import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
 import { trace } from "../console";
 import { kFLAGS } from "./GlobalFlags/kFLAGS";
 import { CoC } from "./CoC";

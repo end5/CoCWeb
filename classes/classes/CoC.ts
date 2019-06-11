@@ -128,6 +128,7 @@ import { GooArmor } from "./Scenes/NPCs/GooArmor";
 import { SandMother } from "./Scenes/Dungeons/DesertCave/SandMother";
 import { WormMass } from "./Scenes/Areas/Mountain/WormMass";
 import { Flags } from "./FlagTypeOverrides";
+import { setkGAMECLASS } from "./GlobalFlags/kGAMECLASS";
 
 export let kGAMECLASS: CoC;
 
@@ -384,7 +385,8 @@ export class CoC {
 
     public constructor() {
         // Cheatmode.
-        kGAMECLASS = this;
+        setkGAMECLASS(this);
+        // kGAMECLASS = this;
 
         this.useables = new UseableLib();
 
