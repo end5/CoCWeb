@@ -59,7 +59,7 @@ export class MainView {
         this.statsView = new StatsView(this.model);
         this.statsView.hide();
 
-        this.hideSprite();
+        // this.hideSprite();
 
         this.allButtons = [];
 
