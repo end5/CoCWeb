@@ -27,15 +27,25 @@ body {
     width: 100%;
 }
 
+.tan {
+    background-color: #EBD5A6;
+}
+
+.white {
+    background-color: #FFFFFF;
+}
+
 .buttonRow0 {
     position: absolute;
     width: 100%;
+    table-layout: fixed;
 }
 
 .buttonRow1 {
     position: absolute;
     width: 100%;
     top: 52%;
+    table-layout: fixed;
 }
 
 .statPanel {
@@ -167,6 +177,23 @@ body {
     position: relative;
 }
 
+.tooltip {
+    position: absolute;
+    top: -500%;
+    height: 390%;
+    width: 36%;
+    font-family: Shrewsbury-Titling-Bold, Palatino, Georgia, serif;
+    font-size: 1.3em;
+    font-weight: bold;
+    line-height: 1;
+    padding: 3%;
+    left: 38.5%;
+    background-image: url("./res/ui/tooltip.png");
+}
+
+.hidden {
+    display: none;
+}
 
 #buttontop0>.button {
     background-image: url("res/ui/button9.jpg");
