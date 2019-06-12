@@ -81,6 +81,7 @@ export class ImageManager {
     }
 
     public showImage(imageID: ImageSetKey, align: string = "left"): string {
+        if (!(imageID in ImageManager.imageTable)) return '';
         var imageString: string = "";
 
         var imageIndex: number = 0;
