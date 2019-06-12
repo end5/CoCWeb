@@ -16,20 +16,34 @@
 
 <body>
     <div id="mainBackground">
-        <div id="topRowButtons">
-            <a id="buttontop0" class="button">Main Menu</a>
-            <div class="tooltip"></div>
-            <a id="buttontop1" class="button">Data</a>
-            <div class="tooltip"></div>
-            <a id="buttontop2" class="button">Stats</a>
-            <div class="tooltip"></div>
-            <a id="buttontop3" class="button">Perk Up</a>
-            <div class="tooltip"></div>
-            <a id="buttontop4" class="button">Perks</a>
-            <div class="tooltip"></div>
-            <a id="buttontop5" class="button">Appearance</a>
-            <div class="tooltip"></div>
-        </div>
+        <table id="topRowButtons">
+            <tr>
+                <td id="buttontop0" class="buttonContainer">
+                    <a class="button">Main Menu</a>
+                    <div class="tooltip"></div>
+                </td>
+                <td id="buttontop1" class="buttonContainer">
+                    <a class="button">Data</a>
+                    <div class="tooltip"></div>
+                </td>
+                <td id="buttontop2" class="buttonContainer">
+                    <a class="button">Stats</a>
+                    <div class="tooltip"></div>
+                </td>
+                <td id="buttontop3" class="buttonContainer">
+                    <a class="button">Perk Up</a>
+                    <div class="tooltip"></div>
+                </td>
+                <td id="buttontop4" class="buttonContainer">
+                    <a class="button">Perks</a>
+                    <div class="tooltip"></div>
+                </td>
+                <td id="buttontop5" class="buttonContainer">
+                    <a class="button">Appearance</a>
+                    <div class="tooltip"></div>
+                </td>
+            </tr>
+        </table>
         <div id="statsPanel">
             <h2 id="nameDisplay">Name: </h2>
             <h2>Core Stats</h2>
@@ -186,30 +200,54 @@
         </div>
         <img id="mainSpriteDisplay" />
         <div id="bottomRowButtons">
-            <div class="buttonRow0">
-                <a id="button0" class="button">Button</a>
-                <div class="tooltip"></div>
-                <a id="button1" class="button">Button</a>
-                <div class="tooltip"></div>
-                <a id="button2" class="button">Button</a>
-                <div class="tooltip"></div>
-                <a id="button3" class="button">Button</a>
-                <div class="tooltip"></div>
-                <a id="button4" class="button">Button</a>
-                <div class="tooltip"></div>
-            </div>
-            <div class="buttonRow1">
-                <a id="button5" class="button">Button</a>
-                <div class="tooltip"></div>
-                <a id="button6" class="button">Button</a>
-                <div class="tooltip"></div>
-                <a id="button7" class="button">Button</a>
-                <div class="tooltip"></div>
-                <a id="button8" class="button">Button</a>
-                <div class="tooltip"></div>
-                <a id="button9" class="button">Button</a>
-                <div class="tooltip"></div>
-            </div>
+            <table class="buttonRow0">
+                <tr>
+                    <td id="button0" class="buttonContainer">
+                        <a class="button">Button</a>
+                        <div class="tooltip"></div>
+                    </td>
+                    <td id="button1" class="buttonContainer">
+                        <a class="button">Button</a>
+                        <div class="tooltip"></div>
+                    </td>
+                    <td id="button2" class="buttonContainer">
+                        <a class="button">Button</a>
+                        <div class="tooltip"></div>
+                    </td>
+                    <td id="button3" class="buttonContainer">
+                        <a class="button">Button</a>
+                        <div class="tooltip"></div>
+                    </td>
+                    <td id="button4" class="buttonContainer">
+                        <a class="button">Button</a>
+                        <div class="tooltip"></div>
+                    </td>
+                </tr>
+            </table>
+            <table class="buttonRow1">
+                <tr>
+                    <td id="button5" class="buttonContainer">
+                        <a class="button">Button</a>
+                        <div class="tooltip"></div>
+                    </td>
+                    <td id="button6" class="buttonContainer">
+                        <a class="button">Button</a>
+                        <div class="tooltip"></div>
+                    </td>
+                    <td id="button7" class="buttonContainer">
+                        <a class="button">Button</a>
+                        <div class="tooltip"></div>
+                    </td>
+                    <td id="button8" class="buttonContainer">
+                        <a class="button">Button</a>
+                        <div class="tooltip"></div>
+                    </td>
+                    <td id="button9" class="buttonContainer">
+                        <a class="button">Button</a>
+                        <div class="tooltip"></div>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 </body>

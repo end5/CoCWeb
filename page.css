@@ -28,12 +28,14 @@ body {
 }
 
 .buttonRow0 {
-    position: relative;
+    position: absolute;
+    width: 100%;
 }
 
 .buttonRow1 {
-    position: relative;
-    top: 55%;
+    position: absolute;
+    width: 100%;
+    top: 52%;
 }
 
 .statPanel {
@@ -89,7 +91,6 @@ body {
 
 #topRowButtons {
     position: absolute;
-    display: flex;
     align-items: center;
     width: 100%;
     height: 6.5%;
@@ -141,10 +142,12 @@ body {
     top: 91%;
     left: 8%;
 }
+
 #mainImageDisplay {
     max-height: 50%;
     max-width: 100%;
 }
+
 #mainTextDisplay {
     font-size: 1.5em;
     margin-block-start: 0.5em;
@@ -160,92 +163,73 @@ body {
     height: 12%;
 }
 
-
-
-#buttontop0 {
-    background-image: url("res/ui/button9.jpg");
-    left: 3%;
+.buttonContainer>.button {
+    position: relative;
 }
 
-#buttontop1 {
+
+#buttontop0>.button {
+    background-image: url("res/ui/button9.jpg");
+}
+
+#buttontop1>.button {
     background-image: url("res/ui/button8.jpg");
-    left: 19%;
 }
 
-#buttontop2 {
+#buttontop2>.button {
     background-image: url("res/ui/button4.jpg");
-    left: 35%;
 }
 
-#buttontop3 {
+#buttontop3>.button {
     background-image: url("res/ui/button6.jpg");
-    left: 51%;
 }
 
-#buttontop4 {
+#buttontop4>.button {
     background-image: url("res/ui/button3.jpg");
-    left: 67%;
 }
 
-#buttontop5 {
+#buttontop5>.button {
     background-image: url("res/ui/button5.jpg");
-    left: 83%;
 }
 
 
-
-#button0 {
+#button0>.button {
     background-image: url("res/ui/button3.jpg");
 }
 
-#button1 {
+#button1>.button {
     background-image: url("res/ui/button9.jpg");
 }
 
-#button2 {
+#button2>.button {
     background-image: url("res/ui/button5.jpg");
 }
 
-#button3 {
+#button3>.button {
     background-image: url("res/ui/button6.jpg");
 }
 
-#button4 {
+#button4>.button {
     background-image: url("res/ui/button2.jpg");
 }
 
-#button5 {
+#button5>.button {
     background-image: url("res/ui/button1.jpg");
 }
 
-#button6 {
+#button6>.button {
     background-image: url("res/ui/button4.jpg");
 }
 
-#button7 {
+#button7>.button {
     background-image: url("res/ui/button0.jpg");
 }
 
-#button8 {
+#button8>.button {
     background-image: url("res/ui/button7.jpg");
 }
 
-#button9 {
+#button9>.button {
     background-image: url("res/ui/button8.jpg");
 }
 
-#button1, #button6 {
-    left: 20%;
-}
-
-#button2, #button7 {
-    left: 40%;
-}
-
-#button3, #button8 {
-    left: 60%;
-}
-
-#button4, #button9 {
-    left: 80%;
-}
