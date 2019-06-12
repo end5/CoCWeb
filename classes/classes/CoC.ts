@@ -192,8 +192,8 @@ export class CoC {
 
     public static timeAwareClassAdd(newEntry: TimeAwareInterface): void { CoC._timeAwareClassList.push(newEntry); }
 
-    private static doCamp: any; //Set by campInitialize, should only be called by playerMenu
-    private static campInitialize(passDoCamp: any): void { CoC.doCamp = passDoCamp; }
+    // private static doCamp: any; //Set by campInitialize, should only be called by playerMenu
+    // private static campInitialize(passDoCamp: any): void { CoC.doCamp = passDoCamp; }
 
     // /
     // private _perkLib: PerkLib = new PerkLib();// to init the static
@@ -208,7 +208,8 @@ export class CoC {
     public armors: ArmorLib = new ArmorLib();
     public miscItems: MiscItemLib = new MiscItemLib();
     // Scenes/
-    public camp: Camp = new Camp(CoC.campInitialize);
+    // public camp: Camp = new Camp(CoC.campInitialize);
+    public camp: Camp = new Camp();
     public exploration: Exploration = new Exploration();
     public followerInteractions: FollowerInteractions = new FollowerInteractions();
     public inventory: Inventory = new Inventory(this.saves);
@@ -8456,7 +8457,8 @@ convert "
             return;
         }
         this.flags[kFLAGS.PLAYER_PREGGO_WITH_WORMS] = 0;
-        CoC.doCamp.call(this);
+        this.camp.doCamp();
+        // CoC.doCamp.();
     }
 
     /* All calls replaced by calls to playerMenu
