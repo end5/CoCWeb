@@ -653,10 +653,10 @@ export class HelSpawnScene extends NPCAwareContent {
         this.outputText("\n\n\"<i>So... what do we name her, love?  I honestly hadn't put that much thought into girl names.  Kind of expected a boy, I guess, but... it's up to you, [name].  What do you think?</i>\"");
 
         const input = document.createElement('input');
-        this.mainView.mainText.appendChild(input);
 
         this.menu();
         this.addButton(0, "Next", () => this.applyHelspawnName(input));
+        this.mainView.mainText.appendChild(input);
     }
     private applyHelspawnName(input: HTMLInputElement): void {
         this.spriteSelect(68);
@@ -684,10 +684,10 @@ export class HelSpawnScene extends NPCAwareContent {
             else if (input.value == "Mini-doofus") this.outputText("\"<i>Oh yeah, Kiha'll get a laugh out of that.  You ass.</i>\"");
             //[Back to the name field you go!]
 
-            this.mainView.mainText.appendChild(input);
 
             this.menu();
             this.addButton(0, "Next", () => this.applyHelspawnName(input));
+            this.mainView.mainText.appendChild(input);
             return;
         }
         this.flags[kFLAGS.HELSPAWN_NAME] = input.value;

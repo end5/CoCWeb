@@ -108,10 +108,10 @@ export class Gargoyle extends BaseContent {
         //[Display a textbox, into which the player can type in a name. This new value will be called " + flags[kFLAGS.GAR_NAME] + ", henceforth. ] (Confidence +10)
 
         const input = document.createElement('input');
-        this.mainView.mainText.appendChild(input);
 
         this.menu();
         this.addButton(0, "Next", () => this.nameZeGargoyle(input));
+        this.mainView.mainText.appendChild(input);
     }
 
     private nameZeGargoyle(input: HTMLInputElement): void {
@@ -126,11 +126,11 @@ export class Gargoyle extends BaseContent {
             // Solution? Fuck you for naming your Gargoyle "0".
             this.clearOutput();
             this.outputText("<b>You must name her.</b>", false);
-            this.mainView.mainText.appendChild(input);
 
             this.menu();
 
             this.addButton(0, "Next", () => this.nameZeGargoyle(input));
+            this.mainView.mainText.appendChild(input);
             return;
         }
         this.flags[kFLAGS.GAR_NAME] = input.value;

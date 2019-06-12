@@ -28,11 +28,11 @@ export class MilkWaifu extends NPCAwareContent {
         this.outputText("\n\nSpeaking of which, you don't really have anything to call this dusky beauty.  You suppose you could just keep calling her \"Bath Slut,\" but that's hardly a fitting name for a free girl...");
 
         const input = document.createElement('input');
-        this.mainView.mainText.appendChild(input);
 
         //[Name Field.  If left empty, defaults to "Bath Slut"]
         this.menu();
         this.addButton(0, "Next",()=> this.nameZeMilkBath(input));
+        this.mainView.mainText.appendChild(input);
     }
 
 

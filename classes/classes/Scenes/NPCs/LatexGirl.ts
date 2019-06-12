@@ -205,9 +205,9 @@ export class LatexGirl extends NPCAwareContent {
         this.outputText("\"<i>Call me what you want, my name doesn't matter.</i>\"");
         this.outputText("\n\nWhat will you name her?");
         const input = document.createElement('input');
-        this.mainView.mainText.appendChild(input);
         this.menu();
         this.addButton(0, "Next", () => this.nameZeLatexGoo(input));
+        this.mainView.mainText.appendChild(input);
     }
     private nameZeLatexGoo(input: HTMLInputElement): void {
         // if (kGAMECLASS.testingBlockExiting) {
@@ -219,9 +219,9 @@ export class LatexGirl extends NPCAwareContent {
         if (input.value == "") {
             this.clearOutput();
             this.outputText("<b>You must select a name.</b>", false);
-            this.mainView.mainText.appendChild(input);
             this.menu();
             this.addButton(0, "Next", this.nameZeLatexGoo);
+            this.mainView.mainText.appendChild(input);
             return;
         }
         this.flags[kFLAGS.GOO_NAME] = input.value;
@@ -308,9 +308,9 @@ export class LatexGirl extends NPCAwareContent {
         this.outputText("\n\nWhat will you name her?");
         //{To standard name prompts}
         const input = document.createElement('input');
-        this.mainView.mainText.appendChild(input);
         this.menu();
         this.addButton(0, "Next", () => this.nameZeLatexGoo(input));
+        this.mainView.mainText.appendChild(input);
     }
 
     //Pure Characters Intro(F):

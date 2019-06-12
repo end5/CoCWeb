@@ -127,7 +127,6 @@ export class Saves extends BaseContent {
 
     public saveScreen(): void {
         const input = document.createElement('input');
-        this.mainView.mainText.appendChild(input);
 
         // var test; // Disabling this variable because it seems to be unused.
 
@@ -166,6 +165,7 @@ export class Saves extends BaseContent {
             "Slot 8", saveFuncs[7],
             "Slot 9", saveFuncs[8],
             "Back", this.saveLoad);
+        this.mainView.mainText.appendChild(input);
     }
 
     public saveLoad(): void {
