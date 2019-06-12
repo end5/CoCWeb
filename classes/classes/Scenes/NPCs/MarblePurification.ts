@@ -80,7 +80,7 @@ export class MarblePurification extends NPCAwareContent {
         //While on her Purification Route, Marble’s Presents will always be LaBova
         //Once Marble is purified, the "get presents" option reverts to its default options.
         this.flags[kFLAGS.MARBLE_PURIFICATION_STAGE] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //PC Gives P.Labova
@@ -123,7 +123,7 @@ export class MarblePurification extends NPCAwareContent {
             this.outputText(" nipples begin spray milk everywhere - you have to take a step back to avoid being squirted yourself. Finally, Marble’s breasts stop their spraying, leaving the two of you standing in a milky puddle of mud. The cowgirl pulls her shirt back on over her body. \"<i>That stuff still tastes vile, but I guess it’s worth it. I just hope it finishes working soon.</i>\" she tells you. You assure her that you believe in her ability to get through this, and then head back to the main part of your camp.");
         }
         this.flags[kFLAGS.TIMES_GIVEN_MARBLE_PURE_LABOVA]++;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -155,7 +155,7 @@ export class MarblePurification extends NPCAwareContent {
         }
         //{Next}
         this.menu();
-        this.addButton(0, "Next", this.pageTwoOfVisitingTheRatForMurblesPurification);
+        this.addButton(this, 0, "Next", this.pageTwoOfVisitingTheRatForMurblesPurification);
     }
     public pageTwoOfVisitingTheRatForMurblesPurification(): void {
         this.clearOutput();
@@ -167,7 +167,7 @@ export class MarblePurification extends NPCAwareContent {
         this.flags[kFLAGS.MARBLE_PURIFICATION_STAGE] = 3;
         this.flags[kFLAGS.MARBLE_RATHAZUL_COUNTER_1] = 24;
 
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Rathazul’s Report
@@ -185,8 +185,8 @@ export class MarblePurification extends NPCAwareContent {
         this.outputText("\n\nDo you tell her it’s okay, or tell her you’re not ready to send her away?");
         //[Go] [Stay]
         this.menu();
-        this.addButton(0, "Go", this.murbleShouldGoRunAlongAndGetHerCuntySisterSoTheyCanBeCuntsTogether);
-        this.addButton(1, "Stay", this.stayHereAndDontGoGetYerSisterShesABitch);
+        this.addButton(this, 0, "Go", this.murbleShouldGoRunAlongAndGetHerCuntySisterSoTheyCanBeCuntsTogether);
+        this.addButton(this, 1, "Stay", this.stayHereAndDontGoGetYerSisterShesABitch);
     }
 
     //[=Stay=]
@@ -197,7 +197,7 @@ export class MarblePurification extends NPCAwareContent {
         this.outputText("\n\nWith that said, the three of you finish your meals.  Rathazul shambles off to get some much-needed sleep.  Marble prepares for her morning training, and you prepare yourself for another day in Mareth.");
         //Marble now has the "Go" option in her buttons when interacting with her through the "followers" menu
         //The "Go" button links to the same "Go" scene as choosing "Go" when Rathazul first makes his report
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //[=Go=]
     public murbleShouldGoRunAlongAndGetHerCuntySisterSoTheyCanBeCuntsTogether(): void {
@@ -209,7 +209,7 @@ export class MarblePurification extends NPCAwareContent {
         this.flags[kFLAGS.MARBLE_PURIFICATION_STAGE] = 4;
         this.flags[kFLAGS.MARBLE_RATHAZUL_COUNTER_2] = 240;
         this.flags[kFLAGS.SLEEP_WITH] = "";
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Clara Appears in Camp
@@ -243,7 +243,7 @@ export class MarblePurification extends NPCAwareContent {
         this.outputText("\n\nYou turn back to Rathazul, and notice that he is looking oddly concerned about something.  He then says something under his breath before turning back to his cup.  All you catch sounds like \"<i>up to no good.</i>\"");
         //page break
         this.menu();
-        this.addButton(0, "Next", this.partTwoOfClaraShowingUpAndBeingACunt);
+        this.addButton(this, 0, "Next", this.partTwoOfClaraShowingUpAndBeingACunt);
     }
 
     public partTwoOfClaraShowingUpAndBeingACunt(): void {
@@ -328,7 +328,7 @@ export class MarblePurification extends NPCAwareContent {
 
         //continue to Clara's drugging attempt, new page
         this.menu();
-        this.addButton(0, "Next", this.dumbshitCowCuntsTryToDrugYouBecauseTheyreCunts, teaDrinkers);
+        this.addButton(this, 0, "Next", this.dumbshitCowCuntsTryToDrugYouBecauseTheyreCunts, teaDrinkers);
     }
     //Clara’s drugging attempt
     //Clara attempts to drug everyone in the camp with the tea that she has served.  The PC’s intelligence determines what course of action the PC can take here, and whether or not they realize what is going on.
@@ -341,9 +341,9 @@ export class MarblePurification extends NPCAwareContent {
         //if (temp follower variable >=1) { She does ask your companions to wait to drink until everyone has a cup. }
         //Run a check of the PC’s intelligence, and proceed to either the low/medium/high intelligence outcome based on what that level of intelligence is.
         //new page
-        if (this.player.inte >= 60) this.addButton(0, "Next", this.highIntelligenceOutcomesVsCowCuntDrugs);
-        else if (this.player.inte >= 30) this.addButton(0, "Next", this.mediumIntelligenceReactsToDrugging);
-        else this.addButton(0, "Next", this.lowIntelligenceGetsDruggedByCowSluts);
+        if (this.player.inte >= 60) this.addButton(this, 0, "Next", this.highIntelligenceOutcomesVsCowCuntDrugs);
+        else if (this.player.inte >= 30) this.addButton(this, 0, "Next", this.mediumIntelligenceReactsToDrugging);
+        else this.addButton(this, 0, "Next", this.lowIntelligenceGetsDruggedByCowSluts);
     }
     //Low Intelligence Outcome
     //Always happens if the PC’s intelligence is too low.  Characters with mid or high intelligence can voluntarily trigger this scene anyway.
@@ -361,7 +361,7 @@ export class MarblePurification extends NPCAwareContent {
 
         //new page 
         this.menu();
-        this.addButton(0, "Next", this.partTwoOfLowIntelligencePCsFallingForTheIncrediblyObviousCowCuntsTrap);
+        this.addButton(this, 0, "Next", this.partTwoOfLowIntelligencePCsFallingForTheIncrediblyObviousCowCuntsTrap);
 
     }
     public partTwoOfLowIntelligencePCsFallingForTheIncrediblyObviousCowCuntsTrap(): void {
@@ -385,8 +385,8 @@ export class MarblePurification extends NPCAwareContent {
         this.outputText(" you’re still wearing your [armor].");
         //PC chooses fight or submit.
         this.menu();
-        this.addButton(0, "Fight", this.fightCowCuntAfterBeingTotesMcGoatsDrugged);
-        this.addButton(1, "Submit", this.voluntarilyChooseCowCuntBadEndYouBad);
+        this.addButton(this, 0, "Fight", this.fightCowCuntAfterBeingTotesMcGoatsDrugged);
+        this.addButton(this, 1, "Submit", this.voluntarilyChooseCowCuntBadEndYouBad);
     }
 
     //Chose fight
@@ -412,7 +412,7 @@ export class MarblePurification extends NPCAwareContent {
         this.outputText("Giving into the desires that your addiction has granted you, you return to Clara’s breast, much to the young cow-girl’s moans and sighs of pleasure.  \"<i>Ahh, yes, that's a goood " + this.player.mf("boy", "girl") + ",</i>\" is whispered in your ear.");
         //go to Clara’s bad end
         this.menu();
-        this.addButton(0, "Next", this.loseToClara, false);
+        this.addButton(this, 0, "Next", this.loseToClara, false);
     }
 
     //Medium Intelligence Outcome
@@ -424,8 +424,8 @@ export class MarblePurification extends NPCAwareContent {
         this.outputText("\n\nDo you drink the tea anyway?");
 
         this.menu();
-        this.addButton(0, "Drink Tea", this.lowIntelligenceGetsDruggedByCowSluts);
-        this.addButton(1, "Don't", this.mediumIntelligenceDoesntDrinkCowCuntsTea);
+        this.addButton(this, 0, "Drink Tea", this.lowIntelligenceGetsDruggedByCowSluts);
+        this.addButton(this, 1, "Don't", this.mediumIntelligenceDoesntDrinkCowCuntsTea);
         //player chooses either to drink or not to drink.  Drinking is the same as the low intelligence auto drink.
     }
 
@@ -445,8 +445,8 @@ export class MarblePurification extends NPCAwareContent {
         this.outputText("\n\nIt seems you’re going to have to either give into her desires, or fight her.  There is no other option, and after the episode with the tea, it will be a one-on-one fight.");
         //PC chooses: fight or submit
         this.menu();
-        this.addButton(0, "Fight", this.mediumIntelligencesFightCowCunts);
-        this.addButton(1, "Submit", this.mediumIntelligencesSubmitCowCunts);
+        this.addButton(this, 0, "Fight", this.mediumIntelligencesFightCowCunts);
+        this.addButton(this, 1, "Submit", this.mediumIntelligencesSubmitCowCunts);
     }
 
     //Fight
@@ -462,7 +462,7 @@ export class MarblePurification extends NPCAwareContent {
         this.outputText("You sigh and accept the cup from the cow-girl’s hands and down its contents.  In moments, your vision clouds over, and you fall into her soft arms.  Just before everything goes black, you hear a voice say, \"<i>Come on now, lets run away toogether.  I’ll make sure you’re addicted before you next wake up.</i>\"");
         //go to bad end
         this.menu();
-        this.addButton(0, "Next", this.loseToClara, false);
+        this.addButton(this, 0, "Next", this.loseToClara, false);
     }
     //High Intelligence Outcome
     //The PC realizes that Clara does not have good intentions and that there is likely something wrong with the tea as she is passing it out.  They have the option of calling her out on it while she is still passing the tea out, say nothing but don’t drink the tea, or say nothing and drink the tea anyway.  The later two options lead to the moderate and low intelligence options respectively.
@@ -475,9 +475,9 @@ export class MarblePurification extends NPCAwareContent {
         this.outputText(", just not drink any tea yourself, or drink it anyway?");
         //Player chooses to drink tea, not drink tea, or Call Clara Out.  Choosing to drink is the same as the low intelligence drinking, choosing not to drink is the same as the mid intelligence option.
         this.menu();
-        this.addButton(0, "Drink Tea", this.lowIntelligenceGetsDruggedByCowSluts);
-        this.addButton(1, "Don't Drink", this.mediumIntelligenceDoesntDrinkCowCuntsTea);
-        this.addButton(2, "CallHerOut", this.highIntelligenceCallClaraOut);
+        this.addButton(this, 0, "Drink Tea", this.lowIntelligenceGetsDruggedByCowSluts);
+        this.addButton(this, 1, "Don't Drink", this.mediumIntelligenceDoesntDrinkCowCuntsTea);
+        this.addButton(this, 2, "CallHerOut", this.highIntelligenceCallClaraOut);
     }
     //Call Clara Out
     //If they call Clara out, then Clara panics while giving Marble her tea.  She takes Marble out with her mace and then confronts what is left of the party.
@@ -516,7 +516,7 @@ export class MarblePurification extends NPCAwareContent {
 
             //Proceed to after combat in camp.
             this.menu();
-            this.addButton(0, "Next", this.defeatClaraCuntInAFight, true);
+            this.addButton(this, 0, "Next", this.defeatClaraCuntInAFight, true);
         }
         //No other fighters in camp
         //if Marble is the only fighting follower, then the PC fights Clara on even ground for x number of rounds, before Marble wakes back up and ends the fight.
@@ -560,7 +560,7 @@ export class MarblePurification extends NPCAwareContent {
 
         //new page
         this.menu();
-        this.addButton(0, "Next", this.losingToCowCuntsPageII);
+        this.addButton(this, 0, "Next", this.losingToCowCuntsPageII);
     }
     public losingToCowCuntsPageII(): void {
         this.clearOutput();
@@ -594,7 +594,7 @@ export class MarblePurification extends NPCAwareContent {
 
         //new page
         this.menu();
-        this.addButton(0, "Next", this.cowCuntBadEndPartIII);
+        this.addButton(this, 0, "Next", this.cowCuntBadEndPartIII);
     }
     //Nursing from Clara
     //The PC then nurses from Clara.  Them being unable to do anything else should be emphasized.  Clara should also make a demand of the PC related to their lovers and quest as a condition for nursing.
@@ -610,7 +610,7 @@ export class MarblePurification extends NPCAwareContent {
         this.outputText("\n\nYou suck as hard as you possibly can: you need to!  You can’t possibly care about anything else than satisfying your need, and you want to do it in the best possible way for the subject of your love.  You don’t know how long this continues for, but eventually you’re pulled back abruptly from the tap from which the elixir of the gods flows.  You notice that your [leg] is wet.  You look down and find that Clara’s dress is soaked, right in front of her womanhood.  \"<i>Time to switch nipples, " + this.player.mf("lover-boy", "lover-girl") + "</i>\" Clara says breathlessly, calling your gaze back up.  \"<i>This time, we’re going to try it a bit slower.</i>\"");
         //new page
         this.menu();
-        this.addButton(0, "Next", this.cowCuntBadEndPartIV);
+        this.addButton(this, 0, "Next", this.cowCuntBadEndPartIV);
     }
 
     public cowCuntBadEndPartIV(): void {
@@ -637,9 +637,9 @@ export class MarblePurification extends NPCAwareContent {
 
         //Proceed to either the has fitted cock, no fitted cock, or has not cock variants.
         this.menu();
-        if (!this.player.hasCock()) this.addButton(0, "Next", this.cocklessPCsGetAbusedByCowCunts);
-        else if (this.player.cockThatFits(20) < 0) this.addButton(0, "Next", this.cockTooBigForCowCuntageBadEndage);
-        else this.addButton(0, "Next", this.badEndDickThatFitsClara);
+        if (!this.player.hasCock()) this.addButton(this, 0, "Next", this.cocklessPCsGetAbusedByCowCunts);
+        else if (this.player.cockThatFits(20) < 0) this.addButton(this, 0, "Next", this.cockTooBigForCowCuntageBadEndage);
+        else this.addButton(this, 0, "Next", this.badEndDickThatFitsClara);
     }
 
     //Clara’s vaginal capacity is 20 (she is a virgin that has not trained her vagina at all.  Marble used a 2x8 inch large dildo almost daily before she met the PC, this is not counting the handle, she also did have sex with her second boyfriend)
@@ -665,7 +665,7 @@ export class MarblePurification extends NPCAwareContent {
         this.outputText("\n\nThe sex is not much more than a blur of pleasurable sensations, lust addled nonsense, the wet slapping of two bodies hitting one another, and the bouncing of two giant breasts.  It is worth noting that Clara does improve her sexual skills quite considerably during the interim.  Once you get to the end of the frantic lovemaking, she adds hip rotations, pelvic thrusts, and rubbing to her desperate pumping.");
         this.outputText("\n\nBy that time the two of you are completely exhausted, and Clara collapses on top of you.  She grips your arms before wrapping you up in a big hug against her chest.  \"<i>I’ll never let you leave me, you’re mine forever and ever...</i>\" she whispers in your ear before falling asleep.  You aren’t sure if you should be happy or not at that prospect.");
         this.menu();
-        this.addButton(0, "Next", this.finalBadEndWithCowCunt);
+        this.addButton(this, 0, "Next", this.finalBadEndWithCowCunt);
     }
 
     //PC does not have a cock that fits, but does have at least one cock
@@ -690,7 +690,7 @@ export class MarblePurification extends NPCAwareContent {
 
         //Proceed to cockless scene.
         this.menu();
-        this.addButton(0, "Next", this.cocklessPCsGetAbusedByCowCunts);
+        this.addButton(this, 0, "Next", this.cocklessPCsGetAbusedByCowCunts);
     }
     //PC is cockless
     //The PC is made to eat Clara out, while also being assured that soon enough they’ll be changed to better suit Clara’s needs.
@@ -735,7 +735,7 @@ export class MarblePurification extends NPCAwareContent {
         }
         //Proceed to bad end
         this.menu();
-        this.addButton(0, "Next", this.finalBadEndWithCowCunt);
+        this.addButton(this, 0, "Next", this.finalBadEndWithCowCunt);
     }
 
     //Bad End: Clara’s Milk Slave
@@ -853,11 +853,11 @@ export class MarblePurification extends NPCAwareContent {
         this.menu();
         //PC chooses what kind of victory scene they want to do to Clara.
         //options are: Spank (can always do), Threesome (if the PC has a cock that is under 20 area, or a vagina), "NTR" (if PC has a cock that will fit Marble, or a vagina), Marble cock (if Marble has a cock), and Calm down (always possible).
-        this.addButton(0, "Spank", this.murbleSpanksCowCunt);
-        if ((this.player.hasCock() && this.player.cockThatFits(20) >= 0) || this.player.hasVagina()) this.addButton(1, "Threesome", this.pcAndMurbleDoubleTeamCowButt);
-        if ((this.player.hasCock() && this.player.cockThatFits(this.marbleScene.marbleCuntCapacity()) >= 0) || this.player.hasVagina()) this.addButton(2, "NTR", this.NTRIsClearlyTheWorstFetishWhyWouldYouWriteThisOMG);
-        if (this.flags[kFLAGS.MARBLE_DICK_TYPE] > 0) this.addButton(3, "Marble Cock", this.futaMarbleIsAHugeCowToCowCuntAndStuffsCowCuntsCuntFullOfCowCock);
-        this.addButton(4, "Calm Down", this.calmMurblesFatAssDown);
+        this.addButton(this, 0, "Spank", this.murbleSpanksCowCunt);
+        if ((this.player.hasCock() && this.player.cockThatFits(20) >= 0) || this.player.hasVagina()) this.addButton(this, 1, "Threesome", this.pcAndMurbleDoubleTeamCowButt);
+        if ((this.player.hasCock() && this.player.cockThatFits(this.marbleScene.marbleCuntCapacity()) >= 0) || this.player.hasVagina()) this.addButton(this, 2, "NTR", this.NTRIsClearlyTheWorstFetishWhyWouldYouWriteThisOMG);
+        if (this.flags[kFLAGS.MARBLE_DICK_TYPE] > 0) this.addButton(this, 3, "Marble Cock", this.futaMarbleIsAHugeCowToCowCuntAndStuffsCowCuntsCuntFullOfCowCock);
+        this.addButton(this, 4, "Calm Down", this.calmMurblesFatAssDown);
     }
     //Marble spanks Clara
     //Just let Marble punish Clara like the bad girl she is.
@@ -878,7 +878,7 @@ export class MarblePurification extends NPCAwareContent {
         this.outputText("\n\nMarble picks her sister up off the ground and roughly tosses her onto one of the sitting logs around the firepit.  Clara continues to sob and beg for the abuse to stop, but it is all in vain.  Marble squats down slightly behind her, winds up, and brings down the first of many harsh smacks against her rear end.  Your mate doesn't let up on her punishment until every last inch of Clara's heinous hindquarters has been covered in blue welts.  By this point, the wannabe kidnapper and slaver is nothing but a slobbering, incoherent mess.");
         //continue to calm Marble down
         this.menu();
-        this.addButton(0, "Next", this.calmMurblesFatAssDown);
+        this.addButton(this, 0, "Next", this.calmMurblesFatAssDown);
     }
     //PC and Marble rape Clara
     //Double team Clara, will be rough forceful sex.
@@ -946,7 +946,7 @@ export class MarblePurification extends NPCAwareContent {
         this.player.orgasm();
         //proceed to calm Marble down
         this.menu();
-        this.addButton(0, "Next", this.calmMurblesFatAssDown);
+        this.addButton(this, 0, "Next", this.calmMurblesFatAssDown);
     }
     //NTR Clara
     //The PC and Marble have unusually rough and passionate sex in front of Clara, this is to show how much more real your love is to Marble.  It only serves to piss off Clara and make her jealous.
@@ -980,7 +980,7 @@ export class MarblePurification extends NPCAwareContent {
         this.player.orgasm();
         //Proceed to calm Marble down
         this.menu();
-        this.addButton(0, "Next", this.calmMurblesFatAssDown);
+        this.addButton(this, 0, "Next", this.calmMurblesFatAssDown);
     }
     //Futa Marble rapes Clara
     //Similar to the threesome, but Marble is the only participant.
@@ -1000,7 +1000,7 @@ export class MarblePurification extends NPCAwareContent {
         this.dynStats("lus", 20);
         //proceed to Calm Marble down
         this.menu();
-        this.addButton(0, "Next", this.calmMurblesFatAssDown);
+        this.addButton(this, 0, "Next", this.calmMurblesFatAssDown);
     }
     //Calm Marble down
     //The end to all other punishment scenes, or if the player doesn't want to punish Clara.
@@ -1022,7 +1022,7 @@ export class MarblePurification extends NPCAwareContent {
         this.outputText("\n\nYou suggest that now would probably be a good time to check on Rathazul, before deciding what to do with Clara.  \"<i>Good idea, it will give me some time to clear my head.</i>\"  The two of you leave the tied up bovine where she is and head over to the elderly alchemist's side of the camp.");
         //Proceed to Rathazul finishing Marble's Potion.
         this.menu();
-        this.addButton(0, "Next", this.rathazulFinishingMarblesPotion);
+        this.addButton(this, 0, "Next", this.rathazulFinishingMarblesPotion);
     }
     //Rathazul Finishing Marble’s Potion
     public rathazulFinishingMarblesPotion(): void {
@@ -1043,7 +1043,7 @@ export class MarblePurification extends NPCAwareContent {
         this.outputText("\n\nYou've got some time to kill now, you guess.  Is there something you want to spend it doing?");
 
         this.menu();
-        this.addButton(0, "Next", this.theFormulaIsDone);
+        this.addButton(this, 0, "Next", this.theFormulaIsDone);
     }
     //Let Marble know the formula is done
     public theFormulaIsDone(): void {
@@ -1085,7 +1085,7 @@ export class MarblePurification extends NPCAwareContent {
 
         //continue to Marble is purified
         this.menu();
-        this.addButton(0, "Next", this.purifyMarbleComplete);
+        this.addButton(this, 0, "Next", this.purifyMarbleComplete);
     }
 
     //Marble is purified
@@ -1133,7 +1133,7 @@ export class MarblePurification extends NPCAwareContent {
         }
         //continue to Dealing with Clara
         this.menu();
-        this.addButton(0, "Next", this.dealingWithCowCuntPostPurification);
+        this.addButton(this, 0, "Next", this.dealingWithCowCuntPostPurification);
     }
 
     //Dealing with Clara
@@ -1152,8 +1152,8 @@ export class MarblePurification extends NPCAwareContent {
 
         //PC chooses to purify or not to purify.
         this.menu();
-        this.addButton(0, "Purify", this.purifyMurblesSister);
-        this.addButton(1, "Don't", this.dontPurifyClara);
+        this.addButton(this, 0, "Purify", this.purifyMurblesSister);
+        this.addButton(this, 1, "Don't", this.dontPurifyClara);
     }
 
     //Purify
@@ -1171,8 +1171,8 @@ export class MarblePurification extends NPCAwareContent {
         this.flags[kFLAGS.CLARA_PURIFIED] = 1;
         //PC makes their choice: Tel'Adre, camp cage, let go."
         this.menu();
-        this.addButton(0, "Cage", this.cageDatCowCunt);
-        this.addButton(1, "Let Go", this.letGoOfMarblesCowCuntSister);
+        this.addButton(this, 0, "Cage", this.cageDatCowCunt);
+        this.addButton(this, 1, "Let Go", this.letGoOfMarblesCowCuntSister);
     }
 
     //Camp Cage
@@ -1184,7 +1184,7 @@ export class MarblePurification extends NPCAwareContent {
         //Clara is marked as having been purified and caged in camp.
         //continue to purification quest final
         this.menu();
-        this.addButton(0, "Next", this.purificationQuestFinal);
+        this.addButton(this, 0, "Next", this.purificationQuestFinal);
     }
     //Let go
     public letGoOfMarblesCowCuntSister(): void {
@@ -1194,7 +1194,7 @@ export class MarblePurification extends NPCAwareContent {
         //Clara is marked as having been purified and released.
         //continue to purification quest final
         this.menu();
-        this.addButton(0, "Next", this.purificationQuestFinal);
+        this.addButton(this, 0, "Next", this.purificationQuestFinal);
     }
 
     //Don't purify
@@ -1205,8 +1205,8 @@ export class MarblePurification extends NPCAwareContent {
         this.outputText("\n\nIf you're feeling especially generous, you could just let her go, with not more than a promise to never come back or try to kidnap you again.");
         //PC makes their choice: Tel'Adre, camp cage, let go."
         this.menu();
-        this.addButton(0, "Cage", this.stickUnpurifiedClaraInACage);
-        this.addButton(1, "Let Go", this.letCorruptCowCuntGo);
+        this.addButton(this, 0, "Cage", this.stickUnpurifiedClaraInACage);
+        this.addButton(this, 1, "Let Go", this.letCorruptCowCuntGo);
     }
 
     //Camp Cage
@@ -1219,7 +1219,7 @@ export class MarblePurification extends NPCAwareContent {
         this.flags[kFLAGS.CLARA_IMPRISONED] = 1;
         //continue to purification quest final
         this.menu();
-        this.addButton(0, "Next", this.purificationQuestFinal);
+        this.addButton(this, 0, "Next", this.purificationQuestFinal);
     }
 
     //Let go
@@ -1231,7 +1231,7 @@ export class MarblePurification extends NPCAwareContent {
         //Clara is marked as having not been purified and released
         //continue to purification quest final
         this.menu();
-        this.addButton(0, "Next", this.purificationQuestFinal);
+        this.addButton(this, 0, "Next", this.purificationQuestFinal);
     }
 
     //Purification quest final
@@ -1250,7 +1250,7 @@ export class MarblePurification extends NPCAwareContent {
         //Marble's breast size is set to 0 (integer, 0=DD cups, 1=G cups, 2=HH, 3=J)
         //advance time of day by 4 hours
         //end event
-        this.doNext(this.camp.returnToCampUseFourHours);
+        this.doNext(this, this.camp.returnToCampUseFourHours);
     }
 
     //Purified Succubus milk
@@ -1260,8 +1260,8 @@ export class MarblePurification extends NPCAwareContent {
         this.outputText("Do you want to ask Marble to grow her breasts bigger?");
         //PC chooses yes or no
         this.menu();
-        this.addButton(0, "Yes", this.actuallyGrowPureMarblesTittiesForFunzies);
-        this.addButton(1, "No", this.marbleScene.giveItem);
+        this.addButton(this, 0, "Yes", this.actuallyGrowPureMarblesTittiesForFunzies);
+        this.addButton(this, 1, "No", this.marbleScene.giveItem);
     }
     //if yes
     public actuallyGrowPureMarblesTittiesForFunzies(): void {
@@ -1294,7 +1294,7 @@ export class MarblePurification extends NPCAwareContent {
             this.outputText("\n\n\"<i>Sorry sweetie,</i>\" she says handing the bottle back to you, \"<i>I think my breasts are big enough as they are.</i>\"");
             //no effect
         }
-        this.doNext(this.marbleScene.giveItem);
+        this.doNext(this, this.marbleScene.giveItem);
     }
 
     //Reducto
@@ -1303,8 +1303,8 @@ export class MarblePurification extends NPCAwareContent {
         this.clearOutput();
         this.outputText("Do you want to ask Marble to shrink her breasts down?");
         this.menu();
-        this.addButton(0, "Yes", this.pureMurblePCChoosesYesToShrinkeyTits);
-        this.addButton(1, "No", this.marbleScene.giveItem);
+        this.addButton(this, 0, "Yes", this.pureMurblePCChoosesYesToShrinkeyTits);
+        this.addButton(this, 1, "No", this.marbleScene.giveItem);
     }
 
     //if yes
@@ -1335,7 +1335,7 @@ export class MarblePurification extends NPCAwareContent {
         else {
             this.outputText("\n\n\"<i>What?  Sweetie, I'm already so tiny, I'm afraid I couldn't bring myself to get any smaller.  Sorry.</i>\"  She hands you back the jar of reducto.");
         }
-        this.doNext(this.marbleScene.giveItem);
+        this.doNext(this, this.marbleScene.giveItem);
     }
 
     //Lactaid
@@ -1349,7 +1349,7 @@ export class MarblePurification extends NPCAwareContent {
         this.flags[kFLAGS.MARBLE_LUST] += 20;
         if (this.flags[kFLAGS.MARBLE_LUST] < 0) this.flags[kFLAGS.MARBLE_LUST] = 0;
         this.player.consumeItem(this.consumables.LACTAID);
-        this.doNext(this.marbleScene.giveItem);
+        this.doNext(this, this.marbleScene.giveItem);
     }
 
     //Nursing from Pure Marble
@@ -1358,7 +1358,7 @@ export class MarblePurification extends NPCAwareContent {
         //if(time since last nursing is < 4 hours)
         if (this.flags[kFLAGS.MARBLE_TIME_SINCE_NURSED_IN_HOURS] < 4) {
             this.outputText("Feeling a bit thirsty, you ask Marble if there’s any chance she has some milk for you.  She gives you a sad look and informs you that no, she hasn't yet built up enough milk for you to have more.  Purifying her has made it take a bit longer for her to produce milk.");
-            this.doNext(this.marbleScene.interactWithMarbleAtCamp);
+            this.doNext(this, this.marbleScene.interactWithMarbleAtCamp);
         }
         else {
             this.outputText("Feeling a bit thirsty, you ask Marble if theres any chance she has some milk for you.  She smiles at you and tells you she was worried you'd never ask, then leads you to a familiar, secluded part of the rocks around the camp.");
@@ -1389,7 +1389,7 @@ export class MarblePurification extends NPCAwareContent {
             this.flags[kFLAGS.MARBLE_LUST] += 10;
             this.flags[kFLAGS.MARBLE_TIME_SINCE_NURSED_IN_HOURS] = 0;
             if (this.flags[kFLAGS.MARBLE_LUST] > 0) this.flags[kFLAGS.MARBLE_LUST] = 100;
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -1403,7 +1403,7 @@ export class MarblePurification extends NPCAwareContent {
         this.outputText("\n\nShe runs off, not looking back.  You get the impression that she really doesn't like what she just said, and she's desperately trying to avoid letting what's happening to you bother her.  Should you really care though?");
         this.flags[kFLAGS.MARBLE_WARNED_ABOUT_CORRUPTION] = 1;
         //end event
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
     //Leaving from corruption
     //PC's corruption is now too high.
@@ -1424,7 +1424,7 @@ export class MarblePurification extends NPCAwareContent {
         //Marble and her kids (if any) are removed from the farm and camp, she will only return once the PC's corruption is below 40, and Vapula, Holi, Corrupted Jojo, and Corrupted Amily are not in camp.
         this.flags[kFLAGS.MARBLE_LEFT_OVER_CORRUPTION] = 1;
         this.player.removeStatusAffect(StatusAffects.CampMarble);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //Marble comes back after your corruption drops below 40
     public pureMarbleDecidesToBeLessOfABitch(): void {
@@ -1443,7 +1443,7 @@ export class MarblePurification extends NPCAwareContent {
         this.flags[kFLAGS.MARBLE_LEFT_OVER_CORRUPTION] = 0;
         this.flags[kFLAGS.MARBLE_WARNED_ABOUT_CORRUPTION] = 0;
         this.flags[kFLAGS.FOLLOWER_AT_FARM_MARBLE] = 0;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //Clara prison camp descriptions
     //displayed in the camp description if Clara was imprisoned in camp.

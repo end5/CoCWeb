@@ -68,7 +68,7 @@ export class KihaScene extends NPCAwareContent {
 
             this.outputText("What do you do?", false);
             //[Fight] [Ask Why][Buy Passage][Leave]
-            this.simpleChoices("Fight", this.meetKihaAndFight, "Ask Why", this.askWhy, "Buy Passage", this.offerToBuyPassageFromKiha, "", undefined, "Leave", this.leaveWhenMeetingAgressiveKiha);
+            this.simpleChoices(this, "Fight", this.meetKihaAndFight, "Ask Why", this.askWhy, "Buy Passage", this.offerToBuyPassageFromKiha, "", undefined, "Leave", this.leaveWhenMeetingAgressiveKiha);
         }
         //*Repeat Encounter - PC WAS VICTORIOUS LAST FIGHT 
         else if (this.flags[kFLAGS.PC_WIN_LAST_KIHA_FIGHT] == 1) {
@@ -88,7 +88,7 @@ export class KihaScene extends NPCAwareContent {
                 temp = undefined;
             }
             //[Pay] [This was my idea] [Leave] [Fight] - Leave uses standard leave text
-            this.simpleChoices("Fight", this.meetKihaAndFight, "Pay", temp, "My Idea", this.tellKihaTributeWasYourIdea, "", undefined, "Leave", this.leaveWhenMeetingAgressiveKiha);
+            this.simpleChoices(this, "Fight", this.meetKihaAndFight, "Pay", temp, "My Idea", this.tellKihaTributeWasYourIdea, "", undefined, "Leave", this.leaveWhenMeetingAgressiveKiha);
         }
         //*Repeat Encounter - Tribute Wore off 
         else if (this.flags[kFLAGS.KIHA_TOLL] > 1 &&
@@ -101,7 +101,7 @@ export class KihaScene extends NPCAwareContent {
                 temp = undefined;
             }
             //[Pay Again] [This was my idea] [Leave]  [Fight] - As first time Tribute Offer encounter
-            this.simpleChoices("Fight", this.meetKihaAndFight, "Pay", temp, "My Idea", this.tellKihaTributeWasYourIdea, "", undefined, "Leave", this.leaveWhenMeetingAgressiveKiha);
+            this.simpleChoices(this, "Fight", this.meetKihaAndFight, "Pay", temp, "My Idea", this.tellKihaTributeWasYourIdea, "", undefined, "Leave", this.leaveWhenMeetingAgressiveKiha);
         }
         //Generic Repeat Encounter 
         else {
@@ -112,7 +112,7 @@ export class KihaScene extends NPCAwareContent {
             if (this.flags[kFLAGS.KIHA_TOLL] == 0) {
                 this.outputText("If you hurry, you might get a word in edge-wise.  What do you do?", false);
                 //[Fight] [Ask Why][Buy Passage][Leave]
-                this.simpleChoices("Fight", this.meetKihaAndFight, "Ask Why", this.askWhy, "Buy Passage", this.offerToBuyPassageFromKiha, "", undefined, "Leave", this.leaveWhenMeetingAgressiveKiha);
+                this.simpleChoices(this, "Fight", this.meetKihaAndFight, "Ask Why", this.askWhy, "Buy Passage", this.offerToBuyPassageFromKiha, "", undefined, "Leave", this.leaveWhenMeetingAgressiveKiha);
             }
             else {
                 this.outputText("It's a fight!", false);
@@ -128,14 +128,14 @@ export class KihaScene extends NPCAwareContent {
         //(Unlocks toll option next encounter)
         this.flags[kFLAGS.KIHA_TOLL] = 1;
         //[Fight] [Leave] - Same results as main fight/leave.
-        this.simpleChoices("Fight", this.meetKihaAndFight, "", undefined, "", undefined, "", undefined, "Leave", this.leaveWhenMeetingAgressiveKiha);
+        this.simpleChoices(this, "Fight", this.meetKihaAndFight, "", undefined, "", undefined, "", undefined, "Leave", this.leaveWhenMeetingAgressiveKiha);
     }
     //[Leave] 
     private leaveWhenMeetingAgressiveKiha(): void {
         this.outputText("", true);
         this.spriteSelect(72);
         this.outputText("You nod and step back, retreating back towards camp.  You've no desire to fight such a fiery opponent.", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //[Fight]
     public meetKihaAndFight(): void {
@@ -168,7 +168,7 @@ export class KihaScene extends NPCAwareContent {
         this.flags[kFLAGS.KIHA_TOLL]++;
         //(2-5 more explorations of her area before she shows up demanding more tribute!)
         //(do a 'Kiha' exploration with chances of fantabulous prizes)
-        this.doNext(this.kihaExplore);
+        this.doNext(this, this.kihaExplore);
     }
     public kihaExplore(clearScreen: boolean = true): void {
         if (clearScreen) this.outputText("", true);
@@ -183,7 +183,7 @@ export class KihaScene extends NPCAwareContent {
         }
         if (event < 5) {
             this.outputText("You wander around through the swamp for a while, but you don't find anything.", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         //Reducto
@@ -256,7 +256,7 @@ export class KihaScene extends NPCAwareContent {
             this.outputText("\n\nNow that she's a captive audience, you could always talk to her.", false);
             wordRape = this.rapeKihaWithWORDS;
         }
-        this.choices("Masturbate", forceMasturbate, "Use Tail", useHerTail, "FuckHerPussy", fuckHer, "FuckHerAss", buttFuck, "Talk", wordRape,
+        this.choices(this, "Masturbate", forceMasturbate, "Use Tail", useHerTail, "FuckHerPussy", fuckHer, "FuckHerAss", buttFuck, "Talk", wordRape,
             "", undefined, "", undefined, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
     }
     //*Generic PC Loss Intro 

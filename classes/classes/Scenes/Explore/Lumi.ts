@@ -12,12 +12,12 @@ export class Lumi extends BaseContent {
             //placeholder text for outside the cathedral
             this.outputText("You spot an anomaly in the barren wastes; a door that seems to be standing out in the middle of nowhere. Somehow, you figure that it must lead to some other part of the world, and the only reason it's here is because you can't get to where the door should be right now.\n\n", false);
             this.outputText("Do you open it?", false);
-            this.doYesNo(this.lumiLabChoices, this.camp.returnToCampUseOneHour);
+            this.doYesNo(this, this.lumiLabChoices, this.camp.returnToCampUseOneHour);
         }
         else {
             //placeholder text for outside the cathedral
             this.outputText("You spot the door standing in the middle of nowhere again, and you guess that it will lead you back to Lumi's laboratory.  It swings open easily...", false);
-            this.doNext(this.lumiLabChoices);
+            this.doNext(this, this.lumiLabChoices);
         }
         //end of placeholder text
     }
@@ -44,7 +44,7 @@ export class Lumi extends BaseContent {
         var enhance = undefined;
         if (this.lumiEnhance(true))
             enhance = this.lumiEnhance;
-        this.simpleChoices("Shop", this.lumiShop, "Enhance", enhance, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+        this.simpleChoices(this, "Shop", this.lumiShop, "Enhance", enhance, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     public lumiShop(): void {
@@ -55,7 +55,7 @@ export class Lumi extends BaseContent {
         this.outputText("Lust Draft - 15 gems\nGoblin Ale - 20 gems\nOviposition Elixir - 45 gems\n", false);
 
         //The player is given a list of choices, clicking on one gives the description and the price, like Giacomo.
-        this.simpleChoices(this.consumables.L_DRAFT.shortName, this.lumiLustDraftPitch,
+        this.simpleChoices(this, this.consumables.L_DRAFT.shortName, this.lumiLustDraftPitch,
             this.consumables.GOB_ALE.shortName, this.lumiPitchGobboAle,
             this.consumables.OVIELIX.shortName, this.lumiPitchOviElixer,
             "", undefined, "Leave", this.lumiLabChoices);
@@ -67,7 +67,7 @@ export class Lumi extends BaseContent {
         this.clearOutput();
         this.outputText("You point at the bottle filled with bubble-gum pink fluid.\n\n\"<i>De lust dwaft? Always a favowite, with it you nevar have to worwy about not bein weady for sexy time; one of my fiwst creations. 15 gems each.</i>\"\n\n", false);
         this.outputText("Will you buy the lust draft?", false);
-        this.doYesNo(Lumi.curry(this.lumiPurchase, this.consumables.L_DRAFT), this.lumiShop);
+        this.doYesNo(this, Lumi.curry(this.lumiPurchase, this.consumables.L_DRAFT), this.lumiShop);
     }
     //Goblin Ale
     private lumiPitchGobboAle(): void {
@@ -75,7 +75,7 @@ export class Lumi extends BaseContent {
         this.clearOutput();
         this.outputText("You point at the flagon. \"<i>Oh? Oh thats Lumi's... actually no, dat tispsy stuff for 20 gems. You'll like if you want to be like Lumi. Do you like it?</i>\"\n\n", false);
         this.outputText("Will you buy the goblin ale?", false);
-        this.doYesNo(Lumi.curry(this.lumiPurchase, this.consumables.GOB_ALE), this.lumiShop);
+        this.doYesNo(this, Lumi.curry(this.lumiPurchase, this.consumables.GOB_ALE), this.lumiShop);
     }
     //Ovi Elixir
     private lumiPitchOviElixer(): void {
@@ -83,7 +83,7 @@ export class Lumi extends BaseContent {
         this.clearOutput();
         this.outputText("You point at the curious hexagonal bottle. \"<i>De Oviposar Elixir? Made baithsed on da giant bee's special stuff dey give deir queen. It will help make de burfing go faster, an if you dwink it while you awen pweggy, iw will give you some eggs to burf later. More dwinks, eqwals more and biggar eggs. Lumi charges 45 gems for each dose.</i>\"\n\n", false);
         this.outputText("Will you buy the Ovi Elixir?", false);
-        this.doYesNo(Lumi.curry(this.lumiPurchase, this.consumables.OVIELIX), this.lumiShop);
+        this.doYesNo(this, Lumi.curry(this.lumiPurchase, this.consumables.OVIELIX), this.lumiShop);
     }
 
 
@@ -108,7 +108,7 @@ export class Lumi extends BaseContent {
             //After choosing, and PC doesn't have enough gems
             this.outputText("You go to pay Lumi the gems, but then you realize that you don't have enough. Lumi seems to know what happened and tells you \"<i>Ok, is dere somefing you want to buy that you can affowd?</i>\"\n\n", false);
             //Return to main Lumi menu
-            this.doNext(this.lumiShop);
+            this.doNext(this, this.lumiShop);
         }
     }
 
@@ -147,13 +147,13 @@ export class Lumi extends BaseContent {
         if (this.player.gems < 100) {
             this.outputText("You shake your head no, and Lumi gives you a disappointed look and says, \"<i>Den Lumi can do no enhancement for you. Anyfing else?</i>\"\n\n", false);
             //Return to main Lumi menu
-            this.doNext(this.lumiLabChoices);
+            this.doNext(this, this.lumiLabChoices);
             return false;
         }
         else {
             this.outputText("You nod and Lumi gives an excited yell, \"<i>Yay! Lumi loves to do enhancement, what you want to be bettar?</i>\"\n\n", false);
             //The player chooses an item that can be enhanced from a list, regardless of which is chosen, the text for the next part is the same.
-            this.choices(this.consumables.FOXBERY.shortName, fox,
+            this.choices(this, this.consumables.FOXBERY.shortName, fox,
                 this.consumables.FOXJEWL.shortName, kitsune,
                 this.consumables.GLDSEED.shortName, seed,
                 this.consumables.KANGAFT.shortName, kanga,

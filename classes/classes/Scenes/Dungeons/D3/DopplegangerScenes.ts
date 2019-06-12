@@ -42,8 +42,8 @@ export class DopplegangerScenes extends BaseContent {
         this.outputText("\n\n“<i>No...</i>” your mirror image snivels in front of you. “<i>Ten years, ten years I waited for this. You can’t put me back in there, you can’t!</i>” You gaze down at what you look like when you are defeated: mouth open, eyes glazed, " + this.player.hairDescript() + " muddled, your flesh trembling and clenching, the very picture of a bitch awaiting further subjugation. No wonder 90% of Mareth is so keen on wanting to make this sight happen. The doppelganger chances a look up, catches your expression, and freezes. “<i>You... you wouldn’t.</i>”");
 
         this.menu();
-        if (!this.player.isTaur() && (this.player.hasCock() || this.player.hasVagina())) this.addButton(0, "Oh Really?", this.fuckYourself);
-        this.addButton(1, "End It", this.killYourself)
+        if (!this.player.isTaur() && (this.player.hasCock() || this.player.hasVagina())) this.addButton(this, 0, "Oh Really?", this.fuckYourself);
+        this.addButton(this, 1, "End It", this.killYourself)
     }
 
     public fuckYourself(): void {
@@ -183,7 +183,7 @@ export class DopplegangerScenes extends BaseContent {
 
         this.cleanupAfterCombat();
         this.menu();
-        this.addButton(0, "Next", this.d3.resumeFromFight);
+        this.addButton(this, 0, "Next", this.d3.resumeFromFight);
     }
 
     public inSovietCoCSelfFucksYou(): void {

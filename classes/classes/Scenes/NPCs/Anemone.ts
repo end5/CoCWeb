@@ -58,7 +58,7 @@ export class Anemone extends Monster {
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
             this.outputText("\n\nYour foe doesn't seem to mind at all...");
-            this.doNext(this.game.endLustLoss);
+            this.doNext(this, this.game.endLustLoss);
         } else {
             this.game.anemoneScene.loseToAnemone();
         }

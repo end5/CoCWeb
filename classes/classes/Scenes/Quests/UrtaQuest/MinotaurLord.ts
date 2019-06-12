@@ -101,8 +101,8 @@ export class MinotaurLord extends Monster {
         this.outputText("The minotaur lord is defeated!  ");
         this.outputText("  You could use him for a quick fuck to sate your lusts before continuing on.  Do you?");
         this.game.menu();
-        this.game.addButton(0, "Fuck", this.game.urtaQuest.winRapeAMinoLordAsUrta);
-        this.game.addButton(4, "Leave", this.game.urtaQuest.beatMinoLordOnToSuccubi);
+        this.game.addButton(this, 0, "Fuck", this.game.urtaQuest.winRapeAMinoLordAsUrta);
+        this.game.addButton(this, 4, "Leave", this.game.urtaQuest.beatMinoLordOnToSuccubi);
     }
 
     public won(hpVictory: boolean, pcCameWorms: boolean): void {

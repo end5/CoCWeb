@@ -144,7 +144,7 @@ export class Ceraph extends Monster {
         var damage: number = 0;
         this.outputText("The demoness weaves her whip in the air until you can practically hear it slithering like a snake, cutting the air as it weaves back and forth, still magically alight with flames.  In a blink she lashes out twice in quick succession!\n", false);
         //First hit!
-        this.doNext(this.game.playerMenu);
+        this.doNext(this, this.game.playerMenu);
         //Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Ceraph.rand(10) != 9) {
             this.outputText(this.capitalA + this.short + " completely misses you with a blind attack!", false);
@@ -272,7 +272,7 @@ export class Ceraph extends Monster {
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
             this.outputText("\n\nYour foe doesn't seem disgusted enough to leave...");
-            this.doNext(this.game.endLustLoss);
+            this.doNext(this, this.game.endLustLoss);
         } else {
             this.game.ceraphScene.loseFUCKME();
         }

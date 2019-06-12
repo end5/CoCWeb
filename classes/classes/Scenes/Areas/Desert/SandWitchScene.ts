@@ -53,7 +53,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
             this.outputText(" as you yank your " + this.player.armorName + " back into place.  You're in charge here, not some possessed appendage!   Exgartuan yells something snide, but it's muffled too much to understand.  You look up in time to sidestep an attack from the Sand Witch.  It looks like you'll have to fight her!");
             this.startCombat(new SandWitch());
         }
-        else this.doYesNo(this.allowSandWitchMagic, this.refuseSandWitchMagic);
+        else this.doYesNo(this, this.allowSandWitchMagic, this.refuseSandWitchMagic);
     }
 
     private allowSandWitchMagic(): void {
@@ -115,7 +115,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
             this.outputText("She smiles wickedly and intones, \"<i>nuf erutuf rof riah ydnas, nus tresed eht sa ydnas.</i>\"\n\nYou feel a tingling in your scalp, and realize your hair has become a sandy blonde!", false);
             this.player.hairColor = "sandy blonde";
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private refuseSandWitchMagic(): void {
@@ -134,7 +134,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
             if (this.player.biggestTitSize() >= 9 && this.player.biggestLactation() >= 3 && this.player.cor >= 25) {
                 this.outputText("Overwhelmed by the intense pleasure caused by the vibrating sphere inside your body, you fall to your knees.\n\nYou whimper pathetically, desperate to cum, as the Sand Witch steps nearer to you and gently strokes your face. She smiles cruelly and lets her hands drop down to your chest, then tears your top away, letting your huge breasts bounce free. The mysterious woman firmly rubs and kneads them, making you gasp and writhe, until she starts lightly flicking your painfully hard nipples. You edge closer and closer to orgasm, panting like a whore while the witch teases you with her hands and magic.\n\n", true);
                 this.outputText("Just before you cum, she leans down to whisper to you, tickling your ear with her warm breath: \"<i>Evals klim ym emoceb llahs uoy.</i>\"\n\nA familiar pressure builds in your chest, but it's far stronger than ever before. You feel your breasts swell rapidly, and milk sprays from your nipples, splattering you and the witch with white droplets. Your eyes roll back and your tongue hangs out as you cum, mind nearly breaking from the world-shattering orgasm that thunders through you.\n\nYou black out.", false);
-                this.doNext(this.sandWitchBadEnd);
+                this.doNext(this, this.sandWitchBadEnd);
                 return;
             }
             this.player.orgasm();
@@ -202,7 +202,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
             if (this.player.biggestTitSize() >= 9 && this.player.biggestLactation() >= 3 && this.player.cor >= 25) {
                 this.outputText("You stagger and fall to one knee, too overcome by pain to keep fighting.\n\nAs your vision wavers with exhaustion, the witch strides towards you, seeming to glide across the sand. Your consciousness starts to fade, and you see the exotic woman lick her lips and smile cruelly, staring at your generous breasts.\n\nThe last thing you hear before passing out is a mysterious spell, murmured right into your ear in a low, throaty whisper: \"<i>Evals klim ym emoceb llahs uoy.</i>\"\n\nYou dream of walking proudly through the desert, enormous rack jiggling shamelessly with every step, and of tempting nubile young champions to wrap their lips around your nipples and drink. Your sleep becomes fevered as your dreams grow more and more corrupt - you dream of using dark magic to lactate succubus milk, and of your former friends from Ingnam greedily drinking your enhanced milk until their bellies strain to contain it all, then going wide-eyed as pound after pound of breast-flesh suddenly swells upon their chests...", true);
                 //BAD END.
-                this.doNext(this.sandWitchBadEnd);
+                this.doNext(this, this.sandWitchBadEnd);
                 return;
             }
             this.outputText("\n<b>You fall, defeated by the Sand Witch!</b>\n\n", false);
@@ -215,14 +215,14 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
         this.outputText("You awaken in a candlelit stone shrine of some sort, resting naked and facedown on some warm, comfortable body pillows. Remembering your fight against the witch, you hurriedly try to get up, only to gasp with surprise when a painful weight pulls on your chest. Glancing down to find the source of the weight, you blink with shock, then fight rising panic – the \"pillows\" that you are lying on are your own breasts, swollen to such a size that you cannot possibly lift them!\n\n");
         this.outputText("\"<i>Hello, my beautiful pet,</i>\" says a familiar voice. Looking to your front – and trying not to notice the vast expanse of cleavage that dominates the lower half of your vision – you see the Sand Witch sitting, nude, in a large granite basin set into the floor just in front of you. She smirks when she sees how your eyes avoid resting on your obscenely massive bust.\n\n");
         this.outputText("\"<i>What's wrong? Don't you like them?</i>\" The witch leans toward you and roughly tugs on one huge nipple, causing you to yelp with surprise and pleasure. \"<i>I'm afraid that's too bad. You offered yourself to me, and now you are mine, all mine, forever.</i>\" She slowly rubs her hands over your colossal bosom, crooning with approval as you squirm and bite your lip. \"<i>Mmm, yes... first, you will give me a bath.</i>\"\n\nYou hardly have time to wonder what she means before a familiar, hugely intense pressure builds in your chest...");
-        this.doNext(this.sandWitchBadEndPartTwo);
+        this.doNext(this, this.sandWitchBadEndPartTwo);
     }
 
     private sandWitchBadEndPartTwo(): void {
         this.clearOutput();
         this.outputText("With an audible gurgling noise, your breasts begin to fill with prodigious quantities of milk. Your eyes widen in amazement when you feel your tits swelling, filling, pumping up to their limits. It feels shockingly pleasurable and somehow almost right, like you were meant to have these shamefully huge, milk-filled titties. As you watch the soft flesh stretch taut, your breasts fatten into a very round shape beneath you, and the pleasurable sensation becomes a painful feeling of urgency.\n\n");
         this.outputText("For a moment nothing happens, and you are surprised that your nipples are not leaking milk. The Sand Witch smiles at you, leaning to rest her arms and chin on your overstressed tits, and speaks: \"<i>Ask to be milked, slave.</i>\" Appalled, you shake your head, then grit your teeth and moan as you realize that the pressure in your chest is still building up, becoming unbearably painful. The witch patiently repeats herself, staring directly into your eyes, and you are struck by the awful knowledge that you are likely to be trapped here forever.");
-        this.doNext(this.sandWitchBadEndPartThree);
+        this.doNext(this, this.sandWitchBadEndPartThree);
     }
 
     private sandWitchBadEndPartThree(): void {
@@ -245,7 +245,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
         this.spriteSelect(50);
         this.outputText("", true);
         if (this.player.lowerBody == LOWER_BODY_TYPE_CENTAUR) {
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             this.sandwitchCentaurBoning();
             this.cleanupAfterCombat();
             return;
@@ -257,7 +257,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
             if (this.player.cor < 50) {
                 this.outputText("You smile at the sand witch, trying to seem enticing. A tiny smile plays across her face even though she supports a worried frown. She reaches up to you, and you allow her to gently pull you down to her. You marvel at her multiple breasts, each perfectly rounded. Each has a nipple approximately two inches long, enough to suck if you wanted to.  ", false);
                 this.outputText("Your attention wanders down to the damp sand underneath her legs, and her musky scent hits your nose. Which do you go after?\n\n", false);
-                this.simpleChoices("Breasts", this.sandwitchBewbs, "Sex", this.sandwitchSex, "", undefined, "", undefined, "", undefined);
+                this.simpleChoices(this, "Breasts", this.sandwitchBewbs, "Sex", this.sandwitchSex, "", undefined, "", undefined, "", undefined);
             }
             //Really corrupt
             else {
@@ -563,7 +563,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
                     this.outputText("\n\n", false);
                     //[SW_1]
                     this.SWCentaurMore(1);
-                    this.doNext(this.camp.returnToCampUseTwoHours);
+                    this.doNext(this, this.camp.returnToCampUseTwoHours);
                     //Return true to indicate not to continue the scene.
                     return true;
                 }
@@ -623,7 +623,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
         var ovi = undefined;
         if (this.player.gender > 0 && this.player.canOviposit()) ovi = this.ovipositSandWitches;
 
-        this.choices("Yes", this.sandwitchRaped, "Dildo Rape", temp2, "Use 3i@-", temp3, "Use Shouldra", shouldra, "Lay Eggs", ovi,
+        this.choices(this, "Yes", this.sandwitchRaped, "Dildo Rape", temp2, "Use 3i@-", temp3, "Use Shouldra", shouldra, "Lay Eggs", ovi,
             "Taunt Her", this.sandwitchSpanking, "", undefined, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
     }
 
@@ -650,7 +650,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
 
         this.outputText("\n\n<b>Don't report this as a bug, okay dawg?</b>", false);
 
-        this.simpleChoices("N*xt", this.missingoSex2, "", undefined, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "N*xt", this.missingoSex2, "", undefined, "", undefined, "", undefined, "", undefined);
     }
     //{Next Page}
     private missingoSex2(): void {
@@ -663,7 +663,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
         this.outputText("\"Still...\" she says, ##ok%7g at you slyly. \"Why don't you (ull b=c( and try that again....\"", false);
 
         //[N*xt]
-        this.simpleChoices("N*xt", this.missingoSex3, "", undefined, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "N*xt", this.missingoSex3, "", undefined, "", undefined, "", undefined, "", undefined);
     }
 
     //{Next Page}
@@ -677,7 +677,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
         this.outputText("\"@_i@_...\" s_e says, ##o@%7g @t yo_ s_@_y. \"W_@ d_n't @o_ (ull b=c( an_ @r_ _h_@ a_@in....\"\n\n", false);
 
         //[@*xt]
-        this.simpleChoices("@*xt", this.missingoSex4, "", undefined, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "@*xt", this.missingoSex4, "", undefined, "", undefined, "", undefined, "", undefined);
     }
 
     //{Next Page}
@@ -690,7 +690,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
 
         this.outputText("\"@_o@_...\" o_o oooo, ##o@%7o @o oo_ o_@_o. \"o_@ o_o'o @o_ (ooo o=o( oo_ @o_ _o_@ o_@oo....\"", false);
         //[Fuck this!]
-        this.simpleChoices("Fuck This!", this.missingoSex5, "", undefined, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Fuck This!", this.missingoSex5, "", undefined, "", undefined, "", undefined, "", undefined);
     }
 
     //{Next Page}
@@ -708,7 +708,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
         this.outputText("Oh goddammit. You remember that your progress from before was lost, and now you have to start from the beginning. You can't help but roll your eyes and groan, though you're hardly angry enough to put a controller-shaped hole through your TV screen over this. But hey! At least you were smart enough to jot down the Champion Password. Perhaps one day video games will be sophisticated enough to have some internal means of storing progress, but at least with this, you should be able to get all of your old stuff!", false);
 
         //Restore]
-        this.simpleChoices("Restore", this.missingoSex6, "", undefined, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Restore", this.missingoSex6, "", undefined, "", undefined, "", undefined, "", undefined);
     }
     //{Next Page}
     private missingoSex6(): void {
@@ -722,7 +722,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
 
         this.outputText("It is like fucking christmas up in here.", false);
         //{Player gains about as many gems experience points as they would from a Sand Witch encounter, and the Champion is returned to camp.}
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -755,7 +755,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
         this.outputText(" can do to their partners and unsure if this is really what she wants.  The poor girl seems to need a little 'encouragement'... of course, you could just skip all that regardless if you really wanted.");
 
         //[Foreplay 1st]    [Get Fucking]
-        this.simpleChoices("Foreplay 1st", this.eggwitchForeplay, "Get Fucking", this.getToFuckingWithZeEggsInWitch, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Foreplay 1st", this.eggwitchForeplay, "Get Fucking", this.getToFuckingWithZeEggsInWitch, "", undefined, "", undefined, "", undefined);
     }
 
     //[Foreplay 1st]
@@ -779,7 +779,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
         else this.outputText("Laying");
         this.outputText(" against your mate, you both take the moment to revel in the anticipation of coitus.");
         this.dynStats("lus", 25, "cor", -.35);
-        this.doNext(this.laySomeEggsInThatWitchFinally);
+        this.doNext(this, this.laySomeEggsInThatWitchFinally);
         //go to merge
     }
 
@@ -805,7 +805,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
             this.outputText("\n\n\"<i>Please... take me...</i>\"");
         }
         //both go to merge
-        this.doNext(this.laySomeEggsInThatWitchFinally);
+        this.doNext(this, this.laySomeEggsInThatWitchFinally);
         this.dynStats("lus", 15);
     }
 
@@ -928,7 +928,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
         }
         //PC is everything else: 
         else this.outputText("\n\nEasing a hand under her armpit, you give her the support she needs to hobble along the hot desert sand.  Which direction to hobble in gives you cause for concern though; you don't really know where you are at this point.  Making the only choice you can, you concentrate on the camp.  With the rough picture in mind you tell the sand witch to hold on, before the two of you slowly make your way across the dry desert sea...");
-        this.doNext(this.sandwitchBirthsYourMonstrosities);
+        this.doNext(this, this.sandwitchBirthsYourMonstrosities);
     }
 
     //[Must I really?] (corr >=60)
@@ -949,7 +949,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
         }
         //PC is everything else:  
         else this.outputText("\n\nEasing a hand under her armpit, you give her the support she needs to hobble along the hot desert sand.  Which direction to hobble in gives you cause for concern though; you don't really know where you are at this point.  Making the only choice you can, you concentrate on the camp.  With the rough picture in mind you tell the sand witch to hold on, before the two of you slowly make your way across the dry desert sea...");
-        this.doNext(this.sandwitchBirthsYourMonstrosities);
+        this.doNext(this, this.sandwitchBirthsYourMonstrosities);
     }
 
 
@@ -970,7 +970,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
         //[(corr >= 60)
         if (this.player.cor >= 60) this.outputText("\n\n\"<i>Just, use your common sense next time.</i>\"");
         this.pregnancy.knockUpForce(); //Clear Pregnancy
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //irthing scene: Bees (Radar) (edited)
@@ -985,7 +985,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
 
         this.outputText("\n\nContent with how things turned out, you head back to camp and decide on the next course of action for today.");
         this.pregnancy.knockUpForce(); //Clear Pregnancy
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private sandwitchSpanking(): void {

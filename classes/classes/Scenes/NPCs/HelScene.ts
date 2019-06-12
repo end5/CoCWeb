@@ -173,7 +173,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You wake up an hour or so later, still snuggled up to Hel, entwined in a post-coitus repose.  You spend a few moments basking in the warmth of her presence, but you know you have duties to attend to.  You give her a peck on the cheek, waking her, and she's quick to escalate your gesture into a long, tongue-entwining kiss.\n\n", false);
 
         this.outputText("The two of you redress, teasing and flirting all the while – you give her ample ass a little smack, and she coyly brushes your thighs with her tail – but soon you must part.  Giving Hel another deep kiss, you make your way back to camp as she saunters off into the heart of the plains.", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -286,16 +286,16 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         }
         else {
             if (this.player.hasCock() && this.player.cockThatFits(85) >= 0 && this.player.lust >= 33) {
-                this.addButton(0, "Rape Ass", this.rapingHelsAssMeansYourCorruptCauseAnalIsEvil);
+                this.addButton(this, 0, "Rape Ass", this.rapingHelsAssMeansYourCorruptCauseAnalIsEvil);
             }
             else if (!this.player.hasCock() || this.player.cockThatFits(85) == -1) {
                 this.outputText("\n\nYour dick is too big to fuck her anally.", false);
             }
 
-            this.addButton(1, "Get Rimjob", this.receiveCorruptRimjobsFromHel);
+            this.addButton(this, 1, "Get Rimjob", this.receiveCorruptRimjobsFromHel);
         }
 
-        this.addButton(4, "Wait", this.createCallBackFunction(this.helDefeatedNormal, true));
+        this.addButton(this, 4, "Wait", this.createCallBackFunction(this, this.helDefeatedNormal, true));
         //(Wait takes you to \"<i>normal</i>\" post-victory, below)
     }
     //COMBAT – PLAYER WINS w/ LESS THAN 85 CORRUPTION
@@ -328,7 +328,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
 
         if (this.player.lust < 33) {
             this.outputText("\n\n<b>You aren't really up for sex right now.</b>", false);
-            this.simpleChoices("", undefined, "", undefined, "", undefined, "", undefined, "Leave", leave);
+            this.simpleChoices(this, "", undefined, "", undefined, "", undefined, "", undefined, "Leave", leave);
             return;
         }
         var getLicked = undefined;
@@ -409,7 +409,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
                 bodyButt = this.helPossessionShitPoopCock;
             }
         }
-        this.choices("Get Licked", getLicked, "FuckHerVag", fuckVag, "FuckHerAss", fuckAss, "GetTailPegged", tailFuck, "Tail Wank", tailWank, "DoublePen", dp, "Get Blown", getBlown, bodyText, bodyButt, bodyText2, bodyButt2, "Leave", leave);
+        this.choices(this, "Get Licked", getLicked, "FuckHerVag", fuckVag, "FuckHerAss", fuckAss, "GetTailPegged", tailFuck, "Tail Wank", tailWank, "DoublePen", dp, "Get Blown", getBlown, bodyText, bodyButt, bodyText2, bodyButt2, "Leave", leave);
     }
 
     //[b]Player Win – Victory Un-Fuck – No Thanks (Any Gender)
@@ -424,7 +424,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You nod, and return the wave before heading back to your camp.", false);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Player Win – Victory Fuck – Fuck her Vag
@@ -454,7 +454,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.helFollower.helAffection(5);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.postHelFuckBuddyFollowup);
+        else this.doNext(this, this.postHelFuckBuddyFollowup);
     }
 
 
@@ -490,7 +490,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.helFollower.helAffection(5);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.postHelFuckBuddyFollowup);
+        else this.doNext(this, this.postHelFuckBuddyFollowup);
     }
 
     //Player Win – Victory Fuck – Get Blown (Male) (edited)
@@ -519,7 +519,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.helFollower.helAffection(5);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.postHelFuckBuddyFollowup);
+        else this.doNext(this, this.postHelFuckBuddyFollowup);
     }
 
     //Player Win – DP(Multicock Only) (edited)
@@ -553,7 +553,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.helFollower.helAffection(5);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.postHelFuckBuddyFollowup);
+        else this.doNext(this, this.postHelFuckBuddyFollowup);
     }
 
     //Player Win – Get Licked (Vagita) (edited)
@@ -582,7 +582,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.helFollower.helAffection(5);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.postHelFuckBuddyFollowup);
+        else this.doNext(this, this.postHelFuckBuddyFollowup);
     }
 
     //Player Win – Tail Wank (dix of any size) (edited)
@@ -611,7 +611,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.helFollower.helAffection(5);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.postHelFuckBuddyFollowup);
+        else this.doNext(this, this.postHelFuckBuddyFollowup);
     }
 
     //Player Win – Tail Pegging (Anal) (edited)
@@ -649,7 +649,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.helFollower.helAffection(5);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.postHelFuckBuddyFollowup);
+        else this.doNext(this, this.postHelFuckBuddyFollowup);
     }
 
     //Player Win – Coil her Up (Wang Naga) (edited)
@@ -691,7 +691,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.helFollower.helAffection(5);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.postHelFuckBuddyFollowup);
+        else this.doNext(this, this.postHelFuckBuddyFollowup);
     }
 
 
@@ -722,7 +722,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.helFollower.helAffection(5);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.postHelFuckBuddyFollowup);
+        else this.doNext(this, this.postHelFuckBuddyFollowup);
     }
 
     //Player Win – Mount Her (Wangbearing Centaurs of height >= 60</i>\") (edited)
@@ -771,7 +771,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.helFollower.helAffection(5);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.postHelFuckBuddyFollowup);
+        else this.doNext(this, this.postHelFuckBuddyFollowup);
     }
 
     //Player Win – Hanging 69 (Vaginataurs of height >= 60</i>\") (edited)
@@ -824,7 +824,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.helFollower.helAffection(5);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.postHelFuckBuddyFollowup);
+        else this.doNext(this, this.postHelFuckBuddyFollowup);
     }
 
     //Player Win – Possession (Ghost Morphs w/ Possession Power) (ehrdaterd)
@@ -882,7 +882,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.helFollower.helAffection(5);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.postHelFuckBuddyFollowup);
+        else this.doNext(this, this.postHelFuckBuddyFollowup);
     }
 
 
@@ -920,7 +920,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.helFollower.helAffection(-15);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.postHelFuckBuddyFollowup);
+        else this.doNext(this, this.postHelFuckBuddyFollowup);
     }
 
     //Player Win – Corrupt Rape – Get Rimjob (edited)
@@ -950,7 +950,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.helFollower.helAffection(-15);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.postHelFuckBuddyFollowup);
+        else this.doNext(this, this.postHelFuckBuddyFollowup);
     }
 
     //===========================================================================
@@ -978,9 +978,9 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         ///Player's Options:
         //Male/Herm – [Fuck her Ass] [Mino Lick] [Leave]
         if (this.player.hasCock() && this.player.cockThatFits(85) >= 0)
-            this.simpleChoices("FuckHerAss", this.fuckHerAss, "Mino Lick", this.helMinoThreeSomeLickItsDick, "", undefined, "", undefined, "Nope", this.leaveMinotaurHelThreesome);
+            this.simpleChoices(this, "FuckHerAss", this.fuckHerAss, "Mino Lick", this.helMinoThreeSomeLickItsDick, "", undefined, "", undefined, "Nope", this.leaveMinotaurHelThreesome);
         //Female/Genderless – [Mino Lick] [Leave]
-        else this.simpleChoices("", undefined, "Mino Lick", this.helMinoThreeSomeLickItsDick, "", undefined, "", undefined, "Nope", this.leaveMinotaurHelThreesome);
+        else this.simpleChoices(this, "", undefined, "Mino Lick", this.helMinoThreeSomeLickItsDick, "", undefined, "", undefined, "Nope", this.leaveMinotaurHelThreesome);
     }
     //[Leave]
     private leaveMinotaurHelThreesome(): void {
@@ -989,7 +989,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You shake your head with a deprecating smile, and turn to leave her to her pleasures.", false);
         //(reset Helgate flag to 0)
         this.flags[kFLAGS.HEL_AFFECTION] = 0;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //THREESOME – FUCK HER ASS (wang of area =< 85) (edited)
@@ -1019,7 +1019,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.helFollower.helAffection(5);
         this.flags[kFLAGS.HEL_FUCK_COUNTER]++;
         //POST THREESOME RESULT
-        this.doNext(this.postMinoThreesomeDecisionTime);
+        this.doNext(this, this.postMinoThreesomeDecisionTime);
     }
 
 
@@ -1051,7 +1051,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.helFollower.helAffection(5);
         this.flags[kFLAGS.HEL_FUCK_COUNTER]++;
         //POST THREESOME RESULT
-        this.doNext(this.postMinoThreesomeDecisionTime);
+        this.doNext(this, this.postMinoThreesomeDecisionTime);
     }
 
     //AFTER THREESOME SCENE (edited)
@@ -1073,7 +1073,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("On second thought, you'd rather keep it simple for now, even if it means battling back her future advances with force of arms instead of words.  You kiss her once more and give her breasts a squeeze for the road, then wordlessly get up and take your leave.\n\n", false);
         //(reset Helgate to 0)
         this.flags[kFLAGS.HEL_AFFECTION] = 0;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Berserker Mode]
@@ -1131,20 +1131,20 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You suppose you could ask her to stop attacking you anyway, though.  One less threat out here couldn't hurt, and maybe – just maybe – you could skip the formalities when you meet and go straight to the really fun part.\n\n", false);
         this.flags[kFLAGS.HEL_TALKED_ABOUT_ATTACKING_YOU] = 1;
         //[Stop] [Say Nothing]
-        this.simpleChoices("Stop", this.telHelSTOPATTACKINGMEYOUBITCH, "Say Nothing", this.helChatMenu, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Stop", this.telHelSTOPATTACKINGMEYOUBITCH, "Say Nothing", this.helChatMenu, "", undefined, "", undefined, "", undefined);
     }
 
     //[Say Nothing]
     private helChatMenu(): void {
         this.spriteSelect(68);
         if (this.flags[kFLAGS.HEL_TALKED_ABOUT_HER] == 0)
-            this.simpleChoices("About Her", this.askHelAboutHer, "", undefined, "", undefined, "", undefined, "Leave", this.bugOutAfterHelMinoThreesome);
+            this.simpleChoices(this, "About Her", this.askHelAboutHer, "", undefined, "", undefined, "", undefined, "Leave", this.bugOutAfterHelMinoThreesome);
         else {
             var zerk = undefined;
             var attackin = undefined;
             if (this.flags[kFLAGS.HEL_TALKED_ABOUT_ATTACKING_YOU] == 0) attackin = this.askHelAboutAttackingYou;
             if (this.flags[kFLAGS.HEL_TALKED_ABOUT_BERSERKING] == 0) zerk = this.berserkMode;
-            this.choices("", undefined, "Berserking?", zerk, "Y Attack Me", attackin, "Seconds", this.askMommaHelForSecondsAfterDinner, "MinosRBad", this.telHelToGetOffTheMInoCock, "", undefined, "", undefined, "", undefined, "", undefined, "Leave", this.leaveHelAfterMinoThreeSomeChat);
+            this.choices(this, "", undefined, "Berserking?", zerk, "Y Attack Me", attackin, "Seconds", this.askMommaHelForSecondsAfterDinner, "MinosRBad", this.telHelToGetOffTheMInoCock, "", undefined, "", undefined, "", undefined, "", undefined, "Leave", this.leaveHelAfterMinoThreeSomeChat);
         }
     }
 
@@ -1192,7 +1192,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("You tell her to count on it, and make your way back to camp.", false);
         this.dynStats("lus", 2);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //===================
     //THREESOMES AHOY!
@@ -1221,7 +1221,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("Before Isabella can say any more, the salamander leaps into the air and slams her sword down upon the cow-girl's narrowly-interposed shield.  The force of the blow staggers both of them, giving you a moment to intervene before there's bloodshed!", false);
         //(Display Options: [Diplomacy] [Watch] [Leave])
-        this.simpleChoices("Diplomacy", this.salamanderXIsabellaDiplomacy, "Watch", this.watchIsabellaAndHelFight, "", undefined, "", undefined, "Leave", this.skipTownOnIsabellaAndHelsFight);
+        this.simpleChoices(this, "Diplomacy", this.salamanderXIsabellaDiplomacy, "Watch", this.watchIsabellaAndHelFight, "", undefined, "", undefined, "Leave", this.skipTownOnIsabellaAndHelsFight);
     }
 
     //Diplomacy (edited)
@@ -1243,7 +1243,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.takeDamage(10);
         this.statScreenRefresh();
         //(Diplomacy Continued)
-        this.doNext(this.salamanderXIsabellaDiplomacy2);
+        this.doNext(this, this.salamanderXIsabellaDiplomacy2);
     }
 
     private salamanderXIsabellaDiplomacy2(): void {
@@ -1283,7 +1283,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.isabellaFollowerScene.isabellaAffection(5);
         this.helFollower.helAffection(5);
         this.flags[kFLAGS.HEL_ISABELLA_THREESOME_ENABLED] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Watch (edited)
@@ -1307,7 +1307,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\"<i>Count on it, naughty girl!</i>\" Isabella shouts before the two of them break apart and disappear into the brush to elude the hunting party.", false);
 
         //(Return PC to camp, advance time 1 hour. 10% chance of Intro Scene playing whenever Isabella or Hel would normally be encountered until PC chooses Leave or Diplomacy in the future)
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Leave (edited)
@@ -1317,7 +1317,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("Well, you're sure as hell not going to get involved in this – better to let them duke it out between themselves rather than risk your relationship with either girl.  You head on back to camp, not terribly surprised to hear sharp moos, grunts, and cries for some time in the distance.\n\n", false);
         //(Return PC to camp, advance time 1 hour. Intro scene will not play again.)
         this.flags[kFLAGS.HEL_ISABELLA_THREESOME_ENABLED] = -1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -1378,7 +1378,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("\"<i>You are... welcome,</i>\" Isabella says as Hel disappears into the night.  Heaving a relieved sigh, you return to the camp proper and try to get some shut-eye before the sun rises.", false);
         this.flags[kFLAGS.HEL_ISABELLA_THREESOME_ENABLED] = 1;
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     //Isabella x Hel Threesome Scene – Beginning in the Plains (edited)
@@ -1393,7 +1393,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("You certainly do feel thirsty, and Isabella's invitation is certainly... enticing, and is made all the more exciting by the busty salamander you'll be sharing a meal with.", false);
         //(Display Options: [Drink] [Leave])
-        this.simpleChoices("Drink", this.nomOnIzzyTitWithSallyMancer, "", undefined, "", undefined, "", undefined, "Leave", this.leaveIsabellaSallyBehind);
+        this.simpleChoices(this, "Drink", this.nomOnIzzyTitWithSallyMancer, "", undefined, "", undefined, "", undefined, "Leave", this.leaveIsabellaSallyBehind);
     }
     //Isabella x Hel Threesome Scene – Beginning at Camp (edited)
     //(Has a 10% chance to play when the player chooses [Sleep] while Isabella is at camp)
@@ -1410,7 +1410,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("You certainly do feel thirsty, and Isabella's invitation is certainly... enticing, and is made all the more exciting by the busty salamander you'll be sharing a meal with.", false);
         //(Display Options: [Drink] [Leave])
-        this.simpleChoices("Drink", this.nomOnIzzyTitWithSallyMancer, "", undefined, "", undefined, "", undefined, "Leave", this.playerMenu);
+        this.simpleChoices(this, "Drink", this.nomOnIzzyTitWithSallyMancer, "", undefined, "", undefined, "", undefined, "Leave", this.playerMenu);
     }
 
     //[Leave]
@@ -1418,8 +1418,8 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.spriteSelect(68);
         this.outputText("", true);
         this.outputText("You decline the cow-girl's offer, but tell the redheads to have fun without you.  Though a bit disappointed, they both wave as you make your way back to camp.", false);
-        if (this.model.time.hours < 6) this.doNext(this.playerMenu);
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        if (this.model.time.hours < 6) this.doNext(this, this.playerMenu);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Drink]
@@ -1465,7 +1465,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         //(If PC is genderless: Unfortunately, you don't have much to contribute...)
         else this.outputText("Unfortunately, you don't have much to contribute...", false);
         //(Display Appropriate Options: [1 Dick] [2 Dicks] [4 Dicks] [Vagina] [Leave])
-        this.simpleChoices("Dick", dick, "", undefined, "", undefined, "Vagina", vag, "Leave", this.noThreesomeSexWithSallyAndIssyLastMinute);
+        this.simpleChoices(this, "Dick", dick, "", undefined, "", undefined, "Vagina", vag, "Leave", this.noThreesomeSexWithSallyAndIssyLastMinute);
         //(Dick scenes have a common open, then branch out before a common end between all genders)
     }
 
@@ -1478,8 +1478,8 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("With a chuckle, you head on back to camp with a full belly", false);
         if (this.player.balls > 0) this.outputText(" and balls bluer than the lake", false);
         this.outputText(".", false);
-        if (this.model.time.hours < 6) this.doNext(this.playerMenu);
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        if (this.model.time.hours < 6) this.doNext(this, this.playerMenu);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //DICK (edited)
@@ -1593,7 +1593,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         //(Scene End)
         //Bump up follower tracking affection too
         this.helFollower.helAffection(5);
-        this.doNext(this.izzySallyThreeSomeFollowup);
+        this.doNext(this, this.izzySallyThreeSomeFollowup);
     }
 
     private izzySallyThreeSomeFollowup(): void {
@@ -1608,8 +1608,8 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("\"<i>Yeah.  Resting is... resting is good,</i>\" Hel says, trying and failing to suppress a yawn of her own.  Smiling, you wrap your arms around your two beautiful, busty redheads and let sleep overcome you.", false);
         //(Either return PC to camp or advance to the next day, if in plains or camp, respectively)
-        if (this.model.time.hours < 6) this.doNext(this.playerMenu);
-        else this.doNext(this.camp.returnToCampUseFourHours);
+        if (this.model.time.hours < 6) this.doNext(this, this.playerMenu);
+        else this.doNext(this, this.camp.returnToCampUseFourHours);
     }
     //VAGINA (edited)
     private izzySallyThreeSomeVagoozlaz(): void {
@@ -1651,8 +1651,8 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         //Bump up follower tracking affection too
         this.isabellaFollowerScene.isabellaAffection(4);
         this.helFollower.helAffection(5);
-        if (this.model.time.hours < 6) this.doNext(this.playerMenu);
-        else this.doNext(this.camp.returnToCampUseFourHours);
+        if (this.model.time.hours < 6) this.doNext(this, this.playerMenu);
+        else this.doNext(this, this.camp.returnToCampUseFourHours);
     }
     //Fox Girls -- First Time Intro
     public heliaPlusFoxyFluffs(): void {
@@ -1666,7 +1666,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
 
             this.outputText("\"<i>Mmm, wanna play with Sister and I?</i>\" Mai purrs, nuzzling your neck after a long swig of beer.  Hel and Miko both give you hopeful, expectant looks.  Do you?\n\n", false);
             //(Display Options: [Foursome] [Leave])
-            this.simpleChoices("Foursome", this.heliasFoxyFourSomeFluffs, "", undefined, "", undefined, "", undefined, "Leave", this.runAwayFromFoxGirls);
+            this.simpleChoices(this, "Foursome", this.heliasFoxyFourSomeFluffs, "", undefined, "", undefined, "", undefined, "Leave", this.runAwayFromFoxGirls);
         }
         //(Leave because cocks are a new reveal; should give those grossed out by futa an escape; doesn't appear afterwards to save horny gamers a click)
         //Fox Girls -- Repeat Intro
@@ -1675,7 +1675,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
 
             this.outputText("Amused, Hel gives Miko's bountiful bosom a playful grope and says, \"<i>My, my, " + this.player.short + ", looking for a little foxy foursome?  Well, I think that can be arranged, what do you say, girls?</i>\"", false);
             //(NEXT button, to Foursome)
-            this.doNext(this.heliasFoxyFourSomeFluffs);
+            this.doNext(this, this.heliasFoxyFourSomeFluffs);
         }
     }
 
@@ -1684,7 +1684,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.spriteSelect(68);
         this.outputText("", true);
         this.outputText("You graciously excuse yourself, saying that you forgot something back at camp.  All three girls say \"<i>Awwww</i>\" in unison, but don't make any special effort to keep you from going.  As you head out, you look over your shoulder in time to see Hel give you a little wink as the fox-herms clamber into her lap.  At least someone's getting laid today.\n\n", false);
-        this.doNext(this.telAdre.barTelAdre);
+        this.doNext(this, this.telAdre.barTelAdre);
     }
 
     //Foursome Scene Intro (First & Repeat)
@@ -1699,10 +1699,10 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.gender == 3) {
             this.outputText("\"<i>So what parts do you want to use?</i>\" she asks, looking to your mixed endowments.", false);
             //(Display Options: [As Male] [As Female])
-            this.simpleChoices("As Male", this.foxyFluffsFoursomeAsMale, "As Female", this.foxyFluffGirlsFuckSex, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "As Male", this.foxyFluffsFoursomeAsMale, "As Female", this.foxyFluffGirlsFuckSex, "", undefined, "", undefined, "", undefined);
         }
-        else if (this.player.gender == 2) this.doNext(this.foxyFluffGirlsFuckSex);
-        else this.doNext(this.foxyFluffsFoursomeAsMale);
+        else if (this.player.gender == 2) this.doNext(this, this.foxyFluffGirlsFuckSex);
+        else this.doNext(this, this.foxyFluffsFoursomeAsMale);
     }
 
     //Foursome Scene -- As Male
@@ -1728,7 +1728,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You can only shudder and gasp as pleasure overtakes you.  You bury your face into Mai's neck, biting her as the last of your cum explodes deep inside her.  Mai bucks her hips back at you and squeezes your cock, milking you of every last drop until your shaft is utterly spent.  Moaning, you withdraw from inside her, dragging a waterfall of hot white cum out of her as you do so.", false);
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this.foxyFluffOutro);
+        this.doNext(this, this.foxyFluffOutro);
     }
     //Foursome Scene -- As Female
     public foxyFluffGirlsFuckSex(): void {
@@ -1760,7 +1760,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("Suddenly, Miko lets out a sharp cry and slams her hips into Hel's.  You can only see the looks on both her face and Hel's as they cum in unison, white fox-spunk dribbling out of the slamander's hot snatch.  \"<i>Gonna... Gonna cum...</i>\" Mai whimpers, giving you only a moment to prepare before she grabs your arms and pulls you down onto her chest, burying your face between her heavy tits.  She jackhammers your now-exposed cunt.  ramming her knot in and out of you until you can't think straight.  You cum, your " + this.vaginaDescript() + " clamping down on her doggy cock.  Waves of explosive pleasure shoot through you, making you spasm in the fox-herm's arms, only barely aware of her shooting her load deep inside you, coating your walls with thick, hot spunk.  You ride out the orgasm buried in Mai's chest, shuddering and gasping as she kisses you over and over, letting her thick knot deflate inside you until her own cum leaks out, staining her smooth thighs and legs.", false);
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this.foxyFluffOutro);
+        this.doNext(this, this.foxyFluffOutro);
     }
 
     //Foursome Scene -- Outro
@@ -1777,7 +1777,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You awake to find yourself tucked into the bed, your clothes folded neatly next to you.  It looks like someone cleaned you up and tucked you in after your little orgy.  When you hear a loud snore beside you, you don't even need to guess who it was that took care of you.  You pull up the covers, and of course find Helia curled up beside you, her warm tail acting like a pillow for the two of you.  You smile, give her a long kiss, and collect your things.  You leave the salamander to sleep it off, and head back to camp.", false);
         //Bump up follower tracking affection too
         this.helFollower.helAffection(5);
-        this.doNext(this.camp.returnToCampUseFourHours);
+        this.doNext(this, this.camp.returnToCampUseFourHours);
     }
 
 
@@ -1801,15 +1801,15 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\nYou suppose you could offer to satisfy her needs instead... Or just say to hell with it and keep screwing 'taurs to her hearts' content.");
 
         this.menu();
-        this.addButton(0, "Its Okay", this.helCanFuckMinosWhenever);
-        this.addButton(1, "Satisfy Her", this.satisfyHelSoSheStopsMinoFucking);
+        this.addButton(this, 0, "Its Okay", this.helCanFuckMinosWhenever);
+        this.addButton(this, 1, "Satisfy Her", this.satisfyHelSoSheStopsMinoFucking);
     }
     //[Keep Going]
     private helCanFuckMinosWhenever(): void {
         this.clearOutput();
         this.outputText("You decide not to deter Hel from her minotaur-raping ways.  Nothing bad could come of your salamander friend fucking a few more 'taurs than she already has, right?  You're sure she can just manage her addiction, or lack thereof, just fine on her own.");
         //(Return to post-threesome menu)
-        this.doNext(this.helChatMenu);
+        this.doNext(this, this.helChatMenu);
     }
 
     //[Satisfy Her]
@@ -1872,7 +1872,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\n\"<i>No sex for you,</i>\" you answer.");
         this.outputText("\n\n\"<i>I.  But.  What.  You said.  We.  But.... WELL FUCK YOU ANYWAY.</i>\"");
         this.outputText("\n\nYou shrug and head back to camp as Hel, half-mad with lust, starts masturbating, glaring at your back as you leave.");
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
         this.helFollower.helAffection(-20);
     }
 }

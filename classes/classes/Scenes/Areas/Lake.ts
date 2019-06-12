@@ -46,13 +46,13 @@ export class Lake extends BaseContent {
             this.clearOutput();
             this.outputText("While wandering along the lakeshore, you spy beautiful colored lights swirling under the surface.  You lean over cautiously, and leap back as they flash free of the lake's liquid without making a splash.  The colored lights spin in a circle, surrounding you.  You wonder how you are to fight light, but they stop moving and hover in place around you.  There are numerous colors: Blue, Pink, White, Black, Purple, and Brown.  They appear to be waiting for something; perhaps you could touch one of them?");
             this.menu();
-            this.addButton(0, "Blue", this.eggChoose, 2);
-            this.addButton(1, "Pink", this.eggChoose, 3);
-            this.addButton(2, "White", this.eggChoose, 4);
-            this.addButton(3, "Black", this.eggChoose, 5);
-            this.addButton(4, "Purple", this.eggChoose, 1);
-            this.addButton(5, "Brown", this.eggChoose, 0);
-            this.addButton(9, "Escape", this.eggChooseEscape);
+            this.addButton(this, 0, "Blue", this.eggChoose, 2);
+            this.addButton(this, 1, "Pink", this.eggChoose, 3);
+            this.addButton(this, 2, "White", this.eggChoose, 4);
+            this.addButton(this, 3, "Black", this.eggChoose, 5);
+            this.addButton(this, 4, "Purple", this.eggChoose, 1);
+            this.addButton(this, 5, "Brown", this.eggChoose, 0);
+            this.addButton(this, 9, "Escape", this.eggChooseEscape);
             return;
         }
         //Did it already output something?
@@ -193,7 +193,7 @@ export class Lake extends BaseContent {
                 this.outputText("  You bet you could cover the same distance even faster next time.\n", false);
                 this.dynStats("spe", .75);
             }
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
         else if (select == 1) {
             //No boat, no kaiju
@@ -213,7 +213,7 @@ export class Lake extends BaseContent {
                 this.outputText("into daydreams of raunchy perverted sex, flooding your groin with warmth.", false);
                 this.dynStats("lus", (this.player.cor / 10 + this.player.lib / 10));
             }
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
 
         }
         //Find whitney or equinum
@@ -246,7 +246,7 @@ export class Lake extends BaseContent {
 
                 //(increase player lust from the sights they saw)
                 this.dynStats("lus", 5);
-                this.doNext(this.camp.returnToCampUseOneHour);
+                this.doNext(this, this.camp.returnToCampUseOneHour);
                 return;
             }
             this.fetishCultistScene.fetishCultistEncounter();
@@ -284,13 +284,13 @@ export class Lake extends BaseContent {
         }
         this.outputText(" light.  Immediately it flows into your skin, glowing through your arm as if it were translucent.  It rushes through your shoulder and torso, down into your pregnant womb.  The other lights vanish.");
         this.player.statusAffect(this.player.findStatusAffect(StatusAffects.Eggs)).value1 = eggType; //Value 1 is the egg type. If pregnant with OviElixir then StatusAffects.Eggs must exist
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private eggChooseEscape(): void {
         this.clearOutput();
         this.outputText("You throw yourself into a roll and take off, leaving the ring of lights hovering in the distance behind you.");
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Just want to do a quick Ottergirl event submission after you mentioned it!
@@ -341,12 +341,12 @@ export class Lake extends BaseContent {
             //(If cocksize above 48")
             if (this.player.hasCock()) {
                 if (this.player.shortestCockLength() > 48) this.outputText("\n\nUnfortunately, you don't think she can quite handle your cock.");
-                else this.addButton(0, "Fuck Her", this.ottergirlLikesDongs);
+                else this.addButton(this, 0, "Fuck Her", this.ottergirlLikesDongs);
             }
-            if (this.player.hasVagina() || !this.player.hasCock()) this.addButton(1, "Facesitting", this.ottersForGals);
+            if (this.player.hasVagina() || !this.player.hasCock()) this.addButton(this, 1, "Facesitting", this.ottersForGals);
         }
-        if (this.flags[kFLAGS.MET_OTTERGIRL] > 1) this.addButton(2, "Get Fish", this.getSomeFishYaFatty);
-        this.addButton(4, "Leave", this.avoidZeOtterPussy);
+        if (this.flags[kFLAGS.MET_OTTERGIRL] > 1) this.addButton(this, 2, "Get Fish", this.getSomeFishYaFatty);
+        this.addButton(this, 4, "Leave", this.avoidZeOtterPussy);
     }
 
     //For Dicks
@@ -522,7 +522,7 @@ export class Lake extends BaseContent {
         this.outputText("You shake your head and explain you can't.  She simply shrugs, \"<i>Ain't no skin off my back.</i>\"");
 
         this.outputText("\n\nThe two of you sit in silence for a little while.  It doesn't feel like an awkward silence, just a serene, relaxing void of noise.  The gentle lapping of the water almost puts you to sleep.  Eventually, you stand, say your goodbyes and leave.  As you're leaving, Callu shouts, \"<i>Come round any time, ya hear?</i>\"  You nod absently, then make your way back to camp.");
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //For Fatties

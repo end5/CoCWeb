@@ -16,7 +16,7 @@ export class GooGirl extends Monster {
     private gooGalAttack(): void {
         var damage: number = 0;
         //return to combat menu when finished
-        this.doNext(this.game.playerMenu);
+        this.doNext(this, this.game.playerMenu);
         if (this.findPerk(PerkLib.Acid) >= 0) this.outputText("Her body quivering from your flames, the goo-girl ", false);
         else this.outputText("The slime holds its hands up and they morph into a replica of your " + this.player.weaponName + ".  Happily, she swings at you", false);
         //Determine if dodged!
@@ -119,7 +119,7 @@ export class GooGirl extends Monster {
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
             this.outputText("\n\nThe goo-girl seems confused but doesn't mind.");
-            this.doNext(this.game.endLustLoss);
+            this.doNext(this, this.game.endLustLoss);
         } else {
             this.game.lake.gooGirlScene.getBeatByGooGirl();
         }

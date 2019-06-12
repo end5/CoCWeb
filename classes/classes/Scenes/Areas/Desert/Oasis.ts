@@ -17,7 +17,7 @@ export class Oasis extends BaseContent {
         this.outputText("The group is composed of roughly twenty tan skinned demons, mostly humanoid in shape with many and varied corruptions across the group. You see demonic high heels, twisting horns and swinging cocks of all shapes and sizes. There even seems to be a bull head in there somewhere. You also make out plenty of breasts ranging from tiny ones to a pair that require a second person to carry them, and with those breasts a wide range of pussies, dripping and dry, sometimes nestled below some form of demonic dick. The small tribe carry no weapons and what little clothing they wear is well shredded, except for one hefty male wearing a cloak of what appears to be snakeskin across his broad shoulders. You assume from his clothing and the size of his equipment that this male is the leader. He, along with the others, is in good spirits and they all look fairly non-threatening, although you've learned not to trust anything that looks non-threatening in this place. Especially if it can carry its cock over its shoulder.\n\n", false);
         //OH noes! Cheese it!
         this.outputText("The demons don't notice you until they are quite close, the glare of the surrounding sand making you very difficult to see in the shade of your scrappy bush. They ignore you, intent on the refreshing waters of the oasis, but you can't stay hidden forever. A small keen eyed demon eventually spots you and lets out a  cry of alarm, pointing you out to the others. More eyes than twenty heads should really possess are now pointed straight at you.\n\n<b>What do you do?</b>", false);
-        this.simpleChoices("Talk", this.oasisTalk, "Fight", this.chooseToFight, "", undefined, "", undefined, "Leave", this.oasisRunAway);
+        this.simpleChoices(this, "Talk", this.oasisTalk, "Fight", this.chooseToFight, "", undefined, "", undefined, "Leave", this.oasisRunAway);
     }
 
     private chooseToFight(): void {
@@ -31,12 +31,12 @@ export class Oasis extends BaseContent {
         //Run away successfully if fast enough.  80 speed = autosuccess.
         if (this.player.spe > 15 && this.player.spe / 2 > Oasis.rand(40)) {
             this.outputText("You bolt out from under your bush and scramble away over the sand. Before long the swishing sounds of pursuit fade away and looking back you see the few demons with the gusto to follow you tramping back to the oasis.", true);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
         else {
             this.outputText("You scramble away from the demons, but are too late. A swift demon with canine features tackles you to the ground.  Luckily he loses his grip as you tumble onto the sand and you slither free, stand up and wheel to face the host of leering demons which begin to advance with malicious intent.", true);
             this.startCombat(new DemonPack());
-            this.doNext(this.playerMenu);
+            this.doNext(this, this.playerMenu);
         }
     }
 
@@ -47,7 +47,7 @@ export class Oasis extends BaseContent {
         //Offer...
         this.outputText("At this your repertoire of desert conversation topics is exhausted and it occurs to you that it may be easier to break the ice somewhere it is possible for ice to form. At the edge of slipping over into awkward silence the leader speaks. 'It is quite the strike of fortune that you would come to us just as we were to rest and feast. Perhaps you wish to partake with us?' A flash of panic runs over your mind, and you turn over the phrase a few times in your head. After a few seconds you conclude that 'partake with us' really cannot mean 'be a delicious entree' and entertain the thought of staying to feast.  As if sensing your hesitation the leader speaks again. \"<i>We have not feasted in a long time, and we do hunger for it so.  This one promises to be a feast of grand proportions, and it should be a shame for you to miss such an opportunity.</i>\"\n\n", false);
         this.outputText("<b>Do you stay or try to leave?</b>", false);
-        this.simpleChoices("Stay", this.oasisTalkAccept, "", undefined, "", undefined, "", undefined, "Leave", this.oasisTalkDecline);
+        this.simpleChoices(this, "Stay", this.oasisTalkAccept, "", undefined, "", undefined, "", undefined, "Leave", this.oasisTalkDecline);
     }
 
     private oasisTalkDecline(): void {
@@ -56,7 +56,7 @@ export class Oasis extends BaseContent {
         //MORTAL KOMBAAAAAT
         this.outputText("The demons begin to circle menacingly, and you can do nothing but prepare to defend yourself.", false);
         this.startCombat(new DemonPack());
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
     private oasisTalkAccept(): void {
         this.spriteSelect(46);
@@ -71,7 +71,7 @@ export class Oasis extends BaseContent {
             this.player.addStatusValue(StatusAffects.VoluntaryDemonpack, 1, 1);
         }
         //TO THE SECKSIN!
-        this.doNext(this.oasisSexing);
+        this.doNext(this, this.oasisSexing);
     }
     public oasisSexing(): void {
         this.spriteSelect(46);
@@ -178,14 +178,14 @@ export class Oasis extends BaseContent {
         }
         //If you submitted willingly - chance of bad end
         if (this.player.statusAffectv1(StatusAffects.VoluntaryDemonpack) >= 6 && this.player.hasVagina()) {
-            this.doNext(this.oasisBadEnd);
+            this.doNext(this, this.oasisBadEnd);
             return;
         }
         this.outputText("You fuck for hours; 'feasting' with the demons. Pain, pleasure and exhaustion intermingle and no matter how hard you try to cling to consciousness you are in no state to concentrate. You dangle over the edge for what seems like eternity before another orgasm, stronger than any other, hits you like a solid wall and you black out. For a little while you drift in and out of conscious reality to find your body still the object of demonic attentions until eventually you wake to find that the seemingly endless string of orgasms has stopped. Looking around you see what demons remain awake engaged solely in fucking each other. Tender and sore from the abuse and still finding it hard to concentrate you gather your clothes and steal away, leaving them to the tail end of their orgy. In the aftermath you feel like you've just run an endurance race, but the rubbed raw sensitivity of your brutally fucked body tells another tale.", false);
         this.player.orgasm();
         this.dynStats("tou", .5, "sen", .5, "cor", 4);
         if (this.getGame().inCombat) this.cleanupAfterCombat();
-        else this.doNext(this.playerMenu);
+        else this.doNext(this, this.playerMenu);
     }
 
     //Desert Tribe Bad End
@@ -214,7 +214,7 @@ export class Oasis extends BaseContent {
         if (this.player.gender >= 2) this.outputText("He reaches down to grab a hold of your hair and lifts you to your feet, causing you to yelp out in pain from the sharp pull.  ", false);
         this.outputText("He gives the chain attached to your neck an extra sharp tug and forces you to start walking behind him. As the tribe starts to move on to their next destination with you in tow, the leader turns to you. \"<i>You might just find becoming a slave is better than you think. Why else would you keep returning to us and joining our Feast if you didn't crave more of what we had to offer?</i>\"\n\n", false);
         this.outputText("Flushing red in embarrassment at his words, you reluctantly follow after the leader and the rest of the tribe in obedience. You mull over what the leader had just said in your mind, and can't help but wonder what your future would be like if you remained with them.", false);
-        this.doNext(this.oasisBadEndEpilogue);
+        this.doNext(this, this.oasisBadEndEpilogue);
     }
     private oasisBadEndEpilogue(): void {
         this.spriteSelect(46);

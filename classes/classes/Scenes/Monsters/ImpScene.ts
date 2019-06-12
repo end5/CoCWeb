@@ -43,21 +43,21 @@ export class ImpScene extends BaseContent {
             if (this.player.hasVagina()) {
                 if (this.player.isTaur()) {
                     maleRape = this.centaurOnImpStart;
-                    this.addButton(1, "Group Vaginal", this.centaurGirlOnImps);
+                    this.addButton(this, 1, "Group Vaginal", this.centaurGirlOnImps);
                 }
-                else this.addButton(1, "Female Rape", this.rapeImpWithPussy);
+                else this.addButton(this, 1, "Female Rape", this.rapeImpWithPussy);
             }
             else if (maleRape == undefined && !this.player.hasFuckableNipples() && !canFeed && !canBikiniTits && !this.player.canOvipositBee()) {
                 this.cleanupAfterCombat(); //Only happens when there's no way to fuck the imp
                 return;
             }
-            this.addButton(0, (this.player.isTaur() ? "Centaur Rape" : "Male Rape"), maleRape);
-            if (this.player.hasFuckableNipples()) this.addButton(2, "NippleFuck", this.noogaisNippleRape);
+            this.addButton(this, 0, (this.player.isTaur() ? "Centaur Rape" : "Male Rape"), maleRape);
+            if (this.player.hasFuckableNipples()) this.addButton(this, 2, "NippleFuck", this.noogaisNippleRape);
         }
-        if (canFeed) this.addButton(3, "Breastfeed", this.areImpsLactoseIntolerant);
-        if (canBikiniTits) this.addButton(4, "B.Titfuck", (this.player.armor as LustyMaidensArmor).lustyMaidenPaizuri);
-        if (this.player.canOvipositBee()) this.addButton(8, "Oviposit", this.putBeeEggsInAnImpYouMonster);
-        this.addButton(9, "Leave", this.cleanupAfterCombat);
+        if (canFeed) this.addButton(this, 3, "Breastfeed", this.areImpsLactoseIntolerant);
+        if (canBikiniTits) this.addButton(this, 4, "B.Titfuck", (this.player.armor as LustyMaidensArmor).lustyMaidenPaizuri);
+        if (this.player.canOvipositBee()) this.addButton(this, 8, "Oviposit", this.putBeeEggsInAnImpYouMonster);
+        this.addButton(this, 9, "Leave", this.cleanupAfterCombat);
 
         /* The old way
     var  maleRape =undefined;
@@ -314,7 +314,7 @@ export class ImpScene extends BaseContent {
         else if (this.player.hasVagina() && x < 0) this.centaurOnImpFemale();
         else {
             this.outputText("Do you focus on your maleness or girl-parts?", false);
-            this.simpleChoices("Male", this.createCallBackFunction(this.centaurOnImpMale, true), "Female", this.createCallBackFunction(this.centaurOnImpFemale, true), "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "Male", this.createCallBackFunction(this, this.centaurOnImpMale, true), "Female", this.createCallBackFunction(this, this.centaurOnImpFemale, true), "", undefined, "", undefined, "", undefined);
         }
     }
 
@@ -1289,7 +1289,7 @@ export class ImpScene extends BaseContent {
                 }
             }
         }
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     public impRapesYou(): void {
@@ -1524,8 +1524,8 @@ export class ImpScene extends BaseContent {
             this.outputText("The muscular imp groans in pained arousal, his loincloth being pushed to the side by his thick, powerful dick.  Grabbing the useless clothing, he rips it from his body, discarding it.  The imp's eyes lock on his cock as he becomes completely ignorant of your presence.  His now insatiable lust has completely clouded his judgment.  Wrapping both of his hands around his pulsing member he begins to masturbate furiously, attempting to relieve the pressure you've caused.");
             //Leave // Rape]
             this.menu();
-            if (this.player.lust >= 33) this.addButton(0, "Sex", this.sexAnImpLord);
-            this.addButton(9, "Leave", this.cleanupAfterCombat);
+            if (this.player.lust >= 33) this.addButton(this, 0, "Sex", this.sexAnImpLord);
+            this.addButton(this, 9, "Leave", this.cleanupAfterCombat);
         }
     }
     public loseToAnImpLord(): void {
@@ -1550,12 +1550,12 @@ export class ImpScene extends BaseContent {
 
         this.menu();
         //Continues in, Male Anal, Female Vaginal, or Breastfeed
-        this.addButton(9, "Leave", this.cleanupAfterCombat);
+        this.addButton(this, 9, "Leave", this.cleanupAfterCombat);
         if (this.player.lust >= 33) {
-            if (this.player.hasCock() && this.player.cockThatFits(this.monster.analCapacity()) >= 0) this.addButton(0, "FuckHisAss", this.impLordBumPlug);
-            if (this.player.hasCock()) this.addButton(1, "Get Blown", this.getBlownByAnImpLord);
-            if (this.player.hasVagina()) this.addButton(2, "Ride Cock", this.femaleVagRape);
-            if (this.player.findPerk(PerkLib.Feeder) >= 0) this.addButton(3, "Breastfeed", this.feederBreastfeedRape);
+            if (this.player.hasCock() && this.player.cockThatFits(this.monster.analCapacity()) >= 0) this.addButton(this, 0, "FuckHisAss", this.impLordBumPlug);
+            if (this.player.hasCock()) this.addButton(this, 1, "Get Blown", this.getBlownByAnImpLord);
+            if (this.player.hasVagina()) this.addButton(this, 2, "Ride Cock", this.femaleVagRape);
+            if (this.player.findPerk(PerkLib.Feeder) >= 0) this.addButton(this, 3, "Breastfeed", this.feederBreastfeedRape);
         }
     }
 

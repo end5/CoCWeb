@@ -95,7 +95,7 @@ export class Goblin extends Monster {
         } else if (pcCameWorms) {
             this.outputText("\n\nThe goblin's eyes go wide and she turns to leave, no longer interested in you.", false);
             this.player.orgasm();
-            this.doNext(this.game.cleanupAfterCombat);
+            this.doNext(this, this.game.cleanupAfterCombat);
         } else {
             this.game.goblinScene.goblinRapesPlayer();
         }

@@ -38,7 +38,7 @@ export class SandTrapScene extends BaseContent {
                 if (this.player.inte > 65) this.outputText("Something about this scene puts you on edge.  How come you've never encountered quicksand in this desert before, with no water and its steady, stubborn, but not violent winds?  There's something odd about the man, too - although he probably isn't a demon, you can't quite make his features out clearly through the heat haze.  ");
                 this.outputText("You think you could just about reach him with your hand if you were careful.  If you're going to save him, it has to be now; even in the short time you've been here he has sunk down to his collarbone.  He stares at you with plaintive despair.");
             }
-            this.simpleChoices("Save", this.saveTheSandTarps, "Don't Save", this.dontSaveTheTarps, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "Save", this.saveTheSandTarps, "Don't Save", this.dontSaveTheTarps, "", undefined, "", undefined, "", undefined);
         }
         else {
             //Standard encounter: 
@@ -47,14 +47,14 @@ export class SandTrapScene extends BaseContent {
                 this.outputText("\n\nMoving as quickly and lightly as you can, you manage to hop clear of the sandtrap's pitfall and claw your way up a relatively stable dune.  You turn to take the androgynous creature in, half buried in its deep hollow.");
                 this.outputText("\n\n\"<i>You've got quick feet, little ant!</i>\" it giggles.  It lowers its brow and leers up at you with smouldering black eyes, its hands slowly and sensuously trailing patterns in the sand.  \"<i>I bet you're good at lots of other things, too.  Why doesn't the brave little ant come down here and show me?</i>\"  If you're going to fight this creature, you will have to step into its treacherous hollow to get in range, which is surely its intention - if you try launching things at it from where you are, it will probably just hide itself.  On the other hand, it would be easy to just ignore its taunts and walk away.");
                 //Fight]/[Leave]
-                this.simpleChoices("Fight", this.startSandTarpFight, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+                this.simpleChoices(this, "Fight", this.startSandTarpFight, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
             }
             //Speed check fail: 
             else {
                 this.outputText("\n\nYou don't move quickly enough, however, and you may as well be running on the spot; the edge of the pit recedes as the fluid sand carries you downwards.  You struggle upright as best you can and ready yourself to fight the sandtrap, which is leering at you hungrily from the bottom of its vast pit.");
                 this.outputText("\n\n\"<i>Only a matter of time now, little ant,</i>\" it says huskily, in its fluttering, buzzing voice.  You will have to defeat it in order to escape, and before it pulls you to the bottom!");
                 this.startCombat(new SandTrap());
-                this.doNext(this.playerMenu);
+                this.doNext(this, this.playerMenu);
             }
         }
     }
@@ -82,7 +82,7 @@ export class SandTrapScene extends BaseContent {
         }
         this.startCombat(new SandTrap());
         this.monster.changeStatusValue(StatusAffects.Level, 1, 2);
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     //[Don't Save]: 
@@ -110,7 +110,7 @@ export class SandTrapScene extends BaseContent {
         this.outputText(" midriff exposed and glamour gone, the creature looks quite different; six eyes as black as its hair look at you hungrily from its beautiful androgynous face, whilst four slender arms trail patterns in the sand around its willowy, flat-chested midsection.  It wriggles its body tauntingly at you, making the sand beneath it move ponderously.  You glimpse insect chitin beneath its flat humanoid belly; the buried half of this creature must be monstrous.");
         this.outputText("\n\n\"<i>You aren't as slow as you look, little ant,</i>\" it calls up to you, grinning slyly.  It speaks in a buzzing, fluttering voice which is nothing like the one it attempted to entice you into its trap with.  \"<i>Why don't you come down here and dance for me some more?  I'm sure a quick, strong traveller like you could run rings around a simple little sandtrap like me.</i>\"  If you're going to fight this creature, you will have to step into its treacherous hollow to get in range, which is surely its intention - if you try launching things at it from where you are, it will probably just hide itself.  On the other hand, it would be easy to just ignore its taunts and walk away.");
         //[Fight]/[Leave]
-        this.simpleChoices("Fight", this.startSandTarpFight, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+        this.simpleChoices(this, "Fight", this.startSandTarpFight, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
     }
 
 
@@ -136,9 +136,9 @@ export class SandTrapScene extends BaseContent {
         //PC lust loss: 
         else this.outputText("You feel as radiant and molten as the sun above you... you just want to sink into the warm sand surrounding you forever.  Why are you struggling against it again?  You can't remember; with a sigh, you fall backwards onto the soft powder and allow yourself to be carried right down to the bottom.  The sandtrap chuckles softly as it envelopes you in its waiting arms.  \"<i>Good " + this.player.mf("boy", "girl") + "...</i>\"");
 
-        if (this.player.hasCock()) this.doNext(this.dickwieldersLoseToSandTarps);
-        else if (this.player.hasVagina()) this.doNext(this.chicksLoseToSandTarp);
-        else this.doNext(this.genderlessLoss);
+        if (this.player.hasCock()) this.doNext(this, this.dickwieldersLoseToSandTarps);
+        else if (this.player.hasVagina()) this.doNext(this, this.chicksLoseToSandTarp);
+        else this.doNext(this, this.genderlessLoss);
     }
 
     public pcBeatsATrap(): void {
@@ -171,7 +171,7 @@ export class SandTrapScene extends BaseContent {
         if (this.player.lust >= 33) {
             this.outputText("\n\nBefore you go, you take in the helpless body of your would-be ambusher.  What do you do?");
 
-            this.choices("Naga3Some", nagaThreeSome, "UseYourCock", putYourDickInIt, "RideVaginal", rideDatSantTrap, "Handjob", useSandTarpsHand, "", undefined,
+            this.choices(this, "Naga3Some", nagaThreeSome, "UseYourCock", putYourDickInIt, "RideVaginal", rideDatSantTrap, "Handjob", useSandTarpsHand, "", undefined,
                 "", undefined, "", undefined, "", undefined, "B.Titfuck", bikiniTits, "Leave", this.cleanupAfterCombat);
         }
         else this.cleanupAfterCombat();
@@ -606,9 +606,9 @@ export class SandTrapScene extends BaseContent {
         this.outputText("You inhale hard and try to clear your head, forcing yourself not to sleepwalk downwards into the Sandtrap's waiting embrace.  The creature doesn't seem to mind your hesitation; it smiles softly and confidently, waiting for you with the infinite patience of its kind.  You need to make a choice here fast, before your burning body makes it for you.");
         //Fight/Desztiny/Leave
         this.menu();
-        this.addButton(0, "Fight", this.sandTrapBadEndFight);
-        this.addButton(1, "Desztiny", this.desztiny);
-        this.addButton(4, "Leave", this.leaveSandTrapBadEnd);
+        this.addButton(this, 0, "Fight", this.sandTrapBadEndFight);
+        this.addButton(this, 1, "Desztiny", this.desztiny);
+        this.addButton(this, 4, "Leave", this.leaveSandTrapBadEnd);
 
     }
 
@@ -627,7 +627,7 @@ export class SandTrapScene extends BaseContent {
         this.spriteSelect(97);
         this.outputText("With some effort you break your stare with the Sandtrap, turn away and step back towards camp, resolving to leave this disturbing scenario with its disturbing thoughts behind.");
         this.outputText("\n\n\"<i>I understand, Flytrap,</i>\" a calm voice reaches you from behind.  \"<i>You need time to think things over and truly recognise what you are.  I know you will come back.  You always do.</i>\"");
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Desztiny:

@@ -13,7 +13,7 @@ export class GnollSpearThrower extends Monster {
     private hyenaPhysicalAttack(): void {
         var damage: number = 0;
         //return to combat menu when finished
-        this.doNext(this.game.playerMenu);
+        this.doNext(this, this.game.playerMenu);
         //Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && GnollSpearThrower.rand(3) < 2) {
             this.outputText(this.capitalA + this.short + " completely misses you with a blind attack!\n", false);
@@ -222,7 +222,7 @@ export class GnollSpearThrower extends Monster {
     public eAttack(): void {
         var damage: number = 0;
         //return to combat menu when finished
-        this.doNext(this.game.playerMenu);
+        this.doNext(this, this.game.playerMenu);
         //Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && GnollSpearThrower.rand(3) < 2) {
             this.outputText(this.capitalA + this.short + " completely misses you with a blind attack!\n", false);
@@ -309,9 +309,9 @@ export class GnollSpearThrower extends Monster {
             this.game.clearOutput();
             this.outputText("The gnoll alpha is defeated!  You could use her for a quick, willing fuck to sate your lusts before continuing on.  Hell, you could even dose her up with that succubi milk you took from the goblin first - it might make her even hotter.  Do you?");
             this.game.menu();
-            this.game.addButton(0, "Fuck", this.game.urtaQuest.winRapeHyenaPrincess);
-            this.game.addButton(1, "Succ Milk", this.game.urtaQuest.useSuccubiMilkOnGnollPrincesses);
-            this.game.addButton(4, "Leave", this.game.urtaQuest.urtaNightSleep);
+            this.game.addButton(this, 0, "Fuck", this.game.urtaQuest.winRapeHyenaPrincess);
+            this.game.addButton(this, 1, "Succ Milk", this.game.urtaQuest.useSuccubiMilkOnGnollPrincesses);
+            this.game.addButton(this, 4, "Leave", this.game.urtaQuest.urtaNightSleep);
         } else {
             this.game.plains.gnollSpearThrowerScene.hyenaVictory();
         }
@@ -322,7 +322,7 @@ export class GnollSpearThrower extends Monster {
             this.game.urtaQuest.loseToGnollPrincessAndGetGangBanged();
         } else if (pcCameWorms) {
             this.outputText("\n\nYour foe doesn't seem put off enough to leave...");
-            this.doNext(this.game.endLustLoss);
+            this.doNext(this, this.game.endLustLoss);
         } else {
             this.game.plains.gnollSpearThrowerScene.hyenaSpearLossAnal();
         }

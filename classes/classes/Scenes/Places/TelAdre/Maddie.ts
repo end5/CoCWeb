@@ -24,7 +24,7 @@ export class Maddie extends TelAdreAbstractContent {
         else {
             this.outputText("You walk into the bakery and a burly, hair-covered arm grabs your shoulder.  The familiar voice of a minotaur barks, \"<i>You.  You can help.  Come.</i>\"  You turn, but he's already walking towards an 'employees only' door.  Do you follow?", false);
         }
-        this.doYesNo(this.followMinotaurIntoBackroom, this.telAdre.bakeryScene.bakeryuuuuuu);
+        this.doYesNo(this, this.followMinotaurIntoBackroom, this.telAdre.bakeryScene.bakeryuuuuuu);
     }
     //[Follow] 
     private followMinotaurIntoBackroom(): void {
@@ -37,8 +37,8 @@ export class Maddie extends TelAdreAbstractContent {
             else this.outputText("You blush when you realize what he must be using for cream filling.", false);
             //[Give Them] [Leave]
             if (this.player.hasItem(this.consumables.BEEHONY) && this.player.hasItem(this.consumables.L_DRAFT))
-                this.simpleChoices("Give Them", this.handOverIngredientsItBeBakingTimeYo, "", undefined, "", undefined, "", undefined, "Leave", this.nopeAintGotNoneODemSpeculIngredimathings);
-            else this.simpleChoices("", undefined, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+                this.simpleChoices(this, "Give Them", this.handOverIngredientsItBeBakingTimeYo, "", undefined, "", undefined, "", undefined, "Leave", this.nopeAintGotNoneODemSpeculIngredimathings);
+            else this.simpleChoices(this, "", undefined, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00241] = 1;
         }
         //(Explained) 
@@ -46,8 +46,8 @@ export class Maddie extends TelAdreAbstractContent {
             this.outputText("You follow the burly chef through the door, winding through the familiar ovens.  By the time you reach his work area, you're both covered in a fine sheen of sweat and you find yourself responding to the minotaur musk unconsciously.  The strange chef turns to ask, \"<i>You have special ingredients now, yes?</i>\"", false);
             //[Yes] [Lie – No/Not Yet]
             if (this.player.hasItem(this.consumables.BEEHONY) && this.player.hasItem(this.consumables.L_DRAFT))
-                this.simpleChoices("Yes", this.handOverIngredientsItBeBakingTimeYo, "Lie - No", this.nopeAintGotNoneODemSpeculIngredimathings, "", undefined, "", undefined, "", undefined);
-            else this.simpleChoices("No", this.nopeAintGotNoneODemSpeculIngredimathings, "", undefined, "", undefined, "", undefined, "", undefined);
+                this.simpleChoices(this, "Yes", this.handOverIngredientsItBeBakingTimeYo, "Lie - No", this.nopeAintGotNoneODemSpeculIngredimathings, "", undefined, "", undefined, "", undefined);
+            else this.simpleChoices(this, "No", this.nopeAintGotNoneODemSpeculIngredimathings, "", undefined, "", undefined, "", undefined, "", undefined);
         }
     }
 
@@ -60,7 +60,7 @@ export class Maddie extends TelAdreAbstractContent {
         if (this.player.cor > 50) this.outputText("starting a fight inside Tel'Adre", false);
         else this.outputText("overstaying your welcome", false);
         this.outputText(" – you depart.", false);
-        this.doNext(this.telAdre.bakeryScene.bakeryuuuuuu);
+        this.doNext(this, this.telAdre.bakeryScene.bakeryuuuuuu);
     }
     //[Yes – baking]
     public handOverIngredientsItBeBakingTimeYo(): void {
@@ -77,9 +77,9 @@ export class Maddie extends TelAdreAbstractContent {
         if (this.player.findPerk(PerkLib.MinotaurCumAddict) >= 0) this.outputText("  Your mouth salivates at the thought.", false);
         else this.outputText("You aren't sure you want to.", false);
         this.outputText("\n\n", false);
-        if (this.player.findPerk(PerkLib.MinotaurCumAddict) >= 0) this.doNext(this.waitForSlutCake);
+        if (this.player.findPerk(PerkLib.MinotaurCumAddict) >= 0) this.doNext(this, this.waitForSlutCake);
         //[Wait] [Sneak Out]
-        else this.simpleChoices("Wait", this.waitForSlutCake, "Sneak Out", this.sneakAwayFromMaddie, "", undefined, "", undefined, "", undefined);
+        else this.simpleChoices(this, "Wait", this.waitForSlutCake, "Sneak Out", this.sneakAwayFromMaddie, "", undefined, "", undefined, "", undefined);
     }
 
     //[Sneak Out]
@@ -88,7 +88,7 @@ export class Maddie extends TelAdreAbstractContent {
         this.outputText("You get out before he can find you again.  Whatever he's making is nothing you ever want to taste.", false);
         //(No more mino chef)
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00242] = -2;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //[Wait/Next]
     private waitForSlutCake(): void {
@@ -113,7 +113,7 @@ export class Maddie extends TelAdreAbstractContent {
 
         this.outputText("Running seems like a very good idea.  Who knows what she has planned for you?", false);
         //[RUN] [TRY TO TALK]
-        this.simpleChoices("Run Away", this.runAwayFromMaddiiiieee, "TryToTalk", this.talkToMaddie, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Run Away", this.runAwayFromMaddiiiieee, "TryToTalk", this.talkToMaddie, "", undefined, "", undefined, "", undefined);
     }
     //[RUN DAFUQ AWAY]
     private runAwayFromMaddiiiieee(): void {
@@ -121,7 +121,7 @@ export class Maddie extends TelAdreAbstractContent {
         this.outputText("", true);
         this.outputText("You turn tail to run, evacuating the room before that culinary catastrophe can have her way with you.  A high-pitched whine chases you away as the cupcake-girl cries, \"<i>Nooooo... come back!  I'm making so much filling for you!</i>\"  Her words lend you even greater speed, and you vacate the city in record time.\n\n", false);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00242] = -1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //[Followup to run away]
     public runAwayMaddieFollowup(): void {
@@ -129,7 +129,7 @@ export class Maddie extends TelAdreAbstractContent {
         this.outputText("", true);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00242] = -2;
         this.outputText("You return to a strange sight indeed.  Urta and Edryn are leading a procession of over thirty city guards, arranged in a loose circle around the cupcake-girl.  Her comparatively tiny, tin-foil fez is gone, along with most of her blue-iced 'armor'.  She looks weak, pathetic, and beaten as she's prodded with spears and escorted from the city, never to return again.  Vanilla-scented tears stain the pavement behind her, leaving a trail the whole way back to the bakery.\n\n", false);
-        this.doNext(this.telAdre.telAdreMenu);
+        this.doNext(this, this.telAdre.telAdreMenu);
     }
 
     //[TRY TO TALK]
@@ -228,7 +228,7 @@ export class Maddie extends TelAdreAbstractContent {
             this.outputText(this.player.modTone(0, 10), false);
         }
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00242] = 3;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Next visit to the bakery...]
@@ -238,7 +238,7 @@ export class Maddie extends TelAdreAbstractContent {
         this.outputText("\"<i>Thanks.  Figured out what went wrong with Maddie's help.  Made masterpiece.  Buy giant cupcake sometime.  Delicious!  Promise it's safe and non-addictive.  Expensive though.  Ingredients rare.\n\n", false);
         this.outputText("-X</i>\"", false);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00242] = 4;
-        this.doNext(this.telAdre.bakeryScene.bakeryuuuuuu);
+        this.doNext(this, this.telAdre.bakeryScene.bakeryuuuuuu);
     }
 }
 

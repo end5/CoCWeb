@@ -89,9 +89,9 @@ export class HelFollower extends NPCAwareContent {
         this.outputText("\n\nYou stare at the salamander, momentarily taken aback by her offer.  However, you know that, even if you wanted to, your duties as Champion bind you here, to the portal.  You cannot go with her... But perhaps there's another way to keep Hel close, if you want to take things further at all.");
         //(Display Options: [I can't] [Come2Camp] [Just Friends]
         this.menu();
-        this.addButton(0, "I Can't", this.iCantLetFireButtsRapeMyCampsButt);
-        this.addButton(1, "Come2Camp", this.comeToCampHeliaIWantTailInButt);
-        this.addButton(2, "JustFriends", this.justFriendsWithAnalTailWaifu);
+        this.addButton(this, 0, "I Can't", this.iCantLetFireButtsRapeMyCampsButt);
+        this.addButton(this, 1, "Come2Camp", this.comeToCampHeliaIWantTailInButt);
+        this.addButton(this, 2, "JustFriends", this.justFriendsWithAnalTailWaifu);
     }
 
     //[I Can't] -The Girt
@@ -107,7 +107,7 @@ export class HelFollower extends NPCAwareContent {
 
         this.outputText("\n\nYou nod and tell your fiery lover you'll be sure to do just that.");
         this.flags[kFLAGS.HELIA_FOLLOWER_DISABLED] = 1;
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     //[Come2Camp] -Dirty
@@ -127,7 +127,7 @@ export class HelFollower extends NPCAwareContent {
         this.menu();
         //place holder
         this.model.time.hours++;
-        this.addButton(0, "Next", this.afterMoveInBoningAnalFireTail);
+        this.addButton(this, 0, "Next", this.afterMoveInBoningAnalFireTail);
     }
 
     //Afterwards, play:
@@ -144,7 +144,7 @@ export class HelFollower extends NPCAwareContent {
 
         this.outputText("\n\n(<b>Hel has been added to the Lovers menu!</b>)");
         this.flags[kFLAGS.HEL_FOLLOWER_LEVEL] = 2;
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     //[Just Friends] -Dirt
@@ -164,7 +164,7 @@ export class HelFollower extends NPCAwareContent {
 
         this.outputText("\n\nYou wave as Hel retreats back toward her own home.");
         this.flags[kFLAGS.HELIA_FOLLOWER_DISABLED] = .5;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Hel Comes to Camp -- Intro Scenes (Play in Order)
@@ -310,14 +310,14 @@ export class HelFollower extends NPCAwareContent {
                 this.outputText("Or, maybe there's a way to make this work...");
                 //(Display Option: [Boot Sophie] [Boot Hel] [Work it Out])
                 this.menu();
-                this.addButton(0, "Boot Sophie", this.bimboSophieGetsBooted4Firebutt);
-                this.addButton(1, "Boot Hel", this.bootHelOutForBimboSophie);
-                this.addButton(2, "Work It Out", this.workItOutWithSophieAndFireTits);
+                this.addButton(this, 0, "Boot Sophie", this.bimboSophieGetsBooted4Firebutt);
+                this.addButton(this, 1, "Boot Hel", this.bootHelOutForBimboSophie);
+                this.addButton(this, 2, "Work It Out", this.workItOutWithSophieAndFireTits);
                 return;
             }
             this.menu();
-            this.addButton(0, "Boot Sophie", this.bimboSophieGetsBooted4Firebutt);
-            this.addButton(1, "Boot Hel", this.bootHelOutForBimboSophie);
+            this.addButton(this, 0, "Boot Sophie", this.bimboSophieGetsBooted4Firebutt);
+            this.addButton(this, 1, "Boot Hel", this.bootHelOutForBimboSophie);
             return;
         }
         else {
@@ -326,7 +326,7 @@ export class HelFollower extends NPCAwareContent {
             return;
         }
         this.menu();
-        this.addButton(0, "Next", this.helFollowersIntro);
+        this.addButton(this, 0, "Next", this.helFollowersIntro);
     }
 
 
@@ -374,7 +374,7 @@ export class HelFollower extends NPCAwareContent {
             this.outputText("\n\nGod DAMMIT, Hel.");
         }
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00283] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Boot Hel]
@@ -398,7 +398,7 @@ export class HelFollower extends NPCAwareContent {
         //Block future move ins
         this.flags[kFLAGS.HELIA_FOLLOWER_DISABLED] = 1;
         //Reduces her encounter rate
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Work it Out]
@@ -415,7 +415,7 @@ export class HelFollower extends NPCAwareContent {
         this.outputText("\n\nHel sighs, and rolls her eyes.  <i>\"I dunno, [name]. I don't like having her around, but - hey, get off - I guess if you're sure she's harmle- DAMMIT woman get your tits out of my face - I guess I can live with he- okay, okay, gimme a minute to settle in and I'll fuck ya already!  Damn!\"</i>");
         this.outputText("\n\nWell, maybe they'll get along after all...");
         this.flags[kFLAGS.KEEP_HELIA_AND_SOPHIE] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //If Hel is at Camp and Isabella Arrives, neither are cool
@@ -467,7 +467,7 @@ export class HelFollower extends NPCAwareContent {
         if (this.isabellaAccent()) this.outputText("<i>\"You are... velcome,\"</i> Isabella says before collecting some of the scattered belongings from the ground.  You continue your tour, now that the girls are...  not going to murder each other in the middle of the night, at least.");
         else this.outputText("<i>\"You're... welcome,\"</i> Isabella says before collecting some of the scattered belongings from the ground.  You continue your tour, now that the girls are...  not going to murder each other in the middle of the night, at least.");
         this.flags[kFLAGS.HEL_ISABELLA_THREESOME_ENABLED] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -496,18 +496,18 @@ export class HelFollower extends NPCAwareContent {
             //Threesomes
             //Take a Bath
             //Appearance
-            this.addButton(0, "Appearance", this.helSpawnScene.heliasAppearanceScreen);
-            this.addButton(1, "Sex", this.heliaRoughSex);
-            this.addButton(2, "Threesomes", this.heliaThreesomes);
-            this.addButton(4, "Talk", this.heliaOptions);
-            if (!kGAMECLASS.helScene.pregnancy.isPregnant) this.addButton(5, "Spar", this.sparWithHeliaFirebuttsAreHot);
+            this.addButton(this, 0, "Appearance", this.helSpawnScene.heliasAppearanceScreen);
+            this.addButton(this, 1, "Sex", this.heliaRoughSex);
+            this.addButton(this, 2, "Threesomes", this.heliaThreesomes);
+            this.addButton(this, 4, "Talk", this.heliaOptions);
+            if (!kGAMECLASS.helScene.pregnancy.isPregnant) this.addButton(this, 5, "Spar", this.sparWithHeliaFirebuttsAreHot);
             else this.outputText("\n\n<b>Helia will not spar or box while pregnant.</b>");
-            if (!kGAMECLASS.helScene.pregnancy.isPregnant) this.addButton(6, "Box", this.boxWithInCampHel);
+            if (!kGAMECLASS.helScene.pregnancy.isPregnant) this.addButton(this, 6, "Box", this.boxWithInCampHel);
             if (this.flags[kFLAGS.HEL_LOVE] == 1 || this.flags[kFLAGS.HEL_LOVE] == -1) {
                 if (this.player.hasCock() && this.player.cockThatFits(this.heliaCapacity()) >= 0 && this.player.lust >= 33 &&
-                    !this.helPregnant() && this.flags[kFLAGS.HELSPAWN_AGE] == 0) this.addButton(7, "Have A Kid", this.helSpawnScene.haveAKid);
+                    !this.helPregnant() && this.flags[kFLAGS.HELSPAWN_AGE] == 0) this.addButton(this, 7, "Have A Kid", this.helSpawnScene.haveAKid);
             }
-            this.addButton(9, "Back", this.camp.campLoversMenu)
+            this.addButton(this, 9, "Back", this.camp.campLoversMenu)
         }
         else if (this.flags[kFLAGS.HEL_FOLLOWER_LEVEL] == 1) {
             if (this.flags[kFLAGS.HEL_HARPY_QUEEN_DEFEATED] == 1) {
@@ -517,7 +517,7 @@ export class HelFollower extends NPCAwareContent {
                 if (display) this.outputText("You approach Hel as she's pacing around camp.  She's clad in her normal field attire: a simple scale bikini top and leather thong which supports her scimitar's scabbard.  Her cloak is loosely thrown over her shoulders, giving her a slight measure of protection from the mountain's harsh environs.");
                 if (display) this.outputText("\n\n\"<i>Heya, [name]! Ready to hit the road?</i>\"");
                 //(Display Options: [Dungeon] [Not Yet])
-                this.simpleChoices("Dungeon", kGAMECLASS.goToHeliaDungeon, "", undefined, "", undefined, "", undefined, "Not Yet", kGAMECLASS.notYet);
+                this.simpleChoices(this, "Dungeon", kGAMECLASS.goToHeliaDungeon, "", undefined, "", undefined, "", undefined, "Not Yet", kGAMECLASS.notYet);
             }
         }
     }
@@ -532,15 +532,15 @@ export class HelFollower extends NPCAwareContent {
             return;
         }
         this.menu();
-        this.addButton(0, "Discuss", this.talkToHel);
-        if (this.model.time.hours >= 21) this.addButton(1, "Cuddle", this.hugASmokeyTail);
-        else this.addButton(2, "Hug", this.hugASmokeyTail);
-        if (this.flags[kFLAGS.HELIA_ANAL_TRAINING_OFFERED] > 0 && this.flags[kFLAGS.HELIA_ANAL_TRAINING] < 2 && this.player.biggestCockArea() > this.heliaAnalCapacity() && this.player.hasItem(this.consumables.GOB_ALE, 1)) this.addButton(3, "Anal Train", this.heliaGapeSceneChoices);
-        this.addButton(5, "Bathe", this.takeABath);
-        if (this.flags[kFLAGS.HELSPAWN_AGE] == 1) this.addButton(7, this.flags[kFLAGS.HELSPAWN_NAME], this.helSpawnScene.playWithYourKid);
-        if (this.flags[kFLAGS.HEL_GUARDING] == 0) this.addButton(8, "GuardCamp", this.helGuardToggle);
-        else this.addButton(8, "NoGuarding", this.helGuardToggle);
-        this.addButton(9, "Back", this.heliaFollowerMenu);
+        this.addButton(this, 0, "Discuss", this.talkToHel);
+        if (this.model.time.hours >= 21) this.addButton(this, 1, "Cuddle", this.hugASmokeyTail);
+        else this.addButton(this, 2, "Hug", this.hugASmokeyTail);
+        if (this.flags[kFLAGS.HELIA_ANAL_TRAINING_OFFERED] > 0 && this.flags[kFLAGS.HELIA_ANAL_TRAINING] < 2 && this.player.biggestCockArea() > this.heliaAnalCapacity() && this.player.hasItem(this.consumables.GOB_ALE, 1)) this.addButton(this, 3, "Anal Train", this.heliaGapeSceneChoices);
+        this.addButton(this, 5, "Bathe", this.takeABath);
+        if (this.flags[kFLAGS.HELSPAWN_AGE] == 1) this.addButton(this, 7, this.flags[kFLAGS.HELSPAWN_NAME], this.helSpawnScene.playWithYourKid);
+        if (this.flags[kFLAGS.HEL_GUARDING] == 0) this.addButton(this, 8, "GuardCamp", this.helGuardToggle);
+        else this.addButton(this, 8, "NoGuarding", this.helGuardToggle);
+        this.addButton(this, 9, "Back", this.heliaFollowerMenu);
     }
 
 
@@ -673,8 +673,8 @@ export class HelFollower extends NPCAwareContent {
 
             this.outputText("\n\nYou think you know where this is going...  Do you want to listen to the rest of Hel's story?");
             this.menu();
-            this.addButton(0, "Listen", this.listenToHelTalkAboutGnolls);
-            this.addButton(1, "Shut Up", this.shutUpHelTalks);
+            this.addButton(this, 0, "Listen", this.listenToHelTalkAboutGnolls);
+            this.addButton(this, 1, "Shut Up", this.shutUpHelTalks);
             return;
         }
         //Hel Talk 3(C)
@@ -830,7 +830,7 @@ export class HelFollower extends NPCAwareContent {
         }
 
         this.flags[kFLAGS.FOLLOWER_HEL_TALKS]++;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Shut up, slut
@@ -850,7 +850,7 @@ export class HelFollower extends NPCAwareContent {
             this.outputText("\n\nAfter a moment, Hel adds, <i>\"Sorry, lover. I just... get carried away with stories.  Wanted to be a bard, once.  Anyway, uh, sorry.  Didn't wanna make you uncomfortable... I'm sorry, lover.  I'll just, uh, wander off, then.\"</I.  Excusing herself, Hel gets up and heads off to attend to something else.  You don't really know how to feel about Hel's little romp with a gnoll village.  Perhaps it's best that you not dwell on it for too long.");
         }
         this.flags[kFLAGS.FOLLOWER_HEL_TALKS]++;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //Listen In
     private listenToHelTalkAboutGnolls(): void {
@@ -892,7 +892,7 @@ export class HelFollower extends NPCAwareContent {
         //Sex options here maybe?
         this.flags[kFLAGS.FOLLOWER_HEL_TALKS]++;
         this.heliaRoughSex(false);
-        this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
+        this.addButton(this, 9, "Leave", this.camp.returnToCampUseOneHour);
         //	doNext(13);
     }
 
@@ -913,7 +913,7 @@ export class HelFollower extends NPCAwareContent {
             this.outputText("\n\nHel smiles prettily as you give your assent.  <i>\"On a night like this, there's no one I'd rather be with, [name]...\"</i>\n\n");
             this.flags[kFLAGS.SLEEP_WITH] = "Helia";
             this.menu();
-            this.addButton(0, "Next", this.camp.doSleep);
+            this.addButton(this, 0, "Next", this.camp.doSleep);
             return;
         }
         //[If PC is >8ft tall]
@@ -932,7 +932,7 @@ export class HelFollower extends NPCAwareContent {
             this.outputText("\n\nAfter a few moments, Hel puts a hand on your back and leans you back, like a gentleman in a storybook, cupping your cheek before pressing her lips to yours.  She holds you in a long, affectionate kiss, her slender tongue wrapping playfully around your own.");
             this.outputText("\n\n<i>\"Oh, [name],\"</i> Hel sighs happily, holding you back against her bosom.  <i>\"My cute little [name].\"</i>");
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -964,75 +964,75 @@ export class HelFollower extends NPCAwareContent {
         if (this.player.hasCock() && this.player.lust >= 33) {
             //85 vag capacity by base
             if (this.player.cockThatFits(this.heliaCapacity()) >= 0 && buttons < 9) {
-                this.addButton(buttons, "FuckVag", this.helScene.beatUpHelAndStealHerWalletFromHerVagina);
+                this.addButton(this, buttons, "FuckVag", this.helScene.beatUpHelAndStealHerWalletFromHerVagina);
                 buttons++;
             }
             //85 ass capacity
             if (this.player.cockThatFits(this.heliaAnalCapacity()) >= 0 && buttons < 9) {
-                this.addButton(buttons, "Anal", this.helScene.fuckHelsAss);
+                this.addButton(this, buttons, "Anal", this.helScene.fuckHelsAss);
                 buttons++;
             }
             if (buttons < 9) {
-                this.addButton(buttons, "Get Blown", this.helScene.helBlowsYou);
+                this.addButton(this, buttons, "Get Blown", this.helScene.helBlowsYou);
                 buttons++;
             }
             if (this.player.cockThatFits(this.heliaCapacity()) >= 0 && this.player.cockThatFits2(this.heliaCapacity()) >= 0 && buttons < 9) {
-                this.addButton(buttons, "DoublePen", this.helScene.dpHel);
+                this.addButton(this, buttons, "DoublePen", this.helScene.dpHel);
                 buttons++;
             }
             if (buttons < 9) {
-                this.addButton(buttons, "Tail Wank", this.helScene.helTailWanksYourDickBecauseSheLovesYouDesuDesuHoraHora);
+                this.addButton(this, buttons, "Tail Wank", this.helScene.helTailWanksYourDickBecauseSheLovesYouDesuDesuHoraHora);
                 buttons++;
             }
         }
         if (this.player.hasVagina() && this.player.lust >= 33 && buttons < 9) {
-            this.addButton(buttons, "GetLicked", this.helScene.getLickedByHel);
+            this.addButton(this, buttons, "GetLicked", this.helScene.getLickedByHel);
             buttons++;
         }
         if (this.player.lust >= 33 && buttons < 9) {
-            this.addButton(buttons, "TailPeg", this.helScene.helTailPegging);
+            this.addButton(this, buttons, "TailPeg", this.helScene.helTailPegging);
             buttons++;
         }
         //Morph-based: [Possession] [Mount Her] [Hanging 69] [Coil Her Up] [Tentafuck])
         if (this.player.lust >= 33 && this.player.isTaur()) {
             if (this.player.hasCock()) {
                 if (this.player.cockThatFits(this.heliaCapacity()) >= 0 && buttons < 9) {
-                    this.addButton(buttons, "Mount Her", this.centaurMountsCampHel);
+                    this.addButton(this, buttons, "Mount Her", this.centaurMountsCampHel);
                     buttons++;
                 }
             }
             if (this.player.hasKeyItem("Centaur Pole") >= 0 && this.player.hasVagina() && buttons < 9) {
-                this.addButton(buttons, "CentaurToy", this.femtaurPlusCampHel);
+                this.addButton(this, buttons, "CentaurToy", this.femtaurPlusCampHel);
                 buttons++;
             }
         }
         if (this.player.lust >= 33 && this.player.findPerk(PerkLib.Incorporeality) >= 0 && this.izmaFollower() && this.flags[kFLAGS.IZMA_NO_COCK] == 0 && buttons < 9) {
-            this.addButton(buttons, "Possess", this.heliaCampPossession);
+            this.addButton(this, buttons, "Possess", this.heliaCampPossession);
             buttons++;
         }
         if (this.player.lust >= 33 && this.player.tentacleCocks() > 6) {
-            this.addButton(buttons, "Tentacles", this.heliaFollowerTentafuck);
+            this.addButton(this, buttons, "Tentacles", this.heliaFollowerTentafuck);
             buttons++;
         }
         if (this.player.lust >= 33 && this.player.isNaga()) {
             //"Rough" Sex -- Naga Coil (Female w/ Naga Lower Body)
             if (this.player.hasVagina() && buttons < 9) {
-                this.addButton(buttons, "NagaCoilF", this.nagaCoilForHelCampWithGirls);
+                this.addButton(this, buttons, "NagaCoilF", this.nagaCoilForHelCampWithGirls);
                 buttons++;
             }
             //"Rough" Sex (Well, it's in the menu, if not in spirit) -- Naga Coil (Male w/ Naga Lower Body)
             //Male naga shit
             if (this.player.hasCock() && buttons < 9) {
                 if (this.player.cockThatFits(this.heliaCapacity()) >= 0) {
-                    this.addButton(buttons, "NagaCoilM", this.inCampHelNagaLuv);
+                    this.addButton(this, buttons, "NagaCoilM", this.inCampHelNagaLuv);
                     buttons++;
                 }
             }
         }
         if (this.player.lust < 33) this.outputText("\n\n<b>You aren't turned on enough for sex right now.</b>");
         if (this.getGame().inCombat)
-            this.addButton(9, "Leave", this.cleanupAfterCombat);
-        else this.addButton(9, "Back", this.heliaFollowerMenu);
+            this.addButton(this, 9, "Leave", this.cleanupAfterCombat);
+        else this.addButton(this, 9, "Back", this.heliaFollowerMenu);
     }
 
     //Note 2 Fen: Copypasta old PC Victory scenes here ^ EXCEPT for Morph-based scenes!
@@ -1050,7 +1050,7 @@ export class HelFollower extends NPCAwareContent {
 
         this.outputText("\n\nWith your beautiful plaything ready to go, you scan around camp for someone or something to play with...");
         this.menu();
-        this.addButton(0, "Izma", this.possessIzma);
+        this.addButton(this, 0, "Izma", this.possessIzma);
 
     }
 
@@ -1130,7 +1130,7 @@ export class HelFollower extends NPCAwareContent {
         this.dynStats("sen", - 1);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -1170,7 +1170,7 @@ export class HelFollower extends NPCAwareContent {
         this.dynStats("sen", -1);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //"Rough" Sex -- Naga Coil (Female w/ Naga Lower Body)
@@ -1200,7 +1200,7 @@ export class HelFollower extends NPCAwareContent {
         this.dynStats("sen", - 1);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -1242,7 +1242,7 @@ export class HelFollower extends NPCAwareContent {
         this.dynStats("sen", -1);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //"Rough Sex" -- Centauress-PC & Hel (PC must have Centaur Pole)
@@ -1275,7 +1275,7 @@ export class HelFollower extends NPCAwareContent {
         this.dynStats("sen", -1);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Rough Sex -- Tentafuck
@@ -1300,7 +1300,7 @@ export class HelFollower extends NPCAwareContent {
         this.dynStats("sen", - 1);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Boxing
@@ -1321,7 +1321,7 @@ export class HelFollower extends NPCAwareContent {
             //[Display Rough Sex menu]
             this.dynStats("str", 1, "tou", 1);
             this.heliaRoughSex(false);
-            this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
+            this.addButton(this, 9, "Leave", this.camp.returnToCampUseOneHour);
         }
         //If STR check succeeds:
         else if (this.player.str / 20 + 1 + HelFollower.rand(20) >= 13) {
@@ -1332,7 +1332,7 @@ export class HelFollower extends NPCAwareContent {
             //Display Rough Sex menu
             this.dynStats("str", 2);
             this.heliaRoughSex(false);
-            this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
+            this.addButton(this, 9, "Leave", this.camp.returnToCampUseOneHour);
         }
         //If PC fails the Check:  
         else {
@@ -1347,7 +1347,7 @@ export class HelFollower extends NPCAwareContent {
                 }
             }
             this.heliaRoughSex(false);
-            this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
+            this.addButton(this, 9, "Leave", this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -1419,7 +1419,7 @@ export class HelFollower extends NPCAwareContent {
 
         this.player.orgasm();
         this.dynStats("sen", - 2);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Take a Bath
@@ -1435,8 +1435,8 @@ export class HelFollower extends NPCAwareContent {
             this.outputText("\n\nYou could just drop the issue.... or push it, and see what's on Hel's mind.");
             //[Drop it] [Push it]
             this.menu();
-            this.addButton(0, "Drop It", this.heliaFollowerMenu);
-            this.addButton(1, "Push It", this.pushHelToSwim);
+            this.addButton(this, 0, "Drop It", this.heliaFollowerMenu);
+            this.addButton(this, 1, "Push It", this.pushHelToSwim);
         }
         //{Repeat Intro (If you taught Hel to swin; else, play 1st Time)}
         else {
@@ -1469,7 +1469,7 @@ export class HelFollower extends NPCAwareContent {
             //Swim With Hel -- Lust less than 33
             else {
                 this.outputText("\n\nYou and Helia cuddle in the steaming river, the minutes passing pleasantly in each other's embrace.  Eventually Hel looks up at you, her bright eyes shining in the misty air, a small smile on her lips.  You kiss her, leaning in as the salamander presses herself against you, ardently returning your show of passion.  \"<i>I wish we could stay like this forever,</i>\" Hel whispers, breaking the kiss to nuzzle against your neck. You stroke her hair and hold her close until your duties as Champion call you back to your work.");
-                this.doNext(this.camp.returnToCampUseOneHour);
+                this.doNext(this, this.camp.returnToCampUseOneHour);
             }
         }
     }
@@ -1484,8 +1484,8 @@ export class HelFollower extends NPCAwareContent {
         //[Teach Her] [Drop it]
         this.menu();
 
-        this.addButton(0, "Teach Her", this.teachHelToSwim);
-        this.addButton(1, "Drop It", this.heliaFollowerMenu);
+        this.addButton(this, 0, "Teach Her", this.teachHelToSwim);
+        this.addButton(this, 1, "Drop It", this.heliaFollowerMenu);
     }
 
     //Teach Her
@@ -1518,7 +1518,7 @@ export class HelFollower extends NPCAwareContent {
         this.outputText("\n\nBefore you know it, you and Hel are splashing each other with abandon, her former fears utterly forgotten as the two of you play happily in the water...");
         this.outputText("\n\n(You can now go swimming with Hel!)");
         this.flags[kFLAGS.HEL_CAN_SWIM] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -1536,21 +1536,21 @@ export class HelFollower extends NPCAwareContent {
         this.menu();
         if (this.vapulaSlave() && this.player.lust >= 33 && this.player.hasCock()) {
             if (this.player.cockThatFits(this.heliaCapacity()) >= 0) {
-                this.addButton(1, "Vapula", this.heliaAndVapula);
+                this.addButton(this, 1, "Vapula", this.heliaAndVapula);
             }
             else this.outputText("\n\nYou're too big to fuck Helia and Vapula with your cock.");
         }
         if (this.followerKiha() && this.player.lust >= 33 && this.player.gender > 0) {
-            this.addButton(0, "Kiha", this.campHelAndKihaThreeSome);
+            this.addButton(this, 0, "Kiha", this.campHelAndKihaThreeSome);
         }
         if ((this.player.armorName == "goo armor" || this.flags[kFLAGS.VALARIA_AT_CAMP] == 1) && this.player.lust >= 33 && this.player.hasVagina()) {
-            this.addButton(2, "Valeria", this.helAndValeriaCampThreesomes);
+            this.addButton(this, 2, "Valeria", this.helAndValeriaCampThreesomes);
         }
         if (this.player.lust >= 33 && this.bimboSophie()) {
-            this.addButton(3, "Sophie", this.helAndSluttyHarpy);
+            this.addButton(this, 3, "Sophie", this.helAndSluttyHarpy);
         }
         if (this.player.lust < 33) this.outputText("\n\n<b>You aren't horny enough to start a threesome.</b>");
-        this.addButton(9, "Back", this.heliaFollowerMenu);
+        this.addButton(this, 9, "Back", this.heliaFollowerMenu);
     }
 
 
@@ -1628,7 +1628,7 @@ export class HelFollower extends NPCAwareContent {
         }
         this.player.orgasm();
         this.dynStats("sen", -2, "cor", 1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Helia + Kiha
@@ -1652,11 +1652,11 @@ export class HelFollower extends NPCAwareContent {
         this.outputText("\n\n\"<i>Well, if it's okay with [name]...  I guess I could grace you with the sexual prowess of a dragon.</i>\"");
         //[Play sex-appropriate scene; herms can choose]
         this.menu();
-        if (this.player.gender == 1) this.addButton(0, "Next", this.dudeHeliaAndKihaThreeSome);
-        else if (this.player.gender == 2) this.addButton(0, "Next", this.girlsThreesomeHelAndKiha);
+        if (this.player.gender == 1) this.addButton(this, 0, "Next", this.dudeHeliaAndKihaThreeSome);
+        else if (this.player.gender == 2) this.addButton(this, 0, "Next", this.girlsThreesomeHelAndKiha);
         else {
-            this.addButton(0, "Male", this.dudeHeliaAndKihaThreeSome);
-            this.addButton(1, "Female", this.girlsThreesomeHelAndKiha);
+            this.addButton(this, 0, "Male", this.dudeHeliaAndKihaThreeSome);
+            this.addButton(this, 1, "Female", this.girlsThreesomeHelAndKiha);
         }
     }
     //Female Kiha + Helia Scene
@@ -1693,7 +1693,7 @@ export class HelFollower extends NPCAwareContent {
         this.outputText("\n\nWith the two lizard-girls distracted, you languidly pull their limp tails out of your holes, relishing the blessedly empty feeling left before you collapse into a pool of your own juices... just to catch your breath, you insist.");
         this.player.orgasm();
         this.dynStats("sen", - 2);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //Male Helia + Kiha Threesome (Episode III: Revenge of the Footjobs)
     private dudeHeliaAndKihaThreeSome(): void {
@@ -1732,7 +1732,7 @@ export class HelFollower extends NPCAwareContent {
         this.outputText("\n\n\"<i>FIREBUUUUUUUTTT!!!</i>\"");
         this.player.orgasm();
         this.dynStats("sen", -2);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Hel x Valeria Threesome
@@ -1744,7 +1744,7 @@ export class HelFollower extends NPCAwareContent {
         else this.outputText("You look over to your stash and give a sharp whistle, calling Valeria over.  An amorphous blue blob soon pops up, forming into Valeria's shapely body as she strides over to give Helia a big hug.  Your salamander lover giggles, squeezing Val so hard she pops in half, only to reform beside you as you ask if she'd like to join in on your fun.  She beams, nodding quickly.  \"<i>Thanks for the invite, partner... I was getting pretty hungry, you know...</i>\"");
 
         this.menu();
-        this.addButton(0, "Next", this.helXValeriaFemalePC);
+        this.addButton(this, 0, "Next", this.helXValeriaFemalePC);
     }
 
     //Hel x Valeria Female Version
@@ -1786,7 +1786,7 @@ export class HelFollower extends NPCAwareContent {
         this.outputText("\n\nHanging her head, Hel moves with you so that you can both get on all fours. Hel swings a leg over your ass, making it so that you're sitting butt-to-butt, the knots in both your asses slowly deflating - a bit too realistically for comfort...");
         this.player.orgasm();
         this.dynStats("sen", - 3);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Guard Camp / Unguard Camp
@@ -1805,7 +1805,7 @@ export class HelFollower extends NPCAwareContent {
             this.flags[kFLAGS.HEL_GUARDING] = 0;
         }
         this.menu();
-        this.addButton(0, "Next", this.heliaFollowerMenu);
+        this.addButton(this, 0, "Next", this.heliaFollowerMenu);
     }
 
     //The Set Up
@@ -1877,7 +1877,7 @@ export class HelFollower extends NPCAwareContent {
         this.player.consumeItem(this.consumables.GOB_ALE, 1);
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private heliaGapeSceneChoices(): void {
@@ -1896,8 +1896,8 @@ export class HelFollower extends NPCAwareContent {
         this.outputText("\n\nDo you stop Helia?");
         //[Yes] [No]
         this.menu();
-        this.addButton(0, "Anal Train", this.yesMakeHeliaAGapeSlut);
-        this.addButton(1, "Stop", this.noGapeSlutForHelia);
+        this.addButton(this, 0, "Anal Train", this.yesMakeHeliaAGapeSlut);
+        this.addButton(this, 1, "Stop", this.noGapeSlutForHelia);
     }
     //Stop the Asspocalypse
     private noGapeSlutForHelia(): void {
@@ -1905,7 +1905,7 @@ export class HelFollower extends NPCAwareContent {
         this.outputText("You step up and kiss Helia, telling her that she doesn’t have to this for you, at least not right now.");
         this.outputText("\n\n“<i>Seriously, lover mine? I thought you’d like to do a little anal adventuring with that massive pole you’re packin’,</i>” the salamander asks while looking at you with some concern. A huge smile suddenly spreads across her mouth as she realizes just what’s going on. “<i>You’re worried about me!</i>” Helia slugs you on the shoulder none too softly before slamming you into a tight hug, pressing you into her heavy breasts and lifting you off the ground, her face nuzzling tenderly against you.");
         this.outputText("\n\nYour [feet] hit the ground when the confident salamander drops you, and she says, “<i>Your call. I’m gonna pour these into my still to give it a little extra kick. Don’t fret, the transformative shit should burn off right quick.</i>” She turns and depart, her tail giving you a heat slap on the [butt]. “<i>Catch ya later, [name].</i>”");
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -1935,7 +1935,7 @@ export class HelFollower extends NPCAwareContent {
         this.outputText(" Helia burps. “<i>Fuck me that was awesome! Whoah, don’t mind me, but I, uh... I think I’m gonna stay here for a little while, maybe just rock up and down till I come down off this buzz. She blushes and begins to finger her snatch again. Just let me... just let me get used to.</i>” She shoos you away and goes back to toying with herself, getting used to her new “flexibility”.");
         this.outputText("\n\n“<i>You’re gonna fall in love with my asshole, lover mine,</i>” Helia calls after you.");
         this.player.orgasm();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //It's Helia's Birthday, Bitch (Or, how Helia officially crossed the Mary Sue line)
@@ -1953,8 +1953,8 @@ export class HelFollower extends NPCAwareContent {
 
         this.flags[kFLAGS.HELIA_BIRTHDAY_OFFERED] = 1;
         this.menu();
-        this.addButton(1, "Stay Home", this.stayHomeFromHeliaParty);
-        this.addButton(0, "Go To Party", this.goWithHelia);
+        this.addButton(this, 1, "Stay Home", this.stayHomeFromHeliaParty);
+        this.addButton(this, 0, "Go To Party", this.goWithHelia);
     }
 
 
@@ -1963,23 +1963,23 @@ export class HelFollower extends NPCAwareContent {
     private stayHomeFromHeliaParty(): void {
         this.clearOutput();
         this.outputText("\"<i>Aww, lame,</i>\" Hel groans, sighing.  \"<i>Fiiiiiine.  I guess I'll just go have awesome fun and party hard without you. Don't stick too hard into that mud, lover,</i>\" she chuckles, giving you a reassuringly affectionate kiss on the cheek before trucking off.");
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     private helPartyMenu(): void {
         this.menu();
         //heliaDrinks
-        if (this.flags[kFLAGS.HELIA_BDAY_DRINKS] == 0) this.addButton(0, "Drinks", this.heliaDrinks);
+        if (this.flags[kFLAGS.HELIA_BDAY_DRINKS] == 0) this.addButton(this, 0, "Drinks", this.heliaDrinks);
         //heliaHakonAndKiri
-        if (this.flags[kFLAGS.HELIA_BDAY_HAKON_AND_KIRI] == 0) this.addButton(1, "Hakon 'n Kiri", this.heliaHakonAndKiri);
+        if (this.flags[kFLAGS.HELIA_BDAY_HAKON_AND_KIRI] == 0) this.addButton(this, 1, "Hakon 'n Kiri", this.heliaHakonAndKiri);
         //heliaPhoenixes
-        if (this.flags[kFLAGS.HELIA_BDAY_PHOENIXES] == 0) this.addButton(2, "Phoenixes", this.heliaPhoenixes);
+        if (this.flags[kFLAGS.HELIA_BDAY_PHOENIXES] == 0) this.addButton(this, 2, "Phoenixes", this.heliaPhoenixes);
         //heliaAndFoxTwins
-        if (this.flags[kFLAGS.HELIA_BDAY_FOX_TWINS] == 0) this.addButton(3, "Fox Twins", this.heliaAndFoxTwins);
+        if (this.flags[kFLAGS.HELIA_BDAY_FOX_TWINS] == 0) this.addButton(this, 3, "Fox Twins", this.heliaAndFoxTwins);
         //leaveWithoutSex
-        this.addButton(4, "Leave", this.leaveWithoutSex);
+        this.addButton(this, 4, "Leave", this.leaveWithoutSex);
         //leaveWithGirls
-        if (this.flags[kFLAGS.HELIA_BDAY_FOX_TWINS] > 0) this.addButton(5, "Leave w/Girls", this.leaveWithGirls);
+        if (this.flags[kFLAGS.HELIA_BDAY_FOX_TWINS] > 0) this.addButton(this, 5, "Leave w/Girls", this.leaveWithGirls);
     }
 
 
@@ -2142,7 +2142,7 @@ export class HelFollower extends NPCAwareContent {
         this.outputText("\n\nThere's a general murmur of approval as Hel picks up another beer, kicks it back, and then takes your hand. You follow your lover through the crowd, shaking hands and getting patted on the shoulder - and hearing more than a few immature catcalls from the increasingly drunk phoenixes and fox-girls.");
 
         this.outputText("\n\nWhen you get to the door, Hel holds you close, snuggling against you as you walk.  \"<i>Thanks for coming, [name].  I love you.</i>\"");
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Leave w/ Girls
@@ -2158,10 +2158,10 @@ export class HelFollower extends NPCAwareContent {
         if (this.player.gender == 3) {
             this.outputText("\n\n\"<i>So what parts do you want to use?</i>\" she asks, looking to your mixed endowments.", false);
             //(Display Options: [As Male] [As Female])
-            this.simpleChoices("As Male", this.helScene.foxyFluffsFoursomeAsMale, "As Female", this.helScene.foxyFluffGirlsFuckSex, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "As Male", this.helScene.foxyFluffsFoursomeAsMale, "As Female", this.helScene.foxyFluffGirlsFuckSex, "", undefined, "", undefined, "", undefined);
         }
-        else if (this.player.gender == 2) this.doNext(this.helScene.foxyFluffGirlsFuckSex);
-        else this.doNext(this.helScene.foxyFluffsFoursomeAsMale);
+        else if (this.player.gender == 2) this.doNext(this, this.helScene.foxyFluffGirlsFuckSex);
+        else this.doNext(this, this.helScene.foxyFluffsFoursomeAsMale);
     }
 
     private helAndSluttyHarpy(): void {
@@ -2180,9 +2180,9 @@ export class HelFollower extends NPCAwareContent {
 
         // Choice
         this.menu();
-        this.addButton(0, "Cock", this.helAndSluttyHarpyMale);
-        this.addButton(1, "Pussy", this.helAndSluttyHarpyFemale);
-        this.addButton(9, "Back", this.heliaThreesomes);
+        this.addButton(this, 0, "Cock", this.helAndSluttyHarpyMale);
+        this.addButton(this, 1, "Pussy", this.helAndSluttyHarpyFemale);
+        this.addButton(this, 9, "Back", this.heliaThreesomes);
     }
 
     private helAndSluttyHarpyMale(): void {
@@ -2261,7 +2261,7 @@ export class HelFollower extends NPCAwareContent {
 
         this.player.orgasm();
         this.menu();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private helAndSluttyHarpyFemale(): void {
@@ -2320,7 +2320,7 @@ export class HelFollower extends NPCAwareContent {
 
         this.player.orgasm();
         this.menu();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private helAndSluttyHarpyGenderless(): void {
@@ -2344,7 +2344,7 @@ export class HelFollower extends NPCAwareContent {
 
         this.player.orgasm();
         this.menu();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 }
 

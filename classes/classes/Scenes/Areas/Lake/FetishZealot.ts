@@ -130,7 +130,7 @@ export class FetishZealot extends Monster {
         if (pcCameWorms) {
             this.outputText("\n\nThe fetish cultist ignores the perverse display and continues on as if nothing had happened...", false);
             this.player.orgasm();
-            this.doNext(this.game.lake.fetishZealotScene.zealotLossRape);
+            this.doNext(this, this.game.lake.fetishZealotScene.zealotLossRape);
         } else {
             this.game.lake.fetishZealotScene.zealotLossRape();
         }

@@ -28,7 +28,7 @@ export class Reducto extends Consumable {
         var rdtNipples = (this.game.player.nippleLength > 0.25 ? this.reductoNipples : undefined);
         this.clearOutput();
         this.outputText("You ponder the paste in your hand and wonder what part of your body you would like to shrink.  What will you use it on?");
-        this.game.choices("Balls", rdtBalls, "Breasts", rdtBreasts, "Butt", rdtButt, "Clit", rdtClit, "Cock", rdtCock,
+        this.game.choices(this, "Balls", rdtBalls, "Breasts", rdtBreasts, "Butt", rdtButt, "Clit", rdtClit, "Cock", rdtCock,
             "Hips", rdtHips, "Nipples", rdtNipples, "", undefined, "", undefined, "Nevermind", this.reductoCancel);
         return (true);
     }

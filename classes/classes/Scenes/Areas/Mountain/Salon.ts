@@ -36,7 +36,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
     //const SALON_PAID: number = 441;
     public hairDresser(): void {
         this.outputText("While exploring the mountain, you find a cleverly concealed doorway.  From inside you can hear the sound of blades being sharpened.  Do you enter the doorway?", true);
-        this.doYesNo(this.salonGreeting, this.camp.returnToCampUseOneHour);
+        this.doYesNo(this, this.salonGreeting, this.camp.returnToCampUseOneHour);
     }
     public salonGreeting(): void {
         if (this.player.findStatusAffect(StatusAffects.HairdresserMeeting) >= 0) {
@@ -49,7 +49,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
     }
     private favoriteSalonMenu(): void {
         this.salonPurchaseMenu();
-        this.addButton(6, "Payments", this.salonFavoritesPaymentMenu);
+        this.addButton(this, 6, "Payments", this.salonFavoritesPaymentMenu);
     }
 
     private salonFavoritesPaymentMenu(): void {
@@ -58,14 +58,14 @@ export class Salon extends BaseContent implements TimeAwareInterface {
         var minoCum = undefined;
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00142] > 0) minoCum = this.goblinHairDresserFacefuck;
         this.menu();
-        if (this.flags[kFLAGS.LYNNETTE_PREGNANCY_CYCLE] >= 4 && this.player.hasCock()) this.addButton(5, "Fuck Goblin", this.fuckLynnette);
-        this.addButton(0, "Goblin Blow", blow);
-        this.addButton(1, "Canine", this.gloryholeDoggie);
-        this.addButton(2, "Imp", this.gloryholeImp);
-        this.addButton(3, "Minotaur", this.gloryholeMinotaur);
-        this.addButton(4, "Incubus", this.gloryholeIncubus);
-        this.addButton(8, "Buy MinoCum", minoCum);
-        this.addButton(9, "Back", this.favoriteSalonMenu);
+        if (this.flags[kFLAGS.LYNNETTE_PREGNANCY_CYCLE] >= 4 && this.player.hasCock()) this.addButton(this, 5, "Fuck Goblin", this.fuckLynnette);
+        this.addButton(this, 0, "Goblin Blow", blow);
+        this.addButton(this, 1, "Canine", this.gloryholeDoggie);
+        this.addButton(this, 2, "Imp", this.gloryholeImp);
+        this.addButton(this, 3, "Minotaur", this.gloryholeMinotaur);
+        this.addButton(this, 4, "Incubus", this.gloryholeIncubus);
+        this.addButton(this, 8, "Buy MinoCum", minoCum);
+        this.addButton(this, 9, "Back", this.favoriteSalonMenu);
     }
 
 
@@ -75,21 +75,21 @@ export class Salon extends BaseContent implements TimeAwareInterface {
         var minoCum = undefined;
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00142] > 0) minoCum = this.buyMinoCum;
         this.menu();
-        if (this.flags[kFLAGS.LYNNETTE_PREGNANCY_CYCLE] >= 4 && this.player.hasCock()) this.addButton(5, "Fuck Goblin", this.fuckLynnette);
-        this.addButton(0, "Goblin Blow", blow);
-        this.addButton(1, "Canine", this.gloryholeDoggie);
-        this.addButton(2, "Imp", this.gloryholeImp);
-        this.addButton(3, "Minotaur", this.gloryholeMinotaur);
-        this.addButton(4, "Incubus", this.gloryholeIncubus);
-        this.addButton(8, "Buy MinoCum", minoCum);
-        this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
+        if (this.flags[kFLAGS.LYNNETTE_PREGNANCY_CYCLE] >= 4 && this.player.hasCock()) this.addButton(this, 5, "Fuck Goblin", this.fuckLynnette);
+        this.addButton(this, 0, "Goblin Blow", blow);
+        this.addButton(this, 1, "Canine", this.gloryholeDoggie);
+        this.addButton(this, 2, "Imp", this.gloryholeImp);
+        this.addButton(this, 3, "Minotaur", this.gloryholeMinotaur);
+        this.addButton(this, 4, "Incubus", this.gloryholeIncubus);
+        this.addButton(this, 8, "Buy MinoCum", minoCum);
+        this.addButton(this, 9, "Leave", this.camp.returnToCampUseOneHour);
         //choices("Goblin Blow",blow,"Canine",gloryholeDoggie,"Imp",gloryholeImp,"Minotaur",gloryholeMinotaur,"Incubus",gloryholeIncubus,"",0,"",0,"",0,"Buy MinoCum",minoCum,"Leave",13);
     }
     private buyMinoCum(): void {
         if (this.player.gems < 60) {
             this.outputText("You can't afford any minotaur cum right now!", true);
             if (this.flags[kFLAGS.SALON_PAID] == 0)
-                this.doNext(this.salonGreeting);
+                this.doNext(this, this.salonGreeting);
             else
                 this.salonPurchaseMenu();
         }
@@ -125,15 +125,15 @@ export class Salon extends BaseContent implements TimeAwareInterface {
         else if (this.player.femininity > 0 && this.player.findPerk(PerkLib.Androgyny) >= 0) sandFacial2 = this.sandFacial;
 
         this.menu();
-        this.addButton(0, "Cut Short", cutShort2);
-        this.addButton(1, "Cut Med.", cutMedium2);
-        this.addButton(2, "Cut Long", cutLong2);
-        this.addButton(3, "Lengthen", lengthening);
-        this.addButton(4, "Buy Products", this.dyeMenu);
-        this.addButton(5, "Buy MinoCum", minoCum);
-        this.addButton(7, "Mud Facial", mudFacial2);
-        this.addButton(8, "Sand Facial", sandFacial2);
-        this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
+        this.addButton(this, 0, "Cut Short", cutShort2);
+        this.addButton(this, 1, "Cut Med.", cutMedium2);
+        this.addButton(this, 2, "Cut Long", cutLong2);
+        this.addButton(this, 3, "Lengthen", lengthening);
+        this.addButton(this, 4, "Buy Products", this.dyeMenu);
+        this.addButton(this, 5, "Buy MinoCum", minoCum);
+        this.addButton(this, 7, "Mud Facial", mudFacial2);
+        this.addButton(this, 8, "Sand Facial", sandFacial2);
+        this.addButton(this, 9, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     private hairDresserGreeting(): void {
@@ -263,7 +263,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
             this.dynStats("lus", 45, "cor", 2);
         }
         this.outputText("Abruptly, the demon-dong slips through your grasp and out the hole.  You hear a loud thump as something lands on the ground. Poor thing.\n\n", false);
-        this.doNext(this.hairDressingMainMenu);
+        this.doNext(this, this.hairDressingMainMenu);
     }
 
 
@@ -285,7 +285,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
             this.dynStats("lus", 30, "cor", .3);
         }
         this.outputText("A young goblin comes by with a bowl for you to make your payment into.  You spit out the gunk and wipe your mouth, as the goblin carries the seed away.  You notice a trail of clear drops on the ground behind her.  She must be anticipating something...", false);
-        this.doNext(this.hairDressingMainMenu);
+        this.doNext(this, this.hairDressingMainMenu);
     }
     private gloryholeIncubus(): void {
         this.player.slimeFeed();
@@ -303,7 +303,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
 
         }
         this.statScreenRefresh();
-        this.doNext(this.hairDressingMainMenu);
+        this.doNext(this, this.hairDressingMainMenu);
     }
 
     private gloryholeMinotaur(): void {
@@ -317,7 +317,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
         this.outputText("Your head spins from the minotaur's musk, and you idly mop up and swallow the cum on your " + this.player.face() + ". A goblin aide comes in with a bowl, and gently scrapes the cum off your tits with a smooth, flat rock. Once you're cleaned up and you're dressed, the aide leads you back to Lynnette.\n\n", false);
         this.dynStats("lus", 33, "cor", 1);
         this.player.minoCumAddiction(10);
-        this.doNext(this.hairDressingMainMenu);
+        this.doNext(this, this.hairDressingMainMenu);
     }
 
     private goblinHairDresserFacefuck(): void {
@@ -353,7 +353,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
         this.outputText("Lynnette and her daughters crowd around you with razor-sharp scissors, effortlessly paring down your " + this.hairDescript() + ".  When they've finished, you're left with ", true);
         this.player.hairLength = 1;
         this.outputText(this.hairDescript() + ".", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     private cutMedium(): void {
         this.spriteSelect(38);
@@ -366,7 +366,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
         this.outputText("Lynnette and her daughters crowd around you with razor-sharp scissors, effortlessly paring down your " + this.hairDescript() + ".  When they've finished, you're left with ", true);
         this.player.hairLength = 10;
         this.outputText(this.hairDescript() + ".", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     private cutLong(): void {
         this.spriteSelect(38);
@@ -379,7 +379,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
         this.outputText("Lynnette and her daughters crowd around you with razor-sharp scissors, effortlessly paring down your " + this.hairDescript() + ".  When they've finished, you're left with ", true);
         this.player.hairLength = 25;
         this.outputText(this.hairDescript() + ".", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     private hairGrow(): void {
         this.spriteSelect(38);
@@ -394,7 +394,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
         this.flags[kFLAGS.HAIR_GROWTH_STOPPED_BECAUSE_LIZARD] = 0;
         this.player.hairLength += this.temp;
         this.outputText(Salon.num2Text(this.temp) + " more inches of " + this.player.hairColor + " hair.", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     private buyDye(itype: ItemType): void {
         this.outputText("", true);
@@ -406,13 +406,13 @@ export class Salon extends BaseContent implements TimeAwareInterface {
         this.outputText("", true);
         this.outputText("Lynnette pulls open a cabinet in the corner, displaying a wide array of exotic hair-dyes.  Which kind do you want?", false);
         this.menu();
-        this.addButton(0, "Blue", this.buyDye, this.consumables.BLUEDYE);
-        this.addButton(1, "Orange", this.buyDye, this.consumables.ORANGDY);
-        this.addButton(2, "Pink", this.buyDye, this.consumables.PINKDYE);
-        this.addButton(3, "Purple", this.buyDye, this.consumables.PURPDYE);
-        this.addButton(4, "Green", this.buyDye, this.consumables.GREEN_D);
-        this.addButton(5, "Ext.Serum", this.buyDye, this.consumables.EXTSERM);
-        this.addButton(9, "Back", this.hairDressingMainMenu);
+        this.addButton(this, 0, "Blue", this.buyDye, this.consumables.BLUEDYE);
+        this.addButton(this, 1, "Orange", this.buyDye, this.consumables.ORANGDY);
+        this.addButton(this, 2, "Pink", this.buyDye, this.consumables.PINKDYE);
+        this.addButton(this, 3, "Purple", this.buyDye, this.consumables.PURPDYE);
+        this.addButton(this, 4, "Green", this.buyDye, this.consumables.GREEN_D);
+        this.addButton(this, 5, "Ext.Serum", this.buyDye, this.consumables.EXTSERM);
+        this.addButton(this, 9, "Back", this.hairDressingMainMenu);
     }
 
 
@@ -499,7 +499,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
         //[NEXT]
         this.player.orgasm();
         this.dynStats("lib", 2, "sen", 2, "cor", 2);
-        this.doNext(this.minotaurSalonFollowUp);
+        this.doNext(this, this.minotaurSalonFollowUp);
     }
     private minotaurSalonFollowUp(): void {
         this.spriteSelect(38);
@@ -525,7 +525,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
 
         this.outputText("With that finished, the crowd of busty, green-skinned women disperses to leave you in peace.  Time drags on, but eventually the mud hardens and cracks.  As if on cue, tiny hands emerge with wet rags to scrub your face clean.  Once they've finished, you feel like a whole new you! (+10 femininity)", false);
         this.player.modFem(100, 10);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private sandFacial(): void {
@@ -535,7 +535,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
 
         this.outputText("After a while the goblin girls come back and clean the stuff from your face. (+10 masculinity)", false);
         this.player.modFem(0, 10);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     /*
     public static  LYNNETTE_PREGNANCY_CYCLE: number                                    = 1022; //0-3 = pregnant. 4-6 = not.

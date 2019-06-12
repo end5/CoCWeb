@@ -62,25 +62,25 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                     this.outputText("You nod, understanding.  She commands, \"<i>Now go, there is nothing to be gained by your presence here.  Return if you manage to close that vile place.</i>\"\n\n", false);
                     if (this.player.lib + this.player.cor > 80) {
                         this.outputText("You could leave, but the desire to feel her breast will not go away.  What do you do?", false);
-                        this.simpleChoices("Boob", this.grabHerBoob, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+                        this.simpleChoices(this, "Boob", this.grabHerBoob, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
                     }
-                    else this.doNext(this.camp.returnToCampUseOneHour);
+                    else this.doNext(this, this.camp.returnToCampUseOneHour);
                     return;
                 }
-                this.doNext(this.camp.returnToCampUseOneHour);
+                this.doNext(this, this.camp.returnToCampUseOneHour);
             }
             //Second meeting
             else {
                 this.outputText("You approach Marae's tree, watching the goddess flow out of the tree's bark as if it was made of liquid.   Just as before, she appears as the top half of a woman, naked from the waist up, with her back merging into the tree's trunk.\n\n", false);
                 if (this.player.cor > 66) {
                     this.outputText("She bellows in rage, \"<i>I told you, begone!</i>\"\n\nYou turn tail and head back to your boat, knowing you cannot compete with her power directly.", false);
-                    this.doNext(this.camp.returnToCampUseOneHour);
+                    this.doNext(this, this.camp.returnToCampUseOneHour);
                 }
                 else {
                     //If youve taken her quest already
                     if (this.player.findStatusAffect(StatusAffects.MaraesQuestStart) >= 0) {
                         this.outputText("Marae reminds you, \"<i>You need to disable the demonic factory!  It's located in the foothills of the mountain.  Please, I do not know how long I can resist.</i>\"", false);
-                        this.doNext(this.camp.returnToCampUseOneHour);
+                        this.doNext(this, this.camp.returnToCampUseOneHour);
                     }
                     //If not
                     else {
@@ -98,9 +98,9 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                         this.outputText("You nod, understanding.  She commands, \"<i>Now go, there is nothing to be gained by your presence here.  Return if you manage to close that vile place.</i>\"\n\n", false);
                         if (this.player.lib + this.player.cor > 80) {
                             this.outputText("You could leave, but the desire to feel her breast will not go away.  What do you do?", false);
-                            this.simpleChoices("Boob", this.grabHerBoob, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+                            this.simpleChoices(this, "Boob", this.grabHerBoob, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
                         }
-                        else this.doNext(this.camp.returnToCampUseOneHour);
+                        else this.doNext(this, this.camp.returnToCampUseOneHour);
                     }
                 }
             }
@@ -129,13 +129,13 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                     this.outputText("Spellbound, you watch as she forces more and more fingers into her hungry flower-hole, \"<i>Ever since then, I've just been drinking in more and corruption, and waiting for someone to come here and help fill my hole.  I've played with my flower for what has felt like days on end.  Every time I come harder and harder.  The more I let go the better it is.  Do you know what I did this morning?  I let my branches grow tentacles to fuck my mouth and pussy at the same time.  I came over and over and over, and then I had my roots pull in all the cum they could find to fill my womb with.</i>\"\n\n", false);
                     this.outputText("You gasp at the change she has gone through, getting more than a little turned on yourself.  Thinking that a once chaste goddess has been reduced to a horny slut makes you wonder how you stand any chance of victory.  Marae keeps up her show, \"<i>It's so good.  Come join me in it.  I gave in to the pleasure already.  If you look behind me, you can see what's left of my soul.  I could feel it dripping out through my cunny a little bit each time I came.  After a while it flowed together and started to crystalize.  I think the demons call it lethicite, but I just wish I still had a soul so I could do it all over again.  Come fuck me, I want to watch you go mad while you cum out your soul.</i>\"\n\n", false);
                     this.outputText("It sounds like a very pleasant offer, but it would mean the total abandonment of your reasons for coming here.   You could probably get away if you were to run, she doesn't seem to be nearly as powerful.  Or you could risk trying to steal the lethicite before making your getaway, but it wouldn't be hard for her to catch you that close.", false);
-                    this.simpleChoices("Run", this.runFromPervertedGoddess, "Lethicite", this.maraeStealLethicite, "Accept", this.maraeBadEnd, "", undefined, "", undefined);
+                    this.simpleChoices(this, "Run", this.runFromPervertedGoddess, "Lethicite", this.maraeStealLethicite, "Accept", this.maraeBadEnd, "", undefined, "", undefined);
                 }
                 //Repeat corrupt meeting
                 else {
                     this.outputText("Marae smiles and leans forwards, cupping her breasts in her hands.  Amazingly, she flows out from the tree, standing as a free woman before you.  She massages her G-sized breasts, winking lewdly and pinching her shining purplish nipples, squeezing out droplets of honey-colored sap.  She blows you a kiss while the flower at her groin opens welcomingly.  She moans, \"<i>Reconsider my offer yet, " + this.player.short + "?  I won't force you, but don't you want to spend eternity in heaven with a living goddess?</i>\"", false);
                     //Yes - accept, No- run
-                    this.doYesNo(this.maraeBadEnd, this.runFromPervertedGoddess);
+                    this.doYesNo(this, this.maraeBadEnd, this.runFromPervertedGoddess);
                 }
             }
         }
@@ -145,13 +145,13 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
         this.clearOutput();
         this.outputText("You reach forward to cop a feel.  The goddess' eyes go wide with fury as a massive branch swings down, catching you in the sternum.  It hits you hard enough that you land in your boat and float back a few feet into the water.  Nothing to do but leave and hope for another chance at her breasts...");
         this.player.takeDamage(this.player.HP - 1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private runFromPervertedGoddess(): void {
         this.clearOutput();
         this.outputText("You turn and run for the boat, leaving the corrupt goddess behind.  High pitched laugher seems to chase you as you row away from the island.");
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private maraeBadEnd(): void {
@@ -211,7 +211,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
         if ((this.player.spe > 35 && (Marae.rand(this.player.spe / 3 + 30) > 20)) || (this.player.spe > 35 && this.player.findPerk(PerkLib.Evade) >= 0 && Marae.rand(3) < 2)) {
             this.outputText("You dart to the side, diving into a roll that brings you up behind the tree.  You evade the gauntlet of grabbing tentacles that hang from the branches, snatch the large gem in both arms and run for the beach.  You do not hear the sounds of pursuit, only a disappointed sigh.", false);
             this.player.createKeyItem("Marae's Lethicite", 0, 0, 0, 0);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
         //(FAIL)
         else {
@@ -241,7 +241,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 this.outputText("Marae steps into your field of view, and pulls the tentacle free.  Your " + this.cockDescript(0) + " twitches pitifully, blasting a few massive loads onto your belly as your orgasm withers and dies from lack of stimulation.\n\n", false);
                 this.outputText("\"<i>Sorry about the pain, I had to tweak your body to make you a true breeder.  You can go now stud.  I expect the monsters ought to worry about you now, or they'll all have dripping twats and swollen bellies,</i>\" apologizes Marae.  She turns away from you, returning to the embrace of her tree's tentacles, sinking into debauchery.  You stagger into your boat and row away, oblivious to the stream to pre-cum dripping from your " + this.multiCockDescript() + ".", false);
                 this.player.createPerk(PerkLib.MaraesGiftStud, 0, 0, 0, 0);
-                this.doNext(this.camp.returnToCampUseTwoHours);
+                this.doNext(this, this.camp.returnToCampUseTwoHours);
             }
             //FEM)
             else {
@@ -259,7 +259,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 this.outputText("She giggles at your expression of horror, \"<i>No, not literally, but it won't take much to make you a mommy, and you'll find the gestation to be quite a bit... shorter.  Now get out of here before I change my mind and lock in an orgasm for the rest of your life.</i>\"\n\n", false);
                 this.outputText("You are dropped from the tree, and with little choice, you waddle to your boat, doing your best to cover up your violated " + this.vaginaDescript(0) + ".", false);
                 this.player.createPerk(PerkLib.MaraesGiftFertility, 0, 0, 0, 0);
-                this.doNext(this.camp.returnToCampUseOneHour);
+                this.doNext(this, this.camp.returnToCampUseOneHour);
             }
         }
     }
@@ -304,16 +304,16 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
         if (this.player.findPerk(PerkLib.MaraesGiftFertility) >= 0 || this.player.findPerk(PerkLib.MaraesGiftStud) >= 0) this.outputText("second ", false);
         this.outputText("dose of Marae's tender affections.</i>\"\n\n", false);
         //Incase something breaks
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
         //Cant fly?  Stuck for sex!
         if (!this.player.canFly()) {
             this.outputText("You don't see any escape!", false);
-            this.doNext(this.MaraeIIStageII);
+            this.doNext(this, this.MaraeIIStageII);
         }
         //Can fly?  Choice to run
         else {
             this.outputText("You don't think she's counted on your wings.  If you tried to fly you could probably get out of the reach of her tentacles in short order.", false);
-            this.simpleChoices("Stay", this.MaraeIIStageII, "", undefined, "", undefined, "", undefined, "Fly Away", this.MaraeIIFlyAway);
+            this.simpleChoices(this, "Stay", this.MaraeIIStageII, "", undefined, "", undefined, "", undefined, "Fly Away", this.MaraeIIFlyAway);
         }
     }
 
@@ -456,7 +456,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
             this.outputText("You slide out and slump over, utterly exhausted by the breeding session.  The goddess pulls her tentacles from your abused openings, marveling at the outflow of plant-spunk while you relax and pass out.  You feel her fold your hands around your belly to cradle the pregnant bulge, and then you're snoring contentedly.\n\n", false);
         }
         //ONWARD TO NUMBER 3
-        this.doNext(this.MaraePt2RoundIIIPrizes);
+        this.doNext(this, this.MaraePt2RoundIIIPrizes);
     }
 
     private MaraePt2RoundIIIPrizes(): void {
@@ -557,14 +557,14 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 this.outputText("<b>(New Perk Gained: Marae's Gift - Fertility)</b>", false);
             }
         }
-        this.doNext(this.camp.returnToCampUseTwoHours);
+        this.doNext(this, this.camp.returnToCampUseTwoHours);
     }
 
     private MaraeIIFlyAway(): void {
         this.spriteSelect(40);
         this.outputText("", true);
         this.outputText("You launch into the air and beat your wings, taking to the skies.  The tentacle-tree lashes at you, but comes up short.  You've escaped!  Something large whooshes by, and you glance up to see your boat sailing past you.  She must have hurled it at you!  It lands with a splash near the mooring, somehow surviving the impact.  You dive down and drag it back to the dock before you return to camp.  That was close!", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 }
 

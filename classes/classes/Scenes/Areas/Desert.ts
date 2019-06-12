@@ -74,7 +74,7 @@ export class Desert extends BaseContent {
             this.inventory.createStorage();
             this.inventory.createStorage();
             this.player.createKeyItem("Camp - Chest", 0, 0, 0, 0);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         //Chance of dick-dragging! 10% + 10% per two foot up to 30%
@@ -129,7 +129,7 @@ export class Desert extends BaseContent {
         this.clearOutput();
         this.outputText("While exploring the desert, you see a shimmering tower in the distance.  As you rush towards it, it vanishes completely.  It was a mirage!   You sigh, depressed at wasting your time.", true);
         this.dynStats("lus", -15);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private walkingDesertStatBoost(): void {
@@ -148,7 +148,7 @@ export class Desert extends BaseContent {
                 this.dynStats("tou", .5);
             }
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 }
 

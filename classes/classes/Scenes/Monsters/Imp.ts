@@ -20,7 +20,7 @@ export class Imp extends Monster {
         } else if (pcCameWorms) {
             this.outputText("\n\nThe imp grins at your already corrupted state...", false);
             this.player.lust = 100;
-            this.doNext(this.game.impScene.impRapesYou);
+            this.doNext(this, this.game.impScene.impRapesYou);
         } else {
             this.game.impScene.impRapesYou();
         }
@@ -63,8 +63,8 @@ export class Imp extends Monster {
         }
         this.outputText("\n");
         if (this.player.lust > 99)
-            this.doNext(this.game.endLustLoss);
-        else this.doNext(this.game.playerMenu);
+            this.doNext(this, this.game.endLustLoss);
+        else this.doNext(this, this.game.playerMenu);
     }
 
     public constructor(noInit: boolean = false) {

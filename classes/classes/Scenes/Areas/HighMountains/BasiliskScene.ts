@@ -74,7 +74,7 @@ export class BasiliskScene extends BaseContent {
         if (this.player.lust >= 33 && this.player.gender > 0) {
             this.outputText("  Certain that the creature won't dare try and turn its eyes on you again, you take your time to look the tall reptile over directly for the first time.  Perhaps you could use it to satisfy your baser urges. If so, what part of it do you choose?", false);
             //[Tongue][Ass]
-            this.simpleChoices("Tongue", this.tongueBasiliskSmex, "Ass", evil, "", undefined, "Lay Eggs", eggs, "Leave", this.cleanupAfterCombat);
+            this.simpleChoices(this, "Tongue", this.tongueBasiliskSmex, "Ass", evil, "", undefined, "Lay Eggs", eggs, "Leave", this.cleanupAfterCombat);
         }
         else this.cleanupAfterCombat();
     }

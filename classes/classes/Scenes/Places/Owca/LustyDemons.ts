@@ -27,7 +27,7 @@ export class LustyDemons extends Monster {
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
             this.outputText("\n\nThe demons smile to one at another as they watch your display, then close in...");
-            this.doNext(this.game.endLustLoss);
+            this.doNext(this, this.game.endLustLoss);
         } else {
             this.game.owca.loseOrSubmitToVapula();
         }

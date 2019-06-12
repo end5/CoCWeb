@@ -40,7 +40,7 @@ export class Dominika extends TelAdreAbstractContent {
             this.outputText("You nod slightly, glancing back at Dominika, then shrug.", false);
             //TO THE BAR
             this.cheatTime(1);
-            this.doNext(this.telAdre.barTelAdre);
+            this.doNext(this, this.telAdre.barTelAdre);
             return;
         }
         //[First encounter]
@@ -54,7 +54,7 @@ export class Dominika extends TelAdreAbstractContent {
             this.outputText("The two of you chat for a while longer, making small talk about the things you've seen in the Demon Realm. Eventually you can't help but observe that she doesn't seem to be sporting massive breasts, or thirty cocks, or be mad with lust, and you ask why. She looks you up and down once and laughs. \"<i>You don't have to put everything you find in your mouth, you know,</i>\" she finally answers.\n\n", false);
 
             this.outputText("After a bit more conversation she glances outside and says she should go. \"<i>It has been nice, though,</i>\" she adds, \"<i>I would enjoy speaking with you again.</i>\" She rests a hand on your shoulder as she leaves. Her eyes tell you she's smiling at you before she goes.", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00150]++;
             return;
         }
@@ -72,7 +72,7 @@ export class Dominika extends TelAdreAbstractContent {
                 this.outputText("You make your way over to Dominika's table and start up a conversation with the modestly dressed woman. You share exploits and knowledge, but can't help but feel like she's being somewhat distant. She glances out to the distance more than once, and drums her fingers on the table. You make conversation for a little while longer, but realize that it's not really going to go anywhere, and excuse yourself.", false);
             }
             this.cheatTime(1);
-            this.doNext(this.telAdre.barTelAdre);
+            this.doNext(this, this.telAdre.barTelAdre);
             return;
         }
         //Second encounter]
@@ -83,17 +83,17 @@ export class Dominika extends TelAdreAbstractContent {
 
             this.outputText("\"<i>Although...</i>\" she seems to think about something, glancing over at you for a few seconds. After a pause, she adds \"<i>If you'd like, my place is just a few blocks down, I could... impart some knowledge on you there.</i>\"\n\n", false);
 
-            this.simpleChoices("Sure", this.acceptDominikasKnowledge, "No Thanks", this.turnDownDominikasKnowledge, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "Sure", this.acceptDominikasKnowledge, "No Thanks", this.turnDownDominikasKnowledge, "", undefined, "", undefined, "", undefined);
             return;
         }
         //[Follow-up Introduction]
         else {
             this.outputText("You make your way over to Dominika's table and strike up conversation with the modestly dressed woman. Her eyes give away her smile and the two of you discuss your exploits. She doesn't attempt to hide the casual way she ogles you during the conversation, and after a brief while, she invites you back to her place.", false);
-            this.simpleChoices("Sure", this.acceptDominikasKnowledge, "No Thanks", this.turnDownDominikasKnowledge, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "Sure", this.acceptDominikasKnowledge, "No Thanks", this.turnDownDominikasKnowledge, "", undefined, "", undefined, "", undefined);
             return;
         }
         this.outputText("ERROR, ERROR, ALERT THE FENFEN!", true);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //[\"<i>No thanks</i>\"]
     private turnDownDominikasKnowledge(): void {
@@ -101,7 +101,7 @@ export class Dominika extends TelAdreAbstractContent {
         this.outputText("", true);
         this.outputText("\"<i>Fair enough,</i>\" Dominika nods. \"<i>Let me know if you change your mind.</i>\" The two of you make small talk for a while longer, before you decide to get back to work and excuse yourself.\n\n", false);
         this.cheatTime(1);
-        this.doNext(this.telAdre.barTelAdre);
+        this.doNext(this, this.telAdre.barTelAdre);
     }
     //[\"<i>Sure</i>\"]
     private acceptDominikasKnowledge(): void {
@@ -214,7 +214,7 @@ export class Dominika extends TelAdreAbstractContent {
                 this.dynStats("int", 2);
             }
         }
-        this.doNext(this.fellatrixSexWarmup);
+        this.doNext(this, this.fellatrixSexWarmup);
     }
     //[All scenes lead to:]
     private fellatrixSexWarmup(): void {
@@ -246,10 +246,10 @@ export class Dominika extends TelAdreAbstractContent {
             this.outputText("You politely explain that you don't actually have any genitals. Dominika blinks, looks at you, then grabs your crotch. \"<i>Oh. Oh. My uh, my apologies.</i>\" She coughs awkwardly and backs up, rubbing the back of her neck. \"<i>That... that is unfortunate.</i>\" She lowers her skirt slightly, letting you see the top of a chastity belt. \"<i>I can understand to a certain degree but uh... Yikes. At least I can get this taken off if I want.</i>\"\n\n", false);
 
             this.outputText("She walks up to you and kisses your cheek. Her full dark lips are devilishly soft and perfectly moist, and you think of the sensation for longer than you expected.  Patting your shoulder, she gives you a half-smile. \"<i>If you solve that, come back some time, eh?</i>\" She helps you out the door and waves goodbye, but you can't help but feel particularly awkward.\n\n", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
-        this.simpleChoices("Yes", this.acceptFellatrixOral, "No", this.declineFellatrixOral, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Yes", this.acceptFellatrixOral, "No", this.declineFellatrixOral, "", undefined, "", undefined, "", undefined);
     }
 
     //If \"<i>No.</i>\"]
@@ -262,7 +262,7 @@ export class Dominika extends TelAdreAbstractContent {
 
             this.outputText("She pauses. \"<i>Or cunnilingus, I mean, I haven't looked between your legs yet. You know what this place is like.</i>\"\n\nYou suppose it might not hurt.  Do you want to receive some oral?", false);
             this.dynStats("lus", 10);
-            this.doYesNo(this.acceptFellatrixOral, this.declineFellatrixOralHARDCORE);
+            this.doYesNo(this, this.acceptFellatrixOral, this.declineFellatrixOralHARDCORE);
         }
         else {
             //[Say \"<i>No</i>\" to oral AFTER having said \"<i>Yes</i>\" first encounter]
@@ -273,7 +273,7 @@ export class Dominika extends TelAdreAbstractContent {
             this.outputText("What were you thinking?  A little oral sounds great.", false);
 
             //(Only \"<i>Yes</i>\" is available)
-            this.simpleChoices("Yes", this.acceptFellatrixOral, "", undefined, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "Yes", this.acceptFellatrixOral, "", undefined, "", undefined, "", undefined, "", undefined);
         }
     }
     //[If \"<i>No.</i>\" twice]
@@ -282,7 +282,7 @@ export class Dominika extends TelAdreAbstractContent {
         this.outputText("", true);
         this.outputText("\"<i>Really?</i>\" she asks again. \"<i>But, I mean... fucking look at these!</i>\" She purses her dark lips, running her tongue over them to emphasize how they glisten in the light. \"<i>Don't tell me you don't think these would feel fucking rad on you.</i>\"\n\nIt's VERY tempting.  Maybe one little round of fellatio?", false);
         this.dynStats("lus", (10 + this.player.lib / 10));
-        this.doYesNo(this.acceptFellatrixOral, this.declineFellatrixOralSUPERHARDCORE);
+        this.doYesNo(this, this.acceptFellatrixOral, this.declineFellatrixOralSUPERHARDCORE);
     }
 
     //[If \"<i>No.</i>\" three times]
@@ -295,7 +295,7 @@ export class Dominika extends TelAdreAbstractContent {
         //(Dominika does not appear again.)
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00150] = -1;
         this.cheatTime(1);
-        this.doNext(this.telAdre.barTelAdre);
+        this.doNext(this, this.telAdre.barTelAdre);
     }
 
 
@@ -326,7 +326,7 @@ export class Dominika extends TelAdreAbstractContent {
                 this.outputText("She takes a deep breath, turning back towards you. \"<i>I would burn this city to the ground if it would result in my freedom from this land, able to return to the spires of my home at last. But surely, as a champion of Ingnam, you understand? To see your family, your friends once again?</i>\"\n\n", false);
 
                 this.outputText("She seems to be looking at you for affirmation.", false);
-                this.simpleChoices("Agree", this.agreeWithDominika, "Ehhh", this.ehhhhDominika, "Disagree", this.disagreeDominika, "", undefined, "", undefined);
+                this.simpleChoices(this, "Agree", this.agreeWithDominika, "Ehhh", this.ehhhhDominika, "Disagree", this.disagreeDominika, "", undefined, "", undefined);
             }
             else {
                 this.outputText("You arrive at Dominika's apartment and are led into the familiar adjacent room, where the familiar slick and slurping brutality is enacted by Dominika's mouth upon you.  Those lips engulf you, devour you, caress you, and in the haze of pleasure you love every single moment.  They shine in your mind glamorized, an immaculate altar to which you can only cum, and cum, and cum, and...\n\n", false);
@@ -342,7 +342,7 @@ export class Dominika extends TelAdreAbstractContent {
                 this.outputText("The aggressiveness of her speech has had a clear effect on Dominika.  Her tattooes have a subtle fading light to them, vanishing as she regains her composure.  When she turns back to you her expression is solemn, and cold.  \"<i>I am ready to leave this city to the fate it has resigned itself to.</i>\"  The words come quietly, but hold more weight than all the dialogue you two have shared.  \"<i>But with it actively choosing to oppress me rather than fight, I cannot do it alone. You, champion – you are strong. Regardless of what this land has done to you, you fight.</i>\"\n\n", false);
 
                 this.outputText("She crosses the room to return to you, resting a hand on your chest.  \"<i>I want my freedom back, and I do not care anymore what I have to destroy to get it.  Help me.</i>\"", false);
-                this.simpleChoices("Agree", this.agreeWithDominika, "Ehhh", this.ehhhhDominika, "Disagree", this.disagreeDominika, "", undefined, "", undefined);
+                this.simpleChoices(this, "Agree", this.agreeWithDominika, "Ehhh", this.ehhhhDominika, "Disagree", this.disagreeDominika, "", undefined, "", undefined);
             }
             this.player.orgasm();
             this.dynStats("lib", -1, "sen", 1);
@@ -565,8 +565,8 @@ export class Dominika extends TelAdreAbstractContent {
         this.player.orgasm();
         this.dynStats("lib", -1, "sen", 1);
 
-        if (this.timesFellatrixSucked() >= 4 && this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00175] == 0) this.doNext(this.dominidrama);
-        else this.doNext(this.camp.returnToCampUseTwoHours);
+        if (this.timesFellatrixSucked() >= 4 && this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00175] == 0) this.doNext(this, this.dominidrama);
+        else this.doNext(this, this.camp.returnToCampUseTwoHours);
     }
 
 
@@ -604,7 +604,7 @@ export class Dominika extends TelAdreAbstractContent {
         }
         this.dynStats("lus", 25);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00157] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Non-committal]
@@ -617,7 +617,7 @@ export class Dominika extends TelAdreAbstractContent {
 
         this.outputText("Still, that was some magnificent oral. You idly recall the sensations of those dark lips as you walk through Tel'Adre.\n\n", false);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00157] = 2;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //[Disagree with her]
     private disagreeDominika(): void {
@@ -638,7 +638,7 @@ export class Dominika extends TelAdreAbstractContent {
             this.outputText("On the streets of Tel'adre, you wonder about what she said.  Should you tell someone about that?  You're not certain how much of it was bluster and how much was genuine malice.  There seems to be far more to the sorceress-fellatrix than you first thought, but you're not sure you want to learn the rest.  You don't want to push an issue without justification, though...\n\n", false);
             this.outputText("Conflicted, you find yourself walking away from Dominika's apartment without ever thinking about her lips for the first time.", false);
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -655,7 +655,7 @@ export class Dominika extends TelAdreAbstractContent {
         this.outputText("As the weight of the tar covers your eyes the stars above blink into sight. Panting, you realize you have returned to your campsite, sweaty and uncomfortable with the fire burnt out. The dream is over, memories of it already fading. You remember lips, and stars, and the crushing weight of the darkness.\n\n", false);
 
         this.outputText("You think you preferred the dreams about the factory.", false);
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
 
@@ -674,7 +674,7 @@ export class Dominika extends TelAdreAbstractContent {
 
         this.outputText("\"<i>Have you heard of anyone fitting that description?</i>\"\n\n", false);
 
-        this.doYesNo(this.dominidramaYes, this.dominidramaNo);
+        this.doYesNo(this, this.dominidramaYes, this.dominidramaNo);
     }
 
     //[Yes]
@@ -689,7 +689,7 @@ export class Dominika extends TelAdreAbstractContent {
 
         this.outputText("Weary, you continue on your way out of Tel'Adre.", false);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00175] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //[No]
     private dominidramaNo(): void {
@@ -703,7 +703,7 @@ export class Dominika extends TelAdreAbstractContent {
         this.outputText("You feel warm inside, filled with a confidence that seemed to come out of nowhere. You can imagine Dominika's dark lips in your mind smiling, opening and curving as if to say \"<i>Good work.</i>\" The thought empowers you. It feels good to protect her, you think to yourself. You stride confidently out of the city.", false);
         this.dynStats("lus", 10, "cor", 1);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00175] = 2;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Binding scene]
@@ -851,7 +851,7 @@ export class Dominika extends TelAdreAbstractContent {
         this.player.orgasm();
         this.dynStats("lib", 5, "sen", -15);
         //[Next]
-        this.doNext(this.dominikaBlowjobs2);
+        this.doNext(this, this.dominikaBlowjobs2);
     }
 
     private dominikaBlowjobs2(): void {
@@ -870,6 +870,6 @@ export class Dominika extends TelAdreAbstractContent {
         this.model.time.days++;
         this.model.time.hours = 7;
         this.statScreenRefresh();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 }

@@ -183,14 +183,14 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("As you roam the shores of the lake, you find your footsteps echoing as though you were stepping on wood rather than squishing in the sandy mud of the shore. Curious, you squat down and brush the soil away, revealing the rotting form of a wooden plank. Looking carefully at the ground underfoot, you realize that it is part of a pathway – the kind that villages make to provide easier access to and from muddy rivers, lakes and beaches. You believe you can make out the rest of the path clearly enough to follow it to its end.\n\n", false);
         this.outputText("Do you follow the pathway?", false);
         //Yes / No
-        this.doYesNo(this.exploreAmilyVillage, this.dontExploreAmilyVillage);
+        this.doYesNo(this, this.exploreAmilyVillage, this.dontExploreAmilyVillage);
     }
 
     //[No]
     private dontExploreAmilyVillage(): void {
         this.outputText("", true);
         this.outputText("Standing up, you turn and walk away. You presume from the state of the pathway that the village at the other end must either be in dire straits, abandoned, or overwhelmed by demons. In other words, it's no safe place for a traveler like you.\n\n", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Yes]
@@ -200,7 +200,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("(<b>\"TownRuins\" added to Places menu.</b>)", false);
         //set village unlock flag
         this.flags[kFLAGS.AMILY_VILLAGE_ACCESSIBLE] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Exploring the Ruined Village]
@@ -235,7 +235,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 this.player.createKeyItem("Equipment Rack - Armor", 0, 0, 0, 0);
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00255] = 1;
             }
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         //Initialize saved gender:
@@ -243,14 +243,14 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         //Amily gone/hiding super hard
         if (this.flags[kFLAGS.AMILY_IS_BATMAN] > 0 || this.flags[kFLAGS.AMILY_VILLAGE_ENCOUNTERS_DISABLED] == 1 || this.flags[kFLAGS.AMILY_TREE_FLIPOUT] > 0) {
             this.outputText("You enter the ruined village cautiously. There are burnt-down houses, smashed-in doorways, ripped-off roofs... everything is covered with dust and grime. You explore for an hour, but you cannot find any sign of another living being, or anything of value. The occasional footprint from an imp or a goblin turns up in the dirt, but you don't see any of the creatures themselves. It looks like time and passing demons have stripped the place bare since it was originally abandoned. Finally, you give up and leave. You feel much easier when you're outside of the village.", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         //Schrödinger Amily corrupted that damn place!
         else if (this.flags[kFLAGS.AMILY_FOLLOWER] == 2) {
             this.amilySprite();
             this.outputText("You enter the ruined village, still laughing at your past nefarious deeds. Maybe it's just your imagination, but you feel like this entire place reeks of corruption now... You explore for an hour, then go back to your camp, knowing your tainted slave will be more than happy to satisfy your urges.", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         //Remove worm block if player got rid of worms.
@@ -281,7 +281,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         //Amily Un-encounterable (worms):
         if (this.flags[kFLAGS.AMILY_GROSSED_OUT_BY_WORMS] == 1 || this.player.cor > 25 || this.flags[kFLAGS.AMILY_CORRUPT_FLIPOUT] > 0) {
             this.outputText("You enter the ruined village cautiously. There are burnt-down houses, smashed-in doorways, ripped-off roofs... everything is covered with dust and grime. For hours you explore, but you cannot find any sign of another living being, or anything of value. The occasional footprint from an imp or a goblin turns up in the dirt, but you don't see any of the creatures themselves. It looks like time and passing demons have stripped the place bare since it was originally abandoned. Finally, you give up and leave. You feel much easier when you're outside of the village – you had the strangest sensation of being watched while you were in there.", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         this.amilySprite();
@@ -330,7 +330,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     //Accept her / Turn her down gently / Turn her down bluntly
                     var fur = undefined;
                     if (this.flags[kFLAGS.AMILY_NOT_FURRY] == 0) fur = this.amilyNoFur;
-                    this.simpleChoices("Accept Her", this.desperateAmilyPleaAcceptHer, "RejectFurry", fur, "RejectGently", this.desperateAmilyPleaTurnDown, "BluntReject", this.desperateAmilyPleaTurnDownBlunt, "", undefined);
+                    this.simpleChoices(this, "Accept Her", this.desperateAmilyPleaAcceptHer, "RejectFurry", fur, "RejectGently", this.desperateAmilyPleaTurnDown, "BluntReject", this.desperateAmilyPleaTurnDownBlunt, "", undefined);
                     return;
                 }
                 //[First Meeting]
@@ -368,7 +368,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
                     this.outputText("What do you do?", false);
                     //Accept Eagerly / Accept Hesitantly / Refuse
-                    this.simpleChoices("AcceptEagerly", this.acceptAmilysOfferEagerly, "Hesitantly", this.acceptAmilyOfferHesitantly, "NoFurries", this.amilyNoFur, "Refuse", this.refuseAmilysOffer, "", undefined);
+                    this.simpleChoices(this, "AcceptEagerly", this.acceptAmilysOfferEagerly, "Hesitantly", this.acceptAmilyOfferHesitantly, "NoFurries", this.amilyNoFur, "Refuse", this.refuseAmilysOffer, "", undefined);
                     //Set flag for 'last gender met as'
                     this.flags[kFLAGS.AMILY_PC_GENDER] = this.player.gender;
                     return;
@@ -429,7 +429,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     this.outputText("\"<i>Hey, us girls gotta stick together, right?</i>\" She winks at you then wanders off behind a partially collapsed wall, disappearing into the rubble.", false);
                     //Set flag for 'last gender met as'
                     this.flags[kFLAGS.AMILY_PC_GENDER] = this.player.gender;
-                    this.doNext(this.camp.returnToCampUseOneHour);
+                    this.doNext(this, this.camp.returnToCampUseOneHour);
                     return;
                 }
                 //Lesbo lovin confession!
@@ -488,7 +488,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     this.outputText("She turns and walks away, vanishing into the dust and the rubble like magic.", false);
                     //Set flag for 'last gender met as'
                     this.flags[kFLAGS.AMILY_PC_GENDER] = this.player.gender;
-                    this.doNext(this.camp.returnToCampUseOneHour);
+                    this.doNext(this, this.camp.returnToCampUseOneHour);
                     return;
                 }
                 //Medium affection 33% chance, guaranteed by 20.
@@ -566,7 +566,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     }
                     //Set flag for 'last gender met as'
                     this.flags[kFLAGS.AMILY_PC_GENDER] = this.player.gender;
-                    this.doNext(this.camp.returnToCampUseOneHour);
+                    this.doNext(this, this.camp.returnToCampUseOneHour);
                     return;
                 }
             }
@@ -668,7 +668,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         }
 
         var sex = this.determineAmilySexEvent();
-        this.simpleChoices("Sex", sex, "Talk", this.talkToAmily, "Both", (sex == undefined ? undefined : this.talkThenSexWithAmily), "Efficiency", efficiency, "Leave", this.camp.returnToCampUseOneHour);
+        this.simpleChoices(this, "Sex", sex, "Talk", this.talkToAmily, "Both", (sex == undefined ? undefined : this.talkThenSexWithAmily), "Efficiency", efficiency, "Leave", this.camp.returnToCampUseOneHour);
         //Set flag for 'last gender met as'
         this.flags[kFLAGS.AMILY_PC_GENDER] = this.player.gender;
 
@@ -779,7 +779,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         //[+5 Libido]
         this.dynStats("lib", 5);
         //[/ Go to [First Time Sex]]
-        this.doNext(this.amilySexHappens);
+        this.doNext(this, this.amilySexHappens);
     }
 
     //[Accept Hesitantly]
@@ -804,7 +804,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         //{+5 Affection}
         this.flags[kFLAGS.AMILY_AFFECTION] += 5;
         //[/ Go to [First Time Sex]]
-        this.doNext(this.amilySexHappens);
+        this.doNext(this, this.amilySexHappens);
     }
 
     //[Refuse]
@@ -826,7 +826,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.AMILY_AFFECTION] += 10;
         //{-5 Libido}
         this.dynStats("lib", -2);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Announce yourself]
@@ -834,7 +834,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("", true);
         this.amilySprite();
         this.outputText("Reasoning that it's best not to scare someone like Amily, you clear your throat nosily. Amily whirls around to face you and immediately draws her knife into a defensive position. When she sees that it's you, she blinks a few times before grinning in surprise. \"<i>Why hello, " + this.player.short + "; good to see you again! It's nice to be reminded that there's another person out here who hasn't become a brainless fuck-puppet.</i>\" Her mood then sobers.\n\n", false);
-        this.doNext(this.amilyRemeetingContinued);
+        this.doNext(this, this.amilyRemeetingContinued);
     }
 
     //[Scare her]
@@ -852,7 +852,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         else {
             this.outputText("You manage to leap backwards just in time to avoid a strike that could have seriously hurt you. Amily recovers quickly and readies her knife again, only to realize that it's you. An irritated expression crosses her face. \"<i>Are you insane!? Do you have any idea how stupid that was? I could have killed you!</i>\" she bellows, before slowly calming down. \"<i>Ah, well... no harm, no foul, I guess...</i>\"\n\n", false);
         }
-        this.doNext(this.amilyRemeetingContinued);
+        this.doNext(this, this.amilyRemeetingContinued);
     }
 
     private amilyRemeetingContinued(): void {
@@ -860,7 +860,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.amilySprite();
         this.outputText("\"<i>So, have you changed your mind? Have you come to help me out?</i>\" Amily asks curiously.\n\n", false);
         //Accept / Politely refuse / Here to talk / Get lost
-        this.simpleChoices("Accept", this.secondTimeAmilyOfferedAccepted, "RefusePolite", this.secondTimeAmilyRefuseAgain, "Just Talk", this.repeatAmilyTalk, "Get Lost", this.tellAmilyToGetLost, "Leave", this.camp.returnToCampUseOneHour);
+        this.simpleChoices(this, "Accept", this.secondTimeAmilyOfferedAccepted, "RefusePolite", this.secondTimeAmilyRefuseAgain, "Just Talk", this.repeatAmilyTalk, "Get Lost", this.tellAmilyToGetLost, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     //[Accept]
@@ -871,7 +871,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         //Offer accepted
         this.flags[kFLAGS.AMILY_OFFER_ACCEPTED] = 1;
         //[/ Go to [First Time Sex]]
-        this.doNext(this.amilySexHappens);
+        this.doNext(this, this.amilySexHappens);
     }
 
 
@@ -884,7 +884,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\"<i>All right; it is your choice. But my offer still stands, you know,</i>\" she tells you.\n\n", false);
 
         this.outputText("You let her know you'll remember that, and then turn and leave.", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Here to talk]
@@ -894,7 +894,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You tell her that you only wanted to talk.\n\n", false);
         this.outputText("\"<i>Just to talk?</i>\" Amily asks, and then adds quietly, \"<i>Well... it has been a long time since I actually had somebody to talk to...</i>\" She looks distracted for a moment, but then she smiles. Clearly, Amily is pleased with the prospect. \"<i>So, is there anything in particular you want to talk about?</i>\"\n\n", false);
         //[/ Go to random [Conversation]]
-        this.doNext(this.talkWithCuntIMeanAmily);
+        this.doNext(this, this.talkWithCuntIMeanAmily);
     }
 
     //[Get Lost]
@@ -909,7 +909,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.AMILY_VILLAGE_ENCOUNTERS_DISABLED] = 1;
         //{Ruined Village removed from Places list}
         //I think one variable can handle both these...
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -931,20 +931,20 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     this.outputText("Amily can still move quickly despite her pregnancy, and you are very promptly left all alone. Perhaps it would be better not to broach the subject that bluntly with her while she's in this state.\n\n", false);
                     //Reduce affection. DERP
                     this.flags[kFLAGS.AMILY_AFFECTION] -= 3;
-                    this.doNext(this.camp.returnToCampUseOneHour);
+                    this.doNext(this, this.camp.returnToCampUseOneHour);
                 }
                 //[Medium Affection]
                 else if (this.flags[kFLAGS.AMILY_AFFECTION] < 40) {
                     this.outputText("She is clearly surprised, putting a hand to her swelling midriff. But then she shrugs and says, \"<i>Well, I guess I do owe you that much for helping me.</i>\"\n\n", false);
                     this.outputText("Though she does set off and indicate for you to follow, you realize that she's not too happy about your reason for being here.\n\n", false);
                     //[/ Go to [Medium Affection Sex]]
-                    this.doNext(this.amilySexHappens);
+                    this.doNext(this, this.amilySexHappens);
                 }
                 //[High Affection]
                 else {
                     this.outputText("\"<i>You still want me, even though I'm already pregnant?</i>\" she asks – not angry or disappointed, but sounding rather pleased. \"<i>Well, how can I say no to you?</i>\" She smiles broadly and begins to walk away, doing her best to give you a sexy wiggle of her hips as an invitation for you to follow her.\n\n", false);
                     //[/ Go to [High Affection Sex]]
-                    this.doNext(this.amilySexHappens);
+                    this.doNext(this, this.amilySexHappens);
                 }
                 break;
             case 6:
@@ -956,7 +956,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     this.outputText("Annoyed, she turns and waddles off. You do not give chase; you can tell that you've offended her.\n\n", false);
                     //Reduce affection
                     this.flags[kFLAGS.AMILY_AFFECTION] -= 3;
-                    this.doNext(this.camp.returnToCampUseOneHour);
+                    this.doNext(this, this.camp.returnToCampUseOneHour);
                 }
                 //[Medium Affection]
                 else if (this.flags[kFLAGS.AMILY_AFFECTION] < 40) {
@@ -967,13 +967,13 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     this.outputText("\"<i>It's not that I don't like you, " + this.player.short + ", it's just... well, I don't feel comfortable doing that,</i>\" she explains apologetically.\n\n", false);
                     this.outputText("You apologize back for confronting her with something she's uncomfortable with, and leave for your own camp, lest you insult her seriously.", false);
                     this.flags[kFLAGS.AMILY_AFFECTION] -= 3;
-                    this.doNext(this.camp.returnToCampUseOneHour);
+                    this.doNext(this, this.camp.returnToCampUseOneHour);
                 }
                 //[High Affection]
                 else {
                     this.outputText("She looks a little puzzled by the request, but then smiles with sincere pleasure. \"<i>I'm game if you are, dear.</i>\" She winks and offers her hand to you. You take it, and let her lead you to her chosen nesting site.\n\n", false);
                     //[/ Go to [High Affection - Heavily Pregnant Sex]]
-                    this.doNext(this.amilySexHappens);
+                    this.doNext(this, this.amilySexHappens);
                 }
                 break;
             default: //Amily is not pregnant
@@ -982,20 +982,20 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     this.outputText("\"<i>Of course you did. Well, come on, I guess I can oblige you. It's the only way I'm going to get pregnant.</i>\"\n\n", false);
                     this.outputText("She sets off, clearly leading the way as you follow her.\n\n", false);
                     //[/ Go to [Low Affection Sex]]
-                    this.doNext(this.amilySexHappens);
+                    this.doNext(this, this.amilySexHappens);
                 }
                 //[Medium Affection]
                 else if (this.flags[kFLAGS.AMILY_AFFECTION] < 40) {
                     this.outputText("\"<i>Well, I guess you'll do. I mean, I still need to get pregnant,</i>\" she teases you, tail waving merrily. \"<i>Follow me.</i>\"\n\n", false);
                     this.outputText("You have to push yourself to keep up with her, but she's clearly just playing with you by moving so quickly rather than seriously trying to escape you.\n\n", false);
                     //[/ Go to [Low Affection Sex]]
-                    this.doNext(this.amilySexHappens);
+                    this.doNext(this, this.amilySexHappens);
                 }
                 //[High Affection]
                 else {
                     this.outputText("Amily doesn't bother to say anything; she just grins like the cat that ate the canary (well, the mouse that ate the cheesecake, anyway). She grabs hold of your hand and does her best to pull you as fast as she can towards her closest bolt-hole.\n\n", false);
                     //[/ Go to [Low Affection Sex]]
-                    this.doNext(this.amilySexHappens);
+                    this.doNext(this, this.amilySexHappens);
                 }
         }
     }
@@ -1036,7 +1036,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("She smiles playfully at you. \"<i>And here I was thinking we knew each other already.  But if you want, I'm always happy to talk.</i>\"\n\n", false);
         }
         //[/ Go to random [Conversation]]
-        this.doNext(this.talkWithCuntIMeanAmily);
+        this.doNext(this, this.talkWithCuntIMeanAmily);
     }
 
     //[Talk then sex]
@@ -1054,7 +1054,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 if (this.flags[kFLAGS.AMILY_AFFECTION] < 15) {
                     this.outputText("She rubs her belly thoughtfully. \"<i>I guess a bit of conversation would be nice, after all this time. Sex, though? Maybe if you're lucky.</i>\" She's already heading off, encouraging you to follow her.\n\n", false);
                     //[/ Go to random [Conversation], then small chance of [Low Affection Sex]]
-                    this.doNext(this.talkWithCuntIMeanAmily);
+                    this.doNext(this, this.talkWithCuntIMeanAmily);
                 }
                 //[Medium Affection]
                 else if (this.flags[kFLAGS.AMILY_AFFECTION] < 40) {
@@ -1062,14 +1062,14 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     this.outputText("You assure her that she still looks trim and lean to you.\n\n", false);
                     this.outputText("\"<i>Flatterer. Come on, I have something to eat back in my den.</i>\"\n\n", false);
                     //[/ Go to random [Conversation], then to [Medium Affection Sex]]
-                    this.doNext(this.talkToAmilyWithSexAfter);
+                    this.doNext(this, this.talkToAmilyWithSexAfter);
                 }
                 //[High Affection]
                 else {
                     this.outputText("\"<i>Well, I could maybe do without the sex part...</i>\" Amily muses, rubbing her chin. Then she grins. \"<i>We'll see how things work out, all right?</i>\"\n\n", false);
                     this.outputText("You assure her that's fine, and the two of you find a relatively comfortable patch to sit down on so you can talk.\n\n", false);
                     //[/ Go to random [Conversation], then to [High Affection Sex]]
-                    this.doNext(this.talkToAmilyWithSexAfter);
+                    this.doNext(this, this.talkToAmilyWithSexAfter);
                 }
                 break;
             case 6:
@@ -1080,7 +1080,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     this.outputText("She stares at you, then smiles faintly. \"<i>Talk? Talk is good... it's so quiet here; I spent so many years without anybody to talk to. But sex? In my condition? No, I don't think so.</i>\"\n\n", false);
                     this.outputText("Despite her refusing the prospect of sex, she happily takes a seat on a toppled column and invites you to join her.\n\n", false);
                     //[/ Go to random [Conversation]]
-                    this.doNext(this.talkWithCuntIMeanAmily);
+                    this.doNext(this, this.talkWithCuntIMeanAmily);
                 }
                 //[Medium Affection]
                 else if (this.flags[kFLAGS.AMILY_AFFECTION] < 40) {
@@ -1088,14 +1088,14 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     this.outputText("You are forced to concede that you don't have any real ideas how sex between you would work with her in her current state.\n\n", false);
                     this.outputText("Amily smiles and pulls up a seat on a mound of leaf litter. \"<i>That's all right; you meant well. And even if we can't have sex, we can still talk. Anything on your mind in particular?</i>\"\n\n", false);
                     //[/ Go to random [Conversation]]
-                    this.doNext(this.talkWithCuntIMeanAmily);
+                    this.doNext(this, this.talkWithCuntIMeanAmily);
                 }
                 //[High Affection]
                 else {
                     this.outputText("She grins at you playfully. \"<i>It's just wonderful to finally have somebody to talk to after all these years. And maybe I'll let you make love to me afterwards, if you're a good listener.</i>\"\n\n", false);
                     this.outputText("She waddles over to something that – in the distant past – might have been a stone seat for public convenience, and seats herself upon it heavily. \"<i>So, what do you want to talk about?</i>\" she asks.\n\n", false);
                     //[/ Go to random [Conversation], then to [High Affection Sex – Heavily Pregnant Sex]]
-                    this.doNext(this.talkToAmilyWithSexAfter);
+                    this.doNext(this, this.talkToAmilyWithSexAfter);
                 }
                 break;
             default: //Amily is not pregnant
@@ -1104,20 +1104,20 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     this.outputText("\"<i>...Well, maybe you're not like everyone else in this world after all,</i>\" she finally answers. Though she walks away without a second word, she seems rather pleased by your answer.\n\n", false);
                     this.outputText("\"<i>Hey, hurry up!</i>\" she calls back over her shoulder. You snap out of your musings and follow her.\n\n", false);
                     //[/ Go to random [Conversation], then to [Low Affection Sex]]
-                    this.doNext(this.talkToAmilyWithSexAfter);
+                    this.doNext(this, this.talkToAmilyWithSexAfter);
                 }
                 //[Medium Affection]
                 else if (this.flags[kFLAGS.AMILY_AFFECTION] < 40) {
                     this.outputText("She smiles at you. \"<i>Well... I was feeling a little tired, a little lonely, and... maybe a little horny. Why not?</i>\"\n\n", false);
                     this.outputText("She crooks a finger at you as a gesture to follow her.\n\n", false);
                     //[/ Go to random [Conversation], then to [Medium Affection Sex]]
-                    this.doNext(this.talkToAmilyWithSexAfter);
+                    this.doNext(this, this.talkToAmilyWithSexAfter);
                 }
                 //[High Affection]
                 else {
                     this.outputText("\"<i>Conversation with a wonderful friend, and a wonderful bout of lovemaking afterwards... Well, I guess that's what passes for true romance in this crazy, messed up world these days,</i>\" Amily notes. She tries to sound lighthearted, but you know her well enough to sense the tinge of pain and loss in her words. Undaunted, she starts to walk off, gesturing you to follow. \"<i>Come on; I can talk and walk at the same time, surely you can do the same?</i>\"\n\n", false);
                     //[/ Go to random [Conversation], then to [High Affection Sex]]
-                    this.doNext(this.talkToAmilyWithSexAfter);
+                    this.doNext(this, this.talkToAmilyWithSexAfter);
                 }
         }
     }
@@ -1160,8 +1160,8 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 else this.outputText("\"<i>You're coming along nicely, lover mine.</i>\" She smiles, proud as can be at your display of skill. \"<i>So, what brings you running to me?</i>\" she teases.\n\n", false);
         }
         //Sex / Talk / Talk then sex
-        if (this.player.lust >= 33) this.simpleChoices("Sex", this.sexWithAmily, "Talk", this.talkToAmily, "Both", this.talkThenSexWithAmily, "", undefined, "", undefined);
-        else this.simpleChoices("", undefined, "Talk", this.talkToAmily, "", undefined, "", undefined, "", undefined);
+        if (this.player.lust >= 33) this.simpleChoices(this, "Sex", this.sexWithAmily, "Talk", this.talkToAmily, "Both", this.talkThenSexWithAmily, "", undefined, "", undefined);
+        else this.simpleChoices(this, "", undefined, "Talk", this.talkToAmily, "", undefined, "", undefined, "", undefined);
     }
 
     //[Scare her]
@@ -1220,8 +1220,8 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         }
         //Sex / Talk / Talk then sex
         //(Same as [Normal Remeeting))
-        if (this.player.lust >= 33) this.simpleChoices("Sex", this.sexWithAmily, "Talk", this.talkToAmily, "Both", this.talkThenSexWithAmily, "", undefined, "", undefined);
-        else this.simpleChoices("", undefined, "Talk", this.talkToAmily, "", undefined, "", undefined, "", undefined);
+        if (this.player.lust >= 33) this.simpleChoices(this, "Sex", this.sexWithAmily, "Talk", this.talkToAmily, "Both", this.talkThenSexWithAmily, "", undefined, "", undefined);
+        else this.simpleChoices(this, "", undefined, "Talk", this.talkToAmily, "", undefined, "", undefined, "", undefined);
         //Affection -1;
         this.flags[kFLAGS.AMILY_AFFECTION] -= 1;
     }
@@ -1260,7 +1260,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("Amily scuffs the ground with one of her finger-like toe claws, looking down at it as if it was the most interesting thing in the world – or as if she doesn't dare to look you in the eyes. \"<i>I... You know what I've been asking of you; from you, and you keep turning me down... but you kept talking to me, asking me about myself. You wanted to get to know me, but... why don't you want to know ALL of me? I... I want to give myself to you. You're the nicest, kindest man I've met – even before the demons destroyed my village. I want to be with you... but you don't seem to want to be with me.</i>\" She looks up to you at last, her eyes wet with tears. \"<i>Is there something wrong with me? Can't you like me in that way?</i>\" she pleads.\n\n", false);
 
         //Accept her / Turn her down gently / Turn her down bluntly
-        this.simpleChoices("Accept Her", this.desperateAmilyPleaAcceptHer, "TurnDownGently", this.desperateAmilyPleaTurnDown, "TurnDownBlunt", this.desperateAmilyPleaTurnDownBlunt, "", undefined, "", undefined);
+        this.simpleChoices(this, "Accept Her", this.desperateAmilyPleaAcceptHer, "TurnDownGently", this.desperateAmilyPleaTurnDown, "TurnDownBlunt", this.desperateAmilyPleaTurnDownBlunt, "", undefined, "", undefined);
     }
 
     //[Accept her]
@@ -1273,7 +1273,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("Amily stares at you, stunned. After a moment, she embraces you fiercely and begins to drag you away.\n\n", false);
         //[/ Go to [High Affection Sex]]
-        this.doNext(this.amilySexHappens);
+        this.doNext(this, this.amilySexHappens);
     }
 
     //[Turn her down gently]
@@ -1292,7 +1292,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("Feeling the weight of the empty village pressing in on you, you quickly retreat yourself. There's no point coming back here.\n\n", false);
         //turn off village.
         this.flags[kFLAGS.AMILY_VILLAGE_ENCOUNTERS_DISABLED] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Turn her down bluntly]
@@ -1313,7 +1313,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         //{Amily can no longer be encountered}
         this.flags[kFLAGS.AMILY_VILLAGE_ENCOUNTERS_DISABLED] = 1;
         //{Ruined Village removed from Places list}
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Birth]
@@ -1325,7 +1325,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         //Increase baby count here rather than in 3 places.
         this.flags[kFLAGS.AMILY_BIRTH_TOTAL]++;
         //Leave / Watch / Help
-        this.simpleChoices("Leave", this.pregnancyIsScaryGoddamnMousePregnancyImNotWatchingThisShit, "Watch", this.heyIGotTicketsToMicePoppingOut, "Help", this.helpThatFukkinUngratefulBitchGiveBirth, "", undefined, "", undefined);
+        this.simpleChoices(this, "Leave", this.pregnancyIsScaryGoddamnMousePregnancyImNotWatchingThisShit, "Watch", this.heyIGotTicketsToMicePoppingOut, "Help", this.helpThatFukkinUngratefulBitchGiveBirth, "", undefined, "", undefined);
     }
 
     //[Leave]
@@ -1337,7 +1337,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("The next morning, you find a note scratched onto a slab of bark beside your sleeping roll, reading, \"<i>The babies and I are both fine. No thanks to you!</i>\"\n\n", false);
         //{Affection goes down}
         this.flags[kFLAGS.AMILY_AFFECTION] -= 10;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -1362,7 +1362,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("  Their color patterns vary considerably; white, black and brown are most common, and you even see one or two with your hair color. Amily flops back onto her rump and then topples over onto her back, clearly too tired to stand up. Her offspring crowd around, cuddling up to her, and she gives them a tired but happy smile.\n\n", false);
 
         this.outputText("Making sure that there doesn't seem to be any danger, you quietly let yourself out. It seems that she's too concerned about the children to notice you leave.", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Help]
@@ -1415,7 +1415,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("As the rambunctious little mouselets burn up their energy and curl up beside Amily to sleep, you gently excuse yourself and return to camp.", false);
         //{Affection goes up}
         this.flags[kFLAGS.AMILY_AFFECTION] += 5;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Bad End]
@@ -1439,7 +1439,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("Amily inclines her head towards you in a respectful nod, and then joins her vast brood as they begin to march away purposefully. You watch them go until they have vanished from sight, then shake your head with a sneer. Like you need her or her brats, anyway! Spinning on your heel, you stride purposefully out of this dump of a village; you don't intend to come back here again.\n\n", false);
 
         this.outputText("Amily has left the region with her children to found a new colony elsewhere.\n\n", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
         //{Amily can no longer be encountered}
         //{Ruined Village removed from Places list}
         this.flags[kFLAGS.AMILY_VILLAGE_ENCOUNTERS_DISABLED] = 1;
@@ -1516,7 +1516,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         }
         //Disable amily encounters in the village!
         this.flags[kFLAGS.AMILY_VILLAGE_ENCOUNTERS_DISABLED] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Conversations - talk wif da bitch.
@@ -1543,8 +1543,8 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             //(If player has no main item:)
             if (this.player.itemSlot1.quantity == 0) {
                 this.outputText("Promising you'll keep that in mind, you take your leave of Amily.\n\n", false);
-                if (sexAfter) this.doNext(this.determineAmilySexEvent());
-                else this.doNext(this.camp.returnToCampUseOneHour);
+                if (sexAfter) this.doNext(this, this.determineAmilySexEvent());
+                else this.doNext(this, this.camp.returnToCampUseOneHour);
                 return;
             }
             //(If player has an item:)
@@ -1933,9 +1933,9 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             }
         }
         if (sexAfter) {
-            this.doNext(this.determineAmilySexEvent(true));
+            this.doNext(this, this.determineAmilySexEvent(true));
         }
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //First Time Sekksin:
@@ -1953,7 +1953,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         //[Take Charge]
         //[Wait for Her]
         //[Kiss Her]
-        this.simpleChoices("Take Charge", this.FirstTimeAmilyTakeCharge, "Wait 4 Her", this.beSomeKindofNervousDoucheAndWaitForAmily, "Kiss Her", this.kissAmilyInDaMoufFirstTimeIsSomehowBetterThatWay, "", undefined, "", undefined);
+        this.simpleChoices(this, "Take Charge", this.FirstTimeAmilyTakeCharge, "Wait 4 Her", this.beSomeKindofNervousDoucheAndWaitForAmily, "Kiss Her", this.kissAmilyInDaMoufFirstTimeIsSomehowBetterThatWay, "", undefined, "", undefined);
     }
 
     //[=Take Charge=]
@@ -2005,7 +2005,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         //Affection downer
         this.flags[kFLAGS.AMILY_AFFECTION] -= 5;
         this.amilyPreggoChance();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //[=Wait for Her=]
     private beSomeKindofNervousDoucheAndWaitForAmily(): void {
@@ -2026,7 +2026,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.AMILY_AFFECTION] -= 2;
         this.amilyPreggoChance();
         this.player.orgasm();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //[=Kiss Her=]
     private kissAmilyInDaMoufFirstTimeIsSomehowBetterThatWay(): void {
@@ -2056,7 +2056,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         //Affection boost?
         this.flags[kFLAGS.AMILY_AFFECTION] += 3;
         this.player.orgasm();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
         this.amilyPreggoChance();
     }
 
@@ -2068,7 +2068,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         if (x == -1 && this.player.hasCock()) {
             this.outputText("Amily looks between your legs and doubles over laughing, \"<i>There is no way that thing is fitting inside of me!  You need to find a way to shrink that thing down before we get in bed!</i>\"", false);
             this.flags[kFLAGS.AMILY_AFFECTION]--;
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         if (this.flags[kFLAGS.AMILY_FUCK_COUNTER] == 0) {
@@ -2081,7 +2081,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("Amily's efforts at leading you through the ruined village are brisk and efficient. You don't really think she's looking forward to doing this all that much. No, that might be overstating things. It's more like she's under the impression that, details aside, this encounter between the two of you will be pure business.\n\n", false);
 
             this.outputText("It's hard for you to say if you were led by a different route this time, but soon you are in what Amily has to offer for a private bedchamber, and she begins to reach for her clothes, obviously expecting you to do the same thing.\n\n", false);
-            this.simpleChoices("Business", this.amilySexBusiness, "Playtime 1st", this.amilySexPlaytimeFirst, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "Business", this.amilySexBusiness, "Playtime 1st", this.amilySexPlaytimeFirst, "", undefined, "", undefined, "", undefined);
         }
         //Moderate Affection Sex:
         else if (this.flags[kFLAGS.AMILY_AFFECTION] < 40) {
@@ -2093,7 +2093,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
             this.outputText("Once you are inside, Amily gently tries to push you onto the bedding where you will be mating. Once you are seated, she smiles at you with a teasing expression and begins to slowly strip herself off, clearly trying to make the act seem as erotic as possible.", false);
             if (pregEvent >= 6) this.outputText("  However, her confidence visibly slips when she has to fully bare the bulging belly that marks her pregnant state, but she musters the confidence and starts to show it off for you as well.", false);
-            this.simpleChoices("Step In", this.amilyStepTheFuckIn, "Watch Show", this.amilyEnjoyShow, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "Step In", this.amilyStepTheFuckIn, "Watch Show", this.amilyEnjoyShow, "", undefined, "", undefined, "", undefined);
         }
         else {
             if (this.pregnancy.event >= 6) this.fuckAmilyPreg();
@@ -2133,13 +2133,13 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         //worm infested reaction
         if (this.player.findStatusAffect(StatusAffects.Infested) >= 0) {
             this.outputText("\"<i>EWWWW!  You're infested!</i>\" she shrieks, \"<i>Get out!  Don't come back 'til you get rid of the worms!</i>\"\n\nYou high tail it out of there.  It looks like Amily doesn't want much to do with you until you're cured.", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             this.flags[kFLAGS.AMILY_AFFECTION] -= 3;
             this.flags[kFLAGS.AMILY_GROSSED_OUT_BY_WORMS] = 1;
             return;
         }
         this.outputText("Now that both of you are naked, Amily takes a step back from you and begins to stroke herself - though her gestures are a little hesitant, and she clearly has never done this before, she is sincerely trying to be arousing. A finger strokes each dainty little nipple, circling around in opposite directions in order to make them perk as hard as they can. Her right hand slips away, leaving her left hand to alternate between each nipple as her nimble fingers begin to tease her most private of places. She may not be extraordinarily skilled at it, but she's definitely doing a good job of turning you on - particularly with the cute little gasp she makes when she pinches her clitoris a bit too hard.\n\n", false);
-        this.simpleChoices("Sit & Watch", this.sitAndWatchAmilySex, "Caress Her", this.caressAmilyHaveSex, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Sit & Watch", this.sitAndWatchAmilySex, "Caress Her", this.caressAmilyHaveSex, "", undefined, "", undefined, "", undefined);
     }
 
     //[Sit & Watch]
@@ -2157,7 +2157,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("", true);
         this.amilySprite();
         this.outputText("Watching Amily masturbate and tease herself in front of you is definitely erotic... but you want something more to this session than that. Licking your lips with a combination of arousal and nervousness, you tentatively reach out one hand and brush a feather-light touch against her fingers.  Her eyes, which she had previously been keeping closed, suddenly spring open, and you ready yourself to withdraw and apologize if she protests. But, for whatever reason, she does not protest and, emboldened, you continue to touch and caress her. You keep your touches gentle, light and restricted to non-intimate regions, but she seems to be enjoying this; she draws a little closer, and reaches out to brush your cheek, absentmindedly using the very hand she had been stroking her netherlips with before, and so the scent of her intimate regions drifts to your nostrils from where her fingers lay. Her eyes have rolled almost completely shut, the gaze she is giving you is a very languid one, but something about the set of her lips, only just starting to open, entices you to kiss them.\n\n", false);
-        this.simpleChoices("Refuse Kiss", this.AmilyGetKissed, "Kiss Her", this.AmilyTakeTheKiss, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Refuse Kiss", this.AmilyGetKissed, "Kiss Her", this.AmilyTakeTheKiss, "", undefined, "", undefined, "", undefined);
     }
     //[Refuse the Kiss]
     private AmilyGetKissed(): void {
@@ -2209,7 +2209,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.AMILY_AFFECTION] += 1 + AmilyScene.rand(2);
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -2237,7 +2237,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("By the time Amily is completely naked, she is clearly excited about what is coming up; you even think she's wet already. She stares at you with a mischievous, turned-on smile, waiting to see what you will do now that it is your turn to strip.\n\n", false);
 
         this.outputText("Do you do a striptease of your own or just strip naked and get to business?", false);
-        this.simpleChoices("Striptease", this.StripForAmilyYouSlut, "Business", this.getDownWithSexTiem, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Striptease", this.StripForAmilyYouSlut, "Business", this.getDownWithSexTiem, "", undefined, "", undefined, "", undefined);
     }
 
     //[Fair Is Fair]
@@ -2262,7 +2262,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("lus", 5);
         this.amilySprite();
         this.outputText("Once you are both naked, you embrace and begin with a deep kiss. Slowly you both sink down and start exploring each other's bodies. You feel Amily's hands caressing you while you lightly kiss her breasts, one of your hands slowly drifting down to her cute ass and lightly squeezing it. Looking into her eyes, you see a sparkle in them before she surprises you and somehow manages to turn you onto your back. Now she's sitting on your belly, with your already hard cock being fondled by her rather flexible tail. Grinning at you, she seems to plan on teasing you as long as possible before allowing you to enter her.\n\n", false);
-        this.simpleChoices("Play Along", this.playAlongWithAmilyWhataDumbBitch, "Please Her", this.workToPleaseTheCunt, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Play Along", this.playAlongWithAmilyWhataDumbBitch, "Please Her", this.workToPleaseTheCunt, "", undefined, "", undefined, "", undefined);
     }
     //[Play Along]
     private playAlongWithAmilyWhataDumbBitch(): void {
@@ -2291,7 +2291,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.amilyPreggoChance();
         this.flags[kFLAGS.AMILY_AFFECTION] += 3 + AmilyScene.rand(4);
         this.flags[kFLAGS.AMILY_FUCK_COUNTER]++;
-        this.simpleChoices("Say Goodbye", this.sayGoodByeToAmilyPostSecks, "Stay A While", this.stayAfterAmilyMiddleGradeSecks, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Say Goodbye", this.sayGoodByeToAmilyPostSecks, "Stay A While", this.stayAfterAmilyMiddleGradeSecks, "", undefined, "", undefined, "", undefined);
     }
 
     //[Say Goodbye]
@@ -2299,7 +2299,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.amilySprite();
         this.outputText("", true);
         this.outputText("You smile at her and give her a kiss before saying goodbye and returning to your camp.", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Stay A While]
@@ -2309,7 +2309,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You decide you'd rather stay with her a little longer, so you get up, go to her and with a kiss and some caresses draw her down again. She doesn't really put up any resistance, so you both lie there kissing and caressing each other for some time before you finally say goodbye and return to your camp.", false);
         //Bonus affection mayhapz?
         this.flags[kFLAGS.AMILY_AFFECTION] += 3;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -2409,7 +2409,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.AMILY_FUCK_COUNTER]++;
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
         //preggo chance
         this.amilyPreggoChance();
     }
@@ -2453,7 +2453,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.AMILY_FUCK_COUNTER]++;
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
         //preggo chance
         this.amilyPreggoChance();
     }
@@ -2506,7 +2506,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("", true);
             this.amilyPopsOutKidsInCamp();
             this.pregnancy.knockUpForce(); //Clear Pregnancy
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         //Jojo + Amily Spar
@@ -2588,25 +2588,25 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             //MOAR OPTIONS: Give Present\nAlchemy\nTeach Blowpipe
             var eggs = undefined;
             if (this.flags[kFLAGS.AMILY_OVIPOSITION_UNLOCKED] > 0 && this.player.canOviposit()) eggs = this.layEggsInAmily;
-            this.choices("Appearance", this.amilyAppearance, "Talk", this.talkToAmilyCamp, "Make Love", this.fuckTheMouseBitch, "Give Present", this.giveAmilyAPresent, "Date", date,
+            this.choices(this, "Appearance", this.amilyAppearance, "Talk", this.talkToAmilyCamp, "Make Love", this.fuckTheMouseBitch, "Give Present", this.giveAmilyAPresent, "Date", date,
                 "Lay Eggs", eggs, "Defur", defur, "", undefined, "", undefined, "Back", this.camp.campLoversMenu);
         }
         //Corrupt
         else {
             //outputText("Options:\nAppearance\nGive Item\nSex\nTalk\n", false);
             //  [Sex] [Give Item] [Talk] [Call Jojo]
-            this.choices("Appearance", this.amilyAppearance, "Give Item", this.giveAmilyAPresent, "Sex", this.fuckTheMouseBitch, "Talk", this.talkWithCORRUPTCUNT, "Defur", defur,
+            this.choices(this, "Appearance", this.amilyAppearance, "Give Item", this.giveAmilyAPresent, "Sex", this.fuckTheMouseBitch, "Talk", this.talkWithCORRUPTCUNT, "Defur", defur,
                 "", undefined, "", undefined, "", undefined, "", undefined, "Back", this.camp.campSlavesMenu);
 
             if (!this.pregnancy.isPregnant && this.flags[kFLAGS.FOLLOWER_AT_FARM_AMILY] == 0 && this.flags[kFLAGS.FARM_CORRUPTION_STARTED] == 1) {
-                this.addButton(5, "Farm Work", this.sendCorruptCuntToFarm);
+                this.addButton(this, 5, "Farm Work", this.sendCorruptCuntToFarm);
             }
 
             if (this.flags[kFLAGS.FOLLOWER_AT_FARM_AMILY] == 1) {
-                this.addButton(5, "Go Camp", this.backToCamp);
-                if (this.flags[kFLAGS.FOLLOWER_PRODUCTION_AMILY] == 0) this.addButton(6, "Harvest Milk", this.harvestMilk);
-                else this.addButton(6, "Stop Harvest", this.stopHarvestingMilk);
-                this.addButton(9, "Back", kGAMECLASS.farm.farmCorruption.rootScene);
+                this.addButton(this, 5, "Go Camp", this.backToCamp);
+                if (this.flags[kFLAGS.FOLLOWER_PRODUCTION_AMILY] == 0) this.addButton(this, 6, "Harvest Milk", this.harvestMilk);
+                else this.addButton(this, 6, "Stop Harvest", this.stopHarvestingMilk);
+                this.addButton(this, 9, "Back", kGAMECLASS.farm.farmCorruption.rootScene);
             }
         }
     }
@@ -2635,7 +2635,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 oral2 = this.corruptAmilyLickPussiesLikeAPro;
                 scissor = this.corruptAmilyScissorsLikeAPro;
             }
-            this.choices("Anal", anal, "Get BJ", oral, "Get Licked", oral2, "GetPen'ed", penetrated, "Scissor", scissor,
+            this.choices(this, "Anal", anal, "Get BJ", oral, "Get Licked", oral2, "GetPen'ed", penetrated, "Scissor", scissor,
                 "Vagina", fuckCunt, "", undefined, "", undefined, "", undefined, "Nevermind", this.amilyFollowerEncounter);
         }
         else {
@@ -2646,8 +2646,8 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
             this.outputText("As she collapses onto the ground, crying her heart out, you silently redress yourself and slink away. All this blubbering has turned you off, and it's obvious that nothing can be done until you've grown a cock, a pussy, or both.", false);
             this.dynStats("lus", -20);
-            if (this.flags[kFLAGS.FOLLOWER_AT_FARM_AMILY] == 0) this.doNext(this.playerMenu);
-            else this.doNext(kGAMECLASS.farm.farmCorruption.rootScene);
+            if (this.flags[kFLAGS.FOLLOWER_AT_FARM_AMILY] == 0) this.doNext(this, this.playerMenu);
+            else this.doNext(this, kGAMECLASS.farm.farmCorruption.rootScene);
         }
     }
 
@@ -2739,7 +2739,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         }
         this.outputText("\nShe has a tiny pink pucker between her mousey butt-cheeks, where it belongs.");
         //Back to amily menu
-        this.doNext(this.amilyFollowerEncounter);
+        this.doNext(this, this.amilyFollowerEncounter);
     }
 
     // EVENT 2429: Talk to Amily in camp
@@ -2749,7 +2749,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You tell Amily you'd like to talk about things. She grins, happy at the prospect, and takes a seat, inviting you to sit down as well.\n\n", false);
         //(Random camp discussion takes place)
         this.talkWithCuntIMeanAmily();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     public talkToAmilyWithSexAfter(): void { this.talkWithCuntIMeanAmily(true); }
@@ -2768,7 +2768,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         //[Amily rejects sex]
         if (this.flags[kFLAGS.AMILY_WAIT_FOR_PC_FIX_JOJO] > 0) {
             this.outputText("Amily pushes you away and says, \"<i>Not until we fix Jojo.</i>\"  You sigh and grumble.  No sex today!", false);
-            this.doNext(this.amilyFollowerEncounter);
+            this.doNext(this, this.amilyFollowerEncounter);
             return;
         }
 
@@ -2816,7 +2816,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             nurse = this.amilyNurseCheckup;
             this.outputText("Amily might be up for playing nurse again.\n");
         }
-        this.choices("TakeCharge", this.amilyTakesChargeSex, "Amily Leads", this.letAmilyLead, bText, babies, "Urta", urta, "Swim", swim,
+        this.choices(this, "TakeCharge", this.amilyTakesChargeSex, "Amily Leads", this.letAmilyLead, bText, babies, "Urta", urta, "Swim", swim,
             "Izma3Some", threesome, "Nurse RP", nurse, "", undefined, "", undefined, "Back", this.amilyFollowerEncounter);
     }
 
@@ -2852,7 +2852,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("You stride up to her and take her in your arms, kissing her deeply. She melts enthusiastically into your embrace, kissing you back just as hard, her tail winding around your " + this.player.leg() + ". You lead her back to the nest she has made for herself and firmly but gently place her on her back there. She smiles up at you. \"<i>Ooh, taking charge, are we?</i>\" She trills with pleasure, tail waving to and fro with sincere excitement.\n\nWhat will you do?", false);
         var scene: number = AmilyScene.rand(4);
-        this.choices("Fuck", fuck, "DrinkMilk", drinkMilk, "Eat Out", this.takeChargeAmilyEatOut, "GetSucked", getSucked, "Scissor", scissor,
+        this.choices(this, "Fuck", fuck, "DrinkMilk", drinkMilk, "Eat Out", this.takeChargeAmilyEatOut, "GetSucked", getSucked, "Scissor", scissor,
             "Mount Her", mountHer, "Buttfuck", buttFuckButtFUCKBUTTFUCK, "Catch Anal", catchs, "", undefined, "", undefined);
     }
 
@@ -2883,7 +2883,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("Grinning at each other with obvious satisfaction in your eyes, you slowly relax and cuddle in the afterglow for some time, before you decide that you'll definitely repeat this soon.", false);
         this.amilyPreggoChance();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
         this.player.orgasm();
         this.dynStats("sen", -1);
     }
@@ -2911,7 +2911,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
             this.outputText("\"<i>All that came out of me?</i>\" She asks, curious. She gently rubs your belly, and you moan as the milk sloshes uncomfortably inside your sensitive stomach. Amily sits down, your head in her lap, and lets you rest there until you recover your strength and digest a good portion of the milk. Still feeling uncomfortably full, you get up and go for a walk to help work off your titanic liquid meal.\n\n", false);
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
         this.dynStats("spe", .3, "lus", 10, "cor", -.5);
     }
     //Take Charge 3: - eat out
@@ -2943,7 +2943,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(".\n\n", false);
 
         this.outputText("She lies there, gasping for breath, even as you pick yourself up and start to clean yourself off. \"<i>Not my favorite...</i>\" She squeaks. \"<i>But definitely can't argue with the results.</i>\" You smile, and leave her in her nest to get her strength back.\n\n", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
         this.dynStats("int", .25, "lus", 10);
     }
     //Take Charge 4 - amily sucks off
@@ -2973,7 +2973,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
         //(If Amily is herm:
         if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0) this.outputText("She turns halfway back to you as she goes. \"<i>I hope you'll remember this and return the favor someday,</i>\" she calls out to you. She then resumes walking off.", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
         this.player.orgasm();
         this.dynStats("sen", -1);
     }
@@ -2992,7 +2992,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("With a contented sigh and a broad, satisfied smile, Amily murmurs, \"<i>That felt great...</i>\" She switches her position again so that her head is again next to yours, puts her arms around you and nuzzles you a bit. You embrace her too, and enjoy the afterglow with her for some time, before you both go back to work.\n\n", false);
         this.player.orgasm();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Take Charge: Mount Amily
@@ -3041,7 +3041,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.flags[kFLAGS.AMILY_ALLOWS_FERTILITY] == 1) {
             this.player.knockUp(PregnancyStore.PREGNANCY_AMILY, PregnancyStore.INCUBATION_MOUSE);
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
         this.player.orgasm();
         this.dynStats("sen", -1);
     }
@@ -3084,7 +3084,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("You'd never have expected the little mousegirl to do something like this - and you certainly would never have thought it would feel so good. Sure enough, you soon feel yourself reaching the \"<i>point of no return</i>\", but any attempts to tell her that you won't be able to hold back much longer are made futile by her enduring kisses. You're quite sure she's smiling at your predicament - she probably planned for this to happen. Shrugging mentally, you decide to go with the flow and worry about it later. So you try to relax (as much as you can do that while Amily is giving you an incredible tailjob...) and simply enjoy the feeling. Sure enough, it doesn't take her much longer to finally make you cum. Breaking the kiss, she steps back and with a broad grin asks: \"<i>Did you enjoy that, you naughty " + this.player.mf("man", "girl") + "?</i>\"\n\n", false);
 
             this.outputText("Naturally, you tell her that you enjoyed it very much, and with a smile, Amily helps you clean up. \"<i>If you liked it that much...</i>\" she says over her shoulder and winks at you as she goes to take care of something else.\n\n", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             this.player.orgasm();
             this.dynStats("sen", -1);
             return;
@@ -3098,7 +3098,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("Looking at her hands and feet covered by your cum, Amily jokingly accuses you of forcing her to clean herself yet again, just because you have no control. Your eyes widen a bit in surprise when the mousegirl lightly licks one of her hands and comments \"<i>Mmhhmm... not bad, actually...</i>\" With a grin, she cleans up the results of her hand-and-foot-job before pulling you to your feet again. \"<i>Back to work, Champion!</i>\"\n\n", false);
 
             this.outputText("With a satisfied smile, you turn to other things.", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             this.player.orgasm();
             this.dynStats("sen", -1);
             return;
@@ -3126,7 +3126,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             //(if Amily is herm:
             if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0) this.outputText("and limp cock ", false);
             this.outputText("across your chest as she repositions herself so that she is looking you in the eyes, laying atop you. \"<i>You always know how to make a girl feel special, don't you?</i>\" she says, softly. Then she kisses you, probing her tongue deep into your mouth to get a good taste of her juices, before wriggling off of you, grabbing her pants and running merrily away. You watch her go, then clean yourself off.\n\n", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             this.dynStats("int", .25, "lus", 10);
             return;
         }
@@ -3150,7 +3150,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
             this.outputText("Exhausted, you feel a quick nap is in order yourself. When you wake up, you're alone in the nest but Amily is nearby; she hands you some food and then points you in the direction of the stream to wash up.\n\n", false);
             this.amilyPreggoChance();
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             this.player.orgasm();
             this.dynStats("sen", -1);
             return;
@@ -3170,7 +3170,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             else this.outputText("For a guy?</i>\"\n\n", false);
 
             this.outputText("You shrug, uncertain. Slowly, Amily sits up and gets off of you. \"<i>I... um... thank you.</i>\" She says, then quickly steals a kiss from you before running off. She's in such a hurry that she's clear over on the other side of the camp before you can tell her that she left her pants behind.", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             this.dynStats("int", .25, "lus", 10);
             return;
         }
@@ -3213,7 +3213,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.orgasm();
             this.dynStats("sen", -1);
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Give Present:
@@ -3231,52 +3231,52 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("You look at the horny cum-bucket and wonder what you should make her take this time.\n\n");
         }
         if (this.player.hasItem(this.consumables.INCUBID) && this.flags[kFLAGS.AMILY_FOLLOWER] == 2) {
-            this.addButton(0, "Incubus D.", this.giveAmilyPureIncubusDraft);
+            this.addButton(this, 0, "Incubus D.", this.giveAmilyPureIncubusDraft);
             haveGift = true;
         }
         else if (this.player.hasItem(this.consumables.P_DRAFT)) {
-            this.addButton(0, "P. Incubus D.", this.giveAmilyPureIncubusDraft);
+            this.addButton(this, 0, "P. Incubus D.", this.giveAmilyPureIncubusDraft);
             haveGift = true;
         }
         if (this.player.hasItem(this.consumables.P_S_MLK) || (this.player.hasItem(this.consumables.SUCMILK) && this.flags[kFLAGS.AMILY_FOLLOWER] == 2)) {
-            this.addButton(1, "Succ Milk", this.giveAmilyPurifiedSuccubusMilk);
+            this.addButton(this, 1, "Succ Milk", this.giveAmilyPurifiedSuccubusMilk);
             haveGift = true;
         }
         if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0 && (this.player.hasItem(this.consumables.PINKEGG) || this.player.hasItem(this.consumables.L_PNKEG))) {
-            this.addButton(2, "Pink Egg", this.giveAmilyAPinkEgg);
+            this.addButton(this, 2, "Pink Egg", this.giveAmilyAPinkEgg);
             haveGift = true;
         }
         if (this.player.hasItem(this.consumables.WHITEEG) || this.player.hasItem(this.consumables.L_WHTEG)) {
-            this.addButton(3, "White Egg", this.giveAmilyAWhiteEgg);
+            this.addButton(this, 3, "White Egg", this.giveAmilyAWhiteEgg);
             haveGift = true;
         }
         if (this.player.hasItem(this.consumables.BROWNEG) || this.player.hasItem(this.consumables.L_BRNEG)) {
-            this.addButton(4, "Brown Egg", this.giveAmilyABrownEgg);
+            this.addButton(this, 4, "Brown Egg", this.giveAmilyABrownEgg);
             haveGift = true;
         }
         if (this.player.hasItem(this.consumables.PURPLEG) || this.player.hasItem(this.consumables.L_PRPEG)) {
-            this.addButton(5, "Purple Egg", this.giveAmilyAPurpleEgg);
+            this.addButton(this, 5, "Purple Egg", this.giveAmilyAPurpleEgg);
             haveGift = true;
         }
         //Reducto not yet implemented
         //Lactaid not yet implemented
         if (this.player.hasItem(this.consumables.SDELITE) && this.flags[kFLAGS.AMILY_FOLLOWER] == 2) {
-            this.addButton(7, "Suc. Delite", this.giveCorruptAmilySuccubusDelight);
+            this.addButton(this, 7, "Suc. Delite", this.giveCorruptAmilySuccubusDelight);
             haveGift = true;
         }
         if (this.player.hasItem(this.armors.C_CLOTH)) {
-            this.addButton(8, "Clothes", this.giveAmilySomePants);
+            this.addButton(this, 8, "Clothes", this.giveAmilySomePants);
             haveGift = true;
         }
         else if (this.player.hasItem(this.armors.S_SWMWR) && this.flags[kFLAGS.AMILY_OWNS_BIKINI] == 0 && this.player.hasCock() && this.player.cockThatFits(61) >= 0 && !this.amilyCorrupt()) {
             this.outputText("You could give her a bikini, then invite her for a swim in the stream to show it off.\n\n");
-            this.addButton(8, "Bikini", this.amilySwimFuckIntro);
+            this.addButton(this, 8, "Bikini", this.amilySwimFuckIntro);
             haveGift = true;
         }
         else if (this.flags[kFLAGS.GIVEN_AMILY_NURSE_OUTFIT] == 0 && !this.amilyCorrupt()) {
             if (this.player.hasItem(this.armors.NURSECL) && this.player.hasCock() && this.player.cockThatFits(61) >= 0) {
                 this.outputText("You could give Amily the nurse's outfit you got, though it barely covers anything at all, and would likely be inviting some roleplay from the kinky mouse-girl.\n\n");
-                this.addButton(8, "NurseClothes", this.amilyNurseCheckup);
+                this.addButton(this, 8, "NurseClothes", this.amilyNurseCheckup);
                 haveGift = true;
             }
             else if (this.player.hasItem(this.armors.NURSECL))
@@ -3289,12 +3289,12 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             }
         }
         if (haveGift)
-            this.addButton(9, "Back", this.amilyFollowerEncounter);
+            this.addButton(this, 9, "Back", this.amilyFollowerEncounter);
         else {
             if (this.flags[kFLAGS.AMILY_FOLLOWER] == 1)
                 this.outputText("You realize that you don't have any items she would be interested in, and apologize.");
             else this.outputText("You realize you don't have any items worth using on her.");
-            this.addButton(0, "Next", this.amilyFollowerEncounter);
+            this.addButton(this, 0, "Next", this.amilyFollowerEncounter);
         }
     }
 
@@ -3331,14 +3331,14 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     else this.outputText("Her logic is undeniable, even though you had looked forward to enjoying even more of her body than before. You nod and explain that you understand perfectly; you want what's best for her above anything else.\n\n", false);
 
                     this.outputText("You put the vial back in its pouch, as Amily excuses herself and walks off.", false);
-                    this.doNext(this.playerMenu);
+                    this.doNext(this, this.playerMenu);
                     return;
                 }
                 //[Purified Incubus Draft - If Amily is Hermaphrodite]
                 this.outputText("She looks disdainfully at the vial in your hand. \"<i>What, am I not big enough for you already? Oh well, I suppose if it makes you happy.</i>\" She snatches it from your hand and gulps it down. She tries her best to look apathetic, but is unable to help either the pleased moan or the dribbles of pre-cum that stain her clothes as her penis grows erect and then longer, at least a full inch so.  Breathing heavily, she pants, \"<i>Why does this have to actually feel good?</i>\"  Then she turns and lurches drunkenly away. You decide against following her and wander off in the other direction.\n\n", false);
                 this.player.consumeItem(this.consumables.P_DRAFT);
                 this.amilyDickGrow();
-                this.doNext(this.amilyFollowerEncounter);
+                this.doNext(this, this.amilyFollowerEncounter);
             }
             //Normal Amily
             else {
@@ -3349,7 +3349,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText("You hastily assure her that it is purified and so neither of you have to worry about joining the ranks of the demons. She still looks skeptical, but then nods slowly and approaches you.\n\n", false);
 
                 this.outputText("\"<i>All right... but, are you sure you want to give that to me? You know it will make me grow a penis, right?</i>\"\n\n", false);
-                this.doYesNo(this.giveAmilyPureIncubusDraft4Realz, this.amilyFollowerEncounter);
+                this.doYesNo(this, this.giveAmilyPureIncubusDraft4Realz, this.amilyFollowerEncounter);
             }
         }
         //CORRUPT
@@ -3370,7 +3370,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText("Do you make her grow a huge one?", false);
                 this.flags[kFLAGS.AMILY_WANG_LENGTH] = 4;
                 this.flags[kFLAGS.AMILY_WANG_GIRTH] = 1;
-                this.doYesNo(this.corruptAmilyGetsDickMaxxedOut, this.corruptAmilyYouDeclineMaxxingHerDick);
+                this.doYesNo(this, this.corruptAmilyGetsDickMaxxedOut, this.corruptAmilyYouDeclineMaxxingHerDick);
             }
             else if (this.flags[kFLAGS.AMILY_WANG_LENGTH] < maxSizeCorr && this.flags[kFLAGS.AMILY_WANG_GIRTH] < 3) {
                 //Consume dah goodies!
@@ -3383,12 +3383,12 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
                 this.outputText("Satisfied, you dismiss her with a wave and go about your business.", false);
                 this.amilyDickGrow();
-                this.doNext(this.amilyFollowerEncounter);
+                this.doNext(this, this.amilyFollowerEncounter);
             }
             //Too big!
             else {
                 this.outputText("You reconsider - her small frame probably couldn't handle anything larger.", false);
-                this.doNext(this.amilyFollowerEncounter);
+                this.doNext(this, this.amilyFollowerEncounter);
             }
         }
     }
@@ -3396,7 +3396,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("", true);
         this.amilySprite();
         this.outputText("You decide to leave her as she is. If you want her to have a bigger dick you can always give her more drafts. \"<i>I want you to practice using your new tool, so you'll be ready whenever I need you,</i>\" you order Amily. \"<i>Yes, " + this.player.mf("master", "mistress") + ",</i>\" she answers. You leave her on the floor and go about your business.", false);
-        this.doNext(this.amilyFollowerEncounter);
+        this.doNext(this, this.amilyFollowerEncounter);
     }
     private corruptAmilyGetsDickMaxxedOut(): void {
         this.outputText("", true);
@@ -3425,7 +3425,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.flags[kFLAGS.AMILY_WANG_LENGTH] = maxSizeCorr;
         }
         this.flags[kFLAGS.AMILY_WANG_GIRTH] = 3;
-        this.doNext(this.amilyFollowerEncounter);
+        this.doNext(this, this.amilyFollowerEncounter);
     }
 
     //(If the player says Yes):
@@ -3440,7 +3440,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("Catching her breath, she stares at her new appendage with an unreadable expression, then pulls her clothes back on with a grimace. You decide to give her some time alone to adjust to the change.", false);
         this.amilyDickGrow();
-        this.doNext(this.amilyFollowerEncounter);
+        this.doNext(this, this.amilyFollowerEncounter);
     }
 
     private amilyDickGrow(): void {
@@ -3479,7 +3479,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("", true);
         this.amilySprite();
         this.outputText("On second thought, you decide against giving it to her. Amily looks relieved as you apologize and put it back in your pocket. \"<i>So, what did you really want to ask me about?</i>\" She says, eager to change the subject.\n\nYou don't really have anything to say and walk away, embarrassed.", false);
-        this.doNext(this.amilyFollowerEncounter);
+        this.doNext(this, this.amilyFollowerEncounter);
     }
 
     //[Purified Succubi Milk]
@@ -3539,7 +3539,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText("Looks like giving her more milk only makes her pussy sensitive. You're tempted to make use of her new, sensitive pussy, but refrain from doing so. It'll be more fun to let her lust build. You toss the vial away and casually stride back into the camp, leaving Amily panting in her juices.", false);
             }
         }
-        this.doNext(this.amilyFollowerEncounter);
+        this.doNext(this, this.amilyFollowerEncounter);
     }
 
 
@@ -3591,7 +3591,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("You pick up a vial of Succubi's Delight and show it to Amily. \"<i>Drink this; you need bigger balls,</i>\" you order her, passing the bottle to her. Amily replies, \"<i>Yes, " + this.player.mf("master", "mistress") + "</i>.\" Then she opens her legs and downs the bottle. She moans as her balls grow bigger and denser, churning with the extra cum her sack now holds.", false);
             this.flags[kFLAGS.AMILY_HAS_BALLS_AND_SIZE]++;
         }
-        this.doNext(this.amilyFollowerEncounter);
+        this.doNext(this, this.amilyFollowerEncounter);
     }
 
     //[Give Succubus' Delight]
@@ -3604,7 +3604,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         //No balls yet?  QUERY!
         if (this.flags[kFLAGS.AMILY_HAS_BALLS_AND_SIZE] == 0) {
             this.outputText("You pick up a vial of Succubi's Delight and show it to Amily. \"<i>Drink this,</i>\" you order her, passing the bottle to her. \"<i>You're going to give me balls, " + this.player.mf("master", "mistress") + "? Are you sure?</i>\"\n\n", false);
-            this.doYesNo(this.amilyDrinksSuccubusDelight, this.amilyFollowerEncounter);
+            this.doYesNo(this, this.amilyDrinksSuccubusDelight, this.amilyFollowerEncounter);
         }
         else this.amilyDrinksSuccubusDelight();
     }
@@ -3627,7 +3627,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         else this.player.consumeItem(this.consumables.L_PNKEG);
         this.flags[kFLAGS.AMILY_WANG_LENGTH] = 0;
         this.flags[kFLAGS.AMILY_WANG_GIRTH] = 0;
-        this.doNext(this.amilyFollowerEncounter);
+        this.doNext(this, this.amilyFollowerEncounter);
     }
     //[White Egg]
     public giveAmilyAWhiteEgg(): void {
@@ -3679,7 +3679,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 this.flags[kFLAGS.AMILY_NIPPLE_LENGTH] = Math.floor(this.flags[kFLAGS.AMILY_NIPPLE_LENGTH] * 100) / 100;
             }
         }
-        this.doNext(this.amilyFollowerEncounter);
+        this.doNext(this, this.amilyFollowerEncounter);
 
     }
 
@@ -3742,7 +3742,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText("Amily scarfs down the egg and looks back expectantly, but it doesn't seem to make her already massive backside any larger.  She pouts and whimpers, \"<i>Slut is sorry, but her ass is as big and round as it can get " + this.player.mf("master", "mistress") + "!</i>\"", false);
             }
         }
-        this.doNext(this.amilyFollowerEncounter);
+        this.doNext(this, this.amilyFollowerEncounter);
     }
 
     //[Purple Egg]
@@ -3801,7 +3801,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 this.dynStats("lus", 4);
             }
         }
-        this.doNext(this.amilyFollowerEncounter);
+        this.doNext(this, this.amilyFollowerEncounter);
     }
     /*
     [Reducto]
@@ -3830,7 +3830,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("You assure her that she looks beautiful. \"<i>Flatterer.</i>\" She smirks, and then wanders off to the stream.", false);
         }
         this.player.consumeItem(this.armors.C_CLOTH);
-        this.doNext(this.amilyFollowerEncounter);
+        this.doNext(this, this.amilyFollowerEncounter);
     }
     /*
     //[Lactaid]
@@ -4249,7 +4249,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(" Finally, the flow of cum ebbs; Amily rubs her distended belly and inhales sharply, pulling back slightly. With a brutal thrust, she blows on your cock; sending a shock of pleasure running through you and milking a few more spurts of cum. Now completely spent, you pull back; Amily tries to keep your cock inside her mouth by sucking on it with all her might, but it's useless. With a <b>POP</b> you pull your " + this.cockDescript(0) + " free of Amily's hungry jaws; it is clean, without a single trace of cum and barely any spit on it. You look at Amily and she looks back, smiling happily and licking her lips. \"<i>Thank you for the meal, " + this.player.mf("master", "mistress") + ",</i>\" she says before a small burp escapes her. You pat her on the head, get dressed, and leave Amily, satisfied with her good work.", false);
         this.player.orgasm();
         this.dynStats("sen", 1, "cor", 1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     private corruptAmilyLickPussiesLikeAPro(): void {
         this.amilySprite();
@@ -4324,7 +4324,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You chuckle and dismiss her with a wave.", false);
         this.player.orgasm();
         this.dynStats("sen", -1, "cor", 1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Corrupt scissortastrophie!
@@ -4403,7 +4403,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("Amily beams with happiness, \"<i>Yes mistress!</i>\" then proceeds to clean you up, licking every single drop she can out of your body.  To finish it all up, she licks your " + this.player.feet() + " clean of whatever juices remained on them. Satisfied, you dismiss Amily with a wave, heading back to the camp, while Amily rubs the results of your coupling on her body.", false);
         this.player.orgasm();
         this.dynStats("sen", -1, "cor", 1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //Fuck corrupt Amily's pussaaaaaayyyyy
     private corruptAmilysPussyGetsMotherfuckingFucked(): void {
@@ -4498,7 +4498,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.amilyPreggoChance();
         this.player.orgasm();
         this.dynStats("sen", -2, "cor", 2);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Let corrupt Amily bone you with her cock
@@ -4568,7 +4568,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.orgasm();
         this.dynStats("sen", -2, "cor", 2);
 
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -4620,7 +4620,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("; stopping only when you're completely clean. You pat her head and praise her, \"<i>That's a good cumdumpster.</i>\" She responds by smiling tiredly, still panting a bit, and swaying her tail in happiness. You wipe the remaining saliva off your dick on her face and dress yourself. \"<i>Don't waste a single drop, cunt,</i>\" you tell her.  You leave the tired mouse alone to recompose herself.", false);
         this.player.orgasm();
         this.dynStats("sen", -2, "cor", 1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -4638,7 +4638,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You interject, telling her to slow down and breathe, you're not going anywhere. Amily pants, then finally squeaks out, \"<i>I'm in love with you!</i>\" before her face turns bright red. Stunned, you ask her to repeat that. \"<i>I said... I'm in love with you. I... ah, forget it, who was I kidding?</i>\" She trails off, sadly, and you watch as she begins to turn around and shuffle off.", false);
         //Set flag that she's confessed her lesbo-live!
         this.flags[kFLAGS.AMILY_CONFESSED_LESBIAN] = 1;
-        this.simpleChoices("Stop Her", this.amilyLesboStopHer, "Let Her Go", this.amilyLesboLetHerGo, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Stop Her", this.amilyLesboStopHer, "Let Her Go", this.amilyLesboLetHerGo, "", undefined, "", undefined, "", undefined);
     }
     //[=Stop Her=]
     private amilyLesboStopHer(): void {
@@ -4647,7 +4647,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("Before she can get too far, though, your hand shoots out and clasps her shoulder. She starts to question what you're doing, but you spin her around and pull her into a tight embrace, telling her that you feel the same way. Shyly, she offers her lips to you, and you kiss them eagerly. When you seperate for breath, you ask if she wants to see what it's like with another woman. Her eyes glazed, she nods at you wordlessly and starts leading you away down the street.\n\n", false);
         //WHAT THE FUCK DOES THIS SCENE LEAD TO?
         this.flags[kFLAGS.AMILY_CONFESSED_LESBIAN] = 2;
-        this.doNext(this.girlyGirlMouseSex);
+        this.doNext(this, this.girlyGirlMouseSex);
     }
 
     //[=Let Her Go=]
@@ -4664,7 +4664,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You watch her go, feeling a little guilty, but you just don't swing that way. You can only hope she'll be all right.\n\n", false);
         //(Amily's affection drops back down to Low)
         if (this.flags[kFLAGS.AMILY_AFFECTION] > 10) this.flags[kFLAGS.AMILY_AFFECTION] = 10;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Amily's Surprise:
@@ -4683,7 +4683,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("She looks down at the ground, unable to meet your eyes, then pulls her tattered pants down to reveal something you never would have expected. A penis - a four inch long, surprisingly human-like penis, already swelling to erection. Blushing, she starts to speak, still not looking at you. \"<i>I... I thought that, if it's my idea and all, I should be the one to grow this thing... Please, I love you, I want to have children with you, can't we -</i>\"\n\n", false);
         this.flags[kFLAGS.AMILY_WANG_LENGTH] = 4;
         this.flags[kFLAGS.AMILY_WANG_GIRTH] = 1;
-        this.simpleChoices("Accept", this.amilyOnGirlSurpriseBonerAcceptance, "Reject", this.amilyOnGirlSurpriseBonerREJECT, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Accept", this.amilyOnGirlSurpriseBonerAcceptance, "Reject", this.amilyOnGirlSurpriseBonerREJECT, "", undefined, "", undefined, "", undefined);
     }
     //[=Accept=]
     private amilyOnGirlSurpriseBonerAcceptance(): void {
@@ -4693,7 +4693,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("She still starts leading you away, though.", false);
         //TO THE SMEX yiffyiffmurrmurr!
-        this.doNext(this.hermilyOnFemalePC);
+        this.doNext(this, this.hermilyOnFemalePC);
     }
     //[=Reject=]
     private amilyOnGirlSurpriseBonerREJECT(): void {
@@ -4704,7 +4704,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("Amily stops, her new cock wilting, her expression making it quite obvious that she's heartbroken. Her head falls, tears dripping from her eyes, and she turns and runs away. You glare after her as she vanishes, sobbing, into the ruins, hoping she never comes back.", false);
         //no moar amily in village
         this.flags[kFLAGS.AMILY_VILLAGE_ENCOUNTERS_DISABLED] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Yuri:
@@ -4737,7 +4737,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("Your own strength returning to you, you sit up and smile at your mousey lover before giving her a deep kiss, tasting your juices and letting her get a taste of her own. Then you redress yourself and return to your camp.", false);
         this.player.orgasm();
         this.flags[kFLAGS.AMILY_TIMES_FUCKED_FEMPC]++;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Herm Amily on Female:
@@ -4790,7 +4790,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.orgasm();
         this.flags[kFLAGS.AMILY_HERM_TIMES_FUCKED_BY_FEMPC]++;
         this.flags[kFLAGS.AMILY_FUCK_COUNTER]++;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Player gives Birth (quest version):
@@ -4820,7 +4820,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("You are eager to comply, though your last thought as you sink into unconsciousness is to wonder what Amily wants to talk about.", false);
             this.flags[kFLAGS.PC_PENDING_PREGGERS] = 1;
             //To part 2!
-            this.doNext(this.postBirthingEndChoices);
+            this.doNext(this, this.postBirthingEndChoices);
             return;
         }
         this.outputText("You wake up suddenly to strong pains and pressures in your gut. As your eyes shoot wide open, you look down to see your belly absurdly full and distended. You can feel movement underneath the skin, and watch as it is pushed out in many places, roiling and squirming in disturbing ways. The feelings you get from inside are just as disconcerting. You count not one, but many little things moving around inside you. There are so many, you can't keep track of them.\n\n", false);
@@ -4849,7 +4849,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(", but... I love you. The children, they're going to leave here now, and set up a new village somewhere else. But I... I want to stay here with you. Forever. Please, say yes.</i>\"\n\n", false);
         this.outputText("Do you accept her offer?", false);
         this.flags[kFLAGS.PC_TIMES_BIRTHED_AMILYKIDS]++;
-        this.simpleChoices("Accept", this.acceptAmilyAsYourFemaleWaifu, "StayFriends", this.declineButBeFriends, "ShootDown", this.notInterestedInDumbshitMouseBitches, "", undefined, "", undefined);
+        this.simpleChoices(this, "Accept", this.acceptAmilyAsYourFemaleWaifu, "StayFriends", this.declineButBeFriends, "ShootDown", this.notInterestedInDumbshitMouseBitches, "", undefined, "", undefined);
     }
 
     //[=Accept=]
@@ -4869,7 +4869,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.AMILY_NIPPLE_LENGTH] = .3;
         this.flags[kFLAGS.AMILY_HIP_RATING] = 6;
         this.flags[kFLAGS.AMILY_ASS_SIZE] = 6;
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     //[=Stay Friends=]
@@ -4880,7 +4880,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("Amily doesn't look entirely happy, but you assure her that you will keep coming back to see her. And when you tease at the possibility of a few more litters in your respective futures, stroking her penis through her tattered pants, she blushes but agrees to go.\n\n", false);
         //(Amily returns to the Ruined Village; this scene will repeat the next time the player gives birth to a litter of Amily's children)
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
     //Shoot the bitch down!
     //[=Not Interested=]
@@ -4892,7 +4892,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("Amily reels, heartstruck, her expression making it clear that her heart has shattered, tears rolling down her face. \"<i>I...I didn't know that was the way you felt about me. F-Fine, if that's how it is...</i>\" She bursts into sobs and runs away; you know she'll never come back.\n\n", false);
         //Disable village encounters, go!
         this.flags[kFLAGS.AMILY_VILLAGE_ENCOUNTERS_DISABLED] = 1;
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     //Gender Modified:
@@ -4926,7 +4926,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 else {
                     this.outputText("Amily looks quite upset, and then her expression changes to one of resolve. \"<i>I won't pretend to know how this happened, or to understand why you would do this voluntarily, if that was the case, but you mean too much to me to let you go over something like this.</i>\" She seizes hold of your hand, fiercely, and starts determinedly pulling you along. \"<i>Come with me!</i>\" She orders.", false);
                     //(Amily Yuri sex scene plays.)
-                    this.doNext(this.girlyGirlMouseSex);
+                    this.doNext(this, this.girlyGirlMouseSex);
                     return;
                 }
             }
@@ -4995,7 +4995,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     //mark as agreed to preg-quest!
                     this.flags[kFLAGS.AMILY_OFFER_ACCEPTED] = 1;
                     //(Play High Affection Male sex scene.)
-                    this.doNext(this.amilySexHappens);
+                    this.doNext(this, this.amilySexHappens);
                     return;
                 }
             }
@@ -5065,8 +5065,8 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     this.flags[kFLAGS.AMILY_OFFER_ACCEPTED] = 1;
                     //(Use the Remeeting scene options.)
                     if (this.player.lust >= 33) sex = this.sexWithAmily;
-                    if (sex != undefined) this.simpleChoices("Sex", sex, "Talk", this.talkToAmily, "Both", this.talkThenSexWithAmily, "", undefined, "", undefined);
-                    else this.simpleChoices("", undefined, "Talk", this.talkToAmily, "", undefined, "", undefined, "", undefined);
+                    if (sex != undefined) this.simpleChoices(this, "Sex", sex, "Talk", this.talkToAmily, "Both", this.talkThenSexWithAmily, "", undefined, "", undefined);
+                    else this.simpleChoices(this, "", undefined, "Talk", this.talkToAmily, "", undefined, "", undefined, "", undefined);
                     return;
                 }
                 //High Affection:
@@ -5078,8 +5078,8 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     this.flags[kFLAGS.AMILY_OFFER_ACCEPTED] = 1;
                     //(Use the Remeeting scene options.)
                     if (this.player.lust >= 33) sex = this.sexWithAmily;
-                    if (sex != undefined) this.simpleChoices("Sex", sex, "Talk", this.talkToAmily, "Both", this.talkThenSexWithAmily, "", undefined, "", undefined);
-                    else this.simpleChoices("", undefined, "Talk", this.talkToAmily, "", undefined, "", undefined, "", undefined);
+                    if (sex != undefined) this.simpleChoices(this, "Sex", sex, "Talk", this.talkToAmily, "Both", this.talkThenSexWithAmily, "", undefined, "", undefined);
+                    else this.simpleChoices(this, "", undefined, "Talk", this.talkToAmily, "", undefined, "", undefined, "", undefined);
                     return;
                 }
             }
@@ -5090,7 +5090,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     this.outputText("\"<i>Well, I guess it's nice to see another woman around... though I could have used you as all male. So, do you want to talk?</i>\" Amily asks.\n\n", false);
                     //(Amily gains a small amount of Affection, begin the Female variant of Amily's quest.)
                     this.flags[kFLAGS.AMILY_AFFECTION] += 2;
-                    this.doNext(this.talkToAmily);
+                    this.doNext(this, this.talkToAmily);
                     return;
                 }
                 //Medium Affection:
@@ -5158,7 +5158,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 this.dynStats("lus", 25 + this.player.sens / 10);
             }
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //"Why Not Herms?" (Req medium 'like')
     private whyNotHerms(): void {
@@ -5187,7 +5187,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\"<i>But it's unnatural!</i>\" She barks... well, squeaks indignantly, anyway. \"<i>Women with cocks, men with cunts - before those fucking demons, you never saw creatures like that! They're not normal! I mean, you don't seem to be a bad person, but I could never have sex with someone like that!</i>\"\n\n", false);
 
         this.outputText("At that, she turns and runs off, quickly vanishing into the rubble. You choose not to pursue; it seems she's clearly not in the mood to talk about it.\n\n", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
         this.flags[kFLAGS.AMILY_HERM_QUEST]++;
     }
 
@@ -5206,7 +5206,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         //doYesNo(beAmilysDadAsAHerm,fuckNoYouWontBeAmilysHermDaddy);
         var noFurry = undefined;
         if (this.flags[kFLAGS.AMILY_NOT_FURRY] == 0) noFurry = this.amilyNoFur;
-        this.simpleChoices("Yes", this.beAmilysDadAsAHerm, "No", this.fuckNoYouWontBeAmilysHermDaddy, "NoFurry", noFurry, "", undefined, "", undefined);
+        this.simpleChoices(this, "Yes", this.beAmilysDadAsAHerm, "No", this.fuckNoYouWontBeAmilysHermDaddy, "NoFurry", noFurry, "", undefined, "", undefined);
     }
 
     //[=Yes=]
@@ -5216,7 +5216,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.AMILY_HERM_QUEST] = 2;
         this.outputText("You tell her that you'll forgive her, and you will help her breed the " + ((this.flags[kFLAGS.AMILY_NOT_FURRY] == 0) ? "free mousemorphs that she wants so badly. She looks a bit confused by you using the term 'mouse-morphs', but otherwise seems happy." : "") + " \"<i>Wonderful! Come with me!</i>\" She says, grabbing your hand and pulling you down the street.\n\n", false);
         //(Play out "First Sex" scene, with whatever tweaks are needed to account for the PC's hermaphroditic nature.)
-        this.doNext(this.amilySexHappens);
+        this.doNext(this, this.amilySexHappens);
     }
     //[=No=]
     private fuckNoYouWontBeAmilysHermDaddy(): void {
@@ -5228,7 +5228,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("Looking deeply sad, she turns and walks away, vanishing into the urban wilderness in that way only she can. Instinctively, you realize that you will never see her again.", false);
         this.flags[kFLAGS.AMILY_VILLAGE_ENCOUNTERS_DISABLED] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Conversation: Efficiency
@@ -5257,7 +5257,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.AMILY_WANG_GIRTH] = 1;
         this.player.consumeItem(this.consumables.P_DRAFT);
         //[Herm Amily on Female PC, First Time, scene plays]
-        this.doNext(this.hermilyOnFemalePC);
+        this.doNext(this, this.hermilyOnFemalePC);
     }
 
     //ENHANCED CAMP FOLLOWER SHIT
@@ -5394,7 +5394,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
             this.flags[kFLAGS.AMILY_ALLOWS_FERTILITY] = 1;
         }
-        this.doNext(this.amilyFollowerEncounter);
+        this.doNext(this, this.amilyFollowerEncounter);
     }
 
     //[Revised Corrupt Meeting]
@@ -5451,7 +5451,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             else this.outputText("You think about some of the more interesting potions you found while exploring; perhaps you could use some of them...", false);
         }
         this.dynStats("lus", 25);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
         //FLAG THAT THIS SHIT WENT DOWN
         this.flags[kFLAGS.AMILY_CORRUPT_FLIPOUT] = 1;
     }
@@ -5472,13 +5472,13 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             //(if PC doesn't have the required items)
             if (!(this.player.hasItem(this.consumables.L_DRAFT) || this.player.hasItem(this.consumables.F_DRAFT)) || !this.player.hasItem(this.consumables.GOB_ALE)) {
                 this.outputText("You think about going into the Ruined Village, but you don't have the ingredients to create more of Amily's medicine. You return to your camp.", false);
-                this.doNext(this.camp.returnToCampUseOneHour);
+                this.doNext(this, this.camp.returnToCampUseOneHour);
                 return;
             }
             //(if PC is genderless and has the ingredients.)
             else if (this.player.gender == 0) {
                 this.outputText("You think about going into the Ruined Village, but without a cock or a pussy you can't complete the mixture. You return to your camp.", false);
-                this.doNext(this.camp.returnToCampUseOneHour);
+                this.doNext(this, this.camp.returnToCampUseOneHour);
                 return;
             }
             //(else)
@@ -5517,13 +5517,13 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             //(if PC doesn't have the required items and has >= 25 Corruption)
             if (!(this.player.hasItem(this.consumables.L_DRAFT) || this.player.hasItem(this.consumables.F_DRAFT)) || !this.player.hasItem(this.consumables.GOB_ALE)) {
                 this.outputText("You think about going into the Ruined Village, but decide it's best to wait until you have a plan underway (maybe some lust draft and a goblin ale to get the ball rolling... you return to your camp.", false);
-                this.doNext(this.camp.returnToCampUseOneHour);
+                this.doNext(this, this.camp.returnToCampUseOneHour);
                 return;
             }
             //(else if the PC is genderless)
             else if (this.player.gender == 0) {
                 this.outputText("You think about going into the Ruined Village, but decide to turn back; right now, you just don't have the proper 'parts' to get the job done, and so you return to your camp.\n\n", false);
-                this.doNext(this.camp.returnToCampUseOneHour);
+                this.doNext(this, this.camp.returnToCampUseOneHour);
                 return;
             }
             //(else)
@@ -5565,7 +5565,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             }
         }
         this.player.orgasm();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private sendCorruptCuntToFarm(): void {
@@ -5581,7 +5581,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\nShe will make a hard worker for Whitney, you think, but you doubt she will be much use protection wise.");
 
         this.flags[kFLAGS.FOLLOWER_AT_FARM_AMILY] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private backToCamp(): void {
@@ -5594,7 +5594,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.flags[kFLAGS.FOLLOWER_AT_FARM_AMILY] = 0;
 
-        this.doNext(kGAMECLASS.farm.farmCorruption.rootScene);
+        this.doNext(this, kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
     private harvestMilk(): void {
@@ -5610,7 +5610,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
         if (this.flags[kFLAGS.FARM_UPGRADES_REFINERY] == 1) this.flags[kFLAGS.FOLLOWER_PRODUCTION_AMILY] = 1;
 
-        this.doNext(kGAMECLASS.farm.farmCorruption.rootScene);
+        this.doNext(this, kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
     private stopHarvestingMilk(): void {
@@ -5623,7 +5623,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.flags[kFLAGS.FOLLOWER_PRODUCTION_AMILY] = 0;
 
-        this.doNext(kGAMECLASS.farm.farmCorruption.rootScene);
+        this.doNext(this, kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
     private talkWithCORRUPTCUNT(sexAfter: boolean = false): void {
@@ -5645,8 +5645,8 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             //(If player has no main item:)
             if (this.player.itemSlot1.quantity == 0) {
                 this.outputText("You tell her that you'll call for her, if you ever need her knowledge.\n\n", false);
-                if (sexAfter) this.doNext(this.amilySexHappens);
-                else this.doNext(this.camp.returnToCampUseOneHour);
+                if (sexAfter) this.doNext(this, this.amilySexHappens);
+                else this.doNext(this, this.camp.returnToCampUseOneHour);
                 return;
             }
             //(If player has an item:)
@@ -5930,7 +5930,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
             this.outputText("You chuckle a little and tell her you'll think about it.  As you leave, she begins to masturbate, no doubt fantasizing about being used by a tentacle beast.");
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -5949,23 +5949,23 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     private chooseYourAmilyRape(): void {
         this.amilySprite();
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00170] == 0) {
-            this.doNext(this.rapeCorruptAmily1);
+            this.doNext(this, this.rapeCorruptAmily1);
         }
         //2nd rape scene
         else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00170] == 1) {
-            if (this.player.gender == 1) this.doNext(this.rapeCorruptAmily2Male);
-            else if (this.player.gender == 2) this.doNext(this.rapeCorruptAmily2Female);
-            else if (this.player.gender == 3) this.simpleChoices("MaleFocus", this.rapeCorruptAmily2Male, "FemaleFocus", this.rapeCorruptAmily2Female, "", undefined, "", undefined, "", undefined);
+            if (this.player.gender == 1) this.doNext(this, this.rapeCorruptAmily2Male);
+            else if (this.player.gender == 2) this.doNext(this, this.rapeCorruptAmily2Female);
+            else if (this.player.gender == 3) this.simpleChoices(this, "MaleFocus", this.rapeCorruptAmily2Male, "FemaleFocus", this.rapeCorruptAmily2Female, "", undefined, "", undefined, "", undefined);
         }
         //3nd rape scene
         else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00170] == 2) {
-            if (this.player.gender == 1) this.doNext(this.rapeCorruptAmily3Male);
-            else if (this.player.gender == 2) this.doNext(this.rapeCorruptAmily3Female);
-            else if (this.player.gender == 3) this.simpleChoices("MaleFocus", this.rapeCorruptAmily3Male, "FemaleFocus", this.rapeCorruptAmily3Female, "", undefined, "", undefined, "", undefined);
+            if (this.player.gender == 1) this.doNext(this, this.rapeCorruptAmily3Male);
+            else if (this.player.gender == 2) this.doNext(this, this.rapeCorruptAmily3Female);
+            else if (this.player.gender == 3) this.simpleChoices(this, "MaleFocus", this.rapeCorruptAmily3Male, "FemaleFocus", this.rapeCorruptAmily3Female, "", undefined, "", undefined, "", undefined);
         }
         //4nd rape scene
         else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00170] == 3) {
-            this.doNext(this.rapeCorruptAmily4Meeting);
+            this.doNext(this, this.rapeCorruptAmily4Meeting);
         }
     }
 
@@ -6006,12 +6006,12 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         //[(if herm)
         if (this.player.gender == 3) {
             this.outputText("Which part of you should Amily lick?", false);
-            this.simpleChoices("Cock", this.rapeCorruptAmily1Male, "Pussy", this.rapeCorruptAmily1Female, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "Cock", this.rapeCorruptAmily1Male, "Pussy", this.rapeCorruptAmily1Female, "", undefined, "", undefined, "", undefined);
         }
         //Cocks!
-        else if (this.player.gender == 1) this.doNext(this.rapeCorruptAmily1Male);
+        else if (this.player.gender == 1) this.doNext(this, this.rapeCorruptAmily1Male);
         //Cunts!
-        else this.doNext(this.rapeCorruptAmily1Female);
+        else this.doNext(this, this.rapeCorruptAmily1Female);
     }
     //[Male]
     private rapeCorruptAmily1Male(): void {
@@ -6033,7 +6033,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.orgasm();
         this.dynStats("lib", -2, "cor", 5);
         if (this.getGame().inCombat) this.cleanupAfterCombat();
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //[Female]
     private rapeCorruptAmily1Female(): void {
@@ -6071,7 +6071,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.orgasm();
         this.dynStats("lib", -2, "cor", 5);
         if (this.getGame().inCombat) this.cleanupAfterCombat();
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Raping Amily 2]
@@ -6173,7 +6173,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.orgasm();
 
         this.dynStats("lib", -2, "cor", 5);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Raping Amily 3]
@@ -6198,7 +6198,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("Satisfied for the moment, you leave the smiling mouse lying in a pool of cum and return to the camp.", false);
             this.player.orgasm();
             this.dynStats("cor", 2);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         //(else)
@@ -6254,7 +6254,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("Satisfied for the moment, you leave the smiling mouse lying in a pool of juices and return to the camp.", false);
             this.player.orgasm();
             this.dynStats("cor", 2);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         this.outputText("That was good, but now it's time to reward Amily for her efforts, besides you could really use a proper licking.\n\n", false);
@@ -6296,7 +6296,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.orgasm();
 
         this.dynStats("lib", -2, "cor", 5);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Raping Amily 4]
@@ -6307,7 +6307,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         //(if PC is genderless)
         if (this.player.gender == 0) {
             this.outputText("You would love to play with your mouse bitch, but you don't have the parts for that; so you return to the camp.", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         this.outputText("You enter the ruined village hoping to find your corrupted mouse cumbucket. It doesn't take long until you spot her; she's stroking her pussy and blowing a wood carved dildo, practicing like you told her to.\n\n", false);
@@ -6320,10 +6320,10 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.gender == 3) {
             this.outputText("Which part should you use to finish off the mousette?", false);
             //[Cock] [Pussy]
-            this.simpleChoices("Cock", this.rapeCorruptAmily4Male, "Pussy", this.rapeCorruptAmily4Female, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "Cock", this.rapeCorruptAmily4Male, "Pussy", this.rapeCorruptAmily4Female, "", undefined, "", undefined, "", undefined);
         }
-        else if (this.player.gender == 2) this.doNext(this.rapeCorruptAmily4Female);
-        else this.doNext(this.rapeCorruptAmily4Male);
+        else if (this.player.gender == 2) this.doNext(this, this.rapeCorruptAmily4Female);
+        else this.doNext(this, this.rapeCorruptAmily4Male);
     }
 
     //[Male]
@@ -6373,7 +6373,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("You return to the camp.", false);
             this.player.orgasm();
             this.dynStats("cor", 3);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         this.outputText("You push her back and withdraw, not yet satisfied. <b>A familiar power gathers inside you, and you decide to tap into it.</b>\n\n", false);
@@ -6450,7 +6450,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("You feel like you should continue, but are too weak to do so... \"<i>Go and keep practicing, I'll come to feed you later,</i>\" you tell her.  Amily smiles, licks her lips and gives your pussy a parting kiss before running away to one of her hideouts.\n\n", false);
 
             this.outputText("You return to the camp.", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             this.player.orgasm();
             this.dynStats("cor", 3);
             return;
@@ -6522,7 +6522,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         else this.flags[kFLAGS.MARBLE_OR_AMILY_FIRST_FOR_FREAKOUT] = 2;
         //Disable amily encounters in the village!
         this.flags[kFLAGS.AMILY_VILLAGE_ENCOUNTERS_DISABLED] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -6573,7 +6573,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         }
         else {
             this.outputText("You search for Amily high and low, but can't find a single trace of her. Frustrated, you return to the camp.  Maybe if you were smarter or faster you could find her.", false);
-            this.doNext(this.camp.returnToCampUseTwoHours);
+            this.doNext(this, this.camp.returnToCampUseTwoHours);
         }
     }
 
@@ -6584,7 +6584,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         //(if PC is genderless)
         if (this.player.gender == 0) {
             this.outputText("You think about going into the ruined village, but playing with Amily is not going to be possible if you don't have the parts for it... You return to your camp.", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
         //(else)
         else {
@@ -6612,7 +6612,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText("Amily shakes her head and yells, \"<i>No! I can't!</i>\" before darting off.\n\n", false);
 
                 this.outputText("You laugh and put the bottle away, then return to your camp.\n\n(Not corrupt enough...)", false);
-                this.doNext(this.camp.returnToCampUseOneHour);
+                this.doNext(this, this.camp.returnToCampUseOneHour);
                 return;
             }
             this.outputText("You begin stripping off your " + this.player.armorName + " and show her your ", false);
@@ -6646,7 +6646,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         //(if PC is genderless)
         if (this.player.gender == 0) {
             this.outputText("You think about going into the ruined village, but playing with Amily is not going to be possible if you don't have the parts for it... You return to your camp.", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         this.amilySprite();
@@ -6686,7 +6686,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.amilySprite();
         this.outputText("Amily approaches you, looking concerned.  \"<i>Darling... I don't know what's been going on, but you need to start taking better care of yourself.  I can smell the corruption taking root in you - if you don't stop, you'll soon start acting like any other demon.</i>\"\n\n", false);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00173] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Farewell Note:
@@ -6743,7 +6743,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("There's a long pause while Amily digests your implication.  \"<i>You want me to... change?</i>\" she asks quietly.  \"<i>Would that... make you want to mate with me?</i>\"  You can't make any promises, but it would definitely change your considerations, you explain.\n\n", false);
         this.outputText("After another long silence, she sighs.  \"<i>I don't know.  What would my family say if I just... went and made myself a completely different person, all for the sake of a human?</i>\"  You slowly move to her and lay a hand on her shoulder, forcing her to look once more into your eyes.  It's not the fact that she won't be a mouse, you insist.  It's the fact that she's moving on for the sake of her race.  She manages a little smile at that, her expression brightening just a bit.  \"<i>I'll think about it,</i>\" she finally decides.  \"<i>If you can find some non-demonic reagents, perhaps we can give it a try.  If anything bad happens, though,</i>\" she warns, wagging a finger at you threateningly.  She backs off and stands awkwardly for a second.\n\n", false);
         this.outputText("\"<i>Well, uh... bye,</i>\" Amily concludes, whirling around and walking away.  You can't be sure, but it seems like she's exaggerating the sway of her hips a bit.  You don't think much of it, heading back toward camp and beginning to formulate a concoction to de-mouse your potential breeding partner.  Perhaps... a <b>golden seed</b> for a human face, a <b>black egg</b> to get rid of the fur, and some <b>purified succubus milk</b> to round things off.  You make a mental note to remember those ingredients, for they won't show up again and you'd feel positively silly if you somehow completely forgot them.\n\n", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     // Check if we have all the shit we need
     private amilyCanHaveTFNow(): boolean {
@@ -6777,7 +6777,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("A cry brings your attention from the hair-pile back up to her face.  As if by magic, her rodent snout simply recedes back into her face, the nose reforming into a more human model.  She gently reaches up and brushes a fingertip across her new lips, eyes glazing over as tears begin to form.  \"<i>So... different,</i>\" she whispers as the transformation continues.  You move to her and wrap her in a warm, comforting hug, and after a moment's pause, she wraps her arms around you as well.\n\n", false);
         this.outputText("Finally, the process comes to a close.  You break from each other and stand at arm's length, both of you studying the changes to her previously-animalistic self.  Her auburn-colored ears and bare tail remain unchanged, but other than that, Amily's completely human.  Though a bit conflicted, Amily seems happy enough with her decision.  \"<i>Well, I guess that's all there is to it,</i>\" she says, scratching her newly bare cheek idly.  \"<i>I'll let you think for a bit... see you later.</i>\"\n\n", false);
         this.outputText("She stalks off into the ruins once more, humming a little tune as she goes.  You note a little more spring in her step, now that hope is restored in repopulating her race.\n\n", false);
-        this.doNext(this.camp.returnToCampUseOneHour); // To camp
+        this.doNext(this, this.camp.returnToCampUseOneHour); // To camp
     }
 
     // NOTE: Not sure how this ties in.
@@ -6794,7 +6794,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.flags[kFLAGS.AMILY_OFFERED_DEFURRY] <= 0) this.flags[kFLAGS.AMILY_OFFERED_DEFURRY] = 1;
         if (!this.amilyCanHaveTFNow()) {
             this.outputText("Unfortunately, you can't do such a thing until you have acquired the necessary magical prerequisites.  In simple terms, you need a <b>golden seed</b> for a human face, a <b>black egg</b> to get rid of the fur, and some <b>purified succubus milk</b> to round things off.", true);
-            this.doNext(this.amilyFollowerEncounter);
+            this.doNext(this, this.amilyFollowerEncounter);
             return;
         }
         //EAT ZE ITEMS!
@@ -6833,7 +6833,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.AMILY_NOT_FURRY] = 1;
         this.flags[kFLAGS.AMILY_OFFERED_DEFURRY] = 2;
         this.amilySprite();
-        this.doNext(this.amilyFollowerEncounter);
+        this.doNext(this, this.amilyFollowerEncounter);
     }
     //Amily/Urta Interaction
     //Must have Pure Amily as follower
@@ -6846,7 +6846,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("Sitting Amily down, you ask her what she'd think about taking a \"<i>little trip</i>\" with you into town.\n\n", false);
         if (this.pregnancy.isPregnant) {
             this.outputText("\"<i>Perhaps once I'm no longer pregnant.  I wouldn't want to hurt the little ones,</i>\" Amily answers.");
-            this.doNext(this.amilyFollowerEncounter);
+            this.doNext(this, this.amilyFollowerEncounter);
             return;
         }
         this.outputText("\"<i>A-A trip?</i>\" the little mouse-morph stutters, surprised at your sudden invitation.  \"<i>Well, I haven't really been out much since we, you know...</i>\" She suddenly brightens. \"<i>Yeah, why not?  Could be fun!  I've never been to Tel'Adre, though.  What's it like?</i>\" You take Amily's hand in yours and start to tell her all about the strange, faraway city as you prepare for your \"<i>date.</i>\"  When she's ready, the two of you head out toward the desert.\n\n", false);
@@ -6882,7 +6882,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("Well, this could be interesting.  If you get both the girls drunk, it might be easy (or inevitable) for something sexual to happen.  Or, you could take Amily home right now and make sure nothing untoward happens to either of your lovers.", false);
         //(Display Options: [Drink!] [Leave])
-        this.simpleChoices("Drink", this.liqueurUpTheWaifus, "", undefined, "", undefined, "", undefined, "Leave", this.amilyXUrtaRunAWAY);
+        this.simpleChoices(this, "Drink", this.liqueurUpTheWaifus, "", undefined, "", undefined, "", undefined, "Leave", this.amilyXUrtaRunAWAY);
     }
 
     //Amily/Urta -- LEAVE
@@ -6891,7 +6891,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You watch Urta take a nice long drink from the proffered bottle, but before she gets well and truly smashed, you politely excuse yourself and, helping an inebriated Amily to her feet, exit the Wet Bitch.  The two of you make your way back to camp and, putting the drunken mouse-girl to bed, you give her a kiss on the cheek and soon fall asleep.", false);
         //Disable threesomes between them forever.
         this.flags[kFLAGS.AMILY_VISITING_URTA] = 3;
-        this.doNext(this.camp.returnToCampUseFourHours);
+        this.doNext(this, this.camp.returnToCampUseFourHours);
     }
 
     //Amily/Urta -- DRINK!
@@ -6925,10 +6925,10 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         else this.outputText("over the mouse's skin ", false);
         this.outputText("and Amily wrapping her lithe little tail around Urta's massive endowment.  You strip off your " + this.player.armorName + " and, looming over the girls, decide on how you want to go about this.", false);
         //(Display Appropriate Options: [Use Cock] [Use Vag])
-        if (this.player.gender == 1) this.simpleChoices("Use Cock", this.threesomeAmilUrtaCAWKS, "", undefined, "", undefined, "", undefined, "", undefined);
-        if (this.player.gender == 2) this.simpleChoices("", undefined, "Use Vagina", this.urtaXAmilyCuntPussyVagSQUICK, "", undefined, "", undefined, "", undefined);
-        if (this.player.gender == 3) this.simpleChoices("Use Cock", this.threesomeAmilUrtaCAWKS, "Use Vagina", this.urtaXAmilyCuntPussyVagSQUICK, "", undefined, "", undefined, "", undefined);
-        if (this.player.gender == 0) this.simpleChoices("Nevermind", this.camp.returnToCampUseOneHour, "", undefined, "", undefined, "", undefined, "", undefined);
+        if (this.player.gender == 1) this.simpleChoices(this, "Use Cock", this.threesomeAmilUrtaCAWKS, "", undefined, "", undefined, "", undefined, "", undefined);
+        if (this.player.gender == 2) this.simpleChoices(this, "", undefined, "Use Vagina", this.urtaXAmilyCuntPussyVagSQUICK, "", undefined, "", undefined, "", undefined);
+        if (this.player.gender == 3) this.simpleChoices(this, "Use Cock", this.threesomeAmilUrtaCAWKS, "Use Vagina", this.urtaXAmilyCuntPussyVagSQUICK, "", undefined, "", undefined, "", undefined);
+        if (this.player.gender == 0) this.simpleChoices(this, "Nevermind", this.camp.returnToCampUseOneHour, "", undefined, "", undefined, "", undefined, "", undefined);
     }
 
     //Amily/Urta -- Use Cock
@@ -6972,7 +6972,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.orgasm();
         this.dynStats("sen", -2);
 
-        this.doNext(this.urtaXAmilyAfterMurrrath);
+        this.doNext(this, this.urtaXAmilyAfterMurrrath);
     }
     //Urta/Amily -- [Use Vag]
     public urtaXAmilyCuntPussyVagSQUICK(): void {
@@ -7000,7 +7000,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("sen", -2);
         this.outputText("You couldn't agree more.", false);
 
-        this.doNext(this.urtaXAmilyAfterMurrrath);
+        this.doNext(this, this.urtaXAmilyAfterMurrrath);
     }
     //Urta/Amily -- Parting (First & Repeat)
     private urtaXAmilyAfterMurrrath(): void {
@@ -7017,7 +7017,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("\n\n(<b>Urta unlocked in Amily's sex menu!</b>)", false);
             this.flags[kFLAGS.AMILY_VISITING_URTA] = 4;
         }
-        this.doNext(this.camp.returnToCampUseFourHours);
+        this.doNext(this, this.camp.returnToCampUseFourHours);
     }
     public pureAmilyPutsItInYourRectumDamnNearKilledEm(): void {
         this.outputText("", true);
@@ -7102,7 +7102,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.AMILY_TIMES_BUTTFUCKED_PC]++;
         this.player.orgasm();
         this.dynStats("sen", 1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private fuckPureAmilysHeiny(): void {
@@ -7180,7 +7180,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.orgasm();
         this.dynStats("sen", -2);
         this.flags[kFLAGS.TIMES_FUCKED_AMILYBUTT]++;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Scene 2: Amily Teaches Grown Corrupt Mice How To Sex (Z)
@@ -7204,13 +7204,13 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.menu();
         if (this.player.hasCock()) {
             if (this.player.cockThatFits(61) >= 0) {
-                this.addButton(0, "Fuck Cunts", this.fuckIncestCunts, false);
-                this.addButton(1, "Fuck Em All", this.fuckIncestCunts, true);
+                this.addButton(this, 0, "Fuck Cunts", this.fuckIncestCunts, false);
+                this.addButton(this, 1, "Fuck Em All", this.fuckIncestCunts, true);
             }
             else this.outputText("[pg]Sadly, you're too big to fuck any of them.");
         }
         else this.outputText("[pg]If only you had a cock, you could fuck them all.");
-        this.addButton(4, "Leave", this.playerMenu);
+        this.addButton(this, 4, "Leave", this.playerMenu);
         //[Get doubleteamed {Vag req}] [Fuck Cunts] [Fuck 'Em All][Skedaddle]
     }
     //Fuck Cunts/All (extra pg or two) (Z)
@@ -7271,7 +7271,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.amilyPreggoChance();
         this.player.orgasm();
         this.dynStats("lib", -1, "sen", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //First talk: Finished (Bagpuss)(Zedited, but no followups are ready yet)
@@ -7320,7 +7320,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.pregnancy.isPregnant) this.outputText("  \"<i>But try to remember that I'm already carrying.  I don't want it getting too cramped in there; so make sure you don't miss, alright?</i>\"");
         this.outputText("\n\nYour try to clear your mind as the pleasure starts to overwhelm you, ovipositor extending fully whilst you attempt to focus and decide how to proceed.");
         //[Anal]
-        this.doNext(this.layEggsInAmilysCorruptedHole);
+        this.doNext(this, this.layEggsInAmilysCorruptedHole);
     }
 
     private layEggsInAmilysCorruptedHole(): void {
@@ -7411,14 +7411,14 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.flags[kFLAGS.AMILY_OVIPOSITED_COUNT] = this.player.eggs();
         }
         this.player.dumpEggs();
-        this.doNext(this.layEggsInAmilysButtPt2);
+        this.doNext(this, this.layEggsInAmilysButtPt2);
 
     }
 
     private layEggsInAmilysButtPt2(): void {
         this.clearOutput();
         this.outputText("You wake up almost an hour later, Amily still dozing on top of you.  Gently picking her up, you take her to her nest and lay the girl down in the soft bedding, smiling at the bulge in her stomach.  It takes you a little while to clean yourself off and redress, though you can't help but feel that getting a little bit of slime on your [armor] was a price worth paying.");
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Amily Laying
@@ -7481,7 +7481,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("\n\nAmily saunters up and grabs your hand, leading you towards the stream while her " + this.amilyButt() + " sways in your direction.  Amusingly, her tail is poking through a hole in the rear triangle of her sexy black bikini bottoms.");
         }
         this.flags[kFLAGS.AMILY_TIMES_SWIMFUCKED]++;
-        this.doNext(this.amilySwimFuckPartII);
+        this.doNext(this, this.amilySwimFuckPartII);
     }
 
     //Go 'Swimming'
@@ -7542,7 +7542,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.orgasm();
         this.dynStats("sen", -1);
         this.amilyPreggoChance();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -7559,8 +7559,8 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.AMILY_ALLOWS_FERTILITY] = 1;
         //[Norma] [Try The Potion]
         this.menu();
-        this.addButton(0, "Normal", this.fuckTheMouseBitch);
-        this.addButton(1, "Try Potion", this.drinkThePotion);
+        this.addButton(this, 0, "Normal", this.fuckTheMouseBitch);
+        this.addButton(this, 1, "Try Potion", this.drinkThePotion);
     }
 
     //Try The Potion
@@ -7621,7 +7621,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         }
         this.dynStats("lib", 1, "sen", 1, "lus=", 100, "resisted", false);
         this.menu();
-        this.addButton(0, "Next", this.izmaAmilyDrugThreeWaySex);
+        this.addButton(this, 0, "Next", this.izmaAmilyDrugThreeWaySex);
     }
 
     //Start Ze Fucking!
@@ -7706,7 +7706,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         }
         //[Next]
         this.menu();
-        this.addButton(0, "Next", this.izmaAmilyDrugThreeWaySex2);
+        this.addButton(this, 0, "Next", this.izmaAmilyDrugThreeWaySex2);
     }
 
     private izmaAmilyDrugThreeWaySex2(): void {
@@ -7802,7 +7802,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(" already refilling, and you know that before long, you'll give Izma enough to keep her fed for a week.  It's hard to think with lightning bolts of pleasure exploding in your cock and a mouth stuffed full of cummy cunt, so you don't.  You let the scent of the mixed sexual juices and the feel of Izma's mouth take over, enjoying simple reciprocation until your next cum, one you barely remember aside from the blackout inducing ecstasy.");
         //[Next]
         this.menu();
-        this.addButton(0, "Next", this.izmaAmilyDrugThreeWaySex3);
+        this.addButton(this, 0, "Next", this.izmaAmilyDrugThreeWaySex3);
     }
 
     private izmaAmilyDrugThreeWaySex3(): void {
@@ -7824,7 +7824,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             }
             this.outputText(" definitely got pregnant.</b>)");
         }
-        this.doNext(this.camp.returnToCampUseFourHours);
+        this.doNext(this, this.camp.returnToCampUseFourHours);
     }
 
     //Amily Nurse RP
@@ -7850,14 +7850,14 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("\n\nA sultry voice purrs, \"<i>Ah, [name].  Come on in, it's time for your check-up.</i>\"");
             this.flags[kFLAGS.AMILY_CLOTHING] = "a naughty nurse's outfit";
             this.menu();
-            this.addButton(0, "Next", this.amilyNurseCheckupV2, false);
+            this.addButton(this, 0, "Next", this.amilyNurseCheckupV2, false);
         }
         //Repeat
         else {
             this.outputText("\"<i>You want another check-up?</i>\" Amily says.  \"<i>Well, okay.  Let me get the outfit!</i>\"  She turns, her tail smacking your [butt] as she runs behind some rocks to grab the skimpy white \"dress\", if it can be call that.  You wait with undisguised excitement, twiddling your thumbs to pass the time.");
             this.outputText("\n\nEventually, Amily's fair voice purrs out, \"<i>Time for your checkup, [name].  You must have quite the condition since you keep coming back.  Come on in...</i>\"");
             this.menu();
-            this.addButton(0, "Next", this.amilyNurseCheckupV2, true);
+            this.addButton(this, 0, "Next", this.amilyNurseCheckupV2, true);
         }
 
     }
@@ -7967,7 +7967,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.orgasm();
         this.dynStats("sen", -2);
         this.amilyPreggoChance();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 }
 

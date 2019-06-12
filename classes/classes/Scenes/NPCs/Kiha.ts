@@ -148,7 +148,7 @@ export class Kiha extends Monster {
             this.game.kihaFollower.sparWithFriendlyKihaLose();
         else if (pcCameWorms) {
             this.outputText("\n\nKiha seems visibly disturbed by your infection, enough that she turns to leave.");
-            this.doNext(this.game.endLustLoss);
+            this.doNext(this, this.game.endLustLoss);
         } else {
             this.game.kihaScene.kihaLossIntro();
         }

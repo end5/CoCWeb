@@ -136,7 +136,7 @@ export class CorruptedDrider extends AbstractSpiderMorph {
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
             this.outputText("\n\nThe drider licks her lips in anticipation...");
-            this.doNext(this.game.endLustLoss);
+            this.doNext(this, this.game.endLustLoss);
         } else {
             this.game.swamp.corruptedDriderScene.loseToDrider();
         }

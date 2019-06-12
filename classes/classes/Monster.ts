@@ -47,8 +47,8 @@ export class Monster extends Creature {
     protected statScreenRefresh(): void {
         this.game.statScreenRefresh();
     }
-    protected doNext(eventNo: any): void { //Now typesafe
-        this.game.doNext(eventNo);
+    protected doNext(thisObj: any, eventNo: any): void { //Now typesafe
+        this.game.doNext(thisObj, eventNo);
     }
     protected combatMiss(): boolean {
         return this.game.combatMiss();
@@ -810,7 +810,7 @@ export class Monster extends Creature {
         if (temp > this.player.gems) temp = this.player.gems;
         this.outputText("\n\nYou'll probably wake up in eight hours or so, missing " + temp + " gems.", false);
         this.player.gems -= temp;
-        this.game.doNext(this.game.camp.returnToCampUseEightHours);
+        this.game.doNext(this, this.game.camp.returnToCampUseEightHours);
     }
 
     /**

@@ -234,8 +234,8 @@ export class D3 extends BaseContent {
             this.outputText("\n\nDo you step inside, or wait until you’re better prepared?");
 
             this.menu();
-            this.addButton(0, "Enter", this.enterD3);
-            this.addButton(1, "Leave", this.camp.returnToCampUseOneHour);
+            this.addButton(this, 0, "Enter", this.enterD3);
+            this.addButton(this, 1, "Leave", this.camp.returnToCampUseOneHour);
 
             return true;
         }
@@ -261,34 +261,34 @@ export class D3 extends BaseContent {
     private generateRoomMenu(tRoom: room): void {
         if (tRoom.NorthExit != undefined && tRoom.NorthExit.length > 0) {
             if (tRoom.NorthExitCondition == undefined || tRoom.NorthExitCondition()) {
-                this.addButton(0, "North", this.move, tRoom.NorthExit);
+                this.addButton(this, 0, "North", this.move, tRoom.NorthExit);
             }
         }
 
         if (tRoom.EastExit != undefined && tRoom.EastExit.length > 0) {
             if (tRoom.EastExitCondition == undefined || tRoom.EastExitCondition()) {
-                this.addButton(1, "East", this.move, tRoom.EastExit);
+                this.addButton(this, 1, "East", this.move, tRoom.EastExit);
             }
         }
 
         if (tRoom.SouthExit != undefined && tRoom.SouthExit.length > 0) {
             if (tRoom.SouthExitCondition == undefined || tRoom.SouthExitCondition()) {
-                this.addButton(6, "South", this.move, tRoom.SouthExit);
+                this.addButton(this, 6, "South", this.move, tRoom.SouthExit);
             }
         }
 
         if (tRoom.WestExit != undefined && tRoom.WestExit.length > 0) {
             if (tRoom.WestExitCondition == undefined || tRoom.WestExitCondition()) {
-                this.addButton(5, "West", this.move, tRoom.WestExit);
+                this.addButton(this, 5, "West", this.move, tRoom.WestExit);
             }
         }
 
         if (tRoom.RoomName == "entrance") {
-            this.addButton(5, "Exit", this.exitD3);
+            this.addButton(this, 5, "Exit", this.exitD3);
         }
 
-        this.addButton(8, "Items", this.inventory.inventoryMenu);
-        this.addButton(9, "Masturbate", this.getGame().masturbation.masturbateGo);
+        this.addButton(this, 8, "Items", this.inventory.inventoryMenu);
+        this.addButton(this, 9, "Masturbate", this.getGame().masturbation.masturbateGo);
     }
 
     public move(roomName: string): void {
@@ -349,7 +349,7 @@ export class D3 extends BaseContent {
             if (this.flags[kFLAGS.D3_ENTERED_MAGPIEHALL] == 1) this.outputText("  Your spirits rise. They look like they may very well be made of the same material as the screen in the basilisk hall.");
             if (this.player.inte >= 70 || this.player.sens >= 70) this.outputText("  Disquiet edges down your spine. Something about this place doesn’t feel right. The room seems faded at the corners, as if it’s not quite there.");
 
-            this.addButton(2, "Glasses", this.doppleganger.getDemGlasses);
+            this.addButton(this, 2, "Glasses", this.doppleganger.getDemGlasses);
         }
 
         return false;
@@ -377,8 +377,8 @@ export class D3 extends BaseContent {
             }
 
             this.menu();
-            this.addButton(0, "Go!", this.jeanClaude.gogoFuckTheseBasilisks);
-            this.addButton(1, "Fall Back", this.fallbackFromMagpieHallS);
+            this.addButton(this, 0, "Go!", this.jeanClaude.gogoFuckTheseBasilisks);
+            this.addButton(this, 1, "Fall Back", this.fallbackFromMagpieHallS);
 
             return true;
         }
@@ -386,7 +386,7 @@ export class D3 extends BaseContent {
         this.outputText("You are back in the southern end of the Magpie Hall.  Without the bustle of activity below it is a gapingly empty and quiet place, the only sound the murmur of activity from elsewhere. There is a vast amount of collected junk below but it would take, well, an army of basilisks to sort through it to find anything worthwhile. You could check out the massive pile of eggs, though.");
 
         if (this.eggsAvailable() > 0) {
-            this.addButton(2, "Eggs", this.goToEggPile);
+            this.addButton(this, 2, "Eggs", this.goToEggPile);
         }
 
         return false;
@@ -422,14 +422,14 @@ export class D3 extends BaseContent {
 
         var flagNum: number = this.flags[kFLAGS.D3_EGGS_AVAILABLE];
 
-        if (!(flagNum & this.BLACK)) this.addButton(0, "Black", this.takeEgg, this.BLACK);
-        if (!(flagNum & this.BLUE)) this.addButton(1, "Blue", this.takeEgg, this.BLUE);
-        if (!(flagNum & this.WHITE)) this.addButton(2, "White", this.takeEgg, this.WHITE);
-        if (!(flagNum & this.PINK)) this.addButton(3, "Pink", this.takeEgg, this.PINK);
-        if (!(flagNum & this.BROWN)) this.addButton(4, "Brown", this.takeEgg, this.BROWN);
-        if (!(flagNum & this.PURPLE)) this.addButton(5, "Purple", this.takeEgg, this.PURPLE);
+        if (!(flagNum & this.BLACK)) this.addButton(this, 0, "Black", this.takeEgg, this.BLACK);
+        if (!(flagNum & this.BLUE)) this.addButton(this, 1, "Blue", this.takeEgg, this.BLUE);
+        if (!(flagNum & this.WHITE)) this.addButton(this, 2, "White", this.takeEgg, this.WHITE);
+        if (!(flagNum & this.PINK)) this.addButton(this, 3, "Pink", this.takeEgg, this.PINK);
+        if (!(flagNum & this.BROWN)) this.addButton(this, 4, "Brown", this.takeEgg, this.BROWN);
+        if (!(flagNum & this.PURPLE)) this.addButton(this, 5, "Purple", this.takeEgg, this.PURPLE);
 
-        this.addButton(9, "Back", this.resumeFromFight);
+        this.addButton(this, 9, "Back", this.resumeFromFight);
     }
 
     private takeEgg(eggMask: number): void {
@@ -459,7 +459,7 @@ export class D3 extends BaseContent {
         this.outputText("\n\nYou head back through the archway into the gloomy antechamber.");
 
         this.menu();
-        this.addButton(1, "Next", this.move, "antechamber");
+        this.addButton(this, 1, "Next", this.move, "antechamber");
     }
 
     private magpiehallnRoomFunc(): boolean {
@@ -468,8 +468,8 @@ export class D3 extends BaseContent {
 
             this.menu();
 
-            this.addButton(0, "Go!", this.jeanClaude.gogoFuckTheseBasilisksNorth);
-            this.addButton(1, "Stronghold", this.move, "tunnel2");
+            this.addButton(this, 0, "Go!", this.jeanClaude.gogoFuckTheseBasilisksNorth);
+            this.addButton(this, 1, "Stronghold", this.move, "tunnel2");
 
             return true;
         }
@@ -477,7 +477,7 @@ export class D3 extends BaseContent {
         this.outputText("You are back in the northern end of the Magpie Hall. Without the bustle of activity below it is a gapingly empty and quiet place, the only sound the murmur of activity from elsewhere. There is a vast amount of collected junk below but it would take, well, an army of basilisks to sort through it to find anything worthwhile. You could check out the massive pile of eggs, though.");
 
         if (this.eggsAvailable() > 0) {
-            this.addButton(2, "Eggs", this.goToEggPile);
+            this.addButton(this, 2, "Eggs", this.goToEggPile);
         }
 
         return false;
@@ -530,8 +530,8 @@ export class D3 extends BaseContent {
 
             //[Surrender] [Fight]
             this.menu();
-            this.addButton(0, "Fight", this.startCombatImmediate, new SuccubusGardener());
-            this.addButton(1, "Surrender", this.succubusGardener.surrenderToTheGardener);
+            this.addButton(this, 0, "Fight", this.startCombatImmediate, new SuccubusGardener());
+            this.addButton(this, 1, "Surrender", this.succubusGardener.surrenderToTheGardener);
 
             return true;
         }
@@ -606,7 +606,7 @@ export class D3 extends BaseContent {
             this.outputText("\n\nWait... what’s that?");
 
             this.menu();
-            this.addButton(0, "Next", this.livingStatue.encounter);
+            this.addButton(this, 0, "Next", this.livingStatue.encounter);
             return true;
         }
 

@@ -102,7 +102,7 @@ export class KihaFollower extends NPCAwareContent {
 
         this.outputText("You could warn Kiha of the approaching mob - or you could let them jump her and scamper away in the confusion, leaving Kiha to whatever horrible fate awaits her.  What do you do?", false);
         //(Display Options: [Warn Kiha] [Let Them])
-        this.simpleChoices("Warn Kiha", this.warnKihaOfHerImpendingDemise, "Let Them", this.letTheSpidersHaveTheirWayWithKiha, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Warn Kiha", this.warnKihaOfHerImpendingDemise, "Let Them", this.letTheSpidersHaveTheirWayWithKiha, "", undefined, "", undefined, "", undefined);
     }
 
     //Player Wins Against Kiha (Z)
@@ -121,7 +121,7 @@ export class KihaFollower extends NPCAwareContent {
 
         this.outputText("You could make like a baker and move your buns, but Gods knows what will happen to Kiha if you do.", false);
         //(Display Options: [Help Kiha] [Leave Her]
-        this.simpleChoices("Help Kiha", this.helpKihaAgainstSpoidahs, "Leave Her", this.leaveKihaToSpoidahHorde, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Help Kiha", this.helpKihaAgainstSpoidahs, "Leave Her", this.leaveKihaToSpoidahHorde, "", undefined, "", undefined, "", undefined);
     }
 
     //Warn Kiha (Z)
@@ -277,7 +277,7 @@ export class KihaFollower extends NPCAwareContent {
             this.outputText("[pg]To your surprise, Kiha slips an arm of her own around your waist, returning your affection for the first time.  You smile, and stroke her cheek, happy as the dragoness rests her head on your shoulder.", false);
             this.flags[kFLAGS.KIHA_TALK_STAGE]++;
             this.dynStats("cor", -1);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         else if (output) {
@@ -296,7 +296,7 @@ export class KihaFollower extends NPCAwareContent {
         var talk = undefined;
         if (this.flags[kFLAGS.KIHA_TALK_STAGE] < 6) talk = this.talkToFriendlyKiha;
         //(Display Options: [Talk] [Spar] [Hug] [Leave]
-        this.simpleChoices("Talk", talk, "Spar", this.sparWithKiha, "Hug", this.hugFriendWarmKiha, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+        this.simpleChoices(this, "Talk", talk, "Spar", this.sparWithKiha, "Hug", this.hugFriendWarmKiha, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
     }
     //Spar with Friendly Kiha - Intro (Z)
     private sparWithKiha(): void {
@@ -364,7 +364,7 @@ export class KihaFollower extends NPCAwareContent {
         this.outputText("[pg]The peaceful, companionable embrace only lasts for a few seconds before Kiha suddenly and violently pushes you away.  \"<i>What do you think you're doing, idiot!</i>\"  she shouts, and launches off into the air before you can respond.", false);
         this.outputText("[pg]You shake your head and head on back to camp.", false);
         this.kihaAffection(5);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //lose some corruption?
     //Talk to Friendly Kiha - First Time (Z)
@@ -405,7 +405,7 @@ export class KihaFollower extends NPCAwareContent {
         this.flags[kFLAGS.KIHA_TALK_STAGE]++;
         //lose some corruption
         this.dynStats("cor", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Kiha x salamander Threesome - Introduction (Z)
@@ -428,7 +428,7 @@ export class KihaFollower extends NPCAwareContent {
         this.outputText("[pg]You consider warning the dragoness, but too late!  The mysterious figure leaps from the brush and shoulder-slams into Kiha, throwing her right off you and into the mud.  Before you can even say a word to your new friend, she grabs you by the scruff of your neck and throws you to the ground behind her, putting herself between you and Kiha.", false);
         this.outputText("[pg]You could just lie there, but you're not sure how well you'd fare against two powerful warriors at once - you could end up dominated, at the very least.  You could instead try and get the jump on the fighters before they jump you... Or, you suppose you could get the fuck out while you have the chance.", false);
         //(Display Options: [Lie There] [Jump Them] [GTFO])
-        this.simpleChoices("Lie There", this.lieThere, "Jump Them", this.jumpDaBitches, "GTFO", this.GTFO, "", undefined, "", undefined);
+        this.simpleChoices(this, "Lie There", this.lieThere, "Jump Them", this.jumpDaBitches, "GTFO", this.GTFO, "", undefined, "", undefined);
     }
 
     //GTFO (Z)
@@ -438,7 +438,7 @@ export class KihaFollower extends NPCAwareContent {
         this.flags[kFLAGS.KIHA_AND_HEL_WHOOPIE] = -1;
         this.outputText("While Kiha and the mysterious swordsman are distracted, you pick yourself up out of the mud and high-tail it out and head back to camp.  Over your shoulder, you hear the sounds of battle raging.", false);
         //to what penalty?
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //Lie There
     private lieThere(): void {
@@ -497,7 +497,7 @@ export class KihaFollower extends NPCAwareContent {
         this.outputText("[pg]And here we almost had a beautiful moment going.  You sigh, wipe the mud off Hel's face enough to give her a little kiss, and head on back to camp.", false);
         this.outputText("[pg]Your [armorName] squelches wetly all the way, full of your cum as it is.", false);
         this.player.orgasm();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Jump Them
@@ -557,7 +557,7 @@ export class KihaFollower extends NPCAwareContent {
         this.outputText(".  You make a few final, weak thrusts, riding out your orgasm until Kiha and Hel have finally calmed down, and your own [cock] is only dribbling a weak trickle of seed up Kiha's ass.", false);
         this.outputText("[pg]Laughing weakly, exhausted by your efforts at dominating the two fiery redheads, you pull out of Kiha's rectum, watching as cum gushers out of her stretched bum.  You give her a little pat on the thigh before untangling yourself from the dragoness.  You stop by to give Hel and Kiha both a quick kiss on the lips before grabbing your gear and staggering off to camp, leaving the girls to sort themselves out in the murky swamp.", false);
         this.player.orgasm();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Warm Kiha Admittance
@@ -575,7 +575,7 @@ export class KihaFollower extends NPCAwareContent {
             this.outputText("Kiha lightly drops out of the trees in front of you, kicking up a small splash of fetid water as she comes to rest a few feet away.  She rests her axe over her shoulder nonchalantly and smiles as she says, \"<i>Did you come back to get your ass kicked?  You wouldn't be the first to throw fights so you could check me out while you're lying on the ground.</i>\"  Her tail swings around to playfully catch you on the " + this.buttDescript() + ", a hint of crimson spreading on her dark skin, matching the ruby hue of her shimmering scales.  Kiha strikes a battle-ready pose that looks a bit more lewd than normal as she asks, \"<i>So, you here to fight, or waste more time talking?</i>\"");
             this.outputText("[pg]Do you hug her, and potentially take things to the next level, or would you rather do something else?");
         }
-        this.simpleChoices("Talk", undefined, "Spar", this.sparWithKiha, "Hug", this.hugFriendWarmKiha, "LovinHug", this.lovinHugKiha, "Leave", this.camp.returnToCampUseOneHour);
+        this.simpleChoices(this, "Talk", undefined, "Spar", this.sparWithKiha, "Hug", this.hugFriendWarmKiha, "LovinHug", this.lovinHugKiha, "Leave", this.camp.returnToCampUseOneHour);
     }
     //Loving Hug
     private lovinHugKiha(): void {
@@ -613,9 +613,9 @@ export class KihaFollower extends NPCAwareContent {
         this.outputText("[pg]\"<i>Does getting dragons off really make you that light-headed?</i>\" Kiha asks.  She tackles you into her bed before you can answer.  Her attitude, while still fierce, reminds you more of a playful kitten than a threat.", false);
         //[Route to appropriate sex scene!]
         this.dynStats("lus=", 100);
-        if (this.player.hasCock()) this.doNext(this.lovingHugDickings);
-        else if (this.player.hasVagina()) this.doNext(this.lovingHugsGirlFuckSex);
-        else this.doNext(this.lovingHugsForRetards);
+        if (this.player.hasCock()) this.doNext(this, this.lovingHugDickings);
+        else if (this.player.hasVagina()) this.doNext(this, this.lovingHugsGirlFuckSex);
+        else this.doNext(this, this.lovingHugsForRetards);
     }
     //Loving Hug Continued: Dicks Ahoy!
     private lovingHugDickings(): void {
@@ -679,7 +679,7 @@ export class KihaFollower extends NPCAwareContent {
         this.outputText("\nKiha flies you back to get your armor.  The search takes a little while, but you eventually recover it.  She looks at you hesitantly before giving you a goodbye kiss.  \"<i>Don't get yourself killed out there.  I'd get bored without you messing everything up all the time.</i>\"", false);
         this.player.orgasm();
         this.dynStats("sen", -2);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //Loving Hugs 4 Girls
     private lovingHugsGirlFuckSex(): void {
@@ -700,7 +700,7 @@ export class KihaFollower extends NPCAwareContent {
         this.outputText("\nKiha flies you back to get your armor.  The search takes a little while, but you eventually recover it.  She looks at you hesitantly before giving you a goodbye kiss.  \"<i>Don't get yourself killed out there.  I'd get bored without you messing everything up all the time.</i>\"", false);
         this.player.orgasm();
         this.dynStats("sen", -2);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //Loving Hugs 4 Genderless Tards:
     private lovingHugsForRetards(): void {
@@ -724,7 +724,7 @@ export class KihaFollower extends NPCAwareContent {
         this.outputText("\nKiha flies you back to get your armor.  The search takes a little while, but you eventually recover it.  She looks at you hesitantly before giving you a goodbye kiss.  \"<i>Don't get yourself killed out there.  I'd get bored without you messing everything up all the time.</i>\"", false);
         this.player.orgasm();
         this.dynStats("sen", - 2);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //\"<i>Warm</i>\"/Lover Kiha Intro
@@ -744,13 +744,13 @@ export class KihaFollower extends NPCAwareContent {
                 leave = this.camp.campLoversMenu;
                 //choices("Hang Out",hangOutWithKiha,"Hug",hugFriendWarmKiha,"InviteCamp",campo,"Sex",kihaSexMenu,"Spar",sparWithKiha,"",0,"",0,"",0,"",0,"Leave",leave);
                 this.menu();
-                this.addButton(0, "Hang Out", this.hangOutWithKiha);
-                this.addButton(1, "Hug", this.hugFriendWarmKiha);
-                this.addButton(3, "Sex", this.kihaSexMenu);
-                this.addButton(4, "Spar", this.sparWithKiha);
-                if (this.flags[kFLAGS.KIHA_CAMP_WATCH] > 0) this.addButton(8, "Stop Guard", this.guardMyCampKiha);
-                else this.addButton(8, "Guard Camp", this.guardMyCampKiha);
-                this.addButton(9, "Leave", leave);
+                this.addButton(this, 0, "Hang Out", this.hangOutWithKiha);
+                this.addButton(this, 1, "Hug", this.hugFriendWarmKiha);
+                this.addButton(this, 3, "Sex", this.kihaSexMenu);
+                this.addButton(this, 4, "Spar", this.sparWithKiha);
+                if (this.flags[kFLAGS.KIHA_CAMP_WATCH] > 0) this.addButton(this, 8, "Stop Guard", this.guardMyCampKiha);
+                else this.addButton(this, 8, "Guard Camp", this.guardMyCampKiha);
+                this.addButton(this, 9, "Leave", leave);
                 return;
             }
             //[Proc on the normal chances of finding Kiha in the swamp]
@@ -768,7 +768,7 @@ export class KihaFollower extends NPCAwareContent {
         //   Biggus Dickus // Vaginal // Anal // 69+Tail // Tail Pegging // Item/Morph-specific scenes?
         //-[Invite to Camp] (If KihaAffection >= 200)
         //-[Leave])
-        this.choices("Hang Out", this.hangOutWithKiha, "Hug", this.hugFriendWarmKiha, "InviteCamp", campo, "Sex", this.kihaSexMenu, "Spar", this.sparWithKiha,
+        this.choices(this, "Hang Out", this.hangOutWithKiha, "Hug", this.hugFriendWarmKiha, "InviteCamp", campo, "Sex", this.kihaSexMenu, "Spar", this.sparWithKiha,
             "", undefined, "", undefined, "", undefined, "", undefined, "Leave", leave);
     }
 
@@ -809,7 +809,7 @@ export class KihaFollower extends NPCAwareContent {
             this.outputText("[pg]\"<i>W-well?  It's good... right?</i>\"");
             this.outputText("[pg]You give the stringy, yet juicy, meat a few experimental chews before giving your answer:");
             //[It's Good] [Blech]
-            this.simpleChoices("It's Good", this.itsGood, "Blech", this.blechKihaYourCooking, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "It's Good", this.itsGood, "Blech", this.blechKihaYourCooking, "", undefined, "", undefined, "", undefined);
             return;
         }
         //Hang Out 3
@@ -843,7 +843,7 @@ export class KihaFollower extends NPCAwareContent {
             this.outputText("[pg]Time seems meaningless in your draconic lover's embrace, yet eventually you know you must part - for the moment.  Giving her another long kiss, you pick yourself up from between Kiha's hefty bosom and, say your goodbyes.");
             this.outputText("[pg]Kiha gives you a wry smirk as you extricate yourself from your arms.  \"<i>I'll see you soon... Doofus.</i>\"");
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
         this.kihaAffection(5);
     }
 
@@ -871,7 +871,7 @@ export class KihaFollower extends NPCAwareContent {
         this.outputText("[pg]Frowning, she snatches the meat out of your hand and takes a big bite out of it.  You grin as her eyes water at the overwhelming juiciness and sweetness of the meat as you've prepared it.  You think you might just be the first person to ever cook just for her.  Still, though, when you ask her what she thinks, Kiha huffs and answers, \"<i>Well, it's alright... I guess.</i>\"");
         this.outputText("[pg]You roll your eyes and spend the next few minutes enjoying a delicious, quiet meal with your dragon lover.  When you've finished, you ruffle Kiha's hair, tell her to try and take better care of herself - or at least make herself a proper meal sometime - and head off back to camp.  You can almost hear her fuming behind you as you walk.");
         this.kihaAffection(- 10);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -937,7 +937,7 @@ export class KihaFollower extends NPCAwareContent {
         }
         //Req Vag
         if (this.player.hasVagina()) sixtyNine = this.kihaGirlGirlSex;
-        this.choices("Anal", anal, "Dominate", dom, "FuckVag", fuckVag, "Get HJ", dickWorship, "Girl69", sixtyNine, "GroPlusTits", gro, "Give I.Drft", incu, "LustyDicking", horse, "TentacleFuck", tent, (allowBack ? "Back" : "Leave"), (allowBack ? this.kihaScene.encounterKiha : this.camp.returnToCampUseOneHour));
+        this.choices(this, "Anal", anal, "Dominate", dom, "FuckVag", fuckVag, "Get HJ", dickWorship, "Girl69", sixtyNine, "GroPlusTits", gro, "Give I.Drft", incu, "LustyDicking", horse, "TentacleFuck", tent, (allowBack ? "Back" : "Leave"), (allowBack ? this.kihaScene.encounterKiha : this.camp.returnToCampUseOneHour));
     }
 
     //Savage Every Hole With A Bigass Horsecock 
@@ -1217,7 +1217,7 @@ export class KihaFollower extends NPCAwareContent {
         this.flags[kFLAGS.KIHA_HORSECOCK_FUCKED]++;
         this.player.orgasm();
         this.dynStats("lib", -1, "sen", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //flags[kFLAGS.KIHA_NEEDS_TO_REACH_TO_HORSECOCKING] = 1;
@@ -1303,7 +1303,7 @@ export class KihaFollower extends NPCAwareContent {
         if (this.amilyScene.amilyCorrupt()) this.outputText("  Amily begs, \"<i>May I help to service you next time, " + this.player.mf("master", "mistress") + "?</i>\"");
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //Girl Camp/Warm Sex
     private kihaGirlGirlSex(): void {
@@ -1330,7 +1330,7 @@ export class KihaFollower extends NPCAwareContent {
         this.outputText("[pg]Mouths stuffed in each others' twats, you lie with your lover, lazily lapping at fragrant girl-honey while your bodies shiver from aftershocks of bliss.  Kiha admits, \"<i>Okay, you're - lick - not too bad - lick - at this.</i>\"  You swat her rump and stroke her happily swaying tail before thanking her.");
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Warm Kiha Sex - Anal (Needs a cock that fits her butt)
@@ -1395,7 +1395,7 @@ export class KihaFollower extends NPCAwareContent {
         this.outputText("[pg]You give Kiha a playful swat on the butt as you depart, laughing as the impact causes a trickle of your cum to leak out and down her thigh.  \"<i>Oh, you idiot!</i>\"  she growls as you run off back to your duties.");
         this.player.orgasm();
         this.flags[kFLAGS.TIMES_KIHA_ANALED]++;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Warm/Follower Kiha Vagaginaginal
@@ -1427,7 +1427,7 @@ export class KihaFollower extends NPCAwareContent {
         this.outputText("[pg]Kiha punches you in the chest before climbing off you.  \"<i>I don't have time for those emotions, doofus... not while Lethice lives.</i>\"  Well, it was a nice moment.");
         this.player.orgasm();
         this.dynStats("lib", -1, "sen", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Kiha Takes an Incubus Draft (Requires [Pure?] Incubus Draft)
@@ -1461,7 +1461,7 @@ export class KihaFollower extends NPCAwareContent {
             this.player.consumeItem(this.consumables.INCUBID);
             this.dynStats("cor", 2);
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //Kiha Tentacle Scene
     private fuckKihaWithATentacle(): void {
@@ -1533,7 +1533,7 @@ export class KihaFollower extends NPCAwareContent {
         this.outputText(", and you can feel semen gathering at the base of your crotch for an ultimate burst of love.  Kiha and you have been hugging and fucking for what seems like hours, and your hot sweating bodies are literally emitting an aura of pure animal lust as they grind against each other.  You pump harder and faster, eager to bring your draconic lover closer to climax before your own orgasm kicks in.  Suddenly, there it comes: you blast Kiha's insides with your spooge, spraying her innermost depths with your hot, sticky goo.  [EachCock] release an enormous fountain of sap, drenching the dragoness' body and splattering every square inch of her skin with your seed.  You pound away as you keep cumming, [eachCock] squelching noisily as it thrusts in and out of her interior; likewise, the girl's orifices undulate and contract irregularily, doing their best to milk you of everything you have.  In no time, the dragoness becomes a spunk-sopping mess; some of the scales sprinkled over her body actually shine from all the cum-polishing.  Kiha's holes are completely filled and your baby-batter dribbles out of her in thick greenish-white ropes.  Your fluids mix with the fiery girl's own vagina juices and sweat and soon a puddle of sexual filth appears below the exotic couple you both form.  Semen keeps flowing out of the tip of [eachCock] and soaking your lover until you feel completely drained.  When the last glob of goo comes out, you release your embrace somewhat and you both fall over to rest, [eachCock] still buried deep inside her.  There's a loud splash as Kiha's robust body hits the fluid-polluted floor.  You keep caressing and cuddling your lover, enjoying her warm and moist contact as she still hugs you tightly.  Then, at last, she awkwardly removes [eachCock] from her orifices. Her holes are gaping and packed with an absurd amount of jism, but this doesn't seem to reduce her pride in the least.  She quickly swallows the remainder of cum on her lips and grumbles dizzily: \"<i>You idiot, look at what you did!  Now I'm completely coated with your filth, I'll have to get cleaned up!  Don't think I'm a slave to your disgusting dicks... I only accepted because you were so pathetically in need... D-don't you do this again!  Well, unless, you know, you really want to.  Not that I liked it, but since you love doing this that much... I-I guess you... could... well- I must go.</i>\" Kiha then clumsily turns around and flies off, flapping her wings erratically; she's still giddy from the hard tentacle fuck you both just had and is probably going to wash herself in some river.");
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", -2);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Kiha Camp Move In Hint (Happens once and unlocks options)
@@ -1562,7 +1562,7 @@ export class KihaFollower extends NPCAwareContent {
         this.outputText("[pg]Kiha sniffles softly and continues, \"<i>I almost feel bad for Lethice to have you as an enemy.  Do me a favor and kick her in the twat for me when you find her, okay?</i>\"  You both share a nervous laugh at that and slowly end the hug.  Dabbing at one of her tears, you suggest, \"<i>Come on, let's carry your stuff over and get you moved in.</i>\"  Kiha's tail wags happily, and the two of you begin gathering her things.");
         this.outputText("[pg]<b>(Kiha has joined your camp as a lover!)</b>");
         this.flags[kFLAGS.KIHA_FOLLOWER] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //Possession 'n Boobies
     //REQs ghost TF + gro+
@@ -1574,7 +1574,7 @@ export class KihaFollower extends NPCAwareContent {
         //{if no ghost legs (whadda fag)}
         if (this.player.findPerk(PerkLib.Incorporeality) < 0) {
             this.outputText("[pg]Shaking your head in disappointment, you shuffle away, replacing the Gro+ in your pack with a sigh.  Maybe some day.");
-            this.doNext(this.playerMenu);
+            this.doNext(this, this.playerMenu);
             return;
         }
         //{if you've got that ghost shit down}
@@ -1594,7 +1594,7 @@ export class KihaFollower extends NPCAwareContent {
         this.player.orgasm();
         this.dynStats("cor", 2);
         this.player.consumeItem(this.consumables.GROPLUS);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Kiha & Corrupt PCs -- Parting Ways
@@ -1615,12 +1615,12 @@ export class KihaFollower extends NPCAwareContent {
             this.outputText("[pg]\"<i>[name].</i>\"  She says flatly, planting the haft of her axe in the ground, leaning heavily upon it.");
             this.outputText("[pg]You say hello, looking nervously around.  Something isn't right here, and your hand drifts toward your [weaponName].");
             this.outputText("[pg]\"<i>Listen, [name],</i>\" Kiha says, eyeing you from behind her axe.  \"<i>Maybe we've gotten to be friends lately, but... something's changed about you.  I can SMELL the corruption on you, the lust... I-I can't do it, [name].  I can't be around someone that could turn into someTHING at any moment, someone who's just letting themselves go like... like you are. Please j-just go, [name].</i>\"  You try to protest, to reason with the fiery warrior, but she only lifts up her axe and levels it at you...  \"<i>J-JUST GO!</i>\"");
-            this.simpleChoices("Fight", this.kihaScene.meetKihaAndFight, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+            this.simpleChoices(this, "Fight", this.kihaScene.meetKihaAndFight, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
         }
         else {
             this.outputText("Kiha approaches you, her belongings gathered in her hands.  The sexy dragoness seems visibly upset, and before you can say a word, she interrupts, \"<i>Don't say a word, [name].  You're corrupt.  I can smell the corruption rolling off you from over here.  I won't be here when you turn into a demon, and I don't want to fight you... but if you come after me, I won't hesitate to defend myself!</i>\"");
             this.outputText("[pg]Kiha closes her eyes and launches herself into the air, only leaving a few tears for the parched wasteland to claim.");
-            this.doNext(this.playerMenu);
+            this.doNext(this, this.playerMenu);
         }
         this.flags[kFLAGS.KIHA_CORRUPTION_BITCH] = 1;
         //(Display Options: [Fight!] [Leave])
@@ -1643,7 +1643,7 @@ export class KihaFollower extends NPCAwareContent {
         if (!this.followerKiha()) this.kihaFriendlyGreeting(false);
         else {
             this.outputText("  You make your way back to camp, arm in arm.");
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
     }
     //Kiha @ Camp: Appearance
@@ -1654,7 +1654,7 @@ export class KihaFollower extends NPCAwareContent {
         this.outputText("[pg]She has a pair of dusky, soft D-cup tits, with a single 0.5 inch nipple on each breast.");
         this.outputText("[pg]Kiha has a loose twat between her legs which constantly drips a warm, wet lubricant that stains her thighs.");
         this.outputText("[pg]Between her gropable butt-cheeks, Kiha has a single tight asshole, right where it belongs.");
-        this.doNext(this.kihaScene.encounterKiha);
+        this.doNext(this, this.kihaScene.encounterKiha);
     }
 
 
@@ -1676,7 +1676,7 @@ export class KihaFollower extends NPCAwareContent {
         this.outputText("[pg]\"<i>If you want have your way with me, you'll need to earn it, just like anyone else,</i>\" Kiha explains.  She narrows her eyes at you and questions, \"<i>The question is, are you " + this.player.mf("man", "woman") + " enough to take what you want?  I wouldn't want you to get hurt.</i>\"");
         this.outputText("[pg]That seems like a challenge.  Will you rise to it, or will you back down?");
         //[Back down]    [Fight for position]
-        this.simpleChoices("Back Down", this.beABitchDumbass, "FightForDom", this.fightForDominanceWithDragonCunnies, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Back Down", this.beABitchDumbass, "FightForDom", this.fightForDominanceWithDragonCunnies, "", undefined, "", undefined, "", undefined);
     }
 
     //[Back down]
@@ -1686,7 +1686,7 @@ export class KihaFollower extends NPCAwareContent {
         //outputText("You break eye contact with the fierce dragoness and remain silent in the face of her challenge, unwilling to pursue the issue any further at the moment.  She snorts, dismissively.  \"<i>That's what I thought,</i>\" she sneers, narrowing her eyes in warning.  After a short pause, her fiery stare almost palpable on your cheek, she turns away once more- with an infuriating little toss of her head- and when you finally glance back at her again, you see that the corners of her mouth are turned up in a smirk.  You turn and walk away shamefully, unable to find the words to explain yourself or to defend your outburst.");
         this.outputText("You break eye contact with the fierce dragoness and remain silent in the face of her challenge, unwilling to pursue the issue any further at the moment.  She snorts, dismissively, \"<i>If you don't fight for the things you want, people will just keep taking them from you.</i>\"  Kiha lewdly spreads her legs and runs her tail over her outer lips, teasing you as hard as she can.  She smirks as your eyes glue to her groin and turns away.");
         this.outputText("[pg]\"<i>Maybe once you grow some balls,</i>\" the dragoness taunts, giving you a wink.");
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //[Fight for position]
     private fightForDominanceWithDragonCunnies(): void {
@@ -1874,7 +1874,7 @@ export class KihaFollower extends NPCAwareContent {
             this.flags[kFLAGS.KIHA_CAMP_WATCH] = 1;
         }
         this.menu();
-        this.addButton(0, "Next", this.warmLoverKihaIntro);
+        this.addButton(this, 0, "Next", this.warmLoverKihaIntro);
     }
 }
 

@@ -132,8 +132,8 @@ export class ErlKingScene extends BaseContent {
         this.outputText("The unholy choir of horns, hounds, and hooves shake the woods around you as the fog rises, shoulder-high.  Your heart pounds - you’re not sure <b>why</b> you’re frightened, only that you <b>are</b>.  Something is out there in the darkness, and it's coming for you!  Do you flee, or stand your ground?\n\n");
 
         this.menu();
-        this.addButton(0, "Wait", this.firstWildHuntChase, true);
-        this.addButton(1, "Run", this.firstWildHuntChase, false);
+        this.addButton(this, 0, "Wait", this.firstWildHuntChase, true);
+        this.addButton(this, 1, "Run", this.firstWildHuntChase, false);
     }
 
     protected firstWildHuntChase(waited: boolean = false): void {
@@ -212,8 +212,8 @@ export class ErlKingScene extends BaseContent {
         this.outputText("Do you make a run for it or stand your ground?\n\n");
 
         this.menu();
-        this.addButton(0, "Run", this.repeatWildHuntChase);
-        this.addButton(1, "Wait", this.repeatWildHuntWait);
+        this.addButton(this, 0, "Run", this.repeatWildHuntChase);
+        this.addButton(this, 1, "Wait", this.repeatWildHuntWait);
     }
 
     protected repeatWildHuntWait(): void {
@@ -232,7 +232,7 @@ export class ErlKingScene extends BaseContent {
         if (this.player.inte < 80) this.player.inte++;
 
         this.menu();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     protected repeatWildHuntChase(): void {
@@ -271,7 +271,7 @@ export class ErlKingScene extends BaseContent {
         }
 
         this.menu();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     protected repeatWildHuntCaught(pScore: number): void {
@@ -382,11 +382,11 @@ export class ErlKingScene extends BaseContent {
         //Sex	 	What’s my prize?		Stop the Madness 		Surrender Forever		How Dare You!
         this.fatigue(10);
         this.menu();
-        this.addButton(0, "Sex", this.predatoryPrey);
-        this.addButton(1, "Prize?", this.whatsMyPrize);
-        this.addButton(2, "Stop", this.stopTheMadness);
-        this.addButton(3, "Surrender", this.surrenderToTheHounds);
-        this.addButton(4, "Revenge", this.howDareYou);
+        this.addButton(this, 0, "Sex", this.predatoryPrey);
+        this.addButton(this, 1, "Prize?", this.whatsMyPrize);
+        this.addButton(this, 2, "Stop", this.stopTheMadness);
+        this.addButton(this, 3, "Surrender", this.surrenderToTheHounds);
+        this.addButton(this, 4, "Revenge", this.howDareYou);
 
     }
 
@@ -430,7 +430,7 @@ export class ErlKingScene extends BaseContent {
         this.outputText("You get the feeling you won’t be seeing him anymore.\n\n");
 
         this.menu();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     protected surrenderToTheHounds(): void {
@@ -623,7 +623,7 @@ export class ErlKingScene extends BaseContent {
         this.player.slimeFeed();
 
         this.menu();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     protected howDareYou(): void {
@@ -702,7 +702,7 @@ export class ErlKingScene extends BaseContent {
         this.dynStats("lust=", 0);
 
         this.menu();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     protected encounterPrincessGwynn(): void {
@@ -744,14 +744,14 @@ export class ErlKingScene extends BaseContent {
         //Suck My Dick  /  Fuck Her Ass  /  Eat My Pussy  /  Milk Her Dick  /  Gifts
         this.menu();
         if (this.player.hasCock()) {
-            this.addButton(0, "Suck Me", this.gwynnSucksDicks);
-            this.addButton(1, "Assfuck", this.gwynnGetsButtfuxed);
+            this.addButton(this, 0, "Suck Me", this.gwynnSucksDicks);
+            this.addButton(this, 1, "Assfuck", this.gwynnGetsButtfuxed);
         }
         if (this.player.hasVagina()) {
-            this.addButton(2, "Eat Me", this.gwynnNomsDaCunts);
+            this.addButton(this, 2, "Eat Me", this.gwynnNomsDaCunts);
         }
-        this.addButton(3, "Milk Dick", this.gwynnGetsDickmilked);
-        this.addButton(4, "Gifts", this.gwynnGibsGifts);
+        this.addButton(this, 3, "Milk Dick", this.gwynnGetsDickmilked);
+        this.addButton(this, 4, "Gifts", this.gwynnGibsGifts);
     }
 
     protected gwynnSucksDicks(): void {
@@ -775,7 +775,7 @@ export class ErlKingScene extends BaseContent {
         this.player.orgasm();
 
         this.menu();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     protected gwynnGetsButtfuxed(): void {
@@ -800,7 +800,7 @@ export class ErlKingScene extends BaseContent {
         this.player.orgasm();
 
         this.menu();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     protected gwynnNomsDaCunts(): void {
@@ -825,7 +825,7 @@ export class ErlKingScene extends BaseContent {
         this.player.orgasm();
 
         this.menu();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     protected gwynnGetsDickmilked(): void {
@@ -856,7 +856,7 @@ export class ErlKingScene extends BaseContent {
         //[Lust +20, Libido +2]
         this.dynStats("lus+", 20, "lib+", 2);
         this.menu();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     protected gwynnGibsGifts(): void {

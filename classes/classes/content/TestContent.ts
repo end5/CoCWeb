@@ -102,7 +102,7 @@ export class TestContent extends BaseContent {
         this.outputText("\nweaponname [weaponname]");
 
         trace("Spammed!");
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 }

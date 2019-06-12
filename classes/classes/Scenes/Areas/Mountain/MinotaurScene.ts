@@ -107,7 +107,7 @@ export class MinotaurScene extends BaseContent {
             urethralPen = undefined;
             bj = undefined;
         }
-        this.choices("Use Cock", dickRape, "Use Vagina", cuntRape, "Use Both", hermRape, "TentacleDick", tentaRape, "UrethraFuck", urethralPen, "Get Filled", filled, tempText, temp, "MakeHimSuck", bj, feedposit, temp2, "Leave", this.cleanupAfterCombat);
+        this.choices(this, "Use Cock", dickRape, "Use Vagina", cuntRape, "Use Both", hermRape, "TentacleDick", tentaRape, "UrethraFuck", urethralPen, "Get Filled", filled, tempText, temp, "MakeHimSuck", bj, feedposit, temp2, "Leave", this.cleanupAfterCombat);
 
         if (x < 0 && this.player.hasCock()) this.outputText("\nSadly, you're too well endowed to penetrate the minotaur.", false);
         if (this.player.gender == 3 && this.player.isTaur()) this.outputText("\nIf you had a different body type you might be able to penetrate him while taking him, but as a centaur that's not an option.", false);
@@ -496,8 +496,8 @@ export class MinotaurScene extends BaseContent {
         }
         //YOU LOSE!
         if (this.player.lust >= 100)
-            this.doNext(this.getGame().endLustLoss);
-        else this.doNext(this.getGame().combatMenu);
+            this.doNext(this, this.getGame().endLustLoss);
+        else this.doNext(this, this.getGame().combatMenu);
     }
     public getRapedByMinotaur(autoRape: boolean = false): void {
         this.spriteSelect(44);
@@ -612,7 +612,7 @@ export class MinotaurScene extends BaseContent {
         if (this.player.hasVagina()) this.outputText("pussy.", false);
         else this.outputText("asshole.", false);
         if (this.getGame().inCombat) this.cleanupAfterCombat();
-        else this.doNext(this.camp.returnToCampUseFourHours);
+        else this.doNext(this, this.camp.returnToCampUseFourHours);
     }
 
 
@@ -649,7 +649,7 @@ export class MinotaurScene extends BaseContent {
         this.dynStats("sen", 1);
         this.minoCumAddiction(10);
         if (this.getGame().inCombat) this.cleanupAfterCombat();
-        else this.doNext(this.camp.returnToCampUseFourHours);
+        else this.doNext(this, this.camp.returnToCampUseFourHours);
     }
 
     private minoGetsTitFucked(): void {
@@ -828,7 +828,7 @@ export class MinotaurScene extends BaseContent {
         //(Max lust, load minotaur dicks & balls into monster stats and throw to rape-scenes.)
         this.dynStats("lus", 3000);
         this.monster = new Minotaur();
-        this.doNext(kGAMECLASS.endLustLoss);
+        this.doNext(this, kGAMECLASS.endLustLoss);
     }
 
 
@@ -841,14 +841,14 @@ export class MinotaurScene extends BaseContent {
         //(Withdrawal) 
         if (this.flags[kFLAGS.MINOTAUR_CUM_ADDICTION_STATE] == 3) {
             this.outputText("So great is your need that you don't even think about it, you just start following.", false);
-            this.doNext(this.minoAddictionBadEnd2);
+            this.doNext(this, this.minoAddictionBadEnd2);
         }
         else {
             //(if smart)
             if (this.player.inte > 40) this.outputText("A tiny voice speaks up, warning you that it would be hard to get away from such a gathering.  ", false);
             this.outputText("Do you follow the minotaur-scent like the addict that you are?", false);
             //[Yes] [No]
-            this.doYesNo(this.minoAddictionBadEnd2, this.camp.returnToCampUseOneHour);
+            this.doYesNo(this, this.minoAddictionBadEnd2, this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -881,7 +881,7 @@ export class MinotaurScene extends BaseContent {
         this.outputText("Your master pulls out and fastens a leather collar around your neck before dragging you through the mud back to his campfire.  Between the tugging of your collar and rough throat-fucking, you're breathless and gasping, but you couldn't be any happier.  Your new owner lifts you up by your " + this.assDescript() + " and forces himself inside your " + this.assholeDescript() + ", stuffing you full of thick minotaur cock.  Still heavily drugged by the load in your gut, you giggle happily as you're bounced up and down, totally relaxed in your master's presence.\n\n", false);
 
         this.outputText("He grunts and cums inside you for the second time, somehow still able to flood your bowels with what feels like a gallon of cum.  Drooling brainlessly, happy gurgles trickle from your throat as you're pulled off and tossed to the side.  You don't feel the impact of your body landing in the mud, or even notice when you're passed around the camp-fire, broken in as each of your new monstrous masters has his turn.", false);
-        this.doNext(this.minoCumAddictBadEnd3);
+        this.doNext(this, this.minoCumAddictBadEnd3);
         this.dynStats("int", -20, "lib", 5, "sen", 15, "lus", 50, "cor", 10);
     }
     //[PAGE 2]

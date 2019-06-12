@@ -59,8 +59,8 @@ export class Essrayle extends BaseContent {
         this.flags[kFLAGS.MET_ESSY]++;
         //[Yes] [No]
         this.menu();
-        this.addButton(1, "Yes", this.plantsForMe);
-        this.addButton(2, "No", this.noPlantsForMe);
+        this.addButton(this, 1, "Yes", this.plantsForMe);
+        this.addButton(this, 2, "No", this.noPlantsForMe);
 
     }
 
@@ -69,7 +69,7 @@ export class Essrayle extends BaseContent {
         this.clearOutput();
         this.outputText("Essy pouts, ears flattening to the sides a bit.  \"<i>I see,</i>\" she nods, looking at you with thinly masked disappointment.  She seems to instantly put on a false smile and move aside, gesturing to the path ahead with a sweep of the arm.  \"<i>Well, in that case, you must be going somewhere important.  Best not keep you waiting.  I do wish you luck in your adventures!</i>\" She continues to beam as you head on off, leaving her behind you in no time.  Though as you leave, you swear you hear a mumbled, \"<i>Leave it to me to find the prudish ones.</i>\"");
         this.flags[kFLAGS.TURNED_DOWN_ESSY_FIRST_MEETING] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //>If Yes
@@ -106,14 +106,14 @@ export class Essrayle extends BaseContent {
             this.outputText("  \"<i>You certainly have a lovely pair, but they could always be better, don't you think?</i>\"");
             //[Yes] [No]
             this.menu();
-            this.addButton(1, "Yes", this.plantsForMe2, 1);
-            this.addButton(2, "No", this.plantsForMe2, 2);
+            this.addButton(this, 1, "Yes", this.plantsForMe2, 1);
+            this.addButton(this, 2, "No", this.plantsForMe2, 2);
         }
         //Else
         else {
             //[Next]
             this.menu();
-            this.addButton(0, "Next", this.plantsForMe2, 0);
+            this.addButton(this, 0, "Next", this.plantsForMe2, 0);
         }
     }
 
@@ -219,7 +219,7 @@ export class Essrayle extends BaseContent {
         this.dynStats("lib", 1);
         //Slimefeed!
         this.player.slimeFeed();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -255,8 +255,8 @@ export class Essrayle extends BaseContent {
         this.dynStats("lus", 10 + this.player.lib / 10);
         this.menu();
         //Option: [Feed her] [leave]
-        if (this.player.gender > 0) this.addButton(0, "Feed Her", this.feedTrappedEssy);
-        this.addButton(4, "Leave", this.playerMenu);
+        if (this.player.gender > 0) this.addButton(this, 0, "Feed Her", this.feedTrappedEssy);
+        this.addButton(this, 4, "Leave", this.playerMenu);
     }
 
     //[Feed Her]
@@ -272,8 +272,8 @@ export class Essrayle extends BaseContent {
         if (this.player.gender == 3) {
             this.outputText("  How best to make use of this floral beauty?");
             this.menu();
-            this.addButton(0, "Cock", this.hasCockFeedEssy, true);
-            this.addButton(1, "Pussy", this.hasPussyFeedEssy, true);
+            this.addButton(this, 0, "Cock", this.hasCockFeedEssy, true);
+            this.addButton(this, 1, "Pussy", this.hasPussyFeedEssy, true);
         }
     }
 
@@ -298,7 +298,7 @@ export class Essrayle extends BaseContent {
 
         this.outputText("\n\nExhausted anew, Essy reclines in her pot, already dozing with an expression of happy contentment.  Though she's still imprisoned, you've at least set her at ease.  While you might like to move her somewhere more private, the sheer weight of her pot is more than enough to frustrate any attempt you might make.  Best to just leave her and check in later.");
         this.player.orgasm();
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     private hasPussyFeedEssy(newPage: boolean = true): void {
@@ -319,7 +319,7 @@ export class Essrayle extends BaseContent {
         this.outputText("\n\nIt takes you a while, but you extricate yourself and clean off the best you can, leaving her with a friendly kiss on the cheek before you head on your way once more.  With visitors like you, she hardly seems like she'll mind being trapped in the enchanted flower pot.");
         this.player.orgasm();
         if (this.player.fertility < 50) this.player.fertility++;
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     //(After defeating the Cum Witch)
@@ -338,8 +338,8 @@ export class Essrayle extends BaseContent {
         this.outputText("\n\n\"<i>Now, I may be a visitor to this world, but I've learned some things.</i>\"  She grins and crosses her other two arms atop those jiggling, swaying, lush beauties.  \"<i>Since you seem to like these four so much, perhaps you'd like to join the club?</i>\"  Essrayle winks coyly, \"<i>How about it?</i>\"");
         this.flags[kFLAGS.ESSRAYLE_ESCAPED_DUNGEON] = 1;
         this.menu();
-        this.addButton(0, "Yes", this.acceptEssyPrizes);
-        this.addButton(1, "No", this.declineEssyPrizes);
+        this.addButton(this, 0, "Yes", this.acceptEssyPrizes);
+        this.addButton(this, 1, "No", this.declineEssyPrizes);
     }
 
     //[No]
@@ -352,7 +352,7 @@ export class Essrayle extends BaseContent {
         this.statScreenRefresh();
 
         this.outputText("\n\n\"<i>Well, maybe in the future you'll change your mind and find another way to do it on your own.  But I guess for now I'll just see you around!  Thanks for the save, hun!</i>\"  The planty beauty blows you a kiss before she heads off, bulging breasts jiggling and bouncing steadily all the way.");
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     //[Yes]
@@ -392,8 +392,8 @@ export class Essrayle extends BaseContent {
         this.outputText("\n\nGrinning, Essrayle nods happily, rolling the scroll back up.  \"<i>Yes, that looks veeerry good on you!</i>\”  She ogles your chest for a while before glancing down at her own.  \"<i>But I think I could do you one better, since you've been so sweet to me,</i>\" the all-natural beauty coos happily.  \"<i>As a special bonus to you, how'd you like to have these too?</i>\" she moos, running her finger about her four, plump nipples, giving you a seductive smile.");
         this.dynStats("lus", 10);
         this.menu();
-        this.addButton(0, "Yes", this.yesGimmeGiantNipplesEssy);
-        this.addButton(1, "No", this.noGimmeGiantNipplesEssy);
+        this.addButton(this, 0, "Yes", this.yesGimmeGiantNipplesEssy);
+        this.addButton(this, 1, "No", this.noGimmeGiantNipplesEssy);
     }
 
     //[Yes]
@@ -419,7 +419,7 @@ export class Essrayle extends BaseContent {
         this.outputText("\n\nThe passionate kiss goes on for a while before she releases it, sticky strands of saliva still clinging to both of your mouths.  Separating, she leans back and puffs herself out once more, smiling to you.  \"<i>Do enjoy yourself a bit, Hero.  Here's hoping we meet again.</i>\"  She places the back of her hand conspiratorially against the side of her mouth and lowers her voice.  \"<i>After you get a chance to enjoy your improved chest a bit, I'd love to get my shot at playing with those lovely melons!</i>\"");
         this.outputText("\n\nWith a shameless giggle, she kisses the peak of one of your breasts while groping the one next to it.  \"<i>Mmm, yes, I'd ravish them hard and drain you dry right now, but out of respect I'll let you have the first crack at it.</i>\"  With a dainty wave, she shuffles towards the exit and is gone once more.\n\n");
         //[End Encounter]
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     public askMotherToReleaseEssy(): void {
@@ -434,7 +434,7 @@ export class Essrayle extends BaseContent {
             this.outputText("\n\nThat'll do.");
         }
         this.flags[kFLAGS.TOLD_MOTHER_TO_RELEASE_ESSY] = 1;
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 }
 

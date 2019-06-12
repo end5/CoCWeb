@@ -17,7 +17,7 @@ export class GooArmor extends GooGirl {
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
             this.outputText("\n\nThe armored goo sighs while you exhaust yourself...");
-            this.doNext(this.game.endLustLoss);
+            this.doNext(this, this.game.endLustLoss);
         } else {
             if (this.findStatusAffect(StatusAffects.Spar) >= 0) this.game.valeria.pcWinsValeriaSparDefeat();
             else this.game.gooArmorBeatsUpPC();

@@ -292,7 +292,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 }
             }
             this.outputText("\n<b>You have gained the perk Marble Resistance</b> (You know how to avoid the addictive qualities of her milk!)\n", false);
-            this.doNext(this.playerMenu);
+            this.doNext(this, this.playerMenu);
             return true;
         }
         //Become permanently addicted (occurs when the player goes to sleep with addiction 100, before it is reduced by the standard 1):
@@ -323,7 +323,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                     //outputText("\nA huge grin passes over Marble's face, \"<i>I'm glad to hear it sweetie,</i>\" she tells you, \"<i>I was hoping you might help me out with my chores. Then I'll see about getting you some milk.</i>\"  The idea of working for her milk seems oddly right, and you put a huge effort into helping Marble with her chores.  Afterwards, Marble gladly agrees to give you her milk. While you are nursing from her, she starts to talk: \"<i>Sweetie, I've been thinking.  I think you should stay here with me from now on, since you need my milk to survive.</i>\"  She starts to stroke your head.  \"<i>You always do such a good job with the chores too; do you really want to do anything else?</i>\"  You try to pull back from her and tell her about your quest, but she keeps your mouth from straying from her breast.  \"<i>No, of course you don't.</i>\"  She says with finality, and you feel your need to do anything else fade....\n\n", false);
                     //outputText("\nMarble continues talking for a while, but it doesn't really matter to you anymore, all that matters to you now is earning her milk, and doing anything to please her.  Your mind is still able to wander freely, but it is so fixated on your need that you will remain at Marble's side for the rest of your life.  Your village will just have to rely on the next champion.", false);
                     this.outputText("Marble grabs you and pulls your head into her chest.  \"<i>Mmm, if you need me so much, then I want you to move in with me on the farm,</i>\" she says happily above you.  \"<i>That way, I can take care of you and you can help me, and we'll both be happy.</i>\"  You panic a bit; while you'd certainly be happy to have the source of her delicious milk at your fingertips, leaving the portal unguarded means the demons will be free to set up shop there again!  Marble responds to your squirming by tightening her arms and says, \"<i>Ah, ah, remember, sweetie; you need my milk and I control whether or not you can drink it.  I'm happy to share it, but if I'm being so generous, I think the least you could do is make it easier for me.  I don't think living here and helping me with the farmwork is too much to ask, do you?</i>\"  Her face contorts into an open-mouthed smile and her eyes glitter.  You sigh into her chest, she's right, there isn't much you can do about it now...");
-                    this.doNext(this.marbleBadEndFollowup);
+                    this.doNext(this, this.marbleBadEndFollowup);
                     return true;
                 }
                 //Affection 50-79, type 1:
@@ -363,7 +363,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                     //outputText("At your words, Marble's face falls completely.  She looks up at you for a moment before saying \"<i>I'm so sorry; it's my fault for not being able to refuse you.</i>\"  You hesitate, not sure how to reply to her.  She sighs and invites you to her chest.\n\n", false);
                     //outputText("As you're drinking from Marble's breasts, you hear her say \"<i>Don't you ever leave my side again, sweety.  I'll make it up to you for what happened.</i>\"  As she says this an odd feeling passes through you.  For a brief instant you panic as you realize that any thought not to do as Marble asks is vanishing from your mind.  Then it passes, and without any doubt, you will be staying with Marble for the rest of your life.  There will be no more adventuring for this year's champion.  \n\n", false);
                     this.outputText("Marble grabs you and pulls your head into her chest.  \"<i>I'm so sorry sweetie, I never meant for this to happen,</i>\" she sobs above you.  \"<i>I'll make this right, I'll make sure nothing else ever hurts you, even if I have to make you stay here with me.</i>\"  An alarm rings in your head; how are you supposed to complete your mission like this?  Marble feels you squirm, and speaks again.  \"<i>I'm sorry, [name], but if you need my milk, this is really the best way... for both of us.</i>\"");
-                    this.doNext(this.marbleBadEndFollowup);
+                    this.doNext(this, this.marbleBadEndFollowup);
                     return true;
                 }
                 //Affection < 80, type 2:
@@ -396,7 +396,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 }
             }
             this.outputText("\n(You gain the <b>Marble's Milk</b> perk.  It boosts your strength and toughness, but requires that you drink Marble's Milk every day.)\n", false);
-            this.doNext(this.playerMenu);
+            this.doNext(this, this.playerMenu);
             return true;
         }
         if (this.checkedMarbleMilk++ == 0 && this.model.time.hours == 6 && this.player.findPerk(PerkLib.MarblesMilk) >= 0) {
@@ -412,7 +412,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                     kGAMECLASS.timeQ++; //We can get rid of this: threshhold--;
                 }
             }
-            this.doNext(this.playerMenu);
+            this.doNext(this, this.playerMenu);
             return true;
         }
         return false;
@@ -457,13 +457,13 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.tallness < 60) {
             this.outputText("She looks down at you with a smile and says \"<i>Aww, you're so cute!  Did you come for my milk?  I'm always happy to give it, but since I'm kinda sore right now, you'll have to be gentle. Okay little one?</i>\"  She moves towards you and tries to pick you up.", false);
             //- player chooses resist or don't resist
-            this.simpleChoices("Let Her", this.marblePicksYouUpInitially, "Don't", this.resistMarbleInitially, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "Let Her", this.marblePicksYouUpInitially, "Don't", this.resistMarbleInitially, "", undefined, "", undefined, "", undefined);
             return;
         }
         this.outputText("\"<i>My name's Marble, what's yours?</i>\" she asks you.  You introduce yourself and exchange a few pleasantries before she asks how she can help you.  You tell her that you actually came to help her, explaining that Whitney said she could use a gentle touch.  \"<i>Oh that would be nice</i>\", she says \"<i>Spending the night connected to the milking machine was a mistake, and now I need something gentle.</i>\"  How will you help her?", false);
         this.outputText("\n\n(Of course, you could always turn around and resolve to avoid her from this point on, if you wanted.)");
         //- player chooses caress, suckle, or rape
-        this.simpleChoices("Caress", this.caressMarble, "Suckle", this.suckleMarble, "Rape", this.rapeDAHMARBLEZ, "", undefined, "Leave", this.turnOffMarbleForever);
+        this.simpleChoices(this, "Caress", this.caressMarble, "Suckle", this.suckleMarble, "Rape", this.rapeDAHMARBLEZ, "", undefined, "Leave", this.turnOffMarbleForever);
     }
 
     private turnOffMarbleForever(): void {
@@ -472,7 +472,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         //player.createStatusAffect(StatusAffects.No_More_Marble,0,0,0,0);
         this.flags[kFLAGS.MARBLE_WARNING] = 1;
         this.outputText("Considering the way the cow-girl lovingly cradles her hefty breasts as if they were the only things in the world, you decide you'd rather not get involved with her right now.  You inform her politely that Whitney must have been mistaken - there's nothing you can think to do that would help.  \"<i>Oh,</i>\" she says, surprised... and also nonplussed when she sees your reaction to her swollen jugs.  \"<i>Odd, but okay.  I guess I'll just lie back down then while you show yourself out.</i>\"");
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Initial non-friends state (Z)
@@ -481,7 +481,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.spriteSelect(41);
         this.outputText("While walking through one of the farm's fields, you notice the cow-girl Marble coming out of the barn ahead of you.  When she sees you, she pulls a bit of an irritated face before donning a fake smile and saying, \"<i>Yes?  Can I help you?  Or were you just leaving again?</i>\"  Well... that wasn't terribly nice.  The two of you didn't exactly get off to a good start before, but maybe you'd like to correct that?  On the other hand, she'll probably ask you to suckle her breasts if you do apologize; maybe it would be best to just avoid her for now - or perhaps entirely?  Then again also, you could pick a fight over her behavior towards you.");
         //PC chooses: apologize, pick a fight, leave, leave forevs
-        this.simpleChoices("Apologize", this.apologizetoWalkingTitsIMEANMARBLE, "Pick Fight", this.pickAFight, "Leave4Ever", this.pickAFight, "", undefined, "Leave", this.leaveNonFriendsMarble);
+        this.simpleChoices(this, "Apologize", this.apologizetoWalkingTitsIMEANMARBLE, "Pick Fight", this.pickAFight, "Leave4Ever", this.pickAFight, "", undefined, "Leave", this.leaveNonFriendsMarble);
     }
     //Leave (Z)
     private leaveNonFriendsMarble(): void {
@@ -489,7 +489,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.spriteSelect(41);
         this.outputText("Smiling politely and just as insincerely as Marble, you beg her pardon and excuse yourself.");
         //end event, initial non-friends event can repeat in future explorations
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //Leave forever (Z)
     private leaveNonFriendsMarble4EVERRRR(): void {
@@ -500,7 +500,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("Answering the cow-girl with a blank look, you shake your head and walk away, resolving to avoid Marble from now on.");
         //Marble is removed from the game
         //end event
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private apologizetoWalkingTitsIMEANMARBLE(): void {
@@ -530,7 +530,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.fatigue(-50);
         //increase PC lust (5+ lib/10), health (100), and lib (0.2), reduce fatigue by (50)
         //end event
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //Pick a Fight (Z)
     private pickAFight(): void {
@@ -538,7 +538,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.spriteSelect(41);
         this.outputText("You make known your displeasure at her attitude toward you.  \"<i>So now I'm the one who has a problem, huh?  That's very funny, I distinctly remember you being the jerk.  You get my hopes up, then just leave?</i>\"  Oh, you've nearly had it with this self-adoring boob fetishist, and say as much.  \"<i>WHAT DID YOU CALL ME?!</i>\" she screams in shock and anger.  You say it again, right to her face, and then she turns around, incensed, and stomps off quickly toward the barn.  \"<i>Wait right there, my hammer's got something to say to that.</i>\"");
         //[Stay][Fuck That]
-        this.simpleChoices("Stay", this.stayForFights, "Fuck That", this.getOutOfDodge, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Stay", this.stayForFights, "Fuck That", this.getOutOfDodge, "", undefined, "", undefined, "", undefined);
     }
     //[Stay]
     private stayForFights(): void {
@@ -556,7 +556,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("The hell you will... the truth is the truth no matter how many talking hammers show up.  Catharsis completed, you leave the farm and its cows behind.");
         //makes the battle available as the next Marble encounter, as if PC had raped her
         this.flags[kFLAGS.MARBLE_WARNING] = 3;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //New After-Battle shiz: (Z)
     public marbleFightWin(): void {
@@ -571,7 +571,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         //Options, rape in room, milk (Spy's submission - not included yet) and, don't rape.
         var feed = undefined;
         if (this.player.findPerk(PerkLib.Feeder) >= 0 || this.player.lactationQ() > 200) feed = this.forceFeedMarble;
-        this.simpleChoices("Feed Her", feed, "RapeInRoom", this.rapeMarbleInHerRoom, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
+        this.simpleChoices(this, "Feed Her", feed, "RapeInRoom", this.rapeMarbleInHerRoom, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
     }
     public marbleFightLose(): void {
         this.spriteSelect(41);
@@ -701,7 +701,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         //- continue to the next part
         this.outputText("\"<i>My name's Marble, what's yours?</i>\" she asks you.  You introduce yourself and exchange a few pleasantries before she asks how she can help you.  You tell her that you actually came to help her, explaining that Whitney said she could use a gentle touch.  \"<i>Oh that would be nice</i>\", she says \"<i>Spending the night connected to the milking machine was a mistake, and now I need something gentle.</i>\"  How will you help her?", false);
         //- player chooses caress, suckle, or rape
-        this.simpleChoices("Caress", this.caressMarble, "Suckle", this.suckleMarble, "Rape", this.rapeDAHMARBLEZ, "", undefined, "", undefined);
+        this.simpleChoices(this, "Caress", this.caressMarble, "Suckle", this.suckleMarble, "Rape", this.rapeDAHMARBLEZ, "", undefined, "", undefined);
     }
 
     private marblePicksYouUpInitially(): void {
@@ -719,7 +719,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.marbleStatusChange(30, 10);
         //(apply the stat effect 'Marble's Milk' to the player)
         this.applyMarblesMilk();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //(player chose caress)
@@ -729,7 +729,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You offer to gently rub her breasts, saying it should be a lot less painful than the milking machine's sucking.  \"<i>Oh no,</i>\" she retorts, \"<i>nothing is more wonderful than being sucked, but right now I guess I could use a break and get a good rub.</i>\"  You move around behind her and reach up under her arms, firmly grasping her breasts.  She gasps sharply at first, but as you start to gently massage and caress them, she lets out a sigh and starts breathing deeply.  You begin to feel milk leaking out onto your hands as you rub her.  \"<i>This is nice,</i>\" she says, \"<i>not as good as being suckled, but nice.</i>\"  After a few minutes of gently massaging her breasts, she pulls your hands off of them and turns to you. \"<i>Thanks,</i>\" she says, \"<i>I'm still a little sore, but thank you for your touch, sweetie.  Feel free to come back later; I'll be happy to visit with you any time.</i>\"  Just before you leave, you notice that Marble is rubbing her breasts the same way you were, a slight smile on her face.", false);
         this.dynStats("lus", 15);
         this.marbleStatusChange(5, 0);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //(player chose suckle)
     private suckleMarble(): void {
@@ -745,7 +745,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         //(apply the stat effect 'Marble's Milk' to the player)
         this.applyMarblesMilk();
         this.dynStats("lus", 25);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //(player chose rape)
@@ -755,7 +755,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You decide that rather than helping her, you are going to roughly manhandle her breasts and rape her.  You suddenly grab at her breasts and squeeze them roughly, at which point she screams and slaps you.  While you are still reeling from the blow, she uses a surprising amount of strength to force you out the door.  She slams it behind you and yells, \"<i>Don't you ever come back!</i>\" through the door. You hear her start to cry as you walk away.  Aw well, you didn't like her anyway.", true);
         //-player never encounters Marble again
         this.player.createStatusAffect(StatusAffects.NoMoreMarble, 0, 0, 0, 0);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Pre-addiction events(explore events take 1 hour, working ones take 3)
@@ -771,7 +771,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         //[affection <30]
         if (this.player.statusAffectv1(StatusAffects.Marble) < 30) {
             this.outputText("\n\nIt seems that she is looking forward to it and doesn't want to put it off to talk.  She hurries off and you're left to look around some more.  <b>Maybe if you got her to like you a little more while doing some work around the farm?</b>", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
         //[affection >=30]
         else {
@@ -779,13 +779,13 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             //[if addiction is under 40]
             if (this.player.statusAffectv2(StatusAffects.Marble) < 40) {
                 this.outputText("\n\nDo you drink her milk?");
-                this.doYesNo(this.drinkMarbleMilk, this.playerRefusesMarbleMilk);
+                this.doYesNo(this, this.drinkMarbleMilk, this.playerRefusesMarbleMilk);
                 //player chooses yes/no
             }
             //[if addiction is 40 or over] 
             else {
                 this.outputText("\n\nYou really want some of that milk and eagerly agree.\n\n", false);
-                this.doNext(this.drinkMarbleMilk);
+                this.doNext(this, this.drinkMarbleMilk);
             }
         }
     }
@@ -819,14 +819,14 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("lib", 1, "lus", 20);
         if (this.player.lust > 60) {
             this.marbleMilkSex(false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         //[if addiction is under 50] 
         if (this.player.statusAffectv2(StatusAffects.Marble) < 50)
             this.outputText("After drinking Marble's milk, a feeling of euphoria spreads through you as you leave the farm in high spirits.", false);
         this.applyMarblesMilk();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //(player chooses no)
@@ -838,7 +838,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         //(reduce addiction by 5)
         this.marbleStatusChange(- 5, -5);
         this.dynStats("lus", -10);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Meet Marble while exploring version 2 (can occur anytime before the player becomes addicted):
@@ -851,7 +851,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("She is happy to see you and treats you to a small meal while you have a pleasant chat.  ");
         if (this.flags[kFLAGS.MURBLE_FARM_TALK_LEVELS] < 7) {
             this.extendedMurbelFarmTalkz();
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         else this.outputText("While you talk mostly about unimportant things, there is some discussion about the world and the dangers within.");
@@ -869,21 +869,21 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.player.inte < 30) this.dynStats("int", 4);
             else if (this.player.inte < 40) this.dynStats("int", 2);
             else if (this.player.inte < 60) this.dynStats("int", 1);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
         else {
             //[affection >=60, player has not had sex with Marble]
             if (this.player.findStatusAffect(StatusAffects.FuckedMarble) < 0) {
                 this.outputText("\n\nAs the two of you finish chatting, Marble gives you an intense look.  \"<i>You know that I really like you right, sweetie?  I'd like it if I can do something special with you,</i>\" she hesitates for a moment, \"<i>Will you come to my bed?</i>\"\n\nDo you accept her invitation?", false);
                 this.dynStats("lus", 10);
-                this.doYesNo(this.AcceptMarblesSexualAdvances, this.turnDownMarbleSexFirstTime);
+                this.doYesNo(this, this.AcceptMarblesSexualAdvances, this.turnDownMarbleSexFirstTime);
             }
             //[affection >=60, player has had sex with Marble]
             else {
                 this.outputText("\n\nAfter you finish talking, Marble gives you another intense look.  \"<i>Sweetie, will you come into my bed again?</i>\" You can feel a tingle in your groin at the thought of having sex with her again.\n\nDo you accept her invitation?", false);
                 //player chooses yes/no
                 this.dynStats("lus", 10);
-                this.doYesNo(this.AcceptMarblesSexualAdvances, this.turnDownMarbleSexRepeat);
+                this.doYesNo(this, this.AcceptMarblesSexualAdvances, this.turnDownMarbleSexRepeat);
             }
         }
     }
@@ -897,7 +897,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.changeStatusValue(StatusAffects.Marble, 1, 50);
         //(increase player inte)
         this.dynStats("int", 4);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //(player chose no, player has had sex with Marble)
     private turnDownMarbleSexRepeat(): void {
@@ -907,7 +907,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         //(affection is unchanged)
         //(increase player inte)
         this.dynStats("int", 1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //(player chose yes)
@@ -920,7 +920,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.marbleStatusChange(10, 0);
         //(increase player inte)
         this.dynStats("int", 1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Help out Marble, version 1 (can occur anytime before the player becomes addicted):
@@ -1008,7 +1008,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         //(bold text)
         this.outputText("<b>Marble's milk is addictive, and you are now addicted to it.</b>\n\n", false);
         this.outputText("You pull back from her and look up into her eyes.  \"<i>Sweetie, how are you feeling?  Do you like drinking my milk?  Do you want to always drink my milk?</i>\" she says to you with uncertainty.  How do you reply?\n\n", false);
-        this.doYesNo(this.wantMarbleAddiction, this.doNotWantMarbleAddiction);
+        this.doYesNo(this, this.wantMarbleAddiction, this.doNotWantMarbleAddiction);
     }
 
     //(player chose want)
@@ -1023,7 +1023,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("cor", 5);
         //(apply Marble's Milk effect to the player)
         this.applyMarblesMilk();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //(player chose don't want) 
@@ -1038,7 +1038,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("cor", 5);
         //(apply Marble's Milk effect to the player)
         this.applyMarblesMilk();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Once Addicted:
@@ -1065,7 +1065,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.findStatusAffect(StatusAffects.MalonVisitedPostAddiction) < 0) {
             this.outputText("You find Marble coming out of the barn, holding one of her bottles of milk.  When she spots you, she hurries over and hands you the bottle.  \"<i>I want to find something out. Can you drink from that bottle?</i>\" she asks.  Do you drink it?", false);
             //- player chooses yes/no
-            this.doYesNo(this.playerAgreesToDrinkMarbleMilkBottled, this.playerRefusesToDrinkBottledMilk);
+            this.doYesNo(this, this.playerAgreesToDrinkMarbleMilkBottled, this.playerRefusesToDrinkBottledMilk);
             this.player.createStatusAffect(StatusAffects.MalonVisitedPostAddiction, 0, 0, 0, 0);
         }
         //Return visits
@@ -1077,7 +1077,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 if (this.player.inte >= 40) {
                     this.outputText("Will you drink her milk?", false);
                     //- player chooses yes/no
-                    this.doYesNo(this.playerDrinksMarbleMilk, this.playerDeclinesToDrinkMarbleMilk);
+                    this.doYesNo(this, this.playerDrinksMarbleMilk, this.playerDeclinesToDrinkMarbleMilk);
                 }
                 else {
                     //DRINK MILK
@@ -1088,7 +1088,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             else {
                 this.outputText("You find Marble in the midst of one of her chores.  She smiles at you and says that if you help her with her chores, she will give you a bottle of milk to soothe your nerves.  Do you do it for the milk, Marble, or refuse?", false);
                 //player chooses milk / Marble / refuse
-                this.simpleChoices("Marble", this.marbleChoreHelpChooseMarble, "Milk", this.marbleChoreHelpChooseMilk, "", undefined, "", undefined, "Refuse", this.marbleChoreRefusal);
+                this.simpleChoices(this, "Marble", this.marbleChoreHelpChooseMarble, "Milk", this.marbleChoreHelpChooseMilk, "", undefined, "", undefined, "Refuse", this.marbleChoreRefusal);
             }
         }
     }
@@ -1105,7 +1105,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.addStatusValue(StatusAffects.BottledMilk, 1, (3 + MarbleScene.rand(6)));
         }
         else this.player.createStatusAffect(StatusAffects.BottledMilk, 8, 0, 0, 0);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //(player chose no to drinking bottled milk)
     private playerRefusesToDrinkBottledMilk(): void {
@@ -1123,7 +1123,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.addStatusValue(StatusAffects.BottledMilk, 1, (1 + MarbleScene.rand(6)));
         }
         else this.player.createStatusAffect(StatusAffects.BottledMilk, 3, 0, 0, 0);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //(player chose yes, or failed check)
@@ -1145,7 +1145,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\nMarble gives you a kiss on the forehead before sending you on your way.", false);
         //(apply Marble's Milk effect)
         this.applyMarblesMilk();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //(player chose no)
     private playerDeclinesToDrinkMarbleMilk(): void {
@@ -1162,7 +1162,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.addStatusValue(StatusAffects.BottledMilk, 1, (1 + MarbleScene.rand(6)));
         }
         else this.player.createStatusAffect(StatusAffects.BottledMilk, 3, 0, 0, 0);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //(player chose milk)
@@ -1195,7 +1195,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.addStatusValue(StatusAffects.BottledMilk, 1, (1 + MarbleScene.rand(6)));
         }
         else this.player.createStatusAffect(StatusAffects.BottledMilk, 3, 0, 0, 0);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //(player chose to refuse)
@@ -1213,7 +1213,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.addStatusValue(StatusAffects.BottledMilk, 1, (1 + MarbleScene.rand(6)));
         }
         else this.player.createStatusAffect(StatusAffects.BottledMilk, 3, 0, 0, 0);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Exploration event while addicted (event triggered while addicted, but not suffering withdrawal):
@@ -1227,7 +1227,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("After you finish, she thanks you for treating her to your company and asks you to come back soon.  You return to your camp, knowing you will probably be seeing her again soon for something less pleasant.", false);
         //(increase affection by 10)
         this.marbleStatusChange(5, 0);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //While Addicted Events type 2 (Marble is ashamed):
@@ -1238,7 +1238,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.findStatusAffect(StatusAffects.MalonVisitedPostAddiction) < 0) {
             this.outputText("You find Marble walking out of the barn, a tank in her arms.  You decide to follow her as she goes behind the barn.  When you round the corner, you see her pouring the contents of the tank out onto the ground.  You ask her what she's doing, \"<i>I'm getting rid of this corrupted milk,</i>\" she says in disgust.  As you approach her, you recognize the smell of her milk and lick your lips unconsciously.  \"<i>I make so much of it each day, I'm a monster,</i>\" she says coldly, \"<i>and I made you need it.</i>\"  As the last of the milk splashes onto the ground, Marble looks towards you. Surprisingly, her face seems hard and cold.  Do you blame her for what happened to you, or do you comfort her?", false);
             //- player chooses blame her or comfort her
-            this.simpleChoices("Comfort", this.AshamedAddictionComfort, "Blame", this.AshamedAddictionBlame, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "Comfort", this.AshamedAddictionComfort, "Blame", this.AshamedAddictionBlame, "", undefined, "", undefined, "", undefined);
             this.player.createStatusAffect(StatusAffects.MalonVisitedPostAddiction, 0, 0, 0, 0);
             return;
         }
@@ -1247,13 +1247,13 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         if (MarbleScene.rand(2) == 0) {
             this.outputText("You find Marble reading a book in her room.  As you enter, she tells you that she has been continuing with her research on the effects of addiction.  She stands up in front of you and starts playing with her breasts. You quickly feel your desire for her milk intensifying.  \"<i>Try to fight your need,</i>\" she tells you as she continues rubbing her chest. You oblige her and try your best, but it's a struggle you do not enjoy as your body feels like it's pulling itself apart from the strain.  Do you fight off your need?", false);
             //- player chooses fight / give in
-            this.simpleChoices("Resist", this.resistAddiction, "Give In", this.addictionGiveIn, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "Resist", this.resistAddiction, "Give In", this.addictionGiveIn, "", undefined, "", undefined, "", undefined);
         }
         //Addiction event version 2:
         else {
             this.outputText("You find Marble as she exits the barn, holding a bottle of her milk.  She looks at you and holds out the bottle.  \"<i>Take this,</i>\" she tells you, \"<i>and say what a horrible thing it is.  Say you wish you'd never tasted it before.  Say it should never exist.  Then dump that trash onto the dirt.</i>\"  Her eyes start to tear up as she finishes the last part. You could do what she says to help beat your addiction, or refuse because you feel that saying such things would hurt her. Or you could just beg her not to waste the milk like that. What do you do?", false);
             //- player chooses dump it / refuse / beg
-            this.simpleChoices("Dump It", this.dumpMarblesMilk, "Refuse", this.refuseMarblesMilkAddiction, "Beg For It", this.ashamedAddictionBegForIt, "", undefined, "", undefined);
+            this.simpleChoices(this, "Dump It", this.dumpMarblesMilk, "Refuse", this.refuseMarblesMilkAddiction, "Beg For It", this.ashamedAddictionBegForIt, "", undefined, "", undefined);
         }
     }
     //(player chose to blame her)
@@ -1271,7 +1271,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.addStatusValue(StatusAffects.BottledMilk, 1, (1 + MarbleScene.rand(6)));
         }
         else this.player.createStatusAffect(StatusAffects.BottledMilk, 3, 0, 0, 0);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //(player chose to comfort her)
     private AshamedAddictionComfort(): void {
@@ -1286,7 +1286,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         //(increase affection by 10)
         this.marbleStatusChange(10, 0);
         //(delay withdrawal effect)
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private withdrawalDelay(): void {
@@ -1318,7 +1318,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.addStatusValue(StatusAffects.BottledMilk, 1, (1 + MarbleScene.rand(6)));
         }
         else this.player.createStatusAffect(StatusAffects.BottledMilk, 3, 0, 0, 0);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //(player gives in)
     private addictionGiveIn(): void {
@@ -1339,7 +1339,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("\n\n", false);
             this.marbleMilkSex(false);
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Ashamed Addiction Event #2 Choices
@@ -1358,7 +1358,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.addStatusValue(StatusAffects.BottledMilk, 1, (1 + MarbleScene.rand(6)));
         }
         else this.player.createStatusAffect(StatusAffects.BottledMilk, 3, 0, 0, 0);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //(player chose refuse)
     private refuseMarblesMilkAddiction(): void {
@@ -1375,7 +1375,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.addStatusValue(StatusAffects.BottledMilk, 1, (1 + MarbleScene.rand(6)));
         }
         else this.player.createStatusAffect(StatusAffects.BottledMilk, 3, 0, 0, 0);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //(player chose beg)
     private ashamedAddictionBegForIt(): void {
@@ -1389,7 +1389,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.addStatusValue(StatusAffects.BottledMilk, 1, (1 + MarbleScene.rand(6)));
         }
         else this.player.createStatusAffect(StatusAffects.BottledMilk, 3, 0, 0, 0);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Exploration event while addicted (event triggered while addicted, but not suffering withdrawal):
@@ -1411,7 +1411,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("After you finish, she thanks you for thinking of her like this, even with what you are going through.  You return to your camp, knowing you will probably be seeing her again soon for something less pleasant.", false);
         //increase affection by 10)
         this.marbleStatusChange(10, 0);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Post addiction farm scenes:
@@ -1427,7 +1427,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             this.dynStats("cor", 1);
         }
         //(event takes an hour)
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //(meet Marble when exploring)
     public postAddictionFarmExplorings(): void {
@@ -1439,7 +1439,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("She is happy to see you and treats you to a small meal while you have a pleasant chat.  ");
         if (this.flags[kFLAGS.MURBLE_FARM_TALK_LEVELS] < 7) {
             this.extendedMurbelFarmTalkz();
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         else this.outputText("While you talk mostly about unimportant things, there is some discussion about the world and the dangers within.");
@@ -1448,7 +1448,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.findPerk(PerkLib.MarbleResistant) >= 0) this.outputText("uncomfortably ", false);
         this.outputText("aware of the smell of Marble's milk.", false);
         this.dynStats("int", 1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //Murble farm talks
     private extendedMurbelFarmTalkz(): void {
@@ -1619,7 +1619,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         }
         if (this.player.gender == 0) {
             this.marbleGenderlessNoFuck();
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         //OH GOD MISSIONARIES?
@@ -1664,8 +1664,8 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText("Marble's eyes widen as you show off your equipment.  \"<i>You have both?</i>\" she says in awe. \"<i>I'm not sure if I can pleasure both parts of you at the same time... which would you prefer to use?</i>\"\n\nWhich of your genitals do you want to have sex with?", false);
                 //– player chooses: dick(s)/vagina, base on choice, treat the rest of the encounter as if they were male or female
                 this.menu();
-                this.addButton(0, "Maleness", this.marbleSex2Continued, -1);
-                this.addButton(1, "Female", this.marbleSex2Continued, -2);
+                this.addButton(this, 0, "Maleness", this.marbleSex2Continued, -1);
+                this.addButton(this, 1, "Female", this.marbleSex2Continued, -2);
                 return;
             }
             //male
@@ -1673,7 +1673,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             //female
             if (this.player.gender == 2) this.marbleSex2Continued(2);
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     public marbleSex2Continued(genders: number): void {
@@ -1732,7 +1732,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.spriteSelect(41);
         if (newpage) {
             this.outputText("", true);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
         if (this.player.gender == 0) {
             this.marbleGenderlessNoFuck();
@@ -1823,7 +1823,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.spriteSelect(41);
         if (newpage) {
             this.outputText("", true);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
         if (this.player.gender == 0) {
             this.marbleGenderlessNoFuck();
@@ -1992,7 +1992,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         //appearnace/info - always there
         //Sex
         if (this.player.lust >= 33) sexEvent = this.marbleSexExpanded;
-        this.choices("Appearance", this.marbleAppearance,
+        this.choices(this, "Appearance", this.marbleAppearance,
             "Talk", this.marbleTalkOverhaul,
             "Present", gatherEvent,
             "Give Item", (this.canGiveItem() ? this.giveItem : undefined),
@@ -2008,15 +2008,15 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.clearOutput();
         this.outputText("What do you want to discuss with Marble?");
         this.menu();
-        this.addButton(0, "Info", this.marbleInfo);
+        this.addButton(this, 0, "Info", this.marbleInfo);
         if ((this.flags[kFLAGS.MARBLE_PURIFICATION_STAGE] < 5 && this.flags[kFLAGS.MARBLE_LUST] >= 20) || (this.flags[kFLAGS.MARBLE_PURIFICATION_STAGE] >= 5 && this.flags[kFLAGS.MARBLE_TIME_SINCE_NURSED_IN_HOURS] >= 4)) {
             this.outputText("[pg]<b>Marble is fidgeting around uncomfortably, perhaps she needs to be milked?</b>");
-            this.addButton(2, "Milking", this.milkMarble);
+            this.addButton(this, 2, "Milking", this.milkMarble);
         }
-        if (this.player.cor < 50 && this.player.statusAffectv4(StatusAffects.Marble) < 60) this.addButton(1, "Just Talk", this.talkWithMarbleAtCamp);
-        this.addButton(9, "Back", this.interactWithMarbleAtCamp);
-        if (this.flags[kFLAGS.SLEEP_WITH] != "Marble") this.addButton(4, "Sleep With", this.marbleSleepToggle);
-        else this.addButton(4, "Sleep Alone", this.marbleSleepToggle);
+        if (this.player.cor < 50 && this.player.statusAffectv4(StatusAffects.Marble) < 60) this.addButton(this, 1, "Just Talk", this.talkWithMarbleAtCamp);
+        this.addButton(this, 9, "Back", this.interactWithMarbleAtCamp);
+        if (this.flags[kFLAGS.SLEEP_WITH] != "Marble") this.addButton(this, 4, "Sleep With", this.marbleSleepToggle);
+        else this.addButton(this, 4, "Sleep Alone", this.marbleSleepToggle);
     }
 
     private marbleSleepToggle(): void {
@@ -2030,7 +2030,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             this.flags[kFLAGS.SLEEP_WITH] = "";
         }
         this.menu();
-        this.addButton(0, "Next", this.marbleTalkOverhaul);
+        this.addButton(this, 0, "Next", this.marbleTalkOverhaul);
     }
 
     private sleepWith(arg: string = ""): void {
@@ -2130,7 +2130,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         }
         if (this.flags[kFLAGS.MARBLE_PLAYED_WITH_KIDS_TODAY] > 0) this.dynStats("lus", -10);
         else this.dynStats("lib", -1, "lus", -10, "cor", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Break up with Marble (Z)
@@ -2139,7 +2139,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.clearOutput();
         this.outputText("Are you sure you want to break up with Marble?  You won't be able to get her back if you do so.");
         //player chooses yes or no, no simply returns to the last menu
-        this.doYesNo(this.definitelyBreakUpWithWithMarble, this.interactWithMarbleAtCamp);
+        this.doYesNo(this, this.definitelyBreakUpWithWithMarble, this.interactWithMarbleAtCamp);
     }
     //[Yes]
     private definitelyBreakUpWithWithMarble(): void {
@@ -2154,7 +2154,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.flags[kFLAGS.MARBLE_KIDS] == 1) this.outputText(" and her child");
         else if (this.flags[kFLAGS.MARBLE_KIDS] > 1) this.outputText(" and her children");
         this.outputText(", and leaves the camp behind.");
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
         this.flags[kFLAGS.BROKE_UP_WITH_MARBLE] = 1;
         this.player.removeStatusAffect(StatusAffects.CampMarble);
         this.player.removeStatusAffect(StatusAffects.NoMoreMarble);
@@ -2170,7 +2170,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.findStatusAffect(StatusAffects.MarbleSpecials) < 0) {
             this.player.createStatusAffect(StatusAffects.MarbleSpecials, 0, 0, 0, 0);
         }
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
         //I don't understand your code enough yet to come up with the conditions for these ifs:
         //General thoughts:
         this.outputText("You call Marble over and the two of you sit down on some rocks to chat.  After thinking a bit, you sort through everything that has happened in this strange land, trying to come up with a new story for your bovine friend.  ", true);
@@ -2276,14 +2276,14 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         else this.outputText("\"<i>Well sweetie, this is it. Your mission has been to stop the demons, Lethice is their leader. Once you're ready, you need to go to their high mountain lair and take them down. Make sure you've finished everything else you want to do before you face Lethice, you won't get a second chance.</i>\"");
         //OLD else outputText("\"<i>Sweetie, you've finished all that there is in the main story of the game so far.  You'll have to wait for Fenoxo to add more,</i>\" she says to you winking. \"<i>In the meantime, explore! There's a lot in here that isn't a part of the main story.  You could also try changing your form and see how that changes each encounter.  Just don't get caught or lose your head, ok sweetie?<i/>\"", false);
 
-        this.doNext(this.interactWithMarbleAtCamp);
+        this.doNext(this, this.interactWithMarbleAtCamp);
     }
 
     //do a sex scene, use the current camp one for now, this event advances the time by an hour.
     private marbleSexExpanded(): void {
         this.spriteSelect(41);
         this.marbleCampFuckFUCKFUCKFUCK();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Milk
@@ -2291,14 +2291,14 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
     //It is important that I can check if there is an item in the player's inventory, if this can't be done, I intend to have inventory items be tied to purifying Marble.
     private gotMilk(): void {
         this.spriteSelect(41);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
         this.outputText("You ask Marble for a bottle of her milk, and she happily hands you one.  ", true);
         this.inventory.takeItem(this.consumables.M__MILK, this.camp.returnToCampUseOneHour);
     }
 
     private marbleGathered(): void {
         this.spriteSelect(41);
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
         //If Marble has found an item, it is collected with this button
         //What she has available is determined either in a fixed order, or at random.  Once an item has been chosen, an appropriate number days must pass before it can be collected from her.
         this.outputText("You ask Marble about any supplies she might have found.  She smiles and hands you her latest find.\n\n", true);
@@ -2329,7 +2329,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             else this.outputText("Now that she's been purified, you can drink as much of her milk as you like without fear.  ");
         }
         this.outputText("Once camp improvements have been implemented, you will be able to get her to work on upgrading the camp instead of searching for supplies.", false);
-        this.doNext(this.interactWithMarbleAtCamp);
+        this.doNext(this, this.interactWithMarbleAtCamp);
     }
 
     private canGiveItem(): boolean {
@@ -2355,22 +2355,22 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.clearOutput();
         this.outputText("What item do you want to give Marble?");
         this.menu();
-        if (this.player.hasItem(this.consumables.OVIELIX, 1)) this.addButton(1, "OviElixir", this.marbleOvulatesLikeMadDawg);
+        if (this.player.hasItem(this.consumables.OVIELIX, 1)) this.addButton(this, 1, "OviElixir", this.marbleOvulatesLikeMadDawg);
         if (this.flags[kFLAGS.MARBLE_DICK_TYPE] == 0)
-            if (this.player.hasItem(this.consumables.P_DRAFT, 1)) this.addButton(2, "P.Incub Dr", this.MarbleDigsDraftsYo);
+            if (this.player.hasItem(this.consumables.P_DRAFT, 1)) this.addButton(this, 2, "P.Incub Dr", this.MarbleDigsDraftsYo);
             else if (this.flags[kFLAGS.MARBLE_DICK_TYPE] > 0) {
-                if (this.player.hasItem(this.consumables.PINKEGG, 1)) this.addButton(3, "Pink Egg", this.MarblepinkEgg);
-                if (this.player.hasItem(this.consumables.L_PNKEG, 1)) this.addButton(4, "L.Pink Egg", this.MarbleLPinkEgg);
+                if (this.player.hasItem(this.consumables.PINKEGG, 1)) this.addButton(this, 3, "Pink Egg", this.MarblepinkEgg);
+                if (this.player.hasItem(this.consumables.L_PNKEG, 1)) this.addButton(this, 4, "L.Pink Egg", this.MarbleLPinkEgg);
             }
-        if (this.player.hasItem(this.consumables.PROBOVA, 1) && this.flags[kFLAGS.MARBLE_BOVA_LEVEL] < 2) this.addButton(5, "Pro Bova", this.giveMarbleTheProBovas4Sho);
-        if (this.player.hasItem(this.consumables.P_LBOVA, 1) && this.flags[kFLAGS.MARBLE_PURIFICATION_STAGE] == 1) this.addButton(6, "P.LaBova", this.marblePurification.giveMarblePureQuestLabova);
+        if (this.player.hasItem(this.consumables.PROBOVA, 1) && this.flags[kFLAGS.MARBLE_BOVA_LEVEL] < 2) this.addButton(this, 5, "Pro Bova", this.giveMarbleTheProBovas4Sho);
+        if (this.player.hasItem(this.consumables.P_LBOVA, 1) && this.flags[kFLAGS.MARBLE_PURIFICATION_STAGE] == 1) this.addButton(this, 6, "P.LaBova", this.marblePurification.giveMarblePureQuestLabova);
         if (this.flags[kFLAGS.MARBLE_PURIFICATION_STAGE] >= 5) {
-            if (this.player.hasItem(this.consumables.P_S_MLK, 1)) this.addButton(7, "P.SuccMilk", this.marblePurification.purifiedSuccubusMilkForPureMarbles);
-            if (this.player.hasItem(this.consumables.REDUCTO, 1)) this.addButton(8, "ReductoBust", this.marblePurification.pureMurbleUsesReducto);
-            if (this.player.hasItem(this.consumables.LACTAID, 1)) this.addButton(0, "Lactaid", this.marblePurification.lactaidForPureMurble);
+            if (this.player.hasItem(this.consumables.P_S_MLK, 1)) this.addButton(this, 7, "P.SuccMilk", this.marblePurification.purifiedSuccubusMilkForPureMarbles);
+            if (this.player.hasItem(this.consumables.REDUCTO, 1)) this.addButton(this, 8, "ReductoBust", this.marblePurification.pureMurbleUsesReducto);
+            if (this.player.hasItem(this.consumables.LACTAID, 1)) this.addButton(this, 0, "Lactaid", this.marblePurification.lactaidForPureMurble);
         }
-        else if (this.player.findPerk(PerkLib.MarblesMilk) >= 0) this.addButton(0, "Lactaid", this.giveMarbleLactaid);
-        this.addButton(9, "Back", this.interactWithMarbleAtCamp);
+        else if (this.player.findPerk(PerkLib.MarblesMilk) >= 0) this.addButton(this, 0, "Lactaid", this.giveMarbleLactaid);
+        this.addButton(this, 9, "Back", this.interactWithMarbleAtCamp);
     }
 
     //The player gives Marble an item, right now only Lactaid will be here, and only if the player is fully addicted
@@ -2386,7 +2386,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("What meets your lips surprises you; it feels tastier, healthier, and just plain better than normal.  With an effort, you manage to empty her breasts, even though they seemed to have been filled with more milk than usual.  You feel even more powerful than normal and the whole world seems clearer.  However, Marble seems a little disappointed; it seems the Lactaid's effects on her were only temporary.\n\n", false);
         // Give the player an increase to their stats of 10 str, 5 tou, and 10 inte for about 24 hours
         this.dynStats("str", 1, "tou", 1, "int", 1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     /*
@@ -2791,7 +2791,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             //Pass several hours
             this.outputText("\n\nYou wake up a few hours later laying on the ground, your head feeling like it's been squeezed in a vice.  With some effort, you manage to get yourself to a sitting position and look around.  It looks like you're laying just outside the barn.  Whitney is standing nearby.  She has something akin to a smile on her animalistic face as she tells you: \"<i>Well hun, it seems you've managed to get Marble rather upset.  I reckon you should leave her alone from now on, as I'm sure you've found out the hard way, she is one tough customer.</i>\"  Your aching head is telling you that may be a good idea; but then again, maybe you should teach that cow-girl a lesson for the pain first.", false);
         }
-        this.doNext(this.camp.returnToCampUseFourHours);
+        this.doNext(this, this.camp.returnToCampUseFourHours);
         //The follow up fight event can now be triggered, regardless of whether the rape was successful or not.
         this.player.createStatusAffect(StatusAffects.MarbleRapeAttempted, 0, 0, 0, 0);
     }
@@ -2817,7 +2817,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("While exploring the farm, you notice the cow-girl that hit you earlier, Marble, coming out of the barn.  You could try confronting her if you want to, or you could just avoid her from now on.", true);
         //player decides if they want to confront her or not
         //Choose yes/no
-        this.doYesNo(this.marbleAfterRapeYes, this.marbleAfterRapeNo);
+        this.doYesNo(this, this.marbleAfterRapeYes, this.marbleAfterRapeNo);
     }
 
     //if yes, Marble confronts the player just outside the barn with her hammer in hand
@@ -2827,7 +2827,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("Deciding to deal with her, you move towards the barn.  However, Marble spots you on your way over and quickly disappears inside.  Just as you get to the entrance, she re-emerges with a large two handed hammer in hand.  \"<i>Leave right now, or this hammer is going into your head,</i>\" she tells you with an angry look in her eyes and drops into a combat stance.  Will you fight her?", true);
         //the player decides if they want to fight or not
         //Choose yes/no
-        this.doYesNo(this.marbleAfterRapeStartFight, this.marbleAfterRapeNo);
+        this.doYesNo(this, this.marbleAfterRapeStartFight, this.marbleAfterRapeNo);
     }
 
     //if yes, then fight with Marble
@@ -2842,7 +2842,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
     private marbleAfterRapeNo(): void {
         this.spriteSelect(41);
         this.outputText("You shake your head. It's just not worth the headache to deal with this cow.  You turn around and leave; you aren't going to be seeing her anymore.", true);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -3029,7 +3029,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             }
             //cow-girl child is added to the nursery, her name is set to \"<i>childName</i>\"
             this.flags[kFLAGS.MARBLE_KIDS]++;
-            this.doNext(this.playerMenu);
+            this.doNext(this, this.playerMenu);
         }
         //Eggs
         else if (this.pregnancy.type == PregnancyStore.PREGNANCY_OVIELIXIR_EGGS) {
@@ -3128,7 +3128,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             else {
                 this.outputText("  Do you ask Marble if she'd like to have sex?");
                 //[Ask][Don't Ask]
-                this.simpleChoices("Ask", this.atNightAskMarbleForSomeSexMaybe, "Don't Ask", this.playerMenu, "", undefined, "", undefined, "", undefined);
+                this.simpleChoices(this, "Ask", this.atNightAskMarbleForSomeSexMaybe, "Don't Ask", this.playerMenu, "", undefined, "", undefined, "", undefined);
                 return true;
             }
             this.outputText("  ");
@@ -3150,12 +3150,12 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 var tailJob = undefined;
                 //tailjob for futa marble if PC is naga
                 if (this.player.isNaga() && this.flags[kFLAGS.MARBLE_DICK_LENGTH] > 0) tailJob = this.giveMarbleTailjobRelease;
-                this.simpleChoices("Yes", this.marbleNomNoms, "No", this.playerMenu, "Tailjob", tailJob, "", undefined, "", undefined);
+                this.simpleChoices(this, "Yes", this.marbleNomNoms, "No", this.playerMenu, "Tailjob", tailJob, "", undefined, "", undefined);
             }
             else {
                 this.outputText(".  I can tell you want this too, so can we please have sex?</i>\"  You sit up and consider her request.  Will you have sex with Marble?  If not, you could always offer to give her oral instead.");
                 //options: yes/no/oral (yes continues to the next part of the scene as it did before.
-                this.simpleChoices("Yes", this.marbleNightSexIntro, "No", this.playerMenu, "Oral", this.marbleNomNoms, "", undefined, "", undefined);
+                this.simpleChoices(this, "Yes", this.marbleNightSexIntro, "No", this.playerMenu, "Oral", this.marbleNomNoms, "", undefined, "", undefined);
             }
             return true;
         }
@@ -3213,7 +3213,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             this.marbleNightSexIntro(false);
             return;
         }
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
 
@@ -3229,7 +3229,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         //No sex if dude and too big!
         else if (this.player.gender == 1 && this.player.cockArea(x) > this.marbleCuntCapacity()) {
             this.outputText("You lie down next to her, but you can't help wishing that the two of you could have sex.  Suddenly, you feel Marble's hand grab a hold of your " + this.cockDescript(x) + ".  She sighs and says, \"<i>Sweetie, I'm afraid that you won't fit inside me.  Do you think you could get a little smaller, just for me?</i>\"  After a moment of getting comfortable, the two of you go to sleep.", false);
-            this.doNext(this.playerMenu);
+            this.doNext(this, this.playerMenu);
         }
         //Ok lets light this fire!
         this.outputText("At that moment, you feel Marble breathe in your ear, \"<i>I know you want this, don't you sweetie?</i>\"\n\n", false);
@@ -3270,20 +3270,20 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.player.cockArea(x) <= this.marbleCuntCapacity()) {
                 this.outputText("\"<i>So sweetie, what part will you be using today?</i>\" she asks you.", false);
                 //Player chooses if they want to use their dick or their vagina.
-                this.simpleChoices("Dick", this.marbleNightSexDudes, "Vagina", this.marbleNightSexChicks, "", undefined, "", undefined, "", undefined);
+                this.simpleChoices(this, "Dick", this.marbleNightSexDudes, "Vagina", this.marbleNightSexChicks, "", undefined, "", undefined, "", undefined);
             }
             else {
                 this.outputText("Marble says, \"<i>Well sweetie, since that " + this.cockDescript(x) + " of yours is too big to fit inside me, let's put that " + this.vaginaDescript(0) + " to use.</i>\"\n\n", false);
                 //GIRL SECKS GOES HERE
-                this.doNext(this.marbleNightSexChicks);
+                this.doNext(this, this.marbleNightSexChicks);
             }
         }
         else {
             //Go to next scene based on the PC's and Marble's attributes
             //DUDEZ
-            if (this.player.gender == 1) this.doNext(this.marbleNightSexDudes);
+            if (this.player.gender == 1) this.doNext(this, this.marbleNightSexDudes);
             //CHICKZ
-            else this.doNext(this.marbleNightSexChicks);
+            else this.doNext(this, this.marbleNightSexChicks);
         }
     }
     //Sex function for if PC is male
@@ -3506,7 +3506,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         //Set PC lust to 0
         this.player.orgasm();
         this.dynStats("sen", - 1);
-        this.doNext(this.camp.doSleep);
+        this.doNext(this, this.camp.doSleep);
     }
 
     //Pleasing Marble
@@ -3553,7 +3553,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\"<i>Thank you so much sweetie.  Next time if you're in the mood, maybe we can have fun together,</i>\" says Marble.", false);
         //Increase PC lust by (random number 0-10) + lib/10
         this.dynStats("lus", MarbleScene.rand(10) + this.player.lib / 10);
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     //Next set of items that can be given to Marble
@@ -3574,7 +3574,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.statusAffectv4(StatusAffects.Marble) > 50) this.outputText("big ", false);
         else this.outputText("nervous ", false);
         this.outputText("smile.  <b>Marble is now a hermaphrodite.</b>  ", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
         this.flags[kFLAGS.MARBLE_DICK_TYPE] = 1;
         this.flags[kFLAGS.MARBLE_DICK_LENGTH] = 7;
         this.flags[kFLAGS.MARBLE_DICK_THICKNESS] = 2;
@@ -3605,7 +3605,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.MARBLE_DICK_TYPE] = 0;
         this.flags[kFLAGS.MARBLE_DICK_LENGTH] = 0;
         this.flags[kFLAGS.MARBLE_DICK_THICKNESS] = 0;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Ovi-elixir
@@ -3616,7 +3616,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         //Marble is visibly pregnant with non-eggs, and the nursery has not been built yet) {
         if (this.flags[kFLAGS.MARBLE_NURSERY_CONSTRUCTION] < 100 && this.pregnancy.type == PregnancyStore.PREGNANCY_PLAYER) {
             this.outputText("Marble refuses to take the elixir to speed up her pregnancy until after she has finished the nursery. ", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         else if (this.pregnancy.isPregnant) {
@@ -3630,7 +3630,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             this.pregnancy.knockUpForce(PregnancyStore.PREGNANCY_OVIELIXIR_EGGS, PregnancyStore.INCUBATION_OVIELIXIR_EGGS + 46);
         }
         this.player.consumeItem(this.consumables.OVIELIX);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     /*
@@ -3656,12 +3656,12 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.flags[kFLAGS.MARBLE_BOVA_LEVEL] == 0) {
             this.outputText("You hand Marble the bottle of ProBova.  She considers it for a few moments before looking at you and saying, \"<i>Judging by the label, this is probably going to make me even more cowlike then I already am, sweetie.  I'm not really opposed to the idea, but it will be permanent.  Are you sure you want me to drink it?</i>\"");
             //player chooses yes/no
-            this.doYesNo(this.giveMarbleTheProBovas4Sho, this.giveItem);
+            this.doYesNo(this, this.giveMarbleTheProBovas4Sho, this.giveItem);
         }
         else {
             this.outputText("You hand Marble another bottle of the ProBova.  She studies your face seriously for a few moments before saying, \"<i>Now, you're absolutely sure that you want me to drink this?  Remember that whatever happens will likely be permanent.</i>\"");
             //player chooses yes/no
-            this.doYesNo(this.giveMarbleTheProBovas4Sho, this.giveItem);
+            this.doYesNo(this, this.giveMarbleTheProBovas4Sho, this.giveItem);
         }
     }
     //if yes
@@ -3684,7 +3684,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             //increase Marble corruption by 4
             this.flags[kFLAGS.MARBLE_BOVA_LEVEL] = 2;
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private marbleNip(): string {
@@ -3750,7 +3750,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         //since I assume Marble may become ass fucked in the future, Boolean Marble.analVirgin:
         if (this.player.statusAffectv1(StatusAffects.MarbleSpecials) == 0) this.outputText("She has one virgin bum-hole, placed between her squeezable butt-cheeks where, you presume, it belongs.", false);
         else this.outputText("She has one bum-hole, placed between her squeezable butt-cheeks where, you presume, it belongs.", false);
-        this.doNext(this.interactWithMarbleAtCamp);
+        this.doNext(this, this.interactWithMarbleAtCamp);
     }
 
     //Requirements:
@@ -3782,7 +3782,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         //slimefeed if corruption, gain fuckin' lust n lower marble lust n' shit
         this.dynStats("lus", 20);
         this.flags[kFLAGS.MARBLE_LUST] = 0;
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     // TheDarkMaster's Marble in her Milker
@@ -3822,11 +3822,11 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
 
         if (this.flags[kFLAGS.MARBLE_PURIFICATION_STAGE] >= 5) this.flags[kFLAGS.MARBLE_TIME_SINCE_NURSED_IN_HOURS] = 0;
         this.menu();
-        this.addButton(0, "Cunnilingus", this.milkMarbleCunnilingling);
-        if (this.player.cockThatFits(this.marbleCuntCapacity()) >= 0 && (this.player.isBiped() || this.player.isNaga() || this.player.isGoo())) this.addButton(1, "Fuck Her", this.milkMarbleFuckDatCowPussy);
-        if (this.player.hasVagina() && this.flags[kFLAGS.MARBLE_DICK_TYPE] > 0 && (this.player.isBiped() || this.player.isGoo())) this.addButton(2, "Take Her", this.milkMarbleTakeHerDick);
-        this.addButton(3, "Her on Bar", this.milkMarbleOnTheBar);
-        this.addButton(4, "Leave", this.milkMarbleNoMilking);
+        this.addButton(this, 0, "Cunnilingus", this.milkMarbleCunnilingling);
+        if (this.player.cockThatFits(this.marbleCuntCapacity()) >= 0 && (this.player.isBiped() || this.player.isNaga() || this.player.isGoo())) this.addButton(this, 1, "Fuck Her", this.milkMarbleFuckDatCowPussy);
+        if (this.player.hasVagina() && this.flags[kFLAGS.MARBLE_DICK_TYPE] > 0 && (this.player.isBiped() || this.player.isGoo())) this.addButton(this, 2, "Take Her", this.milkMarbleTakeHerDick);
+        this.addButton(this, 3, "Her on Bar", this.milkMarbleOnTheBar);
+        this.addButton(this, 4, "Leave", this.milkMarbleNoMilking);
     }
 
 
@@ -3886,7 +3886,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         var pLust: number = Math.floor(20 + ((this.player.lib + this.player.cor) / 10));
         this.dynStats("lus", pLust);
         this.dynStats("sen", 1);
-        this.doNext(this.camp.returnToCampUseTwoHours);
+        this.doNext(this, this.camp.returnToCampUseTwoHours);
     }
 
 
@@ -3989,7 +3989,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             this.dynStats("sen", -2);
             this.marblePreggoChance(1);
         }
-        this.doNext(this.camp.returnToCampUseTwoHours);
+        this.doNext(this, this.camp.returnToCampUseTwoHours);
     }
 
 
@@ -4038,7 +4038,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.MARBLE_LUST] = 10;
         this.dynStats("lib", .5);
         this.player.knockUp(PregnancyStore.PREGNANCY_MARBLE, PregnancyStore.INCUBATION_MARBLE, 150);
-        this.doNext(this.camp.returnToCampUseTwoHours);
+        this.doNext(this, this.camp.returnToCampUseTwoHours);
     }
 
 
@@ -4072,10 +4072,10 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.cockThatFits(this.marbleCuntCapacity()) > 0) this.outputText("[pg]You idly consider grabbing and pulling on her tail, so you could have a chance to take charge, though Marble would probably try and take control in that case for sure...");
 
         this.menu();
-        this.addButton(0, "Follow Tail", this.milkMarbleBarFollowTail);
-        this.addButton(1, "Cunnilingus", this.milkMarbleBarCunnilingling);
-        if (this.player.cockThatFits(this.marbleCuntCapacity()) >= 0) this.addButton(2, "Pull Tail", this.milkMarbleBarPullTail);
-        this.addButton(3, "Leave", this.milkMarbleLeaveAfterBar);
+        this.addButton(this, 0, "Follow Tail", this.milkMarbleBarFollowTail);
+        this.addButton(this, 1, "Cunnilingus", this.milkMarbleBarCunnilingling);
+        if (this.player.cockThatFits(this.marbleCuntCapacity()) >= 0) this.addButton(this, 2, "Pull Tail", this.milkMarbleBarPullTail);
+        this.addButton(this, 3, "Leave", this.milkMarbleLeaveAfterBar);
     }
 
 
@@ -4144,7 +4144,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             var pLust: number = Math.floor(10 + this.player.lib / 10);
             this.dynStats("lus", pLust);
         }
-        this.doNext(this.camp.returnToCampUseTwoHours);
+        this.doNext(this, this.camp.returnToCampUseTwoHours);
     }
 
 
@@ -4187,7 +4187,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("lus", pLust);
         this.dynStats("sen", 1);
         this.model.time.hours++;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -4272,7 +4272,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.MARBLE_LUST] = 15;
         this.dynStats("sen", -2);
         this.marblePreggoChance(1);
-        this.doNext(this.camp.returnToCampUseTwoHours);
+        this.doNext(this, this.camp.returnToCampUseTwoHours);
     }
 
 
@@ -4286,7 +4286,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         var pLust: number = Math.floor(5 + this.player.lib / 20);
         this.dynStats("lus", pLust);
         this.flags[kFLAGS.MARBLE_LUST] += 5;
-        this.doNext(this.camp.returnToCampUseTwoHours);
+        this.doNext(this, this.camp.returnToCampUseTwoHours);
     }
 
 
@@ -4296,7 +4296,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("[pg]\"<i>Oh, alright then sweetie, I'll see you later.</i>\"  She takes a seat in the chair in the middle of the room and picks up where she left off in her book.  You excuse yourself and return back to camp.");
 
-        this.doNext(this.camp.returnToCampUseTwoHours);
+        this.doNext(this, this.camp.returnToCampUseTwoHours);
     }
 
 }

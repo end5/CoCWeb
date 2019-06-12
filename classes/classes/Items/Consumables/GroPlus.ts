@@ -25,7 +25,7 @@ export class GroPlus extends Consumable {
         var gpNipples = (this.game.player.totalNipples() > 0 ? this.growPlusNipples : undefined);
         this.clearOutput();
         this.outputText("You ponder the needle in your hand knowing it will enlarge the injection site.  What part of your body will you use it on?  ");
-        this.game.choices("Balls", gpBalls, "Breasts", gpBreasts, "Clit", gpClit, "Cock", gpCock, "Nipples", gpNipples, "", undefined, "", undefined, "", undefined, "", undefined, "Nevermind", this.growPlusCancel);
+        this.game.choices(this, "Balls", gpBalls, "Breasts", gpBreasts, "Clit", gpClit, "Cock", gpCock, "Nipples", gpNipples, "", undefined, "", undefined, "", undefined, "", undefined, "Nevermind", this.growPlusCancel);
         return (true);
     }
 

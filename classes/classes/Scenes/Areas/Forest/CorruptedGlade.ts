@@ -19,7 +19,7 @@ export class CorruptedGlade extends BaseContent {
                 this.outputText("  Disgusted by this perversion of nature, you turn away to leave, narrowly avoiding a sudden dripping of thick white fluid from the vines overhead.");
                 this.dynStats("lus", 2);
             }
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
         else if (this.player.cor <= 66) { //intrigued reaction
             this.outputText("  You explore the glade with equal parts caution and curiosity.  ");
@@ -34,11 +34,11 @@ export class CorruptedGlade extends BaseContent {
                     this.outputText("A cluster of huge breast-like knots on a nearby tree draws your attention.  Unable to resist, you poke one, and burst into giggles as it jiggles like a real breast!  You cautiously begin groping the tree-tit, and smile as it begins leaking sweet-smelling sap.  The scent conjures memories of helping to make maple syrup back home, and before you realize it, you've gathered a drop of the sap on your finger and tasted it.  It's powerfully sweet, making your tongue tingle and heart beat faster.  Unbidden, the thought of suckling the teat dry of its sweet treat comes to mind, but you manage to reject it and stumble away from the corrupted glade.  You have trouble with your tongue for the next hour: it won't stay in your mouth, and keeps licking your lips, seeking any leftover sweetness.  It almost distracts you from the palpable heat gathering between your thighs.");
             }
             this.dynStats("lus", 20 + this.player.lib / 5, "cor", .5);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
         else { //drink sap/lick flower reaction
             this.outputText("  You smile as you enter the glade, wondering which of the forbidden fruits you should try...\n\nThere are flowers that bear more than a passing resemblance to pussies,\nvines with absurdly large penis-like tips,\nand trees covered in breast-like knots, leaking sap.");
-            this.simpleChoices("Flowers", this.flowerFun, "Vines", this.tentacleFun, "Trees", this.treeBoobFun, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+            this.simpleChoices(this, "Flowers", this.flowerFun, "Vines", this.tentacleFun, "Trees", this.treeBoobFun, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
         }
         //Wallow in decadence reaction - UNFINISHED
     }
@@ -100,7 +100,7 @@ export class CorruptedGlade extends BaseContent {
             this.player.orgasm();
             this.dynStats("sen", 4, "cor", 1);
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private tentacleFun(): void {
@@ -219,7 +219,7 @@ export class CorruptedGlade extends BaseContent {
             }
         }
         this.player.slimeFeed();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private treeBoobFun(): void {
@@ -253,6 +253,6 @@ export class CorruptedGlade extends BaseContent {
                 }
             }
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 }

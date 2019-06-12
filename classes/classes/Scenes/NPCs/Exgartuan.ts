@@ -186,7 +186,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You come closer and discover a placard.  It reads, \"Fountain of Endowment\".  Well, clearly it's supposed to enhance something, but at what cost?\n\n", false);
         this.outputText("Do you drink from the fountain?", false);
         //[Yes] [No]
-        this.doYesNo(this.drinkFountainEndowment, this.camp.returnToCampUseOneHour);
+        this.doYesNo(this, this.drinkFountainEndowment, this.camp.returnToCampUseOneHour);
     }
 
     private drinkFountainEndowment(): void {
@@ -253,7 +253,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(" now!", false);
             changed = true;
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     private exgartuanInfestDick(): void {
         this.spriteSelect(15);
@@ -399,7 +399,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("You blush and redress, noting that Exgartuan seems to be silent and sleeping...  maybe you'll get a little peace now?", false);
         }
         this.player.changeStatusValue(StatusAffects.Exgartuan, 2, (12 + Exgartuan.rand(7)));
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -799,14 +799,14 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You redress, whistling happily as you prepare to leave.  Your victim is practically unconscious, still shaking from the intense experience and leaking eggs and honey from the organ on her backside.  Do you cut her down or leave her bound up for the locals to enjoy?", false);
         this.player.orgasm();
         this.dynStats("lib", 1, "cor", 2);
-        this.simpleChoices("Leave Her", this.leaveBeePostRape, "Free Her", this.freeBeePostRape, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Leave Her", this.leaveBeePostRape, "Free Her", this.freeBeePostRape, "", undefined, "", undefined, "", undefined);
     }
 
     //[Free Her] (negates some corruption gain)
     private freeBeePostRape(): void {
         this.outputText("", true);
         this.outputText("You take pity on the slut and untie her.  Hopefully she'll recover before something worse finds her.  You'd hate to let a tentacle-beast get your sloppy seconds.", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
         this.dynStats("cor", -1);
     }
 
@@ -814,7 +814,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
     private leaveBeePostRape(): void {
         this.outputText("", true);
         this.outputText("You smile cruelly and give her glittering vulva a gentle smack before you walk away, leaving her tied up there.  Maybe some lonely imps will find a use for her...", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
         this.dynStats("cor", .5);
     }
 
@@ -833,7 +833,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("After listlessly staring at your forced exhibitionism for a few seconds, your sleep anxiety wins over.  You bend over to begin taking off the article... only to find that it refuses to budge.  It acts as if it were adhered to your skin, resisting any actions to undo it from your groin.  After fidgeting with it for a few seconds, you let out an exasperated groan.  You're certainly in no mood to struggle with it nor who's responsible any further, reaching over and pulling up your covers.  One more sigh escapes your lips as you gaze upon the unsightly bulge before resting back on your pillow and closing your eyes.\n\n", false);
 
             //[new page. If lust <75, raise to 75]
-            this.doNext(this.exgartuanBulgeTortureII);
+            this.doNext(this, this.exgartuanBulgeTortureII);
             return;
         }
         else {
@@ -965,7 +965,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
             this.player.slimeFeed();
         }
         this.player.changeStatusValue(StatusAffects.Exgartuan, 2, 25);
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
     private exgartuanBulgeTortureII(): void {
         this.outputText("", true);
@@ -999,7 +999,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
 
         //[new page. lust raises to 100]
         this.dynStats("lus=", 1000);
-        this.doNext(this.exgartuanBulgeTortureIII);
+        this.doNext(this, this.exgartuanBulgeTortureIII);
     }
     private exgartuanBulgeTortureIII(): void {
         this.outputText("", true);
@@ -1068,7 +1068,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
         //[new page. lust resets to 0. corruption raises by 2. player gains ailment \"<i>Jizzpants</i>\"]
         this.player.orgasm();
         this.dynStats("cor", 2);
-        this.doNext(this.exgartuanBulgeTortureIV);
+        this.doNext(this, this.exgartuanBulgeTortureIV);
     }
 
     private exgartuanBulgeTortureIV(): void {
@@ -1087,7 +1087,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("  You pay one more glance to Exgartuan, the " + this.cockDescript(0) + " comfortably resting away in your outfit.\n\n", false);
         this.outputText("Damn demons.", false);
         this.player.changeStatusValue(StatusAffects.Exgartuan, 2, 25);
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     //Exgartuan in breasts
@@ -1135,7 +1135,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
             return;
         }
         //[new page]
-        this.doNext(this.boobgartuanSurprise2);
+        this.doNext(this, this.boobgartuanSurprise2);
     }
 
     private boobgartuanSurprise2(): void {
@@ -1184,7 +1184,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("For a moment, you can swear you felt them rumbling... taunting you...", false);
             //[end of occurrence ==0]
         }
-        this.doNext(this.boobgartuanSurprise3);
+        this.doNext(this, this.boobgartuanSurprise3);
     }
     //[new page.  occurrence ≥1 starts here]
     private boobgartuanSurprise3(): void {
@@ -1332,7 +1332,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("lus", 5, "cor", 2);
         this.flags[kFLAGS.BOOBGARTUAN_SURPRISE_COUNT]++;
         this.player.changeStatusValue(StatusAffects.Exgartuan, 2, 25);
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     //Requirements:
@@ -1433,7 +1433,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
         this.player.changeStatusValue(StatusAffects.Exgartuan, 2, (16 + Exgartuan.rand(7)));
         this.player.orgasm();
         this.dynStats("lib", .25);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 }
 

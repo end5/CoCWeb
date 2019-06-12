@@ -109,7 +109,7 @@ export class Kelt extends Monster {
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
             this.outputText("\n\nKelt recoils for a moment before assuming a look of superiority...");
-            this.doNext(this.game.endLustLoss);
+            this.doNext(this, this.game.endLustLoss);
         } else {
             this.game.farm.kelly.keltFucksShitUp();
         }

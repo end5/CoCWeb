@@ -51,7 +51,7 @@ export class Lilium extends BazaarAbstractContent {
         }
         if (this.player.gems < 200) this.outputText("<b>You remember that you haven't got the 200 gems for her services right now.  Maybe next time.</b>", false);
         else pay = this.payForLilium;
-        this.simpleChoices("Pay", pay, "", undefined, "", undefined, "", undefined, "Leave", this.leaveLilium);
+        this.simpleChoices(this, "Pay", pay, "", undefined, "", undefined, "", undefined, "Leave", this.leaveLilium);
     }
 
 
@@ -67,7 +67,7 @@ export class Lilium extends BazaarAbstractContent {
             this.outputText("\"<i>Look, I'm sorry, but I can't really do anything for you right now.  If your, uh, situation changes, come see me again.</i>\"  Lilium then walks off, leaving you alone and naked.\n\n", false);
 
             this.outputText("Bummer.", false);
-            this.doNext(this.bazaar.enterTheBazaar);
+            this.doNext(this, this.bazaar.enterTheBazaar);
             return;
         }
         //First time - Pay: 
@@ -94,7 +94,7 @@ export class Lilium extends BazaarAbstractContent {
         if (this.player.hasCock() && this.player.tongueType >= TONUGE_DEMONIC) buttFuck = this.buttFuckTongueJeorb;
         if (this.player.hasCock()) nippleFuck = this.liliumNippleFuck;
         if (this.player.hasVagina()) rideHer = this.liliumDickRidah;
-        this.simpleChoices("Buttfuck", buttFuck, "Ride Her", rideHer, "Nipple-Fuck", nippleFuck, "", undefined, "", undefined);
+        this.simpleChoices(this, "Buttfuck", buttFuck, "Ride Her", rideHer, "Nipple-Fuck", nippleFuck, "", undefined, "", undefined);
     }
 
     //- Leave:
@@ -103,7 +103,7 @@ export class Lilium extends BazaarAbstractContent {
         this.spriteSelect(93);
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00267] == 0) this.outputText("\"<i>I'm deathly allergic to fun, unfortunately,</i>\" you reply before moving on to examine more of the bazaar.", false);
         else this.outputText("\"<i>Just passing through, and I thought I'd see how you were doing,</i>\" you reply, and leave Lilium alone at her post.", false);
-        this.doNext(this.bazaar.enterTheBazaar);
+        this.doNext(this, this.bazaar.enterTheBazaar);
     }
 
     //#########BUTTFUCK + TONGUEJOB SCENE######### REQUIRES PENIS AND LONG DEMONIC TONGUE
@@ -145,7 +145,7 @@ export class Lilium extends BazaarAbstractContent {
 
         this.player.orgasm();
         this.dynStats("cor", 1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //#########DICK RIDE SCENE######### REQUIRES VAGINA
@@ -201,7 +201,7 @@ export class Lilium extends BazaarAbstractContent {
         this.dynStats("cor", 1);
         //(imp preg check)
         this.player.knockUp(PregnancyStore.PREGNANCY_IMP, PregnancyStore.INCUBATION_IMP - 14, 61); //Lilium causes faster pregnancies
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //#########NIPPLE FUCK SCENE######### REQUIRES PENIS
@@ -259,7 +259,7 @@ export class Lilium extends BazaarAbstractContent {
 
         this.outputText("You get dressed again and begin to leave; as you look back over shoulder, Lilium - still seated and leaning against the wall - blows you a kiss.", false);
         this.player.orgasm();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 }
 

@@ -38,7 +38,7 @@ export class GooGirlScene extends AbstractLakeContent {
         this.outputText("waters. You pause, trying to figure out what the shape might be. Just under the surface of the water, there appears to be a fist-sized heart shedding a crimson glow. Leaning closer, you gaze down into your reflection only to find your face rising up with pursed lips, trying to kiss you! You jerk backwards and the pseudo-head quivers, resolving its face into a gooey-looking girl, her ", false);
         this.startCombat(new GooGirl());
         this.outputText(this.gooColor() + " slime body sculpting itself into a humanoid shape. The girl curiously tilts her head to one side, as if trying to figure out why you're backing away, before she happily surges forward!", false);
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     //New Perk – Slime Core (requires goo player, random drop rate?)
@@ -76,7 +76,7 @@ export class GooGirlScene extends AbstractLakeContent {
 
         this.outputText("Your body feels leaden and overburdened, making escape impossible. When the girls reach you, they dive into your now-permeable membrane, one by one at first, then two and three at a time. You grow and swell as they fill you, cascades of memories and thoughts suffocating you like the torrent of a waterfall. Your bloated, expanding body responds to the psychic barrage in the only way it can- releasing an orgasm of gushing fluids from your body in lustful spree, showering the girls milling about you in protein-rich, gooey milk and cum, feeding their bodies even as they force-feed your mind. Hundreds of years unpack themselves within you, tiny heart buds floating inside of your chest, gradually merging into one, vibrant crimson orb.", false);
         //[Next]
-        this.doNext(this.gooGirlBadEnd2);
+        this.doNext(this, this.gooGirlBadEnd2);
     }
 
     private gooGirlBadEnd2(): void {
@@ -100,7 +100,7 @@ export class GooGirlScene extends AbstractLakeContent {
 
     public slimeBadEnd(): void { //Another gooey bad end; you should have drunk more fluids
         this.outputText("\nYour entire body wobbles as your strength fails, collapsing into itself.  You struggle to rise, but your form loses more and more rigidity, melting into an amorphous blob.  Without the strength to rise, you've no hope of getting the fluids you need.  The aching craving for moisture drives you to roll to the lake, which you slip into.  With the constant runoff of bodily fluids that enter the lake, you're able to subsist for a time, forgetting about your mission as the all-consuming need devours your personality.");
-        this.doNext(this.slimeBadEnd2);
+        this.doNext(this, this.slimeBadEnd2);
     }
 
     private slimeBadEnd2(): void {
@@ -297,11 +297,11 @@ export class GooGirlScene extends AbstractLakeContent {
             if (this.player.hasCock()) {
                 if (this.player.cocks[this.player.smallestCockIndex()].cockLength < 24) {
                     sex1S = "DickSex";
-                    sex1N = this.createCallBackFunction(this.gooMaleRape, 2);
+                    sex1N = this.createCallBackFunction(this, this.gooMaleRape, 2);
                 }
                 if (this.player.longestCockLength() >= 24) {
                     sex2S = "BigDickSex";
-                    sex2N = this.createCallBackFunction(this.gooMaleRape, 1);
+                    sex2N = this.createCallBackFunction(this, this.gooMaleRape, 1);
                 }
                 if (this.player.hasVagina()) {
                     sex3S = "Herm Sex";
@@ -349,7 +349,7 @@ export class GooGirlScene extends AbstractLakeContent {
                 if (this.flags[kFLAGS.TIMES_VALERIA_GOO_THREESOMED] == 0) this.outputText("Do you offer a threesome with the girl to Valeria? It could get a little weird....");
                 else this.outputText("Do you offer a threesome with the girl to Valeria? She'll likely try flood with you with more sloshing, shuddering pleasure than your body can handle.");
             }
-            this.choices(sex1S, sex1N, sex2S, sex2N, sex3S, sex3N, sex4S, sex4N, "Lay Eggs", eggs, "", undefined, "", undefined, "Valeria", valeria, "Make Slave", gooTF, "Leave", this.cleanupAfterCombat);
+            this.choices(this, sex1S, sex1N, sex2S, sex2N, sex3S, sex3N, sex4S, sex4N, "Lay Eggs", eggs, "", undefined, "", undefined, "Valeria", valeria, "Make Slave", gooTF, "Leave", this.cleanupAfterCombat);
         }
     }
 
@@ -506,7 +506,7 @@ export class GooGirlScene extends AbstractLakeContent {
 
         this.outputText("You hurry away before the five oozes take an interest in you next.", false);
         this.dynStats("lus", (4 + this.player.cor / 10));
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 

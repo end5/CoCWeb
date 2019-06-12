@@ -61,22 +61,22 @@ export class Doppleganger extends Monster {
         this.statScreenRefresh();
 
         if (this.HP < 1) {
-            this.doNext(this.game.endHpVictory);
+            this.doNext(this, this.game.endHpVictory);
             return;
         }
 
         if (this.lust > 99) {
-            this.doNext(this.game.endLustVictory);
+            this.doNext(this, this.game.endLustVictory);
             return;
         }
 
         if (this.player.HP < 1) {
-            this.doNext(this.game.endHpLoss);
+            this.doNext(this, this.game.endHpLoss);
             return;
         }
 
         if (this.player.lust > 99) {
-            this.doNext(this.game.endLustLoss);
+            this.doNext(this, this.game.endLustLoss);
             return;
         }
 

@@ -92,7 +92,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
             if (!this.player.hasCock()) {
                 this.outputText("You can't keep trying to break Kelt without the proper tool to do it with.");
                 this.menu();
-                this.addButton(0, "Next", this.farm.farmExploreEncounter);
+                this.addButton(this, 0, "Next", this.farm.farmExploreEncounter);
                 return;
             }
             this.resistKeltsBSBreakHimIntro();
@@ -100,9 +100,9 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         }
         this.outputText("Having met Kelt, you know he's liable to subject you to plenty of abuse in exchange for training.  Are you going to endure it, resist, or never resist?");
         this.menu();
-        this.addButton(0, "Endure", this.farm.keltScene.keltEncounter);
-        this.addButton(1, "Resist", this.resistKeltsBSBreakHimIntro);
-        this.addButton(2, "Never", this.neverBreakKeltIntoKelly);
+        this.addButton(this, 0, "Endure", this.farm.keltScene.keltEncounter);
+        this.addButton(this, 1, "Resist", this.resistKeltsBSBreakHimIntro);
+        this.addButton(this, 2, "Never", this.neverBreakKeltIntoKelly);
     }
 
     //Resist
@@ -115,15 +115,15 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
             if (!(this.player.hasItem(this.consumables.SUCMILK, 15) || (this.player.hasItem(this.consumables.SUCMILK, 10) && this.hasPinkEgg()) || (this.player.hasItem(this.consumables.P_S_MLK, 10) && this.hasPinkEgg()) || this.player.hasItem(this.consumables.P_S_MLK, 15))) {
                 this.outputText(" Unfortunately, you don't have anything that could be useful to tame his arrogant maleness.  You want items that would make his disgracious horsecock and balls shrink.  A nice set of breasts on his human chest would be fine, too.  You know you're going to need A LOT of such items - or very potent ones.");
                 this.menu();
-                this.addButton(0, "Next", this.farm.farmExploreEncounter);
+                this.addButton(this, 0, "Next", this.farm.farmExploreEncounter);
             }
             else {
                 this.outputText("\n\nDo you take his maleness down and teach him the lesson he deserves?");
                 //Yes/Not Yet/Never
                 this.menu();
-                this.addButton(0, "Yes", this.breakKeltGo);
-                this.addButton(1, "Not Yet", this.farm.farmExploreEncounter);
-                this.addButton(2, "Never", this.neverBreakKeltIntoKelly);
+                this.addButton(this, 0, "Yes", this.breakKeltGo);
+                this.addButton(this, 1, "Not Yet", this.farm.farmExploreEncounter);
+                this.addButton(this, 2, "Never", this.neverBreakKeltIntoKelly);
             }
         }
         else if (this.flags[kFLAGS.KELT_BREAK_LEVEL] == 1) {
@@ -134,11 +134,11 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
                 this.outputText("\n\nYou'd gladly teach him another lesson so he can keep his true gender and learn his place, but you don't have anything to turn him female again.  You should fetch appropriate items to begin the 'lesson'.</i>\"");
                 //back to farm]
                 this.menu();
-                this.addButton(0, "Next", this.farm.farmExploreEncounter);
+                this.addButton(this, 0, "Next", this.farm.farmExploreEncounter);
                 return;
             }
             this.menu();
-            this.addButton(0, "Next", this.secondKeltBreaking);
+            this.addButton(this, 0, "Next", this.secondKeltBreaking);
         }
         //Third encounter
         else if (this.flags[kFLAGS.KELT_BREAK_LEVEL] == 2) {
@@ -147,7 +147,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
             if (!(this.player.hasItem(this.consumables.SUCMILK, 5) || this.player.hasItem(this.consumables.P_S_MLK, 5))) {
                 this.outputText("You must acquire enough Succubi Milk to remove any male remnants off Kelly's body before confronting 'him' again.");
                 this.menu();
-                this.addButton(0, "Next", this.farm.farmExploreEncounter);
+                this.addButton(this, 0, "Next", this.farm.farmExploreEncounter);
                 return;
             }
             this.outputText("\n\nYou casually approach the centaur, shaking a vial of Succubi milk with a broad grin; your intentions are clear.  Kelt whinnies, his voice higher than ever, \"<i>Not again!</i>\"  A puff of a very feminine odor reaches your nostrils - nothing at all like the masculine scent he usually exudes.  Is he coming to like this?");
@@ -176,8 +176,8 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         this.flags[kFLAGS.NEVER_RESIST_KELT] = 1;
         this.outputText("You decide that trying to break Kelt is something you'd never want to do.  Besides, he's teaching you a useful skill, and there's just something charming about that bastard...");
         this.menu();
-        this.addButton(0, "Go To Kelt", this.farm.keltScene.keltEncounter);
-        this.addButton(1, "Go Home", this.camp.returnToCampUseOneHour);
+        this.addButton(this, 0, "Go To Kelt", this.farm.keltScene.keltEncounter);
+        this.addButton(this, 1, "Go Home", this.camp.returnToCampUseOneHour);
     }
 
 
@@ -307,7 +307,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         this.player.orgasm();
         this.dynStats("cor", 5);
         this.flags[kFLAGS.KELT_BREAK_LEVEL] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Second encounter
@@ -601,7 +601,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         this.player.orgasm();
         this.dynStats("cor", 8);
         this.flags[kFLAGS.KELT_BREAK_LEVEL] = 4;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -610,7 +610,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         this.clearOutput();
         this.outputText("As you collapse, defeated, Kelt saunters up, shouldering his bow.  \"<i>Who's the bitch now,</i>\" he taunts, rearing back as his voice cracks in a rather emasculated manner.  \"<i>You are!</i>\"  His hooves come down on your back, and concussive waves of pain roll through your body as you're trampled black and blue.  Then, you see blackness.");
         this.menu();
-        this.addButton(0, "Next", this.keltFucksShitUpII);
+        this.addButton(this, 0, "Next", this.keltFucksShitUpII);
 
     }
     private keltFucksShitUpII(): void {
@@ -689,7 +689,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
             this.outputText("\n");
         }
         this.menu();
-        this.addButton(0, "Next", this.approachKelly);
+        this.addButton(this, 0, "Next", this.approachKelly);
     }
     private approachKelly(): void {
         this.clearOutput();
@@ -718,7 +718,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         else if (this.model.time.hours >= 15 && this.model.time.hours <= 16 && this.flags[kFLAGS.KELLY_KIDS] >= 4) {
             this.outputText("\n\nYou see Kelly standing in the middle of her field, surrounded by her children.  She has the butts set up and, judging by the way she is talking and gesturing with the bow in her hand, is teaching your brood how to shoot.  Trying to, anyway: her big, bare boobs make things a bit difficult.  You see she's actually gone to the trouble of constructing adorable little mini-bows, which the group of centaur children are all threading mini-arrows on as she points, and with expressions of deep concentration, pulling tight, taking aim, and... there's a cacophony of whistling, and arrows wind up everywhere but the target.  The sound of shouting and crying echoes across the field as Kelly begins to ball out the one who somehow managed to shoot an arrow through her braid.");
             this.outputText("\n\nYou decide to come back a bit later.  Your kids need all the help they can get.");
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         //Standard:
@@ -727,19 +727,19 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
             this.outputText("\n\n\"<i>[Master], you've come to visit! Is it feeding time?</i>\"");
         }
         this.menu();
-        this.addButton(0, "Appearance", this.kellyAppearance);
+        this.addButton(this, 0, "Appearance", this.kellyAppearance);
         if (this.player.lust < 33) this.outputText("\n<b>You aren't aroused enough to pursue sex with your toy right now.</b>");
-        else this.addButton(1, "Sex", this.kellySexMenu);
+        else this.addButton(this, 1, "Sex", this.kellySexMenu);
         if (this.flags[kFLAGS.KELLY_CUNT_TYPE] == 0) {
             if (this.player.hasItem(this.consumables.EQUINUM)) {
-                this.addButton(5, "Give Equinum", this.giveKellyEquinum);
+                this.addButton(this, 5, "Give Equinum", this.giveKellyEquinum);
                 this.outputText("\nYou could give her equinum to gift her with a proper horse-cunt.");
             }
             else this.outputText("\nIf you had equinum, you could give her a proper horse-cunt.");
         }
         else if (this.flags[kFLAGS.KELLY_CUNT_TYPE] == 1) {
             if (this.player.hasItem(this.consumables.SUCMILK)) {
-                this.addButton(5, "Give SucMilk", this.giveKellySuccubiMilk);
+                this.addButton(this, 5, "Give SucMilk", this.giveKellySuccubiMilk);
                 this.outputText("\nYou could give her a succubi milk to get rid of that horse-pussy you gave her before.");
             }
             else this.outputText("\nIf you had succubi milk, you could use that to give her a more human-like vagina.");
@@ -748,43 +748,43 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
             this.outputText("\nYou could give her a canine pepper");
             if (this.flags[kFLAGS.KELLY_BONUS_BOOB_ROWS] == 0) this.outputText(", but who knows how it will change her");
             this.outputText(".");
-            this.addButton(6, "Give CanineP", this.giveKellyAPepper);
+            this.addButton(this, 6, "Give CanineP", this.giveKellyAPepper);
         }
         if (this.flags[kFLAGS.KELLY_VAGINALLY_FUCKED_COUNT] > 0 && this.flags[kFLAGS.KELLY_DISOBEYING_COUNTER] >= 3 && this.player.hasCock()) {
             this.outputText("\n<b>It looks like Kelly has taken to pleasuring herself again in your absense.  Do you want to take care of that?</b>");
-            this.addButton(7, "Punish", this.punishKelly);
+            this.addButton(this, 7, "Punish", this.punishKelly);
         }
         if (this.flags[kFLAGS.TIMES_PUNISHED_KELLY] > 0 && this.flags[kFLAGS.KELLY_REWARD_COOLDOWN] == 0 && Kelly.rand(3) == 0) {
             this.outputText("\n<b>Kelly looks in fine spirits today. Perhaps she's done something worth getting a reward?</b>\n");
-            this.addButton(8, "Reward", this.rewardKelly);
+            this.addButton(this, 8, "Reward", this.rewardKelly);
         }
 
         //Showing up resets Kelly's desire not to fap without you
         this.flags[kFLAGS.KELLY_DISOBEYING_COUNTER] = 0;
 
-        if (this.flags[kFLAGS.FARM_CORRUPTION_STARTED] == 0) this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
-        else this.addButton(9, "Back", this.farm.farmCorruption.rootScene);
+        if (this.flags[kFLAGS.FARM_CORRUPTION_STARTED] == 0) this.addButton(this, 9, "Leave", this.camp.returnToCampUseOneHour);
+        else this.addButton(this, 9, "Back", this.farm.farmCorruption.rootScene);
     }
 
     private kellySexMenu(): void {
         this.menu();
         if (this.player.hasCock() && this.player.lust >= 33) {
             if (this.player.cockThatFits(300) >= 0 || this.flags[kFLAGS.KELLY_CUNT_TYPE] == 1) {
-                if (this.pregnancy.isPregnant) this.addButton(0, "Preg Fuck", this.kellyPregSex);
-                else if (!this.player.isTaur()) this.addButton(0, "Fuck Cunt", this.fuckKellysCunt);
-                else this.addButton(0, "Fuck Cunt", this.taurOnTaurSexKelly);
-                if (this.flags[kFLAGS.KELLY_VAGINALLY_FUCKED_COUNT] == 0) this.addButton(0, "VirginFuck", this.takeKellysVirginity);
-                if (this.player.tentacleCocks() >= 2) this.addButton(1, "TentaFuck", this.tentaFuckKelly);
+                if (this.pregnancy.isPregnant) this.addButton(this, 0, "Preg Fuck", this.kellyPregSex);
+                else if (!this.player.isTaur()) this.addButton(this, 0, "Fuck Cunt", this.fuckKellysCunt);
+                else this.addButton(this, 0, "Fuck Cunt", this.taurOnTaurSexKelly);
+                if (this.flags[kFLAGS.KELLY_VAGINALLY_FUCKED_COUNT] == 0) this.addButton(this, 0, "VirginFuck", this.takeKellysVirginity);
+                if (this.player.tentacleCocks() >= 2) this.addButton(this, 1, "TentaFuck", this.tentaFuckKelly);
             }
             else this.outputText("\n<b>You're too big to fuck her vagina.</b>");
             if (this.flags[kFLAGS.KELLY_BONUS_BOOB_ROWS] == 0 && this.player.cockThatFits(18, "length") < 0 && !this.player.isTaur()) {
                 this.outputText("\n<b>You're too big to fuck her tits.  Maybe if you gave her something to make her grow more...</b>");
             }
-            else if (!this.player.isTaur()) this.addButton(2, "Titfuck", this.kellyTitJob);
-            this.addButton(3, "Blowjob", this.kellyBJsAhoy);
-            this.addButton(4, "Talk And HJ", this.talkNHandToKelly);
+            else if (!this.player.isTaur()) this.addButton(this, 2, "Titfuck", this.kellyTitJob);
+            this.addButton(this, 3, "Blowjob", this.kellyBJsAhoy);
+            this.addButton(this, 4, "Talk And HJ", this.talkNHandToKelly);
         }
-        this.addButton(9, "Back", this.approachKelly);
+        this.addButton(this, 9, "Back", this.approachKelly);
 
     }
     //Regular scenes
@@ -854,7 +854,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         this.outputText("\n\nYou slide back off, landing with a fresh spring in your step.  Then, you pick up your [armor] and head off to find Kelly's blanket - you need something to wipe all the cum and slime off your [legs] with.");
         this.player.orgasm();
         this.kellyPreggers();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Centaur on Centaur Sex
@@ -905,7 +905,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         else this.outputText("  You snicker and walk away - she's already served her purpose.");
         this.kellyPreggers();
         this.player.orgasm();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Tentacle
@@ -970,7 +970,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         this.kellyPreggers();
         this.player.orgasm();
         this.dynStats("sen", -3);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Makes her cunt become horse-like.
@@ -991,7 +991,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         this.outputText("\n\n<b>Kelly has now has a soaking-wet horsecunt!</b>");
         this.player.consumeItem(this.consumables.EQUINUM);
         this.menu();
-        this.addButton(0, "Next", this.approachKelly);
+        this.addButton(this, 0, "Next", this.approachKelly);
     }
     //Succubi Milk - Rehumanizes Her Pussy
     private giveKellySuccubiMilk(): void {
@@ -1009,7 +1009,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         this.outputText("\n\n<b>Kelly now has a human-like pussy.</i>");
         this.player.consumeItem(this.consumables.SUCMILK);
         this.menu();
-        this.addButton(0, "Next", this.approachKelly);
+        this.addButton(this, 0, "Next", this.approachKelly);
     }
 
     //Punish(C)
@@ -1050,9 +1050,9 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         if (this.flags[kFLAGS.TIMES_RIDDEN_KELLY_FOR_PUNISHMENT] > 0 && this.player.statusAffectv1(StatusAffects.TelAdre) < 1) {
             this.outputText("You'd like to take Kelly for a ride, but you don't have any good ideas for public places to humiliate her.");
         }
-        else this.addButton(1, "Ride", this.rideKellyForPunishment);
-        this.addButton(0, "Rimjob", this.getARimjobFromKelly);
-        this.addButton(4, "Back", this.approachKelly);
+        else this.addButton(this, 1, "Ride", this.rideKellyForPunishment);
+        this.addButton(this, 0, "Rimjob", this.getARimjobFromKelly);
+        this.addButton(this, 4, "Back", this.approachKelly);
 
     }
 
@@ -1125,7 +1125,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         }
         this.player.orgasm();
         this.dynStats("sen", 3, "cor", 1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Ride(C)
@@ -1351,7 +1351,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         }
         this.player.orgasm();
         this.dynStats("sen", -1, "cor", .5);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -1430,7 +1430,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         this.player.orgasm();
         this.dynStats("sen", -3, "cor", .5);
         this.flags[kFLAGS.KELLY_VAGINALLY_FUCKED_COUNT]++;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //TFs
@@ -1471,7 +1471,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         }
         this.flags[kFLAGS.KELLY_TIMES_PEPPERED]++;
         this.player.consumeItem(this.consumables.CANINEP);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Titjob
@@ -1524,7 +1524,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         }
         this.player.orgasm();
         this.dynStats("sen", -3);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -1563,7 +1563,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
 
         this.player.orgasm();
         this.dynStats("sen", -4);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Giving birth
@@ -1737,7 +1737,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
             }
         }
         this.player.orgasm();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //Reward
     //Requirements: PC used “punish” at least once, 3+ days have gone by and “punish” has not proced*
@@ -1761,14 +1761,14 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         this.menu();
         //Hair Dye/Apple Sauce
         //[chestnut brown/sable black/garish purple/bright pink/slutty blonde) 
-        if (this.player.cockThatFits(300) >= 0 && this.player.hasCock()) this.addButton(0, "Applesauce", this.giveKellyAppleSauce);
-        if (this.player.hasItem(this.consumables.BLACK_D) && this.flags[kFLAGS.KELLY_HAIR_COLOR] != "sable black") this.addButton(1, "Black Dye", this.dyeKellysBitchAssHair, this.consumables.BLACK_D);
-        if (this.player.hasItem(this.consumables.BLOND_D) && this.flags[kFLAGS.KELLY_HAIR_COLOR] != "slutty blonde") this.addButton(2, "Blond Dye", this.dyeKellysBitchAssHair, this.consumables.BLOND_D);
-        if (this.player.hasItem(this.consumables.PURPDYE) && this.flags[kFLAGS.KELLY_HAIR_COLOR] != "garish purple") this.addButton(3, "Purple Dye", this.dyeKellysBitchAssHair, this.consumables.PURPDYE);
-        if (this.player.hasItem(this.consumables.PINKDYE) && this.flags[kFLAGS.KELLY_HAIR_COLOR] != "bright pink") this.addButton(4, "Pink Dye", this.dyeKellysBitchAssHair, this.consumables.PINKDYE);
-        if (this.player.hasItem(this.consumables.BROWN_D) && this.flags[kFLAGS.KELLY_HAIR_COLOR] != "chestnut brown") this.addButton(5, "Brown Dye", this.dyeKellysBitchAssHair, this.consumables.BROWN_D);
+        if (this.player.cockThatFits(300) >= 0 && this.player.hasCock()) this.addButton(this, 0, "Applesauce", this.giveKellyAppleSauce);
+        if (this.player.hasItem(this.consumables.BLACK_D) && this.flags[kFLAGS.KELLY_HAIR_COLOR] != "sable black") this.addButton(this, 1, "Black Dye", this.dyeKellysBitchAssHair, this.consumables.BLACK_D);
+        if (this.player.hasItem(this.consumables.BLOND_D) && this.flags[kFLAGS.KELLY_HAIR_COLOR] != "slutty blonde") this.addButton(this, 2, "Blond Dye", this.dyeKellysBitchAssHair, this.consumables.BLOND_D);
+        if (this.player.hasItem(this.consumables.PURPDYE) && this.flags[kFLAGS.KELLY_HAIR_COLOR] != "garish purple") this.addButton(this, 3, "Purple Dye", this.dyeKellysBitchAssHair, this.consumables.PURPDYE);
+        if (this.player.hasItem(this.consumables.PINKDYE) && this.flags[kFLAGS.KELLY_HAIR_COLOR] != "bright pink") this.addButton(this, 4, "Pink Dye", this.dyeKellysBitchAssHair, this.consumables.PINKDYE);
+        if (this.player.hasItem(this.consumables.BROWN_D) && this.flags[kFLAGS.KELLY_HAIR_COLOR] != "chestnut brown") this.addButton(this, 5, "Brown Dye", this.dyeKellysBitchAssHair, this.consumables.BROWN_D);
 
-        this.addButton(9, "Back", this.approachKelly);
+        this.addButton(this, 9, "Back", this.approachKelly);
     }
 
     //Hair Dye
@@ -1822,7 +1822,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         }
         else this.outputText("\n\nYO dog, " + color + " is definitely not working right. Please report this to fenoxo using the report a bug link on the site.");
         this.menu();
-        this.addButton(0, "Next", this.approachKelly);
+        this.addButton(this, 0, "Next", this.approachKelly);
     }
 
     //Apple Sauce
@@ -1961,7 +1961,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         this.player.orgasm();
         this.dynStats("sen", -2);
         this.flags[kFLAGS.KELLY_TIMES_APPLESAUCED]++;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Blowjob
@@ -2190,7 +2190,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         }
         this.player.orgasm();
         this.dynStats("sen", -2);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 }
 

@@ -39,26 +39,26 @@ export class Exploration extends BaseContent {
             return;
         }
         this.menu();
-        this.addButton(0, "Explore", this.tryDiscover);
-        if (this.player.exploredDesert > 0) this.addButton(1, "Desert", kGAMECLASS.desert.exploreDesert);
-        if (this.player.exploredForest > 0) this.addButton(2, "Forest", kGAMECLASS.forest.exploreForest);
-        if (this.player.exploredLake > 0) this.addButton(3, "Lake", kGAMECLASS.lake.exploreLake);
-        this.addButton(4, "Next", this.explorePageII);
-        if (this.flags[kFLAGS.TIMES_EXPLORED_PLAINS] > 0) this.addButton(5, "Plains", kGAMECLASS.plains.explorePlains);
-        if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00272] > 0) this.addButton(6, "Swamp", kGAMECLASS.swamp.exploreSwamp);
-        if (this.player.findStatusAffect(StatusAffects.ExploredDeepwoods) >= 0) this.addButton(7, "Deepwoods", kGAMECLASS.forest.exploreDeepwoods);
-        if (this.player.exploredMountain > 0) this.addButton(8, "Mountain", kGAMECLASS.mountain.exploreMountain);
-        this.addButton(9, "Back", this.playerMenu);
+        this.addButton(this, 0, "Explore", this.tryDiscover);
+        if (this.player.exploredDesert > 0) this.addButton(this, 1, "Desert", kGAMECLASS.desert.exploreDesert);
+        if (this.player.exploredForest > 0) this.addButton(this, 2, "Forest", kGAMECLASS.forest.exploreForest);
+        if (this.player.exploredLake > 0) this.addButton(this, 3, "Lake", kGAMECLASS.lake.exploreLake);
+        this.addButton(this, 4, "Next", this.explorePageII);
+        if (this.flags[kFLAGS.TIMES_EXPLORED_PLAINS] > 0) this.addButton(this, 5, "Plains", kGAMECLASS.plains.explorePlains);
+        if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00272] > 0) this.addButton(this, 6, "Swamp", kGAMECLASS.swamp.exploreSwamp);
+        if (this.player.findStatusAffect(StatusAffects.ExploredDeepwoods) >= 0) this.addButton(this, 7, "Deepwoods", kGAMECLASS.forest.exploreDeepwoods);
+        if (this.player.exploredMountain > 0) this.addButton(this, 8, "Mountain", kGAMECLASS.mountain.exploreMountain);
+        this.addButton(this, 9, "Back", this.playerMenu);
     }
 
     private explorePageII(): void {
         this.flags[kFLAGS.EXPLORATION_PAGE] = 2;
         this.menu();
-        if (this.flags[kFLAGS.DISCOVERED_HIGH_MOUNTAIN] > 0) this.addButton(0, "High Mountain", kGAMECLASS.highMountains.exploreHighMountain);
-        if (this.flags[kFLAGS.BOG_EXPLORED] > 0) this.addButton(1, "Bog", kGAMECLASS.bog.exploreBog);
-        this.addButton(4, "Previous", this.goBackToPageI);
-        if (this.debug) this.addButton(8, "Debug", this.exploreDebug.doExploreDebug);
-        this.addButton(9, "Back", this.playerMenu);
+        if (this.flags[kFLAGS.DISCOVERED_HIGH_MOUNTAIN] > 0) this.addButton(this, 0, "High Mountain", kGAMECLASS.highMountains.exploreHighMountain);
+        if (this.flags[kFLAGS.BOG_EXPLORED] > 0) this.addButton(this, 1, "Bog", kGAMECLASS.bog.exploreBog);
+        this.addButton(this, 4, "Previous", this.goBackToPageI);
+        if (this.debug) this.addButton(this, 8, "Debug", this.exploreDebug.doExploreDebug);
+        this.addButton(this, 9, "Back", this.playerMenu);
     }
 
     private goBackToPageI(): void {
@@ -82,7 +82,7 @@ export class Exploration extends BaseContent {
                 this.outputText("Your wanderings take you far and wide across the barren wasteland that surrounds the portal, until the smell of humidity and fresh water alerts you to the nearby lake.  With a few quick strides you find a lake so massive the distant shore cannot be seen.  Grass and a few sparse trees grow all around it.\n\n<b>You have discovered the Lake!</b>", true);
                 this.player.exploredLake = 1;
                 this.player.explored++;
-                this.doNext(this.camp.returnToCampUseOneHour);
+                this.doNext(this, this.camp.returnToCampUseOneHour);
                 return;
             }
             if (this.player.exploredLake >= 1 && Exploration.rand(3) == 0 && this.player.exploredDesert == 0) {
@@ -94,21 +94,21 @@ export class Exploration extends BaseContent {
                 this.outputText(".\n\n<b>You've discovered the Desert!</b>", false);
                 this.player.exploredDesert = 1;
                 this.player.explored++;
-                this.doNext(this.camp.returnToCampUseOneHour);
+                this.doNext(this, this.camp.returnToCampUseOneHour);
                 return;
             }
             if (this.player.exploredDesert >= 1 && Exploration.rand(3) == 0 && this.player.exploredMountain == 0) {
                 this.outputText("Thunder booms overhead, shaking you out of your thoughts.  High above, dark clouds encircle a distant mountain peak.  You get an ominous feeling in your gut as you gaze up at it.\n\n<b>You have discovered the mountain!</b>", true);
                 this.player.explored++;
                 this.player.exploredMountain = 1;
-                this.doNext(this.camp.returnToCampUseOneHour);
+                this.doNext(this, this.camp.returnToCampUseOneHour);
                 return;
             }
             if (this.player.exploredMountain >= 1 && Exploration.rand(3) == 0 && this.flags[kFLAGS.TIMES_EXPLORED_PLAINS] == 0) {
                 this.flags[kFLAGS.TIMES_EXPLORED_PLAINS] = 1;
                 this.player.explored++;
                 this.outputText("You find yourself standing in knee-high grass, surrounded by flat plains on all sides.  Though the mountain, forest, and lake are all visible from here, they seem quite distant.\n\n<b>You've discovered the plains!</b>", true);
-                this.doNext(this.camp.returnToCampUseOneHour);
+                this.doNext(this, this.camp.returnToCampUseOneHour);
                 return;
             }
             //EXPLOOOOOOORE
@@ -119,7 +119,7 @@ export class Exploration extends BaseContent {
                 this.outputText("All things considered, you decide you wouldn't mind a change of scenery.  Gathering up your belongings, you begin a journey into the wasteland.  The journey begins in high spirits, and you whistle a little traveling tune to pass the time.  After an hour of wandering, however, your wanderlust begins to whittle away.  Another half-hour ticks by.  Fed up with the fruitless exploration, you're nearly about to head back to camp when a faint light flits across your vision.  Startled, you whirl about to take in three luminous will-o'-the-wisps, swirling around each other whimsically.  As you watch, the three ghostly lights begin to move off, and though the thought of a trap crosses your mind, you decide to follow.\n\n", false);
                 this.outputText("Before long, you start to detect traces of change in the environment.  The most immediate difference is the increasingly sweltering heat.  A few minutes pass, then the will-o'-the-wisps plunge into the boundaries of a dark, murky, stagnant swamp; after a steadying breath you follow them into the bog.  Once within, however, the gaseous balls float off in different directions, causing you to lose track of them.  You sigh resignedly and retrace your steps, satisfied with your discovery.  Further exploration can wait.  For now, your camp is waiting.\n\n", false);
                 this.outputText("<b>You've discovered the swamp!</b>", false);
-                this.doNext(this.camp.returnToCampUseTwoHours);
+                this.doNext(this, this.camp.returnToCampUseTwoHours);
                 return;
             }
             //Used for chosing 'repeat' encounters.
@@ -191,7 +191,7 @@ export class Exploration extends BaseContent {
             this.outputText("You wander around, fruitlessly searching for new places.", true);
         }
         this.player.explored++;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -260,7 +260,7 @@ export class Exploration extends BaseContent {
         else this.outputText("  You struggle and push with your " + this.player.legs() + " as hard as you can, but it's no use.  You do the only thing you can and begin stroking your " + this.multiCockDescriptLight() + " with as much vigor as you can muster.  Eventually your body tenses and a light load of jizz erupts from your body, but the orgasm is truly mild compared to what you need.  You're simply too weary from struggling to give yourself the masturbation you truly need, but you continue to try.  Nearly an hour later " + this.sMultiCockDesc() + " softens enough to allow you to stand again, and you make your way back to camp, still dragging your genitals across the warm sand.", false);
         this.dynStats("lus", 25 + Exploration.rand(this.player.cor / 5), "resisted", false);
         this.fatigue(5);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 

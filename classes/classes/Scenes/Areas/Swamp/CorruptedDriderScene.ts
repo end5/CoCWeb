@@ -101,7 +101,7 @@ export class CorruptedDriderScene extends BaseContent {
         //(Qualifies for any rape?:)
         if (this.player.lust >= 33) {
             this.outputText("\n\nWhat do you do?", false);
-            this.choices("Butt Fuck", buttFuckBUTTFUCKBUTTTFUCKBUTTFUCK, "Fuck Pussy", vagFuck, "Bondage Fuck", careful, "FuckSpinner", fuckSpinner, "Ride Cock", rideCock,
+            this.choices(this, "Butt Fuck", buttFuckBUTTFUCKBUTTTFUCKBUTTFUCK, "Fuck Pussy", vagFuck, "Bondage Fuck", careful, "FuckSpinner", fuckSpinner, "Ride Cock", rideCock,
                 "Ride Ovi", rideOvi, "RideOviAnal", rideOviAss, "", undefined, "B.Titfuck", bikiniTits, "Leave", this.cleanupAfterCombat);
         }
         else this.cleanupAfterCombat();
@@ -262,7 +262,7 @@ export class CorruptedDriderScene extends BaseContent {
         else this.outputText("soaking in the white puddle of spooge", false);
         this.outputText(".  Even unconscious, her vagina continues its rhythmic contractions around your cock, working you towards another burst of orgasmic pleasure while you wait for your strength to come back...\n\n", false);
         //[NEXT]
-        this.doNext(this.winDriderPCDickInSpiderCunt2);
+        this.doNext(this, this.winDriderPCDickInSpiderCunt2);
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 1);
     }
@@ -883,7 +883,7 @@ export class CorruptedDriderScene extends BaseContent {
         else if (this.player.hasItem(this.useables.T_SSILK)) {
             this.outputText("\n\nRemembering the bundle of silk that you have with you, it doesn't take long to come up with a very enticing idea for dealing with the drider.  However, you have a feeling that you won't be able to do much else with the silk if you go through with your plan.  Are you sure you want to use it on her?");
             //[Yes] [No]
-            this.doYesNo(this.createCallBackFunction(this.driderTiedUpPartTwo, true), this.dontSilkRapeDrider);
+            this.doYesNo(this, this.createCallBackFunction(this, this.driderTiedUpPartTwo, true), this.dontSilkRapeDrider);
         }
     }
 
@@ -893,7 +893,7 @@ export class CorruptedDriderScene extends BaseContent {
         this.clearOutput();
         this.outputText("Deciding against wasting the valuable material for little more than a quick fuck, you ponder your other options for using the defeated girl.");
         //(Return to "win" menu)
-        this.doNext(this.defeatDriderIntro);
+        this.doNext(this, this.defeatDriderIntro);
     }
 
     private driderTiedUpPartTwo(useItem: boolean): void {
@@ -930,7 +930,7 @@ export class CorruptedDriderScene extends BaseContent {
         else this.outputText("Reaching back into your pack, you grab the remainder of the bundle of silk that you tied the girl's hands with.  Looking over the mass of white-grey strands, you smile as you see that there seems to be more than enough left for what you have in mind.");
 
         //New Page
-        this.doNext(this.driderTiedUpPartThree);
+        this.doNext(this, this.driderTiedUpPartThree);
     }
 
     private driderTiedUpPartThree(): void {
@@ -980,7 +980,7 @@ export class CorruptedDriderScene extends BaseContent {
         this.outputText("\n\nFinally finished, you collapse on top of the similarly exhausted woman, barely capable of moving after such a breathtaking end.  Your shaft still twinges after such a powerful climax, not helped by the way her pussy continually shudders around you.  The drider, smothered underneath you, begins to sink slowly into the soft ground of the swamp, still completely oblivious to anything going on around her.  Deciding it would be a terrible shame if your new cumdump were to be lost so soon after acquiring it, you heave yourself onto unsteady legs, cock drizzling as you withdraw yourself from the abused, sperm-stuffed cunt that surrounded it.");
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this.driderTiedUpPartFour);
+        this.doNext(this, this.driderTiedUpPartFour);
     }
 
     private driderTiedUpPartFour(): void {

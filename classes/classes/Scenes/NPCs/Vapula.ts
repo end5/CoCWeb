@@ -63,7 +63,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         //[Demonic dildo added]
         this.player.createKeyItem("Demonic Strap-On", 0, 0, 0, 0);
         this.outputText("\n\n(<b>Gained Item: Demonic Strap-On</b>)");
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     public vapulaGivesPCAPresent(): void {
@@ -176,7 +176,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("moved out.");
         this.outputText("\n\nMaybe it's past time you brought them around to your way of thinking?");
         //Amily and Jojo removed from followers. Amily is encounterable again in the Village Place through the corrupted route and Jojo can still meditate with you.]
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     //tion camp
@@ -225,16 +225,16 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         if (this.flags[kFLAGS.VAPULA_EARNED_A_SPANK] > 0 && !this.player.isTaur() && !this.player.isDrider()) spank = this.spankVapulaLikeABoss;
         else threesome = this.vapulaThreesomeMenu;
 
-        this.choices("Appearance", this.fapulaFapfapfapAppearance, "Talk", this.talkToVapulaForSomeReason, "Feed", mFeed, "Feed(Dildo)", fFeed, "Threesome", threesome,
+        this.choices(this, "Appearance", this.fapulaFapfapfapAppearance, "Talk", this.talkToVapulaForSomeReason, "Feed", mFeed, "Feed(Dildo)", fFeed, "Threesome", threesome,
             "Spank", spank, "", undefined, "", undefined, "", undefined, "Leave", this.camp.campSlavesMenu);
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_VAPULA] == 0 && this.flags[kFLAGS.FARM_CORRUPTION_STARTED] == 1) this.addButton(6, "Farm Work", this.sendToFarm);
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_VAPULA] == 1) this.addButton(6, "Go Camp", this.backToCamp);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_VAPULA] == 0 && this.flags[kFLAGS.FARM_CORRUPTION_STARTED] == 1) this.addButton(this, 6, "Farm Work", this.sendToFarm);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_VAPULA] == 1) this.addButton(this, 6, "Go Camp", this.backToCamp);
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_VAPULA] == 1 && this.flags[kFLAGS.FOLLOWER_PRODUCTION_VAPULA] == 0) this.addButton(7, "Harvest Milk", this.harvestMilk);
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_VAPULA] == 1 && this.flags[kFLAGS.FOLLOWER_PRODUCTION_VAPULA] == 1) this.addButton(7, "Stop Harvest", this.stopHarvest);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_VAPULA] == 1 && this.flags[kFLAGS.FOLLOWER_PRODUCTION_VAPULA] == 0) this.addButton(this, 7, "Harvest Milk", this.harvestMilk);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_VAPULA] == 1 && this.flags[kFLAGS.FOLLOWER_PRODUCTION_VAPULA] == 1) this.addButton(this, 7, "Stop Harvest", this.stopHarvest);
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_VAPULA] == 1) this.addButton(9, "Back", kGAMECLASS.farm.farmCorruption.rootScene);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_VAPULA] == 1) this.addButton(this, 9, "Back", kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
     private sendToFarm(): void {
@@ -250,7 +250,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
 
         this.flags[kFLAGS.FOLLOWER_AT_FARM_VAPULA] = 1;
 
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private backToCamp(): void {
@@ -262,7 +262,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
 
         this.flags[kFLAGS.FOLLOWER_AT_FARM_VAPULA] = 0;
 
-        this.doNext(kGAMECLASS.farm.farmCorruption.rootScene);
+        this.doNext(this, kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
     private harvestMilk(): void {
@@ -277,7 +277,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
 
         this.flags[kFLAGS.FOLLOWER_PRODUCTION_VAPULA] = 1;
 
-        this.doNext(kGAMECLASS.farm.farmCorruption.rootScene);
+        this.doNext(this, kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
     private stopHarvest(): void {
@@ -289,7 +289,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
 
         this.flags[kFLAGS.FOLLOWER_PRODUCTION_VAPULA] = 0;
 
-        this.doNext(kGAMECLASS.farm.farmCorruption.rootScene);
+        this.doNext(this, kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
     //Vapula Appearance - this bitch is purpler than a Nigerian (Z)
@@ -350,7 +350,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
             }
             threesomeB = this.toggleCeruleanVapulaAssist;
         }
-        this.simpleChoices(haremT, haremB, threesomeT, threesomeB, "", undefined, "", undefined, "Back", this.callSlaveVapula);
+        this.simpleChoices(this, haremT, haremB, threesomeT, threesomeB, "", undefined, "", undefined, "Back", this.callSlaveVapula);
     }
 
     private toggleCeruleanVapulaAssist(): void {
@@ -367,7 +367,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
             this.flags[kFLAGS.VAPULA_THREESOMES] = 0;
         }
         //Return to talk menu
-        this.doNext(this.talkToVapulaForSomeReason);
+        this.doNext(this, this.talkToVapulaForSomeReason);
     }
 
     private toggleVapulaHaremFucks(): void {
@@ -387,7 +387,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
             this.flags[kFLAGS.VAPULA_HAREM_FUCK] = 1;
         }
         //Return to talk menu
-        this.doNext(this.talkToVapulaForSomeReason);
+        this.doNext(this, this.talkToVapulaForSomeReason);
     }
 
     //Feed
@@ -409,7 +409,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("cor", .5);
         this.flags[kFLAGS.VAPULA_DAYS_SINCE_FED] = 0;
         this.flags[kFLAGS.VAPULA_TEASE_COUNT] = 0;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Threesome
@@ -433,7 +433,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
             if (this.sophieBimbo.bimboSophie()) sophie = this.vapulaSophieThreesomeSelect;
             if (this.izmaFollower() && this.flags[kFLAGS.IZMA_NO_COCK] == 0) izma = this.vapulaAndIzmaThreeSome;
         }
-        this.choices("Amily", amily, "Ceraph", ceraph, "Sophie", sophie, "Jojo", jojo, "Izma", izma, "", undefined, "", undefined, "", undefined, "", undefined, "Back", this.callSlaveVapula);
+        this.choices(this, "Amily", amily, "Ceraph", ceraph, "Sophie", sophie, "Jojo", jojo, "Izma", izma, "", undefined, "", undefined, "", undefined, "", undefined, "Back", this.callSlaveVapula);
     }
 
     //Vapula-Ceraph threesome
@@ -446,7 +446,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\nHow will you take them?");
         //Plz both - requires dick
         //Option: Butt-fuck train. Requires Ceraph to be herm.
-        this.simpleChoices("Please Both", this.vapulaCeraphThreesomePleaseBoth, "AnalTrain", this.vapulaAndCeraphButtfuckTrainYeehaw, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Please Both", this.vapulaCeraphThreesomePleaseBoth, "AnalTrain", this.vapulaAndCeraphButtfuckTrainYeehaw, "", undefined, "", undefined, "", undefined);
     }
 
     //Option: Please both.
@@ -510,7 +510,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.lib > 70) this.dynStats("lib", -1);
         this.flags[kFLAGS.VAPULA_DAYS_SINCE_FED] = 0;
         this.flags[kFLAGS.VAPULA_TEASE_COUNT] = 0;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Option: Butt-fuck train. Requires Ceraph to be herm.
@@ -542,7 +542,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("sen", -2, "cor", 1);
         this.flags[kFLAGS.VAPULA_DAYS_SINCE_FED] = 0;
         this.flags[kFLAGS.VAPULA_TEASE_COUNT] = 0;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Vapula-Sophie threesome
@@ -590,7 +590,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.VAPULA_DAYS_SINCE_FED] = 0;
         this.flags[kFLAGS.VAPULA_TEASE_COUNT] = 0;
         if (this.player.lust < 50) this.player.lust = 50;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Vapula-Sophie threesome (as female)
@@ -613,7 +613,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("cor", 2);
         this.flags[kFLAGS.VAPULA_DAYS_SINCE_FED] = 0;
         this.flags[kFLAGS.VAPULA_TEASE_COUNT] = 0;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Vapula-Amily threesome
@@ -649,7 +649,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("cor", 2);
         this.flags[kFLAGS.VAPULA_DAYS_SINCE_FED] = 0;
         this.flags[kFLAGS.VAPULA_TEASE_COUNT] = 0;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Vapula/Night Succubus
@@ -716,7 +716,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
             tease = this.NTRSomeJojos;
             train = this.jojoButtFuckTrain;
         }
-        this.simpleChoices("Tease Jojo", tease, "ButtfuckTrain", train, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Tease Jojo", tease, "ButtfuckTrain", train, "", undefined, "", undefined, "", undefined);
     }
 
     //Netorare
@@ -797,7 +797,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.VAPULA_TEASE_COUNT] = 0;
         this.player.orgasm();
         this.dynStats("sen", -2, "cor", 4);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Vapula/Jojo Butt-fuck train
@@ -861,7 +861,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("lib", -1, "sen", -2, "cor", 2);
         this.flags[kFLAGS.VAPULA_DAYS_SINCE_FED] = 0;
         this.flags[kFLAGS.VAPULA_TEASE_COUNT] = 0;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -915,7 +915,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("sen", -2, "cor", 2);
         this.flags[kFLAGS.VAPULA_DAYS_SINCE_FED] = 0;
         this.flags[kFLAGS.VAPULA_TEASE_COUNT] = 0;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Feed (as female)
@@ -925,7 +925,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         //Feed/Tease
         var tease = undefined;
         if (this.flags[kFLAGS.VAPULA_HAREM_FUCK] == 0) tease = this.teaseVapula;
-        this.simpleChoices("Feed", this.chicksFeedVapula, "Tease", tease, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Feed", this.chicksFeedVapula, "Tease", tease, "", undefined, "", undefined, "", undefined);
     }
 
     //Tease
@@ -1002,7 +1002,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
             this.flags[kFLAGS.VAPULA_TEASE_COUNT] = 0;
         }
         this.dynStats("cor", 1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Feed (as female)
@@ -1020,7 +1020,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\nYou shake your head in wonder at your succubus slave; she really is just hungry for dick.  You decide to give her what she evidently needs. You take hold of her hair and piston into her, driving down her tight throat and then back out again, using the outward pull to thrust your end further into yourself, sending rivulets of girlcum down your thighs.");
         this.outputText("\n\nShe works on it for what seems like hours.  You look down at your slut; she keeps staring at you with avid yet playful eyes, never breaking eye contact as she relentlessly throatfucks herself; you feel her lips curve a little as the shape of a ravenous smile appears on her face, and her eyes are glittering with an insatiable need.  The sight is enough to increase your own arousal, and you begin to move your dildo around more freely, sawing into her face as you push it backwards, forwards, grow it, shrink it, and then eventually just make it vibrate with violent force.  Your stamina is rapidly overwhelmed and you decide to reward her effort; you savagely press Vapula's head against your groin, burying all eight inches of your false cock into her waiting throat; deliriously you will your throbbing dildo to expand to pack you mercilessly tight, finally pushing you over the edge.  Your " + this.clitDescript() + " throbs as your vagina spasms ecstatically around the bulging sex toy; vaguely you feel release at the other end, and you hear Vapula loudly and shamelessly enjoy what the dildo pumps out.  You abandon yourself to the climax and keep thrusting your " + this.hipDescript() + " into her face, girlcum spurting around your harness.");
         this.outputText("\n\nAfter a long haze of mindless bliss, you feel long fingers undoing the strap-on and lifting it away, before curling around your thighs.  You peacefully look down to find Vapula bending into your crotch, her warm, slimy tongue touching your belly.  She looks about six months pregnant with the amount of spooge she has managed to milk from the dildo, but she is still intent upon licking you clean.  You sigh and let her, her tongue expertly gliding across your skin and exploring every corner of your dripping sex; she smacks her lips and happily hums as she goes about it, evidently enjoying you like a dessert to the fine main course she just received.  Eventually she finishes her mutually pleasurable task, and the two of you slowly get to your feet. Without a word you send her on her way to digest her lavish meal with a slap on the ass.");
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
         this.player.orgasm();
         this.flags[kFLAGS.VAPULA_DAYS_SINCE_FED] = 0;
         this.flags[kFLAGS.VAPULA_TEASE_COUNT] = 0;
@@ -1065,7 +1065,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
             this.flags[kFLAGS.VAPULA_TEASE_COUNT] = 0;
             this.flags[kFLAGS.VAPULA_EARNED_A_SPANK] = 1;
         }
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
 
@@ -1105,7 +1105,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         //{Sadist: + 20 lust}
         if (this.player.findPerk(PerkLib.Sadist) >= 0) this.dynStats("lus", (10 + this.player.lib / 7));
         this.flags[kFLAGS.VAPULA_EARNED_A_SPANK] = 0;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 }
 

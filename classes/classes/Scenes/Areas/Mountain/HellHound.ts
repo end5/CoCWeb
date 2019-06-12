@@ -38,15 +38,15 @@ export class HellHound extends Monster {
             this.game.dynStats("lus", 20 - (this.player.sens / 10));
             this.statScreenRefresh();
             if (this.player.HP <= 0) {
-                this.doNext(this.game.endHpLoss);
+                this.doNext(this, this.game.endHpLoss);
                 return;
             }
             if (this.player.lust >= 100) {
-                this.doNext(this.game.endLustLoss);
+                this.doNext(this, this.game.endLustLoss);
                 return;
             }
         }
-        this.doNext(this.game.playerMenu);
+        this.doNext(this, this.game.playerMenu);
     }
     protected hellhoundScent(): void {
         if (this.player.findStatusAffect(StatusAffects.NoFlee) >= 0) {
@@ -97,7 +97,7 @@ export class HellHound extends Monster {
             //Rape if not naga, turned on, and girl that can fit!
             if (this.player.hasVagina() && this.player.lust >= 33 && !this.player.isNaga()) {
                 this.outputText("  You find yourself musing that you could probably take advantage of the poor 'doggy'.  Do you fuck it?", false);
-                this.game.simpleChoices("Fuck it", this.game.mountain.hellHoundScene.hellHoundPropahRape, "", undefined, "", undefined, "", undefined, "Leave", this.game.cleanupAfterCombat);
+                this.game.simpleChoices(this, "Fuck it", this.game.mountain.hellHoundScene.hellHoundPropahRape, "", undefined, "", undefined, "", undefined, "Leave", this.game.cleanupAfterCombat);
             } else {
                 this.game.cleanupAfterCombat();
             }
@@ -112,7 +112,7 @@ export class HellHound extends Monster {
                     temp2 = this.game.mountain.hellHoundScene.hellHoundPropahRape;
                 }
                 this.outputText(".  What do you do?", false);
-                this.game.simpleChoices("Lick", this.game.mountain.hellHoundScene.hellHoundGetsRaped, "Fuck", temp2, "", undefined, "", undefined, "Leave", this.game.cleanupAfterCombat);
+                this.game.simpleChoices(this, "Lick", this.game.mountain.hellHoundScene.hellHoundGetsRaped, "Fuck", temp2, "", undefined, "", undefined, "Leave", this.game.cleanupAfterCombat);
             }
             else {
                 this.outputText("You turn away, not really turned on enough to be interested in such an offer.", false);
@@ -124,7 +124,7 @@ export class HellHound extends Monster {
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
             this.outputText("\n\nThe hellhound snorts and leaves you to your fate.", false);
-            this.doNext(this.game.cleanupAfterCombat);
+            this.doNext(this, this.game.cleanupAfterCombat);
         } else {
             this.game.mountain.hellHoundScene.hellhoundRapesPlayer();
         }

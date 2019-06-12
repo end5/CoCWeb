@@ -24,13 +24,13 @@ export class IncubusMechanic extends Monster {
         else this.outputText("You smile in satisfaction as the " + this.short + " collapses, masturbating happily.");
         if (this.player.gender == 0) {
             this.outputText("  Now would be the perfect opportunity to test his demonic tool...\n\nHow do you want to handle him?");
-            this.game.simpleChoices("Anally", this.game.incubusVictoryRapeBackdoor, "Orally", this.game.incubusVictoryService, "", undefined, "", undefined, "Leave", this.game.cleanupAfterCombat);
+            this.game.simpleChoices(this, "Anally", this.game.incubusVictoryRapeBackdoor, "Orally", this.game.incubusVictoryService, "", undefined, "", undefined, "Leave", this.game.cleanupAfterCombat);
         }
         else {
             this.game.dynStats("lus", 1);
             if (hpVictory) {
                 this.outputText("  Now would be the perfect opportunity to put his tool to use...\n\nWhat do you do, rape him, service him, or let him take you anally?");
-                this.game.simpleChoices("Rape", this.game.incubusVictoryRapeSex, "Service Him", this.game.incubusVictoryService, "Anal", this.game.incubusVictoryRapeBackdoor, "", undefined, "Nothing", this.game.cleanupAfterCombat);
+                this.game.simpleChoices(this, "Rape", this.game.incubusVictoryRapeSex, "Service Him", this.game.incubusVictoryService, "Anal", this.game.incubusVictoryRapeBackdoor, "", undefined, "Nothing", this.game.cleanupAfterCombat);
             }
             else {
                 this.outputText("  Now would be the perfect opportunity to put his tool to use...\n\nWhat do you do?");
@@ -38,7 +38,7 @@ export class IncubusMechanic extends Monster {
                 if (this.player.hasVagina() && this.player.biggestTitSize() >= 4 && this.player.armorName == "lusty maiden's armor") {
                     titfuck = this.game.createCallBackFunction2((this.player.armor as LustyMaidensArmor).lustyMaidenPaizuri, this.player, this);
                 }
-                this.game.simpleChoices("Rape", this.game.incubusVictoryRapeSex, "Service Him", this.game.incubusVictoryService, "Anal", this.game.incubusVictoryRapeBackdoor, "B.Titfuck", titfuck, "Nothing", this.game.cleanupAfterCombat);
+                this.game.simpleChoices(this, "Rape", this.game.incubusVictoryRapeSex, "Service Him", this.game.incubusVictoryService, "Anal", this.game.incubusVictoryRapeBackdoor, "B.Titfuck", titfuck, "Nothing", this.game.cleanupAfterCombat);
             }
         }
     }
@@ -59,7 +59,7 @@ export class IncubusMechanic extends Monster {
     private wonInDungeon1(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
             this.outputText("\n\nYour foe doesn't seem to care...");
-            this.doNext(this.game.endLustLoss);
+            this.doNext(this, this.game.endLustLoss);
         } else {
             this.game.incubusLossRape();
         }

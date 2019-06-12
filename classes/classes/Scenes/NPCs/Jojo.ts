@@ -38,7 +38,7 @@ export class Jojo extends Monster {
         }
 
         if (this.lust >= 100) {
-            this.doNext(this.game.endLustVictory);
+            this.doNext(this, this.game.endLustVictory);
             return;
         }
         else if (this.lust >= 85)
@@ -49,7 +49,7 @@ export class Jojo extends Monster {
             this.outputText("The mouse's eyes constantly dart over your most sexual parts, betraying his lust.  ");
         else if (this.lust > 50)
             this.outputText("The mouse's skin remains flushed with the beginnings of arousal.  ");
-        this.doNext(this.game.playerMenu);
+        this.doNext(this, this.game.playerMenu);
     }
 
     public constructor() {

@@ -30,7 +30,7 @@ export class BunnyGirl extends BaseContent {
 
             this.outputText("Even though nearly a minute has passed, the bunny-lass is STILL frozen and staring.  She hasn't done anything since realizing that you're looking at her.  Well, it looks like the ball's in your court.  What do you do?", false);
             //[Talk] [Rape Her]
-            this.simpleChoices("Talk", this.talkToBunnyBunBun, "Rape Her", this.rapeBunBun, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+            this.simpleChoices(this, "Talk", this.talkToBunnyBunBun, "Rape Her", this.rapeBunBun, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
         }
         //Met her
         else {
@@ -76,7 +76,7 @@ export class BunnyGirl extends BaseContent {
             this.outputText("  Her dick in your ass?)", false);
             //var Ass: number = 0;
             //Dick In V] [Dick in A] [Vagina] [Ass] [Leave]
-            this.choices("Your Vagina", DickInV, "Her Vagina", Vagina, "69", sixtyNine, "LayYourEggs", eggs, "Your Ass", this.bunbunFucksPCInAss,
+            this.choices(this, "Your Vagina", DickInV, "Her Vagina", Vagina, "69", sixtyNine, "LayYourEggs", eggs, "Your Ass", this.bunbunFucksPCInAss,
                 "", undefined, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
         }
     }
@@ -116,7 +116,7 @@ export class BunnyGirl extends BaseContent {
         this.outputText("  Her dick in your ass?)", false);
         //var Ass: number = 0;
         //Dick In V] [Dick in A] [Vagina] [Ass] [Leave]
-        this.simpleChoices("Your Vagina", DickInV, "Your Ass", this.bunbunFucksPCInAss, "Her Vagina", Vagina, "69", sixtyNine, "Leave", this.camp.returnToCampUseOneHour);
+        this.simpleChoices(this, "Your Vagina", DickInV, "Your Ass", this.bunbunFucksPCInAss, "Her Vagina", Vagina, "69", sixtyNine, "Leave", this.camp.returnToCampUseOneHour);
         this.dynStats("lus", 5 + this.player.lib / 20);
     }
     //[Rape Her]
@@ -159,7 +159,7 @@ export class BunnyGirl extends BaseContent {
             this.outputText("  Her dick in your ass?)", false);
             //var Ass: number = 0;
             //Dick In V] [Dick in A] [Vagina] [Ass] [Leave]
-            this.simpleChoices("Your Vagina", DickInV, "Your Ass", this.bunbunFucksPCInAss, "Her Vagina", Vagina, "69", sixtyNine, "Leave", this.camp.returnToCampUseOneHour);
+            this.simpleChoices(this, "Your Vagina", DickInV, "Your Ass", this.bunbunFucksPCInAss, "Her Vagina", Vagina, "69", sixtyNine, "Leave", this.camp.returnToCampUseOneHour);
 
         }
     }
@@ -246,7 +246,7 @@ export class BunnyGirl extends BaseContent {
         }
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", -3);
-        this.doNext(this.camp.returnToCampUseEightHours);
+        this.doNext(this, this.camp.returnToCampUseEightHours);
     }
 
     //[Take Dick In A] 
@@ -335,7 +335,7 @@ export class BunnyGirl extends BaseContent {
         this.player.buttKnockUp(PregnancyStore.PREGNANCY_BUNNY, PregnancyStore.INCUBATION_BUNNY_EGGS, 1, 1);
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 1);
-        this.doNext(this.camp.returnToCampUseEightHours);
+        this.doNext(this, this.camp.returnToCampUseEightHours);
     }
 
     //FUCK DAT BUNNYBUNBUNBUN.
@@ -441,7 +441,7 @@ export class BunnyGirl extends BaseContent {
                 //+ Lust
                 this.player.orgasm();
                 this.dynStats("int", -2);
-                this.doNext(this.camp.returnToCampUseOneHour);
+                this.doNext(this, this.camp.returnToCampUseOneHour);
             }
             else {
                 this.outputText("Without thinking it over too hard beyond 'that sounds hot', you declare your intention to 69 the bunny girl.  She bursts into laughter.  You're a little perturbed by this and make it clear you're quite serious by restating your goal.\n\n", false);
@@ -515,7 +515,7 @@ export class BunnyGirl extends BaseContent {
 
                 this.player.tailType = TAIL_TYPE_RABBIT;
                 this.player.earType = EARS_BUNNY;
-                this.doNext(this.camp.returnToCampUseOneHour);
+                this.doNext(this, this.camp.returnToCampUseOneHour);
                 this.player.orgasm();
                 this.dynStats("lib", 1, "sen", 1);
             }
@@ -571,7 +571,7 @@ export class BunnyGirl extends BaseContent {
 
                 this.player.tailType = TAIL_TYPE_RABBIT;
                 this.player.earType = EARS_BUNNY;
-                this.doNext(this.camp.returnToCampUseOneHour);
+                this.doNext(this, this.camp.returnToCampUseOneHour);
                 this.player.orgasm();
                 this.dynStats("lib", 1, "sen", 1);
             }
@@ -611,7 +611,7 @@ export class BunnyGirl extends BaseContent {
             this.outputText("ears a playful tweak between her thumb and forefinger. \"<i>Sorry about that, I don't know what came over me! I certainly didn't expect this, though! Kind of makes me want to stick around and see if you and I could pop out more bunnies,</i>\" she winks. \"<i>But unfortunately, I've got to get going! Maybe I'll try to find you again, some time down the line.</i>\" She gives you a moist little kiss and hops away, still energetic after all that. You groan, still recovering from the eggs.", false);
             this.player.tailType = TAIL_TYPE_RABBIT;
             this.player.earType = EARS_BUNNY;
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             this.player.orgasm();
             this.dynStats("lib", 1, "sen", 1);
         }
@@ -665,7 +665,7 @@ export class BunnyGirl extends BaseContent {
         this.outputText("\n\nFinally you find you no longer have any to give to the egg-obsessed rabbit girl and the ovipositor retracts into its slit.  Tired but blissful, she curls up to slumber, and you leave her to deal with having a stomach chock full of eggs 'n honey, returning to camp until you once again need a warm body to play host.");
         this.player.dumpEggs();
         this.player.orgasm();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -717,7 +717,7 @@ export class BunnyGirl extends BaseContent {
         this.player.dumpEggs();
         this.player.orgasm();
         this.dynStats("sen", -2);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Bunny Girl Eggsplosion 
@@ -752,15 +752,15 @@ export class BunnyGirl extends BaseContent {
         this.menu();
         //[Free Her (any)] [Fuck Her (male/futa)][Get Egged (female/futa)] [Leave]
         //[Free Her] (Any gender)
-        this.addButton(0, "Free Her", this.freeHerOhGodWhyDidYouDoThis);
+        this.addButton(this, 0, "Free Her", this.freeHerOhGodWhyDidYouDoThis);
         //[Get Egged] (Female/Futa only)
-        if (this.player.hasVagina()) this.addButton(1, "Get Egged", this.getEggflated);
+        if (this.player.hasVagina()) this.addButton(this, 1, "Get Egged", this.getEggflated);
         //[Fuck Her] (Male/Futa Only)
         if (this.player.hasCock()) {
-            if (this.player.cockThatFits(40) >= 0) this.addButton(2, "Fuck Her", this.fuckTheEggBoundBun);
+            if (this.player.cockThatFits(40) >= 0) this.addButton(this, 2, "Fuck Her", this.fuckTheEggBoundBun);
             else this.outputText("  <b>You're too big to fuck her!</b>");
         }
-        this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
+        this.addButton(this, 9, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     //[Free Her] (Any gender)
@@ -858,7 +858,7 @@ export class BunnyGirl extends BaseContent {
         //[End Encounter, corruption up]
         this.player.orgasm();
         this.dynStats("cor", 2);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Get Egged] (Female/Futa only)
@@ -970,7 +970,7 @@ export class BunnyGirl extends BaseContent {
         this.outputText(this.player.modTone(0, 3));
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", -3);
-        this.doNext(this.camp.returnToCampUseEightHours);
+        this.doNext(this, this.camp.returnToCampUseEightHours);
     }
     //If not full bunny morph: [Next]
     //On the way back to your camp, the torrid heat of the melting eggs inside you become unbearable and you drop to your hands and knees. Something is changing!

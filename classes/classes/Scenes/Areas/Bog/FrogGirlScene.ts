@@ -28,8 +28,8 @@ export class FrogGirlScene extends BaseContent {
         this.flags[kFLAGS.TIMES_ENCOUNTERED_FROG]++;
         this.outputText("\n\nDo you follow the music into the arms of the frog girl, or resist her melody?");
         this.menu();
-        this.addButton(0, "Follow", this.followDatFrog);
-        this.addButton(1, "Resist", this.resistDatFrog);
+        this.addButton(this, 0, "Follow", this.followDatFrog);
+        this.addButton(this, 1, "Resist", this.resistDatFrog);
     }
 
     //Follow:
@@ -59,7 +59,7 @@ export class FrogGirlScene extends BaseContent {
         this.player.orgasm();
         this.dynStats("sen", 1);
         this.menu();
-        this.addButton(0, "Next", this.getFrogButtFilled);
+        this.addButton(this, 0, "Next", this.getFrogButtFilled);
     }
     private getFrogButtFilled(): void {
         this.clearOutput();
@@ -69,7 +69,7 @@ export class FrogGirlScene extends BaseContent {
         this.outputText("\n\nYou don your [armor] with some difficulty over your massive stomach, and venture back towards your camp, a little sore, but wiser for the ordeal.");
         this.dynStats("int", 1);
         this.player.buttKnockUp(PregnancyStore.PREGNANCY_FROG_GIRL, PregnancyStore.INCUBATION_FROG_GIRL, 1, 1);
-        this.doNext(this.camp.returnToCampUseTwoHours);
+        this.doNext(this, this.camp.returnToCampUseTwoHours);
     }
 
     //[Anal stretch +1/Anal Moistness +1, sensitivity +1, int +1]
@@ -85,16 +85,16 @@ export class FrogGirlScene extends BaseContent {
         this.outputText("\n\nShe wrinkles up her noseless face and slouches down into the water, sinking down until it reaches the bottoms of her eyes, huffing out a bubbling sigh.");
         this.outputText("\n\nYou admit to being a bit curious as to why she attempted to lure you in, but you do have your own tasks at hand.  On the other hand, she did just try to lure you in for unwanted sex.  Are you just going to let her get away with that?  Do you question the frog girl, continue on your way, or teach her a lesson?");
         this.menu();
-        this.addButton(0, "Question", this.questDatFrogGirl);
-        this.addButton(1, "TeachLesson", this.teachDatFrogALesson);
-        this.addButton(4, "Leave", this.leaveFrogBe);
+        this.addButton(this, 0, "Question", this.questDatFrogGirl);
+        this.addButton(this, 1, "TeachLesson", this.teachDatFrogALesson);
+        this.addButton(this, 4, "Leave", this.leaveFrogBe);
 
     }
     //Leave her be:
     private leaveFrogBe(): void {
         this.clearOutput();
         this.outputText("You shrug and leave the pouting frog girl in her pond, hopping back down the terrace of pools and walking back towards your camp, hoping that your [hair] will dry by the time you get back.");
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //Question the frog girl:
     private questDatFrogGirl(): void {
@@ -109,9 +109,9 @@ export class FrogGirlScene extends BaseContent {
         this.outputText("\n\nBefore you can react, she adds quickly, \"<i>It wouldn’t hurt you - or the eggs - you’d just carry them for a few days until they hatch.  And then I wouldn’t have to deal with them.  It’s win-win, really!</i>\"");
         this.outputText("\n\nYou wonder what it would be like to carry the massive load of eggs. Do you want to offer to carry the frog’s eggs or continue on your way?");
         this.menu();
-        this.addButton(4, "Leave", this.continueOnYourWay);
-        if (this.player.hasVagina()) this.addButton(0, "Vaginally", this.superBonusFrogEggsInYerCooch);
-        this.addButton(1, "Carry", this.carryBeeGirlsEggsVoluntarilyYouButtSlut);
+        this.addButton(this, 4, "Leave", this.continueOnYourWay);
+        if (this.player.hasVagina()) this.addButton(this, 0, "Vaginally", this.superBonusFrogEggsInYerCooch);
+        this.addButton(this, 1, "Carry", this.carryBeeGirlsEggsVoluntarilyYouButtSlut);
     }
 
     //Continue on your way:
@@ -119,7 +119,7 @@ export class FrogGirlScene extends BaseContent {
         this.clearOutput();
         this.outputText("You nod in sympathy, patting the frog girl on her head, but decide not to inquire any further.  She sighs and sinks down further into the water, resigned to her maternal duties.");
         this.outputText("\n\nYou leave down the terrace of pools, heading back to your camp.");
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Offer to carry her eggs:
@@ -149,7 +149,7 @@ export class FrogGirlScene extends BaseContent {
         this.player.orgasm();
         this.dynStats("sen", 1);
         this.menu();
-        this.addButton(0, "Next", this.voluntarilyGetEggedEpilogue);
+        this.addButton(this, 0, "Next", this.voluntarilyGetEggedEpilogue);
     }
     //**
     private voluntarilyGetEggedEpilogue(): void {
@@ -161,7 +161,7 @@ export class FrogGirlScene extends BaseContent {
         //[Anal stretch +1/Anal Moistness +1, sensitivity +1, corruption -1]
         this.player.buttKnockUp(PregnancyStore.PREGNANCY_FROG_GIRL, PregnancyStore.INCUBATION_FROG_GIRL, 1, 1);
         this.dynStats("sen", 1, "cor", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //Teach Her a Lesson
     private teachDatFrogALesson(): void {
@@ -175,7 +175,7 @@ export class FrogGirlScene extends BaseContent {
         this.outputText("\n\nWhen you open your eyes again, the frog girl is standing over you.  The sky behind her looks like it’s on fire, and she’s covered in spinning lights.  \"<i>Okay, I’ll admit, I’m a terrible mother, but I’m pretty sure you’d be worse,</i>\" she huffs, slapping her tongue against your face once more.");
         this.outputText("\n\nColors, lights, and sounds erupt, and you black out, unable to take any more.");
         this.menu();
-        this.addButton(0, "Next", this.lessonFollowup);
+        this.addButton(this, 0, "Next", this.lessonFollowup);
     }
 
     private lessonFollowup(): void {
@@ -183,7 +183,7 @@ export class FrogGirlScene extends BaseContent {
         this.outputText("You wake up two hours later, floating alone in the pool, with a migraine and soggy clothes.  You slog your way out, clutching your head, and head back to camp.");
         //[Toughness -1]
         this.dynStats("tou", -1);
-        this.doNext(this.camp.returnToCampUseTwoHours);
+        this.doNext(this, this.camp.returnToCampUseTwoHours);
     }
 
     //Laying the Eggs
@@ -227,7 +227,7 @@ export class FrogGirlScene extends BaseContent {
         this.player.orgasm();
         this.dynStats("sen", 1);
         this.player.knockUp(PregnancyStore.PREGNANCY_FROG_GIRL, PregnancyStore.INCUBATION_FROG_GIRL, 1, 1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Vaginal Egg birth
@@ -275,6 +275,6 @@ export class FrogGirlScene extends BaseContent {
         }
         this.player.orgasm();
         this.dynStats("sen", 1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 }

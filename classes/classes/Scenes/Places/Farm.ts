@@ -39,7 +39,7 @@ export class Farm extends BaseContent {
         if (this.flags[kFLAGS.FARM_DISABLED] == 1) {
             this.outputText("Whitney marches up to you as soon as you approach the farm, a stoic expression plastered across her face.");
             this.outputText("\n\n\"<i>What the fuck do you think you're doing here [name]? After what you did to Marble you still think you're welcome here? Leave. <b>Now</b>.</i>\"");
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
 
@@ -81,29 +81,29 @@ export class Farm extends BaseContent {
             // var cockMilk: number = 0;
             // var marble: number = 0;
             if (this.player.findStatusAffect(StatusAffects.Kelt) >= 0 && this.player.findStatusAffect(StatusAffects.KeltOff) < 0) {
-                if (this.flags[kFLAGS.KELT_BREAK_LEVEL] >= 4) this.addButton(1, "Kelly", this.kelly.breakingKeltOptions);
-                else this.addButton(1, "Kelt", this.kelly.breakingKeltOptions);
+                if (this.flags[kFLAGS.KELT_BREAK_LEVEL] >= 4) this.addButton(this, 1, "Kelly", this.kelly.breakingKeltOptions);
+                else this.addButton(this, 1, "Kelt", this.kelly.breakingKeltOptions);
             }
             if (this.player.hasKeyItem("Breast Milker - Installed At Whitney's Farm") >= 0) {
                 if (this.player.findStatusAffect(StatusAffects.Milked) >= 0) {
                     this.outputText("\n\n<b>Your " + this.nippleDescript(0) + "s are currently too sore to be milked.  You'll have to wait a while.</b>", false);
                 }
-                else if (this.flags[kFLAGS.WHITNEY_FLIPPED_OUT_OVER_KELLY] == 0) this.addButton(2, "Get Milked", this.getMilked);
+                else if (this.flags[kFLAGS.WHITNEY_FLIPPED_OUT_OVER_KELLY] == 0) this.addButton(this, 2, "Get Milked", this.getMilked);
 
             }
             if (this.player.hasKeyItem("Cock Milker - Installed At Whitney's Farm") >= 0 && this.player.cockTotal() > 0) {
 
-                if (this.flags[kFLAGS.WHITNEY_FLIPPED_OUT_OVER_KELLY] == 0) this.addButton(5, "Milk Cock", this.cockPumping);
+                if (this.flags[kFLAGS.WHITNEY_FLIPPED_OUT_OVER_KELLY] == 0) this.addButton(this, 5, "Milk Cock", this.cockPumping);
             }
             if (this.player.findStatusAffect(StatusAffects.MarbleRapeAttempted) < 0 && this.player.findStatusAffect(StatusAffects.NoMoreMarble) < 0 && this.player.findStatusAffect(StatusAffects.Marble) >= 0 && this.flags[kFLAGS.MARBLE_WARNING] == 0) {
 
-                if (this.flags[kFLAGS.WHITNEY_FLIPPED_OUT_OVER_KELLY] == 0) this.addButton(3, "Marble", this.meetMarble);
+                if (this.flags[kFLAGS.WHITNEY_FLIPPED_OUT_OVER_KELLY] == 0) this.addButton(this, 3, "Marble", this.meetMarble);
             }
             //choices("Explore",exploreFarm,"Kelt",keltEvent,"Get Milked",milkYou,"Marble",marble,"Milk Jojo",milkJojo,"Milk Cock",cockMilk,"Talk",talkWhitney,"Work",workFarm,"",0,"Leave",13);
-            if (this.flags[kFLAGS.WHITNEY_FLIPPED_OUT_OVER_KELLY] == 0) this.addButton(0, "Explore", this.exploreFarm);
-            if (this.flags[kFLAGS.WHITNEY_FLIPPED_OUT_OVER_KELLY] == 0) this.addButton(6, "Talk", this.talkWhitney);
-            if (this.flags[kFLAGS.WHITNEY_FLIPPED_OUT_OVER_KELLY] == 0) this.addButton(7, "Work", this.workFarm);
-            this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
+            if (this.flags[kFLAGS.WHITNEY_FLIPPED_OUT_OVER_KELLY] == 0) this.addButton(this, 0, "Explore", this.exploreFarm);
+            if (this.flags[kFLAGS.WHITNEY_FLIPPED_OUT_OVER_KELLY] == 0) this.addButton(this, 6, "Talk", this.talkWhitney);
+            if (this.flags[kFLAGS.WHITNEY_FLIPPED_OUT_OVER_KELLY] == 0) this.addButton(this, 7, "Work", this.workFarm);
+            this.addButton(this, 9, "Leave", this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -119,14 +119,14 @@ export class Farm extends BaseContent {
             this.player.createKeyItem("Cock Milker - Installed At Whitney's Farm", 0, 0, 0, 0);
             this.player.removeKeyItem("Cock Milker");
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //[NO]
     private whitneyMilkerRefusal(): void {
         this.spriteSelect(62);
         this.clearOutput();
         this.outputText("Whitney shrugs and the two of you resume your conversation.  But like all good things, it has to come to an end.  The two of you go your separate ways.");
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //TALK
     private talkWhitney(): void {
@@ -149,7 +149,7 @@ export class Farm extends BaseContent {
 
             this.outputText("\n\n“<i>Those two are hard workers, in their own different ways. Doubt I’d be able to keep the farm going without them.</i>” She sighs. “<i>When you are out in the sticks like this, you have to make allowances for the people you find yourself lumped together with. Be understanding, and look for the good in everyone. If you set boundaries and stand firm by 'em you can get by with most anyone.</i>” She looks you in the eye. “<i>You should be careful how much time you spend around just anyone, though. Some folks don’t have your best interests at heart. Some others think they do, and they’re even more dangerous. Know what I mean?</i>” Not particularly, but you get the distinct impression you’re being warned about something. Feeling slightly unsettled, you politely take your leave. Whitney nods once and returns to her book, the picture of placidity.");
 
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
 
@@ -165,7 +165,7 @@ export class Farm extends BaseContent {
 
             this.outputText("\n\n“<i> I had my reasons. I grew up in the country, </i>” she goes on after a short pause, “<i>and never held much with city life. Particularly not hot, dusty, close ‘n stinky city life. Course farm life is stinky too,</i>” she acknowledges as she heaves up the milk pail and starts to walk it towards a barn. You offer to help, but she shakes her head. “<i> But least here it’s stink you’ve created yourself. I moved out here eight years ago, and never regretted it. As for Urta... well, she was finding better friends at the bottom of bottles by then. </i>” She disappears into the barn with the milk, and you decide to leave it at that.");
 
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
 
@@ -208,7 +208,7 @@ export class Farm extends BaseContent {
                 this.outputText("You notice a number of smaller bottles filled with a creamy fluid on the table, arranged in a cargo container. It takes you a moment to realize what it is. “<i>Why d’you think I pay you for it?</i> ” says Whitney with a laugh, catching your expression. “<i>I kin use some of it for my herd, but it’s just as easy to sell it to goblins ‘n harpies. Much better to buy it from me than to waste energy catching and beating it out of a satyr. 'Sides, how'd ya think I kept my hair so luxurious? Goblin hairdressers are top notch.</i>”");
             }
 
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
 
@@ -226,7 +226,7 @@ export class Farm extends BaseContent {
 
             this.outputText("\n\nShe stops for such a long while that you wonder whether she’s finished. “<i>Could- could you recognise any of those prisoners? The ones from your town. You said some of em stayed even when you freed em. What did you think about that? I often wonder- is it better never to know what happened to somebody, or find em and discover nothing but a twisted shell of what you remember: a soulless monster who even likes what’s been done to em?</i>” She stops and you think you see tears glittering in eyes still gazing at the lake. You wait a little longer but evidently that’s all you’re getting. You put a hand on her shoulder and then quietly walk away.");
 
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
 
@@ -244,7 +244,7 @@ export class Farm extends BaseContent {
 
             this.outputText("\n\nYou say goodbye with a hug and leave with a funny feeling in your gut.");
 
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
 
@@ -263,7 +263,7 @@ export class Farm extends BaseContent {
                 this.outputText("\"<i>Well of course, it needs hooked into a pump system, collection reservoir, and a power source.  It just happens I've got all that equipment set up for my cows in the barn, and I reckon it'd be easier to plug into than a girl sniffing minotaur musk,</i>\" Whitney explains, \"<i>If you like I could get it all set up for ya, hell, I might even toss you a few gems if you can produce enough milk.</i>\"\n\n", false);
                 //(, hell, if you manage to gather large enough quantities with it, I might be able to find a way to inseminate my cattle with it and be able to pay you for it.  Don't you worry none, I know ways to make this kind of thing work).</i>\"
                 this.outputText("Do you give the breast milker to Whitney for her to hook up?", false);
-                this.doYesNo(this.whitneyMilkerHookup, this.whitneyMilkerRefusal);
+                this.doYesNo(this, this.whitneyMilkerHookup, this.whitneyMilkerRefusal);
                 return;
             }
             else if (this.player.biggestLactation() >= 2) {
@@ -277,11 +277,11 @@ export class Farm extends BaseContent {
                 this.outputText("It almost sounds too good to be true.   The farmer-girl nods, reading your expression quite clearly, \"<i>Yes, there is a bit of a catch.  I'll need 250 gems for the parts to get this all set up.   Equipment like this isn't cheap.   Whaddya say, hun?   I understand if you don't want to – you can always just wait for the milk to stop.</i>\"\n\n", false);
                 if (this.player.gems >= 250) {
                     this.outputText("Do you purchase a breast-milker from Whitney for 250 gems?", false);
-                    this.doYesNo(this.breastMilkerPurchase, this.breastMilkerNoPurchase);
+                    this.doYesNo(this, this.breastMilkerPurchase, this.breastMilkerNoPurchase);
                 }
                 else {
                     this.outputText("You don't have enough money for the milker.  You apologize and head back to camp, maybe you can get one later.", false);
-                    this.doNext(this.camp.returnToCampUseOneHour);
+                    this.doNext(this, this.camp.returnToCampUseOneHour);
                 }
                 return;
             }
@@ -292,7 +292,7 @@ export class Farm extends BaseContent {
             this.outputText("You nod and tell her how you got it and explain that even though it should be fully functional, it'll need to connect to some other machinery to work, and it's way more than any one person could handle.\n\n", false);
             this.outputText("\"<i>Well of course, it needs hooked into a pump system, collection reservoir, and a power source.  It just happens I've got all that equipment set up for my cows in the barn, and I reckon it'd be easier to plug into than a girl sniffing minotaur musk.</i>\" Whitney explains, \"<i>If you like I could get it all set up for ya, hell, if you manage to gather large enough quantities with it, I might be able to find a way to inseminate my cattle with it and pay ya for it.  Don't you worry none, I know ways to make this kind of thing work.</i>\"\n\n", false);
             this.outputText("Do you give the cock milker to Whitney for her to hook up?", false);
-            this.doYesNo(this.createCallBackFunction(this.whitneyMilkerHookup, false), this.whitneyMilkerRefusal);
+            this.doYesNo(this, this.createCallBackFunction(this, this.whitneyMilkerHookup, false), this.whitneyMilkerRefusal);
             return;
         }
         //[GENERIC TALK]
@@ -308,20 +308,20 @@ export class Farm extends BaseContent {
         if (this.player.inte < 30) this.dynStats("int", .5);
         if (this.player.inte < 40) this.dynStats("int", .5);
         this.dynStats("lus", -5);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
         //+3 int if less than 15, +2 int if less 20, +1 int if less than 30, +.5 int if less than 40.
     }
 
     private breastMilkerPurchase(): void {
         this.outputText("Whitney takes the gems and leaves with the promise of having your gear set up within the hour.  She calls back over her shoulder with a cryptic warning, \"<i>Watch how much time you spend getting milked like an animal, lest you wind up like one.</i>\"", true);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
         this.player.createKeyItem("Breast Milker - Installed At Whitney's Farm", 0, 0, 0, 0);
         this.player.gems -= 250;
         this.statScreenRefresh();
     }
 
     private breastMilkerNoPurchase(): void {
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
         this.outputText("Whitney shrugs and the two of you chat about other things, just passing the time and enjoying a relatively normal chat.", true);
         //+3 int if less than 15, +2 int if less 20, +1 int if less than 30, +.5 int if less than 40.
         if (this.player.inte < 15) this.dynStats("int", 1);
@@ -404,7 +404,7 @@ export class Farm extends BaseContent {
             //always +1 str till 50, then 50% chance.
             if (this.player.str <= 50) this.dynStats("str", 1);
             else this.dynStats("str", Farm.rand(2));
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         this.spriteSelect(62);
@@ -489,13 +489,13 @@ export class Farm extends BaseContent {
         }
         //Meet Marble First Time
         if (this.player.findStatusAffect(StatusAffects.Marble) < 0 && this.player.findStatusAffect(StatusAffects.NoMoreMarble) < 0) {
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             this.marbleScene.encounterMarbleInitially();
             return;
         }
         //Meet kelt 1st time
         if (Farm.rand(2) == 0 && this.player.findStatusAffect(StatusAffects.Kelt) < 0 && this.player.findStatusAffect(StatusAffects.KeltOff) < 0) {
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             this.keltScene.keltEncounter();
             return;
         }
@@ -531,14 +531,14 @@ export class Farm extends BaseContent {
                 this.outputText("Whitney falls behind, unable to cope with your speed as you tear around the farm.", false);
             }
             this.outputText("\n\nAfterwards, the both of you lie back against a tree, panting heavily and exchanging pleasantries.  Once you've both had a chance to rest, she bids you farewell and returns to her labors, leaving you to journey home to camp.", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         //Other stuff
         if (explore == 1) {
             this.outputText("After wandering around for a while, you find yourself atop a slight rise looking out over the farm and the distant lake. Despite the corruption you know is slowly consuming this land, being here now makes you feel so at peace you wish it could go on forever.", true);
             this.dynStats("cor", -Farm.rand(3));
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         //Cows
@@ -567,7 +567,7 @@ export class Farm extends BaseContent {
                 this.dynStats("lus", 3);
             }
             this.outputText("Shaking your head, you clear your thoughts and turn away from the pasture. Cows don't have your problems.", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         if (explore == 3) {
@@ -577,7 +577,7 @@ export class Farm extends BaseContent {
         //[NOTHING]
         else {
             this.outputText("You wander around, unable to find anything entertaining on this patch of rural bliss.", true);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -798,7 +798,7 @@ export class Farm extends BaseContent {
                 if (liters > 30) this.dynStats("int", -2);
             }
             if (this.player.inte < 10) {
-                this.doNext(this.cowBadEnd1);
+                this.doNext(this, this.cowBadEnd1);
                 return;
             }
             else if (this.player.inte < 15) this.outputText("  You stretch and let out a contented moo, long and loud.  How silly!", false);
@@ -824,7 +824,7 @@ export class Farm extends BaseContent {
         if (this.player.statusAffectv1(StatusAffects.LactationEndurance) < 1.5) this.player.addStatusValue(StatusAffects.LactationEndurance, 1, .05);
         this.player.addStatusValue(StatusAffects.LactationEndurance, 1, .05);
         this.player.createStatusAffect(StatusAffects.Milked, 8, 0, 0, 0);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     public cockPumping(): void {
@@ -979,7 +979,7 @@ export class Farm extends BaseContent {
                 this.outputText(".  Every time you get a good grip and start to pull, a shiver of pleasure shoots down " + this.sMultiCockDesc() + " and robs you of your focus and muscle control.  Practically helpless against the tubes, you feel " + this.sMultiCockDesc() + " get harder and harder as the machine sucks out more pre-cum along with the milky aftershocks of your last massive orgasm.\n\n", false);
             }
             //TO BAD ENDAGE
-            this.doNext(this.milkerBadEnd1);
+            this.doNext(this, this.milkerBadEnd1);
             return;
         }
         this.flags[kFLAGS.USED_MILKER_TODAY]++;
@@ -1103,14 +1103,14 @@ export class Farm extends BaseContent {
         }
         this.outputText(" on your way, whistling happily and feeling like taking a nap.", false);
         this.player.orgasm();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private cowBadEnd1(): void {
         this.outputText("You moo with delight, fondling your dripping " + this.allBreastsDescript() + " as you relax in your stall.   You know there was something uh, important or something that you were going to do - besides getting your udders milked!  Mmmmm, all your worries about that other thing just melt away when you're in your harness, spraying out milk...\n\n", true);
         this.outputText("You stop, trying to put your remaining wits to work and remember what you were going to do.   Let's see, you were coming here because your tits were so full that they made you ache, and you got hooked up and pumped like a good cow.  Another soft moo escapes your lips.  Now you're turned on and masturbating your drippy udders.  So the next step would be...\n\n", false);
         this.outputText("...finding someone to fuck you silly while you get something to eat.  It's so simple!  You crawl out of your stall, feeling your ponderous breasts jiggle as they drag on the ground.  A trail of white cream clearly marks your passage out into the fields, eventually passing beyond the edges of Whitney's farm and into the mountains.", false);
-        this.doNext(this.cowBadEnd2);
+        this.doNext(this, this.cowBadEnd2);
     }
 
     private cowBadEnd2(): void {
@@ -1262,7 +1262,7 @@ export class Farm extends BaseContent {
         this.outputText("(<b>Key Items Gained: Fake Mare and Centaur Pole</b>)", false);
         this.player.createKeyItem("Fake Mare", 0, 0, 0, 0);
         this.player.createKeyItem("Centaur Pole", 0, 0, 0, 0);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 }
 

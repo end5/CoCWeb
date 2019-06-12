@@ -100,7 +100,7 @@ export class Saves extends BaseContent {
                         trace("Loading save with name", this.saveFileNames[i], "at index", i);
                         this.loadGame(this.saveFileNames[i]);
                         // if (this.loadGame(this.saveFileNames[i])) {
-                        //     this.doNext(this.playerMenu);
+                        //     this.doNext(this, this.playerMenu);
                         //     this.showStats();
                         //     this.statScreenRefresh();
                         //     this.outputText("Slot " + i + " Loaded!", true);
@@ -113,7 +113,7 @@ export class Saves extends BaseContent {
             }
         }
 
-        this.choices("Slot 1", slots[0],
+        this.choices(this, "Slot 1", slots[0],
             "Slot 2", slots[1],
             "Slot 3", slots[2],
             "Slot 4", slots[3],
@@ -155,7 +155,7 @@ export class Saves extends BaseContent {
             this.outputText("\r\r", false);
 
         this.outputText("<b>Leave the notes box blank if you don't wish to change notes.\r<u>NOTES:</u></b>", false);
-        this.choices("Slot 1", saveFuncs[0],
+        this.choices(this, "Slot 1", saveFuncs[0],
             "Slot 2", saveFuncs[1],
             "Slot 3", saveFuncs[2],
             "Slot 4", saveFuncs[3],
@@ -191,22 +191,22 @@ export class Saves extends BaseContent {
         }
         if (this.temp == 777) {
             this.menu();
-            this.addButton(1, "Load", this.loadScreen);
-            this.addButton(2, "Load File", this.loadFromFile);
-            this.addButton(3, "Delete", this.deleteScreen);
-            this.addButton(4, "Back", kGAMECLASS.gameOver, true);
+            this.addButton(this, 1, "Load", this.loadScreen);
+            this.addButton(this, 2, "Load File", this.loadFromFile);
+            this.addButton(this, 3, "Delete", this.deleteScreen);
+            this.addButton(this, 4, "Back", kGAMECLASS.gameOver, true);
             return;
         }
         if (this.player.str == 0) {
-            this.simpleChoices("", undefined, "Load", this.loadScreen, "Load File", this.loadFromFile, "Delete", this.deleteScreen, "Back", kGAMECLASS.mainMenu);
+            this.simpleChoices(this, "", undefined, "Load", this.loadScreen, "Load File", this.loadFromFile, "Delete", this.deleteScreen, "Back", kGAMECLASS.mainMenu);
             return;
         }
         if (this.inDungeon) {
-            this.simpleChoices("", undefined, "Load", this.loadScreen, "Load File", this.loadFromFile, "Delete", this.deleteScreen, "Back", kGAMECLASS.playerMenu);
+            this.simpleChoices(this, "", undefined, "Load", this.loadScreen, "Load File", this.loadFromFile, "Delete", this.deleteScreen, "Back", kGAMECLASS.playerMenu);
             return;
         }
         if (this.gameStateGet() == 3)
-            this.choices("Save", this.saveScreen,
+            this.choices(this, "Save", this.saveScreen,
                 "Load", this.loadScreen,
                 "Load File", this.loadFromFile,
                 "Delete", this.deleteScreen,
@@ -218,7 +218,7 @@ export class Saves extends BaseContent {
                 "", undefined);
         else {
             if (this.player.autoSave)
-                this.choices("Save", this.saveScreen,
+                this.choices(this, "Save", this.saveScreen,
                     "Load", this.loadScreen,
                     "AutoSav: ON", this.autosaveToggle,
                     "Delete", this.deleteScreen,
@@ -229,7 +229,7 @@ export class Saves extends BaseContent {
                     "", undefined,
                     "Back", kGAMECLASS.playerMenu);
             else
-                this.choices("Save", this.saveScreen,
+                this.choices(this, "Save", this.saveScreen,
                     "Load", this.loadScreen,
                     "AutoSav: OFF", this.autosaveToggle,
                     "Delete", this.deleteScreen,
@@ -283,7 +283,7 @@ export class Saves extends BaseContent {
         }
 
         this.outputText("\n<b>ONCE DELETED, YOUR SAVE IS GONE FOREVER.</b>", false);
-        this.choices("Slot 1", delFuncs[0],
+        this.choices(this, "Slot 1", delFuncs[0],
             "Slot 2", delFuncs[1],
             "Slot 3", delFuncs[2],
             "Slot 4", delFuncs[3],
@@ -297,7 +297,7 @@ export class Saves extends BaseContent {
 
     public confirmDelete(): void {
         this.outputText("You are about to delete the following save: <b>" + this.flags[kFLAGS.TEMP_STORAGE_SAVE_DELETION] + "</b>\n\nAre you sure you want to delete it?", true);
-        this.simpleChoices("No", this.deleteScreen, "Yes", this.purgeTheMutant, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "No", this.deleteScreen, "Yes", this.purgeTheMutant, "", undefined, "", undefined, "", undefined);
     }
 
     public purgeTheMutant(): void {
@@ -309,7 +309,7 @@ export class Saves extends BaseContent {
         var select: number = Saves.rand(blah.length);
         this.outputText(this.flags[kFLAGS.TEMP_STORAGE_SAVE_DELETION] + " has " + blah[select] + ".", true);
         test.clear();
-        this.doNext(this.deleteScreen);
+        this.doNext(this, this.deleteScreen);
     }
 
     public saveGame(slot: string, notes?: HTMLInputElement): void {
@@ -348,12 +348,12 @@ export class Saves extends BaseContent {
             if (backup.data.exists) {
                 this.outputText("Would you like to load the backup version of this slot?");
                 this.menu();
-                this.addButton(0, "Yes", this.loadGame, (slot + "_backup"));
-                this.addButton(1, "No", this.saveLoad);
+                this.addButton(this, 0, "Yes", this.loadGame, (slot + "_backup"));
+                this.addButton(this, 1, "No", this.saveLoad);
             }
             else {
                 this.menu();
-                this.addButton(0, "Next", this.saveLoad);
+                this.addButton(this, 0, "Next", this.saveLoad);
             }
         }
         else {
@@ -372,7 +372,7 @@ export class Saves extends BaseContent {
                 this.player.slotName = slot;
             }
 
-            this.doNext(this.playerMenu);
+            this.doNext(this, this.playerMenu);
         }
     }
 
@@ -779,12 +779,12 @@ export class Saves extends BaseContent {
         }
 
         if (!backupAborted) {
-            this.doNext(this.playerMenu);
+            this.doNext(this, this.playerMenu);
         }
         else {
             this.menu();
-            this.addButton(0, "Next", this.playerMenu);
-            this.addButton(9, "Restore", this.restore, slot);
+            this.addButton(this, 0, "Next", this.playerMenu);
+            this.addButton(this, 9, "Restore", this.restore, slot);
         }
 
     }
@@ -803,7 +803,7 @@ export class Saves extends BaseContent {
 
         this.outputText("Restored backup of " + slotName, true);
         this.menu();
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     public openSave(): void {
@@ -847,7 +847,7 @@ export class Saves extends BaseContent {
 
     public ioErrorHandler(): void {
         this.outputText("<b>!</b> Save file not found, check that it is in the same directory as the CoC_" + this.ver + ".swf file.\r\rLoad from file is not available when playing directly from a website like furaffinity or fenoxo.com.", true);
-        this.doNext(this.saveLoad);
+        this.doNext(this, this.saveLoad);
     }
 
     public onDataLoaded(saveObj: any): void {
@@ -865,7 +865,7 @@ export class Saves extends BaseContent {
         }
         catch (rangeError) {
             this.outputText("<b>!</b> File is either corrupted or not a valid save", true);
-            this.doNext(this.saveLoad);
+            this.doNext(this, this.saveLoad);
         }
         // catch (error: Error) {
         //         outputText("<b>!</b> Unhandled Exception", true);
@@ -1551,7 +1551,7 @@ export class Saves extends BaseContent {
             if (saveFile.data.controls != undefined) {
                 game.inputManager.LoadBindsFromObj(saveFile.data.controls);
             }
-            this.doNext(this.playerMenu);
+            this.doNext(this, this.playerMenu);
         }
     }
 

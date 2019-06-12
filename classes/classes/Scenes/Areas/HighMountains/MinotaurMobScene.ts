@@ -81,7 +81,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
 
                 this.outputText("You can't help but laugh with a mixture of maternal pride and rational worry.  What do your offspring have planned for you?  Judging by the three stiffening loincloths, they won't hold back much longer.  What will you do?", false);
                 //[Fight] [Submit] [Negotiate] [Run]
-                this.simpleChoices("Fight", this.fightOTaurs, "Submit", this.submitToMinotaurMob, "Negotiate", this.negotiate, "", undefined, "Leave", this.runFromMinotaurs);
+                this.simpleChoices(this, "Fight", this.fightOTaurs, "Submit", this.submitToMinotaurMob, "Negotiate", this.negotiate, "", undefined, "Leave", this.runFromMinotaurs);
             }
             //(Addicted) 
             else {
@@ -106,7 +106,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 else if (this.player.cor < 66) this.outputText("You're not sure how to feel about this morally, but you can't keep from licking your lips, fantasizing about the fix these wonderful kids of yours are so willing to give you.", false);
                 else this.outputText("Who cares if they're your offspring?  They're all grown up and they smell so... appetizing.", false);
                 //[Fight] [Submit] [Run]
-                this.simpleChoices("Fight", this.fightOTaurs, "Submit", this.submitToMinotaurMob, "Negotiate", this.negotiate, "", undefined, "Leave", this.runFromMinotaurs);
+                this.simpleChoices(this, "Fight", this.fightOTaurs, "Submit", this.submitToMinotaurMob, "Negotiate", this.negotiate, "", undefined, "Leave", this.runFromMinotaurs);
             }
         }
         //Repeat meetings
@@ -155,13 +155,13 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                     if (this.player.minotaurNeed()) {
                         this.outputText("Your mind is already fogging under the intense need of your addiction, and you do the only thing a junkie like you can do in this situation – drop down on all fours and get ready to be used.", false);
                         //Same as 'submit'
-                        this.doNext(this.submitToMinotaurMob);
+                        this.doNext(this, this.submitToMinotaurMob);
                         return;
                     }
                     this.outputText("Your mind is fogging from the scent in the air, but thankfully, you aren't in withdrawal right now.  You can try to resist and maybe even turn the tables on your brood, or you can run.", false);
                 }
                 //[Fight] [Submit] [Run]
-                this.simpleChoices("Fight", this.fightOTaurs, "Submit", this.submitToMinotaurMob, "", undefined, "", undefined, "Run", this.runFromMinotaurs);
+                this.simpleChoices(this, "Fight", this.fightOTaurs, "Submit", this.submitToMinotaurMob, "", undefined, "", undefined, "Run", this.runFromMinotaurs);
             }
             //Tribe sized
             else {
@@ -208,13 +208,13 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                     if (this.player.minotaurNeed()) {
                         this.outputText("This is perfect... you need it so bad!  You drop down on all fours and wiggle your child-bearing hips, hoping they'll hurry and cum inside you.", false);
                         //SUBMIT!
-                        this.doNext(this.submitToMinotaurMob);
+                        this.doNext(this, this.submitToMinotaurMob);
                         return;
                     }
                     this.outputText("This is glorious – so many horny, willing boys, all here for you to squeeze dry.  Even if you wanted to leave, you'd have to fight them to make an opening.  It'd be better to just beat them into submission and take your time savoring their wondrous spunk.", false);
                 }
                 //[Fight] [Submit]
-                this.simpleChoices("Fight", this.fightOTaurs, "Submit", this.submitToMinotaurMob, "", undefined, "", undefined, "", undefined);
+                this.simpleChoices(this, "Fight", this.fightOTaurs, "Submit", this.submitToMinotaurMob, "", undefined, "", undefined, "", undefined);
             }
         }
     }
@@ -233,7 +233,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
 
         this.outputText("Looks like they're only interested in one thing.", false);
         //[Fight] [Submit] [Run]
-        this.simpleChoices("Fight", this.fightOTaurs, "Submit", this.submitToMinotaurMob, "", undefined, "", undefined, "Run", this.runFromMinotaurs);
+        this.simpleChoices(this, "Fight", this.fightOTaurs, "Submit", this.submitToMinotaurMob, "", undefined, "", undefined, "Run", this.runFromMinotaurs);
     }
 
     //[Run] 
@@ -247,7 +247,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
         //ESCAPE!
         if ((this.player.canFly() && this.player.spe > MinotaurMobScene.rand(40)) || (!this.player.canFly() && this.player.spe > MinotaurMobScene.rand(60))) {
             this.outputText("A furry arm nearly catches your " + this.player.leg() + ", but you slip free and quickly escape your lusty brood.", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
         //FAIL:
         else {
@@ -495,7 +495,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
         this.player.slimeFeed();
         this.player.minoCumAddiction(15);
         if (this.getGame().inCombat) this.cleanupAfterCombat();
-        else this.doNext(this.camp.returnToCampUseEightHours);
+        else this.doNext(this, this.camp.returnToCampUseEightHours);
     }
 
     //*[Loss Anal And BJ Spearing, Somewhat Preg?] (feels almost the same as the standard loss, added a demi-scene for nipcunts) (otherwise, edited)
@@ -599,7 +599,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
         this.player.slimeFeed();
         this.player.minoCumAddiction(15);
         if (this.getGame().inCombat) this.cleanupAfterCombat();
-        else this.doNext(this.camp.returnToCampUseEightHours);
+        else this.doNext(this, this.camp.returnToCampUseEightHours);
     }
 
 
@@ -618,14 +618,14 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
         this.outputText("Your body is burning up, buzzing with growing lust from the obscenity going on a few feet away from you.  What do you do?", false);
         //	[win options]
         var getSuck = undefined;
-        if (this.player.hasCock()) getSuck = this.createCallBackFunction(this.forceMinitaurToGiveOral, 1);
+        if (this.player.hasCock()) getSuck = this.createCallBackFunction(this, this.forceMinitaurToGiveOral, 1);
         var nipFuck = undefined;
         if (this.player.hasFuckableNipples()) nipFuck = this.victoryBJNippleFuckMinotaurGang;
         var titFuck = undefined;
         if (this.player.biggestTitSize() >= 6) titFuck = this.victoryMinotaurGangTitFuck;
-        this.choices("Gangbang", this.victoryAllThePenetrationsMinotaurGangBang,
+        this.choices(this, "Gangbang", this.victoryAllThePenetrationsMinotaurGangBang,
             "Tit-Fuck", titFuck, "Nipple-Fuck", nipFuck,
-            "Get Licked", this.createCallBackFunction(this.forceMinitaurToGiveOral, 0),
+            "Get Licked", this.createCallBackFunction(this, this.forceMinitaurToGiveOral, 0),
             "Get Sucked", getSuck, "Discipline", this.disciplineEldestMinotaurSon, "", undefined, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
     }
     //*[Victory Tit-Fuck] (for only the fattest of fat bitch titties) 
@@ -829,7 +829,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
         this.player.minoCumAddiction(20);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //*[Victory - Make minitaur oral (M/F/H)] 
@@ -945,7 +945,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
         this.dynStats("sen", -1);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //*[Victory- BJ + Nipplefucking] (boring, samey, not actually punishment again, could have been shoving very long nipples into urethras) (edited)
@@ -1013,7 +1013,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
         this.player.slimeFeed();
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Bad End Scene: 
@@ -1062,7 +1062,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
         this.outputText("Your son sighs and slumps down, his cock slowly slipping from your abused vulva, escaping with a wet 'pop'.  A river of white rolls out of your body to further stain the room's furnishings.  You shudder from the sensation as a it triggers a series of tiny, miniature climaxes.  While you're lost to the pleasure, the minitaur departs with noticeably less bulge in his loincloth.  At the same time, the other girls crowd around you, scooping up what they can save of your boy's liquid love and shoveling it into their greedy, whorish maws.  The cow-girl industriously sets to work, using her massive tongue on your " + this.vaginaDescript() + " to scoop out every drop she can get.  You cum on her face, splattering her with spooge and your feminine moisture.  She smiles and kisses your still-sensitive clit, throwing you into a black-out inducing orgasm.", false);
         this.player.orgasm();
         this.dynStats("int", -10, "lib", 10, "sen", 10);
-        this.doNext(this.minotaurGangBadEnd2);
+        this.doNext(this, this.minotaurGangBadEnd2);
     }
 
     //[Next]
@@ -1129,6 +1129,6 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
 
         this.outputText("Finished with your son, you push him on his back.  You have had enough of him, for now... If he dares to ambush you again, then you will be more than happy to discipline him again.  After getting dressed, you proceed to walk away.  Your last image of your son is the image of him futilely masturbating, but his cock is too thick and too numb for him to truly get off.  Profoundly amused, you leave the mountains and return to camp.", false);
         this.player.orgasm();
-        this.doNext(this.cleanupAfterCombat);
+        this.doNext(this, this.cleanupAfterCombat);
     }
 }

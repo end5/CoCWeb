@@ -42,7 +42,7 @@ export class Inventory extends BaseContent {
 
     //		public function currentCallNext() { return callNext; }
 
-    public itemGoNext(): void { if (this.callNext != undefined) this.doNext(this.callNext); }
+    public itemGoNext(): void { if (this.callNext != undefined) this.doNext(this, this.callNext); }
 
     public inventoryMenu(): void {
         var x: number;
@@ -65,35 +65,35 @@ export class Inventory extends BaseContent {
         this.menu();
         for (x = 0; x < 5; x++) {
             if (this.player.itemSlots[x].unlocked && this.player.itemSlots[x].quantity > 0) {
-                this.addButton(x, (this.player.itemSlots[x].itype.shortName + " x" + this.player.itemSlots[x].quantity), this.useItemInInventory, x);
+                this.addButton(this, x, (this.player.itemSlots[x].itype.shortName + " x" + this.player.itemSlots[x].quantity), this.useItemInInventory, x);
                 foundItem = true;
             }
         }
         if (this.player.weapon != WeaponLib.FISTS) {
-            this.addButton(5, "Unequip", this.unequipWeapon);
+            this.addButton(this, 5, "Unequip", this.unequipWeapon);
         }
         if (!this.getGame().inCombat && this.inDungeon == false && this.inRoomedDungeon == false) {
             if (this.getGame().nieveHoliday() && this.flags[kFLAGS.NIEVE_STAGE] > 0 && this.flags[kFLAGS.NIEVE_STAGE] < 5) {
                 if (this.flags[kFLAGS.NIEVE_STAGE] == 1)
                     this.outputText("\nThere's some odd snow here that you could do something with...\n");
                 else this.outputText("\nYou have a snow" + this.getGame().nieveMF("man", "woman") + " here that seems like it could use a little something...\n");
-                this.addButton(6, "Snow", this.getGame().nieveBuilding);
+                this.addButton(this, 6, "Snow", this.getGame().nieveBuilding);
                 foundItem = true;
             }
             if (this.flags[kFLAGS.FUCK_FLOWER_KILLED] == 0 && this.flags[kFLAGS.FUCK_FLOWER_LEVEL] >= 1) {
                 if (this.flags[kFLAGS.FUCK_FLOWER_LEVEL] == 4) this.outputText("\nHolli is in her tree at the edges of your camp.  You could go visit her if you want.\n");
-                this.addButton(7, (this.flags[kFLAGS.FUCK_FLOWER_LEVEL] >= 3 ? "Tree" : "Plant"), this.getGame().holliScene.treeMenu);
+                this.addButton(this, 7, (this.flags[kFLAGS.FUCK_FLOWER_LEVEL] >= 3 ? "Tree" : "Plant"), this.getGame().holliScene.treeMenu);
                 foundItem = true;
             }
             if (this.player.hasKeyItem("Dragon Egg") >= 0) {
                 this.getGame().emberScene.emberCampDesc();
-                this.addButton(8, "Egg", this.getGame().emberScene.emberEggInteraction);
+                this.addButton(this, 8, "Egg", this.getGame().emberScene.emberEggInteraction);
                 foundItem = true;
             }
         }
         if (!foundItem) {
             this.outputText("\nYou have no usable items.");
-            this.doNext(this.playerMenu);
+            this.doNext(this, this.playerMenu);
             return;
         }
         if (this.getGame().inCombat && this.player.findStatusAffect(StatusAffects.Sealed) >= 0 && this.player.statusAffectv1(StatusAffects.Sealed) == 3) {
@@ -103,8 +103,8 @@ export class Inventory extends BaseContent {
         }
         this.outputText("\nWhich item will you use?");
         if (this.getGame().inCombat)
-            this.addButton(9, "Back", kGAMECLASS.combatMenu, false); //Player returns to the combat menu on cancel
-        else this.addButton(9, "Back", this.playerMenu);
+            this.addButton(this, 9, "Back", kGAMECLASS.combatMenu, false); //Player returns to the combat menu on cancel
+        else this.addButton(this, 9, "Back", this.playerMenu);
         //Gone			menuLoc = 1;
     }
 
@@ -118,28 +118,28 @@ export class Inventory extends BaseContent {
         this.menu();
         if (this.flags[kFLAGS.ANEMONE_KID] > 0) {
             kGAMECLASS.anemoneScene.anemoneBarrelDescription();
-            if (this.model.time.hours >= 6) this.addButton(4, "Anemone", kGAMECLASS.anemoneScene.approachAnemoneBarrel);
+            if (this.model.time.hours >= 6) this.addButton(this, 4, "Anemone", kGAMECLASS.anemoneScene.approachAnemoneBarrel);
         }
         if (this.player.hasKeyItem("Camp - Chest") >= 0) {
             this.outputText("You have a large wood and iron chest to help store excess items located near the portal entrance.\n\n");
-            this.addButton(0, "Chest Store", this.pickItemToPlaceInCampStorage);
-            if (this.hasItemsInStorage()) this.addButton(1, "Chest Take", this.pickItemToTakeFromCampStorage);
+            this.addButton(this, 0, "Chest Store", this.pickItemToPlaceInCampStorage);
+            if (this.hasItemsInStorage()) this.addButton(this, 1, "Chest Take", this.pickItemToTakeFromCampStorage);
         }
         //Weapon Rack
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00254] > 0) {
             this.outputText("There's a weapon rack set up here, set up to hold up to nine various weapons.");
-            this.addButton(2, "W.Rack Put", this.pickItemToPlaceInWeaponRack);
-            if (this.weaponRackDescription()) this.addButton(3, "W.Rack Take", this.pickItemToTakeFromWeaponRack);
+            this.addButton(this, 2, "W.Rack Put", this.pickItemToPlaceInWeaponRack);
+            if (this.weaponRackDescription()) this.addButton(this, 3, "W.Rack Take", this.pickItemToTakeFromWeaponRack);
             this.outputText("\n\n");
         }
         //Armor Rack
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00255] > 0) {
             this.outputText("Your camp has an armor rack set up to hold your various sets of gear.  It appears to be able to hold nine different types of armor.");
-            this.addButton(5, "A.Rack Put", this.pickItemToPlaceInArmorRack);
-            if (this.armorRackDescription()) this.addButton(6, "A.Rack Take", this.pickItemToTakeFromArmorRack);
+            this.addButton(this, 5, "A.Rack Put", this.pickItemToPlaceInArmorRack);
+            if (this.armorRackDescription()) this.addButton(this, 6, "A.Rack Take", this.pickItemToTakeFromArmorRack);
             this.outputText("\n\n");
         }
-        this.addButton(9, "Back", this.playerMenu);
+        this.addButton(this, 9, "Back", this.playerMenu);
     }
 
     public takeItem(itype: ItemType | undefined, nextAction: any, overrideAbandon?: any, source?: ItemSlotClass): void {
@@ -192,7 +192,7 @@ export class Inventory extends BaseContent {
             return;
         }
         if (showNext)
-            this.doNext(this.callNext); //Items with sub menus should return to the inventory screen if the player decides not to use them
+            this.doNext(this, this.callNext); //Items with sub menus should return to the inventory screen if the player decides not to use them
         else this.callNext(); //When putting items back in your stash we should skip to the take from stash menu
     }
 
@@ -328,14 +328,14 @@ export class Inventory extends BaseContent {
         this.menu();
         for (var x: number = 0; x < 5; x++) {
             if (this.player.itemSlots[x].unlocked)
-                this.addButton(x, (this.player.itemSlots[x].itype.shortName + " x" + this.player.itemSlots[x].quantity), this.createCallBackFunction2(this.replaceItem, itype, x));
+                this.addButton(this, x, (this.player.itemSlots[x].itype.shortName + " x" + this.player.itemSlots[x].quantity), this.createCallBackFunction2(this.replaceItem, itype, x));
         }
         if (source != undefined) {
             this.currentItemSlot = source;
-            this.addButton(7, "Put Back", this.createCallBackFunction2(this.returnItemToInventory, itype, false));
+            this.addButton(this, 7, "Put Back", this.createCallBackFunction2(this.returnItemToInventory, itype, false));
         }
-        if (showUseNow && itype instanceof Useable) this.addButton(8, "Use Now", this.createCallBackFunction2(this.useItemNow, itype as Useable, source));
-        this.addButton(9, "Abandon", this.callOnAbandon); //Does not doNext - immediately executes the callOnAbandon function
+        if (showUseNow && itype instanceof Useable) this.addButton(this, 8, "Use Now", this.createCallBackFunction2(this.useItemNow, itype as Useable, source));
+        this.addButton(this, 9, "Abandon", this.callOnAbandon); //Does not doNext - immediately executes the callOnAbandon function
     }
 
     private useItemNow(item: Useable, source: ItemSlotClass): void {
@@ -434,9 +434,9 @@ export class Inventory extends BaseContent {
         var button: number = 0;
         this.menu();
         for (var x: number = startSlot; x < endSlot; x++ , button++) {
-            if (storage[x].quantity > 0) this.addButton(button, (storage[x].itype.shortName + " x" + storage[x].quantity), this.createCallBackFunction2(this.pickFrom, storage, x));
+            if (storage[x].quantity > 0) this.addButton(this, button, (storage[x].itype.shortName + " x" + storage[x].quantity), this.createCallBackFunction2(this.pickFrom, storage, x));
         }
-        this.addButton(9, "Back", this.stash);
+        this.addButton(this, 9, "Back", this.stash);
     }
 
     private pickFrom(storage: any[], slotNum: number): void {
@@ -466,27 +466,27 @@ export class Inventory extends BaseContent {
         var foundItem: boolean = false;
         for (var x: number = 0; x < 5; x++) {
             if (this.player.itemSlots[x].unlocked && this.player.itemSlots[x].quantity > 0 && typeAcceptableFunction(this.player.itemSlots[x].itype)) {
-                this.addButton(x, (this.player.itemSlots[x].itype.shortName + " x" + this.player.itemSlots[x].quantity), placeInStorageFunction, x);
+                this.addButton(this, x, (this.player.itemSlots[x].itype.shortName + " x" + this.player.itemSlots[x].quantity), placeInStorageFunction, x);
                 foundItem = true;
             }
         }
         if (showEmptyWarning && !foundItem) this.outputText("\n<b>You have no appropriate items to put in this rack.</b>");
-        this.addButton(9, "Back", this.stash);
+        this.addButton(this, 9, "Back", this.stash);
     }
 
     private placeInCampStorage(slotNum: number): void {
         this.placeIn(this.itemStorage, 0, this.itemStorage.length, slotNum);
-        this.doNext(this.pickItemToPlaceInCampStorage);
+        this.doNext(this, this.pickItemToPlaceInCampStorage);
     }
 
     private placeInArmorRack(slotNum: number): void {
         this.placeIn(this.gearStorage, 9, 18, slotNum);
-        this.doNext(this.pickItemToPlaceInArmorRack);
+        this.doNext(this, this.pickItemToPlaceInArmorRack);
     }
 
     private placeInWeaponRack(slotNum: number): void {
         this.placeIn(this.gearStorage, 0, 9, slotNum);
-        this.doNext(this.pickItemToPlaceInWeaponRack);
+        this.doNext(this, this.pickItemToPlaceInWeaponRack);
     }
 
     private placeIn(storage: any[], startSlot: number, endSlot: number, slotNum: number): void {

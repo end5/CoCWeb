@@ -36,8 +36,8 @@ export class Jasun extends TelAdreAbstractContent {
         }
         //[Look Around]
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00181] == 0)
-            this.simpleChoices("Look Around", this.meetJasun, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
-        else this.simpleChoices("Jasun", this.meetJasun, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+            this.simpleChoices(this, "Look Around", this.meetJasun, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+        else this.simpleChoices(this, "Jasun", this.meetJasun, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     //AT CHANGING ROOM (SELECTING TO SEE THE SHARK OR LOOK AROUND IF FIRST TIME)
@@ -58,7 +58,7 @@ export class Jasun extends TelAdreAbstractContent {
                 this.outputText("\"<i>Eyes to yourself, boy. Try to play any games and I'll tear you apart limb from limb. Now get out of here before I do it anyway.</i>\" The shark-morph snarls threateningly before turning back to the mirror.\n\n", false);
                 this.outputText("You doubt he'd have the nerve to murder someone here, but you feel like you've wasted your time.", false);
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00179] = 0;
-                this.doNext(this.camp.returnToCampUseOneHour);
+                this.doNext(this, this.camp.returnToCampUseOneHour);
                 return;
             }
             //IF FEMALE
@@ -75,7 +75,7 @@ export class Jasun extends TelAdreAbstractContent {
                     //(+15 Lust, back to gym entrance)
                     this.dynStats("lus", (10 + this.player.lib / 10));
                     this.outputText("You book it out of there.  What a waste.", false);
-                    this.doNext(this.camp.returnToCampUseOneHour);
+                    this.doNext(this, this.camp.returnToCampUseOneHour);
                     return;
                 }
                 //IF PASS FITNESS CHECK
@@ -87,13 +87,13 @@ export class Jasun extends TelAdreAbstractContent {
                     //(+15 Lust, back to gym entrance)
                     this.dynStats("lus", (10 + this.player.lib / 10));
                     this.outputText("You book it out of there.  What a waste.", false);
-                    this.doNext(this.camp.returnToCampUseOneHour);
+                    this.doNext(this, this.camp.returnToCampUseOneHour);
                     return;
                 }
                 //IF YOU HAVE THE BIKINI ON
                 this.outputText("\"<i>Look at that, it's like you were ready for me the whole time!</i>\" He motions with one of his clawed fingers at your attire. You shamelessly pose in a proud manner and it causes him to laugh heartily. He seems unperturbed or even turned on by the fact that your swimsuit barely covers anything at all, almost like he's totally used to seeing people wear this kind of thing. You wonder what world he could possibly be from to end up the way he is. \"<i>Come, come with me. I have something to show you.</i>\" He walks up to you and pushes by you with his humongous frame. As he does, he grabs your left wrist with his right arm and all but drags you from the changing room to show you whatever he's talking about.\n\n", false);
                 //[Continue]
-                this.doNext(this.meetJasun2);
+                this.doNext(this, this.meetJasun2);
                 return;
             }
         }
@@ -108,7 +108,7 @@ export class Jasun extends TelAdreAbstractContent {
                 this.outputText("Jasun walks out of a stall, his thick and muscular figure still as glorious as the last time you set eyes upon it.  He glances your way and smirks.\n\n", false);
                 this.outputText("\"<i>Eyes to yourself, boy. Try to play any games and I'll tear you apart limb from limb. Now get out of here before I do it anyway.</i>\" The shark-morph snarls threateningly before turning to walk away.\n\n", false);
                 this.outputText("You doubt he'd have the nerve to murder someone here, but you feel like you've wasted your time.", false);
-                this.doNext(this.camp.returnToCampUseOneHour);
+                this.doNext(this, this.camp.returnToCampUseOneHour);
                 return;
             }
             //IF YOU FAIL TO MEET ANY OF HIS CRITERIA NOW
@@ -122,11 +122,11 @@ export class Jasun extends TelAdreAbstractContent {
                 this.outputText(", we can go swim.</i>\" He hesitates for a moment at the mirror, and then walks past you quickly without making eye contact. Feeling dejected and suddenly very alone, you ignore the sensation caused by his skin brushing against yours and walk back to the gym's entrance. Maybe you can work yourself back into Jasun's graces with time.\n\n", false);
                 //(-15 Lust, back to gym entrance)
                 this.dynStats("lus", -15);
-                this.doNext(this.camp.returnToCampUseOneHour);
+                this.doNext(this, this.camp.returnToCampUseOneHour);
                 return;
             }
             this.outputText("Jasun comes out of his stall and smiles when he sees you, already beginning to strain against the skimpy fabric of his bottom.  He asks, \"<i>Would you like to come swimming with me?</i>\" though his tone indicates that swimming may involve more than a few laps.", false);
-            this.doYesNo(this.meetJasun2, this.turnAwayFromAdj);
+            this.doYesNo(this, this.meetJasun2, this.turnAwayFromAdj);
             return;
         }
         //Repeat
@@ -136,7 +136,7 @@ export class Jasun extends TelAdreAbstractContent {
                 this.outputText("Jasun walks out of a stall, his thick and muscular figure still as glorious as the last time you set eyes upon it.  He glances your way and smirks.\n\n", false);
                 this.outputText("\"<i>Eyes to yourself, boy. Try to play any games and I'll tear you apart limb from limb. Now get out of here before I do it anyway.</i>\" The shark-morph snarls threateningly before turning to walk away.\n\n", false);
                 this.outputText("You doubt he'd have the nerve to murder someone here, but it's clear that so long as you lack a vagina Jasun will have no interest in you.  What a waste.", false);
-                this.doNext(this.camp.returnToCampUseOneHour);
+                this.doNext(this, this.camp.returnToCampUseOneHour);
                 return;
             }
             //IF YOU FAIL TO MEET ANY OF HIS CRITERIA NOW
@@ -146,7 +146,7 @@ export class Jasun extends TelAdreAbstractContent {
                 this.outputText("\"<i>" + this.player.short + ", you know, I see that a lot has changed with you. That's fine, and it's entirely up to you, but I think today I should probably swim alone. You can come and visit me anytime, of course, maybe things will be like they were before in time.</i>\" He hesitates for a moment at the mirror, and then walks past you quickly without making eye contact. Feeling dejected and suddenly very alone, you ignore the sensation caused by his skin brushing against yours and walk back to the gym's entrance. Maybe you can work yourself back into Jasun's graces with time.\n\n", false);
                 //(-15 Lust, back to gym entrance)
                 this.dynStats("lus", -15);
-                this.doNext(this.camp.returnToCampUseOneHour);
+                this.doNext(this, this.camp.returnToCampUseOneHour);
                 return;
             }
             //IF YOU MEET ALL CRITERIA STILL
@@ -154,7 +154,7 @@ export class Jasun extends TelAdreAbstractContent {
 
             //(This is here for the same reason as before)
             //[InVagina]
-            this.doNext(this.jasunSecks);
+            this.doNext(this, this.jasunSecks);
             return;
         }
     }
@@ -169,7 +169,7 @@ export class Jasun extends TelAdreAbstractContent {
         this.outputText("\"<i>My name is Jasun, " + this.player.short + ". My people love the water, but most of them are ferocious and have lost their way. Seeing as I could no longer stay with them without risking my own life constantly, I came to Tel'Adre and set about working with the gym here to set up this wondrous pool. I spend most of my time here. Not many people get to use it, but I think you are ready.</i>\" He smiles at you without baring his teeth and you're flattered, knowing how difficult that must be for something with his jaw structure. \"<i>Come, let's swim.</i>\" He puts out his hand, palm up, literally asking for your hand for him to take you into the water.\n\n", false);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00181] = 1;
         //[Accept] [Turn Away]
-        this.simpleChoices("Accept", this.acceptJasunsAdvances, "Turn Away", this.turnAwayFromAdj, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Accept", this.acceptJasunsAdvances, "Turn Away", this.turnAwayFromAdj, "", undefined, "", undefined, "", undefined);
     }
 
     //IF YOU TURN AWAY
@@ -179,7 +179,7 @@ export class Jasun extends TelAdreAbstractContent {
         this.outputText("\"<i>I understand,</i>\" he says dejectedly. He steps up and walks back toward the door. He perks up at the last minute, not letting his being rejected hurt his pride in the least, and says, \"<i>If you ever would like to swim, you know where to find me. Farewell.</i>\" He stands at the door and waits for you to leave before leaping into the water alone, as he has done no doubt many times in the past.\n\n", false);
         //(Back to gym entrance)
         this.outputText("You book it out of there.  What a waste.", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
         return;
     }
 
@@ -193,7 +193,7 @@ export class Jasun extends TelAdreAbstractContent {
 
         //(This is here because it'd be really cool if this wins to expand it and have anal and/or blowjob scenes)
         //[InVagina]
-        this.doNext(this.jasunSecks);
+        this.doNext(this, this.jasunSecks);
     }
 
     private jasunSecks(): void {
@@ -228,7 +228,7 @@ export class Jasun extends TelAdreAbstractContent {
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00180]++;
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 }
 

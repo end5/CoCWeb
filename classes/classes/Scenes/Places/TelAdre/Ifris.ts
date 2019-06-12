@@ -49,7 +49,7 @@ export class Ifris extends TelAdreAbstractContent {
         }
         this.outputText("(You could go ahead and work out while she watches, ask her to join you, or leave.)", false);
         //Work out || Ask Her To Join || Leave?
-        this.simpleChoices("Work Out", this.workOutForIfris, "Join Me?", this.askIfrisToJoinYou, "", undefined, "", undefined, "Leave", this.telAdre.gymDesc);
+        this.simpleChoices(this, "Work Out", this.workOutForIfris, "Join Me?", this.askIfrisToJoinYou, "", undefined, "", undefined, "Leave", this.telAdre.gymDesc);
     }
     //3a-PC responds they want to work out-
     private workOutForIfris(): void {
@@ -57,7 +57,7 @@ export class Ifris extends TelAdreAbstractContent {
         this.outputText("", true);
         if (this.player.fatigue > 70) {
             this.outputText("There's no way you could work out as tired as you are.  Maybe you could come back to flirt with the demonic-looking girl during your next workout.", false);
-            this.doNext(this.telAdre.gymDesc);
+            this.doNext(this, this.telAdre.gymDesc);
             return;
         }
         this.outputText("You smile to the devil-looking-girl and tell her you're just here to get your work-out on.\n\n", false);
@@ -66,7 +66,7 @@ export class Ifris extends TelAdreAbstractContent {
 
         this.outputText("\"<i>I hope you don't mind if I keep you company. I'd love to... see you in action.</i>\"\n\n", false);
         //WORK OUT or SHOW OFF?
-        this.simpleChoices("Work Out", this.liftWhileIfrisWatches, "Show Off", this.showOffForIfris, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Work Out", this.liftWhileIfrisWatches, "Show Off", this.showOffForIfris, "", undefined, "", undefined, "", undefined);
     }
     //3b-PC asks if she'd like to join them-
     private askIfrisToJoinYou(): void {
@@ -74,7 +74,7 @@ export class Ifris extends TelAdreAbstractContent {
         this.outputText("", true);
         if (this.player.fatigue > 70) {
             this.outputText("There's no way you could work out as tired as you are.  Maybe you could come back to flirt with the demonic-looking girl during your next workout.", false);
-            this.doNext(this.telAdre.gymDesc);
+            this.doNext(this, this.telAdre.gymDesc);
             return;
         }
         this.outputText("You ask Ifris if she'd like to join you in some exercises. Her eyes glint mischievously, obviously finding unintended meaning in your words, and you can't help but blush.\n\n", false);
@@ -83,7 +83,7 @@ export class Ifris extends TelAdreAbstractContent {
 
         this.outputText("You shrug at her response, but there's something about the way she eyes you now...", false);
         //WORK OUT or SHOW OFF?
-        this.simpleChoices("Work Out", this.liftWhileIfrisWatches, "Show Off", this.showOffForIfris, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Work Out", this.liftWhileIfrisWatches, "Show Off", this.showOffForIfris, "", undefined, "", undefined, "", undefined);
     }
 
     //4a-PC does a modest work out-
@@ -109,7 +109,7 @@ export class Ifris extends TelAdreAbstractContent {
         //Muscleness boost!
         this.outputText(this.player.modTone(85, 5 + Ifris.rand(5)), false);
         this.fatigue(30);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //4b-PC decides to show off, possible strength requirement?-
     private showOffForIfris(): void {
@@ -136,7 +136,7 @@ export class Ifris extends TelAdreAbstractContent {
             //Reset 'shown off for ifris'
             this.flags[kFLAGS.IFRIS_SHOWED_OFF] = 0;
             this.player.takeDamage(10);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         //4b1-PC fails strength requirement!-
@@ -146,7 +146,7 @@ export class Ifris extends TelAdreAbstractContent {
             this.outputText("\"<i>Oh well...</i>\" She sighs, clearly crestfallen. Cocking one fist on her hip, she gives your " + this.player.leg() + " a light pat as she leaves your presence, vanishing out the door within moments.\n\n", false);
 
             this.outputText("Well, at least you had the good sense to stop before you hurt yourself...\n\n", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             this.flags[kFLAGS.IFRIS_SHOWED_OFF] = 0;
             return;
         }
@@ -159,7 +159,7 @@ export class Ifris extends TelAdreAbstractContent {
             //Body changes here
             //Muscleness boost!
             this.outputText(this.player.modTone(85, 5 + Ifris.rand(5)), false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         //4b3-PC succeeds! Is male/herm-
@@ -255,7 +255,7 @@ export class Ifris extends TelAdreAbstractContent {
         //Body changes here
         //Muscleness boost!
         this.outputText(this.player.modTone(85, 5 + Ifris.rand(5)), false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Ifrs double-penetrates herself on you while you work out.
@@ -337,7 +337,7 @@ export class Ifris extends TelAdreAbstractContent {
         //Body changes here
         //Muscleness boost!
         this.outputText(this.player.modTone(85, 5 + Ifris.rand(5)), false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 }
 

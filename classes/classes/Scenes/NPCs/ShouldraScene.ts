@@ -129,7 +129,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
                 if (this.flags[kFLAGS.TIMES_BEATEN_SHOULDRA] == 3) this.outputText("You can't say you saw that coming.  It seems she has offered to forego the fight in lieu of sexings.  ", false);
                 this.outputText("Would you like to accept her offer, or do you want to fight her regardless?", false);
                 //Now back to the good part!
-                this.simpleChoices("Accept", this.yankeeEchoPapa, "Fight", this.novemberAlphaHotel, "", undefined, "", undefined, "", undefined);
+                this.simpleChoices(this, "Accept", this.yankeeEchoPapa, "Fight", this.novemberAlphaHotel, "", undefined, "", undefined, "", undefined);
             }
             else {
                 //FIGHT!
@@ -146,7 +146,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         this.outputText("", true);
         this.outputText("You graciously accept her offer, and she nods happily.  \"<i>Perfect!  Now then, let's get to it...</i>\"\n\n", false);
         //[skip to 'let her in' text (i.e. win sex intro)]
-        this.doNext(this.littlePigLittlePigLetMeIn);
+        this.doNext(this, this.littlePigLittlePigLetMeIn);
     }
     //[nah] 
     private novemberAlphaHotel(): void {
@@ -177,11 +177,11 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             //([if first time]
             if (this.flags[kFLAGS.TIMES_POSSESSED_BY_SHOULDRA] < 1) {
                 this.outputText("What does she mean, \"<i>let me in?</i>\" Do you want to find out?", false);
-                this.doYesNo(this.littlePigLittlePigLetMeIn, this.noSlimingSlimer);
+                this.doYesNo(this, this.littlePigLittlePigLetMeIn, this.noSlimingSlimer);
             }
             else {
                 this.outputText("What do you do?", false);
-                this.simpleChoices("Let Her In", this.littlePigLittlePigLetMeIn, "Deny", this.noSlimingSlimer, "", undefined, "", undefined, "", undefined);
+                this.simpleChoices(this, "Let Her In", this.littlePigLittlePigLetMeIn, "Deny", this.noSlimingSlimer, "", undefined, "", undefined, "", undefined);
             }
         }
         this.flags[kFLAGS.TIMES_BEATEN_SHOULDRA]++;
@@ -232,7 +232,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         else if (this.player.gender == 3) gender = this.hermaphroditeGhostsCumEctoplasm;
 
         this.flags[kFLAGS.TIMES_POSSESSED_BY_SHOULDRA]++;
-        this.simpleChoices("Sex Here", gender, "Lake", lake, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Sex Here", gender, "Lake", lake, "", undefined, "", undefined, "", undefined);
     }
     //Lake Victory Scenes
     private nowOnVickiLake(): void {
@@ -252,10 +252,10 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         if (this.flags[kFLAGS.TIMES_MET_OOZE] > 0) ooze = this.ghostGooGurlzDuckfaces;
         if (ooze != undefined && shark != undefined) {
             this.outputText("You recall the experiences of both the slime and the shark girl. Which encounter would you wish to seek out?", false);
-            this.simpleChoices("Shark", shark, "Ooze", ooze, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "Shark", shark, "Ooze", ooze, "", undefined, "", undefined, "", undefined);
         }
-        else if (ooze != undefined) this.doNext(ooze);
-        else this.doNext(shark);
+        else if (ooze != undefined) this.doNext(this, ooze);
+        else this.doNext(this, shark);
     }
 
     //Shark Girl x Ghost Girl - Introduction
@@ -274,10 +274,10 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         if (this.player.hasCock() && this.player.hasVagina()) {
             this.outputText("Which gender would you like to focus on?", false);
             //male / female)
-            this.simpleChoices("Male", this.ghostIzmaPenis, "Female", this.sharkyEctoginas, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "Male", this.ghostIzmaPenis, "Female", this.sharkyEctoginas, "", undefined, "", undefined, "", undefined);
         }
-        else if (this.player.hasVagina()) this.doNext(this.sharkyEctoginas);
-        else if (this.player.hasCock()) this.doNext(this.ghostIzmaPenis);
+        else if (this.player.hasVagina()) this.doNext(this, this.sharkyEctoginas);
+        else if (this.player.hasCock()) this.doNext(this, this.ghostIzmaPenis);
     }
 
     //Shark Girl x Ghost Girl - Vagina Scene (Giantess)
@@ -602,7 +602,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             if (this.player.cockTotal() > 1) this.outputText("s", false);
             this.outputText(" while swaying her hips to and fro.  Both of her hands get to work on rubbing your ever-growing testicles, but two hands can't cover the growing amount of space necessary for effective stimulation.  She shrugs, content with patting, tickling, and squeezing the skin she can reach.  A massive churning begins in your gargantuan cumsack, a movement that actually shakes the ground.  Both of you knows what that signifies, the ghost girl going so far as to disengage from her feverish oral to stare longingly at you.  It seems you hold the key to sating her lust or denying her the orgasm she so craves; what do you do?", false);
 
-            this.simpleChoices("LetHerCum", this.letShouldraIn, "KeepHerOut", this.kickShouldraOut, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "LetHerCum", this.letShouldraIn, "KeepHerOut", this.kickShouldraOut, "", undefined, "", undefined, "", undefined);
             return;
         }
         this.outputText("\n\n", false);
@@ -679,7 +679,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         this.outputText("There's silence for a moment, then you are almost rendered unconscious as she cries, \"<i>NOOOOOOOOPE,</i>\" telepathically, surging out of your body in record time. She corporealizes and backs away from you until she bumps into one of the ruined buildings. Then, she's off, booking it down the street to get as far away from you as possible. You shrug, figuring at the very least you dealt with her arousal, albeit in an unexpected way, and begin your trek back to your camp.", false);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
         this.flags[kFLAGS.SHOULDRA_WORM_SCENE_COUNTER]++;
     }
 
@@ -723,7 +723,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         this.flags[kFLAGS.SHOULDRA_EXGARTUAN_SPIRIT_SEX_COUNT]++;
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Vagina Scene
@@ -749,7 +749,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         this.flags[kFLAGS.SHOULDRA_VAGINAL_POSSESSIONS]++;
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //Hermaphrodite Scene
     private hermaphroditeGhostsCumEctoplasm(): void {
@@ -800,7 +800,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             if (this.player.cockTotal() > 1) this.outputText("s", false);
             this.outputText(" while swaying her hips to and fro.  Both of her hands get to work on rubbing your ever-growing testicles, but two hands can't cover the growing amount of space necessary for effective stimulation.  She shrugs, content with patting, tickling, and squeezing the skin she can reach.  A massive churning begins in your gargantuan cumsack, a movement that actually shakes the ground.  Both of you knows what that signifies, the ghost girl going so far as to disengage from her feverish oral to stare longingly at you.  It seems you hold the key to sating her lust or denying her the orgasm she so craves; what do you do?", false);
 
-            this.simpleChoices("LetHerCum", this.letShouldraIn, "KeepHerOut", this.kickShouldraOut, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "LetHerCum", this.letShouldraIn, "KeepHerOut", this.kickShouldraOut, "", undefined, "", undefined, "", undefined);
             return;
         }
         this.outputText("\n\n", false);
@@ -822,7 +822,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         this.flags[kFLAGS.SHOULDRA_HERMSEX_COUNT]++;
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Loss Introduction
@@ -1169,14 +1169,14 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
 
         this.outputText("You look up to gaze into her moderately attractive face. Is it?", false);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00366]++;
-        this.doYesNo(this.courtCrazyGirlsDotCom, this.noCourtingYouFag);
+        this.doYesNo(this, this.courtCrazyGirlsDotCom, this.noCourtingYouFag);
     }
     //(no)
     private noCourtingYouFag(): void {
         this.spriteSelect(66);
         this.outputText("", true);
         this.outputText("You quickly tell her that there's been a misunderstanding; surely your order would not allow such a relationship. She nods, not seeming very bothered by the dismissal. \"<i>What a shame. Farewell, then, paladin friend,</i>\" she says, turning back towards her shack. \"<i>Perhaps we will meet again.</i>\"  You're left to watch her go, and you soon depart as well.", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //(yup)
     private courtCrazyGirlsDotCom(): void {
@@ -1184,7 +1184,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         this.outputText("", true);
         this.outputText("Her smile widens as she regards your venerable visage. \"<i>Is that so?</i>\" she says softly. \"<i>Interesting. I'll be back in a moment.</i>\" She returns to her \"<i>house,</i>\" rummaging around for some time before returning to you, hands hidden behind her. \"<i>If I am to be sought by a paladin, we must do things right,</i>\" she explains, handing you a small silk handkerchief. The white fabric slides around your fingers like a sacrosanct flow of holy water, and you reverently tuck her gift into your " + this.player.armorName + ", laying it over your heart. \"<i>Come back in two days' time, please,</i>\" she asks softly. Your eyes meet for a long moment, and it appears as if she's struggling to say something. She instead breaks away and starts back towards her shelter. \"<i>Be safe,</i>\" she advises, and with a smile and a wave, she's gone. For moments you stand silently, then you turn and start away with long, saintly strides. There's more work to do.\n\n", false);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00365] = 48;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //(two days later)
@@ -1200,7 +1200,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         this.outputText("Her eyes light up, the brown orbs becoming two unholy amber flames as she laughs at your completely stunned expression. With a devilish wink and a proclamation of, \"<i>I'm going ghost!</i>\" she fades into intangibility and is swept away by a gust of wind. As you track her wispy path, you set your jaw determinedly. Looks like \"<i>undead</i>\" will be back on your \"<i>vindictive eradication</i>\" list... though, you have to admit, she gave pretty good consensual sex in the missionary position for the sole purpose of procreation. For an abomination.", false);
         if (this.model.time.hours < 6 || this.model.time.hours >= 23) this.outputText("\n\nYou rage fap and consider going back to bed.", false);
         this.player.orgasm();
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
 

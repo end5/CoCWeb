@@ -99,7 +99,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         this.outputText("You hesitantly approach the drinking lizard-folk, taking note of their unusual garments and appearance.  They all wear black jackets with silver trim, tight-fitting leather pants, and tall, black boots.  Oddly, the most feminine of them appears to be the leader.  Her jacket is filled out with large, well-rounded DD-cup breasts, and her boots forgo the traditional shape for a sluttier, higher heel.  Her scales are a dark purple, glittering darkly in the light, and while her head has a lizard-like shape, a pair of dragon-like horns bulge from the back of her skull in place of hair.  The other lizans all appear to be males, but they act as if they're quite intimidated by the feminine leader.\n\n", false);
         this.outputText("Suddenly, the alpha-lizan glances up and meets your eye, her expression turning into a leering sneer as she asks, \"<i>See something you like " + this.player.mf("buddy", "girly") + "?  Come on over, tell us your story!</i>\"\n\n", false);
         this.outputText("Do you approach?", false);
-        this.doYesNo(this.RoxanneChooseApproachOrRepeat, this.bazaar.enterTheBazaar);
+        this.doYesNo(this, this.RoxanneChooseApproachOrRepeat, this.bazaar.enterTheBazaar);
     }
 
     //[Approach] – Flag as Met
@@ -154,7 +154,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         else this.outputText("If you're reading this, something broke.", false);
         //Clear the 'are you losing the contest intionally flag'
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00226] = 0;
-        this.simpleChoices("Yes", this.roxanneDrinkingContest, "No", this.roxanneDrinkingContestNo, "Lose", this.roxanneDrinkingContestLoseDeliberately, "", undefined, "", undefined);
+        this.simpleChoices(this, "Yes", this.roxanneDrinkingContest, "No", this.roxanneDrinkingContestNo, "Lose", this.roxanneDrinkingContestLoseDeliberately, "", undefined, "", undefined);
     }
 
     private roxanneDrinkingContestNo(): void {
@@ -233,10 +233,10 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
             this.outputText("  A scaled hand slaps your " + this.buttDescript() + " spinning you around to fall drunkenly into the pirate's soft, cushy chest.  \"<i>Don't worry, I'll be gentle,</i>\" she whispers, hooking an arm around your sagging frame.", false);
             //CHOOSE SEX SCENE
             //Chance of big booty butt loss!
-            if (this.player.buttRating > 12 && this.player.tone <= 50 && this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00223] > 1 && Roxanne.rand(2) == 0) this.doNext(this.bigBootyRoxanneContestLoss);
+            if (this.player.buttRating > 12 && this.player.tone <= 50 && this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00223] > 1 && Roxanne.rand(2) == 0) this.doNext(this, this.bigBootyRoxanneContestLoss);
             //TO huge or regular anal
-            else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00225] >= 200) this.doNext(this.roxanneFucksYourAssOHGODITSHUGE);
-            else this.doNext(this.roxanneReamsYouNormal);
+            else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00225] >= 200) this.doNext(this, this.roxanneFucksYourAssOHGODITSHUGE);
+            else this.doNext(this, this.roxanneReamsYouNormal);
             //Reset roxanne's cock
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00225] = 1;
         }
@@ -255,7 +255,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
             var cunnilingus = undefined;
             if (this.player.hasCock()) fellatio = this.roxanneGivesABlowjob;
             if (this.player.hasVagina()) cunnilingus = this.roxanneCunnilingus;
-            this.simpleChoices("Cunnilingus", cunnilingus, "Fellatio", fellatio, "Rimming", this.roxanneRimjob, "", undefined, "", undefined);
+            this.simpleChoices(this, "Cunnilingus", cunnilingus, "Fellatio", fellatio, "Rimming", this.roxanneRimjob, "", undefined, "", undefined);
         }
     }
 
@@ -302,7 +302,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         //(-100 lust, -1 int)
         this.player.orgasm();
         this.dynStats("int", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //[Receive Oral – Vaginalingus]
     private roxanneCunnilingus(): void {
@@ -348,7 +348,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         //(-100 lust, -1 int)
         this.player.orgasm();
         this.dynStats("int", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //[Receive Oral – SkyrRimjoooooooob]
     private roxanneRimjob(): void {
@@ -401,7 +401,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         //(-100 lust, -1 int
         this.player.orgasm();
         this.dynStats("int", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[OH SHIT YOU SO DRUNK AND GETTING REAMED BY LIZARD CAWK]
@@ -483,7 +483,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         this.player.orgasm();
         this.dynStats("int", -1);
         this.applyHangover();
-        this.doNext(this.camp.returnToCampUseFourHours);
+        this.doNext(this, this.camp.returnToCampUseFourHours);
     }
 
     //[Roxanne HAS A FUCKING TORPEDO DICK BUTTFUCK]
@@ -547,7 +547,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         this.player.orgasm();
         this.dynStats("int", -1);
         this.applyHangover();
-        this.doNext(this.camp.returnToCampUseFourHours);
+        this.doNext(this, this.camp.returnToCampUseFourHours);
     }
 
     private applyHangover(): void {
@@ -637,7 +637,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         this.player.orgasm();
         this.dynStats("int", -1);
         this.applyHangover();
-        this.doNext(this.camp.returnToCampUseFourHours);
+        this.doNext(this, this.camp.returnToCampUseFourHours);
     }
 }
 

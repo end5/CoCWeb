@@ -138,7 +138,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             }
             this.outputText("\"<i>Hey, I'm Cotton, what can I do you for?</i>\" she says in a friendly manner.  You also give your name, and explain you were curious as to what she was doing.  \"<i>Oh, this? Just doing some yoga.</i>\"  Judging by your quizzical look, she continues, \"<i>Yoga is like an exercise routine for your body and soul.  When the body is happy and healthy, the mind and soul follow.  It's a very relaxing and... sensual exercise.  Would you like to try it?</i>\"", false);
             //[Yes] [No]
-            this.doYesNo(this.acceptYoga, this.turnDownYogaWifCottonFirstTime);
+            this.doYesNo(this, this.acceptYoga, this.turnDownYogaWifCottonFirstTime);
         }
         //Met before
         else {
@@ -188,10 +188,10 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
 
     private cottonMenu(): void {
         this.menu();
-        this.addButton(0, "Yoga", this.acceptYoga);
-        if (this.flags[kFLAGS.COTTON_KID_COUNT] > 0) this.addButton(1, "Visit Kids", this.visitCottonKids);
-        if (this.pregnancy.isPregnant || this.flags[kFLAGS.COTTON_KID_COUNT] >= 1) this.addButton(2, "Herbs", this.cottonContraceptionToggle);
-        this.addButton(4, "Leave", this.turnDownYogaWifCottonFirstTime);
+        this.addButton(this, 0, "Yoga", this.acceptYoga);
+        if (this.flags[kFLAGS.COTTON_KID_COUNT] > 0) this.addButton(this, 1, "Visit Kids", this.visitCottonKids);
+        if (this.pregnancy.isPregnant || this.flags[kFLAGS.COTTON_KID_COUNT] >= 1) this.addButton(this, 2, "Herbs", this.cottonContraceptionToggle);
+        this.addButton(this, 4, "Leave", this.turnDownYogaWifCottonFirstTime);
     }
 
 
@@ -202,18 +202,18 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             this.outputText("\"<i>I'd love to teach you, but I'm afraid I don't know any good routines for your... body type. Sorry, pet...</i>\" she trails off, as if considering something, and then turns back to you, saying, \"<i>Actually, I think I might know where you could find a book of exercises that would work for you. A traveling salesman came by once, and I saw it in his wares, a book of advanced yoga techniques, aimed at the more exotically shaped denizens of Mareth. I didn't pick it up, of course, because I didn't need it. But if you could find the salesman and bring the book back to me, I'd most definitely be able to coach you.</i>\"", false);
             //(Adds Yoga Book to Giacomo's inventory under Books)
             this.flags[kFLAGS.COTTON_UNUSUAL_YOGA_BOOK_TRACKER]++;
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
         //Come back wtih book first time
         else if (this.flags[kFLAGS.COTTON_UNUSUAL_YOGA_BOOK_TRACKER] == 1 && this.player.hasKeyItem("Yoga Guide") >= 0) {
             this.outputText("\"<i>Have you retrieved the book I mentioned?</i>\" You nod and hand the leather-bound book over to her. She grins and flicks through the pages. \"<i>Oooh, yes I thought as much... Mm-hm... Oh my, nagas can stretch like that?</i>\" Suddenly remembering you're here, she says, \"<i>I'll study this quickly. Come back later and I'll be able to give you a great workout.</i>\"", false);
             this.flags[kFLAGS.COTTON_UNUSUAL_YOGA_BOOK_TRACKER]++;
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
         //Been told about the book but dont have it.
         else if (this.flags[kFLAGS.COTTON_UNUSUAL_YOGA_BOOK_TRACKER] == 1) {
             this.outputText("\"<i>Have you retrieved the book I mentioned?</i>\" You shake your head sadly, and she sighs. \"<i>Well, until you do there's not much I can do for you.</i>\"", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
         //First time with book
         else if (this.flags[kFLAGS.COTTON_UNUSUAL_YOGA_BOOK_TRACKER] == 2) {
@@ -233,7 +233,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.spriteSelect(12);
         this.outputText("", true);
         this.outputText("\"<i>That's all right, to each their own.  I'll be here if you ever change your mind.</i>\"  With that, Cotton returns to her mat and continues stretching in various poses.\n\n", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //(If Yes. Improves muscle tone up to 50, speed and feminine features.)
@@ -247,12 +247,12 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         // var option4 = undefined;
         if (this.player.fatigue > 80) {
             this.outputText("You're way too tired to do any yoga right now.", false);
-            this.doNext(this.telAdre.telAdreMenu);
+            this.doNext(this, this.telAdre.telAdreMenu);
             return;
         }
         if (this.flags[kFLAGS.LIFETIME_GYM_MEMBER] == 0 && this.player.gems < 10) {
             this.outputText("Before you can start the yogo the centauress steps in and says, \"<i>Ten gems for gym fees.</i>\"\n\nYou fish around in your pouches, but you just don't have enough.  Maybe some other time!", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         if (this.flags[kFLAGS.LIFETIME_GYM_MEMBER] == 0) {
@@ -274,7 +274,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             if (this.player.gender > 0)
                 getFucked = this.cottonFucksYouInShowerRepeat;
             //if(player.spe >= 50 && !player.isTaur()) option3 = 2819;
-            this.simpleChoices("Fuck Her", fuckHer, "Get Fucked", getFucked, "Tantric Sex", option3, "", undefined, "Leave", this.leaveCotton);
+            this.simpleChoices(this, "Fuck Her", fuckHer, "Get Fucked", getFucked, "Tantric Sex", option3, "", undefined, "Leave", this.leaveCotton);
         }
         //First time
         else if (this.flags[kFLAGS.TIMES_HAD_YOGA] == 0) {
@@ -293,7 +293,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
 
             this.outputText("\"<i>Oh, that's too bad. But you've done pretty good for a beginner,</i>\" she helps you up off the mat and pats you gently on the back. \"<i>Want to hit the showers then?</i>\" Despite having done little more than stretching, you find you are sweating quite a bit... but something makes you wonder if her idea of hitting the shower is the same as yours.", false);
             //[Shower] or [Leave]
-            this.simpleChoices("Shower", this.cottonShowerFunTimes, "", undefined, "", undefined, "", undefined, "Leave", this.leaveAfterYoga);
+            this.simpleChoices(this, "Shower", this.cottonShowerFunTimes, "", undefined, "", undefined, "", undefined, "Leave", this.leaveAfterYoga);
         }
         //(Repeat Encounter (Didn't have sex))
         //Done yoga > 0 && met type = 1
@@ -308,7 +308,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 getFucked = this.cottonFucksYouInShowerRepeat;
             if (this.player.spe >= 50 && !this.player.isTaur())
                 option3 = this.cottonTantricSex;
-            this.simpleChoices("Fuck Her", fuckHer, "Get Fucked", getFucked, "Tantric Sex", option3, "", undefined, "Leave", this.leaveCotton);
+            this.simpleChoices(this, "Fuck Her", fuckHer, "Get Fucked", getFucked, "Tantric Sex", option3, "", undefined, "Leave", this.leaveCotton);
         }
         //(Repeat Encounter (Had Sex))
         else {
@@ -330,7 +330,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 getFucked = this.cottonFucksYouInShowerRepeat;
             if (this.player.spe >= 50 && !this.player.isTaur())
                 option3 = this.cottonTantricSex;
-            this.simpleChoices("Fuck Her", fuckHer, "Get Fucked", getFucked, "Tantric Sex", option3, "", undefined, "Leave", this.leaveCotton);
+            this.simpleChoices(this, "Fuck Her", fuckHer, "Get Fucked", getFucked, "Tantric Sex", option3, "", undefined, "Leave", this.leaveCotton);
         }
         //(Increases muscle tone up to 50, speed and feminine features.)
         this.player.modTone(52, 1);
@@ -405,7 +405,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.spriteSelect(12);
         this.outputText("", true);
         this.outputText("\"<i>Suit yourself. You can run around all stinky, meanwhile I'm going to go wash. Feel free to drop by later for some more yoga if you'd like.</i>\"  With that, Cotton heads off to the showers and you leave the gym.\n\n", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //(If Shower)
@@ -424,7 +424,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             option1 = this.cottonFirstTimeFuckHer;
         if (this.player.gender > 0)
             option2 = this.cottonFucksYou;
-        this.simpleChoices("Fuck Her", option1, "Get Fucked", option2, "ServiceHer", this.serviceFirstTimeCotton, "", undefined, "Refuse", this.refuseFirstTimeCotton);
+        this.simpleChoices(this, "Fuck Her", option1, "Get Fucked", option2, "ServiceHer", this.serviceFirstTimeCotton, "", undefined, "Refuse", this.refuseFirstTimeCotton);
     }
 
     //(Fuck Her)
@@ -451,7 +451,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.pregCottonChance();
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //(Get fucked, as Male)
     private cottonFucksYou(): void {
@@ -529,7 +529,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             this.dynStats("sen", -1);
             this.cottonPregPCChance();
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //(Service her, any gender)
     private serviceFirstTimeCotton(): void {
@@ -552,14 +552,14 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
 
         this.outputText("Cotton helps you up and gives you a warm kiss, tasting her own seed in your mouth. Wordlessly, you finish your shower, redress and head out of the gym. Cotton takes you by the arm and says, \"<i>That was great, little pet. Come by the gym anytime. I'll be waiting.</i>\"  Then, she heads back home.  With a little grin on your face, you do the same.", false);
         this.dynStats("sen", 1, "lus", (10 + this.player.lib / 20 + this.player.sens / 20));
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //(If Refuse)
     private refuseFirstTimeCotton(): void {
         this.spriteSelect(12);
         this.outputText("", true);
         this.outputText("She looks at you a little sad, \"<i>You certain pet? Well, all right. But you don't know what you're missing.</i>\" The two of you continue your shower with no funny business, then redress and leave the gym. Cotton stops you before you go too far and says, \"<i>Hey, if you want to stop by the gym later for some more yoga, I'd be happy to help.</i>\" Then she heads off down the street, and you head back to camp.", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //(Shower Sex, Fuck Her)
@@ -815,7 +815,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.pregCottonChance();
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //(Shower Sex, Get Fucked as Male or Herm)
@@ -985,7 +985,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         if (this.player.hasVagina()) this.cottonPregPCChance();
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //(Tantric Sex)
@@ -1085,7 +1085,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.player.orgasm();
         this.dynStats("tou", .25, "spe", .25, "lib", -.25, "sen", -.25);
         if (this.player.hasVagina()) this.cottonPregPCChance();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //(Leave)
@@ -1093,7 +1093,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.spriteSelect(12);
         this.outputText("", true);
         this.outputText("You thank Cotton for her time, shower and head back to camp.", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -1136,7 +1136,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             this.player.addStatusValue(StatusAffects.Feeder, 1, 1);
             this.player.changeStatusValue(StatusAffects.Feeder, 2, 0);
         }
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     //COTTON PREGNANCY
@@ -1154,7 +1154,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.outputText("As you enter the gym, keen to work out (in one way or another), you spot Cotton in her usual area.  She's pacing around, and a worried look is plastered across her face. When she sees you, she smiles a little and approaches you. Whatever it is, it clearly can't wait.");
         //-Next-
         this.menu();
-        this.addButton(0, "Next", this.cottonPregnantAlertII);
+        this.addButton(this, 0, "Next", this.cottonPregnantAlertII);
     }
 
     private cottonPregnantAlertII(): void {
@@ -1170,8 +1170,8 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.outputText("</i>\"");
         //[Leave Her] [Stay]
         this.menu();
-        this.addButton(0, "Stay", this.beAGoodCottonDad);
-        this.addButton(1, "Leave Her", this.beABadCottonDad);
+        this.addButton(this, 0, "Stay", this.beAGoodCottonDad);
+        this.addButton(this, 1, "Leave Her", this.beABadCottonDad);
     }
     //(Leave Her)*
     private beABadCottonDad(): void {
@@ -1187,7 +1187,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         //bold
         this.outputText("<b>(Cotton will no longer speak with you.)</b>");
         this.flags[kFLAGS.PC_IS_A_DEADBEAT_COTTON_DAD] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //(Stay)*
     private beAGoodCottonDad(): void {
@@ -1196,7 +1196,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.outputText("\n\nA smile spreads across her face and she hugs you, squeezing tightly, \"<i>Oh thank Marae.  I don't expect you to just pack up and move in, I'm totally fine with our current arrangement, but just having you around for emotional support would be wonderful.</i>\"");
         this.outputText("\n\nShe plants a kiss on your lips, and returns to the yoga section of the gym.");
         this.flags[kFLAGS.PC_IS_A_GOOD_COTTON_DAD] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //Alternate Approach Cotton Scenes*
     //(New scenes to show off Cotton's pregnancy)
@@ -1278,7 +1278,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             this.pregnancy.knockUpForce(); //Clear Pregnancy
             this.flags[kFLAGS.COTTON_KID_COUNT]++;
             if (this.flags[kFLAGS.COTTON_KID_COUNT] == 1) this.flags[kFLAGS.COTTON_OLDEST_KID_AGE] = 1;
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
         //Cotton Repeat Births*
         //(Replaces the Approach scenes)
@@ -1374,8 +1374,8 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.flags[kFLAGS.COTTON_CONTRACEPTION_TALK] = 1;
         //[Stop Taking] [Keep Taking]
         this.menu();
-        this.addButton(0, "Stop Taking", this.tellCottonStopEatingHorsePills);
-        this.addButton(1, "Keep Taking", this.tellCottonToKeepFiringBlanksAsshole);
+        this.addButton(this, 0, "Stop Taking", this.tellCottonStopEatingHorsePills);
+        this.addButton(this, 1, "Keep Taking", this.tellCottonToKeepFiringBlanksAsshole);
     }
 
     //[=Stop Taking=]
@@ -1453,7 +1453,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
 
         this.outputText("\n\nYou thank her for breakfast and politely excuse yourself.  It's clear that she's got quite a bit of work ahead of her, and you've got to get back.  You exit the little apartment, closing the door softly behind you, and strike off back towards camp.");
         this.flags[kFLAGS.COTTON_KNOCKED_UP_PC_AND_TALK_HAPPENED] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -1736,12 +1736,12 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 this.outputText(" for the poor mare-morph, rather than letting her use a bottle, or whatever she's going to do.");
                 //[Feed] [Stay Quiet]
                 this.menu();
-                this.addButton(0, "Feed", this.feedYourCottonKids);
-                this.addButton(1, "Stay Quiet", this.letCottonFeedKids);
+                this.addButton(this, 0, "Feed", this.feedYourCottonKids);
+                this.addButton(this, 1, "Stay Quiet", this.letCottonFeedKids);
             }
             else {
                 this.menu();
-                this.addButton(0, "Next", this.letCottonFeedKids);
+                this.addButton(this, 0, "Next", this.letCottonFeedKids);
             }
             return;
         }
@@ -1778,7 +1778,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
 
             this.outputText("\n\nYou hold your child close and allow yourself to be embraced in turn, simply enjoying the moment of closeness, as odd as your relationship may be.  Eventually, the foal drifts off to sleep in your embrace and you quietly tell Cotton that she needs to let go.  Instead, she playfully squeezes you and whispers, \"<i>Mine...</i>\" in your ear.  Turning your neck, you look into her eyes, whereupon she gives you a soft, playful grin and lets you go, allowing you to put the sleepy foal back to bed.  She just smiles at you without saying a word, and you nod your head and excuse yourself without a word.");
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Feed
@@ -1855,7 +1855,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         }
         this.player.boostLactation(0.5);
 
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Stay Quiet
@@ -1885,7 +1885,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.outputText(" hair and tell Cotton that she makes some gorgeous little foals.  She just nods and gives your shoulder a little squeeze, content to watch in silence for a moment.");
 
         this.outputText("\n\nEventually, and apologetically, you tell her that you have to go; places to go, monsters to fight, she knows how it is.  She nods, understanding, and you give her a quick kiss before departing back to camp.");
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 }

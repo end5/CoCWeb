@@ -99,9 +99,9 @@ export class UrtaQuest extends NPCAwareContent {
         //Insert PC options here
         //[Comfort Her] [Yeesh][Who Cares]
         this.menu();
-        this.addButton(0, "Comfort Her", this.comfortUrtaAfterFamFamTalk);
-        this.addButton(1, "Yeesh", this.yeeshUrtaAfterFamFamTalk);
-        this.addButton(2, "Who Cares", this.whoCaresUrtaAfterFamFamTalk);
+        this.addButton(this, 0, "Comfort Her", this.comfortUrtaAfterFamFamTalk);
+        this.addButton(this, 1, "Yeesh", this.yeeshUrtaAfterFamFamTalk);
+        this.addButton(this, 2, "Who Cares", this.whoCaresUrtaAfterFamFamTalk);
     }
 
     //Comfort Her(C)*
@@ -119,7 +119,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.outputText("\n\nNodding, you give the girl a smile as you stand up to depart.  Her eyes twinkle happily as she watches you go.");
         this.urta.urtaLove(5);
         this.flags[kFLAGS.URTA_COMFORTABLE_WITH_OWN_BODY] += 3;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Yeesh(C)*
@@ -138,7 +138,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.outputText("\n\nGood bitch...");
         this.urta.urtaLove(1);
         this.flags[kFLAGS.URTA_COMFORTABLE_WITH_OWN_BODY] += 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Who Cares(C)*
@@ -152,7 +152,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.urta.urtaLove(-10);
         this.flags[kFLAGS.URTA_COMFORTABLE_WITH_OWN_BODY] -= 5;
         if (this.flags[kFLAGS.URTA_COMFORTABLE_WITH_OWN_BODY] < 1) this.flags[kFLAGS.URTA_COMFORTABLE_WITH_OWN_BODY] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Infertility Discussion(C)*
@@ -173,8 +173,8 @@ export class UrtaQuest extends NPCAwareContent {
         this.outputText("\n\n\"<i>I suppose it wouldn't hurt to try, huh?</i>\" Urta asks.  A mischievous grin spreads across her face, and she says, \"<i>You want me to be fertile that badly, don't you?  Are you wanting to suck down a load of spunk so virile you can smell it?  Or do you want my pussy so ready for babies that a single drop of cum will have my belly round and my tits leaking?</i>\"  She shudders.  \"<i>Damn, that's a nice thought...  Do you really think I should look into it?</i>\"");
         this.outputText("\n\n(<b>Encouraging her to visit the Covenant will begin a segment where you play as Urta for a time, and saving will be disabled.  It is recommended you decline and save first if you have not saved in some time.</b>)");
         this.menu();
-        this.addButton(0, "Look Into It", this.startUrtaQuest);
-        this.addButton(1, "Maybe Later", this.camp.returnToCampUseOneHour);
+        this.addButton(this, 0, "Look Into It", this.startUrtaQuest);
+        this.addButton(this, 1, "Maybe Later", this.camp.returnToCampUseOneHour);
     }
 
     private resetToPC(): void {
@@ -296,7 +296,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.outputText("\n\nYou are currently garbed for work in your usual stud-reinforced leather jerkin, though you go without suitable groin protection due to your cock interfering with efforts to wear normal pants.  An armored leather skirt provides a decent stand to protect your lower body, though as you erect, your maleness has a habit of lifting it out of the way and leaving you vulnerable.  When you desire modesty, you wrap your cock against your leg with your tail.  You are also carrying your favorite halberd; it's not fancy looking, but it's strong, sharp, and well-maintained.  The weaponsmith does good work.");
 
         this.menu();
-        this.addButton(0, "Next", this.towerOfTheCovanant);
+        this.addButton(this, 0, "Next", this.towerOfTheCovanant);
     }
 
     //The Tower of the Covenant(C)*
@@ -324,7 +324,7 @@ export class UrtaQuest extends NPCAwareContent {
 
         //[NEXT]
         this.menu();
-        this.addButton(0, "Next", this.towerOfTheCovenantII);
+        this.addButton(this, 0, "Next", this.towerOfTheCovenantII);
     }
 
     private towerOfTheCovenantII(): void {
@@ -380,12 +380,12 @@ export class UrtaQuest extends NPCAwareContent {
         // The description of the getHelBangedAsUrta scene seems to specify that it should only be available to players
         // at fuckbuddy status with Firebutt.
         if (this.flags[kFLAGS.HEL_FUCKBUDDY] > 0) {
-            this.addButton(0, "Stop4ADrink", this.getHelBangedAsUrta);
+            this.addButton(this, 0, "Stop4ADrink", this.getHelBangedAsUrta);
         }
 
-        this.addButton(1, "Visit", this.visitPCPreUrtaQuest, false);
-        this.addButton(2, "Visit Truth", this.visitPCPreUrtaQuest, true);
-        this.addButton(3, "Embark", this.runIntoAGoblin);
+        this.addButton(this, 1, "Visit", this.visitPCPreUrtaQuest, false);
+        this.addButton(this, 2, "Visit Truth", this.visitPCPreUrtaQuest, true);
+        this.addButton(this, 3, "Embark", this.runIntoAGoblin);
     }
 
     //Savin Contriboots to UrtaQuest: Get Wrekt by Hel, Miko, and Mai. (Or, Needs More Foursomes)
@@ -419,8 +419,8 @@ export class UrtaQuest extends NPCAwareContent {
         this.flags[kFLAGS.URTA_MET_HEL] = 1;
         //[Head Out] [Get \"<i>Help</i>\"]
         this.menu();
-        this.addButton(0, "Head Out", this.leaveB4HelFucksUrta);
-        this.addButton(1, "Get \"Help\"", this.fuckHelAndKitsunesAsUrta);
+        this.addButton(this, 0, "Head Out", this.leaveB4HelFucksUrta);
+        this.addButton(this, 1, "Get \"Help\"", this.fuckHelAndKitsunesAsUrta);
     }
 
     //Head Out
@@ -432,9 +432,9 @@ export class UrtaQuest extends NPCAwareContent {
         this.outputText("\n\nDo you embark now, visit " + this.player2.short + ", or visit " + this.player2.mf("him", "her") + " and tell everything?");
         //[Visit] [Visit Truth][Embark]
         this.menu();
-        this.addButton(1, "Visit", this.visitPCPreUrtaQuest, false);
-        this.addButton(2, "Visit Truth", this.visitPCPreUrtaQuest, true);
-        this.addButton(3, "Embark", this.runIntoAGoblin);
+        this.addButton(this, 1, "Visit", this.visitPCPreUrtaQuest, false);
+        this.addButton(this, 2, "Visit Truth", this.visitPCPreUrtaQuest, true);
+        this.addButton(this, 3, "Embark", this.runIntoAGoblin);
     }
 
     //Get \"<i>Help</i>\"
@@ -486,7 +486,7 @@ export class UrtaQuest extends NPCAwareContent {
         //Advance to next day, jump to leaving text
         //{Resume UrtaQUEST!}
         this.menu();
-        this.addButton(0, "Next", this.runIntoAGoblin);
+        this.addButton(this, 0, "Next", this.runIntoAGoblin);
     }
 
     //Last Rendezvous with PC - Intro + Sex Menu(C)*
@@ -523,18 +523,18 @@ export class UrtaQuest extends NPCAwareContent {
         //[SEX OPTIONS GO HURRRR]
         //Snuggle, put cock in cocked PC ass, ride PC cock vaginally, Fuck Girlvag with yer dick, maybe a sixtynine?
         this.menu();
-        this.addButton(0, "Cuddle", this.snuggleWithUrta, truth);
+        this.addButton(this, 0, "Cuddle", this.snuggleWithUrta, truth);
         //Put Urta dick in girl PC's vag(C)*
         if (this.player2.hasVagina())
-            this.addButton(1, "FuckHerVag", this.putUrtasWangInPCsCunt, truth);
+            this.addButton(this, 1, "FuckHerVag", this.putUrtasWangInPCsCunt, truth);
         //Put a PC dick in Urta's vag(C)*
         if (this.player2.cockThatFits(this.urta.urtaCapacity()) >= 0)
-            this.addButton(2, "Ride Dick", this.putAPCDickInUrtaCoochies, truth);
+            this.addButton(this, 2, "Ride Dick", this.putAPCDickInUrtaCoochies, truth);
         //Put Urta dick in the PC's asshole [Cocked PCs](C)*
         if (this.player2.hasCock())
-            this.addButton(3, "Fuck Ass", this.urtaPutsHerDickInPCsWithDicks, truth);
+            this.addButton(this, 3, "Fuck Ass", this.urtaPutsHerDickInPCsWithDicks, truth);
         //PC blows Urta(C)*
-        this.addButton(4, "Get BJ", this.pcBlowsUrtasDong, truth);
+        this.addButton(this, 4, "Get BJ", this.pcBlowsUrtasDong, truth);
     }
 
     //Last Rendezvous with PC - Sex(C)*
@@ -594,7 +594,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.dynStats("sen", -2);
         this.menu();
         //To morning after fuck departure
-        this.addButton(0, "Next", this.morningAfterCampVisitEmbark, truth);
+        this.addButton(this, 0, "Next", this.morningAfterCampVisitEmbark, truth);
     }
 
     //PC blows Urta(C)*
@@ -634,7 +634,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.player.orgasm();
         this.dynStats("sen", -2);
         this.menu();
-        this.addButton(0, "Next", this.morningAfterCampVisitEmbark, truth);
+        this.addButton(this, 0, "Next", this.morningAfterCampVisitEmbark, truth);
     }
 
     //Put a PC dick in Urta's vag(C)*
@@ -724,7 +724,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.player.orgasm();
         this.dynStats("sen", -2);
         this.menu();
-        this.addButton(0, "Next", this.morningAfterCampVisitEmbark, truth);
+        this.addButton(this, 0, "Next", this.morningAfterCampVisitEmbark, truth);
     }
 
     //Put Urta dick in girl PC's vag(C)*
@@ -810,7 +810,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.player.orgasm();
         this.dynStats("sen", -2);
         this.menu();
-        this.addButton(0, "Next", this.morningAfterCampVisitEmbark, truth);
+        this.addButton(this, 0, "Next", this.morningAfterCampVisitEmbark, truth);
     }
 
     //Snuggle(C)*
@@ -845,7 +845,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.outputText("\n\nTo your own surprise, you find your eyes growing heavier and heavier.  But you don't want to let your " + this.player2.short + " go yet... besides, may as well start searching from here in the morning, right?  So, you and " + this.player2.short + " carefully lay yourselves back down and quietly drift off to sleep, still holding fast to each other as you do.  The last sounds you hear for the night are your lover breathing, accompanied by the beating of " + this.player2.mf("his", "her") + " heart, and you idly hope that " + this.player2.mf("he", "she") + " can hear the same sounds from you...");
         this.dynStats("lus", 14);
         this.menu();
-        this.addButton(0, "Next", this.morningAfterCampVisitEmbark, truth);
+        this.addButton(this, 0, "Next", this.morningAfterCampVisitEmbark, truth);
     }
     //Embark(C)*
     private morningAfterCampVisitEmbark(truth: boolean): void {
@@ -870,7 +870,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.outputText(this.player2.short + " nods, and you leave " + this.player2.mf("him", "her") + " behind.  You keep glancing over your shoulder as you leave, praying silently to any god who'll listen that you return safely to your lover.");
 
         this.menu();
-        this.addButton(0, "Next", this.runIntoAGoblin, true);
+        this.addButton(this, 0, "Next", this.runIntoAGoblin, true);
     }
 
 
@@ -928,7 +928,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.outputText("\n\nStupid goblin.  This whole fight was pointless.  Now that she's defeated, you focus on following the trinket again; you've got to find that shrine.");
         this.player.orgasm();
         this.menu();
-        this.addButton(0, "Next", this.nagaPleaseNagaStoleMyDick);
+        this.addButton(this, 0, "Next", this.nagaPleaseNagaStoleMyDick);
     }
 
     //Urta Loses(C)*
@@ -984,7 +984,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.player.orgasm();
         //[next]
         this.menu();
-        this.addButton(0, "Next", this.loseToGoblinsPartIIAsUrta);
+        this.addButton(this, 0, "Next", this.loseToGoblinsPartIIAsUrta);
     }
 
     private loseToGoblinsPartIIAsUrta(): void {
@@ -998,7 +998,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.outputText("\n\nWhen you finally let go of her, the goblin is blushing wildly, clearly not intending to get so wrapped up in making out with you.  \"<i>W-well... let's get moving shall we, but first...</i>\" Pulling a collar out from one of her pouches, she clasps it around your neck and tugs on the attached leash to lead you along.");
         //[Next]
         this.menu();
-        this.addButton(0, "Next", this.loseToGoblinsPartIIIAsUrta);
+        this.addButton(this, 0, "Next", this.loseToGoblinsPartIIIAsUrta);
     }
 
     private loseToGoblinsPartIIIAsUrta(): void {
@@ -1013,7 +1013,7 @@ export class UrtaQuest extends NPCAwareContent {
 
         //[next]
         this.menu();
-        this.addButton(0, "Next", this.loseToGoblinsPartIVAsUrta);
+        this.addButton(this, 0, "Next", this.loseToGoblinsPartIVAsUrta);
     }
 
 
@@ -1025,7 +1025,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.outputText("\n\nWiping a great, thick glob from her face, your buttercup goblin snuggles her cum-stuffed belly against yours before smiling at you, her hands sliding around you before planting a kiss on your lips.  \"<i>Mmmm... I love you, my wonderful virile stud,</i>\" she purrs to you before reaching down to fondle your rising mustang once again.  Despite her dubious intentions and having brainwashed you, it seems you found the love and acceptance you always wanted.  No doubt you will be the father of a great many daughters in the months to come.   If only you could remember your old lover's name...");
         this.flags[kFLAGS.URTA_GOBLIN_SLAVE] = 1;
         this.menu();
-        this.addButton(0, "Next", this.urtaGameOver);
+        this.addButton(this, 0, "Next", this.urtaGameOver);
     }
 
     private urtaGameOver(): void {
@@ -1037,7 +1037,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.resetToPC();
         this.model.time.hours = 6;
         this.statScreenRefresh();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -1073,13 +1073,13 @@ export class UrtaQuest extends NPCAwareContent {
             return;
         }
         this.menu();
-        this.addButton(0, "Combo", this.urtaComboAttack);
-        this.addButton(1, "Vault", this.urtaVaultAttack);
-        this.addButton(2, "Sidewinder", this.urtaSidewinder);
-        this.addButton(3, "Dirt Kick", this.urtaDirtKick);
-        this.addButton(4, "Metabolize", this.urtaMetabolize);
-        this.addButton(5, "SecondWind", this.urtaSecondWind);
-        this.addButton(9, "Back", this.getGame().combatMenu, false);
+        this.addButton(this, 0, "Combo", this.urtaComboAttack);
+        this.addButton(this, 1, "Vault", this.urtaVaultAttack);
+        this.addButton(this, 2, "Sidewinder", this.urtaSidewinder);
+        this.addButton(this, 3, "Dirt Kick", this.urtaDirtKick);
+        this.addButton(this, 4, "Metabolize", this.urtaMetabolize);
+        this.addButton(this, 5, "SecondWind", this.urtaSecondWind);
+        this.addButton(this, 9, "Back", this.getGame().combatMenu, false);
     }
 
     private urtaMetabolize(): void {
@@ -1097,7 +1097,7 @@ export class UrtaQuest extends NPCAwareContent {
             //Gone		menuLoc = 3;
             //		doNext(getGame().combatMenu);
             this.menu();
-            this.addButton(0, "Next", kGAMECLASS.combatMenu, false);
+            this.addButton(this, 0, "Next", kGAMECLASS.combatMenu, false);
             return;
         }
         this.monster.createStatusAffect(StatusAffects.UrtaSecondWinded, 0, 0, 0, 0);
@@ -1117,7 +1117,7 @@ export class UrtaQuest extends NPCAwareContent {
                 //Gone			menuLoc = 3;
                 //			doNext(getGame().combatMenu);
                 this.menu();
-                this.addButton(0, "Next", kGAMECLASS.combatMenu, false);
+                this.addButton(this, 0, "Next", kGAMECLASS.combatMenu, false);
                 return;
             }
             this.fatigue(25);
@@ -1226,8 +1226,8 @@ export class UrtaQuest extends NPCAwareContent {
             kGAMECLASS.enemyAI();
         }
         else {
-            if (this.monster.HP <= 0) this.doNext(kGAMECLASS.endHpVictory);
-            else this.doNext(kGAMECLASS.endLustVictory);
+            if (this.monster.HP <= 0) this.doNext(this, kGAMECLASS.endHpVictory);
+            else this.doNext(this, kGAMECLASS.endLustVictory);
         }
     }
 
@@ -1239,7 +1239,7 @@ export class UrtaQuest extends NPCAwareContent {
             //Gone		menuLoc = 3;
             //		doNext(getGame().combatMenu);
             this.menu();
-            this.addButton(0, "Next", kGAMECLASS.combatMenu, false);
+            this.addButton(this, 0, "Next", kGAMECLASS.combatMenu, false);
             return;
         }
         this.fatigue(5);
@@ -1272,7 +1272,7 @@ export class UrtaQuest extends NPCAwareContent {
             //Gone		menuLoc = 3;
             //		doNext(getGame().combatMenu);
             this.menu();
-            this.addButton(0, "Next", kGAMECLASS.combatMenu, false);
+            this.addButton(this, 0, "Next", kGAMECLASS.combatMenu, false);
             return;
         }
         this.fatigue(10);
@@ -1373,8 +1373,8 @@ export class UrtaQuest extends NPCAwareContent {
             kGAMECLASS.enemyAI();
         }
         else {
-            if (this.monster.HP <= 0) this.doNext(kGAMECLASS.endHpVictory);
-            else this.doNext(kGAMECLASS.endLustVictory);
+            if (this.monster.HP <= 0) this.doNext(this, kGAMECLASS.endHpVictory);
+            else this.doNext(this, kGAMECLASS.endLustVictory);
         }
     }
 
@@ -1387,7 +1387,7 @@ export class UrtaQuest extends NPCAwareContent {
             //Gone		menuLoc = 3;
             //		doNext(getGame().combatMenu);
             this.menu();
-            this.addButton(0, "Next", kGAMECLASS.combatMenu, false);
+            this.addButton(this, 0, "Next", kGAMECLASS.combatMenu, false);
             return;
         }
         this.fatigue(20);
@@ -1489,8 +1489,8 @@ export class UrtaQuest extends NPCAwareContent {
             kGAMECLASS.enemyAI();
         }
         else {
-            if (this.monster.HP <= 0) this.doNext(kGAMECLASS.endHpVictory);
-            else this.doNext(kGAMECLASS.endLustVictory);
+            if (this.monster.HP <= 0) this.doNext(this, kGAMECLASS.endHpVictory);
+            else this.doNext(this, kGAMECLASS.endLustVictory);
         }
     }
 
@@ -1541,8 +1541,8 @@ export class UrtaQuest extends NPCAwareContent {
 
         //[Rape][Leave]
         this.menu();
-        this.addButton(0, "Fuck Him", this.urtaWinFucksSirius);
-        this.addButton(1, "Leave", this.leaveSiriusBehind);
+        this.addButton(this, 0, "Fuck Him", this.urtaWinFucksSirius);
+        this.addButton(this, 1, "Leave", this.leaveSiriusBehind);
     }
 
     //[=Leave=]
@@ -1550,7 +1550,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.clearOutput();
         this.outputText("You decide that he's just not worth your time and leave to continue your journey.");
         this.menu();
-        this.addButton(0, "Next", this.gnollAlphaBitchIntro);
+        this.addButton(this, 0, "Next", this.gnollAlphaBitchIntro);
     }
 
     //[=Rape=]
@@ -1606,7 +1606,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.dynStats("lus=", 100, "resisted", false);
         //Next Page button to trigger scene finish
         this.menu();
-        this.addButton(0, "Next", this.fuckSiriusRadioII);
+        this.addButton(this, 0, "Next", this.fuckSiriusRadioII);
     }
     private fuckSiriusRadioII(): void {
         this.clearOutput();
@@ -1621,7 +1621,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.outputText("\n\nAs you walk away, following the pendant once again, you hope that " + this.player2.short + " will understand why you fucked a stranger like that... maybe if you promise to give " + this.player2.mf("him", "her") + " oral with as much enthusiasm as that naga gave you, " + this.player2.mf("he", "she") + "'ll be more understanding?  Mmm... you kind of hope " + this.player2.mf("he", "she") + " agrees, actually; you can already taste " + this.player2.mf("him", "her") + " on your tongue...");
         this.player.orgasm();
         this.menu();
-        this.addButton(0, "Next", this.gnollAlphaBitchIntro);
+        this.addButton(this, 0, "Next", this.gnollAlphaBitchIntro);
     }
 
     //Urta Loses*
@@ -1700,7 +1700,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.outputText("\n\nYou dutifully follow your master... as happy as you could be.");
 
         this.menu();
-        this.addButton(0, "Next", this.siriusSatelliteRadioOwnsYouII);
+        this.addButton(this, 0, "Next", this.siriusSatelliteRadioOwnsYouII);
     }
 
     private siriusSatelliteRadioOwnsYouII(): void {
@@ -1723,7 +1723,7 @@ export class UrtaQuest extends NPCAwareContent {
 
         //{Bad End and all its effects applied here.}
         this.menu();
-        this.addButton(0, "Next", this.urtaGameOver);
+        this.addButton(this, 0, "Next", this.urtaGameOver);
     }
 
     //Gnoll Alpha Encounter*
@@ -1742,7 +1742,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.monster.short = "alpha gnoll";
         this.monster.HP = this.monster.eMaxHP(); // TODO extract to AlphaGnoll class
         this.monster.long = "The gnoll standing before you is obviously an alpha among her kind; she has to be over seven feet tall and rippling with muscle, not that this stops her from having a curvy form, squeezable ass and full E-cup boobs.  The remnants of what must have once been a gorgeous and expensive silken dress are draped across her figure, torn off at the knees and hanging by only a single shoulder, arms bare and exposed.  A heavy necklace of gold is wrapped around her neck, while bracelets of more of the same adorn her arms, and piercings of gold stud her ears.  She carries a mighty-looking spear in her hands, which she brandishes at you menacingly, and a basket of throwing javelins is strapped to her back.";
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     //Fight*
@@ -1787,7 +1787,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.outputText("\n\nThe only answer you get is a blissful, \"<i>Oooohhhhhh...</i>\"");
         this.player.orgasm();
         this.menu();
-        this.addButton(0, "Next", this.urtaNightSleep);
+        this.addButton(this, 0, "Next", this.urtaNightSleep);
     }
 
     //[Succubus Milk] (Or, how we CAN have nice things with a little persistence!)
@@ -1857,7 +1857,7 @@ export class UrtaQuest extends NPCAwareContent {
 
         this.player.orgasm();
         this.menu();
-        this.addButton(0, "Next", this.urtaNightSleep);
+        this.addButton(this, 0, "Next", this.urtaNightSleep);
     }
 
 
@@ -1905,7 +1905,7 @@ export class UrtaQuest extends NPCAwareContent {
         }
         //[To Loss Epilogue]
         this.menu();
-        this.addButton(0, "Next", this.loseToGnollAsUrtaEpilogue);
+        this.addButton(this, 0, "Next", this.loseToGnollAsUrtaEpilogue);
     }
 
     //[To Loss Epilogue]'
@@ -1991,7 +1991,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.dynStats("lib", 20, "sen", 100, "cor", 20);
         //[Next]
         this.menu();
-        this.addButton(0, "Next", this.loseToGnollAsUrtaEpilogueBAM);
+        this.addButton(this, 0, "Next", this.loseToGnollAsUrtaEpilogueBAM);
     }
 
     private loseToGnollAsUrtaEpilogueBAM(): void {
@@ -2026,7 +2026,7 @@ export class UrtaQuest extends NPCAwareContent {
 
         this.outputText("\n\nYou smile when your holes are filled again - you'll get that yummy gnoll-cum inside you soon.");
         this.menu();
-        this.addButton(0, "Next", this.urtaGameOver);
+        this.addButton(this, 0, "Next", this.urtaGameOver);
     }
 
     //The First Night Sleep*
@@ -2037,8 +2037,8 @@ export class UrtaQuest extends NPCAwareContent {
         this.outputText("\n\nAs you settle down for a night's sleep, you consider your armor.  It's starting to chafe a little.  Wearing it to bed would be uncomfortable, likely giving you a restless sleep, but it might also give you a fighting chance if something comes after you.  Do you want to sleep naked and rest better at some risk, or do you want to sleep in your armor, safer, but tossing and turning?");
 
         this.menu();
-        this.addButton(0, "SleepNaked", this.urtaSleepsNaked);
-        this.addButton(1, "Wear Armor", this.urtaSleepsArmored);
+        this.addButton(this, 0, "SleepNaked", this.urtaSleepsNaked);
+        this.addButton(this, 1, "Wear Armor", this.urtaSleepsArmored);
     }
 
     //Armor Sleep*
@@ -2056,7 +2056,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.fatigue(- 50);
         this.player.orgasm();
         this.menu();
-        this.addButton(0, "Next", this.introSuccubiAndMinotaur);
+        this.addButton(this, 0, "Next", this.introSuccubiAndMinotaur);
     }
     //Sleep Naked - Nocturnal Tentacle Beast Fuck*
     private urtaSleepsNaked(): void {
@@ -2067,7 +2067,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.fatigue(- 100);
         this.dynStats("lus", 10);
         this.menu();
-        this.addButton(0, "Next", this.urtaGetsTentaRaped);
+        this.addButton(this, 0, "Next", this.urtaGetsTentaRaped);
     }
 
     //[Next]
@@ -2104,8 +2104,8 @@ export class UrtaQuest extends NPCAwareContent {
         this.outputText("\n\nFrom the sensations washing through your body, you'd think that you would have cum by now.  It's like your threshold for pleasure has been raised far beyond the natural.  The pleasure has you rocking your hips against the numerous dicks as they ravage your holes.  You're so close... you just need a little bit more.  The huge orange tentacle catches your eye - it's at least as big as a dozen of the others, and you've no doubt that pulling it into your twat and letting your cunt gorge on its magical juices would get you off like a rocket.  Of course, while you get the feeling that the green goop would prevent it from perma-gaping, there's no way something like that won't have a permanent effect.  Do you ride the little tentacles to orgasm, or take the giant orange one inside it, and let it baste your twat with pussy-elasticizing fluids?");
         //[Tentacles] [Big Orange]
         this.menu();
-        this.addButton(0, "Tentacles", this.urtaFinishesWithTentacles);
-        this.addButton(1, "Big Orange", this.urtaFinishesWithBigOrange);
+        this.addButton(this, 0, "Tentacles", this.urtaFinishesWithTentacles);
+        this.addButton(this, 1, "Big Orange", this.urtaFinishesWithBigOrange);
     }
 
     //Big Orange Tentacle Finisher*
@@ -2134,7 +2134,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 2);
         this.menu();
-        this.addButton(0, "Next", this.introSuccubiAndMinotaur);
+        this.addButton(this, 0, "Next", this.introSuccubiAndMinotaur);
     }
 
     //Choose Regular Tentacles*
@@ -2148,7 +2148,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 1);
         this.menu();
-        this.addButton(0, "Next", this.introSuccubiAndMinotaur);
+        this.addButton(this, 0, "Next", this.introSuccubiAndMinotaur);
     }
 
     //Mino & Succubi Intro*
@@ -2233,7 +2233,7 @@ export class UrtaQuest extends NPCAwareContent {
 
         //[Next]
         this.menu();
-        this.addButton(0, "Next", this.submissiveMinoUrtaBadEndPtII);
+        this.addButton(this, 0, "Next", this.submissiveMinoUrtaBadEndPtII);
     }
     private submissiveMinoUrtaBadEndPtII(): void {
         this.clearOutput();
@@ -2262,7 +2262,7 @@ export class UrtaQuest extends NPCAwareContent {
 
         //[Next]
         this.menu();
-        this.addButton(0, "Next", this.submissiveMinoUrtaBadEndPtIII);
+        this.addButton(this, 0, "Next", this.submissiveMinoUrtaBadEndPtIII);
     }
 
     private submissiveMinoUrtaBadEndPtIII(): void {
@@ -2297,7 +2297,7 @@ export class UrtaQuest extends NPCAwareContent {
         //{Bad end or Urta removed from game as appropriate}
         this.flags[kFLAGS.URTA_MINO_AND_SUCCUBI_SLAVE] = 1;
         this.menu();
-        this.addButton(0, "Next", this.urtaGameOver);
+        this.addButton(this, 0, "Next", this.urtaGameOver);
     }
 
     //Urta Win Rapes Minotaur*
@@ -2347,7 +2347,7 @@ export class UrtaQuest extends NPCAwareContent {
         //[End combat, queue post encounter]
         this.player.orgasm();
         this.menu();
-        this.addButton(0, "Next", this.beatMinoLordOnToSuccubi);
+        this.addButton(this, 0, "Next", this.beatMinoLordOnToSuccubi);
     }
 
     //Urta Loses Minotaur
@@ -2394,7 +2394,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.dynStats("lib", 50, "sen", 50);
         this.flags[kFLAGS.URTA_IS_VULQUINE_MENACE] = 1;
         this.menu();
-        this.addButton(0, "Next", this.urtaSheHulkPartII);
+        this.addButton(this, 0, "Next", this.urtaSheHulkPartII);
     }
 
     private urtaSheHulkPartII(): void {
@@ -2414,7 +2414,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.player.orgasm();
         this.dynStats("lib", 50, "sen", 50);
         this.menu();
-        this.addButton(0, "Next", this.urtaGameOver);
+        this.addButton(this, 0, "Next", this.urtaGameOver);
     }
 
 
@@ -2492,8 +2492,8 @@ export class UrtaQuest extends NPCAwareContent {
         this.dynStats("lus", 40, "resisted", false);
         //[Leave] [Fuck]
         this.menu();
-        this.addButton(0, "Fuck", this.fuckTheCowCubi);
-        this.addButton(1, "Leave", this.leaveTheCowCubi);
+        this.addButton(this, 0, "Fuck", this.fuckTheCowCubi);
+        this.addButton(this, 1, "Leave", this.leaveTheCowCubi);
     }
 
     //[=Leave=]
@@ -2501,7 +2501,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.clearOutput();
         this.outputText("Your fingers tighten on the shaft of your halberd and suddenly you bring it whipping around, the blunt end slamming into the side of the succubus-cow's head.  As her eyes roll up in her head and she collapses unconscious onto the ground, you spit to the side.  \"<i>Be glad I didn't use the sharp end, monster.</i>\"  With that, you continue on into the depths of the shrine... oh, if only " + this.player2.short + " was here; you'd happily fuck " + this.player2.mf("him", "her") + " senseless right now...  Still, it's something to look forward to once you're done inside.");
         this.menu();
-        this.addButton(0, "Go Inside", this.enteringTaothsShrine);
+        this.addButton(this, 0, "Go Inside", this.enteringTaothsShrine);
     }
 
     //[=Rape=]
@@ -2555,7 +2555,7 @@ export class UrtaQuest extends NPCAwareContent {
 
         this.outputText("\n\nYou look at her, sprawled there, and your face falls, shame burning in your belly.  What kind of woman are you?  Bad enough to sleep around on your lover, but with a demon?  Are you really that incapable of controlling yourself?  Feeling miserable, trying to justify your actions and vowing that Taoth will be removed from you if it's the last thing you do, you pull your clothes back on and start heading into the shrine, anxious to be free of him at last.");
         this.menu();
-        this.addButton(0, "Move On", this.enteringTaothsShrine);
+        this.addButton(this, 0, "Move On", this.enteringTaothsShrine);
     }
 
     //Urta Loses*
@@ -2619,7 +2619,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.outputText("\n\nShuddering with pleasure, your eyes cross as you pad after her, thighs rubbing your squishy, soaked nether-lips together.");
         //[END]
         this.menu();
-        this.addButton(0, "Next", this.urtaGameOver);
+        this.addButton(this, 0, "Next", this.urtaGameOver);
     }
 
     //The Old Shrine*
@@ -2640,7 +2640,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.outputText("\n\n\"<i>I wake...</i>\"");
         //Next Page, go to Dead Gods Dreaming
         this.menu();
-        this.addButton(0, "Next", this.deadGodsDreaming);
+        this.addButton(this, 0, "Next", this.deadGodsDreaming);
     }
 
     //Dead Gods Dreaming*
@@ -2683,7 +2683,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.outputText("\n\nAbsently licking drool from your lips, you stagger upright and, using your halberd for support, start loping home from the shrine.  In your wake you leave a slug-like trail of sexual lubricants, too focused on finding and fucking your lover to care about the glistening slime caking your dick and plastering your inner thighs.");
         //Revert to PC control and change page to Urta Arrives At Camp
         this.menu();
-        this.addButton(0, "Next", this.urtaArrivesAtCampForFukks);
+        this.addButton(this, 0, "Next", this.urtaArrivesAtCampForFukks);
         this.resetToPC();
     }
     //Urta Arrives at Camp
@@ -2709,9 +2709,9 @@ export class UrtaQuest extends NPCAwareContent {
         //Genderless PCs auto-select the Edryn option, KnockUrta requires PC has penis, KnockMe requires PC has vagina
         this.menu();
         //[KnockUrta] [KnockMe] [Edryn]
-        if (this.player.hasCock()) this.addButton(0, "KnockUrta", this.knockUpUrtaWithGodChild);
-        if (this.player.hasVagina()) this.addButton(1, "KnockMe", this.getKnockedUpWithGodChild);
-        this.addButton(2, "Edryn", this.urtaAndEdrynGodChild);
+        if (this.player.hasCock()) this.addButton(this, 0, "KnockUrta", this.knockUpUrtaWithGodChild);
+        if (this.player.hasVagina()) this.addButton(this, 1, "KnockMe", this.getKnockedUpWithGodChild);
+        this.addButton(this, 2, "Edryn", this.urtaAndEdrynGodChild);
 
     }
     //PC Knocks Up Urta with God Child*
@@ -2754,7 +2754,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.player.orgasm();
         this.dynStats("sen", -2);
         this.menu();
-        this.addButton(0, "Next", this.postFuckUrtaUp);
+        this.addButton(this, 0, "Next", this.postFuckUrtaUp);
     }
     //Post-Sex Epilogue*
     private postFuckUrtaUp(): void {
@@ -2771,7 +2771,7 @@ export class UrtaQuest extends NPCAwareContent {
 
         this.outputText("\n\nBefore you know it, the two of you are being waved through the gates.  Edryn boggles at the sight of her friend swollen up with pregnancy, but doesn't protest as you assist Urta in clambering up onto the centauress' back. Together, the two of you manage to haul the unnaturally gravid fox to the Covenant's tower.  Countless guards have to be addressed at each step of the journey, but eventually, you're both brought to a comfortable chamber and allowed to rest... when the mages aren't busily probing Urta with magic, that is.  Urta has you stay by her side the entire time, and you do your best to continue supporting her, not leaving even when she falls asleep on your shoulder, completely tuckered out.  You snuggle up against her once the mages finally agree to let you snooze with her, under the vigilant eyes of your guards.  Rest comes surprisingly easy, despite the tensions of your present situation, and you drift off wondering how long it will take Urta to give birth.");
         this.menu();
-        this.addButton(0, "Next", this.preggedUrtaWithGodChildEpilogue);
+        this.addButton(this, 0, "Next", this.preggedUrtaWithGodChildEpilogue);
         this.model.time.days++;
         this.model.time.hours = 7;
     }
@@ -2805,7 +2805,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.outputText("\n\nYou help her leave the tower, arm in arm, saying goodbye to her only after she's tucked tightly into her bed at home, to rest.  Urta gives you a teary kiss before you leave with a little swagger in your step.  You wonder if Taoth will help the Covenant, or if they've bitten off more than they can chew?  Either way, it seems there's a potent new ally on the field.");
         this.flags[kFLAGS.URTA_QUEST_STATUS] = 1;
         this.getGame().inCombat = false;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Urta Knocks Up PC with God Child
@@ -2922,7 +2922,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.outputText("\n\n\"<i>Sweet dreams,</i>\" a breathy voice whispers in your ear, just before it begins to kiss you again...");
         //[Next]
         this.menu();
-        this.addButton(0, "Next", this.getKnockedUpUrtaEpilogue);
+        this.addButton(this, 0, "Next", this.getKnockedUpUrtaEpilogue);
     }
 
     //Post-Sex Epilogue*
@@ -2939,7 +2939,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.outputText("\n\nBefore you know it, you're being waved through the gates.  Urta puts you up on Edryn's back, and together the two of them haul you to the Covenant's tower.  Countless guards have to be addressed at each step of the journey, but eventually, you're brought to a comfortable chamber and allowed to rest... when the mages aren't probing you with magic that is.  Urta stays by your side the entire time, never leaving, not even when she falls asleep on your shoulder, completely tuckered out.  You snuggle up against her and snooze with her, under the vigilant eyes of your guards.  If you weren't so hormonal and tired, you might have had a hard time falling asleep.  Instead, rest comes easily.");
         //[Next]
         this.menu();
-        this.addButton(0, "Next", this.getKnockedUpByUrtaEpilogueII);
+        this.addButton(this, 0, "Next", this.getKnockedUpByUrtaEpilogueII);
         this.model.time.days++;
         this.model.time.hours = 7;
     }
@@ -2975,7 +2975,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.outputText("\n\nShe helps leave the tower, arm in arm, saying her goodbye only after she's tucked you in to take a rest.  Urta gives you a teary kiss and trots back towards the city with a swagger in her step.  You wonder if Taoth will help the Covenant, or if they've bitten off more than they can chew?  Either way, it seems there's a potent new ally on the field.");
         this.flags[kFLAGS.URTA_QUEST_STATUS] = 1;
         this.getGame().inCombat = false;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Urta Goes to Knock Up Edryn with God Child*
@@ -2987,7 +2987,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.flags[kFLAGS.URTA_PREG_EVERYBODY] = this.telAdre.edryn.pregnancy.incubation; //Since they can't be in use prior to Taoth being born this is fine.
         this.telAdre.edryn.pregnancy.knockUpForce(PregnancyStore.PREGNANCY_TAOTH, 24);
         this.getGame().inCombat = false;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -3002,7 +3002,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.outputText("\n\nYou pull free of her grip and move along with her.  If Urta had a god inside her... well, damn...  That's a little much to take in right now.  She's right though, this isn't something you want to miss!");
         this.outputText("\n\nTel'Adre's gates loom ahead before long, and you're lead deep into the city, to the tower where Edryn is in labor...");
         this.menu();
-        this.addButton(0, "Next", this.urtaAndEdrynGodChildEpilogueII);
+        this.addButton(this, 0, "Next", this.urtaAndEdrynGodChildEpilogueII);
     }
 
     //[Next]
@@ -3038,7 +3038,7 @@ export class UrtaQuest extends NPCAwareContent {
         //set completed tags!
         this.flags[kFLAGS.URTA_QUEST_STATUS] = 1;
         this.getGame().inCombat = false;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 }
 

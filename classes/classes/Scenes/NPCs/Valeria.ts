@@ -43,7 +43,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         var sex = undefined;
         if (this.player.lust > 33) sex = this.followersValeriaSex;
         //(Display Options: [Appearance] [Spar] [Sex] [Talk])
-        this.choices("Appearance", this.valeriaAppearance, "Spar", this.valeriaSpar, "Sex", sex, "Talk", this.talkWithValeria, "Take", this.takeValeria, "", undefined, "", undefined, "", undefined, "", undefined, "Back", this.camp.campFollowers);
+        this.choices(this, "Appearance", this.valeriaAppearance, "Spar", this.valeriaSpar, "Sex", sex, "Talk", this.talkWithValeria, "Take", this.takeValeria, "", undefined, "", undefined, "", undefined, "", undefined, "Back", this.camp.campFollowers);
     }
 
     //[Valeria] -- [Appearance]
@@ -56,7 +56,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         if (this.flags[kFLAGS.VELARIA_FUTA] == 1) this.outputText("\n\nWhen you desire it, she's able to form an impressive human-shaped cock above her twat, usually capping out at about 12 inches. Gooey as it is, it constantly dribbles bits of goop, not unlike pre-cum.");
         this.outputText("\n\nShe has created an easily stretchable, gooey cunt between her legs, with a tiny 0.2 inch clitoris.");
         this.outputText("\n\nShe generally doesn't bother to affect an anus, though you can't imagine it'd be too difficult to penetrate her gooey, gropable behind.");
-        this.doNext(this.valeriaFollower);
+        this.doNext(this, this.valeriaFollower);
     }
     //Valeria] -- [Spar]
     private valeriaSpar(): void {
@@ -69,7 +69,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.startCombat(new GooArmor());
         this.monster.createStatusAffect(StatusAffects.Spar, 0, 0, 0, 0);
         this.monster.gems = 0;
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     //[Valeria] -- [Spar] -- PC Victorious
@@ -103,7 +103,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         else {
             this.outputText(".  \"<i>Well, since you're so... eager... I might as well get my daily fluids while we're here.</i>\"");
             //(Go to Valeria's gender-appropriate FemDom sex scenes)
-            this.doNext(this.valeriaSexDominated);
+            this.doNext(this, this.valeriaSexDominated);
         }
     }
 
@@ -131,7 +131,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         if (this.flags[kFLAGS.VELARIA_FUTA] == 1) {
             dickText = "Lose Dick";
         }
-        this.choices("PenetrateHer", penetrate, "Get Fucked", getFucked, "Gooflation", gooFlation, "GetDominated", dominated, dickText, dickToggle,
+        this.choices(this, "PenetrateHer", penetrate, "Get Fucked", getFucked, "Gooflation", gooFlation, "GetDominated", dominated, dickText, dickToggle,
             "", undefined, "", undefined, "", undefined, "", undefined, "Back", this.valeriaFollower);
     }
 
@@ -170,7 +170,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
             }
 
         }
-        this.doNext(this.valeriaFollower);
+        this.doNext(this, this.valeriaFollower);
     }
 
     //Valeria -- [Sex] -- [Get Fucked]
@@ -258,7 +258,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.player.orgasm();
         this.dynStats("sen", -1);
         this.HPChange(25, false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private gooFlation(clearText: boolean = true): void {
@@ -287,7 +287,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
             this.player.orgasm();
             this.dynStats("sen", 1);
             this.HPChange(25, false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -312,7 +312,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.player.orgasm();
         this.dynStats("sen", 1);
         this.HPChange(25, false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Valeria] -- [Sex] -- [Get Dominated]
@@ -375,7 +375,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.player.orgasm();
         this.dynStats("sen", 1);
         if (!this.getGame().inCombat)
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         else this.cleanupAfterCombat();
     }
 
@@ -395,8 +395,8 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\nValeria chuckles wryly. \"<i>Well, it's not like I'm completely unchanged,</i>\" she whispers huskily, leaning close and looking hungrily at your crotch.  \"<i>After all, I have certain... appetites... now, you know.  I'm not proud of my new needs, but I'm afraid I just can't ignore them...</i>\"");
         //How do you respond to that?
         //(Display Options: [Flirt](PC has Gender) [Accept] [Gross])
-        if (this.player.gender > 0) this.simpleChoices("Flirt", this.flirtWithValeria, "Accept", this.acceptValeriasNeeds, "Gross", this.declineValeriasNeeds, "", undefined, "", undefined);
-        else this.simpleChoices("", undefined, "Accept", this.acceptValeriasNeeds, "Gross", this.declineValeriasNeeds, "", undefined, "", undefined);
+        if (this.player.gender > 0) this.simpleChoices(this, "Flirt", this.flirtWithValeria, "Accept", this.acceptValeriasNeeds, "Gross", this.declineValeriasNeeds, "", undefined, "", undefined);
+        else this.simpleChoices(this, "", undefined, "Accept", this.acceptValeriasNeeds, "Gross", this.declineValeriasNeeds, "", undefined, "", undefined);
     }
 
     //[Flirt]
@@ -422,7 +422,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(", as long as they don't interfere with your mission as Champion.");
         this.outputText("\n\n\"<i>They won't, partner,</i>\" Valeria says with a little wink. \"<i>I give you my word.</i>\"");
         this.outputText("\n\nNodding, you ruffle her gooey hair and get back to business.");
-        this.doNext(this.valeriaFollower);
+        this.doNext(this, this.valeriaFollower);
     }
     //[Gross]
     private declineValeriasNeeds(): void {
@@ -431,7 +431,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You grimace and push the goo-girl away.  You've got no interest in her corrupted 'needs,' especially with a look like that on her face.  She gasps as you push her, nearly falling over; she catches herself and glowers angrily.");
         this.outputText("\n\n\"<i>Well, fuck you kindly, [name],</i>\" she says with a huff.  \"<i>Pardon me for being... me.</i>\"  She turns up her chin and saunters off to a part of camp about as far away from you as possible.");
         //(Disable Valeria sex for 6 hours)
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private takeValeria(): void {
@@ -440,7 +440,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.player.armor.removeText();
         var item = this.player.setArmor(this.armors.GOOARMR); //Item is now the player's old armor
         if (item == undefined)
-            this.doNext(this.playerMenu);
+            this.doNext(this, this.playerMenu);
         else this.inventory.takeItem(item, this.playerMenu);
     }
 
@@ -503,7 +503,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\n\"<i>You just sit tight, [name]. I'm gonna give my sister a fun new experience and fill you with so much pleasure that you'll feel like you're gonna pop.</i>\" She disappears back into the azure blob before you can respond. The fading ripples almost mock your inability to reply as they smooth into nonexistence.");
         this.dynStats("lus=", 100);
         this.menu();
-        this.addButton(0, "Next", this.valeriaGooRapeII);
+        this.addButton(this, 0, "Next", this.valeriaGooRapeII);
     }
 
     private valeriaGooRapeII(): void {

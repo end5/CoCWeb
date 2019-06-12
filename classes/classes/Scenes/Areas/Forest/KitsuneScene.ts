@@ -41,7 +41,7 @@ export class KitsuneScene extends BaseContent {
         // -> Standard Imp Battle
         this.startCombat(new Imp());
         this.monster.createStatusAffect(StatusAffects.KitsuneFight, 0, 0, 0, 0);
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
         this.flags[kFLAGS.MET_KITSUNES]++;
     }
 
@@ -59,7 +59,7 @@ export class KitsuneScene extends BaseContent {
         this.outputText("\"<i>My, my, you're kind of a pushover, aren't you?</i>\"  she remarks, grinning precociously.  \"<i>Well, hopefully you make for a better snack than you do a bodyguard.</i>\"");
         // -> Go to standard kitsune loss scenes
         this.menu();
-        this.addButton(0, "Next", this.loseToKitsunes);
+        this.addButton(this, 0, "Next", this.loseToKitsunes);
     }
 
     //Win:
@@ -83,7 +83,7 @@ export class KitsuneScene extends BaseContent {
 
             this.outputText("\"<i>So, you saw through my glamour did you?  That's quite impressive...</i>\" she says, teasing you with her tails.  You back away from her, but give a start and wheel around when you feel yourself bump into something.");
             // -> Go to <i>"Going Somewhere?</i>\"
-            this.doNext(this.createCallBackFunction(this.followTheWillOWisp, true));
+            this.doNext(this, this.createCallBackFunction(this, this.followTheWillOWisp, true));
         }//PC did NOT see through glamour
         //With Religious BG:
         else if (this.player.findPerk(PerkLib.HistoryReligious) >= 0) {
@@ -97,13 +97,13 @@ export class KitsuneScene extends BaseContent {
 
             this.outputText("\"<i>So, you saw through my glamour did you?  That's quite impressive...</i>\" she says, teasing you with her tails.  You back away from her, but give a start and wheel around when you feel yourself bump into something.");
             // -> Go to <i>"Going Somewhere?</i>\"
-            this.doNext(this.createCallBackFunction(this.followTheWillOWisp, true));
+            this.doNext(this, this.createCallBackFunction(this, this.followTheWillOWisp, true));
         }
         //Else:
         else {
             this.outputText("Her touch sends involuntary tingles down your spine, and you are drawn ever deeper into her eyes.  She trails a finger along your chin, slipping away from you and beckoning for you to follow her.  Your " + this.player.legs() + " move with a mind of their own, dragging you along after her as she leads you down a winding path into the darkness.");
             // -> Go to "She leads you deeper and deeper into..."
-            this.doNext(this.createCallBackFunction2(this.mansion, true, true));
+            this.doNext(this, this.createCallBackFunction2(this.mansion, true, true));
         }
     }
 
@@ -124,9 +124,9 @@ export class KitsuneScene extends BaseContent {
         if (this.player.hasKeyItem("Traveler's Guide") >= 0) {
             this.outputText("\n\nYour mind is jogged out of its haze when you remember a note from the Traveler's Guide.  It warned about mysterious flames in the forest that lead hapless adventurers astray.  You hesitate now, wondering what to do.");
             //[Turn Back] [Follow] //automatically follow without traveler's guide.
-            this.simpleChoices("Turn Back", this.turnBackFromWillOWisp, "Follow", this.followTheWillOWisp, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "Turn Back", this.turnBackFromWillOWisp, "Follow", this.followTheWillOWisp, "", undefined, "", undefined, "", undefined);
         }
-        else this.doNext(this.followTheWillOWisp);
+        else this.doNext(this, this.followTheWillOWisp);
     }
 
     //[Turn Back] (C)
@@ -135,7 +135,7 @@ export class KitsuneScene extends BaseContent {
         this.outputText("There's no way you're going to go gallivanting off into the woods after some flame.  You shake your head to clear your thoughts, and warily turn away to head back toward camp.  You could almost swear for a moment the flame looked disappointed, and you chuckle lightly at such a silly thought.");
         //Advance time 1 hour, return to camp.
         if (this.getGame().inCombat) this.cleanupAfterCombat();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Follow] (C)
@@ -167,8 +167,8 @@ export class KitsuneScene extends BaseContent {
             this.outputText("How did she get behind you so quickly?  You were staring at her the entire time!  Glancing quickly over your shoulder, you confirm that this is not a case of twins, but when you turn to face her, she has disappeared once again!\n\n");
             this.outputText("\"<i>Over here, silly~</i>\" she calls to you with a mischievous tone, beckoning to you as you whip around to face her voice.  \"<i>Don't be shy, I don't bite...  often...</i>\"\n\n");
             this.outputText("Her tone is innocuous enough, but her mannerisms are a little disconcerting, somehow.  What are you going to do?");
-            if (!this.getGame().inCombat) this.simpleChoices("Fight", this.fightSomeKitsunes, "Talk", this.talkAfterResistingKitsunellusion, "", undefined, "", undefined, "", undefined);
-            else this.simpleChoices("Fight", this.fightSomeKitsunes, "Talk", this.talkAfterResistingKitsunellusion, "", undefined, "", undefined, "", undefined);
+            if (!this.getGame().inCombat) this.simpleChoices(this, "Fight", this.fightSomeKitsunes, "Talk", this.talkAfterResistingKitsunellusion, "", undefined, "", undefined, "", undefined);
+            else this.simpleChoices(this, "Fight", this.fightSomeKitsunes, "Talk", this.talkAfterResistingKitsunellusion, "", undefined, "", undefined, "", undefined);
         }
     }
 
@@ -200,7 +200,7 @@ export class KitsuneScene extends BaseContent {
         this.outputText("Self-preservation battles with curiosity " + ((this.player.lust > 50) ? "and lust " : "") + "as you consider her offer, " + ((this.player.lib < 50) ? "weighing your chances against the possible dangers." : "eying the voluptuous curves that fill out her robes."));
 
         //[Follow { mansion(willing = true) }] [Leave]
-        this.simpleChoices("Follow", this.createCallBackFunction2(this.mansion, true, false), "", undefined, "", undefined, "", undefined, "Leave", this.createCallBackFunction(this.leaveKitsune, true));
+        this.simpleChoices(this, "Follow", this.createCallBackFunction2(this.mansion, true, false), "", undefined, "", undefined, "", undefined, "Leave", this.createCallBackFunction(this, this.leaveKitsune, true));
     }
 
     //[Leave] (C)
@@ -264,7 +264,7 @@ export class KitsuneScene extends BaseContent {
         this.outputText("The three ladies close in around you, running their hands over your body and giggling lightly.  You find yourself practically floating among their many tails, drunk on the promise of pleasure as they lead you through the foyer.  They sit you down in front of a long table with a spectacularly opulent spread, and before long you are having your fill of delicacies the likes of which you never dared to dream about.\n\n");
         this.outputText("Your cup never remains empty for long, as one of the sisters is always quick to arrive with a fresh decanter.  The strong alcohol burns your throat as it goes down, and it does not take much before your head is swimming.  You have grown so tipsy by now that you don't even register as the girls usher you out of the dining room, only noticing your change of scenery as you feel yourself being pulled down into a warm pool of water.\n\n");
         //next
-        this.doNext(this.createCallBackFunction2(this.nonTentaclePCMansion, willing));
+        this.doNext(this, this.createCallBackFunction2(this.nonTentaclePCMansion, willing));
     }
 
     //NON-TENTACLE PC SCENES:
@@ -274,11 +274,11 @@ export class KitsuneScene extends BaseContent {
         this.outputText("\"<i>We hope you enjoyed the feast we prepared,</i>\" says the one with jet-black hair, as she and her sisters crowd around you in the water, fully nude.  \"<i>Now, it's </i>our<i> turn.</i>\"\n\n");
         this.outputText("\"<i>Just relax,</i>\" the redhead whispers into your ear in a warm tone that seems to demolish any vestige of resistance.  \"<i>We'll take care of everything...</i>\"  Up to your waist in the warm water of the hot springs, you can't help but surrender to their will, your worries flowing out of you.  Enveloped on all sides by their unearthly warm flesh, you lean into their arms and sigh blissfully as every touch and caress sends shivers down your spine.\n\n");
         if (this.player.tentacleCocks() >= 3) {
-            this.doNext(this.tentacleKitsuneWingWangs);
+            this.doNext(this, this.tentacleKitsuneWingWangs);
         }
         else {
-            if (this.player.hasCock()) this.doNext(this.createCallBackFunction(this.kitsuneMaleOrHermMansion, willing));
-            else this.doNext(this.createCallBackFunction(this.kitsuneFemaleOrGenderless, willing));
+            if (this.player.hasCock()) this.doNext(this, this.createCallBackFunction(this, this.kitsuneMaleOrHermMansion, willing));
+            else this.doNext(this, this.createCallBackFunction(this, this.kitsuneFemaleOrGenderless, willing));
         }
     }
 
@@ -298,11 +298,11 @@ export class KitsuneScene extends BaseContent {
             this.outputText("<b>How do you respond?</b>");
             // display choices:
             //["Let Her" ] ["Shove Her" ]
-            this.simpleChoices("Let Her", this.createCallBackFunction(this.kitSuneLetHerMansion, willing),
-                "Shove Her", this.createCallBackFunction(this.kitsuneShoveHerMansion, willing), "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "Let Her", this.createCallBackFunction(this, this.kitSuneLetHerMansion, willing),
+                "Shove Her", this.createCallBackFunction(this, this.kitsuneShoveHerMansion, willing), "", undefined, "", undefined, "", undefined);
         }
         else {
-            this.doNext(this.createCallBackFunction(this.kitSuneLetHerMansion, true));
+            this.doNext(this, this.createCallBackFunction(this, this.kitSuneLetHerMansion, true));
         }
     }
 
@@ -366,7 +366,7 @@ export class KitsuneScene extends BaseContent {
         if (this.player.gender >= 2) this.outputText("  A flood of seed begins to spill from your abused pussy, gushing over the redhead's groin and spreading into the water.  The flow is soon stemmed by the introduction of the black-haired girl's tongue, plush lips pressed against your cunt as she hungrily sucks down the outpouring of semen.  She gulps loudly and gluttonously, spreading your lips with her thumbs and swallowing every last delicious salty morsel, her stomach swelling and quivering as your own overfull abdomen begins to deflate in equal measure.");
         this.outputText("  As your twitching cock relieves itself of the last of your seed inside the blonde's " + ((this.player.biggestCockArea() > 80) ? "pussy" : "ass") + ", you feel your strength slipping away from you with each spasm, your eyelids growing heavy with an uncommon weariness.\n\n");
         this.player.orgasm();
-        this.doNext(this.kitsuneStillHungryMansion);
+        this.doNext(this, this.kitsuneStillHungryMansion);
     } //End letHer() 	
 
     //Formerly shoveHer()
@@ -435,7 +435,7 @@ export class KitsuneScene extends BaseContent {
             this.outputText("As your twitching cock relieves itself of the last of your seed inside the blonde's pussy, you feel your strength slipping away from you with each spasm, your eyelids growing heavy with an uncommon weariness.\n\n");
         }
         this.player.orgasm();
-        this.doNext(this.kitsuneStillHungryMansion);
+        this.doNext(this, this.kitsuneStillHungryMansion);
     } // End shoveHer()
 
     //formerly
@@ -482,11 +482,11 @@ export class KitsuneScene extends BaseContent {
             this.outputText("<b>How do you respond?</b>");
             // display choices:
             //["Let Her" = letHer() ] ["Shove Her" = shoveHer() ]
-            this.simpleChoices("Let Her", this.createCallBackFunction(this.kitsunesGenderlessLetHer, willing),
-                "Shove Her", this.createCallBackFunction(this.kitsunesGenderlessShoverHer, willing), "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "Let Her", this.createCallBackFunction(this, this.kitsunesGenderlessLetHer, willing),
+                "Shove Her", this.createCallBackFunction(this, this.kitsunesGenderlessShoverHer, willing), "", undefined, "", undefined, "", undefined);
         }
         else {
-            this.doNext(this.createCallBackFunction(this.kitsunesGenderlessLetHer, true));
+            this.doNext(this, this.createCallBackFunction(this, this.kitsunesGenderlessLetHer, true));
         }
     }
 
@@ -508,7 +508,7 @@ export class KitsuneScene extends BaseContent {
 
         this.outputText("The base of the redhead's shaft swells with a vast load, backing up just behind her sister's tongue.  She pumps into your " + ((this.player.gender >= 2) ? this.vaginaDescript() : this.assholeDescript()) + " once, twice, thrice more before the black-haired girl releases the tension around the base, though whether by choice or due to the furious orgasm roaring through her loins, it is hard to tell.  You have only a split-second to muse on the subject before a tingling glut of seed comes rushing into your " + ((this.player.gender == 2) ? "womb" : "intestines") + ", sending you into a shivering fit.  Saliva and sexual fluids flow in rivers, the blonde's soaked cunt drenching your face as her pussy quivers and squeezes around your tongue.  The ravenette begins to rise upward, lifted by your expanding abdomen as she twitches in ecstasy, the blonde's tails deeply embedded in her holes.\n\n");
         this.outputText("Passionate moans from all four of you fill the air as you ride the waves of pleasure, finally collapsing together in ecstasy after what feels like ages.  Each twitching tremble of your muscles sees you a bit more fatigued, your eyelids feeling as though they weigh a thousand pounds each." + ((this.player.gender == 3) ? "  A flood of seed begins to spill from your abused pussy, gushing over the redhead's groin and spreading into the water.  The flow is soon stemmed by the introduction of the black-haired girl's tongue, plush lips pressed against your cunt as she hungrily sucks down the outpouring of semen.  She gulps loudly and gluttonously, spreading your lips with her thumbs and swallowing every last delicious salty morsel, her stomach swelling and quivering as your own overfull abdomen begins to deflate in equal measure." : "") + "  Hands resting on your" + ((this.player.gender == 0) ? " swollen" : " deflating") + " belly, you begin to succumb to exhaustion, your strength fading as you are overcome with an uncommon weariness.\n\n");
-        this.doNext(this.createCallBackFunction(this.genderlessKitsuneStillHungry, willing));
+        this.doNext(this, this.createCallBackFunction(this, this.genderlessKitsuneStillHungry, willing));
     } // end letHer()
 
     //fomerly shoveHer()
@@ -539,7 +539,7 @@ export class KitsuneScene extends BaseContent {
             this.outputText("\n\nThe four of you ride out the waves of pleasure for what seems like an eternity, groaning and grinding against each other in ecstasy.  Cooling flames crackle across your bare body as you are tossed to and fro in a sea of tails and flesh, the air filling with the sounds and smells of climactic release.  Finally, at long last, the pleasure begins to ebb, and you collapse along with the three girls, slumping forward onto the blonde's chest in exhaustion.\n\n");
             this.outputText("Each residual twitch and spasm of your muscles leaves you feeling more fatigued than ever, strength slipping away from you with each spasm and your eyelids growing heavy with an uncommon weariness.\n\n");
         }
-        this.doNext(this.createCallBackFunction(this.genderlessKitsuneStillHungry, willing));
+        this.doNext(this, this.createCallBackFunction(this, this.genderlessKitsuneStillHungry, willing));
     } // end shoveHer()
 
     //formerly stillHungry()
@@ -618,7 +618,7 @@ export class KitsuneScene extends BaseContent {
         }
         if (this.player.fatigue >= 100) {
             //mansionBadEnd();
-            this.doNext(this.mansionBadEnd);
+            this.doNext(this, this.mansionBadEnd);
         }
         else {
             this.outputText("\n\nWhen you awaken the next morning, the sisters, the hot springs, and the mansion are nowhere to be found.  You are lying naked in the wilderness, your possessions sitting in a neat little pile a short distance away, and your memories of the previous night are little more than a hazy fever dream");
@@ -643,7 +643,7 @@ export class KitsuneScene extends BaseContent {
             this.model.time.hours = 6;
             this.model.time.days++;
             if (!this.getGame().inCombat)
-                this.doNext(this.camp.returnToCampUseOneHour);
+                this.doNext(this, this.camp.returnToCampUseOneHour);
             else this.cleanupAfterCombat();
         }
     }
@@ -666,7 +666,7 @@ export class KitsuneScene extends BaseContent {
         this.outputText("As they crowd around, you can feel the lights in your mind flickering off one by one.  Azure flames swirl about the room, capturing you in their hypnotic thrall as you slowly drop to the floor, entranced by the kitsune's witchery.\n\n");
         this.outputText("\"<i>You'll stay, won't you?</i>\"  the blonde says, placing her hand under your chin and delicately tipping your head back to look up into her eyes.  As you feel yourself being pulled into the depths of those green pools, you hear someone voicing their assent, only to realize that the voice was your own.\n\n");
         this.outputText("You cling to the last vestiges of your mind with all your might, but to no avail.  Your mind, still muddied by the spirits you imbibed the night before, succumbs to the three enchantress' hypnotic power.  Eighteen bushy tails curl around you, pulling you up into a warm, calming embrace, and you have just enough time to register a cool tingling sensation spreading throughout your body before the last glimmer of free will you possess is snuffed out forever.");
-        this.doNext(this.kitSuneMansionBadEndII);
+        this.doNext(this, this.kitSuneMansionBadEndII);
     }
 
     private kitSuneMansionBadEndII(): void {
@@ -709,7 +709,7 @@ export class KitsuneScene extends BaseContent {
         else if (this.monster.hairColor == "black") this.outputText("black-haired");
         else this.outputText("red-haired");
         this.outputText(" kitsune!</b>");
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
 
@@ -1106,12 +1106,12 @@ export class KitsuneScene extends BaseContent {
         //[Feeder]
         if (this.player.findPerk(PerkLib.Feeder) >= 0)
             button = this.kitsuneButton(button, "Breastfeed", this.feederTheKitsunes);
-        this.addButton(9, "Leave", this.leaveKitsune);
+        this.addButton(this, 9, "Leave", this.leaveKitsune);
     }
 
     private kitsuneButton(button: number, nam: string, func: any): number {
         if (button > 8) return 9;
-        this.addButton(button, nam, func);
+        this.addButton(this, button, nam, func);
         button++;
         return button;
     }
@@ -2208,10 +2208,10 @@ export class KitsuneScene extends BaseContent {
         this.flags[kFLAGS.KITSUNE_SHRINE_VISIT]++;
         //[Read Books] [Meditate] [Steal Statue] - [Leave]
         this.menu();
-        this.addButton(0, "Read Books", this.readKitsuneBooks);
-        if (this.flags[kFLAGS.TOOK_KITSUNE_STATUE] == 0) this.addButton(1, "Meditate", this.meditateLikeAKitsuneEhQuestionMark);
-        if (this.player.hasItem(this.useables.GLDSTAT) || this.flags[kFLAGS.TOOK_KITSUNE_STATUE] == 0) this.addButton(2, "Statue", this.stealAStatue);
-        this.addButton(4, "Leave", this.camp.returnToCampUseOneHour);
+        this.addButton(this, 0, "Read Books", this.readKitsuneBooks);
+        if (this.flags[kFLAGS.TOOK_KITSUNE_STATUE] == 0) this.addButton(this, 1, "Meditate", this.meditateLikeAKitsuneEhQuestionMark);
+        if (this.player.hasItem(this.useables.GLDSTAT) || this.flags[kFLAGS.TOOK_KITSUNE_STATUE] == 0) this.addButton(this, 2, "Statue", this.stealAStatue);
+        this.addButton(this, 4, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     //[Read Books]
@@ -2224,19 +2224,19 @@ export class KitsuneScene extends BaseContent {
             this.outputText("It's a rather dry read, but informative.  Chapter after chapter explains the underlying theory of magic, going to almost excruciating levels of detail.  " + ((this.player.inte < 50) ? "Much of it flies over your head, but the book does manage to clarify a few points.  You close the book and set it back on the shelf, feeling like you've learned something." : "Much of it is merely review, but you do manage to glean a few facts before closing the book and setting it back on the shelf."));
             //+2 INT, Advance 1hr and return to camp
             this.dynStats("int", 2);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
         else if (choice == 1) {
             this.outputText("It seems to be a religious text of some sort.  As you flip through the pages, you read about various rituals and scriptures, familiarizing yourself with the spirits and gods of this land.  You close the tome at last, setting it reverently back on the shelf and reflecting upon the teachings housed within.");
             //-1 COR, Advance 1hr and return to camp
             this.dynStats("cor", -1);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
         else {
             this.outputText("You start to flip through the pages, a deep blush slowly forming on your cheeks the further you read into what is clearly an erotic novella of some form.  Graphic descriptions of women being violated by tentacle beasts abound on almost every page, " + ((this.player.lib < 50) ? "and you slam the book shut before reading further, already feeling a heat building in your groin." : "and you lick your lips hungrily, poring over every line and word of lascivious prose."));
             //+ 1 LIB, + 5 LUST, Advance 1hr and return to camp
             this.dynStats("lib", 1, "lus", 5);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -2264,14 +2264,14 @@ export class KitsuneScene extends BaseContent {
                 this.dynStats("int", 2, "lus", -20, "cor", -2);
             }
             this.player.consumeItem(this.consumables.FOXJEWL);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
         else {
             //Normal:
             this.outputText("You sit down carefully on a small mat in front of the shrine and clear your mind.  Closing your eyes, you meditate on the things you've learned in your journey thus far, and resolve to continue fighting against the forces of corruption that permeate the land.  As you open your eyes again, you feel as if a great burden has been lifted from your shoulders.\n\nWith a renewed vigor for your quest, you stand up and set off for camp.");
             //-2 COR, -20 LUST, +1 INT, Advance 1hr and return to camp.
             this.dynStats("int", 1, "lus", -20, "cor", -2);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -2282,13 +2282,13 @@ export class KitsuneScene extends BaseContent {
         if (this.flags[kFLAGS.TOOK_KITSUNE_STATUE] == 0) {
             this.outputText("Feeling the chance is just too great to pass up, you rub your hands together greedily and snatch the gold statue from the shrine.  As you stuff it into your pouch, you are overwhelmed with the sensation that what you are doing is very wrong.  You are starting to have second thoughts...");
             //[Take It] [Put it Back]
-            this.addButton(0, "Take It", this.takeAKitsuneStatue);
+            this.addButton(this, 0, "Take It", this.takeAKitsuneStatue);
         }
         else {
             this.outputText("The empty alter stands there, obviously missing the statue you took from it.  You COULD put it back, if you wanted.");
-            this.addButton(0, "Put Back", this.putKitsuneStatueBack);
+            this.addButton(this, 0, "Put Back", this.putKitsuneStatueBack);
         }
-        this.addButton(4, "Back", this.kitsuneShrine);
+        this.addButton(this, 4, "Back", this.kitsuneShrine);
     }
 
     //[Take it]
@@ -2308,7 +2308,7 @@ export class KitsuneScene extends BaseContent {
         //Advance 1hr and return to camp.
         this.flags[kFLAGS.TOOK_KITSUNE_STATUE] = 0;
         this.player.consumeItem(this.useables.GLDSTAT);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Use:

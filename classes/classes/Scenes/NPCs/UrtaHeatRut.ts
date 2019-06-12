@@ -71,9 +71,9 @@ export class UrtaHeatRut extends NPCAwareContent {
             this.outputText("\n\nUrta looks like she's about to say something, but then she stops, confusion pushing aside horniness, if only for the moment.  \"<i>I... What are you going to use?  Your cock?  Your pussy?</i>\" she asks, panting with eagerness to begin.");
             //[Cock] [Pussy])
             this.menu();
-            if (this.player.cockThatFits(this.urta.urtaCapacity()) >= 0) this.addButton(0, "Cock", this.sateRutWithSoberUrta);
-            else this.addButton(0, "Cock", this.sateRutWithSoberUrtaButHuegDicked);
-            this.addButton(1, "Pussy", this.soberUrtaSatingPCHeat);
+            if (this.player.cockThatFits(this.urta.urtaCapacity()) >= 0) this.addButton(this, 0, "Cock", this.sateRutWithSoberUrta);
+            else this.addButton(this, 0, "Cock", this.sateRutWithSoberUrtaButHuegDicked);
+            this.addButton(this, 1, "Pussy", this.soberUrtaSatingPCHeat);
         }
         //Player in rut:
         else if (this.player.inRut && this.player.hasCock()) {
@@ -88,8 +88,8 @@ export class UrtaHeatRut extends NPCAwareContent {
             if (this.player.hasVagina()) this.outputText(" and your pussy dripping and eager");
             this.outputText(".");
             this.menu();
-            if (this.player.cockThatFits(this.urta.urtaCapacity()) >= 0) this.addButton(0, "Next", this.sateRutWithSoberUrta);
-            else this.addButton(0, "Next", this.sateRutWithSoberUrtaButHuegDicked);
+            if (this.player.cockThatFits(this.urta.urtaCapacity()) >= 0) this.addButton(this, 0, "Next", this.sateRutWithSoberUrta);
+            else this.addButton(this, 0, "Next", this.sateRutWithSoberUrtaButHuegDicked);
         }
         //Player in heat:
         else {
@@ -97,7 +97,7 @@ export class UrtaHeatRut extends NPCAwareContent {
             this.outputText("\n\n\"<i>All right... I know what it's like to have troubles controlling yourself. If you really want me to...</i>\"");
             this.outputText("\n\nYou dispose of your [armor], your [vagina] already wet and eager for her.  You pull the vixen into an embrace under the wall of the alley, and she starts to align her huge, pre-cum dripping cock with your opening.");
             this.menu();
-            this.addButton(0, "Next", this.soberUrtaSatingPCHeat);
+            this.addButton(this, 0, "Next", this.soberUrtaSatingPCHeat);
         }
     }
 
@@ -122,8 +122,8 @@ export class UrtaHeatRut extends NPCAwareContent {
 
         //[Interested] [Not interested]
         this.menu();
-        this.addButton(1, "NotInterested", this.notInterestedInUburDrunkUrtaRuts);
-        this.addButton(0, "Interested", this.interestedInUburDrunkurtaRuts);
+        this.addButton(this, 1, "NotInterested", this.notInterestedInUburDrunkUrtaRuts);
+        this.addButton(this, 0, "Interested", this.interestedInUburDrunkurtaRuts);
     }
 
 
@@ -146,7 +146,7 @@ export class UrtaHeatRut extends NPCAwareContent {
         this.dynStats("lust+", 5 + this.player.lib / 20, "resist", false);
         //to Tel'Adre bar menu
         this.menu();
-        this.addButton(0, "Next", this.telAdre.barTelAdre);
+        this.addButton(this, 0, "Next", this.telAdre.barTelAdre);
     }
 
     //[=Interested=]
@@ -171,9 +171,9 @@ export class UrtaHeatRut extends NPCAwareContent {
             this.outputText("\n\nDo you present her with your cock?  Your pussy?  Or do you just stand here and watch as she jacks herself off in the middle of the bar?");
             //[Cock] [Pussy] [Watch]
             this.menu();
-            this.addButton(0, "Cock", this.drunkUrtaIntroPartDuex, 1);
-            this.addButton(1, "Vagina", this.drunkUrtaIntroPartDuex, 2);
-            this.addButton(2, "Watch", this.watchDrunkRuturtaJerkoff);
+            this.addButton(this, 0, "Cock", this.drunkUrtaIntroPartDuex, 1);
+            this.addButton(this, 1, "Vagina", this.drunkUrtaIntroPartDuex, 2);
+            this.addButton(this, 2, "Watch", this.watchDrunkRuturtaJerkoff);
         }
         else if (this.player.inRut && this.player.hasCock()) {
             this.drunkUrtaIntroPartDuex(1, false);
@@ -224,10 +224,10 @@ export class UrtaHeatRut extends NPCAwareContent {
 
         this.menu();
         if (chosenSex == 1) {
-            if (this.player.cockThatFits(this.urta.urtaCapacity()) >= 0) this.addButton(0, "Next", this.drunkUrtaRidesARutPCsCock);
-            else this.addButton(0, "Next", this.sateRutWithDrunkUrtaWithHugeDick);
+            if (this.player.cockThatFits(this.urta.urtaCapacity()) >= 0) this.addButton(this, 0, "Next", this.drunkUrtaRidesARutPCsCock);
+            else this.addButton(this, 0, "Next", this.sateRutWithDrunkUrtaWithHugeDick);
         }
-        else this.addButton(0, "Next", this.drunkenUrtaFucksPCInHeat);
+        else this.addButton(this, 0, "Next", this.drunkenUrtaFucksPCInHeat);
     }
 
     //[If player is in Heat AND Rut and chooses "Watch"]
@@ -249,8 +249,8 @@ export class UrtaHeatRut extends NPCAwareContent {
         this.outputText("\n\nYou take a glance away from Urta and realize that the combination of your pheremones, her little show and your own efforts at teasing her have got the other customers very excited indeed.  Pairs and even trios are starting to make out all over, singletons are beginning to fiddle with themselves, and there's a couple of very interested-looking herms, all playing with their cocks, that are giving lustful looks your way and heading towards you with an inept attempt at stealth.  Things could get pretty wild if you keep teasing Urta; maybe you should knock it off?");
         //[Stop Teasing] [Keep Teasing]
         this.menu();
-        this.addButton(1, "StopTeasing", this.stopTeasingDatHornyFox);
-        this.addButton(0, "KeepTeasing", this.keepTeasingDatHornyFawkes);
+        this.addButton(this, 1, "StopTeasing", this.stopTeasingDatHornyFox);
+        this.addButton(this, 0, "KeepTeasing", this.keepTeasingDatHornyFawkes);
         //PCs with corruption 50+ will automatically choose Keep Teasing
     }
 
@@ -264,7 +264,7 @@ export class UrtaHeatRut extends NPCAwareContent {
 
         this.outputText("\n\nSeeing her lying there so still makes you concerned and you quickly approach; you didn't want to kill her!  Thankfully, she's still breathing; she just passed out from the overload and from drinking too much.  Looking around you, you can see that an orgy is starting to break out around you, and you quickly make a break for it.  As you go, you can't help but wonder what in the world you were thinking...");
         this.dynStats("lust+", 20 + this.player.lib / 5);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[=Keep Teasing=]
@@ -290,7 +290,7 @@ export class UrtaHeatRut extends NPCAwareContent {
 
         //PC loses 1 hour, returns to TelâAdre, gains 15 lust, heat/rut unaffected//
         this.dynStats("lust+", 15 + this.player.lib / 10);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -430,7 +430,7 @@ export class UrtaHeatRut extends NPCAwareContent {
         this.dynStats("lust=", 0);
         this.flags[kFLAGS.URTA_TIME_SINCE_LAST_CAME] += 6;
 
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Quote:[=Sate Rut with Sober Urta: Cock Too Big=]
@@ -475,7 +475,7 @@ export class UrtaHeatRut extends NPCAwareContent {
         }
         this.dynStats("lib+", 1, "sen-", 2, "lust=", 0);
         this.flags[kFLAGS.URTA_TIME_SINCE_LAST_CAME] += 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
         ///Player returns to Tel'Adre Menu, usual one hor passes//
     }
 
@@ -541,7 +541,7 @@ export class UrtaHeatRut extends NPCAwareContent {
         this.flags[kFLAGS.TIMES_RUT_FUCKED_URTAS_CUNT]++;
         this.dynStats("lib+", 1, "sen-", 2, "lust=", 0);
         this.flags[kFLAGS.URTA_TIME_SINCE_LAST_CAME] += 6;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Drunken Urta Variants 
@@ -623,7 +623,7 @@ export class UrtaHeatRut extends NPCAwareContent {
         this.flags[kFLAGS.URTA_TIME_SINCE_LAST_CAME] += 24;
         this.flags[kFLAGS.URTA_COMFORTABLE_WITH_OWN_BODY]++
         this.urtaLove(1);
-        this.doNext(this.camp.returnToCampUseFourHours);
+        this.doNext(this, this.camp.returnToCampUseFourHours);
     }
 
     //[Sate Rut with Drunken Urta â Cock too big]
@@ -672,7 +672,7 @@ export class UrtaHeatRut extends NPCAwareContent {
         this.flags[kFLAGS.URTA_TIME_SINCE_LAST_CAME] += 1;
         this.flags[kFLAGS.URTA_COMFORTABLE_WITH_OWN_BODY]++
         this.urtaLove(1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Quote:[Drunken Urta Fucks Cock]
@@ -882,7 +882,7 @@ export class UrtaHeatRut extends NPCAwareContent {
         this.urtaLove(1);
         this.flags[kFLAGS.TIMES_RUT_FUCKED_URTAS_CUNT]++;
         this.flags[kFLAGS.URTA_TIME_SINCE_LAST_CAME] += 24;
-        this.doNext(this.camp.returnToCampUseFourHours);
+        this.doNext(this, this.camp.returnToCampUseFourHours);
     }
 
 

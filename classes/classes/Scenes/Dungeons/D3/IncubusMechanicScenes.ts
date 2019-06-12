@@ -55,14 +55,14 @@ export class IncubusMechanicScenes extends BaseContent {
 
             // [Pay Toll] [Suck Dick] [Fight]
             if (this.player.gems >= 500) {
-                this.addButton(2, "Pay Toll", this.payDaToll);
+                this.addButton(this, 2, "Pay Toll", this.payDaToll);
             }
             else {
                 this.outputText("\n\n<b>You do not have enough gems to pay the required toll!</b>");
             }
 
-            this.addButton(3, "Suck Dick", this.suckIncubusDick);
-            this.addButton(4, "Fight", this.startCombatImmediate, new IncubusMechanic());
+            this.addButton(this, 3, "Suck Dick", this.suckIncubusDick);
+            this.addButton(this, 4, "Fight", this.startCombatImmediate, new IncubusMechanic());
         }
         else if (this.flags[kFLAGS.D3_MECHANIC_LAST_GREET] == this.MECHANIC_SUCKED) {
             this.outputText("\n\nAs soon as the incubus mechanic spots you approaching, his wriggling, exotic cock settles slightly, growing longer and thicker in anticipation. The demonic, corrupted nubs that encircle its girth pulsate as the whole of his dong floods with arousal, and you cannot help but imagine the feel and taste of it on your tongue once more, the corrupted flavor making your mouth salivate with such intensity that you're forced to swallow to keep yourself from drooling all over yourself. Why is his dick so goddamn delicious?");
@@ -73,8 +73,8 @@ export class IncubusMechanicScenes extends BaseContent {
 
             this.dynStats("lus", 10);
 
-            this.addButton(3, "Suck Dick", this.suckIncubusDick);
-            this.addButton(4, "Fight", this.startCombatImmediate, new IncubusMechanic());
+            this.addButton(this, 3, "Suck Dick", this.suckIncubusDick);
+            this.addButton(this, 4, "Fight", this.startCombatImmediate, new IncubusMechanic());
         }
         else if (this.flags[kFLAGS.D3_MECHANIC_LAST_GREET] == this.MECHANIC_PAID) {
             this.outputText("\n\n\"<i>Back again?</i>\" the incubus queries while he reclines against the softly thrumming machinery. \"<i>I was just calibrating my baby here. Now she purrs like a kitten.</i>\" He affectionately pats the metal devices that power the lift. \"<i>If you want to use her, you're going to need to pay up, [name]. 500 gems seems fitting recompense, but between you and me, I'd rather have you on your knees polishing my python here.</i>\" The mechanic's cock suddenly rears up, swaying back and forth in a decidedly snake-like motion, the light glistening off his purple-hued pecker as it stiffens encouragingly.");
@@ -86,17 +86,17 @@ export class IncubusMechanicScenes extends BaseContent {
             this.dynStats("lus", 10);
 
             if (this.player.gems >= 500) {
-                this.addButton(2, "Pay Toll", this.payDaToll);
+                this.addButton(this, 2, "Pay Toll", this.payDaToll);
             }
             else {
                 this.outputText("\n\n<b>You do not have enough gems to pay the required toll!</b>");
             }
 
-            this.addButton(3, "Suck Dick", this.suckIncubusDick);
-            this.addButton(4, "Fight", this.startCombatImmediate, new IncubusMechanic());
+            this.addButton(this, 3, "Suck Dick", this.suckIncubusDick);
+            this.addButton(this, 4, "Fight", this.startCombatImmediate, new IncubusMechanic());
         }
         else if (this.flags[kFLAGS.D3_MECHANIC_LAST_GREET] == this.MECHANIC_FOUGHT) {
-            this.addButton(2, "Lift", this.useLiftPostDefeat);
+            this.addButton(this, 2, "Lift", this.useLiftPostDefeat);
         }
     }
 
@@ -118,7 +118,7 @@ export class IncubusMechanicScenes extends BaseContent {
         this.outputText("\n\nThe platform touches down roughly thirty minutes after your departure, and you head back to camp with all due haste.");
 
         this.menu();
-        this.addButton(0, "Next", this.getGame().d3.exitD3);
+        this.addButton(this, 0, "Next", this.getGame().d3.exitD3);
     }
 
     private useLiftPostDefeat(): void {
@@ -128,7 +128,7 @@ export class IncubusMechanicScenes extends BaseContent {
 
         this.outputText("\n\nThe platform touches down roughly thirty minutes after your departure, and you head back to camp with all due haste.");
 
-        this.addButton(0, "Next", this.getGame().d3.exitD3);
+        this.addButton(this, 0, "Next", this.getGame().d3.exitD3);
     }
 
     public suckIncubusDick(): void {
@@ -181,7 +181,7 @@ export class IncubusMechanicScenes extends BaseContent {
         this.dynStats("lib+", 5, "cor+", 5, "lus+", 100);
 
         this.menu();
-        this.addButton(0, "Next", this.getGame().d3.exitD3);
+        this.addButton(this, 0, "Next", this.getGame().d3.exitD3);
     }
 
     public beatDaMechanic(hpVictory: boolean): void {
@@ -194,10 +194,10 @@ export class IncubusMechanicScenes extends BaseContent {
         this.outputText(" He seems surprisingly human like that, just as mortal as anyone. You could let him go, play with him some, or cleanse the world of another demon.");
 
         this.menu();
-        this.addButton(0, "Kill", this.killMechanic);
-        this.addButton(1, "Let Go", this.letMechanicGo, hpVictory);
-        if (this.player.hasCock()) this.addButton(2, "Buttfuck", this.buttfuckTheMechanic, hpVictory);
-        if (this.player.hasVagina()) this.addButton(3, "Ride Cock", this.rideMechanicsCock);
+        this.addButton(this, 0, "Kill", this.killMechanic);
+        this.addButton(this, 1, "Let Go", this.letMechanicGo, hpVictory);
+        if (this.player.hasCock()) this.addButton(this, 2, "Buttfuck", this.buttfuckTheMechanic, hpVictory);
+        if (this.player.hasVagina()) this.addButton(this, 3, "Ride Cock", this.rideMechanicsCock);
     }
 
     private killMechanic(): void {
@@ -342,9 +342,9 @@ export class IncubusMechanicScenes extends BaseContent {
 
         // [Demon] [Horsecock] [Dogcock]
         this.menu();
-        this.addButton(0, "Demon", this.rideMechanicsCockII, this.MECHANIC_DEMON_COCK);
-        this.addButton(1, "Horse", this.rideMechanicsCockII, this.MECHANIC_HORZ_GOG);
-        this.addButton(2, "Dog", this.rideMechanicsCockII, this.MECHANIC_DOG_COCK);
+        this.addButton(this, 0, "Demon", this.rideMechanicsCockII, this.MECHANIC_DEMON_COCK);
+        this.addButton(this, 1, "Horse", this.rideMechanicsCockII, this.MECHANIC_HORZ_GOG);
+        this.addButton(this, 2, "Dog", this.rideMechanicsCockII, this.MECHANIC_DOG_COCK);
     }
 
     private rideMechanicsCockII(cType: number): void {
@@ -605,7 +605,7 @@ export class IncubusMechanicScenes extends BaseContent {
         this.outputText("\n\nYou hear and feel a rumbling as your box is wheeled out into another room, and though you don't see them, you become aware of the presense of succubi. Lots of them, judging by the amount of wet, aching pussy you can smell. Your augmented cock twitches.");
 
         // [Next]
-        this.doNext(this.maleLossToMechanicII);
+        this.doNext(this, this.maleLossToMechanicII);
     }
 
     private maleLossToMechanicII(): void {
@@ -627,7 +627,7 @@ export class IncubusMechanicScenes extends BaseContent {
         this.outputText("\n\nAnother velvety tunnel wraps around you, and you are subsumed in sex once more. Succubus after succubus mounts you, each using you as little more than a fucktoy. You get increasingly desperate with every twat you satisfy, but they never allow you to cum. For days, you are the toast of the demon town, never left to sleep or rest, held on the edge until you break.");
 
         // [Next]
-        this.doNext(this.maleLossToMechanicIII);
+        this.doNext(this, this.maleLossToMechanicIII);
     }
 
     private maleLossToMechanicIII(): void {

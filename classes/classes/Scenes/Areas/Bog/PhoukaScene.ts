@@ -80,15 +80,15 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
             }
         }
         this.menu();
-        if (this.flags[kFLAGS.PHOUKA_ENCOUNTER_STATUS] != 0 || this.player.hasKeyItem("Traveler's Guide") >= 0) this.addButton(4, "Leave", this.phoukaFaerieFireLeave);
-        this.addButton(0, "Follow", this.phoukaStuck);
+        if (this.flags[kFLAGS.PHOUKA_ENCOUNTER_STATUS] != 0 || this.player.hasKeyItem("Traveler's Guide") >= 0) this.addButton(this, 4, "Leave", this.phoukaFaerieFireLeave);
+        this.addButton(this, 0, "Follow", this.phoukaStuck);
     }
 
     protected phoukaFaerieFireLeave(): void {
         if (this.flags[kFLAGS.PHOUKA_ENCOUNTER_STATUS] == 0)
             this.outputText("\n\nYou decide it's best not to mess with weird floating lights out in the bog and return to your camp.")
         else this.outputText("\n\nAt the moment you don't feel the need to meet one of those " + this.phoukaNameText("phouka", "creatures") + " again.");
-        this.doNext(this.camp.returnToCampUseOneHour);  //Return to camp, 1 hour used
+        this.doNext(this, this.camp.returnToCampUseOneHour);  //Return to camp, 1 hour used
     }
 
     protected phoukaStuck(): void {
@@ -102,9 +102,9 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         if (this.flags[kFLAGS.PHOUKA_ENCOUNTER_STATUS] == 0) this.flags[kFLAGS.PHOUKA_ENCOUNTER_STATUS] = 1;
 
         this.menu();
-        if (hasAlcohol) this.addButton(0, "Offer Drink", this.phoukaStuckOfferWhiskey);
-        this.addButton(1, "Talk", this.phoukaTalk);
-        this.addButton(2, "Fight", this.phoukaStartFight);
+        if (hasAlcohol) this.addButton(this, 0, "Offer Drink", this.phoukaStuckOfferWhiskey);
+        this.addButton(this, 1, "Talk", this.phoukaTalk);
+        this.addButton(this, 2, "Fight", this.phoukaStartFight);
     }
 
     protected phoukaStuckOfferWhiskey(): void {
@@ -117,7 +117,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
 
         if ((this.player.pregnancyIncubation == 0) && (this.player.buttPregnancyIncubation == 0)) {
             this.menu();
-            this.addButton(1, "Drink", this.phoukaDrinkAccept);
+            this.addButton(this, 1, "Drink", this.phoukaDrinkAccept);
         }
         else this.phoukaDrinkWhilePregnant(true);
     }
@@ -125,7 +125,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
     protected phoukaMasturbating(): void { //Old Irish folklore again - Phoukas were supposed to be responsible for the berries rotting away at the end of the year
         this.clearOutput();
         this.outputText("You are wandering through the bog when you hear the unmistakable sound of someone fapping like there's no tomorrow.  You sneak up on the small group of shrubs expecting to find an imp who has finally been overcome by his own lust.  Instead it's a " + this.phoukaNameText("phouka", "small black faerie") + " you see madly jerking off.  He grunts and strains but seems unable to finish.  With an annoyed look he dives for the bush, grabbing some small ripe berries from a branch.  The " + this.phoukaName() + " rubs the berries on his cock until it drips with blue and black fruit juices.  He tosses the remains of the fruits to the ground and goes back to wanking.\n\nAfter another minute or so he finally thrusts his hips forward in mid-air and begins squirting streams of thick grey cum all over the bushes.  He produces far more cum than he should be able to for a creature his size.  He aims the last several streams directly onto the berries for some reason.  By the time he's done the bush looks like it's covered in a layer of off-white frosting.\n\nThe " + this.phoukaName() + " gives a satisfied <i>“Ha!”</i> and flies off.  Glancing at the bush you decide you won't be making any preserves from the fruits in the bog and turn back toward camp.");
-        this.doNext(this.camp.returnToCampUseOneHour);  //Return to camp, 1 hour used
+        this.doNext(this, this.camp.returnToCampUseOneHour);  //Return to camp, 1 hour used
     }
 
     protected phoukaStartFight(): void {
@@ -179,13 +179,13 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
                         this.outputText("  If it ain't then tough shite, cause that's what I want.”</i>");
                     this.menu();
                     this.phoukaSexAddStandardMenuChoices();
-                    this.addButton(4, "Fight", this.phoukaStartFight);
+                    this.addButton(this, 4, "Fight", this.phoukaStartFight);
                     break;
                 case 7:
                 case 8: //Decides he doesn't want you
                     this.outputText(" takes a long look at you.  Finally he grins and tells you <i>“You know what?  You're not quite what I was lookin for.  Us phooka got varied tastes, ya know.”</i>  Then the phouka lazily flies off, whistling some strange tune to himself.\n\nYou wriggle against your bonds and after a few minutes you are free once more.  You decide that's enough excitement for now and head back to camp.");
                     if (this.flags[kFLAGS.PHOUKA_LORE] == 0) this.flags[kFLAGS.PHOUKA_LORE] = 1; //Now you know what to call them
-                    this.doNext(this.camp.returnToCampUseOneHour);  //Return to camp, 1 hour used
+                    this.doNext(this, this.camp.returnToCampUseOneHour);  //Return to camp, 1 hour used
                     break;
                 default: //(9, 10 or 11) Offers to share some whiskey
                     this.outputText(" buzzes around in a wide circle and finally comes to a stop near a broken tree.  He lands and reaches into a hollow, pulling out a glass bottle larger than he is.\n\nThe " + this.phoukaName() + " has some trouble with the stopper and once again seems to melt in front of your eyes.  He grows and changes into the form of a large, black furred bunny, nearly four feet tall that has a very human face and hands.  The bunny yanks the stopper free and pulls some leather drinking cups from the same hollow.  Finally the " + this.phoukaName() + " looks back at you, holding up the bottle.\n\n<i>“I could beat you, of course.  But it looks like it might be a long fight, and I don’t feel like starting one of those without drinkin more whiskey.”</i> The " + this.phoukaName() + " spreads his large bunny feet wide to give himself more support while he tips the cup back.  He hacks and coughs, but after the drink, he grins at you a little less lustily. <i>“Great stuff, this.  We phouka make it right here in the bog.  Best water, best peat, best everything for making phouka whiskey.”</i>");
@@ -194,8 +194,8 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
                     if ((this.player.pregnancyIncubation == 0) && (this.player.buttPregnancyIncubation == 0)) {
                         this.outputText("  He pours some of the clear amber liquid into the other cup and offers it to you.");
                         this.menu();
-                        this.addButton(0, "Refuse", this.phoukaDrinkRefuse);
-                        this.addButton(1, "Drink", this.phoukaDrinkAccept);
+                        this.addButton(this, 0, "Refuse", this.phoukaDrinkRefuse);
+                        this.addButton(this, 1, "Drink", this.phoukaDrinkAccept);
                     }
                     else this.phoukaDrinkWhilePregnant(false);
             } //End of Switch
@@ -221,8 +221,8 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
             this.outputText(" what's up for grabs.  <i>“Go on and have some already. I try not to drink alone.  Always end up fucked by an imp or a drider or something that way.”</i>");
         }
         this.menu();
-        this.addButton(0, "Refuse", (playerOfferedTheBooze ? this.phoukaDrinkRefuseAfterOffer : this.phoukaDrinkRefuse));
-        if (acceptable) this.addButton(1, "Drink", this.phoukaDrinkAccept);
+        this.addButton(this, 0, "Refuse", (playerOfferedTheBooze ? this.phoukaDrinkRefuseAfterOffer : this.phoukaDrinkRefuse));
+        if (acceptable) this.addButton(this, 1, "Drink", this.phoukaDrinkAccept);
     }
 
     protected phoukaDrinkAccept(): void { //In every path that leads here the character learns the creature is called a phouka, so no phoukaName() calls needed
@@ -266,7 +266,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
             this.outputText("The rabbit morph sits down heavily on the wet ground and sips his booze.  <i>“Don't want to fuck, don't want to drink.  What gives?  Live a little and let me have fun with your pregnant pussy.  I’ll get ya off, and it’s not like I can knock you up again.  Course, that'd be fun too.”</i>");
             this.menu();
             this.phoukaSexAddStandardMenuChoices();
-            this.addButton(0, "Leave", this.phoukaDrinkRefusePregnantLeave);
+            this.addButton(this, 0, "Leave", this.phoukaDrinkRefusePregnantLeave);
         }
         else { //Less obvious pregnancy or player not pregnant
             this.outputText("<i>“You damn prude.  That does it! I don't have to sit around listening to this.  I try to be friendly like some people say ya should instead of just raping ya.  What's it get me, huh?”</i>");
@@ -276,20 +276,20 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
                 this.phoukaSexAddStandardMenuChoices();
             }
             else this.menu();
-            this.addButton(0, "Leave", this.phoukaDrinkRefuseLeave);
+            this.addButton(this, 0, "Leave", this.phoukaDrinkRefuseLeave);
         }
     }
 
     protected phoukaDrinkRefuseLeave(): void { //In every path that leads here the character learns the creature is called a phouka, so no phoukaName() calls needed
         this.clearOutput();
         this.outputText("You extract yourself from the mud and get out of the bog before the phouka changes its mind.");
-        this.doNext(this.camp.returnToCampUseOneHour);  //Return to camp, 1 hour used
+        this.doNext(this, this.camp.returnToCampUseOneHour);  //Return to camp, 1 hour used
     }
 
     protected phoukaDrinkRefusePregnantLeave(): void { //In every path that leads here the character learns the creature is called a phouka, so no phoukaName() calls needed
         this.clearOutput();
         this.outputText("<i>“Ah fuck.  You're a killjoy.  Don't you know the best time to get porked is when you've already got a bun in the oven?”</i>\n\nThe black bunny waves you away dismissively. <i>“Fine, yeah, go home.  I hope the little bastard hurts when it pops out.  I would have stretched you out but good.”</i>");
-        this.doNext(this.camp.returnToCampUseOneHour);  //Return to camp, 1 hour used
+        this.doNext(this, this.camp.returnToCampUseOneHour);  //Return to camp, 1 hour used
     }
 
     protected phoukaDrinkRefuseAfterOffer(): void {
@@ -319,7 +319,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         if (playerIsInebriated) {
             this.outputText("\n\nWhen the bottle runs out the bunny stands up, nearly falls down again and looks at you with his eyes crossing. <i>“Okay, this is good.  This is like the parties in the olden days.  You stay here, I'll go find sumore booze an' maybe sum buddies o' mine too.  Great booze, great party.  That's ther way!”</i> Then the bunny melts away, the swirling mess of black fur slowly contracting and reforming itself as a little black faerie again.  He waves and takes off on a dangerous looking spiraling course through the trees.\n\nAs the fuzziness from the whiskey begins to fade you realize [if (corruption <= 66)it probably isn't the best idea to stick around][if (corruption > 66)that you could get away if you want to].  If your new drinking buddy really does bring back some friends you'll probably experience the kind of 'party' that will make your jaw click when you talk and leave all your holes sore for a week.");
             this.menu();
-            this.addButton(0, "Leave", this.phoukaDrinkLeave);
+            this.addButton(this, 0, "Leave", this.phoukaDrinkLeave);
         }
         else {
             if (playerNotDrinking)
@@ -339,10 +339,10 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
                 else this.outputText("and you feel your sphincter twitch as your brain thinks about what you could do with this phouka now."); //Genderless
             }
             this.menu();
-            this.addButton(0, "Leave", this.phoukaDrinkLeave);
+            this.addButton(this, 0, "Leave", this.phoukaDrinkLeave);
             if (this.player.lust >= 33) {
-                this.addButton(1, "Ride Faerie", this.phoukaSexFaerieNonCombat); //Works for all
-                if (this.player.hasCock()) this.addButton(2, "Fuck Faerie", this.phoukaSexFaerieFemaleNonCombat); //Male or Herm Only
+                this.addButton(this, 1, "Ride Faerie", this.phoukaSexFaerieNonCombat); //Works for all
+                if (this.player.hasCock()) this.addButton(this, 2, "Fuck Faerie", this.phoukaSexFaerieFemaleNonCombat); //Male or Herm Only
             }
         }
     }
@@ -353,7 +353,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         else
             this.outputText("\n\nIf you wanted");
         this.outputText(" you could take advantage of the phouka’s predicament, but right now you’d rather go and check on the portal.  Thanks to the whiskey, the water soaking your [legs] doesn't matter to you quite so much as you slog back towards camp.");
-        this.doNext(this.camp.returnToCampUseOneHour);  //Return to camp, 1 hour used
+        this.doNext(this, this.camp.returnToCampUseOneHour);  //Return to camp, 1 hour used
     }
 
     public phoukaHalloween(): void {
@@ -379,19 +379,19 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
 
         if (this.player.inte > 80) this.outputText("\n\nYou're about to accept when you notice how a few of the phouka in the back are looking at you.  It's a look you recognize from merchants who used to stop in Ingnam to sell their wares.  The 'a sucker born every minute' look.  You realize none of the phouka have so much as tasted any treacle and you start to wonder what this sugary substance really is.");
         this.menu();
-        this.addButton(0, "Taste", this.phoukaHalloweenTreacleEater);
-        if (this.player.inte > 80) this.addButton(4, "Leave", this.phoukaHalloweenLeave);
+        this.addButton(this, 0, "Taste", this.phoukaHalloweenTreacleEater);
+        if (this.player.inte > 80) this.addButton(this, 4, "Leave", this.phoukaHalloweenLeave);
     }
 
     protected phoukaHalloweenLeave(): void {
         this.outputText("\n\nFeeling you're better off not finding out you excuse yourself, telling them they can enjoy the treacle amongst themselves.  As you walk away you just catch the boss telling the others <i>“Watch out fer that one, " + this.player.mf("He", "She") + "'s a smart one.”</i>");
-        this.doNext(this.camp.returnToCampUseOneHour);  //Return to camp, 1 hour used
+        this.doNext(this, this.camp.returnToCampUseOneHour);  //Return to camp, 1 hour used
     }
 
     protected phoukaHalloweenTreacleEater(): void {
         this.clearOutput();
         this.outputText("You take the cup and squeeze the bellows.  Then you tip a bit of the fluid into your mouth and are rewarded with a thick and sweet substance that is also mildly sticky.  After rolling it around your mouth you swallow. <i>“Well, looks like [he] likes it.”</i> says the boss.  You drink a little more.  As you do you notice a subtle aftertaste that you have difficulty placing.  It's hard to make out through all that sugar. \n\n<i>“You want some more?”</i> asks the boss. <i>“After all, it's always a pleasure to share our treacle with a newcomer.”</i> You try another cup, hoping to work out what that other taste is.  You feel like you should be able to place it.  After you swallow this batch you notice the grins of the phouka around you.  It finally hits you - that other taste is phouka spunk.  The phouka see the look on your face and start rolling on the ground laughing.\n\n<i>“Treacle Mining!  And [he] bought it!“</i>\n\n<i>“Oh, ho, 'Pumping treacle can be exhausting'.  Oh, boss yer a killer!“</i>\n\n<i>“Boss, you've done it again, yer the master o' the long con, no one can argue that.”</i>\n\nYes, indeed, you've been pranked but good by the little winged bastards.  Only a bit of smeared mud hid the fact that the words 'wank tank' were carved into the small barrels.  As you storm off towards your camp you hear the leader call out <i>“If ye ever want to taste treacle again I've got some for ye.  Just ask and I'll put it in yer mouth, instead of yer [if (hasVagina = true)cunt][if (hasVagina = false)ass].  Or if you want we can bury it in another barrel and cover it with tarpaper for ya.”</i> Their laughter rings in your ears until after you leave the bog.");
-        this.doNext(this.camp.returnToCampUseOneHour);  //Return to camp, 1 hour used
+        this.doNext(this, this.camp.returnToCampUseOneHour);  //Return to camp, 1 hour used
     }
 
     protected phoukaLeaveOnLustWin(newScreen: boolean = true): void {
@@ -434,9 +434,9 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
                     this.outputText(".  You could take advantage of the situation to slake your lust.");
                 else this.outputText(".  It would be so easy to rape this perverted faerie, how can you resist?");
                 this.menu();
-                this.addButton(0, "Leave", this.phoukaLeaveOnLustWin);
-                this.addButton(1, "Anal Ride", this.phoukaSexFaeriePostCombat); //Works for all
-                if (this.player.hasCock()) this.addButton(2, "Fuck Faerie", this.phoukaSexFaerieFemalePostCombat); //Male or Herm Only
+                this.addButton(this, 0, "Leave", this.phoukaLeaveOnLustWin);
+                this.addButton(this, 1, "Anal Ride", this.phoukaSexFaeriePostCombat); //Works for all
+                if (this.player.hasCock()) this.addButton(this, 2, "Fuck Faerie", this.phoukaSexFaerieFemalePostCombat); //Male or Herm Only
             }
         }
     }
@@ -513,10 +513,10 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
 
     protected phoukaSexAddStandardMenuChoices(): void { //This happens several times so it's broken out here in case additional options get added later
         if (this.player.hasVagina()) {
-            this.addButton(1, "Bunny", this.phoukaSexBunnyChoice);
-            this.addButton(2, "Horse", this.phoukaSexHorseChoice);
+            this.addButton(this, 1, "Bunny", this.phoukaSexBunnyChoice);
+            this.addButton(this, 2, "Horse", this.phoukaSexHorseChoice);
         }
-        this.addButton(3, "Goat", this.phoukaSexGoatChoice);
+        this.addButton(this, 3, "Goat", this.phoukaSexGoatChoice);
     }
 
     public phoukaSexBunny(postCombat: boolean, lustLoss: boolean): void { //Player must have a vagina for bunny-morph sex
@@ -612,7 +612,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         }
         else {
             this.outputText("\n\nYou collect your clothes and scramble to get out of the bog before anything else finds you.");
-            this.doNext(this.camp.returnToCampUseOneHour); //Return to camp, 1 hour used
+            this.doNext(this, this.camp.returnToCampUseOneHour); //Return to camp, 1 hour used
         }
     }
 
@@ -705,7 +705,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
                 kGAMECLASS.clearStatuses(false);
                 kGAMECLASS.awardPlayer(); //This will provide loot and return to camp, 1 hour used
             }
-            else this.doNext(this.camp.returnToCampUseOneHour); //Return to camp, 1 hour used
+            else this.doNext(this, this.camp.returnToCampUseOneHour); //Return to camp, 1 hour used
         }
     }
 
@@ -750,7 +750,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
             kGAMECLASS.clearStatuses(false);
             kGAMECLASS.awardPlayer();  //This will provide loot and return to camp, 1 hour used
         }
-        else this.doNext(this.camp.returnToCampUseOneHour); //Return to camp, 1 hour used
+        else this.doNext(this, this.camp.returnToCampUseOneHour); //Return to camp, 1 hour used
     }
 
     protected phoukaSexFaerieFemaleNonCombat(): void {
@@ -835,7 +835,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
                 kGAMECLASS.clearStatuses(false);
                 kGAMECLASS.awardPlayer();  //This will provide loot and return to camp, 1 hour used
             }
-            else this.doNext(this.camp.returnToCampUseOneHour); //Return to camp, 1 hour used
+            else this.doNext(this, this.camp.returnToCampUseOneHour); //Return to camp, 1 hour used
         }
         else {
             if (postCombat && this.player.gems > 0) this.outputText("  While you're recovering the " + this.phoukaName() + " reaches into your gem pouch and takes a handful.");
@@ -848,7 +848,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
             }
             else {
                 this.outputText("collect your clothes and begin the long march out of the bog.  ");
-                this.doNext(this.camp.returnToCampUseOneHour); //Return to camp, 1 hour used
+                this.doNext(this, this.camp.returnToCampUseOneHour); //Return to camp, 1 hour used
             }
             if (this.player.cor <= 50)
                 this.outputText("As you trudge back to camp you have to wonder - why did you decide to visit the bog again?");

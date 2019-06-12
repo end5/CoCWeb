@@ -193,7 +193,7 @@ export class CeraphScene extends NPCAwareContent {
         this.dynStats("lib", 3, "sen", 3, "cor", 1);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Female] Ride 'Dat Cawk
@@ -249,7 +249,7 @@ export class CeraphScene extends NPCAwareContent {
         this.player.knockUp(PregnancyStore.PREGNANCY_IMP, PregnancyStore.INCUBATION_IMP - 32, 61); //Ceraph causes faster pregnancies
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[OH SHIT SON YOU LOST GET EARS PIERCED]
@@ -366,7 +366,7 @@ export class CeraphScene extends NPCAwareContent {
         this.outputText("Ceraph wiggles out from between the bushes, holding a bondage harness and openly eyeing your body.  She suggestively says, \"<i>Well, aren't you just a cute little slave-to-be.  Are you ready to put yourself in your slave harness and join my harem?  I've got a few more piercings I think would look great on you.  Maybe I could give you an oral fixation and a foot fetish.  Wouldn't that be nice?  Or maybe I can just keep you tied up and parade you around Mareth.  You know I'll make sure you love every minute baby, just come put this on.</i>\"\n\n", false);
 
         this.outputText("It shames you to admit it, but you desperately want to be naked and restrained, paraded around to tease and amuse Ceraph's enemies.  You know the desires were forced on you by her cursed piercings, but it doesn't make it any easier to deny the feelings they've brought out in you.  The sexy demon-dom would be happy to feed you foreign desires and stoke them into a burning blaze that would burn away your doubts and worries.  Do you give in and become her bondage slave?\n\n", false);
-        this.simpleChoices("Yes", this.agreeToBecomeCeraphsFuckpetBondageToyBitchSlut, "No", this.finalCeraphEncounterChoiceNo, "Fight", this.finalCeraphEncounterStartFight, "", undefined, "", undefined);
+        this.simpleChoices(this, "Yes", this.agreeToBecomeCeraphsFuckpetBondageToyBitchSlut, "No", this.finalCeraphEncounterChoiceNo, "Fight", this.finalCeraphEncounterStartFight, "", undefined, "", undefined);
     }
 
     //[no]
@@ -376,7 +376,7 @@ export class CeraphScene extends NPCAwareContent {
         this.outputText("You tell Ceraph no, emphatically, over and over.  She gives you a smirk and says, \"<i>Whatever.  It's only a matter of time.  You'll join me soon, pet.</i>\"\n\n", false);
 
         this.outputText("With that declaration she departs, leaving you confused and horny.", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[fight]
@@ -423,7 +423,7 @@ export class CeraphScene extends NPCAwareContent {
         if (this.player.tailType == TAIL_TYPE_NONE) this.outputText("backside", false);
         else this.outputText("tail", false);
         this.outputText(" back and forth to show Mistress how happy you are.  Obedience slowly crowds your mind, rolling over your other thoughts and concerns inexorably.  Your worries, cares, and troubles slide away, replaced with an all-consuming need to please.", false);
-        this.doNext(this.agreeToBeABitchPt2);
+        this.doNext(this, this.agreeToBeABitchPt2);
     }
 
     //(EPILOGUE)
@@ -447,7 +447,7 @@ export class CeraphScene extends NPCAwareContent {
         this.outputText("The goblin's ears are covered in a dazzling array of piercings of all varieties.  She isn't dressed nearly as slutty as most of the goblins you've seen.\n\n", false);
         this.outputText("Do you let her put the earrings in your ears?", false);
         this.flags[kFLAGS.PC_MET_CERAPH] = 1;
-        this.doYesNo(this.ceraphFirstTimeVolunteer, this.ceraphFirstTimeDecline);
+        this.doYesNo(this, this.ceraphFirstTimeVolunteer, this.ceraphFirstTimeDecline);
     }
 
     //[No]
@@ -481,7 +481,7 @@ export class CeraphScene extends NPCAwareContent {
         this.player.earsPShort = "green gem-stone ear-studs";
         this.player.earsPLong = "Green gem-stone ear-studs";
         this.flags[kFLAGS.PC_FETISH] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[PC 'BEAT OFF' Ceraph the first time...]
@@ -509,7 +509,7 @@ export class CeraphScene extends NPCAwareContent {
         this.outputText("Ceraph once again appears to you, licking her lips and repeatedly swatting a riding crop against her thigh.  She asks, \"<i>Have you come to love the exposure, the helplessness, of being nude and restrained?  Does your body ache for me to turn you into a bound love-pet yet?  We could keep going down this road my pet-to-be, just one more piercing and then you'll be ready.</i>\"\n\n", false);
         this.outputText("Do you let her pierce you?", false);
         //[Yes] [No]
-        this.doYesNo(this.yesOHGODYESPIERCELEVEL3, this.level3CeraphOfferNo);
+        this.doYesNo(this, this.yesOHGODYESPIERCELEVEL3, this.level3CeraphOfferNo);
     }
 
     //[No]
@@ -572,14 +572,14 @@ export class CeraphScene extends NPCAwareContent {
         this.outputText("\"<i>So, I take it you like it?  You'll never be able to raise a hand in anger again.  I guess if you want to win fights you'll have to tease your foes into submission with that luscious body.  I suppose that might be hard to do when you're getting off on exposing yourself and cumming from the thought of being tied down,</i>\" she laughs.\n\n", false);
         this.outputText("You tremble with barely restrained lust as the demoness flounces away.  You'd pursue her, but between her ideas and exposing your crotch to the entire area, you need to cum more than anything in the world.  You scurry back to camp, too horny to think straight and your new piercing aching just enough to keep you from forgetting about it.", false);
         this.flags[kFLAGS.PC_FETISH] = 3;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
 
     public encounterCeraph(): void {
         //Just in case set up next button for 1 hr + camp
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
         //If havent met her
         if (this.flags[kFLAGS.PC_MET_CERAPH] == 0) {
             this.spriteSelect(7);
@@ -648,7 +648,7 @@ export class CeraphScene extends NPCAwareContent {
             var bikiniTits = undefined;
             if (this.player.hasVagina() && this.player.biggestTitSize() >= 4 && this.player.armorName == "lusty maiden's armor") bikiniTits = this.createCallBackFunction2((this.player.armor as LustyMaidensArmor).lustyMaidenPaizuri, this.player, this.monster);
 
-            this.simpleChoices("Fuck Her", dicking, "Ride Her", cunting, "FuckHerAss", buttsmexing, "B.Titfuck", bikiniTits, "Leave", leave);
+            this.simpleChoices(this, "Fuck Her", dicking, "Ride Her", cunting, "FuckHerAss", buttsmexing, "B.Titfuck", bikiniTits, "Leave", leave);
             /*
              if(player.gender == 1) doYesNo(maleFuckCeraphsPussy,cleanupAfterCombat);
              if(player.gender == 2) doYesNo(rideCeraphsCockLikeaBAWSSexclamation11eleven,cleanupAfterCombat);
@@ -658,7 +658,7 @@ export class CeraphScene extends NPCAwareContent {
         else {
             if (this.getGame().inCombat)
                 this.cleanupAfterCombat();
-            else this.doNext(this.ceraphFollowerScene.ceraphFollowerAppearance);
+            else this.doNext(this, this.ceraphFollowerScene.ceraphFollowerAppearance);
         }
     }
 
@@ -717,7 +717,7 @@ export class CeraphScene extends NPCAwareContent {
         this.dynStats("lus", 200);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //(REQ's – HUGE WANG, Exgartuan or Jojo corruption, and !centaur)
@@ -785,7 +785,7 @@ export class CeraphScene extends NPCAwareContent {
             this.outputText("</i>\"", false);
             this.player.orgasm();
             this.dynStats("lib", 3, "sen", 3, "cor", 1);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         this.outputText("  That's rarer than you know, so I'm feeling a little generous.  ", false);
@@ -799,7 +799,7 @@ export class CeraphScene extends NPCAwareContent {
         }
         this.outputText("(Do you accept Ceraph's Offer?)", false);
         //Y/N – remove 1 fetish level or +10 gems
-        this.doYesNo(this.ceraphsNiceOffer, this.cleanupAfterCombat);
+        this.doYesNo(this, this.ceraphsNiceOffer, this.cleanupAfterCombat);
         this.player.orgasm();
         this.dynStats("lib", 3, "sen", 3, "cor", 1);
     }
@@ -860,7 +860,7 @@ export class CeraphScene extends NPCAwareContent {
         this.outputText("The demoness lifts one heeled foot high onto a boulder and winks at you, letting her whip rub up and down her hard, nodule-studded shaft.  Her tail rises languidly between her perfect, lissomelegs, rubbing the glistening wet delta of her sex enticingly.  The demon coos, \"<i>Oh, I do love putting on a show for my future pets.  Tell me, did you really come up here to fight?  I'd rather lie back in the sunlight, rubbing my fingers over my glistening skin and showing everyone just how wondrous sex with me would be.  You can even go if you want, or maybe you'd have something worth trading with me?</i>\"", false);
         this.dynStats("lus", (5 + this.player.cor / 10 + this.player.lib / 20), "cor", 0)
         //[Fight] [Trade] [Run]
-        this.simpleChoices("Fight", this.startAFightWithCeraph, "Trade", this.tradeCeraphSomething, "", undefined, "", undefined, "Run", this.runFromCeraphsNiceDeal);
+        this.simpleChoices(this, "Fight", this.startAFightWithCeraph, "Trade", this.tradeCeraphSomething, "", undefined, "", undefined, "Run", this.runFromCeraphsNiceDeal);
     }
 
     //[Fight] → Cue normal Ceraph fight
@@ -879,7 +879,7 @@ export class CeraphScene extends NPCAwareContent {
         this.outputText("beat a hasty retreat from the trickster of fetishes.  Her masturbatory moans chase you down the mountainside back towards your camp, spiking the already-burning furnace of your lust.", false);
         //(+10 lust + 10lust/piercing)
         this.dynStats("lus", (10 + this.flags[kFLAGS.PC_FETISH] * 10));
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Trade] 
@@ -918,7 +918,7 @@ export class CeraphScene extends NPCAwareContent {
             this.outputText("</i>\"\n\n", false);
         }
         //Leave uses the run text!
-        this.simpleChoices("Liqueur", liqueur, "Endowment", endowment, "Armor", armor, "", undefined, "Leave", this.runFromCeraphsNiceDeal);
+        this.simpleChoices(this, "Liqueur", liqueur, "Endowment", endowment, "Armor", armor, "", undefined, "Leave", this.runFromCeraphsNiceDeal);
     }
 
 
@@ -942,7 +942,7 @@ export class CeraphScene extends NPCAwareContent {
         this.player.takeDamage(4);
         this.flags[kFLAGS.PC_FETISH] = 0;
         this.dynStats("lus", - 20);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Trade Genitals]
@@ -954,7 +954,7 @@ export class CeraphScene extends NPCAwareContent {
             this.outputText("A disembodied voice roars out, \"<i>FUCK NO!  You are NOT giving me to that crazy bitch!</i>\"  Exgartuan doesn't seem to want to run the risk of being taken by Ceraph, and he completely assumes control of your " + this.player.legs() + " to make you flee with all due haste.  He taunts, \"<i>Rip off your own little dick, why doncha!  You'd look better with just a pussy anyhow ya dried out old sow!</i>\"\n\n", false);
             this.outputText("Ceraph seems perturbed but doesn't bother to pursue you.", false);
             this.dynStats("lus", -20);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         //Create array for choosing bits!
@@ -1038,7 +1038,7 @@ export class CeraphScene extends NPCAwareContent {
 
         this.outputText("Do you let her take it?", false);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00217] = choice;
-        this.doYesNo(this.giveUpYourBallsOrWhateverForLessFetishes, this.bailBeforeCeraphYoinksYourNads);
+        this.doYesNo(this, this.giveUpYourBallsOrWhateverForLessFetishes, this.bailBeforeCeraphYoinksYourNads);
     }
 
     //[No]
@@ -1046,7 +1046,7 @@ export class CeraphScene extends NPCAwareContent {
         this.outputText("", true);
         this.spriteSelect(7);
         this.outputText("You let her know that you've changed your mind and take off before Ceraph can try to take your beloved body parts.  You hear her laugh and tease as you run, yelling, \"<i>What, can't handle the thought of an Omnibus touching your fun bits?  Poor baby!</i>\"\n\n", false);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Yes]
@@ -1149,7 +1149,7 @@ export class CeraphScene extends NPCAwareContent {
         }
         //Fix any gender mixmatches
         this.player.genderCheck();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //NIGHTTIME
@@ -1358,7 +1358,7 @@ export class CeraphScene extends NPCAwareContent {
                 this.player.hoursSinceCum += 100;
             }
         }
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     public buttRapeCeraph(): void {
@@ -1416,7 +1416,7 @@ export class CeraphScene extends NPCAwareContent {
         this.player.orgasm();
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 

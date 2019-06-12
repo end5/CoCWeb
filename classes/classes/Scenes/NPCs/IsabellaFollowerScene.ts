@@ -90,7 +90,7 @@ Optional Morning Oral for small-membered males*/
             this.outputText("  You blush and squirm a little from the dark-hued warrioress's affections, yet you endure them all the same.\n\n", false);
 
             this.outputText("Do you invite her to camp?", false);
-            this.doYesNo(this.moveTheBitchIn, this.turnDownIsabellaFollower);
+            this.doYesNo(this, this.moveTheBitchIn, this.turnDownIsabellaFollower);
         }
         //Repeat Offer
         else {
@@ -104,7 +104,7 @@ Optional Morning Oral for small-membered males*/
                 if (this.player.cocks[this.player.shortestCockIndex()].cockLength < 9)
                     suck = this.isabellaScene.izzyGivesSmallWangsFreeOral;
             }
-            this.choices("Talk", this.isabellaScene.talkWithIsabella, "Drink", this.isabellaScene.nomOnMommaIzzysTits, "Get Licked", suck,
+            this.choices(this, "Talk", this.isabellaScene.talkWithIsabella, "Drink", this.isabellaScene.nomOnMommaIzzysTits, "Get Licked", suck,
                 "Fight 4 Rape", this.isabellaScene.fightIsabella, "Offer Oral", this.isabellaScene.volunteerToSlurpCowCunt, "Accept Offer", this.moveTheBitchIn,
                 "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
         }
@@ -123,7 +123,7 @@ Optional Morning Oral for small-membered males*/
             if (this.player.cocks[this.player.shortestCockIndex()].cockLength < 9)
                 suck = this.isabellaScene.izzyGivesSmallWangsFreeOral;
         }
-        this.choices("Talk", this.isabellaScene.talkWithIsabella, "Drink", this.isabellaScene.nomOnMommaIzzysTits, "Get Licked", suck,
+        this.choices(this, "Talk", this.isabellaScene.talkWithIsabella, "Drink", this.isabellaScene.nomOnMommaIzzysTits, "Get Licked", suck,
             "Fight 4 Rape", this.isabellaScene.fightIsabella, "Offer Oral", this.isabellaScene.volunteerToSlurpCowCunt, "", undefined,
             "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
     }
@@ -140,7 +140,7 @@ Optional Morning Oral for small-membered males*/
         this.flags[kFLAGS.ISABELLA_AFFECTION] = 100;
         this.flags[kFLAGS.ISABELLA_FOLLOWER_ACCEPTED] = 1;
         this.flags[kFLAGS.ISABELLA_PLAINS_DISABLED] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Follower Summoned Text: 
@@ -189,13 +189,13 @@ Optional Morning Oral for small-membered males*/
             pro = this.isabellaBurps;
             this.outputText("\n\n<b>Isabella would probably drink a bottle of Pro Bova if you gave it to her.</b>", false);
         }
-        this.choices("Accent Coach", accent, "Get Milk", milk, "GiveProBova", pro, "Sex", this.campIzzySexMenu, "Spar", this.isabellaSparMenu,
+        this.choices(this, "Accent Coach", accent, "Get Milk", milk, "GiveProBova", pro, "Sex", this.campIzzySexMenu, "Spar", this.isabellaSparMenu,
             "", undefined, "", undefined, "", undefined, "", undefined, "Back", this.camp.campLoversMenu);
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_ISABELLA] == 0 && this.flags[kFLAGS.FARM_CORRUPTION_STARTED] == 1) this.addButton(5, "Farm Work", this.sendToFarm);
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_ISABELLA] == 1) this.addButton(5, "Go Camp", this.backToCamp);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_ISABELLA] == 0 && this.flags[kFLAGS.FARM_CORRUPTION_STARTED] == 1) this.addButton(this, 5, "Farm Work", this.sendToFarm);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_ISABELLA] == 1) this.addButton(this, 5, "Go Camp", this.backToCamp);
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_ISABELLA] == 1) this.addButton(9, "Back", kGAMECLASS.farm.farmCorruption.rootScene);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_ISABELLA] == 1) this.addButton(this, 9, "Back", kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
     private sendToFarm(): void {
@@ -211,7 +211,7 @@ Optional Morning Oral for small-membered males*/
 
         this.flags[kFLAGS.FOLLOWER_AT_FARM_ISABELLA] = 1;
 
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private backToCamp(): void {
@@ -225,7 +225,7 @@ Optional Morning Oral for small-membered males*/
 
         this.flags[kFLAGS.FOLLOWER_AT_FARM_ISABELLA] = 0;
 
-        this.doNext(kGAMECLASS.farm.farmCorruption.rootScene);
+        this.doNext(this, kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
     private campIzzySexMenu(): void {
@@ -255,7 +255,7 @@ Optional Morning Oral for small-membered males*/
         if (this.player.hasCock() && this.player.lust >= 33) hotdog = this.repeatGermanBratwurstInCamp;
         var fuckHer = undefined;
         if (this.player.cockThatFits(164) >= 0 && this.player.lust >= 33) fuckHer = this.fuckIsabella;
-        this.choices(bjTogText, bjToggle, "Drink Milk", this.isabellaScene.nomOnMommaIzzysTits, "Hotdog", hotdog, "Service Her", this.isabellaScene.volunteerToSlurpCowCunt, "TentacleSex", tentacle,
+        this.choices(this, bjTogText, bjToggle, "Drink Milk", this.isabellaScene.nomOnMommaIzzysTits, "Hotdog", hotdog, "Service Her", this.isabellaScene.volunteerToSlurpCowCunt, "TentacleSex", tentacle,
             "Get Sucked", getSucked, "Fuck Her", fuckHer, "", undefined, "", undefined, "Back", this.callForFollowerIsabella);
     }
 
@@ -268,7 +268,7 @@ Optional Morning Oral for small-membered males*/
         if (this.flags[kFLAGS.ISABELLA_ACCENT_TRAINING_COOLDOWN] > 1) {
             this.outputText("Isabella shakes her head and says, \"<i>Nein.  I do not vish to spend time on zis now.</b>\"", false);
             //Back to follower menu!
-            this.doNext(this.callForFollowerIsabella);
+            this.doNext(this, this.callForFollowerIsabella);
             return;
         }
         /*(req's 100% teach score to replace dialogue.  Success 
@@ -339,7 +339,7 @@ Optional Morning Oral for small-membered males*/
         if (this.flags[kFLAGS.ISABELLA_ACCENT_TRAINING_PERCENT] > 100) this.flags[kFLAGS.ISABELLA_ACCENT_TRAINING_PERCENT] = 100;
         //4 to 12 hour cooldown
         this.flags[kFLAGS.ISABELLA_ACCENT_TRAINING_COOLDOWN] = 4 + IsabellaFollowerScene.rand(13);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Morning Wakeup Call 
@@ -408,7 +408,7 @@ Optional Morning Oral for small-membered males*/
         this.outputText("You slump down while the tension oozes from your frame.  By the time you can move again, Isabella has walked off towards her section of camp.  Is it just you, or does her ass have a particularly sensuous sway this morning?", false);
         this.player.orgasm();
         this.dynStats("sen", -1.5);
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
     //No BJ's Plz 
     private toggleIsabellasMorningWoodChopping(): void {
@@ -437,7 +437,7 @@ Optional Morning Oral for small-membered males*/
             this.flags[kFLAGS.ISABELLA_BLOWJOBS_DISABLED] = 0;
         }
         //To Izzy SEX menu
-        this.doNext(this.campIzzySexMenu);
+        this.doNext(this, this.campIzzySexMenu);
     }
     //Repeatable Campsex: Hot Dogginz' 
     private repeatGermanBratwurstInCamp(): void {
@@ -511,7 +511,7 @@ Optional Morning Oral for small-membered males*/
             if (this.silly() && (this.player.lust < 50 || this.player.lib <= 20)) {
                 this.outputText("  Your cock immediately deflates from her laughable doujin-tier pillow talk and falls out of her buttcheeks.  You'll be posting that line to 4chan later for laughs.", false);
                 this.dynStats("lus", -99);
-                this.doNext(this.camp.returnToCampUseOneHour);
+                this.doNext(this, this.camp.returnToCampUseOneHour);
                 return;
             }
             this.outputText("  She doesn't even let you answer.  Her back-and-forth flexing abruptly halts as she switches to an up and down motion, hotdogging your " + this.cockDescript(x) + " in the tight vice of her spotted backside.\n\n", false);
@@ -569,7 +569,7 @@ Optional Morning Oral for small-membered males*/
         this.flags[kFLAGS.ISABELLA_TIMES_HOTDOGGED]++;
         this.player.orgasm();
         this.dynStats("lib", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private izzyTentacleRapeBool(): boolean {
@@ -716,7 +716,7 @@ Optional Morning Oral for small-membered males*/
         this.outputText("You keep holding her with " + this.sMultiCockDesc() + " for a moment, both of you enjoying the powerful embrace as you literally dick-hug her.  The entirety of her body is dripping with your jism but she doesn't seem to care.  Eventually, you put her down, letting her splat in the puddle of juices that formed below your junk-prison.  At last, you unfold your arms.\n\n", false);
         this.player.orgasm();
         this.dynStats("lib", -1, "sen", -1, "cor", .3);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Milking Isabella (dey terk Merble's jerb!)
@@ -733,7 +733,7 @@ Optional Morning Oral for small-membered males*/
         this.outputText("Isabella's moans distract you and you look over.  She's rubbing her breasts gingerly, wincing as she tests her strange nipples with a finger.  Do you go and check on her?", false);
 
         //[Yes][No]
-        this.doYesNo(this.izzyMilkingMeinMilkersMya, this.izzyMilkYourselfDamnit);
+        this.doYesNo(this, this.izzyMilkingMeinMilkersMya, this.izzyMilkYourselfDamnit);
     }
 
     //[No]
@@ -772,7 +772,7 @@ Optional Morning Oral for small-membered males*/
         else this.outputText("\"<i>Ohh, " + this.player.short + ", I had forgotten all about those milkers with all the work around camp!  Yes, let us go there immediately!</i>\"\n\n", false);
 
         //--next--
-        this.doNext(this.izzyMilkingMeinMilkersMya2);
+        this.doNext(this, this.izzyMilkingMeinMilkersMya2);
     }
     private izzyMilkingMeinMilkersMya2(): void {
         this.spriteSelect(31);
@@ -808,7 +808,7 @@ Optional Morning Oral for small-membered males*/
         this.outputText("  What do you say?", false);
 
         //[I'll Allow It][Mine Mine MINE!]
-        this.simpleChoices("Allow It", this.AllowIzzyMilkerUse, "MINE!", this.noMilkingMilky, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Allow It", this.AllowIzzyMilkerUse, "MINE!", this.noMilkingMilky, "", undefined, "", undefined, "", undefined);
     }
 
     //[I'll Allow It]
@@ -852,7 +852,7 @@ Optional Morning Oral for small-membered males*/
             this.outputText("Isabella shakes her head and tells you she", false);
             if (this.flags[kFLAGS.ISABELLA_MILKED_YET] == -1) this.outputText("'s out of bottled milk right now, and that you should check back later.", false);
             else this.outputText("'s still sore from last time, and that you should wait till later.", false);
-            this.doNext(this.callForFollowerIsabella);
+            this.doNext(this, this.callForFollowerIsabella);
             return;
         }
         //[(if Izzy Milked Yet flag = -1)
@@ -884,7 +884,7 @@ Optional Morning Oral for small-membered males*/
 
         this.outputText("\"<i>The topic of conversation gradually shifts to the reason why Marble has come to the camp.  Marble seems to be happy to meet your friend, and is eager to spend some more time with her in the future.  Isabella, on the other hand, seems a little off-put regarding Marble's actions.  Only time will tell how the two take to each other.", false);
         this.flags[kFLAGS.ISABELLA_MURBLE_BLEH] = 2;
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     //Sparring
@@ -906,7 +906,7 @@ Optional Morning Oral for small-membered males*/
         if (this.isabellaAccent()) this.outputText("Isabella asks, \"<i>Vhat stakes should ve use?  Vould you rather we spar light or fight like ze creatures of zis world?</i>\"", false);
         else this.outputText("Isabella asks, \"<i>How should we fight?  Would you rather we spar light or fight like the creatures of this world?</i>\"", false);
         this.outputText("\n\n(Do you spar 'light' with no consequences for losing, or would you rather spar 'hard' (with full consequences for loss/win)?)", false);
-        this.simpleChoices("Light", this.createCallBackFunction(this.sparring, 2), "Hard", this.createCallBackFunction(this.sparring, 1), "", undefined, "", undefined, "Back", this.callForFollowerIsabella);
+        this.simpleChoices(this, "Light", this.createCallBackFunction(this, this.sparring, 2), "Hard", this.createCallBackFunction(this, this.sparring, 1), "", undefined, "", undefined, "Back", this.callForFollowerIsabella);
     }
 
     private sparring(type: number = 1): void {
@@ -961,7 +961,7 @@ Optional Morning Oral for small-membered males*/
             this.outputText("Her eyes widen as realization strikes her.  \"<i>Back away,</i>\" she warns, weakly waving an arm at you. \"<i>Allergy...</i>\" It seems as if something might be coming. Do you flee from the pained cow-girl, or do you attempt to assist her with her problem?  Though, judging by her reaction, assistance might be a poor plan...", false);
 
             //put 'run' and 'help' buttons root hurr
-            this.simpleChoices("Run", this.runAwayFromIzzyBurps, "Help", this.getIzzyBurped, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "Run", this.runAwayFromIzzyBurps, "Help", this.getIzzyBurped, "", undefined, "", undefined, "", undefined);
         }
         //Repeat
         else {
@@ -971,7 +971,7 @@ Optional Morning Oral for small-membered males*/
             else this.outputText("You're sure about this, huh?</i>\" she asks to confirm, shaking the bottle at you gently.  \"<i>You know what this does to me.</i>\"  Your mischievous smile is the only answer she needs.  She easily gulps down the potion, already rubbing her belly in apparent anticipation.  She notices your curious glance and answers with a nervous chuckle.  \"<i>It's one of those things...</i>\" she tries to explain while waiting for the onset of her reaction.  \"<i>Making you more like me... it's comforting somehow.</i>\"\n\n", false);
 
             this.outputText("\"<i>Aaah, I can feel it,</i>\" she warns, and sure enough, the bottom hem of her top lifts to reveal an unhurriedly-swelling ponch.  \"<i>Are you ready, or are you having second thoughts?</i>\"  Your gaze falls to her gurgling pot-belly as you mull over her question.  Do you see any harm in getting another dose of Izzy-gas, or would you like to duck out of this one?", false);
-            this.simpleChoices("Run", this.runAwayFromIzzyBurps, "Stay", this.getIzzyBurped, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "Run", this.runAwayFromIzzyBurps, "Stay", this.getIzzyBurped, "", undefined, "", undefined, "", undefined);
         }
     }
 
@@ -992,7 +992,7 @@ Optional Morning Oral for small-membered males*/
             if (this.isabellaAccent()) this.outputText("It seems mein body rejected zis 'Pro Bova' for one reason or another.</i>\"  No harm, no foul, you offer hopefully, and she nods.  \"<i>But make sure to seriously zink before giving me a potion again!</i>\" she warns, waggling a foreboding finger your way.  You think back to that cloud of gas, and what the probable effect of such a thing would be in close proximity.  Even if you wanted to test that out, however, you'd need another Pro Bova...", false);
             else this.outputText("It seems my body rejected this 'Pro Bova' for one reason or another.</i>\"  No harm, no foul, you offer hopefully, and she nods.  \"<i>But make sure to seriously think before giving me a potion again!</i>\" she warns, waggling a foreboding finger your way.  You think back to that cloud of gas, and what the probable effect of such a thing would be in close proximity.  Even if you wanted to test that out, however, you'd need another Pro Bova...", false);
             //Back to follower menu
-            this.doNext(this.callForFollowerIsabella);
+            this.doNext(this, this.callForFollowerIsabella);
         }
         else {
             //outta there
@@ -1002,7 +1002,7 @@ Optional Morning Oral for small-membered males*/
             else this.outputText("The gaseous assault eventually diminishes, her belly returning to a healthy state and the cloud dispersing.  She sighs in relief as she pats her tummy, looking to you with a hint of disappointment darkening her expression.  \"<i>I'm getting used to this,</i>\" she sighs as you approach.  \"<i>It would be so much more fun if you were here to... enjoy it with me.  Think about that next time you bring me one of these, okay?</i>\"\n\n", false);
 
             this.outputText("At your nod, she smiles in satisfaction and moves away.  You can't be sure, but you almost swear you hear her burp once more.", false);
-            this.doNext(this.callForFollowerIsabella);
+            this.doNext(this, this.callForFollowerIsabella);
         }
     }
 
@@ -1132,7 +1132,7 @@ Optional Morning Oral for small-membered males*/
             //'sorry for burping in your face bro'
             this.outputText("Isabella smiles and draws you in for a smooth.  \"<i>I suppose I should really apologize again,</i>\" she muses as she slowly draws back, tongue licking up the small bridge of drool between your lips.  \"<i>Do you accept my apology?</i>\" she asks wryly.", false);
         }
-        this.doYesNo(this.acceptCowpology, this.declineIzzysCowBurpApology);
+        this.doYesNo(this, this.acceptCowpology, this.declineIzzysCowBurpApology);
     }
     //no
     private declineIzzysCowBurpApology(): void {
@@ -1149,7 +1149,7 @@ Optional Morning Oral for small-membered males*/
         else {
             this.outputText("Despite your strangely inspired lust, you turn the cow-girl down.  Though crestfallen, she takes the news well, apologizing - sincerely and soberly - once more before moving back to her designated camping spot.  Happily, after about an hour, you get back to normal.", false);
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //yes
@@ -1225,7 +1225,7 @@ Optional Morning Oral for small-membered males*/
                 this.outputText("A few minutes later both of you stir from your post-orgasmic lethargy, lying in the aftermath of your short-but-sweet adventure.  Without words, Isabella blows a kiss at you and rolls to her feet, shambling back to her bunk.  You lie there for the rest of the hour, feeling the effects of her burpy influence fade slowly away.", false);
             }
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Get Licked in Return (seems incompatible with centaurs/driders due to lap-sitting)
@@ -1275,7 +1275,7 @@ Optional Morning Oral for small-membered males*/
         if (this.isabellaAccent()) this.outputText("  A bit confused, she nonetheless leaves and returns with a drink, setting it beside you before leaving you to your rest.");
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -1354,7 +1354,7 @@ Optional Morning Oral for small-membered males*/
         this.outputText("\n\nYou grin and rub the big cow's hair before getting dressed.");
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Isabella at the Farm
@@ -1368,8 +1368,8 @@ Optional Morning Oral for small-membered males*/
         this.menu();
         this.flags[kFLAGS.FOUND_ISABELLA_AT_FARM_TODAY] = 1;
         //[Fuck her] [Leave]
-        this.addButton(0, "Fuck Her", this.fuckIsabellaInTheBarn);
-        this.addButton(4, "Leave", this.camp.returnToCampUseOneHour);
+        this.addButton(this, 0, "Fuck Her", this.fuckIsabellaInTheBarn);
+        this.addButton(this, 4, "Leave", this.camp.returnToCampUseOneHour);
 
     }
 
@@ -1410,7 +1410,7 @@ Optional Morning Oral for small-membered males*/
 
         //[Next]
         this.menu();
-        this.addButton(0, "Next", this.isabellaBarnFuckPartII);
+        this.addButton(this, 0, "Next", this.isabellaBarnFuckPartII);
     }
 
     private isabellaBarnFuckPartII(): void {
@@ -1464,7 +1464,7 @@ Optional Morning Oral for small-membered males*/
         this.player.orgasm();
         this.dynStats("lib", -1, "sen", -3);
         this.fatigue(-25);
-        this.doNext(this.camp.returnToCampUseTwoHours);
+        this.doNext(this, this.camp.returnToCampUseTwoHours);
     }
 }
 

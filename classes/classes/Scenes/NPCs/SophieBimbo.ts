@@ -107,7 +107,7 @@ export class SophieBimbo extends NPCAwareContent {
 
         this.outputText("You shake your head, feeling the compulsion picking at your mind.  Damn, she can still try to compel you with her words.  Do you take her home to be your live-in bimbo of choice?", false);
         this.dynStats("cor", 5);
-        this.doYesNo(this.acceptBimboSophie, this.declineBimboSophie);
+        this.doYesNo(this, this.acceptBimboSophie, this.declineBimboSophie);
     }
 
     private declineBimboSophie(): void {
@@ -246,40 +246,40 @@ export class SophieBimbo extends NPCAwareContent {
         this.menu();
         if (this.player.lust < 33 && output) this.outputText("\n\n<b>You aren't turned on enough right now to make use of Sophie's 'services'.</b>", false);
         else if (this.player.lust >= 33) {
-            this.addButton(0, "Sex", this.bimboSophieSexMenu);
+            this.addButton(this, 0, "Sex", this.bimboSophieSexMenu);
         }
         if (this.player.hasItem(this.consumables.DEBIMBO)) {
-            this.addButton(4, "Debimbo", this.sophieFollowerScene.unbimboSophie);
+            this.addButton(this, 4, "Debimbo", this.sophieFollowerScene.unbimboSophie);
             if (output) this.outputText("\n\n<b>You could use the bottle of debimbo to return Sophie's intellect...</b>");
         }
         if (this.flags[kFLAGS.SOPHIE_CAMP_EGG_COUNTDOWN] > 0 && output) this.outputText("\n\n<b>Sophie's egg is sitting nearby.</b>");
         if (this.flags[kFLAGS.SOPHIE_DAUGHTER_MATURITY_COUNTER] > 0) {
-            this.addButton(5, "Daughter", this.daughterCheckup);
+            this.addButton(this, 5, "Daughter", this.daughterCheckup);
         }
         if (this.flags[kFLAGS.SOPHIE_BROACHED_SLEEP_WITH] == 1 && this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0) {
             if (this.flags[kFLAGS.SLEEP_WITH] != "Sophie") {
                 if (output) this.outputText("\n\nYou could invite her to share the bed with you at night.");
-                this.addButton(6, "SleepWith", this.moveSophieInRepeat);
+                this.addButton(this, 6, "SleepWith", this.moveSophieInRepeat);
             }
             else {
                 if (output) this.outputText("\n\nYou're currently sharing your bed with Sophie at night.  You could kick her out.");
-                this.addButton(6, "NoSnuggles", this.noSophieSleepWith);
+                this.addButton(this, 6, "NoSnuggles", this.noSophieSleepWith);
             }
         }
         //choices("Nice Fuck",vag2,"Mean Fuck",vag,"FuckHerAss",anal,"Get Licked",getLicked,"Ovi Elixer",ovi,"Titty-Fuck",titFuck,"",0,"",0,"",0,"Leave",campSlavesMenu);
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0 && !this.pregnancy.isPregnant && this.flags[kFLAGS.FARM_CORRUPTION_STARTED] == 1) this.addButton(1, "Farm Work", this.sendToFarm);
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] != 0) this.addButton(1, "Go Camp", this.backToCamp);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0 && !this.pregnancy.isPregnant && this.flags[kFLAGS.FARM_CORRUPTION_STARTED] == 1) this.addButton(this, 1, "Farm Work", this.sendToFarm);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] != 0) this.addButton(this, 1, "Go Camp", this.backToCamp);
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] != 0 && this.flags[kFLAGS.FOLLOWER_PRODUCTION_SOPHIE] == 0) this.addButton(2, "Harvest Eggs", this.harvestEggs);
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] != 0 && this.flags[kFLAGS.FOLLOWER_PRODUCTION_SOPHIE] == 1) this.addButton(2, "Change Eggs", this.changeEggs);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] != 0 && this.flags[kFLAGS.FOLLOWER_PRODUCTION_SOPHIE] == 0) this.addButton(this, 2, "Harvest Eggs", this.harvestEggs);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] != 0 && this.flags[kFLAGS.FOLLOWER_PRODUCTION_SOPHIE] == 1) this.addButton(this, 2, "Change Eggs", this.changeEggs);
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] != 0 && this.flags[kFLAGS.FOLLOWER_PRODUCTION_SOPHIE] == 1) this.addButton(3, "Stop Harvest", this.stopHarvest);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] != 0 && this.flags[kFLAGS.FOLLOWER_PRODUCTION_SOPHIE] == 1) this.addButton(this, 3, "Stop Harvest", this.stopHarvest);
 
-        this.addButton(7, "Appearance", this.sophieBimboAppearance);
+        this.addButton(this, 7, "Appearance", this.sophieBimboAppearance);
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0) this.addButton(9, "Leave", this.camp.campSlavesMenu);
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] != 0) this.addButton(9, "Back", kGAMECLASS.farm.farmCorruption.rootScene);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0) this.addButton(this, 9, "Leave", this.camp.campSlavesMenu);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] != 0) this.addButton(this, 9, "Back", kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
     //Appearance:
@@ -319,7 +319,7 @@ export class SophieBimbo extends NPCAwareContent {
         }
 
         this.menu();
-        this.addButton(0, "Back", this.approachBimboSophieInCamp, false);
+        this.addButton(this, 0, "Back", this.approachBimboSophieInCamp, false);
     }
 
     private harvestEggs(): void {
@@ -371,7 +371,7 @@ export class SophieBimbo extends NPCAwareContent {
 
     private eggSelector(): void {
         for (var i: number = 0; i < this.eggColors.length; i++) {
-            this.addButton(i, this.eggColors[i], this.postEggSelector, this.eggColors[i]);
+            this.addButton(this, i, this.eggColors[i], this.postEggSelector, this.eggColors[i]);
         }
     }
 
@@ -388,7 +388,7 @@ export class SophieBimbo extends NPCAwareContent {
             this.flags[kFLAGS.FARM_EGG_COUNTDOWN] = 7;
         }
 
-        this.doNext(kGAMECLASS.farm.farmCorruption.rootScene);
+        this.doNext(this, kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
     private stopHarvest(): void {
@@ -402,7 +402,7 @@ export class SophieBimbo extends NPCAwareContent {
 
         this.flags[kFLAGS.FOLLOWER_PRODUCTION_SOPHIE] = 0;
 
-        this.doNext(kGAMECLASS.farm.farmCorruption.rootScene);
+        this.doNext(this, kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
     private sendToFarm(): void {
@@ -419,7 +419,7 @@ export class SophieBimbo extends NPCAwareContent {
 
         this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] = 1;
 
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private backToCamp(): void {
@@ -432,7 +432,7 @@ export class SophieBimbo extends NPCAwareContent {
 
         this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] = 0;
 
-        this.doNext(kGAMECLASS.farm.farmCorruption.rootScene);
+        this.doNext(this, kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
     private bimboSophieSexMenu(): void {
@@ -441,44 +441,44 @@ export class SophieBimbo extends NPCAwareContent {
         this.menu();
         if (this.player.hasCock()) {
             //BUTT FUCKS
-            if (this.player.cockThatFits(this.sophieCapacity()) >= 0 && this.player.lust >= 33) this.addButton(2, "Anal", this.buttFuckBimboSophie);
+            if (this.player.cockThatFits(this.sophieCapacity()) >= 0 && this.player.lust >= 33) this.addButton(this, 2, "Anal", this.buttFuckBimboSophie);
             else this.outputText("\n\n<b>You're too big to butt-fuck her.</b>", false);
             //TIT FUCKS!
-            if (this.pregnancy.event >= 2) this.addButton(5, "Titty-Fuck", this.sophiePreggoTitJobs);
-            else this.addButton(5, "Titty-Fuck", this.fuckBimboSophiesTits);
+            if (this.pregnancy.event >= 2) this.addButton(this, 5, "Titty-Fuck", this.sophiePreggoTitJobs);
+            else this.addButton(this, 5, "Titty-Fuck", this.fuckBimboSophiesTits);
 
             //VAG FUCKS!
             if (this.player.cockThatFits(this.sophieCapacity()) >= 0) {
                 if (this.sophieIsInSeason()) {
-                    this.addButton(0, "Impregnate", this.sophieImpregnationSex);
+                    this.addButton(this, 0, "Impregnate", this.sophieImpregnationSex);
                 }
                 else {
-                    this.addButton(0, "Nice Fuck", this.sophieFenCraftedSex);
+                    this.addButton(this, 0, "Nice Fuck", this.sophieFenCraftedSex);
                 }
-                this.addButton(1, "Rough Fuck", this.rideDatSophieVag);
+                this.addButton(this, 1, "Rough Fuck", this.rideDatSophieVag);
             }
             else {
                 this.outputText("\n\n<b>You're too big to give her cunt a working over.</b>");
             }
             if (this.player.biggestCockArea() > this.sophieCapacity() && this.sophieIsInSeason()) {
                 this.outputText("\n\nYou can always try to impregnate her with your biggest member...");
-                this.addButton(6, "Big Impreg", this.giantCocksImpregnateSophie);
+                this.addButton(this, 6, "Big Impreg", this.giantCocksImpregnateSophie);
             }
         }
-        if (this.player.hasVagina()) this.addButton(3, "Get Licked", this.bimboSophieLicksRugs);
+        if (this.player.hasVagina()) this.addButton(this, 3, "Get Licked", this.bimboSophieLicksRugs);
         if (this.flags[kFLAGS.TIMES_SOPHIE_HAS_DRUNK_OVI_ELIXIR] > 0 && (this.player.gender > 0) && !this.pregnancy.isPregnant) {
             if (this.player.hasItem(this.consumables.OVIELIX) || this.inventory.hasItemInStorage(this.consumables.OVIELIX)) {
-                this.addButton(4, "Ovi Elixir", this.sophieEggApocalypse);
+                this.addButton(this, 4, "Ovi Elixir", this.sophieEggApocalypse);
             }
             else this.outputText("\n\n<b>If you had an Oviposition Elixir in your inventory or camp storage, Sophie could have some fun with it...</b>", false);
         }
         if (this.flags[kFLAGS.TOLD_SOPHIE_TO_IZMA] == 0 && this.flags[kFLAGS.TIMES_SOPHIE_AND_IZMA_FUCKED] > 0 && this.flags[kFLAGS.IZMA_NO_COCK] == 0) {
             this.outputText("\n\nYou could tell Sophie to visit Izma again.  She'd probably wind up tied AGAIN.");
-            this.addButton(7, "Visit Izma", this.tellSophieToVisitIzma);
+            this.addButton(this, 7, "Visit Izma", this.tellSophieToVisitIzma);
         }
         if (this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] > 0 && this.flags[kFLAGS.SOPHIE_FAMILY_INCEST] > 0 && this.player.cockThatFits(this.sophieCapacity()) >= 0 && this.player.hasCock())
-            this.addButton(8, "DaughterFuck", this.sophieFollowerScene.sophieIncestInHerCooterOrSomethingIDunno);
-        this.addButton(9, "Leave", this.approachBimboSophieInCamp);
+            this.addButton(this, 8, "DaughterFuck", this.sophieFollowerScene.sophieIncestInHerCooterOrSomethingIDunno);
+        this.addButton(this, 9, "Leave", this.approachBimboSophieInCamp);
     }
 
     private tellSophieToVisitIzma(): void {
@@ -486,7 +486,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.outputText("You suggest she visit Izma again.  Maybe this time she won't get tied up again?");
         this.outputText("\n\nSophie squeals, \"<i>REAAALLY?</i>\" before taking off towards the other side of camp.  This should be good.");
         this.flags[kFLAGS.TOLD_SOPHIE_TO_IZMA] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -568,8 +568,8 @@ export class SophieBimbo extends NPCAwareContent {
             this.outputText("\n\nYour daughter is growing up so fast!  Already, her body is developing, breasts budding into supple bumps on her chest.  Her hips are starting to swell into the trademark birthing hips and round grabbable ass harpies are famous for.\n");
         }
         this.menu();
-        if (this.bimboSophie()) this.addButton(4, "Back", this.approachBimboSophieInCamp);
-        else this.addButton(4, "Back", this.sophieFollowerScene.followerSophieMainScreen);
+        if (this.bimboSophie()) this.addButton(this, 4, "Back", this.approachBimboSophieInCamp);
+        else this.addButton(this, 4, "Back", this.sophieFollowerScene.followerSophieMainScreen);
     }
 
     //Unlock resistance:
@@ -646,11 +646,11 @@ export class SophieBimbo extends NPCAwareContent {
         this.sophieScene.luststickApplication(4);
         if (this.player.inte * 2 < this.player.cor + this.player.lib) {
             this.outputText("There's no way you could ever turn her down at this point... just look at her lips... they'd never lie to you.  It'll feel so good...", false);
-            this.doNext(this.bimboSophieSixtyNineAfterCunnilingus);
+            this.doNext(this, this.bimboSophieSixtyNineAfterCunnilingus);
         }
         else {
             this.outputText("What do you do?", false);
-            this.simpleChoices("Sixtynine", this.bimboSophieSixtyNineAfterCunnilingus, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+            this.simpleChoices(this, "Sixtynine", this.bimboSophieSixtyNineAfterCunnilingus, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
         }
     }
     //SixtyNine Continuation - GOILS you're a wreckin' machine
@@ -728,7 +728,7 @@ export class SophieBimbo extends NPCAwareContent {
             this.dynStats("lib", 1, "sen", -1);
             this.sophieScene.luststickApplication(5);
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private buttFuckBimboSophie(): void {
@@ -782,7 +782,7 @@ export class SophieBimbo extends NPCAwareContent {
         if (this.sophieIsInSeason()) this.sophiePregChance();
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //TitFuck
@@ -825,7 +825,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.sophieScene.luststickApplication(5);
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Bimbo Sophie Camp Event – (If the player has an Ovi Elixir)
@@ -847,7 +847,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.flags[kFLAGS.TIMES_SOPHIE_HAS_DRUNK_OVI_ELIXIR]++;
         if (this.player.hasCock()) daddy = this.beBimboSophiesSugarDaddy;
         if (this.player.hasVagina()) mommy = this.beBimboSophiesSugarMommy;
-        this.simpleChoices("Daddy", daddy, "Mommy", mommy, "", undefined, "", undefined, "Leave", this.playerMenu);
+        this.simpleChoices(this, "Daddy", daddy, "Mommy", mommy, "", undefined, "", undefined, "Leave", this.playerMenu);
     }
 
     //[Daddy]
@@ -1061,7 +1061,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.dynStats("lib", .5, "sen", -4);
         if (!nice && this.player.cor < 50) this.dynStats("cor", 1);
         this.sophieScene.luststickApplication(5);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //PREGNANCY EXPACK
@@ -1246,14 +1246,14 @@ export class SophieBimbo extends NPCAwareContent {
         if (this.player.cumQ() < 5000) this.player.cumMultiplier += 3;
         this.sophieScene.luststickApplication(8);
         this.menu();
-        this.addButton(0, "Next", this.postSophieImpreg);
+        this.addButton(this, 0, "Next", this.postSophieImpreg);
     }
 
     private postSophieImpreg(): void {
         this.clearOutput();
         this.sophieSprite();
         this.outputText("When you wake, Sophie is snuggled up next to you, her arms and legs wrapped around you affectionately.  A cup full of water, along with several strips of dried meat sit nearby... apparently she got them while you were out, knowing how thirsty and hungry you'd be.  You run your fingers through her platinum, down-soft hair.  Having a live-in bimbo isn't really all that bad.");
-        this.doNext(this.camp.returnToCampUseEightHours);
+        this.doNext(this, this.camp.returnToCampUseEightHours);
     }
     //Too Big Impregnation Sex*
     //Sophie starts grinding on top, hypno-compelling you to get hornier and hornier until you flip her over and full-body titfuck her.  After the first jizz, you get a little winded and lay back, she remounts you and gets you to cum against her entrance, then she snuggles with you and slowly teases and orgasm denials you until you fucking explode and pass out cuddling with her.
@@ -1292,14 +1292,14 @@ export class SophieBimbo extends NPCAwareContent {
         this.sophieScene.luststickApplication(8);
         //[Next]
         this.menu();
-        this.addButton(0, "Next", this.postSophieTooBigImpreg);
+        this.addButton(this, 0, "Next", this.postSophieTooBigImpreg);
     }
 
     private postSophieTooBigImpreg(): void {
         this.clearOutput();
         this.sophieSprite();
         this.outputText("Sophie milks you through three more orgasms before she finally tires, and by that point, you're equally exhausted.  You snuggle up next to her and pass out, barely rousing when she begins kissing your manhood during the nap for a fourth helping of your spillable seed.  When you awaken nearly eight hours later, she's snoring soundly, with a skin of water and strips of dried meat left nearby for you to restore yourself.  Life with a bimbo isn't so bad!");
-        this.doNext(this.camp.returnToCampUseEightHours);
+        this.doNext(this, this.camp.returnToCampUseEightHours);
     }
 
     //Sophie Move In Request Scene*
@@ -1313,8 +1313,8 @@ export class SophieBimbo extends NPCAwareContent {
 
         this.outputText("\n\nThe bimbo harpy seems genuine in her desire for companionship, though judging from the moisture that trickles from her cleft and down her feathery thighs, she'll probably be fucking you at some point, even if it isn't in the middle of the night.  Do you want to take the posh-bodied girl to bed with you at night?");
         this.menu();
-        this.addButton(0, "Yes", this.yesSophieSleepWith);
-        this.addButton(1, "Nah", this.noSophieSleepWith);
+        this.addButton(this, 0, "Yes", this.yesSophieSleepWith);
+        this.addButton(this, 1, "Nah", this.noSophieSleepWith);
     }
 
     //Yes*
@@ -1332,7 +1332,7 @@ export class SophieBimbo extends NPCAwareContent {
         }
         this.outputText(" midriff and cushiony tits against you.  \"<i>You're awesome, [name], you know that?  You're totally " + this.player.mf("hunky", "cute") + " AND awesome!</i>\"  She spins about, dancing happily and shaking her voluptuous backside in your direction as she goes.");
         this.flags[kFLAGS.SLEEP_WITH] = "Sophie";
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //No (Also Used To Kick Her Out Of Bed)*
     private noSophieSleepWith(): void {
@@ -1340,7 +1340,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.sophieSprite();
         this.outputText("Sophie casts her eyes down and says, \"<i>I get it...  I'll just... sleep over in my nest then.  Alone...</i>\"  She shambles away, her tail feathers limp against her big, bouncing butt as she goes, clearly unhappy with the decision.  You can hear her sniffling even after she vanishes around a rock, trying not to cry.");
         if (this.flags[kFLAGS.SLEEP_WITH] == "Sophie") this.flags[kFLAGS.SLEEP_WITH] = "";
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Option To Move Her In Any Time If Initially Declined*
@@ -1354,7 +1354,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.outputText("\n\n\"<i>Really?  Like, I can snuggle up next to you when you sleep while you use my boobs as pillows?!</i>\" she asks, unable to keep a girlish squeal of delight out of her voice.  Sophie bounces up and down; her wings flapping with wild excitement, nearly blinding you from the cloud of dust they kick up.  \"<i>I promise I won't bother while you sleep or anything, but maybe we could like, have quickies in the morning?</i>\"");
         this.outputText("\n\nYou roll your eyes and give her a thumbs up.  After all, you can't really sleep with a sex-crazed bimbo and NOT expect to be 'mounted' at some point.");
         this.flags[kFLAGS.SLEEP_WITH] = "Sophie";
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Sophie Morning Sex*
@@ -1410,8 +1410,8 @@ export class SophieBimbo extends NPCAwareContent {
         if (this.sophieIsInSeason()) this.sophiePregChance();
         this.player.orgasm();
         this.dynStats("sen", -2);
-        if (morning) this.doNext(this.playerMenu);
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        if (morning) this.doNext(this, this.playerMenu);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Pregnant Sophie Morning Sex*
@@ -1479,8 +1479,8 @@ export class SophieBimbo extends NPCAwareContent {
         else this.outputText(" when you go to get dressed.  You'll have to make sure to wash clean at some point, but for now you enjoy the sweet scent of your pet bimbo's cum.");
         this.player.orgasm();
         this.dynStats("sen", -2);
-        if (morning) this.doNext(this.playerMenu);
-        else this.doNext(this.camp.returnToCampUseOneHour);
+        if (morning) this.doNext(this, this.playerMenu);
+        else this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Very Pregnant Sophie Tit Jobs*
@@ -1521,8 +1521,8 @@ export class SophieBimbo extends NPCAwareContent {
         this.dynStats("lus=", 100, "resisted", false);
         //[Let Her] [Hog Wild]
         this.menu();
-        this.addButton(0, "Let Her", this.letSophieMilkYoDick);
-        this.addButton(1, "Hog Wild", this.goHogWildOnSophieBewbs);
+        this.addButton(this, 0, "Let Her", this.letSophieMilkYoDick);
+        this.addButton(this, 1, "Hog Wild", this.goHogWildOnSophieBewbs);
     }
 
     //Hog Wild*
@@ -1564,7 +1564,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", -2);
         this.sophieScene.luststickApplication(8);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Let Her*
@@ -1630,7 +1630,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", -2);
         this.sophieScene.luststickApplication(8);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Sophie Births Egg*
@@ -1820,14 +1820,14 @@ export class SophieBimbo extends NPCAwareContent {
             else {
                 this.outputText("\n\nYou smile ruefully and direct her to turn her attentions back to her mother, who even now is flapping her wings excitedly, promising her daughter the many delights of adulthood she'll get to sample, once she gets her own mate.  You just hope she doesn't cause any trouble in camp.");
             }
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
         //FIRST TIME:
         else {
             this.outputText("\n\nIt seems obvious that the real question is whether you want to have an incestuous relationship with your freshly matured offspring.  If you answer yes, you're probably going to wind up with another bird-girl lusting after you (and maybe more, down the road).  You had better say no if you want to keep things platonic.");
             this.menu();
-            this.addButton(0, "Yes - Incest", this.yesToSophieIncest);
-            this.addButton(1, "No", this.noToSophieIncest);
+            this.addButton(this, 0, "Yes - Incest", this.yesToSophieIncest);
+            this.addButton(this, 1, "No", this.noToSophieIncest);
         }
         this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT]++;
     }
@@ -1843,14 +1843,14 @@ export class SophieBimbo extends NPCAwareContent {
         this.outputText("is more than happy to return the sudden affection, her hands running over your body as she grinds against you teasingly.  With a firm open-palm spank to her rump, you release her, telling both harpies that you will play with them again very soon.  The two horny girls giggle together before talking about all the fun they will have.");
         this.dynStats("lus", 5);
         this.flags[kFLAGS.SOPHIE_FAMILY_INCEST] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //[nono]
     private noToSophieIncest(): void {
         this.clearOutput();
         this.sophieSprite();
         this.outputText("Sliding your hand up to your daughter's cheek, you stroke her softly before running your fingers through her feathery hair.  Your soft touch draws a gentle, bird-like coo from your daughter.  You guide her down and tell her she should rest after such a transformation.  She should seek mates outside her family.  You don't want to encourage such blatantly sexual behavior so soon, and you sit her down in Sophie's nest to rest.  Instantly, her mother is at her side, fluttering excitedly and drawing her daughter into a conversation about you and all the fun she can have once she finds a mate of her own.");
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Izma dominating Sophie bondage.
@@ -1896,8 +1896,8 @@ export class SophieBimbo extends NPCAwareContent {
         this.dynStats("lus", 10 + this.player.lib / 10);
         //[Interrupt] [Watch]
         this.menu();
-        this.addButton(0, "Interrupt", this.interruptSophieIzma);
-        this.addButton(1, "Watch", this.watchIzmaSophie);
+        this.addButton(this, 0, "Interrupt", this.interruptSophieIzma);
+        this.addButton(this, 1, "Watch", this.watchIzmaSophie);
     }
 
     //(LEGGO MY EGGO)
@@ -1909,7 +1909,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.outputText("\n\nYou narrow your eyes at them and look to the large-breasted slut and ask if this is true.  \"<i>No, [name], but I'm just <b>so</b> horny!</i>\"");
 
         this.outputText("\n\nYou toss an icy stare at Izma and order her to cut Sophie down.  She does so, albeit reluctantly.  You remind Izma that you're HER Alpha, not the other way around, and that she should keep her hands off the merchandise.  You grope the bimbo's ample ass and lead her away from Izma's section of the camp, whispering that she'll get hers in due time.");
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     //(Watch like the voyeur you are)
@@ -1950,7 +1950,7 @@ export class SophieBimbo extends NPCAwareContent {
 
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 }
 

@@ -165,7 +165,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             if (this.player.hasVagina()) vaginaRape = this.rapeAnemoneWithPussy;
             var bikiniTits = undefined;
             if (this.player.hasVagina() && this.player.biggestTitSize() >= 4 && this.player.armor instanceof LustyMaidensArmor) bikiniTits = (this.player.armor as LustyMaidensArmor).lustyMaidenPaizuri;
-            this.choices("Your Ass", this.victoryButtholeRape, "Your Cock", cockRape, "Your Vagina", vaginaRape, "Her Butt", anal, "Lay Egg", eggs,
+            this.choices(this, "Your Ass", this.victoryButtholeRape, "Your Cock", cockRape, "Your Vagina", vaginaRape, "Her Butt", anal, "Lay Egg", eggs,
                 "", undefined, "", undefined, "", undefined, "B.Titfuck", bikiniTits, "Leave", this.cleanupAfterCombat);
         }
         else this.cleanupAfterCombat();
@@ -627,7 +627,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             anemone.applyVenom(1);
             return;
         }
-        this.simpleChoices("Give", this.giveMino, "Don't Give", this.dontGiveMino, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Give", this.giveMino, "Don't Give", this.dontGiveMino, "", undefined, "", undefined, "", undefined);
     }
 
     //'Don't Give':
@@ -666,10 +666,10 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             //Normal male: -requires dick of area < 36
             if (this.player.cockTotal() > 0) cockRape = this.rapeAnemoneWithDick;
             if (this.player.hasVagina()) vaginaRape = this.rapeAnemoneWithPussy;
-            this.simpleChoices("Your ass", this.victoryButtholeRape, "Your Cock", cockRape, "Your Vagina", vaginaRape, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+            this.simpleChoices(this, "Your ass", this.victoryButtholeRape, "Your Cock", cockRape, "Your Vagina", vaginaRape, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
             return;
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //anal
@@ -728,7 +728,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         var hotdog = undefined;
         if (!this.player.isTaur()) hotdog = this.hotdogTheAnemone;
 
-        this.simpleChoices("FUCK IT", this.anemoneQuoteUnquoteAnal, "Hotdog", hotdog, "", undefined, "", undefined, "Fuck Off", this.fuckingAssholelessAnemoneeeez);
+        this.simpleChoices(this, "FUCK IT", this.anemoneQuoteUnquoteAnal, "Hotdog", hotdog, "", undefined, "", undefined, "Fuck Off", this.fuckingAssholelessAnemoneeeez);
     }
 
     //[FUCK IT] (if cock fit 48, use cock; else use clit scenes)
@@ -1051,7 +1051,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         this.outputText("\n\nAnd... she's plunging the dipper into the barrel around her ankles.  You can hear it scraping the sides and bottom as she swishes it around to fill it up.  Politely and carefully handing it back to you, she resumes her seat and the water level rises slightly to cover her legs.  You stare at the dipper and then at her; she returns your gaze unflinchingly, splashing some liquid on her exposed gills with an idle hand.");
         this.outputText("\n\nDoes she expect you to drink this?  And does she plan to live in your camp?  Won't it be absurdly toilsome to evict someone from your water barrel without speaking a word of their language or using physical force?  Your mind, unwilling to fathom answers to these questions - which is just as well since they're all variations on 'yes' - latches onto the trivial like a lifeline.  The water level was definitely lower than you left it before your nap.  Maybe she absorbed it through her skin as she grew to adulthood?  This might explain why her hips and thighs are better developed than her chest and 'hair'.");
         this.outputText("\n\nChanging tack to work your hesitant brain around to the real issue, you address her again; assisted by clumsy pantomime, you ask her if she intends to stay in your barrel forever.  She smiles widely, her eyes lighting up, then makes a show of bowing her head graciously several times.  Oh... she thought it was an invitation.  The wind spills out of your sails and your shoulders slump in the face of her cheerful imperturbability.  Looks like words won't work; you'll have to reach her with your fists.  Do you eject the anemone from your camp?");
-        this.simpleChoices("Keep It", this.keepAnemoneKid, "Eject", this.getRidOfAnemone, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Keep It", this.keepAnemoneKid, "Eject", this.getRidOfAnemone, "", undefined, "", undefined, "", undefined);
         //[yesno]
     }
 
@@ -1063,7 +1063,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         this.outputText("\n\nUpon reaching your destination, you dump the contents of the anemone's erstwhile apartment into the babbling brook, then point down-current toward the lake and set your jaw.  Glancing at your stony demeanor, the blue girl steps into the water, moistens her gills, and then begins the long trek to her ancestral home.");
         //(set Kidswag to -1)
         this.flags[kFLAGS.ANEMONE_KID] = -1;
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     //[no, bonsai anemone is awesome and fuck the haters]
@@ -1081,7 +1081,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         this.outputText("\n\n(<b>Kid A can be found in your \"Stash\"!</b>)");
         //set Kidswag flag to 1
         this.flags[kFLAGS.ANEMONE_KID] = 1;
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
 
@@ -1131,13 +1131,13 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
 
         //Tutor, N.Watch, and Evict require the anemone to be present
         this.menu();
-        this.addButton(0, "Item", item);
-        this.addButton(1, weaponT, weaponB);
+        this.addButton(this, 0, "Item", item);
+        this.addButton(this, 1, weaponT, weaponB);
         if (this.flags[kFLAGS.KID_SITTER] <= 1) {
-            if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] != '' && this.player.fatigue <= 90) this.addButton(3, "Tutor", this.tutorAnemoneKid);
+            if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] != '' && this.player.fatigue <= 90) this.addButton(this, 3, "Tutor", this.tutorAnemoneKid);
             else if (this.player.fatigue > 90) this.outputText("\n\nYou're too tired to tutor Kid A.");
-            this.addButton(4, "Watch", this.anemoneWatchToggle);
-            this.addButton(8, "Evict", this.evictANemone);
+            this.addButton(this, 4, "Watch", this.anemoneWatchToggle);
+            this.addButton(this, 8, "Evict", this.evictANemone);
             var sex: boolean = false;
             if (this.flags[kFLAGS.HAD_KID_A_DREAM] > 0 && this.flags[kFLAGS.ANEMONE_KID] >= 2) {
                 if (this.kidAXP() >= 40) {
@@ -1147,7 +1147,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                             else this.outputText("\n\nYour dick is too big for Kid A to do anything with.");
                         }
                         if (this.player.hasVagina()) sex = true;
-                        if (sex == true) this.addButton(2, "Sex", this.kidASex, false);
+                        if (sex == true) this.addButton(this, 2, "Sex", this.kidASex, false);
                     }
                     else this.outputText("\n\nYou aren't aroused enough to have sex with her right now.");
                 }
@@ -1155,7 +1155,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             }
 
         }
-        this.addButton(9, "Back", this.inventory.stash);
+        this.addButton(this, 9, "Back", this.inventory.stash);
     }
 
     //[Item](only appears if hourssinceKiditem flag >= 16)
@@ -1230,12 +1230,12 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         var foundItem: boolean = false;
         for (var x: number = 0; x < 5; x++) {
             if (this.player.itemSlots[x].quantity > 0 && giveableToAnemone(this.player.itemSlots[x].itype)) {
-                this.addButton(x, this.player.itemSlots[x].itype.shortName + " x" + this.player.itemSlots[x].quantity, this.placeInAnemone, x);
+                this.addButton(this, x, this.player.itemSlots[x].itype.shortName + " x" + this.player.itemSlots[x].quantity, this.placeInAnemone, x);
                 foundItem = true;
             }
         }
         if (!foundItem) this.outputText("\n<b>You have no appropriate items to have your offspring hold.</b>");
-        this.addButton(9, "Back", this.inventory.stash);
+        this.addButton(this, 9, "Back", this.inventory.stash);
     }
 
     private placeInAnemone(slot: number): void {
@@ -1245,7 +1245,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         //(set Kidweapon to item name, remove from inventory)
         this.flags[kFLAGS.ANEMONE_WEAPON_ID] = this.player.itemSlots[slot].itype.id;
         this.player.itemSlots[slot].removeOneItem();
-        this.doNext(this.approachAnemoneBarrel);
+        this.doNext(this, this.approachAnemoneBarrel);
     }
 
     //[Take Weapon]
@@ -1282,7 +1282,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 this.flags[kFLAGS.ANEMONE_WATCH] = 1;
             }
         }
-        this.doNext(this.approachAnemoneBarrel);
+        this.doNext(this, this.approachAnemoneBarrel);
     }
 
     //[Tutor](only appears if Kid A is armed and present)
@@ -1291,7 +1291,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         //(if lust > 99, output)
         if (this.player.lust > 99) {
             this.outputText("You're way too horny to focus on any sort of weapon instruction right now, and the anemone can see it in your expression as your gaze wanders over her body; she blushes a deep blue and shrinks into her barrel with a shy glance.");
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         const weaponID = this.flags[kFLAGS.ANEMONE_WEAPON_ID];
@@ -1453,7 +1453,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             this.outputText("\nYour bleary eyes open to a familiar-looking upside-down blue face.  It takes a minute before your brain can reconstruct the events preceding your lapse in consciousness; as soon as your expression gives a hint of understanding, Kid A sheepishly greets you.");
             this.outputText("\n\n\"<i>Um... hi.</i>\"");
             //(lose 8 hours, restore HP amount consonant with 8hrs rest)
-            this.doNext(this.camp.returnToCampUseEightHours);
+            this.doNext(this, this.camp.returnToCampUseEightHours);
             this.player.createStatusAffect(StatusAffects.PostAnemoneBeatdown, 0, 0, 0, 0);
             return;
         }
@@ -1470,14 +1470,14 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
 
                 this.outputText("\n\nAppearing to reach a decision, she reaches out and pats you apologetically on the head, then stands up and heads back to her barrel.");
                 //no effect on lust, pass 1 hour
-                this.doNext(this.camp.returnToCampUseOneHour);
+                this.doNext(this, this.camp.returnToCampUseOneHour);
             }
         }
         //else if no HP or lust outcome triggered: pass 1 hour, gain 40 xp, increment fatigue by 10
         else {
             if (this.player.level < 10) this.player.XP += 30;
             this.fatigue(10);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -1517,7 +1517,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             this.player.orgasm();
             this.dynStats("lus", 30);
             if (this.flags[kFLAGS.ANEMONE_KID] < 3) this.flags[kFLAGS.ANEMONE_KID] = 3;
-            this.doNext(this.camp.returnToCampUseTwoHours);
+            this.doNext(this, this.camp.returnToCampUseTwoHours);
             return true;
         }
         //sex revisited, for when KidXP >= 40 and confidence is mounting
@@ -1600,7 +1600,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             //lose 100 lust, pass 2 hr, if Kidswag = 1, set Kidswag = 2
             this.player.orgasm();
             if (this.flags[kFLAGS.ANEMONE_KID] == 1) this.flags[kFLAGS.ANEMONE_KID] = 2;
-            this.doNext(this.camp.returnToCampUseTwoHours);
+            this.doNext(this, this.camp.returnToCampUseTwoHours);
             return true;
         }
         //femsex
@@ -1629,7 +1629,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             this.player.slimeFeed();
             this.player.orgasm();
             if (this.flags[kFLAGS.ANEMONE_KID] == 1) this.flags[kFLAGS.ANEMONE_KID] = 2;
-            this.doNext(this.camp.returnToCampUseEightHours);
+            this.doNext(this, this.camp.returnToCampUseEightHours);
             return true;
         }
         return false;
@@ -1641,7 +1641,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         this.outputText("Really evict the anemone?");
         this.spriteSelect(71);
         //[Yes][No]
-        this.doYesNo(this.reallyEvictDaAnemone, this.approachAnemoneBarrel);
+        this.doYesNo(this, this.reallyEvictDaAnemone, this.approachAnemoneBarrel);
     }
 
     //Yes]
@@ -1656,7 +1656,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         this.outputText("\n\nThe two girls continue to greet each other in this fashion as their attention shifts away from you, and you wonder exactly what kind of pernicious meme you've inflicted on the anemone community.");
         //set Kidswag to -1, pass 1 hour
         this.flags[kFLAGS.ANEMONE_KID] = -1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //dreams: possible once KidXP >= 40; function as visible notice of sex-readiness
@@ -1698,7 +1698,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             this.outputText("  Sighing, you turn over and attempt to return to sleep despite the pervading smell of semen.");
         }
         this.dynStats("lus", 50 + this.player.sens / 2, "resisted", false);
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     //Kid-and-kid interaction scenes:
@@ -1762,7 +1762,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         }
         //(else)
         else this.outputText("\n\nThe anemone doesn't hesitate, but bursts into the middle of the shark-girls like a bomb, shrieking and making huge splashes, scattering them in multiple directions.  She quickly scoops up both skins' worth of water and then runs, giggling giddily with the shark-girls dogging her heels until she's halfway back to camp.");
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 

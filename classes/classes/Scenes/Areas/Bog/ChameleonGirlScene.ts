@@ -55,7 +55,7 @@ export class ChameleonGirlScene extends BaseContent {
             this.outputText("\n\nA sudden scrape sounds behind you!  You spin around in time to see the familiar shape of a chameleon girl peeling off the trees.  She approaches you with a menacing glare in her eyes, growling \"<i>This is my bog!  Get out now or... or face the consequences!</i>\"  You raise your " + this.player.weaponName + " and prepare to defend yourself.");
         }
         this.flags[kFLAGS.TIMES_MET_CHAMELEON]++;
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }//LOSS SCENES (Intro) (Z edited)
     public loseToChameleonGirl(): void {
         this.clearOutput();
@@ -191,7 +191,7 @@ export class ChameleonGirlScene extends BaseContent {
         //let PC use item
         if ((this.player.hasItem(this.consumables.SUCMILK) || this.player.hasItem(this.consumables.P_S_MLK)) && this.player.hasCock()) item = this.useAnItemOnTheChamcham;
         else if (this.player.hasItem(this.consumables.SENSDRF) && (this.player.hasItem(this.consumables.L_DRAFT) || this.player.hasItem(this.consumables.F_DRAFT))) item = this.useAnItemOnTheChamcham;
-        this.simpleChoices("Use Dick", dick, "Use Pussy", pussy, "Herm Style", herm, "Use Item", item, "Leave", this.cleanupAfterCombat);
+        this.simpleChoices(this, "Use Dick", dick, "Use Pussy", pussy, "Herm Style", herm, "Use Item", item, "Leave", this.cleanupAfterCombat);
     }
 
     //-Herm Victory (Z edited)
@@ -288,7 +288,7 @@ export class ChameleonGirlScene extends BaseContent {
         if ((this.player.hasItem(this.consumables.SUCMILK) || this.player.hasItem(this.consumables.P_S_MLK)) && this.player.hasCock()) milk = this.giveTheChameleonASuccubiMilk;
         if (this.player.hasItem(this.consumables.SENSDRF) && (this.player.hasItem(this.consumables.L_DRAFT) || this.player.hasItem(this.consumables.F_DRAFT))) drafts = this.doseDatChameleonWithLustAndSensitivityDrafts;
 
-        this.simpleChoices("SuccMilk", milk, "LustnSensD.", drafts, "", undefined, "", undefined, "Back", this.defeatChameleonGirl);
+        this.simpleChoices(this, "SuccMilk", milk, "LustnSensD.", drafts, "", undefined, "", undefined, "Back", this.defeatChameleonGirl);
     }
 
     //-P. Succubi Milk or Succubi Milk (Z edited)

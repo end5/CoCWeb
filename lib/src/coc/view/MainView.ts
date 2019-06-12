@@ -159,30 +159,6 @@ export class MainView {
         }
     };
 
-    public set onNewGameClick(callback: any) {
-        this.newGameButton.callback = callback;
-    };
-
-    public set onDataClick(callback: any) {
-        this.dataButton.callback = callback;
-    };
-
-    public set onStatsClick(callback: any) {
-        this.statsButton.callback = callback;
-    };
-
-    public set onLevelClick(callback: any) {
-        this.levelButton.callback = callback;
-    };
-
-    public set onPerksClick(callback: any) {
-        this.perksButton.callback = callback;
-    };
-
-    public set onAppearanceClick(callback: any) {
-        this.appearanceButton.callback = callback;
-    };
-
     public showMenuButton(name: string): void {
         var button: CoCButton = this.getMenuButtonByName(name);
         button.visible = true;

@@ -81,14 +81,14 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
             this.outputText("  Do you have your way with her or leave?", false);
             var dildo = (this.player.hasKeyItem("Deluxe Dildo") >= 0 ? this.getGame().sharkGirlGetsDildoed : undefined);
             if (this.player.gender == 1)
-                this.simpleChoices("Use Dick", this.sharkgirlDickFuck, "Pussy w/69", undefined, "Dildo Rape", dildo, "", undefined, "Leave", this.cleanupAfterCombat);
+                this.simpleChoices(this, "Use Dick", this.sharkgirlDickFuck, "Pussy w/69", undefined, "Dildo Rape", dildo, "", undefined, "Leave", this.cleanupAfterCombat);
             else if (this.player.gender == 2) {
-                this.simpleChoices("Yes", this.sharkgirlSixtyNine, "", undefined, "Dildo Rape", dildo, "", undefined, "Leave", this.cleanupAfterCombat);
+                this.simpleChoices(this, "Yes", this.sharkgirlSixtyNine, "", undefined, "Dildo Rape", dildo, "", undefined, "Leave", this.cleanupAfterCombat);
             }
             else if (this.player.gender == 3) {
                 if (this.player.isNaga())
-                    this.simpleChoices("Use Dick", this.sharkgirlDickFuck, "Pussy Oral", this.sharkgirlSixtyNine, "Dildo Rape", dildo, "", undefined, "Leave", this.cleanupAfterCombat);
-                else this.simpleChoices("Use Dick", this.sharkgirlDickFuck, "Pussy w/69", this.sharkgirlSixtyNine, "Dildo Rape", dildo, "", undefined, "Leave", this.cleanupAfterCombat);
+                    this.simpleChoices(this, "Use Dick", this.sharkgirlDickFuck, "Pussy Oral", this.sharkgirlSixtyNine, "Dildo Rape", dildo, "", undefined, "Leave", this.cleanupAfterCombat);
+                else this.simpleChoices(this, "Use Dick", this.sharkgirlDickFuck, "Pussy w/69", this.sharkgirlSixtyNine, "Dildo Rape", dildo, "", undefined, "Leave", this.cleanupAfterCombat);
             }
         }
         else this.cleanupAfterCombat();
@@ -179,7 +179,7 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
         this.outputText("They are surprisingly strong given their stature, and even a Minotaur would have trouble prying them all off. Combined with a strong wave of arousal flooding your body, you find it rather hard to focus on anything. They must've funnelled a few Lust Drafts down your throat while you were sleeping.\n\n", false);
         this.outputText("\"<i>Wh-what's going on?</i>\" you ask, your voice shifting between arousal and fear. The young girl straddling your chest giggles while drawing circles on your skin with her finger, \"<i>Aw daddy, don't be scared. You're gonna play with your kids! Doesn't that sound fun?</i>\" Another adds, \"<i>Since you seem to love knocking up us shark girls, we figured you'd like to make a living out of it...</i>\" Your eyes widen slightly and you ask her, \"<i>What do you mean by that?</i>\"\n\n", false);
         this.outputText("The girls look at each other and grin before the one straddling you pulls out an odd-looking Shark's Tooth. \"<i>Oh you'll see. Open wide...!</i>\"", false);
-        this.doNext(this.sharkBadEnd2);
+        this.doNext(this, this.sharkBadEnd2);
     }
 
     //[Next]
@@ -307,7 +307,7 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
             this.cleanupAfterCombat();
             return;
         }
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 }
 

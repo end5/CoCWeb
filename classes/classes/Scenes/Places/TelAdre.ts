@@ -103,7 +103,7 @@ export class TelAdre extends BaseContent {
         else {
             this.outputText("While out prowling the desert dunes you manage to spy the desert city of Tel'Adre again.  You could hike over to it again, but some part of you fears being rejected for being 'impure' once again.  Do you try?", false);
         }
-        this.doYesNo(this.encounterTelAdre, this.camp.returnToCampUseOneHour);
+        this.doYesNo(this, this.encounterTelAdre, this.camp.returnToCampUseOneHour);
     }
 
     //player chose to approach the city in the distance
@@ -133,7 +133,7 @@ export class TelAdre extends BaseContent {
         if (this.player.findStatusAffect(StatusAffects.Exgartuan) >= 0 || this.player.cor >= 70) {
             this.outputText("The crystal pendant begins to vibrate in the air, swirling around and glowing dangerously black.  Edryn snatches her hand back and says, \"<i>I'm sorry, but you're too far gone to step foot into our city.  If by some miracle you can shake the corruption within you, return to us.</i>\"\n\n", false);
             this.outputText("You shrug and step back.  You could probably defeat these two, but you know you'd have no hope against however many friends they had beyond the walls.  You turn around and leave, a bit disgruntled at their hospitality.  After walking partway down the dune you spare a glance over your shoulder and discover the city has vanished!  Surprised, you dash back up the dune, flinging sand everywhere, but when you crest the apex, the city is gone.", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         //-50+ corruption or corrupted Jojo
@@ -150,7 +150,7 @@ export class TelAdre extends BaseContent {
         }
         this.outputText("The vixen Urta gestures towards the smaller door and asks, \"<i>Would you like a tour of Tel'Adre, newcomer?</i>\"\n\n", false);
         this.outputText("You remember your etiquette and nod, thankful to have a quick introduction to such a new place.  Urta leaves Edryn to watch the gate and leads you inside.  You do notice her gait is a bit odd, and her fluffy fox-tail seems to be permanently wrapped around her right leg.  The door closes behind you easily as you step into the city of Tel'Adre...", false);
-        this.doNext(this.telAdreTour);
+        this.doNext(this, this.telAdreTour);
     }
 
     private telAdreTour(): void {
@@ -165,7 +165,7 @@ export class TelAdre extends BaseContent {
         this.outputText("A bit further on, you're shown a piercing parlor, apparently another favorite of Urta's.  A cute human girl with cat-like ears peeks out the front and gives you both a friendly wave.  It's so strange to see so many people together in one place, doing things OTHER than fucking.  The whole thing makes you miss your hometown more than ever.  Tears come to your eyes unbidden, and you wipe them away, glad to at least have this one reminder of normalcy.  Urta politely pretends not to notice, though the tail she keeps wrapped around her leg twitches as she wraps up the tour.\n\n", false);
         this.outputText("She gives you a friendly punch on the shoulder and says, \"<i>Okay, gotta go!  Be good and stay out of trouble, alright?</i>\"\n\n", false);
         this.outputText("Before you can answer, she's taken off back down the street, probably stopping off at 'The Wet Bitch' for a drink.  Strange, her departure was rather sudden...", false);
-        this.doNext(this.telAdreMenu);
+        this.doNext(this, this.telAdreMenu);
     }
 
     public telAdreMenu(): void {
@@ -243,29 +243,29 @@ export class TelAdre extends BaseContent {
         else if (this.flags[kFLAGS.ARIAN_PARK] >= 4 && !kGAMECLASS.arianScene.arianFollower())
             homes = true;
         this.menu();
-        this.addButton(0, "Shops", this.armorShops);
-        this.addButton(1, "Bakery", this.bakeryScene.bakeryuuuuuu);
-        this.addButton(2, "Bar", this.enterBarTelAdre);
-        this.addButton(3, "Gym", this.gymDesc);
-        if (homes) this.addButton(4, "Homes", this.houses);
-        if (this.flags[kFLAGS.ARIAN_PARK] > 0 && this.flags[kFLAGS.ARIAN_PARK] < 4) this.addButton(5, "Park", kGAMECLASS.arianScene.visitThePark);
-        this.addButton(6, "Pawn", this.oswaldPawn);
-        this.addButton(7, "Tower", this.library.visitZeMagesTower);
-        this.addButton(8, "Weapons", this.weaponShop);
-        this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
+        this.addButton(this, 0, "Shops", this.armorShops);
+        this.addButton(this, 1, "Bakery", this.bakeryScene.bakeryuuuuuu);
+        this.addButton(this, 2, "Bar", this.enterBarTelAdre);
+        this.addButton(this, 3, "Gym", this.gymDesc);
+        if (homes) this.addButton(this, 4, "Homes", this.houses);
+        if (this.flags[kFLAGS.ARIAN_PARK] > 0 && this.flags[kFLAGS.ARIAN_PARK] < 4) this.addButton(this, 5, "Park", kGAMECLASS.arianScene.visitThePark);
+        this.addButton(this, 6, "Pawn", this.oswaldPawn);
+        this.addButton(this, 7, "Tower", this.library.visitZeMagesTower);
+        this.addButton(this, 8, "Weapons", this.weaponShop);
+        this.addButton(this, 9, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     private armorShops(): void {
         this.menu();
-        this.addButton(0, "Blacksmith", this.armorShop);
-        this.addButton(1, "Piercing", this.piercingStudio);
-        this.addButton(2, "Tailor", this.tailorShoppe);
+        this.addButton(this, 0, "Blacksmith", this.armorShop);
+        this.addButton(this, 1, "Piercing", this.piercingStudio);
+        this.addButton(this, 2, "Tailor", this.tailorShoppe);
 
         if (this.flags[kFLAGS.LOPPE_PC_MET_UMA] == 1) {
-            this.addButton(3, "Clinic", this.umasShop.enterClinic);
+            this.addButton(this, 3, "Clinic", this.umasShop.enterClinic);
         }
 
-        this.addButton(4, "Back", this.telAdreMenu);
+        this.addButton(this, 4, "Back", this.telAdreMenu);
     }
 
     public houses(): void {
@@ -281,12 +281,12 @@ export class TelAdre extends BaseContent {
             }
         }
         this.menu();
-        if (this.flags[kFLAGS.ARIAN_PARK] >= 4 && !kGAMECLASS.arianScene.arianFollower()) this.addButton(0, "Arian's", kGAMECLASS.arianScene.visitAriansHouse);
-        this.addButton(1, "Orphanage", orphanage);
+        if (this.flags[kFLAGS.ARIAN_PARK] >= 4 && !kGAMECLASS.arianScene.arianFollower()) this.addButton(this, 0, "Arian's", kGAMECLASS.arianScene.visitAriansHouse);
+        this.addButton(this, 1, "Orphanage", orphanage);
         if (kGAMECLASS.urtaPregs.urtaKids() > 0 && this.player.hasKeyItem("Spare Key to Urta's House") >= 0)
-            this.addButton(2, "Urta's House", (this.katherine.isAt(Katherine.KLOC_URTAS_HOME) ? this.katherine.katherineAtUrtas : kGAMECLASS.urtaPregs.visitTheHouse));
-        if (this.flags[kFLAGS.KATHERINE_UNLOCKED] >= 5) this.addButton(3, "Kath's Apt", this.katherine.visitAtHome);
-        this.addButton(9, "Back", this.telAdreMenu);
+            this.addButton(this, 2, "Urta's House", (this.katherine.isAt(Katherine.KLOC_URTAS_HOME) ? this.katherine.katherineAtUrtas : kGAMECLASS.urtaPregs.visitTheHouse));
+        if (this.flags[kFLAGS.KATHERINE_UNLOCKED] >= 5) this.addButton(this, 3, "Kath's Apt", this.katherine.visitAtHome);
+        this.addButton(this, 9, "Back", this.telAdreMenu);
     }
 
     private piercingStudio(): void {
@@ -297,15 +297,15 @@ export class TelAdre extends BaseContent {
         this.outputText("The interior of the piercing studio is earthy, leaving the stone floors and walls uncovered, though the windows are covered with woven blankets, sewn from multicolored threads.  There are a number of cushy chairs facing a wall of mirrors, along with a shelf covered in needles, piercings, and strong alcohols.  A brunette prowls about the place, tidying it up during a lull in business.  You dully notice that unlike everyone else in this town, she's mostly human.  Perhaps she came through a portal as well?  She approaches you, and you see a cat tail waving behind her, and a pair of fuzzy feline ears, both covered in piercings, perched atop her head.  Clearly she's been here long enough to pick up some of the local flavor.\n\n", false);
         this.outputText("She introduces herself, \"<i>Hello there " + this.player.mf("sir", "cutie") + ", my name is Yara.  Would you like to get a piercing?</i>\"", false);
         if (!this.flags[kFLAGS.LOW_STANDARDS_FOR_ALL])
-            this.simpleChoices("Pierce", this.pierceMenu, "Remove", this.piercingRemove, "About Her", about, "", null, "Leave", this.telAdreMenu);
+            this.simpleChoices(this, "Pierce", this.pierceMenu, "Remove", this.piercingRemove, "About Her", about, "", null, "Leave", this.telAdreMenu);
         else {
 
             this.outputText("\n\n(Low Standard mode!)\nAlternatively, she might be open to a quick fuck if you ask.");
-            this.choices("Pierce", this.pierceMenu,
+            this.choices(this, "Pierce", this.pierceMenu,
                 "Remove", this.piercingRemove,
                 "", null,
-                "AsFemale", this.createCallBackFunction(this.letsDoYaraSex, true),
-                "AsMale", this.createCallBackFunction(this.letsDoYaraSex, false),
+                "AsFemale", this.createCallBackFunction(this, this.letsDoYaraSex, true),
+                "AsMale", this.createCallBackFunction(this, this.letsDoYaraSex, false),
                 "About Her", about,
                 "", null,
                 "", null,
@@ -321,7 +321,7 @@ export class TelAdre extends BaseContent {
         else this.outputText("you haven't seen many other humans about.", false);
         this.outputText("\n\nShe blushes a little when she answers, her tail curling about her protectively, \"<i>My home city was built around a portal, and the Baron that ruled it insisted that we send a sacrifice through every year.  We were raised believing that if we didn't sacrifice SOMEONE, the gods would become angry and bring our city to ruin.  Of course the whole thing was a sham, but the families of those sacrificed get compensation.  My father tried to whore me out first, but when that didn't work, the bastard had me drugged and sacrificed.  I woke up next to a lake, ate some weird fruit when I got hungry, and I... well, I changed.  Thankfully I found my way here before I ran into any demons, or who knows what would have happened to me!  Tel'Adre has been good to me, and I'm sure it'll be good to you.  Now, how about getting a piercing?</i>\"", false);
         this.dynStats("int", 2, "lus", -5, "cor", -1);
-        this.doNext(this.piercingStudio);
+        this.doNext(this, this.piercingStudio);
     }
     private pierceMenu(): void {
         this.spriteSelect(63);
@@ -360,10 +360,10 @@ export class TelAdre extends BaseContent {
         }
         this.outputText("Yara asks, \"<i>Ok then, what would you like pierced " + this.player.mf("sir", "cutie") + "?  Just keep in mind my piercings are special - they're permanent and CAN'T be removed.</i>\"", true);
         if (clit != null || dick != null || ears != null || eyebrow != null || lip != null || nipples != null || nose != null || tongue != null || vulva != null)
-            this.choices("Clit", clit, "Dick", dick, "Ears", ears, "Eyebrow", eyebrow, "Lip", lip, "Nipples", nipples, "Nose", nose, "Tongue", tongue, "Labia", vulva, "Back", this.piercingStudio);
+            this.choices(this, "Clit", clit, "Dick", dick, "Ears", ears, "Eyebrow", eyebrow, "Lip", lip, "Nipples", nipples, "Nose", nose, "Tongue", tongue, "Labia", vulva, "Back", this.piercingStudio);
         else {
             this.outputText("\n\nYou give yourself a quick once-over and realize there's nowhere left for her to pierce you.  Oh well.", false);
-            this.doNext(this.piercingStudio);
+            this.doNext(this, this.piercingStudio);
         }
     }
 
@@ -372,10 +372,10 @@ export class TelAdre extends BaseContent {
         if (this.player.totalCocks() > 0) this.outputText("\"<i>Ok, this is gonna hurt a LOT, but I've heard good things about it.  What kind of piercing do you want done?</i>\" Yara asks.", true);
         else {
             this.outputText("You realize you don't have a dick to pierce.  Whoops!  Better pick something else...", true);
-            this.doNext(this.pierceMenu);
+            this.doNext(this, this.pierceMenu);
             return;
         }
-        this.simpleChoices("Stud", this.chooseStud, "Ring", this.chooseRing, "Ladder", this.chooseLadder, "Back", this.pierceMenu, "Nevermind", this.piercingStudio);
+        this.simpleChoices(this, "Stud", this.chooseStud, "Ring", this.chooseRing, "Ladder", this.chooseLadder, "Back", this.pierceMenu, "Nevermind", this.piercingStudio);
         this.piercingLoc = 1;
     }
 
@@ -384,53 +384,53 @@ export class TelAdre extends BaseContent {
         if (this.player.hasVagina()) this.outputText("\"<i>Ohhh, that's going to be suckably cute!</i>\" exclaims Yara, blushing more than a little. \"<i>What kind of piercing would you like?</i>", true);
         else {
             this.outputText("You realize you don't have a clit to pierce.  Whoops!  Better pick something else...", true);
-            this.doNext(this.pierceMenu);
+            this.doNext(this, this.pierceMenu);
             return;
         }
         this.piercingLoc = 0;
-        this.simpleChoices("Stud", this.chooseStud, "Ring", this.chooseRing, "", null, "Back", this.pierceMenu, "Nevermind", this.piercingStudio);
+        this.simpleChoices(this, "Stud", this.chooseStud, "Ring", this.chooseRing, "", null, "Back", this.pierceMenu, "Nevermind", this.piercingStudio);
     }
 
     private earPierce(): void {
         this.spriteSelect(63);
         this.piercingLoc = 2;
         this.outputText("\"<i>Okay, just let me get my supplies and we can get started.  What kind of jewelry do you want in them?</i>\" asks Yara.", true);
-        this.simpleChoices("Stud", this.chooseStud, "Ring", this.chooseRing, "Hoop", this.chooseHoop, "Back", this.pierceMenu, "Nevermind", this.piercingStudio);
+        this.simpleChoices(this, "Stud", this.chooseStud, "Ring", this.chooseRing, "Hoop", this.chooseHoop, "Back", this.pierceMenu, "Nevermind", this.piercingStudio);
     }
 
     private eyebrowPierce(): void {
         this.spriteSelect(63);
         this.piercingLoc = 3;
         this.outputText("\"<i>Ah, that's a good look!  What do you want there?</i>\" asks Yara.", true);
-        this.simpleChoices("Stud", this.chooseStud, "Ring", this.chooseRing, "", null, "Back", this.pierceMenu, "Nevermind", this.piercingStudio);
+        this.simpleChoices(this, "Stud", this.chooseStud, "Ring", this.chooseRing, "", null, "Back", this.pierceMenu, "Nevermind", this.piercingStudio);
     }
 
     private lipPierce(): void {
         this.spriteSelect(63);
         this.piercingLoc = 4;
         this.outputText("\"<i>Oh my, that'll be HAWT!  What kind of jewelry do you want there?</i>\" asks Yara.", true);
-        this.simpleChoices("Stud", this.chooseStud, "Ring", this.chooseRing, "", null, "Back", this.pierceMenu, "Nevermind", this.piercingStudio);
+        this.simpleChoices(this, "Stud", this.chooseStud, "Ring", this.chooseRing, "", null, "Back", this.pierceMenu, "Nevermind", this.piercingStudio);
     }
 
     private nipplePierce(): void {
         this.spriteSelect(63);
         this.piercingLoc = 5;
         this.outputText("\"<i>Yeah, sure I can do those!  What kind of jewelry do you want there?  I'm partial to nipple-chains myself,</i>\" admits Yara, blushing bright red.", true);
-        this.simpleChoices("Studs", this.chooseStud, "Rings", this.chooseRing, "Chain", this.chooseChain, "Back", this.pierceMenu, "Nevermind", this.piercingStudio);
+        this.simpleChoices(this, "Studs", this.chooseStud, "Rings", this.chooseRing, "Chain", this.chooseChain, "Back", this.pierceMenu, "Nevermind", this.piercingStudio);
     }
 
     private nosePierce(): void {
         this.spriteSelect(63);
         this.piercingLoc = 6;
         this.outputText("Yara wrinkles her nose in distaste, \"<i>Really?  Well ok, what do you want there?</i>\"", true);
-        this.simpleChoices("Stud", this.chooseStud, "Ring", this.chooseRing, "", null, "Back", this.pierceMenu, "Nevermind", this.piercingStudio);
+        this.simpleChoices(this, "Stud", this.chooseStud, "Ring", this.chooseRing, "", null, "Back", this.pierceMenu, "Nevermind", this.piercingStudio);
     }
 
     private tonguePierce(): void {
         this.spriteSelect(63);
         this.piercingLoc = 7;
         this.outputText("Yara happily purrs, \"<i>Oh my, I bet that'll be fun!  I'm afraid I can only put a stud there though, ok?</i>\"", true);
-        this.simpleChoices("Ok", this.chooseStud, "", null, "", null, "Back", this.pierceMenu, "Nevermind", this.piercingStudio);
+        this.simpleChoices(this, "Ok", this.chooseStud, "", null, "", null, "Back", this.pierceMenu, "Nevermind", this.piercingStudio);
     }
     private vulvaPierce(): void {
         this.spriteSelect(63);
@@ -438,10 +438,10 @@ export class TelAdre extends BaseContent {
         if (this.player.hasVagina()) this.outputText("Yara explains, \"<i>This is gonna hurt a lot, but I think you'll love how it feels after.  I know I do!  Now what kind of jewelry do you want down-town?</i>\"", true);
         else {
             this.outputText("You realize you don't have a pussy to pierce.  Whoops!  Better pick something else...", true);
-            this.doNext(this.pierceMenu);
+            this.doNext(this, this.pierceMenu);
             return;
         }
-        this.simpleChoices("Stud", this.chooseStud, "Ring", this.chooseRing, "", null, "Back", this.pierceMenu, "Nevermind", this.piercingStudio);
+        this.simpleChoices(this, "Stud", this.chooseStud, "Ring", this.chooseRing, "", null, "Back", this.pierceMenu, "Nevermind", this.piercingStudio);
     }
     private chooseStud(): void {
         this.piercingType = 1;
@@ -469,12 +469,12 @@ export class TelAdre extends BaseContent {
         this.outputText("Yara gathers up her materials and says, \"<i>Ok, now what type of material do you want it made from?  Don't worry about price, none of these are that rare, so the piercing will only be 100 gems.  Though I do have some rarer materials; you'll need 1,000 gems to spend if you want to check them out.</i>\"", true);
         if (this.player.gems < 100) {
             this.outputText("\n\nYou realize you don't have enough gems to get a piercing.", false);
-            this.doNext(this.piercingStudio);
+            this.doNext(this, this.piercingStudio);
             return;
         }
         var rare = undefined;
         if (this.player.gems >= 1000) rare = this.chooseAdvancedMaterials;
-        this.choices("Amethyst", this.chooseAmethyst, "Diamond", this.chooseDiamond, "Gold", this.chooseGold, "Emerald", this.chooseEmerald, "Jade", this.chooseJade, "Onyx", this.chooseOnyx, "Ruby", this.chooseRuby, "Steel", this.chooseSteel, "Rare Menu", rare, "Nevermind", this.piercingStudio);
+        this.choices(this, "Amethyst", this.chooseAmethyst, "Diamond", this.chooseDiamond, "Gold", this.chooseGold, "Emerald", this.chooseEmerald, "Jade", this.chooseJade, "Onyx", this.chooseOnyx, "Ruby", this.chooseRuby, "Steel", this.chooseSteel, "Rare Menu", rare, "Nevermind", this.piercingStudio);
     }
     private chooseAmethyst(): void {
         this.piercingMat = 1;
@@ -528,7 +528,7 @@ export class TelAdre extends BaseContent {
     private areYouSure(): void {
         this.spriteSelect(63);
         this.outputText("Yara says, \"<i>Ok, last chance to back out, are you sure you want to go ahead with this?  Remember, once I put it in, it's permanent.</i>\"", true);
-        this.doYesNo(this.normalPierceAssemble, this.piercingStudio);
+        this.doYesNo(this, this.normalPierceAssemble, this.piercingStudio);
     }
     //9. Lethite (Demon Lure)
     //10. Fertite (Fertility Booster)
@@ -543,7 +543,7 @@ export class TelAdre extends BaseContent {
         this.outputText("\n3. Furrite - This beautiful purple gem is actually crystalized from materials used in hunting lures.  It is said to enhance the wearer's appeal to beast-people.", false);
         this.outputText("\n4. Crimstone - Crimstone is said to be formed from volcanic fires, and to keep the fires of one's desires burning brightly.", false);
         this.outputText("\n\n<b>DISCLAIMER</b>: Yara's Piercing Studio is not responsible if the piercee's body absorbs any residual magic of these stones, and is not required to resolve any issues if the effects persist beyond removal.</b>", false);
-        this.simpleChoices("Lethite", this.chooseLethite, "Fertite", this.chooseFertite, "Furrite", this.chooseFurrite, "Crimstone", this.chooseCrimstone, "Back", this.chooseMaterials);
+        this.simpleChoices(this, "Lethite", this.chooseLethite, "Fertite", this.chooseFertite, "Furrite", this.chooseFurrite, "Crimstone", this.chooseCrimstone, "Back", this.chooseMaterials);
     }
 
     private normalPierceAssemble(): void {
@@ -809,7 +809,7 @@ export class TelAdre extends BaseContent {
             return;
         }
         //Piercing shop main menu
-        this.doNext(this.piercingStudio);
+        this.doNext(this, this.piercingStudio);
     }
 
 
@@ -842,21 +842,21 @@ export class TelAdre extends BaseContent {
         }
         if (clit == null && dick == null && ears == null && eyebrow == null && lip == null && nipples == null && nose == null && tongue == null && vulva == null) {
             this.outputText("Yara giggles, \"<i>You don't have any piercings, silly!</i>\"", true);
-            this.doNext(this.piercingStudio);
+            this.doNext(this, this.piercingStudio);
             return;
         }
         this.outputText("\"<i>Really?</i>\" asks Yara, \"<i>I told you those piercings are permanent!  Well, I suppose they CAN be removed, but you're gonna hurt like hell afterwards.  If you really want me to, I can remove something, but it'll cost you 100 gems for the painkillers and labor.</i>\"", true);
         if (this.player.gems < 100) {
             this.outputText("\n\n<b>You do not have enough gems.</b>", false);
-            this.doNext(this.piercingStudio);
+            this.doNext(this, this.piercingStudio);
             return;
         }
         if (this.player.tou <= 5.5) {
             this.outputText("Yara looks you up and down before refusing you outright, \"<i>You don't look so good " + this.player.short + ".  I don't think your body could handle it right now.</i>\"", true);
-            this.doNext(this.piercingStudio);
+            this.doNext(this, this.piercingStudio);
             return;
         }
-        this.choices("Clit", clit, "Dick", dick, "Ears", ears, "Eyebrow", eyebrow, "Lip", lip, "Nipples", nipples, "Nose", nose, "Tongue", tongue, "Labia", vulva, "Back", this.piercingStudio);
+        this.choices(this, "Clit", clit, "Dick", dick, "Ears", ears, "Eyebrow", eyebrow, "Lip", lip, "Nipples", nipples, "Nose", nose, "Tongue", tongue, "Labia", vulva, "Back", this.piercingStudio);
     }
 
     private removeClitPierce(): void {
@@ -868,7 +868,7 @@ export class TelAdre extends BaseContent {
         this.dynStats("tou", -5);
         this.player.gems -= 100;
         this.statScreenRefresh();
-        this.doNext(this.piercingStudio);
+        this.doNext(this, this.piercingStudio);
     }
 
     private removeCockPierce(): void {
@@ -880,7 +880,7 @@ export class TelAdre extends BaseContent {
         this.dynStats("tou", -5);
         this.player.gems -= 100;
         this.statScreenRefresh();
-        this.doNext(this.piercingStudio);
+        this.doNext(this, this.piercingStudio);
     }
 
     private removeEarsPierce(): void {
@@ -892,7 +892,7 @@ export class TelAdre extends BaseContent {
         this.dynStats("tou", -5);
         this.player.gems -= 100;
         this.statScreenRefresh();
-        this.doNext(this.piercingStudio);
+        this.doNext(this, this.piercingStudio);
     }
 
     private removeEyebrowPierce(): void {
@@ -904,7 +904,7 @@ export class TelAdre extends BaseContent {
         this.dynStats("tou", -5);
         this.player.gems -= 100;
         this.statScreenRefresh();
-        this.doNext(this.piercingStudio);
+        this.doNext(this, this.piercingStudio);
     }
 
     private removeLipPierce(): void {
@@ -916,7 +916,7 @@ export class TelAdre extends BaseContent {
         this.dynStats("tou", -5);
         this.player.gems -= 100;
         this.statScreenRefresh();
-        this.doNext(this.piercingStudio);
+        this.doNext(this, this.piercingStudio);
     }
 
     private removeNipplesPierce(): void {
@@ -928,7 +928,7 @@ export class TelAdre extends BaseContent {
         this.dynStats("tou", -5);
         this.player.gems -= 100;
         this.statScreenRefresh();
-        this.doNext(this.piercingStudio);
+        this.doNext(this, this.piercingStudio);
     }
 
     private removeNosePierce(): void {
@@ -940,7 +940,7 @@ export class TelAdre extends BaseContent {
         this.dynStats("tou", -5);
         this.player.gems -= 100;
         this.statScreenRefresh();
-        this.doNext(this.piercingStudio);
+        this.doNext(this, this.piercingStudio);
     }
 
     private removeTonguePierce(): void {
@@ -952,7 +952,7 @@ export class TelAdre extends BaseContent {
         this.dynStats("tou", -5);
         this.player.gems -= 100;
         this.statScreenRefresh();
-        this.doNext(this.piercingStudio);
+        this.doNext(this, this.piercingStudio);
     }
 
     private removeVulvaPierce(): void {
@@ -964,7 +964,7 @@ export class TelAdre extends BaseContent {
         this.dynStats("tou", -5);
         this.player.gems -= 100;
         this.statScreenRefresh();
-        this.doNext(this.piercingStudio);
+        this.doNext(this, this.piercingStudio);
     }
 
     public oswaldPawn(): void {
@@ -991,8 +991,8 @@ export class TelAdre extends BaseContent {
             }
             else {
                 this.menu();
-                this.addButton(0, "Sell", this.oswaldPawnMenu);
-                this.addButton(1, "BuyCarrot", this.buyCarrotFromOswald);
+                this.addButton(this, 0, "Sell", this.oswaldPawnMenu);
+                this.addButton(this, 1, "BuyCarrot", this.buyCarrotFromOswald);
             }
         }
         else this.oswaldPawnMenu(); //eventParser(1065);
@@ -1005,7 +1005,7 @@ export class TelAdre extends BaseContent {
         this.clearOutput();
         this.outputText("Gems change hands in a flash, and you're now the proud owner of a bright orange carrot!\n\n(<b>Acquired Key Item: Carrot</b>)");
         this.menu();
-        this.addButton(0, "Next", this.oswaldPawn);
+        this.addButton(this, 0, "Next", this.oswaldPawn);
     }
 
     private oswaldPawnMenu(): void { //Moved here from Inventory.as
@@ -1016,19 +1016,19 @@ export class TelAdre extends BaseContent {
         for (var slot = 0; slot < 5; slot++) {
             if (this.player.itemSlots[slot].quantity > 0 && this.player.itemSlots[slot].itype.value >= 1) {
                 this.outputText("\n" + Math.floor(this.player.itemSlots[slot].itype.value / 2) + " gems for " + this.player.itemSlots[slot].itype.longName + ".");
-                this.addButton(slot, (this.player.itemSlots[slot].itype.shortName + " x" + this.player.itemSlots[slot].quantity), this.oswaldPawnSell, slot);
+                this.addButton(this, slot, (this.player.itemSlots[slot].itype.shortName + " x" + this.player.itemSlots[slot].quantity), this.oswaldPawnSell, slot);
                 totalItems += this.player.itemSlots[slot].quantity;
             }
         }
-        if (totalItems > 1) this.addButton(7, "Sell All", this.oswaldPawnSellAll);
+        if (totalItems > 1) this.addButton(this, 7, "Sell All", this.oswaldPawnSellAll);
         switch (this.flags[kFLAGS.KATHERINE_UNLOCKED]) {
             case 1:
-            case 2: this.addButton(5, "Kath's Alley", this.katherine.visitKatherine); break;
-            case 3: this.addButton(5, "Safehouse", this.katherineEmployment.katherineTrainingWithUrta); break;
-            case 4: this.addButton(5, "Kath's Alley", this.katherineEmployment.postTrainingAlleyDescription); //Appears until Kath gives you her housekeys
+            case 2: this.addButton(this, 5, "Kath's Alley", this.katherine.visitKatherine); break;
+            case 3: this.addButton(this, 5, "Safehouse", this.katherineEmployment.katherineTrainingWithUrta); break;
+            case 4: this.addButton(this, 5, "Kath's Alley", this.katherineEmployment.postTrainingAlleyDescription); //Appears until Kath gives you her housekeys
             default:
         }
-        this.addButton(9, "Back", this.telAdreMenu);
+        this.addButton(this, 9, "Back", this.telAdreMenu);
     }
 
     private oswaldPawnSell(slot: number): void { //Moved here from Inventory.as
@@ -1041,7 +1041,7 @@ export class TelAdre extends BaseContent {
         this.player.itemSlots[slot].removeOneItem();
         this.player.gems += itemValue;
         this.statScreenRefresh();
-        this.doNext(this.oswaldPawn);
+        this.doNext(this, this.oswaldPawn);
     }
 
     private oswaldPawnSellAll(): void {
@@ -1057,12 +1057,12 @@ export class TelAdre extends BaseContent {
         this.outputText("You lay out all the items you're carrying on the counter in front of Oswald.  He examines them all and nods.  Nervously, he pulls out " + TelAdre.num2Text(itemValue) + " gems and drops them into your waiting hand.");
         this.player.gems += itemValue;
         this.statScreenRefresh();
-        this.doNext(this.oswaldPawn);
+        this.doNext(this, this.oswaldPawn);
     }
 
     private anotherButton(button: number, nam: string, func: any, arg: any = -9000): number {
         if (button > 8) return 9;
-        this.addButton(button, nam, func, arg);
+        this.addButton(this, button, nam, func, arg);
         button++;
         return button;
     }
@@ -1108,7 +1108,7 @@ export class TelAdre extends BaseContent {
                         this.flags[kFLAGS.EDRYN_PREGNANT_AND_NOT_TOLD_PC_YET] = 1;
                         if (this.flags[kFLAGS.EDRYN_NUMBER_OF_KIDS] == 0) { //Edryn panic appearance! (First time mom)
                             this.outputText("\n\nEdryn smiles when she sees you and beckons you towards her.  Fear and some kind of frantic need are painted across her face, imploring you to come immediately.  Whatever the problem is, it doesn't look like it can wait.", false);
-                            this.doNext(this.edryn.findOutEdrynIsPregnant);
+                            this.doNext(this, this.edryn.findOutEdrynIsPregnant);
                             return;
                         }
                         else { //Edryn re-preggers appearance!
@@ -1242,7 +1242,7 @@ export class TelAdre extends BaseContent {
         //VALA
         if (kGAMECLASS.purifiedFaerieBitchBar()) button = this.anotherButton(button, "Vala", kGAMECLASS.chooseValaInBar);
 
-        this.addButton(9, "Leave", this.telAdreMenu);
+        this.addButton(this, 9, "Leave", this.telAdreMenu);
     }
 
     /*
@@ -1448,15 +1448,15 @@ export class TelAdre extends BaseContent {
             this.outputText("at Victoria the Corgi Tailor.  As usual, she's dressed in a stylish low-cut dress and sporting her feathery hat.", false);
         }
         this.outputText("\n\n(What do you want to buy?)", false);
-        this.choices(this.armors.CLSSYCL.shortName, this.createCallBackFunction(this.buyClothes, this.armors.CLSSYCL),
-            this.armors.RBBRCLT.shortName, this.createCallBackFunction(this.buyClothes, this.armors.RBBRCLT),
-            this.armors.ADVCLTH.shortName, this.createCallBackFunction(this.buyClothes, this.armors.ADVCLTH),
-            this.armors.TUBETOP.shortName, this.createCallBackFunction(this.buyClothes, this.armors.TUBETOP),
-            this.armors.OVERALL.shortName, this.createCallBackFunction(this.buyClothes, this.armors.OVERALL),
-            this.armors.B_DRESS.shortName, this.createCallBackFunction(this.buyClothes, this.armors.B_DRESS),
-            this.armors.T_BSUIT.shortName, this.createCallBackFunction(this.buyClothes, this.armors.T_BSUIT),
-            this.armors.M_ROBES.shortName, this.createCallBackFunction(this.buyClothes, this.armors.M_ROBES),
-            this.armors.LTHRPNT.shortName, this.createCallBackFunction(this.buyClothes, this.armors.LTHRPNT),
+        this.choices(this, this.armors.CLSSYCL.shortName, this.createCallBackFunction(this, this.buyClothes, this.armors.CLSSYCL),
+            this.armors.RBBRCLT.shortName, this.createCallBackFunction(this, this.buyClothes, this.armors.RBBRCLT),
+            this.armors.ADVCLTH.shortName, this.createCallBackFunction(this, this.buyClothes, this.armors.ADVCLTH),
+            this.armors.TUBETOP.shortName, this.createCallBackFunction(this, this.buyClothes, this.armors.TUBETOP),
+            this.armors.OVERALL.shortName, this.createCallBackFunction(this, this.buyClothes, this.armors.OVERALL),
+            this.armors.B_DRESS.shortName, this.createCallBackFunction(this, this.buyClothes, this.armors.B_DRESS),
+            this.armors.T_BSUIT.shortName, this.createCallBackFunction(this, this.buyClothes, this.armors.T_BSUIT),
+            this.armors.M_ROBES.shortName, this.createCallBackFunction(this, this.buyClothes, this.armors.M_ROBES),
+            this.armors.LTHRPNT.shortName, this.createCallBackFunction(this, this.buyClothes, this.armors.LTHRPNT),
             "Leave", this.telAdreMenu);
     }
 
@@ -1474,13 +1474,13 @@ export class TelAdre extends BaseContent {
         if (this.player.gems < itype.value) {
             this.outputText("You count out your gems and realize it's beyond your price range.", false);
             //Goto shop main menu
-            this.doNext(this.tailorShoppe);
+            this.doNext(this, this.tailorShoppe);
             return;
         }
         //Go to debit/update function or back to shop window
         if (this.player.hasCock() && this.player.lust >= 33)
-            this.simpleChoices("Yes", TelAdre.curry(this.debitClothes, itype), "No", this.tailorShoppe, "", null, "", null, "Flirt", TelAdre.curry(this.flirtWithVictoria, itype));
-        else this.doYesNo(TelAdre.curry(this.debitClothes, itype), this.tailorShoppe);
+            this.simpleChoices(this, "Yes", TelAdre.curry(this.debitClothes, itype), "No", this.tailorShoppe, "", null, "", null, "Flirt", TelAdre.curry(this.flirtWithVictoria, itype));
+        else this.doYesNo(this, TelAdre.curry(this.debitClothes, itype), this.tailorShoppe);
     }
 
     private debitClothes(itype: ItemType): void {
@@ -1505,12 +1505,12 @@ export class TelAdre extends BaseContent {
             }
             else egg = kGAMECLASS.emberScene.getSomeStuff;
         }
-        this.choices(this.armors.CHBIKNI.shortName, this.createCallBackFunction(this.armorBuy, this.armors.CHBIKNI),
-            this.armors.FULLCHN.shortName, this.createCallBackFunction(this.armorBuy, this.armors.FULLCHN),
-            this.armors.FULLPLT.shortName, this.createCallBackFunction(this.armorBuy, this.armors.FULLPLT),
-            this.armors.INDECST.shortName, this.createCallBackFunction(this.armorBuy, this.armors.INDECST),
-            this.armors.LTHRROB.shortName, this.createCallBackFunction(this.armorBuy, this.armors.LTHRROB),
-            this.armors.SCALEML.shortName, this.createCallBackFunction(this.armorBuy, this.armors.SCALEML),
+        this.choices(this, this.armors.CHBIKNI.shortName, this.createCallBackFunction(this, this.armorBuy, this.armors.CHBIKNI),
+            this.armors.FULLCHN.shortName, this.createCallBackFunction(this, this.armorBuy, this.armors.FULLCHN),
+            this.armors.FULLPLT.shortName, this.createCallBackFunction(this, this.armorBuy, this.armors.FULLPLT),
+            this.armors.INDECST.shortName, this.createCallBackFunction(this, this.armorBuy, this.armors.INDECST),
+            this.armors.LTHRROB.shortName, this.createCallBackFunction(this, this.armorBuy, this.armors.LTHRROB),
+            this.armors.SCALEML.shortName, this.createCallBackFunction(this, this.armorBuy, this.armors.SCALEML),
             "", null, "Eggshell", egg, "Flirt", this.yvonneFlirt, "Leave", this.telAdreMenu);
     }
 
@@ -1521,14 +1521,14 @@ export class TelAdre extends BaseContent {
 
         this.outputText("His piercing blue eyes meet yours as he notices you, and he barks, \"<i>Buy something or fuck off.</i>\"\n\nWhat do you buy?", false);
 
-        this.choices(this.consumables.W_STICK.shortName, this.createCallBackFunction(this.weaponBuy, this.consumables.W_STICK),
-            this.weapons.CLAYMOR.shortName, this.createCallBackFunction(this.weaponBuy, this.weapons.CLAYMOR),
-            this.weapons.WARHAMR.shortName, this.createCallBackFunction(this.weaponBuy, this.weapons.WARHAMR),
-            this.weapons.KATANA.shortName, this.createCallBackFunction(this.weaponBuy, this.weapons.KATANA),
-            this.weapons.SPEAR.shortName, this.createCallBackFunction(this.weaponBuy, this.weapons.SPEAR),
-            this.weapons.WHIP.shortName, this.createCallBackFunction(this.weaponBuy, this.weapons.WHIP),
-            this.weapons.W_STAFF.shortName, this.createCallBackFunction(this.weaponBuy, this.weapons.W_STAFF),
-            this.weapons.S_GAUNT.shortName, this.createCallBackFunction(this.weaponBuy, this.weapons.S_GAUNT),
+        this.choices(this, this.consumables.W_STICK.shortName, this.createCallBackFunction(this, this.weaponBuy, this.consumables.W_STICK),
+            this.weapons.CLAYMOR.shortName, this.createCallBackFunction(this, this.weaponBuy, this.weapons.CLAYMOR),
+            this.weapons.WARHAMR.shortName, this.createCallBackFunction(this, this.weaponBuy, this.weapons.WARHAMR),
+            this.weapons.KATANA.shortName, this.createCallBackFunction(this, this.weaponBuy, this.weapons.KATANA),
+            this.weapons.SPEAR.shortName, this.createCallBackFunction(this, this.weaponBuy, this.weapons.SPEAR),
+            this.weapons.WHIP.shortName, this.createCallBackFunction(this, this.weaponBuy, this.weapons.WHIP),
+            this.weapons.W_STAFF.shortName, this.createCallBackFunction(this, this.weaponBuy, this.weapons.W_STAFF),
+            this.weapons.S_GAUNT.shortName, this.createCallBackFunction(this, this.weaponBuy, this.weapons.S_GAUNT),
             "", null, "Leave", this.telAdreMenu);
     }
     private weaponBuy(itype: ItemType): void {
@@ -1538,12 +1538,12 @@ export class TelAdre extends BaseContent {
         if (this.player.gems < itype.value) {
             this.outputText("\n\nYou count out your gems and realize it's beyond your price range.", false);
             //Goto shop main menu
-            this.doNext(this.weaponShop);
+            this.doNext(this, this.weaponShop);
             return;
         }
         else this.outputText("\n\nDo you buy it?\n\n", false);
         //Go to debit/update function or back to shop window
-        this.doYesNo(TelAdre.curry(this.debitWeapon, itype), this.weaponShop);
+        this.doYesNo(this, TelAdre.curry(this.debitWeapon, itype), this.weaponShop);
     }
     private debitWeapon(itype: ItemType): void {
         this.spriteSelect(80);
@@ -1559,12 +1559,12 @@ export class TelAdre extends BaseContent {
         if (this.player.gems < itype.value) {
             this.outputText("\n\nYou count out your gems and realize it's beyond your price range.", false);
             //Goto shop main menu
-            this.doNext(this.armorShop);
+            this.doNext(this, this.armorShop);
             return;
         }
         else this.outputText("\n\nDo you buy it?", false);
         //Go to debit/update function or back to shop window
-        this.doYesNo(TelAdre.curry(this.debitArmor, itype), this.armorShop);
+        this.doYesNo(this, TelAdre.curry(this.debitArmor, itype), this.armorShop);
     }
 
     private debitArmor(itype: ItemType): void {
@@ -1579,7 +1579,7 @@ export class TelAdre extends BaseContent {
         this.flags[kFLAGS.PC_SEEN_URTA_BADASS_FIGHT] = 1;
         this.outputText("", true);
         this.outputText("There's a commotion in the streets of Tel'Adre.  A dense crowd of onlookers has formed around the center of the street, massed together so tightly that you're unable to see much, aside from the backs the other onlookers' heads.  The sound of blows impacting on flesh can be heard over the crowd's murmuring, alerting you of the fight at the gathering's core.", false);
-        this.simpleChoices("Investigate", this.watchUrtaBeABadass, "Who cares?", this.telAdreMenu, "", null, "", null, "", null);
+        this.simpleChoices(this, "Investigate", this.watchUrtaBeABadass, "Who cares?", this.telAdreMenu, "", null, "", null, "", null);
     }
 
     //[Invetigate]
@@ -1600,7 +1600,7 @@ export class TelAdre extends BaseContent {
 
         this.outputText("She barks, \"<i>Get this one outside the walls before he wakes.  I won't have this corrupted filth in our city, and make sure you get the wards updated.  If he manages to find his way back, you sorry excuses for guards will be going out with him.</i>\"\n\n", false);
         this.outputText("A few dog-morphs in similar armor to Urta approach and lash ropes around the wolf's legs.  They hand a line to a centaur, and together the party begins dragging the unconscious body away.  With the action over, the crowd begins dispersing.  More than a few males nod to Urta respectfully.  She keeps her expression neutral and excuses herself to resume her rounds, wiping her hands off on her armor-studded skirt as she leaves.", false);
-        this.doNext(this.telAdreMenu);
+        this.doNext(this, this.telAdreMenu);
     }
 
     public gymDesc(): void {
@@ -1627,7 +1627,7 @@ export class TelAdre extends BaseContent {
         if (this.player.gems < 10 && this.flags[kFLAGS.LIFETIME_GYM_MEMBER] == 0) {
             this.outputText("\n\n<b>You reach into your pockets for the fee and come up empty.  It looks like you don't have enough money to use the equipment or meet anyone.  Damn!</b>", false);
             //(back to tel'adre streets)
-            this.doNext(this.telAdreMenu);
+            this.doNext(this, this.telAdreMenu);
             return;
         }
         this.lottie.lottieAppearance();
@@ -1672,7 +1672,7 @@ export class TelAdre extends BaseContent {
         if (this.flags[kFLAGS.LOPPE_MET] > 0 && this.flags[kFLAGS.LOPPE_DISABLED] == 0)
             loppe2 = this.loppe.loppeGenericMeetings;
 
-        this.choices("ChangeRoom", this.jasun.changingRoom,
+        this.choices(this, "ChangeRoom", this.jasun.changingRoom,
             cottonB, cotton2,
             hyenaB, hyena,
             ifrisB, ifris2,
@@ -1705,7 +1705,7 @@ export class TelAdre extends BaseContent {
         if (this.player.fatigue > 75) {
             this.outputText("<b>There's no way you could exercise right now - you're exhausted!</b>  ", false);
             if (this.flags[kFLAGS.LIFETIME_GYM_MEMBER] == 0) this.outputText("It'd be better to save your money and come back after you've rested.", false);
-            this.doNext(this.telAdreMenu);
+            this.doNext(this, this.telAdreMenu);
             return;
         }
         //Deduct gems if not a full member.
@@ -1738,11 +1738,11 @@ export class TelAdre extends BaseContent {
         this.outputText("\n\nDo you want to hit the showers before you head back to camp?", false);
         if (this.flags[kFLAGS.BROOKE_MET] == 1) {
             this.menu();
-            this.addButton(0, "\"Showers\"", this.sexMachine.exploreShowers);
-            this.addButton(1, "Showers", this.brooke.repeatChooseShower);
-            this.addButton(4, "Leave", this.camp.returnToCampUseOneHour);
+            this.addButton(this, 0, "\"Showers\"", this.sexMachine.exploreShowers);
+            this.addButton(this, 1, "Showers", this.brooke.repeatChooseShower);
+            this.addButton(this, 4, "Leave", this.camp.returnToCampUseOneHour);
         }
-        else this.doYesNo(this.sexMachine.exploreShowers, this.camp.returnToCampUseOneHour);
+        else this.doYesNo(this, this.sexMachine.exploreShowers, this.camp.returnToCampUseOneHour);
     }
 
     private goJogging(): void {
@@ -1751,7 +1751,7 @@ export class TelAdre extends BaseContent {
         if (this.player.fatigue > 70) {
             this.outputText("<b>There's no way you could exercise right now - you're exhausted!</b>  ", false);
             if (this.flags[kFLAGS.LIFETIME_GYM_MEMBER] == 0) this.outputText("It'd be better to save your money and come back after you've rested.", false);
-            this.doNext(this.telAdreMenu);
+            this.doNext(this, this.telAdreMenu);
             return;
         }
         //Deduct gems if not a full member.
@@ -1824,11 +1824,11 @@ export class TelAdre extends BaseContent {
         this.outputText("\n\nDo you want to hit the showers before you head back to camp?", false);
         if (this.flags[kFLAGS.BROOKE_MET] == 1) {
             this.menu();
-            this.addButton(0, "\"Showers\"", this.sexMachine.exploreShowers);
-            this.addButton(1, "Showers", this.brooke.repeatChooseShower);
-            this.addButton(4, "Leave", this.camp.returnToCampUseOneHour);
+            this.addButton(this, 0, "\"Showers\"", this.sexMachine.exploreShowers);
+            this.addButton(this, 1, "Showers", this.brooke.repeatChooseShower);
+            this.addButton(this, 4, "Leave", this.camp.returnToCampUseOneHour);
         }
-        else this.doYesNo(this.sexMachine.exploreShowers, this.camp.returnToCampUseOneHour);
+        else this.doYesNo(this, this.sexMachine.exploreShowers, this.camp.returnToCampUseOneHour);
     }
 
     private yaraSex(girl: Boolean = true): void {
@@ -1841,8 +1841,8 @@ export class TelAdre extends BaseContent {
         this.outputText("She seems intent on getting some loving - would you like to turn her down, or will you let nature run its course?", false);
         //[not at all] [yeah baby]
         if (girl)
-            this.simpleChoices("Turn down", this.piercingStudio, "Oh yeah!", this.createCallBackFunction(this.letsDoYaraSex, true), "", null, "", null, "", null);
-        else this.simpleChoices("Turn down", this.piercingStudio, "Oh yeah!", this.createCallBackFunction(this.letsDoYaraSex, false), "", null, "", null, "", null);
+            this.simpleChoices(this, "Turn down", this.piercingStudio, "Oh yeah!", this.createCallBackFunction(this, this.letsDoYaraSex, true), "", null, "", null, "", null);
+        else this.simpleChoices(this, "Turn down", this.piercingStudio, "Oh yeah!", this.createCallBackFunction(this, this.letsDoYaraSex, false), "", null, "", null, "", null);
     }
 
     private letsDoYaraSex(girl: Boolean = true): void {
@@ -1925,7 +1925,7 @@ export class TelAdre extends BaseContent {
             this.outputText("Her head stops short, though.  Through your gasping relief, you managed to lock onto her legs.  \"<i>Nice... nice catch,</i>\" is about all Yara manages to share before resuming her purring contentment upside down, limp arms spread across the floor.  After a minute or so, the two of you regain some sort of composure, but the spectacular gymnast from before can only bare to slink around on the ground as she reorients herself.  The most you need to do is fix the back of your chair, lifting it to a more comfortable height.  \"<i>Can you spare one more helping hand here, friend?</i>\" Yara requests, now having at least managed to at least sit up straight.  The two of you exchange a knowing glance as you lift the metal-worker back to her feet.", false);
         }
         this.player.orgasm();
-        this.doNext(this.piercingStudio);
+        this.doNext(this, this.piercingStudio);
     }
 
 
@@ -1941,19 +1941,19 @@ export class TelAdre extends BaseContent {
         if (this.player.cockTotal() == 0) {
             this.outputText("Sorry, but you don't look like you'd be much fun.");
             this.outputText("</i>\"");
-            this.doNext(this.armorShop);
+            this.doNext(this, this.armorShop);
             return;
         }
         else if (this.player.tallness > 65 && !this.flags[kFLAGS.LOW_STANDARDS_FOR_ALL]) {
             this.outputText("Sorry, but you don't look like you'd be much fun.");
             this.outputText("</i>\"");
-            this.doNext(this.armorShop);
+            this.doNext(this, this.armorShop);
             return;
         }
         else if (this.player.cockThatFits(75) == -1 && !this.flags[kFLAGS.LOW_STANDARDS_FOR_ALL]) {
             this.outputText("Sorry, but you don't look like you'd be much fun.");
             this.outputText("</i>\"");
-            this.doNext(this.armorShop);
+            this.doNext(this, this.armorShop);
             return;
         }
 
@@ -1961,14 +1961,14 @@ export class TelAdre extends BaseContent {
         else this.outputText("You want to go again, huh?  I do love working up a sweat...");
         this.outputText("</i>\"");
         //[Fuck] [Nevermind]
-        this.simpleChoices("Fuck Her", this.fuckYvonneInZeBlacksmith, "Nevermind", this.backOutOfYvonneFuck, "", null, "", null, "", null);
+        this.simpleChoices(this, "Fuck Her", this.fuckYvonneInZeBlacksmith, "Nevermind", this.backOutOfYvonneFuck, "", null, "", null, "", null);
     }
     //[Nevermind]
     private backOutOfYvonneFuck(): void {
         this.spriteSelect(64);
         this.clearOutput();
         this.outputText("You politely decline, not wanting to interrupt her work.  Yvonne sighs and begins to pump the bellows, muttering, \"<i>Then you'd better be buying something!</i>\"");
-        this.doNext(this.armorShop);
+        this.doNext(this, this.armorShop);
     }
     //[Fuck]
     private fuckYvonneInZeBlacksmith(): void {
@@ -2004,7 +2004,7 @@ export class TelAdre extends BaseContent {
         this.player.orgasm();
         this.dynStats("sen", -1);
         this.flags[kFLAGS.YVONNE_FUCK_COUNTER]++;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //*Typical buy text goes here. Options are now Yes/No/Flirt*
@@ -2017,7 +2017,7 @@ export class TelAdre extends BaseContent {
 
         if (x < 0) {
             this.outputText("\n\nVictoria smirks and answers, \"<i>I measured your inseam, and what you're packing in there won't fit anywhere in a girl like me.  Maybe some other time, " + this.player.mf("studmuffin", "sweet thing") + ".  Did you actually want to buy something?</i>\"\n\nDo you still want to buy something?");
-            this.doYesNo(TelAdre.curry(this.debitClothes, itype), this.tailorShoppe);
+            this.doYesNo(this, TelAdre.curry(this.debitClothes, itype), this.tailorShoppe);
             return;
         }
         this.outputText("\n\nIt takes her a moment to realize just what it is you're suggesting before her face splits into a wide grin.  <i>\"That right?  Well now, you can't say things like that without backin' 'em up, can you?\"</i>  she says with a low chuckle, pressing her curvy body into you.  <i>\"What do you say I close the shop up quick, and you can show me just 'ow nicely you can fit, mm?\"</i>");
@@ -2065,6 +2065,6 @@ export class TelAdre extends BaseContent {
 
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 }

@@ -41,7 +41,7 @@ export class Bazaar extends BaseContent {
         }
         this.outputText("\n\nDo you approach?", false);
         //[YES] [NOOOO]
-        this.doYesNo(this.approachBazaarGuard, this.camp.returnToCampUseOneHour);
+        this.doYesNo(this, this.approachBazaarGuard, this.camp.returnToCampUseOneHour);
     }
 
     //[FUCK YES I WILL PUT IT IN YOUR BIZARRE ANUS]
@@ -51,8 +51,8 @@ export class Bazaar extends BaseContent {
         if (this.player.cor < 33) this.outputText("Leave at once.  You are not yet ready for the wonders of the Bazaar.", false);
         else this.outputText("Welcome to the Bizarre Bazaar.  Enter, but be mindful of your actions within.", false);
         this.outputText("</i>\"", false);
-        if (this.player.cor < 33) this.simpleChoices("", undefined, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
-        else this.simpleChoices("Enter", this.enterTheBazaar, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+        if (this.player.cor < 33) this.simpleChoices(this, "", undefined, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+        else this.simpleChoices(this, "Enter", this.enterTheBazaar, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     public enterTheBazaar(): void {
@@ -115,16 +115,16 @@ export class Bazaar extends BaseContent {
         /*[S. Squeeze] [][][] [Leave]
         choices(benoitT,benoit,rat,cinnabarAppearance(),"GripingDemons",demon,lilium,LiliumText(false),"Niamh",niamh,roxanneT,roxanne,"S. Squeeze",theSlipperySqueeze,"Tent",tent,"",0,"Leave",13);*/
         this.menu();
-        this.addButton(0, benoitT, benoit2);
-        this.addButton(1, rat, this.cinnabar.cinnabarAppearance(false));
-        this.addButton(2, "Greta's", this.gretasGarments);
-        this.addButton(3, "GripingDemons", demon);
-        if (this.lilium.LiliumText(false) != undefined) this.addButton(4, lilium2, this.lilium.LiliumText(false));
-        this.addButton(5, "Niamh", niamh);
-        this.addButton(6, roxanneT, roxanne2);
-        this.addButton(7, "S. Squeeze", this.theSlipperySqueeze);
-        this.addButton(8, "Tent", tent);
-        this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
+        this.addButton(this, 0, benoitT, benoit2);
+        this.addButton(this, 1, rat, this.cinnabar.cinnabarAppearance(false));
+        this.addButton(this, 2, "Greta's", this.gretasGarments);
+        this.addButton(this, 3, "GripingDemons", demon);
+        if (this.lilium.LiliumText(false) != undefined) this.addButton(this, 4, lilium2, this.lilium.LiliumText(false));
+        this.addButton(this, 5, "Niamh", niamh);
+        this.addButton(this, 6, roxanneT, roxanne2);
+        this.addButton(this, 7, "S. Squeeze", this.theSlipperySqueeze);
+        this.addButton(this, 8, "Tent", tent);
+        this.addButton(this, 9, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     //Semen Bukkake and Massage Parlor
@@ -177,15 +177,15 @@ export class Bazaar extends BaseContent {
 
         //simpleChoices("JoeyMassage",joeyMassage,"Androgyny",androgyny,"Joey'sOffer",milker,"",0,"Leave",2855);
         this.menu();
-        this.addButton(0, "JoeyMassage", this.joeyMassage);
-        this.addButton(1, "Adrogyny", androgyny);
-        this.addButton(2, "Joey'sOffer", milker);
+        this.addButton(this, 0, "JoeyMassage", this.joeyMassage);
+        this.addButton(this, 1, "Adrogyny", androgyny);
+        this.addButton(this, 2, "Joey'sOffer", milker);
         if (this.isEaster()) {
             this.outputText("There's another option on the list, cheerfully presented with a pastel border and a little painted egg next to it.  'Sweet Massage' it says.  \"<i>That's our spring special,</i>\" Joey explains, \"<i>using our new chocolate-flavored massage oil.  It comes with a complimentary 'dessert.'</i>\"  He gives you a little wink at that last word, so you can be certain that it's no normal dessert.  <b>The price is 20 gems.</b>");
             if (this.player.gems < 20) this.outputText("  You can't afford it.");
-            else this.addButton(3, "SweetMassage", this.joeySweetMassage);
+            else this.addButton(this, 3, "SweetMassage", this.joeySweetMassage);
         }
-        this.addButton(4, "Leave", this.enterTheBazaar);
+        this.addButton(this, 4, "Leave", this.enterTheBazaar);
     }
 
 
@@ -199,18 +199,18 @@ export class Bazaar extends BaseContent {
         this.outputText("\n\nWhat do you think? Will you take the cock massager for 200 gems?");
         if (this.player.gems < 200) {
             this.outputText("\n\n<b>You don't have enough money.</b>");
-            this.doNext(this.noMilkerPlzJoey);
+            this.doNext(this, this.noMilkerPlzJoey);
             return;
         }
         //[Yes] [No]
-        this.doYesNo(this.buyCockMilker, this.noMilkerPlzJoey);
+        this.doYesNo(this, this.buyCockMilker, this.noMilkerPlzJoey);
     }
     //[No]
     private noMilkerPlzJoey(): void {
         this.clearOutput();
         this.outputText("You decline; it's not really the sort of thing you need in your camp.  \"<i>Ah well,</i>\" Joey shrugs, \"<i>I'll just have to hang onto it for now I guess.  Shame.  Anyway,</i>\" he resumes his usual grin, \"<i>is there something else you need?  A massage, perhaps?</i>\"");
         //return to normal options, scene is never brought up again
-        this.doNext(this.enterTheBazaar);
+        this.doNext(this, this.enterTheBazaar);
     }
     //[Yes]
     private buyCockMilker(): void {
@@ -220,14 +220,14 @@ export class Bazaar extends BaseContent {
         this.player.gems -= 200;
         this.statScreenRefresh();
         this.player.createKeyItem("Cock Milker", 0, 0, 0, 0);
-        this.simpleChoices("JoeyMassage", this.joeyMassage, "Androgyny", undefined, "Joey'sOffer", undefined, "", undefined, "Leave", this.enterTheBazaar);
+        this.simpleChoices(this, "JoeyMassage", this.joeyMassage, "Androgyny", undefined, "Joey'sOffer", undefined, "", undefined, "Leave", this.enterTheBazaar);
     }
 
     private joeyAndrogyny(): void {
         this.outputText("", true);
         if (this.player.gems < 500) {
             this.outputText("You haven't got enough gems for that treatment!", false);
-            this.doNext(this.theSlipperySqueeze);
+            this.doNext(this, this.theSlipperySqueeze);
             return;
         }
         this.player.gems -= 500;
@@ -245,14 +245,14 @@ export class Bazaar extends BaseContent {
         this.outputText("Thanking the cute bunny-boy for his help, you hand over the payment and head back to check on camp.", false);
         this.player.createPerk(PerkLib.Androgyny, 0, 0, 0, 0);
         this.dynStats("lus", 5);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     //[Joey]
     private joeyMassage(): void {
         this.outputText("", true);
         if (this.player.gems < 10) {
             this.outputText("Joey frowns when you realize you don't have the 10 gems.  He apologizes, \"<i>I'm sorry, " + this.player.short + " but I can't give freebies - our special potions cost us plenty.", false);
-            this.doNext(this.enterTheBazaar);
+            this.doNext(this, this.enterTheBazaar);
             return;
         }
         this.player.slimeFeed();
@@ -267,9 +267,9 @@ export class Bazaar extends BaseContent {
         this.outputText("</i>\"", false);
         if (this.player.hasCock()) {
             this.outputText("\n\nDo you accept Joey's potion?", false);
-            this.doYesNo(this.joeysMassageWithEXTRASpooge, this.joeysMassageWifNoExtraJizz);
+            this.doYesNo(this, this.joeysMassageWithEXTRASpooge, this.joeysMassageWifNoExtraJizz);
         }
-        else this.doNext(this.joeysMassageWifNoExtraJizz);
+        else this.doNext(this, this.joeysMassageWifNoExtraJizz);
     }
 
     private joeysMassageWifNoExtraJizz(): void {
@@ -343,7 +343,7 @@ export class Bazaar extends BaseContent {
         if (this.player.lib > 80) this.dynStats("lib", -1);
         if (this.player.lib > 60) this.dynStats("lib", -1);
         if (this.player.sens > 40) this.dynStats("lib", -.5);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[CONTINUE – DRANK JOEY'S SPECIAL POTION]
@@ -395,7 +395,7 @@ export class Bazaar extends BaseContent {
         if (this.player.lib > 80) this.dynStats("lib", -1);
         if (this.player.lib > 60) this.dynStats("lib", -1);
         if (this.player.sens > 40) this.dynStats("sen", -4);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
     private joeyBigBalls(): void {
         this.outputText("", true);
@@ -410,13 +410,13 @@ export class Bazaar extends BaseContent {
             if (this.player.cor > 70) this.outputText("; you won't get to watch him fountaining all that pearly spunk like a perverted statue", false);
             this.outputText(".  What do you decide?", false);
             //[SuckCumOut] [MasturbateOut]
-            this.simpleChoices("SuckCumOut", this.suckOffJoeysGardenHose, "MasturbateOut", this.joeyWanksItOut, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "SuckCumOut", this.suckOffJoeysGardenHose, "MasturbateOut", this.joeyWanksItOut, "", undefined, "", undefined, "", undefined);
         }
         //(Sucked Joey once) 
         else {
             this.outputText("As soon as you enter The Slippery Squeeze, you know somehow that something is amiss.  Joey staggers out from a back-room, his balls once again swollen huge and round.  He looks at you and admits, \"<i>Someone's <b>got</b> to be sabotaging me... gods, this hurts!  Could you help me, or should I go in the back and jerk it out myself?</i>\"\n\n", false);
             //[SuckCumOut] [MasturbateOut]
-            this.simpleChoices("SuckCumOut", this.suckOffJoeysGardenHose, "MasturbateOut", this.joeyWanksItOut, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices(this, "SuckCumOut", this.suckOffJoeysGardenHose, "MasturbateOut", this.joeyWanksItOut, "", undefined, "", undefined, "", undefined);
         }
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00348]++;
     }
@@ -426,7 +426,7 @@ export class Bazaar extends BaseContent {
         this.outputText("", true);
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00349] == 0) {
             this.outputText("You tell Joey that if he masturbates to erectness, his body should be able to shoot it out faster.  He smacks his forehead and runs into a back room, his thong disintegrating around his growing testes as he runs. The door slams, leaving you in peace.  A little freaked out, you head back to camp for now.", false);
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
         else this.camp.returnToCampUseOneHour();
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00349]++;
@@ -462,7 +462,7 @@ export class Bazaar extends BaseContent {
         this.outputText("\"<i>I cleaned out your balls; you can clean up the floor,</i>\" you joke as you leave, kissing him one last time on the mouth before you go.\n\n", false);
         this.outputText("Joey blushes again and begins looking for a mop.", false);
         this.dynStats("lus", 70);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private overHearDemonsAboutSyrena(): void {
@@ -498,7 +498,7 @@ export class Bazaar extends BaseContent {
             this.outputText("Unwilling to allow herself to be helped, the succubus staggers up and begins waddling away.  The incubus keeps his distance, wearing a predatory grin.\n\n", false);
         }
         //enterTheBazaarAndMenu(false);
-        this.doNext(this.enterTheBazaar);
+        this.doNext(this, this.enterTheBazaar);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00292]++;
     }
 
@@ -510,7 +510,7 @@ export class Bazaar extends BaseContent {
             this.outputText("\n\nThe demoness, Greta, spies you looking at the strange piece of clothing.  \"<i>Aha, you're back!</i>\" she says, throwing her arms wide, which has the unintentional but not unappreciated effect of making her enormous boobs jiggle.  \"<i>As you can see, I'm back in full production.  I finally got that pesky backlog taken care of... although this one shy customer, a quiet browser, if you will, keeps me on my toes with new orders.  I swear he and his partner will be the death of me!</i>\"");
             this.outputText("\n\nThe pink-skinned succubus clicks her tongue disapprovingly for a moment before turning her gaze back to you.  \"<i>Anyway, I've now got a full stock of delicious cock-socks for purchase.  Please, do look around and let me know if you find anything... suitable,</i>\" she giggles and turns her attention back to knitting.");
             this.menu();
-            this.addButton(0, "Next", this.gretasGarments);
+            this.addButton(this, 0, "Next", this.gretasGarments);
             this.flags[kFLAGS.FOUND_SOCKS] = 2;
             return;
         }
@@ -529,13 +529,13 @@ export class Bazaar extends BaseContent {
         this.outputText(".");
         this.dynStats("lus", 2, "resisted", false);
         this.menu();
-        if (this.flags[kFLAGS.FOUND_SOCKS] == 0) this.addButton(4, "Low Stock", this.askGretaAboutInventory);
+        if (this.flags[kFLAGS.FOUND_SOCKS] == 0) this.addButton(this, 4, "Low Stock", this.askGretaAboutInventory);
         else {
-            if (this.flags[kFLAGS.FOUND_SOCKS] == 2 && this.player.cocks.length > 0 && this.player.hasSockRoom()) this.addButton(1, "Browse Socks", this.browseDemSocksSon);
-            if (this.player.hasSock()) this.addButton(2, "Remove Sock", this.takeOffDatSock);
+            if (this.flags[kFLAGS.FOUND_SOCKS] == 2 && this.player.cocks.length > 0 && this.player.hasSockRoom()) this.addButton(this, 1, "Browse Socks", this.browseDemSocksSon);
+            if (this.player.hasSock()) this.addButton(this, 2, "Remove Sock", this.takeOffDatSock);
         }
-        if (this.flags[kFLAGS.OWN_MAIDEN_BIKINI] == 0) this.addButton(0, "Bikini", this.askGretaAboutZeBikini);
-        this.addButton(9, "Back", this.enterTheBazaarAndMenu);
+        if (this.flags[kFLAGS.OWN_MAIDEN_BIKINI] == 0) this.addButton(this, 0, "Bikini", this.askGretaAboutZeBikini);
+        this.addButton(this, 9, "Back", this.enterTheBazaarAndMenu);
 
     }
     //Ask About Inventory
@@ -552,7 +552,7 @@ export class Bazaar extends BaseContent {
         if (this.flags[kFLAGS.FOUND_SOCKS] == 0) this.flags[kFLAGS.FOUND_SOCKS] = 1;
         if (this.flags[kFLAGS.SOCK_COUNTER] == 0) this.flags[kFLAGS.SOCK_COUNTER] = 24;
         this.menu();
-        this.addButton(4, "Back", this.gretasGarments);
+        this.addButton(this, 4, "Back", this.gretasGarments);
     }
 
     //Ask About Bikini:
@@ -565,8 +565,8 @@ export class Bazaar extends BaseContent {
         //[Buy It] [Back]
         this.menu();
         if (this.player.gems < 500) this.outputText("\n\n<b>You can't afford it.</b>");
-        else this.addButton(0, "Buy Bikini", this.buyGretasBikini);
-        this.addButton(4, "Back", this.gretasGarments);
+        else this.addButton(this, 0, "Buy Bikini", this.buyGretasBikini);
+        this.addButton(this, 4, "Back", this.gretasGarments);
     }
 
     //Buy Bikini
@@ -588,15 +588,15 @@ export class Bazaar extends BaseContent {
         this.outputText("What type of cock-sock do you want to look at?");
         //Cock-sock Menu
         this.menu();
-        this.addButton(0, "Wool", this.woolCockSock);
-        this.addButton(1, "Alabaster", this.alabasterCockSock);
-        this.addButton(2, "Cockring", this.cockringCockSock);
-        this.addButton(3, "Viridian", this.viridianCockSock);
-        this.addButton(4, "Scarlet", this.scarletCockSocK);
-        this.addButton(5, "Cobalt", this.cobaltCockSock);
-        this.addButton(6, "Gilded", this.gildedCockSock);
-        this.addButton(7, "Purple", this.amaranthineCockSock);
-        this.addButton(9, "Back", this.gretasGarments);
+        this.addButton(this, 0, "Wool", this.woolCockSock);
+        this.addButton(this, 1, "Alabaster", this.alabasterCockSock);
+        this.addButton(this, 2, "Cockring", this.cockringCockSock);
+        this.addButton(this, 3, "Viridian", this.viridianCockSock);
+        this.addButton(this, 4, "Scarlet", this.scarletCockSocK);
+        this.addButton(this, 5, "Cobalt", this.cobaltCockSock);
+        this.addButton(this, 6, "Gilded", this.gildedCockSock);
+        this.addButton(this, 7, "Purple", this.amaranthineCockSock);
+        this.addButton(this, 9, "Back", this.gretasGarments);
     }
 
     //Wool Cock-sock
@@ -667,9 +667,9 @@ export class Bazaar extends BaseContent {
 
     private cockSelectionMenu(): void {
         this.menu();
-        if ((this.flags[kFLAGS.SOCK_HOLDING] == "amaranthine" && this.player.gems >= 1000) || (this.flags[kFLAGS.SOCK_HOLDING] == "gilded" && this.player.gems >= 3000) || (this.flags[kFLAGS.SOCK_HOLDING] == "cobalt" && this.player.gems >= 250) || (this.flags[kFLAGS.SOCK_HOLDING] == "scarlet" && this.player.gems >= 250) || (this.flags[kFLAGS.SOCK_HOLDING] == "viridian" && this.player.gems >= 1000) || (this.flags[kFLAGS.SOCK_HOLDING] == "cockring" && this.player.gems >= 100) || (this.flags[kFLAGS.SOCK_HOLDING] == "alabaster" && this.player.gems >= 25) || (this.flags[kFLAGS.SOCK_HOLDING] == "wool" && this.player.gems >= 10)) this.addButton(0, "Buy", this.pickACockForSock);
+        if ((this.flags[kFLAGS.SOCK_HOLDING] == "amaranthine" && this.player.gems >= 1000) || (this.flags[kFLAGS.SOCK_HOLDING] == "gilded" && this.player.gems >= 3000) || (this.flags[kFLAGS.SOCK_HOLDING] == "cobalt" && this.player.gems >= 250) || (this.flags[kFLAGS.SOCK_HOLDING] == "scarlet" && this.player.gems >= 250) || (this.flags[kFLAGS.SOCK_HOLDING] == "viridian" && this.player.gems >= 1000) || (this.flags[kFLAGS.SOCK_HOLDING] == "cockring" && this.player.gems >= 100) || (this.flags[kFLAGS.SOCK_HOLDING] == "alabaster" && this.player.gems >= 25) || (this.flags[kFLAGS.SOCK_HOLDING] == "wool" && this.player.gems >= 10)) this.addButton(this, 0, "Buy", this.pickACockForSock);
         else this.outputText("\n\n<b>You can't afford that.</b>");
-        this.addButton(4, "Back", this.browseDemSocksSon);
+        this.addButton(this, 4, "Back", this.browseDemSocksSon);
     }
 
     private pickACockForSock(): void {
@@ -680,7 +680,7 @@ export class Bazaar extends BaseContent {
         //[If PC only has one cock, jump immediately to Putting It On, else: 
         if (this.player.cockTotal() == 1) {
             this.menu();
-            this.addButton(0, "Next", this.cockSockTarget, 0);
+            this.addButton(this, 0, "Next", this.cockSockTarget, 0);
         }
         else {
             this.outputText("\n\nWhich cock would you like to put it on?");
@@ -688,7 +688,7 @@ export class Bazaar extends BaseContent {
             var button: number = 0;
             this.menu();
             while (button < this.player.cockTotal()) {
-                if (this.player.cocks[button].sock == "") this.addButton(button, String(button + 1), this.cockSockTarget, button);
+                if (this.player.cocks[button].sock == "") this.addButton(this, button, String(button + 1), this.cockSockTarget, button);
                 button++;
             }
         }
@@ -711,8 +711,8 @@ export class Bazaar extends BaseContent {
             this.outputText("\n\nWell?  Do you want this cock-sock attached to your penis semi-permanently?");
         }
         this.menu();
-        this.addButton(0, "Yes", this.yesPutDatSockOnMe, target);
-        this.addButton(1, "No", this.noCockSock);
+        this.addButton(this, 0, "Yes", this.yesPutDatSockOnMe, target);
+        this.addButton(this, 1, "No", this.noCockSock);
     }
 
     //Yes
@@ -770,13 +770,13 @@ export class Bazaar extends BaseContent {
             //(Cock-sock get! +2 Corruption, +5 Arousal)
             this.dynStats("lus", 5, "cor", 2);
             this.menu();
-            this.addButton(0, "Next", this.gretasGarments);
+            this.addButton(this, 0, "Next", this.gretasGarments);
         }
         else { // Conflict! NOOOOO! Pull up! Pull up!
 
             this.outputText("Then she suddenly stops, staring at your groin.\n\n\"<i>Oh, dear...</i>\" she says, \"<i>As much as I would love to take your money honey, I can't be mixing magics like that.</i>\"")
             this.menu();
-            this.addButton(0, "Next", this.gretasGarments);
+            this.addButton(this, 0, "Next", this.gretasGarments);
         }
     }
 
@@ -786,7 +786,7 @@ export class Bazaar extends BaseContent {
         this.outputText("You shake your head.  Greta sighs, \"<i>Figures.  Here's your money back, honey.  Come back when you change your mind.</i>\"");
         //(Back to menu)
         this.menu();
-        this.addButton(0, "Next", this.gretasGarments);
+        this.addButton(this, 0, "Next", this.gretasGarments);
     }
 
     //Remove Cock-sock
@@ -798,7 +798,7 @@ export class Bazaar extends BaseContent {
         var button: number = 0;
         this.menu();
         while (button < this.player.cockTotal()) {
-            if (this.player.cocks[button].sock != "") this.addButton(button, String(button + 1), this.removeTargettedSock, button);
+            if (this.player.cocks[button].sock != "") this.addButton(this, button, String(button + 1), this.removeTargettedSock, button);
             button++;
         }
     }
@@ -850,7 +850,7 @@ export class Bazaar extends BaseContent {
         //(Cock-sock lost! +5 Corruption, -10 Arousal)
         this.dynStats("lus", -10, "cor", 1);
         this.menu();
-        this.addButton(0, "Next", this.gretasGarments);
+        this.addButton(this, 0, "Next", this.gretasGarments);
     }
 
     /*At the Slippery Squeeze
@@ -874,8 +874,8 @@ export class Bazaar extends BaseContent {
         this.dynStats("lus", 25);
         //[Yes (gives the chocolate-egg stuffed ass from the Easter bunny)] [No (This just skips the "If Yes" paragraphs)]
         this.menu();
-        this.addButton(0, "Yes", this.eggsInButt, true);
-        this.addButton(1, "No", this.eggsInButt, false);
+        this.addButton(this, 0, "Yes", this.eggsInButt, true);
+        this.addButton(this, 1, "No", this.eggsInButt, false);
     }
 
     private eggsInButt(eggButt: boolean = false): void {
@@ -936,7 +936,7 @@ export class Bazaar extends BaseContent {
         this.outputText("\n\nJoey leaves, his rabbit tail bobbing to and fro.  You see his thong is distended, practically packed to the brim with more of his still-drooling chocolatey cum.  As usual, the waterproof thong seems to be pumping it all between his soft thighs and right into his already egg-filled asshole.  He really does like feeling full back there.  Kinky.");
         this.player.orgasm();
         this.dynStats("lib", -2, "sen", -2);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Visit the Bizarre Bazaar at night.
@@ -950,9 +950,9 @@ export class Bazaar extends BaseContent {
         this.outputText("\n\nThe figure finally comes before you. Now that you're closer you can make him out better.  \"<i>What you doin' here?</i>\"  The large feline asks, a growl to his voice that leaves you wondering if he's annoyed or upset.  You do your best to calm yourself down and explain how you were just exploring the bazaar. To match the glowing eyes, a glinting grin of jagged teeth forms between the figure's black lips.  \"<i>I was just headin' there myself.  We should go together.  It's not safe to wander around at night, even for a big guy like me.</i>\"  A raspy snicker follows as a strong grip wraps around your shoulder.  \"<i>Let me just get some more cash and I'll treat ya.</i>\"  The feline purrs a generous offer as you feel him pulling you towards the tent he just exited from.  Your eyes peer around as the feline starts to drag you.  No one is around to help you.  The trail is completely vacant. An uneasy feeling quickly grows in the pit of your stomach.  Something is wrong.");
         //open options [Escape][Wait][Assault]
         this.menu();
-        this.addButton(0, "Escape", this.escapeFromCertainRape);
-        this.addButton(1, "Wait", this.waitOnStuff);
-        this.addButton(2, "Assault", this.assaultYoRapistYo);
+        this.addButton(this, 0, "Escape", this.escapeFromCertainRape);
+        this.addButton(this, 1, "Wait", this.waitOnStuff);
+        this.addButton(this, 2, "Assault", this.assaultYoRapistYo);
     }
 
     //<Option 1 Escape>
@@ -961,7 +961,7 @@ export class Bazaar extends BaseContent {
         this.outputText("You tear yourself away from the feline. Wide, surprised eyes stare at you as you make a break for it.  You run as quickly as your legs can carry you, the echoes of the feline's feet padding behind you urging you to run faster.  You flee through the trees mindlessly, darting down whatever path you see first.  In your panic, though, you quickly wear yourself out.  How far did you run? Where are you now?  You lean against a trunk and pant for breath.  Thankfully no one seems to be around, including your pursuer.  You pat yourself off as you notice the bright lights of the bazaar nearby and retreat back to the well-lit collection of tents.");
         //gtfo
         this.menu();
-        this.addButton(0, "Next", this.enterTheBazaarAndMenu);
+        this.addButton(this, 0, "Next", this.enterTheBazaarAndMenu);
     }
 
     //<Option 2 Wait>
@@ -970,7 +970,7 @@ export class Bazaar extends BaseContent {
         this.outputText("Uncertainty plagues you as you wait to see what happens.  The large feline reaches the entrance of the large tent.  His free hand grips the tent and, as you let out a loud yelp, you are shoved forcefully through.");
         //Pass go and collect 200 rape
         this.menu();
-        this.addButton(0, "Next", this.collectSomeButtSmex);
+        this.addButton(this, 0, "Next", this.collectSomeButtSmex);
     }
 
     //<Option 3 Assault>
@@ -982,7 +982,7 @@ export class Bazaar extends BaseContent {
             this.outputText("Intending to turn the tables, you grip the feline man's wrists and pull as hard as you can to wrest yourself away from the strange figure.  Your muscles fail you, though, and the feline quickly pins your arms behind your back.  Though you strain against them, the stronger hands hold you in place.  You spit silent curses at yourself for not spending more time at the gym.  \"<i>Nice try.  It was almost... Cute.</i>\" You hear the figure snicker again behind you before you are promptly shoved through the entrance to the large tent.");
             //Pass go collect 200 rape
             this.menu();
-            this.addButton(0, "Next", this.collectSomeButtSmex);
+            this.addButton(this, 0, "Next", this.collectSomeButtSmex);
         }
         //<Option 3 Assault>
         //Strength Check
@@ -991,8 +991,8 @@ export class Bazaar extends BaseContent {
             this.outputText("You huff your breath as the weaker figure tries to force you to cooperate.  You shake your head before quickly overpowering the figure. Your strong grip clenches him around the wrists, his fur soft under your fingers.  With a sharp grunt you bend them over and push their face into the dirt.  The feline snarls and attempts to yank his arms from your grasp as you hold both wrists in one hand.  You lean down to look him over, the light peeking through the nearby tent to reveal his orange fur with black stripes.  You have a large, burly tiger man pinned under you.  What do you do with him?");
             //open options [Leave][Abuse ass(70 or more corruption)]
             this.menu();
-            this.addButton(4, "Leave", this.assaultWinAndLeave);
-            if (this.player.cor >= 66) this.addButton(0, "Abuse Ass", this.abuseHisAss);
+            this.addButton(this, 4, "Leave", this.assaultWinAndLeave);
+            if (this.player.cor >= 66) this.addButton(this, 0, "Abuse Ass", this.abuseHisAss);
         }
     }
 
@@ -1002,7 +1002,7 @@ export class Bazaar extends BaseContent {
         this.outputText("You shove the large tiger man across the dirt.  His annoyed growls are muffled by the dirt his face is sliding across.  You issue a warning about picking fights with those stronger than he is and leave him lying in the dirt, his pride battered and bruised.  The dirt under your heel grinds in the darkness as you turn and casually continue down the path until you find yourself back in the bazaar.");
         //gtfo
         this.menu();
-        this.addButton(0, "Next", this.enterTheBazaarAndMenu);
+        this.addButton(this, 0, "Next", this.enterTheBazaarAndMenu);
     }
 
     //<Option 2 Abuse Ass(Visible with 70 or more corruption)>
@@ -1017,7 +1017,7 @@ export class Bazaar extends BaseContent {
             this.outputText("\n\n\"<i>What's that racket?</i>\" You turn your head, hearing a low voice shout from inside the nearby tent.  With a snicker you shove the humiliated tiger to the ground and leave him exposed and aroused as the occupants of the tent pour out.  By the time they surround him you are long gone and back to the well-lit collection of tents in the bazaar.");
             //gtfo
             this.menu();
-            this.addButton(0, "Next", this.enterTheBazaarAndMenu);
+            this.addButton(this, 0, "Next", this.enterTheBazaarAndMenu);
             return;
         }
         //[[[(If player does have cock)
@@ -1055,7 +1055,7 @@ export class Bazaar extends BaseContent {
         this.outputText("\n\n\"<i>He's even enjoying himself!</i>\"  One of the figures bellows out.  You tilt your head to peer between the tiger's spread legs and, sure enough, the barbed cock throbs between his legs with each beat of his heart.  Without further ceremony you roll the abused tiger man on his cum-soaked back and tuck your " + this.multiCockDescriptLight() + " back into your [armor].  The trio are too drunk to stop you as you leave.  Turning your head back to glance at the tiger, you see the three figures surrounding the victim and your lips curl into a pleased smile.  Within moments you return to the lights of the Bazaar.");
         //gtfo
         this.menu();
-        this.addButton(0, "Next", this.enterTheBazaarAndMenu);
+        this.addButton(this, 0, "Next", this.enterTheBazaarAndMenu);
     }
 
     //((If waited, or failed assault  //Pass go collect 200 rape))
@@ -1129,9 +1129,9 @@ export class Bazaar extends BaseContent {
         this.outputText("\n\nAll of this transpires as your " + this.buttDescript() + " is slapped over and over by the low-hanging satyr balls.  The satyr lets out a pleased groan every now and then as your body shivers and trembles from his length hilting in you over and over and over.  He doesn't look like he'll stop anytime soon, though.  You turn your head to see the tiger's barbed, nine inch cock.  The stubby barbs make your skin tingle with each graze across your cheek.  On the other hand, the bear's cock looks shorter, about seven inches though by far the thickest meat in the bunch.  The massive girth would most likely hurt your jaw if you tried to wrap your mouth around it. What do you do?");
         //open menu of options [Suck tiger] [Suck bear] [Suck none]
         this.menu();
-        this.addButton(0, "Suck Tiger", this.suckOffATiger);
-        this.addButton(1, "Suck Bear", this.suckOffABear);
-        this.addButton(2, "Suck None", this.suckOffNone);
+        this.addButton(this, 0, "Suck Tiger", this.suckOffATiger);
+        this.addButton(this, 1, "Suck Bear", this.suckOffABear);
+        this.addButton(this, 2, "Suck None", this.suckOffNone);
     }
 
     //<option 1 Suck tiger>

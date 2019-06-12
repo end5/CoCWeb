@@ -125,7 +125,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         this.outputText("\n\nYou could watch from where you're hiding, or you could play the hero and step in.");
         //[Keep Hidden]
         //[Play Hero]
-        this.simpleChoices("Play Hero", this.playHero, "Keep Hidden", this.keepHidden, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices(this, "Play Hero", this.playHero, "Keep Hidden", this.keepHidden, "", undefined, "", undefined, "", undefined);
     }
 
     //►[Keep Hidden]
@@ -140,7 +140,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
             this.outputText("After seeing the large pack of demons you decide it's best not to act.  You yourself are in no condition to help the poor creature, and knowing full well what comes after demons 'subdue' their prey, you don't want to stick around either.  You glance over and realize the skirmish has already started.  It's too late to really help her anyway, you argue to yourself, plus she's covered in muscle.");
             this.outputText("\n\nAssuring yourself that she'll be fine, you take the opportunity to flee while the demons are distracted, heading back to camp.  Leaving the ant-girl to her fate.");
             //[End of Event]
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
             return;
         }
         //►(If Over 41 - Male)
@@ -211,7 +211,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
             this.player.orgasm();
             this.dynStats("sen", -1, "cor", 3);
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //►[Play Hero]
@@ -222,7 +222,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         this.outputText("\n\nYou are now fighting demons!");
         this.startCombat(new DemonPack());
         this.monster.createStatusAffect(StatusAffects.phyllafight, 0, 0, 0, 0);
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     //►Console ant-morph
@@ -268,7 +268,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         this.outputText("\n\nThe ant queen gives you a dismissive wave with one of her larger arms, giving you reason to think her good will is anything but.  As you turn to leave, your eye catches Phylla's and she shyly smiles at you.  Her mother sees this and delivers a final, cryptic warning.  \"<i>One last thing before you depart, 'Champion'.  Should you fail, the consequences, for you, will be... dire.</i>\"");
         this.outputText("\n\nAs you mull over this ominous message, your guide reappears and leads you back through the maze of tunnels, to the exit of the colony.  You leave the anthill behind and head to camp, considering your best course of action.");
         this.flags[kFLAGS.PC_READY_FOR_ANT_COLONY_CHALLENGE] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //The Challenges
@@ -298,14 +298,14 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
             this.outputText("\n\n\"<i>Oh good, you're here.  I was beginning to think you were a coward.</i>\"  Before you can respond to his insult, he cuts you off.  \"<i>We're ready to start when you are.  Let's hope you survive longer than the last guy.</i>\"");
         }
         //[Fight] [Leave]
-        this.simpleChoices("Fight", this.antColiseumFight, "", undefined, "", undefined, "", undefined, "Leave", this.leaveAntColony);
+        this.simpleChoices(this, "Fight", this.antColiseumFight, "", undefined, "", undefined, "", undefined, "Leave", this.leaveAntColony);
     }
 
     //►[Leave]
     private leaveAntColony(): void {
         this.clearOutput();
         this.outputText("Deciding to better prepare yourself first, you inform the thin fight manager that you will return later.  You leave the colony, heading back to camp.");
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     private antColiseumFight(): void {
@@ -339,7 +339,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
             this.monster.createStatusAffect(StatusAffects.NoLoot, 0, 0, 0, 0);
         }
         this.monster.createStatusAffect(StatusAffects.PhyllaFight, 0, 0, 0, 0);
-        this.doNext(this.playerMenu);
+        this.doNext(this, this.playerMenu);
     }
 
     //(Tentacle Beast - Win) Standard Tentacle Beast Win Scene. (Again we're going to need to adapt the ending so the PC does not go back to camp.)
@@ -479,8 +479,8 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         //Use Vagina - Female Continuation
         //simpleChoices("UseYourPenis",0,"UseYourVagina",0,"",0,"",0,"",0);
         this.menu();
-        if (this.player.hasCock()) this.addButton(0, "Use Penis", this.gigititigitigitigitigityAntGirl);
-        if (this.player.hasVagina()) this.addButton(1, "Use Vagina", this.femalePhyllaFirstFuckGooooo);
+        if (this.player.hasCock()) this.addButton(this, 0, "Use Penis", this.gigititigitigitigitigityAntGirl);
+        if (this.player.hasVagina()) this.addButton(this, 1, "Use Vagina", this.femalePhyllaFirstFuckGooooo);
     }
 
     //►Male Continuation
@@ -542,11 +542,11 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         this.menu();
         //If PC has dick(s) that will fit: Jump to - Regular Male Scene Continuation
         if (this.player.cockArea(x) <= this.phyllaCapacity()) {
-            this.addButton(0, "Next", this.malePhyllaContinuation, x);
+            this.addButton(this, 0, "Next", this.malePhyllaContinuation, x);
         }
         //If PC has dick(s) that won't fit: Jump to - Cunnilingus Scene Continuation
         else {
-            this.addButton(0, "Next", this.cuntmuffinLingusPhyllaDickBig);
+            this.addButton(this, 0, "Next", this.cuntmuffinLingusPhyllaDickBig);
         }
     }
 
@@ -596,9 +596,9 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
 
         this.menu();
         //(Jump to Corruption less than 75 - Pure Ending)
-        if (this.player.cor < 75) this.addButton(0, "Next", this.phyllaFirstTimePureBabiesFuckEnding);
+        if (this.player.cor < 75) this.addButton(this, 0, "Next", this.phyllaFirstTimePureBabiesFuckEnding);
         //(Jump to Corruption more than 75 - Corrupt Ending)
-        else this.addButton(0, "Next", this.phyllaCorruptMascEnding);
+        else this.addButton(this, 0, "Next", this.phyllaCorruptMascEnding);
     }
 
     //PURE ENDING!
@@ -662,7 +662,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         this.outputText("\n\nYou drift off to sleep not long after, while Phylla demonstrates her appreciation for the intimacy you two just shared, kissing your body and rubbing you sensually as you doze off.");
         this.player.orgasm();
         this.menu();
-        this.addButton(0, "Next", this.waifuQuestOver);
+        this.addButton(this, 0, "Next", this.waifuQuestOver);
     }
 
     //Corruption greater than 75 (Corrupt Ending):
@@ -721,7 +721,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         this.player.orgasm();
         this.dynStats("cor", 1);
         this.menu();
-        this.addButton(0, "Next", this.waifuQuestOver);
+        this.addButton(this, 0, "Next", this.waifuQuestOver);
     }
 
     //Cunnilingus Scene: (Triggered if PC does NOT have a dick that is suitable for vaginal sex with Phylla.)
@@ -785,7 +785,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         this.flags[kFLAGS.DIDNT_FUCK_PHYLLA_ON_RECRUITMENT] = 1;
         //Where the fuck is this going?
         this.menu();
-        this.addButton(0, "Next", this.waifuQuestOver);
+        this.addButton(this, 0, "Next", this.waifuQuestOver);
     }
 
     //►Female Continuation
@@ -804,9 +804,9 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         this.outputText("\n\nYou've had just about enough of her denying you her pussy, and concentrate hard on forcing her to lower herself onto you.  Quite a task, given your current predicament.  Right when you think about giving up trying and just enjoying her going to town on you, you feel her mind bend to you and her once out of reach lips lower.  She's so wet you can see the streams of her arousal running down both sides of her chitinous legs.  Zeroing in, you fixate on her clit, which is much longer than you expected and sticks out far past the folds of her fuckhole.");
         this.menu();
         //(If PC has NO DICK(S)! Jump to - Scissoring Continuation)
-        if (!this.player.hasCock()) this.addButton(0, "Next", this.girlFiller);
+        if (!this.player.hasCock()) this.addButton(this, 0, "Next", this.girlFiller);
         //(If PC has ANY NUMBER of DICK(S)! - Jump to - If PC Herm/Has (a) cock(s))
-        else this.addButton(0, "Next", this.femalePhyllaFirstTimePlusCock);
+        else this.addButton(this, 0, "Next", this.femalePhyllaFirstTimePlusCock);
     }
 
     private girlFiller(): void {
@@ -825,7 +825,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         this.outputText("\"<i>I-I've... never,</i>\" she stammers, but you just want her to experience this before she ruins the moment.");
         this.outputText("\n\nRocking your hips you see the exact reaction you expected as Phylla moans into the air, arching her back and instinctively rocking her hips into yours.");
         this.menu();
-        this.addButton(0, "Next", this.scissorContinue, true);
+        this.addButton(this, 0, "Next", this.scissorContinue, true);
     }
 
 
@@ -920,7 +920,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         this.outputText("\n\nYou almost collapse onto her as your body attempts to recover from pleasure.  You catch yourself planting both your arms on either side of Phylla's face, hanging over her.  She reaches up and wraps all her arms around you, bringing you down to lay next to her.  The shy ant morph turns her head and kisses you one final time before you both pass out in each other's embrace.");
         this.player.orgasm();
         this.menu();
-        this.addButton(0, "Next", this.waifuQuestOver);
+        this.addButton(this, 0, "Next", this.waifuQuestOver);
     }
 
     private waifuQuestOver(): void {
@@ -929,8 +929,8 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         this.outputText("\n\nYou look over at Phylla, noticing that she's completely passed out in a very cute fetal position. You can see the indent you were making next to her before you stood up.  It's odd, but you can still feel that \"link\" you two shared; her thoughts and emotions like the whisper of wind around you. Just looking at her sleeping seems to make your worries melt away.  Your lack of presence in bed causes her to stir and wake, and she rubs her eyes in an effort to fully drag herself into consciousness. You can tell from her body language that she's experiencing the same withdrawals you are.  As you start to gather your things, your sleepy lover groggily says, \"<i>I can join you at camp if you want, I don't take up much space.  Above ground!  I mean, I'll be underground, I mean, I won't bother anyone.  I-I'll be good...</i>\"");
         //[Come to Camp] [Stay Here]
         this.menu();
-        this.addButton(0, "Come2Camp", this.getAntWaifuYoShit);
-        this.addButton(1, "Stay Here", this.tellPhyllaToStayTheFuckAtHomeThatCunt);
+        this.addButton(this, 0, "Come2Camp", this.getAntWaifuYoShit);
+        this.addButton(this, 1, "Stay Here", this.tellPhyllaToStayTheFuckAtHomeThatCunt);
     }
 
     //[Come to Camp]
@@ -939,7 +939,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         this.outputText("You smile at her and tell her you would love for her to join you at your camp.  Her face brightens like the sun and she quickly gathers the very few possessions she owns - mostly clothing, the pillows, and some jewelry.  Together you promptly leave the colony and head back to camp.");
         this.outputText("\n\n(<b>Phylla has moved in!  She can be found in the lovers tab!</b>)");
         this.flags[kFLAGS.ANT_WAIFU] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //►[Stay Here]
@@ -950,7 +950,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         this.outputText("\n\nAs you turn to leave she quickly says, \"<i>If you ever feel your camp is safe enough for me to join you, p-please come get me.  If you want.  I mean, I'm not going anywhere... not that I could with my mother watching anyway...</i>\"");
         this.outputText("\n\nYou nod and without another word, head back to camp.");
         this.flags[kFLAGS.PHYLLA_STAY_HOME] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //If PC returns to colony after telling her to stay with her mother:
@@ -967,8 +967,8 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         //[Come to Camp] [Stay Here]
         //(Note: There's no content here for her staying at her mother's Colony. She's meant to be a Waifu.)
         this.menu();
-        this.addButton(0, "Come2Camp", this.getAntWaifuYoShit);
-        this.addButton(1, "Stay Here", this.tellPhyllaToStayTheFuckAtHomeThatCunt);
+        this.addButton(this, 0, "Come2Camp", this.getAntWaifuYoShit);
+        this.addButton(this, 1, "Stay Here", this.tellPhyllaToStayTheFuckAtHomeThatCunt);
     }
 
 
@@ -1034,14 +1034,14 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         }
         //[Talk] [Sex] [Lay Eggs / Don't Lay Eggs] [Children] [Appearance] [Gems]
         this.menu();
-        this.addButton(0, "Talk", this.phyllaTalkChoices);
-        if (this.player.lust >= 33) this.addButton(1, "Sex", this.phyllaSexMenu);
-        if (this.flags[kFLAGS.PHYLLA_EGG_LAYING] == 0) this.addButton(2, "Lay Eggs", this.phyllaLaysEggsToggle);
-        else this.addButton(2, "No Eggs", this.phyllaLaysEggsToggle);
-        if (this.flags[kFLAGS.ANT_KIDS] > 0) this.addButton(3, "Children", this.phyllasKidsChildren);
-        this.addButton(4, "Appearance", this.phyllaPearance);
-        this.addButton(5, "Find Gems", this.phyllaDigsForGems);
-        this.addButton(9, "Back", this.camp.campLoversMenu);
+        this.addButton(this, 0, "Talk", this.phyllaTalkChoices);
+        if (this.player.lust >= 33) this.addButton(this, 1, "Sex", this.phyllaSexMenu);
+        if (this.flags[kFLAGS.PHYLLA_EGG_LAYING] == 0) this.addButton(this, 2, "Lay Eggs", this.phyllaLaysEggsToggle);
+        else this.addButton(this, 2, "No Eggs", this.phyllaLaysEggsToggle);
+        if (this.flags[kFLAGS.ANT_KIDS] > 0) this.addButton(this, 3, "Children", this.phyllasKidsChildren);
+        this.addButton(this, 4, "Appearance", this.phyllaPearance);
+        this.addButton(this, 5, "Find Gems", this.phyllaDigsForGems);
+        this.addButton(this, 9, "Back", this.camp.campLoversMenu);
 
         this.flags[kFLAGS.PHYLLA_CAMP_VISITS]++;
     }
@@ -1049,38 +1049,38 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
     private phyllaSexMenu(): void {
         this.menu();
         if (this.player.hasCock()) {
-            this.addButton(0, "Get BJ", this.phyllaBeeeJays);
+            this.addButton(this, 0, "Get BJ", this.phyllaBeeeJays);
             //\"<i>Use Dick</i>\"
-            this.addButton(1, "Fuck Her", this.dickPhylla);
+            this.addButton(this, 1, "Fuck Her", this.dickPhylla);
             //[While Giving Birth]
             //(Note: The above option will only be available if Phylla is 'Laying Eggs.')
             //While Giving Birth (Male) - Written
-            if (this.flags[kFLAGS.PHYLLA_EGG_LAYING] > 0 && this.flags[kFLAGS.ANT_KIDS] >= 10) this.addButton(1, "Fuck Her", this.dudesFuckEggLayingBitches);
-            if (this.flags[kFLAGS.ANT_KIDS] > 10 && this.player.cor >= 75) this.addButton(3, "Orgy (Male)", this.orgyWithDatColonyCorruptDudes);
+            if (this.flags[kFLAGS.PHYLLA_EGG_LAYING] > 0 && this.flags[kFLAGS.ANT_KIDS] >= 10) this.addButton(this, 1, "Fuck Her", this.dudesFuckEggLayingBitches);
+            if (this.flags[kFLAGS.ANT_KIDS] > 10 && this.player.cor >= 75) this.addButton(this, 3, "Orgy (Male)", this.orgyWithDatColonyCorruptDudes);
         }
         //Straight Sex (Lesbian/Fisting) - Written
         if (this.player.hasVagina()) {
-            this.addButton(2, "Lesbian Sex", this.lesbianFisting);
+            this.addButton(this, 2, "Lesbian Sex", this.lesbianFisting);
             //While Giving Birth (Female) - Written
-            if (this.flags[kFLAGS.PHYLLA_EGG_LAYING] > 0 && this.flags[kFLAGS.ANT_KIDS] >= 10) this.addButton(2, "Lesbian Sex", this.birfingSexWithAntsForDasLadies);
+            if (this.flags[kFLAGS.PHYLLA_EGG_LAYING] > 0 && this.flags[kFLAGS.ANT_KIDS] >= 10) this.addButton(this, 2, "Lesbian Sex", this.birfingSexWithAntsForDasLadies);
             //Orgy w/ Colony (Female)
             //You tell Phylla you're interested in 'inspecting' your children.
-            if (this.flags[kFLAGS.ANT_KIDS] > 10 && this.player.cor >= 75) this.addButton(4, "Orgy (Female)", this.antColonyOrgy4Ladies);
+            if (this.flags[kFLAGS.ANT_KIDS] > 10 && this.player.cor >= 75) this.addButton(this, 4, "Orgy (Female)", this.antColonyOrgy4Ladies);
         }
         //Drider/Bee impregnation scene for Phylla (universal unless otherwise specified, which will include varied intros and stuff.
         //Sex > [Egg Phylla]
-        if (this.player.canOvipositSpider()) this.addButton(5, "Oviposit", this.eggDatBitch);
-        this.addButton(9, "Back", this.introductionToPhyllaFollower);
+        if (this.player.canOvipositSpider()) this.addButton(this, 5, "Oviposit", this.eggDatBitch);
+        this.addButton(this, 9, "Back", this.introductionToPhyllaFollower);
     }
 
     private phyllaTalkChoices(): void {
         this.menu();
-        this.addButton(0, "History", this.talkAboutAntHistory);
+        this.addButton(this, 0, "History", this.talkAboutAntHistory);
         //(Ant Morph Mating Ritual / Inherited Knowledge)
-        this.addButton(1, "Mating", this.talkAboutAntMatingAndRituals);
+        this.addButton(this, 1, "Mating", this.talkAboutAntMatingAndRituals);
         //(Phylla's Life Past & Future)
-        this.addButton(2, "Her Life", this.phyllasLifePastAndFuture);
-        this.addButton(9, "Back", this.introductionToPhyllaFollower);
+        this.addButton(this, 2, "Her Life", this.phyllasLifePastAndFuture);
+        this.addButton(this, 9, "Back", this.introductionToPhyllaFollower);
     }
 
     //►[Talk]
@@ -1154,7 +1154,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
 
             this.outputText("\n\nTurning to leave back to camp, you hear Phylla crying.  Maybe some time alone with her thoughts will help her see what you're trying to accomplish here.");
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //(Ant Morph Mating Ritual / Inherited Knowledge)
@@ -1241,7 +1241,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
             }
         }
         this.flags[kFLAGS.PHYLLA_INHERITED_KNOWLEDGE] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //(Phylla's Life Past & Future)
@@ -1331,7 +1331,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
             this.outputText("\n\nYou mull this over in your head, and you must have been thinking pretty hard.  When you get up to leave you find Phylla has completely passed out on your lap.  You take this opportunity to gently unwrap yourself from her, and head back to camp.");
 
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -1430,9 +1430,9 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         }
         this.menu();
         //(If Corruption less than 75 transitions to - Pure BJ Ending)
-        if (this.player.cor < 75) this.addButton(0, "Next", this.purePhyllaBJOver);
+        if (this.player.cor < 75) this.addButton(this, 0, "Next", this.purePhyllaBJOver);
         //(If Corruption more than 75 transitions to - Corrupt BJ Ending)
-        else this.addButton(0, "Next", this.corruptPhyllaEndings);
+        else this.addButton(this, 0, "Next", this.corruptPhyllaEndings);
     }
 
     //Pure BJ:
@@ -1472,8 +1472,8 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         this.outputText("\n\n\"<i>T-this... doesn't do me...  I~mean... I'm in heat now... can we join so... I can feel this too?</i>\" She looks as if she didn't want to say it at all but her growing sexual appetite seems to be overtaking her timidness.");
         //[Sure]  [Nope]
         this.menu();
-        this.addButton(0, "Sure", this.surePhyllaLetsFuck);
-        this.addButton(1, "Nope", this.nopeNotOnMouthOrWhateverFuckThisNoise);
+        this.addButton(this, 0, "Sure", this.surePhyllaLetsFuck);
+        this.addButton(this, 1, "Nope", this.nopeNotOnMouthOrWhateverFuckThisNoise);
     }
 
     //[Sure]
@@ -1545,22 +1545,22 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         this.player.orgasm();
         //[Swallow it up]   [Spit it out]
         this.menu();
-        this.addButton(0, "Swallow It", this.swallowDatJismPhylla);
-        this.addButton(1, "SpitItOut", this.spitItOutYouCunt);
+        this.addButton(this, 0, "Swallow It", this.swallowDatJismPhylla);
+        this.addButton(this, 1, "SpitItOut", this.spitItOutYouCunt);
     }
 
     //[Swallow It]
     private swallowDatJismPhylla(): void {
         this.clearOutput();
         this.outputText("Placing your hands on your hips, you smirk and tell Phylla that a true queen never spits. Phylla shoots you a slutty look and gulps your load greedily, taking a moment to savor the warmth and texture as it works its way down her throat.  She ahhhs loudly as she rubs her stomach, humming in pleasure as the steamy load spreads its heat to her belly.  \"<i>Thank you, [name].  That hit the spot.</i>\"");
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Spit it out]
     private spitItOutYouCunt(): void {
         this.clearOutput();
         this.outputText("Crossing your arms, you tell Phylla to spit your load out.  As you dress yourself back up in your [armor], you hear Phylla frantically dig out a hole in the floor.  She playfully leans over and spits the salty payload into it.  She makes a soft hum when she's finished, before quickly covering it up again.  \"<i>Thank you, [name].  Next time I'll do better, I promise.</i>\"");
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Corrupt BJ Ending
@@ -1626,7 +1626,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         //***Both mode endings converge here***
         this.outputText("\n\n...Can you? You muse again, thinking about it.  After a few moments of helping Phylla to the pile of, now very wet, cushions she calls a bed, you finish donning your [armor] and head back to the surface.");
         this.player.orgasm();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //\"<i>Use Dick</i>\"
@@ -1744,7 +1744,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
 
         this.outputText("\n\nPhylla stirs next to you, and groggily says, \"<i>You should come down more often.  I mean...  I miss you sometimes...</i>\"  Her shyness returns as she slowly recovers from the small sex-coma you placed each other in.  You say you'll think about it and wink at her as you get dressed and head back to camp, leaving her to eagerly await the next time you come to take her once again.");
         this.player.orgasm();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Straight Sex (Lesbian/Fisting) - Written
@@ -1781,7 +1781,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
 
         this.outputText("\n\nYou say you'll think about it and wink at her as you get dressed and head back to camp, leaving her to eagerly await the next time you come to take her once again.");
         this.player.orgasm();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
 
@@ -1882,7 +1882,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
             this.outputText("\n\nAfter a moment of staggered walking you allow Phylla the courtesy to flop down onto the hard surface of the bed, pausing only for a moment to look over your pregnant little whore.  After a quick remark to her on how she'd better be ready for another round soon, you leave her to the mess you have made as you head back to camp.");
         }
         this.player.orgasm();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //While Giving Birth (Female) - Written
@@ -2057,7 +2057,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
             this.outputText("\n\nNow that Phylla's quieted down, you tell her you're going to get some sleep; if she's to have another child, she'll need to either keep quiet or leave to another room.  She nods dejectedly as you settle in for your nap.  You swear you hear her go into labor again right before drifting off.");
         }
         this.player.orgasm();
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //[Orgy w/ Colony - Requires Children]
@@ -2181,7 +2181,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         this.outputText("\n\nYou might want to stay and watch that, but you've spent too long down here already.  You collect your things, trying your best not to step on the twenty or so passed out ants on the floor as you head back to camp.");
         this.player.orgasm();
         this.dynStats("sen", -2);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Orgy w/ Colony (Female)
@@ -2301,7 +2301,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         this.outputText("\n\nYou might want to stay and watch that, but you've spent too long down here already.  You collect your things, trying your best not to step on the twenty or so passed out ants on the floor as you head back to camp.");
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //►[Lay Eggs / Don't Lay Eggs]
@@ -2320,8 +2320,8 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
             //[Yay!] Transition to - LICK THAT!
             //[On your own] Transition to - DON'T LICK THAT!
             this.menu();
-            this.addButton(0, "Lick That", this.lickThatAntButt);
-            this.addButton(1, "Don't Lick", this.dontLickAntButt);
+            this.addButton(this, 0, "Lick That", this.lickThatAntButt);
+            this.addButton(this, 1, "Don't Lick", this.dontLickAntButt);
         }
         //(Stop Laying Eggs)
         else {
@@ -2332,7 +2332,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
             this.outputText("\n\nShe pauses and makes a strange face as her abdomen pulses and another egg emerges from the tip.  She blushes deeply.  \"<i>That's the last one!  I mean, I had to get it out, it was already...</i>\"");
             this.outputText("\n\nYou cut her off by asking when her abdomen will return to normal size - both because you're curious and because you really didn't want her to finish that sentence.  \"<i>It shouldn't take long.  I can already feel it changing.</i>\"");
             this.outputText("\n\nSmiling, you thank her for complying with all your demands.  You leave the colony, heading back to camp.");
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -2370,7 +2370,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         this.flags[kFLAGS.PHYLLA_COOLDOWN] = 12;
         this.flags[kFLAGS.ANTS_BIRTHED_FROM_LICKING]++;
         if (this.flags[kFLAGS.ANT_KIDS] < 5000) this.flags[kFLAGS.ANT_KIDS] += 5;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //DON'T LICK THAT!
@@ -2390,7 +2390,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         this.outputText("\n\nYou remark to Phylla that you might just take her up on that and wink as you leave your exhausted lover to recuperate, passing several of your children as they scoop up the bundle of eggs that lie huddled together on the floor.");
         this.flags[kFLAGS.PHYLLA_COOLDOWN] = 6;
         this.flags[kFLAGS.ANT_KIDS]++;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Phylla lays Drider eggs
@@ -2419,7 +2419,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
             else this.outputText("\n\nRubbing her now empty belly Phylla remarks on how much she loves giving birth through her 'other hole' and how you should knock her up this way much more often.  Again you feel the maternal warmth radiating from Phylla.");
 
             this.outputText("\n\nYour intimate moment with her is interrupted by the crackling and hatching of egg shells as your brood clamors for freedom.  Sighting their mother, they scurry up the bedspread and set up a pecking order for who will get the first go at Phylla's milk filled breasts.  The birthing complete, you kiss Phylla on the lips and thank her for hosting your young.  \"<i>Thank you for helping me achieve my purpose in life.  I know you have other things to do, but just know that... I love you.</i>\" She weakly replies.  You wink at her and nod before heading back up to the surface.");
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
         //PC has more than 75 corruption:
         else {
@@ -2437,13 +2437,13 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
                 this.outputText("\n\nGods DAMN!  You want to knock her up so bad!  Your Drider urges to mount her are in danger of overwhelming you and reducing you to a brainless breeder... maybe that isn't so bad after all, but you need to make a decision now before you're consumed by lust!");
                 this.menu();
                 //[Leave her to recover] - Let Phylla Recover  [Mount] - Mount Phylla
-                this.addButton(0, "LetHerRecover", this.letPhyllaRecover);
-                this.addButton(1, "Mount", this.driderDoublePhllaMount);
+                this.addButton(this, 0, "LetHerRecover", this.letPhyllaRecover);
+                this.addButton(this, 1, "Mount", this.driderDoublePhllaMount);
             }
             else {
                 this.menu();
                 //[Leave her to recover]
-                this.addButton(0, "Next", this.letPhyllaRecover);
+                this.addButton(this, 0, "Next", this.letPhyllaRecover);
             }
         }
         this.flags[kFLAGS.PHYLLA_TIMES_DRIDER_EGG_LAYED]++;
@@ -2466,14 +2466,14 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         this.player.dumpEggs();
         //set phylla drider preggo timer
         if (!this.pregnancy.isPregnant) this.pregnancy.knockUpForce(PregnancyStore.PREGNANCY_DRIDER_EGGS, 8 * 24); //Supposed to be eight days, not eight hours
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Let Phylla Recover:
     private letPhyllaRecover(): void {
         this.clearOutput();
         this.outputText("Working up all of your self control, you decide that Phylla could use the rest.  You wink at Phylla as you leave, telling her that you'll be back to fuck her brains out shortly... once she feeds your children.  She only musters the strength to smile and mutter something about motherhood but you're already halfway out the door.");
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //►[Children - Only available if Phylla has laid eggs]
@@ -2499,7 +2499,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         if (this.flags[kFLAGS.PHYLLA_TIMES_DRIDER_EGG_LAYED] > 10) this.outputText("\n\nShe sighs forlornly but continues.  \"<i>Some of our drider offspring have even taken it upon themselves to leave the colony and venture out into the world.  Not that I mind; it's just sad seeing them go sometimes.  I know we did a good job raising them, and I hope they take the lessons we taught them to heart, and that they never forget where home is...</i>\"");
         //Ending for Scene
         this.outputText("\n\nYou feel good about this.  Standing up to survey the colony, you can see Phylla is also very content.  You thank her for talking to you and head back to the surface, toward camp.");
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //►[Appearance]
@@ -2523,7 +2523,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         }
         //go back to phylla menu.
         this.menu();
-        this.addButton(0, "Next", this.introductionToPhyllaFollower);
+        this.addButton(this, 0, "Next", this.introductionToPhyllaFollower);
     }
 
     //►[Gems]
@@ -2573,7 +2573,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
             this.outputText("\n\n\"<i>Is there anything else you wanted to do while you're down here?</i>\"  She inquires excitedly.");
         }
         this.flags[kFLAGS.PHYLLA_GEMS_HUNTED_TODAY] = 1;
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 
     //Drider/Bee impregnation scene for Phylla (universal unless otherwise specified, which will include varied intros and stuff.
@@ -2598,7 +2598,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
             if (this.pregnancy.isPregnant) this.outputText("\n\n\"<i>I just can't hold anything else inside me.  I'm sorry!  Please don't be mad... I mean, I will!  Just a-after... this batch.</i>\"");
             //Else player has not impregnated:
             else this.outputText("\n\n\"<i>I mean... I just, don't feel comfortable with that right now. Maybe later, though.</i>\"");
-            this.doNext(this.camp.returnToCampUseOneHour);
+            this.doNext(this, this.camp.returnToCampUseOneHour);
         }
         //Persuasion Success
         else {
@@ -2631,7 +2631,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
             this.player.orgasm();
             this.player.dumpEggs();
         }
-        this.doNext(this.camp.returnToCampUseOneHour);
+        this.doNext(this, this.camp.returnToCampUseOneHour);
     }
 }
 

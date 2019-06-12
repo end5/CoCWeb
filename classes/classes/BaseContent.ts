@@ -172,8 +172,8 @@ export class BaseContent extends Utils {
     }
     */
 
-    protected createCallBackFunction(func: any, arg: any) {
-        return kGAMECLASS.createCallBackFunction(func, arg);
+    protected createCallBackFunction(thisObj: any, func: any, arg: any) {
+        return kGAMECLASS.createCallBackFunction(thisObj, func, arg);
     }
 
     protected createCallBackFunction2(func: any, ...args: any[]) {
@@ -202,9 +202,9 @@ export class BaseContent extends Utils {
         kGAMECLASS.mainView.clearOutputText();
     }
 
-    protected doNext(eventNo: any): void //Now typesafe
+    protected doNext(thisObj: any, eventNo: any): void //Now typesafe
     {
-        kGAMECLASS.doNext(eventNo);
+        kGAMECLASS.doNext(thisObj, eventNo);
     }
 
     protected menu(): void {
@@ -214,7 +214,7 @@ export class BaseContent extends Utils {
     protected hideMenus(): void {
         kGAMECLASS.hideMenus();
     }
-    protected choices(text1: string, butt1: any,
+    protected choices(thisObj: any, text1: string, butt1: any,
         text2: string, butt2: any,
         text3: string, butt3: any,
         text4: string, butt4: any,
@@ -224,7 +224,7 @@ export class BaseContent extends Utils {
         text8: string, butt8: any,
         text9: string, butt9: any,
         text0: string, butt0: any): void { //Now typesafe
-        kGAMECLASS.choices(
+        kGAMECLASS.choices(thisObj,
             text1, butt1,
             text2, butt2,
             text3, butt3,
@@ -238,24 +238,24 @@ export class BaseContent extends Utils {
         );
     }
 
-    protected simpleChoices(text1: string, butt1: any,
+    protected simpleChoices(thisObj: any, text1: string, butt1: any,
         text2: string, butt2: any,
         text3: string, butt3: any,
         text4: string, butt4: any,
         text5: string, butt5: any): void { //Now typesafe
-        kGAMECLASS.simpleChoices(text1, butt1,
+        kGAMECLASS.simpleChoices(thisObj, text1, butt1,
             text2, butt2,
             text3, butt3,
             text4, butt4,
             text5, butt5);
     }
 
-    protected doYesNo(eventYes: any, eventNo: any): void { //Now typesafe
-        kGAMECLASS.doYesNo(eventYes, eventNo);
+    protected doYesNo(thisObj: any, eventYes: any, eventNo: any): void { //Now typesafe
+        kGAMECLASS.doYesNo(thisObj, eventYes, eventNo);
     }
 
-    protected addButton(pos: number, text: string = "", func1?: any, arg1: any = -9000): void {
-        kGAMECLASS.addButton(pos, text, func1, arg1);
+    protected addButton(thisObj: any, pos: number, text: string = "", func1?: any, arg1: any = -9000): void {
+        kGAMECLASS.addButton(thisObj, pos, text, func1, arg1);
     }
 
     // protected hasButton(arg: any): boolean {
