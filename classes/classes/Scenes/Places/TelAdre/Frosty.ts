@@ -36,8 +36,8 @@ export class Frosty extends TelAdreAbstractContent {
             this.outputText("\n\n“<i>Do we have a deal?</i>” She waves a hand next to her breast to bring your attention back to her face.");
             //[Yes] [No]
             this.menu();
-            this.addButton(this, 0, "Yes", this.yesFrostyLetsHaveSexForCupcakesWhoThoughtThisWasAGoodIdeaIMeanSeriously);
-            this.addButton(this, 1, "No", this.noContractForMeSloot);
+            this.addButton(0, "Yes", this.yesFrostyLetsHaveSexForCupcakesWhoThoughtThisWasAGoodIdeaIMeanSeriously);
+            this.addButton(1, "No", this.noContractForMeSloot);
         }
         else {
             //[Picking the Frosty button at the Bakery]
@@ -60,13 +60,13 @@ export class Frosty extends TelAdreAbstractContent {
 
     public frostyMainMenu(): void {
         this.menu();
-        if (this.player.gems >= 15) this.addButton(this, 0, "x1", this.cupcakeBuy, 1);
-        if (this.player.gems >= 60) this.addButton(this, 1, "x5", this.cupcakeBuy, 5);
-        if (this.player.gems >= 110) this.addButton(this, 2, "x10", this.cupcakeBuy, 10);
-        if (this.player.gems >= 200) this.addButton(this, 3, "x20", this.cupcakeBuy, 20);
-        if (this.flags[kFLAGS.SIGNED_FROSTYS_CONTRACT] == 0) this.addButton(this, 8, "Contract", this.getAFuckingFuckContractFromFucks);
-        else this.addButton(this, 8, "Specials", this.frostysLimitedSpecialMenu);
-        this.addButton(this, 9, "Leave", kGAMECLASS.telAdre.telAdreMenu);
+        if (this.player.gems >= 15) this.addButton(0, "x1", this.cupcakeBuy, 1);
+        if (this.player.gems >= 60) this.addButton(1, "x5", this.cupcakeBuy, 5);
+        if (this.player.gems >= 110) this.addButton(2, "x10", this.cupcakeBuy, 10);
+        if (this.player.gems >= 200) this.addButton(3, "x20", this.cupcakeBuy, 20);
+        if (this.flags[kFLAGS.SIGNED_FROSTYS_CONTRACT] == 0) this.addButton(8, "Contract", this.getAFuckingFuckContractFromFucks);
+        else this.addButton(8, "Specials", this.frostysLimitedSpecialMenu);
+        this.addButton(9, "Leave", kGAMECLASS.telAdre.telAdreMenu);
 
     }
 
@@ -76,10 +76,10 @@ export class Frosty extends TelAdreAbstractContent {
         this.menu();
         if (!free && this.flags[kFLAGS.FROSTY_POINTS] < 5) this.outputText("\n\nYou don't have enough points for any services.")
         else if (!free && this.flags[kFLAGS.FROSTY_POINTS] < 15) this.outputText("\n\nYou don't have enough points for mouth service.")
-        if (free || this.flags[kFLAGS.FROSTY_POINTS] >= 5) this.addButton(this, 0, "Hand", this.frostysHandsAreColdHolyShitWhyDontYouWarmTHoseMitsUp);
-        if (free || this.flags[kFLAGS.FROSTY_POINTS] >= 15) this.addButton(this, 1, "Mouth", this.useFrostysMouth);
-        if (free || this.flags[kFLAGS.FROSTY_POINTS] >= 1) this.addButton(this, 8, "EatHerOut", this.cunnilingateFrosty);
-        this.addButton(this, 9, "Back", this.approachFrosty);
+        if (free || this.flags[kFLAGS.FROSTY_POINTS] >= 5) this.addButton(0, "Hand", this.frostysHandsAreColdHolyShitWhyDontYouWarmTHoseMitsUp);
+        if (free || this.flags[kFLAGS.FROSTY_POINTS] >= 15) this.addButton(1, "Mouth", this.useFrostysMouth);
+        if (free || this.flags[kFLAGS.FROSTY_POINTS] >= 1) this.addButton(8, "EatHerOut", this.cunnilingateFrosty);
+        this.addButton(9, "Back", this.approachFrosty);
     }
 
     public cupcakeBuy(arg: number = 1): void {
@@ -95,7 +95,7 @@ export class Frosty extends TelAdreAbstractContent {
         if (arg == 20) this.player.gems -= 200;
         this.frostyPoints(arg);
         this.menu();
-        this.addButton(this, 0, "Next", this.approachFrosty);
+        this.addButton(0, "Next", this.approachFrosty);
     }
 
     //[Yes]
@@ -108,8 +108,8 @@ export class Frosty extends TelAdreAbstractContent {
         this.outputText("\n\nDo you accept?");
         //[Yes] [No]
         this.menu();
-        this.addButton(this, 0, "Yes", this.yesIWantYourFreeSampleYouFuckingDiseasedCupcakeSlut);
-        this.addButton(this, 1, "No", this.noIDontWantAFreebieDiseaseYouSlut);
+        this.addButton(0, "Yes", this.yesIWantYourFreeSampleYouFuckingDiseasedCupcakeSlut);
+        this.addButton(1, "No", this.noIDontWantAFreebieDiseaseYouSlut);
     }
 
     //[Yes]
@@ -125,7 +125,7 @@ export class Frosty extends TelAdreAbstractContent {
         this.clearOutput();
         this.outputText("You’re too busy right now, so you deny the free service. “<i>Okeydokey, see you around, [name]!</i>” Frosty does a twirl on one foot and runs back to her stand. Such a nice girl.");
         this.menu();
-        this.addButton(this, 0, "Next", kGAMECLASS.telAdre.telAdreMenu);
+        this.addButton(0, "Next", kGAMECLASS.telAdre.telAdreMenu);
     }
 
     //[No](for the contract)
@@ -135,7 +135,7 @@ export class Frosty extends TelAdreAbstractContent {
         this.outputText("\n\n“<i>Well, you can still buy my tasty cupcakes. You just won’t get any perks for buying them, but eating them is a benefit in its own way. Join the BETA if you change your mind on the whole thing.</i>”");
         this.outputText("\n\nYou nod at her suggestion and make your way back to the main street.");
         this.menu();
-        this.addButton(this, 0, "Next", kGAMECLASS.telAdre.telAdreMenu);
+        this.addButton(0, "Next", kGAMECLASS.telAdre.telAdreMenu);
     }
 
     //[Choosing Buttons 1-4]
@@ -159,8 +159,8 @@ export class Frosty extends TelAdreAbstractContent {
         //[Yes] 
         //[Go to the “Yes” section when offered the contract the first time.]
         this.menu();
-        this.addButton(this, 0, "Yes", this.yesFrostyLetsHaveSexForCupcakesWhoThoughtThisWasAGoodIdeaIMeanSeriously);
-        this.addButton(this, 1, "No", this.noIDontWantToSignYourFuckingContractGoddamned);
+        this.addButton(0, "Yes", this.yesFrostyLetsHaveSexForCupcakesWhoThoughtThisWasAGoodIdeaIMeanSeriously);
+        this.addButton(1, "No", this.noIDontWantToSignYourFuckingContractGoddamned);
     }
 
     //[No]
@@ -283,7 +283,7 @@ export class Frosty extends TelAdreAbstractContent {
         //[Player is back at camp]
         this.dynStats("sen", -1);
         this.player.orgasm();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Mouth]
@@ -354,7 +354,7 @@ export class Frosty extends TelAdreAbstractContent {
         //[Player is back at camp]
         this.dynStats("sen", -1);
         this.player.orgasm();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Back to Frosty’s Special Menu.]
@@ -459,7 +459,7 @@ export class Frosty extends TelAdreAbstractContent {
         //[Player is back at camp]
         this.frostyPoints(-1);
         this.dynStats("lus", 33);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     /*Anal (One service genderless can have) -WIP-

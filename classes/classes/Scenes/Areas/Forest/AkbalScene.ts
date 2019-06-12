@@ -46,7 +46,7 @@ export class AkbalScene extends BaseContent {
                     buttFuck = this.rapeAkbal;
                 this.outputText("\n\nDo you rape him?", false);
                 //Rape / Don't Rape
-                kGAMECLASS.simpleChoices(this, "Butt-fuck", buttFuck, "Take Vaginally", vagoo, "Force Lick", vagooLick, "B.Titfuck", bikiniTits, "Leave", this.cleanupAfterCombat);
+                kGAMECLASS.simpleChoices("Butt-fuck", buttFuck, "Take Vaginally", vagoo, "Force Lick", vagooLick, "B.Titfuck", bikiniTits, "Leave", this.cleanupAfterCombat);
                 return;
             }
         }
@@ -59,7 +59,7 @@ export class AkbalScene extends BaseContent {
         this.outputText("", true);
         if (pcCameWorms) {
             this.outputText("\n\nYour foe doesn't seem disgusted enough to leave...");
-            this.doNext(this, this.loseToAckballllllz);
+            this.doNext(this.loseToAckballllllz);
         } else if (hpVictory) {
             this.outputText("The intense pain causes you to black out. The last thing you see is Akbal standing over you on his two hind legs, his massive cock ominously swinging between them as he watches you lose consciousness.\n\n", false);
         } else {
@@ -412,7 +412,7 @@ export class AkbalScene extends BaseContent {
         }
         this.dynStats("lus", 50);
         //-Page Turn-
-        this.doNext(this, this.girlsRapeAkbalPart2);
+        this.doNext(this.girlsRapeAkbalPart2);
     }
 
     private girlsRapeAkbalPart2(): void {
@@ -670,7 +670,7 @@ export class AkbalScene extends BaseContent {
 
         this.outputText("The aura pouring forth from this 'Akbal' is anything but god-like; you recognize the demon for what it truly is.  Yet its ivory teeth and sharp claws prove to you that it can make good on its threat.  What do you do?", false);
         //Talk / Fight / Run
-        this.simpleChoices(this, "Talk", this.superAkbalioTalk, "Fight", this.startuAkabalFightomon, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+        this.simpleChoices("Talk", this.superAkbalioTalk, "Fight", this.startuAkabalFightomon, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     //[Talk]
@@ -680,7 +680,7 @@ export class AkbalScene extends BaseContent {
         this.outputText("After a few moments of silence you ask, \"<i>What do you mean, 'submit'?</i>\" Akbal grins, revealing a row of wicked ivory teeth as he opens his mouth. You suddenly feel the demon's powerful body pinning you down, a wide tongue licking your neck and claws tickling your back in a way that is both horrifying and sensual. Yet after a moment of taking it in, you realize that he is still there in front of you, unmoved and grinning. You can guess what the image means: he wants you to become his mate for a day to make up for invading his territory.  What do you do?\n\n", false);
 
         //Submit / Fight
-        this.simpleChoices(this, "Fight", this.startuAkabalFightomon, "Submit", this.akbalSubmit, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices("Fight", this.startuAkabalFightomon, "Submit", this.akbalSubmit, "", undefined, "", undefined, "", undefined);
     }
 
     //[Encounter if previously submitted]
@@ -690,7 +690,7 @@ export class AkbalScene extends BaseContent {
         this.outputText("As you walk through the forest, you hear a purring coming from behind you.  Turning around reveals that Akbal has come to find you.  He uses his head to push you in the direction of his territory, obviously wanting to dominate you again.\n\n", false);
         this.outputText("What do you do?", false);
         //Submit / Deny / Fight
-        this.simpleChoices(this, "Submit", this.akbalSubmit, "Deny", this.akbalDeny, "Fight", this.startuAkabalFightomon, "", undefined, "", undefined);
+        this.simpleChoices("Submit", this.akbalSubmit, "Deny", this.akbalDeny, "Fight", this.startuAkabalFightomon, "", undefined, "", undefined);
     }
 
     //[Deny]
@@ -699,7 +699,7 @@ export class AkbalScene extends BaseContent {
         this.outputText("", true);
         this.outputText("You shake your head and rub the lust-filled jaguar behind the ear as you tell him you're busy.  The demon's eyes roll, and he licks your " + this.player.leg() + " before his eyes find an imp in the trees above the two of you.\n\n", false);
         this.outputText("Knowing he's found a new toy, Akbal allows you to leave unmolested.", false);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Encounter if previously fought and won/raped him]
@@ -712,7 +712,7 @@ export class AkbalScene extends BaseContent {
         else
             this.outputText("dodging roll places you a good distance away from him.  Do you fight or flee?\n\n", false);
         //Fight / Flee
-        this.simpleChoices(this, "Fight", this.startuAkabalFightomon, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+        this.simpleChoices("Fight", this.startuAkabalFightomon, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     //[Encounter if previously fought and lost]
@@ -722,7 +722,7 @@ export class AkbalScene extends BaseContent {
         this.outputText("A chorus of laughter sounds inside your mind as the jaguar demon, Akbal, drops to the ground in front of you.  His masculine voice says, \"<i>Well, if it isn't the defiant welp who, in all their great idiocy, has wandered into my territory again.  Will you submit, or do I have to teach you another harsh lesson?</i>\"\n\n", false);
 
         //Submit / Fight / Run
-        this.simpleChoices(this, "Submit", this.akbalSubmit, "Fight", this.startuAkabalFightomon, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+        this.simpleChoices("Submit", this.akbalSubmit, "Fight", this.startuAkabalFightomon, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     //[Fight]
@@ -802,7 +802,7 @@ export class AkbalScene extends BaseContent {
                 this.player.buttRating++;
             }
             this.player.createStatusAffect(StatusAffects.PostAkbalSubmission, 0, 0, 0, 0);
-            this.doNext(this, this.camp.returnToCampUseEightHours);
+            this.doNext(this.camp.returnToCampUseEightHours);
             return;
         }
         //Taur variant goez here
@@ -875,7 +875,7 @@ export class AkbalScene extends BaseContent {
                 this.player.buttRating++;
             }
             this.player.createStatusAffect(StatusAffects.PostAkbalSubmission, 0, 0, 0, 0);
-            this.doNext(this, this.camp.returnToCampUseEightHours);
+            this.doNext(this.camp.returnToCampUseEightHours);
             return;
         }
 
@@ -949,7 +949,7 @@ export class AkbalScene extends BaseContent {
             this.player.buttRating++;
         }
         this.player.createStatusAffect(StatusAffects.PostAkbalSubmission, 0, 0, 0, 0);
-        this.doNext(this, this.camp.returnToCampUseEightHours);
+        this.doNext(this.camp.returnToCampUseEightHours);
     }
 
     //[General End]
@@ -990,7 +990,7 @@ export class AkbalScene extends BaseContent {
         }
         else
             this.outputText("You awake in your camp feeling dangerous, powerful and fiercely satisfied.", false);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     /*
@@ -1074,7 +1074,7 @@ export class AkbalScene extends BaseContent {
         this.dynStats("cor", 5);
         this.player.slimeFeed();
         this.player.createStatusAffect(StatusAffects.PostAkbalSubmission, 0, 0, 0, 0);
-        this.doNext(this, this.camp.returnToCampUseEightHours);
+        this.doNext(this.camp.returnToCampUseEightHours);
     }
 
     //2. AKBAL'S MY BITCH
@@ -1092,8 +1092,8 @@ export class AkbalScene extends BaseContent {
         else {
             this.outputText("\n\nDo you take advantage of him again?");
             this.menu();
-            this.addButton(this, 1, "No", this.akbitchNoThnx);
-            this.addButton(this, 0, "Yes", this.takeAdvantageOfAkbitch);
+            this.addButton(1, "No", this.akbitchNoThnx);
+            this.addButton(0, "Yes", this.takeAdvantageOfAkbitch);
         }
     }
 
@@ -1105,7 +1105,7 @@ export class AkbalScene extends BaseContent {
         this.outputText("You turn back, allowing the demon to finish cleaning himself and thankful he didn’t ambush you this time.");
         if (this.player.lust < 33)
             this.outputText("  Besides, you aren't aroused right now, anyway.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //{Choose Rape}
@@ -1146,19 +1146,19 @@ export class AkbalScene extends BaseContent {
 
         this.flags[kFLAGS.AKBAL_TIMES_BITCHED]++;
         this.menu();
-        this.addButton(this, 0, "Normal", this.basicAkbitchScene);
+        this.addButton(0, "Normal", this.basicAkbitchScene);
         //AMB Strength Scene
         //70+
         if (this.player.str >= 70)
-            this.addButton(this, 1, "Strong", this.akbitchHighStrengthVariant);
+            this.addButton(1, "Strong", this.akbitchHighStrengthVariant);
         //AMB Speed Scene
         //70
         if (this.player.spe >= 70)
-            this.addButton(this, 2, "Fast", this.akbalBitchSpeed);
+            this.addButton(2, "Fast", this.akbalBitchSpeed);
         //AMB Toughness Scene
         //70
         if (this.player.tou >= 70)
-            this.addButton(this, 3, "Toughness", this.akbitchToughness);
+            this.addButton(3, "Toughness", this.akbitchToughness);
     }
 
     //Basic AMB Scene (no +70 stats)
@@ -1174,8 +1174,8 @@ export class AkbalScene extends BaseContent {
 
         this.menu();
         if (this.player.hasCock())
-            this.addButton(this, 0, "Fuck Him", this.buttFuckbuttFuckbuttFuckAkbal);
-        this.addButton(this, 1, "Ride Him", this.topAkbitchFromDaBottom);
+            this.addButton(0, "Fuck Him", this.buttFuckbuttFuckbuttFuckAkbal);
+        this.addButton(1, "Ride Him", this.topAkbitchFromDaBottom);
     }
 
     //Butt Fuck - Vaginal - Anal
@@ -1202,7 +1202,7 @@ export class AkbalScene extends BaseContent {
             this.outputText("\n\nAkbal howls and cringes as you begin to stuff yourself into his tight tailhole.  His hips swerve and you have to yank your forest-made collar to keep your [cock biggest] buried within his gloriously wet and unbelievably tight hole.  Once you’ve managed to get your [cockHead biggest] past his tight ring, he begins to whine again.  You have to pull his collar to force him down the length of your [cock biggest], but once a foot of your massive dick is inside him, your advance is halted.  Before you even think to complain his insides begin to squirm, shifting to make room for the rest of your [cock biggest].  You reach down and grab his hips, pulling him back until his plump muscled cheeks softly mash against your trunk.  He howls as you maintain a firm grip on his slender hips, not allowing him to move an inch.  Through your fully embedded [cock biggest] you can feel his hole quivering as it pumps massive gobs of that creamy, slick lube in an attempt to make the fuck easier.  A yank on the collar causes the demon to begin slowly forcing himself up and down the length of your [cock biggest].  After a few incursions Akbal picks up the pace and becomes lost in fucking himself up and down your giant pole.  His natural lube even slides out and drips down your [legs] as he repeatedly smashes his insatiable ass into you.  Unbidden, a groan finds its way out your mouth as the demon works you over, having gone from neophyte to pro in a matter of minutes.");
 
         this.menu();
-        this.addButton(this, 0, "Next", this.fuckAkbitchsButt);
+        this.addButton(0, "Next", this.fuckAkbitchsButt);
     }
 
     //- page turn -
@@ -1238,7 +1238,7 @@ export class AkbalScene extends BaseContent {
 
         this.player.orgasm();
         this.dynStats("cor", 3);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private topAkbitchFromDaBottom(): void {
@@ -1259,7 +1259,7 @@ export class AkbalScene extends BaseContent {
         this.outputText("\n\nThe bound demon’s legs stretch straight out, his barbed dick flexing in anticipation.  You touch it, feeling the wetness of the self-lubing demon dick cling to your fingers as you feel one of the barbs.  It is spongy, soft but not too soft.  The demon hisses as you tease him, your fingers sliding across the rubbery barbs that cover his rock-hard sex organ.  When you begin to lower yourself onto his shuddering dick, the demon begins to purr.");
 
         this.menu();
-        this.addButton(this, 0, "Next", this.topAkbitchFromBottomDuex);
+        this.addButton(0, "Next", this.topAkbitchFromBottomDuex);
     }
 
     private topAkbitchFromBottomDuex(): void {
@@ -1301,7 +1301,7 @@ export class AkbalScene extends BaseContent {
         this.dynStats("cor", 3);
         if (this.player.hasVagina())
             this.player.knockUp(PregnancyStore.PREGNANCY_IMP, PregnancyStore.INCUBATION_IMP, 101);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //AMB Strength Scene
@@ -1369,7 +1369,7 @@ export class AkbalScene extends BaseContent {
                 this.outputText("\n\nYou stand and Akbal’s legs flop from where you had them pinned to his chest.  You gather your [armor] and dress before aiming a wicked slap at Akbal’s tender cheeks and leaving him tied up for the imps and goblins you spy watching the two of you from the trees.\n\nYou tell him he is all theirs and share a conspiratorial grin as you head back to camp.");
             this.player.orgasm();
             this.dynStats("cor", 3);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
         else {
             this.outputText(this.images.showImage("akbal-deepwoods-female-highstrength"));
@@ -1420,7 +1420,7 @@ export class AkbalScene extends BaseContent {
             this.dynStats("cor", 3);
             if (this.player.hasVagina())
                 this.player.knockUp(PregnancyStore.PREGNANCY_IMP, PregnancyStore.INCUBATION_IMP, 101);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -1511,7 +1511,7 @@ export class AkbalScene extends BaseContent {
         }
         this.player.orgasm();
         this.dynStats("cor", 3);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //AMB Toughness Scene
@@ -1657,7 +1657,7 @@ export class AkbalScene extends BaseContent {
             this.player.knockUp(PregnancyStore.PREGNANCY_IMP, PregnancyStore.INCUBATION_IMP, 101);
         this.player.orgasm();
         this.dynStats("cor", 3);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 }
 

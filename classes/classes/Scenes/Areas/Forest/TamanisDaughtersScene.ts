@@ -117,7 +117,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
             if (this.flags[kFLAGS.TAMANI_TIMES_HYPNOTISED] >= 10) this.outputText(", your wife", false);
             this.outputText(".  You realize now that the other goblins must be your daughters.  Another crowd of small women emerges from the bushes, closing in a ring around you, preventing any chance of escape.  The largest of the younger goblin-women steps forwards, her " + this.tdCup() + " breasts jiggling, barely contained by the bondage ropes she has tied around herself.  She stops once she's next to her mother and Tamani explains, \"<i>I just can't keep their aching cunts at home anymore!  They're fertile adults now and they're wanting to get some experience with real dicks.  I figured you wouldn't mind helping them out a little.</i>\"\n\nWhat do you do? (Fight them off, Fuck them willingly, Let them fuck you)", false);
             //[Fuck Them] [Let Them] [Fight]
-            this.simpleChoices(this, "Fight", this.fightTamanisDaughters, "Fuck Them", this.fuckYoDaughtersHomie, "Let Them", this.legTamanisDaughtersRAEPYou, "", undefined, "", undefined);
+            this.simpleChoices("Fight", this.fightTamanisDaughters, "Fuck Them", this.fuckYoDaughtersHomie, "Let Them", this.legTamanisDaughtersRAEPYou, "", undefined, "", undefined);
             return;
         }
         TamainsDaughtersScene.tamaniPresent = false;
@@ -130,11 +130,11 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         if (this.flags[kFLAGS.TIMES_FUCKED_TAMANIS_DAUGHTERS] == 0) {
             this.outputText("She calls out, \"<i>We're tired of getting leftovers, so we're coming to the source.  Are you going to give us what we want?</i>\"\n\n", false);
             //[Fuck them] [Fight] [Play Dumb]
-            this.simpleChoices(this, "Fight", this.fightTamanisDaughters, "Fuck Them", this.fuckYoDaughtersHomie, "Play Dumb", this.playDumbToTamanisDaughters, "Let Them", this.legTamanisDaughtersRAEPYou, "", undefined);
+            this.simpleChoices("Fight", this.fightTamanisDaughters, "Fuck Them", this.fuckYoDaughtersHomie, "Play Dumb", this.playDumbToTamanisDaughters, "Let Them", this.legTamanisDaughtersRAEPYou, "", undefined);
         }
         else {
             this.outputText("She calls out, \"<i>We came back for more cream!  Come on, let's fuck again!</i>\"\n\nIt doesn't look like 'no' is a word they understand.  What do you do?</i>", false);
-            this.simpleChoices(this, "Fight", this.fightTamanisDaughters, "Fuck Them", this.fuckYoDaughtersHomie, "Let Them", this.legTamanisDaughtersRAEPYou, "", undefined, "", undefined);
+            this.simpleChoices("Fight", this.fightTamanisDaughters, "Fuck Them", this.fuckYoDaughtersHomie, "Let Them", this.legTamanisDaughtersRAEPYou, "", undefined, "", undefined);
         }
     }
 
@@ -148,7 +148,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         if (this.player.inte / 2 + 25 > TamainsDaughtersScene.rand(75)) {
             this.outputText("The leader looks you up and down for a moment.  Her face slowly contorts to puzzlement, then rage, \"<i>Tammi you ditz!  I thought you said this was his trail?  Come on girls, we've got a dad to hunt.</i>\"\n\n", false);
             if (this.flags[kFLAGS.TIMES_ENCOUNTED_TAMANIS_DAUGHTERS] > 1) this.outputText("They really must not be paying much attention to what you look like.", false);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
 
@@ -157,7 +157,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         this.outputText("litters one way or another!</i>\"\n\n", false);
 
         //[Fuck them] [Fight] [Let them have their way with you]
-        this.simpleChoices(this, "Fuck Them", this.fuckYoDaughtersHomie, "Fight", this.fightTamanisDaughters, "", undefined, "Let Them", this.legTamanisDaughtersRAEPYou, "", undefined);
+        this.simpleChoices("Fuck Them", this.fuckYoDaughtersHomie, "Fight", this.fightTamanisDaughters, "", undefined, "Let Them", this.legTamanisDaughtersRAEPYou, "", undefined);
     }
 
     //[Fight Them]
@@ -361,7 +361,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         this.knockUpDaughters();
         this.player.cumMultiplier += .3;
         if (this.getGame().inCombat) this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseFourHours);
+        else this.doNext(this.camp.returnToCampUseFourHours);
     }
 
     //[Let them]
@@ -714,7 +714,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         if (TamainsDaughtersScene.tamaniPresent) kGAMECLASS.forest.tamaniScene.tamaniKnockUp(); //If she wasn't pregnant she will be now
         this.knockUpDaughters();
         if (this.getGame().inCombat) this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseFourHours);
+        else this.doNext(this.camp.returnToCampUseFourHours);
     }
 
     //[Lose Combat, Get Your Dick DRAINED]
@@ -845,7 +845,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         else {
             this.outputText("You lose consciousness a few hours into the ordeal, still cumming with no sign of stopping, your body sustained by the fluids pouring into your backside.  The dreams you have are a constant barrage of sexual situations, flitting between various incongruous orgasmic acts.  Were you capable of comprehending your situation, you probably wouldn't even want to wake up.  Thankfully, your unwished desires become reality.", false);
             //[NEXT]
-            this.doNext(this, this.tamaniDaughtersBadEndChoice);
+            this.doNext(this.tamaniDaughtersBadEndChoice);
         }
         //Needz variable to track how many times PC has been 'chaired'
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00058]++;
@@ -867,7 +867,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         if (this.player.statusAffectv1(StatusAffects.Exgartuan) == 1) this.outputText("Exgartuan barks, \"<i>Hell yes I do!</i>\" but the goblin only smirks down for a moment before looking back at you.\n\n", false);
 
         this.outputText("(Options: Yes, No, I'd rather fill your cunts individually & personally)", false);
-        this.simpleChoices(this, "Yes", this.tamaniDaughtersYesBadEndMePlease, "No", this.tamaniDaughtersDeclineBadEnd, "Individual", this.tamanisDaughtersFillIndividuallyBADEND, "", undefined, "", undefined);
+        this.simpleChoices("Yes", this.tamaniDaughtersYesBadEndMePlease, "No", this.tamaniDaughtersDeclineBadEnd, "Individual", this.tamanisDaughtersFillIndividuallyBADEND, "", undefined, "", undefined);
     }
 
     //[Yes]
@@ -1027,7 +1027,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         this.player.orgasm();
         this.dynStats("str", -.5, "int", -.5, "lib", 1, "sen", 1, "cor", 1);
         if (this.getGame().inCombat) this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 
@@ -1054,7 +1054,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
             this.outputText("You smile in satisfaction as " + this.monster.a + this.monster.short + " collapses, unable to continue fighting.", true);
             if (this.player.lust >= 33 && this.player.cockTotal() > 0) {
                 this.outputText("In spite of their injuries, they do try to present their bodies in as lewd a way as possible.  You could still fuck them, but things might get out of hand...\n\nDo you fuck them?", true);
-                this.doYesNo(this, this.fuckYoDaughtersHomie, this.cleanupAfterCombat);
+                this.doYesNo(this.fuckYoDaughtersHomie, this.cleanupAfterCombat);
             }
             else this.cleanupAfterCombat();
             return;
@@ -1064,7 +1064,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
             this.dynStats("lus", 5);
             if (this.player.lust >= 33 && this.player.cockTotal() > 0) {
                 this.outputText("You could still fuck them, but things might get out of hand...\n\nDo you fuck them?", false);
-                this.doYesNo(this, this.fuckYoDaughtersHomie, this.cleanupAfterCombat);
+                this.doYesNo(this.fuckYoDaughtersHomie, this.cleanupAfterCombat);
             }
             else this.cleanupAfterCombat();
             return;
@@ -1087,13 +1087,13 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                 return;
             }
             if (TamainsDaughtersScene.tamaniPresent) {
-                if (TamainsDaughtersScene.rand(2) == 0) this.doNext(this, this.loseToDaughtersWithTamaniThere);
-                else this.doNext(this, this.legTamanisDaughtersRAEPYou);
+                if (TamainsDaughtersScene.rand(2) == 0) this.doNext(this.loseToDaughtersWithTamaniThere);
+                else this.doNext(this.legTamanisDaughtersRAEPYou);
                 return;
             }
             else {
-                if (TamainsDaughtersScene.rand(2) == 0) this.doNext(this, this.tamaniDaughtersCombatLossDrain);
-                else this.doNext(this, this.legTamanisDaughtersRAEPYou);
+                if (TamainsDaughtersScene.rand(2) == 0) this.doNext(this.tamaniDaughtersCombatLossDrain);
+                else this.doNext(this.legTamanisDaughtersRAEPYou);
                 return;
             }
         }
@@ -1106,12 +1106,12 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                 return;
             }
             if (TamainsDaughtersScene.tamaniPresent) {
-                this.doNext(this, this.loseToDaughtersWithTamaniThere);
+                this.doNext(this.loseToDaughtersWithTamaniThere);
                 return;
             }
             else {
-                if (TamainsDaughtersScene.rand(2) == 0) this.doNext(this, this.tamaniDaughtersCombatLossDrain);
-                else this.doNext(this, this.legTamanisDaughtersRAEPYou);
+                if (TamainsDaughtersScene.rand(2) == 0) this.doNext(this.tamaniDaughtersCombatLossDrain);
+                else this.doNext(this.legTamanisDaughtersRAEPYou);
                 return;
             }
         }

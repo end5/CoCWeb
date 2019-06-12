@@ -42,7 +42,7 @@ export class HarpyScene extends BaseContent {
         if (this.player.lust >= 33) {
             this.outputText("  What do you do to her?", false);
 
-            this.choices(this, "Anal", anal, "Oral", this.WinOnHarpyAndOralRape, "Pussy", pussy, "Scissor", scissor, "Lay Eggs", eggs,
+            this.choices("Anal", anal, "Oral", this.WinOnHarpyAndOralRape, "Pussy", pussy, "Scissor", scissor, "Lay Eggs", eggs,
                 "Clit Fuck", clitFuck, "", undefined, "", undefined, "", undefined, "Nothing", this.cleanupAfterCombat);
         }
         //Not horny?  Iz over
@@ -538,7 +538,7 @@ export class HarpyScene extends BaseContent {
         this.outputText("\n\nShe finally brings her mouth forwards, her lips meeting yours in an obscene parody of a kiss.  Her tongue starts sliding up and down your slit as she starts to play with your dripping sex.  She nibbles your lips, trying to do anything she can to make you cum, but you're able to hold yourself back - barely.  After a few moments, her efforts wane somewhat and you hear a slight whimpering from the submissive girl.  Pulling her head away from your crotch, you prepare to admonish her for slowing down when you were so close.  However, you see that the horny bitch has started to play with herself");
         if (this.monster.lust > 99) this.outputText(" again");
         this.outputText(", her fingers firmly stuffed down between her plush thighs and frantically toying with her pussy. Seeing her get off to your treatment almost makes you climax right then and there, but you manage to hold yourself back, reasoning that she hasn't quite paid enough just yet for deciding to attack you.");
-        this.doNext(this, this.harpyScissorSurprisePtII);
+        this.doNext(this.harpyScissorSurprisePtII);
         this.dynStats("lus=", 100);
     }
 

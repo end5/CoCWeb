@@ -89,7 +89,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.brookeAffection(5);
         this.flags[kFLAGS.BROOKE_MET_TODAY] = 1;
         this.flags[kFLAGS.BROOKE_MET] = 1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public repeatChooseShower(): void {
@@ -111,7 +111,7 @@ export class Brooke extends TelAdreAbstractContent {
                 this.outputText("You head your way back to the showers, feeling the sweet ache of your muscles as you easily find your way there.  The showers are completely empty when you arrive.  You know exactly when Brooke will and won't be in the shower, and you've specifically chosen to avoid her this time.  As fond as you are of her and as fun as the sex is, you've been leaving the shower dirtier than when you've gone in!  It'd be nice to actually get clean this time.");
                 this.outputText("\n\nYour shower proceeds uneventfully.  While the cleanliness is nice, occasionally a rogue wish wants her to show up and 'ruin' your shower time.  Brooke is nowhere to be found, though, and just a short while later, you're clean as a whistle and out the door.");
             }
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             this.fatigue(-5);
         }
         //Between 16:00 and 18:00
@@ -157,7 +157,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText("\n\nThe rest of your shower is cold and uneasy.  Have you done something wrong?");
         this.brookeAffection(5);
         this.flags[kFLAGS.BROOKE_GRUMPS_ABOUT_TA] = 1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     // Between 16:00 and 18:00, Affection <= 19
@@ -167,7 +167,7 @@ export class Brooke extends TelAdreAbstractContent {
 
         this.outputText("\n\nThe shower goes by smoothly, the both of you talking idly about whatever happens to come to mind.  Learning from your previous encounter, you try to keep the topics away from Tel'Adre while still asking her about herself, and answer her own questions about yourself whenever she asks.  All in all, things go by rather well, and once again she leaves the showers before you, giving you a wave before she leaves.");
         this.outputText("\n\nYour shower proceeds uneventfully, and just a short while later, you're clean as a whistle and out the door.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         this.brookeAffection(5);
     }
 
@@ -184,7 +184,7 @@ export class Brooke extends TelAdreAbstractContent {
             this.outputText("\n\nThe shower proceeds as it normally would, although you can't really get what she was about to ask you out of your head.  As usual, she leaves before you, leaving you curious and somewhat unfulfilled.");
             this.outputText("\n\nMaybe it was something personal, and you're just not her type?");
             // (Brooke's affection now caps at 20 until the PC is no longer a centaur.  This scene will re-proc until this condition is met, and then will proceed normally)
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
         //[if (isTaur = false)
         else {
@@ -193,8 +193,8 @@ export class Brooke extends TelAdreAbstractContent {
             this.outputText("\n\nThat's all?  That's not so bad.  Just a friend innocently washing another friend's back.  Still, you could refuse her request, if you'd rather.  What do you do?");
             //[=Help=][=Don't help=]
             this.menu();
-            this.addButton(this, 0, "Help", this.helpBrookeOut);
-            this.addButton(this, 1, "Don't Help", this.dontHelpBrookeShower);
+            this.addButton(0, "Help", this.helpBrookeOut);
+            this.addButton(1, "Don't Help", this.dontHelpBrookeShower);
         }
     }
     // [=Don't help=]
@@ -204,7 +204,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText("\n\nYour shower proceeds uneventfully, and just a short while later, you're clean as a whistle and out the door.");
         //(Brooke's affection resets to zero)
         this.flags[kFLAGS.BROOKE_AFFECTION] = 0;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     // [=Help=]
@@ -250,7 +250,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.dynStats("lus", 15 + this.player.lib / 20, "resisted", false);
         this.flags[kFLAGS.BROOKE_SHOWERED_WITH] = 1;
         this.brookeAffection(4);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     // Between 16:00 and 18:00, Affection >= 20, <= 39
@@ -263,10 +263,10 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText("\n\nWhat do you talk about?");
         //talk menu here
         this.menu();
-        this.addButton(this, 0, "Working Out", this.talkWithBrookeAboutWorkingOut);
-        this.addButton(this, 1, "GymMembers", this.talkToBrookeAboutGymFolks);
-        this.addButton(this, 2, "Her Bod", this.brookesRockinBod);
-        if (this.brookeAffection() >= 40 && this.brookeAffection() <= 70 && this.flags[kFLAGS.BROOKE_MEDIUM_SCENE] > 0) this.addButton(this, 3, "Grope", this.gropeDatBrooke);
+        this.addButton(0, "Working Out", this.talkWithBrookeAboutWorkingOut);
+        this.addButton(1, "GymMembers", this.talkToBrookeAboutGymFolks);
+        this.addButton(2, "Her Bod", this.brookesRockinBod);
+        if (this.brookeAffection() >= 40 && this.brookeAffection() <= 70 && this.flags[kFLAGS.BROOKE_MEDIUM_SCENE] > 0) this.addButton(3, "Grope", this.gropeDatBrooke);
     }
     //Between 16:00 and 18:00, Affection >=40, after first-time sex
     public mediumBrookeAffectionMeetingAfterSex(): void {
@@ -279,10 +279,10 @@ export class Brooke extends TelAdreAbstractContent {
         //talk menu here!
         //[=Working Out=] [=Gym Members=] [=Her Rockin Bod=] [=Grope=]
         this.menu();
-        this.addButton(this, 0, "Working Out", this.talkWithBrookeAboutWorkingOut);
-        this.addButton(this, 1, "Gym Members", this.talkToBrookeAboutGymFolks);
-        this.addButton(this, 2, "Her Bod", this.brookesRockinBod);
-        if (this.brookeAffection() >= 40 && this.flags[kFLAGS.BROOKE_MEDIUM_SCENE] > 0) this.addButton(this, 3, "Grope", this.gropeDatBrooke);
+        this.addButton(0, "Working Out", this.talkWithBrookeAboutWorkingOut);
+        this.addButton(1, "Gym Members", this.talkToBrookeAboutGymFolks);
+        this.addButton(2, "Her Bod", this.brookesRockinBod);
+        if (this.brookeAffection() >= 40 && this.flags[kFLAGS.BROOKE_MEDIUM_SCENE] > 0) this.addButton(3, "Grope", this.gropeDatBrooke);
     }
 
     //[=Working Out=]
@@ -319,7 +319,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.dynStats("lus", 10, "resisted", false);
         if (this.player.inte < 50) this.dynStats("int", .5);
         this.brookeAffection(4);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[=Gym Members=]
@@ -366,7 +366,7 @@ export class Brooke extends TelAdreAbstractContent {
         // (Lust increases by 15)
         this.dynStats("lus", 15, "resisted", false);
         this.brookeAffection(4);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[=Her Rockin Bod=]
@@ -396,7 +396,7 @@ export class Brooke extends TelAdreAbstractContent {
         //(Lust increases by 15)
         this.dynStats("lus", 15, "resisted", false);
         this.brookeAffection(15);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[=Grope=]
@@ -424,12 +424,12 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText("\n\nWhat is your weapon of choice?");
         //[=Penetrate her=] [=Anal=] [=Tribadism=] [=Down on her=] [=Get laid=] [=Double-dicked=]
         this.menu();
-        if (this.player.hasCock() && this.player.cockThatFits(this.brookeCapacity()) >= 0) this.addButton(this, 0, "Penetrate", this.penetrateBrooke);
-        if (this.player.hasCock()) this.addButton(this, 1, "Anal", this.brookeAnal);
-        if (this.player.hasVagina()) this.addButton(this, 2, "Tribadism", this.tribadism);
-        this.addButton(this, 3, "Go Down On", this.goDownOnBrooke);
-        if (this.player.hasCock() && this.player.cockThatFits(this.brookeCapacity()) >= 0) this.addButton(this, 4, "Get Laid", this.getLaidByBrooke);
-        if (this.player.cockTotal() >= 2) this.addButton(this, 5, "Double-Dick", this.doubleDicked);
+        if (this.player.hasCock() && this.player.cockThatFits(this.brookeCapacity()) >= 0) this.addButton(0, "Penetrate", this.penetrateBrooke);
+        if (this.player.hasCock()) this.addButton(1, "Anal", this.brookeAnal);
+        if (this.player.hasVagina()) this.addButton(2, "Tribadism", this.tribadism);
+        this.addButton(3, "Go Down On", this.goDownOnBrooke);
+        if (this.player.hasCock() && this.player.cockThatFits(this.brookeCapacity()) >= 0) this.addButton(4, "Get Laid", this.getLaidByBrooke);
+        if (this.player.cockTotal() >= 2) this.addButton(5, "Double-Dick", this.doubleDicked);
     }
 
     //[=Penetrate her=]
@@ -480,7 +480,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.player.orgasm();
         this.dynStats("sen", -2);
         this.brookeAffection(10);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[=Anal=]
@@ -496,7 +496,7 @@ export class Brooke extends TelAdreAbstractContent {
             this.outputText("Bluntly, you ask Brooke what her opinion is on anal.  <i>\"What, with you?\"</i> she asks, leaning her ass back and trapping your " + this.cockDescript(x) + " between her asscheeks expertly.  You moan with pleasure, but before you get the wrong idea, she hums disapprovingly.  She was actually using her ass to measure your " + this.cockDescript(x) + "!  <i>\"Sorry, sweet thing, but maybe not this time.  I just got in from the gym, and working a beast like that into my ass would be a workout in of itself.  I'm up for anything else, though.\"</i>");
             //Go back to 'grope' menu
             this.menu();
-            this.addButton(this, 4, "Back", this.gropeDatBrooke);
+            this.addButton(4, "Back", this.gropeDatBrooke);
             return;
         }
         //[if {first time}]
@@ -558,7 +558,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.fatigue(15);
         this.flags[kFLAGS.TIMES_IN_BROOKES_BUTT]++;
         this.brookeAffection(10);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[=Tribadism=]
@@ -613,7 +613,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.dynStats("sen", -2);
         this.fatigue(15);
         this.brookeAffection(10);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[=Down on her=]
@@ -671,7 +671,7 @@ export class Brooke extends TelAdreAbstractContent {
         // Lust increased by 30.
         this.dynStats("lus", 30);
         this.brookeAffection(10);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[=Get laid=]
@@ -787,7 +787,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.brookeAffection(10);
         this.player.orgasm();
         this.dynStats("sen", -2);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //[=Double-dicked=]
     //Requires at least two penises
@@ -801,7 +801,7 @@ export class Brooke extends TelAdreAbstractContent {
         if (y < 0 || this.player.cockThatFits(x) >= this.brookeCapacity()) {
             this.outputText("You hump against her, enjoying the warm, wet feel of her fur against your sensitive monsters.  Brooke moans out, enjoying the way you're using her body, but freezes slightly when one of them begins to press and ply against her butthole.  <i>\"Sorry, sweet thing, but maybe not this time.  Much as I'd love me some double-dickings, one of those things in my butt would be one too many.  I'm down for something else, though.\"</i>");
             this.menu();
-            this.addButton(this, 0, "Next", this.gropeDatBrooke);
+            this.addButton(0, "Next", this.gropeDatBrooke);
             return;
         }
         this.outputText(this.images.showImage("brooke-gym-male-doubledicked"));
@@ -882,7 +882,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText("\n\nThe rest of your drying continues without much incident, and before long, you have your [armor] back on you and you're out of the gym, heading back towards camp.");
         //Lust reduced to 0
         this.player.orgasm();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         this.brookeAffection(10);
     }
 
@@ -916,7 +916,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText("\n\nSo hopefully,\"</i> she says, closing the gap between your faces, <i>\"you won't mind if this horny bitch indulges herself.\"</i>  With that, she presses her lips against yours, although this time, there is no resistance or apprehensiveness: her tongue quickly slips out, running unimpeded into your mouth and dancing along with yours.  She turns you to the side, pushing your back up against the stall wall, her mouth never leaving yours as she hungrily, ravenously, explores your mouth with her tongue.  There was nothing teasing or cutesy about it: Brooke wants you, and wants you <b>bad.</b>");
         //[=Next=]
         this.menu();
-        this.addButton(this, 0, "Next", this.brookeSpecialMediumSceneContinued);
+        this.addButton(0, "Next", this.brookeSpecialMediumSceneContinued);
     }
     public brookeSpecialMediumSceneContinued(): void {
         this.clearOutput();
@@ -1137,7 +1137,7 @@ export class Brooke extends TelAdreAbstractContent {
             this.fatigue(10);
         }
         this.brookeAffection(10);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     // Affection = 70, after first-time sex, talk to Heckel between 13:00 and 15:00, must not be a first-time encounter with Heckel, requires a gender
@@ -1147,9 +1147,9 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText("\n\nIn one of the corners of the room, you hear a bit of a commotion.  Despite the size of the room, the echoes of the commotion make it a bit confusing as to just where the noise is coming from.  Do you look to your left, towards the butterfly machines, or do you look to your right, towards the leg press?");
         //[=Butterfly=] [=Leg Press=] [=Leave=]
         this.menu();
-        this.addButton(this, 0, "Butterfly", this.butterflyMachinesGooooo);
-        this.addButton(this, 1, "Leg Press", this.legPressInsteadOfThreesome);
-        this.addButton(this, 4, "Leave", this.leaveHeckelEncounter);
+        this.addButton(0, "Butterfly", this.butterflyMachinesGooooo);
+        this.addButton(1, "Leg Press", this.legPressInsteadOfThreesome);
+        this.addButton(4, "Leave", this.leaveHeckelEncounter);
     }
 
     //[=Leave=]
@@ -1158,7 +1158,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText("Well, whatever.  You came here looking for Heckel, and she's not here, as far as you can tell.  You turn around and leave the gym, without investigating the cause of the commotion.");
         //Return to Tel'Adre, no time loss
         this.menu();
-        this.addButton(this, 0, "Next", kGAMECLASS.telAdre.telAdreMenu);
+        this.addButton(0, "Next", kGAMECLASS.telAdre.telAdreMenu);
     }
 
     //[=Butterfly=]
@@ -1180,7 +1180,7 @@ export class Brooke extends TelAdreAbstractContent {
 
         //[=Next=]
         this.menu();
-        this.addButton(this, 0, "Next", this.brookeAndHeckelStuffPartTwo);
+        this.addButton(0, "Next", this.brookeAndHeckelStuffPartTwo);
     }
 
     public brookeAndHeckelStuffPartTwo(): void {
@@ -1192,8 +1192,8 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText("\n\n<i>\"Hurry it up,\"</i> Heckel says gruffly at you, noticing that you've taken to watching her rough dominance instead of stripping down like she's told you to.");
         this.outputText("\n\nDo you comply?");
         this.menu();
-        this.addButton(this, 0, "Yes", this.submitHeckelXBrookeThreesome);
-        this.addButton(this, 1, "No", this.nopeOutofBroke);
+        this.addButton(0, "Yes", this.submitHeckelXBrookeThreesome);
+        this.addButton(1, "No", this.nopeOutofBroke);
     }
 
     public nopeOutofBroke(): void {
@@ -1204,7 +1204,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText("\n\n\"<i>Save yourself while you still can; I'll catch up in a bit.\"</i>  You ask if she's sure, and in response, she lovingly kisses the inside of your thigh.  <i>\"Sure I'm sure, sweet thing.  You have things to do, I bet.  Just get going.\"</i>");
         this.outputText("\n\nYou leave, chased out by lewd, lusty slurps.");
         this.brookeAffection(1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public submitHeckelXBrookeThreesome(): void {
@@ -1267,7 +1267,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.player.orgasm();
         this.dynStats("sen", 1);
         this.menu();
-        this.addButton(this, 0, "Next", this.brookeAndHeckelStuffPartThree);
+        this.addButton(0, "Next", this.brookeAndHeckelStuffPartThree);
     }
 
     public brookeAndHeckelStuffPartThree(): void {
@@ -1283,7 +1283,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText("\n\nYou take her advice and leave the gym before Heckel wakes up and decides to run on her dominance rush some more.");
         //Lust reduced to 0, sensitivity increased by 1
         this.brookeAffection(5);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[=Leg Press=]
@@ -1305,7 +1305,7 @@ export class Brooke extends TelAdreAbstractContent {
 
         //[=Next=]
         this.menu();
-        this.addButton(this, 0, "Next", this.brookeVHeckelBrookeWins2);
+        this.addButton(0, "Next", this.brookeVHeckelBrookeWins2);
     }
 
     public brookeVHeckelBrookeWins2(): void {
@@ -1421,7 +1421,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.dynStats("sen", 1);
         //[=Next=]
         this.menu();
-        this.addButton(this, 0, "Next", this.brookeVHeckelBrookeWins3);
+        this.addButton(0, "Next", this.brookeVHeckelBrookeWins3);
     }
     public brookeVHeckelBrookeWins3(): void {
         this.clearOutput();
@@ -1438,7 +1438,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText(".  Bow-legged, you make your way to your gear and slip it back on.  You turn back to Brooke and Heckel, to see that Brooke's laid herself flat on Heckel, kissing and sucking gently on the hyena's tits, already working herself back up for a second round.");
 
         this.outputText("\n\nYou take her advice and leave the gym before Brooke changes her mind decides to make you stay to play on her dominance rush some more.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         this.brookeAffection(5);
     }
 }

@@ -87,7 +87,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             //Clear 'worms' toggle
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00233] = 0;
             //[Trade] [Talk] [Sex] [Fight] [Leave]
-            this.simpleChoices(this, "Borrow", this.tradeWithFuckingSharkBitches, "Fight", this.fightSharkCunt, "Talk", this.talkToASharkCoochie, "Sex", this.chooseYourIzmaWeapon, "Leave", this.leaveSumSharkPussyOnTheBeach);
+            this.simpleChoices("Borrow", this.tradeWithFuckingSharkBitches, "Fight", this.fightSharkCunt, "Talk", this.talkToASharkCoochie, "Sex", this.chooseYourIzmaWeapon, "Leave", this.leaveSumSharkPussyOnTheBeach);
         }
         //(Izmacounter= 1)
         else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00230] == 1) {
@@ -113,7 +113,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("You nod in agreement, earning a smile from Izma.  You chat for another short while before you part ways, heading back to your camp.", false);
             //(Izmacounter +1)
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00230]++;
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
         //[Next 2 encounters with Izma] (Izmacounter = 2 or 3)
         else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00230] < 4) {
@@ -121,7 +121,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
 
             this.outputText("\"<i>So, what can I interest you in?</i>\" she asks.\n\n", false);
             //[Trade] [Talk] [Leave] - has special text
-            this.simpleChoices(this, "Borrow", this.tradeWithFuckingSharkBitches, "Talk", this.talkToASharkCoochie, "", undefined, "", undefined, "Leave", this.leaveSumSharkPussyOnTheBeach);
+            this.simpleChoices("Borrow", this.tradeWithFuckingSharkBitches, "Talk", this.talkToASharkCoochie, "", undefined, "", undefined, "Leave", this.leaveSumSharkPussyOnTheBeach);
         }
         //-----------------------------------------
         //[After 3 encounters] (Izmacounter = 4)
@@ -139,7 +139,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
 
             this.outputText("\"<i>There are two ways we can do this.  The sex, I mean,</i>\" Izma says, standing upright.  This causes you to raise your eyebrows, wondering what that's supposed to mean.  \"<i>We can do a bit of oral... or if you want to put it in, we can do what shark people do: fight for dominance. Choice is yours, really,</i>\" Izma says, moving closer to you. \"<i>So... what can I tempt you with today?</i>\"", false);
             //[Trade] [Talk] [Sex] [Fight] [Leave]
-            this.simpleChoices(this, "Borrow", this.tradeWithFuckingSharkBitches, "Fight", this.fightSharkCunt, "Talk", this.talkToASharkCoochie, "Sex", this.chooseYourIzmaWeapon, "Leave", this.leaveSumSharkPussyOnTheBeach);
+            this.simpleChoices("Borrow", this.tradeWithFuckingSharkBitches, "Fight", this.fightSharkCunt, "Talk", this.talkToASharkCoochie, "Sex", this.chooseYourIzmaWeapon, "Leave", this.leaveSumSharkPussyOnTheBeach);
         }
         //(after 4+ encounters) (Izmacounter >= 5)
         else {
@@ -150,7 +150,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
 
                 this.outputText("\"<i>" + this.player.short + "! It's so good to see you!</i>\" she greets, both of you exchanging a quick hug. She sits on a rock beside her trunk, grinning from ear to ear. \"<i>So, what do you want to do today?  Have you thought about bringing your beta with you?</i>\"\n\n", false);
                 //[Shop] [Sex] [Talk] [Camp] [Leave]
-                this.simpleChoices(this, "Borrow", this.tradeWithFuckingSharkBitches, "Camp", this.acceptIzmaAsYourBitch, "Talk", this.talkToASharkCoochie, "Sex", this.izmaLakeTurnedDownCampSex, "Leave", this.leaveSumSharkPussyOnTheBeach);
+                this.simpleChoices("Borrow", this.tradeWithFuckingSharkBitches, "Camp", this.acceptIzmaAsYourBitch, "Talk", this.talkToASharkCoochie, "Sex", this.izmaLakeTurnedDownCampSex, "Leave", this.leaveSumSharkPussyOnTheBeach);
                 //[Shop]
                 //Uses existing shop options.
                 //[Talk]
@@ -169,13 +169,13 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
 
                 this.outputText("\"<i>And... if -if you want a mate... um, I could come with you... if that's okay with you?</i>\"  She stares at the sand and blushes.  \"<i>O-otherwise, I'll just  stay here... and not bother you.</i>\"  It seems you've been presented with a choice; you could either accept Izma as a mate, or turn her down and let her remain at the lake. What do you do?\n\n", false);
                 //[Accept][Stay]
-                this.simpleChoices(this, "Accept", this.acceptIzmaAsYourBitch, "Stay", this.IzmaStayAtTheLakeBitch, "", undefined, "", undefined, "", undefined);
+                this.simpleChoices("Accept", this.acceptIzmaAsYourBitch, "Stay", this.IzmaStayAtTheLakeBitch, "", undefined, "", undefined, "", undefined);
             }
             //Normal
             else {
                 this.outputText("Izma sees you coming from a long way off and waves you over.  \"<i>Hey, " + this.player.short + "!  Come by to chat, or did you want to borrow a book?  Or... did you want to help me with my 'problem'?  I'm afraid it's becoming rather chronic lately,</i>\" she says, grinning, as she uncrosses her legs and a bulge lifts the front of her skirt.\n\n", false);
                 //[Trade] [Talk] [Sex] [Fight] [Leave]
-                this.simpleChoices(this, "Borrow", this.tradeWithFuckingSharkBitches, "Fight", this.fightSharkCunt, "Talk", this.talkToASharkCoochie, "Sex", this.chooseYourIzmaWeapon, "Leave", this.leaveSumSharkPussyOnTheBeach);
+                this.simpleChoices("Borrow", this.tradeWithFuckingSharkBitches, "Fight", this.fightSharkCunt, "Talk", this.talkToASharkCoochie, "Sex", this.chooseYourIzmaWeapon, "Leave", this.leaveSumSharkPussyOnTheBeach);
             }
         }
     }
@@ -187,11 +187,11 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("Izma opens up her wooden trunk, and lays out some old books for you to look at.  An interesting and varied selection, if a small one; they've evidently been used before with their turned up corners and worn-looking pages.  Still good, of course.\n\n", false);
         //[C.Manual] [E.Guide] [Porn][Back]
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00238] <= 0)
-            this.simpleChoices(this, "C.Manual", this.readSharkCuntManual,
+            this.simpleChoices("C.Manual", this.readSharkCuntManual,
                 "E.Guide", this.sharkEdgingGuideLOL,
                 "Porn", this.sharkgirlPronz, "", undefined, "Back", this.meetIzmaAtLake);
         else
-            this.simpleChoices(this, "C.Manual", this.readSharkCuntManual,
+            this.simpleChoices("C.Manual", this.readSharkCuntManual,
                 "E.Guide", this.sharkEdgingGuideLOL,
                 "Porn", this.sharkgirlPronz, "", undefined, "Back", this.izmaFollowerMenu);
     }
@@ -204,10 +204,10 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You point to a pile of books which has a note on top declaring them to be combat manuals, feeling any combat tips you can get will be invaluable in this land.  \"<i>Those?</i>\" the shark asks.  \"<i>They're okay, I guess.  Mostly for beginners, but there are a few worthwhile tricks in each one.  20 gems to borrow one.</i>\"", false);
         if (this.player.gems < 20) {
             this.outputText("\n\n<b>You haven't got that much.</b>", false);
-            this.doNext(this, this.tradeWithFuckingSharkBitches);
+            this.doNext(this.tradeWithFuckingSharkBitches);
         }
         //[Yes/No]
-        else this.doYesNo(this, this.readSharkCuntManual2, this.tradeWithFuckingSharkBitches);
+        else this.doYesNo(this.readSharkCuntManual2, this.tradeWithFuckingSharkBitches);
     }
 
     private readSharkCuntManual2(): void {
@@ -240,7 +240,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         else this.outputText("leave the shark-girl to her books.", false);
         //(Izmacounter +1)
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00230]++;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         return;
     }
 
@@ -252,10 +252,10 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You pick up a book titled 'Etiquette Guide' from its pile; the subtitle reads 'A handbook to society for the modern Lady or Gentleman'.  A little cheesy, but you suppose learning how to keep your mind on chastity and decorum might come in handy someday.  \"<i>Not a bad read.  Though, it's more or less useless for a shark girl like me,</i>\" Izma says of it, before holding her hand out to you.  \"<i>Hard to find more, so... 25 gems if you wanna borrow it.</i>\"", false);
         if (this.player.gems < 25) {
             this.outputText("\n\n<b>You haven't got that much.</b>", false);
-            this.doNext(this, this.tradeWithFuckingSharkBitches);
+            this.doNext(this.tradeWithFuckingSharkBitches);
         }
         //[Yes/No]
-        else this.doYesNo(this, this.readSharkEdgingGuideLOL, this.tradeWithFuckingSharkBitches);
+        else this.doYesNo(this.readSharkEdgingGuideLOL, this.tradeWithFuckingSharkBitches);
     }
 
     private readSharkEdgingGuideLOL(): void {
@@ -274,7 +274,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         else this.outputText("leave the shark-girl to her books.", false);
         //(Izmacounter +1)
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00230]++;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         return;
     }
     //[Porn]
@@ -284,10 +284,10 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("Izma seems exceedingly embarassed as you turn this book up from under a pile of the others.  It seems to be a series of erotic images made in this land itself, detailing various creatures of all different genders caught up in sexual situations.  You raise a questioning eyebrow to her.  \"<i>Ah, that... it's good material, I-I suppose,</i>\" she stammers, trying to cover her embarrassment at having mislaid it among the others.  \"<i>Uh... 20 gems if you want to look?</i>\"", false);
         if (this.player.gems < 20) {
             this.outputText("\n\n<b>You haven't got that much.</b>", false);
-            this.doNext(this, this.tradeWithFuckingSharkBitches);
+            this.doNext(this.tradeWithFuckingSharkBitches);
         }
         //[Yes/No]
-        else this.doYesNo(this, this.readSharkgirlPornzYouFuckingPervertAsshole, this.tradeWithFuckingSharkBitches);
+        else this.doYesNo(this.readSharkgirlPornzYouFuckingPervertAsshole, this.tradeWithFuckingSharkBitches);
     }
 
     private readSharkgirlPornzYouFuckingPervertAsshole(): void {
@@ -316,7 +316,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         else this.outputText("  You nonchalantly glance at Izma, and mention that it doesn't really compare to your own fantasies and experiences.  With that, you hold the closed book out and tuck it neatly into the cleavage of her breasts!  Keeping your hand on it, you quirk an eyebrow at her; she shivers, colors deeply, and turns around, snatching the book from you.  \"<i>You... perv,</i>\" she teases back.  \"<i>Why don't you write a book yourself then?</i>\" As you go to leave, you notice her grass skirt has shifted to the front and lies taut against the contours of her butt.  Too tempting!  You plant an open-palmed smack on it and take off running as she shouts after you.", false);
         //(Izmacounter +1)
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00230]++;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         return;
     }
 
@@ -344,7 +344,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\nEventually the two of you decide to part ways, and you head back to camp.", false);
         //(Izmacounter +1)
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00230]++;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         return;
     }
     //[Leave]
@@ -353,7 +353,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("", true);
         this.outputText("Having no business with Izma for the time being, you head off back to your camp.", false);
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         return;
     }
 
@@ -405,7 +405,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         var vag = undefined;
         if (this.player.hasVagina()) vag = this.useVagooOnIzmaWin;
         //[use penis][use vag][use ass][Leave]
-        this.simpleChoices(this, "Use Penis", penis, "Use Vagina", vag, "Use Ass", this.takeItInZeButtVictoryLikeFromIzma, "", undefined, "Leave", this.leaveIzmaVictoryTease);
+        this.simpleChoices("Use Penis", penis, "Use Vagina", vag, "Use Ass", this.takeItInZeButtVictoryLikeFromIzma, "", undefined, "Leave", this.leaveIzmaVictoryTease);
     }
 
 
@@ -418,7 +418,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("\n\nIzma looks on in horror as you push out the load of wormy cargo onto the sand at her feet, only snapping out of her daze as several of the parasites begin climbing her ankle with an eye toward her cock.  She shrieks and jumps back, then drags her foot in the sand, dislodging or pulverizing the squirming vermin.  \"<i>" + this.player.short + ", that's nasty!  Get away!  Get away and don't talk to me again!  Ugh!</i>\"  She takes off, grabbing her chest of books and kicking sand up in her flight down the beach.", false);
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00233] = 1;
             this.player.orgasm();
-            this.doNext(this, this.cleanupAfterCombat);
+            this.doNext(this.cleanupAfterCombat);
             return;
         }
         //(without worms)
@@ -430,7 +430,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             //(Izmafight = -3 or -4) 
             else this.outputText("Izma sighs and shakes her head at you, letting a foot rest on your stomach  \"<i>You're doing this on purpose, aren't you?  Hm, fine.  If you love my cock so much, I think you'd make for a decent mate...</i>\"", false);
             //TO THE SECKS!
-            this.doNext(this, this.loseToIzma);
+            this.doNext(this.loseToIzma);
         }
     }
 
@@ -725,7 +725,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\n", false);
         this.player.slimeFeed();
         this.player.orgasm();
-        this.doNext(this, this.IzmaBadEnd);
+        this.doNext(this.IzmaBadEnd);
     }
     //[Bad end]
     private IzmaBadEnd(): void {
@@ -830,7 +830,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.slimeFeed();
         this.player.orgasm();
         //[yes/no]
-        this.doYesNo(this, this.eatIzmasLeafAfterRapinHer, this.dontEatIzamsLeafAfterRape);
+        this.doYesNo(this.eatIzmasLeafAfterRapinHer, this.dontEatIzamsLeafAfterRape);
     }
 
     //[Yes]
@@ -919,7 +919,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
     private victorzChoice(): void {
         this.outputText("Izma looks at you, panting from the sex.  \"<i>S-so... that was good... want your reward now?</i>\" she asks, holding the tigershark tooth out to you.  You stare at it, thinking.  Do you want another one of those, or do you want something else?", false);
         //[Tooth][Gloves]
-        this.simpleChoices(this, "Tooth", this.chooseIzmaTooth, "Gloves", this.chooseIzmaGloves, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices("Tooth", this.chooseIzmaTooth, "Gloves", this.chooseIzmaGloves, "", undefined, "", undefined, "", undefined);
     }
     //[Tooth]
     private chooseIzmaTooth(): void {
@@ -952,7 +952,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         else if (this.player.gender == 2) this.nonFightIzmaSmexCUNTPUSSYSNATCHQUIM();
         else {
             this.outputText("Which of your genitals will you focus on?", true);
-            this.simpleChoices(this, "Male", this.nonFightIzmaSmexPAINUS, "Female", this.nonFightIzmaSmexCUNTPUSSYSNATCHQUIM, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices("Male", this.nonFightIzmaSmexPAINUS, "Female", this.nonFightIzmaSmexCUNTPUSSYSNATCHQUIM, "", undefined, "", undefined, "", undefined);
         }
     }
     //[no-fight Sex: use penus]
@@ -1036,7 +1036,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
 
             this.outputText("Izma rolls her eyes.  \"<i>I've dominated with my holes before.  You ride 'em hard enough, they don't feel as much pleasure.  Now, fuck off.</i>\"\n\n", false);
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //[no-fight sex: use vagino]
     private nonFightIzmaSmexCUNTPUSSYSNATCHQUIM(): void {
@@ -1077,7 +1077,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You give her a small kiss on the lips and then leave for camp.", false);
         //Set 'NO CAMP Izma' flag
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00238] = -1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //Accept
     private acceptIzmaAsYourBitch(): void {
@@ -1166,7 +1166,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         }
         //Set 'camp Izma' flag
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00238] = 1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Amily arrives: Izma is at camp first]
@@ -1196,7 +1196,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\"<i>You have a point there...</i>\" Amily mumbles, staring at Izma with obvious curiosity.  \"<i>Hmm... well, I should keep an eye on her, but I guess she's earned the right to the benefit of the doubt.  It might be nice to have somebody else to talk to here in the camp...</i>\"  She trails off, mumbling, as she goes off to unpack.\n\n", false);
         //wrap up all conditionals
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00236] = -1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Marble: Izma is at camp first]
@@ -1230,7 +1230,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(".</i>\"  You give her a nervous chuckle and assure her that this isn't the case, but Izma doesn't want to listen.  \"<i>I'll keep quiet for now, but if that bovine steps out of line...</i>\" she trails off and her fangs pop free, before she goes to set up her bedroll and trunk near your own bed.  Seems she wants to keep close to your bed to protect you.  Or at least, that's your interpretation.  You give a sigh and shake your head.  It's doubtful these two will ever warm up to each other.", false);
         //wrap up all conditionals
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00237] = -1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 
@@ -1253,7 +1253,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("The tigershark grins right back at you, carefully undoing her skirt and letting her impressive, rapidly-growing erection free.  \"<i>Sounds great to me, lover.  So, what are you in the mood for?  A little equal time?  Exerting your place as alpha?</i>\"  She gives you a very wicked grin.  \"<i>Or... do you want to let your beta have her wicked way with you, hmm?</i>\"  She growls lustfully at the thought.", false);
         //[Equals] [Dominate] [Submit]
-        this.simpleChoices(this, "Equals", this.izmaLakeSexAsEquals, "Dominate", this.izmaLakeDominate, "Submit", this.submitToLakeIzma, "", undefined, "Back", this.meetIzmaAtLake);
+        this.simpleChoices("Equals", this.izmaLakeSexAsEquals, "Dominate", this.izmaLakeDominate, "Submit", this.submitToLakeIzma, "", undefined, "Back", this.meetIzmaAtLake);
     }
 
     //[Equals]
@@ -1265,7 +1265,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.gender == 0) {
             this.outputText("Izma looks you over, and then shakes her head sadly. \"<i>I'm sorry, " + this.player.short + ", but... you still don't really have anything for me to play with.  If you want us to do it as equals, you'll need to grow a cock or a pussy.  How about you have one of us take charge, instead?</i>\"\n\n", false);
             //[dom/sub])
-            this.doNext(this, this.meetIzmaAtLake);
+            this.doNext(this.meetIzmaAtLake);
         }
         //otherwise route to current no-fight sex choices
         else this.chooseYourIzmaWeapon();
@@ -1286,7 +1286,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("You start to pick up speed as you mash your hips against Izma's own, earning moans from the pretty tigershark which only seem to get louder with every subsequent thrust.  Izma quickly starts to return the gesture, moving her hips up to meet your own thrusts every time.  It's while she's doing this that you notice her throbbingly erect cock wobbling around.\n\n", false);
             //NEW RADAR STUFF, GAO
             this.outputText("Do you tend to her prick?");
-            this.doYesNo(this, this.izmaLakeDominateContinueVanilla, this.noWankingForIzmaRadarSaysSo);
+            this.doYesNo(this.izmaLakeDominateContinueVanilla, this.noWankingForIzmaRadarSaysSo);
             return;
         }
         //[Female]
@@ -1335,7 +1335,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         }
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private izmaLakeDominateContinueVanilla(vanilla: boolean = true): void {
@@ -1378,7 +1378,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         }
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[No]
@@ -1389,7 +1389,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         //if(x < 0) cockIndex = 0;
         this.outputText("Opting not to jerk her member off, you continue your gyrations against the tigershark's twat, brutally slamming the head of your cock against the feelers in her pussy and battering them around like tree branches in a wind storm.  Izma, sensing that you will not be giving her member the attention it \"deserves\", reaches down with one hand and takes hold of her cock, jerking it impetuously as she struggles to pleasure herself in between thrusts of your cock.  Raising an eyebrow, you contemplate whether she should be allowed to just start masturbating without permission...");
         //[Remove her hands]    [Let her masturbate]
-        this.simpleChoices(this, "Stop Her", this.noWankingForIzma, "LetHerWank", this.letIzmaWankLikeABitch, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices("Stop Her", this.noWankingForIzma, "LetHerWank", this.letIzmaWankLikeABitch, "", undefined, "", undefined, "", undefined);
     }
     //[Let her masturbate]
     private letIzmaWankLikeABitch(): void {
@@ -1566,7 +1566,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.orgasm();
         this.dynStats("sen", 2);
         this.player.slimeFeed();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //9999 CAMP FOLLOWER
@@ -1625,16 +1625,16 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             deDickT = "Go Herm";
             deDickB = this.izmaDickToggle;
         }
-        this.choices(this, "Appearance", this.izmaPearance, "Books", this.IzmaCampBooks, "Children", kids, "Sex", sex, "Talk", this.talkWivIzma,
+        this.choices("Appearance", this.izmaPearance, "Books", this.IzmaCampBooks, "Children", kids, "Sex", sex, "Talk", this.talkWivIzma,
             "Tooth", this.gatASharkTooth, "", undefined, "", undefined, deDickT, deDickB, "Back", this.camp.campLoversMenu);
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_IZMA] == 1) this.addButton(this, 1, "", undefined);
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_IZMA] == 1) this.addButton(this, 2, "", undefined);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_IZMA] == 1) this.addButton(1, "", undefined);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_IZMA] == 1) this.addButton(2, "", undefined);
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_IZMA] == 0 && this.flags[kFLAGS.FARM_CORRUPTION_STARTED] == 1 && !this.pregnancy.isPregnant) this.addButton(this, 6, "Farm Work", this.sendToFarm);
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_IZMA] != 0) this.addButton(this, 6, "Go Camp", this.backToCamp);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_IZMA] == 0 && this.flags[kFLAGS.FARM_CORRUPTION_STARTED] == 1 && !this.pregnancy.isPregnant) this.addButton(6, "Farm Work", this.sendToFarm);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_IZMA] != 0) this.addButton(6, "Go Camp", this.backToCamp);
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_IZMA] == 1) this.addButton(this, 9, "Back", kGAMECLASS.farm.farmCorruption.rootScene);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_IZMA] == 1) this.addButton(9, "Back", kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
     private sendToFarm(): void {
@@ -1651,7 +1651,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.flags[kFLAGS.FOLLOWER_AT_FARM_IZMA] = 1;
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private backToCamp(): void {
@@ -1664,7 +1664,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.flags[kFLAGS.FOLLOWER_AT_FARM_IZMA] = 0;
 
-        this.doNext(this, kGAMECLASS.farm.farmCorruption.rootScene);
+        this.doNext(kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
     //Get a tiger shark tooth
@@ -1673,7 +1673,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.clearOutput();
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00246] > 1) {
             this.outputText("Izma smiles apologetically and says, \"<i>I'm sorry, but I won't be able to get my hands on one of those until tomorrow.</i>\"");
-            this.doNext(this, this.izmaFollowerMenu);
+            this.doNext(this.izmaFollowerMenu);
         }
         else {
             this.outputText("Izma smiles as she pulls a tooth from her chest.  She hands it to you with a pleased expression.  \"<i>Anything for you, my Alpha.</i>\"  ");
@@ -1702,7 +1702,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         else this.outputText("In her crotch, Izma has a puffy, impressively wet pussy that frequently dribbles lubricants - enough that if she doesn't take care, it will stain her grass skirt.  The lips are dark red and will frequently part as she becomes aroused, revealing her swollen love-button.  Though she doesn't look loose, her flesh looks soft and pliant enough to spread quite wide.\n\n");
 
         this.outputText("She has a tight asshole placed between her toned butt-cheeks, right where it belongs.", false);
-        this.doNext(this, this.izmaFollowerMenu);
+        this.doNext(this.izmaFollowerMenu);
     }
     private izmaSexMenu(): void {
         this.spriteSelect(32);
@@ -1733,16 +1733,16 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         }
         //choices("Anal \'Catch\'",analCatch,"DominateVagina",domVag,"DomWithAss",assDom,"Get Mounted",mount,"Izma's Vagina",vagoo,"RideIzmaCock",getVagooFucked,"Sixtynine",sixty,kids,childToggle,"",0,"Back",izmaFollowerMenu);
         this.menu();
-        this.addButton(this, 0, "Anal \'Catch\'", analCatch);
-        this.addButton(this, 1, "DominateVagina", domVag);
-        this.addButton(this, 2, "DomWithAss", assDom);
-        this.addButton(this, 3, "Get Mounted", mount);
-        this.addButton(this, 4, "Izma's Vagina", vagoo);
-        this.addButton(this, 5, "RideIzmaCock", getVagooFucked);
-        this.addButton(this, 6, "Sixtynine", sixty);
-        this.addButton(this, 7, "Kids", this.childToggle);
-        if (this.flags[kFLAGS.TIMES_IZMA_DOMMED_LATEXY] > 0 && this.flags[kFLAGS.IZMA_NO_COCK] == 0 && this.latexGirl.latexGooFollower()) this.addButton(this, 8, this.flags[kFLAGS.GOO_NAME], this.izmaLatexySubmenu);
-        this.addButton(this, 9, "Back", this.izmaFollowerMenu);
+        this.addButton(0, "Anal \'Catch\'", analCatch);
+        this.addButton(1, "DominateVagina", domVag);
+        this.addButton(2, "DomWithAss", assDom);
+        this.addButton(3, "Get Mounted", mount);
+        this.addButton(4, "Izma's Vagina", vagoo);
+        this.addButton(5, "RideIzmaCock", getVagooFucked);
+        this.addButton(6, "Sixtynine", sixty);
+        this.addButton(7, "Kids", this.childToggle);
+        if (this.flags[kFLAGS.TIMES_IZMA_DOMMED_LATEXY] > 0 && this.flags[kFLAGS.IZMA_NO_COCK] == 0 && this.latexGirl.latexGooFollower()) this.addButton(8, this.flags[kFLAGS.GOO_NAME], this.izmaLatexySubmenu);
+        this.addButton(9, "Back", this.izmaFollowerMenu);
 
     }
     //[Izma mounts the PC]
@@ -1769,7 +1769,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.flags[kFLAGS.IZMA_NO_COCK] == 0) {
                 this.outputText("  Still, the sight and sensation of her pre-cum-dribbling cock slapping against your belly gives you an idea.  ");
                 this.outputText("You could reach up, grab her meaty member and jerk it off... or you can just enjoy the sex as is.  What will you do?");
-                this.simpleChoices(this, "Jerk It", this.createCallBackFunction(this, this.followerIzmaMountsPC, true),
+                this.simpleChoices("Jerk It", this.createCallBackFunction(this.followerIzmaMountsPC, true),
                     "Nope", this.RadarIzmaLeaveHerWangUnWingWanged, "", undefined, "", undefined, "", undefined);
                 return;
                 //outputText("You remove your hand from her mark and instead place it squarely on her cock, wrapping your fingers around its two-inch-thick girth.\n\n", false);
@@ -1809,7 +1809,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You're too busy gasping for breath to reply, at first.  But then, with a smile, you pick yourself up and give her a quick kiss on the cheek.  To your surprise, the ever-horny shark-girl actually blushes with delight at the gesture.  The two of you leisurely dress yourselves and then go your separate ways; you back to your camp, Izma back to the stream to soak and recover.", false);
         this.player.orgasm();
         this.dynStats("sen", -2);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private izmaPreg(): void {
@@ -1847,7 +1847,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You're too busy gasping for breath to reply, at first.  But then, with a smile, you pick yourself up and give her a quick kiss on the cheek.  To your surprise, the ever-horny shark-girl actually blushes with delight at the gesture.  The two of you leisurely dress yourselves and then go your separate ways; you back to your camp, Izma back to the stream to soak and recover.", false);
         this.player.orgasm();
         this.dynStats("sen", -2);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 
@@ -1985,7 +1985,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         if (!this.player.hasCock()) this.outputText("After a few minutes, she pulls her shrinking cock out of you and gives you a deep kiss. \"<i>Thanks for that,</i>\" she says, \"<i>...my Alpha.</i>\"  She jogs off to the river to clean off.  After a minute you follow her, with her cum dripping out of your well-used anus.", false);
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Vag fuck]
@@ -2013,7 +2013,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         //RADAR XPACK FORK
         if (this.flags[kFLAGS.IZMA_NO_COCK] == 0) {
             this.outputText(".");
-            this.simpleChoices(this, "Let Her", this.radarIzmaXPackLetHer, "Deny Her", this.radarIzmaXpackDenyHer, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices("Let Her", this.radarIzmaXPackLetHer, "Deny Her", this.radarIzmaXpackDenyHer, "", undefined, "", undefined, "", undefined);
             return;
         }
         this.outputText(", but decide it's probably better to let her have some 'hands on involvement'.  Instead, you reach up to caress and fondle her breasts, gently tugging and rubbing her stiff nipples and giving them the occasional soft pinch.  The pretty tigershark responds well to your movements, moaning and gasping from pleasure.  She bites her lip, thankfully with her human teeth");
@@ -2050,7 +2050,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.izmaPreg();
         this.player.orgasm();
         this.dynStats("sen", -2);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Deny her]
@@ -2081,7 +2081,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("you can see long streams of pre dribble down her red cock, and know full well she's close to her limit.  Her cock stands at attention, ready to release its sticky load in your direction.");
         this.outputText("\n\nIt seems Izma cannot hold out much longer... where will you direct her orgasm?");
         //[Your face]   [Your chest]   [Her face]
-        this.simpleChoices(this, "Your Face", this.facialWhereItGoesRadarIzmaXpack, "Your Chest", this.RadarIzmaCumInYourChest, "Her Face", this.IzmaSelfFacialWheeRadar, "", undefined, "", undefined);
+        this.simpleChoices("Your Face", this.facialWhereItGoesRadarIzmaXpack, "Your Chest", this.RadarIzmaCumInYourChest, "Her Face", this.IzmaSelfFacialWheeRadar, "", undefined, "", undefined);
     }
     //[facial] Scene follows vanilla scripting from Jokester
     private facialWhereItGoesRadarIzmaXpack(): void {
@@ -2105,7 +2105,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.izmaPreg();
         this.player.orgasm();
         this.dynStats("sen", -2);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //[Your chest]
     private RadarIzmaCumInYourChest(): void {
@@ -2135,7 +2135,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.izmaPreg();
         this.player.orgasm();
         this.dynStats("sen", -2);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private IzmaSelfFacialWheeRadar(): void {
@@ -2153,7 +2153,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.izmaPreg();
         this.player.orgasm();
         this.dynStats("sen", - 2);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //[69]
     private followerIzmaTakesIt69(): void {
@@ -2203,7 +2203,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\"<i>Thanks for that...</i>\" Izma whispers, stumbling onto her feet and retrieving her clothing.  \"<i>Feel free to come back for some more... or maybe we could do something a little more intense next time.</i>\"  It's a little hard to tell with her skin color, but you can almost see a blush on her face.  You smile at Izma and nod, before heading off to wash up.\n\n", false);
         this.player.orgasm();
         this.dynStats("sen", -2);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Talk]
@@ -2220,7 +2220,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
 
             this.outputText("She heaves a sigh, and you place a hand on her shoulder, bringing a small blush to her face.  \"<i>Thanks, but I don't mind. Really.</i>\"  She gives you a quick kiss. \"<i>Thanks for listening.</i>\"\n\n", false);
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00239]++;
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         //[Talk option 2]
@@ -2245,7 +2245,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             //(Slight lust gain)
             this.dynStats("lus", 5);
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00239]++;
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         //[Talk option 3]
@@ -2264,7 +2264,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
 
             this.outputText("\"<i>Well... minotaurs taste like beef, unsurprisingly, but imps taste like a mile of burnt ass.</i>\"  With a laugh, you ask if she's ever eaten a goblin - or if she prefers to fuck those and then throw them back?  She blushes.  \"<i>They are pretty cute... it's hard to eat anything cute.  I could eat them out, though...</i>\"  You smile at that and, after teasing her about letting you watch next time, you leave her be.\n\n", false);
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00239]++;
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         //[Talk topic 4.]
@@ -2286,7 +2286,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
 
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00239]++;
             //[Leave] [Flirt]
-            this.simpleChoices(this, "Flirt", this.chooseToFlirtWithIzma, "", undefined, "", undefined, "", undefined, "Leave", this.chooseNotToFlirtWithIzma);
+            this.simpleChoices("Flirt", this.chooseToFlirtWithIzma, "", undefined, "", undefined, "", undefined, "Leave", this.chooseNotToFlirtWithIzma);
             return;
         }
         //[Talk option 5]
@@ -2303,7 +2303,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.flags[kFLAGS.IZMA_NO_COCK] == 0) this.outputText("..  and patiently ignoring the fact you can feel her cock starting to stiffen against your thigh.");
             this.outputText("  You release her, trying to avoid turning her on too much.  Thanking her for the talk, you leave as she buries herself back into her books.", false);
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00239]++;
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         //[Talk Option 6]
@@ -2332,7 +2332,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
 
             this.outputText("You thank Izma for talking to you, insisting that you didn't mean to hurt her by probing such painful memories.  She smiles warmly at you and hugs you tight.  \"<i>It's okay. It... it feels nice to be able to share that information with someone,</i>\" she says, giving you a small kiss as she slips her glasses back on.", false);
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00239] = 0;
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
     }
@@ -2341,7 +2341,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.spriteSelect(32);
         this.outputText("", true);
         this.outputText("You thank Izma for the interesting conversation, even if it did end up meandering a bit, and then walk away, leaving her to her private thoughts.\n\n", false);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //Flirt]
     private chooseToFlirtWithIzma(): void {
@@ -2361,7 +2361,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             //[(If player is male/genderless)
             if (this.player.gender <= 1) {
                 this.outputText("  \"<i>That's kinda weird, man... I'm not sure the god in charge of this world would allow something like that.  It seems too silly.</i>\"", false);
-                this.doNext(this, this.camp.returnToCampUseOneHour);
+                this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
             ///(Female/herm)
@@ -2383,7 +2383,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
 
             this.outputText("Do you tell her to stop taking her contraceptives?", false);
             //Yes - call this function again
-            this.doYesNo(this, this.childToggle, this.firstTimeDeclineIzmasKdiddlezlijfhdjkfhslkfbsjkhfbs);
+            this.doYesNo(this.childToggle, this.firstTimeDeclineIzmasKdiddlezlijfhdjkfhslkfbsjkhfbs);
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00248]++;
             return;
         }
@@ -2407,7 +2407,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText("She stares at you, dumbfounded for a moment, then her eyes light up and she gives you the widest grin, displaying her shark teeth for an extra layer of formidability.  She practically skips over to her chest, flinging it open and all but diving inside, her happily-waving tail giving you an excellent look at her shapely rear.  She emerges with a triumphant cry, a small potion vial in her fingers.  She pops the cork and gulps it down, then crushes the bottle in her hand and spins to face you, a wickedly happy expression on her face as she saunters towards you.  \"<i>Well then... let's get started, shall we?</i>\" she croons.\n\n", false);
             }
         }
-        this.doNext(this, this.izmaFollowerMenu);
+        this.doNext(this.izmaFollowerMenu);
     }
 
     //[=No=]
@@ -2417,7 +2417,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You tell Izma, with a shake of your head, that you aren't ready to be a parent yet.  The tigershark looks a little disappointed, but she gives a soft sigh and nods in understanding.  \"<i>You're the boss.  So, what did you want to do?</i>\" she asks.\n\n", false);
         //Default Izma interaction options are displayed/
         //BACK TO MAIN MENUUUUZ
-        this.doNext(this, this.izmaFollowerMenu);
+        this.doNext(this.izmaFollowerMenu);
     }
 
 
@@ -2463,7 +2463,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(", which nuzzles affectionately against its mother before latching onto her nipple and starting to drink.  As it drinks, it grows; by the time it empties Izma's first breast, it's easily the size of a five year old.  When it's finished its meal and belches loudly in satisfaction, it's the size of a pre-teen.  Izma takes its rapid development in stride, mother and daughter happily embracing each other.\n\n", false);
 
         this.outputText("You help Izma climb back onto shore with your new baby, then lay them both down to rest.  Once they're settled down comfortably, cuddling up against each other, you turn and head back to camp, looking to dry yourself off and catch a quick nap.", false);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //PC gives birth (alone): used if PC gets pregnant from vaginal and refusing herbs before recruiting Izma or possibly later if a way to force her out is written
@@ -2597,7 +2597,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         }
         this.outputText(" living here; the fruits of your love with Izma.\n\n", false);
         //The above is the default scene, that plays whenever the player selects the "Children" option when interacting with Izma./
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
 
         //#1 (Requires 1 Tigershark: 
         //NOPE
@@ -2652,7 +2652,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         if (choice == 6) {
             this.outputText("You see that two of your shark-girls are hugging each other in a way that, at first glance, seems familial.  As you get closer, though, you can see it's somewhat less than sisterly; each is groping the other's breasts, experimentally playing with her sibling's boobs to see what makes her gasp and moan in pleasure.  Their faces are pressed together in a very unchaste kiss.  Izma blushes and hastily explains that your children have strong libidos, so it's natural for them to experiment like this.  She assures you that they won't do anything really sexual with each other - and, even if they did, it's not like anything can come of a little harmless girl-on-girl, right?", false);
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private inCampRideIzmasDickDongTheWitchIsDead(): void {
@@ -2739,7 +2739,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.knockUp(PregnancyStore.PREGNANCY_IZMA, PregnancyStore.INCUBATION_IZMA);
         }
         this.player.slimeFeed();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Using Izma's books in camp]
@@ -2755,7 +2755,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("You tell Izma you feel like doing some reading and she starts to lazily fish through her trunk for her reading material.  She looks up and says, \"<i>I'll need to organize this later... So, what would you like to read with me?</i>\"\n\n", false);
         //[C.Manual] [E.Guide] [Porn]
-        this.simpleChoices(this, "C.Manual", this.campCuntManual,
+        this.simpleChoices("C.Manual", this.campCuntManual,
             "E.Guide", this.entropyGuideByStephenHawking,
             "Porn", this.stephenHawkingPorn, "", undefined, "Back", this.izmaFollowerMenu);
     }
@@ -2785,7 +2785,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             this.dynStats("str", 2);
         }
         this.outputText("\n\nAfter about an hour you yawn and stretch, telling Izma that you're going off to do other business.  She nods lazily at your words but doesn't look up from her old book. \"<i>Sure thing " + this.player.short + ", I'm just gonna read this for a little while longer,</i>\" Izma says.  You nod at her, before moving off.", false);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //[E.Guide]
     private entropyGuideByStephenHawking(): void {
@@ -2799,7 +2799,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("lib", - 2, "cor", -2);
 
         this.outputText("As time passes you realize that you do have other things to do.  You thank Izma for her company and get up to leave.  \"<i>All right, thanks for sitting with me " + this.player.short + ".  You go on ahead, I'm just going to read some more of this,</i>\" she replies, not even looking up from the pages of her book.\n\n", false);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //[Porn]
     private stephenHawkingPorn(): void {
@@ -2813,7 +2813,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.flags[kFLAGS.IZMA_NO_COCK] == 0) this.outputText("but that's not exactly possible for someone who just had over a foot of dick slip from between her thighs and stick into the air.  You laugh openly and give Izma's silver hair a soft tug, before getting up and telling her you have business elsewhere.  Izma simply nods in taciturn response but keeps her gaze fixed on the lewd images before her.  Another laugh escapes your lips as soon as you think you're out of earshot.", false);
         else this.outputText("but that's not exactly possible for someone who keeps squirming, creating lewd squishes from below the waist.  You laugh openly and give Izma's silver hair a soft tug, before getting up and telling her you have business elsewhere.  Izma simply nods in taciturn response but keeps her gaze fixed on the lewd images before her.  Another laugh escapes your lips as soon as you think you're out of earshot.", false);
         this.dynStats("lib", 1, "lus", 5);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //(Trying to use another book inside the span of 6 hours)
     private tooSoonExecutus(): void {
@@ -2822,7 +2822,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You tell Izma that you want to read a book with her again, and she gives you a petulant look.  \"<i>Really?   I mean, I love books, but even I get tired of them.  I was about to go do something else after cleaning up a bit.  We-ell... I don't feel like reading any more right now, but... if you were to pay me our usual arrangement I could let you borrow one for a while.  You know I trust you, but books do wear out even with the best of care, and there are a few new ones I'd like to get.</i>\"  Do you pay Izma to lend you a book?", false);
 
         //(re-direct to pre-follower book scenes)
-        this.simpleChoices(this, "C.Manual", this.readSharkCuntManual,
+        this.simpleChoices("C.Manual", this.readSharkCuntManual,
             "E.Guide", this.sharkEdgingGuideLOL,
             "Porn", this.sharkgirlPronz, "", undefined, "Back", this.izmaFollowerMenu);
     }
@@ -2835,7 +2835,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("It's a young woman – a peculiarly corrupted woman, with shiny grey skin, silver hair, and a fin positioned between her shoulder blades.  She is much smaller and thinner than the average shark-girl.  She's wearing some rather revealing black swimwear.  The girl looks up at you and grins widely, showing rows of knife-like teeth.  \"<i>Wanna play? Heads up though, I...</i>\" Her grin wavers, and silence hangs in the air for a few moments.\n\n", false);
         this.outputText("\"<i>...Mom?</i>\"", false);
         //(Next)
-        this.doNext(this, this.findLostIzmaKidsII);
+        this.doNext(this.findLostIzmaKidsII);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00412]--;
     }
     private findLostIzmaKidsII(): void {
@@ -2844,7 +2844,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("This sparks off a happy chain of thoughts in your mind, and you inform your wayward daughter that Izma is now living with you (and there's room for another).  She squeaks happily at the news, and tells you that she'll meet you at camp.  She pecks you on the cheek, then runs into the shallows and disappears.  You walk away, beaming at the thought of seeing a new face in camp.", false);
         //(+1 Izma children.)
         this.flags[kFLAGS.IZMA_CHILDREN_SHARKGIRLS]++;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Ask Izma About Removing Her Dick
@@ -2855,8 +2855,8 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("\n\nShe isn't happy with the idea, but if you want, you could assert yourself as an Alpha to overcome it.");
             this.flags[kFLAGS.ASKED_IZMA_ABOUT_WANG_REMOVAL] = 1;
             this.menu();
-            this.addButton(this, 0, "Okay", this.izmaFollowerMenu);
-            this.addButton(this, 1, "Force Her", this.forceIzmaPenis);
+            this.addButton(0, "Okay", this.izmaFollowerMenu);
+            this.addButton(1, "Force Her", this.forceIzmaPenis);
             return;
         }
         else {
@@ -2885,11 +2885,11 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         }
         if (succMilk + pMilk < 5) {
             this.outputText("\n\nNow, if you can find enough succubi milk, you can get rid of that troublesome member.");
-            this.doNext(this, this.izmaFollowerMenu);
+            this.doNext(this.izmaFollowerMenu);
         }
         else {
             this.outputText("\n\nYou have enough succubi milk already. <b>Do you want to get rid of Izma's penis?</b>");
-            this.simpleChoices(this, "Remove Dick", this.izmaDickToggle, "", undefined, "", undefined, "", undefined, "Back", this.izmaFollowerMenu);
+            this.simpleChoices("Remove Dick", this.izmaDickToggle, "", undefined, "", undefined, "", undefined, "Back", this.izmaFollowerMenu);
         }
     }
 
@@ -2920,11 +2920,11 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         }
         if (succMilk + pMilk < 5) {
             this.outputText("\n\nNow, if you can find enough succubi milk, you can get rid of that troublesome member.");
-            this.doNext(this, this.izmaFollowerMenu);
+            this.doNext(this.izmaFollowerMenu);
         }
         else {
             this.outputText("\n\nYou have enough succubi milk already. <b>Do you want to get rid of Izma's penis?</b>");
-            this.simpleChoices(this, "Remove Dick", this.izmaDickToggle, "", undefined, "", undefined, "", undefined, "Back", this.izmaFollowerMenu);
+            this.simpleChoices("Remove Dick", this.izmaDickToggle, "", undefined, "", undefined, "", undefined, "Back", this.izmaFollowerMenu);
         }
     }
 
@@ -2957,7 +2957,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("You flash Izma a smile and tell her she can regrow her penis.  She cheers so violently that her glasses nearly go flying, \"<i>Hell yes!</i>\"  The black-striped girl digs into her trunk and pulls out a strange tablet, popping it into her mouth before you can change your mind.  She chews vigorously, finishing it in seconds.  Izma cups her drooling snatch and moans, her palms slowly pushed away from her body by a red, masculine member.  It grows larger by the second, soon surpassing six inches, then eight, then ten, and not stopping until it's as big as it used to be.  A second later, a spherical protrusion falls down, filling out a new-grown flap of skin.  Plop!  Another joins it.  Finally, two more orbs fall from her body into her new ballsack.  <b>Izma is a herm again!</b>");
             this.flags[kFLAGS.IZMA_NO_COCK] = 0;
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Fuck her pussy-Dominant]
@@ -3007,7 +3007,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("\n\nSpicing up the act, you decide to slide a bit of your goopy body into Izma's asshole, and with a little concentration and focus, being to shape the solidity of your slime until you form a makeshift dildo, customly shaped for her tight little asshole. She moans as her ass is filled with the increasingly hardened mass of your body.  Looking down at your shark morph, you notice her cock is unattended; something that looks rather sad as it depressingly juts against the trunk of the stump you are breeding Izma on.");
             this.outputText("Will you tend to her dick?");
             //[Goo job]    [Leave it, leads to [Spanking scene])
-            this.simpleChoices(this, "Goo Job", this.gooJob, "Leave It", this.radarIzmaSpanking, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices("Goo Job", this.gooJob, "Leave It", this.radarIzmaSpanking, "", undefined, "", undefined, "", undefined);
         }
         this.outputText("\n\n");
         this.radarIzmaGasm();
@@ -3054,7 +3054,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.orgasm();
         this.dynStats("sen", -1);
         this.izmaPreg();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Anal (dominant)]
@@ -3111,14 +3111,14 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("\n\nYou could carry her back to her bedding and tuck her in... or you could just let her sleep it off.");
 
             //[Tuck in]   [Leave her]
-            this.simpleChoices(this, "Tuck In", this.radarIzmaAnalDomResultTuckIn, "Stay", this.radarIzmaLeaveHerInTheDirtAfterAnalDom, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices("Tuck In", this.radarIzmaAnalDomResultTuckIn, "Stay", this.radarIzmaLeaveHerInTheDirtAfterAnalDom, "", undefined, "", undefined, "", undefined);
         }
         else {
             //(If PC is genderless, ending: 
             this.outputText("\n\nContent, you slide to the ground to the right of the trunk you propped yourself up against, going prone as your tigershark lover lands softly on top of you.  Neither of you have the energy to get up, but you won't let some random passerby see this and think you are the bitch in this relationship.  With her still inside of you, you roll both yourself and Izma onto your sides, allowing her to stay inside of you as you drift off to sleep. Her arms trace over you and embrace you appreciatively as you surrender yourself to slumber.");
 
             this.outputText("\n\nA half hour passes before you wake up; Izma peacefully snoozing away as she holds you in a lover's embrace.  Faintly, you pull yourself from her grasp and place your [armor] back on.  As you finish placing the last piece of your gear back on, Izma wakes and rises to her feet, planting a tender kiss on her Alpha's neck as she sees you off.  Before you go though, Izma quietly asks, \"<i>So... where's my gift?</i>\", smirking as you turn around to respond to her.  With a firm slap on your ass, you tell her that going all the way with her Alpha was the gift.  Sheepishly grinning, she sees you off as you head out to tend to other matters.");
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
         this.player.orgasm();
         this.dynStats("sen", 2);
@@ -3140,13 +3140,13 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("With a great show of force, you take Izma under the legs and back, lifting her off the ground and starting toward her bedroll. In little time flat, you reach her bedding and lie her down gently. As you turn, you remark to Izma that she better rest up; you'll likely have another \"itch\" that will need scratching.  Her raspy words ring out behind you as you begin to walk away; \"<i>Promise?</i>\"  Turning your head slightly to catch her in your left eye, you grin mischievously at the shark-morph and continue on your way.");
             this.dynStats("cor", -2);
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //[Leave her]
     private radarIzmaLeaveHerInTheDirtAfterAnalDom(): void {
         this.clearOutput();
         this.outputText("Laughing, you tell Izma that she needs to work on her stamina, and that she'll have to recuperate out here in the grass.  She weakly acknowledges your choice, telling you that it's the right thing to do with worn out betas.  You stop and forcefully tell her that she did well; just that she needs to work on her endurance.  With a shaky nod, she smiles and drifts off to sleep.  To ensure she remains safe, you keep watch nearby as she naps peacefully.  Thankfully, she wakes after a half hour and saunters seductively past you, thanking her Alpha for fucking her and watching over her as she heads off to the lake to clean up.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Fuck Izma's ass (Dominant)]
@@ -3178,7 +3178,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             if (y >= 0) this.outputText("s");
             this.outputText(".  All too quickly though, your loins ache with the pained vice-grip of orgasm.  As much as you would like to continue dominating Izma, you cannot hold out.  The only choice you have now is where to direct your impending release.");
             //[Internal, Global option for non-TD and TD scenes]    [External, Non-TD scenes]
-            this.simpleChoices(this, "Internal", undefined, "External", undefined, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices("Internal", undefined, "External", undefined, "", undefined, "", undefined, "", undefined);
         }
         //!Tentacle dick scenes!
         else {
@@ -3198,7 +3198,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
                 else this.outputText("cocks that need");
                 this.outputText(" a little loving from her; something that visibly registers on her face as her expression goes wide in shock, her eyes seemingly asking you where THIS one is going next.");
                 //[Dick]    [Blowjob]   
-                this.simpleChoices(this, "Dick", undefined, "Blowjob", undefined, "", undefined, "", undefined, "", undefined);
+                this.simpleChoices("Dick", undefined, "Blowjob", undefined, "", undefined, "", undefined, "", undefined);
                 return;
             }
             //Go to buttsex
@@ -3355,8 +3355,8 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("\nFamiliar, lusty pants can be heard coming from the edge of the camp, and you begrudgingly head over to investigate.  The heavy breathing is accompanied by a few groans of pleasure, each higher pitched than the last, and as you round a rock, you're treated to the sight of Izma nude, holding a rope that's currently lashed around " + this.flags[kFLAGS.GOO_NAME] + ".  The goo-girl has one hand stuffed into her slick quim, busily fisting herself for the shark-girl's pleasure.");
             //[Stop] [Watch]
             this.menu();
-            this.addButton(this, 0, "Stop", this.stopIzmaLatexy);
-            this.addButton(this, 1, "Watch", this.izmaDomsLatexyPartI);
+            this.addButton(0, "Stop", this.stopIzmaLatexy);
+            this.addButton(1, "Watch", this.izmaDomsLatexyPartI);
         }
         //{Repeat}
         else {
@@ -3416,7 +3416,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.TIMES_IZMA_DOMMED_LATEXY]++;
         this.flags[kFLAGS.GOO_FLUID_AMOUNT] = 100;
         this.dynStats("lus", 20 + this.player.lib / 10);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private stopIzmaLatexy(): void {
@@ -3425,7 +3425,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\nVisibly chastized, the tigershark-girl backs off with a meek, \"<i>Yes, Alpha.</i>\"  Just like that, she's running off, probably to jack that raging mega-boner she built up from playing with the goo.");
         this.flags[kFLAGS.IZMA_X_LATEXY_DISABLED] = 1;
         this.flags[kFLAGS.TIMES_IZMA_DOMMED_LATEXY]++;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Click Latexy Submenu In Izma's Menu
@@ -3433,13 +3433,13 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.clearOutput();
         this.outputText("\"<i>Oh, I wouldn't worry about her, [name],</i>\" Izma says while her tail flicks back and forth.");
         this.menu();
-        if (this.flags[kFLAGS.IZMA_X_LATEXY_DISABLED] == 1) this.addButton(this, 0, "KeepHerFed", this.izmaLatexyToggle);
+        if (this.flags[kFLAGS.IZMA_X_LATEXY_DISABLED] == 1) this.addButton(0, "KeepHerFed", this.izmaLatexyToggle);
         else {
-            this.addButton(this, 0, "No Feeding", this.izmaLatexyToggle);
+            this.addButton(0, "No Feeding", this.izmaLatexyToggle);
             //[Watch]
-            this.addButton(this, 1, "Watch Them", this.izmaDomsLatexy);
+            this.addButton(1, "Watch Them", this.izmaDomsLatexy);
         }
-        this.addButton(this, 4, "Back", this.izmaSexMenu);
+        this.addButton(4, "Back", this.izmaSexMenu);
     }
     //[No Feeding]
     private izmaLatexyToggle(): void {
@@ -3454,7 +3454,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             this.flags[kFLAGS.IZMA_X_LATEXY_DISABLED] = 0;
         }
         this.menu();
-        this.addButton(this, 4, "Back", this.izmaLatexySubmenu);
+        this.addButton(4, "Back", this.izmaLatexySubmenu);
     }
 }
 

@@ -21,8 +21,8 @@ export class Kaiju extends AbstractLakeContent {
             this.outputText("Your explorations take you to a small island you haven't seen before.  It appears to be a large, smooth rock hill jutting out of the water.  Do you explore it?");
             //[Yes/No]
             this.menu();
-            this.addButton(this, 0, "Yes", this.meetDatKaijuYo);
-            this.addButton(this, 1, "No", this.noMeetingKaijus);
+            this.addButton(0, "Yes", this.meetDatKaijuYo);
+            this.addButton(1, "No", this.noMeetingKaijus);
         }
         else {
             if (this.player.findStatusAffect(StatusAffects.FactoryOverload) >= 0 && !this.kaijuCock()) this.kaijuGrowsWangus();
@@ -40,7 +40,7 @@ export class Kaiju extends AbstractLakeContent {
         this.clearOutput();
         this.outputText("You continue rowing on, away from the hilly island.");
         //[There is still a chance of finding the hill later]
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[If yes]
@@ -59,9 +59,9 @@ export class Kaiju extends AbstractLakeContent {
         //[Compliment/Flirt/Insult]
         this.menu();
 
-        this.addButton(this, 0, "Compliment", this.complimentKaiju);
-        if (this.player.gender > 0) this.addButton(this, 1, "Flirt", this.flirtWithKaiju);
-        this.addButton(this, 2, "Insult", this.insultTheKaijuFirstMeeting);
+        this.addButton(0, "Compliment", this.complimentKaiju);
+        if (this.player.gender > 0) this.addButton(1, "Flirt", this.flirtWithKaiju);
+        this.addButton(2, "Insult", this.insultTheKaijuFirstMeeting);
     }
 
     //[If insult]
@@ -78,19 +78,19 @@ export class Kaiju extends AbstractLakeContent {
                 this.outputText("\n\nSensing her desires, you try to quickly think of how to avoid pleasing the giant's large cock.  It occurs to you that you could use the spell whitefire to attack her.  Do you cast it?");
                 //[Yes][No]
                 this.menu();
-                this.addButton(this, 0, "Yes", this.yesBurnDatClit);
-                this.addButton(this, 1, "No", this.corruptKaijuInsertion);
+                this.addButton(0, "Yes", this.yesBurnDatClit);
+                this.addButton(1, "No", this.corruptKaijuInsertion);
             }
             else {
                 this.menu();
-                this.addButton(this, 0, "Next", this.corruptKaijuInsertion);
+                this.addButton(0, "Next", this.corruptKaijuInsertion);
             }
         }
         else {
             this.outputText("Perhaps not the smartest thing to do towards such a giant, you decide to mock her obvious insecurities over her body image.  The word 'fat' barely has time to leave your lips when in a rage she puffs up her lips and blows, sending you and your boat racing through the lake out of sight.  Sometime later the boat crashes back on shore, your hair and nerves a little windswept from the fast ride.");
             //[Giant turtle no longer encounter-able]
             this.flags[kFLAGS.KAIJU_DISABLED] = 1;
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -103,7 +103,7 @@ export class Kaiju extends AbstractLakeContent {
         //[Lust is increased and giant turtle girl is no longer encounter-able][End whitefire scene]
         this.dynStats("lus", 15);
         this.flags[kFLAGS.KAIJU_DISABLED] = 1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[If no] (Scene returns to regular blowjob/urethral insertion scene.)
@@ -121,7 +121,7 @@ export class Kaiju extends AbstractLakeContent {
         //[Corruption increases slightly and giant turtle girl is no longer encounter-able]
         this.dynStats("lus", 50, "cor", 1);
         this.flags[kFLAGS.KAIJU_DISABLED] = 1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[If compliment]
@@ -133,8 +133,8 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText("\n\n\"<i>Aw, that's so sweet of you to say!</i>\" she says as a smile forms on her face.  \"<i>You're just so small and sweet I want to pick you up and give you a great big hug,</i>\" she continues as she reaches down to pick you up.");
         //[Let her/Stop it]
         this.menu();
-        this.addButton(this, 0, "Let Her", this.letKaijuHaveWayWithYou);
-        this.addButton(this, 1, "Stop It", this.stopItPlease);
+        this.addButton(0, "Let Her", this.letKaijuHaveWayWithYou);
+        this.addButton(1, "Stop It", this.stopItPlease);
     }
 
     //[If stop it]
@@ -143,7 +143,7 @@ export class Kaiju extends AbstractLakeContent {
         this.spriteSelect(103);
         this.outputText("You cry out and wave the inquisitive hand away.  You tell her that you mean no offense, but at such a size and strength disparity you are afraid of what a grip from such a woman could do accidentally.  She seems a bit saddened at that, but makes no further attempt to grab you.");
         //[Giant turtle girl is still encounter-able]
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[If let her]
@@ -192,7 +192,7 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText("\n\n\"<i>My, that was a mighty big hug.  I think I'll need another nap.  Come visit me again some time,</i>\" she says, slowly putting you down in your boat.  You slowly roll away as the jolly green giantess giggles and slowly wades off.");
         //[Giant turtle girl now encounter-able at Boat and Swamp, corruption increases slightly]
         this.dynStats("cor", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[If flirt]
@@ -265,7 +265,7 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText("\n\nYou wave goodbye to the giant green girl as you begin to row away.");
         //[Corruption increases, giant turtle girl now encounter-able at Boat and Swamp]
         this.dynStats("cor", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Second/Repeatable encounter/s at Boat
@@ -278,15 +278,15 @@ export class Kaiju extends AbstractLakeContent {
         //[If PC has 15 incubus drafts (regular or pure) and Venus is not already a herm]
         if (this.player.itemCount(this.consumables.INCUBID) + this.player.itemCount(this.consumables.P_DRAFT) >= 10 && !this.kaijuCock()) {
             this.outputText("\n\nIt occurs to you that you have enough Incubi Drafts on you to even affect someone of the turtle girl’s great size.  Maybe you could give her a cock?");
-            this.addButton(this, 5, "Give Cock", this.yesTurnKaijuFuta);
+            this.addButton(5, "Give Cock", this.yesTurnKaijuFuta);
         }
         //[Peek][Hug Boobs][Fuck][Urethra Fuck (only if Venus is a herm)][Talk][Leave]
-        this.addButton(this, 0, "Peek", this.peekAtSomePhatAssKaijuButt);
-        this.addButton(this, 1, "Hug Boobs", this.kaijuRepeatBoobHug);
-        this.addButton(this, 2, "Fuck", this.fuckThisGiantYouDumbCunt);
-        if (this.kaijuCock()) this.addButton(this, 3, "UrethraFuck", this.urethraFuckDatGiantCock);
-        this.addButton(this, 4, "Talk", this.talkToKaiju);
-        this.addButton(this, 9, "Leave", this.leaveRepeatKaiju);
+        this.addButton(0, "Peek", this.peekAtSomePhatAssKaijuButt);
+        this.addButton(1, "Hug Boobs", this.kaijuRepeatBoobHug);
+        this.addButton(2, "Fuck", this.fuckThisGiantYouDumbCunt);
+        if (this.kaijuCock()) this.addButton(3, "UrethraFuck", this.urethraFuckDatGiantCock);
+        this.addButton(4, "Talk", this.talkToKaiju);
+        this.addButton(9, "Leave", this.leaveRepeatKaiju);
     }
     //[If Hug Boobs]
     private kaijuRepeatBoobHug(): void {
@@ -332,7 +332,7 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText("\n\n\"<i>My, that was a mighty big hug.  I think I'll need another nap. Come visit me again some time,</i>\" she says, slowly putting you down in your boat.  You slowly roll away as the jolly green giantess giggles and slowly wades off.");
         //[Giant turtle girl now encounter-able at Boat and Swamp, corruption increases slightly]
         this.flags[kFLAGS.KAIJU_BAD_END_COUNTER]++;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[If Fuck] 
@@ -410,7 +410,7 @@ export class Kaiju extends AbstractLakeContent {
         //[Corruption increases]
         this.flags[kFLAGS.KAIJU_BAD_END_COUNTER]++;
         this.dynStats("cor", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[If Urethra Fuck]
@@ -441,7 +441,7 @@ export class Kaiju extends AbstractLakeContent {
         this.flags[kFLAGS.KAIJU_BAD_END_COUNTER]++;
         this.player.orgasm();
         this.dynStats("cor", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[If Leave]
@@ -449,7 +449,7 @@ export class Kaiju extends AbstractLakeContent {
         this.clearOutput();
         this.spriteSelect(103);
         this.outputText("You politely decline any options and bid the green girl goodbye as you row away.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[If Talk] 
@@ -491,7 +491,7 @@ export class Kaiju extends AbstractLakeContent {
             this.outputText("\n\nShe sighs, the conversation seeming to be at an end.");
             this.flags[kFLAGS.KAIJU_TALK_CYCLE] = 0;
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         if (this.player.inte < 50) this.dynStats("int", 1);
         if (this.player.lib > 50) this.dynStats("lib", -1);
     }
@@ -519,12 +519,12 @@ export class Kaiju extends AbstractLakeContent {
             this.outputText("\n\nThough she appears to be ending the show, you know you can encourage her to go even further.  Do you egg her on?");
             //[Yes][No]
             this.menu();
-            this.addButton(this, 0, "Yes", this.yesKaijuGimmePeepShowsMoar);
-            this.addButton(this, 1, "No", this.noKaijuPeepShows);
+            this.addButton(0, "Yes", this.yesKaijuGimmePeepShowsMoar);
+            this.addButton(1, "No", this.noKaijuPeepShows);
         }
         else {
             this.menu();
-            this.addButton(this, 0, "Next", this.noKaijuPeepShows);
+            this.addButton(0, "Next", this.noKaijuPeepShows);
         }
     }
 
@@ -536,7 +536,7 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText("You make your appreciation of her exhibition known, indicating that you would like her to continue on.  Smiling at your suggestion, and more than willing to give an encore performance, she brings her hands down to her trembling cock, slowly tracing a finger up the length of her shaft before grabbing onto it with one hand while the other begins to rub the tip of the head with her palm.  Her hand, still slick with her own cunt juice, slides easily across her cock.  She begins to moan again, even more lewdly than last time.  Her hips begin to buck as she practically begins to fuck her hand.  Beads of precum begin to bubble up from her cock head, and she quickly wipes it on the palm of her free hand before bringing it towards her face to lick the mess off her palm, her body trembling from the sheer delight of drinking her own pre.  \"<i>Oh that's good!</i>\" she pants, bringing her hand back down to begin stroking her throbbing dick with both hands.  \"<i>Please, please watch me cum!</i>\" the giantess begs of you as she goes into high gear, giving her cock everything she's got left.  It isn't much longer before she erupts like a geyser, spraying hermy turtle girl cum high into the air, only for it to rain back down on the green girl.  Her hands begin to slide across her torso, gently massaging the sperm into her skin.");
         //[Increase lust further, end corrupt/herm scene]
         this.dynStats("lib", 1, "lus", 33);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[If no] (Skip corrupt/herm scene)
@@ -546,7 +546,7 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText("\"<i>My goodness, it's so much better with a captivated audience!</i>\" she says, breathing heavily.  You thank her for the show as she places you back into your boat and giving it a push.  You row away, considering perhaps coming back for another show.");
         //[Libido is increased by 1]
         this.dynStats("lib", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //One off scenes
@@ -564,9 +564,9 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText("\n\nYou never expected your actions in the factory to have such a perverse effect.  Do you help get her off?");
         //[Yes][No][Mock]
         this.menu();
-        this.addButton(this, 1, "No", this.dontGetFutaTurtlesOffToday);
-        this.addButton(this, 0, "Yes", this.helpNewFutaKaijuGetOff);
-        this.addButton(this, 2, "Mock", this.mockDatTurtleGirl);
+        this.addButton(1, "No", this.dontGetFutaTurtlesOffToday);
+        this.addButton(0, "Yes", this.helpNewFutaKaijuGetOff);
+        this.addButton(2, "Mock", this.mockDatTurtleGirl);
     }
 
     //[If no]
@@ -574,7 +574,7 @@ export class Kaiju extends AbstractLakeContent {
         this.clearOutput();
         this.spriteSelect(103);
         this.outputText("You shake your head no, politely responding that you do not want to get her off right now.  \"<i>Oh, okay. I understand,</i>\" the giantess states, looking somewhat crestfallen.  You row away, leaving her and her new addition to themselves for the time being.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[If Mock] 
@@ -605,7 +605,7 @@ export class Kaiju extends AbstractLakeContent {
         this.player.orgasm();
         this.dynStats("cor", 1);
         this.flags[kFLAGS.KAIJU_DISABLED] = 1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[If yes]
@@ -634,7 +634,7 @@ export class Kaiju extends AbstractLakeContent {
         //[Corruption increases slightly, lust is decreased]
         this.player.orgasm();
         this.dynStats("cor", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[If Incubi Drafts]
@@ -644,8 +644,8 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText("You ask the big green slut if she’d be open to growing a new toy between her legs to play with.\n\nHer eyes go wide in surprise at the suggestion, a deep red blush spreading across her cheeks. \"<i>I admit, I have thought about it. Something long and hard to stroke, but I really don’t know,</i>\" she says, obviously excited yet embarrassed by the idea. \"<i>Would you really be okay with it?</i>\"");
         //[Yes][No]
         //[If No] (Return to menu)
-        this.addButton(this, 0, "Yes", this.yesTurnKaijuFuta);
-        this.addButton(this, 1, "No", this.repeatKaijuEncounter);
+        this.addButton(0, "Yes", this.yesTurnKaijuFuta);
+        this.addButton(1, "No", this.repeatKaijuEncounter);
     }
 
     //[If Yes]
@@ -684,7 +684,7 @@ export class Kaiju extends AbstractLakeContent {
         //[Corruption increases slightly, lust is decreased]
         this.player.orgasm();
         this.dynStats("cor", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Improved Bad End
@@ -708,12 +708,12 @@ export class Kaiju extends AbstractLakeContent {
             this.menu();
             //[If yes] Flapping your wings at max speed you beat a hasty retreat! [PC winds up back at camp]
             //[If no] (Scene continues as normal)
-            this.addButton(this, 0, "Yes", this.flyAwayFromBadEnd);
-            this.addButton(this, 1, "No", this.badEndPartTwo);
+            this.addButton(0, "Yes", this.flyAwayFromBadEnd);
+            this.addButton(1, "No", this.badEndPartTwo);
         }
         else {
             this.menu();
-            this.addButton(this, 0, "Next", this.badEndPartTwo);
+            this.addButton(0, "Next", this.badEndPartTwo);
         }
     }
 
@@ -721,7 +721,7 @@ export class Kaiju extends AbstractLakeContent {
         this.clearOutput();
         this.spriteSelect(103);
         this.outputText("Flapping your wings at max speed you beat a hasty retreat!");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[End wings]

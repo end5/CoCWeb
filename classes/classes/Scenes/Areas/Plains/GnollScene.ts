@@ -107,26 +107,26 @@ export class GnollScene extends BaseContent {
                 if (this.player.cockThatFits(this.monster.vaginalCapacity()) != -1) dickDownClit = this.dickDownGnollClit;
                 this.outputText("  The gnoll is at your mercy.  What will you do with her?", false);
                 //[DickDownClit] [DickInAss] [SuckHerClit] [Leave]
-                this.simpleChoices(this, "DickDownClit", dickDownClit, "DickInAss", this.dickInGnollAss, "SuckHerClit", this.suckGnollClit, "", undefined, "Leave", this.cleanupAfterCombat);
+                this.simpleChoices("DickDownClit", dickDownClit, "DickInAss", this.dickInGnollAss, "SuckHerClit", this.suckGnollClit, "", undefined, "Leave", this.cleanupAfterCombat);
             }
             //(if cockTotal>0 AND vaginas=1)
             else if (this.player.gender == 3) {
                 if (this.player.cockThatFits(this.monster.vaginalCapacity()) != -1) dickDownClit = this.dickDownGnollClit;
                 this.outputText("  The gnoll is at your mercy.  What will you do with her?", false);
                 //[DickDownClit] [DickInAss] [SuckHerClit] [TakeHerClit] [Leave]
-                this.simpleChoices(this, "DickDownClit", dickDownClit, "DickInAss", this.dickInGnollAss, "SuckHerClit", this.suckGnollClit, "TakeHerClit", this.takeGnollClit, "Leave", this.cleanupAfterCombat);
+                this.simpleChoices("DickDownClit", dickDownClit, "DickInAss", this.dickInGnollAss, "SuckHerClit", this.suckGnollClit, "TakeHerClit", this.takeGnollClit, "Leave", this.cleanupAfterCombat);
             }
             //(if cockTotal=0 AND vaginas=1)
             else if (this.player.gender == 2) {
                 this.outputText("  The gnoll is at your mercy.  What will you do with her?", false);
                 //[SuckHerClit] [TakeHerClit] [Leave]
-                this.simpleChoices(this, "SuckHerClit", this.suckGnollClit, "TakeHerClit", this.takeGnollClit, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
+                this.simpleChoices("SuckHerClit", this.suckGnollClit, "TakeHerClit", this.takeGnollClit, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
             }
             //(if cockTotal=0 AND vaginas=0)
             else {
                 this.outputText("  The gnoll is at your mercy.  What will you do with her?", false);
                 //[SuckHerClit] [Leave]
-                this.simpleChoices(this, "SuckHerClit", this.suckGnollClit, "", undefined, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
+                this.simpleChoices("SuckHerClit", this.suckGnollClit, "", undefined, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
             }
         }
         else this.cleanupAfterCombat();
@@ -275,7 +275,7 @@ export class GnollScene extends BaseContent {
 
         this.outputText("\"<i>What... what have you poisoned me with?</i>\" she gasps, staggering to her knees.  Catching herself, the gnoll pulls her hands away from her crotch, revealing the effects of the Succubi's Dream.  A pair of huge, apple-sized testicles sway under her throbbing pussy lips, covered in a fine chocolate fuzz that glistens from the honey that leaks from her over-stimulated cunt.  The hyena's balls hang heavily from her groin, achingly filled with seed that she has no way of emptying.  \"<i>What is this?</i>\" she demands, her voice frantic with seething, unfamiliar urges.  \"<i>I don't... I can't...</i>\" She stumbles to all fours, her hips impotently bucking at the air, as her eyes cloud over, mouth hanging open in the primal need to mate.\n\n", false);
         //[NEXT]
-        this.doNext(this, this.yoDawgHyenaBallz2);
+        this.doNext(this.yoDawgHyenaBallz2);
     }
 
     private yoDawgHyenaBallz2(): void {
@@ -296,7 +296,7 @@ export class GnollScene extends BaseContent {
 
         this.outputText("Again and again, she rushes toward a release, and every time, her balls slosh with overflowing lust, unable to climax yet urging her to greater depravity until even words are too difficult to manage.  Your ravaged body aches under the endless rape.  It's all you can do to work your hands under your hips to masturbate in the blissful pauses while the gnoll's muscles clench in near orgasm, before she slams you back to the dirt for another round.  You lose track of time as your world narrows to the endlessly thrusting shaft of the hyena-girl's massive clitoris and the merciless weight of her ball-slapping, spunk-swollen pouch. Every time you climax, it fuels her mad frenzy until you silently beg your body to shut out the overwhelming sensations, to no avail.  Day fades into night and night into day as the amazon fucks your spasming, shuddering pucker without thought, or pity, or release.\n\n", false);
         //[NEXT]
-        this.doNext(this, this.yoDawgHyenaBallz3);
+        this.doNext(this.yoDawgHyenaBallz3);
         this.model.time.hours = 7;
         this.model.time.days++;
         this.statScreenRefresh();

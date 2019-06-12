@@ -105,7 +105,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
         this.outputText("A goblin leaps out from behind a rock outcropping.  She keeps her arms folded across her " + this.tamaniChest() + " and glares at you.  The little thing is only about four feet tall, with pink and black dyed hair cut into a cute little 'do.  The greenish-gray skin of her breasts bulges out around her arms, supported by a few leather straps, amplifying her cleavage.  Her cunt lips are pierced multiple times, inflamed, and slightly parted.  There really isn't any clothing on her to hide them, just more of the ever-present straps wrapping around her thighs.\n\n", false);
         this.outputText("She says, \"<i>There's only so much cock around, and I got dibs on ALL of it, O.K. skank?</i>\"\n\n", false);
         //[Umm OK?] [No]
-        this.simpleChoices(this, "Umm OK?", this.tamaniFemaleYes, "No", this.tamaniFemaleNo, "PreferGirls", this.preferTamaniFemdom, "", undefined, "", undefined);
+        this.simpleChoices("Umm OK?", this.tamaniFemaleYes, "No", this.tamaniFemaleNo, "PreferGirls", this.preferTamaniFemdom, "", undefined, "", undefined);
     }
 
     //(Umm OK?)
@@ -119,7 +119,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
         this.outputText("The goblin leaves you with a warning, \"<i>Be careful, it likes to leak aphrodisiacs like crazy.  Believe me, those are FUN to get addicted to.  Oh, and remember – Tamani owns all the cocks around here, so if you ever grow one, come pay your dues!</i>\"\n\n", false);
         this.outputText("(<b>Deluxe Dildo acquired!</b>)", false);
         this.player.createKeyItem("Deluxe Dildo", 0, 0, 0, 0);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //[No] 
     private tamaniFemaleNo(): void {
@@ -130,7 +130,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
         if (this.player.cor < 33) this.outputText("What a slut.", false);
         else if (this.player.cor < 66) this.outputText("How odd.", false);
         else this.outputText("You hope she misses a few.", false);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //[Encounter Tamani – HAZ COCK]
     //[First Time]
@@ -141,7 +141,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
         this.outputText("A goblin leaps out from behind a rock outcropping.  For something so small, she has a lot of curves.  She advances towards you, rolling her hips in a suggestive way, immediately diverting your blood-flow to your crotch.  The little thing is only about four feet tall, with pink and black dyed hair cut into a cute little 'do.  The greenish-gray skin of her breasts jiggles pleasantly with every step, supported by a few leather straps, amplifying her cleavage.  Her cunt lips are pierced multiple times, inflamed, and slightly parted.  There really isn't any clothing on her to hide them, just more of the ever-present straps wrapping around her thighs.\n\n", false);
         this.outputText("The goblin makes you an offer that's difficult to turn down, \"<i>Hey there stud, want to fuck me pregnant?  I promise my box will milk your dick dry.  Just let Tamani take care of all your boners OK?</i>\"", false);
         //[Fuck Her] [Refuse]
-        this.simpleChoices(this, "Fuck Her", this.tamaniFirstTimeConsentual, "Refuse", this.tamaniFirstTimeRefusal, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices("Fuck Her", this.tamaniFirstTimeConsentual, "Refuse", this.tamaniFirstTimeRefusal, "", undefined, "", undefined, "", undefined);
     }
     //[Fuck Her – Consentual First Time]
     private tamaniFirstTimeConsentual(): void {
@@ -197,7 +197,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
         }
         this.player.orgasm();
         this.dynStats("lib", .5, "sen", -1, "cor", .5);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Refuse – First Time Meeting]
@@ -207,7 +207,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
         this.outputText("Tamani's eyes widen in surprise, \"<i>Don't let the size fool you, big " + this.player.boyGirl() + ". I can take more than you think,</i>\" she says while her hands begins playing with her box, \"<i>Are you sure you don't want to just let off a little steam?</i>\"\n\n", false);
         //[Fuck Her (Goes to fuck her - consensual first time)]
         //[No means no]
-        this.simpleChoices(this, "Fuck Her", this.tamaniFirstTimeConsentual, "No", this.tamaniSecondRefusal, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices("Fuck Her", this.tamaniFirstTimeConsentual, "No", this.tamaniSecondRefusal, "", undefined, "", undefined, "", undefined);
         this.dynStats("lus", 5);
     }
     //[No Means No]
@@ -216,7 +216,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
         this.outputText("", true);
         this.outputText("The goblin pouts, anger clouding her cute little features.  She turns and storms off, clearly pissed at you, \"<i>Think about it.  Next time that dick better ache for me, or I'll MAKE you want it.</i>\"\n\n", false);
         this.outputText("...What?", false);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[REPEAT MALE ENCOUNTER]
@@ -236,7 +236,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
         //[Take Her – win sex] 
         //[Let Her – Get dommed] 
         //[No – starts fight]
-        this.simpleChoices(this, "Take Her", this.tamaniSexWon, "Let Her", this.tamaniSexLetHer, "No", this.tamaniStartFight, "", undefined, "", undefined);
+        this.simpleChoices("Take Her", this.tamaniSexWon, "Let Her", this.tamaniSexLetHer, "No", this.tamaniStartFight, "", undefined, "", undefined);
     }
 
     private tamaniStartFight(): void {
@@ -354,7 +354,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
             else {
                 this.player.orgasm();
                 this.dynStats("lus", +10);
-                this.doNext(this, this.camp.returnToCampUseOneHour);
+                this.doNext(this.camp.returnToCampUseOneHour);
             }
         }
         //Not-taurs
@@ -398,7 +398,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                     this.outputText("You lie there, recovering from the intense sex.  After a little while you manage to get up and redress, but the scent of horny goblin stays with you for hours.", false);
                     this.player.orgasm();
                     this.dynStats("lus", +10);
-                    this.doNext(this, this.camp.returnToCampUseOneHour);
+                    this.doNext(this.camp.returnToCampUseOneHour);
                 }
             }
             //(Doesnt fit)
@@ -450,7 +450,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                     this.outputText("You lie there, recovering from the intense sex.  After a little while you manage to get up and redress, but the scent of horny goblin stays with you for hours.", false);
                     this.player.orgasm();
                     this.dynStats("lus", +10);
-                    this.doNext(this, this.camp.returnToCampUseOneHour);
+                    this.doNext(this.camp.returnToCampUseOneHour);
                 }
             }
         }
@@ -544,7 +544,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
             this.outputText("She doesn't give you a chance to answer as she wobbles off, jiggling pleasantly in all the right places, \"<i>Of course you do.  I'll be back for the rest later!</i>\"\n\n", false);
             this.player.orgasm();
             if (this.getGame().inCombat) this.cleanupAfterCombat();
-            else this.doNext(this, this.camp.returnToCampUseOneHour);
+            else this.doNext(this.camp.returnToCampUseOneHour);
         }
         //Too big? Jerk off with feet and bukkake
         else {
@@ -572,7 +572,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
             this.player.orgasm();
             this.dynStats("lus", 35);
             if (this.getGame().inCombat) this.cleanupAfterCombat();
-            else this.doNext(this, this.camp.returnToCampUseOneHour);
+            else this.doNext(this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -583,7 +583,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
         this.outputText("Tamani strolls out from behind a boulder, and wow is she ever pregnant.  It doesn't diminish the look of lust in her eyes when she meets your gaze, but her hands do keep rubbing the outside of her belly, only pausing to squeeze drops of milk from her nipples.  Her leather straps seem to fit her even better than before, accentuating her expanding curves and looking fantastic on her pregnant form.\n\n", false);
         this.outputText("She parts her legs and rubs her lower lips while she begs you, \"<i>Please fuck me!   I'm so horny from the pregnancy and I can't wait to give you daughters so you can knock me up all over again!</i>\"", false);
         //[Fuck Her] [Refuse]
-        this.simpleChoices(this, "Fuck Her", this.tamaniPregnantFuck, "Refuse", this.tamaniPregnantRefusal, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices("Fuck Her", this.tamaniPregnantFuck, "Refuse", this.tamaniPregnantRefusal, "", undefined, "", undefined, "", undefined);
     }
 
     //[Refuse]
@@ -591,7 +591,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
         this.spriteSelect(56);
         this.outputText("", true);
         this.outputText("She bursts into tears and waddles away crying.  You aren't sure if you should feel bad or not.", false);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //[FUCK HER PREGGERS – Consentual]
     private tamaniPregnantFuck(): void {
@@ -639,7 +639,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
             this.outputText("Tamani comes over to you and gives you a sloppy goodbye kiss, sending an immediate surge of hardness and desire to your groin.  She looks back and giggles, then waddles off, patting her pouches and dripping with your spooge.", false);
             this.player.orgasm();
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Birth Encounter]
@@ -672,7 +672,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
         this.outputText("Tamani sighs and relaxes, enjoying the breastfeeding and waving you away.  You shrug and head back to camp, more than a little aroused.", false);
         this.dynStats("lus", this.player.lib / 10 + this.player.cor / 10);
         this.tamaniGivesBirth();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public tamaniKnockUp(): void {
@@ -843,7 +843,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
             this.dynStats("int", -.5, "sen", -1);
         }
         if (this.getGame().inCombat) this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public tamaniAnalShits(): void {
@@ -910,8 +910,8 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
         this.outputText("\"<i>You're into girls, huh?</i>\" Tamani laughs, turning around and giving her fat butt a playful swat.  You watch as she does it a second time, laughing more at you than <i>with</i> you now, and then turns back around.  \"<i>Tell you what then, slut! I've had crap luck today finding a good stud, so I'll make you a deal.</i>\"");
         this.outputText("\n\nTamani advances closer, staring you straight in the eye with an impish smirk.  \"<i>I'll let you get me off if you swear to stay away from </i>my<i> cocks. Deal?</i>\"");
         this.menu();
-        this.addButton(this, 0, "Accept", this.acceptTamaniFacesits);
-        this.addButton(this, 1, "Refuse", this.declineZeFacesits);
+        this.addButton(0, "Accept", this.acceptTamaniFacesits);
+        this.addButton(1, "Refuse", this.declineZeFacesits);
     }
     //(("Refuse" choice))
     private declineZeFacesits(): void {
@@ -919,7 +919,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
         this.outputText("You tell her you're not interested.");
         this.outputText("\n\nThe curvy goblin kicks you with a snarl, making you instinctively grab at one [leg] and hop around on the other - until she kicks it too, knocking you down.  \"<i>Fine, bitch. Have it your way. But if I find you taking <b>my</b> cocks again, you're going to be in trouble!</i>\"  She darts off before you can get a word in edgewise, leaving you alone.");
         //((Needs non-leg and centaur equivalents))
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //(("Accept" choice))
@@ -943,7 +943,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
         this.outputText("\n\n\"<i>FFFFFFFNNNNNnnnnnnnn!</i>\" the green whore cries out, her thighs clamping down on the sides of your head like a vice.  Her asshole grips down on your invading fingers, holding them in place, and her pussy undulates around your tongue like a living thing, more and more of her juices gushing out as the little slut comes <b>hard</b> before she just... goes limp.");
         this.outputText("\n\nYou withdraw your fingers from her ass and let go of her clit, and the little green fuck-doll topples over, falling into the dirt and muttering something incoherently. You sit up and look, admiring the sight of her fat green ass sticking up in the air with her juices still dripping down her thighs, and decide to walk away from the clearly unconscious goblin.");
         this.dynStats("lus", 20 + this.player.lib / 20);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 }
 

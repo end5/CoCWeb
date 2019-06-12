@@ -20,7 +20,7 @@ export class BeeGirl extends Monster {
             this.game.dynStats("lus", 1);
             var dildoRape = (this.player.hasKeyItem("Deluxe Dildo") >= 0 ? this.game.forest.beeGirlScene.beeGirlsGetsDildoed : undefined);
             var milkAndHoney = (this.player.findStatusAffect(StatusAffects.Feeder) >= 0 ? this.game.forest.beeGirlScene.milkAndHoneyAreKindaFunny : undefined);
-            this.game.simpleChoices(this, "Rape", this.game.forest.beeGirlScene.rapeTheBeeGirl, "Dildo Rape", dildoRape, "", undefined, "B. Feed", milkAndHoney, "Leave", this.leaveAfterDefeating);
+            this.game.simpleChoices("Rape", this.game.forest.beeGirlScene.rapeTheBeeGirl, "Dildo Rape", dildoRape, "", undefined, "B. Feed", milkAndHoney, "Leave", this.leaveAfterDefeating);
         }
         else if (this.player.findStatusAffect(StatusAffects.Feeder) >= 0) { //Genderless can still breastfeed
             if (hpVictory) {
@@ -29,7 +29,7 @@ export class BeeGirl extends Monster {
             else {
                 this.outputText("You smile in satisfaction as the " + this.short + " spreads her legs and starts frigging her honey-soaked cunt.  The sweet scent oozing from between her legs is too much to bear, arousing you painfully.\n\nWhat do you do?");
             }
-            this.game.simpleChoices(this, "B. Feed", this.game.forest.beeGirlScene.milkAndHoneyAreKindaFunny, "", undefined, "", undefined, "", undefined, "Leave", this.leaveAfterDefeating);
+            this.game.simpleChoices("B. Feed", this.game.forest.beeGirlScene.milkAndHoneyAreKindaFunny, "", undefined, "", undefined, "", undefined, "Leave", this.leaveAfterDefeating);
         }
         else {
             this.game.finishCombat();
@@ -112,8 +112,8 @@ export class BeeGirl extends Monster {
             }
         }
         if (this.player.lust >= 100)
-            this.doNext(this, this.game.endLustLoss);
-        else this.doNext(this, this.game.playerMenu);
+            this.doNext(this.game.endLustLoss);
+        else this.doNext(this.game.playerMenu);
     }
 
     public constructor() {

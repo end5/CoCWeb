@@ -24,7 +24,7 @@ export class LivingStatueScenes extends BaseContent {
         this.outputText("\n\nA gleaming, purple stone in the center catches your eye.");
 
         this.menu();
-        this.addButton(this, 0, "Take Stone", this.takeTheStone);
+        this.addButton(0, "Take Stone", this.takeTheStone);
     }
 
     private takeTheStone(): void {

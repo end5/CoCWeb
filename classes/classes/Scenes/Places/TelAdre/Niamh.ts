@@ -102,7 +102,7 @@ var  beer = undefined;
 		beer = this.getANiamhBeer;
 	else this.outputText("\n\n<b>You're too poor for beer.</b>");
 	//[Talk] [Get Beer] [Leave]
-	this.simpleChoices(this, "Talk", this.talkToNiamh, "Get Beer", beer, "", undefined, "", undefined, "Leave", this.leaveNiamh);
+	this.simpleChoices("Talk", this.talkToNiamh, "Get Beer", beer, "", undefined, "", undefined, "Leave", this.leaveNiamh);
 }
 
 //[Get Beer]
@@ -144,7 +144,7 @@ var  togo =undefined;
 	if(this.player.gems >= 2) togo = this.blackCatBeerToGo;
 	else this.outputText("\n\n<b>You're too poor to buy the mug.</b>");
 	this.flags[kFLAGS.GOT_NIAMH_BEER]++;
-	this.simpleChoices(this, "Here", this.drinkNiamhsBeerInTelAdre, "To Go", togo, "", undefined, "", undefined, "", undefined);
+	this.simpleChoices("Here", this.drinkNiamhsBeerInTelAdre, "To Go", togo, "", undefined, "", undefined, "", undefined);
 }
 
 //[Here]
@@ -185,7 +185,7 @@ private  drinkNiamhsBeerInTelAdre(): void {
 			this.outputText("\n\n\"<i>Well lass, it looks like those big ole titties o' yours are takin' a cue from me.  Sorry 'bout that.  Musta been the beer.</i>\"  She gives your other nipple a tweak to fill a second shot glass.  \"<i>Yup, definitely the beer.  You're lactatin' some delicious booze now, jus' like me.  Dinnae worry.  Ah seen it happen before.  Usually don't last long.  But seein' as how you're leaking some good beer there, what's you say to selling some o' it?  Afterall, I can't 'ave ye givin' the stuff away fo' free while I'm chargin' for it, right?</i>\"");
 			//[SELL YOUR BOOZE]  [LEAVE]
 		}
-		this.simpleChoices(this, "SellYourBooze", this.sellYourBooze, "", undefined, "", undefined, "", undefined, "Leave", this.leaveWithBeerTits);
+		this.simpleChoices("SellYourBooze", this.sellYourBooze, "", undefined, "", undefined, "", undefined, "Leave", this.leaveWithBeerTits);
 		return;
 	}
 	this.outputText("You yell \"<i>Skoal!</i>\" and upend the mug into your mouth, drinking greedily.  The warmth of the booze quickly follows the liquid itself - potent stuff, this is.");
@@ -201,7 +201,7 @@ private  drinkNiamhsBeerInTelAdre(): void {
 		this.outputText(" breasts have had the last of their beer squeezed from them.  She sighs in relief, caressing her shrunken breasts; while still hovering at around G-cup size, they're much smaller than they are when the day starts for her.  \"<i>Me thanks for the business; ye got the last mug for today.  Still, I'll be here tomorrow, full as ever.</i>\" She sighs softly.  \"<i>I regret to say that Niamh's Black Cat Beer doesn't look to be going out of business anytime soon.</i>\"  She stands and gathers her coat, slipping her arms into the sleeves.  The nimble girl draws the garment across her buxom chest, buttoning the slightly strained buttons with deceptive ease.  Dressed properly, she starts away, a bag full of gems bouncing against her swaying hips. You watch her go, staring at her back until she walks out the door.");
 	}
 	this.flags[kFLAGS.MET_NIAMH]++;
-	this.doNext(this, this.camp.returnToCampUseOneHour);
+	this.doNext(this.camp.returnToCampUseOneHour);
 }
 
 //[To Go]
@@ -253,14 +253,14 @@ private  talkToNiamh(): void {
 var  beer =undefined;
 	if(this.player.gems >= 2)
 		beer = this.getANiamhBeer;
-	this.simpleChoices(this, "Beer", beer, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+	this.simpleChoices("Beer", beer, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
 }
 //Leave
 private  leaveNiamh(): void {
 	this.clearOutput();
 	this.outputText("You decide that you don't really want to talk to this strange cat-girl and, as politely as possible, excuse yourself.");
 	//Player returns to Wet Bitch menu
-	this.doNext(this, this.telAdre.barTelAdre);
+	this.doNext(this.telAdre.barTelAdre);
 }
 
 //Black Cat Beer
@@ -325,9 +325,9 @@ private  corruptOrBimboNiamhIntro(): void {
 	this.outputText("\n\n(Editors Note: Succubi Milk Option Currently in beta)\n\n\n");
 	
 	this.menu();
-	if (this.player.hasItem(this.consumables.BIMBOLQ)) this.addButton(this, 0, "Bimbo", this.giveNiamphBimboLiquer);
-	if (this.player.hasItem(this.consumables.SUCMILK)) this.addButton(this, 1, "S.Milk", this.giveNiamphSuccubiMilk);
-	this.addButton(this, 4, "Back", this.maybeLaterNiamh);
+	if (this.player.hasItem(this.consumables.BIMBOLQ)) this.addButton(0, "Bimbo", this.giveNiamphBimboLiquer);
+	if (this.player.hasItem(this.consumables.SUCMILK)) this.addButton(1, "S.Milk", this.giveNiamphSuccubiMilk);
+	this.addButton(4, "Back", this.maybeLaterNiamh);
 }
 //[Maybe Later]
 public  maybeLaterNiamh(): void {
@@ -337,7 +337,7 @@ var  beer =undefined;
 	if(this.player.gems >= 2) beer = this.getANiamhBeer;
 	else this.outputText("\n\n<b>You're too poor for beer.</b>");
 	//[Talk] [Get Beer] [Leave]
-	this.simpleChoices(this, "Talk", this.talkToNiamh, "Get Beer", beer, "", undefined, "", undefined, "Leave", this.leaveNiamh);
+	this.simpleChoices("Talk", this.talkToNiamh, "Get Beer", beer, "", undefined, "", undefined, "Leave", this.leaveNiamh);
 }
 
 //[Succubus Milk] or [Bimbo Liqueur]
@@ -378,7 +378,7 @@ public  taintNiamh(bimbo: boolean = false): void {
 	}
 	this.flags[kFLAGS.NIAMH_MOVED_OUT_COUNTER] = 25;
 	this.dynStats("cor", 10);
-	this.doNext(this, this.camp.returnToCampUseOneHour);
+	this.doNext(this.camp.returnToCampUseOneHour);
 }
 
 //24 hours later, random encounter on the Plains
@@ -404,14 +404,14 @@ public  niamhPostTelAdreMoveOut(): void {
 	this.outputText(" fluid she's leaving behind.");
 	this.outputText("\n\n\"<i>Wha's yer name, by th' way?</i>\" she suddenly inquires, sobering just a bit.  You decide there's no harm in formally introducing yourself.  \"<i>[name], eh?  Weeeeeird name,</i>\" she comments.");
 	this.outputText("\n\n\"<i>Anywaays, wanna gulp?</i>\" she asks, her inhibitions obviously shed by the mixture of your meddling and her drunkenness.  A fair question, and one that sets you back on your heels a bit - do you want a drink of this corrupted cat-girl's new brew?");
-	this.simpleChoices(this, "Yes", this.niamhCorruptedMobileSnackDrinkTime, "", undefined, "", undefined, "", undefined, "Leave", this.niamhCorruptMobileSnackTurnDown);
+	this.simpleChoices("Yes", this.niamhCorruptedMobileSnackDrinkTime, "", undefined, "", undefined, "", undefined, "Leave", this.niamhCorruptMobileSnackTurnDown);
 }
 
 //[no]
 private  niamhCorruptMobileSnackTurnDown(): void {
 	this.clearOutput();
 	this.outputText("You turn her down, fabricating a little tale about how you just got done drinking a delicious beverage, and you couldn't possibly have anything more.  She nods sagely, pauses, and loudly belches.  Even in her soused state, she retains some semblance of manners, so she chuckles nervously while moving a hand to her lips.  \"<i>Sorry 'bout tha'...</i>\" she mutters, slinking off.  You have a feeling you'll see her again.");
-	this.doNext(this, this.camp.returnToCampUseOneHour);
+	this.doNext(this.camp.returnToCampUseOneHour);
 }
 //[yup]
 private  niamhCorruptedMobileSnackDrinkTime(): void {
@@ -449,7 +449,7 @@ private  niamhCorruptedMobileSnackDrinkTime(): void {
 		this.blackCatBeerEffects(this.player,false,true);
 		//[end encounter]*/
 	}
-	this.doNext(this, this.camp.returnToCampUseOneHour);
+	this.doNext(this.camp.returnToCampUseOneHour);
 }
 public  bimboChampagne(player:Player,clearScreen: boolean,intro: boolean): void {
 	if(clearScreen) this.clearOutput();
@@ -546,7 +546,7 @@ var  drink =undefined;
 var  fuck =undefined;
 	if(this.player.hasCock())
 		fuck = this.bazaarSex;
-	this.simpleChoices(this, "Get A Drink", drink, "Tit-Fuck", fuck, "", undefined, "", undefined, "Back", this.getGame().bazaar.enterTheBazaar);
+	this.simpleChoices("Get A Drink", drink, "Tit-Fuck", fuck, "", undefined, "", undefined, "Back", this.getGame().bazaar.enterTheBazaar);
 }
 
 //[bimbo/corrupted beer drink texts]
@@ -558,12 +558,12 @@ private  bazaardNiamhDrink(): void {
 	if(this.flags[kFLAGS.NIAMH_STATUS] == 2) {
 		this.outputText("\n\nThe dark-skinned blonde giggles, snatching up the gems and jingling them in the palm of her hand. \"<i>Like, that's totally cool with me, but you're gonna have to serve yourself, y'know?</i>\" she jiggles her mountainous mammaries, the alcoholic beverage softly, yet audibly, sloshing inside them.  \"<i>I'm a wee bit too big to be, like, serving you.</i>\"  Sure enough, when she stretches her arms to demonstrate, her hands can't even reach her nipples anymore.  She titters, which makes the random drunkards around her giggle in amusement.");
 		this.outputText("\n\nYou approach her leaking teats, casually swatting aside a giggling, totally plastered imp with long, lady-like locks of strawberry blonde, curly hair wreathing his (her?) features.  You contemplate if you want to just milk some into a bottle for later consumption, or have a drink here and now.");
-		this.simpleChoices(this, "Drink", this.drinkFromZeTap, "Bottle", this.getBimboChampFromNiamh, "", undefined, "", undefined, "", undefined);
+		this.simpleChoices("Drink", this.drinkFromZeTap, "Bottle", this.getBimboChampFromNiamh, "", undefined, "", undefined, "", undefined);
 	}
 	//Corrupt
 	else {
 		this.outputText("Succubus milk Niamh Not implemented yet");
-		this.doNext(this, this.camp.returnToCampUseOneHour);
+		this.doNext(this.camp.returnToCampUseOneHour);
 	}
 }
 //{If player drinks from the tap:}
@@ -576,7 +576,7 @@ private  drinkFromZeTap(): void {
 
 	this.outputText("\n\nYou push yourself upright and assure the pretty catgirl that you feel, like, super-duper wonderful!  You punctuate this declaration with a burp as the sudden motion makes all the yummy bubbles in your belly dance, and then you giggle at how naughty that was.");
 	this.bimboChampagne(this.player,false,false);
-	this.doNext(this, this.camp.returnToCampUseOneHour);
+	this.doNext(this.camp.returnToCampUseOneHour);
 }
 
 //grabbing Bim Cham in a to-go box
@@ -613,7 +613,7 @@ var  y: number = x + 1;
 	{
 		this.outputText("\n\nSuccubi Milk Niamph not implemnted yet.");
 	}
-	this.doNext(this, this.camp.returnToCampUseOneHour);
+	this.doNext(this.camp.returnToCampUseOneHour);
 }
 
 
@@ -628,7 +628,7 @@ var  yep = undefined;
 	//[Yep][Nope]
 	if (this.player.gems < 500) this.outputText("<b>\n\nYou're too poor to get Sean to make you bimbo liqueur.</b>");
 	else yep = this.yeahSeanLetsBimbooze;
-	this.simpleChoices(this, "Yep", yep, "", undefined, "", undefined, "", undefined, "Back", this.getGame().incubusShop);
+	this.simpleChoices("Yep", yep, "", undefined, "", undefined, "", undefined, "Back", this.getGame().incubusShop);
 }
 
 //yeah I got this
@@ -636,7 +636,7 @@ private  yeahSeanLetsBimbooze(): void {
 	this.clearOutput();
 	this.outputText("\"<i>Perfect!</i>\" he says, moving forward to gather up the flasks.  \"<i>You can go, now.  This is a delicate process, and any mistakes may lead to an outbreak of large-breasted and dim-witted fauna.</i>\"  He pauses, gauging your expression.  \"<i>... Which is <b>not</b> a good thing,</i>\" he adds.  Almost as an afterthought, he extends his hand toward the table, saying, \"<i>I'd like the payment now, if you'd please.</i>\"  You separate out the appropriate number of gems for the demon.  He snatches it up and idly throws it behind him, where you hear a clunk and tinkle as it strikes something and rolls a bit.");
 	this.outputText("\n\n\"<i>Now shoo, I must do work!</i>\" he scolds, ushering you out of the cave.  \"<i>Come back tomorrow!</i>\"  Satisfied, you leave his shop.");
-	this.doNext(this, this.playerMenu);
+	this.doNext(this.playerMenu);
 	this.player.gems -= 500;
 	this.player.consumeItem(this.consumables.BIMBOCH);
 	this.player.consumeItem(this.consumables.BIMBOCH);
@@ -666,7 +666,7 @@ private  leaveWithBeerTits(): void {
 	this.clearOutput();
 	this.outputText("The offer is tempting but right now you'd much rather deal with your boozy boobs privately.  You take off while trying to keep your [armor] modestly in place over your tits but it's difficult.  Your nipples constantly leak and drip a trail of alcohol all the way back to camp.  Thankfully by the time you arrive the effects seem to have mostly worn off.  Your nipples return to dripping milk, but although they've shrunk back down a bit they don't quite shrink all the way, leaving you with somewhat larger endowments than you had before.");
 	this.player.growTits(2, this.player.bRows(), false, 2);
-	this.doNext(this, this.camp.returnToCampUseOneHour);
+	this.doNext(this.camp.returnToCampUseOneHour);
 }
 
 // [SELL YOUR BOOZE]
@@ -696,7 +696,7 @@ private  sellYourBooze(): void {
 		this.player.growTits(2, this.player.bRows(), false, 2);
 		this.outputText("\n\nYou feel flushed from the sensations, but finally you run dry.  Your breasts have shrunk back down, but they still feel a little larger than they were earlier.  As little droplets of milk instead of booze return to dripping from your nipples, Niamh hands you your cut of the gems you earned from the sales.");
 		//[LEAVE]
-		this.doNext(this, this.camp.returnToCampUseOneHour);
+		this.doNext(this.camp.returnToCampUseOneHour);
 	}
 	//If lust is high
 	else {
@@ -707,7 +707,7 @@ private  sellYourBooze(): void {
 			this.outputText("pre-cum drizzles down your " + this.multiCockDescriptLight() + " as the need to fuck a pussy grows stronger.  A few wandering hands reveals some apparent interest amongst the folks in the bar in seeing your genitals as active as your nipples.");
 		}
 		//[FUCK THE BAR] [LEAVE]
-		this.simpleChoices(this, "Fuck Bar", this.barBeerOrgyTits, "", undefined, "", undefined, "", undefined, "Leave", this.leaveWithBeerTits);
+		this.simpleChoices("Fuck Bar", this.barBeerOrgyTits, "", undefined, "", undefined, "", undefined, "Leave", this.leaveWithBeerTits);
 	}
 }
 
@@ -912,7 +912,7 @@ private  barBeerOrgyTits(): void {
 		this.player.growTits(2, this.player.bRows(), false, 2);
 	}
 	this.player.orgasm();
-	this.doNext(this, this.camp.returnToCampUseOneHour);
+	this.doNext(this.camp.returnToCampUseOneHour);
 }
 
 

@@ -121,7 +121,7 @@ export class Satyr extends Monster {
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
             this.outputText("\n\nThe satyr laughs heartily at your eagerness...");
-            this.doNext(this, this.game.endLustLoss);
+            this.doNext(this.game.endLustLoss);
         } else {
             this.game.plains.satyrScene.loseToSatyr();
         }

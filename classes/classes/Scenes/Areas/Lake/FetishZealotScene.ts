@@ -211,7 +211,7 @@ export class FetishZealotScene extends AbstractLakeContent {
         //Trigger bad end if player's intelligence is less than 10 after being drained.
         if (this.player.inte < 10) {
             this.outputText("You find that your mind is unable to return to reality, and it moves on to another, then another.  Later you feel a female body come and pick you up, but you are too messed up to react to it...", false);
-            this.doNext(this, this.lake.fetishCultistScene.cultistBadEnd2);
+            this.doNext(this.lake.fetishCultistScene.cultistBadEnd2);
             return;
         }
         //Otherwise, continue on here
@@ -245,7 +245,7 @@ export class FetishZealotScene extends AbstractLakeContent {
             this.outputText("\n\nDo you want to take advantage of his vulnerable state to sate your lusts?", false);
             var bikiniTits = undefined;
             if (this.player.hasVagina() && this.player.biggestTitSize() >= 4 && this.player.armorName == "lusty maiden's armor") bikiniTits = this.createCallBackFunction2((this.player.armor as LustyMaidensArmor).lustyMaidenPaizuri, this.player, this.monster);
-            this.simpleChoices(this, "Yes", this.zealotWinRape, "", undefined, "", undefined, "B.Titfuck", bikiniTits, "Leave", this.cleanupAfterCombat);
+            this.simpleChoices("Yes", this.zealotWinRape, "", undefined, "", undefined, "B.Titfuck", bikiniTits, "Leave", this.cleanupAfterCombat);
         }
         else this.cleanupAfterCombat();
     }

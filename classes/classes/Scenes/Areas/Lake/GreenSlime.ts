@@ -13,18 +13,18 @@ export class GreenSlime extends Monster {
             //Eligable to rape
             if (this.player.lust >= 33 && this.player.gender > 0) {
                 this.outputText("\n\nYou're horny enough to try and rape it, though you'd rather see how much milk you can squirt into it.  What do you do?", false);
-                this.game.simpleChoices(this, "B.Feed", this.game.lake.greenSlimeScene.rapeOozeWithMilk, "Rape", this.game.lake.greenSlimeScene.slimeVictoryRape, "", undefined, "", undefined, "Leave", this.game.cleanupAfterCombat);
+                this.game.simpleChoices("B.Feed", this.game.lake.greenSlimeScene.rapeOozeWithMilk, "Rape", this.game.lake.greenSlimeScene.slimeVictoryRape, "", undefined, "", undefined, "Leave", this.game.cleanupAfterCombat);
             }
             //Rapes not on the table.
             else {
                 this.outputText("\n\nYour nipples ache with the desire to forcibly breastfeed the gelatinous beast.  Do you?", false);
-                this.game.doYesNo(this, this.game.lake.greenSlimeScene.rapeOozeWithMilk, this.game.cleanupAfterCombat);
+                this.game.doYesNo(this.game.lake.greenSlimeScene.rapeOozeWithMilk, this.game.cleanupAfterCombat);
             }
         }
         //Not a breastfeeder
         else if (this.player.lust >= 33 && this.player.gender > 0) {
             this.outputText("  Sadly you realize your own needs have not been met.  Of course, you could always play with the poor thing... Do you rape it?", false);
-            this.game.doYesNo(this, this.game.lake.greenSlimeScene.slimeVictoryRape, this.game.cleanupAfterCombat);
+            this.game.doYesNo(this.game.lake.greenSlimeScene.slimeVictoryRape, this.game.cleanupAfterCombat);
         }
         else this.game.cleanupAfterCombat();
     }
@@ -33,19 +33,19 @@ export class GreenSlime extends Monster {
         if (pcCameWorms) {
             this.outputText("\n\nThe slime doesn't even seem to notice.\n\n");
         }
-        this.doNext(this, this.game.lake.greenSlimeScene.slimeLoss);
+        this.doNext(this.game.lake.greenSlimeScene.slimeLoss);
     }
 
     private lustAttack(): void {
         this.outputText("The creature surges forward slowly with a swing that you easily manage to avoid.  You notice traces of green liquid spurt from the creature as it does, forming a thin mist that makes your skin tingle with excitement when you inhale it.");
         this.game.dynStats("lus", this.player.lib / 10 + 8);
-        this.doNext(this, this.game.playerMenu);
+        this.doNext(this.game.playerMenu);
     }
 
     private lustReduction(): void {
         this.outputText("The creature collapses backwards as its cohesion begins to give out, and the faint outline of eyes and a mouth form on its face.  Its chest heaves as if it were gasping, and the bolt upright erection it sports visibly quivers and pulses before relaxing slightly.");
         this.lust -= 13;
-        this.doNext(this, this.game.playerMenu);
+        this.doNext(this.game.playerMenu);
     }
 
     public constructor() {

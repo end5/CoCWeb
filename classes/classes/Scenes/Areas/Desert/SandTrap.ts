@@ -97,7 +97,7 @@ export class SandTrap extends Monster {
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
             this.outputText("\n\nThe sand trap seems bemused by the insects your body houses...");
-            this.doNext(this, this.game.endLustLoss);
+            this.doNext(this.game.endLustLoss);
         } else {
             this.game.desert.sandTrapScene.sandtrapmentLoss(true);
         }

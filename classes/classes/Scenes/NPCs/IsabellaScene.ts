@@ -70,7 +70,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
             this.outputText("While walking through the high grasses you hear a rich, high voice warbling out a melodious tune in a language you don't quite understand.  Do you approach or avoid it?", false);
             //[Approach – to meeting] [Avoid – camp] – dont flag as met yet
             //Approach - sets flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00256] to 1 and calls this function
-            this.simpleChoices(this, "Approach", this.isabellaGreetingFirstTime, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+            this.simpleChoices("Approach", this.isabellaGreetingFirstTime, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
             return;
         }
         //CAMP MEETING – UMAD BRAH!?
@@ -97,7 +97,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                 this.outputText("You answer and begin to explain yourself, but she interrupts, \"<i>Get out!  Zis is mein camp and I vill not tolerate you here!</i>\"\n\n", false);
                 this.outputText("A bit taken aback by her violent reaction, you blink in confusion as she pulls a titanic shield from behind her chair and slides her arm comfortably into the strap.  What do you do?\n\n", false);
                 //[Talk] [Fight] [Leave]
-                this.simpleChoices(this, "Try to Talk", this.tryToTalkDownAngryCow, "Fight", this.unwelcomeFightCowGal, "", undefined, "", undefined, "Leave", this.leaveAngryIzzy);
+                this.simpleChoices("Try to Talk", this.tryToTalkDownAngryCow, "Fight", this.unwelcomeFightCowGal, "", undefined, "", undefined, "Leave", this.leaveAngryIzzy);
             }
             //(Shorter PC's) 
             else {
@@ -114,7 +114,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                     else this.outputText("  The cow's eyes close, disappointment visible on her face when she sees the sheer size of your bulge.", false);
                 }
                 //[Talk – real conversations] [Drink – leads to breastfeeding] [Get Licks – leads to oral for small fries] [Rape?]
-                this.simpleChoices(this, "Talk", this.talkWithIsabella, "Drink", this.nomOnMommaIzzysTits, "Get Licked", suck, "Fight", this.fightIsabella, "Leave", this.camp.returnToCampUseOneHour);
+                this.simpleChoices("Talk", this.talkWithIsabella, "Drink", this.nomOnMommaIzzysTits, "Get Licked", suck, "Fight", this.fightIsabella, "Leave", this.camp.returnToCampUseOneHour);
             }
             return;
         }
@@ -123,7 +123,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
             this.outputText("You stumble through the grass, nearly tripping as it parts to reveal the now-familiar sight of Isabella's camp.  The cow-girl spots you instantly and snarls, \"<i>Begone!  I varned you once already!</i>\"", false);
             //[Talk] [Fight] [Leave]
             //Leave goes to special variation, see below.
-            this.simpleChoices(this, "Try To Talk", this.tryToTalkDownAngryCow, "Fight", this.fightIsabella, "", undefined, "", undefined, "Leave", this.leaveAngryIzzy);
+            this.simpleChoices("Try To Talk", this.tryToTalkDownAngryCow, "Fight", this.fightIsabella, "", undefined, "", undefined, "Leave", this.leaveAngryIzzy);
             return;
         }
         //Camp Meeting – Was welcome tall, but not short yet!
@@ -186,7 +186,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                 }
             }
         }
-        this.choices(this, "Talk", this.talkWithIsabella, "Drink", this.nomOnMommaIzzysTits, "Get Licked", suck, "Fight 4 Rape", this.fightIsabella, "Offer Oral", this.volunteerToSlurpCowCunt,
+        this.choices("Talk", this.talkWithIsabella, "Drink", this.nomOnMommaIzzysTits, "Get Licked", suck, "Fight 4 Rape", this.fightIsabella, "Offer Oral", this.volunteerToSlurpCowCunt,
             "", undefined, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
         //outputText("ISABELLA HAS BROKEN.  PLEASE TELL FENOXO.", true);
     }
@@ -201,7 +201,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         this.spriteSelect(31);
         this.outputText("", true);
         this.outputText("You shrug and make it quite clear you're leaving.  Crazy cow.  She shouts, \"<i>And stay avay, demon!  Izabella has no need of your foul tricks!</i>\"", false);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //[Fight]
     public unwelcomeFightCowGal(): void {
@@ -211,7 +211,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         this.startCombat(new Isabella());
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00260] += 72;
         this.spriteSelect(31);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
     //Fuck-fight
     public fightIsabella(): void {
@@ -221,7 +221,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         this.startCombat(new Isabella());
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00260] += 72;
         this.spriteSelect(31);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
     //[Talk] 
     public tryToTalkDownAngryCow(): void {
@@ -257,7 +257,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
             this.outputText("You sit down in the dirt and impart your tale, explaining how you came here as a 'champion', chosen by your village.  You go on to speak of your encounters and how strange everything is here, and Isabella nods quite knowingly as you go on and on.  Now that you've begun to tell your tale, the words fall out of your mouth, one after another.  Like an unbroken chain, they spool out of your maw until nearly an hour later, you finally run out of things to say.  You rub your jaw, your throat a little sore from the diatribe, and look on to Isabella to see how she reacts.\n\n", false);
             this.outputText("The busty cow-girl has moisture glimmering in the corners of her big brown eyes, and she nods emphatically to you as she vocalizes her feelings, \"<i>I, too, know how you feel, Champion " + this.player.short + ".  Mein own story is similar, though mein fate vas not thrust upon me so.  Perhaps I vill tell you sometime, but for now, ve should part.  You are velcome to return in ze future.</i>\"\n\n", false);
             this.outputText("You smile to yourself, glad to have made a friend.\n\n", false);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             if (!this.isabellaFollower()) this.isabellaFollowerScene.isabellaAffection(10);
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00258]++;
         }
@@ -410,7 +410,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         //(Chance of thickening body to 75, chance of softening body if PC has a vag)
         if (IsabellaScene.rand(2) == 0) this.outputText(this.player.modThickness(75, 4), false);
         if (IsabellaScene.rand(2) == 0 && this.player.hasVagina()) this.outputText(this.player.modTone(0, 4), false);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[GET ORAL'ED AS A SMALL MALE]
@@ -550,7 +550,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         }
         if (!this.isabellaFollower()) this.isabellaFollowerScene.isabellaAffection(2);
         this.player.orgasm();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Give Isy Oral]
@@ -609,20 +609,20 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                 this.outputText("before offering something else.  \"<i>Perhaps you could undress?  I ");
                 if (this.isabellaAccent()) this.outputText("vould like to return ze favor.</i>\"", false);
                 else this.outputText("would like to return the favor.</i>\"", false);
-                this.doYesNo(this, this.izzyGivesSmallWangsFreeOral, this.camp.returnToCampUseOneHour);
+                this.doYesNo(this.izzyGivesSmallWangsFreeOral, this.camp.returnToCampUseOneHour);
                 return;
             }
         }
         this.isabellaFollowerScene.isabellaAffection(2);
         if (!this.isabellaFollower() || !this.player.hasVagina() || this.player.biggestTitSize() < 1) {
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
         else {
             //(Change the ending of the \"Service Her\" option on an affectionate Isabella to the following; PC must NOT have a dick that suits her and MUST have a vagina)
             if (!this.isabellaAccent()) this.outputText("Seeing the ardent desire your sexual service has so visibly inspired in your body - in your slick, ready cunt and erect nipples - the cow-girl smiles slightly, and asks, \"<i>Perhaps you would like me to return the favor?  It seems only fair...</i>\"");
             else this.outputText("Seeing the ardent desire your sexual service has so visibly inspired in your body - in your slick, ready cunt and erect nipples - the cow-girl smiles slightly, and asks, \"<i>Perhaps you vould like me to return ze favor?  It seems only fair...</i>\"");
             //[Leave] [Get Cowlicked]
-            this.simpleChoices(this, "Get Licked", this.isabellaFollowerScene.receiveAllTheCowTOngues, "Leave", this.camp.returnToCampUseOneHour, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices("Get Licked", this.isabellaFollowerScene.receiveAllTheCowTOngues, "Leave", this.camp.returnToCampUseOneHour, "", undefined, "", undefined, "", undefined);
         }
     }
 
@@ -750,7 +750,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         }
         if (this.player.hasCock()) {
             if (this.player.cocks[this.player.shortestCockIndex()].cockLength < 9) {
-                this.doNext(this, this.IsabellaPostSpankFeedSex);
+                this.doNext(this.IsabellaPostSpankFeedSex);
                 return;
             }
         }
@@ -997,7 +997,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
             if (this.player.cockArea(this.player.biggestCockIndex()) > 70 && this.player.lust >= 33) bigTitFuck = this.tooBigVictoryTittyFuckingFuntimesWithMilk;
             if (this.player.cocks[this.player.shortestCockIndex()].cockLength < 9 && this.player.lust >= 33) smallTitFuck = this.tinyVictoryTittyFuckingFuntimesWithMilk;
         }
-        this.choices(this, "Lactation69", lactation, "Buttsex", buttsex, "Sixty-Nine", sixtyNine, "Vaginal", vaginalSex, "Big Titfuck", bigTitFuck,
+        this.choices("Lactation69", lactation, "Buttsex", buttsex, "Sixty-Nine", sixtyNine, "Vaginal", vaginalSex, "Big Titfuck", bigTitFuck,
             "Small Titfuck", smallTitFuck, "", undefined, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
     }
     //[LACTATION 69]
@@ -1292,7 +1292,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00260] = 0;
         this.player.slimeFeed();
         if (this.getGame().inCombat) this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //['Too Big' Victory Titfucking Funtimes With Milk]
@@ -1525,7 +1525,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         }
         //[Discuss Isabella Repeat]
         else this.outputText("You sit down with Isabella and share tales of your recent adventures.  While the companionship is nice, after an hour or so of discussion you decide to go your separate ways.", false);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 }
 

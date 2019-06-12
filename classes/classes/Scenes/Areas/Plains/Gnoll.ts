@@ -16,7 +16,7 @@ export class Gnoll extends Monster {
         var damage: number = 0;
         var attack: number = Gnoll.rand(6);
         //return to combat menu when finished
-        this.doNext(this, this.game.playerMenu);
+        this.doNext(this.game.playerMenu);
         //Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Gnoll.rand(3) < 2) {
             this.outputText(this.capitalA + this.short + " completely misses you with a blind attack!\n", false);
@@ -129,7 +129,7 @@ export class Gnoll extends Monster {
         var damage: number = 0;
         var attack: number = Gnoll.rand(6);
         //return to combat menu when finished
-        this.doNext(this, this.game.playerMenu);
+        this.doNext(this.game.playerMenu);
         //Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Gnoll.rand(3) < 2) {
             this.outputText(this.capitalA + this.short + " completely misses you with a blind attack!\n", false);
@@ -267,7 +267,7 @@ export class Gnoll extends Monster {
             var damage: number = 0;
             var attack: number = Gnoll.rand(6);
             //return to combat menu when finished
-            this.doNext(this, this.game.playerMenu);
+            this.doNext(this.game.playerMenu);
             //Blind dodge change
             if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Gnoll.rand(3) < 2) {
                 this.outputText(this.capitalA + this.short + " completely misses you with a blind attack!\n", false);
@@ -360,7 +360,7 @@ export class Gnoll extends Monster {
             this.game.desert.antsScene.phyllaGnollBeatsPC();
         } else if (pcCameWorms) {
             this.outputText("\n\nYour foe doesn't seem put off enough to leave...");
-            this.doNext(this, this.game.endLustLoss);
+            this.doNext(this.game.endLustLoss);
         } else {
             this.game.plains.gnollScene.getRapedByGnoll();
         }

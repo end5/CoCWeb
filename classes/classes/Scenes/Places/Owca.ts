@@ -55,14 +55,14 @@ export class Owca extends BaseContent {
             this.outputText("\n\nYour curiosity gets the better of your caution, and you admit that you're indeed a traveller from another world, then introduce yourself.");
             this.outputText("\n\n\"<i>Of course, of course.  Why don't you follow us, valiant warrior?  We were just about to return home; we could use a little company.</i>\"  As she talks you can't help but notice she keeps readjusting her dress, subtly revealing a bit more of her cleavage at every shift.  You see she also takes repeated glances at your crotch, probably thinking she's being discreet enough.  Her nipples are hardening through her dress, her smile is teasing you; her entire body language seems to be an open invitation as well as a display of seduction.");
             this.outputText("\n\nDo you follow her?");
-            this.doYesNo(this, this.agreeToFollowRebecFirstTime, this.dontGoToZeVillage);
+            this.doYesNo(this.agreeToFollowRebecFirstTime, this.dontGoToZeVillage);
         }
         //As long as you don't follow her once, display this on subsequent encounters (Z)
         else if (this.flags[kFLAGS.TIMES_IN_DEMON_PIT] == 0) {
             this.outputText("After wandering across the plains for a while, you spot Rebecc, the girl you met before, amongst a group of fellow farmers; she calls out to you.  \"<i>Hello again, traveler!  You seem lost... would you mind spending some time with us at our village?</i>\"");
             this.outputText("\n\nAs before, you notice while speaking with her that she keeps glancing at your crotch for a few seconds at a time.  She puts on a sultry smile as she nudges the edges of her dress, revealing more and more cleavage each time.  She's a bit shaky as well; it's almost as if she's attempting to seduce you, but is only with difficulty able to contain herself.  Will you spend time with her in the village?");
             //Yes/No
-            this.doYesNo(this, this.agreeToFollowRebecFirstTime, this.dontGoToZeVillage);
+            this.doYesNo(this.agreeToFollowRebecFirstTime, this.dontGoToZeVillage);
         }
         //Second (and subsequent) encounter; only happens once PC accepted being sacrificed once (Z)
         else {
@@ -74,7 +74,7 @@ export class Owca extends BaseContent {
             this.outputText("\n\n\"<i>My home is yours, hero; alongside everyone else's.  You will always be welcome here.  Don't hesitate to come to my place; you must feel all dirty and sullied from these corrupted monsters.  Don't worry, I'll clean you up.</i>\"  She winks at you and walks into her house, leaving her door open as an invitation.");
             this.outputText("\n\n(<b>Owca Village added to your 'Places' menu.</b>)");
             this.flags[kFLAGS.OWCA_UNLOCKED] = 1;
-            this.doNext(this, this.gangbangVillageStuff);
+            this.doNext(this.gangbangVillageStuff);
         }
     }
     private dontGoToZeVillage(): void {
@@ -145,8 +145,8 @@ export class Owca extends BaseContent {
             this.outputText("\n\nYou know very well what these people want: some meat to appease the demons.  Will you help them?");
         }
         //Yes/No
-        if (this.flags[kFLAGS.TIMES_IN_DEMON_PIT] == 0) this.doYesNo(this, this.createCallBackFunction2(this.acceptRebeccsPlea, true, true), this.declineRebeccsPlea);
-        else this.doYesNo(this, this.createCallBackFunction2(this.acceptRebeccsPlea, false, true), this.declineRebeccsPlea);
+        if (this.flags[kFLAGS.TIMES_IN_DEMON_PIT] == 0) this.doYesNo(this.createCallBackFunction2(this.acceptRebeccsPlea, true, true), this.declineRebeccsPlea);
+        else this.doYesNo(this.createCallBackFunction2(this.acceptRebeccsPlea, false, true), this.declineRebeccsPlea);
     }
     //Refuse plea (Z)
     private declineRebeccsPlea(): void {
@@ -157,7 +157,7 @@ export class Owca extends BaseContent {
         //[Attitude is set to 50]
         if (this.flags[kFLAGS.OWCAS_ATTITUDE] > 5) this.flags[kFLAGS.OWCAS_ATTITUDE] -= 5;
         this.flags[kFLAGS.TIMES_REFUSED_REBECCS_OFFER]++;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //Accept plea (Z)
     private acceptRebeccsPlea(firstTime: boolean = false, sacrificed: boolean = false): void {
@@ -181,7 +181,7 @@ export class Owca extends BaseContent {
         this.outputText("\n\nThis vivid thought only helps strengthen your determination and you resolutely march toward the pit and the tall pole at the center.  As you drop into it, you notice the ground is soft, wet and has slightly whitish stains here and there.  Your nose is immediately assaulted by a strong musk that you instantly recognize – the smell of semen.  The villagers, used as they must be to working on sullied land, seem unfazed by these details.  You decide it's wiser not to make any comment and let them chain you to the pole.  They silently work for a few minutes, being careful not to knot the ropes too tightly so they don't hurt you.  At last, they give you a few encouraging pats on your shoulder; some females give you chaste kisses on your head, others wish you good luck and give you a last thankful wave, and a few seconds later they're all gone. You're left alone and naked in a sex-scented pit, bound to a post, waiting for the arrival of lustful, soulless creatures.  The villagers have retained all of your equipment in the name of keeping it safe, assuring you that it'll be returned to you the next morning.");
         this.outputText("\n\nPutting your dread aside, you close your eyes and attempt to sleep, vowing to save your strength for the ordeal that awaits you tonight.");
         //Dusk transition text (Z)
-        this.doNext(this, this.createCallBackFunction(this, this.intoTheDemonPit, true));
+        this.doNext(this.createCallBackFunction(this.intoTheDemonPit, true));
     }
     private intoTheDemonPit(sacrifice: boolean = true): void {
         this.clearOutput();
@@ -219,10 +219,10 @@ export class Owca extends BaseContent {
         }
         this.flags[kFLAGS.TIMES_IN_DEMON_PIT]++;
         this.flags[kFLAGS.DAYS_SINCE_LAST_DEMON_DEALINGS] = 0;
-        if (sacrifice) this.simpleChoices(this, "Submit", this.loseOrSubmitToVapula,
-            "Fight", this.createCallBackFunction(this, this.fightZeDemons, true), "", undefined, "", undefined, "", undefined);
-        else this.simpleChoices(this, "Submit", this.loseOrSubmitToVapula,
-            "Fight", this.createCallBackFunction(this, this.fightZeDemons, false), "", undefined, "", undefined, "", undefined);
+        if (sacrifice) this.simpleChoices("Submit", this.loseOrSubmitToVapula,
+            "Fight", this.createCallBackFunction(this.fightZeDemons, true), "", undefined, "", undefined, "", undefined);
+        else this.simpleChoices("Submit", this.loseOrSubmitToVapula,
+            "Fight", this.createCallBackFunction(this.fightZeDemons, false), "", undefined, "", undefined, "", undefined);
     }
     //Submit/Fight
     private fightZeDemons(sacrifice: boolean = true): void {
@@ -329,9 +329,9 @@ export class Owca extends BaseContent {
         //[Vapula Submissiveness raises by 10. If it reaches 100 or more, go on to the Vapula Slave Bad End. Otherwise Wake up scene. Additionally, if it is raised to 90 or more this way, display warning:]
         this.flags[kFLAGS.VAPULA_SUBMISSIVENESS] += 10;
         if (this.flags[kFLAGS.VAPULA_SUBMISSIVENESS] >= 90 && this.flags[kFLAGS.VAPULA_SUBMISSIVENESS] < 100) this.outputText("\n\n<b>You're starting to get dangerously used to this kind of treatment.  Your holes are being stretched to accommodate monstrous sizes and don't hurt that much anymore.  You feel like you could stand this as long as you need to with ease... maybe it's time to stop volunteering?</b>");
-        if (this.flags[kFLAGS.VAPULA_SUBMISSIVENESS] >= 100) this.doNext(this, this.slaveToVapulaBadEnd);
-        else if (this.player.findStatusAffect(StatusAffects.LostVillagerSpecial) >= 0) this.doNext(this, this.morningAfterRape);
-        else this.doNext(this, this.wakeUpAfterDemonGangBangs);//WAKE UP
+        if (this.flags[kFLAGS.VAPULA_SUBMISSIVENESS] >= 100) this.doNext(this.slaveToVapulaBadEnd);
+        else if (this.player.findStatusAffect(StatusAffects.LostVillagerSpecial) >= 0) this.doNext(this.morningAfterRape);
+        else this.doNext(this.wakeUpAfterDemonGangBangs);//WAKE UP
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 2, "cor", 3);
         this.flags[kFLAGS.REBECCS_LAST_PLEA] = 0;
@@ -348,7 +348,7 @@ export class Owca extends BaseContent {
         this.dynStats("str", -2, "tou", -2, "spe", -1, "int", -1, "lib", 1, "sen", 1, "lus=", 100, "cor", 3);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
         //PC is redirected to camp, next morning. No nightly camp scenes or dreams.
     }
 
@@ -375,7 +375,7 @@ export class Owca extends BaseContent {
         //[(requires genitals and and corr >60)
         if (this.player.cor > 60 && this.player.gender > 0) {
             this.outputText("\n\nDo you take advantage of them?");
-            this.doYesNo(this, this.rapeZeVapula, this.noVapulaSex);
+            this.doYesNo(this.rapeZeVapula, this.noVapulaSex);
         }
         else {
             this.outputText("\n\nThough the display as they explore each other is somewhat arousing, you can't really get into it as you are, and simply use your new-found freedom to climb out of the hole.  It's too dark to return to the village now, so you head back to camp.");
@@ -546,7 +546,7 @@ export class Owca extends BaseContent {
             this.outputText("\n\nThis time you fully understand the consequences of another sacrifice.  Do you comply?");
             //Yes: Leads to Accept Plea scene. Attitude is raised by 5.
             //No: Leads to Refuse Plea scene. Attitude is lowered by 10.
-            this.doYesNo(this, this.createCallBackFunction2(this.acceptRebeccsPlea, false, true), this.declineRebeccsPlea);
+            this.doYesNo(this.createCallBackFunction2(this.acceptRebeccsPlea, false, true), this.declineRebeccsPlea);
             return;
         }
         //[if attitude > 80]
@@ -587,33 +587,33 @@ export class Owca extends BaseContent {
             tavern = this.owcaTavern;
         }
         //[Pit][Herds][Rebecc][Tavern]
-        this.simpleChoices(this, "Pit", pit, "Herds", herd, "Rebecc", this.rebeccMenu, "Tavern", tavern, "Leave", this.camp.returnToCampUseOneHour);
+        this.simpleChoices("Pit", pit, "Herds", herd, "Rebecc", this.rebeccMenu, "Tavern", tavern, "Leave", this.camp.returnToCampUseOneHour);
     }
     //Tavern (Z)
     public owcaTavern(): void {
         this.clearOutput();
         this.outputText("The tavern is nice and cozy; there are a few tables and chairs scattered around in no ordered pattern, and most clients here appear to belong to the same species.  By the crude wooden bar, you see a list of all the current drinks on sale:\n<i>");
         //SheepMk
-        var milk: any = this.createCallBackFunction(this, this.owcaBuySetup, this.consumables.SHEEPMK);
+        var milk: any = this.createCallBackFunction(this.owcaBuySetup, this.consumables.SHEEPMK);
         this.outputText("\nSheep Milk Bottle: " + (180 - this.flags[kFLAGS.OWCAS_ATTITUDE]) + " gems");
         if ((180 - this.flags[kFLAGS.OWCAS_ATTITUDE]) > this.player.gems) milk = undefined;
 
-        var goblin: any = this.createCallBackFunction(this, this.owcaBuySetup, this.consumables.GOB_ALE);
+        var goblin: any = this.createCallBackFunction(this.owcaBuySetup, this.consumables.GOB_ALE);
         this.outputText("\nGoblin Ale: " + (60 - Math.round(this.flags[kFLAGS.OWCAS_ATTITUDE] / 2)) + " gems");
         if ((60 - Math.round(this.flags[kFLAGS.OWCAS_ATTITUDE] / 2)) > this.player.gems) goblin = undefined;
 
-        var brew: any = this.createCallBackFunction(this, this.owcaBuySetup, this.consumables.BROBREW);
+        var brew: any = this.createCallBackFunction(this.owcaBuySetup, this.consumables.BROBREW);
         if (Owca.rand(10) > this.flags[kFLAGS.OWCAS_ATTITUDE] / 10) {
             this.outputText("\nBro Brew: 2000 gems");
             if ((2000) > this.player.gems) brew = undefined;
         }
         else brew = undefined;
 
-        var cum: any = this.createCallBackFunction(this, this.owcaBuySetup, this.consumables.MINOCUM);
+        var cum: any = this.createCallBackFunction(this.owcaBuySetup, this.consumables.MINOCUM);
         this.outputText("\nMinotaur Cum: " + (300 - this.flags[kFLAGS.OWCAS_ATTITUDE]) + " gems");
         if ((300 - this.flags[kFLAGS.OWCAS_ATTITUDE]) > this.player.gems) cum = undefined;
         this.outputText("</i>");
-        this.simpleChoices(this, "Sheep Milk", milk, "Goblin Ale", goblin, "Bro Brew", brew, "MinotaurCum", cum, "Back", this.gangbangVillageStuff);
+        this.simpleChoices("Sheep Milk", milk, "Goblin Ale", goblin, "Bro Brew", brew, "MinotaurCum", cum, "Back", this.gangbangVillageStuff);
     }
 
     private owcaBuySetup(item: ItemType): void {
@@ -645,7 +645,7 @@ export class Owca extends BaseContent {
             this.outputText("\n\nThe villagers thank you for your hard work and one of them hands you a bottle of sheep milk.  \"<i>'Tis good for your health.  Don't worry, it won't... mutate you.</i>\"\n\n");
             this.inventory.takeItem(this.consumables.SHEEPMK, this.camp.returnToCampUseOneHour);
         }
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Pit (Z)
@@ -653,7 +653,7 @@ export class Owca extends BaseContent {
         this.clearOutput();
         this.outputText("You announce to all the villagers present that you're going to guard the pit as well as the village's entrance against the demons, trusting them to spread the news; they seem glad that you took this initiative on your own.  Checking your equipment, you head toward the pit, ready to stand your ground against the lewd horde.");
         //Redirects to the Dusk Transition Scene, then to a combat with full equipment and weapons. Loss/Victory scenes as usual.
-        this.doNext(this, this.createCallBackFunction(this, this.intoTheDemonPit, false));
+        this.doNext(this.createCallBackFunction(this.intoTheDemonPit, false));
     }
 
     //Rebecc Menu (Z)
@@ -668,10 +668,10 @@ export class Owca extends BaseContent {
         //[Appearance][Bath][Leave][Surprise Sex!]
         var sex = undefined;
         if (this.player.cor >= 66) {
-            sex = this.createCallBackFunction(this, this.rapeRebecc, false);
+            sex = this.createCallBackFunction(this.rapeRebecc, false);
             this.outputText("\n\nYou could try and force yourself on her, but you might not be welcome in town after...");
         }
-        this.simpleChoices(this, "Appearance", this.rebeccAppearance, "Bath", this.rebeccBathScene, "", undefined, "Surprise Sex", sex, "Back", this.gangbangVillageStuff);
+        this.simpleChoices("Appearance", this.rebeccAppearance, "Bath", this.rebeccBathScene, "", undefined, "Surprise Sex", sex, "Back", this.gangbangVillageStuff);
     }
     //Rebecc Appearance (Z)
     private rebeccAppearance(): void {
@@ -680,7 +680,7 @@ export class Owca extends BaseContent {
         this.outputText("\n\nShe has a pair of ample, barely concealed breasts.  Although you can't see them outright, her thin clothing leaves little doubt that they're D-cups.  Her 0.5 inch nipples point through her dress whenever she's aroused.");
         this.outputText("\n\nShe has a pussy of dubious virginity but copious wetness between her legs.  Occasionally a damp patch will appear on her dress, betraying her arousal.");
         this.outputText("\n\nYou can't see her asshole, but it's safe to assume it's placed between her squeezable buttocks, right where it belongs.");
-        this.doNext(this, this.rebeccMenu);
+        this.doNext(this.rebeccMenu);
     }
     //Rebecc Bath scene (Z)
     private rebeccBathScene(): void {
@@ -708,7 +708,7 @@ export class Owca extends BaseContent {
         //Lust +30, Corr -2, Lib +1, slimefeed
         this.dynStats("lib", 1, "lus", 30, "cor", -2);
         this.player.slimeFeed();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //Rebecc Rape scene (for discerning penises) (Z)
     private rapeRebecc(outside: boolean = false): void {
@@ -768,7 +768,7 @@ export class Owca extends BaseContent {
 
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Desperate Villagers (Z)
@@ -781,7 +781,7 @@ export class Owca extends BaseContent {
         this.outputText("\n\nIt seems that these villagers have grown weary of your repeated refusals; they are likely to react angrily if you deny them another sacrifice.");
         this.outputText("\n\nDo you submit?");
         //Yes/No. Yes leads to Accept Plea, Attitude raised by 10. No to Villagers Fight
-        this.doYesNo(this, this.createCallBackFunction2(this.acceptRebeccsPlea, false, true), this.fightZeVillagers);
+        this.doYesNo(this.createCallBackFunction2(this.acceptRebeccsPlea, false, true), this.fightZeVillagers);
     }
     //Villagers Fight (Z, but pretty barebones)
     private fightZeVillagers(): void {
@@ -804,8 +804,8 @@ export class Owca extends BaseContent {
         if (this.player.findStatusAffect(StatusAffects.KnowsWhitefire) >= 0 || this.player.findPerk(PerkLib.FireLord) >= 0 || this.player.findPerk(PerkLib.Hellfire) >= 0)
             torch = this.torchOwcaMotherFuckers;
         var rape = undefined;
-        if (this.player.cor >= 60 && this.player.gender > 0 && this.player.lust >= 33) rape = this.createCallBackFunction(this, this.rapeRebecc, true);
-        this.simpleChoices(this, "Rape Rebecc", rape, "Torch Village", torch, "", undefined, "", undefined, "Leave", this.leaveOwcaAfterWhupping);
+        if (this.player.cor >= 60 && this.player.gender > 0 && this.player.lust >= 33) rape = this.createCallBackFunction(this.rapeRebecc, true);
+        this.simpleChoices("Rape Rebecc", rape, "Torch Village", torch, "", undefined, "", undefined, "Leave", this.leaveOwcaAfterWhupping);
     }
 
     //"Leave" redirects the PC to camp; next encounter is Rebecc's Last Plea.
@@ -822,10 +822,10 @@ export class Owca extends BaseContent {
         this.dynStats("cor", 15);
         if (this.player.cor >= 60 && this.player.gender > 0 && this.player.lust >= 33) {
             this.outputText("You notice Rebecc is still weeping among the scattered bodies of the beaten villagers.  Do you abuse her?");
-            this.simpleChoices(this, "Abuse Her", this.createCallBackFunction(this, this.rapeRebecc, true),
+            this.simpleChoices("Abuse Her", this.createCallBackFunction(this.rapeRebecc, true),
                 "", undefined, "", undefined, "", undefined, "Leave", this.torchUpVillagersAndLeave);
         }
-        else this.doNext(this, this.torchUpVillagersAndLeave);
+        else this.doNext(this.torchUpVillagersAndLeave);
     }
 
     //Fuck off village
@@ -849,7 +849,7 @@ export class Owca extends BaseContent {
         this.HPChange(50, false);
         this.fatigue(-30);
         //after nightly scene, next encounter is Post-Mob Encounter
-        this.doNext(this, this.loseOrSubmitToVapula);
+        this.doNext(this.loseOrSubmitToVapula);
         this.player.createStatusAffect(StatusAffects.LostVillagerSpecial, 0, 0, 0, 0);
     }
     //Post-Mob Encounter (Z)
@@ -862,8 +862,8 @@ export class Owca extends BaseContent {
         //Option: Forgive. Sets Attitude to 50, quest goes back to normal.
         //Option: Rape. Leads to Rebecc Rape scene and ends the quest. 
         //Option: Leave. Redirects PC to camp, next encounter leads to Rebecc's Last Plea
-        this.simpleChoices(this, "Forgive", this.forgiveOwca,
-            "Rape", this.createCallBackFunction(this, this.rapeRebecc, false), "", undefined, "", undefined, "Leave", this.fuckThisShit);
+        this.simpleChoices("Forgive", this.forgiveOwca,
+            "Rape", this.createCallBackFunction(this.rapeRebecc, false), "", undefined, "", undefined, "Leave", this.fuckThisShit);
     }
     //Option: Forgive (Z)
     private forgiveOwca(): void {
@@ -879,7 +879,7 @@ export class Owca extends BaseContent {
         //To main owca menu
         if (this.getGame().inCombat)
             this.cleanupAfterCombat(this.gangbangVillageStuff);
-        else this.doNext(this, this.gangbangVillageStuff);
+        else this.doNext(this.gangbangVillageStuff);
     }
     //Option: Leave (Z)
     private fuckThisShit(): void {
@@ -888,7 +888,7 @@ export class Owca extends BaseContent {
         this.flags[kFLAGS.REBECCS_LAST_PLEA] = 1;
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
     //Rebecc's Last Plea (Z)
     private rebeccsLastPlea(): void {
@@ -899,7 +899,7 @@ export class Owca extends BaseContent {
         //(You could rape her.) //Leads to Rebecc Rape scene. 
         //(You could face the villagers and demons in her stead.) 
         //(You could leave.) //End of quest.
-        this.simpleChoices(this, "Rape Her", this.createCallBackFunction(this, this.rapeRebecc, true),
+        this.simpleChoices("Rape Her", this.createCallBackFunction(this.rapeRebecc, true),
             "Face Them All", this.faceDownHordes, "", undefined, "", undefined, "Leave", this.leaveRebeccToBeRaped);
     }
     //Option: Leave (Z)
@@ -909,7 +909,7 @@ export class Owca extends BaseContent {
         //[Owca Village removed from "Places" menu.]
         this.outputText("\n\n(Owca has been removed from the places menu.)");
         this.flags[kFLAGS.OWCA_UNLOCKED] = -1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //Option: Face Down the World (Z)
     private faceDownHordes(): void {
@@ -919,7 +919,7 @@ export class Owca extends BaseContent {
         this.outputText("\n\n\"<i>It is unfair that a young innocent woman should suffer from the cowardice of her townsfolk.  Since you are all too reluctant to defend her yourselves, I'll do it for you.  Don't worry, you meek sheep.  No demon will abuse your kind on my watch.</i>\"  You then ready yourself in a combat stance and wait.");
         this.outputText("\n\nThe villagers keep staring at you, defiance as well as cautiousness reflected in their pondering eyes.  Caution wins out and they leave you, abandoning to your fate - and the horde.  It's time for you to prove your worth.");
         //Redirects to the Dusk Transition Scene, then to a combat with full equipment and weapons. Loss sets Submissiveness to 100 and gives Bad End.  Victory sets Attitude to 60 and it can never shrink below 1.
-        this.doNext(this, this.createCallBackFunction(this, this.fightZeDemons, false));
+        this.doNext(this.createCallBackFunction(this.fightZeDemons, false));
     }
     //Slave to Vapula - Bad End (Z)
     private slaveToVapulaBadEnd(): void {
@@ -961,7 +961,7 @@ export class Owca extends BaseContent {
         if (this.player.gender > 0 && this.player.lust >= 33) fuck = this.rapeZeVapula;
         var enslave = undefined;
         if (this.player.gender > 0 && this.player.cor >= 66) enslave = this.enslaveVapulaWithYourWang;
-        this.simpleChoices(this, "Disband", this.disbandHorde, "EnslaveVapula", enslave, "JustFuckEm", fuck, "", undefined, "Skip Out", this.cleanupAfterCombat);
+        this.simpleChoices("Disband", this.disbandHorde, "EnslaveVapula", enslave, "JustFuckEm", fuck, "", undefined, "Skip Out", this.cleanupAfterCombat);
     }
     //Option: Disband (Z)
     private disbandHorde(): void {

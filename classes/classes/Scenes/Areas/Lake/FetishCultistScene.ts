@@ -25,7 +25,7 @@ export class FetishCultistScene extends AbstractLakeContent {
         this.outputText("You see a largely human-looking young woman in the distance in a strange, whorish outfit, seemingly lost in prayers that sound like nonsense to you.  Finally noticing your presence, she confronts you with a lewd smile on her face.\n\nShe has clearly lost her grasp on sanity, and filled the void with pure perversion.", true);
         this.startCombat(new FetishCultist());
         this.spriteSelect(19);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     public cultistRapesYou(): void {
@@ -463,7 +463,7 @@ export class FetishCultistScene extends AbstractLakeContent {
             var fuckVag = undefined;
             if (this.player.hasVagina()) vibe = this.swimsuitVibrators;
             if (this.player.hasCock()) fuckVag = this.plugSwimsuitVag;
-            this.simpleChoices(this, "FuckHerVag", fuckVag, "Vibrator", vibe, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
+            this.simpleChoices("FuckHerVag", fuckVag, "Vibrator", vibe, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
             return;
         }
         else {
@@ -592,7 +592,7 @@ export class FetishCultistScene extends AbstractLakeContent {
         //This ending is caused from having too low of inte when losing to the cultist (say under 15) or it could be after losing too many times to them.  You chose which you would prefer.
         //(after being raped, do not show regular recovery message, skip here)
         this.outputText("\n\nYour mind is not able to recover from the fantasy, and instead moves on to another one, and another, and another...", false);
-        this.doNext(this, this.cultistBadEnd2);
+        this.doNext(this.cultistBadEnd2);
     }
 
     public cultistBadEnd2(): void {

@@ -14,7 +14,7 @@ export class OmnibusOverseer extends Monster {
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
             this.outputText("\n\nYour foe doesn't seem to care...");
-            this.doNext(this, this.game.endLustLoss);
+            this.doNext(this.game.endLustLoss);
         } else {
             this.game.omnibusLossRape();
         }

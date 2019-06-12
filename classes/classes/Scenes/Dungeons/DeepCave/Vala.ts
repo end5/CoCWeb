@@ -88,7 +88,7 @@ export class Vala extends Monster {
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
             this.outputText("\n\nYour foe doesn't seem put off enough to leave...");
-            this.doNext(this, this.game.endLustLoss);
+            this.doNext(this.game.endLustLoss);
         } else {
             this.game.loseToVala();
         }

@@ -80,7 +80,7 @@ export class UmasShop extends TelAdreAbstractContent {
         this.outputText("with a soft expression; her features are maternal and friendly, but there's a playful twinkle in her eye that makes her look younger than she really is.  For all that, she's clearly a mature woman but still strong and attractive.  Black hair, starting to go gray at the tips, is worn in a long, elegant braid, the end knotted around an elaborate butterfly hairpin.  While her fur is a beautiful shade of chestnut brown, her large eyes are a deep brown, almost black.  She casually flicks an equine ear in a manner that reminds you very much of Loppe, and you have a strong feeling that this is Uma, Loppe's mother.\n\n");
 
         this.menu();
-        this.addButton(this, 0, "Next", this.firstVisitPart2);
+        this.addButton(0, "Next", this.firstVisitPart2);
     }
 
 
@@ -108,7 +108,7 @@ export class UmasShop extends TelAdreAbstractContent {
         this.outputText("Loppe holds your hand and the two of you begin detailing how you met....\n\n");
 
         this.menu();
-        this.addButton(this, 0, "Next", this.firstVisitPart3);
+        this.addButton(0, "Next", this.firstVisitPart3);
 
 
     }
@@ -136,7 +136,7 @@ export class UmasShop extends TelAdreAbstractContent {
 
         // Player returns to Camp
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     /**
@@ -181,16 +181,16 @@ export class UmasShop extends TelAdreAbstractContent {
         }
 
         this.menu();
-        this.addButton(this, 0, "Massage", this.massageMenu);
-        this.addButton(this, 1, "Acupunct.", this.acupunctureMenu);
-        this.addButton(this, 2, "Talk", this.talkMenu);
+        this.addButton(0, "Massage", this.massageMenu);
+        this.addButton(1, "Acupunct.", this.acupunctureMenu);
+        this.addButton(2, "Talk", this.talkMenu);
 
         if (!noSex) {
-            this.addButton(this, 3, "Sex", this.sexMenu);
+            this.addButton(3, "Sex", this.sexMenu);
         }
 
         //addButton(4, "Train Loppe", trainLoppe); // Unfinished in the doc
-        this.addButton(this, 9, "Leave", this.telAdre.telAdreMenu);
+        this.addButton(9, "Leave", this.telAdre.telAdreMenu);
     }
 
     /**
@@ -215,12 +215,12 @@ export class UmasShop extends TelAdreAbstractContent {
         this.outputText("You contemplate your choices carefully.");
 
         this.menu();
-        this.addButton(this, 0, "Relief", this.massageRelief);
-        this.addButton(this, 1, "Lust", this.massageLust);
-        this.addButton(this, 2, "Modelling", this.massageModelling);
-        this.addButton(this, 3, "Relaxation", this.massageRelaxation);
-        this.addButton(this, 4, "Power", this.massagePower);
-        this.addButton(this, 9, "No Thanks", this.massageNope);
+        this.addButton(0, "Relief", this.massageRelief);
+        this.addButton(1, "Lust", this.massageLust);
+        this.addButton(2, "Modelling", this.massageModelling);
+        this.addButton(3, "Relaxation", this.massageRelaxation);
+        this.addButton(4, "Power", this.massagePower);
+        this.addButton(9, "No Thanks", this.massageNope);
     }
 
     /**
@@ -234,7 +234,7 @@ export class UmasShop extends TelAdreAbstractContent {
         this.outputText("\"<i>Very well, dear.</i>\"  Uma takes the catalogue back.");
 
         this.menu();
-        this.addButton(this, 0, "Next", this.enterClinic, true);
+        this.addButton(0, "Next", this.enterClinic, true);
     }
 
     /**
@@ -362,7 +362,7 @@ export class UmasShop extends TelAdreAbstractContent {
             this.outputText("Wishing her well, you calmly let yourself out of the shop and head back to camp.");
 
             this.menu();
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
 
@@ -380,7 +380,7 @@ export class UmasShop extends TelAdreAbstractContent {
         this.outputText("and move over to lay yourself on the table.  You get yourself comfortable and tell Uma that you're ready.\n\n");
 
         this.menu();
-        this.addButton(this, 0, "Next", this.massageCommence, selectedMassage);
+        this.addButton(0, "Next", this.massageCommence, selectedMassage);
     }
 
     /**
@@ -423,7 +423,7 @@ export class UmasShop extends TelAdreAbstractContent {
         // Apply bonus & back to camp!
         this.applyMassageBonus(selectedMassage);
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public static MAX_MASSAGE_BONUS_DURATION: number = 24;			// Duration of the bonus
@@ -696,7 +696,7 @@ export class UmasShop extends TelAdreAbstractContent {
             this.outputText("The mare takes a moment to inspect you carefully, seeming to look through rather than at you.  \"<i>This could be quite a challenge, even for my skills... but, seeing as you're my little hoppers special someone, just for you I will have to ask for " + String(sessionCost) + " gems.  That's half the price of what I'd usually charge for work this difficult.</i>\"\n\n");
 
             this.menu();
-            this.addButton(this, 0, "Undo", this.needleworkSession, UmasShop.NEEDLEWORK_UNDO);
+            this.addButton(0, "Undo", this.needleworkSession, UmasShop.NEEDLEWORK_UNDO);
         }
         else {
             this.outputText("\"<i>Are you sure, dear?  While the effects of a Do-in massage will fade eventually, acupuncture is fairly... permanent.  Though I can only give you the effects of one type of needlework at a time...</i>\"\n\n");
@@ -712,15 +712,15 @@ export class UmasShop extends TelAdreAbstractContent {
             this.outputText("The mare tries to remember any other types of needlework that might be useful to you, but ultimately, she can't think of anything else.  \"<i>That's all you might use, I think...</i>\"  She then pauses.  \"<i>As for a price, given you're my little Loppe's special someone, shall we say " + String(sessionCost) + " gems?  That's half-price of what I'd usually charge.</i>\"\n\n");
 
             this.menu();
-            this.addButton(this, 0, "Speed", this.needleworkSession, UmasShop.NEEDLEWORK_SPEED);
-            this.addButton(this, 1, "Lust", this.needleworkSession, UmasShop.NEEDLEWORK_LUST);
-            this.addButton(this, 2, "Defense", this.needleworkSession, UmasShop.NEEDLEWORK_DEFENSE);
-            this.addButton(this, 3, "Magic", this.needleworkSession, UmasShop.NEEDLEWORK_MAGIC);
-            this.addButton(this, 4, "Attack", this.needleworkSession, UmasShop.NEEDLEWORK_ATTACK);
+            this.addButton(0, "Speed", this.needleworkSession, UmasShop.NEEDLEWORK_SPEED);
+            this.addButton(1, "Lust", this.needleworkSession, UmasShop.NEEDLEWORK_LUST);
+            this.addButton(2, "Defense", this.needleworkSession, UmasShop.NEEDLEWORK_DEFENSE);
+            this.addButton(3, "Magic", this.needleworkSession, UmasShop.NEEDLEWORK_MAGIC);
+            this.addButton(4, "Attack", this.needleworkSession, UmasShop.NEEDLEWORK_ATTACK);
         }
 
         // Add a leave button for both
-        this.addButton(this, 9, "No Thanks", this.needleworkTurnDown);
+        this.addButton(9, "No Thanks", this.needleworkTurnDown);
 
         // Cashmonies time
         if (this.player.gems < sessionCost) {
@@ -728,7 +728,7 @@ export class UmasShop extends TelAdreAbstractContent {
             this.outputText("Uma sighs, \"It's okay, dear.  Just come back when you do, my doors are always open.\"");
 
             this.menu();
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
 
@@ -755,7 +755,7 @@ export class UmasShop extends TelAdreAbstractContent {
 
         this.menu();
 
-        this.addButton(this, 0, "Next", this.enterClinic, true);
+        this.addButton(0, "Next", this.enterClinic, true);
     }
 
     /**
@@ -782,7 +782,7 @@ export class UmasShop extends TelAdreAbstractContent {
         }
 
         this.menu();
-        this.addButton(this, 0, "Next", this.doNeedleworkSession, selectedSession);
+        this.addButton(0, "Next", this.doNeedleworkSession, selectedSession);
     }
 
     /**
@@ -817,7 +817,7 @@ export class UmasShop extends TelAdreAbstractContent {
         this.applyNeedlework(selectedSession);
 
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     /**
@@ -833,11 +833,11 @@ export class UmasShop extends TelAdreAbstractContent {
 
         this.menu();
 
-        this.addButton(this, 0, "Job", this.talkJob);
-        this.addButton(this, 1, "Sexuality", this.talkSexuality);
-        this.addButton(this, 2, "Loppe", this.talkLoppe);
-        this.addButton(this, 3, "Loppe's Dad", this.talkLoppesDad);
-        this.addButton(this, 9, "Back", this.enterClinic, true);
+        this.addButton(0, "Job", this.talkJob);
+        this.addButton(1, "Sexuality", this.talkSexuality);
+        this.addButton(2, "Loppe", this.talkLoppe);
+        this.addButton(3, "Loppe's Dad", this.talkLoppesDad);
+        this.addButton(9, "Back", this.enterClinic, true);
     }
 
     /**
@@ -863,7 +863,7 @@ export class UmasShop extends TelAdreAbstractContent {
         this.outputText("You promise you'll try, and then head back to camp.");
 
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     /**
@@ -890,7 +890,7 @@ export class UmasShop extends TelAdreAbstractContent {
         this.outputText("You promise that you will, and then head out of the quaint little clinic and back to camp.\n\n");
 
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     /**
@@ -914,7 +914,7 @@ export class UmasShop extends TelAdreAbstractContent {
      */
     public talkLoppeJoiner(): void {
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         //addButton(1, "Debugz", talkMenu);
     }
 
@@ -1047,7 +1047,7 @@ export class UmasShop extends TelAdreAbstractContent {
 
         this.menu();
 
-        this.addButton(this, 0, "Next", this.talkLoppesFirstGirlPart2);
+        this.addButton(0, "Next", this.talkLoppesFirstGirlPart2);
     }
 
     public talkLoppesFirstGirlPart2(): void {
@@ -1069,7 +1069,7 @@ export class UmasShop extends TelAdreAbstractContent {
 
         this.menu();
 
-        this.addButton(this, 0, "Next", this.talkLoppesFirstGirlPart3);
+        this.addButton(0, "Next", this.talkLoppesFirstGirlPart3);
     }
 
     public talkLoppesFirstGirlPart3(): void {
@@ -1100,7 +1100,7 @@ export class UmasShop extends TelAdreAbstractContent {
 
         this.menu();
 
-        this.addButton(this, 0, "Next", this.talkLoppesFirstGirlPart4);
+        this.addButton(0, "Next", this.talkLoppesFirstGirlPart4);
     }
 
     public talkLoppesFirstGirlPart4(): void {
@@ -1137,7 +1137,7 @@ export class UmasShop extends TelAdreAbstractContent {
 
         this.menu();
 
-        this.addButton(this, 0, "Next", this.talkLoppesFirstGirlPart5);
+        this.addButton(0, "Next", this.talkLoppesFirstGirlPart5);
     }
 
     public talkLoppesFirstGirlPart5(): void {
@@ -1152,7 +1152,7 @@ export class UmasShop extends TelAdreAbstractContent {
 
         this.menu();
 
-        this.addButton(this, 0, "Next", this.talkLoppesFirstGirlPart6);
+        this.addButton(0, "Next", this.talkLoppesFirstGirlPart6);
     }
 
     public talkLoppesFirstGirlPart6(): void {
@@ -1216,7 +1216,7 @@ export class UmasShop extends TelAdreAbstractContent {
 
         this.menu();
 
-        this.addButton(this, 0, "Next", this.talkLoppesFirstBoyfriendPart2);
+        this.addButton(0, "Next", this.talkLoppesFirstBoyfriendPart2);
     }
 
     public talkLoppesFirstBoyfriendPart2(): void {
@@ -1245,7 +1245,7 @@ export class UmasShop extends TelAdreAbstractContent {
 
         this.menu();
 
-        this.addButton(this, 0, "Next", this.talkLoppesFirstBoyfriendPart3)
+        this.addButton(0, "Next", this.talkLoppesFirstBoyfriendPart3)
     }
 
     public talkLoppesFirstBoyfriendPart3(): void {
@@ -1277,7 +1277,7 @@ export class UmasShop extends TelAdreAbstractContent {
 
         this.menu();
 
-        this.addButton(this, 0, "Next", this.talkLoppesFirstBoyfriendPart4);
+        this.addButton(0, "Next", this.talkLoppesFirstBoyfriendPart4);
     }
 
     public talkLoppesFirstBoyfriendPart4(): void {
@@ -1313,7 +1313,7 @@ export class UmasShop extends TelAdreAbstractContent {
 
         this.menu();
 
-        this.addButton(this, 0, "Next", this.talkLoppesFirstBoyfriendPart5);
+        this.addButton(0, "Next", this.talkLoppesFirstBoyfriendPart5);
     }
 
     public talkLoppesFirstBoyfriendPart5(): void {
@@ -1368,7 +1368,7 @@ export class UmasShop extends TelAdreAbstractContent {
         this.outputText("You tell her to keep hoping; as strong a warrior as Uma described her to be, you're sure that the bunny-herm is still out there, somewhere.  You politely withdraw to give Uma a chance to compose herself, heading back to camp.\n\n");
 
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     /**
@@ -1452,20 +1452,20 @@ export class UmasShop extends TelAdreAbstractContent {
     private buildSexMenu(): void {
         this.menu();
 
-        this.addButton(this, 0, "EroMassage", this.sexEroticMassage);
-        this.addButton(this, 1, "Eat Her Out", this.sexEatHerOut);
+        this.addButton(0, "EroMassage", this.sexEroticMassage);
+        this.addButton(1, "Eat Her Out", this.sexEatHerOut);
 
         if (this.player.gender >= 2 && this.player.lowerBody != 4) // Vaginas & not centaurs
         {
-            this.addButton(this, 2, "Fingerbang", this.sexGetFingered);
+            this.addButton(2, "Fingerbang", this.sexGetFingered);
         }
 
         if (this.player.hasCock()) // Has a dick
         {
-            this.addButton(this, 3, "Handjob", this.sexHandjob);
-            this.addButton(this, 4, "Get Blown", this.sexGetABJFromDisMilfyLesboSlut);
+            this.addButton(3, "Handjob", this.sexHandjob);
+            this.addButton(4, "Get Blown", this.sexGetABJFromDisMilfyLesboSlut);
         }
-        this.addButton(this, 9, "Back", this.buildCoreMenu);
+        this.addButton(9, "Back", this.buildCoreMenu);
     }
 
     /**
@@ -1536,7 +1536,7 @@ export class UmasShop extends TelAdreAbstractContent {
         this.player.hoursSinceCum = Math.ceil(hoursSinceCum * 0.75);
 
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public sexGetFingered(): void {
@@ -1642,7 +1642,7 @@ export class UmasShop extends TelAdreAbstractContent {
         this.dynStats("lust=", 0);
 
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private sexHandjob(): void {
@@ -1715,7 +1715,7 @@ export class UmasShop extends TelAdreAbstractContent {
         this.dynStats("lust=", 0);
 
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //Needs Cock.
     private sexGetABJFromDisMilfyLesboSlut(): void {
@@ -1886,7 +1886,7 @@ export class UmasShop extends TelAdreAbstractContent {
         this.dynStats("lust=", 0);
         this.flags[kFLAGS.UMA_TIMES_SUCKED_YOU]++;
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     private sexEatHerOut(): void {
         this.clearOutput();
@@ -1933,7 +1933,7 @@ export class UmasShop extends TelAdreAbstractContent {
         this.dynStats("lust", 30);
 
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
 
     }
     /**

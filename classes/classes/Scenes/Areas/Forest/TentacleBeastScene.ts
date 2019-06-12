@@ -75,7 +75,7 @@ export class TentacleBeastScene extends BaseContent {
             this.outputText("The beast slaps you squarely on the ass as if to push you along. \"<i>Get the fuck out of here!</i>\" it screams. \"<i>Get lost so I can hunt me a REAL meal!!!</i>\"", false);
             this.outputText("You walk away from the creature, which hides back in the brush. After you trek a bit, you wonder if what happened really DID happen...", false);
             this.dynStats("lus", -5);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         //Combat starter
@@ -87,12 +87,12 @@ export class TentacleBeastScene extends BaseContent {
         //Worms get nothing!
         if (this.player.findStatusAffect(StatusAffects.Infested) >= 0) {
             this.outputText("It stops itself completely in a moment and twitches, as if sniffing the air, before turning around and disappearing into the underbrush.", false);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         if (this.player.cor > 50) {
             this.outputText("Do you joyfully submit or fight back?\n\n", false);
-            this.simpleChoices(this, "Fight", this.startTentacleBeastCombat, "Submit", this.tentacleLossRape, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices("Fight", this.startTentacleBeastCombat, "Submit", this.tentacleLossRape, "", undefined, "", undefined, "", undefined);
             return;
         }
         this.startCombat(new TentacleBeast());
@@ -181,7 +181,7 @@ export class TentacleBeastScene extends BaseContent {
         this.outputText("You pass out, only to awaken briefly to the constant sensation of semen flowing out of your body.  Were it not for the tentacle force-feeding you, you would weakly moan with pleasure at the feeling of constant orgasm.  You slip in and out of consciousness countless times. When lucid, you can only enjoy the fact you are STILL blowing a load.\n\n", false);
         this.outputText("However, you become lucid once and notice that you are no longer cumming. In fact, you feel a harsh warmth all over your body. Blinding light pierces you despite having your eyes closed. You also notice the absence of the tentacle from both your mouth and your ass. You also hear voices, yet you cannot make them out. A sharp, acrid smell invades your nostrils, rousing you to full wakefullness. You feel terribly weak and the light still prevents you from opening your eyes. However, for the most part, you are awake and cognizant of your environment.", false);
         //Goto rape #2
-        this.doNext(this, this.futaTentacleEpilogue);
+        this.doNext(this.futaTentacleEpilogue);
     }
 
     private futaTentacleEpilogue(): void {
@@ -236,7 +236,7 @@ export class TentacleBeastScene extends BaseContent {
                 this.outputText("\n\nThe beast slaps you squarely on the ass as if to push you along. \"<i>Get the fuck out of here!</i>\" it screams.  \"<i>Get lost so I can hunt me a REAL meal!!!</i>\"  ", false);
                 this.outputText("You walk away from the creature, which hides back in the brush. After you trek a bit, you wonder if what happened really DID happen...", false);
                 if (this.getGame().inCombat) this.cleanupAfterCombat();
-                else this.doNext(this, this.camp.returnToCampUseOneHour);
+                else this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
         }
@@ -261,7 +261,7 @@ export class TentacleBeastScene extends BaseContent {
             this.monster.HP = 0;
             if (this.player.HP == 0) this.player.HP++;
             if (this.getGame().inCombat) this.cleanupAfterCombat();
-            else this.doNext(this, this.camp.returnToCampUseOneHour);
+            else this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         //Bad end + counter here
@@ -347,7 +347,7 @@ export class TentacleBeastScene extends BaseContent {
                 this.monster.HP = 0;
                 if (this.player.HP == 0) this.player.HP++;
                 if (this.getGame().inCombat) this.cleanupAfterCombat();
-                else this.doNext(this, this.camp.returnToCampUseOneHour);
+                else this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
             //has cock:
@@ -371,7 +371,7 @@ export class TentacleBeastScene extends BaseContent {
                 this.player.orgasm();
                 this.dynStats("tou", 1, "int", -.5, "lib", 2, "sen", 1, "cor", .5);
                 if (this.getGame().inCombat) this.cleanupAfterCombat();
-                else this.doNext(this, this.camp.returnToCampUseTwoHours);
+                else this.doNext(this.camp.returnToCampUseTwoHours);
                 return;
             }
             // has cock, normal cum amount, anus == gaping: 
@@ -381,7 +381,7 @@ export class TentacleBeastScene extends BaseContent {
                 this.player.orgasm();
                 this.dynStats("tou", 1, "int", -.5, "lib", 2, "sen", 1, "cor", .5);
                 if (this.getGame().inCombat) this.cleanupAfterCombat();
-                else this.doNext(this, this.camp.returnToCampUseTwoHours);
+                else this.doNext(this.camp.returnToCampUseTwoHours);
                 return;
             }
             //{ has vagina, anus < gaping: 
@@ -393,7 +393,7 @@ export class TentacleBeastScene extends BaseContent {
                 this.player.orgasm();
                 this.dynStats("tou", 1, "int", -.5, "lib", 2, "sen", 1, "cor", .5);
                 if (this.getGame().inCombat) this.cleanupAfterCombat();
-                else this.doNext(this, this.camp.returnToCampUseTwoHours);
+                else this.doNext(this.camp.returnToCampUseTwoHours);
                 return;
             }
             //{ has cock, huge cum amount: 
@@ -411,14 +411,14 @@ export class TentacleBeastScene extends BaseContent {
                 this.monster.HP = 0;
                 if (this.player.HP == 0) this.player.HP++;
                 if (this.getGame().inCombat) this.cleanupAfterCombat();
-                else this.doNext(this, this.camp.returnToCampUseOneHour);
+                else this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
             //end (loss)
             this.player.orgasm();
             this.dynStats("tou", 1, "int", -.5, "lib", 2, "sen", 1, "cor", .5);
             if (this.getGame().inCombat) this.cleanupAfterCombat();
-            else this.doNext(this, this.camp.returnToCampUseTwoHours);
+            else this.doNext(this.camp.returnToCampUseTwoHours);
             return;
         }
         //Milk surprise!
@@ -476,7 +476,7 @@ export class TentacleBeastScene extends BaseContent {
             this.monster.HP = 0;
             if (this.player.HP == 0) this.player.HP++;
             if (this.getGame().inCombat) this.cleanupAfterCombat();
-            else this.doNext(this, this.camp.returnToCampUseOneHour);
+            else this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         if (this.player.gender == 1) {
@@ -524,7 +524,7 @@ export class TentacleBeastScene extends BaseContent {
             else this.outputText(this.cockDescript(0) + ", now begging for release, and clamps down upon your pubic mound, fully encapsulating your member.", false);
         }
         //Call page 2!
-        this.doNext(this, this.tentacleRapeContinuation);
+        this.doNext(this.tentacleRapeContinuation);
     }
 
     private tentacleRapeContinuation(): void {
@@ -567,7 +567,7 @@ export class TentacleBeastScene extends BaseContent {
             if (this.player.vaginas.length > 1)
                 this.outputText("s", false);
             this.outputText(" and your mouth. You are being inseminated by the abomination, but you do not care. The fucking is too good. The hot, musky fluids pour into your mouth. The taste crushes your last bit of resistance and you NEED MORE, not just to swallow, but to devour with your womb. You manage to free one hand, only to grasp the tentacle in your mouth to coax more semen inside you. You feel your stomach distend from the amount of cum you greedily swallow. The beast floods you with more cum than you can handle and proceeds to soak you from head to toe in its fluids as it runs from your overwhelmed orifices.", false);
-            this.doNext(this, this.tentacleRapeContinuationForFemales);
+            this.doNext(this.tentacleRapeContinuationForFemales);
             this.player.slimeFeed();
             //lactate more from the encounter.
             this.player.boostLactation(.3);
@@ -596,7 +596,7 @@ export class TentacleBeastScene extends BaseContent {
         }
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private tentacleRapeContinuationForFemales(): void {
@@ -641,7 +641,7 @@ export class TentacleBeastScene extends BaseContent {
         this.player.slimeFeed();
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Centaur v. Tentacle Monster: (display if pc is unsexed centaur)
@@ -708,7 +708,7 @@ export class TentacleBeastScene extends BaseContent {
         }
         this.player.takeDamage(5);
         if (this.getGame().inCombat) this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Naga v. Tentacle Monster:
@@ -728,7 +728,7 @@ export class TentacleBeastScene extends BaseContent {
         this.outputText("\"<i>Fucking tourists.</i>\"  It slams its tentacles down in a brutal blow, knocking you out.", false);
         this.player.takeDamage(15);
         if (this.getGame().inCombat) this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Goo v. Tentacle Monster:
@@ -757,7 +757,7 @@ export class TentacleBeastScene extends BaseContent {
 
         this.outputText("It slams its tentacles down in a brutal blow, knocking you out.", false);
         if (this.getGame().inCombat) this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 }
 

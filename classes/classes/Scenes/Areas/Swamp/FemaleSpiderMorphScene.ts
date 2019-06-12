@@ -55,7 +55,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
         else this.outputText("You go exploring in the swamp, and before you get far, a female spider-morph appears!  She's clearly different than the last one you ran into, though many of her features remain the same.  You realize she's no more than a dozen paces away and slowly approaching with a strange glint in her eye.\n\n", false);
         //Menu for either
         this.outputText("What do you do?", false);
-        this.simpleChoices(this, "Fight", this.fightFSpiderMorph, "Try to Talk", this.talkToFSpiderMorph, "", undefined, "", undefined, "Leave", this.runFromFSpiderMorph);
+        this.simpleChoices("Fight", this.fightFSpiderMorph, "Try to Talk", this.talkToFSpiderMorph, "", undefined, "", undefined, "Leave", this.runFromFSpiderMorph);
         //Incremement 'times encountered spider-girls'
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00270]++;
     }
@@ -74,7 +74,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
         //Selecting has a 50% chance of displaying the following:
         if (FemaleSpiderMorphScene.rand(2) == 0) {
             this.outputText("You turn around and flee before she can get any closer.  After running for a few moments, you realize the spider-woman isn't trying to pursue you at all.  The last image you see of her is her looking down at the ground with an expression of incredible melancholy.", false);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
         //The other 50% will start combat and then immediately attempt to run.
         else {
@@ -95,12 +95,12 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
                 this.outputText("After you've both had your fill of talk, the spider-girl asks, \"<i>I-I w-was wondering if you'd do me a favor... I have certain... urges, and", false);
                 if (this.player.gender == 0) {
                     this.outputText(" o-oh nevermind, you're genderless... crap.</i>\"  She blushes and lifts her abdomen, shooting a web into the trees that she uses to escape from the awkward situation.  You're left utterly alone, once again.", false);
-                    this.doNext(this, this.camp.returnToCampUseOneHour);
+                    this.doNext(this.camp.returnToCampUseOneHour);
                     return;
                 }
                 this.outputText(" well, you're the first sane person I've had a chance to ask.  Oh fuck it, can I tie you up and fuck you? Please?</i>\"\n\n", false);
                 this.outputText("Do you let her fuck you?", false);
-                this.simpleChoices(this, "Yes", this.voluntaryFemaleSpiderMorphRapesYou, "", undefined, "", undefined, "", undefined, "Leave", this.declinedCrazyFemaleSpiderMorphSexFunTimes);
+                this.simpleChoices("Yes", this.voluntaryFemaleSpiderMorphRapesYou, "", undefined, "", undefined, "", undefined, "Leave", this.declinedCrazyFemaleSpiderMorphSexFunTimes);
             }
             //(OPTION 2 - GIFT) 
             else {
@@ -130,7 +130,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
     private declinedCrazyFemaleSpiderMorphSexFunTimes(): void {
         this.outputText("", true);
         this.outputText("You tell the lusty spider-morph that you're not interested in having sex with her now, and though she looks crestfallen, she nods understandingly and zips up a line of webbing into the trees before the situation can become any more awkward.", false);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 
@@ -258,7 +258,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
         this.player.orgasm();
         this.dynStats("lib", 2, "sen", 1);
         if (!this.getGame().inCombat)
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         else this.cleanupAfterCombat();
     }
 
@@ -362,7 +362,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
         this.player.orgasm();
         this.dynStats("lib", 2, "sen", 1);
         if (!this.getGame().inCombat)
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         else this.cleanupAfterCombat();
     }
 
@@ -437,7 +437,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
         this.player.orgasm();
         this.dynStats("lib", 2, "sen", 1);
         if (!this.getGame().inCombat)
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         else this.cleanupAfterCombat();
     }
 
@@ -472,7 +472,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
                 if (this.player.cockThatFits(this.monster.analCapacity()) != -1) analFuck = this.evilSpiderGirlVictoryAnal;
                 else this.outputText("  <b>Her ass is too tight for you to fit inside.</b>", false);
             }
-            this.simpleChoices(this, "Fuck Ass", analFuck, "Fuck Pussy", pussyFuck, "Scissor", scissor, "", undefined, "Leave", this.cleanupAfterCombat);
+            this.simpleChoices("Fuck Ass", analFuck, "Fuck Pussy", pussyFuck, "Scissor", scissor, "", undefined, "Leave", this.cleanupAfterCombat);
         }
         else this.cleanupAfterCombat();
     }
@@ -532,7 +532,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
         else this.outputText("You leave her there with her hands and feet completely restrained.  Sucks to be her.", false);
         this.player.orgasm();
         if (!this.getGame().inCombat)
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         else this.cleanupAfterCombat();
     }
 
@@ -598,7 +598,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
         this.player.orgasm();
         this.pregnancy.knockUpForce(PregnancyStore.PREGNANCY_PLAYER, PregnancyStore.INCUBATION_SPIDER - 200); //Spiders carry for half as long as the player does for some reason
         if (!this.getGame().inCombat)
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         else this.cleanupAfterCombat();
     }
 
@@ -666,7 +666,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
         if (y != 1) this.pregnancy.knockUpForce(PregnancyStore.PREGNANCY_PLAYER, PregnancyStore.INCUBATION_SPIDER - 200); //Spiders carry for half as long as the player does for some reason
         this.player.orgasm();
         if (!this.getGame().inCombat)
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         else this.cleanupAfterCombat();
     }
 
@@ -678,7 +678,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
 
         this.outputText("You're left scratching your head when you realize they were your own children, birthed by the spider-morph you fucked not so long ago.\n\n", false);
         this.pregnancy.knockUpForce(); //Clear Spidermorph pregnancy
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     /*Joke Shit

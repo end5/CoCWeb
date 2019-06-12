@@ -61,8 +61,8 @@ export class IzumiScene extends BaseContent {
             this.outputText("Your curiosity piqued, you search around the obstruction for a way inside, and finally manage to find a slim gap between the bottom of the rock and the cliff face.  Kneeling down, you peer inside and can make out the distinct glowing embers of a campfire.  You’re pretty sure you can make it inside, but it might be difficult to get away if danger threatens.  On the other hand, wild animals don’t light campfires, and a lust-crazed demon probably wouldn’t bother to hide itself so effectively....\n\n");
 
             this.menu();
-            this.addButton(this, 0, "Enter", this.enterFirstTime);
-            this.addButton(this, 1, "Leave", this.abortabortleavethefukkencave);
+            this.addButton(0, "Enter", this.enterFirstTime);
+            this.addButton(1, "Leave", this.abortabortleavethefukkencave);
         }
         else {
             this.outputText("As you wander the wasted landscape searching for anything of interest, you find yourself face to face with a familiar large boulder; the same one hiding the entrance to Izumi’s cave.  Once again, you become aware of a strange sound on the edge of your hearing.  Carefully positioning yourself at the gap between the boulder and the cave entrance, you turn your ear to the source of the noise and manage to pick out what it is that you’re hearing; somebody is loudly humming, the same lively tune you heard during your previous visit.\n\n");
@@ -70,8 +70,8 @@ export class IzumiScene extends BaseContent {
             this.outputText("Considering how your last visit to the cave ended, you hesitate for a moment and wonder if you should push forward to enter Izumi’s home... or if turning back to camp would be a wiser decision.\n\n");
 
             this.menu();
-            this.addButton(this, 0, "Enter", this.enterAfterMet);
-            this.addButton(this, 1, "Leave", this.nopeLeavePlz);
+            this.addButton(0, "Enter", this.enterAfterMet);
+            this.addButton(1, "Leave", this.nopeLeavePlz);
         }
     }
 
@@ -101,9 +101,9 @@ export class IzumiScene extends BaseContent {
         }
 
         this.menu();
-        this.addButton(this, 0, "Fight", this.fightTheFuckhugeOni);
-        this.addButton(this, 1, "Surrender", this.fuckhugeOniGetsWhatSheWants);
-        this.addButton(this, 2, "Flee", this.fuckinChegIt);
+        this.addButton(0, "Fight", this.fightTheFuckhugeOni);
+        this.addButton(1, "Surrender", this.fuckhugeOniGetsWhatSheWants);
+        this.addButton(2, "Flee", this.fuckinChegIt);
     }
 
     // Leave the cave, no meeting
@@ -113,7 +113,7 @@ export class IzumiScene extends BaseContent {
         this.outputText("Spelunking in random caves around these parts is probably not the best idea; especially considering the kinds of creatures that you keep tripping over whenever you <i>do</i> decide to poke your nose somewhere it doesn't belong.\n\n");
 
         this.outputText("You head back to camp, having found nothing else of interest.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     // Already met, dun wanna get oniraepd again plz
@@ -121,7 +121,7 @@ export class IzumiScene extends BaseContent {
         this.clearOutput();
 
         this.outputText("You decide discretion is the better part of valour and choose not to barge into the strange woman's cave again, opting to slip away before she notices you hanging around outside her home.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     // Introduce the fuckhuge oni
@@ -237,7 +237,7 @@ export class IzumiScene extends BaseContent {
         this.outputText(" me get some air in here for you...</i>”  She launches herself to her feet with surprising speed and breezes past you.\n\n");
 
         this.menu();
-        this.addButton(this, 0, "Next", this.enterFirstTimePartII);
+        this.addButton(0, "Next", this.enterFirstTimePartII);
     }
 
     protected enterFirstTimePartII(): void {
@@ -286,8 +286,8 @@ export class IzumiScene extends BaseContent {
         this.outputText("You talk animatedly with Izumi some more over the next hour or so, inquiring about the horn on her forehead, what life is like where she comes from, how she came to be here and a dozen other topics.  She explains that all of her race, the Oni, have horns that reflect their power and strength.  For her part, she asks a myriad questions about your home.  When you ask about the pipe she’s smoking, she surprises you by wordlessly handing it to you.\n\n");
 
         this.menu();
-        this.addButton(this, 0, "Smoke", this.smokeThePipe);
-        this.addButton(this, 1, "NoSmoke", this.dontSmokeThePipe);
+        this.addButton(0, "Smoke", this.smokeThePipe);
+        this.addButton(1, "NoSmoke", this.dontSmokeThePipe);
     }
 
     // Set some shit up for the Pipesmoke scene during the introduction
@@ -414,9 +414,9 @@ export class IzumiScene extends BaseContent {
         this.outputText("You could let her continue with whatever it is that she’s planning, but her truly gargantuan stature is more than a little intimidating.  On the other hand, you could try to fight her or make a break for it, but you don’t know how well either of those plans would work out; if there’s anything Izumi appears to be, it’s physically fit... although, as your eyes begin to adjust and Izumi’s scandalous neckline swims back into focus, the third option does seem somewhat tantalizing as well...\n\n");
 
         this.menu();
-        this.addButton(this, 0, "Fight", this.fightTheFuckhugeOni);
-        this.addButton(this, 1, "Surrender", this.fuckhugeOniGetsWhatSheWants);
-        this.addButton(this, 2, "Flee", this.fuckinChegIt);
+        this.addButton(0, "Fight", this.fightTheFuckhugeOni);
+        this.addButton(1, "Surrender", this.fuckhugeOniGetsWhatSheWants);
+        this.addButton(2, "Flee", this.fuckinChegIt);
     }
 
     // Player opts to leave rather than do anything
@@ -430,7 +430,7 @@ export class IzumiScene extends BaseContent {
 
         this.outputText("Spotting an opening, you decide to beat a hasty retreat, as far away from the immense woman as possible.\n\n");
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     /**
      * FIGHT SHIT
@@ -602,7 +602,7 @@ export class IzumiScene extends BaseContent {
         this.player.orgasm();
 
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     // Male/Herm scene for cocks <= 10"
@@ -641,8 +641,8 @@ export class IzumiScene extends BaseContent {
         this.outputText("“<i>Lay back and settle down, or I ruin your fun.</i>” she purrs.\n\n");
 
         this.menu();
-        this.addButton(this, 0, "Obey", this.surrenderMediumCockObey);
-        this.addButton(this, 1, "Refuse", this.surrenderMediumCockRefuse);
+        this.addButton(0, "Obey", this.surrenderMediumCockObey);
+        this.addButton(1, "Refuse", this.surrenderMediumCockRefuse);
     }
 
     // Male/Herm play along scene split
@@ -669,7 +669,7 @@ export class IzumiScene extends BaseContent {
         this.player.orgasm();
 
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     // Male/Herm be a jerk about it split
@@ -702,7 +702,7 @@ export class IzumiScene extends BaseContent {
         this.player.orgasm();
 
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     // Urtadicks itt
@@ -753,7 +753,7 @@ export class IzumiScene extends BaseContent {
         this.player.orgasm();
 
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     protected surrenderOhGodTheFemaleSurrenderContentIsFuckingHugeSendHelp(): void {
@@ -869,12 +869,12 @@ export class IzumiScene extends BaseContent {
         // More exhibitionist shit (!)
         if (this.flags[kFLAGS.PC_FETISH] >= 1) {
             this.menu();
-            this.addButton(this, 0, "ShowMeOff", this.surrenderFemaleExhibitionVariant);
-            this.addButton(this, 1, "HideMe", this.surrenderFemaleNonExhibitionVariant);
+            this.addButton(0, "ShowMeOff", this.surrenderFemaleExhibitionVariant);
+            this.addButton(1, "HideMe", this.surrenderFemaleNonExhibitionVariant);
         }
         else {
             this.menu();
-            this.addButton(this, 0, "Next", this.surrenderFemaleNonExhibitionVariant);
+            this.addButton(0, "Next", this.surrenderFemaleNonExhibitionVariant);
         }
     }
 
@@ -980,7 +980,7 @@ export class IzumiScene extends BaseContent {
         this.player.orgasm();
 
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     // Female surrender, ask player if which variant they want
@@ -995,8 +995,8 @@ export class IzumiScene extends BaseContent {
         this.outputText("“<i>Get off on being watched, huh?  That’s kinda slutty, you know?  Well, I don’t mind playing you in front of a crowd,</i>” She purrs into your ear.  “<i>But if you’re <b>that</b> kind of kinky, maybe you wanna try a little... Audience participation?</i>”\n\n");
 
         this.menu();
-        this.addButton(this, 0, "Yes", this.surrenderFemaleLookitYouTheCenterOfAttentionYouSlut);
-        this.addButton(this, 1, "No", this.surrenderFemaleNonExhibitionVariant); // Take the non-exhibitionist path
+        this.addButton(0, "Yes", this.surrenderFemaleLookitYouTheCenterOfAttentionYouSlut);
+        this.addButton(1, "No", this.surrenderFemaleNonExhibitionVariant); // Take the non-exhibitionist path
     }
 
     // Female surrender, Exhibitionist variant scene body
@@ -1040,7 +1040,7 @@ export class IzumiScene extends BaseContent {
         this.player.orgasm();
 
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     /**
@@ -1088,20 +1088,20 @@ export class IzumiScene extends BaseContent {
         this.menu();
 
         if (this.player.hasCock()) {
-            this.addButton(this, 0, "Anal", this.cowedIntoPuttingItInIntoHerGiantOniButt);
-            this.addButton(this, 1, "Vaginal", this.fuckhugeOniWantsYourBabiesOrSomeShit);
+            this.addButton(0, "Anal", this.cowedIntoPuttingItInIntoHerGiantOniButt);
+            this.addButton(1, "Vaginal", this.fuckhugeOniWantsYourBabiesOrSomeShit);
         }
 
         if (this.player.hasVagina() && !this.player.hasCock()) {
-            this.addButton(this, 2, "69", this.littleChampLittleChampFuckhugeOniIsCominTaEatcha);
+            this.addButton(2, "69", this.littleChampLittleChampFuckhugeOniIsCominTaEatcha);
         }
 
         if (!this.player.hasCock() && !this.player.hasVagina()) {
-            this.addButton(this, 0, "Next", this.noDickNoVagNoService);
+            this.addButton(0, "Next", this.noDickNoVagNoService);
         }
 
         if (this.player.hasVagina() || this.player.hasCock()) {
-            this.addButton(this, 9, "Leave", this.lossSceneLeave);
+            this.addButton(9, "Leave", this.lossSceneLeave);
         }
 
 
@@ -1482,20 +1482,20 @@ export class IzumiScene extends BaseContent {
         this.outputText("You could play nice and let the Oni go free... she is asking nicely, after all.  On the other hand, after the way she tried to ravage you earlier, you figure Izumi’s arrogant attitude could use being taken down a notch or two.  The only question is, what exactly are you going to do?\n\n");
 
         this.menu();
-        this.addButton(this, 0, "Let Go", this.letGoAndLeaveYouSillyFuck);
+        this.addButton(0, "Let Go", this.letGoAndLeaveYouSillyFuck);
 
         this.flags[kFLAGS.IZUMI_SEEN_PC_GENDER] = this.player.gender;
 
         if (this.player.hasVagina()) {
-            this.addButton(this, 1, "TribHorn", this.tribThatRockyHornGirl);
+            this.addButton(1, "TribHorn", this.tribThatRockyHornGirl);
         }
 
         if (this.player.hasCock()) {
-            this.addButton(this, 2, "LetsFuck", this.letGoAndFuck);
-            this.addButton(this, 3, "RevengeAnal", this.gonnaGetMeSomeRevengeButtsexin);
-            this.addButton(this, 4, "RevengeOral", this.sayThatsAPrettyFaceBeAShameIfSomebodyJizzedAllOverIt);
+            this.addButton(2, "LetsFuck", this.letGoAndFuck);
+            this.addButton(3, "RevengeAnal", this.gonnaGetMeSomeRevengeButtsexin);
+            this.addButton(4, "RevengeOral", this.sayThatsAPrettyFaceBeAShameIfSomebodyJizzedAllOverIt);
 
-            if (this.player.tentacleCocks() >= 8) this.addButton(this, 5, "Tentacruel", this.tentacruelRevengeFux);
+            if (this.player.tentacleCocks() >= 8) this.addButton(5, "Tentacruel", this.tentacruelRevengeFux);
         }
     }
 

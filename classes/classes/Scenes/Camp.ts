@@ -710,7 +710,7 @@ export class Camp extends NPCAwareContent {
         }
         //Menu
 
-        this.choices(this, "Explore", exploreEvent, "Places", placesEvent, "Inventory", this.inventory.inventoryMenu, "Stash", storage, "Followers", followers,
+        this.choices("Explore", exploreEvent, "Places", placesEvent, "Inventory", this.inventory.inventoryMenu, "Stash", storage, "Followers", followers,
             "Lovers", lovers, "Slaves", slaves, "", undefined, baitText, masturbate, restName, restEvent);
         //Lovers
         //Followers
@@ -911,16 +911,16 @@ export class Camp extends NPCAwareContent {
         if (this.arianScene.arianFollower()) this.outputText("Arian's tent is here, if you'd like to go inside.\n\n");
         //choices("Amily",amilyEvent,"Helia",hel,"Isabella",isabellaButt,"Izma",izmaEvent,"Kiha",kihaButt,"Marble",marbleEvent,"Nieve",nieve,"",0,"",0,"Back",1);	
         this.menu();
-        if (amilyEvent != undefined) this.addButton(this, 0, "Amily", amilyEvent);
-        if (this.arianScene.arianFollower()) this.addButton(this, 1, "Arian", this.arianScene.visitAriansHouse);
-        if (hel != undefined) this.addButton(this, 2, "Helia", hel);
-        if (isabellaButt != undefined) this.addButton(this, 3, "Isabella", isabellaButt);
-        if (izmaEvent != undefined) this.addButton(this, 4, "Izma", izmaEvent);
-        this.addButton(this, 5, "Kiha", kihaButt);
-        if (marbleEvent != undefined) this.addButton(this, 6, "Marble", marbleEvent);
-        if (nieve != undefined) this.addButton(this, 7, "Nieve", nieve);
-        if (this.flags[kFLAGS.ANT_WAIFU] > 0) this.addButton(this, 8, "Phylla", this.getGame().desert.antsScene.introductionToPhyllaFollower);
-        this.addButton(this, 9, "Back", this.playerMenu);
+        if (amilyEvent != undefined) this.addButton(0, "Amily", amilyEvent);
+        if (this.arianScene.arianFollower()) this.addButton(1, "Arian", this.arianScene.visitAriansHouse);
+        if (hel != undefined) this.addButton(2, "Helia", hel);
+        if (isabellaButt != undefined) this.addButton(3, "Isabella", isabellaButt);
+        if (izmaEvent != undefined) this.addButton(4, "Izma", izmaEvent);
+        this.addButton(5, "Kiha", kihaButt);
+        if (marbleEvent != undefined) this.addButton(6, "Marble", marbleEvent);
+        if (nieve != undefined) this.addButton(7, "Nieve", nieve);
+        if (this.flags[kFLAGS.ANT_WAIFU] > 0) this.addButton(8, "Phylla", this.getGame().desert.antsScene.introductionToPhyllaFollower);
+        this.addButton(9, "Back", this.playerMenu);
     }
 
     public campSlavesMenu(): void {
@@ -962,14 +962,14 @@ export class Camp extends NPCAwareContent {
         }
         //choices("Amily",amilyEvent,"Ceraph",ceraph,"Jojo",jojoEvent,"Sophie",sophieEvent,"Vapula",vapula,"",0,"",0,"",0,flags[kFLAGS.GOO_NAME],goo,"Back",1);	
         this.menu();
-        if (amilyEvent != undefined) this.addButton(this, 0, "Amily", amilyEvent);
-        if (ceraph != undefined) this.addButton(this, 1, "Ceraph", ceraph);
-        if (jojoEvent != undefined) this.addButton(this, 2, "Jojo", jojoEvent);
-        if (sophieEvent != undefined) this.addButton(this, 3, "Sophie", sophieEvent);
-        if (vapula2 != undefined) this.addButton(this, 4, "Vapula", vapula2);
-        if (this.milkSlave() && this.flags[kFLAGS.FOLLOWER_AT_FARM_BATH_GIRL] == 0) this.addButton(this, 7, this.flags[kFLAGS.MILK_NAME], this.milkWaifu.milkyMenu);
-        if (goo != undefined) this.addButton(this, 8, this.flags[kFLAGS.GOO_NAME], goo);
-        this.addButton(this, 9, "Back", this.playerMenu);
+        if (amilyEvent != undefined) this.addButton(0, "Amily", amilyEvent);
+        if (ceraph != undefined) this.addButton(1, "Ceraph", ceraph);
+        if (jojoEvent != undefined) this.addButton(2, "Jojo", jojoEvent);
+        if (sophieEvent != undefined) this.addButton(3, "Sophie", sophieEvent);
+        if (vapula2 != undefined) this.addButton(4, "Vapula", vapula2);
+        if (this.milkSlave() && this.flags[kFLAGS.FOLLOWER_AT_FARM_BATH_GIRL] == 0) this.addButton(7, this.flags[kFLAGS.MILK_NAME], this.milkWaifu.milkyMenu);
+        if (goo != undefined) this.addButton(8, this.flags[kFLAGS.GOO_NAME], goo);
+        this.addButton(9, "Back", this.playerMenu);
     }
 
     public campFollowers(): void {
@@ -1025,17 +1025,17 @@ export class Camp extends NPCAwareContent {
                 else this.outputText("them");
                 this.outputText(" about hunting and gathering techniques.  Considering their unusual upbringing, it can't be as easy for them...\n\n");
             }
-            this.addButton(this, 5, "Sophie", this.sophieFollowerScene.followerSophieMainScreen);
+            this.addButton(5, "Sophie", this.sophieFollowerScene.followerSophieMainScreen);
         }
         if (this.flags[kFLAGS.VALARIA_AT_CAMP] == 1) valeria2 = this.valeria.valeriaFollower;
-        this.addButton(this, 0, "Ember", ember);
-        if (this.helspawnFollower()) this.addButton(this, 1, this.flags[kFLAGS.HELSPAWN_NAME], this.helSpawnScene.helspawnsMainMenu);
-        this.addButton(this, 2, "Jojo", jojoEvent);
-        this.addButton(this, 3, "Rathazul", rathazulEvent);
-        this.addButton(this, 4, "Shouldra", shouldra);
+        this.addButton(0, "Ember", ember);
+        if (this.helspawnFollower()) this.addButton(1, this.flags[kFLAGS.HELSPAWN_NAME], this.helSpawnScene.helspawnsMainMenu);
+        this.addButton(2, "Jojo", jojoEvent);
+        this.addButton(3, "Rathazul", rathazulEvent);
+        this.addButton(4, "Shouldra", shouldra);
         //ABOVE: addButton(4,"Sophie",followerSophieMainScreen);
-        this.addButton(this, 6, "Valeria", valeria2);
-        this.addButton(this, 9, "Back", this.playerMenu);
+        this.addButton(6, "Valeria", valeria2);
+        this.addButton(9, "Back", this.playerMenu);
     }
 
     private rest(): void {
@@ -1290,30 +1290,30 @@ export class Camp extends NPCAwareContent {
             return;
         }
         this.menu();
-        if (this.flags[kFLAGS.BAZAAR_ENTERED] > 0) this.addButton(this, 0, "Bazaar", this.getGame().bazaar.enterTheBazaar);
-        if (this.player.findStatusAffect(StatusAffects.BoatDiscovery) >= 0) this.addButton(this, 1, "Boat", this.getGame().boat.boatExplore);
+        if (this.flags[kFLAGS.BAZAAR_ENTERED] > 0) this.addButton(0, "Bazaar", this.getGame().bazaar.enterTheBazaar);
+        if (this.player.findStatusAffect(StatusAffects.BoatDiscovery) >= 0) this.addButton(1, "Boat", this.getGame().boat.boatExplore);
         if (this.flags[kFLAGS.FOUND_CATHEDRAL] == 1) {
             if (this.flags[kFLAGS.GAR_NAME] == '')
-                this.addButton(this, 2, "Cathedral", this.getGame().gargoyle.gargoylesTheShowNowOnWBNetwork);
-            else this.addButton(this, 2, "Cathedral", this.getGame().gargoyle.returnToCathedral);
+                this.addButton(2, "Cathedral", this.getGame().gargoyle.gargoylesTheShowNowOnWBNetwork);
+            else this.addButton(2, "Cathedral", this.getGame().gargoyle.returnToCathedral);
         }
-        if (this.dungeonFound()) this.addButton(this, 3, "Dungeons", this.dungeons);
-        this.addButton(this, 4, "Next", this.placesPage2);
-        if (this.farmFound()) this.addButton(this, 5, "Farm", this.getGame().farm.farmExploreEncounter);
-        if (this.flags[kFLAGS.OWCA_UNLOCKED] == 1) this.addButton(this, 6, "Owca", this.getGame().owca.gangbangVillageStuff);
-        if (this.player.findStatusAffect(StatusAffects.HairdresserMeeting) >= 0) this.addButton(this, 7, "Salon", this.getGame().mountain.salon.salonGreeting);
-        if (this.player.statusAffectv1(StatusAffects.TelAdre) >= 1) this.addButton(this, 8, "Tel'Adre", this.getGame().telAdre.telAdreMenu);
-        this.addButton(this, 9, "Back", this.playerMenu);
+        if (this.dungeonFound()) this.addButton(3, "Dungeons", this.dungeons);
+        this.addButton(4, "Next", this.placesPage2);
+        if (this.farmFound()) this.addButton(5, "Farm", this.getGame().farm.farmExploreEncounter);
+        if (this.flags[kFLAGS.OWCA_UNLOCKED] == 1) this.addButton(6, "Owca", this.getGame().owca.gangbangVillageStuff);
+        if (this.player.findStatusAffect(StatusAffects.HairdresserMeeting) >= 0) this.addButton(7, "Salon", this.getGame().mountain.salon.salonGreeting);
+        if (this.player.statusAffectv1(StatusAffects.TelAdre) >= 1) this.addButton(8, "Tel'Adre", this.getGame().telAdre.telAdreMenu);
+        this.addButton(9, "Back", this.playerMenu);
     }
 
     private placesPage2(): void {
         this.menu();
         this.flags[kFLAGS.PLACES_PAGE] = 1;
         //turn on ruins
-        if (this.flags[kFLAGS.AMILY_VILLAGE_ACCESSIBLE] > 0) this.addButton(this, 0, "TownRuins", this.amilyScene.exploreVillageRuin);
-        if (this.flags[kFLAGS.MET_MINERVA] >= 4) this.addButton(this, 1, "Oasis Tower", this.getGame().highMountains.minervaScene.encounterMinerva);
-        this.addButton(this, 4, "Previous", this.placesToPage1);
-        this.addButton(this, 9, "Back", this.playerMenu);
+        if (this.flags[kFLAGS.AMILY_VILLAGE_ACCESSIBLE] > 0) this.addButton(0, "TownRuins", this.amilyScene.exploreVillageRuin);
+        if (this.flags[kFLAGS.MET_MINERVA] >= 4) this.addButton(1, "Oasis Tower", this.getGame().highMountains.minervaScene.encounterMinerva);
+        this.addButton(4, "Previous", this.placesToPage1);
+        this.addButton(9, "Back", this.playerMenu);
     }
 
     private placesToPage1(): void {
@@ -1324,11 +1324,11 @@ export class Camp extends NPCAwareContent {
     private dungeons(): void {
         this.menu();
         //Turn on dungeons
-        if (this.flags[kFLAGS.DISCOVERED_DUNGEON_2_ZETAZ] > 0) this.addButton(this, 0, "Deep Cave", kGAMECLASS.enterZetazsLair);
-        if (this.player.findStatusAffect(StatusAffects.FoundFactory) >= 0) this.addButton(this, 1, "Factory", kGAMECLASS.enterFactory);
-        if (this.flags[kFLAGS.DISCOVERED_WITCH_DUNGEON] > 0) this.addButton(this, 2, "Desert Cave", kGAMECLASS.enterBoobsDungeon);
-        if (this.flags[kFLAGS.D3_DISCOVERED] > 0) this.addButton(this, 3, "Stronghold", kGAMECLASS.d3.enterD3);
-        this.addButton(this, 9, "Back", this.places);
+        if (this.flags[kFLAGS.DISCOVERED_DUNGEON_2_ZETAZ] > 0) this.addButton(0, "Deep Cave", kGAMECLASS.enterZetazsLair);
+        if (this.player.findStatusAffect(StatusAffects.FoundFactory) >= 0) this.addButton(1, "Factory", kGAMECLASS.enterFactory);
+        if (this.flags[kFLAGS.DISCOVERED_WITCH_DUNGEON] > 0) this.addButton(2, "Desert Cave", kGAMECLASS.enterBoobsDungeon);
+        if (this.flags[kFLAGS.D3_DISCOVERED] > 0) this.addButton(3, "Stronghold", kGAMECLASS.d3.enterD3);
+        this.addButton(9, "Back", this.places);
     }
 
     private exgartuanCampUpdate(): void {
@@ -1350,7 +1350,7 @@ export class Camp extends NPCAwareContent {
                 this.player.removeStatusAffect(StatusAffects.Exgartuan);
             }
         }
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     /*

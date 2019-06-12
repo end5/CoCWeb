@@ -41,7 +41,7 @@ export class BakeryScene extends TelAdreAbstractContent {
             //Kanga christmas!
             if (kGAMECLASS.nieveHoliday()) {
                 kGAMECLASS.encounterKamiTheChristmasRoo();
-                if (this.flags[kFLAGS.KAMI_ENCOUNTER] == 1) this.addButton(this, 3, "Pudding", kGAMECLASS.getWinterPudding);
+                if (this.flags[kFLAGS.KAMI_ENCOUNTER] == 1) this.addButton(3, "Pudding", kGAMECLASS.getWinterPudding);
             }
             //Normal repeats!
             else this.outputText("You step into the bakery's domed interior and inhale, treated to a symphony of pleasant smells and the cozy warmth that radiates from the baking ovens.  There are plenty of tables and chairs around for one to eat at, and you find yourself stepping into line while you glance at the menu.\n\n", false);
@@ -49,9 +49,9 @@ export class BakeryScene extends TelAdreAbstractContent {
         //Times visited!
         this.flags[kFLAGS.TIMES_VISITED_BAKERY]++;
         this.outputText("What do you do?");
-        this.addButton(this, 0, "Check Menu", this.checkBakeryMenu);
-        this.addButton(this, 1, "Talk", this.talkBakeryMenu);
-        this.addButton(this, 9, "Leave", this.telAdre.telAdreMenu);
+        this.addButton(0, "Check Menu", this.checkBakeryMenu);
+        this.addButton(1, "Talk", this.talkBakeryMenu);
+        this.addButton(9, "Leave", this.telAdre.telAdreMenu);
     }
 
     private checkBakeryMenu(): void {
@@ -88,15 +88,15 @@ export class BakeryScene extends TelAdreAbstractContent {
         this.menu();
         //choices("Brownies",createCallBackFunction2(nomnomnom, "brownies", 3),"Cookies",createCallBackFunction2(nomnomnom, "cookies", 4),"Cupcakes",2833,"Doughnuts",createCallBackFunction2(nomnomnom, "doughnuts", 5),"Pound Cake",createCallBackFunction2(nomnomnom, "pound cake", 4),"Fox Berry",buyFoxBerry,"SpecialEclair",minoCum,"GiantCupcake",gcupcake,"",0,"Leave",bakeryuuuuuu);
 
-        this.addButton(this, 0, "Brownies", this.createCallBackFunction2(this.nomnomnom, "brownies", 5));
-        this.addButton(this, 1, "Cookies", this.createCallBackFunction2(this.nomnomnom, "cookies", 4));
-        this.addButton(this, 2, "Cupcakes", this.createCallBackFunction2(this.nomnomnom, "cupcakes", 3));
-        this.addButton(this, 3, "Doughnuts", this.createCallBackFunction2(this.nomnomnom, "doughnuts", 5));
-        this.addButton(this, 4, "Pound Cake", this.createCallBackFunction2(this.nomnomnom, "pound cake", 4));
-        this.addButton(this, 5, "SpecialEclair", minoCum);
-        this.addButton(this, 6, "GiantCupcake", gcupcake);
-        this.addButton(this, 8, "Ingredients", this.ingredientsMenu);
-        this.addButton(this, 9, "Leave", this.bakeryuuuuuu);
+        this.addButton(0, "Brownies", this.createCallBackFunction2(this.nomnomnom, "brownies", 5));
+        this.addButton(1, "Cookies", this.createCallBackFunction2(this.nomnomnom, "cookies", 4));
+        this.addButton(2, "Cupcakes", this.createCallBackFunction2(this.nomnomnom, "cupcakes", 3));
+        this.addButton(3, "Doughnuts", this.createCallBackFunction2(this.nomnomnom, "doughnuts", 5));
+        this.addButton(4, "Pound Cake", this.createCallBackFunction2(this.nomnomnom, "pound cake", 4));
+        this.addButton(5, "SpecialEclair", minoCum);
+        this.addButton(6, "GiantCupcake", gcupcake);
+        this.addButton(8, "Ingredients", this.ingredientsMenu);
+        this.addButton(9, "Leave", this.bakeryuuuuuu);
     }
 
     public ingredientsMenu(): void {
@@ -107,11 +107,11 @@ export class BakeryScene extends TelAdreAbstractContent {
         this.outputText("Mouse Cocoa - 10 gems.\n");
         this.outputText("Ferret Fruit - 20 gems.\n");
         this.menu();
-        this.addButton(this, 0, "Fox Berry", this.buyFoxBerry);
-        this.addButton(this, 1, "Ringtail Fig", this.buyFig);
-        this.addButton(this, 2, "Mouse Cocoa", this.buyCocoa);
-        this.addButton(this, 3, "Ferret Fruit", this.buyFerretFruit);
-        this.addButton(this, 9, "Back", this.checkBakeryMenu);
+        this.addButton(0, "Fox Berry", this.buyFoxBerry);
+        this.addButton(1, "Ringtail Fig", this.buyFig);
+        this.addButton(2, "Mouse Cocoa", this.buyCocoa);
+        this.addButton(3, "Ferret Fruit", this.buyFerretFruit);
+        this.addButton(9, "Back", this.checkBakeryMenu);
     }
 
     //[Bakery - Talk - Baker]
@@ -127,15 +127,15 @@ export class BakeryScene extends TelAdreAbstractContent {
         //[Nevermind] goes back to bakery main menu and is spacebar default
         //all purchases offered after talking should spacebar to [No] and go to normal purchase output if [Yes], returning to bakery main menu afterward 
         this.menu();
-        this.addButton(this, 0, "Brownie", this.talkAboutBrownies);
-        this.addButton(this, 1, "Cookie", this.talkAboutCookies);
-        this.addButton(this, 2, "Cupcake", this.talkAboutCupcakes);
-        this.addButton(this, 3, "Doughnut", this.talkAboutDoughnuts);
-        this.addButton(this, 4, "Pound Cake", this.talkToBakerAboutPoundCake);
-        this.addButton(this, 5, "Fox Berry", this.talkAboutFoxBerry);
-        this.addButton(this, 6, "Ringtail Fig", this.talkAFig);
-        this.addButton(this, 7, "Mouse Cocoa", this.talkAboutMouseCocoa);
-        this.addButton(this, 9, "Nevermind", this.talkBakeryMenu);
+        this.addButton(0, "Brownie", this.talkAboutBrownies);
+        this.addButton(1, "Cookie", this.talkAboutCookies);
+        this.addButton(2, "Cupcake", this.talkAboutCupcakes);
+        this.addButton(3, "Doughnut", this.talkAboutDoughnuts);
+        this.addButton(4, "Pound Cake", this.talkToBakerAboutPoundCake);
+        this.addButton(5, "Fox Berry", this.talkAboutFoxBerry);
+        this.addButton(6, "Ringtail Fig", this.talkAFig);
+        this.addButton(7, "Mouse Cocoa", this.talkAboutMouseCocoa);
+        this.addButton(9, "Nevermind", this.talkBakeryMenu);
     }
 
     //[Bakery - Talk - Baker - Brownie]
@@ -147,8 +147,8 @@ export class BakeryScene extends TelAdreAbstractContent {
 
         //[Yes][No]
         this.menu();
-        this.addButton(this, 0, "Yes", this.createCallBackFunction2(this.nomnomnom, "brownies", 3));
-        this.addButton(this, 1, "No", this.talkToBaker);
+        this.addButton(0, "Yes", this.createCallBackFunction2(this.nomnomnom, "brownies", 3));
+        this.addButton(1, "No", this.talkToBaker);
     }
 
     //[Bakery - Talk - Baker - Cookie]
@@ -157,8 +157,8 @@ export class BakeryScene extends TelAdreAbstractContent {
         this.outputText("The baker nods at you.  \"<i>Cookies good.  Cookies easy, only need butter, sugar, flour, egg, and fig.  Mix batter and put in little circles, mash up figs, put figs in centers of circles, put other circle on top.  Cook cookie.  Also able to just put whatever into batter and make chocolate cookie or anything else, but fig most popular and cheapest.</i>\"  He smiles proudly and gestures toward the four-gem cookie display.  Do you buy one?");
         //[Yes][No]
         this.menu();
-        this.addButton(this, 0, "Yes", this.createCallBackFunction2(this.nomnomnom, "cookies", 4));
-        this.addButton(this, 1, "No", this.talkToBaker);
+        this.addButton(0, "Yes", this.createCallBackFunction2(this.nomnomnom, "cookies", 4));
+        this.addButton(1, "No", this.talkToBaker);
     }
 
     //[Bakery - Talk - Baker - Cupcake]
@@ -171,8 +171,8 @@ export class BakeryScene extends TelAdreAbstractContent {
         this.outputText("\n\n\"<i>Too popular, too cheap.  Always making cupcakes, no time to experiment on recipes.  Want to raise price but cupcakes are best seller and customers get mad.</i>\"  A bell rings.  Sighing again, he walks over to the oven and opens it, then pulls out a tray of un-iced cupcakes.  \"<i>See?  Making now.  You buying one?  Four... no, still three gems I guess.</i>\"");
         //[Yes][No]
         this.menu();
-        this.addButton(this, 0, "Yes", this.createCallBackFunction2(this.nomnomnom, "cupcakes", 3));
-        this.addButton(this, 1, "No", this.talkToBaker);
+        this.addButton(0, "Yes", this.createCallBackFunction2(this.nomnomnom, "cupcakes", 3));
+        this.addButton(1, "No", this.talkToBaker);
     }
 
     //[Bakery - Talk - Baker - Doughnut]
@@ -183,8 +183,8 @@ export class BakeryScene extends TelAdreAbstractContent {
         this.outputText("\n\n\"<i>Fry in hot oil until brown and delicious, lift out with spatula.  Penetrate jam doughnuts with pastry bag and squirt jam like cum into breeding cow... sorry.</i>\"  He frowns.  \"<i>Take longer to make than other things, even cupcakes.  Can't make batches as big because so many kinds.  So doughnuts cost more - five gems.  Still, lots of fun to pound and fry and stuff.  Sell lots when watch shifts change; watchmen come in and clean out doughnut trays.  Want to buy one before next rush starts?</i>\"");
         //[Yes][No]
         this.menu();
-        this.addButton(this, 0, "Yes", this.createCallBackFunction2(this.nomnomnom, "doughnuts", 5));
-        this.addButton(this, 1, "No", this.talkToBaker);
+        this.addButton(0, "Yes", this.createCallBackFunction2(this.nomnomnom, "doughnuts", 5));
+        this.addButton(1, "No", this.talkToBaker);
     }
 
     //[Bakery - Talk - Baker - Pound Cake]
@@ -193,8 +193,8 @@ export class BakeryScene extends TelAdreAbstractContent {
         this.outputText("The minotaur snorts again, \"<i>'Baker's Special' pound cake is easy... mix butter and shortening, then sugar and eggs.  Put in little salt and whatever dry stuff needed, like fruits or chocolate.  Add milk too.  Put in narrow pan, bake long time.  Can't make batter in bulk though, got to have lots of varieties since not one is more popular than others.  So costs four gems; not as cheap as batch items.  Want a piece?</i>\"");
         //[Yes][No]
         this.menu();
-        this.addButton(this, 0, "Yes", this.createCallBackFunction2(this.nomnomnom, "pound cake", 4));
-        this.addButton(this, 1, "No", this.talkToBaker);
+        this.addButton(0, "Yes", this.createCallBackFunction2(this.nomnomnom, "pound cake", 4));
+        this.addButton(1, "No", this.talkToBaker);
     }
 
     //[Bakery - Talk - Baker - Fox Berry]
@@ -204,8 +204,8 @@ export class BakeryScene extends TelAdreAbstractContent {
 
         //[Yes][No]
         this.menu();
-        this.addButton(this, 0, "Yes", this.buyFoxBerry);
-        this.addButton(this, 1, "No", this.talkToBaker);
+        this.addButton(0, "Yes", this.buyFoxBerry);
+        this.addButton(1, "No", this.talkToBaker);
     }
 
     //[Bakery - Talk - Baker - Ringtail Fig]
@@ -216,8 +216,8 @@ export class BakeryScene extends TelAdreAbstractContent {
         //[Yes][No]
         //[Yes][No]
         this.menu();
-        this.addButton(this, 0, "Yes", this.buyFig);
-        this.addButton(this, 1, "No", this.talkToBaker);
+        this.addButton(0, "Yes", this.buyFig);
+        this.addButton(1, "No", this.talkToBaker);
     }
 
     //[Bakery - Talk - Baker - Mouse Cocoa]
@@ -226,8 +226,8 @@ export class BakeryScene extends TelAdreAbstractContent {
         this.outputText("\"<i>Mouse cocoa comes from warm side of the lake, by forest border.  Like the name says, mouse people used to grow and eat a lot of it.  No mice left, though... hard to get now and expensive.  Have to buy it from the farmer at the lake; she sends out gathering parties.  Same one we get milk from.  Less and less every year... going to have to raise prices soon.  Ten gems for one handful, now.</i>\"");
         //[Yes][No]
         this.menu();
-        this.addButton(this, 0, "Yes", this.buyCocoa);
-        this.addButton(this, 1, "No", this.talkToBaker);
+        this.addButton(0, "Yes", this.buyCocoa);
+        this.addButton(1, "No", this.talkToBaker);
     }
 
     private buyCocoa(): void {
@@ -235,7 +235,7 @@ export class BakeryScene extends TelAdreAbstractContent {
         if (this.player.gems < 10) {
             this.outputText("You can't afford one of those!");
             this.menu();
-            this.addButton(this, 0, "Next", this.ingredientsMenu);
+            this.addButton(0, "Next", this.ingredientsMenu);
             return;
         }
         this.outputText("You pay ten gems for some cocoa.  ");
@@ -249,7 +249,7 @@ export class BakeryScene extends TelAdreAbstractContent {
         if (this.player.gems < 20) {
             this.outputText("You can't afford one of those!");
             this.menu();
-            this.addButton(this, 0, "Next", this.ingredientsMenu);
+            this.addButton(0, "Next", this.ingredientsMenu);
             return;
         }
         this.outputText("You pay twenty gems for a single ferret fruit.  ");
@@ -263,7 +263,7 @@ export class BakeryScene extends TelAdreAbstractContent {
         if (this.player.gems < 5) {
             this.outputText("You can't afford one of those!");
             this.menu();
-            this.addButton(this, 0, "Next", this.ingredientsMenu);
+            this.addButton(0, "Next", this.ingredientsMenu);
             return;
         }
         this.outputText("You pay five gems for a fig.  ");
@@ -280,7 +280,7 @@ export class BakeryScene extends TelAdreAbstractContent {
         var rubiT: string = "Waitress";
         if (this.flags[kFLAGS.RUBI_INTRODUCED] > 0) rubiT = "Rubi";
         this.menu();
-        this.addButton(this, 0, "Baker", this.talkToBaker);
+        this.addButton(0, "Baker", this.talkToBaker);
 
         // rubiIntros returns 0 if you've driven rubi away
         // I'm actually not sure how this was *supposed* to work, since it would just call eventParser with a event of 0 
@@ -288,22 +288,22 @@ export class BakeryScene extends TelAdreAbstractContent {
         // FWIW, the flag that has to be set to get rubiIntros to return zero is set in a function that has the comment:
         //(Will no longer encounter Rubi at the bakery.)
         var rubiB = this.telAdre.rubi.rubiIntros();
-        if (rubiB != undefined) this.addButton(this, 1, rubiT, rubiB);
+        if (rubiB != undefined) this.addButton(1, rubiT, rubiB);
 
         if (kGAMECLASS.nieveHoliday()) {
             if (this.flags[kFLAGS.KAMI_ENCOUNTER] > 0) {
                 this.outputText("\nYou could 'burn off some steam' with Kami during her lunch break, since you already know how that'll end up!\n");
-                this.addButton(this, 2, "Kami", kGAMECLASS.approachKamiTheChristmasRoo);
+                this.addButton(2, "Kami", kGAMECLASS.approachKamiTheChristmasRoo);
             }
             else {
                 this.outputText("\nYou could summon the curvaceous kangaroo waitress you ran into earlier - perhaps you can win her over.\n");
-                this.addButton(this, 2, "Kangaroo", kGAMECLASS.approachKamiTheChristmasRoo);
+                this.addButton(2, "Kangaroo", kGAMECLASS.approachKamiTheChristmasRoo);
             }
         }
         this.outputText("\nYou see a bubblegum-pink girl at the bakery, walking around and eagerly trying to hand out fliers to people. Her “uniform” is more like a yellow bikini with frills circling the waist of the bottom half. If this didn’t make her stand out from the crowd then her hair certainly would; it’s a big, poofy, curly, dark pink mess that reaches down to her ass with a huge cupcake hat sitting on top.\n");
-        if (this.flags[kFLAGS.MET_FROSTY] != 0) this.addButton(this, 3, "Frosty", kGAMECLASS.telAdre.frosty.approachFrosty);
-        else this.addButton(this, 3, "PinkGirl", kGAMECLASS.telAdre.frosty.approachFrosty);
-        this.addButton(this, 9, "Leave", this.bakeryuuuuuu);
+        if (this.flags[kFLAGS.MET_FROSTY] != 0) this.addButton(3, "Frosty", kGAMECLASS.telAdre.frosty.approachFrosty);
+        else this.addButton(3, "PinkGirl", kGAMECLASS.telAdre.frosty.approachFrosty);
+        this.addButton(9, "Leave", this.bakeryuuuuuu);
     }
 
     public nomnomnom(name: string, price: number): void {
@@ -314,7 +314,7 @@ export class BakeryScene extends TelAdreAbstractContent {
             this.outputText("You don't have enough gems to order that!", false);
             //doNext(bakeryuuuuuu);
             this.menu();
-            this.addButton(this, 0, "Next", this.checkBakeryMenu);
+            this.addButton(0, "Next", this.checkBakeryMenu);
             return;
         }
         this.player.gems -= this.flags[kFLAGS.TEMP_STORAGE_PASTRY_PRICE];
@@ -382,7 +382,7 @@ export class BakeryScene extends TelAdreAbstractContent {
         }
         //doNext(bakeryuuuuuu);
         this.menu();
-        this.addButton(this, 0, "Next", this.checkBakeryMenu);
+        this.addButton(0, "Next", this.checkBakeryMenu);
     }
     /*[doughnuts] – some thickness, lots of – tone. (+hips and butt!)
     [cookies] – thickness and a little – tone (+hips)
@@ -397,7 +397,7 @@ export class BakeryScene extends TelAdreAbstractContent {
             this.outputText("You don't have enough gems for one of those!", false);
             //doNext(bakeryuuuuuu);
             this.menu();
-            this.addButton(this, 0, "Next", this.checkBakeryMenu);
+            this.addButton(0, "Next", this.checkBakeryMenu);
             return;
         }
         this.outputText("The minotaur chef emerges from the backroom bearing a box that contains your cupcake.  It's too big to scarf down immediately.\n\n", false);
@@ -411,7 +411,7 @@ export class BakeryScene extends TelAdreAbstractContent {
         if (this.player.gems < 5) {
             this.outputText("You can't afford one of those!");
             this.menu();
-            this.addButton(this, 0, "Next", this.ingredientsMenu);
+            this.addButton(0, "Next", this.ingredientsMenu);
             return;
         }
         this.outputText("You pay five gems for a fox berry.  ");
@@ -429,9 +429,9 @@ export class BakeryScene extends TelAdreAbstractContent {
         this.outputText("\n\n\"<i>Hello.  You come here often?  We busy.  Will try to do good.</i>\"");
         //[Check Menu] [Offer Help]
         this.menu();
-        this.addButton(this, 3, "Check Menu", this.checkBakeryMenu);
-        this.addButton(this, 0, "Offer Help", this.easterBakeSaleHelp);
-        this.addButton(this, 4, "Leave", this.telAdre.telAdreMenu);
+        this.addButton(3, "Check Menu", this.checkBakeryMenu);
+        this.addButton(0, "Offer Help", this.easterBakeSaleHelp);
+        this.addButton(4, "Leave", this.telAdre.telAdreMenu);
     }
 
     private easterBakeSaleHelp(): void {
@@ -454,7 +454,7 @@ export class BakeryScene extends TelAdreAbstractContent {
         else this.outputText("[eachCock jumping to full hardness, your nipples and [vagina] not far behind in getting ready for your encounter.");
         this.outputText("\n\nThe euphoria from your earlier drink fades, replaced by a more animalistic need.");
         this.menu();
-        this.addButton(this, 0, "Next", this.malesHelpOutWithEaster);
+        this.addButton(0, "Next", this.malesHelpOutWithEaster);
     }
 
     //[Male]
@@ -485,6 +485,6 @@ export class BakeryScene extends TelAdreAbstractContent {
         this.player.orgasm();
         this.dynStats("lib", 1);
         this.player.cumMultiplier += 2;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 }

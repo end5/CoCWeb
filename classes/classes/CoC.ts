@@ -406,12 +406,12 @@ export class CoC {
         // this.stage.addChild(this.mainView);
 
         // Hooking things to MainView.
-        this.mainView.newGameButton.callback = () => this.charCreation.newGameGo();
-        this.mainView.appearanceButton.callback = () => this.appearance();
-        this.mainView.dataButton.callback = () => this.saves.saveLoad();
-        this.mainView.levelButton.callback = () => this.levelUpGo();
-        this.mainView.perksButton.callback = () => this.displayPerks();
-        this.mainView.statsButton.callback = () => this.displayStats();
+        this.mainView.onNewGameClick = this.charCreation.newGameGo;
+        this.mainView.onAppearanceClick = this.appearance;
+        this.mainView.onDataClick = this.saves.saveLoad;
+        this.mainView.onLevelClick = this.levelUpGo;
+        this.mainView.onPerksClick = this.displayPerks;
+        this.mainView.onStatsClick = this.displayStats;
 
         // Set up all the messy global stuff:
 
@@ -474,7 +474,7 @@ export class CoC {
                     // this.mainView.nameBox.text = "";
                     this.saves.saveGame("CoC_1");
                     this.outputText("Game saved to slot 1!", true);
-                    this.doNext(this, this.playerMenu);
+                    this.doNext(this.playerMenu);
                 }
             });
 
@@ -486,7 +486,7 @@ export class CoC {
                     // this.mainView.nameBox.text = "";
                     this.saves.saveGame("CoC_2");
                     this.outputText("Game saved to slot 2!", true);
-                    this.doNext(this, this.playerMenu);
+                    this.doNext(this.playerMenu);
                 }
             });
 
@@ -498,7 +498,7 @@ export class CoC {
                     // this.mainView.nameBox.text = "";
                     this.saves.saveGame("CoC_3");
                     this.outputText("Game saved to slot 3!", true);
-                    this.doNext(this, this.playerMenu);
+                    this.doNext(this.playerMenu);
                 }
             });
 
@@ -510,7 +510,7 @@ export class CoC {
                     // this.mainView.nameBox.text = "";
                     this.saves.saveGame("CoC_4");
                     this.outputText("Game saved to slot 4!", true);
-                    this.doNext(this, this.playerMenu);
+                    this.doNext(this.playerMenu);
                 }
             });
 
@@ -522,7 +522,7 @@ export class CoC {
                     // this.mainView.nameBox.text = "";
                     this.saves.saveGame("CoC_5");
                     this.outputText("Game saved to slot 5!", true);
-                    this.doNext(this, this.playerMenu);
+                    this.doNext(this.playerMenu);
                 }
             });
 
@@ -537,7 +537,7 @@ export class CoC {
                         this.showStats();
                         this.statScreenRefresh();
                         this.outputText("Slot 1 Loaded!", true);
-                        this.doNext(this, this.playerMenu);
+                        this.doNext(this.playerMenu);
                     }
                 }
             });
@@ -553,7 +553,7 @@ export class CoC {
                         this.showStats();
                         this.statScreenRefresh();
                         this.outputText("Slot 2 Loaded!", true);
-                        this.doNext(this, this.playerMenu);
+                        this.doNext(this.playerMenu);
                     }
                 }
             });
@@ -569,7 +569,7 @@ export class CoC {
                         this.showStats();
                         this.statScreenRefresh();
                         this.outputText("Slot 3 Loaded!", true);
-                        this.doNext(this, this.playerMenu);
+                        this.doNext(this.playerMenu);
                     }
                 }
             });
@@ -585,7 +585,7 @@ export class CoC {
                         this.showStats();
                         this.statScreenRefresh();
                         this.outputText("Slot 4 Loaded!", true);
-                        this.doNext(this, this.playerMenu);
+                        this.doNext(this.playerMenu);
                     }
                 }
             });
@@ -601,7 +601,7 @@ export class CoC {
                         this.showStats();
                         this.statScreenRefresh();
                         this.outputText("Slot 5 Loaded!", true);
-                        this.doNext(this, this.playerMenu);
+                        this.doNext(this.playerMenu);
                     }
                 }
             });
@@ -2395,7 +2395,7 @@ export class CoC {
         this.mainView.hideAllMenuButtons();
         this.inputManager.DisplayBindingPane();
 
-        this.choices(this, "Reset Ctrls", this.resetControls,
+        this.choices("Reset Ctrls", this.resetControls,
             "Clear Ctrls", this.clearControls,
             "Null", undefined,
             "Null", undefined,
@@ -2418,7 +2418,7 @@ export class CoC {
 
         this.outputText("Are you sure you want to reset all of the currently bound controls to their defaults?", true);
 
-        this.doYesNo(this, this.resetControlsYes, this.displayControls);
+        this.doYesNo(this.resetControlsYes, this.displayControls);
     }
 
     public resetControlsYes(): void {
@@ -2426,7 +2426,7 @@ export class CoC {
 
         this.outputText("Controls have been reset to defaults!\n\n", true);
 
-        this.doNext(this, this.displayControls);
+        this.doNext(this.displayControls);
     }
 
     public clearControls(): void {
@@ -2434,7 +2434,7 @@ export class CoC {
 
         this.outputText("Are you sure you want to clear all of the currently bound controls?", true);
 
-        this.doYesNo(this, this.clearControlsYes, this.displayControls);
+        this.doYesNo(this.clearControlsYes, this.displayControls);
     }
 
     public clearControlsYes(): void {
@@ -2442,7 +2442,7 @@ export class CoC {
 
         this.outputText("Controls have been cleared!", true);
 
-        this.doNext(this, this.displayControls);
+        this.doNext(this.displayControls);
     }
 
     // include "../../includes/OnLoadVariables.as";
@@ -2526,7 +2526,7 @@ export class CoC {
         // this.mainView.eventTestInput.y = -1055.1;
         this.hideStats();
         //Reset newgame buttons
-        this.mainView.setMenuButton(MainView.MENU_NEW_MAIN, "New Game", () => this.charCreation.newGameGo());
+        this.mainView.setMenuButton(MainView.MENU_NEW_MAIN, "New Game", this.charCreation.newGameGo);
         this.mainView.hideAllMenuButtons();
         this.mainView.showMenuButton(MainView.MENU_NEW_MAIN);
         this.mainView.showMenuButton(MainView.MENU_DATA);
@@ -2555,7 +2555,7 @@ export class CoC {
         // since the images haven't loaded yet.
         // Therefore, the imageCreditScreen will just have to say "No image pack" if you don't have any images
 
-        this.choices(this, "", undefined,
+        this.choices("", undefined,
             "Image Credits", this.imageCreditsScreen,
             "Credits", this.creditsScreen,
             "", undefined,
@@ -2678,7 +2678,7 @@ Also go play <u> <a href='http://www.furaffinity.net/view/9830293/' > Nimin </a>
         else
             this.outputText("Hyper Happy mode <b>Off</b>\n	Male enhancement potions shrink female endowments, and vice versa.");
 
-        this.choices(this, "Toggle Debug", this.toggleDebug,
+        this.choices("Toggle Debug", this.toggleDebug,
             "Sprite Toggle", this.toggleSpritesFlag,
             "EZ Mode", this.toggleEasyModeFlag,
             "Larger Font", this.incFontSize,
@@ -2906,7 +2906,7 @@ Also go play <u> <a href='http://www.furaffinity.net/view/9830293/' > Nimin </a>
         this.outputText("<li> Gardeford (Helia x Bimbo Sophie Threesomes)</li>");
         this.outputText("</ul>");
         this.outputText("\nIf I'm missing anyone, please contact me ASAP!  I have done a terrible job keeping the credits up to date!");
-        this.doNext(this, this.mainMenu);
+        this.doNext(this.mainMenu);
     }
 
     public imageCreditsScreen(): void {
@@ -2928,7 +2928,7 @@ Also go play <u> <a href='http://www.furaffinity.net/view/9830293/' > Nimin </a>
         else {
             this.outputText("<b>No Image-Pack Found!</b>\n", true);
         }
-        this.doNext(this, this.mainMenu);
+        this.doNext(this.mainMenu);
     }
 
     public howToPlay(): void {
@@ -2938,7 +2938,7 @@ Also go play <u> <a href='http://www.furaffinity.net/view/9830293/' > Nimin </a>
         this.outputText("<b>Combat:</b>\nCombat is won by raising an opponent's lust to 100 or taking their HP to 0.  You lose if your enemy does the same to you.  Loss isn't game over, but some losses will make it harder in the future by lowering your stats.  Beware.  Don't be afraid to spam the <b>Run</b> option when you're in over your head.\n\n", false);
         this.outputText("<b>Controls:</b>\nThe game features numerous hot-keys to make playing quicker and easier.\nP key - Perks Menu\nD key - Data Menu\nA key - Appearance Screen\n1 Through 5 - The top row of 'choice' buttons.\n6 Through 0 - The bottom row of 'choice' buttons.\nQ through T - Alternative bottom 'choice' hotkeys.\nSpace Bar - Next/Back/Leave\nHome Key - Toggle text field background.\nS key - Stats Screen\n(Save Hotkeys - May not work in all players)\nF1-F5 - Quicksave to slot 1 through 5.  Only works when Data is visible.\nF6-F0 - Quick Load from slots 1-5.\n\n", false);
         this.outputText("<b>Save often using the Data Menu</b> - you never know when your journey will come to an end!", false);
-        this.doNext(this, this.mainMenu);
+        this.doNext(this.mainMenu);
     }
 
 
@@ -2974,10 +2974,10 @@ Also go play <u> <a href='http://www.furaffinity.net/view/9830293/' > Nimin </a>
     //         this.monkey.throwOnSyntaxError = false;
     //         this.monkey.excludeMenuKeys = false;
     //         this.menu();
-    //         this.addButton(this, 0, "ChaosMonkey", this.monkeyStartReallyConfirm);
-    //         this.addButton(this, 1, "NoMenuMonkey", this.noSaveMonkey);
-    //         this.addButton(this, 5, "SyntaxMonkey", this.syntaxMonkey);
-    //         this.addButton(this, 9, "No", this.debugPane)
+    //         this.addButton(0, "ChaosMonkey", this.monkeyStartReallyConfirm);
+    //         this.addButton(1, "NoMenuMonkey", this.noSaveMonkey);
+    //         this.addButton(5, "SyntaxMonkey", this.syntaxMonkey);
+    //         this.addButton(9, "No", this.debugPane)
     //     }
 
 
@@ -3002,7 +3002,7 @@ Also go play <u> <a href='http://www.furaffinity.net/view/9830293/' > Nimin </a>
 
     // 	]]>`, true, true);
 
-    //         this.doYesNo(this, this.initiateTheMonkey, this.debugPane)
+    //         this.doYesNo(this.initiateTheMonkey, this.debugPane)
     //     }
 
 
@@ -3015,9 +3015,9 @@ Also go play <u> <a href='http://www.furaffinity.net/view/9830293/' > Nimin </a>
     //         this.monkey.createChaos();
 
     //         if (this.player.str) // we're in a game
-    //             this.doNext(this, this.camp.returnToCampUseOneHour);      // so dump out to the camp scene
+    //             this.doNext(this.camp.returnToCampUseOneHour);      // so dump out to the camp scene
     //         else
-    //             this.doNext(this, this.charCreation.newGameGo);   // not in a game, create a char randomly
+    //             this.doNext(this.charCreation.newGameGo);   // not in a game, create a char randomly
     //     }
 
 
@@ -3054,12 +3054,12 @@ Also go play <u> <a href='http://www.furaffinity.net/view/9830293/' > Nimin </a>
         this.outputText(this.images.showImage("monster-ceraph"));
 
         this.menu();
-        this.addButton(this, 0, "Event Tester", this.eventTestingPane);
-        // this.addButton(this, 1, "Test Input", this.eventTester);
-        this.addButton(this, 5, "Parser Tests", this.doThatTestingThang);
-        this.addButton(this, 6, "Halt on Errors", this.toggleHaltSettings);
-        // this.addButton(this, 3, "ChaosMonkey", this.monkeyStartConfirm)
-        this.addButton(this, 9, "Back", this.mainMenu);
+        this.addButton(0, "Event Tester", this.eventTestingPane);
+        // this.addButton(1, "Test Input", this.eventTester);
+        this.addButton(5, "Parser Tests", this.doThatTestingThang);
+        this.addButton(6, "Halt on Errors", this.toggleHaltSettings);
+        // this.addButton(3, "ChaosMonkey", this.monkeyStartConfirm)
+        this.addButton(9, "Back", this.mainMenu);
     }
 
     public toggleHaltSettings(): void {
@@ -3310,7 +3310,7 @@ convert "
 
 
         this.menu();
-        this.addButton(this, 4, "Back", this.debugPane)
+        this.addButton(4, "Back", this.debugPane)
 
     }
 
@@ -3358,7 +3358,7 @@ convert "
                     this.inCombat = false;
                     this.player.HP = 1;
                     this.statScreenRefresh();
-                    this.doNext(this, nextFunc);
+                    this.doNext(nextFunc);
                     return;
                 }
                 //Next button is handled within the minerva loss function
@@ -3372,7 +3372,7 @@ convert "
                     this.inCombat = false;
                     this.player.HP = 1;
                     this.statScreenRefresh();
-                    this.doNext(this, nextFunc);
+                    this.doNext(nextFunc);
                     return;
                 }
                 this.temp = this.rand(10) + 1 + Math.round(this.monster.level / 2);
@@ -3390,13 +3390,13 @@ convert "
                 //Bonus lewts
                 if (this.flags[kFLAGS.BONUS_ITEM_AFTER_COMBAT_ID] != "") {
                     this.outputText("  Somehow you came away from the encounter with " + ItemType.lookupItem(this.flags[kFLAGS.BONUS_ITEM_AFTER_COMBAT_ID]).longName + ".\n\n");
-                    this.inventory.takeItem(ItemType.lookupItem(this.flags[kFLAGS.BONUS_ITEM_AFTER_COMBAT_ID]), this.createCallBackFunction(this, this.camp.returnToCamp, timePasses));
+                    this.inventory.takeItem(ItemType.lookupItem(this.flags[kFLAGS.BONUS_ITEM_AFTER_COMBAT_ID]), this.createCallBackFunction(this.camp.returnToCamp, timePasses));
                 }
-                else this.doNext(this, this.createCallBackFunction(this, this.camp.returnToCamp, timePasses));
+                else this.doNext(this.createCallBackFunction(this.camp.returnToCamp, timePasses));
             }
         }
         //Not actually in combat
-        else this.doNext(this, nextFunc);
+        else this.doNext(nextFunc);
     }
 
     public approachAfterKnockback(): void {
@@ -3441,74 +3441,74 @@ convert "
         }
         if (this.player.findStatusAffect(StatusAffects.KnockedBack) >= 0) {
             this.outputText("\n<b>You'll need to close some distance before you can use any physical attacks!</b>");
-            this.addButton(this, 0, "Approach", this.approachAfterKnockback);
-            this.addButton(this, 1, "Tease", this.teaseAttack);
-            this.addButton(this, 2, "Spells", magic);
-            this.addButton(this, 3, "Items", this.inventory.inventoryMenu);
-            this.addButton(this, 4, "Run", this.runAway);
-            if (this.player.hasKeyItem("Bow") >= 0) this.addButton(this, 5, "Bow", this.fireBow);
-            this.addButton(this, 6, "M. Specials", this.magicalSpecials);
-            this.addButton(this, 7, "Wait", this.wait);
-            this.addButton(this, 8, "Fantasize", this.fantasize);
+            this.addButton(0, "Approach", this.approachAfterKnockback);
+            this.addButton(1, "Tease", this.teaseAttack);
+            this.addButton(2, "Spells", magic);
+            this.addButton(3, "Items", this.inventory.inventoryMenu);
+            this.addButton(4, "Run", this.runAway);
+            if (this.player.hasKeyItem("Bow") >= 0) this.addButton(5, "Bow", this.fireBow);
+            this.addButton(6, "M. Specials", this.magicalSpecials);
+            this.addButton(7, "Wait", this.wait);
+            this.addButton(8, "Fantasize", this.fantasize);
         }
         else if (this.player.findStatusAffect(StatusAffects.IsabellaStunned) >= 0 || this.player.findStatusAffect(StatusAffects.Stunned) >= 0) {
             this.outputText("\n<b>You're too stunned to attack!</b>  All you can do is wait and try to recover!");
-            this.addButton(this, 0, "Recover", this.wait);
+            this.addButton(0, "Recover", this.wait);
         }
         else if (this.player.findStatusAffect(StatusAffects.Whispered) >= 0) {
             this.outputText("\n<b>Your mind is too addled to focus on combat!</b>  All you can do is try and recover!");
-            this.addButton(this, 0, "Recover", this.wait);
+            this.addButton(0, "Recover", this.wait);
         }
         else if (this.player.findStatusAffect(StatusAffects.Confusion) >= 0) {
             this.outputText("\nYou're too confused about who you are to try to attack!");
-            this.addButton(this, 0, "Recover", this.wait);
+            this.addButton(0, "Recover", this.wait);
         }
         else if (this.player.findStatusAffect(StatusAffects.HarpyBind) >= 0 || this.player.findStatusAffect(StatusAffects.GooBind) >= 0 || this.player.findStatusAffect(StatusAffects.TentacleBind) >= 0 || this.player.findStatusAffect(StatusAffects.NagaBind) >= 0 || this.monster.findStatusAffect(StatusAffects.QueenBind) >= 0 || this.monster.findStatusAffect(StatusAffects.PCTailTangle) >= 0 || this.player.findStatusAffect(StatusAffects.HolliConstrict) >= 0 || this.player.findStatusAffect(StatusAffects.GooArmorBind) >= 0) {
-            this.addButton(this, 0, "Struggle", this.struggle);
-            this.addButton(this, 5, "Wait", this.wait);
+            this.addButton(0, "Struggle", this.struggle);
+            this.addButton(5, "Wait", this.wait);
         }
         else if (this.monster.findStatusAffect(StatusAffects.Constricted) >= 0) {
-            this.addButton(this, 0, "Squeeze", this.desert.nagaScene.naggaSqueeze);
-            this.addButton(this, 1, "Tease", this.desert.nagaScene.naggaTease);
-            this.addButton(this, 4, "Release", this.desert.nagaScene.nagaLeggoMyEggo);
+            this.addButton(0, "Squeeze", this.desert.nagaScene.naggaSqueeze);
+            this.addButton(1, "Tease", this.desert.nagaScene.naggaTease);
+            this.addButton(4, "Release", this.desert.nagaScene.nagaLeggoMyEggo);
         }
         else if (this.player.findStatusAffect(StatusAffects.Bound) >= 0) {
-            this.addButton(this, 0, "Struggle", (this.monster as Ceraph).ceraphBindingStruggle);
-            this.addButton(this, 5, "Wait", (this.monster as Ceraph).ceraphBoundWait);
+            this.addButton(0, "Struggle", (this.monster as Ceraph).ceraphBindingStruggle);
+            this.addButton(5, "Wait", (this.monster as Ceraph).ceraphBoundWait);
         }
         else if (this.monster.findStatusAffect(StatusAffects.MinotaurEntangled) >= 0) {
             this.outputText("\n<b>You're bound up in the minotaur lord's chains!  All you can do is try to struggle free!</b>");
-            this.addButton(this, 0, "Struggle", this.struggle);
-            this.addButton(this, 5, "Wait", this.wait);
+            this.addButton(0, "Struggle", this.struggle);
+            this.addButton(5, "Wait", this.wait);
         }
         else if (this.player.findStatusAffect(StatusAffects.UBERWEB) >= 0) {
-            this.addButton(this, 0, "Struggle", this.struggle);
-            this.addButton(this, 6, "M. Specials", this.magicalSpecials);
+            this.addButton(0, "Struggle", this.struggle);
+            this.addButton(6, "M. Specials", this.magicalSpecials);
         }
         else if (this.player.findStatusAffect(StatusAffects.Chokeslam) >= 0) {
-            this.addButton(this, 0, "Struggle", (this.monster as Izumi).chokeSlamStruggle);
-            this.addButton(this, 5, "Wait", (this.monster as Izumi).chokeSlamWait);
+            this.addButton(0, "Struggle", (this.monster as Izumi).chokeSlamStruggle);
+            this.addButton(5, "Wait", (this.monster as Izumi).chokeSlamWait);
         }
         else if (this.player.findStatusAffect(StatusAffects.Titsmother) >= 0) {
-            this.addButton(this, 0, "Struggle", (this.monster as Izumi).titSmotherStruggle);
-            this.addButton(this, 5, "Wait", (this.monster as Izumi).titSmotherWait);
+            this.addButton(0, "Struggle", (this.monster as Izumi).titSmotherStruggle);
+            this.addButton(5, "Wait", (this.monster as Izumi).titSmotherWait);
         }
         else if (this.player.findStatusAffect(StatusAffects.Tentagrappled) >= 0) {
             this.outputText("\n<b>The demonesses tentacles are constricting your limbs!</b>");
-            this.addButton(this, 0, "Struggle", (this.monster as SuccubusGardener).grappleStruggle);
-            this.addButton(this, 5, "Wait", (this.monster as SuccubusGardener).grappleWait);
+            this.addButton(0, "Struggle", (this.monster as SuccubusGardener).grappleStruggle);
+            this.addButton(5, "Wait", (this.monster as SuccubusGardener).grappleWait);
         }
         else { //REGULAR MENU
-            this.addButton(this, 0, "Attack", attacks);
-            this.addButton(this, 1, "Tease", this.teaseAttack);
-            this.addButton(this, 2, "Spells", magic);
-            this.addButton(this, 3, "Items", this.inventory.inventoryMenu);
-            this.addButton(this, 4, "Run", this.runAway);
-            this.addButton(this, 5, "P. Specials", pSpecials);
-            this.addButton(this, 6, "M. Specials", this.magicalSpecials);
-            this.addButton(this, 7, (this.monster.findStatusAffect(StatusAffects.Level) >= 0 ? "Climb" : "Wait"), this.wait);
-            this.addButton(this, 8, "Fantasize", this.fantasize);
-            if (CoC_Settings.debugBuild && !this.debug) this.addButton(this, 9, "Inspect", this.debugInspect);
+            this.addButton(0, "Attack", attacks);
+            this.addButton(1, "Tease", this.teaseAttack);
+            this.addButton(2, "Spells", magic);
+            this.addButton(3, "Items", this.inventory.inventoryMenu);
+            this.addButton(4, "Run", this.runAway);
+            this.addButton(5, "P. Specials", pSpecials);
+            this.addButton(6, "M. Specials", this.magicalSpecials);
+            this.addButton(7, (this.monster.findStatusAffect(StatusAffects.Level) >= 0 ? "Climb" : "Wait"), this.wait);
+            this.addButton(8, "Fantasize", this.fantasize);
+            if (CoC_Settings.debugBuild && !this.debug) this.addButton(9, "Inspect", this.debugInspect);
         }
     }
 
@@ -3794,13 +3794,13 @@ convert "
         if (this.player.fatigue + this.physicalCost(25) > 100) {
             this.outputText("You're too fatigued to fire the bow!");
             this.menu();
-            this.addButton(this, 0, "Next", this.combatMenu, false);
+            this.addButton(0, "Next", this.combatMenu, false);
             return;
         }
         if (this.monster.findStatusAffect(StatusAffects.BowDisabled) >= 0) {
             this.outputText("You can't use your bow right now!");
             this.menu();
-            this.addButton(this, 0, "Next", this.combatMenu, false);
+            this.addButton(0, "Next", this.combatMenu, false);
             return;
         }
         this.fatigue(25, 2);
@@ -3896,7 +3896,7 @@ convert "
             else if (this.monster.plural)
                 this.outputText(" and stagger, collapsing onto each other from the wounds you've inflicted on " + this.monster.pronoun2 + ".  (" + String(damage) + ")\n\n");
             else this.outputText(" and staggers, collapsing from the wounds you've inflicted on " + this.monster.pronoun2 + ".  (" + String(damage) + ")\n\n");
-            this.doNext(this, this.endHpVictory);
+            this.doNext(this.endHpVictory);
             return;
         }
         else this.outputText(".  It's clearly very painful. (" + String(damage) + ")\n\n");
@@ -3906,18 +3906,18 @@ convert "
     private fireBreathMenu(): void {
         this.clearOutput();
         this.outputText("Which of your special fire-breath attacks would you like to use?");
-        this.simpleChoices(this, "Akbal's", this.fireballuuuuu, "Hellfire", this.hellFire, "Dragonfire", this.dragonBreath, "", undefined, "Back", this.playerMenu);
+        this.simpleChoices("Akbal's", this.fireballuuuuu, "Hellfire", this.hellFire, "Dragonfire", this.dragonBreath, "", undefined, "Back", this.playerMenu);
     }
 
     private debugInspect(): void {
         this.outputText(this.monster.generateDebugDescription());
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //Fantasize
     public fantasize(): void {
         var temp2: number = 0;
-        this.doNext(this, this.combatMenu);
+        this.doNext(this.combatMenu);
         this.outputText("", true);
         if (this.player.armorName == "goo armor") {
             this.outputText("As you fantasize, you feel Valeria rubbing her gooey body all across your sensitive skin");
@@ -3953,7 +3953,7 @@ convert "
                 this.dynStats("lus", -25);
             }
             else {
-                this.doNext(this, this.endLustLoss);
+                this.doNext(this.endLustLoss);
                 return;
             }
         }
@@ -3965,14 +3965,14 @@ convert "
         if (this.player.fatigue + this.physicalCost(25) > 100) {
             this.outputText("You're too fatigued to use your shark-like jaws!", true);
             this.menu();
-            this.addButton(this, 0, "Next", this.combatMenu, false);
+            this.addButton(0, "Next", this.combatMenu, false);
             return;
         }
         //Worms are special
         if (this.monster.short == "worms") {
             this.outputText("There is no way those are going anywhere near your mouth!\n\n", true);
             this.menu();
-            this.addButton(this, 0, "Next", this.combatMenu, false);
+            this.addButton(0, "Next", this.combatMenu, false);
             return;
         }
         this.fatigue(25, 2);
@@ -4025,8 +4025,8 @@ convert "
             this.enemyAI();
         }
         else {
-            if (this.monster.HP <= 0) this.doNext(this, this.endHpVictory);
-            else this.doNext(this, this.endLustVictory);
+            if (this.monster.HP <= 0) this.doNext(this.endHpVictory);
+            else this.doNext(this.endLustVictory);
         }
     }
 
@@ -4108,7 +4108,7 @@ convert "
                 this.outputText("You strike at the amalgamation, crushing countless worms into goo, dealing " + this.temp + " damage.\n\n", false);
                 this.monster.HP -= this.temp;
                 if (this.monster.HP <= 0) {
-                    this.doNext(this, this.endHpVictory);
+                    this.doNext(this.endHpVictory);
                     return;
                 }
             }
@@ -4230,8 +4230,8 @@ convert "
                         this.enemyAI();
                     }
                     else {
-                        if (this.monster.HP <= 0) this.doNext(this, this.endHpVictory);
-                        else this.doNext(this, this.endLustVictory);
+                        if (this.monster.HP <= 0) this.doNext(this.endHpVictory);
+                        else this.doNext(this.endLustVictory);
                     }
                     return;
                 }
@@ -4357,8 +4357,8 @@ convert "
             this.enemyAI();
         }
         else {
-            if (this.monster.HP <= 0) this.doNext(this, this.endHpVictory);
-            else this.doNext(this, this.endLustVictory);
+            if (this.monster.HP <= 0) this.doNext(this.endHpVictory);
+            else this.doNext(this.endLustVictory);
         }
     }
     //Gore Attack - uses 15 fatigue!
@@ -4373,7 +4373,7 @@ convert "
         if (this.player.fatigue + this.physicalCost(15) > 100) {
             this.outputText("You're too fatigued to use a charge attack!");
             this.menu();
-            this.addButton(this, 0, "Next", this.combatMenu, false);
+            this.addButton(0, "Next", this.combatMenu, false);
             return;
         }
         this.fatigue(15, 2);
@@ -4456,8 +4456,8 @@ convert "
         //Victory ORRRRR enemy turn.
         if (this.monster.HP > 0 && this.monster.lust < 100) this.enemyAI();
         else {
-            if (this.monster.HP <= 0) this.doNext(this, this.endHpVictory);
-            if (this.monster.lust >= 100) this.doNext(this, this.endLustVictory);
+            if (this.monster.HP <= 0) this.doNext(this.endHpVictory);
+            if (this.monster.lust >= 100) this.doNext(this.endLustVictory);
         }
     }
     //Player sting attack
@@ -4467,7 +4467,7 @@ convert "
         //This is now automatic - newRound arg defaults to true:	menuLoc = 0;
         if (this.player.tailVenom < 33) {
             this.outputText("You do not have enough venom to sting right now!");
-            this.doNext(this, this.physicalSpecials);
+            this.doNext(this.physicalSpecials);
             return;
         }
         //Worms are immune!
@@ -4527,7 +4527,7 @@ convert "
         this.player.tailVenom -= 25;
         //Kick back to main if no damage occured!
         if (this.monster.HP > 0 && this.monster.lust < 100) this.enemyAI();
-        else this.doNext(this, this.endLustVictory);
+        else this.doNext(this.endLustVictory);
     }
 
     public combatMiss(): boolean {
@@ -4557,7 +4557,7 @@ convert "
             if(monster.findPerk(PerkLib.LastStrike) >= 0) doNext(monster.perk(monster.findPerk(PerkLib.LastStrike)).value1);
             else doNext(endHpVictory);
             */
-            this.doNext(this, this.endHpVictory);
+            this.doNext(this.endHpVictory);
         }
 
         // Uma's Massage Bonuses
@@ -4694,8 +4694,8 @@ convert "
         }
         this.monster.handleAwardText(); //Each monster can now override the default award text
         if (!this.inDungeon && !this.inRoomedDungeon)
-            this.doNext(this, this.camp.returnToCampUseOneHour);
-        else this.doNext(this, this.playerMenu);
+            this.doNext(this.camp.returnToCampUseOneHour);
+        else this.doNext(this.playerMenu);
         this.dropItem(this.monster);
         this.inCombat = false;
         this.player.gems += this.monster.gems;
@@ -4989,8 +4989,8 @@ convert "
             this.dynStats("lus", 2);
         }
         this.regeneration(true);
-        if (this.player.lust >= 100) this.doNext(this, this.endLustLoss);
-        if (this.player.HP <= 0) this.doNext(this, this.endHpLoss);
+        if (this.player.lust >= 100) this.doNext(this.endLustLoss);
+        if (this.player.HP <= 0) this.doNext(this.endHpLoss);
     }
 
     public regeneration(combat: boolean = true): void {
@@ -5037,7 +5037,7 @@ convert "
             if (this.monster.armorDef <= 10) this.monster.armorDef = 0;
             else this.monster.armorDef -= 10;
         }
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
     public startCombatImmediate(monster: Monster, _plotFight: boolean): void {
         this.startCombat(monster, _plotFight);
@@ -6618,11 +6618,11 @@ convert "
         this.statScreenRefresh();
         if (!this.inCombat) return false;
         if (this.monster.HP < 1) {
-            this.doNext(this, this.endHpVictory);
+            this.doNext(this.endHpVictory);
             return true;
         }
         if (this.monster.lust > 99) {
-            this.doNext(this, this.endLustVictory);
+            this.doNext(this.endLustVictory);
             return true;
         }
         if (this.monster.findStatusAffect(StatusAffects.Level) >= 0) {
@@ -6632,18 +6632,18 @@ convert "
             }
         }
         if (this.monster.short == "basilisk" && this.player.spe <= 1) {
-            this.doNext(this, this.endHpLoss);
+            this.doNext(this.endHpLoss);
             return true;
         }
         if (this.player.HP < 1) {
-            this.doNext(this, this.endHpLoss);
+            this.doNext(this.endHpLoss);
             return true;
         }
         if (this.player.lust > 99) {
-            this.doNext(this, this.endLustLoss);
+            this.doNext(this.endLustLoss);
             return true;
         }
-        this.doNext(this, this.playerMenu); //This takes us back to the combatMenu and a new combat round
+        this.doNext(this.playerMenu); //This takes us back to the combatMenu and a new combat round
         return false;
     }
 
@@ -6674,33 +6674,33 @@ convert "
         else {
             if (this.player.findStatusAffect(StatusAffects.KnowsCharge) >= 0) {
                 if (this.player.findStatusAffect(StatusAffects.ChargeWeapon) < 0)
-                    this.addButton(this, 0, "Charge W.", this.spellChargeWeapon);
+                    this.addButton(0, "Charge W.", this.spellChargeWeapon);
                 else this.outputText("<b>Charge weapon is already active and cannot be cast again.</b>\n\n");
             }
             if (this.player.findStatusAffect(StatusAffects.KnowsBlind) >= 0) {
                 if (this.monster.findStatusAffect(StatusAffects.Blind) < 0)
-                    this.addButton(this, 1, "Blind", this.spellBlind);
+                    this.addButton(1, "Blind", this.spellBlind);
                 else this.outputText("<b>" + this.monster.capitalA + this.monster.short + " is already affected by blind.</b>\n\n");
             }
-            if (this.player.findStatusAffect(StatusAffects.KnowsWhitefire) >= 0) this.addButton(this, 2, "Whitefire", this.spellWhitefire);
+            if (this.player.findStatusAffect(StatusAffects.KnowsWhitefire) >= 0) this.addButton(2, "Whitefire", this.spellWhitefire);
         }
         //BLACK MAGICSKS
         if (this.player.lust < 50)
             this.outputText("You aren't turned on enough to use any black magics.\n\n");
         else {
-            if (this.player.findStatusAffect(StatusAffects.KnowsArouse) >= 0) this.addButton(this, 5, "Arouse", this.spellArouse);
-            if (this.player.findStatusAffect(StatusAffects.KnowsHeal) >= 0) this.addButton(this, 6, "Heal", this.spellHeal);
+            if (this.player.findStatusAffect(StatusAffects.KnowsArouse) >= 0) this.addButton(5, "Arouse", this.spellArouse);
+            if (this.player.findStatusAffect(StatusAffects.KnowsHeal) >= 0) this.addButton(6, "Heal", this.spellHeal);
             if (this.player.findStatusAffect(StatusAffects.KnowsMight) >= 0) {
                 if (this.player.findStatusAffect(StatusAffects.Might) < 0)
-                    this.addButton(this, 7, "Might", this.spellMight);
+                    this.addButton(7, "Might", this.spellMight);
                 else this.outputText("<b>You are already under the effects of Might and cannot cast it again.</b>\n\n");
             }
         }
         // JOJO ABILITIES -- kind makes sense to stuff it in here along side the white magic shit (also because it can't fit into M. Specials :|
         if (this.player.findPerk(PerkLib.CleansingPalm) >= 0 && this.player.cor < 10) {
-            this.addButton(this, 3, "C.Palm", this.spellCleansingPalm);
+            this.addButton(3, "C.Palm", this.spellCleansingPalm);
         }
-        this.addButton(this, 9, "Back", this.combatMenu, false);
+        this.addButton(9, "Back", this.combatMenu, false);
     }
 
     public spellMod(): number {
@@ -6718,10 +6718,10 @@ convert "
     public spellArouse(): void {
         if (this.player.findPerk(PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(15) > 100) {
             this.outputText("You are too tired to cast this spell.", true);
-            this.doNext(this, this.magicMenu);
+            this.doNext(this.magicMenu);
             return;
         }
-        this.doNext(this, this.combatMenu);
+        this.doNext(this.combatMenu);
         //This is now automatic - newRound arg defaults to true:	menuLoc = 0;
         this.fatigue(15, 1);
         this.statScreenRefresh();
@@ -6739,8 +6739,8 @@ convert "
             this.outputText("\n\n", false);
             this.flags[kFLAGS.SPELLS_CAST]++;
             this.spellPerkUnlock();
-            this.doNext(this, this.playerMenu);
-            if (this.monster.lust >= 100) this.doNext(this, this.endLustVictory);
+            this.doNext(this.playerMenu);
+            if (this.monster.lust >= 100) this.doNext(this.endLustVictory);
             else this.enemyAI();
             return;
         }
@@ -6784,20 +6784,20 @@ convert "
             }
         }
         this.outputText("\n\n", false);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
         this.flags[kFLAGS.SPELLS_CAST]++;
         this.spellPerkUnlock();
-        if (this.monster.lust >= 100) this.doNext(this, this.endLustVictory);
+        if (this.monster.lust >= 100) this.doNext(this.endLustVictory);
         else this.enemyAI();
         return;
     }
     public spellHeal(): void {
         if (this.player.findPerk(PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(20) > 100) {
             this.outputText("You are too tired to cast this spell.", true);
-            this.doNext(this, this.magicMenu);
+            this.doNext(this.magicMenu);
             return;
         }
-        this.doNext(this, this.combatMenu);
+        this.doNext(this.combatMenu);
         //This is now automatic - newRound arg defaults to true:	menuLoc = 0;
         this.fatigue(20, 1);
         this.outputText("You focus on your body and its desire to end pain, trying to draw on your arousal without enhancing it.\n", true);
@@ -6823,7 +6823,7 @@ convert "
         this.statScreenRefresh();
         this.flags[kFLAGS.SPELLS_CAST]++;
         this.spellPerkUnlock();
-        if (this.player.lust >= 100) this.doNext(this, this.endLustLoss);
+        if (this.player.lust >= 100) this.doNext(this.endLustLoss);
         else this.enemyAI();
         return;
     }
@@ -6834,10 +6834,10 @@ convert "
     public spellMight(): void {
         if (this.player.findPerk(PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(25) > 100) {
             this.outputText("You are too tired to cast this spell.", true);
-            this.doNext(this, this.magicMenu);
+            this.doNext(this.magicMenu);
             return;
         }
-        this.doNext(this, this.combatMenu);
+        this.doNext(this.combatMenu);
         //This is now automatic - newRound arg defaults to true:	menuLoc = 0;
         this.fatigue(25, 1);
         var tempStr: number = 0;
@@ -6880,7 +6880,7 @@ convert "
         this.statScreenRefresh();
         this.flags[kFLAGS.SPELLS_CAST]++;
         this.spellPerkUnlock();
-        if (this.player.lust >= 100) this.doNext(this, this.endLustLoss);
+        if (this.player.lust >= 100) this.doNext(this.endLustLoss);
         else this.enemyAI();
         return;
     }
@@ -6889,10 +6889,10 @@ convert "
     public spellChargeWeapon(): void {
         if (this.player.findPerk(PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(15) > 100) {
             this.outputText("You are too tired to cast this spell.", true);
-            this.doNext(this, this.magicMenu);
+            this.doNext(this.magicMenu);
             return;
         }
-        this.doNext(this, this.combatMenu);
+        this.doNext(this.combatMenu);
         //This is now automatic - newRound arg defaults to true:	menuLoc = 0;
         this.fatigue(15, 1);
         this.outputText("You utter words of power, summoning an electrical charge around your " + this.player.weaponName + ".  It crackles loudly, ensuring you'll do more damage with it for the rest of the fight.\n\n", true);
@@ -6907,10 +6907,10 @@ convert "
         this.outputText("", true);
         if (this.player.findPerk(PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(20) > 100) {
             this.outputText("You are too tired to cast this spell.", true);
-            this.doNext(this, this.magicMenu);
+            this.doNext(this.magicMenu);
             return;
         }
-        this.doNext(this, this.combatMenu);
+        this.doNext(this.combatMenu);
         //This is now automatic - newRound arg defaults to true:	menuLoc = 0;
         this.fatigue(20, 1);
         if (this.monster.findStatusAffect(StatusAffects.Shell) >= 0) {
@@ -6942,7 +6942,7 @@ convert "
 
             this.flags[kFLAGS.SPELLS_CAST]++;
             this.spellPerkUnlock();
-            if (this.monster.HP < 1) this.doNext(this, this.endHpVictory);
+            if (this.monster.HP < 1) this.doNext(this.endHpVictory);
             else this.enemyAI();
             return;
         }
@@ -6976,10 +6976,10 @@ convert "
         this.outputText("", true);
         if (this.player.findPerk(PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(30) > 100) {
             this.outputText("You are too tired to cast this spell.", true);
-            this.doNext(this, this.magicMenu);
+            this.doNext(this.magicMenu);
             return;
         }
-        this.doNext(this, this.combatMenu);
+        this.doNext(this.combatMenu);
         //This is now automatic - newRound arg defaults to true:	menuLoc = 0;
         this.fatigue(30, 1);
         if (this.monster.findStatusAffect(StatusAffects.Shell) >= 0) {
@@ -7010,7 +7010,7 @@ convert "
         this.spellPerkUnlock();
         this.monster.HP -= this.temp;
         this.statScreenRefresh();
-        if (this.monster.HP < 1) this.doNext(this, this.endHpVictory);
+        if (this.monster.HP < 1) this.doNext(this.endHpVictory);
         else this.enemyAI();
     }
 
@@ -7018,10 +7018,10 @@ convert "
         this.clearOutput();
         if (this.player.findPerk(PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(30) > 100) {
             this.outputText("You are too tired to cast this spell.", true);
-            this.doNext(this, this.magicMenu);
+            this.doNext(this.magicMenu);
             return;
         }
-        this.doNext(this, this.combatMenu);
+        this.doNext(this.combatMenu);
         //This is now automatic - newRound arg defaults to true:	menuLoc = 0;
         this.fatigue(30, 1);
         if (this.monster.findStatusAffect(StatusAffects.Shell) >= 0) {
@@ -7073,7 +7073,7 @@ convert "
         this.spellPerkUnlock();
         this.monster.HP -= this.temp;
         this.statScreenRefresh();
-        if (this.monster.HP < 1) this.doNext(this, this.endHpVictory);
+        if (this.monster.HP < 1) this.doNext(this.endHpVictory);
         else this.enemyAI();
     }
 
@@ -7099,7 +7099,7 @@ convert "
         this.outputText("", true);
         if (this.player.findPerk(PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(20) > 100) {
             this.outputText("You are too tired to breathe fire.\n", true);
-            this.doNext(this, this.combatMenu);
+            this.doNext(this.combatMenu);
             return;
         }
         //This is now automatic - newRound arg defaults to true:	menuLoc = 0;
@@ -7169,10 +7169,10 @@ convert "
         this.outputText("\n", false);
         if (this.monster.short == "Holli" && this.monster.findStatusAffect(StatusAffects.HolliBurning) < 0) (this.monster as Holli).lightHolliOnFireMagically();
         if (this.monster.HP < 1) {
-            this.doNext(this, this.endHpVictory);
+            this.doNext(this.endHpVictory);
         }
         else if (this.monster.lust >= 99) {
-            this.doNext(this, this.endLustVictory);
+            this.doNext(this.endLustVictory);
         }
         else this.enemyAI();
     }
@@ -7182,7 +7182,7 @@ convert "
         if (this.player.fatigue + this.physicalCost(15) > 100) {
             this.outputText("You're too fatigued to use a charge attack!", true);
             this.menu();
-            this.addButton(this, 0, "Next", this.combatMenu, false);
+            this.addButton(0, "Next", this.combatMenu, false);
             return;
         }
         this.fatigue(15, 2);
@@ -7224,7 +7224,7 @@ convert "
                 this.outputText("You strike at the amalgamation, crushing countless worms into goo, dealing " + this.temp + " damage.\n\n", false);
                 this.monster.HP -= this.temp;
                 if (this.monster.HP <= 0) {
-                    this.doNext(this, this.endHpVictory);
+                    this.doNext(this.endHpVictory);
                     return;
                 }
             }
@@ -7301,7 +7301,7 @@ convert "
         //Keep logic sane if this attack brings victory
         if (this.player.tailVenom < 33) {
             this.outputText("You do not have enough webbing to shoot right now!", true);
-            this.doNext(this, this.physicalSpecials);
+            this.doNext(this.physicalSpecials);
             return;
         }
         this.player.tailVenom -= 33;
@@ -7348,7 +7348,7 @@ convert "
             //Pass false to combatMenu instead:		menuLoc = 1;
             //		doNext(combatMenu);
             this.menu();
-            this.addButton(this, 0, "Next", this.combatMenu, false);
+            this.addButton(0, "Next", this.combatMenu, false);
             return;
         }
         this.fatigue(10, 2);
@@ -7394,7 +7394,7 @@ convert "
             //Pass false to combatMenu instead:		menuLoc = 1;
             //		doNext(combatMenu);
             this.menu();
-            this.addButton(this, 0, "Next", this.combatMenu, false);
+            this.addButton(0, "Next", this.combatMenu, false);
             return;
         }
         this.fatigue(10, 2);
@@ -7442,12 +7442,12 @@ convert "
         this.outputText("", true);
         if (this.player.findPerk(PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(10) > 100) {
             this.outputText("You are too tired to focus this ability.", true);
-            this.doNext(this, this.combatMenu);
+            this.doNext(this.combatMenu);
             return;
         }
         if (this.player.findStatusAffect(StatusAffects.ThroatPunch) >= 0 || this.player.findStatusAffect(StatusAffects.WebSilence) >= 0) {
             this.outputText("You cannot focus to reach the enemy's mind while you're having so much difficult breathing.", true);
-            this.doNext(this, this.combatMenu);
+            this.doNext(this.combatMenu);
             return;
         }
         if (this.monster.short == "pod" || this.monster.inte == 0) {
@@ -7501,13 +7501,13 @@ convert "
         this.clearOutput();
         if (this.player.findPerk(PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(20) > 100) {
             this.outputText("You are too tired to breathe fire.", true);
-            this.doNext(this, this.combatMenu);
+            this.doNext(this.combatMenu);
             return;
         }
         //Not Ready Yet:
         if (this.player.findStatusAffect(StatusAffects.DragonBreathCooldown) >= 0) {
             this.outputText("You try to tap into the power within you, but your burning throat reminds you that you're not yet ready to unleash it again...");
-            this.doNext(this, this.combatMenu);
+            this.doNext(this.combatMenu);
             return;
         }
         //This is now automatic - newRound arg defaults to true:	menuLoc = 0;
@@ -7592,7 +7592,7 @@ convert "
         this.outputText("", true);
         if (this.player.fatigue + 20 > 100) {
             this.outputText("You are too tired to breathe fire.", true);
-            this.doNext(this, this.combatMenu);
+            this.doNext(this.combatMenu);
             return;
         }
         //This is now automatic - newRound arg defaults to true:	menuLoc = 0;
@@ -7676,7 +7676,7 @@ convert "
             if (this.monster.short == "Holli" && this.monster.findStatusAffect(StatusAffects.HolliBurning) < 0) (this.monster as Holli).lightHolliOnFireMagically();
         }
         if (this.monster.HP < 1) {
-            this.doNext(this, this.endHpVictory);
+            this.doNext(this.endHpVictory);
         }
         else this.enemyAI();
     }
@@ -7685,7 +7685,7 @@ convert "
         if (this.player.findStatusAffect(StatusAffects.Blind) >= 0) {
             this.outputText("There's no way you'd be able to find their lips while you're blind!", true);
             //Pass false to combatMenu instead:		menuLoc = 3;
-            this.doNext(this, this.physicalSpecials);
+            this.doNext(this.physicalSpecials);
             return;
         }
         this.outputText("", true);
@@ -7826,7 +7826,7 @@ convert "
             //Pass false to combatMenu instead:		menuLoc = 3;
             //		doNext(combatMenu);
             this.menu();
-            this.addButton(this, 0, "Next", this.combatMenu, false);
+            this.addButton(0, "Next", this.combatMenu, false);
             return;
         }
         if (this.monster.findStatusAffect(StatusAffects.Level) >= 0 && this.player.canFly()) {
@@ -7834,7 +7834,7 @@ convert "
             this.outputText("You flex the muscles in your back and, shaking clear of the sand, burst into the air!  Wasting no time you fly free of the sandtrap and its treacherous pit.  \"One day your wings will fall off, little ant,\" the snarling voice of the thwarted androgyne carries up to you as you make your escape.  \"And I will be waiting for you when they do!\"");
             this.inCombat = false;
             this.clearStatuses(false);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         if (this.monster.findStatusAffect(StatusAffects.GenericRunDisabled) >= 0 || this.urtaQuest.isUrta()) {
@@ -7842,7 +7842,7 @@ convert "
             //Pass false to combatMenu instead:		menuLoc = 3;
             //		doNext(combatMenu);
             this.menu();
-            this.addButton(this, 0, "Next", this.combatMenu, false);
+            this.addButton(0, "Next", this.combatMenu, false);
             return;
         }
         if (this.monster.findStatusAffect(StatusAffects.Level) >= 0 && this.monster.statusAffectv1(StatusAffects.Level) < 4) {
@@ -7850,7 +7850,7 @@ convert "
             //Pass false to combatMenu instead:		menuLoc = 3;
             //		doNext(combatMenu);
             this.menu();
-            this.addButton(this, 0, "Next", this.combatMenu, false);
+            this.addButton(0, "Next", this.combatMenu, false);
             return;
         }
         if (this.monster.findStatusAffect(StatusAffects.RunDisabled) >= 0) {
@@ -7858,7 +7858,7 @@ convert "
             //Pass false to combatMenu instead:		menuLoc = 3;
             //		doNext(combatMenu);
             this.menu();
-            this.addButton(this, 0, "Next", this.combatMenu, false);
+            this.addButton(0, "Next", this.combatMenu, false);
             return;
         }
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00329] == 1 && (this.monster.short == "minotaur gang" || this.monster.short == "minotaur tribe")) {
@@ -7867,7 +7867,7 @@ convert "
             this.outputText("You slink away while the pack of brutes is arguing.  Once they finish that argument, they'll be sorely disappointed!", true);
             this.inCombat = false;
             this.clearStatuses(false);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         else if (this.monster.short == "minotaur tribe" && this.monster.HPRatio() >= 0.75) {
@@ -7875,7 +7875,7 @@ convert "
             //Pass false to combatMenu instead:		menuLoc = 3;
             //		doNext(combatMenu);
             this.menu();
-            this.addButton(this, 0, "Next", this.combatMenu, false);
+            this.addButton(0, "Next", this.combatMenu, false);
             return;
         }
         if (this.inDungeon || this.inRoomedDungeon) {
@@ -7927,7 +7927,7 @@ convert "
                 this.outputText("Marshalling your thoughts, you frown at the strange girl and turn to march up the beach.  After twenty paces inshore you turn back to look at her again.  The anemone is clearly crestfallen by your departure, pouting heavily as she sinks beneath the water's surface.", true);
                 this.inCombat = false;
                 this.clearStatuses(false);
-                this.doNext(this, this.camp.returnToCampUseOneHour);
+                this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
             //Speed dependent
@@ -7937,7 +7937,7 @@ convert "
                     this.inCombat = false;
                     this.clearStatuses(false);
                     this.outputText("Marshalling your thoughts, you frown at the strange girl and turn to march up the beach.  After twenty paces inshore you turn back to look at her again.  The anemone is clearly crestfallen by your departure, pouting heavily as she sinks beneath the water's surface.", true);
-                    this.doNext(this, this.camp.returnToCampUseOneHour);
+                    this.doNext(this.camp.returnToCampUseOneHour);
                     return;
                 }
                 //Run failed:
@@ -7960,7 +7960,7 @@ convert "
                 this.outputText("\n\nNot to be outdone, you call back, \"Sucks to you!  If even the mighty Last Ember of Hope can't catch me, why do I need to train?  Later, little bird!\"");
                 this.inCombat = false;
                 this.clearStatuses(false);
-                this.doNext(this, this.camp.returnToCampUseOneHour);
+                this.doNext(this.camp.returnToCampUseOneHour);
             }
             //Fail: 
             else {
@@ -7984,7 +7984,7 @@ convert "
             }
             this.inCombat = false;
             this.clearStatuses(false);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         //Runner perk chance
@@ -7995,7 +7995,7 @@ convert "
                 this.outputText("\n\nAs you leave the tigershark behind, her taunting voice rings out after you.  \"<i>Oooh, look at that fine backside!  Are you running or trying to entice me?  Haha, looks like we know who's the superior specimen now!  Remember: next time we meet, you owe me that ass!</i>\"  Your cheek tingles in shame at her catcalls.", false);
             }
             this.clearStatuses(false);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         //FAIL FLEE
@@ -8101,7 +8101,7 @@ convert "
         }
         //New lines and moving on!
         this.outputText("\n\n", false);
-        this.doNext(this, this.combatMenu);
+        this.doNext(this.combatMenu);
         if (!this.combatRoundOver()) this.enemyAI();
     }
 
@@ -8117,35 +8117,35 @@ convert "
 
         //Berserk
         if (this.player.findPerk(PerkLib.Berzerker) >= 0) {
-            this.addButton(this, 0, "Berzerk", this.berzerk);
+            this.addButton(0, "Berzerk", this.berzerk);
         }
         if (this.player.findPerk(PerkLib.Dragonfire) >= 0) {
-            this.addButton(this, 1, "DragonFire", this.dragonBreath);
+            this.addButton(1, "DragonFire", this.dragonBreath);
         }
         if (this.player.findPerk(PerkLib.FireLord) >= 0) {
-            this.addButton(this, 2, "Fire Breath", this.fireballuuuuu);
+            this.addButton(2, "Fire Breath", this.fireballuuuuu);
         }
         if (this.player.findPerk(PerkLib.Hellfire) >= 0) {
-            this.addButton(this, 3, "Hellfire", this.hellFire);
+            this.addButton(3, "Hellfire", this.hellFire);
         }
         //Possess ability.
         if (this.player.findPerk(PerkLib.Incorporeality) >= 0) {
-            this.addButton(this, 4, "Possess", this.possess);
+            this.addButton(4, "Possess", this.possess);
         }
         if (this.player.findPerk(PerkLib.Whispered) >= 0) {
-            this.addButton(this, 5, "Whisper", this.superWhisperAttack);
+            this.addButton(5, "Whisper", this.superWhisperAttack);
         }
         if (this.player.findPerk(PerkLib.CorruptedNinetails) >= 0) {
-            this.addButton(this, 6, "C.FoxFire", this.corruptedFoxFire);
-            this.addButton(this, 7, "Terror", this.kitsuneTerror);
+            this.addButton(6, "C.FoxFire", this.corruptedFoxFire);
+            this.addButton(7, "Terror", this.kitsuneTerror);
         }
         if (this.player.findPerk(PerkLib.EnlightenedNinetails) >= 0) {
-            this.addButton(this, 6, "FoxFire", this.foxFire);
-            this.addButton(this, 7, "Illusion", this.kitsuneIllusion);
+            this.addButton(6, "FoxFire", this.foxFire);
+            this.addButton(7, "Illusion", this.kitsuneIllusion);
         }
-        if (this.player.findStatusAffect(StatusAffects.ShieldingSpell) >= 0) this.addButton(this, 8, "Shielding", this.shieldingSpell);
-        if (this.player.findStatusAffect(StatusAffects.ImmolationSpell) >= 0) this.addButton(this, 8, "Immolation", this.immolationSpell);
-        this.addButton(this, 9, "Back", this.combatMenu, false);
+        if (this.player.findStatusAffect(StatusAffects.ShieldingSpell) >= 0) this.addButton(8, "Shielding", this.shieldingSpell);
+        if (this.player.findStatusAffect(StatusAffects.ImmolationSpell) >= 0) this.addButton(8, "Immolation", this.immolationSpell);
+        this.addButton(9, "Back", this.combatMenu, false);
     }
 
     public physicalSpecials(): void {
@@ -8162,65 +8162,65 @@ convert "
         }
         this.menu();
         if (this.player.hairType == 4) {
-            this.addButton(this, 0, "AnemoneSting", this.anemoneSting);
+            this.addButton(0, "AnemoneSting", this.anemoneSting);
         }
         //Bitez
         if (this.player.faceType == CoC.FACE_SHARK_TEETH) {
-            this.addButton(this, 1, "Bite", this.bite);
+            this.addButton(1, "Bite", this.bite);
         }
         else if (this.player.faceType == CoC.FACE_SNAKE_FANGS) {
-            this.addButton(this, 1, "Bite", this.nagaBiteAttack);
+            this.addButton(1, "Bite", this.nagaBiteAttack);
         }
         else if (this.player.faceType == CoC.FACE_SPIDER_FANGS) {
-            this.addButton(this, 1, "Bite", this.spiderBiteAttack);
+            this.addButton(1, "Bite", this.spiderBiteAttack);
         }
         //Bow attack
         if (this.player.hasKeyItem("Bow") >= 0) {
-            this.addButton(this, 2, "Bow", this.fireBow);
+            this.addButton(2, "Bow", this.fireBow);
         }
         //Constrict
         if (this.player.lowerBody == CoC.LOWER_BODY_TYPE_NAGA) {
-            this.addButton(this, 3, "Constrict", this.desert.nagaScene.nagaPlayerConstrict);
+            this.addButton(3, "Constrict", this.desert.nagaScene.nagaPlayerConstrict);
         }
         //Kick attackuuuu
         else if (this.player.isTaur() || this.player.lowerBody == CoC.LOWER_BODY_TYPE_HOOFED || this.player.lowerBody == CoC.LOWER_BODY_TYPE_BUNNY || this.player.lowerBody == CoC.LOWER_BODY_TYPE_KANGAROO) {
-            this.addButton(this, 3, "Kick", this.kick);
+            this.addButton(3, "Kick", this.kick);
         }
         //Gore if mino horns
         if (this.player.hornType == CoC.HORNS_COW_MINOTAUR && this.player.horns >= 6) {
-            this.addButton(this, 4, "Gore", this.goreAttack);
+            this.addButton(4, "Gore", this.goreAttack);
         }
         //Infest if infested
         if (this.player.findStatusAffect(StatusAffects.Infested) >= 0 && this.player.statusAffectv1(StatusAffects.Infested) == 5 && this.player.hasCock()) {
-            this.addButton(this, 5, "Infest", this.playerInfest);
+            this.addButton(5, "Infest", this.playerInfest);
         }
         //Kiss supercedes bite.
         if (this.player.findStatusAffect(StatusAffects.LustStickApplied) >= 0) {
-            this.addButton(this, 6, "Kiss", this.kissAttack);
+            this.addButton(6, "Kiss", this.kissAttack);
         }
         switch (this.player.tailType) {
             case CoC.TAIL_TYPE_BEE_ABDOMEN:
-                this.addButton(this, 7, "Sting", this.playerStinger);
+                this.addButton(7, "Sting", this.playerStinger);
                 break;
             case CoC.TAIL_TYPE_SPIDER_ADBOMEN:
-                this.addButton(this, 7, "Web", this.PCWebAttack);
+                this.addButton(7, "Web", this.PCWebAttack);
                 break;
             case CoC.TAIL_TYPE_SHARK:
             case CoC.TAIL_TYPE_LIZARD:
             case CoC.TAIL_TYPE_KANGAROO:
             case CoC.TAIL_TYPE_DRACONIC:
             case CoC.TAIL_TYPE_RACCOON:
-                this.addButton(this, 7, "Tail Whip", this.tailWhipAttack);
+                this.addButton(7, "Tail Whip", this.tailWhipAttack);
             default:
         }
-        this.addButton(this, 9, "Back", this.combatMenu, false);
+        this.addButton(9, "Back", this.combatMenu, false);
     }
 
     public berzerk(): void {
         this.clearOutput();
         if (this.player.findStatusAffect(StatusAffects.Berzerking) >= 0) {
             this.outputText("You're already pretty goddamn mad!", true);
-            this.doNext(this, this.magicalSpecials);
+            this.doNext(this.magicalSpecials);
             return;
         }
         //This is now automatic - newRound arg defaults to true:	menuLoc = 0;
@@ -8234,12 +8234,12 @@ convert "
         this.clearOutput();
         if (this.player.findPerk(PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(35) > 100) {
             this.outputText("You are too tired to use this ability.", true);
-            this.doNext(this, this.magicalSpecials);
+            this.doNext(this.magicalSpecials);
             return;
         }
         if (this.player.findStatusAffect(StatusAffects.ThroatPunch) >= 0 || this.player.findStatusAffect(StatusAffects.WebSilence) >= 0) {
             this.outputText("You cannot focus to use this ability while you're having so much difficult breathing.", true);
-            this.doNext(this, this.magicalSpecials);
+            this.doNext(this.magicalSpecials);
             return;
         }
         //This is now automatic - newRound arg defaults to true:	menuLoc = 0;
@@ -8260,7 +8260,7 @@ convert "
         dmg = this.doDamage(dmg);
         this.outputText("  (" + dmg + ")\n\n", false);
         this.statScreenRefresh();
-        if (this.monster.HP < 1) this.doNext(this, this.endHpVictory);
+        if (this.monster.HP < 1) this.doNext(this.endHpVictory);
         else this.enemyAI();
     }
     //Fox Fire
@@ -8268,12 +8268,12 @@ convert "
         this.clearOutput();
         if (this.player.findPerk(PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(35) > 100) {
             this.outputText("You are too tired to use this ability.", true);
-            this.doNext(this, this.magicalSpecials);
+            this.doNext(this.magicalSpecials);
             return;
         }
         if (this.player.findStatusAffect(StatusAffects.ThroatPunch) >= 0 || this.player.findStatusAffect(StatusAffects.WebSilence) >= 0) {
             this.outputText("You cannot focus to use this ability while you're having so much difficult breathing.", true);
-            this.doNext(this, this.magicalSpecials);
+            this.doNext(this.magicalSpecials);
             return;
         }
         //This is now automatic - newRound arg defaults to true:	menuLoc = 0;
@@ -8298,7 +8298,7 @@ convert "
         dmg = this.doDamage(dmg);
         this.outputText("  (" + dmg + ")\n\n", false);
         this.statScreenRefresh();
-        if (this.monster.HP < 1) this.doNext(this, this.endHpVictory);
+        if (this.monster.HP < 1) this.doNext(this.endHpVictory);
         else this.enemyAI();
     }
 
@@ -8308,7 +8308,7 @@ convert "
         //Fatigue Cost: 25
         if (this.player.findPerk(PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(20) > 100) {
             this.outputText("You are too tired to use this ability.", true);
-            this.doNext(this, this.magicalSpecials);
+            this.doNext(this.magicalSpecials);
             return;
         }
         if (this.monster.findStatusAffect(StatusAffects.Shell) >= 0) {
@@ -8318,7 +8318,7 @@ convert "
         }
         if (this.player.findStatusAffect(StatusAffects.ThroatPunch) >= 0 || this.player.findStatusAffect(StatusAffects.WebSilence) >= 0) {
             this.outputText("You cannot focus to reach the enemy's mind while you're having so much difficult breathing.", true);
-            this.doNext(this, this.magicalSpecials);
+            this.doNext(this.magicalSpecials);
             return;
         }
         if (this.monster.short == "pod" || this.monster.inte == 0) {
@@ -8348,12 +8348,12 @@ convert "
         //Fatigue Cost: 25
         if (this.player.findPerk(PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(25) > 100) {
             this.outputText("You are too tired to use this ability.", true);
-            this.doNext(this, this.magicalSpecials);
+            this.doNext(this.magicalSpecials);
             return;
         }
         if (this.player.findStatusAffect(StatusAffects.ThroatPunch) >= 0 || this.player.findStatusAffect(StatusAffects.WebSilence) >= 0) {
             this.outputText("You cannot focus to use this ability while you're having so much difficult breathing.", true);
-            this.doNext(this, this.magicalSpecials);
+            this.doNext(this.magicalSpecials);
             return;
         }
         if (this.monster.short == "pod" || this.monster.inte == 0) {
@@ -8439,7 +8439,7 @@ convert "
 
     public playerMenu(): void {
         if (!this.inCombat) this.spriteSelect(- 1);
-        this.mainView.setMenuButton(MainView.MENU_NEW_MAIN, "New Game", () => this.charCreation.newGameGo());
+        this.mainView.setMenuButton(MainView.MENU_NEW_MAIN, "New Game", this.charCreation.newGameGo);
         // this.mainView.nameBox.visible = false;
         if (this.gameState == 1 || this.gameState == 2) {
             this.combatMenu();
@@ -8456,7 +8456,7 @@ convert "
             return;
         }
         this.flags[kFLAGS.PLAYER_PREGGO_WITH_WORMS] = 0;
-        CoC.doCamp.call(this);
+        CoC.doCamp();
     }
 
     /* All calls replaced by calls to playerMenu
@@ -8517,15 +8517,15 @@ convert "
 
     public gameOver(clear: boolean = false): void { //Leaves text on screen unless clear is set to true
         if (this.testingBlockExiting) {
-            this.doNext(this, this.camp.returnToCampUseOneHour); //Prevent ChaosMonkah instances from getting stuck
+            this.doNext(this.camp.returnToCampUseOneHour); //Prevent ChaosMonkah instances from getting stuck
         }
         else {
             if (clear) this.clearOutput();
             this.outputText("\n\n<b>GAME OVER</b>");
             this.menu();
-            this.addButton(this, 0, "Game Over", this.gameOverMenuOverride);
-            this.addButton(this, 3, "NewGamePlus", this.charCreation.newGamePlus);
-            if (this.flags[kFLAGS.EASY_MODE_ENABLE_FLAG] == 1 || this.debug) this.addButton(this, 4, "Debug Cheat", this.playerMenu);
+            this.addButton(0, "Game Over", this.gameOverMenuOverride);
+            this.addButton(3, "NewGamePlus", this.charCreation.newGamePlus);
+            if (this.flags[kFLAGS.EASY_MODE_ENABLE_FLAG] == 1 || this.debug) this.addButton(4, "Debug Cheat", this.playerMenu);
             this.gameOverMenuOverride();
 
         }
@@ -8901,7 +8901,7 @@ convert "
             this.rawOutputText(" (including the above stack trace copy&pasted into the details),");
         this.rawOutputText(" to make tracking the issue down easier. Thanks!");
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Argument is time passed.  Pass to event parser if nothing happens.
@@ -8964,7 +8964,7 @@ convert "
                 else if (this.temp > this.rand(100) && this.player.findStatusAffect(StatusAffects.DefenseCanopy) < 0) {
                     if (this.player.gender > 0 && (this.player.findStatusAffect(StatusAffects.JojoNightWatch) < 0 || this.player.findStatusAffect(StatusAffects.PureCampJojo) < 0) && (this.flags[kFLAGS.HEL_GUARDING] == 0 || !this.helFollower.followerHel()) && this.flags[kFLAGS.ANEMONE_WATCH] == 0 && (this.flags[kFLAGS.HOLLI_DEFENSE_ON] == 0 || this.flags[kFLAGS.FUCK_FLOWER_KILLED] > 0) && (this.flags[kFLAGS.KIHA_CAMP_WATCH] == 0 || !this.kihaFollower.followerKiha())) {
                         this.impScene.impGangabangaEXPLOSIONS();
-                        this.doNext(this, this.playerMenu);
+                        this.doNext(this.playerMenu);
                         return true;
                     }
                     else if (this.flags[kFLAGS.KIHA_CAMP_WATCH] > 0 && this.kihaFollower.followerKiha()) {
@@ -9205,7 +9205,7 @@ convert "
         }
         this.statScreenRefresh();
         if (needNext) {
-            this.doNext(this, this.playerMenu);
+            this.doNext(this.playerMenu);
             return true;
         }
         this.playerMenu();
@@ -9390,7 +9390,7 @@ We can also do * italic * and ** bold ** text!
     //     ]]>`;
 
     //     ;
-    //     this.simpleChoices(this, "Proceed", this.eventTesterGo, "", undefined, "", undefined, "", undefined, "Back", this.eventTesterExit);
+    //     this.simpleChoices("Proceed", this.eventTesterGo, "", undefined, "", undefined, "", undefined, "Back", this.eventTesterExit);
     // }
 
     // public eventTesterGo(): void {
@@ -9403,7 +9403,7 @@ We can also do * italic * and ** bold ** text!
     //     this.menu();
     //     this.outputText(temp, true, true);
 
-    //     this.addButton(this, 9, "Back", this.eventTester)
+    //     this.addButton(9, "Back", this.eventTester)
     //     this.flushOutputTextToGUI();
     //     // simpleChoices("Change Text",eventTester,"",0,"",0,"",0,"Exit",eventTesterExit);
     //     return;
@@ -9635,13 +9635,13 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n<b>You have " + this.num2Text(this.player.perkPoints) + " perk point", false);
             if (this.player.perkPoints > 1) this.outputText("s", false);
             this.outputText(" to spend.</b>", false);
-            this.addButton(this, 1, "Perk Up", this.perkBuyMenu);
+            this.addButton(1, "Perk Up", this.perkBuyMenu);
         }
         if (this.player.findPerk(PerkLib.DoubleAttack) >= 0) {
             this.outputText("\n<b>You can adjust your double attack settings.</b>");
-            this.addButton(this, 2, "Dbl Options", this.doubleAttackOptions);
+            this.addButton(2, "Dbl Options", this.doubleAttackOptions);
         }
-        this.addButton(this, 0, "Next", this.playerMenu);
+        this.addButton(0, "Next", this.playerMenu);
     }
 
     public doubleAttackOptions(): void {
@@ -9651,24 +9651,24 @@ We can also do * italic * and ** bold ** text!
             this.outputText("You will currently always double attack in combat.  If your strength exceeds sixty, your double-attacks will be done at sixty strength in order to double-attack.");
             this.outputText("\n\nYou can change it to double attack until sixty strength and then dynamicly switch to single attacks.");
             this.outputText("\nYou can change it to always single attack.");
-            this.addButton(this, 1, "Dynamic", this.doubleAttackDynamic);
-            this.addButton(this, 2, "Single", this.doubleAttackOff);
+            this.addButton(1, "Dynamic", this.doubleAttackDynamic);
+            this.addButton(2, "Single", this.doubleAttackOff);
         }
         else if (this.flags[kFLAGS.DOUBLE_ATTACK_STYLE] == 1) {
             this.outputText("You will currently double attack until your strength exceeds sixty, and then single attack.");
             this.outputText("\n\nYou can choose to force double attacks at reduced strength (when over sixty, it makes attacks at a strength of sixty.");
             this.outputText("\nYou can change it to always single attack.");
-            this.addButton(this, 0, "All Double", this.doubleAttackForce);
-            this.addButton(this, 2, "Single", this.doubleAttackOff);
+            this.addButton(0, "All Double", this.doubleAttackForce);
+            this.addButton(2, "Single", this.doubleAttackOff);
         }
         else {
             this.outputText("You will always single attack your foes in combat.");
             this.outputText("\n\nYou can choose to force double attacks at reduced strength (when over sixty, it makes attacks at a strength of sixty.");
             this.outputText("\nYou can change it to double attack until sixty strength and then switch to single attacks.");
-            this.addButton(this, 0, "All Double", this.doubleAttackForce);
-            this.addButton(this, 1, "Dynamic", this.doubleAttackDynamic);
+            this.addButton(0, "All Double", this.doubleAttackForce);
+            this.addButton(1, "Dynamic", this.doubleAttackDynamic);
         }
-        this.addButton(this, 4, "Back", this.displayPerks);
+        this.addButton(4, "Back", this.displayPerks);
     }
 
     public doubleAttackForce(): void {
@@ -9695,10 +9695,10 @@ We can also do * italic * and ** bold ** text!
             this.outputText("<b>You are now level " + this.player.level + "!</b>\n\nYou may now apply +5 to one attribute.  Which will you choose?");
             this.player.XP -= (this.player.level - 1) * 100;
             this.menu();
-            this.addButton(this, 0, "Strength", this.levelUpStatStrength);
-            this.addButton(this, 1, "Toughness", this.levelUpStatToughness);
-            this.addButton(this, 2, "Speed", this.levelUpStatSpeed);
-            this.addButton(this, 3, "Intelligence", this.levelUpStatIntelligence);
+            this.addButton(0, "Strength", this.levelUpStatStrength);
+            this.addButton(1, "Toughness", this.levelUpStatToughness);
+            this.addButton(2, "Speed", this.levelUpStatSpeed);
+            this.addButton(3, "Intelligence", this.levelUpStatIntelligence);
         }
         //Spend perk points
         else if (this.player.perkPoints > 0) {
@@ -9706,7 +9706,7 @@ We can also do * italic * and ** bold ** text!
         }
         else {
             this.outputText("<b>ERROR.  LEVEL UP PUSHED WHEN PC CANNOT LEVEL OR GAIN PERKS.  PLEASE REPORT THE STEPS TO REPRODUCE THIS BUG TO FENOXO@GMAIL.COM OR THE FENOXO.COM BUG REPORT FORUM.</b>");
-            this.doNext(this, this.playerMenu);
+            this.doNext(this.playerMenu);
         }
     }
 
@@ -9714,7 +9714,7 @@ We can also do * italic * and ** bold ** text!
         this.dynStats("str", 5); //Gain +5 Str due to level
         this.clearOutput();
         this.outputText("Your muscles feel significantly stronger from your time adventuring.");
-        this.doNext(this, this.perkBuyMenu);
+        this.doNext(this.perkBuyMenu);
     }
 
     private levelUpStatToughness(): void {
@@ -9723,21 +9723,21 @@ We can also do * italic * and ** bold ** text!
         this.statScreenRefresh();
         this.clearOutput();
         this.outputText("You feel tougher from all the fights you have endured.");
-        this.doNext(this, this.perkBuyMenu);
+        this.doNext(this.perkBuyMenu);
     }
 
     private levelUpStatSpeed(): void {
         this.dynStats("spe", 5); //Gain +5 speed due to level
         this.clearOutput();
         this.outputText("Your time in combat has driven you to move faster.");
-        this.doNext(this, this.perkBuyMenu);
+        this.doNext(this.perkBuyMenu);
     }
 
     private levelUpStatIntelligence(): void {
         this.dynStats("int", 5); //Gain +5 Intelligence due to level
         this.clearOutput();
         this.outputText("Your time spent fighting the creatures of this realm has sharpened your wit.");
-        this.doNext(this, this.perkBuyMenu);
+        this.doNext(this.perkBuyMenu);
     }
 
     private perkBuyMenu(): void {
@@ -9748,12 +9748,12 @@ We can also do * italic * and ** bold ** text!
             this.outputText("<b>You do not qualify for any perks at present.  </b>In case you qualify for any in the future, you will keep your " + this.num2Text(this.player.perkPoints) + " perk point");
             if (this.player.perkPoints > 1) this.outputText("s");
             this.outputText(".");
-            this.doNext(this, this.playerMenu);
+            this.doNext(this.playerMenu);
             return;
         }
         if (this.testingBlockExiting) {
             this.menu();
-            this.addButton(this, 0, "Next", this.perkSelect, perkList[this.rand(perkList.length)].perk);
+            this.addButton(0, "Next", this.perkSelect, perkList[this.rand(perkList.length)].perk);
         }
         else {
             this.outputText("Please select a perk from the drop-down list, then click 'Okay'.  You can press 'Skip' to save your perk point for later.\n\n");
@@ -9779,7 +9779,7 @@ We can also do * italic * and ** bold ** text!
 
             this.mainView.hideMenuButton(MainView.MENU_NEW_MAIN);
             this.menu();
-            this.addButton(this, 1, "Skip", this.perkSkip);
+            this.addButton(1, "Skip", this.perkSkip);
         }
     }
 
@@ -9807,8 +9807,8 @@ We can also do * italic * and ** bold ** text!
         this.outputText("You have selected the following perk:\n\n");
         this.outputText("<b>" + selected.perkName + ":</b> " + selected.perkLongDesc + "\n\nIf you would like to select this perk, click <b>Okay</b>.  Otherwise, select a new perk, or press <b>Skip</b> to make a decision later.");
         this.menu();
-        this.addButton(this, 0, "Okay", this.perkSelect, selected);
-        this.addButton(this, 1, "Skip", this.perkSkip);
+        this.addButton(0, "Okay", this.perkSelect, selected);
+        this.addButton(1, "Skip", this.perkSkip);
     }
 
     public buildPerkList() {
@@ -9998,7 +9998,7 @@ We can also do * italic * and ** bold ** text!
             this.HPChange(this.player.tou, false);
             this.statScreenRefresh();
         }
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     // public buttonText(buttonName: string): string {
@@ -10313,7 +10313,7 @@ We can also do * italic * and ** bold ** text!
 
 
     // returns a function that takes no arguments, and executes function `func` with argument `arg`
-    public createCallBackFunction(thisObj: any, func: any, arg?: any) {
+    public createCallBackFunction(func: any, arg: any) {
         if (func == undefined) {
             CoC_Settings.error("createCallBackFunction(undefined," + arg + ")");
         }
@@ -10324,14 +10324,14 @@ We can also do * italic * and ** bold ** text!
             return (): any => {
                 if (CoC_Settings.haltOnErrors)
                     this.logFunctionInfo(func, arg);
-                return func.bind(thisObj)();
+                return func();
             };
         }
         else {
             return (): any => {
                 if (CoC_Settings.haltOnErrors)
                     this.logFunctionInfo(func, arg);
-                return func.bind(thisObj)(arg);
+                return func(arg);
             };
         }
     }
@@ -10346,7 +10346,7 @@ We can also do * italic * and ** bold ** text!
     }
 
 
-    public addButton(thisObj: any, pos: number, text: string = "", func1?: any, arg1: any = -9000): void {
+    public addButton(pos: number, text: string = "", func1?: any, arg1: any = -9000): void {
         if (func1 == undefined) return;
         var callback;
         var toolTipText: string;
@@ -10356,7 +10356,7 @@ We can also do * italic * and ** bold ** text!
                 return;
             }
         */
-        callback = this.createCallBackFunction(thisObj, func1, arg1);
+        callback = this.createCallBackFunction(func1, arg1);
 
 
         toolTipText = this.getButtonToolTipText(text);
@@ -10461,7 +10461,7 @@ We can also do * italic * and ** bold ** text!
     }
     */
 
-    public choices(thisObj: any, text1: string, butt1: any,
+    public choices(text1: string, butt1: any,
         text2: string, butt2: any,
         text3: string, butt3: any,
         text4: string, butt4: any,
@@ -10473,16 +10473,16 @@ We can also do * italic * and ** bold ** text!
         text0: string, butt0: any): void { //New typesafe version
 
         this.menu();
-        this.addButton(thisObj, 0, text1, butt1);
-        this.addButton(thisObj, 1, text2, butt2);
-        this.addButton(thisObj, 2, text3, butt3);
-        this.addButton(thisObj, 3, text4, butt4);
-        this.addButton(thisObj, 4, text5, butt5);
-        this.addButton(thisObj, 5, text6, butt6);
-        this.addButton(thisObj, 6, text7, butt7);
-        this.addButton(thisObj, 7, text8, butt8);
-        this.addButton(thisObj, 8, text9, butt9);
-        this.addButton(thisObj, 9, text0, butt0);
+        this.addButton(0, text1, butt1);
+        this.addButton(1, text2, butt2);
+        this.addButton(2, text3, butt3);
+        this.addButton(3, text4, butt4);
+        this.addButton(4, text5, butt5);
+        this.addButton(5, text6, butt6);
+        this.addButton(6, text7, butt7);
+        this.addButton(7, text8, butt8);
+        this.addButton(8, text9, butt9);
+        this.addButton(9, text0, butt0);
         /*
         var  callback ;
         var  toolTipText : string;
@@ -10655,7 +10655,7 @@ We can also do * italic * and ** bold ** text!
                 "Back", cancelFunction || 0
             ]);
 
-            this.choices.apply(undefined, ([this].concat(flatten(currentPageItems)) as [any, string, any, string, any, string, any, string, any, string, any, string, any, string, any, string, any, string, any, string, any]));
+            this.choices.apply(undefined, (flatten(currentPageItems) as [string, any, string, any, string, any, string, any, string, any, string, any, string, any, string, any, string, any, string, any]));
         }
 
         pageCount = Math.ceil(menuItems.length / itemsPerPage);
@@ -10667,7 +10667,7 @@ We can also do * italic * and ** bold ** text!
     }
 
     // simpleChoices and doYesNo are convenience functions. They shouldn't re-implement code from choices()
-    public simpleChoices(thisObj: any, text1: string, butt1: any,
+    public simpleChoices(text1: string, butt1: any,
         text2: string, butt2: any,
         text3: string, butt3: any,
         text4: string, butt4: any,
@@ -10685,17 +10685,17 @@ We can also do * italic * and ** bold ** text!
                     "",0,
                     "",0);*/
         this.menu();
-        this.addButton(thisObj, 0, text1, butt1);
-        this.addButton(thisObj, 1, text2, butt2);
-        this.addButton(thisObj, 2, text3, butt3);
-        this.addButton(thisObj, 3, text4, butt4);
-        this.addButton(thisObj, 4, text5, butt5);
+        this.addButton(0, text1, butt1);
+        this.addButton(1, text2, butt2);
+        this.addButton(2, text3, butt3);
+        this.addButton(3, text4, butt4);
+        this.addButton(4, text5, butt5);
     }
 
-    public doYesNo(thisObj: any, eventYes: any, eventNo: any): void { //New typesafe version
+    public doYesNo(eventYes: any, eventNo: any): void { //New typesafe version
         this.menu();
-        this.addButton(thisObj, 0, "Yes", eventYes);
-        this.addButton(thisObj, 1, "No", eventNo);
+        this.addButton(0, "Yes", eventYes);
+        this.addButton(1, "No", eventNo);
         /*
             //Make buttons 1-2 visible and hide the rest.
         
@@ -10715,7 +10715,7 @@ We can also do * italic * and ** bold ** text!
         */
     }
 
-    public doNext(thisObj: any, event: any): void { //Now typesafe
+    public doNext(event: any): void { //Now typesafe
         //Prevent new events in combat from automatically overwriting a game over. 
         if (this.mainView.bottomButtons[0].labelText.indexOf("Game Over") != -1) {
             trace("Do next setup cancelled by game over");
@@ -10725,7 +10725,7 @@ We can also do * italic * and ** bold ** text!
         //trace("DoNext have item:", eventNo);
         //choices("Next", event, "", 0, "", 0, "", 0, "", 0, "", 0, "", 0, "", 0, "", 0, "", 0); 
         this.menu();
-        this.addButton(thisObj, 0, "Next", event);
+        this.addButton(0, "Next", event);
     }
 
     /* Was never called
@@ -11189,7 +11189,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n<b><u>Ongoing Status Effects</u></b>\n" + statEffects, false);
         // End Ongoing Stat Effects
 
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     public lustPercent(): number {
@@ -11272,7 +11272,7 @@ We can also do * italic * and ** bold ** text!
         this.dynStats("tou", 1, "spe+", 2, "int-", 3, "lib*", 2, "sen=", 25, "lust/", 2);
         this.outputText("Mod: 0 1 +2 -3 *2 =25 /2\n");
         this.outputText("New: " + this.player.str + " " + this.player.tou + " " + this.player.spe + " " + this.player.inte + " " + this.player.lib + " " + this.player.sens + " " + this.player.lust + "\n");
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     /**
@@ -11871,7 +11871,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("", true);
             this.outputText("While walking around the lake, you hear the sound of feminine voices laughing and talking, accompanied by the distinctive clip-clop of hooves. Stepping lightly through the overgrowth you stumble across a group of small brightly colored ponies. The strange part about them isn't so much their size, but rather the shape of their bodies.  They almost look cartoonish in nature, a few even sport fluttery, feathery looking wings.\n\n", false);
             //(option: Approach? Leave them Be?)
-            this.simpleChoices(this, "Approach", this.approachPonies, "", undefined, "", undefined, "", undefined, "Leave", this.leavePonies);
+            this.simpleChoices("Approach", this.approachPonies, "", undefined, "", undefined, "", undefined, "Leave", this.leavePonies);
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00118]++;
             return true;
         }
@@ -11882,7 +11882,7 @@ We can also do * italic * and ** bold ** text!
     public leavePonies(): void {
         this.outputText("", true);
         this.outputText("Deciding it must be some demonic trick, you decide to retreat from the scene before they notice your presence.", false);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     public approachPonies(): void {
         this.outputText("", true);
@@ -11908,13 +11908,13 @@ We can also do * italic * and ** bold ** text!
         //Option one: Leave Politely
         //Option Two: Too creepy...
         //Option three: Yay, party?
-        this.simpleChoices(this, "Too creepy", this.derpCreepy, "Yay Party!", this.derpyParty, "", undefined, "", undefined, "Leave", this.derpPolitely);
+        this.simpleChoices("Too creepy", this.derpCreepy, "Yay Party!", this.derpyParty, "", undefined, "", undefined, "Leave", this.derpPolitely);
     }
 
     public derpPolitely(): void {
         this.outputText("", true);
         this.outputText("You hold out your arms and stop the ponies.  Once you have their attention you let them know you have something important you need to do for now, but will come back soon.  With a wave you turn and walk back into the trees to a chorus of disappointed \"<i>ahhhs</i>\", mostly from the pink one.", false);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public derpCreepy(): void {
@@ -11922,7 +11922,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("Cocks, horns and slavering vaginas is one thing, but this is almost too much cute to process.  You determine to leave this grove and never EVER come back again.  Still disturbed by the mental images running through your head, as you make your way back to camp, you callously slaughter an imp. Yeah, that feels better.\n\n(+10 XP!  +5 Gems!)", false);
         this.player.XP += 10;
         this.player.gems += 5;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     public derpyParty(): void {
         this.outputText("", true);
@@ -11932,7 +11932,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("Your strong lower body has shrunk, the firm musculature replaced by an oddly cartoonish looking form.  In fact, from the waist down you look just like one of the ponies!  Everything looks to still be in the same general place, and a quick test of your new lower body proves it still functions somewhat the same. The new shape of your hooves takes a little while to get used to, but other than that you get used to your new lower body almost with no effort\n\n(<i>*Note:You should really check the character viewer</i>)", false);
         this.player.lowerBody = CoC.LOWER_BODY_TYPE_PONY;
-        this.doNext(this, this.camp.returnToCampUseEightHours);
+        this.doNext(this.camp.returnToCampUseEightHours);
     }
     /*Notes:
     ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -12304,7 +12304,7 @@ We can also do * italic * and ** bold ** text!
                     }
                 }
             }
-            this.doNext(this, this.playerMenu);
+            this.doNext(this.playerMenu);
             return true;
         }
         return false;
@@ -12382,7 +12382,7 @@ We can also do * italic * and ** bold ** text!
         }
         if (this.player.cor < 50) this.dynStats("lus", 10);
         else this.dynStats("lus", 25);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     public fuckedUpCockDreamChange(): void {
@@ -12400,7 +12400,7 @@ We can also do * italic * and ** bold ** text!
 
         //[Next]
         this.menu();
-        this.addButton(this, 0, "Next", this.displacerDreamII);
+        this.addButton(0, "Next", this.displacerDreamII);
     }
     public displacerDreamII(): void {
         this.clearOutput();
@@ -12426,7 +12426,7 @@ We can also do * italic * and ** bold ** text!
         this.player.orgasm();
         this.dynStats("lib", 2, "sen", 2);
         this.menu();
-        this.addButton(this, 0, "Next", this.displacerDreamIII);
+        this.addButton(0, "Next", this.displacerDreamIII);
     }
 
     public displacerDreamIII(): void {
@@ -12446,7 +12446,7 @@ We can also do * italic * and ** bold ** text!
                 this.player.cocks[x].cockType = CockTypesEnum.DISPLACER;
             }
         }
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
 
@@ -12485,7 +12485,7 @@ We can also do * italic * and ** bold ** text!
         this.dungeonLoc = 0;
         this.clearOutput();
         this.outputText("You leave the cave behind and take off through the deepwoods back towards camp.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public impHordeStartCombat(): void {
@@ -12732,7 +12732,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("Powerless and in the throes of post-coital bliss, you don't object as you're lifted on the table", false);
         if (!this.player.hasVagina()) this.outputText(" and forced to start drinking bottle after bottle of succubi milk", false);
         this.outputText(".  You pass out just as round two is getting started, but the demons don't seem to mind....", false);
-        this.doNext(this, this.loseToImpMobII);
+        this.doNext(this.loseToImpMobII);
     }
     //[IMP GANGBANG VOL 2]
     public loseToImpMobII(): void {
@@ -12775,9 +12775,9 @@ We can also do * italic * and ** bold ** text!
         else this.outputText("The last of the imps collapses, pulling its demon-prick free from the confines of its loincloth.  Surrounded by masturbating imps, you sigh as you realize how enslaved by their libidos the foul creatures are.", false);
         if (this.player.lust >= 33 && this.player.gender > 0) {
             this.outputText("\n\nFeeling a bit horny, you wonder if you should use them to sate your budding urges before moving on.  Do you rape them?", false);
-            if (this.player.gender == 1) this.simpleChoices(this, "Rape", this.impGangGetsRapedByMale, "", undefined, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
-            if (this.player.gender == 2) this.simpleChoices(this, "Rape", this.impGangGetsRapedByFemale, "", undefined, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
-            if (this.player.gender == 3) this.simpleChoices(this, "Male Rape", this.impGangGetsRapedByMale, "Female Rape", this.impGangGetsRapedByFemale, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
+            if (this.player.gender == 1) this.simpleChoices("Rape", this.impGangGetsRapedByMale, "", undefined, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
+            if (this.player.gender == 2) this.simpleChoices("Rape", this.impGangGetsRapedByFemale, "", undefined, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
+            if (this.player.gender == 3) this.simpleChoices("Male Rape", this.impGangGetsRapedByMale, "Female Rape", this.impGangGetsRapedByFemale, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
         }
         else this.cleanupAfterCombat();
     }
@@ -12839,7 +12839,7 @@ We can also do * italic * and ** bold ** text!
         if (this.flags[kFLAGS.ZETAZ_DOOR_UNLOCKED] == 0) {
             this.clearOutput();
             this.outputText("The door won't budge.");
-            this.doNext(this, this.playerMenu);
+            this.doNext(this.playerMenu);
             return;
         }
         else this.dungeonEnterRoom(CoC.DUNGEON_CAVE_ZETAZ_CHAMBER);
@@ -12986,7 +12986,7 @@ We can also do * italic * and ** bold ** text!
                 else this.outputText("thickening your fluid-filled prison with nutrients.", false);
             }
             //[NEXT – CHOOSE APPRORIATE]
-            this.doNext(this, this.loseToThisShitPartII);
+            this.doNext(this.loseToThisShitPartII);
             return;
         }
         //Set flags for rounds
@@ -13108,7 +13108,7 @@ We can also do * italic * and ** bold ** text!
         }
         //Go to pt 2
         this.dynStats("lus", 40);
-        this.doNext(this, this.useValaPtII);
+        this.doNext(this.useValaPtII);
 
     }
 
@@ -13146,7 +13146,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("You clutch your " + this.allBreastsDescript() + " and squeeze the " + this.nippleDescript(0) + " until they hurt, the agony giving you strength to drive the dildo back into the fairy. She cums before you do, her pulsing walls locking down and driving the dildo out, inch by painful inch, deeper into your body until the base is so far against your gut that it is pushed into your furthest recesses with a toe-curling, wet slap. You silently scream in ecstasy and agony, unable to believe that the frail fairy managed to fuck your womb with your own toy. Your strength redoubles and you thrust back, your " + this.cockDescript(0) + " penetrating her spongy, well-used cervix, her womb sucking you inside it. You release the knotted tension, spraying your spunk deep inside her. You slap your " + this.buttDescript() + " against hers with each pulsing load, your pussy clenching at the dildo stuffing it even as your empty your seed into the chained slave.  You try to go limp, but the double penetrated girl keeps you from pulling out, both holes clenching you against her until every last drop of your sperm has filled her greedy womb. Fairy cum drips down your length, while the flared tip deep inside her large intestine keeps your pussy twitching against her posterior. You jill your " + this.clitDescript() + " for a few minutes afterward, just enjoying the afterglow as your strength returns and the fairy's body unclenches, releasing you from your breeder's embrace, the minotaur dildo still halfway up her ass. You remind yourself to clean your " + this.player.armorName + " after this is over, sliding into them with wet, squishing noises. Giving your drooling fairy girl's rump a slap on the way out, you head back into the dungeon- you've got demons to stomp.", false);
         }
         this.flags[kFLAGS.TIMES_FUCKED_VALA_IN_DUNGEON]++;
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //[Free]
@@ -13162,7 +13162,7 @@ We can also do * italic * and ** bold ** text!
         if (this.player.hasItem(this.consumables.PURHONY, 1)) heal = this.healVala;
         if (this.player.hasItem(this.consumables.P_PEARL, 1)) heal = this.healVala;
         //Choicez go here.  I can haz fucks?
-        this.simpleChoices(this, "Fix Her", heal, "Sex", (this.player.gender > 0 ? this.ValaGetsSexed : undefined), "Reject", this.rejectFuckingVala, "", undefined, "", undefined);
+        this.simpleChoices("Fix Her", heal, "Sex", (this.player.gender > 0 ? this.ValaGetsSexed : undefined), "Reject", this.rejectFuckingVala, "", undefined, "", undefined);
     }
 
     //[Heal]
@@ -13179,7 +13179,7 @@ We can also do * italic * and ** bold ** text!
 
             this.outputText("The effects of your cure are more violent than you expected. The fairy thrashes wildly, causing you to drop your bottle of Pure Honey, sending it spilling over the table, shattering the delicate equipment and ruining the unlabeled concoctions within. Moving to keep the girl from hurting herself in her seizure, you hold her head against your chest and wait out the wild bucking. Gradually, her motions slow and her breath calms to a more normal pace. When she looks back up at you, her eyes are clear at last, the pollution of lust burned away by the honey's restorative properties. She gives you a genuine smile and speaks with a voice like the rushing of wind over reeds. \"<i>Thank you. I cannot express my gratitude for what you've done. The fate you've saved me from was worse than any death these wretched creatures could have subjected me to.</i>\"", false);
             //[Next]
-            this.doNext(this, this.healValaPartTwoTheHealingHealsOfRevenge);
+            this.doNext(this.healValaPartTwoTheHealingHealsOfRevenge);
         }
         //Pearl!
         else {
@@ -13194,7 +13194,7 @@ We can also do * italic * and ** bold ** text!
 
             //(Vala unlocked in The Wet Bitch)[End Encounter]
             this.flags[kFLAGS.FREED_VALA] = 1;
-            this.doNext(this, this.playerMenu);
+            this.doNext(this.playerMenu);
         }
 
     }
@@ -13206,7 +13206,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("Leaving the way you came, Vala makes her exodus from the abyssal cavern. Despite her savagely warped body, you do not doubt that her renewed vigor for life will let her achieve some measure of happiness again. You feel like you've managed to do a truly selfless thing in this den of iniquity. Defeating monsters is satisfying, but it is the lives you save that really make you feel like a hero. You sigh contentedly and press on. You've got demons to dethrone.", false);
         //[End Encounter]
         this.flags[kFLAGS.FREED_VALA] = 1;
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //[Sex]
@@ -13232,7 +13232,7 @@ We can also do * italic * and ** bold ** text!
         }
         this.dynStats("lus", 33);
         //[Next]
-        this.doNext(this, this.valaGetsSexedPtDuece);
+        this.doNext(this.valaGetsSexedPtDuece);
     }
 
     public valaGetsSexedPtDuece(): void {
@@ -13289,7 +13289,7 @@ We can also do * italic * and ** bold ** text!
         }
         //[End Encounter]
         this.flags[kFLAGS.TIMES_FUCKED_VALA_IN_DUNGEON]++;
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //[Reject]
@@ -13310,7 +13310,7 @@ We can also do * italic * and ** bold ** text!
         }
         //Initiate fight
         this.startCombat(new Vala(), true);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
 
@@ -13325,7 +13325,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("Vala forces a bottle into your throat before your defeated form has a chance to react, and you grunt with pleasure as a new gash opens between your " + this.player.legs() + "!", false);
             this.player.createVagina();
             this.player.gender = 2;
-            this.doNext(this, this.loseToValaFemale);
+            this.doNext(this.loseToValaFemale);
         }
     }
     //Fight Loss-
@@ -13341,7 +13341,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("At least the fairy's desire lubricated the thing, you think, giving yourself small comfort before the fairy brings the wicked, two-pronged device to your " + this.vaginaDescript(0) + " and " + this.assholeDescript() + ". You tremble at how cold it is, and try to shift away, but the chains and your own weakness leave you at the girl's mercies. She slides the dildo into your holes with agonizing slowness, giggling the whole time, until the metal cockheads are fully inside you. \"<i>It is good to be a toy,</i>\" she coos. \"<i>Good toys get used every day.</i>\" With a playful kiss on your rump, she gives the spigot the tiniest of turns and you hear a gurgling surge from somewhere above you. The hose comes alive in her hands and begins to twist and writhe in the air as some horrible fluid is pumped through it, toward the iron cocks and your defenseless nethers. You clench as hard as you can, trying to expel the penetrating shafts, but the fairy seems to be getting stronger and more mad the longer this goes on. You moan and try to prepare for the worst.\n\n", false);
         //[Next]
-        this.doNext(this, this.loseToValaAsHermPartII);
+        this.doNext(this.loseToValaAsHermPartII);
     }
 
     public loseToValaAsHermPartII(): void {
@@ -13355,7 +13355,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("You cry out desperately, but the fairy is the only one to hear your pleas and she is lost in her own sea of brainless orgasms. You resist the swarming sensations, trying to avoid the fairy's fate, but she's got you trapped between her twitching cunt and the jizz-blasting hose. All you can think of is the over-ripe sweetness of the fairy's fluids splashing against your thighs and the jack-hammering blasts of seed flooding your blazing cunt. The fire in your gut creeps up to your " + this.allBreastsDescript() + " and your heart pounds with as much force as the foot of cum-fed iron inside your overflowing " + this.vaginaDescript(0) + ". You try to promise yourself that you won't give in, but your captor twisting on your cumming cock and the barbed dildo inside your spunk-inflated womb drive the words from your mind. The heat in your breast surges into your head and it almost feels as if the seed blasting into your birth canal has made it up to your brain. You try to think, but it's too difficult. Thinking brings terrible pain, it's so much easier to surrender. To let yourself break. You look into the enslaved fairy's empty, pink eyes one more time and whisper a prayer of thanks to your Mistress. She seems started by the title and a slow smile spreads across her heart-shaped face. Then, all thought fades and your world becomes pink.\n\n", false);
         //[Go to Bad End 1]
-        this.doNext(this, this.badEndValaNumber1);
+        this.doNext(this.badEndValaNumber1);
     }
 
     //Fight Loss-
@@ -13365,10 +13365,10 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("You are powerless to stop the fairy as she drags you to the south wall and up to the wooden rail secured a couple of feet off the ground. \"<i>When she was still growing, Bitch was too small and tight for the masters,</i>\" your captor tells you. \"<i>They blessed her with this ladder to make us big enough. You will feel their generosity.</i>\" Gripping you under the arms, the fairy's lust-fuelled strength lifts you off the ground and flies you directly over the bristling peg ladder.\n\n", false);
         //[Next]
-        if (this.player.ass.analLooseness < 2) this.doNext(this, this.loseToValaAsMaleIITight);
-        else if (this.player.ass.analLooseness < 3) this.doNext(this, this.loseToValaMaleIILoose);
-        else if (this.player.ass.analLooseness < 5) this.doNext(this, this.loseToValaMaleIIVeryLoose);
-        else this.doNext(this, this.loseToValaMaleIIGape);
+        if (this.player.ass.analLooseness < 2) this.doNext(this.loseToValaAsMaleIITight);
+        else if (this.player.ass.analLooseness < 3) this.doNext(this.loseToValaMaleIILoose);
+        else if (this.player.ass.analLooseness < 5) this.doNext(this.loseToValaMaleIIVeryLoose);
+        else this.doNext(this.loseToValaMaleIIGape);
     }
 
     public loseToValaAsMaleIITight(): void {
@@ -13380,7 +13380,7 @@ We can also do * italic * and ** bold ** text!
         //[Player gets looser ass, and move to next level]
         this.player.ass.analLooseness = 2;
         //[Next]
-        this.doNext(this, this.loseToValaMaleIILoose);
+        this.doNext(this.loseToValaMaleIILoose);
     }
 
     public loseToValaMaleIILoose(): void {
@@ -13391,7 +13391,7 @@ We can also do * italic * and ** bold ** text!
         //[Player's ass widens and go to next]
         this.player.ass.analLooseness++;
         //[Next]
-        this.doNext(this, this.loseToValaMaleIIVeryLoose);
+        this.doNext(this.loseToValaMaleIIVeryLoose);
     }
 
     //(Very loose ass)
@@ -13402,7 +13402,7 @@ We can also do * italic * and ** bold ** text!
         //[Player's ass widens and go to last]
         this.player.ass.analLooseness = 5;
         //[Next]
-        this.doNext(this, this.loseToValaMaleIIGape);
+        this.doNext(this.loseToValaMaleIIGape);
     }
 
     //(Gaping asshole)
@@ -13413,7 +13413,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("Turning you around in her arms, the fairy lets you see the full depths of mindless depravity in her empty gaze. She strokes your " + this.cockDescript(0) + ", bringing it just shy of climax before mounting you, her sopping cunny softer and warmer than anything you can remember. \"<i>Silly toy,</i>\" she whispers to you. \"<i>It has nothing to give. The masters possess everything already.</i>\" She gives you a peck on the cheek and stops flapping her dragon-fly wings, letting the two of you plummet toward the monstrosity. Your world explodes into pain and your cock erupts with a mind-breaking orgasm inside the girl before your vision fails and the merciful oblivion of unconsciousness rushes over you.", false);
         //[Go to Bad End 2]
-        this.doNext(this, this.badEndValaNumber2);
+        this.doNext(this.badEndValaNumber2);
     }
 
 
@@ -13431,7 +13431,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("Trying to regain your composure after nearly being drowned and frozen in one go, you hardly even notice when the fairy places a big bucket in front of you. \"<i>All clean? The slut looks so pretty now. But it has to make itself presentable. The masters must enjoy your appearance and smell as much as your flesh. One warm meal for a good pet.</i>\" You curse the slave and knock the bucket over, spilling its vile contents onto the floor, seething spunk sliding down to the drain. The girl laughs, spritely voice like shattered crystal. \"<i>Bitch remembers when she was as defiant as you. If the sweet slut does not want her meal, perhaps another bath?</i>\" She slides her hand to another switch and leans on it, while licking her lips. Instead of rushing water, a curtain of white fills your eyes, nose, and mouth, a rush of seething heat pouring around you. Clawing at your face and the collar, you realize she's dumped a shower of splattering cum on you from some recessed reservoir in the ceiling. You scream and thrash, but the goo just keeps coming, burying you in a slimy shell, your defiance only allowing it to roll down your throat with hacking swallows. When you finally slump down and let it run over you, the fairy relents.", false);
 
         //[Next]
-        this.doNext(this, this.loseToValueFemalePtII);
+        this.doNext(this.loseToValueFemalePtII);
     }
 
     public loseToValueFemalePtII(): void {
@@ -13444,7 +13444,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("You lift the bucket, ready to slurp up the whole pail when the fairy makes an off-handed comment. \"<i>The masters mix their love with minotaur beasts, to make it seep into your mind,</i>\" she sighs, wistfully, looking terribly envious of your position. The girl seems to regret giving you the addictive cum, her words dulled by your jizz-drunk senses. Dimly, some part of your mind wonders if the minotaurs' drug-like seed is already working, but it hardly matters anymore. You're too far gone by now. You put the bucket in your lap and bend down, into it. Placing the tip of your nose against its lurid surface, you breathe deeply, drinking in the odor as much as savoring the moment. Then, with relish, you submerge your " + this.player.face() + " into the inky abyss of the spunk bucket, inhaling the sweet honey with an open mouth, air escaping your throat and bubbling up as you suck down gulp after gulp from your full-facial meal. The imp juice shower set your skin on fire, but drinking their salty discharge fills your organs with a raging inferno that drives away your memories, one by one. You gulp mouthfuls down, without even pausing to breathe. Every swallow blanks a part of your mind, first your crusade against the demons of the cave, then the friends you've met in this world, and then even your home. The liquid passion fills your mind, burying all else. Every part of your personality is replaced by the need for ejaculate and your vision turns white as, finally, you can't seem to recall your name.", false);
 
         //[Go to Bad End 2]
-        this.doNext(this, this.badEndValaNumber2);
+        this.doNext(this.badEndValaNumber2);
     }
 
     //BAD END 1-
@@ -13474,7 +13474,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("The large imp in front of you gives the knob on the funnel a twist and, to your horror, the sloshing flood of imp seed and fairy jizz comes washing down the winding pipe, sliding right past your undefended lips and down your penetrated gullet. Your stomach recoils at the infernal meal, but it just keeps pouring from the over-fucked fairy girl and her precariously perched offspring. As the cum washes down the hose, the silent imp uncorks a little black vial and pours it into the funnel, mixing it with the seething river running into your belly. You try to close your throat, to vomit, to bite through the gag, anything to keep the concoction from reaching you, but your attempts are in vain, and the sable fluid runs into your body. You shudder, mind racing for ways to escape, but your thoughts are interrupted when the apparent leader of the imps leans down and takes your chin in his hand, smiling a wicked grin of jagged, uneven teeth.", false);
         //[Next]
-        this.doNext(this, this.badEndValaNumber2Pt2);
+        this.doNext(this.badEndValaNumber2Pt2);
     }
 
     public badEndValaNumber2Pt2(): void {
@@ -13505,7 +13505,7 @@ We can also do * italic * and ** bold ** text!
         //[Fuck] [Leave]
         if (this.player.gender > 0) {
             this.outputText(" What will you do?", false);
-            this.simpleChoices(this, "Fuck", this.valaFightVictoryFuck, "", undefined, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
+            this.simpleChoices("Fuck", this.valaFightVictoryFuck, "", undefined, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
         }
         else this.cleanupAfterCombat();
 
@@ -13550,7 +13550,7 @@ We can also do * italic * and ** bold ** text!
         }
         this.dynStats("lus", 99, "cor", 1);
         //Next
-        this.doNext(this, this.valaFightVictoryFuckPtII);
+        this.doNext(this.valaFightVictoryFuckPtII);
     }
 
     //[Fuck]
@@ -13623,13 +13623,13 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nWhat would you like to do to her?", false);
         //[Heal][Use][Wake][Leave]
         this.menu();
-        this.addButton(this, 0, "Fix Her", this.tryToHealVala);
+        this.addButton(0, "Fix Her", this.tryToHealVala);
         if (this.player.gender > 0) {
-            this.addButton(this, 1, "Use", this.useValaOHYEAHSNAPINTOASLIMJIM);
-            this.addButton(this, 2, "Wake", this.wakeValaUpBeforeYouGoGo);
+            this.addButton(1, "Use", this.useValaOHYEAHSNAPINTOASLIMJIM);
+            this.addButton(2, "Wake", this.wakeValaUpBeforeYouGoGo);
         }
-        if (this.player.lust >= 33 && this.shouldraFollower.followerShouldra()) this.addButton(this, 3, "ShouldraVala", this.shouldraFollower.shouldraMeetsCorruptVala);
-        this.addButton(this, 4, "Leave", this.playerMenu);
+        if (this.player.lust >= 33 && this.shouldraFollower.followerShouldra()) this.addButton(3, "ShouldraVala", this.shouldraFollower.shouldraMeetsCorruptVala);
+        this.addButton(4, "Leave", this.playerMenu);
     }
 
     //[Heal]
@@ -13639,7 +13639,7 @@ We can also do * italic * and ** bold ** text!
         //(Without Pure Honey)
         if (!(this.player.hasItem(this.consumables.PURHONY, 1) || this.player.hasItem(this.consumables.P_PEARL, 1))) {
             this.outputText("You try your best with what you've got, but nothing seems to restore the broken fairy's mind to her sex-addled  body. You're going to have to go out and gather more materials. Surely there's something that can break the damage the imps have done to Vala.", false);
-            this.doNext(this, this.playerMenu);
+            this.doNext(this.playerMenu);
         }
         //(With Pure Honey)
         else if (this.player.hasItem(this.consumables.PURHONY, 1)) {
@@ -13649,7 +13649,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("The effects of your cure are more violent than you expected. The fairy thrashes wildly, causing you to drop your bottle of Pure Honey, sending it spilling over the table, shattering the delicate equipment and ruining the unlabeled concoctions within. Moving to keep the girl from hurting herself in her seizure, you hold her head against your chest and wait out the wild bucking. Gradually, her motions slow and her breath calms to a more normal pace. When she looks back up at you, her eyes are clear at last, the pollution of lust burned away by the honey's restorative properties. She gives you a genuine smile and speaks with a voice like the rushing of wind over reeds. \"<i>Thank you,</i>\" she gasps. \"<i>Thank you. I cannot express my gratitude for what you've done. The fate you've saved me from was worse than any death those wretched creatures could have subjected me to.</i>\"", false);
 
             //[Next]
-            this.doNext(this, this.tryToHealValaWHoney2);
+            this.doNext(this.tryToHealValaWHoney2);
         }
         else {
             //Pure Pearl
@@ -13663,7 +13663,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("Leaving the way you came, Vala makes her exodus from the abyssal cavern. Despite her savagely warped body, you do not doubt that her renewed vigor for life will let her achieve some measure of happiness again. You feel like you've managed to do a truly selfless thing in this den of iniquity. Defeating monsters is satisfying, but it's the lives you save that really make you feel like a hero. You sigh contentedly and wonder where she'll end up, now that she's been given her life back.", false);
             //(Vala unlocked in The Wet Bitch)[End Encounter]
             this.flags[kFLAGS.FREED_VALA] = 1;
-            this.doNext(this, this.playerMenu);
+            this.doNext(this.playerMenu);
         }
     }
 
@@ -13676,7 +13676,7 @@ We can also do * italic * and ** bold ** text!
         //(Vala unlocked in The Wet Bitch)
         this.flags[kFLAGS.FREED_VALA] = 1;
         //[End Encounter]
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //[Use]
@@ -13704,7 +13704,7 @@ We can also do * italic * and ** bold ** text!
         }
         //[Next]
         this.dynStats("lus", 80);
-        this.doNext(this, this.useValaOHYEAHKOOLAIDPTII);
+        this.doNext(this.useValaOHYEAHKOOLAIDPTII);
     }
 
     public useValaOHYEAHKOOLAIDPTII(): void {
@@ -13738,7 +13738,7 @@ We can also do * italic * and ** bold ** text!
         //DAH END
         this.player.orgasm();
         this.dynStats("cor", 1);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //[Wake]
@@ -13775,7 +13775,7 @@ We can also do * italic * and ** bold ** text!
         }
         this.dynStats("lus", 999);
         //[Next]
-        this.doNext(this, this.wakeMeUpBeforeValaGoGosPtII);
+        this.doNext(this.wakeMeUpBeforeValaGoGosPtII);
     }
 
     public wakeMeUpBeforeValaGoGosPtII(): void {
@@ -13822,7 +13822,7 @@ We can also do * italic * and ** bold ** text!
         this.player.orgasm();
         this.dynStats("cor", 1);
         this.flags[kFLAGS.TIMES_FUCKED_VALA_IN_DUNGEON]++;
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //Answers the simpler question 'Is Vala at the bar right now' rather than 'can Vala have sex with you right now'
@@ -13858,7 +13858,7 @@ We can also do * italic * and ** bold ** text!
 
             //Goto cleansedFirstRemeet();
             //[Next]
-            this.addButton(this, 0, "Next", this.cleansedFirstRemeet);
+            this.addButton(0, "Next", this.cleansedFirstRemeet);
             return;
         }
         else if (this.flags[kFLAGS.SHOULDRA_MET_VALA] == 1) {
@@ -13881,17 +13881,17 @@ We can also do * italic * and ** bold ** text!
             if (this.flags[kFLAGS.WEEKLY_FAIRY_ORGY_COUNTDOWN] == 0) {
                 this.outputText("\n\nA thought occurs to her and she leans in, conspiratorially. \"<i>Actually, some of my sisters are visiting from the forest today. Should we spend some time with them, or do I get you all for myself?</i>\"", false);
                 //[Fairies][You][Leave]
-                this.simpleChoices(this, "Faeries", this.faerieOrgyFuck, "You", this.cleansedValaRepeatBrainFucking, "Cum Bath", cumBath, "", undefined, "Leave", this.telAdre.barTelAdre);
+                this.simpleChoices("Faeries", this.faerieOrgyFuck, "You", this.cleansedValaRepeatBrainFucking, "Cum Bath", cumBath, "", undefined, "Leave", this.telAdre.barTelAdre);
             }
-            else this.simpleChoices(this, "You", this.cleansedValaRepeatBrainFucking, "", undefined, "Cum Bath", cumBath, "", undefined, "Leave", this.telAdre.barTelAdre);
+            else this.simpleChoices("You", this.cleansedValaRepeatBrainFucking, "", undefined, "Cum Bath", cumBath, "", undefined, "Leave", this.telAdre.barTelAdre);
             if (this.flags[kFLAGS.WEEKLY_FAIRY_ORGY_COUNTDOWN] == 0)
-                this.addButton(this, 1, "Faeries", this.faerieOrgyFuck);
+                this.addButton(1, "Faeries", this.faerieOrgyFuck);
         }
         if (this.flags[kFLAGS.SHOULDRA_MET_VALA] > 0 && this.shouldraFollower.followerShouldra())
-            this.addButton(this, 3, "Big You", this.valaBigYou);
-        this.addButton(this, 0, "You", this.cleansedValaRepeatBrainFucking);
-        this.addButton(this, 2, "Cum Bath", cumBath);
-        this.addButton(this, 4, "Leave", this.telAdre.barTelAdre);
+            this.addButton(3, "Big You", this.valaBigYou);
+        this.addButton(0, "You", this.cleansedValaRepeatBrainFucking);
+        this.addButton(2, "Cum Bath", cumBath);
+        this.addButton(4, "Leave", this.telAdre.barTelAdre);
     }
 
     public cleansedFirstRemeet(): void {
@@ -13907,7 +13907,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("\"<i>I've been looking forward to this,</i>\" she whispers, flying up to steal a kiss from you, her soft, fey lips leaving a taste of pure, spring rain on the tip of your tongue. Piece by piece, she strips the clothes from your shoulders and hips, leaving warm kisses on your exposed skin with every piece she removes. When your body is laid bare before her, the pixie raises her hands to her own dress. She hesitates to expose the permanent scars the imps left on her, but sighing, she laughs and a sweet wind sweeps through the storeroom. \"<i>Silly to be bashful around you, of all people,</i>\" she chuckles, sliding out of her verdant silk, pulling pins from her bun to let long, violet tresses spill down her shoulders with a shake of her head. She bats her eyes at you over one shoulder and flashes a wry little smile. \"<i>If we can replace every hash mark on my back with one of your visits, I'll switch to backless dresses,</i>\" she teases. Flying over you, she lands her delicate legs and plump, breeder's rear in your lap, wrapping her arms around your shoulders and hugging you tightly. \"<i>So, what's on your mind, hero?</i>\"", false);
         //[You][Leave]
-        this.simpleChoices(this, "You", this.cleansedValaFuckHerBrainsOut, "", undefined, "", undefined, "", undefined, "Leave", this.telAdre.barTelAdre);
+        this.simpleChoices("You", this.cleansedValaFuckHerBrainsOut, "", undefined, "", undefined, "", undefined, "Leave", this.telAdre.barTelAdre);
     }
 
     //[You] 
@@ -13965,7 +13965,7 @@ We can also do * italic * and ** bold ** text!
                 this.outputText("Vala's lips, perhaps trained to please imp cocks, are tighter on your " + this.nippleDescript(0) + " than you would've believed possible, suckling milk from your depths. With a breathtaking mixture of pressure and softness, she nurses your breast more efficiently than any machine, your warm milk filling her hungry maw in short order. She nurses at each breast in turn, bringing each one to frothy lactation faster than the last until your chest is heaving, your breasts jiggling, and your body clenching down in a shivering climax. Your orgasm leaves you unprepared for the fairy girl's and when her body starts quivering, her breasts flood your mouth with more milk than you can handle. Even swallowing as quickly as you can, it runs through your lips and even up your nose in two twin jets of pale alabaster that leave your nostrils wet with the lingering scent of honey wine. Sweating and still leaking milk, she rights herself and lands, cupping her breasts with one hand and stroking the paunch of her tiny stomach with the other. \"<i>Ooo... so full. I hope I was as good for you as you were for me,</i>\" she coos.", false);
             }
         }
-        this.doNext(this, this.cleansedValaFuckHerBrainsOutPtII);
+        this.doNext(this.cleansedValaFuckHerBrainsOutPtII);
         this.player.orgasm();
         this.flags[kFLAGS.VALA_TIMES_CONSENSUAL_SEX]++;
     }
@@ -14026,7 +14026,7 @@ We can also do * italic * and ** bold ** text!
         }
         //[End Encounter]
         this.cheatTime(1);
-        this.doNext(this, this.telAdre.barTelAdre);
+        this.doNext(this.telAdre.barTelAdre);
     }
 
 
@@ -14039,7 +14039,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("", true);
         this.outputText("She flashes a beautiful smile and tells the bartender that she'll be taking her break early. Grabbing you by the hand, she rushes to the stockroom and sheds her dress without any trace of her former shame about her tattooed back. When you're too slow taking off your " + this.player.armorName + ", she helps, deft hands made all the quicker by eagerness. When the two of you are naked, she pushes you onto the well-worn stool and sits in your lap, staring into your eyes with a small smile.", false);
         //[Next] (go to Growth scene)
-        this.doNext(this, this.cleansedValaFuckHerBrainsOut);
+        this.doNext(this.cleansedValaFuckHerBrainsOut);
     }
 
     //[Fairies]
@@ -14054,10 +14054,10 @@ We can also do * italic * and ** bold ** text!
         //[Herm]
         if (this.player.gender == 3) {
             this.outputText("Vala folds her arms across her breast. \"<i>But which one should we use?</i>\" she ponders. \"<i>I wouldn't advise trying both- your mind wouldn't be able to take it. You'd end up worse than just mind-broken, you'd be a drooling shell. And I'd never do that to my hero,</i>\" she smiles and gives you a wink. \"<i>So, what would you prefer?</i>\"\n\n", false);
-            this.simpleChoices(this, "Male", this.faerieOrgyFuckMaleContinue, "Female", this.faerieOrgyFuckFemaleContinue, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices("Male", this.faerieOrgyFuckMaleContinue, "Female", this.faerieOrgyFuckFemaleContinue, "", undefined, "", undefined, "", undefined);
         }
-        else if (this.player.gender == 2) this.doNext(this, this.faerieOrgyFuckFemaleContinue);
-        else if (this.player.gender == 1) this.doNext(this, this.faerieOrgyFuckMaleContinue);
+        else if (this.player.gender == 2) this.doNext(this.faerieOrgyFuckFemaleContinue);
+        else if (this.player.gender == 1) this.doNext(this.faerieOrgyFuckMaleContinue);
     }
 
     //[Male]
@@ -14084,7 +14084,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\"<i>You see?</i>\" Vala asks, holding the organic device aloft with a mischievous smile. \"<i>They don't last forever, but while they do, these little toys give us a very intimate connection to loved ones. This way, I can go all week with a reminder of you inside me.</i>\" She gives you a kiss on the lips and the fairies give you a tiny chorus of applause for the entertaining show. It's good that her little friends aren't around more often, you pant to yourself, or you'd be a drooling vegetable in no time.\n\n", false);
         this.cheatTime(1);
         this.player.orgasm();
-        this.doNext(this, this.telAdre.barTelAdre);
+        this.doNext(this.telAdre.barTelAdre);
     }
 
     //[Female]
@@ -14103,7 +14103,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\"<i>You see?</i>\" Vala asks, holding the organic device aloft with a mischievous smile. \"<i>They don't last forever, but while they do, these little toys give us a very intimate connection to loved ones. This way, I can go about all week with a reminder of you inside me.</i>\" She gives you a kiss on the lips and the fairies give you a tiny chorus of applause for the entertaining show. It's good that her little friends aren't around more often, you gasp to yourself, or you'd be a drooling vegetable in no time.", false);
         this.cheatTime(1);
         this.player.orgasm();
-        this.doNext(this, this.telAdre.barTelAdre);
+        this.doNext(this.telAdre.barTelAdre);
     }
 
     public takeBondageStraps(): void {
@@ -14243,8 +14243,8 @@ We can also do * italic * and ** bold ** text!
             if (this.player.lust >= 60 && this.player.vaginas[0].vaginalWetness == CoC.VAGINA_WETNESS_DROOLING && this.player.vaginas.length > 0) this.outputText("Thick runners of girl-lube stream down the insides of your thighs as your crotch gives into the demonic magics.  You wonder what " + this.monster.a + this.monster.short + "'s cock would feel like inside you?  ", false);
             if (this.player.lust >= 60 && this.player.vaginas[0].vaginalWetness == CoC.VAGINA_WETNESS_SLAVERING && this.player.vaginas.length == 1) this.outputText("Your " + this.allVaginaDescript() + " instantly soaks your groin with the heady proof of your need.  You wonder just how slippery you could " + this.monster.a + this.monster.short + "'s dick when it's rammed inside you?  ", false);
         }
-        if (this.player.lust >= 100) this.doNext(this, this.endLustLoss)
-        else this.doNext(this, this.playerMenu);
+        if (this.player.lust >= 100) this.doNext(this.endLustLoss)
+        else this.doNext(this.playerMenu);
     }
 
 
@@ -14263,7 +14263,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText(", you need to find her and bring her down.  What do you do?", false);
         this.outputText("\n\n(Sexually Interrogate, Kill Him, or Offer Safety for Information?)\n", false);
         //[Sexual Interrogation] [Brutal Interrogation] [Release for Info]
-        this.simpleChoices(this, "Sexual", this.sexualInterrogation, "End Him", this.endZetaz, "Safety", this.releaseZForInfo, "", undefined, "", undefined);
+        this.simpleChoices("Sexual", this.sexualInterrogation, "End Him", this.endZetaz, "Safety", this.releaseZForInfo, "", undefined, "", undefined);
     }
 
     //[Release Zetaz 4 Info Win]
@@ -14330,7 +14330,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("What do you do?", false);
         //['Release' him] [Tighten Strap] [End Him]
-        this.simpleChoices(this, "'Release'", this.sexualTortureReleaseZetaz, "Tighten", this.sexualTortureTightenZetaz, "End Him", this.endZetaz, "", undefined, "", undefined);
+        this.simpleChoices("'Release'", this.sexualTortureReleaseZetaz, "Tighten", this.sexualTortureTightenZetaz, "End Him", this.endZetaz, "", undefined, "", undefined);
     }
 
     //[Release Him]
@@ -14457,7 +14457,7 @@ We can also do * italic * and ** bold ** text!
         //(max libido, lust, and sensitivity)
         this.dynStats("lib", 100, "sen", 100, "lus=", 1000, "cor", 50);
         //[NEXT]
-        this.doNext(this, this.femaleZetazOverPtII);
+        this.doNext(this.femaleZetazOverPtII);
     }
 
     public femaleZetazOverPtII(): void {
@@ -14485,7 +14485,7 @@ We can also do * italic * and ** bold ** text!
         this.dynStats("cor", 50);
 
         //[Epilogue]
-        this.doNext(this, this.zetazBadEndEpilogue);
+        this.doNext(this.zetazBadEndEpilogue);
     }
     public zetazBadEndEpilogue(): void {
         this.outputText("", true);
@@ -14564,7 +14564,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("The imps start hooting and cat-calling, laughing and prodding your body with their twisted demonic members as your mind starts to come apart in the seething oven of unnatural lust.\n\n", false);
         //NEXT
         this.dynStats("lib", 100, "sen", 100, "lus=", 1000, "cor", 50);
-        this.doNext(this, this.hermZetazOverPtII);
+        this.doNext(this.hermZetazOverPtII);
     }
 
     public hermZetazOverPtII(): void {
@@ -14597,7 +14597,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("Your master finishes squirting inside you and withdraws, pawing at your milk-leaking teats for a moment as you continue to shudder and cum like a good bitch.  Wow, you really are a good bitch aren't you?  Pride wells in your breast as the imp's chanting reaches a crescendo and a relaxed smile forms on your " + this.player.face() + ".  Yes, you're a good, breeding bitch.   Master is smiling up at you and you know you've made him feel very happy.  Hopefully he'll come back soon and fuck you some more.  Your pussy feels so empty without him.", false);
         this.player.orgasm();
         this.dynStats("cor", 50);
-        this.doNext(this, this.zetazBadEndEpilogue);
+        this.doNext(this.zetazBadEndEpilogue);
     }
 
     //M-Males – drugged & pegged, slowly have their memories erased/brainwashed.
@@ -14630,7 +14630,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("As soon as your orgasm concludes, another wave of aphrodisiacs enters your mouth, and you have to drink all over again.  Something warm flashes in your backside, making you feel stuffed and hot, but then Zetaz pulls his cock free and another, slightly different prick is buried in your asshole.  The imps take turns battering your backdoor, force-feeding you potions, and sometimes even jerking you off to see how much you squirt, until your mind shuts down from the constant assault of drugs, sex, and pleasure.\n\n", false);
 
         this.dynStats("lib", 100, "sen", 100, "lus=", 1000, "cor", 50);
-        this.doNext(this, this.malesZetazOverPtII);
+        this.doNext(this.malesZetazOverPtII);
     }
 
     public malesZetazOverPtII(): void {
@@ -14668,7 +14668,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("Zetaz laughs and pumps at the huge button; even though it's quite lacking in femininity, it still makes you squeal like a little girl.  Your " + this.player.legs() + " shake wildly, trembling against the wall while your juicy snatch gets fucked good and hard and the mixed jism boils out around the imp lord's massive, swollen member.   The fucking is hard, fast, and so brutal that you get off multiple times in the span of a few minutes, though the imps don't even try to dose you for each one.  Zetaz slaps your " + this.assDescript() + " a few times before he pushes himself to the hilt, stretching your well-fucked cunt to its limits.  He twitches and grunts, and a blast of gooey heat suffuses your core with corrupt pleasure.  Somehow you know, just know, that you'll be pregnant from this, but you have a hard time caring.  It feels too good...\n\n", false);
 
         this.dynStats("lib", 100, "sen", 100, "lus=", 1000, "cor", 50);
-        this.doNext(this, this.zetazBadEndEpilogue);
+        this.doNext(this.zetazBadEndEpilogue);
     }
 
 
@@ -14684,7 +14684,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("The strange incubus flashes you a smile that makes you feel a tad uncomfortable before he finally introduces himself, \"<i>The name's Sean, and as you seem to be kicking the living shit out of Lethice's followers and enemies alike, I'd like to be on your side.  So I propose a mutually beneficial agreement – I'll sell you items you can't get anywhere else, and you let me live in this cave.  What do you say?</i>\"\n\n");
 
-        this.simpleChoices(this, "Deal", this.incubusDeal, "No Deal", this.incubusNoDeal, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices("Deal", this.incubusDeal, "No Deal", this.incubusNoDeal, "", undefined, "", undefined, "", undefined);
     }
 
     private incubusDeal(): void {
@@ -14694,7 +14694,7 @@ We can also do * italic * and ** bold ** text!
 
         //[Next – to room]
         this.flags[kFLAGS.ZETAZ_LAIR_DEMON_VENDOR_PRESENT] = 1;
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     private incubusNoDeal(): void {
@@ -14702,7 +14702,7 @@ We can also do * italic * and ** bold ** text!
         this.clearOutput();
         this.flags[kFLAGS.ZETAZ_LAIR_DEMON_VENDOR_PRESENT] = -1;
         this.outputText("Sean nods, grabs a pack, and takes off running before you have a chance to kill him.");
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     public incubusShop(): void {
@@ -14714,18 +14714,18 @@ We can also do * italic * and ** bold ** text!
         this.clearOutput();
         this.outputText("Sean nods at you and slicks his hair back into place, threading it carefully around the small nubs of his horns before asking, \"<i>What can I do for you?</i>\"");
         this.menu();
-        this.addButton(this, 0, this.consumables.NUMBROX.shortName, this.incubusBuy, this.consumables.NUMBROX);
-        this.addButton(this, 1, this.consumables.SENSDRF.shortName, this.incubusBuy, this.consumables.SENSDRF);
-        this.addButton(this, 2, this.consumables.REDUCTO.shortName, this.incubusBuy, this.consumables.REDUCTO);
-        this.addButton(this, 3, this.weapons.SUCWHIP.shortName, this.incubusBuy, this.weapons.SUCWHIP);
+        this.addButton(0, this.consumables.NUMBROX.shortName, this.incubusBuy, this.consumables.NUMBROX);
+        this.addButton(1, this.consumables.SENSDRF.shortName, this.incubusBuy, this.consumables.SENSDRF);
+        this.addButton(2, this.consumables.REDUCTO.shortName, this.incubusBuy, this.consumables.REDUCTO);
+        this.addButton(3, this.weapons.SUCWHIP.shortName, this.incubusBuy, this.weapons.SUCWHIP);
         if (this.player.hasItem(this.consumables.BIMBOCH) && this.flags[kFLAGS.NIAMH_SEAN_BREW_BIMBO_LIQUEUR_COUNTER] == 0) {
             this.outputText("\n\nSean could probably do something with the Bimbo Champagne if you had enough of it...");
             if (this.player.hasItem(this.consumables.BIMBOCH, 5)) {
                 this.outputText("  Luckily, you do!");
-                this.addButton(this, 4, this.consumables.BIMBOLQ.shortName, this.telAdre.niamh.seanBimboBrewing);
+                this.addButton(4, this.consumables.BIMBOLQ.shortName, this.telAdre.niamh.seanBimboBrewing);
             }
         }
-        this.addButton(this, 9, "Leave", this.playerMenu);
+        this.addButton(9, "Leave", this.playerMenu);
     }
 
     private incubusBuy(itype: ItemType): void {
@@ -14734,10 +14734,10 @@ We can also do * italic * and ** bold ** text!
         this.outputText("The incubus lifts " + itype.longName + " from his shelves and says, \"<i>That will be " + (itype.value * 3) + " gems.  Are you sure you want to buy it?</i>\"");
         if (this.player.gems < (itype.value * 3)) {
             this.outputText("\n<b>You don't have enough gems...</b>");
-            this.doNext(this, this.incubusShop);
+            this.doNext(this.incubusShop);
             return;
         }
-        this.doYesNo(this, Utils.curry(this.incubusTransact, itype), this.incubusShop);
+        this.doYesNo(Utils.curry(this.incubusTransact, itype), this.incubusShop);
     }
 
     private incubusTransact(itype: ItemType): void {
@@ -14783,7 +14783,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("The fairy brushes her glittering hair behind her shoulders and sits on her knees in front of you, large pink eyes staring up eagerly.");
         }
         //[NEXT]
-        this.doNext(this, this.valaCumBath2);
+        this.doNext(this.valaCumBath2);
     }
 
     public valaCumBath2(): void {
@@ -14815,7 +14815,7 @@ We can also do * italic * and ** bold ** text!
         this.flags[kFLAGS.VALA_TIMES_CONSENSUAL_SEX]++;
         this.player.orgasm();
         this.dynStats("lib", -1.5);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Big Vala Intro
@@ -14846,11 +14846,11 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nVala reaches down between her legs and begins to piston a finger inside herself, the digit easily as wide as both your arms combined, yet, in her sloppy, oozing cunt, it's barely big enough.  Slowly, her growth diminishes, only fading once she's tall enough to make you question if you could even measure her height.  Her voice echoes out with enough force to vibrate through you, \"<i>Ha!  I'd like to see the imps try anything now!</i>\"  Of course her words still maintain their girlish pitch, something made more clear when she stoops down to circle surprisingly delicate fingers around your waist before lifting you in front her face.  Her glistening lips, cute nose, and big, pink eyes dominate your view.  What do you ask her to do?");
         //[Dom Me] [Lick Me]
         this.menu();
-        this.addButton(this, 0, "Dom Me", this.bigValaDomsPC);
-        if (this.player.hasCock()) this.addButton(this, 1, "Lick Me", this.bigValaLicksOffDudes);
+        this.addButton(0, "Dom Me", this.bigValaDomsPC);
+        if (this.player.hasCock()) this.addButton(1, "Lick Me", this.bigValaLicksOffDudes);
         if (this.vapula.vapulaSlave() && this.player.gender > 0 && (this.player.hasCock() || (this.player.hasVagina() && this.player.hasKeyItem("Demonic Strap-On") >= 0))) {
-            this.addButton(this, 2, "Dom Vapula", this.valaDommyVapula3Some);
-            this.addButton(this, 3, "Vapula3Some", this.valaLoveyVapula3Some);
+            this.addButton(2, "Dom Vapula", this.valaDommyVapula3Some);
+            this.addButton(3, "Vapula3Some", this.valaLoveyVapula3Some);
         }
     }
     //Big Vala: Dom Me
@@ -14903,7 +14903,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nYou lift her up out of the mess and carry her to the stream where you both clean up.  Vala murmurs, \"<i>My hero...</i>\" as you wash her, too wiped out to do it herself.  Vala recovers by the time you're getting re-dressed, and she gives you a surprisingly chaste, blushing kiss before she gets ready to depart.  The faerie seems to have some degree of magical affinity, as she's able to knit her dress back together with a bit of mental effort, and then she's fluttering away, calling out her goodbyes to you as she journeys back to Tel'Adre.");
         this.player.slimeFeed();
         this.player.orgasm();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Big Vala: Lick Me (Requires Penor)
@@ -14956,7 +14956,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nYou lift her up out of the mess and carry her to the stream where you both clean up.  Vala murmurs, \"<i>My hero...</i>\" as you wash her, too wiped out to do it herself.  Vala recovers by the time you're getting re-dressed, and she gives you a surprisingly chaste, blushing kiss before she gets ready to depart.  The faerie seems to have some degree of magical affinity, as she's able to knit her dress and your [armor] back together with a bit of mental effort, and then she's fluttering away, calling out her goodbyes to you as she journeys back to Tel'Adre.");
 
         this.player.orgasm();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Intro to Vala + Vapula Threesomes
@@ -15021,7 +15021,7 @@ We can also do * italic * and ** bold ** text!
         this.player.orgasm();
         this.dynStats("cor", 1);
         this.player.slimeFeed();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //Giant Vala + Vapula Threesome - Vala Lovey Dovey
     public valaLoveyVapula3Some(): void {
@@ -15054,7 +15054,7 @@ We can also do * italic * and ** bold ** text!
         this.player.orgasm();
         this.dynStats("cor", 1);
         this.player.slimeFeed();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public kinathisValaStuff(): void {
@@ -15139,7 +15139,7 @@ We can also do * italic * and ** bold ** text!
         this.flags[kFLAGS.VALA_TIMES_CONSENSUAL_SEX]++;
         this.dynStats("lib", -1, "sen", -2);
         this.menu();
-        this.addButton(this, 0, "Next", this.valaPartIIWaifuLove)
+        this.addButton(0, "Next", this.valaPartIIWaifuLove)
     }
 
     //[next]
@@ -15158,7 +15158,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nWith her being as affectionate she is, you can't help but smile and stroke her.  This really was nice; you could see yourself enjoying many more times like this, but unfortunately you do have to get back to your duty.  Pulling Vala into a kiss, you squeeze her and hold her tightly against you for a moment before lifting her off you, telling the girl that you have to go.  She sighs, knowing that you have to get back to being her hero.  \"<i>I know, go and be the big strong hero I know you are, just make sure you come and visit me at the bar whenever you want,</i>\" she says before kissing you one last time and showing you to the door.  Breathing in the morning air, you head back to camp to check up on the place.");
 
         //[return to camp][set clock to 7am]
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 
@@ -15220,9 +15220,9 @@ We can also do * italic * and ** bold ** text!
             //		text2 = "East";
             //		choice7 = leaveFactory;
             //		text7 = "South";
-            this.addButton(this, 0, "North", this.openFactoryDoor);
-            this.addButton(this, 1, "East", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_BREAK_ROOM);
-            this.addButton(this, 6, "South", this.leaveFactory);
+            this.addButton(0, "North", this.openFactoryDoor);
+            this.addButton(1, "East", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_BREAK_ROOM);
+            this.addButton(6, "South", this.leaveFactory);
         }
         //Pump Room
         if (this.dungeonLoc == CoC.DUNGEON_FACTORY_PUMP_ROOM) {
@@ -15238,10 +15238,10 @@ We can also do * italic * and ** bold ** text!
             //		text7 = "South";
             //		choice6 = 11005;
             //		text6 = "West";
-            this.addButton(this, 0, "North", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_REPAIR_CLOSET);
-            this.addButton(this, 1, "East", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_FURNACE_ROOM);
-            this.addButton(this, 5, "West", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_MAIN_CHAMBER);
-            this.addButton(this, 6, "South", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_FOYER);
+            this.addButton(0, "North", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_REPAIR_CLOSET);
+            this.addButton(1, "East", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_FURNACE_ROOM);
+            this.addButton(5, "West", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_MAIN_CHAMBER);
+            this.addButton(6, "South", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_FOYER);
         }
         //Break Room
         if (this.dungeonLoc == CoC.DUNGEON_FACTORY_BREAK_ROOM) {
@@ -15256,13 +15256,13 @@ We can also do * italic * and ** bold ** text!
                     this.outputText("  It seems your opponent dropped a small iron key as she fled.", false);
                     //				choice3 = takeIronKey;
                     //				text3 = "Iron Key";
-                    this.addButton(this, 2, "Iron Key", this.takeIronKey);
+                    this.addButton(2, "Iron Key", this.takeIronKey);
                 }
                 //			choice6 = 11000;
                 //			text5 = "Coffee";
                 //			choice5 = drinkCoffee;
-                this.addButton(this, 4, "Coffee", this.drinkCoffee);
-                this.addButton(this, 5, "West", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_FOYER);
+                this.addButton(4, "Coffee", this.drinkCoffee);
+                this.addButton(5, "West", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_FOYER);
             }
             else {
                 this.spriteSelect(55);
@@ -15283,9 +15283,9 @@ We can also do * italic * and ** bold ** text!
                     //				choice3 = succubusBadEnd;
                     //				masturbateMenu = 0;
                     //				itemMenu = undefined;
-                    this.addButton(this, 0, "Fight", this.succubusCombatStart);
-                    this.addButton(this, 1, "Go Demon", this.demonBadEnd);
-                    this.addButton(this, 2, "Hook Up", this.succubusBadEnd);
+                    this.addButton(0, "Fight", this.succubusCombatStart);
+                    this.addButton(1, "Go Demon", this.demonBadEnd);
+                    this.addButton(2, "Hook Up", this.succubusBadEnd);
                     return; //This prevents the masturbate and item menus showing
                 }
                 //Not recognized
@@ -15306,9 +15306,9 @@ We can also do * italic * and ** bold ** text!
                     //				choice3 = 11000;
                     //				masturbateMenu = 0;
                     //				itemMenu = undefined;
-                    this.addButton(this, 0, "Fight", this.succubusCombatStart);
-                    this.addButton(this, 1, "It's Me!", this.secretarialSuccubusInsult);
-                    this.addButton(this, 2, "Leave", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_FOYER);
+                    this.addButton(0, "Fight", this.succubusCombatStart);
+                    this.addButton(1, "It's Me!", this.secretarialSuccubusInsult);
+                    this.addButton(2, "Leave", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_FOYER);
                     return; //This prevents the masturbate and item menus showing
                 }
                 else {
@@ -15324,9 +15324,9 @@ We can also do * italic * and ** bold ** text!
                     //				choice3 = 11000;
                     //				masturbateMenu = 0;
                     //				itemMenu = undefined;
-                    this.addButton(this, 0, "Fight", this.succubusCombatStart);
-                    this.addButton(this, 1, "Talk", this.succubusTalkOne);
-                    this.addButton(this, 2, "Run", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_FOYER);
+                    this.addButton(0, "Fight", this.succubusCombatStart);
+                    this.addButton(1, "Talk", this.succubusTalkOne);
+                    this.addButton(2, "Run", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_FOYER);
                     return; //This prevents the masturbate and item menus showing
                 }
             }
@@ -15344,7 +15344,7 @@ We can also do * italic * and ** bold ** text!
             if (this.player.findStatusAffect(StatusAffects.FactoryIncubusDefeated) >= 0 || this.flags[kFLAGS.D3_DISCOVERED] == 1) {
                 //			text6 = "West";
                 //			choice6 = 11001;
-                this.addButton(this, 5, "West", this.openFactoryDoor);
+                this.addButton(5, "West", this.openFactoryDoor);
             }
             //Incubus is ALLLLIVE
             else {
@@ -15355,8 +15355,8 @@ We can also do * italic * and ** bold ** text!
                     //				text2 = "Fight";
                     //				text6 = "West";
                     //				choice6 = 11001;
-                    this.addButton(this, 1, "Fight", this.startIncubusFight);
-                    this.addButton(this, 5, "West", this.openFactoryDoor);
+                    this.addButton(1, "Fight", this.startIncubusFight);
+                    this.addButton(5, "West", this.openFactoryDoor);
                 }
                 else {
                     this.outputText("\n\nA demonic mechanic lounges against the hot machinery, unperturbed by the high temperatures of the room.  He wears cut-off denim overalls, stained with grease in a few places.  They don't seem to be in good repair, and have a fair-sized hole at his groin, where a floppy foot-long member hangs free.  His skin is light purple and unblemished, as you would expect from a sexual demon.  He has a rugged handsome face and black hair tied back in a simple ponytail.  Two large curving horns protrude from his forehead, curving back along his skull and giving him a dangerous appearance.  A narrow goatee grows from his chin, about 3 inches long and braided skillfully.  He looks up and smiles, amused at your appearance.", false);
@@ -15364,8 +15364,8 @@ We can also do * italic * and ** bold ** text!
                     //				text1 = "Fight";
                     //				text2 = "Talk";
                     //				choice2 = talkToIncubus;				
-                    this.addButton(this, 0, "Fight", this.startIncubusFight);
-                    this.addButton(this, 1, "Talk", this.talkToIncubus);
+                    this.addButton(0, "Fight", this.startIncubusFight);
+                    this.addButton(1, "Talk", this.talkToIncubus);
                 }
             }
         }
@@ -15383,21 +15383,21 @@ We can also do * italic * and ** bold ** text!
                     else {
                         //					choice4 = takeCockMilker;
                         //					text4 = "C. Milker";
-                        this.addButton(this, 3, "C. Milker", this.takeCockMilker);
+                        this.addButton(3, "C. Milker", this.takeCockMilker);
                     }
                     if (this.player.hasKeyItem("Breast Milker") >= 0)
                         this.outputText("\nYou already have a breast milker.\n", false);
                     else {
                         //					choice3 = takeBreastMilker;
                         //					text3 = "B. Milker";
-                        this.addButton(this, 2, "B. Milker", this.takeBreastMilker);
+                        this.addButton(2, "B. Milker", this.takeBreastMilker);
                     }
                 }
             }
             //		text7 = "South";
             //		choice7 = 11001;
             this.outputText("The only exit is back to the south.", false);
-            this.addButton(this, 6, "South", this.openFactoryDoor);
+            this.addButton(6, "South", this.openFactoryDoor);
         }
         //Main Chamber
         if (this.dungeonLoc == CoC.DUNGEON_FACTORY_MAIN_CHAMBER) {
@@ -15414,14 +15414,14 @@ We can also do * italic * and ** bold ** text!
                 this.outputText("\n\nOne of the leather-clad ladies steps over and offers, 'Would you like a dose?  You look like you need to relieve some tension...", false);
                 //			choice3 = relieveTension;
                 //			text3 = "Tension";
-                this.addButton(this, 2, "Tension", this.relieveTension);
+                this.addButton(2, "Tension", this.relieveTension);
             }
             //		text2 = "East";
             //		choice2 = 11001;
             //		text7 = "South(Up)";
             //		choice7 = 11006;
-            this.addButton(this, 1, "East", this.openFactoryDoor);
-            this.addButton(this, 6, "South(Up)", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_FOREMANS_OFFICE);
+            this.addButton(1, "East", this.openFactoryDoor);
+            this.addButton(6, "South(Up)", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_FOREMANS_OFFICE);
         }
         //Foreman's Office
         if (this.dungeonLoc == CoC.DUNGEON_FACTORY_FOREMANS_OFFICE) {
@@ -15436,8 +15436,8 @@ We can also do * italic * and ** bold ** text!
                 //			text1 = "Fight";   
                 //			choice2 = omnibusAcceptOffer;
                 //			text2 = "Accept";
-                this.addButton(this, 0, "Fight", this.omnibusStartCombat);
-                this.addButton(this, 1, "Accept", this.omnibusAcceptOffer);
+                this.addButton(0, "Fight", this.omnibusStartCombat);
+                this.addButton(1, "Accept", this.omnibusAcceptOffer);
             }
             else {
                 //			choice1 = 11005;
@@ -15446,13 +15446,13 @@ We can also do * italic * and ** bold ** text!
                 //			text2 = "East";
                 //			choice7 = 11008;
                 //			text7 = "South";
-                this.addButton(this, 1, "East", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_PUMP_CONTROL);
-                this.addButton(this, 5, "North(Down)", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_MAIN_CHAMBER);
-                this.addButton(this, 6, "South", this.openPumpRoom);
+                this.addButton(1, "East", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_PUMP_CONTROL);
+                this.addButton(5, "North(Down)", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_MAIN_CHAMBER);
+                this.addButton(6, "South", this.openPumpRoom);
                 if (this.player.hasKeyItem("Supervisor's Key") < 0) {
                     //				choice3 = takeSupervisorsKey;
                     //				text3 = "Desk";
-                    this.addButton(this, 2, "Desk", this.takeSupervisorsKey);
+                    this.addButton(2, "Desk", this.takeSupervisorsKey);
                 }
             }
         }
@@ -15472,49 +15472,49 @@ We can also do * italic * and ** bold ** text!
                 //			choice4 = factoryOverload;
                 //			text5 = "Shutdown";
                 //			choice5 = factoryShutdown;
-                this.addButton(this, 3, "Valves", this.factoryOverload);
-                this.addButton(this, 4, "Shutdown", this.factoryShutdown);
+                this.addButton(3, "Valves", this.factoryOverload);
+                this.addButton(4, "Shutdown", this.factoryShutdown);
             }
             else {
                 this.outputText("This room is little more than a closet in reality.  There is a simple set of mechanical controls on the a finely crafted terminal against the far wall.  The controls are now inoperable, due to the damage your actions have caused.", false);
             }
             //		choice6 = 11006;
             //		text6 = "West";
-            this.addButton(this, 5, "West", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_FOREMANS_OFFICE);
+            this.addButton(5, "West", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_FOREMANS_OFFICE);
         }
         //Premium Products
         if (this.dungeonLoc == CoC.DUNGEON_FACTORY_STORE_ROOM) {
             this.outputText("<b><u>Premium Products</u></b>\nThis store room is filled with a few opened crates, meant to store the various substances in the factory.  It looks as if the current overseer has allowed supplies to run low, as there is not much to be gleaned from this meager stash.\n\n", true);
             //		text1 = "North";
             //		choice1 = 11006;
-            this.addButton(this, 0, "North", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_FOREMANS_OFFICE);
+            this.addButton(0, "North", this.dungeonEnterRoom, CoC.DUNGEON_FACTORY_FOREMANS_OFFICE);
             if (this.player.findStatusAffect(StatusAffects.TakenLactaid) >= 0) {
                 if (this.player.statusAffectv1(StatusAffects.TakenLactaid) > 0) {
                     this.outputText("There is a crate with " + this.num2Text(this.player.statusAffectv1(StatusAffects.TakenLactaid)) + " bottles of something called 'Lactaid' inside.\n\n", false);
                     //				text3 = "Lactaid";
                     //				choice3 = storageTakeLactaid;
-                    this.addButton(this, 2, "Lactaid", this.storageTakeLactaid);
+                    this.addButton(2, "Lactaid", this.storageTakeLactaid);
                 }
             }
             else {
                 this.outputText("There is a crate with five bottles of something called 'Lactaid' inside.\n\n", false);
                 //			text3 = "Lactaid";
                 //			choice3 = storageTakeLactaid;
-                this.addButton(this, 2, "Lactaid", this.storageTakeLactaid);
+                this.addButton(2, "Lactaid", this.storageTakeLactaid);
             }
             if (this.player.findStatusAffect(StatusAffects.TakenGroPlus) >= 0) {
                 if (this.player.statusAffectv1(StatusAffects.TakenGroPlus) > 0) {
                     this.outputText("There is a crate with " + this.num2Text(this.player.statusAffectv1(StatusAffects.TakenGroPlus)) + " bottles of something called 'Gro+' inside.\n\n", false);
                     //				text4 = "GroPlus";
                     //				choice4 = storageTakeGroPlus;
-                    this.addButton(this, 3, "GroPlus", this.storageTakeGroPlus);
+                    this.addButton(3, "GroPlus", this.storageTakeGroPlus);
                 }
             }
             else {
                 this.outputText("There is a crate with five bottles of something called 'Gro+' inside.\n\n", false);
                 //			text4 = "GroPlus";
                 //			choice4 = storageTakeGroPlus;
-                this.addButton(this, 3, "GroPlus", this.storageTakeGroPlus);
+                this.addButton(3, "GroPlus", this.storageTakeGroPlus);
             }
         }
         //DUNGEON 2 START: ROOM 10
@@ -15526,21 +15526,21 @@ We can also do * italic * and ** bold ** text!
             //		text1 = "North";
             //		choice6 = leaveZetazsLair;
             //		text6 = "Leave";
-            this.addButton(this, 0, "North", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_TUNNEL);
-            this.addButton(this, 5, "Leave", this.leaveZetazsLair);
+            this.addButton(0, "North", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_TUNNEL);
+            this.addButton(5, "Leave", this.leaveZetazsLair);
             //Zetaz gone?  Alchemist shits!
             if (this.flags[kFLAGS.DEFEATED_ZETAZ] > 0) {
                 if (this.flags[kFLAGS.ZETAZ_LAIR_DEMON_VENDOR_PRESENT] == 0) {
                     this.outputText("\n\nThere's a demon lazing around outside the cave entrance.  Judging by his size and apparent gender, he must be an incubus.  You try to stay hidden for now, but all he's doing is throwing darts at a dartboard he's set up across the way from himself.  What kind of demon sits around playing darts?");
                     //				text1 = "Investigate";
                     //				choice1 = theSeanShopOffer;
-                    this.addButton(this, 0, "Investigate", this.theSeanShopOffer);
+                    this.addButton(0, "Investigate", this.theSeanShopOffer);
                 }
                 else if (this.flags[kFLAGS.ZETAZ_LAIR_DEMON_VENDOR_PRESENT] > 0) {
                     this.outputText("\n\nThe incubus known as Sean has set up a small stall around the cave entrance, and is busy tending to his shelves and wares.  He's dressed in an incredibly modest, three-piece suit, and nods to you as you approach, \"<i>Let me know if you want to buy anything.  I haven't done much with the cave, so feel free to poke around if you missed anything on your first pass.  I barely use the first room.</i>\"");
                     //				text3 = "Shop";
                     //				choice3 = incubusShop;
-                    this.addButton(this, 2, "Shop", this.incubusShop);
+                    this.addButton(2, "Shop", this.incubusShop);
                 }
             }
         }
@@ -15552,8 +15552,8 @@ We can also do * italic * and ** bold ** text!
             //		choice7 = 11066;
             //		text1 = "North";
             //		choice1 = 11068;
-            this.addButton(this, 0, "North", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_GATHERING_HALL);
-            this.addButton(this, 6, "South", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_ENTRANCE);
+            this.addButton(0, "North", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_GATHERING_HALL);
+            this.addButton(6, "South", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_ENTRANCE);
         }
         //D2: [GATHERING HALL]
         if (this.dungeonLoc == CoC.DUNGEON_CAVE_GATHERING_HALL) {
@@ -15564,7 +15564,7 @@ We can also do * italic * and ** bold ** text!
                 this.outputText("\n\nThe place is swarming with two dozen imps, and none of them look happy to see you.  A number of them take flight while the rest form a ring around you, trapping you!  It looks like you'll have to fight your way out!", false);
                 //			text1 = "FIGHT!";
                 //			choice1 = impHordeStartCombat;
-                this.addButton(this, 0, "FIGHT!", this.impHordeStartCombat);
+                this.addButton(0, "FIGHT!", this.impHordeStartCombat);
             }
             else {
                 //			text1 = "North";
@@ -15575,10 +15575,10 @@ We can also do * italic * and ** bold ** text!
                 //			choice6 = 11069;
                 //			text7 = "South";
                 //			choice7 = 11067;
-                this.addButton(this, 0, "North", this.enterZetazsRoomFromTheSouth);
-                this.addButton(this, 1, "East", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_TORTURE_ROOM);
-                this.addButton(this, 5, "West", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_FUNGUS_CAVERN);
-                this.addButton(this, 6, "South", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_TUNNEL);
+                this.addButton(0, "North", this.enterZetazsRoomFromTheSouth);
+                this.addButton(1, "East", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_TORTURE_ROOM);
+                this.addButton(5, "West", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_FUNGUS_CAVERN);
+                this.addButton(6, "South", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_TUNNEL);
             }
         }
         if (this.dungeonLoc == CoC.DUNGEON_CAVE_FUNGUS_CAVERN) {
@@ -15590,11 +15590,11 @@ We can also do * italic * and ** bold ** text!
                 //			choice2 = 11068;
                 //			text3 = "Get Sword";
                 //			choice3 = getSwordAndGetTrapped;
-                this.addButton(this, 2, "Get Sword", this.getSwordAndGetTrapped);
+                this.addButton(2, "Get Sword", this.getSwordAndGetTrapped);
                 if (this.player.canFly()) {
                     //				text4 = "Fly to Sword";
                     //				choice4 = flyToSwordAndGetTrapped;
-                    this.addButton(this, 3, "Fly to Sword", this.flyToSwordAndGetTrapped);
+                    this.addButton(3, "Fly to Sword", this.flyToSwordAndGetTrapped);
                 }
             }
             //Fungus creature dealt with!
@@ -15603,7 +15603,7 @@ We can also do * italic * and ** bold ** text!
                 //			choice2 = 11068;
                 this.outputText("This cavern is huge!  Though you can see the edge of a large stalactite to the west, the rest of the cave disappears into darkness beyond twenty or thirty feet away.  The floor is covered in spongy, leaf-shaped fungus.  They're huge, shiny, and purple, and they cover the cavern floor for as far as the illumination will reach.  The familiar, sweet smell of them hangs in the cavern's humid air, but you're fairly certain they won't trouble you again.", false);
             }
-            this.addButton(this, 1, "East", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_GATHERING_HALL);
+            this.addButton(1, "East", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_GATHERING_HALL);
         }
         //Vala's bitch room
         if (this.dungeonLoc == CoC.DUNGEON_CAVE_TORTURE_ROOM) {
@@ -15624,16 +15624,16 @@ We can also do * italic * and ** bold ** text!
                     //[Free] [Use] [Leave]
                     //				text3 = "Free";
                     //				choice3 = freeValazLooseCoochie;
-                    this.addButton(this, 2, "Free", this.freeValazLooseCoochie);
+                    this.addButton(2, "Free", this.freeValazLooseCoochie);
                     if (this.player.gender > 0) {
                         //					text4 = "Use";
                         //					choice4 = useVala;
-                        this.addButton(this, 3, "Use", this.useVala);
+                        this.addButton(3, "Use", this.useVala);
                     }
                     if (this.player.lust >= 33 && this.shouldraFollower.followerShouldra()) {
                         //					text5 = "ShouldraVala";
                         //					choice5 = shouldraFollower.shouldraMeetsCorruptVala;
-                        this.addButton(this, 4, "ShouldraVala", this.shouldraFollower.shouldraMeetsCorruptVala);
+                        this.addButton(4, "ShouldraVala", this.shouldraFollower.shouldraMeetsCorruptVala);
                     }
                 }
                 //Zetaz defeated 
@@ -15643,7 +15643,7 @@ We can also do * italic * and ** bold ** text!
                     //leftValaAlone()
                     //				text3 = "Faerie";
                     //				choice3 = leftValaAlone;
-                    this.addButton(this, 2, "Faerie", this.leftValaAlone);
+                    this.addButton(2, "Faerie", this.leftValaAlone);
                 }
             }
             //Not here
@@ -15653,8 +15653,8 @@ We can also do * italic * and ** bold ** text!
             //		choice1 = 11071;
             //		text6 = "West";
             //		choice6 = 11068;
-            this.addButton(this, 0, "North", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_SECRET_TUNNEL);
-            this.addButton(this, 5, "West", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_GATHERING_HALL);
+            this.addButton(0, "North", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_SECRET_TUNNEL);
+            this.addButton(5, "West", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_GATHERING_HALL);
         }
         //Backdoor Banditos!
         if (this.dungeonLoc == CoC.DUNGEON_CAVE_SECRET_TUNNEL) {
@@ -15668,7 +15668,7 @@ We can also do * italic * and ** bold ** text!
                 this.outputText("\n\nA pair of fetishy, discarded straps lies on the floor, half obscured by dust.  It looks like something a goblin would wear.  Sexy!");
                 //			text3 = "B.Straps";
                 //			choice3 = takeBondageStraps; //2638;
-                this.addButton(this, 2, "B.Straps", this.takeBondageStraps);
+                this.addButton(2, "B.Straps", this.takeBondageStraps);
             }
             //(Item: sexy bondage straps/a set of sexy bondage straps/B.Straps? - Seduce ability?)
             //(Possible effect: +lust every round in combat if afflicted with Ceraph's bondage!)
@@ -15676,8 +15676,8 @@ We can also do * italic * and ** bold ** text!
             //		choice6 = 11072;
             //		text7 = "South";
             //		choice7 = 11070;
-            this.addButton(this, 5, "West", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_ZETAZ_CHAMBER);
-            this.addButton(this, 6, "South", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_TORTURE_ROOM);
+            this.addButton(5, "West", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_ZETAZ_CHAMBER);
+            this.addButton(6, "South", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_TORTURE_ROOM);
         }
         //Zetaz' Lair!
         if (this.dungeonLoc == CoC.DUNGEON_CAVE_ZETAZ_CHAMBER) {
@@ -15700,8 +15700,8 @@ We can also do * italic * and ** bold ** text!
                 //			choice7 = 11068;
                 //			text2 = "East";
                 //			choice2 = 11071;
-                this.addButton(this, 1, "East", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_SECRET_TUNNEL);
-                this.addButton(this, 6, "South", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_GATHERING_HALL);
+                this.addButton(1, "East", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_SECRET_TUNNEL);
+                this.addButton(6, "South", this.dungeonEnterRoom, CoC.DUNGEON_CAVE_GATHERING_HALL);
             }
         }
         //HELIA DUNGEONNNNNOOOO 1
@@ -15715,7 +15715,7 @@ We can also do * italic * and ** bold ** text!
                 this.outputText("  However, a suit of half-plate armor has been left up against the eastern wall, hanging loosely on a rack; it seems to be in usable shape.");
                 //			text4 = "Armor";
                 //			choice4 = takeGooArmor;
-                this.addButton(this, 3, "Armor", this.takeGooArmor);
+                this.addButton(3, "Armor", this.takeGooArmor);
             }
             this.outputText("  You see a pair of heavy iron doors leading northward, though they seem so rusty and heavy that opening them is sure to alert anyone nearby, and a small trapdoor leading down.");
             //(Display Options: [North Door] [Trapdoor] [Armor])
@@ -15723,8 +15723,8 @@ We can also do * italic * and ** bold ** text!
             //		choice1 = 11086;
             //		text3 = "Trapdoor";
             //		choice3 = 11085;
-            this.addButton(this, 0, "North Door", this.dungeonEnterRoom, CoC.DUNGEON_HEL_STAIR_WELL);
-            this.addButton(this, 2, "Trapdoor", this.dungeonEnterRoom, CoC.DUNGEON_HEL_WINE_CELLAR);
+            this.addButton(0, "North Door", this.dungeonEnterRoom, CoC.DUNGEON_HEL_STAIR_WELL);
+            this.addButton(2, "Trapdoor", this.dungeonEnterRoom, CoC.DUNGEON_HEL_WINE_CELLAR);
         }
         if (this.dungeonLoc == CoC.DUNGEON_HEL_WINE_CELLAR) {
             this.outputText("<b><u>Wine Cellar</u></b>\n", true);
@@ -15737,12 +15737,12 @@ We can also do * italic * and ** bold ** text!
                 this.outputText(" (There are " + (5 - this.flags[kFLAGS.HEL_DUNGEON_MEAD_LOOTED]) + "x God's Mead horns here to take.)\n\n");
                 //			text4 = "God'sMead";
                 //			choice4 = takeGodsMead;
-                this.addButton(this, 3, "God'sMead", this.takeGodsMead);
+                this.addButton(3, "God'sMead", this.takeGodsMead);
             }
             //Display Options: [GodsMead] [Climb Up]
             //		text3 = "Climb Up";
             //		choice3 = 11084;
-            this.addButton(this, 2, "Climb Up", this.dungeonEnterRoom, CoC.DUNGEON_HEL_GUARD_HALL);
+            this.addButton(2, "Climb Up", this.dungeonEnterRoom, CoC.DUNGEON_HEL_GUARD_HALL);
         }
         if (this.dungeonLoc == CoC.DUNGEON_HEL_STAIR_WELL) {
             this.clearOutput();
@@ -15774,9 +15774,9 @@ We can also do * italic * and ** bold ** text!
                     //				choice3 = 11088;
                     //				text8 = "Go Downstairs";
                     //				choice8 = 11087;
-                    this.addButton(this, 0, "Sex", this.kiriSexIntro);
-                    this.addButton(this, 3, "Talk", this.talkToKiri);
-                    if (this.player.armorName == "goo armor") this.addButton(this, 4, "Valeria", this.talkToValeria);
+                    this.addButton(0, "Sex", this.kiriSexIntro);
+                    this.addButton(3, "Talk", this.talkToKiri);
+                    if (this.player.armorName == "goo armor") this.addButton(4, "Valeria", this.talkToValeria);
                 }
                 else {
                     this.outputText("There's a pile of drugged, unconscious harpies you've already defeated on the floor.  Kiri appears to have left.");
@@ -15787,9 +15787,9 @@ We can also do * italic * and ** bold ** text!
                     //				text8 = "Go Downstairs";
                     //				choice8 = 11087;
                 }
-                this.addButton(this, 2, "Go Upstairs", this.dungeonEnterRoom, CoC.DUNGEON_HEL_MEZZANINE);
-                this.addButton(this, 5, "South Door", this.dungeonEnterRoom, CoC.DUNGEON_HEL_GUARD_HALL);
-                this.addButton(this, 7, "Go Downstairs", this.dungeonEnterRoom, CoC.DUNGEON_HEL_DUNGEON);
+                this.addButton(2, "Go Upstairs", this.dungeonEnterRoom, CoC.DUNGEON_HEL_MEZZANINE);
+                this.addButton(5, "South Door", this.dungeonEnterRoom, CoC.DUNGEON_HEL_GUARD_HALL);
+                this.addButton(7, "Go Downstairs", this.dungeonEnterRoom, CoC.DUNGEON_HEL_DUNGEON);
             }
         }
         if (this.dungeonLoc == CoC.DUNGEON_HEL_DUNGEON) {
@@ -15809,12 +15809,12 @@ We can also do * italic * and ** bold ** text!
                 if (this.flags[kFLAGS.HEL_PC_TALKED_WITH_HAKON] == 0) {
                     this.outputText("on which the salamander prisoner lies");
                     //				text4 = "Prisoner";
-                    this.addButton(this, 3, "Prisoner", this.helDungeonPrisonerTalk);
+                    this.addButton(3, "Prisoner", this.helDungeonPrisonerTalk);
                 }
                 else {
                     this.outputText("on which Hakon lies");
                     //				text4 = "Hakon";
-                    this.addButton(this, 3, "Hakon", this.helDungeonPrisonerTalk);
+                    this.addButton(3, "Hakon", this.helDungeonPrisonerTalk);
                 }
                 this.outputText(".");
                 if (this.player.hasKeyItem("Harpy Key A") >= 0 && this.player.hasKeyItem("Harpy Key B") >= 0) this.outputText("\n\n<b>You have the keys to release the prisoner, but you may want to make sure you have everything from this place that you want before you make your escape.  You doubt you'll be able to return in the future.</b>");
@@ -15825,8 +15825,8 @@ We can also do * italic * and ** bold ** text!
                 //			choice4 = helDungeonPrisonerTalk;
                 //			text5 = "Torture Gear";
                 //			choice5 = tortureGear;
-                this.addButton(this, 2, "Upstairs", this.dungeonEnterRoom, CoC.DUNGEON_HEL_STAIR_WELL);
-                this.addButton(this, 4, "Torture Gear", this.tortureGear);
+                this.addButton(2, "Upstairs", this.dungeonEnterRoom, CoC.DUNGEON_HEL_STAIR_WELL);
+                this.addButton(4, "Torture Gear", this.tortureGear);
             }
         }
         if (this.dungeonLoc == CoC.DUNGEON_HEL_MEZZANINE) {
@@ -15848,9 +15848,9 @@ We can also do * italic * and ** bold ** text!
                 //			text4 = "Phoenixes";
                 //			choice4 = checkOutDemBirdBitches;
                 //(Go Downstairs returns you to the Stairwell; Go Up takes you to the throne room)
-                this.addButton(this, 2, "Upstairs", this.dungeonEnterRoom, CoC.DUNGEON_HEL_THRONE_ROOM);
-                this.addButton(this, 3, "Phoenixes", this.checkOutDemBirdBitches);
-                this.addButton(this, 7, "Downstairs", this.dungeonEnterRoom, CoC.DUNGEON_HEL_STAIR_WELL);
+                this.addButton(2, "Upstairs", this.dungeonEnterRoom, CoC.DUNGEON_HEL_THRONE_ROOM);
+                this.addButton(3, "Phoenixes", this.checkOutDemBirdBitches);
+                this.addButton(7, "Downstairs", this.dungeonEnterRoom, CoC.DUNGEON_HEL_STAIR_WELL);
             }
         }
         if (this.dungeonLoc == CoC.DUNGEON_HEL_THRONE_ROOM) {
@@ -15890,14 +15890,14 @@ We can also do * italic * and ** bold ** text!
                     //				text5 = "Harpy Queen";
                     //				choice5 = harpyQueenAdvantage;
                     this.outputText("  The Harpy Queen slumps in her throne, insensate.");
-                    this.addButton(this, 3, "Helia", this.HeliaThroneRoom);
-                    this.addButton(this, 4, "Harpy Queen", this.harpyQueenAdvantage);
+                    this.addButton(3, "Helia", this.HeliaThroneRoom);
+                    this.addButton(4, "Harpy Queen", this.harpyQueenAdvantage);
                 }
-                else if (this.flags[kFLAGS.TOOK_QUEEN_STAFF] == 0) this.addButton(this, 4, "Take Staff", this.takeQueensStaff);
+                else if (this.flags[kFLAGS.TOOK_QUEEN_STAFF] == 0) this.addButton(4, "Take Staff", this.takeQueensStaff);
                 //(Display Options: [Helia] [Harpy Queen] [Go Downstairs])
                 //			text8 = "Downstairs";
                 //			choice8 = 11088;
-                this.addButton(this, 7, "Downstairs", this.dungeonEnterRoom, CoC.DUNGEON_HEL_MEZZANINE);
+                this.addButton(7, "Downstairs", this.dungeonEnterRoom, CoC.DUNGEON_HEL_MEZZANINE);
                 //			if (flags[kFLAGS.HARPY_QUEEN_EXECUTED] == 0) {
                 //				text4 = "Helia";
                 //				choice4 = HeliaThroneRoom;
@@ -15919,7 +15919,7 @@ We can also do * italic * and ** bold ** text!
                 //			choice1 = openZeDoorToParadize;
                 //			text5 = "Leave";
                 //			choice5 = leaveBoobsDungeon;
-                this.addButton(this, 0, "North", this.openZeDoorToParadize);
+                this.addButton(0, "North", this.openZeDoorToParadize);
             }
             else if (this.flags[kFLAGS.MET_SANURA] == 0) {
                 this.flags[kFLAGS.MET_SANURA] = 1;
@@ -15938,8 +15938,8 @@ We can also do * italic * and ** bold ** text!
                 //			choice4 = fuckItAttack;
                 //			text5 = "Leave";
                 //			choice5 = leaveBoobsDungeon;
-                this.addButton(this, 2, "Riddle Game", this.riddleGameGo);
-                this.addButton(this, 3, "Uh, FIGHT!", this.fuckItAttack);
+                this.addButton(2, "Riddle Game", this.riddleGameGo);
+                this.addButton(3, "Uh, FIGHT!", this.fuckItAttack);
             }
             else {
                 if (this.flags[kFLAGS.TIMES_SUBMITTED_TO_SANURA] + this.flags[kFLAGS.TIMES_WINFUCKED_SANURA] > 0) {
@@ -15952,19 +15952,19 @@ We can also do * italic * and ** bold ** text!
                 }
                 //			text3 = "Riddle Game";
                 //			choice3 = riddleGameGo;
-                this.addButton(this, 2, "Riddle Game", this.riddleGameGo);
+                this.addButton(2, "Riddle Game", this.riddleGameGo);
                 if (this.flags[kFLAGS.BEATEN_SANURA_COUNT] > 0) {
                     //				text1 = "North";
                     //				choice1 = openZeDoorToParadize;
                     //				text4 = "Fuck";
                     //				choice4 = fuckDatSphinx;
-                    this.addButton(this, 0, "North", this.openZeDoorToParadize);
-                    this.addButton(this, 3, "Fuck", this.fuckDatSphinx);
+                    this.addButton(0, "North", this.openZeDoorToParadize);
+                    this.addButton(3, "Fuck", this.fuckDatSphinx);
                 }
                 //			text5 = "Leave";
                 //			choice5 = leaveBoobsDungeon;
             }
-            this.addButton(this, 4, "Leave", this.leaveBoobsDungeon);
+            this.addButton(4, "Leave", this.leaveBoobsDungeon);
         }
         if (this.dungeonLoc == CoC.DUNGEON_WITCH_CAVERNOUS_COMMONS) {
             this.clearOutput();
@@ -15985,7 +15985,7 @@ We can also do * italic * and ** bold ** text!
                 this.outputText("\n\nAn open doorway opens up to the north.  You can faintly see some kind of altar beyond it.");
                 //			text1 = "North";
                 //			choice1 = 11147;
-                this.addButton(this, 0, "North", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_SACRIFICIAL_ALTAR);
+                this.addButton(0, "North", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_SACRIFICIAL_ALTAR);
             }
             //		text7 = "South";
             //		choice7 = 11133;
@@ -15993,9 +15993,9 @@ We can also do * italic * and ** bold ** text!
             //		choice2 = 11141;
             //		text6 = "West";
             //		choice6 = 11135;
-            this.addButton(this, 1, "East", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_EAST_WARRENS_MAIN);
-            this.addButton(this, 5, "West", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_WEST_WARRENS_MAIN);
-            this.addButton(this, 6, "South", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_ENTRANCE_GATEWAY);
+            this.addButton(1, "East", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_EAST_WARRENS_MAIN);
+            this.addButton(5, "West", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_WEST_WARRENS_MAIN);
+            this.addButton(6, "South", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_ENTRANCE_GATEWAY);
         }
         if (this.dungeonLoc == CoC.DUNGEON_WITCH_WEST_WARRENS_MAIN) {
             this.clearOutput();
@@ -16009,10 +16009,10 @@ We can also do * italic * and ** bold ** text!
             //		choice2 = 11134;
             //		text6 = "West";
             //		choice6 = 11138;
-            this.addButton(this, 0, "North", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_CHILDRENS_PLAYROOM);
-            this.addButton(this, 1, "East", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_CAVERNOUS_COMMONS);
-            this.addButton(this, 5, "West", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_WEST_WARRENS_WEST);
-            this.addButton(this, 6, "South", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_PREGNANT_LUST_ROOM);
+            this.addButton(0, "North", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_CHILDRENS_PLAYROOM);
+            this.addButton(1, "East", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_CAVERNOUS_COMMONS);
+            this.addButton(5, "West", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_WEST_WARRENS_WEST);
+            this.addButton(6, "South", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_PREGNANT_LUST_ROOM);
         }
         if (this.dungeonLoc == CoC.DUNGEON_WITCH_CHILDRENS_PLAYROOM) {
             this.clearOutput();
@@ -16020,7 +16020,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("Behind the thick curtain is the last thing you would expect to see.  There's nearly a dozen children and three busty, pregnant sand witches watching them.  Toys have been scattered everywhere by the young blonde children.  Their wardens were busy knitting when you intruded, but they glare at you balefully and make shooing gestures.  Unless you had planned to rob children of their toys and beat up pregnant women, there's nothing to be had here.");
             //		text7 = "South";
             //		choice7 = 11135;
-            this.addButton(this, 6, "South", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_WEST_WARRENS_MAIN);
+            this.addButton(6, "South", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_WEST_WARRENS_MAIN);
         }
         if (this.dungeonLoc == CoC.DUNGEON_WITCH_PREGNANT_LUST_ROOM) {
             this.clearOutput();
@@ -16029,11 +16029,11 @@ We can also do * italic * and ** bold ** text!
             if (this.silly()) this.outputText("  Clearly, if you wanted to, you could put some extra meat in a sand witch.");
             //		text1 = "North";
             //		choice1 = 11135;
-            this.addButton(this, 1, "North", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_WEST_WARRENS_MAIN);
+            this.addButton(1, "North", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_WEST_WARRENS_MAIN);
             if (this.player.hasCock() && this.player.lust >= 33) {
                 //			text3 = "FuckWitches";
                 //			choice3 = knockUpSomeDoubleStuffedSandWitches;
-                this.addButton(this, 2, "FuckWitches", this.knockUpSomeDoubleStuffedSandWitches);
+                this.addButton(2, "FuckWitches", this.knockUpSomeDoubleStuffedSandWitches);
             }
         }
         if (this.dungeonLoc == CoC.DUNGEON_WITCH_WEST_WARRENS_WEST) {
@@ -16044,14 +16044,14 @@ We can also do * italic * and ** bold ** text!
                 this.flags[kFLAGS.ESSY_MET_IN_DUNGEON] = 1;
                 if (this.flags[kFLAGS.TOLD_MOTHER_TO_RELEASE_ESSY] > 0) {
                     this.outputText("\n\n<b>Your attention is immediately drawn to Essrayle...</b>");
-                    this.addButton(this, 0, "Next", this.forest.essrayle.essyWitchVictory);
+                    this.addButton(0, "Next", this.forest.essrayle.essyWitchVictory);
                     this.flags[kFLAGS.ESSRAYLE_ESCAPED_DUNGEON] = 1;
                     return;
                 }
                 this.outputText("\n\nQuite an unusual sight awaits you in this chamber.  Sitting in an oversized pot is what looks to be the overly busty, plant girl you encountered earlier, Essrayle.  She's changed quite a bit since you last saw her, however.  While her inhumanly smooth, elfin face seems to be unchanged, the rest of her verdant body seems to have been warped into a hyper-sexual parody of a fertility idol, with features that echo the nomadic sand witch tribe.");
                 //			text3 = "Essrayle";
                 //			choice3 = forest.essrayle.approachTrappedEssy;
-                this.addButton(this, 2, "Essrayle", this.forest.essrayle.approachTrappedEssy);
+                this.addButton(2, "Essrayle", this.forest.essrayle.approachTrappedEssy);
             }
             //		text1 = "North";
             //		choice1 = 11139;
@@ -16059,9 +16059,9 @@ We can also do * italic * and ** bold ** text!
             //		choice7 = 11140;
             //		text2 = "East";
             //		choice2 = 11135;
-            this.addButton(this, 0, "North", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_NURSERY);
-            this.addButton(this, 1, "East", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_WEST_WARRENS_MAIN);
-            this.addButton(this, 6, "South", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_PHARMACY);
+            this.addButton(0, "North", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_NURSERY);
+            this.addButton(1, "East", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_WEST_WARRENS_MAIN);
+            this.addButton(6, "South", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_PHARMACY);
         }
         if (this.dungeonLoc == CoC.DUNGEON_WITCH_NURSERY) {
             this.clearOutput();
@@ -16069,7 +16069,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("As soon as you clear the curtain, you realize there's nothing of interest to you here.  The room is lit with rose pink globes, and the furniture in the room is filled with sleeping mothers, nursing infants, or older children taking naps.  The room is packed with bodies, and while it smells strongly of femininity, there's nothing worth looking into present here.");
             //		text7 = "South";
             //		choice7 = 11138;
-            this.addButton(this, 6, "South", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_WEST_WARRENS_WEST);
+            this.addButton(6, "South", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_WEST_WARRENS_WEST);
         }
         if (this.dungeonLoc == CoC.DUNGEON_WITCH_PHARMACY) {
             this.clearOutput();
@@ -16079,7 +16079,7 @@ We can also do * italic * and ** bold ** text!
                 this.outputText("\n\nThere is also a lever on the floor.  Looking closely at it, it appears that it connects with machinery that leads to the east...");
                 //			text2 = "Pull Lever";
                 //			choice2 = pullLever;
-                this.addButton(this, 1, "Pull Lever", this.pullLever);
+                this.addButton(1, "Pull Lever", this.pullLever);
             }
             //		text3 = "Brown Pill";
             //		choice3 = takeBarrenPills;
@@ -16087,9 +16087,9 @@ We can also do * italic * and ** bold ** text!
             //		choice4 = takeFertilePills;
             //		text1 = "North";
             //		choice1 = 11138;
-            this.addButton(this, 0, "North", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_WEST_WARRENS_WEST);
-            this.addButton(this, 2, "Brown Pill", this.takeBarrenPills);
-            this.addButton(this, 3, "Pink Pill", this.takeFertilePills);
+            this.addButton(0, "North", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_WEST_WARRENS_WEST);
+            this.addButton(2, "Brown Pill", this.takeBarrenPills);
+            this.addButton(3, "Pink Pill", this.takeFertilePills);
         }
         if (this.dungeonLoc == CoC.DUNGEON_WITCH_EAST_WARRENS_MAIN) {
             this.clearOutput();
@@ -16103,9 +16103,9 @@ We can also do * italic * and ** bold ** text!
             //		choice2 = 11144;
             //		text6 = "West";
             //		choice6 = 11134;
-            this.addButton(this, 0, "North", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_SLEEPING_CHAMBER);
-            this.addButton(this, 1, "East", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_EAST_WARRENS_EAST);
-            this.addButton(this, 5, "West", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_CAVERNOUS_COMMONS);
+            this.addButton(0, "North", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_SLEEPING_CHAMBER);
+            this.addButton(1, "East", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_EAST_WARRENS_EAST);
+            this.addButton(5, "West", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_CAVERNOUS_COMMONS);
         }
         if (this.dungeonLoc == CoC.DUNGEON_WITCH_SLEEPING_CHAMBER) {
             this.clearOutput();
@@ -16115,8 +16115,8 @@ We can also do * italic * and ** bold ** text!
             //		choice2 = 11143;
             //		text7 = "South";
             //		choice7 = 11141;
-            this.addButton(this, 1, "East", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_BATH_ROOM);
-            this.addButton(this, 6, "South", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_EAST_WARRENS_MAIN);
+            this.addButton(1, "East", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_BATH_ROOM);
+            this.addButton(6, "South", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_EAST_WARRENS_MAIN);
         }
         if (this.dungeonLoc == CoC.DUNGEON_WITCH_BATH_ROOM) {
             this.clearOutput();
@@ -16127,11 +16127,11 @@ We can also do * italic * and ** bold ** text!
                 this.outputText("  There are no faucets or water sources that you can see, but your unasked questions are answered when a heavy, liquid sloshing sound emanates from the corner.  The source of the noise reveals itself to be a tit-encumbered, black-skinned human girl.  She drags her milk-swollen mammaries up to the edge of the tub and asks in a breathy, excited voice, \"<i>Bath time?</i>\"  Whoever she was, the witches seem to have broken her utterly - she's interested in nothing but being milked or lounging in her corner.  The way out lies west.");
                 //			text3 = "Bath Time";
                 //			choice3 = milkBathsAhoy;
-                this.addButton(this, 2, "Bath Time", this.milkBathsAhoy);
+                this.addButton(2, "Bath Time", this.milkBathsAhoy);
             }
             //		text6 = "West";
             //		choice6 = 11142;
-            this.addButton(this, 5, "West", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_SLEEPING_CHAMBER);
+            this.addButton(5, "West", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_SLEEPING_CHAMBER);
         }
         if (this.dungeonLoc == CoC.DUNGEON_WITCH_EAST_WARRENS_EAST) {
             this.clearOutput();
@@ -16145,8 +16145,8 @@ We can also do * italic * and ** bold ** text!
             //choice2 = 11142;
             //		text6 = "West";
             //		choice6 = 11141;
-            this.addButton(this, 5, "West", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_EAST_WARRENS_MAIN);
-            this.addButton(this, 6, "South", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_CUM_WITCH_BEDROOM);
+            this.addButton(5, "West", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_EAST_WARRENS_MAIN);
+            this.addButton(6, "South", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_CUM_WITCH_BEDROOM);
         }
         if (this.dungeonLoc == CoC.DUNGEON_WITCH_CUM_WITCH_BEDROOM) {
             this.clearOutput();
@@ -16156,8 +16156,8 @@ We can also do * italic * and ** bold ** text!
             //		choice1 = 11144;
             //		text6 = "West";
             //		choice6 = 11146;
-            this.addButton(this, 0, "North", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_EAST_WARRENS_EAST);
-            this.addButton(this, 5, "West", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_CUM_WITCH_OFFICE);
+            this.addButton(0, "North", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_EAST_WARRENS_EAST);
+            this.addButton(5, "West", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_CUM_WITCH_OFFICE);
         }
         if (this.dungeonLoc == CoC.DUNGEON_WITCH_CUM_WITCH_OFFICE) {
             this.clearOutput();
@@ -16169,7 +16169,7 @@ We can also do * italic * and ** bold ** text!
                 if (this.flags[kFLAGS.BEEN_BLESSED_BY_CUM_WITCH] == 0) {
                     //				text3 = "Blessing";
                     //				choice3 = friendlyCumWitchBlessing;
-                    this.addButton(this, 2, "Blessing", this.friendlyCumWitchBlessing);
+                    this.addButton(2, "Blessing", this.friendlyCumWitchBlessing);
                 }
             }
             else {
@@ -16197,13 +16197,13 @@ We can also do * italic * and ** bold ** text!
                         //lust win menu.
                         //					text3 = "Sex";
                         //					choice3 = cumWitchDefeated;
-                        this.addButton(this, 2, "Sex", this.cumWitchDefeated);
+                        this.addButton(2, "Sex", this.cumWitchDefeated);
                     }
                 }
             }
             //		text2 = "East";
             //		choice2 = 11145;
-            this.addButton(this, 1, "East", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_CUM_WITCH_BEDROOM);
+            this.addButton(1, "East", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_CUM_WITCH_BEDROOM);
         }
         if (this.dungeonLoc == CoC.DUNGEON_WITCH_SACRIFICIAL_ALTAR) {
             this.clearOutput();
@@ -16213,8 +16213,8 @@ We can also do * italic * and ** bold ** text!
             //		choice1 = 11148;
             //		text7 = "South";
             //		choice7 = 11134;
-            this.addButton(this, 0, "North", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_THRONE_ROOM);
-            this.addButton(this, 6, "South", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_CAVERNOUS_COMMONS);
+            this.addButton(0, "North", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_THRONE_ROOM);
+            this.addButton(6, "South", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_CAVERNOUS_COMMONS);
         }
         if (this.dungeonLoc == CoC.DUNGEON_WITCH_THRONE_ROOM) {
             this.clearOutput();
@@ -16224,11 +16224,11 @@ We can also do * italic * and ** bold ** text!
             //		choice3 = sandMotherStuffGOA;
             //		text7 = "South";
             //		choice7 = 11147;
-            this.addButton(this, 2, "Approach", this.sandMotherStuffGOA);
-            this.addButton(this, 6, "South", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_SACRIFICIAL_ALTAR);
+            this.addButton(2, "Approach", this.sandMotherStuffGOA);
+            this.addButton(6, "South", this.dungeonEnterRoom, CoC.DUNGEON_WITCH_SACRIFICIAL_ALTAR);
         }
-        this.addButton(this, 8, "Items", this.inventory.inventoryMenu);
-        this.addButton(this, 9, "Masturbate", this.masturbation.masturbateMenu);
+        this.addButton(8, "Items", this.inventory.inventoryMenu);
+        this.addButton(9, "Masturbate", this.masturbation.masturbateMenu);
         //Display menu
         //	choices(text1,choice1,text2,choice2,text3,choice3,text4,choice4,text5,choice5,text6,choice6,text7,choice7,text8,choice8,"Items",itemMenu,"Masturbate",masturbateMenu);
     }
@@ -16248,7 +16248,7 @@ We can also do * italic * and ** bold ** text!
                 this.player.createStatusAffect(StatusAffects.FoundFactory, 0, 0, 0, 0);
             }
         }
-        this.simpleChoices(this, "Enter", this.actuallyEnterFactory, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+        this.simpleChoices("Enter", this.actuallyEnterFactory, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     private dungeonEnterRoom(room: number): void {
@@ -16267,20 +16267,20 @@ We can also do * italic * and ** bold ** text!
         this.dungeonLoc = 0;
         this.clearOutput();
         this.outputText("You slip out the door and disappear, heading back towards your camp, leaving the hellish factory behind.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public factoryShutdown(): void {
         this.clearOutput();
         this.outputText("You resolve to shut down the factory, then destroy the controls.  You spend a few moments making sure you aren't about to do something disastrous.  A few deep breaths calm your nerves, letting you focus on pressing the correct buttons.  The constant thrumming of the machinery slowly dies down, closely followed by a chorus of disappointed moans.  You step over to the window and watch as the captives come out of their drug induced sex-comas.  A great deal of them gather up and leave, though you are unsure what their destination is.  A few seem to be gathering back around the equipment, and puzzling out how to operate it.  Maybe they liked being here...");
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
         this.player.createStatusAffect(StatusAffects.DungeonShutDown, 0, 0, 0, 0);
     }
 
     public factoryOverload(): void {
         this.clearOutput();
         this.outputText("You resolve to shut down the factory by overloading the storage tanks, rendering much of the equipment inoperable and difficult to repair.  With a quick twist of a knob, you override the pressure vents for the storage tanks.  Within minutes, you hear the sounds of popping rivets and straining pumps.  You look out over the factory floor and watch as many of the pipes fracture, dripping seed over the moaning captives.  Smoke rises from pumps as they short out and overheat.  The entire building shudders as a massive blast echoes from somewhere to the west.  A high pitched whine fills the building as the last motors shriek and die.  The captives slowly start to come to as the flood of drugs and artificial pleasure come to a stop.  Many break down and cry, others begin unhooking themselves and exploring their surroundings.  You watch with interest as many of them rally together and make for an exit.   The remaining survivors begin scavenging parts from the machinery and puzzling out how to use it.  Perhaps they liked it here.");
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
         this.player.createStatusAffect(StatusAffects.DungeonShutDown, 0, 0, 0, 0);
         this.player.createStatusAffect(StatusAffects.FactoryOverload, 0, 0, 0, 0);
     }
@@ -16377,7 +16377,7 @@ We can also do * italic * and ** bold ** text!
                 return;
             }
         }
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     public factoryFinisher(): void {
@@ -16420,14 +16420,14 @@ We can also do * italic * and ** bold ** text!
         this.clearOutput();
         this.outputText("\"<i>I suppose I really should thank you for coming down all by your lonesome.  The boss is gonna be sooo happy we found you.  Just think, in an hour or two we can get you strapped in and working with the others,</i>\"  says the secretarial succubus as she saunters over, still sipping her coffee, \"<i>You're so cute!  I tell you what, if you agree to come with me, I'll, like, make sure the experience is pleasurable.</i>\"\n\n");
         this.outputText("She runs a stocking covered foot up your leg and thigh, almost to your groin.  Giggling, the succubus pulls it away and asks, \"<i>So are you ready and willing?</i>\"");
-        this.simpleChoices(this, "For what?", this.succubusTalkTwo, "Yes", this.succubusBadEnd, "No", this.succubusRefuseOffer, "", undefined, "", undefined);
+        this.simpleChoices("For what?", this.succubusTalkTwo, "Yes", this.succubusBadEnd, "No", this.succubusRefuseOffer, "", undefined, "", undefined);
     }
 
     private succubusTalkTwo(): void {
         this.spriteSelect(55);
         this.clearOutput();
         this.outputText("The succubus looks at you with a bemused expression, \"<i>You haven't figured it out yet?  Really?  What do you think we make at this factory, bubble-gum?</i>\" she asks with a cruel smile, \"<i>We take human and once-human champions like you, pump you full of aphrodisiacs, body-altering drugs, and corrupting agents, and then milk you of your tainted fluids continually for the rest of your life!  And don't even start to ask why, I'll tell you – there are still pockets of purity out there that repel cute demons like me.  So the best way to deal with those is just to release a river of drug-filled sex-juice at them.  By the time the area dries off, the locals welcome us with open arms... and spread legs.</i>\"");
-        this.simpleChoices(this, "Sick!", this.succubusRefuseOffer, "Sounds Fun", this.succubusBadEnd, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices("Sick!", this.succubusRefuseOffer, "Sounds Fun", this.succubusBadEnd, "", undefined, "", undefined, "", undefined);
     }
 
     private succubusCombatStart(): void {
@@ -16440,7 +16440,7 @@ We can also do * italic * and ** bold ** text!
         this.spriteSelect(55);
         this.clearOutput();
         this.outputText("She frowns, \"<i>I was secretly hoping you would say that... I'm going to make you beg me to hook you into the machines.  Just wait.</i>\"");
-        this.doNext(this, this.succubusCombatStart);
+        this.doNext(this.succubusCombatStart);
     }
 
     public secretarialSuccubusInsult(): void {
@@ -16457,7 +16457,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("The blue skinned seductress steps forward and wraps her arms around you, pulling your head down and crushing it into her heavenly breasts as she speaks, \"<i>My my, aren't you the kinky little play-toy.  Let's get you hooked up.</i>\"\n\n");
         this.outputText("She catches you off-guard, lifting your feet off the ground.  You realize she has somehow grown taller.  You stretch to see what's going on, but have no leverage to pry your face from the smooth globes of flesh that smother you.   Vaguely, the click-clack of heels reaches you through the walls of flesh.  You're being moved deeper into the facility.   A creaky door opens, allowing you to hear the loud humming of machinery, mixed with what sounds like desperate sexual moans.\n\n");
         this.outputText("Abruptly you are pulled free from the succubus' fleshy prison and bodily thrown into padded restraints.  Blinded by the sudden onslaught of light, you blink away tears as restraints are placed securely around your wrists.  Warm lips press against your own as a foreign tongue penetrates your lips, mouth-raping you.  It tastes of sweet exotic spices, like nothing you've ever had before.   Helpless to do anything but return the kiss, you respond, sliding your tongue along the slippery sweetness of your captor's.  You risk opening your eyes and see your inhuman captor to be enjoying the kiss every bit as much as you.");
-        this.doNext(this, this.succubusBadEndPartTwo);
+        this.doNext(this.succubusBadEndPartTwo);
     }
 
     private succubusBadEndPartTwo(): void {
@@ -16519,7 +16519,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText(".");
         else this.outputText(" and an ever larger dildo against your " + this.vaginaDescript(0) + ".  It seems to pulse and wiggle with a life of its own, rubbing the bumps of its lumpy head against your lips.");
         this.outputText("  You swoon as you hear the solid click of a button being pushed, and all at once all devices attached to you leap to life.");
-        this.doNext(this, this.succubusBadEndPartThree);
+        this.doNext(this.succubusBadEndPartThree);
     }
 
     private succubusBadEndPartThree(): void {
@@ -16594,7 +16594,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\n\"<i>Good boy,</i>\" she croons, mopping the cum up as it seems to wick into her stockings, \"<i>You'll do well once we get you on the line.</i>\"  You don't have time to ponder the significance of that as you lose consciousness.", false);
             //ONWARD TO BAD-END-IA!
             this.player.orgasm();
-            this.doNext(this, this.factoryFinisher);
+            this.doNext(this.factoryFinisher);
         }
         else {
             if (this.player.lust > 99) {
@@ -16617,7 +16617,7 @@ We can also do * italic * and ** bold ** text!
             this.player.cocks[0].cockThickness = 1.5;
             //[[[[To bad end!]]]
             this.player.orgasm();
-            this.doNext(this, this.factoryFinisher);
+            this.doNext(this.factoryFinisher);
         }
     }
 
@@ -16692,7 +16692,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("Her budding clit rises from between her folds, hardening like a tiny three inch dick.\n\n", false);
             if (this.player.biggestLactation() > 1) {
                 this.outputText("<b>You could scissor with her, or maybe force-feed her some of the milk you've backed up.  Which will it be?</b>", false);
-                this.simpleChoices(this, "Scissor", this.dungeonSuccubusForceScissor, "ForceFeed", this.dungeonSuccubusForceFeed, "", undefined, "", undefined, "", undefined);
+                this.simpleChoices("Scissor", this.dungeonSuccubusForceScissor, "ForceFeed", this.dungeonSuccubusForceFeed, "", undefined, "", undefined, "", undefined);
             }
             //No choices if not lactating...
             else {
@@ -16769,14 +16769,14 @@ We can also do * italic * and ** bold ** text!
         this.outputText("You take a sip of the rich creamy coffee and suddenly feel refreshed. As you replace the coffeepot, the busty coffee-maker comes to life, grabbing her thick dusky nipples and squeezing out a trickle of scaldingly hot liquid. You can see her eyes roll up into her head from what you assume to be pleasure as she automatically refills the missing coffee, mouth open with ecstasy.  Her movements gradually slow as she quivers almost imperceptibly. A contented smile graces her features as immobility overtakes her, freezing her back in place.  You wonder if 'Mrs. Coffee' was created, or is a victim of this place's dark master.");
         this.dynStats("lus", 1);
         this.HPChange(35, false);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     private takeIronKey(): void {
         this.clearOutput();
         this.outputText("You take the <b>Iron Key</b> to keep with your other important items.");
         this.player.createKeyItem("Iron Key", 0, 0, 0, 0);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     private openFactoryDoor(): void {
@@ -16794,7 +16794,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nYou'll need a little help to use it though.");
         this.player.createKeyItem("Cock Milker", 0, 0, 0, 0);
         this.player.createStatusAffect(StatusAffects.BuiltMilker, 0, 0, 0, 0);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     private takeBreastMilker(): void {
@@ -16803,7 +16803,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nYou'll need a little help to use it though.");
         this.player.createKeyItem("Breast Milker", 0, 0, 0, 0);
         this.player.createStatusAffect(StatusAffects.BuiltMilker, 0, 0, 0, 0);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     private talkToIncubus(): void {
@@ -16811,11 +16811,11 @@ We can also do * italic * and ** bold ** text!
         this.clearOutput();
         if (this.player.hasKeyItem("Hentai Comic") >= 0) {
             this.outputText("The incubus speaks to you with a calm, deep voice, \"<i>And so the insect, heedless of its path, stumbled directly into the spider's web.  Tiny insect... wait, what is that book you're carrying?  Is that hentai?  It IS!  Let me offer you a deal – I'm not really hungry or interested in fighting. So if you hand over the comic, I'll happily ignore your presence here. Though, I guess you could also just submit. Then I could put you to work and still get the comic.</i>\"");
-            this.simpleChoices(this, "Fight", this.startIncubusFight, "Trade", this.tradeComic, "Submit", this.submitToIncubus, "", undefined, "", undefined);
+            this.simpleChoices("Fight", this.startIncubusFight, "Trade", this.tradeComic, "Submit", this.submitToIncubus, "", undefined, "", undefined);
         }
         else {
             this.outputText("The incubus speaks to you with a calm, deep voice, \"<i>And so the insect, unaware of its path, stumbles directly into the spider's web.  Tiny insect, you have little to offer me, but everything to offer our facility.  Why don't you come along quietly?</i>\"");
-            this.simpleChoices(this, "Fight", this.startIncubusFight, "Submit", this.submitToIncubus, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices("Fight", this.startIncubusFight, "Submit", this.submitToIncubus, "", undefined, "", undefined, "", undefined);
         }
     }
 
@@ -16830,12 +16830,12 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\"<i>It is good to see the insect accept its fate as the spider closes in,</i>\" intones the strange demonic mechanic as he takes you by the arm and leads you deeper into the facility.  ");
         if (this.player.findStatusAffect(StatusAffects.DungeonShutDown) >= 0) {
             this.outputText("\n\nYou enter the main milking chamber, and the incubus gives a start when he realizes what has happened.  With a grunt of rage he throws you through the doorways back into his chamber.  The demon stalks after you, taking up a fighting stance.");
-            this.doNext(this, this.startIncubusFight);
+            this.doNext(this.startIncubusFight);
             return;
         }
         this.outputText("You are brought into a room full of moaning humans, lined up in machines along the walls. You can see they're apparently sorted by age, as the victims' hair turns more and more grey and silver as you look down the line toward the far wall. All of them are hermaphrodites, the older individuals seeming to have larger breasts and genitals than the younger ones.  Most have a number of syringes embedded into their bodies, pumping them full of tainted chemical aphrodisiacs and demonic mutagens.  Clear cups and tubes are attached to leaky nipples, pulling steady streams of milk from the insensible captives as they pant and moan like drug-addicted sluts.  Similar tubes cradle their enhanced man-hoods, rhythmically squeezing cum from their constantly orgasming bodies.  Hoses suck away the jizz and milk, pumping it to places unknown.  Despite yourself, you are beginning to be majorly turned on, realizing that you'll probably become another milk-dripping pleasure-addict in a few minutes.\n\n");
         this.outputText("\"<i>Time to serve your purpose, insect,</i>\" says the incubus, gesturing towards an empty harness. You stand immobile, either from fear or lust, until the incubus shoves you into the machine.  It automatically straps you down, leather pieces crisscrossing over your body and holding you in place.  You see something move at the edge of your vision, but due to the harness you can't turn your head to see it.  Something sharp pinches your neck and you fade to blackness....");
-        this.doNext(this, this.factoryFinisher);
+        this.doNext(this.factoryFinisher);
     }
 
     private tradeComic(): void {
@@ -16844,7 +16844,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("You hand over the Hentai Comic tentatively to the male sex demon.  As soon as he has it in his grubby mitts he sits down and starts thumbing through the pages, toying with his half-hard member the entire time.  He must really like porn.");
         this.player.removeKeyItem("Hentai Comic");
         this.player.createStatusAffect(StatusAffects.IncubusBribed, 0, 0, 0, 0);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     public incubusLossRape(): void {
@@ -16864,7 +16864,7 @@ We can also do * italic * and ** bold ** text!
             this.player.orgasm();
             this.dynStats("cor", 20);
             if (this.player.findStatusAffect(StatusAffects.DungeonShutDown) < 0)
-                this.doNext(this, this.factoryFinisher);
+                this.doNext(this.factoryFinisher);
             else this.cleanupAfterCombat();
             return;
         }
@@ -16912,7 +16912,7 @@ We can also do * italic * and ** bold ** text!
                 this.dynStats("cor", 25);
                 this.player.buttChange(this.monster.cockArea(0), true);
                 if (this.player.findStatusAffect(StatusAffects.DungeonShutDown) < 0)
-                    this.doNext(this, this.factoryFinisher);
+                    this.doNext(this.factoryFinisher);
                 else this.cleanupAfterCombat();
                 return;
             }
@@ -16945,7 +16945,7 @@ We can also do * italic * and ** bold ** text!
                 this.player.orgasm();
                 this.dynStats("cor", 25);
                 if (this.player.findStatusAffect(StatusAffects.DungeonShutDown) < 0)
-                    this.doNext(this, this.factoryFinisher);
+                    this.doNext(this.factoryFinisher);
                 else this.cleanupAfterCombat();
             }
         }
@@ -17060,7 +17060,7 @@ We can also do * italic * and ** bold ** text!
         this.spriteSelect(16);
         this.clearOutput();
         this.outputText("She smiles, sauntering closer.  Your eyes widen in shock as her vulva are spread apart by something inside her.   A slick and growing cock emerges, sprouting from where her clit should be located.  She's a hermaphrodite.  You don't have time to contemplate the implications, as the demoness used your temporary distraction to sink a needle into your neck.  You sigh and black out almost instantaneously, letting her catch you with her strong arms and soft bosom.");
-        this.doNext(this, this.factoryFinisher);
+        this.doNext(this.factoryFinisher);
     }
 
     public omnibusVictoryEvent(): void {
@@ -17075,14 +17075,14 @@ We can also do * italic * and ** bold ** text!
         }
         this.outputText("What do you do?  You could use her boon increase the size of your endowments or maybe regain some of your lost humanity!  Or you could play it safe and turn down her offer.  Although then you'd have to decide to let her go or kill her.");
         this.menu();
-        this.addButton(this, 0, "GrowBreasts", this.omnibusVictoryGrowBreasts);
-        this.addButton(this, 1, "Grow Dick", this.omnibusVictoryGrowDick);
-        this.addButton(this, 2, "Normal-Face", this.omnibusVictoryNormalFace);
-        this.addButton(this, 3, "Normal-Chest", this.omnibusVictoryNormalChest);
-        this.addButton(this, 4, "Normal-Groin", this.omnibusVictoryNormalGroin);
-        this.addButton(this, 5, "Normal-Legs", this.omnibusVictoryNormalLegs);
-        this.addButton(this, 8, "No (Let go)", this.omnibusVictoryLetGo);
-        this.addButton(this, 9, "No (Kill Her)", this.omnibusVictoryKillHer);
+        this.addButton(0, "GrowBreasts", this.omnibusVictoryGrowBreasts);
+        this.addButton(1, "Grow Dick", this.omnibusVictoryGrowDick);
+        this.addButton(2, "Normal-Face", this.omnibusVictoryNormalFace);
+        this.addButton(3, "Normal-Chest", this.omnibusVictoryNormalChest);
+        this.addButton(4, "Normal-Groin", this.omnibusVictoryNormalGroin);
+        this.addButton(5, "Normal-Legs", this.omnibusVictoryNormalLegs);
+        this.addButton(8, "No (Let go)", this.omnibusVictoryLetGo);
+        this.addButton(9, "No (Kill Her)", this.omnibusVictoryKillHer);
     }
 
     private omnibusVictoryGrowBreasts(): void {
@@ -17376,7 +17376,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText(" such as you.  I've been crossbreeding the parasites that developed in the deep jungle, trying to create the PERFECT slave-maker.  You get to be my first test subject,</i>\" she says.\n\n", false);
         this.outputText(" She sees the look of fear creeping into your eyes and pats you comfortingly, \"<i>Awww don't worry. It'll feel REALLY good.  If anything you should feel honored to be assisting an Omnibus in her experiments.</i>\"\n\n", false);
         this.outputText(" She opens one of the desk drawers, and searches briefly before her eyes light up with recognition.  \"<i>Here we are,</i>\" she says as she pulls something free...", false);
-        this.doNext(this, this.omnibusLossRape2);
+        this.doNext(this.omnibusLossRape2);
     }
 
     public omnibusLossRape2(): void {
@@ -17645,7 +17645,7 @@ We can also do * italic * and ** bold ** text!
         }
         this.player.orgasm();
         this.dynStats("str", 2, "tou", 2, "spe", 2, "int", 2, "lib", 2, "sen", 2, "cor", 100);
-        this.doNext(this, this.demonBadEnd2);
+        this.doNext(this.demonBadEnd2);
     }
     //epilogues
     public demonBadEnd2(): void {
@@ -17660,7 +17660,7 @@ We can also do * italic * and ** bold ** text!
         this.clearOutput();
         this.outputText("You search the desk and find a silver key labelled 'Supervisor'.\n\n(Supervisor's Key acquired!)");
         this.player.createKeyItem("Supervisor's Key", 0, 0, 0, 0);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     public openPumpRoom(): void {
@@ -17762,7 +17762,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("\n\nDo you agree to help Helia?  She'd probably be <b>very</b> grateful...");
         //(Display Options: [Yes] [No])
-        this.doYesNo(this, this.agreeToHelpHeliaDungeon, this.noDungeon);
+        this.doYesNo(this.agreeToHelpHeliaDungeon, this.noDungeon);
     }
 
     //Intro Scene -- No
@@ -17779,7 +17779,7 @@ We can also do * italic * and ** bold ** text!
         this.flags[kFLAGS.HEL_FUCKBUDDY] = 0;
         this.flags[kFLAGS.HEL_AFFECTION] = 0;
         this.helFollower.helAffection(-70);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //Intro Scene -- Yes
@@ -17805,7 +17805,7 @@ We can also do * italic * and ** bold ** text!
         //PROC NEXT FUNCTION AT 6AM.  OVERRIDES OTHER SHIIIIITE
         this.flags[kFLAGS.HEL_FOLLOWER_LEVEL] = -1;
 
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
         //(Decrease Player Lust to minimum, increase HP to maximum, etc. etc. You're sleeping, but also fucking. Figure it out.)
         this.player.orgasm();
     }
@@ -17823,7 +17823,7 @@ We can also do * italic * and ** bold ** text!
         //(Display: 
         this.outputText("\n\n(<b>Helia can now be found under the Lovers tab! (For Now!)</b>)");
         this.flags[kFLAGS.HEL_FOLLOWER_LEVEL] = 1;
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
 
@@ -17831,14 +17831,14 @@ We can also do * italic * and ** bold ** text!
     public notYet(): void {
         this.clearOutput();
         this.outputText("You tell Hel you were only checking on her, and that you've still got some things to do.  She sighs and quietly asks you to hurry.");
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
     //Introduction -- Dungeon
     public goToHeliaDungeon(): void {
         this.clearOutput();
         this.outputText("You tell Helia that yeah, you're as ready as you'll ever be.  She beams and grabs you in a tight hug.  \"<i>Thanks again, [name].  You're a real goddamn champion, you know that?</i>\"  You laugh it off, but the salamander gives you a sultry wink and starts off toward the mountains.  You're quick to follow her.");
         //(NEXT)
-        this.doNext(this, this.goToHeliaDungeon2);
+        this.doNext(this.goToHeliaDungeon2);
     }
     public goToHeliaDungeon2(): void {
         this.clearOutput();
@@ -17865,7 +17865,7 @@ We can also do * italic * and ** bold ** text!
         this.clearOutput();
         this.outputText("You approach the armor rack.  A suit of heavy plated armor sits upon it, overlaying a flexible chain vest.  Contrasting against the rotting room, the armor seems to be in pristine condition, even shining.  Perhaps someone uses this heavy equipment - but surely not a harpy? You suppose you could take it.");
         //(Display Options: [Take Armor] [Back])
-        this.simpleChoices(this, "Take Armor", this.takeGooArmor4Realz, "", undefined, "", undefined, "", undefined, "Back", this.playerMenu);
+        this.simpleChoices("Take Armor", this.takeGooArmor4Realz, "", undefined, "", undefined, "", undefined, "Back", this.playerMenu);
         //(Back takes you back to Room 1 menu)
     }
 
@@ -18013,7 +18013,7 @@ We can also do * italic * and ** bold ** text!
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 3);
         this.cleanupAfterCombat();
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
         this.flags[kFLAGS.LOST_GOO_ARMOR_FIGHT] = 1;
     }
 
@@ -18036,7 +18036,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("\n\nWell, that's certainly an interesting offer. Do you take the goo-girl armor with you?");
         //(Display Options: [Take Her] [Refuse Her])
-        this.simpleChoices(this, "Take Her", this.takeGooArmorAndWearIt, "Refuse Her", this.refuseGooArmorOffer, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices("Take Her", this.takeGooArmorAndWearIt, "Refuse Her", this.refuseGooArmorOffer, "", undefined, "", undefined, "", undefined);
         this.flags[kFLAGS.WON_GOO_ARMOR_FIGHT] = 1;
     }
     //[Refuse Her]
@@ -18047,7 +18047,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nShe huffs indignantly and scrambles to her feet.  \"<i>Well fine, and fuck you anyway.  I hope you get raped by harpies, " + this.player.mf("sir", "madam") + ".</i>\"  After a moment, she hesitantly adds, \"<i>But if you change your mind later... Well, we'll see if you live through this place without me!</i>\"  Before you can stop her, she ducks out the front door and off to... Wherever goo-armor-girl-things would go, you guess.  Still, to your surprise, you feel rather invigorated after the battle, and rolling your shoulders, you turn your attention back to the dungeon ahead.");
         this.HPChange(1000, false);
         this.cleanupAfterCombat();
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
     //[Take Her]
     public takeGooArmorAndWearIt(): void {
@@ -18141,7 +18141,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nThe brood grumbles, but you are hauled off your feet and dragged upstairs...");
         //(Go to \"<i>Harpy Breeding Slut</i>\" Bad End)
         this.menu();
-        this.addButton(this, 0, "Next", this.harpyQueenBeatsUpPCBadEnd, true);
+        this.addButton(0, "Next", this.harpyQueenBeatsUpPCBadEnd, true);
     }
 
     //Harpy Horde -- PC is Victorious
@@ -18165,7 +18165,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("You ask Kiri if she wouldn't mind sharing a bit of information with you.");
         this.outputText("\n\n\"<i>Of course,</i>\" she says pleasantly, \"<i>that's what I'm here for!  What do you want to know?</i>\"");
         //(Display Options: [Hel] [Harpies] [Salamander] [Kiri])
-        this.simpleChoices(this, "Hel", this.askKirkAboutHel, "Harpies", this.askKiriAboutHarpies, "Salamander", this.askKiriAboutSalamander, "Kiri", this.askKiriAboutKiri, "Nevermind", this.playerMenu);
+        this.simpleChoices("Hel", this.askKirkAboutHel, "Harpies", this.askKiriAboutHarpies, "Salamander", this.askKiriAboutSalamander, "Kiri", this.askKiriAboutKiri, "Nevermind", this.playerMenu);
     }
 
     //Kiri -- [Talk] -- [Hel]
@@ -18176,7 +18176,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("\n\nKnowing Hel as well as you do, you venture to ask Kiri if she and Hel are just friends.");
         this.outputText("\n\n\"<i>Wha - what!?</i>\" she stammers, aghast.  \"<i>I, we, uh, I mean... Gah.</i>\"  She slumps her shoulders.  \"<i>Yeah, I guess you could say that. It's not like we're in love or anything, but, you know...</i>\" The harpy trails off with a light shrug.  \"<i>She's been good to me.</i>\"");
-        this.doNext(this, this.talkToKiri);
+        this.doNext(this.talkToKiri);
     }
 
     //Kiri -- [Talk] -- [Harpies]
@@ -18186,7 +18186,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\n\"<i>Right, yeah, Hel asked me to scout around and remember that stuff.  Uh... Oh yeah!</i>\" she clears her throat and begins to recite:  \"<i>Dungeon Level: Brigid the Jailer, salamander prisoner.  Mezzanine: Phoenix Heavy Infantry unit, trained but inexperienced.  Second Floor: Honor Guard, elite bodyguards; and our Broodmother, Calais, queen of the tower.</i>\"");
         this.outputText("\n\nYou nod, then ask, \"<i>Phoenixes?</i>\"");
         this.outputText("\n\n\"<i>Oh, yes... That's what Hel is here to stop, I think.  They're the half-breeds mother has made with the salamander prisoner down below.</i>\"");
-        this.doNext(this, this.talkToKiri);
+        this.doNext(this.talkToKiri);
     }
 
     //Kiri -- [Talk] -- [Salamander]
@@ -18200,7 +18200,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\n\"<i>Hel doesn't know yet... I didn't want her to lose her head or do something reckless.  But, yeah, that's dad down there.  I just wish... I could have done something more to help him.</i>\"");
         this.outputText("\n\nYou ask how you can free him.");
         this.outputText("\n\n\"<i>Mother keeps the key to his hand shackles on her at all times.  Brigid has the one for his legs.  You'll need to defeat both to free him.</i>\"");
-        this.doNext(this, this.talkToKiri);
+        this.doNext(this.talkToKiri);
     }
 
     //Kiri -- [Talk] -- [Kiri]
@@ -18211,7 +18211,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nYou urge her to tell you something anyway.");
         this.outputText("\n\n\"<i>Well, I guess you could say I'm a half-breed, of sorts.  My dad's the salamander downstairs, mom's the broodmother you're going to fight in a bit.  Mom hadn't quite figured out the magic she needed to produce the phoenixes when I was born - I didn't turn out quite right.  I'm really just a harpy.  Nothing special.</i>\"");
         this.outputText("\n\nShe doesn't seem to want to say more, so you shrug and carry on.");
-        this.doNext(this, this.talkToKiri);
+        this.doNext(this.talkToKiri);
     }
     // Kiri -- [Sex] (Intro)
     public kiriSexIntro(): void {
@@ -18226,9 +18226,9 @@ We can also do * italic * and ** bold ** text!
         //If Genderless: \"<i>Unfortunately, there's not much she can do for you...</i>\"
         this.menu();
         if (this.player.gender == 0) this.outputText("Unfortunately, there's not much she can do for you...");
-        if (this.player.hasCock()) this.addButton(this, 0, "Anal", this.kiriSexAnal);
-        if (this.player.hasVagina()) this.addButton(this, 1, "Get Licked", this.kiriSexGetLicked);
-        this.addButton(this, 4, "Back", this.playerMenu);
+        if (this.player.hasCock()) this.addButton(0, "Anal", this.kiriSexAnal);
+        if (this.player.hasVagina()) this.addButton(1, "Get Licked", this.kiriSexGetLicked);
+        this.addButton(4, "Back", this.playerMenu);
     }
 
     //Kiri -- [Sex] -- [Anal]
@@ -18254,7 +18254,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("\n\nYou pull out with a POP, letting a stream of cum leak out her butt.  You clean your cock off and stick it back in your [armor].");
         this.player.orgasm();
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //Kiri -- [Sex] -- [Get Licked]
@@ -18269,7 +18269,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nYou cannot resist her skillful tongue-fuck for long.  Grabbing Kiri's head, you force her face into your crotch, getting every last bit of her tongue inside you as you can as you climax, spraying your fem-cum all across her face.");
         this.outputText("\n\nUtterly satisfied, you stagger back from Kiri, letting her whip her head around to flick off your fem-cum.  You clean yourself off and suit up again.");
         this.player.orgasm();
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //[Valeria]
@@ -18285,7 +18285,7 @@ We can also do * italic * and ** bold ** text!
         if (this.flags[kFLAGS.HEL_BRIGID_DEFEATED] == 0) this.outputText("\n\n\"<i>Brigid the Jailer is a big girl, probably the meanest harpy here. The others give her plenty of space, from what I've seen.  She uses a hot poker as her weapon, too.  Watch out unless you wanna get burned!</i>\"");
         //[If phoenixes haven't been defeated]
         if (this.flags[kFLAGS.HEL_PHOENIXES_DEFEATED] == 0) this.outputText("\n\n\"<i>There's some freaky-ass half-breed harpy things upstairs that I've seen around a bit.  Phoenixes, I guess they're called.  They breathe fire, so watch your ass.  I can absorb some of the heat, but... Don't get roasted, okay?</i>\"");
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
 
@@ -18298,21 +18298,21 @@ We can also do * italic * and ** bold ** text!
             this.outputText("The rack contains: ");
             if (this.flags[kFLAGS.HEL_DUNGEON_TAKEN_WHIP] == 0) {
                 this.outputText("A whip");
-                this.addButton(this, 0, "Succ. Whip", this.takeWhip);
+                this.addButton(0, "Succ. Whip", this.takeWhip);
             }
             if (this.flags[kFLAGS.HEL_DUNGEON_TAKEN_STRAPS] == 0) {
                 if (this.flags[kFLAGS.HEL_DUNGEON_TAKEN_WHIP] == 0) this.outputText(", ");
                 this.outputText("some leather straps");
-                this.addButton(this, 1, "BondageStraps", this.takeStraps);
+                this.addButton(1, "BondageStraps", this.takeStraps);
             }
             if (this.flags[kFLAGS.HEL_DUNGEON_TAKEN_DAGGER] == 0) {
                 if (this.flags[kFLAGS.HEL_DUNGEON_TAKEN_STRAPS] == 0 || this.flags[kFLAGS.HEL_DUNGEON_TAKEN_WHIP] == 0) this.outputText(", ");
                 this.outputText("a lust-draft coated dagger");
-                this.addButton(this, 2, "Lust Dagger", this.takeDagger);
+                this.addButton(2, "Lust Dagger", this.takeDagger);
             }
             this.outputText(".  ");
         }
-        this.addButton(this, 4, "Back", this.playerMenu);
+        this.addButton(4, "Back", this.playerMenu);
     }
 
     private takeWhip(): void {
@@ -18349,14 +18349,14 @@ We can also do * italic * and ** bold ** text!
         else if (this.player.hasKeyItem("Harpy Key A") >= 0 && this.player.hasKeyItem("Harpy Key B") >= 0) {
             this.outputText("You smile as you approach Hakon the Salamander.  He starts to yell at you again, but you snap at him to hush.  You explain that Hel and Kiri are waiting outside and that the broodmother has been defeated.  Both sets of keys jingling in your hands.  He watches you approach silently, his eyes wary but hopeful.  You quickly undo his bonds, freeing him for the first time in years.  He struggles to sit, but nearly collapses. You catch him before he hurts himself and, throwing his arm over your shoulder, help the old salamander toward the stairs...");
             //(Go to DUNGEON END scene)
-            this.doNext(this, this.towerOutro);
+            this.doNext(this.towerOutro);
             return;
         }
         //[Else]
         else {
             this.outputText("You approach Hakon the Salamander.  He strains against his bonds, yelling at you to get Hel and get out before it's too late.  You roll your eyes and carry on.");
         }
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
 
@@ -18413,7 +18413,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\n\"<i>Yeah,</i>\" another says. \"<i>This one's a goner. Let's bring " + this.player.mf("him", "her") + " up to mom.</i>\"");
         //(Go to \"<i>Harpy Breeding Slut</i>\" Bad End)
         this.menu();
-        this.addButton(this, 0, "Next", this.harpyQueenBeatsUpPCBadEnd, true);
+        this.addButton(0, "Next", this.harpyQueenBeatsUpPCBadEnd, true);
     }
 
     //Phoenix Platoon -- PC is Victorious
@@ -18446,7 +18446,7 @@ We can also do * italic * and ** bold ** text!
             //If Genderless: [Ride Anal]
             rideAnal = this.gitButtRoadPhoenix;
         }
-        this.choices(this, "Missionary", missionary, "Get Wanked", wanked, "Ride Anal", rideAnal, "Ride Vaginal", rideVaginal, "", undefined, "", undefined, "", undefined, "", undefined, "", undefined, "Back", this.playerMenu);
+        this.choices("Missionary", missionary, "Get Wanked", wanked, "Ride Anal", rideAnal, "Ride Vaginal", rideVaginal, "", undefined, "", undefined, "", undefined, "", undefined, "", undefined, "Back", this.playerMenu);
     }
 
     //Phoenixes -- [Missionary]
@@ -18503,7 +18503,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText(" and gather your gear.");
         //(Return to Mezzanine main menu)
         this.player.orgasm();
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //Phoenixes -- [Get Wanked]
@@ -18523,7 +18523,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nYour [cock " + y + "] explodes, pumping a thick load into the shocked phoenix's mouth.  She gags on your cum, finally swallowing it as the last of your sperm drips into her mouth.  With a grin, you tell her what a good job she did as you withdraw your [cock " + y + "]  from her grip.  With little rivulets of cum dripping down her face, the half-breed collapses onto her back, rapidly fingering herself.");
         //(Return to Mezzanine main menu)
         this.player.orgasm();
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //Phoenixes -- [Git Butt-rode]
@@ -18553,7 +18553,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nWhen you come to your senses a few minutes later, the phoenix-girl is asleep, still holding you tight.  You pull her deflated lizard dick out of your ass and shudder as a torrent of her sizzling hot spunk dribbles out onto her thighs and hips.  You wriggle out of her tight embrace and give her a little kiss on the cheek before collecting your [armor] and heading out.");
         //(Return to Mezzanine main menu)
         this.player.orgasm();
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //Phoenix -- [Ride Vaginal]
@@ -18590,7 +18590,7 @@ We can also do * italic * and ** bold ** text!
         this.player.createStatusAffect(StatusAffects.Eggs, this.rand(6), 0, (5 + this.rand(3)), 0);
         //(Return to Mezzanine main menu)
         this.player.orgasm();
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     public harpyQueenAI(): void {
@@ -18696,7 +18696,7 @@ We can also do * italic * and ** bold ** text!
         if (this.flags[kFLAGS.HARPY_QUEEN_EXECUTED] == 0) queen = this.heliaQueenTalk;
         var hakon = undefined;
         if (this.flags[kFLAGS.HEL_PC_TALKED_WITH_HAKON] > 0) hakon = this.heliaHakonTalk;
-        this.simpleChoices(this, "Hakon", hakon, "Kiri", this.heliaKiriTalk, "Queen", queen, "", undefined, "Back", this.playerMenu);
+        this.simpleChoices("Hakon", hakon, "Kiri", this.heliaKiriTalk, "Queen", queen, "", undefined, "Back", this.playerMenu);
     }
 
     //Throne Room -- [Helia] -- [Hakon]
@@ -18708,7 +18708,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\n\"<i>I don't believe it,</i>\" Hel says, rubbing at the corners of her eyes.  \"<i>I thought all these years... I was sure he was dead.  How... No.  It doesn't matter,</i>\" she says, turning to the broodmother beneath her.");
         if (this.flags[kFLAGS.HARPY_QUEEN_EXECUTED] == 0) this.outputText("  \"<i>You're going to pay for what you did to my father, you bitch.  I promise you that.</i>\"");
         this.flags[kFLAGS.HEL_KNOWS_ABOUT_HAKON] = 1;
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //Throne Room -- [Helia] -- [Kiri]
@@ -18722,7 +18722,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nWith a knowing look, you ask if they're more than just friends.");
         this.outputText("\n\n\"<i>" + this.player.mf("Dude", "Babe") + ", come on, you know me.  Give me SOME credit, will ya?  I'm not letting an ass like that go to waste.</i>\"");
         this.outputText("\n\nYou roll your eyes and laugh with her.");
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
     //Throne Room -- [Helia] -- [Queen]
     public heliaQueenTalk(): void {
@@ -18732,7 +18732,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\n\"<i>Well, we can start by me shoving my tail so far up her twat that she'll never have kids again.  That's a goddamn start.</i>\"");
         //[If PC has already told her about Hakon: 
         if (this.flags[kFLAGS.HEL_KNOWS_ABOUT_HAKON] == 1) this.outputText("  \"<i>Maybe snap her neck afterwards.</i>\"");
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //Throne Room -- [Harpy Queen]
@@ -18744,7 +18744,7 @@ We can also do * italic * and ** bold ** text!
         //(Display Options: [Fuck Her] [Interrogate] [Kill Her] [Let Her Go])
         var fuck = undefined;
         if (this.player.lust > 33 && this.player.hasCock()) fuck = this.fuckHarpyQueen;
-        this.simpleChoices(this, "Fuck Her", fuck, "Interrogate", this.harpyQueenInterrogate, "Kill Her", this.killHarpyQueen, "Let Her Go", this.letHarpyQueenGo, "Back", this.playerMenu);
+        this.simpleChoices("Fuck Her", fuck, "Interrogate", this.harpyQueenInterrogate, "Kill Her", this.killHarpyQueen, "Let Her Go", this.letHarpyQueenGo, "Back", this.playerMenu);
     }
 
     //Throne Room -- [Harpy Queen] -- [Let Her Go]
@@ -18765,7 +18765,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\nYou try and yell out, but too late. Hel has lunged forward and, grabbing the broodmother by the neck, spins around.  The sound of neck bones snapping echoes through the tower as the queen falls, hitting the floor with a wet thump.");
             this.outputText("\n\n\"<i>Bullshit,</i>\" Hel snaps, wringing the dead queen's neck under her arm.  The other harpies around you shriek in outrage, pain, and fear.  \"<i>Do you have ANY IDEA what this bitch did?  To my father--to me?  There was no fucking way I was going to just let her walk off.  No, [name]. No way.</i>\"");
             //(Display Options: [Forgive] [Berate])
-            this.simpleChoices(this, "Forgive", this.harpyQueenLetHerGoForgive, "Berate", this.harpyQueenLetHerGoBerate, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices("Forgive", this.harpyQueenLetHerGoForgive, "Berate", this.harpyQueenLetHerGoBerate, "", undefined, "", undefined, "", undefined);
             this.flags[kFLAGS.HARPY_QUEEN_EXECUTED] = 1;
         }
         //[Else; did not tell about Hakon]
@@ -18774,7 +18774,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\nShe turns to you, and says, \"<i>For better or worse, [name], we will meet again.</i>\"");
             this.outputText("\n\nWith that, the harpies take flight.");
             //(Return PC to Room Menu)
-            this.doNext(this, this.playerMenu);
+            this.doNext(this.playerMenu);
             this.flags[kFLAGS.HARPY_QUEEN_EXECUTED] = -1;
         }
         this.dynStats("cor", -5);
@@ -18795,7 +18795,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("out of the dungeon.  I'll make sure the phoenixes and harpies don't give you two trouble on the way out.</i>\"");
         this.outputText("\n\nWith that, Hel trots out the door and down the stairs, leaving you alone in the room. You notice that the queen's staff has fallen beside her body.");
         //(Return to Room Menu)
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //Throne Room -- [Harpy Queen] -- [Let Her Go] -- [Berate]
@@ -18808,7 +18808,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nYou notice the queen's staff has fallen beside her body.");
         //(Remove all options but [Go Downstairs]; add [Take Staff]); (Remove Kiri from Stairwell)
         this.flags[kFLAGS.FOUGHT_WITH_HEL_IN_DUNGEON] = 1;
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //Throne Room -- [Harpy Queen] -- [Kill Her]
@@ -18826,7 +18826,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nWith that, Hel trots out the door and down the stairs, leaving you alone in the room. You notice that the queen's staff has fallen beside her body.");
         this.flags[kFLAGS.HARPY_QUEEN_EXECUTED] = 1;
         //(Remove all options but [Go Downstairs]; add [Take Staff]) (Remove Kiri from Stairwell)
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //Throne Room -- [Take Staff]
@@ -18852,7 +18852,7 @@ We can also do * italic * and ** bold ** text!
         //If Genderless: \"<i>You don't really see how this is going to work out...</i>\" (NO SMUT 4 U)
         var anal = undefined;
         if (this.player.biggestCockArea() > 50) anal = this.harpyQueenSexAnal;
-        this.simpleChoices(this, "Anal", anal, "Vaginal", this.vaginalHarpyQueenSex, "", undefined, "", undefined, "Back", this.playerMenu);
+        this.simpleChoices("Anal", anal, "Vaginal", this.vaginalHarpyQueenSex, "", undefined, "", undefined, "Back", this.playerMenu);
     }
     //Harpy Queen Sex -- [Dick in Anal]
     public harpyQueenSexAnal(): void {
@@ -18871,7 +18871,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nSpent, you pull out of the broodmother's now-gaping asshole.  Her huge asscheeks, however, bottle up your load inside her, preventing it from pooling out.  Laughing, you squeeze her squishy ass one last time before Hel rolls her over and pins her again.");
         //(Return to normal room menu)
         this.player.orgasm();
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //Harpy Queen Sex -- [Vaginal]
@@ -18904,7 +18904,7 @@ We can also do * italic * and ** bold ** text!
         }
         this.outputText("\n\nAfter a fuck like that, the broodmother will be laying a clutch of your eggs in no time.");
         this.player.orgasm();
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //Throne Room -- [Harpy Queen] -- [Interrogate]
@@ -18926,7 +18926,7 @@ We can also do * italic * and ** bold ** text!
         if (this.flags[kFLAGS.HEL_KNOWS_ABOUT_HAKON] == 1) this.outputText("\n\n\"<i>That's because he was MARRIED, YOU BITCH!</i>\" Hel screams, her tail practically blazing behind her. The queen recoils, but falls silent.");
         else this.outputText("\n\n\Hel scowls, but says nothing. It doesn't seem like you'll get anything further from the queen.");
         //(Return PC to room menu)
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //Tower of the Phoenix: Outro
@@ -18972,7 +18972,7 @@ We can also do * italic * and ** bold ** text!
         //(PC returns to Camp)
         //(If PC has Valeria: add \"<i>Valeria</i>\" to Followers menu)
         //	inDungeon = false;
-        this.doNext(this, this.camp.returnToCampUseTwoHours);
+        this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
 
@@ -19032,7 +19032,7 @@ We can also do * italic * and ** bold ** text!
         this.dungeonLoc = 0;
         this.clearOutput();
         this.outputText("You leave the door behind and take off through the desert back towards camp.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public fightCumWitch(): void {
@@ -19227,8 +19227,8 @@ We can also do * italic * and ** bold ** text!
         this.dynStats("lib", 1);
         //[Next]
         this.menu();
-        if (this.flags[kFLAGS.SAND_WITCHES_FRIENDLY] > 0) this.addButton(this, 0, "Next", this.sandWitchMobNotBadEnd);
-        else this.addButton(this, 0, "Next", this.sandWitchMobBadEnd);
+        if (this.flags[kFLAGS.SAND_WITCHES_FRIENDLY] > 0) this.addButton(0, "Next", this.sandWitchMobNotBadEnd);
+        else this.addButton(0, "Next", this.sandWitchMobBadEnd);
     }
 
     //[if for fun]
@@ -19339,7 +19339,7 @@ We can also do * italic * and ** bold ** text!
         this.dynStats("lib", 5);
         //[Nest]
         this.menu();
-        this.addButton(this, 0, "Next", this.memeberedFolksFindTrueWuv2);
+        this.addButton(0, "Next", this.memeberedFolksFindTrueWuv2);
     }
     public memeberedFolksFindTrueWuv2(): void {
         this.clearOutput();
@@ -19357,7 +19357,7 @@ We can also do * italic * and ** bold ** text!
         this.dynStats("lib", 5);
         //[Next]
         this.menu();
-        this.addButton(this, 0, "Next", this.memeberedFolksFindTrueWuv3);
+        this.addButton(0, "Next", this.memeberedFolksFindTrueWuv3);
     }
 
     public memeberedFolksFindTrueWuv3(): void {
@@ -19382,11 +19382,11 @@ We can also do * italic * and ** bold ** text!
         this.menu();
         if (this.player.lust >= 33) {
             this.outputText("\n\nThen again, given you've now proven your superiority over these witches, maybe it's time to blow off a little steam, hmm?");
-            if (this.player.hasCock()) this.addButton(this, 0, "Fuck One", this.dicksHaveSexWithAWitch);
-            if (this.player.hasVagina()) this.addButton(this, 1, "Forced Lick", this.forceCunnilingusRimjobClitAndNipple);
+            if (this.player.hasCock()) this.addButton(0, "Fuck One", this.dicksHaveSexWithAWitch);
+            if (this.player.hasVagina()) this.addButton(1, "Forced Lick", this.forceCunnilingusRimjobClitAndNipple);
         }
         //Present PC with Leave and Orgy options
-        this.addButton(this, 9, "Leave", this.cleanupAfterCombat);
+        this.addButton(9, "Leave", this.cleanupAfterCombat);
     }
 
     //Dicked Win Sex
@@ -19888,7 +19888,7 @@ We can also do * italic * and ** bold ** text!
         this.dynStats("lib", 100, "sen", 100);
         //Next
         this.menu();
-        this.addButton(this, 0, "Next", this.chicksLoseToSandWitchesBadEndFinale);
+        this.addButton(0, "Next", this.chicksLoseToSandWitchesBadEndFinale);
     }
 
     public chicksLoseToSandWitchesBadEndFinale(): void {
@@ -19950,7 +19950,7 @@ We can also do * italic * and ** bold ** text!
 
         //[NEXT]
         this.menu();
-        this.addButton(this, 0, "Next", this.beACumPumpPartII);
+        this.addButton(0, "Next", this.beACumPumpPartII);
         this.player.orgasm();
         this.dynStats("lib", 100, "sen", 100);
     }
@@ -20014,7 +20014,7 @@ We can also do * italic * and ** bold ** text!
 
         //[Next]
         this.menu();
-        this.addButton(this, 0, "Next", this.cumPumpVolumeThree);
+        this.addButton(0, "Next", this.cumPumpVolumeThree);
     }
 
     public cumPumpVolumeThree(): void {
@@ -20084,8 +20084,8 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\nSo if you avoid a facial she'll steal some of your semen production, but if you take it, she'll make you MORE virile.  While you're mulling it over, she's still grinding on you, distracting you with flashes of salacious delight.  The clock is ticking, and if you don't pick soon, she might pick for you.");
             //[Facial] [No Facial]
             this.dynStats("lus=", 100, "resisted", false);
-            this.addButton(this, 0, "Facial", this.tooBigCumWitchLossFacial);
-            this.addButton(this, 1, "No Facial", this.tooBigCumWitchLossNoFacial);
+            this.addButton(0, "Facial", this.tooBigCumWitchLossFacial);
+            this.addButton(1, "No Facial", this.tooBigCumWitchLossNoFacial);
         }
         else {
             //*Dick Fits Male Loss Scene
@@ -20289,21 +20289,21 @@ We can also do * italic * and ** bold ** text!
         this.menu();
         if (this.player.hasCock()) {
             //*Male "Too Big" Victory Sex
-            if (this.player.biggestCockArea() > this.monster.vaginalCapacity()) this.addButton(this, 0, "Too Big Fuck", this.maleTooBigVictorySex);
+            if (this.player.biggestCockArea() > this.monster.vaginalCapacity()) this.addButton(0, "Too Big Fuck", this.maleTooBigVictorySex);
             //*Male Victory Sex
-            if (this.player.cockThatFits(this.monster.vaginalCapacity()) >= 0) this.addButton(this, 1, "Fuck Her", this.menFuckUpSomeCumWitch);
+            if (this.player.cockThatFits(this.monster.vaginalCapacity()) >= 0) this.addButton(1, "Fuck Her", this.menFuckUpSomeCumWitch);
         }
         //Tentacle Victory Gangbang
         //3+ Tentas
-        if (this.player.tentacleCocks() >= 3) this.addButton(this, 2, "Tentacles", this.tentacleVictoryGangbangCumWitch);
+        if (this.player.tentacleCocks() >= 3) this.addButton(2, "Tentacles", this.tentacleVictoryGangbangCumWitch);
         //Female Victory Sex
-        if (this.player.hasVagina()) this.addButton(this, 3, "Ladysex", this.ladyVictorySex);
+        if (this.player.hasVagina()) this.addButton(3, "Ladysex", this.ladyVictorySex);
 
         if (this.inCombat) {
-            if (this.monster.HP >= 1) this.addButton(this, 9, "Leave", this.declineSandWitch);
-            else this.addButton(this, 9, "Leave", this.cleanupAfterCombat);
+            if (this.monster.HP >= 1) this.addButton(9, "Leave", this.declineSandWitch);
+            else this.addButton(9, "Leave", this.cleanupAfterCombat);
         }
-        else this.addButton(this, 9, "Back", this.playerMenu);
+        else this.addButton(9, "Back", this.playerMenu);
     }
 
     //*Decline Sex
@@ -20312,7 +20312,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("Dusting yourself off, you lower your [weapon] and leave the cum witch to recover from the humiliation of losing to you.  The haunted, hungry look in her eyes leaves little doubt that she'll challenge you again or that she still wants to fuck you.  For now, she slips down into her own puddled cum, idly touching herself.");
         if (this.inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.playerMenu);
+        else this.doNext(this.playerMenu);
     }
 
     //*Male Victory Sex
@@ -20406,12 +20406,12 @@ We can also do * italic * and ** bold ** text!
         if (this.inDungeon) {
             if (this.inCombat)
                 this.cleanupAfterCombat();
-            else this.doNext(this, this.playerMenu);
+            else this.doNext(this.playerMenu);
         }
         else {
             if (this.inCombat)
                 this.cleanupAfterCombat();
-            else this.doNext(this, this.camp.returnToCampUseOneHour);
+            else this.doNext(this.camp.returnToCampUseOneHour);
         }
     }
     //*Male "Too Big" Victory Sex
@@ -20451,12 +20451,12 @@ We can also do * italic * and ** bold ** text!
         if (this.inDungeon) {
             if (this.inCombat)
                 this.cleanupAfterCombat();
-            else this.doNext(this, this.playerMenu);
+            else this.doNext(this.playerMenu);
         }
         else {
             if (this.inCombat)
                 this.cleanupAfterCombat();
-            else this.doNext(this, this.camp.returnToCampUseOneHour);
+            else this.doNext(this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -20492,12 +20492,12 @@ We can also do * italic * and ** bold ** text!
         if (this.inDungeon) {
             if (this.inCombat)
                 this.cleanupAfterCombat();
-            else this.doNext(this, this.playerMenu);
+            else this.doNext(this.playerMenu);
         }
         else {
             if (this.inCombat)
                 this.cleanupAfterCombat();
-            else this.doNext(this, this.camp.returnToCampUseOneHour);
+            else this.doNext(this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -20534,12 +20534,12 @@ We can also do * italic * and ** bold ** text!
         if (this.inDungeon) {
             if (this.inCombat)
                 this.cleanupAfterCombat();
-            else this.doNext(this, this.playerMenu);
+            else this.doNext(this.playerMenu);
         }
         else {
             if (this.inCombat)
                 this.cleanupAfterCombat();
-            else this.doNext(this, this.camp.returnToCampUseOneHour);
+            else this.doNext(this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -20586,8 +20586,8 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nNow, the witch almost seems lost in bliss....  Perhaps you could turn the tables on her, and end up on top?  Then again, she's so gentle, and her milk is so very, very good...  Do you even want to resist her as she breeds you, pumping you full of cum and milk?");
 
         this.menu();
-        this.addButton(this, 0, "Resist", this.resistSavinStuff);
-        this.addButton(this, 1, "Don't", this.doNotResistSavin);
+        this.addButton(0, "Resist", this.resistSavinStuff);
+        this.addButton(1, "Don't", this.doNotResistSavin);
     }
 
     //Resist
@@ -20722,12 +20722,12 @@ We can also do * italic * and ** bold ** text!
         this.menu();
         if (skipped) {
             this.dungeonLoc = 0; //Replaces inDungeon = false;
-            this.addButton(this, 0, "Next", this.camp.returnToCampUseOneHour);
+            this.addButton(0, "Next", this.camp.returnToCampUseOneHour);
         }
         else {
             this.menu();
-            this.addButton(this, 0, "Enter", this.openZeDoorToParadize);
-            this.addButton(this, 4, "Leave", this.leaveBoobsDungeon);
+            this.addButton(0, "Enter", this.openZeDoorToParadize);
+            this.addButton(4, "Leave", this.leaveBoobsDungeon);
         }
     }
 
@@ -20743,7 +20743,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\"<i>Oh!  You'll play my game?  Marvelous!  Well then, let's begin...</i>\"");
         //[NEXT]
         this.menu();
-        this.addButton(this, 0, "Next", this.riddlePicker);
+        this.addButton(0, "Next", this.riddlePicker);
     }
 
     public riddlePicker(): void {
@@ -20781,11 +20781,11 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\"<i>Hmm, here's an old one, but a good one, I think.  One of my favorites, but stop me if you know the answer already: 'I walk on four legs in the morning, two in the afternoon, and three in the evening.  What am I?'</i>\"");
         this.menu();
         //[A Sphinx] (if PC int < 50 add this: [A Centaur]) [A Man] (if PC int < 35 add this: [Stilts]) [Fuck it, Attack]
-        this.addButton(this, 0, "A Sphinx", this.riddleOneSphinx);
-        this.addButton(this, 1, "A Centaur", this.answerWrong);
-        this.addButton(this, 2, "A Man", this.answerCorrect);
-        if (this.player.inte < 35) this.addButton(this, 3, "Stilts", this.answerWrong);
-        this.addButton(this, 4, "Uh, ATTACK!", this.fuckItAttack);
+        this.addButton(0, "A Sphinx", this.riddleOneSphinx);
+        this.addButton(1, "A Centaur", this.answerWrong);
+        this.addButton(2, "A Man", this.answerCorrect);
+        if (this.player.inte < 35) this.addButton(3, "Stilts", this.answerWrong);
+        this.addButton(4, "Uh, ATTACK!", this.fuckItAttack);
     }
 
     //Special Occurrence: Pick [A Sphinx]
@@ -20796,7 +20796,7 @@ We can also do * italic * and ** bold ** text!
         if (this.flags[kFLAGS.RIDDLE_ONE] == this.riddleOne) this.flags[kFLAGS.RIDDLE_ONE] = undefined;
         else if (this.flags[kFLAGS.RIDDLE_TWO] == this.riddleOne) this.flags[kFLAGS.RIDDLE_TWO] = undefined;
         else if (this.flags[kFLAGS.RIDDLE_THREE] == this.riddleOne) this.flags[kFLAGS.RIDDLE_THREE] = undefined;
-        this.addButton(this, 0, "Next", this.riddlePicker);
+        this.addButton(0, "Next", this.riddlePicker);
     }
 
     //RIDDLE 2
@@ -20805,11 +20805,11 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\"<i>Mmm, I've always been fond of this one.  Delightfully simple, really - don't overthink it, dear.  'I always run, yet never walk; I murmur often, yet never talk; and I've a bed, yet never sleep.  What am I?'</i>\"");
         //[A River] [A Whisper] (if PC int < 50 add this: [A Nail]) (if PC int < 35 add this: [A Bunny Girl]) [Fuck it, Attack]
         this.menu();
-        this.addButton(this, 0, "A River", this.answerCorrect);
-        this.addButton(this, 1, "A Whisper", this.answerWrong);
-        if (this.player.inte < 50) this.addButton(this, 2, "A Nail", this.answerWrong);
-        if (this.player.inte < 35) this.addButton(this, 3, "A Bunny-Girl", this.answerWrong);
-        this.addButton(this, 4, "Uh, ATTACK!", this.fuckItAttack);
+        this.addButton(0, "A River", this.answerCorrect);
+        this.addButton(1, "A Whisper", this.answerWrong);
+        if (this.player.inte < 50) this.addButton(2, "A Nail", this.answerWrong);
+        if (this.player.inte < 35) this.addButton(3, "A Bunny-Girl", this.answerWrong);
+        this.addButton(4, "Uh, ATTACK!", this.fuckItAttack);
     }
 
     //RIDDLE 3
@@ -20818,11 +20818,11 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\"<i>Ooh, this is a morbid one: 'Whoever makes me, sells me.  He who buys me, never uses me. And he who uses me, well, they'll never know it.  What am I?'</i>\"");
         this.menu();
         //[Poison] (if PC int < 50 add this: [A Condom]) (if PC int < 35 add this: [Arrows]) [A Coffin] [Fuck it, Attack]
-        this.addButton(this, 0, "Poison", this.answerWrong);
-        if (this.player.inte < 50) this.addButton(this, 1, "A Condom", this.answerWrong);
-        if (this.player.inte < 35) this.addButton(this, 2, "Arrows", this.answerWrong);
-        this.addButton(this, 3, "A Coffin", this.answerCorrect);
-        this.addButton(this, 4, "Uh, ATTACK!", this.fuckItAttack);
+        this.addButton(0, "Poison", this.answerWrong);
+        if (this.player.inte < 50) this.addButton(1, "A Condom", this.answerWrong);
+        if (this.player.inte < 35) this.addButton(2, "Arrows", this.answerWrong);
+        this.addButton(3, "A Coffin", this.answerCorrect);
+        this.addButton(4, "Uh, ATTACK!", this.fuckItAttack);
     }
 
     //RIDDLE 4
@@ -20831,11 +20831,11 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\"<i>Here's a classic for you: 'I'm always hungry, and must be fed always, lest I flicker away.  Yet I will always bite the hand that feeds me, if it touches me.  What am I?'</i>\"");
         this.menu();
         //(if PC int < 35 add this: [A Fairy]) [Fire] [A Dog] (if PC int < 50 add this: [Disease]) [Fuck it, Attack]
-        if (this.player.inte < 35) this.addButton(this, 0, "A Fairy", this.answerWrong);
-        this.addButton(this, 1, "Fire", this.answerCorrect);
-        this.addButton(this, 2, "A Dog", this.answerWrong);
-        if (this.player.inte < 50) this.addButton(this, 3, "Disease", this.answerWrong);
-        this.addButton(this, 4, "Uh, ATTACK!", this.fuckItAttack);
+        if (this.player.inte < 35) this.addButton(0, "A Fairy", this.answerWrong);
+        this.addButton(1, "Fire", this.answerCorrect);
+        this.addButton(2, "A Dog", this.answerWrong);
+        if (this.player.inte < 50) this.addButton(3, "Disease", this.answerWrong);
+        this.addButton(4, "Uh, ATTACK!", this.fuckItAttack);
     }
 
     //RIDDLE 5
@@ -20844,11 +20844,11 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\"<i>A favorite of my dear Goblin friends: 'When young, I am sweet in the sun; in middle age, I make you gay; but when I'm old, I'm more valuable than gold.  What am I?'</i>\"");
         this.menu();
         //(if PC int < 50 add this: [Men]) (if PC int < 35 add this: [Women]) [Wine] [Cheese] [Fuck it, Attack]
-        if (this.player.inte < 50) this.addButton(this, 0, "Men", this.answerWrong);
-        if (this.player.inte < 35) this.addButton(this, 1, "Women", this.answerWrong);
-        this.addButton(this, 2, "Wine", this.answerCorrect);
-        this.addButton(this, 3, "Cheese", this.answerWrong);
-        this.addButton(this, 4, "Uh, ATTACK!", this.fuckItAttack);
+        if (this.player.inte < 50) this.addButton(0, "Men", this.answerWrong);
+        if (this.player.inte < 35) this.addButton(1, "Women", this.answerWrong);
+        this.addButton(2, "Wine", this.answerCorrect);
+        this.addButton(3, "Cheese", this.answerWrong);
+        this.addButton(4, "Uh, ATTACK!", this.fuckItAttack);
     }
     //RIDDLE 6
     public riddleSix(): void {
@@ -20857,11 +20857,11 @@ We can also do * italic * and ** bold ** text!
 
         //(if PC int < 35 add this: [A Goblin]) [A Candle] (if PC int < 50 add this: [A Boat]) [An Arrow] [Fuck it, Attack]
         this.menu();
-        if (this.player.inte < 35) this.addButton(this, 0, "A Goblin", this.answerWrong);
-        this.addButton(this, 1, "A Candle", this.answerCorrect);
-        if (this.player.inte < 50) this.addButton(this, 2, "A Boat", this.answerWrong);
-        this.addButton(this, 3, "An Arrow", this.answerWrong);
-        this.addButton(this, 4, "Uh, ATTACK!", this.fuckItAttack);
+        if (this.player.inte < 35) this.addButton(0, "A Goblin", this.answerWrong);
+        this.addButton(1, "A Candle", this.answerCorrect);
+        if (this.player.inte < 50) this.addButton(2, "A Boat", this.answerWrong);
+        this.addButton(3, "An Arrow", this.answerWrong);
+        this.addButton(4, "Uh, ATTACK!", this.fuckItAttack);
     }
 
     //RIDDLE 7
@@ -20871,11 +20871,11 @@ We can also do * italic * and ** bold ** text!
 
         //[A Shadow] [A Dog] (if PC int < 35 add this: [Water]) (if PC int < 50 add this: [The Breeze]) [Fuck it, Attack]
         this.menu();
-        this.addButton(this, 0, "A Shadow", this.answerCorrect);
-        this.addButton(this, 1, "A Dog", this.answerWrong);
-        if (this.player.inte < 35) this.addButton(this, 2, "Water", this.answerWrong);
-        if (this.player.inte < 50) this.addButton(this, 3, "The Breeze", this.answerWrong);
-        this.addButton(this, 4, "Uh, ATTACK!", this.fuckItAttack);
+        this.addButton(0, "A Shadow", this.answerCorrect);
+        this.addButton(1, "A Dog", this.answerWrong);
+        if (this.player.inte < 35) this.addButton(2, "Water", this.answerWrong);
+        if (this.player.inte < 50) this.addButton(3, "The Breeze", this.answerWrong);
+        this.addButton(4, "Uh, ATTACK!", this.fuckItAttack);
     }
 
     //RIDDLE 8
@@ -20884,11 +20884,11 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\"<i>Tsk, a sad tale this, fleeting as a melody on the breeze: 'You've heard me before, and will again, till fast I die - then you'll but summon me again.  What am I?'</i>\"");
         //(if PC int < 35 add this: [A Demon]) (if PC int < 50 add this: [Religion]) [An Idea] [An Echo] [Fuck it, Attack]
         this.menu();
-        if (this.player.inte < 35) this.addButton(this, 0, "A Demon", this.answerWrong);
-        if (this.player.inte < 50) this.addButton(this, 1, "Religion", this.answerWrong);
-        this.addButton(this, 2, "An Idea", this.answerWrong);
-        this.addButton(this, 3, "An Echo", this.answerCorrect);
-        this.addButton(this, 4, "Uh, ATTACK!", this.fuckItAttack);
+        if (this.player.inte < 35) this.addButton(0, "A Demon", this.answerWrong);
+        if (this.player.inte < 50) this.addButton(1, "Religion", this.answerWrong);
+        this.addButton(2, "An Idea", this.answerWrong);
+        this.addButton(3, "An Echo", this.answerCorrect);
+        this.addButton(4, "Uh, ATTACK!", this.fuckItAttack);
     }
 
     //RIDDLE 9
@@ -20898,11 +20898,11 @@ We can also do * italic * and ** bold ** text!
 
         this.menu();
         //(if PC int < 35 add this: [A Dick]) [Water] [A Voice] (if PC int < 50 add this: [Faith]) [Fuck it, Attack]
-        if (this.player.inte < 35) this.addButton(this, 0, "A Dick", this.answerWrong);
-        this.addButton(this, 1, "Water", this.answerCorrect);
-        this.addButton(this, 2, "A Voice", this.answerWrong);
-        if (this.player.inte < 50) this.addButton(this, 3, "Faith", this.answerWrong);
-        this.addButton(this, 4, "Uh, ATTACK!", this.fuckItAttack);
+        if (this.player.inte < 35) this.addButton(0, "A Dick", this.answerWrong);
+        this.addButton(1, "Water", this.answerCorrect);
+        this.addButton(2, "A Voice", this.answerWrong);
+        if (this.player.inte < 50) this.addButton(3, "Faith", this.answerWrong);
+        this.addButton(4, "Uh, ATTACK!", this.fuckItAttack);
     }
 
     //RIDDLE 10
@@ -20912,11 +20912,11 @@ We can also do * italic * and ** bold ** text!
 
         //[Disease] [Counterfeits] (if PC int < 35 add this: [Piss in a River]) (if PC int < 50 add this: [Tattered Scrolls]) [Fuck it, Attack]
         this.menu();
-        this.addButton(this, 0, "Disease", this.answerWrong);
-        this.addButton(this, 1, "Counterfeits", this.answerCorrect);
-        if (this.player.inte < 35) this.addButton(this, 2, "Piss In A River", this.answerWrong);
-        if (this.player.inte < 50) this.addButton(this, 3, "Tattered Scrolls", this.answerWrong);
-        this.addButton(this, 4, "Uh, ATTACK!", this.fuckItAttack);
+        this.addButton(0, "Disease", this.answerWrong);
+        this.addButton(1, "Counterfeits", this.answerCorrect);
+        if (this.player.inte < 35) this.addButton(2, "Piss In A River", this.answerWrong);
+        if (this.player.inte < 50) this.addButton(3, "Tattered Scrolls", this.answerWrong);
+        this.addButton(4, "Uh, ATTACK!", this.fuckItAttack);
     }
 
     //RIDDLE 11
@@ -20926,11 +20926,11 @@ We can also do * italic * and ** bold ** text!
 
         //(if PC int < 35 add this: [A Treasure Chest]) (if PC int < 50 add this: [Pure Honey]) [Eggs] [Booze Bottles] [Fuck it, Attack]
         this.menu();
-        if (this.player.inte < 35) this.addButton(this, 0, "Teasure Chest", this.answerWrong);
-        if (this.player.inte < 50) this.addButton(this, 1, "Pure Honey", this.answerWrong);
-        this.addButton(this, 2, "Eggs", this.answerCorrect);
-        this.addButton(this, 3, "Booze Bottles", this.answerWrong);
-        this.addButton(this, 4, "Uh, ATTACK!", this.fuckItAttack);
+        if (this.player.inte < 35) this.addButton(0, "Teasure Chest", this.answerWrong);
+        if (this.player.inte < 50) this.addButton(1, "Pure Honey", this.answerWrong);
+        this.addButton(2, "Eggs", this.answerCorrect);
+        this.addButton(3, "Booze Bottles", this.answerWrong);
+        this.addButton(4, "Uh, ATTACK!", this.fuckItAttack);
     }
 
     //RIDDLE 12
@@ -20940,11 +20940,11 @@ We can also do * italic * and ** bold ** text!
 
         //(if PC int < 50 add this: [Fallen Stars]) (if PC int < 35 add this: [Angels]) [Sand] [Rain] [Fuck it, Attack]
         this.menu();
-        if (this.player.inte < 50) this.addButton(this, 0, "Fallen Stars", this.answerWrong);
-        if (this.player.inte < 35) this.addButton(this, 1, "Angels", this.answerWrong);
-        this.addButton(this, 2, "Sand", this.answerCorrect);
-        this.addButton(this, 3, "Rain", this.answerWrong);
-        this.addButton(this, 4, "Uh, ATTACK!", this.fuckItAttack);
+        if (this.player.inte < 50) this.addButton(0, "Fallen Stars", this.answerWrong);
+        if (this.player.inte < 35) this.addButton(1, "Angels", this.answerWrong);
+        this.addButton(2, "Sand", this.answerCorrect);
+        this.addButton(3, "Rain", this.answerWrong);
+        this.addButton(4, "Uh, ATTACK!", this.fuckItAttack);
     }
 
 
@@ -20954,7 +20954,7 @@ We can also do * italic * and ** bold ** text!
         if (this.flags[kFLAGS.RIDDLE_THREE] == undefined) {
             this.outputText("The sphinx-girl sighs, \"<i>That's... correct.  Not bad, I suppose.  Well, we're not done yet... I've still got some tricks up my sleeves.  Er, so to speak.</i>\"");
             this.menu();
-            this.addButton(this, 0, "Next", this.riddlePicker);
+            this.addButton(0, "Next", this.riddlePicker);
         }
         else {
 
@@ -20971,9 +20971,9 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\nWhat do you do?");
             //(Display Options: [Fuck Her] [Door] [Leave])
             this.menu();
-            this.addButton(this, 0, "North Door", this.openZeDoorToParadize);
-            this.addButton(this, 1, "Fuck Her", this.fuckDatSphinx);
-            this.addButton(this, 4, "Leave", this.leaveBoobsDungeon);
+            this.addButton(0, "North Door", this.openZeDoorToParadize);
+            this.addButton(1, "Fuck Her", this.fuckDatSphinx);
+            this.addButton(4, "Leave", this.leaveBoobsDungeon);
         }
     }
 
@@ -20985,8 +20985,8 @@ We can also do * italic * and ** bold ** text!
         //(Display Options: [Submit] [Fuck it, Attack])
         //(Submit goes to appropriate loss scene)
         this.menu();
-        this.addButton(this, 0, "Submit", this.sphinxSubmissionOptions);
-        this.addButton(this, 1, "Uh, ATTACK!", this.fuckItAttack);
+        this.addButton(0, "Submit", this.sphinxSubmissionOptions);
+        this.addButton(1, "Uh, ATTACK!", this.fuckItAttack);
 
     }
 
@@ -20997,8 +20997,8 @@ We can also do * italic * and ** bold ** text!
         //[Options: Enter, Leave. Either way, Sanura won't be encountered again]
         this.flags[kFLAGS.SANURA_DISABLED] = 1;
         this.menu();
-        this.addButton(this, 0, "Enter", this.openZeDoorToParadize);
-        this.addButton(this, 4, "Leave", this.leaveBoobsDungeon);
+        this.addButton(0, "Enter", this.openZeDoorToParadize);
+        this.addButton(4, "Leave", this.leaveBoobsDungeon);
     }
 
     //Fuck Her
@@ -21010,12 +21010,12 @@ We can also do * italic * and ** bold ** text!
         this.menu();
         //Req Cock
         if (this.player.hasCock()) {
-            this.addButton(this, 0, "Fuck Her", this.fuckDatLionPussah);
-            this.addButton(this, 1, "Get Blown", this.getBlown, false);
-            this.addButton(this, 2, "Pawjob", this.lionpaws, false);
+            this.addButton(0, "Fuck Her", this.fuckDatLionPussah);
+            this.addButton(1, "Get Blown", this.getBlown, false);
+            this.addButton(2, "Pawjob", this.lionpaws, false);
         }
         //Cunts & NoDicks
-        if (this.player.hasVagina() || !this.player.hasCock()) this.addButton(this, 3, "Magic Dildos", this.forceDildos);
+        if (this.player.hasVagina() || !this.player.hasCock()) this.addButton(3, "Magic Dildos", this.forceDildos);
     }
 
     //Get Blown (Males & Herms)
@@ -21073,12 +21073,12 @@ We can also do * italic * and ** bold ** text!
         this.menu();
         if (submit) {
             this.dungeonLoc = 0; //Replaces inDungeon = false;
-            this.addButton(this, 0, "Next", this.camp.returnToCampUseOneHour);
+            this.addButton(0, "Next", this.camp.returnToCampUseOneHour);
         }
         else {
             this.menu();
-            this.addButton(this, 0, "Enter", this.openZeDoorToParadize);
-            this.addButton(this, 4, "Leave", this.leaveBoobsDungeon);
+            this.addButton(0, "Enter", this.openZeDoorToParadize);
+            this.addButton(4, "Leave", this.leaveBoobsDungeon);
         }
     }
 
@@ -21118,8 +21118,8 @@ We can also do * italic * and ** bold ** text!
         //(DIsplay Options: Leave, Enter)
         this.player.orgasm();
         this.menu();
-        this.addButton(this, 0, "Enter", this.openZeDoorToParadize);
-        this.addButton(this, 4, "Leave", this.leaveBoobsDungeon);
+        this.addButton(0, "Enter", this.openZeDoorToParadize);
+        this.addButton(4, "Leave", this.leaveBoobsDungeon);
     }
 
     //Fuck Dat Lionpussy
@@ -21188,8 +21188,8 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\n\"<i>Well, that's certainly not what I had in mind,</i>\" Sanura says, recomposing herself after that vicious fucking.  \"<i>But I can't say I can complain.</i>\"  Neither can you, you smirk to yourself.");
         this.player.orgasm();
         this.menu();
-        this.addButton(this, 0, "Enter", this.openZeDoorToParadize);
-        this.addButton(this, 4, "Leave", this.leaveBoobsDungeon);
+        this.addButton(0, "Enter", this.openZeDoorToParadize);
+        this.addButton(4, "Leave", this.leaveBoobsDungeon);
     }
 
     //Submission Options
@@ -21199,11 +21199,11 @@ We can also do * italic * and ** bold ** text!
         this.outputText("Having lost the Riddle Game, you do as the sphinx-girl commands: you pull off your [armor], leaving yourself bare under the desert sun. \"<i>Now then, my dull little pet, what shall I do with you...</i>\"");
         this.menu();
         //SUBMISSION:
-        this.addButton(this, 0, "Get Pegged", this.fenPutsHisShittyFetishInYoSphinx);
+        this.addButton(0, "Get Pegged", this.fenPutsHisShittyFetishInYoSphinx);
         //Reqs Penis
         if (this.player.hasCock()) {
-            this.addButton(this, 1, "Get Blown", this.getBlown, true);
-            this.addButton(this, 2, "Pawjob", this.lionpaws, true);
+            this.addButton(1, "Get Blown", this.getBlown, true);
+            this.addButton(2, "Pawjob", this.lionpaws, true);
         }
     }
 
@@ -21288,7 +21288,7 @@ We can also do * italic * and ** bold ** text!
         this.player.orgasm();
         this.dungeonLoc = 0; //Replaces inDungeon = false;
         this.menu();
-        this.addButton(this, 0, "Next", this.camp.returnToCampUseOneHour);
+        this.addButton(0, "Next", this.camp.returnToCampUseOneHour);
     }
 
     //Sand Mother
@@ -21308,27 +21308,27 @@ We can also do * italic * and ** bold ** text!
             this.monster.HP = 0;
         }
         this.menu();
-        if (this.flags[kFLAGS.SAND_WITCH_LEAVE_ME_ALONE] == 0) this.addButton(this, 0, "StopAttacking", this.leaveAloneSendLackeysToggle);
-        else this.addButton(this, 0, "StartAttacking", this.leaveAloneSendLackeysToggle);
-        this.addButton(this, 1, "SandMothers", this.askHowSandMothersAreChosen);
-        this.addButton(this, 2, "Cum Witches", this.discussCumWitches);
-        this.addButton(this, 3, "CovenStatus", this.currentStateOfInterwebs);
-        this.addButton(this, 4, "History", this.sandWitchHistory);
+        if (this.flags[kFLAGS.SAND_WITCH_LEAVE_ME_ALONE] == 0) this.addButton(0, "StopAttacking", this.leaveAloneSendLackeysToggle);
+        else this.addButton(0, "StartAttacking", this.leaveAloneSendLackeysToggle);
+        this.addButton(1, "SandMothers", this.askHowSandMothersAreChosen);
+        this.addButton(2, "Cum Witches", this.discussCumWitches);
+        this.addButton(3, "CovenStatus", this.currentStateOfInterwebs);
+        this.addButton(4, "History", this.sandWitchHistory);
         if (this.flags[kFLAGS.SAND_WITCH_LOOT_TAKEN] < 5) {
-            this.addButton(this, 5, "Get LaBova", this.getLaBova);
-            this.addButton(this, 6, "Get Lactaid", this.getLactaidFromWitches);
+            this.addButton(5, "Get LaBova", this.getLaBova);
+            this.addButton(6, "Get Lactaid", this.getLactaidFromWitches);
         }
         if ((this.flags[kFLAGS.ESSY_MET_IN_DUNGEON] > 0 && this.flags[kFLAGS.TOLD_MOTHER_TO_RELEASE_ESSY] == 0) || (this.flags[kFLAGS.MET_MILK_SLAVE] > 0 && this.flags[kFLAGS.MILK_NAME] === ''))
-            this.addButton(this, 7, "Free Slaves", this.slavesDiscussion);
-        if (this.player.lust >= 33) this.addButton(this, 8, "Sex", this.sexWithFriendlySandMother);
+            this.addButton(7, "Free Slaves", this.slavesDiscussion);
+        if (this.player.lust >= 33) this.addButton(8, "Sex", this.sexWithFriendlySandMother);
 
-        this.addButton(this, 9, "Leave", this.playerMenu);
+        this.addButton(9, "Leave", this.playerMenu);
     }
 
     public slavesDiscussion(): void {
         this.menu();
-        if (this.flags[kFLAGS.ESSY_MET_IN_DUNGEON] > 0 && this.flags[kFLAGS.TOLD_MOTHER_TO_RELEASE_ESSY] == 0) this.addButton(this, 0, "Essrayle", this.forest.essrayle.askMotherToReleaseEssy);
-        if (this.flags[kFLAGS.MET_MILK_SLAVE] > 0 && this.flags[kFLAGS.MILK_NAME] === '') this.addButton(this, 1, "Milk-Slave", this.freeSlaves);
+        if (this.flags[kFLAGS.ESSY_MET_IN_DUNGEON] > 0 && this.flags[kFLAGS.TOLD_MOTHER_TO_RELEASE_ESSY] == 0) this.addButton(0, "Essrayle", this.forest.essrayle.askMotherToReleaseEssy);
+        if (this.flags[kFLAGS.MET_MILK_SLAVE] > 0 && this.flags[kFLAGS.MILK_NAME] === '') this.addButton(1, "Milk-Slave", this.freeSlaves);
     }
     //Getting a Milk Slut, Purity Style
     //{Having beat the Sammiches, and made Momma Witch your friend, add a button labeled [Free Slaves] to Momma's menu. Needs to have met Milk Slut.}
@@ -21341,7 +21341,7 @@ We can also do * italic * and ** bold ** text!
         if (this.player.inte <= 20) {
             this.outputText("\n\nYou start to respond, stop, and have to think for a moment.  You spend a good long minute contemplating, before shrugging.  You're sure there's a convincing argument against this, but can't think of it at the moment.");
             //[Back to menu
-            this.doNext(this, this.playerMenu);
+            this.doNext(this.playerMenu);
             return;
         }
         // Else:
@@ -21357,9 +21357,9 @@ We can also do * italic * and ** bold ** text!
 
         //[Yes] [No] [Gimme her]
         this.menu();
-        this.addButton(this, 0, "Yes", this.yesDemandMilkRelease);
-        this.addButton(this, 1, "No", this.noDemandMilkRelease);
-        this.addButton(this, 2, "Gimme Her", this.gimmeDatDeliciousMilkWaifuINeedMoreWaifusCauseTheTwoCowslutsWerentEnoughForMyInsatiableLacticLustandDesire);
+        this.addButton(0, "Yes", this.yesDemandMilkRelease);
+        this.addButton(1, "No", this.noDemandMilkRelease);
+        this.addButton(2, "Gimme Her", this.gimmeDatDeliciousMilkWaifuINeedMoreWaifusCauseTheTwoCowslutsWerentEnoughForMyInsatiableLacticLustandDesire);
     }
 
     //Yes (No Change)
@@ -21377,7 +21377,7 @@ We can also do * italic * and ** bold ** text!
     private noDemandMilkRelease(): void {
         this.clearOutput();
         this.outputText("You suppose not, when she puts it that way.  The poor girl's probably better off here than in the clutches of the demons.  Seeing you relent, the Sand Mother smiles and pats your shoulder.  \"<i>I'm glad you can see things my way, [name].  There is wisdom in you.  Come, let us speak of other things,</i>\" she says, leading you back to her throne room.");
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //Gimme her (Gimme dat delicious milk slut)
@@ -21392,8 +21392,8 @@ We can also do * italic * and ** bold ** text!
         }
         this.menu();
         //[2 Expensive][Buy Her]
-        this.addButton(this, 0, "2 Expensive", this.TwoExpensive4Me);
-        if (this.player.gems >= 2000) this.addButton(this, 1, "Buy Her", this.BuyHer);
+        this.addButton(0, "2 Expensive", this.TwoExpensive4Me);
+        if (this.player.gems >= 2000) this.addButton(1, "Buy Her", this.BuyHer);
     }
 
     private TwoExpensive4Me(): void {
@@ -21430,18 +21430,18 @@ We can also do * italic * and ** bold ** text!
         this.dungeonLoc = 0; //After buying her the player leaves the dungeon and returns to camp
         //[Next] (To Arriving At Camp)
         this.menu();
-        this.addButton(this, 0, "Next", this.milkWaifu.arriveWithLacticWaifuAtCamp);
+        this.addButton(0, "Next", this.milkWaifu.arriveWithLacticWaifuAtCamp);
     }
 
     public sexWithFriendlySandMother(): void {
         this.menu();
         //friendly cunt fuck:
-        if (this.player.hasVagina() && this.player.lust >= 33) this.addButton(this, 0, "GetMilkFill", this.lesboMilkFilling);
+        if (this.player.hasVagina() && this.player.lust >= 33) this.addButton(0, "GetMilkFill", this.lesboMilkFilling);
         //dick fucking, must fit!
         if (this.player.hasCock() && this.player.lust >= 33) {
-            if (this.player.cockThatFits(this.monster.vaginalCapacity()) >= 0) this.addButton(this, 1, "Fuck Her", this.friendlySandMotherFuck);
+            if (this.player.cockThatFits(this.monster.vaginalCapacity()) >= 0) this.addButton(1, "Fuck Her", this.friendlySandMotherFuck);
         }
-        this.addButton(this, 4, "Back", this.sandWitchMotherFriendlyMenu);
+        this.addButton(4, "Back", this.sandWitchMotherFriendlyMenu);
     }
 
 
@@ -21453,21 +21453,21 @@ We can also do * italic * and ** bold ** text!
         }
         this.menu();
         //toggle withc attacking
-        if (this.flags[kFLAGS.SAND_WITCH_LEAVE_ME_ALONE] == 0) this.addButton(this, 0, "StopAttacking", this.unfriendlyWitchToggle);
-        else this.addButton(this, 0, "StartAttacking", this.unfriendlyWitchToggle);
+        if (this.flags[kFLAGS.SAND_WITCH_LEAVE_ME_ALONE] == 0) this.addButton(0, "StopAttacking", this.unfriendlyWitchToggle);
+        else this.addButton(0, "StartAttacking", this.unfriendlyWitchToggle);
         if (this.player.lust >= 33) {
-            if (this.player.hasVagina()) this.addButton(this, 1, "Scissor", this.scissorAndDrink);
-            if (this.player.tentacleCocks() >= 5) this.addButton(this, 2, "TentacleBang", this.tentacleGangBang);
+            if (this.player.hasVagina()) this.addButton(1, "Scissor", this.scissorAndDrink);
+            if (this.player.tentacleCocks() >= 5) this.addButton(2, "TentacleBang", this.tentacleGangBang);
             if (this.player.hasCock()) {
-                if (this.player.cockThatFits(this.monster.vaginalCapacity()) >= 0) this.addButton(this, 3, "Fuck Her", this.fuckTheSandMothersCunt);
+                if (this.player.cockThatFits(this.monster.vaginalCapacity()) >= 0) this.addButton(3, "Fuck Her", this.fuckTheSandMothersCunt);
             }
         }
         if (this.flags[kFLAGS.SAND_WITCH_LOOT_TAKEN] < 5) {
-            this.addButton(this, 5, "Get LaBova", this.takeLaBovaOrLactaid, false);
-            this.addButton(this, 6, "Get Lactaid", this.takeLaBovaOrLactaid);
+            this.addButton(5, "Get LaBova", this.takeLaBovaOrLactaid, false);
+            this.addButton(6, "Get Lactaid", this.takeLaBovaOrLactaid);
         }
-        if (this.flags[kFLAGS.ESSY_MET_IN_DUNGEON] > 0 && this.flags[kFLAGS.TOLD_MOTHER_TO_RELEASE_ESSY] == 0) this.addButton(this, 7, "Essrayle", this.forest.essrayle.askMotherToReleaseEssy);
-        this.addButton(this, 9, "Leave", this.playerMenu);
+        if (this.flags[kFLAGS.ESSY_MET_IN_DUNGEON] > 0 && this.flags[kFLAGS.TOLD_MOTHER_TO_RELEASE_ESSY] == 0) this.addButton(7, "Essrayle", this.forest.essrayle.askMotherToReleaseEssy);
+        this.addButton(9, "Leave", this.playerMenu);
     }
 
 
@@ -21505,8 +21505,8 @@ We can also do * italic * and ** bold ** text!
 
             //[Explain] [Fight]
             this.menu();
-            this.addButton(this, 0, "Explain", this.explainYourSelfToZeSandBitch);
-            this.addButton(this, 1, "Fight", this.fightTheSandWitch);
+            this.addButton(0, "Explain", this.explainYourSelfToZeSandBitch);
+            this.addButton(1, "Fight", this.fightTheSandWitch);
         }
     }
 
@@ -21656,10 +21656,10 @@ We can also do * italic * and ** bold ** text!
         this.outputText(", the Sand Mother sinks back into her throne with sweat and milk staining her silky robes.  She groans softly, the milk-stains slowly spreading as you consider your options.  This woman dared to stand against you.  What do you do?");
         //[Fuck Her Cunt] [ScissorAnDrink] [Talk Her Down]
         this.menu();
-        this.addButton(this, 0, "TalkHerDown", this.talkDownTheMother);
-        if (this.player.hasVagina()) this.addButton(this, 1, "Scissor", this.scissorAndDrink);
-        if (this.player.hasCock() && this.player.cockThatFits(this.monster.vaginalCapacity()) >= 0) this.addButton(this, 2, "Fuck Her", this.fuckTheSandMothersCunt);
-        if (this.player.tentacleCocks() >= 5) this.addButton(this, 3, "TentacleFuck", this.tentacleGangBang);
+        this.addButton(0, "TalkHerDown", this.talkDownTheMother);
+        if (this.player.hasVagina()) this.addButton(1, "Scissor", this.scissorAndDrink);
+        if (this.player.hasCock() && this.player.cockThatFits(this.monster.vaginalCapacity()) >= 0) this.addButton(2, "Fuck Her", this.fuckTheSandMothersCunt);
+        if (this.player.tentacleCocks() >= 5) this.addButton(3, "TentacleFuck", this.tentacleGangBang);
     }
     public loseToTheSandMother(): void {
         this.clearOutput();
@@ -21748,7 +21748,7 @@ We can also do * italic * and ** bold ** text!
         this.player.orgasm();
         this.dynStats("cor", 1);
         if (!this.inCombat)
-            this.doNext(this, this.playerMenu);
+            this.doNext(this.playerMenu);
         else this.cleanupAfterCombat();
     }
     //*Fuck Her Cunt
@@ -21827,7 +21827,7 @@ We can also do * italic * and ** bold ** text!
         this.player.orgasm();
         this.dynStats("cor", 1);
         if (!this.inCombat)
-            this.doNext(this, this.playerMenu);
+            this.doNext(this.playerMenu);
         else this.cleanupAfterCombat();
     }
 
@@ -21878,7 +21878,7 @@ We can also do * italic * and ** bold ** text!
         this.player.orgasm();
         this.dynStats("cor", 1);
         if (!this.inCombat)
-            this.doNext(this, this.playerMenu);
+            this.doNext(this.playerMenu);
         else this.cleanupAfterCombat();
     }
 
@@ -21960,7 +21960,7 @@ We can also do * italic * and ** bold ** text!
         this.player.orgasm();
         //[Next]
         this.menu();
-        this.addButton(this, 0, "Next", this.menLoseToQueenMotherVolI);
+        this.addButton(0, "Next", this.menLoseToQueenMotherVolI);
     }
     //Epilogue:
     public menLoseToQueenMotherVolI(): void {
@@ -22058,7 +22058,7 @@ We can also do * italic * and ** bold ** text!
 
         this.player.orgasm();
         this.menu();
-        this.addButton(this, 0, "Next", this.sandMotherBadEndsLadiesEpilogue);
+        this.addButton(0, "Next", this.sandMotherBadEndsLadiesEpilogue);
     }
 
     //Epilogue:
@@ -22235,7 +22235,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\n\"<i>Thank you, Champion.  Perhaps you wouldn't mind helping me again with this some time in the future...</i>\"");
         this.flags[kFLAGS.TIMES_FRIENDLY_FUCKED_SAND_MOTHER]++;
         this.player.orgasm();
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //*Friendly Milk-Ride (Optional?)
@@ -22308,7 +22308,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nSighing, you eventually disentangle yourself from the satisfied enchantress, but not before giving her a long, wet kiss.");
         this.outputText("\n\n\"<i>Perhaps we can tend to our needs the next time they get out of hand,</i>\" she suggests.  Yes, you just might have to. ");
         this.player.orgasm();
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //*History
@@ -22384,21 +22384,21 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\nYou already convinced her to add more cum witches to her harem so that they might experience a little freedom.");
             if (this.flags[kFLAGS.CUM_WITCHES_FIGHTABLE] == 0) {
                 this.outputText("  If you asked her to send them out hunting for recruits, you could potentially fight and fuck them in the deserts sands in the future.");
-                this.addButton(this, 0, "Send Out", this.sendOutCumWitch);
+                this.addButton(0, "Send Out", this.sendOutCumWitch);
             }
             else {
                 this.outputText("Many of them are prowling the desert sands even now, hunting for recruits.  You could wind up having to fight them if you go out.  It's possible she might keep them away from you, if you request it.");
-                this.addButton(this, 0, "KeepThemIn", this.keepCumWitchesIn);
+                this.addButton(0, "KeepThemIn", this.keepCumWitchesIn);
             }
         }
         else {
             this.outputText("\n\nYou could ask her to bolster their numbers, allowing them some free time for a change, if you wanted to better their situation.");
-            this.addButton(this, 0, "Bolster Them", this.moreCumWitchesPlease);
+            this.addButton(0, "Bolster Them", this.moreCumWitchesPlease);
         }
         //[Send Them Out] [Back]
         //[Keep Them In] [Back]
         //[Bolster Numbers] [Back]
-        this.addButton(this, 4, "Back", this.playerMenu);
+        this.addButton(4, "Back", this.playerMenu);
     }
 
     //Send them out:
@@ -22418,7 +22418,7 @@ We can also do * italic * and ** bold ** text!
 
     public sendOutOrKeepInEnding(): void {
         this.outputText("\n\nThe Sand Mother nods and graciously answers, \"<i>Very well.  I will honor your request, for now.  I cannot speak for the other covens, but you are unlikely to stray into their territory.  When our time of ascendance comes, do not expect me to honor your requests so freely.  We will stop the Demon Queen however we must, regardless of your wishes.</i>\"");
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //Bolster Numbers:
@@ -22428,7 +22428,7 @@ We can also do * italic * and ** bold ** text!
         if (this.player.findPerk(PerkLib.BimboBrains) >= 0 || this.player.findPerk(PerkLib.FutaFaculties) >= 0) {
             this.outputText("Wouldn't it be better if there were like, lots of cum witches, with yummy cocks that you could suck?");
             this.outputText("\n\n\"<i>No, it wouldn't,</i>\" the Sand Mother retorts, ending the conversation.");
-            this.doNext(this, this.playerMenu);
+            this.doNext(this.playerMenu);
         }
         this.outputText("You ask her if it wouldn't be more humane to simply create a few more cum witches, allowing them to split their duties and actually have time to serve in other ways, either as normal sisters or perhaps helping with the recruitment.");
         this.outputText("\n\n\"<i>Doing so would reduce milk production and our breeding population somewhat,</i>\" the Dune Mother protests.  \"<i>We have done things this way for nearly two decades... it is the most efficient way.</i>\"");
@@ -22495,7 +22495,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\nYou're suddenly not so sure this was a great idea.");
             this.flags[kFLAGS.SAND_WITCH_LEAVE_ME_ALONE] = 0;
         }
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
     //*Lactaid
     //>Get lactaid
@@ -22552,7 +22552,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\nYou reply, \"<i>I wouldn't dream of it.</i>\"");
             this.flags[kFLAGS.SAND_WITCH_LEAVE_ME_ALONE] = 0;
         }
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //addButton(5,"Get LaBova",takeLaBovaOrLactaid, false);
@@ -22575,7 +22575,7 @@ We can also do * italic * and ** bold ** text!
         this.clearOutput();
         this.outputText("There is a loud rumbling from the direction of the cavernous commons...");
         this.flags[kFLAGS.SANDWITCH_THRONE_UNLOCKED] = 1;
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //*Take Fertile Pills ✓Kirbu
@@ -22589,7 +22589,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText(".");
             this.player.removeStatusAffect(StatusAffects.Contraceptives);
         }
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
     //*Take Barren Pills✓Kirbu
     public takeBarrenPills(): void {
@@ -22604,7 +22604,7 @@ We can also do * italic * and ** bold ** text!
             if (!this.player.hasVagina()) this.outputText("  Now if you ever re-grow a vagina, you should be fine.");
             this.player.createStatusAffect(StatusAffects.Contraceptives, 0, 0, 0, 0);
         }
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
     //*Friendly Cum Witch Blessing
     //✓Kirbu
@@ -22626,16 +22626,16 @@ We can also do * italic * and ** bold ** text!
         else this.outputText("\n\nThe cum witch says, \"<i>Oh, you lack a gender.  Why don't you pick up some sexual equipment and come back for some real fun.</i>\"");
         //[Virility] [Fertility] [Nevermind]
         this.menu();
-        if (this.player.hasCock()) this.addButton(this, 0, "Virility", this.cumWitchBlessed, true);
-        if (this.player.hasVagina()) this.addButton(this, 1, "Fertility", this.cumWitchBlessed, false);
-        this.addButton(this, 4, "Nevermind", this.changeMindAboutBlessings);
+        if (this.player.hasCock()) this.addButton(0, "Virility", this.cumWitchBlessed, true);
+        if (this.player.hasVagina()) this.addButton(1, "Fertility", this.cumWitchBlessed, false);
+        this.addButton(4, "Nevermind", this.changeMindAboutBlessings);
     }
     //*Nevermind ✓Kirbu
     public changeMindAboutBlessings(): void {
         this.clearOutput();
         this.outputText("Thinking better of it, you grab your [armor] and get dressed, telling the jizz-obsessed enchantress that you don't need her gifts for now.");
         this.outputText("\n\n\"<i>Awww, and I thought we were going to have some fun,</i>\" the sable seductress purrs.  \"<i>Perhaps you'll see the error of your ways and come back for a proper blessing soon.</i>\"  She pumps her fat cock until thick dribbles of sperm-tinted pre-cum slobbers out of her drooling dick-tip once more.  \"<i>Don't be a stranger.</i>\"");
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //*Virility/Fertility
@@ -22682,7 +22682,7 @@ We can also do * italic * and ** bold ** text!
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", -5);
         this.outputText("</b>");
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //*Impregnating Pregnant Sand Witches by Xodin (NEEDS EDIT)
@@ -22694,14 +22694,14 @@ We can also do * italic * and ** bold ** text!
         //[FUCK ONE] *Requires at least one Cock of appropriate size and enough lust.
         this.menu();
         if (this.player.cockThatFits(50) < 0) this.outputText("\n\n<b>You're too damned big to fuck any of them.</b>");
-        if (this.player.hasCock() && this.player.cockThatFits(50) >= 0 && this.player.lust >= 33) this.addButton(this, 0, "Fuck One", this.fuckOneSandWitch);
+        if (this.player.hasCock() && this.player.cockThatFits(50) >= 0 && this.player.lust >= 33) this.addButton(0, "Fuck One", this.fuckOneSandWitch);
         //[TWO AT ONCE] *Requires at least two Cocks of appropriate size and enough lust.
-        if (this.player.cockThatFits(50) >= 0 && this.player.cockThatFits2(50) >= 0 && this.player.lust >= 33) this.addButton(this, 1, "Fuck Two", this.fuckTwoPregWitches);
+        if (this.player.cockThatFits(50) >= 0 && this.player.cockThatFits2(50) >= 0 && this.player.lust >= 33) this.addButton(1, "Fuck Two", this.fuckTwoPregWitches);
         //[FUCK EM ALL] *Requires at least one Cock of appropriate size and enough lust.
-        if (this.player.cockThatFits(50) >= 0 && this.player.lust >= 33) this.addButton(this, 2, "Fuck'EmAll", this.fuckAllThePregWitches);
+        if (this.player.cockThatFits(50) >= 0 && this.player.lust >= 33) this.addButton(2, "Fuck'EmAll", this.fuckAllThePregWitches);
         //[MASS GANGBANG] *Requires lots of cocks of appropriate size and enough lust.
         //[TENTACLE GANGBANG] *Requires lots of tentacle cocks and enough lust.
-        this.addButton(this, 9, "Back", this.playerMenu);
+        this.addButton(9, "Back", this.playerMenu);
     }
 
     //~ FUCK ONE
@@ -22804,7 +22804,7 @@ We can also do * italic * and ** bold ** text!
         }
         this.player.orgasm();
         this.dynStats("sen", -2);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     // FUCK TWO AT ONCE
@@ -22885,7 +22885,7 @@ We can also do * italic * and ** bold ** text!
         else this.outputText("\n\nThe excessive quantities of cum allow you to easily slide your shafts out of the wanton holes.  A pool of your jizz surrounds your [feet] and the legs of the witches.  Several sensitive strokes of your cocks allow you to blast a few more loads across the two piles of tits that call themselves witches.  The splashes of cum thoroughly soak them, and the rest of the pregnant horny sand witches descend upon the two girls, licking and scrapping at the coatings of cum in the desperate hopes that they might be able to scoop some into their own secondary, empty wombs.  The horde of quad-breasted pregger witches proceeds to wrestle with each other in a pile of tits and cum.");
         this.player.orgasm();
         this.dynStats("sen", -2);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //~ FUCK EM ALL
@@ -23053,7 +23053,7 @@ We can also do * italic * and ** bold ** text!
 
         this.player.orgasm();
         this.dynStats("sen", -3);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //*Sand Witch Milk Bath -McGirt
@@ -23078,9 +23078,9 @@ We can also do * italic * and ** bold ** text!
         //{otherwise [next] to relaxing}
         this.fatigue(-10);
         this.menu();
-        this.addButton(this, 0, "Next", this.finishMilkBath);
-        if (this.player.gender > 0) this.addButton(this, 1, "DrinkNFap", this.drinkNFap);
-        this.addButton(this, 2, "Milk Girl", this.grabTheMilkGirl);
+        this.addButton(0, "Next", this.finishMilkBath);
+        if (this.player.gender > 0) this.addButton(1, "DrinkNFap", this.drinkNFap);
+        this.addButton(2, "Milk Girl", this.grabTheMilkGirl);
     }
 
     //[Next] (Relax)
@@ -23090,7 +23090,7 @@ We can also do * italic * and ** bold ** text!
         //(+Lust, -Fatigue)
         this.dynStats("lus", 10);
         this.fatigue(-50);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //[Milk Girl]
@@ -23129,9 +23129,9 @@ We can also do * italic * and ** bold ** text!
         //[Fuck Her](PC must have gender; if cooch, also C+ cups) [Don't]
         this.menu();
         this.dynStats("lus", 33, "resisted", false);
-        if (this.player.hasCock()) this.addButton(this, 0, "Dick Fuck", this.fuckMilkbabeWithPenor);
-        if (this.player.hasVagina() && this.player.biggestTitSize() >= 3) this.addButton(this, 1, "Lady Fuck", this.ladyFucks);
-        this.addButton(this, 2, "Don't Fuck", this.dontFuckMilkBathBabe);
+        if (this.player.hasCock()) this.addButton(0, "Dick Fuck", this.fuckMilkbabeWithPenor);
+        if (this.player.hasVagina() && this.player.biggestTitSize() >= 3) this.addButton(1, "Lady Fuck", this.ladyFucks);
+        this.addButton(2, "Don't Fuck", this.dontFuckMilkBathBabe);
     }
 
     //[Don't]
@@ -23141,7 +23141,7 @@ We can also do * italic * and ** bold ** text!
         //[+Lust, +HP, -Fatigue]
         this.HPChange(this.maxHP() * .33, false);
         this.fatigue(-20);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //[Fuck Her] (PC has a Dick)
@@ -23168,7 +23168,7 @@ We can also do * italic * and ** bold ** text!
         //[+Lust, +HP, -Fatigue]
         this.player.orgasm();
         this.fatigue(-15);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //[Fuck Her] (PC has Cooch & C+cups)
@@ -23191,7 +23191,7 @@ We can also do * italic * and ** bold ** text!
         //[+Lust, +HP, -Fatigue]
         this.player.orgasm();
         this.fatigue(-15);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //[Drink & Masturbate]
@@ -23240,7 +23240,7 @@ We can also do * italic * and ** bold ** text!
         this.fatigue(-15);
         this.player.orgasm();
         this.dynStats("sen", -3);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     /*336 == bigger belly
@@ -23377,9 +23377,9 @@ We can also do * italic * and ** bold ** text!
         //If PC has neither
         if (this.player.gender == 0) {
             this.outputText("\n\nOdd as it is, it doesn't seem to react as you look it over.  You avoid it, for now.");
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
-        else this.simpleChoices(this, "Fuck It", fuck, "Mount It", mount, "", undefined, "", undefined, "No Way", this.camp.returnToCampUseOneHour);
+        else this.simpleChoices("Fuck It", fuck, "Mount It", mount, "", undefined, "", undefined, "No Way", this.camp.returnToCampUseOneHour);
     }
 
     //[HOLY SHIT YOU BE FUCKING A PUMPKIN]
@@ -23409,7 +23409,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\nAll too soon, you finish and step away, satisfied.  The pumpkin's pussy seals closed slowly, cutting off the worst of the slime-flow.  You get dressed, but the plant's tendrils no longer bother you.  They lie still and flat, and even the perverse sweating comes to an end.  Whatever fel magic was behind this, it seems to have settled after the salty snack you gave it.  You get dressed and walk back to camp with a spring in your step.");
             this.player.orgasm();
             this.dynStats("cor", 2);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
         else {
             this.outputText("\n\nOver and over you empty your [balls] into the growing gourd, inflating it larger and larger, passionately giving up every drop of sperm to fuel its unnatural growth.  Even once you feel empty, your [cock biggest] continues to clench and pump, firing blanks in an effort to feed EVERYTHING to the semen-hungry plant.  Still, even your prodigious virility can only take so much, and once your dick starts to go soft inside the massive cunt, it releases you, allowing you to ride out the rest of your orgasm, below, on the ground.  Your descent is graceless, a lazy slide down the orange rind.  Were it not for the gentle slope, it would be a dangerous six-foot fall.");
@@ -23418,7 +23418,7 @@ We can also do * italic * and ** bold ** text!
             if (this.player.weaponName == "fists") this.outputText("brandishing your fists");
             else this.outputText("picking up your [weapon]");
             this.outputText(" as if it would somehow protect your nude body.");
-            this.doNext(this, this.pumpkinFuckPartII);
+            this.doNext(this.pumpkinFuckPartII);
             this.player.orgasm();
             this.dynStats("cor", 2);
         }
@@ -23454,7 +23454,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nHow long it goes on you can't say.  Somewhere along the lines your memory went dark, repurposed by your coiled masters to allow you to feel even greater heights of bliss.  There's faint flashes of you thrashing, but giant-sized labia keep you pinned in place, your limbs devoured in vaginal restraint.  With a triumphant surge, bulges stretch your abused noise-holes and work deep into your skull.  Your world goes white, an orgasmic soup of delight that washes any vestiges of thought from you and leaves behind only dripping obedience to pleasure.  Your cock fires weakly, offering tribute Fera in sympathy, yet the real thing is in your cum-bathed brain.  Runny tentacle-spooge drips from your nose as you gurgle in bliss, then black out.");
         this.hideUpDown();
         this.player.orgasm();
-        this.doNext(this, this.pumpkinFuckPartIII);
+        this.doNext(this.pumpkinFuckPartIII);
     }
 
     public pumpkinFuckPartIII(): void {
@@ -23470,7 +23470,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\n(<b>Perk Gained: Fera's Boon - Alpha</b>)");
         this.player.createPerk(PerkLib.FerasBoonAlpha, 0, 0, 0, 0);
         this.dynStats("cor", 30);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public mountPumpkin(): void {
@@ -23487,7 +23487,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\nWet slapping noises ring out as you piston faster and faster, violently plowing the plant-cock into your [vagina] in a rutting, mating frenzy.  Your eyes are repeatedly drawn downward to the slimy shaft each time you pull up, the ooze keeping your [vagina] well lubricated.  The green shaft seems even larger than before, the phallus stretching you wider and longer each time you slam down on it as you ride the pumpkin into orgasm.  You feel a strange compulsion to let it cum inside, to flood your womb with pie goop until you appear immensely pregnant and the overflow is spraying out around your legs.");
             this.outputText("\n\nWith a triumphant roar, you climax and mash yourself against the pumpkin, slamming your [hips] hard enough onto the hard green shaft, that you could almost swear your cervix was penetrated.  You don't care, your vagina is clenching, the stem is flexing, and the pumpkin's ooze is gushing out, flooding your innards with pumpkin seed as you flood the pumpkin's surface with your female juices in turn.  Clenching tightly, your muscles lock, working in perfect concert with one goal; filling you up with fruity cum.  The pumpkin's thick load floods your inner folds, a deluge of sweet-smelling goop squirting deep into your [vagina], inflating you and then squirting back out mixed with your own juices.  The mixed juices are absorbed into the plant's rind almost as fast as they exit your body, though you can see a bit of glistening moisture around the base of the stem.");
             this.outputText("\n\nAll too soon, you finish and step away, satisfied.  The pumpkin's stem slowly stops pulsing, cutting off the worst of the slime-flow.  You get dressed, but the plant's tendrils no longer bother you.  They lie still and flat, and even the perverse sweating comes to an end.  Whatever fell magic was behind this, it seems to have settled after the pressure you relieved it of.  You get dressed and walk back to camp with a spring in your step.");
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
         //Female characters don't have an easy analogue to cum production unless we count milk production, and female gender doesn't require either breasts or lactation to play.  So I just went for high vaginal wetness, not pregnant, and likely to become pregnant if she had sex with a male creature.  I hope that works out OK.
         else {
@@ -23515,7 +23515,7 @@ We can also do * italic * and ** bold ** text!
             else this.outputText("raising your guard");
             this.outputText(" as if it would somehow protect your nude body.");
 
-            this.doNext(this, this.pumpkinMountingLevelII);
+            this.doNext(this.pumpkinMountingLevelII);
         }
         this.player.orgasm();
         this.dynStats("cor", 1);
@@ -23553,7 +23553,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("\n\nHow long it goes on you can't say.  Somewhere along the lines your memory went dark, repurposed by your coiled masters to allow you to feel even greater heights of bliss.  There's faint flashes of you thrashing, but giant-sized testicles keep you pinned in place, your limbs devoured in penile restraint.  With a triumphant surge, bulges stretch your abused noise-holes and work deep into your skull.  Your world goes white, and an orgasmic soup of delight washes over you and erases any vestiges of thought from you, leaving behind only dripping obedience to pleasure.  Your pussy twitches weakly, offering tribute to Fera in sympathy, yet the real thing is in your cum-bathed brain.  Runny tentacle-spooge drips from your nose as you gurgle in bliss, then black out.");
         //>Next
-        this.doNext(this, this.mountPumpkinsIII);
+        this.doNext(this.mountPumpkinsIII);
     }
 
     public mountPumpkinsIII(): void {
@@ -23565,7 +23565,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\n(<b>Perk Gained: Fera's Boon - Breeding Bitch</b>)");
         this.player.createPerk(PerkLib.FerasBoonBreedingBitch, 0, 0, 0, 0);
         this.dynStats("cor", 30);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Perk name: Fera's Boon - Breeding Bitch
@@ -23585,15 +23585,15 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nA creeping shiver crawls down your back until you straighten and take in your surroundings once more. This place is too pretty for you to stay down in the dumps for too long, and besides, a particularly intriguing fragrance is tickling your nose. It seems to come from the center of the glade, where the biggest, most vibrant blooms have sprouted. Do you want to explore the center, around some of the huge flowers, or head back to the safety of your camp?");
         //[Explore] [Leave]
         this.menu();
-        this.addButton(this, 0, "Explore", this.exploreFerasWonderland);
-        this.addButton(this, 4, "Leave", this.leaveFerasWonderland);
+        this.addButton(0, "Explore", this.exploreFerasWonderland);
+        this.addButton(4, "Leave", this.leaveFerasWonderland);
     }
     //Leave
     public leaveFerasWonderland(): void {
         this.clearOutput();
         this.outputText("Nah, that whole place is probably some kind of giant venus fly trap. Fuck that.");
         this.flags[kFLAGS.FERAS_GLADE_EXPLORED_YEAR] = this.date.fullYear;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Explore Das Trees
@@ -23614,7 +23614,7 @@ We can also do * italic * and ** bold ** text!
         else {
             this.outputText("\n\nWell, that was nice, but you don't see much reason to stick around.  You head back to camp with a wistful look over your shoulder.");
             this.dynStats("lib", 1, "lus", 20, "cor", 1);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
 
@@ -23622,21 +23622,21 @@ We can also do * italic * and ** bold ** text!
         this.menu();
         if (this.player.inte >= 40) {
             this.outputText(", and with that accomplished, you could head back to camp.  Now, though, you'd rather stay; it smells and looks too good to leave this place.  If you focus on your better sense, you could still leave.");
-            if (this.player.hasCock()) this.addButton(this, 0, "Continue", this.fuckDemCorruptFlowerLips);
-            else this.addButton(this, 0, "Continue", this.stickAStamenInIt);
-            this.addButton(this, 4, "Leave", this.leaveAfterFlowerHuffing);
+            if (this.player.hasCock()) this.addButton(0, "Continue", this.fuckDemCorruptFlowerLips);
+            else this.addButton(0, "Continue", this.stickAStamenInIt);
+            this.addButton(4, "Leave", this.leaveAfterFlowerHuffing);
         }
         else {
             this.outputText(", but that thought slips out of your head as it fills with more of that sinfully exciting aroma, making you feel so hot, horny, and eager.  You have to get more of it, submerse yourself deeper in its cloying clutches as you watch the pretty colors drain away your worries and concerns.");
-            if (this.player.hasCock()) this.addButton(this, 0, "Next", this.fuckDemCorruptFlowerLips);
-            else this.addButton(this, 0, "Next", this.stickAStamenInIt);
+            if (this.player.hasCock()) this.addButton(0, "Next", this.fuckDemCorruptFlowerLips);
+            else this.addButton(0, "Next", this.stickAStamenInIt);
         }
         if (this.player.hasCock() && this.player.hasVagina()) {
             this.outputText("\n\nThe only ");
             if (this.player.inte >= 40) this.outputText("other ");
             this.outputText("question left to you is, are you more concerned with slipping [oneCock] into those subliminally-whispering lips or guiding a writhing stamen into your [vagina] and [asshole] so that you can take in as much nectar as possible?");
-            this.addButton(this, 0, "Lips", this.fuckDemCorruptFlowerLips);
-            this.addButton(this, 1, "Stamen", this.stickAStamenInIt);
+            this.addButton(0, "Lips", this.fuckDemCorruptFlowerLips);
+            this.addButton(1, "Stamen", this.stickAStamenInIt);
         }
         this.dynStats("lib", 1, "lus", 25, "cor", 1);
     }
@@ -23645,7 +23645,7 @@ We can also do * italic * and ** bold ** text!
     public leaveAfterFlowerHuffing(): void {
         this.clearOutput();
         this.outputText("The farther you get from that glade, the more your head clears and the more you realize how close you came to disaster.  You resolve to avoid it in the future, lest you fall prey to that entrancing pollen and the hypnotic petals once more.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //Fuck the Lips
     public fuckDemCorruptFlowerLips(): void {
@@ -23708,7 +23708,7 @@ We can also do * italic * and ** bold ** text!
         //[next]
         this.dynStats("lus=", 100);
         this.menu();
-        this.addButton(this, 0, "Next", this.dickBoostingFuntimes);
+        this.addButton(0, "Next", this.dickBoostingFuntimes);
     }
     //Get a Boosted Dick!
     public dickBoostingFuntimes(): void {
@@ -23755,7 +23755,7 @@ We can also do * italic * and ** bold ** text!
         this.dynStats("lib", 10, "cor", 5);
         this.player.createPerk(PerkLib.FerasBoonSeeder, 0, 0, 0, 0);
         this.menu();
-        this.addButton(this, 0, "Next", this.postSeederUpgrade);
+        this.addButton(0, "Next", this.postSeederUpgrade);
     }
 
     public postSeederUpgrade(): void {
@@ -23764,7 +23764,7 @@ We can also do * italic * and ** bold ** text!
         //Add ten more corruption.
         //Add 50 lust.
         this.dynStats("lus", 25, "cor", 10, "resisted", false);
-        this.doNext(this, this.camp.returnToCampUseFourHours);
+        this.doNext(this.camp.returnToCampUseFourHours);
     }
 
     //Stick a Stamen in It!
@@ -23801,9 +23801,9 @@ We can also do * italic * and ** bold ** text!
         //[Gape] [Tight] [Dick]
         this.dynStats("lus=", 100, "cor", 2);
         this.menu();
-        this.addButton(this, 0, "Gape", this.gapeMePleaseFera);
-        this.addButton(this, 1, "Tight", this.tightLikeAToigar);
-        if (!this.player.hasCock()) this.addButton(this, 2, "Dick", this.growADickForFera);
+        this.addButton(0, "Gape", this.gapeMePleaseFera);
+        this.addButton(1, "Tight", this.tightLikeAToigar);
+        if (!this.player.hasCock()) this.addButton(2, "Dick", this.growADickForFera);
     }
 
     //Gape
@@ -23849,7 +23849,7 @@ We can also do * italic * and ** bold ** text!
         this.dynStats("cor", 3);
         //[Next]
         this.menu();
-        this.addButton(this, 0, "Next", this.gapeByFeraEpilogue);
+        this.addButton(0, "Next", this.gapeByFeraEpilogue);
     }
 
     public gapeByFeraEpilogue(): void {
@@ -23861,7 +23861,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nAs you head back to camp to prepare for your next adventure, you realize that you had some really, really fucked up dreams.  You hope you have more tomorrow night.");
         //Add ten more corruption.
         this.dynStats("lus", 20, "cor", 10, "resisted", false);
-        this.doNext(this, this.camp.returnToCampUseFourHours);
+        this.doNext(this.camp.returnToCampUseFourHours);
     }
 
     //Tight
@@ -23906,14 +23906,14 @@ We can also do * italic * and ** bold ** text!
 
         //[Next]
         this.menu();
-        this.addButton(this, 0, "Next", this.tightnessEpilogue);
+        this.addButton(0, "Next", this.tightnessEpilogue);
     }
     public tightnessEpilogue(): void {
         this.clearOutput();
         this.outputText("You awaken fully dressed with a familiar ache between your legs.  Damn, that was a good nap.  You rise, stretching as you rub your back, sore from lying against a tree for so long.  You suppose you could find yourself something to fight and fuck, but you ought to head back to camp first.  You idly reach into your [armor] and slip a finger into your [vagina], feeling your tight walls instinctively clamp down and squeeze it.  It's nice, but it's just so much better when you can do that to a captive cock until it has no choice but to impregnate you with its hot seed.  What better way to save the world than by making sure that the strongest get to breed as often as possible?");
         this.outputText("\n\nAs you head back to camp to prepare for your next adventure, you realize that you had some really, really fucked up dreams.  You hope you have more tomorrow night.");
         this.dynStats("lus", 20, "cor", 10, "resisted", false);
-        this.doNext(this, this.camp.returnToCampUseFourHours);
+        this.doNext(this.camp.returnToCampUseFourHours);
         //Add ten more corruption.
     }
 
@@ -23941,7 +23941,7 @@ We can also do * italic * and ** bold ** text!
         this.player.createPerk(PerkLib.FerasBoonSeeder, 0, 0, 0, 0);
         this.menu();
         this.genderCheck();
-        this.addButton(this, 0, "Next", this.afterFeraGivesYouACawk);
+        this.addButton(0, "Next", this.afterFeraGivesYouACawk);
     }
 
     public afterFeraGivesYouACawk(): void {
@@ -23950,7 +23950,7 @@ We can also do * italic * and ** bold ** text!
         //Add ten more corruption.
         //Add 50 lust.
         this.dynStats("lus", 20, "cor", 10);
-        this.doNext(this, this.camp.returnToCampUseFourHours);
+        this.doNext(this.camp.returnToCampUseFourHours);
     }
 
 
@@ -25888,7 +25888,7 @@ We can also do * italic * and ** bold ** text!
         if (this.player.inte < 60) {
             this.outputText("Unfortunately, try as you might, you cannot seem to figure the lock out.  You spin the stone circles around multiple times to try and discern the pattern to them, but find yourself continually disappointed.  Eventually you resort to trying to listen for the sound of tumblers behind the door indicating a shifting lock.  It is not as successful as you hope.  Disappointed but not undeterred, you resolve to return to the mysterious lock at a later point, when you are more capable of handling its clever riddle.", false);
             //[Player leaves, room can be re-encountered]
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         //[Intelligence greater than 60] 
@@ -25930,7 +25930,7 @@ We can also do * italic * and ** bold ** text!
 
         //if implying that Rathazul used to be an advisor to the queen before the fall, start by spelling his name correctly; else, proceed as normal
         //[Retribution] [Carnality] [No]
-        this.simpleChoices(this, "Retribution", this.retributionArmorIsCoolShit, "Carnality", this.carnalityArmorIsCoolShitToo, "", undefined, "", undefined, "NOPE!", this.noThankYouSirIDontWantAwesomeArmors);
+        this.simpleChoices("Retribution", this.retributionArmorIsCoolShit, "Carnality", this.carnalityArmorIsCoolShitToo, "", undefined, "", undefined, "NOPE!", this.noThankYouSirIDontWantAwesomeArmors);
     }
 
     //[No]
@@ -25938,7 +25938,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("", true);
         this.outputText("Uninterested in the proffered reward, you turn and leave the way you came.  At the entrance, you replace the moss, doing your best to conceal the portal in the event you wish to return, or at least to keep any items of power inside from the hands of hostile swamp denizens.  You may as well not have spent the effort, for as you're walking away, you hear the stones grinding and shifting behind you.  Sure enough, an inspection affirms that the door has sealed itself again.\n\n", false);
         //allows player to find again later, like the B.Sword
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Retribution]
@@ -26136,7 +26136,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\n\"<i>G-gobble?</i>\"  she asks quietly, her big blue eyes pleading at you.");
 
         //[Shoo her Off] [Let her Approach]
-        this.simpleChoices(this, "Let Approach", this.letZeTurkeyApproach, "Shoo Away", this.shooTurkeyAway, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices("Let Approach", this.letZeTurkeyApproach, "Shoo Away", this.shooTurkeyAway, "", undefined, "", undefined, "", undefined);
     }
 
     //Shoo her Off -McGirt
@@ -26149,7 +26149,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nRolling your eyes, you yell at the strange girl until she finally gets the idea and; with a few more sorrowful gobbles, she wobbles off again, looking for someone else to bother.");
 
         this.outputText("\n\nShaking your head, you sit back down and eat.");
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //Let her Approach
@@ -26166,13 +26166,13 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\n\"<i>Gobble?</i>\"  she asks again, her hand drifting onto your leg.  You feel [eachCock] involuntarily stiffening as her slender, alabaster fingers slide along your thigh.  \"<i>Gobble,</i>\" she repeats, brushing your stiffening prick through your [armor].  Oh, is that what she wants?  Well then....");
 
         //(Baste Her) (That's Enough)
-        this.simpleChoices(this, "Baste Her", this.basteThatTurkeyBooty, "No Thanks", this.noThanksTurkeyGal, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices("Baste Her", this.basteThatTurkeyBooty, "No Thanks", this.noThanksTurkeyGal, "", undefined, "", undefined, "", undefined);
     }
 
     public noThanksTurkeyGal(): void {
         this.clearOutput();
         this.outputText("You reluctantly push her away.  You've no need to ram your dick down some new monstrosity's gullet.  The girl forlornly gobbles one last time, then prances off into the fading evening light, globular ass jiggling.");
-        this.doNext(this, this.camp.returnToCampUseTwoHours);
+        this.doNext(this.camp.returnToCampUseTwoHours);
     }
     //Baste Her -McGirt, reluctantly
     public basteThatTurkeyBooty(): void {
@@ -26196,7 +26196,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nThe turkey-girl smiles at you and flops onto her back, spreading her meaty thighs to give you a good look at the trimmed red bush between her legs, and the glistening slit of her vagina.  It looks like she wants some stuffing....");
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.simpleChoices(this, "Stuff Her", this.stuffDatTurkeyWithSpoo, "", undefined, "", undefined, "", undefined, "That'll Do", this.thatllDoTurkey);
+        this.simpleChoices("Stuff Her", this.stuffDatTurkeyWithSpoo, "", undefined, "", undefined, "", undefined, "That'll Do", this.thatllDoTurkey);
     }
 
     //Stuff Her -McGirt, this is awful by the way.
@@ -26231,9 +26231,9 @@ We can also do * italic * and ** bold ** text!
         this.dynStats("sen", -1);
         if (this.flags[kFLAGS.HEL_FUCKBUDDY] == 1 && this.flags[kFLAGS.HEL_REDUCED_ENCOUNTER_RATE] == 0) {
             this.outputText("\n\nAs you lay atop the turkey, you hear a faint, almost pleading, \"<i>Gobble?</i>\"  from her. Furrowing your brow, you pick yourself up to look at the cum-slathered turkey.  As soon as you're off her, she rolls over onto her hands and knees, her big bubble butt sticking up in the air for you, her plume of feathers tickling your cheeks.  She... still wants more?</i>\"");
-            this.simpleChoices(this, "Spit-Roast", this.spitRoastThatTurkey, "", undefined, "", undefined, "", undefined, "That's Enough", this.thatllDoTurkey);
+            this.simpleChoices("Spit-Roast", this.spitRoastThatTurkey, "", undefined, "", undefined, "", undefined, "That's Enough", this.thatllDoTurkey);
         }
-        else this.doNext(this, this.thatllDoTurkey);
+        else this.doNext(this.thatllDoTurkey);
     }
 
     //SPITROAST HER! GangHel Style 
@@ -26265,7 +26265,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nYou pull out of her with a wet squelch, grinning as a flood of your spunk starts to pour from her abused asshole, mixing in with the titgravy and two other loads you blew on her previously.  Supported by her huge tits, the turkey-girl goes limp, finally contented by the third fucking, her body stained and completely covered in your cum.  Looking around her, you see Hel lying on her back, snoring quietly after her own tail-based orgasm, her own body coated liberally with femcum and globs of your own spunk that rubbed off on her.");
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this, this.thatllDoTurkey);
+        this.doNext(this.thatllDoTurkey);
     }
 
     public thatllDoTurkey(): void {
@@ -26277,7 +26277,7 @@ We can also do * italic * and ** bold ** text!
             this.player.createPerk(PerkLib.PilgrimsBounty, 0, 0, 0, 0);
             this.outputText("\n\n(<b>Perk Gained: Pilgrim's Bounty - Lower lust values no longer reduce the size of your orgasm.</b>)");
         }
-        this.doNext(this, this.camp.returnToCampUseTwoHours);
+        this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
     //Let her Approach:
@@ -26293,7 +26293,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("\n\nIt looks like you've found yourself a dinner guest...");
         //[Appetiser] [Main Course] [Dessert]
-        this.simpleChoices(this, "Appetizer", this.turkeyAppetizer, "Main Course", this.femaleAndTurkeyMainCourse, "Dessert", this.haveTurkeyGirlDesertInYourCunt, "", undefined, "", undefined);
+        this.simpleChoices("Appetizer", this.turkeyAppetizer, "Main Course", this.femaleAndTurkeyMainCourse, "Dessert", this.haveTurkeyGirlDesertInYourCunt, "", undefined, "", undefined);
     }
 
     //Appetiser:
@@ -26320,7 +26320,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nUnable to stop yourself, you wrench your hand out from beneath her garment and before the girl can tell what's happening, you start to pull it up over her head, finally unleashing those fantastic breasts to the fresh air.  She nearly squawks as you drag her up from her relaxed position to free the material trapped beneath her, but calms down once you manage to get the thing over her head, throwing the soaked cloth out of the way.");
 
         this.player.orgasm();
-        this.doNext(this, this.femaleAndTurkeyMainCourse);
+        this.doNext(this.femaleAndTurkeyMainCourse);
     }
 
 
@@ -26347,7 +26347,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("\n\nFinally, unable to withstand it any longer, you break your lips away from her teat and push the girl to the ground, your hunger for her body finally having overcome your hunger for her gravy.  She looks up at you with a confused expression to begin with, but once she sees your hands darting to the clasps of your armor, a much more sultry look crosses her features.");
         this.dynStats("lus", 30);
-        this.doNext(this, this.haveTurkeyGirlDesertInYourCunt);
+        this.doNext(this.haveTurkeyGirlDesertInYourCunt);
     }
 
     //DESERT
@@ -26393,7 +26393,7 @@ We can also do * italic * and ** bold ** text!
         //HP set to full, fatigue to 0?
         this.fatigue(-100);
         this.HPChange(3000, false);
-        this.doNext(this, this.camp.returnToCampUseTwoHours);
+        this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
     //Turkey Girl II: Return of the Cockgobbler (Cockwielders)
@@ -26412,7 +26412,7 @@ We can also do * italic * and ** bold ** text!
         if (this.player.hasCock()) {
             if (this.player.hasKeyItem("Deluxe Dildo") >= 0 || this.player.hasItem(this.consumables.L_DRAFT) || this.player.hasItem(this.consumables.F_DRAFT)) {
                 this.outputText("\n\n<b>You could let her come, like last year, or great her in a whole new way (by clicking 'Hello Again')</b>");
-                this.addButton(this, 2, "Hello Again", this.helloAgain);
+                this.addButton(2, "Hello Again", this.helloAgain);
                 this.flags[kFLAGS.MORE_TURKEY] = 0;
             }
             else {
@@ -26420,8 +26420,8 @@ We can also do * italic * and ** bold ** text!
                 this.flags[kFLAGS.MORE_TURKEY] = 1;
             }
         }
-        this.addButton(this, 0, "Shoo Off", this.shooTurkeyAway);
-        this.addButton(this, 1, "Let Her Come", this.letZeTurkeyApproach);
+        this.addButton(0, "Shoo Off", this.shooTurkeyAway);
+        this.addButton(1, "Let Her Come", this.letZeTurkeyApproach);
     }
 
     public helloAgain(): void {
@@ -26437,7 +26437,7 @@ We can also do * italic * and ** bold ** text!
         else this.outputText("and swallowing your shaft until her throat is bulging with your massive manhood");
         this.outputText(".  She bobs up and down your length, hefting up her huge rack when she's at the peak to rub your sensitive underside, trying to titfuck you but just too damn big to get them into the action.  You suppose you'll have to take care of that...");
         this.menu();
-        this.addButton(this, 0, "Next", this.gravyBoatDatTurkturk);
+        this.addButton(0, "Next", this.gravyBoatDatTurkturk);
         //Gravy boat?
     }
 
@@ -26478,7 +26478,7 @@ We can also do * italic * and ** bold ** text!
         this.player.orgasm();
         this.dynStats("lib", 1);
         this.menu();
-        this.addButton(this, 0, "Next", this.seasonHerDatTurkeyBitch);
+        this.addButton(0, "Next", this.seasonHerDatTurkeyBitch);
     }
 
     //Season Her
@@ -26504,7 +26504,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\n\"<i>Gobble!</i>\" she answers, rolling off of you and hiking her legs up, knees sinking into her bust to show off her slit for you, so eager and inviting.  You rise to your [feet], grabbing the lusty fowl behind her hooked knees and pulling her in to line up with your " + this.player.multiCockDescriptLight() + ".  \"<i>G-gobble!</i>\" she begs, fluttering her plumage against your [legs], staring up at you imploringly as her skin further reddens, so hot with desperate lust you can practically feel the sexual hunger radiating off of her.  Time to finish this turkey off in style!");
         this.dynStats("lus=", 100, "resisted", false);
         this.menu();
-        this.addButton(this, 0, "Next", this.turkeyDesertBitches);
+        this.addButton(0, "Next", this.turkeyDesertBitches);
     }
 
     //Dessert
@@ -26572,7 +26572,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("\n\n“<i>That’ll do, turkey,</i>” you say, patting her jiggling tit and scrapign soem of the excess gravy out of your lunch.  “<i>That’ll do.</i>”");
         this.player.orgasm();
-        this.doNext(this, this.camp.returnToCampUseTwoHours);
+        this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
     //Ham Roast: Getting All Up In A Honey Pot (Female and Genderless only)
@@ -26593,8 +26593,8 @@ We can also do * italic * and ** bold ** text!
         //{Lust = lust + 10}
         this.dynStats("lus", 5);
         this.menu();
-        if (this.player.gems >= 1) this.addButton(this, 0, "Throw gem", this.getARoastPiggueOinkOinkOinkMotherfucker);
-        this.addButton(this, 1, "Nah", this.telAdre.barTelAdre);
+        if (this.player.gems >= 1) this.addButton(0, "Throw gem", this.getARoastPiggueOinkOinkOinkMotherfucker);
+        this.addButton(1, "Nah", this.telAdre.barTelAdre);
     }
     //[ In For A Gem... ] [ Not My Style ]
 
@@ -26632,7 +26632,7 @@ We can also do * italic * and ** bold ** text!
 
         //[ Next ]
         this.menu();
-        this.addButton(this, 0, "Next", this.morePigRoast);
+        this.addButton(0, "Next", this.morePigRoast);
     }
 
     public morePigRoast(): void {
@@ -26640,7 +26640,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("You climb on top of the bed with her, letting your [armor] slip off in the process. She oinks playfully, letting you know that she approves of the action. You smile at her, your hand reaching down to explore her dribbling nethers, slipping a finger into her love-tunnel with ease. You let a dumb grin spread across your features as you feel her searing folds, so hot and slippery with sticky, liquid lust.");
 
         this.outputText("\n\n\"<i>Oink?</i>\" she asks eagerly, ready for more.");
-        this.addButton(this, 0, "Next", this.tenderizeDatPigSloot);
+        this.addButton(0, "Next", this.tenderizeDatPigSloot);
     }
 
     //[ Tenderize Her ]
@@ -26665,8 +26665,8 @@ We can also do * italic * and ** bold ** text!
         this.dynStats("lus", 25, "resisted", false);
         //[ Hardcore ] [ Softcore ]
         this.menu();
-        this.addButton(this, 0, "Softcore", this.hamRoastTenderizeHerSoftcore);
-        this.addButton(this, 1, "Hardcore", this.tenderizeHerHardcore);
+        this.addButton(0, "Softcore", this.hamRoastTenderizeHerSoftcore);
+        this.addButton(1, "Hardcore", this.tenderizeHerHardcore);
     }
 
     //Ham Roast -> Tenderize Her -> Hardcore
@@ -26688,7 +26688,7 @@ We can also do * italic * and ** bold ** text!
         this.dynStats("lus", 25, "resisted", false);
         //[ Next ]
         this.menu();
-        this.addButton(this, 0, "Next", this.spankEpilogueColonYoureAHorriblePersonForAbusingADumbPigGirl);
+        this.addButton(0, "Next", this.spankEpilogueColonYoureAHorriblePersonForAbusingADumbPigGirl);
         //{Route to: here}
     }
 
@@ -26715,7 +26715,7 @@ We can also do * italic * and ** bold ** text!
 
         this.dynStats("lus", 25, "resisted", false);
         this.menu();
-        this.addButton(this, 0, "Next", this.spankEpilogueColonYoureAHorriblePersonForAbusingADumbPigGirl);
+        this.addButton(0, "Next", this.spankEpilogueColonYoureAHorriblePersonForAbusingADumbPigGirl);
         //[ Next ]
     }
 
@@ -26729,7 +26729,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("\n\n\"<i>Oink...</i>\" the slut sighs appreciatively, her tears finally coming to a stop as you get ready for the second part of your night together.");
         this.menu();
-        this.addButton(this, 0, "Next", this.spankEpilogueForRizzles);
+        this.addButton(0, "Next", this.spankEpilogueForRizzles);
         //[ Next ]
     }
 
@@ -26763,7 +26763,7 @@ We can also do * italic * and ** bold ** text!
 
         //[ Next ]
         this.menu();
-        this.addButton(this, 0, "Next", this.getDoneEatingOutPigSlut);
+        this.addButton(0, "Next", this.getDoneEatingOutPigSlut);
     }
 
     public getDoneEatingOutPigSlut(): void {
@@ -26812,7 +26812,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nYou sigh");
         if (changed) this.outputText(", feeling your body expand as you waddle out back towards camp with belly full of sweet syrup");
         this.outputText(". For only one gem, that was a pretty good time...");
-        this.doNext(this, this.camp.returnToCampUseTwoHours);
+        this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
 
@@ -26889,8 +26889,8 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nWell, you do have more important things to do, and in the world of Mareth, where the corruption is dominant and there's definitely way more sex than romance, such a mission may be doomed to fail anyways, but it is something to consider.  All in all, it comes down to whether you think you have the time for this and whether it even seems worth it.");
         //[Help them][Leave]
         this.menu();
-        this.addButton(this, 0, "Help Them", this.helpValentinesDay);
-        this.addButton(this, 1, "Leave", this.leaveValentinesDayForever);
+        this.addButton(0, "Help Them", this.helpValentinesDay);
+        this.addButton(1, "Leave", this.leaveValentinesDayForever);
     }
 
     //[Help them] :
@@ -26898,14 +26898,14 @@ We can also do * italic * and ** bold ** text!
         this.clearOutput();
         this.outputText("Deciding to try and improve the overall appreciation of romance and love in possibly the last pure city of Mareth, you smile to Scylla and tell her she can count on you.  Her happy expression makes you forget any doubts you might've had before.");
         this.menu();
-        this.addButton(this, 0, "Next", this.helpValentinesDayII);
+        this.addButton(0, "Next", this.helpValentinesDayII);
     }
 
     //[Leave] :
     public leaveValentinesDayForever(): void {
         this.clearOutput();
         this.outputText("Ultimately, this is not worth your time.  You wish Scylla good luck, but tell her you won't help her make the holiday more popular in Tel'Adre, as you have other things to do.  Her expression turns sad and she nods in understanding as you turn away and go back into the streets of Tel'Adre.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[next]
@@ -26934,7 +26934,7 @@ We can also do * italic * and ** bold ** text!
 
         //[next]
         this.menu();
-        this.addButton(this, 0, "Next", this.helpValentinesDayIII);
+        this.addButton(0, "Next", this.helpValentinesDayIII);
     }
 
     public helpValentinesDayIII(): void {
@@ -26946,10 +26946,10 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nHow do you want to spend the rest of your evening?");
         //[GoHome][Scylla][Abby][Pastie]
         this.menu();
-        this.addButton(this, 0, "Scylla", this.goVisitScyllaVday);
-        this.addButton(this, 1, "Abby", this.goVisitAbbyVday);
-        if (this.player.cockThatFits(28) >= 0 || this.player.hasVagina()) this.addButton(this, 2, "Pastie", this.goVisitPastyVDay);
-        this.addButton(this, 4, "Leave", this.goHomeFromVDay);
+        this.addButton(0, "Scylla", this.goVisitScyllaVday);
+        this.addButton(1, "Abby", this.goVisitAbbyVday);
+        if (this.player.cockThatFits(28) >= 0 || this.player.hasVagina()) this.addButton(2, "Pastie", this.goVisitPastyVDay);
+        this.addButton(4, "Leave", this.goHomeFromVDay);
     }
 
     //([Go home])
@@ -26959,7 +26959,7 @@ We can also do * italic * and ** bold ** text!
         //With no other things to do, you go back to camp to rest.
         //{Small Lust Increase, return to camp, go to sleep}
         this.dynStats("lus", 10);
-        this.doNext(this, this.camp.returnToCampUseTwoHours);
+        this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
     //([Scylla])
@@ -26969,7 +26969,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("\n\nYou tell her you're more than willing to spend more time with her, and help her pack the things that did not get given away, won or sold in the celebration.  After that, she covers the stall and smiles at you. \"<i>I'll be taking these things home tomorrow. How about we just go for a walk now?</i>\"");
         this.menu();
-        this.addButton(this, 0, "Next", this.goVisitScyllaVdayII);
+        this.addButton(0, "Next", this.goVisitScyllaVdayII);
     }
 
     //SCYLLA EVENT
@@ -26980,7 +26980,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nYou simply listen to her but also blush at the last line, thanking her for her appreciation of your person. She gives a small laugh at that.  \"<i>Well, certainly, we've had our troubles with my... new way of eating, and I'm sure you didn't always feel like I really appreciated you or treated you with dignity... I'm sorry about that, but I really feel like I depended on you a lot and I know you're a great person,</i>\" she continues, her smile widening and blush slightly deepening with every sentence.  \"<i>You're more special than the others who've helped me, having always recognized my problems and solutions to them first.  You've saved me from a certain fall to the demon's corruption...  And you taste really good, too,</i>\" she says, licking her ruby lips before absent-mindedly noticing what she just said, flushing a deep red.  \"<i>Well, in any case, thanks to your help, this wasn't as much of a strain as I thought.  I feel like I might've really done some things to make this world a slightly better place, and I've certainly seen you do so.  That warms my heart and makes the time spent here worth it,</i>\" she explains, resting a hand on your shoulder before showing you a turn.  \"<i>We could climb that tower there and watch the sunset,</i>\" she says, before explaining, \"<i>I'm certain we're both known enough around the place that the guards won't protest much, after all, it's just watching a sunset.  What do you think, dear?</i>\"  Her soft body bounces a bit under the habit as she stops, her flush receding to the pleasant, rosy color from before, but remaining clearly visible on her alabaster skin.");
         //[next]
         this.menu();
-        this.addButton(this, 0, "Next", this.goVisitScyllaVdayIII);
+        this.addButton(0, "Next", this.goVisitScyllaVdayIII);
     }
 
     public goVisitScyllaVdayIII(): void {
@@ -26994,9 +26994,9 @@ We can also do * italic * and ** bold ** text!
         //What will you do?
         this.menu();
         //[Cuddle] [Make out] [Feed her]
-        this.addButton(this, 0, "Cuddle", this.cuddleWithScyllaVDay);
-        this.addButton(this, 1, "Make Out", this.makeOutWithScyllaVDay);
-        this.addButton(this, 2, "Feed Her", this.feedScyllaVDay);
+        this.addButton(0, "Cuddle", this.cuddleWithScyllaVDay);
+        this.addButton(1, "Make Out", this.makeOutWithScyllaVDay);
+        this.addButton(2, "Feed Her", this.feedScyllaVDay);
     }
 
     //Cuddle]
@@ -27020,7 +27020,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("\n\n(<b>You have gained the Pure and Loving perk!</b>");
         this.player.createPerk(PerkLib.PureAndLoving, 0, 0, 0, 0);
-        this.doNext(this, this.camp.returnToCampUseTwoHours);
+        this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
     //[Make out]
@@ -27049,7 +27049,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nYou're eager to try to steal the first orgasm from the chaste nun without giving in to your own lust too quickly, but the way she's starting to squirm against your painful hardness makes it difficult for you to remain noble.  The sheer volume of the absurdly-endowed woman's cleavage starts to overwhelm you, leaving you gasping short and hot breaths.  As usual - for the tainted nun, anyway - your suckling and nursing has stimulated Scylla's body, her curves swelling to overcompensate for her burgeoning hunger.  Your presence, to say nothing of your own arousal, has left her a bit too eager to get you off as well...");
         //[next]
         this.menu();
-        this.addButton(this, 0, "Next", this.makeOutWithScyllaVDayII);
+        this.addButton(0, "Next", this.makeOutWithScyllaVDayII);
     }
 
 
@@ -27078,7 +27078,7 @@ We can also do * italic * and ** bold ** text!
             this.player.createPerk(PerkLib.SensualLover, 0, 0, 0, 0);
         }
 
-        this.doNext(this, this.camp.returnToCampUseTwoHours);
+        this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
     //[Feed Her!]
@@ -27090,7 +27090,7 @@ We can also do * italic * and ** bold ** text!
         this.player.orgasm();
         this.outputText("\n\n(<b>You have gained the One Track Mind perk.</b>");
         this.player.createPerk(PerkLib.OneTrackMind, 0, 0, 0, 0);
-        this.doNext(this, this.camp.returnToCampUseTwoHours);
+        this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
 
@@ -27100,7 +27100,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("You wave to Scylla and Pastie as you try to catch up with Abylon, who's already picking up the pace and, by the looks of it, trying to remove her dress.  \"<i>Well, sup.  I'll be going home and changing myself into my usual clothes, if you don't mind.  This entire celebration thingy just shows your people's issues,</i>\" she says, though she doesn't seem entirely untouched by the mood of it...");
         this.outputText("\n\nDeciding to risk it, you ask her if she'd like some company. Abylon turns to you, completely stunned.");
         this.menu();
-        this.addButton(this, 0, "Next", this.goVisitAbby);
+        this.addButton(0, "Next", this.goVisitAbby);
     }
 
     //ABYLON EVENT
@@ -27138,7 +27138,7 @@ We can also do * italic * and ** bold ** text!
             if (this.player.cockArea(x) < 46) {
                 this.outputText("\n\nYou could certainly go for a dip into that goblin cunt, but, there's also the option of forgoing your pleasure on this special day and using other means to show her a good time.");
                 //<You can both pleasure and fuck her>
-                this.addButton(this, 1, "Fuck Her", this.fuckAbbyVDay);
+                this.addButton(1, "Fuck Her", this.fuckAbbyVDay);
             }
             //[If ([cocksmallest] > 46 cockArea)
             else {
@@ -27147,7 +27147,7 @@ We can also do * italic * and ** bold ** text!
         }
         //[if (hasVagina = false)
         else if (this.player.hasVagina()) this.outputText("\"<i>Well, that's unexpected. I have certain doubts about you showing me such a good time,</i>\" she says.  You tell her you don't actually require a cock at all to do this, and she seems surprised.");
-        this.addButton(this, 0, "PleasureHer", this.pleasureAbbyVDay);
+        this.addButton(0, "PleasureHer", this.pleasureAbbyVDay);
 
     }
 
@@ -27175,7 +27175,7 @@ We can also do * italic * and ** bold ** text!
 
         this.player.orgasm();
         this.dynStats("sen", -3);
-        this.doNext(this, this.camp.returnToCampUseTwoHours);
+        this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
     //{PLEASURE HER}
@@ -27205,7 +27205,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\n(<b>You've received the Pure and Loving Perk!</b>)");
         this.player.createPerk(PerkLib.PureAndLoving, 0, 0, 0, 0);
         this.dynStats("lus", 80);
-        this.doNext(this, this.camp.returnToCampUseTwoHours);
+        this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
     //([Pastie])
@@ -27218,14 +27218,14 @@ We can also do * italic * and ** bold ** text!
         //[BCBeer] [BimboCham][GoblinAle][vagina]
         if (this.player.hasItem(this.consumables.BIMBOCH) || this.player.hasItem(this.consumables.BC_BEER) || this.player.hasItem(this.consumables.GOB_ALE) || this.player.hasVagina()) {
             this.menu();
-            if (this.player.hasItem(this.consumables.BIMBOCH)) this.addButton(this, 0, "BimboCham", this.pastieValentineIntro, this.consumables.BIMBOCH.id);
-            if (this.player.hasItem(this.consumables.BC_BEER)) this.addButton(this, 1, "B.Cat Beer ", this.pastieValentineIntro, this.consumables.BC_BEER.id);
-            if (this.player.hasItem(this.consumables.GOB_ALE)) this.addButton(this, 2, "Gob. Ale", this.pastieValentineIntro, this.consumables.GOB_ALE.id);
-            if (this.player.hasVagina()) this.addButton(this, 3, "Pussy", this.pastieValentineIntro, "vag");
+            if (this.player.hasItem(this.consumables.BIMBOCH)) this.addButton(0, "BimboCham", this.pastieValentineIntro, this.consumables.BIMBOCH.id);
+            if (this.player.hasItem(this.consumables.BC_BEER)) this.addButton(1, "B.Cat Beer ", this.pastieValentineIntro, this.consumables.BC_BEER.id);
+            if (this.player.hasItem(this.consumables.GOB_ALE)) this.addButton(2, "Gob. Ale", this.pastieValentineIntro, this.consumables.GOB_ALE.id);
+            if (this.player.hasVagina()) this.addButton(3, "Pussy", this.pastieValentineIntro, "vag");
         }
         else {
             this.outputText("\n\nYou tell Pastie that, regrettably, you only have what she sees.  She nods and says, \"<i>Too bad.  I think I'll better get going, then.  It's been somewhat fun, and I finally get a chance to go to sleep sober and wake up without a hangover.");
-            this.doNext(this, this.camp.returnToCampUseTwoHours);
+            this.doNext(this.camp.returnToCampUseTwoHours);
         }
     }
 
@@ -27236,7 +27236,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\nFollowing you into a back alley, you prepare to get yourself naked and let the fairy get her fix.");
             //((Move straight to pussy scene)) )
             this.menu();
-            this.addButton(this, 0, "Next", this.goForAPushayDivePasty);
+            this.addButton(0, "Next", this.goForAPushayDivePasty);
         }
         //({Any other drink}. 
         else {
@@ -27244,7 +27244,7 @@ We can also do * italic * and ** bold ** text!
             this.player.consumeItem(itype, 1);
             this.outputText("You present the drink to Pastie and she flashes you a grin as she flies up and away, leading you into an alley.  \"<i>Well, lemme at it!  A drink sure as hell sounds good right now and none of this seems like it'd be really bad.</i>\"");
             this.menu();
-            this.addButton(this, 0, "Next", Utils.curry(this.valentineDrinkPastie, itype));
+            this.addButton(0, "Next", Utils.curry(this.valentineDrinkPastie, itype));
         }
     }
 
@@ -27293,9 +27293,9 @@ We can also do * italic * and ** bold ** text!
             //{Fuck is only present if a character has a cock under 8 cock area, Rub Dick option is present if a character has a member underneath 28 cock area. Pussy Dive is obviously present if a character has a pussy of any kind.}
         }
         this.menu();
-        if (this.player.cockThatFits(8) >= 0) this.addButton(this, 0, "Fuck", this.fuckPastieForVDay);
-        if (this.player.hasCock()) this.addButton(this, 1, "RubOnDick", this.rubPastieOnYourWangDawg);
-        if (this.player.hasVagina()) this.addButton(this, 2, "Go In Pussy", this.goForAPushayDivePasty);
+        if (this.player.cockThatFits(8) >= 0) this.addButton(0, "Fuck", this.fuckPastieForVDay);
+        if (this.player.hasCock()) this.addButton(1, "RubOnDick", this.rubPastieOnYourWangDawg);
+        if (this.player.hasVagina()) this.addButton(2, "Go In Pussy", this.goForAPushayDivePasty);
     }
 
 
@@ -27334,7 +27334,7 @@ We can also do * italic * and ** bold ** text!
         this.player.createPerk(PerkLib.OneTrackMind, 0, 0, 0, 0);
         this.player.orgasm();
         this.dynStats("sen", -2);
-        this.doNext(this, this.camp.returnToCampUseTwoHours);
+        this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
     //[RubDick]
@@ -27370,7 +27370,7 @@ We can also do * italic * and ** bold ** text!
         this.player.createPerk(PerkLib.OneTrackMind, 0, 0, 0, 0);
         this.player.orgasm();
         this.dynStats("sen", -2);
-        this.doNext(this, this.camp.returnToCampUseTwoHours);
+        this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
     //[Pussy Dive]
@@ -27406,7 +27406,7 @@ We can also do * italic * and ** bold ** text!
 
         this.player.orgasm();
         this.dynStats("sen", -2);
-        this.doNext(this, this.camp.returnToCampUseTwoHours);
+        this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
     /*END!
@@ -27481,16 +27481,16 @@ We can also do * italic * and ** bold ** text!
             this.outputText("You stop dead in your tracks, wondering what this swarm will do. After a few tense moments, the mass crawls away in a direction opposite of both you and your current path. You breathe a sigh of relief as you are confident that no good could have come from confronting such a zoological travesty.");
             this.dynStats("lus", -10);
             this.player.createStatusAffect(StatusAffects.MetWorms, 0, 0, 0, 0);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
         else if (this.player.hasCock()) {
             this.outputText("Minding your own business, you make your way through the mountain and you find yourself stopped by another mass of the sickly worms. The collective stops, apparently sensing your presence and briefly ebbs in your direction. After a few tense moments, the mass begins moving again... straight towards you at an alarming rate!\n\n");
             this.outputText("What do you do?");
-            this.simpleChoices(this, "Confront", this.wormsConfront, "Do Nothing", this.wormsDoNothing, "", undefined, "", undefined, "Run", this.wormsRun);
+            this.simpleChoices("Confront", this.wormsConfront, "Do Nothing", this.wormsDoNothing, "", undefined, "", undefined, "Run", this.wormsRun);
         }
         else {
             this.outputText("Making your way, you stumble on another gross mass of worms. The countless struggling creatures bar the path before you. Again, you freeze in place as the horror gropes about on the ground. It appears to have no real interest in your presence and it makes its way in a direction other than yours, much to your relief.");
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -27498,14 +27498,14 @@ We can also do * italic * and ** bold ** text!
         this.spriteSelect(76);
         this.clearOutput();
         this.outputText("While wandering, you come across a crudely illustrated sign.  It depicts an imp in obvious discomfort, covered in white little worms.  It looks as if one of them is even crawling into the imp's penis!\n\nHow do you feel about that?");
-        this.simpleChoices(this, "Aroused", this.wormsOn, "Grossed Out", this.wormsOff, "Who Cares?", this.wormsPartiallyOn, "", undefined, "", undefined);
+        this.simpleChoices("Aroused", this.wormsOn, "Grossed Out", this.wormsOff, "Who Cares?", this.wormsPartiallyOn, "", undefined, "", undefined);
     }
 
     private wormsOn(): void {
         this.clearOutput();
         this.outputText("You actually think it's kind of a hot idea, and wonder if such creatures actually exist in this land as you make your way back to camp.");
         this.player.createStatusAffect(StatusAffects.WormsOn, 0, 0, 0, 0);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private wormsPartiallyOn(): void {
@@ -27513,14 +27513,14 @@ We can also do * italic * and ** bold ** text!
         this.outputText("You shrug and keep walking, not sure how you feel about the strange sign.");
         this.player.createStatusAffect(StatusAffects.WormsOn, 0, 0, 0, 0);
         this.player.createStatusAffect(StatusAffects.WormsHalf, 0, 0, 0, 0);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private wormsOff(): void {
         this.clearOutput();
         this.outputText("You shudder in revulsion and figure the sign to be the result of someone's perverted fantasy.");
         this.player.createStatusAffect(StatusAffects.WormsOff, 0, 0, 0, 0);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private wormsConfront(): void {
@@ -27541,7 +27541,7 @@ We can also do * italic * and ** bold ** text!
         this.clearOutput();
         if (this.player.spe > this.rand(35)) {
             this.outputText("Your instincts overwhelm you and you immediately turn around and run like hell in the opposite direction. You look behind you as your heart feels as if it is about to burst only to discover that the creature did not follow you. You take a moment to catch your breath and consider yourself fortunate.");
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
         else {
             this.outputText("You turn to run, but before your " + this.player.feet() + " can get you away, the worms are upon you!  You turn to face them, lest they launch onto your unprotected back.");
@@ -27594,7 +27594,7 @@ We can also do * italic * and ** bold ** text!
                 }
             }
         }
-        this.doNext(this, this.camp.returnToCampUseTwoHours);
+        this.doNext(this.camp.returnToCampUseTwoHours);
 
     }
 
@@ -27676,7 +27676,7 @@ We can also do * italic * and ** bold ** text!
             //clear status
             this.inCombat = false;
             this.clearStatuses(false);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         if (this.monster.findStatusAffect(StatusAffects.TwuWuv) >= 0) {
@@ -27771,7 +27771,7 @@ We can also do * italic * and ** bold ** text!
             this.dynStats("cor", 2);
             this.player.cor = 25;
         }
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
 
@@ -27816,17 +27816,17 @@ We can also do * italic * and ** bold ** text!
             this.outputText("She nods, bouncing up and down in excitement and flushing slightly, \"<i>Yup, just tear the lid off and get your gift!</i>\"\n\n", false);
             if (this.flags[kFLAGS.PC_ENCOUNTERED_CHRISTMAS_ELF_BEFORE] > 0) this.outputText("Here we go again...\n\n");
             //[Open Present] [Unwrap Elf] [Decline]
-            this.simpleChoices(this, "OpenPresent", this.openXmasPresent, "", undefined, "Decline", this.declineXmasPresent, "", undefined, "", undefined);
+            this.simpleChoices("OpenPresent", this.openXmasPresent, "", undefined, "Decline", this.declineXmasPresent, "", undefined, "", undefined);
             return;
         }
         if (this.player.gender == 0) {
             this.outputText("She nods, bouncing up in down in excitement, \"<i>Yup!  Just open it up!  Are you ready?</i>\"\n\n", false);
-            this.simpleChoices(this, "OpenPresent", this.openXmasPresent, "", undefined, "Decline", this.declineXmasPresent, "", undefined, "", undefined);
+            this.simpleChoices("OpenPresent", this.openXmasPresent, "", undefined, "Decline", this.declineXmasPresent, "", undefined, "", undefined);
             return;
         }
         this.outputText("She nods, bouncing up in down in excitement, \"<i>Yup!  You can unwrap it or unwrap me.  What'll it be?</i>\"\n\n", false);
         //[Open Present] [Unwrap Elf] [Decline]
-        this.simpleChoices(this, "OpenPresent", this.openXmasPresent, "Unwrap Elf", this.unwrapElfyPresent, "Decline", this.declineXmasPresent, "", undefined, "", undefined);
+        this.simpleChoices("OpenPresent", this.openXmasPresent, "Unwrap Elf", this.unwrapElfyPresent, "Decline", this.declineXmasPresent, "", undefined, "", undefined);
     }
 
     //[Decline]
@@ -27837,7 +27837,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("Before you can react, she sprints off into the darkness.", false);
         this.flags[kFLAGS.PC_ENCOUNTERED_CHRISTMAS_ELF_BEFORE] = this.date.fullYear;
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
     //[Open Present]
     public openXmasPresent(): void {
@@ -27894,8 +27894,8 @@ We can also do * italic * and ** bold ** text!
         else {
             this.outputText("Which part will you ravish her with?\n\n");
             this.menu();
-            this.addButton(this, 0, "Male", this.futaDickXmasElfClr);
-            this.addButton(this, 1, "Female", this.futaVagXmasElfClr);
+            this.addButton(0, "Male", this.futaDickXmasElfClr);
+            this.addButton(1, "Female", this.futaVagXmasElfClr);
         }
     }
     public futaDickXmasElfClr(): void {
@@ -27968,7 +27968,7 @@ We can also do * italic * and ** bold ** text!
         }
         //(Go to followup for fucking scene)
         //[Next]
-        this.doNext(this, this.xmasFuckFollowup);
+        this.doNext(this.xmasFuckFollowup);
         this.player.orgasm();
     }
 
@@ -27998,7 +27998,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("You throw your head back and let out a low shuddering moan as she spins the dildo even faster, forcing your convulsing cunt to stay locked in a mind-shattering orgasm.  Eyes crossed, you collapse onto your back and twitch, body wriggling and flopping about nervelessly as it caves in to pleasure it was never meant to handle.\n\n", false);
 
         this.outputText("You black out to the following words: \"<i>Good girl.  Keep cumming, let out all those naughty thoughts.  I can't wait to see you next year!</i>\"", false);
-        this.doNext(this, this.xmasFuckFollowupFems);
+        this.doNext(this.xmasFuckFollowupFems);
         this.player.orgasm();
     }
 
@@ -28011,7 +28011,7 @@ We can also do * italic * and ** bold ** text!
         if (this.player.findPerk(PerkLib.ElvenBounty) >= 0) this.outputText(" <b>again</b>");
         this.outputText("?", false);
         //[Yes][No] – yes awards (+250 mls cum volume), no awards +15 intellect
-        this.doYesNo(this, this.xmasPerkM, this.xmasSmart);
+        this.doYesNo(this.xmasPerkM, this.xmasSmart);
         //(-5 corruption)
         this.dynStats("cor", -5);
         //(+20 sens unless it would bring you over 80 sens, then +5 sens)
@@ -28030,7 +28030,7 @@ We can also do * italic * and ** bold ** text!
         if (this.player.findPerk(PerkLib.ElvenBounty) >= 0) this.outputText(" <b>again</b>");
         this.outputText("?", false);
         //[Yes][No] – yes awards (+15 fertility!), no awards +15 intellect
-        this.doYesNo(this, this.xmasPerkM, this.xmasSmart);
+        this.doYesNo(this.xmasPerkM, this.xmasSmart);
         //(-5 corruption)
         this.dynStats("cor", -5);
         //(+20 sens unless it would bring you over 80 sens, then +5 sens)
@@ -28059,12 +28059,12 @@ We can also do * italic * and ** bold ** text!
             }
 
         }
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
     public xmasSmart(): void {
         this.hideUpDown();
         this.outputText("You nod to yourself, feeling pretty smart about your decision.", true);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
         this.dynStats("int", 15);
     }
 
@@ -28094,8 +28094,8 @@ We can also do * italic * and ** bold ** text!
         if (!this.isHolidays()) {
             this.outputText("You traipse the high mountainside, a light sprinkle of snow fluttering haphazardly through cold winds.  The sound of your steps begins to form a crunch as the silent white blanket folds over the tops of the nearby peaks, and with your journey to the high mountains appearing fruitless thus far, you consider the possibility of going back to camp.  As snowflakes pervade the air, they'll eventually obscure your sight, leading to a far more dangerous trip both up or down.  Just as you start to turn back, however, a small song echoes from the other side of the peak.  Soft enough to send one to sleep, it barely catches your attention.  Do you decide to investigate?");
             //[Yes][No]
-            this.addButton(this, 0, "Yes", this.encounterQuoteUnquoteAngel);
-            this.addButton(this, 4, "No", this.dontExploreGatsChristmasTale);
+            this.addButton(0, "Yes", this.encounterQuoteUnquoteAngel);
+            this.addButton(4, "No", this.dontExploreGatsChristmasTale);
         }
         //4. Intro
         //[Must Be Christmas Time]
@@ -28103,8 +28103,8 @@ We can also do * italic * and ** bold ** text!
         else {
             this.outputText("You traipse the high mountainside, a light sprinkle of snow fluttering haphazardly through cold winds.  The sound of your steps begins to form a crunch as the silent white blanket folds over the tops of the nearby peaks, and with your journey to the high mountains appearing fruitless thus far, you consider the possibility of going back to camp.  As snowflakes pervade the air, they'll eventually obscure your sight, leading to a far more dangerous trip both up or down.  Just as you start to turn back, however, a small sob echoes from the other side of the peak.  Soft enough to send one to sleep, it barely catches your attention.  Do you decide to investigate?");
             //[Yes][No]
-            this.addButton(this, 0, "Yes", this.encounterQuoteUnquoteAngel);
-            this.addButton(this, 4, "No", this.dontExploreGatsChristmasTale);
+            this.addButton(0, "Yes", this.encounterQuoteUnquoteAngel);
+            this.addButton(4, "No", this.dontExploreGatsChristmasTale);
         }
     }
 
@@ -28115,7 +28115,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nIt's certainly warmer there.");
         //turn dat shit off
         this.flags[kFLAGS.GATS_ANGEL_DISABLED] = .5;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //ii. Yes
@@ -28165,7 +28165,7 @@ We can also do * italic * and ** bold ** text!
             this.flags[kFLAGS.GATS_ANGEL_TIME_TO_FIND_KEY] = 1;
         }
         this.flags[kFLAGS.GATS_ANGEL_QUEST_BEGAN] = 1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //5. Solution
@@ -28184,7 +28184,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nOne surprise leads to another when a warm glow breaks free from between your hands.  A swirling of green and red mist is concentrated within the frame of your prize, glowing brightly as they swim endlessly through the key's curves at a variety of velocities.  It's plain to see that this little treasure was the cause for the cave's unnatural brilliance.  You're a little ashamed to rob it of its power source... but not enough to give it a second thought as you crawl back down to the entrance only a few feet away.  The last thing you want is for your magical lantern to dull and leave your naked body blind in this hazard-filled hole.");
         this.outputText("\n\nYou carefully re-enter the flooded tunnel, unsure how the supposed key will take to water.  It makes little impact as you submerge it, though the glowing light looks lovely on the pitch black tunnel.  The sight reinvigorates you slightly, though the warmer waters are probably more to blame.  Chalking up yet another simple retrieval asked of your person, you surface back outside, eager to get back into your [armor] and return to the high mountains.");
         this.player.createKeyItem("North Star Key", 0, 0, 0, 0);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //ii. Bringing the Key Back
@@ -28198,9 +28198,9 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\nYou could try to fuck around with the spirit or her soldier, but doing either would be a huge dick move...");
             this.menu();
             //[Give the Key] [Fuck the Soldier] [Fuck the Angel] 
-            this.addButton(this, 0, "Give The Key", this.goodEndForChristmasMiracleICant);
-            this.addButton(this, 1, "FuckSoldier", this.theWorstEndingEverDotJPG);
-            this.addButton(this, 2, "Fuck Spirit", this.fuckTheAngelBadEnd);
+            this.addButton(0, "Give The Key", this.goodEndForChristmasMiracleICant);
+            this.addButton(1, "FuckSoldier", this.theWorstEndingEverDotJPG);
+            this.addButton(2, "Fuck Spirit", this.fuckTheAngelBadEnd);
         }
         else {
             //Activates upon returning to the High Mountains after the previous scene, but after X amount of hours or X amount of time past Dec 25th (presumably)
@@ -28220,7 +28220,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\nThe air remains cold and merciless, and regardless of what you do it would be difficult to stay for much longer.  Turning away, you trot silently back to your camp, wondering how things would've gone - if only you were quicker.");
             //[BAD END, Can no longer see the Old Woman or this series of events]
             this.flags[kFLAGS.GATS_ANGEL_DISABLED] = 1;
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
         //player.removeKeyItem("North Star Key");
     }
@@ -28272,7 +28272,7 @@ We can also do * italic * and ** bold ** text!
         //[if (corruption > 49) 
         if (this.player.cor > 49) this.outputText("  More importantly, you have some unsatisfied, pent up lust that you'd like to expend.");
         this.dynStats("lus", 2 + this.player.lib / 10 + this.player.cor / 10, "cor", 10, "resisted", false);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         this.flags[kFLAGS.GATS_ANGEL_DISABLED] = 1;
         this.player.removeKeyItem("North Star Key");
     }
@@ -28330,7 +28330,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText(", painting the giantess while she pants and moans, legs almost buckling from her own joy along with the taste of your mess inside of her.  She struggles to remove the makeshift dildo from her ass, resting her cheek against the size of the mountain let your concoction drool out.  Slipping out, you take the opportunity to grind up against her ruby lips, before cumming on her face.  She lets out a weathered smile, before her giant eyes focus once more on the mechanical soldier.");
         //[Next]
         this.menu();
-        this.addButton(this, 0, "Next", this.fuckTheAngelBadEndPartII);
+        this.addButton(0, "Next", this.fuckTheAngelBadEndPartII);
     }
     public fuckTheAngelBadEndPartII(): void {
         this.clearOutput();
@@ -28346,7 +28346,7 @@ We can also do * italic * and ** bold ** text!
         this.flags[kFLAGS.GATS_ANGEL_DISABLED] = 1;
         this.player.orgasm();
         this.dynStats("cor", 10);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //8. Good End
@@ -28379,7 +28379,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nThose three words, mentioned so suddenly, pierce the woman's heart as surely as any arrow, and hot tears finally track down her cheeks - not the bitter tears she barely choked back earlier, however.  She weeps now with one of the most profound expressions of pure joy you've ever experienced.");
         //{turn the page}
         this.menu();
-        this.addButton(this, 0, "Next", this.goodEndForChristmasMiracleICantII);
+        this.addButton(0, "Next", this.goodEndForChristmasMiracleICantII);
     }
 
     public goodEndForChristmasMiracleICantII(): void {
@@ -28387,8 +28387,8 @@ We can also do * italic * and ** bold ** text!
         this.outputText("North throws his arms out wide, armor hardly protesting to the sudden movement.  The action gives the giantess pause for a moment, but she swiftly understands the motivation and raises her hand to the beckoning knight.  She crooks her little finger toward North, and he throws himself around it, expressing his feelings in a tight and passionate hug.  The giantess gazes down at her little knight with a loving smile, and they hold the pose for a remarkably long time.");
         this.outputText("\n\nThe seemingly divine titan worryingly crooks her eye over to you, and in an attempt to shoosh you away, she nods her head towards the mountain's exit, implying that they're going to spend some time to themselves. Of course, there's a chance you can probably stick around for some weird-ass action. Would you prefer to stay behind, or do you excuse them temporarily?");
         this.menu();
-        this.addButton(this, 0, "Stay", this.stayForPretendNTRGoodWinjobSex);
-        this.addButton(this, 4, "Leave", this.goodEndLeaveBeforeSexings);
+        this.addButton(0, "Stay", this.stayForPretendNTRGoodWinjobSex);
+        this.addButton(4, "Leave", this.goodEndLeaveBeforeSexings);
     }
 
     //If Leave
@@ -28398,7 +28398,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nYou hear the sound of a gentle humming in the distance, and you figure that the two lovers might be quite done with their 'honeymoon'.");
         //[Go to Conclusion]
         this.menu();
-        this.addButton(this, 0, "Next", this.conclusionOfGiantessGoodEnd);
+        this.addButton(0, "Next", this.conclusionOfGiantessGoodEnd);
     }
     //If Stay
     public stayForPretendNTRGoodWinjobSex(): void {
@@ -28434,7 +28434,7 @@ We can also do * italic * and ** bold ** text!
         }
         //[Next]
         this.menu();
-        this.addButton(this, 0, "Next", this.conclusionOfGiantessGoodEnd);
+        this.addButton(0, "Next", this.conclusionOfGiantessGoodEnd);
     }
 
     //[Conclusion]
@@ -28456,7 +28456,7 @@ We can also do * italic * and ** bold ** text!
         //Christmas events are open all year 'round! (some sort of arbitrary limit)
         //merry christmas everyone <3
         this.flags[kFLAGS.GATS_ANGEL_GOOD_ENDED] = 1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 
@@ -28534,8 +28534,8 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nWhat do you say?  Do you take the ice giant's deal and get a day off playing in the snow on your camp?");
         //[Yes] [No]
         this.menu();
-        this.addButton(this, 0, "Yes", this.jizzSnowOnMyCampPlease);
-        this.addButton(this, 1, "No", this.noJizzingInMyCampPlease);
+        this.addButton(0, "Yes", this.jizzSnowOnMyCampPlease);
+        this.addButton(1, "No", this.noJizzingInMyCampPlease);
     }
 
     //[=No=]
@@ -28546,7 +28546,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("\n\nSeeing no reason to linger, you return to your camp.");
         this.flags[kFLAGS.JACK_FROST_YEAR] = this.date.fullYear;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[=Yes=]
@@ -28557,7 +28557,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nYou thank him for the surprisingly kind gesture, and start to head back down to camp.  Even as you go, you can see the first huge jet of snow arcing its way across the sky...");
         this.flags[kFLAGS.JACK_FROST_YEAR] = this.date.fullYear;
         this.flags[kFLAGS.JACK_FROST_PROGRESS] = 1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Back in camp
@@ -28570,7 +28570,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("As you approach your camp, you can see that Jack Frost's efforts are paying off.  A great, constant flurry of snowflakes is gently drifting down, swaying in the wind as it makes its inevitable descent towards the ground.  A layer of snowflakes is quickly building up, growing wider and deeper as more snow is launched from out of the mountains to rain down on your camp. You can't help but enjoy the cool air as the snowflakes fall down languidly onto the ground.  It's so beautiful you almost forget the rather perverted origin of it all.\n\n");
             this.flags[kFLAGS.JACK_FROST_PROGRESS] = 2;
             this.menu();
-            this.addButton(this, 0, "Next", this.processJackFrostEvent);
+            this.addButton(0, "Next", this.processJackFrostEvent);
         }
         //No followers
         else if (this.camp.companionsCount() == 0) {
@@ -28580,7 +28580,7 @@ We can also do * italic * and ** bold ** text!
             this.flags[kFLAGS.JACK_FROST_PROGRESS] = 0;
             this.HPChange(this.maxHP(), false);
             this.fatigue(-100);
-            this.doNext(this, this.camp.returnToCampUseEightHours);
+            this.doNext(this.camp.returnToCampUseEightHours);
         }
         //Rathazul
         else if (this.player.findStatusAffect(StatusAffects.CampRathazul) >= 0 && this.flags[kFLAGS.JACK_FROST_PROGRESS] == 2) {
@@ -28594,7 +28594,7 @@ We can also do * italic * and ** bold ** text!
 
             this.outputText("\n\nYou begin gathering snow along with the old rat...");
             this.menu();
-            this.addButton(this, 0, "Next", this.processJackFrostEvent);
+            this.addButton(0, "Next", this.processJackFrostEvent);
             this.flags[kFLAGS.JACK_FROST_PROGRESS] = 3;
             return;
         }
@@ -28619,7 +28619,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\nYou begin tickling her breasts, belly, arms, anywhere your wiggling fingers can touch.  Izma cackles and screeches, tears running down her face even as she pleads for you to stop; evidently, that tough orange and black-striped skin doesn't make her any less vulnerable to a good tickling session.  You don't heed her pleas, continuing to tickle the tiger-shark with abandon.  \"<i>All right, all right, stopit-stopit-stopit, I'm sorry, I'm sorry!</i>\" she cries.  You tell her that if she wishes you to stop all she has to do is admit, you're the alpha and she's the beta...   The tigershark tries, you have to give her points for that, but she can't quite gasp the words out around her laughter.  You tell her that her performance was lacking, so if she'll excuse you... you have more tickling to do.  \"<i>No!  Please, no, I'm sorry, you're the alpha and I'm the beta and I'll never forget it again!</i>\" she cries.  Satisfied, you turn her around, giving her a quick kiss and a tap on her nose.  With a wink you tell her to never forget that again.  \"<i>I promise to always remember that  - I know who's the conqueror in our little relationship.</i>\"  She grins, displaying her shark fangs.  Smiling, you wish her Happy Holidays.  \"<i>Happy... whatever that is. I just hope our next ones aren't so painful,</i>\" she replies, clutching her side for emphasis.");
 
             this.outputText("\n\nYou promise her that they won't be... if she remembers not to start something she can't finish, tapping the chastened tigershark on the nose for emphasis.");
-            this.addButton(this, 0, "Next", this.processJackFrostEvent);
+            this.addButton(0, "Next", this.processJackFrostEvent);
             this.flags[kFLAGS.JACK_FROST_PROGRESS] = 4;
             return;
         }
@@ -28642,7 +28642,7 @@ We can also do * italic * and ** bold ** text!
                 this.outputText("\n\n\"<i>Bring it on,</i>\" Jojo states, already bouncing another snowball in his palm.");
                 this.outputText("\n\nLaughter echoes as the two of you exchange snowballs...");
                 this.menu();
-                this.addButton(this, 0, "Next", this.processJackFrostEvent);
+                this.addButton(0, "Next", this.processJackFrostEvent);
                 this.flags[kFLAGS.JACK_FROST_PROGRESS] = 5;
             }
             //Corrupt
@@ -28652,9 +28652,9 @@ We can also do * italic * and ** bold ** text!
                 //(How should you demonstrate?)
                 //[Pen Ass] [Ride Cock] [Spank and Finger Ass]
                 this.menu();
-                if (this.player.hasCock()) this.addButton(this, 0, "Pen Ass", this.penetradeCorruptJojoAss);
-                if (this.player.hasVagina()) this.addButton(this, 1, "Ride Cock", this.rideCorruptJojoCock);
-                this.addButton(this, 2, "Spank n Finger", this.spankNFingerCorruptJojoAss);
+                if (this.player.hasCock()) this.addButton(0, "Pen Ass", this.penetradeCorruptJojoAss);
+                if (this.player.hasVagina()) this.addButton(1, "Ride Cock", this.rideCorruptJojoCock);
+                this.addButton(2, "Spank n Finger", this.spankNFingerCorruptJojoAss);
             }
             return;
         }
@@ -28680,8 +28680,8 @@ We can also do * italic * and ** bold ** text!
                 this.outputText("\n\nIt's not really possible to smirk and kiss at the same time, but your murine lover does her level best to try.  Breaking the kiss with a smile, she tugs you gently towards your tent.  \"<i>Come on then, lover-" + this.player.mf("boy", "girl") + ", let's go and get warmed up...</i>\" She coos.  Her hands start to remove your clothes, \"<i>So, what do you have in mind, exactly...?</i>\"");
                 //[Penetrate Her] [Make out]
                 this.menu();
-                if (this.player.hasCock()) this.addButton(this, 0, "Penetrate", this.penetradePureMouseWaifu);
-                this.addButton(this, 1, "Ride Cock", this.makeOutWithPureMouseWaifu);
+                if (this.player.hasCock()) this.addButton(0, "Penetrate", this.penetradePureMouseWaifu);
+                this.addButton(1, "Ride Cock", this.makeOutWithPureMouseWaifu);
                 return;
             }
             //Corrupt
@@ -28720,7 +28720,7 @@ We can also do * italic * and ** bold ** text!
                 }
             }
             this.menu();
-            this.addButton(this, 0, "Next", this.processJackFrostEvent);
+            this.addButton(0, "Next", this.processJackFrostEvent);
             return;
         }
         //Tainted Ember
@@ -28756,7 +28756,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\n\"<i>So you say, but the truth is you know you'll never beat me,</i>\" Ember brags.  Then " + this.emberScene.emberMF("he", "she") + " lowers her eyelids and gives you a coy look.  \"<i>And now, for the victor, a prize,</i>\" " + this.emberScene.emberMF("he", "she") + " growls, then swoops in to kiss you passionately.  Several minutes pass before " + this.emberScene.emberMF("he", "she") + " breaks the kiss, a somewhat goofy smile on " + this.emberScene.emberMF("his", "her") + " face.  \"<i>I'm going to go and play in the snow some more.  See you, [name].</i>\"  " + this.emberScene.emberMF("He", "She") + " giggles, then ambles off.");
             this.outputText("\n\nYou wave " + this.emberScene.emberMF("him", "her") + " away - maybe being beaten isn't so bad.  Your thoughts turn to Ember's passionate kiss...  It certainly is a nice sight, to see " + this.emberScene.emberMF("him", "her") + " so happy.  Having it snow on your camp was a great idea after all.");
             this.menu();
-            this.addButton(this, 0, "Next", this.processJackFrostEvent);
+            this.addButton(0, "Next", this.processJackFrostEvent);
         }
         //Marble (Written by TDM himself)
         else if (this.flags[kFLAGS.JACK_FROST_PROGRESS] <= 7 && this.player.findStatusAffect(StatusAffects.CampMarble) >= 0) {
@@ -28841,7 +28841,7 @@ We can also do * italic * and ** bold ** text!
                 this.outputText("\n\nYou finish, and silence once again fills the air as you two continue to watch the snow fall.  \"<i>Sweetie?</i>\" Marble suddenly speaks out, \"<i>I want to have kids with you some day.</i>\"  You look at her somewhat surprised, she continues to simply look ahead, continuing, \"<i>I want them to experience those things too, and there is no one else that I'd rather have them with then you.</i>\"  There isn't much else to do but to look back at the falling flakes once more.");
             }
             this.menu();
-            this.addButton(this, 0, "Next", this.processJackFrostEvent);
+            this.addButton(0, "Next", this.processJackFrostEvent);
             return;
         }
         //Helia
@@ -28908,7 +28908,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\n\"<i>Oh, were you maybe wanting another turn, lover?</i>\"  Helia insinuates, gently tapping her fingers on your chest.  You make a show of considering her offer, then, with a smile, say that sounds like a reasonable proposal.  You promptly wrap the salamander-girl, into a tight hug, spreading her legs so you can have access to her dripping vagina...");
             this.flags[kFLAGS.JACK_FROST_PROGRESS] = 10;
             this.menu();
-            this.addButton(this, 0, "Next", this.processJackFrostEvent);
+            this.addButton(0, "Next", this.processJackFrostEvent);
             return;
         }
         //Isabella
@@ -28952,7 +28952,7 @@ We can also do * italic * and ** bold ** text!
             else this.outputText("\n\nIsabella smiles and releases her arm from around your neck to instead stroke your [hair].  \"<i>Yeah, that's good, [name].  I love to empty these big boobs of mine, but I think I love you more,</i>\" she says this last-part in a stage whisper, clearly intending for you to hear it.  You decide that for now, you'll just busy yourself with the cow-girl's teats, you can return the feelings later...");
             this.flags[kFLAGS.JACK_FROST_PROGRESS] = 11;
             this.menu();
-            this.addButton(this, 0, "Next", this.processJackFrostEvent);
+            this.addButton(0, "Next", this.processJackFrostEvent);
         }
         //Kiha
         else if (this.kihaFollower.followerKiha() && this.flags[kFLAGS.JACK_FROST_PROGRESS] <= 11) {
@@ -28972,8 +28972,8 @@ We can also do * italic * and ** bold ** text!
             //[Fuck her] [Lick Boobs and Finger Pussy]
             this.flags[kFLAGS.JACK_FROST_PROGRESS] = 12;
             this.menu();
-            if (this.player.hasCock() && this.player.cockThatFits(67) >= 0) this.addButton(this, 0, "Fuck Her", this.kihaXmasFuck);
-            this.addButton(this, 1, "Finger Her", this.kihaXmasFingering);
+            if (this.player.hasCock() && this.player.cockThatFits(67) >= 0) this.addButton(0, "Fuck Her", this.kihaXmasFuck);
+            this.addButton(1, "Finger Her", this.kihaXmasFingering);
         }
         //Feast time! Just a collection of words on the pleasant day...
         else {
@@ -28999,7 +28999,7 @@ We can also do * italic * and ** bold ** text!
             this.HPChange(this.maxHP(), false);
             this.fatigue(-100);
             this.flags[kFLAGS.JACK_FROST_PROGRESS] = 0;
-            this.doNext(this, this.camp.returnToCampUseEightHours);
+            this.doNext(this.camp.returnToCampUseEightHours);
         }
     }
 
@@ -29020,7 +29020,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\n\"<i>I... oh, [name], I'm close!</i>\" Kiha gasps.  You try to reply and tell her so are you, but words fail you.  Instead you moan at her and thrust yourself as far into her as you can, painting her walls white with your seed as you spew rope upon rope towards her ready womb.  The dragoness manages to throw you a lustful smirk.  \"<i>Cumming already, lo-oh oh OH!</i>\"  She screams, arching her back and spewing flames out into the snowy sky above as she cums violently, flooding your crotch with all the lubricants and orgasm-fluids she can produce.");
         this.outputText("\n\nOnce her orgasm has subsided, the dragon-girl comes crashing down on top of you.  You laugh lightly and ask her what was she saying?  \"<i>...I guess that this snow stuff isn't so bad after all,</i>\" she admits, then sneaks a smooch to try and keep you from laughing at her.  You're happy to return the kiss and lay with her for a while longer, basking the heat of your each other, as well as your afterglow...");
         this.menu();
-        this.addButton(this, 0, "Next", this.processJackFrostEvent);
+        this.addButton(0, "Next", this.processJackFrostEvent);
         return;
     }
     //[=Lick Boobs and Finger Pussy=]
@@ -29036,7 +29036,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\n\"<i>Well, I suppose you could get me a little hotter... if you can take the heat, my doofus,</i>\" she croons, snuggling tighter against you...");
         this.dynStats("lus", 20 + this.player.sens / 20 + this.player.lib / 20);
         this.menu();
-        this.addButton(this, 0, "Next", this.processJackFrostEvent);
+        this.addButton(0, "Next", this.processJackFrostEvent);
         return;
     }
 
@@ -29067,7 +29067,7 @@ We can also do * italic * and ** bold ** text!
         this.player.orgasm();
         this.dynStats("lib", -1);
         this.menu();
-        this.addButton(this, 0, "Next", this.processJackFrostEvent);
+        this.addButton(0, "Next", this.processJackFrostEvent);
     }
 
     //[=Make out=]
@@ -29097,7 +29097,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nYou chuckle, even though she's the one that's been chatting your ears off this whole time?  \"<i>Yes, even though I'm the one that's been chatting your ears off,</i>\" Amily replies with a smile.  You suggest that perhaps all you need to do to stop talking is finding something to keep your mouths busy.  \"<i>Oh?  What are you suggesting?</i>\" she asks, her tail gently looping around your midriff.  Your reply is to simply draw her into a kiss...");
         this.dynStats("lus", 30 + this.player.sens / 10);
         this.menu();
-        this.addButton(this, 0, "Next", this.processJackFrostEvent);
+        this.addButton(0, "Next", this.processJackFrostEvent);
     }
 
 
@@ -29121,7 +29121,7 @@ We can also do * italic * and ** bold ** text!
         this.player.orgasm();
         this.dynStats("lib", -3, "sen", -1, "cor", 1);
         this.menu();
-        this.addButton(this, 0, "Next", this.processJackFrostEvent);
+        this.addButton(0, "Next", this.processJackFrostEvent);
         this.flags[kFLAGS.JACK_FROST_PROGRESS] = 5;
     }
     //[=Ride Cock=]
@@ -29150,7 +29150,7 @@ We can also do * italic * and ** bold ** text!
         this.player.orgasm();
         this.dynStats("lib", -3, "sen", -1, "cor", 1);
         this.menu();
-        this.addButton(this, 0, "Next", this.processJackFrostEvent);
+        this.addButton(0, "Next", this.processJackFrostEvent);
         this.flags[kFLAGS.JACK_FROST_PROGRESS] = 5;
         //Preggers chance!
         this.player.knockUp(PregnancyStore.PREGNANCY_JOJO, PregnancyStore.INCUBATION_MOUSE + 82); //Jojo's kids take longer for some reason
@@ -29177,7 +29177,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nYou laugh at the mouse-slut's blissed out face of pleasure, feeling like you managed to chip away another part of his broken will.  Before you leave him to pass out on his snowy puddle of mouse-cum you ask him, what is his name?  \"<i>S - Slut...</i>\"  Is the moaning reply.  Satisfied, you decide to leave for the moment.  Maybe you'll get back to him and break him in a little more later...");
         this.dynStats("lus=", 100, "resisted", true);
         this.menu();
-        this.addButton(this, 0, "Next", this.processJackFrostEvent);
+        this.addButton(0, "Next", this.processJackFrostEvent);
         this.flags[kFLAGS.JACK_FROST_PROGRESS] = 5;
     }
 
@@ -29215,8 +29215,8 @@ We can also do * italic * and ** bold ** text!
 
         //simpleChoices("Investigate",9999,"",0,"",0,"",0,"Leave",9999);
         this.menu();
-        this.addButton(this, 0, "Investigate", this.investigateCandyCaneBun);
-        this.addButton(this, 4, "Leave", this.leaveBeforeMeetingCandyCaneBun);
+        this.addButton(0, "Investigate", this.investigateCandyCaneBun);
+        this.addButton(4, "Leave", this.leaveBeforeMeetingCandyCaneBun);
         trace("FUNC SETUP LENGTH: " + this.funcs.length);
     }
 
@@ -29226,7 +29226,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("You're not willing to run the risk of getting a foreign cock stuffed up your [butt].");
         //(If corruption or libido>50) 
         if (this.player.cor > 50 || this.player.lib > 50) this.outputText("  At least not right now.  You turn back, navigating your way back to your camp.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //INVESTIGATE
@@ -29256,8 +29256,8 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nDo you help him out?");
         //(Present \"<i>Yes</i>\" and \"<i>No</i>\" options)
         this.menu();
-        this.addButton(this, 0, "Yes", this.helpWithTheCandyCane);
-        this.addButton(this, 1, "No", this.declineCandyCaneCawks);
+        this.addButton(0, "Yes", this.helpWithTheCandyCane);
+        this.addButton(1, "No", this.declineCandyCaneCawks);
         //simpleChoices("Yes",9999,"No",9999,"",0,"",0,"",0);
         this.dynStats("lus", 10 + this.player.lib / 10, "resisted", false);
     }
@@ -29266,7 +29266,7 @@ We can also do * italic * and ** bold ** text!
     public declineCandyCaneCawks(): void {
         this.clearOutput();
         this.outputText("Turning around a tad awkwardly, you stumble out of the glade.  Tempting as he is, you don't have time to help the random bunny orgasm.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //YES
@@ -29292,7 +29292,7 @@ We can also do * italic * and ** bold ** text!
         else this.outputText("  Despite your rising urge to take advantage of the unknowing bunny, you decide to retire and return to camp.");
         //(Lust set to 100, hour passes.)
         this.dynStats("lib", 1, "sen", 1, "lus=", 100, "cor", -5, "resisted", false);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 
@@ -29303,15 +29303,15 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\nThe grating sound of squawking rouses you in the morning.  You groggily roll over, hoping to go back to sleep for a while, but the annoying noise persists unrelenting.  Realizing that it probably isn't going away any time soon, you reluctantly force your eyes open and push yourself up.  The sight around you causes you to blink a few times to shake away the disbelief: a layer of brilliant white snow frosts the ground, a rare sight at your camp thus far.  You hadn't really noticed it getting that much colder, but the chill this morning is biting through your [armor].  A shiver wracks your body, and your thoughts on the odd snowfall are interrupted by another loud call.");
         this.outputText("\n\nDetermined to shut whatever is making such a racket up, you trudge off through the cold, crisp blanket towards where you think the sound is coming from.  You crest a small hill and are greeted with another peculiar image.  Faintly visible against the snow, what appears to be a very pale harpy woman lays on her back, beating her pure-white wings against the ground and sweeping her legs back and forth against the freshly-fallen powder.  She caws and shrieks happily, apparently too caught up in... whatever it is she's doing to notice you.");
         this.menu();
-        this.addButton(this, 0, "Talk", this.talkToXmasChicken);
-        this.addButton(this, 4, "Leave", this.leaveXmasChicken);
+        this.addButton(0, "Talk", this.talkToXmasChicken);
+        this.addButton(4, "Leave", this.leaveXmasChicken);
     }
 
     //[Leave]
     public leaveXmasChicken(): void {
         this.clearOutput();
         this.outputText("Too exasperated by the plain absurdity of the situation to deal with it, you bury your face in your hands and decide to leave her to it.  Maybe some imps will shut her up for you.  You head back to camp with her piercing cries following you all the way, and prepare for the day ahead.  Her cries fade a while later; the snow thaws and the air warms soon after.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Talk]
@@ -29332,15 +29332,15 @@ We can also do * italic * and ** bold ** text!
         if (this.silly()) this.outputText(", scrub");
         this.outputText("?</i>\"");
         this.menu();
-        this.addButton(this, 4, "Decline", this.declineChickenBlowjobs);
-        this.addButton(this, 0, "Accept", this.acceptChristmasBJs);
+        this.addButton(4, "Decline", this.declineChickenBlowjobs);
+        this.addButton(0, "Accept", this.acceptChristmasBJs);
     }
 
     //[Decline]
     public declineChickenBlowjobs(): void {
         this.clearOutput();
         this.outputText("The harpy squints at you suspiciously.  \"<i>What do you mean, 'no thanks?'  Nobody says that around here!</i>\"  She rolls her eyes and sighs in an obviously exaggerated manner, then turns tail and flaps off into the distance.  You head back to camp, quite looking forward to the silence.  The air warms and the snow thaws soon after you return, leaving no trace of its presence but a few spots of slushy mud.");
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //[Accept]
@@ -29356,8 +29356,8 @@ We can also do * italic * and ** bold ** text!
             this.clearOutput();
             this.outputText("Would you like her to service your male parts or lady bits?");
             this.menu();
-            this.addButton(this, 0, "Man Parts", this.acceptChristmasManBJ);
-            this.addButton(this, 1, "Lady Bits", this.acceptChristmasWomanBJ);
+            this.addButton(0, "Man Parts", this.acceptChristmasManBJ);
+            this.addButton(1, "Lady Bits", this.acceptChristmasWomanBJ);
         }
     }
 
@@ -29370,7 +29370,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("You free your [cock " + (x + 1) + "] from your [armor], signaling your acceptance.  Your monster flops free, and the harpy grabs at her throat reflexively when she looks at it.  She glances up to you with wide eyes and back down at it.  \"<i>A-a promise is a promise, but...</i>\"");
             this.outputText("\n\nShe turns and flees with a few terrified flaps of her wings.  You sigh, covering your enormous prick once more.  At least you won't have to deal with her pesky shrieking any more.  The air warms and the snow thaws soon after you return, leaving no trace of its presence but a few spots of slushy mud.");
             this.dynStats("lus", 10);
-            this.doNext(this, this.playerMenu);
+            this.doNext(this.playerMenu);
             return;
         }
         //(else if cock would please Goldilocks) (area<= 30 or some shit i dunno whatever the standard is)
@@ -29401,7 +29401,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\nThe happy girl suddenly hugs you as you're in the process of putting your prick back into your [armor].  The silvery glow around her pale skin looks stronger now, so strong that you're almost sure you can see it.  \"<i>Oh, thank you!</i>\" she starts, but quickly composes herself.  \"<i>For, um, helping me.  Up.</i>\"  She lets go and backs away from you.  \"<i>I've gotta be going though, see you around!  Enjoy the weather!</i>\"  With that, she wings off into the skies.  She lands atop a nearby tree, arms outstretched in an odd pose.  The silvery glow surrounding her is still visible, even at a distance.  You shake your head and return to camp, wondering who in the world that was.  Not long after you return, the air warms once more and the snow melts, leaving the ground a slushy mess in spots.");
         }
         this.player.orgasm();
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     public acceptChristmasWomanBJ(): void {
@@ -29412,7 +29412,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nShe suddenly embraces you as you readjust your [armor].  The silvery glow around her pale skin looks stronger now, so strong that you're almost sure you can see it.  \"<i>Oh, thank you!</i>\" she starts, but quickly composes herself.  \"<i>For, um, helping me.  Up.</i>\"  She lets go and backs away from you.  \"<i>I've gotta be going though, see you around!  Enjoy the weather!</i>\"  With that, she wings off into the skies.  She lands atop a nearby tree, arms outstretched in an odd pose.  The silvery glow surrounding her is still visible, even at a distance.  You shake your head and return to camp, wondering who in the world that was.  Not long after you return, the air warms once more and the snow melts, leaving the ground a slushy mess in spots.");
         //(end female)
         this.player.orgasm();
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //3. nRage's Kanga herm lovin
@@ -29453,10 +29453,10 @@ We can also do * italic * and ** bold ** text!
             //Blow Job
             //Double-Dick Fuck (requires at least 2 cocks)
             this.menu();
-            if (this.player.hasCock() && this.player.cockThatFits(70) >= 0) this.addButton(this, 0, "Give Anal", this.giveKamiTheChristmasRooAnal);
-            this.addButton(this, 1, "Receive Anal", this.takeItRooButtStyle);
-            this.addButton(this, 2, "Give BJ", this.KamiBlowJob);
-            if (this.player.cockTotal() > 1 && this.player.cockThatFits(70) >= 0 && this.player.cockThatFits2(70) >= 0) this.addButton(this, 3, "Doube-Fuck", this.KamiDoubleDickFuck);
+            if (this.player.hasCock() && this.player.cockThatFits(70) >= 0) this.addButton(0, "Give Anal", this.giveKamiTheChristmasRooAnal);
+            this.addButton(1, "Receive Anal", this.takeItRooButtStyle);
+            this.addButton(2, "Give BJ", this.KamiBlowJob);
+            if (this.player.cockTotal() > 1 && this.player.cockThatFits(70) >= 0 && this.player.cockThatFits2(70) >= 0) this.addButton(3, "Doube-Fuck", this.KamiDoubleDickFuck);
         }
         else {
             this.outputText("You summon the buxom waitress over, getting a much better view of her gentle face now that she's found the time to sit and talk with you.  With hazelnut-brown eyes, a gorgeous set of lips and tousled blonde hair, her faux-rebellious look is the icing on the festive cake for this busty waitress, her cute little santa hat being the strawberry on top.  Smooth, olive skin runs halfway down her meaty thighs before fading into soft fur, while her frail forearms follow the same pattern. Her huge kangaroo tail wags idly throughout your conversation, and you've gained a pretty good rhythm whilst engaging her in it. Determined to make things go well, you pause to pull out a charming one-liner when her index finger meets your ");
@@ -29473,8 +29473,8 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\nWow, well, that's pretty blunt.  What should you do now?");
             //[Present options, 'Let's go!' and 'Leave']
             this.menu();
-            this.addButton(this, 0, "Let's Go", this.chooseLetsGoKami);
-            this.addButton(this, 4, "Leave", this.skipOutAfterOpeningKamisBox);
+            this.addButton(0, "Let's Go", this.chooseLetsGoKami);
+            this.addButton(4, "Leave", this.skipOutAfterOpeningKamisBox);
         }
     }
 
@@ -29484,7 +29484,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("You politely decline Kami's sexual advances, apologizing before making a turn for the door. You begin to wonder why you didn't buy anything at the bakery.");
         //[Return to Tel Adre, KamiEnc = 1]
         this.flags[kFLAGS.KAMI_ENCOUNTER] = 1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Player chooses 'Let's go!']
@@ -29503,10 +29503,10 @@ We can also do * italic * and ** bold ** text!
         //Double-Dick Fuck (requires at least 2 cocks)
         //Note: I don't know much about vaginal or anal capacities so just give her general ones similar to Izma or Urta. ]
         this.menu();
-        if (this.player.hasCock() && this.player.cockThatFits(70) >= 0) this.addButton(this, 0, "Give Anal", this.giveKamiTheChristmasRooAnal);
-        this.addButton(this, 1, "Receive Anal", this.takeItRooButtStyle);
-        this.addButton(this, 2, "Give BJ", this.KamiBlowJob);
-        if (this.player.cockTotal() > 1 && this.player.cockThatFits(70) >= 0 && this.player.cockThatFits2(70) >= 0) this.addButton(this, 3, "DoubleFuck", this.KamiDoubleDickFuck);
+        if (this.player.hasCock() && this.player.cockThatFits(70) >= 0) this.addButton(0, "Give Anal", this.giveKamiTheChristmasRooAnal);
+        this.addButton(1, "Receive Anal", this.takeItRooButtStyle);
+        this.addButton(2, "Give BJ", this.KamiBlowJob);
+        if (this.player.cockTotal() > 1 && this.player.cockThatFits(70) >= 0 && this.player.cockThatFits2(70) >= 0) this.addButton(3, "DoubleFuck", this.KamiDoubleDickFuck);
     }
 
 
@@ -29536,7 +29536,7 @@ We can also do * italic * and ** bold ** text!
         this.flags[kFLAGS.KAMI_ENCOUNTER] = 1;
         this.player.orgasm();
         this.dynStats("sen", -2);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Player selects 'Receive Anal']
@@ -29572,7 +29572,7 @@ We can also do * italic * and ** bold ** text!
         //[Player heads back to camp, An hour passes, Asshole tightness is reduced, Lust is reduced to zero and KamiEnc = 1]
         this.player.orgasm();
         this.dynStats("sen", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         this.flags[kFLAGS.KAMI_ENCOUNTER] = 1;
     }
 
@@ -29592,7 +29592,7 @@ We can also do * italic * and ** bold ** text!
         this.dynStats("lus", 20 + this.player.lib / 10 + this.player.sens / 10);
         //[Player heads back to camp, An hour passes, Lust = + 40 and KamiEnc = 1]
         this.flags[kFLAGS.KAMI_ENCOUNTER] = 1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 
@@ -29613,7 +29613,7 @@ We can also do * italic * and ** bold ** text!
         this.player.orgasm();
         this.dynStats("sen", -3);
         this.flags[kFLAGS.KAMI_ENCOUNTER] = 1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 
@@ -29622,7 +29622,7 @@ We can also do * italic * and ** bold ** text!
         this.clearOutput();
         if (this.player.gems < 35) {
             this.outputText("Sadly, the pudding isn't free, and it looks like you don't have the 35 gems you'd need to try a bite!");
-            this.doNext(this, this.telAdre.bakeryScene.bakeryuuuuuu);
+            this.doNext(this.telAdre.bakeryScene.bakeryuuuuuu);
             return;
         }
         this.player.gems -= 35;
@@ -29656,7 +29656,7 @@ We can also do * italic * and ** bold ** text!
             this.player.hornType = CoC.HORNS_ANTLERS;
             this.player.horns = 4 + this.rand(12);
         }
-        this.doNext(this, this.telAdre.bakeryScene.bakeryuuuuuu);
+        this.doNext(this.telAdre.bakeryScene.bakeryuuuuuu);
     }
 
     //4. Donto's Polar Pete
@@ -29672,8 +29672,8 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\n\"<i>And for you, I have a very special package, just for the good boys and girls.</i>\"  His large furred hand lewdly cups over his groin, making his bulge more pronounced as he stretches the fabric of his pants.  You can see the girth of his 'candy cane' hanging limp over his heavy sack.  His eyes give you a lurid gaze, an expectant twinkle in his eyes.  \"<i>Come over and unwrap it.</i>\"  His low voice makes goosebumps crawl over your skin.");
         //Open options Leave, Unwrap
         this.menu();
-        this.addButton(this, 0, "Unwrap", this.unwrapPolarPete);
-        this.addButton(this, 4, "Leave", this.leaveDisFukkinPolarBear);
+        this.addButton(0, "Unwrap", this.unwrapPolarPete);
+        this.addButton(4, "Leave", this.leaveDisFukkinPolarBear);
     }
     //Unwrap
     public unwrapPolarPete(): void {
@@ -29781,7 +29781,7 @@ We can also do * italic * and ** bold ** text!
         //(Adds \"<i>Snow</i>\" to the Stash or Lover menu)
         this.outputText("\n\n('Snow' added to the <b>Items</b> menu!)");
         this.flags[kFLAGS.NIEVE_STAGE] = 1;
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //Creation!
@@ -29797,8 +29797,8 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\nFinally, the head.  You make yet another small ball of tightly packed snow and place it upon the tower, and stand back to look at your creation.  You grab a couple sticks nearby and grab a piece of torn cloth from your camp, placing them all on the snowman to make arms and a scarf.  It's a pretty good piece of work.");
             this.outputText("\n\nSuddenly, a naughty thought strikes you. You could probably make this snowman into a snowwoman if you wanted to.");
             this.menu();
-            this.addButton(this, 0, "Snowwoman", this.nieveSnowWoman);
-            this.addButton(this, 1, "Snowman", this.nieveSnowMan);
+            this.addButton(0, "Snowwoman", this.nieveSnowWoman);
+            this.addButton(1, "Snowman", this.nieveSnowMan);
             //[Snowwoman] [Snowman] 
         }
         //Second Step: Eyes & Mouth
@@ -29808,9 +29808,9 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\nIt still needs eyes and a mouth.  Coal is the best option, but who knows how common that is around here?  Gems, you decide, are an acceptable stand-by.  It'd probably take 9 gems to complete, two for the eyes and seven for the mouth.");
             //[Coal (Only available if PC has coal)] [Gems]
             this.menu();
-            if (this.player.hasItem(this.consumables.COAL___)) this.addButton(this, 0, "Coal", this.nieveCoalEyes);
-            this.addButton(this, 1, "Gems", this.nieveGemEyes);
-            this.addButton(this, 4, "Back", this.camp.returnToCampUseOneHour);
+            if (this.player.hasItem(this.consumables.COAL___)) this.addButton(0, "Coal", this.nieveCoalEyes);
+            this.addButton(1, "Gems", this.nieveGemEyes);
+            this.addButton(4, "Back", this.camp.returnToCampUseOneHour);
         }
         //Fourth Step: The Nose
         else if (this.flags[kFLAGS.NIEVE_STAGE] == 3) {
@@ -29827,11 +29827,11 @@ We can also do * italic * and ** bold ** text!
             else {
                 this.outputText("Unfortunately, you've yet to find one in your adventures.  You suppose you'll have to look more carefully.  Who knows, there might be a farm right under your nose.");
             }
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
         else {
             this.outputText("Your snowman is done!  There's nothing more to add to it.  It looks mighty fine however, and just looking at it brings a nostalgia-fueled smile to your lips.");
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
     }
     //Coal
@@ -29843,7 +29843,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nYou split the coal into smaller chunks, and place them evenly around the Snowman's face, creating a nice, vacant smile.  It still needs a nose, however, and for that, you'll need a carrot.  Perhaps there's a farm nearby, or maybe you could buy one somewhere?");
         this.flags[kFLAGS.NIEVE_MOUTH] = "coal";
         this.flags[kFLAGS.NIEVE_STAGE] = 3;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //Gems
     //Add to previous text if possible?
@@ -29860,7 +29860,7 @@ We can also do * italic * and ** bold ** text!
         else {
             this.outputText("You open up your pouch, and frown.  Unfortunately, you don't have enough gems to create the eyes and mouth. With a sigh you march your broke ass back to camp.");
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Snowwoman
@@ -29869,7 +29869,7 @@ We can also do * italic * and ** bold ** text!
         //Add to existing text if possible, rather than a new window?
         this.outputText("You grin mischievously to yourself and set about making two more balls of powdery snow.  It takes less time than any of the others, and before you know it you've attached two icy-breasts to the snowman.  They aren't terribly big, any heavier and you're sure they'd fall off, but they get the point across.");
         this.outputText("\n\nYour snowwoman still needs a face, of course, but you'll leave that until later.  For now, you head back into the main part of camp.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         this.flags[kFLAGS.NIEVE_STAGE] = 2;
         this.flags[kFLAGS.NIEVE_GENDER] = 2;
     }
@@ -29879,7 +29879,7 @@ We can also do * italic * and ** bold ** text!
         this.clearOutput();
         this.outputText("You decide to leave it as is. Not everything has to have breasts, of course, even in Mareth.");
         this.outputText("\n\nYour snowman still needs a face, of course, but you'll leave that until later.  For now, you head back into the main part of camp.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         this.flags[kFLAGS.NIEVE_STAGE] = 2;
         this.flags[kFLAGS.NIEVE_GENDER] = 1;
     }
@@ -29894,7 +29894,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nYou stash the carrot away with a smile.  You've got a nose for your snowman!");
         this.outputText("\n\n(Gained Key Item: Carrot)");
         this.player.createKeyItem("Carrot", 0, 0, 0, 0);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public nieveMF(Man: string = "", Woman: string = ""): string {
@@ -29935,8 +29935,8 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\n\"<i>Wow.  That's great.  You're like a champion or something.  So, Champion,</i>\" " + this.nieveMF("he", "she") + " begins, \"<i>Do you want me to stay?</i>\"");
         //[Y/N]
         this.menu();
-        this.addButton(this, 0, "Yes", this.yesKeepNieve);
-        this.addButton(this, 1, "No", this.noNoKeepNieve);
+        this.addButton(0, "Yes", this.yesKeepNieve);
+        this.addButton(1, "No", this.noNoKeepNieve);
     }
 
     //Yes of course, what do you look like, an idiot?
@@ -29948,7 +29948,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("  " + this.nieveMF("He", "She") + " doesn't seem to be a threat, and indeed seems sincere in the fact that " + this.nieveMF("he", "she") + " was sent here to be your lover.");
         this.outputText("\n\nNieve beams at you, \"<i>You won't regret it, [name]!  Just give me a little while to set up a cozy place here... then we can get cozy.</i>\"");
         this.outputText("\n\nYou return to your camp proper with a goofy smirk on your face.\n\n(<b>Nieve is now available in the Lovers menu.</b>)");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //No, because I'm an idiot.
@@ -29960,7 +29960,7 @@ We can also do * italic * and ** bold ** text!
         this.flags[kFLAGS.NIEVE_STAGE] = -1;
         this.flags[kFLAGS.NIEVE_GENDER] = 0;
         this.flags[kFLAGS.NIEVE_MOUTH] = "";
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Followers Menu
@@ -30014,8 +30014,8 @@ We can also do * italic * and ** bold ** text!
         this.outputText(" eyes and pure white hair, which " + this.nieveMF("barely goes past his ears", "tumbles down past her shoulders") + ".  Much of " + this.nieveMF("his", "her") + " body glimmers with a fine layer of powdered snow or ice.");
         this.outputText("\n\nNieve stops, gives you a friendly hug, and asks, \"<i>What can I do for you, [Master]?</i>\"");
         this.menu();
-        this.addButton(this, 0, "Sex", this.nieveSexMenu);
-        this.addButton(this, 4, "Back", this.camp.campLoversMenu);
+        this.addButton(0, "Sex", this.nieveSexMenu);
+        this.addButton(4, "Back", this.camp.campLoversMenu);
     }
 
     //Sex Menu
@@ -30024,21 +30024,21 @@ We can also do * italic * and ** bold ** text!
         this.outputText("What will you do with your oh-so-cool lover?");
         if (this.player.lust < 33) this.outputText("  You aren't quite turned on enough for normal fucking.");
         this.menu();
-        if (this.flags[kFLAGS.NIEVE_GENDER] == 2) this.addButton(this, 0, "Lick Her", this.lickNieve);
-        if (this.flags[kFLAGS.NIEVE_GENDER] == 1) this.addButton(this, 0, "Suck Him", this.suckNieveOff);
+        if (this.flags[kFLAGS.NIEVE_GENDER] == 2) this.addButton(0, "Lick Her", this.lickNieve);
+        if (this.flags[kFLAGS.NIEVE_GENDER] == 1) this.addButton(0, "Suck Him", this.suckNieveOff);
         //Fuck Her
         //Female Nieve
         //Must have a penis or at least a 3.5 inch clit
         //Nieve's capacity is about 130.
         if ((this.player.hasCock() || (this.player.hasVagina() && this.player.clitLength >= 3.5)) && this.player.lust >= 33) {
-            if (this.flags[kFLAGS.NIEVE_GENDER] == 2) this.addButton(this, 1, "Fuck Her", this.fuckNieve);
+            if (this.flags[kFLAGS.NIEVE_GENDER] == 2) this.addButton(1, "Fuck Her", this.fuckNieve);
         }
         //Get Fucked by Gurumash
         //Male Nieve
         //Any Gender
         //Nieve's cock is 9x1.5
-        if (this.flags[kFLAGS.NIEVE_GENDER] == 1 && this.player.lust >= 33) this.addButton(this, 1, "Get Fucked", this.nieveFucksYou);
-        this.addButton(this, 9, "Back", this.camp.campLoversMenu);
+        if (this.flags[kFLAGS.NIEVE_GENDER] == 1 && this.player.lust >= 33) this.addButton(1, "Get Fucked", this.nieveFucksYou);
+        this.addButton(9, "Back", this.camp.campLoversMenu);
     }
 
     //Lick Her
@@ -30089,7 +30089,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\nThe both of you thoroughly flustered, Nieve returns to the winter paradise and you go back to your duties.");
             this.dynStats("lus", -5 - this.player.sens / 5);
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Suck Him by Kinathis
@@ -30112,7 +30112,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("\n\nLetting out a deep sigh you grin and look up, wanting to see the look on Nieve's face.  The iceborn man looks like he couldn't be happier, a silly smile on his face as he looks down at you.  \"<i>Oh [Master]... that was amazing, I've never met someone so skilled before.  I hope you're not too cold now,</i>\" he says with a hint of worry, knowing that his body and by extension, his cum, must be quite cold.  Reassuring him you tell your frosty friend you're fine and that he actually tasted pretty good. Looking quite pleased Nieve helps you up before sweeping you up into a squeezing hug.  \"<i>Thank you so much for this, but next time let me do you though, you need to be pleasured as well,</i>\" the elemental spirit says gently before helping you get cleaned up and ready for your adventures.");
         this.dynStats("lus", 10 + this.player.lib / 10, "resisted", false);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Fuck Her
@@ -30258,7 +30258,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\n\"<i>So messy, [Master],</i>\" she notes with a smile.  \"<i>Allow me to clean you up.</i>\"  Her cool mouth descends on your member, licking and sucking away all of your juices and hers, leaving you spotless.  She seems to delight in the flavor, and once she's done, she leans in and gives you a big, sloppy kiss that tastes more like mint than anything else.  She then cuddles up next to you, her cold body somehow comforting, until you've recuperated enough to head back to the camp proper.");
         this.player.orgasm();
         this.dynStats("sen", -2);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Get Fucked by Gurumash
@@ -30283,8 +30283,8 @@ We can also do * italic * and ** bold ** text!
         //[(if PC has vagina or large enough tits) \"<i>So [master],</i>\" He says pulling back slightly, \"<i>Where would you like me to put this?</i>\"][(if anal is the only option, automatically selected) \"<i>Well I guess I know where to put this huh?</i>\" He says coyly.]
         //[Anal][Vaginal][(tits >3) Tit-Fuck]
         this.menu();
-        this.addButton(this, 0, "Anal", this.takeNieveAnal);
-        if (this.player.hasVagina()) this.addButton(this, 1, "Vaginal", this.takeNieveVaginal);
+        this.addButton(0, "Anal", this.takeNieveAnal);
+        if (this.player.hasVagina()) this.addButton(1, "Vaginal", this.takeNieveVaginal);
     }
     //Anal
     public takeNieveAnal(): void {
@@ -30322,7 +30322,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nYou both rest in that position, Nieve still trickling cum into you even though he stopped moving minutes ago.  You turn your head to look at him and notice his face a few inches from yours.  It's clear that at the moment he's barely conscious, and you shift a bit to kiss him, thanking him for a job well done.  After a little while you both recover, redress, and silently go back to business.  Looking back at him as you leave, you know you want to do it again real soon.");
         this.player.orgasm();
         this.dynStats("sen", -2);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Vaginal
@@ -30353,7 +30353,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nAnother hour passes and you wake up clean and dressed, laying next to Nieve.  You noticed he's probably been watching you for the last several minutes.  You get up, pat yourself off, then with one hand tussle his snow-white hair, while uttering the words, \"<i>Good boy.</i>\"");
         this.player.orgasm();
         this.dynStats("sen", -2);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Goodbye (Outline by PyroJenkins)
@@ -30390,7 +30390,7 @@ We can also do * italic * and ** bold ** text!
             }
             this.flags[kFLAGS.NIEVE_STAGE] = 0;
         }
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     private fixNieve(): void {
@@ -30398,15 +30398,15 @@ We can also do * italic * and ** bold ** text!
             this.clearOutput();
             this.outputText("(There was an error with stat tracking that cleared Nieve's stats out at the end of last year's event. <b>What gender do you want Nieve to be?</b>)");
             this.menu();
-            this.addButton(this, 0, "Male", this.fixNieveGender, 1);
-            this.addButton(this, 1, "Female", this.fixNieveGender, 2);
+            this.addButton(0, "Male", this.fixNieveGender, 1);
+            this.addButton(1, "Female", this.fixNieveGender, 2);
         }
         else if (this.flags[kFLAGS.NIEVE_MOUTH] == "") {
             this.clearOutput();
             this.outputText("(There was an error with stat tracking that cleared Nieve's stats out at the end of last year's event. <b>What were Nieve's eyes and mouth made out of?</b>)");
             this.menu();
-            this.addButton(this, 0, "Gems", this.fixNieveMouth, 0);
-            this.addButton(this, 1, "Coal", this.fixNieveMouth, 1);
+            this.addButton(0, "Gems", this.fixNieveMouth, 0);
+            this.addButton(1, "Coal", this.fixNieveMouth, 1);
         }
         else this.nieveReturnsPartII();
     }
@@ -30434,7 +30434,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nThere really is nothing left of " + this.nieveMF("him", "her") + ".  Nothing but this lost fragment.  An echo of a friend.");
         //[Next]
         this.menu();
-        this.addButton(this, 0, "Next", this.fixNieve);
+        this.addButton(0, "Next", this.fixNieve);
     }
 
     private nieveReturnsPartII(): void {
@@ -30450,7 +30450,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\n\"<i>I... I can still only stay the winter, at least for now, but it's something, right?</i>\" the snow spirit says, clasping your hand in theirs.");
         this.outputText("\n\nYou nod.  You'll take what you can get, even if it is such a brief moment.  The two of you share stories, well, you share stories while Nieve listens with rapt attention, for the next hour or so.  It's been a long time since you've seen each other, and there's a lot to catch up on...");
         this.flags[kFLAGS.NIEVE_STAGE] = 5;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     /*Credits

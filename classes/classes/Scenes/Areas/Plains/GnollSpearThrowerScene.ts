@@ -160,9 +160,9 @@ export class GnollSpearThrowerScene extends BaseContent {
         if (this.player.hasCock()) penor = this.hyenaVictoryRapeFellatio;
         if (this.player.lust >= 33 && this.player.gender > 0) {
             this.outputText("\n\nUsing the hyena to get off would be easy.  What do you do?", false);
-            this.simpleChoices(this, "Get BJ", penor, "Get Licked", vagoo, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
+            this.simpleChoices("Get BJ", penor, "Get Licked", vagoo, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
         }
-        else this.doNext(this, this.cleanupAfterCombat);
+        else this.doNext(this.cleanupAfterCombat);
     }
 
     //<Hyena Defeat - Fellatio>

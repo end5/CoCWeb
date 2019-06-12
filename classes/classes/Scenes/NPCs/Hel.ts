@@ -12,7 +12,7 @@ export class Hel extends Monster {
     private helAttack(): void {
         var damage: number;
         //return to combat menu when finished
-        this.doNext(this, this.game.playerMenu);
+        this.doNext(this.game.playerMenu);
         //Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Hel.rand(3) < 1) {
             this.outputText(this.capitalA + this.short + " completely misses you with a blind attack!\n", false);
@@ -64,7 +64,7 @@ export class Hel extends Monster {
     private helAttack2(): void {
         var damage: number;
         //return to combat menu when finished
-        this.doNext(this, this.game.playerMenu);
+        this.doNext(this.game.playerMenu);
         //Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Hel.rand(3) < 1) {
             this.outputText(this.capitalA + this.short + " completely misses you with a blind attack!\n", false);
@@ -156,7 +156,7 @@ export class Hel extends Monster {
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
             this.outputText("\n\nHelia waits it out in stoic silence...");
-            this.doNext(this, this.game.endLustLoss);
+            this.doNext(this.game.endLustLoss);
         } else {
             if (this.findStatusAffect(StatusAffects.Sparring) >= 0) this.game.helFollower.loseToSparringHeliaLikeAButtRapedChump();
             else this.game.helScene.loseToSalamander();

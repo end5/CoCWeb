@@ -81,8 +81,8 @@ export class FetishCultist extends Monster {
         }
         this.game.dynStats("lus", (this.player.lib / 10 + this.player.cor / 20) + 4);
         if (this.player.lust >= 100)
-            this.doNext(this, this.game.endLustLoss);
-        else this.doNext(this, this.game.combatMenu);
+            this.doNext(this.game.endLustLoss);
+        else this.doNext(this.game.combatMenu);
     }
     private cultistLustTransfer(): void {
         if (this.lust <= 30 || FetishCultist.rand(2) == 0) {
@@ -107,8 +107,8 @@ export class FetishCultist extends Monster {
             if (this.lust < 0) this.lust = 10;
         }
         if (this.player.lust >= 100)
-            this.doNext(this, this.game.endLustLoss);
-        else this.doNext(this, this.game.combatMenu);
+            this.doNext(this.game.endLustLoss);
+        else this.doNext(this.game.combatMenu);
     }
 
 
@@ -122,12 +122,12 @@ export class FetishCultist extends Monster {
         }
         if (this.player.lust >= 33 && this.player.gender > 0) {
             this.outputText("  You realize she'd make a perfect receptacle for your lusts.  Do you have your way with her?", false);
-            this.game.simpleChoices(this, "Sex", this.game.lake.fetishCultistScene.playerRapesCultist, "", undefined, "", undefined, "B. Feed", temp2, "Leave", this.game.cleanupAfterCombat);
+            this.game.simpleChoices("Sex", this.game.lake.fetishCultistScene.playerRapesCultist, "", undefined, "", undefined, "B. Feed", temp2, "Leave", this.game.cleanupAfterCombat);
         }
         else {
             if (temp2 != undefined) {
                 this.outputText("  She looks like she might take some of your milk if you offered it to her.  What do you do?", false);
-                this.game.simpleChoices(this, "B. Feed", temp2, "", undefined, "", undefined, "", undefined, "Leave", this.game.cleanupAfterCombat);
+                this.game.simpleChoices("B. Feed", temp2, "", undefined, "", undefined, "", undefined, "Leave", this.game.cleanupAfterCombat);
             }
             else this.game.cleanupAfterCombat();
         }

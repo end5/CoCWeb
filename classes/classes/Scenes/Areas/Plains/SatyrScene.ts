@@ -36,8 +36,8 @@ export class SatyrScene extends BaseContent {
             else this.outputText("sodden expanse of the swamp");
             this.outputText(" when you hear strange music emanating not far from where you are.  Do you investigate?");
             //[Yes][No]
-            if (location == 0) this.doYesNo(this, this.createCallBackFunction(this, this.consensualSatyrFuck, 0), this.camp.returnToCampUseOneHour);
-            else this.doYesNo(this, this.createCallBackFunction(this, this.consensualSatyrFuck, 0), this.camp.returnToCampUseOneHour);
+            if (location == 0) this.doYesNo(this.createCallBackFunction(this.consensualSatyrFuck, 0), this.camp.returnToCampUseOneHour);
+            else this.doYesNo(this.createCallBackFunction(this.consensualSatyrFuck, 0), this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -82,7 +82,7 @@ export class SatyrScene extends BaseContent {
         }
         //What should you do?
         //[Trick him] [Keep Drinking] [Skip Foreplay] [Leave]
-        this.simpleChoices(this, "Trick Him", trick, "Keep Drinking", this.keepDrinking, "Skip Foreplay", foreplay, "", undefined, "Leave", this.leavePartySatyr);
+        this.simpleChoices("Trick Him", trick, "Keep Drinking", this.keepDrinking, "Skip Foreplay", foreplay, "", undefined, "Leave", this.leavePartySatyr);
     }
 
     //[=Keep Drinking=]
@@ -107,7 +107,7 @@ export class SatyrScene extends BaseContent {
         this.outputText(".  This must be the work of that satyr!  Mentally, you remind yourself to watch out for him next time.  You clean yourself up as best as you can and redress, then wobble your way towards your camp, trying to stifle the pain, in your head and elsewhere, along the way.");
         //(8 hours lost) (PC is pregnant (either vagina or ass) with a satyr, slimefeed)
         this.satyrPreggo();
-        this.doNext(this, this.camp.returnToCampUseFourHours);
+        this.doNext(this.camp.returnToCampUseFourHours);
     }
 
     //[=Leave=]
@@ -144,7 +144,7 @@ export class SatyrScene extends BaseContent {
 
         this.player.gems += 10 + SatyrScene.rand(10);
         this.statScreenRefresh();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //[=Skip Foreplay=]
     private skipForeplay(): void {
@@ -155,7 +155,7 @@ export class SatyrScene extends BaseContent {
         this.outputText("\n\nThe satyr looks surprised, then grins.  \"<i>Very well, if you insist...</i>\" he purrs, reaching out to grab and push you to the ground, tearing roughly at your [armor] until you are naked.");
 
         //Play appropriate willing sex scene//
-        this.doNext(this, this.willinglyBoneSatyr);
+        this.doNext(this.willinglyBoneSatyr);
     }
 
     //Sex Scenes
@@ -237,7 +237,7 @@ export class SatyrScene extends BaseContent {
         }
         var bikiniTits = undefined;
         if (this.player.hasVagina() && this.player.biggestTitSize() >= 4 && this.player.armor == this.armors.LMARMOR) bikiniTits = (this.player.armor as LustyMaidensArmor).lustyMaidenPaizuri;
-        this.simpleChoices(this, "FuckHisButt", butt, "Ride Face", faces, "B.Titfuck", bikiniTits, "", undefined, "Leave", this.cleanupAfterCombat);
+        this.simpleChoices("FuckHisButt", butt, "Ride Face", faces, "B.Titfuck", bikiniTits, "", undefined, "Leave", this.cleanupAfterCombat);
     }
     //Female (Z)
     private femaleTakesAdvantageOfSatyr(): void {
@@ -385,7 +385,7 @@ export class SatyrScene extends BaseContent {
         this.player.slimeFeed();
         this.player.orgasm();
         this.satyrPreggo();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 

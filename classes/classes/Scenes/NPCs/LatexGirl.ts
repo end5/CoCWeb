@@ -158,7 +158,7 @@ export class LatexGirl extends NPCAwareContent {
             this.outputText("\n\nYou heave her up over your shoulder, straining your capable muscles to hold up those giant mammaries and remain upright.  The task is arduous, but you're strong enough for anything!  ");
             if (this.player.tou < 40) {
                 this.outputText("Halfway there, you get too tired to continue.  You may be strong, but you don't have the endurance to heft a burden like this long term.  You'll have to leave her for now and try to recapture her once she's conscious.");
-                this.doNext(this, this.camp.returnToCampUseOneHour);
+                this.doNext(this.camp.returnToCampUseOneHour);
                 this.fatigue(30);
                 return;
             }
@@ -169,12 +169,12 @@ export class LatexGirl extends NPCAwareContent {
         //Too weak and dumb: 
         else {
             this.outputText("\n\nYou try to lift her, but she's too heavy!  Drat!  There's no way you'll get her back to camp like this, and you can't leave the portal undefended long enough to wait for her to wake.  You'll have to leave her for now and try to recapture her once she's awake.");
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         //[Next] (Go to aftermath)
         this.menu();
-        this.addButton(this, 0, "Next", this.PCCarriedGooBackHome);
+        this.addButton(0, "Next", this.PCCarriedGooBackHome);
     }
 
     //Goo -> Latex Aftermath:
@@ -198,7 +198,7 @@ export class LatexGirl extends NPCAwareContent {
 
         this.outputText("\n\n\"<i>Name?  My name is the warmth of my soul and the scent of the forgotten sea... or it was, before you made me like... this.  I don't think I could even communicate with my people properly at this point.  To your ears, I have no name, and honestly... my old name may as well be a forgotten memory.</i>\"  A solitary onyx teardrop runs from the corner of her eye, hardening on her cheek.  She brushes it away with a sniffle.");
         this.menu();
-        this.addButton(this, 0, "Next", this.PCCarriedGooBackHomeII);
+        this.addButton(0, "Next", this.PCCarriedGooBackHomeII);
     }
     private PCCarriedGooBackHomeII(): void {
         this.clearOutput();
@@ -206,7 +206,7 @@ export class LatexGirl extends NPCAwareContent {
         this.outputText("\n\nWhat will you name her?");
         const input = document.createElement('input');
         this.menu();
-        this.addButton(this, 0, "Next", () => this.nameZeLatexGoo(input));
+        this.addButton(0, "Next", () => this.nameZeLatexGoo(input));
         this.mainView.mainText.appendChild(input);
     }
     private nameZeLatexGoo(input: HTMLInputElement): void {
@@ -220,7 +220,7 @@ export class LatexGirl extends NPCAwareContent {
             this.clearOutput();
             this.outputText("<b>You must select a name.</b>", false);
             this.menu();
-            this.addButton(this, 0, "Next", this.nameZeLatexGoo);
+            this.addButton(0, "Next", this.nameZeLatexGoo);
             this.mainView.mainText.appendChild(input);
             return;
         }
@@ -266,7 +266,7 @@ export class LatexGirl extends NPCAwareContent {
         this.flags[kFLAGS.GOO_HAPPINESS] = 1;
         this.flags[kFLAGS.GOO_OBEDIENCE] = 1;
         this.flags[kFLAGS.GOO_FLUID_AMOUNT] = 100;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //PC Couldn't Bring Her Back
     public encounterLeftBehindGooSlave(): void {
@@ -300,7 +300,7 @@ export class LatexGirl extends NPCAwareContent {
             this.outputText("\n\n\"<i>Name?  My name is the warmth of my soul and the scent of the forgotten sea... or it was, before you made me like... this.  I don't think I can even communicate with my people properly at this point.  To your ears, I have no name, and honestly... my old name may as well be a forgotten memory.</i>\"  A solitary onyx teardrop runs from the corner of her eye, hardening on her cheek.  She brushes it away with a sniffle.");
         }
         this.menu();
-        this.addButton(this, 0, "Next", this.encounterLeftBehindGooSlaveII);
+        this.addButton(0, "Next", this.encounterLeftBehindGooSlaveII);
     }
     private encounterLeftBehindGooSlaveII(): void {
         this.clearOutput();
@@ -309,7 +309,7 @@ export class LatexGirl extends NPCAwareContent {
         //{To standard name prompts}
         const input = document.createElement('input');
         this.menu();
-        this.addButton(this, 0, "Next", () => this.nameZeLatexGoo(input));
+        this.addButton(0, "Next", () => this.nameZeLatexGoo(input));
         this.mainView.mainText.appendChild(input);
     }
 
@@ -332,14 +332,14 @@ export class LatexGirl extends NPCAwareContent {
         this.outputText("\n\nWorried that you might have killed her, you dart forward to check her breathing.  Whew!  She's okay, just out like a lamp.  You hold the poor girl in your arms for a long moment, looking around for somewhere to put her, for someone to help you deal with... whatever's she's just done to herself.  It looks like you've got yourself a latex goo-girl... or a latex-girl... whatever.  Leaving her out here seems cruel, as she'd certainly be snatched up by some horrid monster...  She'd be safer back at your camp, though that might be committing to a more long-term project than you're ready for.");
         //[Take her Home] [Leave Her]
         this.menu();
-        this.addButton(this, 0, "Take Home", this.niceGuysTakeLatexHome);
-        this.addButton(this, 4, "Leave Her", this.leaveTheLatexGooGirl);
+        this.addButton(0, "Take Home", this.niceGuysTakeLatexHome);
+        this.addButton(4, "Leave Her", this.leaveTheLatexGooGirl);
     }
     //Leave Her(F)
     private leaveTheLatexGooGirl(): void {
         this.clearOutput();
         this.outputText("You don't have the time to deal with this... thing.  You put the girl down on the shore and head on back to camp.  Hopefully, whatever finds her won't be TOO horrible.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //Take her Home(F)
     private niceGuysTakeLatexHome(): void {
@@ -356,7 +356,7 @@ export class LatexGirl extends NPCAwareContent {
             if (this.player.tou < 40) {
                 this.outputText("Halfway there, you get too tired to continue.  You may be strong, but you don't have the endurance to heft a burden like this long term.  You'll have to leave her for now and try to find her once she's conscious.");
                 this.fatigue(30);
-                this.doNext(this, this.camp.returnToCampUseOneHour);
+                this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
             this.outputText("You're out of breath when you get to camp, but you made it!  It'll take awhile for you to catch your wind after all that work...  Your arms and legs are still burning from the exertion!");
@@ -365,12 +365,12 @@ export class LatexGirl extends NPCAwareContent {
         //{Too weak and dumb:}
         else {
             this.outputText("You try to lift her, but she's too heavy!  Drat!  There's no way you'll get her back to camp like this, and you can't leave the portal undefended long enough to wait for her to wake.  You'll have to leave her for now and try finding her again once she's awake.");
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         //[Next] (Go to PURE aftermath)
         this.menu();
-        this.addButton(this, 0, "Next", this.pureGooGalRecruitAftermath);
+        this.addButton(0, "Next", this.pureGooGalRecruitAftermath);
     }
     //PURE Aftermath(F)
     private pureGooGalRecruitAftermath(): void {
@@ -386,7 +386,7 @@ export class LatexGirl extends NPCAwareContent {
         this.outputText("\n\nTrying to be comforting isn't easy without knowing her name, though. You ask her, trying to be as friendly as you can as you sit down beside her.");
         this.outputText("\n\n\"<i>Name?  My name is the warmth of my soul and the scent of the forgotten sea... or it was, before you made me like... this.  I don't think I could even communicate with my people properly at this point.  To your ears, I have no name, and honestly... my old name may as well be a forgotten memory.</i>\"  A solitary onyx teardrop runs from the corner of her eye, hardening on her cheek.  She brushes it away with a sniffle.");
         this.menu();
-        this.addButton(this, 0, "Next", this.pureGooGalRecruitAftermathII);
+        this.addButton(0, "Next", this.pureGooGalRecruitAftermathII);
     }
     private pureGooGalRecruitAftermathII(): void {
         this.clearOutput();
@@ -395,7 +395,7 @@ export class LatexGirl extends NPCAwareContent {
         this.menu();
         const inputField = document.createElement('input');
         this.mainView.mainText.appendChild(inputField);
-        this.addButton(this, 0, "Next", () => this.nameZeLatexGooNice(inputField));
+        this.addButton(0, "Next", () => this.nameZeLatexGooNice(inputField));
     }
 
     //After Naming Latexy(F):
@@ -404,7 +404,7 @@ export class LatexGirl extends NPCAwareContent {
             this.clearOutput();
             this.outputText("<b>You must select a name.</b>", false);
             this.menu();
-            this.addButton(this, 0, "Next", () => this.nameZeLatexGoo(input));
+            this.addButton(0, "Next", () => this.nameZeLatexGoo(input));
             this.mainView.mainText.appendChild(input);
             return;
         }
@@ -438,8 +438,8 @@ export class LatexGirl extends NPCAwareContent {
         this.outputText("</i>\" she muses, her mood brightening.  \"<i>I-I suppose I should start to get used to it... to all of this.  I... thank you, friend.  You didn't have to take me back here, to help me, but you did.  I'm grateful, truly I am.  But I don't think I would survive long out in the wilds, on my own.  I've lived my whole life as a goo, and it will take some time - years, maybe - to relearn how to survive on my own.  I know it's a lot to ask, but would you mind if I stayed here?  With... with you?  At least until I can get on my, uh, feet, as it were,</i>\" she says, her hands tracing along her body down to her new, dainty little feet.");
         //[Keep Her] [Boot her Out]
         this.menu();
-        this.addButton(this, 0, "Keep Her", this.niceGuysKeepTheirGooGals);
-        this.addButton(this, 1, "Boot Her", this.bootOutNiceGoo);
+        this.addButton(0, "Keep Her", this.niceGuysKeepTheirGooGals);
+        this.addButton(1, "Boot Her", this.bootOutNiceGoo);
     }
     //Boot her Out(F):
     private bootOutNiceGoo(): void {
@@ -447,7 +447,7 @@ export class LatexGirl extends NPCAwareContent {
         this.outputText("You did your civic duty bringing her back with you, but taking care of her in the long term... that's asking too much.  \"<i>I understand,</i>\" she says, bowing her head sadly as she struggles unsteadily to her feet.  \"<i>It's all right.  You've done more than enough, really.  I'll go.  Hopefully some of my sisters in the lake will be willing to help me, even if I'm so... so different... from them, now.  Goodbye, my friend.  Maybe we'll meet again sometime.</i>\"");
         this.outputText("\n\nShe's gone a moment later, waving over her shoulder as she unsteadily walks back toward the lake.");
         this.flags[kFLAGS.GOO_TOSSED_AFTER_NAMING] = 1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Keep Her(F):
@@ -463,7 +463,7 @@ export class LatexGirl extends NPCAwareContent {
         this.flags[kFLAGS.GOO_HAPPINESS] = 60;
         this.flags[kFLAGS.GOO_OBEDIENCE] = 20;
         this.flags[kFLAGS.GOO_FLUID_AMOUNT] = 100;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 
@@ -560,16 +560,16 @@ export class LatexGirl extends NPCAwareContent {
         this.outputText("\n<b>Happiness %:</b> " + Math.round(this.gooHappiness()));
         this.outputText("\n<b>Obedience %:</b> " + Math.round(this.gooObedience()));
         this.menu();
-        this.addButton(this, 9, "Back", this.camp.campSlavesMenu);
-        this.addButton(this, 0, "Feed Her", this.feedLatexy);
-        if (this.player.gender > 0 && this.player.lust >= 33) this.addButton(this, 1, "Use Her", this.useLatexy);
-        this.addButton(this, 3, "Breast Size", this.setLatexysBustSize);
-        this.addButton(this, 4, "Dick Options", this.changeGooDick);
+        this.addButton(9, "Back", this.camp.campSlavesMenu);
+        this.addButton(0, "Feed Her", this.feedLatexy);
+        if (this.player.gender > 0 && this.player.lust >= 33) this.addButton(1, "Use Her", this.useLatexy);
+        this.addButton(3, "Breast Size", this.setLatexysBustSize);
+        this.addButton(4, "Dick Options", this.changeGooDick);
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_LATEXY] == 1) this.addButton(this, 9, "Back", kGAMECLASS.farm.farmCorruption.rootScene);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_LATEXY] == 1) this.addButton(9, "Back", kGAMECLASS.farm.farmCorruption.rootScene);
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_LATEXY] == 0 && this.flags[kFLAGS.FARM_CORRUPTION_STARTED] == 1) this.addButton(this, 5, "Farm Work", this.sendToFarm);
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_LATEXY] == 1) this.addButton(this, 5, "Go Camp", this.backToCamp);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_LATEXY] == 0 && this.flags[kFLAGS.FARM_CORRUPTION_STARTED] == 1) this.addButton(5, "Farm Work", this.sendToFarm);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_LATEXY] == 1) this.addButton(5, "Go Camp", this.backToCamp);
     }
 
     private sendToFarm(): void {
@@ -583,7 +583,7 @@ export class LatexGirl extends NPCAwareContent {
 
         this.flags[kFLAGS.FOLLOWER_AT_FARM_LATEXY] = 1;
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private backToCamp(): void {
@@ -596,7 +596,7 @@ export class LatexGirl extends NPCAwareContent {
         this.flags[kFLAGS.FOLLOWER_AT_FARM_LATEXY] = 0;
 
         //[+1 Obedience and -1 Happiness every two days kept at the farm]
-        this.doNext(this, kGAMECLASS.farm.farmCorruption.rootScene);
+        this.doNext(kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
     private useLatexy(): void {
@@ -604,11 +604,11 @@ export class LatexGirl extends NPCAwareContent {
         this.outputText("How will you use your pet?");
         this.menu();
         if (this.player.hasVagina()) {
-            this.addButton(this, 0, "DomWithVag", this.femalePCDomFucksLatexGoo);
-            if (this.flags[kFLAGS.GOO_DICK_LENGTH] > 0) this.addButton(this, 1, "RideGooCock", this.femalePCDomFucksLatexGooFuta);
+            this.addButton(0, "DomWithVag", this.femalePCDomFucksLatexGoo);
+            if (this.flags[kFLAGS.GOO_DICK_LENGTH] > 0) this.addButton(1, "RideGooCock", this.femalePCDomFucksLatexGooFuta);
         }
-        if (this.player.hasCock()) this.addButton(this, 2, "DickFuckHer", this.malePCDomFucksLatexGoo);
-        this.addButton(this, 4, "Back", this.approachLatexy);
+        if (this.player.hasCock()) this.addButton(2, "DickFuckHer", this.malePCDomFucksLatexGoo);
+        this.addButton(4, "Back", this.approachLatexy);
 
     }
 
@@ -645,25 +645,25 @@ export class LatexGirl extends NPCAwareContent {
             this.outputText("\n\nShe's going to have to learn to be a little more obedient before she'll do that.");
             this.gooObedience(-3);
             this.menu();
-            this.addButton(this, 0, "Next", this.approachLatexy);
+            this.addButton(0, "Next", this.approachLatexy);
             return;
         }
         this.menu();
         if (this.flags[kFLAGS.GOO_DICK_LENGTH] > 0) {
-            if (this.player.hasItem(this.consumables.CANINEP) && this.flags[kFLAGS.GOO_DICK_TYPE] != CockTypesEnum.DOG) this.addButton(this, 2, "Canine Pepper", this.latexyEatsADickItem, this.consumables.CANINEP);
-            if (this.player.hasItem(this.consumables.EQUINUM) && this.flags[kFLAGS.GOO_DICK_TYPE] != CockTypesEnum.HORSE) this.addButton(this, 3, "Equinum", this.latexyEatsADickItem, this.consumables.EQUINUM);
-            if (this.player.hasItem(this.consumables.P_DRAFT) && this.flags[kFLAGS.GOO_DICK_TYPE] != CockTypesEnum.HUMAN) this.addButton(this, 4, "Pure Draft", this.latexyEatsADickItem, this.consumables.P_DRAFT);
-            if (this.player.hasItem(this.consumables.W_FRUIT) && this.flags[kFLAGS.GOO_DICK_TYPE] != CockTypesEnum.CAT) this.addButton(this, 5, "Whisker Fruit", this.latexyEatsADickItem, this.consumables.W_FRUIT);
-            if (this.player.hasItem(this.consumables.INCUBID) && this.flags[kFLAGS.GOO_DICK_TYPE] != CockTypesEnum.DEMON) this.addButton(this, 0, "Incubi Draft", this.latexyEatsADickItem, this.consumables.INCUBID);
-            if (this.player.hasItem(this.consumables.MINOBLO) && this.flags[kFLAGS.GOO_DICK_TYPE] != CockTypesEnum.HORSE) this.addButton(this, 1, "Mino Blood", this.latexyEatsADickItem, this.consumables.MINOBLO);
-            if (this.player.hasItem(this.consumables.GROPLUS)) this.addButton(this, 6, "Gro Plus", this.latexyEatsADickItem, this.consumables.GROPLUS);
-            if (this.player.hasItem(this.consumables.REDUCTO) && this.flags[kFLAGS.GOO_DICK_LENGTH] >= 5) this.addButton(this, 7, "Reducto", this.latexyEatsADickItem, this.consumables.REDUCTO);
+            if (this.player.hasItem(this.consumables.CANINEP) && this.flags[kFLAGS.GOO_DICK_TYPE] != CockTypesEnum.DOG) this.addButton(2, "Canine Pepper", this.latexyEatsADickItem, this.consumables.CANINEP);
+            if (this.player.hasItem(this.consumables.EQUINUM) && this.flags[kFLAGS.GOO_DICK_TYPE] != CockTypesEnum.HORSE) this.addButton(3, "Equinum", this.latexyEatsADickItem, this.consumables.EQUINUM);
+            if (this.player.hasItem(this.consumables.P_DRAFT) && this.flags[kFLAGS.GOO_DICK_TYPE] != CockTypesEnum.HUMAN) this.addButton(4, "Pure Draft", this.latexyEatsADickItem, this.consumables.P_DRAFT);
+            if (this.player.hasItem(this.consumables.W_FRUIT) && this.flags[kFLAGS.GOO_DICK_TYPE] != CockTypesEnum.CAT) this.addButton(5, "Whisker Fruit", this.latexyEatsADickItem, this.consumables.W_FRUIT);
+            if (this.player.hasItem(this.consumables.INCUBID) && this.flags[kFLAGS.GOO_DICK_TYPE] != CockTypesEnum.DEMON) this.addButton(0, "Incubi Draft", this.latexyEatsADickItem, this.consumables.INCUBID);
+            if (this.player.hasItem(this.consumables.MINOBLO) && this.flags[kFLAGS.GOO_DICK_TYPE] != CockTypesEnum.HORSE) this.addButton(1, "Mino Blood", this.latexyEatsADickItem, this.consumables.MINOBLO);
+            if (this.player.hasItem(this.consumables.GROPLUS)) this.addButton(6, "Gro Plus", this.latexyEatsADickItem, this.consumables.GROPLUS);
+            if (this.player.hasItem(this.consumables.REDUCTO) && this.flags[kFLAGS.GOO_DICK_LENGTH] >= 5) this.addButton(7, "Reducto", this.latexyEatsADickItem, this.consumables.REDUCTO);
         }
         else {
-            if (this.player.hasItem(this.consumables.INCUBID)) this.addButton(this, 0, "Incubi Draft", this.latexyEatsADickItem, this.consumables.INCUBID);
-            if (this.player.hasItem(this.consumables.MINOBLO)) this.addButton(this, 1, "Mino Blood", this.latexyEatsADickItem, this.consumables.MINOBLO);
+            if (this.player.hasItem(this.consumables.INCUBID)) this.addButton(0, "Incubi Draft", this.latexyEatsADickItem, this.consumables.INCUBID);
+            if (this.player.hasItem(this.consumables.MINOBLO)) this.addButton(1, "Mino Blood", this.latexyEatsADickItem, this.consumables.MINOBLO);
         }
-        this.addButton(this, 9, "Back", this.approachLatexy);
+        this.addButton(9, "Back", this.approachLatexy);
     }
 
     private latexyEatsADickItem(item: ItemType): void {
@@ -709,7 +709,7 @@ export class LatexGirl extends NPCAwareContent {
             this.gooObedience(2);
         }
         this.menu();
-        this.addButton(this, 0, "Next", this.approachLatexy);
+        this.addButton(0, "Next", this.approachLatexy);
     }
     //Setting Preferred Bust Size(F)
     private setLatexysBustSize(): void {
@@ -720,7 +720,7 @@ export class LatexGirl extends NPCAwareContent {
             this.outputText("\n\nShe puts her hands on her hips and shouts, \"<i>As if!  I'll make 'em as big or as small as I want!  You're already getting a sexy latex woman who's dependent on you for sexual fluids - you don't need to micromanage everything about me too!</i>\"  She blushes a little when she realized she just discussed her new self as 'sexy'.  She must like this a little more than she lets on.");
             this.gooObedience(-2);
             this.menu();
-            this.addButton(this, 0, "Next", this.approachLatexy);
+            this.addButton(0, "Next", this.approachLatexy);
             return;
         }
         //Decent Obedience
@@ -730,15 +730,15 @@ export class LatexGirl extends NPCAwareContent {
             this.outputText("\n\nShe nods and casually hefts her tits in her hands, bouncing them back and forth with a slutty expression on her face.  \"<i>How big do you want me to be, [Master]?  I could be a big-breasted whore for you, barely able to move under the weight of my own tits.  Then you'd have a mountain of latex cleavage to play in.  Or, I could keep them as pert, apple-sized breasts that just barely fit into your hands.  I'd be a glossy, petite slut for you then, wouldn't I?</i>\"  She groans at the thoughts coursing through her obedient, depraved little mind and whimpers, \"<i>Just keep me well fed if you want them full, [Master].  Without enough fluid, I can't keep them big!</i>\"  " + this.flags[kFLAGS.GOO_NAME] + " watches you, awaiting the command to change herself.");
         }
         this.menu();
-        if (this.gooTitClass(this.gooTitSize()) != 1) this.addButton(this, 0, "A-Cups", this.changeLatexyTits, 1);
-        if (this.gooTitClass(this.gooTitSize()) != 2) this.addButton(this, 1, "C-Cups", this.changeLatexyTits, 3);
-        if (this.gooTitClass(this.gooTitSize()) != 3) this.addButton(this, 2, "DD-Cups", this.changeLatexyTits, 4);
-        if (this.gooTitClass(this.gooTitSize()) != 4) this.addButton(this, 3, "Volleyballs", this.changeLatexyTits, 8);
-        if (this.gooTitClass(this.gooTitSize()) != 5) this.addButton(this, 4, "Basketballs", this.changeLatexyTits, 15);
-        if (this.gooTitClass(this.gooTitSize()) != 6) this.addButton(this, 5, "Huge", this.changeLatexyTits, 24);
-        if (this.gooTitClass(this.gooTitSize()) != 7) this.addButton(this, 6, "Gigantic", this.changeLatexyTits, 35);
-        if (this.flags[kFLAGS.GOO_PREFERRED_TIT_SIZE] != 0) this.addButton(this, 7, "Whatever", this.changeLatexyTits, 0);
-        this.addButton(this, 9, "Back", this.approachLatexy);
+        if (this.gooTitClass(this.gooTitSize()) != 1) this.addButton(0, "A-Cups", this.changeLatexyTits, 1);
+        if (this.gooTitClass(this.gooTitSize()) != 2) this.addButton(1, "C-Cups", this.changeLatexyTits, 3);
+        if (this.gooTitClass(this.gooTitSize()) != 3) this.addButton(2, "DD-Cups", this.changeLatexyTits, 4);
+        if (this.gooTitClass(this.gooTitSize()) != 4) this.addButton(3, "Volleyballs", this.changeLatexyTits, 8);
+        if (this.gooTitClass(this.gooTitSize()) != 5) this.addButton(4, "Basketballs", this.changeLatexyTits, 15);
+        if (this.gooTitClass(this.gooTitSize()) != 6) this.addButton(5, "Huge", this.changeLatexyTits, 24);
+        if (this.gooTitClass(this.gooTitSize()) != 7) this.addButton(6, "Gigantic", this.changeLatexyTits, 35);
+        if (this.flags[kFLAGS.GOO_PREFERRED_TIT_SIZE] != 0) this.addButton(7, "Whatever", this.changeLatexyTits, 0);
+        this.addButton(9, "Back", this.approachLatexy);
     }
     private gooTitClass(arg: number): number {
         if (arg >= 35) return 7;
@@ -812,7 +812,7 @@ export class LatexGirl extends NPCAwareContent {
         }
         this.flags[kFLAGS.GOO_PREFERRED_TIT_SIZE] = arg;
         if (this.gooObedience() < 75) this.gooObedience(3);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Feeding Her(F)
@@ -826,18 +826,18 @@ export class LatexGirl extends NPCAwareContent {
         if (this.player.lust < 33 && this.player.gender > 0) this.outputText("  You aren't aroused enough to try and feed her any sexual fluids.");
         this.menu();
         if (this.player.hasCock() && this.player.lust >= 33) {
-            this.addButton(this, 0, "Cum, Indirect", this.feedLatexyCumIndirectly);
-            this.addButton(this, 1, "Cum, Direct", this.feedLatexyCumDirectly);
+            this.addButton(0, "Cum, Indirect", this.feedLatexyCumIndirectly);
+            this.addButton(1, "Cum, Direct", this.feedLatexyCumDirectly);
         }
         if (this.player.hasVagina() && this.player.lust >= 33) {
-            this.addButton(this, 2, "GirlCum, Ind.", this.feedLatexyGirlCumIndirectly);
-            this.addButton(this, 3, "GirlCum, Dir.", this.feedLatexyGirlCumDirect);
+            this.addButton(2, "GirlCum, Ind.", this.feedLatexyGirlCumIndirectly);
+            this.addButton(3, "GirlCum, Dir.", this.feedLatexyGirlCumDirect);
         }
-        if (this.gooHappiness() >= 50 && this.player.lactationQ() >= 100 && this.player.biggestTitSize() >= 3) this.addButton(this, 4, "Milk", this.feedLatexySomeMilk);
-        if (this.player.hasItem(this.consumables.MINOCUM)) this.addButton(this, 5, "MinoCum Nic", this.minotaurCumFeedingGoo, true);
-        if (this.player.hasItem(this.consumables.MINOCUM)) this.addButton(this, 6, "MinoCum Ruf", this.minotaurCumFeedingGoo, false);
+        if (this.gooHappiness() >= 50 && this.player.lactationQ() >= 100 && this.player.biggestTitSize() >= 3) this.addButton(4, "Milk", this.feedLatexySomeMilk);
+        if (this.player.hasItem(this.consumables.MINOCUM)) this.addButton(5, "MinoCum Nic", this.minotaurCumFeedingGoo, true);
+        if (this.player.hasItem(this.consumables.MINOCUM)) this.addButton(6, "MinoCum Ruf", this.minotaurCumFeedingGoo, false);
 
-        this.addButton(this, 9, "Back", this.approachLatexy);
+        this.addButton(9, "Back", this.approachLatexy);
     }
 
     //Feed Cum Indirectly(F)
@@ -890,7 +890,7 @@ export class LatexGirl extends NPCAwareContent {
         //{Boost her happiness a tiny amount.}
         this.gooHappiness(4);
         this.player.orgasm();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //Feed Lady-Cum Indirectly(F)
     private feedLatexyGirlCumIndirectly(): void {
@@ -933,7 +933,7 @@ export class LatexGirl extends NPCAwareContent {
         this.gooFluid(this.temp);
         //{Boost her happiness a tiny amount.}
         this.gooHappiness(4);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //Feed Her Minotaur Cum {Nice Vs Hard}:(F)
     private minotaurCumFeedingGoo(nice: boolean = false): void {
@@ -974,7 +974,7 @@ export class LatexGirl extends NPCAwareContent {
                     this.outputText("\n\nStaggering onto her feet, " + this.flags[kFLAGS.GOO_NAME] + " growls, \"<i>Fuck it, I'm not that thirsty!</i>\"  She turns away from you, unwilling to even talk at this point.");
                     this.gooObedience(-5);
                     this.gooHappiness(-3);
-                    this.doNext(this, this.camp.returnToCampUseOneHour);
+                    this.doNext(this.camp.returnToCampUseOneHour);
                     return;
                 }
                 this.outputText("\n\nStaggering up on her feet, " + this.flags[kFLAGS.GOO_NAME] + " looks about ready to quit.  Then, she licks her lips and shudders, as if remembering her own hunger.  She slumps down onto her knees and tips her head back, shaking a few strands of latex out of her face as she opens her mouth.  Then, her onyx lips mouth, \"<i>Feed me, please.</i>\"");
@@ -1002,7 +1002,7 @@ export class LatexGirl extends NPCAwareContent {
         this.gooHappiness(15);
         if (nice) this.gooObedience(-1);
         else this.gooObedience(5);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Feed Cum Directly(F)
@@ -1071,14 +1071,14 @@ export class LatexGirl extends NPCAwareContent {
             this.gooObedience(5);
             this.player.orgasm();
             this.dynStats("sen", -2);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
         //{DISOBEDIENT:}
         else {
             this.outputText("\n\nAt the sound of your command, her suction redoubles.  That suckling heat plumps your [cock biggest] even bigger inside her, bombarding you with cacophonous sensation that scatters your bodily control like leaves in the breeze.  You give a strangled whimper as you slide down the stone, landing softly on your [butt] before the sensuous shape of your rebellious pet.  Her lips are locked vacuum tight to your groin, pumping up and down with wet, hungry smacks.  You arch your back into her ministrations, rolling your eyes back into your head.  What need is there for sight when the jolts of pleasure coming from your [cock biggest] are so powerful that they make the previous orgasm seem a wasted, worthless thing.");
             this.menu();
-            this.addButton(this, 0, "Let Her", this.maleDirectFeedLatexGooGoneWrong);
-            this.addButton(this, 1, "Try2Assert", this.tryToAssertMaleDomWhileLatexGooDrains);
+            this.addButton(0, "Let Her", this.maleDirectFeedLatexGooGoneWrong);
+            this.addButton(1, "Try2Assert", this.tryToAssertMaleDomWhileLatexGooDrains);
         }
     }
 
@@ -1119,7 +1119,7 @@ export class LatexGirl extends NPCAwareContent {
         this.menu();
         this.player.orgasm();
         this.dynStats("lib", .5, "sen", -3);
-        this.addButton(this, 0, "Next", this.feedCumDirectEpilogue);
+        this.addButton(0, "Next", this.feedCumDirectEpilogue);
     }
     //[Next]
     private feedCumDirectEpilogue(): void {
@@ -1132,7 +1132,7 @@ export class LatexGirl extends NPCAwareContent {
         //{Boost her happiness a tiny amount.}
         this.gooHappiness(5);
         this.gooObedience(-4);
-        this.doNext(this, this.camp.returnToCampUseFourHours);
+        this.doNext(this.camp.returnToCampUseFourHours);
     }
     //Feed Lady-Cum Direct(F)
     private feedLatexyGirlCumDirect(): void {
@@ -1202,14 +1202,14 @@ export class LatexGirl extends NPCAwareContent {
             this.gooObedience(4);
             this.player.orgasm();
             this.dynStats("sen", -2);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
         //{DISOBEDIENT; chose not to/could not Assert Control}
         else {
             this.outputText("\n\nAt the sound of your order, your pet's efforts redouble.  Her slick onyx opening latches tight to your [clit] while what feels like a foot of thick tongue thrashes inside you.  As sensitive as you are after cumming, you simply can't endure such rampant stimulation.  The strength goes out of your [legs] in weak little twitches as you slump back against a boulder, the rough stone slowing your descent as you slide to the ground.  " + this.flags[kFLAGS.GOO_NAME] + "'s mouth stays locked to your [vagina], attached with vacuum-like tightness.  You can actually feel your vulva puffing larger under the suction.  Hotter and more sensitive, your labia plump up nice and thick.");
             this.menu();
-            this.addButton(this, 0, "Let Her", this.letLatexGooDrainCuntDry);
-            this.addButton(this, 1, "Try2Assert", this.assertControlOverCuntDrainingLatexGoo);
+            this.addButton(0, "Let Her", this.letLatexGooDrainCuntDry);
+            this.addButton(1, "Try2Assert", this.assertControlOverCuntDrainingLatexGoo);
         }
     }
 
@@ -1225,7 +1225,7 @@ export class LatexGirl extends NPCAwareContent {
         this.menu();
         this.player.orgasm();
         this.dynStats("lib", .5, "sen", -3);
-        this.addButton(this, 0, "Next", this.feedCumDirectEpilogueGirls);
+        this.addButton(0, "Next", this.feedCumDirectEpilogueGirls);
     }
 
     //[Next]
@@ -1236,7 +1236,7 @@ export class LatexGirl extends NPCAwareContent {
         //{Boost her happiness a tiny amount.}
         this.gooHappiness(4);
         this.gooObedience(-4);
-        this.doNext(this, this.camp.returnToCampUseFourHours);
+        this.doNext(this.camp.returnToCampUseFourHours);
     }
 
     /*Savin Says: Disobedient Pets get Punished with Gentle Loving PC-Dom (FEMALE)(F)*/
@@ -1272,7 +1272,7 @@ export class LatexGirl extends NPCAwareContent {
         //{Boost her happiness a tiny amount.}
         this.gooHappiness(5);
         this.gooObedience(5);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Savin Says: Disobedient Pets get Punished with Gentle Loving PC-Dom (MALE)
@@ -1309,7 +1309,7 @@ export class LatexGirl extends NPCAwareContent {
         //{Boost her happiness a tiny amount.}
         this.gooHappiness(5);
         this.gooObedience(5);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Dominant Fucking Her(F)
@@ -1336,7 +1336,7 @@ export class LatexGirl extends NPCAwareContent {
             else this.outputText(" has");
             this.outputText(" you doubting that claim, but she seems resolute in her desire to avoid direct sex, for now.");
             if (this.gooFluid() < 15) this.outputText("  Her hunger is palpable, perhaps it would be best if you simply 'fed' her soon?");
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             this.gooObedience(-3);
             return;
         }
@@ -1382,7 +1382,7 @@ export class LatexGirl extends NPCAwareContent {
         this.gooFluid(5 + this.player.wetness() * 2);
         this.gooObedience(5);
         this.gooHappiness(2);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //Female Dominant Fuck (Goo IS Futa)(F)
     private femalePCDomFucksLatexGooFuta(): void {
@@ -1401,7 +1401,7 @@ export class LatexGirl extends NPCAwareContent {
             this.outputText(", \"<i>No.  You can't make me.  I may be stuck in this camp and separated from my people, but I will not let myself be some sexual toy.</i>\"  A trickle of inky lubricant between her legs and the rigidity of her " + this.gooCock() + " have you doubting that claim, but she seems resolute in her desire to avoid direct sex, for now.");
             if (this.gooFluid() < 10) this.outputText("  Her hunger is palpable, perhaps it would be best if you simply 'fed' her soon?");
             this.gooObedience(-3);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         //{OBEDIENT ENOUGH}
@@ -1482,7 +1482,7 @@ export class LatexGirl extends NPCAwareContent {
         this.gooFluid(5 + this.player.wetness() * 2);
         this.gooObedience(4);
         this.gooHappiness(2);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Male Dominant Fuck(F)
@@ -1509,7 +1509,7 @@ export class LatexGirl extends NPCAwareContent {
             this.outputText(" you doubting that claim, but she seems resolute in her desire to avoid direct sex, at least until you train her a bit better.");
             if (this.gooFluid() < 10) this.outputText("  Her hunger is palpable, perhaps it would be best if you simply 'fed' her soon?");
             this.gooObedience(-3);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         //{OBEDIENT ENOUGH}
@@ -1587,7 +1587,7 @@ export class LatexGirl extends NPCAwareContent {
         this.fatigue(10);
         this.gooObedience(4);
         this.gooHappiness(2);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Savin Really Wants to Breastfeed Latexy Because He's a Weird Milk Fetishist Like That
@@ -1646,7 +1646,7 @@ export class LatexGirl extends NPCAwareContent {
         this.fatigue(5);
         this.player.orgasm();
         this.dynStats("sen", 2);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
 
     }
 }

@@ -21,18 +21,18 @@ export class DemonPack extends Monster {
             this.outputText("The demons stop attacking, and reach out to touch your body. Some are already masturbating like it's the only thing in the world and you know that right now, if you wanted to, you could make each and every one of them fuck you.");
         }
         if (this.findStatusAffect(StatusAffects.phyllafight) >= 0) {
-            this.doNext(this, this.game.desert.antsScene.consolePhylla);
+            this.doNext(this.game.desert.antsScene.consolePhylla);
         } else if (hpVictory) {
             this.game.cleanupAfterCombat();
         } else {
             this.outputText("  Do you rape them?", true);
-            this.game.doYesNo(this, this.rapeDemons, this.game.cleanupAfterCombat);
+            this.game.doYesNo(this.rapeDemons, this.game.cleanupAfterCombat);
         }
     }
 
     private rapeDemons(): void {
         this.outputText("You open your arms and step into the throng of eager demons. They jump eagerly to touch you, becoming more and more lust-frenzied every second. You take the nearest demon and throw it to the ground and without a moment's thought the rest of the group leap to join you in a thoughtless madness of lust...", true);
-        this.doNext(this, this.game.desert.oasis.oasisSexing);
+        this.doNext(this.game.desert.oasis.oasisSexing);
     }
 
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
@@ -45,7 +45,7 @@ export class DemonPack extends Monster {
             this.game.cleanupAfterCombat();
         } else if (hpVictory) {
             this.outputText("The demons finally beat you down and you collapse onto the sand of the oasis. Almost immediately you feel demonic hands pressing and probing your prone form. You hear the leader of the group say something in a strange tongue but you have a feeling you know what it means. The demons dive onto your inert body with intent and begin to press themselves against you...", true);
-            this.doNext(this, this.game.desert.oasis.oasisSexing);
+            this.doNext(this.game.desert.oasis.oasisSexing);
         } else {
             this.outputText("You struggle to keep your mind on the fight and fail to do so. ", true);
             if (pcCameWorms) {
@@ -62,7 +62,7 @@ export class DemonPack extends Monster {
                 this.outputText(this.game.vaginaDescript(0) + " burns ", false);
             }
             this.outputText("with arousal.  You make a grab for the nearest demon and catch a handful of jiggly breast. You try desperately to use your other arm to pull her closer to slake your thirst but you both go tumbling to the ground. The demonic leader laughs out loud and the rest of the tribe falls on you, grabbing for anything it can find.", false);
-            this.doNext(this, this.game.desert.oasis.oasisSexing);
+            this.doNext(this.game.desert.oasis.oasisSexing);
         }
     }
 

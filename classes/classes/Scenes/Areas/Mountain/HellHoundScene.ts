@@ -103,13 +103,13 @@ export class HellHoundScene extends BaseContent {
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00141] == 0) {
             this.outputText("As you're wandering the mountains, you feel an odd presence in the back of your mind.  It calls out to you with promise of power and safety, but part of you feels a bit apprehensive at the prospect of giving yourself over to it.  Do you let the presence take over?", false);
             //Player chooses yes/no - no -> (B), yes -> (C)
-            this.doYesNo(this, this.acceptCrazyPresences, this.declineCrazyPresences);
+            this.doYesNo(this.acceptCrazyPresences, this.declineCrazyPresences);
         }
         else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00141] == 1) {
             //Second Encounter (D)
             //can be triggered if the PC still has the required canine traits, and has a piece of Lethicite.
             this.outputText("As you're wandering the mountains, you once again feel an odd presence in the back of your mind.  You're sure it is the hellhound master once again.  You look at the pink crystal in your possession, and wonder if you should exchange it for the promissed hellfire.  Do you let the presence take over and give away the Lethicite?", false);
-            this.doYesNo(this, this.giveUpLethicite, this.declineGivingAwayLethicite);
+            this.doYesNo(this.giveUpLethicite, this.declineGivingAwayLethicite);
             //Player choose yes or no, no -> E, yes -> F
         }
     }
@@ -119,7 +119,7 @@ export class HellHoundScene extends BaseContent {
         this.outputText("", true);
         this.outputText("You force the presence out of your mind.  You feel almost a bit lost after it disappears, but giving yourself over to foreign control can never be a good idea, can it?", false);
         //end event, A can repeat later.
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //choose yes (C)
@@ -131,7 +131,7 @@ export class HellHoundScene extends BaseContent {
 
         this.outputText("You continue your trek to the master's home, you can feel that you're close.  At the back of the vale, stands what seems to be a fort of sorts in front of a large cliff face.  At the entrance, stands a stunning indigo succubus holding the leash of a very big hellhound.  She smiles as she sees you approach and calls you over.  You happily trot over to the demon mistress and nuzzle your head against her thighs.  She takes your canine head between her hands and gives you a playful rub while saying \"<i>Ah, what a cute little lost doggy.  You here to see the master?  Go on in, he always has time for his faithful hounds.  You're probably really lonely, I'm sure he can find a friend to join you on that beautiful body.</i>\"  You nod at her eagerly and proceed inside.\n\n", false);
         //nxt page
-        this.doNext(this, this.acceptCrazyPresencesII);
+        this.doNext(this.acceptCrazyPresencesII);
     }
 
     private acceptCrazyPresencesII(): void {
@@ -147,7 +147,7 @@ export class HellHoundScene extends BaseContent {
         if (this.player.hasKeyItem("Marae's Lethicite") >= 0 && this.player.keyItemv2("Marae's Lethicite") < 3) this.outputText(" You extract Marae's lethicite from your pack, and wonder if you really want to trade it for the hellfire he offered.", false);
         //advance to repeat version
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00141] = 1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Choose no (E)
@@ -155,7 +155,7 @@ export class HellHoundScene extends BaseContent {
         this.outputText("", true);
         this.outputText("You push the presence out of your mind.  Maybe later you'll collect the hellfire, but for now you'd rather keep the lethicite.", false);
         //end event, D can repeat.
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Choose yes (F)
@@ -168,8 +168,8 @@ export class HellHoundScene extends BaseContent {
         this.outputText("You barely spare a thought at the interior in your hurry to get to the master.  As you burst into the room, the master's eyes light up at the sight of you.  \"<i>Ah!  It is my favorite fan.  Have you brought me a piece of that pink crystal I asked you for?</i>\"\n\n", false);
 
         //Player chooses to either give Merae's full Lethicite, or a regular piece of Lethicite.  Limited by what they have, of course.  They cannot choose to leave at this point.  Merae's Lethicite -> G, Regular Lethicite -> H.
-        if (this.player.keyItemv2("Marae's Lethicite") == 0) this.simpleChoices(this, "Give All", this.giveALLTHELETHICITES, "Give Part", this.giveLethicitePiece, "", undefined, "", undefined, "", undefined);
-        else this.doNext(this, this.giveLethicitePiece);
+        if (this.player.keyItemv2("Marae's Lethicite") == 0) this.simpleChoices("Give All", this.giveALLTHELETHICITES, "Give Part", this.giveLethicitePiece, "", undefined, "", undefined, "", undefined);
+        else this.doNext(this.giveLethicitePiece);
     }
 
     //Regular Lethicite
@@ -204,7 +204,7 @@ export class HellHoundScene extends BaseContent {
         this.player.createPerk(PerkLib.Hellfire, 0, 0, 0, 0);
         //Hellhounds no longer encounterable.
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00141]++;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Merae's Lethicite

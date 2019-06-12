@@ -58,7 +58,7 @@ export class TentacleBeast extends Monster {
         else {
             if (!hpVictory && this.player.gender > 0) {
                 this.outputText("  Perhaps you could use it to sate yourself?", true);
-                this.game.doYesNo(this, this.game.forest.tentacleBeastScene.tentacleVictoryRape, this.game.cleanupAfterCombat);
+                this.game.doYesNo(this.game.forest.tentacleBeastScene.tentacleVictoryRape, this.game.cleanupAfterCombat);
             } else {
                 this.game.cleanupAfterCombat();
             }
@@ -81,7 +81,7 @@ export class TentacleBeast extends Monster {
                 this.outputText("...but an insistent voice rouses you from your stupor.  You manage to run into a nearby tunnel.  ");
                 this.game.desert.antsScene.phyllaTentaclePCLoss();
             } else
-                this.doNext(this, this.game.forest.tentacleBeastScene.tentacleLossRape);
+                this.doNext(this.game.forest.tentacleBeastScene.tentacleLossRape);
         }
     }
 

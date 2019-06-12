@@ -715,7 +715,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
 
     public slimeLoss(): void {
         this.outputText("", true);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
         if (this.player.gender == 2 || (this.player.gender == 3 && GreenSlimeScene.rand(2) == 0)) {
             this.temp = GreenSlimeScene.rand(3);
             if (this.temp == 0) this.oozeRapesYouVaginally();

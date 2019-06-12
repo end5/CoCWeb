@@ -70,7 +70,7 @@ export class Basilisk extends Monster {
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
             this.outputText("\n\nThe basilisk smirks, but waits for you to finish...");
-            this.doNext(this, this.game.endLustLoss);
+            this.doNext(this.game.endLustLoss);
         } else {
             this.game.highMountains.basiliskScene.loseToBasilisk();
         }

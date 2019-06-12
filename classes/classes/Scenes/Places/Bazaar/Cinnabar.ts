@@ -40,13 +40,13 @@ export class Cinnabar extends BazaarAbstractContent {
             if (!this.player.hasCock()) {
                 this.outputText("You walk over towards the rat-morph, and as you near, she places her hands on her hips, sizing you up with her intense, blood-red eyes.  She licks her lips and sidles alongside you, caressing your body as she offers, \"<i>50 gems for an hour.  That's all it takes to have Cinnabar be your companion...</i>\"  Her voice trails off into a husky vibration as she awaits your response.\n\n", false);
                 //[Buy an hour] [Leave]
-                this.simpleChoices(this, "Buy1Hour", this.cinnabarNonHugeDickings, "", undefined, "", undefined, "", undefined, "Leave", this.bazaar.enterTheBazaar);
+                this.simpleChoices("Buy1Hour", this.cinnabarNonHugeDickings, "", undefined, "", undefined, "", undefined, "Leave", this.bazaar.enterTheBazaar);
             }
             //(Small Cock)
             else if (this.player.biggestCockArea() < 100) {
                 this.outputText("You walk over towards the rat-morph, and as you near she places her hands on her hips, sizing you up with her intense, blood-red eyes.  She sidles up alongside you, caressing your body until she feels your bulge.  Her hand stops in place and licks her black, glossy lips,  giggling, \"<i>I see you've still got a little boy-cock, huh? Well, 50 gems will get you an hour of my time.  That's all it takes to have Cinnabar be your companion...</i>\"  The slutty rat-girl's voice trails off into a husky vibration while she awaits your response.", false);
                 //[Buy an hour] [Leave]
-                this.simpleChoices(this, "Buy1Hour", this.cinnabarNonHugeDickings, "", undefined, "", undefined, "", undefined, "Leave", this.bazaar.enterTheBazaar);
+                this.simpleChoices("Buy1Hour", this.cinnabarNonHugeDickings, "", undefined, "", undefined, "", undefined, "Leave", this.bazaar.enterTheBazaar);
             }
             //(Big enough Cock) 
             else {
@@ -57,8 +57,8 @@ export class Cinnabar extends BazaarAbstractContent {
                 this.outputText(" inside me... the name's Cinnabar, but I'd rather you plug me and call me whatever you want.</i>\"  Her voice trails off into a husky, barely heard vibration as she awaits your response.", false);
                 //[Fuck] [Leave]
                 if (this.player.cockTotal() > 2 && this.player.biggestCockArea2() >= 75)
-                    this.simpleChoices(this, "Fuck Her", this.cinnabarGetsFUKKKKED, "Multi-Fuck", this.cinnabarMultiCockPortalFuckFest, "", undefined, "", undefined, "Leave", this.bazaar.enterTheBazaar);
-                else this.simpleChoices(this, "Fuck Her", this.cinnabarGetsFUKKKKED, "", undefined, "", undefined, "", undefined, "Leave", this.bazaar.enterTheBazaar);
+                    this.simpleChoices("Fuck Her", this.cinnabarGetsFUKKKKED, "Multi-Fuck", this.cinnabarMultiCockPortalFuckFest, "", undefined, "", undefined, "Leave", this.bazaar.enterTheBazaar);
+                else this.simpleChoices("Fuck Her", this.cinnabarGetsFUKKKKED, "", undefined, "", undefined, "", undefined, "Leave", this.bazaar.enterTheBazaar);
             }
         }
         //Not first time
@@ -67,13 +67,13 @@ export class Cinnabar extends BazaarAbstractContent {
             if (!this.player.hasCock()) {
                 this.outputText("You walk over towards Cinnabar, and as you near, she places her hands on her hips, sizing you up with her intense, blood-red eyes.  She licks her lips and sidles alongside you, caressing your body as she offers, \"<i>50 gems for an hour.  That's all it takes to have a companion...</i>\"  Her voice trails off into a husky vibration as she awaits your response.\n\n", false);
                 //[Buy an hour] [Leave]
-                this.simpleChoices(this, "Buy1Hour", this.cinnabarNonHugeDickings, "", undefined, "", undefined, "", undefined, "Leave", this.bazaar.enterTheBazaar);
+                this.simpleChoices("Buy1Hour", this.cinnabarNonHugeDickings, "", undefined, "", undefined, "", undefined, "Leave", this.bazaar.enterTheBazaar);
             }
             //(Small Cock)
             else if (this.player.biggestCockArea() < 100) {
                 this.outputText("You walk over towards Cinnabar, and as you near, she places her hands on her hips, sizing you up with her intense, blood-red eyes.  She sidles up alongside you, caressing your body until she feels your bulge.  Her hand stops in place and licks her black, glossy lips,  giggling, \"<i>I see you've still got a little boy, huh? Well, 50 gems will get you an hour of my time.  That's all it takes to have a VERY skilled companion...</i>\"  The slutty rat-girl's voice trails off into a husky vibration while she awaits your response.", false);
                 //[Buy an hour] [Leave]
-                this.simpleChoices(this, "Buy1Hour", this.cinnabarNonHugeDickings, "", undefined, "", undefined, "", undefined, "Leave", this.bazaar.enterTheBazaar);
+                this.simpleChoices("Buy1Hour", this.cinnabarNonHugeDickings, "", undefined, "", undefined, "", undefined, "Leave", this.bazaar.enterTheBazaar);
             }
             //(Big enough Cock) 
             else {
@@ -84,8 +84,8 @@ export class Cinnabar extends BazaarAbstractContent {
                 this.outputText(" inside me... We could sit here and talk, but I'd rather you plug me and call me your slut.</i>\"  Her voice trails off into a husky, barely heard vibration as she awaits your response.", false);
                 //[Fuck] [Leave]
                 if (this.player.cockTotal() > 2 && this.player.biggestCockArea2() >= 75)
-                    this.simpleChoices(this, "Fuck Her", this.cinnabarGetsFUKKKKED, "Multi-Fuck", this.cinnabarMultiCockPortalFuckFest, "", undefined, "", undefined, "Leave", this.bazaar.enterTheBazaar);
-                else this.simpleChoices(this, "Fuck Her", this.cinnabarGetsFUKKKKED, "", undefined, "", undefined, "", undefined, "Leave", this.bazaar.enterTheBazaar);
+                    this.simpleChoices("Fuck Her", this.cinnabarGetsFUKKKKED, "Multi-Fuck", this.cinnabarMultiCockPortalFuckFest, "", undefined, "", undefined, "Leave", this.bazaar.enterTheBazaar);
+                else this.simpleChoices("Fuck Her", this.cinnabarGetsFUKKKKED, "", undefined, "", undefined, "", undefined, "Leave", this.bazaar.enterTheBazaar);
             }
         }
     }
@@ -101,7 +101,7 @@ export class Cinnabar extends BazaarAbstractContent {
         //(Too poor)
         if (this.player.gems < 50) {
             this.outputText("\"<i>Ooooh... I'm sorry, but you don't have the gems to hire a companion, babe.   You should get some practice spreading your thighs and earn a REAL living,</i>\" Cinnabar teases.", false);
-            this.doNext(this, this.bazaar.enterTheBazaar);
+            this.doNext(this.bazaar.enterTheBazaar);
             return;
         }
         //(Enough cash)
@@ -200,7 +200,7 @@ export class Cinnabar extends BazaarAbstractContent {
 
         this.player.orgasm();
         this.dynStats("sen", -2);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[FUCK] – tracks if last fuck was huger + corrupteded version
@@ -263,10 +263,10 @@ export class Cinnabar extends BazaarAbstractContent {
         this.outputText("It barely registers – you're too busy cramming inch after inch into the slowly-widening vice in front of you, enthralled by just how much cock-flesh her body can devour.  She's frothing at the mouth, screaming, squeaking, and pounding on the bed.  You push forward a little harder, tugging on the base of her tail for leverage as huge globs of rat-cum rain from the stretched-out snatch onto the sheets.   Another three inches sink into your new cock-sleeve, and she starts to whimper and squeak, reminding you of an old, worn-out chew-toy that your father's dog used to play with.", false);
         //HUger
         if (this.player.cockArea(x) >= 200) {
-            if (this.player.cor >= 75) this.doNext(this, this.fuckCinnabarHugerAndCorruptedEr);
-            else this.doNext(this, this.cinnabarHuger);
+            if (this.player.cor >= 75) this.doNext(this.fuckCinnabarHugerAndCorruptedEr);
+            else this.doNext(this.cinnabarHuger);
         }
-        else this.doNext(this, this.cinnabarHuge);
+        else this.doNext(this.cinnabarHuge);
     }
 
     //(Huger and Corrupteder) (75+ corr)
@@ -332,7 +332,7 @@ export class Cinnabar extends BazaarAbstractContent {
         this.player.orgasm();
         this.dynStats("sen", 3, "cor", -2);
         this.player.takeDamage(25);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //(HUGER)
@@ -383,7 +383,7 @@ export class Cinnabar extends BazaarAbstractContent {
         this.outputText(".", false);
         this.player.orgasm();
         this.dynStats("sen", -4);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //(HUGE)
@@ -434,7 +434,7 @@ export class Cinnabar extends BazaarAbstractContent {
         this.outputText(".", false);
         this.player.orgasm();
         this.dynStats("sen", -3);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Multi Cock Portals] – Requires 2 75+ cock area members and at least 3 total.
@@ -532,6 +532,6 @@ export class Cinnabar extends BazaarAbstractContent {
         this.outputText("While you're getting dressed, the repeated slurps and moans pause enough for Cinnabar to say, \"<i>I didn't mean to be rude... those dicks... those wonderful, plump cocks... they're a gift.  Come back soon " + this.player.mf("stud", "baby") + ", your cream filling tastes gooood.</i>\"  She goes back to licking herself, and you can't help but have a huge grin as you walk out.", false);
         this.player.orgasm();
         this.dynStats("sen", -6);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 }

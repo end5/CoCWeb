@@ -121,7 +121,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
         this.urta.urtaLove(1);
         if (this.flags[kFLAGS.KATHERINE_UNLOCKED] != 3) {
             if (this.model.time.hours >= 13) this.flags[kFLAGS.KATHERINE_LOCATION] = Katherine.KLOC_URTAS_APT; //Katherine.timeChange will sort out whether Kath actually stays with Urta
-            this.doNext(this, this.camp.returnToCampUseOneHour); //An additional scene plays afterward if Kath is still being trained by Urta
+            this.doNext(this.camp.returnToCampUseOneHour); //An additional scene plays afterward if Kath is still being trained by Urta
         }
     }
 
@@ -186,7 +186,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
         this.urta.urtaLove(1);
         if (this.flags[kFLAGS.KATHERINE_UNLOCKED] != 3)
             if (this.model.time.hours >= 13) this.flags[kFLAGS.KATHERINE_LOCATION] = Katherine.KLOC_URTAS_APT; //Katherine.timeChange will sort out whether Kath actually stays with Urta
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public roastYou(): void { //Not available if Kath has no cock
@@ -292,7 +292,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
         this.urta.urtaLove(1);
         if (this.flags[kFLAGS.KATHERINE_UNLOCKED] != 3)
             if (this.model.time.hours >= 13) this.flags[kFLAGS.KATHERINE_LOCATION] = Katherine.KLOC_URTAS_APT; //Katherine.timeChange will sort out whether Kath actually stays with Urta
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public spitroastKath(): void { //Works for all except genderless characters
@@ -356,7 +356,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
         this.urta.urtaLove(1);
         if (this.flags[kFLAGS.KATHERINE_UNLOCKED] != 3)
             if (this.model.time.hours >= 13) this.flags[kFLAGS.KATHERINE_LOCATION] = Katherine.KLOC_URTAS_APT; //Katherine.timeChange will sort out whether Kath actually stays with Urta
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public pinAndFuck(): void { //Kath is sober, Urta is drunk //Not available if Kath has no cock
@@ -389,9 +389,9 @@ export class KatherineThreesome extends TelAdreAbstractContent {
         this.katherine.orgasm();
         this.urta.urtaLove(1);
         if (this.player.hasCock()) {
-            this.simpleChoices(this, "Stuff Kath", this.pinAndFuckStuffKath, "Mount Urta", this.pinAndFuckMountUrta, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices("Stuff Kath", this.pinAndFuckStuffKath, "Mount Urta", this.pinAndFuckMountUrta, "", undefined, "", undefined, "", undefined);
         }
-        else this.doNext(this, this.pinAndFuckMountUrta);
+        else this.doNext(this.pinAndFuckMountUrta);
     }
 
     private pinAndFuckMountUrta(): void { //Plays for anyone without a cock and for herms who select this option
@@ -443,7 +443,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
         this.flags[kFLAGS.URTA_COMFORTABLE_WITH_OWN_BODY]++;
         this.flags[kFLAGS.URTA_TIME_SINCE_LAST_CAME] = 8 + KatherineThreesome.rand(2);
         if (this.model.time.hours >= 13) this.flags[kFLAGS.KATHERINE_LOCATION] = Katherine.KLOC_URTAS_APT; //Katherine.timeChange will sort out whether Kath actually stays with Urta
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private pinAndFuckStuffKath(): void { //Plays for any males and for herms who select this option
@@ -490,7 +490,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
         this.outputText("You lock the door on the way out, " + (this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] >= 31 ? "knowing that with those two the sex option will eventually win out." : "hoping your sated girlfriends will bond over this."));
         this.flags[kFLAGS.URTA_TIME_SINCE_LAST_CAME] = 2 + KatherineThreesome.rand(2);
         if (this.model.time.hours >= 13) this.flags[kFLAGS.KATHERINE_LOCATION] = Katherine.KLOC_URTAS_APT; //Katherine.timeChange will sort out whether Kath actually stays with Urta
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public watch(urtaIsDrunk: boolean): void { //Kath is sober (or drunk), Urta is drunk
@@ -551,7 +551,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
         this.flags[kFLAGS.URTA_TIME_SINCE_LAST_CAME] = 2 + KatherineThreesome.rand(2);
         this.dynStats("lus", 20 + this.player.lib / 20);
         if (this.model.time.hours >= 13) this.flags[kFLAGS.KATHERINE_LOCATION] = Katherine.KLOC_URTAS_APT; //Katherine.timeChange will sort out whether Kath actually stays with Urta
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public kathLicksOutUrta(): void { //Kath is drunk, Urta is sober
@@ -571,7 +571,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
         this.flags[kFLAGS.URTA_COMFORTABLE_WITH_OWN_BODY]++;
         this.flags[kFLAGS.URTA_TIME_SINCE_LAST_CAME] = 2 + KatherineThreesome.rand(2);
         this.urta.drainedByKath = true;
-        this.doNext(this, this.katherine.katherineSex);
+        this.doNext(this.katherine.katherineSex);
     }
 
     public knothole(): void { //Kath is drunk, Urta is sober //Not available if Kath has no cock
@@ -612,7 +612,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
         this.flags[kFLAGS.URTA_TIME_SINCE_LAST_CAME] = 2 + KatherineThreesome.rand(2);
         this.urta.urtaLove(1);
         if (this.model.time.hours >= 13) this.flags[kFLAGS.KATHERINE_LOCATION] = Katherine.KLOC_URTAS_APT; //Katherine.timeChange will sort out whether Kath actually stays with Urta
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public sandwich(): void { //Kath is drunk, Urta is sober //Not available if Kath has no cock
@@ -623,8 +623,8 @@ export class KatherineThreesome extends TelAdreAbstractContent {
         this.outputText("You put your hands on Urta’s shoulders, pushing her back towards Katherine.  When Kath sinks her shaft" + this.katherine.cockMultiple("", "s") + " into Urta you comment that they’re really getting along well.  You’re glad to see there isn’t much friction between them.\n\n");
         this.outputText("“<i>How could there be when she’s cumming buckets?</i>” asks Kath, her cock" + this.katherine.cockMultiple("", "s") + " bottoming out inside Urta.  “<i>Now how about you give her something to do?</i>”");
         if (this.player.hasCock())
-            this.simpleChoices(this, "Mount Urta", this.sandwichGetFucked, "Get Licked", (this.player.isTaur() ? this.sandwichMaleCentaurLicked : this.sandwichGetLicked), "", undefined, "", undefined, "", undefined);
-        else this.doNext(this, this.sandwichGetFucked);
+            this.simpleChoices("Mount Urta", this.sandwichGetFucked, "Get Licked", (this.player.isTaur() ? this.sandwichMaleCentaurLicked : this.sandwichGetLicked), "", undefined, "", undefined, "", undefined);
+        else this.doNext(this.sandwichGetFucked);
     }
 
     private sandwichGetFucked(): void {
@@ -742,7 +742,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
         this.flags[kFLAGS.URTA_TIME_SINCE_LAST_CAME] = 2 + KatherineThreesome.rand(2);
         this.urta.urtaLove(1);
         if (this.model.time.hours >= 13) this.flags[kFLAGS.KATHERINE_LOCATION] = Katherine.KLOC_URTAS_APT; //Katherine.timeChange will sort out whether Kath actually stays with Urta
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public orgy(): void { //Both Kath and Urta are drunk
@@ -800,7 +800,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
         this.flags[kFLAGS.URTA_TIME_SINCE_LAST_CAME] = 10 + KatherineThreesome.rand(2);
         this.urta.urtaLove(1);
         if (this.model.time.hours >= 13) this.flags[kFLAGS.KATHERINE_LOCATION] = Katherine.KLOC_URTAS_APT; //Katherine.timeChange will sort out whether Kath actually stays with Urta
-        this.doNext(this, this.camp.returnToCampUseTwoHours);
+        this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
 
@@ -893,7 +893,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
         this.flags[kFLAGS.URTA_COMFORTABLE_WITH_OWN_BODY]++;
         this.flags[kFLAGS.URTA_TIME_SINCE_LAST_CAME] = 2 + KatherineThreesome.rand(2);
         this.urta.urtaLove(1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public doublePenetrateKath(): void { //Both Kath and Urta are drunk
@@ -992,7 +992,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
         this.flags[kFLAGS.URTA_TIME_SINCE_LAST_CAME] = 2 + KatherineThreesome.rand(2);
         this.urta.urtaLove(1);
         if (this.model.time.hours >= 13) this.flags[kFLAGS.KATHERINE_LOCATION] = Katherine.KLOC_URTAS_APT; //Katherine.timeChange will sort out whether Kath actually stays with Urta
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public doubleStuffVala(): void { //Not available if Kath has no cock
@@ -1027,7 +1027,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
         this.katherine.orgasm();
         this.katherine.katherineAndValaHadSex();
         this.flags[kFLAGS.VALA_TIMES_CONSENSUAL_SEX]++;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public eatOutVala(): void { //Not available if Kath has no cock
@@ -1047,7 +1047,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
         this.katherine.orgasm();
         this.katherine.katherineAndValaHadSex();
         this.flags[kFLAGS.VALA_TIMES_CONSENSUAL_SEX]++;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public fistKathAndVala(): void {
@@ -1072,7 +1072,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
         this.katherine.orgasm();
         this.katherine.katherineAndValaHadSex();
         this.flags[kFLAGS.VALA_TIMES_CONSENSUAL_SEX]++;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private valaCommonStart(): void {

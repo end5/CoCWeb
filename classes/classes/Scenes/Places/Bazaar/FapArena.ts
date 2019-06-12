@@ -36,7 +36,7 @@ export class FapArena extends BazaarAbstractContent {
             //, or consider buying products in our local shop.</i>\"\n\n", false);
             //outputText("She redirects you to a small stall near the entrance with various potions stored on shelves.  A poster placed on it reads: "Your dick must qualify to the house's standards.  80 gems for a vial of Gro+, 80 for the session of your life!"
             //Do you buy products? (Yes/No) //Yes gives you a vial of Gro+, No does nothing. In both cases, the PC is redirected to the Bazaar.
-            this.doNext(this, this.bazaar.enterTheBazaar);
+            this.doNext(this.bazaar.enterTheBazaar);
             return;
         }
         //[if dick size >= 8 inches: 1st time] 
@@ -70,7 +70,7 @@ export class FapArena extends BazaarAbstractContent {
             else this.outputText("By gods, what are you doing here?", false);
             //end of condition about PC's corr
             this.outputText("\n\nDo you stay?", false);
-            this.doYesNo(this, this.fapArenaPageII, this.bazaar.enterTheBazaar);
+            this.doYesNo(this.fapArenaPageII, this.bazaar.enterTheBazaar);
         }
         //[if dick size > 8 inches: after first time] 
         else {
@@ -82,7 +82,7 @@ export class FapArena extends BazaarAbstractContent {
             this.outputText("Everyone nods in agreement, hands and genitalia quivering in excitement.", false);
             //[if Corr >40]
             if (this.player.cor > 66) this.outputText("  You look forward to this new masturbating session.", false);
-            this.doNext(this, this.fapArenaPageII);
+            this.doNext(this.fapArenaPageII);
         }
         //end of condition about PC's first time, display the following
     }
@@ -137,11 +137,11 @@ export class FapArena extends BazaarAbstractContent {
         //If ST > 30, the PC wins.
         //Otherwise the PC's rating is ST, rounded up.]
         //[if the player loses]
-        if (st <= 0) this.doNext(this, this.createCallBackFunction(this, this.fapResults, 3));
+        if (st <= 0) this.doNext(this.createCallBackFunction(this.fapResults, 3));
         //[else if the player doesn't lose, but doesn't win either - he cums neither first nor last]
-        else if (st < 29.5) this.doNext(this, this.createCallBackFunction(this, this.fapResults, 2));
+        else if (st < 29.5) this.doNext(this.createCallBackFunction(this.fapResults, 2));
         //[else, the player wins]
-        else this.doNext(this, this.createCallBackFunction(this, this.fapResults, 1));
+        else this.doNext(this.createCallBackFunction(this.fapResults, 1));
     }
 
     private fapResults(place: number = 3): void {
@@ -413,13 +413,13 @@ export class FapArena extends BazaarAbstractContent {
         else if (place == 2) {
             this.outputText("You awkwardly remove the dick from your ass and start dressing yourself.  Before you go, the cute little referee waves at you, her coy smile and nude body somehow awakening " + this.sMultiCockDesc() + " again.  Ye Gods, it never ends.  \"<i>I hope you enjoyed this session. Better luck next time...</i>\"", false);
             this.player.orgasm();
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
         //[if you lost]
         else {
             this.outputText("You awkwardly remove the dick from your ass, start cleaning yourself from all the dirt and cum before leaving the tent.  Before you go, the nude referee approaches you and gently squeezes your " + this.cockDescript(x) + "; you still wince from the pounding it took earlier.  \"<i>Awww, looks like you had a rough time, didn't you?  Well, it happens sometimes.  Hopefully you will get better at this.  See you next game!</i>\"", false);
             this.player.orgasm();
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
 
     }

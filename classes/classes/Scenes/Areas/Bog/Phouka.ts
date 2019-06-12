@@ -144,7 +144,7 @@ export class Phouka extends Monster {
             if (this.player.hasVagina())
                 this.outputText("lass and spread yer legs for me.”</i>\n\n");
             else this.outputText("lad and spread yer asscheeks for me.”</i>\n\n");
-            this.doNext(this, this.game.endLustLoss);
+            this.doNext(this.game.endLustLoss);
         }
         else {
             if (this.player.hasVagina()) { //Phouka prefer vaginal if they can get it

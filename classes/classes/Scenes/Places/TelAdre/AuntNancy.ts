@@ -40,7 +40,7 @@ export class AuntNancy extends TelAdreAbstractContent {
             this.outputText("Aunt Nancy sighs.  \"<i>Sorry. I don't mean to bore you with an old woman's rambling.  I... I just miss him, so much, and I get a little... lonely, sometimes.</i>\"  She looks at you, with a strange, half-hungry, half-desperate look in her eyes.  \"<i>Would you mind... coming home with me?  You seem a little tense, and I'd like to give you a massage.</i>\"\n\n", false);
             //[Gain 20 Lust.] (I remain steadfastly unaroused; maudlin self-pity isn't sexy.  -Z)
             this.dynStats("lus", 10);
-            this.simpleChoices(this, "Agree", this.timeForAuntNancySpiderCooch, "Decline", this.declineAuntNancyMassage, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices("Agree", this.timeForAuntNancySpiderCooch, "Decline", this.declineAuntNancyMassage, "", undefined, "", undefined, "", undefined);
         }
         //[If Time >= 1400 - (100*(Relationship with Aunt Nancy/30), Relationship with Aunt Nancy >= 30, and PillowTalk= 1]
         else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00264] >= 30 && this.model.time.hours >= (14 - (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00264] / 30)) && this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00266] > 0) {
@@ -48,7 +48,7 @@ export class AuntNancy extends TelAdreAbstractContent {
 
             this.outputText("\"<i>Couldn't stay away, could you friend?</i>\" she asks, quietly, a sexy smile on her lovely face.  \"<i>What'll it be? Do you want a drink...</i>\"  The spider-lady leans her white-haired head next to your ear conspiratorially, and whispers, \"<i>Or, do you want me to get off early and give you a little... massage?</i>\"  You shiver at her words.\n\n", false);
             //[Choice: Strong, Light, Agree, Decline]
-            this.simpleChoices(this, "Strong", this.strongStuff, "Light", this.lightStuff, "Agree", this.timeForAuntNancySpiderCooch, "", undefined, "Back", this.declineAuntNancyMassage);
+            this.simpleChoices("Strong", this.strongStuff, "Light", this.lightStuff, "Agree", this.timeForAuntNancySpiderCooch, "", undefined, "Back", this.declineAuntNancyMassage);
         }
         //[Interaction 1]
         //If Relationship with Nancy < 30
@@ -59,7 +59,7 @@ export class AuntNancy extends TelAdreAbstractContent {
             //[If MetNancy < 1, MetNancy += 1]
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00263] < 1) this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00263] = 1;
             //[Choice: Strong, Light]
-            this.simpleChoices(this, "Strong", this.strongStuff, "Light", this.lightStuff, "", undefined, "", undefined, "Leave", this.telAdre.barTelAdre);
+            this.simpleChoices("Strong", this.strongStuff, "Light", this.lightStuff, "", undefined, "", undefined, "Leave", this.telAdre.barTelAdre);
         }
     }
 
@@ -70,7 +70,7 @@ export class AuntNancy extends TelAdreAbstractContent {
         if (this.player.gems < 5) {
             this.outputText("You start to ask for a strong drink and then remember you can't afford it.", false);
             //Do next
-            this.doNext(this, this.interactWithAuntNancy);
+            this.doNext(this.interactWithAuntNancy);
             return;
         }
         this.dynStats("tou", 1, "int", -1, "lus", 15);
@@ -94,7 +94,7 @@ export class AuntNancy extends TelAdreAbstractContent {
             //[+5 Relationship with Aunt Nancy]
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00264] += 5;
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //[Light:]
     private lightStuff(): void {
@@ -103,7 +103,7 @@ export class AuntNancy extends TelAdreAbstractContent {
         if (this.player.gems < 5) {
             this.outputText("You start to ask for a light drink and then remember you can't afford it.", false);
             //Do next
-            this.doNext(this, this.interactWithAuntNancy);
+            this.doNext(this.interactWithAuntNancy);
             return;
         }
         this.player.gems -= 5;
@@ -162,7 +162,7 @@ export class AuntNancy extends TelAdreAbstractContent {
             if (AuntNancy.rand(2) == 0) this.dynStats("int", 1 + AuntNancy.rand(2));
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00264] += 20;
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[If Decline]
@@ -172,7 +172,7 @@ export class AuntNancy extends TelAdreAbstractContent {
 
         this.outputText("Aunt Nancy raises one of her black-covered hands in front of her mouth, and blows you a kiss before scuttling away.", false);
         //[Gain 20 Lust.]
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[If Agree]
@@ -190,7 +190,7 @@ export class AuntNancy extends TelAdreAbstractContent {
         //[Gain 30 Lust, New Page]
         this.player.lust += 29;
         this.dynStats("lus", 1);
-        this.doNext(this, this.auntNancyPoonPartII);
+        this.doNext(this.auntNancyPoonPartII);
     }
     private auntNancyPoonPartII(): void {
         this.outputText("", true);
@@ -344,7 +344,7 @@ export class AuntNancy extends TelAdreAbstractContent {
             //[If PC is lactating:]
             if (this.player.biggestLactation() >= 1) this.outputText("As milk leaks slowly from your " + this.nippleDescript(0) + "s, the spider-lady notices. She lowers her head and wraps her soft, lovely lips around the tip of one of your " + this.player.allBreastsDescript() + ", sucking gently and frantically flicking her tongue against your " + this.nippleDescript(0) + ".  You moan and lie back into the web, the multitude of sexual pleasures assaulting your senses almost more than you can bear as Aunt Nancy begins swallowing up your milk.\n\n", false);
         }
-        this.doNext(this, this.auntNancyPoonPartIII);
+        this.doNext(this.auntNancyPoonPartIII);
     }
 
     private auntNancyPoonPartIII(): void {
@@ -440,7 +440,7 @@ export class AuntNancy extends TelAdreAbstractContent {
         this.outputText("\"<i>And I'll be damned if I do all the work this time,</i>\" Aunt Nancy adds, before letting out a satisfied groan at the touch of your lips.", false);
 
         //[Next Page, Time += 200]
-        this.doNext(this, this.auntNancyPoonPartIV);
+        this.doNext(this.auntNancyPoonPartIV);
     }
     private auntNancyPoonPartIV(): void {
         this.outputText("", true);
@@ -477,6 +477,6 @@ export class AuntNancy extends TelAdreAbstractContent {
         }
         //Increment times boned!
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00266] += 1;
-        this.doNext(this, this.camp.returnToCampUseTwoHours);
+        this.doNext(this.camp.returnToCampUseTwoHours);
     }
 }

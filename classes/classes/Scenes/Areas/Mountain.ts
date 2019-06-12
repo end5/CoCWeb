@@ -35,7 +35,7 @@ export class Mountain extends BaseContent {
         if ((this.player.level >= 5 || this.player.exploredMountain >= 40) && this.flags[kFLAGS.DISCOVERED_HIGH_MOUNTAIN] == 0) {
             this.outputText("While exploring the mountain, you come across a relatively safe way to get at its higher reaches.  You judge that with this route you'll be able to get about two thirds of the way up the mountain.  With your newfound discovery fresh in your mind, you return to camp.\n\n(<b>High Mountain exploration location unlocked!</b>)", true);
             this.flags[kFLAGS.DISCOVERED_HIGH_MOUNTAIN]++;
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         if (this.isHolidays()) {
@@ -177,7 +177,7 @@ export class Mountain extends BaseContent {
                     this.outputText("You stumble in your attempt to escape and realize that you are completely helpless.  The minotaur towers over you and heaves his ax for a <i>coup de grace</i>.  As he readies the blow, another beast-man slams into him from the side.  The two of them begin to fight for the honor of raping you, giving you the opening you need to escape.  You quietly sneak away while they fight – perhaps you should avoid the mountains for now?\n\n", false);
                 }
                 this.player.createStatusAffect(StatusAffects.TF2, 0, 0, 0, 0);
-                this.doNext(this, this.camp.returnToCampUseOneHour);
+                this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
             //Mino gangbang
@@ -199,8 +199,8 @@ export class Mountain extends BaseContent {
                     this.outputText("\n\nSnapping out of your imaginative reverie, you turn your attention back to the show. You wonder if you could make your way over there and join them, or if you should simply remain here and watch, as you have in the past.");
                     this.menu();
                     //[Join] [Watch]
-                    this.addButton(this, 0, "Join", this.joinBeingAMinoCumSlut);
-                    this.addButton(this, 1, "Watch", this.watchAMinoCumSlut);
+                    this.addButton(0, "Join", this.joinBeingAMinoCumSlut);
+                    this.addButton(1, "Watch", this.watchAMinoCumSlut);
                     return;
                 }
                 this.flags[kFLAGS.HAS_SEEN_MINO_AND_COWGIRL] = 1;
@@ -212,7 +212,7 @@ export class Mountain extends BaseContent {
                 this.outputText("She bellows, almost moaning, as the minotaur grabs her cushiony ass-cheeks with both massive hands. Her tail raises to expose a glistening wet snatch, its lips already parted with desire. She moos again as his rapidly hardening bull-cock brushes her crotch. You can't tear your eyes away as he positions himself, his flaring, mushroom-like cock-head eliciting another moan as it pushes against her nether lips.\n\n", false);
                 this.outputText("With a hearty thrust, the minotaur plunges into the cow-girl's eager fuck-hole, burying himself past one -- two of his oversized cock's three ridge rings. She screams in half pain, half ecstasy and pushes back, hungry for his full length. After pulling back only slightly, he pushes deeper, driving every inch of his gigantic dick into his willing partner who writhes in pleasure, impaled exactly as she wanted.\n\n", false);
                 this.outputText("The pair quickly settles into a rhythm, punctuated with numerous grunts, groans, and moans of sexual excess. To you it's almost a violent assault sure to leave both of them bruised and sore, but the cow-girl's lolling tongue and expression of overwhelming desire tells you otherwise. She's enjoying every thrust as well as the strokes, gropes, and seemingly painful squeezes the minotaur's powerful hands deliver to her jiggling ass and ponderous tits. He's little better, his eyes glazed over with lust as he continues banging the fuck-hole he found and all but mauling its owner.", false);
-                this.doNext(this, this.continueMinoVoyeurism);
+                this.doNext(this.continueMinoVoyeurism);
                 return;
             }
             //Cum addictus interruptus!  LOL HARRY POTTERFAG
@@ -237,7 +237,7 @@ export class Mountain extends BaseContent {
                         this.outputText("During your hike into the mountains, your depraved mind keeps replaying your most obcenely warped sexual encounters, always imagining new perverse ways of causing pleasure.\n\nIt is a miracle no predator picked up on the strong sexual scent you are emitting.", true);
                         this.dynStats("tou", .25, "spe", .5, "lib", .25, "lus", this.player.lib / 10);
                     }
-                    this.doNext(this, this.camp.returnToCampUseOneHour);
+                    this.doNext(this.camp.returnToCampUseOneHour);
                     return;
                 }
                 kGAMECLASS.wormEncounter();
@@ -253,7 +253,7 @@ export class Mountain extends BaseContent {
                         this.outputText("During your hike into the mountains, your depraved mind keeps replaying your most obcenely warped sexual encounters, always imagining new perverse ways of causing pleasure.\n\nIt is a miracle no predator picked up on the strong sexual scent you are emitting.", true);
                         this.dynStats("tou", .25, "spe", .5, "lib", .25, "lus", this.player.lib / 10);
                     }
-                    this.doNext(this, this.camp.returnToCampUseOneHour);
+                    this.doNext(this.camp.returnToCampUseOneHour);
                 }
                 else {
                     kGAMECLASS.wormToggle();
@@ -415,7 +415,7 @@ export class Mountain extends BaseContent {
         //[Next]
         this.dynStats("lus", 10);
         this.menu();
-        this.addButton(this, 0, "Next", this.watchMinoCumSlutII);
+        this.addButton(0, "Next", this.watchMinoCumSlutII);
     }
 
     private watchMinoCumSlutII(): void {
@@ -424,7 +424,7 @@ export class Mountain extends BaseContent {
         this.outputText("\n\nAs you look at the two cum-covered creatures laying there in their exhausted sex-induced stupors, the minotaur's thick horse-cock now slowly deflating, you realize that you've been touching yourself.  You make yourself stop in disgust.");
         this.outputText("\n\nOnly now do you notice other faces peeking over ledges and ridges.  You count at least two goblins and one imp who quickly pull back.  From the sounds, they were busy getting themselves off.  Apparently this isn't an uncommon show, and the locals enjoy it immensely.");
         this.dynStats("lus", 25);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private continueMinoVoyeurism(): void {
@@ -443,7 +443,7 @@ export class Mountain extends BaseContent {
             this.outputText("  Apparently this isn't an uncommon show, and the locals enjoy it immensely.", false);
         //Lust!
         this.dynStats("lus", 5 + this.player.lib / 20 + this.player.minoScore() + this.player.cowScore());
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 }
 

@@ -56,7 +56,7 @@ export class CharCreation extends BaseContent {
         this.outputText("You grew up in the small village of Ingnam, a remote village with rich traditions, buried deep in the wilds.  Every year for as long as you can remember, your village has chosen a champion to send to the cursed Demon Realm.  Legend has it that in years Ingnam has failed to produce a champion, chaos has reigned over the countryside.  Children disappear, crops wilt, and disease spreads like wildfire.  This year, <b>you</b> have been selected to be the champion.\n\nWhat is your name?");
 
         this.menu();
-        this.addButton(this, 0, "OK", () => this.chooseName(input));
+        this.addButton(0, "OK", () => this.chooseName(input));
         this.mainView.mainText.appendChild(input);
 
         //Reset autosave
@@ -234,13 +234,13 @@ export class CharCreation extends BaseContent {
         this.menu();
         if (this.customPlayerProfile != undefined) {
             this.outputText("This name, like you, is special.  Do you live up to your name or continue on, assuming it to be coincidence?");
-            this.addButton(this, 0, "SpecialName", () => this.useCustomProfile(input.value));
-            this.addButton(this, 1, "Continue On", this.noCustomProfile);
+            this.addButton(0, "SpecialName", () => this.useCustomProfile(input.value));
+            this.addButton(1, "Continue On", this.noCustomProfile);
         }
         else { //Proceed with normal character creation
             this.outputText("\n\n\n\nAre you a man or a woman?");
-            this.addButton(this, 0, "Man", this.isAMan);
-            this.addButton(this, 1, "Woman", this.isAWoman);
+            this.addButton(0, "Man", this.isAMan);
+            this.addButton(1, "Woman", this.isAWoman);
         }
     }
 
@@ -257,8 +257,8 @@ export class CharCreation extends BaseContent {
             this.outputText("There is something different about you, but first, what is your basic gender?  An individual such as you may later overcome this, of course...");
             this.outputText("\n\n\n\nAre you a man or a woman?");
             this.menu();
-            this.addButton(this, 0, "Man", this.isAMan);
-            this.addButton(this, 1, "Woman", this.isAWoman);
+            this.addButton(0, "Man", this.isAMan);
+            this.addButton(1, "Woman", this.isAWoman);
         }
     }
 
@@ -267,8 +267,8 @@ export class CharCreation extends BaseContent {
         this.customPlayerProfile = undefined;
         this.outputText("Your name carries little significance beyond it being your name.  What is your gender?");
         this.menu();
-        this.addButton(this, 0, "Man", this.isAMan);
-        this.addButton(this, 1, "Woman", this.isAWoman);
+        this.addButton(0, "Man", this.isAMan);
+        this.addButton(1, "Woman", this.isAWoman);
     }
 
     //Determines if has character creation bonuses
@@ -338,7 +338,7 @@ export class CharCreation extends BaseContent {
         this.player.gender = GENDER_MALE;
         this.clearOutput();
         this.outputText("You are a man.  Your upbringing has provided you an advantage in strength and toughness.\n\nWhat type of build do you have?");
-        this.simpleChoices(this, "Lean", this.buildLeanMale, "Average", this.buildAverageMale, "Thick", this.buildThickMale, "Girly", this.buildGirlyMale, "", undefined);
+        this.simpleChoices("Lean", this.buildLeanMale, "Average", this.buildAverageMale, "Thick", this.buildThickMale, "Girly", this.buildGirlyMale, "", undefined);
     }
 
     private isAWoman(): void {
@@ -358,7 +358,7 @@ export class CharCreation extends BaseContent {
         this.player.gender = GENDER_FEMALE;
         this.clearOutput();
         this.outputText("You are a woman.  Your upbringing has provided you an advantage in speed and intellect.\n\nWhat type of build do you have?");
-        this.simpleChoices(this, "Slender", this.buildSlenderFemale, "Average", this.buildAverageFemale, "Curvy", this.buildCurvyFemale, "Tomboyish", this.buildTomboyishFemale, "", undefined);
+        this.simpleChoices("Slender", this.buildSlenderFemale, "Average", this.buildAverageFemale, "Curvy", this.buildCurvyFemale, "Tomboyish", this.buildTomboyishFemale, "", undefined);
     }
 
     private buildLeanMale(): void {
@@ -470,10 +470,10 @@ export class CharCreation extends BaseContent {
         this.clearOutput();
         this.outputText("What is your complexion?");
         this.menu();
-        this.addButton(this, 0, "Light", this.setComplexion, "light");
-        this.addButton(this, 1, "Olive", this.setComplexion, "olive");
-        this.addButton(this, 2, "Dark", this.setComplexion, "dark");
-        this.addButton(this, 3, "Ebony", this.setComplexion, "ebony");
+        this.addButton(0, "Light", this.setComplexion, "light");
+        this.addButton(1, "Olive", this.setComplexion, "olive");
+        this.addButton(2, "Dark", this.setComplexion, "dark");
+        this.addButton(3, "Ebony", this.setComplexion, "ebony");
     }
 
     private setComplexion(choice: string): void { //And choose hair
@@ -481,13 +481,13 @@ export class CharCreation extends BaseContent {
         this.clearOutput();
         this.outputText("You selected a " + choice + " complexion.\n\nWhat color is your hair?");
         this.menu();
-        this.addButton(this, 0, "Blonde", this.setHair, "blonde");
-        this.addButton(this, 1, "Brown", this.setHair, "brown");
-        this.addButton(this, 2, "Black", this.setHair, "black");
-        this.addButton(this, 3, "Red", this.setHair, "red");
-        this.addButton(this, 4, "Gray", this.setHair, "gray");
-        this.addButton(this, 5, "White", this.setHair, "white");
-        this.addButton(this, 6, "Auburn", this.setHair, "auburn");
+        this.addButton(0, "Blonde", this.setHair, "blonde");
+        this.addButton(1, "Brown", this.setHair, "brown");
+        this.addButton(2, "Black", this.setHair, "black");
+        this.addButton(3, "Red", this.setHair, "red");
+        this.addButton(4, "Gray", this.setHair, "gray");
+        this.addButton(5, "White", this.setHair, "white");
+        this.addButton(6, "Auburn", this.setHair, "auburn");
     }
 
     private setHair(choice: string): void {
@@ -501,21 +501,21 @@ export class CharCreation extends BaseContent {
         if (clear) this.clearOutput();
         this.outputText("Every person is born with a gift.  What's yours?");
         this.menu();
-        this.addButton(this, 0, "Strength", this.confirmEndowmentStrength);
-        this.addButton(this, 1, "Toughness", this.confirmEndowmentThoughness);
-        this.addButton(this, 2, "Speed", this.confirmEndowmentSpeed);
-        this.addButton(this, 3, "Smarts", this.confirmEndowmentSmarts);
-        this.addButton(this, 4, "Libido", this.confirmEndowmentLibido);
-        this.addButton(this, 5, "Touch", this.confirmEndowmentTouch);
+        this.addButton(0, "Strength", this.confirmEndowmentStrength);
+        this.addButton(1, "Toughness", this.confirmEndowmentThoughness);
+        this.addButton(2, "Speed", this.confirmEndowmentSpeed);
+        this.addButton(3, "Smarts", this.confirmEndowmentSmarts);
+        this.addButton(4, "Libido", this.confirmEndowmentLibido);
+        this.addButton(5, "Touch", this.confirmEndowmentTouch);
         if (this.player.hasCock()) {
-            this.addButton(this, 6, "Big Cock", this.confirmEndowmentBigCock);
-            this.addButton(this, 7, "Lots of Jizz", this.confirmEndowmentMessyOrgasms);
+            this.addButton(6, "Big Cock", this.confirmEndowmentBigCock);
+            this.addButton(7, "Lots of Jizz", this.confirmEndowmentMessyOrgasms);
         }
         else {
-            this.addButton(this, 6, "Big Breasts", this.confirmEndowmentBigBreasts);
-            this.addButton(this, 7, "Big Clit", this.confirmEndowmentBigClit);
-            this.addButton(this, 8, "Fertile", this.confirmEndowmentFertile);
-            this.addButton(this, 9, "Wet Vagina", this.confirmEndowmentWetVagina);
+            this.addButton(6, "Big Breasts", this.confirmEndowmentBigBreasts);
+            this.addButton(7, "Big Clit", this.confirmEndowmentBigClit);
+            this.addButton(8, "Fertile", this.confirmEndowmentFertile);
+            this.addButton(9, "Wet Vagina", this.confirmEndowmentWetVagina);
         }
     }
 
@@ -523,96 +523,96 @@ export class CharCreation extends BaseContent {
         this.clearOutput();
         this.outputText("Are you stronger than normal? (+5 Strength)\n\nStrength increases your combat damage, and your ability to hold on to an enemy or pull yourself away.");
         this.menu();
-        this.addButton(this, 0, "Yes", this.setEndowmentStrength);
-        this.addButton(this, 1, "No", this.chooseEndowment, true);
+        this.addButton(0, "Yes", this.setEndowmentStrength);
+        this.addButton(1, "No", this.chooseEndowment, true);
     }
 
     private confirmEndowmentThoughness(): void {
         this.clearOutput();
         this.outputText("Are you unusually tough? (+5 Toughness)\n\nToughness gives you more HP and increases the chances an attack against you will fail to wound you.");
         this.menu();
-        this.addButton(this, 0, "Yes", this.setEndowmentToughness);
-        this.addButton(this, 1, "No", this.chooseEndowment, true);
+        this.addButton(0, "Yes", this.setEndowmentToughness);
+        this.addButton(1, "No", this.chooseEndowment, true);
     }
 
     private confirmEndowmentSpeed(): void {
         this.clearOutput();
         this.outputText("Are you very quick?  (+5 Speed)\n\nSpeed makes it easier to escape combat and grapples.  It also boosts your chances of evading an enemy attack and successfully catching up to enemies who try to run.");
         this.menu();
-        this.addButton(this, 0, "Yes", this.setEndowmentSpeed);
-        this.addButton(this, 1, "No", this.chooseEndowment, true);
+        this.addButton(0, "Yes", this.setEndowmentSpeed);
+        this.addButton(1, "No", this.chooseEndowment, true);
     }
 
     private confirmEndowmentSmarts(): void {
         this.clearOutput();
         this.outputText("Are you a quick learner?  (+5 Intellect)\n\nIntellect can help you avoid dangerous monsters or work with machinery.  It will also boost the power of any spells you may learn in your travels.");
         this.menu();
-        this.addButton(this, 0, "Yes", this.setEndowmentSmarts);
-        this.addButton(this, 1, "No", this.chooseEndowment, true);
+        this.addButton(0, "Yes", this.setEndowmentSmarts);
+        this.addButton(1, "No", this.chooseEndowment, true);
     }
 
     private confirmEndowmentLibido(): void {
         this.clearOutput();
         this.outputText("Do you have an unusually high sex-drive?  (+5 Libido)\n\nLibido affects how quickly your lust builds over time.  You may find a high libido to be more trouble than it's worth...");
         this.menu();
-        this.addButton(this, 0, "Yes", this.setEndowmentLibido);
-        this.addButton(this, 1, "No", this.chooseEndowment, true);
+        this.addButton(0, "Yes", this.setEndowmentLibido);
+        this.addButton(1, "No", this.chooseEndowment, true);
     }
 
     private confirmEndowmentTouch(): void {
         this.clearOutput();
         this.outputText("Is your skin unusually sensitive?  (+5 Sensitivity)\n\nSensitivity affects how easily touches and certain magics will raise your lust.  Very low sensitivity will make it difficult to orgasm.");
         this.menu();
-        this.addButton(this, 0, "Yes", this.setEndowmentTouch);
-        this.addButton(this, 1, "No", this.chooseEndowment, true);
+        this.addButton(0, "Yes", this.setEndowmentTouch);
+        this.addButton(1, "No", this.chooseEndowment, true);
     }
 
     private confirmEndowmentBigCock(): void {
         this.clearOutput();
         this.outputText("Do you have a big cock?  (+2\" Cock Length)\n\nA bigger cock will make it easier to get off any sexual partners, but only if they can take your size.");
         this.menu();
-        this.addButton(this, 0, "Yes", this.setEndowmentBigCock);
-        this.addButton(this, 1, "No", this.chooseEndowment, true);
+        this.addButton(0, "Yes", this.setEndowmentBigCock);
+        this.addButton(1, "No", this.chooseEndowment, true);
     }
 
     private confirmEndowmentMessyOrgasms(): void {
         this.clearOutput();
         this.outputText("Are your orgasms particularly messy?  (+50% Cum Multiplier)\n\nA higher cum multiplier will cause your orgasms to be messier.");
         this.menu();
-        this.addButton(this, 0, "Yes", this.setEndowmentMessyOrgasms);
-        this.addButton(this, 1, "No", this.chooseEndowment, true);
+        this.addButton(0, "Yes", this.setEndowmentMessyOrgasms);
+        this.addButton(1, "No", this.chooseEndowment, true);
     }
 
     private confirmEndowmentBigBreasts(): void {
         this.clearOutput();
         this.outputText("Are your breasts bigger than average? (DD cups)\n\nLarger breasts will allow you to lactate greater amounts, tit-fuck larger cocks, and generally be a sexy bitch.");
         this.menu();
-        this.addButton(this, 0, "Yes", this.setEndowmentBigBreasts);
-        this.addButton(this, 1, "No", this.chooseEndowment, true);
+        this.addButton(0, "Yes", this.setEndowmentBigBreasts);
+        this.addButton(1, "No", this.chooseEndowment, true);
     }
 
     private confirmEndowmentBigClit(): void {
         this.clearOutput();
         this.outputText("Do you have a big clit?  (1\" Long)\n\nA large enough clit may eventually become as large as a cock.  It also makes you gain lust much faster during oral or manual stimulation.");
         this.menu();
-        this.addButton(this, 0, "Yes", this.setEndowmentBigClit);
-        this.addButton(this, 1, "No", this.chooseEndowment, true);
+        this.addButton(0, "Yes", this.setEndowmentBigClit);
+        this.addButton(1, "No", this.chooseEndowment, true);
     }
 
     private confirmEndowmentFertile(): void {
         this.clearOutput();
         this.outputText("Is your family particularly fertile?  (+15% Fertility)\n\nA high fertility will cause you to become pregnant much more easily.  Pregnancy may result in: Strange children, larger bust, larger hips, a bigger ass, and other weirdness.");
         this.menu();
-        this.addButton(this, 0, "Yes", this.setEndowmentFertile);
-        this.addButton(this, 1, "No", this.chooseEndowment, true);
+        this.addButton(0, "Yes", this.setEndowmentFertile);
+        this.addButton(1, "No", this.chooseEndowment, true);
     }
 
     private confirmEndowmentWetVagina(): void {
         this.clearOutput();
         this.outputText("Does your pussy get particularly wet?  (+1 Vaginal Wetness)\n\nVaginal wetness will make it easier to take larger cocks, in turn helping you bring the well-endowed to orgasm quicker.");
         this.menu();
-        this.addButton(this, 0, "Yes", this.setEndowmentWetVagina);
-        this.addButton(this, 1, "No", this.chooseEndowment, true);
+        this.addButton(0, "Yes", this.setEndowmentWetVagina);
+        this.addButton(1, "No", this.chooseEndowment, true);
     }
 
     private setEndowmentStrength(): void {
@@ -711,15 +711,15 @@ export class CharCreation extends BaseContent {
         }
         this.outputText("Before you became a champion, you had other plans for your life.  What were you doing before?");
         this.menu();
-        this.addButton(this, 0, "Alchemy", this.confirmHistory, PerkLib.HistoryAlchemist);
-        this.addButton(this, 1, "Fighting", this.confirmHistory, PerkLib.HistoryFighter);
-        this.addButton(this, 2, "Healing", this.confirmHistory, PerkLib.HistoryHealer);
-        this.addButton(this, 3, "Religion", this.confirmHistory, PerkLib.HistoryReligious);
-        this.addButton(this, 4, "Schooling", this.confirmHistory, PerkLib.HistoryScholar);
-        this.addButton(this, 5, "Slacking", this.confirmHistory, PerkLib.HistorySlacker);
-        this.addButton(this, 6, "Slutting", this.confirmHistory, PerkLib.HistorySlut);
-        this.addButton(this, 7, "Smithing", this.confirmHistory, PerkLib.HistorySmith);
-        this.addButton(this, 8, "Whoring", this.confirmHistory, PerkLib.HistoryWhore);
+        this.addButton(0, "Alchemy", this.confirmHistory, PerkLib.HistoryAlchemist);
+        this.addButton(1, "Fighting", this.confirmHistory, PerkLib.HistoryFighter);
+        this.addButton(2, "Healing", this.confirmHistory, PerkLib.HistoryHealer);
+        this.addButton(3, "Religion", this.confirmHistory, PerkLib.HistoryReligious);
+        this.addButton(4, "Schooling", this.confirmHistory, PerkLib.HistoryScholar);
+        this.addButton(5, "Slacking", this.confirmHistory, PerkLib.HistorySlacker);
+        this.addButton(6, "Slutting", this.confirmHistory, PerkLib.HistorySlut);
+        this.addButton(7, "Smithing", this.confirmHistory, PerkLib.HistorySmith);
+        this.addButton(8, "Whoring", this.confirmHistory, PerkLib.HistoryWhore);
     }
 
     private confirmHistory(choice: PerkType): void {
@@ -753,8 +753,8 @@ export class CharCreation extends BaseContent {
                 this.outputText("You managed to find work as a whore.  Because of your time spent trading seduction for profit, you're more effective at teasing (+15% tease damage).  Is this your history?");
         }
         this.menu();
-        this.addButton(this, 0, "Yes", this.setHistory, choice);
-        this.addButton(this, 1, "No", this.chooseHistory);
+        this.addButton(0, "Yes", this.setHistory, choice);
+        this.addButton(1, "No", this.chooseHistory);
     }
 
     private setHistory(choice: PerkType): void {
@@ -780,7 +780,7 @@ export class CharCreation extends BaseContent {
     private completeCharacterCreation(): void {
         if (this.customPlayerProfile != undefined) {
             this.customPlayerProfile();
-            this.doNext(this, this.arrival);
+            this.doNext(this.arrival);
             return;
         }
         this.arrival();
@@ -800,7 +800,7 @@ export class CharCreation extends BaseContent {
         this.outputText("You were warned of this and press forward, ignoring your body's growing needs.  A glowing purple-pink portal swirls and flares with demonic light along the back wall.  Cringing, you press forward, keenly aware that your body seems to be anticipating coming in contact with the tainted magical construct.  Closing your eyes, you gather your resolve and leap forwards.  Vertigo overwhelms you and you black out...");
         this.showStats();
         this.dynStats("lus", 15);
-        this.doNext(this, this.arrivalPartTwo);
+        this.doNext(this.arrivalPartTwo);
     }
 
     private arrivalPartTwo(): void {
@@ -814,7 +814,7 @@ export class CharCreation extends BaseContent {
         else
             this.outputText("the urge to ram your cock down his throat.  The strangeness of the thought surprises you.\n\n");
         this.outputText("The imp says, \"<i>I'm amazed you aren't already chasing down my cock, human.  The last Champion was an eager whore for me by the time she woke up.  This lust draft made sure of it.</i>\"");
-        this.doNext(this, this.arrivalPartThree);
+        this.doNext(this.arrivalPartThree);
     }
 
     private arrivalPartThree(): void {
@@ -824,14 +824,14 @@ export class CharCreation extends BaseContent {
         this.outputText("The imp shakes the empty vial to emphasize his point.  You reel in shock at this revelation - you've just entered the demon realm and you've already been drugged!  You tremble with the aching need in your groin, but resist, righteous anger lending you strength.\n\nIn desperation you leap towards the imp, watching with glee as his cocky smile changes to an expression of sheer terror.  The smaller creature is no match for your brute strength as you pummel him mercilessly.  You pick up the diminutive demon and punt him into the air, frowning grimly as he spreads his wings and begins speeding into the distance.\n\n");
         this.outputText("The imp says, \"<i>FOOL!  You could have had pleasure unending... but should we ever cross paths again you will regret humiliating me!  Remember the name Zetaz, as you'll soon face the wrath of my master!</i>\"\n\n");
         this.outputText("Your pleasure at defeating the demon ebbs as you consider how you've already been defiled.  You swear to yourself you will find the demon responsible for doing this to you and the other Champions, and destroy him AND his pet imp.");
-        this.doNext(this, this.arrivalPartFour);
+        this.doNext(this.arrivalPartFour);
     }
 
     private arrivalPartFour(): void {
         this.clearOutput();
         this.hideUpDown();
         this.outputText("You look around, surveying the hellish landscape as you plot your next move.  The portal is a few yards away, nestled between a formation of rocks.  It does not seem to exude the arousing influence it had on the other side.  The ground and sky are both tinted different shades of red, though the earth beneath your feet feels as normal as any other lifeless patch of dirt.   You settle on the idea of making a camp here and fortifying this side of the portal.  No demons will ravage your beloved hometown on your watch.\n\nIt does not take long to set up your tent and a few simple traps.  You'll need to explore and gather more supplies to fortify it any further.  Perhaps you will even manage to track down the demons who have been abducting the other champions!");
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     private customAnnetta(): void {

@@ -12,12 +12,12 @@ export class SwordInStone extends AbstractLakeContent {
 
             this.outputText("You suppose you could try to pull it free, do you?", false);
 
-            this.doYesNo(this, this.tryToTakeSwordInStone, this.camp.returnToCampUseOneHour);
+            this.doYesNo(this.tryToTakeSwordInStone, this.camp.returnToCampUseOneHour);
         }
         else {
             this.outputText("While walking along the lake, a massive tree catches your eye.  You carefully circle some bushes, wary of an ambush as you get closer.   As you close the distance, it becomes clear the tree is terribly corrupt.  It weeps black sap from gnashing mouths and clenching distorting twats.  The very center of the tree has a massive knot, as if it had sustained a massive injury there.  You decide to avoid it, given the hungry-looking nature of its mouths, but before you depart you spot the pieces of a broken sword scattered around the trunk, completely covered in rust.", true);
 
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
 
             this.player.createStatusAffect(StatusAffects.BSwordBroken, 0, 0, 0, 0);
         }
@@ -35,7 +35,7 @@ export class SwordInStone extends AbstractLakeContent {
 
             this.outputText("but the sword remains stubbornly lodged in its arboreal home.  Frustrated, you give up and resolve to try later.", false);
 
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
         //If not corrupted...
         else {

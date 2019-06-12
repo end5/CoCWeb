@@ -184,7 +184,7 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\nYou're a little surprised, but it does make sense.  She... he is pretty flat-chested, and you'd often wondered if you'd seen a bulge of some sort in her skirt from time to time...");
         this.flags[kFLAGS.RUBI_ADMITTED_GENDER] = 1;
         //(Accept) or (Reject)
-        this.simpleChoices(this, "Accept", this.acceptRubi, "Reject", this.rejectRubi, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices("Accept", this.acceptRubi, "Reject", this.rejectRubi, "", undefined, "", undefined, "", undefined);
     }
     //[If Accept]
     private acceptRubi(): void {
@@ -200,7 +200,7 @@ export class Rubi extends TelAdreAbstractContent {
 
         this.outputText("\n\nRubi gives you one last hug and walks back towards the bakery, his devilish tail swishing happily behind him.  \"<i>See you soon... babe,</i>\" he says, trying the name on for size.  You smile, and continue your journey back to camp.");
         this.rubiAffection(3);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[If Reject]
@@ -212,7 +212,7 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\nSniffing slightly, Rubi turns away and returns to the bakery, his devilish tail sullenly drooping behind him.");
         //(Will no longer encounter Rubi at the bakery.)
         this.flags[kFLAGS.RUBI_DISABLED] = 1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 
@@ -512,7 +512,7 @@ export class Rubi extends TelAdreAbstractContent {
         else this.outputText("\n<b>You cannot afford milk.</b>");
         if (this.flags[kFLAGS.RUBI_ADMITTED_GENDER] >= 1) place = this.rubisFuckingHouseYouPervert;
         //[Milk] [Tea] [Chat] [Rubi's Place (Relationship 20+)] [Leave]
-        this.simpleChoices(this, "Milk", milk, "Tea", tea, "Chat", this.chatWithRubi, "Rubi's Place", place, "Leave", this.telAdre.bakeryScene.bakeryuuuuuu);
+        this.simpleChoices("Milk", milk, "Tea", tea, "Chat", this.chatWithRubi, "Rubi's Place", place, "Leave", this.telAdre.bakeryScene.bakeryuuuuuu);
     }
 
     //Choose Milk?
@@ -539,8 +539,8 @@ export class Rubi extends TelAdreAbstractContent {
         this.player.gems -= 3;
         this.rubiAffection(3);
         this.player.modThickness(100, 1);
-        if (this.rubiAffection() >= 30 && this.flags[kFLAGS.RUBI_ADMITTED_GENDER] == 0) this.doNext(this, this.specialRelationship20scene);
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        if (this.rubiAffection() >= 30 && this.flags[kFLAGS.RUBI_ADMITTED_GENDER] == 0) this.doNext(this.specialRelationship20scene);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Choose Tea?
@@ -566,8 +566,8 @@ export class Rubi extends TelAdreAbstractContent {
         this.player.gems -= 6;
         this.rubiAffection(5);
         this.fatigue(-25);
-        if (this.rubiAffection() >= 30 && this.flags[kFLAGS.RUBI_ADMITTED_GENDER] == 0) this.doNext(this, this.specialRelationship20scene);
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        if (this.rubiAffection() >= 30 && this.flags[kFLAGS.RUBI_ADMITTED_GENDER] == 0) this.doNext(this.specialRelationship20scene);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Choose Chat?
@@ -602,8 +602,8 @@ export class Rubi extends TelAdreAbstractContent {
             this.outputText("You decide not to order anything to drink, instead taking the opportunity to hang out with Rubi whenever [rubi ey] has a free moment.  You talk of pleasant but inconsequential things.  Rubi spends some time discussing [rubi eir] old village, an honest-to-goodness human village.  Life there was good, they had plenty of farms bringing in food, and very little corruption to contend with.  There were some residents with inhuman features, usually achieved willingly, but the majority were pureblood humans.  That changed years ago when a detachment of incubi, succubi and imps attacked.  Rubi and a handful made it out fine, but got split up along the way.  As far as Rubi knows, everyone else either perished or was corrupted in the aftermath.");
             this.outputText("\n\nEventually you run out of topics to discuss and excuse yourself, giving Rubi a kiss on the lips before heading back to camp.");
         }
-        if (this.rubiAffection() >= 30 && this.flags[kFLAGS.RUBI_ADMITTED_GENDER] == 0) this.doNext(this, this.specialRelationship20scene);
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        if (this.rubiAffection() >= 30 && this.flags[kFLAGS.RUBI_ADMITTED_GENDER] == 0) this.doNext(this.specialRelationship20scene);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Choose Rubi's Place?
@@ -670,45 +670,45 @@ export class Rubi extends TelAdreAbstractContent {
         }
         //[Fuck Rubi (if player has cock, OR at least a 4</i>\" clit)] [Dildo Fuck (If player has Deluxe Dildo)] [Tease] [Release (Only if Normal or Incubus Rubi who has been teased)] [Titfuck (Bimbo Rubi only)] [Give Item]
         this.menu();
-        this.addButton(this, 0, "Sex", this.rubiSexMenu);
-        this.addButton(this, 1, "Closet", this.goInRubisClosetSoThatYouCanComeOutOfTheCloset);
-        this.addButton(this, 2, "Talk", this.talkToRubiInHouse);
+        this.addButton(0, "Sex", this.rubiSexMenu);
+        this.addButton(1, "Closet", this.goInRubisClosetSoThatYouCanComeOutOfTheCloset);
+        this.addButton(2, "Talk", this.talkToRubiInHouse);
         if (this.rubiAffection() >= 50 && !this.rubiBimbo() && this.flags[kFLAGS.RUBI_COCK_SIZE] > 0 && (!this.rubiBimbo() || this.flags[kFLAGS.RUBI_DEBIMBO] > 0)) {
             //First Time:
             if (this.flags[kFLAGS.TIMES_RUBI_MASSAGED] == 0) this.outputText("\n\nRubi gestures to some bottles and a box from the bakery before mentioning, \"<i>You look awful tense, babe.  I know you've got it hard out there, and well, I-I thought maybe I could really pamper you today, if you'd like.</i>\"");
             else this.outputText("\n\nRubi nods towards the bottles and box in the corner and gives you a sly wink.  \"<i>Want another massage?</i>\"");
-            this.addButton(this, 4, "Massage", this.chocoRubiMassage);
+            this.addButton(4, "Massage", this.chocoRubiMassage);
         }
         if (this.player.isNaga() && this.flags[kFLAGS.RUBI_BIMBO] == 0 && this.flags[kFLAGS.RUBI_COCK_SIZE] < this.player.biggestCockLength() && this.player.hasCock() && this.flags[kFLAGS.RUBI_SHE] == 0 && this.player.cor >= 85 && this.flags[kFLAGS.RUBI_BREAST_SIZE] <= 2) {
             this.outputText("\n\n<b>You could use your snake-like motions to hypnotize Rubi and turn [rubi em] into a more complacent, eager slut. Doing so is likely irreversible.</b>")
-            this.addButton(this, 5, "Hypno", this.hypnoBimboficationForRubiSloots);
+            this.addButton(5, "Hypno", this.hypnoBimboficationForRubiSloots);
         }
-        this.addButton(this, 9, "Leave", this.camp.returnToCampUseOneHour);
+        this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     private rubiSexMenu(): void {
         //[Fuck Rubi (if player has cock, OR at least a 4</i>\" clit)] [Dildo Fuck (If player has Deluxe Dildo)] [Tease] [Release (Only if Normal or Incubus Rubi who has been teased)] [Titfuck (Bimbo Rubi only)] [Give Item]
         this.menu();
         if (this.player.lust >= 33) {
-            if (this.player.hasCock() || (this.player.hasVagina() && this.player.clitLength >= 4)) this.addButton(this, 0, "Fuck", this.fuckRubi);
-            if (this.player.hasKeyItem("Deluxe Dildo") >= 0) this.addButton(this, 1, "Dildo Fuck", this.dildoFuckRubi);
+            if (this.player.hasCock() || (this.player.hasVagina() && this.player.clitLength >= 4)) this.addButton(0, "Fuck", this.fuckRubi);
+            if (this.player.hasKeyItem("Deluxe Dildo") >= 0) this.addButton(1, "Dildo Fuck", this.dildoFuckRubi);
         }
-        this.addButton(this, 2, "Tease", this.teaseRubi);
-        if (this.flags[kFLAGS.RUBI_BLU_BALLS] > 0 && this.flags[kFLAGS.RUBI_ORGASM_DENIAL] > 0 && !this.rubiBimbo() && this.flags[kFLAGS.RUBI_COCK_SIZE] > 0) this.addButton(this, 3, "Release", this.releaseRubi);
+        this.addButton(2, "Tease", this.teaseRubi);
+        if (this.flags[kFLAGS.RUBI_BLU_BALLS] > 0 && this.flags[kFLAGS.RUBI_ORGASM_DENIAL] > 0 && !this.rubiBimbo() && this.flags[kFLAGS.RUBI_COCK_SIZE] > 0) this.addButton(3, "Release", this.releaseRubi);
 
         if (this.flags[kFLAGS.RUBI_AFFECTION] >= 75 && this.rubiCapacity() < this.player.biggestCockArea() && this.player.hasCock())
-            this.addButton(this, 4, "Train", this.anallyTrainYourBitchBoySlutHowToBeAnalForDCL);
+            this.addButton(4, "Train", this.anallyTrainYourBitchBoySlutHowToBeAnalForDCL);
         //Get Fucked
         //PC gets fucked by Rubi
         //Rubi must have at least a 5" cock
         //Requires 75 Affection
         if (this.flags[kFLAGS.RUBI_AFFECTION] >= 75 && this.flags[kFLAGS.RUBI_COCK_SIZE] >= 5)
-            this.addButton(this, 5, "Get Fucked", this.getFuckedByRubi);
+            this.addButton(5, "Get Fucked", this.getFuckedByRubi);
         //Hotdogging
         //PC hotdogs Rubi's ass
         //PC must have a penis
-        if (this.player.hasCock()) this.addButton(this, 6, "Hotdogging", this.rubiHotdogging);
-        this.addButton(this, 9, "Back", this.rubisFuckingHouseYouPervert);
+        if (this.player.hasCock()) this.addButton(6, "Hotdogging", this.rubiHotdogging);
+        this.addButton(9, "Back", this.rubisFuckingHouseYouPervert);
     }
 
 
@@ -718,7 +718,7 @@ export class Rubi extends TelAdreAbstractContent {
         this.rubiSprite();
         this.outputText("You just want to talk with Rubi for now.  What do you want to talk about?");
         this.menu();
-        this.addButton(this, 0, "Identity", this.rubiIdentity);
+        this.addButton(0, "Identity", this.rubiIdentity);
     }
 
     private rubiIdentity(): void {
@@ -746,8 +746,8 @@ export class Rubi extends TelAdreAbstractContent {
         this.flags[kFLAGS.TIMES_DISCUSSED_RUBIS_IDENTITY]++;
         //[He] [She]
         this.menu();
-        this.addButton(this, 0, "He", this.rubiIsAHe);
-        this.addButton(this, 1, "She", this.rubiIsAShe);
+        this.addButton(0, "He", this.rubiIsAHe);
+        this.addButton(1, "She", this.rubiIsAShe);
     }
 
     //He
@@ -757,7 +757,7 @@ export class Rubi extends TelAdreAbstractContent {
         this.flags[kFLAGS.RUBI_SHE] = 0;
         this.outputText("Rubi nods, and will refer to himself as a \"he\" from now on.");
         this.menu();
-        this.addButton(this, 9, "Back", this.rubisFuckingHouseYouPervert);
+        this.addButton(9, "Back", this.rubisFuckingHouseYouPervert);
     }
     //She
     private rubiIsAShe(): void {
@@ -766,7 +766,7 @@ export class Rubi extends TelAdreAbstractContent {
         this.flags[kFLAGS.RUBI_SHE] = 1;
         this.outputText("Rubi nods, and will refer to herself as a \"she\" from now on.");
         this.menu();
-        this.addButton(this, 9, "Back", this.rubisFuckingHouseYouPervert);
+        this.addButton(9, "Back", this.rubisFuckingHouseYouPervert);
     }
     //Sex Scenes Ahoy!
     //There are variants for Normal, Bimbo and Incubus Rubi, as well as smaller variations if you're currently teasing him or not.
@@ -906,7 +906,7 @@ export class Rubi extends TelAdreAbstractContent {
 
         this.outputText("\n\nYou're tempted to drift off as well, but as they say, you've got things to see and people to do.  So you peel yourself away from Rubi, grab a quick shower, and head off back to camp.");
         this.player.orgasm();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         this.rubiAffection(1);
         if (this.flags[kFLAGS.RUBI_ORGASM_DENIAL] > 0) this.flags[kFLAGS.RUBI_BLU_BALLS]++;
     }
@@ -1013,7 +1013,7 @@ export class Rubi extends TelAdreAbstractContent {
         this.player.orgasm();
         this.rubiAffection(1);
         if (this.flags[kFLAGS.RUBI_ORGASM_DENIAL] > 0) this.flags[kFLAGS.RUBI_BLU_BALLS] += 2;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Tease
@@ -1093,7 +1093,7 @@ export class Rubi extends TelAdreAbstractContent {
             this.outputText("\n\nWith your devious fun accomplished, you stand, make yourself look presentable, and head out the door.  Your last sight of Rubi is that of [rubi em] sitting spread eagle on the couch with a supremely satisfied look on [rubi eir] face.");
         }
         this.dynStats("lus", 5 + this.player.lib / 10);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Release
@@ -1163,7 +1163,7 @@ export class Rubi extends TelAdreAbstractContent {
         this.rubiAffection(this.flags[kFLAGS.RUBI_BLU_BALLS]);
         this.flags[kFLAGS.RUBI_BLU_BALLS] = 0;
         this.flags[kFLAGS.RUBI_ORGASM_DENIAL] = 0;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Cheating Rubi
@@ -1175,7 +1175,7 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\nShe gives you an exasperated sigh and says, \"<i>I dunno, she took off again, like she does with you.  Some guy came in, she got all giggly, and they got out of here.  If you see her, let her know I'm taking all of today's tips again.</i>\"  With that she turns to service another table.");
         this.outputText("\n\nSo your bimboified slut is seeing someone else?  What will you do about this?");
         //[Find Her] [Don't Care]
-        this.simpleChoices(this, "Find Her", this.findBimboCheatster, "Don't Care", this.dontCareAboutNoCheatingRubis, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices("Find Her", this.findBimboCheatster, "Don't Care", this.dontCareAboutNoCheatingRubis, "", undefined, "", undefined, "", undefined);
     }
 
     //(Don't Care)
@@ -1185,7 +1185,7 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("You shrug your shoulders.  It's not really your problem, is it?  You're free to fuck who you choose, and so is she.");
         this.outputText("\n\nYou stand up and leave the bakery, deciding to wander around Tel'Adre a bit more.");
         //(Kicks PC back out to Tel'Adre; PC can still get the Cheating Rubi event)
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //(Find Her)
@@ -1197,7 +1197,7 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\nThere she is, Rubi, splayed out on the couch, naked with two fingers buried deep inside her pussy.  You shift around a bit, and see nearby her a tanned man in the process of taking off his shirt.  So, you got to them before they did anything.  Rubi moans, running a hand through her platinum blonde hair and staring at the tanned man.");
         this.outputText("\n\nYou could interrupt them before they go any further, or wait until it's over.");
         //[Interrupt] [Wait]
-        this.simpleChoices(this, "Interrupt", this.interruptTheNTRsYouCrazyFool, "Watch n Wait", this.waitAndGetNTRedLikeTheBoyBitchYouAre, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices("Interrupt", this.interruptTheNTRsYouCrazyFool, "Watch n Wait", this.waitAndGetNTRedLikeTheBoyBitchYouAre, "", undefined, "", undefined, "", undefined);
     }
     //(Interrupt)
     private interruptTheNTRsYouCrazyFool(): void {
@@ -1226,7 +1226,7 @@ export class Rubi extends TelAdreAbstractContent {
             }
         }
         //[Leads to Resolution]
-        this.doNext(this, this.NTRbimboBitchResolution);
+        this.doNext(this.NTRbimboBitchResolution);
     }
 
     //(Wait)
@@ -1254,7 +1254,7 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\nWell, this is as good of a time as any to confront her...  You stand up, adjust your clothing, and walk inside as a naked Rubi cleans herself off with a moist towel.");
         this.outputText("\n\nShe spots you and lights up, \"<i>Oh baby!  Like, I didn't know you'd be coming by!</i>\"  She then seems to realize that she's stark naked, mostly covered in cum, and that you came in just seconds after her previous lover left.  \"<i>Oh.  Yeah.</i>\"");
         //[leads to Resolution]
-        this.doNext(this, this.NTRbimboBitchResolution);
+        this.doNext(this.NTRbimboBitchResolution);
     }
 
     //(Resolution)
@@ -1268,7 +1268,7 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\nRubi hugs the cushion close, apparently done with her speech.  So how do you react?");
         this.outputText("\n\nYou could tell her no, forbidding her to see anyone else.  Or you could say yes, letting her sleep with anyone.  You could always break up with her.  Or there might be a fourth option...");
         //[No] [Yes] [Break Up] [Pimp]
-        this.simpleChoices(this, "No", this.noBimboNTR, "Yes", this.yesBimboNTR, "Break Up", this.breakUpWithRubi, "Pimp", this.pimpOutRubi, "", undefined);
+        this.simpleChoices("No", this.noBimboNTR, "Yes", this.yesBimboNTR, "Break Up", this.breakUpWithRubi, "Pimp", this.pimpOutRubi, "", undefined);
     }
 
     //(No)
@@ -1279,7 +1279,7 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\n\"<i>Of course, baby.  Whatever you say,</i>\" then she giggles, \"<i>At least I'll have you to look forward to, whenever you roll into town.</i>\"");
         this.outputText("\n\nThat's that then, Rubi will refrain from sleeping around.  With that settled, you decide to let her get dressed and mull it over.  You head out of the house, and make your way back to camp.");
         this.flags[kFLAGS.RUBI_PROSTITUTION] = -1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //(Yes)
     private yesBimboNTR(): void {
@@ -1289,7 +1289,7 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\n\"<i>Ohh baby I love you so much!</i>\"  She plants a fury of kisses all over your face, giggling constantly.  \"<i>None of them could ever compare to you, but they will help.</i>\"");
         this.outputText("\n\nThat's that then, Rubi will be free to sleep with anyone, just as you are.  With that settled, you decide to let her get dressed.  You head out of the house, and make your way back to camp.");
         this.flags[kFLAGS.RUBI_PROSTITUTION] = 1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //(Break Up)
@@ -1301,7 +1301,7 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\nAnd with that, she slams the door behind you.  Well, that could have gone better.  With an exasperated sigh you head back to your camp.");
         this.flags[kFLAGS.RUBI_PROSTITUTION] = -2;
         this.flags[kFLAGS.RUBI_DISABLED] = 1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //(Pimp)
     private pimpOutRubi(): void {
@@ -1311,7 +1311,7 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\nRubi thinks it over and finally nods happily, \"<i>Oh, it's such a great idea, baby!  I'll be like Edryn then!  And I'll give you your 'cut' whenever you come by as well.</i>\"  She giggles and plants a kiss right on your lips.  \"<i>Oooh, I'll need more outfits, and make up, and...</i>\" her voice trails off as she excitedly hurries off to her bedroom.");
         this.outputText("\n\nThat's that then, Rubi will officially prostitute herself and share the profits with you.  With that settled, you decide to let her go through her wardrobe in peace.  You head out of the house, and make your way back to camp.");
         this.flags[kFLAGS.RUBI_PROSTITUTION] = 2;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Chocolate Covered Strawberries, Oil, Massage?
@@ -1364,8 +1364,8 @@ export class Rubi extends TelAdreAbstractContent {
         //[Release] [Nope]
         //{Not Pent Up: Go to release}
         this.menu();
-        this.addButton(this, 0, "Release", this.releaseRubiMassage);
-        this.addButton(this, 1, "Bottle Up", this.bottleUpRubiMassage);
+        this.addButton(0, "Release", this.releaseRubiMassage);
+        this.addButton(1, "Bottle Up", this.bottleUpRubiMassage);
     }
 
     //Bottle Up:
@@ -1377,7 +1377,7 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\n[rubi Ey] gratefully says, \"<i>Thanks, babe,</i>\" and though [rubi eir] body is still warm with almost feverish desire, [rubi ey] won't be cumming any time soon.");
         this.flags[kFLAGS.RUBI_ORGASM_DENIAL] = 1;
         this.flags[kFLAGS.RUBI_BLU_BALLS]++;
-        this.doNext(this, this.camp.returnToCampUseTwoHours);
+        this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
     //Release/Not Pent Up
@@ -1405,7 +1405,7 @@ export class Rubi extends TelAdreAbstractContent {
         }
         this.flags[kFLAGS.RUBI_ORGASM_DENIAL] = 0;
         this.flags[kFLAGS.RUBI_BLU_BALLS] = 0;
-        this.doNext(this, this.camp.returnToCampUseTwoHours);
+        this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
     //Closet
@@ -1420,7 +1420,7 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\nRubi twirls around in the center of the room, clearly happy to be in here.  Before you can say anything, Rubi strips out of [rubi eir] current outfit, setting it aside in a neatly folded pile before standing proud with [rubi eir] hands on [rubi eir] hips.  \"<i>So, you want me to wear something?</i>\"");
         //(Go To Appearance)
         this.menu();
-        this.addButton(this, 0, "Next", this.rubiAppearance);
+        this.addButton(0, "Next", this.rubiAppearance);
 
     }
 
@@ -1498,9 +1498,9 @@ export class Rubi extends TelAdreAbstractContent {
 
         //[Give Item] [Get Dressed] [Back]
         this.menu();
-        this.addButton(this, 0, "Give Item", this.pickAnItemToFeedRubi);
-        this.addButton(this, 1, "Get Dressed", this.playDressUp);
-        this.addButton(this, 4, "Back", this.rubisFuckingHouseYouPervert);
+        this.addButton(0, "Give Item", this.pickAnItemToFeedRubi);
+        this.addButton(1, "Get Dressed", this.playDressUp);
+        this.addButton(4, "Back", this.rubisFuckingHouseYouPervert);
     }
 
     //Get Dressed
@@ -1580,11 +1580,11 @@ export class Rubi extends TelAdreAbstractContent {
         while (button < 9 && button < buttonNames.length) {
             trace("BUTTONNAMES: " + buttonNames[button]);
             trace("CLOSET: " + closet[button]);
-            if (button < 8 || closet.length < 9) this.addButton(this, button, buttonNames[button], this.dressUpRouter, closet[button]);
-            else this.addButton(this, 8, "More", this.playDressUp2);
+            if (button < 8 || closet.length < 9) this.addButton(button, buttonNames[button], this.dressUpRouter, closet[button]);
+            else this.addButton(8, "More", this.playDressUp2);
             button++;
         }
-        this.addButton(this, 9, "Back", this.rubiAppearance);
+        this.addButton(9, "Back", this.rubiAppearance);
     }
     private playDressUp2(): void {
         this.clearOutput();
@@ -1658,11 +1658,11 @@ export class Rubi extends TelAdreAbstractContent {
         }
         var button: number = 7;
         while (button - 7 < 9 && button < buttonNames.length) {
-            if (button == 7) this.addButton(this, 0, "Previous", this.playDressUp);
-            else if (button <= closet.length) this.addButton(this, button - 7, buttonNames[button], this.dressUpRouter, closet[button]);
+            if (button == 7) this.addButton(0, "Previous", this.playDressUp);
+            else if (button <= closet.length) this.addButton(button - 7, buttonNames[button], this.dressUpRouter, closet[button]);
             button++;
         }
-        this.addButton(this, 9, "Back", this.rubiAppearance);
+        this.addButton(9, "Back", this.rubiAppearance);
     }
 
     private dressUpRouter(arg: string): void {
@@ -1719,8 +1719,8 @@ export class Rubi extends TelAdreAbstractContent {
 
         //[Date (go to Ice Cream date)] [Back]
         this.menu();
-        this.addButton(this, 0, "Date", this.dateIntro, this.iceCreamDate);
-        this.addButton(this, 4, "Back", this.rubiAppearance);
+        this.addButton(0, "Date", this.dateIntro, this.iceCreamDate);
+        this.addButton(4, "Back", this.rubiAppearance);
     }
     //Dashing Outfit
     private putOnADashingOutfitYouWhore(): void {
@@ -1740,8 +1740,8 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\nNow that Rubi is dressed up, what do you want to do?");
         //[Date (go to Ice Cream date)] [Back]
         this.menu();
-        this.addButton(this, 0, "Date", this.dateIntro, this.iceCreamDate);
-        this.addButton(this, 4, "Back", this.rubiAppearance);
+        this.addButton(0, "Date", this.dateIntro, this.iceCreamDate);
+        this.addButton(4, "Back", this.rubiAppearance);
     }
 
     //Adventurer's Outfit
@@ -1769,8 +1769,8 @@ export class Rubi extends TelAdreAbstractContent {
 
         //[Date (go to Ice Cream date)] [Back]
         this.menu();
-        this.addButton(this, 0, "Date", this.dateIntro, this.iceCreamDate);
-        this.addButton(this, 4, "Back", this.rubiAppearance);
+        this.addButton(0, "Date", this.dateIntro, this.iceCreamDate);
+        this.addButton(4, "Back", this.rubiAppearance);
     }
 
     //Long Dress
@@ -1795,8 +1795,8 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\nNow that Rubi is dressed up, what do you want to do?");
         //[Date (go to fancy dinner date)] [Back]
         this.menu();
-        this.addButton(this, 0, "Date", this.dateIntro, this.fancyDate);
-        this.addButton(this, 4, "Back", this.rubiAppearance);
+        this.addButton(0, "Date", this.dateIntro, this.fancyDate);
+        this.addButton(4, "Back", this.rubiAppearance);
     }
 
     //Nurse's Clothes
@@ -1821,8 +1821,8 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\nNow that Rubi is dressed up, what do you want to do?");
         //[Date (go to ice cream date)] [Back]
         this.menu();
-        this.addButton(this, 0, "Date", this.dateIntro, this.iceCreamDate);
-        this.addButton(this, 4, "Back", this.rubiAppearance);
+        this.addButton(0, "Date", this.dateIntro, this.iceCreamDate);
+        this.addButton(4, "Back", this.rubiAppearance);
     }
 
     //Rubber Fetish Clothes
@@ -1849,8 +1849,8 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\nNow that Rubi is dressed up, what do you want to do?");
         //[Date (go to bar date)] [Back]
         this.menu();
-        this.addButton(this, 0, "Date", this.dateIntro, this.barDate);
-        this.addButton(this, 4, "Back", this.rubiAppearance);
+        this.addButton(0, "Date", this.dateIntro, this.barDate);
+        this.addButton(4, "Back", this.rubiAppearance);
     }
 
     //Suitclothes
@@ -1871,8 +1871,8 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\nNow that Rubi is dressed up, what do you want to do?");
         //[Date (go to fancy date)] [Back]
         this.menu();
-        this.addButton(this, 0, "Date", this.dateIntro, this.fancyDate);
-        this.addButton(this, 4, "Back", this.rubiAppearance);
+        this.addButton(0, "Date", this.dateIntro, this.fancyDate);
+        this.addButton(4, "Back", this.rubiAppearance);
     }
 
     //Tube-Top
@@ -1892,8 +1892,8 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\nNow that Rubi is dressed up, what do you want to do?");
         //[Date (go to exhibitionist date)] [Back]
         this.menu();
-        this.addButton(this, 0, "Date", this.dateIntro, this.exhibitionistDate);
-        this.addButton(this, 4, "Back", this.rubiAppearance);
+        this.addButton(0, "Date", this.dateIntro, this.exhibitionistDate);
+        this.addButton(4, "Back", this.rubiAppearance);
     }
 
     //Slutty Swimwear
@@ -1914,8 +1914,8 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\nNow that Rubi is dressed up, what do you want to do?");
         //[Date (go to exhibitionist date)] [Back]
         this.menu();
-        this.addButton(this, 0, "Date", this.dateIntro, this.exhibitionistDate);
-        this.addButton(this, 4, "Back", this.rubiAppearance);
+        this.addButton(0, "Date", this.dateIntro, this.exhibitionistDate);
+        this.addButton(4, "Back", this.rubiAppearance);
     }
 
     //Bimbo Minidress
@@ -1933,8 +1933,8 @@ export class Rubi extends TelAdreAbstractContent {
 
         //[Date (go to exhibitionist date)] [Back]
         this.menu();
-        this.addButton(this, 0, "Date", this.dateIntro, this.exhibitionistDate);
-        this.addButton(this, 4, "Back", this.rubiAppearance);
+        this.addButton(0, "Date", this.dateIntro, this.exhibitionistDate);
+        this.addButton(4, "Back", this.rubiAppearance);
     }
 
     //Bodysuit
@@ -1955,8 +1955,8 @@ export class Rubi extends TelAdreAbstractContent {
 
         //[Date (go to bar date)] [Back]
         this.menu();
-        this.addButton(this, 0, "Date", this.dateIntro, this.barDate);
-        this.addButton(this, 4, "Back", this.rubiAppearance);
+        this.addButton(0, "Date", this.dateIntro, this.barDate);
+        this.addButton(4, "Back", this.rubiAppearance);
     }
     //Bondage Straps
     private putOnBondageStrapsYouBondageTrap(): void {
@@ -1971,8 +1971,8 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\nNow that Rubi is dressed up, what do you want to do?");
         //[Date (go to exhibitionist date)] [Back]
         this.menu();
-        this.addButton(this, 0, "Date", this.dateIntro, this.exhibitionistDate);
-        this.addButton(this, 4, "Back", this.rubiAppearance);
+        this.addButton(0, "Date", this.dateIntro, this.exhibitionistDate);
+        this.addButton(4, "Back", this.rubiAppearance);
     }
 
     //Inquisitor's Corset
@@ -1994,8 +1994,8 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\nNow that Rubi is dressed up, what do you want to do?");
         //[Date (go to bar date)] [Back]
         this.menu();
-        this.addButton(this, 0, "Date", this.dateIntro, this.barDate);
-        this.addButton(this, 4, "Back", this.rubiAppearance);
+        this.addButton(0, "Date", this.dateIntro, this.barDate);
+        this.addButton(4, "Back", this.rubiAppearance);
     }
 
     //Risque Waitress Uniform
@@ -2018,12 +2018,12 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\nNow that Rubi is dressed up, what do you want to do?");
         //[Date (go to cooking date)] [Back]
         this.menu();
-        this.addButton(this, 0, "Date", this.dateIntro, this.cookingDate);
-        this.addButton(this, 4, "Back", this.rubiAppearance);
+        this.addButton(0, "Date", this.dateIntro, this.cookingDate);
+        this.addButton(4, "Back", this.rubiAppearance);
     }
     private cookingDate(): void {
         this.outputText("\n\n<b>Third forgot to write this one!</b>");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Dates
@@ -2045,7 +2045,7 @@ export class Rubi extends TelAdreAbstractContent {
                 this.outputText("\n\nYou think you'd love to take Rubi out for a quick dessert... but you're far too certain you wouldn't be able to afford it at the moment.");
                 this.outputText("\n\nSeriously, you're the Champion. You shouldn't be this broke.");
                 this.menu();
-                this.addButton(this, 0, "Next", this.rubiAppearance);
+                this.addButton(0, "Next", this.rubiAppearance);
                 return;
             }
         }
@@ -2080,7 +2080,7 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\nOnce you're back in the house, Rubi sprawls out on the couch, a devilish grin on [rubi eir] face.  \"<i>So, you plan on giving me a good \"kiss\" good night?\"");
         //[Go to Sex menu]
         this.rubiSexMenu();
-        this.addButton(this, 9, "Leave", this.camp.returnToCampUseOneHour);
+        this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     //Fancy Dinner Date
@@ -2118,14 +2118,14 @@ export class Rubi extends TelAdreAbstractContent {
             this.outputText("\n\nOnce you're back in the house, Rubi sprawls out on the couch, a devilish grin on [rubi eir] face.  \"<i>So, you plan on giving me a good \"kiss\" good night?\"");
             //[to sex menu]
             this.rubiSexMenu();
-            this.addButton(this, 9, "Leave", this.camp.returnToCampUseOneHour);
+            this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
         }
         //Can't Afford It?
         else {
             this.outputText("\n\nYou think you'd love to take Rubi out for a fancy meal, but you're certain you wouldn't be able to afford it at the moment.");
             this.outputText("\n\nSeriously, you're the Champion. You shouldn't be this broke.");
             this.menu();
-            this.addButton(this, 0, "Next", this.rubiAppearance);
+            this.addButton(0, "Next", this.rubiAppearance);
         }
     }
 
@@ -2153,7 +2153,7 @@ export class Rubi extends TelAdreAbstractContent {
 
         //[Go to sex menu]
         this.rubiSexMenu();
-        this.addButton(this, 9, "Leave", this.camp.returnToCampUseOneHour);
+        this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     //Bar Date
@@ -2184,7 +2184,7 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\nBy the time you enter Rubi's bedroom, [rubi eir] lips are locked with yours.  \"<i>So babe, what are we going to do about this?</i>\"");
         //[Goto Sex menu]
         this.rubiSexMenu();
-        this.addButton(this, 9, "Leave", this.camp.returnToCampUseOneHour);
+        this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     //Anal Training
@@ -2395,7 +2395,7 @@ export class Rubi extends TelAdreAbstractContent {
             this.outputText("\n\nYou decide this is the best time to head out as well, and make your way out of the apartment and back to camp.");
             this.player.orgasm();
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Get Fucked
@@ -2499,7 +2499,7 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\nYou waggle a finger at [rubi em] hazily, and [rubi ey] climbs up onto the bed next to you.  You wrap your arms around [rubi em] and kiss [rubi em] passionately before pulling [rubi em] into a cuddling hug.  The two of you drift off into a short nap, contentedly wrapped up in each other's arms.");
         this.player.orgasm();
         this.dynStats("sen", 2);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Hotdogging
@@ -2565,8 +2565,8 @@ export class Rubi extends TelAdreAbstractContent {
         this.dynStats("lus=", 100, "resisted", false);
         this.menu();
         //[Tease] [Pop]
-        this.addButton(this, 0, "Tease Rubi", this.teaseButtjobs);
-        this.addButton(this, 1, "Pop", this.popButtjobs);
+        this.addButton(0, "Tease Rubi", this.teaseButtjobs);
+        this.addButton(1, "Pop", this.popButtjobs);
     }
 
     //Tease
@@ -2601,7 +2601,7 @@ export class Rubi extends TelAdreAbstractContent {
         this.flags[kFLAGS.RUBI_BLU_BALLS]++;
         this.flags[kFLAGS.RUBI_ORGASM_DENIAL] = 1;
         this.player.orgasm();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Pop
@@ -2652,7 +2652,7 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText("\n\n\"<i>No, babe, I'm lucky to have found you,</i>\" [rubi ey] says, snuggling [rubi eir] naked body up against yours as the two of you drift off into a lazy, sex-induced nap.");
         this.player.orgasm();
         this.flags[kFLAGS.RUBI_BLU_BALLS] = 0; //Since he just came so he should be cured of blue balls
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Give Item
@@ -2802,9 +2802,9 @@ export class Rubi extends TelAdreAbstractContent {
             this.outputText("\n\nWhere would you like to inject the Gro+?");
             //[Breasts] [Penis (if present)] [Back]
             this.menu();
-            this.addButton(this, 0, "Breast", this.rubiGrowPlusBreasts);
-            this.addButton(this, 1, "Penis", this.rubiPenisGroPlus);
-            this.addButton(this, 4, "Back", this.pickAnItemToFeedRubi);
+            this.addButton(0, "Breast", this.rubiGrowPlusBreasts);
+            this.addButton(1, "Penis", this.rubiPenisGroPlus);
+            this.addButton(4, "Back", this.pickAnItemToFeedRubi);
             return;
         }
         else if (itype == this.consumables.REDUCTO) {
@@ -2815,9 +2815,9 @@ export class Rubi extends TelAdreAbstractContent {
             this.outputText("\n\nWhere would you like Rubi to use the reducto?");
             //[Breasts] [Penis (if present)] [Back]
             this.menu();
-            this.addButton(this, 0, "Breasts", this.rubiBoobsReducto);
-            this.addButton(this, 1, "Penis", this.rubiPenisReducto);
-            this.addButton(this, 4, "Back", this.pickAnItemToFeedRubi);
+            this.addButton(0, "Breasts", this.rubiBoobsReducto);
+            this.addButton(1, "Penis", this.rubiPenisReducto);
+            this.addButton(4, "Back", this.pickAnItemToFeedRubi);
             return;
         }
         //Bimbo Liqueur (Modified for variant genders)
@@ -2872,7 +2872,7 @@ export class Rubi extends TelAdreAbstractContent {
             this.flags[kFLAGS.RUBI_BIMBO] = 1;
             this.flags[kFLAGS.RUBI_HAIR] = 1;
             this.rubiSexMenu();
-            this.addButton(this, 9, "Leave", this.camp.returnToCampUseOneHour);
+            this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
             return;
         }
         //Equinum
@@ -3059,7 +3059,7 @@ export class Rubi extends TelAdreAbstractContent {
         }
         this.player.consumeItem(itype, 1);
         this.menu();
-        this.addButton(this, 0, "Next", this.pickAnItemToFeedRubi);
+        this.addButton(0, "Next", this.pickAnItemToFeedRubi);
         //Go back to give item menu.
     }
 
@@ -3087,7 +3087,7 @@ export class Rubi extends TelAdreAbstractContent {
         else this.outputText("\n\nSadly, apart from making [rubi eir] nipples particularly perky, they don't seem to have much effect on Rubi's already enormous rack.");
         this.player.consumeItem(this.consumables.GROPLUS);
         this.menu();
-        this.addButton(this, 0, "Next", this.pickAnItemToFeedRubi);
+        this.addButton(0, "Next", this.pickAnItemToFeedRubi);
         //Go back to give item menu.
     }
     //(If Penis)
@@ -3125,7 +3125,7 @@ export class Rubi extends TelAdreAbstractContent {
         }
         this.player.consumeItem(this.consumables.GROPLUS);
         this.menu();
-        this.addButton(this, 0, "Next", this.pickAnItemToFeedRubi);
+        this.addButton(0, "Next", this.pickAnItemToFeedRubi);
         //Go back to give item menu.
     }
     //(If Breasts)
@@ -3139,7 +3139,7 @@ export class Rubi extends TelAdreAbstractContent {
         }
         this.player.consumeItem(this.consumables.REDUCTO);
         this.menu();
-        this.addButton(this, 0, "Next", this.pickAnItemToFeedRubi);
+        this.addButton(0, "Next", this.pickAnItemToFeedRubi);
         //Go back to give item menu.
     }
 
@@ -3156,7 +3156,7 @@ export class Rubi extends TelAdreAbstractContent {
         }
         this.player.consumeItem(this.consumables.REDUCTO);
         this.menu();
-        this.addButton(this, 0, "Next", this.pickAnItemToFeedRubi);
+        this.addButton(0, "Next", this.pickAnItemToFeedRubi);
         //Go back to item giving menu!
     }
 
@@ -3172,63 +3172,63 @@ export class Rubi extends TelAdreAbstractContent {
             closet[closet.length] = "Suitclothes";
         else {
             gifts.push("Suitclothes");
-            if (this.player.hasItem(this.armors.CLSSYCL)) this.addButton(this, button++, "Suitclothes", this.giveRubiClothes, this.armors.CLSSYCL);
+            if (this.player.hasItem(this.armors.CLSSYCL)) this.addButton(button++, "Suitclothes", this.giveRubiClothes, this.armors.CLSSYCL);
         }
 
         if (this.flags[kFLAGS.RUBI_FETISH_CLOTHES] == 1)
             closet[closet.length] = "Rubber Fetish Clothes";
         else {
             gifts.push("Rubber Fetish Clothes");
-            if (this.player.hasItem(this.armors.RBBRCLT)) this.addButton(this, button++, "Rubberclothes", this.giveRubiClothes, this.armors.RBBRCLT);
+            if (this.player.hasItem(this.armors.RBBRCLT)) this.addButton(button++, "Rubberclothes", this.giveRubiClothes, this.armors.RBBRCLT);
         }
 
         if (this.flags[kFLAGS.RUBI_GREEN_ADVENTURER] == 1)
             closet[closet.length] = "A Green Adventurer's Outfit";
         else {
             gifts.push("A Green Adventurer's Outfit");
-            if (this.player.hasItem(this.armors.ADVCLTH)) this.addButton(this, button++, "Green Clothes", this.giveRubiClothes, this.armors.ADVCLTH);
+            if (this.player.hasItem(this.armors.ADVCLTH)) this.addButton(button++, "Green Clothes", this.giveRubiClothes, this.armors.ADVCLTH);
         }
 
         if (this.flags[kFLAGS.RUBI_TUBE_TOP] == 1)
             closet[closet.length] = "A Tube Top";
         else {
             gifts.push("A Tube Top");
-            if (this.player.hasItem(this.armors.TUBETOP)) this.addButton(this, button++, "Tube Top", this.giveRubiClothes, this.armors.TUBETOP);
+            if (this.player.hasItem(this.armors.TUBETOP)) this.addButton(button++, "Tube Top", this.giveRubiClothes, this.armors.TUBETOP);
         }
 
         if (this.flags[kFLAGS.RUBI_BODYSUIT] == 1)
             closet[closet.length] = "A Sheer Bodysuit";
         else {
             gifts.push("A Sheer Bodysuit");
-            if (this.player.hasItem(this.armors.T_BSUIT)) this.addButton(this, button++, "Bodysuit", this.giveRubiClothes, this.armors.T_BSUIT);
+            if (this.player.hasItem(this.armors.T_BSUIT)) this.addButton(button++, "Bodysuit", this.giveRubiClothes, this.armors.T_BSUIT);
         }
 
         if (this.flags[kFLAGS.RUBI_LONGDRESS] == 1)
             closet[closet.length] = "A Long Dress";
         else {
             gifts.push("A Long Dress");
-            if (this.player.hasItem(this.armors.B_DRESS)) this.addButton(this, button++, "Long Dress", this.giveRubiClothes, this.armors.B_DRESS);
+            if (this.player.hasItem(this.armors.B_DRESS)) this.addButton(button++, "Long Dress", this.giveRubiClothes, this.armors.B_DRESS);
         }
 
         if (this.flags[kFLAGS.RUBI_TIGHT_PANTS] == 1)
             closet[closet.length] = "A Dashing Outfit With Tight Leather Pants";
         else {
             gifts.push("A Dashing Outfit With Tight Leather Pants");
-            if (this.player.hasItem(this.armors.LTHRPNT)) this.addButton(this, button++, "Leather Pants", this.giveRubiClothes, this.armors.LTHRPNT);
+            if (this.player.hasItem(this.armors.LTHRPNT)) this.addButton(button++, "Leather Pants", this.giveRubiClothes, this.armors.LTHRPNT);
         }
 
         if (this.flags[kFLAGS.RUBI_NURSE_CLOTHES] == 1)
             closet[closet.length] = "Nurse's Clothes";
         else {
             gifts.push("Nurse's Clothes");
-            if (this.player.hasItem(this.armors.NURSECL)) this.addButton(this, button++, "Nurse Clothes", this.giveRubiClothes, this.armors.NURSECL);
+            if (this.player.hasItem(this.armors.NURSECL)) this.addButton(button++, "Nurse Clothes", this.giveRubiClothes, this.armors.NURSECL);
         }
 
         if (this.flags[kFLAGS.RUBI_SWIMWEAR] == 1)
             closet[closet.length] = "Slutty Swimwear";
         else {
             gifts.push("Slutty Swimwear");
-            if (this.player.hasItem(this.armors.S_SWMWR)) this.addButton(this, button++, "SluttySwim", this.giveRubiClothes, this.armors.S_SWMWR);
+            if (this.player.hasItem(this.armors.S_SWMWR)) this.addButton(button++, "SluttySwim", this.giveRubiClothes, this.armors.S_SWMWR);
         }
 
         if (this.flags[kFLAGS.RUBI_BIMBO_MINIDRESS] == 1)
@@ -3240,14 +3240,14 @@ export class Rubi extends TelAdreAbstractContent {
             closet[closet.length] = "Bondage Straps";
         else {
             gifts.push("Bondage Straps");
-            if (this.player.hasItem(this.armors.BONSTRP)) this.addButton(this, button++, "Bondage S.", this.giveRubiClothes, this.armors.BONSTRP);
+            if (this.player.hasItem(this.armors.BONSTRP)) this.addButton(button++, "Bondage S.", this.giveRubiClothes, this.armors.BONSTRP);
         }
 
         if (this.flags[kFLAGS.RUBI_INQUISITORS_CORSET] == 1)
             closet[closet.length] = "An Inquisitor's Corset";
         else {
             gifts.push("An Iquisitor's Corset");
-            if (this.player.hasItem(this.armors.I_CORST)) this.addButton(this, button++, "I. Corset", this.giveRubiClothes, this.armors.I_CORST);
+            if (this.player.hasItem(this.armors.I_CORST)) this.addButton(button++, "I. Corset", this.giveRubiClothes, this.armors.I_CORST);
         }
 
         if (this.flags[kFLAGS.RUBI_AFFECTION] >= 100)
@@ -3274,18 +3274,18 @@ export class Rubi extends TelAdreAbstractContent {
             this.outputText("You could give Rubi some incubi draft to make [rubi em] a little more manly but corrupt, or you could give Rubi a Bimbo Draft to turn [rubi em] into a smoking hot, female sex-bomb.\n\n");
         }
         this.outputText("What will you give [rubi em]?");
-        if (this.player.hasItem(this.consumables.BIMBOLQ) && !this.rubiBimbo()) this.addButton(this, button++, "Bimbo Liq", this.giveRubiATFItem, this.consumables.BIMBOLQ);
-        if (this.player.hasItem(this.consumables.INCUBID)) this.addButton(this, button++, "Incubi Draft", this.giveRubiATFItem, this.consumables.INCUBID);
-        if (this.player.hasItem(this.consumables.P_DRAFT)) this.addButton(this, button++, "Pure Draft", this.giveRubiATFItem, this.consumables.P_DRAFT);
-        if (this.player.hasItem(this.consumables.SUCMILK)) this.addButton(this, button++, "Sucb Milk", this.giveRubiATFItem, this.consumables.SUCMILK);
-        if (this.player.hasItem(this.consumables.P_S_MLK)) this.addButton(this, button++, "PureScbMlk", this.giveRubiATFItem, this.consumables.P_S_MLK);
-        if (this.player.hasItem(this.consumables.PURPEAC, 5)) this.addButton(this, button++, "Pure Peach", this.giveRubiATFItem, this.consumables.PURPEAC);
-        if (this.player.hasItem(this.consumables.EQUINUM)) this.addButton(this, button++, "Equinum", this.giveRubiATFItem, this.consumables.EQUINUM);
-        if (this.player.hasItem(this.consumables.W_FRUIT)) this.addButton(this, button++, "Whsk.Fruit", this.giveRubiATFItem, this.consumables.W_FRUIT);
-        if (this.player.hasItem(this.consumables.REDUCTO)) this.addButton(this, button++, "Reducto", this.giveRubiATFItem, this.consumables.REDUCTO);
-        if (this.player.hasItem(this.consumables.GROPLUS)) this.addButton(this, button++, "Gro Plus", this.giveRubiATFItem, this.consumables.GROPLUS);
-        if (this.player.hasItem(this.consumables.TRAPOIL)) this.addButton(this, button++, "Trap Oil", this.giveRubiATFItem, this.consumables.TRAPOIL);
-        this.addButton(this, 9, "Back", this.rubiAppearance);
+        if (this.player.hasItem(this.consumables.BIMBOLQ) && !this.rubiBimbo()) this.addButton(button++, "Bimbo Liq", this.giveRubiATFItem, this.consumables.BIMBOLQ);
+        if (this.player.hasItem(this.consumables.INCUBID)) this.addButton(button++, "Incubi Draft", this.giveRubiATFItem, this.consumables.INCUBID);
+        if (this.player.hasItem(this.consumables.P_DRAFT)) this.addButton(button++, "Pure Draft", this.giveRubiATFItem, this.consumables.P_DRAFT);
+        if (this.player.hasItem(this.consumables.SUCMILK)) this.addButton(button++, "Sucb Milk", this.giveRubiATFItem, this.consumables.SUCMILK);
+        if (this.player.hasItem(this.consumables.P_S_MLK)) this.addButton(button++, "PureScbMlk", this.giveRubiATFItem, this.consumables.P_S_MLK);
+        if (this.player.hasItem(this.consumables.PURPEAC, 5)) this.addButton(button++, "Pure Peach", this.giveRubiATFItem, this.consumables.PURPEAC);
+        if (this.player.hasItem(this.consumables.EQUINUM)) this.addButton(button++, "Equinum", this.giveRubiATFItem, this.consumables.EQUINUM);
+        if (this.player.hasItem(this.consumables.W_FRUIT)) this.addButton(button++, "Whsk.Fruit", this.giveRubiATFItem, this.consumables.W_FRUIT);
+        if (this.player.hasItem(this.consumables.REDUCTO)) this.addButton(button++, "Reducto", this.giveRubiATFItem, this.consumables.REDUCTO);
+        if (this.player.hasItem(this.consumables.GROPLUS)) this.addButton(button++, "Gro Plus", this.giveRubiATFItem, this.consumables.GROPLUS);
+        if (this.player.hasItem(this.consumables.TRAPOIL)) this.addButton(button++, "Trap Oil", this.giveRubiATFItem, this.consumables.TRAPOIL);
+        this.addButton(9, "Back", this.rubiAppearance);
 
 
 
@@ -3597,7 +3597,7 @@ export class Rubi extends TelAdreAbstractContent {
         else if (itype == this.armors.I_CORST) this.flags[kFLAGS.RUBI_INQUISITORS_CORSET] = 1;
         else if (itype == this.armors.BONSTRP) this.flags[kFLAGS.RUBI_BONDAGE_STRAPS] = 1;
         this.rubiAffection(20);
-        this.doNext(this, this.rubisFuckingHouseYouPervert);
+        this.doNext(this.rubisFuckingHouseYouPervert);
     }
 
     //Rubi's Bimbofication

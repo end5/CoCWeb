@@ -15,7 +15,7 @@ export class Shouldra extends Monster {
     private shouldrattack(): void {
         var damage: number = 0;
         //return to combat menu when finished
-        this.doNext(this, this.game.playerMenu);
+        this.doNext(this.game.playerMenu);
         //Determine if dodged!
         if (this.player.spe - this.spe > 0 && Math.floor(Math.random() * (((this.player.spe - this.spe) / 4) + 80)) > 80) {
             this.outputText("The girl wades in for a swing, but you deftly dodge to the side. She recovers quickly, spinning back at you.", false);

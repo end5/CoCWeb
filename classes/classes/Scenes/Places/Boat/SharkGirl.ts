@@ -30,7 +30,7 @@ export class SharkGirl extends Monster {
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
             this.outputText("\n\nYour foe doesn't seem disgusted enough to leave...");
-            this.doNext(this, this.game.endLustLoss);
+            this.doNext(this.game.endLustLoss);
         } else {
             this.game.boat.sharkGirlScene.sharkLossRape();
         }

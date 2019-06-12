@@ -85,7 +85,7 @@ export class ExploreDebug extends BaseContent {
         this.menu();
 
         this.outputText("<b>Monsters</b> &nbsp; combat each monster.\n\n");
-        this.addButton(this, 0, "Monsters", this.exploreDebugMonsters);
+        this.addButton(0, "Monsters", this.exploreDebugMonsters);
     }
 
     // array of lazy monster creators
@@ -211,19 +211,19 @@ export class ExploreDebug extends BaseContent {
                 this.exploreDebugMonsters(monsterIdx + 1);
             };
             this.outputText("You are going to fight " + m.a + " " + m.short + ".");
-            this.addButton(this, 0, "Fight", (): void => {
+            this.addButton(0, "Fight", (): void => {
                 this.outputText("\n\nStarting combat...");
                 this.startCombat(m);
             });
-            this.addButton(this, 1, "Skip", this.exploreDebugMonsters, monsterIdx + 1);
-            this.addButton(this, 2, "Heal", (): void => {
+            this.addButton(1, "Skip", this.exploreDebugMonsters, monsterIdx + 1);
+            this.addButton(2, "Heal", (): void => {
                 this.player.HP = this.player.maxHP();
                 this.player.lust = 0;
                 this.statScreenRefresh();
             });
         }
-        if (monsterIdx > 1) this.addButton(this, 6, "Go Back", this.exploreDebugMonsters, monsterIdx - 1);
-        this.addButton(this, 9, "Enough", this.playerMenu);
+        if (monsterIdx > 1) this.addButton(6, "Go Back", this.exploreDebugMonsters, monsterIdx - 1);
+        this.addButton(9, "Enough", this.playerMenu);
     }
 
     public ExploreDebug() {

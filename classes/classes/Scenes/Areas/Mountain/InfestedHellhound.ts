@@ -70,7 +70,7 @@ export class InfestedHellhound extends HellHound {
             this.outputText("Unable to bear its unnatural arousal, the infested hellhound's flames dim as he stops his attack. The two heads look at you, whining plaintively.  The hellhound slowly pads over to you and nudges its noses at your crotch.  It seems he wishes to pleasure you.\n\n", true);
             if (this.player.gender > 0 && this.player.lust >= 33) {
                 this.outputText("You realize your desires aren't quite sated.  You could let it please you.  Do you?", false);
-                this.game.simpleChoices(this, "Fuck it", this.game.mountain.hellHoundScene.hellHoundGetsRaped, "", undefined, "", undefined, "", undefined, "Leave", this.game.cleanupAfterCombat);
+                this.game.simpleChoices("Fuck it", this.game.mountain.hellHoundScene.hellHoundGetsRaped, "", undefined, "", undefined, "", undefined, "Leave", this.game.cleanupAfterCombat);
             }
             else {
                 this.outputText("You turn away, not really turned on enough to be interested in such an offer from such a beast.", false);
@@ -82,7 +82,7 @@ export class InfestedHellhound extends HellHound {
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
             this.outputText("\n\nThe infested hellhound's heads both grin happily as it advances towards you...", false);
-            this.doNext(this, this.game.mountain.infestedHellhoundScene.infestedHellhoundLossRape);
+            this.doNext(this.game.mountain.infestedHellhoundScene.infestedHellhoundLossRape);
         } else if (hpVictory) {
             this.game.mountain.infestedHellhoundScene.infestedHellhoundLossRape();
         } else {

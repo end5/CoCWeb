@@ -24,7 +24,7 @@ export class MaleSpiderMorphScene extends BaseContent {
         else {
             this.outputText("He breaks into a smile and says, \"<i>Hi there!  I haven't seen anyone else with a shred of sanity in FOREVER.  Would you mind just, talking with me?</i>\"", false);
             //[Fight] [Talk] [Leave]
-            this.simpleChoices(this, "Fight", this.fightSpiderBoy, "Talk", this.talkToSpiderBoy, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+            this.simpleChoices("Fight", this.fightSpiderBoy, "Talk", this.talkToSpiderBoy, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -65,7 +65,7 @@ export class MaleSpiderMorphScene extends BaseContent {
         if (this.player.gender > 0 && this.player.lust >= 33) {
             this.outputText("\n\nWhat do you do?", false);
             //[CHOICES]
-            this.simpleChoices(this, "Mount", mount, "FuckHisButt", buttfuck, "Frot", frot, "B.Titfuck", bikiniTits, "Leave", this.cleanupAfterCombat);
+            this.simpleChoices("Mount", mount, "FuckHisButt", buttfuck, "Frot", frot, "B.Titfuck", bikiniTits, "Leave", this.cleanupAfterCombat);
         }
         else this.cleanupAfterCombat();
     }

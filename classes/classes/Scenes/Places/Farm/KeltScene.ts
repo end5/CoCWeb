@@ -85,7 +85,7 @@ STATUSES:
                     this.player.createStatusAffect(StatusAffects.KeltBadEndWarning, 0, 0, 0, 0);
                     this.outputText("You approach the farm, ready for another archery lesson.  Kelt is oblivious to your presence, busy practicing with his own bow for the moment.  The wind shifts and blows his musk your way.  Unconsciously, you breathe deeply, sending heat racing between your rear legs.  Alarm bells go off in your mind as you realize what his presence is doing to you, and you run away to your camp before he can notice you.  It's clear to you that you can't resist him much longer; the next time you meet him, you'll probably volunteer to become his brood-mare.  Perhaps you should avoid Kelt and the farm until you feel his influence less keenly.", true);
                     this.dynStats("lus", this.player.lib / 5 + 10);
-                    this.doNext(this, this.camp.returnToCampUseOneHour);
+                    this.doNext(this.camp.returnToCampUseOneHour);
                 }
                 else this.keltCentaurBadEnd();
                 return;
@@ -117,7 +117,7 @@ STATUSES:
         this.outputText("He touches a longbow that is strung around his chest.  The size of the bow is enough to convince you.  If he can draw back a bow that thick, he would surely have enough power to hit you from almost across the field.  A weapon like that could be very useful in fending off some of the monsters in this land.  The centaur notices you looking, and grins arrogantly.\r\r", false);
         this.outputText("\"<i>Like my bow?  As well you should.  This is a real warrior's weapon!  If you want to learn someday, visit me again.  Maybe if you're not too stupid, you will be able to learn something.  I won't cross my fingers.</i>\"\r\r", false);
         this.outputText("He laughs again derisively, and trots off.  You bristle slightly... he is irritatingly arrogant.  But if he can teach you to use a weapon like that, it may be worth putting up with his company...", false);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //Naked Requirement
     private keltRequiresNakedness(): void {
@@ -128,15 +128,15 @@ STATUSES:
         this.outputText("Do you obey his demand?", false);
         if (this.player.cor > 70 && this.player.inte > 40 && this.player.lowerBody != LOWER_BODY_TYPE_CENTAUR) {
             this.outputText("\n\n<b>If you fight back and take him down a peg, you might never see him again...</b>");
-            this.simpleChoices(this, "Reluctantly", this.keltReluctantlyGetNaked, "Eagerly", this.keltEagerlyGetNaked, "Fight Back", this.keltResistance, "", undefined, "Never", this.keltRefuseNakedness);
+            this.simpleChoices("Reluctantly", this.keltReluctantlyGetNaked, "Eagerly", this.keltEagerlyGetNaked, "Fight Back", this.keltResistance, "", undefined, "Never", this.keltRefuseNakedness);
             return;
         }
-        else this.simpleChoices(this, "Reluctantly", this.keltReluctantlyGetNaked, "Eagerly", this.keltEagerlyGetNaked, "", undefined, "", undefined, "Never", this.keltRefuseNakedness);
+        else this.simpleChoices("Reluctantly", this.keltReluctantlyGetNaked, "Eagerly", this.keltEagerlyGetNaked, "", undefined, "", undefined, "Never", this.keltRefuseNakedness);
         //(Corruption higher than 60 automatically chooses eagerly)
         if (this.player.cor + this.player.lib + this.player.lust >= 180) {
             this.outputText(" Of course you do.  You love putting on a show.", false);
             // go eagerly.
-            this.doNext(this, this.keltEagerlyGetNaked);
+            this.doNext(this.keltEagerlyGetNaked);
         }
     }
 
@@ -146,11 +146,11 @@ STATUSES:
         this.outputText("You adamantly refuse, determined to not give this arrogant centaur the satisfaction.  Kelt sneers at you derisively, and gives you several pieces of advice as to what could fit up your rear end.  As his insults grow more colorful, you turn and leave; his mocking laughter follows behind you.  You resolve to not bother with him anymore.\r\r(Somehow you know you'll never encounter him again.)", true);
         //(Kelt never encountered again)
         this.player.createStatusAffect(StatusAffects.KeltOff, 0, 0, 0, 0);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //Naked Requirement, Eagerly
     private keltEagerlyGetNaked(): void {
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         this.spriteSelect(35);
         this.outputText("", true);
         this.outputText("You have no problem stripping down naked in front of Kelt, even enjoying the process a little bit.  Judging by his leer, Kelt is enjoying it too.  He seems aroused by his power over you more than anything else... and you find yourself admitting that you're a little aroused by it as well.\r\r", false);
@@ -206,7 +206,7 @@ STATUSES:
     //Naked Requirement, Reluctantly
     private keltReluctantlyGetNaked(): void {
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         this.spriteSelect(35);
         this.outputText("", true);
         this.outputText("You are uncomfortable with the idea of being naked in front of this crude, cruel taskmaster.  But he is good at what he does, and if this is the only way to convince him to teach you, then you'll just have to get it over with.  You agree to his terms reluctantly, and begin to strip off your clothes.\r\r", false);
@@ -278,15 +278,15 @@ STATUSES:
         //(Corruption higher than 80 automatically chooses Eagerly)
         if (this.player.cor + this.player.lib + this.player.lust >= 200 && this.player.inte < 60) {
             this.outputText("  Of course you do, slut that you are.", false);
-            this.doNext(this, this.keltBlowjobRequirementEagerly);
+            this.doNext(this.keltBlowjobRequirementEagerly);
             return;
         }
         //Never!			Shamefully			Eagerly
         if (this.player.inte > 40 && this.player.cor > 70 && this.player.lowerBody != LOWER_BODY_TYPE_CENTAUR) {
             this.outputText("\n\n<b>If you fight back and take him down a peg, you might never see him again...</b>");
-            this.simpleChoices(this, "Shamefully", this.keltBlowjobRequirementShamefully, "Eagerly", this.keltBlowjobRequirementEagerly, "Fight Back", this.keltResistance, "", undefined, "Never!", this.keltBlowjobRequirementNever);
+            this.simpleChoices("Shamefully", this.keltBlowjobRequirementShamefully, "Eagerly", this.keltBlowjobRequirementEagerly, "Fight Back", this.keltResistance, "", undefined, "Never!", this.keltBlowjobRequirementNever);
         }
-        else this.simpleChoices(this, "Shamefully", this.keltBlowjobRequirementShamefully, "Eagerly", this.keltBlowjobRequirementEagerly, "Resist", undefined, "", undefined, "Never!", this.keltBlowjobRequirementNever);
+        else this.simpleChoices("Shamefully", this.keltBlowjobRequirementShamefully, "Eagerly", this.keltBlowjobRequirementEagerly, "Resist", undefined, "", undefined, "Never!", this.keltBlowjobRequirementNever);
     }
 
     //Blowjob Requirement, Never
@@ -303,7 +303,7 @@ STATUSES:
         this.outputText("But the feeling is weaker now.  Whatever is was that kept you bound to him seems to be fading now, albeit slowly.  A shiver of desire runs through you, even so.  It may be a long recovery.\r\r", false);
         //(Kelt never encountered again)
         this.player.createStatusAffect(StatusAffects.KeltOff, 0, 0, 0, 0);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Blowjob Requirement, Shamefully
@@ -331,7 +331,7 @@ STATUSES:
         //(Blowjob Off, but activated.)
         //(+7 Submissiveness)
         this.player.addStatusValue(StatusAffects.Kelt, 2, 7);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Blowjob Requirement, Eagerly
@@ -361,7 +361,7 @@ STATUSES:
         this.player.createStatusAffect(StatusAffects.BlowjobOn, 0, 0, 0, 0);
         //(+15 Submissiveness)
         this.player.addStatusValue(StatusAffects.Kelt, 2, 15);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Normal Encounter
@@ -420,9 +420,9 @@ STATUSES:
 
                     if (this.player.inte > 40 && this.player.cor > 70 && this.player.lowerBody != LOWER_BODY_TYPE_CENTAUR) {
                         this.outputText("\n\n<b>If you fight back and take him down a peg, you might never see him again...</b>");
-                        this.simpleChoices(this, "Yes", this.keltReluctantlyGetNaked, "No", this.keltRefuseNakedness, "Fight Back", this.keltResistance, "", undefined, "", undefined);
+                        this.simpleChoices("Yes", this.keltReluctantlyGetNaked, "No", this.keltRefuseNakedness, "Fight Back", this.keltResistance, "", undefined, "", undefined);
                     }
-                    else this.doYesNo(this, this.keltReluctantlyGetNaked, this.keltRefuseNakedness);
+                    else this.doYesNo(this.keltReluctantlyGetNaked, this.keltRefuseNakedness);
                     return;
                 }
             }
@@ -536,7 +536,7 @@ STATUSES:
                 this.player.knockUp(PregnancyStore.PREGNANCY_KELT, PregnancyStore.INCUBATION_CENTAUR, 50);
                 //Should be equivalent to the old way, but now Kelt does all the usual things like checking for contraceptives and fertilizing eggs if PC can oviposit
                 if (this.player.pregnancyType == PregnancyStore.PREGNANCY_KELT) trace("PLAYER GOT KNOCKED UP BY KELT");
-                this.doNext(this, this.camp.returnToCampUseOneHour);
+                this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
             temporary = KeltScene.rand(5);
@@ -552,7 +552,7 @@ STATUSES:
                 this.dynStats("lus", 10);
                 //player.addStatusValue(StatusAffects.Kelt,1,4);
                 this.bowSkill(4);
-                this.doNext(this, this.camp.returnToCampUseOneHour);
+                this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
             //(No Breasts—Do standard Naked event)
@@ -584,7 +584,7 @@ STATUSES:
                 }
                 this.outputText("\"<i>Take it from me, bitch.  Know your place.  Breasts are for women, and women are for fucking until their bellies are full of foals.  'Teach me archery, Kelt!'  Ha!  Now that's a joke.</i>\"\r\r", false);
                 this.outputText("Flicking your erect teats painfully one last time, Kelt walks away, laughing loudly to himself.", false);
-                this.doNext(this, this.camp.returnToCampUseOneHour);
+                this.doNext(this.camp.returnToCampUseOneHour);
                 //(+5 Submissive)
                 this.player.addStatusValue(StatusAffects.Kelt, 2, 5);
                 //player.addStatusValue(StatusAffects.Kelt,1,4);
@@ -608,11 +608,11 @@ STATUSES:
                 this.player.addStatusValue(StatusAffects.Kelt, 2, 5);
                 //player.addStatusValue(StatusAffects.Kelt,1,4);
                 this.bowSkill(4);
-                this.doNext(this, this.camp.returnToCampUseOneHour);
+                this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private keltMainEncounterPostBlowjob(): void {
@@ -653,7 +653,7 @@ STATUSES:
                 this.outputText("When Kelt pulls out, he leaves behind your ravaged asshole, spread wide and filled with cum.  You whimper as he withdraws, but are unable to move, unable to think.  You dimly hear him laughing at you again, and taste his cum once more as he dips a finger into your gaping asshole and presses it to your lips.\r\r", false);
                 this.outputText("\"<i>Now stay there for a while, bitch.  Let it get good and stuck up there.  Come back tomorrow, and maybe, if you're lucky, I'll fuck you again.  You do, after all, make a pretty good cumdump.</i>\"\r\r", false);
                 this.outputText("It's some hours later before you rouse yourself, clenching your ass as best as you can to keep the tide inside.  Despite your efforts, a steady trail oozes down your leg, marking your path as you slowly, happily trudge back to your camp.", false);
-                this.doNext(this, this.camp.returnToCampUseTwoHours);
+                this.doNext(this.camp.returnToCampUseTwoHours);
                 this.player.slimeFeed();
                 //(+10 Submissiveness)
                 if (this.player.buttChange(70, true)) this.outputText("\r\r", false);
@@ -678,7 +678,7 @@ STATUSES:
                 //player.addStatusValue(StatusAffects.Kelt,1,3);
                 this.bowSkill(3);
                 this.dynStats("lus", 20, "cor", 1);
-                this.doNext(this, this.camp.returnToCampUseOneHour);
+                this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
         }
@@ -691,14 +691,14 @@ STATUSES:
             //(Submissiveness +80, or Corruption +80)
             if (this.player.cor + this.player.lib + this.player.lust >= 220 && this.player.statusAffectv2(StatusAffects.Kelt) >= 80) {
                 this.outputText("You try to resist the need.  You honestly try.  But this time, there is just no stopping it.  Your desire for Kelt to cum within you again is so great, you fall to your knees immediately before him, waiting hungrily for your treat.  A part of you wonders why you ever resisted in the first place... in fact, why not suck him off before every lesson?  Surely that would make him like you more...\r\r", false);
-                this.doNext(this, this.keltSubmitGivingBJ);
+                this.doNext(this.keltSubmitGivingBJ);
                 return;
             }
             //Otherwise)
             else {
                 this.outputText("Despite the need, despite the desire, you are still in control of yourself enough to make a choice.  Do you submit to the centaur's will, and your own hunger?  Or will you somehow find the strength to walk away?", false);
                 //Submit				Resist!
-                this.simpleChoices(this, "Submit", this.keltSubmitGivingBJ, "Resist", this.keltResistGivingBJ, "", undefined, "", undefined, "", undefined);
+                this.simpleChoices("Submit", this.keltSubmitGivingBJ, "Resist", this.keltResistGivingBJ, "", undefined, "", undefined, "", undefined);
                 return;
             }
         }
@@ -715,7 +715,7 @@ STATUSES:
         //(-5 Submissiveness)
         this.player.addStatusValue(StatusAffects.Kelt, 2, -5);
         this.dynStats("lus", 5);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //(Submit)
     private keltSubmitGivingBJ(): void {
@@ -728,7 +728,7 @@ STATUSES:
             this.player.createStatusAffect(StatusAffects.BlowjobOn, 0, 0, 0, 0);
         }
         this.keltReluctantGivingBJ();
-        this.doNext(this, this.continueAfterBJ);
+        this.doNext(this.continueAfterBJ);
     }
     //Continue training post BJ
     private continueAfterBJ(): void {
@@ -751,7 +751,7 @@ STATUSES:
         this.dynStats("lus", 5);
         //(+5 Submissiveness)*/
         this.player.addStatusValue(StatusAffects.Kelt, 2, 5);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Bad Ends
@@ -803,7 +803,7 @@ STATUSES:
             this.outputText("\"<i>As I thought,</i>\" he sneers, thrusting particularly hard and making you whimper with need.  \"<i>Archery... what a joke!  Breeding sluts don't shoot arrows.  They get fucked until they're pregnant, then get fucked again.  They kneel and suck me off when I say so, and their stomachs swell with my young.  Well, I could use another cumdump, slut.  So consider this your initiation.  You're mine now, to use whenever I feel like it.  Hope you like the feeling of my cock, bitch.  It's gonna be the only thing you feel for a long time.</i>\"\r\r", false);
             this.outputText("He thrusts in once more ruthlessly, burying the whole length of his cock as he ruthlessly snarls, cumming forcefully deep within you.  You feel his warmth explode within you, seeking out your fertile eggs, ready to knock you up with your master's foals, and cum yourself.  As his hot seed pumps into your womb, the last resistance you had crumbles, and you moan like a mare in heat, praying for twins.  Kelt, never going soft, continues thrusting urgently, preparing to deliver a second load to his newest harem member.  Again and again, you beg him for more, embracing your new life without regret.", false);
         }
-        this.doNext(this, this.keltBadEndEpilogue);
+        this.doNext(this.keltBadEndEpilogue);
     }
 
     //(Human) bad end
@@ -819,7 +819,7 @@ STATUSES:
         this.outputText("You whimper with joy, thanking him over and over again.  A great weight has been lifted, your true purpose revealed.  How could you have not known it before?  Kelt is your master, and you are nothing but his needy slut!  The revelation fills you with ecstasy.  Eagerly you thrust back up against him, eager to be filled, desperate for satisfaction.  He grinds into you, grinning wickedly all the time.  Then, mercifully, he pulls back enough to line up his shot, and fills your ass with his cock.\r\r", false);
         this.outputText("\"<i>Ungh!  There's a good bitch.  From now on, you're mine, and mine only.  If you dare to fuck another creature, I will kill you.  Be a good slut, though, and maybe I'll give you a few foals to fill that belly.  Now moan for me, bitch.  I wanna hear you scream as I make you mine.</i>\"\r\r", false);
         this.outputText("Scream you do, but with pleasure, as his cock erupts deep within your bowels.  This is what you wanted... this is what you always wanted.  Kelt grunts with contented release, then begins thrusting again, cock still hard as he prepares to dump a second load into his newest harem member.  Again and again, you beg him for more, embracing your new life without regret.", false);
-        this.doNext(this, this.keltBadEndEpilogue);
+        this.doNext(this.keltBadEndEpilogue);
     }
 
     //Bad End 2
@@ -848,14 +848,14 @@ STATUSES:
         else this.outputText("fighting anger-fueled muscle-spasms", false);
         this.outputText(" as Kelt's insults go too far.  You've had just about enough of his disingenuous assertions!\r\r", false);
         this.outputText("An idea on how to put him in his place slowly forms in the back of your mind, though you're sure pulling it off would humiliate the puffed-up centaur into never his showing his face around the farm again.  Do you do it?", false);
-        this.doYesNo(this, this.fuckKeltsShitUp, this.keltResistancePussyOut);
+        this.doYesNo(this.fuckKeltsShitUp, this.keltResistancePussyOut);
     }
     private keltResistancePussyOut(): void {
         this.spriteSelect(35);
         this.outputText("You suppress your anger for now.  Yes; Kelt's an asshole, but he's taught you a lot, and would it hurt to humor the cute stud?  You shake your head, uncomfortable with the out-of-place thought.  You leave in a hurry, unable to face your master.", true);
         //(+2 submission)
         this.player.addStatusValue(StatusAffects.Kelt, 2, 2);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private fuckKeltsShitUp(): void {
@@ -986,7 +986,7 @@ STATUSES:
         this.player.orgasm();
         this.dynStats("int", 2, "cor", 4);
         this.player.createStatusAffect(StatusAffects.KeltOff, 0, 0, 0, 0);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 }
 

@@ -24,7 +24,7 @@ export class Faerie extends BaseContent {
                 }
                 else this.outputText("\n\nYou lazily make a grab for her and easily snatch her out of the air.  Her body is sticky with a mix of desire and your last encounter.  You can feel her humping against your pinky while she begs, \"<i>Come on, let me crawl into your " + this.player.armorName + " and wrap myself around your shaft.  I promise I'll only drink a little pre-cum this time, just enough to let me get off.  I'll be a good faerie slut, just let me get you off!</i>\"\n\nDo you let the faerie get you off?", false);
                 this.dynStats("lus", this.player.lib / 10 + 2);
-                this.doYesNo(this, this.faerieCaptureHJ, this.letFaerieGo);
+                this.doYesNo(this.faerieCaptureHJ, this.letFaerieGo);
                 return;
             }
             this.dynStats("lus", this.player.lib / 10 + 2);
@@ -36,14 +36,14 @@ export class Faerie extends BaseContent {
                 this.player.orgasm();
             }
             else this.outputText("\n\nYou try in vain to jump and catch her, but she's too high above you and much too fast.", false);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         this.outputText("The faerie slows the beating of her wings and hovers towards you. You dismiss your fearful notions, certain a small faerie is quite harmless to you.\n\n", false);
         this.outputText("How do you react?", false);
         //Shoo Away, Nothing, RAEP
-        if (this.player.hasVagina()) this.simpleChoices(this, "Shoo Away", this.faerieShooAway, "Nothing", this.faerieDoNothing, "Rape", this.faerieRAEP, "", undefined, "", undefined);
-        else this.simpleChoices(this, "Shoo Away", this.faerieShooAway, "Nothing", this.faerieDoNothing, "", undefined, "", undefined, "", undefined);
+        if (this.player.hasVagina()) this.simpleChoices("Shoo Away", this.faerieShooAway, "Nothing", this.faerieDoNothing, "Rape", this.faerieRAEP, "", undefined, "", undefined);
+        else this.simpleChoices("Shoo Away", this.faerieShooAway, "Nothing", this.faerieDoNothing, "", undefined, "", undefined, "", undefined);
     }
 
     private faerieRAEP(): void {
@@ -137,13 +137,13 @@ export class Faerie extends BaseContent {
         }
         this.player.orgasm();
         this.dynStats("lib", -2, "cor", .5);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private faerieShooAway(): void {
         this.spriteSelect(17);
         this.outputText("You shake your hands, shooing away the tiny faerie.  She's clearly been touched by the magics of this land and you want nothing to do with her. With a pouting look, she turns and buzzes away.", true);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private faerieDoNothing(): void {
@@ -161,7 +161,7 @@ export class Faerie extends BaseContent {
             if (this.player.biggestLactation() > 1.5) this.outputText("\n\nA copious gout of your milk escapes her rosy folds.", false);
             this.player.orgasm();
             this.dynStats("lib", -2);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         if (this.player.clitLength >= 1.0 && this.player.clitLength <= 4.5 && this.player.hasVagina() && Faerie.rand(2) == 0) {
@@ -171,13 +171,13 @@ export class Faerie extends BaseContent {
             this.outputText("Time skips a beat and you eventually come down, gently relaxing your grip and disengaging the worn out faerie from your softening female parts. The faerie regains consciousness slowly and thanks you before flying off.", false);
             this.player.orgasm();
             this.dynStats("lib", -1);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         if (this.player.clitLength > 4.5) {
             this.outputText("The faerie flies close to your ear and speaks in a volume that would be a whisper from another human, \"You've got some sexy parts girl, but you're too big for me. I hope you find someone to get you off so I can watch.\" Then she flies in front of you, cutely kisses the bridge of your nose, and flies off.", false);
             this.dynStats("lus", 5);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         this.outputText("The faerie flies close to your nipple and sucks it gingerly.  You pant in pleasure as you feel it pucker tight in her mouth, tingling with her saliva.  She lets it pop free, swollen with arousal.  Her hand flicks it playfully, the sudden sensation fluttering through you as you close your eyes in pleasure.  You recover and find she has flown high into the trees, waving playfully as she escapes.\n\nYou frown and begin to dress yourself, flushing irritably as your nipples protrude further into your clothes than you remember.", false);
@@ -187,7 +187,7 @@ export class Faerie extends BaseContent {
             this.player.nippleLength -= .25;
         }
         this.dynStats("sen", 1, "lus", 5);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         return;
     }
 
@@ -196,7 +196,7 @@ export class Faerie extends BaseContent {
         this.spriteSelect(17);
         this.outputText("", true);
         this.outputText("You apologize and release her, letting her fly away on gossamer wings.  She thanks you, buzzing up to your lips and planting a chaste kiss on your mouth.  She zips away into the woods without a glance back...", false);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //[YES] *make her pleasure you
     private faerieCaptureHJ(): void {
@@ -264,7 +264,7 @@ export class Faerie extends BaseContent {
             this.dynStats("lib", -.5);
             if (this.player.findStatusAffect(StatusAffects.Jizzpants) < 0) this.player.createStatusAffect(StatusAffects.Jizzpants, 1, 0, 0, 0);
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 }
 

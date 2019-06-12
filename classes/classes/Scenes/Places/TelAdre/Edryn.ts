@@ -101,7 +101,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
             this.outputText("You stay with her and chat, learning more about your newborn child and otherwise having a pleasant time with your quadruped lover.", false);
             this.cheatTime(1);
             this.flags[kFLAGS.EDRYN_NEEDS_TO_TALK_ABOUT_KID] = 0;
-            this.doNext(this, this.telAdre.barTelAdre);
+            this.doNext(this.telAdre.barTelAdre);
             return;
         }
         //Mid-pregnancy talk
@@ -109,7 +109,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
             this.outputText("Edryn smiles pleasantly as you approach, ", false);
             this.outputText("offering you a spot at the table across from her.  She pushes aside the piled-up dishes and shifts uncomfortably on her pregnant bulk.  You smile at her and enjoy a light chat for a while, until Edryn runs out of food.  She excuses herself, and rises to go to the restroom.\n\n", false);
             //Edryn pregnant offer
-            this.doNext(this, this.pregdrynOffer);
+            this.doNext(this.pregdrynOffer);
             return;
         }
         //Post kids talk
@@ -120,7 +120,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
             if (this.player.totalCocks() == 0) {
                 this.outputText("She looks down, eyes fixing on your crotch for a moment before she sighs, \"<i>Why did you get rid of your dick?  I like you a lot, but I don't really want to have sex with you like you are now.</i>\"\n\nIt looks like you won't get to have any fun with her right now.", false);
                 this.cheatTime(1);
-                this.doNext(this, this.telAdre.barTelAdre);
+                this.doNext(this.telAdre.barTelAdre);
                 return;
             }
             //(WANG FITS)
@@ -128,7 +128,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
                 this.outputText("She winks at you as she gets up and trots off, giving her butt a sensual sway to draw your eyes.  Her potent scent hangs in the air, and your body reacts immediately and intensely, flooding you with arousal.  ", false);
                 this.outputText("You look down at your " + this.multiCockDescriptLight() + " and curse, irritated at how easily she can affect you.  There's no way you'll be turning her down this time.  You get up and follow her back to her room, intent on taking care of the need between your legs.\n\n", false);
                 //Sex
-                this.doNext(this, this.pregdrynOffer);
+                this.doNext(this.pregdrynOffer);
                 return;
             }
             //(Too small)
@@ -150,7 +150,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
                 else {
                     this.outputText("I'd love to help you, but I don't have any supplies for you.  I'm sure you'll find a way.</i>\"\n\n", false);
                     this.cheatTime(1);
-                    this.doNext(this, this.telAdre.barTelAdre);
+                    this.doNext(this.telAdre.barTelAdre);
                     return;
                 }
                 this.inventory.takeItem(itype, this.camp.returnToCampUseOneHour);
@@ -169,7 +169,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
                 else {
                     this.outputText("She says, \"<i>You should find some Reducto or something to shrink that down.  I haven't come across any more so you'll have to get it yourself.</i>\"\n\n", false);
                     this.cheatTime(1);
-                    this.doNext(this, this.telAdre.barTelAdre);
+                    this.doNext(this.telAdre.barTelAdre);
                     return;
                 }
             }
@@ -218,7 +218,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
                 else {
                     this.outputText("\n\nYou wait until she returns, wishing for once that things could be normal.  Though the remaining conversation is pleasant, you have a hard time enjoying yourself, and eventually bid the pretty centaur farewell.", false);
                     this.cheatTime(1);
-                    this.doNext(this, this.telAdre.barTelAdre);
+                    this.doNext(this.telAdre.barTelAdre);
                 }
             }
         }
@@ -228,14 +228,14 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
             if (this.player.hasVagina() && this.player.lust > 70) {
                 this.outputText("and as wet as you are right now, you find her scent to be intriguing.  Some part of you is curious what it would taste like.  When the centauress returns you compliment her on her shapely backside, but she only smiles politely and informs you that she \"<i>doesn't swing for your team,</i>\" whatever that means.  The rest of the conversation is quite pleasant, but all good things must come to an end.", false);
                 this.cheatTime(1);
-                this.doNext(this, this.telAdre.barTelAdre);
+                this.doNext(this.telAdre.barTelAdre);
             }
             //Everybody else is all "BLEH"
             else {
                 this.outputText("but the potent musky scent only reminds you of how different things are here.", false);
                 this.outputText("\n\nYou wait until she returns, wishing for once that things could be normal.  Though the remaining conversation is pleasant, you have a hard time enjoying yourself, and eventually bid the pretty centaur farewell.", false);
                 this.cheatTime(1);
-                this.doNext(this, this.telAdre.barTelAdre);
+                this.doNext(this.telAdre.barTelAdre);
             }
         }
     }
@@ -275,7 +275,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
                 this.outputText("Oh my, you're a little bit small for my tastes love.  Maybe you should try some of the local delicacies and trot back here so I can help you out, ok?</i>\"\n\n", false);
                 this.outputText("You're a bit disappointed with the outcome. It doesn't look like you'll be getting any centaur tail tonight.", false);
                 this.cheatTime(1);
-                this.doNext(this, this.telAdre.barTelAdre);
+                this.doNext(this.telAdre.barTelAdre);
                 return;
             }
             //Too big
@@ -283,7 +283,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
                 this.outputText("Oh wow, you're a little bit too big for me to handle, love.  Maybe you should try to find something to shrink that down a little, not too much, and trot back here so I can help you out, ok?</i>\"\n\n", false);
                 this.outputText("You're a bit disappointed with the outcome. It doesn't look like you'll be getting any centaur tail tonight.", false);
                 this.cheatTime(1);
-                this.doNext(this, this.telAdre.barTelAdre);
+                this.doNext(this.telAdre.barTelAdre);
                 return;
             }
             //Big enough
@@ -295,7 +295,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
             this.outputText("She releases your " + this.cockDescript(x) + " and looks expectantly at you.  Your body is ready to do anything for a chance to breed her.  What will you do?\n\n", false);
             if (cost > 0) this.outputText("(Do you pay " + Edryn.num2Text(cost) + " gems to fuck her?)", false);
             else this.outputText("(Do you fuck her?)", false);
-            this.doYesNo(this, this.edrynSexSelecter, this.telAdre.barTelAdre);
+            this.doYesNo(this.edrynSexSelecter, this.telAdre.barTelAdre);
         }
         else if (this.player.cockTotal() > 0) {
             //(HORSE CONT)
@@ -305,7 +305,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
                     this.outputText("\"<i>Wow, that's huge!  Sweetheart, you'll need to be a bit smaller if you want to play with me.  Why not go out and find something to shrink it down to something a horse like me can handle, then maybe we can play, ok?</i>\"\n\n", false);
                     this.outputText("You're a bit disappointed with the outcome. It doesn't look like you'll be getting any centaur tail tonight.", false);
                     this.cheatTime(1);
-                    this.doNext(this, this.telAdre.barTelAdre);
+                    this.doNext(this.telAdre.barTelAdre);
                     return;
                 }
                 if (this.player.cockArea(x) >= 24) {
@@ -319,14 +319,14 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
                     this.outputText(this.cockDescript(x) + " twitch.  Will you accept her proposition and give her what she wants?\n\n", false);
                     if (cost > 0) this.outputText("(Do you pay " + Edryn.num2Text(cost) + " gems to fuck her?)", false);
                     else this.outputText("(Do you fuck her?)", false);
-                    this.doYesNo(this, this.edrynSexSelecter, this.telAdre.barTelAdre);
+                    this.doYesNo(this.edrynSexSelecter, this.telAdre.barTelAdre);
                 }
                 //(HORSE TOO SMALL)
                 else {
                     this.outputText("\"<i>Ouch, is that all?  Sweetheart, you'll need to be a bit bigger if you want to play with me.  Why not go out and try some of the local delicacies, then maybe we can play, ok?</i>\"\n\n", false);
                     this.outputText("You're a bit disappointed with the outcome. It doesn't look like you'll be getting any centaur tail tonight.", false);
                     this.cheatTime(1);
-                    this.doNext(this, this.telAdre.barTelAdre);
+                    this.doNext(this.telAdre.barTelAdre);
                     return;
                 }
             }
@@ -337,7 +337,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
                     this.outputText("\"<i>Wow, that's huge!  Sweetheart, you'll need to be a bit smaller if you want to play with me.  Why not go out and find something to shrink it down to something a horse like me can handle, then maybe we can play, ok?</i>\"\n\n", false);
                     this.outputText("You're a bit disappointed with the outcome. It doesn't look like you'll be getting any centaur tail tonight.", false);
                     this.cheatTime(1);
-                    this.doNext(this, this.telAdre.barTelAdre);
+                    this.doNext(this.telAdre.barTelAdre);
                     return;
                 }
                 //(cont Normal)
@@ -350,14 +350,14 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
                     this.outputText("gets you the ride of a lifetime.  So what do you say " + this.player.short + "?  Do you want to be my sex-toy?</i>\"\n\n", false);
                     this.outputText("She stands up and turns, exposing her exotic hind-end to you.  A drop of fluid slips from her folds and splatters under the table, reminding you just how wet this trick would be.  Do you really want to do her?", false);
                     if (cost > 0) this.outputText("\n\n(Do you pay " + Edryn.num2Text(cost) + " gems to fuck her?)", false);
-                    this.doYesNo(this, this.edrynSexSelecter, this.telAdre.barTelAdre);
+                    this.doYesNo(this.edrynSexSelecter, this.telAdre.barTelAdre);
                 }
                 //(rejected)
                 else {
                     this.outputText("\"<i>Wow, that's it?  I'm sorry but you'll have to be a bit bigger before you can play with me.  Why not try some of the local specialties and come back when you're a bit bigger?</i>\"\n\n", false);
                     this.outputText("You're a bit disappointed with the outcome. It doesn't look like you'll be getting any centaur tail tonight.", false);
                     this.cheatTime(1);
-                    this.doNext(this, this.telAdre.barTelAdre);
+                    this.doNext(this.telAdre.barTelAdre);
                 }
             }
         }
@@ -389,7 +389,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
         if (cost > this.player.gems) {
             this.outputText("You realize you can't afford to stay with the sexy centaur, and leave full of disappointment and arousal.", true);
             this.cheatTime(1);
-            this.doNext(this, this.telAdre.barTelAdre);
+            this.doNext(this.telAdre.barTelAdre);
             return;
         }
         //Pay gems and update sidebar
@@ -445,7 +445,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
         this.player.orgasm();
         this.dynStats("sen", -3);
         if (this.player.lust < 30) this.player.lust = 30;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     private fuckEdrynNonTaur(): void {
         this.spriteSelect(14);
@@ -502,7 +502,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
         this.player.orgasm();
         this.dynStats("sen", -3);
         if (this.player.lust < 30) this.player.lust = 30;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public edrynBar(): boolean {
@@ -577,7 +577,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
             this.outputText("  Eventually, though, Hel gives you a sultry look and asks if you're up for a little group activity.  Are you?\n\n", false);
         }
         //(Display Options: [Threesome] [Leave]
-        this.simpleChoices(this, "Edryn3Some", edryn, "Fox Girls", kGAMECLASS.helScene.heliaPlusFoxyFluffs, "", undefined, "", undefined, "Leave", this.leaveHelInZeBitch);
+        this.simpleChoices("Edryn3Some", edryn, "Fox Girls", kGAMECLASS.helScene.heliaPlusFoxyFluffs, "", undefined, "", undefined, "Leave", this.leaveHelInZeBitch);
     }
 
     //First Time - Leave
@@ -591,7 +591,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
 
             this.outputText("You spend the rest of the hour quietly chatting with Helia before giving her a friendly kiss goodbye and stepping away.", false);
         }
-        this.doNext(this, this.telAdre.barTelAdre);
+        this.doNext(this.telAdre.barTelAdre);
     }
 
     //First Time -- Threesome
@@ -618,7 +618,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
 
             this.outputText("Grinning, the three of you make your way up to Edryn's private chambers.", false);
         }
-        this.doNext(this, this.threesomeEdrynAndHel);
+        this.doNext(this.threesomeEdrynAndHel);
     }
 
     //THREESOME SEX
@@ -654,7 +654,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
         this.outputText("\"<i>Oh yeah. We... We gotta go again sometime,</i>\" Hel agrees, nearly falling off Edryn's back.  You give each of the girls a long kiss before collecting your " + this.player.armorName + " and walking off back to camp.\n\n", false);
         this.player.orgasm();
         kGAMECLASS.helFollower.helAffection(5);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Pregdryn:
@@ -671,7 +671,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
 
         var aroused = (this.player.totalCocks() > 0 ? this.arousedByPregdryn : undefined);
         //[Shocked] [Pleased] [Aroused (Requires Wang)]
-        this.simpleChoices(this, "Shocked", this.shockedByEdrynsPregnancy, "Pleased", this.pleasedbyPregdryn, "Aroused", aroused, "", undefined, "", undefined);
+        this.simpleChoices("Shocked", this.shockedByEdrynsPregnancy, "Pleased", this.pleasedbyPregdryn, "Aroused", aroused, "", undefined, "", undefined);
     }
 
     //Shocked
@@ -682,7 +682,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
 
         this.outputText("\n\n<b>What do you do?</b>", false);
         //[Accept it] [Reject it]
-        this.simpleChoices(this, "Accept It", this.shockedByPregdrynThenAccept, "Reject It", this.beAnAssholeToPregdryn, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices("Accept It", this.shockedByPregdrynThenAccept, "Reject It", this.beAnAssholeToPregdryn, "", undefined, "", undefined, "", undefined);
     }
     //Accept it
     private shockedByPregdrynThenAccept(): void {
@@ -693,7 +693,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
         this.outputText("\"<i>Thank you!  You had me really going for a moment there, you know that?  Wow, that is a weight off my chest,</i>\" exhales Edryn.  She climbs up onto her hooves and whispers, \"<i>I've got to use the little ponies' room, I'll be right back lover,</i>\" before she departs.\n\n", false);
 
         //[To Pregnant Offer]
-        this.doNext(this, this.pregdrynOffer);
+        this.doNext(this.pregdrynOffer);
     }
 
     //Reject it
@@ -707,7 +707,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
         this.outputText("<b>(Edryn will no longer speak with you.)</b>", false);
         this.flags[kFLAGS.EDRYN_NEVER_SEE_AGAIN] = 1;
         //Use the 1 hour cheat thinger
-        this.doNext(this, this.telAdre.barTelAdre);
+        this.doNext(this.telAdre.barTelAdre);
     }
     //Pleased
     private pleasedbyPregdryn(): void {
@@ -718,7 +718,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
         this.outputText("Edryn pulls back from the table and stretches, her muscles visibly loosening as the tension oozes out of her imposing frame.  She whispers, \"<i>Be right back lover, I've got to make a stop at the little ponies' room,</i>\" before she departs.\n\n", false);
 
         //[To Pregger Offer]
-        this.doNext(this, this.pregdrynOffer);
+        this.doNext(this.pregdrynOffer);
     }
 
     //Aroused
@@ -728,7 +728,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
         this.outputText("You break into a grin bordering on lecherousness and congratulate the lusty centaur.  Her eyes widen for a moment, shocked from your expression, then narrow into a sultry expression.  Edryn teases, \"<i>I think someone has a bit of a pregnancy fetish, hrmm?  Is it the thought of my tits getting swollen with milk or the idea of me being jiggly and randy all the time that does it for you?</i>\"  She shivers, the outlines of her prominent nipples straining against her already-tightly-stretched tunic.  Edryn's eyes drop down and a rueful smile works its way across her face as she admits, \"<i>Great, now I'm turned on too!  Let me go use the little ponies' room. Then, MAYBE, we can help take care of each other.</i>\"\n\n", false);
 
         //[To Pregger Offer]
-        this.doNext(this, this.pregdrynOffer);
+        this.doNext(this.pregdrynOffer);
     }
 
 
@@ -791,7 +791,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
             this.outputText("She looks down, eyes fixing on your crotch for a moment before she sighs, \"<i>Why did you get rid of your dick?  I like you a lot, but I don't really want to have sex with you like you are now.</i>\"\n\nEdryn leaves looking a little depressed.", false);
             //Bar menu?
             this.cheatTime(1);
-            this.doNext(this, this.telAdre.barTelAdre);
+            this.doNext(this.telAdre.barTelAdre);
             return;
         }
         //(MEETS SIZE REQUIREMENTS)
@@ -811,13 +811,13 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
             this.outputText("\n\nHow do you want to handle this?  ");
             this.menu();
             this.outputText("You could have some great, pregnant taur sex.");
-            this.addButton(this, 0, "Preg. Fuck", this.fuckPregEdryn);
+            this.addButton(0, "Preg. Fuck", this.fuckPregEdryn);
             if (this.player.biggestCockArea() >= 300) {
                 this.outputText("  Since at least part of you isn't acceptable to her, you could eat her out until you get off from her pheromones alone.");
-                this.addButton(this, 1, "NoFitEating", this.jizzFromEatingPregdrynOut);
+                this.addButton(1, "NoFitEating", this.jizzFromEatingPregdrynOut);
             }
             this.outputText("  Or, you could go down on her until you're in a frenzy, then fuck her wildly.");
-            this.addButton(this, 2, "Eat,Rut,Fuck", this.eatEdrynPussyLikeABawss);
+            this.addButton(2, "Eat,Rut,Fuck", this.eatEdrynPussyLikeABawss);
             return;
         }
         //(PC TOO BIG)
@@ -830,7 +830,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
 
             this.outputText("Edryn releases you and climbs up on all fours, making her way towards her room in the back of the establishment.  The smell of her need hangs heavy in the air, and you follow it like a lost puppy.  Of course, puppies don't have their massive, rock-hard maleness visible to everyone around them.  Thankfully, you reach her door quickly, and bolt inside.", false);
             //Go to 'too big or too small eat out'
-            this.doNext(this, this.jizzFromEatingPregdrynOut);
+            this.doNext(this.jizzFromEatingPregdrynOut);
             this.dynStats("lus", 50);
             return;
         }
@@ -842,7 +842,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
 
             this.outputText("The centaur doesn't wait for a reply, and takes off at a trot towards her quarters.  A few drips have splattered across the floor, leaving a trail for you to follow.  You get up, dazed with arousal and leaking pre-cum, and stagger through the bar to her room, practically drunk on lust.", false);
             //Go to 'too big or too small eat out'
-            this.doNext(this, this.jizzFromEatingPregdrynOut);
+            this.doNext(this.jizzFromEatingPregdrynOut);
             this.dynStats("lus", 50);
             return;
         }
@@ -935,7 +935,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
         }
         this.player.orgasm();
         this.dynStats("sen", -.5);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //EAT THE BITCH'S CUNT OUT
@@ -1000,7 +1000,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
         this.outputText("\"<i>Turn-about is fair play!</i>\" she exclaims. You leave, unable to dispute the logic.", false);
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 2);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private edrynPregChance(): void {
@@ -1088,9 +1088,9 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
         this.outputText("\n\nHow will you have her?  You could fuck her.  Or, you could eat her out until you're going crazy with sexual need and completely lose control.");
         //[Fuck] [Eat Her Out]
         this.menu();
-        this.addButton(this, 1, "Eat Her Out", this.eatEdrynPussyLikeABawss);
-        if (this.player.isTaur()) this.addButton(this, 0, "Fuck", this.fuckEdrynTaur);
-        else this.addButton(this, 0, "Fuck", this.fuckEdrynNonTaur);
+        this.addButton(1, "Eat Her Out", this.eatEdrynPussyLikeABawss);
+        if (this.player.isTaur()) this.addButton(0, "Fuck", this.fuckEdrynTaur);
+        else this.addButton(0, "Fuck", this.fuckEdrynNonTaur);
     }
 
     //Eat Her Out Till Shit Goes Crazy
@@ -1169,7 +1169,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
         this.outputText("\n\n'<b>Squish-squish-squish-squish-</b>' can be heard for several hours by anyone lucky enough to hold their ear to the door.");
         //[Next]
         this.menu();
-        this.addButton(this, 0, "Next", this.postEdrynEatOutRut);
+        this.addButton(0, "Next", this.postEdrynEatOutRut);
         this.player.orgasm();
         this.dynStats("lib", .25, "sen", -3);
     }
@@ -1183,7 +1183,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
         this.edrynPregChance();
         this.edrynPregChance();
         this.flags[kFLAGS.TIMES_EATEN_EDRYN_PUSSY_RUT]++;
-        this.doNext(this, this.camp.returnToCampUseFourHours);
+        this.doNext(this.camp.returnToCampUseFourHours);
     }
 }
 

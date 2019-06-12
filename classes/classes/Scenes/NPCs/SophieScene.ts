@@ -265,7 +265,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.outputText("you wrench your gaze away from her breasts and introduce yourself.  It's hard to stay focused on introduction while she's wrapping her wing-like arms around her tits and squeezing them together, amplifying her cleavage.  The matronly harpy is looking at you expectantly, and it occurs to you that she's still waiting on an answer to her question.  Why did you come here?\n\n", false);
 
         //[Looking for Demons] [Sex] [Got Lost] [Foraging]
-        this.simpleChoices(this, "Foraging", this.tellSophieYoureForagingForStuff, "Got Lost", this.sophieMeetingGotLost, "Look4Demons", this.sophieLookingForDemons, "Sex", this.sophieMeetingChoseSex, "", undefined);
+        this.simpleChoices("Foraging", this.tellSophieYoureForagingForStuff, "Got Lost", this.sophieMeetingGotLost, "Look4Demons", this.sophieLookingForDemons, "Sex", this.sophieMeetingChoseSex, "", undefined);
     }
 
     //[Repeat Meeting]
@@ -291,13 +291,13 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 if (this.player.lust < 60 || SophieScene.rand(3) <= 1) {
                     this.outputText("Her need amplifies the compulsion, making it difficult to resist.  It looks like if you turned her down now she'd probably try to force herself on you anyway.  Do you give in to her demand?", false);
                     //[Yes-Consentual sex] [No - fight]
-                    this.simpleChoices(this, "Yes", this.consensualSexSelector, "No", this.fightSophie, "", undefined, "", undefined, "", undefined);
+                    this.simpleChoices("Yes", this.consensualSexSelector, "No", this.fightSophie, "", undefined, "", undefined, "", undefined);
                 }
                 //(high lust?)
                 else {
                     this.outputText("Her need amplifies the compulsion, and as turned on as you already are, there's no way you could resist.", false);
                     //To sex
-                    this.doNext(this, this.consensualSexSelector);
+                    this.doNext(this.consensualSexSelector);
                 }
                 return;
             }
@@ -318,7 +318,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             this.outputText("(Her words sink into you, and a desire to go with her threatens to overcome your self-control.  You take a deep breath and clear your head.  Do you go with her, turn her down, or try to take control and be the dominant one?  You'll probably have to fight her in order to dominate her...)", false);
             this.dynStats("lus", 20);
             //[Yes – consentacle sex] [No – sad harpy]
-            this.simpleChoices(this, "Yes", this.consensualSexSelector, "No", this.shootDownSophieSex, "Dominate", this.fightSophie, "", undefined, "", undefined);
+            this.simpleChoices("Yes", this.consensualSexSelector, "No", this.shootDownSophieSex, "Dominate", this.fightSophie, "", undefined, "", undefined);
             return;
         }
         //(NO DICK)
@@ -328,20 +328,20 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 this.outputText("Your climb manages to take you back into the harpy nests again.  Sophie flutters down next to you and warns, \"<i>Cutey, a " + this.player.mf("neuter", "girl") + " like you doesn't belong up here.  The younger harpies don't really get the idea of conversation and see you as competition.</i>\"\n\n", false);
 
                 this.outputText("Do you see the wisdom of her words and climb back down the mountain, fight Sophie, or keep climbing?", false);
-                this.simpleChoices(this, "Fight Sophie", this.FirstTimeSophieForceSex, "Keep Climbing", this.PCIgnoresSophieAndHarpyIsFought, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+                this.simpleChoices("Fight Sophie", this.FirstTimeSophieForceSex, "Keep Climbing", this.PCIgnoresSophieAndHarpyIsFought, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
                 return;
             }
             //(LACTATE)
             else {
                 this.outputText("Your climb manages to take you back into the harpy nests again.  Sophie flutters down next to you and licks her lips hungrily.  She asks, \"<i>Would you mind coming up to my nest and sharing some of your milk?  I've worked up quite a craving for cute girl-milk.</i>\"\n\n", false);
                 this.outputText("Do you agree to breastfeed the hungry harpy?", false);
-                this.simpleChoices(this, "Yes", this.cramANippleInIt, "No", this.shootDownSophieSex, "Fight Her", this.FirstTimeSophieForceSex, "", undefined, "", undefined);
+                this.simpleChoices("Yes", this.cramANippleInIt, "No", this.shootDownSophieSex, "Fight Her", this.FirstTimeSophieForceSex, "", undefined, "", undefined);
                 //No(cramANippleInIt,shootDownSophieSex);
                 //[Yes][No]
                 return;
             }
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         this.outputText("SOMETHING SCREWY HAPPENED IN SOPHIE'S MEETING", true);
         return;
     }
@@ -364,7 +364,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.outputText("", true);
         this.outputText("You agree and climb the rest of the way up to her nest, finding Sophie waiting for you there.", false);
         //– to consentual breastfeeding.
-        this.doNext(this, this.cramANippleInIt);
+        this.doNext(this.cramANippleInIt);
     }
     //Normal Harpy Fight
     private PCIgnoresSophieAndHarpyIsFought(): void {
@@ -387,7 +387,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         //Otherwise leave.
         else {
             this.outputText("  You gulp and nod, understanding quite clearly that the harpies don't care for demons in their nesting grounds.  Sophie smiles and turns about, fluffing purple-tinted tail-feathers at you in what is clearly a dismissal.", false);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         this.outputText("\"<i>Mmmm, have you gotten bored of the talk, ", false);
@@ -398,14 +398,14 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.outputText("Her words sink into you, and a compulsion to go with her threatens to overcome your self-control.  You take a deep breath and clear your head.  Do you go with her?", false);
 
         //[Yes – consentacle sex] [No – sad harpy]
-        this.doYesNo(this, this.consensualSexSelector, this.shootDownSophieSex);
+        this.doYesNo(this.consensualSexSelector, this.shootDownSophieSex);
     }
     //[No]
     private shootDownSophieSex(): void {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
         this.outputText("Sophie pouts for a moment, leaning forward to better display her cleavage. \"<i>Really?  Well if you change your mind, come back and visit me.</i>\"  She turns around and fluffs her tail-feathers at you in what is clearly a dismissal.  You climb down, careful to avoid any other nests as you head back to check on your camp and its portal.", false);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         if (this.player.lib > 25) this.dynStats("lib", -1);
         if (this.player.lust > 50) this.dynStats("lus", -5);
     }
@@ -422,10 +422,10 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             if (this.player.hasVagina()) {
                 this.outputText("  What do you do?", false);
                 //[Stay&Sex] [Leave]
-                this.simpleChoices(this, "Force Sex", this.FirstTimeSophieForceSex, "Leave", this.camp.returnToCampUseOneHour, "", undefined, "", undefined, "", undefined);
+                this.simpleChoices("Force Sex", this.FirstTimeSophieForceSex, "Leave", this.camp.returnToCampUseOneHour, "", undefined, "", undefined, "", undefined);
                 return;
             }
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         //(Haz dick (male futa)) 
@@ -434,7 +434,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
 
             this.outputText("As if you could deny the curvy, sexy body of the motherly harpy...", false);
             //[To consentual sex]
-            this.doNext(this, this.consensualSexSelector);
+            this.doNext(this.consensualSexSelector);
             return;
         }
     }
@@ -461,12 +461,12 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         if (this.player.totalCocks() > 0) {
             this.outputText("Would you stay and help a lonely matron with her needs?</i>\"\n\n", false);
             //[To consensual sex or sophie sadface.
-            this.doYesNo(this, this.consensualSexSelector, this.shootDownSophieSex);
+            this.doYesNo(this.consensualSexSelector, this.shootDownSophieSex);
         }
         else if (this.player.biggestLactation() >= 1.5) {
             this.outputText("My, you're quite the laden little cow aren't you?  Would you mind sharing?</i>\"\n\n", false);
             //to b. feeding or sophie sadface.
-            this.doYesNo(this, this.cramANippleInIt, this.shootDownSophieSex);
+            this.doYesNo(this.cramANippleInIt, this.shootDownSophieSex);
         }
         else {
             this.outputText("Mmm, it's a shame you don't have a penis, or you could show me what I was missing.</i>\"  The sexually deprived bird-woman plies you with questions about the world for the better part of an hour, masturbating to several mid-conversation orgasms.  Once she exhausts herself, she thanks you and leans down for her nap.  Her tail-feathers fluff in what is clearly a dismissal.", false);
@@ -474,7 +474,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             this.dynStats("lus", (10 + this.player.lib / 4));
             if (this.player.inte < 50) this.dynStats("int", 1);
             //[Go to camp if neither of the above]
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -489,7 +489,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         //(+10 + libmod lust, +1 int up to 50 int))
         this.dynStats("lus", (10 + this.player.lib / 4));
         if (this.player.inte < 50) this.dynStats("int", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Harpy Breastfeeding]
@@ -594,7 +594,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.flags[kFLAGS.BREASTFEAD_SOPHIE_COUNTER]++;
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
         //You've now been milked, reset the timer for that
         if (this.player.findStatusAffect(StatusAffects.Feeder) >= 0) {
             this.player.addStatusValue(StatusAffects.Feeder, 1, 1);
@@ -611,14 +611,14 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         if (x < 0) {
             CoC_Settings.error("");
             this.outputText("ERROR: No cock found that fits, yet 'fits' scene was called.", true);
-            this.doNext(this, this.playerMenu);
+            this.doNext(this.playerMenu);
             this.getGame().inCombat = false;
             return;
         }
         else if (x > this.player.cocks.length - 1) {
             CoC_Settings.error("");
             this.outputText("ERROR: Cock above max cocks selected for Sophie sex.  Please report bug on fen's bug report forum.", true);
-            this.doNext(this, this.playerMenu);
+            this.doNext(this.playerMenu);
             this.getGame().inCombat = false;
             return;
         }
@@ -731,7 +731,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.sophieFucked();
         this.outputText("Do you take her up on her offer?", false);
         //[Yes/No]
-        this.doYesNo(this, this.postSophieSexSnuggle, this.postSexSophieSnuggleTurnedDown);
+        this.doYesNo(this.postSophieSexSnuggle, this.postSexSophieSnuggleTurnedDown);
 
     }
 
@@ -763,7 +763,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.dynStats("lib", 1, "sen", 1);
 
         //4 hours pass
-        this.doNext(this, this.camp.returnToCampUseFourHours);
+        this.doNext(this.camp.returnToCampUseFourHours);
     }
 
     //[No]
@@ -773,7 +773,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.outputText("You turn down her offer and assure her that you'll be fine.  Sophie giggles while you try to get dressed, and you see her amber eyes watching you as try to climb back down the mountain with a stiffy.  She seems greatly amused by your predicament.", false);
         //(+sensitivity, +libido
         this.dynStats("lib", 1, "sen", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Consentual Sex No Fito]
@@ -861,7 +861,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.sophieFucked();
         this.outputText("Do you take her up on her offer?", false);
         //[Yes/No]
-        this.doYesNo(this, this.postSophieSexSnuggle, this.postSexSophieSnuggleTurnedDown);
+        this.doYesNo(this.postSophieSexSnuggle, this.postSexSophieSnuggleTurnedDown);
         //Go to same yes or no as 'fits' options.
     }
     private sophieFucked(dicked: boolean = true): void {
@@ -940,7 +940,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         }
         if (dickRape != undefined || cuntFuck != undefined || clitFuck != undefined || bimbo != undefined) {
             this.outputText("  What do you do to her?", false);
-            this.simpleChoices(this, "Use Dick", dickRape, "Scissor", cuntFuck, "Fuck wClit", clitFuck, "Bimbo Her", bimbo, "Leave", this.cleanupAfterCombat);
+            this.simpleChoices("Use Dick", dickRape, "Scissor", cuntFuck, "Fuck wClit", clitFuck, "Bimbo Her", bimbo, "Leave", this.cleanupAfterCombat);
         }
         else this.cleanupAfterCombat();
     }

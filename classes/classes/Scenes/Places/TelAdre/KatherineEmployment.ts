@@ -31,7 +31,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("You ask if she’d like you to look around for her.  You don’t know why, but folks in this world seem to take a liking to you on sight; maybe you’ll have better luck persuading somebody in town to take her on as an apprentice of some kind?\n\n");
         this.outputText("Kath visibly thinks it over, then gives you a loving smile.  “<i>I’d really appreciate that,</i>” she beams.  “<i>It’d be nice to have somewhere other than an empty alley to spend time with you.</i>”  She pokes sadly at the meager nest she’s made from rubbish, ashamed that this is all she has.\n\n");
         this.outputText("You tell her that you’ll go and take a look right now, and promise to be back as quickly as you can.");
-        this.doNext(this, this.tryShops);
+        this.doNext(this.tryShops);
     }
 
     private tryShops(): void {
@@ -69,7 +69,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("“<i>What? Spit it out, I’m in a hurry!</i>” the bad-tempered man snarls at you when he sees you hesitating.  Once he hears what you want, though, he starts to rant and rave and swear, cursing you and Katherine with language fouler than anything you’ve heard since coming here.  You beat a hasty retreat when it looks like he’s seriously contemplating throwing a red-hot sword-blade fresh from the mold at you.\n\n");
         this.outputText("...Cranky old coot.\n\n");
         this.outputText("It looks like no one is willing to take Kath in... you’ll have to think of something else...");
-        this.doNext(this, this.tryTheWatch);
+        this.doNext(this.tryTheWatch);
     }
 
     private tryTheWatch(): void {
@@ -88,7 +88,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             this.outputText("  You should try talking to Urta or Edryn; they might be able to help you see if there’s a way to get Katherine into the watch.");
             this.flags[kFLAGS.KATHERINE_TRAINING] = 2; //Player will now be able to talk to Edryn and/or Urta about Kath
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     } //KATHERINE_TRAINING gets set to 1 by talking to her about vagrancy
 
     public canTalkToEdryn(): boolean {
@@ -122,18 +122,18 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         var cockFitIndex: number = this.player.cockThatFits(300);
         if ((cockFitIndex >= 0 && this.player.cockArea(cockFitIndex) >= 24) && (this.player.lowerBody == LOWER_BODY_TYPE_CENTAUR || this.player.horseCocks() > 0 || this.player.cor > 50 || this.player.statusAffectv1(StatusAffects.Edryn) > 0)) {
             this.outputText("“<i>So... I don’t suppose there’s anything else you might have on your mind...?</i>”  She gives you a coy look and fiddles with a nipple through her shirt.");
-            this.doYesNo(this, (this.edryn.pregnancy.isPregnant ? this.pregnantEdrynSexSelector : this.edryn.edrynSexSelecter), this.telAdre.barTelAdre);
+            this.doYesNo((this.edryn.pregnancy.isPregnant ? this.pregnantEdrynSexSelector : this.edryn.edrynSexSelecter), this.telAdre.barTelAdre);
         }
         else {
             this.outputText("Your business done, you leave the bar; now, how to tell Katherine that if she wants a job, she’ll need to join the Watch...?");
-            this.doNext(this, this.telAdre.telAdreMenu);
+            this.doNext(this.telAdre.telAdreMenu);
         }
     }
 
     private pregnantEdrynSexSelector(): void {
         this.menu();
-        this.addButton(this, 0, "Preg. Fuck", this.edryn.fuckPregEdryn);
-        this.addButton(this, 1, "Eat,Rut,Fuck", this.edryn.eatEdrynPussyLikeABawss);
+        this.addButton(0, "Preg. Fuck", this.edryn.fuckPregEdryn);
+        this.addButton(1, "Eat,Rut,Fuck", this.edryn.eatEdrynPussyLikeABawss);
     }
 
     public canTalkToUrta(): boolean {
@@ -152,11 +152,11 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         if (this.urta.urtaLove()) { //Lover Urta
             this.outputText("She looks quietly at you for a few long moments, then sighs and shakes her head.  “<i>I should be so jealous of her... but, well, it’s not like either of us really went into this thing expecting monogamy, right?  Besides, you’re too noble and cute for me to stay mad at you.</i>”  She winks at you in a flirtatious manner.  “<i>In fact... how about this?  If you want to bring your little kitten to me, I’ll help you whip her into shape.  That’s all the help I can offer you, I’m afraid... But first...</i>”  She sets down her mug, then takes one of your hand and slides it into her lap, where you can feel the distinctive bulge swelling.  “<i>How about giving me a little appreciation for being so nice, hmm?</i>”  She asks, licking her lips and savoring your reaction.\n\n");
             this.outputText("You figure it’s the least you can do to thank her; you can go and tell Katherine about it when you’re done here, and besides, it’s best to keep her in a good mood, right?");
-            this.simpleChoices(this, "Suck Off", this.urta.blowUrtaUnderTheTableLuv, "Eat Out", this.urta.eatUrtaOutNomNomPussy, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices("Suck Off", this.urta.blowUrtaUnderTheTableLuv, "Eat Out", this.urta.eatUrtaOutNomNomPussy, "", undefined, "", undefined, "", undefined);
         }
         else { //Fuckbuddy Urta
             this.outputText("She then sullenly starts gulping her mug down, one hand already waving to a bar attendant for a refill.  Looks like she might be a little jealous... You decide not to push your luck, instead thanking her for the advice and leaving her to her drinking.  Now, all you need to do is figure out how to convince Katherine to join the Watch...");
-            this.doNext(this, this.telAdre.telAdreMenu);
+            this.doNext(this.telAdre.telAdreMenu);
         }
     }
 
@@ -199,7 +199,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         }
         this.outputText("Having made your point, you say your goodbye and return to camp.");
         this.flags[kFLAGS.KATHERINE_TRAINING] |= KatherineEmployment.KBIT_TRAINING_TALK_KATH; //Using a mask so we still know if you’ve talked to Urta. This is important if she’s a lover.
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public initiateTraining(): boolean { //Only appears if you’ve talked to Kath about joining the watch
@@ -220,7 +220,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             this.outputText("\n\nPerhaps you should wait for a time when you know Urta will be available " + (this.urta.pregnancy.isPregnant ? "" : "(and sober enough) ") + "to help.");
             withUrta = undefined; //She has to be in the bar
         }
-        this.simpleChoices(this, "Postpone", this.postpone, "Train", this.trainKath, "With Urta", withUrta, "", undefined, "", undefined);
+        this.simpleChoices("Postpone", this.postpone, "Train", this.trainKath, "With Urta", withUrta, "", undefined, "", undefined);
         return true;
     }
 
@@ -244,7 +244,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("Kath nods, adjusts the sack, steels herself and follows you out into the wastes for some very practical survival training.");
         this.flags[kFLAGS.KATHERINE_UNLOCKED] = 2; //Indicates you’re now training her alone
         this.flags[kFLAGS.KATHERINE_TRAINING] = 0;
-        this.doNext(this, this.katherineTrainingStage1);
+        this.doNext(this.katherineTrainingStage1);
     }
 
     public katherineTrainingStage1(clearOut: boolean = true): void {
@@ -255,9 +255,9 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("When she’s out of breath and dragging her feet you tell her to stop.  Apart from a few low dunes this part of the desert is featureless.  Not a single weed is growing here.  You point out to Kath that most people die of thirst in the desert, but the rest die of heat stroke or freeze to death in the night.  You’ll show her things that will help with water later, but right now she should build some kind of shelter to protect against the heat, sun, wind and cold.\n\n");
         this.outputText("Kath pants a few more times before taking a drink from her canteen and pulling open the sack.");
         switch (KatherineEmployment.rand(3)) {
-            case 0: this.doNext(this, this.katherineTrainingStage1Success); break;
-            case 1: this.doNext(this, this.katherineTrainingStage1Failure); break;
-            case 2: this.doNext(this, this.katherineTrainingStage1Horny);
+            case 0: this.doNext(this.katherineTrainingStage1Success); break;
+            case 1: this.doNext(this.katherineTrainingStage1Failure); break;
+            case 2: this.doNext(this.katherineTrainingStage1Horny);
         }
     }
 
@@ -271,7 +271,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("You give Kath some more survival instruction while she breaks the tent back down.  Another long march back to the city and Kath is panting by the time you reach the gates.\n\n");
         this.outputText("She squeezes your hand and thanks you again for doing this, even if she’s not exactly enjoying it she’s going to keep trying until she can pass that test.");
         this.flags[kFLAGS.KATHERINE_TRAINING] += 10;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private katherineTrainingStage1Failure(): void {
@@ -283,7 +283,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("Before returning to Tel’Adre you go over all the mistakes Kath made so that she understands what she did wrong and will be less likely to screw up next time.\n\n");
         this.outputText("You almost have to carry her back to the alley behind Oswald’s shop.  Kath flops down onto some softer refuse and curls up for what promises to be a long nap.");
         this.flags[kFLAGS.KATHERINE_TRAINING] += 5;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private katherineTrainingStage1Horny(): void {
@@ -293,16 +293,16 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("She sits up, embarrassed despite the fact there’s no one else within a mile.  “<i>Come on " + this.player.short + " - You had me walking all over the place.  My cock" + this.katherine.cockMultiple("", "s") + " kept rubbing against my pants.  I need to do this to even think straight.</i>”\n\n");
         this.outputText("You realize there is no way you’re going to get Kath to do anything useful out here.  On the other hand it’s a nice day and your girlfriend is very, very horny.  Might as well make the most of this trip.");
         this.flags[kFLAGS.KATHERINE_LOCATION] = Katherine.KLOC_DESERT; //Makes sure the scene happens out in the dunes
-        this.simpleChoices(this, "Oral", this.katherine.giveKatOralPenisWingWang, "Handjob", this.katherine.handjobbiesFurrDemCatFurries, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices("Oral", this.katherine.giveKatOralPenisWingWang, "Handjob", this.katherine.handjobbiesFurrDemCatFurries, "", undefined, "", undefined, "", undefined);
     }
 
     public katherineTrainingStage2(): void {
         this.outputText("You’re sure Kath’s basic survival skills are now good enough to pass any tests the watch might put her through; now it’s time to work on her combat skills.  You’re still trying to work on her endurance, so you march her even further from Tel’Adre.  Only when you reach a quiet spot on the shores of the lake do you finally stop.\n\n");
         this.outputText("Katherine is a little winded from the walk" + (this.player.tou < 50 ? " and frankly so are you" : "") + ".  Kath keeps looking around, examining the lakeshore and the plants that grow nearby.  You tell her not to stray too far.  It might look a lot prettier than the desert but there are dangerous creatures near the lake.  You sit on a large rock and wait for Kath to regain some energy and return.");
         switch (KatherineEmployment.rand(3)) {
-            case 0: this.doNext(this, this.katherineTrainingStage2Success); break;
-            case 1: this.doNext(this, this.katherineTrainingStage2Failure); break;
-            case 2: this.doNext(this, this.katherineTrainingStage2Horny);
+            case 0: this.doNext(this.katherineTrainingStage2Success); break;
+            case 1: this.doNext(this.katherineTrainingStage2Failure); break;
+            case 2: this.doNext(this.katherineTrainingStage2Horny);
         }
     }
 
@@ -313,7 +313,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("When Kath starts to tire you tell her she did well today and pack up the training aids.  If she keeps showing this kind of improvement it won’t take long before she’s a match for any criminal in Tel’Adre and many monsters outside it.\n\n");
         this.outputText("She beams at the compliment and the two of you walk back to Tel'Adre arm in arm.");
         this.flags[kFLAGS.KATHERINE_TRAINING] += 10;
-        this.doNext(this, this.camp.returnToCampUseTwoHours); //Use up two hours, go back to camp
+        this.doNext(this.camp.returnToCampUseTwoHours); //Use up two hours, go back to camp
     }
 
     private katherineTrainingStage2Failure(): void {
@@ -324,7 +324,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("When you switch back to the training swords Kath does a bit better.  At least she’s not messing up her blocks as often.  She would still lose in most fair fights but you think she’s learning.\n\n");
         this.outputText("When Katherine is tired enough that you can’t continue you pack up and head back for Tel’Adre.  It hasn’t been the best training session, but you know you managed to get some things across.");
         this.flags[kFLAGS.KATHERINE_TRAINING] += 5;
-        this.doNext(this, this.camp.returnToCampUseTwoHours); //Use up two hours, go back to camp
+        this.doNext(this.camp.returnToCampUseTwoHours); //Use up two hours, go back to camp
     }
 
     private katherineTrainingStage2Horny(): void {
@@ -349,7 +349,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             if (this.katherine.knotSize < 4 && this.katherine.cockNumber > 1) takeVagAndAss = this.katherine.getDoublePennedByKat;
         }
         if (this.katherine.knotSize < 4) takeAnal = this.katherine.getPenetrated;
-        this.choices(this, "Fuck Her", penKath, "Give Anal", penAnal, "Give Both", penBoth, "Bath", this.katherine.bathTime, "", undefined,
+        this.choices("Fuck Her", penKath, "Give Anal", penAnal, "Give Both", penBoth, "Bath", this.katherine.bathTime, "", undefined,
             "Nount Her", takeVag, "Take Anal", takeAnal, "Take Both", takeVagAndAss, "", undefined, "", undefined);
     }
 
@@ -357,13 +357,13 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("Now that you know Kath can handle the job physically all that’s left is teaching her how to act.  First you give Kath a rundown on some of Tel’Adre’s laws and how the watch is expected to enforce them.\n\n");
         this.outputText("Then you tell Kath to stick the training sword and practice club into her belt.  She does and you then straighten her clothes and adjust her posture so she’s standing up straight." + (this.player.lust >= 50 ? "  Before you begin her training you take a moment to appreciate what her ramrod straight posture does to Katherine’s chest." : "") + "  You tell Kath that she will have to imagine the uniform and helmet.  Right now she is a watch officer out on patrol.  Kath examines herself, fidgets and mumbles, “<i>I feel kind of silly like this.</i>”");
         if (this.flags[kFLAGS.KATHERINE_TRAINING] >= 99) {
-            this.doNext(this, this.katherineTrainingStage3Success);
+            this.doNext(this.katherineTrainingStage3Success);
         }
         else {
             switch (KatherineEmployment.rand(3)) {
-                case 0: this.doNext(this, this.katherineTrainingStage3Success); break;
-                case 1: this.doNext(this, this.katherineTrainingStage3Failure); break;
-                case 2: this.doNext(this, this.katherineTrainingStage3Horny);
+                case 0: this.doNext(this.katherineTrainingStage3Success); break;
+                case 1: this.doNext(this.katherineTrainingStage3Failure); break;
+                case 2: this.doNext(this.katherineTrainingStage3Horny);
             }
         }
     }
@@ -377,7 +377,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("You go through a number of other scenarios with her, all based on the rules and cases you researched at the library.  Kath makes mistakes but rarely makes them twice and through it all she maintains the bearing expected of a watch officer.\n\n");
         this.outputText("You leave Katherine to practice by herself for a while, thinking that teaching her how to behave might not take as long as you imagined.");
         this.flags[kFLAGS.KATHERINE_TRAINING] += 10;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private katherineTrainingStage3Failure(): void {
@@ -390,7 +390,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("As you walk towards the city gates you feel you’ve made little progress today, but what progress you did make was hard won.  Katherine will make it, she just needs more time and training.");
         this.flags[kFLAGS.KATHERINE_TRAINING] += 5;
         if (this.flags[kFLAGS.KATHERINE_TRAINING] > 99) this.flags[kFLAGS.KATHERINE_TRAINING] = 99; //Only a successful training session should lead to her completing her training next time.
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 
@@ -426,7 +426,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             if (this.katherine.knotSize < 4 && this.katherine.cockNumber > 1) takeVagAndAss = this.katherine.getDoublePennedByKat;
         }
         if (this.katherine.knotSize < 4) takeAnal = this.katherine.getPenetrated;
-        this.choices(this, "Fuck Her", penKath, "Give Anal", penAnal, "Give Both", penBoth, "SuckNFuck", suckNFucks, "Bath", (this.flags[kFLAGS.KATHERINE_TRAINING] >= 100 ? this.katherine.dateKathBath : undefined),
+        this.choices("Fuck Her", penKath, "Give Anal", penAnal, "Give Both", penBoth, "SuckNFuck", suckNFucks, "Bath", (this.flags[kFLAGS.KATHERINE_TRAINING] >= 100 ? this.katherine.dateKathBath : undefined),
             "Mount Her", takeVag, "Take Anal", takeAnal, "Take Both", takeVagAndAss, "SuckNFuckd", suckNFucked, "", undefined);
     }
 
@@ -462,7 +462,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
                 }
                 this.outputText("\n\nKath looks a little shellshocked and you don’t want to frighten her any more before her testing, so you give a noncommittal answer and force the conversation back on topic.\n\n");
                 this.outputText("Urta tosses back the last of her drink and stands up.  “<i>Ok then recruit, lets see what you can do.  I’m tough but fair and if you’ve learned from " + this.player.short + " you should do just fine.</i>”  She starts to lead Kath out of the bar but stops to tell you, “<i>Just wait around here for us " + this.player.short + ", we’ll be back in a few hours or so.</i>”");
-                this.doNext(this, this.katherineTrainingCompleteUrtaLover);
+                this.doNext(this.katherineTrainingCompleteUrtaLover);
             }
             else { //You've never spoken to her
                 this.outputText("You haven’t spoken to the captain of Tel’Adre’s guard since that first day when you arrived in the city.  Urta is nursing some kind of hard liquor and working her way through piles of reports and other paperwork.  She notices your approach and puts aside her quill.\n\n");
@@ -471,18 +471,18 @@ export class KatherineEmployment extends TelAdreAbstractContent {
                 this.outputText("“<i>You’ve heard there are some tests she will have to pass to qualify, right?</i>” Urta asks.\n\n");
                 this.outputText("You tell her you’ve heard about the tests and in fact you’ve been training Kath for some time based on what you’ve learned surviving outside Tel’Adre.\n\n");
                 this.outputText("Urta seems impressed and tosses back the rest of her drink.  In moments she’s packed up all her papers and turns to Kath.  “<i>Alright recruit, follow me.  Let’s see if you’ve got what it takes.</i>”");
-                this.doNext(this, this.katherineTrainingCompleteNeverSpokenOrPermanentlyPissed);
+                this.doNext(this.katherineTrainingCompleteNeverSpokenOrPermanentlyPissed);
             }
         }
         else {
             if (this.flags[kFLAGS.TIMES_FUCKED_URTA] == 0) { //You ran away that first time, she assumed you hate her cock
                 this.outputText("Urta’s expressions wavers between curiosity, anger and fear when you bring Kath to her table and ask if you and Katherine can talk about the watch.  She does let you both sit down and then says little as you explain how Kath wants to join the watch and how you’ve been training her.\n\n");
                 this.outputText("Urta’s guarded attitude makes Kath nervous, but finally Urta stands up and says, “<i>Alright.  It’s true enough that we need more officers.</i>”  She looks over at Kath “<i>If you’ve got what it takes I’ll hand you a badge this afternoon.  Just follow me.</i>”  She looks back at you and adds “<i>We’ll be back here later if you want to wait up.</i>”");
-                this.doNext(this, this.katherineTrainingCompleteUrtaThoughtYouDidntLikeHer);
+                this.doNext(this.katherineTrainingCompleteUrtaThoughtYouDidntLikeHer);
             }
             else { //You broke up with her over something else and she won’t come back
                 this.outputText("Urta really doesn’t look like she wants to talk to you.  To make sure Katherine has the best chance of being accepted you decide not to get involved.  You give Kath a kiss and send her over alone.  You watch from the corner of the bar while the two of them talk for several minutes.  Finally Urta finishes her drink and leads Kath out of the bar.");
-                this.doNext(this, this.katherineTrainingCompleteNeverSpokenOrPermanentlyPissed);
+                this.doNext(this.katherineTrainingCompleteNeverSpokenOrPermanentlyPissed);
             }
         }
     }
@@ -496,7 +496,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("Kath nods and says to you “<i>Yes, there’s so much to do.  I’ve got to get going.</i>”  She gives you another kiss and you can feel a certain bulge pressing against your hip.  “<i>I don’t know where my house will be yet, but Captain Urta is going to be making sure I settle in, so I’ll be here at the bar filling out reports from time to time.</i>”\n\n");
         this.outputText("She says, “<i>Thank you,</i>” again, kisses you again and then races off down the street.  Urta gives you a hug and says, “<i>She’s got a lot of energy that one.  I can see why you like her.</i>”  You can feel her horsecock pressing against you as she continues.  “<i>I’m going to get to know her pretty well on the job.  I understand if you don’t want to share - but it sure would be fun.</i>”\n\n");
         this.outputText("You run an hand through Urta’s fur and thank her for being so understanding.  Unfortunately you have stayed in town quite a while so you decide that you have to head back to camp to check up on the portal.");
-        this.doNext(this, this.camp.returnToCampUseFourHours); //Use up 4 hours, go back to camp
+        this.doNext(this.camp.returnToCampUseFourHours); //Use up 4 hours, go back to camp
     }
 
 
@@ -505,7 +505,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("You go back to Kath’s alley and pace back and forth, waiting.  Hours later Kath races into the alley and leaps into your arms, nearly knocking you off your feet.  “<i>I did it!  I did it!</i>” she cries while hugging you tight enough to squeeze the breath out of you.  “<i>Oh thank you " + this.player.short + ", I couldn’t have done it without you.  The tests were hard but I knew what she wanted.</i>”\n\n");
         this.outputText("You stroke her hair and Katherine finally calms down enough to show you her new badge.  “<i>I’m starting tomorrow.  Oh - and that’s not even the best part.  I didn’t know about this, but because I’m in the watch they can give me papers that show I have a good job, that I’m a good citizen.  I forget what it’s called, but it means I’ll be able to get a house really soon cause they know I’m good for it and I’ll be earning a wage.</i>”\n\n");
         this.outputText("She looks around at the alley and says, “<i>We had some fun times here, but I won’t miss living on the street.</i>”  She gives you a kiss and adds, “<i>I have to run.  I’ve got equipment to pick up and patrol routes to memorize.  Next time you’re in town, look for me at the Wet Bitch; I’ll try to hang around there.</i>”");
-        this.doNext(this, this.camp.returnToCampUseFourHours); //Use up 4 hours, go back to camp
+        this.doNext(this.camp.returnToCampUseFourHours); //Use up 4 hours, go back to camp
     }
 
     private katherineTrainingCompleteUrtaThoughtYouDidntLikeHer(): void {
@@ -516,7 +516,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("“<i>We just call it housing approval,</i>” says a voice from the door.  Urta is standing there, looking quite pleased.  “<i>Well Kath, you’ve spread the good news, now you’ve got some equipment to pick up at the watch house.</i>”\n\n");
         this.outputText("Kath nods and says to you, “<i>Yes, there’s so much to do.  I’ve got to get going.</i>”  She gives you another kiss and you can feel a certain bulge pressing against your hip.  “<i>I don’t know where my house will be yet, but Captain Urta is going to be making sure I settle in, so I’ll be here at the bar filling out reports from time to time.</i>”\n\n");
         this.outputText("She says, “<i>Thank you,</i>” again, kisses you again and then races off down the street.  Then Urta surprises you by saying, “<i>I want to buy you a drink.</i>”");
-        this.doNext(this, this.urtaForgivesYou);
+        this.doNext(this.urtaForgivesYou);
     }
 
     private urtaForgivesYou(): void {
@@ -524,7 +524,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("She leads you over to her table and soon you’re " + (this.player.isPregnant() ? "drinking some hot chocolate while Urta sips some kind of hard liquor" : "sipping some harsh form of whiskey with her") + ".  Urta starts by complimenting you on Kath’s training.  It seems few candidates are that well prepared on their first attempt to take the tests.  She seems nervous, even acts bit deferential to you.\n\n");
         this.outputText("From how she’s acting you feel there’s more to this talk than that but it takes a while, and several more drinks, for Urta to work up her courage.  Finally she says, “<i>From the way Katherine acted I know you two are together.</i>”  She tilts her glass and looks at the amber liquid.  “<i>From the testing I can tell Kath is a herm.  I mean, we did some combat tests, some grappling.  It’s kind of hard to miss.</i>”\n\n");
         this.outputText("After a long pause she adds “<i>So... I think I misjudged you.  That time you saw me, just out back of this place.  A lot of people hate herms and I thought you must be like that.</i>”  She looks down again and adds, “<i>I guess I never gave you the chance to set the record straight.</i>”");
-        this.simpleChoices(this, "Flirt", this.urta.flirtWithUrta, "Friends", this.friendsWithUrta, "Destroy Her", this.destroyUrta, "", undefined, "", undefined);
+        this.simpleChoices("Flirt", this.urta.flirtWithUrta, "Friends", this.friendsWithUrta, "Destroy Her", this.destroyUrta, "", undefined, "", undefined);
     }
 
     private friendsWithUrta(): void {
@@ -533,14 +533,14 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("There’s an awkward silence for a few moments.  Then Urta says, “<i>Well you sure seem to be good for Kath.  Anyone who can take a street urchin and train her up into a fine watch recruit is in my good books.  Come and talk to me anytime.</i>”");
         this.flags[kFLAGS.URTA_COMFORTABLE_WITH_OWN_BODY] = 0; //This pair of values can't happen any other way. It puts Urta into friend mode. She is willing to talk
         this.flags[kFLAGS.URTA_PC_LOVE_COUNTER] = -1;          //about Kath and share some things about herself but doesn’t assume you want sex when you visit.
-        this.doNext(this, this.camp.returnToCampUseFourHours); //Use up 4 hours, go back to camp
+        this.doNext(this.camp.returnToCampUseFourHours); //Use up 4 hours, go back to camp
     }
 
     private destroyUrta(): void {
         this.clearOutput();
         this.outputText("She’s been giving you the cold shoulder all this time and <b>now</b> she wants to make up?  Fuck this fox bitch!  You tell Urta in no uncertain terms that you don't hate herms - you hate her.  She’s a drunk, pushy, ugly bitch and no one will ever love her.  She makes you sick and she’d better leave you and your girl alone.\n\n");
         this.outputText("Urta looks like she’s about to fly into a rage, but instead you see tears forming in the corners of her eyes.  Soon she’s sobbing into her drink.  You walk out of the bar and head back to camp, sure that Urta is too devastated to ever talk about this to Kath.");
-        this.doNext(this, this.camp.returnToCampUseFourHours); //Use up 4 hours, go back to camp
+        this.doNext(this.camp.returnToCampUseFourHours); //Use up 4 hours, go back to camp
     }
 
     private trainKathWithUrta(): void {
@@ -569,7 +569,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("You tell her that if she could do that, it would be perfect.  You give the matter some thought and conclude that this pretty much settles all that needs to be settled about Kath’s training.\n\n");
         this.outputText("“<i>Alright, so, is there... anything else that’s on your mind?</i>” Urta asks, hopefully.  You look Urta over... she’s given you such a nice mental image... her being tied up into a chastity belt, unable to cum... perhaps you should see if she’s up for a little practice of her own?  Right here, right now?");
         this.flags[kFLAGS.KATHERINE_TRAINING] |= KatherineEmployment.KBIT_TRAINING_URTA_HELP; //This indicates that next time we see Kath it’s time for her to train with Urta
-        this.doYesNo(this, this.chastityBeltFun, this.noChastityFunForNow);
+        this.doYesNo(this.chastityBeltFun, this.noChastityFunForNow);
     }
 
     private chastityBeltFun(): void {
@@ -585,7 +585,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.clearOutput();
         this.outputText("Perhaps some other time...  You shake your head and tell Urta that, for now, this is all you had to discuss with her.\n\n");
         this.outputText("Urta sighs softly, slumping.  “<i>Okay, lover.  Business before pleasure, I can understand that.  I’ll see you around, okay?</i>”  She concludes in a hopeful tone.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private initiateTrainingWithUrta(): void {	//Happens next time you visit Kath after the visit to Urta
@@ -694,7 +694,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("You promptly leave, hoping that the two will be able to come to terms somehow while you’re not there.");
         this.flags[kFLAGS.KATHERINE_UNLOCKED] = 3; //Indicates you’re now training her with Urta - This also disables meeting Urta in the Wet Bitch
         this.flags[kFLAGS.KATHERINE_TRAINING] = 0;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public katherineTrainingWithUrta(): void {
@@ -732,9 +732,9 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("You instruct her carefully, making sure she understands how each piece comes together; you tell her how to tie the tent down, so the wind won’t carry it, how to properly hold the structure together and even how to quickly pack everything up, should she need to move quickly.\n\n");
         this.outputText("Kath sits there quietly, intently following your every move, listening to everything you say - at least, you hope so.  Finally, she nods and starts to pick up the pieces of her tent...");
         switch (KatherineEmployment.rand(3)) {
-            case 0: this.doNext(this, this.katherineTrainingWithUrtaStage1Success); break;
-            case 1: this.doNext(this, this.katherineTrainingWithUrtaStage1Failure); break;
-            case 2: this.doNext(this, this.katherineTrainingWithUrtaStage1Horny);
+            case 0: this.doNext(this.katherineTrainingWithUrtaStage1Success); break;
+            case 1: this.doNext(this.katherineTrainingWithUrtaStage1Failure); break;
+            case 2: this.doNext(this.katherineTrainingWithUrtaStage1Horny);
         }
     }
 
@@ -755,7 +755,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("“<i>Alright, you’re on; I hope you got room for all I’ve got!</i>” Kath cries excitedly, then practically throws herself at the tent equipment.  You sigh and roll your eyes in exasperation; well, either Kath will learn, or she might actually win by sheer dumb luck.  Either way, you decide it’s time you left and gave them a chance to get on with it.\n\n");
         this.outputText("You bid farewell to Urta and wish Kath luck, then twist the knob and see yourself out...");
         this.flags[kFLAGS.KATHERINE_TRAINING] += 16;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private katherineTrainingWithUrtaStage1Failure(): void {
@@ -771,7 +771,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("“<i>Okay, that’s enough of the fluffy stuff, time to get back to work!</i>” Urta snaps, breaking up your little moment.  Doubtlessly, she’s still not entirely comfortable with seeing you being affectionate with someone else in front of her - and the fact she and Kath aren’t getting along isn't helping, naturally.\n\n");
         this.outputText("Feeling like there’s nothing else to be done here at the moment, you bid the girls farewell and return to camp.");
         this.flags[kFLAGS.KATHERINE_TRAINING] += 8;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private katherineTrainingWithUrtaStage1Horny(): void {
@@ -807,7 +807,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("You could probably try and live up to your promise by giving Urta a handjob yourself, or just leave the two to pleasure each other.");
         var helpThem: any = this.katherineTrainingWithUrtaStage1HornyHelp;
         if (this.player.gender == 0) helpThem = undefined;
-        this.simpleChoices(this, "Help Out", helpThem, "Leave", this.katherineTrainingWithUrtaStage1HornyLeave, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices("Help Out", helpThem, "Leave", this.katherineTrainingWithUrtaStage1HornyLeave, "", undefined, "", undefined, "", undefined);
     }
 
     private katherineTrainingWithUrtaStage1HornyLeave(): void {
@@ -817,12 +817,12 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             this.outputText("\n\nFiguring you have other things to attend to, and that it gives them a better excuse to bond, you politely tell them that you have to go and then leave.");
         this.outputText("\n\nBy this time, both of them are starting to moan, Kath’s dark fingers clenching around the red flesh of Urta’s horse prick and beginning to slide up and down its formidable length; you doubt they even notice you going.");
         this.katherine.katherineAndUrtaHadSex(false);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private katherineTrainingWithUrtaStage1HornyHelp(): void {
         this.threesome.circlejerk();
-        this.doNext(this, this.circlejerkTrainingEnding);
+        this.doNext(this.circlejerkTrainingEnding);
     }
 
     private circlejerkTrainingEnding(): void {
@@ -836,7 +836,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("“<i>Both of us at the same time?</i>” Urta slowly states, “<i>...You’re kinkier than I thought, pussycat.</i>”\n\n");
         this.outputText("“<i>Then why are you getting hard at the idea, prickvixen?</i>”\n\n");
         this.outputText("Uuuh... looks like you’d better be going.  Looking around you quickly spot your " + this.player.armorName + " and get dressed, then bid the girls farewell, hurrying away back to camp before they get any more ideas.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private katherineTrainingWithUrtaStage2(): void {
@@ -862,9 +862,9 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("“<i>Fine by me - but I hate fish,</i>” Urta warns her.\n\n");
         this.outputText("You take a seat on a chair nearby, this will be interesting...");
         switch (KatherineEmployment.rand(3)) {
-            case 0: this.doNext(this, this.katherineTrainingWithUrtaStage2Success); break;
-            case 1: this.doNext(this, this.katherineTrainingWithUrtaStage2Failure); break;
-            case 2: this.doNext(this, this.katherineTrainingWithUrtaStage2Horny);
+            case 0: this.doNext(this.katherineTrainingWithUrtaStage2Success); break;
+            case 1: this.doNext(this.katherineTrainingWithUrtaStage2Failure); break;
+            case 2: this.doNext(this.katherineTrainingWithUrtaStage2Horny);
         }
     }
 
@@ -874,7 +874,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("The fox-herm lays there on the floor, looking quite stunned indeed.  She finally shakes her head and looks up at Kath.  “<i>I can’t believe that happened - do you know nobody’s ever beaten me before?  Nice job, Kath.</i>”\n\n");
         this.outputText("You applaud the cat-herm, clearly the plan worked flawlessly.");
         this.flags[kFLAGS.KATHERINE_TRAINING] += 16;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private katherineTrainingWithUrtaStage2Failure(): void {
@@ -886,7 +886,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("Urta just shakes her head.  “<i>Anyway, not a bad move, kitty; if I hadn’t noticed what you were trying, you would have beaten me with that move for sure.  Need to work on your speed,</i>” she concludes.\n\n");
         this.outputText("Kath sighs and says, “<i>Well... is some water too much to ask for?</i>”  You promptly head over to the makeshift kitchen, filling a glass from a sizable jug of water there and bring it to her.  Katherine thanks you and proceeds to eagerly drink it down.  When she’s done she gasps for air and wipes her mouth.  “<i>Alright, I’ll keep working on this until I beat you, foxy!</i>” she vows, dramatically pointing a finger at an amused-looking Urta.");
         this.flags[kFLAGS.KATHERINE_TRAINING] += 8;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private katherineTrainingWithUrtaStage2Horny(): void {
@@ -899,7 +899,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("“<i>That was <b>if</b> we were in the wasteland.  Get off already!</i>” Urta looks over at you and mutters “<i>You told her what to do, so I blame you for this.</i>”  While Urta uses the key to unlock Kath’s chastity belt you protest that this wasn’t what you suggested.  As Kath’s cock springs free, flicking some drops of pre across the floor Urta cuts you off.  “<i>You wanted to help with her training, so you can help me fill this little kitty.</i>”");
         var spitroast: any = this.threesome.spitroastKath;
         if (this.player.gender == 0) spitroast = undefined;
-        this.simpleChoices(this, "Spitroast", spitroast, "Leave", this.katherineTrainingWithUrtaStage2HornyLeave, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices("Spitroast", spitroast, "Leave", this.katherineTrainingWithUrtaStage2HornyLeave, "", undefined, "", undefined, "", undefined);
     }
 
     private katherineTrainingWithUrtaStage2HornyLeave(): void {
@@ -909,7 +909,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             this.outputText("\n\nYou’ve already been away from camp for a while.  You need to get back there and check on the portal.  Besides, Kath and Urta are getting along with each other better every time they have sex.  Katherine starts to lick at one of Urta’s nipples.");
         this.outputText("  Urta tries to fight her off, calling out, “<i>" + this.player.short + "!  I need some backup here.  This is <b>your</b> cock hungry kitty.</i>”  Urta tries to bat Kath’s arms away but she’s clearly turned on and you slip out before you get too horny to leave.  You’re sure they’re getting along just fine without you.");
         this.katherine.katherineAndUrtaHadSex(false);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private katherineTrainingWithUrtaStage3(): void {
@@ -936,13 +936,13 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("Urta walks you several steps, and then lets you go.  “<i>And there we are.  Fairly simple; you just need to remember that you should resort to violence against a non-monstrous hostile only as a last resort, but that generally isn’t hard to remember.  Now, we just need you to try and pull it off, Kath,</i>” she declares.\n\n");
         this.outputText("“<i>O-okay... I’ll try,</i>” Kath replies.");
         if (this.flags[kFLAGS.KATHERINE_TRAINING] >= 99) {
-            this.doNext(this, this.katherineTrainingWithUrtaStage3Success);
+            this.doNext(this.katherineTrainingWithUrtaStage3Success);
         }
         else {
             switch (KatherineEmployment.rand(3)) {
-                case 0: this.doNext(this, this.katherineTrainingWithUrtaStage3Success); break;
-                case 1: this.doNext(this, this.katherineTrainingWithUrtaStage3Failure); break;
-                case 2: this.doNext(this, this.katherineTrainingWithUrtaStage3Horny);
+                case 0: this.doNext(this.katherineTrainingWithUrtaStage3Success); break;
+                case 1: this.doNext(this.katherineTrainingWithUrtaStage3Failure); break;
+                case 2: this.doNext(this.katherineTrainingWithUrtaStage3Horny);
             }
         }
     }
@@ -958,7 +958,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("Kath hugs Urta even harder at that, and starts to purr - much to Urta’s surprise, from the look on the vulpine herm’s face.  You repress a smile and tell Kath and Urta that, if they don’t need you anymore, you’ll head back to camp for now.\n\n");
         this.outputText("“<i>Ah, sure, " + this.player.short + ", go ahead,</i>” Urta replies in a distracted tone, still cuddling the purring cat-herm and looking kind of spooked at the fact.  You wish Kath luck in her upcoming tests, and then head back to camp.");
         this.flags[kFLAGS.KATHERINE_TRAINING] += 16;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private katherineTrainingWithUrtaStage3Failure(): void {
@@ -991,7 +991,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("“<i>You just better bring that sweet ass of yours around some time soon, y’hear?</i>” Urta adds.  She really must be pent up to overcome her shyness and be that direct in public.");
         this.flags[kFLAGS.KATHERINE_TRAINING] += 8;
         if (this.flags[kFLAGS.KATHERINE_TRAINING] > 99) this.flags[kFLAGS.KATHERINE_TRAINING] = 99; //Only a successful training session should lead to her completing her training next time.
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private katherineTrainingWithUrtaStage3Horny(): void {
@@ -1005,7 +1005,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         var three69: any = this.threesome.threeSixtyNine;
         if (this.player.gender == 0) spitroast = undefined;
         if (!this.player.hasCock()) three69 = undefined;
-        this.simpleChoices(this, "Spitroast", spitroast, "369", three69, "Try Leaving", this.threesome.roastYou, "", undefined, "", undefined);
+        this.simpleChoices("Spitroast", spitroast, "369", three69, "Try Leaving", this.threesome.roastYou, "", undefined, "", undefined);
     }
 
     private katherineTrainingWithUrtaComplete(): void {
@@ -1030,7 +1030,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("“<i>We can all go to the Wet Bitch for a nice stiff drink,</i>” Urta suggests eagerly, tail wagging at the thought.\n\n");
         this.outputText("“<i>It’d be nice to be inside the bar instead of rummaging through the dustbins outside...</i>” Kath agrees.\n\n");
         this.outputText("All right... the bar it is then.  You motion extend an arm for each of the herms.  They loop their arms around yours and you lead them away.\n\n");
-        this.doNext(this, this.katherineTrainingWithUrtaCompleteContinued);
+        this.doNext(this.katherineTrainingWithUrtaCompleteContinued);
     }
 
     private katherineTrainingWithUrtaCompleteContinued(): void {
@@ -1046,10 +1046,10 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] += 10; //Kath and Urta will like each other by the time they’re finished training
         if (this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] > 28) this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] = 28; //Make sure they don't like each other too much
         if (this.player.gender == 0)
-            this.doNext(this, this.katherineTrainingWithUrtaCompleteLeave);
+            this.doNext(this.katherineTrainingWithUrtaCompleteLeave);
         else {
             this.outputText("That’s an enticing sight... you should really get back to your duties... but on the other hand another hour with the two herm beauties wouldn’t be so bad, would it?  What to do...");
-            this.simpleChoices(this, "Stay", this.katherineTrainingWithUrtaCompleteStay, "Leave", this.katherineTrainingWithUrtaCompleteLeave, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices("Stay", this.katherineTrainingWithUrtaCompleteStay, "Leave", this.katherineTrainingWithUrtaCompleteLeave, "", undefined, "", undefined, "", undefined);
         }
     }
 
@@ -1058,7 +1058,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("You apologize to the amorous herms, but you really have to be going...\n\n");
         this.outputText("“<i>Aw...</i>” the two sigh, clearly disappointed.  “<i>Well, I guess we’ll just try to have fun without you... but we’ll miss you,</i>” Urta says.  “<i>Yeah, so hurry back, lover,</i>” Kath winks, right before Urta reaches up and, to Kath’s own visible surprise, pulls her into a kiss... damn, but she must be drunk.\n\n");
         this.outputText("On the way out, you pay your tab and wave to the two girls, who seem too busy with each other to notice... well... you’ll just find out how this ends via gossip later...");
-        this.doNext(this, this.camp.returnToCampUseFourHours); //Return to camp, use up four hours
+        this.doNext(this.camp.returnToCampUseFourHours); //Return to camp, use up four hours
     }
 
     private katherineTrainingWithUrtaCompleteStay(): void {
@@ -1076,7 +1076,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText("Okay, okay, you say, laughing at the two amorous herms.  You don’t know about them, but you really don’t feel like being charged with public indecency... so let’s go to the back-rooms? you suggest once more.\n\n");
         this.outputText("“<i>Sounds good to me!</i>” they cheer at once.  You lead the girls away, arm in arm, followed by the envious stares of more than a few patrons...");
         var dpKath = (this.player.hasCock() ? this.threesome.doublePenetrateKath : undefined);
-        this.simpleChoices(this, "Let 'em fuck", this.threesome.doubleStuffKath, "DP Kath", dpKath, "", undefined, "", undefined, "", undefined);
+        this.simpleChoices("Let 'em fuck", this.threesome.doubleStuffKath, "DP Kath", dpKath, "", undefined, "", undefined, "", undefined);
     }
 
     public katherineGetsEmployed(): void {	//This scene plays automatically the first time that the player goes to Tel’Adre after Kath’s training is done

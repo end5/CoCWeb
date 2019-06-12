@@ -42,7 +42,7 @@ export class SandWitch extends Monster {
             this.player.createStatusAffect(StatusAffects.StoneLust, 0, 0, 0, 0);
             this.game.dynStats("lus", 4 + Math.floor(this.player.sens) / 10);
         }
-        this.doNext(this, this.game.playerMenu);
+        this.doNext(this.game.playerMenu);
     }
 
     public constructor() {

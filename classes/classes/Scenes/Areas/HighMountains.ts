@@ -25,7 +25,7 @@ export class HighMountains extends BaseContent {
     //Explore High Mountain
     public exploreHighMountain(): void {
         this.flags[kFLAGS.DISCOVERED_HIGH_MOUNTAIN]++;
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
 
         if (kGAMECLASS.d3.discoverD3() == true) {
             return;
@@ -143,9 +143,9 @@ export class HighMountains extends BaseContent {
         this.flags[kFLAGS.TIMES_MET_CHICKEN_HARPY]++;
         //[Give Two][Give Three]		[Not Really, No]
         this.menu();
-        if (this.player.hasItem(this.consumables.OVIELIX, 2)) this.addButton(this, 0, "Give Two", this.giveTwoOviElix);
-        if (this.player.hasItem(this.consumables.OVIELIX, 3)) this.addButton(this, 1, "Give Three", this.giveThreeOviElix);
-        this.addButton(this, 4, "Leave", this.leaveChickenx);
+        if (this.player.hasItem(this.consumables.OVIELIX, 2)) this.addButton(0, "Give Two", this.giveTwoOviElix);
+        if (this.player.hasItem(this.consumables.OVIELIX, 3)) this.addButton(1, "Give Three", this.giveThreeOviElix);
+        this.addButton(4, "Leave", this.leaveChickenx);
     }
 
     //If Give Two
@@ -157,12 +157,12 @@ export class HighMountains extends BaseContent {
         this.outputText("You hand over two elixirs, the harpy more than happy to take them from you.  In return, she unties a corner of the sheet atop the cart, allowing you to take a look at her collection of eggs.");
         //[Black][Blue][Brown][Pink][Purple]
         this.menu();
-        this.addButton(this, 0, "Black", this.getHarpyEgg, this.consumables.BLACKEG);
-        this.addButton(this, 1, "Blue", this.getHarpyEgg, this.consumables.BLUEEGG);
-        this.addButton(this, 2, "Brown", this.getHarpyEgg, this.consumables.BROWNEG);
-        this.addButton(this, 3, "Pink", this.getHarpyEgg, this.consumables.PINKEGG);
-        this.addButton(this, 4, "Purple", this.getHarpyEgg, this.consumables.PURPLEG);
-        this.addButton(this, 5, "White", this.getHarpyEgg, this.consumables.WHITEEG);
+        this.addButton(0, "Black", this.getHarpyEgg, this.consumables.BLACKEG);
+        this.addButton(1, "Blue", this.getHarpyEgg, this.consumables.BLUEEGG);
+        this.addButton(2, "Brown", this.getHarpyEgg, this.consumables.BROWNEG);
+        this.addButton(3, "Pink", this.getHarpyEgg, this.consumables.PINKEGG);
+        this.addButton(4, "Purple", this.getHarpyEgg, this.consumables.PURPLEG);
+        this.addButton(5, "White", this.getHarpyEgg, this.consumables.WHITEEG);
     }
 
     //If Give Three
@@ -173,12 +173,12 @@ export class HighMountains extends BaseContent {
         this.outputText("You hand over three elixirs, the harpy ecstatic over the fact that you're willing to part with them.  In return, she unties a side of the sheet atop the cart, allowing you to take a look at a large collection of her eggs.");
         //[Black][Blue][Brown][Pink][Purple]
         this.menu();
-        this.addButton(this, 0, "Black", this.getHarpyEgg, this.consumables.L_BLKEG);
-        this.addButton(this, 1, "Blue", this.getHarpyEgg, this.consumables.L_BLUEG);
-        this.addButton(this, 2, "Brown", this.getHarpyEgg, this.consumables.L_BRNEG);
-        this.addButton(this, 3, "Pink", this.getHarpyEgg, this.consumables.L_PNKEG);
-        this.addButton(this, 4, "Purple", this.getHarpyEgg, this.consumables.L_PRPEG);
-        this.addButton(this, 5, "White", this.getHarpyEgg, this.consumables.L_WHTEG);
+        this.addButton(0, "Black", this.getHarpyEgg, this.consumables.L_BLKEG);
+        this.addButton(1, "Blue", this.getHarpyEgg, this.consumables.L_BLUEG);
+        this.addButton(2, "Brown", this.getHarpyEgg, this.consumables.L_BRNEG);
+        this.addButton(3, "Pink", this.getHarpyEgg, this.consumables.L_PNKEG);
+        this.addButton(4, "Purple", this.getHarpyEgg, this.consumables.L_PRPEG);
+        this.addButton(5, "White", this.getHarpyEgg, this.consumables.L_WHTEG);
     }
 
     //All Text
@@ -196,7 +196,7 @@ export class HighMountains extends BaseContent {
         this.spriteSelect(90);
         this.outputText("At the polite decline of her offer, the chicken harpy gives a warm smile before picking her cart back up and continuing along the path through the mountains.");
         this.outputText("\n\nYou decide to take your own path, heading back to camp while you can.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 }
 

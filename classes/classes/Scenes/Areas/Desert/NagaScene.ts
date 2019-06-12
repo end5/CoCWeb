@@ -105,7 +105,7 @@ export class NagaScene extends BaseContent {
                 this.player.cuntChange(30, true, false, true);
                 this.player.orgasm();
                 this.outputText("You think it would be a very good idea to come to the desert more often.", false);
-                this.doNext(this, this.camp.returnToCampUseFourHours);
+                this.doNext(this.camp.returnToCampUseFourHours);
                 return;
             }
             //Genderleast
@@ -123,7 +123,7 @@ export class NagaScene extends BaseContent {
                 this.outputText("\"<i>We should do this more often,</i>\" she says before you head off.\n\n", false);
             }
             this.outputText("You think it would be a very good idea to come to the desert more often.", false);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             this.dynStats("lus", this.player.lib / 5);
             return;
         }
@@ -139,7 +139,7 @@ export class NagaScene extends BaseContent {
             //No fight for this encounter, brings you back to the camp. Next time you see her, she will attack you unless you turn back into a naga in the meantime
             this.player.changeStatusValue(StatusAffects.Naga, 1, 0);
             this.outputText("You walk in the desert for what feels like an eternity, thinking of how much easier it was to move across the sand back when you had a tail, but then you're brought back to reality by a familiar hissing. The identity of your follower is no secret to you. As you open your mouth to greet your naga friend, you find yourself unable to pronounce any words. The girl comes towards you and slithers around in a confused way, trying to communicate. But the sounds that once formed words and phrases now seem to slip through you; all you can do is stand there, unable to grasp what she's trying to tell you. Realizing that you're not who you used to be anymore, she sadly looks down and turns around. The naga slithers away into the distance until she's nothing but a blink on the horizon.", false);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         this.startCombat(new Naga());
@@ -680,17 +680,17 @@ export class NagaScene extends BaseContent {
         if (this.player.lust >= 33) {
             this.outputText("Your body aches for further satisfaction - do you rape the snake woman?", false);
             if (this.player.lowerBody == LOWER_BODY_TYPE_GOO) {
-                if (this.player.gender == 0) this.simpleChoices(this, "Yes", this.nagaVictoryGenderless, "Gooey Rape", this.gooNagaRape, "Lay Eggs", eggs, "", undefined, "Leave", this.cleanupAfterCombat);
-                if (this.player.gender == 1) this.simpleChoices(this, "Yes", this.nagaVictoryMale, "Gooey Rape", this.gooNagaRape, "Lay Eggs", eggs, "", undefined, "Leave", this.cleanupAfterCombat);
-                if (this.player.gender == 2) this.simpleChoices(this, "Yes", this.nagaVictoryFemale, "Gooey Rape", this.gooNagaRape, "Lay Eggs", eggs, "", undefined, "Leave", this.cleanupAfterCombat);
-                if (this.player.gender == 3) this.simpleChoices(this, "As Male", this.nagaVictoryMale, "As Female", this.nagaVictoryFemale, "Gooey Rape", this.gooNagaRape, "Lay Eggs", eggs, "Leave", this.cleanupAfterCombat);
+                if (this.player.gender == 0) this.simpleChoices("Yes", this.nagaVictoryGenderless, "Gooey Rape", this.gooNagaRape, "Lay Eggs", eggs, "", undefined, "Leave", this.cleanupAfterCombat);
+                if (this.player.gender == 1) this.simpleChoices("Yes", this.nagaVictoryMale, "Gooey Rape", this.gooNagaRape, "Lay Eggs", eggs, "", undefined, "Leave", this.cleanupAfterCombat);
+                if (this.player.gender == 2) this.simpleChoices("Yes", this.nagaVictoryFemale, "Gooey Rape", this.gooNagaRape, "Lay Eggs", eggs, "", undefined, "Leave", this.cleanupAfterCombat);
+                if (this.player.gender == 3) this.simpleChoices("As Male", this.nagaVictoryMale, "As Female", this.nagaVictoryFemale, "Gooey Rape", this.gooNagaRape, "Lay Eggs", eggs, "Leave", this.cleanupAfterCombat);
                 return;
             }
             else {
-                if (this.player.gender == 0) this.simpleChoices(this, "Yes", this.nagaVictoryGenderless, "", undefined, "", undefined, "Lay Eggs", eggs, "No", this.cleanupAfterCombat);
-                if (this.player.gender == 1) this.simpleChoices(this, "Yes", this.nagaVictoryMale, "", undefined, "", undefined, "Lay Eggs", eggs, "No", this.cleanupAfterCombat);
-                if (this.player.gender == 2) this.simpleChoices(this, "Yes", this.nagaVictoryFemale, "", undefined, "", undefined, "Lay Eggs", eggs, "Leave", this.cleanupAfterCombat);
-                if (this.player.gender == 3) this.simpleChoices(this, "As Male", this.nagaVictoryMale, "As Female", this.nagaVictoryFemale, "", undefined, "Lay Eggs", eggs, "Leave", this.cleanupAfterCombat);
+                if (this.player.gender == 0) this.simpleChoices("Yes", this.nagaVictoryGenderless, "", undefined, "", undefined, "Lay Eggs", eggs, "No", this.cleanupAfterCombat);
+                if (this.player.gender == 1) this.simpleChoices("Yes", this.nagaVictoryMale, "", undefined, "", undefined, "Lay Eggs", eggs, "No", this.cleanupAfterCombat);
+                if (this.player.gender == 2) this.simpleChoices("Yes", this.nagaVictoryFemale, "", undefined, "", undefined, "Lay Eggs", eggs, "Leave", this.cleanupAfterCombat);
+                if (this.player.gender == 3) this.simpleChoices("As Male", this.nagaVictoryMale, "As Female", this.nagaVictoryFemale, "", undefined, "Lay Eggs", eggs, "Leave", this.cleanupAfterCombat);
                 return;
             }
         }
@@ -703,7 +703,7 @@ export class NagaScene extends BaseContent {
             this.outputText("You just don't have the energy to wrap yourself so tightly around someone right now...", true);
             //Gone		menuLoc = 1;
             this.menu();
-            this.addButton(this, 0, "Next", kGAMECLASS.combatMenu, false);
+            this.addButton(0, "Next", kGAMECLASS.combatMenu, false);
             return;
         }
         //Cannot be used on plural enemies
@@ -717,7 +717,7 @@ export class NagaScene extends BaseContent {
             this.outputText("You can't constrict something you're trapped inside of!", true);
             //Gone		menuLoc = 1;
             this.menu();
-            this.addButton(this, 0, "Next", kGAMECLASS.combatMenu, false);
+            this.addButton(0, "Next", kGAMECLASS.combatMenu, false);
             return;
         }
         this.fatigue(10, 2);
@@ -744,7 +744,7 @@ export class NagaScene extends BaseContent {
             this.outputText("You launch yourself at your opponent and attempt to wrap yourself around " + this.monster.pronoun2 + ". Before you can even get close enough, " + this.monster.a + this.monster.short + " jumps out of the way, causing you to fall flat on your face. You quickly pick yourself up and jump back.", false);
             this.player.takeDamage(5);
             if (this.player.HP <= 0) {
-                this.doNext(this, kGAMECLASS.endHpLoss);
+                this.doNext(kGAMECLASS.endHpLoss);
                 return;
             }
         }
@@ -763,7 +763,7 @@ export class NagaScene extends BaseContent {
             if (this.monster.short == "demons")
                 this.outputText("The others quickly back off, terrified at the idea of what you might do to them.", false);
             this.outputText("\n\n", false);
-            this.doNext(this, kGAMECLASS.endHpVictory);
+            this.doNext(kGAMECLASS.endHpVictory);
             return;
         }
         this.outputText("\n\n", false);
@@ -882,7 +882,7 @@ export class NagaScene extends BaseContent {
             //OLD
             //monster.lust += 5 + rand(15);
             if (this.monster.lust > 99) {
-                this.doNext(this, kGAMECLASS.endLustVictory);
+                this.doNext(kGAMECLASS.endLustVictory);
                 return;
             }
         }

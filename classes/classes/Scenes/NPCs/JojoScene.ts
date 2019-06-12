@@ -93,14 +93,14 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
     private jojoMutationOffer(): void {
         this.jojoSprite();
         this.outputText("A wicked idea comes to mind while thinking of Jojo.  The lethicite you took from the lake goddess – perhaps it could be used to enhance your own budding demonic powers, and twist your mousey fuck-puppet into a truly worthy pet?\n\n<b>Do You?</b> (WARNING: Offered only once & unlocks tentacle content)", true);
-        this.doYesNo(this, this.jojoMutationOfferYes, this.jojoMutationOfferNo);
+        this.doYesNo(this.jojoMutationOfferYes, this.jojoMutationOfferNo);
     }
 
     private jojoMutationOfferNo(): void {
         this.jojoSprite();
         this.outputText("There are some lines even you won't cross.  Besides, having a sex-addled mouse with a constantly drooling foot-long cock is all the fun you can handle.\n\nWith that decided you prepare to call on your slut.", true);
         //Normal jojo sex scene here
-        this.doNext(this, this.corruptJojoSexMenu);
+        this.doNext(this.corruptJojoSexMenu);
     }
 
     //CORRUPT CAMP JOJO
@@ -183,22 +183,22 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             //First time:
             else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00331] != 0) {
                 milkHim = this.repeatMilkJojo;
-                if (this.tentacleJojo()) tentaMilk = this.createCallBackFunction(this, this.repeatMilkJojo, true);
+                if (this.tentacleJojo()) tentaMilk = this.createCallBackFunction(this.repeatMilkJojo, true);
             } else milkHim = this.milkJojoFirst;
         }
         var hairCare = undefined;
         var sex = undefined;
         if (this.player.gender > 0 && this.player.lust >= 33) sex = this.corruptJojoSexMenu;
         if (this.player.findStatusAffect(StatusAffects.HairdresserMeeting) >= 0) hairCare = this.jojoPaysForPerms;
-        this.choices(this, "Sex", sex, "TentacleSex", tent, "Milk Him", milkHim, "TentacleMilk", tentaMilk, "HairCare", hairCare, "Lay Eggs", eggs, "", undefined, "", undefined, "", undefined, "Back", this.camp.campSlavesMenu);
+        this.choices("Sex", sex, "TentacleSex", tent, "Milk Him", milkHim, "TentacleMilk", tentaMilk, "HairCare", hairCare, "Lay Eggs", eggs, "", undefined, "", undefined, "", undefined, "Back", this.camp.campSlavesMenu);
 
-        if (this.flags[kFLAGS.FARM_CORRUPTION_STARTED] == 1 && this.flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] == 0) this.addButton(this, 6, "Farm Work", this.sendToFarm);
-        if (this.flags[kFLAGS.FARM_CORRUPTION_STARTED] == 1 && this.flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] == 1) this.addButton(this, 6, "Go Camp", this.backToCamp);
+        if (this.flags[kFLAGS.FARM_CORRUPTION_STARTED] == 1 && this.flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] == 0) this.addButton(6, "Farm Work", this.sendToFarm);
+        if (this.flags[kFLAGS.FARM_CORRUPTION_STARTED] == 1 && this.flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] == 1) this.addButton(6, "Go Camp", this.backToCamp);
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] == 1 && this.flags[kFLAGS.FOLLOWER_PRODUCTION_JOJO] == 0) this.addButton(this, 7, "Harvest Draft", this.harvestJojoDraft);
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] == 1 && this.flags[kFLAGS.FOLLOWER_PRODUCTION_JOJO] == 1) this.addButton(this, 7, "Stop Harvest", this.stopHarvestJojoDraft);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] == 1 && this.flags[kFLAGS.FOLLOWER_PRODUCTION_JOJO] == 0) this.addButton(7, "Harvest Draft", this.harvestJojoDraft);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] == 1 && this.flags[kFLAGS.FOLLOWER_PRODUCTION_JOJO] == 1) this.addButton(7, "Stop Harvest", this.stopHarvestJojoDraft);
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] == 1) this.addButton(this, 9, "Back", kGAMECLASS.farm.farmCorruption.rootScene);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] == 1) this.addButton(9, "Back", kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
     private harvestJojoDraft(): void {
@@ -214,7 +214,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
 
         if (this.flags[kFLAGS.FARM_UPGRADES_REFINERY] == 1) this.flags[kFLAGS.FOLLOWER_PRODUCTION_JOJO] = 1;
 
-        this.doNext(this, kGAMECLASS.farm.farmCorruption.rootScene);
+        this.doNext(kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
     private stopHarvestJojoDraft(): void {
@@ -229,7 +229,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.flags[kFLAGS.FOLLOWER_PRODUCTION_JOJO] = 0;
 
-        this.doNext(this, kGAMECLASS.farm.farmCorruption.rootScene);
+        this.doNext(kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
     private sendToFarm(): void {
@@ -248,7 +248,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] = 1;
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private backToCamp(): void {
@@ -259,7 +259,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] = 0;
 
-        this.doNext(this, kGAMECLASS.farm.farmCorruption.rootScene);
+        this.doNext(kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
     private jojoMutationOfferYes(): void {
@@ -289,7 +289,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("The dildo disappears back into your inventory, and you smile in wicked anticipation of your next meeting with Jojo.\n", false);
         }
         this.outputText("\n<b>You just can't wait!  You'll call him over now...</b>", false);
-        this.doNext(this, this.mutateJojo);
+        this.doNext(this.mutateJojo);
     }
 
     private mutateJojo(): void {
@@ -333,7 +333,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         //(LIMITED MASTURBATE MENU – No Jojo)
         this.player.createStatusAffect(StatusAffects.NoJojo, 0, 0, 0, 0);
         this.player.createStatusAffect(StatusAffects.TentacleJojo, 0, 0, 0, 0);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //[POST TENTACLE DICKINGS]
@@ -612,7 +612,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.cuntChange(40, true);
         this.player.orgasm();
         this.dynStats("cor", .5);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Jojo milk payments
@@ -763,7 +763,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.jojoMilkPay();
 
         this.outputText("o on your way, dragging an exhausted mouse behind you as you head back towards camp.", false);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private repeatMilkJojo(tentacle: boolean = false): void {
@@ -852,7 +852,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("o on your way, dragging an exhausted mouse behind you as you head back towards camp.", false);
         }
         this.player.orgasm();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //Use Jojo to pay for Hair Care 
     private jojoPaysForPerms(): void {
@@ -906,9 +906,9 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         else this.outputText(" Do you want to watch them fuck?");
 
         this.menu();
-        if (this.player.hasCock()) this.addButton(this, 0, "Demonstrate", this.BJRidesGETYOUONE);
-        this.addButton(this, 1, "Watch", this.amilyAndJojoFuck);
-        this.addButton(this, 4, "Leave", this.playerMenu);
+        if (this.player.hasCock()) this.addButton(0, "Demonstrate", this.BJRidesGETYOUONE);
+        this.addButton(1, "Watch", this.amilyAndJojoFuck);
+        this.addButton(4, "Leave", this.playerMenu);
     }
     //Scene 1 Result: Male Gets BJ (Z)
     private BJRidesGETYOUONE(): void {
@@ -936,7 +936,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         //Pussy requires a minimum tallness?
         var puss = undefined;
         if (this.player.tallness > 55) puss = this.stuffAmilysMouthWithPostBJCUM;
-        this.simpleChoices(this, "Amily's Mouth", this.fillAmilysMouth,
+        this.simpleChoices("Amily's Mouth", this.fillAmilysMouth,
             "Amily's Pussy", puss,
             "Jojo's Mouth", this.fillJojosMouthWithHotStickyCum,
             "", undefined,
@@ -954,7 +954,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\nThe sperm-filled girl burps and turns to kiss Jojo, the once-pure monk eagerly returning the embrace and getting a good taste for your seed as Amily fervently tongues it into his mouth.  She eventually pulls back to encourage him with an overwrought sigh. \"<i>Maybe if you service [master] better you'll be allowed to receive [his] seed next time.</i>\"  Jojo pants and licks at his lips, hands darting down to tend to his long-neglected phallus.");
         this.outputText("\n\nYour personal whore laughs and hugs your leg, whispering, \"<i>Cum-slut thanks you, [master].</i>\"  You pull her up and smile at her, glad she's working to make your budding harem as sexually adept as possible.  She beams and grabs Jojo with her tail, no doubt eager to drag him off for more training.");
         this.player.orgasm();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //Fill Amily's Twat (requires not short-ass, weak-ass nigga) (Z)
     private stuffAmilysMouthWithPostBJCUM(): void {
@@ -970,7 +970,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("sen", -1);
         //{DONT FORGET PREGNANCY CHECK}
         this.amilyScene.amilyPreggoChance();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //Fill Jojo's Mouth (Z)
     private fillJojosMouthWithHotStickyCum(): void {
@@ -981,7 +981,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\nWhile one of your mouse-toys is polishing your rod, the other is masturbating and panting.  \"<i>Please, [master], may I... may I have some cum?  Can I... I lick him clean?  He's so...</i>\"  She inhales and luridly moans, \"<i>...messy.</i>\"  You give her your assent as you withdraw your spit-shined pecker from Jojo's maw, not caring how the two of them get their rocks off so long as your harem is kept well-trained and willing.");
         this.player.orgasm();
         this.dynStats("lib", -1, "cor", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Scene 2: Amily And Jojo Fuck (w/o Tentacles) (Z)
@@ -1004,7 +1004,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.orgasm();
         //{DONT FORGET PREGNANCY CHECK}
         //amilyPreggoChance();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public jojoFollowerMeditate(): void {
@@ -1032,7 +1032,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.player.lib > 15) this.dynStats("lib", -1); //Libido lower to 15
             this.player.createStatusAffect(StatusAffects.Meditated, 1, 0, 0, 0);
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public jojoDefenseToggle(): void {
@@ -1046,7 +1046,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.createStatusAffect(StatusAffects.JojoNightWatch, 0, 0, 0, 0);
             this.outputText("You ask the monk if he could guard the camp for you at night.  He smiles politely.  \"<i>Certainly, [name].</i>\"");
         }
-        this.doNext(this, this.jojoCamp);
+        this.doNext(this.jojoCamp);
     }
 
     // Hurray var/function hoisting.
@@ -1059,7 +1059,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.clearOutput();
         this.outputText("You ask Jojo if he'd like to go on a hunt through the woods to clear out some of the corrupted creatures, and the mouse readily agrees.  He asks if you've been getting a bit stir-crazy from having your camp in one place as the two of you walk into the woods...");
         this.menu();
-        this.addButton(this, 0, "Next", this.jojoRape, false);
+        this.addButton(0, "Next", this.jojoRape, false);
     }
 
     public defeatedJojo(hpVictory: boolean): void {
@@ -1067,7 +1067,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.lust > 33 && this.player.gender > 0) {
             this.clearOutput();
             this.outputText("You smile in satisfaction as Jojo" + (hpVictory ? " collapses, unable to continue fighting" : " collapses and begins masturbating feverishly") + ".  Sadly you realize your own needs have not been met.  Of course, you could always rape the poor thing...\n\nDo you rape him?");
-            this.doYesNo(this, this.postCombatRape, this.getGame().cleanupAfterCombat);
+            this.doYesNo(this.postCombatRape, this.getGame().cleanupAfterCombat);
         }
         else {
             this.getGame().finishCombat();
@@ -1081,7 +1081,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("fuck your violent little slut senseless.  ");
         else this.outputText("teach the uppity monk a lesson...\n\n");
         this.menu();
-        this.addButton(this, 0, "Next", this.jojoRape, true);
+        this.addButton(0, "Next", this.jojoRape, true);
     }
 
     public jojoRape(postCombat: boolean = false): void {
@@ -1109,7 +1109,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             default:
                 this.jojosFifthRape();
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         if (postCombat) this.getGame().cleanupAfterCombat();
     }
 
@@ -1555,21 +1555,21 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
     private corruptJojoSexMenu(): void {
         this.menu();
         if (this.player.hasVagina()) {
-            this.addButton(this, 2, "Gentle Vaginal", this.corruptJojoVaginalGentle);
-            this.addButton(this, 7, "Vag. Smother", this.corruptJojoVaginalSmother);
-            this.addButton(this, 8, "Anal Smother", this.corruptJojoAnalSmother);
+            this.addButton(2, "Gentle Vaginal", this.corruptJojoVaginalGentle);
+            this.addButton(7, "Vag. Smother", this.corruptJojoVaginalSmother);
+            this.addButton(8, "Anal Smother", this.corruptJojoAnalSmother);
         }
         if (this.player.hasCock()) {
-            this.addButton(this, 0, "Gentle BJ", this.corruptJojoBJGentle);
-            this.addButton(this, 5, "Cruel BJ", this.corruptJojoBJCruel);
-            this.addButton(this, 3, "Gentle Anal", this.corruptJojoAnalGentle);
+            this.addButton(0, "Gentle BJ", this.corruptJojoBJGentle);
+            this.addButton(5, "Cruel BJ", this.corruptJojoBJCruel);
+            this.addButton(3, "Gentle Anal", this.corruptJojoAnalGentle);
             if (this.player.findPerk(PerkLib.Whispered) >= 0)
-                this.addButton(this, 8, "Whisper", this.whisperJojobait);
-            else this.addButton(this, 8, "Cruel Anal", this.corruptJojoAnalCruel); //Overrides Anal Smother - Herms don't smother, they fuck
+                this.addButton(8, "Whisper", this.whisperJojobait);
+            else this.addButton(8, "Cruel Anal", this.corruptJojoAnalCruel); //Overrides Anal Smother - Herms don't smother, they fuck
         }
-        this.addButton(this, 1, "Give BJ", this.corruptJojoCunnilingus);
-        if (this.player.biggestTitSize() >= 2) this.addButton(this, 6, (this.player.biggestLactation() > 1 ? "Suckle" : "Breasts"), this.corruptJojoBreasts); //All ya need is bewbs
-        this.addButton(this, 9, "Back", this.playerMenu);
+        this.addButton(1, "Give BJ", this.corruptJojoCunnilingus);
+        if (this.player.biggestTitSize() >= 2) this.addButton(6, (this.player.biggestLactation() > 1 ? "Suckle" : "Breasts"), this.corruptJojoBreasts); //All ya need is bewbs
+        this.addButton(9, "Back", this.playerMenu);
     }
 
     private corruptJojoBJCruel(): void {
@@ -1588,7 +1588,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You sneer at him and shake your head, hissing out, \"<i>It would be so much better for you if you didn't try to resist, my slut.</i>\"  ");
         this.player.orgasm();
         this.dynStats("cor", 0.5);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private corruptJojoBJGentle(): void {
@@ -1609,7 +1609,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         else this.outputText("You give him one last fond caress, running your fingers through his fur in an almost patronizing petting motion, then turn without another word and leave him to retreat back into the jungle.  ");
         this.player.orgasm();
         this.dynStats("cor", 0.5);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private corruptJojoCunnilingus(): void {
@@ -1629,7 +1629,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You work until your slut explodes, and then, keeping all his seed in your mouth, you lift your head and press your lips to his in a firm kiss, feeding him the load of cum that he just released. He blushes as you do so, but obediently takes it all in, swallowing it down as you feed it to him.  ");
         this.outputText("Once the vulgar kiss is finished, you stand and smile, dismissing him with a casual wave of your hand.  ");
         this.dynStats("cor", 0.5);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private corruptJojoVaginalGentle(): void {
@@ -1657,7 +1657,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.knockUp(PregnancyStore.PREGNANCY_JOJO, PregnancyStore.INCUBATION_MOUSE + 82); //Jojo's kids take longer for some reason
         this.player.orgasm();
         this.dynStats("cor", 0.5);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private corruptJojoVaginalSmother(): void {
@@ -1674,7 +1674,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("He gasps for breath and coughs a few times, and once you are sure that he is safe, you laugh softly and walk back to your camp.  ");
         this.player.orgasm();
         this.dynStats("cor", 0.5);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private corruptJojoAnalCruel(): void {
@@ -1692,7 +1692,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You pull out of Jojo's ass once your orgasm has subsided and wipe your " + this.player.cockDescript(x) + " off on the fur of his back, then walk away to leave him to his own devices.  ");
         this.player.orgasm();
         this.dynStats("cor", 0.5);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private corruptJojoAnalGentle(): void {
@@ -1711,7 +1711,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You can't help but laugh at the scene, and draw out of his ass with a groan of pleasure. You watch as he crawls back into the jungle in shame, leaving a trail of your cum the whole way.  ");
         this.player.orgasm();
         this.dynStats("cor", 0.5);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private corruptJojoAnalSmother(): void {
@@ -1733,7 +1733,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("He gasps for breath and coughs a few times, and once you are sure that he is safe, you laugh softly and walk back to your camp.");
         this.player.orgasm();
         this.dynStats("cor", 0.5);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private corruptJojoBreasts(): void { //Should only be available to players with biggestBreastSize > 2
@@ -1757,7 +1757,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("He slinks back into the woods, chased by your amused laughter.");
         this.player.orgasm();
         this.dynStats("cor", 0.5);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Extra Scenes
@@ -1809,7 +1809,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("As you move away from the mouse, you step into a huge puddle of Jojo's creamy rodent cum and look back. You see that his dick, still trapped under his body and pointing behind the two of you, blasted long ropes of thick mouse spunk far into the depths of the forest.  Feeling beyond satisfied, you give your mouse slut a quick scratch behind the ear as he passes out – cum splattered and smiling.");
         }
         this.player.orgasm();
-        this.doNext(this, this.camp.returnToCampUseTwoHours);
+        this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
     /* The old code for sex with corrupt Jojo
@@ -2209,8 +2209,8 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("Do you accept his apology?\n\n");
 
         this.menu();
-        this.addButton(this, 0, "Yes", this.acceptJojosApology);
-        this.addButton(this, 1, "No", this.refuseJojosApology);
+        this.addButton(0, "Yes", this.acceptJojosApology);
+        this.addButton(1, "No", this.refuseJojosApology);
     }
 
     // Yes
@@ -2254,9 +2254,9 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("feel any corruption within you, it’s always best to be prepared.  Would you care to join me in meditation?</i>”\n\n");
 
         this.menu();
-        this.addButton(this, 0, "Meditate", this.meditateInForest); // OH GOD NO SEND HELP
-        this.addButton(this, 1, "Leave", this.camp.returnToCampUseOneHour);
-        this.addButton(this, 4, "Rape", this.jojoRape);
+        this.addButton(0, "Meditate", this.meditateInForest); // OH GOD NO SEND HELP
+        this.addButton(1, "Leave", this.camp.returnToCampUseOneHour);
+        this.addButton(4, "Rape", this.jojoRape);
     }
 
     public meditateInForest(): void {
@@ -2287,7 +2287,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                     //get a small talisman if not have one
                     this.player.createKeyItem("Jojo's Talisman", 0, 0, 0, 0);
                 }
-                this.doNext(this, this.camp.returnToCampUseTwoHours);
+                this.doNext(this.camp.returnToCampUseTwoHours);
                 return;
             }
             else
@@ -2295,12 +2295,12 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         }
         if (this.player.statusAffectv1(StatusAffects.JojoMeditationCount) % 5 == 0) {
             this.outputText("\n\nYou ponder and get an idea - the mouse could stay at your camp.  There's safety in numbers, and it would be easier for the two of you to get together for meditation sessions.  Do you want Jojo's company at camp?", false);
-            this.doYesNo(this, this.jojoScene.acceptJojoIntoYourCamp, this.camp.returnToCampUseTwoHours);
+            this.doYesNo(this.jojoScene.acceptJojoIntoYourCamp, this.camp.returnToCampUseTwoHours);
             return;
         }
         else
             this.outputText("\n\nHe bows his head sadly and dismisses you.", false);
-        this.doNext(this, this.camp.returnToCampUseTwoHours);
+        this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
     // Some hacky shit to be able to control the text clearing mechanics of the doEvent system... OH GOD WHY. //Gone, gone forever
@@ -2316,7 +2316,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("You offer Jojo the chance to stay at your camp.  He cocks his head to the side and thinks, stroking his mousey whiskers.\n\n\"<i>Yes, it would be wise.   We would be safer together, and if you like I could keep watch at night to keep some of the creatures away.  I'll gather my things and be right there!</i>\"\n\nJojo scurries into the bushes, disappearing in a flash.  Knowing him, he'll be at camp before you!");
             this.player.createStatusAffect(StatusAffects.PureCampJojo, 0, 0, 0, 0);
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Jojo In Camp
@@ -2366,7 +2366,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText("You walk up to the boulder where Jojo usually sits, and see him sitting cross legged with his eyes closed.  He seems to be deep in meditation, but when you approach his eyes open suddenly and he gets up appearing slightly distressed, “<i>Uh... [name], I can feel a bit of corruption within you.  It is not much, but I think you should be concerned about it before it gets out of hand and you do something you might regret.  If you want to I'd be happy to meditate with you as you rid yourself of it.</i>” he offers with a concerned look on his face.\n\n");
             }
             this.outputText("Do you accept Jojo's help?\n\n");
-            this.simpleChoices(this, "Yes", this.acceptOfferOfHelp, "No", this.refuseOfferOfHelp, "", undefined, "", undefined, "Rape", (this.player.lust >= 33 && this.player.gender > 0 ? this.jojoAtCampRape : undefined));
+            this.simpleChoices("Yes", this.acceptOfferOfHelp, "No", this.refuseOfferOfHelp, "", undefined, "", undefined, "Rape", (this.player.lust >= 33 && this.player.gender > 0 ? this.jojoAtCampRape : undefined));
         }
         else { //Normal shit
             switch (JojoScene.rand(3)) {
@@ -2390,14 +2390,14 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         }
         else jojoDefense += "Off";
         this.menu();
-        this.addButton(this, 0, "Appearance", this.jojoAppearance);
-        this.addButton(this, 1, "Talk", this.talkMenu);
-        if (this.flags[kFLAGS.UNLOCKED_JOJO_TRAINING] == 1) this.addButton(this, 2, "Train", this.apparantlyJojoDOESlift);
-        this.addButton(this, 3, "Meditate", this.jojoFollowerMeditate);
-        this.addButton(this, 4, jojoDefense, this.jojoDefenseToggle);
-        if (this.player.findStatusAffect(StatusAffects.Infested) >= 0) this.addButton(this, 5, "Purge", this.wormRemoval);
-        this.addButton(this, 8, "Rape", (this.player.cor > 10 && this.player.lust >= 33 && this.player.gender > 0 ? this.jojoAtCampRape : undefined));
-        this.addButton(this, 9, "Leave", this.camp.campFollowers);
+        this.addButton(0, "Appearance", this.jojoAppearance);
+        this.addButton(1, "Talk", this.talkMenu);
+        if (this.flags[kFLAGS.UNLOCKED_JOJO_TRAINING] == 1) this.addButton(2, "Train", this.apparantlyJojoDOESlift);
+        this.addButton(3, "Meditate", this.jojoFollowerMeditate);
+        this.addButton(4, jojoDefense, this.jojoDefenseToggle);
+        if (this.player.findStatusAffect(StatusAffects.Infested) >= 0) this.addButton(5, "Purge", this.wormRemoval);
+        this.addButton(8, "Rape", (this.player.cor > 10 && this.player.lust >= 33 && this.player.gender > 0 ? this.jojoAtCampRape : undefined));
+        this.addButton(9, "Leave", this.camp.campFollowers);
     }
 
 
@@ -2413,21 +2413,21 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("His weapons of choice are his fists and a polished wooden staff he wields with practiced hands, right now it is tucked away in his bed roll.\n\n");
         this.menu();
-        this.doNext(this, this.jojoCamp);
+        this.doNext(this.jojoCamp);
     }
 
     public talkMenu(): void {
         this.jojoSprite();
         this.menu();
-        this.addButton(this, 0, "Village", this.jojoTalkVillage);
-        this.addButton(this, 1, "Monks", this.jojoTalkJoiningTheMonks);
-        this.addButton(this, 2, "MonksFall", this.jojoTalkFallOfTheMonks);
-        this.addButton(this, 3, "Forest", this.jojoTalkForestConvo);
-        if (this.flags[kFLAGS.TIMES_TALKED_WITH_JOJO] >= 4) this.addButton(this, 4, "You", this.jojoTalkYourOrigin);
-        if (this.player.findStatusAffect(StatusAffects.DungeonShutDown) >= 0) this.addButton(this, 5, "Factory", this.jojoTalkFactory);
-        if (this.flags[kFLAGS.SAND_WITCHES_COWED] == 1 || this.flags[kFLAGS.SAND_WITCHES_FRIENDLY] == 1 || this.flags[kFLAGS.SAND_MOTHER_DEFEATED] == 1) this.addButton(this, 6, "SandCave", this.jojoTalkSandCave);
-        if (this.flags[kFLAGS.UNLOCKED_JOJO_TRAINING] == 0 && this.flags[kFLAGS.TIMES_TALKED_WITH_JOJO] >= 4) this.addButton(this, 7, "Training", this.apparantlyJojoDOESlift);
-        this.addButton(this, 9, "Back", this.jojoCamp);
+        this.addButton(0, "Village", this.jojoTalkVillage);
+        this.addButton(1, "Monks", this.jojoTalkJoiningTheMonks);
+        this.addButton(2, "MonksFall", this.jojoTalkFallOfTheMonks);
+        this.addButton(3, "Forest", this.jojoTalkForestConvo);
+        if (this.flags[kFLAGS.TIMES_TALKED_WITH_JOJO] >= 4) this.addButton(4, "You", this.jojoTalkYourOrigin);
+        if (this.player.findStatusAffect(StatusAffects.DungeonShutDown) >= 0) this.addButton(5, "Factory", this.jojoTalkFactory);
+        if (this.flags[kFLAGS.SAND_WITCHES_COWED] == 1 || this.flags[kFLAGS.SAND_WITCHES_FRIENDLY] == 1 || this.flags[kFLAGS.SAND_MOTHER_DEFEATED] == 1) this.addButton(6, "SandCave", this.jojoTalkSandCave);
+        if (this.flags[kFLAGS.UNLOCKED_JOJO_TRAINING] == 0 && this.flags[kFLAGS.TIMES_TALKED_WITH_JOJO] >= 4) this.addButton(7, "Training", this.apparantlyJojoDOESlift);
+        this.addButton(9, "Back", this.jojoCamp);
     }
 
     //Talk
@@ -2455,7 +2455,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         }
 
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour); // Dunno where exactly to kick back to, fuck it, back to camp yo!
+        this.doNext(this.camp.returnToCampUseOneHour); // Dunno where exactly to kick back to, fuck it, back to camp yo!
     }
 
     //Joining the Monks convo
@@ -2472,7 +2472,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("Jojo wears this quiet little smile as he finishes.  Then he chuckles and says, “<i>Thank you for the memories, [name].  I enjoy our talks.</i>”\n\n");
 
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Fall of the Monks convo
@@ -2490,7 +2490,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You can tell the story has affected him, but you’re surprised to hear the resolve in his voice and see the defiant strength in his eyes. Excusing yourself, you rise and leave him to do as he will.\n\n");
 
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Forest Convo
@@ -2536,7 +2536,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("Looking renewed and at peace despite the emotional storm you know must be raging within his tiny frame Jojo returns to what he was doing after thanking you for giving him new purpose.\n\n");
 
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Yourself
@@ -2589,7 +2589,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("Jojo smiles now that he has gotten to know you a little better. After a little bit more small talk, the two of you decide the conversation is over and part ways.\n\n");
 
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Dungeon Convo: Factory
@@ -2616,7 +2616,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("Once the two of you are done discussing the demonic factory Jojo excuses himself to think on what you’ve told him.\n\n");
 
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Dungeon Convo: Sand Cave
@@ -2700,7 +2700,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("Having concluded the conversation the two of you stand and Jojo gives you an appreciative pat on the shoulder, seeming more fond of you.\n\n");
 
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Training
@@ -2720,7 +2720,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
 
                 // Kick back to previous menu
                 this.menu();
-                this.doNext(this, this.jojoCamp);
+                this.doNext(this.jojoCamp);
                 return;
             }
             else {
@@ -2728,7 +2728,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
 
                 // Sounds like this should kick back to menu
                 this.menu();
-                this.doNext(this, this.jojoCamp);
+                this.doNext(this.jojoCamp);
                 return;
             }
         }
@@ -2739,7 +2739,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText("“<i>Not yet [name]. Your body must be fit and rested before our training sessions. Rest first, and come back to me later.</i>”\n\n");
 
                 this.menu();
-                this.doNext(this, this.jojoCamp);
+                this.doNext(this.jojoCamp);
                 return;
             }
 
@@ -2748,7 +2748,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText("“<i>I fear that your time would be better spend meditating before we continue your training. Would you like to do so now?</i>”\n\n");
 
                 this.menu();
-                this.doYesNo(this, this.meditateInForest, this.jojoCamp);
+                this.doYesNo(this.meditateInForest, this.jojoCamp);
                 return;
             }
         }
@@ -2840,7 +2840,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         }
 
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public wormRemoval(): void {
@@ -2858,7 +2858,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.sens = 11;
         this.player.removeStatusAffect(StatusAffects.Infested);
         this.dynStats("sen", -1, "lus", -99, "cor", -15);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 }
 

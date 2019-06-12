@@ -47,7 +47,7 @@ export class Heckel extends TelAdreAbstractContent {
         else {
             this.outputText("Heckel is checking her pulse between laps when you approach her.  She grins as she catches sight of you, her teeth flashing in the light.  \"<i>Back again, fresh meat?  I thought I might have scared you off last time.</i>\"  She puts her hands on her hips and very blatantly looks your body up and down.  After a moment she nods to herself, as if making up her mind.  \"<i>I guess you can keep up after all.  What do you say to a workout, partner?</i>\"\n\n", false);
         }
-        this.simpleChoices(this, "Training", this.heckelTraining, "", undefined, "", undefined, "", undefined, "Leave", this.telAdre.gymDesc);
+        this.simpleChoices("Training", this.heckelTraining, "", undefined, "", undefined, "", undefined, "Leave", this.telAdre.gymDesc);
     }
 
     //First time Sex
@@ -60,7 +60,7 @@ export class Heckel extends TelAdreAbstractContent {
             this.outputText("You tell Heckel that you're looking for a training partner, and she makes no attempt to hide her gaze as she looks you up and down.  When she's finished, she shakes her head and picks up her pace on the track.  \"<i>I don't think so, " + this.player.short + ".  Maybe if you spend some more time around here, you'll find your own way into the swing of things.  From what I'm seeing, there's no way you can handle what I've got.</i>\"\n\n", false);
 
             this.outputText("You open your mouth to reply, but the hyena has already started another lap.  Deciding it isn't worth it, you turn away indignantly.", false);
-            this.doNext(this, this.telAdre.gymDesc);
+            this.doNext(this.telAdre.gymDesc);
             return;
         }
         //Centaur or Genderless
@@ -68,7 +68,7 @@ export class Heckel extends TelAdreAbstractContent {
             this.outputText("You tell Heckel that you're looking for a training partner, but she suddenly looks off balance. She shifts from foot to foot as she looks you up and down, head cocked to the side.\n\n", false);
 
             this.outputText("\"<i>Err, look " + this.player.short + ", people around here come in all shapes and sizes and use all sorts of... equipment. Maybe you should go find someone more your type to ask, because I honestly don't know what to do with yours.</i>\"\n\n", false);
-            this.doNext(this, this.telAdre.gymDesc);
+            this.doNext(this.telAdre.gymDesc);
             return;
         }
         if (this.flags[kFLAGS.TIMES_FUCKED_HECKEL_BLOWJOB] + this.flags[kFLAGS.TIMES_FUCKED_HECKEL_ANAL] == 0) {
@@ -93,7 +93,7 @@ export class Heckel extends TelAdreAbstractContent {
                 dom = this.dominateHeckel;
             }
             //ORAL or LEAVE
-            this.simpleChoices(this, "Oral", this.heckelOrallyFixated, "Anal", undefined, "Be Top Dog", dom, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+            this.simpleChoices("Oral", this.heckelOrallyFixated, "Anal", undefined, "Be Top Dog", dom, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
         }
         //FOLLOWUP SECKZ
         else {
@@ -112,7 +112,7 @@ export class Heckel extends TelAdreAbstractContent {
                 dom = this.dominateHeckel;
             }
             //ORAL or LEAVE
-            this.simpleChoices(this, "Oral", this.heckelOrallyFixated, "Anal", this.heckelLovesDaAnal, "Be Top Dog", dom, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+            this.simpleChoices("Oral", this.heckelOrallyFixated, "Anal", this.heckelLovesDaAnal, "Be Top Dog", dom, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -131,7 +131,7 @@ export class Heckel extends TelAdreAbstractContent {
             this.outputText("You take another inch into your throat before pulling off. Heckel growls above you until you lower your head again, this time further than before. Her growl becomes a moan instantly as the paw on your head is joined by another, both gripping your hair together. As you raise and lower your head, the furry balls in front of you begin to swing back and forth with Heckel's small thrusts, and you reach out a hand to fondle them.\n\n", false);
 
             this.outputText("As you fondle her balls, your fingers graze over something wet behind them. If you could smile around the mouthful of doggy-dick, you definitely would. You've discovered that Heckel is definitely a herm, and you make sure to give her gash another graze as you bob your head down. The head of her cock pulses as you take her length deeper than you had before, and the hands in your hair tighten their grip as Heckel rises from her seat suddenly. You lose pace at this sudden change, and the position forces you to look up at her face.", false);
-            this.doNext(this, this.heckelOralFixationII);
+            this.doNext(this.heckelOralFixationII);
         }
         //Repeat
         else {
@@ -168,7 +168,7 @@ export class Heckel extends TelAdreAbstractContent {
             this.outputText("\"<i>By Marae, " + this.player.short + ", you've got quite the mouth. I'm impressed, and that doesn't happen often.</i>\" She brings a paw to her chin as if thinking, before finally reaching it out and ruffling your hair. \"<i>You know, you aren't half bad to be around, and not just for the sex. Don't be a stranger around here, alright?</i>\" With that she stands and heads back into the showers, giving you time to clean up and head back to camp.", false);
             this.player.orgasm();
             this.dynStats("sen", 4);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
         //Increment BJ count
         this.flags[kFLAGS.TIMES_FUCKED_HECKEL_BLOWJOB]++;
@@ -184,7 +184,7 @@ export class Heckel extends TelAdreAbstractContent {
 
         this.outputText("When she's finally emptied herself on your face, she falls down onto the bench in front of you. Before you can say anything, she extends a paw and ruffles your semen-streaked hair. \"<i>Heh, not bad fresh meat. If you can learn your place on the food chain here, we might have a beautiful partnership ahead of us. If you still think you can keep up, that is.</i>\" She winks at you as she stands again, tossing you her towel from earlier as she heads towards the showers.\n\n", false);
         this.dynStats("lib", 1, "sen", 4, "lus", (10 + this.player.lib / 10 + this.player.sens / 10));
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //anal
@@ -193,7 +193,7 @@ export class Heckel extends TelAdreAbstractContent {
         //rejection - ass not loose enough
         if (this.player.analCapacity() <= 20 && !loss) {
             this.outputText("Heckel lets out a barking laugh when you suggest using your " + this.assDescript() + ", ruffling your hair playfully. \"<i>Know your limits, " + this.player.short + ", I'd tear you apart down there. I'm sure there are plenty of others in this realm who can help you out with that.</i>\"\n\n", false);
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         //success - requires ass to be 'a little loose'
@@ -223,7 +223,7 @@ export class Heckel extends TelAdreAbstractContent {
 
         this.outputText("Even with only a few inches inside your ass, her tongue makes you moan almost immediately. She rolls in back and forth, then side to side, then pushes it in and out before starting the cycle over. The teasing becomes more and more unbearable until you're ready to abandon caution and begin masturbating, but just as you tense to change position she stops and pulls her tongue out suddenly.\n\n", false);
         //NEXT
-        this.doNext(this, this.heckelLovesAnal2);
+        this.doNext(this.heckelLovesAnal2);
         //Increment Anal count
         this.flags[kFLAGS.TIMES_FUCKED_HECKEL_ANAL]++;
     }
@@ -281,7 +281,7 @@ export class Heckel extends TelAdreAbstractContent {
         this.outputText("She laughs as she stands and heads for the shower, letting you clean yourself up and head back to camp.", false);
         this.player.orgasm();
         this.dynStats("sen", 4);
-        this.doNext(this, this.camp.returnToCampUseFourHours);
+        this.doNext(this.camp.returnToCampUseFourHours);
     }
 
 
@@ -309,7 +309,7 @@ export class Heckel extends TelAdreAbstractContent {
             this.outputText("Even with your mighty struggling, you cannot overcome the relentless hyena, and your shaking hand is forced down, eventually pressed flat into the wood.");
             this.outputText("\n\nHeckel proudly declares, \"<i>Your ass is mine, bitch.  Bend over.</i>\"  You sigh, ashamed to have lost and more than a little emasculated.  Well, you made a wager.  Time to live up to it...");
             this.menu();
-            this.addButton(this, 0, "Next", this.heckelLovesDaAnal, 1);
+            this.addButton(0, "Next", this.heckelLovesDaAnal, 1);
             this.flags[kFLAGS.TIMES_LOST_HECKEL_DOM_CHALLENGE]++;
         }
         //{Win}
@@ -321,7 +321,7 @@ export class Heckel extends TelAdreAbstractContent {
             this.outputText("\n\nTime to claim your prize...");
             this.dynStats("str", .5);
             this.menu();
-            this.addButton(this, 0, "Next", this.dominateHeckelConclusion);
+            this.addButton(0, "Next", this.dominateHeckelConclusion);
             this.flags[kFLAGS.TIMES_DOMMED_HECKEL]++;
         }
     }
@@ -400,6 +400,6 @@ export class Heckel extends TelAdreAbstractContent {
         }
         this.player.orgasm();
         this.dynStats("sen", -2);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 }

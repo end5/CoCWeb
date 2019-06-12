@@ -39,10 +39,10 @@ export class HermCentaurScenes extends BaseContent {
 
         this.menu();
 
-        if (this.player.hasCock()) this.addButton(this, 0, "Fuck Her", this.maleFuckHer);
-        if (this.player.hasVagina()) this.addButton(this, 1, "Get Fucked", this.femFuckHer);
-        this.addButton(this, 5, "Release", this.letHerGo);
-        this.addButton(this, 6, "Kill", this.killHer);
+        if (this.player.hasCock()) this.addButton(0, "Fuck Her", this.maleFuckHer);
+        if (this.player.hasVagina()) this.addButton(1, "Get Fucked", this.femFuckHer);
+        this.addButton(5, "Release", this.letHerGo);
+        this.addButton(6, "Kill", this.killHer);
     }
 
     private killHer(): void {
@@ -125,10 +125,10 @@ export class HermCentaurScenes extends BaseContent {
         this.outputText("\n\nFinally, a demon with some common sense!  You idly trace your [foot] along the underside of her leaky horse-cock while pondering this newest development.  She'll need to match her size to your [vagina] for sure, but what kind of cock do you want her to have?");
 
         this.menu();
-        if (this.silly()) this.addButton(this, 0, "HORZ GOG", this.femFuckHerII, this.HORZGOG);
-        else this.addButton(this, 0, "Horsecock", this.femFuckHerII, this.HORZGOG);
-        this.addButton(this, 1, "Dog Dick", this.femFuckHerII, this.DOGGECOCK);
-        this.addButton(this, 2, "Tentacles", this.femFuckHerII, this.TENTACOCK);
+        if (this.silly()) this.addButton(0, "HORZ GOG", this.femFuckHerII, this.HORZGOG);
+        else this.addButton(0, "Horsecock", this.femFuckHerII, this.HORZGOG);
+        this.addButton(1, "Dog Dick", this.femFuckHerII, this.DOGGECOCK);
+        this.addButton(2, "Tentacles", this.femFuckHerII, this.TENTACOCK);
     }
 
     private femFuckHerII(cockType: number): void {
@@ -317,7 +317,7 @@ export class HermCentaurScenes extends BaseContent {
         this.outputText("\n\nDarkness takes you while you shiver in knocked-up bliss.");
 
         this.menu();
-        this.addButton(this, 0, "Next", this.femLossII);
+        this.addButton(0, "Next", this.femLossII);
     }
 
     private femLossII(): void {
@@ -329,7 +329,7 @@ export class HermCentaurScenes extends BaseContent {
         this.outputText("\n\nYou slump down as you're dragged through dirt, over carpets, and through halls.  Various demons leer at you as you pass, snickering at the fallen champion, now little more than a willing mare.  The humiliation makes your cheeks go red but your [vagina] drool. Some part of you is clearly enjoying it, though you aren't sure if it's a natural enjoyment or something this creature has done to you.  You sigh and shrug, raising your hands to fondle your breasts as you're dragged to your new home.  You may as well enjoy yourself.");
 
         this.menu();
-        this.addButton(this, 0, "Next", this.femLossIII);
+        this.addButton(0, "Next", this.femLossIII);
     }
 
     private femLossIII(): void {
@@ -422,7 +422,7 @@ export class HermCentaurScenes extends BaseContent {
         this.outputText("\n\nAt the same time, your centaur mate steps away, still joined to you by webs of sexual fluid that gradually snap.  As she departs, you realize you're bound up in a stall, tied to a wall, and you swear you can see lines of hooves waiting their turn from under the wood frame.  An albino woman with ivory horns clops in next.  She pivots, and you're given your first glimpse of your second 'wife'.  You've got a lot of demons to inseminate.");
 
         this.menu();
-        this.addButton(this, 0, "Next", this.maleLossII);
+        this.addButton(0, "Next", this.maleLossII);
     }
 
     private maleLossII(): void {

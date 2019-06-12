@@ -782,7 +782,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                 this.player.fertilizeEggs(); //convert eggs to fertilized based on player cum output, reduce lust by 100 and then add 20 lust
                 this.player.orgasm(); //reduce lust by 100 and add 20, convert eggs to fertilized depending on cum output
                 this.getGame().dynStats("lus", 20);
-                this.getGame().doNext(this, this.playerMenu);
+                this.getGame().doNext(this.playerMenu);
                 //Hey Fenoxo - maybe the unsexed characters get a few \"cock up the ovipositor\" scenes for fertilization with some characters (probably only willing ones)?
                 //Hey whoever, maybe you write them? -Z
                 return true;
@@ -802,7 +802,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                 this.player.fertilizeEggs(); //reduce lust by 100 and add 20, convert eggs to fertilized depending on cum output
                 this.player.orgasm();
                 this.getGame().dynStats("lus", 20);
-                this.getGame().doNext(this, this.playerMenu);
+                this.getGame().doNext(this.playerMenu);
                 //Hey Fenoxo - maybe the unsexed characters get a few \"cock up the ovipositor\" scenes for fertilization with some characters (probably only willing ones)?
                 //Hey whoever, maybe you write them? -Z
                 return true;

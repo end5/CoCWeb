@@ -218,7 +218,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             else if (this.flags[kFLAGS.SHEILA_XP] == 4) this.fuckBuddySheilaMeeting();
             else {
                 this.outputText("A BUG HAPPENED.  YOUR SHEILA_XP: " + this.flags[kFLAGS.SHEILA_XP] + ". <b>Value should be between -3 to 4.</b>");
-                this.doNext(this, this.camp.returnToCampUseOneHour);
+                this.doNext(this.camp.returnToCampUseOneHour);
             }
         }
         //DEMONS!
@@ -297,8 +297,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.menu();
         //[Look Closer][Stay Hidden]
-        this.addButton(this, 0, "Look Closer", this.sheila1ndEncLookCloser);
-        this.addButton(this, 1, "Stay Hidden", this.sheila1stEncStayHidden);
+        this.addButton(0, "Look Closer", this.sheila1ndEncLookCloser);
+        this.addButton(1, "Stay Hidden", this.sheila1stEncStayHidden);
         //spacebar defaults to [Stay Hidden] -NOT POSSIBURU
     }
 
@@ -307,7 +307,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.clearOutput();
         this.outputText("You regulate your breathing and hold yourself still to avoid rustling anything softly, waiting for the creature to finish its business and leave.");
         //no change in sheila xp
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[XP0 - Look Closer]
@@ -318,7 +318,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\nYou unbend to your full height and answer her challenge, making sure she can see you.  She makes no motion to close the distance, so you take it upon yourself to walk over to her; she doesn't move, but stops you at about ten paces.  \"<i>Far enough!  Let me get a look,</i>\" she shouts.");
         //--Next--
         this.menu();
-        this.addButton(this, 0, "Next", this.sheila1ndEncLookCloserPtII);
+        this.addButton(0, "Next", this.sheila1ndEncLookCloserPtII);
     }
 
     private sheila1ndEncLookCloserPtII(): void {
@@ -351,8 +351,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
         //[Talk][Leave]
         this.menu();
-        this.addButton(this, 0, "Talk", this.sheila1ndEncLookCloserPtIITalk);
-        this.addButton(this, 1, "Leave", this.sheila1ndEncLookCloserPtIILeave);
+        this.addButton(0, "Talk", this.sheila1ndEncLookCloserPtIITalk);
+        this.addButton(1, "Leave", this.sheila1ndEncLookCloserPtIILeave);
 
     }
 
@@ -363,7 +363,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\"<i>Good onya.  Maybe I'll see you around.</i>\"  With that, you take your leave of the strange woman.");
         //set sheila xp = 1
         this.flags[kFLAGS.SHEILA_XP] = 1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[XP0 - Look Closer - Talk]
@@ -377,8 +377,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
         //[Leave][Fight]
         this.menu();
-        this.addButton(this, 0, "Fight", this.sheila1ndEncLookCloserPtIITalkFight);
-        this.addButton(this, 4, "Leave", this.sheila1ndEncLookCloserPtIITalkLeave);
+        this.addButton(0, "Fight", this.sheila1ndEncLookCloserPtIITalkFight);
+        this.addButton(4, "Leave", this.sheila1ndEncLookCloserPtIITalkLeave);
     }
 
     //[XP0 - Look Closer - Talk - Leave]
@@ -386,7 +386,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.clearOutput();
         this.outputText("Wordlessly, you get up and back away from the woman... though not without a dirty glance.  She follows you with her eyes until you judge yourself far enough away to turn your back to her.");
         //go to camp
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[XP0 - Look Closer - Talk - Fight]
@@ -412,10 +412,10 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         //[Apologize][Slap&Insult][Nothing][Avoid Her]
         //spacebar defaults to [Nothing]
         this.menu();
-        this.addButton(this, 0, "Apologize", this.apologySheilaApology);
-        this.addButton(this, 1, "SlapNInsult", this.apologySheilaSlapSult);
-        this.addButton(this, 2, "Nothing", this.apologySheilaSayNothing);
-        this.addButton(this, 3, "Avoid Her", this.apologyAvoidSheila);
+        this.addButton(0, "Apologize", this.apologySheilaApology);
+        this.addButton(1, "SlapNInsult", this.apologySheilaSlapSult);
+        this.addButton(2, "Nothing", this.apologySheilaSayNothing);
+        this.addButton(3, "Avoid Her", this.apologyAvoidSheila);
     }
 
 
@@ -426,7 +426,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\n\"<i>Well... I expect I could arrange that if you'll play along,</i>\" she says, ears twitching in irritation.  \"<i>Take care of yourself, mate.</i>\"  She resets the trap and lays down in her spot in the tall grass again, pointedly turning over on her side to show you her back.");
         //set sheilapreg = -1
         this.flags[kFLAGS.SHEILA_DISABLED] = 1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[XP-1 - Apologize]
@@ -442,7 +442,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
         //set sheila xp = 1
         this.flags[kFLAGS.SHEILA_XP] = 1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[XP-1 - Slap'n'sult]
@@ -474,7 +474,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\nYou grunt and watch her resume her cover in the long grass, then turn about and head back to camp.");
 
         //no change in sheila xp
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //XP-2 Sheila's apology (sheila xp = -2 and demon sheila = 0):
@@ -489,10 +489,10 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.menu();
         //[Forgive][Fight][Cast Arouse][Leave Me Alone]
-        this.addButton(this, 0, "Forgive", this.sheilaIsSorryAndYouForgive);
-        this.addButton(this, 1, "Fight", this.sheilaPologyFight);
-        if (this.player.findStatusAffect(StatusAffects.KnowsArouse) >= 0) this.addButton(this, 2, "CastArouse", this.sheilaPologyCastArouse);
-        this.addButton(this, 3, "LemmeAlone", this.sheilaIsSorryButLeaveMeAlone);
+        this.addButton(0, "Forgive", this.sheilaIsSorryAndYouForgive);
+        this.addButton(1, "Fight", this.sheilaPologyFight);
+        if (this.player.findStatusAffect(StatusAffects.KnowsArouse) >= 0) this.addButton(2, "CastArouse", this.sheilaPologyCastArouse);
+        this.addButton(3, "LemmeAlone", this.sheilaIsSorryButLeaveMeAlone);
 
 
     }
@@ -503,7 +503,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You shake your head and turn away, dismissing Sheila with a pointed gesture.  \"<i>H-hey!</i>\" the girl calls angrily from behind you.  \"<i>Dammit, I said I was sorry, you bastard!  Screw you!  See if I talk to you again!</i>\"");
         //set sheilapreg = -1
         this.flags[kFLAGS.SHEILA_DISABLED] = 1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //[XP-2 - Forgive]
     private sheilaIsSorryAndYouForgive(): void {
@@ -519,7 +519,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         //set sheila xp to 4 if joeycount > 0, else set sheila xp to 1
         if (this.flags[kFLAGS.SHEILA_JOEYS] > 0) this.flags[kFLAGS.SHEILA_XP] = 4;
         else this.flags[kFLAGS.SHEILA_XP] = 1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[XP-2 - Fight]
@@ -560,8 +560,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("lus", (this.player.lib / 5), "resisted", false);
         //[Let Her][Leave]
         this.menu();
-        this.addButton(this, 0, "Let Her", this.castArouseAndLetHer);
-        this.addButton(this, 4, "Leave", this.castArouseAndLeaveSheila);
+        this.addButton(0, "Let Her", this.castArouseAndLetHer);
+        this.addButton(4, "Leave", this.castArouseAndLeaveSheila);
     }
 
     //[XP-2 - Cast Arouse - Leave]
@@ -580,7 +580,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.SHEILA_DEMON] = 1;
         this.flags[kFLAGS.SHEILA_CITE] = -1;
         this.dynStats("cor", 10);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[XP-2 - Cast Arouse - Let Her]
@@ -592,7 +592,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.SHEILA_XP] = 4;
         //Call appropriate loss router
         this.menu();
-        this.addButton(this, 0, "Next", this.sheilaLossRapeRouter);
+        this.addButton(0, "Next", this.sheilaLossRapeRouter);
     }
 
     //XP-3 or XP-4 She-mad (Sheila XP <= -3 and demon sheila = 0):
@@ -610,8 +610,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("</i>\"");
         //[Stand][Leave]
         this.menu();
-        this.addButton(this, 4, "Leave", this.sheilaReallyMadLeave);
-        this.addButton(this, 0, "Stand", this.sheilaReallyMadStandGround);
+        this.addButton(4, "Leave", this.sheilaReallyMadLeave);
+        this.addButton(0, "Stand", this.sheilaReallyMadStandGround);
         //spacebar default should be leave
     }
 
@@ -620,7 +620,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.clearOutput();
         this.outputText("Huffing, you throw the animals down and turn away.  What a display.");
         //go to camp, reincarnate as something slightly better next life
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[XP-3 - Stand]
@@ -658,8 +658,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         //[Kay]/[Don't Wanna]
         //spacebar default is [Don't Wanna]
         this.menu();
-        this.addButton(this, 0, "Kay", this.sheilaReconcileKay);
-        this.addButton(this, 1, "Don't Wanna", this.sheilaReconcileDunWanna);
+        this.addButton(0, "Kay", this.sheilaReconcileKay);
+        this.addButton(1, "Don't Wanna", this.sheilaReconcileDunWanna);
     }
 
     //[XP1 - Don't Wanna]
@@ -671,7 +671,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("\n\n\"<i>Guess it's bodgy bikkie again today...</i>\"");
         //no change in sheila xp
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[XP1 - Kay]
@@ -680,7 +680,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("Some fresh meat does sound pretty tempting.  You nod at the woman and she climbs to her feet.  \"<i>Beaut!  Do me the favor and fossick about for some tinder.</i>\"");
         //--Next--
         this.menu();
-        this.addButton(this, 0, "Next", this.sheilaReconcileKay2);
+        this.addButton(0, "Next", this.sheilaReconcileKay2);
     }
 
     private sheilaReconcileKay2(): void {
@@ -723,7 +723,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\nA broad smile lets you know she's just joking as she scatters the cooling fire with her spit, stirring and dispersing the ashes.  \"<i>Thanks for the chatter.  Maybe I'll see you again.</i>\"  Picking up her catch, she turns and lopes off.");
         //set sheila xp to 2
         this.flags[kFLAGS.SHEILA_XP] = 2;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //XP2: Familiarizing (Sheila XP = 2; or Sheila XP = 3 AND time =/= 20:00 and demon sheila = 0):
@@ -741,12 +741,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         //[Come Here Often?][Her People][Curfew?][No Questions][Leave]
         //spavcebar defaults to [Leave]
         this.menu();
-        this.addButton(this, 0, "Here Often?", this.sheilaFriendlyComeHereOften);
-        this.addButton(this, 1, "Her People", this.sheilaFriendlyHerPeoples);
-        this.addButton(this, 2, "Curfew?", this.sheilaFriendlyCurfew);
-        this.addButton(this, 3, "No Questions", this.sheilaFriendlyNoQuestions);
+        this.addButton(0, "Here Often?", this.sheilaFriendlyComeHereOften);
+        this.addButton(1, "Her People", this.sheilaFriendlyHerPeoples);
+        this.addButton(2, "Curfew?", this.sheilaFriendlyCurfew);
+        this.addButton(3, "No Questions", this.sheilaFriendlyNoQuestions);
 
-        this.addButton(this, 9, "Leave", this.camp.returnToCampUseOneHour);
+        this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
     }
 
 
@@ -763,7 +763,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\n\"<i>Yeah.</i>\"  Sheila turns and departs with her long-legged gait.");
         //set sheila xp to 3
         this.flags[kFLAGS.SHEILA_XP] = 3;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[XP2 - Come Here Often?]
@@ -781,7 +781,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\nExplanation concluded, she folds her hands over her stomach and resumes staring at the clouds.  You join her for a while, then get up and depart.");
         //set sheila xp to 3
         this.flags[kFLAGS.SHEILA_XP] = 3;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[XP2 - Her People]
@@ -835,7 +835,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             //set sheila xp to 3
         }
         this.flags[kFLAGS.SHEILA_XP] = 3;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[XP2 - Curfew?]
@@ -855,7 +855,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
         //set sheila xp to 3
         this.flags[kFLAGS.SHEILA_XP] = 3;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //XP3: Sexy Time (sheila xp = 3 AND time = 20:00 and demon sheila = 0):
@@ -882,9 +882,9 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
         //[Sex][Guard Duty][Ditch Her]
         this.menu();
-        this.addButton(this, 0, "Sex", this.sheilaXPThreeSexyTimeSex);
-        this.addButton(this, 1, "Guard Duty", this.sheilaXPThreeSexyTimeGuardDuty);
-        this.addButton(this, 2, "Ditch Her", this.sheilaXPThreeSexyTimeDitchHer);
+        this.addButton(0, "Sex", this.sheilaXPThreeSexyTimeSex);
+        this.addButton(1, "Guard Duty", this.sheilaXPThreeSexyTimeGuardDuty);
+        this.addButton(2, "Ditch Her", this.sheilaXPThreeSexyTimeDitchHer);
     }
 
     //[XP3 - Ditch Her]
@@ -898,7 +898,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.SHEILA_CORRUPTION] = 100;
         this.flags[kFLAGS.SHEILA_DEMON] = 1;
         this.flags[kFLAGS.SHEILA_CITE] = -1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[XP3 - Sex]
@@ -922,7 +922,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("Pulling away from you, Sheila gathers her clothing and departs, looking satisfied.  The glance she gives you over her shoulder is even a little warmer than before.");
         //i had snoo-snoo!
         this.flags[kFLAGS.SHEILA_XP] = 4;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 
@@ -946,7 +946,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
         //--Next--
         this.menu();
-        this.addButton(this, 0, "Next", this.shielaXPThreeSexyTimePostSexStayII);
+        this.addButton(0, "Next", this.shielaXPThreeSexyTimePostSexStayII);
     }
     //fork
     private shielaXPThreeSexyTimePostSexStayII(): void {
@@ -1012,7 +1012,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.dynStats("lib", -2);
             if (this.player.cor >= 90 && this.sheilaCorruption() >= 90) {
                 this.menu();
-                this.addButton(this, 0, "Next", this.sheilaGoesDemon);
+                this.addButton(0, "Next", this.sheilaGoesDemon);
                 return;
             }
 
@@ -1122,7 +1122,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.dynStats("lib", -2);
             if (this.sheilaCorruption() >= 90 && this.player.cor >= 90) {
                 this.menu();
-                this.addButton(this, 0, "Next", this.sheilaGoesDemon);
+                this.addButton(0, "Next", this.sheilaGoesDemon);
                 return;
             }
             this.outputText("\n\nSheila cuddles up to you, slipping an arm over your body, and you lie like that for a while before she speaks.  \"<i>[name]... ");
@@ -1178,7 +1178,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             //if sheila corruption >= 90 and PC corruption >= 90, go to demonization, else continue
             if (this.sheilaCorruption() >= 90 && this.player.cor >= 90) {
                 this.menu();
-                this.addButton(this, 0, "Next", this.sheilaGoesDemon);
+                this.addButton(0, "Next", this.sheilaGoesDemon);
                 return;
             }
 
@@ -1241,7 +1241,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.model.time.hours > 6) this.model.time.days++;
         this.model.time.hours = 6;
         this.statScreenRefresh();
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //[XP3 - Guard Duty]
@@ -1296,7 +1296,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.SHEILA_XP] = 4;
         if (this.player.lib < 40) this.dynStats("lus", 5);
         else this.dynStats("lus", 15);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //XP4: Fancy meeting you here (sheila xp >= 4 and demon sheila = 0):
@@ -1314,10 +1314,10 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
         //[Chat][Sex][Just Hang][Maybe Later]
         this.menu();
-        this.addButton(this, 0, "Chat", this.fuckBuddySheilaMeetingChat);
-        this.addButton(this, 1, "Sex", this.sheilaXP4Sex, true);
-        this.addButton(this, 2, "Just Hang", this.fuckBuddySheilaMeetingJustHangOut);
-        this.addButton(this, 3, "Maybe Later", this.fuckBuddySheilaMeetingMaybeLater);
+        this.addButton(0, "Chat", this.fuckBuddySheilaMeetingChat);
+        this.addButton(1, "Sex", this.sheilaXP4Sex, true);
+        this.addButton(2, "Just Hang", this.fuckBuddySheilaMeetingJustHangOut);
+        this.addButton(3, "Maybe Later", this.fuckBuddySheilaMeetingMaybeLater);
 
     }
 
@@ -1329,7 +1329,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("\n\n\"<i>Okay,</i>\" she agrees, subdued.  \"<i>Maybe later.</i>\"");
         //wow, it's fucking nothing!
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[XP4 - Just Hang]
@@ -1353,7 +1353,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\n\"<i>Maybe I'll be up for some fun when you catch me next time,</i>\" she declares.  \"<i>Stay safe.</i>\"");
         //minus small lust and corruption
         this.dynStats("lus", - 10, "cor", -1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[XP4 - Chat]
@@ -1365,11 +1365,11 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
         //[Family&Friends][Old Loves][Why Hide?][Live With Me][Kids(only if joeycount > 0)]
         this.menu();
-        this.addButton(this, 0, "Fam'N Friends", this.fuckBuddySheilaMeetingChatFamilyAndFriends);
-        this.addButton(this, 1, "Old Loves", this.fuckBuddySheilaMeetingChatOldLoves);
-        this.addButton(this, 2, "Why Hide?", this.fuckBuddySheilaMeetingChatWhyHide);
-        this.addButton(this, 3, "LiveWithMe", this.fuckBuddySheilaMeetingChatLiveWithMe);
-        if (this.flags[kFLAGS.SHEILA_JOEYS] > 0) this.addButton(this, 4, "Kids", this.fuckBuddySheilaMeetingChatKids);
+        this.addButton(0, "Fam'N Friends", this.fuckBuddySheilaMeetingChatFamilyAndFriends);
+        this.addButton(1, "Old Loves", this.fuckBuddySheilaMeetingChatOldLoves);
+        this.addButton(2, "Why Hide?", this.fuckBuddySheilaMeetingChatWhyHide);
+        this.addButton(3, "LiveWithMe", this.fuckBuddySheilaMeetingChatLiveWithMe);
+        if (this.flags[kFLAGS.SHEILA_JOEYS] > 0) this.addButton(4, "Kids", this.fuckBuddySheilaMeetingChatKids);
     }
 
     //[XP4 - Chat - Family&Friends]
@@ -1431,7 +1431,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("\n\nSheila's skin blooms with red and her lips compress to a thin line; she about-faces and walks off without another word.");
         }
         //oh gosh someone dropped a dollar here how lucky
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[XP4 - Chat - Old Loves]
@@ -1490,7 +1490,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("\n\nSheila frowns unhappily and doesn't answer... but she does play with your hand, articulating the fingers and rubbing it against her warm cheek until it's time for her to go.");
         }
         //you no touch candle!
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[XP4 - Chat - Why Hide?]
@@ -1510,7 +1510,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\nSheila shivers a bit and lifts your arm to place it around her shoulder, then looks gloomily out across the plains.  She doesn't seem to be in the mood to talk anymore.");
 
         //blood on the sand
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[XP4 - Chat - Live With Me]
@@ -1523,7 +1523,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("\n\nSheila gets to her feet and balances her catch on her shoulders, looking wistful.  When you ask about it, however, she just shakes her head and tells you it's nothing, then walks off subdued.  Seems like she really wanted to say 'yes', instead.");
         //ancient Chinese secret, eh?
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[XP4 - Chat - Kids] - requires joeycount >= 1
@@ -1657,11 +1657,11 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 //apply small lib-based lust damage and display [Sex] choices with [Rest For Now] instead of [Back]
                 this.dynStats("lus", this.player.lib / 10 + 5, "resisted", false);
                 this.sheilaXP4Sex(false);
-                this.addButton(this, 9, "RestForNow", this.fuckBuddySheilaMeetingChatKidsRest4Now);
+                this.addButton(9, "RestForNow", this.fuckBuddySheilaMeetingChatKidsRest4Now);
                 return;
             }
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[XP4 - Chat - Kids - joeycount >= 10 - lib >= 50 - Rest For Now]
@@ -1677,7 +1677,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\nYou nod and she dozes off; her face looks much more placid in sleep.  After an hour you gently nudge her awake, and she picks herself up and leaves you with a hug.  \"<i>Love you, [name].</i>\"");
         //corruption down
         this.dynStats("cor", - 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[XP4 - Sex]
@@ -1697,13 +1697,13 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         //[Consensual - Either 69] - Fenoxo beware, omnibus scene!(req. vag or dix; both buttons direct here but decide the focus)
         this.menu();
         if (this.player.gender > 0) {
-            if (this.player.hasCock()) this.addButton(this, 0, "69WithWang", this.consensualSheila69, true);
-            if (this.player.hasVagina()) this.addButton(this, 1, "69WithCooch", this.consensualSheila69, false);
+            if (this.player.hasCock()) this.addButton(0, "69WithWang", this.consensualSheila69, true);
+            if (this.player.hasVagina()) this.addButton(1, "69WithCooch", this.consensualSheila69, false);
         }
         //[Consensual - Vaginal Sex] (req. cock <= 32 area):
-        if (this.player.hasCock() && this.player.cockThatFits(32) >= 0) this.addButton(this, 2, "Fuck Her", this.consentacleVagSexForKangarooSlutBitches);
+        if (this.player.hasCock() && this.player.cockThatFits(32) >= 0) this.addButton(2, "Fuck Her", this.consentacleVagSexForKangarooSlutBitches);
         //da scene
-        this.addButton(this, 3, "Masturbation", this.sheilaMutualMasturbation);
+        this.addButton(3, "Masturbation", this.sheilaMutualMasturbation);
     }
 
 
@@ -1882,7 +1882,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         //if sheila corruption >= 90 and PC corr >= 90, go to demonization, else continue
         if (this.player.cor >= 90 && this.sheilaCorruption() >= 90) {
             this.menu();
-            this.addButton(this, 0, "Next", this.sheilaGoesDemon);
+            this.addButton(0, "Next", this.sheilaGoesDemon);
             return;
         }
         //[(corruption threshold warning if sheila corruption >= 80 and PC corr > sheila corruption and sheila xp =/= 3)
@@ -1907,8 +1907,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.slimeFeed();
             //[Fondle Her][Listen to Her]
             this.menu();
-            this.addButton(this, 0, "Listen2Her", this.sheilaCorruptionWarningListenToHer);
-            this.addButton(this, 1, "Fondle Her", this.sheilaCorruptionWarningsChooseFondle);
+            this.addButton(0, "Listen2Her", this.sheilaCorruptionWarningListenToHer);
+            this.addButton(1, "Fondle Her", this.sheilaCorruptionWarningsChooseFondle);
             return;
             //choices go to corruption intercept
         }
@@ -1946,8 +1946,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             //[Stay With Her][Let Her Be]
             //choices go to XP3 20:00 event
             this.menu();
-            this.addButton(this, 0, "Let Her Be", this.sheilaXPThreeSexyTimePostSexLetHerBe);
-            this.addButton(this, 1, "Stay With Her", this.shielaXPThreeSexyTimePostSexStay);
+            this.addButton(0, "Let Her Be", this.sheilaXPThreeSexyTimePostSexLetHerBe);
+            this.addButton(1, "Stay With Her", this.shielaXPThreeSexyTimePostSexStay);
             return;
         }
         //(else if sheila xp =/= 3)
@@ -1956,7 +1956,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             if (cock && this.player.cockThatFits(32) >= 0) this.outputText(", smearing your dangling hand into the mess on her tits");
             this.outputText(".  The two of you lie like that for a while, until she gets up.  \"<i>I should really go... need to cure my catch.  Not to mention I'll have to clean up before I can even put my damn clothes back on.</i>\"  Sheila picks up her stuff.  \"<i>Hehe... see you soon.</i>\"");
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Consensual - Vaginal Sex] (req. cock <= 32 area):
@@ -2082,7 +2082,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         //if sheila corruption >= 90 and pc corr >= 90, go to demonization, else continue
         if (this.player.cor >= 90 && this.sheilaCorruption() >= 90) {
             this.menu();
-            this.addButton(this, 0, "Next", this.sheilaGoesDemon);
+            this.addButton(0, "Next", this.sheilaGoesDemon);
             return;
         }
         //[(corruption threshold warning if sheila corruption >= 80 and PC corr > sheila corruption and sheila xp =/= 3)
@@ -2117,8 +2117,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             //[Listen to Her][Fondle Her]
             //outputs and stat changes for choices are below
             this.menu();
-            this.addButton(this, 0, "Listen2Her", this.sheilaCorruptionWarningListenToHer);
-            this.addButton(this, 1, "Fondle Her", this.sheilaCorruptionWarningsChooseFondle);
+            this.addButton(0, "Listen2Her", this.sheilaCorruptionWarningListenToHer);
+            this.addButton(1, "Fondle Her", this.sheilaCorruptionWarningsChooseFondle);
             return;
         }
         //(else if no corruption warning)
@@ -2135,8 +2135,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("\n\n\"<i>Yeah,</i>\" Sheila answers, when prompted.  \"<i>It's not really so hard, you know, in the dark.  I can just dig a hole or something.</i>\"  She squeezes your hand, then gets up.  This girl actually wants to hide alone in a hole for the entire night...");
             //[Stay With Her][Let Her Be]
             this.menu();
-            this.addButton(this, 0, "Let Her Be", this.sheilaXPThreeSexyTimePostSexLetHerBe);
-            this.addButton(this, 1, "Stay With Her", this.shielaXPThreeSexyTimePostSexStay);
+            this.addButton(0, "Let Her Be", this.sheilaXPThreeSexyTimePostSexLetHerBe);
+            this.addButton(1, "Stay With Her", this.shielaXPThreeSexyTimePostSexStay);
             //choices go to XP3 20:00 event
             return;
         }
@@ -2147,7 +2147,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.player.cumQ() < 500) this.outputText("as she strokes the " + this.player.skinFurScales() + " of your chest");
             else this.outputText("as she wipes off as much jizz as she can");
             this.outputText(", then get up and collect your gear.  \"<i>Um... see you later, ok?</i>\" she says.");
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
         //minus lust, minus small libido, if PC corr > sheila corruption then -10 PC corr and +10 sheila corruption, else if PC corr < sheila corruption then +10 PC corr and -10 sheila corruption, low chance of sheilapreg +1 if non-dog cock or med-high chance if dog cock
         //sheilaPreg stuff
@@ -2189,7 +2189,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         if (choices.length == 0) {
             CoC_Settings.error("");
             this.outputText("ERROR - SHEILA MASTURBATE BROKE, SON");
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
         target = choices[SheilaScene.rand(choices.length)];
 
@@ -2292,7 +2292,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         else this.dynStats("lus", 50);
         if (this.player.cor >= 90 && this.sheilaCorruption() >= 90) {
             this.menu();
-            this.addButton(this, 0, "Next", this.sheilaGoesDemon);
+            this.addButton(0, "Next", this.sheilaGoesDemon);
             return;
         }
         //[(corruption threshold warning if sheila corruption >= 80 and PC corr > sheila corruption and sheila xp =/= 3)
@@ -2316,8 +2316,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
             //[Listen to Her][Fondle Her]
             this.menu();
-            this.addButton(this, 0, "Listen2Her", this.sheilaCorruptionWarningListenToHer);
-            this.addButton(this, 1, "Fondle Her", this.sheilaCorruptionWarningsChooseFondle);
+            this.addButton(0, "Listen2Her", this.sheilaCorruptionWarningListenToHer);
+            this.addButton(1, "Fondle Her", this.sheilaCorruptionWarningsChooseFondle);
             //choices go to corruption warning texts
             return;
         }
@@ -2350,15 +2350,15 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 //[Stay With Her][Let Her Go]
                 //choices go to XP3 section
                 this.menu();
-                this.addButton(this, 0, "Let Her Be", this.sheilaXPThreeSexyTimePostSexLetHerBe);
-                this.addButton(this, 1, "Stay With Her", this.shielaXPThreeSexyTimePostSexStay);
+                this.addButton(0, "Let Her Be", this.sheilaXPThreeSexyTimePostSexLetHerBe);
+                this.addButton(1, "Stay With Her", this.shielaXPThreeSexyTimePostSexStay);
                 return;
             }
             else {
                 this.outputText("\n\nShe nuzzles you in the affection borne of climax, until she pulls away and gets up.  \"<i>I wish I could stay and talk, but my civic duty's making me walk,</i>\" Sheila offers apologetically.  She gathers her scattered clothing and, with a little wave, leaves.");
             }
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //corruption warning texts (redirected from here when Sheila corruption is about to hit 90)
@@ -2380,7 +2380,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.SHEILA_XP] = -3;
         this.flags[kFLAGS.SHEILA_CORRUPTION] = 90;
         this.dynStats("cor", - 10);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Any Corruption Warning - Listen to Her]
@@ -2396,7 +2396,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         //no change in sheila corruption (remains at 80), PC corr -10, set sheila clock = -13
         this.dynStats("lus", - 10);
         this.flags[kFLAGS.SHEILA_CLOCK] = -4;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 
@@ -2427,15 +2427,15 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         //Let Her Go is default choice if player hits spacebar or has PC lust < 30/no qualified options
         this.menu();
         if (this.player.lust >= 33) {
-            if (this.player.hasCock() && this.player.cockThatFits(48) >= 0) this.addButton(this, 0, "Fuck Pussy", this.rapeSheilasCooter);
+            if (this.player.hasCock() && this.player.cockThatFits(48) >= 0) this.addButton(0, "Fuck Pussy", this.rapeSheilasCooter);
             if (this.player.hasCock()) {
                 if ((!this.player.isTaur() && this.player.shortestCockLength() <= this.player.tallness * .35) || (this.player.isTaur() && this.player.tallness * 1.2 <= this.player.shortestCockLength() && this.player.shortestCockLength() <= this.player.tallness * 1.55)) {
-                    this.addButton(this, 1, "Forced BJ", this.forcedSheilaOral, true);
+                    this.addButton(1, "Forced BJ", this.forcedSheilaOral, true);
                 }
             }
-            if (this.player.hasVagina()) this.addButton(this, 2, "Forced Lick", this.forcedSheilaOral, false);
+            if (this.player.hasVagina()) this.addButton(2, "Forced Lick", this.forcedSheilaOral, false);
         }
-        this.addButton(this, 9, "Leave", this.letSheilaGo);
+        this.addButton(9, "Leave", this.letSheilaGo);
     }
     //if choosing Let Her Go and sheila xp > -3, set sheila xp = -1, then give xp/gems and Next button to camp
     private letSheilaGo(): void {
@@ -2572,7 +2572,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             //if sheila corr >= 90 and PC corr > 90, go to demonization scene, else continue
             if (this.sheilaCorruption() >= 90 && this.player.cor >= 90) {
                 this.menu();
-                this.addButton(this, 0, "Next", this.sheilaGoesDemon);
+                this.addButton(0, "Next", this.sheilaGoesDemon);
                 return;
             }
             this.outputText("\n\nSheila pulls away from you wordlessly, then buttons her vest to hide her breasts and pulls up her shorts, flinching as the rough fabric touches her unprotected, sensitized crotch.  Once clothed again, she finally looks at you - not with anger, as you expect, but with a pained frown of resigned, familiar disappointment.  Huffing, you re-dress and leave the girl behind.");
@@ -2826,7 +2826,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         //go to demonization if PC corr >= 90 and sheila corruption >= 90, else continue
         if (this.player.cor >= 90 && this.sheilaCorruption() >= 90) {
             this.menu();
-            this.addButton(this, 0, "Next", this.sheilaGoesDemon);
+            this.addButton(0, "Next", this.sheilaGoesDemon);
             return;
         }
         this.outputText("\n\nTurning around, you walk away from the woman, holding the used dildo out at an angle to make sure she can see it until you disappear.  Privately, you're also waiting to wash it before you put it away again - or use it on yourself, imagining the scene again in your head.");
@@ -2872,7 +2872,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.flags[kFLAGS.SHEILA_XP] = -2;
             }
             //TO ZE SCENE
-            this.addButton(this, 0, "Next", this.sheilaLossRapeRouter);
+            this.addButton(0, "Next", this.sheilaLossRapeRouter);
         }
     }
 
@@ -2959,7 +2959,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 //if PC corr >= 90 and sheila corruption >= 90, go to demonization, else continue
                 if (this.player.cor >= 90 && this.sheilaCorruption() >= 90) {
                     this.menu();
-                    this.addButton(this, 0, "Next", this.sheilaGoesDemon);
+                    this.addButton(0, "Next", this.sheilaGoesDemon);
                     return;
                 }
 
@@ -2976,7 +2976,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 //if PC corr >= 90 and sheila corruption >= 90, go to demonization, else continue
                 if (this.player.cor >= 90 && this.sheilaCorruption() >= 90) {
                     this.menu();
-                    this.addButton(this, 0, "Next", this.sheilaGoesDemon);
+                    this.addButton(0, "Next", this.sheilaGoesDemon);
                     return;
                 }
                 this.outputText("\n\n\"<i>What are you doing, mate?  You're gonna make me horny again!</i>\"");
@@ -3060,7 +3060,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 //if PC corr >= 90 and sheila corruption >= 90, go to demonization, else continue
                 if (this.player.cor >= 90 && this.sheilaCorruption() >= 90) {
                     this.menu();
-                    this.addButton(this, 0, "Next", this.sheilaGoesDemon);
+                    this.addButton(0, "Next", this.sheilaGoesDemon);
                     return;
                 }
                 this.outputText("\n\n\"<i>What the fuck?!</i>\" she yells.  \"<i>How much of your cum did you just shoot in me?</i>\"");
@@ -3152,7 +3152,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         //if both sheila corruption and PC corr >= 90, go to demonization, else continue
         if (this.player.cor >= 90 && this.sheilaCorruption() >= 90) {
             this.menu();
-            this.addButton(this, 0, "Next", this.sheilaGoesDemon);
+            this.addButton(0, "Next", this.sheilaGoesDemon);
             return;
         }
 
@@ -3201,8 +3201,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         //[Yep, Issue][Nah]
         this.menu();
 
-        this.addButton(this, 0, "Yep, Issue", this.normalSheilaPregNotifNumberOneYepIssue);
-        this.addButton(this, 1, "Nah", this.normalSheilaPregNotifNumberOneCoolDeal);
+        this.addButton(0, "Yep, Issue", this.normalSheilaPregNotifNumberOneYepIssue);
+        this.addButton(1, "Nah", this.normalSheilaPregNotifNumberOneCoolDeal);
 
     }
 
@@ -3215,7 +3215,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         //set sheilapreg = -1, and set joeycount + 1 if you plan to track that stat even after Sheila's disabled
         this.flags[kFLAGS.SHEILA_DISABLED] = 2;
         this.flags[kFLAGS.SHEILA_JOEYS]++;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Normal Preg Notif #1 - Nah]
@@ -3239,7 +3239,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         }
         if (this.flags[kFLAGS.SHEILA_XP] < 4) this.flags[kFLAGS.SHEILA_XP] = 4;
         this.flags[kFLAGS.SHEILA_JOEYS]++;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         //if sheila xp < 4, set sheila xp = 4; increment joeycount + 1
     }
 
@@ -3265,9 +3265,9 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.menu();
         //[Help(requires >80 speed, centaur >= 5', naga, or big wings and archery)][Walk With Her][Let Her Go]
         if ((this.player.spe > 80 && this.player.findPerk(PerkLib.Runner) >= 0) || (this.player.isTaur()) || this.player.isNaga() || (this.player.canFly && this.player.hasKeyItem("Bow") >= 0))
-            this.addButton(this, 0, "Help", this.normalSheilaPregNotifREPEATEDEDHelpABitchOut);
-        this.addButton(this, 1, "WalkWithHer", this.normalSheilaPregNotifREPEATEDEDWalkWithHer);
-        this.addButton(this, 2, "Let Her Go", this.normalSheilaPregNotifREPEATEDEDLetHerGo);
+            this.addButton(0, "Help", this.normalSheilaPregNotifREPEATEDEDHelpABitchOut);
+        this.addButton(1, "WalkWithHer", this.normalSheilaPregNotifREPEATEDEDWalkWithHer);
+        this.addButton(2, "Let Her Go", this.normalSheilaPregNotifREPEATEDEDLetHerGo);
     }
 
     //[Normal Preg Subsequent - Let Her Go]
@@ -3284,7 +3284,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\nPicking it up and seating it on her head, she nods curtly and shuffles off again.");
 
         //wow, it's fucking nothing!
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Normal Preg Subsequent - Walk With Her]
@@ -3306,7 +3306,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\n\"<i>Have a squizz over there, mate,</i>\" she says, pointing at a patch of tall weeds.  \"<i>Good cover for me to catch a wink.  This should be okay.</i>\"  She pulls her hand from yours and finally sets her hat atop her head, then shrugs off her pack.  \"<i>I'm gonna get set up now.  Thanks again... see you soon.</i>\"");
         //get slightly lowered corruption and a warm fuzzy
         this.dynStats("cor", - 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Normal Preg Subsequent - Help]
@@ -3414,7 +3414,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         }
         //pass 4 hours and reduce corruption or something, give 3 hrs rest if naga, increase archery skill and increase fatigue by a lot (50-60+) if angel of death
         this.dynStats("cor", -2);
-        if (this.model.time.hours + 4 < 21) this.doNext(this, this.camp.returnToCampUseFourHours);
+        if (this.model.time.hours + 4 < 21) this.doNext(this.camp.returnToCampUseFourHours);
         else {
             //(if time after adding 4 hours >= 21:00 or = 0:00, additionally output)
             this.outputText("\n\n<b>\"<i>Oh, god dammit.</i>\"</b>");
@@ -3424,10 +3424,10 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
             //[Stay With Her][To Camp(excluded for PCs with Vapula or Holli)][Welp]
             this.menu();
-            this.addButton(this, 0, "StayWithHer", this.normalSheilaPregNotifREPEATEDEDHelpABitchOutANDSTAYDERE);
+            this.addButton(0, "StayWithHer", this.normalSheilaPregNotifREPEATEDEDHelpABitchOutANDSTAYDERE);
             if (!(this.flags[kFLAGS.FUCK_FLOWER_LEVEL] >= 4 && this.flags[kFLAGS.FUCK_FLOWER_KILLED] == 0) && !this.vapulaSlave())
-                this.addButton(this, 1, "To Camp", this.normalSheilaPregNotifREPEATEDEDHelpABitchOutTOCAMP);
-            this.addButton(this, 2, "Welp", this.normalSheilaPregNotifREPEATEDEDHelpABitchOutANDWELP);
+                this.addButton(1, "To Camp", this.normalSheilaPregNotifREPEATEDEDHelpABitchOutTOCAMP);
+            this.addButton(2, "Welp", this.normalSheilaPregNotifREPEATEDEDHelpABitchOutANDWELP);
         }
     }
 
@@ -3445,7 +3445,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("\n\n\"<I>You're right,</i>\" Sheila sniffles finally, wiping her red eyes.  \"<i>I just... let it get the better of me for a moment.  I'm okay now.  Thanks, mate.</i>\"  She hugs you weakly and picks up her catch.  \"<i>I'll see ya later...</i>\"");
         //suck it up, marine
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 
@@ -3559,7 +3559,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.statScreenRefresh();
         //--Next--
         this.menu();
-        this.addButton(this, 0, "Next", this.normalSheilaPregNotifREPEATEDEDHelpABitchOutANDSTAYDERE2);
+        this.addButton(0, "Next", this.normalSheilaPregNotifREPEATEDEDHelpABitchOutANDSTAYDERE2);
     }
 
     //advance time to 5:00
@@ -3586,9 +3586,9 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.dynStats("lus", this.player.lib / 10 + 5, "resisted", false);
             this.menu();
             this.sheilaXP4Sex(false);
-            this.addButton(this, 9, "LeaveHerBe", this.normalSheilaPregNotifREPEATEDEDHelpABitchOutANDSTAYDEREBUTLEAVEHERBE);
+            this.addButton(9, "LeaveHerBe", this.normalSheilaPregNotifREPEATEDEDHelpABitchOutANDSTAYDEREBUTLEAVEHERBE);
         }
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Normal Preg Subsequent - Help - 21:00 hours - Stay Up With Her - Lust >= 30 - Leave Her Be]
@@ -3596,7 +3596,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.clearOutput();
         this.outputText("You relent, allowing the woman to free herself with a peck on your cheek.  She loads up her catch, and then turns to you.  \"<i>Thanks, [name].  Owe you one.</i>\"");
         //This is your Protoshield! I can't take this!
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Normal Preg Subsequent - Help - 21:00 hours - To Camp]
@@ -3652,7 +3652,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.camp.sleepRecovery(false);
         this.model.time.hours = 7;
         this.model.time.days++;
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //demonization Sheila transformation (output when demon sheila = 0 and sheila corruption is about to hit 100 with the PC):
@@ -3699,7 +3699,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.SHEILA_DEMON] = 1;
         //good place to cut off content if you don't have time to code it all in one go
         if (!this.getGame().inCombat)
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         else this.cleanupAfterCombat();
     }
 
@@ -3712,11 +3712,11 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
         //[Talk][Let Her Fuck(req. lust >=30)][Resist][Run]
         this.menu();
-        this.addButton(this, 0, "Talk", this.demonSheilaTalk);
-        if (this.player.lust >= 33) this.addButton(this, 1, "LetHerFuck", this.sheilaLetHerFuckYou);
-        this.addButton(this, 2, "Resist", this.demonSheilaResist);
+        this.addButton(0, "Talk", this.demonSheilaTalk);
+        if (this.player.lust >= 33) this.addButton(1, "LetHerFuck", this.sheilaLetHerFuckYou);
+        this.addButton(2, "Resist", this.demonSheilaResist);
         //run simply returns to camp and should be the default spacebar option
-        this.addButton(this, 4, "Run", this.camp.returnToCampUseOneHour);
+        this.addButton(4, "Run", this.camp.returnToCampUseOneHour);
     }
 
     //[Demon Sheila - Resist]
@@ -3752,10 +3752,10 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("lus", 2 + this.player.sens / 5, "resisted", false);
         //[The Change][Her Colony][What Now?][Fuck Off]
         this.menu();
-        this.addButton(this, 0, "The Change", this.askDemonSheilaAboutDahChange);
-        this.addButton(this, 1, "Her Colony", this.askDemonSheilaAboutHerColony);
-        this.addButton(this, 2, "What Now?", this.talkToDemonSheilaAboutWhatNow);
-        this.addButton(this, 3, "Fuck Off", this.tellSheilaDemonToFuckOff);
+        this.addButton(0, "The Change", this.askDemonSheilaAboutDahChange);
+        this.addButton(1, "Her Colony", this.askDemonSheilaAboutHerColony);
+        this.addButton(2, "What Now?", this.talkToDemonSheilaAboutWhatNow);
+        this.addButton(3, "Fuck Off", this.tellSheilaDemonToFuckOff);
     }
 
     //[ Demon Sheila - Talk - Fuck Off]
@@ -3770,7 +3770,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         }
         else {
             this.outputText("but she remasters herself with effort.  \"<i>No worries.  I'm sorry to hear you don't have any time for love, my special one.  I'll be here until you do, thinking about you and touching myself.</i>\"  She releases you and steps away, then crudely shoves her spade through her thighs, grabs it, and half-moans as she thrusts her pelvis back and forth, jerking the thick black flesh in her hand.  With a wink, she abruptly releases it, then turns her back and departs.");
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
         //go to fight if bitch is crazy, else plus lust and return to camp
         this.dynStats("lus", 10);
@@ -3799,9 +3799,9 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         //plus lust, present choices [Another Question][Let Her Fuck(req lust >=30)][Resist]
         this.dynStats("lus", 12, "resisted", false);
         this.menu();
-        this.addButton(this, 0, "Another Q.", this.demonSheilaTalkAnotherQuestion);
-        if (this.player.lust >= 33) this.addButton(this, 1, "LetHerFuck", this.sheilaLetHerFuckYou);
-        this.addButton(this, 2, "Resist", this.demonSheilaResist);
+        this.addButton(0, "Another Q.", this.demonSheilaTalkAnotherQuestion);
+        if (this.player.lust >= 33) this.addButton(1, "LetHerFuck", this.sheilaLetHerFuckYou);
+        this.addButton(2, "Resist", this.demonSheilaResist);
     }
 
     //[ Demon Sheila - Talk - Her Colony]
@@ -3838,9 +3838,9 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("lus", this.player.lib / 3 + 5, "resisted", false);
         this.menu();
 
-        this.addButton(this, 0, "Another Q.", this.demonSheilaTalkAnotherQuestion);
-        if (this.player.lust >= 33) this.addButton(this, 1, "LetHerFuck", this.sheilaLetHerFuckYou);
-        this.addButton(this, 2, "Resist", this.demonSheilaResist);
+        this.addButton(0, "Another Q.", this.demonSheilaTalkAnotherQuestion);
+        if (this.player.lust >= 33) this.addButton(1, "LetHerFuck", this.sheilaLetHerFuckYou);
+        this.addButton(2, "Resist", this.demonSheilaResist);
     }
 
     //[ Demon Sheila - Talk - What Now?]
@@ -3886,9 +3886,9 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         //plus libido-based lust damage, output choices [Another Question][Let Her Fuck(req lust >=30)][Resist]
         this.dynStats("lus", this.player.lib / 15, "resisted", false);
         this.menu();
-        this.addButton(this, 0, "Another Q.", this.demonSheilaTalkAnotherQuestion);
-        if (this.player.lust >= 33) this.addButton(this, 1, "LetHerFuck", this.sheilaLetHerFuckYou);
-        this.addButton(this, 2, "Resist", this.demonSheilaResist);
+        this.addButton(0, "Another Q.", this.demonSheilaTalkAnotherQuestion);
+        if (this.player.lust >= 33) this.addButton(1, "LetHerFuck", this.sheilaLetHerFuckYou);
+        this.addButton(2, "Resist", this.demonSheilaResist);
     }
 
     //[Demon Sheila - Talk - <any option> - Another Question]
@@ -3905,17 +3905,17 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             //plus sens-based lust damage, display talk options again
             this.dynStats("lus", this.player.sens / 10);
             this.menu();
-            this.addButton(this, 0, "The Change", this.askDemonSheilaAboutDahChange);
-            this.addButton(this, 1, "Her Colony", this.askDemonSheilaAboutHerColony);
-            this.addButton(this, 2, "What Now?", this.talkToDemonSheilaAboutWhatNow);
-            this.addButton(this, 3, "Fuck Off", this.tellSheilaDemonToFuckOff);
+            this.addButton(0, "The Change", this.askDemonSheilaAboutDahChange);
+            this.addButton(1, "Her Colony", this.askDemonSheilaAboutHerColony);
+            this.addButton(2, "What Now?", this.talkToDemonSheilaAboutWhatNow);
+            this.addButton(3, "Fuck Off", this.tellSheilaDemonToFuckOff);
         }
         //(if lust > 99)
         else {
             this.outputText("Sheila grins wickedly as you stammer and fumble your words.  \"<i>Nah,</i>\" she answers, using her free hand to turn your head.  \"<i>I think it's time we left talking behind, don't you?</i>\"  As her eyes meet yours, your body quavers dangerously; you've let her stay too close for too long, and she glows with anticipation as she prepares to take what she wants.");
             //output loss scene determined by RNG and player parts
             this.menu();
-            this.addButton(this, 0, "Next", this.loseToSheila, true);
+            this.addButton(0, "Next", this.loseToSheila, true);
         }
     }
 
@@ -3930,7 +3930,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("breasts against you.");
         //output loss scene dependent on RNG and player parts/choice
         this.menu();
-        this.addButton(this, 0, "Next", this.loseToSheila, true);
+        this.addButton(0, "Next", this.loseToSheila, true);
     }
 
     //Post-demon pregnancy notif (demon sheila = 1 and sheilapreg = 4)
@@ -3963,10 +3963,10 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.hasCock()) this.dynStats("lus", 10 + this.player.lib / 10, "resisted", false);
         //[Other Sex][Knock Up(cock only)][Leave]
         this.menu();
-        this.addButton(this, 0, "Other Sex", this.pregDemonSheilaOtherSex);
-        if (this.player.hasCock()) this.addButton(this, 1, "Knock Up", this.pregDemonSheilaKnockUp);
+        this.addButton(0, "Other Sex", this.pregDemonSheilaOtherSex);
+        if (this.player.hasCock()) this.addButton(1, "Knock Up", this.pregDemonSheilaKnockUp);
         //leave should be default spacebar option
-        this.addButton(this, 4, "Leave", this.leavePregDemonSheila);
+        this.addButton(4, "Leave", this.leavePregDemonSheila);
     }
 
     //[Preg Demon Sheila - Leave]
@@ -3978,7 +3978,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
         //plus more lust if cock, go to camp
         if (this.player.hasCock()) this.dynStats("lus", 10);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Preg Demon Sheila - Other Sex]
@@ -4000,7 +4000,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.dynStats("lus", 15);
             this.beatUpDemonSheila(false);
         } else {
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -4010,8 +4010,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("As she smears the entrance to her snatch with the slippery slime drooling out of her slitted spade, your [cock] hardens painfully.  The eye-fucking she's giving you while teasing her breasts doesn't help matters, and soon you're so erect that you have to expose your shaft just to relieve the pressure.  With the bulk of your dick bobbing free of your [armor], Sheila waggles her eyebrows at you.  \"<i>So... yes?</i>\"");
         //output demon Sheila cock victory sex scene consonant with player's length and suppress gems/xp/item gain
         this.menu();
-        if (this.player.cockThatFits(56) >= 0) this.addButton(this, 0, "Next", this.missionaryForThePurposesOfCreatingImpsWithSheila);
-        else this.addButton(this, 0, "Next", this.bigDickAndThighs);
+        if (this.player.cockThatFits(56) >= 0) this.addButton(0, "Next", this.missionaryForThePurposesOfCreatingImpsWithSheila);
+        else this.addButton(0, "Next", this.bigDickAndThighs);
     }
 
 
@@ -4032,7 +4032,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.model.time.days++;
             }
             this.menu();
-            this.addButton(this, 0, "Next", this.loseToDemonSheila);
+            this.addButton(0, "Next", this.loseToDemonSheila);
         }
         else {
             var choices: any[] = new Array();
@@ -4137,7 +4137,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.sheilaCorruption(-10);
             if (this.getGame().inCombat)
                 this.cleanupAfterCombat();
-            else this.doNext(this, this.camp.returnToCampUseOneHour);
+            else this.doNext(this.camp.returnToCampUseOneHour);
         }
         //(else if no balls)
         else {
@@ -4194,7 +4194,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.sheilaCorruption(-10);
             if (this.getGame().inCombat)
                 this.cleanupAfterCombat();
-            else this.doNext(this, this.camp.returnToCampUseOneHour);
+            else this.doNext(this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -4238,7 +4238,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.sheilaCorruption(- 10);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Loss - clit-swelling and clit-sounding or clit-anal
@@ -4389,7 +4389,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("lib", -1, "sen", -2);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 
@@ -4412,7 +4412,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("lus", 20 + this.player.lib / 4, "resisted", false);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Win against demon Sheila
@@ -4438,15 +4438,15 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.menu();
         //Win - [Missionary] - for the purpose of procreation
         //requires a cockarea <= 56
-        if (this.player.hasCock() && this.player.cockThatFits(56) >= 0) this.addButton(this, 0, "Missionary", this.missionaryForThePurposesOfCreatingImpsWithSheila);
+        if (this.player.hasCock() && this.player.cockThatFits(56) >= 0) this.addButton(0, "Missionary", this.missionaryForThePurposesOfCreatingImpsWithSheila);
         //Win - [Anal Hate-fuck] - peg-knocking with optional corr >=80 break-up (for your cock or C. Jojo's)
         //if PC has both a dick and corrupted Jojo, output this scene and choice; else skip this output and go right to appropriate option
-        if (this.player.hasCock() && this.player.cockThatFits(56) >= 0) this.addButton(this, 1, "AnalHateFuck", this.analHateFuck);
+        if (this.player.hasCock() && this.player.cockThatFits(56) >= 0) this.addButton(1, "AnalHateFuck", this.analHateFuck);
         //Win - [Big Dick+Thighs] (usable for dicks with cockarea > 56) (all 10 of them)
         //penis envy, go!
-        if (this.player.hasCock() && this.player.biggestCockArea() > 56) this.addButton(this, 2, "UseHerThighs", this.bigDickAndThighs);
+        if (this.player.hasCock() && this.player.biggestCockArea() > 56) this.addButton(2, "UseHerThighs", this.bigDickAndThighs);
         //Win - [Penetration, in Spades] - for self-loathing vaginas
-        if (this.player.hasVagina()) this.addButton(this, 3, "Clit-Fuck", this.winAgainstDemoNSheilaForVaginas);
+        if (this.player.hasVagina()) this.addButton(3, "Clit-Fuck", this.winAgainstDemoNSheilaForVaginas);
     }
 
     //Win - [Missionary] - for the purpose of procreation
@@ -4518,7 +4518,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             //if short scene, sheilapreg check, reduce PC lust and libido
             if (this.getGame().inCombat)
                 this.cleanupAfterCombat();
-            else this.doNext(this, this.camp.returnToCampUseOneHour);
+            else this.doNext(this.camp.returnToCampUseOneHour);
         }
         //(else if RNG doesn't end scene)
         else {
@@ -4575,7 +4575,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             }
             if (this.getGame().inCombat)
                 this.cleanupAfterCombat();
-            else this.doNext(this, this.camp.returnToCampUseOneHour);
+            else this.doNext(this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -4587,8 +4587,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
         //[Tear Her Up][Call Jojo]
         this.menu();
-        this.addButton(this, 0, "TearHerUp", this.sheilaAnalHateFuckAGoGo);
-        if (this.jojoScene.campCorruptJojo()) this.addButton(this, 1, "Call Jojo", this.analHateFucksWithJojo);
+        this.addButton(0, "TearHerUp", this.sheilaAnalHateFuckAGoGo);
+        if (this.jojoScene.campCorruptJojo()) this.addButton(1, "Call Jojo", this.analHateFucksWithJojo);
     }
 
     //[Demon Victory Sex - Anal Hate-fuck - Tear Her Up]
@@ -4633,13 +4633,13 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.cor >= 80 && this.player.findStatusAffect(StatusAffects.Infested) >= 0) {
             this.menu();
             //[No][Worms Suit You], else auto-output text from [No]
-            this.addButton(this, 0, "No", this.sheilaAnalHateFuckAGoGoNO);
-            this.addButton(this, 1, "WormsSuitYou", this.sheilaAnalHateFuckAGoGoGETYOUSOMEWORMS);
+            this.addButton(0, "No", this.sheilaAnalHateFuckAGoGoNO);
+            this.addButton(1, "WormsSuitYou", this.sheilaAnalHateFuckAGoGoGETYOUSOMEWORMS);
         }
         else {
             this.menu();
             //see above
-            this.addButton(this, 0, "Next", this.sheilaAnalHateFuckAGoGoNO);
+            this.addButton(0, "Next", this.sheilaAnalHateFuckAGoGoNO);
         }
     }
 
@@ -4664,7 +4664,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("lib", - 1, "cor", 2);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Demon Victory Sex - Anal Hate-fuck - Tear Her Up - Worms Suit You]
@@ -4699,7 +4699,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.SHEILA_DISABLED] = 3;
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Demon Victory Sex - Anal Hate-fuck - Call Jojo] - corrupted mouse version:
@@ -4735,9 +4735,9 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         //present [No][Ruin Them]choices only if corruption >= 80, else output text from [No]
         if (this.player.cor >= 80) {
             this.menu();
-            this.addButton(this, 0, "Next", this.analHateFucksWithJojoNo, true);
+            this.addButton(0, "Next", this.analHateFucksWithJojoNo, true);
             this.outputText("\n\n<b>You could really ruin them, but you'd probably never see Jojo again.</b>");
-            this.addButton(this, 1, "Ruin Them", this.jojoRuinsTheAnalHateFuck, true);
+            this.addButton(1, "Ruin Them", this.jojoRuinsTheAnalHateFuck, true);
         }
         else {
             this.analHateFucksWithJojoNo(false);
@@ -4761,7 +4761,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("lus", this.player.lib / 3, "cor", 2);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //[Demon Victory Sex - Anal Hate-fuck - Call Jojo - Ruin Them]
@@ -4811,7 +4811,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.JOJO_DEAD_OR_GONE] = 1;
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Win - [Big Dick+Thighs] (usable for dicks with cockarea > 56) (all 10 of them)
@@ -4953,7 +4953,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         }
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Win - [Penetration, in Spades] - for self-loathing vaginas
@@ -5032,7 +5032,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         }
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 

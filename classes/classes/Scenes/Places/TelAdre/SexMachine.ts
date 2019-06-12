@@ -20,7 +20,7 @@ export class SexMachine extends TelAdreAbstractContent {
             this.outputText("Made of polished steel, the machine has many foreign parts you couldn't even begin to guess the use of, and some familiar ones from the other work out machines from the main gym floor.  This one, however, even seems to have a small monitoring screen!  You could easily sit down and check out this sophisticated device while waiting for the goblin to come out from the back rooms.\n\n", false);
 
             this.outputText("Do you use it or not?", false);
-            this.doYesNo(this, this.useTheSexMachine, this.leaveShowers);
+            this.doYesNo(this.useTheSexMachine, this.leaveShowers);
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00182] = 1;
         }
         //Go directly to sex if you know what's in store!
@@ -34,7 +34,7 @@ export class SexMachine extends TelAdreAbstractContent {
     private leaveShowers(): void {
         this.outputText("", true);
         this.outputText("You shake your head.  You've had enough of a workout for the day, and you remember you're in a land where curiosity almost certainly kills (well, more thoroughly rapes) the cat.  You leave the room and continue to search for the showers, eventually finding them and heading back to camp.", false);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private useTheSexMachine(): void {
@@ -252,7 +252,7 @@ export class SexMachine extends TelAdreAbstractContent {
         }
         this.fatigue(10);
         this.player.orgasm();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 }
 

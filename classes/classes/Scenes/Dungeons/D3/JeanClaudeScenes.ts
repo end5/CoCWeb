@@ -17,7 +17,7 @@ export class JeanClaudeScenes extends BaseContent {
         this.outputText("\n\nA horrible leaden weight settles upon your bones as your naked eyes gaze into a dozen basilisk eyes, your body turning into rapidly solidifying cement. You reach for your [weapon], but it’s as if it were a continent away, and the lizards press into you, grabbing your hands and [hips], forcing you to stare deeper and deeper into the ocean of depthless grey which surrounds you on all sides, and encompasses you, and where you were and what you were doing no longer matters, because the grey permeates your body and soul, and you are just an atom in a sky of peaceful, dove coloured submission, and whether you’re up or down or sideways or down doesn’t matter...");
 
         this.menu();
-        this.addButton(this, 0, "Next", this.capturedByBasilisks);
+        this.addButton(0, "Next", this.capturedByBasilisks);
     }
 
     public gogoFuckTheseBasilisks(): void {
@@ -46,7 +46,7 @@ export class JeanClaudeScenes extends BaseContent {
 
             // [go to Captured]
             this.menu();
-            this.addButton(this, 0, "Next", this.capturedByBasilisks);
+            this.addButton(0, "Next", this.capturedByBasilisks);
 
             return;
         }
@@ -58,7 +58,7 @@ export class JeanClaudeScenes extends BaseContent {
 
                 //[go to Captured]
                 this.menu();
-                this.addButton(this, 0, "Next", this.capturedByBasilisks);
+                this.addButton(0, "Next", this.capturedByBasilisks);
 
                 return;
             }
@@ -71,7 +71,7 @@ export class JeanClaudeScenes extends BaseContent {
                 this.outputText("\n\nYou’re free to continue- but you will have to find an alternative route if you want to go back, unless you’re crazy enough to unlock the door and try the catwalk dash again.");
 
                 this.menu();
-                this.addButton(this, 0, "Next", this.d3.move, "magpiehalln");
+                this.addButton(0, "Next", this.d3.move, "magpiehalln");
             }
         }
     }
@@ -103,12 +103,12 @@ export class JeanClaudeScenes extends BaseContent {
             this.outputText("\n\nThe last of the petrifying curse slips from your limbs and a thought leaps lightning fast through your mind, cutting through the warm haze for a moment. It tells you that you have to act now - with your body free of the grey and your mind still resisting the gold. What do you do in this one, free, desperate moment?");
 
             this.menu();
-            this.addButton(this, 0, "Taunt", this.capturedbyBasilisksTaunt);
-            this.addButton(this, 1, "Run", this.capturedByBasilisksRun);
+            this.addButton(0, "Taunt", this.capturedbyBasilisksTaunt);
+            this.addButton(1, "Run", this.capturedByBasilisksRun);
         }
         else {
             this.menu();
-            this.addButton(this, 0, "Next", this.basiliskBadEnds);
+            this.addButton(0, "Next", this.basiliskBadEnds);
         }
     }
 
@@ -120,7 +120,7 @@ export class JeanClaudeScenes extends BaseContent {
 
         // [go to bad ends]
         this.menu();
-        this.addButton(this, 0, "Next", this.basiliskBadEnds);
+        this.addButton(0, "Next", this.basiliskBadEnds);
     }
 
     private capturedbyBasilisksTaunt(): void {
@@ -177,7 +177,7 @@ export class JeanClaudeScenes extends BaseContent {
 
         // Fight for me!/Go away
         this.menu();
-        this.addButton(this, 0, "Go Away", this.goAway);
+        this.addButton(0, "Go Away", this.goAway);
     }
 
     private goAway(): void {
@@ -207,7 +207,7 @@ export class JeanClaudeScenes extends BaseContent {
         }
 
         this.menu();
-        this.addButton(this, 0, "Next", this.basiliskBadEnds);
+        this.addButton(0, "Next", this.basiliskBadEnds);
     }
 
     public basiliskBadEnds(): void {

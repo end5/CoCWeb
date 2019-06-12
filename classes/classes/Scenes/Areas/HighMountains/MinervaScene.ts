@@ -56,12 +56,12 @@ export class MinervaScene extends BaseContent {
         this.menu();
         //[Talk] [Sex] [Eat] [Fight] [Leave]
         //addButton(0,"Appearance",minervaAppearance);
-        this.addButton(this, 1, "Talk", this.minervaTalkSelect);
-        if (this.player.lust >= 33) this.addButton(this, 2, "Sex", this.minervaSexMenu);
-        this.addButton(this, 3, "Eat", this.eatSomethingYouCunt);
-        this.addButton(this, 4, "Drink", this.getADrinkYouBitch);
-        this.addButton(this, 5, "Spar", this.fightMinerva);
-        this.addButton(this, 9, "Leave", this.camp.returnToCampUseOneHour);
+        this.addButton(1, "Talk", this.minervaTalkSelect);
+        if (this.player.lust >= 33) this.addButton(2, "Sex", this.minervaSexMenu);
+        this.addButton(3, "Eat", this.eatSomethingYouCunt);
+        this.addButton(4, "Drink", this.getADrinkYouBitch);
+        this.addButton(5, "Spar", this.fightMinerva);
+        this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     public encounterMinerva(): void {
@@ -90,15 +90,15 @@ export class MinervaScene extends BaseContent {
         //Choice
         //[Ignore Path] [Take Path]
         this.menu();
-        this.addButton(this, 1, "Take Path", this.takeMinervasPath);
-        this.addButton(this, 2, "Ignore Path", this.ignoreMinervasPath);
+        this.addButton(1, "Take Path", this.takeMinervasPath);
+        this.addButton(2, "Ignore Path", this.ignoreMinervasPath);
     }
     //[Ignore Path]
     private ignoreMinervasPath(): void {
         this.clearOutput();
         this.outputText("Deciding to play it safe, you turn away from the new path and continue your search elsewhere.");
         // PC returns to camp.
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     //[Take Path]
     private takeMinervasPath(): void {
@@ -167,8 +167,8 @@ export class MinervaScene extends BaseContent {
         this.flags[kFLAGS.MET_MINERVA] = 1;
         //[Follow] [Leave]
         this.menu();
-        this.addButton(this, 0, "Follow", this.followMinerva);
-        this.addButton(this, 1, "Don'tFollow", this.leaveMinervasFirstEncounter);
+        this.addButton(0, "Follow", this.followMinerva);
+        this.addButton(1, "Don'tFollow", this.leaveMinervasFirstEncounter);
     }
 
     //[Follow]
@@ -178,12 +178,12 @@ export class MinervaScene extends BaseContent {
         this.outputText("Deciding that you want to know more about Minerva, you follow her into the tower.  \"<i>So, now that you're inside, would you like to talk?  Or perhaps to partake in some of the peaches that grow on my trees?</i>\" she asks, looking at you with interest.");
         //[Talk] [Drink] [Eat] [Leave]
         this.menu();
-        this.addButton(this, 9, "Leave", this.leaveMinervasFirstEncounter);
+        this.addButton(9, "Leave", this.leaveMinervasFirstEncounter);
         //addButton(0,"Appearance",minervaAppearance);
-        this.addButton(this, 1, "Talk", this.minervaTalkSelect);
+        this.addButton(1, "Talk", this.minervaTalkSelect);
         //addButton(2,"Sex",minervaSexMenu);
-        this.addButton(this, 3, "Eat", this.eatSomethingYouCunt);
-        this.addButton(this, 4, "Drink", this.getADrinkYouBitch);
+        this.addButton(3, "Eat", this.eatSomethingYouCunt);
+        this.addButton(4, "Drink", this.getADrinkYouBitch);
     }
 
     //[Leave](for first encounter options)
@@ -192,7 +192,7 @@ export class MinervaScene extends BaseContent {
         this.spriteSelect(95);
         this.outputText("You decide that you don't want to risk going into Minerva's lair as, for all you know, it could be a trap.  Therefore, you turn around and skedaddle back down the mountain.  As you leave, Minerva turns and watches you for a bit, a sad look on her face before she turns back and heads inside her home, alone.");
         // PC returns to camp.
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //1-2 Repeat Encounter 1.  Use any time.
@@ -208,13 +208,13 @@ export class MinervaScene extends BaseContent {
 
         //[Talk] [Sex] [Eat] [Fight] [Leave]
         this.menu();
-        this.addButton(this, 0, "Appearance", this.minervaAppearance);
-        this.addButton(this, 1, "Talk", this.minervaTalkSelect);
-        if (this.player.lust >= 33) this.addButton(this, 2, "Sex", this.minervaSexMenu);
-        this.addButton(this, 3, "Eat", this.eatSomethingYouCunt);
-        this.addButton(this, 4, "Drink", this.getADrinkYouBitch);
-        this.addButton(this, 5, "Spar", this.fightMinerva);
-        this.addButton(this, 9, "Leave", this.camp.returnToCampUseOneHour);
+        this.addButton(0, "Appearance", this.minervaAppearance);
+        this.addButton(1, "Talk", this.minervaTalkSelect);
+        if (this.player.lust >= 33) this.addButton(2, "Sex", this.minervaSexMenu);
+        this.addButton(3, "Eat", this.eatSomethingYouCunt);
+        this.addButton(4, "Drink", this.getADrinkYouBitch);
+        this.addButton(5, "Spar", this.fightMinerva);
+        this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     //1-3 Repeat Encounter 2.  Use if 3rd+ time visiting Minerva.
@@ -231,13 +231,13 @@ export class MinervaScene extends BaseContent {
 
         this.menu();
         //[Talk] [Sex] [Eat] [Fight] [Leave]
-        this.addButton(this, 0, "Appearance", this.minervaAppearance);
-        this.addButton(this, 1, "Talk", this.minervaTalkSelect);
-        if (this.player.lust >= 33) this.addButton(this, 2, "Sex", this.minervaSexMenu);
-        this.addButton(this, 3, "Eat", this.eatSomethingYouCunt);
-        this.addButton(this, 4, "Drink", this.getADrinkYouBitch);
-        this.addButton(this, 5, "Spar", this.fightMinerva);
-        this.addButton(this, 9, "Leave", this.camp.returnToCampUseOneHour);
+        this.addButton(0, "Appearance", this.minervaAppearance);
+        this.addButton(1, "Talk", this.minervaTalkSelect);
+        if (this.player.lust >= 33) this.addButton(2, "Sex", this.minervaSexMenu);
+        this.addButton(3, "Eat", this.eatSomethingYouCunt);
+        this.addButton(4, "Drink", this.getADrinkYouBitch);
+        this.addButton(5, "Spar", this.fightMinerva);
+        this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     //Romancing scenes encounter with all sub scenes.
@@ -253,8 +253,8 @@ export class MinervaScene extends BaseContent {
             this.outputText("  Looking up, you see the grinning face of Minerva, clearly playing with you.  \"<i>Well, hello there, [name]!  I was wondering when you would come and visit me.  I can be away from the oasis for a little while, so... want to go for a flight, or are you scared of heights?</i>\"  she asks playfully.");
             //[Flight] [Land]
             this.menu();
-            this.addButton(this, 0, "Flight", this.goForASkyRideWithMinervaHeartBaring);
-            this.addButton(this, 1, "Land", this.dontFlyWithWithMeYouCrazyBitch);
+            this.addButton(0, "Flight", this.goForASkyRideWithMinervaHeartBaring);
+            this.addButton(1, "Land", this.dontFlyWithWithMeYouCrazyBitch);
         }
         else {
             this.outputText("\n\nYou grin mischievously as the Siren moves to take your body into her grasp; there's no way she could lift you... right?");
@@ -263,7 +263,7 @@ export class MinervaScene extends BaseContent {
             this.outputText("\n\nTaking your hand gently in hers, the siren leads you around the tower, giving you a peaceful walk around her home, showing you around and spending some quality time with you.  As you look around the tower, you notice that it seems to have been fixed up a little, and the place has been cleaned up since you started visiting Minerva.  Perhaps you have had some effect on her?  Looking at the siren in question, you can't help but notice the nervous look she has, as if she wants to say something but is holding it inside.  Eventually, your tour of the tower takes you to its centerpiece, the pure spring that dominates the tower interior.  Leading you to the shore, the siren sits with you by the water.");
             // Lead to Minerva opening her heart.
             this.menu();
-            this.addButton(this, 0, "Next", this.minervaOpensHerHeartAndDisplaysHerVentricals);
+            this.addButton(0, "Next", this.minervaOpensHerHeartAndDisplaysHerVentricals);
         }
     }
 
@@ -290,7 +290,7 @@ export class MinervaScene extends BaseContent {
         this.outputText(".  You almost think that this is going to be the end of you, only for Minerva to roll you both around in the air and spread her wings, slowing down the rapid descent.  The pair of you rocket in through the crumbling entrance of the tower and crash into the steaming spring, the cleansing waters spraying out from the impact, splashing across the surrounding plants and slowly running back toward the spring.  As you and Minerva come up for air, the tall shark-harpy pulls you back into her arms and holds you close to her chest.  \"<i>This was so much fun!  It means a lot to me, you know, that you actually want to help get this thing out of me and put an end to its vile presence,</i>\"  the redheaded siren says warmly,  hugging you close as you sit together in the water.");
         //Lead to Opening her heart.
         this.menu();
-        this.addButton(this, 0, "Next", this.minervaOpensHerHeartAndDisplaysHerVentricals);
+        this.addButton(0, "Next", this.minervaOpensHerHeartAndDisplaysHerVentricals);
     }
 
     //Opening her heart
@@ -303,8 +303,8 @@ export class MinervaScene extends BaseContent {
         //Choice
         //[Kiss] [Reject]
         this.menu();
-        this.addButton(this, 0, "Kiss Her", this.yeahSureMinervaILikeYouAndShit);
-        this.addButton(this, 1, "Reject", this.rejectMinervasLove);
+        this.addButton(0, "Kiss Her", this.yeahSureMinervaILikeYouAndShit);
+        this.addButton(1, "Reject", this.rejectMinervasLove);
     }
 
     //Kiss
@@ -318,10 +318,10 @@ export class MinervaScene extends BaseContent {
         //{Male: [NEXT] / Female/Herm: [NEXT]}
         //Sex Menu
         if (this.player.gender == 1) {
-            if (this.player.cockThatFits(this.minervaVCapacity()) >= 0) this.addButton(this, 0, "Next", this.minervaCowgirlSex);
-            else this.addButton(this, 0, "Next", this.letMinervaSuckYouOff);
+            if (this.player.cockThatFits(this.minervaVCapacity()) >= 0) this.addButton(0, "Next", this.minervaCowgirlSex);
+            else this.addButton(0, "Next", this.letMinervaSuckYouOff);
         }
-        else this.addButton(this, 0, "Next", this.minervaLapSex);
+        else this.addButton(0, "Next", this.minervaLapSex);
     }
 
     //[Reject]
@@ -338,7 +338,7 @@ export class MinervaScene extends BaseContent {
         this.outputText("\n\nSlowly, you get up, looking away from the curvy siren as you step out of the pool and leaving Minerva's tower.  Hopefully she won't be upset for too long, it would be best to check up on her later.  As you go, you swear you hear her let out a sob, the pain of your rejection clear as the mist that floats around the mountain.");
         // PC returns to camp.
         this.flags[kFLAGS.MINERVA_LOVE] = -1;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 
@@ -352,13 +352,13 @@ export class MinervaScene extends BaseContent {
         //Randomly present flying option scene in future interactions. 
         //[Talk] [Sex] [Eat] [Fight] [Leave]
         this.menu();
-        this.addButton(this, 0, "Appearance", this.minervaAppearance);
-        this.addButton(this, 1, "Talk", this.minervaTalkSelect);
-        if (this.player.lust >= 33) this.addButton(this, 2, "Sex", this.minervaSexMenu);
-        this.addButton(this, 3, "Eat", this.eatSomethingYouCunt);
-        this.addButton(this, 4, "Drink", this.getADrinkYouBitch);
-        this.addButton(this, 5, "Spar", this.fightMinerva);
-        this.addButton(this, 9, "Leave", this.camp.returnToCampUseOneHour);
+        this.addButton(0, "Appearance", this.minervaAppearance);
+        this.addButton(1, "Talk", this.minervaTalkSelect);
+        if (this.player.lust >= 33) this.addButton(2, "Sex", this.minervaSexMenu);
+        this.addButton(3, "Eat", this.eatSomethingYouCunt);
+        this.addButton(4, "Drink", this.getADrinkYouBitch);
+        this.addButton(5, "Spar", this.fightMinerva);
+        this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     private fightMinerva(): void {
@@ -377,13 +377,13 @@ export class MinervaScene extends BaseContent {
 
         this.menu();
         //[Talk] [Sex] [Eat] [Fight] [Leave]
-        this.addButton(this, 0, "Appearance", this.minervaAppearance);
-        this.addButton(this, 1, "Talk", this.minervaTalkSelect);
-        if (this.player.lust >= 33) this.addButton(this, 2, "Sex", this.minervaSexMenu);
-        this.addButton(this, 3, "Eat", this.eatSomethingYouCunt);
-        this.addButton(this, 4, "Drink", this.getADrinkYouBitch);
-        this.addButton(this, 5, "Spar", this.fightMinerva);
-        this.addButton(this, 9, "Leave", this.camp.returnToCampUseOneHour);
+        this.addButton(0, "Appearance", this.minervaAppearance);
+        this.addButton(1, "Talk", this.minervaTalkSelect);
+        if (this.player.lust >= 33) this.addButton(2, "Sex", this.minervaSexMenu);
+        this.addButton(3, "Eat", this.eatSomethingYouCunt);
+        this.addButton(4, "Drink", this.getADrinkYouBitch);
+        this.addButton(5, "Spar", this.fightMinerva);
+        this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
     }
 
 
@@ -495,7 +495,7 @@ export class MinervaScene extends BaseContent {
             // PC returns to camp.
             this.flags[kFLAGS.MINERVA_BACKSTORY_LEARNED] = 1;
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 
@@ -516,7 +516,7 @@ export class MinervaScene extends BaseContent {
         this.outputText("\n\nReturning her shining smile, you promise to come back and visit soon, then head out and start the hike back toward your camp.");
         // PC returns to camp.
         this.dynStats("lus", 10 + this.player.lib / 10);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //3-3 Talking Scene 3 - talks about her shark girl daughter
@@ -543,7 +543,7 @@ export class MinervaScene extends BaseContent {
             this.outputText("\n\n\"<i>Thank you for listening to me, hun, I'm so happy to have someone like you in my life,</i>\" Minerva whispers to you with a genuine smile on her black lips.");
             this.outputText("\n\nThe two of you stay like this for a while, just spending a little time together before you decide you must return to camp and your quest.  Saying your goodbyes, you give Minerva a kiss before heading home.");
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 
@@ -563,7 +563,7 @@ export class MinervaScene extends BaseContent {
         this.outputText("\n\nCuddling up to you, the siren slips her arms around you, hugging you tightly.  \"<i>Thank you for listening to me, hun, I'm so happy to have someone like you in my life,</i>\" Minerva whispers to you with a genuine smile on her black lips.  \"<i>Sharing one of my hopes and dreams like that, I can't help but feel closer to you.</i>\"");
         this.outputText("\n\nThe two of you stay like this for a while, just spending some time together, before you decide you must return to camp and your quest.  Saying your goodbyes, you give Minerva a kiss before heading home.");
         // PC returns to camp
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //3-5 Motherhood
@@ -611,7 +611,7 @@ export class MinervaScene extends BaseContent {
 
         this.outputText("\n\nLooking around, you see how late it has gotten and swiftly get up, Minerva's right; you have to get back to your great quest!  Looking at the siren one last time, you tell her that you will be sure to come and visit again later.");
         // PC returns to camp.
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //3-6 Bath Time - romance only
@@ -621,8 +621,8 @@ export class MinervaScene extends BaseContent {
         this.outputText("Telling Minerva that you want to sit down and talk with her brings a smile to her lips; she certainly didn't expect you to want to just chat, but is clearly happy to talk.  \"<i>Really?  You want to talk with me?  All right, well, what do you want to know?</i>\"  she asks, before looking off to the side, clearly distracted.  \"<i>You know... if you don't mind, instead of talking, we could take a bath together.  Relax and just spend some time together,</i>\" she says with a hopeful look on her face.");
         //[Yes] [No]
         this.menu();
-        this.addButton(this, 0, "Yes", this.bathTimeWithMinerva);
-        this.addButton(this, 1, "No", this.noBathTime);
+        this.addButton(0, "Yes", this.bathTimeWithMinerva);
+        this.addButton(1, "No", this.noBathTime);
     }
 
     //[No] // add and take to another talking scene
@@ -630,7 +630,7 @@ export class MinervaScene extends BaseContent {
         this.clearOutput();
         this.outputText("Looking down, she sighs, a brief moment passes before she returns her attention to you.  \"<i>Well, that's all right, maybe next time.  So you wanted to talk; what would you like to know?</i>\"");
         this.menu();
-        this.addButton(this, 0, "Next", this.minervaTalkSelect, false);
+        this.addButton(0, "Next", this.minervaTalkSelect, false);
     }
 
     //[Yes]
@@ -651,7 +651,7 @@ export class MinervaScene extends BaseContent {
         // PC returns to camp.
         this.dynStats("lus", 10 + this.player.lib / 10);
         this.fatigue(-30);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 
@@ -694,17 +694,17 @@ export class MinervaScene extends BaseContent {
         this.menu();
         var btnIdx: number = 0;
         if (this.player.hasCock() && this.player.cockThatFits(this.minervaACapacity()) >= 0)
-            this.addButton(this, btnIdx++, "FuckHerButt", this.fuckMinervasAsshole);
+            this.addButton(btnIdx++, "FuckHerButt", this.fuckMinervasAsshole);
         if (this.player.hasCock() && this.player.cockThatFits(this.minervaVCapacity()) >= 0 && this.minervaRomanced()) {
-            this.addButton(this, btnIdx++, "FuckCowgirl", this.minervaCowgirlSex);
-            this.addButton(this, btnIdx++, "RestrainFuck", this.fuckMinervaWithHerHandsBehindHerBack);
+            this.addButton(btnIdx++, "FuckCowgirl", this.minervaCowgirlSex);
+            this.addButton(btnIdx++, "RestrainFuck", this.fuckMinervaWithHerHandsBehindHerBack);
         }
         if (this.player.hasVagina())
-            this.addButton(this, btnIdx++, "TakeHerDick", this.minervaLapSex);
-        this.addButton(this, btnIdx++, "EatHerOut", this.goDownOnAHermAndLoveItYouDirtySlutYou);
+            this.addButton(btnIdx++, "TakeHerDick", this.minervaLapSex);
+        this.addButton(btnIdx++, "EatHerOut", this.goDownOnAHermAndLoveItYouDirtySlutYou);
         if (this.player.hasCock())
-            this.addButton(this, btnIdx++, "Get BJ", this.letMinervaSuckYouOff);
-        this.addButton(this, 9, "Leave", this.repeatEncounterMinerva);
+            this.addButton(btnIdx++, "Get BJ", this.letMinervaSuckYouOff);
+        this.addButton(9, "Leave", this.repeatEncounterMinerva);
     }
 
     //4-1= sex scene 1 male/herm:  Anal
@@ -775,7 +775,7 @@ export class MinervaScene extends BaseContent {
         this.dynStats("sen", -1);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //4-2= sex scene 2:  Cowgirl
@@ -880,7 +880,7 @@ export class MinervaScene extends BaseContent {
         this.dynStats("sen", -1);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //SEX SCENE 2.5 female/herm: LAP SEX
@@ -969,7 +969,7 @@ export class MinervaScene extends BaseContent {
         this.dynStats("sen", -1);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //4-5= sex scene 4: Hermy oral 
@@ -1006,8 +1006,8 @@ export class MinervaScene extends BaseContent {
         //[Balls] [No balls]
         //-if balls clicked, use this paragraph
         this.menu();
-        this.addButton(this, 0, "Balls", this.lickMinervasBalls);
-        this.addButton(this, 1, "No Balls", this.noBallsMinervaAndContinuation);
+        this.addButton(0, "Balls", this.lickMinervasBalls);
+        this.addButton(1, "No Balls", this.noBallsMinervaAndContinuation);
     }
 
     // Balls
@@ -1048,7 +1048,7 @@ export class MinervaScene extends BaseContent {
         this.dynStats("lus", 20);
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //4-6= sex scene 6: Blow job!
@@ -1125,7 +1125,7 @@ export class MinervaScene extends BaseContent {
 
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //4-4= sex scene 4:  hand held behind
@@ -1193,7 +1193,7 @@ export class MinervaScene extends BaseContent {
         this.player.orgasm();
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //4-9= sex scene 9: lesing out
@@ -1272,7 +1272,7 @@ export class MinervaScene extends BaseContent {
         this.player.orgasm();
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 
@@ -1295,7 +1295,7 @@ export class MinervaScene extends BaseContent {
             this.outputText("\n\n\"<i>W-well... don't worry, Minerva is going to take care of you, just tell me how you want it, all right?</i>\" she says earnestly, clearly intending to finish what she started and help you with your battle induced lust.");
             //Take PC to sex menu
             this.minervaSexMenu(false);
-            this.addButton(this, 9, "Leave", this.cleanupAfterCombat);
+            this.addButton(9, "Leave", this.cleanupAfterCombat);
         }
     }
 
@@ -1315,7 +1315,7 @@ export class MinervaScene extends BaseContent {
             this.outputText("Your final move finishes the horny siren, her shorts bulging obscenely and soaked with her arousal.  Falling to her knees, Minerva desperately grabs hold of her shorts, yanking them from her curvy hips, letting out a gasp of relief and a moan of need.  Between the lusty herm's legs stands her painfully hard cock, all sixteen thick inches throbbing with desperate need, her thighs soaked in womanly juices.  Minerva's hands grab hold of her cock, stroking herself as she slips a pair of fingers into her quivering, slippery quim.  \"<i>Oh, [name], p-please... ohhh... look what you've done.  So mean, getting me so horny like this,</i>\" she says before letting out a long moan.");
             this.outputText("\n\nShe's looking up at you with her debilitating lust clear in her eyes.  \"<i>W-well... think you could help little old me with this...  Just tell me what to do, I need it so badly.</i>\"");
             this.minervaSexMenu(false);
-            this.addButton(this, 9, "Leave", this.cleanupAfterCombat);
+            this.addButton(9, "Leave", this.cleanupAfterCombat);
         }
     }
 
@@ -1350,7 +1350,7 @@ export class MinervaScene extends BaseContent {
         this.dynStats("lus", - 25, "cor", -.5, "resisted", false);
         if (this.player.cor > 50) this.dynStats("cor", -1);
         if (this.player.cor > 75) this.dynStats("cor", -1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
     /*
     [Bottle] Pulling out a small waterskin, you dip it into the crystal clear water, filling the container with the cool, clean spring water before placing it in your pack

@@ -307,14 +307,14 @@ export class FarmCorruption extends AbstractFarmContent {
             if (this.flags[kFLAGS.FARM_SUCCUMILK_STORED] == 1) this.outputText("vial of Succubi milk.");
             else this.outputText("vials of Succubi milk.");
             this.outputText("</b>\n");
-            this.addButton(this, 0, this.getItemObj(kFLAGS.FARM_SUCCUMILK_STORED).shortName, this.takeItems, kFLAGS.FARM_SUCCUMILK_STORED);
+            this.addButton(0, this.getItemObj(kFLAGS.FARM_SUCCUMILK_STORED).shortName, this.takeItems, kFLAGS.FARM_SUCCUMILK_STORED);
         }
         if (this.flags[kFLAGS.FARM_INCUDRAFT_STORED] > 0) {
             this.outputText("<b>" + this.flags[kFLAGS.FARM_INCUDRAFT_STORED] + "x ");
             if (this.flags[kFLAGS.FARM_INCUDRAFT_STORED] == 1) this.outputText("vial of Incubi draft.");
             else this.outputText("vials of Incubi draft.");
             this.outputText("</b>\n");
-            this.addButton(this, 1, this.getItemObj(kFLAGS.FARM_INCUDRAFT_STORED).shortName, this.takeItems, kFLAGS.FARM_INCUDRAFT_STORED);
+            this.addButton(1, this.getItemObj(kFLAGS.FARM_INCUDRAFT_STORED).shortName, this.takeItems, kFLAGS.FARM_INCUDRAFT_STORED);
         }
         if (this.flags[kFLAGS.FARM_EGG_STORED] > 0) {
             this.outputText("<b>" + this.flags[kFLAGS.FARM_EGG_STORED] + "x ");
@@ -322,16 +322,16 @@ export class FarmCorruption extends AbstractFarmContent {
             if (this.flags[kFLAGS.FARM_EGG_STORED] > 1) this.outputText("s");
             this.outputText(".");
             this.outputText("</b>\n");
-            this.addButton(this, 2, this.getItemObj(kFLAGS.FARM_EGG_STORED).shortName, this.takeItems, kFLAGS.FARM_EGG_STORED);
+            this.addButton(2, this.getItemObj(kFLAGS.FARM_EGG_STORED).shortName, this.takeItems, kFLAGS.FARM_EGG_STORED);
         }
         if (this.flags[kFLAGS.FARM_CONTRACEPTIVE_STORED] > 0) {
             this.outputText("<b>" + this.flags[kFLAGS.FARM_CONTRACEPTIVE_STORED] + "x ");
             this.outputText("bundle of Herbal Contraceptive.");
             this.outputText("</b>\n");
-            this.addButton(this, 3, this.getItemObj(kFLAGS.FARM_CONTRACEPTIVE_STORED).shortName, this.takeItems, kFLAGS.FARM_CONTRACEPTIVE_STORED);
+            this.addButton(3, this.getItemObj(kFLAGS.FARM_CONTRACEPTIVE_STORED).shortName, this.takeItems, kFLAGS.FARM_CONTRACEPTIVE_STORED);
         }
 
-        this.addButton(this, 9, "Back", this.rootScene);
+        this.addButton(9, "Back", this.rootScene);
     }
 
     private getItemObj(flag: kFLAGS.FARM_SUCCUMILK_STORED | kFLAGS.FARM_INCUDRAFT_STORED | kFLAGS.FARM_EGG_STORED | kFLAGS.FARM_CONTRACEPTIVE_STORED): SimpleConsumable {
@@ -522,9 +522,9 @@ export class FarmCorruption extends AbstractFarmContent {
         }
 
         this.menu();
-        this.addButton(this, 0, "Now", this.takeoverPromptNow);
-        this.addButton(this, 1, "Later", this.takeoverPromptLater);
-        this.addButton(this, 2, "Never", this.takeoverPromptNever);
+        this.addButton(0, "Now", this.takeoverPromptNow);
+        this.addButton(1, "Later", this.takeoverPromptLater);
+        this.addButton(2, "Never", this.takeoverPromptNever);
     }
 
     public takeoverPromptNow(): void {
@@ -604,7 +604,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         if (this.player.findStatusAffect(StatusAffects.NoMoreMarble) < 0) this.flags[kFLAGS.FOLLOWER_AT_FARM_MARBLE] = 0; // Don't have to care about recruitment paths -- she'll fuck off based on corruption before the player can corrupt the farm.
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     protected takeoverPromptLater(): void {
@@ -612,7 +612,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.outputText("You stare for a moment longer, then turn and head back to camp. You will show mercy she does not deserve... for now.");
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     protected takeoverPromptNever(): void {
@@ -623,7 +623,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         // (Option never displayed again, -5 Corruption)
         this.dynStats("cor-", 5);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public rootScene(): void {
@@ -637,7 +637,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
             this.outputText("\n\n“<i>Very good girl,</i>” you say. You slowly approach her. “<i>Such swiftness and willingness to change is an excellent sign. You and I will go very far together indeed.</i>” Again you stand directly in front of her, again you stare deep into her brown eyes; you wait until her breath comes shallow once more. “<i>Now, where were we?</i>”");
 
-            this.doNext(this, this.dontDeFurDoge);
+            this.doNext(this.dontDeFurDoge);
             return;
         }
 
@@ -732,16 +732,16 @@ export class FarmCorruption extends AbstractFarmContent {
         this.menu();
 
         if (this.flags[kFLAGS.WHITNEY_DISABLED_FOR_DAY] != 1) {
-            if (!this.whitneyCorrupt()) this.addButton(this, 0, "Whitney", this.dogeNotCorruptYet);
-            else this.addButton(this, 0, "Whitney", this.dogeCorruptedMissionComplete);
+            if (!this.whitneyCorrupt()) this.addButton(0, "Whitney", this.dogeNotCorruptYet);
+            else this.addButton(0, "Whitney", this.dogeCorruptedMissionComplete);
         }
 
-        if (this.player.findStatusAffect(StatusAffects.MarbleRapeAttempted) < 0 && this.player.findStatusAffect(StatusAffects.NoMoreMarble) < 0 && this.player.findStatusAffect(StatusAffects.Marble) >= 0 && this.flags[kFLAGS.MARBLE_WARNING] == 0) this.addButton(this, 1, "Marble", this.farm.meetMarble);
+        if (this.player.findStatusAffect(StatusAffects.MarbleRapeAttempted) < 0 && this.player.findStatusAffect(StatusAffects.NoMoreMarble) < 0 && this.player.findStatusAffect(StatusAffects.Marble) >= 0 && this.flags[kFLAGS.MARBLE_WARNING] == 0) this.addButton(1, "Marble", this.farm.meetMarble);
 
         if (this.player.findStatusAffect(StatusAffects.Kelt) >= 0 && this.player.findStatusAffect(StatusAffects.KeltOff) < 0) {
-            if (this.flags[kFLAGS.KELT_BREAK_LEVEL] >= 4) this.addButton(this, 2, "Kelly", this.farm.kelly.breakingKeltOptions);
-            else if (this.flags[kFLAGS.KELT_BREAK_LEVEL] == 0 && this.flags[kFLAGS.KELT_TALKED_FARM_MANAGEMENT] == 0) this.addButton(this, 2, "Kelt", this.keltAChangeInManagement);
-            else this.addButton(this, 2, "Kelt", this.farm.kelly.breakingKeltOptions);
+            if (this.flags[kFLAGS.KELT_BREAK_LEVEL] >= 4) this.addButton(2, "Kelly", this.farm.kelly.breakingKeltOptions);
+            else if (this.flags[kFLAGS.KELT_BREAK_LEVEL] == 0 && this.flags[kFLAGS.KELT_TALKED_FARM_MANAGEMENT] == 0) this.addButton(2, "Kelt", this.keltAChangeInManagement);
+            else this.addButton(2, "Kelt", this.farm.kelly.breakingKeltOptions);
         }
 
         if (this.player.hasKeyItem("Breast Milker - Installed At Whitney's Farm") >= 0) {
@@ -749,31 +749,31 @@ export class FarmCorruption extends AbstractFarmContent {
                 this.outputText("\n\n<b>Your " + this.nippleDescript(0) + "s are currently too sore to be milked.  You'll have to wait a while.</b>", false);
             }
 
-            this.addButton(this, 3, "Get Milked", this.farm.getMilked);
+            this.addButton(3, "Get Milked", this.farm.getMilked);
         }
 
         if (this.player.hasKeyItem("Cock Milker - Installed At Whitney's Farm") >= 0 && this.player.cockTotal() > 0) {
-            this.addButton(this, 4, "Milk Cock", this.farm.cockPumping);
+            this.addButton(4, "Milk Cock", this.farm.cockPumping);
         }
 
-        this.addButton(this, 5, "Farm", this.corruptingTheFarmExplore);
+        this.addButton(5, "Farm", this.corruptingTheFarmExplore);
 
-        if (this.slavesAtFarm()) this.addButton(this, 6, "Slaves", this.slavesAtFarmMenu);
-        if (this.loversAtFarm()) this.addButton(this, 7, "Lovers", this.loversAtFarmMenu);
-        if (this.followersAtFarm()) this.addButton(this, 8, "Followers", this.followersAtFarmMenu);
+        if (this.slavesAtFarm()) this.addButton(6, "Slaves", this.slavesAtFarmMenu);
+        if (this.loversAtFarm()) this.addButton(7, "Lovers", this.loversAtFarmMenu);
+        if (this.followersAtFarm()) this.addButton(8, "Followers", this.followersAtFarmMenu);
 
-        this.addButton(this, 9, "Leave", this.camp.returnToCampUseOneHour);
+        this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     private corruptingTheFarmExplore(): void {
         this.menu();
 
-        this.addButton(this, 0, "Explore", this.farm.exploreFarm);
-        this.addButton(this, 1, "Work", this.farm.workFarm);
+        this.addButton(0, "Explore", this.farm.exploreFarm);
+        this.addButton(1, "Work", this.farm.workFarm);
 
-        if (this.flags[kFLAGS.FARM_CORRUPTION_DAYS_SINCE_LAST_PAYOUT] >= 7 || this.flags[kFLAGS.FARM_SUCCUMILK_STORED] > 0 || this.flags[kFLAGS.FARM_INCUDRAFT_STORED] > 0 || this.flags[kFLAGS.FARM_EGG_STORED] > 0 || this.flags[kFLAGS.FARM_CONTRACEPTIVE_STORED] > 0) this.addButton(this, 2, "Collect", this.collectTheGoodies);
+        if (this.flags[kFLAGS.FARM_CORRUPTION_DAYS_SINCE_LAST_PAYOUT] >= 7 || this.flags[kFLAGS.FARM_SUCCUMILK_STORED] > 0 || this.flags[kFLAGS.FARM_INCUDRAFT_STORED] > 0 || this.flags[kFLAGS.FARM_EGG_STORED] > 0 || this.flags[kFLAGS.FARM_CONTRACEPTIVE_STORED] > 0) this.addButton(2, "Collect", this.collectTheGoodies);
 
-        this.addButton(this, 9, "Back", this.farmMenu);
+        this.addButton(9, "Back", this.farmMenu);
     }
 
     public collectionAvailable(): boolean {
@@ -803,7 +803,7 @@ export class FarmCorruption extends AbstractFarmContent {
         this.flags[kFLAGS.KELT_TALKED_FARM_MANAGEMENT] = 1;
         this.flags[kFLAGS.FOLLOWER_AT_FARM_KELLY] = 1;
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private numSlavesAtFarm(): number {
@@ -827,19 +827,19 @@ export class FarmCorruption extends AbstractFarmContent {
     private slavesAtFarmMenu(): void {
         this.menu();
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_AMILY] == 1) this.addButton(this, 0, "Amily", kGAMECLASS.amilyScene.amilyFollowerEncounter);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_AMILY] == 1) this.addButton(0, "Amily", kGAMECLASS.amilyScene.amilyFollowerEncounter);
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] == 1) this.addButton(this, 1, "Jojo", kGAMECLASS.jojoScene.corruptCampJojo);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] == 1) this.addButton(1, "Jojo", kGAMECLASS.jojoScene.corruptCampJojo);
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 1 && kGAMECLASS.sophieBimbo.bimboSophie()) this.addButton(this, 2, "Sophie", kGAMECLASS.sophieBimbo.approachBimboSophieInCamp);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 1 && kGAMECLASS.sophieBimbo.bimboSophie()) this.addButton(2, "Sophie", kGAMECLASS.sophieBimbo.approachBimboSophieInCamp);
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_VAPULA] == 1) this.addButton(this, 3, "Vapula", kGAMECLASS.vapula.callSlaveVapula);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_VAPULA] == 1) this.addButton(3, "Vapula", kGAMECLASS.vapula.callSlaveVapula);
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_LATEXY] == 1) this.addButton(this, 4, this.flags[kFLAGS.GOO_NAME], kGAMECLASS.latexGirl.approachLatexy);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_LATEXY] == 1) this.addButton(4, this.flags[kFLAGS.GOO_NAME], kGAMECLASS.latexGirl.approachLatexy);
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_BATH_GIRL] == 1) this.addButton(this, 5, this.flags[kFLAGS.MILK_NAME], kGAMECLASS.milkWaifu.milkyMenu);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_BATH_GIRL] == 1) this.addButton(5, this.flags[kFLAGS.MILK_NAME], kGAMECLASS.milkWaifu.milkyMenu);
 
-        this.addButton(this, 9, "Back", this.farmMenu);
+        this.addButton(9, "Back", this.farmMenu);
     }
 
     private numFollowersAtFarm(): number {
@@ -858,9 +858,9 @@ export class FarmCorruption extends AbstractFarmContent {
     private followersAtFarmMenu(): void {
         this.menu();
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 1 && !kGAMECLASS.sophieBimbo.bimboSophie()) this.addButton(this, 0, "Sophie", kGAMECLASS.sophieFollowerScene.followerSophieMainScreen);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 1 && !kGAMECLASS.sophieBimbo.bimboSophie()) this.addButton(0, "Sophie", kGAMECLASS.sophieFollowerScene.followerSophieMainScreen);
 
-        this.addButton(this, 9, "Back", this.farmMenu);
+        this.addButton(9, "Back", this.farmMenu);
     }
 
     private numLoversAtFarm(): number {
@@ -880,12 +880,12 @@ export class FarmCorruption extends AbstractFarmContent {
     private loversAtFarmMenu(): void {
         this.menu();
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_IZMA] == 1) this.addButton(this, 0, "Izma", kGAMECLASS.izmaScene.izmaFollowerMenu);
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_IZMA] == 2) this.addButton(this, 0, "Izmael", kGAMECLASS.gameOver);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_IZMA] == 1) this.addButton(0, "Izma", kGAMECLASS.izmaScene.izmaFollowerMenu);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_IZMA] == 2) this.addButton(0, "Izmael", kGAMECLASS.gameOver);
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_ISABELLA] == 1) this.addButton(this, 1, "Isabella", kGAMECLASS.isabellaFollowerScene.callForFollowerIsabella);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_ISABELLA] == 1) this.addButton(1, "Isabella", kGAMECLASS.isabellaFollowerScene.callForFollowerIsabella);
 
-        this.addButton(this, 9, "Back", this.farmMenu);
+        this.addButton(9, "Back", this.farmMenu);
     }
 
     private dogeNotCorruptYet(): void {
@@ -901,8 +901,8 @@ export class FarmCorruption extends AbstractFarmContent {
             // [Plays once, reverts to standard message]
             this.flags[kFLAGS.WHITNEY_CORRUPTION_0_30_DROP_MESSAGE] = 1;
 
-            if (this.flags[kFLAGS.WHITNEY_LEAVE_0_60] == 0) this.doNext(this, this.dogeNotCorruptLeaveFirstTime);
-            else this.doNext(this, this.camp.returnToCampUseOneHour);
+            if (this.flags[kFLAGS.WHITNEY_LEAVE_0_60] == 0) this.doNext(this.dogeNotCorruptLeaveFirstTime);
+            else this.doNext(this.camp.returnToCampUseOneHour);
 
             return;
         }
@@ -914,8 +914,8 @@ export class FarmCorruption extends AbstractFarmContent {
 
             this.outputText("\n\nYou wave in exasperation and leave; if that’s the way she wants it. If she’s working with you and your followers for any length of time, she’ll have to loosen up eventually.");
 
-            if (this.flags[kFLAGS.WHITNEY_LEAVE_0_60] == 0) this.doNext(this, this.dogeNotCorruptLeaveFirstTime);
-            else this.doNext(this, this.camp.returnToCampUseOneHour);
+            if (this.flags[kFLAGS.WHITNEY_LEAVE_0_60] == 0) this.doNext(this.dogeNotCorruptLeaveFirstTime);
+            else this.doNext(this.camp.returnToCampUseOneHour);
 
             return;
         }
@@ -981,7 +981,7 @@ export class FarmCorruption extends AbstractFarmContent {
                 this.outputText("\n\nYou think the doggie is close now, so very close to fully opening her mind and entirely tasting reality. All she needs to do is one thing to demonstrate her commitment...");
 
                 this.outputText("\n\n“<i>What is that,</i>” says Whitney dully. You smile, gently bringing the twisting gem to a halt and putting it back into your pouch. You will know what that is when you are truly ready, you say. With that you turn and leave her, swaying vaguely on the porch, her eyes far, far away. As long as you can keep her immersed in the atmosphere you’ve conjured up over the farm, you think she’ll be ready for the final stage of your plan soon enough.");
-                this.doNext(this, this.rootScene);
+                this.doNext(this.rootScene);
                 return;
             }
             else {
@@ -1013,8 +1013,8 @@ export class FarmCorruption extends AbstractFarmContent {
                 this.outputText("\n\n“<i>...[Master],</i>” she says, quietly. You smile triumphantly. It’s time to move onto the final stage of your high-stakes business merger, however such is your control over the dog morph now you could make her change for you, if you so wished.");
 
                 this.menu();
-                this.addButton(this, 0, "Change Her", this.deFurDoge);
-                this.addButton(this, 1, "Don't Change", this.dontDeFurDoge);
+                this.addButton(0, "Change Her", this.deFurDoge);
+                this.addButton(1, "Don't Change", this.dontDeFurDoge);
 
                 ///[Defur][Get on with it]
             }
@@ -1032,7 +1032,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.outputText("\n\n“<i>How... how do you do it?</i>” she asks haltingly. “<i>How can you force other people into becoming your... your puppets, your chattel? Doesn’t it sicken your stomach?</i>” You shrug nonchalantly and say that almost all of your harem had ideas about your personal freedom, your genitals, and how they would use them to fuel their own selfish purposes; your will and desires simply proved to be stronger than theirs. You have discovered through hard experience that that is the way of this world and those who think otherwise are simply prey to those who are more ruthless. You stare for a moment longer into her eyes, and then sweep away.");
 
-        this.doNext(this, this.rootScene);
+        this.doNext(this.rootScene);
     }
 
     private dogeNotCorruptLeave6190(): void {
@@ -1046,21 +1046,21 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.outputText("\n\nYou shrug nonchalantly, retrieve a gem from your purse and spin it on your fingertips with the same affected casualness. It’s not about corruption, you say; you aren’t in league with the demons, you have a soul. All you want to do is make the very best of this farm, and open her mind to new possibilities, new ways of thinking. The gem glitters with sunlight as you spin it rhythmically. You think that she’s spent too long on her own; has become so set in her ways she sees anything that changes her world as a threat, even if it is for her own benefit. She should open her eyes and open her mind to the success you’re bringing to her fields; maybe she’d learn how rich life can be if she let go of her prejudices, and accept that from your wider experience you know better. You pinch the gem to a stop and look at Whitney. She stares at the pretty object a moment longer before shaking her head and bringing her eyes up to yours, slightly dazed. You turn and leave, smiling quietly to yourself.");
 
-        this.doNext(this, this.rootScene);
+        this.doNext(this.rootScene);
     }
 
     private dogeNotCorruptYetMenu(): void {
         this.menu();
 
-        this.addButton(this, 0, "Appearance", this.whitneyAppearanceNotCorrupt);
-        this.addButton(this, 1, "Prosperity", this.prosperityGoNotCorrupt);
+        this.addButton(0, "Appearance", this.whitneyAppearanceNotCorrupt);
+        this.addButton(1, "Prosperity", this.prosperityGoNotCorrupt);
 
-        if (this.availableInvestments()) this.addButton(this, 2, "Investment", this.investmentMenu);
+        if (this.availableInvestments()) this.addButton(2, "Investment", this.investmentMenu);
 
-        this.addButton(this, 9, "Back", this.rootScene);
+        this.addButton(9, "Back", this.rootScene);
 
-        if (this.whitneyCorruption() <= 60 && this.flags[kFLAGS.WHITNEY_LEAVE_0_60] == 0) this.addButton(this, 9, "Back", this.dogeNotCorruptLeaveFirstTime);
-        else if (this.whitneyCorruption() <= 90 && this.flags[kFLAGS.WHITNEY_LEAVE_61_90] == 0) this.addButton(this, 9, "Back", this.dogeNotCorruptLeave6190);
+        if (this.whitneyCorruption() <= 60 && this.flags[kFLAGS.WHITNEY_LEAVE_0_60] == 0) this.addButton(9, "Back", this.dogeNotCorruptLeaveFirstTime);
+        else if (this.whitneyCorruption() <= 90 && this.flags[kFLAGS.WHITNEY_LEAVE_61_90] == 0) this.addButton(9, "Back", this.dogeNotCorruptLeave6190);
     }
 
     public availableInvestments(): boolean {
@@ -1141,14 +1141,14 @@ export class FarmCorruption extends AbstractFarmContent {
 
     private investmentMenu(): void {
         this.menu();
-        if (this.player.hasKeyItem("Breast Milker - Installed At Whitney's Farm") < 0 && this.flags[kFLAGS.QUEUE_BREASTMILKER_UPGRADE] == 0) this.addButton(this, 0, "Breast Milker", this.investmentBreastMilker);
-        if (this.player.hasKeyItem("Cock Milker - Installed At Whitney's Farm") < 0 && this.flags[kFLAGS.QUEUE_COCKMILKER_UPGRADE] == 0) this.addButton(this, 1, "Cock Milker", this.investmentCockMilker);
-        if (this.flags[kFLAGS.FARM_UPGRADES_REFINERY] == 0 && this.flags[kFLAGS.QUEUE_REFINERY_UPGRADE] == 0) this.addButton(this, 2, "Refinery", this.investmentRefinery);
-        if (this.flags[kFLAGS.FARM_UPGRADES_CONTRACEPTIVE] == 0 && this.flags[kFLAGS.QUEUE_CONTRACEPTIVE_UPGRADE] == 0) this.addButton(this, 3, "Contraceptive", this.investmentContraceptive);
-        if (this.flags[kFLAGS.FARM_UPGRADES_MILKTANK] == 0 && kGAMECLASS.milkWaifu.milkSlave() && this.flags[kFLAGS.QUEUE_MILKTANK_UPGRADE] == 0) this.addButton(this, 4, "MilkTank", this.investmentMilktank);
+        if (this.player.hasKeyItem("Breast Milker - Installed At Whitney's Farm") < 0 && this.flags[kFLAGS.QUEUE_BREASTMILKER_UPGRADE] == 0) this.addButton(0, "Breast Milker", this.investmentBreastMilker);
+        if (this.player.hasKeyItem("Cock Milker - Installed At Whitney's Farm") < 0 && this.flags[kFLAGS.QUEUE_COCKMILKER_UPGRADE] == 0) this.addButton(1, "Cock Milker", this.investmentCockMilker);
+        if (this.flags[kFLAGS.FARM_UPGRADES_REFINERY] == 0 && this.flags[kFLAGS.QUEUE_REFINERY_UPGRADE] == 0) this.addButton(2, "Refinery", this.investmentRefinery);
+        if (this.flags[kFLAGS.FARM_UPGRADES_CONTRACEPTIVE] == 0 && this.flags[kFLAGS.QUEUE_CONTRACEPTIVE_UPGRADE] == 0) this.addButton(3, "Contraceptive", this.investmentContraceptive);
+        if (this.flags[kFLAGS.FARM_UPGRADES_MILKTANK] == 0 && kGAMECLASS.milkWaifu.milkSlave() && this.flags[kFLAGS.QUEUE_MILKTANK_UPGRADE] == 0) this.addButton(4, "MilkTank", this.investmentMilktank);
 
-        if (!this.whitneyCorrupt()) this.addButton(this, 9, "Back", this.dogeNotCorruptYetMenu);
-        else this.addButton(this, 9, "Back", this.dogeCorruptedMissionComplete);
+        if (!this.whitneyCorrupt()) this.addButton(9, "Back", this.dogeNotCorruptYetMenu);
+        else this.addButton(9, "Back", this.dogeCorruptedMissionComplete);
     }
 
     private investmentBreastMilker(): void {
@@ -1168,9 +1168,9 @@ export class FarmCorruption extends AbstractFarmContent {
 
         //[Do it][No]
         this.menu();
-        if (this.player.gems >= 1000) this.addButton(this, 0, "Do it", this.doBreastMilkerInvestment);
-        else this.addButton(this, 0, "Do it", this.turnDownInvestment, true);
-        this.addButton(this, 1, "No", this.turnDownInvestment);
+        if (this.player.gems >= 1000) this.addButton(0, "Do it", this.doBreastMilkerInvestment);
+        else this.addButton(0, "Do it", this.turnDownInvestment, true);
+        this.addButton(1, "No", this.turnDownInvestment);
     }
 
     private doBreastMilkerInvestment(): void {
@@ -1186,7 +1186,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.flags[kFLAGS.QUEUE_BREASTMILKER_UPGRADE] = 1;
 
-        this.doNext(this, this.rootScene);
+        this.doNext(this.rootScene);
     }
 
     private investmentCockMilker(): void {
@@ -1205,9 +1205,9 @@ export class FarmCorruption extends AbstractFarmContent {
         }
 
         this.menu();
-        if (this.player.gems >= 1000) this.addButton(this, 0, "Do it", this.doCockMilkerInvestment);
-        else this.addButton(this, 0, "Do it", this.turnDownInvestment, true)
-        this.addButton(this, 1, "No", this.turnDownInvestment);
+        if (this.player.gems >= 1000) this.addButton(0, "Do it", this.doCockMilkerInvestment);
+        else this.addButton(0, "Do it", this.turnDownInvestment, true)
+        this.addButton(1, "No", this.turnDownInvestment);
     }
 
     private doCockMilkerInvestment(): void {
@@ -1230,7 +1230,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.flags[kFLAGS.QUEUE_COCKMILKER_UPGRADE] = 1;
 
-        this.doNext(this, this.rootScene);
+        this.doNext(this.rootScene);
     }
 
     private investmentRefinery(): void {
@@ -1249,9 +1249,9 @@ export class FarmCorruption extends AbstractFarmContent {
         }
 
         this.menu();
-        if (this.player.gems >= 1500) this.addButton(this, 0, "Do it", this.doRefineryInvestment);
-        else this.addButton(this, 0, "Do it", this.turnDownInvestment, true);
-        this.addButton(this, 1, "No", this.turnDownInvestment);
+        if (this.player.gems >= 1500) this.addButton(0, "Do it", this.doRefineryInvestment);
+        else this.addButton(0, "Do it", this.turnDownInvestment, true);
+        this.addButton(1, "No", this.turnDownInvestment);
     }
 
     private doRefineryInvestment(): void {
@@ -1267,7 +1267,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.flags[kFLAGS.QUEUE_REFINERY_UPGRADE] = 1;
 
-        this.doNext(this, this.rootScene);
+        this.doNext(this.rootScene);
     }
 
     private investmentContraceptive(): void {
@@ -1287,12 +1287,12 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.menu();
         if (this.player.gems >= 750) {
-            this.addButton(this, 0, "Do it", this.doContraceptiveInvestment);
+            this.addButton(0, "Do it", this.doContraceptiveInvestment);
         }
         else {
-            this.addButton(this, 0, "Do it", this.turnDownInvestment, true);
+            this.addButton(0, "Do it", this.turnDownInvestment, true);
         }
-        this.addButton(this, 1, "No", this.turnDownInvestment);
+        this.addButton(1, "No", this.turnDownInvestment);
     }
 
     private doContraceptiveInvestment(): void {
@@ -1315,7 +1315,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         //[“Harvest Contraceptive” option added to main farm menu in 7 days time]
         this.flags[kFLAGS.QUEUE_CONTRACEPTIVE_UPGRADE] = 1;
-        this.doNext(this, this.rootScene);
+        this.doNext(this.rootScene);
     }
 
     private investmentMilktank(): void {
@@ -1352,9 +1352,9 @@ export class FarmCorruption extends AbstractFarmContent {
         }
 
         this.menu();
-        if (this.player.gems >= 400) this.addButton(this, 0, "Do it", this.doMilktankInvestment);
-        else this.addButton(this, 0, "Do it", this.turnDownInvestment, true);
-        this.addButton(this, 1, "No", this.turnDownInvestment);
+        if (this.player.gems >= 400) this.addButton(0, "Do it", this.doMilktankInvestment);
+        else this.addButton(0, "Do it", this.turnDownInvestment, true);
+        this.addButton(1, "No", this.turnDownInvestment);
     }
 
     private doMilktankInvestment(): void {
@@ -1368,7 +1368,7 @@ export class FarmCorruption extends AbstractFarmContent {
         this.flags[kFLAGS.QUEUE_MILKTANK_UPGRADE] = 1;
         this.player.gems -= 400;
 
-        this.doNext(this, this.rootScene);
+        this.doNext(this.rootScene);
     }
 
     private turnDownInvestment(money: boolean = false): void {
@@ -1407,7 +1407,7 @@ export class FarmCorruption extends AbstractFarmContent {
         this.flags[kFLAGS.WHITNEY_DISABLED_FOR_DAY] = 1;
         this.flags[kFLAGS.WHITNEY_DEFURRED] = 1;
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private dontDeFurDoge(): void {
@@ -1445,8 +1445,8 @@ export class FarmCorruption extends AbstractFarmContent {
 
         ///[Make Sub][Make Dom]
         this.menu();
-        this.addButton(this, 0, "Make Sub", this.makeDogeSubby);
-        this.addButton(this, 1, "Make Dom", this.makeDogeDommy);
+        this.addButton(0, "Make Sub", this.makeDogeSubby);
+        this.addButton(1, "Make Dom", this.makeDogeDommy);
     }
 
     private makeDogeSubby(): void {
@@ -1477,7 +1477,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.outputText("\n\n“<i>At once, [master]!</i>” The dog girl is on her feet and off towards the farm in one swift movement, new determination etched into her posture. Your take-over of the farm is complete; you should expect to see a larger share of the profits now that Whitney is your slave taskmaster, entirely bent on serving you.");
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private makeDogeDommy(): void {
@@ -1519,7 +1519,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.flags[kFLAGS.WHITNEY_DOM] = 1;
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private dogeCorruptedMissionComplete(output: boolean = true): void {
@@ -1551,13 +1551,13 @@ export class FarmCorruption extends AbstractFarmContent {
         }
 
         this.menu();
-        this.addButton(this, 0, "Appearance", this.whitneyAppearanceCorrupt);
-        if (this.availableInvestments()) this.addButton(this, 1, "Investment", this.investmentMenu);
-        if (this.flags[kFLAGS.FARM_CORRUPTION_BRANDING_MENU_UNLOCKED] == 1 || this.flags[kFLAGS.QUEUE_BRANDING_UPGRADE] < 1) this.addButton(this, 2, "Branding", this.brandingMenu);
-        if (this.whitneyDom()) this.addButton(this, 3, "Pleasure", this.whitneyDomPleasure);
-        else this.addButton(this, 3, "Pleasure", this.whitneySubPleasure);
+        this.addButton(0, "Appearance", this.whitneyAppearanceCorrupt);
+        if (this.availableInvestments()) this.addButton(1, "Investment", this.investmentMenu);
+        if (this.flags[kFLAGS.FARM_CORRUPTION_BRANDING_MENU_UNLOCKED] == 1 || this.flags[kFLAGS.QUEUE_BRANDING_UPGRADE] < 1) this.addButton(2, "Branding", this.brandingMenu);
+        if (this.whitneyDom()) this.addButton(3, "Pleasure", this.whitneyDomPleasure);
+        else this.addButton(3, "Pleasure", this.whitneySubPleasure);
         this.orgyRoomRouter();
-        this.addButton(this, 9, "Back", this.rootScene);
+        this.addButton(9, "Back", this.rootScene);
     }
 
     private whitneySubPleasure(): void {
@@ -1581,7 +1581,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.flags[kFLAGS.WHITNEY_ORAL_TRAINING]++;
         if (functorOnNext) {
-            this.doNext(this, doFunctor);
+            this.doNext(doFunctor);
         }
         else {
             doFunctor();
@@ -1699,7 +1699,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.player.orgasm();
         this.dynStats("sen-", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private cockOralTrainingStageOne(): void {
@@ -1734,7 +1734,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.player.orgasm();
         this.dynStats("sen-", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private firstCockOralTrainingStageTwo(): void {
@@ -1881,7 +1881,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.player.orgasm();
         this.dynStats("sen-", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private cockOralTrainingStageTwo(): void {
@@ -1938,7 +1938,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.player.orgasm();
         this.dynStats("sen-", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private firstCockOralTrainingStageThree(): void {
@@ -2073,7 +2073,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.player.orgasm();
         this.dynStats("sen-", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private cockOralTrainingStageThree(): void {
@@ -2219,7 +2219,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.player.orgasm();
         this.dynStats("sen-", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private cockOralTrainingMaxed(): void {
@@ -2341,7 +2341,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.player.orgasm();
         this.dynStats("sen-", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private firstVaginaOralTraining(): void {
@@ -2376,7 +2376,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.player.orgasm();
         this.dynStats("sen-", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private vaginaOralTrainingStageOne(): void {
@@ -2405,7 +2405,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.player.orgasm();
         this.dynStats("sen-", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private firstVaginaOralTrainingStageTwo(): void {
@@ -2470,7 +2470,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.player.orgasm();
         this.dynStats("sen-", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private vaginaOralTrainingStageTwo(): void {
@@ -2507,7 +2507,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.player.orgasm();
         this.dynStats("sen-", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private firstVaginaOralTrainingStageThree(): void {
@@ -2557,7 +2557,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.player.orgasm();
         this.dynStats("sen-", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private vaginaOralTrainingStageThree(): void {
@@ -2625,7 +2625,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.player.orgasm();
         this.dynStats("sen-", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private vaginaOralTrainingMaxed(): void {
@@ -2685,7 +2685,7 @@ export class FarmCorruption extends AbstractFarmContent {
         this.player.orgasm();
         this.dynStats("sen-", 1);
         if (this.player.wetness() < 5 && FarmCorruption.rand(4) == 0) this.player.vaginas[0].vaginalWetness++;
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private whitneyDomPleasure(): void {
@@ -2706,7 +2706,7 @@ export class FarmCorruption extends AbstractFarmContent {
         if (this.player.hasCock() || this.player.hasVagina()) scenes.push(this.whitneyDomStraponDoggy);
         if (this.player.hasCock()) scenes.push(this.whitneyDomRide);
 
-        this.doNext(this, scenes[FarmCorruption.rand(scenes.length)]);
+        this.doNext(scenes[FarmCorruption.rand(scenes.length)]);
     }
 
     private firstWhitneyDomPleasure(): void {
@@ -2844,7 +2844,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.player.orgasm();
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private whitneyDomStraponDoggy(): void {
@@ -2958,7 +2958,7 @@ export class FarmCorruption extends AbstractFarmContent {
         this.outputText("\n\n“<i>I hope you feel suitably relaxed, [master],</i>” she says. “<i>Ready to take on the world and bring it to your heel? Me an’ this room will always be here when you need to get in touch with your true self.</i>”");
 
         this.player.orgasm();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public whitneyDomRide(): void {
@@ -3087,7 +3087,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.player.orgasm();
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private brandingMenu(): void {
@@ -3100,9 +3100,9 @@ export class FarmCorruption extends AbstractFarmContent {
             this.outputText("\n\n“<i>I don’t brand my herd, [master],</i>” she says in a low voice, as you smooth your hand upwards and slip your fingers underneath her skirt. “<i>’s a very cruel practice and without any other farms round there’s no need for it anyway.</i>” But surely she must know of ways to mark cattle, you go on. Ways to make it immediately clear who owns them. You put not-so-subtle emphases on certain words as you touch her sopping vagina, slipping two fingers in easily. “<i>Mayhap... mayhap I do, [master],</i>” the dog woman groans, her breath coming in gulps and hisses as your digits move in her warm wetness. “<i>Somethin’, somethin’ from my granddaddy’s day. If you give me 500 gems and some time, I could... go and make a few things happen...</i>”");
 
             this.menu();
-            if (this.player.gems >= 500) this.addButton(this, 0, "Do it", this.getBrandingStuff);
-            else this.addButton(this, 0, "Do it", this.dontGetBrandingStuff);
-            this.addButton(this, 1, "No", this.dontGetBrandingStuff);
+            if (this.player.gems >= 500) this.addButton(0, "Do it", this.getBrandingStuff);
+            else this.addButton(0, "Do it", this.dontGetBrandingStuff);
+            this.addButton(1, "No", this.dontGetBrandingStuff);
         }
         else {
             this.clearOutput();
@@ -3114,17 +3114,17 @@ export class FarmCorruption extends AbstractFarmContent {
             this.menu();
 
             if (this.player.gems >= 50) {
-                if (this.hasFreeTattooSlot("whitney")) this.addButton(this, 0, "Whitney", this.brandWhitney);
-                if (this.flags[kFLAGS.FOLLOWER_AT_FARM_AMILY] == 1 && this.hasFreeTattooSlot("amily")) this.addButton(this, 1, "Amily", this.brandAmily);
-                if (this.flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] == 1 && this.hasFreeTattooSlot("jojo")) this.addButton(this, 2, "Jojo", this.brandJojo);
-                if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 1 && kGAMECLASS.sophieBimbo.bimboSophie() && this.hasFreeTattooSlot("sophie")) this.addButton(this, 3, "Sophie", this.brandBimboSophie);
-                if (this.flags[kFLAGS.FOLLOWER_AT_FARM_VAPULA] == 1 && this.hasFreeTattooSlot("vapula")) this.addButton(this, 4, "Vapula", this.brandVapula);
-                if (this.flags[kFLAGS.KELT_BREAK_LEVEL] >= 4 && this.hasFreeTattooSlot("kelly")) this.addButton(this, 5, "Kelly", this.brandKelly);
-                if (this.flags[kFLAGS.FOLLOWER_AT_FARM_BATH_GIRL] == 1 && this.flags[kFLAGS.MILK_SIZE] > 0 && this.hasFreeTattooSlot("milky")) this.addButton(this, 6, this.flags[kFLAGS.MILK_NAME], this.brandSmallMilky);
-                if (this.flags[kFLAGS.FOLLOWER_AT_FARM_BATH_GIRL] == 1 && this.flags[kFLAGS.MILK_SIZE] == 0 && this.hasFreeTattooSlot("milky")) this.addButton(this, 6, this.flags[kFLAGS.MILK_NAME], this.brandBigMilky);
+                if (this.hasFreeTattooSlot("whitney")) this.addButton(0, "Whitney", this.brandWhitney);
+                if (this.flags[kFLAGS.FOLLOWER_AT_FARM_AMILY] == 1 && this.hasFreeTattooSlot("amily")) this.addButton(1, "Amily", this.brandAmily);
+                if (this.flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] == 1 && this.hasFreeTattooSlot("jojo")) this.addButton(2, "Jojo", this.brandJojo);
+                if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 1 && kGAMECLASS.sophieBimbo.bimboSophie() && this.hasFreeTattooSlot("sophie")) this.addButton(3, "Sophie", this.brandBimboSophie);
+                if (this.flags[kFLAGS.FOLLOWER_AT_FARM_VAPULA] == 1 && this.hasFreeTattooSlot("vapula")) this.addButton(4, "Vapula", this.brandVapula);
+                if (this.flags[kFLAGS.KELT_BREAK_LEVEL] >= 4 && this.hasFreeTattooSlot("kelly")) this.addButton(5, "Kelly", this.brandKelly);
+                if (this.flags[kFLAGS.FOLLOWER_AT_FARM_BATH_GIRL] == 1 && this.flags[kFLAGS.MILK_SIZE] > 0 && this.hasFreeTattooSlot("milky")) this.addButton(6, this.flags[kFLAGS.MILK_NAME], this.brandSmallMilky);
+                if (this.flags[kFLAGS.FOLLOWER_AT_FARM_BATH_GIRL] == 1 && this.flags[kFLAGS.MILK_SIZE] == 0 && this.hasFreeTattooSlot("milky")) this.addButton(6, this.flags[kFLAGS.MILK_NAME], this.brandBigMilky);
             }
 
-            this.addButton(this, 9, "Back", this.dogeCorruptedMissionComplete);
+            this.addButton(9, "Back", this.dogeCorruptedMissionComplete);
         }
     }
 
@@ -3416,7 +3416,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.flags[kFLAGS.QUEUE_BRANDING_UPGRADE] = 1;
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private dontGetBrandingStuff(): void {
@@ -3450,8 +3450,8 @@ export class FarmCorruption extends AbstractFarmContent {
         this.flags[kFLAGS.QUEUE_BRANDING_AVAILABLE_TALK] = 0;
 
         this.menu();
-        this.addButton(this, 0, "Yes", this.testBranding);
-        this.addButton(this, 1, "No", this.dontTestBranding);
+        this.addButton(0, "Yes", this.testBranding);
+        this.addButton(1, "No", this.dontTestBranding);
     }
 
     private testBranding(): void {
@@ -3475,66 +3475,66 @@ export class FarmCorruption extends AbstractFarmContent {
 
     public brandSlotSelect(): void {
         this.menu();
-        if (this.flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE] == '') this.addButton(this, 0, "Collarbone", this.brandSelect, 0)
-        if (this.flags[kFLAGS.WHITNEY_TATTOO_SHOULDERS] == '') this.addButton(this, 1, "Shoulders", this.brandSelect, 1);
-        if (this.flags[kFLAGS.WHITNEY_TATTOO_LOWERBACK] == '') this.addButton(this, 2, "Lower Back", this.brandSelect, 2);
-        if (this.flags[kFLAGS.WHITNEY_TATTOO_BUTT] == '') this.addButton(this, 3, "Butt", this.brandSelect, 3);
+        if (this.flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE] == '') this.addButton(0, "Collarbone", this.brandSelect, 0)
+        if (this.flags[kFLAGS.WHITNEY_TATTOO_SHOULDERS] == '') this.addButton(1, "Shoulders", this.brandSelect, 1);
+        if (this.flags[kFLAGS.WHITNEY_TATTOO_LOWERBACK] == '') this.addButton(2, "Lower Back", this.brandSelect, 2);
+        if (this.flags[kFLAGS.WHITNEY_TATTOO_BUTT] == '') this.addButton(3, "Butt", this.brandSelect, 3);
     }
 
     public amilyBrandSlotSelect(): void {
         this.menu();
-        if (this.flags[kFLAGS.AMILY_TATTOO_COLLARBONE] == '') this.addButton(this, 0, "Collarbone", this.amilyBrandSelect, 0)
-        if (this.flags[kFLAGS.AMILY_TATTOO_SHOULDERS] == '') this.addButton(this, 1, "Shoulders", this.amilyBrandSelect, 1);
-        if (this.flags[kFLAGS.AMILY_TATTOO_LOWERBACK] == '') this.addButton(this, 2, "Lower Back", this.amilyBrandSelect, 2);
-        if (this.flags[kFLAGS.AMILY_TATTOO_BUTT] == '') this.addButton(this, 3, "Butt", this.amilyBrandSelect, 3);
+        if (this.flags[kFLAGS.AMILY_TATTOO_COLLARBONE] == '') this.addButton(0, "Collarbone", this.amilyBrandSelect, 0)
+        if (this.flags[kFLAGS.AMILY_TATTOO_SHOULDERS] == '') this.addButton(1, "Shoulders", this.amilyBrandSelect, 1);
+        if (this.flags[kFLAGS.AMILY_TATTOO_LOWERBACK] == '') this.addButton(2, "Lower Back", this.amilyBrandSelect, 2);
+        if (this.flags[kFLAGS.AMILY_TATTOO_BUTT] == '') this.addButton(3, "Butt", this.amilyBrandSelect, 3);
     }
 
     public jojoBrandSlotSelect(): void {
         this.menu();
-        if (this.flags[kFLAGS.JOJO_TATTOO_COLLARBONE] == '') this.addButton(this, 0, "Collarbone", this.jojoBrandSelect, 0)
-        if (this.flags[kFLAGS.JOJO_TATTOO_SHOULDERS] == '') this.addButton(this, 1, "Shoulders", this.jojoBrandSelect, 1);
-        if (this.flags[kFLAGS.JOJO_TATTOO_LOWERBACK] == '') this.addButton(this, 2, "Lower Back", this.jojoBrandSelect, 2);
-        if (this.flags[kFLAGS.JOJO_TATTOO_BUTT] == '') this.addButton(this, 3, "Butt", this.jojoBrandSelect, 3);
+        if (this.flags[kFLAGS.JOJO_TATTOO_COLLARBONE] == '') this.addButton(0, "Collarbone", this.jojoBrandSelect, 0)
+        if (this.flags[kFLAGS.JOJO_TATTOO_SHOULDERS] == '') this.addButton(1, "Shoulders", this.jojoBrandSelect, 1);
+        if (this.flags[kFLAGS.JOJO_TATTOO_LOWERBACK] == '') this.addButton(2, "Lower Back", this.jojoBrandSelect, 2);
+        if (this.flags[kFLAGS.JOJO_TATTOO_BUTT] == '') this.addButton(3, "Butt", this.jojoBrandSelect, 3);
     }
 
     public bimboSophieSlotSelect(): void {
         this.menu();
-        if (this.flags[kFLAGS.SOPHIE_TATTOO_COLLARBONE] == '') this.addButton(this, 0, "Collarbone", this.bimboSophieBrandSelect, 0)
-        if (this.flags[kFLAGS.SOPHIE_TATTOO_SHOULDERS] == '') this.addButton(this, 1, "Shoulders", this.bimboSophieBrandSelect, 1);
-        if (this.flags[kFLAGS.SOPHIE_TATTOO_LOWERBACK] == '') this.addButton(this, 2, "Lower Back", this.bimboSophieBrandSelect, 2);
-        if (this.flags[kFLAGS.SOPHIE_TATTOO_BUTT] == '') this.addButton(this, 3, "Butt", this.bimboSophieBrandSelect, 3);
+        if (this.flags[kFLAGS.SOPHIE_TATTOO_COLLARBONE] == '') this.addButton(0, "Collarbone", this.bimboSophieBrandSelect, 0)
+        if (this.flags[kFLAGS.SOPHIE_TATTOO_SHOULDERS] == '') this.addButton(1, "Shoulders", this.bimboSophieBrandSelect, 1);
+        if (this.flags[kFLAGS.SOPHIE_TATTOO_LOWERBACK] == '') this.addButton(2, "Lower Back", this.bimboSophieBrandSelect, 2);
+        if (this.flags[kFLAGS.SOPHIE_TATTOO_BUTT] == '') this.addButton(3, "Butt", this.bimboSophieBrandSelect, 3);
     }
 
     public vapulaSlotSelect(): void {
         this.menu();
-        if (this.flags[kFLAGS.VAPULA_TATTOO_COLLARBONE] == '') this.addButton(this, 0, "Collarbone", this.vapulaBrandSelect, 0)
-        if (this.flags[kFLAGS.VAPULA_TATTOO_SHOULDERS] == '') this.addButton(this, 1, "Shoulders", this.vapulaBrandSelect, 1);
-        if (this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] == '') this.addButton(this, 2, "Lower Back", this.vapulaBrandSelect, 2);
-        if (this.flags[kFLAGS.VAPULA_TATTOO_BUTT] == '') this.addButton(this, 3, "Butt", this.vapulaBrandSelect, 3);
+        if (this.flags[kFLAGS.VAPULA_TATTOO_COLLARBONE] == '') this.addButton(0, "Collarbone", this.vapulaBrandSelect, 0)
+        if (this.flags[kFLAGS.VAPULA_TATTOO_SHOULDERS] == '') this.addButton(1, "Shoulders", this.vapulaBrandSelect, 1);
+        if (this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] == '') this.addButton(2, "Lower Back", this.vapulaBrandSelect, 2);
+        if (this.flags[kFLAGS.VAPULA_TATTOO_BUTT] == '') this.addButton(3, "Butt", this.vapulaBrandSelect, 3);
     }
 
     public kellySlotSelect(): void {
         this.menu();
-        if (this.flags[kFLAGS.KELLY_TATTOO_COLLARBONE] == '') this.addButton(this, 0, "Collarbone", this.kellyBrandSelect, 0)
-        if (this.flags[kFLAGS.KELLY_TATTOO_SHOULDERS] == '') this.addButton(this, 1, "Shoulders", this.kellyBrandSelect, 1);
-        if (this.flags[kFLAGS.KELLY_TATTOO_LOWERBACK] == '') this.addButton(this, 2, "Lower Back", this.kellyBrandSelect, 2);
-        if (this.flags[kFLAGS.KELLY_TATTOO_BUTT] == '') this.addButton(this, 3, "Butt", this.kellyBrandSelect, 3);
+        if (this.flags[kFLAGS.KELLY_TATTOO_COLLARBONE] == '') this.addButton(0, "Collarbone", this.kellyBrandSelect, 0)
+        if (this.flags[kFLAGS.KELLY_TATTOO_SHOULDERS] == '') this.addButton(1, "Shoulders", this.kellyBrandSelect, 1);
+        if (this.flags[kFLAGS.KELLY_TATTOO_LOWERBACK] == '') this.addButton(2, "Lower Back", this.kellyBrandSelect, 2);
+        if (this.flags[kFLAGS.KELLY_TATTOO_BUTT] == '') this.addButton(3, "Butt", this.kellyBrandSelect, 3);
     }
 
     public smallMilkySlotSelect(): void {
         this.menu();
-        if (this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] == '') this.addButton(this, 0, "Collarbone", this.smallMilkyBrandSelect, 0)
-        if (this.flags[kFLAGS.MILKY_TATTOO_SHOULDERS] == '') this.addButton(this, 1, "Shoulders", this.smallMilkyBrandSelect, 1);
-        if (this.flags[kFLAGS.MILKY_TATTOO_LOWERBACK] == '') this.addButton(this, 2, "Lower Back", this.smallMilkyBrandSelect, 2);
-        if (this.flags[kFLAGS.MILKY_TATTOO_BUTT] == '') this.addButton(this, 3, "Butt", this.smallMilkyBrandSelect, 3);
+        if (this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] == '') this.addButton(0, "Collarbone", this.smallMilkyBrandSelect, 0)
+        if (this.flags[kFLAGS.MILKY_TATTOO_SHOULDERS] == '') this.addButton(1, "Shoulders", this.smallMilkyBrandSelect, 1);
+        if (this.flags[kFLAGS.MILKY_TATTOO_LOWERBACK] == '') this.addButton(2, "Lower Back", this.smallMilkyBrandSelect, 2);
+        if (this.flags[kFLAGS.MILKY_TATTOO_BUTT] == '') this.addButton(3, "Butt", this.smallMilkyBrandSelect, 3);
     }
 
     public bigMilkySlotSelect(): void {
         this.menu();
-        if (this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] == '') this.addButton(this, 0, "Collarbone", this.bigMilkyBrandSelect, 0)
-        if (this.flags[kFLAGS.MILKY_TATTOO_SHOULDERS] == '') this.addButton(this, 1, "Shoulders", this.bigMilkyBrandSelect, 1);
-        if (this.flags[kFLAGS.MILKY_TATTOO_LOWERBACK] == '') this.addButton(this, 2, "Lower Back", this.bigMilkyBrandSelect, 2);
-        if (this.flags[kFLAGS.MILKY_TATTOO_BUTT] == '') this.addButton(this, 3, "Butt", this.bigMilkyBrandSelect, 3);
+        if (this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] == '') this.addButton(0, "Collarbone", this.bigMilkyBrandSelect, 0)
+        if (this.flags[kFLAGS.MILKY_TATTOO_SHOULDERS] == '') this.addButton(1, "Shoulders", this.bigMilkyBrandSelect, 1);
+        if (this.flags[kFLAGS.MILKY_TATTOO_LOWERBACK] == '') this.addButton(2, "Lower Back", this.bigMilkyBrandSelect, 2);
+        if (this.flags[kFLAGS.MILKY_TATTOO_BUTT] == '') this.addButton(3, "Butt", this.bigMilkyBrandSelect, 3);
     }
 
     public brandSelect(slot: number): void {
@@ -3544,14 +3544,14 @@ export class FarmCorruption extends AbstractFarmContent {
         this.outputText("What will you draw on her " + this.slotNames[slot] + "?");
 
         this.menu();
-        this.addButton(this, 0, "Tribal", this.tribalTattoo, slot);
-        this.addButton(this, 1, "Heart", this.heartTattoo, slot);
-        this.addButton(this, 2, "Property Of", this.propertyTattoo, slot);
-        this.addButton(this, 3, "No.1 Bitch", this.no1Tattoo, slot);
-        if (this.player.hasCock() && this.whitneyMaxedOralTraining()) this.addButton(this, 4, "Cocksucker", this.champCocksuckerTattoo, slot);
-        if (this.player.hasVagina() && this.whitneyMaxedOralTraining()) this.addButton(this, 5, "Pussylicker", this.champPussylickerTattoo, slot);
+        this.addButton(0, "Tribal", this.tribalTattoo, slot);
+        this.addButton(1, "Heart", this.heartTattoo, slot);
+        this.addButton(2, "Property Of", this.propertyTattoo, slot);
+        this.addButton(3, "No.1 Bitch", this.no1Tattoo, slot);
+        if (this.player.hasCock() && this.whitneyMaxedOralTraining()) this.addButton(4, "Cocksucker", this.champCocksuckerTattoo, slot);
+        if (this.player.hasVagina() && this.whitneyMaxedOralTraining()) this.addButton(5, "Pussylicker", this.champPussylickerTattoo, slot);
 
-        this.addButton(this, 9, "Back", this.brandSlotSelect);
+        this.addButton(9, "Back", this.brandSlotSelect);
     }
 
     public amilyBrandSelect(slot: number): void {
@@ -3560,14 +3560,14 @@ export class FarmCorruption extends AbstractFarmContent {
         this.outputText("What will you draw on her " + this.slotNames[slot] + "?");
 
         this.menu();
-        this.addButton(this, 0, "Tribal", this.amilyTribalTattoo, slot);
-        this.addButton(this, 1, "Heart", this.amilyHeartTattoo, slot);
-        this.addButton(this, 2, "Property Of", this.amilyPropertyTattoo, slot);
-        this.addButton(this, 3, "Breeding Bitch", this.amilyBreedingBitchTattoo, slot);
-        if (this.player.hasCock() && slot == 2) this.addButton(this, 4, "Cock Here", this.amilyCockGoesHereTattoo, slot);
-        if (this.player.hasVagina()) this.addButton(this, 5, "Mommy's Girl", this.amilyMommysGirlTattoo, slot);
+        this.addButton(0, "Tribal", this.amilyTribalTattoo, slot);
+        this.addButton(1, "Heart", this.amilyHeartTattoo, slot);
+        this.addButton(2, "Property Of", this.amilyPropertyTattoo, slot);
+        this.addButton(3, "Breeding Bitch", this.amilyBreedingBitchTattoo, slot);
+        if (this.player.hasCock() && slot == 2) this.addButton(4, "Cock Here", this.amilyCockGoesHereTattoo, slot);
+        if (this.player.hasVagina()) this.addButton(5, "Mommy's Girl", this.amilyMommysGirlTattoo, slot);
 
-        this.addButton(this, 9, "Back", this.amilyBrandSlotSelect);
+        this.addButton(9, "Back", this.amilyBrandSlotSelect);
     }
 
     public jojoBrandSelect(slot: number): void {
@@ -3576,14 +3576,14 @@ export class FarmCorruption extends AbstractFarmContent {
         this.outputText("What will you draw on his " + this.slotNames[slot] + "?");
 
         this.menu();
-        this.addButton(this, 0, "Tribal", this.jojoTribalTattoo, slot);
-        this.addButton(this, 1, "Heart", this.jojoHeartTattoo, slot);
-        this.addButton(this, 2, "Property Of", this.jojoPropertyTattoo, slot);
-        this.addButton(this, 3, "Sissy Slut", this.jojoSissySlutTattoo, slot);
-        if (this.player.hasCock() && slot == 2) this.addButton(this, 4, "Cock Here", this.jojoCockGoesHereTattoo, slot);
-        if (this.player.hasVagina()) this.addButton(this, 5, "Mommy's Boy", this.jojoMommysBoyTattoo, slot);
+        this.addButton(0, "Tribal", this.jojoTribalTattoo, slot);
+        this.addButton(1, "Heart", this.jojoHeartTattoo, slot);
+        this.addButton(2, "Property Of", this.jojoPropertyTattoo, slot);
+        this.addButton(3, "Sissy Slut", this.jojoSissySlutTattoo, slot);
+        if (this.player.hasCock() && slot == 2) this.addButton(4, "Cock Here", this.jojoCockGoesHereTattoo, slot);
+        if (this.player.hasVagina()) this.addButton(5, "Mommy's Boy", this.jojoMommysBoyTattoo, slot);
 
-        this.addButton(this, 9, "Back", this.jojoBrandSlotSelect);
+        this.addButton(9, "Back", this.jojoBrandSlotSelect);
     }
 
     public bimboSophieBrandSelect(slot: number): void {
@@ -3592,15 +3592,15 @@ export class FarmCorruption extends AbstractFarmContent {
         this.outputText("What will you draw on her " + this.slotNames[slot] + "?");
 
         this.menu();
-        this.addButton(this, 0, "Tribal", this.bimboSophieTribalTattoo, slot);
-        this.addButton(this, 1, "Heart", this.bimboSophieHeartTattoo, slot);
-        this.addButton(this, 2, "Swallow", this.bimboSophieSwallowTattoo, slot);
-        this.addButton(this, 3, "Property Of", this.bimboSophiePropertyOfTattoo, slot);
-        this.addButton(this, 4, "Breeding Bitch", this.bimboSophieBreedingBitchTattoo, slot);
-        if (slot == 3) this.addButton(this, 5, "Wide Load", this.bimboSophieWideLoadTattoo, slot);
-        if (this.player.hasCock() && slot == 2) this.addButton(this, 6, "Cock Goes Here", this.bimboSophieCockGoesHereTattoo, slot);
+        this.addButton(0, "Tribal", this.bimboSophieTribalTattoo, slot);
+        this.addButton(1, "Heart", this.bimboSophieHeartTattoo, slot);
+        this.addButton(2, "Swallow", this.bimboSophieSwallowTattoo, slot);
+        this.addButton(3, "Property Of", this.bimboSophiePropertyOfTattoo, slot);
+        this.addButton(4, "Breeding Bitch", this.bimboSophieBreedingBitchTattoo, slot);
+        if (slot == 3) this.addButton(5, "Wide Load", this.bimboSophieWideLoadTattoo, slot);
+        if (this.player.hasCock() && slot == 2) this.addButton(6, "Cock Goes Here", this.bimboSophieCockGoesHereTattoo, slot);
 
-        this.addButton(this, 9, "Back", this.bimboSophieSlotSelect);
+        this.addButton(9, "Back", this.bimboSophieSlotSelect);
     }
 
     public vapulaBrandSelect(slot: number): void {
@@ -3609,14 +3609,14 @@ export class FarmCorruption extends AbstractFarmContent {
         this.outputText("What will you draw on her " + this.slotNames[slot] + "?");
 
         this.menu();
-        this.addButton(this, 0, "Tribal", this.vapulaTribalTattoo, slot);
-        this.addButton(this, 1, "Heart", this.vapulaHeartTattoo, slot);
-        this.addButton(this, 2, "Property Of", this.vapulaPropertyOfTattoo, slot);
-        this.addButton(this, 3, "Cum Addict", this.vapulaCumAddictTattoo, slot);
-        if (slot == 2 || slot == 3) this.addButton(this, 4, "Buttslut", this.vapulaButtslutTattoo, slot);
-        if (!this.player.hasCock()) this.addButton(this, 5, "Dildo Polisher", this.vapulaDildoPolisherTattoo, slot);
+        this.addButton(0, "Tribal", this.vapulaTribalTattoo, slot);
+        this.addButton(1, "Heart", this.vapulaHeartTattoo, slot);
+        this.addButton(2, "Property Of", this.vapulaPropertyOfTattoo, slot);
+        this.addButton(3, "Cum Addict", this.vapulaCumAddictTattoo, slot);
+        if (slot == 2 || slot == 3) this.addButton(4, "Buttslut", this.vapulaButtslutTattoo, slot);
+        if (!this.player.hasCock()) this.addButton(5, "Dildo Polisher", this.vapulaDildoPolisherTattoo, slot);
 
-        this.addButton(this, 9, "Back", this.vapulaSlotSelect);
+        this.addButton(9, "Back", this.vapulaSlotSelect);
     }
 
     public kellyBrandSelect(slot: number): void {
@@ -3625,14 +3625,14 @@ export class FarmCorruption extends AbstractFarmContent {
         this.outputText("What will you draw on her " + this.slotNames[slot] + "?");
 
         this.menu();
-        this.addButton(this, 0, "Tribal", this.kellyTribalTattoo, slot);
-        this.addButton(this, 1, "Heart", this.kellyHeartTattoo, slot);
-        this.addButton(this, 2, "Property Of", this.kellyPropertyOfTattoo, slot);
-        this.addButton(this, 3, "No.1 Filly", this.kellyNo1FillyTattoo, slot);
-        if (this.silly()) this.addButton(this, 4, "Dick Won", this.kellyDickWonTattoo, slot);
-        if (slot == 1) this.addButton(this, 5, "Horseshoe", this.kellyHorseshoeTattoo, slot);
+        this.addButton(0, "Tribal", this.kellyTribalTattoo, slot);
+        this.addButton(1, "Heart", this.kellyHeartTattoo, slot);
+        this.addButton(2, "Property Of", this.kellyPropertyOfTattoo, slot);
+        this.addButton(3, "No.1 Filly", this.kellyNo1FillyTattoo, slot);
+        if (this.silly()) this.addButton(4, "Dick Won", this.kellyDickWonTattoo, slot);
+        if (slot == 1) this.addButton(5, "Horseshoe", this.kellyHorseshoeTattoo, slot);
 
-        this.addButton(this, 9, "Back", this.kellySlotSelect);
+        this.addButton(9, "Back", this.kellySlotSelect);
     }
 
     public smallMilkyBrandSelect(slot: number): void {
@@ -3641,15 +3641,15 @@ export class FarmCorruption extends AbstractFarmContent {
         this.outputText("What will you draw on her " + this.slotNames[slot] + "?");
 
         this.menu();
-        this.addButton(this, 0, "Tribal", this.smallMilkyTribalTattoo, slot);
-        this.addButton(this, 1, "Heart", this.smallMilkyHeartTattoo, slot);
-        this.addButton(this, 2, "Butteryfly", this.smallMilkyButterflyTattoo, slot);
-        this.addButton(this, 3, "Property Of", this.smallMilkyPropertyOfTattoo, slot);
-        this.addButton(this, 4, "Bath Toy", this.smallMilkyBathToyTattoo, slot);
-        if (slot == 0) this.addButton(this, 5, "Mega Milk", this.smallMilkyMegaMilkTattoo, slot);
-        if (slot == 0 && this.player.hasCock()) this.addButton(this, 6, "Cock Cozy", this.smallMilkyCockCozyTattoo, slot);
+        this.addButton(0, "Tribal", this.smallMilkyTribalTattoo, slot);
+        this.addButton(1, "Heart", this.smallMilkyHeartTattoo, slot);
+        this.addButton(2, "Butteryfly", this.smallMilkyButterflyTattoo, slot);
+        this.addButton(3, "Property Of", this.smallMilkyPropertyOfTattoo, slot);
+        this.addButton(4, "Bath Toy", this.smallMilkyBathToyTattoo, slot);
+        if (slot == 0) this.addButton(5, "Mega Milk", this.smallMilkyMegaMilkTattoo, slot);
+        if (slot == 0 && this.player.hasCock()) this.addButton(6, "Cock Cozy", this.smallMilkyCockCozyTattoo, slot);
 
-        this.addButton(this, 9, "Back", this.smallMilkySlotSelect);
+        this.addButton(9, "Back", this.smallMilkySlotSelect);
     }
 
     public bigMilkyBrandSelect(slot: number): void {
@@ -3658,14 +3658,14 @@ export class FarmCorruption extends AbstractFarmContent {
         this.outputText("What will you draw on her " + this.slotNames[slot] + "?");
 
         this.menu();
-        this.addButton(this, 0, "Tribal", this.bigMilkyTribalTattoo, slot);
-        this.addButton(this, 1, "Heart", this.bigMilkyHeartTattoo, slot);
-        this.addButton(this, 2, "Property Of", this.bigMilkyPropertyOfTattoo, slot);
-        this.addButton(this, 3, "Bath Toy", this.bigMilkyBathToyTattoo, slot);
-        if (slot == 0) this.addButton(this, 4, "Mega Milk", this.bigMilkyMegaMilkTattoo, slot);
-        if (slot == 0 && this.player.hasCock()) this.addButton(this, 5, "Cock Cozy", this.bigMilkyCockCozyTattoo, slot);
+        this.addButton(0, "Tribal", this.bigMilkyTribalTattoo, slot);
+        this.addButton(1, "Heart", this.bigMilkyHeartTattoo, slot);
+        this.addButton(2, "Property Of", this.bigMilkyPropertyOfTattoo, slot);
+        this.addButton(3, "Bath Toy", this.bigMilkyBathToyTattoo, slot);
+        if (slot == 0) this.addButton(4, "Mega Milk", this.bigMilkyMegaMilkTattoo, slot);
+        if (slot == 0 && this.player.hasCock()) this.addButton(5, "Cock Cozy", this.bigMilkyCockCozyTattoo, slot);
 
-        this.addButton(this, 9, "Back", this.bigMilkySlotSelect);
+        this.addButton(9, "Back", this.bigMilkySlotSelect);
     }
 
     private collarboneIntro(): void {
@@ -3869,7 +3869,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.outputText("\n\nYou tell her she’s done very well, before turning and leaving.");
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private tribalTattoo(slot: number): void {
@@ -3930,7 +3930,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.AMILY_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private jojoTribalTattoo(slot: number): void {
@@ -3959,7 +3959,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.JOJO_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private bimboSophieTribalTattoo(slot: number): void {
@@ -3991,7 +3991,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.SOPHIE_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private vapulaTribalTattoo(slot: number): void {
@@ -4021,7 +4021,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.VAPULA_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private kellyTribalTattoo(slot: number): void {
@@ -4051,7 +4051,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.KELLY_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private smallMilkyTribalTattoo(slot: number): void {
@@ -4090,7 +4090,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.MILKY_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private bigMilkyTribalTattoo(slot: number): void {
@@ -4119,7 +4119,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.MILKY_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private bigMilkyHeartTattoo(slot: number): void {
@@ -4148,7 +4148,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.MILKY_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private bigMilkyPropertyOfTattoo(slot: number): void {
@@ -4177,7 +4177,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.MILKY_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private bigMilkyBathToyTattoo(slot: number): void {
@@ -4206,7 +4206,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.MILKY_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private bigMilkyMegaMilkTattoo(slot: number): void {
@@ -4217,7 +4217,7 @@ export class FarmCorruption extends AbstractFarmContent {
         this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] = tText;
 
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private bigMilkyCockCozyTattoo(slot: number): void {
@@ -4228,7 +4228,7 @@ export class FarmCorruption extends AbstractFarmContent {
         this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] = tText;
 
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private heartTattoo(slot: number): void {
@@ -4289,7 +4289,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.AMILY_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private jojoHeartTattoo(slot: number): void {
@@ -4318,7 +4318,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.JOJO_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private bimboSophieHeartTattoo(slot: number): void {
@@ -4350,7 +4350,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.SOPHIE_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private vapulaHeartTattoo(slot: number): void {
@@ -4380,7 +4380,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.VAPULA_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private kellyHeartTattoo(slot: number): void {
@@ -4410,7 +4410,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.KELLY_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private smallMilkyHeartTattoo(slot: number): void {
@@ -4449,7 +4449,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.MILKY_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private smallMilkyPropertyOfTattoo(slot: number): void {
@@ -4488,7 +4488,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.MILKY_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private smallMilkyBathToyTattoo(slot: number): void {
@@ -4527,7 +4527,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.MILKY_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private smallMilkyMegaMilkTattoo(slot: number): void {
@@ -4539,7 +4539,7 @@ export class FarmCorruption extends AbstractFarmContent {
         this.outputText("“<i>[name],</i>” [bathgirlName] groans with laughter, deep embarrassment coloring her tan cheeks as she looks down at what you’ve written. “<i>Everyone can see that!</i>” That’s the whole point you reply, with a rakish grin. She sighs in exasperation as you kiss her fondly on the forehead and take your leave.");
         this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] = tText;
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private smallMilkyCockCozyTattoo(): void {
@@ -4551,7 +4551,7 @@ export class FarmCorruption extends AbstractFarmContent {
         this.outputText("“<i>[name],</i>” [bathgirlName] groans with laughter, deep embarrassment coloring her tan cheeks as she looks down at what you’ve written. “<i>Everyone can see that!</i>” That’s the whole point you reply, with a rakish grin. She sighs in exasperation as you kiss her fondly on the forehead and take your leave.");
         this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] = tText;
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public numMilkyButterflyTats(): number {
@@ -4649,7 +4649,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.MILKY_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private kellyHorseshoeTattoo(slot: number): void {
@@ -4660,7 +4660,7 @@ export class FarmCorruption extends AbstractFarmContent {
         this.kellyShouldersIntro();
         this.flags[kFLAGS.KELLY_TATTOO_SHOULDERS] = tText;
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private kellyPropertyOfTattoo(slot: number): void {
@@ -4690,7 +4690,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.KELLY_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private kellyNo1FillyTattoo(slot: number): void {
@@ -4720,7 +4720,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.KELLY_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private kellyDickWonTattoo(slot: number): void {
@@ -4750,7 +4750,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.KELLY_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private propertyTattoo(slot: number): void {
@@ -4811,7 +4811,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.AMILY_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private jojoPropertyTattoo(slot: number): void {
@@ -4840,7 +4840,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.JOJO_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private jojoSissySlutTattoo(slot: number): void {
@@ -4869,7 +4869,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.JOJO_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private bimboSophiePropertyOfTattoo(slot: number): void {
@@ -4901,7 +4901,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.SOPHIE_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private vapulaPropertyOfTattoo(slot: number): void {
@@ -4931,7 +4931,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.VAPULA_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private vapulaCumAddictTattoo(slot: number): void {
@@ -4961,7 +4961,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.VAPULA_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private vapulaButtslutTattoo(slot: number): void {
@@ -4972,7 +4972,7 @@ export class FarmCorruption extends AbstractFarmContent {
         this.vapulaLowerBackIntro();
         this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] = tText;
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private vapulaDildoPolisherTattoo(slot: number): void {
@@ -5002,7 +5002,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.VAPULA_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private bimboSophieSwallowTattoo(slot: number): void {
@@ -5034,7 +5034,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.SOPHIE_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private bimboSophieBreedingBitchTattoo(slot: number): void {
@@ -5066,7 +5066,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.SOPHIE_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private bimboSophieCockGoesHereTattoo(slot: number): void {
@@ -5077,7 +5077,7 @@ export class FarmCorruption extends AbstractFarmContent {
         this.bimboSophieLowerBackIntro();
         this.flags[kFLAGS.SOPHIE_TATTOO_LOWERBACK] = tText;
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private bimboSophieWideLoadTattoo(slot: number): void {
@@ -5088,7 +5088,7 @@ export class FarmCorruption extends AbstractFarmContent {
         this.bimboSophieButtIntro();
         this.flags[kFLAGS.SOPHIE_TATTOO_BUTT] = tText;
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private no1Tattoo(slot: number): void {
@@ -5149,7 +5149,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.AMILY_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private champCocksuckerTattoo(slot: number): void {
@@ -5210,7 +5210,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.AMILY_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private jojoCockGoesHereTattoo(slot: number): void {
@@ -5239,7 +5239,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.JOJO_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private amilyMommysGirlTattoo(slot: number): void {
@@ -5269,7 +5269,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.AMILY_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private jojoMommysBoyTattoo(slot: number): void {
@@ -5298,7 +5298,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.JOJO_TATTOO_BUTT] = tText;
         }
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private champPussylickerTattoo(slot: number): void {
@@ -5342,7 +5342,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.outputText("\n\nYou tell her she’s done very well, before turning and leaving.");
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private numAmilyTribalTats(): number {
@@ -5543,7 +5543,7 @@ export class FarmCorruption extends AbstractFarmContent {
             }
         }
 
-        if (doFunctor != undefined) this.addButton(this, 4, "Massage", doFunctor);
+        if (doFunctor != undefined) this.addButton(4, "Massage", doFunctor);
     }
 
     private wantOrgyRoom(): void {
@@ -5566,13 +5566,13 @@ export class FarmCorruption extends AbstractFarmContent {
 
         var noT: string = "No";
         if (this.player.gems >= 2200) {
-            this.addButton(this, 0, "Yes", this.getOrgyRoom);
+            this.addButton(0, "Yes", this.getOrgyRoom);
         }
         else {
             noT = "Too Much";
         }
 
-        this.addButton(this, 1, noT, this.noOrgyRoomPlz);
+        this.addButton(1, noT, this.noOrgyRoomPlz);
     }
 
     private getOrgyRoom(): void {
@@ -5588,7 +5588,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.flags[kFLAGS.QUEUE_ORGYROOM_UPGRADE] = 1;
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private noOrgyRoomPlz(): void {
@@ -5599,7 +5599,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.outputText("\n\n“<i>I can wait,</i>” your taskmistress murmurs, the picture of serenity. “<i>I just don’t know if the knot in your triceps can. It would be a good investment [master], trust me.</i>”");
 
-        this.doNext(this, this.dogeCorruptedMissionComplete);
+        this.doNext(this.dogeCorruptedMissionComplete);
 
         // Orgy Room added to Investments menu
     }
@@ -5638,7 +5638,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.outputText("\n\nReluctantly you pull away before you get too involved, telling her as you head to the door you tell her she had better be prepared for when you come back later to give it a thorough test drive. She just bites her lip to this, and you feel her eyes burning into your back as you leave the farmhouse.");
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private orgyRoomSubMassage(): void {
@@ -5732,11 +5732,11 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.menu();
         if (this.player.lust >= 33 && (this.player.hasCock() && this.player.cockThatFits(this.whitneyVagCapacity() * 1.33) != -1 || this.player.hasVagina())) {
-            this.addButton(this, 0, "Happy Ending", this.orgyRoomSubMassageHappyEnding);
-            this.addButton(this, 1, "Leave", this.camp.returnToCampUseOneHour);
+            this.addButton(0, "Happy Ending", this.orgyRoomSubMassageHappyEnding);
+            this.addButton(1, "Leave", this.camp.returnToCampUseOneHour);
         }
         else {
-            this.addButton(this, 0, "Next", this.camp.returnToCampUseOneHour);
+            this.addButton(0, "Next", this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -5766,8 +5766,8 @@ export class FarmCorruption extends AbstractFarmContent {
 
         //[Male][Female]/[Next]
         this.menu();
-        if (this.player.cockThatFits(this.whitneyVagCapacity() * 1.33) != -1) this.addButton(this, 0, "Male", this.subHappyEndingMale);
-        if (this.player.hasVagina()) this.addButton(this, 1, "Female", this.subHappyEndingFemale);
+        if (this.player.cockThatFits(this.whitneyVagCapacity() * 1.33) != -1) this.addButton(0, "Male", this.subHappyEndingMale);
+        if (this.player.hasVagina()) this.addButton(1, "Female", this.subHappyEndingFemale);
     }
 
     private subHappyEndingMale(): void {
@@ -5870,7 +5870,7 @@ export class FarmCorruption extends AbstractFarmContent {
         this.flags[kFLAGS.MASSAGE_HAPPY_ENDINGS]++;
         this.player.orgasm();
         this.dynStats("sen-", 1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 }

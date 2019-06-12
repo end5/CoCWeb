@@ -40,9 +40,9 @@ export class SuccubusGardenerScenes extends BaseContent {
         this.outputText("The succubus drops to her knees, grabbing a tentacle and thrusting it into wanton sex forcefully enough to make you wince. She doesn't seem to mind, in fact, her lips spread into a wordless 'o' of pleasure as she begins rocking back and forth atop, lost to her own lusts. She's in no state to stop you from moving on. Hell, she's probably going to be busy with the tentacles for a long, long time. You suppose you could try and put her mouth to use, but there are a LOT of tentacles awfully close. It might be best to move on or end her quickly.");
 
         this.menu();
-        this.addButton(this, 0, "End Her", this.endHer);
-        this.addButton(this, 1, "Leave", this.leaveHer);
-        this.addButton(this, 2, "Fuck Her", this.tentaFail);
+        this.addButton(0, "End Her", this.endHer);
+        this.addButton(1, "Leave", this.leaveHer);
+        this.addButton(2, "Fuck Her", this.tentaFail);
     }
 
     private tentaFail(): void {
@@ -105,7 +105,7 @@ export class SuccubusGardenerScenes extends BaseContent {
             this.outputText("\n\nYou cum when it thrusts back in, loosening you further, moulding your twat into the perfectly shaped receptacle for its unending, monstrous needs. Gushing, your pussy gratefully clings to its massive, orange-colored master, getting more and more elastic with every second. Your eyes roll back around your third cunt-clenching climax. You miss the sky vanishing behind clouds of green, writhing stalks, but at least you'll never miss that feeling of <i>fullness</i> ever again.");
 
             this.menu();
-            this.addButton(this, 0, "Next", this.tentaFailII);
+            this.addButton(0, "Next", this.tentaFailII);
         }
         //Dicks
         else {
@@ -134,7 +134,7 @@ export class SuccubusGardenerScenes extends BaseContent {
                 this.outputText("\n\nA few seconds later, the tentacle starts its slow, up-and-down stroking. You moan, giving a nearby vine the opening it needs to force itself into your mouth. It's tough to notice or care compared to the cacophony of signals coming from your crotch. Even your vision seems wasted and useless, the tactile resolution of your dickskin many times greater than your eyes' meager output.");
 
                 this.menu();
-                this.addButton(this, 0, "Next", this.tentaFailII);
+                this.addButton(0, "Next", this.tentaFailII);
                 return;
             }
             // Dicks big enough
@@ -256,7 +256,7 @@ export class SuccubusGardenerScenes extends BaseContent {
         this.outputText("\n\nSuddenly, the supportive arm vanishes, and you're pushed forward, falling straight into the mesh of vines....");
 
         this.menu();
-        this.addButton(this, 0, "Next", this.femGenderlessLossII);
+        this.addButton(0, "Next", this.femGenderlessLossII);
     }
 
     private femGenderlessLossII(): void {
@@ -329,8 +329,8 @@ export class SuccubusGardenerScenes extends BaseContent {
 
         // [Pet][Feeder]
         this.menu();
-        this.addButton(this, 0, "Pet", this.maleLossPet);
-        this.addButton(this, 1, "Feeder", this.maleLossFeeder);
+        this.addButton(0, "Pet", this.maleLossPet);
+        this.addButton(1, "Feeder", this.maleLossFeeder);
     }
 
     private maleLossPet(): void {
@@ -437,7 +437,7 @@ export class SuccubusGardenerScenes extends BaseContent {
 
         //[Next]
         this.menu();
-        this.addButton(this, 0, "Next", this.maleLossPetII);
+        this.addButton(0, "Next", this.maleLossPetII);
     }
 
     private maleLossPetII(): void {
@@ -480,7 +480,7 @@ export class SuccubusGardenerScenes extends BaseContent {
 
         //[Next]
         this.menu();
-        this.addButton(this, 0, "Next", this.maleLossPetIII);
+        this.addButton(0, "Next", this.maleLossPetIII);
     }
 
     private maleLossPetIII(): void {
@@ -547,7 +547,7 @@ export class SuccubusGardenerScenes extends BaseContent {
         this.outputText(". <i>\"Oh, you'll have more soon enough: more pleasure... more sap... and more orgasms than you'll know what to do with. You're going to make fine fertilizer for my pets. Lethice will be pleased.\"</i> She laps at the alabaster treat and sighs. <i>\"Pleased indeed. It is more rich than I thought.\"</i> She pauses as if considering something, then shakes her head. <i>\"Perhaps I will use you later. For now, I think you are eager for my pets' attentions. Why don't you get acquainted?\"</i>");
         //[Next]
         this.menu();
-        this.addButton(this, 0, "Next", this.maleLossFeederII);
+        this.addButton(0, "Next", this.maleLossFeederII);
     }
 
     private maleLossFeederII(): void {

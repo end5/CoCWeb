@@ -24,7 +24,7 @@ export class Amily extends Monster {
         var dodged: number = 0;
         var damage: number;
         //return to combat menu when finished
-        this.doNext(this, this.game.playerMenu);
+        this.doNext(this.game.playerMenu);
         //Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Amily.rand(3) < 2) {
             this.outputText(this.capitalA + this.short + " completely misses you with a blind attack!\n", false);
@@ -102,7 +102,7 @@ export class Amily extends Monster {
         var dodged: number = 0;
         var damage: number = 0;
         //return to combat menu when finished
-        this.doNext(this, this.game.playerMenu);
+        this.doNext(this.game.playerMenu);
         //Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Amily.rand(3) < 2) {
             dodged++;

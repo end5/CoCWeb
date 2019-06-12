@@ -230,13 +230,13 @@ export class GoblinAssassinScene extends BaseContent {
         if (this.player.lust >= 33 && this.player.gender > 0 && (fitsFuck != undefined || cuntFuck != undefined || tooBig != undefined ||
             corruptTooBig != undefined || buttseks != undefined || feeder != undefined || spiderCondom != undefined || eggs != undefined)) {
             this.outputText("\n\n<b>What do you do to her, and if anything, which of your body parts do you use?</b>", false);
-            this.choices(this, "Dick Fuck", fitsFuck, "DickTooBig", tooBig, "CorruptDick", corruptTooBig, "Dick In Ass", buttseks, "Jog Fuck", jog, "Breastfeed", feeder, "Web Condom", spiderCondom, "Pussies", cuntFuck, "Lay Eggs", eggs, "Leave", this.cleanupAfterCombat);
+            this.choices("Dick Fuck", fitsFuck, "DickTooBig", tooBig, "CorruptDick", corruptTooBig, "Dick In Ass", buttseks, "Jog Fuck", jog, "Breastfeed", feeder, "Web Condom", spiderCondom, "Pussies", cuntFuck, "Lay Eggs", eggs, "Leave", this.cleanupAfterCombat);
         }
         else if (feeder != undefined || eggs != undefined) {
             this.outputText("\n\n<b>You aren't horny enough to rape her, but ");
             if (feeder != undefined) this.outputText("your nipples ache with the desire to feed her your milk.  Do you feed her milk or leave?</b>", false);
             else this.outputText("your abdomen aches with the desire to impregnate her full of insect eggs.  Do you?</b>");
-            this.simpleChoices(this, "Feed", feeder, "Lay Eggs", eggs, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
+            this.simpleChoices("Feed", feeder, "Lay Eggs", eggs, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
             //doYesNo(feeder,cleanupAfterCombat);
         }
         else {

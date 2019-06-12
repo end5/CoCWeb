@@ -54,7 +54,7 @@ export class BeeGirlScene extends BaseContent {
         if (this.player.hasKeyItem("Traveler's Guide") >= 0 && this.player.inte / 2 > BeeGirlScene.rand(40)) {
             this.outputText("You suddenly remember a passage from the Traveler's Guide about monstrous bees that lay eggs in unmentionable places.  Of course, a brave champion would face any danger.\n\n<b>Do you proceed?</b>");
             //Yes goes to beeEncounterLevel2(), no goes to camp
-            this.simpleChoices(this, "Yes", this.beeEncounterSelect, "", undefined, "", undefined, "", undefined, "Back", this.camp.returnToCampUseOneHour);
+            this.simpleChoices("Yes", this.beeEncounterSelect, "", undefined, "", undefined, "", undefined, "Back", this.camp.returnToCampUseOneHour);
         }
         //If not smart enough, proceed.
         else this.beeEncounterSelect(false);
@@ -108,7 +108,7 @@ export class BeeGirlScene extends BaseContent {
                     //Chance to avoid raaaaeeeeep
                     if ((this.player.lib + this.player.cor < 140) || BeeGirlScene.rand(2) == 0) {
                         this.outputText("You barely stop yourself from gleefully throwing yourself into her arms.  You realize the harmonic buzzing of her wings and the unearthly scent of her honey briefly robbed you of your reason.  Feeling momentarily more clear-headed, what do you do?");
-                        this.simpleChoices(this, "Fight", this.fightTheBeeGirl, "Talk", this.beeTalk, "Seduce", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+                        this.simpleChoices("Fight", this.fightTheBeeGirl, "Talk", this.beeTalk, "Seduce", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
                     }
                     else this.beeEncounterClassic(false);
             }
@@ -125,7 +125,7 @@ export class BeeGirlScene extends BaseContent {
         //Chance to avoid raaaaeeeeep
         if ((this.player.lib + this.player.cor < 140) || BeeGirlScene.rand(2) == 0) {
             this.outputText("\n\nYou just barely hold yourself back and shake your head to clear the smell and buzzing from your mind.  Something about your " + (isBeeMorph ? "new bee body seems to have drawn" : "massive member has attracted") + " her attention, and she is staring at your crotch in anticipation.  You steady yourself and decide what you should do next.");
-            this.simpleChoices(this, "Fight", this.fightTheBeeGirl, "Sex", this.beeSexForCocks, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+            this.simpleChoices("Fight", this.fightTheBeeGirl, "Sex", this.beeSexForCocks, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
         }
         else this.beeSexForCocks(false);
     }
@@ -139,19 +139,19 @@ export class BeeGirlScene extends BaseContent {
             this.outputText("You catch yourself staring at her for a few moments before you collect yourself.  She seems harmless enough, and it does seem like it will be fun to enjoy what she has to offer.");
         else this.outputText("You grin at the thought, it would certainly be fun fucking her, but maybe it would be even more fun to force yourself on her?");
         this.outputText("  What will you do?");
-        this.simpleChoices(this, "Fight", this.fightTheBeeGirl, "Play", this.beeMaidenPlay, "", undefined, "", undefined, "Leave", this.beeEncounterAsBeeMorphFemaleLeave);
+        this.simpleChoices("Fight", this.fightTheBeeGirl, "Play", this.beeMaidenPlay, "", undefined, "", undefined, "Leave", this.beeEncounterAsBeeMorphFemaleLeave);
     }
 
     private beeEncounterAsBeeMorphFemaleLeave(): void {
         this.spriteSelect(6);
         this.outputText("\n\nYou shake your head at her, and she gives you a look of disappointment.  You’re a little disappointed yourself, but you already decided to leave.  You turn away from the bee and resume your explorations.  Nothing else of note happens over the rest of the hour.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private beeEncounterAfraid(): void {
         this.outputText(" in the light.\n\n");
         this.outputText("Her face breaks into a smile at the sight of you.  Her buzzing dies down and you notice that the mind numbing smell in the glade isn’t as strong as you were last here.  The handmaiden turns to the side and shows you that her bee abdomen is quite slender today; it doesn’t look like she has any eggs this time.  <i>“Zzzo, the queen hazzz zzzaid that we can try a little experiment with you, if thingzzz work out, maybe we won’t use zzzo much buzzzing and honey.”</i>  She giggles, <i>“Firzzzt time, no eggzzz, zzzo you don’t have to worry.  Are you ready to have zzzome fun?”</i>");
-        this.simpleChoices(this, "Fight", this.fightTheBeeGirl, "Have Sex", this.beeEncounterAfraidFirstTimeSex, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+        this.simpleChoices("Fight", this.fightTheBeeGirl, "Have Sex", this.beeEncounterAfraidFirstTimeSex, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     private beeEncounterAfraidFirstTimeSex(): void {
@@ -188,13 +188,13 @@ export class BeeGirlScene extends BaseContent {
             this.outputText("You aren’t able to regain your wits until she has pulled back out of you and sent you on your way back to camp.  The whole situation was very vivid now that you’ve had a chance to think about it.  You know you came at least 3 times from her tongue, that she told you to come back soon for the full experience next time, and that you actually feel better than you have in a long time!\n\n");
         }
         this.player.orgasm();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private beeEncounterAfraidRepeat(): void {
         this.outputText(" in the light.\n\n");
         this.outputText("Her face breaks into a smile at the sight of you and her buzzing dies down.  Once again, the smell in the grove is much weaker than it was when you first came to this grove.  Those same flowers have been scattered around to ease off on the scent’s mind affecting powers.  She turns to the side to give you a full view of her now swollen abdomen and gives it a gentle pat.  <i>“Are you ready to carry zzzome eggzzz now?  I won’t hurt you, and I promizzzizz I won’t uzzze my buzzzing and honey to make you do it.  Thezzze where zzzaved zzzpecially for you, and I’ve got a little gift for you too if you zzzay yezzz.  Are you up for a little zzzex and eggzzz up your butt?”</i>");
-        this.simpleChoices(this, "Fight", this.fightTheBeeGirl, "Have Sex", this.beeEncounterAfraidRepeatSex, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+        this.simpleChoices("Fight", this.fightTheBeeGirl, "Have Sex", this.beeEncounterAfraidRepeatSex, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     private beeEncounterAfraidRepeatSex(): void {
@@ -252,13 +252,13 @@ export class BeeGirlScene extends BaseContent {
     private beeEncounterDisgusted(): void {
         this.outputText(" in the light.\n\n");
         this.outputText("Her face breaks into a frown at the sight of you.  At once her buzzing stops and she looks at you and says <i>“Oh, it’zzz you again, juzzzt go away; I need to find zzzomeone that actually will carry my queen’zzz eggzzz.”</i>  Your mind is pulled from its stupor, as she directs you out of the clearing with a dismissive look.");
-        this.simpleChoices(this, "Fight", this.fightTheBeeGirl, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+        this.simpleChoices("Fight", this.fightTheBeeGirl, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     private beeEncounterDuty(): void {
         this.outputText(" in the light.\n\n");
         this.outputText("Her face breaks into a smile and her buzzing dies down.  You shake your head slightly to clear away the effect that you were under and look back at the smiling bee girl.");
-        this.simpleChoices(this, "Fight", this.fightTheBeeGirl, "Talk", this.beeEncounterDutyTalk, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+        this.simpleChoices("Fight", this.fightTheBeeGirl, "Talk", this.beeEncounterDutyTalk, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     private beeEncounterDutyTalk(): void {
@@ -266,28 +266,28 @@ export class BeeGirlScene extends BaseContent {
         this.spriteSelect(6);
         this.outputText("The handmaiden seems to be quite happy to talk to you for a little while.  She is quite interested in the tales you have to share, and you have a chance to hear a bit about the world from her.  After the two of you have been talking for awhile, you notice that she has been running her hand over her lady bits and you ask her about it.  <i>“Oh?  Well, I’m juzzzt zzzo horny right now, do you think you could help me out with that?  You can keep zzzome of the honey for later, and it could do zzzome incredible thingzzz to you.”</i>  Do you take her up on her offer?”</i>");
         if (this.player.inte < 50) this.dynStats("int", 0.5);
-        this.doYesNo(this, this.freeHoneyEvent, this.beeEncounterDutyLeave);
+        this.doYesNo(this.freeHoneyEvent, this.beeEncounterDutyLeave);
     }
 
     private beeEncounterDutyLeave(): void {
         this.clearOutput();
         this.spriteSelect(6);
         this.outputText("You decline her offer, and shortly afterwards you take your leave to return to camp.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private beeEncounterSheFearsYou(): void {
         this.outputText(" in the light.\n\n");
         this.outputText("Her mouth opens wide in panic as she catches sight of you.  She drops the flower and starts to draw back yelling <i>“Pleazzze don't hurt me again!  I won't try to lay eggzzz in you any more, just let me go!”</i>\n\n");
         this.outputText("What will you do with her?");
-        this.simpleChoices(this, "Fight", this.fightTheBeeGirl, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+        this.simpleChoices("Fight", this.fightTheBeeGirl, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     private beeEncounterSheDesiresYou(): void {
         this.outputText(" in the light.\n\n");
         this.outputText("Her mouth opens wide in panic as she catches sight of you.  She drops the flower and starts to draw back yelling <i>“No!  I won't give in to the dezzzire!  Go away!”</i>\n\n");
         this.outputText("What will you do with her?");
-        this.simpleChoices(this, "Fight", this.fightTheBeeGirl, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+        this.simpleChoices("Fight", this.fightTheBeeGirl, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
     }
 
     private beeEncounterSheBeatsYouRegularly(): void {
@@ -295,7 +295,7 @@ export class BeeGirlScene extends BaseContent {
         this.outputText("Her mouth breaks out in a grin at the sight of you.  <i>“Hello again naughty " + this.player.mf("boy", "girl") + ",”</i> her buzzing really starting to get inside your head as she stands up and beckons to you.  <i>“Juzzzt make it eazzier on yourzzzelf and let me lay my eggzzz in you.  No fuzzzzz, no fighting.  Just let yourzzzelf be carried away.”</i>\n\n");
         if ((this.player.lib + this.player.cor < 70) || BeeGirlScene.rand(4) == 0) { //Chance to avoid raaaaeeeeep
             this.outputText("With great difficulty you manage to stop yourself from throwing yourself into her arms.  Losing to this girl isn’t helping you resist her charms at all.  You’re finding It harder and harder to fight the call of her incredible song and unnatural scent, it may be wise to run now; but what will you do now that you have your senses again?");
-            this.simpleChoices(this, "Fight", this.fightTheBeeGirl, "Talk", this.beeEncounterSheBeatsYouRegularlyTalk, "", undefined, "", undefined, "Run", this.camp.returnToCampUseOneHour);
+            this.simpleChoices("Fight", this.fightTheBeeGirl, "Talk", this.beeEncounterSheBeatsYouRegularlyTalk, "", undefined, "", undefined, "Run", this.camp.returnToCampUseOneHour);
         }
         else {
             this.outputText("Unable to control yourself in her presence, you throw yourself into her arms and she lifts you up a little into the air before setting you face down onto the flower and landing on your back.  <i>“That’zzz the way it should be, it’zzz zzzo much easier when you juzzzt let go.  Are you ready?”</i>");
@@ -312,7 +312,7 @@ export class BeeGirlScene extends BaseContent {
 
     private beeEncounterSheBeatsYouRegularlyLastChance(): void {
         if ((this.player.lib + this.player.cor < 70) || BeeGirlScene.rand(4) == 0) { //Chance to avoid raaaaeeeeep
-            this.doYesNo(this, this.beeEncounterSheBeatsYouRegularlyAndYouLetHerLaysEggs, this.beeEncounterSheBeatsYouRegularlyDontLetHer);
+            this.doYesNo(this.beeEncounterSheBeatsYouRegularlyAndYouLetHerLaysEggs, this.beeEncounterSheBeatsYouRegularlyDontLetHer);
         }
         else {
             this.outputText("\n\nThanks to her wiles, you can’t think of any reason why you shouldn’t be.");
@@ -324,7 +324,7 @@ export class BeeGirlScene extends BaseContent {
         this.clearOutput();
         this.spriteSelect(6);
         this.outputText("You barely manage to shake off her wiles and roll to the side.  You give her one last look before picking yourself up and running away from the clearing.  That really could have gone better.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private beeEncounterSheBeatsYouRegularlyAndYouLetHerLaysEggs(clearScreen: boolean = true): void {
@@ -358,7 +358,7 @@ export class BeeGirlScene extends BaseContent {
         this.player.slimeFeed();
         if (BeeGirlScene.rand(2) == 0) this.player.buttKnockUp(PregnancyStore.PREGNANCY_BEE_EGGS, PregnancyStore.INCUBATION_BEE, 1, 1); //Anal bee pregnancy!
         this.player.buttChange(25, true);
-        this.doNext(this, this.camp.returnToCampUseFourHours);
+        this.doNext(this.camp.returnToCampUseFourHours);
     }
 
     private beeEncounterWithExgartuan(): void {
@@ -367,7 +367,7 @@ export class BeeGirlScene extends BaseContent {
             this.outputText("Your " + this.cockDescript(0) + " wriggles free of your " + this.player.armorName + ", as you keep walking forward.  A bodiless voice yells, \"<i>Honeypot, honeypot, ME LOOOOVE HONEYPOOOOOT!</i>\"\n\n");
             this.outputText("The bee-girl's eyes widen at the sight, shocked by your over-endowed form being dragged towards her as if there were a magnet in your " + this.cockDescript(0) + ".  She presses herself against the flower's petals, terrified and afraid to put up any meaningful resistance.  The nagging voice pipes up, \"<i>So are we gonna rape her or what, " + this.player.short + "?  I need some honeyyy!</i>\"\n\n");
             this.outputText("She seems too surprised to resist.  Will you go along with Exgartuan and rape her?");
-            this.doYesNo(this, this.getGame().exgartuan.exgartuanBeeRape, this.camp.returnToCampUseOneHour);
+            this.doYesNo(this.getGame().exgartuan.exgartuanBeeRape, this.camp.returnToCampUseOneHour);
         }
         else {
             this.outputText("The bee-girl's eyes widen at the sight,  shocked by your over-endowed form being dragged towards her as if there were a magnet in your " + this.cockDescript(0) + ".   She flutters into the air and aims her stinger towards you, ready to fight!");
@@ -385,7 +385,7 @@ export class BeeGirlScene extends BaseContent {
         this.outputText("She lifts off, hovering a few feet off the ground.  <i>“Good luck getting rid of thozzze thingzzz.  When you do, come find me and I'll fill you zzzo full of lovely eggzzz,”</i> she promises, her fingers idly stroking her sex.  She shakes her head, deliberately getting control of herself and forcing her fingers away from her slit, then flies up through a hole in the canopy.\n\n");
         this.outputText("Alone and aroused, all you can do is put your clothes back on and travel back to your camp, hoping no imps ambush you on the way.");
         this.dynStats("lus", 0.5 * this.player.lib + 20);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private fightTheBeeGirl(): void {
@@ -613,7 +613,7 @@ export class BeeGirlScene extends BaseContent {
         }
         if (postCombat)
             this.cleanupAfterCombat(this.camp.returnToCampUseFourHours);
-        else this.doNext(this, this.camp.returnToCampUseFourHours);
+        else this.doNext(this.camp.returnToCampUseFourHours);
     }
 
     public beeSexForCocks(clearScreen: boolean = true): void {
@@ -634,7 +634,7 @@ export class BeeGirlScene extends BaseContent {
             this.outputText("She gently sets you down onto the flower onto your back, such that you can sit comfortably and your " + this.player.multiCockDescriptLight() + " can point straight up.  Your addled mind does notice that the bee seems to be constantly glancing at your massive erection and sneaking touches of it.  She seems incredibly eager for some reason, but is holding herself back.\n\n");
             this.outputText("She takes one more longing look at your flesh before going to her bag and rummaging around in it.  She takes out a small bottle and looks back at you for a moment, before slipping the bottle into her dripping honeypot.  She straightens up and looks at you once more, her breath coming in short gasps as she runs a finger over her black luscious lips.  <i>“You’re zzzuch a wonderfully big boy!”</i>  she exclaims, <i>“" + (this.player.cocks[0].cockType == CockTypesEnum.BEE ? "Keep drinking your zzzpezzzial honey and zzzoon you’ll be ready" : "With thizzz zzzpezzzial honey, you’ll zzzoon be even better") + ".”</i>  Given the state of your mind, you can’t do much else other than nod to her.\n\n");
             this.menu();
-            this.addButton(this, 0, "Next", this.beeSexForCocksPart2, giantCockIndex);
+            this.addButton(0, "Next", this.beeSexForCocksPart2, giantCockIndex);
         }
         else {
             this.outputText("You throw yourself into her arms and take a deep breath of her sweet smelling honey.  Nothing else matters but the body that has you in its embrace.  Soon the whole of your " + this.player.skinDesc + " tastes the air around you as your " + this.player.armorName + " falls away from your body.  Your insectoid lover turns your body to the side in her arms, and sets you sideways atop her legs.\n\n");
@@ -710,7 +710,7 @@ export class BeeGirlScene extends BaseContent {
             this.outputText("  Nodding in approval, the bee girl takes your hand and the two of you fly into the sky, the handmaiden leading you to your new home.\n\n");
         }
         this.outputText("She takes you high over the trees and for a brief while you get a chance to observe the twisting landscape of the forest below you.  Your observations of the forest don’t last too long, as thoughts of meeting the bee queen soon override your curiosity.  You don’t spare another thought to what might be your last time seeing the outside world.");
-        this.doNext(this, this.beeDroneBadEndPart2);
+        this.doNext(this.beeDroneBadEndPart2);
     }
 
     private beeDroneBadEndPart2(): void {
@@ -720,7 +720,7 @@ export class BeeGirlScene extends BaseContent {
         this.outputText("Now free to move on, the two of you move deeper into the bee hive.  The whole place is a rush of activity.  None of the bees are ever seen at rest, humanoid or otherwise.  The small bees are constantly bringing in nectar for the hive, while the humanoid ones are busy turning the stuff into honey, storing it, or guarding the others.  The ones making the honey are really big bees, at least around the middle.  They gorge themselves on the nectar brought by the small bees, and the excrete honey in great quantities out of exaggerated bee womanhoods.  None of them spare you a glance now that you’re inside, they’re completely unlike the relaxed and loving handmaiden you’ve been spending your time with up until now.  Then again, none of them are quite as beautiful or as shapely as her either, so it isn’t like you’re complaining.\n\n");
         this.outputText("The most interesting thing you see as you continue deeper into the hive is what looks like a nursery of sorts.  Some of the smaller bees you saw flying all over the place before are being mixed into hexagonal tubs of a strange thick fluid being secreted by more bee girls.  These ones have much larger breasts than the other bees you’ve seen, while having almost nothing in the way of hips.  When you first saw the bees, you thought their chest accessories were only for show, but it seems that at least one type has a use for them as the caretakers are filling the tubs with whatever bee milk would be called.  Some of the tubs are being brought off to other parts of the hive.  <i>“They’re being taken off to become new partzzz of the hive,”</i> your companion explains, <i>“and in a few monthzzz, they’ll grow into adult beezzz like me.”</i>  She points at one of the tubs where a red fluid is being mixed in along with the thick stuff, <i>“Thozzze beezzz will become the queenzzz handmaidens. Thozzze onezzz will be guards, those caretakers, and those honeybrewers,”</i> she continues while pointing to other tubs in turn.\n\n");
         this.outputText("You listen in fascination, but the pain in your massive bee member starts to draw your attention again and you can’t help but put your hands to it.  Your guide gasps when she sees you do so and starts to apologize furiously to you, <i>“I’m zzzoo zzzorry, I got zzzo exzzzited about zhowing you around my home that I forgot why we came here in the firzzzt plazzze.  Come on, thizzz way.”</i>  She leads you to the back of the nursery room and into a sort of grand hallway, filled with bee guards.  The guards eye you uncomfortably, but the presence of your guide seems to keep them placated as you move down the hallway.\n\n");
-        this.doNext(this, this.beeDroneBadEndPart3);
+        this.doNext(this.beeDroneBadEndPart3);
     }
 
     private beeDroneBadEndPart3(): void {
@@ -731,7 +731,7 @@ export class BeeGirlScene extends BaseContent {
         this.outputText("Ah yes, the queen.  The centerpiece of all of this sexual diorama is the queen herself, and everything about her is simply huge.  She stands at least 12 feet tall, probably more.  She has a beautiful but not necessarily delicate build.  If you had to describe her, a slightly thicker scaled up version of your bee companion wouldn’t be too far off when describing everything but her face and abdomen.  Her face is, motherly but stern, regal but still kind.  Just looking into her deep black eyes is enough to set your mind at peace, and the sight of her luscious black lips smiling down at you sends your heart fluttering.  Atop her head is a massive amount of hair done up in an elaborate set of braids, bands, and knots.  Her luscious and beautifully styled black and yellow hair is probably the most beautiful hair you’ve ever seen.\n\n");
         this.outputText("Her other major feature is her abdomen, and it is probably the most notable part of her.  The thing is nearly as tall as the bee queen’s humanoid body, and just as wide.  It extends at least 30 feet out from the queen’s body.  There are two major factors about her abdomen.  First, is that it is ringed with numerous slits of varying sizes, and given that the majority of the male bees are eagerly and frantically thrusting their massive manhoods into these slits, you’d guess that they’re her vaginas.  Second, is the handmaiden that is currently being screwed by a fairly large phallic stinger on the end of it.  Though, admittedly the eighteen inch long by two and a half inch wide stinger pales in comparison to the phalluses that the male bees have.\n\n");
         this.outputText("The room is a fairly large dome with a shallow bowl built into the middle of the room.  At the bottom of which rests the queen.  The rest of the bees are scattered about the room.  The only other thing worth mentioning about the place is the smell.  You never noticed until now how most of the hive was free of the incredibly arousing and mind numbing smell of honey that usually surrounds your bee friend, it is back in force in this room.  Not only that, you also just realized that this is the only place you’ve seen male bees, all the workers in the rest of the hive were female.\n\n");
-        this.doNext(this, this.beeDroneBadEndPart4);
+        this.doNext(this.beeDroneBadEndPart4);
     }
 
     private beeDroneBadEndPart4(): void {
@@ -760,13 +760,13 @@ export class BeeGirlScene extends BaseContent {
             if (this.player.cor > 66) this.outputText("Looking at her through lust-tinted eyes, you're sure she can deliver on her offer.  Getting closer to her scent alone would be worth bearing a few eggs...");
             this.outputText("\n\nDo you accept her offer?");
             this.attitude = BeeGirlScene.BEE_GIRL_TALKED; //Replaced beeProgress
-            this.doYesNo(this, this.beeEncounterClassic, this.camp.returnToCampUseOneHour);
+            this.doYesNo(this.beeEncounterClassic, this.camp.returnToCampUseOneHour);
         }
         else {
             //If you get lucky, chance for free honey and -corruption in exchange for lust.
             if (BeeGirlScene.rand(2) == 0) {
                 this.outputText("\"<i>Awww, it zzzeemz you've caught me with my 'pants' down,</i>\" she giggles, \"<i>I'm all out of eggzzz.</i>\"  She pats her smaller-sized abdomen for a moment, thinking.\n\nHer eyes light up with inspiration, \"<i>Zzzince I'm ztill zzzo horny, would you like pure undiluted honey? Itzzz very good,</i>\" she says, spreading her legs and exposing the source of the scent – her puffy black vulva dripping with sticky amber fluid.\n\nDo you collect her honey?");
-                this.doYesNo(this, this.freeHoneyEvent, this.camp.returnToCampUseOneHour);
+                this.doYesNo(this.freeHoneyEvent, this.camp.returnToCampUseOneHour);
             }
             //If you get unlucky you just get the choice of getting egg-laid.
             else {
@@ -777,7 +777,7 @@ export class BeeGirlScene extends BaseContent {
                 if (this.player.cor >= 33 && this.player.cor <= 66) this.outputText("Her offer intrigues you, and the arousing sweetness of her scent makes it difficult to resist.");
                 if (this.player.cor > 66) this.outputText("Looking at her through lust-tinted eyes, you're sure she can deliver on her offer.  Getting closer to her scent alone would be worth bearing a few eggs...");
                 this.outputText("\n\nDo you accept her offer?");
-                this.doYesNo(this, this.beeEncounterClassic, this.beeEncounterRefusedHerEggs);
+                this.doYesNo(this.beeEncounterClassic, this.beeEncounterRefusedHerEggs);
             }
         }
     }
@@ -789,7 +789,7 @@ export class BeeGirlScene extends BaseContent {
                 this.outputText("\n\nThe handmaiden stands up on the flower, and puts her hands on her hips.  <i>“Why not?  Thizzz will be abzzzolutly wonderful for you, I promizzze.  Why won’t you aczzzept me?”</i> she pouts through her glossy lips.\n\n");
                 this.outputText("You stop for a moment and wonder exactly why you’ve refused her up until now.  Is it because you are afraid of her and the effect she has on your mind?  Is it because the idea of her eggs inside you is disgusting?  Is it because of your duty as a champion?  Or are you just going to leave her there wondering?");
                 this.dynStats("lus", 5 + this.player.lib / 25);
-                this.simpleChoices(this, "Afraid", this.beeEncounterRefusedHerEggsAfraid, "Disgusted", this.beeEncounterRefusedHerEggsDisgusted, "Duty", this.beeEncounterRefusedHerEggsDuty, "", undefined, "Leave", this.beeEncounterRefusedHerEggsLeave);
+                this.simpleChoices("Afraid", this.beeEncounterRefusedHerEggsAfraid, "Disgusted", this.beeEncounterRefusedHerEggsDisgusted, "Duty", this.beeEncounterRefusedHerEggsDuty, "", undefined, "Leave", this.beeEncounterRefusedHerEggsLeave);
                 return;
             case BeeGirlScene.BEE_GIRL_TALKED_AND_LEFT:
                 this.attitude = BeeGirlScene.BEE_GIRL_TALKED_AND_LEFT_TWICE; //Same text as for first time you talked and left, just update attitude
@@ -799,7 +799,7 @@ export class BeeGirlScene extends BaseContent {
         }
         this.outputText("\n\nHer face falls at your refusal, but she makes no move against you.  <i>“Okay, I won’t try to forzzze you, maybe you’ll be more willing next time?”</i>  You give a half hearted chuckle before going back to your camp.");
         this.dynStats("lus", 5 + this.player.lib / 25);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private beeEncounterRefusedHerEggsAfraid(): void {
@@ -807,7 +807,7 @@ export class BeeGirlScene extends BaseContent {
         this.attitude = BeeGirlScene.BEE_GIRL_PLAYER_AFRAID;
         this.outputText("\n\nYou move away from her and explain that it isn’t that you don’t like the idea of bearing the eggs, it’s that you’re afraid of the effect she has on your mind.  You’re uncomfortable that you can’t think clearly around her, and you really can’t agree to anything when you can’t remember it and thus can’t really enjoy it.  She tips her head to the side in surprise, before pursing her glossy lips in worry and saying, <i>“Really?  You mean there are people who don’t like it when they lozzze themzzzelvezzz?  Hmm, maybe I should tell my queen about thizzz.”</i>  She smiles back at you and starts to fly away, before stopping in midair and floating over to you and saying <i>“Come back another time, and maybe I can work out zzzomething you’ll be comfortable with, ok?”</i>");
         this.dynStats("lus", 5 + this.player.lib / 25);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private beeEncounterRefusedHerEggsDisgusted(): void {
@@ -815,7 +815,7 @@ export class BeeGirlScene extends BaseContent {
         this.attitude = BeeGirlScene.BEE_GIRL_PLAYER_DISGUSTED;
         this.outputText("\n\nYou tell her that you find the idea of her laying eggs in you repulsive, and that you’re tired of her trying to constantly tempt you into accepting against your will.  She gives you an annoyed look before stomping her foot down on the flower she is standing on, almost causing her to tumble over to the side while saying, <i>“Fine, ah!”</i> before righting herself with her wings.  <i>“If I ever zzzee you again, you can forget about getting a good time.”</i>  Before directing you away from the clearing.  You smile as you leave, now you don’t have to worry about her song getting to you anymore.");
         this.dynStats("lus", 5 + this.player.lib / 25);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private beeEncounterRefusedHerEggsDuty(): void {
@@ -825,14 +825,14 @@ export class BeeGirlScene extends BaseContent {
 
         this.outputText("The bee girl nods and seems to smile in understanding.  <i>“I zzzee, I’m bound to a duty too.  I have to find people to lay my queen’zzz eggzzz.  If you have a duty too, I won’t get in your way, and I won’t forzzze you to carry them.”</i>  You thank the bee girl for her considerations and apologize that you can’t help her more directly.  She smiles at you and says, <i>“That’zzz ok champion; if you ever want to just talk, feel free to come vizzzit.  Our queen is againzzzt the demon, zzzo we will zzzuport you in our heartzzz.”</i>");
         this.dynStats("lus", 5 + this.player.lib / 25);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private beeEncounterRefusedHerEggsLeave(): void {
         this.spriteSelect(6);
         this.outputText("\n\nYou aren’t going to deal with this girl right now, so you just turn and walk away.");
         this.dynStats("lus", 5 + this.player.lib / 25);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     /* Not called anywhere
@@ -876,7 +876,7 @@ export class BeeGirlScene extends BaseContent {
             this.outputText("The sudden stimulation is rather jarring, and makes you jam your finger inside her as well, eliciting a rather happy sound from your partner that is something between a buzz and a moan while you feel a spray of honey fly onto your bare crotch.  Fortunately you won’t be left disappointed in this love making session.  Her orgasm brings an odd buzz to her whole body and the feel of her vibrating finger in your depths pushes you well over the edge as well.");
         }
         this.player.orgasm();
-        this.doNext(this, this.beeMaidenConversation);
+        this.doNext(this.beeMaidenConversation);
     }
 
     private beeMaidenConversation(): void {
@@ -910,11 +910,11 @@ export class BeeGirlScene extends BaseContent {
                 this.conversation = 4;
                 this.outputText("After relaxing in a familiar scene once again, you turn to your partner and ask her why she ran off so fast last time that she left her things behind.  She lightly smacks her forehead with both hands before saying, <i>“Oh thatzzz right!  I got zzzomething for you to take.”</i>  She fishes around inside her pack for a moment before extracting something that looks like a soft candy.  A distinctive smell of honey comes off of it, different from the usual honey that comes out of this girl.  <i>“Take thizzz.  It’ll let you hear the voizzze of our mother, and then you won’t ever have to run around without being a part of a hive again.”</i>\n\n");
                 this.outputText("Something about that sounded a bit ominous to you, but nevertheless, will you take the candy and do what she says?");
-                this.doYesNo(this, this.beeMaidenFertileBeeBadEnd, this.beeMaidenConversationRejectCandy);
+                this.doYesNo(this.beeMaidenFertileBeeBadEnd, this.beeMaidenConversationRejectCandy);
                 break;
             default:
                 this.outputText("You lie down on the flower relaxing after the now familiar feel of having sex with the bee girl.  You’ve done this so many times now, it you sometimes forget how different she is from you.  Predictably when you get back up, she once again presents the honey candy and asks you if you’ll join her hive again.  If you reject it, things are likely to turn out the exact same, but you’re certain that taking it will fundamentally change you.  Will you eat it and follow the bee’s instructions anyway?");
-                this.doYesNo(this, this.beeMaidenFertileBeeBadEnd, this.beeMaidenConversationRejectCandy);
+                this.doYesNo(this.beeMaidenFertileBeeBadEnd, this.beeMaidenConversationRejectCandy);
         }
     }
 
@@ -925,7 +925,7 @@ export class BeeGirlScene extends BaseContent {
         this.outputText("Your energy rapidly fades as more of your body changes.  <i>“Clozzze your eyezzz,”</i> you hear the girl say.  With the weariness in your body and the intense dizziness you’re feeling, you don’t hesitate to comply.  <i>“Relax, deep even breathzzz.”</i>  You try to steady your breathing while transformation progresses.  It isn’t easy, especially when " + (this.player.hasVagina() ? "something fundamental about your " + this.vaginaDescript(0) + " changes, and you" : "you feel something split open on your previously bare growing and") + " feel something viscous start to flow out of it.  Thankfully, it isn’t gasps of pain that are making it hard to take deep breaths anymore, but gasps of pleasure.  You can’t wait to feel another part of your body rearrange itself and the experience the rush of new feelings from them.  The sensations from your new honeypot (what else could you call it, really?) in particular are almost overwhelming and every few moments another torrent of honey sprays out.\n\n");
         this.outputText("Eventually the transformation ends, and you open your eyes again.  The handmaiden then helps you stand back up.  You consider both of your bodies, and find that you have indeed become almost mirror images of one another.  You pull out your lips a bit and find that yes, you now have luscious black lips.  Your whole body is now covered in chitin plating, in same way as the girl across from you.  Finally, you check your womanhood, and find that it is now secreting honey, not unlike the bee maiden’s.  You are a bit surprised to find that the honey’s scent doesn’t seem to be affecting you anymore.  At least not as strongly as before.\n\n");
         this.outputText("\”<i>Come on,”</i> the bee girl says in an excited voice while lifting into the air, <i>“it’zzz time to go meet the queen!”</i>  You spread your bee wings as well, and follow after her.  She takes you high over the trees and for a brief while you get a chance to observe the twisting landscape of the forest below you.  Your observations of the forest don’t last too long, as thoughts of meeting the bee queen soon override your curiosity.  The anticipation of getting to your new home is almost palpable.");
-        this.doNext(this, this.beeMaidenFertileBeeBadEndPart2);
+        this.doNext(this.beeMaidenFertileBeeBadEndPart2);
     }
 
     private beeMaidenFertileBeeBadEndPart2(): void {
@@ -935,7 +935,7 @@ export class BeeGirlScene extends BaseContent {
         this.outputText("Now free to move on, the two of you move deeper into the bee hive.  The whole place is a rush of activity.  None of the bees are ever seen at rest, humanoid or otherwise.  The small bees are constantly bringing in nectar for the hive, while the humanoid ones are busy turning the stuff into honey, storing it, or guarding the others.  The ones making the honey are really big bees, at least around the middle.  They gorge themselves on the nectar brought by the small bees, and the excrete honey in great quantities out of exaggerated bee womanhoods.  None of them spare you a glance now that you’re inside, they’re completely unlike the relaxed and loving handmaiden you’ve been spending your time with up until now.  Then again, none of them are quite as beautiful or as shapely as her either, so it isn’t like you’re complaining.\n\n");
         this.outputText("The most interesting thing you see as you continue deeper into the hive is what looks like a nursery of sorts.  Some of the smaller bees you saw flying all over the place before are being mixed into hexagonal tubs of a strange thick fluid being secreted by more bee girls.  These ones have much larger breasts than the other bees you’ve seen, while having almost nothing in the way of hips.  When you first saw the bees, you thought their chest accessories were only for show, but it seems that at least one type has a use for them as the caretakers are filling the tubs with whatever bee milk would be called.  Some of the tubs are being brought off to other parts of the hive.  ”</i>They’re being taken off to become new partzzz of the hive,”</i> your companion explains, <i>“and in a few monthzzz, they’ll grow into adult beezzz like me.”</i>  She points at one of the tubs where a red fluid is being mixed in along with the thick stuff, <i>“Thozzze beezzz will become the queenzzz handmaidens.  Thozzze onezzz will be guards, those caretakers, and those honeybrewers.”</i> she continues while pointing to other tubs in turn.\n\n");
         this.outputText("You listen in fascination as she explains the inner workings of the hive, already feeling at home amongst the hustle and bustle within.  Eventually, your guide leads you to the back of the nursery room and into a sort of grand hallway, filled with bee guards.  The guards eye you uncomfortably, but the presence of your guide seems to keep them placated as you move down the hallway.  <i>“Thizzz izzz the lazzzt zzztop on our tour, and it’zzz my favorite part of the hive.”</i> she tells you as you reach the end of the hall, and you move into the room beyond.");
-        this.doNext(this, this.beeMaidenFertileBeeBadEndPart3);
+        this.doNext(this.beeMaidenFertileBeeBadEndPart3);
     }
 
     private beeMaidenFertileBeeBadEndPart3(): void {
@@ -946,7 +946,7 @@ export class BeeGirlScene extends BaseContent {
         this.outputText("Ah yes, the queen.  The centerpiece of this sexual diorama is the queen herself, and everything about her is simply huge.  She stands at least 12 feet tall, probably more.  She has a beautiful but not necessarily delicate build.  If you had to describe her, a slightly thicker scaled up version of your bee companion wouldn’t be too far off when describing everything but her face and abdomen.  Her face is motherly but stern, regal but still kind.  Just looking into her deep black eyes is enough to set your mind at peace, and the sight of her luscious black lips smiling down at you sends your heart fluttering.  Atop her head is a massive amount of hair done up in an elaborate set of braids, bands, and knots.  Her luscious and beautifully styled black and yellow hair is probably the most beautiful hair you’ve ever seen.\n\n");
         this.outputText("Her other major feature is her abdomen, and it is probably the most notable part of her.  The thing is nearly as tall as the bee queen’s humanoid body, and just as wide.  It extends at least 30 feet out from the queen’s body.  There are two major factors about her abdomen.  First, it's ringed with numerous slits of varying sizes, and given that the majority of the male bees are eagerly and frantically thrusting their massive manhoods into these slits, you’d guess that they’re her vaginas.  Second, there is a handmaiden that is currently being screwed by a fairly large phallic stinger on the end of it.  Though, admittedly the eighteen inch long by two and a half inch wide stinger pales in comparison to the phalluses that the male bees have.\n\n");
         this.outputText("The room is a fairly large dome with a shallow bowl built into the middle of the room, at the bottom of which rests the queen.  The rest of the bees are scattered about the room.  The only other thing worth mentioning about the place is the smell.  You never noticed until now how most of the hive was free of the incredibly arousing and mind numbing smell of honey that usually surrounds your bee friend, but it is back in force in this room.  Not only that, you also just realized that this is the only place you’ve seen male bees, all the workers in the rest of the hive were female.");
-        this.doNext(this, this.beeMaidenFertileBeeBadEndPart4);
+        this.doNext(this.beeMaidenFertileBeeBadEndPart4);
     }
 
     private beeMaidenFertileBeeBadEndPart4(): void {
@@ -959,7 +959,7 @@ export class BeeGirlScene extends BaseContent {
         this.outputText("The queen’s ovipositor soon starts to unload huge amounts of bee eggs deep into your womb, filling you up.  You cum at once, this is what you were meant to do.  This is what you want to spend your whole life doing.  It feels so damn good to be filled up by the queen, and her satisfaction at the sentiment within your mind only makes it better.\n\n");
         this.outputText("Another orgasm passes through your body, and you look down to see your filled up belly, and pat it proudly.  However, you find that your belly is unchanged, the eggs are missing!  You quickly share your panic with the girl holding you, and she just laughs.  <i>“Look zzzilly, the eggzzz are right here.”</i> she puts your hand to your abdomen, and you feel how bloated it has become.  In fact, when you feel that it is still growing, your body is pushed over the edge of another orgasm.\n\n");
         this.outputText("It doesn’t take much longer for the process of being filled with the queen’s eggs to finish, and the stinger is retracted from your body.  You pant, exhausted from the ordeal, and your companion leads you to the side of the room, just as another bee girl moves up to take your place.  You look at your friend and ask her what happens next.  <i>“Next?  We go out into the forezzzt, zzzo zzzomeone who wantzzz our eggzzz can come and be filled.  Then we come back for more.”</i>  She then indicates the other girls and drones fornicating around the room.  <i>“Though, I’ll tell you what, how about we zzzpend zzzome time playing around after I help you lay your firzzzt zzzet of eggzzz, okay?”</i>  That sounds pretty good to you, and you spend the rest of the day doing just that.");
-        this.doNext(this, this.beeMaidenFertileBeeBadEndPart5);
+        this.doNext(this.beeMaidenFertileBeeBadEndPart5);
     }
 
     private beeMaidenFertileBeeBadEndPart5(): void {
@@ -971,7 +971,7 @@ export class BeeGirlScene extends BaseContent {
 
     private beeMaidenConversationRejectCandy(): void {
         this.outputText("\n\nSomething about this whole thing just felt off to you, so you turn her down.  She almost bursts into tears.  <i>“But why?  Why do you want to be zzzo lonely?  I don’t underzzztand!”</i>  You try to offer up an explanation, but after a little while it’s clear that the two of you have fundamentally different mindsets.  To her, the most horrible thing imaginable is to not be a part of a hive, and it’s unlikely that you’ll be changing her opinion any time soon.  In the end all you can tell her that she’ll accept is that you don’t want this right now, but you hope you can continue your loving rendezvous if she’s feeling up to it.  She does perk up at this and gives you a nod, <i>“Okay, I’ll zzzee you around then.”</i>  Before you once again put your " + this.player.armorName + " back on and head away from her flower.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private freeHoneyEvent(): void {
@@ -1006,7 +1006,7 @@ export class BeeGirlScene extends BaseContent {
             this.player.slimeFeed();
             this.player.orgasm();
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public beeRapesYou(): void {
@@ -1277,7 +1277,7 @@ export class BeeGirlScene extends BaseContent {
             if (this.player.gender == 3 || this.player.gender == 0) {
                 this.outputText("Defeated, there is little you can do to stop the bee-girl as she approaches, buzzing and humming intently.  Cooing and humming into your ear, her pheromones filling the air, she rapidly overwhelms your mental resistance.\n\n", true);
                 //Link to standard bee rape scene #3.
-                this.doNext(this, this.beeEncounterClassicSex);
+                this.doNext(this.beeEncounterClassicSex);
             }
         }
     }
@@ -1327,7 +1327,7 @@ export class BeeGirlScene extends BaseContent {
             this.outputText("(You could play with her a bit and try to make her lay eggs into herself.)\n", false);
             gentleman = this.beeGirlRapeForTheDistinguishedGentleman;
         }
-        this.choices(this, "Use Cock", cock, "Use Cocks", multiCock, "Use Vagina", vagina, "Herm Style", herm, "Naga", naga,
+        this.choices("Use Cock", cock, "Use Cocks", multiCock, "Use Vagina", vagina, "Herm Style", herm, "Naga", naga,
             "Self-Egg", gentleman, "", undefined, "", undefined, "LayYourEggs", eggs, "", undefined);
     }
 
@@ -1797,7 +1797,7 @@ export class BeeGirlScene extends BaseContent {
             this.outputText(" and leave the completely exhausted and drenched woman on the forest floor, wings and legs still twitching slightly, sending a fine mist of cum across the ground around her.", false);
         }
         this.player.orgasm();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         this.cleanupAfterCombat();
     }
 
@@ -1817,7 +1817,7 @@ export class BeeGirlScene extends BaseContent {
         this.outputText("\"<i>What...</i>\" she asks hazily, \"<i>What are you zzztaring... at...</i>\" Her words begin to trail off as your gaze locks with hers, hypnotizing her. You watch as her lids begin to droop, and you can feel her muscles becoming slack within your coils. The emotionless expression you're wearing hides the sheer delight you feel.\n\n", false);
 
         this.outputText("It takes a few minutes, but you relish every second of the bee-girl's conscious mind slipping away. You unwind your tail from around her, never breaking your gaze for even a second. To your pleasure, your captive continues to stand still on her own volition.", false);
-        this.doNext(this, this.nagaRapesPt2TheExtremeContinuationOfAwesome);
+        this.doNext(this.nagaRapesPt2TheExtremeContinuationOfAwesome);
     }
 
     private nagaRapesPt2TheExtremeContinuationOfAwesome(): void {
@@ -1929,7 +1929,7 @@ export class BeeGirlScene extends BaseContent {
         if (this.player.gender > 0) {
             this.player.orgasm();
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         this.cleanupAfterCombat();
     }
 

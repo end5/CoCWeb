@@ -47,8 +47,8 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.outputText("Taking the potent mixture out of your pouch, you consider giving it to the bimbo harpy fluttering about in front of you.  She'd probably be pretty mad about the whole affair, but if you want to repair the damage you've inflicted, this is probably your best bet.  Do you un-bimbo Sophie?");
         //[Yes] [No]☼
         this.menu();
-        this.addButton(this, 0, "Yes", this.yesDebimboSophie);
-        this.addButton(this, 1, "No", this.noDontDebimbo);
+        this.addButton(0, "Yes", this.yesDebimboSophie);
+        this.addButton(1, "No", this.noDontDebimbo);
     }
 
     //No (You Monster)*
@@ -57,7 +57,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.outputText("You shrug and put the potion back in your pack.  Maybe later...  A mad Sophie isn't something you particularly want to deal with right now.");
         //(Return to Sophie menu.  You monster)
         this.menu();
-        this.addButton(this, 0, "Next", this.sophieBimbo.approachBimboSophieInCamp);
+        this.addButton(0, "Next", this.sophieBimbo.approachBimboSophieInCamp);
     }
 
     //Yes (God dammit what the fuck did I just say)*
@@ -76,13 +76,13 @@ export class SophieFollowerScene extends NPCAwareContent {
         if (this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] > 0) this.flags[kFLAGS.SOPHIES_DAUGHTERS_DEBIMBOED] = 1;
         //[Beat her] {if Int > 30: [Apologize] [Why I Did It]} [Let Her Go] [Bimbo again!(if PC has Bimbo Liqueur)]
         this.menu();
-        this.addButton(this, 0, "Beat Her", this.beatSophieAroundYouMonster);
+        this.addButton(0, "Beat Her", this.beatSophieAroundYouMonster);
         if (this.player.inte > 30) {
-            this.addButton(this, 1, "Apologize", this.apologizeToDebimboSophie);
-            this.addButton(this, 2, "WhyIDidIt", this.whyIDidItToDebimboSophie);
+            this.addButton(1, "Apologize", this.apologizeToDebimboSophie);
+            this.addButton(2, "WhyIDidIt", this.whyIDidItToDebimboSophie);
         }
-        this.addButton(this, 3, "Let Her Go", this.letDebimboSophieGo);
-        if (this.player.hasItem(this.consumables.BIMBOLQ)) this.addButton(this, 4, "Bimbo Again", this.bimboSophieAgain);
+        this.addButton(3, "Let Her Go", this.letDebimboSophieGo);
+        if (this.player.hasItem(this.consumables.BIMBOLQ)) this.addButton(4, "Bimbo Again", this.bimboSophieAgain);
 
 
     }
@@ -123,10 +123,10 @@ export class SophieFollowerScene extends NPCAwareContent {
         //{No INT gate now!}
         this.menu();
         //addButton(0,"Beat Her",beatUpDebimboSophie) {
-        this.addButton(this, 1, "Apologize", this.apologizeToDebimboSophie);
-        this.addButton(this, 2, "WhyIDidIt", this.whyIDidItToDebimboSophie);
-        this.addButton(this, 3, "Let Her Go", this.letDebimboSophieGo);
-        if (this.player.hasItem(this.consumables.BIMBOLQ)) this.addButton(this, 4, "Bimbo Again", this.bimboSophieAgain);
+        this.addButton(1, "Apologize", this.apologizeToDebimboSophie);
+        this.addButton(2, "WhyIDidIt", this.whyIDidItToDebimboSophie);
+        this.addButton(3, "Let Her Go", this.letDebimboSophieGo);
+        if (this.player.hasItem(this.consumables.BIMBOLQ)) this.addButton(4, "Bimbo Again", this.bimboSophieAgain);
 
     }
     //Get the Shit Beaten Out of You by a God-damn Bimbo (You (weakling) Monster)
@@ -137,9 +137,9 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.outputText("\n\nSophie buries her face in her hands and starts to cry, tears soon streaming around her fingers, staining her platinum blonde feathers.");
         //[Apologize] [Why I Did It] [Let Her Go]
         this.menu();
-        this.addButton(this, 1, "Apologize", this.apologizeToDebimboSophie);
-        this.addButton(this, 2, "WhyIDidIt", this.whyIDidItToDebimboSophie);
-        this.addButton(this, 3, "Let Her Go", this.letDebimboSophieGo);
+        this.addButton(1, "Apologize", this.apologizeToDebimboSophie);
+        this.addButton(2, "WhyIDidIt", this.whyIDidItToDebimboSophie);
+        this.addButton(3, "Let Her Go", this.letDebimboSophieGo);
     }
 
     //Let Her Go*
@@ -178,7 +178,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00283] = 1;
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Why I Did It (I'm a Monster, you see)*
@@ -200,7 +200,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.outputText("\n\n(<b>Sophie has been moved to the \"Followers\" tab!</b>)");
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Apologize (Sorry I'm a Monster)*
@@ -225,7 +225,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.outputText("\n\n(<b>Sophie has been moved to the \"Followers\" tab!</b>)");
         if (this.getGame().inCombat)
             this.cleanupAfterCombat();
-        else this.doNext(this, this.camp.returnToCampUseOneHour);
+        else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 
@@ -262,21 +262,21 @@ export class SophieFollowerScene extends NPCAwareContent {
             //[Vaginal] → Leads to the \"fertile\" variation of vaginal smex!
             //[Special]
             this.menu();
-            this.addButton(this, 0, "Appearance", this.sophieAppearance);
+            this.addButton(0, "Appearance", this.sophieAppearance);
             if (this.player.hasCock()) {
                 if (this.player.cockThatFits(this.sophieBimbo.sophieCapacity()) >= 0) {
-                    this.addButton(this, 1, "Vaginal", this.fuckFollowerSophie);
-                    this.addButton(this, 2, "Special", this.sophieSpecial);
+                    this.addButton(1, "Vaginal", this.fuckFollowerSophie);
+                    this.addButton(2, "Special", this.sophieSpecial);
                 }
                 else this.outputText("\n\nYou're too big to fit inside her!");
             }
             else this.outputText("\n\nYou need a penis to fuck her!");
 
             if (this.flags[kFLAGS.SLEEP_WITH] == "Sophie") {
-                this.addButton(this, 8, "NoSleepWith", this.sleepWithSophieToggle);
+                this.addButton(8, "NoSleepWith", this.sleepWithSophieToggle);
                 this.outputText("\n\nYou're currently sharing your bed with Sophie at night, but you could kick her out, if you wanted.");
             }
-            this.addButton(this, 9, "Back", this.camp.campFollowers);
+            this.addButton(9, "Back", this.camp.campFollowers);
             return;
         }
         else if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0) {
@@ -291,28 +291,28 @@ export class SophieFollowerScene extends NPCAwareContent {
 
         //BimboBody Sophie Follower, Options*
         this.menu();
-        this.addButton(this, 0, "Appearance", this.sophieAppearance);
-        if (this.player.lust >= 33) this.addButton(this, 1, "Sex", this.sexWithFollowerSophie);
+        this.addButton(0, "Appearance", this.sophieAppearance);
+        if (this.player.lust >= 33) this.addButton(1, "Sex", this.sexWithFollowerSophie);
         else this.outputText("\n\nYou aren't aroused enough to sleep with Sophie at the moment.");
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0) this.addButton(this, 8, "Sleep With", this.sleepWithSophieToggle);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0) this.addButton(8, "Sleep With", this.sleepWithSophieToggle);
         if (this.flags[kFLAGS.SLEEP_WITH] == "Sophie" && this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0) {
-            this.addButton(this, 8, "NoSleepWith", this.sleepWithSophieToggle);
+            this.addButton(8, "NoSleepWith", this.sleepWithSophieToggle);
             this.outputText("\n\nYou're currently sharing your bed with Sophie at night, but you could kick her out, if you wanted.");
         }
         if (this.flags[kFLAGS.SOPHIE_CAMP_EGG_COUNTDOWN] > 0 && this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0) this.outputText("\n\n<b>Sophie's egg is sitting nearby.</b>");
         if (this.flags[kFLAGS.SOPHIE_DAUGHTER_MATURITY_COUNTER] > 0) {
-            this.addButton(this, 7, "Daughter", this.sophieBimbo.daughterCheckup);
+            this.addButton(7, "Daughter", this.sophieBimbo.daughterCheckup);
         }
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0) this.addButton(this, 9, "Back", this.camp.campFollowers);
-        else this.addButton(this, 9, "Back", kGAMECLASS.farm.farmCorruption.rootScene);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0) this.addButton(9, "Back", this.camp.campFollowers);
+        else this.addButton(9, "Back", kGAMECLASS.farm.farmCorruption.rootScene);
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0 && this.flags[kFLAGS.FARM_CORRUPTION_STARTED] == 1) this.addButton(this, 2, "Farm Work", this.sendToFarm);
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 1) this.addButton(this, 2, "Go Camp", this.backToCamp);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0 && this.flags[kFLAGS.FARM_CORRUPTION_STARTED] == 1) this.addButton(2, "Farm Work", this.sendToFarm);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 1) this.addButton(2, "Go Camp", this.backToCamp);
 
-        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 1 && this.flags[kFLAGS.FOLLOWER_PRODUCTION_SOPHIE] == 0) this.addButton(this, 3, "Harvest Eggs", this.harvestEggs);
+        if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 1 && this.flags[kFLAGS.FOLLOWER_PRODUCTION_SOPHIE] == 0) this.addButton(3, "Harvest Eggs", this.harvestEggs);
         if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 1 && this.flags[kFLAGS.FOLLOWER_PRODUCTION_SOPHIE] == 1) {
-            this.addButton(this, 3, "Change Eggs", this.changeEggs);
-            this.addButton(this, 4, "Stop Harvest", this.stopHarvest);
+            this.addButton(3, "Change Eggs", this.changeEggs);
+            this.addButton(4, "Stop Harvest", this.stopHarvest);
         }
 
     }
@@ -329,7 +329,7 @@ export class SophieFollowerScene extends NPCAwareContent {
 
         this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] = 1;
 
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private backToCamp(): void {
@@ -342,7 +342,7 @@ export class SophieFollowerScene extends NPCAwareContent {
 
         this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] = 0;
 
-        this.doNext(this, kGAMECLASS.farm.farmCorruption.rootScene);
+        this.doNext(kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
     private harvestEggs(): void {
@@ -383,7 +383,7 @@ export class SophieFollowerScene extends NPCAwareContent {
 
     private eggSelector(): void {
         for (var i: number = 0; i < this.eggColors.length; i++) {
-            this.addButton(this, i, this.eggColors[i], this.postEggSelector, this.eggColors[i]);
+            this.addButton(i, this.eggColors[i], this.postEggSelector, this.eggColors[i]);
         }
     }
 
@@ -400,7 +400,7 @@ export class SophieFollowerScene extends NPCAwareContent {
             this.flags[kFLAGS.FARM_EGG_COUNTDOWN] = 7;
         }
 
-        this.doNext(this, kGAMECLASS.farm.farmCorruption.rootScene);
+        this.doNext(kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
     private stopHarvest(): void {
@@ -415,7 +415,7 @@ export class SophieFollowerScene extends NPCAwareContent {
 
         this.flags[kFLAGS.FOLLOWER_PRODUCTION_SOPHIE] = 0;
 
-        this.doNext(this, kGAMECLASS.farm.farmCorruption.rootScene);
+        this.doNext(kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
     private changeEggs(): void {
@@ -437,12 +437,12 @@ export class SophieFollowerScene extends NPCAwareContent {
 
         //[Usual] [Nurse] [YouMove] [IMove] [Titfuck] [GetDMilked] [Extra1] [....]
         if (this.player.hasCock()) {
-            if (this.player.cockThatFits(this.sophieBimbo.sophieCapacity()) >= 0) this.addButton(this, 0, "Vaginal", this.fuckFollowerSophie);
-            this.addButton(this, 1, "Blowjob", this.sophieFollowerGivesBlowjobs);
+            if (this.player.cockThatFits(this.sophieBimbo.sophieCapacity()) >= 0) this.addButton(0, "Vaginal", this.fuckFollowerSophie);
+            this.addButton(1, "Blowjob", this.sophieFollowerGivesBlowjobs);
         }
         if (this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] > 0 && this.flags[kFLAGS.SOPHIE_FAMILY_INCEST] > 0 && this.player.cockThatFits(this.sophieBimbo.sophieCapacity()) >= 0)
-            this.addButton(this, 8, "DaughterFuck", this.sophieIncestInHerCooterOrSomethingIDunno);
-        this.addButton(this, 9, "Back", this.followerSophieMainScreen);
+            this.addButton(8, "DaughterFuck", this.sophieIncestInHerCooterOrSomethingIDunno);
+        this.addButton(9, "Back", this.followerSophieMainScreen);
     }
 
     //Appearance:
@@ -482,7 +482,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         }
 
         this.menu();
-        this.addButton(this, 4, "Back", this.followerSophieMainScreen);
+        this.addButton(4, "Back", this.followerSophieMainScreen);
     }
 
 
@@ -522,7 +522,7 @@ export class SophieFollowerScene extends NPCAwareContent {
             this.flags[kFLAGS.SLEEP_WITH] = "";
         }
         this.menu();
-        this.addButton(this, 4, "Back", this.followerSophieMainScreen);
+        this.addButton(4, "Back", this.followerSophieMainScreen);
     }
 
 
@@ -604,7 +604,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.dynStats("sen", -2);
         if (this.sophieBimbo.sophieIsInSeason()) this.sophieBimbo.sophiePregChance();
         this.menu();
-        this.addButton(this, 0, "Next", this.sophieVagFollowerFollowup);
+        this.addButton(0, "Next", this.sophieVagFollowerFollowup);
     }
 
     //[Next]
@@ -620,7 +620,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         else this.outputText("It's always better when you have to wait for it, isn't it?");
         this.outputText("</i>\"");
         this.outputText("\n\nYou'd come up with a snarky reply, but you're just so fucking tired.  You sigh and try to get dressed, having some difficulty getting on your [feet] until Sophie lends a hand.  She kisses you on the cheek and mouths \"<i>thanks</i>\" before flouncing off, fluttering happily.");
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Blowjob*
@@ -642,8 +642,8 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.outputText("</i>\" she coos, \"<i>but that doesn't mean I'll wrap these beautiful lips around you for nothing.  How about you let me use that cute face of yours to grind my pussy on, and I'll return the favor?</i>\"  She blows you a kiss that culminates in her running her tongue over her swollen lips in a slow, wet circle.");
         //[Force Her] [Sixtynine]
         this.menu();
-        this.addButton(this, 0, "Force Her", this.forceSophieBlowjob);
-        this.addButton(this, 1, "Sixtynine", this.sophieBlowsSixtyNine);
+        this.addButton(0, "Force Her", this.forceSophieBlowjob);
+        this.addButton(1, "Sixtynine", this.sophieBlowsSixtyNine);
     }
 
     //Blow Sixtynine*
@@ -710,7 +710,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.player.orgasm();
         this.dynStats("sen", 1);
         this.dynStats("lus", 10);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Forceful Blowjob*
@@ -768,7 +768,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.outputText("\n\nYou get dressed with a self-satisfied sigh.");
         this.player.orgasm();
         this.dynStats("sen", -1);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //SixtyNine (* Temp until someone writes dis shit)
@@ -777,7 +777,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.clearOutput();
         this.outputText("Sophie cocks an eyebrow and asks, \"<i>A little sapphic delight for the horny champion?</i>\"  She snorts and rolls her eyes, \"<i>No thanks.  I'm not really that into girls.</i>\"  It doesn't seem like she's up for it.");
         this.menu();
-        this.addButton(this, 0, "Next", this.sleepWithSophieToggle);
+        this.addButton(0, "Next", this.sleepWithSophieToggle);
     }
 
     //Sophie Teases Small Dicks In The Morning*
@@ -862,7 +862,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.flags[kFLAGS.TIMES_MORNING_SOPHIE_FEMDOMMED]++;
         this.player.orgasm();
         this.dynStats("lib", -1, "sen", 3);
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //Alert Message For Going Into Season☼
@@ -971,7 +971,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.player.orgasm();
         if (this.sophieBimbo.sophieIsInSeason()) this.sophieBimbo.sophiePregChance();
         this.fatigue(15);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Regular Sophie Follower
@@ -988,8 +988,8 @@ export class SophieFollowerScene extends NPCAwareContent {
         //Plus lust!
         //[Kiss Her][Get Out]
         this.menu();
-        this.addButton(this, 0, "KissSophie", this.kissSophieRecruitment);
-        this.addButton(this, 1, "Get Out", this.getOutSophieRecruitment);
+        this.addButton(0, "KissSophie", this.kissSophieRecruitment);
+        this.addButton(1, "Get Out", this.getOutSophieRecruitment);
     }
 
     //Get Out
@@ -1000,7 +1000,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.outputText("\n\nWith that, she darts above the camp, flying back to her home in the high mountains.  You were having such a nice dream, too.");
         this.dynStats("lus", - 5);
         this.flags[kFLAGS.NO_PURE_SOPHIE_RECRUITMENT] = 1;
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     //Kiss Her
@@ -1020,8 +1020,8 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.dynStats("lus", 20);
         //[Sure][No] – Note: [No] leads to the [Get Out] scene.
         this.menu();
-        this.addButton(this, 0, "Sure", this.sophieRecruitmentFinale);
-        this.addButton(this, 1, "No", this.getOutSophieRecruitment);
+        this.addButton(0, "Sure", this.sophieRecruitmentFinale);
+        this.addButton(1, "No", this.getOutSophieRecruitment);
     }
 
     //If Sure
@@ -1038,7 +1038,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.outputText(".");
         this.outputText("\n\n(<b>Sophie is now available in the followers tab!</b>)");
         this.flags[kFLAGS.SOPHIE_RECRUITED_PURE] = 1;
-        this.doNext(this, this.playerMenu);
+        this.doNext(this.playerMenu);
     }
 
     /*Sophie daughter incest.  scenes
@@ -1117,7 +1117,7 @@ export class SophieFollowerScene extends NPCAwareContent {
             this.outputText(" she coos into your ear, temping you even more with the taboo of her incestuous flesh.  With such a demanding offer of pleasure, your daughter so open and ready to receive your pleasure, how could you say no to such a lovely girl?");
         }
         this.menu();
-        this.addButton(this, 0, "Next", this.phaseTwoOfIncest, daughterCap);
+        this.addButton(0, "Next", this.phaseTwoOfIncest, daughterCap);
     }
 
     private phaseTwoOfIncest(daughter: number): void {
@@ -1185,7 +1185,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         //pass time 1 hour//
         //return PC to camp interface//
         this.player.orgasm();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 }
 

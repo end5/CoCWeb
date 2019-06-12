@@ -273,7 +273,7 @@ export class Benoit extends BazaarAbstractContent {
                 fem = this.benoitFeminise;
             }
         }
-        this.choices(this, "Buy", this.benoitsBuyMenu, "Sell", this.benoitSellMenu, "Talk", this.talkToBenoit, suggestText, suggest, "Basil. Womb", womb,
+        this.choices("Buy", this.benoitsBuyMenu, "Sell", this.benoitSellMenu, "Talk", this.talkToBenoit, suggestText, suggest, "Basil. Womb", womb,
             "Feminize", fem, "", undefined, "", undefined, "", undefined, "Leave", this.bazaar.enterTheBazaar);
     }
 
@@ -300,9 +300,9 @@ export class Benoit extends BazaarAbstractContent {
         this.outputText("\n" + ItemType.lookupItem(this.flags[kFLAGS.BENOIT_1]).longName + ": " + Math.round(buyMod * ItemType.lookupItem(this.flags[kFLAGS.BENOIT_1]).value));
         this.outputText("\n" + ItemType.lookupItem(this.flags[kFLAGS.BENOIT_2]).longName + ": " + Math.round(buyMod * ItemType.lookupItem(this.flags[kFLAGS.BENOIT_2]).value));
         this.outputText("\n" + ItemType.lookupItem(this.flags[kFLAGS.BENOIT_3]).longName + ": " + Math.round(buyMod * ItemType.lookupItem(this.flags[kFLAGS.BENOIT_3]).value));
-        this.simpleChoices(this, this.flags[kFLAGS.BENOIT_1], this.createCallBackFunction(this, this.benoitTransactBuy, 1),
-            this.flags[kFLAGS.BENOIT_2], this.createCallBackFunction(this, this.benoitTransactBuy, 2),
-            this.flags[kFLAGS.BENOIT_3], this.createCallBackFunction(this, this.benoitTransactBuy, 3),
+        this.simpleChoices(this.flags[kFLAGS.BENOIT_1], this.createCallBackFunction(this.benoitTransactBuy, 1),
+            this.flags[kFLAGS.BENOIT_2], this.createCallBackFunction(this.benoitTransactBuy, 2),
+            this.flags[kFLAGS.BENOIT_3], this.createCallBackFunction(this.benoitTransactBuy, 3),
             "", undefined, "Back", this.benoitIntro);
     }
 
@@ -320,12 +320,12 @@ export class Benoit extends BazaarAbstractContent {
         for (var slot: number = 0; slot < 5; slot++) {
             if (this.player.itemSlots[slot].quantity > 0 && Math.floor(this.player.itemSlots[slot].itype.value / sellMod) >= 1) {
                 this.outputText("\n" + Math.floor(this.player.itemSlots[slot].itype.value / sellMod) + " gems for " + this.player.itemSlots[slot].itype.longName + ".");
-                this.addButton(this, slot, (this.player.itemSlots[slot].itype.shortName + " x" + this.player.itemSlots[slot].quantity), this.createCallBackFunction2(this.benoitSellTransact, slot, sellMod));
+                this.addButton(slot, (this.player.itemSlots[slot].itype.shortName + " x" + this.player.itemSlots[slot].quantity), this.createCallBackFunction2(this.benoitSellTransact, slot, sellMod));
                 totalItems += this.player.itemSlots[slot].quantity;
             }
         }
-        if (totalItems > 1) this.addButton(this, 7, "Sell All", this.createCallBackFunction2(this.benoitSellAllTransact, totalItems, sellMod));
-        this.addButton(this, 9, "Back", this.benoitIntro);
+        if (totalItems > 1) this.addButton(7, "Sell All", this.createCallBackFunction2(this.benoitSellAllTransact, totalItems, sellMod));
+        this.addButton(9, "Back", this.benoitIntro);
     }
 
     private benoitTransactBuy(slot: number = 1): void {
@@ -340,7 +340,7 @@ export class Benoit extends BazaarAbstractContent {
         else itype = ItemType.lookupItem(this.flags[kFLAGS.BENOIT_3]);
         if (this.player.gems < Math.floor(buyMod * itype.value)) {
             this.outputText("You consider making a purchase, but you lack the gems to go through with it.");
-            this.doNext(this, this.benoitsBuyMenu);
+            this.doNext(this.benoitsBuyMenu);
             return;
         }
         if (this.benoitLover()) this.outputText("After examining what you've picked out with " + this.benoitMF("his", "her") + " fingers, " + this.benoitMF("Benoit", "Benoite") + " hands it over and accepts your gems with a grin.");
@@ -363,7 +363,7 @@ export class Benoit extends BazaarAbstractContent {
         this.statScreenRefresh();
         //(+1 Affection)
         this.benoitAffection(1);
-        this.doNext(this, this.benoitSellMenu);
+        this.doNext(this.benoitSellMenu);
     }
 
     private benoitSellAllTransact(totalItems: number, sellMod: number): void {
@@ -382,7 +382,7 @@ export class Benoit extends BazaarAbstractContent {
         this.statScreenRefresh();
         //(+1 Affection per item)
         this.benoitAffection(totalItems);
-        this.doNext(this, this.benoitIntro);
+        this.doNext(this.benoitIntro);
     }
 
     //All slots are reset each day.  Benoit buys items at 66% the rate Oswald does.  
@@ -469,7 +469,7 @@ export class Benoit extends BazaarAbstractContent {
                 this.outputText("\n\nYou rack your brain but can't think of anything that could help Benoit, so you end up simply sympathising with him.  \"<i>Do not beat yourself up over it,</i>\" says the basilisk, touching the tips of your fingers and smiling warmly.  \"<i>It is just foolishness.  And anyway, I told you: we are a race of bastards.  We are ze last guys who deserve someone sinking after us.</i>\"");
                 //don't trigger event again until the PC is smart enough!
             }
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
         //First time Talk: 
         else if (this.flags[kFLAGS.BENOIT_TALKED_TO_PROPERLY] == 0) {
@@ -494,14 +494,14 @@ export class Benoit extends BazaarAbstractContent {
                 this.outputText("\n\nYou ask if she's had any thoughts on that front. \"<i>Well, I do 'ave zis one customer 'oo seems very kind.  And 'oo knows me a great deal better zan anyone else around 'ere,</i>\" Benoite mumbles, twiddling her fingers.  \"<i>But zis person 'as already done a great deal for me, so I don't know if... per'aps zis is asking too much. I will find someone though, never fear.  As I said before...</i>” Benoite points two fingers at her blind eyes and then at the stall entrance.  There’s a distinct gleam in those cloudy grey depths you think would scare the hell out of most things with a penis. “<i>I ‘ave a purpose now.</i>");
 
                 this.menu();
-                this.doYesNo(this, this.femoitFirstTimeYes, this.femoitFirstTimeNo);
+                this.doYesNo(this.femoitFirstTimeYes, this.femoitFirstTimeNo);
             }
 
             return;
         }
         else if (this.flags[kFLAGS.BENOIT_TALKED_TO_PROPERLY] != 0 && this.benoitAffection() >= 40 && this.flags[kFLAGS.BENOIT_TIMES_SEXED_FEMPCS] == 0 && this.flags[kFLAGS.FEMOIT_UNLOCKED] == 0) {
             this.femoitInitialTalk();
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         //Subsequent Talk
@@ -651,7 +651,7 @@ export class Benoit extends BazaarAbstractContent {
                 this.outputText("\n\n“<i>Well, of course I can, zilly,</i>” she says teasingly. “<i>When you end up smelling like someone else for several hours, it is a difficult sing to mistake.  It is a memento of you and it reminds me of appiness; I wish I could smell zat way for longer.  My sexy little shaved monkey.</i>”");
             }
         }
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 
@@ -685,7 +685,7 @@ export class Benoit extends BazaarAbstractContent {
 
                 this.outputText("\n\nOnce again, you carefully inch your blind charge to a clear cranny and push him against a wooden wall, standing back to slowly peel off your [armor].  You grin as you ostentatiously drop each piece onto the packed earth, allowing him to guess what it is by the sound it makes.  His breathing comes heavier as your undergarments make a feathery sound as they fall.  As you take his hands and lay them upon your naked skin, you think about how you want to go about this.");
             }
-            this.simpleChoices(this, "Let Him", this.repeatSexWithBenoitLetHim, "Take Charge", this.repeatBenoitFuckTakeCharge, "", undefined, "", undefined, "", undefined);
+            this.simpleChoices("Let Him", this.repeatSexWithBenoitLetHim, "Take Charge", this.repeatBenoitFuckTakeCharge, "", undefined, "", undefined, "", undefined);
             return;
         }
         this.flags[kFLAGS.BENOIT_TIMES_SEXED_FEMPCS]++;
@@ -790,12 +790,12 @@ export class Benoit extends BazaarAbstractContent {
         this.player.orgasm();
         if ((this.player.pregnancyType == PregnancyStore.PREGNANCY_OVIELIXIR_EGGS || this.player.findPerk(PerkLib.HarpyWomb) >= 0 || this.player.findPerk(PerkLib.Oviposition) >= 0) && (this.player.pregnancyIncubation == 0 || this.player.pregnancyType == PregnancyStore.PREGNANCY_OVIELIXIR_EGGS)) {
             this.outputText("  I would not inflict my children upon you.  Ere, take as much as you like.</i>\"");
-            this.simpleChoices(this, "Take It", this.takeBenoitsContraceptives, "", undefined, "", undefined, "", undefined, "Leave", this.dontTakeEggtraceptives);
+            this.simpleChoices("Take It", this.takeBenoitsContraceptives, "", undefined, "", undefined, "", undefined, "Leave", this.dontTakeEggtraceptives);
         }
         else {
             this.outputText("  I cannot give you babies unless you 'ave eggs.  I guess I should think a bit more before I go digging for things...</i>\"");
             //, but if your body goes into 'eat again and you are afraid of 'aving... unwanted experiences... I can sell it to you.</i>\"]
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
 
         }
 
@@ -805,7 +805,7 @@ export class Benoit extends BazaarAbstractContent {
         this.clearOutput();
         this.outputText("You gladly accept the herbal contraceptive and push it into your mouth, enjoying the pleasantly sharp, citrus flavour.");
         //  \"<i>I can sell you ze stuff too,</i>\" he says, twiddling his claws.  \"<i>If you want.</i>\"
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //No: 
@@ -817,7 +817,7 @@ export class Benoit extends BazaarAbstractContent {
         //[Herbal Contraceptive added to slot 4 of shop]
         //Standard basilisk preg odds
         this.benoitKnocksUpPCCheck();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
 
@@ -889,7 +889,7 @@ export class Benoit extends BazaarAbstractContent {
         this.benoitKnocksUpPCCheck();
         this.benoitAffection(2);
         this.player.orgasm();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Take charge: 
@@ -973,7 +973,7 @@ export class Benoit extends BazaarAbstractContent {
         this.benoitAffection(2);
         this.flags[kFLAGS.BENOIT_TIMES_SEXED_FEMPCS]++;
         this.player.orgasm();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Bas. Womb (not for horses)
@@ -983,7 +983,7 @@ export class Benoit extends BazaarAbstractContent {
         //A double dose of ovi-elixer, a bottle of reptilum, goblin ale and some basilisk blood would probably do...
         if (!(this.player.hasItem(this.consumables.OVIELIX, 2) && this.player.hasItem(this.consumables.REPTLUM) && this.player.hasItem(this.consumables.GOB_ALE))) {
             this.outputText("You don't have the necessary ingredients to attempt this yet.  You recall " + this.benoitMF("Benoit", "Benoite") + " mentioning that you would need Reptilum, two Ovi Elixirs, and Goblin Ale.");
-            this.doNext(this, this.benoitIntro);
+            this.doNext(this.benoitIntro);
         }
         /*else if(player.isTaur()) {
             outputText("\"<i>Forgive me, [name],</i>\" Benoit says, clearly troubled, as you begin hauling out the ingredients and announcing your plan.  \"<i>I sink your body is already stressed enough wis 'aving to pump so little blood so far... I would razer you not take furzer risks on my account until your form is more... compact.  I cannot be a part of zis... 'owever much I would like to.  You mean too much to me, you see.</i>\"");
@@ -1019,11 +1019,11 @@ export class Benoit extends BazaarAbstractContent {
                 this.outputText("  You grin and say you're not sure it worked, but you suppose there's only one real way of finding out...");
                 if (this.player.tallness <= 78 && !this.player.isTaur()) this.outputText("  The basilisk is still for a moment, and then with a sudden surge of movement, grabs you by the waist and hoists you over his shoulder.  You squeal in mock terror as he hauls you as fast as he can into the back room, knocking over half his stock as he does.");
                 else this.outputText("  The basilisk is still for a moment, and then with a sudden surge of movement, grabs you by the waist and frenetically attempts to hoist you over his shoulder.  You are far too big for him though; after several valiant attempts, he collapses against a shelf.  Laughing, you pick the stricken, panting reptile up, hoist him over your own shoulder, and navigate a path into the back room.");
-                this.doNext(this, this.createCallBackFunction(this, this.suggestSexAfterBasiWombed, false));
+                this.doNext(this.createCallBackFunction(this.suggestSexAfterBasiWombed, false));
                 return;
             }
             else this.outputText("  You grin and say you're not even sure it worked... but you'll be back at some point to try it out, and he'd better be ready for when you do.  You gently pry yourself out of his grip and leave as deliberately as you can, aware of the beguiling, invisible scent you are leaving for the stunned, silent basilisk to simmer in.");
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -1086,7 +1086,7 @@ export class Benoit extends BazaarAbstractContent {
             this.outputText("\n(<b>Perk Unlocked: Oviposition - You will now regularly lay unfertilized eggs.</b>)");
         }
         if (this.player.pregnancyType == PregnancyStore.PREGNANCY_BASILISK) this.player.knockUpForce(PregnancyStore.PREGNANCY_BENOIT, this.player.pregnancyIncubation);
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
         this.player.orgasm();
         this.dynStats("sen", -2);
     }
@@ -1216,7 +1216,7 @@ export class Benoit extends BazaarAbstractContent {
             this.flags[kFLAGS.FEMOIT_NEXTDAY_EVENT_DONE] = 1;
 
             this.menu();
-            this.doNext(this, this.camp.returnToCampUseOneHour);
+            this.doNext(this.camp.returnToCampUseOneHour);
         }
     }
 
@@ -1247,7 +1247,7 @@ export class Benoit extends BazaarAbstractContent {
         this.outputText("\n\n“<i>No, you are right,</i>” she says in a casual tone, although the color is still very high in her scales. “<i>It would be way too weird zat, wouldn’t it? I will find someone though, never fear.  As I said before...</i>” Benoite points two fingers at her blind eyes and then at the stall entrance.  There’s a distinct gleam in those cloudy grey depths you think would scare the hell out of most things with a penis. “<i>I ‘ave a purpose now.</i>”");
         this.outputText("\n\nCatching a subtle tone of dissapointment in Benoite's voice, you bid her a quick farewell and head back to camp, deciding to give her some time to recover.");
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     public femoitFirstTimeYes(): void {
@@ -1300,7 +1300,7 @@ export class Benoit extends BazaarAbstractContent {
 
         this.player.orgasm();
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     // Subsequent Sex
@@ -1425,7 +1425,7 @@ export class Benoit extends BazaarAbstractContent {
         }
 
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     //Benoite Gives Birth
@@ -1508,6 +1508,6 @@ export class Benoit extends BazaarAbstractContent {
         this.clearBenoitPreggers();
 
         this.menu();
-        this.doNext(this, this.camp.returnToCampUseOneHour);
+        this.doNext(this.camp.returnToCampUseOneHour);
     }
 }
