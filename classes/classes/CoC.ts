@@ -653,19 +653,19 @@ export class CoC {
         // this._updateHack.y = 799;
     }
 
-    public forceUpdate(): void {
+    // public forceUpdate(): void {
         // this._updateHack.x = 999;
         // this._updateHack.addEventListener(Event.ENTER_FRAME, this.moveHackUpdate);
-    }
+    // }
 
-    public moveHackUpdate(e: Event): void {
+    // public moveHackUpdate(e: Event): void {
         // this._updateHack.x -= 84;
 
         // if (this._updateHack.x < 0) {
         //     this._updateHack.x = 0;
         //     this._updateHack.removeEventListener(Event.ENTER_FRAME, this.moveHackUpdate);
         // }
-    }
+    // }
 
     // include "../../includes/descriptors.as";
 

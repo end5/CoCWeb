@@ -1,3 +1,4 @@
 import { CoC } from './classes/classes/CoC';
 
-new CoC();
+const coc = new CoC();
+coc.run();
