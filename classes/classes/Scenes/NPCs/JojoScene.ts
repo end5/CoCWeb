@@ -1067,7 +1067,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.lust > 33 && this.player.gender > 0) {
             this.clearOutput();
             this.outputText("You smile in satisfaction as Jojo" + (hpVictory ? " collapses, unable to continue fighting" : " collapses and begins masturbating feverishly") + ".  Sadly you realize your own needs have not been met.  Of course, you could always rape the poor thing...\n\nDo you rape him?");
-            this.doYesNo(this, this.postCombatRape, this.getGame().cleanupAfterCombat);
+            this.doYesNo(this, this.postCombatRape, () => this.getGame().cleanupAfterCombat());
         }
         else {
             this.getGame().finishCombat();

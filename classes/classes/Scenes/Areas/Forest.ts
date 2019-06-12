@@ -277,11 +277,11 @@ export class Forest extends BaseContent {
                 this.outputText("\n\nJojo sighs sadly, \"<i>Enough of my woes.  You are very corrupted.  If you cannot be sufficiently purified you WILL become one of them in time.  Will you let me help you?", false);
                 if (this.player.gender > 0) {
                     trace("Gender != 0");
-                    this.simpleChoices(this, "Accept", this.getGame().jojoScene.meditateInForest, "Rape Him", this.getGame().jojoScene.jojoRape, "BWUH?", undefined, "Decline", this.camp.returnToCampUseOneHour, "", undefined);
+                    this.simpleChoices(this, "Accept", this.getGame().jojoScene.meditateInForest.bind(this.getGame().jojoScene), "Rape Him", this.getGame().jojoScene.jojoRape.bind(this.getGame().jojoScene), "BWUH?", undefined, "Decline", this.camp.returnToCampUseOneHour, "", undefined);
                 }
                 else {
                     trace("Gender == 0");
-                    this.simpleChoices(this, "Accept", this.getGame().jojoScene.meditateInForest, "Rape Him", undefined, "BWUH?", undefined, "Decline", this.camp.returnToCampUseOneHour, "", undefined);
+                    this.simpleChoices(this, "Accept", this.getGame().jojoScene.meditateInForest.bind(this.getGame().jojoScene), "Rape Him", undefined, "BWUH?", undefined, "Decline", this.camp.returnToCampUseOneHour, "", undefined);
                 }
                 return;
             }
@@ -290,14 +290,14 @@ export class Forest extends BaseContent {
                     kGAMECLASS.jojoScene.jojoSprite();
                     this.outputText("As you approach the serene monk, you see his nose twitch, disturbing his meditation.\n\n", true);
                     this.outputText("\"<i>It seems that the agents of corruption have taken residence within the temple that is your body.</i>\", Jojo says flatly. \"<i>This is a most unfortunate development. There is no reason to despair as there are always ways to fight the corruption. However, great effort will be needed to combat this form of corruption and may leave lasting impressions upon you. If you are ready, we can purge your being of the rogue creatures of lust.</i>\"\n\n", false);
-                    if (this.player.gender > 0) this.simpleChoices(this, "Purge", this.getGame().jojoScene.wormRemoval, "Meditate", this.getGame().jojoScene.meditateInForest, "Rape", this.getGame().jojoScene.jojoRape, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
-                    else this.simpleChoices(this, "Purge", this.getGame().jojoScene.wormRemoval, "Meditate", this.getGame().jojoScene.meditateInForest, "Rape", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+                    if (this.player.gender > 0) this.simpleChoices(this, "Purge", () => this.getGame().jojoScene.wormRemoval(), "Meditate", this.getGame().jojoScene.meditateInForest, "Rape", () => this.getGame().jojoScene.jojoRape(), "", undefined, "Leave", this.camp.returnToCampUseOneHour);
+                    else this.simpleChoices(this, "Purge", () => this.getGame().jojoScene.wormRemoval(), "Meditate", () => this.getGame().jojoScene.meditateInForest(), "Rape", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
                     return;
                 }
                 kGAMECLASS.jojoScene.jojoSprite();
                 this.outputText("Jojo the monk appears before you, robes and soft white fur fluttering in the breeze.  He asks, \"<i>Are you ready for a meditation session?</i>\"", false);
-                if (this.player.gender > 0) this.simpleChoices(this, "Yes", this.getGame().jojoScene.meditateInForest, "No", this.camp.returnToCampUseOneHour, "BWUH", undefined, "Rape Him", this.getGame().jojoScene.jojoRape, "", undefined);
-                else this.simpleChoices(this, "Yes", this.getGame().jojoScene.meditateInForest, "No", this.camp.returnToCampUseOneHour, "BWUH", undefined, "Rape Him", undefined, "", undefined);
+                if (this.player.gender > 0) this.simpleChoices(this, "Yes", this.getGame().jojoScene.meditateInForest, "No", this.camp.returnToCampUseOneHour, "BWUH", undefined, "Rape Him", () => this.getGame().jojoScene.jojoRape(), "", undefined);
+                else this.simpleChoices(this, "Yes", () => this.getGame().jojoScene.meditateInForest(), "No", this.camp.returnToCampUseOneHour, "BWUH", undefined, "Rape Him", undefined, "", undefined);
             }
             if (kGAMECLASS.monk >= 2) {
                 kGAMECLASS.jojoScene.jojoSprite();

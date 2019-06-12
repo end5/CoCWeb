@@ -616,7 +616,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
         var temp2 = undefined;
         var temp3 = undefined;
         if (this.silly()) temp3 = this.missingoSex;
-        if (this.player.hasKeyItem("Deluxe Dildo") >= 0) temp2 = this.getGame().sandwitchGetsDildoed;
+        if (this.player.hasKeyItem("Deluxe Dildo") >= 0) temp2 = () => this.getGame().sandwitchGetsDildoed();
         var shouldra = undefined;
         if (kGAMECLASS.shouldraFollower.followerShouldra() && this.player.gender > 0) shouldra = kGAMECLASS.shouldraFollower.sandWitchGetsGhostly;
         //doYesNo(sandwitchRaped, cleanupAfterCombat);

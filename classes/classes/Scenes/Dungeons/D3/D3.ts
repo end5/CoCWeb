@@ -288,7 +288,7 @@ export class D3 extends BaseContent {
         }
 
         this.addButton(this, 8, "Items", this.inventory.inventoryMenu);
-        this.addButton(this, 9, "Masturbate", this.getGame().masturbation.masturbateGo);
+        this.addButton(this, 9, "Masturbate", () => this.getGame().masturbation.masturbateGo());
     }
 
     public move(roomName: string): void {

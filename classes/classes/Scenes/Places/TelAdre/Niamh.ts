@@ -546,7 +546,7 @@ var  drink =undefined;
 var  fuck =undefined;
 	if(this.player.hasCock())
 		fuck = this.bazaarSex;
-	this.simpleChoices(this, "Get A Drink", drink, "Tit-Fuck", fuck, "", undefined, "", undefined, "Back", this.getGame().bazaar.enterTheBazaar);
+	this.simpleChoices(this, "Get A Drink", drink, "Tit-Fuck", fuck, "", undefined, "", undefined, "Back", () => this.getGame().bazaar.enterTheBazaar());
 }
 
 //[bimbo/corrupted beer drink texts]
@@ -628,7 +628,7 @@ var  yep = undefined;
 	//[Yep][Nope]
 	if (this.player.gems < 500) this.outputText("<b>\n\nYou're too poor to get Sean to make you bimbo liqueur.</b>");
 	else yep = this.yeahSeanLetsBimbooze;
-	this.simpleChoices(this, "Yep", yep, "", undefined, "", undefined, "", undefined, "Back", this.getGame().incubusShop);
+	this.simpleChoices(this, "Yep", yep, "", undefined, "", undefined, "", undefined, "Back", () => this.getGame().incubusShop());
 }
 
 //yeah I got this
@@ -658,7 +658,7 @@ public  getBimboozeFromSean(): void {
 	this.outputText("You drop the vial into a pouch on your person.\n\n");
 	//bimbo liqueur aqcquired
 	this.flags[kFLAGS.NIAMH_SEAN_BREW_BIMBO_LIQUEUR_COUNTER] = 0;
-	this.inventory.takeItem(this.consumables.BIMBOLQ, this.getGame().incubusShop);
+	this.inventory.takeItem(this.consumables.BIMBOLQ, () => this.getGame().incubusShop());
 }
 
 // [LEAVE]

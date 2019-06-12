@@ -496,8 +496,8 @@ export class MinotaurScene extends BaseContent {
         }
         //YOU LOSE!
         if (this.player.lust >= 100)
-            this.doNext(this, this.getGame().endLustLoss);
-        else this.doNext(this, this.getGame().combatMenu);
+            this.doNext(this, () => this.getGame().endLustLoss());
+        else this.doNext(this, () => this.getGame().combatMenu());
     }
     public getRapedByMinotaur(autoRape: boolean = false): void {
         this.spriteSelect(44);
