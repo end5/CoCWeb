@@ -11,6 +11,10 @@ import { MainView } from "../../../lib/src/coc/view/MainView";
 
 export class Camp extends NPCAwareContent {
 
+    protected get timeQ() {
+        return kGAMECLASS.timeQ;
+    }
+
     protected set timeQ(value: number) {
         kGAMECLASS.timeQ = value;
     }
