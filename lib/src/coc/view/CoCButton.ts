@@ -1,43 +1,51 @@
+import { loadClass } from "./LoadUtils";
+
 export class CoCButton {
+    private button: HTMLElement;
+    private tooltip?: HTMLElement;
 
     protected _callback?: () => void;
 
     public constructor(
-        protected button: HTMLElement,
-        protected tooltip: HTMLElement
+        protected element: HTMLElement
     ) {
-        this.button.addEventListener('mouseover', this.hover);
-        this.button.addEventListener('mouseleave', this.dim);
-        this.button.addEventListener('click', this.click);
+        this.button = loadClass('button', element);
+        this.tooltip = element.getElementsByClassName('tooltip')[0] as HTMLElement;
+
+        this.button.addEventListener('mouseover', () => {
+            this.button.style.opacity = '0.5';
+            if (this.toolTipText && this.tooltip)
+                this.tooltip.classList.remove('hidden');
+        });
+        this.button.addEventListener('mouseleave', () => {
+            this.button.style.opacity = '1';
+            if (this.tooltip)
+                this.tooltip.classList.add('hidden');
+        });
+        this.button.addEventListener('click', () => {
+            if (this.tooltip)
+                this.tooltip.classList.add('hidden');
+            if (this._callback)
+                this._callback();
+        });
     };
 
-    //////// Mouse Events... ////////
-
-    public hover(event?: MouseEvent): void {
-        this.button.style.opacity = '0.5';
-        if (this.toolTipText)
-            this.tooltip.classList.remove('hidden');
-    };
-
-    public dim(event?: MouseEvent): void {
-        this.button.style.opacity = '1';
-        this.tooltip.classList.add('hidden');
-    };
-
-    public click(event?: MouseEvent): void {
-        this.tooltip.classList.add('hidden');
-        if (this._callback)
-            this._callback();
-    };
+    public click() {
+        this.button.click();
+    }
 
     //////// Getters and Setters ////////
 
     public get toolTipText() {
-        return this.tooltip.innerHTML || '';
+        if (this.tooltip)
+            return this.tooltip.innerHTML || '';
+        else
+            return '';
     }
 
     public set toolTipText(text) {
-        this.tooltip.innerHTML = text;
+        if (this.tooltip)
+            this.tooltip.innerHTML = text;
     }
 
     public get labelText() {

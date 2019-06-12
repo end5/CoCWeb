@@ -67,34 +67,16 @@ export class MainView {
         this.sprite = loadId('mainSpriteDisplay') as HTMLImageElement;
 
         // Top button init
-        let buttonContainer = loadId('topRowButtons');
-        let buttons = buttonContainer.getElementsByClassName('button') as HTMLCollectionOf<HTMLElement>;
-        let tooltips = buttonContainer.getElementsByClassName('tooltip') as HTMLCollectionOf<HTMLElement>;
-
-        if (buttons.length !== MainView.TOP_BUTTON_COUNT)
-            throw new Error('Top button count is ' + (buttons.length < MainView.TOP_BUTTON_COUNT ? 'less' : 'greater') + ' than ' + MainView.TOP_BUTTON_COUNT);
-        if (tooltips.length !== MainView.TOP_BUTTON_COUNT)
-            throw new Error('Top tooltip count is ' + (tooltips.length < MainView.TOP_BUTTON_COUNT ? 'less' : 'greater') + ' than ' + MainView.TOP_BUTTON_COUNT);
-
-        this.newGameButton = new CoCButton(buttons[0], tooltips[0]);
-        this.dataButton = new CoCButton(buttons[1], tooltips[1]);
-        this.statsButton = new CoCButton(buttons[2], tooltips[2]);
-        this.levelButton = new CoCButton(buttons[3], tooltips[3]);
-        this.perksButton = new CoCButton(buttons[4], tooltips[4]);
-        this.appearanceButton = new CoCButton(buttons[5], tooltips[5]);
+        this.newGameButton = new CoCButton(loadId('buttontop0'));
+        this.dataButton = new CoCButton(loadId('buttontop1'));
+        this.statsButton = new CoCButton(loadId('buttontop2'));
+        this.levelButton = new CoCButton(loadId('buttontop3'));
+        this.perksButton = new CoCButton(loadId('buttontop4'));
+        this.appearanceButton = new CoCButton(loadId('buttontop5'));
 
         // Bottom button init
-        buttonContainer = loadId('bottomRowButtons');
-        buttons = buttonContainer.getElementsByClassName('button') as HTMLCollectionOf<HTMLElement>;
-        tooltips = buttonContainer.getElementsByClassName('tooltip') as HTMLCollectionOf<HTMLElement>;
-
-        if (buttons.length !== MainView.BOTTOM_BUTTON_COUNT)
-            throw new Error('Bottom button count is ' + (buttons.length < MainView.BOTTOM_BUTTON_COUNT ? 'less' : 'greater') + ' than ' + MainView.BOTTOM_BUTTON_COUNT);
-        if (tooltips.length !== MainView.BOTTOM_BUTTON_COUNT)
-            throw new Error('Bottom tooltip count is ' + (tooltips.length < MainView.BOTTOM_BUTTON_COUNT ? 'less' : 'greater') + ' than ' + MainView.BOTTOM_BUTTON_COUNT);
-
         for (let index = 0; index < MainView.BOTTOM_BUTTON_COUNT; index++) {
-            this.bottomButtons.push(new CoCButton(buttons[index], tooltips[index]));
+            this.bottomButtons.push(new CoCButton(loadId('button' + index)));
         }
     };
 

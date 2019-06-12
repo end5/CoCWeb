@@ -66,15 +66,13 @@ export class BindDisplay {
         this.element.appendChild(this._nameLabel);
 
         const button1 = document.createElement('button');
-        const tooltip1 = document.createElement('div');
+        button1.innerHTML = '<a class="button">Button</a><div class="tooltip"></div>';
         const button2 = document.createElement('button');
-        const tooltip2 = document.createElement('div');
+        button2.innerHTML = '<a class="button">Button</a><div class="tooltip"></div>';
 
-        this._buttons = [new CoCButton(button1, tooltip1), new CoCButton(button2, tooltip2)];
+        this._buttons = [new CoCButton(button1), new CoCButton(button2)];
         this.element.appendChild(button1);
-        this.element.appendChild(tooltip1);
         this.element.appendChild(button2);
-        this.element.appendChild(tooltip2);
     }
 
     /**
@@ -140,15 +138,15 @@ export class BindDisplay {
      * Create the primary label field used for text display outside of the buttons.
      */
     // private InitLabel(): void {
-        // this._nameLabel = document.createElement('p');
-        // this._nameLabel.defaultTextFormat = this._textFormatLabel;
-        // this._nameLabel.embedFonts = true;
-        // this._nameLabel.antiAliasType = AntiAliasType.ADVANCED;
-        // this._nameLabel.text = "THIS IS SOME KINDA CRAZY LABEL";
-        // this._nameLabel.width = this._maxWidth - (2 * BindDisplay.BUTTON_X_DELTA) - 20;
-        // this._nameLabel.y = this._buttons[0].labelField.y;
-        // this.addChild(this._nameLabel);
-        // this.element.appendChild(this._nameLabel);
+    // this._nameLabel = document.createElement('p');
+    // this._nameLabel.defaultTextFormat = this._textFormatLabel;
+    // this._nameLabel.embedFonts = true;
+    // this._nameLabel.antiAliasType = AntiAliasType.ADVANCED;
+    // this._nameLabel.text = "THIS IS SOME KINDA CRAZY LABEL";
+    // this._nameLabel.width = this._maxWidth - (2 * BindDisplay.BUTTON_X_DELTA) - 20;
+    // this._nameLabel.y = this._buttons[0].labelField.y;
+    // this.addChild(this._nameLabel);
+    // this.element.appendChild(this._nameLabel);
     // }
 
     // public get text(): string {
@@ -178,14 +176,14 @@ export class BindDisplay {
     public set button1Text(value) {
         // if (value != this._button1Text) {
         //     this._button1Text = value;
-            this._buttons[0].labelText = "<b>" + value + "</b>";
+        this._buttons[0].labelText = "<b>" + value + "</b>";
         // }
     }
 
     public set button2Text(value) {
         // if (value != this._button2Text) {
         //     this._button2Text = value;
-            this._buttons[1].labelText = "<b>" + value + "</b>";
+        this._buttons[1].labelText = "<b>" + value + "</b>";
         // }
     }
 

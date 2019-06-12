@@ -77,7 +77,7 @@ export class Saves extends BaseContent {
         }
     }
 
-    private getSaveObj(key: string): Record<string, any> {
+    public getSaveObj(key: string): Record<string, any> {
         const save = localStorage.getItem(key);
         if (save)
             return JSON.parse(save);

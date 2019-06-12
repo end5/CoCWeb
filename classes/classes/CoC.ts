@@ -445,7 +445,448 @@ export class CoC {
 
         this.images = new ImageManager();
         this.inputManager = new InputManager(mainView);
+
+
         // include "../../includes/ControlBindings.as";
+        this.inputManager.AddBindableControl(
+            "Show Stats",
+            "Show the stats pane when available",
+            () => {
+                if (this.mainView.statsButton.visible && this.player.str > 0) {
+                    this.displayStats();
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Level Up",
+            "Show the level up page when available",
+            () => {
+                if (this.mainView.levelButton.visible && this.player.str > 0) {
+                    this.levelUpGo();
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Quicksave 1",
+            "Quicksave the current game to slot 1",
+            () => {
+                if (this.mainView.dataButton.visible && this.player.str > 0) {
+                    // this.mainView.nameBox.text = "";
+                    this.saves.saveGame("CoC_1");
+                    this.outputText("Game saved to slot 1!", true);
+                    this.doNext(this.playerMenu);
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Quicksave 2",
+            "Quicksave the current game to slot 2",
+            () => {
+                if (this.mainView.dataButton.visible && this.player.str > 0) {
+                    // this.mainView.nameBox.text = "";
+                    this.saves.saveGame("CoC_2");
+                    this.outputText("Game saved to slot 2!", true);
+                    this.doNext(this.playerMenu);
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Quicksave 3",
+            "Quicksave the current game to slot 2",
+            () => {
+                if (this.mainView.dataButton.visible && this.player.str > 0) {
+                    // this.mainView.nameBox.text = "";
+                    this.saves.saveGame("CoC_3");
+                    this.outputText("Game saved to slot 3!", true);
+                    this.doNext(this.playerMenu);
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Quicksave 4",
+            "Quicksave the current game to slot 4",
+            () => {
+                if (this.mainView.dataButton.visible && this.player.str > 0) {
+                    // this.mainView.nameBox.text = "";
+                    this.saves.saveGame("CoC_4");
+                    this.outputText("Game saved to slot 4!", true);
+                    this.doNext(this.playerMenu);
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Quicksave 5",
+            "Quicksave the current game to slot 5",
+            () => {
+                if (this.mainView.dataButton.visible && this.player.str > 0) {
+                    // this.mainView.nameBox.text = "";
+                    this.saves.saveGame("CoC_5");
+                    this.outputText("Game saved to slot 5!", true);
+                    this.doNext(this.playerMenu);
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Quickload 1",
+            "Quickload the current game from slot 1",
+            () => {
+                if (this.mainView.dataButton.visible) {
+                    var saveFile = this.saves.getSaveObj("CoC_1");
+                    if (saveFile.data.exists) {
+                        this.saves.loadGame("CoC_1");
+                        this.showStats();
+                        this.statScreenRefresh();
+                        this.outputText("Slot 1 Loaded!", true);
+                        this.doNext(this.playerMenu);
+                    }
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Quickload 2",
+            "Quickload the current game from slot 2",
+            () => {
+                if (this.mainView.dataButton.visible) {
+                    var saveFile = this.saves.getSaveObj("CoC_2");
+                    if (saveFile.data.exists) {
+                        this.saves.loadGame("CoC_2");
+                        this.showStats();
+                        this.statScreenRefresh();
+                        this.outputText("Slot 2 Loaded!", true);
+                        this.doNext(this.playerMenu);
+                    }
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Quickload 3",
+            "Quickload the current game from slot 3",
+            () => {
+                if (this.mainView.dataButton.visible) {
+                    var saveFile = this.saves.getSaveObj("CoC_3");
+                    if (saveFile.data.exists) {
+                        this.saves.loadGame("CoC_3");
+                        this.showStats();
+                        this.statScreenRefresh();
+                        this.outputText("Slot 3 Loaded!", true);
+                        this.doNext(this.playerMenu);
+                    }
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Quickload 4",
+            "Quickload the current game from slot 4",
+            () => {
+                if (this.mainView.dataButton.visible) {
+                    var saveFile = this.saves.getSaveObj("CoC_4");
+                    if (saveFile.data.exists) {
+                        this.saves.loadGame("CoC_4");
+                        this.showStats();
+                        this.statScreenRefresh();
+                        this.outputText("Slot 4 Loaded!", true);
+                        this.doNext(this.playerMenu);
+                    }
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Quickload 5",
+            "Quickload the current game from slot 5",
+            () => {
+                if (this.mainView.dataButton.visible) {
+                    var saveFile = this.saves.getSaveObj("CoC_5");
+                    if (saveFile.data.exists) {
+                        this.saves.loadGame("CoC_5");
+                        this.showStats();
+                        this.statScreenRefresh();
+                        this.outputText("Slot 5 Loaded!", true);
+                        this.doNext(this.playerMenu);
+                    }
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Show Menu",
+            "Show the main menu",
+            () => {
+                if (this.mainView.newGameButton.visible && this.mainView.newGameButton.labelText === "Main Menu") {
+                    this.mainMenu();
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Data Menu",
+            "Show the save/load menu",
+            () => {
+                if (this.mainView.dataButton.visible) {
+                    this.saves.saveLoad();
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Appearance Page",
+            "Show the appearance page",
+            () => {
+                if (this.mainView.appearanceButton.visible) {
+                    this.appearance();
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "No",
+            "Respond no to any available prompt",
+            () => {
+                if (this.mainView.bottomButtons[1].labelText == "No" && this.mainView.bottomButtons[1].visible) {
+                    this.mainView.bottomButtons[1].click();
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Yes",
+            "Respond yes to any available prompt",
+            () => {
+                if (this.mainView.bottomButtons[0].labelText == "Yes" && this.mainView.bottomButtons[0].visible) {
+                    this.mainView.bottomButtons[0].click();
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Show Perks",
+            "Show the perks page",
+            () => {
+                if (this.mainView.perksButton.visible) {
+                    this.displayPerks();
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Continue",
+            "Respond to continue",
+            () => {
+                // Button 9
+                if (this.mainView.bottomButtons[9].visible && !~["Nevermind", "Abandon", "Next", "Return", "Back", "Leave", "Resume"].indexOf(this.mainView.bottomButtons[9].labelText)) {
+                    //trace( "keyboard(): processing space bar for button 9",
+                    //	mainView.buttonIsVisible( 9 ) ? "(visible)" : "(hidden)",
+                    //	mainView.getButtonText( 9 ) );
+                    this.mainView.bottomButtons[9].click();
+                    return;
+                }
+
+                // Button 0
+                if (this.mainView.bottomButtons[0].visible && !~["Next", "Return", "Back"].indexOf(this.mainView.bottomButtons[0].labelText)) {
+                    //trace( "keyboard(): processing space bar for button 0",
+                    //	mainView.buttonIsVisible( 0 ) ? "(visible)" : "(hidden)",
+                    //	mainView.getButtonText( 0 ) );
+                    this.mainView.bottomButtons[0].click();
+                    return;
+                }
+
+                // Button 4
+                if (this.mainView.bottomButtons[4].visible && !~["Nevermind", "Next", "Return", "Back", "Leave"].indexOf(this.mainView.bottomButtons[4].labelText)) {
+                    //trace( "keyboard(): processing space bar for button 4",
+                    //	mainView.buttonIsVisible( 4 ) ? "(visible)" : "(hidden)",
+                    //	mainView.getButtonText( 4 ) );
+                    this.mainView.bottomButtons[4].click();
+                    return;
+                }
+
+                // Button 5
+                if (this.mainView.bottomButtons[5].visible && !~["Next", "Return", "Back"].indexOf(this.mainView.bottomButtons[5].labelText)) {
+                    //trace( "keyboard(): processing space bar for button 5",
+                    //	mainView.buttonIsVisible( 5 ) ? "(visible)" : "(hidden)",
+                    //	mainView.getButtonText( 5 ) );
+                    this.mainView.bottomButtons[5].click();
+                    return;
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Cycle Background",
+            "Cycle the background fill of the text display area",
+            () => {
+                if (!this.mainView.mainText.classList.contains('tan')) {
+                    this.mainView.mainText.classList.add('tan');
+                }
+                else if (!this.mainView.mainText.classList.contains('white')) {
+                    this.mainView.mainText.classList.add('white');
+                }
+                else {
+                    this.mainView.mainText.classList.remove('tan', 'white');
+                }
+
+            });
+
+        this.inputManager.AddBindableControl(
+            "Button 1",
+            "Activate button 1",
+            () => {
+                if (this.mainView.bottomButtons[0].visible) {
+                    this.mainView.bottomButtons[0].click();
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Button 2",
+            "Activate button 2",
+            () => {
+                if (this.mainView.bottomButtons[1].visible) {
+                    this.mainView.bottomButtons[1].click();
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Button 3",
+            "Activate button 3",
+            () => {
+                if (this.mainView.bottomButtons[2].visible) {
+                    this.mainView.bottomButtons[2].click();
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Button 4",
+            "Activate button 4",
+            () => {
+                if (this.mainView.bottomButtons[3].visible) {
+                    this.mainView.bottomButtons[3].click();
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Button 5",
+            "Activate button 5",
+            () => {
+                if (this.mainView.bottomButtons[4].visible) {
+                    this.mainView.bottomButtons[4].click();
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Button 6",
+            "Activate button 6",
+            () => {
+                if (this.mainView.bottomButtons[5].visible) {
+                    this.mainView.bottomButtons[5].click();
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Button 7",
+            "Activate button 7",
+            () => {
+                if (this.mainView.bottomButtons[6].visible) {
+                    this.mainView.bottomButtons[6].click();
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Button 8",
+            "Activate button 8",
+            () => {
+                if (this.mainView.bottomButtons[7].visible) {
+                    this.mainView.bottomButtons[7].click();
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Button 9",
+            "Activate button 9",
+            () => {
+                if (this.mainView.bottomButtons[8].visible) {
+                    this.mainView.bottomButtons[8].click();
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Button 10",
+            "Activate button 10",
+            () => {
+                if (this.mainView.bottomButtons[9].visible) {
+                    this.mainView.bottomButtons[9].click();
+                }
+            });
+
+        this.inputManager.AddBindableControl(
+            "Cheat! Give Hummus",
+            "Cheat code to get free hummus",
+            (keyCode: number) => {
+                if (this.flags[kFLAGS.CHEAT_ENTERING_COUNTER] == 0) {
+                    if (keyCode == 38) {
+                        this.flags[kFLAGS.CHEAT_ENTERING_COUNTER]++;
+                    }
+                    else {
+                        this.flags[kFLAGS.CHEAT_ENTERING_COUNTER] = 0;
+                    }
+                }
+                else if (this.flags[kFLAGS.CHEAT_ENTERING_COUNTER] == 1) {
+                    if (keyCode == 40) {
+                        this.flags[kFLAGS.CHEAT_ENTERING_COUNTER]++;
+                    }
+                    else {
+                        this.flags[kFLAGS.CHEAT_ENTERING_COUNTER] = 0;
+                    }
+                }
+                else if (this.flags[kFLAGS.CHEAT_ENTERING_COUNTER] == 2) {
+                    if (keyCode == 37) {
+                        this.flags[kFLAGS.CHEAT_ENTERING_COUNTER]++;
+                    }
+                    else {
+                        this.flags[kFLAGS.CHEAT_ENTERING_COUNTER] = 0;
+                    }
+                }
+                else if (this.flags[kFLAGS.CHEAT_ENTERING_COUNTER] == 3) {
+                    if (keyCode == 39) {
+                        if (this.player.str > 0 && this.mainView.bottomButtons[0].labelText !== "Game Over") {
+                            kGAMECLASS.inventory.giveHumanizer();
+                        }
+                    }
+                    else {
+                        this.flags[kFLAGS.CHEAT_ENTERING_COUNTER] = 0;
+                    }
+                }
+            },
+            InputManager.CHEATCONTROL);
+
+        // Insert the default bindings
+        this.inputManager.BindKeyToControl(83, "Show Stats");
+        this.inputManager.BindKeyToControl(76, "Level Up");
+        this.inputManager.BindKeyToControl(112, "Quicksave 1");
+        this.inputManager.BindKeyToControl(113, "Quicksave 2");
+        this.inputManager.BindKeyToControl(114, "Quicksave 3");
+        this.inputManager.BindKeyToControl(115, "Quicksave 4");
+        this.inputManager.BindKeyToControl(116, "Quicksave 5");
+        this.inputManager.BindKeyToControl(117, "Quickload 1");
+        this.inputManager.BindKeyToControl(118, "Quickload 2");
+        this.inputManager.BindKeyToControl(119, "Quickload 3");
+        this.inputManager.BindKeyToControl(120, "Quickload 4");
+        this.inputManager.BindKeyToControl(121, "Quickload 5");
+        this.inputManager.BindKeyToControl(8, "Show Menu");
+        this.inputManager.BindKeyToControl(68, "Data Menu");
+        this.inputManager.BindKeyToControl(65, "Appearance Page");
+        this.inputManager.BindKeyToControl(78, "No");
+        this.inputManager.BindKeyToControl(89, "Yes");
+        this.inputManager.BindKeyToControl(80, "Show Perks");
+        this.inputManager.BindKeyToControl(13, "Continue");
+        this.inputManager.BindKeyToControl(32, "Continue", InputManager.SECONDARYKEY);
+        this.inputManager.BindKeyToControl(36, "Cycle Background");
+        this.inputManager.BindKeyToControl(49, "Button 1");
+        this.inputManager.BindKeyToControl(50, "Button 2");
+        this.inputManager.BindKeyToControl(51, "Button 3");
+        this.inputManager.BindKeyToControl(52, "Button 4");
+        this.inputManager.BindKeyToControl(53, "Button 5");
+        this.inputManager.BindKeyToControl(54, "Button 6");
+        this.inputManager.BindKeyToControl(55, "Button 7");
+        this.inputManager.BindKeyToControl(56, "Button 8");
+        this.inputManager.BindKeyToControl(57, "Button 9");
+        this.inputManager.BindKeyToControl(48, "Button 10");
+        this.inputManager.BindKeyToControl(81, "Button 6", InputManager.SECONDARYKEY);
+        this.inputManager.BindKeyToControl(87, "Button 7", InputManager.SECONDARYKEY);
+        this.inputManager.BindKeyToControl(69, "Button 8", InputManager.SECONDARYKEY);
+        this.inputManager.BindKeyToControl(82, "Button 9", InputManager.SECONDARYKEY);
+        this.inputManager.BindKeyToControl(84, "Button 10", InputManager.SECONDARYKEY);
+
+        this.inputManager.RegisterDefaults();
 
         // this.monkey = new ChaosMonkey(this);
 
@@ -654,17 +1095,17 @@ export class CoC {
     }
 
     // public forceUpdate(): void {
-        // this._updateHack.x = 999;
-        // this._updateHack.addEventListener(Event.ENTER_FRAME, this.moveHackUpdate);
+    // this._updateHack.x = 999;
+    // this._updateHack.addEventListener(Event.ENTER_FRAME, this.moveHackUpdate);
     // }
 
     // public moveHackUpdate(e: Event): void {
-        // this._updateHack.x -= 84;
+    // this._updateHack.x -= 84;
 
-        // if (this._updateHack.x < 0) {
-        //     this._updateHack.x = 0;
-        //     this._updateHack.removeEventListener(Event.ENTER_FRAME, this.moveHackUpdate);
-        // }
+    // if (this._updateHack.x < 0) {
+    //     this._updateHack.x = 0;
+    //     this._updateHack.removeEventListener(Event.ENTER_FRAME, this.moveHackUpdate);
+    // }
     // }
 
     // include "../../includes/descriptors.as";
@@ -2138,32 +2579,32 @@ export class CoC {
         // NO FUCKING DECENT MULTI-LINE STRING LITERALS BECAUSE FUCKING STUPID
         // WTF ACTIONSCRIPT YOUR DEV'S ARE ON CRACK
 
-        this.outputText(`<![CDATA[
+        this.outputText(`
 <br> (Formerly Unnamed Text Game)
-<u>Created by: Fenoxo < /u>
+<u>Created by: Fenoxo </u>
 
 Edited By: <br>
-& nbsp; & nbsp; & nbsp; Ashi, SoS, Prisoner416, Zeikfried, et al
+&nbsp; &nbsp; &nbsp; Ashi, SoS, Prisoner416, Zeikfried, et al
 
 Open - source contributions by: <br>
-& nbsp; & nbsp; & nbsp; aimozg, Amygdala, Cmacleod42, Enterprise2001, Fake - Name, Gedan, Yoffy, et al
+&nbsp; &nbsp; &nbsp; aimozg, Amygdala, Cmacleod42, Enterprise2001, Fake - Name, Gedan, Yoffy, et al
 
 Source Code: <u><a href='https://github.com/herp-a-derp/Corruption-of-Champions' > https://github.com/herp-a-derp/Corruption-of-Champions</a></u>
 
 Bug Tracker: <u><a href='https://github.com/herp-a-derp/Corruption-of-Champions/issues' > https://github.com/herp-a-derp/Corruption-of-Champions/issues</a></u>  
 (requires an account, unfortunately)
 
-** <u>DISCLAIMER < /u>**
-    < br >- ** There are many strange and odd fetishes contained in this flash.Peruse at own risk.**
+** <u>DISCLAIMER </u>**
+    <br>- ** There are many strange and odd fetishes contained in this flash.Peruse at own risk.**
 <br>- ** Please be 18 or the legal age to view porn before playing.**
 <br>- ** Try to keep your keyboard clean.Think of the children! **
 
 
     For more information see Fenoxo's Blog at <b><u><a href='http://www.fenoxo.com/'>fenoxo.com</a></u></b>.
 
-Also go play < u > <a href='http://www.furaffinity.net/view/9830293/' > Nimin < /a></u > by Xadera on furaffinity.
+Also go play <u> <a href='http://www.furaffinity.net/view/9830293/' > Nimin </a></u> by Xadera on furaffinity.
 
-	]]>`, false, true);
+	`, false, true);
 
         if (this.debug)
             this.outputText("\n\n<b>DEBUG MODE ENABLED:  ITEMS WILL NOT BE CONSUMED BY USE.</b>");
@@ -2471,7 +2912,7 @@ Also go play < u > <a href='http://www.furaffinity.net/view/9830293/' > Nimin < 
     public imageCreditsScreen(): void {
 
         if (this.images.getLoadedImageCount() > 0) {
-            this.outputText(`<![CDATA[
+            this.outputText(`
 
 ** Bundled Image Credits: any *
 
@@ -2482,7 +2923,7 @@ Also go play < u > <a href='http://www.furaffinity.net/view/9830293/' > Nimin < 
         * Ceraph Monster Image
         * Sand - Witch(and sandwich)
 
-		]]>`, true, true);
+		`, true, true);
         }
         else {
             this.outputText("<b>No Image-Pack Found!</b>\n", true);
@@ -2637,7 +3078,7 @@ Also go play < u > <a href='http://www.furaffinity.net/view/9830293/' > Nimin < 
         //
         //
 
-        this.outputText(`<![CDATA[
+        this.outputText(`
 
 ** Parser Tests! **
 
@@ -2865,7 +3306,7 @@ convert "
 "derp a herp"
 
 
-	]]>`, true, true);
+	`, true, true);
 
 
         this.menu();
@@ -8833,7 +9274,7 @@ convert "
     public eventTestingPane(): void {
 
 
-        this.outputText(`<![CDATA[
+        this.outputText(`
     
     
     
@@ -8916,7 +9357,7 @@ We can also do * italic * and ** bold ** text!
     
     
     
-        ]]>`, true, true);
+        `, true, true);
 
         //trace("Maintext content @ eventTestingPane = ", mainText.htmlText.length)
         //menu();
@@ -8938,7 +9379,7 @@ We can also do * italic * and ** bold ** text!
     //         [screen startup |
 
     //             "Paste test event text here."
-    
+
     // [button urtaQuest.infertilityQuestions | infertilityQuestions]
     // [button forest.kitsuneScene.enterTheTrickster | enterTheTrickster]
     // [button forest.kitsuneScene.kitsuneShrine | kitsuneShrine]
@@ -9104,7 +9545,7 @@ We can also do * italic * and ** bold ** text!
     */
 
     public clearOutput(): void {
-        this.forceUpdate();
+        // this.forceUpdate();
         this.currentText = "";
         this.mainView.clearOutputText();
         if (this.gameState != 3) this.mainView.hideMenuButton(MainView.MENU_DATA);
@@ -9346,7 +9787,7 @@ We can also do * italic * and ** bold ** text!
         // stage.foc/us = undefined;
         // if (this.mainView.aCb.parent != undefined) {
         //     this.mainView.removeChild(this.mainView.aCb);
-            this.applyPerk(selected);
+        this.applyPerk(selected);
         // }
     }
 
@@ -9354,11 +9795,11 @@ We can also do * italic * and ** bold ** text!
         // stage.focus = undefined;
         // if (this.mainView.aCb.parent != undefined) {
         //     this.mainView.removeChild(this.mainView.aCb);
-            this.playerMenu();
+        this.playerMenu();
         // }
     }
 
-    private changeHandler(event: Event, perkList: {label: string, perk: PerkClass}[]): void {
+    private changeHandler(event: Event, perkList: { label: string, perk: PerkClass }[]): void {
         //Store perk name for later addition
         this.clearOutput();
         var selected: PerkClass = perkList.find((perk) => perk.label === (event.target as HTMLOptionElement).value)!.perk;
@@ -9371,7 +9812,7 @@ We can also do * italic * and ** bold ** text!
     }
 
     public buildPerkList() {
-        var perkList: ({label: string, perk: PerkClass})[] = [];
+        var perkList: ({ label: string, perk: PerkClass })[] = [];
         function _add(p: PerkClass): void {
             perkList.push({ label: p.perkName, perk: p });
         }
@@ -9887,7 +10328,7 @@ We can also do * italic * and ** bold ** text!
             };
         }
         else {
-            return  (): any=> {
+            return (): any => {
                 if (CoC_Settings.haltOnErrors)
                     this.logFunctionInfo(func, arg);
                 return func(arg);
@@ -9898,7 +10339,7 @@ We can also do * italic * and ** bold ** text!
         if (func == undefined) {
             CoC_Settings.error("createCallBackFunction(undefined," + args + ")");
         }
-        return  (): any =>{
+        return (): any => {
             if (CoC_Settings.haltOnErrors) this.logFunctionInfo(func, args);
             return func.apply(undefined, args);
         }
