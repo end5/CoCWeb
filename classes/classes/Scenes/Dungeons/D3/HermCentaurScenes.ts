@@ -51,7 +51,7 @@ export class HermCentaurScenes extends BaseContent {
         this.flags[kFLAGS.D3_CENTAUR_DEFEATED] = this.CENTAUR_KILLED;
 
         this.menu();
-        this.cleanupAfterCombat(() => this.getGame().d3.resumeFromFight());
+        this.cleanupAfterCombat(this.getGame().d3.resumeFromFight);
     }
 
     private letHerGo(): void {
@@ -60,7 +60,7 @@ export class HermCentaurScenes extends BaseContent {
         this.flags[kFLAGS.D3_CENTAUR_DEFEATED] = this.CENTAUR_RELEASED;
 
         this.menu();
-        this.cleanupAfterCombat(() => this.getGame().d3.resumeFromFight());
+        this.cleanupAfterCombat(this.getGame().d3.resumeFromFight);
     }
 
     private maleFuckHer(): void {
@@ -107,7 +107,7 @@ export class HermCentaurScenes extends BaseContent {
         this.player.orgasm();
         this.dynStats("cor+", 5);
 
-        this.cleanupAfterCombat(() => this.getGame().d3.resumeFromFight())
+        this.cleanupAfterCombat(this.getGame().d3.resumeFromFight)
     }
 
     private HORZGOG: number = 0;
@@ -231,7 +231,7 @@ export class HermCentaurScenes extends BaseContent {
         this.dynStats("cor+", 5);
         this.player.knockUp(PregnancyStore.PREGNANCY_IMP, PregnancyStore.INCUBATION_IMP);
         this.menu();
-        this.cleanupAfterCombat(() => this.getGame().d3.resumeFromFight());
+        this.cleanupAfterCombat(this.getGame().d3.resumeFromFight);
     }
 
     public inSovietCoCPonyRidesYou(hpVictory: boolean, pcCameWorms: boolean): void {

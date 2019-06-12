@@ -466,8 +466,8 @@ export class Camp extends NPCAwareContent {
             this.mainView.statsView.hideLevelUp();
         }
         //Build main menu
-        var exploreEvent: (() => void) | undefined = () => this.getGame().exploration.doExplore();
-        var masturbate = (this.player.lust > 30 ? () => this.getGame().masturbation.masturbateMenu() : undefined);
+        var exploreEvent: (() => void) | undefined = this.getGame().exploration.doExplore;
+        var masturbate = (this.player.lust > 30 ? this.getGame().masturbation.masturbateMenu : undefined);
         this.clearOutput();
 
         this.outputText(this.images.showImage("camping"), false);
@@ -777,7 +777,7 @@ export class Camp extends NPCAwareContent {
         if (this.flags[kFLAGS.NIEVE_STAGE] == 5) {
             kGAMECLASS.nieveCampDescs();
             this.outputText("\n\n");
-            nieve = () => this.getGame().approachNieve();
+            nieve = this.getGame().approachNieve;
         }
         if (kGAMECLASS.helScene.followerHel()) {
             if (this.flags[kFLAGS.HEL_FOLLOWER_LEVEL] == 2) {
@@ -919,7 +919,7 @@ export class Camp extends NPCAwareContent {
         this.addButton(this, 5, "Kiha", kihaButt);
         if (marbleEvent != undefined) this.addButton(this, 6, "Marble", marbleEvent);
         if (nieve != undefined) this.addButton(this, 7, "Nieve", nieve);
-        if (this.flags[kFLAGS.ANT_WAIFU] > 0) this.addButton(this, 8, "Phylla", () => this.getGame().desert.antsScene.introductionToPhyllaFollower());
+        if (this.flags[kFLAGS.ANT_WAIFU] > 0) this.addButton(this, 8, "Phylla", this.getGame().desert.antsScene.introductionToPhyllaFollower);
         this.addButton(this, 9, "Back", this.playerMenu);
     }
 
@@ -1290,19 +1290,19 @@ export class Camp extends NPCAwareContent {
             return;
         }
         this.menu();
-        if (this.flags[kFLAGS.BAZAAR_ENTERED] > 0) this.addButton(this, 0, "Bazaar", () => this.getGame().bazaar.enterTheBazaar());
-        if (this.player.findStatusAffect(StatusAffects.BoatDiscovery) >= 0) this.addButton(this, 1, "Boat", () => this.getGame().boat.boatExplore());
+        if (this.flags[kFLAGS.BAZAAR_ENTERED] > 0) this.addButton(this, 0, "Bazaar", this.getGame().bazaar.enterTheBazaar);
+        if (this.player.findStatusAffect(StatusAffects.BoatDiscovery) >= 0) this.addButton(this, 1, "Boat", this.getGame().boat.boatExplore);
         if (this.flags[kFLAGS.FOUND_CATHEDRAL] == 1) {
             if (this.flags[kFLAGS.GAR_NAME] == '')
-                this.addButton(this, 2, "Cathedral", () => this.getGame().gargoyle.gargoylesTheShowNowOnWBNetwork());
-            else this.addButton(this, 2, "Cathedral", () => this.getGame().gargoyle.returnToCathedral());
+                this.addButton(this, 2, "Cathedral", this.getGame().gargoyle.gargoylesTheShowNowOnWBNetwork);
+            else this.addButton(this, 2, "Cathedral", this.getGame().gargoyle.returnToCathedral);
         }
         if (this.dungeonFound()) this.addButton(this, 3, "Dungeons", this.dungeons);
         this.addButton(this, 4, "Next", this.placesPage2);
-        if (this.farmFound()) this.addButton(this, 5, "Farm", () => this.getGame().farm.farmExploreEncounter());
-        if (this.flags[kFLAGS.OWCA_UNLOCKED] == 1) this.addButton(this, 6, "Owca", () => this.getGame().owca.gangbangVillageStuff());
-        if (this.player.findStatusAffect(StatusAffects.HairdresserMeeting) >= 0) this.addButton(this, 7, "Salon", () => this.getGame().mountain.salon.salonGreeting());
-        if (this.player.statusAffectv1(StatusAffects.TelAdre) >= 1) this.addButton(this, 8, "Tel'Adre", () => this.getGame().telAdre.telAdreMenu());
+        if (this.farmFound()) this.addButton(this, 5, "Farm", this.getGame().farm.farmExploreEncounter);
+        if (this.flags[kFLAGS.OWCA_UNLOCKED] == 1) this.addButton(this, 6, "Owca", this.getGame().owca.gangbangVillageStuff);
+        if (this.player.findStatusAffect(StatusAffects.HairdresserMeeting) >= 0) this.addButton(this, 7, "Salon", this.getGame().mountain.salon.salonGreeting);
+        if (this.player.statusAffectv1(StatusAffects.TelAdre) >= 1) this.addButton(this, 8, "Tel'Adre", this.getGame().telAdre.telAdreMenu);
         this.addButton(this, 9, "Back", this.playerMenu);
     }
 
@@ -1311,7 +1311,7 @@ export class Camp extends NPCAwareContent {
         this.flags[kFLAGS.PLACES_PAGE] = 1;
         //turn on ruins
         if (this.flags[kFLAGS.AMILY_VILLAGE_ACCESSIBLE] > 0) this.addButton(this, 0, "TownRuins", this.amilyScene.exploreVillageRuin);
-        if (this.flags[kFLAGS.MET_MINERVA] >= 4) this.addButton(this, 1, "Oasis Tower", () => this.getGame().highMountains.minervaScene.encounterMinerva());
+        if (this.flags[kFLAGS.MET_MINERVA] >= 4) this.addButton(this, 1, "Oasis Tower", this.getGame().highMountains.minervaScene.encounterMinerva);
         this.addButton(this, 4, "Previous", this.placesToPage1);
         this.addButton(this, 9, "Back", this.playerMenu);
     }

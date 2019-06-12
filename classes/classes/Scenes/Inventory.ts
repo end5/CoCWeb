@@ -77,17 +77,17 @@ export class Inventory extends BaseContent {
                 if (this.flags[kFLAGS.NIEVE_STAGE] == 1)
                     this.outputText("\nThere's some odd snow here that you could do something with...\n");
                 else this.outputText("\nYou have a snow" + this.getGame().nieveMF("man", "woman") + " here that seems like it could use a little something...\n");
-                this.addButton(this, 6, "Snow", () => this.getGame().nieveBuilding());
+                this.addButton(this, 6, "Snow", this.getGame().nieveBuilding);
                 foundItem = true;
             }
             if (this.flags[kFLAGS.FUCK_FLOWER_KILLED] == 0 && this.flags[kFLAGS.FUCK_FLOWER_LEVEL] >= 1) {
                 if (this.flags[kFLAGS.FUCK_FLOWER_LEVEL] == 4) this.outputText("\nHolli is in her tree at the edges of your camp.  You could go visit her if you want.\n");
-                this.addButton(this, 7, (this.flags[kFLAGS.FUCK_FLOWER_LEVEL] >= 3 ? "Tree" : "Plant"), () => this.getGame().holliScene.treeMenu());
+                this.addButton(this, 7, (this.flags[kFLAGS.FUCK_FLOWER_LEVEL] >= 3 ? "Tree" : "Plant"), this.getGame().holliScene.treeMenu);
                 foundItem = true;
             }
             if (this.player.hasKeyItem("Dragon Egg") >= 0) {
                 this.getGame().emberScene.emberCampDesc();
-                this.addButton(this, 8, "Egg", () => this.getGame().emberScene.emberEggInteraction());
+                this.addButton(this, 8, "Egg", this.getGame().emberScene.emberEggInteraction);
                 foundItem = true;
             }
         }

@@ -1079,7 +1079,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.addButton(this, 3, "Dirt Kick", this.urtaDirtKick);
         this.addButton(this, 4, "Metabolize", this.urtaMetabolize);
         this.addButton(this, 5, "SecondWind", this.urtaSecondWind);
-        this.addButton(this, 9, "Back", () => this.getGame().combatMenu(false));
+        this.addButton(this, 9, "Back", this.getGame().combatMenu, false);
     }
 
     private urtaMetabolize(): void {

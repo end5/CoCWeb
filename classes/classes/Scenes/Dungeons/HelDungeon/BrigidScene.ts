@@ -26,7 +26,7 @@ export class BrigidScene extends BaseContent {
             this.outputText("\"<i>Tsk tsk tsk,</i>\" the harpy jailer croons, looming over you as you slump to the ground. \"<i>You shouldn't have messed with me, bitch!</i>\" she snaps, giving you a rough kick to the side. \"<i>Now, let's see what Mother has to say about this...</i>\"");
             //(Go to \"<i>Harpy Breeding Slut</i>\" Bad End)
             this.menu();
-            this.addButton(this, 0, "Next", () => this.getGame().harpyQueenBeatsUpPCBadEnd(true));
+            this.addButton(this, 0, "Next", this.getGame().harpyQueenBeatsUpPCBadEnd, true);
         }
         else {
             this.outputText("\"<i>That's it?!</i>\" Brigid screams, as you collapse in front of her.  \"<i>A weak little piece of trash like you took out our queen?</i>\"");

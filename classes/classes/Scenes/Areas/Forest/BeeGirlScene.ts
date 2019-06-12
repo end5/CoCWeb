@@ -367,7 +367,7 @@ export class BeeGirlScene extends BaseContent {
             this.outputText("Your " + this.cockDescript(0) + " wriggles free of your " + this.player.armorName + ", as you keep walking forward.  A bodiless voice yells, \"<i>Honeypot, honeypot, ME LOOOOVE HONEYPOOOOOT!</i>\"\n\n");
             this.outputText("The bee-girl's eyes widen at the sight, shocked by your over-endowed form being dragged towards her as if there were a magnet in your " + this.cockDescript(0) + ".  She presses herself against the flower's petals, terrified and afraid to put up any meaningful resistance.  The nagging voice pipes up, \"<i>So are we gonna rape her or what, " + this.player.short + "?  I need some honeyyy!</i>\"\n\n");
             this.outputText("She seems too surprised to resist.  Will you go along with Exgartuan and rape her?");
-            this.doYesNo(this, () => this.getGame().exgartuan.exgartuanBeeRape(), this.camp.returnToCampUseOneHour);
+            this.doYesNo(this, this.getGame().exgartuan.exgartuanBeeRape, this.camp.returnToCampUseOneHour);
         }
         else {
             this.outputText("The bee-girl's eyes widen at the sight,  shocked by your over-endowed form being dragged towards her as if there were a magnet in your " + this.cockDescript(0) + ".   She flutters into the air and aims her stinger towards you, ready to fight!");

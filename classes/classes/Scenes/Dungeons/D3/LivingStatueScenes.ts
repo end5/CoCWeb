@@ -39,7 +39,7 @@ export class LivingStatueScenes extends BaseContent {
 
         this.player.createKeyItem("Stone Statue Lethicite", 0, 0, 0, 0);
 
-        this.cleanupAfterCombat(() => this.getGame().d3.resumeFromFight());
+        this.cleanupAfterCombat(this.getGame().d3.resumeFromFight);
     }
 
     public fuckinMarbleOP(hpVictory: boolean, pcCameWorms: boolean): void {

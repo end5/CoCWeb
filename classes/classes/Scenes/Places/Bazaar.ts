@@ -110,7 +110,7 @@ export class Bazaar extends BaseContent {
         var niamh = undefined;
         if (this.flags[kFLAGS.NIAMH_STATUS] > 0 && this.flags[kFLAGS.NIAMH_MOVED_OUT_COUNTER] == -1) {
             if (this.flags[kFLAGS.NIAMH_STATUS] == 2) this.outputText("\n\nThe sounds of voices raised in song and girlish laughter makes it obvious where Niamh is holding a perpetual party.");
-            niamh = () => this.getGame().telAdre.niamh.bazaarNiamh();
+            niamh = this.getGame().telAdre.niamh.bazaarNiamh;
         }
         /*[S. Squeeze] [][][] [Leave]
         choices(benoitT,benoit,rat,cinnabarAppearance(),"GripingDemons",demon,lilium,LiliumText(false),"Niamh",niamh,roxanneT,roxanne,"S. Squeeze",theSlipperySqueeze,"Tent",tent,"",0,"Leave",13);*/

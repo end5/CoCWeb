@@ -2803,7 +2803,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         }
         var urta = undefined;
         if (this.flags[kFLAGS.AMILY_VISITING_URTA] == 4 && this.flags[kFLAGS.URTA_COMFORTABLE_WITH_OWN_BODY] >= 0 && !this.getGame().urtaQuest.urtaBusy())
-            urta = () => this.getGame().followerInteractions.amilyUrtaSex();
+            urta = this.getGame().followerInteractions.amilyUrtaSex;
         var swim = undefined;
         if (this.flags[kFLAGS.AMILY_OWNS_BIKINI] > 0 && this.player.hasCock() && !this.amilyCorrupt()) swim = this.amilySwimFuckIntro;
         var threesome = undefined;

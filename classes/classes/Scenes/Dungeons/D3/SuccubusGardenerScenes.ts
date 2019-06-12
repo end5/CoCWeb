@@ -168,7 +168,7 @@ export class SuccubusGardenerScenes extends BaseContent {
         this.flags[kFLAGS.D3_GARDENER_DEFEATED] = this.GARDENER_KILLED;
 
         this.menu();
-        this.cleanupAfterCombat(() => this.getGame().d3.resumeFromFight());
+        this.cleanupAfterCombat(this.getGame().d3.resumeFromFight);
     }
 
     private leaveHer(): void {
@@ -178,7 +178,7 @@ export class SuccubusGardenerScenes extends BaseContent {
         this.flags[kFLAGS.D3_GARDENER_DEFEATED] = this.GARDENER_LEFT;
 
         this.menu();
-        this.cleanupAfterCombat(() => this.getGame().d3.resumeFromFight());
+        this.cleanupAfterCombat(this.getGame().d3.resumeFromFight);
     }
 
     public surrenderToTheGardener(hpVictory: boolean = false): void {
