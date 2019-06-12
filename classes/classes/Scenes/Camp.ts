@@ -40,10 +40,10 @@ export class Camp extends NPCAwareContent {
             }
     */
 
-    // public constructor(campInitialize: any) {
-    //     super();
-    //     campInitialize(this.doCamp); //Pass the doCamp function up to CoC. This way doCamp is private but the CoC class itself can call it.
-    // }
+    public constructor(campInitialize: any) {
+        super();
+        campInitialize(this.doCamp); //Pass the doCamp function up to CoC. This way doCamp is private but the CoC class itself can call it.
+    }
 
     /* Replaced with calls to playerMenu
             public  campMenu(): void {
@@ -72,7 +72,7 @@ export class Camp extends NPCAwareContent {
 
     //  SLEEP_WITH: number = 701;
 
-    public doCamp(): void { //Only called by playerMenu
+    private doCamp(): void { //Only called by playerMenu
         //trace("Current fertility: " + player.totalFertility());
         this.mainView.showMenuButton(MainView.MENU_NEW_MAIN);
         if (this.player.findStatusAffect(StatusAffects.PostAkbalSubmission) >= 0) {
