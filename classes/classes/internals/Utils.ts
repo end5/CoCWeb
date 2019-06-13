@@ -79,7 +79,7 @@ export class Utils {
     public static validateNonNegativeNumberFields(o: Record<string, any>, func: string, nnf: any[]): string {
         var error: string = "";
         for (var field of nnf) {
-            if (!o.hasOwnProperty(field) || !(typeof o[field] == 'number') && o[field] != undefined) error += "Misspelling in " + func + ".nnf: '" + field + "'. ";
+            if (!(field in o) || !(typeof o[field] == 'number') && o[field] != undefined) error += "Misspelling in " + func + ".nnf: '" + field + "'. ";
             else if (o[field] == undefined) error += "Null '" + field + "'. ";
             else if (o[field] < 0) error += "Negative '" + field + "'. ";
         }
@@ -89,7 +89,7 @@ export class Utils {
     public static validateNonEmptyStringFields(o: Record<string, any>, func: string, nef: any[]): string {
         var error: string = "";
         for (var field of nef) {
-            if (!o.hasOwnProperty(field) || !(typeof o[field] == 'string') && o[field] != undefined) error += "Misspelling in " + func + ".nef: '" + field + "'. ";
+            if (!(field in o) || !(typeof o[field] == 'string') && o[field] != undefined) error += "Misspelling in " + func + ".nef: '" + field + "'. ";
             else if (o[field] == undefined) error += "Null '" + field + "'. ";
             else if (o[field] == "") error += "Empty '" + field + "'. ";
         }
