@@ -1,9 +1,14 @@
 import { CoC_Settings } from "../CoC_Settings";
+import { bindToClass } from "../../ClassBinder";
 
 /**
  * Created by aimozg on 18.01.14.
  */
-export class Utils extends Object {
+export class Utils {
+    public constructor() {
+        bindToClass(this);
+    }
+
     private static NUMBER_WORDS_NORMAL: any[] = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
     private static NUMBER_WORDS_CAPITAL: any[] = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"];
     private static NUMBER_WORDS_POSITIONAL: any[] = ["zeroth", "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth"];

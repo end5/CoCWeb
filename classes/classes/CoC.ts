@@ -129,6 +129,7 @@ import { SandMother } from "./Scenes/Dungeons/DesertCave/SandMother";
 import { WormMass } from "./Scenes/Areas/Mountain/WormMass";
 import { Flags } from "./FlagTypeOverrides";
 import { setkGAMECLASS, kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
+import { bindToClass } from "../ClassBinder";
 
 // BREAKING ALL THE RULES.
 
@@ -381,6 +382,8 @@ export class CoC {
     }
 
     public constructor() {
+        bindToClass(this);
+        
         // Cheatmode.
         setkGAMECLASS(this);
         // kGAMECLASS = this;
