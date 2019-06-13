@@ -421,9 +421,16 @@ export class Monster extends Creature {
         return result;
     }
 
+    public get a() {
+        return super.a;
+    }
     public set a(value: string) {
         this.initsCalled.a = true;
         super.a = value;
+    }
+
+    public get short() {
+        return super.short;
     }
 
     public set short(value: string) {
@@ -488,11 +495,13 @@ export class Monster extends Creature {
         return super.createBreastRow(size, nipplesPerBreast);
     }
 
+    public get tallness() { return super.tallness; }
     public set tallness(value: number) {
         this.initsCalled.tallness = true;
         super.tallness = value;
     }
 
+    public get skinType() { return super.skinType; }
     public set skinType(value: number) {
         if (!this._checkCalled) { this.skinDesc = Appearance.DEFAULT_SKIN_DESCS[value]; }
         super.skinType = value;
@@ -514,6 +523,7 @@ export class Monster extends Creature {
     }
 
 
+    public get wingType() { return super.wingType; }
     public set wingType(value: number) {
         if (!this._checkCalled) this.wingDesc = Appearance.DEFAULT_WING_DESCS[value];
         super.wingType = value;
