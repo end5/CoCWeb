@@ -11,7 +11,7 @@ import { StatusAffects } from "./StatusAffects";
 import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
 import { PerkLib } from "./PerkLib";
 import { MainView } from "../../lib/src/coc/view/MainView";
-import { Flags } from "./FlagTypeOverrides";
+import { Flags, createFlags } from "./FlagTypeOverrides";
 
 
 //	import flash.events.MouseEvent;
@@ -169,7 +169,7 @@ export class CharCreation extends BaseContent {
             this.player.setWeapon(WeaponLib.FISTS);
         }
         //Clear plot storage array!
-        this.flags = {} as Flags;
+        this.flags = createFlags();
 
         //Remember silly/sprite/etc
         if (sprite) this.flags[kFLAGS.SHOW_SPRITES_FLAG] = true;

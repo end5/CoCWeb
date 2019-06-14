@@ -19,7 +19,7 @@ import { ItemSlotClass } from "./ItemSlotClass";
 import { StatusAffects } from "./StatusAffects";
 import { BreastStore } from "./BreastStore";
 import { PregnancyStore } from "./PregnancyStore";
-import { Flags } from "./FlagTypeOverrides";
+import { Flags, createFlags } from "./FlagTypeOverrides";
 
 export class Saves extends BaseContent {
 
@@ -900,7 +900,7 @@ export class Saves extends BaseContent {
 
             //KILL ALL COCKS;
             this.player = new Player();
-            this.flags = {} as Flags;
+            this.flags = createFlags();
             this.model.player = this.player;
 
             //trace("Type of saveFile = ", getClass(saveFile));

@@ -60,3 +60,64 @@ type FlagTypeOverrides = {
     [kFLAGS.MILKY_TATTOO_SHOULDERS]: string;
     [kFLAGS.MILKY_TATTOO_BUTT]: string;
 }
+
+export function createFlags() {
+    const flags = {} as Record<number, string | boolean | number>;
+    for (let index = 0; index < 3000; index++)
+        flags[index] = 0;
+    flags[kFLAGS.LOW_STANDARDS_FOR_ALL] = false;
+    flags[kFLAGS.HYPER_HAPPY] = false;
+    flags[kFLAGS.SHOW_SPRITES_FLAG] = false;
+    flags[kFLAGS.SILLY_MODE_ENABLE_FLAG] = false;
+    flags[kFLAGS.BONUS_ITEM_AFTER_COMBAT_ID] = '';
+    flags[kFLAGS.BENOIT_1] = '';
+    flags[kFLAGS.BENOIT_2] = '';
+    flags[kFLAGS.BENOIT_3] = '';
+    flags[kFLAGS.HELSPAWN_NAME] = '';
+    flags[kFLAGS.HELSPAWN_WEAPON] = '';
+    flags[kFLAGS.GAR_NAME] = '';
+    flags[kFLAGS.MILK_NAME] = '';
+    flags[kFLAGS.GOO_NAME] = '';
+    flags[kFLAGS.GOO_EYES] = '';
+    flags[kFLAGS.KELLY_HAIR_COLOR] = '';
+    flags[kFLAGS.TEMP_STORAGE_PASTRY_NAME] = '';
+    flags[kFLAGS.PLAYER_DISARMED_WEAPON_ID] = '';
+    flags[kFLAGS.KATHERINE_HAIR_COLOR] = '';
+    flags[kFLAGS.ANEMONE_WEAPON_ID] = '';
+    flags[kFLAGS.SLEEP_WITH] = '';
+    flags[kFLAGS.FOLLOWER_PRODUCTION_SOPHIE_COLORCHOICE] = '';
+    flags[kFLAGS.SOCK_HOLDING] = '';
+    flags[kFLAGS.AMILY_CLOTHING] = '';
+    flags[kFLAGS.ARIAN_EGG_COLOR] = '';
+    flags[kFLAGS.NIEVE_MOUTH] = '';
+    flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE] = '';
+    flags[kFLAGS.WHITNEY_TATTOO_SHOULDERS] = '';
+    flags[kFLAGS.WHITNEY_TATTOO_LOWERBACK] = '';
+    flags[kFLAGS.WHITNEY_TATTOO_BUTT] = '';
+    flags[kFLAGS.AMILY_TATTOO_COLLARBONE] = '';
+    flags[kFLAGS.AMILY_TATTOO_LOWERBACK] = '';
+    flags[kFLAGS.AMILY_TATTOO_SHOULDERS] = '';
+    flags[kFLAGS.AMILY_TATTOO_BUTT] = '';
+    flags[kFLAGS.JOJO_TATTOO_COLLARBONE] = '';
+    flags[kFLAGS.JOJO_TATTOO_LOWERBACK] = '';
+    flags[kFLAGS.JOJO_TATTOO_SHOULDERS] = '';
+    flags[kFLAGS.JOJO_TATTOO_BUTT] = '';
+    flags[kFLAGS.SOPHIE_TATTOO_COLLARBONE] = '';
+    flags[kFLAGS.SOPHIE_TATTOO_LOWERBACK] = '';
+    flags[kFLAGS.SOPHIE_TATTOO_SHOULDERS] = '';
+    flags[kFLAGS.SOPHIE_TATTOO_BUTT] = '';
+    flags[kFLAGS.VAPULA_TATTOO_COLLARBONE] = '';
+    flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] = '';
+    flags[kFLAGS.VAPULA_TATTOO_SHOULDERS] = '';
+    flags[kFLAGS.VAPULA_TATTOO_BUTT] = '';
+    flags[kFLAGS.KELLY_TATTOO_COLLARBONE] = '';
+    flags[kFLAGS.KELLY_TATTOO_LOWERBACK] = '';
+    flags[kFLAGS.KELLY_TATTOO_SHOULDERS] = '';
+    flags[kFLAGS.KELLY_TATTOO_BUTT] = '';
+    flags[kFLAGS.MILKY_TATTOO_COLLARBONE] = '';
+    flags[kFLAGS.MILKY_TATTOO_LOWERBACK] = '';
+    flags[kFLAGS.MILKY_TATTOO_SHOULDERS] = '';
+    flags[kFLAGS.MILKY_TATTOO_BUTT] = '';
+
+    return flags as Flags;
+}

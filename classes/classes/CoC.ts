@@ -127,7 +127,7 @@ import { OmnibusOverseer } from "./Scenes/Dungeons/Factory/OmnibusOverseer";
 import { GooArmor } from "./Scenes/NPCs/GooArmor";
 import { SandMother } from "./Scenes/Dungeons/DesertCave/SandMother";
 import { WormMass } from "./Scenes/Areas/Mountain/WormMass";
-import { Flags } from "./FlagTypeOverrides";
+import { Flags, createFlags } from "./FlagTypeOverrides";
 import { setkGAMECLASS, kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
 import { bindToClass } from "../ClassBinder";
 
@@ -925,7 +925,7 @@ export class CoC {
 
         //The extreme flag state array. This needs to go. Holds information about everything, whether it be certain attacks for NPCs 
         //or state information to do with the game. 
-        this.flags = {} as Flags;
+        this.flags = createFlags();
         model.flags = this.flags;
 
 
