@@ -2396,7 +2396,7 @@ export class CoC {
 
     public displayControls(): void {
         this.mainView.hideAllMenuButtons();
-        this.inputManager.DisplayBindingPane();
+        this.outputText("", true);
 
         this.choices("Reset Ctrls", this.resetControls,
             "Clear Ctrls", this.clearControls,
@@ -2408,6 +2408,8 @@ export class CoC {
             "Null", undefined,
             "Null", undefined,
             "Back", this.hideControls);
+
+        this.inputManager.DisplayBindingPane();
     }
 
     public hideControls(): void {

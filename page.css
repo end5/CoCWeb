@@ -196,6 +196,11 @@ body {
     display: none;
 }
 
+.controlButton>.button {
+    background-image: url("res/ui/button1.jpg");
+    position: inherit;
+}
+
 #button3>.tooltip,
 #button8>.tooltip,
 #button4>.tooltip,

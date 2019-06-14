@@ -7,7 +7,7 @@ import { CoCButton } from "../../../lib/src/coc/view/CoCButton";
  * @author Gedan
  */
 export class BindDisplay {
-    public element: HTMLElement;
+    public element: HTMLTableRowElement;
 
     // Object components and settings
     // private _maxWidth: number;
@@ -41,7 +41,7 @@ export class BindDisplay {
      * @param	maxWidth	Defines the maximum available width that the control can consume for positining math
      */
     public constructor() {
-        this.element = document.createElement('div');
+        this.element = document.createElement('tr');
 
         // this._maxWidth = maxWidth;
 
@@ -62,13 +62,20 @@ export class BindDisplay {
 
         // this.InitButtons();
         // this.InitLabel();
-        this._nameLabel = document.createElement('p');
-        this.element.appendChild(this._nameLabel);
 
-        const button1 = document.createElement('button');
-        button1.innerHTML = '<a class="button">Button</a><div class="tooltip"></div>';
-        const button2 = document.createElement('button');
-        button2.innerHTML = '<a class="button">Button</a><div class="tooltip"></div>';
+        const labelCell = document.createElement('td');
+        this.element.appendChild(labelCell);
+
+        this._nameLabel = document.createElement('p');
+        labelCell.appendChild(this._nameLabel);
+
+        const button1 = document.createElement('td');
+        button1.className = "controlButton";
+        button1.innerHTML = '<a class="button"></a>';
+
+        const button2 = document.createElement('td');
+        button2.className = "controlButton";
+        button2.innerHTML = '<a class="button"></a>';
 
         this._buttons = [new CoCButton(button1), new CoCButton(button2)];
         this.element.appendChild(button1);

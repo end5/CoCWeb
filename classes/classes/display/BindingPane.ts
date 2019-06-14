@@ -140,6 +140,8 @@ export class BindingPane {
 
         this.element.innerHTML = helpLabel;
 
+        const table = document.createElement('table');
+
         //helpLabel.height *= 2; 
 
         // this._contentChildren++;
@@ -176,8 +178,9 @@ export class BindingPane {
             newLabel.button2Callback = genSecondaryCallback(this._functions[i].Name, this._inputManager);
 
             // this._content.addChild(newLabel);
-            this.element.appendChild(newLabel.element);
+            table.appendChild(newLabel.element);
         }
+        this.element.appendChild(table);
     }
 
     /**
