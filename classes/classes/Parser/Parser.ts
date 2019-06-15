@@ -3,6 +3,7 @@ import { conditionalOptions } from "./conditionalConverters";
 import { singleArgConverters } from "./singleArgLookups";
 import { twoWordNumericTagsLookup, twoWordTagsLookup } from "./doubleArgLookups";
 import { Showdown } from "../../showdown/Showdown";
+import { bindToClass } from "../../ClassBinder";
 
 export class Parser {
 
@@ -23,6 +24,7 @@ export class Parser {
     public constructor(ownerClass: any, settingsClass: any) {
         this._ownerClass = ownerClass;
         this._settingsClass = settingsClass;
+        bindToClass(this);
     }
 
     /*
