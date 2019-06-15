@@ -34,7 +34,7 @@ export class StatView {
     }
 
     public setNumber(num: number) {
-        this.currNumber.textContent = num + '';
+        this.currNumber.textContent = Math.round(num) + '';
     }
 
     public showUp() {
