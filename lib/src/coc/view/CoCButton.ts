@@ -67,7 +67,7 @@ export class CoCButton {
     }
 
     public set visible(vis) {
-        if (vis && this.labelText !== '')
+        if (vis && this.labelText !== '' && this._callback !== undefined)
             this.button.classList.remove('hidden');
         else
             this.button.classList.add('hidden');

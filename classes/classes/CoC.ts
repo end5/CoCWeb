@@ -10361,7 +10361,8 @@ We can also do * italic * and ** bold ** text!
                 return;
             }
         */
-        callback = this.createCallBackFunction(func1, arg1);
+        if (func1)
+            callback = this.createCallBackFunction(func1, arg1);
 
 
         toolTipText = this.getButtonToolTipText(text);
