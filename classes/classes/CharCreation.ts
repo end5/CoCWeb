@@ -225,7 +225,7 @@ export class CharCreation extends BaseContent {
             }
             this.newGameGo();
             this.outputText("\n\n\n<b>You must select a name.</b>");
-            this.mainView.mainText.appendChild(input);
+            // this.mainView.mainText.appendChild(input);
             return;
         }
         this.clearOutput();
