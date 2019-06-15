@@ -13,12 +13,10 @@ export class CoCButton {
         this.tooltip = element.getElementsByClassName('tooltip')[0] as HTMLElement;
 
         this.button.addEventListener('mouseover', () => {
-            this.button.style.opacity = '0.5';
             if (this.toolTipText && this.tooltip)
                 this.tooltip.classList.remove('hidden');
         });
         this.button.addEventListener('mouseleave', () => {
-            this.button.style.opacity = '1';
             if (this.tooltip)
                 this.tooltip.classList.add('hidden');
         });
@@ -69,7 +67,7 @@ export class CoCButton {
     }
 
     public set visible(vis) {
-        if (vis)
+        if (vis && this.labelText !== '')
             this.button.classList.remove('hidden');
         else
             this.button.classList.add('hidden');
