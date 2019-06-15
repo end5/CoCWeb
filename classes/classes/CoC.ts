@@ -2585,31 +2585,30 @@ export class CoC {
         // WTF ACTIONSCRIPT YOUR DEV'S ARE ON CRACK
 
         this.outputText(`
-<br> (Formerly Unnamed Text Game)
+(Formerly Unnamed Text Game)
 <u>Created by: Fenoxo </u>
 
-Edited By: <br>
-&nbsp; &nbsp; &nbsp; Ashi, SoS, Prisoner416, Zeikfried, et al
+Edited By:
+    Ashi, SoS, Prisoner416, Zeikfried, et al
 
-Open - source contributions by: <br>
-&nbsp; &nbsp; &nbsp; aimozg, Amygdala, Cmacleod42, Enterprise2001, Fake - Name, Gedan, Yoffy, et al
+Open - source contributions by:
+    aimozg, Amygdala, Cmacleod42, Enterprise2001, Fake - Name, Gedan, Yoffy, et al
 
-Source Code: <u><a href='https://github.com/herp-a-derp/Corruption-of-Champions' > https://github.com/herp-a-derp/Corruption-of-Champions</a></u>
+Source Code: <u><a href='https://github.com/herp-a-derp/Corruption-of-Champions'>https://github.com/herp-a-derp/Corruption-of-Champions</a></u>
 
-Bug Tracker: <u><a href='https://github.com/herp-a-derp/Corruption-of-Champions/issues' > https://github.com/herp-a-derp/Corruption-of-Champions/issues</a></u>  
+Bug Tracker: <u><a href='https://github.com/herp-a-derp/Corruption-of-Champions/issues'>https://github.com/herp-a-derp/Corruption-of-Champions/issues</a></u>
 (requires an account, unfortunately)
 
-** <u>DISCLAIMER </u>**
-    <br>- ** There are many strange and odd fetishes contained in this flash.Peruse at own risk.**
-<br>- ** Please be 18 or the legal age to view porn before playing.**
-<br>- ** Try to keep your keyboard clean.Think of the children! **
+<b><u>DISCLAIMER</u></b>
+    <b>- There are many strange and odd fetishes contained in this flash.Peruse at own risk.</b>
+    <b>- Please be 18 or the legal age to view porn before playing.</b>
+    <b>- Try to keep your keyboard clean. Think of the children!</b>
 
+For more information see Fenoxo's Blog at <b><u><a href='http://www.fenoxo.com/'>fenoxo.com</a></u></b>.
 
-    For more information see Fenoxo's Blog at <b><u><a href='http://www.fenoxo.com/'>fenoxo.com</a></u></b>.
+Also go play <u><a href='http://www.furaffinity.net/view/9830293/'> Nimin </a></u> by Xadera on furaffinity.
 
-Also go play <u> <a href='http://www.furaffinity.net/view/9830293/' > Nimin </a></u> by Xadera on furaffinity.
-
-	`, false, true);
+Ported by end5.`, false, false);
 
         if (this.debug)
             this.outputText("\n\n<b>DEBUG MODE ENABLED:  ITEMS WILL NOT BE CONSUMED BY USE.</b>");
