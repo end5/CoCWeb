@@ -2400,13 +2400,13 @@ export class CoC {
 
         this.choices("Reset Ctrls", this.resetControls,
             "Clear Ctrls", this.clearControls,
-            "Null", undefined,
-            "Null", undefined,
-            "Null", undefined,
-            "Null", undefined,
-            "Null", undefined,
-            "Null", undefined,
-            "Null", undefined,
+            "", undefined,
+            "", undefined,
+            "", undefined,
+            "", undefined,
+            "", undefined,
+            "", undefined,
+            "", undefined,
             "Back", this.hideControls);
 
         this.inputManager.DisplayBindingPane();
@@ -10352,7 +10352,7 @@ We can also do * italic * and ** bold ** text!
 
 
     public addButton(pos: number, text: string = "", func1?: any, arg1: any = -9000): void {
-        if (func1 == undefined) return;
+        // if (func1 == undefined) return;
         var callback;
         var toolTipText: string;
         /* Let the mainView decide if index is valid

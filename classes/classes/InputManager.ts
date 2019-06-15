@@ -1,6 +1,7 @@
 import { BoundControlMethod } from "./BoundControlMethod";
 import { MainView } from "../../lib/src/coc/view/MainView";
 import { BindingPane } from "./display/BindingPane";
+import { bindToClass } from "../ClassBinder";
 
 /**
  * Generic input manager
@@ -55,6 +56,8 @@ export class InputManager {
      * @param	debug	Emit debugging trace statements
      */
     public constructor(mainView: MainView) {
+        bindToClass(this);
+
         this._bindingMode = false;
         // this._debug = debug;
 
@@ -64,6 +67,7 @@ export class InputManager {
         this._availableCheatControlMethods = 0;
 
         // this._stage.addEventListener(KeyboardEvent.KEY_DOWN, this.KeyHandler);
+        document.body.addEventListener('keydown', this.KeyHandler);
 
         // this._mainView = mainView;
         // this._mainText = (this._stage.getChildByName("mainView") as MovieClip).mainText as TextField;
@@ -99,12 +103,13 @@ export class InputManager {
         this._bindingSlot = isPrimary;
 
         // this._mainText.htmlText = "<b>Hit the key that you want to bind " + funcName + " to!</b>";
-        this._mainView.mainText.innerHTML = "<b>Hit the key that you want to bind " + funcName + " to!</b>";
 
         // hide some buttons that will fuck shit up
         this._mainView.hideCurrentBottomButtons();
 
-        this.HideBindingPane();
+        // this.HideBindingPane();
+
+        this._mainView.mainText.innerHTML = "<b>Hit the key that you want to bind " + funcName + " to!</b>";
     }
 
     /**
@@ -263,7 +268,7 @@ export class InputManager {
         // this._mainText.visible = true;
         // this._mainTextScollBar.visible = true;
         // this._stage.removeChild(this._bindingPane);
-        this._mainView.mainText.innerHTML = '';
+        // this._mainView.mainText.innerHTML = '';
     }
 
     /**
