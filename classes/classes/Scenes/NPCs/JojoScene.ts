@@ -2653,12 +2653,12 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             //[if {PC hasn’t spoken to Sand Mother about Bath Slut yet} 
             // Can't differentiate this
             // All I have is HAS_MET and HAS_RECRUITED effectively
-            if (typeof this.flags[kFLAGS.MILK_NAME] == 'number') {
+            if (this.flags[kFLAGS.MILK_NAME] === '') {
                 this.outputText("You tell Jojo about how the Sand Mother told you the bath girl was unfit to be free and how they care for her because she can’t care for herself.\n\n");
                 this.outputText("Jojo reacts by putting his chin in his hands and thinking, “<i>Well... I guess that’s the human thing to do, especially since she doesn’t seem to be corrupted.  Maybe these sand witch covens aren’t all bad, still hard to believe that they’re on our side though....</i>”  He looks up and shrugs, “<i>Any act of charity though is a good thing.  I do hope the poor girl will be alright.</i>”\n\n");
             }
             // [if {PC has bath slut in camp}
-            else if (typeof this.flags[kFLAGS.MILK_NAME] == 'string') {
+            else if (this.flags[kFLAGS.MILK_NAME] !== '') {
                 this.outputText("As the question leaves his lips you give Jojo a confused look and, with a glance, direct his gaze toward " + this.flags[kFLAGS.MILK_NAME] + ".\n\n");
                 this.outputText("He slaps his own forehead and says, “<i>Oh... yeah... right.</i>” Obviously embarrassed by not putting two and two together. He smiles good naturedly though, “<i>I don’t know I guess I just assumed you found some poor mind addled soul and decided to save her.</i>” Jojo says as he looks over at " + this.flags[kFLAGS.MILK_NAME] + ".\n\n");
 

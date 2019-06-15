@@ -14,7 +14,7 @@ export class MilkWaifu extends NPCAwareContent {
     //const MET_MILK_SLAVE: number = 871;
 
     public milkSlave(): boolean {
-        return typeof this.flags[kFLAGS.MILK_NAME] == 'string';
+        return this.flags[kFLAGS.MILK_NAME] !== '';
     }
 
 
