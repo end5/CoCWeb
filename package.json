@@ -4,7 +4,8 @@
     "description": "Corruption-of-Champions Web Port",
     "scripts": {
         "init": "node init.js",
-        "build": "tsc"
+        "build": "tsc",
+        "compress": "node compress.js"
     },
     "author": "",
     "license": "ISC",
@@ -15,6 +16,7 @@
     },
     "devDependencies": {
         "@types/file-saver": "^2.0.1",
-        "@types/node": "^12.0.2"
+        "@types/node": "^12.0.2",
+        "adm-zip": "^0.4.13"
     }
 }
