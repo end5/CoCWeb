@@ -670,7 +670,7 @@ export class Saves extends BaseContent {
                 saveFile.gearStorage[i].quantity = this.gearStorageGet()[i].quantity;
                 saveFile.gearStorage[i].unlocked = this.gearStorageGet()[i].unlocked;
             }
-            saveFile.ass.push({});
+            saveFile.ass = {};
             saveFile.ass.analWetness = this.player.ass.analWetness;
             saveFile.ass.analLooseness = this.player.ass.analLooseness;
             saveFile.ass.fullness = this.player.ass.fullness;
@@ -914,7 +914,7 @@ export class Saves extends BaseContent {
             //flags
 
             for (var key of Object.keys(this.flags)) {
-                if (saveFile.flags[key] !== 0)
+                if (saveFile.flags[key])
                     (this.flags as Record<string | number, any>)[key] = saveFile.flags[key];
             }
             let i = 0;
