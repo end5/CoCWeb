@@ -214,9 +214,9 @@ export class InputManager {
         //     return;
         // }
 
-        // if (this._mainView.nameBox.visible && this._stage.focus == this._mainView.nameBox) {
-        //     return;
-        // }
+        if (this._mainView.mainText.getElementsByTagName('input').length > 0) {
+            return;
+        }
 
         // If we're not in binding mode, listen for key inputs to act on
         if (this._bindingMode == false) {
