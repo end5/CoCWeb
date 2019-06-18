@@ -1,3 +1,4 @@
 export function trace(...text: any[]) {
-    console.log(text);
+    if (window && (window as any).gameTrace)
+        console.log(text);
 }
