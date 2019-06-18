@@ -1,0 +1,207 @@
+define(["require", "exports", "../../Monster", "../../GlobalFlags/kFLAGS", "../../StatusAffects", "../../../../includes/appearanceDefs", "../../Appearance"], function (require, exports, Monster_1, kFLAGS_1, StatusAffects_1, appearanceDefs_1, Appearance_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class Helspawn extends Monster_1.Monster {
+        doAI() {
+            var choices = [];
+            choices[choices.length] = this.helspawnTwinStrikes;
+            //Bowmander only
+            if (this.flags[kFLAGS_1.kFLAGS.HELSPAWN_WEAPON] == "bow")
+                choices[choices.length] = this.calledShot;
+            //Zerker ability
+            if (this.weaponAttack < 50 || this.flags[kFLAGS_1.kFLAGS.HELSPAWN_WEAPON] == "scimitar")
+                choices[choices.length] = this.helSpawnBerserk; //Shield Bash (Shieldmander Only)
+            if (this.flags[kFLAGS_1.kFLAGS.HELSPAWN_WEAPON] == "scimitar and shield")
+                choices[choices.length] = this.helSpawnShieldBash;
+            //Tease (Sluttymander Only)
+            if (this.flags[kFLAGS_1.kFLAGS.HELSPAWN_PERSONALITY] >= 50)
+                choices[choices.length] = this.sluttyMander;
+            //Focus (Chastemander Only)
+            //Self-healing & lust restoration
+            if (this.flags[kFLAGS_1.kFLAGS.HELSPAWN_PERSONALITY] < 50)
+                choices[choices.length] = this.helSpawnFocus;
+            choices[Helspawn.rand(choices.length)]();
+            //Tail Whip
+            if (Helspawn.rand(4) == 0)
+                this.tailWhipShitYo();
+            this.combatRoundOver();
+        }
+        //Basic Attack - Twin Strike
+        // Two light attacks
+        helspawnTwinStrikes() {
+            //if Bowmander
+            if (this.flags[kFLAGS_1.kFLAGS.HELSPAWN_WEAPON] == "bow")
+                this.outputText(this.flags[kFLAGS_1.kFLAGS.HELSPAWN_NAME] + " leaps back out of your reach and nocks a pair of blunted arrows, drawing them back together and loosing them at once!\n");
+            else
+                this.outputText(this.flags[kFLAGS_1.kFLAGS.HELSPAWN_NAME] + " lunges at you, scimitar cleaving through the air toward your throat!\n");
+            this.createStatusAffect(StatusAffects_1.StatusAffects.Attacks, 0, 0, 0, 0);
+            this.eAttack();
+        }
+        //Called Shot (Bowmander Only)
+        // Super-high chance of hitting. On hit, speed debuff
+        calledShot() {
+            this.outputText(this.flags[kFLAGS_1.kFLAGS.HELSPAWN_NAME] + " draws back her bowstring, spending an extra second aiming before letting fly!");
+            var damage = Math.floor((this.str + this.weaponAttack) - Helspawn.rand(this.player.tou) - this.player.armorDef);
+            //standard dodge/miss text
+            if (damage <= 0 || (Helspawn.rand(2) == 0 && (this.combatMiss() || this.combatEvade() || this.combatFlexibility() || this.combatMisdirect())))
+                this.outputText("\nYou avoid the hit!");
+            else {
+                this.outputText("\nOne of her arrows smacks right into your [leg], nearly bowling you over.  God DAMN that hurt! You're going to be limping for a while!");
+                var affect = 20 + Helspawn.rand(5);
+                if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.CalledShot) >= 0) {
+                    while (affect > 0 && this.player.spe >= 2) {
+                        affect--;
+                        this.player.addStatusValue(StatusAffects_1.StatusAffects.CalledShot, 1, 1);
+                        this.player.spe--;
+                        Helspawn.showStatDown('spe');
+                        // speDown.visible = true;
+                        // speUp.visible = false;
+                    }
+                }
+                else {
+                    this.player.createStatusAffect(StatusAffects_1.StatusAffects.CalledShot, 0, 0, 0, 0);
+                    while (affect > 0 && this.player.spe >= 2) {
+                        affect--;
+                        this.player.addStatusValue(StatusAffects_1.StatusAffects.CalledShot, 1, 1);
+                        this.player.spe--;
+                        Helspawn.showStatDown('spe');
+                        // speDown.visible = true;
+                        // speUp.visible = false;
+                    }
+                }
+                damage = this.player.takeDamage(damage);
+                this.outputText(" (" + damage + ")");
+            }
+        }
+        //Berzerkergang (Berzerkermander Only)
+        //Gives Helspawn the benefit of the Berzerk special ability
+        helSpawnBerserk() {
+            this.outputText(this.flags[kFLAGS_1.kFLAGS.HELSPAWN_NAME] + " lets out a savage warcry, throwing her head back in primal exaltation before charging back into the fray with utter bloodlust in her wild eyes!");
+            this.weaponAttack = this.weaponAttack + 30;
+            this.armorDef = 0;
+        }
+        //Shield Bash (Shieldmander Only)
+        helSpawnShieldBash() {
+            this.clearOutput();
+            var damage = Math.floor((this.str) - Helspawn.rand(this.player.tou) - this.player.armorDef);
+            // Stuns a bitch
+            this.outputText(this.flags[kFLAGS_1.kFLAGS.HELSPAWN_NAME] + " lashes out with her shield, trying to knock you back!");
+            //standard dodge/miss text
+            if (damage <= 0 || this.combatMiss() || this.combatEvade() || this.combatFlexibility() || this.combatMisdirect())
+                this.outputText("\nYou evade the strike.");
+            else {
+                this.outputText("\nHer shield catches you right in the face, sending you tumbling to the ground and leaving you open to attack!");
+                damage = this.player.takeDamage(damage);
+                if (Helspawn.rand(2) == 0 && this.player.findStatusAffect(StatusAffects_1.StatusAffects.Stunned) < 0) {
+                    this.player.createStatusAffect(StatusAffects_1.StatusAffects.Stunned, 0, 0, 0, 0);
+                    this.outputText(" <b>The hit stuns you.</b>");
+                }
+                this.outputText(" (" + damage + ")");
+            }
+        }
+        //Tail Whip
+        tailWhipShitYo() {
+            // Light physical, armor piercing (fire, bitch). Random chance to get this on top of any other attack
+            var damage = Math.floor((this.str) - Helspawn.rand(this.player.tou));
+            this.outputText("\n" + this.flags[kFLAGS_1.kFLAGS.HELSPAWN_NAME] + " whips at you with her tail, trying to sear you with her brilliant flames!");
+            //standard dodge/miss text
+            if (damage <= 0 || this.combatMiss() || this.combatEvade() || this.combatFlexibility() || this.combatMisdirect())
+                this.outputText("\nYou evade the strike.");
+            else {
+                this.outputText("\n" + this.flags[kFLAGS_1.kFLAGS.HELSPAWN_NAME] + "'s tail catches you as you try to dodge.  Your [armor] sizzles, and you leap back with a yelp as she gives you a light burning.");
+                damage = this.player.takeDamage(damage);
+                this.outputText(" (" + damage + ")");
+            }
+        }
+        //Tease (Sluttymander Only)
+        sluttyMander() {
+            // Medium Lust damage
+            this.outputText(this.flags[kFLAGS_1.kFLAGS.HELSPAWN_NAME] + " jumps just out of reach before spinning around, planting her weapon in the ground as she turns her backside to you and gives her sizable ass a rhythmic shake, swaying her full hips hypnotically.");
+            //if no effect:
+            if (Helspawn.rand(2) == 0)
+                this.outputText("\nWhat the fuck is she trying to do?  You walk over and give her a sharp kick in the kiester, \"<i>Keep your head in the game, kiddo.  Pick up your weapon!</i>\"");
+            else {
+                this.outputText("\nDat ass.  You lean back, enjoying the show as the slutty little salamander slips right past your guard, practically grinding up against you until you can feel a fire boiling in your loins!");
+                var lustDelta = this.player.lustVuln * (10 + this.player.lib / 10);
+                this.player.lust += lustDelta;
+                this.game.mainView.statsView.showStatUp('lust');
+                // lustDown.visible = false;
+                // lustUp.visible = true;
+                lustDelta = Math.round(lustDelta * 10) / 10;
+                this.outputText(" (" + lustDelta + ")", false);
+            }
+        }
+        //Focus (Chastemander Only)
+        //Self-healing & lust restoration
+        helSpawnFocus() {
+            this.outputText("Seeing a momentary lull in the melee, " + this.flags[kFLAGS_1.kFLAGS.HELSPAWN_NAME] + " slips out of reach, stumbling back and clutching at the bruises forming all over her body.  \"<i>Come on, " + this.flags[kFLAGS_1.kFLAGS.HELSPAWN_NAME] + ", you can do this. Focus, focus,</i>\" she mutters, trying to catch her breath.  A moment later and she seems to have taken a second wind as she readies her weapon with a renewed vigor.");
+            this.lust -= 30;
+            if (this.lust < 0)
+                this.lust = 0;
+            this.addHP(this.eMaxHP() / 3.0);
+        }
+        defeated(hpVictory) {
+            this.game.helSpawnScene.beatUpYourDaughter();
+        }
+        won(hpVictory, pcCameWorms) {
+            this.game.helSpawnScene.loseSparringToDaughter();
+        }
+        constructor() {
+            super();
+            var weapon = this.game.flags[kFLAGS_1.kFLAGS.HELSPAWN_WEAPON] || 'bow';
+            this.a = "";
+            this.short = this.game.flags[kFLAGS_1.kFLAGS.HELSPAWN_NAME];
+            this.imageName = "hollispawn";
+            this.long = this.game.flags[kFLAGS_1.kFLAGS.HELSPAWN_NAME] + " is a young salamander, appearing in her later teens.  Clad in " +
+                (this.game.flags[kFLAGS_1.kFLAGS.HELSPAWN_PERSONALITY] >= 50 ?
+                    "a slutty scale bikini like her mother's, barely concealing anything" :
+                    "a short skirt, thigh-high boots, and a sky-blue blouse, in stark contrast to her mother’s sluttier attire") +
+                ", she stands about six feet in height, with a lengthy, fiery tail swishing menacingly behind her. She's packing a " +
+                {
+                    'bow': "recurve bow, using blunted, soft-tipped arrows",
+                    'scimitar': "scimitar, just like her mom's, and holds it in the same berzerk stance Helia is wont to use",
+                    'scimitar and shield': "scimitar and shield, giving her a balanced fighting style"
+                }[weapon] +
+                ".  Pacing around you, the well-built young warrior intently studies her mentor's defenses, readying for your next attack.";
+            // this.plural = false;
+            this.createVagina(false, appearanceDefs_1.VAGINA_WETNESS_NORMAL, appearanceDefs_1.VAGINA_LOOSENESS_NORMAL);
+            this.createStatusAffect(StatusAffects_1.StatusAffects.BonusVCapacity, 85, 0, 0, 0);
+            this.createBreastRow(Appearance_1.Appearance.breastCupInverse("E+"));
+            this.ass.analLooseness = appearanceDefs_1.ANAL_LOOSENESS_VIRGIN;
+            this.ass.analWetness = appearanceDefs_1.ANAL_WETNESS_DRY;
+            this.createStatusAffect(StatusAffects_1.StatusAffects.BonusACapacity, 85, 0, 0, 0);
+            this.tallness = 90;
+            this.hipRating = appearanceDefs_1.HIP_RATING_CURVY + 2;
+            this.buttRating = appearanceDefs_1.BUTT_RATING_LARGE + 1;
+            this.skinTone = "dusky";
+            this.hairColor = "red";
+            this.hairLength = 13;
+            this.initStrTouSpeInte(50, 50, 65, 40);
+            this.initLibSensCor(35, 55, 20);
+            this.weaponName = weapon;
+            this.weaponVerb = {
+                'bow': "blunted arrow",
+                'scimitar': "slash",
+                'scimitar and shield': "slash"
+            }[weapon];
+            this.weaponAttack = 20;
+            this.armorName = "scales";
+            this.armorDef = 12;
+            this.armorPerk = "";
+            this.armorValue = 50;
+            this.bonusHP = 175;
+            this.lust = 30;
+            this.lustVuln = .55;
+            this.temperment = Helspawn.TEMPERMENT_RANDOM_GRAPPLES;
+            this.level = 12;
+            this.gems = 10 + Helspawn.rand(5);
+            this.tailType = appearanceDefs_1.TAIL_TYPE_LIZARD;
+            this.tailRecharge = 0;
+            this.createStatusAffect(StatusAffects_1.StatusAffects.Keen, 0, 0, 0, 0);
+            this.drop = this.NO_DROP;
+            this.checkMonster();
+        }
+    }
+    exports.Helspawn = Helspawn;
+});
+//# sourceMappingURL=Helspawn.js.map

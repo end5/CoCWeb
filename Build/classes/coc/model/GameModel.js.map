@@ -1,0 +1,1 @@
+{"version":3,"file":"GameModel.js","sourceRoot":"","sources":["../../../../classes/coc/model/GameModel.ts"],"names":[],"mappings":";;;IAGA,MAAa,SAAS;QAAtB;YACW,WAAM,GAAW,IAAI,eAAM,EAAE,CAAC;YAC9B,aAAQ,GAAwB,EAAE,CAAC;YACnC,SAAI,GAAc,IAAI,qBAAS,EAAE,CAAC;YAElC,UAAK,GAAwB,EAAE,CAAC;YAEvC,6BAA6B;YAC7B,mEAAmE;YAC5D,WAAM,GAAY,KAAK,CAAC;QAInC,CAAC;KAAA;IAbD,8BAaC"}

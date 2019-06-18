@@ -1,0 +1,145 @@
+define(["require", "exports", "../../../Monster", "../../../StatusAffects", "../../../../../includes/appearanceDefs", "../../../Appearance"], function (require, exports, Monster_1, StatusAffects_1, appearanceDefs_1, Appearance_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class ChameleonGirl extends Monster_1.Monster {
+        constructor() {
+            super();
+            /**
+             * Pairs of skinTone/skinAdj
+             */
+            this.SKIN_VARIATIONS = [
+                ["red", "black"],
+                ["green", "yellowish"],
+                ["blue", "lighter blue"],
+                ["purple", "bright yellow"],
+                ["orange", "brown"],
+                ["tan", "white"]
+            ];
+            var skinToneAdj = ChameleonGirl.randomChoice(this.SKIN_VARIATIONS);
+            this.a = "the ";
+            this.short = "chameleon girl";
+            this.imageName = "chameleongirl";
+            this.long = "You're faced with a tall lizard-like girl with smooth " + skinToneAdj[0] + " skin and long, " + skinToneAdj[1] + " stripes that run along her body from ankle to shoulder.  An abnormally large tail swishes behind her, and her hands are massive for her frame, built for easily climbing the trees.  A pair of small, cute horns grow from her temples, and a pair of perky B-cups push out through her skimpy drapings.  Large, sharp claws cap her fingers, gesturing menacingly at you.";
+            // this.plural = false;
+            this.createVagina(false, appearanceDefs_1.VAGINA_WETNESS_SLAVERING, appearanceDefs_1.VAGINA_LOOSENESS_LOOSE);
+            this.createBreastRow(Appearance_1.Appearance.breastCupInverse("B"));
+            this.ass.analLooseness = appearanceDefs_1.ANAL_LOOSENESS_NORMAL;
+            this.ass.analWetness = appearanceDefs_1.ANAL_WETNESS_DRY;
+            this.tallness = ChameleonGirl.rand(2) + 68;
+            this.hipRating = appearanceDefs_1.HIP_RATING_AMPLE + 2;
+            this.buttRating = appearanceDefs_1.BUTT_RATING_LARGE;
+            this.skinTone = skinToneAdj[0];
+            this.skinType = appearanceDefs_1.SKIN_TYPE_PLAIN;
+            this.skinDesc = "skin";
+            this.skinAdj = skinToneAdj[1];
+            this.hairColor = "black";
+            this.hairLength = 15;
+            this.initStrTouSpeInte(65, 65, 95, 85);
+            this.initLibSensCor(50, 45, 50);
+            this.weaponName = "claws";
+            this.weaponVerb = "claw";
+            this.weaponAttack = 30;
+            this.armorName = "skin";
+            this.armorDef = 20;
+            this.bonusHP = 350;
+            this.lust = 30;
+            this.lustVuln = .25;
+            this.temperment = ChameleonGirl.TEMPERMENT_LOVE_GRAPPLES;
+            this.level = 14;
+            this.gems = 10 + ChameleonGirl.rand(50);
+            this.drop = this.NO_DROP;
+            this.checkMonster();
+        }
+        chameleonTongueAttack() {
+            this.weaponName = "tongue";
+            this.weaponVerb = "tongue-slap";
+            this.weaponAttack = 10;
+            this.createStatusAffect(StatusAffects_1.StatusAffects.Attacks, 1, 0, 0, 0);
+            this.eAttack();
+            this.weaponAttack = 30;
+            this.weaponName = "claws";
+            this.weaponVerb = "claw";
+            this.combatRoundOver();
+        }
+        //Ignores armor
+        chameleonClaws() {
+            //Blind dodge change
+            if (this.findStatusAffect(StatusAffects_1.StatusAffects.Blind) >= 0 && ChameleonGirl.rand(3) < 1) {
+                this.outputText(this.capitalA + this.short + " completely misses you with a blind claw-attack!\n", false);
+            }
+            //Evade:
+            else if (this.game.combatMiss() || this.game.combatEvade() || this.game.combatFlexibility() || this.game.combatMisdirect())
+                this.outputText("The chameleon girl's claws slash towards you, but you lean away from them and they fly by in a harmless blur.");
+            //Get hit
+            else {
+                var damage = Math.floor((this.str + this.weaponAttack) - ChameleonGirl.rand(this.player.tou));
+                if (damage > 0) {
+                    damage = this.player.takeDamage(damage);
+                    this.outputText("The chameleon swings her arm at you, catching you with her claws.  You wince as they scratch your skin, leaving thin cuts in their wake. (" + damage + ")");
+                }
+                else
+                    this.outputText("The chameleon swings her arm at you, catching you with her claws.  You defend against the razor sharp attack.");
+            }
+            this.combatRoundOver();
+        }
+        //Attack 3:
+        rollKickClawWhatTheFuckComboIsThisShit() {
+            //Blind dodge change
+            if (this.findStatusAffect(StatusAffects_1.StatusAffects.Blind) >= 0 && ChameleonGirl.rand(3) < 1) {
+                this.outputText(this.capitalA + this.short + " completely misses you with a blind roll-kick!\n", false);
+            }
+            //Evade:
+            else if (this.game.combatMiss() || this.game.combatEvade() || this.game.combatFlexibility() || this.game.combatMisdirect()) {
+                var damage2 = 1 + ChameleonGirl.rand(10);
+                damage2 = this.game.doDamage(damage2);
+                this.outputText("The chameleon girl leaps in your direction, rolls, and kicks at you.  You sidestep her flying charge and give her a push from below to ensure she lands face-first in the bog. (" + damage2 + ")");
+            }
+            //Get hit
+            else {
+                var damage = Math.floor((this.str + this.weaponAttack) - ChameleonGirl.rand(this.player.tou) - this.player.armorDef) + 25;
+                if (damage > 0) {
+                    damage = this.player.takeDamage(damage);
+                    this.outputText("The chameleon leaps in your direction, rolls, and kicks you square in the shoulder as she ascends, sending you reeling.  You grunt in pain as a set of sharp claws rake across your chest. (" + damage + ")");
+                }
+                else
+                    this.outputText("The chameleon rolls in your direction and kicks up at your chest, but you knock her aside without taking any damage..");
+            }
+            this.combatRoundOver();
+        }
+        performCombatAction() {
+            this.game.spriteSelect(89);
+            var select = ChameleonGirl.rand(3);
+            if (select == 0)
+                this.rollKickClawWhatTheFuckComboIsThisShit();
+            else if (select == 1)
+                this.chameleonTongueAttack();
+            else
+                this.chameleonClaws();
+        }
+        defeated(hpVictory) {
+            this.game.bog.chameleonGirlScene.defeatChameleonGirl();
+        }
+        won(hpVictory, pcCameWorms) {
+            if (pcCameWorms) {
+                this.outputText("\n\nThe chameleon girl recoils.  \"<i>Ew, gross!</i>\" she screetches as she runs away, leaving you to recover from your defeat alone.");
+                this.game.cleanupAfterCombat();
+            }
+            else {
+                this.game.bog.chameleonGirlScene.loseToChameleonGirl();
+            }
+        }
+        outputPlayerDodged(dodge) {
+            this.outputText("The chameleon girl whips her head and sends her tongue flying at you, but you hop to the side and manage to avoid it.  The pink blur flies back into her mouth as quickly as it came at you, and she looks more than a bit angry that she didn't find her target.\n");
+        }
+        outputAttack(damage) {
+            if (damage <= 0) {
+                this.outputText("The Chameleon Girl lashes out with her tongue, but you deflect the sticky projectile off your arm, successfully defending against it.  She doesn't look happy about it when she slurps the muscle back into her mouth.");
+            }
+            else {
+                this.outputText("The chameleon whips her head forward and sends her tongue flying at you.  It catches you in the gut, the incredible force behind it staggering you.  The pink blur flies back into her mouth as quickly as it came at you, and she laughs mockingly as you recover your footing. (" + damage + ")");
+            }
+        }
+    }
+    exports.ChameleonGirl = ChameleonGirl;
+});
+//# sourceMappingURL=ChameleonGirl.js.map
