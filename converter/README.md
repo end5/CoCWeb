@@ -24,3 +24,22 @@ It splits file into lines and matches the following patterns (ignoring the start
 
 > Switch `internal` to `public`. Remove `override` and `final`. If `public`, `protected`, `private`, or `internal` do not exist, keep `const`, `function`, or `var`, otherwise remove them.
 
+After those replacements are done, the file is joined together and these types are replaced.
+
+`Function` -> `() => void`
+
+`Array` -> `any[]`
+
+`Object` -> `Record<string, any>`
+
+`Boolean` -> `boolean`
+
+`Number` -> `number`
+
+`int` -> `number`
+
+`String` -> `string`
+
+`void` -> `void`
+
+`null` -> `undefined`
