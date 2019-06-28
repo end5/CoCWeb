@@ -243,7 +243,7 @@ export class Saves extends BaseContent {
     }
 
     private saveToFile(notes: HTMLInputElement): void {
-        this.saveGameObject(undefined, notes);
+        this.saveGameObject("CoC_" + this.player.short, notes);
     }
 
     private loadFromFile(): void {
@@ -383,7 +383,7 @@ export class Saves extends BaseContent {
     
     */
     //FURNITURE'S JUNK
-    public saveGameObject(slot?: string, notes?: HTMLInputElement): void {
+    public saveGameObject(slot: string, notes?: HTMLInputElement, exportFile?: boolean): void {
         //Autosave stuff
         if (this.player.slotName != "VOID")
             this.player.slotName = slot || '';
@@ -396,8 +396,6 @@ export class Saves extends BaseContent {
         var saveFile: any;
         var backup;
         if (!slot) {
-            saveFile = {};
-
             saveFile = {};
         }
         else {
@@ -742,7 +740,7 @@ export class Saves extends BaseContent {
         // Therefore, I'm hacking around it for the chaos monkey.
         // Really, something needs to listen for the FileReference.complete event, and re-enable saving/loading then.
         // Something to do in the future
-        if (!slot) {
+        if (exportFile) {
             //outputText(serializeToString(saveFile), true);
             saveAs(JSON.stringify(saveFile), 'cocsave');
             this.outputText("Attempted to save to file.", true);

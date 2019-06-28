@@ -20,6 +20,13 @@ export class ImpScene extends BaseContent {
         var canFeed: boolean = (this.player.findStatusAffect(StatusAffects.Feeder) >= 0);
         var canBikiniTits: boolean = (this.player.hasVagina() && this.player.biggestTitSize() >= 4 && this.player.armor instanceof LustyMaidensArmor);
         this.outputText("You smile in satisfaction as " + this.monster.a + this.monster.short + " collapses and begins masturbating feverishly.");
+
+        // fuckit, making sure the leave button is ALWAYS present
+        // I have a feeling somehow one of the returns is getting hit and its shitting up the button being added
+        this.menu();
+        this.addButton(9, "Leave", this.cleanupAfterCombat);
+
+
         if (canFeed) {
             if (this.player.lust >= 33)
                 this.outputText("  Sadly you realize your own needs have not been met.  Of course you could always rape the poor thing, but it might be more fun to force it to guzzle your breast-milk.\n\nWhat do you do?");
@@ -32,7 +39,6 @@ export class ImpScene extends BaseContent {
             this.cleanupAfterCombat();
             return;
         }
-        this.menu();
         if (this.player.lust > 33) {
             var maleRape = undefined;
             if (this.player.hasCock()) {
@@ -57,55 +63,6 @@ export class ImpScene extends BaseContent {
         if (canFeed) this.addButton(3, "Breastfeed", this.areImpsLactoseIntolerant);
         if (canBikiniTits) this.addButton(4, "B.Titfuck", (this.player.armor as LustyMaidensArmor).lustyMaidenPaizuri);
         if (this.player.canOvipositBee()) this.addButton(8, "Oviposit", this.putBeeEggsInAnImpYouMonster);
-        this.addButton(9, "Leave", this.cleanupAfterCombat);
-
-        /* The old way
-    var  maleRape =undefined;
-    var  femaleRape =undefined;
-    var  centaurGang =undefined;
-    var  feeder =undefined;
-    var  nipFuck =undefined;
-    var  bikiniTits =undefined;
-        if (player.hasVagina() && player.biggestTitSize() >= 4 && player.armor is LustyMaidensArmor) bikiniTits = (player.armor as LustyMaidensArmor).lustyMaidenPaizuri;
-        if (player.hasFuckableNipples() && player.lust >= 33) nipFuck = noogaisNippleRape;
-        if (player.findStatusAffect(StatusAffects.Feeder) >= 0) feeder = areImpsLactoseIntolerant;
-        //Taurs have different scenes
-        if(player.isTaur()) {
-            if(player.hasCock() && player.lust >= 33) {
-                if(player.cockThatFits(monster.analCapacity()) == -1) outputText("\n\n<b>You're too big to rape an imp with " + oMultiCockDesc() + ".</b>");
-                else maleRape = centaurOnImpStart;
-            }
-            if(player.hasVagina() && player.lust >= 33) {
-                maleRape = centaurOnImpStart;
-                centaurGang = centaurGirlOnImps;
-            }
-            if(nipFuck + femaleRape  + maleRape + feeder <= 0) cleanupAfterCombat();
-            else simpleChoices("Centaur Rape",maleRape,"NippleFuck",nipFuck,"Group Vaginal",centaurGang,"Breastfeed",feeder,"Leave",cleanupAfterCombat);
-            return;
-        }
-        //Regular folks!
-        else {
-            if(player.hasCock() && player.lust >= 33) {
-                if(player.cockThatFits(monster.analCapacity()) == -1) outputText("\n\n<b>You're too big to rape an imp with " + oMultiCockDesc() + ".</b>");
-                else maleRape = rapeImpWithDick;
-            }
-            if(player.hasVagina()) femaleRape = rapeImpWithPussy;
-        }
-    var  eggDump: boolean = false;
-        if(player.canOvipositBee()) eggDump = true;
-        if(nipFuck==undefined && femaleRape==undefined && maleRape==undefined && feeder==undefined && bikiniTits==undefined && !eggDump) cleanupAfterCombat();
-        else {
-            menu();
-            addButton(0,"Male Fuck",maleRape);
-            addButton(1,"Female Fuck",femaleRape);
-            addButton(2,"NippleFuck",nipFuck);
-            addButton(3,"Breastfeed",feeder);
-            addButton(4,"B.Titfuck",bikiniTits);
-            if(eggDump > 0) addButton(8,"Oviposit",putBeeEggsInAnImpYouMonster);
-            addButton(9,"Leave",cleanupAfterCombat);
-            //choices("Male Rape",maleRape,"Female Rape",femaleRape,"NippleFuck",nipFuck,"Breastfeed",feeder,"B.Titfuck",bikiniTits,"",0,"",0,"",0,"",0,"Leave",cleanupAfterCombat);
-        }
-        */
     }
 
     private rapeImpWithDick(): void {

@@ -1,4 +1,4 @@
-import { writeFileSync, readFileSync, renameSync } from 'fs';
+import { writeFileSync, readFileSync, renameSync, existsSync } from 'fs';
 import { fixText } from './Converter';
 import { walk } from './walk';
 
@@ -16,6 +16,8 @@ function fix(file: string, overwrite?: boolean) {
         const data = readFileSync(file, 'utf-8');
         const newValue = fixText(data);
         const newFile = file.replace('.as', '.ts');
+        if (existsSync(newFile))
+            renameSync(newFile, newFile.replace('.ts', '_old.ts'));
         if (overwrite)
             renameSync(file, newFile);
         writeFileSync(newFile, newValue, 'utf-8');

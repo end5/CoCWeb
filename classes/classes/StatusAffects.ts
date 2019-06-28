@@ -295,6 +295,16 @@ export class StatusAffects {
     public static ShowerDotEffect: CombatStatusAffect = StatusAffects.mk2("Shower Dot Effect");
     public static GardenerSapSpeed: CombatStatusAffect = StatusAffects.mk2("Sap Speed");
     public static VineHealUsed: CombatStatusAffect = StatusAffects.mk2("Vine Heal Used");
+    public static DriderIncubusVenom: CombatStatusAffect = StatusAffects.mk2("Drider Incubus Venom");
+    public static TaintedMind: CombatStatusAffect = StatusAffects.mk2("Tainted Mind");
+    public static PurpleHaze: CombatStatusAffect = StatusAffects.mk2("Purple Haze");
+    public static MinotaurKingMusk: CombatStatusAffect = StatusAffects.mk2("Minotaur King Musk");
+    public static MinotaurKingsTouch: CombatStatusAffect = StatusAffects.mk2("Minotaur Kings Touch");
+    public static LethicesRapeTentacles: CombatStatusAffect = StatusAffects.mk2("Lethices Rape Tentacles");
+    public static OnFire: CombatStatusAffect = StatusAffects.mk2("On Fire");
+    public static LethicesShell: CombatStatusAffect = StatusAffects.mk2("Lethices Magic Shell");
+    public static WhipSilence: CombatStatusAffect = StatusAffects.mk2("Whip Silence");
+    public static PigbysHands: CombatStatusAffect = StatusAffects.mk2("Pigbys Hands");
 
     /**
      * Creates non-combat status affect

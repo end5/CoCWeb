@@ -15,6 +15,7 @@ import { Sirius } from "./UrtaQuest/Sirius";
 import { GnollSpearThrower } from "../Areas/Plains/GnollSpearThrower";
 import { MinotaurLord } from "./UrtaQuest/MinotaurLord";
 import { MilkySuccubus } from "./UrtaQuest/MilkySuccubus";
+import { MainView } from "../../../../lib/src/coc/view/MainView";
 
 export class UrtaQuest extends NPCAwareContent {
 
@@ -175,6 +176,11 @@ export class UrtaQuest extends NPCAwareContent {
         this.menu();
         this.addButton(0, "Look Into It", this.startUrtaQuest);
         this.addButton(1, "Maybe Later", this.camp.returnToCampUseOneHour);
+
+        this.mainView.hideMenuButton(MainView.MENU_DATA);
+        this.mainView.hideMenuButton(MainView.MENU_APPEARANCE);
+        this.mainView.hideMenuButton(MainView.MENU_LEVEL);
+        this.mainView.hideMenuButton(MainView.MENU_PERKS);
     }
 
     private resetToPC(): void {
@@ -297,6 +303,11 @@ export class UrtaQuest extends NPCAwareContent {
 
         this.menu();
         this.addButton(0, "Next", this.towerOfTheCovanant);
+
+        this.mainView.hideMenuButton(MainView.MENU_DATA);
+        this.mainView.hideMenuButton(MainView.MENU_APPEARANCE);
+        this.mainView.hideMenuButton(MainView.MENU_LEVEL);
+        this.mainView.hideMenuButton(MainView.MENU_PERKS);
     }
 
     //The Tower of the Covenant(C)*
@@ -325,6 +336,11 @@ export class UrtaQuest extends NPCAwareContent {
         //[NEXT]
         this.menu();
         this.addButton(0, "Next", this.towerOfTheCovenantII);
+
+        this.mainView.hideMenuButton(MainView.MENU_DATA);
+        this.mainView.hideMenuButton(MainView.MENU_APPEARANCE);
+        this.mainView.hideMenuButton(MainView.MENU_LEVEL);
+        this.mainView.hideMenuButton(MainView.MENU_PERKS);
     }
 
     private towerOfTheCovenantII(): void {
@@ -386,6 +402,11 @@ export class UrtaQuest extends NPCAwareContent {
         this.addButton(1, "Visit", this.visitPCPreUrtaQuest, false);
         this.addButton(2, "Visit Truth", this.visitPCPreUrtaQuest, true);
         this.addButton(3, "Embark", this.runIntoAGoblin);
+
+        this.mainView.hideMenuButton(MainView.MENU_DATA);
+        this.mainView.hideMenuButton(MainView.MENU_APPEARANCE);
+        this.mainView.hideMenuButton(MainView.MENU_LEVEL);
+        this.mainView.hideMenuButton(MainView.MENU_PERKS);
     }
 
     //Savin Contriboots to UrtaQuest: Get Wrekt by Hel, Miko, and Mai. (Or, Needs More Foursomes)
@@ -421,6 +442,11 @@ export class UrtaQuest extends NPCAwareContent {
         this.menu();
         this.addButton(0, "Head Out", this.leaveB4HelFucksUrta);
         this.addButton(1, "Get \"Help\"", this.fuckHelAndKitsunesAsUrta);
+
+        this.mainView.hideMenuButton(MainView.MENU_DATA);
+        this.mainView.hideMenuButton(MainView.MENU_APPEARANCE);
+        this.mainView.hideMenuButton(MainView.MENU_LEVEL);
+        this.mainView.hideMenuButton(MainView.MENU_PERKS);
     }
 
     //Head Out
@@ -435,6 +461,11 @@ export class UrtaQuest extends NPCAwareContent {
         this.addButton(1, "Visit", this.visitPCPreUrtaQuest, false);
         this.addButton(2, "Visit Truth", this.visitPCPreUrtaQuest, true);
         this.addButton(3, "Embark", this.runIntoAGoblin);
+
+        this.mainView.hideMenuButton(MainView.MENU_DATA);
+        this.mainView.hideMenuButton(MainView.MENU_APPEARANCE);
+        this.mainView.hideMenuButton(MainView.MENU_LEVEL);
+        this.mainView.hideMenuButton(MainView.MENU_PERKS);
     }
 
     //Get \"<i>Help</i>\"
@@ -487,6 +518,11 @@ export class UrtaQuest extends NPCAwareContent {
         //{Resume UrtaQUEST!}
         this.menu();
         this.addButton(0, "Next", this.runIntoAGoblin);
+
+        this.mainView.hideMenuButton(MainView.MENU_DATA);
+        this.mainView.hideMenuButton(MainView.MENU_APPEARANCE);
+        this.mainView.hideMenuButton(MainView.MENU_LEVEL);
+        this.mainView.hideMenuButton(MainView.MENU_PERKS);
     }
 
     //Last Rendezvous with PC - Intro + Sex Menu(C)*
@@ -513,12 +549,12 @@ export class UrtaQuest extends NPCAwareContent {
             else if (this.player2.cor < 66) this.outputText(this.player2.mf("he", "she") + " nods understandingly, not surprised that you have to handle this quest alone.  The two of you are alike in that way - each with their own burden to bear.");
             else this.outputText(this.player2.mf("he", "she") + " nods dismissively, trusting you to handle it alone you suppose.  " + this.player2.short + " always was hard like that, even though " + this.player2.mf("he", "she") + " clearly likes you.");
             this.outputText("  You hold on to " + this.player2.mf("him", "her") + ", for comfort, dreading the long day ahead.  " + this.player2.mf("He", "She") + " pats your back comfortingly as you cry, and when you break from the hug, " + this.player2.mf("he", "she") + "'s looking at you expectantly.");
-            if (this.flags[kFLAGS.SLEEP_WITH] != "" && this.flags[kFLAGS.SLEEP_WITH] != '') this.outputText("  " + this.player2.short + " suggests the two of you move off, so as not to wake " + this.flags[kFLAGS.SLEEP_WITH] + " in the night.");
+            if (this.flags[kFLAGS.SLEEP_WITH] != "") this.outputText("  " + this.player2.short + " suggests the two of you move off, so as not to wake " + this.flags[kFLAGS.SLEEP_WITH] + " in the night.");
         }
         //{LIE}
         else {
             this.outputText("\n\nYou sit down across from " + this.player2.mf("him", "her") + ", helping " + this.player2.mf("him", "her") + " up to a sitting position as you tell " + this.player2.mf("him", "her") + " that you just wanted to sneak away for a little while, to be with " + this.player2.mf("him", "her") + " as proper lovers, for the night.  " + this.player2.short + " smiles a little at that, looking up at you expectantly.  Since you came all this way, you must have something in mind for how you plan to stay the night with " + this.player2.mf("him", "her") + ".");
-            if (this.flags[kFLAGS.SLEEP_WITH] != "" && this.flags[kFLAGS.SLEEP_WITH] != '') this.outputText("  " + this.player2.short + " suggests the two of you move off, so as not to wake " + this.flags[kFLAGS.SLEEP_WITH] + " in the night.");
+            if (this.flags[kFLAGS.SLEEP_WITH] != "") this.outputText("  " + this.player2.short + " suggests the two of you move off, so as not to wake " + this.flags[kFLAGS.SLEEP_WITH] + " in the night.");
         }
         //[SEX OPTIONS GO HURRRR]
         //Snuggle, put cock in cocked PC ass, ride PC cock vaginally, Fuck Girlvag with yer dick, maybe a sixtynine?
@@ -535,6 +571,11 @@ export class UrtaQuest extends NPCAwareContent {
             this.addButton(3, "Fuck Ass", this.urtaPutsHerDickInPCsWithDicks, truth);
         //PC blows Urta(C)*
         this.addButton(4, "Get BJ", this.pcBlowsUrtasDong, truth);
+
+        this.mainView.hideMenuButton(MainView.MENU_DATA);
+        this.mainView.hideMenuButton(MainView.MENU_APPEARANCE);
+        this.mainView.hideMenuButton(MainView.MENU_LEVEL);
+        this.mainView.hideMenuButton(MainView.MENU_PERKS);
     }
 
     //Last Rendezvous with PC - Sex(C)*
@@ -595,6 +636,11 @@ export class UrtaQuest extends NPCAwareContent {
         this.menu();
         //To morning after fuck departure
         this.addButton(0, "Next", this.morningAfterCampVisitEmbark, truth);
+
+        this.mainView.hideMenuButton(MainView.MENU_DATA);
+        this.mainView.hideMenuButton(MainView.MENU_APPEARANCE);
+        this.mainView.hideMenuButton(MainView.MENU_LEVEL);
+        this.mainView.hideMenuButton(MainView.MENU_PERKS);
     }
 
     //PC blows Urta(C)*
@@ -635,6 +681,11 @@ export class UrtaQuest extends NPCAwareContent {
         this.dynStats("sen", -2);
         this.menu();
         this.addButton(0, "Next", this.morningAfterCampVisitEmbark, truth);
+
+        this.mainView.hideMenuButton(MainView.MENU_DATA);
+        this.mainView.hideMenuButton(MainView.MENU_APPEARANCE);
+        this.mainView.hideMenuButton(MainView.MENU_LEVEL);
+        this.mainView.hideMenuButton(MainView.MENU_PERKS);
     }
 
     //Put a PC dick in Urta's vag(C)*
@@ -725,6 +776,11 @@ export class UrtaQuest extends NPCAwareContent {
         this.dynStats("sen", -2);
         this.menu();
         this.addButton(0, "Next", this.morningAfterCampVisitEmbark, truth);
+
+        this.mainView.hideMenuButton(MainView.MENU_DATA);
+        this.mainView.hideMenuButton(MainView.MENU_APPEARANCE);
+        this.mainView.hideMenuButton(MainView.MENU_LEVEL);
+        this.mainView.hideMenuButton(MainView.MENU_PERKS);
     }
 
     //Put Urta dick in girl PC's vag(C)*
@@ -811,6 +867,11 @@ export class UrtaQuest extends NPCAwareContent {
         this.dynStats("sen", -2);
         this.menu();
         this.addButton(0, "Next", this.morningAfterCampVisitEmbark, truth);
+
+        this.mainView.hideMenuButton(MainView.MENU_DATA);
+        this.mainView.hideMenuButton(MainView.MENU_APPEARANCE);
+        this.mainView.hideMenuButton(MainView.MENU_LEVEL);
+        this.mainView.hideMenuButton(MainView.MENU_PERKS);
     }
 
     //Snuggle(C)*
@@ -846,6 +907,11 @@ export class UrtaQuest extends NPCAwareContent {
         this.dynStats("lus", 14);
         this.menu();
         this.addButton(0, "Next", this.morningAfterCampVisitEmbark, truth);
+
+        this.mainView.hideMenuButton(MainView.MENU_DATA);
+        this.mainView.hideMenuButton(MainView.MENU_APPEARANCE);
+        this.mainView.hideMenuButton(MainView.MENU_LEVEL);
+        this.mainView.hideMenuButton(MainView.MENU_PERKS);
     }
     //Embark(C)*
     private morningAfterCampVisitEmbark(truth: boolean): void {
@@ -871,6 +937,11 @@ export class UrtaQuest extends NPCAwareContent {
 
         this.menu();
         this.addButton(0, "Next", this.runIntoAGoblin, true);
+
+        this.mainView.hideMenuButton(MainView.MENU_DATA);
+        this.mainView.hideMenuButton(MainView.MENU_APPEARANCE);
+        this.mainView.hideMenuButton(MainView.MENU_LEVEL);
+        this.mainView.hideMenuButton(MainView.MENU_PERKS);
     }
 
 

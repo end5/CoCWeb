@@ -211,9 +211,9 @@ export class LatexGirl extends NPCAwareContent {
     }
     private nameZeLatexGoo(input: HTMLInputElement): void {
         // if (kGAMECLASS.testingBlockExiting) {
-            // We're running under the testing script.
-            // Stuff a name in the box and go go go
-            // this.mainView.nameBox.text = "Derptexy";
+        // We're running under the testing script.
+        // Stuff a name in the box and go go go
+        // this.mainView.nameBox.text = "Derptexy";
         // }
         // else if (this.mainView.nameBox.text == "") {
         if (input.value == "") {
@@ -679,7 +679,6 @@ export class LatexGirl extends NPCAwareContent {
             if (item == this.consumables.MINOBLO) {
                 this.outputText("On and on it comes.  She's truly going to be hung like a stallion at this rate!   ");
                 this.flags[kFLAGS.GOO_DICK_LENGTH] = 13;
-                this.flags[kFLAGS.GOO_DICK_TYPE] = CockTypesEnum.HORSE;
             }
             this.outputText("Then, it begins to stiffen, arching up into full arousal.  The new-grown cock appears to have grown from her clit, but as you lean down to examine her vagina, you realize her cunt has shifted down slightly, and a new clit has grown to replace the old.");
             this.outputText("\n\n\"<i>You're making it harder!</i>\" " + this.flags[kFLAGS.GOO_NAME] + " whines, trying to cover it with her hands.  Of course, that only makes it harder, and a bead of oily pre-cum beads at the tip.  You could get used to this.  <b>" + this.flags[kFLAGS.GOO_NAME] + " now has a " + LatexGirl.num2Text(this.flags[kFLAGS.GOO_DICK_LENGTH]) + "-inch ");
@@ -698,16 +697,18 @@ export class LatexGirl extends NPCAwareContent {
             }
             else {
                 this.outputText("Her " + this.gooCock() + " rapidly erects, rising to full tumescence in seconds.  The veins begin to shift, crawling around under her onyx skin like little worms as her penis reshapes it.  A muffled moan escapes from " + this.flags[kFLAGS.GOO_NAME] + "'s lips along with a discharge of black pre-cum from her tip and slit.  Then, with a powerful flex, the latex woman's penis solidifies into a new shape.  <b>" + this.flags[kFLAGS.GOO_NAME] + "'s maleness is now a ");
-                if (item == this.consumables.CANINEP) this.flags[kFLAGS.GOO_DICK_TYPE] = CockTypesEnum.DOG;
-                if (item == this.consumables.EQUINUM) this.flags[kFLAGS.GOO_DICK_TYPE] = CockTypesEnum.HORSE;
-                if (item == this.consumables.P_DRAFT) this.flags[kFLAGS.GOO_DICK_TYPE] = CockTypesEnum.HUMAN;
-                if (item == this.consumables.W_FRUIT) this.flags[kFLAGS.GOO_DICK_TYPE] = CockTypesEnum.CAT;
-                if (item == this.consumables.INCUBID) this.flags[kFLAGS.GOO_DICK_TYPE] = CockTypesEnum.DEMON;
-                if (item == this.consumables.MINOBLO) this.flags[kFLAGS.GOO_DICK_TYPE] = CockTypesEnum.HORSE;
                 this.outputText(this.gooCock() + "!</b>");
             }
             this.gooObedience(2);
         }
+
+        if (item == this.consumables.CANINEP) this.flags[kFLAGS.GOO_DICK_TYPE] = CockTypesEnum.DOG;
+        if (item == this.consumables.EQUINUM) this.flags[kFLAGS.GOO_DICK_TYPE] = CockTypesEnum.HORSE;
+        if (item == this.consumables.P_DRAFT) this.flags[kFLAGS.GOO_DICK_TYPE] = CockTypesEnum.HUMAN;
+        if (item == this.consumables.W_FRUIT) this.flags[kFLAGS.GOO_DICK_TYPE] = CockTypesEnum.CAT;
+        if (item == this.consumables.INCUBID) this.flags[kFLAGS.GOO_DICK_TYPE] = CockTypesEnum.DEMON;
+        if (item == this.consumables.MINOBLO) this.flags[kFLAGS.GOO_DICK_TYPE] = CockTypesEnum.HORSE;
+
         this.menu();
         this.addButton(0, "Next", this.approachLatexy);
     }

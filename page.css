@@ -144,11 +144,11 @@ body {
 
 #mainDisplay {
     height: 74.8%;
-    width: 74.4%;
+    width: 77%;
     position: absolute;
     left: 20.5%;
     top: 6.5%;
-    padding: 0.5% 2% 0% 1%;
+    padding: 0% 1.5% 0% 0.8%;
     overflow-y: auto;
 }
 
@@ -164,7 +164,7 @@ body {
 }
 
 #mainTextDisplay {
-    font-size: 1.5em;
+    font-size: 1.7em;
     margin-block-start: 0.5em;
     display: inline-block;
     white-space: pre-wrap;
@@ -178,22 +178,28 @@ body {
     height: 12%;
 }
 
+.buttonContainer {
+    position: relative;
+}
+
 .buttonContainer>.button {
     position: relative;
 }
 
 .tooltip {
     position: absolute;
-    top: -500%;
-    height: 390%;
-    width: 36%;
+    top: -550%;
+    height: 540%;
+    width: 212%;
     font-family: Shrewsbury-Titling-Bold, Palatino, Georgia, serif;
     font-size: 1.3em;
     font-weight: bold;
     line-height: 1;
-    padding: 3%;
-    left: 38.5%;
+    padding: 17%;
     background-image: url("./res/ui/tooltip.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-sizing: border-box;
 }
 
 .hidden {
@@ -206,10 +212,13 @@ body {
 }
 
 #button3>.tooltip,
-#button8>.tooltip,
+#button8>.tooltip {
+    left: -10%;
+}
+
 #button4>.tooltip,
 #button9>.tooltip {
-    right: 0%;
+    left: -110%;
 }
 
 #buttontop0>.button {

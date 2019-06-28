@@ -20,8 +20,8 @@ function replace(text: string, searchValue: string | RegExp, replaceValue: strin
 // [dynamic] [public | internal] [final] class className [ extends superClass ] [ implements interfaceName[, interfaceName... ] ] {
 const classDeclareRegExp = /^(\s*)((?:dynamic\s+)?(?:(?:(public)|internal)\s+)?(?:final\s+)?)class\s+([\w\d_]+)/;
 
-// [override] [public | protected | private | internal] [static | final] [const | function | var] name
-const declareRegExp = /^(\s*)((?:override\s+)?(?:(public|protected|private|internal)?\s+)(?:(?:(static)|final)\s+)?(const|function|var))/;
+// [public | protected | private | internal] [override] [static | final] [const | function | var] name
+const declareRegExp = /^(\s*)((?:(public|protected|private|internal)?\s+)(?:override\s+)?(?:(?:(static)|final)\s+)?(const|function|var))/;
 
 export function fixText(text: string): string {
     const lines = text.split('\n');
@@ -98,7 +98,7 @@ export function fixText(text: string): string {
         index--;
     }
 
-    text = replace(text, /:\s*Function/g, '');
+    text = replace(text, /:\s*Function/g, ': () => void');
     text = replace(text, /:\s*Array/g, ': any[]');
     text = replace(text, /:\s*Object/g, ': Record<string, any>');
     text = replace(text, /:\s*Boolean/g, ': boolean');
