@@ -1523,6 +1523,11 @@ export class Player extends Character {
     }
 
     public clearStatuses(visibility: boolean): void {
+        if (this.findStatusAffect(StatusAffects.DriderIncubusVenom) >= 0) {
+            this.str += this.statusAffectv2(StatusAffects.DriderIncubusVenom);
+            this.removeStatusAffect(StatusAffects.DriderIncubusVenom);
+            kGAMECLASS.mainView.statsView.showStatUp('str');
+        }
         while (this.findStatusAffect(StatusAffects.Web) >= 0) {
             this.spe += this.statusAffectv1(StatusAffects.Web);
             kGAMECLASS.mainView.statsView.showStatUp('spe');
@@ -1679,6 +1684,19 @@ export class Player extends Character {
             this.removeStatusAffect(StatusAffects.GardenerSapSpeed);
         }
         if (this.findStatusAffect(StatusAffects.VineHealUsed) >= 0) this.removeStatusAffect(StatusAffects.VineHealUsed);
+        if (this.findStatusAffect(StatusAffects.DriderIncubusVenom) >= 0) {
+            this.str += this.statusAffectv2(StatusAffects.DriderIncubusVenom);
+            this.removeStatusAffect(StatusAffects.DriderIncubusVenom);
+    }
+        if (this.findStatusAffect(StatusAffects.TaintedMind) >= 0) this.removeStatusAffect(StatusAffects.TaintedMind);
+        if (this.findStatusAffect(StatusAffects.PurpleHaze) >= 0) this.removeStatusAffect(StatusAffects.PurpleHaze);
+        if (this.findStatusAffect(StatusAffects.MinotaurKingMusk) >= 0) this.removeStatusAffect(StatusAffects.MinotaurKingMusk);
+        if (this.findStatusAffect(StatusAffects.MinotaurKingsTouch) >= 0) this.removeStatusAffect(StatusAffects.MinotaurKingsTouch);
+        if (this.findStatusAffect(StatusAffects.LethicesRapeTentacles) >= 0) this.removeStatusAffect(StatusAffects.LethicesRapeTentacles);
+        if (this.findStatusAffect(StatusAffects.OnFire) >= 0) this.removeStatusAffect(StatusAffects.OnFire);
+        if (this.findStatusAffect(StatusAffects.LethicesShell) >= 0) this.removeStatusAffect(StatusAffects.LethicesShell);
+        if (this.findStatusAffect(StatusAffects.WhipSilence) >= 0) this.removeStatusAffect(StatusAffects.WhipSilence);
+        if (this.findStatusAffect(StatusAffects.PigbysHands) >= 0) this.removeStatusAffect(StatusAffects.PigbysHands);
     }
 
     public consumeItem(itype: ItemType, amount: number = 1): boolean {

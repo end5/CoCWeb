@@ -378,6 +378,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.shouldraSleeping((10 + ShouldraFollower.rand(26)), true);
         this.flags[kFLAGS.GENDERLESS_MASTURBATION_WITH_GHOST_COUNT]++;
         this.inventory.takeItem(this.consumables.ECTOPLS, this.camp.returnToCampUseOneHour);
+        this.flags[kFLAGS.SHOULDRA_GENDERLESS_FUCK_COUNT]++;
     }
 
     //Anal Masturbation - Variant on Genderless Masturbation
@@ -460,6 +461,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText("\n\n", false);
         this.flags[kFLAGS.GENDERLESS_MASTURBATION_WITH_GHOST_COUNT]++;
         this.inventory.takeItem(this.consumables.ECTOPLS, this.camp.returnToCampUseOneHour);
+        this.flags[kFLAGS.SHOULDRA_GENDERLESS_FUCK_COUNT]++;
     }
 
     //Male Masturbation
@@ -605,6 +607,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.shouldraSleeping((10 + ShouldraFollower.rand(26)), true);
         this.flags[kFLAGS.SHOULDRA_TONGUE_LICKS_TIMES]++;
         this.doNext(this.camp.returnToCampUseOneHour);
+        this.flags[kFLAGS.SHOULDRA_TONGUE_LICKS_TIMES]++;
     }
 
 

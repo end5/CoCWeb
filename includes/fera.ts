@@ -551,7 +551,7 @@ public  tightLikeAToigar(): void {
 	if(player.vaginas[0].vaginalLooseness > VAGINA_LOOSENESS_LOOSE) player.vaginas[0].vaginalLooseness = VAGINA_LOOSENESS_LOOSE;
 	//Boost fertility a little
 	player.fertility += 10;
-	if(player.fertility >= 50) player.fertility = 50;
+	if(player.fertility < 50) player.fertility = 50;
 	//Raise wetness to at least 3.
 	if(player.vaginas[0].vaginalWetness < VAGINA_WETNESS_SLICK) player.vaginas[0].vaginalWetness =VAGINA_WETNESS_SLICK;
 	

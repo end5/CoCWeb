@@ -31,6 +31,7 @@ type FlagTypeOverrides = {
     [kFLAGS.AMILY_CLOTHING]: string;
     [kFLAGS.ARIAN_EGG_COLOR]: string;
     [kFLAGS.NIEVE_MOUTH]: string;
+    [kFLAGS.LETHICE_NAME]: string;
     [kFLAGS.WHITNEY_TATTOO_COLLARBONE]: string;
     [kFLAGS.WHITNEY_TATTOO_SHOULDERS]: string;
     [kFLAGS.WHITNEY_TATTOO_LOWERBACK]: string;
@@ -90,6 +91,7 @@ export function createFlags() {
     flags[kFLAGS.AMILY_CLOTHING] = '';
     flags[kFLAGS.ARIAN_EGG_COLOR] = '';
     flags[kFLAGS.NIEVE_MOUTH] = '';
+    flags[kFLAGS.LETHICE_NAME] = '';
     flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE] = '';
     flags[kFLAGS.WHITNEY_TATTOO_SHOULDERS] = '';
     flags[kFLAGS.WHITNEY_TATTOO_LOWERBACK] = '';

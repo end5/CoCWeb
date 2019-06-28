@@ -2369,7 +2369,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.player.hasItem(this.consumables.REDUCTO, 1)) this.addButton(8, "ReductoBust", this.marblePurification.pureMurbleUsesReducto);
             if (this.player.hasItem(this.consumables.LACTAID, 1)) this.addButton(0, "Lactaid", this.marblePurification.lactaidForPureMurble);
         }
-        else if (this.player.findPerk(PerkLib.MarblesMilk) >= 0) this.addButton(0, "Lactaid", this.giveMarbleLactaid);
+        //else if (player.findPerk(PerkLib.MarblesMilk) >= 0) addButton(0, "Lactaid", giveMarbleLactaid);
         this.addButton(9, "Back", this.interactWithMarbleAtCamp);
     }
 

@@ -675,16 +675,49 @@ public  goNext(time: number, needNext: boolean): boolean  {
 		if(player.findStatusAffect(StatusAffects.LootEgg) >= 0) {
 			trace("EGG LOOT HAS");
 			//default
-		var  itype:ItemType =
-					[
-						[consumables.BROWNEG,consumables.PURPLEG,consumables.BLUEEGG,consumables.PINKEGG,consumables.WHITEEG,consumables.BLACKEG],
-						[consumables.L_BRNEG,consumables.L_PRPEG,consumables.L_BLUEG,consumables.L_PNKEG,consumables.L_WHTEG,consumables.L_BLKEG]]
-							[player.statusAffect(player.findStatusAffect(StatusAffects.Eggs)).value2 || 0][player.statusAffect(player.findStatusAffect(StatusAffects.Eggs)).value1 || 0] ||
-							consumables.BROWNEG;
+			
+		var  itypes: any[] = [
+				[
+					consumables.BROWNEG,
+					consumables.PURPLEG,
+					consumables.BLUEEGG,
+					consumables.PINKEGG,
+					consumables.WHITEEG,
+					consumables.BLACKEG
+				],
+				[
+					consumables.L_BRNEG,
+					consumables.L_PRPEG,
+					consumables.L_BLUEG,
+					consumables.L_PNKEG,
+					consumables.L_WHTEG,
+					consumables.L_BLKEG
+				]
+			];
+			
+		var  sEgg:ItemType = undefined;
+			
+			if (player.findStatusAffect(StatusAffects.Eggs) >= 0)
+			{
+			var  size: number = player.statusAffectv2(StatusAffects.Eggs);
+				
+				if (size < 0 || size > 1) size = rand(2);
+				
+			var  col: number = player.statusAffectv1(StatusAffects.Eggs);
+				
+				if (col < 0 || col > 5) col = rand(6);
+				
+				sEgg =  itypes[size][col];
+			}
+			else
+			{
+				sEgg = consumables.BROWNEG;
+			}
+			
 			player.removeStatusAffect(StatusAffects.LootEgg);
 			player.removeStatusAffect(StatusAffects.Eggs);
 			trace("TAKEY NAU");
-			inventory.takeItem(itype, playerMenu);
+			inventory.takeItem(sEgg, playerMenu);
 			return true;
 		}
 		// Benoit preggers update

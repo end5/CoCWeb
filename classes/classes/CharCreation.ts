@@ -2111,6 +2111,7 @@ export class CharCreation extends BaseContent {
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00254] = 1;
         this.player.createKeyItem("Equipment Rack - Armor", 0, 0, 0, 0);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00255] = 1;
+        this.flags[kFLAGS.D3_DISCOVERED] = 1;
 
         this.player.createStatusAffect(StatusAffects.KnowsWhitefire, 0, 0, 0, 0);
 
