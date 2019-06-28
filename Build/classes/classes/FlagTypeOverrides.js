@@ -30,6 +30,7 @@ define(["require", "exports", "./GlobalFlags/kFLAGS"], function (require, export
         flags[kFLAGS_1.kFLAGS.AMILY_CLOTHING] = '';
         flags[kFLAGS_1.kFLAGS.ARIAN_EGG_COLOR] = '';
         flags[kFLAGS_1.kFLAGS.NIEVE_MOUTH] = '';
+        flags[kFLAGS_1.kFLAGS.LETHICE_NAME] = '';
         flags[kFLAGS_1.kFLAGS.WHITNEY_TATTOO_COLLARBONE] = '';
         flags[kFLAGS_1.kFLAGS.WHITNEY_TATTOO_SHOULDERS] = '';
         flags[kFLAGS_1.kFLAGS.WHITNEY_TATTOO_LOWERBACK] = '';

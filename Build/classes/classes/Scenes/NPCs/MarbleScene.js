@@ -2455,8 +2455,7 @@ define(["require", "exports", "./NPCAwareContent", "../../PregnancyStore", "../.
                 if (this.player.hasItem(this.consumables.LACTAID, 1))
                     this.addButton(0, "Lactaid", this.marblePurification.lactaidForPureMurble);
             }
-            else if (this.player.findPerk(PerkLib_1.PerkLib.MarblesMilk) >= 0)
-                this.addButton(0, "Lactaid", this.giveMarbleLactaid);
+            //else if (player.findPerk(PerkLib.MarblesMilk) >= 0) addButton(0, "Lactaid", giveMarbleLactaid);
             this.addButton(9, "Back", this.interactWithMarbleAtCamp);
         }
         //The player gives Marble an item, right now only Lactaid will be here, and only if the player is fully addicted

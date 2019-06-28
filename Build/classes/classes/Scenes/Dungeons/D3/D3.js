@@ -1,4 +1,4 @@
-define(["require", "exports", "../../../BaseContent", "./JeanClaudeScenes", "./DopplegangerScenes", "./IncubusMechanicScenes", "./LivingStatueScenes", "./SuccubusGardenerScenes", "./HermCentaurScenes", "../../../room", "../../../GlobalFlags/kFLAGS", "../../../../console", "./SuccubusGardener"], function (require, exports, BaseContent_1, JeanClaudeScenes_1, DopplegangerScenes_1, IncubusMechanicScenes_1, LivingStatueScenes_1, SuccubusGardenerScenes_1, HermCentaurScenes_1, room_1, kFLAGS_1, console_1, SuccubusGardener_1) {
+define(["require", "exports", "../../../BaseContent", "./JeanClaudeScenes", "./DopplegangerScenes", "./IncubusMechanicScenes", "./LivingStatueScenes", "./SuccubusGardenerScenes", "./HermCentaurScenes", "../../../room", "../../../GlobalFlags/kFLAGS", "../../../../console", "./SuccubusGardener", "./DriderIncubusScenes", "./MinotaurKingScenes", "./LethiceScenes"], function (require, exports, BaseContent_1, JeanClaudeScenes_1, DopplegangerScenes_1, IncubusMechanicScenes_1, LivingStatueScenes_1, SuccubusGardenerScenes_1, HermCentaurScenes_1, room_1, kFLAGS_1, console_1, SuccubusGardener_1, DriderIncubusScenes_1, MinotaurKingScenes_1, LethiceScenes_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     /**
@@ -16,6 +16,9 @@ define(["require", "exports", "../../../BaseContent", "./JeanClaudeScenes", "./D
             this.livingStatue = new LivingStatueScenes_1.LivingStatueScenes();
             this.succubusGardener = new SuccubusGardenerScenes_1.SuccubusGardenerScenes();
             this.hermCentaur = new HermCentaurScenes_1.HermCentaurScenes();
+            this.driderIncubus = new DriderIncubusScenes_1.DriderIncubusScenes();
+            this.minotaurKing = new MinotaurKingScenes_1.MinotaurKingScenes();
+            this.lethice = new LethiceScenes_1.LethiceScenes();
             this.BLACK = 1 << 0;
             this.BLUE = 1 << 1;
             this.WHITE = 1 << 2;
@@ -137,7 +140,13 @@ define(["require", "exports", "../../../BaseContent", "./JeanClaudeScenes", "./D
             tRoom.RoomName = "northcourtyard";
             tRoom.EastExit = "northeastcourtyard";
             tRoom.WestExit = "northwestcourtyard";
+            tRoom.NorthExit = "throneroom";
             tRoom.RoomFunction = this.northcourtyardRoomFunc;
+            this.rooms[tRoom.RoomName] = tRoom;
+            tRoom = new room_1.room();
+            tRoom.RoomName = "throneroom";
+            tRoom.SouthExit = "northcourtyard";
+            tRoom.RoomFunction = this.throneRoom;
             this.rooms[tRoom.RoomName] = tRoom;
             // North East Courtyard
             tRoom = new room_1.room();
@@ -518,6 +527,21 @@ define(["require", "exports", "../../../BaseContent", "./JeanClaudeScenes", "./D
         greatliftRoomFunc() {
             this.outputText("Intricate stonework supports this precarious platform as it juts from the side of Lethice's fortress, hanging over a sheer cliff that must go down for hundreds of feet. The harpies appear to have moved away from the area immediately below, whether by choice or by demonic action, though you can still spot a few of their nests in other places on the mountainside. A complicated looking machine sits on the side of the platform, attached to a cage that dangles over the edge, supported by a lowly metal cable. It must be some kind of mechanical lift - a way to come and go as one would please.");
             this.incubusMechanic.meetAtElevator();
+            return false;
+        }
+        throneRoom() {
+            if (this.flags[kFLAGS_1.kFLAGS.DRIDERINCUBUS_DEFEATED] == 0) {
+                this.driderIncubus.encounterDriderIncbutt();
+                return true;
+            }
+            else if (this.flags[kFLAGS_1.kFLAGS.MINOTAURKING_DEFEATED] == 0) {
+                this.minotaurKing.encounterMinotaurKing();
+                return true;
+            }
+            else if (this.flags[kFLAGS_1.kFLAGS.LETHICE_DEFEATED] == 0) {
+                this.lethice.encounterLethice();
+                return true;
+            }
             return false;
         }
     }

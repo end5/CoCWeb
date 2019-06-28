@@ -377,6 +377,7 @@ define(["require", "exports", "./NPCAwareContent", "../../GlobalFlags/kFLAGS", "
             this.shouldraSleeping((10 + ShouldraFollower.rand(26)), true);
             this.flags[kFLAGS_1.kFLAGS.GENDERLESS_MASTURBATION_WITH_GHOST_COUNT]++;
             this.inventory.takeItem(this.consumables.ECTOPLS, this.camp.returnToCampUseOneHour);
+            this.flags[kFLAGS_1.kFLAGS.SHOULDRA_GENDERLESS_FUCK_COUNT]++;
         }
         //Anal Masturbation - Variant on Genderless Masturbation
         //Notes:
@@ -471,6 +472,7 @@ define(["require", "exports", "./NPCAwareContent", "../../GlobalFlags/kFLAGS", "
             this.outputText("\n\n", false);
             this.flags[kFLAGS_1.kFLAGS.GENDERLESS_MASTURBATION_WITH_GHOST_COUNT]++;
             this.inventory.takeItem(this.consumables.ECTOPLS, this.camp.returnToCampUseOneHour);
+            this.flags[kFLAGS_1.kFLAGS.SHOULDRA_GENDERLESS_FUCK_COUNT]++;
         }
         //Male Masturbation
         //Shouldra leads PC out of camp, finds few flowers, magicks them into huge dick-suckin' not!Corrupt Glade flowers. Also, massive cum production, because.
@@ -623,6 +625,7 @@ define(["require", "exports", "./NPCAwareContent", "../../GlobalFlags/kFLAGS", "
             this.shouldraSleeping((10 + ShouldraFollower.rand(26)), true);
             this.flags[kFLAGS_1.kFLAGS.SHOULDRA_TONGUE_LICKS_TIMES]++;
             this.doNext(this.camp.returnToCampUseOneHour);
+            this.flags[kFLAGS_1.kFLAGS.SHOULDRA_TONGUE_LICKS_TIMES]++;
         }
         //SHOULDRA DREAM/TALK SHIT
         //General structure: dreams trigger roughly a week after one another, each unlocking a corresponding talk scene until eventually leading to the 'climax'. Each dream is the PC reliving a memory of Shouldra's from her pov.

@@ -1,4 +1,4 @@
-define(["require", "exports", "./PlayerEvents", "./StatusAffects", "./CharCreation", "./Saves", "./Items/Mutations", "./Items/ConsumableLib", "./Items/UseableLib", "./Items/WeaponLib", "./Items/ArmorLib", "./Items/MiscItemLib", "./Scenes/Camp", "./Scenes/Exploration", "./Scenes/FollowerInteractions", "./Scenes/Inventory", "./Scenes/Masturbation", "./Scenes/Areas/Bog", "./Scenes/Areas/Desert", "./Scenes/Areas/Forest", "./Scenes/Areas/HighMountains", "./Scenes/Areas/Lake", "./Scenes/Areas/Mountain", "./Scenes/Areas/Plains", "./Scenes/Areas/Swamp", "./Scenes/Dungeons/HelDungeon/BrigidScene", "./Scenes/Dungeons/D3/D3", "./Scenes/Explore/Gargoyle", "./Scenes/Explore/Lumi", "./Scenes/Monsters/GoblinScene", "./Scenes/Monsters/ImpScene", "./Scenes/Monsters/GoblinAssassinScene", "./Scenes/NPCs/AmilyScene", "./Scenes/NPCs/AnemoneScene", "./Scenes/NPCs/ArianScene", "./Scenes/NPCs/CeraphScene", "./Scenes/NPCs/CeraphFollowerScene", "./Scenes/NPCs/EmberScene", "./Scenes/NPCs/Exgartuan", "./Scenes/NPCs/HelFollower", "./Scenes/NPCs/HelScene", "./Scenes/NPCs/HelSpawnScene", "./Scenes/NPCs/HolliScene", "./Scenes/NPCs/IsabellaScene", "./Scenes/NPCs/IsabellaFollowerScene", "./Scenes/NPCs/IzmaScene", "./Scenes/NPCs/JojoScene", "./Scenes/NPCs/KihaFollower", "./Scenes/NPCs/KihaScene", "./Scenes/NPCs/LatexGirl", "./Scenes/NPCs/MarbleScene", "./Scenes/NPCs/MarblePurification", "./Scenes/NPCs/MilkWaifu", "./Scenes/NPCs/Raphael", "./Scenes/NPCs/Rathazul", "./Scenes/NPCs/SheilaScene", "./Scenes/NPCs/ShouldraFollower", "./Scenes/NPCs/ShouldraScene", "./Scenes/NPCs/SophieBimbo", "./Scenes/NPCs/SophieFollowerScene", "./Scenes/NPCs/SophieScene", "./Scenes/NPCs/Urta", "./Scenes/NPCs/UrtaHeatRut", "./Scenes/NPCs/UrtaPregs", "./Scenes/NPCs/Valeria", "./Scenes/NPCs/Vapula", "./Scenes/Places/Bazaar", "./Scenes/Places/Boat", "./Scenes/Places/Farm", "./Scenes/Places/Owca", "./Scenes/Quests/UrtaQuest", "../coc/model/GameModel", "./Parser/Parser", "./ImageManager", "./Player", "./Monster", "../coc/model/TimeModel", "./InputManager", "./internals/Utils", "./GlobalFlags/kFLAGS", "./CoC_Settings", "./CockTypesEnum", "./PerkLib", "./Scenes/Places/TelAdre", "./PerkClass", "./Appearance", "./PregnancyStore", "../console", "./ItemType", "./Scenes/Dungeons/D3/Doppleganger", "./Scenes/Areas/HighMountains/Basilisk", "./Scenes/Places/TelAdre/UmasShop", "./Scenes/Dungeons/D3/LivingStatue", "./Scenes/Dungeons/D3/JeanClaude", "./Scenes/Areas/Mountain/Minotaur", "./Scenes/Areas/Forest/BeeGirl", "./Scenes/NPCs/Jojo", "./Scenes/Areas/HighMountains/Harpy", "./Scenes/NPCs/Sophie", "./Scenes/NPCs/Ember", "./Scenes/NPCs/Kiha", "./Scenes/NPCs/Hel", "./Scenes/NPCs/Isabella", "./Scenes/NPCs/Clara", "../../lib/src/coc/view/MainView", "./ASDate", "./Scenes/Dungeons/DeepCave/ImpHorde", "./Scenes/Dungeons/DeepCave/EncapsulationPod", "./Scenes/Dungeons/DeepCave/Vala", "./Scenes/Dungeons/DeepCave/Zetaz", "./Scenes/Dungeons/HelDungeon/HarpyMob", "./Scenes/Dungeons/HelDungeon/Brigid", "./Scenes/Dungeons/HelDungeon/PhoenixPlatoon", "./Scenes/Dungeons/HelDungeon/HarpyQueen", "./Scenes/Dungeons/DesertCave/SandWitchMob", "./Scenes/Areas/Desert/CumWitch", "./Scenes/Dungeons/Factory/SecretarialSuccubus", "./Scenes/Dungeons/Factory/IncubusMechanic", "./Scenes/Dungeons/Factory/OmnibusOverseer", "./Scenes/NPCs/GooArmor", "./Scenes/Dungeons/DesertCave/SandMother", "./Scenes/Areas/Mountain/WormMass", "./FlagTypeOverrides", "./GlobalFlags/kGAMECLASS", "../ClassBinder"], function (require, exports, PlayerEvents_1, StatusAffects_1, CharCreation_1, Saves_1, Mutations_1, ConsumableLib_1, UseableLib_1, WeaponLib_1, ArmorLib_1, MiscItemLib_1, Camp_1, Exploration_1, FollowerInteractions_1, Inventory_1, Masturbation_1, Bog_1, Desert_1, Forest_1, HighMountains_1, Lake_1, Mountain_1, Plains_1, Swamp_1, BrigidScene_1, D3_1, Gargoyle_1, Lumi_1, GoblinScene_1, ImpScene_1, GoblinAssassinScene_1, AmilyScene_1, AnemoneScene_1, ArianScene_1, CeraphScene_1, CeraphFollowerScene_1, EmberScene_1, Exgartuan_1, HelFollower_1, HelScene_1, HelSpawnScene_1, HolliScene_1, IsabellaScene_1, IsabellaFollowerScene_1, IzmaScene_1, JojoScene_1, KihaFollower_1, KihaScene_1, LatexGirl_1, MarbleScene_1, MarblePurification_1, MilkWaifu_1, Raphael_1, Rathazul_1, SheilaScene_1, ShouldraFollower_1, ShouldraScene_1, SophieBimbo_1, SophieFollowerScene_1, SophieScene_1, Urta_1, UrtaHeatRut_1, UrtaPregs_1, Valeria_1, Vapula_1, Bazaar_1, Boat_1, Farm_1, Owca_1, UrtaQuest_1, GameModel_1, Parser_1, ImageManager_1, Player_1, Monster_1, TimeModel_1, InputManager_1, Utils_1, kFLAGS_1, CoC_Settings_1, CockTypesEnum_1, PerkLib_1, TelAdre_1, PerkClass_1, Appearance_1, PregnancyStore_1, console_1, ItemType_1, Doppleganger_1, Basilisk_1, UmasShop_1, LivingStatue_1, JeanClaude_1, Minotaur_1, BeeGirl_1, Jojo_1, Harpy_1, Sophie_1, Ember_1, Kiha_1, Hel_1, Isabella_1, Clara_1, MainView_1, ASDate_1, ImpHorde_1, EncapsulationPod_1, Vala_1, Zetaz_1, HarpyMob_1, Brigid_1, PhoenixPlatoon_1, HarpyQueen_1, SandWitchMob_1, CumWitch_1, SecretarialSuccubus_1, IncubusMechanic_1, OmnibusOverseer_1, GooArmor_1, SandMother_1, WormMass_1, FlagTypeOverrides_1, kGAMECLASS_1, ClassBinder_1) {
+define(["require", "exports", "./PlayerEvents", "./StatusAffects", "./CharCreation", "./Saves", "./Items/Mutations", "./Items/ConsumableLib", "./Items/UseableLib", "./Items/WeaponLib", "./Items/ArmorLib", "./Items/MiscItemLib", "./Scenes/Camp", "./Scenes/Exploration", "./Scenes/FollowerInteractions", "./Scenes/Inventory", "./Scenes/Masturbation", "./Scenes/Areas/Bog", "./Scenes/Areas/Desert", "./Scenes/Areas/Forest", "./Scenes/Areas/HighMountains", "./Scenes/Areas/Lake", "./Scenes/Areas/Mountain", "./Scenes/Areas/Plains", "./Scenes/Areas/Swamp", "./Scenes/Dungeons/HelDungeon/BrigidScene", "./Scenes/Dungeons/D3/D3", "./Scenes/Explore/Gargoyle", "./Scenes/Explore/Lumi", "./Scenes/Monsters/GoblinScene", "./Scenes/Monsters/ImpScene", "./Scenes/Monsters/GoblinAssassinScene", "./Scenes/NPCs/AmilyScene", "./Scenes/NPCs/AnemoneScene", "./Scenes/NPCs/ArianScene", "./Scenes/NPCs/CeraphScene", "./Scenes/NPCs/CeraphFollowerScene", "./Scenes/NPCs/EmberScene", "./Scenes/NPCs/Exgartuan", "./Scenes/NPCs/HelFollower", "./Scenes/NPCs/HelScene", "./Scenes/NPCs/HelSpawnScene", "./Scenes/NPCs/HolliScene", "./Scenes/NPCs/IsabellaScene", "./Scenes/NPCs/IsabellaFollowerScene", "./Scenes/NPCs/IzmaScene", "./Scenes/NPCs/JojoScene", "./Scenes/NPCs/KihaFollower", "./Scenes/NPCs/KihaScene", "./Scenes/NPCs/LatexGirl", "./Scenes/NPCs/MarbleScene", "./Scenes/NPCs/MarblePurification", "./Scenes/NPCs/MilkWaifu", "./Scenes/NPCs/Raphael", "./Scenes/NPCs/Rathazul", "./Scenes/NPCs/SheilaScene", "./Scenes/NPCs/ShouldraFollower", "./Scenes/NPCs/ShouldraScene", "./Scenes/NPCs/SophieBimbo", "./Scenes/NPCs/SophieFollowerScene", "./Scenes/NPCs/SophieScene", "./Scenes/NPCs/Urta", "./Scenes/NPCs/UrtaHeatRut", "./Scenes/NPCs/UrtaPregs", "./Scenes/NPCs/Valeria", "./Scenes/NPCs/Vapula", "./Scenes/Places/Bazaar", "./Scenes/Places/Boat", "./Scenes/Places/Farm", "./Scenes/Places/Owca", "./Scenes/Quests/UrtaQuest", "../coc/model/GameModel", "./Parser/Parser", "./ImageManager", "./Player", "./Monster", "../coc/model/TimeModel", "./InputManager", "./internals/Utils", "./GlobalFlags/kFLAGS", "./CoC_Settings", "./CockTypesEnum", "./PerkLib", "./Scenes/Places/TelAdre", "./PerkClass", "./Appearance", "./PregnancyStore", "../console", "./ItemType", "./Scenes/Dungeons/D3/Doppleganger", "./Scenes/Areas/HighMountains/Basilisk", "./Scenes/Places/TelAdre/UmasShop", "./Scenes/Dungeons/D3/LivingStatue", "./Scenes/Dungeons/D3/JeanClaude", "./Scenes/Areas/Mountain/Minotaur", "./Scenes/Areas/Forest/BeeGirl", "./Scenes/NPCs/Jojo", "./Scenes/Areas/HighMountains/Harpy", "./Scenes/NPCs/Sophie", "./Scenes/NPCs/Ember", "./Scenes/NPCs/Kiha", "./Scenes/NPCs/Hel", "./Scenes/NPCs/Isabella", "./Scenes/NPCs/Clara", "../../lib/src/coc/view/MainView", "./ASDate", "./Scenes/Dungeons/DeepCave/ImpHorde", "./Scenes/Dungeons/DeepCave/EncapsulationPod", "./Scenes/Dungeons/DeepCave/Vala", "./Scenes/Dungeons/DeepCave/Zetaz", "./Scenes/Dungeons/HelDungeon/HarpyMob", "./Scenes/Dungeons/HelDungeon/Brigid", "./Scenes/Dungeons/HelDungeon/PhoenixPlatoon", "./Scenes/Dungeons/HelDungeon/HarpyQueen", "./Scenes/Dungeons/DesertCave/SandWitchMob", "./Scenes/Areas/Desert/CumWitch", "./Scenes/Dungeons/Factory/SecretarialSuccubus", "./Scenes/Dungeons/Factory/IncubusMechanic", "./Scenes/Dungeons/Factory/OmnibusOverseer", "./Scenes/NPCs/GooArmor", "./Scenes/Dungeons/DesertCave/SandMother", "./Scenes/Areas/Mountain/WormMass", "./FlagTypeOverrides", "./GlobalFlags/kGAMECLASS", "../ClassBinder", "./Scenes/Dungeons/D3/Lethice", "./Scenes/Dungeons/D3/DriderIncubus", "../int"], function (require, exports, PlayerEvents_1, StatusAffects_1, CharCreation_1, Saves_1, Mutations_1, ConsumableLib_1, UseableLib_1, WeaponLib_1, ArmorLib_1, MiscItemLib_1, Camp_1, Exploration_1, FollowerInteractions_1, Inventory_1, Masturbation_1, Bog_1, Desert_1, Forest_1, HighMountains_1, Lake_1, Mountain_1, Plains_1, Swamp_1, BrigidScene_1, D3_1, Gargoyle_1, Lumi_1, GoblinScene_1, ImpScene_1, GoblinAssassinScene_1, AmilyScene_1, AnemoneScene_1, ArianScene_1, CeraphScene_1, CeraphFollowerScene_1, EmberScene_1, Exgartuan_1, HelFollower_1, HelScene_1, HelSpawnScene_1, HolliScene_1, IsabellaScene_1, IsabellaFollowerScene_1, IzmaScene_1, JojoScene_1, KihaFollower_1, KihaScene_1, LatexGirl_1, MarbleScene_1, MarblePurification_1, MilkWaifu_1, Raphael_1, Rathazul_1, SheilaScene_1, ShouldraFollower_1, ShouldraScene_1, SophieBimbo_1, SophieFollowerScene_1, SophieScene_1, Urta_1, UrtaHeatRut_1, UrtaPregs_1, Valeria_1, Vapula_1, Bazaar_1, Boat_1, Farm_1, Owca_1, UrtaQuest_1, GameModel_1, Parser_1, ImageManager_1, Player_1, Monster_1, TimeModel_1, InputManager_1, Utils_1, kFLAGS_1, CoC_Settings_1, CockTypesEnum_1, PerkLib_1, TelAdre_1, PerkClass_1, Appearance_1, PregnancyStore_1, console_1, ItemType_1, Doppleganger_1, Basilisk_1, UmasShop_1, LivingStatue_1, JeanClaude_1, Minotaur_1, BeeGirl_1, Jojo_1, Harpy_1, Sophie_1, Ember_1, Kiha_1, Hel_1, Isabella_1, Clara_1, MainView_1, ASDate_1, ImpHorde_1, EncapsulationPod_1, Vala_1, Zetaz_1, HarpyMob_1, Brigid_1, PhoenixPlatoon_1, HarpyQueen_1, SandWitchMob_1, CumWitch_1, SecretarialSuccubus_1, IncubusMechanic_1, OmnibusOverseer_1, GooArmor_1, SandMother_1, WormMass_1, FlagTypeOverrides_1, kGAMECLASS_1, ClassBinder_1, Lethice_1, DriderIncubus_1, int_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     // BREAKING ALL THE RULES.
@@ -159,8 +159,8 @@ define(["require", "exports", "./PlayerEvents", "./StatusAffects", "./CharCreati
             this.debug = false;
             //model.debug = debug; // TODO: Set on model?
             //Version NUMBER
-            this.ver = "0.9.4";
-            this.version = this.ver + " (<b>Moar Bugfixan</b>)";
+            this.ver = "1.0.2";
+            this.version = this.ver + " (<b>Random words go here</b>)";
             //Indicates if building for mobile?
             this.mobile = false;
             model.mobile = this.mobile;
@@ -2052,9 +2052,10 @@ Edited By:
 Open - source contributions by:
     aimozg, Amygdala, Cmacleod42, Enterprise2001, Fake - Name, Gedan, Yoffy, et al
 
-Source Code: <u><a href='https://github.com/herp-a-derp/Corruption-of-Champions'>https://github.com/herp-a-derp/Corruption-of-Champions</a></u>
+<b>Ported by end5</b>
+Source Code: <u><a href='https://github.com/end5/CoCWeb'>https://github.com/end5/CoCWeb</a></u>
 
-Bug Tracker: <u><a href='https://github.com/herp-a-derp/Corruption-of-Champions/issues'>https://github.com/herp-a-derp/Corruption-of-Champions/issues</a></u>
+Bug Tracker: <u><a href='https://github.com/end5/CoCWeb/issues'>https://github.com/end5/CoCWeb/issues</a></u>
 (requires an account, unfortunately)
 
 <b><u>DISCLAIMER</u></b>
@@ -2065,8 +2066,7 @@ Bug Tracker: <u><a href='https://github.com/herp-a-derp/Corruption-of-Champions/
 For more information see Fenoxo's Blog at <b><u><a href='http://www.fenoxo.com/'>fenoxo.com</a></u></b>.
 
 Also go play <u><a href='http://www.furaffinity.net/view/9830293/'> Nimin </a></u> by Xadera on furaffinity.
-
-Ported by end5.`, false, false);
+`, false, false);
             if (this.debug)
                 this.outputText("\n\n<b>DEBUG MODE ENABLED:  ITEMS WILL NOT BE CONSUMED BY USE.</b>");
             if (this.flags[kFLAGS_1.kFLAGS.SHOW_SPRITES_FLAG])
@@ -2802,13 +2802,37 @@ convert "
             var attacks = this.normalAttack;
             var magic = (this.canUseMagic() ? this.magicMenu : undefined);
             var pSpecials = this.physicalSpecials;
+            if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.WhipSilence) >= 0) {
+                magic = undefined;
+            }
             if (this.monster.findStatusAffect(StatusAffects_1.StatusAffects.AttackDisabled) >= 0) {
-                this.outputText("\n<b>Chained up as you are, you can't manage any real physical attacks!</b>");
+                if (this.monster instanceof Lethice_1.Lethice) {
+                    this.outputText("\n<b>With Lethice up in the air, you've got no way to reach her with your attacks!</b>");
+                }
+                else {
+                    this.outputText("\n<b>Chained up as you are, you can't manage any real physical attacks!</b>");
+                }
                 attacks = undefined;
             }
             if (this.monster.findStatusAffect(StatusAffects_1.StatusAffects.PhysicalDisabled) >= 0) {
                 this.outputText("<b>  Even physical special attacks are out of the question.</b>");
                 pSpecials = undefined;
+            }
+            if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.TaintedMind) >= 0) {
+                this.addButton(0, "Attack", this.monster.taintedMindAttackAttempt);
+                this.addButton(1, "Tease", this.teaseAttack);
+                this.addButton(2, "Spells", magic);
+                this.addButton(3, "Items", this.inventory.inventoryMenu);
+                this.addButton(4, "Run", this.runAway);
+                this.addButton(5, "P. Specials", this.monster.taintedMindAttackAttempt);
+                this.addButton(6, "M. Specials", this.magicalSpecials);
+                this.addButton(7, (this.monster.findStatusAffect(StatusAffects_1.StatusAffects.Level) >= 0 ? "Climb" : "Wait"), this.wait);
+                this.addButton(8, "Fantasize", this.fantasize);
+                if (this.monster instanceof DriderIncubus_1.DriderIncubus) {
+                    var mdi = this.monster;
+                    if (!mdi.goblinFree)
+                        this.addButton(9, "Free Goblin", mdi.freeGoblin);
+                }
             }
             if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.KnockedBack) >= 0) {
                 this.outputText("\n<b>You'll need to close some distance before you can use any physical attacks!</b>");
@@ -2870,6 +2894,18 @@ convert "
                 this.addButton(0, "Struggle", this.monster.grappleStruggle);
                 this.addButton(5, "Wait", this.monster.grappleWait);
             }
+            else if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.LethicesRapeTentacles) >= 0 && this.player.statusAffectv3(StatusAffects_1.StatusAffects.LethicesRapeTentacles) == 1) {
+                this.outputText("\n<b>Lethice's tentacles have a firm grip of your limbs!</b>");
+                this.addButton(0, "Struggle", this.monster.grappleStruggle);
+                this.addButton(5, "Wait", this.monster.grappleWait);
+                var whitefireLustCap = 75;
+                if (this.player.findPerk(PerkLib_1.PerkLib.Enlightened) >= 0 && this.player.cor < 10)
+                    whitefireLustCap += 10;
+                var gotEnergy = this.player.findPerk(PerkLib_1.PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(30) > 100;
+                if (this.player.lust < whitefireLustCap && this.player.findStatusAffect(StatusAffects_1.StatusAffects.KnowsWhitefire) >= 0 && gotEnergy) {
+                    this.addButton(1, "Dispell", this.monster.dispellRapetacles);
+                }
+            }
             else { //REGULAR MENU
                 this.addButton(0, "Attack", attacks);
                 this.addButton(1, "Tease", this.teaseAttack);
@@ -2880,8 +2916,24 @@ convert "
                 this.addButton(6, "M. Specials", this.magicalSpecials);
                 this.addButton(7, (this.monster.findStatusAffect(StatusAffects_1.StatusAffects.Level) >= 0 ? "Climb" : "Wait"), this.wait);
                 this.addButton(8, "Fantasize", this.fantasize);
-                if (CoC_Settings_1.CoC_Settings.debugBuild && !this.debug)
-                    this.addButton(9, "Inspect", this.debugInspect);
+                //if (CoC_Settings.debugBuild && !debug) addButton(9, "Inspect", debugInspect);
+                if (this.monster instanceof DriderIncubus_1.DriderIncubus) {
+                    mdi = this.monster;
+                    if (!mdi.goblinFree)
+                        this.addButton(9, "Goblin", mdi.freeGoblin);
+                }
+                else if (this.monster instanceof Lethice_1.Lethice) {
+                    var ml = this.monster;
+                    whitefireLustCap = 75;
+                    if (this.player.findPerk(PerkLib_1.PerkLib.Enlightened) >= 0 && this.player.cor < 10)
+                        whitefireLustCap += 10;
+                    gotEnergy = this.player.findPerk(PerkLib_1.PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(30) > 100;
+                    if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.LethicesRapeTentacles) >= 0) {
+                        if (this.player.lust < whitefireLustCap && this.player.findStatusAffect(StatusAffects_1.StatusAffects.KnowsWhitefire) >= 0 && gotEnergy) {
+                            this.addButton(9, "Dispell", ml.dispellRapetacles);
+                        }
+                    }
+                }
             }
         }
         teaseAttack() {
@@ -2908,7 +2960,7 @@ convert "
         }
         packAttack() {
             //Determine if dodged!
-            if (this.player.spe - this.monster.spe > 0 && Math.floor(Math.random() * (((this.player.spe - this.monster.spe) / 4) + 80)) > 80) {
+            if (this.player.spe - this.monster.spe > 0 && int_1.int(Math.random() * (((this.player.spe - this.monster.spe) / 4) + 80)) > 80) {
                 this.outputText("You duck, weave, and dodge.  Despite their best efforts, the throng of demons only hit the air and each other.");
             }
             //Determine if evaded
@@ -2924,7 +2976,7 @@ convert "
                 this.outputText("With your incredible flexibility, you squeeze out of the way of " + this.monster.a + this.monster.short + "' attacks.");
             }
             else {
-                this.temp = Math.floor((this.monster.str + this.monster.weaponAttack) - this.rand(this.player.tou) - this.player.armorDef); //Determine damage - str modified by enemy toughness!
+                this.temp = int_1.int((this.monster.str + this.monster.weaponAttack) - this.rand(this.player.tou) - this.player.armorDef); //Determine damage - str modified by enemy toughness!
                 if (this.temp <= 0) {
                     this.temp = 0;
                     if (!this.monster.plural)
@@ -2949,6 +3001,7 @@ convert "
             this.combatRoundOver();
         }
         lustAttack() {
+            this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 3;
             if (this.player.lust < 35) {
                 this.outputText("The " + this.monster.short + " press in close against you and although they fail to hit you with an attack, the sensation of their skin rubbing against yours feels highly erotic.");
             }
@@ -3169,6 +3222,7 @@ convert "
         }
         fireBow() {
             this.clearOutput();
+            this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 1;
             if (this.player.fatigue + this.physicalCost(25) > 100) {
                 this.outputText("You're too fatigued to fire the bow!");
                 this.menu();
@@ -3250,9 +3304,14 @@ convert "
                 this.enemyAI();
                 return;
             }
+            if (this.monster instanceof Lethice_1.Lethice && this.monster.findStatusAffect(StatusAffects_1.StatusAffects.Shell) >= 0) {
+                this.outputText("Your arrow pings of the side of the shield and spins end over end into the air. Useless.\n\n");
+                this.enemyAI();
+                return;
+            }
             //Hit!  Damage calc! 20 +
             var damage = 0;
-            damage = Math.floor((20 + this.player.str / 3 + this.player.statusAffectv1(StatusAffects_1.StatusAffects.Kelt) / 1.2) + this.player.spe / 3 - this.rand(this.monster.tou) - this.monster.armorDef);
+            damage = int_1.int((20 + this.player.str / 3 + this.player.statusAffectv1(StatusAffects_1.StatusAffects.Kelt) / 1.2) + this.player.spe / 3 - this.rand(this.monster.tou) - this.monster.armorDef);
             if (damage < 0)
                 damage = 0;
             if (damage == 0) {
@@ -3287,9 +3346,14 @@ convert "
             }
             else
                 this.outputText(".  It's clearly very painful. (" + String(damage) + ")\n\n");
+            if (this.monster instanceof Lethice_1.Lethice && this.monster.fightPhase == 3) {
+                this.outputText("\n\n<i>“Ouch. Such a cowardly weapon,”</i> Lethice growls. With a snap of her fingers, a pearlescent dome surrounds her. <i>“How will you beat me without your pathetic arrows?”</i>\n\n");
+                this.monster.createStatusAffect(StatusAffects_1.StatusAffects.Shell, 2, 0, 0, 0);
+            }
             this.enemyAI();
         }
         fireBreathMenu() {
+            this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 2;
             this.clearOutput();
             this.outputText("Which of your special fire-breath attacks would you like to use?");
             this.simpleChoices("Akbal's", this.fireballuuuuu, "Hellfire", this.hellFire, "Dragonfire", this.dragonBreath, "", undefined, "Back", this.playerMenu);
@@ -3349,6 +3413,7 @@ convert "
         //Mouf Attack
         // (Similar to the bow attack, high damage but it raises your fatigue).
         bite() {
+            this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 2;
             if (this.player.fatigue + this.physicalCost(25) > 100) {
                 this.outputText("You're too fatigued to use your shark-like jaws!", true);
                 this.menu();
@@ -3374,7 +3439,7 @@ convert "
                 this.outputText("In hindsight, trying to bite someone while blind was probably a bad idea... ", false);
             var damage = 0;
             //Determine if dodged!
-            if ((this.player.findStatusAffect(StatusAffects_1.StatusAffects.Blind) >= 0 && this.rand(3) != 0) || (this.monster.spe - this.player.spe > 0 && Math.floor(Math.random() * (((this.monster.spe - this.player.spe) / 4) + 80)) > 80)) {
+            if ((this.player.findStatusAffect(StatusAffects_1.StatusAffects.Blind) >= 0 && this.rand(3) != 0) || (this.monster.spe - this.player.spe > 0 && int_1.int(Math.random() * (((this.monster.spe - this.player.spe) / 4) + 80)) > 80)) {
                 if (this.monster.spe - this.player.spe < 8)
                     this.outputText(this.monster.capitalA + this.monster.short + " narrowly avoids your attack!", false);
                 if (this.monster.spe - this.player.spe >= 8 && this.monster.spe - this.player.spe < 20)
@@ -3386,7 +3451,7 @@ convert "
                 return;
             }
             //Determine damage - str modified by enemy toughness!
-            damage = Math.floor((this.player.str + 45) - this.rand(this.monster.tou) - this.monster.armorDef);
+            damage = int_1.int((this.player.str + 45) - this.rand(this.monster.tou) - this.monster.armorDef);
             //Deal damage and update based on perks
             if (damage > 0) {
                 if (this.player.findPerk(PerkLib_1.PerkLib.HistoryFighter) >= 0)
@@ -3428,6 +3493,7 @@ convert "
         }
         //ATTACK
         attack() {
+            this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 4;
             if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.FirstAttack) < 0) {
                 this.outputText("", true);
                 this.fatigueRecovery();
@@ -3497,7 +3563,7 @@ convert "
             if (this.monster.short == "worms") {
                 //50% chance of hit (int boost)
                 if (this.rand(100) + this.player.inte / 3 >= 50) {
-                    this.temp = Math.floor(this.player.str / 5 - this.rand(5));
+                    this.temp = int_1.int(this.player.str / 5 - this.rand(5));
                     if (this.temp == 0)
                         this.temp = 1;
                     this.outputText("You strike at the amalgamation, crushing countless worms into goo, dealing " + this.temp + " damage.\n\n", false);
@@ -3520,7 +3586,7 @@ convert "
             }
             var damage = 0;
             //Determine if dodged!
-            if ((this.player.findStatusAffect(StatusAffects_1.StatusAffects.Blind) >= 0 && this.rand(2) == 0) || (this.monster.spe - this.player.spe > 0 && Math.floor(Math.random() * (((this.monster.spe - this.player.spe) / 4) + 80)) > 80)) {
+            if ((this.player.findStatusAffect(StatusAffects_1.StatusAffects.Blind) >= 0 && this.rand(2) == 0) || (this.monster.spe - this.player.spe > 0 && int_1.int(Math.random() * (((this.monster.spe - this.player.spe) / 4) + 80)) > 80)) {
                 //Akbal dodges special education
                 if (this.monster.short == "Akbal")
                     this.outputText("Akbal moves like lightning, weaving in and out of your furious strikes with the speed and grace befitting his jaguar body.\n", false);
@@ -3774,6 +3840,7 @@ convert "
         }
         //Gore Attack - uses 15 fatigue!
         goreAttack() {
+            this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 4;
             this.clearOutput();
             //This is now automatic - newRound arg defaults to true:	menuLoc = 0;
             if (this.monster.short == "worms") {
@@ -3825,12 +3892,12 @@ convert "
                 if (this.rand(4) > 0) {
                     this.outputText("You lower your head and charge, skewering " + this.monster.a + this.monster.short + " on one of your bullhorns!  ");
                     //As normal attack + horn length bonus
-                    damage = Math.floor(this.player.str + horns * 2 - this.rand(this.monster.tou) - this.monster.armorDef);
+                    damage = int_1.int(this.player.str + horns * 2 - this.rand(this.monster.tou) - this.monster.armorDef);
                 }
                 //CRIT
                 else {
                     //doubles horn bonus damage
-                    damage = Math.floor(this.player.str + horns * 4 - this.rand(this.monster.tou) - this.monster.armorDef);
+                    damage = int_1.int(this.player.str + horns * 4 - this.rand(this.monster.tou) - this.monster.armorDef);
                     this.outputText("You lower your head and charge, slamming into " + this.monster.a + this.monster.short + " and burying both your horns into " + this.monster.pronoun2 + "!  ");
                 }
                 //Bonus damage for rut!
@@ -3884,6 +3951,7 @@ convert "
         }
         //Player sting attack
         playerStinger() {
+            this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 4;
             this.clearOutput();
             //Keep logic sane if this attack brings victory
             //This is now automatic - newRound arg defaults to true:	menuLoc = 0;
@@ -3905,7 +3973,7 @@ convert "
                 this.enemyAI();
                 return;
             }
-            if (this.monster.spe - this.player.spe > 0 && Math.floor(Math.random() * (((this.monster.spe - this.player.spe) / 4) + 80)) > 80) {
+            if (this.monster.spe - this.player.spe > 0 && int_1.int(Math.random() * (((this.monster.spe - this.player.spe) / 4) + 80)) > 80) {
                 if (this.monster.spe - this.player.spe < 8)
                     this.outputText(this.monster.capitalA + this.monster.short + " narrowly avoids your stinger!\n\n");
                 if (this.monster.spe - this.player.spe >= 8 && this.monster.spe - this.player.spe < 20)
@@ -3963,7 +4031,7 @@ convert "
                 this.doNext(this.endLustVictory);
         }
         combatMiss() {
-            return this.player.spe - this.monster.spe > 0 && Math.floor(Math.random() * (((this.player.spe - this.monster.spe) / 4) + 80)) > 80;
+            return this.player.spe - this.monster.spe > 0 && int_1.int(Math.random() * (((this.player.spe - this.monster.spe) / 4) + 80)) > 80;
         }
         combatEvade() {
             return this.monster.short != "Kiha" && this.player.findPerk(PerkLib_1.PerkLib.Evade) >= 0 && this.rand(100) < 10;
@@ -4171,6 +4239,9 @@ convert "
             //Reset menuloc
             //This is now automatic - newRound arg defaults to true:	menuLoc = 0;
             this.hideUpDown();
+            if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.MinotaurKingMusk) >= 0) {
+                this.dynStats("lus+", 3);
+            }
             if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.Sealed) >= 0) {
                 //Countdown and remove as necessary
                 if (this.player.statusAffectv1(StatusAffects_1.StatusAffects.Sealed) > 0) {
@@ -4179,6 +4250,113 @@ convert "
                         this.player.removeStatusAffect(StatusAffects_1.StatusAffects.Sealed);
                     else
                         this.outputText("<b>One of your combat abilities is currently sealed by magic!</b>\n\n");
+                }
+            }
+            if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.WhipSilence) >= 0) {
+                this.player.addStatusValue(StatusAffects_1.StatusAffects.WhipSilence, 1, -1);
+                if (this.player.statusAffectv1(StatusAffects_1.StatusAffects.WhipSilence) <= 0) {
+                    this.player.removeStatusAffect(StatusAffects_1.StatusAffects.WhipSilence);
+                    this.outputText("<b>The constricting cords encircling your neck fall away, their flames guttering into nothingness. It seems even a Demon Queen’s magic has an expiration date.</b>\n\n");
+                }
+            }
+            if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.PigbysHands) >= 0) {
+                this.dynStats("lus", 5);
+            }
+            if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.TaintedMind) >= 0) {
+                this.player.addStatusValue(StatusAffects_1.StatusAffects.TaintedMind, 1, 1);
+                if (this.player.statusAffectv1(StatusAffects_1.StatusAffects.TaintedMind) <= 0) {
+                    this.player.removeStatusAffect(StatusAffects_1.StatusAffects.TaintedMind);
+                    this.outputText("Some of the drider’s magic fades, and you heft your [weapon] with a grin. No more of this ‘fight like a demon’ crap!");
+                }
+                else {
+                    this.outputText("There is a thin film of filth layered upon your mind, latent and waiting. The drider said something about fighting like a demon. Is this supposed to interfere with your ability to fight?\n\n");
+                }
+            }
+            if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.PurpleHaze) >= 0) {
+                this.player.addStatusValue(StatusAffects_1.StatusAffects.PurpleHaze, 1, -1);
+                if (this.player.statusAffectv1(StatusAffects_1.StatusAffects.PurpleHaze) <= 0) {
+                    this.player.removeStatusAffect(StatusAffects_1.StatusAffects.PurpleHaze);
+                    this.player.removeStatusAffect(StatusAffects_1.StatusAffects.Blind);
+                    this.outputText("The swirling mists that once obscured your vision part, allowing you to see your foe once more! <b>You are no longer blinded!</b>\n\n");
+                }
+                else {
+                    this.outputText("Your vision is still clouded by swirling purple mists bearing erotic shapes. You are effectively blinded and a little turned on by the display.");
+                }
+            }
+            if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.LethicesRapeTentacles) >= 0) {
+                this.player.addStatusValue(StatusAffects_1.StatusAffects.LethicesRapeTentacles, 1, -1);
+                if (this.player.statusAffectv3(StatusAffects_1.StatusAffects.LethicesRapeTentacles) != 0) {
+                    this.player.addStatusValue(StatusAffects_1.StatusAffects.LethicesRapeTentacles, 2, 1);
+                    var tentaround = this.player.statusAffectv2(StatusAffects_1.StatusAffects.LethicesRapeTentacles);
+                    if (tentaround == 1) {
+                        this.outputText("Taking advantage of your helpless state, the tentacles wind deeper under your [armor], caressing your [nipples] and coating your [butt] in slippery goo. One even seeks out your crotch, none-too-gently prodding around for weak points.");
+                        this.dynStats("lus", 5);
+                    }
+                    else if (tentaround == 2) {
+                        this.outputText("Now that they’ve settled in, the tentacles go to work on your body, rudely molesting every sensitive place they can find.");
+                        if (this.player.hasCock())
+                            this.outputText(" They twirl and writhe around your [cocks].");
+                        if (this.player.hasVagina())
+                            this.outputText(" One flosses your nether-lips, rubbing slippery bumps maddenly against your [clit].");
+                        this.outputText(" " + this.num2Text(this.player.totalNipples()) + " tendrils encircle your [nipples]");
+                        if (this.player.hasFuckableNipples())
+                            this.outputText(", threatening to slide inside them at a moment’s notice");
+                        else {
+                            this.outputText(", pinching and tugging them");
+                            if (this.player.isLactating())
+                                this.outputText(", squeezing out small jets of milk");
+                        }
+                        this.outputText(". Worst of all is the tentacle slithering between your buttcheeks. It keeps stopping to rub around the edge of your [asshole]. You really ought to break free...");
+                        this.dynStats("lus", 5);
+                    }
+                    else if (tentaround == 3) {
+                        this.outputText("Another inky length rises up from the floor and slaps against your face, inexpertly attempting to thrust itself inside your mouth. Resenting its temerity, you steadfastly hold your lips closed and turn your head away. The corrupt magics powering this spell won’t let you get off so easily, though. The others redouble their efforts, inundating you with maddening pleasure. You can’t help but gasp and moan, giving the oiled feeler all the opening it needs to enter your maw.");
+                        this.dynStats("lus", 5);
+                    }
+                    else if (tentaround == 4) {
+                        this.outputText("If you thought having one tentacle in your mouth was bad, then the two floating in front of you are potentially terrifying. Unfortunately, they turn out to be mere distractions. The tendril plying your buns rears back and stabs inside, splitting your sphincter");
+                        if (this.player.hasVagina()) {
+                            this.outputText(" while its brother simultaneously pierces your tender folds, rapaciously double-penetrating you");
+                            if (this.player.hasVirginVagina())
+                                this.outputText(" <b>You've come all this way only to lose your virginity to these things!</b>");
+                        }
+                        this.outputText(".");
+                        if (this.player.hasFuckableNipples())
+                            this.outputText(" Your [nipples] are similarly entered.");
+                        if (this.player.hasCock())
+                            this.outputText(" And [eachCock] is suddenly coated in slimy, extraplanar oil and pumped with rapid, sure strokes.");
+                        this.outputText(" There’s too much. If you don’t break free, you’re going to wind up losing to a simple spell!");
+                        this.dynStats("lus", 10);
+                    }
+                    else {
+                        this.outputText("You’ve really fucked up now. An entire throne room full of demons is watching a bunch of summoned tentacles rape you in every hole, bouncing your body back and forth with the force of their thrusts, repeatedly spilling their corruptive payloads into your receptive holes. The worst part is");
+                        if (this.player.cor >= 50)
+                            this.outputText(" how much of a bitch it makes you look like... and how good it feels to be Lethice’s bitch.");
+                        else
+                            this.outputText(" how dirty it makes you feel... and how good it feels to be dirty.");
+                        this.dynStats("lus", 10, "cor", 1);
+                    }
+                }
+                else {
+                    this.outputText("The tentacles grab at you again!");
+                    if (this.player.canFly())
+                        this.outputText(" No matter how they strain, they can’t reach you.");
+                    else if (this.combatMiss() || this.combatEvade() || this.combatFlexibility())
+                        this.outputText(" You twist out of their slick, bizarrely sensuous grasp for now.");
+                    else {
+                        this.outputText(" Damn, they got you! They yank your arms and [legs] taut, holding you helpless in the air for their brothers to further violate. You can already feel a few oily tendrils sneaking under your [armor].");
+                        this.player.changeStatusValue(StatusAffects_1.StatusAffects.LethicesRapeTentacles, 3, 1);
+                        this.dynStats("lus", 5);
+                    }
+                }
+                if (this.player.statusAffectv1(StatusAffects_1.StatusAffects.LethicesRapeTentacles) <= 0) {
+                    if (this.player.statusAffectv3(StatusAffects_1.StatusAffects.LethicesRapeTentacles) != 0) {
+                        this.outputText("\n\nThe tentacles in front of you suddenly pop like balloons of black smoke, leaving a greasy mist in their wake. A breeze from nowhere dissipates the remnants of the rapacious tendrils, their magic expended.");
+                    }
+                    else {
+                        this.outputText("\n\nThe tentacles holding you abruptly let go, dropping you to the ground. Climbing up, you look around in alarm, but the tendrils have faded into puffs of black smoke. A breeze from nowhere blows them away, their magic expended.");
+                    }
+                    this.player.removeStatusAffect(StatusAffects_1.StatusAffects.LethicesRapeTentacles);
                 }
             }
             this.monster.combatRoundUpdate();
@@ -4229,7 +4407,7 @@ convert "
             }
             if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.UBERWEB) >= 0)
                 this.outputText("<b>You're pinned under a pile of webbing!  You should probably struggle out of it and get back in the fight!</b>\n\n", false);
-            if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.Blind) >= 0 && this.monster.findStatusAffect(StatusAffects_1.StatusAffects.Sandstorm) < 0) {
+            if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.Blind) >= 0 && this.monster.findStatusAffect(StatusAffects_1.StatusAffects.Sandstorm) < 0 && this.player.findStatusAffect(StatusAffects_1.StatusAffects.PurpleHaze) < 0) {
                 if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.SheilaOil) >= 0) {
                     if (this.player.statusAffectv1(StatusAffects_1.StatusAffects.Blind) <= 0) {
                         this.outputText("<b>You finish wiping the demon's tainted oils away from your eyes; though the smell lingers, you can at least see.  Sheila actually seems happy to once again be under your gaze.</b>\n\n", false);
@@ -4246,7 +4424,12 @@ convert "
                         this.player.removeStatusAffect(StatusAffects_1.StatusAffects.Blind);
                         //Alert PC that blind is gone if no more stacks are there.
                         if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.Blind) < 0) {
-                            this.outputText("<b>Your eyes have cleared and you are no longer blind!</b>\n\n", false);
+                            if (this.monster instanceof Lethice_1.Lethice && this.monster.fightPhase == 2) {
+                                this.outputText("<b>You finally blink away the last of the demonic spooge from your eyes!</b>\n\n", false);
+                            }
+                            else {
+                                this.outputText("<b>Your eyes have cleared and you are no longer blind!</b>\n\n", false);
+                            }
                         }
                         else
                             this.outputText("<b>You are blind, and many physical attacks will miss much more often.</b>\n\n", false);
@@ -4387,7 +4570,7 @@ convert "
                 else {
                     this.outputText("The orb continues vibrating in your ass, doing its best to arouse you.\n\n", false);
                 }
-                this.dynStats("lus", 7 + Math.floor(this.player.sens) / 10);
+                this.dynStats("lus", 7 + int_1.int(this.player.sens) / 10);
             }
             if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.KissOfDeath) >= 0) {
                 //Effect 
@@ -4397,7 +4580,7 @@ convert "
             }
             if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.DemonSeed) >= 0) {
                 this.outputText("You feel something shift inside you, making you feel warm.  Finding the desire to fight this... hunk gets harder and harder.\n\n", false);
-                this.dynStats("lus", (this.player.statusAffectv1(StatusAffects_1.StatusAffects.DemonSeed) + Math.floor(this.player.sens / 30) + Math.floor(this.player.lib / 30) + Math.floor(this.player.cor / 30)));
+                this.dynStats("lus", (this.player.statusAffectv1(StatusAffects_1.StatusAffects.DemonSeed) + int_1.int(this.player.sens / 30) + int_1.int(this.player.lib / 30) + int_1.int(this.player.cor / 30)));
             }
             if (this.player.inHeat && this.player.vaginas.length > 0 && this.monster.totalCocks() > 0) {
                 this.dynStats("lus", (this.rand(this.player.lib / 5) + 3 + this.rand(5)));
@@ -4472,6 +4655,39 @@ convert "
                 this.outputText("The feeling of the tight, leather straps holding tightly to your body while exposing so much of it turns you on a little bit more.\n\n", false);
                 this.dynStats("lus", 2);
             }
+            // Drider incubus venom
+            if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.DriderIncubusVenom) >= 0) {
+                if (this.player.findPerk(PerkLib_1.PerkLib.Medicine) >= 0 && this.rand(100) <= 41) {
+                    this.outputText("You negate the effects of the drider incubus’ venom with your knowledge of medicine!\n\n", false);
+                    this.player.str += this.player.statusAffectv2(StatusAffects_1.StatusAffects.DriderIncubusVenom);
+                    this.player.removeStatusAffect(StatusAffects_1.StatusAffects.DriderIncubusVenom);
+                    kGAMECLASS_1.kGAMECLASS.mainView.statsView.showStatUp('str');
+                }
+                else {
+                    this.player.addStatusValue(StatusAffects_1.StatusAffects.DriderIncubusVenom, 1, -1);
+                    if (this.player.statusAffectv1(StatusAffects_1.StatusAffects.DriderIncubusVenom) <= 0) {
+                        this.player.str += this.player.statusAffectv2(StatusAffects_1.StatusAffects.DriderIncubusVenom);
+                        this.player.removeStatusAffect(StatusAffects_1.StatusAffects.DriderIncubusVenom);
+                        kGAMECLASS_1.kGAMECLASS.mainView.statsView.showStatUp('str');
+                        this.outputText("The drider incubus’ venom wanes, the effects of the poision weakening as strength returns to your limbs!\n\n");
+                    }
+                    else {
+                        this.outputText("The demonic drider managed to bite you, infecting you with his strength-draining poison!\n\n");
+                    }
+                }
+            }
+            if (this.monster.findStatusAffect(StatusAffects_1.StatusAffects.OnFire) >= 0) {
+                var damage = 20 + this.rand(5);
+                this.monster.HP -= damage;
+                this.monster.addStatusValue(StatusAffects_1.StatusAffects.OnFire, 1, -1);
+                if (this.monster.statusAffectv1(StatusAffects_1.StatusAffects.OnFire) <= 0) {
+                    this.monster.removeStatusAffect(StatusAffects_1.StatusAffects.OnFire);
+                    this.outputText("\n\nFlames lick at the horde of demons before finally petering out!");
+                }
+                else {
+                    this.outputText("\n\nFlames continue to lick at the horde of demons!");
+                }
+            }
             this.regeneration(true);
             if (this.player.lust >= 100)
                 this.doNext(this.endLustLoss);
@@ -4538,8 +4754,28 @@ convert "
             }
             this.doNext(this.playerMenu);
         }
-        startCombatImmediate(monster, _plotFight) {
-            this.startCombat(monster, _plotFight);
+        startCombatImmediate(monster_, _plotFight) {
+            this.plotFight = _plotFight;
+            this.mainView.hideMenuButton(MainView_1.MainView.MENU_DATA);
+            this.mainView.hideMenuButton(MainView_1.MainView.MENU_APPEARANCE);
+            this.mainView.hideMenuButton(MainView_1.MainView.MENU_LEVEL);
+            this.mainView.hideMenuButton(MainView_1.MainView.MENU_PERKS);
+            //Flag the game as being "in combat"
+            this.inCombat = true;
+            this.monster = monster_;
+            if (this.monster.short == "Ember") {
+                this.monster.pronoun1 = this.emberScene.emberMF("he", "she");
+                this.monster.pronoun2 = this.emberScene.emberMF("him", "her");
+                this.monster.pronoun3 = this.emberScene.emberMF("his", "her");
+            }
+            //Reduce enemy def if player has precision!
+            if (this.player.findPerk(PerkLib_1.PerkLib.Precision) >= 0 && this.player.inte >= 25) {
+                if (this.monster.armorDef <= 10)
+                    this.monster.armorDef = 0;
+                else
+                    this.monster.armorDef -= 10;
+            }
+            this.playerMenu();
         }
         display() {
             if (!this.monster.checkCalled) {
@@ -4552,7 +4788,7 @@ convert "
             }
             var percent = "";
             var math = this.monster.HPRatio();
-            percent = "(<b>" + String(Math.floor(math * 1000) / 10) + "% HP</b>)";
+            percent = "(<b>" + String(int_1.int(math * 1000) / 10) + "% HP</b>)";
             //trace("trying to show monster image!");
             if (this.monster.imageName != "") {
                 var monsterName = ("monster-" + this.monster.imageName);
@@ -4563,8 +4799,9 @@ convert "
             //	else
             this.outputText("<b>You are fighting ", false);
             this.outputText(this.monster.a + this.monster.short + ":</b> (Level: " + this.monster.level + ")\n");
-            if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.Blind) >= 0)
+            if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.Blind) >= 0) {
                 this.outputText("It's impossible to see anything!\n");
+            }
             else {
                 this.outputText(this.monster.long + "\n", false);
                 //Bonus sand trap stuff
@@ -4608,6 +4845,70 @@ convert "
                 }
                 this.outputText("  " + percent + "\n", false);
                 this.showMonsterLust();
+                // haha literally fuck organising this shit properly any more
+                // BURN THE SHIT TO THE GROUND ON MY WAY OUT INNIT
+                if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.MinotaurKingMusk) >= 0) {
+                    if (this.player.lust <= 10)
+                        this.outputText("\nYou catch yourself looking at the King’s crotch instead of his weapon. Ugh, it’s this scent. It’s so... so powerful, worming its way into you with every breath and reminding you that sex could be a single step away.\n");
+                    else if (this.player.lust <= 20)
+                        this.outputText("\nWhy does he have to smell so good? A big guy like that, covered in sweat - he should smell bad, if anything. But he doesn’t. He’s like sea salt and fresh-chopped wood after a quick soak between a slut’s legs. You shiver in what you hope is repulsion.\n");
+                    else if (this.player.lust <= 30)
+                        this.outputText("\nYou try to breathe through your mouth to minimize the effect of his alluring musk, but then your mouth starts watering... and your lips feel dry. You lick them a few times, just to keep them nice and moist. Only after a moment do you realize you were staring at his dripping-wet cock and polishing your lips like a wanton whore. You may need to change tactics.\n");
+                    else if (this.player.lust <= 40) {
+                        this.outputText("\nGods-damned minotaurs with their tasty-smelling cum and absolutely domineering scent. Just breathing around this guy is making your");
+                        if (this.player.tailType != 0)
+                            this.outputText(" tail quiver");
+                        else if (!this.player.isBiped())
+                            this.outputText(" lower body quiver");
+                        else
+                            this.outputText(" knees weak");
+                        this.outputText(". How must it feel to share a bed with such a royal specimen? To luxuriate in his aroma until all you want is for him to use you? If you stick around, you might find out.\n");
+                    }
+                    else if (this.player.lust <= 50) {
+                        this.outputText("\nYou pant. You can’t help it, not with the exertion of fighting and how blessedly <i>warm</i> you’re starting to get between the legs.");
+                        if (!this.player.hasCock() && !this.player.hasVagina())
+                            this.outputText(" You wish, for a moment, that you hadn’t so carelessly lost your genitalia.");
+                        this.outputText(" Trying not to breath about this beast was never going to work anyway.\n");
+                    }
+                    else if (this.player.lust <= 60) {
+                        this.outputText("\nLicking your lips, you can’t help but admire at how intense the Minotaur King is. Everything from his piercing gaze to his diamond - hard cock to the delightful cloud of his natural cologne is extraordinary. Would it be so bad to lose to him?\n");
+                    }
+                    else if (this.player.lust <= 70) {
+                        this.outputText("\nYou look between the gigantic minotaur and his eager pet, wondering just how they manage to have sex. He’s so big and so hard. A cock like that would split her in half, wouldn’t it?");
+                        if (this.player.isTaur())
+                            this.outputText(" She’s not a centaur like you. She couldn’t fit him like a glove, then milk him dry with muscles a humanoid body could never contain.\n");
+                        else
+                            this.outputText(" She must have been a champion. It’s the only way she could have the fortitude to withstand such a thick, juicy cock. You’re a champion too. Maybe it’ll fit you as well.\n ");
+                    }
+                    else if (this.player.lust <= 80) {
+                        if (this.player.hasVagina()) {
+                            this.outputText("\nYou’re wet");
+                            if (this.player.wetness() >= 4)
+                                this.outputText(", and not just wet in the normal, everyday, ready-to-fuck way");
+                            this.outputText(". The pernicious need is slipping inside you with every breath you take around this virile brute, twisting through your body until cunt-moistening feelers are stroking your brain, reminding you how easy it would be to spread your legs. He’s a big, big boy, and you’ve got such a ready, aching pussy.\n");
+                        }
+                        else if (this.player.hasCock()) {
+                            this.outputText("\nYou’re hard - harder than you’d ever expect to be from being face to face with a corrupted bovine’s dripping dick. It just... it smells so good. His whole body does. Even when you duck under a swing, you’re blasted with nothing but pure pheromones. You get dizzy just trying keep your breath, and you desperately want to tend to the ache");
+                            if (this.player.isTaur())
+                                this.outputText(" below.\n");
+                            else
+                                this.outputText(" between your legs.\n");
+                        }
+                        else
+                            this.outputText("\nHow you can go so far as to remove your genitals and still get so turned on when confronted by a huge prick, you’ll never know. It must be all the pheromones in the air, slipping inside your body, releasing endorphins and sending signals to dormant sections of your brain that demand you mate.\n");
+                    }
+                    else if (this.player.lust <= 90) {
+                        this.outputText("\nYou can’t even stop yourself from staring. Not now, not after getting so fucking horny from an attempt at combat. Lethice is right there behind him, and all you can think about is that fat pillar of flesh between the lordly beast - man’s legs, that delicious looking rod. You doubt you could fit your lips around it without a lot of effort, but if you can’t beat him, you’ll have all the time in the world to practice.\n");
+                    }
+                    else {
+                        this.outputText("\nGods, your head is swimming. It’s hard to stay upright, not because of the dizziness but because you desperately want to bend over and lift your [ass] up in the air to present to the Minotaur King. He’s so powerful, so domineering, that even his scent is like a whip across your");
+                        if (this.player.hasVagina())
+                            this.outputText(" folds");
+                        else
+                            this.outputText(" ass");
+                        this.outputText(", lashing you with strokes of red-hot desire. If you don’t take him down fast, you’re going to become his bitch.\n");
+                    }
+                }
             }
             if (this.debug) {
                 this.outputText("\n----------------------------\n");
@@ -6572,7 +6873,7 @@ convert "
                 this.dynStats("lib", .25, "lus", 15);
             }
             else {
-                this.temp = Math.floor((this.player.inte / (2 + this.rand(3)) * this.spellMod()) * (this.maxHP() / 150));
+                this.temp = int_1.int((this.player.inte / (2 + this.rand(3)) * this.spellMod()) * (this.maxHP() / 150));
                 if (this.player.armorName == "skimpy nurse's outfit")
                     this.temp *= 1.2;
                 this.outputText("You flush with success as your wounds begin to knit (+" + this.temp + ").", false);
@@ -6672,6 +6973,7 @@ convert "
         }
         //(20) Blind – reduces your opponent's accuracy, giving an additional 50% miss chance to physical attacks.
         spellBlind() {
+            this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 2;
             this.outputText("", true);
             if (this.player.findPerk(PerkLib_1.PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(20) > 100) {
                 this.outputText("You are too tired to cast this spell.", true);
@@ -6694,7 +6996,7 @@ convert "
                 if (this.rand(this.player.spe) >= 50 || this.rand(this.player.inte) >= 50) {
                     this.outputText("\n\nThe light sears into your eyes, but with the discipline of conscious effort you escape the hypnotic pull before it can mesmerize you, before Jean-Claude can blind you.");
                     this.outputText("\n\n“<i>You fight dirty,</i>” the monster snaps. He sounds genuinely outraged. “<i>I was told the interloper was a dangerous warrior, not a little [boy] who accepts duels of honour and then throws sand into his opponent’s eyes. Look into my eyes, little [boy]. Fair is fair.</i>”");
-                    this.monster.HP -= Math.floor(10 + (this.player.inte / 3 + this.rand(this.player.inte / 2)) * this.spellMod());
+                    this.monster.HP -= int_1.int(10 + (this.player.inte / 3 + this.rand(this.player.inte / 2)) * this.spellMod());
                 }
                 else {
                     this.outputText("\n\nThe light sears into your eyes and mind as you stare into it. It’s so powerful, so infinite, so exquisitely painful that you wonder why you’d ever want to look at anything else, at anything at- with a mighty effort, you tear yourself away from it, gasping. All you can see is the afterimages, blaring white and yellow across your vision. You swipe around you blindly as you hear Jean-Claude bark with laughter, trying to keep the monster at arm’s length.");
@@ -6707,6 +7009,17 @@ convert "
                     this.doNext(this.endHpVictory);
                 else
                     this.enemyAI();
+                return;
+            }
+            else if (this.monster instanceof Lethice_1.Lethice && this.monster.fightPhase == 2) {
+                this.outputText("You hold your [weapon] aloft and thrust your will forward, causing it to erupt in a blinding flash of light. The demons of the court scream and recoil from the radiant burst, clutching at their eyes and trampling over each other to get back.");
+                this.outputText("\n\n<i>“Damn you, fight!”</i> Lethice screams, grabbing her whip and lashing out at the back-most demons, driving them forward -- and causing the middle bunch to be crushed between competing forces of retreating demons! <i>“Fight, or you'll be in the submission tanks for the rest of your miserable lives!”</i>");
+                this.monster.createStatusAffect(StatusAffects_1.StatusAffects.Blind, 5 * this.spellMod(), 0, 0, 0);
+                this.outputText("\n\n", false);
+                this.flags[kFLAGS_1.kFLAGS.SPELLS_CAST]++;
+                this.spellPerkUnlock();
+                this.statScreenRefresh();
+                this.enemyAI();
                 return;
             }
             this.outputText("You glare at " + this.monster.a + this.monster.short + " and point at " + this.monster.pronoun2 + ".  A bright flash erupts before " + this.monster.pronoun2 + "!\n", true);
@@ -6742,6 +7055,7 @@ convert "
         }
         //(30) Whitefire – burns the enemy for 10 + int/3 + rand(int/2) * spellMod.
         spellWhitefire() {
+            this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 2;
             this.outputText("", true);
             if (this.player.findPerk(PerkLib_1.PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(30) > 100) {
                 this.outputText("You are too tired to cast this spell.", true);
@@ -6764,29 +7078,46 @@ convert "
                 this.spellPerkUnlock();
                 return;
             }
-            this.outputText("You narrow your eyes, focusing your mind with deadly intent.  You snap your fingers and " + this.monster.a + this.monster.short + " is enveloped in a flash of white flames!\n", true);
-            this.temp = Math.floor(10 + (this.player.inte / 3 + this.rand(this.player.inte / 2)) * this.spellMod());
-            //High damage to goes.
-            if (this.monster.short == "goo-girl")
-                this.temp = Math.round(this.temp * 1.5);
-            this.outputText(this.monster.capitalA + this.monster.short + " takes " + this.temp + " damage.", false);
-            //Using fire attacks on the goo]
-            if (this.monster.short == "goo-girl") {
-                this.outputText("  Your flames lick the girl's body and she opens her mouth in pained protest as you evaporate much of her moisture. When the fire passes, she seems a bit smaller and her slimy " + this.monster.skinTone + " skin has lost some of its shimmer.", false);
-                if (this.monster.findPerk(PerkLib_1.PerkLib.Acid) < 0)
-                    this.monster.createPerk(PerkLib_1.PerkLib.Acid, 0, 0, 0, 0);
+            else if (this.monster instanceof Lethice_1.Lethice && this.monster.fightPhase == 2) {
+                //Attack gains burn DoT for 2-3 turns.
+                this.outputText("You let loose a roiling cone of flames that wash over the horde of demons like a tidal wave, scorching at their tainted flesh with vigor unlike anything you've seen before. Screams of terror as much as, maybe more than, pain fill the air as the mass of corrupted bodies try desperately to escape from you! Though more demons pile in over the affected front ranks, you've certainly put the fear of your magic into them!");
+                this.monster.createStatusAffect(StatusAffects_1.StatusAffects.OnFire, 2 + this.rand(2), 0, 0, 0);
+                this.temp = int_1.int(10 + (this.player.inte / 3 + this.rand(this.player.inte / 2)) * this.spellMod());
+                this.temp *= 1.75;
+                this.outputText(" (" + this.temp + ")");
+            }
+            else {
+                this.outputText("You narrow your eyes, focusing your mind with deadly intent.  You snap your fingers and " + this.monster.a + this.monster.short + " is enveloped in a flash of white flames!\n", true);
+                this.temp = int_1.int(10 + (this.player.inte / 3 + this.rand(this.player.inte / 2)) * this.spellMod());
+                //High damage to goes.
+                if (this.monster.short == "goo-girl")
+                    this.temp = Math.round(this.temp * 1.5);
+                this.outputText(this.monster.capitalA + this.monster.short + " takes " + this.temp + " damage.", false);
+                //Using fire attacks on the goo]
+                if (this.monster.short == "goo-girl") {
+                    this.outputText("  Your flames lick the girl's body and she opens her mouth in pained protest as you evaporate much of her moisture. When the fire passes, she seems a bit smaller and her slimy " + this.monster.skinTone + " skin has lost some of its shimmer.", false);
+                    if (this.monster.findPerk(PerkLib_1.PerkLib.Acid) < 0)
+                        this.monster.createPerk(PerkLib_1.PerkLib.Acid, 0, 0, 0, 0);
+                }
             }
             this.outputText("\n\n", false);
             this.flags[kFLAGS_1.kFLAGS.SPELLS_CAST]++;
             this.spellPerkUnlock();
             this.monster.HP -= this.temp;
             this.statScreenRefresh();
-            if (this.monster.HP < 1)
+            if (this.monster.HP < 1) {
                 this.doNext(this.endHpVictory);
-            else
+            }
+            else {
+                if (this.monster instanceof Lethice_1.Lethice && this.monster.fightPhase == 3) {
+                    this.outputText("\n\n<i>“Ouch. Such arcane skills for one so uncouth,”</i> Lethice growls. With a snap of her fingers, a pearlescent dome surrounds her. <i>“How will you beat me without your magics?”</i>\n\n");
+                    this.monster.createStatusAffect(StatusAffects_1.StatusAffects.Shell, 2, 0, 0, 0);
+                }
                 this.enemyAI();
+            }
         }
         spellCleansingPalm() {
+            this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 2;
             this.clearOutput();
             if (this.player.findPerk(PerkLib_1.PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(30) > 100) {
                 this.outputText("You are too tired to cast this spell.", true);
@@ -6823,7 +7154,7 @@ convert "
             var corruptionMulti = (this.monster.cor - 20) / 25;
             if (corruptionMulti > 1.5)
                 corruptionMulti = 1.5;
-            this.temp = Math.floor((this.player.inte / 4 + this.rand(this.player.inte / 3)) * (this.spellMod() * corruptionMulti));
+            this.temp = int_1.int((this.player.inte / 4 + this.rand(this.player.inte / 3)) * (this.spellMod() * corruptionMulti));
             if (this.temp > 0) {
                 this.outputText("You thrust your palm forward, causing a blast of pure energy to slam against " + this.monster.a + this.monster.short + ", tossing");
                 if (this.monster.plural == true)
@@ -6864,6 +7195,11 @@ convert "
         //Hellfire deals physical damage to completely pure foes, 
         //lust damage to completely corrupt foes, and a mix for those in between.  Its power is based on the PC's corruption and level.  Appearance is slightly changed to mention that the PC's eyes and mouth occasionally show flicks of fire from within them, text could possibly vary based on corruption.
         hellFire() {
+            var damage = 0;
+            if (this.monster.cor < 50)
+                this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 2;
+            else
+                this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 3;
             this.outputText("", true);
             if (this.player.findPerk(PerkLib_1.PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(20) > 100) {
                 this.outputText("You are too tired to breathe fire.\n", true);
@@ -6883,7 +7219,25 @@ convert "
                 this.enemyAI();
                 return;
             }
-            var damage = (this.player.level * 8 + this.rand(10) + this.player.cor / 5);
+            else if (this.monster instanceof Lethice_1.Lethice && this.monster.fightPhase == 2) {
+                //Attack gains burn DoT for 2-3 turns.
+                this.outputText("You let loose a roiling cone of flames that wash over the horde of demons like a tidal wave, scorching at their tainted flesh with vigor unlike anything you've seen before. Screams of terror as much as, maybe more than, pain fill the air as the mass of corrupted bodies try desperately to escape from you! Though more demons pile in over the affected front ranks, you've certainly put the fear of your magic into them!");
+                this.monster.createStatusAffect(StatusAffects_1.StatusAffects.OnFire, 2 + this.rand(2), 0, 0, 0);
+                damage = (this.player.level * 8 + this.rand(10) + this.player.cor / 5);
+                damage *= 1.75;
+                this.outputText(" (" + damage + ")");
+                this.monster.HP -= damage;
+                if (this.monster.HP < 1) {
+                    this.doNext(this.endHpVictory);
+                }
+                else if (this.monster.lust >= 99) {
+                    this.doNext(this.endLustVictory);
+                }
+                else
+                    this.enemyAI();
+                return;
+            }
+            damage = (this.player.level * 8 + this.rand(10) + this.player.cor / 5);
             if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.GooArmorSilence) < 0)
                 this.outputText("You take in a deep breath and unleash a wave of corrupt red flames from deep within.", false);
             if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.WebSilence) >= 0) {
@@ -6913,7 +7267,7 @@ convert "
                     this.outputText("You use your flexibility to barely fold your body out of the way!", false);
                 }
                 else {
-                    damage = Math.floor(damage / 6);
+                    damage = int_1.int(damage / 6);
                     this.outputText("Your own fire smacks into your face, arousing you!", false);
                     this.dynStats("lus", damage);
                 }
@@ -6922,7 +7276,7 @@ convert "
             else {
                 if (this.monster.inte < 10) {
                     this.outputText("  Your foe lets out a shriek as their form is engulfed in the blistering flames.", false);
-                    damage = Math.floor(damage);
+                    damage = int_1.int(damage);
                     this.outputText("(" + damage + ")\n", false);
                     this.monster.HP -= damage;
                 }
@@ -6945,10 +7299,16 @@ convert "
             else if (this.monster.lust >= 99) {
                 this.doNext(this.endLustVictory);
             }
-            else
+            else {
+                if (this.monster instanceof Lethice_1.Lethice && this.monster.fightPhase == 3) {
+                    this.outputText("\n\n<i>“Ouch. Such arcane skills for one so uncouth,”</i> Lethice growls. With a snap of her fingers, a pearlescent dome surrounds her. <i>“How will you beat me without your magics?”</i>\n\n");
+                    this.monster.createStatusAffect(StatusAffects_1.StatusAffects.Shell, 2, 0, 0, 0);
+                }
                 this.enemyAI();
+            }
         }
         kick() {
+            this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 4;
             this.outputText("", true);
             if (this.player.fatigue + this.physicalCost(15) > 100) {
                 this.outputText("You're too fatigued to use a charge attack!", true);
@@ -6994,7 +7354,7 @@ convert "
             if (this.monster.short == "worms") {
                 //50% chance of hit (int boost)
                 if (this.rand(100) + this.player.inte / 3 >= 50) {
-                    this.temp = Math.floor(this.player.str / 5 - this.rand(5));
+                    this.temp = int_1.int(this.player.str / 5 - this.rand(5));
                     if (this.temp == 0)
                         this.temp = 1;
                     this.outputText("You strike at the amalgamation, crushing countless worms into goo, dealing " + this.temp + " damage.\n\n", false);
@@ -7013,7 +7373,7 @@ convert "
             }
             var damage;
             //Determine if dodged!
-            if ((this.player.findStatusAffect(StatusAffects_1.StatusAffects.Blind) >= 0 && this.rand(2) == 0) || (this.monster.spe - this.player.spe > 0 && Math.floor(Math.random() * (((this.monster.spe - this.player.spe) / 4) + 80)) > 80)) {
+            if ((this.player.findStatusAffect(StatusAffects_1.StatusAffects.Blind) >= 0 && this.rand(2) == 0) || (this.monster.spe - this.player.spe > 0 && int_1.int(Math.random() * (((this.monster.spe - this.player.spe) / 4) + 80)) > 80)) {
                 //Akbal dodges special education
                 if (this.monster.short == "Akbal")
                     this.outputText("Akbal moves like lightning, weaving in and out of your furious attack with the speed and grace befitting his jaguar body.\n", false);
@@ -7085,6 +7445,7 @@ convert "
                 this.enemyAI();
         }
         PCWebAttack() {
+            this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 4;
             this.outputText("", true);
             //Keep logic sane if this attack brings victory
             if (this.player.tailVenom < 33) {
@@ -7106,7 +7467,7 @@ convert "
             else
                 this.outputText("Turning and clenching muscles that no human should have, you expel a spray of sticky webs at " + this.monster.a + this.monster.short + "!  ", false);
             //Determine if dodged!
-            if ((this.player.findStatusAffect(StatusAffects_1.StatusAffects.Blind) >= 0 && this.rand(2) == 0) || (this.monster.spe - this.player.spe > 0 && Math.floor(Math.random() * (((this.monster.spe - this.player.spe) / 4) + 80)) > 80)) {
+            if ((this.player.findStatusAffect(StatusAffects_1.StatusAffects.Blind) >= 0 && this.rand(2) == 0) || (this.monster.spe - this.player.spe > 0 && int_1.int(Math.random() * (((this.monster.spe - this.player.spe) / 4) + 80)) > 80)) {
                 this.outputText("You miss " + this.monster.a + this.monster.short + " completely - ", false);
                 if (this.monster.plural)
                     this.outputText("they", false);
@@ -7139,6 +7500,7 @@ convert "
                 this.enemyAI();
         }
         nagaBiteAttack() {
+            this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 4;
             this.outputText("", true);
             //FATIIIIGUE
             if (this.player.fatigue + this.physicalCost(10) > 100) {
@@ -7192,6 +7554,7 @@ convert "
                 this.enemyAI();
         }
         spiderBiteAttack() {
+            this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 4;
             this.outputText("", true);
             //FATIIIIGUE
             if (this.player.fatigue + this.physicalCost(10) > 100) {
@@ -7252,6 +7615,7 @@ convert "
         //[Abilities]
         //Whisper 
         superWhisperAttack() {
+            this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 2;
             this.outputText("", true);
             if (this.player.findPerk(PerkLib_1.PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(10) > 100) {
                 this.outputText("You are too tired to focus this ability.", true);
@@ -7311,6 +7675,7 @@ convert "
         //once a day or something
         //Effect of attack: Damages and stuns the enemy for the turn you used this attack on, plus 2 more turns. High chance of success.
         dragonBreath() {
+            this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 2;
             this.clearOutput();
             if (this.player.findPerk(PerkLib_1.PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(20) > 100) {
                 this.outputText("You are too tired to breathe fire.", true);
@@ -7326,7 +7691,7 @@ convert "
             //This is now automatic - newRound arg defaults to true:	menuLoc = 0;
             this.fatigue(20, 1);
             this.player.createStatusAffect(StatusAffects_1.StatusAffects.DragonBreathCooldown, 0, 0, 0, 0);
-            var damage = Math.floor(this.player.level * 8 + 25 + this.rand(10));
+            var damage = int_1.int(this.player.level * 8 + 25 + this.rand(10));
             if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.DragonBreathBoost) >= 0) {
                 this.player.removeStatusAffect(StatusAffects_1.StatusAffects.DragonBreathBoost);
                 damage *= 1.5;
@@ -7348,13 +7713,28 @@ convert "
                 this.enemyAI();
                 return;
             }
+            else if (this.monster instanceof Lethice_1.Lethice && this.monster.fightPhase == 2) {
+                //Attack gains burn DoT for 2-3 turns.
+                this.outputText("You let loose a roiling cone of flames that wash over the horde of demons like a tidal wave, scorching at their tainted flesh with vigor unlike anything you've seen before. Screams of terror as much as, maybe more than, pain fill the air as the mass of corrupted bodies try desperately to escape from you! Though more demons pile in over the affected front ranks, you've certainly put the fear of your magic into them!\n\n");
+                this.monster.createStatusAffect(StatusAffects_1.StatusAffects.OnFire, 2 + this.rand(2), 0, 0, 0);
+                damage = int_1.int(this.player.level * 8 + 25 + this.rand(10));
+                if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.DragonBreathBoost) >= 0) {
+                    this.player.removeStatusAffect(StatusAffects_1.StatusAffects.DragonBreathBoost);
+                    damage *= 1.5;
+                }
+                damage *= 1.75;
+                this.outputText(" (" + damage + ")");
+                this.monster.HP -= damage;
+                this.combatRoundOver();
+                return;
+            }
             this.outputText("Tapping into the power deep within you, you let loose a bellowing roar at your enemy, so forceful that even the environs crumble around " + this.monster.pronoun2 + ".  " + this.monster.capitalA + this.monster.short + " does " + this.monster.pronoun3 + " best to avoid it, but the wave of force is too fast.");
             if (this.monster.findStatusAffect(StatusAffects_1.StatusAffects.Sandstorm) >= 0) {
                 this.outputText("  <b>Your breath is massively dissipated by the swirling vortex, causing it to hit with far less force!</b>");
                 damage = Math.round(0.2 * damage);
             }
             //Miss: 
-            if ((this.player.findStatusAffect(StatusAffects_1.StatusAffects.Blind) >= 0 && this.rand(2) == 0) || (this.monster.spe - this.player.spe > 0 && Math.floor(Math.random() * (((this.monster.spe - this.player.spe) / 4) + 80)) > 80)) {
+            if ((this.player.findStatusAffect(StatusAffects_1.StatusAffects.Blind) >= 0 && this.rand(2) == 0) || (this.monster.spe - this.player.spe > 0 && int_1.int(Math.random() * (((this.monster.spe - this.player.spe) / 4) + 80)) > 80)) {
                 this.outputText("  Despite the heavy impact caused by your roar, " + this.monster.a + this.monster.short + " manages to take it at an angle and remain on " + this.monster.pronoun3 + " feet and focuses on you, ready to keep fighting.");
             }
             //Special enemy avoidances
@@ -7401,10 +7781,17 @@ convert "
             this.outputText("\n\n");
             if (this.monster.short == "Holli" && this.monster.findStatusAffect(StatusAffects_1.StatusAffects.HolliBurning) < 0)
                 this.monster.lightHolliOnFireMagically();
-            this.combatRoundOver();
+            if (this.monster instanceof Lethice_1.Lethice && this.monster.fightPhase == 3) {
+                this.outputText("\n\n<i>“Ouch. Such arcane skills for one so uncouth,”</i> Lethice growls. With a snap of her fingers, a pearlescent dome surrounds her. <i>“How will you beat me without your magics?”</i>\n\n");
+                this.monster.createStatusAffect(StatusAffects_1.StatusAffects.Shell, 2, 0, 0, 0);
+                this.enemyAI();
+            }
+            else
+                this.combatRoundOver();
         }
         //* Terrestrial Fire
         fireballuuuuu() {
+            this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 2;
             this.outputText("", true);
             if (this.player.fatigue + 20 > 100) {
                 this.outputText("You are too tired to breathe fire.", true);
@@ -7429,6 +7816,24 @@ convert "
                 this.enemyAI();
                 return;
             }
+            else if (this.monster instanceof Lethice_1.Lethice && this.monster.fightPhase == 2) {
+                //Attack gains burn DoT for 2-3 turns.
+                this.outputText("You let loose a roiling cone of flames that wash over the horde of demons like a tidal wave, scorching at their tainted flesh with vigor unlike anything you've seen before. Screams of terror as much as, maybe more than, pain fill the air as the mass of corrupted bodies try desperately to escape from you! Though more demons pile in over the affected front ranks, you've certainly put the fear of your magic into them!\n\n");
+                this.monster.createStatusAffect(StatusAffects_1.StatusAffects.OnFire, 2 + this.rand(2), 0, 0, 0);
+                damage = int_1.int(this.player.level * 10 + 45 + this.rand(10));
+                damage *= 1.75;
+                this.outputText(" (" + damage + ")");
+                this.monster.HP -= damage;
+                if (this.monster.HP < 1) {
+                    this.doNext(this.endHpVictory);
+                }
+                else if (this.monster.lust >= 99) {
+                    this.doNext(this.endLustVictory);
+                }
+                else
+                    this.enemyAI();
+                return;
+            }
             //[Failure]
             //(high damage to self, +20 fatigue)
             if (this.rand(5) == 0 || this.player.findStatusAffect(StatusAffects_1.StatusAffects.WebSilence) >= 0) {
@@ -7450,7 +7855,7 @@ convert "
                 return;
             }
             var damage;
-            damage = Math.floor(this.player.level * 10 + 45 + this.rand(10));
+            damage = int_1.int(this.player.level * 10 + 45 + this.rand(10));
             if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.GooArmorSilence) >= 0) {
                 this.outputText("<b>A growl rumbles from deep within as you charge the terrestrial fire, and you force it from your chest and into the slime.  The goop bubbles and steams as it evaporates, drawing a curious look from your foe, who pauses in her onslaught to lean in and watch.  While the tension around your mouth lessens and your opponent forgets herself more and more, you bide your time.  When you can finally work your jaw enough to open your mouth, you expel the lion's - or jaguar's? share of the flame, inflating an enormous bubble of fire and evaporated slime that thins and finally pops to release a superheated cloud.  The armored girl screams and recoils as she's enveloped, flailing her arms.</b> ", false);
                 this.player.removeStatusAffect(StatusAffects_1.StatusAffects.GooArmorSilence);
@@ -7505,6 +7910,7 @@ convert "
                 this.enemyAI();
         }
         kissAttack() {
+            this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 3;
             if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.Blind) >= 0) {
                 this.outputText("There's no way you'd be able to find their lips while you're blind!", true);
                 //Pass false to combatMenu instead:		menuLoc = 3;
@@ -7621,6 +8027,7 @@ convert "
                 this.enemyAI();
         }
         possess() {
+            this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 3;
             this.outputText("", true);
             if (this.monster.short == "plain girl" || this.monster.findPerk(PerkLib_1.PerkLib.Incorporeality) >= 0) {
                 this.outputText("With a smile and a wink, your form becomes completely intangible, and you waste no time in throwing yourself toward the opponent's frame.  Sadly, it was doomed to fail, as you bounce right off your foe's ghostly form.", false);
@@ -7932,6 +8339,7 @@ convert "
             this.enemyAI();
         }
         anemoneSting() {
+            this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 4;
             this.outputText("", true);
             //-sting with hair (combines both bee-sting effects, but weaker than either one separately):
             //Fail!
@@ -8110,6 +8518,7 @@ convert "
         }
         //Corrupted Fox Fire
         corruptedFoxFire() {
+            this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 2;
             this.clearOutput();
             if (this.player.findPerk(PerkLib_1.PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(35) > 100) {
                 this.outputText("You are too tired to use this ability.", true);
@@ -8125,7 +8534,7 @@ convert "
             this.fatigue(35, 1);
             //Deals direct damage and lust regardless of enemy defenses.  Especially effective against non-corrupted targets.
             this.outputText("Holding out your palm, you conjure corrupted purple flame that dances across your fingertips.  You launch it at " + this.monster.a + this.monster.short + " with a ferocious throw, and it bursts on impact, showering dazzling lavender sparks everywhere.");
-            var dmg = Math.floor(10 + (this.player.inte / 3 + this.rand(this.player.inte / 2)) * this.spellMod());
+            var dmg = int_1.int(10 + (this.player.inte / 3 + this.rand(this.player.inte / 2)) * this.spellMod());
             if (this.monster.cor >= 66)
                 dmg = Math.round(dmg * .66);
             else if (this.monster.cor >= 50)
@@ -8149,6 +8558,7 @@ convert "
         }
         //Fox Fire
         foxFire() {
+            this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 2;
             this.clearOutput();
             if (this.player.findPerk(PerkLib_1.PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(35) > 100) {
                 this.outputText("You are too tired to use this ability.", true);
@@ -8169,7 +8579,7 @@ convert "
             }
             //Deals direct damage and lust regardless of enemy defenses.  Especially effective against corrupted targets.
             this.outputText("Holding out your palm, you conjure an ethereal blue flame that dances across your fingertips.  You launch it at " + this.monster.a + this.monster.short + " with a ferocious throw, and it bursts on impact, showering dazzling azure sparks everywhere.");
-            var dmg = Math.floor(10 + (this.player.inte / 3 + this.rand(this.player.inte / 2)) * this.spellMod());
+            var dmg = int_1.int(10 + (this.player.inte / 3 + this.rand(this.player.inte / 2)) * this.spellMod());
             if (this.monster.cor < 33)
                 dmg = Math.round(dmg * .66);
             else if (this.monster.cor < 50)
@@ -8278,9 +8688,10 @@ convert "
         //tiny damage and lower monster armor by ~75% for one turn
         //hit
         tailWhipAttack() {
+            this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 4;
             this.clearOutput();
             //miss
-            if ((this.player.findStatusAffect(StatusAffects_1.StatusAffects.Blind) >= 0 && this.rand(2) == 0) || (this.monster.spe - this.player.spe > 0 && Math.floor(Math.random() * (((this.monster.spe - this.player.spe) / 4) + 80)) > 80)) {
+            if ((this.player.findStatusAffect(StatusAffects_1.StatusAffects.Blind) >= 0 && this.rand(2) == 0) || (this.monster.spe - this.player.spe > 0 && int_1.int(Math.random() * (((this.monster.spe - this.player.spe) / 4) + 80)) > 80)) {
                 this.outputText("Twirling like a top, you swing your tail, but connect with only empty air.");
             }
             else {
@@ -8306,9 +8717,10 @@ convert "
         //Arian's stuff
         //Using the Talisman in combat
         immolationSpell() {
+            this.flags[kFLAGS_1.kFLAGS.LAST_ATTACK_TYPE] = 2;
             this.clearOutput();
             this.outputText("You gather energy in your Talisman and unleash the spell contained within.  A wave of burning flames gathers around " + this.monster.a + this.monster.short + ", slowly burning " + this.monster.pronoun2 + ".");
-            var temp = Math.floor(75 + (this.player.inte / 3 + this.rand(this.player.inte / 2)) * this.spellMod());
+            var temp = int_1.int(75 + (this.player.inte / 3 + this.rand(this.player.inte / 2)) * this.spellMod());
             temp = this.doDamage(temp);
             this.outputText(" (" + temp + ")\n\n");
             this.player.removeStatusAffect(StatusAffects_1.StatusAffects.ImmolationSpell);
@@ -9000,15 +9412,41 @@ convert "
                 if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.LootEgg) >= 0) {
                     console_1.trace("EGG LOOT HAS");
                     //default
-                    var itype = [
-                        [this.consumables.BROWNEG, this.consumables.PURPLEG, this.consumables.BLUEEGG, this.consumables.PINKEGG, this.consumables.WHITEEG, this.consumables.BLACKEG],
-                        [this.consumables.L_BRNEG, this.consumables.L_PRPEG, this.consumables.L_BLUEG, this.consumables.L_PNKEG, this.consumables.L_WHTEG, this.consumables.L_BLKEG]
-                    ][this.player.statusAffect(this.player.findStatusAffect(StatusAffects_1.StatusAffects.Eggs)).value2 || 0][this.player.statusAffect(this.player.findStatusAffect(StatusAffects_1.StatusAffects.Eggs)).value1 || 0] ||
-                        this.consumables.BROWNEG;
+                    var itypes = [
+                        [
+                            this.consumables.BROWNEG,
+                            this.consumables.PURPLEG,
+                            this.consumables.BLUEEGG,
+                            this.consumables.PINKEGG,
+                            this.consumables.WHITEEG,
+                            this.consumables.BLACKEG
+                        ],
+                        [
+                            this.consumables.L_BRNEG,
+                            this.consumables.L_PRPEG,
+                            this.consumables.L_BLUEG,
+                            this.consumables.L_PNKEG,
+                            this.consumables.L_WHTEG,
+                            this.consumables.L_BLKEG
+                        ]
+                    ];
+                    var sEgg;
+                    if (this.player.findStatusAffect(StatusAffects_1.StatusAffects.Eggs) >= 0) {
+                        var size = this.player.statusAffectv2(StatusAffects_1.StatusAffects.Eggs);
+                        if (size < 0 || size > 1)
+                            size = this.rand(2);
+                        var col = this.player.statusAffectv1(StatusAffects_1.StatusAffects.Eggs);
+                        if (col < 0 || col > 5)
+                            col = this.rand(6);
+                        sEgg = itypes[size][col];
+                    }
+                    else {
+                        sEgg = this.consumables.BROWNEG;
+                    }
                     this.player.removeStatusAffect(StatusAffects_1.StatusAffects.LootEgg);
                     this.player.removeStatusAffect(StatusAffects_1.StatusAffects.Eggs);
                     console_1.trace("TAKEY NAU");
-                    this.inventory.takeItem(itype, this.playerMenu);
+                    this.inventory.takeItem(sEgg, this.playerMenu);
                     return true;
                 }
                 // Benoit preggers update
@@ -23397,7 +23835,7 @@ We can also do * italic * and ** bold ** text!
                 this.player.vaginas[0].vaginalLooseness = CoC.VAGINA_LOOSENESS_LOOSE;
             //Boost fertility a little
             this.player.fertility += 10;
-            if (this.player.fertility >= 50)
+            if (this.player.fertility < 50)
                 this.player.fertility = 50;
             //Raise wetness to at least 3.
             if (this.player.vaginas[0].vaginalWetness < CoC.VAGINA_WETNESS_SLICK)

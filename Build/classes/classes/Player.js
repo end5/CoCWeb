@@ -1522,6 +1522,11 @@ define(["require", "exports", "./Character", "./ItemSlotClass", "./Items/ArmorLi
             return this.flags[kFLAGS_1.kFLAGS.MINOTAUR_CUM_ADDICTION_STATE] > 1;
         }
         clearStatuses(visibility) {
+            if (this.findStatusAffect(StatusAffects_1.StatusAffects.DriderIncubusVenom) >= 0) {
+                this.str += this.statusAffectv2(StatusAffects_1.StatusAffects.DriderIncubusVenom);
+                this.removeStatusAffect(StatusAffects_1.StatusAffects.DriderIncubusVenom);
+                kGAMECLASS_1.kGAMECLASS.mainView.statsView.showStatUp('str');
+            }
             while (this.findStatusAffect(StatusAffects_1.StatusAffects.Web) >= 0) {
                 this.spe += this.statusAffectv1(StatusAffects_1.StatusAffects.Web);
                 kGAMECLASS_1.kGAMECLASS.mainView.statsView.showStatUp('spe');
@@ -1711,6 +1716,28 @@ define(["require", "exports", "./Character", "./ItemSlotClass", "./Items/ArmorLi
             }
             if (this.findStatusAffect(StatusAffects_1.StatusAffects.VineHealUsed) >= 0)
                 this.removeStatusAffect(StatusAffects_1.StatusAffects.VineHealUsed);
+            if (this.findStatusAffect(StatusAffects_1.StatusAffects.DriderIncubusVenom) >= 0) {
+                this.str += this.statusAffectv2(StatusAffects_1.StatusAffects.DriderIncubusVenom);
+                this.removeStatusAffect(StatusAffects_1.StatusAffects.DriderIncubusVenom);
+            }
+            if (this.findStatusAffect(StatusAffects_1.StatusAffects.TaintedMind) >= 0)
+                this.removeStatusAffect(StatusAffects_1.StatusAffects.TaintedMind);
+            if (this.findStatusAffect(StatusAffects_1.StatusAffects.PurpleHaze) >= 0)
+                this.removeStatusAffect(StatusAffects_1.StatusAffects.PurpleHaze);
+            if (this.findStatusAffect(StatusAffects_1.StatusAffects.MinotaurKingMusk) >= 0)
+                this.removeStatusAffect(StatusAffects_1.StatusAffects.MinotaurKingMusk);
+            if (this.findStatusAffect(StatusAffects_1.StatusAffects.MinotaurKingsTouch) >= 0)
+                this.removeStatusAffect(StatusAffects_1.StatusAffects.MinotaurKingsTouch);
+            if (this.findStatusAffect(StatusAffects_1.StatusAffects.LethicesRapeTentacles) >= 0)
+                this.removeStatusAffect(StatusAffects_1.StatusAffects.LethicesRapeTentacles);
+            if (this.findStatusAffect(StatusAffects_1.StatusAffects.OnFire) >= 0)
+                this.removeStatusAffect(StatusAffects_1.StatusAffects.OnFire);
+            if (this.findStatusAffect(StatusAffects_1.StatusAffects.LethicesShell) >= 0)
+                this.removeStatusAffect(StatusAffects_1.StatusAffects.LethicesShell);
+            if (this.findStatusAffect(StatusAffects_1.StatusAffects.WhipSilence) >= 0)
+                this.removeStatusAffect(StatusAffects_1.StatusAffects.WhipSilence);
+            if (this.findStatusAffect(StatusAffects_1.StatusAffects.PigbysHands) >= 0)
+                this.removeStatusAffect(StatusAffects_1.StatusAffects.PigbysHands);
         }
         consumeItem(itype, amount = 1) {
             if (!this.hasItem(itype, amount)) {

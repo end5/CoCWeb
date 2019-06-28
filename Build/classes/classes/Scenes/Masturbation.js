@@ -943,7 +943,7 @@ define(["require", "exports", "../BaseContent", "../CockTypesEnum", "../StatusAf
                 //Special extras if lactating
                 if (this.player.biggestLactation() > 1 && this.player.biggestLactation() < 2)
                     this.outputText("Droplets of milk dribble from each nipple, spattering milk onto your " + this.player.legs() + " and crotch.  ");
-                else if (this.player.biggestLactation() < 3)
+                else if (this.player.biggestLactation() < 3 && this.player.biggestLactation() >= 2)
                     this.outputText("Thin squirts of milk spray from each nipple, spattering milk onto your " + this.player.legs() + " and crotch.  ");
                 else if (this.player.biggestLactation() >= 3)
                     this.outputText("A constant stream of milk drizzles from each teat, soaking your " + this.player.legs() + " and crotch.  ");

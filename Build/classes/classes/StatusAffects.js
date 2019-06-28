@@ -305,6 +305,16 @@ define(["require", "exports", "./StatusAffectType", "./StatusAffects/CombatStatu
     StatusAffects.ShowerDotEffect = StatusAffects.mk2("Shower Dot Effect");
     StatusAffects.GardenerSapSpeed = StatusAffects.mk2("Sap Speed");
     StatusAffects.VineHealUsed = StatusAffects.mk2("Vine Heal Used");
+    StatusAffects.DriderIncubusVenom = StatusAffects.mk2("Drider Incubus Venom");
+    StatusAffects.TaintedMind = StatusAffects.mk2("Tainted Mind");
+    StatusAffects.PurpleHaze = StatusAffects.mk2("Purple Haze");
+    StatusAffects.MinotaurKingMusk = StatusAffects.mk2("Minotaur King Musk");
+    StatusAffects.MinotaurKingsTouch = StatusAffects.mk2("Minotaur Kings Touch");
+    StatusAffects.LethicesRapeTentacles = StatusAffects.mk2("Lethices Rape Tentacles");
+    StatusAffects.OnFire = StatusAffects.mk2("On Fire");
+    StatusAffects.LethicesShell = StatusAffects.mk2("Lethices Magic Shell");
+    StatusAffects.WhipSilence = StatusAffects.mk2("Whip Silence");
+    StatusAffects.PigbysHands = StatusAffects.mk2("Pigbys Hands");
     exports.StatusAffects = StatusAffects;
 });
 //# sourceMappingURL=StatusAffects.js.map
