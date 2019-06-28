@@ -4,7 +4,8 @@
     "description": "Corruption-of-Champions Web Port",
     "scripts": {
         "init": "node init.js",
-        "build": "tsc"
+        "build": "tsc",
+        "convert": "ts-node -O \"{\\\"module\\\":\\\"commonjs\\\"}\" converter/Run.ts"
     },
     "author": "",
     "license": "ISC",
@@ -15,6 +16,7 @@
     "devDependencies": {
         "@types/file-saver": "^2.0.1",
         "@types/node": "^12.0.2",
+        "ts-node": "^8.3.0",
         "typescript": "^3.5.2"
     }
 }
