@@ -13,7 +13,8 @@ import { PerkLib } from "./PerkLib";
 export class PlayerEvents extends BaseContent implements TimeAwareInterface {
     //Handles all timeChange events for the player. Needed because player is not unique.
 
-    public PlayerEvents(): void {
+    public constructor() {
+        super();
         CoC.timeAwareClassAdd(this);
     }
 
