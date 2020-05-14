@@ -14,5 +14,6 @@ tmp/
 *.log
 .*
 !/.editorconfig
+!/.eslintrc*
 !/.gitignore
 !/.prettier*
