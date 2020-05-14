@@ -13,12 +13,12 @@ import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
 
 export class Kelt extends Monster {
-    //Trample - once every five turns
+    // Trample - once every five turns
     private keltTramplesJoo(): void {
         this.outputText(
             "Before you know what's what, Kelt is galloping toward you, kicking up a cloud of dust in his wake.  He's trying to trample you!  "
         );
-        //Miss:
+        // Miss:
         if (
             this.combatMiss() ||
             this.combatEvade() ||
@@ -32,20 +32,20 @@ export class Kelt extends Monster {
             return;
         }
 
-        //Determine damage - str modified by enemy toughness!
+        // Determine damage - str modified by enemy toughness!
         var damage: number = Math.round(
             this.str + this.weaponAttack - Kelt.rand(this.player.tou) - this.player.armorDef
         );
         if (damage > 0) damage = this.player.takeDamage(damage);
 
-        //Block:
+        // Block:
         if (damage <= 0) {
             this.outputText(
                 "Incredibly, you brace yourself and dig in your [feet].  Kelt slams into you, but you grind his momentum to a half.  His mouth flaps uncomprehendingly for a moment before he backs up, flushing from being so close to you."
             );
             this.lust += 5;
         }
-        //Hit:
+        // Hit:
         else {
             this.outputText(
                 "You can't get out of the way in time, and you're knocked down!  Kelt tramples overtop of you!  (" +
@@ -56,14 +56,14 @@ export class Kelt extends Monster {
         this.combatRoundOver();
     }
 
-    //Arrow Attack
+    // Arrow Attack
     private keltShootBow(): void {
         this.createStatusAffect(StatusAffects.BowCooldown, 3, 0, 0, 0);
         this.outputText(
             "Kelt knocks and fires an arrow almost faster than you can track.  He's lost none of his talent with a bow, even after everything you've put him through.  "
         );
 
-        //Miss:
+        // Miss:
         if (
             this.combatMiss() ||
             this.combatEvade() ||
@@ -90,26 +90,26 @@ export class Kelt extends Monster {
             this.combatRoundOver();
             return;
         }
-        //Hit:
+        // Hit:
         damage = this.player.takeDamage(damage);
         this.outputText("The arrow bites into you before you can react. (" + damage + ")");
         this.combatRoundOver();
     }
 
-    //Aura Arouse
+    // Aura Arouse
     private KellyuraAttack(): void {
         var select: number = Kelt.rand(3);
-        //(1)
+        // (1)
         if (select == 0)
             this.outputText(
                 "Kelt flashes his cockiest smile and gestures downward.  \"<i>Did you forget why you're here, slut?  Taking me by surprise once doesn't make you any less of a whore.</i>\""
             );
-        //(2)
+        // (2)
         else if (select == 2)
             this.outputText(
                 "Grinning, Kelt runs by, trailing a cloud of his musk and pheremones behind you.  You have to admit, they get you a little hot under the collar..."
             );
-        //(3)
+        // (3)
         else {
             this.outputText(
                 'Kelt snarls, "<i>Why don\'t you just masturbate like the slut that you are until I come over there and punish you?</i>"  '
@@ -127,8 +127,8 @@ export class Kelt extends Monster {
         this.combatRoundOver();
     }
 
-    //Attacks as normal + daydream "attack"
-    //DayDream "Attack"
+    // Attacks as normal + daydream "attack"
+    // DayDream "Attack"
     private dayDreamKelly(): void {
         if (Kelt.rand(2) == 0)
             this.outputText(

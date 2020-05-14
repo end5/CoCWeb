@@ -13,7 +13,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
         CoC.timeAwareClassAdd(this);
     }
 
-    //Implementation of TimeAwareInterface
+    // Implementation of TimeAwareInterface
     public timeChange(): boolean {
         this.flags[kFLAGS.SALON_PAID] = 0;
         if (this.model.time.hours > 23) {
@@ -33,9 +33,9 @@ export class Salon extends BaseContent implements TimeAwareInterface {
     public timeChangeLarge(): boolean {
         return false;
     }
-    //End of Interface Implementation
+    // End of Interface Implementation
 
-    //const SALON_PAID: number = 441;
+    // const SALON_PAID: number = 441;
     public hairDresser(): void {
         this.outputText(
             "While exploring the mountain, you find a cleverly concealed doorway.  From inside you can hear the sound of blades being sharpened.  Do you enter the doorway?",
@@ -89,7 +89,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
         this.addButton(4, "Incubus", this.gloryholeIncubus);
         this.addButton(8, "Buy MinoCum", minoCum);
         this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
-        //choices("Goblin Blow",blow,"Canine",gloryholeDoggie,"Imp",gloryholeImp,"Minotaur",gloryholeMinotaur,"Incubus",gloryholeIncubus,"",0,"",0,"",0,"Buy MinoCum",minoCum,"Leave",13);
+        // choices("Goblin Blow",blow,"Canine",gloryholeDoggie,"Imp",gloryholeImp,"Minotaur",gloryholeMinotaur,"Incubus",gloryholeIncubus,"",0,"",0,"",0,"Buy MinoCum",minoCum,"Leave",13);
     }
     private buyMinoCum(): void {
         if (this.player.gems < 60) {
@@ -192,7 +192,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
         this.clearOutput();
         this.spriteSelect(38);
         // var minoCum: number = 0;
-        //Chance for mino craziness here
+        // Chance for mino craziness here
         if (
             Salon.rand(5) == 0 &&
             (this.player.findPerk(PerkLib.MinotaurCumAddict) >= 0 ||
@@ -201,7 +201,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
             this.minotaurCumBukkakeInSalon();
             return;
         }
-        //Had babies announcement!
+        // Had babies announcement!
         if (
             this.flags[kFLAGS.LYNNETTE_PREGNANCY_CYCLE] == 4 &&
             this.flags[kFLAGS.LYNNETTE_CARRYING_COUNT] > 0
@@ -219,7 +219,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
                 );
             this.flags[kFLAGS.LYNNETTE_BABY_COUNT] += this.flags[kFLAGS.LYNNETTE_CARRYING_COUNT];
             this.flags[kFLAGS.LYNNETTE_CARRYING_COUNT] = 0;
-            //If favorite!
+            // If favorite!
             if (this.flags[kFLAGS.LYNNETTE_ANNOUNCED_APPROVAL] == 1) {
                 this.favoriteSalonMenu();
                 return;
@@ -237,7 +237,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
                 }
             }
         }
-        //Favorite Announcement
+        // Favorite Announcement
         else if (
             this.flags[kFLAGS.LYNNETTE_APPROVAL] >= 100 &&
             this.flags[kFLAGS.LYNNETTE_ANNOUNCED_APPROVAL] == 0
@@ -247,13 +247,13 @@ export class Salon extends BaseContent implements TimeAwareInterface {
             );
             this.outputText("\n\nThis seems like quite the deal!");
             this.flags[kFLAGS.LYNNETTE_ANNOUNCED_APPROVAL] = 1;
-            //Custom menu with options to "pay anyway"
+            // Custom menu with options to "pay anyway"
             this.favoriteSalonMenu();
             return;
         }
-        //Favorite Greeting
+        // Favorite Greeting
         else if (this.flags[kFLAGS.LYNNETTE_ANNOUNCED_APPROVAL] == 1) {
-            //(Pregnant With Your Babies)
+            // (Pregnant With Your Babies)
             if (
                 this.flags[kFLAGS.LYNNETTE_PREGNANCY_CYCLE] < 4 &&
                 this.flags[kFLAGS.LYNNETTE_CARRYING_COUNT] > 0
@@ -262,13 +262,13 @@ export class Salon extends BaseContent implements TimeAwareInterface {
                     'Lynnette has a little difficulty ushering you in with her swollen belly in the way. She\'s tremendously heavy with child already, likely due to some goblin-engineered chemicals that accelerate her pregnancy. Her tremendously fertile hips roll back and forth as she waddles a little deeper into the salon, greeting, "<i>Welcome back, honey-bunch. Here to make a donation to the cause or get some freebies from your favorite pregnant slut?</i>" She twists her ass in your direction and slaps it, making it jiggle in her sheer dress.'
                 );
             }
-            //Pregnant with other babies
+            // Pregnant with other babies
             else if (this.flags[kFLAGS.LYNNETTE_PREGNANCY_CYCLE] < 4) {
                 this.outputText(
                     "Lynnette the goblin answers the door and lets you in, waving you deeper into her shop.  Her shining black dress barely contains her fertile-hips and jiggling chest as she greets you, \"<i>Welcome back, honey-bunch!  You should've stopped by to stuff my oven.  I wound up having to dip into our reserves.</i>\"  She affectionally wraps an arm around your waist and rubs your midsection.  \"<i>I would've much rather had my Champion's babies.</i>\"  She smiles up at you and says, \"<i>I'm sure you didn't just come here to visit.  Did you need a trim, or didja just want to make a donation do my little business?</i>\"  The word 'donation' is rolled as slowly and sensuously from her mouth as possible."
                 );
             }
-            //Nonpreggers
+            // Nonpreggers
             else {
                 this.outputText(
                     "Pulling the door the rest of the way open before you've the latch more than half-turned, Lynnette has you inside with disorienting speed.  She presses her well-endowed, dress-straining tits against your "
@@ -289,7 +289,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
             this.favoriteSalonMenu();
             return;
         }
-        //Non-Pregnant Greetings:
+        // Non-Pregnant Greetings:
         else if (this.flags[kFLAGS.LYNNETTE_PREGNANCY_CYCLE] >= 4) {
             if (this.flags[kFLAGS.LYNNETTE_MET_UNPREGNANT] == 0) {
                 this.flags[kFLAGS.LYNNETTE_MET_UNPREGNANT] = 1;
@@ -299,12 +299,12 @@ export class Salon extends BaseContent implements TimeAwareInterface {
                 this.outputText(
                     '\n\n"<i>Noticing something you like, honey-bunches?</i>" the goblin coos with a sashy of her baby-bearing hips. "<i>A girl can\'t be pregnant ALL the time, after all.</i>" She dabs at one of the many spots of moisture her prominent nipples have left on her top and smiles a bit overbroadly.'
                 );
-                //Normal offers with a bit hinting at knocking her up when appropriate
+                // Normal offers with a bit hinting at knocking her up when appropriate
             } else {
                 this.outputText(
                     'Lynnette opens the door for you, ushering in before you have more than a few moments to take in her curvy voluptuousness. Her dress is sheer and tight to her relatively flat belly, indicated that her womb is free for the moment, and judging by the way she beams at your entrance, she\'s still feeling a little bit of post-birth euphoria. "<i>Welcome back, honey! Here for a bit of fun, a haircut, or both?</i>"'
                 );
-                //Normal offers with a bit hinting at knocking her up when appropriate
+                // Normal offers with a bit hinting at knocking her up when appropriate
             }
             if (this.player.cockTotal() == 0) {
                 this.outputText(
@@ -318,7 +318,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
                 );
             }
         }
-        //Standard repeats
+        // Standard repeats
         else {
             this.outputText(
                 'Lynnette the goblin answers the door and lets you in, waving you deeper into her shop.  Her shining black dress barely contains her fertile-hips and jiggling chest as she greets you, "<i>Welcome back, honey!  ',
@@ -519,7 +519,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
 
     private cutShort(): void {
         this.spriteSelect(38);
-        //-trying to get a goblin to cut tentacle hair:
+        // -trying to get a goblin to cut tentacle hair:
         if (this.player.hairType == 4) {
             this.outputText(
                 'Lynnette stares at you when you ask for a cut.  "<i>Nothing doing, hon; that stuff looks alive and I don\'t want blood all over my nice floor.  Thanks for contributing to the white file, though; maybe we can do something else?</i>"\n\n',
@@ -540,7 +540,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
     }
     private cutMedium(): void {
         this.spriteSelect(38);
-        //-trying to get a goblin to cut tentacle hair:
+        // -trying to get a goblin to cut tentacle hair:
         if (this.player.hairType == 4) {
             this.outputText(
                 'Lynnette stares at you when you ask for a cut.  "<i>Nothing doing, hon; that stuff looks alive and I don\'t want blood all over my nice floor.  Thanks for contributing to the white file, though; maybe we can do something else?</i>"\n\n',
@@ -561,7 +561,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
     }
     private cutLong(): void {
         this.spriteSelect(38);
-        //-trying to get a goblin to cut tentacle hair:
+        // -trying to get a goblin to cut tentacle hair:
         if (this.player.hairType == 4) {
             this.outputText(
                 'Lynnette stares at you when you ask for a cut.  "<i>Nothing doing, hon; that stuff looks alive and I don\'t want blood all over my nice floor.  Thanks for the contributing to the white file, though; maybe we can do something else?</i>"\n\n',
@@ -582,7 +582,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
     }
     private hairGrow(): void {
         this.spriteSelect(38);
-        //-asking for a lengthening treatment with tentacle hair:
+        // -asking for a lengthening treatment with tentacle hair:
         if (this.player.hairType == 4) {
             this.outputText(
                 "Lynnette looks dubiously at you when you ask for a lengthening treatment.  \"<i>No offense hon, but that stuff is basically like an arm or an organ, not hair.  I'm not a goblin chirurgeon, and I wouldn't try to lengthen it even if one of my disobedient daughters were here to donate some parts.  Sorry to make you shoot and scoot, but I can't help you.  Maybe we could do something else?</i>\"\n\n",
@@ -776,8 +776,8 @@ export class Salon extends BaseContent implements TimeAwareInterface {
                 false
             );
         this.outputText(".\n\n", false);
-        //ADD PREG CHECK
-        //Preggers chance!
+        // ADD PREG CHECK
+        // Preggers chance!
         this.player.knockUp(
             PregnancyStore.PREGNANCY_MINOTAUR,
             PregnancyStore.INCUBATION_MINOTAUR,
@@ -802,7 +802,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
                 "delighting in realizing that you could take far larger than even this virile specimen!",
                 false
             );
-        //(buttchange here: 90)
+        // (buttchange here: 90)
         this.player.buttChange(90, true, false);
 
         this.outputText(
@@ -833,7 +833,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
                 ", but you manage to hold yourself up long enough for your stud to flex his cock inside you and fill up your backdoor with more potent addiction.  You slide off, nerveless and still orgasming as jizz rains on your back from the abandoned cock, rolling off you to add to the ever-widening puddle of fluids on the floor.  Smiling vacantly and addled on more minotaur-cum than any one person has reason to handle, you stumble up on all fours and crawl to the next one.  More...",
             false
         );
-        //[NEXT]
+        // [NEXT]
         this.player.orgasm();
         this.dynStats("lib", 2, "sen", 2, "cor", 2);
         this.doNext(this.minotaurSalonFollowUp);
@@ -842,9 +842,9 @@ export class Salon extends BaseContent implements TimeAwareInterface {
         this.spriteSelect(38);
         this.outputText("", true);
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00142] == 0) {
-            //Unlock mino cum purchase
+            // Unlock mino cum purchase
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00142]++;
-            //text goez here
+            // text goez here
             this.outputText(
                 "Lynnette slaps your face, waking you from your stupor.  What?  Where are you?  You look around and realize you're strapped into a barber's chair and caked with white goop, but why?\n\n",
                 false
@@ -864,7 +864,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
                     ".  Lynnette shakes her stinging palm and apologizes, \"<i>Sorry I have to keep doing that, but you're damned hard to wake after you go on these binges!  Anyways, you've earned some hair treatment if you want it.  Of course you could always buy more of your favorite fluid...</i>\"\n\n",
                 false
             );
-        //Menu
+        // Menu
         this.outputText(
             'Lynnette offers and explains their options, "<i>So what\'ll it be hun?  We could cut it down or give you a lengthening treatment. Or you can get a hair-dye to use on your own.  Just remember to come back in a few days for a touchup.</i>"',
             false
@@ -914,10 +914,10 @@ export class Salon extends BaseContent implements TimeAwareInterface {
     public static  LYNNETTE_CARRYING_COUNT: number                                     = 1025;
     */
 
-    //Impregnate
+    // Impregnate
     private fuckLynnette(): void {
         this.clearOutput();
-        //Checks to see if you've cum withint hte past 24 hours.
+        // Checks to see if you've cum withint hte past 24 hours.
         if (this.flags[kFLAGS.LYNNETTE_FUCK_COUNTER] == 0) {
             this.outputText(
                 'At your suggestion, Lynnette\'s eyelashes flutter dangerously low. She gives you a smokey look and asks, "<i>Is that so?</i>" She circles around you, looking you up and down with eyes that seem to bore right through your [armor]. She must see something she likes, because she dips forward, parting her weighty melons around your '
@@ -933,7 +933,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
             if (this.player.balls == 0) this.outputText("pressing down near the [sheath]");
             else this.outputText("curling her petite fingers around your [sack] to heft it");
             this.outputText(".");
-            //IF FAIL!
+            // IF FAIL!
             if (this.player.hoursSinceCum < 24) {
                 this.outputText(
                     "\n\nA feminine giggle slips free of her lips.  \"<i>I'm sorry [name], but I don't get knocked up unless I'm going to get knocked up with a dozen daughters.</i>\"  She gives your package a longing squeeze and extricates her hand, letting her palm caress your sensitive groin and belly on the way out.  \"<i>I need thick, sticky, pent-up jism that's going to be desperate to inseminate every egg it can get its hands on.</i>\"  She shivers at the thought, saying, \"<i>Come back when you've let yourself go a full twenty four hours without cumming.  Then you can get me pregnant... assuming some other lucky stud hasn't already.</i>\""
@@ -945,7 +945,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
                 return;
             }
         }
-        //Repeat cum within 24 hours check
+        // Repeat cum within 24 hours check
         else {
             this.outputText(
                 "Lynnette licks her lips at your decision and sashays forward, her immense hips rocking with enough sensuality that her plush ass is practically having a sexquake.  \"<i>You'll understand if we do a quick check then, right, [name]?</i>\" She doesn't wait for an answer, pressing herself against you so that you can get a good feel of her soft, sopping-wet tits conform to the shape of your body, letting the moist heat that seems to radiate from every pore of Lynnette's petite shape soak into your exposed " +
@@ -967,7 +967,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
                     "gently at your [balls], weighing them in her palm to get a feel for just how pent-up you are"
                 );
             this.outputText(".");
-            //NOT ENOUGH!
+            // NOT ENOUGH!
             if (this.player.hoursSinceCum < 24) {
                 this.outputText(
                     "\n\nA frown slowly spreads across her face.  \"<i>[name], this just won't do. I need anxious, needy little sperm that will scream out of your cock with enough force to impregnate my ovaries.  I can't get that if you're getting off all the time.  Come back after you've gone without blowing a load for twenty four hours, and I'll give you a proper place to do it... if someone else hasn't beaten you to it.  Did you want to stick around and pay another way?</i>\""
@@ -976,7 +976,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
                 return;
             }
         }
-        //There is enough!
+        // There is enough!
         this.outputText(
             '\n\nLynnette coos, "<i>There it is... that yummy, nasty seed that you\'ve let wait and bake for hour after hour.</i>" She shivers in anticipation.  "<i>You\'re going to stuff every single drop of that sticky stuff straight inside me, and it\'s going to be so thick it glues my snatch shut until it\'s time for birthing.  Got it?</i>"  She squeezes down on [oneCock] with near-painful firmness, holding you completely and totally erect in the palm of her hand as she easily works off your [armor].  "<i>Yes you are.... Oh, this is just what I needed today,</i>" the green woman sighs while rubbing your '
         );
@@ -1133,29 +1133,29 @@ export class Salon extends BaseContent implements TimeAwareInterface {
                 this.player.skinFurScales() +
                 ". Lynnette's lips crash back against yours, her tongue burrowing into your mouth before she traps your lower lip, biting it painfully hard. Her eyes roll back, and her body shakes with so much pleasure that she almost looks to be having a seizure.  Your cock doesn't care about that any more than her sperm-hungry uterus does, the two organs far too busy exchanging genetic material to care what state their owners are in."
         );
-        //Baby's first cumflation
+        // Baby's first cumflation
         if (this.player.cumQ() < 1000)
             this.outputText(
                 "\n\nIn no time flat, you've finished cumming, and Lynnette's womb has swallowed every single drop.  Her luscious slit's juices run clear, leading you to believe that her gluttonous womb swallowed it all."
             );
-        //One liter minor cumflate
+        // One liter minor cumflate
         else if (this.player.cumQ() < 3000)
             this.outputText(
                 "\n\nThere's enough cum pouring out of you that Lynnette's briefly-taut tummy plumps with impregnating weight, filled just enough to give her a tiny, jiggling paunch of baby-making delight.  You empty your last few ropes into her, noting that not even a single drop escapes her luscious slit, and smile, completely satiated."
             );
-        //Three liter good cumflate
+        // Three liter good cumflate
         else if (this.player.cumQ() < 6000)
             this.outputText(
                 "\n\nThere's so much cum flowing out of your " +
                     this.player.cockHead(x) +
                     " that Lynnette's once-taut tummy immediately plumps up with spermy weight, filled into a jiggly paunch by your first few blasts.  As you continue to flood her womb with your slurry of baby-making goodness, her belly continues to rise up between you, eventually arcing up into a gravid dome.  Somehow, her body holds it all inside, and only a small trickle of spunk leaks out of her luscious slit as you finish."
             );
-        //Six liter major cumflate
+        // Six liter major cumflate
         else if (this.player.cumQ() < 10000)
             this.outputText(
                 "\n\nOh gods, there's so much cum! It's rushing out of you like a river, bloating the poor goblin's once-narrow abdomen into a small, pregnant-looking dome.  Each successive womb-filling makes the rounded bulge jostle cutely before bulging bigger, expanding under the weight of your immense virility until her emerald distention is covered in shiny, taut skin.  Her belly-button pops out into an outtie, and the goblin's sultry slit finally fails to contain the pressure, allowing what feels like a liter of your cum to backwash out over you."
             );
-        //10 liter ludicrous cumflate!
+        // 10 liter ludicrous cumflate!
         else
             this.outputText(
                 "\n\nOh gods!  Every torrential outflow of cum is so substantial that it's literally stretching the poor goblin out as it rushes into her womb.  The first two blasts are enough to turn her once-taut middle into a sperm-stuffed dome, and you just keep shooting after that, each time making her gravid tummy jiggle and swell, rounding fuller and fuller until her bulging midsection seems almost as big as her.  Her belly button long ago popped out into an outtie, and the smooth, emerald skin shines with its overstretched tightness.  Lynnette whimpers softly, and a sudden torrent of spunk rolls out around your " +
@@ -1178,33 +1178,33 @@ export class Salon extends BaseContent implements TimeAwareInterface {
             );
         else this.outputText(" with a gush of girlspunk to chase you");
         this.outputText(".  She groans, ");
-        //BELOW ONE LITER!
+        // BELOW ONE LITER!
         if (this.player.cumQ() < 1000) {
             this.outputText(
                 '"<i>[name], that was fun, but you barely even came!  How am I supposed to birth a dozen daughters at once if you barely coat the surface of my womb!?</i>"  She shudders.  "<i>Go on. I\'ve got to find some drugs to fix this, else I won\'t get a decent brood out of this term.</i>"\n\nYou leave her feeling a little underappreciated.  Maybe you could find some cum-boosting supplements out there?  Still, you are owed a haircut...'
             );
             this.lynnetteApproval(-2);
         }
-        //"GOOD"
+        // "GOOD"
         else if (this.player.cumQ() <= 10000) {
             if (this.flags[kFLAGS.LYNNETTE_ANNOUNCED_APPROVAL] == 1)
                 this.outputText(
                     '"<i>Wow, [name].  You cum like a minotaur... and without drugging me out of my mind to boot!  Gods, I can feel the little swimmers hunting down my eggs already.</i>"  She giggles and retrieves a vial, downing it in a single gulp.  "<i>I better make sure there\'s enough eggs for them all, huh?</i>"\n\nYou leave with a happy smile. It seems Lynnette approves of you as a mate.'
                 );
-            //"GOOD + LYNNETTE FAVORITE"
+            // "GOOD + LYNNETTE FAVORITE"
             else
                 this.outputText(
                     '"<i>Mmmm, [name], I love the way you pack me full.</i>"  She tosses back a vial of fertility-boosting chemicals and sighs.  "<i>Do me a favor and come back soon.  I\'d rather be pouring out swarms of your babies than a slurry of weakling sluts.</i>"'
                 );
             this.lynnetteApproval(10);
         }
-        //"UBUR"
+        // "UBUR"
         else {
             if (this.flags[kFLAGS.LYNNETTE_ANNOUNCED_APPROVAL] == 0)
                 this.outputText(
                     "\"<i>Ohhh... oh gods....  W-wha?  How...?  I'm so fucking full, [name]!  I can feel it, like I'm pregnant and about to pop already, and I haven't even given my babies a chance to fertilize!</i>\"  She gathers some of your leaking spooge to smear across the titanic dome with one hand and a bottle of fertility enhancers with the other.  \"<i>Go on baby, I'm just going to soak in it for a little while and make sure I get as many girls out of this as I can.</i>\"  Lynnette knocks back the vial and drops it at her side, focusing entirely on wallowing in your cum.\n\nYou swagger out into the main room with a happy smile, noting the envious looks you get from her daughters when they try to offer you 'services'."
                 );
-            //"UBUR + LYNNETTE FAVORITE"
+            // "UBUR + LYNNETTE FAVORITE"
             else
                 this.outputText(
                     '"<i>Fuck me, honey! I... you\'re the only one that can fill me like this, you know?  Short of a machine, I mean.</i>"  Lynnette colors a deep green as she struggles to reach for a bottle of a fertility-enhancing chemical, half-pinned by her own cum-stuffed weight.  You easily hand it to her with a smile, and she downs it before gazing gratefully your way.  "<i>I fucking love just lying here, fucking into oblivion, lying in a lake of my stud\'s lusts, wallowing in it until I pass out from pleasure.</i>"\n\nShe sounds almost lovey-dovey in her declaration and must realize it, because her tone changes when she says, "<i>Just make sure you come back in a few days to give me another proper fucking.  You\'ll do it if you know what\'s good for your dick!</i>"\n\nYou silence her with a kiss that leaves her swooning and stroll out, dressing on the way.  Lynnette\'s satiated moans seem to haunt you the entire time you remain in the salon.'

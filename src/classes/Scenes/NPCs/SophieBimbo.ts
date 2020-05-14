@@ -10,24 +10,24 @@ export class SophieBimbo extends NPCAwareContent {
         return kGAMECLASS.sophieScene.pregnancy;
     } //Quick way to access sophie's pregnancyStore
 
-    //VARS
-    //282	Sophie Bimbo Follower?
-    //283	Sophie Disabled Forever
-    //284	Has Ovi Event Procced?
+    // VARS
+    // 282	Sophie Bimbo Follower?
+    // 283	Sophie Disabled Forever
+    // 284	Has Ovi Event Procced?
 
-    //const SOPHIE_HEAT_COUNTER: number = 737;
-    //const SOPHIE_INCUBATION: number = 738;
-    //const SOPHIE_BROACHED_SLEEP_WITH: number = 739;
-    //const SOPHIE_ADULT_KID_COUNT: number = 740;
-    //const SOPHIE_DAUGHTER_MATURITY_COUNTER: number = 741;
-    //const SOPHIE_CAMP_EGG_COUNTDOWN: number = 742;
-    //const SOPHIE_FAMILY_INCEST: number = 743;
-    //const DAUGHTER_ONE_BIMBO: number = 750;
-    //const DAUGHTER_TWO_BIMBO: number = 751;
-    //const DAUGHTER_THREE_BIMBO: number = 752;
-    //const DAUGHTER_FOUR_BIMBO: number = 753;
-    //const TIMES_SOPHIE_AND_IZMA_FUCKED: number = 780;
-    //const TOLD_SOPHIE_TO_IZMA: number = 781;
+    // const SOPHIE_HEAT_COUNTER: number = 737;
+    // const SOPHIE_INCUBATION: number = 738;
+    // const SOPHIE_BROACHED_SLEEP_WITH: number = 739;
+    // const SOPHIE_ADULT_KID_COUNT: number = 740;
+    // const SOPHIE_DAUGHTER_MATURITY_COUNTER: number = 741;
+    // const SOPHIE_CAMP_EGG_COUNTDOWN: number = 742;
+    // const SOPHIE_FAMILY_INCEST: number = 743;
+    // const DAUGHTER_ONE_BIMBO: number = 750;
+    // const DAUGHTER_TWO_BIMBO: number = 751;
+    // const DAUGHTER_THREE_BIMBO: number = 752;
+    // const DAUGHTER_FOUR_BIMBO: number = 753;
+    // const TIMES_SOPHIE_AND_IZMA_FUCKED: number = 780;
+    // const TOLD_SOPHIE_TO_IZMA: number = 781;
 
     /*Sophie TF Notes:
     DD tits become F, impairing flight to gliding at best.
@@ -63,7 +63,7 @@ export class SophieBimbo extends NPCAwareContent {
     public sophiePregChance(): void {
         if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] != 0) return;
 
-        //25% + gradually increasing cumQ bonus
+        // 25% + gradually increasing cumQ bonus
         if (SophieBimbo.rand(4) == 0 || this.player.cumQ() > SophieBimbo.rand(1000)) {
             this.pregnancy.knockUpForce(
                 PregnancyStore.PREGNANCY_PLAYER,
@@ -75,7 +75,7 @@ export class SophieBimbo extends NPCAwareContent {
         return 179;
     }
 
-    //*Summary:  Sophie is defeated, give draft.
+    // *Summary:  Sophie is defeated, give draft.
     public bimbotizeMeCaptainSophie(): void {
         this.sophieSprite();
         this.outputText("", true);
@@ -188,7 +188,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.sophieSprite();
         this.outputText("", true);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00282] = 1;
-        //If she's already pregnant then convert the incubation from her wild 48 + rand(48) [95 to 0] to her follower incubation [168 to 0]. Your first daughter may already be on the way.
+        // If she's already pregnant then convert the incubation from her wild 48 + rand(48) [95 to 0] to her follower incubation [168 to 0]. Your first daughter may already be on the way.
         if (this.pregnancy.isPregnant)
             this.pregnancy.knockUpForce(
                 this.pregnancy.type,
@@ -294,7 +294,7 @@ export class SophieBimbo extends NPCAwareContent {
         );
         this.cleanupAfterCombat();
     }
-    //Follower In Camp Text:
+    // Follower In Camp Text:
     public sophieCampLines(): void {
         var choice: number = SophieBimbo.rand(4);
         if (choice == 0)
@@ -319,14 +319,14 @@ export class SophieBimbo extends NPCAwareContent {
             );
         this.outputText("\n\n", false);
     }
-    //Approach Texts
+    // Approach Texts
     public approachBimboSophieInCamp(output: boolean = true): void {
         this.sophieSprite();
         if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0) {
             if (output) {
                 this.outputText("", true);
                 if (this.sophieIsInSeason() && this.player.hasCock()) {
-                    //New Sophie Greeting*
+                    // New Sophie Greeting*
                     this.outputText(
                         "As soon as you call for Sophie, the blond bimbo trots over to you, her arms hugging around her chest, barely containing the enormous, bouncing mammaries within.  She's completely nude, like usual.  Her fluttering eyelashes lower coquettishly as she comes to a stop, rolling her immense hips back and forth hypnotically.  Her tail feathers twitch up and back, fanning a breeze in your direction that reeks of pheremonal sex.  The tangy, peach-like scent of her lust practically assaults your nostrils as the harpy attaches herself to your arm.  She presses her breasts against you as she clings tight, the prominent nipples so hard that they dig painfully in your " +
                             this.player.skinFurScales() +
@@ -344,8 +344,8 @@ export class SophieBimbo extends NPCAwareContent {
                     this.outputText(
                         "\n\nYou KNOW Sophie is trying to compel you to do what she wants, but she's not quite as good at it since she became a bimbo.  Do you fuck her pussy?  Her entire mound, labia and all, is slick with her moisture and shining gold layers of aphrodisiac lipstick.  Fucking that would be heavenly, but it would likely take the better part of the day and likely get her pregnant.  You could always just wipe it off with a piece of cloth and do something else instead."
                     );
-                    //Normal Menu + Impregnate
-                    //Big lust boost
+                    // Normal Menu + Impregnate
+                    // Big lust boost
                     this.dynStats("lus", 20);
                 } else if (this.pregnancy.isPregnant) {
                     switch (this.pregnancy.event) {
@@ -483,7 +483,7 @@ export class SophieBimbo extends NPCAwareContent {
                 this.addButton(6, "NoSnuggles", this.noSophieSleepWith);
             }
         }
-        //choices("Nice Fuck",vag2,"Mean Fuck",vag,"FuckHerAss",anal,"Get Licked",getLicked,"Ovi Elixer",ovi,"Titty-Fuck",titFuck,"",0,"",0,"",0,"Leave",campSlavesMenu);
+        // choices("Nice Fuck",vag2,"Mean Fuck",vag,"FuckHerAss",anal,"Get Licked",getLicked,"Ovi Elixer",ovi,"Titty-Fuck",titFuck,"",0,"",0,"",0,"Leave",campSlavesMenu);
 
         if (
             this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0 &&
@@ -519,7 +519,7 @@ export class SophieBimbo extends NPCAwareContent {
             this.addButton(9, "Back", kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
-    //Appearance:
+    // Appearance:
     private sophieBimboAppearance(): void {
         this.clearOutput();
         this.outputText("Sophie is a big, buxom harpy, no two ways about her.  She has ");
@@ -720,16 +720,16 @@ export class SophieBimbo extends NPCAwareContent {
         this.outputText("How will you have sex with your feather-brained slut?");
         this.menu();
         if (this.player.hasCock()) {
-            //BUTT FUCKS
+            // BUTT FUCKS
             if (this.player.cockThatFits(this.sophieCapacity()) >= 0 && this.player.lust >= 33)
                 this.addButton(2, "Anal", this.buttFuckBimboSophie);
             else this.outputText("\n\n<b>You're too big to butt-fuck her.</b>", false);
-            //TIT FUCKS!
+            // TIT FUCKS!
             if (this.pregnancy.event >= 2)
                 this.addButton(5, "Titty-Fuck", this.sophiePreggoTitJobs);
             else this.addButton(5, "Titty-Fuck", this.fuckBimboSophiesTits);
 
-            //VAG FUCKS!
+            // VAG FUCKS!
             if (this.player.cockThatFits(this.sophieCapacity()) >= 0) {
                 if (this.sophieIsInSeason()) {
                     this.addButton(0, "Impregnate", this.sophieImpregnationSex);
@@ -800,10 +800,10 @@ export class SophieBimbo extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Lipstick Resistance Building
+    // Lipstick Resistance Building
     public bimboSophieLustStickSurprise(): void {
         this.outputText("\n", false);
-        //*The PC is repeatedly afflicted with harpy lipstick by Sophie in one of five ways.  Additional exposure from the mountain harpies will speed the process.  After 40(or 20-30?)  applications of lust-stick, the PC becomes resistant to it, raising the PC's lust by 20%, but also reducing lust gain by 20%.
+        // *The PC is repeatedly afflicted with harpy lipstick by Sophie in one of five ways.  Additional exposure from the mountain harpies will speed the process.  After 40(or 20-30?)  applications of lust-stick, the PC becomes resistant to it, raising the PC's lust by 20%, but also reducing lust gain by 20%.
         var select: number = SophieBimbo.rand(4);
         if (select == 0) {
             this.sophieSprite();
@@ -943,7 +943,7 @@ export class SophieBimbo extends NPCAwareContent {
         else this.addButton(4, "Back", this.sophieFollowerScene.followerSophieMainScreen);
     }
 
-    //Unlock resistance:
+    // Unlock resistance:
     public unlockResistance(): void {
         if (this.player.hasCock()) {
             this.outputText(
@@ -961,11 +961,11 @@ export class SophieBimbo extends NPCAwareContent {
         );
         this.player.createPerk(PerkLib.LuststickAdapted, 0, 0, 0, 0);
     }
-    //Get oral as female.
+    // Get oral as female.
     private bimboSophieLicksRugs(): void {
         this.sophieSprite();
         this.outputText("", true);
-        //*Summary - lean back on a rock and spread your legs.  She licks you off with chance of compelling you to sixtynine her.
+        // *Summary - lean back on a rock and spread your legs.  She licks you off with chance of compelling you to sixtynine her.
         this.outputText(
             "You sit back on a nearby rock and spread your " + this.player.legs(),
             false
@@ -1016,7 +1016,7 @@ export class SophieBimbo extends NPCAwareContent {
             false
         );
 
-        //(small (IE normal clits))
+        // (small (IE normal clits))
         if (this.player.clitLength < 3) {
             this.outputText(
                 "Plump, round lips ooze over your nub, peeling back the lips of the 'hood' and fully exposing the clit.  Her dexterous tongue twists up and circles around your most sensitive spot, curling and squeezing against you with passionate licks.  Sophie glances up at you with her cheeks pulled back in a happy smile before focusing back on your pussy.  She slurps and sucks just hard enough to make your " +
@@ -1025,7 +1025,7 @@ export class SophieBimbo extends NPCAwareContent {
                 false
             );
         }
-        //(medium (IE 3-7</i>\" inch clits!))
+        // (medium (IE 3-7</i>\" inch clits!))
         else if (this.player.clitLength < 7) {
             this.outputText(
                 "The plump, round lips ooze across your nub, peeling back the hood to expose its still-small button.  Her dexterous tongue twists up to touch it, circling it slowly while you " +
@@ -1034,7 +1034,7 @@ export class SophieBimbo extends NPCAwareContent {
                 false
             );
         }
-        //(ginormous clitties)
+        // (ginormous clitties)
         else {
             this.outputText(
                 "The plump, round lips ooze across your nub, peeling back the hood to expose the latent chick-stick.  Her dexterous tongue twists up to touch it, circling it slowly while it thickens in her mouth.  Sophie's ministrations quicken when she feels the thick clit filling out towards her throat, and she starts to hum in pleasure once your girthy female organ takes on cock-like proportions.  She gurgles in surprise, and pulls back, gasping around your still-growing, hyper-masculinized clit.  The bloated bitch-dick continues to swell, until Sophie releases it in a panic, letting it smear over her cheek.  She stares with a look of quiet disbelief on her ditzy, lube-glazed face.\n\n",
@@ -1149,11 +1149,11 @@ export class SophieBimbo extends NPCAwareContent {
             );
         }
     }
-    //SixtyNine Continuation - GOILS you're a wreckin' machine
+    // SixtyNine Continuation - GOILS you're a wreckin' machine
     private bimboSophieSixtyNineAfterCunnilingus(): void {
         this.sophieSprite();
         this.outputText("", true);
-        //NON WANG
+        // NON WANG
         if (!this.player.hasCock() || this.player.cockThatFits(this.sophieCapacity()) == -1) {
             this.outputText(
                 "You throw yourself at Sophie, compelled by thoughts of pleasure and her delicious-looking pussy, wanting nothing more than to place your lips on her cunt and slurp with reckless abandon.  She takes the hit like a champ, tumbling with you through the dirt and dust until you land on your " +
@@ -1238,7 +1238,7 @@ export class SophieBimbo extends NPCAwareContent {
             this.player.orgasm();
             this.dynStats("sen", -1);
         }
-        //SixtyNine Continuation - DUDES
+        // SixtyNine Continuation - DUDES
         else {
             var x: number = this.player.cockThatFits(this.sophieCapacity());
             if (x < 0) x = this.player.smallestCockIndex();
@@ -1508,7 +1508,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //TitFuck
+    // TitFuck
     private fuckBimboSophiesTits(): void {
         this.sophieSprite();
         this.outputText("", true);
@@ -1634,26 +1634,26 @@ export class SophieBimbo extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Bimbo Sophie Camp Event – (If the player has an Ovi Elixir)
-    //1 in 700 proc chance (roughly once a month? or flat 30 days)
+    // Bimbo Sophie Camp Event – (If the player has an Ovi Elixir)
+    // 1 in 700 proc chance (roughly once a month? or flat 30 days)
     public sophieEggApocalypse(): void {
         this.sophieSprite();
         this.outputText("", true);
-        //First time
+        // First time
         if (this.flags[kFLAGS.TIMES_SOPHIE_HAS_DRUNK_OVI_ELIXIR] == 0) {
             this.outputText(
                 'You find her rooting through your belongings, curiously picking up bottles with her feet, trying to figure out what everything does.  She\'s surprisingly careful with the glass vials, raising her clutching talons to eye level and bobbing her head left and right before grabbing a new potion. "<i>What do all these symbols mean?</i>" she asks, inquisitively. When she grabs a hexagonal bottle, however, her eyes light up. "<i>Oh! I know this! This is an egg!</i>" She holds it out, proudly displaying the egg symbol on your Ovi Elixir. You nod and she flushes with irrational pride at getting one right. "<i>I used to lay so many eggs. All my pretty little babies,</i>" she sighs, wistfully. Pursing her golden lips, the harpy\'s face scrunches in thought, struggling to put an idea together. She perks up as it gradually works through the lusty haze you\'ve made of her mind. "<i>Ah! What if I drank this? Would I have more eggs? Ooh oh oh, pleeeeeease? Can you spare this one little bottle so that I can be a mommy again?</i>" She strokes the flat of her belly with platinum blond feathers, anxiously remembering the pregnancies of her youth. Would you like to play the dutiful spouse and give your bird-brained bimbo a chance to relive her wanton youth?',
                 false
             );
         }
-        //Repeat
+        // Repeat
         else {
             this.outputText(
                 'You let Sophie find another Ovi Elixir amid your supplies and her normally vapid expression locks into a grin of impatient glee. "<i>Oh, can we do it again? Please please please!</i>"',
                 false
             );
         }
-        //[Daddy (Male/herm)] [Mommy (female/herm)] [Leave]
+        // [Daddy (Male/herm)] [Mommy (female/herm)] [Leave]
         var daddy = undefined;
         var mommy = undefined;
         this.flags[kFLAGS.TIMES_SOPHIE_HAS_DRUNK_OVI_ELIXIR]++;
@@ -1673,7 +1673,7 @@ export class SophieBimbo extends NPCAwareContent {
         );
     }
 
-    //[Daddy]
+    // [Daddy]
     private beBimboSophiesSugarDaddy(): void {
         this.sophieSprite();
         this.outputText("", true);
@@ -1729,14 +1729,14 @@ export class SophieBimbo extends NPCAwareContent {
         this.player.orgasm();
         this.dynStats("sen", -1);
         this.sophieScene.luststickApplication(2);
-        //[player gains random large egg]
+        // [player gains random large egg]
         this.inventory.takeItem(
             this.consumables.LARGE_EGGS[SophieBimbo.rand(this.consumables.LARGE_EGGS.length)],
             this.camp.returnToCampUseOneHour
         );
     }
 
-    //[Mommy]
+    // [Mommy]
     private beBimboSophiesSugarMommy(): void {
         this.sophieSprite();
         this.outputText("", true);
@@ -1791,10 +1791,10 @@ export class SophieBimbo extends NPCAwareContent {
             false
         );
 
-        //[player gains random large egg]
+        // [player gains random large egg]
         this.player.orgasm();
         this.dynStats("sen", -1);
-        //[player gains random large egg]
+        // [player gains random large egg]
         this.sophieScene.luststickApplication(2);
         this.inventory.takeItem(
             this.consumables.LARGE_EGGS[SophieBimbo.rand(this.consumables.LARGE_EGGS.length)],
@@ -1802,8 +1802,8 @@ export class SophieBimbo extends NPCAwareContent {
         );
     }
 
-    //Butts McGee
-    //=====================================================
+    // Butts McGee
+    // =====================================================
     private rideDatSophieVag(nice: boolean = false): void {
         this.clearOutput();
         this.sophieSprite();
@@ -1958,7 +1958,7 @@ export class SophieBimbo extends NPCAwareContent {
             this.outputText(
                 "\n\n\"<i>Cu-cum, cum!  Cum in me!  F-fill me up, show me just how much you love, muh, momma Sophie's c-cunt!</i>\" the bird slut begs you, her legs wrapping around your thighs.  It doesn't take much for you to oblige her; you hump and thrust into her heated depths faster and faster as she moans encouragingly, and then finally, with a yell, you bury yourself inside of her."
             );
-            //((Still uses same cumshots and post-coitus text as before))*/
+            // ((Still uses same cumshots and post-coitus text as before))*/
         } else {
             this.outputText(
                 "Before you can decide what, exactly, you're going to do with your harpy slut, Sophie jiggles her way over to you, the insides of her thighs dripping with every step.  You watch as the plump bird wobbles, too aroused and too damn big to walk straight, but eventually she does manage to make it to you."
@@ -2056,7 +2056,7 @@ export class SophieBimbo extends NPCAwareContent {
                 "\n\n\"<i>Cu-cum, cum!  Cum in me!  F-fill me up, show me just how much you love, muh, momma Sophie's c-cunt!</i>\" the bird slut begs you, her legs wrapping around your thighs.  It doesn't take much for you to oblige her; you hump and thrust into her heated depths faster and faster as she moans encouragingly, and then finally, with a yell, you bury yourself inside of her."
             );
         }
-        //{if (cocks = 1) and (cumNormal = true)}
+        // {if (cocks = 1) and (cumNormal = true)}
         if (this.player.cockTotal() == 1) {
             if (this.player.cumQ() < 250)
                 this.outputText(
@@ -2064,7 +2064,7 @@ export class SophieBimbo extends NPCAwareContent {
                         (x + 1) +
                         "] throbs and spasms inside of the bird bitch, your hot seed surging up inside - and then you loose it inside of her, rope after rope of hot, sticky seed spraying against Sophie's insides as the bird-bitch coos and shudders, having a light orgasm of her own."
                 );
-            //{if (cocks = 1) and (cumMedium = true)}
+            // {if (cocks = 1) and (cumMedium = true)}
             else if (this.player.cumQ() < 500)
                 this.outputText(
                     "\n\nYour cock surges inside of Sophie's hot cunt, releasing thick spurts of your spunk inside of her, and the slutty bimbo croons and moans as you paint her insides with it, pleasure rocking through your hips, and she grinds her hips against yours in small circles, thoroughly enjoying getting a nice, hot load inside of her.  You grope and rub her butt in return as she hugs you, her legs uncurling from your back, and let out a loud sigh as you start to relax."
@@ -2102,14 +2102,14 @@ export class SophieBimbo extends NPCAwareContent {
                         (x + 1) +
                         "] inside Sophie's drooling cunt getting the first gout from your [balls], followed immediately by a second shot from the cock[if (cocks > 2) s] outside of her.  [EachCock] fire off a few more spurts and shots of your seed, getting Sophie's insides and thighs all sticky, and then you flop down with a sigh."
                 );
-            //{if (cocks >= 2) and (cumMedium = true)}
+            // {if (cocks >= 2) and (cumMedium = true)}
             else if (this.player.cumQ() < 500)
                 this.outputText(
                     "\n\n[EachCock] throbs beneath of you as your orgasm kicks off, and your first few shots of semen get everywhere; Sophie's thighs and crotch and insides all get a liberal helping of your cream as you gush and shudder, emptying your [balls], and she coos happily, rubbing your back.  She reaches down and grabs your [cock " +
                         (y + 1) +
                         "] with her other hand, stroking the smaller length as it shoots out a few more spurts all over her wrist, and she cradles you."
                 );
-            //{if (cocks >= 2) and (cumHigh = true)}
+            // {if (cocks >= 2) and (cumHigh = true)}
             else if (this.player.cumQ() < 1500) {
                 this.outputText(
                     "\n\nSophie's insides milk your [cock " +
@@ -2133,14 +2133,14 @@ export class SophieBimbo extends NPCAwareContent {
                     '  Sophie shudders and sighs, rubbing your [hair] with her hand, and you hear her breathe a "<i>Thank you...</i>"'
                 );
             }
-            //{if (cocks >= 2) and (cumVeryHigh = true)}
+            // {if (cocks >= 2) and (cumVeryHigh = true)}
             else if (this.player.cumQ() < 3000)
                 this.outputText(
                     "\n\n[EachCock] spasm, twitching and flooding with your seed - the first burst of which empties directly against Sophie's cervix, your [cock " +
                         (x + 1) +
                         "] painting the bird-slut in your colors.  You grope and rub her butt, holding her fat hips against yours as you come in and all over her, her platinum-blonde feathers getting a generous tinting towards white as you spray her belly and her thighs alike - and your belly and [chest] in the process, moaning and crying out your orgasm into the cleavage of her huge tits.\n\nThe bird slut wraps her arms tighter around you, hanging on for dear life as her cum-splattered belly bulges from gout after gout of your cum filling it, and her walls clench and spasm around your cock in a breeding-fueled orgasm.  You loose the rest of your seed from your [balls], leaving her with bukkake'd hips and a bulging belly, and collapse, letting her fat butt hit the wet dirt beneath her."
                 );
-            //{if (cocks >= 2) and (cumExtreme = true)}
+            // {if (cocks >= 2) and (cumExtreme = true)}
             else
                 this.outputText(
                     "\n\n[EachCock] burst all at once, your heated, spasming lengths unloading their seed all together - and as a result you not only spray Sophie's insides white and start to flood her womb with your hot cream, you also coat her thighs and belly with it, liberally spraying her thighs with your seed as you do your level best to knock up the kinky bird bitch.  Sophie screeches out her pleasure, arching her back as you let out spray after spray of your spunk in and out of her - and your [cock " +
@@ -2148,7 +2148,7 @@ export class SophieBimbo extends NPCAwareContent {
                         "] finds itself squeezed and clamped down on as Sophie's orgasm only makes yours stronger.\n\nYour [balls] refuse to empty as your load makes Sophie's belly bloat with it all, the harpy squawking as she comes again off of the maternal high, and you find yourself moaning against her chest as your seed continues to spurt, helpless to stop your own orgasm.  You try to clamp down on it, the pleasure too much, the heat running straight up your spine, but you can't; each massive gout of your seed overloads your control, forcing you to keep coming all in and all over the fat harpy.\n\nFinally you end up biting onto the harpy's nipple, making her cry out as you try to ride out the waves of your own pleasure, and she shudders and moans and gushes her own juices to add to yours, the excess cream and juices showering your crotch and the dirt around the both of you.  Her excited squawking and screeching is loud enough that you're sure the rest of the camp can hear it, but you don't care; your orgasm is finally starting to taper off, Sophie's belly so bloated with your spunk that she looks pregnant with <i>several</i> eggs."
                 );
         }
-        //[if (hasVagina = true)
+        // [if (hasVagina = true)
         if (this.player.hasVagina()) {
             this.outputText(
                 "\n\nLike an afterthought, your neglected [vagina] is still tingling and shivering after your powerful orgasm, "
@@ -2173,11 +2173,11 @@ export class SophieBimbo extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //PREGNANCY EXPACK
-    //Sophie Pregger
+    // PREGNANCY EXPACK
+    // Sophie Pregger
 
-    //Getting Sophie Pregnant*
-    //Sophie Fertile Text Alert (Only if PC has penis)*
+    // Getting Sophie Pregnant*
+    // Sophie Fertile Text Alert (Only if PC has penis)*
     public sophieGoesIntoSeason(): void {
         this.sophieSprite();
         this.outputText(
@@ -2185,7 +2185,7 @@ export class SophieBimbo extends NPCAwareContent {
         );
     }
 
-    //Sophie Fertility Done (Expired or PC lost cock): any
+    // Sophie Fertility Done (Expired or PC lost cock): any
     public sophieSeasonExpiration(): void {
         this.sophieSprite();
         this.outputText(
@@ -2193,7 +2193,7 @@ export class SophieBimbo extends NPCAwareContent {
         );
     }
 
-    //Sophie Fertility Knocked Up*
+    // Sophie Fertility Knocked Up*
     public sophieGotKnockedUp(): void {
         this.sophieSprite();
         this.outputText(
@@ -2201,8 +2201,8 @@ export class SophieBimbo extends NPCAwareContent {
         );
     }
 
-    //Impregnation Sex*
-    //Lots of Sophie Compulsion Foreplay coupled with just jamming it in.  She loses all control and you ride her like a bucking bronco, cumming in her pussy a few times, then in her ass, in her tits/mouth, and then back in her pussy again.  Then snuggles?
+    // Impregnation Sex*
+    // Lots of Sophie Compulsion Foreplay coupled with just jamming it in.  She loses all control and you ride her like a bucking bronco, cumming in her pussy a few times, then in her ass, in her tits/mouth, and then back in her pussy again.  Then snuggles?
     private sophieImpregnationSex(): void {
         var x: number = this.player.cockThatFits(this.sophieCapacity());
         var y: number = this.player.cockThatFits2(this.sophieCapacity());
@@ -2353,7 +2353,7 @@ export class SophieBimbo extends NPCAwareContent {
             "\n\nAs your orgasm tapers off, Sophie slips forward, cheek pulling up dirt, tongue lolling as her well-used mound twitches fitfully around you.  You sigh, partially satisfied, but [eachCock] is erect as ever, still tingling and hard, hungering for harpy holes.  Sophie's asshole opens and closes as her orgasmic contractions wrack her body, and as you watch, you know you'll have to sample her backside before you give her another few kids worth of cum."
         );
 
-        //ON TO ZE BUTTFUCKING
+        // ON TO ZE BUTTFUCKING
         this.outputText(
             "\n\nThe white-on-gold glazed lips reluctantly release your withdrawing prick."
         );
@@ -2391,7 +2391,7 @@ export class SophieBimbo extends NPCAwareContent {
         if (this.player.cumQ() >= 1000) this.outputText(" and sperm-oozing pussy");
         this.outputText(".");
 
-        //NO DP:
+        // NO DP:
         if (y < 0)
             this.outputText(
                 '\n\nSophie moans, "<i>Hey...you can\'t - ungh - get me pre... preggers like that!</i>"'
@@ -2512,8 +2512,8 @@ export class SophieBimbo extends NPCAwareContent {
         );
         this.doNext(this.camp.returnToCampUseEightHours);
     }
-    //Too Big Impregnation Sex*
-    //Sophie starts grinding on top, hypno-compelling you to get hornier and hornier until you flip her over and full-body titfuck her.  After the first jizz, you get a little winded and lay back, she remounts you and gets you to cum against her entrance, then she snuggles with you and slowly teases and orgasm denials you until you fucking explode and pass out cuddling with her.
+    // Too Big Impregnation Sex*
+    // Sophie starts grinding on top, hypno-compelling you to get hornier and hornier until you flip her over and full-body titfuck her.  After the first jizz, you get a little winded and lay back, she remounts you and gets you to cum against her entrance, then she snuggles with you and slowly teases and orgasm denials you until you fucking explode and pass out cuddling with her.
     private giantCocksImpregnateSophie(): void {
         this.clearOutput();
         var x: number = this.player.biggestCockIndex();
@@ -2583,7 +2583,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.dynStats("lib", 1);
         if (this.player.cumQ() < 5000) this.player.cumMultiplier += 3;
         this.sophieScene.luststickApplication(8);
-        //[Next]
+        // [Next]
         this.menu();
         this.addButton(0, "Next", this.postSophieTooBigImpreg);
     }
@@ -2597,7 +2597,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseEightHours);
     }
 
-    //Sophie Move In Request Scene*
+    // Sophie Move In Request Scene*
     public sophieMoveInAttempt(): void {
         this.clearOutput();
         this.sophieSprite();
@@ -2618,7 +2618,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.addButton(1, "Nah", this.noSophieSleepWith);
     }
 
-    //Yes*
+    // Yes*
     private yesSophieSleepWith(): void {
         this.clearOutput();
         this.sophieSprite();
@@ -2647,7 +2647,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.flags[kFLAGS.SLEEP_WITH] = "Sophie";
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //No (Also Used To Kick Her Out Of Bed)*
+    // No (Also Used To Kick Her Out Of Bed)*
     private noSophieSleepWith(): void {
         this.clearOutput();
         this.sophieSprite();
@@ -2658,7 +2658,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Option To Move Her In Any Time If Initially Declined*
+    // Option To Move Her In Any Time If Initially Declined*
     private moveSophieInRepeat(): void {
         this.clearOutput();
         this.sophieSprite();
@@ -2680,13 +2680,13 @@ export class SophieBimbo extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Sophie Morning Sex*
-    //Alternate Intro/Outro for consensual fucking when it isn't morning?
+    // Sophie Morning Sex*
+    // Alternate Intro/Outro for consensual fucking when it isn't morning?
     public sophieFenCraftedSex(morning: boolean = false): void {
         var x: number = this.player.cockThatFits(this.sophieCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.sophieSprite();
-        //{Morning Sex}
+        // {Morning Sex}
         if (morning) {
             this.outputText(
                 "\nOoooh, that feels good.  There's a slippery, warm snugness wrapping around your " +
@@ -2704,7 +2704,7 @@ export class SophieBimbo extends NPCAwareContent {
                     " with delicious pressure.  \"<i>It is just so... hard, not to fuck someone as cute as you are when you're sleeping!  I almost didn't ma... aahhhhh... didn't, like, make it.</i>\"  Sophie shudders with excitement, continuing, \"<i>You're going to, like, have momma Sophie creaming herself <b>real</b> soon!</i>\""
             );
         }
-        //{Regular Sex}
+        // {Regular Sex}
         else {
             this.clearOutput();
             this.sophieSprite();
@@ -2731,7 +2731,7 @@ export class SophieBimbo extends NPCAwareContent {
                     ' deep inside her juicy mound.  "<i>Oooh, that\'s gonna make momma Sophie cum <b>soooo</b> hard,</i>" she moans.'
             );
         }
-        //ALL SEX
+        // ALL SEX
         this.outputText(
             "\n\nSophie leans back groaning, impaled on your member while greedily groping at one of her tits.  Her fingers artlessly paw at the immense, soft tit in her hand and brush around its nipple repeatedly.  You prop yourself up on one elbow, and with your other arm you reach up to join in Sophie's fondling of her tremendous tits.  They're so massive and so... plush that they should droop, but they maintain a perfect, tantalizing shape, even when they're jiggling and bouncing around during a good fuck.  Her nipple finds its way into your fingers soon, and you take to rolling the sensitive flesh around in your fingertips, admiring the pebbly texture as Sophie begins to moan like a wanton slut."
         );
@@ -2782,12 +2782,12 @@ export class SophieBimbo extends NPCAwareContent {
             '\n\nSophie slowly drags herself off you, stifling another moan as you exit her still-spasming pussy.  "<i>Oooh, thanks for that, [name].  I needed that like, sooooo bad.</i>" The bimbo gives you another quick peck on the lips, leaving them tingling.  She sashays away dripping your semen from between her thick hips as she goes.'
         );
 
-        //MORNING
+        // MORNING
         if (morning)
             this.outputText(
                 "\n\nYou gather up your [armor] and head to the stream to get clean before you start your day.  What a morning!"
             );
-        //REGULAR
+        // REGULAR
         else
             this.outputText(
                 "\n\nYou gather up your [armor], trying to ignore how it sticks to you after that messy fuck."
@@ -2799,11 +2799,11 @@ export class SophieBimbo extends NPCAwareContent {
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Pregnant Sophie Morning Sex*
-    //Alternate Intro/Outro for consensual fucking when it isn't morning?
+    // Pregnant Sophie Morning Sex*
+    // Alternate Intro/Outro for consensual fucking when it isn't morning?
     public fuckYoPregnantHarpyWaifu(morning: boolean = false): void {
         var x: number = this.player.cockThatFits(this.sophieCapacity());
-        //{Morning Fuck}
+        // {Morning Fuck}
         if (morning) {
             this.sophieSprite();
             this.outputText(
@@ -2826,7 +2826,7 @@ export class SophieBimbo extends NPCAwareContent {
                 " fuck.  Her skin is silky smooth, and if you push a little, you can actually feel the solid curve of the growth inside her.  That egg sure is getting big!"
             );
         }
-        //REGULAR FUCK
+        // REGULAR FUCK
         else {
             this.clearOutput();
             this.sophieSprite();
@@ -2852,7 +2852,7 @@ export class SophieBimbo extends NPCAwareContent {
                     ' in your hand and lift it up against her pussy lips, just in time for her to lower herself, absorbing you into the cock-squeezing haven that is her pussy.  She moans as she takes you.  "<i>Ooohh, you remind me why I got this egg in the first place!</i>" You rub her belly alongside her, simply admiring her smooth, super-curvy, pregnant frame.  That egg sure is big!'
             );
         }
-        //BOTH FUCKS
+        // BOTH FUCKS
         this.outputText(
             "\n\nSophie swivels her hips around in slow, circular strokes, riding your " +
                 this.cockDescript(x) +
@@ -2944,8 +2944,8 @@ export class SophieBimbo extends NPCAwareContent {
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Very Pregnant Sophie Tit Jobs*
-    //Alternate Intro/Outro for consensual fucking when it isn't morning?
+    // Very Pregnant Sophie Tit Jobs*
+    // Alternate Intro/Outro for consensual fucking when it isn't morning?
     private sophiePreggoTitJobs(): void {
         var x: number = this.player.biggestCockIndex();
         this.clearOutput();
@@ -3012,13 +3012,13 @@ export class SophieBimbo extends NPCAwareContent {
             "\n\nDo you let her rub your dick down with her tits how she wants, or push her down and go hog-wild on those giant, pregnancy-enhanced knockers?"
         );
         this.dynStats("lus=", 100, "resisted", false);
-        //[Let Her] [Hog Wild]
+        // [Let Her] [Hog Wild]
         this.menu();
         this.addButton(0, "Let Her", this.letSophieMilkYoDick);
         this.addButton(1, "Hog Wild", this.goHogWildOnSophieBewbs);
     }
 
-    //Hog Wild*
+    // Hog Wild*
     private goHogWildOnSophieBewbs(): void {
         this.clearOutput();
         this.sophieSprite();
@@ -3119,7 +3119,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Let Her*
+    // Let Her*
     private letSophieMilkYoDick(): void {
         this.clearOutput();
         this.sophieSprite();
@@ -3167,8 +3167,8 @@ export class SophieBimbo extends NPCAwareContent {
                 this.cockDescript(x) +
                 " with her slippery tits as your urethra bulges with the heavy load. With an audible squishing noise, you unload what feels like every drop of cum your body contains in one huge lance."
         );
-        //{Fork between mouth and bukkake}
-        //Mouth
+        // {Fork between mouth and bukkake}
+        // Mouth
         if (this.player.cocks[x].cockLength <= 30) {
             this.outputText("  Sophie");
             if (this.player.cumQ() < 250)
@@ -3202,7 +3202,7 @@ export class SophieBimbo extends NPCAwareContent {
                     " affectionately, tickling at its underside, and her flushed face seems extraordinairily pleased to have made you cum so hard.  Sophie's hands stroke her belly slowly as she looks up at you, whispering, \"<i>You're like, so good to Momma Sophie.  Just be sure and cum for my twat again soon, okay?  It misses you.</i>\""
             );
         }
-        //On top of her.
+        // On top of her.
         else {
             this.outputText("  Sophie");
             if (this.player.cumQ() < 250)
@@ -3245,7 +3245,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Sophie Births Egg*
+    // Sophie Births Egg*
     public sophieBirthsEgg(): void {
         this.sophieSprite();
         this.outputText(
@@ -3307,7 +3307,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.dynStats("lus", 10 + this.player.lib / 10);
     }
 
-    //Egg Hatched Notification
+    // Egg Hatched Notification
     public sophiesEggHatches(): void {
         this.flags[kFLAGS.SOPHIE_CAMP_EGG_COUNTDOWN] = 0;
         this.sophieSprite();
@@ -3341,8 +3341,8 @@ export class SophieBimbo extends NPCAwareContent {
             "\n\n\"<i>Ohhh, here it comes!  Come on sweetie, you're almost there,</i>\" she coos to her egg.  As if spurred on by its mother's calls, the egg shakes harder, big cracks splitting across the shell.  Finding yourself interested in what your harpy daughter is going to look like, you step closer, watching with bated breath as a talon tipped foot explodes its way out of the egg. Barely a few seconds later, a hand smashes through the shell.  Again and again, your newborn daughter breaks her egg's confining shell apart until she is free of the protective confines of her old home."
         );
         if (this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] < 4) {
-            //First Harpy:
-            //-Pink plumage, big tits and (sensitive) lips, normal harpy hips. (blue eyes)
+            // First Harpy:
+            // -Pink plumage, big tits and (sensitive) lips, normal harpy hips. (blue eyes)
             if (this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] == 0) {
                 this.outputText(
                     "\n\nThe first thing that comes to mind when you see your newborn - or is that new-hatched? - daughter is... 'fluffy.'  She's covered in adorably soft, pink down, with big blue eyes that peer around curiously.  She looks cute as hell"
@@ -3359,9 +3359,9 @@ export class SophieBimbo extends NPCAwareContent {
                     this.flags[kFLAGS.DAUGHTER_ONE_BIMBO] = 1;
                 }
             }
-            //Second daughter
-            //Second Harpy:
-            //-Badonkadonk to 9000.  Blond feathers that grow very long. (violet eyes)
+            // Second daughter
+            // Second Harpy:
+            // -Badonkadonk to 9000.  Blond feathers that grow very long. (violet eyes)
             else if (this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] == 1) {
                 this.outputText(
                     "\n\nYou'd think that since this is the second time you've seen one of Sophie's eggs hatch, you'd be a little more used to this, but the sight still awes you"
@@ -3378,8 +3378,8 @@ export class SophieBimbo extends NPCAwareContent {
                     ".  Her feathers definitely seems longer as well, even though it's still just fuzzy down."
                 );
             }
-            //Third Harpy:
-            //-Not that curvy, but has human feet and purple feathers. (violet eyes)
+            // Third Harpy:
+            // -Not that curvy, but has human feet and purple feathers. (violet eyes)
             else if (this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] == 2) {
                 this.outputText(
                     "\n\nOnce again, you get to watch another harpy experience the first few moments of her memorable life.  This one has perfect, normal-looking proportions, and though she clearly has the wide hips indicative of her race they're nowhere near as big as her big-butted sister's.  Most surprisingly of all, she lacks the talons that her mom and sisters share.  Instead, she has normal, human feet.  Sophie's brow furrows with worry, but you can't help but think that it's about damned time something in this place took after you for a change.  Her eyes are piercing violet, though her feathers are a deep purple in color."
@@ -3387,8 +3387,8 @@ export class SophieBimbo extends NPCAwareContent {
                 if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00282] > 0)
                     this.flags[kFLAGS.DAUGHTER_THREE_BIMBO] = 1;
             }
-            //Fourth Harpy:
-            //-Curvy like Sophie, but with well-developed wings and extra-soft feathers (WINGJOBS).  Pink plumage.  (blue eyes)
+            // Fourth Harpy:
+            // -Curvy like Sophie, but with well-developed wings and extra-soft feathers (WINGJOBS).  Pink plumage.  (blue eyes)
             else {
                 this.outputText(
                     "\n\nYour fourth child seems to take after her mom in just about every way.  She has blue eyes like Sophie, pink feathers"
@@ -3402,7 +3402,7 @@ export class SophieBimbo extends NPCAwareContent {
                     this.flags[kFLAGS.DAUGHTER_FOUR_BIMBO] = 1;
             }
 
-            //ALL FIRST FOUR END WITH THIS:
+            // ALL FIRST FOUR END WITH THIS:
             if (this.bimboSophie())
                 this.outputText(
                     '  Before the girl can try to stand she is swept up off her feet by her ecstatic mother.  "<i>Oohhhhh, just look at you!  My baby girl is sooo cute!  Soooo totally fluffy and like, suuuuper soft!</i>"'
@@ -3412,7 +3412,7 @@ export class SophieBimbo extends NPCAwareContent {
                     '  Before the girl can try to stand she is swept up off her feet by her ecstatic mother.  "<i>Oohhhhh, you\'re so cute!  My baby girl is sooo cute!  Oh, the boys will be all over you when you grow up, I just know it!</i>"'
                 );
         }
-        //Every Other daughter*
+        // Every Other daughter*
         else {
             this.outputText(
                 "\n\nYou never get tired of watching this, the young harpy bursting from her egg, shards of shell landing all around the nest as the fluffy little harpy emerges. The "
@@ -3473,7 +3473,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.flags[kFLAGS.SOPHIE_DAUGHTER_MATURITY_COUNTER] = 336;
     }
 
-    //Mature alert
+    // Mature alert
     public sophieKidMaturation(): void {
         this.clearOutput();
         this.sophieSprite();
@@ -3481,10 +3481,10 @@ export class SophieBimbo extends NPCAwareContent {
             "Checking up on your growing daughter, you find her once again with her mother Sophie.  The two harpies are just gabbing away about this and that when suddenly your teen-looking daughter groans as if in pain.  Worried about the state of your offspring, you approach the nest and look over your daughter.  Next to her, Sophie flutters her wings, fussing over her daughter's health.  Before your very eyes, your daughter changes - her once plain body growing out, feminine curves ballooning exquisitely."
         );
 
-        //First daughter
+        // First daughter
         if (this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] == 0) {
-            //First Harpy:
-            //-Pink plumage, big tits and (sensitive) lips, normal harpy hips. (blue eyes)
+            // First Harpy:
+            // -Pink plumage, big tits and (sensitive) lips, normal harpy hips. (blue eyes)
             if (this.flags[kFLAGS.DAUGHTER_ONE_BIMBO] == 1)
                 this.outputText(
                     "\n\nHer chest and lips develop remarkably, particularly her chest.  Her breasts are immense, akin to something you would see on a cow-girl, and the prominent nipples and soft, creamy skin make you wonder what it would be like to milk a harpy.  Her swollen tits actually put her mom's to shame, and Sophie looks on jealously as the girl's lips plump up bigger than her own.  The maturing woman's hips widen only slightly, a hair skinnier than most harpies in girth but still very noticeable.  She touches a finger to her bee-stung lips and moans, obviously enjoying how sensitive her plush cock-pillows feel."
@@ -3494,10 +3494,10 @@ export class SophieBimbo extends NPCAwareContent {
                     "\n\nHer chest and lips develop remarkably.  Her breasts are large for a harpy, akin to something you would see on a young cow-girl, and the prominent nipples and soft, creamy skin make you wonder what it would be like to milk a harpy.  Her swollen tits actually put her mom's to shame, barely, and Sophie looks on jealously as the girl's lips plump up a little bigger than her own.  The maturing woman's hips widen only slightly, a hair skinnier than most harpies in girth but still very noticeable.  She touches a finger to her larger lips and moans, obviously enjoying how sensitive her cock-pillows feel."
                 );
         }
-        //Second daughter
+        // Second daughter
         else if (this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] == 1) {
-            //Second Harpy:
-            //-Badonkadonk to 9000.  Blond feathers that grow very long. (violet eyes)
+            // Second Harpy:
+            // -Badonkadonk to 9000.  Blond feathers that grow very long. (violet eyes)
             if (this.flags[kFLAGS.DAUGHTER_TWO_BIMBO] == 1)
                 this.outputText(
                     "\n\nHer ass expands immensely along with her hips.  Soon, the freshly-matured harpy has a butt to rival her mother, but it doesn't just stop there.  Her immense rump swells until it's positively gravity-defying, a jiggly expanse of supple butt just wanting to be grabbed, squeezed, or even fucked.  Her chest is fairly modest, perhaps a B or C cup at best guess.  The blond feathers all over her body lengthen as well, her “hair” going down past her ass, the plumage about her legs and arms puffy and shaggy like leg-and-arm warmers.  She licks her lips as the changes finish, admiring her new, posh bottom."
@@ -3507,10 +3507,10 @@ export class SophieBimbo extends NPCAwareContent {
                     "\n\nHer ass expands along with her hips.  Soon, the freshly-matured harpy has a butt to rival her mother, but it doesn't just stop there.  Her swollen rump swells until it's positively posh, a jiggly expanse of supple butt just wanting to be grabbed, squeezed, or even fucked.  Her chest is fairly modest, perhaps an A or B cup at best guess.  The feathers all over her body lengthen as well, her “hair” going down past her ass, the plumage about her legs and arms puffy and shaggy like leg-and-arm warmers.  She licks her lips as the changes finish, admiring her new, enlarged bottom."
                 );
         }
-        //Third daughter
+        // Third daughter
         else if (this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] == 2) {
-            //Third Harpy:
-            //-Not that curvy, but has human feet and purple feathers. (violet eyes)
+            // Third Harpy:
+            // -Not that curvy, but has human feet and purple feathers. (violet eyes)
             if (this.flags[kFLAGS.DAUGHTER_THREE_BIMBO] == 1)
                 this.outputText(
                     "\n\nShe grows up into a perfect-looking harpy - all except her feet, which remain utterly and completely human.  Her hips are nice and broad, her breasts only slightly bigger than average for a harpy, maybe C or D-cup at best, her wings seeming as impressive as any of the other bird-women.  The matured woman stamps her foot in frustration - clearly she had hoped it would change with the rest of her.  Still, Sophie whispers something into her ear that makes her blush yet smile at the same time.  She lifts her foot and curls her toes, looking at herself in a whole new light."
@@ -3520,10 +3520,10 @@ export class SophieBimbo extends NPCAwareContent {
                     "\n\nShe grows up into a perfect-looking harpy - all except her feet, which remain utterly and completely human.  Her hips are nice and broad, her breasts only slightly bigger than average for a harpy, maybe C at best, her wings seeming as impressive as any of the other bird-women.  The matured woman stamps her foot in frustration - clearly she had hoped it would change with the rest of her.  Still, Sophie whispers something into her ear that makes her blush yet smile at the same time.  She lifts her foot and curls her toes, looking at herself in a whole new light."
                 );
         }
-        //Fourth daughter
+        // Fourth daughter
         else if (this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] == 3) {
-            //Fourth Harpy:
-            //-Curvy like Sophie, but with well-developed wings and extra-soft feathers (WINGJOBS).  Pink plumage.  (blue eyes)
+            // Fourth Harpy:
+            // -Curvy like Sophie, but with well-developed wings and extra-soft feathers (WINGJOBS).  Pink plumage.  (blue eyes)
             if (this.flags[kFLAGS.DAUGHTER_FOUR_BIMBO] == 1)
                 this.outputText(
                     "\n\nAss, hips, and chest all expand in equal measure, only stopping when she's reached a critical mass that puts her on even footing with her mother, perhaps only a single cup size smaller.  She admires her new self experimentally, barely even aware that her wings are still growing.  By the time they stop, they're much larger than her mom's, trailing wisps of soft feather-fluff.  She curls them around her new breasts and squeezes the massive boob flesh tightly, moaning in delight.  Sophie smiles and says something about a wingjob, which makes the freshly-minted, adult harpy blush."
@@ -3533,7 +3533,7 @@ export class SophieBimbo extends NPCAwareContent {
                     "\n\nAss, hips, and chest all expand in equal measure, only stopping when she's reached a critical mass that puts her on even footing with her mother, perhaps only a single cup size smaller.  She admires her new self experimentally, barely even aware that her wings are still growing.  By the time they stop, they're much larger than her mom's, trailing wisps of soft feather-fluff.  She curls them around her new breasts and squeezes the massive boob flesh tightly, moaning in delight.  Sophie smiles and says something about a wingjob, which makes the freshly-minted, adult harpy blush."
                 );
         }
-        //Fifth+ daughter
+        // Fifth+ daughter
         else {
             this.outputText(
                 "\n\nHer flesh ripples as her hips and ass swell into wide, broodmotherly hips with a round, ripe ass to match that just begs to be spanked and grabbed.  Her once-humble breasts spill forth in a flood of supple tit-flesh. The growing orbs engorge to around nearly the same size as Sophie's big, "
@@ -3543,7 +3543,7 @@ export class SophieBimbo extends NPCAwareContent {
                 "breasts - just as high, round and perky, yet big and yielding to the touch, like the softest pillow."
             );
         }
-        //ALL CONTINUE HERE
+        // ALL CONTINUE HERE
         this.outputText(
             "  The newly embodied harpy lets out a sigh of relief now that the changes have stopped, clearly surprised by what happened and glad it's over. Moving to get a better view of your daughter, you take in the sight of her new body. Your once petite harpy girl looks more like a stacked "
         );
@@ -3576,9 +3576,9 @@ export class SophieBimbo extends NPCAwareContent {
                     this.player.skinFurScales() +
                     '  "<i>What do you think, daddy?  Aren\'t I cute?</i>" she asks before leaning in, pushing her big, perky tits against you and making a pouty face at you, showing off her plump kissable lips.'
             );
-        //REPEATS:
+        // REPEATS:
         if (this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] > 0) {
-            //If Yes Incest
+            // If Yes Incest
             if (this.flags[kFLAGS.SOPHIE_FAMILY_INCEST] == 1) {
                 this.outputText(
                     "\n\nYou nod your head and tell her that she's very beautiful, just like her mom and sister"
@@ -3592,7 +3592,7 @@ export class SophieBimbo extends NPCAwareContent {
 
                 this.outputText("\n\nYou promise her that you will in due time.");
             }
-            //If No
+            // If No
             else {
                 this.outputText(
                     "\n\nYou smile ruefully and direct her to turn her attentions back to her mother, who even now is flapping her wings excitedly, promising her daughter the many delights of adulthood she'll get to sample, once she gets her own mate.  You just hope she doesn't cause any trouble in camp."
@@ -3600,7 +3600,7 @@ export class SophieBimbo extends NPCAwareContent {
             }
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //FIRST TIME:
+        // FIRST TIME:
         else {
             this.outputText(
                 "\n\nIt seems obvious that the real question is whether you want to have an incestuous relationship with your freshly matured offspring.  If you answer yes, you're probably going to wind up with another bird-girl lusting after you (and maybe more, down the road).  You had better say no if you want to keep things platonic."
@@ -3611,7 +3611,7 @@ export class SophieBimbo extends NPCAwareContent {
         }
         this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT]++;
     }
-    //[yes incest plz]
+    // [yes incest plz]
     private yesToSophieIncest(): void {
         this.clearOutput();
         this.sophieSprite();
@@ -3631,7 +3631,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.flags[kFLAGS.SOPHIE_FAMILY_INCEST] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[nono]
+    // [nono]
     private noToSophieIncest(): void {
         this.clearOutput();
         this.sophieSprite();
@@ -3641,9 +3641,9 @@ export class SophieBimbo extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Izma dominating Sophie bondage.
-    //have izma get irritated with Sophies constant advances.
-    //First time happens randomly
+    // Izma dominating Sophie bondage.
+    // have izma get irritated with Sophies constant advances.
+    // First time happens randomly
     public sophieAndIzmaPlay(): void {
         this.outputText("\n");
         this.flags[kFLAGS.TIMES_SOPHIE_AND_IZMA_FUCKED]++;
@@ -3708,13 +3708,13 @@ export class SophieBimbo extends NPCAwareContent {
             );
         }
         this.dynStats("lus", 10 + this.player.lib / 10);
-        //[Interrupt] [Watch]
+        // [Interrupt] [Watch]
         this.menu();
         this.addButton(0, "Interrupt", this.interruptSophieIzma);
         this.addButton(1, "Watch", this.watchIzmaSophie);
     }
 
-    //(LEGGO MY EGGO)
+    // (LEGGO MY EGGO)
     private interruptSophieIzma(): void {
         this.clearOutput();
         this.outputText(
@@ -3734,7 +3734,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.doNext(this.playerMenu);
     }
 
-    //(Watch like the voyeur you are)
+    // (Watch like the voyeur you are)
     private watchIzmaSophie(): void {
         this.clearOutput();
         this.outputText(

@@ -4,10 +4,10 @@ import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 import { PerkLib } from "../../../PerkLib";
 
 export class Frosty extends TelAdreAbstractContent {
-    //[Seeing her at the bakery]
-    //You see a bubblegum-pink girl at the bakery, walking around and eagerly trying to hand out fliers to people. Her “uniform” is more like a yellow bikini with frills circling the waist of the bottom half. If this didn’t make her stand out from the crowd then her hair certainly would; it’s a big, poofy, curly, dark pink mess that reaches down to her ass with a huge cupcake hat sitting on top.
+    // [Seeing her at the bakery]
+    // You see a bubblegum-pink girl at the bakery, walking around and eagerly trying to hand out fliers to people. Her “uniform” is more like a yellow bikini with frills circling the waist of the bottom half. If this didn’t make her stand out from the crowd then her hair certainly would; it’s a big, poofy, curly, dark pink mess that reaches down to her ass with a huge cupcake hat sitting on top.
 
-    //[Deciding to talk to her]
+    // [Deciding to talk to her]
     public approachFrosty(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.MET_FROSTY] == 0) {
@@ -61,7 +61,7 @@ export class Frosty extends TelAdreAbstractContent {
             this.outputText(
                 "\n\n“<i>Do we have a deal?</i>” She waves a hand next to her breast to bring your attention back to her face."
             );
-            //[Yes] [No]
+            // [Yes] [No]
             this.menu();
             this.addButton(
                 0,
@@ -70,7 +70,7 @@ export class Frosty extends TelAdreAbstractContent {
             );
             this.addButton(1, "No", this.noContractForMeSloot);
         } else {
-            //[Picking the Frosty button at the Bakery]
+            // [Picking the Frosty button at the Bakery]
             this.outputText(
                 "You go out to Frosty’s stand; she’s there manning it with a huge smile on her face. “<i>Hello there customer, how may I help you?</i>” You greet her with your own smile and hello and take a look at her menu:\n"
             );
@@ -83,9 +83,9 @@ export class Frosty extends TelAdreAbstractContent {
             );
 
             /*Button 1 [x1]
-            Button 2 [x5] 
-            Button 3 [x10] 
-            Button 4 [x20] 
+            Button 2 [x5]
+            Button 3 [x10]
+            Button 4 [x20]
             Button 9 [Either: “Contract” if the player didn’t sign the contract or “Specials” if they did]
             Button 0 [Leave]*/
             this.frostyMainMenu();
@@ -105,8 +105,8 @@ export class Frosty extends TelAdreAbstractContent {
     }
 
     public frostySpecialsMenu(free: boolean = false): void {
-        //1. Hand – 5. points
-        //2. Mouth-15. Points
+        // 1. Hand – 5. points
+        // 2. Mouth-15. Points
         this.menu();
         if (!free && this.flags[kFLAGS.FROSTY_POINTS] < 5)
             this.outputText("\n\nYou don't have enough points for any services.");
@@ -126,20 +126,20 @@ export class Frosty extends TelAdreAbstractContent {
         this.outputText(
             "You make your purchase and swiftly devour the results. They're surprisingly delicious!"
         );
-        //15
+        // 15
         if (arg == 1) this.player.gems -= 15;
-        //60
+        // 60
         if (arg == 5) this.player.gems -= 60;
-        //110
+        // 110
         if (arg == 10) this.player.gems -= 110;
-        //200
+        // 200
         if (arg == 20) this.player.gems -= 200;
         this.frostyPoints(arg);
         this.menu();
         this.addButton(0, "Next", this.approachFrosty);
     }
 
-    //[Yes]
+    // [Yes]
     public yesFrostyLetsHaveSexForCupcakesWhoThoughtThisWasAGoodIdeaIMeanSeriously(): void {
         this.clearOutput();
         this.flags[kFLAGS.SIGNED_FROSTYS_CONTRACT] = 1;
@@ -153,23 +153,23 @@ export class Frosty extends TelAdreAbstractContent {
             "\n\n“<i>I forgot to mention, customers who join the </i>beta<i> got one free sample of my services but the offer is only good right after you join... so right now.</i>”"
         );
         this.outputText("\n\nDo you accept?");
-        //[Yes] [No]
+        // [Yes] [No]
         this.menu();
         this.addButton(0, "Yes", this.yesIWantYourFreeSampleYouFuckingDiseasedCupcakeSlut);
         this.addButton(1, "No", this.noIDontWantAFreebieDiseaseYouSlut);
     }
 
-    //[Yes]
+    // [Yes]
     public yesIWantYourFreeSampleYouFuckingDiseasedCupcakeSlut(): void {
         this.clearOutput();
         this.outputText(
             "You follow Frosty to her booth. She goes behind the counter and spins the menu with her fingertip and stops it with the palm of her hand. She goes back to her business while you look over the menu.  The lettering and style of it has changed into something more appealing and seductive."
         );
-        //[Specials Menu is shown]
+        // [Specials Menu is shown]
         this.frostySpecialsMenu(true);
     }
 
-    //[No]
+    // [No]
     public noIDontWantAFreebieDiseaseYouSlut(): void {
         this.clearOutput();
         this.outputText(
@@ -179,7 +179,7 @@ export class Frosty extends TelAdreAbstractContent {
         this.addButton(0, "Next", kGAMECLASS.telAdre.telAdreMenu);
     }
 
-    //[No](for the contract)
+    // [No](for the contract)
     public noContractForMeSloot(): void {
         this.clearOutput();
         this.outputText(
@@ -193,25 +193,25 @@ export class Frosty extends TelAdreAbstractContent {
         this.addButton(0, "Next", kGAMECLASS.telAdre.telAdreMenu);
     }
 
-    //[Choosing Buttons 1-4]
-    //[Has enough Gems]
-    //“That will be [Cupcake button chosen price.]”
-    //[if player has signed the contract]
-    //but with your discount, your final price is [Price *.80].”
-    //[else]
-    //You hand the gems over to Frosty and leave with your sweets in hand.
-    //[Not Enough Gems]
-    //You don't have enough Gems for that.
+    // [Choosing Buttons 1-4]
+    // [Has enough Gems]
+    // “That will be [Cupcake button chosen price.]”
+    // [if player has signed the contract]
+    // but with your discount, your final price is [Price *.80].”
+    // [else]
+    // You hand the gems over to Frosty and leave with your sweets in hand.
+    // [Not Enough Gems]
+    // You don't have enough Gems for that.
 
-    //[Contract](If player hasn’t signed)
+    // [Contract](If player hasn’t signed)
     public getAFuckingFuckContractFromFucks(): void {
         this.clearOutput();
         this.outputText(
             "Frosty zooms around the counter, appearing next to you like a pink blur “<i>OH! You changed your mind!?</i>” she asks excitedly with her hands held up to her face like she’s praying."
         );
-        //[Yes [No]
-        //[Yes]
-        //[Go to the “Yes” section when offered the contract the first time.]
+        // [Yes [No]
+        // [Yes]
+        // [Go to the “Yes” section when offered the contract the first time.]
         this.menu();
         this.addButton(
             0,
@@ -221,17 +221,17 @@ export class Frosty extends TelAdreAbstractContent {
         this.addButton(1, "No", this.noIDontWantToSignYourFuckingContractGoddamned);
     }
 
-    //[No]
+    // [No]
     public noIDontWantToSignYourFuckingContractGoddamned(): void {
         this.clearOutput();
         this.outputText(
             "Frosty lets out a discouraged “<i>Oh</i>” and slowly walks back to her side of the counter."
         );
-        //[Back at Frosty’s Main menu]
+        // [Back at Frosty’s Main menu]
         this.frostyMainMenu();
     }
 
-    //[Specials](If the player has signed the contract)
+    // [Specials](If the player has signed the contract)
     public frostysLimitedSpecialMenu(): void {
         this.clearOutput();
         this.outputText(
@@ -244,14 +244,14 @@ export class Frosty extends TelAdreAbstractContent {
 
     private frostyPoints(arg: number = 0): number {
         if (arg == 0) return this.flags[kFLAGS.FROSTY_POINTS];
-        //If any change, add it in.
+        // If any change, add it in.
         this.flags[kFLAGS.FROSTY_POINTS] += arg;
-        //Make sure it aint negative
+        // Make sure it aint negative
         if (this.flags[kFLAGS.FROSTY_POINTS] < 0) this.flags[kFLAGS.FROSTY_POINTS] = 0;
         return this.flags[kFLAGS.FROSTY_POINTS];
     }
 
-    //[Hands]
+    // [Hands]
     public frostysHandsAreColdHolyShitWhyDontYouWarmTHoseMitsUp(): void {
         this.clearOutput();
         if (!this.player.hasCock() && !this.player.hasVagina()) {
@@ -320,9 +320,9 @@ export class Frosty extends TelAdreAbstractContent {
             this.outputText(
                 "\n\n“<i>Thank you again loyal customer, hope to see you again soon!</i>” Giggling, she goes back behind her booth with a line of customers waiting. All of them are males or herms that all have hard-ons. You hear Frosty explain the contract to a busty and eager canine hermaphrodite. “<i>Just sign here and you get a free sample of my special services.</i>”"
             );
-            //[Player is back at camp]}
+            // [Player is back at camp]}
         }
-        //[If player is female]
+        // [If player is female]
         else if (this.player.hasVagina() && !this.player.hasCock()) {
             this.outputText(
                 "“<i>Okay, one dig-dug comin' right up.</i>” she giggles at her own name for a fingering. She ducks under the table and pulls up a big, fancy cushioned chair that looks like it belongs to a noble and also shouldn’t be able to fit in the tiny space under her booth. She throws the chair right next to her stand and it lands perfectly, hardly making a sound. In one moment Frosty just disappears and reappears on the chair, sitting on its arm and waving her hand over to the seat, gesturing for you to sit. You follow her gesture and take a seat in the comfy chair; just sitting there makes you feel like the ruler of a land. Placing your arms on the armrests, you feel like a boss."
@@ -367,9 +367,9 @@ export class Frosty extends TelAdreAbstractContent {
             this.outputText(
                 "\n\nShe lets you relax in the chair while she attends to a line of customers, all of them are females of various sizes. Frosty explains the contract to a centauress who is dripping wet “<i>All ya have to do is sign here.</i>” She’s still licking the syrupy mix off her hand while she explains the contract."
             );
-            //[Player is back at camp]
+            // [Player is back at camp]
         }
-        //[If player is Herm]
+        // [If player is Herm]
         else {
             this.outputText(
                 "“<i>Okay, one stroke-and-poke comin’ right up</i>” she snickers at her own name for using her hand to pleasure a herm. She ducks under the table and pulls up a big, fancy, cushioned chair that looks like it belongs to a noble and also shouldn’t be able to fit in the tiny space under her booth."
@@ -444,20 +444,20 @@ export class Frosty extends TelAdreAbstractContent {
             );
         }
         this.frostyPoints(-5);
-        //[Player is back at camp]
+        // [Player is back at camp]
         this.dynStats("sen", -1);
         this.player.orgasm();
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Mouth]
+    // [Mouth]
     public useFrostysMouth(): void {
         if (!this.player.hasCock() && !this.player.hasVagina()) {
             this.genderlessCatchAllForFrosty();
             return;
         }
         this.clearOutput();
-        //[If player is male]
+        // [If player is male]
         if (this.player.hasCock() && !this.player.hasVagina()) {
             this.outputText(
                 "“<i>One banana-licking comin' right up.\"</i> You roll your eyes at the comment as Frosty blurs away her display then vaults over the counter with ease and is suddenly behind you. You quickly turn around just as she pushes your backside against her stand and falls to her knees. She’s about to pull the lower half your [armor] off but decides not to. You wonder what she’s going to do as she stretches her jaw and sticks out her tongue for a few minutes. After she’s done with that, she cracks her neck and looks at your pants, like it’s a challenge. Then, in an instant, she’s able to undo your [armor] with just her tongue and teeth and has you standing waist-down naked. Now you have second thoughts of having any of your naughty bits near that mouth."
@@ -503,9 +503,9 @@ export class Frosty extends TelAdreAbstractContent {
                 "\n\nYou hear her nomming on something and a “blah” of disgust. “<i>I hate black licorice... ahhh...</i>” You hear her mutter, then she pops back up to set herself on display in less than a second. The customer pushes you aside and asks about “<i>getting some of what you got.</i>”\n\n “<i>Well, all you have to do is sign here and you’ll get a free sample of my services...</i>”"
             );
 
-            //[Player is back at camp]
+            // [Player is back at camp]
         }
-        //[If player is female]
+        // [If player is female]
         else if (this.player.hasVagina() && !this.player.hasCock()) {
             this.outputText(
                 '“<i>One sundae-eating coming right up!</i>" You roll your eyes at the comment as Frosty blurs away her display then vaults over the counter with ease and is suddenly behind you. You quickly turn around just as she pushes your backside against her stand and falls to her knees. She’s about to pull the lower half of your [armor] off but decides not to. You wonder what she’s going to do as she stretches her jaw and sticks out her tongue for a few minutes. After she’s done with that, she cracks her neck and looks at your pants, like it’s a challenge. Then, in an instant, she’s able to undo your [armor] with just her tongue and teeth and has you standing waist-down naked. Now you have second thoughts of having any of your naughty bits near that mouth. Just before Frosty starts her mouth sex, she raises a finger like she’s remembering something and quickly crawls around to the back of the booth, wiggling her tush in the air.'
@@ -533,9 +533,9 @@ export class Frosty extends TelAdreAbstractContent {
             this.outputText(
                 "\n\n“<i>Ooooh... I wanted to catch the honey in my mouth.</i>” She sticks her bottom lip out and pouts. How cute, she has her sad face on. You try to cheer her up by commenting about all the customers she has. She looks confused by your comment and turns around to see a line of soaking-wet cunts. She lets out an “eep” and quickly worms her way behind her stand. You hear her nomming on something and a “blah” of disgust. “<i>I hate black licorice... ahhh...</i>” You hear her mutter, then she pops back up to set herself on display in less than a second. A horse girl pardons herself as she takes your place in front of Frosty’s stand and a stack of papers is presented to her. “<i>All you have to do is sign here and you’ll get a free sample of my services.</i>”"
             );
-            //[Player is back at camp]
+            // [Player is back at camp]
         }
-        //[If player is Herm]
+        // [If player is Herm]
         else {
             this.outputText(
                 "“<i>One banana split sundae special coming right up.</i>” You roll your eyes at the comment as Frosty blurs away her display then vaults over the counter with ease and is suddenly behind you. You quickly turn around just as she pushes your backside against her stand and falls to her knees. She’s about to pull the lower half of your [armor] off but decides not to. You wonder what she’s going to do as she stretches her jaw and sticks out her tongue for a few minutes. After she’s done with that, she cracks her neck and looks at your pants, like it’s a challenge. Then, in an instant, she’s able to undo your [armor] with just her tongue and teeth and has you standing waist-down naked. Now you have second thoughts of having any of your naughty bits near that mouth."
@@ -574,21 +574,21 @@ export class Frosty extends TelAdreAbstractContent {
             this.outputText(
                 "\n\n“<i>Black licorice... disgusting stuff.</i>” She holds the “rope” up to you. “<i>The only candy I’d hesitate to chew on.</i>” She throws the candy rope behind the stand carelessly. “<i>Thank you for your participation but please move along. I have more customers to deal with.</i>” Like a show-girl, her hands direct your eyes to the line of herms behind her, all of them erect and wet, the one right behind her looking directly at her bikini bottom with primal lust in her eyes. You let out an understanding sigh and make your way past the line of herms, avoiding their cocks and hearing Frosty explain the contract. “<i>All you have to do is sign here.</i>”"
             );
-            //[Player is back at camp]
+            // [Player is back at camp]
         }
         this.frostyPoints(-15);
-        //[Player is back at camp]
+        // [Player is back at camp]
         this.dynStats("sen", -1);
         this.player.orgasm();
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Back to Frosty’s Special Menu.]
+    // [Back to Frosty’s Special Menu.]
     public genderlessCatchAllForFrosty(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.SEEN_GENDERLESS_FROSTY_REJECTION] == 0) {
             this.flags[kFLAGS.SEEN_GENDERLESS_FROSTY_REJECTION]++;
-            //[If player selects any option and is Gender-less 1st time]
+            // [If player selects any option and is Gender-less 1st time]
             this.outputText(
                 "Frosty look at the service you selected then leans over the counter and looks down at your crotch. She makes a curious “<i>Mmmmm...</i>” and reaches her hand over the counter and down towards your crotch. She palms it a bit, nodding her head as she does so. “<i>Just as I thought,</i>” she mumbles. The pink nymph retracts her hand and stands straight up. She hits the special menu in the lower-right corner with two fingers. You see very tiny lettering, writing itself onto the paper. You try to read what it’s writing, even squinting your eyes, but it’s too small to read. Only when the lettering stop writing does Frosty hand you a huge magnifying glass. You wonder where she would keep such a thing. You give Frosty a strange look and go to holding the magnifier up to the newly formed text:"
             );
@@ -599,13 +599,13 @@ export class Frosty extends TelAdreAbstractContent {
                 "\n\nYou give Frosty a dirty look but she just shrugs her shoulders like this new rule she just made is out of her power. “<i>Sorry customer, them's the rules. But hey, you can still choose a few other options... very few other options!</i>” You let out an irritated sigh and go back to looking at the specials menu."
             );
         }
-        //[If player selects any option besides sex and is Gender-less repeatable]
+        // [If player selects any option besides sex and is Gender-less repeatable]
         else {
             this.outputText(
                 "“<i>Sorry customer, you need a cock or a pussy or BOTH if I’m to do that!</i>” she sings in a cheesy jingle tone that makes you go, “<i>ughhhhhh.</i>”"
             );
         }
-        //[Back to Frosty’s Special Menu.]
+        // [Back to Frosty’s Special Menu.]
         this.frostySpecialsMenu();
     }
 
@@ -613,37 +613,37 @@ export class Frosty extends TelAdreAbstractContent {
     The Cupcakes
     [Deluxe Cupcake]
     [Their description]
-    An expensive cupcake that is decorated in colorful wrapping, with frosting and a variety of sweet toppings on it. It’s amazing that it wasn’t crushed while in your backpack, still looking fresh and neat like the minute you bought it. 
-    [Eating them]	
+    An expensive cupcake that is decorated in colorful wrapping, with frosting and a variety of sweet toppings on it. It’s amazing that it wasn’t crushed while in your backpack, still looking fresh and neat like the minute you bought it.
+    [Eating them]
     You unwrap the cupcake and take a big bite. Its sweet unique taste fills your mouth, making you take another bite just to keep the taste strong. You take so many quick bites that the cupcake is gone before you know it.
-    
+
     Cupcake’s Effects
     •	They pawn for 15 gems
-    •	They restore 15% HP 
+    •	They restore 15% HP
     •	Reduces Fatigue by 30 points
     •	30% chance to add 1 speed
     •	10% chance to add 2 speed
-    •	Eating too many (20) of them in a short time (2 days) earns the player the hyperactive perk. 
-    
-    Hyperactive Perk Effect 
+    •	Eating too many (20) of them in a short time (2 days) earns the player the hyperactive perk.
+
+    Hyperactive Perk Effect
     •	Speed is increased by 40 points.
-    •	Speed will never go below 40 points 
+    •	Speed will never go below 40 points
     •	Gets a double-attack that stacks with other double-attack effects.
-    •	The player cannot wait but they can still rest or sleep. 
+    •	The player cannot wait but they can still rest or sleep.
     •	The player must eat at least 5 cupcakes every 4 days to keep the perk.
-    
+
     [Player getting the hyperactive perk]
     Your heart races and your blood boils. You feel like running, jumping, yelling at the top of your lungs for no reason. Surely these newfound feelings would drive anyone around you up the walls but you can’t help it.
-    
+
     [Waiting while having the hyperactive perk]
     You sit down in place, but after 30 seconds you’re bouncing in place and fidgeting with your hands. Moving your head around rapidly to the left and to the right, looking for something of interest, you bolt up. Waiting is such a waste of time anyway.
-    
+
     [Waiting in Combat while having the Hyperactive perk]
     Waiting!? Who has time for that when there are enemies who need punches in the face!?
-    
+
     [Player loses Hyperactive perk]
     You feel lazy, like all the energy in you has just left your body, even the tiniest step makes your heart beat in exhaustion and leaves you panting like a lazy good-for-nothing. Seems like your sugar-rush has just made you hit the wall..
-    
+
     Hitting the wall effect
     •	Lose the Hyperactive perk and all its benefits
     •	It lasts for 6 hours
@@ -654,21 +654,21 @@ export class Frosty extends TelAdreAbstractContent {
     2.	Cupcake x 5 = 125gems
     3.	Cupcakes x 10 = 230gems
     4.	Cupcakes x 20 = 400gems
-    
+
     [Cupcakes prices list with discount]
     1.	Cupcake x 1 = 24gems
     2.	Cupcake x 5 = 100gems
-    3.	Cupcakes x 10 = 184gems 
+    3.	Cupcakes x 10 = 184gems
     4.	Cupcakes x 20 = 320gems
     */
 
-    /*Specials 
+    /*Specials
             Cunnalings - 1pt.
             Anal - 10pt.
             Spankings - 100pt
             Party - 500pt*/
 
-    //Cunnilingus (For all genders)
+    // Cunnilingus (For all genders)
     public cunnilingateFrosty(): void {
         this.clearOutput();
         this.outputText(
@@ -720,7 +720,7 @@ export class Frosty extends TelAdreAbstractContent {
         this.outputText(
             "\n\nFrosty proceeds to try and have the minotaur sign the papers as you go out back into the city."
         );
-        //[Player is back at camp]
+        // [Player is back at camp]
         this.frostyPoints(-1);
         this.dynStats("lus", 33);
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -730,18 +730,18 @@ export class Frosty extends TelAdreAbstractContent {
     function analWithACupcakeSloot(): void
     {
         clearOutput();
-        //(If player has a cock, they are presented with this option)
+        // (If player has a cock, they are presented with this option)
         if(player.hasCock())
         {
             outputText("“<i>So you wanna be the pitcher or the catcher?</i>” she ask with devilish smile. What the hell is that suppose to mean?");
-            //[pitcher?]  [catcher?]
+            // [pitcher?]  [catcher?]
         }
         else
         {
-            //9999 go to catcher in the rye
+            // 9999 go to catcher in the rye
         }
     }
-    //Pitcher
+    // Pitcher
     function pitcherInTheRyeAndByRyeIMeanFrostysBrownHole(): void
     {
         clearOutput();
@@ -750,254 +750,254 @@ export class Frosty extends TelAdreAbstractContent {
         outputText("\n\nYou squeeze behind her, there being just enough room for the two to stand front to butt from one another, your body squishing against her soft back-side.  You reach into your [armor] and release your " + multiCockDescriptLight() + " from ");
         if(player.cockTotal() == 1) output("its");
         else output("their");
-        outputText(" prision, the hot mass getting tangled in the curly hair draping over her back. It’ll take some maneuvering from the both of you but eventually your cock-head makes contact with her tight pink hole. Frosty take a deep breath and starts easing her-self down your " + cockDescript(x) + ". It takes her only a few moment for your cock to  be snugly secured in her insides. She stands up straight and the grip around your cock becomes tighter. She breath out “This is like the only service where I can man the shop and pleasure a customer, a bit exhausting but business is business.”   
-    
+        outputText(" prision, the hot mass getting tangled in the curly hair draping over her back. It’ll take some maneuvering from the both of you but eventually your cock-head makes contact with her tight pink hole. Frosty take a deep breath and starts easing her-self down your " + cockDescript(x) + ". It takes her only a few moment for your cock to  be snugly secured in her insides. She stands up straight and the grip around your cock becomes tighter. She breath out “This is like the only service where I can man the shop and pleasure a customer, a bit exhausting but business is business.”
+
     “Mph, you reply as you begin to rock your [hips], starting the pleasurable fiction. As you begin revving up, a centauress trot over to the booth. She has blonde hair done up in a bun and is sporting  two big lovely breast. She looks perplexed on why you're standing behind Frosty and why she’s breathing heavily and has a flushed look on her face. It’s doesn’t take long for her to put two and two together. She’s about to give you two some privately but Frosty quickly stops her.
-    	
+
     “Oh... mmmmm... Don’t mind... oh geez... him/her... it’s part... slow a bit [name]...it’s part of the service.”
-    	
+
     The centauress comes back, trying her best to ignore you fucking the back-door of the person she’s talking to.
-    	
+
     “oh... ummmmm... yes. I would like to buy some of your...” she pauses when you really start pounding it into Frosty, making her body jiggle and her eyes close as she try to ignore you and focus on her job. The centauress is almost  mesmerized by this display of lust,  how eagerly you move your hips to ram your [cock.noun] into Frosty and how she’s like putty in your hand as you do this. The centauress shakes her mind back to her objective.
-    	
-    “I was wonder if I could buy some of those deluxe cupcakes.”  Frosty tries to reply to her 
+
+    “I was wonder if I could buy some of those deluxe cupcakes.”  Frosty tries to reply to her
     “Ooooooooo-k... how man-man-many do you-Mmmmmmmmmmmm-want!” The centauress replies with a “five” focusing more on your cock pounding into that ass. “Would yooooooou like-like to sign up for our-oh goddess this is sooooooo good- our Sweets and Sex program. You can-can-can-Oooooooooo!” Frosty throws her head back, puts a hand over her heart and lets out a long moan. You feel a hot stream her nymph cum running down her orgasim twitching legs, clearly she is getting off on this faster than you are. Must be an exhibitionist.
-    
+
     [if player is exhibest]
     [, just like  you. Knowing this centauress is watching ass fuck this pink slut makes your cock even harder, like you can feel her eyes on your cock. You could blow your load into her colon right now, but you hold back. You want this curious horse-cunt to look on longer.]
-    
+
     Frosty regains as much composure as she can with you still going at it. She goes back to talking to the centauress, who looks more flushed than Frosty does right now
     “As-as-as I was saying. yooooou can get get p-p-points...”  Frosty let’s out a moan, she’s been holding back, out.
-    “points! for every i-i-i-item you buy.  The-the-these point can be used to-to-to fuck meeeee!!!!” she blurts out that last part out and just fully indulges herself in you. Sticking her tongue out like a panting bitch, her eyes dreamily half-closed  with lusty ass pleasure. Letting out any little moan that builds up in her.  “More, MORE!” she yells and you grab her long legs out from under her and hold them up.  Frosty entire weight is pushed down on your [cockDescript(0)] and her pink ass-hole is bounced every time you thrust up, making her pink tits jiggle out  from her top and bounce as fuck this nympho slut. 
-    
-    The centauress stares at this show, biting on her knuckle and holding her side. Making her already big chest puppies look even perkier.  She must be trying to hold back some new feeling she has, now that she’s seeing your cock going directly into Frosty’s ass, in and out as she moans like a bimbo in heat. She must be imagining what it must feels like while trying to resist the thought at the same time. You gaze catches the centauress’, she bashfully looks away. Taking a side-glance at your fuck stick.  
-    
+    “points! for every i-i-i-item you buy.  The-the-these point can be used to-to-to fuck meeeee!!!!” she blurts out that last part out and just fully indulges herself in you. Sticking her tongue out like a panting bitch, her eyes dreamily half-closed  with lusty ass pleasure. Letting out any little moan that builds up in her.  “More, MORE!” she yells and you grab her long legs out from under her and hold them up.  Frosty entire weight is pushed down on your [cockDescript(0)] and her pink ass-hole is bounced every time you thrust up, making her pink tits jiggle out  from her top and bounce as fuck this nympho slut.
+
+    The centauress stares at this show, biting on her knuckle and holding her side. Making her already big chest puppies look even perkier.  She must be trying to hold back some new feeling she has, now that she’s seeing your cock going directly into Frosty’s ass, in and out as she moans like a bimbo in heat. She must be imagining what it must feels like while trying to resist the thought at the same time. You gaze catches the centauress’, she bashfully looks away. Taking a side-glance at your fuck stick.
+
     You feel your urethra dilate and the pressure in your cock grows too much to bare and you shoot glob after glob of hot sticky spunk into Frosty, the feeling of this hot cum makes Frosty squirt a stream of girl-cum all over her counter. Some of it sprinkling onto the now memorialized centaur cunt. You huff a little and pull her off your cock with a loud wet pop, followed by a
-    
+
     [if low cum production]
     small trickle of cum that just drips out of her gaping hole.
-    
+
     [if medium cum production]
     decent stream of cum that flows for a second and then just starts to drip.
-    
+
     [if High Cum production]
-    flood of cum following your cock out of the gaping hole. 
-    
+    flood of cum following your cock out of the gaping hole.
+
     [if OMGWTFBBQ cum production]
      huge flood of cum, you have to hold Frosty’s legs up for a few more minutes before all the jizz comes out of her,  almost sounding like a water faucet when it hits the ground. The ground and your feet are soaked in the stuff now.]
-    
-    You set Frosty down on her feet, she stands there for a second and then slumps forward onto her own cum covered counter with a little splash.  The centauress looks down at her and then at you. You put your cock back in your pants and walk past her with smirk on your face. She pokes Frosty’s hat and ask “Are you still accepting sign ups for your services?” 
-    
-      
-    Catcher 
+
+    You set Frosty down on her feet, she stands there for a second and then slumps forward onto her own cum covered counter with a little splash.  The centauress looks down at her and then at you. You put your cock back in your pants and walk past her with smirk on your face. She pokes Frosty’s hat and ask “Are you still accepting sign ups for your services?”
+
+
+    Catcher
     (Picked by default if player has no cock)
-    “I love it when you people pick that one. *hehehe*”  What does she mean “You people?” Before you can make a retort on that comment, she ducks under the counter and the sound of clanking pans can be heard, followed by the sound of clicking buckles. She pops back up with a huge impish grin on her face, what is she planning? She moves from behind the counter and stands to the a side of it, leaning against her booth. 
-    
-    Showing you what she’s all smiles about. Her bikini bottom has been switched with a strap-on horse cock! Leather straps secure the large  member in it’s place, each one digging a path in her skin, going across pink thighs and all them meeting on her bubble-gum pink ass. Right now the cock is dangling, looking directly at the ground. Only when she snaps her finger does it becomes full, hard and erect. Springing up so fast that Frosty has to take a step back to keep her balance. 
-    
+    “I love it when you people pick that one. *hehehe*”  What does she mean “You people?” Before you can make a retort on that comment, she ducks under the counter and the sound of clanking pans can be heard, followed by the sound of clicking buckles. She pops back up with a huge impish grin on her face, what is she planning? She moves from behind the counter and stands to the a side of it, leaning against her booth.
+
+    Showing you what she’s all smiles about. Her bikini bottom has been switched with a strap-on horse cock! Leather straps secure the large  member in it’s place, each one digging a path in her skin, going across pink thighs and all them meeting on her bubble-gum pink ass. Right now the cock is dangling, looking directly at the ground. Only when she snaps her finger does it becomes full, hard and erect. Springing up so fast that Frosty has to take a step back to keep her balance.
+
         “Whoo, forget how much of a kick this boy  has but hey, the soft and hard options really make it easy to transport and move around.”
-    
-        She snaps her fingers again and the horse-cock goes limp, hitting her leg with a slap and dangling between her ankles.She seductively walks over, horsecock swinging in the breeze, playfully running her hand over your shoulder as she moves right behind you, her hands running down your [Breast.descipt] over you [body.type] stomach and reaching to your crotch. 
-    
+
+        She snaps her fingers again and the horse-cock goes limp, hitting her leg with a slap and dangling between her ankles.She seductively walks over, horsecock swinging in the breeze, playfully running her hand over your shoulder as she moves right behind you, her hands running down your [Breast.descipt] over you [body.type] stomach and reaching to your crotch.
+
     [If player has just cock ]
-          She traces the outline of your cock/cocks size(s) along you [armor.type] with her fingertip. Under hard under her delicate toucj 
-    
+          She traces the outline of your cock/cocks size(s) along you [armor.type] with her fingertip. Under hard under her delicate toucj
+
     [If player has just pussy]
     She rubs a finger along the length of your [cunt.descipt.], damping the crotch of you [amor]
-    
+
     [If play is herm]
         Her entire hand feels up your [cock.descipt]/[multi-cockdescipt]  while her fingers rub your [vagina].
-    
+
     [If play is genderless]
         Her hand is looking for something that isn’t there, you smirk a little at her efforts.
-    
-    
+
+
         She looks into your eyes and smiles while her hands reaches to undo the bottoms of your [armor.descipt].  You help her a little and soon your [amor.desciption] no longer cover your [ass.descipt] or your [multi-/cock.descipt] [and] [cunt.dscipt]. You courstyly take a step forward and take a side-glance at Frosty, she still has that impish smile on, waiting to shove that 3ft cock-stick in your ass. You let a  little sigh and wonder if she want this more than you.
-    
+
         You bend over the counter and present your [buttDescript] to the fake herm nymph. She snaps her fingers once more and the strap-on spring backs to attention. You feel her spread your cheeks aparts, getting a better view of your (assholeDescript) She manuervers her hips to line the flared head up to your pucker.You feel it’s cold material lightly pushing brushing against your back-hole.  Knowing of what behind that small cold feeling causes your
-    
-    [If player has just cock ] 
+
+    [If player has just cock ]
         [cock.descipt]/[mulit-cock.decipt] to get hard and beads of pre form on it’s/their throbbing  tip(s).
-    
+
     [If player has just pussy]
-        cunt to quiver in excitement. 
-    
+        cunt to quiver in excitement.
+
     [If play is herm]
         [cock.descipt]/[mulit-cock.decipt] begins to get hard and beads of pre form on it/their tips(s) that drips down the length(s) and onto your already dripping wet [vagina].
-    
+
     [If play is genderless]
         heart beats in anticipation.
     [else]
         You shallow down these lustful feelings of wanting and brace yourself when Frosty grabs onto your [hipDescrip] and slowly pushes her horse-cock in, spreading you [assholeDescript]. You’re to fully take this fucking but she stops pushing the foreign object only at 2-inches in, you relax your body. Thinking she stopped to let you catch your breath or something. So wrong, once your body relaxes, she shoves the rest of the 34-inches in you with one powerful thrust. You let out a shriek of surprise that echoes through the city, losing all the strength in your
-    
+
     [if player has normal legs]
-    legs, the left one doing an odd twitch 
-    
+    legs, the left one doing an odd twitch
+
     [If player has snake tail]
     snake-tail, the tip of it doing an odd twitch
     [else]
-    
-    and 
-    
+
+    and
+
     [If gendered]
-    a shot of a surprised cumming painted on the front of Frosty’s booth. 
-    
+    a shot of a surprised cumming painted on the front of Frosty’s booth.
+
     [If gender-less]
     a feeling of a phantom orgasim enveloping your body.
     [else]
-    Frosty’s laughing hysterically as your continue to shriek, holding her side with the cock still in you. “HAHAHAHAHA!!! TALK ABOUT SURPRISE BUTT-SEX!!! Ooooooh, I wish I could see the look on your face when I did that. *hehehe*.”  You give Frosty a cold look “Oh come on, don’t be like that... tell ya what. I’ll give ya another cumming... on the house of course.” 
-    
+    Frosty’s laughing hysterically as your continue to shriek, holding her side with the cock still in you. “HAHAHAHAHA!!! TALK ABOUT SURPRISE BUTT-SEX!!! Ooooooh, I wish I could see the look on your face when I did that. *hehehe*.”  You give Frosty a cold look “Oh come on, don’t be like that... tell ya what. I’ll give ya another cumming... on the house of course.”
+
     You continue to stare at her with those cold eyes, her smiling back at them, hoping you’ll accept this apology of her’s. You stare at her a bit more and then let out a huff of defeat and push your [buttDescript]  back against her crotch as way of saying “Apology accepted.”
-    
-    You re-brace yourself as Frosty grabs onto your [hair.descipt] this time.  You arch your back  in pain  causing you to be pushed harder against the sex toy, you whine a little in agony as that devilous nymph begins rocking back and forth, you can feel the object move in you. 
-    
-    It moves only few inches on your onsides. Your mind starts racing with pleasure as Frosty’s other hand wanders over your [allBreastsDescript] and pinches on your [nippleDescript(0)], pulling and twisting the nip and taking nice hard grabs at your [ breastDescript(0)] A familiar build-up forms down in your crotch, you start pushing back against Frosty’s “cock” to hurry up the climax and start pinching your other [nippleDescript(0)] minicing the same action as the torturous nymph does, abusing the sensitive bud all in the name of sexaul pleasure.   
-    
+
+    You re-brace yourself as Frosty grabs onto your [hair.descipt] this time.  You arch your back  in pain  causing you to be pushed harder against the sex toy, you whine a little in agony as that devilous nymph begins rocking back and forth, you can feel the object move in you.
+
+    It moves only few inches on your onsides. Your mind starts racing with pleasure as Frosty’s other hand wanders over your [allBreastsDescript] and pinches on your [nippleDescript(0)], pulling and twisting the nip and taking nice hard grabs at your [ breastDescript(0)] A familiar build-up forms down in your crotch, you start pushing back against Frosty’s “cock” to hurry up the climax and start pinching your other [nippleDescript(0)] minicing the same action as the torturous nymph does, abusing the sensitive bud all in the name of sexaul pleasure.
+
     Frosty pushes your chest against the counter and starts thrusting more of the horsecock in and out of you, slapping her pink thighs against you [butt.descipt] when every push, A whole foot of body hot sex toy is being thrusted in with a loud smack and pulled back out with a moan from you.  Both of you keep twisting your nips, the desert hot wooden counter top, warming your chest and stomach, pushing the hands already against your body harder into you. She starting taking bigger thrust, pulling at least 2ft of the strap-on out of you and shoving it back in with echoing slap of flesh.  Your moans grow faster and her breath gets hotter, and in the next moment []
-    
-    [If player has just cock ] 
+
+    [If player has just cock ]
      your [cock.descipt]/[mulit-cock.decipt] (all) shot out stream(s) of hot white baby batter
     [If player has just pussy]
-    you [vagina] give ones last quiver and twitch then releasing a gusher of girl-cum down your thighs 
+    you [vagina] give ones last quiver and twitch then releasing a gusher of girl-cum down your thighs
     [If play is herm]
     you sexes release a huge mix of male and female cum, making huge mess by your feet.
     [If gender-less]
     you feel building up in your groin and then releasing a glow of ecstasy cross your whole body.
     [else]
-    Frosty makes a satisfied sigh and thrusted her hip to make sure you satisfied. She releases your hair, your head thudding against the countertop. She snaps her fingers again and the toy shrivels out of your (assholeDescript) and dangels back to between her ankles, leaving your ass-hole gaping wide open. 
-    
-    “Now that I think about it, I should have used some form of lube... oh well, it got the job done. Woudn’t you agree [play.name]?’”  You agree with a wave of the hand, still exhausted and riding on the wave pleasure. She laughs at your half-hearted yes and walks over to the other end of you and whisper in your ear “I would get up and go soon or that guy with the huge knot behind you is gonna think your butt-hole is part of the display. You  quickly turn onto your backside, feeling yourself knocking an eager cock off it’s course. 
-    
+    Frosty makes a satisfied sigh and thrusted her hip to make sure you satisfied. She releases your hair, your head thudding against the countertop. She snaps her fingers again and the toy shrivels out of your (assholeDescript) and dangels back to between her ankles, leaving your ass-hole gaping wide open.
+
+    “Now that I think about it, I should have used some form of lube... oh well, it got the job done. Woudn’t you agree [play.name]?’”  You agree with a wave of the hand, still exhausted and riding on the wave pleasure. She laughs at your half-hearted yes and walks over to the other end of you and whisper in your ear “I would get up and go soon or that guy with the huge knot behind you is gonna think your butt-hole is part of the display. You  quickly turn onto your backside, feeling yourself knocking an eager cock off it’s course.
+
     A dog-morph stands there with the biggest knotted cock you've ever seen. You quickly gather all your things and make you way past him. He looks to Frosty to relieve him of his stresses. You hear Frosty say “All you have to do is sign these.”
-    
-    
+
+
     Spanking
     ( Wrote this when I was tired as fuck, this is the fuck up zone of the fuck zone)
     Another service gender-less can have
-        You point down at the service you want, Frosty looks down at it and her eyes go wide. She quickly pull a clipboard, that’s holding a decent stack of paper in place, from the under counter. The worried nymph flips  through the papers, stopping at one of the pages towards the back. Her finger scans down the paper, and stops. She look over the paper and then down at the service you selected. She gulps down the worry look on face and tries to smile “So you do have enough points for that service... hehehehe...” She nervously tries to giggle “Are there ANY other services you would be interested in, like one that isn’t this one?”  
-    
+        You point down at the service you want, Frosty looks down at it and her eyes go wide. She quickly pull a clipboard, that’s holding a decent stack of paper in place, from the under counter. The worried nymph flips  through the papers, stopping at one of the pages towards the back. Her finger scans down the paper, and stops. She look over the paper and then down at the service you selected. She gulps down the worry look on face and tries to smile “So you do have enough points for that service... hehehehe...” She nervously tries to giggle “Are there ANY other services you would be interested in, like one that isn’t this one?”
+
     She doesn’t seem to like this service, are you sure you want her to go through with this?
-    
+
     [Yes]	[No]
-    
+
     [No]
     She wipes the worry off her brow and goes back to her happy face.
     [Back to specials menu]
-    
-    
+
+
     [Yes]
     You tap your finger over the “Spanking” text. “Sooooooo... do you want to spank me or do want me to spank you?”
     [Her]	[You](available if you have the masochist perk)
-    
+
     [Her]
     (Picked by default if you don’t have masochist perk)
     You give her a look of “Did you seriously just for ask that?” She gets the point that you want this service and it to be done on her, she reluctantly agrees with you. Mumbling under her breath of why she even added stupid ass spanking in the first place.
-    
-    Frosty pulls a big fancy chair out from under the counter, she carries it over to the side of the booth and plops it down. It’s a bit a  “crooked” when she puts it down and she continues to adjust the chair until it’s “straight”. She’s obviously procrastinating, you clear your throat and say you don’t mind sitting on a “crooked” chair. She quickly takes her hands off the chair, getting caught in the act so to speak.  She gestures to the chair’s cushion, wanting you to sit but you sense there is something missing. You walk over to the counter and reach under there, Frosty nervously looks  at you and tries to stop you 
-    
-    “THAT FOR EMPLOYEES ONLY!!!”  but it’s too late. Your hand has already found you were looking for. Grabbing onto its handle, you pull it out to the light of day, much to Frosty’s horror. 
-    
-    It’s a paddle that has nicely sized holes in it to counter air resistance and a few dull metal studs embedded in the wood between the holes, to leave some marks on the flesh it abuses.  Done examining the fine piece of wood, you lightly smack it in the palm of your hand and look over at Frosty. 
-    
-    “Oh... I wonder where that came from... heh...?”   You take a look at the handle and you can see that it has a label. “Property of Frosty Cakes.” is written there in fancy calligraphy. Yeah, you “wonder” too. You caught this bitch red-handed trying to cheat you out of your full service, well that isn’t gonna be the only thing that thing red ass on her won’t fix. 
-    
-    You scuff past her, Frosty flinching at the air of authority that surrounds you, strikes her. You take a seat on the chair and pat for her to take her place. As Frosty prepares to lay herself across your lap, you see that she still has her bikini-bottom protecting her luscious rump. You tell her that she must first remove the offending garment. The spanking you have in mind for her is going to have her bare, allowing you to see the progress of changing her bright pink skin into a more appealing red color. She nervously fiddles with the strings and is soon standing ass naked, trying to avoid your eyes like a child  who’s know they’re about to be punished. 
-    
-    She stands in front of you, hoping that you’ll change your mind in your mind in the last second. NOPE! You grab her by the wrist and forcefully bend her across your lap. She squirms a little but she settles down for you, after all, she can’t back out of a contract.  You rub and squeeze her delicate ass, it’s feels warm, soft and overall, nice to touch. She makes little whimpers, readying her body for your abuse. 
-    
-    You release your grip on her cheeks and raise the paddle high into the air for dramatic effect, holding it up there for moment, watching Frosty shake in fear. You slam down on her with everything you got *WHACK* *WHACK* *WHACK* Frosty quickly covers her hands over her mouth to muffle her screams and groans of her pain, wrenching her body to adjust to this affliction.  Three more slaps of the paddle and her pink ass is starting to display a slight red blush. However, you are only just beginning. 
-    
+
+    Frosty pulls a big fancy chair out from under the counter, she carries it over to the side of the booth and plops it down. It’s a bit a  “crooked” when she puts it down and she continues to adjust the chair until it’s “straight”. She’s obviously procrastinating, you clear your throat and say you don’t mind sitting on a “crooked” chair. She quickly takes her hands off the chair, getting caught in the act so to speak.  She gestures to the chair’s cushion, wanting you to sit but you sense there is something missing. You walk over to the counter and reach under there, Frosty nervously looks  at you and tries to stop you
+
+    “THAT FOR EMPLOYEES ONLY!!!”  but it’s too late. Your hand has already found you were looking for. Grabbing onto its handle, you pull it out to the light of day, much to Frosty’s horror.
+
+    It’s a paddle that has nicely sized holes in it to counter air resistance and a few dull metal studs embedded in the wood between the holes, to leave some marks on the flesh it abuses.  Done examining the fine piece of wood, you lightly smack it in the palm of your hand and look over at Frosty.
+
+    “Oh... I wonder where that came from... heh...?”   You take a look at the handle and you can see that it has a label. “Property of Frosty Cakes.” is written there in fancy calligraphy. Yeah, you “wonder” too. You caught this bitch red-handed trying to cheat you out of your full service, well that isn’t gonna be the only thing that thing red ass on her won’t fix.
+
+    You scuff past her, Frosty flinching at the air of authority that surrounds you, strikes her. You take a seat on the chair and pat for her to take her place. As Frosty prepares to lay herself across your lap, you see that she still has her bikini-bottom protecting her luscious rump. You tell her that she must first remove the offending garment. The spanking you have in mind for her is going to have her bare, allowing you to see the progress of changing her bright pink skin into a more appealing red color. She nervously fiddles with the strings and is soon standing ass naked, trying to avoid your eyes like a child  who’s know they’re about to be punished.
+
+    She stands in front of you, hoping that you’ll change your mind in your mind in the last second. NOPE! You grab her by the wrist and forcefully bend her across your lap. She squirms a little but she settles down for you, after all, she can’t back out of a contract.  You rub and squeeze her delicate ass, it’s feels warm, soft and overall, nice to touch. She makes little whimpers, readying her body for your abuse.
+
+    You release your grip on her cheeks and raise the paddle high into the air for dramatic effect, holding it up there for moment, watching Frosty shake in fear. You slam down on her with everything you got *WHACK* *WHACK* *WHACK* Frosty quickly covers her hands over her mouth to muffle her screams and groans of her pain, wrenching her body to adjust to this affliction.  Three more slaps of the paddle and her pink ass is starting to display a slight red blush. However, you are only just beginning.
+
     You want to make it into a crimson glow. Another four quick slaps later and tears start to stream down her face as she lightly sobs into her hands.*WHACK* You do another nice hard smack on the tenderized flesh. Frosty is now babbling into her hands now, drop of her tears dripping out of her hands. “PLEASE STOP!!!!! I’LL REFUND YOUR POINTS JUST PLEASE STOP!!!”  You whack her ass again, ignoring his pleas and listening to her unmuffled shierk. She covers her abused butt with her sopping wet hands and is now begging for you to stop. “I’ll give you any other service for free, JUST PLEASE STOP!!!”
-    
+
     [if player has 60 corruption/sadist perk and a cock, this option is presented to the PC,]
     There’s a devious idea  you could with that free service, wonder how happy she’ll be if you wanted that service to be anal?
-    
+
        [Nah] 	[Do it]
-    
+
     [Nah] (Keep paddling)
     Pick by default if player doesn’t meet the requirement
-    You give a stern wack on her knuckles, she quickly retreats her hands from her tender bottom. Defeated in her attempts, the most she can do is bite on her knuckle now, continuing to take your harsh attacks on her tender bottom, while tears of agony drip off her face. *Whack-whack whack-whack* 
-    
-    “...you’re so cruel...” she whimpers. You give her red bottom five more smacks, making her voice falters mid sentence. Her cries of pain becoming mere little whimpers. Perhaps her voice got tired of screaming and crying or her ass is just numb to the pain now.  Her derriere is now the lovely crimson red you desired her to have, almost looking like sun-burn. You cease your attacks, letting the numbness of pain subside and allow feeling return to her abused bum. She has calmed down too, still sobbing a little, as the pain lingers slightly. You rub your hand over this the raw red flesh, the heat of her body repairing the damage radiates off her, as you feel the small divots the dull studs made from each strike. You a poke a finger into the tender area and the abused nymph grunts of pain. Yep, she isn’t going be sitting right for a days. You tell her you’re done. 
-    
-    “Thank You... *sob*... thank you, sweet merciful Marae...”  She weakly gets on her feet and gently walks her way back to the stand, her steps staggered as she tries to walk in way that doesn’t hurt too much. A passing by red mouse girl sees Frosty’s red and checkered ass 
-    
+    You give a stern wack on her knuckles, she quickly retreats her hands from her tender bottom. Defeated in her attempts, the most she can do is bite on her knuckle now, continuing to take your harsh attacks on her tender bottom, while tears of agony drip off her face. *Whack-whack whack-whack*
+
+    “...you’re so cruel...” she whimpers. You give her red bottom five more smacks, making her voice falters mid sentence. Her cries of pain becoming mere little whimpers. Perhaps her voice got tired of screaming and crying or her ass is just numb to the pain now.  Her derriere is now the lovely crimson red you desired her to have, almost looking like sun-burn. You cease your attacks, letting the numbness of pain subside and allow feeling return to her abused bum. She has calmed down too, still sobbing a little, as the pain lingers slightly. You rub your hand over this the raw red flesh, the heat of her body repairing the damage radiates off her, as you feel the small divots the dull studs made from each strike. You a poke a finger into the tender area and the abused nymph grunts of pain. Yep, she isn’t going be sitting right for a days. You tell her you’re done.
+
+    “Thank You... *sob*... thank you, sweet merciful Marae...”  She weakly gets on her feet and gently walks her way back to the stand, her steps staggered as she tries to walk in way that doesn’t hurt too much. A passing by red mouse girl sees Frosty’s red and checkered ass
+
     “Hey! Nice ass honey!” and gives the bottom a nice hard clawed hand slap on the toosh. Frosty yelps like a bitch and zooms into the barkery, leaving the Mouse-girl in the wake of a pink whoosh. You smirk at the confused Mouse-girl whose fur is now wind blown to one side. Maybe Frosty has some creams or potions in the barkery to heal what you just did to her.
     [Spanking cost double points from now on]
             [Do it](Fuck her abused butt)
-    	
-    	
+
+
     [You]
-    She lets out a huge sigh of relief, her entire body relaxing after hearing this good news then a wicked grin cracks across her face. 
-    	
+    She lets out a huge sigh of relief, her entire body relaxing after hearing this good news then a wicked grin cracks across her face.
+
     “Ohhhh... so you’ve been a naughty boy/girl? Well I know what to do with the likes of you.”
-    She reaches under the table and throws a fancy chair on the ground next to her stand. Then walks from her side of the counter, holding something behind her back and has an impish smile on. 
-    
-    “I got a surprise for you!!!” 
-    
+    She reaches under the table and throws a fancy chair on the ground next to her stand. Then walks from her side of the counter, holding something behind her back and has an impish smile on.
+
+    “I got a surprise for you!!!”
+
     The devilish nymph quickly shows what she’s was  hiding. It’s a paddle that has nicely sized holes in it to counter air resistance and a few dull metal studs embedded in the wood between the holes, to leave some marks on the flesh it abuses.  Frosty’s full name is written in fancy calligraphy on the handle. The amount of pain and torment that thing can do to your [ass.descipt] make you bite your bottom-lip anticipation. Your pink, soon to be, abuser sees that look of lust in face.
-    	
+
     “Heheh..Its so rare that someone picks this service, I think you’re the first one. Good thing too, I thought I actually wasted gems buying this paddle.”
-    
-    She gives a light tap of the paddle on her hand, making a soft slap. Oh you can imagine it already slapping against your naughty ass, you need to be punished! You let out a desired sigh as Frosty grabs your wrist and leads you to her chair. Your master takes a seat on her throne and pats on her lap for you to take your lonely place across it.  You strip out of your [armor.set], even the top half you didn’t need to take off. You don’t want anything distracting you from the pain.  Eagerly bending yourself over her, positioning your ass for maximum exposure and abuse.  She complaints your [ass.description] giving it light easy strokes and a boring squeezes. 
-    
+
+    She gives a light tap of the paddle on her hand, making a soft slap. Oh you can imagine it already slapping against your naughty ass, you need to be punished! You let out a desired sigh as Frosty grabs your wrist and leads you to her chair. Your master takes a seat on her throne and pats on her lap for you to take your lonely place across it.  You strip out of your [armor.set], even the top half you didn’t need to take off. You don’t want anything distracting you from the pain.  Eagerly bending yourself over her, positioning your ass for maximum exposure and abuse.  She complaints your [ass.description] giving it light easy strokes and a boring squeezes.
+
     “Come on already!!!” You shout at her, making her giggle at your eagerness for this abuse.
-    
+
     She raises the paddle slowly, you start to [grow hard/ get wet/ feel aroused] with every inch she raises it,  higher and higher it goes. Above her head and as far as her arm can strech, holding it high in place. Watching as you squirm and withering, awaiting this pain you so rightfully deserve.
-    
-    *WHACK* The paddle hits in pleasurable pain ”OOOOOOOOOOOH!“ you moan out as you throw in your head back. Soon there are three quick slaps to your rear, every slap feels like its own orgasmic wave of  pleasure; like a tsunami, it spreads throughout your body. From the top of your head to the tips of your toes/tail, you shake with pleasure and sweat in pain. You sexy bits being devastated with arousal in the wake of these waves. Three more smacks, the quick whacks give you burst of lust that you could just overdose on. You start panting with your tongue out as your eyes begin to form tears in reaction to the pain.  How those eyes try to betray your true feelings. 
-    
-    *WHACK* *WHACK *WHACK* *WHACK* 
-    
+
+    *WHACK* The paddle hits in pleasurable pain ”OOOOOOOOOOOH!“ you moan out as you throw in your head back. Soon there are three quick slaps to your rear, every slap feels like its own orgasmic wave of  pleasure; like a tsunami, it spreads throughout your body. From the top of your head to the tips of your toes/tail, you shake with pleasure and sweat in pain. You sexy bits being devastated with arousal in the wake of these waves. Three more smacks, the quick whacks give you burst of lust that you could just overdose on. You start panting with your tongue out as your eyes begin to form tears in reaction to the pain.  How those eyes try to betray your true feelings.
+
+    *WHACK* *WHACK *WHACK* *WHACK*
+
     You moan again as tears continue to stream down your face and your [multicock.descipt/vagina]   getting close to it/their climax, throbbing/aching with pain-fueled lust and pleasure.
-    
+
     Frosty becomes a spanking machine cranked up to 11! Your [toes/tail] curl up are your bottom is brutal and merciless by this barker’s studded paddle. The moans of gleeful pleasure that roar through your throat are overcomed the hard, smacking sound of wood on glowing, red-flesh. Even as [you cum like a gusher/ a phantom orgasm rips through your body], Frosty is waking your ass like a nanny. Your euphoric state has you sprawled out over Frosty’s pink thigh as she start to gently paddles your rear, every second she gets slower with her punishing thwacks. Then she stops with her paddle high in the air.
-    
+
     “Ok [player.name], that’s all the time you have with this service. Oh look at your tushy! It’s bright and glowing, I bet it hurts like a dragon throat!” Yes, it hurts sooo good. The stinging pain resonating from your butt-cheeks feels like it alone would make you cum again. You get up off her lap and put your clothes back on, a hard wave of pain shot through out your body as you get your pant back on. So good, you feel like you want to sit and squirm in your seat.
-    
+
     Frosty waves you good-bye as you walk away from her booth, surprisingly, no line has lined up while you were being serviced.
-    
-    5voice and the word “FAT” to be echoed around the shop. You stand there with a smirk on your face as the poor Talking-Ham looks to the ground, shocked and ashamed.  Frosty ignores your rudeness, and examines the girl, eyeing her pudgy form head to toe. The cupcake vendor looks to be in deep thought, before taking a deep breath and bursting into laughter. Holding her sides and pointing at the walking pork-rind. The devastated ham  is about to run off with tears in her eyes, but you grab her before she gets away from your arm’s reach and hold her there. This is too good to just let her run away.  
-    
+
+    5voice and the word “FAT” to be echoed around the shop. You stand there with a smirk on your face as the poor Talking-Ham looks to the ground, shocked and ashamed.  Frosty ignores your rudeness, and examines the girl, eyeing her pudgy form head to toe. The cupcake vendor looks to be in deep thought, before taking a deep breath and bursting into laughter. Holding her sides and pointing at the walking pork-rind. The devastated ham  is about to run off with tears in her eyes, but you grab her before she gets away from your arm’s reach and hold her there. This is too good to just let her run away.
+
         Frosty regains her mind and slows down a bit, her laughs becoming light chuckles before she talks again. “You may not be the skinniest person I’ve seen but you’re not the fattest... or the biggest.” Maybe you should have let the girl run, this isn’t as amusing as you thought it would be.
-    
+
     “Bu-but I am fat” she trembles. “When I was smaller, the other children would say that I could crush the everything with my butt! They used to make me sit on pillows, saying that if i sat down, I would cause earthquakes!” You sigh, if the demons were as timid as this miserable pig, you’d be able to complete your quest within the day. Actually, probably in a few hours. The remaining time could be spent making their insufferable forms your bitches.
-    
+
     “Hey miss!” Frosty calls out. The bacon-defender looks at Frosty, waiting for the next, painful lard joke. Frosty smiles and examines the pig’s form once more, paying lots of attention the girls large ass. Without warning, Frosty sticks two fingers into her mouth and whistles, the sound causing both you and the pig girl to wince at the ear-splitting noise, causing you to raise your hands to your ears to block out the sound, only lowering them when Frosty lowers her own hand, your ears faintly ringing from the sudden sound blasting they just received.
-    
-        Before you can yell at the stupid bimbo for making your ears ring, a large shadow appears behind you. Both the ham-sandwich and you turn around to see Maddie, who looks like she just had her fill of “cream”, Maddie’s form towering over Frosty and the piggirl. Porky tries to hide behind you, but you hold her in front of you, if anyone is gonna get what Frosty is planning, it’s gonna be her. 
-        “HI MADDIE!!!” Frosty yells up to the giant frosted cupcake girl. She replies back with her own cute hello. Frosty then asks her, “Would you like to help out with something, its just a small favour?” Maddie nods and Frosty comes from behind her booth and directs Maddie to turn right, then she grabs the pig-woman from you and places her back to back to titanic cupcake monster, examining the two. 
-    
-    The sow’s head merely reaches Maddie’s ass. Anyone that has a quick glance at the display, could see that the enormous ass of Maddie has a significantly bigger proportion of the ‘sweet stuff’, than the pig girls own. 
+
+        Before you can yell at the stupid bimbo for making your ears ring, a large shadow appears behind you. Both the ham-sandwich and you turn around to see Maddie, who looks like she just had her fill of “cream”, Maddie’s form towering over Frosty and the piggirl. Porky tries to hide behind you, but you hold her in front of you, if anyone is gonna get what Frosty is planning, it’s gonna be her.
+        “HI MADDIE!!!” Frosty yells up to the giant frosted cupcake girl. She replies back with her own cute hello. Frosty then asks her, “Would you like to help out with something, its just a small favour?” Maddie nods and Frosty comes from behind her booth and directs Maddie to turn right, then she grabs the pig-woman from you and places her back to back to titanic cupcake monster, examining the two.
+
+    The sow’s head merely reaches Maddie’s ass. Anyone that has a quick glance at the display, could see that the enormous ass of Maddie has a significantly bigger proportion of the ‘sweet stuff’, than the pig girls own.
     The nymph moves around them, still comparing the bodies. She stops in front of the smaller girl, she looks into her face. Looking a bit confused on what Frosty is doing and scared of the horrific cupcake “monster” behind her. Frosty places two hand in the pig’s tits, you think she’s about to grope the little pathetic slut but no, she’s pushes her backward, hard into the towering chocolate, but she just bounces off Maddies frosted covered ass.
-    
-    Frosty continues the strange action, building up a rhythm of pushing the large girls chest, her head bouncing back forward from impacting Maddie’s butt, the icing covered cheeks jiggling on every thump. She doesn’t to mind the two pink creatures messing with her rear like that. She just smiles. Perhaps it feels like a massage to her? Frosty stops the assault on the mistreated pig. With her head no longer being treated like a basketball, you can see that a coating of icing now covers the back of her head. The crazy nympho then moves over in front of Maddie and sizes up the giantess, she places a hand on her soft pastry belly and gives a little push. She nods, as if confirming something, then she walks away several yards. The sow, holding her head in one hand, clearly suffering from a headache, looks at you with a questioning gaze,  “What is she doing?” you shrug your shoulders, not knowing either. 
-    
+
+    Frosty continues the strange action, building up a rhythm of pushing the large girls chest, her head bouncing back forward from impacting Maddie’s butt, the icing covered cheeks jiggling on every thump. She doesn’t to mind the two pink creatures messing with her rear like that. She just smiles. Perhaps it feels like a massage to her? Frosty stops the assault on the mistreated pig. With her head no longer being treated like a basketball, you can see that a coating of icing now covers the back of her head. The crazy nympho then moves over in front of Maddie and sizes up the giantess, she places a hand on her soft pastry belly and gives a little push. She nods, as if confirming something, then she walks away several yards. The sow, holding her head in one hand, clearly suffering from a headache, looks at you with a questioning gaze,  “What is she doing?” you shrug your shoulders, not knowing either.
+
         Just then you hear the patter of running feet and turn just in time to see Frosty flying towards Maddie and yelling “CATCH MEEEEE!!!!” She lands between Maddie’s two whorish breasts, the force of her landing knocking Maddie off balance. And just like in slow motion, Maddie falls backwards, the pig-woman turning around to see a mountain of pastry overcoming her. She probably had a dream that was like that once. Maddie lands with a loud *SLAM* that causes anything around her to jump a few inches. Only the pig’s hands are visible, sticking out from the mass now on top of her.
-    
+
     Frosty jumps down from Maddie’s bosom and runs over to the squished pig. “See, your ass couldn’t crush everything.”  You're laughing hysterically as Frosty is continuing to “talk” to Maddie’s ass.  Oh gosh, the look on the fat swine’s face as she saw that ass fall on top of her: It was priceless!  The pink hands under the gargantuan ass begin to frantically claw at the ground.”Maddie, I think she’s trying to talk, mind standing up?” She nods at Frosty and  moves her colossal body to stand. Again you laugh at the absurd sight of Maddie and the pudgy pig girl.
-     She’s glued onto Maddie’s butt-cheeks, breathing as though air was something new.  Frosty reaches up to peel the processed-ham, off of Maddie with a loud sticky *SLIIIIIIIIIIIIIIIIIIIIIIIIIIIIIICK* You can see an imprint reminding you of where the girl was glued to Maddie’s massive buttcheeks. 
-    
+     She’s glued onto Maddie’s butt-cheeks, breathing as though air was something new.  Frosty reaches up to peel the processed-ham, off of Maddie with a loud sticky *SLIIIIIIIIIIIIIIIIIIIIIIIIIIIIIICK* You can see an imprint reminding you of where the girl was glued to Maddie’s massive buttcheeks.
+
     You turn back to Frosty, and hear she is giving the pancaked pig a few words of extra encouragement and support, the poor girl barely listening, her body looking ravaged by a minotaur. She sends the disorientated pig on her way with a few cupcakes. Frosty then waves goodbye to her and looks to Maddie. “Come on Maddie, we gotta get ya small enough to fit in the barkey again.” Maddie nods and they go off to their own thing, leaving you be yourself, wishing you had an item where you could watch what just happened over and over and over again.
-    Random Event: Punchies 
+    Random Event: Punchies
     (Met Maddie and Frosty, be at the bakery at 20:00)
-    	
-    The barkery smells wonderful this fine day.  You close your eyes as walk into this place  of sweets, inhaling it’s tasty aroma. Like you can already taste the cupcakes, the poundcakes and all the other kinds of pastries. You exhale, relaxed as you open your eyes and see both Maddie and Frosty standing at a table. There seems to be some kind of sweet lying there. You have never seen it before, but it sure does look delicious. The two cupcake girls seem to be arguing over it. 
-    
+
+    The barkery smells wonderful this fine day.  You close your eyes as walk into this place  of sweets, inhaling it’s tasty aroma. Like you can already taste the cupcakes, the poundcakes and all the other kinds of pastries. You exhale, relaxed as you open your eyes and see both Maddie and Frosty standing at a table. There seems to be some kind of sweet lying there. You have never seen it before, but it sure does look delicious. The two cupcake girls seem to be arguing over it.
+
     “This lobster tail is mine Maddie.” Frosty  states with authority
     “But I’m the one who found it first.” Maddie retorts
-    
-    Watching these two going at it is like watching the children in your village fight over a toy, each one coming up with the weirdest reason to have that toy. You take a seat and order some snacks while you watch the show. 
-    
+
+    Watching these two going at it is like watching the children in your village fight over a toy, each one coming up with the weirdest reason to have that toy. You take a seat and order some snacks while you watch the show.
+
     “I’m older than you, I should have it.” Frosty shouts
         “I’m bigger than you.” Maddie moves in closer to make that point clear
         “Okay-okay, how about we play a game of punchies. First girl to give, loses the Lobster Tail”
-    
-    Maddie thinks about it for a bit after Frosty explains the rules, then nods her head with an “Okay”. Frosty goes first, she cocks back her pink fist. like she’s about to pitch a ball. Takes aim at Maddie’s belly and let’s loose. *SQUIIIIIISH*  The cupcake vendor's fist sinks right into the cupcake girl’s soft squishy flesh. Maddie looks down at the nymph, not even feeling the fist pushing into her gut. Frosty retracts her hand, Now it’s Maddie’s turn. 
-    
-    Maddie makes a fist and only pulls her arm back a little. Frosty braces herself as she closes her eyes and nervously grits her teeth. *WHAM!!!* Maddie’s fist rams into Frosty, hitting her so hard that she is knocked out from underneath her hat, it falling to the ground of where she stood. Her body is launched across the bakery and slams into the east wall, cracking an imprint of her silhouette onto it. Everyone looks at Frosty as she falls off the wall with a *thunk* and lays face down for a minute. She slowly picks herself up, looking like she broke something, and limps back towards Maddie. She struggles to bend down to get the hat that was she knocked out of and puts it back on her mess of pink hair. Then she gruffs out 
-    
+
+    Maddie thinks about it for a bit after Frosty explains the rules, then nods her head with an “Okay”. Frosty goes first, she cocks back her pink fist. like she’s about to pitch a ball. Takes aim at Maddie’s belly and let’s loose. *SQUIIIIIISH*  The cupcake vendor's fist sinks right into the cupcake girl’s soft squishy flesh. Maddie looks down at the nymph, not even feeling the fist pushing into her gut. Frosty retracts her hand, Now it’s Maddie’s turn.
+
+    Maddie makes a fist and only pulls her arm back a little. Frosty braces herself as she closes her eyes and nervously grits her teeth. *WHAM!!!* Maddie’s fist rams into Frosty, hitting her so hard that she is knocked out from underneath her hat, it falling to the ground of where she stood. Her body is launched across the bakery and slams into the east wall, cracking an imprint of her silhouette onto it. Everyone looks at Frosty as she falls off the wall with a *thunk* and lays face down for a minute. She slowly picks herself up, looking like she broke something, and limps back towards Maddie. She struggles to bend down to get the hat that was she knocked out of and puts it back on her mess of pink hair. Then she gruffs out
+
     “...Ok... You win...” before collapsing on the floor. The victorious cupcake-girl does a little cheer and flicks the strange pastry in her mouth. She takes one bite and shallow, letting a out a satisfied sigh. Then she looks at the unconscious nymph by her feet and picks her up, slinging her over her shoulder. “Come on Frosty, you need to get some bed rest.”  The giant carries the little creature into the back-rooms.  You wipe the crumbs from off your face and get up to leave but not before taking one last look at the imprint of Frosty. You wonder who’s gonna pay for that.
-    
+
     -WIP-*/
 }

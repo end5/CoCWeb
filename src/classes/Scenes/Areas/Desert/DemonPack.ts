@@ -16,7 +16,7 @@ import { StatusAffects } from "../../../StatusAffects";
 
 export class DemonPack extends Monster {
     protected performCombatAction(): void {
-        //Demon pack has different AI
+        // Demon pack has different AI
         if (DemonPack.rand(2) == 0) this.special1();
         else this.special2();
     }

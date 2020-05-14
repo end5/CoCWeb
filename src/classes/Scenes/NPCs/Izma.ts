@@ -15,9 +15,9 @@ import { StatusAffects } from "../../StatusAffects";
  * @author ...
  */
 export class Izma extends Monster {
-    //[Special Attacks]
+    // [Special Attacks]
     private IzmaSpecials1(): void {
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Izma.rand(3) < 2) {
             this.outputText(
                 "Izma attempts to close the distance with you, but misses completely because of her blindness.\n",
@@ -25,7 +25,7 @@ export class Izma extends Monster {
             );
             return;
         }
-        //Determine if dodged!
+        // Determine if dodged!
         if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
@@ -36,7 +36,7 @@ export class Izma extends Monster {
             );
             return;
         }
-        //Determine if evaded
+        // Determine if evaded
         if (this.player.findPerk(PerkLib.Evade) >= 0 && Izma.rand(100) < 10) {
             this.outputText(
                 "Izma attempts to get close, but you manage to side-step her before she can lay her gauntleted hands on you.\n",
@@ -44,7 +44,7 @@ export class Izma extends Monster {
             );
             return;
         }
-        //("Misdirection"
+        // ("Misdirection"
         if (
             this.player.findPerk(PerkLib.Misdirection) >= 0 &&
             Izma.rand(100) < 10 &&
@@ -56,7 +56,7 @@ export class Izma extends Monster {
             );
             return;
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Izma.rand(100) < 6) {
             this.outputText(
                 "Izma attempts to get close, but you manage to side-step her before she can lay her gauntleted hands on you.\n",
@@ -68,17 +68,17 @@ export class Izma extends Monster {
             'Izma rushes you with impressive speed, striking a few precise locations on your joints with her fingertips before leaping back.  It doesn\'t hurt, but you feel tired and sore. "<i>Pressure points...</i>" she laughs, seeing your confused expression.',
             false
         );
-        //(Fatigue damage)
+        // (Fatigue damage)
         this.game.fatigue(20 + Izma.rand(20));
     }
 
     private IzmaSpecials2(): void {
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Izma.rand(3) < 2) {
             this.outputText("Izma blindly tries to clinch you, but misses completely.\n", false);
             return;
         }
-        //Determine if dodged!
+        // Determine if dodged!
         if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
@@ -89,7 +89,7 @@ export class Izma extends Monster {
             );
             return;
         }
-        //Determine if evaded
+        // Determine if evaded
         if (this.player.findPerk(PerkLib.Evade) >= 0 && Izma.rand(100) < 10) {
             this.outputText(
                 "Izma tries to clinch you, but she didn't count on your skills in evasion.  You manage to sidestep her at the last second.\n",
@@ -97,7 +97,7 @@ export class Izma extends Monster {
             );
             return;
         }
-        //("Misdirection"
+        // ("Misdirection"
         if (
             this.player.findPerk(PerkLib.Misdirection) >= 0 &&
             Izma.rand(100) < 10 &&
@@ -109,7 +109,7 @@ export class Izma extends Monster {
             );
             return;
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Izma.rand(100) < 6) {
             this.outputText(
                 "Izma tries to lock you in a clinch, but your cat-like flexibility makes it easy to twist away from her grab.\n",
@@ -125,7 +125,7 @@ export class Izma extends Monster {
             false
         );
         if (this.player.armorDef >= 10 || damage == 0) {
-            //(armor-dependent Health damage, fullplate, chain, scale, and bee chitin armor are unaffected, has a chance to inflict 'Bleed' damage which removes 2-5% of health for the next three turns if successful)
+            // (armor-dependent Health damage, fullplate, chain, scale, and bee chitin armor are unaffected, has a chance to inflict 'Bleed' damage which removes 2-5% of health for the next three turns if successful)
             damage = this.player.takeDamage(damage);
             this.outputText(
                 "writhe as she painfully drags the blades of her glove down your back",
@@ -141,7 +141,7 @@ export class Izma extends Monster {
             "Rather than move to attack you, Izma grins at you and grabs her breasts, massaging them as she caresses her long penis with one knee. Her tail thrashes and thumps the sand heavily behind her as she simulates an orgasm, moaning loudly into the air. The whole display leaves you more aroused than before.",
             false
         );
-        //(lust gain)
+        // (lust gain)
         this.game.dynStats("lus", 20 + this.player.lib / 5);
     }
 

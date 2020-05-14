@@ -20,9 +20,9 @@ import { StatusAffects } from "../../StatusAffects";
 export class Shouldra extends Monster {
     private shouldrattack(): void {
         var damage: number = 0;
-        //return to combat menu when finished
+        // return to combat menu when finished
         this.doNext(this.game.playerMenu);
-        //Determine if dodged!
+        // Determine if dodged!
         if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
@@ -33,7 +33,7 @@ export class Shouldra extends Monster {
             );
             return;
         }
-        //("Misdirection"
+        // ("Misdirection"
         if (
             this.player.findPerk(PerkLib.Misdirection) >= 0 &&
             Shouldra.rand(100) < 10 &&
@@ -45,7 +45,7 @@ export class Shouldra extends Monster {
             );
             return;
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Shouldra.rand(100) < 6) {
             this.outputText(
                 "The girl wades in for a swing, but you deftly twist your flexible body out of the way. She recovers quickly, spinning back at you.",
@@ -53,14 +53,14 @@ export class Shouldra extends Monster {
             );
             return;
         }
-        //Determine damage - str modified by enemy toughness!
+        // Determine damage - str modified by enemy toughness!
         damage = Math.floor(
             this.str + this.weaponAttack - Shouldra.rand(this.player.tou) - this.player.armorDef
         );
         if (damage > 0) damage = this.player.takeDamage(damage);
         if (damage <= 0) {
             damage = 0;
-            //Due to toughness or amor...
+            // Due to toughness or amor...
             if (Shouldra.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
                 this.outputText(
                     "You absorb and deflect every " +
@@ -81,16 +81,16 @@ export class Shouldra extends Monster {
                     false
                 );
         }
-        //everyone else
+        // everyone else
         else {
             var choice: number = Shouldra.rand(3);
-            //(regular attack 1)
+            // (regular attack 1)
             if (choice == 0)
                 this.outputText(
                     "Ducking in close, the girl thunders a punch against your midsection, leaving a painful sting.",
                     false
                 );
-            //(regular attack 2)
+            // (regular attack 2)
             else if (choice == 1)
                 this.outputText(
                     "The girl feints a charge, leans back, and snaps a kick against your " +
@@ -98,7 +98,7 @@ export class Shouldra extends Monster {
                         ". You stagger, correct your posture, and plunge back into combat.",
                     false
                 );
-            //(regular attack 3)
+            // (regular attack 3)
             else if (choice == 2)
                 this.outputText(
                     "You momentarily drop your guard as the girl appears to stumble. She rights herself as you step forward and lands a one-two combination against your torso.",
@@ -123,7 +123,7 @@ export class Shouldra extends Monster {
         this.combatRoundOver();
     }
 
-    //(lust attack 1)
+    // (lust attack 1)
     private shouldraLustAttack(): void {
         if (Shouldra.rand(2) == 0)
             this.outputText(
@@ -138,7 +138,7 @@ export class Shouldra extends Monster {
         this.game.dynStats("lus", 8 + this.player.lib / 10);
         this.combatRoundOver();
     }
-    //(magic attack)
+    // (magic attack)
     private shouldraMagicLazers(): void {
         var damage: number = this.player.takeDamage(20 + Shouldra.rand(10));
         this.outputText(

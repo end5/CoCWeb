@@ -3,7 +3,7 @@ import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class Ifris extends TelAdreAbstractContent {
-    //Hours - 15+
+    // Hours - 15+
 
     public ifrisIntro(): boolean {
         if (this.model.time.hours >= 15) {
@@ -22,7 +22,7 @@ export class Ifris extends TelAdreAbstractContent {
         return false;
     }
 
-    //2-Approach and Greeting-
+    // 2-Approach and Greeting-
     public approachIfris(): void {
         this.spriteSelect(28);
         this.outputText("", true);
@@ -48,7 +48,7 @@ export class Ifris extends TelAdreAbstractContent {
                 false
             );
         }
-        //2a-Repeat approach, no sex-
+        // 2a-Repeat approach, no sex-
         else if (
             this.flags[kFLAGS.TIMES_FUCKED_IFRIS_BLOWJOB] +
                 this.flags[kFLAGS.TIMES_FUCKED_IFRIS_LICKED] ==
@@ -70,7 +70,7 @@ export class Ifris extends TelAdreAbstractContent {
                     false
                 );
         }
-        //2b-Repeat approach, had oral-
+        // 2b-Repeat approach, had oral-
         else {
             this.outputText(
                 "Ifris grins as you walk over again, the devil girl's dark tongue dabbing at her even darker lips. A small shudder runs through you as you imagine her remembering your flavor...\n\n",
@@ -96,7 +96,7 @@ export class Ifris extends TelAdreAbstractContent {
             "(You could go ahead and work out while she watches, ask her to join you, or leave.)",
             false
         );
-        //Work out || Ask Her To Join || Leave?
+        // Work out || Ask Her To Join || Leave?
         this.simpleChoices(
             "Work Out",
             this.workOutForIfris,
@@ -110,7 +110,7 @@ export class Ifris extends TelAdreAbstractContent {
             this.telAdre.gymDesc
         );
     }
-    //3a-PC responds they want to work out-
+    // 3a-PC responds they want to work out-
     private workOutForIfris(): void {
         this.spriteSelect(28);
         this.outputText("", true);
@@ -136,7 +136,7 @@ export class Ifris extends TelAdreAbstractContent {
             "\"<i>I hope you don't mind if I keep you company. I'd love to... see you in action.</i>\"\n\n",
             false
         );
-        //WORK OUT or SHOW OFF?
+        // WORK OUT or SHOW OFF?
         this.simpleChoices(
             "Work Out",
             this.liftWhileIfrisWatches,
@@ -150,7 +150,7 @@ export class Ifris extends TelAdreAbstractContent {
             undefined
         );
     }
-    //3b-PC asks if she'd like to join them-
+    // 3b-PC asks if she'd like to join them-
     private askIfrisToJoinYou(): void {
         this.spriteSelect(28);
         this.outputText("", true);
@@ -176,7 +176,7 @@ export class Ifris extends TelAdreAbstractContent {
             "You shrug at her response, but there's something about the way she eyes you now...",
             false
         );
-        //WORK OUT or SHOW OFF?
+        // WORK OUT or SHOW OFF?
         this.simpleChoices(
             "Work Out",
             this.liftWhileIfrisWatches,
@@ -191,7 +191,7 @@ export class Ifris extends TelAdreAbstractContent {
         );
     }
 
-    //4a-PC does a modest work out-
+    // 4a-PC does a modest work out-
     private liftWhileIfrisWatches(): void {
         this.spriteSelect(28);
         this.flags[kFLAGS.IFRIS_SHOWED_OFF]++;
@@ -218,17 +218,17 @@ export class Ifris extends TelAdreAbstractContent {
             "\"<i>Mmm... lovely. Maybe next time I'll get to see a little more.</i>\" She grins a little then, exposing her fanged teeth to you briefly before she turns and slinks from the gym, her posh little bottom swaying more than it has any real right to. You can't help but stare until she's gone, and you shake your head, trying to clear it to go about your business...",
             false
         );
-        //Stat changes HERE!
+        // Stat changes HERE!
         if (this.player.str < 90) this.dynStats("str", 0.5);
         if (this.player.tou < 40) this.dynStats("tou", 0.3);
         this.dynStats("lus", 5);
-        //Body changes here
-        //Muscleness boost!
+        // Body changes here
+        // Muscleness boost!
         this.outputText(this.player.modTone(85, 5 + Ifris.rand(5)), false);
         this.fatigue(30);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //4b-PC decides to show off, possible strength requirement?-
+    // 4b-PC decides to show off, possible strength requirement?-
     private showOffForIfris(): void {
         this.spriteSelect(28);
         this.flags[kFLAGS.IFRIS_SHOWED_OFF]++;
@@ -247,7 +247,7 @@ export class Ifris extends TelAdreAbstractContent {
             false
         );
 
-        //4b2-PC fails strength requirement considerably!-
+        // 4b2-PC fails strength requirement considerably!-
         if (this.player.str < 40) {
             this.outputText(
                 "Gripping the bars tightly, you grit your teeth and give a mighty push upwards! Or not so much, though you struggle valiantly against the weight. You just can't seem to budge it however, and a sharp pain in your arms tells you just what a bad idea this was! You give a cry of pain, releasing the bar and rubbing your biceps.\n\n",
@@ -268,13 +268,13 @@ export class Ifris extends TelAdreAbstractContent {
                 "Humiliated, you stand and leave, nursing your sore body and ego.",
                 false
             );
-            //Reset 'shown off for ifris'
+            // Reset 'shown off for ifris'
             this.flags[kFLAGS.IFRIS_SHOWED_OFF] = 0;
             this.player.takeDamage(10);
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //4b1-PC fails strength requirement!-
+        // 4b1-PC fails strength requirement!-
         if (this.player.str < 75) {
             this.outputText(
                 'Gripping the bars tightly, you grit your teeth and give a mighty push upwards! Your muscles strain and you grunt with effort, but the considerable weight barely budges. You hear her make a little disappointed, "<i>awww...</i>" as she watches you for a few long moments, but no matter how much the humiliation motivates you, you just can\'t seem to do it.\n\n',
@@ -296,7 +296,7 @@ export class Ifris extends TelAdreAbstractContent {
             this.flags[kFLAGS.IFRIS_SHOWED_OFF] = 0;
             return;
         }
-        //4b5-PC masculinity > 60, corruption > 75, has cow features-
+        // 4b5-PC masculinity > 60, corruption > 75, has cow features-
         if (
             this.player.gender == 0 ||
             (this.player.femininity < 40 &&
@@ -307,18 +307,18 @@ export class Ifris extends TelAdreAbstractContent {
                 "Ifris watches you for a moment as you move down to the bench, but her eyes clearly wander elsewhere now and then. The pleasant smile never leaves her pretty face, but it's clear she's distracted or even disinterested for some reason. Soon enough she turns to leave, a bored little sigh leaving her. Her hips sway with a sexy gait as though it were natural, though nothing about her seems particularly excited at the moment...",
                 false
             );
-            //Stat changes HERE!
+            // Stat changes HERE!
             if (this.player.str < 90) this.dynStats("str", 0.5);
             if (this.player.tou < 40) this.dynStats("tou", 0.3);
-            //Body changes here
-            //Muscleness boost!
+            // Body changes here
+            // Muscleness boost!
             this.outputText(this.player.modTone(85, 5 + Ifris.rand(5)), false);
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //4b3-PC succeeds! Is male/herm-
+        // 4b3-PC succeeds! Is male/herm-
         if (this.player.hasCock()) {
-            //Double dickings!
+            // Double dickings!
             if (
                 this.player.cockTotal() > 1 &&
                 Ifris.rand(2) == 0 &&
@@ -328,7 +328,7 @@ export class Ifris extends TelAdreAbstractContent {
                 this.ifrisDP();
                 return;
             }
-            //First time
+            // First time
             if (this.flags[kFLAGS.TIMES_FUCKED_IFRIS_BLOWJOB] == 0) {
                 this.outputText(
                     "Gripping the bars tightly, you grit your teeth and give a mighty push upwards! Your muscles strain and you grunt with effort, a little amazed gasp leaving the red beauty's lips as the weights lift slowly but surely. You can't help but grin proudly as your elbows lock, the weight completely lifted, and you bring it back down, only to push again.\n\n",
@@ -384,7 +384,7 @@ export class Ifris extends TelAdreAbstractContent {
                     false
                 );
             }
-            //5a-Repeat oral scene, male/herm-
+            // 5a-Repeat oral scene, male/herm-
             else {
                 this.outputText(
                     "Ifris all but squeals in delight as you tell her you're totally up for smashing that record, a wide grin spreading her thick lips, briefly worrying you when you see those sharp teeth of hers... but then you remind yourself how good she is with them, as you lay back onto the bench, gripping the bars above you. The devil girl doesn't even wait this time, tugging your bottoms down right away to get at your " +
@@ -436,7 +436,7 @@ export class Ifris extends TelAdreAbstractContent {
             }
             this.flags[kFLAGS.TIMES_FUCKED_IFRIS_BLOWJOB]++;
         }
-        //4b4-PC succeeds! Is female!-
+        // 4b4-PC succeeds! Is female!-
         else if (this.player.hasVagina()) {
             if (this.flags[kFLAGS.TIMES_FUCKED_IFRIS_LICKED] == 0) {
                 this.outputText(
@@ -481,7 +481,7 @@ export class Ifris extends TelAdreAbstractContent {
                     false
                 );
             }
-            //5b-Repeat oral scene, female-
+            // 5b-Repeat oral scene, female-
             else {
                 this.outputText(
                     "Ifris all but squeals in delight as you tell her you're totally up for smashing that record, a wide grin spreading her thick lips, briefly worrying you when you see those sharp teeth of hers... but then you remind yourself how good she is with them, as you lay back onto the bench, gripping the bars above you. The devil girl doesn't even wait this time, leaning up to give your cheek a little peck as she pulls your " +
@@ -530,17 +530,17 @@ export class Ifris extends TelAdreAbstractContent {
             }
             this.flags[kFLAGS.TIMES_FUCKED_IFRIS_LICKED]++;
         }
-        //Stat changes HERE!
+        // Stat changes HERE!
         if (this.player.str < 90) this.dynStats("str", 0.5);
         if (this.player.tou < 40) this.dynStats("tou", 0.3);
         this.player.orgasm();
-        //Body changes here
-        //Muscleness boost!
+        // Body changes here
+        // Muscleness boost!
         this.outputText(this.player.modTone(85, 5 + Ifris.rand(5)), false);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Ifrs double-penetrates herself on you while you work out.
+    // Ifrs double-penetrates herself on you while you work out.
     private ifrisDP(): void {
         this.outputText(
             "You set the machine to an impressive weight that you're sure you can handle and set to work, your muscles rippling and tightening as they repeatedly raise and lower the weight for the demonic-looking woman's amusement.  Feeling Ifris' glowing, crimson visage devouring in your workout, you push yourself harder, working up a sheen of sweat that drips from your body.  Your arms haven't yet begun to burn, but deep inside your chest, your heart is beating faster, either from the oiled gym-junky's gaze or the constant, heavy lifting - perhaps both.\n\n",
@@ -601,7 +601,7 @@ export class Ifris extends TelAdreAbstractContent {
             "You set the machine's bar back in place, letting your worn-out limbs go slack across Ifris's body, your hands coming to rest on her tight, squeezable butt.  The two slick holes start a whole new wave of contractations, and without the distraction of the weights, you're unable to resist.  ",
             false
         );
-        //(Knotting - req's 2 dogdicks!)
+        // (Knotting - req's 2 dogdicks!)
         if (this.player.dogCocks() >= 2) {
             this.outputText(
                 "Both your canine cocks bloat with seed, the knot's distending and stretching so wide that Ifris couldn't pull off if she wanted.  A moment later, the twin dog-dicks explode pillars of alabaster cream, painting the truly knotted woman's innards white.  ",
@@ -617,7 +617,7 @@ export class Ifris extends TelAdreAbstractContent {
                 false
             );
         }
-        //(Nodule growing, unholy demonocity)
+        // (Nodule growing, unholy demonocity)
         else if (this.player.demonCocks() >= 2) {
             this.outputText(
                 "Both your demonic cocks explode inside Ifris, the nodules along each shaft swelling out, thickening to stroke and caress your oily lover's inner walls.  A moment later, the tainted tips explode out, spurting demon-spunk into both silky tunnels.  ",
@@ -633,7 +633,7 @@ export class Ifris extends TelAdreAbstractContent {
                 false
             );
         }
-        //Flaring - req's 2 horsecocks!)
+        // Flaring - req's 2 horsecocks!)
         else if (this.player.horseCocks() >= 2) {
             this.outputText(
                 "Both your equine cocks explode inside Ifris, their tips swelling outward into thick flares that plug her stuffed channels.  A moment later, the swollen tips unleash pillars of alabaster cream, painting everything above the flares white.  ",
@@ -649,7 +649,7 @@ export class Ifris extends TelAdreAbstractContent {
                 false
             );
         }
-        //(Tentacle pistoning + head-mushrooming)
+        // (Tentacle pistoning + head-mushrooming)
         else if (this.player.tentacleCocks() >= 2) {
             this.outputText(
                 "Both your plant-like pricks explode inside Ifris, the purplish tips swelling up inside her to disproportionate sizes.  A moment later, the vine-dicks explode out twin pillars of ropey seed, painting her inner walls with spunk.  ",
@@ -667,7 +667,7 @@ export class Ifris extends TelAdreAbstractContent {
                 false
             );
         }
-        //(Anemone - stinging funtimes)
+        // (Anemone - stinging funtimes)
         else if (this.player.anemoneCocks() >= 2) {
             this.outputText(
                 "Both your unusual, aquatic cocks explode inside Ifris, their shafts thickening as the prepare for release.  A moment later, they explode out twin pillars of alabaster cum, painting her inner walls with gooey spunk.  ",
@@ -683,7 +683,7 @@ export class Ifris extends TelAdreAbstractContent {
                 false
             );
         }
-        //(Standard)
+        // (Standard)
         else {
             this.outputText(
                 "Both your cocks explode inside Ifris, submitting alabaster pillars to her request for your release.  The red-hued sexpot exhales a happy hum and rocks her hips back and forth, her oily, lubricated holes squeezing your dicks for every drop of delectable seed.  ",
@@ -704,7 +704,7 @@ export class Ifris extends TelAdreAbstractContent {
                 this.outputText("  ", false);
             }
         }
-        //(ALL GO HERE - NOT NEW PG)
+        // (ALL GO HERE - NOT NEW PG)
         this.outputText(
             'She purrs, "<i>Delightful,</i>" into your ear and plants a wet kiss on you, surely leaving a dusky, black lip-print on your neck.\n\n',
             false
@@ -735,12 +735,12 @@ export class Ifris extends TelAdreAbstractContent {
 
         this.outputText("It is some time until you gain the energy to rise.", false);
         this.fatigue(10);
-        //Stat changes HERE!
+        // Stat changes HERE!
         if (this.player.str < 90) this.dynStats("str", 0.75);
         if (this.player.tou < 40) this.dynStats("tou", 0.5);
         this.player.orgasm();
-        //Body changes here
-        //Muscleness boost!
+        // Body changes here
+        // Muscleness boost!
         this.outputText(this.player.modTone(85, 5 + Ifris.rand(5)), false);
         this.doNext(this.camp.returnToCampUseOneHour);
     }

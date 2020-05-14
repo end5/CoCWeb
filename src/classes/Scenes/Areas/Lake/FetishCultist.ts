@@ -22,11 +22,11 @@ export class FetishCultist extends Monster {
     public combatRoundUpdate(): void {
         super.combatRoundUpdate();
         var changed: boolean = false;
-        //Fetish Cultist Update
+        // Fetish Cultist Update
         switch (FetishCultist.rand(5)) {
             case 0:
                 if (this.armorName != FetishCultist.PERVY_NUNS_CLOTHING) {
-                    //Religious outfit!
+                    // Religious outfit!
                     this.long =
                         "The woman across from you has her eyes closed, her hands joined, and seems to be chanting under her breath.  She is wearing a religious robe that closely hugs her curvacious shape. There is a specially-placed opening over her pussy lips.";
                     this.armorName = FetishCultist.PERVY_NUNS_CLOTHING;
@@ -35,7 +35,7 @@ export class FetishCultist extends Monster {
                 break;
             case 1:
                 if (this.armorName != FetishCultist.NOBLES_CLOTHING) {
-                    //Noble outfit
+                    // Noble outfit
                     this.armorName = FetishCultist.NOBLES_CLOTHING;
                     this.long =
                         "She's wearing a skimpy noble's dress, which lets you get a good look at her well-filled bra through an over-generous cleavage. Her skirt is so short that you clearly see her pussy lips.  She smiles at you in a rather cute way.  She looks like she's coming out of a painting, executed by a rather depraved and lust-filled artist.";
@@ -44,7 +44,7 @@ export class FetishCultist extends Monster {
                 break;
             case 2:
                 if (this.armorName != FetishCultist.SWIMSUIT) {
-                    //Swim outfit
+                    // Swim outfit
                     this.long =
                         "She's currently wearing a swimsuit that's apparently much too small for her, because it stretches across every curve and clearly outlines them for you to see.  Her sizable breasts look like they could burst through the fabric at any moment.  You can even see her erect nipples and her puffy lower lips.";
                     this.armorName = FetishCultist.SWIMSUIT;
@@ -53,7 +53,7 @@ export class FetishCultist extends Monster {
                 break;
             case 3:
                 if (this.armorName != FetishCultist.TEACHERS_OUTFIT) {
-                    //Pervy Teacher
+                    // Pervy Teacher
                     this.long =
                         "She's now wearing a teacher's outfit, complete with glasses, make-up, her black hair in a tight bun, and a serious-looking outfit... with no back side at all.  She turns to the side to give you a good look at her rear, smiling mischievously.";
                     this.armorName = FetishCultist.TEACHERS_OUTFIT;
@@ -62,7 +62,7 @@ export class FetishCultist extends Monster {
                 break;
             case 4:
                 if (this.armorName != FetishCultist.NAUGHTY_NURSES_UNIFORM) {
-                    //Naughty Nurse
+                    // Naughty Nurse
                     this.long =
                         "The woman is wearing heavy make-up and a whorish nurse's suit, seemingly in white latex with two openings at her breasts and a large one on her crotch and inner thighs. It lets her blood-gorged pussy lips hang freely, which she displays proudly.";
                     this.armorName = FetishCultist.NAUGHTY_NURSES_UNIFORM;
@@ -70,7 +70,7 @@ export class FetishCultist extends Monster {
                 }
                 break;
         }
-        //Talk abouts it mang!
+        // Talk abouts it mang!
         if (changed)
             this.outputText(
                 "The fetish cultist's clothing shifts and twists, taking on the appearance of a " +
@@ -84,7 +84,7 @@ export class FetishCultist extends Monster {
     private static FETISHY_OUTFIT: string = "fetishy outfit";
 
     private cultistRaisePlayerLust(): void {
-        //Two text variants!
+        // Two text variants!
         if (FetishCultist.rand(2) == 0) {
             if (this.armorName == FetishCultist.PERVY_NUNS_CLOTHING)
                 this.outputText(

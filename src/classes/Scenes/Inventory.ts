@@ -49,7 +49,7 @@ export class Inventory extends BaseContent {
         return this.gearStorage;
     }
 
-    //		public function currentCallNext() { return callNext; }
+    // 		public function currentCallNext() { return callNext; }
 
     public itemGoNext(): void {
         if (this.callNext != undefined) this.doNext(this.callNext);
@@ -160,16 +160,16 @@ export class Inventory extends BaseContent {
         }
         this.outputText("\nWhich item will you use?");
         if (this.getGame().inCombat) this.addButton(9, "Back", kGAMECLASS.combatMenu, false);
-        //Player returns to the combat menu on cancel
+        // Player returns to the combat menu on cancel
         else this.addButton(9, "Back", this.playerMenu);
-        //Gone			menuLoc = 1;
+        // Gone			menuLoc = 1;
     }
 
     public stash(): void {
         /*Hacked in cheat to enable shit
         flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00254] = 1;
         flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00255] = 1;*/
-        //REMOVE THE ABOVE BEFORE RELASE ()
+        // REMOVE THE ABOVE BEFORE RELASE ()
         this.clearOutput();
         this.spriteSelect(-1);
         this.menu();
@@ -186,7 +186,7 @@ export class Inventory extends BaseContent {
             if (this.hasItemsInStorage())
                 this.addButton(1, "Chest Take", this.pickItemToTakeFromCampStorage);
         }
-        //Weapon Rack
+        // Weapon Rack
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00254] > 0) {
             this.outputText(
                 "There's a weapon rack set up here, set up to hold up to nine various weapons."
@@ -196,7 +196,7 @@ export class Inventory extends BaseContent {
                 this.addButton(3, "W.Rack Take", this.pickItemToTakeFromWeaponRack);
             this.outputText("\n\n");
         }
-        //Armor Rack
+        // Armor Rack
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00255] > 0) {
             this.outputText(
                 "Your camp has an armor rack set up to hold your various sets of gear.  It appears to be able to hold nine different types of armor."
@@ -222,10 +222,10 @@ export class Inventory extends BaseContent {
         if (itype == ItemType.NOTHING) return;
         if (nextAction != undefined) this.callNext = nextAction;
         else this.callNext = this.playerMenu;
-        //Check for an existing stack with room in the inventory and return the value for it.
+        // Check for an existing stack with room in the inventory and return the value for it.
         var temp: number = this.player.roomInExistingStack(itype);
         if (temp >= 0) {
-            //First slot go!
+            // First slot go!
             this.player.itemSlots[temp].quantity++;
             this.outputText(
                 "You place " +
@@ -239,8 +239,8 @@ export class Inventory extends BaseContent {
             this.itemGoNext();
             return;
         }
-        //If not done, then put it in an empty spot!
-        //Throw in slot 1 if there is room
+        // If not done, then put it in an empty spot!
+        // Throw in slot 1 if there is room
         temp = this.player.emptySlot();
         if (temp >= 0) {
             this.player.itemSlots[temp].setItemAndQty(itype, 1);
@@ -255,23 +255,23 @@ export class Inventory extends BaseContent {
             return;
         }
         if (overrideAbandon != undefined)
-            //callOnAbandon only becomes important if the inventory is full
+            // callOnAbandon only becomes important if the inventory is full
             this.callOnAbandon = overrideAbandon;
         else this.callOnAbandon = this.callNext;
-        //OH NOES! No room! Call replacer functions!
+        // OH NOES! No room! Call replacer functions!
         this.takeItemFull(itype, true, source);
     }
 
     public returnItemToInventory(item: Useable, showNext: boolean = true): void {
-        //Used only by items that have a sub menu if the player cancels
+        // Used only by items that have a sub menu if the player cancels
         if (!this.debug) {
             if (this.currentItemSlot == undefined) {
                 this.takeItem(item, this.callNext, this.callNext, undefined); //Give player another chance to put item in inventory
             } else if (this.currentItemSlot.quantity > 0) {
-                //Add it back to the existing stack
+                // Add it back to the existing stack
                 this.currentItemSlot.quantity++;
             } else {
-                //Put it back in the slot it came from
+                // Put it back in the slot it came from
                 this.currentItemSlot.setItemAndQty(item, 1);
             }
         }
@@ -280,11 +280,11 @@ export class Inventory extends BaseContent {
             return;
         }
         if (showNext) this.doNext(this.callNext);
-        //Items with sub menus should return to the inventory screen if the player decides not to use them
+        // Items with sub menus should return to the inventory screen if the player decides not to use them
         else this.callNext(); //When putting items back in your stash we should skip to the take from stash menu
     }
 
-    //Check to see if anything is stored
+    // Check to see if anything is stored
     public hasItemsInStorage(): boolean {
         return this.itemAnyInStorage(this.itemStorage, 0, this.itemStorage.length);
     }
@@ -319,7 +319,7 @@ export class Inventory extends BaseContent {
         this.flags[kFLAGS.TIMES_CHEATED_COUNTER]++;
     }
 
-    //Create a storage slot
+    // Create a storage slot
     public createStorage(): boolean {
         if (this.itemStorage.length >= 16) return false;
         var newSlot: ItemSlotClass = new ItemSlotClass();
@@ -327,9 +327,9 @@ export class Inventory extends BaseContent {
         return true;
     }
 
-    //Clear storage slots
+    // Clear storage slots
     public clearStorage(): void {
-        //Various Errors preventing action
+        // Various Errors preventing action
         if (this.itemStorage == undefined)
             trace("ERROR: Cannot clear storage because storage does not exist.");
         else {
@@ -339,7 +339,7 @@ export class Inventory extends BaseContent {
     }
 
     public clearGearStorage(): void {
-        //Various Errors preventing action
+        // Various Errors preventing action
         if (this.gearStorage == undefined)
             trace("ERROR: Cannot clear storage because storage does not exist.");
         else {
@@ -349,14 +349,14 @@ export class Inventory extends BaseContent {
     }
 
     public initializeGearStorage(): void {
-        //Completely empty storage array
+        // Completely empty storage array
         if (this.gearStorage == undefined)
             trace("ERROR: Cannot clear gearStorage because storage does not exist.");
         else {
             trace("Attempted to remove " + this.gearStorage.length + " gearStorage slots.");
             this.gearStorage.splice(0, this.gearStorage.length);
         }
-        //Rebuild a new one!
+        // Rebuild a new one!
         var newSlot: ItemSlotClass;
         while (this.gearStorage.length < 18) {
             newSlot = new ItemSlotClass();
@@ -369,7 +369,7 @@ export class Inventory extends BaseContent {
         if (this.player.itemSlots[slotNum].itype instanceof Useable) {
             var item: Useable = this.player.itemSlots[slotNum].itype as Useable;
             if (item.canUse()) {
-                //If an item cannot be used then canUse should provide a description of why the item cannot be used
+                // If an item cannot be used then canUse should provide a description of why the item cannot be used
                 if (!this.debug) this.player.itemSlots[slotNum].removeOneItem();
                 this.useItem(item, this.player.itemSlots[slotNum]);
                 return;
@@ -393,7 +393,7 @@ export class Inventory extends BaseContent {
 
     private inventoryCombatHandler(): void {
         if (!this.combatRoundOver()) {
-            //Check if the battle is over. If not then go to the enemy's action.
+            // Check if the battle is over. If not then go to the enemy's action.
             this.outputText("\n\n");
             this.enemyAI();
         }
@@ -414,9 +414,9 @@ export class Inventory extends BaseContent {
         } else {
             this.currentItemSlot = fromSlot;
             if (!item.useItem()) this.itemGoNext(); //Items should return true if they have provided some form of sub-menu.
-            //This is used for Reducto and GroPlus (which always present the player with a sub-menu)
-            //and for the Kitsune Gift (which may show a sub-menu if the player has a full inventory)
-            //				if (!item.hasSubMenu()) itemGoNext(); //Don't call itemGoNext if there's a sub menu, otherwise it would never be displayed
+            // This is used for Reducto and GroPlus (which always present the player with a sub-menu)
+            // and for the Kitsune Gift (which may show a sub-menu if the player has a full inventory)
+            // 				if (!item.hasSubMenu()) itemGoNext(); //Don't call itemGoNext if there's a sub menu, otherwise it would never be displayed
         }
     }
 
@@ -459,7 +459,7 @@ export class Inventory extends BaseContent {
     private useItemNow(item: Useable, source: ItemSlotClass): void {
         this.clearOutput();
         if (item.canUse()) {
-            //If an item cannot be used then canUse should provide a description of why the item cannot be used
+            // If an item cannot be used then canUse should provide a description of why the item cannot be used
             this.useItem(item, source);
         } else {
             this.takeItemFull(item, false, source); //Give the player another chance to take this item
@@ -469,12 +469,12 @@ export class Inventory extends BaseContent {
     private replaceItem(itype: ItemType, slotNum: number): void {
         this.clearOutput();
         if (this.player.itemSlots[slotNum].itype == itype)
-            //If it is the same as what's in the slot...just throw away the new item
+            // If it is the same as what's in the slot...just throw away the new item
             this.outputText(
                 "You discard " + itype.longName + " from the stack to make room for the new one."
             );
         else {
-            //If they are different...
+            // If they are different...
             if (this.player.itemSlots[slotNum].quantity == 1)
                 this.outputText(
                     "You throw away " +
@@ -576,7 +576,7 @@ export class Inventory extends BaseContent {
         this.clearOutput(); //Selects an item from a gear slot. Rewritten so that it no longer needs to use numbered events
         this.hideUpDown();
         if (!this.itemAnyInStorage(storage, startSlot, endSlot)) {
-            //If no items are left then return to the camp menu. Can only happen if the player removes the last item.
+            // If no items are left then return to the camp menu. Can only happen if the player removes the last item.
             this.playerMenu();
             return;
         }
@@ -697,7 +697,7 @@ export class Inventory extends BaseContent {
         var orig: number = qty;
         this.player.itemSlots[slotNum].emptySlot();
         for (x = startSlot; x < endSlot && qty > 0; x++) {
-            //Find any slots which already hold the item that is being stored
+            // Find any slots which already hold the item that is being stored
             if (storage[x].itype == itype && storage[x].quantity < 5) {
                 temp = 5 - storage[x].quantity;
                 if (qty < temp) temp = qty;
@@ -716,7 +716,7 @@ export class Inventory extends BaseContent {
             }
         }
         for (x = startSlot; x < endSlot && qty > 0; x++) {
-            //Find any empty slots and put the item(s) there
+            // Find any empty slots and put the item(s) there
             if (storage[x].quantity == 0) {
                 storage[x].setItemAndQty(itype, qty);
                 this.outputText(

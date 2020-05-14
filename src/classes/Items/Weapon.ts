@@ -50,12 +50,12 @@ export class Weapon extends Useable {
     }
 
     public playerEquip(): Weapon {
-        //This item is being equipped by the player. Add any perks, etc. - This function should only handle mechanics, not text output
+        // This item is being equipped by the player. Add any perks, etc. - This function should only handle mechanics, not text output
         return this;
     }
 
     public playerRemove(): Weapon | undefined {
-        //This item is being removed by the player. Remove any perks, etc. - This function should only handle mechanics, not text output
+        // This item is being removed by the player. Remove any perks, etc. - This function should only handle mechanics, not text output
         return this;
     }
 

@@ -19,7 +19,7 @@ export class GooArmor extends Armor {
     }
 
     public useText(): void {
-        //Produces any text seen when equipping the armor normally
+        // Produces any text seen when equipping the armor normally
         this.outputText(
             "With an ecstatic smile, the goo-armor jumps to her feet and throws her arms around your shoulders.  \"<i>Oh, this is going to be so much fun!  Thank you thank you thank you!  I promise I'll keep you nice and snug and safe, don't you worry.  Oooh, a real adventure again!  WHEEE!</i>\""
         );
@@ -51,20 +51,20 @@ export class GooArmor extends Armor {
     }
 
     public removeText(): void {
-        //Produces any text seen when removing the armor normally
+        // Produces any text seen when removing the armor normally
         this.outputText(
             'Valeria picks herself up and huffs, "<i>Maybe we can adventure some more later on?</i>" before undulating off towards your camp.\n\n(<b>Valeria now available in the followers tab!</b>)'
         );
     }
 
     public playerEquip(): Armor {
-        //This item is being equipped by the player. Add any perks, etc.
+        // This item is being equipped by the player. Add any perks, etc.
         this.game.flags[kFLAGS.VALARIA_AT_CAMP] = 0;
         return super.playerEquip();
     }
 
     public playerRemove(): undefined {
-        //This item is being removed by the player. Remove any perks, etc.
+        // This item is being removed by the player. Remove any perks, etc.
         this.game.flags[kFLAGS.VALARIA_AT_CAMP] = 1;
         return; //Can't put Valaria in your inventory
     }

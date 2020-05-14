@@ -9,25 +9,25 @@ import { StatusAffects } from "../../StatusAffects";
 import { NPCAwareContent } from "./NPCAwareContent";
 
 export class LatexGirl extends NPCAwareContent {
-    //const GOO_TFED_MEAN: number = 654;
-    //const GOO_TFED_NICE: number = 655;
-    //const GOO_NAME: number = 656;
-    //const GOO_SLAVE_RECRUITED: number = 657;
-    //const GOO_EYES: number = 658;
-    //const GOO_TOSSED_AFTER_NAMING: number = 659;
-    //const TIMES_FUCKED_NORMAL_GOOS: number = 660;
-    //const PC_KNOWS_ABOUT_BLACK_EGGS: number = 661;
-    //const GOO_HAPPINESS: number = 662;
-    //const GOO_OBEDIENCE: number = 663;
-    //const GOO_FLUID_AMOUNT: number = 664;
-    //const GOO_PREFERRED_TIT_SIZE: number = 665;
-    //const GOO_NIPPLE_TYPE: number = 666;
-    //const GOO_DICK_LENGTH: number = 667;
-    //const GOO_DICK_TYPE: number = 668;
-    //const TIMES_THOUGHT_ABOUT_GOO_RECRUITMENT: number = 669;
-    //const GOO_INDIRECT_FED: number = 670;
-    //const TIMES_FED_LATEXY_MINO_CUM: number = 671;
-    //const LATEX_GOO_TIMES_FEMDOMMED_BY_PC: number = 672;
+    // const GOO_TFED_MEAN: number = 654;
+    // const GOO_TFED_NICE: number = 655;
+    // const GOO_NAME: number = 656;
+    // const GOO_SLAVE_RECRUITED: number = 657;
+    // const GOO_EYES: number = 658;
+    // const GOO_TOSSED_AFTER_NAMING: number = 659;
+    // const TIMES_FUCKED_NORMAL_GOOS: number = 660;
+    // const PC_KNOWS_ABOUT_BLACK_EGGS: number = 661;
+    // const GOO_HAPPINESS: number = 662;
+    // const GOO_OBEDIENCE: number = 663;
+    // const GOO_FLUID_AMOUNT: number = 664;
+    // const GOO_PREFERRED_TIT_SIZE: number = 665;
+    // const GOO_NIPPLE_TYPE: number = 666;
+    // const GOO_DICK_LENGTH: number = 667;
+    // const GOO_DICK_TYPE: number = 668;
+    // const TIMES_THOUGHT_ABOUT_GOO_RECRUITMENT: number = 669;
+    // const GOO_INDIRECT_FED: number = 670;
+    // const TIMES_FED_LATEXY_MINO_CUM: number = 671;
+    // const LATEX_GOO_TIMES_FEMDOMMED_BY_PC: number = 672;
 
     /*&Corrupt Plot:
     Have sex with goos at least 5-6 times.
@@ -127,7 +127,7 @@ export class LatexGirl extends NPCAwareContent {
     }
 
     private gooTitSize(): number {
-        //If tits are lowered
+        // If tits are lowered
         if (
             this.flags[kFLAGS.GOO_FLUID_AMOUNT] / 2 >= this.flags[kFLAGS.GOO_PREFERRED_TIT_SIZE] &&
             this.flags[kFLAGS.GOO_PREFERRED_TIT_SIZE] > 0
@@ -136,7 +136,7 @@ export class LatexGirl extends NPCAwareContent {
         else return this.flags[kFLAGS.GOO_FLUID_AMOUNT] / 2;
     }
 
-    //TF Scene:
+    // TF Scene:
     public meanGooGirlRecruitment(): void {
         this.getGame().inCombat = false;
         this.clearOutput();
@@ -185,15 +185,15 @@ export class LatexGirl extends NPCAwareContent {
         this.outputText(
             "\n\nNow, you've got yourself a latex goo-girl... or a latex-girl... whatever.  How to get her home?"
         );
-        //{Intelligent:}
+        // {Intelligent:}
         if (this.player.inte >= 60) {
             this.outputText(
                 "\n\nYou quickly find a few pieces of wood and some strong reeds to use as rope.  It takes no more than 15 minutes to assemble the gathered components into a crude travois - one you'll have to carry.  Lifting the giant-breasted pile of sexy latex onto your construction proves to be quite the task, but you manage, barely.  Dragging her back to camp is no easier, but thanks to your quick wit, you save yourself a ton of effort."
             );
-            //{fatigue + 20}
+            // {fatigue + 20}
             this.fatigue(20);
         }
-        //{Strong:}
+        // {Strong:}
         else if (this.player.str >= 60) {
             this.outputText(
                 "\n\nYou heave her up over your shoulder, straining your capable muscles to hold up those giant mammaries and remain upright.  The task is arduous, but you're strong enough for anything!  "
@@ -212,7 +212,7 @@ export class LatexGirl extends NPCAwareContent {
 
             this.fatigue(10);
         }
-        //Too weak and dumb:
+        // Too weak and dumb:
         else {
             this.outputText(
                 "\n\nYou try to lift her, but she's too heavy!  Drat!  There's no way you'll get her back to camp like this, and you can't leave the portal undefended long enough to wait for her to wake.  You'll have to leave her for now and try to recapture her once she's awake."
@@ -220,13 +220,13 @@ export class LatexGirl extends NPCAwareContent {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //[Next] (Go to aftermath)
+        // [Next] (Go to aftermath)
         this.menu();
         this.addButton(0, "Next", this.PCCarriedGooBackHome);
     }
 
-    //Goo -> Latex Aftermath:
-    //PC Carried Her Back:
+    // Goo -> Latex Aftermath:
+    // PC Carried Her Back:
     private PCCarriedGooBackHome(): void {
         this.clearOutput();
         this.outputText("You set the once-goo down in a secluded section of your camp");
@@ -305,7 +305,7 @@ export class LatexGirl extends NPCAwareContent {
             return;
         }
         this.flags[kFLAGS.GOO_NAME] = input.value;
-        //After Naming Her:
+        // After Naming Her:
         this.clearOutput();
         this.outputText('"<i>');
         if (this.flags[kFLAGS.GOO_NAME] == "Cattleya")
@@ -422,7 +422,7 @@ export class LatexGirl extends NPCAwareContent {
         this.flags[kFLAGS.GOO_FLUID_AMOUNT] = 100;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //PC Couldn't Bring Her Back
+    // PC Couldn't Bring Her Back
     public encounterLeftBehindGooSlave(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.GOO_TFED_NICE] > 0) {
@@ -507,14 +507,14 @@ export class LatexGirl extends NPCAwareContent {
         this.clearOutput();
         this.outputText('"<i>Call me what you want, my name doesn\'t matter.</i>"');
         this.outputText("\n\nWhat will you name her?");
-        //{To standard name prompts}
+        // {To standard name prompts}
         const input = document.createElement("input");
         this.menu();
         this.addButton(0, "Next", () => this.nameZeLatexGoo(input));
         this.mainView.mainText.appendChild(input);
     }
 
-    //Pure Characters Intro(F):
+    // Pure Characters Intro(F):
     public pureGooRecruitmentStart(): void {
         this.getGame().inCombat = false;
         this.clearOutput();
@@ -526,8 +526,8 @@ export class LatexGirl extends NPCAwareContent {
         if (this.player.hasItem(this.consumables.BLACKEG))
             this.player.consumeItem(this.consumables.BLACKEG);
         else this.player.consumeItem(this.consumables.L_BLKEG);
-        //Play after having defeated a Googirl, when you have a Black Egg & Succubi Milk in your inventory. Corruption less than 50.
-        //NOTE: Starts with Obedience 30, Happiness 60~?
+        // Play after having defeated a Googirl, when you have a Black Egg & Succubi Milk in your inventory. Corruption less than 50.
+        // NOTE: Starts with Obedience 30, Happiness 60~?
         this.outputText(
             "The excitement of your scuffle proves too much for the goo-girl to keep up with and she collapses into the slime of her lower torso, her skin wiggling as she struggles to maintain cohesion.  Her expression is one of disappointment, and she looks at you with big, hopeful eyes, reaching out a hand, as if to offer an apology for her overexuberance."
         );
@@ -547,12 +547,12 @@ export class LatexGirl extends NPCAwareContent {
         this.outputText(
             "\n\nWorried that you might have killed her, you dart forward to check her breathing.  Whew!  She's okay, just out like a lamp.  You hold the poor girl in your arms for a long moment, looking around for somewhere to put her, for someone to help you deal with... whatever's she's just done to herself.  It looks like you've got yourself a latex goo-girl... or a latex-girl... whatever.  Leaving her out here seems cruel, as she'd certainly be snatched up by some horrid monster...  She'd be safer back at your camp, though that might be committing to a more long-term project than you're ready for."
         );
-        //[Take her Home] [Leave Her]
+        // [Take her Home] [Leave Her]
         this.menu();
         this.addButton(0, "Take Home", this.niceGuysTakeLatexHome);
         this.addButton(4, "Leave Her", this.leaveTheLatexGooGirl);
     }
-    //Leave Her(F)
+    // Leave Her(F)
     private leaveTheLatexGooGirl(): void {
         this.clearOutput();
         this.outputText(
@@ -560,18 +560,18 @@ export class LatexGirl extends NPCAwareContent {
         );
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Take her Home(F)
+    // Take her Home(F)
     private niceGuysTakeLatexHome(): void {
         this.clearOutput();
-        //{Intelligent:}
+        // {Intelligent:}
         if (this.player.inte >= 60) {
             this.outputText(
                 "You quickly find a few pieces of wood and some strong reeds to use as rope.  It takes no more than 15 minutes to assemble the gathered components into a crude travois - one you'll have to carry.  Lifting the giant-breasted pile of sexy latex onto your construction proves to be quite the task, but you manage, barely.  Dragging her back to camp is no easier, but thanks to your quick wit, you save yourself a ton of effort."
             );
-            //{fatigue + 20}
+            // {fatigue + 20}
             this.fatigue(20);
         }
-        //{Strong:}
+        // {Strong:}
         else if (this.player.str >= 60) {
             this.outputText(
                 "You heave her up over your shoulder, straining your capable muscles to hold up those giant mammaries and remain upright.  The task is arduous, but you're strong enough for anything!  "
@@ -589,7 +589,7 @@ export class LatexGirl extends NPCAwareContent {
             );
             this.fatigue(10);
         }
-        //{Too weak and dumb:}
+        // {Too weak and dumb:}
         else {
             this.outputText(
                 "You try to lift her, but she's too heavy!  Drat!  There's no way you'll get her back to camp like this, and you can't leave the portal undefended long enough to wait for her to wake.  You'll have to leave her for now and try finding her again once she's awake."
@@ -597,11 +597,11 @@ export class LatexGirl extends NPCAwareContent {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //[Next] (Go to PURE aftermath)
+        // [Next] (Go to PURE aftermath)
         this.menu();
         this.addButton(0, "Next", this.pureGooGalRecruitAftermath);
     }
-    //PURE Aftermath(F)
+    // PURE Aftermath(F)
     private pureGooGalRecruitAftermath(): void {
         this.clearOutput();
         this.outputText(
@@ -650,7 +650,7 @@ export class LatexGirl extends NPCAwareContent {
         this.addButton(0, "Next", () => this.nameZeLatexGooNice(inputField));
     }
 
-    //After Naming Latexy(F):
+    // After Naming Latexy(F):
     private nameZeLatexGooNice(input: HTMLInputElement): void {
         if (input.value == "") {
             this.clearOutput();
@@ -750,12 +750,12 @@ export class LatexGirl extends NPCAwareContent {
         this.outputText(
             "</i>\" she muses, her mood brightening.  \"<i>I-I suppose I should start to get used to it... to all of this.  I... thank you, friend.  You didn't have to take me back here, to help me, but you did.  I'm grateful, truly I am.  But I don't think I would survive long out in the wilds, on my own.  I've lived my whole life as a goo, and it will take some time - years, maybe - to relearn how to survive on my own.  I know it's a lot to ask, but would you mind if I stayed here?  With... with you?  At least until I can get on my, uh, feet, as it were,</i>\" she says, her hands tracing along her body down to her new, dainty little feet."
         );
-        //[Keep Her] [Boot her Out]
+        // [Keep Her] [Boot her Out]
         this.menu();
         this.addButton(0, "Keep Her", this.niceGuysKeepTheirGooGals);
         this.addButton(1, "Boot Her", this.bootOutNiceGoo);
     }
-    //Boot her Out(F):
+    // Boot her Out(F):
     private bootOutNiceGoo(): void {
         this.clearOutput();
         this.outputText(
@@ -768,7 +768,7 @@ export class LatexGirl extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Keep Her(F):
+    // Keep Her(F):
     private niceGuysKeepTheirGooGals(): void {
         this.clearOutput();
         this.outputText(
@@ -798,11 +798,11 @@ export class LatexGirl extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Approach Her (Select From Slaves Tab)(F)
+    // Approach Her (Select From Slaves Tab)(F)
     public approachLatexy(): void {
         this.clearOutput();
-        //First Line - Happiness Dependent
-        //(Sub 10)
+        // First Line - Happiness Dependent
+        // (Sub 10)
         if (this.gooHappiness() < 10)
             this.outputText(
                 this.flags[kFLAGS.GOO_NAME] +
@@ -810,49 +810,49 @@ export class LatexGirl extends NPCAwareContent {
                     this.flags[kFLAGS.GOO_EYES] +
                     " eyes.  You doubt her solid onyx face could be any more morose."
             );
-        //(Sub 20)
+        // (Sub 20)
         else if (this.gooHappiness() < 20)
             this.outputText(
                 this.flags[kFLAGS.GOO_NAME] +
                     " glares at you as you approach, clearly unhappy with the situation.  She looks like she's having a pretty terrible time."
             );
-        //(Sub 30)
+        // (Sub 30)
         else if (this.gooHappiness() < 30)
             this.outputText(
                 this.flags[kFLAGS.GOO_NAME] +
                     " frowns at you as you approach, more than a little displeased to see you.  She doesn't seem to be having a very good time."
             );
-        //(Sub 40)
+        // (Sub 40)
         else if (this.gooHappiness() < 40)
             this.outputText(
                 this.flags[kFLAGS.GOO_NAME] +
                     " knits her eyebrows in consternation at your approach, visibly less than happy.  It doesn't look like she's thrilled to be here."
             );
-        //(Sub 50)
+        // (Sub 50)
         else if (this.gooHappiness() < 50)
             this.outputText(
                 this.flags[kFLAGS.GOO_NAME] +
                     " glances up at you when you approach, visibly bored.  She looks like she needs some cheering up."
             );
-        //(Sub 60)
+        // (Sub 60)
         else if (this.gooHappiness() < 60)
             this.outputText(
                 this.flags[kFLAGS.GOO_NAME] +
                     " gives you a wan smile as you approach, looking a tad bored.  Still, the glitter in her eyes tells you that she's still a good ways from unhappy."
             );
-        //(Sub 70)
+        // (Sub 70)
         else if (this.gooHappiness() < 70)
             this.outputText(
                 this.flags[kFLAGS.GOO_NAME] +
                     " cracks a small grin at the sight of you, happy to see you.  It's good to see her having a positive outlook."
             );
-        //(Sub 80)
+        // (Sub 80)
         else if (this.gooHappiness() < 80)
             this.outputText(
                 this.flags[kFLAGS.GOO_NAME] +
                     " openly smiles at you as you approach, in good spirits, it seems.  Her sensual, fetishy skin reflects the light as she smiles, looking truly beautiful."
             );
-        //(Sub 90)
+        // (Sub 90)
         else if (this.gooHappiness() < 90)
             this.outputText(
                 this.flags[kFLAGS.GOO_NAME] +
@@ -860,7 +860,7 @@ export class LatexGirl extends NPCAwareContent {
                     this.flags[kFLAGS.GOO_EYES] +
                     " eyes."
             );
-        //(Sub 100)
+        // (Sub 100)
         else if (this.gooHappiness() < 100)
             this.outputText(
                 this.flags[kFLAGS.GOO_NAME] +
@@ -868,7 +868,7 @@ export class LatexGirl extends NPCAwareContent {
                     this.flags[kFLAGS.GOO_EYES] +
                     " eyes twinkle with genuine pleasure."
             );
-        //(MAX)
+        // (MAX)
         else
             this.outputText(
                 this.flags[kFLAGS.GOO_NAME] +
@@ -876,56 +876,56 @@ export class LatexGirl extends NPCAwareContent {
                     this.flags[kFLAGS.GOO_EYES] +
                     " eyes and ecstatic visage make it clear how unbelievably happy she is."
             );
-        //Second Line - Tit Size
+        // Second Line - Tit Size
         this.outputText("  ");
-        //{Giant-Sized Titties}
+        // {Giant-Sized Titties}
         if (this.gooTitSize() >= 35)
             this.outputText(
                 "Utterly filled with moisture, her " +
                     this.gooTits() +
                     " are so big her arms can barely encompass them, her hands pressing fruitlessly against the sloshing sides.  The bubbly black surface bulges obscenely, barely containing the liquid weight within."
             );
-        //{Very Big-Sized Titties}
+        // {Very Big-Sized Titties}
         else if (this.gooTitSize() >= 24)
             this.outputText(
                 "Wobbling like crazy, her incredible chest barely stays bound up in her hands.  It completely obscures her torso from view.  Eventually, she gives up on restraining them and lets them slosh free.  You can't help but admire the flawless curves as you ponder how she can possibly remain upright."
             );
-        //{Pretty nice sized}
+        // {Pretty nice sized}
         else if (this.gooTitSize() >= 15)
             this.outputText(
                 "Big enough to hide most of her torso, the " +
                     this.gooTits() +
                     " sway and bounce ponderously.  Light reflects off the shiny, hypnotizing surface of her chest as she supports it with her hands."
             );
-        //{Big SizedVolley}
+        // {Big SizedVolley}
         else if (this.gooTitSize() > 4)
             this.outputText(
                 "Well-rounded and jiggly, her " +
                     this.gooTits() +
                     " ripples slightly as she moves.  Those well-rounded spheres seem soft and firm at the same time."
             );
-        //{LargeDD}
+        // {LargeDD}
         else if (this.gooTitSize() > 3)
             this.outputText(
                 "Sitting high on her chest, a proud pair of " +
                     this.gooTits() +
                     " jiggle slightly with her every movement.  They're still nice and round, but nowhere near the mammoths she had before."
             );
-        //{MediumC}
+        // {MediumC}
         else if (this.gooTitSize() > 2)
             this.outputText(
                 "High and curvy, her " +
                     this.gooTits() +
                     " looks pert and perky, topped with dark chocolate nipples.  The reflective surface makes them appear larger than they truly are, a feast of midnight darkness for your eyes."
             );
-        //{LightA}
+        // {LightA}
         else
             this.outputText(
                 "Sitting high on her chest, her " +
                     this.gooTits() +
                     " seems almost disproportionately tiny for her frame.  The perky onyx nipples protrude invitingly, tiny caps of inviting midnight."
             );
-        //{Regardless}
+        // {Regardless}
         this.outputText(
             "  You estimate " +
                 this.flags[kFLAGS.GOO_NAME] +
@@ -933,33 +933,33 @@ export class LatexGirl extends NPCAwareContent {
                 Appearance.breastCup(this.gooTitSize()) +
                 " bra, were she to wear one."
         );
-        //Dicknips:
+        // Dicknips:
         if (this.flags[kFLAGS.GOO_NIPPLE_TYPE] == 1)
             this.outputText(
                 "  Those proud nipples have odd bulges at the tips, bulges that can swell tremendously, turning into rigid dicknipples."
             );
-        //Cuntnips:
+        // Cuntnips:
         else if (this.flags[kFLAGS.GOO_NIPPLE_TYPE] == -1)
             this.outputText(
                 "  Those proud nipples have a visible slit down the middle, just waiting to be spread into hungry pussies."
             );
-        //Third Line - Fluid content
-        //{Above 75}
+        // Third Line - Fluid content
+        // {Above 75}
         if (this.gooFluid() >= 75)
             this.outputText(
                 "  Her onyx lips are plush and inviting, full of liquid.  Likewise, her body seems flush and full of life, certainly not suffering for fluid nutrients."
             );
-        //{Above 50}
+        // {Above 50}
         else if (this.gooFluid() >= 50)
             this.outputText(
                 "  Her onyx lips are full and pouty.  Likewise, her body is smooth and curvy, filled with plenty of fluid nutrients."
             );
-        //{Above 25}
+        // {Above 25}
         else if (this.gooFluid() >= 25)
             this.outputText(
                 "  Her onyx lips look a little on the small side.  Likewise, her body is slim and narrow, not very filled out or curvy.  She could probably use more liquid nutrients."
             );
-        //{Low}
+        // {Low}
         else {
             this.outputText(
                 "  Her onyx lips are tiny, drawn into a thin line.  Likewise, her body is narrow and feeble, perhaps lacking in fluid sustenance."
@@ -969,9 +969,9 @@ export class LatexGirl extends NPCAwareContent {
                     "  She looks very unhealthy - she might be able to survive like this, but you can tell it will weigh heavily on her."
                 );
         }
-        //Fourth+ - special shit - NEWLINE
+        // Fourth+ - special shit - NEWLINE
         this.outputText("\n\n");
-        //{Dick}
+        // {Dick}
         if (this.flags[kFLAGS.GOO_DICK_LENGTH] > 0)
             this.outputText(
                 "Below her waist, a " +
@@ -983,15 +983,15 @@ export class LatexGirl extends NPCAwareContent {
         this.outputText(
             "A glittering cleft that oozes with coal-colored lubricant nestles firmly at the joining of her sensuous latex legs.  They shine that much brighter thanks to the unnatural slickness."
         );
-        //Last Pg Obedience:
+        // Last Pg Obedience:
         this.outputText("\n\n");
-        //{sub 10}
+        // {sub 10}
         if (this.gooObedience() < 10)
             this.outputText(
                 this.flags[kFLAGS.GOO_NAME] +
                     " gives you a look of pure defiance, ready to disobey at the slightest notice."
             );
-        //{sub 20}
+        // {sub 20}
         else if (this.gooObedience() < 20)
             this.outputText(
                 this.flags[kFLAGS.GOO_NAME] +
@@ -999,13 +999,13 @@ export class LatexGirl extends NPCAwareContent {
                     this.flags[kFLAGS.GOO_EYES] +
                     " eyes."
             );
-        //{sub 30}
+        // {sub 30}
         else if (this.gooObedience() < 30)
             this.outputText(
                 this.flags[kFLAGS.GOO_NAME] +
                     " smirks at you with a rebellious cast on her features."
             );
-        //{sub 40}
+        // {sub 40}
         else if (this.gooObedience() < 40)
             this.outputText(
                 this.flags[kFLAGS.GOO_NAME] +
@@ -1013,19 +1013,19 @@ export class LatexGirl extends NPCAwareContent {
                     this.flags[kFLAGS.GOO_EYES] +
                     ", fiery eyes, still far from obedient."
             );
-        //{sub 50}
+        // {sub 50}
         else if (this.gooObedience() < 50)
             this.outputText(
                 this.flags[kFLAGS.GOO_NAME] +
                     " glances downwards for a moment, averting her eyes until she remembers to look up, defying her own submission."
             );
-        //{sub 60}
+        // {sub 60}
         else if (this.gooObedience() < 60)
             this.outputText(
                 this.flags[kFLAGS.GOO_NAME] +
                     " casts her eyes down but peeks up through her charcoal eyelashes to regard you."
             );
-        //{sub 70}
+        // {sub 70}
         else if (this.gooObedience() < 70)
             this.outputText(
                 this.flags[kFLAGS.GOO_NAME] +
@@ -1033,25 +1033,25 @@ export class LatexGirl extends NPCAwareContent {
                     this.flags[kFLAGS.GOO_EYES] +
                     " eyes cast down at the ground in deference to you, though she nervously draws in the dirt with a finger while she awaits a command."
             );
-        //{sub 80}
+        // {sub 80}
         else if (this.gooObedience() < 80)
             this.outputText(
                 this.flags[kFLAGS.GOO_NAME] +
                     " fixes her gaze down obediently, her cheeks flushing purplish.  Is she enjoying submitting to you?"
             );
-        //{sub 90)
+        // {sub 90)
         else if (this.gooObedience() < 90)
             this.outputText(
                 this.flags[kFLAGS.GOO_NAME] +
                     " prostrates herself on the ground before you, tilting her head back so that she can fix her eyes on your waist, unfit to meet your gaze."
             );
-        //{sub 100)
+        // {sub 100)
         else if (this.gooObedience() < 100)
             this.outputText(
                 this.flags[kFLAGS.GOO_NAME] +
                     " submissively prostrates herself before you, raising her onyx rump high as her forehead lowers.  Her cheeks and rump both manage to blush purple through her latex skin, clearly aroused by her own submissiveness."
             );
-        //{MAX}
+        // {MAX}
         else
             this.outputText(
                 this.flags[kFLAGS.GOO_NAME] +
@@ -1113,7 +1113,7 @@ export class LatexGirl extends NPCAwareContent {
 
         this.flags[kFLAGS.FOLLOWER_AT_FARM_LATEXY] = 0;
 
-        //[+1 Obedience and -1 Happiness every two days kept at the farm]
+        // [+1 Obedience and -1 Happiness every two days kept at the farm]
         this.doNext(kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
@@ -1130,10 +1130,10 @@ export class LatexGirl extends NPCAwareContent {
         this.addButton(4, "Back", this.approachLatexy);
     }
 
-    //Setting Dick Type(F)
+    // Setting Dick Type(F)
     private changeGooDick(): void {
         this.clearOutput();
-        //Supah High obedience slut!
+        // Supah High obedience slut!
         if (this.gooObedience() >= 60) {
             this.outputText("You ");
             if (this.flags[kFLAGS.GOO_DICK_LENGTH] == 0)
@@ -1165,7 +1165,7 @@ export class LatexGirl extends NPCAwareContent {
                         ' pulls a hand away from her pussy and says, "<i>What kind of penis would please you most?  I could probably do the human ones, dog dicks, horse cocks, cat pricks, tentacle wangs, or demon dongs.</i>"  She gives a little shudder at the last one and licks her lips.  "<i>You\'ll need to have an appropriate item to assist me though, [Master].  I\'m not as flexible as I once was.'
                 );
         }
-        //High Happiness + Whatever Obedience(F)
+        // High Happiness + Whatever Obedience(F)
         else if (this.gooHappiness() >= 70) {
             this.outputText("You ask " + this.flags[kFLAGS.GOO_NAME] + " if ");
             if (this.flags[kFLAGS.GOO_DICK_LENGTH] == 0)
@@ -1187,7 +1187,7 @@ export class LatexGirl extends NPCAwareContent {
                         ' taps her chin and says, "<i>I can probably make almost any kind of penis, though I only really like the human ones, dog dicks, horse cocks, cat pricks, tentacle wangs, and demon dongs.</i>"  She gives a little shudder at the last one and licks her lips.  "<i>You\'ll need to have an appropriate item to assist me though, I\'m not as flexible as I once was.'
                 );
         }
-        //Low Obedience(F)
+        // Low Obedience(F)
         else {
             this.outputText("You ");
             if (this.flags[kFLAGS.GOO_DICK_LENGTH] == 0)
@@ -1364,7 +1364,7 @@ export class LatexGirl extends NPCAwareContent {
         this.menu();
         this.addButton(0, "Next", this.approachLatexy);
     }
-    //Setting Preferred Bust Size(F)
+    // Setting Preferred Bust Size(F)
     private setLatexysBustSize(): void {
         this.clearOutput();
         this.outputText(
@@ -1372,7 +1372,7 @@ export class LatexGirl extends NPCAwareContent {
                 this.flags[kFLAGS.GOO_NAME] +
                 " if she wouldn't mind keeping her tits around a certain size."
         );
-        //Low Obedience
+        // Low Obedience
         if (this.gooObedience() < 60) {
             this.outputText(
                 "\n\nShe puts her hands on her hips and shouts, \"<i>As if!  I'll make 'em as big or as small as I want!  You're already getting a sexy latex woman who's dependent on you for sexual fluids - you don't need to micromanage everything about me too!</i>\"  She blushes a little when she realized she just discussed her new self as 'sexy'.  She must like this a little more than she lets on."
@@ -1382,12 +1382,12 @@ export class LatexGirl extends NPCAwareContent {
             this.addButton(0, "Next", this.approachLatexy);
             return;
         }
-        //Decent Obedience
+        // Decent Obedience
         else if (this.gooObedience() < 80)
             this.outputText(
                 "\n\nShe nods and casually hefts her tits in her hands, bouncing them back and forth as if to distract you.  \"<i>How big do you want these beauts?  I could have nearly immobilizing udders down to pert apples.  A word of warning though - it's easy to keep 'em small when I'm well hydrated, but keeping them large when I'm low on fluids isn't going to be possible.  If you like grand titons on your sexy slave-girls, you'll have to keep me well fed.</i>\"  A violet blush colors her cheeks when she realized she just referred to herself as your sexy slave-girl, so she tries to change the topic.  \"<i>By well fed, I mean sexed.  Because, you know, goo-girl.</i>\"  It didn't work very well."
             );
-        //Highly obedient
+        // Highly obedient
         else {
             this.outputText(
                 "\n\nShe nods and casually hefts her tits in her hands, bouncing them back and forth with a slutty expression on her face.  \"<i>How big do you want me to be, [Master]?  I could be a big-breasted whore for you, barely able to move under the weight of my own tits.  Then you'd have a mountain of latex cleavage to play in.  Or, I could keep them as pert, apple-sized breasts that just barely fit into your hands.  I'd be a glossy, petite slut for you then, wouldn't I?</i>\"  She groans at the thoughts coursing through her obedient, depraved little mind and whimpers, \"<i>Just keep me well fed if you want them full, [Master].  Without enough fluid, I can't keep them big!</i>\"  " +
@@ -1424,15 +1424,15 @@ export class LatexGirl extends NPCAwareContent {
         else return 1;
     }
 
-    //She Changes Her Bust Size(F)
+    // She Changes Her Bust Size(F)
     private changeLatexyTits(arg: number = 0): void {
         this.clearOutput();
-        //PC wants tits bigger than current preferred and fluid not sufficient to reach new size
+        // PC wants tits bigger than current preferred and fluid not sufficient to reach new size
         if (
             this.gooTitClass(arg) > this.gooTitClass(this.flags[kFLAGS.GOO_PREFERRED_TIT_SIZE]) &&
             this.gooTitClass(this.flags[kFLAGS.GOO_FLUID_AMOUNT] / 2) < this.gooTitClass(arg)
         ) {
-            //If already as big as possible
+            // If already as big as possible
             if (
                 this.gooTitClass(this.flags[kFLAGS.GOO_FLUID_AMOUNT] / 2) ==
                 this.gooTitClass(this.gooTitSize())
@@ -1441,7 +1441,7 @@ export class LatexGirl extends NPCAwareContent {
                     this.flags[kFLAGS.GOO_NAME] +
                         " nods, but her body doesn't change.  \"<i>There's not enough of me to make them any bigger right now.  You'll have to feed me if you want to see what they'll look at... full size.</i>\""
                 );
-            //Tits can't quite grow to max size:
+            // Tits can't quite grow to max size:
             else
                 this.outputText(
                     this.flags[kFLAGS.GOO_NAME] +
@@ -1450,16 +1450,16 @@ export class LatexGirl extends NPCAwareContent {
                         " just doesn't have enough juice to fill them... yet.  She tells you that once you feed her enough she'll be as rounded as you requested."
                 );
         }
-        //To max {Giant}size!
+        // To max {Giant}size!
         else if (this.gooTitClass(arg) == 7) {
             this.outputText(
                 this.flags[kFLAGS.GOO_NAME] +
                     " places her hands on her nipples and takes a deep breath.  She holds it for one second... two... three...  As she exhales, her breasts visibly inflate, not with air, but with ponderous liquid weight.  They grow bigger and bigger, until they nearly obscure her waist.  They're clearly heavy, with something of a teardrop shape to them.  In between them, the lush latex cleavage draws your eyes.  Part of you wants to climb in and see if you can disappear into those heavy, latex-encased udders."
             );
         }
-        //To huge {very nice} size!
+        // To huge {very nice} size!
         else if (this.gooTitClass(arg) == 6) {
-            //BIGGER
+            // BIGGER
             if (this.gooTitClass(this.gooTitSize()) < 6)
                 this.outputText(
                     this.flags[kFLAGS.GOO_NAME] +
@@ -1467,7 +1467,7 @@ export class LatexGirl extends NPCAwareContent {
                         this.gooTits() +
                         " fill with greater and greater amounts of goo, stretching out to accommodate their obscene liquid weight.  They don't stop until they're nearly the size of beach balls, swaying heavily and obscuring most of your pet's torso from view.  Inky cleavage wobbles with every movement, inviting you to put something inside it."
                 );
-            //Smaller:
+            // Smaller:
             else
                 this.outputText(
                     this.flags[kFLAGS.GOO_NAME] +
@@ -1476,9 +1476,9 @@ export class LatexGirl extends NPCAwareContent {
                         "'s torso from view.  They still have an unbridled amount of cleavage, but now they come in a form that might be a little easier for your companion to carry."
                 );
         }
-        //To basketball {pretty nice} sized
+        // To basketball {pretty nice} sized
         else if (this.gooTitClass(arg) == 5) {
-            //Bigger:
+            // Bigger:
             if (this.gooTitClass(this.gooTitSize()) < 5)
                 this.outputText(
                     this.flags[kFLAGS.GOO_NAME] +
@@ -1486,7 +1486,7 @@ export class LatexGirl extends NPCAwareContent {
                         this.gooTits() +
                         " and pinches on her areola, tugging them outward.  The reflective black flesh gives to her pulls, stretching out and growing heavy with newfound weight.  The mammary growth doesn't stop until the breasts are about as big as basketballs, though far more jiggly.  The cleavage in between those impressive orbs seems to go on forever, almost inviting you to place something in it."
                 );
-            //Smaller:
+            // Smaller:
             else
                 this.outputText(
                     this.flags[kFLAGS.GOO_NAME] +
@@ -1495,24 +1495,24 @@ export class LatexGirl extends NPCAwareContent {
                         "'s cleavage remains impressive, but not to such an obscene degree.  The women back home would've killed to have hooters like her."
                 );
         }
-        //To volley ball {big} sized
+        // To volley ball {big} sized
         else if (this.gooTitClass(arg) == 4) {
-            //Bigger:
+            // Bigger:
             if (this.gooTitClass(this.gooTitSize()) < 4)
                 this.outputText(
                     this.flags[kFLAGS.GOO_NAME] +
                         " giggles and asks, \"<i>Are you sure we can't go bigger?  The best part about being latex is that my new skin holds the shape without much work from me.  I can have huge, floor-dragging tits without any fuss!  Fuck, I'd be so horny having my nipples catch on every pebble!</i>\"  She sighs as she fantasizes and pulls on her nipples.  With every tug, her breasts expand a little bigger, engorging with fresh fluid.  They slosh and shake a little as they even out into volleyball-sized tits with a gorgeous slash of cleavage dividing them."
                 );
-            //Smaller:
+            // Smaller:
             else
                 this.outputText(
                     this.flags[kFLAGS.GOO_NAME] +
                         ' sighs and says, "<i>I wish you would\'ve made me make them bigger.  Then I could crawl around on my hands and knees, dragging them on the ground and trying not to cum every time a nipple snagged on a pebble.</i>"  She sighs as she fantasizes and pushes down on her oversized tits.  As if by magic, they shrink, compressing down until her breasts are about the size of volleyballs with a gorgeous slash of cleavage dividing them.'
                 );
         }
-        //To DDish {large} sized:
+        // To DDish {large} sized:
         else if (this.gooTitClass(arg) == 3) {
-            //Bigger:
+            // Bigger:
             if (this.gooTitClass(this.gooTitSize()) < 3)
                 this.outputText(
                     this.flags[kFLAGS.GOO_NAME] +
@@ -1520,7 +1520,7 @@ export class LatexGirl extends NPCAwareContent {
                         this.flags[kFLAGS.GOO_NAME] +
                         " smiles at the result.  Her breasts are now around a DD-cup - just as requested."
                 );
-            //Smaller: " +
+            // Smaller: " +
             else
                 this.outputText(
                     this.flags[kFLAGS.GOO_NAME] +
@@ -1531,15 +1531,15 @@ export class LatexGirl extends NPCAwareContent {
                         " is reduced to having something like a DD-cup - a nice but fairly normal size, as ordered."
                 );
         }
-        //To C {medium} sized:
+        // To C {medium} sized:
         else if (this.gooTitClass(arg) == 2) {
-            //Bigger:
+            // Bigger:
             if (this.gooTitClass(this.gooTitSize()) < 2)
                 this.outputText(
                     this.flags[kFLAGS.GOO_NAME] +
                         ' says, "<i>Well, that\'s a start I suppose.</i>"  She cups her tiny teats and massages them with gentle gropes.  Each time, they jiggle a little bit more.  Almost as soon as she starts, she stops, leaving them as curvy C-cups.  "<i>Could we go bigger?</i>"'
                 );
-            //Smaller:
+            // Smaller:
             else
                 this.outputText(
                     this.flags[kFLAGS.GOO_NAME] +
@@ -1548,7 +1548,7 @@ export class LatexGirl extends NPCAwareContent {
                         ', then, she blinks her eyes closed and shivers.  Before your eyes, the breast-flesh diminishes, eventually settling on a pair of curvy C-cups.  "<i>I look like I must be dehydrated!  Good thing the other girls can\'t see me!</i>"'
                 );
         }
-        //To A {light} sized:
+        // To A {light} sized:
         else if (this.gooTitClass(arg) == 1 && arg > 0) {
             this.outputText(
                 this.flags[kFLAGS.GOO_NAME] +
@@ -1572,11 +1572,11 @@ export class LatexGirl extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Feeding Her(F)
-    //Can be fed cum, girl-cum, minotaur cum.
-    //Can be fed directly or indirectly.
-    //Direct feeding boosts happiness a fair bit but reduces obedience until obedience is over 50.
-    //Indirect feeding increases happiness somewhat.
+    // Feeding Her(F)
+    // Can be fed cum, girl-cum, minotaur cum.
+    // Can be fed directly or indirectly.
+    // Direct feeding boosts happiness a fair bit but reduces obedience until obedience is over 50.
+    // Indirect feeding increases happiness somewhat.
     private feedLatexy(): void {
         this.clearOutput();
         this.outputText("How will you feed her?");
@@ -1605,10 +1605,10 @@ export class LatexGirl extends NPCAwareContent {
         this.addButton(9, "Back", this.approachLatexy);
     }
 
-    //Feed Cum Indirectly(F)
+    // Feed Cum Indirectly(F)
     private feedLatexyCumIndirectly(): void {
         this.clearOutput();
-        //{1st Time, any indirect scene:
+        // {1st Time, any indirect scene:
         if (this.flags[kFLAGS.GOO_INDIRECT_FED] == 0) {
             this.outputText(
                 "You toss a wooden bowl on the ground in your latex pet's area.  She looks more than a little confused by this development, poking it and asking, \"<i>What's this for?</i>\"\n\n"
@@ -1704,19 +1704,19 @@ export class LatexGirl extends NPCAwareContent {
             this.outputText(
                 "  Sadly, the copious jizz that puddled up has already been devoured by the dry ground.  It seems the dirt can drink faster than your latex slave."
             );
-        //{Boost her fluid quantity, bonus for over 250mL.}
+        // {Boost her fluid quantity, bonus for over 250mL.}
         this.temp = 20;
         if (this.player.cumQ() >= 500) this.temp += 10;
         this.gooFluid(this.temp);
-        //{Boost her happiness a tiny amount.}
+        // {Boost her happiness a tiny amount.}
         this.gooHappiness(4);
         this.player.orgasm();
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Feed Lady-Cum Indirectly(F)
+    // Feed Lady-Cum Indirectly(F)
     private feedLatexyGirlCumIndirectly(): void {
         this.clearOutput();
-        //{1st Time, any indirect scene:
+        // {1st Time, any indirect scene:
         if (this.flags[kFLAGS.GOO_INDIRECT_FED] == 0) {
             this.outputText(
                 "You toss a wooden bowl on the ground in your latex pet's area.  She looks more than a little confused by this development, poking it and asking, \"<i>What's this for?</i>\"\n\n"
@@ -1806,18 +1806,18 @@ export class LatexGirl extends NPCAwareContent {
             this.outputText(
                 "  Sadly, the copious vaginal lube that muddied the ground is already absorbed.  It seems the dirt can eat faster than your pet."
             );
-        //{Boost her fluid quantity, bonus for over 250mL.}
+        // {Boost her fluid quantity, bonus for over 250mL.}
         this.temp = 10;
         if (this.player.wetness() >= 3) this.temp += 5;
         if (this.player.wetness() >= 4) this.temp += 5;
         if (this.player.wetness() >= 5) this.temp += 5;
         this.player.orgasm();
         this.gooFluid(this.temp);
-        //{Boost her happiness a tiny amount.}
+        // {Boost her happiness a tiny amount.}
         this.gooHappiness(4);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Feed Her Minotaur Cum {Nice Vs Hard}:(F)
+    // Feed Her Minotaur Cum {Nice Vs Hard}:(F)
     private minotaurCumFeedingGoo(nice: boolean = false): void {
         this.clearOutput();
         this.player.consumeItem(this.consumables.MINOCUM);
@@ -1853,7 +1853,7 @@ export class LatexGirl extends NPCAwareContent {
                 this.flags[kFLAGS.GOO_EYES] +
                 ' eyes imploringly beg at you, as if to say, "<i>Can I have it now?</i>"'
         );
-        //{HARD - skip if nice.}
+        // {HARD - skip if nice.}
         if (!nice) {
             this.outputText(
                 "\n\nYou shake your head, pushing her away unapologetically.  Patiently, you explain that if she is to have this treat, that she needs to be obedient."
@@ -1864,7 +1864,7 @@ export class LatexGirl extends NPCAwareContent {
                         this.flags[kFLAGS.GOO_NAME] +
                         ' immediately drops to the ground on all fours, rubbing her head against your [foot] and begging, "<i>Please [Master], may your latex fuckpet have some of that wonderful cum?</i>"  It seems she can be obedient after all.'
                 );
-            //[Semi obedient:]
+            // [Semi obedient:]
             else if (this.gooObedience() >= 40) {
                 this.outputText(
                     "  " +
@@ -1882,9 +1882,9 @@ export class LatexGirl extends NPCAwareContent {
                 this.outputText(
                     "\n\nOnly then do you allow her to stop, pulling her up by the scruff of the neck.  She's learning."
                 );
-                //{+obedience}
+                // {+obedience}
             }
-            //[Not obedient:]
+            // [Not obedient:]
             else {
                 this.outputText(
                     "  " +
@@ -1897,7 +1897,7 @@ export class LatexGirl extends NPCAwareContent {
                 this.outputText(
                     '\n\nShaking your head softly, you say, "<i>Not like that.  Open your mouth and beg with your lips, then you can have it.</i>"'
                 );
-                //{high fluid and not yet submitted}
+                // {high fluid and not yet submitted}
                 if (this.gooFluid() >= 66) {
                     this.outputText(
                         "\n\nStaggering onto her feet, " +
@@ -1917,8 +1917,8 @@ export class LatexGirl extends NPCAwareContent {
                 this.outputText("That's more like it.");
             }
         }
-        //{Both}
-        //{if not hard, minus obedience}
+        // {Both}
+        // {if not hard, minus obedience}
         this.outputText(
             "\n\nNodding, you uncork the bottle and hand it to her.  She immediately throws it back like a sailor with a shot, throat working silently to pass the liquid load directly into her belly.  " +
                 this.flags[kFLAGS.GOO_NAME] +
@@ -1957,7 +1957,7 @@ export class LatexGirl extends NPCAwareContent {
                 "'s eyes roll back into her head, and she collapses flat on her back, still fucking herself with her fist and forearm.  Like that, she cums over and over, succumbing to the narcotic arousal that dulls her wits and fills her body with lusty fire.  To her, there's nothing but mounting pleasure and the ecstatic release that follows, one after the other.  Her body's shaking intensifies to the point where you worry she'll injure her elastic body, but blessedly, her body goes completely limp, slumping into unconsciousness."
         );
         this.dynStats("lus", 10 + this.player.lib / 20);
-        //{+fluid, +happiness}
+        // {+fluid, +happiness}
         this.gooFluid(20);
         this.gooHappiness(15);
         if (nice) this.gooObedience(-1);
@@ -1965,7 +1965,7 @@ export class LatexGirl extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Feed Cum Directly(F)
+    // Feed Cum Directly(F)
     private feedLatexyCumDirectly(): void {
         this.clearOutput();
         this.outputText(
@@ -1975,7 +1975,7 @@ export class LatexGirl extends NPCAwareContent {
                 this.flags[kFLAGS.GOO_EYES] +
                 " eyes locking tightly to [oneCock], raptly watching it stiffen with rising lust.  You take it in hand to heft its weight.  Explaining that this is to be her meal, you give it an encouraging shake.  After all, what kind of master would you be if you didn't feed your goo-girl?"
         );
-        //HUNGRY:
+        // HUNGRY:
         if (this.gooFluid() < 33) {
             this.outputText(
                 "  A rumble makes " +
@@ -1985,7 +1985,7 @@ export class LatexGirl extends NPCAwareContent {
             if (this.gooObedience() > 50) this.outputText(", [Master]");
             this.outputText('?</i>"');
         }
-        //INTERMEDIATE:
+        // INTERMEDIATE:
         else if (this.gooFluid() < 66) {
             this.outputText(
                 "  A smirk spreads over " +
@@ -1995,7 +1995,7 @@ export class LatexGirl extends NPCAwareContent {
             if (this.gooObedience() > 50) this.outputText(", [Master]");
             this.outputText('.</i>"');
         }
-        //NOT HUNGRY:
+        // NOT HUNGRY:
         else {
             this.outputText(
                 "  A lazy smile reveals itself on " +
@@ -2005,7 +2005,7 @@ export class LatexGirl extends NPCAwareContent {
             if (this.gooObedience() > 50) this.outputText(", [Master]");
             this.outputText('.</i>"');
         }
-        //{no new PG}
+        // {no new PG}
         if (this.gooFluid() > 50) this.outputText("  Plump o");
         else this.outputText("  O");
         this.outputText(
@@ -2071,28 +2071,28 @@ export class LatexGirl extends NPCAwareContent {
                 this.flags[kFLAGS.GOO_NAME] +
                 "'s forehead and commanding her to stop."
         );
-        //{OBEDIENT:}
+        // {OBEDIENT:}
         if (this.gooObedience() >= 60) {
             this.outputText(
                 "\n\nAt the sound of your command, a whimper rolls over your [cock biggest], but the suckling heat that surrounds it withdraws, sliding off along with the succulent ring her glossy lips provide.  Your [cockHead biggest] pops free from the imprisoning puckers, trailing glossy black spit.  " +
                     this.flags[kFLAGS.GOO_NAME] +
                     " breathes hard, as if she's been holding her breath all this time, and for all you know, she may have.  In any event, she mewls hungrily, licking her gooey liquids from your cock to clean it.  Again, it feels so good that it nearly saps your strength, but you hold tight while she finishes melting the latex free, leaving your dick completely clean."
             );
-            //Happy:
+            // Happy:
             if (this.gooHappiness() >= 66)
                 this.outputText(
                     '\n\n"<i>Thank you for the food, [Master],</i>" ' +
                         this.flags[kFLAGS.GOO_NAME] +
                         ' coos, "<i>A pet like me only needs what you allow, isn\'t that right, [Master]?</i>"'
                 );
-            //Mediocre:
+            // Mediocre:
             else if (this.gooHappiness() >= 33)
                 this.outputText(
                     '\n\n"<i>Thanks for the food, I guess,</i>" ' +
                         this.flags[kFLAGS.GOO_NAME] +
                         ' mutters, "<i>I guess you don\'t let your pets overindulge, huh?</i>"'
                 );
-            //Grumpy:
+            // Grumpy:
             else
                 this.outputText(
                     '\n\n"<i>Really?  That\'s it?</i>" ' +
@@ -2107,17 +2107,17 @@ export class LatexGirl extends NPCAwareContent {
             this.outputText(
                 " oily wetness onto the ground below at your affirmation, and she shudders with a submissive thrill.  You pat her on the head for a job well done and depart, secure in her obedience."
             );
-            //{Boost her fluid quantity, bonus for over 250mL.}
+            // {Boost her fluid quantity, bonus for over 250mL.}
             this.temp = 20;
             if (this.player.cumQ() >= 500) this.temp += 5;
             this.gooFluid(this.temp);
-            //{Boost her happiness a tiny amount.}
+            // {Boost her happiness a tiny amount.}
             this.gooObedience(5);
             this.player.orgasm();
             this.dynStats("sen", -2);
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //{DISOBEDIENT:}
+        // {DISOBEDIENT:}
         else {
             this.outputText(
                 "\n\nAt the sound of your command, her suction redoubles.  That suckling heat plumps your [cock biggest] even bigger inside her, bombarding you with cacophonous sensation that scatters your bodily control like leaves in the breeze.  You give a strangled whimper as you slide down the stone, landing softly on your [butt] before the sensuous shape of your rebellious pet.  Her lips are locked vacuum tight to your groin, pumping up and down with wet, hungry smacks.  You arch your back into her ministrations, rolling your eyes back into your head.  What need is there for sight when the jolts of pleasure coming from your [cock biggest] are so powerful that they make the previous orgasm seem a wasted, worthless thing."
@@ -2201,7 +2201,7 @@ export class LatexGirl extends NPCAwareContent {
         this.dynStats("lib", 0.5, "sen", -3);
         this.addButton(0, "Next", this.feedCumDirectEpilogue);
     }
-    //[Next]
+    // [Next]
     private feedCumDirectEpilogue(): void {
         this.clearOutput();
         this.outputText(
@@ -2213,12 +2213,12 @@ export class LatexGirl extends NPCAwareContent {
         if (this.player.cumQ() >= 500) this.temp += 30;
         this.gooFluid(this.temp);
 
-        //{Boost her happiness a tiny amount.}
+        // {Boost her happiness a tiny amount.}
         this.gooHappiness(5);
         this.gooObedience(-4);
         this.doNext(this.camp.returnToCampUseFourHours);
     }
-    //Feed Lady-Cum Direct(F)
+    // Feed Lady-Cum Direct(F)
     private feedLatexyGirlCumDirect(): void {
         this.clearOutput();
         this.outputText(
@@ -2242,7 +2242,7 @@ export class LatexGirl extends NPCAwareContent {
                     " glances down, you sashay to better show your [vagina]."
             );
 
-        //HUNGRY:
+        // HUNGRY:
         if (this.gooFluid() < 33) {
             this.outputText(
                 "\n\nA rumble makes " +
@@ -2252,7 +2252,7 @@ export class LatexGirl extends NPCAwareContent {
             if (this.gooObedience() > 50) this.outputText(", [Master]");
             this.outputText('?</i>"');
         }
-        //INTERMEDIATE:
+        // INTERMEDIATE:
         else if (this.gooFluid() < 66) {
             this.outputText(
                 "\n\nA smirk spreads over " +
@@ -2262,7 +2262,7 @@ export class LatexGirl extends NPCAwareContent {
             if (this.gooObedience() > 50) this.outputText(", [Master]");
             this.outputText('.</i>"');
         }
-        //NOT HUNGRY:
+        // NOT HUNGRY:
         else {
             this.outputText(
                 "\n\nA lazy smile reveals itself on " +
@@ -2335,28 +2335,28 @@ export class LatexGirl extends NPCAwareContent {
                 this.flags[kFLAGS.GOO_NAME] +
                 "'s forehead and commanding her to stop."
         );
-        //{OBEDIENT:}
+        // {OBEDIENT:}
         if (this.gooObedience() >= 60) {
             this.outputText(
                 "\n\nAt the sound of your order, a whimper rolls over your [vagina], but the undulating pleasure of her glossy tongue inside you gradually recedes.  Your [clit] pops free from the imprisoning puckers, joined by a web of inky spit and lady-cum.  " +
                     this.flags[kFLAGS.GOO_NAME] +
                     " breathes hard, as if she's been holding her breath all this time, and for all you know, she may have.  In any event, she mewls hungrily, licking her gooey liquids from your box to clean it.  Again, it feels so good that it nearly saps your strength, but you hold tight while she finishes lapping up the lubricants and saliva, leaving your entrance completely clean."
             );
-            //Happy:
+            // Happy:
             if (this.gooHappiness() >= 66)
                 this.outputText(
                     '\n\n"<i>Thank you for the food, [Master],</i>" ' +
                         this.flags[kFLAGS.GOO_NAME] +
                         ' coos, "<i>A pet like me only needs what you allow, isn\'t that right, [Master]?</i>"'
                 );
-            //Mediocre:
+            // Mediocre:
             else if (this.gooHappiness() >= 33)
                 this.outputText(
                     '\n\n"<i>Thanks for the food, I guess,</i>" ' +
                         this.flags[kFLAGS.GOO_NAME] +
                         ' mutters, "<i>I guess you don\'t let your pets overindulge, huh?</i>"'
                 );
-            //Grumpy:
+            // Grumpy:
             else
                 this.outputText(
                     '\n\n"<i>Really?  That\'s it?</i>" ' +
@@ -2370,20 +2370,20 @@ export class LatexGirl extends NPCAwareContent {
             this.outputText(
                 " oily wetness onto the ground below at your affirmation, and she shudders with a submissive thrill.  You pat her on the head for a job well done and depart, secure in her obedience."
             );
-            //{Boost her fluid quantity, bonus for over 250mL.}
+            // {Boost her fluid quantity, bonus for over 250mL.}
             this.temp = 10;
             if (this.player.wetness() >= 3) this.temp += 5;
             if (this.player.wetness() >= 4) this.temp += 5;
             if (this.player.wetness() >= 5) this.temp += 5;
             this.gooFluid(this.temp);
 
-            //{Boost her happiness a tiny amount.}
+            // {Boost her happiness a tiny amount.}
             this.gooObedience(4);
             this.player.orgasm();
             this.dynStats("sen", -2);
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //{DISOBEDIENT; chose not to/could not Assert Control}
+        // {DISOBEDIENT; chose not to/could not Assert Control}
         else {
             this.outputText(
                 "\n\nAt the sound of your order, your pet's efforts redouble.  Her slick onyx opening latches tight to your [clit] while what feels like a foot of thick tongue thrashes inside you.  As sensitive as you are after cumming, you simply can't endure such rampant stimulation.  The strength goes out of your [legs] in weak little twitches as you slump back against a boulder, the rough stone slowing your descent as you slide to the ground.  " +
@@ -2438,7 +2438,7 @@ export class LatexGirl extends NPCAwareContent {
         this.addButton(0, "Next", this.feedCumDirectEpilogueGirls);
     }
 
-    //[Next]
+    // [Next]
     private feedCumDirectEpilogueGirls(): void {
         this.clearOutput();
         this.outputText(
@@ -2447,7 +2447,7 @@ export class LatexGirl extends NPCAwareContent {
                 " slumbering in the corner, looking rather... full and fecund, plump with weight.  You feel equally, obnoxiously empty.  Your groin is tingling painfully from the forceful suckling.  Staggering away toward some water, you realize you'll have to raise her obedience if you want her to stop on command.  Letting her drink so deeply probably didn't help either."
         );
         this.gooFluid(50 + this.player.wetness() * 8);
-        //{Boost her happiness a tiny amount.}
+        // {Boost her happiness a tiny amount.}
         this.gooHappiness(4);
         this.gooObedience(-4);
         this.doNext(this.camp.returnToCampUseFourHours);
@@ -2455,7 +2455,7 @@ export class LatexGirl extends NPCAwareContent {
 
     /*Savin Says: Disobedient Pets get Punished with Gentle Loving PC-Dom (FEMALE)(F)*/
 
-    //[Display option to \"<i>Assert Control</i>\" with Moderate strength check if achieve Femdom end to direct feed scene: \"<i>You're strong enough to pull her off before she utterly dominates you!</i>\"]
+    // [Display option to \"<i>Assert Control</i>\" with Moderate strength check if achieve Femdom end to direct feed scene: \"<i>You're strong enough to pull her off before she utterly dominates you!</i>\"]
     private assertControlOverCuntDrainingLatexGoo(): void {
         if (this.player.str < 40 || this.player.str / 10 + LatexGirl.rand(20) + 1 < 9) {
             this.letLatexGooDrainCuntDry();
@@ -2524,19 +2524,19 @@ export class LatexGirl extends NPCAwareContent {
                 this.flags[kFLAGS.GOO_NAME] +
                 " curls up beside you, her face inches from your own.  With a wan smile, you reach out and run your fingers through her hair before pulling her into a long kiss that leaves the taste of womanhood on your lips."
         );
-        //{Low happiness}
+        // {Low happiness}
         if (this.gooHappiness() < 33)
             this.outputText(
                 "\n\n\"<i>If it's always going to be like that, maybe... being here with you isn't going to be so bad after all,</i>\" " +
                     this.flags[kFLAGS.GOO_NAME] +
                     " whispers."
             );
-        //{Moderate happiness}
+        // {Moderate happiness}
         else if (this.gooHappiness() < 66)
             this.outputText(
                 '\n\n"<i>I\'m sorry I got so forceful, [name].  I enjoy serving you... I do.</i>"'
             );
-        //{High happiness}
+        // {High happiness}
         else
             this.outputText(
                 "\n\n" +
@@ -2546,14 +2546,14 @@ export class LatexGirl extends NPCAwareContent {
         this.player.orgasm();
         this.dynStats("sen", -2);
         this.gooFluid(30 + this.player.wetness() * 5);
-        //{Boost her happiness a tiny amount.}
+        // {Boost her happiness a tiny amount.}
         this.gooHappiness(5);
         this.gooObedience(5);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Savin Says: Disobedient Pets get Punished with Gentle Loving PC-Dom (MALE)
-    //[Display option to \"<i>Assert Control</i>\" with Moderate strength check if achieve Femdom end to direct feed scene: \"<i>You're strong enough to pull her off before she utterly dominates you!</i>\"]
+    // Savin Says: Disobedient Pets get Punished with Gentle Loving PC-Dom (MALE)
+    // [Display option to \"<i>Assert Control</i>\" with Moderate strength check if achieve Femdom end to direct feed scene: \"<i>You're strong enough to pull her off before she utterly dominates you!</i>\"]
     private tryToAssertMaleDomWhileLatexGooDrains(): void {
         if (this.player.str < 40 || this.player.str / 10 + LatexGirl.rand(20) + 1 < 9) {
             this.maleDirectFeedLatexGooGoneWrong();
@@ -2638,19 +2638,19 @@ export class LatexGirl extends NPCAwareContent {
                 this.flags[kFLAGS.GOO_NAME] +
                 " curls up beside you, her face inches from your own.  With a wan smile, you reach out and run your fingers through her hair before pulling her into a long kiss that leaves your own taste on your lips."
         );
-        //{Low happiness}
+        // {Low happiness}
         if (this.gooHappiness() < 33)
             this.outputText(
                 "\n\n\"<i>If it's always going to be like that, maybe... being here with you isn't going to be so bad after all,</i>\" " +
                     this.flags[kFLAGS.GOO_NAME] +
                     " whispers."
             );
-        //{Moderate happiness}
+        // {Moderate happiness}
         else if (this.gooHappiness() < 66)
             this.outputText(
                 '\n\n"<i>I\'m sorry I got so forceful, [name].  I enjoy serving you... I do.</i>"'
             );
-        //{High happiness}
+        // {High happiness}
         else
             this.outputText(
                 "\n\n" +
@@ -2662,15 +2662,15 @@ export class LatexGirl extends NPCAwareContent {
         this.dynStats("sen", -2);
         if (this.player.cumQ() >= 500) this.temp += 20;
         this.gooFluid(this.temp);
-        //{Boost her happiness a tiny amount.}
+        // {Boost her happiness a tiny amount.}
         this.gooHappiness(5);
         this.gooObedience(5);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Dominant Fucking Her(F)
-    //Requires obedience of 60+
-    //Female Dominant Fuck (Goo No Futa)(F)
+    // Dominant Fucking Her(F)
+    // Requires obedience of 60+
+    // Female Dominant Fuck (Goo No Futa)(F)
     private femalePCDomFucksLatexGoo(): void {
         this.clearOutput();
         this.outputText(
@@ -2683,7 +2683,7 @@ export class LatexGirl extends NPCAwareContent {
             this.outputText("lift your " + this.multiCockDescriptLight() + " out of the way to ");
         this.outputText("expose your [vagina], labia already engorged and rosy with lust.");
 
-        //{NOT OBEDIENT ENOUGH}
+        // {NOT OBEDIENT ENOUGH}
         if (this.gooObedience() < 60) {
             if (this.gooFluid() < 33)
                 this.outputText("\n\nLicking her lips with unrepentant hunger");
@@ -2711,7 +2711,7 @@ export class LatexGirl extends NPCAwareContent {
             this.gooObedience(-3);
             return;
         }
-        //{OBEDIENT}
+        // {OBEDIENT}
         this.outputText(
             "\n\n" +
                 this.flags[kFLAGS.GOO_NAME] +
@@ -2786,7 +2786,7 @@ export class LatexGirl extends NPCAwareContent {
                     this.flags[kFLAGS.GOO_NAME] +
                     ' looks up at you in awe, and with a shudder, you pat her on the head.  "<i>Good pet.</i>"'
             );
-        //{ALT:
+        // {ALT:
         else {
             this.outputText(
                 ".  Of course, you've got a pet right here that's already an obedient little cunt-cleaner.  You plant your [vagina] right on her face and command, \"<i>Lick it clean.</i>\""
@@ -2798,7 +2798,7 @@ export class LatexGirl extends NPCAwareContent {
                     this.flags[kFLAGS.GOO_NAME] +
                     " appears intent on slaking her unnatural thirst, and she continues to stimulate and drink long past when you think she'd be done."
             );
-            //{FIRST TIME}
+            // {FIRST TIME}
             if (this.flags[kFLAGS.LATEX_GOO_TIMES_FEMDOMMED_BY_PC] == 0) {
                 this.outputText(
                     "\n\n" +
@@ -2813,7 +2813,7 @@ export class LatexGirl extends NPCAwareContent {
                         " blinks raven-hued tears away, understanding at last.  You release her and step rise, feeling a twinge of fresh arousal.  Your pet appears humbled but sated.  Best of all, she's left a puddle of onyx cunt-juice below her, freshly excreted while she was restrained.  Good girl."
                 );
             }
-            //{REPEAT}
+            // {REPEAT}
             else
                 this.outputText(
                     "\n\n" +
@@ -2829,7 +2829,7 @@ export class LatexGirl extends NPCAwareContent {
         this.gooHappiness(2);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Female Dominant Fuck (Goo IS Futa)(F)
+    // Female Dominant Fuck (Goo IS Futa)(F)
     private femalePCDomFucksLatexGooFuta(): void {
         this.clearOutput();
         this.outputText(
@@ -2844,7 +2844,7 @@ export class LatexGirl extends NPCAwareContent {
                 this.gooCock() +
                 " immediately stiffens, hard and proud.  "
         );
-        //{NOT OBEDIENT ENOUGH}
+        // {NOT OBEDIENT ENOUGH}
         if (this.gooObedience() < 60) {
             if (this.gooFluid() < 33) this.outputText("Licking her lips with unrepentant hunger");
             else if (this.gooFluid() < 66)
@@ -2867,7 +2867,7 @@ export class LatexGirl extends NPCAwareContent {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //{OBEDIENT ENOUGH}
+        // {OBEDIENT ENOUGH}
         this.outputText(
             'At first, she reaches down to touch herself, so aroused by the idea she wants to get started right away, but she remembers her place and stops.  The ebony slave-girl asks, "<i>Shall I sit down for you to ride me, [Master]?  Or would you rather I mount you?</i>"'
         );
@@ -3060,7 +3060,7 @@ export class LatexGirl extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Male Dominant Fuck(F)
+    // Male Dominant Fuck(F)
     private malePCDomFucksLatexGoo(): void {
         this.clearOutput();
         this.outputText(
@@ -3079,7 +3079,7 @@ export class LatexGirl extends NPCAwareContent {
         );
         if (this.flags[kFLAGS.GOO_NIPPLE_TYPE] == 1) this.outputText("-cock");
         this.outputText("s harden on her chest, jutting out and just begging to be sucked.");
-        //{NOT OBEDIENT ENOUGH}
+        // {NOT OBEDIENT ENOUGH}
         if (this.gooObedience() < 60) {
             if (this.gooFluid() < 33)
                 this.outputText("\n\nLicking her lips with unrepentant hunger");
@@ -3107,7 +3107,7 @@ export class LatexGirl extends NPCAwareContent {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //{OBEDIENT ENOUGH}
+        // {OBEDIENT ENOUGH}
         this.outputText(
             "\n\nBlowing you a seductive kiss, " +
                 this.flags[kFLAGS.GOO_NAME] +
@@ -3319,9 +3319,9 @@ export class LatexGirl extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Savin Really Wants to Breastfeed Latexy Because He's a Weird Milk Fetishist Like That
-    //Mmm milk
-    //[Requirements: PC must be lactating, of course, and have C+ cup tits. Also high Happiness because I like lovey dovey stuff, okay?]
+    // Savin Really Wants to Breastfeed Latexy Because He's a Weird Milk Fetishist Like That
+    // Mmm milk
+    // [Requirements: PC must be lactating, of course, and have C+ cup tits. Also high Happiness because I like lovey dovey stuff, okay?]
     private feedLatexySomeMilk(): void {
         this.clearOutput();
         this.outputText(
@@ -3329,17 +3329,17 @@ export class LatexGirl extends NPCAwareContent {
                 this.flags[kFLAGS.GOO_NAME] +
                 " if she's hungry."
         );
-        //{Not hungry}
+        // {Not hungry}
         if (this.gooFluid() >= 66)
             this.outputText(
                 '  She shrugs, but gives you a little smile as she sidles closer to you. "<i>No, but if you need to lighten your load... I\'m your girl!</i>"'
             );
-        //{Middling hungry}
+        // {Middling hungry}
         else if (this.gooFluid() >= 33)
             this.outputText(
                 "  She licks her lips in response to your offer, obviously ready for a taste of your delicious milk."
             );
-        //{Really fucking hungry}
+        // {Really fucking hungry}
         else
             this.outputText(
                 "  Before you've even completed your offer, " +
@@ -3376,7 +3376,7 @@ export class LatexGirl extends NPCAwareContent {
                 this.flags[kFLAGS.GOO_NAME] +
                 "'s hair and pull her tight against you, gently arching your back so that her face is wholly buried in your milky bosom.  She giggles into your titflesh, her laugh letting tiny rivulets of milk trickle down her chin and onto her own massive bosom, the contrast of white smearing onto black catching your eye even as her ebony tongue swirls around your sensitive bud."
         );
-        //{elseif PC has both}
+        // {elseif PC has both}
         if (this.player.hasCock() && this.player.hasVagina())
             this.outputText(
                 "\n\nAs she suckles, " +
@@ -3385,7 +3385,7 @@ export class LatexGirl extends NPCAwareContent {
                     this.flags[kFLAGS.GOO_NAME] +
                     " moves her hands in unison, one drawing up to the crown of your [cock biggest] as the other plunges deep into your vaginal depths before both release, pulling down to the base or withdrawing to the tips before going again and again."
             );
-        //{If PC has a cock}
+        // {If PC has a cock}
         else if (this.player.hasCock()) {
             this.outputText(
                 "\n\nAs she suckles, " +
@@ -3393,14 +3393,14 @@ export class LatexGirl extends NPCAwareContent {
                     "'s hand wanders downward, her fingers brushing tantalizingly across your supple flesh until her smooth tips rub against the half-hard shaft of your [cock biggest].  You stifle a gasp as the latex girl wraps her fingers around your prick, needing only the slightest touch to get you nice and turgid.  She moves her hand in slow, languid motions, slowly drawing her unnaturally smooth hands up and down your shaft, from crown to base, giving gentle twists and squeezes in time with her suckling upon your teat."
             );
         }
-        //{elseif PC has cunt}
+        // {elseif PC has cunt}
         else if (this.player.hasVagina())
             this.outputText(
                 "\n\nAs she suckles, " +
                     this.flags[kFLAGS.GOO_NAME] +
                     "'s hand wanders downward, her fingers brushing tantalizingly across your supple flesh until her smooth tips rub against the outer folds of your [vagina].  You only just stifle a gasp as her long fingers slip into your ready hole, already aroused and eager to fuck.  Her hand moves into you, feeling like an unnaturally flexible dildo as she pushes inches of latex into you, each thrust in time with a suckle of your teat."
             );
-        //{elseif PC ain't got shit, captain}
+        // {elseif PC ain't got shit, captain}
         else
             this.outputText(
                 "\n\nAs she suckles, " +
@@ -3409,7 +3409,7 @@ export class LatexGirl extends NPCAwareContent {
                     this.flags[kFLAGS.GOO_NAME] +
                     " slithers a smooth finger into your rectum, pushing into your ass with agonizing slowness, tiny thrusts in and out timed with her suckling from your teat."
             );
-        //{Combine, next paragraph}
+        // {Combine, next paragraph}
         this.outputText(
             "\n\nUnder the latex girl's combined milking and sexual advances, you feel an orgasm rising deep in your gut.  You steel yourself, trying to hold out a moment longer as " +
                 this.flags[kFLAGS.GOO_NAME] +
@@ -3432,7 +3432,7 @@ export class LatexGirl extends NPCAwareContent {
             '\n\n"<i>Delicious!</i>" she says with a smile, plating a long kiss on your lips.  You return her grin and pull her close, nesting her face into your now-lighter bosom for a few short, restful minutes.'
         );
         if (this.player.findPerk(PerkLib.Feeder) >= 0) {
-            //You've now been milked, reset the timer for that
+            // You've now been milked, reset the timer for that
             this.player.addStatusValue(StatusAffects.Feeder, 1, 1);
             this.player.changeStatusValue(StatusAffects.Feeder, 2, 0);
         }

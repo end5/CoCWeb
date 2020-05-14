@@ -13,9 +13,9 @@ import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
  */
 
 export class GooGirlScene extends AbstractLakeContent {
-    //VARS
-    //const GOOGIRL_BIRTHS: number = 384;
-    //const GOOGIRL_CONSECUTIVE_LOSSES: number = 385;
+    // VARS
+    // const GOOGIRL_BIRTHS: number = 384;
+    // const GOOGIRL_CONSECUTIVE_LOSSES: number = 385;
 
     private gooGirl(): GooGirl {
         var g: GooGirl = this.monster as GooGirl;
@@ -26,9 +26,9 @@ export class GooGirlScene extends AbstractLakeContent {
         }
         return g;
     }
-    //goo-girl encounter-
+    // goo-girl encounter-
 
-    //[Lake]
+    // [Lake]
     public encounterGooGirl(): void {
         this.outputText("", true);
         this.spriteSelect(69);
@@ -52,7 +52,7 @@ export class GooGirlScene extends AbstractLakeContent {
         this.doNext(this.playerMenu);
     }
 
-    //New Perk – Slime Core (requires goo player, random drop rate?)
+    // New Perk – Slime Core (requires goo player, random drop rate?)
     private coreDropChance(): void {
         if (
             GooGirlScene.rand(4) == 0 &&
@@ -72,7 +72,7 @@ export class GooGirlScene extends AbstractLakeContent {
                 "There is a momentary pressure in your chest and a few memories that are not your own flicker before your eyes. The dizzying sight passes and the slime core settles within your body, imprinted with your personality and experiences. There is a comforting calmness from your new nucleus and you feel as though, with your new memories, you will be better able to manage your body's fluid requirements.\n\n",
                 false
             );
-            //(Reduces Fluid Addiction to a 24 hour intake requirement).
+            // (Reduces Fluid Addiction to a 24 hour intake requirement).
             this.outputText(
                 "(<b>Gained New Perk: Slime Core - Moisture craving builds at a greatly reduced rate.</b>)",
                 false
@@ -115,7 +115,7 @@ export class GooGirlScene extends AbstractLakeContent {
         return this.gooGirl().gooColor11();
     }
 
-    //goo-girl Bad End – If the player loses to 3-5 goo encounters while under full goo Transformation
+    // goo-girl Bad End – If the player loses to 3-5 goo encounters while under full goo Transformation
     private gooGirlBadEnd(): void {
         this.outputText("", true);
         this.outputText(
@@ -141,7 +141,7 @@ export class GooGirlScene extends AbstractLakeContent {
             "Your body feels leaden and overburdened, making escape impossible. When the girls reach you, they dive into your now-permeable membrane, one by one at first, then two and three at a time. You grow and swell as they fill you, cascades of memories and thoughts suffocating you like the torrent of a waterfall. Your bloated, expanding body responds to the psychic barrage in the only way it can- releasing an orgasm of gushing fluids from your body in lustful spree, showering the girls milling about you in protein-rich, gooey milk and cum, feeding their bodies even as they force-feed your mind. Hundreds of years unpack themselves within you, tiny heart buds floating inside of your chest, gradually merging into one, vibrant crimson orb.",
             false
         );
-        //[Next]
+        // [Next]
         this.doNext(this.gooGirlBadEnd2);
     }
 
@@ -195,7 +195,7 @@ export class GooGirlScene extends AbstractLakeContent {
     }
 
     public slimeBadEnd(): void {
-        //Another gooey bad end; you should have drunk more fluids
+        // Another gooey bad end; you should have drunk more fluids
         this.outputText(
             "\nYour entire body wobbles as your strength fails, collapsing into itself.  You struggle to rise, but your form loses more and more rigidity, melting into an amorphous blob.  Without the strength to rise, you've no hope of getting the fluids you need.  The aching craving for moisture drives you to roll to the lake, which you slip into.  With the constant runoff of bodily fluids that enter the lake, you're able to subsist for a time, forgetting about your mission as the all-consuming need devours your personality."
         );
@@ -226,9 +226,9 @@ export class GooGirlScene extends AbstractLakeContent {
         this.getGame().gameOver();
     }
 
-    //===============
-    //DEFEAT
-    //===============
+    // ===============
+    // DEFEAT
+    // ===============
     public getBeatByGooGirl(): void {
         this.flags[kFLAGS.GOOGIRL_CONSECUTIVE_LOSSES]++;
         if (this.flags[kFLAGS.GOOGIRL_CONSECUTIVE_LOSSES] >= 5 && this.player.gooScore() >= 4)
@@ -240,7 +240,7 @@ export class GooGirlScene extends AbstractLakeContent {
         this.flags[kFLAGS.TIMES_FUCKED_NORMAL_GOOS]++;
     }
 
-    //Defeat – Neuter
+    // Defeat – Neuter
     private genderlessLoseToGooGal(): void {
         this.outputText("", true);
         this.outputText(
@@ -294,7 +294,7 @@ export class GooGirlScene extends AbstractLakeContent {
         this.cleanupAfterCombat();
     }
 
-    //Defeat – Male
+    // Defeat – Male
     private dudeLoseToGooGal(): void {
         this.outputText("", true);
         var x: number = this.player.biggestCockIndex();
@@ -331,7 +331,7 @@ export class GooGirlScene extends AbstractLakeContent {
             false
         );
 
-        //[If the player has balls:
+        // [If the player has balls:
         if (this.player.balls > 0)
             this.outputText(
                 "The lithe layer of ooze that creeps across your body wraps around your " +
@@ -371,7 +371,7 @@ export class GooGirlScene extends AbstractLakeContent {
                 " mouth. Your body feels like it melts just a bit as your potent seed is greedily slurped up her tongue and bursts into her mouth with enough force to kick against the back of her maw, nearly blowing clear out of her head! Pumping her slimy fist inside your rear, the goo-girl milks your prostate for every drop of cum in your body.  ",
             false
         );
-        //[small to medium cum amounts:
+        // [small to medium cum amounts:
         if (this.player.cumQ() <= 500)
             this.outputText(
                 "A ball of pearl fluid builds up in the girl's head, turning her curious eyes white for a moment before she makes an exaggerated swallowing motion and the huge lump rolls down her throat, neck bulging outward as it drops into her belly, surrounding the gleaming ruby heart in a halo of ivory sperm.",
@@ -399,7 +399,7 @@ export class GooGirlScene extends AbstractLakeContent {
         this.cleanupAfterCombat();
     }
 
-    //Defeat – Herm
+    // Defeat – Herm
     private hermLoseToGooGal(): void {
         var x: number = this.player.biggestCockIndex();
         this.outputText("", true);
@@ -468,7 +468,7 @@ export class GooGirlScene extends AbstractLakeContent {
         this.cleanupAfterCombat();
     }
 
-    //Defeat – Female
+    // Defeat – Female
     private femaleLoseToGooGal(): void {
         this.outputText("", true);
         this.outputText(
@@ -486,7 +486,7 @@ export class GooGirlScene extends AbstractLakeContent {
             false
         );
 
-        //[If the player is pregnant]
+        // [If the player is pregnant]
         if (this.player.pregnancyIncubation <= 280 && this.player.pregnancyIncubation >= 1) {
             this.outputText(
                 "The goo-girl squishes her lurid " +
@@ -495,7 +495,7 @@ export class GooGirlScene extends AbstractLakeContent {
                 false
             );
         }
-        //	[If the player is not obviously pregnant/small breasts/not lactating]
+        // 	[If the player is not obviously pregnant/small breasts/not lactating]
         else {
             this.outputText(
                 "Shrugging, you gesture at yourself, unsure what she's trying to communicate to you. The goo-girl rolls her eyes and soundlessly sighs in exasperation. She grabs hold of you and runs her hands from your head to your hips, her body rippling as she does so, sculpting itself into a crude copy. She brings your attention to her belly and breasts, pointing to them as they swell and grow, nipples leaking " +
@@ -518,11 +518,11 @@ export class GooGirlScene extends AbstractLakeContent {
                     " and find that milk gushes out, even at the slightest stimulation. You are lactating! Seemingly satisfied that your body is now fit to birth a child, the goo-girl nods her head, beaming.",
                 false
             );
-            //[player breast size increase, lactation activated/ amount increases]
+            // [player breast size increase, lactation activated/ amount increases]
             this.player.breastRows[0].breastRating++;
             this.player.boostLactation(1);
         }
-        //[Pregnancy continued]
+        // [Pregnancy continued]
         if (this.player.pregnancyIncubation <= 280 && this.player.pregnancyIncubation >= 1) {
             this.outputText(
                 "The fluid woman squeezes her goopy breasts against yours and the globes jiggle with their liquid weight. The " +
@@ -550,7 +550,7 @@ export class GooGirlScene extends AbstractLakeContent {
                     "  She drains you in no time, hands hungrily sucking for more in goopy kisses on your overtaxed nipples.",
                     false
                 );
-            //[medium milk only:
+            // [medium milk only:
             else if (this.player.lactationQ() <= 2000)
                 this.outputText(
                     "  She drinks gratefully, nursing you with her permeable body until the pout of her belly sloshes heavily with the pale ivory of your motherly bounty.",
@@ -568,7 +568,7 @@ export class GooGirlScene extends AbstractLakeContent {
                 false
             );
         }
-        //[If the player isn't pregnant]
+        // [If the player isn't pregnant]
         else {
             this.outputText(
                 "The goo-girl flashes a broad smile and tickles under your chin to get your attention. Apparently trying to communicate her intent, she puffs out her cheeks and pats her belly, jiggling her amorphous frame in the process. Next, she taps your nose and pats your belly, slapping your " +
@@ -594,7 +594,7 @@ export class GooGirlScene extends AbstractLakeContent {
                     " skin is much too slippery to gain ground against. A moment later, all thoughts of stopping the invading goo are lost to the waves of gushing heat pouring into your body as her neck feeds into your aching cunt, filling your uterus with the sentient slime. She braces her hands at the widening mouth of your sex before slipping those in as well, working her arms and shoulders into your now gaping body.  ",
                 false
             );
-            //[Small vaginal capacity:
+            // [Small vaginal capacity:
             if (this.player.vaginalCapacity() <= 30)
                 this.outputText(
                     "She bottoms out quickly, filling every inch of your pussy with her squished form, wriggling inside of you happily, her membrane molding to your birth canals every crevasse.",
@@ -634,7 +634,7 @@ export class GooGirlScene extends AbstractLakeContent {
         this.cleanupAfterCombat();
     }
 
-    //[Goo pregnancy- 3-4 days]
+    // [Goo pregnancy- 3-4 days]
     public gooPregVagBirth(): void {
         this.flags[kFLAGS.GOOGIRL_BIRTHS]++;
         this.outputText("\n", false);
@@ -660,7 +660,7 @@ export class GooGirlScene extends AbstractLakeContent {
         this.dynStats("lus", 50);
     }
 
-    //VICTORY
+    // VICTORY
     public beatUpGoo(): void {
         this.flags[kFLAGS.GOOGIRL_CONSECUTIVE_LOSSES] = 0;
         this.outputText("", true);
@@ -669,7 +669,7 @@ export class GooGirlScene extends AbstractLakeContent {
             false
         );
 
-        //Victory – Neuter
+        // Victory – Neuter
         if (this.player.gender == 0 || this.player.lust < 33) {
             this.outputText(
                 "The goo-girl, while an unusual creature, seems unable to communicate and clearly has nothing of value.  Of no particular use in your quest, you shoo the dripping blob back to the shore. She seems disappointed at first, but bounces back quickly enough, spotting movement in the lake.  She splashes in and takes off at top speed, " +
@@ -726,7 +726,7 @@ export class GooGirlScene extends AbstractLakeContent {
                 sex4N = this.victoryRapeAGooGalAsFeeder;
             }
             var gooTF = undefined;
-            //corrupt chances
+            // corrupt chances
             if (
                 this.flags[kFLAGS.GOO_TFED_MEAN] == 0 &&
                 this.flags[kFLAGS.GOO_TFED_NICE] == 0 &&
@@ -742,15 +742,15 @@ export class GooGirlScene extends AbstractLakeContent {
                     kGAMECLASS.latexGirl.pureGooRecruitmentStart();
                     return;
                 } else if (this.flags[kFLAGS.PC_KNOWS_ABOUT_BLACK_EGGS] > 0) {
-                    //Recruitment:
-                    //Notice After Victory:
+                    // Recruitment:
+                    // Notice After Victory:
                     if (this.flags[kFLAGS.TIMES_THOUGHT_ABOUT_GOO_RECRUITMENT] == 0) {
                         this.outputText(
                             "\n\nWith this quivering lump of goo before you, a devilish idea comes to mind.  What would it take to make one of these aqueous sluts your willing slave?  ...Something to make them a little solid - perhaps one of those black eggs to make its skin a little more solid and restrainable?  Maybe a succubi milk to help make it a little more human-like, and the increased libido certainly couldn't hurt."
                         );
                         this.flags[kFLAGS.TIMES_THOUGHT_ABOUT_GOO_RECRUITMENT]++;
                     }
-                    //(Repeat)
+                    // (Repeat)
                     else {
                         this.outputText(
                             "\n\nAs you survey your victory, you remember the idea you had before - maybe if you drugged one of these things with a black egg and some succubi milk, you could make it your pet?"
@@ -805,7 +805,7 @@ export class GooGirlScene extends AbstractLakeContent {
         }
     }
 
-    //Victory – Male
+    // Victory – Male
     private gooMaleRape(type: number = 1): void {
         this.flags[kFLAGS.TIMES_FUCKED_NORMAL_GOOS]++;
         this.outputText("", true);
@@ -818,7 +818,7 @@ export class GooGirlScene extends AbstractLakeContent {
             "The girl wriggles in place, staring hopefully at you from her oozing puddle, her arms folded under her chest, eagerly waiting for your next move. Your skin still prickles from the lingering heat of her touch, impatient desire bubbling in your chest. You descend on the girl and she proudly puffs out her breast, presenting herself to you.\n\n",
             false
         );
-        //[Dick under 2 ft]
+        // [Dick under 2 ft]
         if (this.player.cocks[x].cockLength < 24) {
             this.outputText(
                 "Dropping to the goo-girl's level, you roughly grab her pulsing breasts, fingers sinking an inch into the slime before her surface tension gives you something to grip. Her membrane squishes between your fingers with lewd squelches as you squeeze harder, rolling the " +
@@ -871,7 +871,7 @@ export class GooGirlScene extends AbstractLakeContent {
                     ". She slides into the lake, returning to whatever liquid state she came from. You take a dip yourself, to clean the lingering ooze on your body and slake your dehydration.",
                 false
             );
-            //Corrupt victory ooze – (After specific sex scenes while the player has a 70+ corruption score)
+            // Corrupt victory ooze – (After specific sex scenes while the player has a 70+ corruption score)
             if (this.player.cor >= 85 && GooGirlScene.rand(2) == 0)
                 this.outputText(
                     "\n\nAs you're leaving, you happen to glance back at the lake and notice something strange; the sludge left by the melting shell of the goo-girl is quivering with renewed life! The swirling opalescence of your corrupt seed is clearly visible through her membrane, her " +
@@ -880,7 +880,7 @@ export class GooGirlScene extends AbstractLakeContent {
                     false
                 );
         }
-        //[Dick 2ft or larger]
+        // [Dick 2ft or larger]
         else {
             this.outputText(
                 "You hook your hands under her arms and haul the girl upwards, legs forming as her amorphous puddle shrinks and pools together into blobby limbs. She wobbles, finding it difficult to stand on two feet, and wraps her arms around your neck to steady herself. Squishing her body against yours, the goo-girl's " +
@@ -943,7 +943,7 @@ export class GooGirlScene extends AbstractLakeContent {
         this.cleanupAfterCombat();
     }
 
-    //Victory – Herm
+    // Victory – Herm
     private victoryHermSex(): void {
         var x: number = this.player.biggestCockIndex();
         this.flags[kFLAGS.TIMES_FUCKED_NORMAL_GOOS]++;
@@ -999,7 +999,7 @@ export class GooGirlScene extends AbstractLakeContent {
             false
         );
 
-        //Corrupt victory ooze – (After specific sex scenes while the player has a 70+ corruption score)
+        // Corrupt victory ooze – (After specific sex scenes while the player has a 70+ corruption score)
         if (this.player.cor >= 85 && GooGirlScene.rand(2) == 0)
             this.outputText(
                 "\n\nAs you're leaving, you happen to glance back at the lake and notice something strange; the sludge left by the melting shell of the goo-girl is quivering with renewed life! The swirling opalescence of your corrupt seed is clearly visible through her membrane, her " +
@@ -1013,8 +1013,8 @@ export class GooGirlScene extends AbstractLakeContent {
         this.cleanupAfterCombat();
     }
 
-    //FEMALE VICTORIES
-    //[Feeder perk]
+    // FEMALE VICTORIES
+    // [Feeder perk]
     private victoryRapeAGooGalAsFeeder(): void {
         this.flags[kFLAGS.TIMES_FUCKED_NORMAL_GOOS]++;
         this.outputText("", true);
@@ -1080,13 +1080,13 @@ export class GooGirlScene extends AbstractLakeContent {
         );
         this.coreDropChance();
         this.player.orgasm();
-        //You've now been milked, reset the timer for that
+        // You've now been milked, reset the timer for that
         this.player.addStatusValue(StatusAffects.Feeder, 1, 1);
         this.player.changeStatusValue(StatusAffects.Feeder, 2, 0);
         this.cleanupAfterCombat();
     }
 
-    //[Exhibitionist Perk]
+    // [Exhibitionist Perk]
     private exhibitionismGooGirlVictoryRape(): void {
         this.flags[kFLAGS.TIMES_FUCKED_NORMAL_GOOS]++;
         this.outputText("", true);
@@ -1155,7 +1155,7 @@ export class GooGirlScene extends AbstractLakeContent {
         this.cleanupAfterCombat();
     }
 
-    //[Normal Female]
+    // [Normal Female]
     private normalFemaleRapesAGooGirl(): void {
         this.flags[kFLAGS.TIMES_FUCKED_NORMAL_GOOS]++;
         this.outputText("", true);
@@ -1230,7 +1230,7 @@ export class GooGirlScene extends AbstractLakeContent {
         this.cleanupAfterCombat();
     }
 
-    //Ooze and Goo scene (one shot voyeur scene similar to the minotaur peep-show)–
+    // Ooze and Goo scene (one shot voyeur scene similar to the minotaur peep-show)–
     public spyOnGooAndOozeSex(): void {
         this.monster = new GooGirl();
         this.outputText("", true);

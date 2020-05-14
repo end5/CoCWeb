@@ -1,8 +1,8 @@
 import { Useable } from "../Useable";
 
 export class SimpleUseable extends Useable {
-    //This class should be used for items which the player cannot consume, wear or use directly.
-    //The useFunction or useText should describe the item or give a hint as to its purpose. After attempted use SimpleUseables return to the inventory automatically.
+    // This class should be used for items which the player cannot consume, wear or use directly.
+    // The useFunction or useText should describe the item or give a hint as to its purpose. After attempted use SimpleUseables return to the inventory automatically.
     private canUseFunction: any;
     private canUseText: string;
 

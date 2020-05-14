@@ -9,7 +9,7 @@ import { Monster } from "../../../Monster";
 
 export class WormMass extends Monster {
     protected performCombatAction(): void {
-        //Worms have different AI
+        // Worms have different AI
         if (WormMass.rand(2) == 0) this.special1();
         else this.special2();
     }

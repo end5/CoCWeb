@@ -1,14 +1,14 @@
 import { Utils } from "./internals/Utils";
 
 export class BreastRowClass {
-    //constructor
+    // constructor
 
     public breasts: number = 2;
     public nipplesPerBreast: number = 1;
     public breastRating: number = 0;
     public lactationMultiplier: number = 0;
-    //Fullness used for lactation....if 75 or greater warning bells start going off!
-    //If it reaches 100 it reduces lactation multiplier.
+    // Fullness used for lactation....if 75 or greater warning bells start going off!
+    // If it reaches 100 it reduces lactation multiplier.
     public milkFullness: number = 0;
     public fullness: number = 0;
     public fuckable: boolean = false;

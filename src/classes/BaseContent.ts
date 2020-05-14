@@ -209,9 +209,8 @@ export class BaseContent extends Utils {
         kGAMECLASS.mainView.clearOutputText();
     }
 
-    protected doNext(
-        eventNo: any
-    ): void { //Now typesafe
+    protected doNext(eventNo: any): void {
+        // Now typesafe
         kGAMECLASS.doNext(eventNo);
     }
 
@@ -244,7 +243,7 @@ export class BaseContent extends Utils {
         text0: string,
         butt0: any
     ): void {
-        //Now typesafe
+        // Now typesafe
         kGAMECLASS.choices(
             text1,
             butt1,
@@ -281,7 +280,7 @@ export class BaseContent extends Utils {
         text5: string,
         butt5: any
     ): void {
-        //Now typesafe
+        // Now typesafe
         kGAMECLASS.simpleChoices(
             text1,
             butt1,
@@ -297,7 +296,7 @@ export class BaseContent extends Utils {
     }
 
     protected doYesNo(eventYes: any, eventNo: any): void {
-        //Now typesafe
+        // Now typesafe
         kGAMECLASS.doYesNo(eventYes, eventNo);
     }
 
@@ -344,7 +343,7 @@ export class BaseContent extends Utils {
 
     protected chestDesc(): string {
         return this.player.chestDesc();
-        //return Appearance.chestDesc(player);
+        // return Appearance.chestDesc(player);
     }
 
     protected allChestDesc(): string {

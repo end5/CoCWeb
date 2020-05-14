@@ -14,18 +14,18 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
         CoC.timeAwareClassAdd(this);
     }
 
-    //Implementation of TimeAwareInterface
+    // Implementation of TimeAwareInterface
     public timeChange(): boolean {
         if (this.model.time.hours > 23) {
             if (this.flags[kFLAGS.CORRUPT_MARAE_FOLLOWUP_ENCOUNTER_STATE] > 0) {
-                //Marae met 2nd time?
+                // Marae met 2nd time?
                 if (this.flags[kFLAGS.FUCK_FLOWER_KILLED] == 0) {
-                    //If flower hasn't been burned down yet
+                    // If flower hasn't been burned down yet
                     if (
                         this.flags[kFLAGS.FUCK_FLOWER_LEVEL] < 4 &&
                         this.flags[kFLAGS.FUCK_FLOWER_GROWTH_COUNTER] < 1000
                     ) {
-                        //Grow flower if it isn't fully grown.
+                        // Grow flower if it isn't fully grown.
                         this.flags[kFLAGS.FUCK_FLOWER_GROWTH_COUNTER]++;
                     }
                 }
@@ -39,7 +39,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
     public timeChangeLarge(): boolean {
         return false;
     }
-    //End of Interface Implementation
+    // End of Interface Implementation
 
     public encounterMarae(): void {
         this.spriteSelect(40);
@@ -50,9 +50,9 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 ".  The rowboat grounds itself in the moist earth of the island, coming to a dead stop.   You climb out, noting that this island is little more than a raised mound of earth and grass, with a small tree perched atop its apex.  ",
             false
         );
-        //Dungeon operational
+        // Dungeon operational
         if (this.player.findStatusAffect(StatusAffects.DungeonShutDown) < 0) {
-            //First meeting
+            // First meeting
             if (this.player.findStatusAffect(StatusAffects.MetMarae) < 0) {
                 this.player.createStatusAffect(StatusAffects.MetMarae, 0, 0, 0, 0);
                 this.outputText(
@@ -64,7 +64,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                         'The woman bellows, "<i>Begone demon.  You tread on the precipice of damnation.</i>"  The tree\'s eyes flash, and you find yourself rowing back to camp.  The compulsion wears off in time, making you wonder just what that tree-woman was!',
                         false
                     );
-                //Explain the dungeon scenario
+                // Explain the dungeon scenario
                 else {
                     this.player.createStatusAffect(StatusAffects.MaraesQuestStart, 0, 0, 0, 0);
                     this.outputText(
@@ -131,7 +131,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 }
                 this.doNext(this.camp.returnToCampUseOneHour);
             }
-            //Second meeting
+            // Second meeting
             else {
                 this.outputText(
                     "You approach Marae's tree, watching the goddess flow out of the tree's bark as if it was made of liquid.   Just as before, she appears as the top half of a woman, naked from the waist up, with her back merging into the tree's trunk.\n\n",
@@ -144,7 +144,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                     );
                     this.doNext(this.camp.returnToCampUseOneHour);
                 } else {
-                    //If youve taken her quest already
+                    // If youve taken her quest already
                     if (this.player.findStatusAffect(StatusAffects.MaraesQuestStart) >= 0) {
                         this.outputText(
                             'Marae reminds you, "<i>You need to disable the demonic factory!  It\'s located in the foothills of the mountain.  Please, I do not know how long I can resist.</i>"',
@@ -152,7 +152,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                         );
                         this.doNext(this.camp.returnToCampUseOneHour);
                     }
-                    //If not
+                    // If not
                     else {
                         this.player.createStatusAffect(StatusAffects.MaraesQuestStart, 0, 0, 0, 0);
                         this.outputText(
@@ -219,9 +219,9 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 }
             }
         }
-        //Dungeon inoperable
+        // Dungeon inoperable
         else {
-            //Not corrupt
+            // Not corrupt
             if (this.player.findStatusAffect(StatusAffects.FactoryOverload) < 0) {
                 this.outputText(
                     "Marae smiles broadly at you, and steps free from her tree.  The lithe plant-goddess gives you a warm hug and a kiss on the cheek.\n\n",
@@ -242,13 +242,13 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 this.inventory.takeItem(this.consumables.P_PEARL, this.camp.returnToCampUseOneHour);
                 this.player.createStatusAffect(StatusAffects.MaraeComplete, 0, 0, 0, 0);
             }
-            //Corrupt!
+            // Corrupt!
             else {
                 this.outputText(
                     "You approach Marae's tree and note that the bark of the tree is smooth, practically wet looking.  The goddess's form is already exposed, as she leans out from the trunk and blows you a kiss.   Her breasts look as if they've filled out quite a bit since your first meeting, jiggling teasingly with every motion she makes.\n\n",
                     true
                 );
-                //First corrupt meeting
+                // First corrupt meeting
                 if (this.player.findStatusAffect(StatusAffects.MetCorruptMarae) < 0) {
                     this.player.createStatusAffect(StatusAffects.MetCorruptMarae, 0, 0, 0, 0);
                     this.outputText(
@@ -288,7 +288,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                         undefined
                     );
                 }
-                //Repeat corrupt meeting
+                // Repeat corrupt meeting
                 else {
                     this.outputText(
                         'Marae smiles and leans forwards, cupping her breasts in her hands.  Amazingly, she flows out from the tree, standing as a free woman before you.  She massages her G-sized breasts, winking lewdly and pinching her shining purplish nipples, squeezing out droplets of honey-colored sap.  She blows you a kiss while the flower at her groin opens welcomingly.  She moans, "<i>Reconsider my offer yet, ' +
@@ -296,7 +296,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                             "?  I won't force you, but don't you want to spend eternity in heaven with a living goddess?</i>\"",
                         false
                     );
-                    //Yes - accept, No- run
+                    // Yes - accept, No- run
                     this.doYesNo(this.maraeBadEnd, this.runFromPervertedGoddess);
                 }
             }
@@ -379,15 +379,15 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 false
             );
             if (this.player.tentacleCocks() < this.player.cockTotal()) {
-                //Single cawks
+                // Single cawks
                 if (this.player.cocks.length == 1) {
-                    //Set primary cock flag
+                    // Set primary cock flag
                     this.player.cocks[0].cockType = CockTypesEnum.TENTACLE;
                 }
-                //multi
+                // multi
                 if (this.player.cockTotal() > 1) {
                     this.temp = this.player.cocks.length;
-                    //Set cock flags
+                    // Set cock flags
                     while (this.temp > 0) {
                         this.temp--;
                         this.player.cocks[this.temp].cockType = CockTypesEnum.TENTACLE;
@@ -429,7 +429,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
     private maraeStealLethicite(): void {
         this.spriteSelect(40);
         this.outputText("", true);
-        //(SUCCESS)
+        // (SUCCESS)
         if (
             (this.player.spe > 35 && Marae.rand(this.player.spe / 3 + 30) > 20) ||
             (this.player.spe > 35 && this.player.findPerk(PerkLib.Evade) >= 0 && Marae.rand(3) < 2)
@@ -441,7 +441,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
             this.player.createKeyItem("Marae's Lethicite", 0, 0, 0, 0);
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //(FAIL)
+        // (FAIL)
         else {
             this.player.slimeFeed();
             this.outputText(
@@ -467,7 +467,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 'Marae steps closer, playing her fingers softly up your thigh, "<i>BUT, you\'ll leave with a little something extra.  A gift from the new goddess of fertile unions...</i>"\n\n',
                 false
             );
-            //DICK
+            // DICK
             if (this.player.gender == 1 || (this.player.gender == 3 && Marae.rand(2) == 1)) {
                 this.outputText(
                     "She extends a hand expectantly, watching with detached concentration while a tentacle lowers from the tree into her palm.   Hips swaying sexually, she advances, peeling back the tentacle's outer layer.  It opens up to reveal a wet, gummy mouth.  She giggles and bumps the opening against your ",
@@ -516,7 +516,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 this.player.createPerk(PerkLib.MaraesGiftStud, 0, 0, 0, 0);
                 this.doNext(this.camp.returnToCampUseTwoHours);
             }
-            //FEM)
+            // FEM)
             else {
                 this.outputText(
                     "She extends a hand expectantly, watching with detached concentration while a tentacle lowers from the tree into her palm.  A swift slash of her free hand cuts your " +
@@ -608,8 +608,8 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
             "You advance on the twisted, arboreal orgy with reluctant determination.  Marae wants you here, and there's no way back without dealing with the sex-intoxicated goddess.  Her long, languid moans make it easy to find her.  The delirious deity's arms are entwined through the roots of her trees while a green-patterned tentacle goes diving into the petal-lined entrance of her sloppy sex.  She cranes her neck back at the sound of your footfalls and asks, \"<i>",
             false
         );
-        //(FORK HERE BETWEEN STOLE LETHICITE AND LAZY ASSHOLEZ)\"
-        //(STOLE)
+        // (FORK HERE BETWEEN STOLE LETHICITE AND LAZY ASSHOLEZ)\"
+        // (STOLE)
         if (this.player.hasKeyItem("Marae's Lethicite") >= 0) {
             this.outputText(
                 "Welcome back, sneak-thief.  What kind of " +
@@ -618,7 +618,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 false
             );
         }
-        //(FAIL-STOLE)
+        // (FAIL-STOLE)
         else if (
             this.player.findPerk(PerkLib.MaraesGiftStud) >= 0 ||
             this.player.findPerk(PerkLib.MaraesGiftFertility) >= 0
@@ -630,7 +630,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 false
             );
         }
-        //(Left Like a Bitch)
+        // (Left Like a Bitch)
         else {
             this.outputText(
                 "Well, look who came back!  I thought you were too afraid of a good time to come up here and fuck around with little ol' Marae.   I was actually going to let you row away if you were too scared to come here.  No, don't even glance back now, I've changed my mind.</i>",
@@ -649,14 +649,14 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
         )
             this.outputText("second ", false);
         this.outputText("dose of Marae's tender affections.</i>\"\n\n", false);
-        //Incase something breaks
+        // Incase something breaks
         this.doNext(this.playerMenu);
-        //Cant fly?  Stuck for sex!
+        // Cant fly?  Stuck for sex!
         if (!this.player.canFly()) {
             this.outputText("You don't see any escape!", false);
             this.doNext(this.MaraeIIStageII);
         }
-        //Can fly?  Choice to run
+        // Can fly?  Choice to run
         else {
             this.outputText(
                 "You don't think she's counted on your wings.  If you tried to fly you could probably get out of the reach of her tentacles in short order.",
@@ -682,8 +682,8 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
         this.outputText("", true);
         this.outputText(this.images.showImage("marae-second-encounter-pt-two"));
         this.flags[kFLAGS.CORRUPT_MARAE_FOLLOWUP_ENCOUNTER_STATE] = 2;
-        //[Girls]
-        //Marae grows vine-cawks for DP action
+        // [Girls]
+        // Marae grows vine-cawks for DP action
         if (this.player.gender == 2) {
             this.outputText(
                 "Marae coos with pleasure and allows a nectar-slicked tentacle to slip free of her flower.   Her sweet, corrupted smell filters through the air, like pollen carried on a spring breeze.  The goddess' fingers trace the outline of her budding clit, and you watch, enraptured, as it swells up and turns purple.  A clear ridge forms underneath the tip, delineating the under-side of a newly grown cock-tip.  Marae bats her eyelashes and strokes the newly-formed growth as it fills out, surpassing the length of any mortal man.  The crown is a shiny, almost slick purple color, fading to green the further down the stalk-like shaft it goes.   She climbs to her feet, fingernails tracing the outline of the newly-formed urethral bulge on her shaft as she glides closer to you.\n\n",
@@ -774,8 +774,8 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 false
             );
         }
-        //[Dudezillaz]
-        //Marae uses a tree-tentacle to 'milk' male PC's.  Oral or Vajayjay? Not sure.
+        // [Dudezillaz]
+        // Marae uses a tree-tentacle to 'milk' male PC's.  Oral or Vajayjay? Not sure.
         else if (this.player.gender == 1) {
             this.outputText(
                 "Marae coos with pleasure and allows a nectar-slicked tentacle to slip free of her flower.   Her sweet, corrupted smell filters through the air, like pollen carried on a spring breeze.  You watch, awestruck while the curvy goddess approaches you, cradling a squirming tree-tentacle in each of her hands.  The one in her right twitches and spurts, dribbling seed over her hand in a surprisingly weak display that seems to invigorate the lusty, tainted deity.\n\n",
@@ -889,7 +889,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 false
             );
         }
-        //[Hermz]  Marae grows vinecawks for DP under her flowercunt and sexes.
+        // [Hermz]  Marae grows vinecawks for DP under her flowercunt and sexes.
         else {
             this.outputText(
                 "Marae coos with pleasure and allows a nectar-slicked tentacle to slip free of her flower.   Her sweet, corrupted smell filters through the air, like pollen carried on a spring breeze.  You watch, breathlessly staring as she advances, trailing a single finger around the entrance of her plant-like pussy in a provocative manner.  Amber fluid leaks down her thighs, showing you just how ready for sex she is.   The stickiness of your crotch combined with the tightness of " +
@@ -1059,15 +1059,15 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 false
             );
         }
-        //ONWARD TO NUMBER 3
+        // ONWARD TO NUMBER 3
         this.doNext(this.MaraePt2RoundIIIPrizes);
     }
 
     private MaraePt2RoundIIIPrizes(): void {
         this.spriteSelect(40);
         this.outputText("", true);
-        //[EPILOGUE]
-        //[Dudes]
+        // [EPILOGUE]
+        // [Dudes]
         if (this.player.gender == 1) {
             this.outputText(
                 "You awaken in the midst of a powerful orgasm.  Jism boils out of " +
@@ -1075,20 +1075,20 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                     ", pumping into the tight, sucking tentacle-hole.  Your eyes open wider, and your head clears while you rock your hips in bliss.  You're hanging upside down, suspended in the tentacle tree!  Marae isn't far from you, and she's busy deep-throating the fattest tentacle you've seen while another pair are working her openings.  She turns to you, aware of your wakefulness, and removes the oral intruder, though it manages to squirt a layer of spunk into her face in defiance.   The goddess smirks and slaps it, scolding it before she speaks, \"<i>",
                 false
             );
-            //(FORK STUD vs NO STUD)
-            //(STUD)
+            // (FORK STUD vs NO STUD)
+            // (STUD)
             if (this.player.findPerk(PerkLib.MaraesGiftStud) >= 0)
                 this.outputText(
                     "Well, I see my gift is working out quite well for you, isn't it?  That's excellent.  It was an incomplete gift given by an incomplete goddess, but now that I've gotten my hands on you again, I was able to fix it.  You'll build up cum three times as fast as before, no more waiting for days just to build up a huge load for all the horny girls out there!</i>\"  ",
                     false
                 );
-            //(NON STUD)
+            // (NON STUD)
             else
                 this.outputText(
                     "You might be a little sore.  I did some work to make sure you'll be a perfect breeding stud for me.  No tiny cum-shots for you!  You'll squirt out enough to knock up anyone, and I even touched up your seed so it'll get through most contraceptives.  Aren't I the nicest?</i>\"  ",
                     false
                 );
-            //(CONTINUED)
+            // (CONTINUED)
             this.outputText(
                 "Her speech is broken by pauses for her to lick up the goo and swallow it, but still perfectly intelligible.  The entire time she was speaking, you were trapped in orgasm, milked by her tree with unthinking intensity.\n\n",
                 false
@@ -1108,13 +1108,13 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 this.player.createPerk(PerkLib.MaraesGiftStud, 0, 0, 0, 0);
             }
         }
-        //[Chickzillas]
+        // [Chickzillas]
         else if (this.player.gender == 2) {
             this.outputText(
                 "You awaken in the midst of a powerful orgasm.   Jism is pumping into your clenching birth-canal, and you can feel it worming its way into your over-packed womb.  Your eyes open wider as the pleasure brings you to full wakefulness.  You're hanging upside down, suspended in the tentacle tree!  Marae isn't far from you, and she's busy deep-throating the fattest tentacle you've seen while another pair are working her openings.  She turns to you, aware of your wakefulness, and removes the oral intruder, though it manages to squirt a layer of spunk into her face in defiance.   The goddess smirks and slaps it, scolding it before she speaks, \"<i>",
                 false
             );
-            //(BREEDER)
+            // (BREEDER)
             if (this.player.findPerk(PerkLib.MaraesGiftFertility) >= 0) {
                 this.outputText(
                     "Well, how do you like being my prize breeder?  Your womb is a thing of beauty.  Trust me, I remade it.  I was actually at a loss as to how to improve it, so I decided to take a peek at your other hole.  It was kind of dry, and I didn't want guys with multiple dicks to have to hump such a dry, uncomfortable asshole.  So now it's nice and wet for them!</i>\"\n\n",
@@ -1131,7 +1131,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                     false
                 );
             }
-            //(NOT BREEDER)
+            // (NOT BREEDER)
             else {
                 this.outputText(
                     "You might feel a little sore.  I gave your little womb a makeover to make sure you'll be nice and fertile for all the boys out there.  You're going to serve me so well.  So many died fighting the demons, and you'll be popping out kids from every dick that gets anywhere near your little birth-hole.</i>\"  ",
@@ -1159,7 +1159,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 this.player.createPerk(PerkLib.MaraesGiftFertility, 0, 0, 0, 0);
             }
         }
-        //[HERMS]
+        // [HERMS]
         else {
             this.outputText(
                 "You awaken in the midst of a powerful orgasm.  Jism boils out of " +
@@ -1168,12 +1168,12 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 false
             );
 
-            //(HAZ NEITHER)
+            // (HAZ NEITHER)
             if (
                 this.player.findPerk(PerkLib.MaraesGiftFertility) < 0 &&
                 this.player.findPerk(PerkLib.MaraesGiftStud) < 0
             ) {
-                //(RANDOM 1)
+                // (RANDOM 1)
                 if (Marae.rand(2) == 0) {
                     this.outputText(
                         "You might feel a little sore.  I gave your little womb a makeover to make sure you'll be nice and fertile for all the boys out there.  You're going to serve me so well.  So many died fighting the demons, and you'll be popping out kids from every dick that gets anywhere near your little birth-hole.</i>\"  ",
@@ -1181,7 +1181,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                     );
                     this.player.createPerk(PerkLib.MaraesGiftFertility, 0, 0, 0, 0);
                 }
-                //(RANDOM 2)
+                // (RANDOM 2)
                 else {
                     this.outputText(
                         "You might be a little sore.  I did some work to make sure you'll be a perfect breeding stud for me.  No tiny cum-shots for you!  You'll squirt out enough to knock up anyone, and I even touched up your seed so it'll get through most contraceptives.  Aren't I the nicest?</i>\"  ",
@@ -1204,7 +1204,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                     this.outputText("<b>(New Perk Gained: Marae's Gift - Fertility)</b>", false);
                 else this.outputText("<b>New Perk Gained: Marae's Gift - Stud)</b>", false);
             }
-            //(HAZ BREEDER)
+            // (HAZ BREEDER)
             else if (this.player.findPerk(PerkLib.MaraesGiftFertility) >= 0) {
                 this.outputText(
                     "I can't believe I didn't think to do this last time!  I mean, I spent so much time making you a great baby-birther that I didn't bother to make you a stud too!  I fixed that this time though – you'll be squirting huge loads that are sure to knock up any of the pretty girls out there.  It'll even punch its way through most birth-controlling herbs.  Aren't I nice?</i>\"  ",
@@ -1225,7 +1225,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 this.player.createPerk(PerkLib.MaraesGiftStud, 0, 0, 0, 0);
                 this.outputText("<b>(New Perk Gained: Marae's Gift - Stud)</b>", false);
             }
-            //(HAZ STUD)
+            // (HAZ STUD)
             else {
                 this.outputText(
                     "I can't believe I didn't think of this last time!  I made you such a great stud that I didn't think to make you just as good at popping out your own kids!  Well I went ahead and fixed that while you were sleeping.  Your womb is nice and fertile, and you'll pop out kids a LOT quicker than before.  We'll be repopulating everything in Mareth in no time!  Just be sure to knock up the girls and let the boys fuck your pussy, okay?</i>\"  ",

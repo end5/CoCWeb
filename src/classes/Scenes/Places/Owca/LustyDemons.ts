@@ -91,7 +91,7 @@ export class LustyDemons extends Monster {
         this.weaponName = "claws";
         this.weaponVerb = "claw";
         this.armorName = "demonic skin";
-        //6 attacks: 5 from demons (10 damage each), 1 from Vapula (80 damage), 200 gems, 200 xp, 700 hp*/
+        // 6 attacks: 5 from demons (10 damage each), 1 from Vapula (80 damage), 200 gems, 200 xp, 700 hp*/
         this.bonusHP = 680;
         this.lust = 30;
         this.lustVuln = 0.3;

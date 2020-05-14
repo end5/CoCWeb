@@ -28,7 +28,7 @@ export class Boat extends AbstractLakeContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
     public boatExplore(): void {
-        //Helia monogamy fucks
+        // Helia monogamy fucks
         if (
             this.flags[kFLAGS.PC_PROMISED_HEL_MONOGAMY_FUCKS] == 1 &&
             this.flags[kFLAGS.HEL_RAPED_TODAY] == 0 &&
@@ -51,7 +51,7 @@ export class Boat extends AbstractLakeContent {
             if (this.player.inte > 40)
                 this.outputText("You realize what it smells like – sex.  ", false);
         }
-        //3% chance of finding lost daughters
+        // 3% chance of finding lost daughters
         if (
             Boat.rand(100) <= 3 &&
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00412] > 0 &&
@@ -64,7 +64,7 @@ export class Boat extends AbstractLakeContent {
             "You set out, wondering if you'll find any strange islands or creatures in the lake.\n\n",
             false
         );
-        //20% chance if not done with marae of meeting her.
+        // 20% chance if not done with marae of meeting her.
         if (
             Boat.rand(10) <= 2 &&
             this.player.findStatusAffect(StatusAffects.MaraeComplete) < 0 &&
@@ -73,7 +73,7 @@ export class Boat extends AbstractLakeContent {
             this.marae.encounterMarae();
             return;
         }
-        //10% chance of corrupt Marae followups
+        // 10% chance of corrupt Marae followups
         if (
             (this.debug || Boat.rand(10) == 0) &&
             this.flags[kFLAGS.CORRUPT_MARAE_FOLLOWUP_ENCOUNTER_STATE] == 0 &&
@@ -83,7 +83,7 @@ export class Boat extends AbstractLakeContent {
             this.marae.level2MaraeEncounter();
             return;
         }
-        //BUILD LIST OF CHOICES
+        // BUILD LIST OF CHOICES
         var choice: any[] = [0, 1, 2, 3];
         if (
             this.player.findStatusAffect(StatusAffects.DungeonShutDown) >= 0 &&
@@ -91,9 +91,9 @@ export class Boat extends AbstractLakeContent {
         )
             choice[choice.length] = 4;
         choice[choice.length] = 5;
-        //MAKE YOUR CHOICE
+        // MAKE YOUR CHOICE
         var selector: number = choice[Boat.rand(choice.length)];
-        //RUN CHOSEN EVENT
+        // RUN CHOSEN EVENT
         switch (selector) {
             case 0:
                 this.outputText(

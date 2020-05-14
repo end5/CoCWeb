@@ -65,7 +65,7 @@ export class Minotaur extends Monster {
 
     public constructor(axe: boolean = false) {
         super();
-        //Most times they dont have an axe
+        // Most times they dont have an axe
         this.hasAxe = axe || Minotaur.rand(3) == 0;
         var furColor: string = Minotaur.randomChoice("black", "brown");
 

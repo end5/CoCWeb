@@ -4,7 +4,7 @@ import { AbstractLakeContent } from "./AbstractLakeContent";
 export class SwordInStone extends AbstractLakeContent {
     public findSwordInStone(): void {
         if (this.player.findStatusAffect(StatusAffects.FactoryOverload) < 0) {
-            //Encounter it!
+            // Encounter it!
             this.outputText(
                 "While walking along the lake, the glint of metal catches your eye.  You drop into a combat stance, readying your " +
                     this.player.weaponName +
@@ -12,7 +12,7 @@ export class SwordInStone extends AbstractLakeContent {
                 true
             );
 
-            //Describe it!
+            // Describe it!
             this.outputText(
                 "The tree is thick enough to encapsulate the entire blade.  Nothing protrudes from the far side at all.  In another odd twist, there is not any sap leaking around the undamaged bark that surrounds the sword.  The hilt itself appears made of bronze, with gold inlays along the outside of the handguard.  Looking closer, you realize they portray a stylized figure battling a horde of demons.  The handle is wrapped tightly with rugged leather that still looks brand new in spite of how long this sword must have been here for the tree to grow so thoroughly around it.\n\n",
                 false
@@ -35,7 +35,7 @@ export class SwordInStone extends AbstractLakeContent {
 
     private tryToTakeSwordInStone(): void {
         this.outputText("", true);
-        //if corrupted...
+        // if corrupted...
         if (this.player.cor >= 25) {
             this.outputText("You grip the handle with both hands and ", false);
 
@@ -55,7 +55,7 @@ export class SwordInStone extends AbstractLakeContent {
 
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //If not corrupted...
+        // If not corrupted...
         else {
             this.outputText("You grip the handle with both hands and ", false);
 

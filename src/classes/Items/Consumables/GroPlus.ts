@@ -20,7 +20,7 @@ export class GroPlus extends Consumable {
         return true;
     }
 
-    //		override public function hasSubMenu(): boolean { return true; } //Only GroPlus and Reducto use this.
+    // 		override public function hasSubMenu(): boolean { return true; } //Only GroPlus and Reducto use this.
 
     public useItem(): boolean {
         var gpBalls = this.game.player.balls > 0 ? this.growPlusBalls : undefined;
@@ -65,7 +65,7 @@ export class GroPlus extends Consumable {
                 this.game.player.sackDescript() +
                 ".  It hurts like hell, but you push down the plunger and the pain vanishes as the needles contents flow into you.\n\n"
         );
-        //1 in 4 BIG growth.
+        // 1 in 4 BIG growth.
         if (Utils.rand(4) == 0) {
             this.outputText(
                 "You feel a trembling in your " +
@@ -153,7 +153,7 @@ export class GroPlus extends Consumable {
             this.game.player.cocks[0].cockLength += 1; // This was forcing "what was said" to match "what actually happened" no matter what increase/growCock /actually/ did.
             this.game.player.cocks[0].cockThickness += 0.5; // And growCock never actually touched thickness. Nor does the new version. Thickness mod was stripped out entirely.
         }
-        //MULTI
+        // MULTI
         else {
             this.outputText(
                 "Your " +
@@ -180,7 +180,7 @@ export class GroPlus extends Consumable {
                 this.game.player.nippleDescript(0) +
                 "s in turn, dividing the fluid evenly between them.  Though each injection hurts, the pain is quickly washed away by the potent chemical cocktail.\n\n"
         );
-        //Grow nipples
+        // Grow nipples
         this.outputText(
             "Your nipples engorge, prodding hard against the inside of your " +
                 this.game.player.armorName +
@@ -188,7 +188,7 @@ export class GroPlus extends Consumable {
         );
         this.game.player.nippleLength += (Utils.rand(2) + 3) / 10;
         this.game.dynStats("lus", 15);
-        //NIPPLECUNTZZZ
+        // NIPPLECUNTZZZ
         if (!this.game.player.hasFuckableNipples() && Utils.rand(4) == 0) {
             var nowFuckable: boolean = false;
             for (var x: number = 0; x < this.game.player.breastRows.length; x++) {
@@ -200,7 +200,7 @@ export class GroPlus extends Consumable {
                     nowFuckable = true;
                 }
             }
-            //Talk about if anything was changed.
+            // Talk about if anything was changed.
             if (nowFuckable)
                 this.outputText(
                     "Your " +

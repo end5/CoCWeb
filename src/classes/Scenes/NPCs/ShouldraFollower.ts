@@ -10,24 +10,24 @@ import { NPCAwareContent } from "./NPCAwareContent";
 export class ShouldraFollower extends NPCAwareContent {
     /*Follower Shouldra tracks hours since her last fuck, similar to Exgartuan. Each sex scene involving her resets this counter and also puts her to "sleep" (length of sleep at least 16 hours). Shouldra will gradually fuck with the PC the longer they go without involving her in sex (length of time below)*/
 
-    //const GENDERLESS_MASTURBATION_WITH_GHOST_COUNT: number = 511;
-    //const SHOULDRA_TONGUE_LICKS_TIMES: number = 512;
-    //const SHOULDRA_FOLLOWER_STATE: number = 513;
-    //const SHOULDRA_PLOT_LEVEL: number = 514;
-    //const SHOULDRA_TALK_NEEDED: number = 515;
-    //const SHOULDRA_PLOT_COUNTDOWN: number = 516;
-    //const SHOULDRA_SLEEP_TIMER: number = 517;
-    //const SHOULDRA_MAGIC_COOLDOWN: number = 518;
-    //const SHOULDRA_TIMES_NIGHT_RAPED_PC: number = 519;
-    //const SHOULDRA_EXGARTUDRAMA: number = 520;
-    //const SHOULDRA_BAKERY_TIMES: number = 521;
-    //const SHOULDRA_MET_VALA: number = 766;
+    // const GENDERLESS_MASTURBATION_WITH_GHOST_COUNT: number = 511;
+    // const SHOULDRA_TONGUE_LICKS_TIMES: number = 512;
+    // const SHOULDRA_FOLLOWER_STATE: number = 513;
+    // const SHOULDRA_PLOT_LEVEL: number = 514;
+    // const SHOULDRA_TALK_NEEDED: number = 515;
+    // const SHOULDRA_PLOT_COUNTDOWN: number = 516;
+    // const SHOULDRA_SLEEP_TIMER: number = 517;
+    // const SHOULDRA_MAGIC_COOLDOWN: number = 518;
+    // const SHOULDRA_TIMES_NIGHT_RAPED_PC: number = 519;
+    // const SHOULDRA_EXGARTUDRAMA: number = 520;
+    // const SHOULDRA_BAKERY_TIMES: number = 521;
+    // const SHOULDRA_MET_VALA: number = 766;
 
     public followerShouldra(): boolean {
         return this.flags[kFLAGS.SHOULDRA_FOLLOWER_STATE] == 1;
     }
     private shouldraSleeping(changes: number = 0, reset: boolean = false): boolean {
-        //Adjust sleep timer
+        // Adjust sleep timer
         if (reset) {
             this.flags[kFLAGS.SHOULDRA_SLEEP_TIMER] = changes;
         } else this.flags[kFLAGS.SHOULDRA_SLEEP_TIMER] += changes;
@@ -35,12 +35,12 @@ export class ShouldraFollower extends NPCAwareContent {
             this.flags[kFLAGS.SHOULDRA_SLEEP_TIMER] = 0;
         if (this.flags[kFLAGS.SHOULDRA_SLEEP_TIMER] > 48)
             this.flags[kFLAGS.SHOULDRA_SLEEP_TIMER] = 48;
-        //Is she sleeping?
+        // Is she sleeping?
         if (this.flags[kFLAGS.SHOULDRA_SLEEP_TIMER] > 0) return true;
         return false;
     }
 
-    //Initial Question
+    // Initial Question
     public initialShouldersRecruitment(): void {
         this.clearOutput();
         this.spriteSelect(67);
@@ -52,7 +52,7 @@ export class ShouldraFollower extends NPCAwareContent {
         );
         this.doYesNo(this.recruitShouldraForCampSexyTimes, this.noFollowerShoulders);
     }
-    //NO OF COURSE NOT THAT SHIT'S 2SCARY4ME
+    // NO OF COURSE NOT THAT SHIT'S 2SCARY4ME
     private noFollowerShoulders(): void {
         this.clearOutput();
         this.spriteSelect(67);
@@ -62,11 +62,11 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             "\n\nAt your confirmation, she flashes you a goofy and only slightly forced smile and starts back to her home.  Despite her joviality, you feel like you'll have to get into her good graces before she decides to pop the question again."
         );
-        //Back to camp, encounter is reset to friendly status
+        // Back to camp, encounter is reset to friendly status
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //YEAH BRO I AM ALL INTO THAT
+    // YEAH BRO I AM ALL INTO THAT
     private recruitShouldraForCampSexyTimes(): void {
         this.clearOutput();
         this.spriteSelect(67);
@@ -82,7 +82,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             '\n\nYou exchange quick smiles, but Shouldra\'s expression darkens.  "<i>Ah, damn it, I forgot something,</i>" she groans, making a fist and bopping herself on the temple.  "<i>Stay cool while I get that, alright, Champ?  I\'ll be back by tomorrow morning.</i>"  With that, she walks past you, striding with purpose back toward the lake and the town ruins.  You can\'t help but wonder what she must have forgotten that would be so important...'
         );
-        //{NOTHING REALLY HAS CHANGED UNTIL NEXT MORNING HERE WE GO}
+        // {NOTHING REALLY HAS CHANGED UNTIL NEXT MORNING HERE WE GO}
         this.flags[kFLAGS.SHOULDRA_FOLLOWER_STATE] = 0.5;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
@@ -99,9 +99,9 @@ export class ShouldraFollower extends NPCAwareContent {
         this.doNext(this.playerMenu);
     }
 
-    //PC x Shouldra x Vala Threesome: Female Scene
-    //Add-on to the normal scene; Shouldra learns Vala's breastmilk makes things bigger, decides to return the favor. Obviously too drunk to know when to stop, Vala gets room-sized.
-    //Non-Corrupt Vala:
+    // PC x Shouldra x Vala Threesome: Female Scene
+    // Add-on to the normal scene; Shouldra learns Vala's breastmilk makes things bigger, decides to return the favor. Obviously too drunk to know when to stop, Vala gets room-sized.
+    // Non-Corrupt Vala:
     private shouldraAndValaGetBigger(): void {
         this.clearOutput();
         this.spriteSelect(67);
@@ -154,7 +154,7 @@ export class ShouldraFollower extends NPCAwareContent {
     private pureMacroValaCont(): void {
         this.clearOutput();
         this.spriteSelect(67);
-        //Male:
+        // Male:
         if (this.player.hasCock()) {
             this.outputText(
                 "Bringing you up near her face, she examines your body and begins pushing her scaled-up forefinger against your prick, pressing it back onto your stomach.  The sensation of the giant fairy's caress causes you to gasp, and you try to move the finger around in a vain attempt to relieve some of the pressure. Shouldra coos at your pathetic efforts and begins to softly rub up and down your dick with the pad of her finger.  The smoothness of her skin allows the ridges of her fingerprint to glide over with little friction, sending sharp spikes of pleasure each time one rubs over the crown of your cock.  Your hips begin to feebly shake beneath her digit, pre leaking out of you and covering the tip of her finger.  Waves of pleasure wash over you, and you begin to relax against her hand.  Her soft palm provides a wonderfully warm place to rest as her finger massages your cock, the sticky feeling of your pre-cum intensifying the sensations tenfold.  Your entire body begins to move with her finger, your back gliding around her palm from your body's sweat.  It becomes difficult to think, your feeble attempts at escape turning into feeble attempts at holding onto her fingertip.  As the ridges continue to goad you towards orgasm, you quicken your pace.  The specter, amused, merely holds her finger in place, allowing you to slide up and down, desperately rubbing against her in an effort to nut.  Before the moment of release can come, she peels you off with her thumb, pushing you back into the softness of her hand and leaving you shaking from the denial."
@@ -177,7 +177,7 @@ export class ShouldraFollower extends NPCAwareContent {
             );
             this.outputText("\n\nYou wake up outside your camp...");
         }
-        //Female:
+        // Female:
         else {
             this.outputText(
                 "Her finger starts pressing firmly against your chest.  You try to push it away, but the size difference makes the effort futile.  The ghost girl starts grinding against your chest with her fingertip, the friction against your breasts causing a small gasp to escape your lips, and your nips to become slightly firmer.  She runs her pinky up your leg, stopping at your vagina, and you reflexively clench your legs together. Unfazed, Shouldra forces them back open with her fingers, exposing you to the open air.  A small breeze blows through, tickling your cunt and causing you to bite your lip."
@@ -211,9 +211,9 @@ export class ShouldraFollower extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //New option "Be A Toy" at end of "Non-Corrupt Vala" scene.
-    //Pass out and wake up back at camp for maximum awesome.
-    //Obviously the PC is carried in Vala's new pocket.
+    // New option "Be A Toy" at end of "Non-Corrupt Vala" scene.
+    // Pass out and wake up back at camp for maximum awesome.
+    // Obviously the PC is carried in Vala's new pocket.
     private pureValaAndShouldraMacroMax(): void {
         this.spriteSelect(67);
         this.clearOutput();
@@ -297,7 +297,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //corrupt vala
+    // corrupt vala
     public shouldraMeetsCorruptVala(): void {
         this.spriteSelect(67);
         this.clearOutput();
@@ -357,9 +357,9 @@ export class ShouldraFollower extends NPCAwareContent {
         this.doNext(this.playerMenu);
     }
 
-    //PC x Shouldra x Sand Witch
-    //Male Scene
-    //Shouldra assumes direct control of sand witch.  Jokes about witches, ghosts, and needing a skeleton to complete the image are made.  Breast-related foreplay? Commence quad-terror titty fuck, complete with swelling PC dick.  Eventually envelopes player completely in the expected out of control moment.  Potential use for lust stones or save them for female scene.  Undecided.
+    // PC x Shouldra x Sand Witch
+    // Male Scene
+    // Shouldra assumes direct control of sand witch.  Jokes about witches, ghosts, and needing a skeleton to complete the image are made.  Breast-related foreplay? Commence quad-terror titty fuck, complete with swelling PC dick.  Eventually envelopes player completely in the expected out of control moment.  Potential use for lust stones or save them for female scene.  Undecided.
     public sandWitchGetsGhostly(): void {
         this.spriteSelect(67);
         this.clearOutput();
@@ -410,8 +410,8 @@ export class ShouldraFollower extends NPCAwareContent {
                 "Before returning to camp, you peer over your shoulder back at the sand witch.  Most likely overwhelmed with delight, the sandy blonde broad actually managed to pass out atop her four mammoth mammaries.  The sight rattles a chuckle free from you...  followed by a moan as your passenger works the tip of your enchanted dick.  The awkward trip back to base is sure to be a long one."
             );
         } else {
-            //Female Scene
-            //Shouldra harbinger's the sand witch.  Mild boob expansion.  Main attraction will be the sand witch's new foursome of nipplecunts, assaulted by a platoon of eager young lust stones (controlled by an insane poltergeist, thus shenanigans).  Meanwhile, facesitting on the PC as she goes to work on the dual vaginas, potentially with their own augments to mix things up.  Wholesome family fun.
+            // Female Scene
+            // Shouldra harbinger's the sand witch.  Mild boob expansion.  Main attraction will be the sand witch's new foursome of nipplecunts, assaulted by a platoon of eager young lust stones (controlled by an insane poltergeist, thus shenanigans).  Meanwhile, facesitting on the PC as she goes to work on the dual vaginas, potentially with their own augments to mix things up.  Wholesome family fun.
             this.outputText(
                 "Shouldra pokes her head out from your torso, rubbing her hands together menacingly.  \"<i>So, we're going to have some fun with this little gal, aren't we, Champ?</i>\"  The sand witch is paralyzed with fright, able only to gaze at the bizarre spectacle before her.  Looking down at the shade sticking out of you, you see her hands now poised against your chest.  The ghost girl is ready to fly out at a moment's notice.  You decide not to keep her waiting and give her the go ahead; the force of her excited exit about throws you to the sandy ground.  The eager spirit quickly hammers into the witch, digging her sitting body into the sand.  There's a little struggling, but it isn't long until the ghost subdues her prey."
             );
@@ -472,10 +472,10 @@ export class ShouldraFollower extends NPCAwareContent {
         this.cleanupAfterCombat();
     }
 
-    //Follower Shouldra - Masturbation Scenes
-    //Shouldra Masturbation Menu Text
-    //slap at the end of current menu text
-    //Genderless Masturbation
+    // Follower Shouldra - Masturbation Scenes
+    // Shouldra Masturbation Menu Text
+    // slap at the end of current menu text
+    // Genderless Masturbation
     private shouldraFappinTimes(): void {
         this.spriteSelect(67);
         if (this.player.hasCock() && this.player.findStatusAffect(StatusAffects.Infested) >= 0) {
@@ -492,26 +492,26 @@ export class ShouldraFollower extends NPCAwareContent {
         }
     }
 
-    //Notes:
-    //Includes callback to original genderless scene ( SHOULDRA_GENDERLESS_FUCK_COUNT )
-    //Includes callback to meeting Zetsuko ( ZETSUKO_MET )
-    //Includes event counter
-    //Assumes follower Shouldra resides inside player during preceding choice
-    //Uses [foot] fully aware that it will be awkward with hooves.  FUCK THOSE MONSTERS.
-    //Rework into anal option for all players?
+    // Notes:
+    // Includes callback to original genderless scene ( SHOULDRA_GENDERLESS_FUCK_COUNT )
+    // Includes callback to meeting Zetsuko ( ZETSUKO_MET )
+    // Includes event counter
+    // Assumes follower Shouldra resides inside player during preceding choice
+    // Uses [foot] fully aware that it will be awkward with hooves.  FUCK THOSE MONSTERS.
+    // Rework into anal option for all players?
 
     private genderlessShouldraMasturbation(): void {
         this.clearOutput();
         this.spriteSelect(67);
         this.outputText("Shouldra runs your fingers along your ");
-        //[if (femininity < 50)
+        // [if (femininity < 50)
         if (this.player.femininity < 50) this.outputText("masculine ");
         else if (this.player.femininity > 50) this.outputText("feminine ");
         this.outputText(
             "form while processing your request, your eyes glowing yellow as she mulls over her choices."
         );
-        //(same paragraph follows)
-        //{if SHOULDRA_GENDERLESS_FUCK_COUNT = 0 & event occurrence = 0}
+        // (same paragraph follows)
+        // {if SHOULDRA_GENDERLESS_FUCK_COUNT = 0 & event occurrence = 0}
         if (
             this.flags[kFLAGS.SHOULDRA_GENDERLESS_FUCK_COUNT] == 0 &&
             this.flags[kFLAGS.GENDERLESS_MASTURBATION_WITH_GHOST_COUNT] == 0
@@ -520,7 +520,7 @@ export class ShouldraFollower extends NPCAwareContent {
                 "\n\nFully aware that your salacious options are sorely lacking downstairs, it would seem as though you've stumped your roommate not soon after handing her the keys.  However, your confidence is incredibly short lived as a scheming grin spreads unbidden across your face.  \"<i>Unluckily for you, I've come prepared for these sorts of situations,</i>\" your ghostly half explains, knocking your knuckles against the vast expanse that is your crotch.  She's leaving no clue as to what she could be referring to, leaving you to only imagine what fate lies in store."
             );
         }
-        //if SHOULDRA_GENDERLESS_FUCK_COUNT > 0 & event occurrence = 0
+        // if SHOULDRA_GENDERLESS_FUCK_COUNT > 0 & event occurrence = 0
         else if (
             this.flags[kFLAGS.SHOULDRA_GENDERLESS_FUCK_COUNT] > 0 &&
             this.flags[kFLAGS.GENDERLESS_MASTURBATION_WITH_GHOST_COUNT] == 0
@@ -529,12 +529,12 @@ export class ShouldraFollower extends NPCAwareContent {
                 '\n\n"<i>So, Champ, you\'ve left me this blank canvas to draw upon again.</i>"  Elbow propped in your hand, a contemplative finger rests against your lips.  The land\'s greatest psychic would lack the foresight to predict what your ethereal roommate is concocting.  After the last time she employed - "<i>Any means necessary,</i>" your mouth interrupts, concluding your train of thought.  You\'re left with only a volatile cocktail of equal parts dread and curiosity as your hands rub together menacingly.'
             );
         }
-        //if event occurrence > 0
+        // if event occurrence > 0
         else {
             this.outputText(
                 '\n\n"<i>Up for another round then, Champ?</i>" she asks, rubbing your hands down your [butt].  '
             );
-            //[if (corruption < 50)
+            // [if (corruption < 50)
             if (this.player.cor < 50)
                 this.outputText(
                     "There isn't an answer or outcome to that question that you're in favor of, honestly."
@@ -595,13 +595,13 @@ export class ShouldraFollower extends NPCAwareContent {
             this.outputText(
                 'Your nerves screech out in pain as your rear revenant stretches out her puckered little "jaw" to something more fitting for what she has in store.  A few seconds later and the sensations begin to only register as pleasure.'
             );
-            //[if (corruption < 50)
+            // [if (corruption < 50)
             if (this.player.cor < 50) this.outputText("..  This only worries you further.");
             this.outputText(
                 "  It doesn't take her long to <b>prepare your anus for any insidious ploy she's thought up.</b>"
             );
         }
-        //if analLooseness >= 3
+        // if analLooseness >= 3
         else {
             this.outputText(
                 '"<i>Looks as though you already get plenty of action back here, chief,</i>" she jests.  Nevertheless, the rear revenant massages her "jaw" even more lax than you already are.  Even stranger, each gyration provides more and more pleasurable feedback'
@@ -645,7 +645,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             '\n\n"<i>I\'m not... through... yet,</i>" the spirit spits out between deep breathes.  Too far gone to continue the yoga act, she begins dragging you back towards her treasury with your arms.  Your eyes go wide as she reaches inside and grabs onto something... massive.  Your grip cannot even fully encompass its girth.  '
         );
-        //if SHOULDRA_GENDERLESS_FUCK_COUNT > 0 OR event occurrence > 0
+        // if SHOULDRA_GENDERLESS_FUCK_COUNT > 0 OR event occurrence > 0
         if (
             this.flags[kFLAGS.SHOULDRA_GENDERLESS_FUCK_COUNT] > 0 ||
             this.flags[kFLAGS.GENDERLESS_MASTURBATION_WITH_GHOST_COUNT] > 0
@@ -653,7 +653,7 @@ export class ShouldraFollower extends NPCAwareContent {
             this.outputText(
                 "You recognize it instantly as she pulls it free from her chest: the nearly foot-long floppy horse cock she impaled you on before."
             );
-        //{if SHOULDRA_GENDERLESS_FUCK_COUNT = 0}
+        // {if SHOULDRA_GENDERLESS_FUCK_COUNT = 0}
         else if (this.flags[kFLAGS.SHOULDRA_GENDERLESS_FUCK_COUNT] == 0)
             this.outputText(
                 "She holds her catch up clear for you to see; to your horror, you have clutched onto an enormous horse cock replica.  All 13 inches flop restlessly in your grip, seemingly taunting you with the foreboding future that lays before you."
@@ -670,7 +670,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             "\n\nYou wake some time later, having passed out on top of your clothes.  You're right back at camp.  The ghost girl managed to drag you back somehow - no doubt interested in keeping the location of her secret goodies safe.  For now, at least.  Your attempt to rise back to your [feet] is halted; your ass is still sore... and about as wide as before.  There's also a bottle at your side, full of <b>ectoplasm</b> - you hope this didn't come from where you think it came from.  You can only snicker to yourself, reflecting on the absurdity of it all.  When it comes right down to it, your spooky friend will really go to any means necessary.  It would pay to remember that for a change."
         );
-        //{analLooseness is now 5} {player receives ectoplasm}
+        // {analLooseness is now 5} {player receives ectoplasm}
         this.player.ass.analLooseness = 5;
         this.outputText("\n\n", false);
         this.player.orgasm();
@@ -681,26 +681,26 @@ export class ShouldraFollower extends NPCAwareContent {
         this.flags[kFLAGS.SHOULDRA_GENDERLESS_FUCK_COUNT]++;
     }
 
-    //Anal Masturbation - Variant on Genderless Masturbation
-    //Notes:
-    //Includes callback to original genderless scene ( SHOULDRA_GENDERLESS_FUCK_COUNT )
-    //Includes callback to meeting Zetsuko ( ZETSUKO_MET )
-    //Includes event counter
-    //Assumes follower Shouldra resides inside player during preceding choice
-    //Uses [foot] fully aware that it will be awkward with hooves.  FUCK THOSE MONSTERS.
-    //Variant not available to genderless PC
+    // Anal Masturbation - Variant on Genderless Masturbation
+    // Notes:
+    // Includes callback to original genderless scene ( SHOULDRA_GENDERLESS_FUCK_COUNT )
+    // Includes callback to meeting Zetsuko ( ZETSUKO_MET )
+    // Includes event counter
+    // Assumes follower Shouldra resides inside player during preceding choice
+    // Uses [foot] fully aware that it will be awkward with hooves.  FUCK THOSE MONSTERS.
+    // Variant not available to genderless PC
     private nongenderlessAnalShouldraMasturbation(): void {
         this.clearOutput();
         this.spriteSelect(67);
         this.outputText("Shouldra runs your fingers along your ");
-        //[if (femininity < 50)
+        // [if (femininity < 50)
         if (this.player.femininity < 50) this.outputText("masculine ");
         else if (this.player.femininity > 50) this.outputText("feminine ");
         this.outputText(
             'form while processing your request, your eyes glowing yellow as she mulls over your request.  "<i>So, let me get this straight.  Despite[if (hasCock = true)  this dandy dick] [if (isHerm = true)  and][if (hasVagina = true)  this serviceable snatch] you want me to work with this?</i>" the spirit asks, smacking your hand against your [butt].  A smug nod reaffirms your desire.  '
         );
-        //(same paragraph follows)
-        //if event occurrence = 0
+        // (same paragraph follows)
+        // if event occurrence = 0
         if (this.flags[kFLAGS.GENDERLESS_MASTURBATION_WITH_GHOST_COUNT] == 0) {
             this.outputText(
                 'Your spectral visitor cracks your knuckles in a blustering show of confidence.  "<i>You think you\'ve thrown down the gauntlet with your challenge, eh, Champ?  You think rules, regulations, sanctions, trade embargos... these things can keep me down?</i>"  What is she blathering on about?  You suspect she\'s just stalling; call it your own sixth sense, but as she waves your hands around as she boasts, it feels like it\'s taking some willpower to not just listlessly stroke your goods.  At least, it seems that way until some errant thought interrupts her tirade, a knowing grin blossoming along your mug.  "<i>No blockade can stop me.</i>"'
@@ -719,7 +719,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             "\n\nSpeaking of the phantom, your bout of amnesia is the least of her concerns as she has you set aside one rock after another, revealing a tiny cavity in the wall.  "
         );
-        //if SHOULDRA_GENDERLESS_FUCK_COUNT = 0 & event occurrence = 0
+        // if SHOULDRA_GENDERLESS_FUCK_COUNT = 0 & event occurrence = 0
         if (
             this.flags[kFLAGS.SHOULDRA_GENDERLESS_FUCK_COUNT] == 0 &&
             this.flags[kFLAGS.GENDERLESS_MASTURBATION_WITH_GHOST_COUNT] == 0
@@ -742,7 +742,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             "\n\nHowever, an unusual stirring deep within your midsection grinds your pursuit to a halt; the familiar visage of your companion has pushed its way out of your groin.  You can't decide whether to laugh or cry at the sight as she[if (hasCock = true)  substitutes your [cock] in place of her nose] [if (isHerm = true)  and she][if (hasVagina = true)  shuffles your [vagina] for a moment, using it as her mouth].  \"<i>I had to get dressed up for the occasion,</i>\" she jests before thrusting forward and - after carefully wiping it clean - using your [foot] to open and sift through the chest's contents.  While doing so, she begins to recite some manner of spell in a singsong voice; whatever her target is, she certainly seems to be enjoying herself.  You feel as though you could lose your balance at any time... if you actually had any command over it.  No, the poltergeist is in full control from your waist and downward, defying gravity as she continues chanting and searching through her collection.  Thanks to the incredibly awkward forward thrust you're locked in, you can't really make out the contents of her chest.  At least not visually, but as the specter guides your [foot] around you can plainly tell that it's full of all sorts of dildos... among other things."
         );
-        //if SHOULDRA_GENDERLESS_FUCK_COUNT > 0
+        // if SHOULDRA_GENDERLESS_FUCK_COUNT > 0
         if (this.flags[kFLAGS.SHOULDRA_GENDERLESS_FUCK_COUNT] > 0)
             this.outputText(
                 "  Just what else did she pack in there since last you peered at its contents back at the ruins?"
@@ -750,7 +750,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             '\n\n"<i>Okay, here we go,</i>" she declares, quickly ending whatever spell she was working on.  Shouldra pulls your [foot] back out of the chest, a '
         );
-        //if SHOULDRA_GENDERLESS_FUCK_COUNT > 0 OR event occurrence > 0
+        // if SHOULDRA_GENDERLESS_FUCK_COUNT > 0 OR event occurrence > 0
         if (
             this.flags[kFLAGS.SHOULDRA_GENDERLESS_FUCK_COUNT] > 0 ||
             this.flags[kFLAGS.GENDERLESS_MASTURBATION_WITH_GHOST_COUNT] > 0
@@ -763,7 +763,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             "\n\n...Yup, now she's speaking through your [butthole].  Some day you'll cease underestimating the lengths this eerie eidolon's creativity will reach in order to have a good time.  You glance forward to confirm that the woman's face has disappeared from your groin; this circus attraction has moved on to the main event.  "
         );
-        //{if analLooseness < 3}
+        // {if analLooseness < 3}
         if (this.player.ass.analLooseness < 3) {
             this.outputText(
                 'Your nerves screech out in pain as your rear revenant stretches out her puckered little "jaw" to something more fitting for what she has in store.  A few seconds later and the sensations begin to only register as pleasure.'
@@ -815,7 +815,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             '\n\n"<i>I\'m not... through... yet,</i>" the spirit spits out between deep breathes.  Too far gone to pick up the yoga act again, she begins dragging you back towards her treasury with your arms.  Your eyes go wide as she reaches inside and grabs onto something... massive.  Your grip cannot even fully encompass its girth.  '
         );
-        //if SHOULDRA_GENDERLESS_FUCK_COUNT > 0 OR event occurrence > 0
+        // if SHOULDRA_GENDERLESS_FUCK_COUNT > 0 OR event occurrence > 0
         if (
             this.flags[kFLAGS.SHOULDRA_GENDERLESS_FUCK_COUNT] > 0 ||
             this.flags[kFLAGS.GENDERLESS_MASTURBATION_WITH_GHOST_COUNT] > 0
@@ -823,7 +823,7 @@ export class ShouldraFollower extends NPCAwareContent {
             this.outputText(
                 "You recognize it instantly as she pulls it free from her chest: the nearly 2-foot floppy horse cock she impaled you on before."
             );
-        //if SHOULDRA_GENDERLESS_FUCK_COUNT = 0
+        // if SHOULDRA_GENDERLESS_FUCK_COUNT = 0
         else
             this.outputText(
                 "She holds her catch up clear for you to see; to your horror, you have clutched onto an enormous horse cock replica.  All 13 inches flop restlessly in your grip, seemingly taunting you with the foreboding future that lays before you."
@@ -840,7 +840,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             "\n\nYou wake some time later, having passed out on top of your clothes.  You're right back at camp.  The ghost girl managed to drag you back somehow - no doubt interested in keeping the location of her secret goodies safe.  For now, at least.  Your attempt to rise back to your [feet] is halted; your ass is still sore... and about as wide as before.  There's also a bottle at your side, full of <b>ectoplasm</b> - you hope this didn't come from where you think it came from.  You can only snicker to yourself, reflecting on the absurdity of it all.  When it comes right down to it, your spooky friend will really meet any challenge you confront her with.  It would pay to remember that for a change."
         );
-        //analLooseness is now 5
+        // analLooseness is now 5
         this.player.orgasm();
         this.dynStats("sen", -2);
         this.player.ass.analLooseness = 5;
@@ -851,8 +851,8 @@ export class ShouldraFollower extends NPCAwareContent {
         this.flags[kFLAGS.SHOULDRA_GENDERLESS_FUCK_COUNT]++;
     }
 
-    //Male Masturbation
-    //Shouldra leads PC out of camp, finds few flowers, magicks them into huge dick-suckin' not!Corrupt Glade flowers. Also, massive cum production, because.
+    // Male Masturbation
+    // Shouldra leads PC out of camp, finds few flowers, magicks them into huge dick-suckin' not!Corrupt Glade flowers. Also, massive cum production, because.
     private maleMasturbationProper(): void {
         this.clearOutput();
         this.spriteSelect(67);
@@ -868,7 +868,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             "\n\nLike a fast-motion sunflower reaching toward sunlight, the gigantic blossom tilts towards you and your rigid [cock].  You notice the more-than-passing resemblance in the folds to a certain aspect of the female anatomy enshrouded by the soft folds of an actual rose.  Where Shouldra comes up with these spells, you could only guess."
         );
-        //[if cockSize < 200
+        // [if cockSize < 200
         if (this.player.cockArea(0) < 200)
             this.outputText(
                 "  Shouldra laughs happily as she considers the size difference; your dick simply does not pack enough of a punch for the assuredly hungry flower.  Always eager to help, Shouldra, not the least bit discomforted by her near-helpless situation, happily sings out the necessary enchantment.  You can't help but think she's having a bit too much fun with this for her own good."
@@ -888,7 +888,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             '\n\nThe plant immediately goes to work, the stuffed recesses expertly rippling and squeezing your [cock].  A shuddering sigh ripples from your very being at the milking.  "<i>She seems to like you,</i>" Shouldra whispers in your ear.  If you were in a more stable state of mind, you\'d probably roll your eyes.  As it were, you simply hum your agreement, losing yourself in the heat of the moment.  She just chuckles and casts a small spell before falling silent once more.'
         );
-        //if buals:
+        // if buals:
         if (this.player.balls > 0) this.outputText("\n\nYour sack");
         else this.outputText("\n\nYour prostate");
         this.outputText(
@@ -906,7 +906,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             "\n\nYou don't bother responding.  She reaches to you, and you take her hand, letting her guide you to your feet."
         );
-        //if cocksize <200:
+        // if cocksize <200:
         if (this.player.cockArea(0) < 200)
             this.outputText(
                 "  You stagger a bit at the unaccustomed heft of your junk altering your center of gravity, but you know that will wear off soon enough."
@@ -921,11 +921,11 @@ export class ShouldraFollower extends NPCAwareContent {
         this.inventory.takeItem(this.consumables.ECTOPLS, this.camp.returnToCampUseOneHour);
     }
 
-    //Female Masturbation
+    // Female Masturbation
     private girlyMasturbationWithGhosts(): void {
         this.clearOutput();
         this.spriteSelect(67);
-        //vibrating fingers near-mindbreak (by smidgeums)
+        // vibrating fingers near-mindbreak (by smidgeums)
         this.outputText(
             "At your signal, Shouldra takes control and leads you out to a secluded looking spot near the woods.  Your armor is stripped from your body along the way, each piece leaving a breadcrumb trail back to camp until you arrive in a clearing.  The ghost uses your body to fall back on the ground, stretching your limbs out as your body is laid out along the forest floor.  With one hand teasing your breasts, she guides the other to your cunt and begins a slow, deliberate massage."
         );
@@ -957,7 +957,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //tongue-lickin' (by abraxas)
+    // tongue-lickin' (by abraxas)
     private shouldraTongueLicksPCs(): void {
         this.clearOutput();
         this.spriteSelect(67);
@@ -967,7 +967,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             "\n\nShe leads you to a small clearing in the wood, highlighted by an opening in the slightly dense canopy and a babbling brook a few feet further in.  To your right is a short, grassy embankment with a pile of large rocks and boulders embedded into the natural wall.  As the specter leads you towards them, a disconcerting realization sinks in: you have no memory of traveling here.  The last thing you can picture is sprinting away from the camp naked."
         );
-        //if SHOULDRA_GENDERLESS_FUCK_COUNT > 0 || event occurrence > 0
+        // if SHOULDRA_GENDERLESS_FUCK_COUNT > 0 || event occurrence > 0
         if (
             this.flags[kFLAGS.SHOULDRA_GENDERLESS_FUCK_COUNT] > 0 ||
             this.flags[kFLAGS.SHOULDRA_TONGUE_LICKS_TIMES] == 0
@@ -978,7 +978,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             "\n\nYour bout of amnesia is the least of Shouldra's concerns as she has you set aside one rock after another, revealing a tiny cavity in the wall."
         );
-        //Variables probably need to be given another look to make sure a PC that went through a genderless scene and then acquired a vagina will get the right text
+        // Variables probably need to be given another look to make sure a PC that went through a genderless scene and then acquired a vagina will get the right text
         if (
             this.flags[kFLAGS.SHOULDRA_GENDERLESS_FUCK_COUNT] == 0 &&
             this.flags[kFLAGS.SHOULDRA_TONGUE_LICKS_TIMES] == 0
@@ -1001,7 +1001,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             '\n\n"<i>Ahh, so many choices,</i>" Shouldra muses as you study the contents of her hidden cache.  Before you sits a collection of various sex toys so diverse and numerous that it would be impossible to take stock of everything inside the chest at once.  Clearly in no rush to reveal everything she\'s got in store for you just yet, your incorporeal companion wastes no time in plunging your hands into the lewd assortment.  She rummages about for a moment, snatches a couple of toys that she judges to be "<i>just about right</i>" from the mess, and stands you back up, giving the chest just enough of a kick to close it on the way.  "<i>Don\'t want to ruin any surprises,</i>" she explains.  Your pondering of just what else she has in that thing is interrupted by the voice of a rather bored ghost.'
         );
-        //if event occurrence == 0
+        // if event occurrence == 0
         if (this.flags[kFLAGS.SHOULDRA_TONGUE_LICKS_TIMES] == 0) {
             this.outputText(
                 '\n\n"<i>Aah, but it\'s all the same anyways</i>," Shouldra sighs, rolling the long phallic objects over each other in your palm.  "<i>Where\'s the excitement in going back to the same old thing?</i>" she laments, suddenly quite sad about the whole situation despite her earlier eagerness.  Sensing your displeasure, she snaps back, "<i>Hey, I told you my deal already.  How am I supposed to feel when I\'ve seen it all before?</i>"  Trying to hurry her along, you ask if there\'s <b>anything </b> new that she might try.  "<i>Well what else am I gonna play with on you?</i>" She breaks out into your own voice.  "<i>You\'ve got tits, an ass and a cunt, just like the rest of \'em! What am I mi-...</i>"  She cuts herself off.  Shouldra closes one of your eyes and sticks '
@@ -1018,9 +1018,9 @@ export class ShouldraFollower extends NPCAwareContent {
                 '\n\nShouldra smiles and wonders aloud, "<i>Think I could get your tongue in your cooch again?</i>"'
             );
         }
-        //if PC is catgirl (has "flexibility" perk)
+        // if PC is catgirl (has "flexibility" perk)
         if (this.player.findPerk(PerkLib.Flexibility) >= 0) {
-            //if event occurrence = 0
+            // if event occurrence = 0
             if (this.flags[kFLAGS.SHOULDRA_TONGUE_LICKS_TIMES] == 0) {
                 this.outputText(
                     "\n\nYou sheepishly pulse confirmation back to her that you can.  You're not really used to talking about that sort of thing, but you <b>are</b> sharing a body.  \"<i>Oh, now that's just adorable!</i>\" Shouldra exclaims, having already searched you for mental images of your own flexibility.  You blush at the tease, but you can feel her lust spike at the thoughts, telling you that it's more than just a fun thought for your ethereal partner."
@@ -1031,7 +1031,7 @@ export class ShouldraFollower extends NPCAwareContent {
                         ".  You start to explain the proper 'technique' to what she's trying to do, but before you can even finish your thought she's stuck a leg up in the air and has your mouth to your own snatch.  You doubt you'll ever get used to having her inside your thoughts."
                 );
             }
-            //else if event occurrence > 0
+            // else if event occurrence > 0
             else {
                 this.outputText(
                     "\n\n\"<i>Well then, let's get back to it!</i>\" Shouldra enthusiastically suggests.  She sits down and sets her dildos aside, preferring to get you warmed up first as usual.  She's gotten even better at mimicking the pose required to get your face close in to your sex, and has your body contorted that way in no time."
@@ -1054,7 +1054,7 @@ export class ShouldraFollower extends NPCAwareContent {
                     "\n\nGranted a moment to adjust, you let yourself settle down and hand her the reins once more.  She happily goes back to"
                 );
             }
-            //else if event occurrence > 0
+            // else if event occurrence > 0
             else this.outputText("\n\n She happily continues");
             this.outputText(
                 ' sliding fingers along the wet appendage, humming a little tune over your tongue until more than a foot of it droops from your mouth.  "<i>Now we\'re getting somewhere,</i>" you hear her thinking as she works her magic.  There doesn\'t seem to be a limit to how much she can pull out of your mouth, and soon she has more than three feet of pure tongue coiled in your lap.  Furrowing your brow in concentration, she tries to move your tongue about, but can\'t manage to wiggle more than the tip.  "<i>Too thin,</i>" she mutters, "<i>much too weak. Doesn\'t feel right...</i>"'
@@ -1075,9 +1075,9 @@ export class ShouldraFollower extends NPCAwareContent {
             this.outputText(
                 '\n\nOne in each of your shaking hands, she flops onto your back once more.  You hear a strained voice from within telling you to "<i>get ready</i>," just before Shouldra jams one dildo in your cunt and crams the other in your mouth.  Their bumpy surfaces tickle the nerves of your tongue so perfectly and they make you feel so wonderfully full that thoughts of the agonizing wait you had to endure is dissolved almost immediately by orgasm.  Shouldra screams out around the one in your mouth, muffled wails of pleasure echoing among the rocks.  A tasty gush of your juices splash out over your tightly-packed tongue and onto your thighs and the ground.  Your vision begins to fade even before the  feelings of release leave you.  By the time it has and your tongue starts to return to its usual size, you\'re gone, floating unaware on a cloud of post-orgasmic bliss.'
             );
-            //end catgirl scene, back to camp
+            // end catgirl scene, back to camp
         }
-        //if demon tongue
+        // if demon tongue
         else if (this.player.tongueType == TONUGE_DEMONIC) {
             this.outputText(
                 "\n\nYou tell your experimentative friend to see for herself.  She opens your jaw wide, letting inch after inch of your demonic tongue spill out.  A happy squeak, made rather awkward by the floppy appendage, comes from you as Shouldra checks out what you've been packing in your mouth.  \"<i>Tho yuv ha tis-</i>\" she giggles at the sound of talking with it hanging out, but continues talking in your mind.  \"<i>So you've had this thing all this time and I haven't gotten to play with it?  Well that just won't do.</i>\""
@@ -1114,7 +1114,7 @@ export class ShouldraFollower extends NPCAwareContent {
                 '\n\nOne in each of your shaking hands, she flops onto your back once more.  You hear a strained voice from within telling you to "<i>get ready</i>," just before Shouldra jams one dildo in your cunt and crams the other in your mouth.  Their bumpy surfaces tickle the nerves of your tongue so perfectly and they make you feel so wonderfully full that thoughts of the agonizing wait you had to endure is dissolved almost immediately by orgasm.  Shouldra screams out around the one in your mouth, muffled wails of pleasure echoing among the rocks.  A tasty gush of your juices splash out over your tightly-packed tongue and onto your thighs and the ground.  Your vision begins to fade even before the  feelings of release leave you.  By the time it has and your tongue starts to shrink back to its usual size, you\'re gone, floating unaware on a cloud of post-orgasmic bliss.'
             );
         }
-        //else
+        // else
         else {
             this.outputText(
                 '\n\nYou tell Shouldra that you unfortunately cannot, expecting her to be disappointed.  "<i>Ah well, that\'s fine,</i>" she replies without sounding put off one bit, "<i>you will soon.</i>"'
@@ -1161,14 +1161,14 @@ export class ShouldraFollower extends NPCAwareContent {
         this.flags[kFLAGS.SHOULDRA_TONGUE_LICKS_TIMES]++;
     }
 
-    //SHOULDRA DREAM/TALK SHIT
-    //General structure: dreams trigger roughly a week after one another, each unlocking a corresponding talk scene until eventually leading to the 'climax'. Each dream is the PC reliving a memory of Shouldra's from her pov.
-    //Dream 1 - First Possession
+    // SHOULDRA DREAM/TALK SHIT
+    // General structure: dreams trigger roughly a week after one another, each unlocking a corresponding talk scene until eventually leading to the 'climax'. Each dream is the PC reliving a memory of Shouldra's from her pov.
+    // Dream 1 - First Possession
     public shouldraDream1(): void {
         this.outputText("\n");
         this.spriteSelect(67);
-        //triggers one week after obtaining follower Shouldra
-        //Shouldra's first experience with actual possession.  Targets a human (or furry?) Her introduction to how she can't fulfill any of her basic cravings - particularly sexual ones - without a host
+        // triggers one week after obtaining follower Shouldra
+        // Shouldra's first experience with actual possession.  Targets a human (or furry?) Her introduction to how she can't fulfill any of her basic cravings - particularly sexual ones - without a host
         if (this.flags[kFLAGS.SHOULDRA_PLOT_LEVEL] == 0) {
             this.outputText(
                 "How many days has it been? Maybe it's been weeks now.  The only thing you've been focusing on is running, running as far away as you can.  You're surprised at your newfound endurance.  Seems like you've been able to do anything you've put your mind to, free from any sort of mortal constraints or limits.  But your frustration has made plain to you new hurdles.  As time slips by and old wounds begin to mend, these hurdles grow closer... grow larger, more imposing.  You can't ignore them any longer.  You involuntarily obsess over them."
@@ -1212,9 +1212,9 @@ export class ShouldraFollower extends NPCAwareContent {
             );
             this.outputText("\n\nBetter than anything you could possibly recall.");
         } else if (this.flags[kFLAGS.SHOULDRA_PLOT_LEVEL] == 1) {
-            //Dream 2 - First Transformation
-            //triggers one week after Dream/Talk 1
-            //Shouldra's first attempt with unfamiliar magic. Tired of the same old boring masturbation, she attempts just simple body inflation. (Target TBD) Has poor results, but exciting for her nonetheless
+            // Dream 2 - First Transformation
+            // triggers one week after Dream/Talk 1
+            // Shouldra's first attempt with unfamiliar magic. Tired of the same old boring masturbation, she attempts just simple body inflation. (Target TBD) Has poor results, but exciting for her nonetheless
             this.outputText(
                 "With a mighty crack of your fist straight to her midsection, the young woman goes crashing down to the cobblestone path.  You mark your victory with an arrogant thumb flicking your nose, relaxing from your boxing stance.  \"<i>Taking my targets head on is definitely easier than sneaking up on them,</i>\" you think to yourself while admiring your catch.  It's a lucky one at that; you managed to snag a human woman, probably in her mid-to-late 20s.  A sexy little thing that - as it turns out - can't fight for shit.  Your hunch about these farmhands was as spot-on as all your hunches turn out to be.  You may as well call them fact right from conception!"
             );
@@ -1250,8 +1250,8 @@ export class ShouldraFollower extends NPCAwareContent {
                 "\n\nA pleasant, yet surprising side effect of your prowess is that the enhancement doesn't just increase mass, but seems to really jack up sensitivity, too.  Your simple poking, prodding, and rubbing has made its way through to your cellmate, causing the otherwise frightened female to essentially melt in your hands, overwhelmed by your sexual provocations.  Reinvigorated by your happy hostess, you set to work, exploring your fine craftsmanship.  It's only going to get better from here..."
             );
         } else if (this.flags[kFLAGS.SHOULDRA_PLOT_LEVEL] == 2) {
-            //Dream 3 - "Recent" Goblin Possession
-            //triggers one week after Dream/Talk 2
+            // Dream 3 - "Recent" Goblin Possession
+            // triggers one week after Dream/Talk 2
             this.outputText(
                 "Few things more relaxing than heading home after a day of work.  But as you approach the dilapidated hut, some strange noises from within catch you off guard.  If it's that fucking mouse again..."
             );
@@ -1394,9 +1394,9 @@ export class ShouldraFollower extends NPCAwareContent {
             );
         }
         if (this.flags[kFLAGS.SHOULDRA_PLOT_LEVEL] == 3) {
-            //Dream 4 - Backstory
-            //triggers one week after Dream/Talk 3
-            //Basically, her village was raided by orcs (which I'm pretty sure existed hundreds of years ago as well, since they're not demons), and the females were taken alive for the obvious reasons. Orcs would act like a far more primitive version of the factory; just pumping semen into the girls until they're constantly cock-hungry. Shouldra manages to retain enough of herself due to some knowledge of the arcane, separates her soul from her now-disgusting (to her) body, and flees.
+            // Dream 4 - Backstory
+            // triggers one week after Dream/Talk 3
+            // Basically, her village was raided by orcs (which I'm pretty sure existed hundreds of years ago as well, since they're not demons), and the females were taken alive for the obvious reasons. Orcs would act like a far more primitive version of the factory; just pumping semen into the girls until they're constantly cock-hungry. Shouldra manages to retain enough of herself due to some knowledge of the arcane, separates her soul from her now-disgusting (to her) body, and flees.
             this.outputText(
                 "Your eyes snap open with the first horror-filled scream.  You tumble off your bed, running to the door and throwing it open.  You run out into a milling group of townsmen, gaze directed by the frantic gesticulations of the town sentry.  There, merely hundreds of yards off, approach a horde of figures illuminated by dozens of torches.  A shudder runs through most of you at the sight of the oncoming mob, but none of you attempt to flee.  The militia move back into their homes to fetch their weapons, and you, for better or worse, are, the head sorceress of the village."
             );
@@ -1447,7 +1447,7 @@ export class ShouldraFollower extends NPCAwareContent {
                 "\n\nAs soon as your next flash of cognizance strikes, you launch into frenzied spellcasting.  You're nearing the end of the spell when the density of your lust-crazed self begins rearing up to you.  Fighting back the cock-cravings, you bark out the last few syllables before sinking against your bindings.  The orcs, alerted, rush over, and your spirit rises from your broken and disgusting body, eyes burning with the fury of the damned."
             );
             this.outputText("\n\nNone survived your wrath.");
-            //next page
+            // next page
             this.outputText(
                 "\n\n<b><u>You wake abruptly, heart thrumming wildly in your chest.  Shouldra... You two have to talk.</u></b>"
             );
@@ -1457,19 +1457,19 @@ export class ShouldraFollower extends NPCAwareContent {
         this.doNext(this.playerMenu);
     }
 
-    //Talk 1 - First Possession Discussion
+    // Talk 1 - First Possession Discussion
     private shouldraYappin(): void {
         this.clearOutput();
-        //Plot dreams!
+        // Plot dreams!
         if (this.flags[kFLAGS.SHOULDRA_TALK_NEEDED] == 1) {
-            //unlocked with Dream 1
+            // unlocked with Dream 1
             if (this.flags[kFLAGS.SHOULDRA_PLOT_LEVEL] == 1) {
-                //Clear out that talk happened and start a countdown till next dream sequence.
+                // Clear out that talk happened and start a countdown till next dream sequence.
                 this.flags[kFLAGS.SHOULDRA_TALK_NEEDED] = 0;
                 this.spriteSelect(67);
                 if (this.flags[kFLAGS.SHOULDRA_PLOT_LEVEL] < 4)
                     this.flags[kFLAGS.SHOULDRA_PLOT_COUNTDOWN] = 7;
-                //Explanation of why the PC can experience her dreams.  Cagey about past, dodging how she became a ghost.  More focused on why that specific dream is important to her.
+                // Explanation of why the PC can experience her dreams.  Cagey about past, dodging how she became a ghost.  More focused on why that specific dream is important to her.
                 this.outputText(
                     "You decide not to beat around the bush and ask about the strange dream you had the other night.  The spirit puts on a surprised reaction, your shoulder returning to normal as she casually walks outside of your body."
                 );
@@ -1517,15 +1517,15 @@ export class ShouldraFollower extends NPCAwareContent {
                     "\n\nObviously aware of your inner monologue, Shouldra slips back inside you and digs both your hands into your [armor].  You may not have a clear answer, but you figure you have enough information to come to your own hypothesis."
                 );
             }
-            //Talk 2 - First Transformation Discussion
+            // Talk 2 - First Transformation Discussion
             else if (this.flags[kFLAGS.SHOULDRA_PLOT_LEVEL] == 2) {
-                //Clear out that talk happened and start a countdown till next dream sequence.
+                // Clear out that talk happened and start a countdown till next dream sequence.
                 this.flags[kFLAGS.SHOULDRA_TALK_NEEDED] = 0;
                 this.spriteSelect(67);
                 if (this.flags[kFLAGS.SHOULDRA_PLOT_LEVEL] < 4)
                     this.flags[kFLAGS.SHOULDRA_PLOT_COUNTDOWN] = 7;
-                //unlocked with Dream 2
-                //unlocks grow/shrinking of body parts (See next section)
+                // unlocked with Dream 2
+                // unlocks grow/shrinking of body parts (See next section)
                 // Discusses dream with PC, further explaining her draw to magic-infused sex to them. "Imagine decades of the same old masturbation techniques." Eventually transitions to her offering to try and give the PC more permanent changes thanks to "some studying up and familiarity with the PC's body." Large cooldown between offers of at least 3 days
                 this.outputText(
                     'Shouldra quickly interrupts you before you can even think to open your mouth, "<i>So you pried into another dream of mine, huh?</i>"  You swear it wasn\'t on purpose, mustering a giggle from the sarcastic spirit as her head recedes back inside you.  The next moment she\'s walking right out of you, chin resting in her head.  "<i>I\'m positive that I dream about more than shit that happened centuries ago.  Sometimes I dream up things that never happened at all!  I bet you\'re just cherry picking things you want to bother me about.</i>"  You shrug, admitting to not really having any control over any of this. Shouldra laughs again, "<i>Yea, yea, I know.  Still can\'t help but wonder.</i>"'
@@ -1589,16 +1589,16 @@ export class ShouldraFollower extends NPCAwareContent {
                 this.outputText(
                     "\n\nOn that unsettling remark, the ghost girl climbs back inside of your body.  Your automated hands finally go limp and the expanding finally ceases, leaving you with[if (isHerm = false)  an extra large sexual toolset waiting for release.][if (isHerm = true)  a couple of extra large pride and joys waiting for the big finale.]  You embrace the ghost's gift[if (isHerm = true)s], wondering if it's worth taking her up on the offer.  Doing your best to ignore her last statement, you continue mulling it over while enjoying your current predicament before it vanishes and returns you to normalcy.  As normal as you ever are, anyway."
                 );
-                //Unlocks Grow/Shrink options
+                // Unlocks Grow/Shrink options
             }
-            //Talk 3 - "Recent" Goblin Possession Discussion
+            // Talk 3 - "Recent" Goblin Possession Discussion
             else if (this.flags[kFLAGS.SHOULDRA_PLOT_LEVEL] == 3) {
-                //Clear out that talk happened and start a countdown till next dream sequence.
+                // Clear out that talk happened and start a countdown till next dream sequence.
                 this.flags[kFLAGS.SHOULDRA_TALK_NEEDED] = 0;
                 this.spriteSelect(67);
                 if (this.flags[kFLAGS.SHOULDRA_PLOT_LEVEL] < 4)
                     this.flags[kFLAGS.SHOULDRA_PLOT_COUNTDOWN] = 7;
-                //unlocked with Dream 3
+                // unlocked with Dream 3
                 this.outputText(
                     'You stare at Shouldra.  "<i>Oh, <b>what</b>?</i>"  You stare at Shouldra.  "<i>She fucking pissed on my floor!</i>"  You stare at Shouldra.  The ghost shakes her head, sinking it back inside your skin. The ghost girl quickly flies out of your chest.  "<i>You don\'t fuck with my stuff!</i>"'
                 );
@@ -1663,12 +1663,12 @@ export class ShouldraFollower extends NPCAwareContent {
                     "\n\nShouldra leans against you, slowly sliding back into your body.  You count your blessings to not have been born a goblin as you get back off the ground."
                 );
             } else {
-                //Clear out that talk happened and start a countdown till next dream sequence.
+                // Clear out that talk happened and start a countdown till next dream sequence.
                 this.flags[kFLAGS.SHOULDRA_TALK_NEEDED] = 0;
                 this.spriteSelect(67);
-                //Talk 4 - Backstory Discussion
-                //unlocked with Dream 4
-                //info and possible unlocks TBD
+                // Talk 4 - Backstory Discussion
+                // unlocked with Dream 4
+                // info and possible unlocks TBD
                 this.outputText(
                     '"<i>Oh,</i>" she says, stepping out of you and sitting herself across from you.  "<i>You saw that.</i>"'
                 );
@@ -1698,10 +1698,10 @@ export class ShouldraFollower extends NPCAwareContent {
                 );
             }
         }
-        //Generic Oni Discussion!
+        // Generic Oni Discussion!
         else {
             this.spriteSelect(67);
-            //Shouldra Talks About an Oni - FC
+            // Shouldra Talks About an Oni - FC
             this.outputText(
                 "On a whim, you decide to have a chat with your spectral companion, who obligingly pops free of your torso to spare you the awkward sensation of conversing with one of your own body parts."
             );
@@ -1727,8 +1727,8 @@ export class ShouldraFollower extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Follower Shouldra - Interact / Talk Menu
-    //Follower Screen Quick Text
+    // Follower Shouldra - Interact / Talk Menu
+    // Follower Screen Quick Text
     public shouldraFollowerScreen(): void {
         this.spriteSelect(67);
         this.clearOutput();
@@ -1736,7 +1736,7 @@ export class ShouldraFollower extends NPCAwareContent {
             this.outputText(
                 "You pulse a desire for interaction with Shouldra, summoning her head to form from your shoulder. \"<i>What's on your mind, Champ? I could've found out on my own, but I was... preoccupied.</i>\""
             );
-        //Follower Screen Quick Text - Shouldra asleep
+        // Follower Screen Quick Text - Shouldra asleep
         else {
             this.outputText(
                 "You try and contact Shouldra, but the ghost is still sound asleep within you.  Or whatever ghosts consider sleep after an arousing round of debauchery. Either way, you garner no response.  Best to try again later."
@@ -1796,15 +1796,15 @@ export class ShouldraFollower extends NPCAwareContent {
         );
     }
 
-    //Talk Options
+    // Talk Options
     private shouldraTalkMenu(): void {
         this.spriteSelect(67);
-        //Go directly to appropriate talk if necessary
+        // Go directly to appropriate talk if necessary
         if (this.flags[kFLAGS.SHOULDRA_TALK_NEEDED] == 1) {
             this.shouldraYappin();
             return;
         }
-        //Allow for the expansion of bodyparts via spooky magic
+        // Allow for the expansion of bodyparts via spooky magic
         var blowShitUp = undefined;
         var shrinkShit = undefined;
         if (
@@ -1832,18 +1832,18 @@ export class ShouldraFollower extends NPCAwareContent {
         );
     }
 
-    //Grow Bodypart
-    //unlocks after Talk 2
-    //works same as Gro+ with additional Butt option
-    //3 day / 72 hour cooldown between uses. Does not appear while on cooldown.
-    //Selecting Grow Bodypart
+    // Grow Bodypart
+    // unlocks after Talk 2
+    // works same as Gro+ with additional Butt option
+    // 3 day / 72 hour cooldown between uses. Does not appear while on cooldown.
+    // Selecting Grow Bodypart
     private shouldraGroPlus(): void {
         this.clearOutput();
         this.spriteSelect(67);
         this.outputText(
             "You decide to take up Shouldra's offer on natural body enhancement.  Before you tell her as much, the eager spectre quickly assumes control of your body.  \"<i>Alright, Champ, now we're in business.  So, what did you have in mind?</i>\""
         );
-        //Balls     Breast     Clit     Cock     Nipples     Butt     Nevermind
+        // Balls     Breast     Clit     Cock     Nipples     Butt     Nevermind
         var balls = undefined;
         var breast = this.shouldraGrowsYoTits;
         var clit = undefined;
@@ -1877,7 +1877,7 @@ export class ShouldraFollower extends NPCAwareContent {
         );
     }
 
-    //Balls
+    // Balls
     private groBallsBiggaGHOSTYSTYLE(): void {
         this.flags[kFLAGS.SHOULDRA_MAGIC_COOLDOWN] = 72;
         this.clearOutput();
@@ -1885,7 +1885,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             "\"<i>Interested in a bigger ballsack, huh?  Not only will it help pronounce your package, but a big ol' swinging sack of nuts feels great when you're really pounding.</i>\" Shouldra grasps your [balls] with both your hands and begins reciting the appropriate spell."
         );
-        //ballsize + 2 + rand(4) 20% chance
+        // ballsize + 2 + rand(4) 20% chance
         if (ShouldraFollower.rand(5) == 0) {
             this.player.ballSize += 2 + ShouldraFollower.rand(4);
             this.outputText(
@@ -1894,7 +1894,7 @@ export class ShouldraFollower extends NPCAwareContent {
                     " flesh enveloping their impressive new bulk.  Shouldra gives your enlarged [balls] a little squeeze and leaves you to reacquaint yourself with a new center of balance."
             );
         }
-        //ballsize + 1 + rand(2) Else
+        // ballsize + 1 + rand(2) Else
         else {
             this.player.ballSize += 1 + ShouldraFollower.rand(2);
             this.outputText(
@@ -1903,7 +1903,7 @@ export class ShouldraFollower extends NPCAwareContent {
                     " going taut as it gains additional mass.  Shouldra rewards your new [balls] with a light massage."
             );
         }
-        //if ballsize > 10
+        // if ballsize > 10
         if (this.player.ballSize > 10)
             this.outputText(
                 "  You second guess your decision when your swinging cum barrels seem to impede walking.  Shouldra reassures you that the enhanced libido and baby batter supply is worth the wider gait."
@@ -1912,7 +1912,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Breast
+    // Breast
     private shouldraGrowsYoTits(): void {
         this.flags[kFLAGS.SHOULDRA_MAGIC_COOLDOWN] = 72;
         this.clearOutput();
@@ -1920,7 +1920,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             "\"<i>I'll give you a rack that could hypnotize anyone into a faithful tit slave,</i>\" Shouldra boasts, stretching your shoulders in preparation.  Your hands grope your [fullChest] as the spirit slips into the arcane language you've come to grow so familiar with.\n\n"
         );
-        //same growtits() as Gro+
+        // same growtits() as Gro+
         if (this.player.breastRows.length == 1)
             this.player.growTits(1 + ShouldraFollower.rand(5), 1, true, 1);
         else
@@ -1933,7 +1933,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.dynStats("lus", 10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Clit
+    // Clit
     private shouldraGrowsYoClit(): void {
         this.flags[kFLAGS.SHOULDRA_MAGIC_COOLDOWN] = 72;
         this.clearOutput();
@@ -1941,7 +1941,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             '"<i>Looking to give your joy buzzer a little jumpstart?</i>" Shouldra teases, your hands sliding down to your inviting [cunt].  Your fingers tease your [clit] while the ghost girl spouts her arcane tongue from your mouth.  '
         );
-        //clitLength + 1
+        // clitLength + 1
         this.player.clitLength += 1;
         this.outputText(
             "She welcomes the new inch with a quick flick.  The sensitive [clit] twitches happily in response, confirming the success of the spell."
@@ -1949,7 +1949,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.dynStats("sen", 5, "lus", 15);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Cock
+    // Cock
     private shouldraCockBloating101(): void {
         this.flags[kFLAGS.SHOULDRA_MAGIC_COOLDOWN] = 72;
         this.clearOutput();
@@ -1957,7 +1957,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             'A satisfied grin develops on your face.  "<i>I was hoping you\'d spring for the male enhancement,</i>" Shouldra teases, your hands darting into your armor and stroking your dick fervently.  You realize that the mere request to give your member a long-lasting lengthening has excited your paranormal partner enough that [eachCock] gets rock hard, gushing pre in anticipation.  You reign in the spirit, asking she not do anything too crazy.  Your head nods in response, and the eager wraith gets to work on her spell.\n\n'
         );
-        //same growth as Gro+, depending on cock number
+        // same growth as Gro+, depending on cock number
         if (this.player.cocks.length == 1) {
             this.outputText("Several more inches push their way from your ");
             if (!this.player.hasSheath()) this.outputText("crotch");
@@ -1970,7 +1970,7 @@ export class ShouldraFollower extends NPCAwareContent {
             this.player.cocks[0].cockLength += 1;
             this.player.cocks[0].cockThickness += 0.25;
         }
-        //MULTI
+        // MULTI
         else {
             this.outputText(
                 "Your bouquet of cocks twitches and thickens, each gaining more than an inch of new vibrance.  Shouldra wastes no time in grouping them together, your hands stroking them vigorously.  Knowing your inaction will strand you for the rest of the day, you're able to pry your haunted hands away from your crotch."
@@ -1985,7 +1985,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Nipples
+    // Nipples
     private shouldraGivesYaSomeFukkinTeats(): void {
         this.flags[kFLAGS.SHOULDRA_MAGIC_COOLDOWN] = 72;
         this.clearOutput();
@@ -1996,23 +1996,23 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             "\n\nYour nipples press hard against your [armor], easily gaining at least a quarter of an inch in size.  Shouldra gives each [nipple] a hasty inspection, ensuring her work."
         );
-        //same increase and potential for fuckable nipples as Gro+
+        // same increase and potential for fuckable nipples as Gro+
         this.player.nippleLength += (ShouldraFollower.rand(2) + 3) / 10;
         this.dynStats("lus", 15);
         var temp2: number = 0;
-        //NIPPLECUNTZZZ
+        // NIPPLECUNTZZZ
         if (!this.player.hasFuckableNipples() && ShouldraFollower.rand(4) == 0) {
             this.temp = this.player.breastRows.length;
-            //Set nipplecunts on every row.
+            // Set nipplecunts on every row.
             while (this.temp > 0) {
                 this.temp--;
                 if (!this.player.breastRows[this.temp].fuckable && this.player.nippleLength >= 2) {
                     this.player.breastRows[this.temp].fuckable = true;
-                    //Keep track of changes.
+                    // Keep track of changes.
                     temp2++;
                 }
             }
-            //Talk about if anything was changed.
+            // Talk about if anything was changed.
             if (temp2 > 0)
                 this.outputText(
                     '  While doing so, she manages to slip a few of your fingers within the engorged teats, ecstatcy flowing through you as your digits explore their inner workings.  "<i>I may not be a doctor, Champ, but it looks to me like <b>you\'ve managed to gain yourself a pair of fuckable nips.</b></i>"  The ghost girl spends a few minutes running your fingers around your [nipples], inside and out, just to confirm her diagnosis.'
@@ -2021,7 +2021,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Butt
+    // Butt
     private shouldrasButtBigginator(): void {
         this.flags[kFLAGS.SHOULDRA_MAGIC_COOLDOWN] = 72;
         this.clearOutput();
@@ -2029,7 +2029,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             "Shouldra's haunting laugh works its way out from your mouth.  \"<i>Looking for a little more jiggle in your step, Champ?  I can get BEHIND that.</i>\"  This damnable ghost won't let you roll your eyes!  Is there no end to her torment?  After a quick crack of your knuckles, Shouldra directs your hands back onto your derriere as she transitions into spellcasting."
         );
-        //this.player.buttRating = this.player.buttRating + 1 + rand(3)); or so
+        // this.player.buttRating = this.player.buttRating + 1 + rand(3)); or so
         this.player.buttRating += 1 + ShouldraFollower.rand(3);
         this.outputText(
             "\n\nYour cheeks quake as the magic takes hold, warm ripples greeting the inches of new retail estate on your hind quarters.  Shouldra can't resist herself, giving your [butt] a vigorous slap."
@@ -2037,18 +2037,18 @@ export class ShouldraFollower extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Shrink Bodypart
-    //unlocks after Talk 2
-    //works same as Reducto
-    //3 day / 72 hour cooldown between uses. Does not appear while on cooldown.
-    //Selecting Shrink Bodypart
+    // Shrink Bodypart
+    // unlocks after Talk 2
+    // works same as Reducto
+    // 3 day / 72 hour cooldown between uses. Does not appear while on cooldown.
+    // Selecting Shrink Bodypart
     private shouldraReductoMenu(): void {
         this.clearOutput();
         this.spriteSelect(67);
         this.outputText(
             "Shouldra's offer to shrink aspects of your body sounds right up your alley, and you pulse as much to your ghostly compatriot.  There's no response.  You remind her that it was HER suggestion in the first place.  \"<i>Come ooooon, Champ.  It was just a slip of the ol' spiritual tongue.</i>\"  You cross your arms and look up and off to the side, the best way you can figure to glare at something that isn't there. \"<i>Ugh, fine.  Let's just get this over with,</i>\" Shouldra concedes, removing your [armor]."
         );
-        //Balls     Breast     Clit     Cock     Nipples     Butt     Nevermind
+        // Balls     Breast     Clit     Cock     Nipples     Butt     Nevermind
         var balls = undefined;
         var breasts = undefined;
         var clit = undefined;
@@ -2087,7 +2087,7 @@ export class ShouldraFollower extends NPCAwareContent {
             this.shouldraTalkMenu
         );
     }
-    //Balls
+    // Balls
     private shouldraReductosYourBallsUpInsideYa(): void {
         this.flags[kFLAGS.SHOULDRA_MAGIC_COOLDOWN] = 72;
         this.clearOutput();
@@ -2095,7 +2095,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             "\"<i>Why would you want to shrivel these delicious cumquats?</i>\"  Shouldra's arsenal of puns doesn't affect your request in the slightest.  The ghost girl moves into a quick spell, savoring your testicles before finishing."
         );
-        //this.player.ballSize = this.player.ballSize - (2 + this.rand(4));
+        // this.player.ballSize = this.player.ballSize - (2 + this.rand(4));
         this.player.ballSize -= 2 + ShouldraFollower.rand(4);
         if (this.player.ballSize < 1) this.player.ballSize = 1;
         this.outputText(
@@ -2104,7 +2104,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Breast
+    // Breast
     private shouldraReductosYourTits(): void {
         this.flags[kFLAGS.SHOULDRA_MAGIC_COOLDOWN] = 72;
         this.clearOutput();
@@ -2118,7 +2118,7 @@ export class ShouldraFollower extends NPCAwareContent {
         );
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Clit
+    // Clit
     private clittyVanishingActShouldra(): void {
         this.flags[kFLAGS.SHOULDRA_MAGIC_COOLDOWN] = 72;
         this.clearOutput();
@@ -2127,7 +2127,7 @@ export class ShouldraFollower extends NPCAwareContent {
             '"<i>Aw, really, Champ?  The best part of your snatch?</i>"  A nod of your head reasserts your desire.  The depressed phantom hastily works through the spell, the notion of shrinking your [clit] not sitting well with her.'
         );
         this.player.clitLength /= 1.7;
-        //Set clitlength down to 2 digits in length
+        // Set clitlength down to 2 digits in length
         this.player.clitLength = Math.floor(this.player.clitLength * 100) / 100;
         this.outputText(
             "\n\nA soft moan is all you can manage as your button tingles and shrinks to almost half its original size.  You think you can hear Shouldra sighing in the back of your head.  She'll get over it."
@@ -2135,7 +2135,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.dynStats("sen", 2, "lus", 10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Cock
+    // Cock
     private shouldraMakesCocksDisappear(): void {
         this.flags[kFLAGS.SHOULDRA_MAGIC_COOLDOWN] = 72;
         this.clearOutput();
@@ -2165,7 +2165,7 @@ export class ShouldraFollower extends NPCAwareContent {
             this.player.cocks[0].cockLength *= 2 / 3;
             this.player.cocks[0].cockThickness *= 2 / 3;
         }
-        //MULTI
+        // MULTI
         else {
             this.outputText(
                 "\n\nYour dicks vibrate slightly as the magic begins to sink in.  You about jump out of your skin when they [if (cocks < 2) both][if (cocks >= 2) all] suddenly start smoking and flailing about.  Your fear is short lived, however, when they begin to wail and cry."
@@ -2207,7 +2207,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.dynStats("sen", -2, "lus", -10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Nipples
+    // Nipples
     private shrinkDemNipplzForYoGhost(): void {
         this.flags[kFLAGS.SHOULDRA_MAGIC_COOLDOWN] = 72;
         this.clearOutput();
@@ -2215,7 +2215,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             '"<i>Are you kidding me, Champ?  Nipples are the most important-</i>"  You cut the ghost girl\'s argument there, not wanting to leave your decision up for debate.  She instead leaves you with a deep sigh of disapproval before quickly casting the appropriate spell.'
         );
-        //Shrink
+        // Shrink
         if (this.player.nippleLength / 2 < 0.25) {
             this.outputText(
                 "\n\nYou run a couple fingers around your [nipples], finding them shrunk to a quarter-inch long.  A quick squirt of liquid from each surprises you, causing you to jerk back a little.  Shouldra is evidently not too thrilled over your alterations."
@@ -2231,7 +2231,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Butt
+    // Butt
     private shrinkDatBootyForYoGhost(): void {
         this.flags[kFLAGS.SHOULDRA_MAGIC_COOLDOWN] = 72;
         this.clearOutput();
@@ -2260,12 +2260,12 @@ export class ShouldraFollower extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Want You (That Being Shouldra) Gone
+    // Want You (That Being Shouldra) Gone
     private kickFollowerShouldraOut(): void {
         this.clearOutput();
         this.spriteSelect(67);
-        //PC says Shouldra's being a drag and they don't want to deal with her. She takes it well, as wanton spirits are want to do, unless you've already passed the fourth dream/talk with her. Then she's gonna FREAK. THE FUCK. OUT.
-        //She's Cool - She has not bared all to PC
+        // PC says Shouldra's being a drag and they don't want to deal with her. She takes it well, as wanton spirits are want to do, unless you've already passed the fourth dream/talk with her. Then she's gonna FREAK. THE FUCK. OUT.
+        // She's Cool - She has not bared all to PC
         if (
             this.flags[kFLAGS.SHOULDRA_PLOT_LEVEL] < 4 ||
             this.flags[kFLAGS.SHOULDRA_TALK_NEEDED] > 0
@@ -2279,11 +2279,11 @@ export class ShouldraFollower extends NPCAwareContent {
             this.outputText(
                 "\n\nWith that, she turns on her heel and wanders out of camp.  You watch her go for a while, then turn your focus back to other things."
             );
-            //shouldra back to town ruins, reset to 'friendly' status
+            // shouldra back to town ruins, reset to 'friendly' status
             this.flags[kFLAGS.SHOULDRA_FOLLOWER_STATE] = 0;
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //She Fucking Explodes
+        // She Fucking Explodes
         else {
             this.outputText(
                 "Are you sure you want to ask her to leave after she opened herself up to you?  It's just a hunch, but she might not take this very well."
@@ -2292,7 +2292,7 @@ export class ShouldraFollower extends NPCAwareContent {
         }
     }
 
-    //if yes
+    // if yes
     private definitelyKickOutCrazyGhosts(): void {
         this.clearOutput();
         this.spriteSelect(67);
@@ -2310,12 +2310,12 @@ export class ShouldraFollower extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Follower Shouldra - Ignoring Her
+    // Follower Shouldra - Ignoring Her
     public shouldersWarnings(): boolean {
-        //Requires hour counter to count time since last Shouldra scenes
-        //Warnings appear during scene transitions.
-        //Warning One
-        //4 days (96 hours) since last Shouldra scene
+        // Requires hour counter to count time since last Shouldra scenes
+        // Warnings appear during scene transitions.
+        // Warning One
+        // 4 days (96 hours) since last Shouldra scene
         if (this.flags[kFLAGS.SHOULDRA_SLEEP_TIMER] == -96) {
             this.spriteSelect(67);
             if (ShouldraFollower.rand(3) == 0)
@@ -2332,12 +2332,12 @@ export class ShouldraFollower extends NPCAwareContent {
                 );
             return true;
         }
-        //Warning Two
-        //7 days (168 hours) since last Shouldra scene
+        // Warning Two
+        // 7 days (168 hours) since last Shouldra scene
         else if (this.flags[kFLAGS.SHOULDRA_SLEEP_TIMER] == -168) {
             this.spriteSelect(67);
             trace("LEVEL 2 LUST INCREASE HAPPEN");
-            //increased minimum lust +20 until Shouldra is satisfied
+            // increased minimum lust +20 until Shouldra is satisfied
             if (ShouldraFollower.rand(3) == 0) {
                 this.outputText(
                     "\nYour [if (hasCock = true) dick is begining to get hard][if (isHerm = true)  while your ][if (hasVagina = true) cunt is getting moist with need]"
@@ -2358,11 +2358,11 @@ export class ShouldraFollower extends NPCAwareContent {
             this.dynStats("lus", 0.1);
             return true;
         }
-        //Warning Three
-        //9 days (216 hours) since last Shouldra scene
+        // Warning Three
+        // 9 days (216 hours) since last Shouldra scene
         if (this.flags[kFLAGS.SHOULDRA_SLEEP_TIMER] == -216) {
             this.spriteSelect(67);
-            //increased minimum lust bonus to +50 (20 + 30) until Shouldra is satisfied
+            // increased minimum lust bonus to +50 (20 + 30) until Shouldra is satisfied
             if (ShouldraFollower.rand(3) == 0)
                 this.outputText(
                     "\n\"<i>Look, Champ.  I've enjoyed the time together, but it's been too long since I got a turn on this ride.  I've been nice, but I'm on the brink here.  <b>If you think you can keep on ignoring me, you'll be sadly mistaken.</b></i>\"  You nod, unsure how exactly to take Shouldra's possible threat to your inaction.  The horny ghost certainly is already having her effect on your own libido.\n\n<b>Minimum lust raised by 30.</b>\n"
@@ -2381,12 +2381,12 @@ export class ShouldraFollower extends NPCAwareContent {
         return false;
     }
 
-    //Ignored Shouldra goes to town on the PC
+    // Ignored Shouldra goes to town on the PC
     public nightTimeShouldraRapesThePC(): void {
-        //does not trigger for genderless PCs, leaving them at +50 minimum lust until performing a scene with Shouldra (e.g. anal masturbation) or gaining a dick/pussy
-        //when PC goes to sleep after warning three without satisfying Shouldra
-        //resets Shouldra's sex hour counter, erases minimum lust bonuses
-        //Scene increases libido, sensitivity, gives bottle of ectoplasm
+        // does not trigger for genderless PCs, leaving them at +50 minimum lust until performing a scene with Shouldra (e.g. anal masturbation) or gaining a dick/pussy
+        // when PC goes to sleep after warning three without satisfying Shouldra
+        // resets Shouldra's sex hour counter, erases minimum lust bonuses
+        // Scene increases libido, sensitivity, gives bottle of ectoplasm
         this.flags[kFLAGS.SHOULDRA_SLEEP_TIMER] = 0;
         this.spriteSelect(67);
         this.player.orgasm();
@@ -2394,7 +2394,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             "\nA chilling gust rouses you from your slumber.  Wind this fierce would probably tear apart your camp or at least make a serious mess.  Eyelids as heavy as boulders prove difficult to open.  You seem especially groggy, odd tingling and numb sensations radiating from all your body.  Your right hand feels especially odd.  Grasping onto your senses as well you can, you're at least able to make out a few pale objects in the dead dark of night.  Sounds of water crashing into rock in the distance are also becoming more clear.  Finally your vision comes into focus, greeting you with the faint emerald glow of your ghostly partner against a cold, dark blue horizon.  She appears to be standing at the precipice of some drop-off, transfixed on the blood red moon hanging in the sky."
         );
-        //event occurance = 0
+        // event occurance = 0
         if (this.flags[kFLAGS.SHOULDRA_TIMES_NIGHT_RAPED_PC] == 0) {
             this.outputText(
                 '\n\n"<i>I\'ve always loved coming out to this spot at night,</i>" Shouldra says, her soft tone surprising you.  "<i>Mareth can be so dull at night, shrouded in a thick, deep darkness.  But way up here, looking out into that forgotten sea, you can see as clear as day.</i>"  What was that about the sea?  Way up here?  Where the fuck has she dragged you to?'
@@ -2416,13 +2416,13 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             "\n\nYou want to at least stand up, get a clearer picture of just what's going on - or about to.  Your body just won't cooperate, though, no matter how hard you try and shake it.  \"<i>If magic were a drug, you'd have OD'd something fierce by now,</i>\" Shouldra interjects as she rises back to her feet.  The spirit's been much busier than you thought."
         );
-        //if PC has cock
+        // if PC has cock
         if (this.player.hasCock()) {
             this.outputText(
                 "\n\nThe calculated shade works her way over to your [cock], a vacant expression dominating her face.  You're unsure just what that means, but it becomes the least of your concerns when she jabs her thumb into your [cockHead]!  You instinctively wince in pain, but the sensation never comes.  Not much of anything registers, really.  This soon becomes a blessing as you witness the eidolon stretch your cock away from you, insert BOTH her hands into it, and stretch your slit high into the air.  She then casually slips inside it as if it were a sleeping bag, disappearing into its distended depths.  It all happened so fast, nothing really had time to register.  You try and touch your magnified member, only to discover that it's now rock solid.  No, not erect, but literally made of stone!"
             );
         }
-        //if PC has no cock, but has vagina
+        // if PC has no cock, but has vagina
         else if (this.player.hasVagina()) {
             this.outputText(
                 "\n\nThe calculated shade bends her way down to your [cunt], a vacant expression dominating her face.  You're unsure just what that means, but your concern is quickly forgotten as the spirit grasps your vaginal walls with both hands!  Oddly enough, you feel nothing.  No pain, but no pleasure either.  This soon becomes a blessing when the eidolon works her way around your canal, shaping it into a gaping wide hole!  Once its large enough, she casually slips inside and disappears into your depths.  It all happened so fast, nothing really had time to register.  You try and touch your stretched cunt, only to discover that it's sealed shut and rock solid.  Like, literally made of stone!"
@@ -2480,7 +2480,7 @@ export class ShouldraFollower extends NPCAwareContent {
         if (this.player.hasCock()) this.outputText("flailing cock");
         else this.outputText("moist vagina");
         this.outputText(".");
-        //if cock
+        // if cock
         if (this.player.hasCock()) {
             this.outputText(
                 "\n\nYou aren't sure why you kowtow to her little game.  Maybe it's the surge of adrenaline, the rapidly approaching water below or you're just horny after the less-than-fulfilling sex act before.  Either way, you grasp onto your rod with your left hand, pumping for all you're worth as you plummet helplessly.  But as your [cock] surges to life, you soon find that its enchanted size has easily made it more than a one-handed job!  Without any further hesitation, both of your hands- in your tense excitement, you forgot about your five-cocked feature.  The dicks-on-big-dick action is... it feels way too fucking good right now."
@@ -2489,7 +2489,7 @@ export class ShouldraFollower extends NPCAwareContent {
                 "\n\nWith all participants at full salute, your manic stroking commences.  The wind races past you while your beating heart pounds into your ears.  You hold your wang firmly against your [chest] in an attempt to keep it from flailing about, putting it square into your face.  Easily halfway down the descent, your pick up the pace of your caress, circling your massive [cockHead] with your mutated hand.  It doesn't take you long to reach your own precipice, phallic fingers pressing hard into your mast.  Just as you're about to climax, your body slams hard into the ocean."
             );
         }
-        //if vagina, no cock
+        // if vagina, no cock
         else {
             this.outputText(
                 "\n\nYou aren't sure why you kowtow to her little game.  Maybe it's the surge of adrenaline, the rapidly approaching water below or you're just horny after the less-than-fulfilling sex act before.  Either way, your left hand surges for your [vagina], left unnaturally open from ghostly antics earlier in the night.  You tease at your labia, play at your [clit].  It's working, but not fast enough!  With the wind smacking you hard, and your predicament making you at least a little nervous, you desperately try to think of something to-"
@@ -2513,16 +2513,16 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             "\n\nThe dream was all too real, it turns out.\n\n(<b>Minimum Lust reduced!</b>)"
         );
-        //Libido and Sensitivity slight increase
+        // Libido and Sensitivity slight increase
         this.flags[kFLAGS.SHOULDRA_TIMES_NIGHT_RAPED_PC]++;
         this.doNext(this.playerMenu);
     }
 
-    //Shouldra Waking Up/PC Exploring
-    //occurs at scene transitions similar to Exgartuan
-    //message chosen at random out of suitable selections
-    //one happens when Shouldra wakes and becomes available again (set at 16 hours currently)
-    //1-2 days before the next message
+    // Shouldra Waking Up/PC Exploring
+    // occurs at scene transitions similar to Exgartuan
+    // message chosen at random out of suitable selections
+    // one happens when Shouldra wakes and becomes available again (set at 16 hours currently)
+    // 1-2 days before the next message
 
     public shouldraWakesUpOrPokesPCsForShitsAndGigglesIdunnoHowLongCanIMakeThisFunctionNameQuestionMark(): void {
         this.outputText("\n");
@@ -2530,71 +2530,71 @@ export class ShouldraFollower extends NPCAwareContent {
         var choices: any[] = [];
         var select: number;
 
-        //1 PC with cock - 1
+        // 1 PC with cock - 1
         if (this.player.hasCock() && this.player.biggestCockArea() < 200) {
             choices[choices.length] = 1;
             choices[choices.length] = 1;
             choices[choices.length] = 1;
             choices[choices.length] = 1;
         }
-        //2 PC with BIG COCK - if (this.player.biggestCockArea() >= 200)
+        // 2 PC with BIG COCK - if (this.player.biggestCockArea() >= 200)
         else if (this.player.hasCock()) {
             choices[choices.length] = 2;
             choices[choices.length] = 2;
             choices[choices.length] = 2;
             choices[choices.length] = 2;
         }
-        //3 PC with balls
+        // 3 PC with balls
         if (this.player.balls > 0) {
             choices[choices.length] = 3;
             choices[choices.length] = 3;
             choices[choices.length] = 3;
             choices[choices.length] = 3;
         }
-        //4 PC with boobs
+        // 4 PC with boobs
         if (this.player.biggestTitSize() >= 2) {
             choices[choices.length] = 4;
             choices[choices.length] = 4;
             choices[choices.length] = 4;
             choices[choices.length] = 4;
         }
-        //5 PC with vagina
+        // 5 PC with vagina
         if (this.player.hasVagina()) {
             choices[choices.length] = 5;
             choices[choices.length] = 5;
             choices[choices.length] = 5;
             choices[choices.length] = 5;
         }
-        //6 PC with Exgartuan and Shouldra //unlocked after deciding to keep Shouldra and Exgartuan together, for better or for worse (see below for scene)
+        // 6 PC with Exgartuan and Shouldra //unlocked after deciding to keep Shouldra and Exgartuan together, for better or for worse (see below for scene)
         if (this.player.statusAffectv1(StatusAffects.Exgartuan) == 1 && 9999 == 9999) {
             choices[choices.length] = 6;
             choices[choices.length] = 6;
             choices[choices.length] = 6;
             choices[choices.length] = 6;
         }
-        //7 General flavor text
+        // 7 General flavor text
         choices[choices.length] = 7;
         choices[choices.length] = 7;
         choices[choices.length] = 7;
         choices[choices.length] = 7;
-        //8 (Tel'Adre unlocked)
+        // 8 (Tel'Adre unlocked)
         if (this.player.statusAffectv1(StatusAffects.TelAdre) >= 1) choices[choices.length] = 8;
-        //9 (is preggers)
+        // 9 (is preggers)
         if (this.player.pregnancyIncubation > 0) choices[choices.length] = 9;
-        //10 (is preggers2)
+        // 10 (is preggers2)
         if (this.player.pregnancyIncubation > 0) choices[choices.length] = 10;
-        //11 (is butt pregnant)
+        // 11 (is butt pregnant)
         if (this.player.buttPregnancyIncubation > 0) choices[choices.length] = 11;
-        //12 (can fly)
+        // 12 (can fly)
         if (this.player.canFly()) choices[choices.length] = 12;
-        //13 (is Naga)
+        // 13 (is Naga)
         if (this.player.isNaga()) choices[choices.length] = 13;
-        //14 (Amily is a follower)
+        // 14 (Amily is a follower)
         if (kGAMECLASS.amilyScene.amilyFollower()) choices[choices.length] = 14;
-        //15 (Pure Jojo is a follower)
+        // 15 (Pure Jojo is a follower)
         if (this.player.findStatusAffect(StatusAffects.PureCampJojo) >= 0)
             choices[choices.length] = 15;
-        //16 (has any of Marae's gift perks)
+        // 16 (has any of Marae's gift perks)
         if (
             this.player.findPerk(PerkLib.MaraesGiftStud) >= 0 ||
             this.player.findPerk(PerkLib.MaraesGiftFertility) >= 0 ||
@@ -2602,29 +2602,29 @@ export class ShouldraFollower extends NPCAwareContent {
             this.player.findPerk(PerkLib.MaraesGiftButtslut) >= 0
         )
             choices[choices.length] = 16;
-        //17 (has had children with Izma)
+        // 17 (has had children with Izma)
         if (
             this.flags[kFLAGS.IZMA_CHILDREN_SHARKGIRLS] +
                 this.flags[kFLAGS.IZMA_CHILDREN_TIGERSHARKS] >
             0
         )
             choices[choices.length] = 17;
-        //18 (has Incorporeality perk)
+        // 18 (has Incorporeality perk)
         if (this.player.findPerk(PerkLib.Incorporeality) >= 0) choices[choices.length] = 18;
-        //19 (possessed by Boobgartuan)
+        // 19 (possessed by Boobgartuan)
         if (this.player.statusAffectv1(StatusAffects.Exgartuan) == 2) choices[choices.length] = 19;
-        //20 (PC knows any spells)
+        // 20 (PC knows any spells)
         if (this.player.hasSpells()) choices[choices.length] = 20;
-        //21 (PC has anemone dick)
+        // 21 (PC has anemone dick)
         if (this.player.anemoneCocks() > 0) choices[choices.length] = 21;
-        //22 (Computer date is within a week before or after Halloween/or on Halloween whichever's easier)
+        // 22 (Computer date is within a week before or after Halloween/or on Halloween whichever's easier)
         if (this.isHalloween()) choices[choices.length] = 22;
 
         select = choices[ShouldraFollower.rand(choices.length)];
         var subSelect: number = 0;
 
         switch (select) {
-            //PC with cock
+            // PC with cock
             case 1:
                 subSelect = ShouldraFollower.rand(5);
                 if (subSelect == 0)
@@ -2653,7 +2653,7 @@ export class ShouldraFollower extends NPCAwareContent {
                     );
                 break;
             case 2:
-                //PC with BIG COCK
+                // PC with BIG COCK
                 subSelect = ShouldraFollower.rand(5);
                 if (subSelect == 0)
                     this.outputText(
@@ -2678,7 +2678,7 @@ export class ShouldraFollower extends NPCAwareContent {
                     this.dynStats("lib", 1, "lus", 10);
                 }
                 break;
-            //PC with balls
+            // PC with balls
             case 3:
                 subSelect = ShouldraFollower.rand(5);
                 if (subSelect == 0)
@@ -2702,7 +2702,7 @@ export class ShouldraFollower extends NPCAwareContent {
                         "\"<i>Champ... you weren't thinking of impregnating anyone too soon, were you?</i>\"  You ask Shouldra what's wrong, afraid of the answer you'll hear.  The odd sensations you've felt in your [balls] are probably related.  \"<i>Well, let's just say that your sperm may be little wild cards at the moment.  I'll... get that sorted out shortly.</i>\"  On that note, a rough churning starts up down below.  Your baby batter isn't safe with this ghost around, it seems."
                     );
                 break;
-            //PC with boobs
+            // PC with boobs
             case 4:
                 subSelect = ShouldraFollower.rand(5);
                 if (subSelect == 0)
@@ -2726,7 +2726,7 @@ export class ShouldraFollower extends NPCAwareContent {
                         '"<i>You know, I\'ve noticed how rarely you wear a bra, Champ,</i>" a particularly mischievous voice whispers into your ear.  Your [fullChest] begin wiggling seductively all on their own.  "<i>You should pick up a bunch of \'em sometime.  Then I can break them off with a nice surge of breast flesh.  Who could resist such an act?</i>"  Shouldra is entirely too obsessed with hypnotizing onlookers with your tantalizing tits.'
                     );
                 break;
-            //PC with vagina
+            // PC with vagina
             case 5:
                 subSelect = ShouldraFollower.rand(5);
                 if (subSelect == 0)
@@ -2750,8 +2750,8 @@ export class ShouldraFollower extends NPCAwareContent {
                         "You can sense Shouldra laughing to herself over something.  Though its usually a poor idea, you decide to ask and see what's on her mind.  \"<i>I was just scheming.  Would you get too upset if I spooked your next fuck?</i>\"  As she asks, you feel your [vagina] clenching hard, giving you a clear idea of what the trickster has in mind.  There's no way that-  On second thought, maybe it could be kind of fun?"
                     );
                 break;
-            //PC with Exgartuan and Shouldra
-            //unlocked after deciding to keep Shouldra and Exgartuan together, for better or for worse (see below for scene)
+            // PC with Exgartuan and Shouldra
+            // unlocked after deciding to keep Shouldra and Exgartuan together, for better or for worse (see below for scene)
             case 6:
                 subSelect = ShouldraFollower.rand(6);
                 if (subSelect == 0)
@@ -2779,7 +2779,7 @@ export class ShouldraFollower extends NPCAwareContent {
                         "Your [armor] has vanished!  You're butt naked!  It's pretty obvious who's at fau-\n\n\"<i>Really, [name], you don't even need it,</i>\" Exgartuan says, surprising you.\n\nShouldra laughs, \"<i>Right, Champ?  Two sexually-charged tyrants dwelling within you and you insist on sneaking around like common rabble?  Why not let it all hang out?</i>\"\n\nYour hands caress your [cock], exciting the demonic member into attention.  You remind the couple that your outfit isn't <b>just</b> for protection, citing many other-  Oh, your [armor] is back.  Guess they don't want to hear you prattle."
                     );
                 break;
-            //General flavor text
+            // General flavor text
             case 7:
                 subSelect = ShouldraFollower.rand(6);
                 if (subSelect == 0)
@@ -2811,62 +2811,62 @@ export class ShouldraFollower extends NPCAwareContent {
                         '"<i>I like what you did with those racks,</i>" Shouldra says unexpectedly, her voice losing its mischievous edge for a moment.  "<i>I\'m glad you kept them.</i>"  You both sit in silence for several moments as you consider her mood shift to tenderness, but the moment passes.  Shouldra chuckles softly.  "<i>Just thought I\'d mention.</i>"'
                     );
                 break;
-            //Special Flavor Texts (misc. prereqs)
-            //(Tel'Adre unlocked)
+            // Special Flavor Texts (misc. prereqs)
+            // (Tel'Adre unlocked)
             case 8:
                 this.outputText(
                     "Somehow, someway, you can feel Shouldra sifting through your memories.  \"<i>I'd love to visit the bakery in that desert town.  It's been at least a century since I tasted a decent sweet of some sort.</i>\""
                 );
                 break;
-            //Preggo
+            // Preggo
             case 9:
                 this.outputText(
                     "Your hands circle your bulging belly unbidden.  Shouldra seems to be enjoying your pregnancy.  \"<i>A good deal of the goblins I got a hold of were pregnant, but they don't really treat the event with anything other than their usual 'decorum.'</i>\"  The ghost girl lets out a deep sigh.  \"<i>There isn't anything wrong with enjoying it while you can, is there?</i>\"  Do the dead normally have this much interest in the birth of the living?"
                 );
                 break;
-            //(is preggers2)
+            // (is preggers2)
             case 10:
                 this.outputText(
                     '"<i>Looks like the thing you\'re pregnant with is doing all right there, Champ,</i>" Shouldra comments, your belly wiggling around a bit.  You ask that the ghost not go messing around with pregnancy, fearful of the consequences.  "<i>Oh, please.  I wouldn\'t do anything crazy like that...</i>" You can\'t see her, but you can picture the expression the ghost made as she trailed off.  And it worries you.'
                 );
                 break;
-            //(is butt pregnant)
+            // (is butt pregnant)
             case 11:
                 this.outputText(
                     '"<i>I must admit, Champ, haven\'t run into too many instances of rear-ended pregnancies!</i>"  Shouldra laughs, smacking your hand on your [butt].  "<i>Just make sure that doesn\'t have to contend with all the other things that go in and out of your ass!</i>"  You try not to dignify the crass remark with any sort of response.'
                 );
                 break;
-            //(can fly)
+            // (can fly)
             case 12:
                 this.outputText(
                     'You\'re taken by surprise when your wings act all on their own, lifting you off the ground with strong flaps.  "<i>I\'m trying to think of ways to use your own flight in some kinky shit, Champ,</i>" Shouldra comments, "<i>Nothing\'s coming to mind that\'s any better than me just floating your carcass instead.</i>"  Well, we aren\'t all "blessed" enough to be deceased spirits!'
                 );
                 break;
-            //(is Naga)
+            // (is Naga)
             case 13:
                 this.outputText(
                     "Your tail wiggles around on its own suddenly.  Catching on to how it appears to be sneaking to play around with something on your body, you calmly ask its spiritual captor to knock it off.  An otherworldly snicker emanates from it before it goes limp."
                 );
                 break;
-            //(Amily is a follower)
+            // (Amily is a follower)
             case 14:
                 this.outputText(
                     "Your fingers move around a little, signaling Shouldra's stirring.  \"<i>It would seem that that mouse follows me everywhere I go,</i>\" she complains.  You figure she's talking about Amily.  You ask what her beef is.  \"<i>Too much baggage.  Don't want to deal with it.  I scared her a few times back at the town, but it wasn't all that satisfying.</i>\"  Looks as though Shouldra wasn't always the warmest of neighbors."
                 );
                 break;
-            //(Pure Jojo is a follower)
+            // (Pure Jojo is a follower)
             case 15:
                 this.outputText(
                     "The silence bothers you a bit, so you decide to see if Shouldra is awake and ask her what she thinks about Jojo.  \"<i>You're talking about that holy mouse morph back at camp, right?  Not a fan,</i>\" she replies, shrugging your shoulders.  \"<i>Other than just not really being into people that remind me of rodents, I don't think he'd get along well with 'a spirit that has yet to abandon these mortal bonds.'</i>\"  she mocks."
                 );
                 break;
-            //(has any of Marae's gift perks)
+            // (has any of Marae's gift perks)
             case 16:
                 this.outputText(
                     '"<i>Man, Marae really did a number on you, Champ,</i>" Shouldra comments, referring to your corrupted blessings.  "<i>I\'ll have to hand it to you; you really get around.  Much more than I would have been willing to give you credit for.  Not everyone gets to fuck around with a goddess.</i>"  You aren\'t sure if this is a compliment.'
                 );
                 break;
-            //(has had children with Izma)
+            // (has had children with Izma)
             case 17:
                 this.outputText('"<i>');
                 if (
@@ -2880,31 +2880,31 @@ export class ShouldraFollower extends NPCAwareContent {
                     " pretty cute you know,</i>\"  Shouldra blurts seemingly from nowhere.  Looks as though she's helping herself to your head.  \"<i>I'd love to get to meet them sometime, Champ.  Put some otherworldly fright in 'em so they grow up right!</i>\"  You doubt Izma would be too onboard with this visit."
                 );
                 break;
-            //(has Incorporeality perk)
+            // (has Incorporeality perk)
             case 18:
                 this.outputText(
                     '"<i>Looks like you really enjoyed that ectoplasm I gave ya, Champ,</i>" Shouldra laughs, obviously in reference to the ghostly pallor of your skin.  "<i>I never actually looked too much into what that stuff does.  I just don\'t have much else to hand out to people.  Anyway, if you want some ghostin\' lessons, just let me know!</i>"  You begin to wonder how a possession works when the possessed is possessed by a possessor that is already possessed by another possessor.\n\nBest to stop wondering.'
                 );
                 break;
-            //---(possessed by Boobgartuan)
+            // ---(possessed by Boobgartuan)
             case 19:
                 this.outputText(
                     'Your [fullChest] fidget ominously, a muffled female voice piping up, "<i>No cloth, metal, latex, or gel can protect you from me, champion. Give in and caress these cans!</i>"\n\n"<i>Okay!</i>" you say against your will.  Shouldra directs your hands to your titanic tits and massages them with gusto.  Looks like she\'s actually getting along with your demonically possessed rack.'
                 );
                 break;
-            //(PC knows any spells)
+            // (PC knows any spells)
             case 20:
                 this.outputText(
                     '"<i>I see you\'ve been dabbling in a little magic of your own, Champ,</i>" Shouldra chimes in from out of nowhere.  "<i>You know if you ask nicely, maybe I\'ll take you on as my apprentice.</i>"  If you ever decide to put your intelligence to work making cocks ten feet tall, you\'ll have to take her up on that offer.\n\n"<i>I can do things besides sex, you know, ass.</i>"\n\nMind reading would be nice to have, too.'
                 );
                 break;
-            //(PC has anemone dick)
+            // (PC has anemone dick)
             case 21:
                 this.outputText(
                     "Your armor undoes itself suddenly, revealing your perky anemone dick to the outside air.  You work to cover it back up when Shouldra's voice picks up inside your head, \"<i>Man, I don't think I've seen too many of these little guys.  Fascinating buggers.  Just don't let them lodged up your cootch, though.  Pain in the ass to deal with then.</i>\"  You didn't realize the quirky ghost was a biologist, too."
                 );
                 break;
-            //(Computer date is within a week before or after Halloween/or on Halloween whichever's easier)
+            // (Computer date is within a week before or after Halloween/or on Halloween whichever's easier)
             default:
                 this.outputText(
                     "Shouldra takes control of your body, the sudden shift scaring you slightly.  She doesn't do anything crazy, though; the ghost girl just stops and stretches, apparently just enjoying being a ghost!  \"<i>I love this time of year, Champ.  Don't ask me why, but I just feel more <b>alive</b>.</i>\"  Ghosts feeling alive?  This is too spooky for you."
@@ -2914,13 +2914,13 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText("\n");
     }
 
-    //Shouldra on-board with the PC will keep the worms encounter from occurring.
-    //Intro
-    //includes reference to SHOULDRA_WORM_SCENE_COUNTER
-    //SHOULDRA_WORM_SCENE_COUNTER increases after scene in case of repeat
-    //PC chooses between keeping worms or Shouldra
-    //trigger works same as Exgartuan's worm cure
-    //resets Shouldra hour timer if player keeps her
+    // Shouldra on-board with the PC will keep the worms encounter from occurring.
+    // Intro
+    // includes reference to SHOULDRA_WORM_SCENE_COUNTER
+    // SHOULDRA_WORM_SCENE_COUNTER increases after scene in case of repeat
+    // PC chooses between keeping worms or Shouldra
+    // trigger works same as Exgartuan's worm cure
+    // resets Shouldra hour timer if player keeps her
     private shouldraAndWormsYoureGonnaHaveABadTime(): void {
         this.clearOutput();
         this.spriteSelect(67);
@@ -2957,7 +2957,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             '\n\nThe two of you sit in silence for a moment, your body breathing heavily.  "<i>What the fuck is wrong with you?</i>"  your mouth says plainly.  More wormy escape attempts cause your pelvis to thrash about; Shouldra not only refuses to touch your blighted phallus, but is actively working to avoid its every swing. "<i>NOPE.  NEVER.  These fuckers have GOT to GO!  There\'s no way in HELL I\'m riding shotgun with-</i>"  The ghost has you shout yet again, quickly jumping away from a thick strand of your jism flying back towards you.  Looks like the decision lies with you.'
         );
-        //[Keep Worms]	[Keep Shouldra]
+        // [Keep Worms]	[Keep Shouldra]
         this.simpleChoices(
             "Keep Shouldra",
             this.kickOutWormiesForYourGhostPalPAL,
@@ -2971,7 +2971,7 @@ export class ShouldraFollower extends NPCAwareContent {
             undefined
         );
     }
-    //Keep Worms
+    // Keep Worms
     private kickOutShouldra4YoWormyBuddies(): void {
         this.clearOutput();
         this.spriteSelect(67);
@@ -2988,11 +2988,11 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             "  Oddly enough, you hope the little buggers appreciate you sticking up for them."
         );
-        //Follower Shouldra leaves
+        // Follower Shouldra leaves
         this.flags[kFLAGS.SHOULDRA_FOLLOWER_STATE] = 0;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Keep Shouldra
+    // Keep Shouldra
     private kickOutWormiesForYourGhostPalPAL(): void {
         this.clearOutput();
         this.spriteSelect(67);
@@ -3021,14 +3021,14 @@ export class ShouldraFollower extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Shouldra and Exgartuan Don't Get Along
-    //For Cock Exgartuan
-    //Scenes unlock in succession, only occurs once
-    //Keeping both spirit and demon unlock flavor text above.
-    //Argue 1 - When going to bed
+    // Shouldra and Exgartuan Don't Get Along
+    // For Cock Exgartuan
+    // Scenes unlock in succession, only occurs once
+    // Keeping both spirit and demon unlock flavor text above.
+    // Argue 1 - When going to bed
     public shouldraAndExgartumonFightGottaCatchEmAll(): void {
-        //40% chance to occur when player has both Shouldra and Cock Exgartuan and is going to sleep
-        //Unlocks Argue 2
+        // 40% chance to occur when player has both Shouldra and Cock Exgartuan and is going to sleep
+        // Unlocks Argue 2
         this.spriteSelect(67);
         this.outputText("Your bedroll looks mighty comfortable after a hard day's ");
         if (this.player.cor < 50) this.outputText("work");
@@ -3061,11 +3061,11 @@ export class ShouldraFollower extends NPCAwareContent {
         this.doNext(this.playerMenu);
     }
 
-    //Argue 2 - When out exploring
+    // Argue 2 - When out exploring
     public exgartumonAndShouldraFightPartII(): void {
-        //unlocks after Argue 1
+        // unlocks after Argue 1
         this.spriteSelect(67);
-        //40% chance to occur during scene transition
+        // 40% chance to occur during scene transition
         this.outputText(
             "\nA sudden immense buildup in your [cock] takes you by surprise, easily bursting out of your [armor]!  Your urethra is horribly distended, your entire demonic length rumbling in preparation for something tremendous!  The unexpected pressure forces you to your knees.  Your head closer to your evil dong, you realize that you can make out muffled shouting inside.  This is hardly anything you-"
         );
@@ -3077,11 +3077,11 @@ export class ShouldraFollower extends NPCAwareContent {
         );
         this.flags[kFLAGS.SHOULDRA_EXGARTUDRAMA] = 2;
     }
-    //Argue 3 - When out exploring again
+    // Argue 3 - When out exploring again
     public exgartumonAndShouldraFightPartIII(): void {
-        //unlocks after Argue 2
+        // unlocks after Argue 2
         this.spriteSelect(67);
-        //50% chance to occur during scene transition
+        // 50% chance to occur during scene transition
         this.outputText(
             '\n"<i>Hey, Champ, check this out,</i>" Shouldra has you blurt clear out of the blue.  The poltergeist assumes control over your body, quickly shedding your [armor] and transitioning into some manner of casting.  She\'s typically been pretty good about not just doing whatever the fuck she feels like with you without at least asking first.'
         );
@@ -3100,11 +3100,11 @@ export class ShouldraFollower extends NPCAwareContent {
         this.flags[kFLAGS.SHOULDRA_EXGARTUDRAMA] = 3;
     }
 
-    //Argue 4 - At bed, morning, time to decide
+    // Argue 4 - At bed, morning, time to decide
     public exgartuMonAndShouldraShowdown(): void {
-        //unlocks after Argue 3
-        //75% chance to occur during sleep
-        //Time is 5:00
+        // unlocks after Argue 3
+        // 75% chance to occur during sleep
+        // Time is 5:00
         this.spriteSelect(67);
         this.outputText(
             "\nAn unusually early awakening for you is brought upon by your massive morning wood.  You appreciate the warm greeting by your [cock], but the sun is barely even out yet and-"
@@ -3146,7 +3146,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             "  You shout loud enough to get the two to at least shut up and notice you're there.  It's time to end this little battle once and for all, starting with your first - and hopefully last - involvement."
         );
-        //[Keep Exgartuan]	[Keep Shouldra]	[Keep Both!]
+        // [Keep Exgartuan]	[Keep Shouldra]	[Keep Both!]
         this.simpleChoices(
             "Keep Exgartuan",
             this.keepExgartuanInsteadOfShouldra,
@@ -3160,7 +3160,7 @@ export class ShouldraFollower extends NPCAwareContent {
             undefined
         );
     }
-    //Keep Exgartuan
+    // Keep Exgartuan
     private keepExgartuanInsteadOfShouldra(): void {
         this.clearOutput();
         this.spriteSelect(67);
@@ -3198,11 +3198,11 @@ export class ShouldraFollower extends NPCAwareContent {
             "\n\nShouldra gives you one last stink eye before doing a 180 and storming out of the tent.  Exgartuan starts blathering on about something or other as you reflect on your decision.  No use dwelling on it too much, though; you figure you'll never be seeing the shade again."
         );
         this.flags[kFLAGS.SHOULDRA_EXGARTUDRAMA] = -1;
-        //Shouldra gone for good
+        // Shouldra gone for good
         this.flags[kFLAGS.SHOULDRA_FOLLOWER_STATE] = -1;
         this.doNext(this.playerMenu);
     }
-    //Keep Shouldra
+    // Keep Shouldra
     private keepShouldraAndKickOutExgartuan(): void {
         this.clearOutput();
         this.spriteSelect(67);
@@ -3261,21 +3261,21 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             "\n\nShouldra goes on and on about her new toy.  She's certainly a spry little thing.  After paying one more glance to the mess in the side of your tent, you finally get to move on with your day.  You really hope Shouldra was right about that sight evaporating on its own."
         );
-        //PC has human dick
+        // PC has human dick
         this.player.cocks[0].cockType = CockTypesEnum.HUMAN;
-        //Exgartuan departs
+        // Exgartuan departs
         this.player.removeStatusAffect(StatusAffects.Exgartuan);
-        //unlocks one more scene for later that night
+        // unlocks one more scene for later that night
         this.flags[kFLAGS.SHOULDRA_EXGARTUDRAMA] = -0.5;
         this.doNext(this.playerMenu);
     }
-    //Keeping Shouldra 2 - Exgartuan's back from the dead!
+    // Keeping Shouldra 2 - Exgartuan's back from the dead!
     public keepShouldraPartIIExgartumonsUndeatH(): void {
         this.clearOutput();
         this.spriteSelect(67);
-        //unlocks after previous scene.
-        //occurs next time PC goes to sleep
-        //only happens if PC still has cock, otherwise goes away never to be heard from again
+        // unlocks after previous scene.
+        // occurs next time PC goes to sleep
+        // only happens if PC still has cock, otherwise goes away never to be heard from again
         this.outputText(
             "While slipping into your bedroll to enjoy a peaceful night's sleep, a chill runs down your spine.  You look around to-"
         );
@@ -3287,7 +3287,7 @@ export class ShouldraFollower extends NPCAwareContent {
         );
         this.outputText("\n\nYou fear for the worst as your bed and sheets close in on you.");
         this.flags[kFLAGS.SHOULDRA_EXGARTUDRAMA] = 0;
-        //[next page]
+        // [next page]
         this.doNext(this.keepShouldraPartIIIExgartumonsUndeatH);
     }
     private keepShouldraPartIIIExgartumonsUndeatH(): void {
@@ -3303,8 +3303,8 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText("\n\nYou enjoy a peaceful night's sleep for a change.");
         this.doNext(this.playerMenu);
     }
-    //Keep Both!"
-    //earth elemental
+    // Keep Both!"
+    // earth elemental
     private keepAllTheGhosts(): void {
         this.clearOutput();
         this.spriteSelect(67);
@@ -3383,15 +3383,15 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             "\n\nYou'll spend the rest of the early morning greeting the sunrise and cleaning off."
         );
-        //puts Shouldra and Exgartuan to sleep/resets their timers
+        // puts Shouldra and Exgartuan to sleep/resets their timers
         this.shouldraSleeping(15, true);
         this.player.changeStatusValue(StatusAffects.Exgartuan, 2, 12 + ShouldraFollower.rand(7));
-        //unlocks follower dialog
+        // unlocks follower dialog
         this.flags[kFLAGS.SHOULDRA_EXGARTUDRAMA] = 4;
         this.doNext(this.playerMenu);
     }
 
-    //Intro
+    // Intro
     public shouldraBakeryIntro(): void {
         this.clearOutput();
         this.spriteSelect(67);
@@ -3401,7 +3401,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             '\n\n"<i>Oh hey, a bakery!</i>" She exclaims, "<i>Are we gonna grab something?  All those years of being a ghost did a real number on my appetite.</i>"  '
         );
-        //first time:
+        // first time:
         if (this.flags[kFLAGS.SHOULDRA_BAKERY_TIMES] == 0)
             this.outputText(
                 'You smirk, wondering how exactly a ghost manages to work up a hunger.  Your skepticism is met by an intense stabbing pain in your stomach, forcing you to buckle slightly from the cramping.  It lasts only a moment before it vanishes, however.  "<i>You feel that, smartass?</i>" The ghost girl sneers, "<i>That\'s what decades of fasting will do to you.'
@@ -3427,7 +3427,7 @@ export class ShouldraFollower extends NPCAwareContent {
         );
     }
 
-    //Bail out (you pussy)
+    // Bail out (you pussy)
     private bailOut(): void {
         this.clearOutput();
         this.spriteSelect(67);
@@ -3437,14 +3437,14 @@ export class ShouldraFollower extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //nter
+    // nter
     private feedShouldraACake(): void {
         this.clearOutput();
         this.spriteSelect(67);
         this.outputText(
             "You decide that there's no use getting cold feet now; you wanted to go the bakery anyway, no harm in letting Shouldra have some fun while you're there.  "
         );
-        //after first time:
+        // after first time:
         if (this.flags[kFLAGS.SHOULDRA_BAKERY_TIMES] > 0)
             this.outputText("Well, nothing <i>permanent</i>, anyway.  ");
         this.outputText(
@@ -3456,7 +3456,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             "\n\nShouldra is definitely getting antsy now, and you can feel her dragging your eyes towards the menu.  A sliver of drool slides down your chin.  You sigh and let the ghost girl head towards the service counter; hopefully both your wallet and your figure will remain reasonably intact."
         );
-        //Maddie
+        // Maddie
         this.simpleChoices(
             "Maddie",
             this.shouldraAndMaddieSittingInATree,
@@ -3490,7 +3490,7 @@ export class ShouldraFollower extends NPCAwareContent {
         else if (this.player.thickness < 50) this.outputText("trim");
         else this.outputText("curvaceous");
         this.outputText(" figure...");
-        //[Go along with it] [Resist]
+        // [Go along with it] [Resist]
         this.simpleChoices(
             "Go Along",
             this.goAlongWIthShouldrasEatingSpree,
@@ -3504,11 +3504,11 @@ export class ShouldraFollower extends NPCAwareContent {
             undefined
         );
     }
-    //Go along with it
+    // Go along with it
     private goAlongWIthShouldrasEatingSpree(): void {
         this.clearOutput();
         this.spriteSelect(67);
-        //if repeat scene:
+        // if repeat scene:
         if (this.flags[kFLAGS.SHOULDRA_BAKERY_TIMES] > 0)
             this.outputText(
                 '"Man, you\'re not sure you want that kind of impact on your figure again...  "'
@@ -3590,17 +3590,17 @@ export class ShouldraFollower extends NPCAwareContent {
                 this.outputText(
                     'Modest spurts of semen shoot out into Shouldra\'s awaiting mouth.  She withdraws, swirls it around her tongue, then swallows your load in one gulp.  "<i>Hmm...  needs cinnamon,</i>" she jokes, licking her lips.'
                 );
-            //if (cumMedium = true)
+            // if (cumMedium = true)
             else if (this.player.cumQ() <= 400)
                 this.outputText(
                     'Several thick spurts of semen shoot out into Shouldra\'s awaiting mouth.  She withdraws, swilling the sizeable load around her mouth before swallowing it in a few gulps.  "<i>Not bad...  could use a dash of ginger though,</i>" she jokes, licking her lips.'
                 );
-            //if (cumHigh = true)
+            // if (cumHigh = true)
             else if (this.player.cumQ() <= 1000)
                 this.outputText(
                     'Your groin roils as a thick jet of pearly cum floods Shouldra\'s mouth, followed by another, then another.  The ghost girl barely has time to swallow each load before the next comes, but she manages not to spill a drop of your virility.  "<i>Mmm, pretty tasty!</i>"  She says after wiping her mouth in satisfaction.  "<i>Hints of pineapple, coconut...  delicious.</i>"'
                 );
-            //if (cumVeryHigh = true)
+            // if (cumVeryHigh = true)
             else if (this.player.cumQ() <= 5000)
                 this.outputText(
                     "Your loins tremble and quiver as an immense load of cloying cum bulges along your shaft and explodes in Shouldra's mouth.  A further wave of bulges assault the ghost girl's throat, forcing her to swallow all of your thick virile spunk.  Eventually the wave subsides, leaving a satisfied and somewhat bloated spook in its wake.  \"<i>Soo gooood...</i>\" she drawls, her goofy grin smattered with white."
@@ -3621,7 +3621,7 @@ export class ShouldraFollower extends NPCAwareContent {
             this.player.orgasm();
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //[(if hasCock = false)
+        // [(if hasCock = false)
         else {
             this.outputText(
                 "\n\nYou run a hand down your chest, examining the new material.  Silky smooth...  As your hand slides across your stomach, you press in slightly.  You've only made a small dent in the food before you, but there's already a noticeable bulge beneath the hem of your skirt, and a few inches of soft " +
@@ -3666,7 +3666,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.player.slimeFeed();
     }
 
-    //Resist
+    // Resist
     private resistBeingAFatass(): void {
         this.clearOutput();
         this.spriteSelect(67);

@@ -1,7 +1,7 @@
 import { StatusAffectType } from "./StatusAffectType";
 
 export class StatusAffectClass {
-    //constructor
+    // constructor
     public constructor(
         stype: StatusAffectType,
         value1: number = 0,
@@ -15,13 +15,13 @@ export class StatusAffectClass {
         this.value3 = value3;
         this.value4 = value4;
     }
-    //data
+    // data
     private _stype: StatusAffectType;
     public value1: number;
     public value2: number;
     public value3: number;
     public value4: number;
-    //MEMBER FUNCTIONS
+    // MEMBER FUNCTIONS
     public get stype(): StatusAffectType {
         return this._stype;
     }

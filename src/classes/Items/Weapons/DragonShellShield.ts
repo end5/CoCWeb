@@ -21,7 +21,7 @@ export class DragonShellShield extends Weapon {
     }
 
     public useText(): void {
-        //Produces any text seen when equipping the armor normally
+        // Produces any text seen when equipping the armor normally
         if (this.game.flags[kFLAGS.TIMES_EQUIPPED_EMBER_SHIELD] == 0) {
             this.clearOutput();
             this.outputText(

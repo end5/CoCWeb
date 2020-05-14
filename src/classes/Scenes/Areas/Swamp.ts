@@ -16,7 +16,7 @@ export class Swamp extends BaseContent {
     public maleSpiderMorphScene: MaleSpiderMorphScene = new MaleSpiderMorphScene();
     public rogar: Rogar = new Rogar();
     public exploreSwamp(): void {
-        //Discover 'Bog' at after 25 explores of swamp
+        // Discover 'Bog' at after 25 explores of swamp
         if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00272] >= 25 &&
             this.flags[kFLAGS.BOG_EXPLORED] == 0
@@ -31,7 +31,7 @@ export class Swamp extends BaseContent {
         }
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00272]++;
         /*  SPECIAL SCENE OVERWRITES */
-        //KIHA X HEL THREESOME!
+        // KIHA X HEL THREESOME!
         if (
             !kGAMECLASS.kihaFollower.followerKiha() &&
             this.player.cor < 60 &&
@@ -43,7 +43,7 @@ export class Swamp extends BaseContent {
             kGAMECLASS.kihaFollower.kihaXSalamander();
             return;
         }
-        //Helia monogamy fucks
+        // Helia monogamy fucks
         if (
             this.flags[kFLAGS.PC_PROMISED_HEL_MONOGAMY_FUCKS] == 1 &&
             this.flags[kFLAGS.HEL_RAPED_TODAY] == 0 &&
@@ -65,19 +65,19 @@ export class Swamp extends BaseContent {
         }
         /*  STANDARD SCENE SELECTION  */
         var choices: any[] = [];
-        //Build the choice array
-        //M & F spidermorphs
+        // Build the choice array
+        // M & F spidermorphs
         choices[choices.length] = 0;
         choices[choices.length] = 1;
-        //Drider
+        // Drider
         choices[choices.length] = 2;
-        //ROGAR
+        // ROGAR
         if (this.flags[kFLAGS.ROGAR_DISABLED] == 0 && this.flags[kFLAGS.ROGAR_PHASE] < 3)
             choices[choices.length] = 3;
-        //Kiha
+        // Kiha
         choices[choices.length] = 4;
 
-        //Pick from the choices and pull the encounter.
+        // Pick from the choices and pull the encounter.
         var choice: number = choices[Swamp.rand(choices.length)];
         switch (choice) {
             case 0:
@@ -93,7 +93,7 @@ export class Swamp extends BaseContent {
                 this.rogar.encounterRogarSwamp();
                 break;
             case 4:
-                //Kiha follower gets to explore her territory!
+                // Kiha follower gets to explore her territory!
                 if (kGAMECLASS.kihaFollower.followerKiha()) kGAMECLASS.kihaScene.kihaExplore();
                 else kGAMECLASS.kihaScene.encounterKiha();
                 break;

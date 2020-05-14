@@ -62,7 +62,7 @@ export class OmnibusOverseer extends Monster {
         ) {
             this.outputText("You sidestep the gushing fluids.");
         }
-        //You didn't dodge
+        // You didn't dodge
         else {
             if (OmnibusOverseer.rand(2) == 0) {
                 this.outputText(

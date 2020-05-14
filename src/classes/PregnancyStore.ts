@@ -2,7 +2,7 @@ import { trace } from "../console";
 import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
 
 export class PregnancyStore {
-    //Pregancy types. Both butt and normal. Each type represents the father of this baby.
+    // Pregancy types. Both butt and normal. Each type represents the father of this baby.
     public static PREGNANCY_IMP: number = 1;
     public static PREGNANCY_MINOTAUR: number = 2;
     public static PREGNANCY_MOUSE: number = 4;
@@ -34,9 +34,9 @@ export class PregnancyStore {
     public static PREGNANCY_KELT: number = 30; //So we can track them separately from other centaur pregnancies
     public static PREGNANCY_TAOTH: number = 31;
     public static PREGNANCY_GOO_STUFFED: number = 32; //Used to fill the player's ass and/or vagina when Valeria has a goo girl take up residence. This prevents any other
-    //form of pregnancy from taking hold. Does not respond to ovielixirs.
+    // form of pregnancy from taking hold. Does not respond to ovielixirs.
     public static PREGNANCY_WORM_STUFFED: number = 33; //Used to fill the player's vagina when the worms take up residence. This prevents any other form of
-    //pregnancy from taking hold. Does not respond to ovielixirs.
+    // pregnancy from taking hold. Does not respond to ovielixirs.
 
     public static PREG_NOT_PREGANT: number = 0; //The PREG_* consts are returned by the size function
     public static PREG_NO_SIGNS_UNKNOWN: number = 1; //NPC has conceived but doesn’t know she’s pregnant, no visible signs
@@ -48,10 +48,10 @@ export class PregnancyStore {
     public static PREG_FULL_TERM: number = 7; //NPC is in the third trimester, belly is big as it will get for a normal pregnancy
     public static PREG_OVERDUE: number = 8; //NPC is overdue. Usually means a centaur baby, twins or some similar condition. Effectively looks 10 months pregnant
     public static PREG_VERY_OVERDUE: number = 9; //NPC is very overdue. Probably triplets or more. Effectively looks 11 months pregnant
-    //Old Value, replaced in Saves.unFuckSave()		public static const PREGNANCY_BUTT_BEE: number              =   2;
-    //Old Value, replaced in Saves.unFuckSave()		public static const PREGNANCY_BUTT_DRIDER: number           =   3;
-    //Old Value, replaced in Saves.unFuckSave()		public static const PREGNANCY_BUTT_SANDTRAP_FERTILE: number =   4;
-    //Old Value, replaced in Saves.unFuckSave()		public static const PREGNANCY_BUTT_SANDTRAP: number         =   5; //Sandtrap did not have fertilized eggs
+    // Old Value, replaced in Saves.unFuckSave()		public static const PREGNANCY_BUTT_BEE: number              =   2;
+    // Old Value, replaced in Saves.unFuckSave()		public static const PREGNANCY_BUTT_DRIDER: number           =   3;
+    // Old Value, replaced in Saves.unFuckSave()		public static const PREGNANCY_BUTT_SANDTRAP_FERTILE: number =   4;
+    // Old Value, replaced in Saves.unFuckSave()		public static const PREGNANCY_BUTT_SANDTRAP: number         =   5; //Sandtrap did not have fertilized eggs
 
     public static INCUBATION_IMP: number = 432; //Time for standard imps. Imp lords, Ceraph, Lilium and the imp horde cause slightly faster pregnancies
     public static INCUBATION_MINOTAUR: number = 432;
@@ -92,7 +92,7 @@ export class PregnancyStore {
     private _pregnancyEventValue: number[][]; //Using a vector of vectors so that each different pregnancy type can have its own set of events
     private _buttPregnancyEventValue: number[][];
 
-    //All the flags are passed through the constructor so that they can be different in every class that uses PregnancyStore but the pregnancy code remains the same
+    // All the flags are passed through the constructor so that they can be different in every class that uses PregnancyStore but the pregnancy code remains the same
     public constructor(
         pregType: number,
         pregInc: number,
@@ -175,7 +175,7 @@ export class PregnancyStore {
         this._pregnancyEventValue.push(pregVector);
     }
 
-    //Same as addPregnancyEventSet, but for butts
+    // Same as addPregnancyEventSet, but for butts
     public addButtPregnancyEventSet(buttPregType: number, ...buttPregStage: any): void {
         var pregVector: number[] = []; // (buttPregStage.length + 1);
         pregVector[0] = buttPregType; //First element is the butt pregnancy type
@@ -194,7 +194,7 @@ export class PregnancyStore {
             newPregType =
                 (kGAMECLASS.flags[this._pregnancyTypeFlag] & PregnancyStore.PREG_NOTICE_MASK) +
                 newPregType;
-        //If a pregnancy 'continues' an existing pregnancy then do not change the value for last noticed stage
+        // If a pregnancy 'continues' an existing pregnancy then do not change the value for last noticed stage
         kGAMECLASS.flags[this._pregnancyTypeFlag] = newPregType;
         kGAMECLASS.flags[this._pregnancyIncubationFlag] = newPregType == 0 ? 0 : newPregIncubation; //Won't allow incubation time without pregnancy type
     }
@@ -209,14 +209,15 @@ export class PregnancyStore {
             newPregType =
                 (kGAMECLASS.flags[this._buttPregnancyTypeFlag] & PregnancyStore.PREG_NOTICE_MASK) +
                 newPregType;
-        //If a pregnancy 'continues' an existing pregnancy then do not change the value for last noticed stage
+        // If a pregnancy 'continues' an existing pregnancy then do not change the value for last noticed stage
         kGAMECLASS.flags[this._buttPregnancyTypeFlag] = newPregType;
         kGAMECLASS.flags[this._buttPregnancyIncubationFlag] =
             newPregType == 0 ? 0 : newPregIncubation; //Won't allow incubation time without pregnancy type
     }
 
-    //The containing class is responsible for calling pregnancyAdvance, usually once per timeChange()
-    public pregnancyAdvance(): void { //Separate function so it can be called more often than timeChange if neccessary
+    // The containing class is responsible for calling pregnancyAdvance, usually once per timeChange()
+    public pregnancyAdvance(): void {
+        // Separate function so it can be called more often than timeChange if neccessary
         if (this.incubation != 0) {
             kGAMECLASS.flags[this._pregnancyIncubationFlag]--;
             if (kGAMECLASS.flags[this._pregnancyIncubationFlag] < 0)
@@ -241,7 +242,7 @@ export class PregnancyStore {
             pregEventVector = this._pregnancyEventValue[i];
             if (pregEventVector[0] == pregType) {
                 for (var j: number = 1; j < pregEventVector.length; j++) {
-                    //Skip element zero, the pregnancy type
+                    // Skip element zero, the pregnancy type
                     if (incubationValue > pregEventVector[j]) return j; //Will always find a value that is < incubationValue as last value is -1
                 }
             }
@@ -249,7 +250,7 @@ export class PregnancyStore {
         return 1; //If there are no pregnancy events for this type of pregnancy then return 1
     }
 
-    //The same event system as for vaginal pregnacies, but for butts
+    // The same event system as for vaginal pregnacies, but for butts
     public get buttEvent(): number {
         var pregType: number = this.buttType;
         if (pregType == 0) return 0; //Not pregnant
@@ -259,7 +260,7 @@ export class PregnancyStore {
             pregEventVector = this._buttPregnancyEventValue[i];
             if (pregEventVector[0] == pregType) {
                 for (var j: number = 1; j < pregEventVector.length; j++) {
-                    //Skip element zero, the pregnancy type
+                    // Skip element zero, the pregnancy type
                     if (incubationValue > pregEventVector[j]) return j; //Will always find a value that is < incubationValue as last value is -1
                 }
             }
@@ -267,8 +268,8 @@ export class PregnancyStore {
         return 1; //If there are no pregnancy events for this type of pregnancy then return 1
     }
 
-    //Returns either zero - for no change - or the value of the new pregnancy event which the player has not yet noticed
-    //This function updates the noticed pregnancy event, so it only triggers once per event per pregnancy.
+    // Returns either zero - for no change - or the value of the new pregnancy event which the player has not yet noticed
+    // This function updates the noticed pregnancy event, so it only triggers once per event per pregnancy.
     public eventTriggered(): number {
         var currentStage: number = this.event;
         var lastNoticed: number =
@@ -277,11 +278,11 @@ export class PregnancyStore {
         kGAMECLASS.flags[this._pregnancyTypeFlag] =
             (kGAMECLASS.flags[this._pregnancyTypeFlag] & PregnancyStore.PREG_TYPE_MASK) +
             currentStage * 65536;
-        //Strip off the old noticed value by ANDing with PREG_TYPE_MASK
+        // Strip off the old noticed value by ANDing with PREG_TYPE_MASK
         return currentStage;
     }
 
-    //Same as eventTriggered, but for butts
+    // Same as eventTriggered, but for butts
     public buttEventTriggered(): number {
         var currentStage: number = this.buttEvent;
         var lastNoticed: number =
@@ -290,13 +291,13 @@ export class PregnancyStore {
         kGAMECLASS.flags[this._buttPregnancyTypeFlag] =
             (kGAMECLASS.flags[this._buttPregnancyTypeFlag] & PregnancyStore.PREG_TYPE_MASK) +
             currentStage * 65536;
-        //Strip off the old noticed value by ANDing with PREG_TYPE_MASK
+        // Strip off the old noticed value by ANDing with PREG_TYPE_MASK
         return currentStage;
     }
 
     public get size(): number {
-        //This function exists to provide consistency across different NPC's pregnancies. This is most useful when trying to write descriptions of different belly sizes
-        //in threesomes, where the author might not be familiar with how the different pregnancy events relate to belly size.
+        // This function exists to provide consistency across different NPC's pregnancies. This is most useful when trying to write descriptions of different belly sizes
+        // in threesomes, where the author might not be familiar with how the different pregnancy events relate to belly size.
         return PregnancyStore.PREG_NOT_PREGANT;
     }
 }

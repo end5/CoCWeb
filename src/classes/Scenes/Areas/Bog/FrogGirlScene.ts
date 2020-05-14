@@ -4,8 +4,8 @@ import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { PregnancyStore } from "../../../PregnancyStore";
 
 export class FrogGirlScene extends BaseContent {
-    //const TIMES_ENCOUNTERED_FROG: number = 1017;
-    //Intro
+    // const TIMES_ENCOUNTERED_FROG: number = 1017;
+    // Intro
     public findTheFrogGirl(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.TIMES_ENCOUNTERED_FROG] == 0) {
@@ -56,7 +56,7 @@ export class FrogGirlScene extends BaseContent {
         this.addButton(1, "Resist", this.resistDatFrog);
     }
 
-    //Follow:
+    // Follow:
     private followDatFrog(): void {
         this.clearOutput();
         this.outputText(
@@ -139,9 +139,9 @@ export class FrogGirlScene extends BaseContent {
         this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
-    //[Anal stretch +1/Anal Moistness +1, sensitivity +1, int +1]
+    // [Anal stretch +1/Anal Moistness +1, sensitivity +1, int +1]
 
-    //Resist:
+    // Resist:
     private resistDatFrog(): void {
         this.clearOutput();
         this.outputText(
@@ -170,7 +170,7 @@ export class FrogGirlScene extends BaseContent {
         this.addButton(1, "TeachLesson", this.teachDatFrogALesson);
         this.addButton(4, "Leave", this.leaveFrogBe);
     }
-    //Leave her be:
+    // Leave her be:
     private leaveFrogBe(): void {
         this.clearOutput();
         this.outputText(
@@ -178,7 +178,7 @@ export class FrogGirlScene extends BaseContent {
         );
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Question the frog girl:
+    // Question the frog girl:
     private questDatFrogGirl(): void {
         this.clearOutput();
         this.outputText(
@@ -213,7 +213,7 @@ export class FrogGirlScene extends BaseContent {
         this.addButton(1, "Carry", this.carryBeeGirlsEggsVoluntarilyYouButtSlut);
     }
 
-    //Continue on your way:
+    // Continue on your way:
     private continueOnYourWay(): void {
         this.clearOutput();
         this.outputText(
@@ -223,7 +223,7 @@ export class FrogGirlScene extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Offer to carry her eggs:
+    // Offer to carry her eggs:
     private carryBeeGirlsEggsVoluntarilyYouButtSlut(): void {
         this.clearOutput();
         this.outputText(
@@ -284,7 +284,7 @@ export class FrogGirlScene extends BaseContent {
         this.menu();
         this.addButton(0, "Next", this.voluntarilyGetEggedEpilogue);
     }
-    //**
+    // **
     private voluntarilyGetEggedEpilogue(): void {
         this.clearOutput();
         this.outputText(
@@ -299,7 +299,7 @@ export class FrogGirlScene extends BaseContent {
         this.outputText(
             "\n\nYou don your [armor] with some difficulty over your massive stomach, and venture back towards your camp, feeling a little sore, but proud of yourself for helping out a mother in need."
         );
-        //[Anal stretch +1/Anal Moistness +1, sensitivity +1, corruption -1]
+        // [Anal stretch +1/Anal Moistness +1, sensitivity +1, corruption -1]
         this.player.buttKnockUp(
             PregnancyStore.PREGNANCY_FROG_GIRL,
             PregnancyStore.INCUBATION_FROG_GIRL,
@@ -309,7 +309,7 @@ export class FrogGirlScene extends BaseContent {
         this.dynStats("sen", 1, "cor", -1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Teach Her a Lesson
+    // Teach Her a Lesson
     private teachDatFrogALesson(): void {
         this.clearOutput();
         this.outputText("This frog bitch needs to be careful about who she lures in.");
@@ -343,12 +343,12 @@ export class FrogGirlScene extends BaseContent {
         this.outputText(
             "You wake up two hours later, floating alone in the pool, with a migraine and soggy clothes.  You slog your way out, clutching your head, and head back to camp."
         );
-        //[Toughness -1]
+        // [Toughness -1]
         this.dynStats("tou", -1);
         this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
-    //Laying the Eggs
+    // Laying the Eggs
     public birthFrogEggsAnal(): void {
         this.outputText(
             "\n<b>Oh no...</b>\nYou groan, feeling a shudder from deep inside, a churning from your gut.  A trickle of slime leaks from your [asshole] down your [legs] and you feel a pressure from deep inside."
@@ -375,14 +375,14 @@ export class FrogGirlScene extends BaseContent {
         this.outputText(
             "\n\nYou nod to yourself, happy to be finished with that ordeal.  As you stand, you notice a bit of heaviness to your hips, and some added slickness to your asshole.\n"
         );
-        //[Anal moistness +2, Hips +1]
+        // [Anal moistness +2, Hips +1]
         this.player.hipRating++;
         this.player.ass.analWetness += 1;
         if (this.player.ass.analWetness > 5) this.player.ass.analWetness = 5;
         this.player.orgasm();
         this.dynStats("sen", 1);
     }
-    //Superbonus Vaginal Eggs!
+    // Superbonus Vaginal Eggs!
     private superBonusFrogEggsInYerCooch(): void {
         this.clearOutput();
         this.outputText('"<i>Wait, you want them where?</i>" asks the frog girl, incredulously.');
@@ -421,7 +421,7 @@ export class FrogGirlScene extends BaseContent {
         this.outputText(
             "\n\nAs awareness slowly starts to trickle in to your head, you blink, groaning slightly as you sit up, clutching your massive, pregnant belly, feeling the jelly-eggs inside shifting when you step up out of the water.  You pause as a tiny trickle of slime oozes out from your vagina, sending a brief rainbow flash across your vision and the echo of an orgasm through your system, before you put your [armor] back on and stagger back toward camp."
         );
-        //[Vaginal wetness +1, Sensitivity +1]
+        // [Vaginal wetness +1, Sensitivity +1]
         this.player.orgasm();
         this.dynStats("sen", 1);
         this.player.knockUp(
@@ -433,7 +433,7 @@ export class FrogGirlScene extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Vaginal Egg birth
+    // Vaginal Egg birth
     public layFrogEggs(): void {
         if (this.player.vaginas.length == 0) {
             this.outputText(
@@ -520,7 +520,7 @@ export class FrogGirlScene extends BaseContent {
             "\n\nWith a wince, you head back to camp, hoping that the frog slime hasn’t affected you permanently."
         );
 
-        //[Vaginal gape +1/Vaginal Moistness +1/Hips +1, Sensitivity +1]
+        // [Vaginal gape +1/Vaginal Moistness +1/Hips +1, Sensitivity +1]
         if (this.player.vaginas[0].vaginalWetness < VAGINA_WETNESS_SLAVERING) {
             this.player.vaginas[0].vaginalWetness++;
             this.outputText(

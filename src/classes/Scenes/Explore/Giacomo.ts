@@ -6,8 +6,8 @@ import { StatusAffects } from "../../StatusAffects";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 /*
- LICENSE 
- 
+ LICENSE
+
 This license grants Fenoxo, creator of this game usage of the works of
 Dxasmodeus in this product. Dxasmodeus grants Fenoxo and the coders assigned by him to this project permission to alter the text to conform with current and new game functions, only. Dxasmodeus retains exclusive rights to alter or change the core contents of the events and no other developer may alter, change or use the events without permission from dxasmodeus. Fenoxo agrees to include Dxasmodeus' name in the credits with indications to the specific contribution made to the licensor. This license must appear
 either at the beginning or the end of the primary file in the source code and cannot be deleted by a third party. This license is also retroactive to include all versions of the game code including events created by dxasmodeus.
@@ -38,7 +38,7 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
 
     private checkedSuccubi: number = 0;
 
-    //Implementation of TimeAwareInterface
+    // Implementation of TimeAwareInterface
     public timeChange(): boolean {
         this.checkedSuccubi = 0; //Make sure we test just once in timeChangeLarge
         if (this.model.time.hours > 23) {
@@ -55,7 +55,7 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
             this.player.findStatusAffect(StatusAffects.SuccubiNight) >= 0 &&
             (this.player.hasCock() || this.player.gender == 0)
         ) {
-            //Call secksins!
+            // Call secksins!
             if (this.player.findStatusAffect(StatusAffects.RepeatSuccubi) >= 0) {
                 if (
                     this.getGame().vapula.vapulaSlave() &&
@@ -63,14 +63,14 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
                     this.flags[kFLAGS.VAPULA_THREESOMES] > 0 &&
                     this.flags[kFLAGS.FOLLOWER_AT_FARM_VAPULA] == 0
                 )
-                    //VapulaSurprise
+                    // VapulaSurprise
                     this.getGame().vapula.vapulaAssistsCeruleanSuccubus();
                 else this.nightSuccubiRepeat(); //Normal night succubi shit
             } else {
                 this.nightSuccubiFirstTime();
                 this.player.createStatusAffect(StatusAffects.RepeatSuccubi, 0, 0, 0, 0);
             }
-            //Lower count if multiples stacked up.
+            // Lower count if multiples stacked up.
             if (this.player.statusAffectv1(StatusAffects.SuccubiNight) > 1)
                 this.player.addStatusValue(StatusAffects.SuccubiNight, 1, -1);
             else this.player.removeStatusAffect(StatusAffects.SuccubiNight);
@@ -78,7 +78,7 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
         }
         return false;
     }
-    //End of Interface Implementation
+    // End of Interface Implementation
 
     public giacomoEncounter(): void {
         this.spriteSelect(23);
@@ -89,7 +89,7 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
             this.player.findStatusAffect(StatusAffects.WormOffer) < 0 &&
             this.player.findStatusAffect(StatusAffects.Infested) >= 0
         ) {
-            //If infested && no worm offer yet
+            // If infested && no worm offer yet
             this.outputText(
                 "Upon walking up to Giacomo's wagon, he turns to look at you and cocks an eyebrow in curiosity and mild amusement.\n\n"
             );
@@ -110,19 +110,19 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
             );
             this.player.createStatusAffect(StatusAffects.WormOffer, 0, 0, 0, 0);
             if (this.player.gems < 175) {
-                //Broke as a joke
+                // Broke as a joke
                 this.outputText(
                     "You realize you don't have enough gems for such a pricey potion, but perhaps there is something else in his inventory you can buy."
                 );
             } else {
-                //Can afford
+                // Can afford
                 this.outputText("Do you purchase his cure?");
-                //Remove/No
+                // Remove/No
                 this.doYesNo(this.wormRemoval, this.giacomoEncounter);
                 return;
             }
         } else {
-            //Normal greeting
+            // Normal greeting
             this.outputText(
                 "You spy the merchant Giacomo in the distance.  He makes a beeline for you, setting up his shop in moments.  "
             );
@@ -768,11 +768,11 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
         this.outputText(
             'The merchant puts away his prize and comes back to help you up. "<i>Here.</i>", he says as he shoves a couple of bottles into your hand. "<i>This is on the house. You probably need it after the shock of getting those things out.</i>"\n\n'
         );
-        //Add 1 tincture of vitality to inventory
-        //Infestation purged. Hit Points reduced to 10% of MAX. Corruption -20.
+        // Add 1 tincture of vitality to inventory
+        // Infestation purged. Hit Points reduced to 10% of MAX. Corruption -20.
         if (this.player.HP > Math.floor(this.player.maxHP() * 0.15))
             this.player.HP = Math.floor(this.player.maxHP() * 0.15);
-        //Maybe add a random chance of losing a random transformation with a smaller chance of losing ALL transformations except gender changes. This will probably be a bitch to implement.
+        // Maybe add a random chance of losing a random transformation with a smaller chance of losing ALL transformations except gender changes. This will probably be a bitch to implement.
         this.player.removeStatusAffect(StatusAffects.Infested);
         this.dynStats("lib", -1, "lus", -99, "cor", -4);
         this.player.gems -= 175;
@@ -802,7 +802,7 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
             '"<i>Fear not!</i>", the purveyor jingles. "<i>I have something that will cure you of those little bastards. Of course, there is also a chance that it will purge your system in general. This potion is not cheap. I will trade it for 175 gems.</i>"\n\n',
             false
         );
-        //Broke as a joke
+        // Broke as a joke
         if (this.player.gems < 175) {
             this.outputText(
                 "You realize you don't have enough gems for such a pricey potion, but perhaps there is something else in his inventory you can buy.",
@@ -810,10 +810,10 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
             );
             this.doNext(this.giacomoEncounter);
         }
-        //Can afford
+        // Can afford
         else {
             this.outputText("Do you purchase his cure?", false);
-            //Remove/No
+            // Remove/No
             this.doYesNo(this.wormRemoval, this.giacomoEncounter);
         }
     }
@@ -950,7 +950,7 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
             this.outputText(
                 'She smiles and flies off, leaving you with a fresh bottle of "Cerulean Potion".  As pleasing as the experience was, it has left you thoroughly exhausted.'
             );
-            //[Mechanics: Corruption increase same as male counterpart. No hit point recover for that night. When fatigue model is implemented, no fatigue recovery and add 25 points]
+            // [Mechanics: Corruption increase same as male counterpart. No hit point recover for that night. When fatigue model is implemented, no fatigue recovery and add 25 points]
         }
         this.fatigue(20);
         this.player.orgasm();
@@ -1056,7 +1056,7 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
                 );
                 this.flags[kFLAGS.CERULEAN_POTION_NEUTER_ATTEMPTED] = 1;
             }
-            //REPEAT
+            // REPEAT
             else {
                 this.outputText(
                     "\nAs you begin to relax, you hear footsteps behind you, expecting the unholy interloper and pray for a better... and more understanding... encounter.\n\n",
@@ -1237,8 +1237,8 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
                 this.dynStats("lib", -1);
             }
         } else if (this.player.gender == 3) {
-            //Bad End-Cerulean Succubus Futa/herm
-            //[Conditions: Corruption >50. Drink 10 Cerulean potions over the course of 20 Days. (Other stipulations as required that prevent interference with other events-to be determined)]
+            // Bad End-Cerulean Succubus Futa/herm
+            // [Conditions: Corruption >50. Drink 10 Cerulean potions over the course of 20 Days. (Other stipulations as required that prevent interference with other events-to be determined)]
             if (
                 this.flags[kFLAGS.CERULEAN_POTION_BAD_END_FUTA_COUNTER] > 10 &&
                 this.player.cor > 50
@@ -1247,7 +1247,7 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
                     "\nAs the Succubus mounts you, an uncontrollable urge takes over your mind and body. Without any thought, you quickly thrust one of her nipples in your mouth and begin suckling wildly like a newborn child. The Succubus cries in shock and pleasure as you begin feeding from her and quickly begins her ritualistic milking of your dong. The warm milk passes into your mouth and down your throat, where it settles peacefully in your stomach. The sensation of fulfillment from her tits is only eclipsed by the massive load of semen you feel cramping your prostate.",
                     false
                 );
-                //[ (Herm-Dickgirl variant only)
+                // [ (Herm-Dickgirl variant only)
                 if (this.player.balls > 0)
                     this.outputText("  Even your nuts are unbearably sore.", false);
                 this.outputText(
@@ -1269,7 +1269,7 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
                     "As you stand, you feel awkward as your body does not feel right. You look at the Succubus and she no longer appears as large as she once was. Quick to realize a problem, you look at your reflection in a small bucket at your campsite. Other than your own unique facial features, you see ANOTHER Cerulean Succubus looking back at you! You ARE a Cerulean Succubus!",
                     false
                 );
-                //[(if the player has a large number of transformations)
+                // [(if the player has a large number of transformations)
                 if (
                     this.player.horseScore() +
                         this.player.dogScore() +
@@ -1312,14 +1312,14 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
                     "Your consciousness begins to fade as the orgasm subsides. The succubus pops her tit out of your mouth and squeezes more of her essence into the empty bottle. She licks your lips and flies away just in time for you to pass out.  ",
                     false
                 );
-                //Clear out any queue'ed events if bad-end
-                //coming.  PC has to dig his own grave.
+                // Clear out any queue'ed events if bad-end
+                // coming.  PC has to dig his own grave.
                 if (this.flags[kFLAGS.CERULEAN_POTION_BAD_END_FUTA_COUNTER] > 10) {
                     this.player.removeStatusAffect(StatusAffects.SuccubiNight);
                 }
                 this.fatigue(20);
                 this.player.cumMultiplier++;
-                //[Maintain first encounter mechanics. New variable to keep track of subsequent encounters within a specific time period]
+                // [Maintain first encounter mechanics. New variable to keep track of subsequent encounters within a specific time period]
             }
         }
         this.outputText("\n", false);

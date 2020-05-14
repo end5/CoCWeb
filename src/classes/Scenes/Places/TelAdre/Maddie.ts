@@ -3,12 +3,12 @@ import { PerkLib } from "../../../PerkLib";
 import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class Maddie extends TelAdreAbstractContent {
-    //VARS
+    // VARS
     // 240- first time meeting procced? 1 yes
     // 241- mino explained what he needs yet?
     // 242- baking happaned?  1 = yes, -1 = snuck out, -2 = seen her escorted out
-    //, 3 =stayed, 4 = epilogue'ed
-    //[Bakery One Off – Madeleine's Creation]
+    // , 3 =stayed, 4 = epilogue'ed
+    // [Bakery One Off – Madeleine's Creation]
     public procMaddieOneIntro(): void {
         this.outputText("", true);
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00240] == 0) {
@@ -25,7 +25,7 @@ export class Maddie extends TelAdreAbstractContent {
             );
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00240] = 1;
         }
-        //(REPEAT)
+        // (REPEAT)
         else {
             this.outputText(
                 "You walk into the bakery and a burly, hair-covered arm grabs your shoulder.  The familiar voice of a minotaur barks, \"<i>You.  You can help.  Come.</i>\"  You turn, but he's already walking towards an 'employees only' door.  Do you follow?",
@@ -34,10 +34,10 @@ export class Maddie extends TelAdreAbstractContent {
         }
         this.doYesNo(this.followMinotaurIntoBackroom, this.telAdre.bakeryScene.bakeryuuuuuu);
     }
-    //[Follow]
+    // [Follow]
     private followMinotaurIntoBackroom(): void {
         this.outputText("", true);
-        //	(Not yet explained)
+        // 	(Not yet explained)
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00241] == 0) {
             this.outputText(
                 'You follow the burly beast through the door, turning several times as he leads you through the blisteringly hot ovens.  The minotaur is sweating heavily by the time you reach his destination, and for that matter so are you.  With all the musk boiling off of him, you find yourself wondering if he was just setting up an elaborate ruse to lure you into a sexual situation.  He grabs a white, fluffy hat and drops it on his head, firmly dispelling that notion as he tries to explain in as few words as possible, "<i>I am cook.  I make great éclairs, but making masterpiece now.  Need special ingredients.  You get to leave city.  Bring me lust draft and honey.  Not pure stuff, too strong. Go.</i>"\n\n',
@@ -57,7 +57,7 @@ export class Maddie extends TelAdreAbstractContent {
                     "You blush when you realize what he must be using for cream filling.",
                     false
                 );
-            //[Give Them] [Leave]
+            // [Give Them] [Leave]
             if (
                 this.player.hasItem(this.consumables.BEEHONY) &&
                 this.player.hasItem(this.consumables.L_DRAFT)
@@ -89,13 +89,13 @@ export class Maddie extends TelAdreAbstractContent {
                 );
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00241] = 1;
         }
-        //(Explained)
+        // (Explained)
         else {
             this.outputText(
                 'You follow the burly chef through the door, winding through the familiar ovens.  By the time you reach his work area, you\'re both covered in a fine sheen of sweat and you find yourself responding to the minotaur musk unconsciously.  The strange chef turns to ask, "<i>You have special ingredients now, yes?</i>"',
                 false
             );
-            //[Yes] [Lie – No/Not Yet]
+            // [Yes] [Lie – No/Not Yet]
             if (
                 this.player.hasItem(this.consumables.BEEHONY) &&
                 this.player.hasItem(this.consumables.L_DRAFT)
@@ -128,7 +128,7 @@ export class Maddie extends TelAdreAbstractContent {
         }
     }
 
-    //[Not Yet/No]
+    // [Not Yet/No]
     public nopeAintGotNoneODemSpeculIngredimathings(): void {
         this.outputText("", true);
         this.outputText(
@@ -142,7 +142,7 @@ export class Maddie extends TelAdreAbstractContent {
         this.outputText(" – you depart.", false);
         this.doNext(this.telAdre.bakeryScene.bakeryuuuuuu);
     }
-    //[Yes – baking]
+    // [Yes – baking]
     public handOverIngredientsItBeBakingTimeYo(): void {
         this.outputText("", true);
         this.player.consumeItem(this.consumables.BEEHONY);
@@ -172,7 +172,7 @@ export class Maddie extends TelAdreAbstractContent {
         else this.outputText("You aren't sure you want to.", false);
         this.outputText("\n\n", false);
         if (this.player.findPerk(PerkLib.MinotaurCumAddict) >= 0) this.doNext(this.waitForSlutCake);
-        //[Wait] [Sneak Out]
+        // [Wait] [Sneak Out]
         else
             this.simpleChoices(
                 "Wait",
@@ -188,18 +188,18 @@ export class Maddie extends TelAdreAbstractContent {
             );
     }
 
-    //[Sneak Out]
+    // [Sneak Out]
     private sneakAwayFromMaddie(): void {
         this.outputText("", true);
         this.outputText(
             "You get out before he can find you again.  Whatever he's making is nothing you ever want to taste.",
             false
         );
-        //(No more mino chef)
+        // (No more mino chef)
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00242] = -2;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[Wait/Next]
+    // [Wait/Next]
     private waitForSlutCake(): void {
         this.spriteSelect(39);
         this.outputText("", true);
@@ -240,7 +240,7 @@ export class Maddie extends TelAdreAbstractContent {
             "Running seems like a very good idea.  Who knows what she has planned for you?",
             false
         );
-        //[RUN] [TRY TO TALK]
+        // [RUN] [TRY TO TALK]
         this.simpleChoices(
             "Run Away",
             this.runAwayFromMaddiiiieee,
@@ -254,7 +254,7 @@ export class Maddie extends TelAdreAbstractContent {
             undefined
         );
     }
-    //[RUN DAFUQ AWAY]
+    // [RUN DAFUQ AWAY]
     private runAwayFromMaddiiiieee(): void {
         this.spriteSelect(39);
         this.outputText("", true);
@@ -265,7 +265,7 @@ export class Maddie extends TelAdreAbstractContent {
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00242] = -1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[Followup to run away]
+    // [Followup to run away]
     public runAwayMaddieFollowup(): void {
         this.spriteSelect(39);
         this.outputText("", true);
@@ -277,7 +277,7 @@ export class Maddie extends TelAdreAbstractContent {
         this.doNext(this.telAdre.telAdreMenu);
     }
 
-    //[TRY TO TALK]
+    // [TRY TO TALK]
     private talkToMaddie(): void {
         this.spriteSelect(39);
         this.outputText("", true);
@@ -302,8 +302,8 @@ export class Maddie extends TelAdreAbstractContent {
                 false
             );
         this.outputText("</i>\"  She's... what!?\n\n", false);
-        //(FORK BETWEEN MALE/NONMALE)
-        //(MALE)
+        // (FORK BETWEEN MALE/NONMALE)
+        // (MALE)
         if (this.player.hasCock()) {
             var x: number = this.player.cockThatFits(60);
             if (x < 0) x = 0;
@@ -445,7 +445,7 @@ export class Maddie extends TelAdreAbstractContent {
                 false
             );
         }
-        //(FEMALE/Genderpoots)
+        // (FEMALE/Genderpoots)
         else {
             this.outputText(
                 "\"<i>Dad said my name is Madeleine, but that's no fun.  Just call me Maddie!</i>\" exclaims the airheaded pastry.  You briefly wonder if the yeast is to blame for her state, but you stifle the involuntarily giggle that rises with the stray thought.  Now is hardly the time for such frivolous rambling!  You shout with equal parts terror and rage, demanding she remove her sugary bondage from you immediately.  She looks at you with her alien eyes full of confusion, as if she doesn't comprehend a word you're saying.\n\n",
@@ -533,7 +533,7 @@ export class Maddie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Next visit to the bakery...]
+    // [Next visit to the bakery...]
     public bakeryEpilogue(): void {
         this.outputText("", true);
         this.outputText(

@@ -16,19 +16,19 @@ import { CorruptedDrider } from "./CorruptedDrider";
  */
 
 export class CorruptedDriderScene extends BaseContent {
-    //VARS
-    //9999 - times encountered
-    //Skintone used for eyecolor
-    //Hair for carapace/hair
-    //nipplesPierced > 0 indicates pierced!
+    // VARS
+    // 9999 - times encountered
+    // Skintone used for eyecolor
+    // Hair for carapace/hair
+    // nipplesPierced > 0 indicates pierced!
 
-    //*Encounter Intro (done)
+    // *Encounter Intro (done)
     public driderEncounter(): void {
         this.spriteSelect(77);
         this.outputText("", true);
-        //Load monster stats so we can display things like eye/hide color!
+        // Load monster stats so we can display things like eye/hide color!
         var drider: CorruptedDrider = new CorruptedDrider();
-        //First time
+        // First time
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00277] == 0) {
             this.outputText(
                 "While you explore the swamp, the sun's light withers and fades.  You look up through the mossy trees, but the sky is totally blocked from sight.  It's nearly as purple as twilight here, but you press on, brushing aside old spider-webs as you go.  Faintly, you can hear the sound of skittering legs moving around you, but with the way the damp air muffles everything, it's impossible to tell from which direction.\n\n",
@@ -51,7 +51,7 @@ export class CorruptedDriderScene extends BaseContent {
                 false
             );
         }
-        //repeat intro:
+        // repeat intro:
         else {
             this.outputText(
                 "Bushwhacking your way through the dense foliage of the swamp, it soon becomes clear that you've wandered into spider territory.  Webbing hangs from trees and the dark, dank air hides ambushes well.  Diligence and wariness pay off, for you become aware of a skittering too near to be simple background noise.\n\n",
@@ -90,7 +90,7 @@ export class CorruptedDriderScene extends BaseContent {
         this.startCombat(drider);
     }
 
-    //*Victory Intro: (done)
+    // *Victory Intro: (done)
     public defeatDriderIntro(): void {
         this.spriteSelect(77);
         this.outputText("", true);
@@ -167,7 +167,7 @@ export class CorruptedDriderScene extends BaseContent {
             rideOviAss = this.victoryVSDriderRideOviAnal;
         }
 
-        //(Qualifies for any rape?:)
+        // (Qualifies for any rape?:)
         if (this.player.lust >= 33) {
             this.outputText("\n\nWhat do you do?", false);
             this.choices(
@@ -195,38 +195,38 @@ export class CorruptedDriderScene extends BaseContent {
         } else this.cleanupAfterCombat();
     }
 
-    //Lose to drider
+    // Lose to drider
     public loseToDrider(): void {
         this.spriteSelect(77);
-        //Build array of choices
+        // Build array of choices
         var select: any[] = [];
         if (this.player.hasCock()) select[select.length] = 0;
         if (this.player.hasVagina()) select[select.length] = 1;
-        //Genderless scene has low chance for gendered folks
+        // Genderless scene has low chance for gendered folks
         if (
             this.player.gender == 0 ||
             (this.player.gender > 0 && CorruptedDriderScene.rand(3) == 0)
         )
             select[select.length] = 2;
 
-        //SELECT SCENE HERE
+        // SELECT SCENE HERE
         var choice: number = select[CorruptedDriderScene.rand(select.length)];
-        //*Loss Ride Ovi Anal unsexed - gats (done)
+        // *Loss Ride Ovi Anal unsexed - gats (done)
         if (choice == 2) this.loseVSDriderGetAnalledOvi();
-        //*Loss Vaginal Impregnation and forced BJ - Symphonie (done)
+        // *Loss Vaginal Impregnation and forced BJ - Symphonie (done)
         else if (choice == 1) this.loseVSDriderAndVaginallyImpreggleOvi();
-        //*Loss Ride & Impregnate Butt (done) MALE
+        // *Loss Ride & Impregnate Butt (done) MALE
         else this.loseVSDriderAndGetFuckedANDAnalImpreggegity();
     }
 
-    //*Victory Rape: PC Penis goes in Vagina (done)
+    // *Victory Rape: PC Penis goes in Vagina (done)
     private winDriderPCDickInSpiderCunt(): void {
         var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         this.spriteSelect(77);
         this.outputText("", true);
-        //*Summary: Fuck her cunt with a wang that fits it, lose control of the
-        //situation when she kisses you with potent, envenomed lips.  Get
-        //moderately hypno'ed into cumming into her over and over again?
+        // *Summary: Fuck her cunt with a wang that fits it, lose control of the
+        // situation when she kisses you with potent, envenomed lips.  Get
+        // moderately hypno'ed into cumming into her over and over again?
         this.outputText(
             "Eager to plumb the depths of this greedy spider's snatch, you practically tear your way out of your " +
                 this.player.armorName +
@@ -609,13 +609,13 @@ export class CorruptedDriderScene extends BaseContent {
             ".  Even unconscious, her vagina continues its rhythmic contractions around your cock, working you towards another burst of orgasmic pleasure while you wait for your strength to come back...\n\n",
             false
         );
-        //[NEXT]
+        // [NEXT]
         this.doNext(this.winDriderPCDickInSpiderCunt2);
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 1);
     }
 
-    //Part 2 of the above
+    // Part 2 of the above
     private winDriderPCDickInSpiderCunt2(): void {
         var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         this.spriteSelect(77);
@@ -670,7 +670,7 @@ export class CorruptedDriderScene extends BaseContent {
         this.dynStats("lib", 1, "sen", 1);
     }
 
-    //*Victory Rape: Ride Spider-Cawk in Vagoo (done)
+    // *Victory Rape: Ride Spider-Cawk in Vagoo (done)
     private winVSDriderTakeItsCockInCunt(): void {
         this.spriteSelect(77);
         this.outputText("", true);
@@ -742,8 +742,8 @@ export class CorruptedDriderScene extends BaseContent {
             "You begin to feel yourself coming to a climax, increasing your movements and forcing the drider-woman to pump faster inside of you.  Lurching back, you drive yourself into the arachnid's crotch, her fat, demonic cock squeezing itself against your gripping walls.  Unable to take the pressure, your plaything explodes inside of you, hot white seed splattering against your inner walls and slowly oozing outside with every thrust.  You grind yourself against the spunk-machine forced inside, your orgasm causing you to shudder in pleasure along with her.  In the fullness of your vagina and time, you lay flat against her exhausted figure, your hips still squeezing the last few remaining drops of spooge left drooling from the spider's tip.  You figure it wouldn't hurt to lay still for another few hours, comfortable against the soft, plush curves of your new mate.",
             false
         );
-        //GET KNOCKED UP
-        //Pregnancy Goes Here
+        // GET KNOCKED UP
+        // Pregnancy Goes Here
         this.player.knockUp(
             PregnancyStore.PREGNANCY_DRIDER_EGGS,
             PregnancyStore.INCUBATION_DRIDER,
@@ -755,11 +755,11 @@ export class CorruptedDriderScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    //*Victory Rape: Ride Ovi Vaginal (done)
+    // *Victory Rape: Ride Ovi Vaginal (done)
     private victoryVSDriderRideOviVaginal(): void {
         this.spriteSelect(77);
         this.outputText("", true);
-        //*Summary:  Roll the drider over and squat on an ovipositor - reuse anal intro? (fuck you bitch, i'm taking your shitty kids to the lake and turning them pink)
+        // *Summary:  Roll the drider over and squat on an ovipositor - reuse anal intro? (fuck you bitch, i'm taking your shitty kids to the lake and turning them pink)
         this.player.slimeFeed();
         this.outputText(
             "Eyeing the small lump of the spider's retracted ovipositor, you resolve to have a little fun with it, even if it means giving the spider exactly what she wants in a way that she doesn't.  You tear off your " +
@@ -898,8 +898,8 @@ export class CorruptedDriderScene extends BaseContent {
             "You watch her for a time, until her orgasms finally die down.  By that point, you've recovered enough to get dressed.  You walk away a little bow-legged, with a new, heavy weight in your belly, just waiting to be born.",
             false
         );
-        //GET KNOCKED UP
-        //Pregnancy Goes Here
+        // GET KNOCKED UP
+        // Pregnancy Goes Here
         this.player.knockUp(
             PregnancyStore.PREGNANCY_DRIDER_EGGS,
             PregnancyStore.INCUBATION_DRIDER,
@@ -911,10 +911,10 @@ export class CorruptedDriderScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    //*Victory Rape: Ride Ovi Anal sex-insenitive (done)
+    // *Victory Rape: Ride Ovi Anal sex-insenitive (done)
     private victoryVSDriderRideOviAnal(): void {
         this.spriteSelect(77);
-        //*Summary: Force the drider onto her back and then fish out her ovipositor, jerk it off, then climb on top for some egg-based buttlovin'
+        // *Summary: Force the drider onto her back and then fish out her ovipositor, jerk it off, then climb on top for some egg-based buttlovin'
         this.outputText("", true);
         this.outputText(
             "Eyeing the small lump of the spider's retracted ovipositor, you resolve to have a little fun with it, even if it means giving the spider exactly what she wants in a way that she doesn't.  You tear off your " +
@@ -1038,7 +1038,7 @@ export class CorruptedDriderScene extends BaseContent {
             false
         );
 
-        //([not mans]
+        // ([not mans]
         if (!this.player.hasCock())
             this.outputText(
                 '"<i>I never would\'ve thought you were an anal-pregnancy slut,</i>" hisses the spider in pleasure, flexing her organ harder while it curls through your guts, so deep inside you that you wonder how much further she can go.',
@@ -1140,7 +1140,7 @@ export class CorruptedDriderScene extends BaseContent {
             "By the time you finish getting dressed, she's fallen into a fitful slumber.  What an ordeal!",
             false
         );
-        //GET KNOCKED UP
+        // GET KNOCKED UP
         this.player.buttKnockUp(
             PregnancyStore.PREGNANCY_DRIDER_EGGS,
             PregnancyStore.INCUBATION_DRIDER - 200,
@@ -1152,8 +1152,8 @@ export class CorruptedDriderScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    //*Victory Spinneret Penetration - written by Sham (done)
-    //(please view the spinneret as a spider-horsecock because for all intents and purposes that is really what it is) - shambadibs (1.5-inch width max because i'm racist against buur-bous american penis) (also probably a corruption minimum this is a pretty dick move) (I GET IT)
+    // *Victory Spinneret Penetration - written by Sham (done)
+    // (please view the spinneret as a spider-horsecock because for all intents and purposes that is really what it is) - shambadibs (1.5-inch width max because i'm racist against buur-bous american penis) (also probably a corruption minimum this is a pretty dick move) (I GET IT)
     private victoryVSDriderStickDickInSpinneret(): void {
         this.spriteSelect(77);
         this.outputText("", true);
@@ -1281,7 +1281,7 @@ export class CorruptedDriderScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    //*Loss Ride Ovi Anal unsexed - gats (done)
+    // *Loss Ride Ovi Anal unsexed - gats (done)
     private loseVSDriderGetAnalledOvi(): void {
         this.spriteSelect(77);
         this.outputText("", true);
@@ -1398,26 +1398,26 @@ export class CorruptedDriderScene extends BaseContent {
             "A few hours later and you wake up to the sound of loud croaking and the smell of the bog.  You try moving your limbs, finding that your bindings had partially dissolved since the encounter. Painfully removing yourself from the ground, you begin your journey back to camp - carrying a bit more than you were before.",
             false
         );
-        //GET KNOCKED UP
+        // GET KNOCKED UP
         this.player.buttKnockUp(
             PregnancyStore.PREGNANCY_DRIDER_EGGS,
             PregnancyStore.INCUBATION_DRIDER - 200,
             10
         ); //Butt pregnancy goes faster
-        //(slimefeed, set lust to 100?)
+        // (slimefeed, set lust to 100?)
         this.player.slimeFeed();
         this.dynStats("sen", 1, "lus", 800, "cor", 1);
         this.cleanupAfterCombat();
     }
 
-    //*Loss Vaginal Impregnation and forced BJ - Symphonie (done)
+    // *Loss Vaginal Impregnation and forced BJ - Symphonie (done)
     private loseVSDriderAndVaginallyImpreggleOvi(): void {
         this.spriteSelect(77);
         this.outputText("", true);
-        //FAST FACTS: Drider uses webbing to spread eagle you then oviposits your womb while making you suck some dick.
-        //SYMNOTE: I think I've done a proper naga pass on this but it was really late so don't trust me 100% on that. I honestly can't imagine the way this scene is set up ever working for centaur, the posing would have to be completely different, but if someone else wants to try to centaurify it you are welcome to. I think there could probably stand to be a few offhand references to your cock and tits if you have them in the later parts, I'm not good at sewing those in. (done)
-        //(No reason it wouldn't work for hoers. The ovipositor is two feet, flexible, and at the tail end of her long-ass abdomen, while her genitals are all the way in front. She could DP a horsemans (or another drider) no problem if she tethered the human head to the bound forelegs. It won't be very comfortable, but this is a loss. So, in you get. -Z)
-        //[LUST: Desperately (jerking your " + cockDescript(0) + \"<i>/grinding your fingers against your " + clitDescript() + \"<i>/and shamelessly groping your " + biggestBreastSizeDescript() + \"<i>) you find yourself unable to continue fighting.  The carnal sexuality of the drider - her full chest, her gorgeous lips, and her pristine and gorgeous skin - has overwhelmed you.  Even if your mind was acutely aware that defeating your enemy was a necessity, your body would rebel. You need release.  More than that, you need her to provide it.] [BEATDOWN: With unceremonious indignity, you fall onto your " + buttDescript() + \"<i>.  It seems that you overestimated your capabilities, or underestimated the drider's strength, or perhaps both.  You have lost, and the expression that twinkles in her four eyes suggests that what awaits you is the violation you have come to expect from defeat.  Though weary, you steel yourself for what is to come. You may be her next victim, but you don't have to enjoy it.]
+        // FAST FACTS: Drider uses webbing to spread eagle you then oviposits your womb while making you suck some dick.
+        // SYMNOTE: I think I've done a proper naga pass on this but it was really late so don't trust me 100% on that. I honestly can't imagine the way this scene is set up ever working for centaur, the posing would have to be completely different, but if someone else wants to try to centaurify it you are welcome to. I think there could probably stand to be a few offhand references to your cock and tits if you have them in the later parts, I'm not good at sewing those in. (done)
+        // (No reason it wouldn't work for hoers. The ovipositor is two feet, flexible, and at the tail end of her long-ass abdomen, while her genitals are all the way in front. She could DP a horsemans (or another drider) no problem if she tethered the human head to the bound forelegs. It won't be very comfortable, but this is a loss. So, in you get. -Z)
+        // [LUST: Desperately (jerking your " + cockDescript(0) + \"<i>/grinding your fingers against your " + clitDescript() + \"<i>/and shamelessly groping your " + biggestBreastSizeDescript() + \"<i>) you find yourself unable to continue fighting.  The carnal sexuality of the drider - her full chest, her gorgeous lips, and her pristine and gorgeous skin - has overwhelmed you.  Even if your mind was acutely aware that defeating your enemy was a necessity, your body would rebel. You need release.  More than that, you need her to provide it.] [BEATDOWN: With unceremonious indignity, you fall onto your " + buttDescript() + \"<i>.  It seems that you overestimated your capabilities, or underestimated the drider's strength, or perhaps both.  You have lost, and the expression that twinkles in her four eyes suggests that what awaits you is the violation you have come to expect from defeat.  Though weary, you steel yourself for what is to come. You may be her next victim, but you don't have to enjoy it.]
         this.outputText(
             'The drider ignores you at first, lifting her head and glancing from side to side.  It\'s unclear why - perhaps she is worried that another predator will have been attracted by the sounds of combat, and attempt to steal her prey away.  Whatever her reasons she\'s apparently satisfied with what she sees.  Her gaze returns to you, eyes twinkling maliciously.  "<i>Aren\'t you <b>precocious</b>,</i>" she chuckles, walking slowly towards your prone body.  "<i>Such an aggressive little morsel.</i>"  A single strong spider leg places itself on your chest, pushing you ',
             false
@@ -1561,7 +1561,7 @@ export class CorruptedDriderScene extends BaseContent {
             "  There's some shame in having a small orgasm from nothing more than the scent of sperm, but you place the blame solely on your intoxicated state.\n\n",
             false
         );
-        //It would take a creature with truly fucked up biology to evoke such a reaction otherwise.
+        // It would take a creature with truly fucked up biology to evoke such a reaction otherwise.
 
         this.outputText(
             'She grinds her prick against your open mouth, massaging the underside of the infernal shaft with your lips.  The steaming heat of the cock this close to your face makes you sweat, a low sheen of moisture on your forehead adding to the heady sensation of lust.  Pushing past your nose, the scent of her demon dick only grows more intense.  "<i>Open up, morsel,</i>" the drider coos, then snickers.  She lowers her upper body, angles herself, and then calmly slides her prick into your mouth.  A low purr rises from her throat, cockhead grinding into your palate.  "<i>So warm,</i>" she hisses affectionately, "<i>so wet.  Have you hungered for my domination, snack?</i>"  Her shaft presses firmly against your tongue.  "<i>Have you hungered for me?</i>"\n\n',
@@ -1637,9 +1637,9 @@ export class CorruptedDriderScene extends BaseContent {
             "You can tell that the bindings at your limbs are already slackening, but you're so weak, so exhausted - simply being able to breathe seems like a delicacy that had not been afforded you until just this moment.  You can't leave, just yet.  You just need... to rest... a little...",
             false
         );
-        //(+ corruption and set lust to 100, slimefeed)
-        //GET KNOCKED UP
-        //Pregnancy Goes Here
+        // (+ corruption and set lust to 100, slimefeed)
+        // GET KNOCKED UP
+        // Pregnancy Goes Here
         this.player.knockUp(
             PregnancyStore.PREGNANCY_DRIDER_EGGS,
             PregnancyStore.INCUBATION_DRIDER,
@@ -1650,11 +1650,11 @@ export class CorruptedDriderScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    //*Loss Ride & Impregnate Butt (done)
+    // *Loss Ride & Impregnate Butt (done)
     private loseVSDriderAndGetFuckedANDAnalImpreggegity(): void {
         var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         this.spriteSelect(77);
-        //Poor males.  All the buttsexes. (yo this is an actual paragraph of the game text right)
+        // Poor males.  All the buttsexes. (yo this is an actual paragraph of the game text right)
         this.outputText("", true);
         if (this.player.lust > 99)
             this.outputText(
@@ -1790,9 +1790,9 @@ export class CorruptedDriderScene extends BaseContent {
             "\"<i>Shhh, shhh... it's all right.  You'll be such a good mother for my young, and an even better father for the eggs you just fertilized.  Maybe if we ever meet again you can tell me how they looked when they were born.  For now, rest up.  I want you to take good care of our babies,</i>\" instructs the drider while she lowers herself towards the ground.  She sets you down on a soft spot, giving you a blanket of moss to recover in.  You struggle to stay awake but quickly slump into a deep slumber.",
             false
         );
-        //(slimefeed)
+        // (slimefeed)
         this.player.slimeFeed();
-        //GET KNOCKED UP
+        // GET KNOCKED UP
         this.player.buttKnockUp(
             PregnancyStore.PREGNANCY_DRIDER_EGGS,
             PregnancyStore.INCUBATION_DRIDER - 200,
@@ -1803,8 +1803,8 @@ export class CorruptedDriderScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    //*Asspreg egg 'birth': (done)
-    //Summary: what goes up must come down
+    // *Asspreg egg 'birth': (done)
+    // Summary: what goes up must come down
     public birthSpiderEggsFromAnusITSBLEEDINGYAYYYYY(): void {
         this.spriteSelect(77);
         this.outputText(
@@ -1817,7 +1817,7 @@ export class CorruptedDriderScene extends BaseContent {
             "The feeling of giving birth in such a way is oddly soothing, almost pleasant.  Your muscles move on their own, slowly and repeatedly clenching, relaxing, and forcing the eggs downward.  The next orb slips through your ring more easily than the first, shooting tingles of pleasure out from your pucker and making you gasp in surprise.  Hot on its heels, another egg follows, catching at your anal ring for a moment before your next contraction squeezes it out into the growing pile of goop.  It feels even better, good enough to make you cross your eyes and exhale contentedly.",
             false
         );
-        //(buttstretch)
+        // (buttstretch)
         this.player.buttChange(40, true, true, false);
         this.outputText("\n\n", false);
 
@@ -1891,7 +1891,7 @@ export class CorruptedDriderScene extends BaseContent {
             false
         );
 
-        //(If breasts)
+        // (If breasts)
         if (this.player.biggestTitSize() >= 2) {
             this.outputText(
                 "One drider girl cautiously makes her way over to you.  Her legs tickle your stomach as she climbs up to one of your " +
@@ -1962,7 +1962,7 @@ export class CorruptedDriderScene extends BaseContent {
         this.player.orgasm();
     }
 
-    //Win Drider Male Anal (OH BABY)
+    // Win Drider Male Anal (OH BABY)
     private buttFuckADriderOhBaby(): void {
         var x: number = this.player.cockThatFits(this.monster.analCapacity());
         this.spriteSelect(77);
@@ -1999,7 +1999,7 @@ export class CorruptedDriderScene extends BaseContent {
                 ", milking your dick with her anal passage.  You pick up the tempo of your fucking to break-pelvis speeds, ramming your cock into her backdoor and letting loose a torrent of your spunk, shooting it deep inside her",
             false
         );
-        //(if Vagina:
+        // (if Vagina:
         if (this.player.hasVagina()) {
             this.outputText(" while your unused cunt spurts girlcum across her carapace", false);
             if (this.player.cockTotal() > 1) this.outputText(" and", false);
@@ -2028,9 +2028,9 @@ export class CorruptedDriderScene extends BaseContent {
     private driderVagSmartFuck(): void {
         this.spriteSelect(77);
         this.clearOutput();
-        //Drider Non-reverse Rape
-        //Requires a cock that fits and either a spider/drider abdomen or a bundle of tough spider silk
-        //Radar (completely correctly) said it was too rapey, so I tried to tone it down.  Let me know if it's still over the top.
+        // Drider Non-reverse Rape
+        // Requires a cock that fits and either a spider/drider abdomen or a bundle of tough spider silk
+        // Radar (completely correctly) said it was too rapey, so I tried to tone it down.  Let me know if it's still over the top.
         var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         var y: number = x + 1;
@@ -2061,12 +2061,12 @@ export class CorruptedDriderScene extends BaseContent {
             this.outputText(" over to the collapsed drider.");
             this.driderTiedUpPartTwo(false);
         }
-        //(Champion has some Tough Spider Silk on them)
+        // (Champion has some Tough Spider Silk on them)
         else if (this.player.hasItem(this.useables.T_SSILK)) {
             this.outputText(
                 "\n\nRemembering the bundle of silk that you have with you, it doesn't take long to come up with a very enticing idea for dealing with the drider.  However, you have a feeling that you won't be able to do much else with the silk if you go through with your plan.  Are you sure you want to use it on her?"
             );
-            //[Yes] [No]
+            // [Yes] [No]
             this.doYesNo(
                 this.createCallBackFunction(this.driderTiedUpPartTwo, true),
                 this.dontSilkRapeDrider
@@ -2074,14 +2074,14 @@ export class CorruptedDriderScene extends BaseContent {
         }
     }
 
-    //[No]
+    // [No]
     private dontSilkRapeDrider(): void {
         this.spriteSelect(77);
         this.clearOutput();
         this.outputText(
             "Deciding against wasting the valuable material for little more than a quick fuck, you ponder your other options for using the defeated girl."
         );
-        //(Return to "win" menu)
+        // (Return to "win" menu)
         this.doNext(this.defeatDriderIntro);
     }
 
@@ -2156,7 +2156,7 @@ export class CorruptedDriderScene extends BaseContent {
                 "Reaching back into your pack, you grab the remainder of the bundle of silk that you tied the girl's hands with.  Looking over the mass of white-grey strands, you smile as you see that there seems to be more than enough left for what you have in mind."
             );
 
-        //New Page
+        // New Page
         this.doNext(this.driderTiedUpPartThree);
     }
 
@@ -2271,7 +2271,7 @@ export class CorruptedDriderScene extends BaseContent {
         this.outputText(
             "Grabbing the drider by her shoulders, you find the girl surprisingly light despite your weakened state.  Swiftly dragging her through the shallow water to a patch of firmer ground, you prop her up against a web-covered tree before recovering your gear.  She mumbles slightly whilst you redress yourself; it looks like she's going to be out of it for a while.  "
         );
-        //[if (corruption >= 70)
+        // [if (corruption >= 70)
         if (this.player.cor >= 70) {
             this.outputText(
                 "You chuckle to yourself at the thought of her waking up, still bound and gagged in her own swamp, packed with your cream.  You use her hair to clean the filth still clinging to your cock, but after smearing the collected juices into her soft, wet locks you only find yourself irritatingly, achingly hard once more.  Looking at her still-oozing cunt, you decide against filling her up a second time; it'd just make even more mess anyway.  You idly stroke yourself whilst deciding what to do, until the sight of her throat bulging as she swallows down another mouthful from the sodden gag strikes you with an idea."
@@ -2286,7 +2286,7 @@ export class CorruptedDriderScene extends BaseContent {
                     "] throbs, releasing a surprisingly large load that coats the inside of her mouth a thick white.  She moans as your spunk shoots into her, attempting to swallow as much of it as she can, though most dribbles out between your girth and her mouth and cascades down onto the rest of her body in thick globules.  Sighing, you draw her off your shrinking member, making sure as her lips slide down you that they leave you completely clean of any evidence of your climax.  Satisfied, you release her head, which immediately slumps down and begins snoring gently, still drooling cum onto her chest.  As you start to check her for anything valuable, you wonder if something else will happen across her before she can get free.  In such a vulnerable state, she'll probably wind up thoroughly used if anything does finds her.  Pocketing your new riches, you realize as you walk away that the slut would probably enjoy it anyway."
             );
         }
-        //(if (30 =< corruption < 70)
+        // (if (30 =< corruption < 70)
         else if (this.player.cor > 30) {
             this.outputText(
                 "You decide to check on your new lover, subtly searching her for anything useful at the same time.  You slice away the bindings on her arms as you check her, ensuring she isn't keeping anything hidden anything behind her back.  She stirs slightly as your hands roam across her, eyes fluttering drunkenly as she tries to focus on you.  Her hands slowly move to yours, taking hold of them gently and pressing them against her taut belly.  Your brow furrows in confusion for a second, before a flash of understanding rushes through your head; she seems to think that she's pregnant!  Then again, considering how pent up you were before you flooded her, maybe she's not far wrong."
@@ -2304,7 +2304,7 @@ export class CorruptedDriderScene extends BaseContent {
             );
         }
 
-        //Plus gems and such
+        // Plus gems and such
         this.cleanupAfterCombat();
     }
 }

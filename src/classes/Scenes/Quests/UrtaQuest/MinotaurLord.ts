@@ -33,7 +33,7 @@ export class MinotaurLord extends Monster {
         this.outputText(
             'The minotaur lord snorts audibly and turns to look at his mistress.  "<i>What is it, Fido, boy?  You thirsty?</i>"  The hulking minotaur nods.'
         );
-        //Success: any
+        // Success: any
         if (this.statusAffectv1(StatusAffects.MinoMilk) < 3) {
             this.outputText(
                 '"<i>Catch!</i>"  The succubus throws a bottle containing a milky-white substance to the minotaur.  He grabs it and uncorks the bottle, quickly chugging its contents with obvious enjoyment.  After he is done he looks even more energetic and ready to fight, and his cock looks even harder!'
@@ -44,7 +44,7 @@ export class MinotaurLord extends Monster {
                 this.createStatusAffect(StatusAffects.MinoMilk, 1, 0, 0, 0);
             else this.addStatusValue(StatusAffects.MinoMilk, 1, 1);
         }
-        //Failure: any
+        // Failure: any
         else {
             this.outputText(
                 "\"<i>Well too bad!  We're all out of milk... but don't worry, my dear pet, I'll let you drink as much as you want after you're done with this bitch.</i>\"  The succubus replies, idly checking her elongated nails."
@@ -65,14 +65,14 @@ export class MinotaurLord extends Monster {
             "\n\nThe succubus laughs maniacally.  \"<i>Good boy, Fido!  Take that fox slut's toys away so she'll be easier to play with!</i>\"  The minotaur puffs his chest, proud of himself for pleasing his mistress."
         );
         this.player.setWeapon(WeaponLib.FISTS);
-        //			player.weapon.unequip(player, false, true);
+        // 			player.weapon.unequip(player, false, true);
         kGAMECLASS.combatRoundOver();
     }
 
     private minotaurLordEntangle(): void {
         this.outputText("The minotaur lord lashes out with his chain, swinging in a wide arc!\n");
         this.createStatusAffect(StatusAffects.Timer, 2 + MinotaurLord.rand(4), 0, 0, 0);
-        //{dodge/whatever}
+        // {dodge/whatever}
         if (
             this.combatMiss() ||
             this.combatEvade() ||
@@ -140,7 +140,7 @@ export class MinotaurLord extends Monster {
             );
             kGAMECLASS.dynStats("lus", 11 + this.player.lib / 10);
         }
-        //(1)
+        // (1)
         if (this.player.lust <= 75)
             this.outputText(
                 "  You shiver with need, wanting nothing more than to bury your face under that loincloth and slurp out every drop of goopey goodness."

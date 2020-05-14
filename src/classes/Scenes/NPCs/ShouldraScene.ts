@@ -12,29 +12,29 @@ import { NPCAwareContent } from "./NPCAwareContent";
 import { Shouldra } from "./Shouldra";
 
 export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface {
-    //const TIMES_MET_SHOULDRA: number = 351;
-    //const TIMES_BEATEN_SHOULDRA: number = 352;
-    //const TIMES_POSSESSED_BY_SHOULDRA: number = 353;
-    //const TIMED_SHARKGINAS: number = 354;
-    //const TIMES_SHARKPENISED: number = 355;
-    //const SHOULDRA_SLIME_PENOR_TIMES: number = 356;
-    //const SHOULDRA_GENDERLESS_FUCK_COUNT: number = 357;
-    //const SHOULDRA_PENIS_DEFEAT_TIMES: number = 358;
-    //const SHOULDRA_WORM_SCENE_COUNTER: number = 359;
-    //const SHOULDRA_EXGARTUAN_SPIRIT_SEX_COUNT: number = 360;
-    //const SHOULDRA_VAGINAL_POSSESSIONS: number = 361;
-    //const SHOULDRA_HERMSEX_COUNT: number = 362;
-    //const SHOULDRA_USES_YOUR_GIANT_COCK_COUNT: number = 363;
-    //const TIMES_MET_OOZE: number = 364;
-    //const SLIMEGINAED: number = 509;
-    //const GHOST_GIRL_SLIME_X_SHOULDRA_COUNTER: number = 510;
+    // const TIMES_MET_SHOULDRA: number = 351;
+    // const TIMES_BEATEN_SHOULDRA: number = 352;
+    // const TIMES_POSSESSED_BY_SHOULDRA: number = 353;
+    // const TIMED_SHARKGINAS: number = 354;
+    // const TIMES_SHARKPENISED: number = 355;
+    // const SHOULDRA_SLIME_PENOR_TIMES: number = 356;
+    // const SHOULDRA_GENDERLESS_FUCK_COUNT: number = 357;
+    // const SHOULDRA_PENIS_DEFEAT_TIMES: number = 358;
+    // const SHOULDRA_WORM_SCENE_COUNTER: number = 359;
+    // const SHOULDRA_EXGARTUAN_SPIRIT_SEX_COUNT: number = 360;
+    // const SHOULDRA_VAGINAL_POSSESSIONS: number = 361;
+    // const SHOULDRA_HERMSEX_COUNT: number = 362;
+    // const SHOULDRA_USES_YOUR_GIANT_COCK_COUNT: number = 363;
+    // const TIMES_MET_OOZE: number = 364;
+    // const SLIMEGINAED: number = 509;
+    // const GHOST_GIRL_SLIME_X_SHOULDRA_COUNTER: number = 510;
 
     public constructor() {
         super();
         CoC.timeAwareClassAdd(this);
     }
 
-    //Implementation of TimeAwareInterface
+    // Implementation of TimeAwareInterface
     public timeChange(): boolean {
         var needNext: boolean = false;
         if (this.flags[kFLAGS.SHOULDRA_MAGIC_COOLDOWN] >= 1)
@@ -82,12 +82,12 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             this.shouldraFollower.shouldraDream1();
             return true;
         }
-        //Ghostgirl recruitment priority
+        // Ghostgirl recruitment priority
         if (this.flags[kFLAGS.SHOULDRA_FOLLOWER_STATE] == 0.5 && this.model.time.hours == 6) {
             this.getGame().shouldraFollower.morningShouldraAlert();
             return true;
         }
-        //Ghostgirl pissed off dreams
+        // Ghostgirl pissed off dreams
         if (
             this.shouldraFollower.followerShouldra() &&
             this.flags[kFLAGS.SHOULDRA_SLEEP_TIMER] <= -236 &&
@@ -97,7 +97,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             this.getGame().shouldraFollower.nightTimeShouldraRapesThePC();
             return true;
         }
-        //Ghostgirl madness
+        // Ghostgirl madness
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00365] > 0) {
             if (
                 this.player.cockTotal() > 1 ||
@@ -122,14 +122,14 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         }
         return false;
     }
-    //End of Interface Implementation
+    // End of Interface Implementation
 
-    //Intro
+    // Intro
     public shouldraGreeting(): void {
         this.spriteSelect(66);
         this.outputText("", true);
         if (this.silly() && this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00366] == 0) {
-            //NO MUTANTS ALLOWED
+            // NO MUTANTS ALLOWED
             if (
                 this.player.cockTotal() > 1 ||
                 this.player.faceType != FACE_HUMAN ||
@@ -147,7 +147,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
                 return;
             }
         }
-        //First 3 encounters
+        // First 3 encounters
         if (this.flags[kFLAGS.TIMES_MET_SHOULDRA] < 3) {
             this.outputText(
                 "You step into the ruins of the village cautiously, zigzagging through passageways and searching for anything worth pocketing. A sound from the inside of a half-collapsed cottage stops you in your tracks. You furrow your brow, upset at allowing yourself to drop your guard in a place like this. Unluckily, the presence seems aware of you, and you hear it shuffling towards the disfigured doorway. You drop into a crouch, readying your " +
@@ -155,7 +155,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
                     " and preparing for battle. You are caught off-guard when a completely normal female leg steps out of the frame. The young woman takes a few steps closer, apparently ignoring your intimidating stance for a moment as she sizes you up. ",
                 false
             );
-            //([if first time]
+            // ([if first time]
             if (this.flags[kFLAGS.TIMES_MET_SHOULDRA] == 0)
                 this.outputText(
                     "\"<i>You're the asshole that took my racks, aren't you?  I was hoard-...er, I was keeping an eye on those!</i>\" she accuses, eyes narrowing angrily.  ",
@@ -168,10 +168,10 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
                 false
             );
 
-            //fight
+            // fight
             this.startCombat(new Shouldra());
         }
-        //(after three encounters with her)
+        // (after three encounters with her)
         else {
             if (
                 this.flags[kFLAGS.TIMES_BEATEN_SHOULDRA] >= 3 &&
@@ -193,13 +193,13 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
                 false
             );
 
-            //(option to skip the fight and just get to the sex, have to have beaten her five times beforehand [add this to the 3-encounter text when it happens, basically])
+            // (option to skip the fight and just get to the sex, have to have beaten her five times beforehand [add this to the 3-encounter text when it happens, basically])
             if (this.flags[kFLAGS.TIMES_BEATEN_SHOULDRA] >= 3) {
                 this.outputText(
                     '"<i>Or... maybe not?  Truth be told, I think you\'ve proven your ability to pummel me enough.  Wanna just skip to the good part?</i>"\n\n',
                     false
                 );
-                //([if first time]
+                // ([if first time]
                 if (this.flags[kFLAGS.TIMES_BEATEN_SHOULDRA] == 3)
                     this.outputText(
                         "You can't say you saw that coming.  It seems she has offered to forego the fight in lieu of sexings.  ",
@@ -209,7 +209,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
                     "Would you like to accept her offer, or do you want to fight her regardless?",
                     false
                 );
-                //Now back to the good part!
+                // Now back to the good part!
                 this.simpleChoices(
                     "Accept",
                     this.yankeeEchoPapa,
@@ -223,14 +223,14 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
                     undefined
                 );
             } else {
-                //FIGHT!
+                // FIGHT!
                 this.startCombat(new Shouldra());
             }
         }
         this.flags[kFLAGS.TIMES_MET_SHOULDRA]++;
     }
 
-    //[yep]
+    // [yep]
     private yankeeEchoPapa(): void {
         this.spriteSelect(66);
         this.outputText("", true);
@@ -238,10 +238,10 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             'You graciously accept her offer, and she nods happily.  "<i>Perfect!  Now then, let\'s get to it...</i>"\n\n',
             false
         );
-        //[skip to 'let her in' text (i.e. win sex intro)]
+        // [skip to 'let her in' text (i.e. win sex intro)]
         this.doNext(this.littlePigLittlePigLetMeIn);
     }
-    //[nah]
+    // [nah]
     private novemberAlphaHotel(): void {
         this.spriteSelect(66);
         this.outputText("", true);
@@ -254,12 +254,12 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         this.startCombat(new Shouldra());
     }
 
-    //Victory Scenarios
-    //Ghost Girl Defeated
+    // Victory Scenarios
+    // Ghost Girl Defeated
     public defeatDannyPhantom(): void {
         this.spriteSelect(67);
         this.outputText("", true);
-        //defeat by damage)
+        // defeat by damage)
         if (this.monster.HP < 1) {
             this.outputText(
                 "With an ear-splitting, ghostly wail that forces you to your knees, the ",
@@ -273,7 +273,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             );
             this.cleanupAfterCombat();
         }
-        //(defeat by lust)
+        // (defeat by lust)
         else {
             this.outputText(
                 "The girl glances down at her leggings, then does a double take, realizing as if for the first time she was completely overwhelmed by her lust. She sinks to her knees, dragging her breeches down and pressing a hand against her pubic mound.  ",
@@ -290,7 +290,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
                 '  Looking up at you with what can only be described as desperation, she pants, "<i>Please, hero... I need release... let me in?</i>"  You take a step forward, stroking your chin softly in contemplation.  ',
                 false
             );
-            //([if first time]
+            // ([if first time]
             if (this.flags[kFLAGS.TIMES_POSSESSED_BY_SHOULDRA] < 1) {
                 this.outputText(
                     'What does she mean, "<i>let me in?</i>" Do you want to find out?',
@@ -315,12 +315,12 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         }
         this.flags[kFLAGS.TIMES_BEATEN_SHOULDRA]++;
     }
-    //(deny entry)
+    // (deny entry)
     private noSlimingSlimer(): void {
         this.spriteSelect(67);
         this.outputText("", true);
         this.outputText("You shake your head angrily at the brazen girl, ", false);
-        //([if first time]
+        // ([if first time]
         if (this.flags[kFLAGS.TIMES_POSSESSED_BY_SHOULDRA] == 0)
             this.outputText("not feeling up to heed the strange girl's whims.", false);
         else
@@ -332,7 +332,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             'You whirl about and stomp away.  She rises, screaming, "<i>Fine! I\'ll go and take over a fucking goblin, again!</i>" and storms the other direction. Before you move out of earshot, you hear a sniffle from the departing ',
             false
         );
-        //([if first time]
+        // ([if first time]
         if (this.flags[kFLAGS.TIMES_POSSESSED_BY_SHOULDRA] == 0)
             this.outputText("girl (what was that about her 'taking over' a goblin?)", false);
         else this.outputText("spirit", false);
@@ -340,7 +340,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         this.cleanupAfterCombat();
     }
 
-    //(let her in)
+    // (let her in)
     private littlePigLittlePigLetMeIn(): void {
         this.spriteSelect(67);
         this.outputText("", true);
@@ -355,14 +355,14 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             ", and agree to her request to possess you. She staggers to her feet and undresses, panting and shivering with unfulfillable sexual need. You reach out to her, drawing her",
             false
         );
-        //[if <~7' tall]
+        // [if <~7' tall]
         if (this.player.tallness < 84) this.outputText(" into your arms for a tight hug", false);
         else this.outputText(" up into your arms for a tight hug", false);
         this.outputText(
             ". The young woman heaves a happy sigh, then begins mumbling an incantation into your shoulder. Soon enough, the girl's body turns translucent and she begins to sink into you, planting a little peck on your cheek on her way in.  ",
             false
         );
-        //([if first time]
+        // ([if first time]
         if (this.flags[kFLAGS.TIMES_POSSESSED_BY_SHOULDRA] == 0)
             this.outputText(
                 "Wait... WHAT!?  Did you just let some sort of... g-... g-... g-... G-... G-... GHOOOOOST possess you?",
@@ -375,7 +375,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             false
         );
 
-        //CHOICES HURRAH
+        // CHOICES HURRAH
         var lake = undefined;
         if (
             this.player.gender > 0 &&
@@ -390,7 +390,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             lake = this.nowOnVickiLake;
         }
         var gender = undefined;
-        //Genderless Scene
+        // Genderless Scene
         if (this.player.gender == 0) gender = this.genderlessGhostBuster;
         else if (this.player.gender == 1) gender = this.penisLossThatIsntALoss;
         else if (this.player.gender == 2) gender = this.ghostGinaWinSexings;
@@ -410,20 +410,20 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             undefined
         );
     }
-    //Lake Victory Scenes
+    // Lake Victory Scenes
     private nowOnVickiLake(): void {
         this.spriteSelect(67);
         this.outputText("", true);
-        //(go to lake), (penis), (vagina), (herm)
-        //(go to lake)
-        //Lake Introduction
+        // (go to lake), (penis), (vagina), (herm)
+        // (go to lake)
+        // Lake Introduction
         this.outputText(
             'On sudden impulse, you spin around and begin marching determinedly toward the nearest landmark: the lake! It takes you a little bit, but you eventually locate the correct trail and begin your trek. The ghost girl begins stirring inside you, and you feel her spirit concentrating toward your bicep. A face resembling her human-esque form pushes out of the skin, and she waits patiently for you to get over your initial shock of her freckled face appearing on your arm. "<i>Where are you going?</i>" she eventually queries worriedly. "<i>I thought we were gonna get off!</i>" You implore her to wait and watch, and with a huff, she falls back into you in anxious anticipation.\n\n',
             false
         );
 
-        //SHARK-GIRL - REQUIRES BOAT AND MET SHARKGIRL
-        //SLIME - REQUIRES MET SLIME
+        // SHARK-GIRL - REQUIRES BOAT AND MET SHARKGIRL
+        // SLIME - REQUIRES MET SLIME
         var shark = undefined;
         if (
             this.player.findStatusAffect(StatusAffects.BoatDiscovery) >= 0 &&
@@ -453,7 +453,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         else this.doNext(shark);
     }
 
-    //Shark Girl x Ghost Girl - Introduction
+    // Shark Girl x Ghost Girl - Introduction
     private sharkbustersVictory(): void {
         this.spriteSelect(67);
         this.outputText("", true);
@@ -466,7 +466,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             "You don't even give her time to finish, rushing up to her and slamming your lips against hers in a passionate kiss",
             false
         );
-        //[if breasts larger than flat]
+        // [if breasts larger than flat]
         if (this.player.biggestTitSize() >= 1)
             this.outputText(
                 ", " +
@@ -483,10 +483,10 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             'She muses over her choices for several moments, snapping her fingers when she appears to find a good one. "<i>Oh, this will be fun,</i>" she purrs, then begins casting the archaic spell. A short way into the chant, however, the ghost-girl\'s voice wavers, and she falls to a kneel. You figure the shark girl decided her mind was not completely taken yet, but that never stops the ghost, whose voice hardens as she forces the rest of the words out of her mouth, ending the last word with an uncomfortable groan. As soon as her concentration returns to her, she mentally cows the shark girl back into submission, then stands, brushes herself off, and shrugs at you. You return the gesture, then move forward to check the results of the spell.',
             false
         );
-        //(If hermaphrodite:
+        // (If hermaphrodite:
         if (this.player.hasCock() && this.player.hasVagina()) {
             this.outputText("Which gender would you like to focus on?", false);
-            //male / female)
+            // male / female)
             this.simpleChoices(
                 "Male",
                 this.ghostIzmaPenis,
@@ -503,7 +503,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         else if (this.player.hasCock()) this.doNext(this.ghostIzmaPenis);
     }
 
-    //Shark Girl x Ghost Girl - Vagina Scene (Giantess)
+    // Shark Girl x Ghost Girl - Vagina Scene (Giantess)
     private sharkyEctoginas(): void {
         this.spriteSelect(67);
         this.outputText("", true);
@@ -511,7 +511,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             "On her beckoning, you approach the ghost-turned-shark with an eyebrow raised. In lieu of words, the ghost gestures towards her undercarriage, still (hardly) enclosed in her black bikini. To her bemusement, the gray arm spasms as its host fights against this third-party rape. It seems as if the shark girl nearly succeeds, the yellow eyes even changing shade slightly, before the ghost girl thrusts herself back into the driver's seat. Despite signs of continued struggle, she winks an again-amber orb at you, and runs a hand along her rough thigh in anticipation. You push her backwards until she is forced to use her shark tail as a tripod, then drop level to her nautical nethers, the cloth dripping with a mixture of water, sweat, and an occasional small droplet of femspunk. You give it a little lick, not surprised with the salty taste in your tongue, then go at it with steadily increasing vigor. Her legs quiver with the power of her budding arousal, and her breathing quickens, short moans and sultry sighs escaping her throat. You hook your fingers around her bikini bottom and prepare to expose her naughty bits, but are stopped when her hips suddenly puff up to pull the fabric tight against her flesh once again. You slip your digits away and lean back, realizing you're about to be treated to the effects of her spell. The ghost girl gives an especially passionate groan, but interrupts it with a concerned gasp. The shark girl's visage momentarily restructures while she's distracted, showing hints of her possessor's features. After noticing and correcting the slight, she turns to you. \"<i>...I think... I cast... the wrong spell...",
             false
         );
-        //[if repeat]
+        // [if repeat]
         if (this.flags[kFLAGS.TIMED_SHARKGINAS] > 0) this.outputText(" again...", false);
         this.outputText('</i>" she pants, brow suddenly furrowed with worry.  ', false);
         if (this.flags[kFLAGS.TIMED_SHARKGINAS] == 0)
@@ -539,7 +539,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             "You set your jaw and go at your work with fervor, caressing, groping, and licking every inch of her that you can reach, taking note of the increased frequency of her gasps and groans. As if to reward your efforts, the girl reaches down and lines up her pinky with your own neglected snatch, and before you know it, you're suddenly being stretched",
             false
         );
-        //[if dildo in possession]
+        // [if dildo in possession]
         if (this.player.hasKeyItem("Deluxe Dildo") >= 0)
             this.outputText(
                 " by the biggest object you've experienced since Tamani's deluxe dildo",
@@ -549,7 +549,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             ", and your eyes almost cross by the sheer scale of the insertion. Within a minute an orgasm rocks your body, the ensuing spasm pushing the ghost girl over the edge with a final, urgent scream resounding with equal parts ghost and shark girl. With as much concentration as you can muster while your stomach is stretched as large as it is, you desperately wriggle out of the gigantic shark-pussy a moment before her climax. Not able to completely escape, you receive a face-full of female lovejuice for your trouble, bowling you over ",
             false
         );
-        //[if breasts present]
+        // [if breasts present]
         if (this.player.biggestTitSize() >= 1)
             this.outputText("and caking your cleavage with the excess lubrication", false);
         this.outputText(
@@ -568,7 +568,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             "Some time later, with another, much softer kiss, you draw the spirit back into yourself, leaving a very tired and surprisingly content shark girl in her wake. She reveals her consciousness throughout the experience, going so far as to apologize ",
             false
         );
-        //(if repeated: again)
+        // (if repeated: again)
         if (this.flags[kFLAGS.TIMED_SHARKGINAS] > 0) this.outputText("again ", false);
 
         this.outputText(
@@ -585,7 +585,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         this.cleanupAfterCombat();
     }
 
-    //Shark Girl x Ghost Girl - Penis Scene (Saliva Growth)
+    // Shark Girl x Ghost Girl - Penis Scene (Saliva Growth)
     private ghostIzmaPenis(): void {
         this.spriteSelect(67);
         this.outputText("", true);
@@ -598,7 +598,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             false
         );
         this.outputText("She staggers forward, dropping to her knees in front of you", false);
-        //[if testicles present]
+        // [if testicles present]
         if (this.player.balls > 0)
             this.outputText(
                 " and cradling your " +
@@ -612,7 +612,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             "She lifts her chin and slides her tongue across the bottom of your cockhead, stimulating it wonderfully and making you involuntarily tense in anticipation. With a wide-eyed grin promising nothing but pleasure, she steers you softly towards the boat, and you comply, stepping aboard the beached vessel and stretching yourself across its deck, the shark-ghost in close pursuit. She leans down, thin lips forming an 'O' as she closes in on your cock. Her plans change, however, when she gets poked on the cheek with your head... a tip that's suddenly at least six inches farther away from your hips than it should be. You fix a concerned gaze upon the ghost-girl, ",
             false
         );
-        //[if first time]
+        // [if first time]
         if (this.flags[kFLAGS.TIMES_SHARKPENISED] == 0)
             this.outputText("whose expression reveals she's as clueless as you are.", false);
         else
@@ -698,11 +698,11 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         this.cleanupAfterCombat();
     }
 
-    //Slime x Ghost Girl - Introduction
+    // Slime x Ghost Girl - Introduction
     private ghostGooGurlzDuckfaces(): void {
         this.spriteSelect(67);
         this.outputText("", true);
-        //[if boat not unlocked, and if it is, 50/50 chance of either encounter; preliminary stuff: breasts smaller than Z's, met Markus; also, choice for herms and all that]
+        // [if boat not unlocked, and if it is, 50/50 chance of either encounter; preliminary stuff: breasts smaller than Z's, met Markus; also, choice for herms and all that]
         this.outputText(
             'You hike easily along a path leading around the lake, keeping a wary eye on any potential playthings. With effort, you ignore the increasingly frustrated telepathic protests from your otherworldly companion. You begin to whistle a jaunty tune, but cut the noise short as you glance over and see a perfect recipient for the ghost girl\'s lust; an amoeba-like glob of goo. The ghost girl\'s complaints cease as she notices the squishy thing, and you can imagine her eyes lighting up as she queries, "<i>Ooh, ooh, can we rape that?</i>"  With a widening smile, you confirm her excitement. Realizing you can\'t exactly sneak up on the thing, as you don\'t know how exactly its perception works, you bid the ghost to act as vanguard. "<i>...Exactly what does that involve?</i>" she responds hesitantly, and you sigh, bluntly telling her to go and possess the thing. "<i>Ah,</i>" she says softly. "<i>That makes sense.</i>"\n\n',
             false
@@ -714,7 +714,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
                 " as you stride towards her, ",
             false
         );
-        //([if penis present]
+        // ([if penis present]
         if (this.player.hasCock() && !this.player.hasVagina())
             this.outputText(
                 " presenting your " + this.multiCockDescriptLight() + " to the spectral slime.",
@@ -725,14 +725,14 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
                 " slipping a hand down to your " + this.clitDescript() + " eagerly.",
                 false
             );
-        //[if herm]
+        // [if herm]
         else this.outputText(" both of your sexes throbbing in excitement.", false);
         this.outputText(
             ' The gelatinous mass shudders as the girl giggles, the sound strangely distorted. "<i>This thing is so... empty,</i>" she says in a curiously watery and gurgly voice. "<i>It\'s like taking over a sponge!</i>"  You raise an eye at the curious simile, but don\'t think much of it. You have work to do.\n\n',
             false
         );
 
-        //SELECT VARIANT?
+        // SELECT VARIANT?
         if (this.player.gender == 3) {
             if (
                 this.flags[kFLAGS.SLIMEGINAED] > 0 &&
@@ -744,10 +744,10 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         } else if (this.player.hasCock()) this.slimeyPenorsAhoy();
         else this.slimeGinaFlation();
     }
-    //Slime x Ghost Girl - Vagina Scene (Female Inflation)
+    // Slime x Ghost Girl - Vagina Scene (Female Inflation)
     private slimeGinaFlation(): void {
         this.spriteSelect(67);
-        //[if vagina]
+        // [if vagina]
         this.outputText(
             'You stand for a moment, chin resting upon your hand as you consider the best way to pleasure both of you. Nodding as a thought comes to you, you kneel down next to the ghost girl turned slime girl and sink your fingers into her pliable form. The mass responds with a shudder of pleasure, and you\'re a bit surprised at the reaction. You ask her if that actually felt good, and her semi-tangible mouth pulls up into a smirk. "<i>Very,</i>" she says in the most alluring voice she can manage given the strange voice she has to work with. Encouraged, you go back to your work with vigor, digging deeply into the squishy ooze. You massage the stuff as it quivers under your capable hands. Aroused groans begin issuing from the sensitive girl. You slowly centralize the stimulation into one grabbable region. Like a ceramic sculptor you begin kneading the green goo, forming the stuff into a rounded-off cone.\n\n',
             false
@@ -776,7 +776,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             ". Although the feeling is wonderful, you ask the ghost girl to slow down a bit. She responds by forcing even more goo into your cunt, your belly bulging slightly to accommodate. Yelping in surprise, you press your hands against the emerald surface in an attempt to calm the wraith. She reacts in the exact opposite way, quickening her rough treatment. A tendril of slime reaches up to teasingly circle your pucker, and ",
             false
         );
-        //([if corruption <50]
+        // ([if corruption <50]
         if (this.player.cor < 50)
             this.outputText("you beg her to stop before this gets out of hand.", false);
         else
@@ -902,7 +902,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         this.flags[kFLAGS.SLIMEGINAED]++;
     }
 
-    //Slime x Ghost Girl - Penis Scene (Slime Cum Inflation)
+    // Slime x Ghost Girl - Penis Scene (Slime Cum Inflation)
     private slimeyPenorsAhoy(): void {
         this.spriteSelect(67);
         var x: number = this.player.biggestCockIndex();
@@ -917,7 +917,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
                 ". She twitches eagerly as she wraps her legs around your waist, pinning herself to your still-standing frame",
             false
         );
-        //([if boobs present]
+        // ([if boobs present]
         if (this.player.biggestTitSize() < 1)
             this.outputText(
                 " while squishing her small boobs into your own " + this.allBreastsDescript(),
@@ -1049,8 +1049,8 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         }
     }
 
-    //Victory Scenes (Repurposed Loss Scenes)
-    //Genderless Scene
+    // Victory Scenes (Repurposed Loss Scenes)
+    // Genderless Scene
     private genderlessGhostBuster(): void {
         this.spriteSelect(67);
         this.outputText("", true);
@@ -1105,7 +1105,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
                 false
             );
         this.outputText("As the ghost continues darting around the room, ", false);
-        //[if flat to E-cup]
+        // [if flat to E-cup]
         if (this.player.biggestTitSize() <= 8)
             this.outputText("your new EE-cup breasts settle", false);
         else
@@ -1130,7 +1130,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
                 ". With blatant disregard for safety, the vibrators still buzzing happily in your increasingly warm nipples, she slams the horsecock against the ground, waits for the wiggling to somewhat cease, then lines your butt up with the flared tip. Her crazed laughter mingles with your horrified scream as she sits on it, driving it at least four inches inside in its initial penetration",
             false
         );
-        //[if anus is not gaping]
+        // [if anus is not gaping]
         if (this.player.ass.analLooseness < 4)
             this.outputText(" and stretching your butt obscenely", false);
         this.outputText(".", false);
@@ -1173,7 +1173,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         this.flags[kFLAGS.SHOULDRA_GENDERLESS_FUCK_COUNT]++;
         this.cleanupAfterCombat();
     }
-    //Penis Scene
+    // Penis Scene
     private penisLossThatIsntALoss(): void {
         this.spriteSelect(67);
         var x: number = this.player.biggestCockIndex();
@@ -1200,7 +1200,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             "  The communication suddenly breaks as the ghost girl's will surges against yours, all thoughts of submissiveness vanishing from her mind.  ",
             false
         );
-        //[if intelligence <50]
+        // [if intelligence <50]
         if (this.player.inte < 50)
             this.outputText(
                 "It's not very hard for her to break down your fortifications, and you soon feel yourself being pushed aside by her vast mental capacity.",
@@ -1349,7 +1349,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         );
         this.ghostBJFinisher(true);
     }
-    //deny her
+    // deny her
     private kickShouldraOut(): void {
         this.spriteSelect(67);
         this.outputText("", true);
@@ -1361,7 +1361,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         );
         this.ghostBJFinisher(false);
     }
-    //back to this thing okay
+    // back to this thing okay
     private ghostBJFinisher(inside: boolean): void {
         this.spriteSelect(67);
         var x: number = this.player.cockThatFits(80);
@@ -1379,7 +1379,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         );
         this.player.orgasm();
         this.flags[kFLAGS.SHOULDRA_PENIS_DEFEAT_TIMES]++;
-        //if ejaculation allowed
+        // if ejaculation allowed
         if (inside) {
             this.outputText(
                 '"<i>Thank you so much,</i>" she breathes softly, wrapping her arms around you in a soft embrace.  "<i>I wouldn\'t even be able to think straight if that much lust was built up without release.</i>"  You smile and flick her nose, and she retorts with a sly half-grin.  "<i>Oh, and you can have this,</i>" she adds, swiftly tugging her pants down and reaching into her still-drooling cunt, dragging out a handful of ectoplasm.  She tugs out a small bottle from her shirt pocket and sticks the gooey stuff inside before offering it to you with a wink.  "<i>Thanks again!</i>"\n\n',
@@ -1390,7 +1390,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
                 false
             );
         }
-        //if that bitch didn't get nothing
+        // if that bitch didn't get nothing
         else {
             this.outputText(
                 "She wobbles almost exaggeratedly before falling sideways, smacking her head against the ground and sending up a small splash of cum.  If she felt any pain, however, she doesn't react to it at all, staring vacantly at a dilapidated building and drooling slightly.  That outta teach her to try to pull a fast one on you twice, you figure.  As you stride past her, you tug her pants down to her knees and scoop out a good amount of ectoplasm from her vagina.  You reach into her pocket and grab a bottle (honking her boob for good measure and eliciting an aroused twitch), dumping the goo in and stuffing it in your pack.  She'll probably find a goblin eventually, you figure as you begin your journey back to the camp.",
@@ -1405,8 +1405,8 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             this.inventory.takeItem(this.consumables.ECTOPLS, this.camp.returnToCampUseOneHour);
         }
     }
-    //Penis With Worm Infestation Scene
-    //[penis selection with worm infestation]
+    // Penis With Worm Infestation Scene
+    // [penis selection with worm infestation]
     private dewormYourGhost(): void {
         this.spriteSelect(67);
         this.outputText("", true);
@@ -1444,7 +1444,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         this.flags[kFLAGS.SHOULDRA_WORM_SCENE_COUNTER]++;
     }
 
-    //Penis With Exgartuan Scene
+    // Penis With Exgartuan Scene
     private penisGartuanGhostSmexVictory(): void {
         this.spriteSelect(67);
         var x: number = this.player.biggestCockIndex();
@@ -1551,7 +1551,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Vagina Scene
+    // Vagina Scene
     private ghostGinaWinSexings(): void {
         if (
             this.player.statusAffectv1(StatusAffects.Exgartuan) == 2 &&
@@ -1607,7 +1607,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         if (this.getGame().inCombat) this.cleanupAfterCombat();
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Hermaphrodite Scene
+    // Hermaphrodite Scene
     private hermaphroditeGhostsCumEctoplasm(): void {
         this.spriteSelect(67);
         var x: number = this.player.biggestCockIndex();
@@ -1617,7 +1617,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
                 'She abruptly gasps in excitement and begins moving her hands towards your groin, though you swiftly reclaim control of the unruly appendages. "<i>You have a penis,</i>" she telepathically pulses to you with an anxious and excited edge to her voice. "<i>My hosts... they rarely... they... </i>"  ',
                 false
             );
-        //[if repeated]
+        // [if repeated]
         if (this.flags[kFLAGS.SHOULDRA_HERMSEX_COUNT] > 0)
             this.outputText(
                 "She chuckles softly as she recalls the times you've shared, and she hungrily goes for your maleness once more, though you mentally throw her off of it.  ",
@@ -1790,7 +1790,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Loss Introduction
+    // Loss Introduction
     public loseToShouldra(): void {
         this.spriteSelect(67);
         this.outputText("", true);
@@ -1798,7 +1798,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             "You fall with a dull thud onto the abandoned road, thoroughly beaten by the seemingly unremarkable young woman.  As you struggle to rise, she casually walks over to you, standing with hands on hips and staring down at you.  You freeze, not wanting to make any sudden moves against this unpredictable opponent.  She slowly takes off her loose-fitting tunic, exposing her firm and squeezable C-cups. Curiously, she kicks off her comfortable shoes, but leaves her tight leggings on. You suspect something fishy, and raise an eyebrow as she straddles you. Unexpectedly, she hops up and spins completely around, landing on your abdomen, butt facing you, with enough force to elicit an 'oof'. You glance down at her; she half-turns, looking mischievously (and with a hint of evil intent) back at you. A small rumbling against your belly is the only warning you get before her leggings suddenly bulge weirdly, containing a substantially larger amount of flesh than a moment previous. Her ass continues to swell up, beginning to billow up and over the increasingly more constrictive waistband, and you can't help but raise a hand and squeeze the burgeoning buttflesh. You take pleasure in the sensation as it pulses further around your hand, squishing deeper into the cheek. Small rips begin to form on the cloth as her hips join in on the growth, the increasing amount of posterior raising her up slightly with each passing moment.  ",
             false
         );
-        //[if dick]
+        // [if dick]
         if (this.player.hasCock())
             this.outputText(
                 "Each pulse pushes her a bit further onto your hardening manhood",
@@ -1849,13 +1849,13 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         } else this.genderlessShouldrasLossRapes();
     }
 
-    //Loss Scenes
-    //Penis Scene
-    //[If you have a penis]
+    // Loss Scenes
+    // Penis Scene
+    // [If you have a penis]
     private ourDadTaughtUsNotToBeAshamedOfOurDicks(): void {
         this.spriteSelect(67);
         var x: number = this.player.biggestCockIndex();
-        //[first encounter]
+        // [first encounter]
         if (this.flags[kFLAGS.SHOULDRA_PENIS_DEFEAT_TIMES] == 0)
             this.outputText("She abruptly gasps in excitement, ", false);
         else this.outputText("She 'ooo's softly as she recalls your anatomy, ", false);
@@ -1899,10 +1899,10 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         }
     }
 
-    //Penis With Worm Infestation Scene
+    // Penis With Worm Infestation Scene
     private loseToShouldraWithWorms(): void {
         this.spriteSelect(67);
-        //[first encounter]
+        // [first encounter]
         if (this.flags[kFLAGS.SHOULDRA_WORM_SCENE_COUNTER] == 0)
             this.outputText("She abruptly gasps in excitement, ", false);
         else this.outputText("She 'ooo's softly as she recalls your anatomy, ", false);
@@ -1929,7 +1929,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         this.cleanupAfterCombat();
     }
 
-    //Vagina Scene
+    // Vagina Scene
     private ghostGinaLosses(): void {
         this.spriteSelect(67);
         this.outputText(
@@ -1986,7 +1986,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         }
     }
 
-    //Hermaphrodite Scene
+    // Hermaphrodite Scene
     private loseToShouldraAsHerm(): void {
         this.spriteSelect(67);
         if (this.flags[kFLAGS.SHOULDRA_HERMSEX_COUNT] == 0)
@@ -2049,7 +2049,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         }
     }
 
-    //Enormous Cock Scene
+    // Enormous Cock Scene
     private shouldraGiantCockLoss(): void {
         this.spriteSelect(67);
         var x: number = this.player.biggestCockIndex();
@@ -2066,7 +2066,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             "Without another word, she reaches out and grabs one of the goblins by the shoulder and begins chanting in her strange unknown language, wiggling the fingers of your absent hand at the ",
             false
         );
-        //[if first time]
+        // [if first time]
         if (this.flags[kFLAGS.SHOULDRA_USES_YOUR_GIANT_COCK_COUNT] == 0)
             this.outputText("bemused ", false);
         else this.outputText("excited ", false);
@@ -2085,12 +2085,12 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
                 false
             );
         this.outputText("  By this time, the ghost girl has finished with the spell, ", false);
-        //[if first time]
+        // [if first time]
         if (this.flags[kFLAGS.SHOULDRA_USES_YOUR_GIANT_COCK_COUNT] == 0)
             this.outputText("and instead of offering an explanation, she merely ", false);
         else this.outputText("and, to the green girl's obvious delight, ", false);
         this.outputText("reaches over and kneads the goblin's ", false);
-        //([if first time]
+        // ([if first time]
         if (this.flags[kFLAGS.SHOULDRA_USES_YOUR_GIANT_COCK_COUNT] == 0)
             this.outputText("small, firm B-cups", false);
         else if (this.flags[kFLAGS.SHOULDRA_USES_YOUR_GIANT_COCK_COUNT] == 1)
@@ -2103,14 +2103,14 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             this.outputText("oversized, heaving F-cups", false);
         else this.outputText("gigantic and openly-bared G-cups", false);
         this.outputText(". The goblin ", false);
-        //[if first time]
+        // [if first time]
         if (this.flags[kFLAGS.SHOULDRA_USES_YOUR_GIANT_COCK_COUNT] == 0)
             this.outputText(
                 "instantly stops her protests, suddenly too stimulated by the massage to worry about any magical favoritism, ",
                 false
             );
         else this.outputText("cries out in ecstasy at the still-incredible sensation, ", false);
-        //[if first time]
+        // [if first time]
         if (this.flags[kFLAGS.SHOULDRA_USES_YOUR_GIANT_COCK_COUNT] == 0)
             this.outputText(
                 "although that doesn't stop the second goblin to begin voicing her own dissent",
@@ -2129,7 +2129,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             this.outputText("and... pulls the breast along with it?", false);
         else this.outputText("and pulls the breast along with it.", false);
         this.outputText("  You inwardly gasp ", false);
-        //[if first time]
+        // [if first time]
         if (this.flags[kFLAGS.SHOULDRA_USES_YOUR_GIANT_COCK_COUNT] == 0)
             this.outputText("as the effects of the magic are revealed", false);
         else
@@ -2152,7 +2152,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             this.outputText("gasps in amazement, ", false);
         else this.outputText("can't restrain her urges any longer, ", false);
         this.outputText("swiftly reaching down to roughly grab at her own ", false);
-        //[if first time]
+        // [if first time]
         if (this.flags[kFLAGS.SHOULDRA_USES_YOUR_GIANT_COCK_COUNT] == 0)
             this.outputText("petite boobs", false);
         else if (this.flags[kFLAGS.SHOULDRA_USES_YOUR_GIANT_COCK_COUNT] == 1)
@@ -2185,10 +2185,10 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             ", and the ghost girl speeds up the massage ever further. Not satisfied with the progress, she raises the goblin's head to your lips and blows a steady gust of wind down the little woman's throat, ballooning her glistening mammaries out much more efficiently. This continues until the goblin nearly collapses under the weight of her new ",
             false
         );
-        //[if first time]
+        // [if first time]
         if (this.flags[kFLAGS.SHOULDRA_USES_YOUR_GIANT_COCK_COUNT] == 0)
             this.outputText("HH-cups", false);
-        //[if repeated once]
+        // [if repeated once]
         else if (this.flags[kFLAGS.SHOULDRA_USES_YOUR_GIANT_COCK_COUNT] == 1)
             this.outputText("II-cups", false);
         else if (this.flags[kFLAGS.SHOULDRA_USES_YOUR_GIANT_COCK_COUNT] == 2)
@@ -2202,7 +2202,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             ", and the ghost girl turns your attention to the second goblin, whose boobs are embarrassingly uneven due to her...unpracticed skills. The ghost girl moves you over to her, mercifully evening the currently ",
             false
         );
-        //([if first time]
+        // ([if first time]
         if (this.flags[kFLAGS.SHOULDRA_USES_YOUR_GIANT_COCK_COUNT] == 0)
             this.outputText("DD-cup (and C-cup, on the other side)", false);
         else if (this.flags[kFLAGS.SHOULDRA_USES_YOUR_GIANT_COCK_COUNT] == 1)
@@ -2268,7 +2268,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             this.inventory.takeItem(this.consumables.ECTOPLS, this.camp.returnToCampUseOneHour);
         }
     }
-    //Genderless Scene
+    // Genderless Scene
     private genderlessShouldrasLossRapes(): void {
         this.spriteSelect(67);
         this.outputText(
@@ -2334,7 +2334,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             ", and the ghost girl moves back to the table and settles down a bit. Satisfied with the changes, she wastes no time on tapping the eggs against the table, cracking them cleanly. Your arm freezes up momentarily as she tips the half-shell towards your similarly conflicted mouth, but she wins out quickly, forces your jaw open, and drops the contents inside. She swallows the tasty contents easily, then slides her hands to your chest and lifts your huge tits in anticipation. Your nipples swell up and out, lengthening and stiffening as the first three eggs are consumed. The last one, however, produces a completely different reaction on your body; a comfortable warm tingle begins, deep in the center of your oversized breasts, migrating up steadily to your nipples. With a satisfied groan, the ghost-girl circles the tingling teats with a teasing finger as the change continues. Finally, she sinks a finger into each of the suddenly yielding nipples, shivering in pleasure from the penetration. Wasting no more time, she snatches up her two dildos and shoves them into your ",
             false
         );
-        //[if new]
+        // [if new]
         if (!this.player.hasFuckableNipples()) this.outputText("new ", false);
         else this.outputText("even larger ", false);
         this.outputText(
@@ -2352,7 +2352,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
                 ". With blatant disregard for safety, the vibrators still buzzing happily in your increasingly warm nipples, she slams the horsecock against the ground, waits for the wiggling to somewhat cease, then lines your butt up with the flared tip. Her crazed laughter mingles with your horrified scream as she sits on it, driving it at least four inches inside in its initial penetration",
             false
         );
-        //[if anus is not gaping]
+        // [if anus is not gaping]
         if (this.player.ass.analLooseness <= 4)
             this.outputText(" and stretching your butt obscenely", false);
         this.outputText(".", false);
@@ -2405,7 +2405,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         }
     }
 
-    //Penis With Exgartuan Scene
+    // Penis With Exgartuan Scene
     private ghostGartuanLossSceneOrSomeShit(): void {
         this.spriteSelect(67);
         var x: number = this.player.biggestCockIndex();
@@ -2503,7 +2503,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         this.cleanupAfterCombat();
     }
 
-    //[super secret paladin 'sex' scene; prerequisites: human face, human body, human legs, no tail, no horns, light/olive/dark/ebony complexion, slightly to severely masculine face, 0-15 corruption, 4-10 inch normal penis, 1-2 inch testicles, no-adjective to narrow hips, height between 5'5</i>\" and 6'5</i>\"]
+    // [super secret paladin 'sex' scene; prerequisites: human face, human body, human legs, no tail, no horns, light/olive/dark/ebony complexion, slightly to severely masculine face, 0-15 corruption, 4-10 inch normal penis, 1-2 inch testicles, no-adjective to narrow hips, height between 5'5</i>\" and 6'5</i>\"]
     private superCoolPaladinSexStuffDudeGasmJizzMonkies(): void {
         this.spriteSelect(66);
         this.outputText("", true);
@@ -2524,7 +2524,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00366]++;
         this.doYesNo(this.courtCrazyGirlsDotCom, this.noCourtingYouFag);
     }
-    //(no)
+    // (no)
     private noCourtingYouFag(): void {
         this.spriteSelect(66);
         this.outputText("", true);
@@ -2534,7 +2534,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         );
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //(yup)
+    // (yup)
     private courtCrazyGirlsDotCom(): void {
         this.spriteSelect(66);
         this.outputText("", true);
@@ -2548,7 +2548,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //(two days later)
+    // (two days later)
     public paladinModeFollowup(): void {
         this.spriteSelect(67);
         this.outputText("\n", false);
@@ -2579,8 +2579,8 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         this.doNext(this.playerMenu);
     }
 
-    //Vagina with Boobgartuan Scene
-    //[vagina selection with BoobGartuan in tow]
+    // Vagina with Boobgartuan Scene
+    // [vagina selection with BoobGartuan in tow]
     private ginaBoobgartuanShouldra(): void {
         this.spriteSelect(67);
         this.clearOutput();
@@ -2670,25 +2670,25 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         this.outputText(
             'Your naked trot towards the emerald ooze stops as worry washes over your sexual cravings.  The contemplative expression forming on your face catches the attention of your ghostly friend.  "<i>I know exactly what you\'re mulling over, but don\'t worry,</i>" she assures you with a condescending chuckle.  The haunted blob slowly approaches you, seamlessly transitioning from its shapeless form to a perfect representation of the apparition mid-stride.  "<i>'
         );
-        //{event occurrence == 0}
+        // {event occurrence == 0}
         if (this.flags[kFLAGS.GHOST_GIRL_SLIME_X_SHOULDRA_COUNTER] == 0)
             this.outputText("I've got this thing all figured out.");
-        //event occurrence =1
+        // event occurrence =1
         else if (this.flags[kFLAGS.GHOST_GIRL_SLIME_X_SHOULDRA_COUNTER] == 1)
             this.outputText("I've got this thing all figured out.  For real this time.");
-        //event occurrence >=2
+        // event occurrence >=2
         else if (this.flags[kFLAGS.GHOST_GIRL_SLIME_X_SHOULDRA_COUNTER] == 2)
             this.outputText("I've got this thing all figured out.  For real this time.  Promise.");
-        //event occurrence >=3
+        // event occurrence >=3
         else this.outputText("Well... don't worry TOO much.");
         this.outputText('</i>"');
         this.outputText(
             "\n\nHer confidence was never an issue any of the previous times the two of you did the slimy shuffle.  There doesn't seem to be even the slightest hint of distortion to her speech.  Her form certainly appears much more impressive than you remember her being capable of.  The possessed pudge is more solid than any goo girl you've ever come across.  It even has slight dimples in place of where the ghost girl would otherwise feature her freckles.  "
         );
-        //event occurrence == 0
+        // event occurrence == 0
         if (this.flags[kFLAGS.GHOST_GIRL_SLIME_X_SHOULDRA_COUNTER] <= 2)
             this.outputText("Maybe she really does have a firm grip on the reigns of this beast.");
-        //event occurrence >=3
+        // event occurrence >=3
         else
             this.outputText(
                 "Regardless, you've been through this dog and pony show enough times to know that something is bound to go wrong anyway."
@@ -2700,7 +2700,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         this.outputText(
             "\n\nThe blob reforms to her otherwise unremarkable hand - disregarding the emerald tone - revealing a perfect replica of your manhood on her midsection.  "
         );
-        //if cockLength(0) > 24
+        // if cockLength(0) > 24
         if (this.player.cocks[0].cockLength > 24)
             this.outputText("However... it isn't exactly up to your immense scale.  ");
         this.outputText(
@@ -2713,9 +2713,9 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         this.outputText(
             "\n\nThe war of seesaw sex rages on, each of you driving your girth-enhanced weapons further and further into the other's "
         );
-        //vaginalLooseness == 0
+        // vaginalLooseness == 0
         if (this.player.looseness() == 0) this.outputText("tight");
-        //vaginalLooseness == 1
+        // vaginalLooseness == 1
         else if (this.player.looseness() == 1) this.outputText("forgiving");
         else if (this.player.looseness() == 2) this.outputText("loose");
         else if (this.player.looseness() == 3) this.outputText("gaping");
@@ -2806,7 +2806,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         this.outputText(
             "\n\nThe ghost girl pays you a warm hearted grin before reaching into her tunic to pull out a bottle, quickly tossing it to your fumbling grasp.  \"<i>I came prepared this time... in more than one way.</i>\"  With a faint wave, the phantom takes off back to the ruins, leaving you to reorient and clean yourself up.  As you redress, you stare at the <b>container of ectoplasm</b> the wraith left with you.  ...Where in the world does she hide these things while she's jumping in and out of bodies? You're left to ponder the mystery as you shuffle on back to camp, brushing free the last bits of sentient jade semen that cling to your shoulder."
         );
-        //ECTOPLZ
+        // ECTOPLZ
         this.player.orgasm();
         this.dynStats("sen", -1);
         if (this.getGame().inCombat) {

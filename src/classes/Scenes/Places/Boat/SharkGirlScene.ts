@@ -34,9 +34,9 @@ Social Structure: Most shark girls travel in small groups, ruled over by one tig
 Sex Life: The shark girls treat sex like a game or a sport, constantly battling for dominance against their opponents and using them as sex toys if they win. As they're horny most of the time, shark girls often look for 'playmates', regardless if their victims want to 'play' or not!
 ----------------------------------
 */
-    //[Explore Lake]
+    // [Explore Lake]
     public sharkGirlEncounter(exploreLoc: number = 0): void {
-        //Set 'PC met Sharkgirls' for Izma stuff
+        // Set 'PC met Sharkgirls' for Izma stuff
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00230] == 0)
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00230] = 1;
         if (this.player.findStatusAffect(StatusAffects.SharkGirl) < 0)
@@ -49,17 +49,17 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
             this.sharkBadEnd();
             return;
         }
-        //exploreLoc = 0 for lake, 1 for boat
+        // exploreLoc = 0 for lake, 1 for boat
         this.outputText("", true);
         this.spriteSelect(70);
-        //Rowboat
+        // Rowboat
         if (exploreLoc == 1) {
             this.outputText(
                 "While rowing the boat across the lake you spy a shark fin heading your way.  Worried it might damage the small boat, you hastily row back to shore, jumping out of the boat.  The shark shows no signs of slowing, and the fin disappears just before coming ashore.  ",
                 false
             );
         }
-        //Lake
+        // Lake
         else {
             this.outputText(
                 "You wander around the sandy shores of the lake before raising your eyebrow at a strange sight: A solitary fin, circling around in the water. You take a step back in surprise when the fin suddenly starts barrelling toward the shore at inhuman speeds.  ",
@@ -79,14 +79,14 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
         this.spriteSelect(70);
     }
 
-    //Victory Sex. Herms should get a choice between the two scenes:
+    // Victory Sex. Herms should get a choice between the two scenes:
     public sharkWinChoices(): void {
         this.spriteSelect(70);
-        //HP Win
+        // HP Win
         if (this.monster.HP < 1) {
             this.outputText("The shark-girl falls, clearly defeated.", true);
         }
-        //Lust win
+        // Lust win
         else {
             this.outputText(
                 "The shark-girl begins masturbating, giving up on dominating you.  The sight is truly entrancing.",
@@ -157,16 +157,16 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
         } else this.cleanupAfterCombat();
     }
 
-    //Male and Herm:
+    // Male and Herm:
     private sharkgirlDickFuck(): void {
         this.player.addStatusValue(StatusAffects.SharkGirl, 1, 1);
         this.outputText("", true);
         this.spriteSelect(70);
-        //Naga get a different version of this scene.
+        // Naga get a different version of this scene.
         if (this.player.isNaga()) {
             var x: number = this.player.cockThatFits(this.monster.analCapacity());
             if (x < 0) x = this.player.smallestCockIndex();
-            //[if(monster.lust > 99)
+            // [if(monster.lust > 99)
             if (this.monster.lust > 99)
                 this.outputText(
                     "You slither towards the furiously masturbating shark-girl. She lies on her back, desperately trying to relieve herself of her lust. She eyes you for a second, but her focus quickly returns to your own sex, moaning and sighing loudly. You admire the scene for a moment, but decide that she must be punished for her attempt to rape you.\n\n",
@@ -199,7 +199,7 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
                 false
             );
         }
-        //Non-nagaz
+        // Non-nagaz
         else {
             this.outputText(
                 "You sneer at the fallen shark girl, making up your mind to have your way with her. You tear her bikini off as you whip out your " +
@@ -207,7 +207,7 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
                     " and start to order, \"<i>Get to i--!</i>\" But you're cut short by the shark girl suddenly taking the entirety of your cock into her mouth, forcing it as deep into her mouth as possible. Quite a slutty creature, that's for sure. What surprises you more is that those sharp fangs of hers appear to be retractable, and she has a more human-like set hidden behind them.\n\n",
                 false
             );
-            //[if herm]
+            // [if herm]
             if (this.player.gender == 3)
                 this.outputText(
                     "While sucking you off, her hand steadily snakes its way between your legs. Without warning, she shoves three fingers into your " +
@@ -221,7 +221,7 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
                     " into her damp pussy and the shark girl squeals in excitement. You find yourself surprised by its texture; while it looks human enough on the outside, the inside is actually filled with strange feeler-like structures that wriggle and massage your cock as it pushes through.",
                 false
             );
-            //[if herm]
+            // [if herm]
             if (this.player.gender == 3)
                 this.outputText(
                     "  The sensation is incredible, and you find yourself massaging your " +
@@ -247,7 +247,7 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
     private sharkgirlSixtyNine(): void {
         this.outputText("", true);
         this.spriteSelect(70);
-        //Nagas don't actually get to 69!
+        // Nagas don't actually get to 69!
         if (this.player.isNaga()) {
             this.outputText(
                 "The shark-girl reels and trips, falling onto her back.  You slide quickly towards her as she sits up, bringing a look of sheer terror to her face.  Clearly she is not accustomed to being 'prey' in any sense of the word.  You decide to change that.  Grabbing her by the shoulders, you push her back down a bit.  Clearly weakened by the fight, she goes limp in your hands, still scared and shaking ever so slightly with fear, but unable to resist.  You take a moment to admire the smooth curves of her body and meditate on how fine a catch you have before you.\n\n",
@@ -292,13 +292,13 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
                     ' and approach the slut before taking a firm grip on her silver hair. "<i>You know what to do, bitch,</i>" you sneer, pulling her head into your damp cunt. The shark girl needs no encouragement, eagerly probing your pussy with her long tongue',
                 false
             );
-            //[if female]
+            // [if female]
             if (this.player.gender == 2)
                 this.outputText(
                     ", pulling out every few minutes to lick your " + this.clitDescript() + ".",
                     false
                 );
-            //[if herm]
+            // [if herm]
             if (this.player.gender == 3)
                 this.outputText(
                     ". You remind her not to neglect your " +
@@ -322,7 +322,7 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
                     ", juices spraying from your sex and coating the girl's face.",
                     false
                 );
-            //[if herm]
+            // [if herm]
             else
                 this.outputText(
                     " and stand up, gripping your " +
@@ -343,9 +343,9 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
         if (this.player.cor < 33) this.dynStats("cor", 1);
     }
 
-    //Shark girl Bad End.
-    //Requirements: Have vaginal sex with 7 Shark girls in one day (Loss rape for males also counts toward this)
-    //Scene triggers automatically after the seventh Shark girl
+    // Shark girl Bad End.
+    // Requirements: Have vaginal sex with 7 Shark girls in one day (Loss rape for males also counts toward this)
+    // Scene triggers automatically after the seventh Shark girl
     private sharkBadEnd(): void {
         this.outputText("", true);
         this.spriteSelect(70);
@@ -372,7 +372,7 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
         this.doNext(this.sharkBadEnd2);
     }
 
-    //[Next]
+    // [Next]
     private sharkBadEnd2(): void {
         this.outputText("", true);
         this.spriteSelect(70);
@@ -448,11 +448,11 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
 
     [If dick is 7+ inches OR balls are apple-sized] You do your best to put the thong on, and while the material is very stretchy, it's simply far too uncomfortable to even try. Maybe if you shrunk your male parts down a little... [/]
     -------------------------------*/
-    //Loss Rape scenes:
+    // Loss Rape scenes:
     public sharkLossRape(): void {
         this.outputText("", true);
         this.spriteSelect(70);
-        //Genderless:
+        // Genderless:
         if (this.player.gender == 0) {
             this.outputText("You slump down in defeat, too ", false);
             if (this.player.HP < 1) this.outputText("hurt ", false);
@@ -468,13 +468,13 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
             this.dynStats("tou", -2);
             return;
         }
-        //Female:
+        // Female:
         if (
             this.player.hasVagina() &&
             (this.player.totalCocks() == 0 || SharkGirlScene.rand(2) == 0)
         ) {
             this.outputText("You slump down in defeat, too ", false);
-            //[defeat via HP]
+            // [defeat via HP]
             if (this.player.HP < 1) this.outputText("hurt ", false);
             else this.outputText("horny ", false);
             this.outputText("to fight on.\n\n", false);
@@ -491,7 +491,7 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
                 "Wasting no time, she removes her skimpy swimwear and your own gear.  ",
                 false
             );
-            //[if herm]
+            // [if herm]
             if (this.player.gender == 3)
                 this.outputText(
                     "Seeing your " +
@@ -518,16 +518,16 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
                 "The shark girl stands to leave and winks at you before diving back into the water. You eventually pass out from the exertion.",
                 false
             );
-            //(Corruption +2, Intelligence -4)
+            // (Corruption +2, Intelligence -4)
             this.player.orgasm();
             if (this.player.cor < 30) this.dynStats("cor", 1);
             this.cleanupAfterCombat();
             return;
         }
-        //Male:
+        // Male:
         else {
             this.outputText("You slump down in defeat, too ", false);
-            //[defeat via HP]
+            // [defeat via HP]
             if (this.player.HP < 1) this.outputText("hurt ", false);
             else this.outputText("horny ", false);
             this.outputText("to fight on.\n\n", false);

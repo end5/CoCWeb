@@ -22,7 +22,7 @@ export class ComfortableClothes extends Armor {
     public get supportsBulge(): boolean {
         return this.game.player.modArmorName != "crotch-hugging clothes";
     }
-    //Comfortable clothes can't be changed by Exgartuan if he's already changed them
+    // Comfortable clothes can't be changed by Exgartuan if he's already changed them
 
     /*
             protected  unequipReturnItem(player:Player,output: boolean):ItemType

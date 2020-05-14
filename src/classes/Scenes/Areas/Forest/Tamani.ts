@@ -21,10 +21,10 @@ export class Tamani extends Goblin {
         super.goblinTeaseAttack();
     }
 
-    //New Tease option:
+    // New Tease option:
     public tamaniHypnoTease(): void {
         var selector: number = Tamani.rand(3);
-        //Choose 1 of 3 variations
+        // Choose 1 of 3 variations
         if (selector == 0)
             this.outputText(
                 'Tamani smiles and shifts her leather straps, pulling one into the puffy gash that is her vagina.  She groans out loud, sliding the studded leather band into her outer lips and sawing it along her clit.  Her whole body blushes as she pulls it free, running a fingertip up the now wet strip of leather, "<i>Mmm, can\'t you see how much my pussy needs a man inside it?  Be a good husband and fuck Tamani full!  You know you want to.</i>"\n\n',
@@ -41,8 +41,8 @@ export class Tamani extends Goblin {
                 false
             );
 
-        //REACTIONS
-        //LOW HYPNO VALUE:
+        // REACTIONS
+        // LOW HYPNO VALUE:
         if (this.flags[kFLAGS.TAMANI_TIMES_HYPNOTISED] < 5) {
             selector = Tamani.rand(3);
             if (selector == 0)
@@ -61,7 +61,7 @@ export class Tamani extends Goblin {
                     false
                 );
         }
-        //MEDIUM HYPNO VALUE:
+        // MEDIUM HYPNO VALUE:
         else if (this.flags[kFLAGS.TAMANI_TIMES_HYPNOTISED] < 10) {
             selector = Tamani.rand(2);
             if (selector == 0) {
@@ -102,7 +102,7 @@ export class Tamani extends Goblin {
                     );
             }
         }
-        //HIGH HYPNO VALUE
+        // HIGH HYPNO VALUE
         else {
             selector = Tamani.rand(2);
             if (selector == 0) {
@@ -154,7 +154,7 @@ export class Tamani extends Goblin {
             var temp2 = undefined;
             if (this.player.hasCock() && this.player.cockThatFits(this.analCapacity()) >= 0)
                 temp = this.game.forest.tamaniScene.tamaniAnalShits;
-            //NOT PREGGERS
+            // NOT PREGGERS
             if (
                 !this.game.forest.tamaniScene.pregnancy.isPregnant &&
                 this.player.canOvipositSpider()
@@ -190,7 +190,7 @@ export class Tamani extends Goblin {
             }
         } else {
             if (this.player.totalCocks() > 0) {
-                //hypnoslut loss scene
+                // hypnoslut loss scene
                 if (this.game.flags[kFLAGS.TAMANI_TIMES_HYPNOTISED] > 19 && Tamani.rand(2) == 0) {
                     this.game.forest.tamaniScene.getRapedByTamaniYouHypnoSlut();
                 } else if (Tamani.rand(2) == 0) this.game.forest.tamaniScene.tamaniSexLost();

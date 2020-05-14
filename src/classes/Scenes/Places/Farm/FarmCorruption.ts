@@ -1607,7 +1607,7 @@ export class FarmCorruption extends AbstractFarmContent {
             );
         }
 
-        //[Do it][No]
+        // [Do it][No]
         this.menu();
         if (this.player.gems >= 1000) this.addButton(0, "Do it", this.doBreastMilkerInvestment);
         else this.addButton(0, "Do it", this.turnDownInvestment, true);
@@ -1782,7 +1782,7 @@ export class FarmCorruption extends AbstractFarmContent {
             );
         }
 
-        //[“Harvest Contraceptive” option added to main farm menu in 7 days time]
+        // [“Harvest Contraceptive” option added to main farm menu in 7 days time]
         this.flags[kFLAGS.QUEUE_CONTRACEPTIVE_UPGRADE] = 1;
         this.doNext(this.rootScene);
     }
@@ -1905,7 +1905,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.outputText("\n\n“<i>Good girl.</i>” You turn and leave.");
 
-        //[“Whitney” option removed from farm menu until next day]
+        // [“Whitney” option removed from farm menu until next day]
         this.flags[kFLAGS.WHITNEY_DISABLED_FOR_DAY] = 1;
         this.flags[kFLAGS.WHITNEY_DEFURRED] = 1;
 
@@ -2283,7 +2283,7 @@ export class FarmCorruption extends AbstractFarmContent {
             "\n\n“<i>Stop!</i>” you cry out again harshly. Surprised brown eyes look up at you and the mouth around your cock freezes. “<i>Slaves do not get off before their owners,</i>” you say pressingly. “<i>Only if you do well enough to make me cum may you have the same privilege. Now... keep sucking and fingering. Try to do it at the same time. Nice and slow.</i>” You let her get back in the rhythm again, pleasuring the end of your [cock biggest] as you sensually sink more and more of your length into her mouth. Pleasingly, at your explicit instruction she does manage to move both her mouth and the hand buried in her pussy at the same time, and your prick reverberates deliciously to the occasional muffled moan. "
         );
 
-        //Big Cock
+        // Big Cock
         if (this.player.biggestCockLength() > 12) {
             this.outputText(
                 "\n\nThe desire to holster as much of your dick into your slut as you can eventually becomes too great and you begin to push, gently but insistently, into her throat. You know what to expect and patiently withdraw when she coughs and chokes - but then press back in when she’s recovered. After a few times she manages to get a hold on her gag reflex and you sigh as your [cockHead biggest] sinks into the delicious tightness of her throat."
@@ -2298,7 +2298,7 @@ export class FarmCorruption extends AbstractFarmContent {
             "\n\n“<i>You may cum now, bitch,</i>” you breathe thickly, in the valley of one of your gratifying pulses."
         );
 
-        //High cum
+        // High cum
         if (this.player.cumQ() >= 1500) {
             this.outputText(
                 "\n\nThe dog woman coughs and splutters around your incredibly thick, voluminous spunk, even more pumping into her stomach as it spurts out of her nose and oozes down her chin, but this doesn’t stop her from furiously moving her hand in her knickers, flicking her clit for all she is worth as she attempts to cope with your huge load at the same time. On the edge already it doesn’t take her long, and her eyes roll as she tenses and shudders, her mouth full of prick. The sight is pleasing enough for you to pull out and spurt the last few jets of cum onto her face and clothes. She barely even notices, panting as she keeps fingering herself ecstatically."
@@ -2356,7 +2356,7 @@ export class FarmCorruption extends AbstractFarmContent {
             "\n\n“<i>You may cum now, bitch,</i>” you breathe thickly, in the valley of one of your gratifying pulses."
         );
 
-        //High cum
+        // High cum
         if (this.player.cumQ() >= 1500) {
             this.outputText(
                 "\n\nThe dog woman coughs and splutters around your incredibly thick, voluminous spunk, even more pumping into her stomach even as it spurts out of her nose and oozes down her chin, but this doesn’t stop her from furiously moving her hand in her knickers, flicking her clit for all she is worth as she attempts to cope with your huge load at the same time. On the edge already, it doesn’t take her long, and her eyes roll as she tenses and shudders, her mouth full of prick. The sight is pleasing enough for you to pull out and spurt the last few jets of cum onto her face and clothes. She barely even notices, panting as she keeps fingering herself ecstatically."
@@ -2408,7 +2408,7 @@ export class FarmCorruption extends AbstractFarmContent {
             "\n\n“<i>Not at all,</i>” you groan, closing your eyes and silently bidding the heat you feel to simmer down slightly. “<i>You’ve been learning well and have come a long way. But now that you’ve got the basics down, you need to grasp the other parts of properly servicing me. Now - keep flicking away at that slutty pussy of yours, and I’ll show you.</i>” You wait until the anxiety has melted away from Whitney’s face, replaced with deep lust as her body jerks to the movement of her hand, before beginning."
         );
 
-        //Herm w/ balls
+        // Herm w/ balls
         if (this.player.hasVagina() && this.player.balls > 0) {
             this.outputText(
                 "\n\n“<i>First of all, before you start each time you must work on these.</i>” With your [cock biggest] raised it is easy enough to expose your [balls] to her. “<i>A good slut knows her mistress’s balls need a good polish before she’s deserving of swallowing her cock. Let’s see how you do.</i>” "
@@ -2469,7 +2469,7 @@ export class FarmCorruption extends AbstractFarmContent {
                 "\n\n“<i>Gods, that was am- something, mistress,</i>” she says eventually. “<i>Did... did I do well?</i>” You rub behind her floppy ear and tell her she’s getting better, but - and you say this pointedly - she’s still quite forgetful. You watch her closely as she mumbles an apology and then sets about cleaning you, first sending her tongue slicking deliciously around your sopping vagina, licking up every splash of your fluids that she finds, before rising up to your oozing [cock biggest]. There’s an eagerness on display here which you don’t think was evident before as she laps at your cock head, and you think she even stifles a disappointed whine when she’s finished. Smiling softly, you get up and send her on her way."
             );
         }
-        //Herm without balls
+        // Herm without balls
         else if (this.player.hasVagina() && this.player.balls == 0) {
             this.outputText(
                 "\n\n“<i>This is a bit more delicate than simply being a good cocksucker, so follow my instruction carefully.</i>” Whitney peers out around your [eachCock]. Her hand is still jammed in her panties and she is panting slightly, color high in her cheeks. You smile at her encouragingly. “<i>Behind my [dickplural] you’ll find my pussy. I think if you’re knelt there pleasuring yourself you should at least be extending the same courtesy to your mistress, hmm? Start slow and gentle to begin with.</i>”"
@@ -2522,7 +2522,7 @@ export class FarmCorruption extends AbstractFarmContent {
                 "\n\n“<i>Gods, that was am- something, mistress,</i>” she says eventually. “<i>Did... did I do well?</i>” You rub behind her floppy ear and tell her she’s getting better, but - and you say this pointedly - she’s still quite forgetful. You watch her closely as she mumbles an apology and then sets about cleaning you, first sending her tongue slicking deliciously around your sopping vagina, licking up every splash of your fluids that she finds, before rising up to your oozing [cock biggest]. There’s an eagerness on display here which you don’t think was there before as she laps at your cock head, and you think she even stifles a disappointed whine when she’s finished. Smiling softly, you get up and send her on her way."
             );
         }
-        //Male w/ balls:
+        // Male w/ balls:
         else if (!this.player.hasVagina() && this.player.balls > 0) {
             this.outputText(
                 "\n\n“<i>First of all, before you start each time you must work on these.</i>” With your [cock] raised it is easy enough to expose your [balls] to her. “<i>A good slut knows her master’s balls need a good polish before she’s deserving of swallowing his cock. Let’s see how you do.</i>” "
@@ -2533,7 +2533,7 @@ export class FarmCorruption extends AbstractFarmContent {
             );
 
             this.outputText("\n\n“<i>Ooh, you’re a natural.</i>” ");
-            //monocock
+            // monocock
             if (this.player.cocks.length == 1) {
                 this.outputText(
                     "\n\nYou lean back and consider her luxuriously. “<i>Put your other hand here - there we go - and then you can get back to it.</i>” Her other hand clutching one cheek of your [ass], Whitney steals a moment’s rest, the hand buried in her pussy no doubt aching a bit by now, before pulling back and focusing on your [cock biggest]. You sigh deeply, your eyes closing as your [cockHead biggest] is once again enveloped with sweet, wringing warmth, whilst smooth pressure clutches your behind."
@@ -2596,9 +2596,9 @@ export class FarmCorruption extends AbstractFarmContent {
                     " The second cock trapped in her grasp flexes out cum just as eagerly as the first, sweat standing out on your forehead as you are clenched by your twin high; it paints her skirt with its generous discharge."
                 );
         }
-        //Male without balls:
+        // Male without balls:
         else if (!this.player.hasVagina() && this.player.balls == 0) {
-            //multicock
+            // multicock
             if (this.player.cocks.length > 1) {
                 this.outputText(
                     "\n\n“<i>This is a bit more technical than simply being a good cocksucker, so I want you to pay attention.</i>” You move your hips slightly and indicate your [cock biggest2]. “<i>Put your hand around that. I think if you’re knelt there pleasuring yourself you should at least be extending the same courtesy to your master, hmm? Do it slow and gentle to begin with.</i>” "
@@ -2622,7 +2622,7 @@ export class FarmCorruption extends AbstractFarmContent {
                         ". Her breath wheezes through her nose as she lets you use her mouth, struggling to keep both both sets of her teasing fingers moving; you coo as your own hard movements force her to move the hand on your [cock biggest2] faster and more erratic, wringing your urgently bulging prick tightly and making you pump into her wet, milking warmth all the more frenetically."
                 );
             }
-            //monocock
+            // monocock
             if (this.player.cocks.length == 1) {
                 this.outputText(
                     "\n\n“<i>Put your other hand here - there we go - and then you can get back to it.</i>” Her other hand clutching one cheek of your [ass], Whitney steals a moment’s rest, the hand buried in her pussy no doubt aching a bit by now, before pulling back and focusing on your [cock]. You sigh deeply, your eyes closing as your cock end is once again enveloped with sweet, wringing warmth, whilst smooth pressure clutches your behind."
@@ -2649,7 +2649,7 @@ export class FarmCorruption extends AbstractFarmContent {
             }
         }
 
-        //male
+        // male
         if (!this.player.hasVagina()) {
             this.outputText(
                 "\n\nYou exhale long and low when you’re finally done, feeling a glow of intense satisfaction. You gaze dozily down at your slave, who is panting hoarsely, her eyes still closed. You can’t help but notice she occasionally and impulsively licks her lips, as if she is searching for the flavor of something delicious."
@@ -2677,7 +2677,7 @@ export class FarmCorruption extends AbstractFarmContent {
             "Not saying a word, you undo the bottom half of your [armor], exposing your [cock biggest] with a soft smile. Without any need for instruction Whitney gets to work, her hand delving into her underwear with a contented sigh, her eyes focused on the task in front of her as she steadily stokes the heat in her crotch with tight, urgent jerks of her slim body."
         );
 
-        //Male
+        // Male
         if (!this.player.hasVagina()) {
             this.outputText("\n\n");
             if (this.player.balls > 0)
@@ -2789,7 +2789,7 @@ export class FarmCorruption extends AbstractFarmContent {
             "You smile at Whitney as you take off your... you stop, frowning down at her. Did she whimper just then? She’s completely still, staring at you intently with her big, deep, brown eyes. Without saying a word and pretending to be interested in the sky above, you continue to disrobe, doing it slowly, placing every piece of your [armor] down on the ground with careful deliberation. There is no mistaking it this time - as your [cock biggest] finally bobs into view Whitney moans deep in her throat, squirming uncomfortably in her kneeling position as her gaze bores deep into your crotch. You smile softly, sit yourself down, open your [hips] wide, and wait."
         );
 
-        //Male
+        // Male
         if (!this.player.hasVagina()) {
             this.outputText(
                 "\n\nOnce you have settled yourself down the dog woman immediately sends her hand burying into her underwear, her heavy breath catching in her throat as she stares at your [cock biggest]. It only takes a few seconds of urgent jerking before she spasms forward, her tongue out and eager to begin."
@@ -2913,7 +2913,7 @@ export class FarmCorruption extends AbstractFarmContent {
                 "\n\n“<i>Think I’ve got it,</i>” she whispers, grinning back at you woozily, red throbbing deep in the brown pools of her eyes. You rub her behind the ear and tell her she almost has; there’s one last lesson she has to learn. You grip her tight, hot body for a few moments more and then send her on her unsteady way."
             );
         }
-        //Herm
+        // Herm
         else if (this.player.hasVagina()) {
             this.outputText(
                 "\n\nOnce you have settled yourself down the dog woman immediately sends her hand burying into her underwear, her heavy breath catching in her throat as she stares at your [cock biggest]. It only takes a few seconds of urgent jerking before she spasms forward, her tongue out and eager to begin. This time she shows remarkable initiative by burying deep into your crotch to first push her lips and questing tongue onto your [vagina]. "
@@ -3181,7 +3181,7 @@ export class FarmCorruption extends AbstractFarmContent {
                 "\n\n“<i>I...</i>“ she whispers, licking her succulent black lips. “<i>I think I’ve got it now, master.</i>” You beam at her proudly, and then silently send your taskmistress slut on her woozy, staggering way with a rub behind the ear and a pat on the tush."
             );
         }
-        //Herm
+        // Herm
         else if (this.player.hasVagina()) {
             this.outputText(
                 "\n\nShe spasms forward, her tongue out, overwhelmingly eager to do so. She buries herself deep into your crotch, making you laugh and then coo as she pushes her thin lips and questing tongue onto your [vagina]. You sigh as she laps at your pussy, first circling your outer folds gently before pushing in, smoothing over your sensitive walls before finding your [clit], humming contentedly as she spreads her thin, wet blanket of her tongue over it, pushing and dabbing at it until it is bulging needily and your tunnel is dripping excitement. Given she’s a total novice at that, she’s - you gasp as she sends another sumptuous twinge rippling through you - she’s very good. Once she’s got you nice and wet she replaces her masterful tongue with her warm hand, gently fingering your clit as she moves up."
@@ -3299,7 +3299,7 @@ export class FarmCorruption extends AbstractFarmContent {
             "\n\n“<i>Very well,</i>” you say benevolently, opening your [hips]. “<i>I suppose you do deserve it for being such a hardworking task slut.</i>”"
         );
 
-        //Male
+        // Male
         if (!this.player.hasVagina()) {
             this.outputText(
                 "\n\nShe spasms forward, her tongue out, overwhelmingly eager to begin. "
@@ -3415,7 +3415,7 @@ export class FarmCorruption extends AbstractFarmContent {
                 "\n\n“<i>Thank you, [master],</i>” your taskmistress slut whispers, licking her succulent black lips as she stares adoringly into your eyes. You give her a fond rub behind a floppy ear and then send her away with a pat on her tight ass, avoiding the considerable damp patch on her skirt as you do."
             );
         }
-        //Herm
+        // Herm
         else if (this.player.hasVagina()) {
             this.outputText(
                 "\n\nShe spasms forward, her tongue out, overwhelmingly eager to begin. You sigh as she laps at your pussy, first circling your outer folds gently before pushing in, smoothing over your sensitive walls before finding your [clit], moaning with profound lust as she spreads her thin, wet blanket of her tongue over it, pushing and dabbing at it until it is bulging needily and your tunnel is dripping excitement. "
@@ -7964,7 +7964,7 @@ export class FarmCorruption extends AbstractFarmContent {
             );
         }
 
-        //[Male][Female]/[Next]
+        // [Male][Female]/[Next]
         this.menu();
         if (this.player.cockThatFits(this.whitneyVagCapacity() * 1.33) != -1)
             this.addButton(0, "Male", this.subHappyEndingMale);

@@ -6,9 +6,9 @@ import { StatusAffects } from "../../../StatusAffects";
 import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class Dominika extends TelAdreAbstractContent {
-    //const DOMINIKA_TIMES_MULTICOCK_SLOBBERED: number = 386;
-    //const DOMINIKA_TIMES_HYPNO_BJ: number = 387;
-    //const DOMINIKA_LAST_HYPNO_SUCK_COUNT: number = 388;
+    // const DOMINIKA_TIMES_MULTICOCK_SLOBBERED: number = 386;
+    // const DOMINIKA_TIMES_HYPNO_BJ: number = 387;
+    // const DOMINIKA_LAST_HYPNO_SUCK_COUNT: number = 388;
 
     public fellatrixBarAppearance(): void {
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00150] == 0)
@@ -40,8 +40,8 @@ export class Dominika extends TelAdreAbstractContent {
         this.spriteSelect(10);
         this.outputText("", true);
         this.outputText(this.images.showImage("dominika-first-meeting-at-bar"));
-        //Get the emporerors new groove (sword)
-        //Req's d2 finished
+        // Get the emporerors new groove (sword)
+        // Req's d2 finished
         if (
             this.fellatrixSucked() &&
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00150] > 0 &&
@@ -51,7 +51,7 @@ export class Dominika extends TelAdreAbstractContent {
             kGAMECLASS.dominikaSpellblade();
             return;
         }
-        //[First encounter, player is minotaur (If you lose minotaur characteristics and come back, Dominika will not recognize you and do a regular first encounter)]
+        // [First encounter, player is minotaur (If you lose minotaur characteristics and come back, Dominika will not recognize you and do a regular first encounter)]
         if (
             this.player.minoScore() >= 3 &&
             this.player.faceType == FACE_COW_MINOTAUR &&
@@ -68,12 +68,12 @@ export class Dominika extends TelAdreAbstractContent {
             );
 
             this.outputText("You nod slightly, glancing back at Dominika, then shrug.", false);
-            //TO THE BAR
+            // TO THE BAR
             this.cheatTime(1);
             this.doNext(this.telAdre.barTelAdre);
             return;
         }
-        //[First encounter]
+        // [First encounter]
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00150] == 0) {
             this.outputText(
                 'You approach the woman, delivering a polite greeting. She glances back at you and you think she might be smirking beneath the veil, but can\'t tell. "<i>Hello to you as well,</i>" she replies, with a low and husky voice, gesturing to a seat across from her. "<i>You\'re a new face, no?</i>"\n\n',
@@ -103,7 +103,7 @@ export class Dominika extends TelAdreAbstractContent {
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00150]++;
             return;
         }
-        //[Second encounter, player has naga tail/centaur body/slime body]
+        // [Second encounter, player has naga tail/centaur body/slime body]
         else if (!this.player.isBiped()) {
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00150] == 1) {
                 this.outputText(
@@ -132,7 +132,7 @@ export class Dominika extends TelAdreAbstractContent {
             this.doNext(this.telAdre.barTelAdre);
             return;
         }
-        //Second encounter]
+        // Second encounter]
         else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00150] == 1) {
             this.outputText(
                 'You make your way over to Dominika\'s table again, saying hello once more. The two of you talk about your exploits for a time, before you ask her what she has been up to. "<i>Research, mostly,</i>" she explains. "<i>I try to document what this land has, in the hopes that it may be useful to someone one day. I do consider myself somewhat of a learned woman which... seems to be something of a rarity here, so there are few qualified to do the job.</i>"\n\n',
@@ -163,7 +163,7 @@ export class Dominika extends TelAdreAbstractContent {
             );
             return;
         }
-        //[Follow-up Introduction]
+        // [Follow-up Introduction]
         else {
             this.outputText(
                 "You make your way over to Dominika's table and strike up conversation with the modestly dressed woman. Her eyes give away her smile and the two of you discuss your exploits. She doesn't attempt to hide the casual way she ogles you during the conversation, and after a brief while, she invites you back to her place.",
@@ -186,7 +186,7 @@ export class Dominika extends TelAdreAbstractContent {
         this.outputText("ERROR, ERROR, ALERT THE FENFEN!", true);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[\"<i>No thanks</i>\"]
+    // [\"<i>No thanks</i>\"]
     private turnDownDominikasKnowledge(): void {
         this.spriteSelect(10);
         this.outputText("", true);
@@ -197,11 +197,11 @@ export class Dominika extends TelAdreAbstractContent {
         this.cheatTime(1);
         this.doNext(this.telAdre.barTelAdre);
     }
-    //[\"<i>Sure</i>\"]
+    // [\"<i>Sure</i>\"]
     private acceptDominikasKnowledge(): void {
         this.spriteSelect(58);
         this.outputText("", true);
-        //Set that PC has received oral offer (its coming further down for sure)
+        // Set that PC has received oral offer (its coming further down for sure)
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00150]++;
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00150] == 2) {
             this.outputText(
@@ -251,7 +251,7 @@ export class Dominika extends TelAdreAbstractContent {
             );
         }
 
-        //If no dominika cooldown up
+        // If no dominika cooldown up
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00155] == 0) {
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00155] = 7 + Dominika.rand(3);
             this.outputText(
@@ -259,7 +259,7 @@ export class Dominika extends TelAdreAbstractContent {
                 false
             );
 
-            //[If player knows all spells]
+            // [If player knows all spells]
             if (this.player.spellCount() == 6) {
                 if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00154] == 0) {
                     this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00154]++;
@@ -276,10 +276,10 @@ export class Dominika extends TelAdreAbstractContent {
                     "Magical theory is not very interesting, but you do feel smarter for discussing it.",
                     false
                 );
-                //(Player receives Intelligence.)
+                // (Player receives Intelligence.)
                 this.dynStats("int", 1 + Dominika.rand(4));
             }
-            //[If player knows some spells]
+            // [If player knows some spells]
             else if (this.player.spellCount() > 0) {
                 this.outputText(
                     'You take a step backwards in surprise, but your experience with magic makes you realize that she\'s not doing anything dangerous. You explain that you\'ve learned a bit of sorcery from books, and she nods thoughtfully. "<i>I see,</i>" she muses, stroking her chin. "<i>I think I may be able to show you a thing or two. Let\'s see here...</i>"\n\n',
@@ -290,7 +290,7 @@ export class Dominika extends TelAdreAbstractContent {
                     "Dominika seems to be quite good at magic, and you find yourself picking up the spell she demonstrates fairly quickly.",
                     false
                 );
-                //(Player receives random unlearned spell.)
+                // (Player receives random unlearned spell.)
                 if (this.player.findStatusAffect(StatusAffects.KnowsMight) < 0) {
                     this.player.createStatusAffect(StatusAffects.KnowsMight, 0, 0, 0, 0);
                     this.outputText("\n\n<b>New Black Magic Spell Learned: Might</b>", false);
@@ -316,7 +316,7 @@ export class Dominika extends TelAdreAbstractContent {
                     );
                 this.dynStats("int", 2);
             }
-            //[If player knows no spells]
+            // [If player knows no spells]
             else {
                 this.outputText(
                     "You nearly fall on your " +
@@ -334,7 +334,7 @@ export class Dominika extends TelAdreAbstractContent {
                     "Even with your inexperience, you find Dominika to be a good teacher. She helps you focus and train your mind, and you quickly find your first spell to be easy to perform.",
                     false
                 );
-                //(Player receives random unlearned spell.)
+                // (Player receives random unlearned spell.)
                 if (this.player.findStatusAffect(StatusAffects.KnowsMight) < 0) {
                     this.player.createStatusAffect(StatusAffects.KnowsMight, 0, 0, 0, 0);
                     this.outputText("\n\n<b>New Black Magic Spell Learned: Might</b>", false);
@@ -363,18 +363,18 @@ export class Dominika extends TelAdreAbstractContent {
         }
         this.doNext(this.fellatrixSexWarmup);
     }
-    //[All scenes lead to:]
+    // [All scenes lead to:]
     private fellatrixSexWarmup(): void {
         this.spriteSelect(58);
         this.outputText("", true);
-        //Cooldown ongoing!
+        // Cooldown ongoing!
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00155] > 0) {
             this.outputText(
                 'Dominika glances out the window nervously and says, "<i>I don\'t think you\'re ready to learn more yet – your mind still needs time to absorb the knowledge from our last meeting.</i>"  Her tongue slowly slides over the glistening black surface of her lower lip and her voice becomes a little more husky as she offers, "<i>Why don\'t we talk about something else?</i>"\n\n',
                 false
             );
         }
-        //No cooldown, knowledge get epilogue
+        // No cooldown, knowledge get epilogue
         else {
             this.outputText(
                 'Dominika glances out the window. "<i>That, I think, is more than enough for now.</i>" She rubs her hands together, letting the room return to more normal lighting. Looking back at you she pauses, thinking to herself, then speaks again. "<i>Now, there is something that you could do for me.</i>"\n\n',
@@ -383,7 +383,7 @@ export class Dominika extends TelAdreAbstractContent {
         }
 
         this.outputText("She walks towards you, resting her hands on your collarbone.  ", false);
-        //(If breasts)
+        // (If breasts)
         if (this.player.biggestTitSize() >= 1)
             this.outputText(
                 "They briefly run down to the top of your " +
@@ -391,13 +391,13 @@ export class Dominika extends TelAdreAbstractContent {
                     " before returning to your collar.  ",
                 false
             );
-        //First time
+        // First time
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00150] == 2)
             this.outputText(
                 '"<i>I have not been unaffected by this land. I have certain... dietary needs.</i>" She coughs slightly, glancing aside and looking as though she\'s doing her very best not to blush.\n\n',
                 false
             );
-        //Repeat
+        // Repeat
         else
             this.outputText(
                 '"<i>You know what I need,</i>" She coughs slightly, glancing aside and looking as though she\'s doing her very best not to blush.\n\n',
@@ -411,7 +411,7 @@ export class Dominika extends TelAdreAbstractContent {
         if (this.fellatrixSucked()) this.outputText(" again", false);
         this.outputText('?</i>"\n\n', false);
 
-        //[If genderless]
+        // [If genderless]
         if (this.player.gender == 0) {
             this.outputText(
                 'You politely explain that you don\'t actually have any genitals. Dominika blinks, looks at you, then grabs your crotch. "<i>Oh. Oh. My uh, my apologies.</i>" She coughs awkwardly and backs up, rubbing the back of her neck. "<i>That... that is unfortunate.</i>" She lowers her skirt slightly, letting you see the top of a chastity belt. "<i>I can understand to a certain degree but uh... Yikes. At least I can get this taken off if I want.</i>"\n\n',
@@ -439,11 +439,11 @@ export class Dominika extends TelAdreAbstractContent {
         );
     }
 
-    //If \"<i>No.</i>\"]
+    // If \"<i>No.</i>\"]
     private declineFellatrixOral(): void {
         this.spriteSelect(58);
         this.outputText("", true);
-        //No BJs yet.
+        // No BJs yet.
         if (!this.fellatrixSucked()) {
             this.outputText(
                 'She raises her eyebrow and looks around. "<i>...Really?</i>" she asks after a few seconds. "<i>Like, I mean... you\'re going to turn down a free blowjob?</i>"\n\n',
@@ -457,7 +457,7 @@ export class Dominika extends TelAdreAbstractContent {
             this.dynStats("lus", 10);
             this.doYesNo(this.acceptFellatrixOral, this.declineFellatrixOralHARDCORE);
         } else {
-            //[Say \"<i>No</i>\" to oral AFTER having said \"<i>Yes</i>\" first encounter]
+            // [Say \"<i>No</i>\" to oral AFTER having said \"<i>Yes</i>\" first encounter]
             this.outputText(
                 "A twinge of annoyance flicks across Dominika's features. She takes in a calming breath. In that action you find your feet abruptly feeling unsteady, as though the world is slowly being pulled out from beneath you. Catching yourself you glance up at her lips, seeming to entropy with an infinite yawning darkness that engulfs the world. Through that gaze you find yourself stable, but find it difficult to look away.\n\n",
                 false
@@ -470,7 +470,7 @@ export class Dominika extends TelAdreAbstractContent {
 
             this.outputText("What were you thinking?  A little oral sounds great.", false);
 
-            //(Only \"<i>Yes</i>\" is available)
+            // (Only \"<i>Yes</i>\" is available)
             this.simpleChoices(
                 "Yes",
                 this.acceptFellatrixOral,
@@ -485,7 +485,7 @@ export class Dominika extends TelAdreAbstractContent {
             );
         }
     }
-    //[If \"<i>No.</i>\" twice]
+    // [If \"<i>No.</i>\" twice]
     private declineFellatrixOralHARDCORE(): void {
         this.spriteSelect(58);
         this.outputText("", true);
@@ -497,7 +497,7 @@ export class Dominika extends TelAdreAbstractContent {
         this.doYesNo(this.acceptFellatrixOral, this.declineFellatrixOralSUPERHARDCORE);
     }
 
-    //[If \"<i>No.</i>\" three times]
+    // [If \"<i>No.</i>\" three times]
     private declineFellatrixOralSUPERHARDCORE(): void {
         this.spriteSelect(58);
         this.outputText("", true);
@@ -507,7 +507,7 @@ export class Dominika extends TelAdreAbstractContent {
         );
 
         this.outputText("You let yourself out.", false);
-        //(Dominika does not appear again.)
+        // (Dominika does not appear again.)
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00150] = -1;
         this.cheatTime(1);
         this.doNext(this.telAdre.barTelAdre);
@@ -518,8 +518,8 @@ export class Dominika extends TelAdreAbstractContent {
         this.outputText("", true);
         this.outputText(this.images.showImage("dominika-oral-sex"));
         var x: number = this.player.cockThatFits(36);
-        //[Random one-shot after Player has done a Scylla scene]
-        //Mind control at 6th suck
+        // [Random one-shot after Player has done a Scylla scene]
+        // Mind control at 6th suck
         if (
             this.timesFellatrixSucked() >= 6 &&
             this.timesFellatrixSucked() - 4 >= this.flags[kFLAGS.DOMINIKA_LAST_HYPNO_SUCK_COUNT]
@@ -527,7 +527,7 @@ export class Dominika extends TelAdreAbstractContent {
             this.dominikaBlowjobs();
             return;
         }
-        //After 3+ blowjobs
+        // After 3+ blowjobs
         if (this.timesFellatrixSucked() >= 3 && this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00157] == 0) {
             if (this.flags[kFLAGS.NUMBER_OF_TIMES_MET_SCYLLA] > 0) {
                 this.outputText(
@@ -626,7 +626,7 @@ export class Dominika extends TelAdreAbstractContent {
             return;
         }
         if (x < 0) x = 0;
-        //[If \"<i>Yes</i>\" and vagina]
+        // [If \"<i>Yes</i>\" and vagina]
         if (this.player.hasVagina() && (this.player.gender == 2 || Dominika.rand(2) == 0)) {
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00153] == 0) {
                 this.outputText(
@@ -700,7 +700,7 @@ export class Dominika extends TelAdreAbstractContent {
                     false
                 );
             }
-            //Repeat
+            // Repeat
             else {
                 this.outputText(
                     "Once you arrive at the second-story apartment, Dominika practically pulls you into the other room, eager to descend upon your " +
@@ -759,9 +759,9 @@ export class Dominika extends TelAdreAbstractContent {
             }
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00153]++;
         }
-        //MULTICAWWWWK
+        // MULTICAWWWWK
         else if (this.player.cockTotal() >= 2 && Dominika.rand(2) == 0) {
-            //[If \"<i>Yes</i>\" and multi-cock]
+            // [If \"<i>Yes</i>\" and multi-cock]
             if (this.flags[kFLAGS.DOMINIKA_TIMES_MULTICOCK_SLOBBERED] == 0) {
                 this.outputText(
                     'She licks her teeth rather than her lips, reminding you in some ways of a predator observing prey.  You scarcely have time to contemplate this before she tugs you into the next room.  If the exceedingly comfortable-looking bed is any indication this would be where she sleeps.  Dominika insists upon you sitting on it and you find it to be exactly as comfortable as it looks, if not more so.  "<i>I knew it was an offer you\'d accept,</i>" she coos.  "<i>So few are worth my attentions, but you... you caught my eye, champion.</i>"  She approaches you with a seductive slink in her step, grabbing hold of your ' +
@@ -872,7 +872,7 @@ export class Dominika extends TelAdreAbstractContent {
                     false
                 );
             }
-            //[Follow up Multi]
+            // [Follow up Multi]
             else {
                 this.outputText(
                     'You barely have time to nod your assent before Dominika drags you into the other room with a grin, nearly throwing you to the bed and licking her lips.  "<i>C\'mon then you cumfactory,</i>" she smirks, tossing aside the bottom of your ' +
@@ -923,9 +923,9 @@ export class Dominika extends TelAdreAbstractContent {
             }
             this.flags[kFLAGS.DOMINIKA_TIMES_MULTICOCK_SLOBBERED]++;
         }
-        //[If \"<i>Yes</i>\" and penis small enough to suck]
+        // [If \"<i>Yes</i>\" and penis small enough to suck]
         else if (this.player.cockArea(x) <= 36) {
-            //Dogcock suck
+            // Dogcock suck
             if (this.player.hasKnot(x)) {
                 // - first time dogsuck
                 if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00156] == 0) {
@@ -1055,7 +1055,7 @@ export class Dominika extends TelAdreAbstractContent {
                 }
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00156]++;
             }
-            //Horsecock suck
+            // Horsecock suck
             else if (this.player.cocks[x].cockType == CockTypesEnum.HORSE) {
                 // - first time horsesuck
                 if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00174] == 0) {
@@ -1166,7 +1166,7 @@ export class Dominika extends TelAdreAbstractContent {
                         false
                     );
                 }
-                //Reppppppeat
+                // Reppppppeat
                 else {
                     this.outputText(
                         'Nearly dragged into Dominika\'s bedroom, she pushes you to the bed so unceremoniously you fall onto your back. "<i>Come on then,</i>" she purrs aggressively as she moves towards you, licking those darkly-painted lips, "<i>Show me you\'re more than an infertile mule.</i>" She climbs up on the bed and puts a foot to your chest as you try to sit up, giggling and grinning at the controlling position before shifting down to her side. She tugs the bottom portion of your ' +
@@ -1203,7 +1203,7 @@ export class Dominika extends TelAdreAbstractContent {
                 }
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00174]++;
             }
-            //Human/fallback wang
+            // Human/fallback wang
             else {
                 // - first time wangsuck
                 if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00151] == 0) {
@@ -1221,7 +1221,7 @@ export class Dominika extends TelAdreAbstractContent {
                             ". The glistening moisture you saw on them before feels almost unnatural, as though her lips are oiled up – but given what you've experienced in this land, such an idea does not startle you in the slightest. Her equally slick tongue slips out to press against the underside of your head and then flicks up, leaving saliva behind. The gentle touch of her palm presses against the spit and begins to spread it around. She swirls it slowly around your sensitive tip, enticing your erection further.  The ball of her thumb in particular works into the curve of your head, sliding against where it meets your shaft.\n\n",
                         false
                     );
-                    //(if player has balls)
+                    // (if player has balls)
                     if (this.player.balls > 0)
                         this.outputText(
                             "Meanwhile her mouth slips down your dick, planting a few kisses along the way before reaching your " +
@@ -1294,7 +1294,7 @@ export class Dominika extends TelAdreAbstractContent {
                         false
                     );
                 }
-                //[Follow-up Sex, player has penis]
+                // [Follow-up Sex, player has penis]
                 else {
                     this.outputText(
                         "Once you arrive at the second-story apartment, Dominika practically pulls you into the other room, eager to suck your " +
@@ -1336,7 +1336,7 @@ export class Dominika extends TelAdreAbstractContent {
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00151]++;
             }
         }
-        //[If \"<i>Yes</i>\" and penis too big to suck]
+        // [If \"<i>Yes</i>\" and penis too big to suck]
         else {
             // - first time wangsuck
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00152] == 0) {
@@ -1366,7 +1366,7 @@ export class Dominika extends TelAdreAbstractContent {
                         ", or perhaps your lust for them makes it more palpable.\n\n",
                     false
                 );
-                //(if balls)
+                // (if balls)
                 if (this.player.balls > 0)
                     this.outputText(
                         "While her mouth performs its work, you can't help but become aware of sensation elsewhere. One hand presses to your " +
@@ -1411,7 +1411,7 @@ export class Dominika extends TelAdreAbstractContent {
                     false
                 );
             } else {
-                //[Follow-up Sex, player has Too Big penis]
+                // [Follow-up Sex, player has Too Big penis]
                 this.outputText(
                     "Once you arrive at the second-story apartment, Dominika practically pulls you into the other room, eager to suck on your " +
                         this.cockDescript(x) +
@@ -1461,11 +1461,11 @@ export class Dominika extends TelAdreAbstractContent {
         else this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
-    //[Agree with her]
+    // [Agree with her]
     private agreeWithDominika(): void {
         this.spriteSelect(58);
         this.outputText("", true);
-        //(Corruption increases)
+        // (Corruption increases)
         this.dynStats("cor", 2);
         if (this.flags[kFLAGS.NUMBER_OF_TIMES_MET_SCYLLA] > 0) {
             this.outputText(
@@ -1514,7 +1514,7 @@ export class Dominika extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Non-committal]
+    // [Non-committal]
     private ehhhhDominika(): void {
         this.spriteSelect(58);
         this.outputText("", true);
@@ -1535,11 +1535,11 @@ export class Dominika extends TelAdreAbstractContent {
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00157] = 2;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[Disagree with her]
+    // [Disagree with her]
     private disagreeDominika(): void {
         this.spriteSelect(58);
         this.outputText("", true);
-        //(Corruption decrease)
+        // (Corruption decrease)
         this.dynStats("cor", -2);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00157] = 3;
         if (this.flags[kFLAGS.NUMBER_OF_TIMES_MET_SCYLLA] > 0) {
@@ -1574,7 +1574,7 @@ export class Dominika extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Dream after above scene]
+    // [Dream after above scene]
     public fellatrixDream(): void {
         this.spriteSelect(58);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00157] += 3;
@@ -1602,7 +1602,7 @@ export class Dominika extends TelAdreAbstractContent {
         this.doNext(this.playerMenu);
     }
 
-    //[After UNKNOWN CRITERIA, CAN TRIGGER AFTER POST-SCYLLA SCENE, ONE-SHOT, HAPPENS AFTER DOMI SCENE]
+    // [After UNKNOWN CRITERIA, CAN TRIGGER AFTER POST-SCYLLA SCENE, ONE-SHOT, HAPPENS AFTER DOMI SCENE]
     private dominidrama(): void {
         this.outputText("", true);
         this.outputText(
@@ -1635,7 +1635,7 @@ export class Dominika extends TelAdreAbstractContent {
         this.doYesNo(this.dominidramaYes, this.dominidramaNo);
     }
 
-    //[Yes]
+    // [Yes]
     private dominidramaYes(): void {
         this.spriteSelect(58);
         this.outputText("", true);
@@ -1658,7 +1658,7 @@ export class Dominika extends TelAdreAbstractContent {
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00175] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[No]
+    // [No]
     private dominidramaNo(): void {
         this.outputText("", true);
         this.outputText(
@@ -1685,8 +1685,8 @@ export class Dominika extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Binding scene]
-    //Occurs after 8 servicings
+    // [Binding scene]
+    // Occurs after 8 servicings
     private dominikaBlowjobs(): void {
         this.outputText("", true);
         this.outputText(this.images.showImage("dominika-gives-you-blowjob"));
@@ -1717,13 +1717,13 @@ export class Dominika extends TelAdreAbstractContent {
             'You respond in the way expected of one who wakes up restrained, attempting to break the mysterious and likely magical bonds that contain you.  Dominika makes a small unreadable noise in the back of her throat.  Taking a breath the world seems to race away from you while she draws nearer, and her lips dominate your vision.  "<i><b>Relax.</b></i>"  She speaks the word authoritatively and precisely, carefully forming the word with her dark and full puckers.  This process continues as she speaks, pulling your vision further into the depth of her ebony mouth.  "<i><b>You trust me. Right?</b></i>"  ',
             false
         );
-        //(Corruption less than 50)
+        // (Corruption less than 50)
         if (this.player.cor < 50)
             this.outputText(
                 "Though you still feel ill at ease restrained like this you have to admit that Dominika has never done you wrong, and you should be safe in her home.",
                 false
             );
-        //(OR Corruption greater than 50)
+        // (OR Corruption greater than 50)
         else
             this.outputText(
                 "The restraints are somewhat erotic and exciting.  You suppose that laying here is not so bad, particularly with the sexy woman before you.",
@@ -1749,7 +1749,7 @@ export class Dominika extends TelAdreAbstractContent {
             "Her fingers have grown familiar to you.  They have stroked your chest, squeezed your thighs, and ",
             false
         );
-        //(if penis)
+        // (if penis)
         if (this.player.hasCock()) this.outputText("caressed your dick.", false);
         else this.outputText("caressed your labia.", false);
         this.outputText(
@@ -1757,20 +1757,20 @@ export class Dominika extends TelAdreAbstractContent {
             false
         );
 
-        //(if low intelligence)
+        // (if low intelligence)
         if (this.player.inte < 50)
             this.outputText(
                 "Her words echo in your head.  Though at first they bothered you there is a bizarre sense to them.  For reasons you cannot quite determine and yet do not care about, the fact that they are coming from those succulent, perfect lips gives them further credence.  Those statements must be true – beyond true, absolute even – if those full, gorgeous cockkissers are saying them.  You find yourself nodding along with what she says, staring and ogling her mouth.  Dominika and Dominika's lips mean the world to you in that moment, and nothing could come between you.\n\n",
                 false
             );
-        //(if high intelligence)
+        // (if high intelligence)
         else
             this.outputText(
                 "It's magic.  You're positive of it, you can practically feel it in the air.  It was hidden when she first started speaking, when she told you to relax, obfuscated by the twisting circles around the room.  The feeling that twists the most in the gut is the knowledge that you do not care.  You know she is ensnaring your mind – you can practically envision her lips dragging chains around you – but you trust her.  You know that the only reason you trust her right now is further magic and yet you dismiss this as a non-issue.  Worst of all even though you try as hard as you can to keep this knowledge in the forefront of your mind, every word Dominika utters pulls at your attention, demanding you surrender and let her lips engulf your mind – and you don't see a reason to deny her.\n\n",
                 false
             );
 
-        //(Penis)
+        // (Penis)
         if (this.player.hasCock()) {
             if (this.player.cockArea(x) <= 36) {
                 this.outputText(
@@ -1881,7 +1881,7 @@ export class Dominika extends TelAdreAbstractContent {
 
                 this.outputText('"<i>Again.</i>"', false);
             } else {
-                //(HUGE PENIS)
+                // (HUGE PENIS)
                 this.outputText(
                     '"<i><b>You are my champion,</b></i>" Dominika hisses slowly, trailing a finger over your lower lip.  "<i><b>And it is my will you shall serve.</b></i>"  With a low exhale the room settles from the warped space that had dominated the background.  You let out a staggering breath, realizing for the first time the edge you had been kept on.  Your ' +
                         this.cockDescript(x) +
@@ -2092,7 +2092,7 @@ export class Dominika extends TelAdreAbstractContent {
         }
         this.player.orgasm();
         this.dynStats("lib", 5, "sen", -15);
-        //[Next]
+        // [Next]
         this.doNext(this.dominikaBlowjobs2);
     }
 
@@ -2107,7 +2107,7 @@ export class Dominika extends TelAdreAbstractContent {
             "After a lot of water, you feel a little better.  Something nags at the back of your mind, an itch you can't quite scratch but persistently remains.  You feel as though you've forgotten something important, and perhaps even essential, but cannot think of any clues as to what.  ",
             false
         );
-        //[Agreed with Dominika]
+        // [Agreed with Dominika]
         if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00157] == 1 ||
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00157] == 4
@@ -2116,7 +2116,7 @@ export class Dominika extends TelAdreAbstractContent {
                 "At the same time, you get the sense that perhaps it's for the best you did so.",
                 false
             );
-        //[Disagreed/Neutral with Dominika]
+        // [Disagreed/Neutral with Dominika]
         else
             this.outputText(
                 "It deeply bothers you, leaving a sense of anxiety behind that you don't know how to deal with. You'll have to just hope something comes along that reminds you.",

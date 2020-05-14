@@ -13,47 +13,47 @@ import { TimeAwareInterface } from "../../../TimeAwareInterface";
 import { TamanisDaughters } from "./TamanisDaughters";
 
 export class TamainsDaughtersScene extends BaseContent implements TimeAwareInterface {
-    //New Status:
-    //+Tamani's Husband – (Still need too big loss scene and centaur version)
-    //--Every point in it adds to lust gain per turn vs Tamani or Tamani/wdaughters
-    //--Slight alteration to some scenes
-    //--Leads up to perk with Tamani autosexing (maybe bad end)
+    // New Status:
+    // +Tamani's Husband – (Still need too big loss scene and centaur version)
+    // --Every point in it adds to lust gain per turn vs Tamani or Tamani/wdaughters
+    // --Slight alteration to some scenes
+    // --Leads up to perk with Tamani autosexing (maybe bad end)
 
-    //Fuck Them:
-    //	*Fits
-    //	 *Alternate Tamani scenes directly in the event.
-    //	*Doesnt Fit
-    //	 *Alternate Tamani scenes directly in the event.
+    // Fuck Them:
+    // 	*Fits
+    // 	 *Alternate Tamani scenes directly in the event.
+    // 	*Doesnt Fit
+    // 	 *Alternate Tamani scenes directly in the event.
 
-    //Let Them:
-    //	*Fits
-    //	 *Tamani Is Here
-    //	 *No Tamani
-    //	*Doesnt Fit
-    //	 *No Tamani
-    //	 *Tamani is here
+    // Let Them:
+    // 	*Fits
+    // 	 *Tamani Is Here
+    // 	 *No Tamani
+    // 	*Doesnt Fit
+    // 	 *No Tamani
+    // 	 *Tamani is here
 
-    //Win:
-    //*Rape -> "Fuck Them" scenes.
+    // Win:
+    // *Rape -> "Fuck Them" scenes.
 
-    //Lose:
-    //	*Daughters drag PC back to caves and milking machine action ensues.
-    //	*Tamani is there and hypno's the PC, then orgy ensues.
+    // Lose:
+    // 	*Daughters drag PC back to caves and milking machine action ensues.
+    // 	*Tamani is there and hypno's the PC, then orgy ensues.
 
-    //Variables to track:
-    //	Number of Daughters – Capped at 19 if PC has not yet encountered them yet.
-    //"Tamani" v2
-    //	Times Encountered – 0 → infinity
-    //flags[kFLAGS.TIMES_ENCOUNTED_TAMANIS_DAUGHTERS]
-    //	Tamani Hypno Level – increases by 1 for each hypno event.  1-4 slight lust raises, 5-9 medium lust raises, 10-19 super high lust raises, 20+ high chance of autorape with special scene.
-    //flags[kFLAGS.TAMANI_TIMES_HYPNOTISED]
-    //	Daughter Preg Counter – they will not return until this countdown timer is 0.  Same length as Tamani's incubation – approx 1 week.
-    //flags[kFLAGS.TAMANI_DAUGHTER_PREGGO_COUNTDOWN]
-    //Tamani's Daughters – Tracked every birthing.  High cum production characters will produce more //Tamani babies and thus grow the mob (and achieve bad-end) faster.
-    //Tamani's Daughters first arrive after #12 is born.
-    //Tamani's Daughters encounter is expanded after #20
-    //Tamani's Daughters gets much harder @ #40
-    //Tamani's Daughters gets nigh-impossible @ #60
+    // Variables to track:
+    // 	Number of Daughters – Capped at 19 if PC has not yet encountered them yet.
+    // "Tamani" v2
+    // 	Times Encountered – 0 → infinity
+    // flags[kFLAGS.TIMES_ENCOUNTED_TAMANIS_DAUGHTERS]
+    // 	Tamani Hypno Level – increases by 1 for each hypno event.  1-4 slight lust raises, 5-9 medium lust raises, 10-19 super high lust raises, 20+ high chance of autorape with special scene.
+    // flags[kFLAGS.TAMANI_TIMES_HYPNOTISED]
+    // 	Daughter Preg Counter – they will not return until this countdown timer is 0.  Same length as Tamani's incubation – approx 1 week.
+    // flags[kFLAGS.TAMANI_DAUGHTER_PREGGO_COUNTDOWN]
+    // Tamani's Daughters – Tracked every birthing.  High cum production characters will produce more //Tamani babies and thus grow the mob (and achieve bad-end) faster.
+    // Tamani's Daughters first arrive after #12 is born.
+    // Tamani's Daughters encounter is expanded after #20
+    // Tamani's Daughters gets much harder @ #40
+    // Tamani's Daughters gets nigh-impossible @ #60
 
     public pregnancy: PregnancyStore;
 
@@ -68,7 +68,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         CoC.timeAwareClassAdd(this);
     }
 
-    //Implementation of TimeAwareInterface
+    // Implementation of TimeAwareInterface
     public timeChange(): boolean {
         this.pregnancy.pregnancyAdvance(); //Preg should be 7*24, ends at 0 to -48 --> 9*24, ends at 0
         trace(
@@ -86,14 +86,14 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
             this.flags[kFLAGS.TAMANI_DAUGHTERS_PREGNANCY_COUNT] = 0;
             this.pregnancy.knockUpForce(); //Clear Pregnancy
         }
-        //Put a cap on daughters if they havent been met yet.
+        // Put a cap on daughters if they havent been met yet.
         if (
             this.flags[kFLAGS.TIMES_ENCOUNTED_TAMANIS_DAUGHTERS] == 0 &&
             this.flags[kFLAGS.TAMANI_NUMBER_OF_DAUGHTERS] > 30
         ) {
             this.flags[kFLAGS.TAMANI_NUMBER_OF_DAUGHTERS] = 30;
         }
-        //Lower daughter population by 1 every fourth day once population gets high
+        // Lower daughter population by 1 every fourth day once population gets high
         if (
             this.flags[kFLAGS.TAMANI_NUMBER_OF_DAUGHTERS] > 40 &&
             this.model.time.hours > 23 &&
@@ -107,15 +107,15 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
     public timeChangeLarge(): boolean {
         return false;
     }
-    //End of Interface Implementation
+    // End of Interface Implementation
 
     static tamaniPresent: boolean = false; //Used to communicate between this class and TamanisDaughters.as
 
-    //Prime daughter tit-size
-    //12-20 – C
-    //21- 40 DD
-    //41 –60 E
-    //30+ - F mother fucker!
+    // Prime daughter tit-size
+    // 12-20 – C
+    // 21- 40 DD
+    // 41 –60 E
+    // 30+ - F mother fucker!
     private tdCup(): string {
         if (this.flags[kFLAGS.TAMANI_NUMBER_OF_DAUGHTERS] < 20) return "C";
         else if (this.flags[kFLAGS.TAMANI_NUMBER_OF_DAUGHTERS] < 30) return "D";
@@ -125,7 +125,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         return "F";
     }
 
-    //ENCOUNTER:
+    // ENCOUNTER:
     public encounterTamanisDaughters(): void {
         this.spriteSelect(57);
         this.flags[kFLAGS.TIMES_ENCOUNTED_TAMANIS_DAUGHTERS]++;
@@ -151,7 +151,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                     " breasts jiggling, barely contained by the bondage ropes she has tied around herself.  She stops once she's next to her mother and Tamani explains, \"<i>I just can't keep their aching cunts at home anymore!  They're fertile adults now and they're wanting to get some experience with real dicks.  I figured you wouldn't mind helping them out a little.</i>\"\n\nWhat do you do? (Fight them off, Fuck them willingly, Let them fuck you)",
                 false
             );
-            //[Fuck Them] [Let Them] [Fight]
+            // [Fuck Them] [Let Them] [Fight]
             this.simpleChoices(
                 "Fight",
                 this.fightTamanisDaughters,
@@ -182,13 +182,13 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                 "-breasts jiggling, barely contained by the bondage ropes she has tied around herself.\n\n",
             false
         );
-        //first time
+        // first time
         if (this.flags[kFLAGS.TIMES_FUCKED_TAMANIS_DAUGHTERS] == 0) {
             this.outputText(
                 "She calls out, \"<i>We're tired of getting leftovers, so we're coming to the source.  Are you going to give us what we want?</i>\"\n\n",
                 false
             );
-            //[Fuck them] [Fight] [Play Dumb]
+            // [Fuck them] [Fight] [Play Dumb]
             this.simpleChoices(
                 "Fight",
                 this.fightTamanisDaughters,
@@ -221,7 +221,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         }
     }
 
-    //[Play Dumb]
+    // [Play Dumb]
     private playDumbToTamanisDaughters(): void {
         this.spriteSelect(57);
         this.outputText("", true);
@@ -232,7 +232,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
             false
         );
 
-        //approx 33% chance at 0 int, going up the smarter you are.
+        // approx 33% chance at 0 int, going up the smarter you are.
         if (this.player.inte / 2 + 25 > TamainsDaughtersScene.rand(75)) {
             this.outputText(
                 'The leader looks you up and down for a moment.  Her face slowly contorts to puzzlement, then rage, "<i>Tammi you ditz!  I thought you said this was his trail?  Come on girls, we\'ve got a dad to hunt.</i>"\n\n',
@@ -255,7 +255,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
             this.outputText("first ", false);
         this.outputText('litters one way or another!</i>"\n\n', false);
 
-        //[Fuck them] [Fight] [Let them have their way with you]
+        // [Fuck them] [Fight] [Let them have their way with you]
         this.simpleChoices(
             "Fuck Them",
             this.fuckYoDaughtersHomie,
@@ -270,7 +270,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         );
     }
 
-    //[Fight Them]
+    // [Fight Them]
     private fightTamanisDaughters(): void {
         this.outputText("", true);
 
@@ -281,24 +281,24 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         this.startCombat(new TamanisDaughters());
         this.spriteSelect(57);
         if (TamainsDaughtersScene.tamaniPresent) {
-            //(+5 mob strength)
+            // (+5 mob strength)
             this.monster.str += 5;
-            //(+5 mob toughness)
+            // (+5 mob toughness)
             this.monster.tou += 5;
             this.monster.HP += 10;
-            //(-20 mob lust)
+            // (-20 mob lust)
             this.monster.lust -= 20;
-            //append combat desc
+            // append combat desc
             this.monster.long +=
                 " <b>Tamani lurks in the back of the crowd, curvier than her brood and watching with a mixture of amusement and irritation.  She runs a hand through her pink and black hair, waiting for an opportunity to get involved...</b>";
         }
         return;
     }
 
-    //(COMBAT TEXT:  You're fighting Tamani's brood.  All total, there are (x) of them spread in a loose circle around you.  Most of them have their hair dyed wild colors, and dress in little more than fetish clothing – for easy access you assume.  Some are dolled up with make-up, others have oiled their luscious forms, and a few are stopping to kiss and lick each other, putting on a show for their latest victim.  (Tamani is here as well, fighting her way to the forefront and absently massaging one of her \" + tamaniChest + \" as eyehumps your body.\")
-    //(Combat is 1 attack per 10 girls + 1x Tamani attack)
+    // (COMBAT TEXT:  You're fighting Tamani's brood.  All total, there are (x) of them spread in a loose circle around you.  Most of them have their hair dyed wild colors, and dress in little more than fetish clothing – for easy access you assume.  Some are dolled up with make-up, others have oiled their luscious forms, and a few are stopping to kiss and lick each other, putting on a show for their latest victim.  (Tamani is here as well, fighting her way to the forefront and absently massaging one of her \" + tamaniChest + \" as eyehumps your body.\")
+    // (Combat is 1 attack per 10 girls + 1x Tamani attack)
 
-    //[Fuck them]
+    // [Fuck them]
     private fuckYoDaughtersHomie(): void {
         this.spriteSelect(57);
         this.flags[kFLAGS.TIMES_FUCKED_TAMANIS_DAUGHTERS]++;
@@ -323,9 +323,9 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         else this.outputText("crowd", false);
         this.outputText(" surges forwards, mobbing you from all sides.  ", false);
 
-        //Find a dick that fits
+        // Find a dick that fits
         var primary: number = this.player.cockThatFits(50);
-        //(Fits)
+        // (Fits)
         if (primary >= 0) {
             this.outputText(
                 "You pick a random body from the crowd, impaling her on your " +
@@ -427,7 +427,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                 false
             );
 
-            //(Go to End if < 10 daughters), else keep goin
+            // (Go to End if < 10 daughters), else keep goin
             if (daughters > 10) {
                 this.outputText(
                     "As your orgasm trails off, your green cock-sleeve is removed.  You sigh happily, glad the ordeal is over.  Your " +
@@ -462,7 +462,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                         false
                     );
                 }
-                //Else:
+                // Else:
                 else {
                     this.outputText(
                         "The first daughter to take your seed climbs onto your face and plants herself there, smearing your " +
@@ -491,7 +491,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                     false
                 );
 
-                //(Go to end unless daughters > 20)
+                // (Go to end unless daughters > 20)
                 if (daughters > 20) {
                     this.outputText(
                         "You lie there, feeling like an empty husk.  The crowd starts to disperse",
@@ -524,7 +524,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                         );
                 }
             }
-            //(Normal end)
+            // (Normal end)
             if (daughters <= 20) {
                 this.outputText(
                     "Exhausted and shaken by the ordeal, you lie there as the girls regroup, gathering any dripping seed into bottles or their puffy cunts.  Several of them blow you kisses",
@@ -539,7 +539,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                 );
             }
         }
-        //[DOESNT FIT]
+        // [DOESNT FIT]
         else {
             this.outputText(
                 "You pick a random girl from the crowd, and the others crowd around, jealous of your chosen cock-sleeve.   Her cries of excitement rapidly turn to pain when you try to push in though.  She's just too small, even for a goblin.  You set her down, disappointed, but then she lies down in the grass and spreads her legs wide.  She says, \"<i>Since you're too big for us, how about we take turns lining up on the ground while some of us suck out your sticky goop?</i>\"\n\n",
@@ -624,7 +624,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                 " as she presses her hard nipples up against your " + this.player.legs() + ". ",
                 false
             );
-            //(No Tamani:
+            // (No Tamani:
             if (!TamainsDaughtersScene.tamaniPresent)
                 this.outputText(
                     "She presses something against your backdoor and before you have a chance to react, something hot and wet is filling your " +
@@ -688,7 +688,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
             );
             if (daughters < 20) {
             }
-            //(20+ daughters:
+            // (20+ daughters:
             else if (daughters < 30) {
                 this.outputText(
                     'A glass vial is slipped into your mouth as you lose consciousness, and you reflexively swallow.  You swear you could hear something about, "<i>not done yet,</i>" but you pass out.  Your dreams are far from restful, but full of pleasure.',
@@ -696,7 +696,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                 );
                 this.dynStats("tou", -0.5, "int", -0.5);
             }
-            //(30+ Daughters:
+            // (30+ Daughters:
             else {
                 this.outputText(
                     "Vial after vial is pressed against your mouth as liquids are poured down your throat.  Your body reflexively swallows and the massive jump in arousal prevents you from totally passing out.  You can't remember much before you truly lose consciousness, but one thing that sticks in your mind is some of your daughters asking, \"<i>Why don't we just bring Daddy back to camp and then we can fuck him whenever we want?</i>\"\n\nYou passed out before you could hear the answer.",
@@ -707,7 +707,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         }
         this.player.orgasm();
         this.dynStats("lib", 1, "cor", 1);
-        //Knock the bitches up, boost libido, corruption
+        // Knock the bitches up, boost libido, corruption
         if (TamainsDaughtersScene.tamaniPresent) kGAMECLASS.forest.tamaniScene.tamaniKnockUp(); //If she wasn't pregnant she will be now
         this.knockUpDaughters();
         this.player.cumMultiplier += 0.3;
@@ -715,13 +715,13 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         else this.doNext(this.camp.returnToCampUseFourHours);
     }
 
-    //[Let them]
+    // [Let them]
     private legTamanisDaughtersRAEPYou(): void {
         this.spriteSelect(57);
         this.flags[kFLAGS.TIMES_FUCKED_TAMANIS_DAUGHTERS]++;
         var cocks: number = this.player.totalCocks();
         var daughters: number = Math.floor(this.flags[kFLAGS.TAMANI_NUMBER_OF_DAUGHTERS] / 2);
-        //Find a dick that fits
+        // Find a dick that fits
         var primary: number = this.player.cockThatFits(50);
 
         this.outputText("", true);
@@ -752,8 +752,8 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
             "Through it all the other girls stay busy, Tamani's eldest daughter gets most of your attention while she continues  to stroke you off.  She squeezes and caresses it until your member is trembling in her hand, ready to explode.\n\n",
             false
         );
-        //(FORK BETWEEN TOO BIG AND FITS)
-        //[FITS]
+        // (FORK BETWEEN TOO BIG AND FITS)
+        // [FITS]
         if (primary >= 0) {
             this.outputText(
                 "Effortlessly, she straddles you and guides the entire length of your rod into her honeypot.  Amazingly the tiny girl is able to spread her cunt around you, forming a tight, but not uncomfortable, fit.  ",
@@ -831,7 +831,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                     false
                 );
 
-            //TAMANI IS THERE:
+            // TAMANI IS THERE:
             if (TamainsDaughtersScene.tamaniPresent) {
                 this.outputText(
                     'Tamani shoves the cum-filled girls out of her way and looks down at you with an expression of disdain, "<i>I swear honey, the way you act, I think your dick is already a slave to goblin-twat.</i>"\n\n',
@@ -933,14 +933,14 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                     '  As you lie there, drugged and drained, your daughters form up in a line and kiss you, one after another, each whispering pleasantries like, "<i>Thanks dad,</i>" or "<i>Yummy cum daddy,</i>" before flouncing off, sloshing into the woods.',
                     false
                 );
-                //increase hypno value
+                // increase hypno value
                 this.flags[kFLAGS.TAMANI_TIMES_HYPNOTISED]++;
-                //preggo up tamani
+                // preggo up tamani
                 kGAMECLASS.forest.tamaniScene.tamaniKnockUp();
             }
-            //NO TAMANI:
+            // NO TAMANI:
             else {
-                //(SMALL PACK)
+                // (SMALL PACK)
                 if (daughters < 20) {
                     this.outputText(
                         "The smaller girls take turns, mounting your cum-soaked rod one after another, using their hungry cunts like cum-sponges until your " +
@@ -992,7 +992,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                         false
                     );
                 }
-                //(MEDIUM PACK (or bigger))
+                // (MEDIUM PACK (or bigger))
                 else {
                     this.outputText(
                         "The smaller girls take turns, mounting your cum-soaked rod one after another, using their hungry cunts like cum-sponges until your " +
@@ -1086,22 +1086,22 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                             false
                         );
                     }
-                    //(LARGE PACK – as above minus last PG)
+                    // (LARGE PACK – as above minus last PG)
                     else {
                         this.outputText(
                             "Locked in a ceaseless orgasm, you're raped by one goblin after another.  A parade of tight pink pussies and their green-skinned owners passes by you, and once each of them is dripping with white seed, they take the time for a second pass.  You're raw, sore, and losing consciousness, but the huge mass of young goblins is far from done with you.  They force another potion into your throat as you lose consciousness.   Your dreams are filled with demented orgies where your dick is kept in one tight hole after another, a cruel reflection of reality.  When you awake they're gone and you're incredibly sore, but somehow still horny.  Getting dosed with so many goblin drugs in such a short time-span might not have been a good idea.",
                             false
                         );
-                        //libido/cumq/corruption booster?
+                        // libido/cumq/corruption booster?
                         this.dynStats("lib", 1, "cor", 0.5);
                         this.player.cumMultiplier += 0.3;
                     }
                 }
             }
         }
-        //[NO FIT]
+        // [NO FIT]
         else {
-            //	[No Tamani]
+            // 	[No Tamani]
             if (!TamainsDaughtersScene.tamaniPresent) {
                 this.outputText(
                     "Effortlessly, Tamani's daughter launches herself onto you, straddling your body as she tries to work your " +
@@ -1199,13 +1199,13 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                         " licks hard as your muscles tense with orgasm.  ",
                     false
                 );
-                //Single cock jizz scene
+                // Single cock jizz scene
                 if (cocks == 1) {
                     this.outputText(
                         "The daughter giggles and squeals as bulges of cum squeeze up your urethra, visibly shifting her tight body before squirting inside with wet, fluid noises.  Sloshing squishing noises fill the air as you submit to your jizz-devouring pack of daughters, feeding their insatiable need for sperm.  Pleasure rocks you as ",
                         false
                     );
-                    //Cum stuff
+                    // Cum stuff
                     if (this.player.cumQ() < 100)
                         this.outputText(
                             "your orgasm ends, pulsing weakly inside the sloppy goblin flesh.",
@@ -1233,13 +1233,13 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                             );
                     }
                 }
-                //Multi jizz scene
+                // Multi jizz scene
                 else {
                     this.outputText(
                         "The daughters giggle and squeal as bulges of cum squeeze up your urethras, visibly shifting their tight bodies before squirting inside with wet, fluid noises.  Sloshing squishing noises fill the air as you submit to your jizz-devouring pack of daughters, feeding their insatiable need for sperm.  Pleasure rocks you as ",
                         false
                     );
-                    //Orgazmo
+                    // Orgazmo
                     if (this.player.cumQ() < 100)
                         this.outputText(
                             "your orgasm ends, pulsing weakly inside the sloppy goblin flesh.",
@@ -1282,7 +1282,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                         " is now rock solid and beading pre-cum at the tip.  ",
                     false
                 );
-                //(single)
+                // (single)
                 if (cocks == 1)
                     this.outputText(
                         "The purple-lipped cock-slut grabs your " +
@@ -1294,7 +1294,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                             " pump weakly into the air in an instinctive bid to enhance the sensation.",
                         false
                     );
-                //(multiple)
+                // (multiple)
                 else {
                     this.outputText(
                         "The purple-lipped cock-slut grabs hold of one of your " +
@@ -1337,7 +1337,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                     "Ripples of convulsive pleasure wrack your midsection as you feel the muscular contractions of your orgasm threatening to tear you apart.   Your ",
                     false
                 );
-                //(single)
+                // (single)
                 if (cocks == 1)
                     this.outputText(
                         this.cockDescript(0) +
@@ -1346,7 +1346,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                             " like a geyser.   Soon everyone is spattered in a layer of the stuff, and your gut-clenching orgasm tapers down to a more reasonable, but constant, slow flow of semen.  Each of your daughters comes up and takes turns angling your shaft into her waiting cunt, allowing the thick fluid to fill her to capacity before waddling off.  Then the next girl does the same, and the next, and the next...",
                         false
                     );
-                //(Multi)
+                // (Multi)
                 else
                     this.outputText(
                         this.multiCockDescriptLight() +
@@ -1360,7 +1360,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                     false
                 );
             }
-            //[Tamani is There]
+            // [Tamani is There]
             else {
                 this.outputText(
                     "A scuffle in the crowd breaks out to your right, and though you can hear it, the jiggling ass and delicious pussy of the goblin slut on your face makes it impossible to see what's going on.  You do what any horny " +
@@ -1444,7 +1444,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                     false
                 );
 
-                //(MULTI)
+                // (MULTI)
                 if (cocks > 2) {
                     this.outputText(
                         "Meanwhile your other " +
@@ -1468,7 +1468,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                         false
                     );
                 }
-                //(SINGLE EXTRA)
+                // (SINGLE EXTRA)
                 else if (cocks == 2) {
                     this.outputText(
                         "Meanwhile your other " +
@@ -1504,19 +1504,19 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                     "While you continue to fertilize the slutty goblin girls, Tamani is nice enough to remove your gag.  Sadly, you're too drunk with pleasure and Tamani's chemicals to do anything but pant and drool, but it was a nice gesture.  ",
                     false
                 );
-                //(SMALL CROWD:
+                // (SMALL CROWD:
                 if (daughters < 20)
                     this.outputText(
                         "The crowd of girls takes their time since there's only around a dozen or so left to fill.  They ride you long and hard, getting their wombs packed full and making a mess while they do it.  Even after all of them has been filled, Tamani's potent chemicals keep you locked in orgasm, dripping unholy amounts of semen everywhere.  A few of the more daring of your offspring take turns sliding the tip into their tight assholes, allowing you to fill them completely as the drugs finally begin to wear off.\n\n",
                         false
                     );
-                //(ALT MORE GIRLZ)
+                // (ALT MORE GIRLZ)
                 else if (daughters < 35)
                     this.outputText(
                         "The crowd of girls seems to take forever to get filled.  Every time one of them gets too into it, her mother pulls her back and guides the next willing hole into place.  In spite of the orderly procession, cum manages to get everywhere, soaking your torso and more than a few goblin thighs with a glaze of whiteness.  The whole time, you're kept in constant orgasm, though by the time you're filling the last girl with cum, the flow is slowing while the chemicals wear off.\n\n",
                         false
                     );
-                //(ALT TOO MANY GIRLZ)
+                // (ALT TOO MANY GIRLZ)
                 else
                     this.outputText(
                         "The massive crowd is forced to carefully ration your semen, bountiful though it is.   Tamani doesn't even let the girls get completely filled, instead forcing each of them to only get a few cunt-filling moments of your orgasm.  Those who've already had a turn hang around, scooping up the sperm-filled fluid that's leaking out and shoveling it into their baby-craving bodies.  The whole time you're kept locked in incredible climax.  If you had any capacity for reason you'd probably feel more like a tool than " +
@@ -1565,7 +1565,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                     'Pink haze crowds away your thoughts as your glare melts away into dopey confusion.  Tamani giggles and says, "<i>',
                     false
                 );
-                //(Done before)
+                // (Done before)
                 if (this.flags[kFLAGS.TAMANI_TIMES_HYPNOTISED] > 0)
                     this.outputText(
                         "Don't you remember the last time we did this?  Of course not.</i>\"  Your hot goblin wife gestures at your suddenly swollen and erect " +
@@ -1573,7 +1573,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                             ', and continues, "<i>Your dick remembers my special potion though.  Now, let\'s get back to teaching that wonderful cum-spout of yours how to behave around its wife and mistress.</i>"\n\n',
                         false
                     );
-                //(Not Done Before)
+                // (Not Done Before)
                 else
                     this.outputText(
                         "I mixed a special potion in that drink.   It shuts down all those pesky thoughts so you'll listen to your wonderful wife and let her tell you how to think and feel.</i>\"  She strokes your partially softened " +
@@ -1628,13 +1628,13 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                     "Your mistress steps away, swaying her more-than ample hips from side to side as she saunters off.  You shake your head, feeling a little out of sorts, but before you get a chance to puzzle it out, the exhaustion of the encounter overwhelms you, blacking you out.",
                     false
                 );
-                //knock up tamani chance
+                // knock up tamani chance
                 kGAMECLASS.forest.tamaniScene.tamaniKnockUp();
-                //increase hypno value
+                // increase hypno value
                 this.flags[kFLAGS.TAMANI_TIMES_HYPNOTISED]++;
             }
         }
-        //knock bitches up, slight libido gain, slight strength/toughness loss.
+        // knock bitches up, slight libido gain, slight strength/toughness loss.
         this.player.orgasm();
         this.dynStats("str", -0.5, "int", -0.5, "lib", 1, "cor", 1);
         if (TamainsDaughtersScene.tamaniPresent) kGAMECLASS.forest.tamaniScene.tamaniKnockUp(); //If she wasn't pregnant she will be now
@@ -1643,13 +1643,13 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         else this.doNext(this.camp.returnToCampUseFourHours);
     }
 
-    //[Lose Combat, Get Your Dick DRAINED]
+    // [Lose Combat, Get Your Dick DRAINED]
     private tamaniDaughtersCombatLossDrain(): void {
         this.spriteSelect(57);
         this.flags[kFLAGS.TIMES_FUCKED_TAMANIS_DAUGHTERS]++;
         this.outputText("", true);
 
-        //Vars
+        // Vars
         var cocks: number = this.player.totalCocks();
         // var daughters: number = Math.floor(this.flags[kFLAGS.TAMANI_NUMBER_OF_DAUGHTERS] / 2);
 
@@ -1689,7 +1689,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
             false
         );
 
-        //(regular lower body)
+        // (regular lower body)
         if (this.player.lowerBody != LOWER_BODY_TYPE_CENTAUR) {
             this.outputText(
                 "The hands holding you slowly lower you into a comfortable feeling chair, securing your " +
@@ -1712,7 +1712,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                     false
                 );
         }
-        //(Shit taurs go!)
+        // (Shit taurs go!)
         else {
             this.outputText(
                 "The hands holding you slowly lower you down onto your back, guiding you into a combination chair and harness designed to accommodate a centuar's size and shape.  Before you know it, straps secure your " +
@@ -1817,7 +1817,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
             );
 
         this.outputText("You blush, ", false);
-        //EXHIBITIONISTZ
+        // EXHIBITIONISTZ
         if (this.flags[kFLAGS.PC_FETISH] > 0)
             this.outputText(
                 "unimaginably turned on by being used and abused by such machinery in front of an audience of your own horny children.",
@@ -1945,22 +1945,22 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
             }
             this.cleanupAfterCombat();
         }
-        //(ALT – BAD END GATEWAY)
+        // (ALT – BAD END GATEWAY)
         else {
             this.outputText(
                 "You lose consciousness a few hours into the ordeal, still cumming with no sign of stopping, your body sustained by the fluids pouring into your backside.  The dreams you have are a constant barrage of sexual situations, flitting between various incongruous orgasmic acts.  Were you capable of comprehending your situation, you probably wouldn't even want to wake up.  Thankfully, your unwished desires become reality.",
                 false
             );
-            //[NEXT]
+            // [NEXT]
             this.doNext(this.tamaniDaughtersBadEndChoice);
         }
-        //Needz variable to track how many times PC has been 'chaired'
+        // Needz variable to track how many times PC has been 'chaired'
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00058]++;
-        //moar daughters, increment 'times milked' by the daughters.
+        // moar daughters, increment 'times milked' by the daughters.
         this.knockUpDaughters();
-        //boost cum production slightly.
+        // boost cum production slightly.
         this.player.cumMultiplier += 0.3;
-        //increase libido, slight corruption, minus stregth and speed.
+        // increase libido, slight corruption, minus stregth and speed.
         this.player.orgasm();
         this.dynStats("str", -0.5, "int", -0.5, "lib", 1, "cor", 1);
     }
@@ -2003,7 +2003,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         );
     }
 
-    //[Yes]
+    // [Yes]
     private tamaniDaughtersYesBadEndMePlease(): void {
         this.spriteSelect(57);
         this.outputText("", true);
@@ -2028,7 +2028,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         this.getGame().gameOver();
     }
 
-    //[NO]
+    // [NO]
     private tamaniDaughtersDeclineBadEnd(): void {
         this.spriteSelect(57);
         this.outputText("", true);
@@ -2057,7 +2057,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         );
         this.cleanupAfterCombat();
     }
-    //[Rather Fill Individually]
+    // [Rather Fill Individually]
     private tamanisDaughtersFillIndividuallyBADEND(): void {
         this.spriteSelect(57);
         this.outputText("", true);
@@ -2108,12 +2108,12 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         this.getGame().gameOver();
     }
 
-    //[Lose to Daughters With Tamani There]
+    // [Lose to Daughters With Tamani There]
     private loseToDaughtersWithTamaniThere(): void {
         this.spriteSelect(57);
         this.outputText("", true);
         this.flags[kFLAGS.TIMES_FUCKED_TAMANIS_DAUGHTERS]++;
-        //Find a dick that fits
+        // Find a dick that fits
         var primary: number = this.player.cockThatFits(50);
 
         this.outputText(
@@ -2220,19 +2220,19 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                 "Cum splatters and drips down Tamani's hand, forming a tiny puddle on your chest.",
                 false
             );
-        //(ALT)
+        // (ALT)
         else if (this.player.cumQ() < 250)
             this.outputText(
                 "Cum splatters over Tamani's hand and forearm, even hitting her ass and hips as you form a thick puddle over your torso that drips to the ground.",
                 false
             );
-        //(ALT2)
+        // (ALT2)
         else if (this.player.cumQ() < 600)
             this.outputText(
                 "Cum splatters out in thick waves, soaking Tamani's hand, forearm, and hips with thick puddles of the stuff.  It pools on your belly for a moment, then rolls off you, forming a small pool on the ground as you keep squirting.",
                 false
             );
-        //(ALT3)
+        // (ALT3)
         else {
             this.outputText(
                 "A massive wave of cum erupts from you, soaking Tamani from the shoulders to the knees in thick goop.  The next wave comes out with less force, pooling your belly before rolling off to puddle on the ground.   The puddle grows into a thick pool of the stuff as your orgasm drags on.",
@@ -2275,7 +2275,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                 false
             );
 
-        //(TOO BIG)
+        // (TOO BIG)
         if (primary < 0) {
             this.outputText(
                 "Sadly, you're just too big to properly impregnate your daughter, and a stab of worry that you might be a bad father lances through you.  ",
@@ -2319,7 +2319,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                 false
             );
         }
-        //(FITS)
+        // (FITS)
         else {
             this.outputText(
                 "Thankfully, the hungry goblin twat is able to devour your " +
@@ -2368,11 +2368,11 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                 false
             );
         }
-        //Chance of tamani pregnancy, chance of daughter preggers
+        // Chance of tamani pregnancy, chance of daughter preggers
         this.knockUpDaughters();
         kGAMECLASS.forest.tamaniScene.tamaniKnockUp();
         this.flags[kFLAGS.TAMANI_TIMES_HYPNOTISED]++;
-        //daughter countdown reset.
+        // daughter countdown reset.
         this.player.orgasm();
         this.dynStats("str", -0.5, "int", -0.5, "lib", 1, "sen", 1, "cor", 1);
         if (this.getGame().inCombat) this.cleanupAfterCombat();
@@ -2382,10 +2382,10 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
     private knockUpDaughters(): void {
         if (this.pregnancy.isPregnant) return;
         this.pregnancy.knockUpForce(PregnancyStore.PREGNANCY_PLAYER, 216); //Nine day long pregnancy, just like mom
-        //Determine how many kids...
+        // Determine how many kids...
         this.flags[kFLAGS.TAMANI_DAUGHTERS_PREGNANCY_COUNT] = 2;
         var cum: number = this.player.cumQ();
-        //Breeder perk is awesome
+        // Breeder perk is awesome
         if (this.player.findPerk(PerkLib.MaraesGiftStud) >= 0)
             this.flags[kFLAGS.TAMANI_DAUGHTERS_PREGNANCY_COUNT] += 3;
         if (cum >= 50 && TamainsDaughtersScene.rand(2) == 0)
@@ -2442,7 +2442,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
     public loseToDaughters(): void {
         this.spriteSelect(57);
         if (this.player.lust > 99) {
-            //worms r gross mmmmkay?
+            // worms r gross mmmmkay?
             if (this.player.findStatusAffect(StatusAffects.Infested) >= 0) {
                 kGAMECLASS.infestOrgasm();
                 this.outputText(
@@ -2475,7 +2475,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                 return;
             }
         }
-        //hp loss
+        // hp loss
         else {
             this.outputText(
                 "\n\nOverwhelmed by your wounds, you can't even try to stop the goblin horde...",

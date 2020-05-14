@@ -19,7 +19,7 @@ export class Plains extends BaseContent {
     public explorePlains(): void {
         this.outputText("", true);
         this.flags[kFLAGS.TIMES_EXPLORED_PLAINS]++;
-        //Dem Kangasluts!  Force Sheila relationship phase!
+        // Dem Kangasluts!  Force Sheila relationship phase!
         if (
             this.flags[kFLAGS.SHEILA_DEMON] == 0 &&
             this.flags[kFLAGS.SHEILA_XP] == 3 &&
@@ -29,7 +29,7 @@ export class Plains extends BaseContent {
             kGAMECLASS.sheilaScene.sheilaXPThreeSexyTime();
             return;
         }
-        //Add some holiday cheer
+        // Add some holiday cheer
         if (
             this.isHolidays() &&
             this.date.fullYear > this.flags[kFLAGS.CANDY_CANE_YEAR_MET] &&
@@ -48,7 +48,7 @@ export class Plains extends BaseContent {
             this.flags[kFLAGS.POLAR_PETE_YEAR_MET] = this.date.fullYear;
             return;
         }
-        //Helia monogamy fucks
+        // Helia monogamy fucks
         if (
             this.flags[kFLAGS.PC_PROMISED_HEL_MONOGAMY_FUCKS] == 1 &&
             this.flags[kFLAGS.HEL_RAPED_TODAY] == 0 &&
@@ -59,12 +59,12 @@ export class Plains extends BaseContent {
             kGAMECLASS.helScene.helSexualAmbush();
             return;
         }
-        //Find Niamh
+        // Find Niamh
         if (this.flags[kFLAGS.NIAMH_MOVED_OUT_COUNTER] == 1) {
             kGAMECLASS.telAdre.niamh.niamhPostTelAdreMoveOut();
             return;
         }
-        //Find Owca
+        // Find Owca
         if (
             this.player.level >= 8 &&
             this.flags[kFLAGS.TIMES_EXPLORED_PLAINS] % 25 == 0 &&
@@ -73,7 +73,7 @@ export class Plains extends BaseContent {
             kGAMECLASS.owca.gangbangVillageStuff();
             return;
         }
-        //Bazaar!
+        // Bazaar!
         if (
             this.flags[kFLAGS.TIMES_EXPLORED_PLAINS] % 10 == 0 &&
             this.flags[kFLAGS.BAZAAR_ENTERED] == 0
@@ -81,7 +81,7 @@ export class Plains extends BaseContent {
             kGAMECLASS.bazaar.findBazaar();
             return;
         }
-        //Chance of threesomes!
+        // Chance of threesomes!
         if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00256] != 0 &&
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00257] != 0 &&
@@ -91,12 +91,12 @@ export class Plains extends BaseContent {
             this.flags[kFLAGS.TIMES_EXPLORED_PLAINS] % 21 == 0 &&
             !(this.player.tallness > 78 && this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00258] == 0)
         ) {
-            //Hell/Izzy threesome intro
+            // Hell/Izzy threesome intro
             if (this.flags[kFLAGS.HEL_ISABELLA_THREESOME_ENABLED] == 0) {
                 kGAMECLASS.helScene.salamanderXIsabellaPlainsIntro();
                 return;
             }
-            //Propah threesomes here!
+            // Propah threesomes here!
             else if (this.flags[kFLAGS.HEL_ISABELLA_THREESOME_ENABLED] == 1) {
                 kGAMECLASS.helScene.isabellaXHelThreeSomePlainsStart();
                 return;
@@ -123,23 +123,23 @@ export class Plains extends BaseContent {
         choices[choices.length] = this.satyrScene.satyrEncounter;
         choices[choices.length] = this.satyrScene.satyrEncounter;
         if (this.flags[kFLAGS.SHEILA_DISABLED] == 0 && this.flags[kFLAGS.SHEILA_CLOCK] >= 0) {
-            //Aparently Sheila was supposed to be disabled after certain events - now fixed
+            // Aparently Sheila was supposed to be disabled after certain events - now fixed
             choices[choices.length] = kGAMECLASS.sheilaScene.sheilaEncounterRouter;
             choices[choices.length] = kGAMECLASS.sheilaScene.sheilaEncounterRouter;
         }
-        //Pick one
+        // Pick one
         choices[Plains.rand(choices.length)]();
     }
 
     private plainsLoot(): void {
         if (Plains.rand(2) == 0) {
-            //OVI
+            // OVI
             this.outputText(
                 "While exploring the plains you nearly trip over a discarded, hexagonal bottle.  "
             );
             this.inventory.takeItem(this.consumables.OVIELIX, this.camp.returnToCampUseOneHour);
         } else {
-            //FIND KANGAAA
+            // FIND KANGAAA
             this.outputText(
                 "While exploring the plains you come across a strange-looking plant.  As you peer at it, you realize it has some fruit you can get at.  "
             );

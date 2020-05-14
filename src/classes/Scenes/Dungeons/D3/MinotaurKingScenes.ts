@@ -52,7 +52,7 @@ export class MinotaurKingScenes extends BaseContent {
     public theKingIsDeadLongLiveTheKing(hpVictory: boolean): void {
         this.flags[kFLAGS.MINOTAURKING_DEFEATED] = 1;
 
-        //Cannot be defeated by HP loss, so only writing lust win texts.
+        // Cannot be defeated by HP loss, so only writing lust win texts.
         this.clearOutput();
         this.outputText(
             "The King’s axe clatters on noisily on the ground. A gasp runs through the corrupt host as one of their mightiest champions drops to his knees, staring at his dick and furiously pumping it with both hands. Nearly insensate with need, he topples over, humping his own hands with so much enthusiasm that he’s lost interest in anything but immediate sexual gratification."

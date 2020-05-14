@@ -35,8 +35,8 @@ import { Flags, createFlags } from "./FlagTypeOverrides";
 
 export class Saves extends BaseContent {
     private static SAVE_FILE_CURRENT_INTEGER_FORMAT_VERSION: number = 816;
-    //Didn't want to include something like this, but an integer is safer than depending on the text version number from the CoC class.
-    //Also, this way the save file version doesn't need updating unless an important structural change happens in the save file.
+    // Didn't want to include something like this, but an integer is safer than depending on the text version number from the CoC class.
+    // Also, this way the save file version doesn't need updating unless an important structural change happens in the save file.
 
     private gameStateGet: any;
     private gameStateSet: any;
@@ -116,7 +116,7 @@ export class Saves extends BaseContent {
             var test: Record<string, any> = this.getSaveObj(this.saveFileNames[i]);
             this.outputText(this.loadSaveDisplay(test, String(i + 1)), false);
             if (test.exists && test.flags[2066] == undefined) {
-                //trace("Creating function with indice = ", i);
+                // trace("Creating function with indice = ", i);
                 ((i: number) => {
                     slots[i] = () => {
                         trace("Loading save with name", this.saveFileNames[i], "at index", i);
@@ -219,8 +219,8 @@ export class Saves extends BaseContent {
     public saveLoad(): void {
         // this.mainView.eventTestInput.x = -10207.5;
         // this.mainView.eventTestInput.y = -1055.1;
-        //Hide the name box in case of backing up from save
-        //screen so it doesnt overlap everything.
+        // Hide the name box in case of backing up from save
+        // screen so it doesnt overlap everything.
         // this.mainView.nameBox.visible = false;
         this.outputText("", true);
         this.outputText("<b>Where are my saves located?</b>\n", false);
@@ -252,7 +252,7 @@ export class Saves extends BaseContent {
         this.outputText(
             "<i>Save File and Load File are limited by the security settings imposed upon CoC by Flash. These options will only work if you have downloaded the game from the website, and are running it from your HDD. Additionally, they can only correctly save files to and load files from the directory where you have the game saved.</i>"
         );
-        //This is to clear the 'game over' block from stopping simpleChoices from working.  Loading games supercede's game over.
+        // This is to clear the 'game over' block from stopping simpleChoices from working.  Loading games supercede's game over.
         if (this.mainView.bottomButtons[0].labelText == "Game Over") {
             this.temp = 777;
             this.mainView.bottomButtons[0].labelText = "save/load";
@@ -392,7 +392,7 @@ export class Saves extends BaseContent {
             var test: Record<string, any> = this.getSaveObj(this.saveFileNames[i]);
             this.outputText(this.loadSaveDisplay(test, String(i + 1)), false);
             if (test.exists) {
-                //slots[i] = loadFuncs[i];
+                // slots[i] = loadFuncs[i];
 
                 trace("Creating function with indice = ", i);
                 ((i: number) => {
@@ -543,16 +543,16 @@ export class Saves extends BaseContent {
     OH GOD SOMEONE FIX THIS DISASTER!!!!111one1ONE!
 
     */
-    //FURNITURE'S JUNK
+    // FURNITURE'S JUNK
     public saveGameObject(slot: string, notes?: HTMLInputElement, exportFile?: boolean): void {
-        //Autosave stuff
+        // Autosave stuff
         if (this.player.slotName != "VOID") this.player.slotName = slot || "";
 
         var backupAborted: boolean = false;
 
         CoC.saveAllAwareClasses(this.getGame()); //Informs each saveAwareClass that it must save its values in the flags array
         // var counter: number = this.player.cocks.length;
-        //Initialize the save file
+        // Initialize the save file
         var saveFile: any;
         var backup;
         if (!slot) {
@@ -561,28 +561,28 @@ export class Saves extends BaseContent {
             saveFile = this.getSaveObj(slot);
         }
 
-        //Set a single variable that tells us if this save exists
+        // Set a single variable that tells us if this save exists
 
         saveFile.exists = true;
         saveFile.version = this.ver;
         this.flags[kFLAGS.SAVE_FILE_INTEGER_FORMAT_VERSION] =
             Saves.SAVE_FILE_CURRENT_INTEGER_FORMAT_VERSION;
 
-        //CLEAR OLD ARRAYS
+        // CLEAR OLD ARRAYS
 
-        //Save sum dataz
+        // Save sum dataz
         trace("SAVE DATAZ");
         saveFile.short = this.player.short;
         saveFile.a = this.player.a;
 
-        //Notes
+        // Notes
         if (notes && notes.value != "") {
             saveFile.notes = notes.value;
             this.getGame().notes = notes.value;
         } else saveFile.notes = this.getGame().notes;
 
         try {
-            //flags
+            // flags
             saveFile.flags = {};
             for (const key of Object.keys(this.flags)) {
                 // Don't save unset/default flags
@@ -592,20 +592,20 @@ export class Saves extends BaseContent {
             }
             let i = 0;
 
-            //CLOTHING/ARMOR
+            // CLOTHING/ARMOR
             saveFile.armorId = this.player.armor.id;
             saveFile.weaponId = this.player.weapon.id;
             saveFile.armorName = this.player.modArmorName;
-            //saveFile.weaponName = player.weaponName;// uncomment for backward compatibility
-            //saveFile.weaponVerb = player.weaponVerb;// uncomment for backward compatibility
-            //saveFile.armorDef = player.armorDef;// uncomment for backward compatibility
-            //saveFile.armorPerk = player.armorPerk;// uncomment for backward compatibility
-            //saveFile.weaponAttack = player.weaponAttack;// uncomment for backward compatibility
-            //saveFile.weaponPerk = player.weaponPerk;// uncomment for backward compatibility
-            //saveFile.weaponValue = player.weaponValue;// uncomment for backward compatibility
-            //saveFile.armorValue = player.armorValue;// uncomment for backward compatibility
+            // saveFile.weaponName = player.weaponName;// uncomment for backward compatibility
+            // saveFile.weaponVerb = player.weaponVerb;// uncomment for backward compatibility
+            // saveFile.armorDef = player.armorDef;// uncomment for backward compatibility
+            // saveFile.armorPerk = player.armorPerk;// uncomment for backward compatibility
+            // saveFile.weaponAttack = player.weaponAttack;// uncomment for backward compatibility
+            // saveFile.weaponPerk = player.weaponPerk;// uncomment for backward compatibility
+            // saveFile.weaponValue = player.weaponValue;// uncomment for backward compatibility
+            // saveFile.armorValue = player.armorValue;// uncomment for backward compatibility
 
-            //PIERCINGS
+            // PIERCINGS
             saveFile.nipplesPierced = this.player.nipplesPierced;
             saveFile.nipplesPShort = this.player.nipplesPShort;
             saveFile.nipplesPLong = this.player.nipplesPLong;
@@ -625,7 +625,7 @@ export class Saves extends BaseContent {
             saveFile.nosePShort = this.player.nosePShort;
             saveFile.nosePLong = this.player.nosePLong;
 
-            //MAIN STATS
+            // MAIN STATS
             saveFile.str = this.player.str;
             saveFile.tou = this.player.tou;
             saveFile.spe = this.player.spe;
@@ -634,18 +634,18 @@ export class Saves extends BaseContent {
             saveFile.sens = this.player.sens;
             saveFile.cor = this.player.cor;
             saveFile.fatigue = this.player.fatigue;
-            //Combat STATS
+            // Combat STATS
             saveFile.HP = this.player.HP;
             saveFile.lust = this.player.lust;
             saveFile.teaseLevel = this.player.teaseLevel;
             saveFile.teaseXP = this.player.teaseXP;
-            //LEVEL STATS
+            // LEVEL STATS
             saveFile.XP = this.player.XP;
             saveFile.level = this.player.level;
             saveFile.gems = this.player.gems;
             saveFile.perkPoints = this.player.perkPoints;
 
-            //Appearance
+            // Appearance
             saveFile.gender = this.player.gender;
             saveFile.femininity = this.player.femininity;
             saveFile.thickness = this.player.thickness;
@@ -679,7 +679,7 @@ export class Saves extends BaseContent {
             saveFile.hipRating = this.player.hipRating;
             saveFile.buttRating = this.player.buttRating;
 
-            //Sexual Stuff
+            // Sexual Stuff
             saveFile.balls = this.player.balls;
             saveFile.cumMultiplier = this.player.cumMultiplier;
             saveFile.ballSize = this.player.ballSize;
@@ -687,7 +687,7 @@ export class Saves extends BaseContent {
             saveFile.fertility = this.player.fertility;
             saveFile.clitLength = this.player.clitLength;
 
-            //Preggo stuff
+            // Preggo stuff
             saveFile.pregnancyIncubation = this.player.pregnancyIncubation;
             saveFile.pregnancyType = this.player.pregnancyType;
             saveFile.buttPregnancyIncubation = this.player.buttPregnancyIncubation;
@@ -708,11 +708,11 @@ export class Saves extends BaseContent {
             saveFile.keyItems = [];
             saveFile.itemStorage = [];
             saveFile.gearStorage = [];
-            //Set array
+            // Set array
             for (i = 0; i < this.player.cocks.length; i++) {
                 saveFile.cocks.push({});
             }
-            //Populate Array
+            // Populate Array
             for (i = 0; i < this.player.cocks.length; i++) {
                 saveFile.cocks[i].cockThickness = this.player.cocks[i].cockThickness;
                 saveFile.cocks[i].cockLength = this.player.cocks[i].cockLength;
@@ -723,11 +723,11 @@ export class Saves extends BaseContent {
                 saveFile.cocks[i].pLongDesc = this.player.cocks[i].pLongDesc;
                 saveFile.cocks[i].sock = this.player.cocks[i].sock;
             }
-            //Set Vaginal Array
+            // Set Vaginal Array
             for (i = 0; i < this.player.vaginas.length; i++) {
                 saveFile.vaginas.push({});
             }
-            //Populate Vaginal Array
+            // Populate Vaginal Array
             for (i = 0; i < this.player.vaginas.length; i++) {
                 saveFile.vaginas[i].type = this.player.vaginas[i].type;
                 saveFile.vaginas[i].vaginalWetness = this.player.vaginas[i].vaginalWetness;
@@ -741,16 +741,16 @@ export class Saves extends BaseContent {
                 saveFile.vaginas[i].clitPShort = this.player.vaginas[i].clitPShort;
                 saveFile.vaginas[i].clitPLong = this.player.vaginas[i].clitPLong;
             }
-            //NIPPLES
+            // NIPPLES
             saveFile.nippleLength = this.player.nippleLength;
-            //Set Breast Array
+            // Set Breast Array
             for (i = 0; i < this.player.breastRows.length; i++) {
                 saveFile.breastRows.push({});
-                //trace("Saveone breastRow");
+                // trace("Saveone breastRow");
             }
-            //Populate Breast Array
+            // Populate Breast Array
             for (i = 0; i < this.player.breastRows.length; i++) {
-                //trace("Populate One BRow");
+                // trace("Populate One BRow");
                 saveFile.breastRows[i].breasts = this.player.breastRows[i].breasts;
                 saveFile.breastRows[i].breastRating = this.player.breastRows[i].breastRating;
                 saveFile.breastRows[i].nipplesPerBreast = this.player.breastRows[
@@ -763,57 +763,57 @@ export class Saves extends BaseContent {
                 saveFile.breastRows[i].fuckable = this.player.breastRows[i].fuckable;
                 saveFile.breastRows[i].fullness = this.player.breastRows[i].fullness;
             }
-            //Set Perk Array
-            //Populate Perk Array
+            // Set Perk Array
+            // Populate Perk Array
             for (i = 0; i < this.player.perks.length; i++) {
                 saveFile.perks.push({});
-                //trace("Saveone Perk");
-                //trace("Populate One Perk");
+                // trace("Saveone Perk");
+                // trace("Populate One Perk");
                 saveFile.perks[i].id = this.player.perk(i).ptype.id;
-                //saveFile.perks[i].perkName = player.perk(i).ptype.id; //uncomment for backward compatibility
+                // saveFile.perks[i].perkName = player.perk(i).ptype.id; //uncomment for backward compatibility
                 saveFile.perks[i].value1 = this.player.perk(i).value1;
                 saveFile.perks[i].value2 = this.player.perk(i).value2;
                 saveFile.perks[i].value3 = this.player.perk(i).value3;
                 saveFile.perks[i].value4 = this.player.perk(i).value4;
-                //saveFile.perks[i].perkDesc = player.perk(i).perkDesc; // uncomment for backward compatibility
+                // saveFile.perks[i].perkDesc = player.perk(i).perkDesc; // uncomment for backward compatibility
             }
 
-            //Set Status Array
+            // Set Status Array
             for (i = 0; i < this.player.statusAffects.length; i++) {
                 saveFile.statusAffects.push({});
-                //trace("Saveone statusAffects");
+                // trace("Saveone statusAffects");
             }
-            //Populate Status Array
+            // Populate Status Array
             for (i = 0; i < this.player.statusAffects.length; i++) {
-                //trace("Populate One statusAffects");
+                // trace("Populate One statusAffects");
                 saveFile.statusAffects[i].statusAffectName = this.player.statusAffect(i).stype.id;
                 saveFile.statusAffects[i].value1 = this.player.statusAffect(i).value1;
                 saveFile.statusAffects[i].value2 = this.player.statusAffect(i).value2;
                 saveFile.statusAffects[i].value3 = this.player.statusAffect(i).value3;
                 saveFile.statusAffects[i].value4 = this.player.statusAffect(i).value4;
             }
-            //Set keyItem Array
+            // Set keyItem Array
             for (i = 0; i < this.player.keyItems.length; i++) {
                 saveFile.keyItems.push({});
-                //trace("Saveone keyItem");
+                // trace("Saveone keyItem");
             }
-            //Populate keyItem Array
+            // Populate keyItem Array
             for (i = 0; i < this.player.keyItems.length; i++) {
-                //trace("Populate One keyItemzzzzzz");
+                // trace("Populate One keyItemzzzzzz");
                 saveFile.keyItems[i].keyName = this.player.keyItems[i].keyName;
                 saveFile.keyItems[i].value1 = this.player.keyItems[i].value1;
                 saveFile.keyItems[i].value2 = this.player.keyItems[i].value2;
                 saveFile.keyItems[i].value3 = this.player.keyItems[i].value3;
                 saveFile.keyItems[i].value4 = this.player.keyItems[i].value4;
             }
-            //Set storage slot array
+            // Set storage slot array
             for (i = 0; i < this.itemStorageGet().length; i++) {
                 saveFile.itemStorage.push({});
             }
 
-            //Populate storage slot array
+            // Populate storage slot array
             for (i = 0; i < this.itemStorageGet().length; i++) {
-                //saveFile.itemStorage[i].shortName = itemStorage[i].itype.id;// For backward compatibility
+                // saveFile.itemStorage[i].shortName = itemStorage[i].itype.id;// For backward compatibility
                 saveFile.itemStorage[i].id =
                     this.itemStorageGet()[i].itype == undefined
                         ? undefined
@@ -821,14 +821,14 @@ export class Saves extends BaseContent {
                 saveFile.itemStorage[i].quantity = this.itemStorageGet()[i].quantity;
                 saveFile.itemStorage[i].unlocked = this.itemStorageGet()[i].unlocked;
             }
-            //Set gear slot array
+            // Set gear slot array
             for (i = 0; i < this.gearStorageGet().length; i++) {
                 saveFile.gearStorage.push({});
             }
 
-            //Populate gear slot array
+            // Populate gear slot array
             for (i = 0; i < this.gearStorageGet().length; i++) {
-                //saveFile.gearStorage[i].shortName = gearStorage[i].itype.id;// uncomment for backward compatibility
+                // saveFile.gearStorage[i].shortName = gearStorage[i].itype.id;// uncomment for backward compatibility
                 saveFile.gearStorage[i].id = this.gearStorageGet()[i].isEmpty()
                     ? undefined
                     : this.gearStorageGet()[i].itype.id;
@@ -839,7 +839,7 @@ export class Saves extends BaseContent {
             saveFile.ass.analWetness = this.player.ass.analWetness;
             saveFile.ass.analLooseness = this.player.ass.analLooseness;
             saveFile.ass.fullness = this.player.ass.fullness;
-            //EXPLORED
+            // EXPLORED
             saveFile.exploredLake = this.player.exploredLake;
             saveFile.exploredMountain = this.player.exploredMountain;
             saveFile.exploredForest = this.player.exploredForest;
@@ -851,19 +851,19 @@ export class Saves extends BaseContent {
             saveFile.foundLake = this.getGame().foundLake;
             saveFile.gameState = this.gameStateGet();
 
-            //Time and Items
+            // Time and Items
             saveFile.hours = this.model.time.hours;
             saveFile.days = this.model.time.days;
             saveFile.autoSave = this.player.autoSave;
 
-            //PLOTZ
+            // PLOTZ
             saveFile.whitney = this.getGame().whitney;
             saveFile.monk = this.getGame().monk;
             saveFile.sand = this.getGame().sand;
             saveFile.giacomo = this.getGame().giacomo;
             saveFile.beeProgress = 0; //Now saved in a flag. getGame().beeProgress;
 
-            //ITEMZ. Item1s
+            // ITEMZ. Item1s
             saveFile.itemSlot1 = [];
             saveFile.itemSlot1.quantity = this.player.itemSlot1.quantity;
             saveFile.itemSlot1.id = this.player.itemSlot1.itype.id;
@@ -908,7 +908,7 @@ export class Saves extends BaseContent {
         // Really, something needs to listen for the FileReference.complete event, and re-enable saving/loading then.
         // Something to do in the future
         if (exportFile) {
-            //outputText(serializeToString(saveFile), true);
+            // outputText(serializeToString(saveFile), true);
             saveAs(JSON.stringify(saveFile), "cocsave");
             this.outputText("Attempted to save to file.", true);
         } else {
@@ -1032,7 +1032,7 @@ export class Saves extends BaseContent {
     }
 
     public onDataLoaded(saveObj: any): void {
-        //var fileObj = readObjectFromStringBytes(loader.data);
+        // var fileObj = readObjectFromStringBytes(loader.data);
         try {
             // I want to be able to write some debug stuff to the GUI during the loading process
             // Therefore, we clear the display *before* calling loadGameObject
@@ -1054,31 +1054,31 @@ export class Saves extends BaseContent {
         //         doNext(returnToSaveMenu);
         //     }
         this.statScreenRefresh();
-        //eventParser(1);
+        // eventParser(1);
     }
 
     public loadGameObject(saveData: Record<string, any>, slot: string = "VOID"): void {
         var game: CoC = this.getGame();
         game.dungeonLoc = 0;
-        //Not needed, dungeonLoc = 0 does this:	game.inDungeon = false;
+        // Not needed, dungeonLoc = 0 does this:	game.inDungeon = false;
         game.inRoomedDungeon = false;
         game.inRoomedDungeonResume = undefined;
 
-        //Autosave stuff
+        // Autosave stuff
         this.player.slotName = slot;
 
         // var counter: number = this.player.cocks.length;
         trace("Loading save!");
-        //Initialize the save file
-        //var saveFile: Record<string, any> = loader.data.readObject();
+        // Initialize the save file
+        // var saveFile: Record<string, any> = loader.data.readObject();
         var saveFile: any = saveData;
         if (saveFile && saveFile.exists) {
-            //KILL ALL COCKS;
+            // KILL ALL COCKS;
             this.player = new Player();
             this.flags = createFlags();
             this.model.player = this.player;
 
-            //trace("Type of saveFile = ", getClass(saveFile));
+            // trace("Type of saveFile = ", getClass(saveFile));
 
             this.inventory.clearStorage();
             this.inventory.clearGearStorage();
@@ -1086,7 +1086,7 @@ export class Saves extends BaseContent {
             this.player.a = saveFile.a;
             game.notes = saveFile.notes;
 
-            //flags
+            // flags
 
             for (var key of Object.keys(this.flags)) {
                 if (saveFile.flags[key])
@@ -1094,9 +1094,9 @@ export class Saves extends BaseContent {
             }
             let i = 0;
 
-            //PIERCINGS
+            // PIERCINGS
 
-            //trace("LOADING PIERCINGS");
+            // trace("LOADING PIERCINGS");
             this.player.nipplesPierced = saveFile.nipplesPierced;
             this.player.nipplesPShort = saveFile.nipplesPShort;
             this.player.nipplesPLong = saveFile.nipplesPLong;
@@ -1116,7 +1116,7 @@ export class Saves extends BaseContent {
             this.player.nosePShort = saveFile.nosePShort;
             this.player.nosePLong = saveFile.nosePLong;
 
-            //MAIN STATS
+            // MAIN STATS
             this.player.str = saveFile.str;
             this.player.tou = saveFile.tou;
             this.player.spe = saveFile.spe;
@@ -1126,7 +1126,7 @@ export class Saves extends BaseContent {
             this.player.cor = saveFile.cor;
             this.player.fatigue = saveFile.fatigue;
 
-            //CLOTHING/ARMOR
+            // CLOTHING/ARMOR
             var found: boolean = false;
             if (saveFile.weaponId) {
                 this.player.setWeaponHiddenField(
@@ -1134,7 +1134,7 @@ export class Saves extends BaseContent {
                 );
             } else {
                 this.player.setWeapon(WeaponLib.FISTS);
-                //player.weapon = WeaponLib.FISTS;
+                // player.weapon = WeaponLib.FISTS;
                 const itemLib = ItemType.getItemLibrary();
                 for (var itype of Object.keys(itemLib)) {
                     if (
@@ -1159,7 +1159,7 @@ export class Saves extends BaseContent {
             } else {
                 found = false;
                 this.player.setArmor(ArmorLib.COMFORTABLE_UNDERCLOTHES);
-                //player.armor = ArmorLib.COMFORTABLE_UNDERCLOTHES;
+                // player.armor = ArmorLib.COMFORTABLE_UNDERCLOTHES;
                 const itemLib = ItemType.getItemLibrary();
                 for (itype of Object.keys(itemLib)) {
                     if (
@@ -1184,7 +1184,7 @@ export class Saves extends BaseContent {
                                 a.perk == saveFile.armorPerk
                             ) {
                                 this.player.setArmor(a);
-                                //player.armor = a;
+                                // player.armor = a;
                                 this.player.modArmorName = saveFile.armorName;
                                 found = true;
                                 break;
@@ -1194,7 +1194,7 @@ export class Saves extends BaseContent {
                 }
             }
 
-            //Combat STATS
+            // Combat STATS
             this.player.HP = saveFile.HP;
             this.player.lust = saveFile.lust;
             if (saveFile.teaseXP == undefined) this.player.teaseXP = 0;
@@ -1202,26 +1202,26 @@ export class Saves extends BaseContent {
             if (saveFile.teaseLevel == undefined) this.player.teaseLevel = 0;
             else this.player.teaseLevel = saveFile.teaseLevel;
 
-            //LEVEL STATS
+            // LEVEL STATS
             this.player.XP = saveFile.XP;
             this.player.level = saveFile.level;
             this.player.gems = saveFile.gems;
             if (saveFile.perkPoints == undefined) this.player.perkPoints = 0;
             else this.player.perkPoints = saveFile.perkPoints;
 
-            //Appearance
+            // Appearance
             this.player.gender = saveFile.gender;
             if (saveFile.femininity == undefined) this.player.femininity = 50;
             else this.player.femininity = saveFile.femininity;
-            //EYES
+            // EYES
             if (saveFile.eyeType == undefined) this.player.eyeType = EYES_HUMAN;
             else this.player.eyeType = saveFile.eyeType;
-            //BEARS
+            // BEARS
             if (saveFile.beardLength == undefined) this.player.beardLength = 0;
             else this.player.beardLength = saveFile.beardLength;
             if (saveFile.beardStyle == undefined) this.player.beardStyle = 0;
             else this.player.beardStyle = saveFile.beardStyle;
-            //BODY STYLE
+            // BODY STYLE
             if (saveFile.tone == undefined) this.player.tone = 50;
             else this.player.tone = saveFile.tone;
             if (saveFile.thickness == undefined) this.player.thickness = 50;
@@ -1241,7 +1241,7 @@ export class Saves extends BaseContent {
             else this.player.skinAdj = saveFile.skinAdj;
             this.player.skinTone = saveFile.skinTone;
             this.player.skinDesc = saveFile.skinDesc;
-            //Convert from old skinDesc to new skinAdj + skinDesc!
+            // Convert from old skinDesc to new skinAdj + skinDesc!
             if (this.player.skinDesc.indexOf("smooth") != -1) {
                 this.player.skinAdj = "smooth";
                 if (this.player.skinType == SKIN_TYPE_PLAIN) this.player.skinDesc = "skin";
@@ -1298,7 +1298,7 @@ export class Saves extends BaseContent {
             this.player.hipRating = saveFile.hipRating;
             this.player.buttRating = saveFile.buttRating;
 
-            //Sexual Stuff
+            // Sexual Stuff
             this.player.balls = saveFile.balls;
             this.player.cumMultiplier = saveFile.cumMultiplier;
             this.player.ballSize = saveFile.ballSize;
@@ -1306,7 +1306,7 @@ export class Saves extends BaseContent {
             this.player.fertility = saveFile.fertility;
             this.player.clitLength = saveFile.clitLength;
 
-            //Preggo stuff
+            // Preggo stuff
             this.player.knockUpForce(saveFile.pregnancyType, saveFile.pregnancyIncubation);
             this.player.buttKnockUpForce(
                 saveFile.buttPregnancyType,
@@ -1315,12 +1315,12 @@ export class Saves extends BaseContent {
 
             var hasViridianCockSock: boolean = false;
 
-            //ARRAYS HERE!
-            //Set Cock array
+            // ARRAYS HERE!
+            // Set Cock array
             for (i = 0; i < saveFile.cocks.length; i++) {
                 this.player.createCock();
             }
-            //Populate Cock Array
+            // Populate Cock Array
             for (i = 0; i < saveFile.cocks.length; i++) {
                 this.player.cocks[i].cockThickness = saveFile.cocks[i].cockThickness;
                 this.player.cocks[i].cockLength = saveFile.cocks[i].cockLength;
@@ -1349,13 +1349,13 @@ export class Saves extends BaseContent {
                         this.player.cocks[i].pLongDesc = "";
                     }
                 }
-                //trace("LoadOne Cock i(" + i + ")");
+                // trace("LoadOne Cock i(" + i + ")");
             }
-            //Set Vaginal Array
+            // Set Vaginal Array
             for (i = 0; i < saveFile.vaginas.length; i++) {
                 this.player.createVagina();
             }
-            //Populate Vaginal Array
+            // Populate Vaginal Array
             for (i = 0; i < saveFile.vaginas.length; i++) {
                 this.player.vaginas[i].vaginalWetness = saveFile.vaginas[i].vaginalWetness;
                 this.player.vaginas[i].vaginalLooseness = saveFile.vaginas[i].vaginalLooseness;
@@ -1378,22 +1378,22 @@ export class Saves extends BaseContent {
                     this.player.vaginas[i].clitPShort = saveFile.vaginas[i].clitPShort;
                     this.player.vaginas[i].clitPLong = saveFile.vaginas[i].clitPLong;
                 }
-                //trace("LoadOne Vagina i(" + i + ")");
+                // trace("LoadOne Vagina i(" + i + ")");
             }
-            //NIPPLES
+            // NIPPLES
             if (saveFile.nippleLength == undefined) this.player.nippleLength = 0.25;
             else this.player.nippleLength = saveFile.nippleLength;
-            //Set Breast Array
+            // Set Breast Array
             for (i = 0; i < saveFile.breastRows.length; i++) {
                 this.player.createBreastRow();
-                //trace("LoadOne BreastROw i(" + i + ")");
+                // trace("LoadOne BreastROw i(" + i + ")");
             }
-            //Populate Breast Array
+            // Populate Breast Array
             for (i = 0; i < saveFile.breastRows.length; i++) {
                 this.player.breastRows[i].breasts = saveFile.breastRows[i].breasts;
                 this.player.breastRows[i].nipplesPerBreast =
                     saveFile.breastRows[i].nipplesPerBreast;
-                //Fix nipplesless breasts bug
+                // Fix nipplesless breasts bug
                 if (this.player.breastRows[i].nipplesPerBreast == 0)
                     this.player.breastRows[i].nipplesPerBreast = 1;
                 this.player.breastRows[i].breastRating = saveFile.breastRows[i].breastRating;
@@ -1415,7 +1415,7 @@ export class Saves extends BaseContent {
             var hasLustyRegenPerk: boolean = false;
             // var addedSensualLover: boolean = false;
 
-            //Populate Perk Array
+            // Populate Perk Array
             for (i = 0; i < saveFile.perks.length; i++) {
                 var id: string = saveFile.perks[i].id || saveFile.perks[i].perkName;
                 var value1: number = saveFile.perks[i].value1;
@@ -1444,7 +1444,7 @@ export class Saves extends BaseContent {
                 if (ptype == undefined) {
                     trace("ERROR: Unknown perk id=" + id);
 
-                    //(saveFile.perks as Array).splice(i,1);
+                    // (saveFile.perks as Array).splice(i,1);
                     // NEVER EVER EVER MODIFY DATA IN THE SAVE FILE LIKE THIS. EVER. FOR ANY REASON.
                 } else {
                     trace("Creating perk : " + ptype);
@@ -1529,7 +1529,7 @@ export class Saves extends BaseContent {
                 trace("Force-reverting Marble At Farm flag to 0.");
             }
 
-            //Set Status Array
+            // Set Status Array
             for (i = 0; i < saveFile.statusAffects.length; i++) {
                 if (saveFile.statusAffects[i].statusAffectName == "Lactation EnNumbere") continue; // ugh...
                 var stype: StatusAffectType = StatusAffectType.lookupStatusAffect(
@@ -1550,31 +1550,31 @@ export class Saves extends BaseContent {
                     saveFile.statusAffects[i].value3,
                     saveFile.statusAffects[i].value4
                 );
-                //trace("StatusAffect " + player.statusAffect(i).stype.id + " loaded.");
+                // trace("StatusAffect " + player.statusAffect(i).stype.id + " loaded.");
             }
-            //Make sure keyitems exist!
+            // Make sure keyitems exist!
             if (saveFile.keyItems != undefined) {
-                //Set keyItems Array
+                // Set keyItems Array
                 for (i = 0; i < saveFile.keyItems.length; i++) {
                     this.player.createKeyItem("TEMP", 0, 0, 0, 0);
                 }
-                //Populate keyItems Array
+                // Populate keyItems Array
                 for (i = 0; i < saveFile.keyItems.length; i++) {
                     this.player.keyItems[i].keyName = saveFile.keyItems[i].keyName;
                     this.player.keyItems[i].value1 = saveFile.keyItems[i].value1;
                     this.player.keyItems[i].value2 = saveFile.keyItems[i].value2;
                     this.player.keyItems[i].value3 = saveFile.keyItems[i].value3;
                     this.player.keyItems[i].value4 = saveFile.keyItems[i].value4;
-                    //trace("KeyItem " + player.keyItems[i].keyName + " loaded.");
+                    // trace("KeyItem " + player.keyItems[i].keyName + " loaded.");
                 }
             }
-            //Set storage slot array
+            // Set storage slot array
             if (saveFile.itemStorage == undefined) {
-                //trace("OLD SAVES DO NOT CONTAIN ITEM STORAGE ARRAY");
+                // trace("OLD SAVES DO NOT CONTAIN ITEM STORAGE ARRAY");
             } else {
-                //Populate storage slot array
+                // Populate storage slot array
                 for (i = 0; i < saveFile.itemStorage.length; i++) {
-                    //trace("Populating a storage slot save with data");
+                    // trace("Populating a storage slot save with data");
                     this.inventory.createStorage();
                     var storage: ItemSlotClass = this.itemStorageGet()[i];
                     var savedIS: any = saveFile.itemStorage[i];
@@ -1592,9 +1592,9 @@ export class Saves extends BaseContent {
                     storage.unlocked = savedIS.unlocked;
                 }
             }
-            //Set gear slot array
+            // Set gear slot array
             if (saveFile.gearStorage == undefined || saveFile.gearStorage.length < 18) {
-                //trace("OLD SAVES DO NOT CONTAIN ITEM STORAGE ARRAY - Creating new!");
+                // trace("OLD SAVES DO NOT CONTAIN ITEM STORAGE ARRAY - Creating new!");
                 this.inventory.initializeGearStorage();
             } else {
                 for (
@@ -1603,15 +1603,15 @@ export class Saves extends BaseContent {
                     i++
                 ) {
                     this.gearStorageGet().push(new ItemSlotClass());
-                    //trace("Initialize a slot for one of the item storage locations to load.");
+                    // trace("Initialize a slot for one of the item storage locations to load.");
                 }
-                //Populate storage slot array
+                // Populate storage slot array
                 for (
                     i = 0;
                     i < saveFile.gearStorage.length && i < this.gearStorageGet().length;
                     i++
                 ) {
-                    //trace("Populating a storage slot save with data");
+                    // trace("Populating a storage slot save with data");
                     storage = this.gearStorageGet()[i];
                     if (
                         (saveFile.gearStorage[i].shortName == undefined &&
@@ -1630,12 +1630,12 @@ export class Saves extends BaseContent {
                     storage.unlocked = saveFile.gearStorage[i].unlocked;
                 }
             }
-            //player.cocks = saveFile.cocks;
+            // player.cocks = saveFile.cocks;
             this.player.ass.analLooseness = saveFile.ass.analLooseness;
             this.player.ass.analWetness = saveFile.ass.analWetness;
             this.player.ass.fullness = saveFile.ass.fullness;
 
-            //Shit
+            // Shit
             this.gameStateSet(saveFile.gameState);
             this.player.exploredLake = saveFile.exploredLake;
             this.player.exploredMountain = saveFile.exploredMountain;
@@ -1647,14 +1647,14 @@ export class Saves extends BaseContent {
             game.foundMountain = saveFile.foundMountain;
             game.foundLake = saveFile.foundLake;
 
-            //Days
-            //Time and Items
+            // Days
+            // Time and Items
             this.model.time.hours = saveFile.hours;
             this.model.time.days = saveFile.days;
             if (saveFile.autoSave == undefined) this.player.autoSave = false;
             else this.player.autoSave = saveFile.autoSave;
 
-            //PLOTZ
+            // PLOTZ
             game.whitney = saveFile.whitney;
             game.monk = saveFile.monk;
             game.sand = saveFile.sand;
@@ -1662,9 +1662,9 @@ export class Saves extends BaseContent {
             else game.giacomo = saveFile.giacomo;
             if (saveFile.beeProgress != undefined && saveFile.beeProgress == 1)
                 game.forest.beeGirlScene.setTalked(); //Bee Progress update is now in a flag
-            //The flag will be zero for any older save that still uses beeProgress and newer saves always store a zero in beeProgress, so we only need to update the flag on a value of one.
+            // The flag will be zero for any older save that still uses beeProgress and newer saves always store a zero in beeProgress, so we only need to update the flag on a value of one.
 
-            //ITEMZ. Item1
+            // ITEMZ. Item1
             if (saveFile.itemSlot1.shortName) {
                 if (saveFile.itemSlot1.shortName.indexOf("Gro+") != -1)
                     saveFile.itemSlot1.id = "GroPlus";
@@ -1734,14 +1734,14 @@ export class Saves extends BaseContent {
     }
 
     public unFuckSave(): void {
-        //Fixing shit!
+        // Fixing shit!
 
         // Fix duplicate elven bounty perks
         if (this.player.findPerk(PerkLib.ElvenBounty) >= 0) {
-            //CLear duplicates
+            // CLear duplicates
             while (this.player.perkDuplicated(PerkLib.ElvenBounty))
                 this.player.removePerk(PerkLib.ElvenBounty);
-            //Fix fudged preggers value
+            // Fix fudged preggers value
             if (this.player.perkv1(PerkLib.ElvenBounty) == 15) {
                 this.player.setPerkValue(PerkLib.ElvenBounty, 1, 0);
                 this.player.addPerkValue(PerkLib.ElvenBounty, 2, 15);
@@ -1770,11 +1770,11 @@ export class Saves extends BaseContent {
 
         // Fix issues with corrupt cockTypes caused by a error in the serialization code.
 
-        //trace("CockInfo = ", flags[kFLAGS.RUBI_COCK_TYPE]);
-        //trace("getQualifiedClassName = ", getQualifiedClassName(flags[kFLAGS.RUBI_COCK_TYPE]));
-        //trace("typeof = ", typeof(flags[kFLAGS.RUBI_COCK_TYPE]));
-        //trace("is CockTypesEnum = ", flags[kFLAGS.RUBI_COCK_TYPE] is CockTypesEnum);
-        //trace("instanceof CockTypesEnum = ", flags[kFLAGS.RUBI_COCK_TYPE] instanceof CockTypesEnum);
+        // trace("CockInfo = ", flags[kFLAGS.RUBI_COCK_TYPE]);
+        // trace("getQualifiedClassName = ", getQualifiedClassName(flags[kFLAGS.RUBI_COCK_TYPE]));
+        // trace("typeof = ", typeof(flags[kFLAGS.RUBI_COCK_TYPE]));
+        // trace("is CockTypesEnum = ", flags[kFLAGS.RUBI_COCK_TYPE] is CockTypesEnum);
+        // trace("instanceof CockTypesEnum = ", flags[kFLAGS.RUBI_COCK_TYPE] instanceof CockTypesEnum);
 
         if (
             !(
@@ -1806,7 +1806,7 @@ export class Saves extends BaseContent {
 
         var flagData: any[] = String(this.flags[kFLAGS.KATHERINE_BREAST_SIZE]).split("^");
         if (flagData.length < 7 && this.flags[kFLAGS.KATHERINE_BREAST_SIZE] > 0) {
-            //Older format only stored breast size or zero if not yet initialized
+            // Older format only stored breast size or zero if not yet initialized
             this.getGame().telAdre.katherine.breasts.cupSize = this.flags[
                 kFLAGS.KATHERINE_BREAST_SIZE
             ];
@@ -1815,8 +1815,8 @@ export class Saves extends BaseContent {
         }
 
         if (this.flags[kFLAGS.SAVE_FILE_INTEGER_FORMAT_VERSION] < 816) {
-            //Older saves don't have pregnancy types for all impregnable NPCs. Have to correct this.
-            //If anything is detected that proves this is a new format save then we can return immediately as all further checks are redundant.
+            // Older saves don't have pregnancy types for all impregnable NPCs. Have to correct this.
+            // If anything is detected that proves this is a new format save then we can return immediately as all further checks are redundant.
             if (this.flags[kFLAGS.AMILY_INCUBATION] > 0) {
                 if (this.flags[kFLAGS.AMILY_PREGNANCY_TYPE] != 0) return; //Must be a new format save
                 this.flags[kFLAGS.AMILY_PREGNANCY_TYPE] = PregnancyStore.PREGNANCY_PLAYER;
@@ -1851,8 +1851,8 @@ export class Saves extends BaseContent {
                 kGAMECLASS.helScene.pregnancy.knockUpForce(); //Clear Pregnancy, also removed any old value from HEL_PREGNANCY_NOTICES
             } else if (this.flags[kFLAGS.HEL_PREGNANCY_INCUBATION] > 0) {
                 if (this.flags[kFLAGS.HELIA_PREGNANCY_TYPE] > 3) return; //Must be a new format save
-                //HELIA_PREGNANCY_TYPE was previously HEL_PREGNANCY_NOTICES, which ran from 0 to 3. Converted to the new format by multiplying by 65536
-                //Since HelSpawn's father is already tracked separately we might as well just use PREGNANCY_PLAYER for all possible pregnancies
+                // HELIA_PREGNANCY_TYPE was previously HEL_PREGNANCY_NOTICES, which ran from 0 to 3. Converted to the new format by multiplying by 65536
+                // Since HelSpawn's father is already tracked separately we might as well just use PREGNANCY_PLAYER for all possible pregnancies
                 this.flags[kFLAGS.HELIA_PREGNANCY_TYPE] =
                     65536 * this.flags[kFLAGS.HELIA_PREGNANCY_TYPE] +
                     PregnancyStore.PREGNANCY_PLAYER;
@@ -1883,7 +1883,7 @@ export class Saves extends BaseContent {
                 this.flags[kFLAGS.SHEILA_PREGNANCY_TYPE] = PregnancyStore.PREGNANCY_PLAYER;
                 if (this.flags[kFLAGS.SHEILA_PREGNANCY_INCUBATION] >= 4)
                     this.flags[kFLAGS.SHEILA_PREGNANCY_INCUBATION] = 0;
-                //Was ready to be born
+                // Was ready to be born
                 else
                     this.flags[kFLAGS.SHEILA_PREGNANCY_INCUBATION] =
                         24 * (4 - this.flags[kFLAGS.SHEILA_PREGNANCY_INCUBATION]); //Convert to hours and count down rather than up
@@ -1898,7 +1898,7 @@ export class Saves extends BaseContent {
                 this.flags[kFLAGS.SOPHIE_PREGNANCY_TYPE] > 0 &&
                 this.flags[kFLAGS.SOPHIE_INCUBATION] == 0
             ) {
-                //She's in the wild and pregnant with an egg
+                // She's in the wild and pregnant with an egg
                 this.flags[kFLAGS.SOPHIE_INCUBATION] = this.flags[kFLAGS.SOPHIE_PREGNANCY_TYPE]; //SOPHIE_PREGNANCY_TYPE was previously SOPHIE_WILD_EGG_COUNTDOWN_TIMER
                 this.flags[kFLAGS.SOPHIE_PREGNANCY_TYPE] = PregnancyStore.PREGNANCY_PLAYER;
             } else if (
@@ -1923,7 +1923,7 @@ export class Saves extends BaseContent {
                 this.player.removeStatusAffect(StatusAffects.TamaniFemaleEncounter); //Wasn't used in previous code
             if (this.player.findStatusAffect(StatusAffects.Tamani) >= 0) {
                 if (this.player.statusAffectv1(StatusAffects.Tamani) == -500) {
-                    //This used to indicate that a player had met Tamani as a male
+                    // This used to indicate that a player had met Tamani as a male
                     this.flags[kFLAGS.TAMANI_PREGNANCY_INCUBATION] = 0;
                     this.flags[kFLAGS.TAMANI_MET] = 1; //This now indicates the same thing
                 } else
@@ -1981,7 +1981,7 @@ export class Saves extends BaseContent {
                     this.player.buttPregnancyIncubation
                 );
 
-            //If dick length zero then player has never met Kath, no need to set flags. If her breast size is zero then set values for flags introduced with the employment expansion
+            // If dick length zero then player has never met Kath, no need to set flags. If her breast size is zero then set values for flags introduced with the employment expansion
             if (this.flags[kFLAGS.KATHERINE_BREAST_SIZE] != 0) return; //Must be a new format save
             if (this.flags[kFLAGS.KATHERINE_DICK_LENGTH] != 0) {
                 this.flags[kFLAGS.KATHERINE_BREAST_SIZE] = BREAST_CUP_B;
@@ -1995,13 +1995,13 @@ export class Saves extends BaseContent {
                 return; //Must be a new format save
             if (this.flags[kFLAGS.URTA_PREGNANCY_TYPE] == PregnancyStore.PREGNANCY_PLAYER) return; //Must be a new format save
             if (this.flags[kFLAGS.URTA_PREGNANCY_TYPE] > 0) {
-                //URTA_PREGNANCY_TYPE was previously URTA_EGG_INCUBATION, assume this was an egg pregnancy
+                // URTA_PREGNANCY_TYPE was previously URTA_EGG_INCUBATION, assume this was an egg pregnancy
                 this.flags[kFLAGS.URTA_INCUBATION] = this.flags[kFLAGS.URTA_PREGNANCY_TYPE];
                 if (this.player.findPerk(PerkLib.SpiderOvipositor) >= 0)
                     this.flags[kFLAGS.URTA_PREGNANCY_TYPE] = PregnancyStore.PREGNANCY_DRIDER_EGGS;
                 else this.flags[kFLAGS.URTA_PREGNANCY_TYPE] = PregnancyStore.PREGNANCY_BEE_EGGS;
             } else if (this.flags[kFLAGS.URTA_INCUBATION] > 0) {
-                //Assume Urta was pregnant with the player's baby
+                // Assume Urta was pregnant with the player's baby
                 this.flags[kFLAGS.URTA_PREGNANCY_TYPE] = PregnancyStore.PREGNANCY_PLAYER;
                 this.flags[kFLAGS.URTA_INCUBATION] = 384 - this.flags[kFLAGS.URTA_INCUBATION]; //Reverse the pregnancy counter since it now counts down rather than up
             }
@@ -2010,7 +2010,7 @@ export class Saves extends BaseContent {
                 this.flags[kFLAGS.EDRYN_PREGNANCY_TYPE] > 0 &&
                 this.flags[kFLAGS.EDRYN_PREGNANCY_INCUBATION] == 0
             ) {
-                //EDRYN_PREGNANCY_TYPE was previously EDRYN_BIRF_COUNTDOWN - used when Edryn was pregnant with Taoth
+                // EDRYN_PREGNANCY_TYPE was previously EDRYN_BIRF_COUNTDOWN - used when Edryn was pregnant with Taoth
                 if (this.flags[kFLAGS.EDRYN_PREGNANCY_INCUBATION] > 0)
                     this.flags[kFLAGS.URTA_FERTILE] = PregnancyStore.PREGNANCY_PLAYER; //These two variables are used to store information on the pregnancy Taoth
                 this.flags[kFLAGS.URTA_PREG_EVERYBODY] = this.flags[

@@ -24,7 +24,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         CoC.timeAwareClassAdd(this);
     }
 
-    //Implementation of TimeAwareInterface
+    // Implementation of TimeAwareInterface
     public timeChange(): boolean {
         if (this.model.time.hours > 23) {
             if (this.vapulaSlave() && this.flags[kFLAGS.FOLLOWER_AT_FARM_VAPULA] == 0) {
@@ -73,13 +73,13 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         }
         return false;
     }
-    //End of Interface Implementation
+    // End of Interface Implementation
 
     public vapulaSlave(): boolean {
         return this.flags[kFLAGS.VAPULA_FOLLOWER] == 1;
     }
 
-    //Two nights after "vagina enslave", if PC still meets initial requirements (else defer until she does)(Z)
+    // Two nights after "vagina enslave", if PC still meets initial requirements (else defer until she does)(Z)
     public femaleVapulaRecruitmentPartII(): void {
         this.outputText(
             "\nYou are awoken by long fingers inching up your inner thighs, testing and caressing your soft flesh. You sigh, open your eyes, and are confronted by an excited, purple face looming over you."
@@ -96,10 +96,10 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>Well done, my slave,</i>" you purr, caressing her face.  "<i>I will be sure to reward you with this item of yours, in the fullness of time.  Repeatedly.</i>"  Vapula grins with barely contained enthusiasm, before rising and slowly walking away from your bed, beading a trail of juices from her cunt as she goes.'
         );
-        //[Vapula added]
+        // [Vapula added]
         this.flags[kFLAGS.VAPULA_FOLLOWER] = 1;
         this.flags[kFLAGS.VAPULA_HAREM_FUCK] = 1;
-        //[Demonic dildo added]
+        // [Demonic dildo added]
         this.player.createKeyItem("Demonic Strap-On", 0, 0, 0, 0);
         this.outputText("\n\n(<b>Gained Item: Demonic Strap-On</b>)");
         this.doNext(this.playerMenu);
@@ -116,8 +116,8 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\n(<b>Gained Item: Demonic Strap-On</b>)\n");
     }
 
-    //Slave Vapula
-    //Camp lines
+    // Slave Vapula
+    // Camp lines
     public vapulaSlaveFlavorText(): void {
         var choice: number = Vapula.rand(11);
         if (choice == 0)
@@ -150,7 +150,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         if (choice == 5) {
             if (this.flags[kFLAGS.VAPULA_HAREM_FUCK] == 0 || !this.sophieBimbo.bimboSophie())
                 choice = 6;
-            //if harem fucking is on)
+            // if harem fucking is on)
             else
                 this.outputText(
                     "Vapula is fingering herself while eating out Sophie, your harpy slut.  The dumb avian matron keeps moaning like she's in heat while the succubus furiously assaults her lush fuck-hole; both of their pair of wings flap in rhythm as they feel their pleasure rising in waves."
@@ -163,14 +163,14 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
                 !this.izmaFollower()
             )
                 choice = 7;
-            //if Izma has cock and harem fucking is on)
+            // if Izma has cock and harem fucking is on)
             else
                 this.outputText(
                     "Your succubus is currently very busy with Izma, your tigershark lover.  Izma is standing and hiding Vapula from your sight and you don't notice what Vapula is doing to her until you see her frantic bobbing movements, and hear Izma's hisses and growls of pleasure.  Obviously your succubus must get the cum she needs from somewhere."
                 );
         }
         if (choice == 7) {
-            //if C. Jojo and harem fucking is on)
+            // if C. Jojo and harem fucking is on)
             if (this.flags[kFLAGS.VAPULA_HAREM_FUCK] == 0 || !this.jojoScene.campCorruptJojo())
                 choice = 8;
             else {
@@ -189,7 +189,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
                 !(this.amilyScene.amilyFollower() && this.amilyScene.amilyCorrupt())
             )
                 choice = 9;
-            //if C. Amily and harem fucking on)
+            // if C. Amily and harem fucking on)
             else
                 this.outputText(
                     "Vapula is busy caressing your corrupted mousette, Amily while softly kissing her breasts.  Her fingers are buried in your fuck-toy's pussy, and Amily is moaning whorishly and doesn't even bother to stop when she looks at you, her helpless eyes betraying her lack of control over her own lust."
@@ -208,8 +208,8 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
             );
     }
 
-    //Vapula-Followers interaction: Puru Puru Mouse (Z)
-    //switch follower names depending on conditions
+    // Vapula-Followers interaction: Puru Puru Mouse (Z)
+    // switch follower names depending on conditions
     public mouseWaifuFreakout(amily: boolean = false, jojo: boolean = false): void {
         this.clearOutput();
         if (amily) {
@@ -237,7 +237,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\n\"<i>She's still a demon!  A succubus!  She'll suck the living soul out of you!</i>\""
         );
-        //[if libido >=50]
+        // [if libido >=50]
         if (this.player.lib >= 50)
             this.outputText('"<i>Well, as long as she swallows, I don\'t care,</i>" you quip.');
         this.outputText('\n\n"<i>That\'s it!</i>"  The ');
@@ -258,22 +258,22 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\nAmily shakes her head.  "<i>Goodbye, [name].  You\'ve changed.  What you did is pure folly.</i>"'
             );
-            //Set - amily flipped her shit
+            // Set - amily flipped her shit
             this.flags[kFLAGS.AMILY_FOLLOWER] = 0;
-            //Enable village encounters
+            // Enable village encounters
             this.flags[kFLAGS.AMILY_VILLAGE_ENCOUNTERS_DISABLED] = 0;
-            //Change to plain mouse birth!
+            // Change to plain mouse birth!
             if (this.player.pregnancyType == PregnancyStore.PREGNANCY_AMILY)
                 this.player.knockUpForce(
                     PregnancyStore.PREGNANCY_MOUSE,
                     this.player.pregnancyIncubation
                 );
-            //FLAG THAT THIS SHIT WENT DOWN
+            // FLAG THAT THIS SHIT WENT DOWN
             this.flags[kFLAGS.AMILY_CORRUPT_FLIPOUT] = 1;
-            //Make sure the camp warning thing is off so she never moves back in.  Bitch be mad.
+            // Make sure the camp warning thing is off so she never moves back in.  Bitch be mad.
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00173] = 0;
         }
-        //[(if PC corr > 70)
+        // [(if PC corr > 70)
         if (this.player.cor > 70)
             this.outputText(
                 "\n\n\"<i>Fine. Go fuck off then, I don't need you.  I have a much better and hotter slut now. Don't hesitate to come back if you want some sweet pussy, though.</i>\""
@@ -288,12 +288,12 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nMaybe it's past time you brought them around to your way of thinking?"
         );
-        //Amily and Jojo removed from followers. Amily is encounterable again in the Village Place through the corrupted route and Jojo can still meditate with you.]
+        // Amily and Jojo removed from followers. Amily is encounterable again in the Village Place through the corrupted route and Jojo can still meditate with you.]
         this.doNext(this.playerMenu);
     }
 
-    //tion camp
-    //Follower Summoning text (Z)
+    // tion camp
+    // Follower Summoning text (Z)
     public callSlaveVapula(output: boolean = true): void {
         if (output) {
             this.clearOutput();
@@ -317,11 +317,11 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
                 }
             }
         }
-        //Option: Appearance
-        //Option: Talk
-        //Option: Feed (cocks only for now)
-        //Option: Threesome
-        //Option: Leave
+        // Option: Appearance
+        // Option: Talk
+        // Option: Feed (cocks only for now)
+        // Option: Threesome
+        // Option: Leave
         var mFeed = undefined;
         var fFeed = undefined;
         if (this.player.hasCock()) {
@@ -342,9 +342,9 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
                 );
         }
         var spank = undefined;
-        //Spank Vapula for misbehaving.
-        //Requires Vapula force herself on you for food.
-        //Requires bipedal-ness
+        // Spank Vapula for misbehaving.
+        // Requires Vapula force herself on you for food.
+        // Requires bipedal-ness
         if (
             this.flags[kFLAGS.VAPULA_EARNED_A_SPANK] > 0 &&
             !this.player.isTaur() &&
@@ -477,7 +477,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
-    //Vapula Appearance - this bitch is purpler than a Nigerian (Z)
+    // Vapula Appearance - this bitch is purpler than a Nigerian (Z)
     private fapulaFapfapfapAppearance(): void {
         this.clearOutput();
         this.outputText(
@@ -519,7 +519,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.callSlaveVapula(false);
     }
 
-    //Talk (Z)
+    // Talk (Z)
     private talkToVapulaForSomeReason(): void {
         this.clearOutput();
         this.outputText(
@@ -527,8 +527,8 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
                 this.player.mf("studs", "girls") +
                 ' looking for conversation with the likes of me, but go ahead.  What do you want to talk about?</i>"'
         );
-        //Option: Stop Fucking Harem OR Fucking Harem OK (if toggled on off)
-        //Option: Cerulean Threesome On/Off
+        // Option: Stop Fucking Harem OR Fucking Harem OK (if toggled on off)
+        // Option: Cerulean Threesome On/Off
         var threesomeT: string = "";
         var threesomeB = undefined;
         var haremT: string = "";
@@ -542,7 +542,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("\n\nVapula will fuck any willing partners you may have around camp.");
             haremT = "Don'tFuck";
         }
-        //IF PC has cerulean succubused before
+        // IF PC has cerulean succubused before
         if (this.player.findStatusAffect(StatusAffects.RepeatSuccubi) >= 0) {
             if (this.flags[kFLAGS.VAPULA_THREESOMES] == 0) {
                 this.outputText(
@@ -573,28 +573,28 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
 
     private toggleCeruleanVapulaAssist(): void {
         this.clearOutput();
-        //Cerulean Threesome On (Z)
+        // Cerulean Threesome On (Z)
         if (this.flags[kFLAGS.VAPULA_THREESOMES] == 0) {
             this.outputText(
                 "You inform Vapula that a succubus might join you in the following nights, and you want her to join the party; after all, if there's enough cum to feed one, there should be extra to feed another one.  Vapula wiggles and chortles, excited at the prospect of meeting a fellow creature to have a good fuck.  You warn her that she'll have to be very skilled if she doesn't want to be replaced.  Vapula smiles at you seductively and gently fondles your crotch, then says, \"<i>Don't worry; I know that deep down inside, you prefer giving your cum to me, right?</i>\"  The tingle is very pleasant, and you give your slut a soft kiss before sending her on her way.  You look forward to the oncoming threesome."
             );
             this.flags[kFLAGS.VAPULA_THREESOMES] = 1;
         }
-        //Turn off
+        // Turn off
         else {
-            //Cerulean Threesome Off (Z)
+            // Cerulean Threesome Off (Z)
             this.outputText(
                 "You inform Vapula that you don't want her to meddle with your night fucks anymore.  Your succubus shrugs.  \"<i>Whatever.  As long as I get regular cum rations, I don't care much.  I'll do as you say.</i>\""
             );
             this.flags[kFLAGS.VAPULA_THREESOMES] = 0;
         }
-        //Return to talk menu
+        // Return to talk menu
         this.doNext(this.talkToVapulaForSomeReason);
     }
 
     private toggleVapulaHaremFucks(): void {
         this.clearOutput();
-        //Stop Fucking Harem
+        // Stop Fucking Harem
         if (this.flags[kFLAGS.VAPULA_HAREM_FUCK] == 1) {
             this.outputText(
                 "You tell Vapula that you're fed up with seeing her fucking nearly everyone at camp and getting screwed by any living creature in its surroundings.  She's supposed to be YOUR succubus, and no one else's. You insist that you don't want to see anything near her pussy but your own genitals. You're her [master], after all, and her body is yours."
@@ -613,17 +613,17 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
             );
             this.flags[kFLAGS.VAPULA_HAREM_FUCK] = 0;
         } else {
-            //Fucking Harem OK
+            // Fucking Harem OK
             this.outputText(
                 'You tell Vapula that you don\'t care anymore about where she gets her cum. From now on she might as well fuck whoever she wants as long as she remains available when you need to use her body. The succubus replies joyfully, "<i>Yay! I was hungry!</i>" and kisses you before storming off in the thick jungle. Knowing her, she is probably hunting for some potent imp to milk. You sigh and return to your campfire.'
             );
             this.flags[kFLAGS.VAPULA_HAREM_FUCK] = 1;
         }
-        //Return to talk menu
+        // Return to talk menu
         this.doNext(this.talkToVapulaForSomeReason);
     }
 
-    //Feed
+    // Feed
     private feedVapulaACupOfJizz(): void {
         this.clearOutput();
         this.outputText(
@@ -675,19 +675,19 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Threesome
+    // Threesome
     private vapulaThreesomeMenu(): void {
         this.clearOutput();
         this.outputText("Who do you invite?");
-        //Option: Amily
+        // Option: Amily
         var amily = undefined;
-        //Option: Ceraph
+        // Option: Ceraph
         var ceraph = undefined;
-        //Option: Sophie
+        // Option: Sophie
         var sophie = undefined;
-        //Option: Jojo
+        // Option: Jojo
         var jojo = undefined;
-        //Option: Izma
+        // Option: Izma
         var izma = undefined;
         if (
             this.player.hasCock() ||
@@ -730,7 +730,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         );
     }
 
-    //Vapula-Ceraph threesome
+    // Vapula-Ceraph threesome
     private vapulaCeraphThreesome(): void {
         this.clearOutput();
         this.outputText(
@@ -744,8 +744,8 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
             " deserves a special kind of treatment.  Vapula and Ceraph are both thrilled in excitement."
         );
         this.outputText("\n\nHow will you take them?");
-        //Plz both - requires dick
-        //Option: Butt-fuck train. Requires Ceraph to be herm.
+        // Plz both - requires dick
+        // Option: Butt-fuck train. Requires Ceraph to be herm.
         this.simpleChoices(
             "Please Both",
             this.vapulaCeraphThreesomePleaseBoth,
@@ -760,7 +760,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         );
     }
 
-    //Option: Please both.
+    // Option: Please both.
     private vapulaCeraphThreesomePleaseBoth(): void {
         this.clearOutput();
         var x: number = this.player.cockThatFits(100);
@@ -818,17 +818,17 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             ".  The purple sex-goddess squeals, your abrupt dick-digging utterly ravaging her cunt; her unholy warmth and impossibly tight confines are almost enough to make you cum instantly as her vaginal walls wrap in the most sensitive way around your rod, but you manage to hold off the flow of semen churning in your groin."
         );
-        //[if 2nd cock]
+        // [if 2nd cock]
         if (this.player.cockTotal() > 1)
             this.outputText(
                 '\n\nDeciding to put some of your junk to use, you eagerly grab your next dick and grind it against Ceraph\'s buttocks, bracing her for a second round of butt-fucking.  "<i>No, not again! Please fuck another ho-OOOOOH!</i>" her protests are quickly silenced as you easily slide your extra cock through her already stretched anal entrance, the penetration made easier due to your previous butt-fuck.  The sensation of having two cocks buried deep in hot, tight demon holes is incredibly exalting; you rest there for a moment, feeling the warm body of your sluts writhing against you as they try to milk you of your seed.'
             );
-        //[if 3rd cock]
+        // [if 3rd cock]
         if (this.player.cockTotal() > 2)
             this.outputText(
                 "\n\nHowever, there is still extra room left. You toy with your third member, wondering which hole shall be pierced next.  You finally choose to honor Vapula's tight butthole, just to spite that egotistical omnibus bitch who begged for more cock when she had received a fair ass-dicking earlier.  Besides, Vapula could really use a good butt-fuck.  Teasing the purple's succubus anal entrance with your fingers, you slowly stretch her muscles, opening her rectum little by little and making her shrill in pain and pleasure mixed; then, when you think the opening is wide enough, you slam all of your hardness inside, plowing her interior and knocking at the back of her colon.  Her ear-piercing thrill turns into a loud, low-pitched growl.  Her demon-hot anus is so tight it nearly crushes your cock!  The rough friction of your junk grinding against her interior sends all kinds of tickles into your throbbing erection, tearing your mind into pieces as it abandons itself to raw pleasure."
             );
-        //[if 4th cock]
+        // [if 4th cock]
         if (this.player.cockTotal() > 3)
             this.outputText(
                 "\n\nThe sight of Ceraph's moist, shiny nether-lips is too tempting for you to resist; even though you don't want to give in to your bitch's desires that easily, your fourth penis is trembling and aching with need, and ignoring it when there's a vacant hole is just plain stupid.  You decide to give her the dick she's been begging for, and with a rude, hard trust you plunge your rod down her baby-maker.  You pant, thrilled in ecstasy as four amazing demonic holes contract and clasp around your many manhoods, milking them of all your spooge.  You crouch around your sluts, groping some hot succubi tit-flesh and drooling on Ceraph's hair as you abandon yourself to your their lush depths.  You thrust like a possessed minotaur, unable to control anything but the pace of your hips as they simultaneously pound every fuck-hole."
@@ -837,12 +837,12 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "  Sadly, your extra junk does not have any hole left to fill.  It just hangs there, rubbing against Ceraph's backside and teasing her all the more."
             );
-        //[if less than 4 cocks]
+        // [if less than 4 cocks]
         if (this.player.cockTotal() < 4)
             this.outputText(
                 "\n\nYou keep thrusting fast and rough, paying little attention to the damage your hard fucking may cause to your girls' internal walls.  Once you get a bit tired, you switch holes.  Ceraph's snatch needs some love too, after all.  You furiously impale your sluts with all your might, groaning in effort and clawing their soft flesh in your ferocious grip.  You alternatively mash your groin against Vapula's, then Ceraph's, then Vapula's again.  Every time you pull out one of them starts mewling like a goblin in heat but you don't care; you keep pumping in and out of each hole, savoring every second of this stunning hard fuck-session."
             );
-        //end of condition
+        // end of condition
         this.outputText(
             "\n\nYou keep fucking your girls, making them moan alternatively.  The high-pitched screeches from Ceraph intertwine with the lewd, continuous rattles of Vapula as you pound her ass.  Combined with your periodic grunts, their pleasure-filled cries resound into a lustful song of depravity.  You're sure everyone must hear you but you keep going, only obsessed by the thought of filling your purple whores with more dick, more dick, and more dick.  You feel the warm and undulating body of Ceraph as well as the iron clasp of Vapula as she drags you into this infernal embrace; the cock-hungry whores below you have orgasmed so many times you have lost the count, their fem-cum accumulating in a thick puddle below Vapula's ass as they keep shuddering and trembling in turns.  Their unholy, demonic musk invades your nostrils and invigorates you all the more.  Your [feet] slip as you try your best to stuff as much of your junk as possible in their warm wet holes."
         );
@@ -852,7 +852,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nBut you're not done with these sluts yet.  Shaking Ceraph's shoulders, you remind her she still has a job to do.  The omnibus awkwardly squishes in the puddle of cum as she tries to stand up, but you quickly interrupt her and brutally shove your genitals in front of her face, looking at her impatiently.  Obviously knowing what you expect her to do, she proceeds to lick your cum-stained cock clean, suckling on the tip and carefully squeezing your dickflesh to extract as much remaining spunk as she can."
         );
-        //[if multicocks]
+        // [if multicocks]
         if (this.player.cockTotal() > 1)
             this.outputText(
                 "  She expertly jerks each of your rods in turn, gently polishing them as they grow back into an erect state."
@@ -863,7 +863,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nWhile enjoying Ceraph's sweet and skilled blowjob, you lend a hand to your purple succubus, her beautiful body shining from all the sexual filth coating her.  You help her to her feet and pull her, pressing her melon-sized tits against you and kissing her savagely.  Still exhausted from the hard fuck, she weakly moans and hugs you tighter.  She places herself behind your back and starts rubbing her big, perky tits against you, her tall form wrapped around your chest.  She caresses you expertly, her adept hands running sensually over your sensitive points as she grinds her nipples against your back.  From time to time you turn your head and give her another passionate kiss, enjoying the delectable taste of her mouth."
         );
-        //[if multicocks]
+        // [if multicocks]
         if (this.player.cockTotal() > 1)
             this.outputText(
                 "\n\nYou tell Vapula to join Ceraph and help her out.  She looks puzzled at first, then quickly understands as you grab hold of her head and wave your second member at her.  She nods excitedly and rapidly starts sucking you off as well, her adroit lips and deft tongue entirely enveloping your meat.  She's as good at blowjobs as Ceraph, if not more."
@@ -896,7 +896,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
                 this.player.mf("Master", "Mistress") +
                 '.</i>" they say in unison, before you pat their heads and send them on their way; they will probably need to rest in order to digest their heavy meal.'
         );
-        //lust set to 0
+        // lust set to 0
         this.player.orgasm();
         this.dynStats("cor", 1);
         if (this.player.lib > 10) this.dynStats("lib", -1);
@@ -907,8 +907,8 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Option: Butt-fuck train. Requires Ceraph to be herm.
-    //Ceraph-Vapula Buttfuck train
+    // Option: Butt-fuck train. Requires Ceraph to be herm.
+    // Ceraph-Vapula Buttfuck train
     private vapulaAndCeraphButtfuckTrainYeehaw(): void {
         this.clearOutput();
         var x: number = this.player.cockThatFits(100);
@@ -946,7 +946,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
                 this.player.mf("man", "herm") +
                 " possessed as you claim her impossibly tight confines with unequaled intensity.  You ride the butt-fuck train, submitting both girls to your will as their anal entrances keep being assaulted over and over again.  Their warm love-tunnels are literally steaming in arousal and their feminine juices are being spilled in a free flow of lust."
         );
-        //[if balls]
+        // [if balls]
         if (this.player.balls > 0)
             this.outputText(
                 "  As you relentlessly smash your groin against Ceraph's plump rump, your " +
@@ -980,7 +980,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
                 this.cockDescript(x) +
                 " and suck out the last globs of semen out of your urethra.  When you're all absolutely positive that no residual cum has been wasted, you smirk in satisfaction; you give your sluts a hard cock-slap for good measure and send them away."
         );
-        //Lust set to 0
+        // Lust set to 0
         this.player.orgasm();
         this.dynStats("sen", -2, "cor", 1);
         this.flags[kFLAGS.VAPULA_DAYS_SINCE_FED] = 0;
@@ -988,7 +988,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Vapula-Sophie threesome
+    // Vapula-Sophie threesome
     private vapulaSophieThreesomeSelect(): void {
         if (this.player.hasCock()) this.vapulaSophieThreeSome();
         else this.vapulaSophieThreesomeCunts();
@@ -1039,7 +1039,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
                 this.cockDescript(x) +
                 ", all smeared in pre-cum.  Sophie whimpers and wails softly until you thrust all the way back in, literally jamming her with your junk.  Her pupils widen, her mouth opens and her gigantic tits keep swinging in the dirt as her whole body trembles and shudders from the brutal anal violation.  Her cry of pleasure is so high-pitched you barely hear her subsequent moan; satisfied, you start thrusting at a more convenient rhythm, enjoying the lush depths of the avian slut as the succubus keeps making out with you.  You keep butt-fucking Sophie, unable to focus on the ministrations of the expert succubus or the extremely warm recesses of the harpy's interior.  You regularly slap her plush, fat buttocks, sending ripples across her whole fleshy body. Needless to say, the bimbo's pussy is completely drenched in fem-spunk, her wide pussy drooling trickles after trickles of her juices, betraying her utter arousal."
         );
-        //[if 2nd cock]
+        // [if 2nd cock]
         if (this.player.cockTotal() > 1)
             this.outputText(
                 "\n\nIt would be a shame to waste such a welcoming love-tunnel.  Grabbing hold of your second prick, you push it down her vaginal entrance, effectively double-penetrating her.  Sophie moans all the more from the unexpected intrusion, and with such a lush hole, you easily slide the rest of your prick inside.  Her wings keep flapping in irregular motions as you fuck each of her holes at the same time with both of your cocks.  You pump at her entrances with nigh inhuman intensity, each prick vying with the other in a contest of licentiousness."
@@ -1049,7 +1049,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         );
         if (this.player.balls > 0) this.outputText("balls and massages your ");
         this.outputText(this.buttDescript() + ".");
-        //[if third cock]
+        // [if third cock]
         if (this.player.totalCocks() > 2)
             this.outputText(
                 "  Using her extra flexibility, she bends over and start jerking your third pole, the sweet handjob adding to your pure cocktail of pleasure."
@@ -1076,7 +1076,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>Enough. You should rest now.</i>"  Nodding, Vapula heads toward her leaf-bed in order to recover from the intense threesome and digest her copious meal.'
         );
-        //lust set to 50, lipstick affect (if no adaptation)
+        // lust set to 50, lipstick affect (if no adaptation)
         this.sophieScene.luststickApplication(10);
         this.player.orgasm();
         this.dynStats("cor", 2);
@@ -1086,7 +1086,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Vapula-Sophie threesome (as female)
+    // Vapula-Sophie threesome (as female)
     private vapulaSophieThreesomeCunts(): void {
         this.clearOutput();
         this.outputText(
@@ -1143,7 +1143,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Vapula-Amily threesome
+    // Vapula-Amily threesome
     private vapulaAndAmilyThreesome(): void {
         this.clearOutput();
         var x: number = this.player.cockThatFits(100);
@@ -1193,7 +1193,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nAs Amily drinks, you can't help but notice her body is slowly being transformed by Vapula's essence.  Her horns start growing, her hips widen; her tits keep burgeoning"
         );
-        //[if not defurred]
+        // [if not defurred]
         if (this.flags[kFLAGS.AMILY_NOT_FURRY] == 0)
             this.outputText(" and her fur starts shrinking, letting her rosy skin shine below");
         this.outputText(
@@ -1201,7 +1201,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
                 this.cockDescript(x) +
                 " is suddenly squeezed as Amily's ample butt swells under the taint of Vapula's juice; this extra pressure is enough to make you cum, your loins churning and your junk bulging as you shoot your load through Amily's anus.  The poor cumslut starts fainting from the sheer flow of spunk flooding her interior as well as her mouth; with a pathetic squirting orgasm, she goes limp and moans pitifully.  You pump ragingly as you reach your climax, making entire ropes of jism spurt in and out of her ass and slathering her backside.  Once your orgasm begins to falter, you carelessly drop your mousy slut, letting her crawl in a small pool of mixed juices.  Vapula lets go of Amily's jaw, discarding her disposable fuck-toy, satiated."
         );
-        //[if balls]
+        // [if balls]
         if (this.player.balls > 0) {
             this.outputText(
                 "\n\nYou speak in a hoarse, breathless voice, \"<i>It's not over.</i>\"  You shake the tired mousette, telling her she'd better get ready for another round.  Amily whimpers and squeaks feebly, but you pay no attention as you grab her shoulders and give her a perfect view of your dangling, cum-dripping " +
@@ -1217,7 +1217,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
                     this.cockDescript(x) +
                     " starts twitching on its own, releasing a milky stream directly into the succubus' waiting womb."
             );
-            //[if cum production massive]
+            // [if cum production massive]
             if (this.player.cumQ() >= 1500)
                 this.outputText(
                     "  Sticky globs of white goo are shot from the tip of your rod, effectively stuffing Vapula so full of your spooge that some of it drips out and rains down on Amily's face, sopping her with fluids. The succubus quivers in your arms, giving in to her lust before squirting a powerful spray of fem-spooge, splattering Amily even more."
@@ -1240,11 +1240,11 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Vapula/Night Succubus
+    // Vapula/Night Succubus
     public vapulaAssistsCeruleanSuccubus(): void {
         var x: number = this.player.cockThatFits(100);
         if (x < 0) x = this.player.smallestCockIndex();
-        //[automatically triggers once the option Night Fuck is toggled and Cerulean potion is drunk, can't be selected from menu. Requires Cerulean potion to have been drunk once]
+        // [automatically triggers once the option Night Fuck is toggled and Cerulean potion is drunk, can't be selected from menu. Requires Cerulean potion to have been drunk once]
         this.outputText(
             '\n<b>That night...</b>\nYou wake up Vapula, telling her to get ready for your "guest". You expose your ' +
                 this.cockDescript(x) +
@@ -1280,7 +1280,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
                 this.cockDescript(x) +
                 ", acting as an boiling-hot and inescapable cock-ring.  Still trying your best to explore Vapula's love-tunnel, you reach around to get some of her tits, only to find the blue succubus' hands pinching your slut's nipples, making her shriek in torturesome pleasure.  You both keep groping her voluptuous body, making her shudder under your abusive massages.  Your head is now entirely soaked with Vapula's juices - that whore seems to orgasm ridiculously often.  Every time you consider pulling back your tongue and gasping for some fresh air, her twat squirts another crazy jet of fem-spunk down your face, making your vision blurry and leaving you with no choice but to lick her interior clean.  However, your efforts only stimulate her all the more, leading you to wonder how she can generate such an absurd amount of vaginal juices."
         );
-        //[if multicock]
+        // [if multicock]
         if (this.player.cockTotal() > 1)
             this.outputText(
                 "  She suddenly seems to have an idea: leaning down to reach your second cock, she starts licking it, accompanying the savage thrusting of the blue demoness as she slurps your extra junk, giving you even more pleasure."
@@ -1302,12 +1302,12 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
                 this.cockDescript(x) +
                 " only gets harder as it pounds Vapula's hot ass repeatedly.  The purple succubus, being taken in every orifice, keeps twisting in intolerable ecstasy and the blue wet cunt stuffing her mouth barely conceals her whorish moans."
         );
-        //[if second cock]
+        // [if second cock]
         if (this.player.cockTotal() > 1)
             this.outputText(
                 "\n\nSince there seems to be an available hole, you quickly insert your second penis into Vapula's drooling twat, bumping the blue succubus' tongue out of its way.  \"<i>Make room for me, slut.</i>\"  You feel the tongue being quickly removed and slowly massaging your junk instead.  Your efforts being facilitated by the blue demoness smearing juices all over your dickflesh, you thrust at full force inside Vapula's snatch.  The subtle feeling of a demonic tongue probing her interior is replaced by the mad pushes of a big hard cock is enough to make her squirt.  Cum rains down your hips and the blue succubus' mouth as you double-penetrate your purple pet, ravaging her from both holes."
             );
-        //[if third cock]
+        // [if third cock]
         if (this.player.cockTotal() > 2)
             this.outputText(
                 "\n\nIt feels good, but your guest's tongue feels redundant around your second cock since it already has a warm place to be lodged in.  Picking your third tool, you tell your blue slut to open her mouth wide so she can get her dessert.  Shoving all your length in her throat, you stand still, the thrilling sensation of penetrating three succubi holes at once making you laugh triumphantly.  The whole situation appears comical to you.  These powerful creatures, responsible for the fall of an entire land, now begging for their holes to be filled...  You laugh as you pump back and forth, your mad state of arousal quickening your incoming release.  The succubus' mouth doesn't feel as deliciously rough as Vapula's ass, and not as tight as her warm cunt, but sweet nonetheless, her mouth and lips doing an excellent job at driving you crazy with lust."
@@ -1317,10 +1317,10 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
                 this.cockDescript(x) +
                 ".  The succubus' inhuman recesses start to feel too hot for you, and with another powerful shot, you cum.  The contact of your globs of spooge hitting Vapula's backdoor makes her squirt another of her insane orgasms, but you keep releasing your milk inside her."
         );
-        //[if second cock]
+        // [if second cock]
         if (this.player.cockTotal() > 1) {
             this.outputText("  You pack her tight snatch ");
-            //[if third cock]
+            // [if third cock]
             if (this.player.cockTotal() > 2) this.outputText("and your blue lover's mouth ");
             this.outputText("likewise.");
         }
@@ -1344,7 +1344,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
             '.  "<i>That was fun! I can\'t wait to have another party like this! You should invite her more often!</i>"'
         );
         this.outputText("\n\nYou know you definitely will.");
-        //standard night succubus stat increases
+        // standard night succubus stat increases
         this.flags[kFLAGS.VAPULA_DAYS_SINCE_FED] = 0;
         this.flags[kFLAGS.VAPULA_TEASE_COUNT] = 0;
         this.player.orgasm();
@@ -1363,7 +1363,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.inventory.takeItem(this.consumables.CERUL_P, this.playerMenu);
     }
 
-    //Vapula/Jojo threesome
+    // Vapula/Jojo threesome
     private vapulaJojoThreesomes(): void {
         this.clearOutput();
         this.outputText(
@@ -1418,9 +1418,9 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         );
     }
 
-    //Netorare
-    //Butt-fuck train
-    //Vapula/Jojo Netorare
+    // Netorare
+    // Butt-fuck train
+    // Vapula/Jojo Netorare
     private NTRSomeJojos(): void {
         this.clearOutput();
         if (this.player.hasCock()) {
@@ -1460,7 +1460,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     "\n\nYou decide to add some more depravity to this sheer show of lewdness.  Grabbing your second turgid shaft, you knock at Vapula's vaginal entrance, your tip slowly rubbing her nether-lips.  Then, at the moment she least expects, you ram it in, effectively double-penetrating her."
                 );
-                //[if third cock]
+                // [if third cock]
                 if (this.player.cockTotal() > 2)
                     this.outputText(
                         "  Since the horny slut has a demonic vaginal capacity, you might as well fit more dick in it: in no time your third dick joins its colleague in this infernal vaginal assault."
@@ -1494,7 +1494,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nToo scared to disobey, the rodent monk only meekly nods and releases his iron grip on his erect prick, his tail wagging in despair.  He can only watch helplessly as you finish butt-fucking Vapula, his dick vibrating on its own at this pure display of anal sluttery.  The succubus' lush recesses finally drain your stamina completely and with a loud groan, you cum, fully loading your purple slut's backdoor with seed.  Her ass avidly devours your baby-batter as she screams like a whore in heat, visibly welcoming her new ration of spooge."
             );
-            //[if second cock]
+            // [if second cock]
             if (this.player.cockTotal() > 1)
                 this.outputText(
                     "  Your extra junk shoved down her love-tunnel also explodes in a milky torrent, blasting her fuck-hole full of spooge too."
@@ -1513,7 +1513,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
                 '\n\nWhen you\'re both completely empty, you help Vapula to her feet; as the succubus kisses you and thanks you for her meal, you notice that Jojo is still sitting before you, curled up and waiting for your next orders.  You laugh with your succubus companion at his submissive posture; Vapula kicks his butt and snickers, "<i>Can\'t you see we\'re busy?  Piss off, slut.</i>" You approve.  "<i>You heard what she said.  Go get fucked elsewhere.</i>"  Still terrified by the unholy couple you both form, Jojo nods feebly and quickly disappears into the jungle.'
             );
         }
-        //Jojo NTR (as female)
+        // Jojo NTR (as female)
         else {
             this.outputText(
                 'You call out in the jungle, "<i>Slut!</i>"  Vapula snickers, "<i>I\'m here, you know.</i>"  You slap her ass to shut her up and quickly explain about your mousey fucktoy in denial; how pleasing it is to humiliate a sex slave who cannot face who he is, and how you intend to use her to further his debasement.  As she eagerly listens to you, her tongue inadvertently licking her lips, you hear soft steps behind you.  You look back and see Jojo walking hesitantly, intimidated by your unholy presence and the towering ex-dominatrix.  "<i>You were right, he\'s such a cute shy slut.  I bet he secretly wants some nice cock to ram his every hole.  Don\'t you, little pet?</i>"  The mousy monk huddles up little by little, bowing his head uncomfortably.'
@@ -1602,7 +1602,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Vapula/Jojo Butt-fuck train
+    // Vapula/Jojo Butt-fuck train
     private jojoButtFuckTrain(): void {
         this.clearOutput();
         var x: number = this.player.cockThatFits(100);
@@ -1642,12 +1642,12 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nYou pump him full of your junk as he does the same to the buttslut in front of him.  You can't tell who yelps louder, but these bitches seem to enjoy the butt-fucking they're receiving.  This only entices you to fuck Jojo harder, knowing that the might of your thrusts will propagate down Vapula's butt; you ruthlessly smash your groin against Jojo's butt, pulling his arms harder at each thrust and oblivious of the mouse's pain in your passionate embrace.  Besides, the monk slut is probably getting off on getting manhandled like that.  You reach around and grab Vapula's breasts, holding her tight and crushing Jojo between the two of you as you keep ravaging his butt with repeated assaults."
         );
-        //[if tentacle Jojo]
+        // [if tentacle Jojo]
         if (this.jojoScene.tentacleJojo()) {
             this.outputText(
                 "\n\nBetween two butt-assaults, you order your pet to put his pretty appendages to some use for once: your ass needs to be taken care of too.  Jojo doesn't seem to react.  You first think he didn't hear you over Vapula's screams and the mad thuds of groins being clasped against butts, but you are soon relieved as you feel some tubular appendage tickling your buttocks.  Encouraging him, you thrust deeper in his own butt, inviting him to return the favor.  Your efforts are rewarded as you feel your own anus being savagely violated by some fat penile flora, sap-like slime being spilled down your legs.  The cock fucks you hard and rough, speeding up and slowing down irregularly as Jojo tries to muster his stamina.  At the same time, another of these green rods finds its way toward your mouth; you eagerly suck the tip like a popsickle and it immediately shoves itself down your throat.  Your neck bulges obscenely from the huge dick-intrusion, but you don't care; his cock tastes too sweet."
             );
-            //[if vagina]
+            // [if vagina]
             if (this.player.hasVagina())
                 this.outputText(
                     "  Last but not least, a soft cock-knock at the entrance of your " +
@@ -1655,7 +1655,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
                         " signals an incoming intrusion.  If your mouth weren't so full of cock you would sigh in relief as your aching pussy is thoroughly penetrated."
                 );
         }
-        //[if PC has extra long tentacle cock, variable is n1]
+        // [if PC has extra long tentacle cock, variable is n1]
         var n1: number = -1;
         var n2: number = -1;
         var n3: number = -1;
@@ -1679,7 +1679,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
                     this.cockDescript(x) +
                     " but the way Jojo wriggles against it in order to fit more of your length inside him reminds you of your job."
             );
-        //[if PC has another tentacle cock, variable is n2]
+        // [if PC has another tentacle cock, variable is n2]
         if (n2 >= 0)
             this.outputText(
                 "\n\nSince your sluts still have free holes left, you decide to fill some more fuck-holes with your junk.  Guiding  your " +
@@ -1688,7 +1688,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
                     this.cockDescript(n2) +
                     " in the most teasing manner."
             );
-        //[if PC has another tentacle cock, variable is n3]
+        // [if PC has another tentacle cock, variable is n3]
         if (n3 >= 0)
             this.outputText(
                 "\n\nSince Vapula is already sucking you off, why not Jojo?  You still have appropriate junk left after all.  You promptly send your wriggling " +
@@ -1701,12 +1701,12 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
                     this.cockDescript(n3) +
                     " is throbbing in need as is bathes in the mousey's saliva."
             );
-        //[add this at the end of any tentacle multicock text]
+        // [add this at the end of any tentacle multicock text]
         if (n1 >= 0) {
             this.outputText(
                 "\n\nYou pound Vapula and Jojo harder than ever, riding the butt-fuck wave and creating delightful disruptions in the whole train as you fill both sluts with your junk over and over again.  You keep pumping, the tightness of either hole threatening to send you over the edge at every thrust."
             );
-            //[if Jojo has tentacle dicks]
+            // [if Jojo has tentacle dicks]
             if (this.jojoScene.tentacleJojo())
                 this.outputText(
                     "  You enjoy this absolutely crazy display of corrupted debauchery: you, getting dick and giving dick to the same creature as well as indirectly and directly violating multiple holes with your junk.  An endless circle of loop-fuck feeding itself through lust and dicklesh.  How weird the three of you would appear to an external observer, locked as you are in this train of penetrating dicks!  None of you can moan to express the sheer bliss you're all feeling, as your mouths are filled with dick; you can't slow down, as both your sluts are taken in an insane frenzy, always willing to fill more cock in some hole.  All you can do is pump faster and faster until the final release."
@@ -1715,14 +1715,14 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nYou wish this blissful state of mind and pleasure would last forever, and you're sure both your butt-fuck partners are feeling the same way; sadly, your stamina has a limit, and theirs does too.  You feel your spooge flowing all through your genitals, ready to be unloaded.  With a silent groan, you give Jojo one last pound before utterly blasting him with spunk.  You paint his anal walls white"
         );
-        //[if second multicock]
+        // [if second multicock]
         if (n1 >= 0) this.outputText(", as well as Vapula's love-tunnel");
         if (n2 >= 0) this.outputText(" and throat, ");
         if (n3 >= 0) this.outputText("and Jojo's too");
         this.outputText(
             ".  You feel that Jojo's release is coming too.  With a powerful thrust, he squirts his own mouse semen down Vapula's waiting ass"
         );
-        //[if tentacle Jojo]
+        // [if tentacle Jojo]
         if (this.jojoScene.tentacleJojo())
             this.outputText(
                 "; his tentacles absolutely drench your every hole with greenish mousey-cum"
@@ -1753,7 +1753,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         else this.vapulaAndIzma(true);
     }
 
-    //Vapula/Izma threesome(F)
+    // Vapula/Izma threesome(F)
     private vapulaAndIzma(girls: boolean = true): void {
         this.clearOutput();
         var x: number = this.player.cockThatFits(100);
@@ -1823,7 +1823,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
                     " still needs to be cleaned. With a happy sigh, she works on your junk for a while, tingling you in the most pleasant way as her tongue runs across your dickflesh and slurps all the remaining goo. When you're as empty as she's full, you both rest side to side, recovering from the intense fuck."
             );
         }
-        //Vapula/Izma threesome (as female)
+        // Vapula/Izma threesome (as female)
         else {
             this.outputText(
                 "You call your beta tigershark, telling her you'll have some use for her body.  Izma eagerly approaches you as you slip into your strap-on, only starting to frown when she sees the towering succubus accompanying you.  \"<i>What can I do for my alp-... wait, what are you doing with her?</i>\"  Vapula only smirks at Izma's puzzled reaction."
@@ -1890,13 +1890,13 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Feed (as female)
+    // Feed (as female)
     private chixFeedVapulaBlehblehIVantToZuckYourSpooo(): void {
         this.clearOutput();
         this.outputText(
             "You produce the demonic dildo and hold it by the hilt of its giant purple end, wagging it lazily by your side with a playful grin.  Vapula knows what that means; she is on her knees in an instant, staring at you with wolfish anticipation."
         );
-        //Feed/Tease
+        // Feed/Tease
         var tease = undefined;
         if (this.flags[kFLAGS.VAPULA_HAREM_FUCK] == 0) tease = this.teaseVapula;
         this.simpleChoices(
@@ -1913,10 +1913,10 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         );
     }
 
-    //Tease
+    // Tease
     private teaseVapula(): void {
         this.clearOutput();
-        //Requires: Vapula not fucking harem
+        // Requires: Vapula not fucking harem
         if (
             this.flags[kFLAGS.VAPULA_HAREM_FUCK] == 0 &&
             this.flags[kFLAGS.VAPULA_DAYS_SINCE_FED] == 0
@@ -1951,8 +1951,8 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
             this.dynStats("lus", 10 + this.player.sens / 10);
             this.flags[kFLAGS.VAPULA_TEASE_COUNT]++;
         }
-        //Second Tease
-        //Requires: Vapula not fucking harem, teased the day before
+        // Second Tease
+        // Requires: Vapula not fucking harem, teased the day before
         else if (
             this.flags[kFLAGS.VAPULA_HAREM_FUCK] == 0 &&
             this.flags[kFLAGS.VAPULA_DAYS_SINCE_FED] == 1
@@ -1978,22 +1978,22 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\n"<i>That\'s not a very nice thing to say,</i>" you purr, stopping your ministrations for a moment and pulling away slightly.  A look of anguish appears on Vapula\'s face.  "<i>What would you do for me now, just to get your fix?</i>"'
             );
-            //[Hooves:
+            // [Hooves:
             if (this.player.lowerBody == LOWER_BODY_TYPE_HOOFED || this.player.isTaur())
                 this.outputText(
                     '"<i>I would worship your feet, mistress.  I would clean your hooves with my tongue to a shine, tease out every scrap of dirt from every crevice.  And I would thank you for the privilege.</i>"'
                 );
-            //[Naga:
+            // [Naga:
             else if (this.player.isNaga())
                 this.outputText(
                     '\n\n"<i>I would worship your scales, mistress.  I would buff every single one with my tongue so it shone, lick every inch of your tail, deep throat you all the way down into my belly.  And I would thank you for the privilege.</i>"'
                 );
-            //[Drider:
+            // [Drider:
             else if (this.player.isDrider())
                 this.outputText(
                     '\n\n"<i>I would be your egg dump, mistress.  I would take your dripping ovipositor in every hole, my cunt, my ass, my mouth, then clean it with my tongue afterwards.  I would find and feed you ovi-potions just so you could keep me stuffed with your essence constantly.  And I would thank you for the privilege.</i>"'
                 );
-            //[Goo:
+            // [Goo:
             else if (this.player.isGoo())
                 this.outputText(
                     '\n\n"<i>I would let you engulf me, mistress.  I would let you push yourself into my every hole and crevice, drown me in your essence, fuck me so completely I wouldn\'t know where I started and you began.  And I would thank you for the privilege.</i>"'
@@ -2008,7 +2008,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     '\n\n"<i>I would worship your feet, mistress.  I would lick every inch of your claws, massage your soft undersides with my tongue.  I would pare all of your claws to needle sharpness and then let you test them on my backside.  And I would thank you for the privilege.</i>"'
                 );
-            //[Insect:
+            // [Insect:
             else if (
                 this.player.lowerBody == LOWER_BODY_TYPE_BEE ||
                 this.player.lowerBody == LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS
@@ -2016,7 +2016,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     '\n\n"<i>I would worship your feet, mistress.  I would lick every inch of your boots, clean your soles with my tongue.  I wouldn\'t stop until they shone. And I would thank you for the privilege.</i>"'
                 );
-            //[Human/demonic feet:
+            // [Human/demonic feet:
             else
                 this.outputText(
                     '\n\n"<i>I would worship your feet, mistress.  I would lick every inch of them, clean your soles with my tongue, between your toes, lavish each of your pinkies with attention as if they were ten cocks belonging to you.  And I would thank you for the privilege.</i>"'
@@ -2037,9 +2037,9 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
             );
             this.flags[kFLAGS.VAPULA_TEASE_COUNT]++;
         }
-        //Third Tease
+        // Third Tease
         else {
-            //Requires: Vapula not fucking harem, teased two days in a row
+            // Requires: Vapula not fucking harem, teased two days in a row
             this.outputText(
                 "Once again you buckle up, sighing with pleasure as you sink the pink dildo into your moist hole, and once again you wait until Vapula gets onto her knees before you.  She looks at you silently and sullenly as you droop the monstrous purple end over her face."
             );
@@ -2055,12 +2055,12 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nDeciding it is worth taking advantage of the insane hunger you've managed to stoke in your bitch, "
             );
-            //Naga:
+            // Naga:
             if (this.player.isNaga())
                 this.outputText(
                     "you slide your tail under and over her trunk, wrapping your coils around her and drawing her face into your stuffed crotch."
                 );
-            //Other:
+            // Other:
             else if (this.player.isTaur() || this.player.isGoo() || this.player.isDrider())
                 this.outputText(
                     "you sit the monstrous half of your body down comfortably and draw her face into your stuffed cotch."
@@ -2099,10 +2099,10 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Feed (as female)
+    // Feed (as female)
     private chicksFeedVapula(): void {
         this.clearOutput();
-        //[Teased once or twice:
+        // [Teased once or twice:
         if (this.flags[kFLAGS.VAPULA_TEASE_COUNT] > 1) {
             this.outputText(
                 "You push the pink end of the dildo into you with a sigh, then strap yourself into the harness so that the monstrous purple end bobs out in front of you.  You stand over a tense Vapula and tease her with it first, lightly brushing her face with the tip for a while.  She swallows thickly and licks her lips as you caress her with your cum fountain, but makes no movements towards it.  Eventually you giggle at her furious concentration and tell her you're going to reward her for being such a good slut, before pushing the end against her lips.  A flood of ecstatic thank-you-mistresses are swiftly muffled out as the dildo disappears into her mouth."
@@ -2141,7 +2141,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.VAPULA_TEASE_COUNT] = 0;
     }
 
-    //Forcefeed
+    // Forcefeed
     public vapulaForceFeeds(): void {
         if (
             this.player.hasVagina() &&
@@ -2158,12 +2158,12 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nWith a wolfish groan she swallows the purple dildo up to the hilt and begins to work it savagely, slurping and grunting obscenely.  Before you can properly react, she catches the base of the dildo with her teeth and pushes it into you as hard as she can.  You gasp as the pink end reacts, growing by several inches and sliding further into your moist cunt.  In and out Vapula drags the dildo, slapping it into your groin as she fucks you whilst blowing the purple end for all she is worth, her saliva running down your thighs.  For a moment you think about getting up, asserting your authority and making her stop... but then the warm length wedged in your depths makes you coo with pleasure as Vapula shakes the cock in her mouth around like a bear with a salmon, making your end twist and spasm delightfully.  Deciding it is worth taking advantage of her insane hunger, "
             );
-            //Naga:
+            // Naga:
             if (this.player.isNaga())
                 this.outputText(
                     "you slide your tail under and over her trunk, wrapping your coils around her and drawing her face into your stuffed crotch."
                 );
-            //Other:
+            // Other:
             else if (this.player.isTaur() || this.player.isGoo() || this.player.isDrider())
                 this.outputText(
                     "you sit the monstrous half of your body down comfortably and draw her face into your stuffed cotch."
@@ -2194,7 +2194,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
             this.flags[kFLAGS.VAPULA_TEASE_COUNT] = 0;
             this.flags[kFLAGS.VAPULA_EARNED_A_SPANK] = 1;
         }
-        //[if no fuck harem is on and PC hasn't fed/fucked Vapula for 5 days that scene will trigger at night]
+        // [if no fuck harem is on and PC hasn't fed/fucked Vapula for 5 days that scene will trigger at night]
         else if (this.player.hasCock()) {
             var x: number = this.player.cockThatFits(100);
             if (x < 0) x = this.player.smallestCockIndex();
@@ -2220,7 +2220,7 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nHer lips keep squeezing your junk in order to milk everything you've got, and in your shuddering orgasm you're too eager to comply.  With a surrendering sigh, you abandon yourself to your climax and keep cumming, squirting your baby-batter to the last drop as the succubus keeps gulping it.  Her eyes are closed in an expression of complete satisfaction; she enjoys her meal to its full extent, filling her belly with your spooge"
             );
-            //[if cum production is massive]
+            // [if cum production is massive]
             if (this.player.cumQ() >= 1500)
                 this.outputText(
                     " until she looks 6 months pregnant.  At last, the cum-flow spilling through your urethra starts to ebb and your " +
@@ -2236,10 +2236,10 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.playerMenu);
     }
 
-    //Spank Vapula for misbehaving.
-    //Requires Vapula force herself on you for food.
-    //Requires dick or vapula dildo!
-    //Requires bipedal-ness
+    // Spank Vapula for misbehaving.
+    // Requires Vapula force herself on you for food.
+    // Requires dick or vapula dildo!
+    // Requires bipedal-ness
     private spankVapulaLikeABoss(): void {
         this.clearOutput();
         this.outputText(
@@ -2307,9 +2307,9 @@ export class Vapula extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nThe demoness nervelessly flops off you and onto the ground, moaning in pain and pleasure, rubbing her abused bottom.  Hopefully she learned her lesson, and if not, you can always teach it to her again, next time."
         );
-        //{+20ish lust}
+        // {+20ish lust}
         this.dynStats("lus", 10 + this.player.lib / 7);
-        //{Sadist: + 20 lust}
+        // {Sadist: + 20 lust}
         if (this.player.findPerk(PerkLib.Sadist) >= 0)
             this.dynStats("lus", 10 + this.player.lib / 7);
         this.flags[kFLAGS.VAPULA_EARNED_A_SPANK] = 0;

@@ -48,21 +48,21 @@ export class Sirius extends Naga {
         this.outputText(
             "The snake-man stares deeply into your eyes, seemingly looking past them, and for a moment your body goes numb."
         );
-        //Miss:
+        // Miss:
         if (Sirius.rand(10) == 0) {
             this.outputText(
                 "  You blink and shake yourself free of the effects of the snake-man's penetrating gaze."
             );
             this.combatRoundOver();
         }
-        //Hit (Blind):
+        // Hit (Blind):
         if (this.findStatusAffect(StatusAffects.Blind) >= 0) {
             this.outputText(
                 "  Though your vision is still blurry, you feel yourself being sucked into the golden depths of those pupils, making you forget all your worries, if only for an instant.  All you can focus on is your growing arousal as you sink deeper into his gaze.  You shake your head, clearing your mind of the hypnotising effects the snake-man's eyes seem to possess, though the arousal remains."
             );
             kGAMECLASS.dynStats("lus", 5 + this.player.lib / 10 - this.player.inte / 20);
         }
-        //Hit:
+        // Hit:
         else {
             this.outputText(
                 "  Those pools of yellow suck you into their golden depths, making you forget all your worries, if only for an instant.  All you can focus on is your growing arousal as you sink deeper into his gaze.  You shake your head, clearing your mind of the hypnotising effects the snake-man's eyes seem to possess, though the arousal remains."
@@ -74,14 +74,14 @@ export class Sirius extends Naga {
 
     private nagaSpitAttack(): void {
         this.outputText("Hissing loudly, Sirius suddenly curls his lips and spits at your eyes!  ");
-        //{Hit:
+        // {Hit:
         if (this.spe / 20 + Sirius.rand(20) + 1 > this.player.spe / 20 + 10) {
             this.outputText(
                 "The vile spray hits your eyes and you scream in pain, clawing fiercely at your burning, watering, weeping eyes.  <b>You can't see!  It'll be much harder to fight in this state, but at the same time, his hypnosis won't be so effective...</b>"
             );
             this.player.createStatusAffect(StatusAffects.Blind, 3, 0, 0, 0);
         }
-        //Miss:
+        // Miss:
         else
             this.outputText(
                 "You quickly lean to the side, narrowly avoiding being blinded by the snake-man's spit!"
@@ -93,7 +93,7 @@ export class Sirius extends Naga {
         this.outputText(
             "With a loud and vicious hiss, Sirius suddenly lunges at you, mouth distended impossibly wide and revealing four needle-like fangs dripping with venom!  "
         );
-        //Miss:
+        // Miss:
         if (
             this.combatMiss() ||
             this.combatEvade() ||
@@ -105,7 +105,7 @@ export class Sirius extends Naga {
             );
             this.combatRoundOver();
         }
-        //Hit:
+        // Hit:
         this.outputText(
             "The snake-man moves too quickly for you to evade and he sinks long fangs into your flesh, leaving a wound that burns with horrific pain."
         );

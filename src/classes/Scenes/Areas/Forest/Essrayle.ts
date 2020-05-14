@@ -3,15 +3,15 @@ import { BaseContent } from "../../../BaseContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 
 export class Essrayle extends BaseContent {
-    //const MET_ESSY: number = 772;
-    //const TURNED_DOWN_ESSY_FIRST_MEETING: number = 773;
-    //const ACCEPTED_ESSY_FIRST_MEETING: number = 774;
-    //const ESSRAYLE_ESCAPED_DUNGEON: number = 863;
-    //const TOLD_MOTHER_TO_RELEASE_ESSY: number = 864;
-    //const ESSY_DUNGEON_FUCKED: number = 865;
-    //const ESSY_MET_IN_DUNGEON: number = 866;
+    // const MET_ESSY: number = 772;
+    // const TURNED_DOWN_ESSY_FIRST_MEETING: number = 773;
+    // const ACCEPTED_ESSY_FIRST_MEETING: number = 774;
+    // const ESSRAYLE_ESCAPED_DUNGEON: number = 863;
+    // const TOLD_MOTHER_TO_RELEASE_ESSY: number = 864;
+    // const ESSY_DUNGEON_FUCKED: number = 865;
+    // const ESSY_MET_IN_DUNGEON: number = 866;
 
-    //Restriction on meeting Essy I'd figure is you can't be genderless, Essy is a very sexual being and if she doesn't detect a sex in someone, she's bluntly not interested. I'd imagine she'd be more receptive to nagas, those rather cowish in species, and characters with very, very large breasts.
+    // Restriction on meeting Essy I'd figure is you can't be genderless, Essy is a very sexual being and if she doesn't detect a sex in someone, she's bluntly not interested. I'd imagine she'd be more receptive to nagas, those rather cowish in species, and characters with very, very large breasts.
 
     public essrayleMeetingI(): void {
         this.clearOutput();
@@ -90,13 +90,13 @@ export class Essrayle extends BaseContent {
             );
         }
         this.flags[kFLAGS.MET_ESSY]++;
-        //[Yes] [No]
+        // [Yes] [No]
         this.menu();
         this.addButton(1, "Yes", this.plantsForMe);
         this.addButton(2, "No", this.noPlantsForMe);
     }
 
-    //>If No
+    // >If No
     private noPlantsForMe(): void {
         this.clearOutput();
         this.outputText(
@@ -106,7 +106,7 @@ export class Essrayle extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //>If Yes
+    // >If Yes
     private plantsForMe(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.ACCEPTED_ESSY_FIRST_MEETING] == 0) {
@@ -115,7 +115,7 @@ export class Essrayle extends BaseContent {
                 "Essrayle giggles, sending ripples through her ample breasts.  \"<i>Oh, why thank you!  It's nothing major - I doubt it'll be much of a burden to you.  But in my travels, I've grown wilted and depleted of the energy to go on.  I'm soooo hungry!  Would you please-?</i>\"  She leaves the question hanging, looking to you imploringly.  Hastily your hand goes to where your supplies are housed, but you stop as she waves a hand dismissively.  \"<i>No, no, I don't mean biscuits or the like.</i>\"  Confused, you frown, but soften as you feel her hand rest upon your [chest].  \"<i>I require a special kind of food to do what I do, one that won't exhaust your supplies in the least.</i>\"\n\n"
             );
         }
-        //(If breasts
+        // (If breasts
         if (this.player.biggestTitSize() > 1)
             this.outputText("Your nipples stiffen, breasts puffing out with a heated breath");
         else
@@ -149,7 +149,7 @@ export class Essrayle extends BaseContent {
             '\n\nSlowly, you two separate, Essy sliding her leaf-like tongue over your lips, leaving them with a cool tingle for a time.  "<i>I\'m sooooo hungry... so very, very hungry,</i>" she whispers to you, her face touching your nose once more.  One of her hands begins to trail down your front, grasping and squeezing your nipples.'
         );
 
-        //(If breasts present)
+        // (If breasts present)
         if (this.player.breastRows[0].breastRating >= 1) {
             this.outputText(
                 '\n\n"<i>Oooh, how I adore these,</i>" she coos to you, taking your breasts into two hands and beginning to squeeze and knead firmly into the pillowy flesh'
@@ -170,14 +170,14 @@ export class Essrayle extends BaseContent {
             this.outputText(
                 '  "<i>You certainly have a lovely pair, but they could always be better, don\'t you think?</i>"'
             );
-            //[Yes] [No]
+            // [Yes] [No]
             this.menu();
             this.addButton(1, "Yes", this.plantsForMe2, 1);
             this.addButton(2, "No", this.plantsForMe2, 2);
         }
-        //Else
+        // Else
         else {
-            //[Next]
+            // [Next]
             this.menu();
             this.addButton(0, "Next", this.plantsForMe2, 0);
         }
@@ -185,15 +185,15 @@ export class Essrayle extends BaseContent {
 
     private plantsForMe2(BE: number = 0): void {
         this.clearOutput();
-        //Yes
+        // Yes
         if (BE == 1)
             this.outputText(
                 "Essy grins, nodding.  \"<i>Precisely.  I don't doubt they'll be even more fun given enough exposure here.</i>\"\n\n"
             );
-        //If No=
+        // If No=
         else if (BE == 2) this.outputText('"<i>Heh, suit yourself.</i>"\n\n');
 
-        //Regardless of tit forks, merge back in to this
+        // Regardless of tit forks, merge back in to this
         this.outputText(
             'Essy\'s upper hands continue their work about your chest, toying around as one of her lower arms moves about your belly, snaking downward slowly all the while.  As you wiggle and writhe under her sensual ministrations, one of those hefty breasts abruptly plants itself in your face.  "<i>Why should you have all the fun?</i>" Essy coos, directing your mouth to one of her puffy nipples.  Without hesitation, you latch on and slide down its length with your lips.'
         );
@@ -240,7 +240,7 @@ export class Essrayle extends BaseContent {
             ".  Her lower hands grasp you, helping to raise you up until you're at the proper height, whence she abruptly plants her lips upon your crotch."
         );
 
-        //Cock=
+        // Cock=
         if (this.player.hasCock()) {
             this.outputText(
                 "\n\nEssy drags her thin tongue over the length of [oneCock], flowing over every inch of it, bending about its curve as she licks from base to tip before engulfing it with her lips. Without a moment's hesitation, she slides down to the hilt, giving amazing pleasure from the surreal tightness, hitting you as you feel the plant's throat rippling and actually milking at your length."
@@ -255,13 +255,13 @@ export class Essrayle extends BaseContent {
                 ".  The opaque cups pump and suck, Essy humming to herself as the base of her tongue continues to skillfully tease over every hot spot near the [cockHead biggest] of your [cock biggest], her length slithering about it skillfully."
             );
         }
-        //(Pussy=
+        // (Pussy=
         else {
             this.outputText(
                 "\n\nSmiling as she inspects your now juicy folds first hand, her lips close over yours, tongue snaking and squirming into your quivering pussy.  The plant gives you a royal tongue-lashing, slurping away lewdly, lips plucking at your throbbing clit with amazing expertise."
             );
         }
-        //[if breasts then also=
+        // [if breasts then also=
         if (this.player.biggestTitSize() >= 1) {
             this.outputText(
                 "\n\nYour breasts bounce and quiver wildly as you bounce up and down, held tightly by those tentacles, Essy dining happily down below.  Those opaque coverings ripple and squeeze hard about your breasts, pumping them for "
@@ -307,7 +307,7 @@ export class Essrayle extends BaseContent {
             '\n\n"<i>Good luck on the whole adventure thing, but don\'t forget to take some you time.</i>"  She grins, waving before heading off, hips swaying seductively as she leaves the area.'
         );
 
-        //(BE Reward scene, result of answering Yes to breasts being better)
+        // (BE Reward scene, result of answering Yes to breasts being better)
         if (BE == 1) {
             this.outputText(
                 '\n\nEssy suddenly stops before leaving the clearing. Slowly, she pivots on the spot, smiling.  "<i>Say, it\'d be pretty rude of me to just dine and dash.  Why don\'t I give you a little reward for your kindness?</i>" Giggling softly, she draws close to you once more, mashing her green breasts to your own, overtaking them with her squishy girth.  You begin to speak when her finger falls upon your lips. "<i>Shhh,</i>" she silences you with a smile.'
@@ -348,7 +348,7 @@ export class Essrayle extends BaseContent {
                     ", the top pair being largest, descending in size with each subsequent pair"
                 );
             this.outputText(".");
-            //Boost size, set lactation quantity.
+            // Boost size, set lactation quantity.
             this.player.growTits(7, this.player.bRows(), false, 2);
             this.player.boostLactation(this.player.bRows());
             this.outputText(
@@ -361,12 +361,12 @@ export class Essrayle extends BaseContent {
         }
         this.player.orgasm();
         this.dynStats("lib", 1);
-        //Slimefeed!
+        // Slimefeed!
         this.player.slimeFeed();
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Look Closer
+    // Look Closer
     public approachTrappedEssy(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.ESSY_DUNGEON_FUCKED] == 0) {
@@ -420,12 +420,12 @@ export class Essrayle extends BaseContent {
         }
         this.dynStats("lus", 10 + this.player.lib / 10);
         this.menu();
-        //Option: [Feed her] [leave]
+        // Option: [Feed her] [leave]
         if (this.player.gender > 0) this.addButton(0, "Feed Her", this.feedTrappedEssy);
         this.addButton(4, "Leave", this.playerMenu);
     }
 
-    //[Feed Her]
+    // [Feed Her]
     private feedTrappedEssy(): void {
         this.clearOutput();
         this.outputText(
@@ -447,7 +447,7 @@ export class Essrayle extends BaseContent {
         }
     }
 
-    //(Cock)
+    // (Cock)
     private hasCockFeedEssy(newPage: boolean = true): void {
         if (newPage) this.clearOutput();
         else this.outputText("\n\n");
@@ -520,7 +520,7 @@ export class Essrayle extends BaseContent {
         this.doNext(this.playerMenu);
     }
 
-    //(After defeating the Cum Witch)
+    // (After defeating the Cum Witch)
     public essyWitchVictory(): void {
         this.clearOutput();
         this.outputText(
@@ -552,14 +552,14 @@ export class Essrayle extends BaseContent {
         this.addButton(1, "No", this.declineEssyPrizes);
     }
 
-    //[No]
+    // [No]
     private declineEssyPrizes(): void {
         this.clearOutput();
         this.outputText(
             'Essy sighs and shakes her head.  "<i>What a let down!</i>"  She shrugs, throwing all four arms into the air helplessly, and digs about in the pouch she keeps on her vine belt.  "<i>Here, hope this tickles your fancy.</i>"  She reaches out and places a number of glittering gems into your hand.  "<i>They don\'t do me much good anyway.</i>"'
         );
 
-        //(Player gains some more gems)
+        // (Player gains some more gems)
         this.player.gems += 100 + Essrayle.rand(70);
         this.statScreenRefresh();
 
@@ -569,7 +569,7 @@ export class Essrayle extends BaseContent {
         this.doNext(this.playerMenu);
     }
 
-    //[Yes]
+    // [Yes]
     private acceptEssyPrizes(): void {
         this.clearOutput();
         this.outputText(
@@ -591,7 +591,7 @@ export class Essrayle extends BaseContent {
             if (this.player.bRows() == 1) this.player.createBreastRow();
             this.player.breastRows[1].breastRating = 4;
         }
-        //if two breasts:
+        // if two breasts:
         else if (this.player.bRows() == 1) {
             this.outputText("two more bulging tits erupt from your chest");
             if (this.player.breastRows[0].breastRating < 4) {
@@ -601,7 +601,7 @@ export class Essrayle extends BaseContent {
             if (this.player.bRows() == 1) this.player.createBreastRow();
             this.player.breastRows[1].breastRating = this.player.breastRows[0].breastRating;
         }
-        //if four+ breasts:
+        // if four+ breasts:
         else {
             this.outputText(
                 "your [fullChest] swell larger and larger under the expanding magic of the spell"
@@ -622,7 +622,7 @@ export class Essrayle extends BaseContent {
         this.addButton(1, "No", this.noGimmeGiantNipplesEssy);
     }
 
-    //[Yes]
+    // [Yes]
     private yesGimmeGiantNipplesEssy(): void {
         this.clearOutput();
         this.outputText(
@@ -630,11 +630,11 @@ export class Essrayle extends BaseContent {
         );
 
         this.essyRewardEpilogueOUTTIES();
-        //[gain purple fruit] [Next]
+        // [gain purple fruit] [Next]
         this.inventory.takeItem(this.consumables.PRFRUIT, this.camp.returnToCampUseOneHour);
     }
 
-    //[No]
+    // [No]
     private noGimmeGiantNipplesEssy(): void {
         this.clearOutput();
         this.outputText(
@@ -643,7 +643,7 @@ export class Essrayle extends BaseContent {
         this.essyRewardEpilogueOUTTIES();
     }
 
-    //[Either choice]
+    // [Either choice]
     private essyRewardEpilogueOUTTIES(): void {
         this.outputText(
             "\n\nAbruptly, she pushes in and kisses you deeply, shoving her moist, leafy tongue deep into your mouth."
@@ -654,7 +654,7 @@ export class Essrayle extends BaseContent {
         this.outputText(
             "\n\nWith a shameless giggle, she kisses the peak of one of your breasts while groping the one next to it.  \"<i>Mmm, yes, I'd ravish them hard and drain you dry right now, but out of respect I'll let you have the first crack at it.</i>\"  With a dainty wave, she shuffles towards the exit and is gone once more.\n\n"
         );
-        //[End Encounter]
+        // [End Encounter]
         this.doNext(this.playerMenu);
     }
 

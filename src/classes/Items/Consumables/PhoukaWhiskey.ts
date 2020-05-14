@@ -77,21 +77,21 @@ export class PhoukaWhiskey extends Consumable {
     }
 
     public phoukaWhiskeyAcceptable(player: Player): number {
-        //This function provides a single common test that can be used both by this class and the PhoukaScene class
-        //Returns:	0 = canUse (not pregnant), 1 = canUse (single pregnancy, womb), 2 = canUse (single pregnancy, colon), 3 = canUse (double pregnancy, both OK),
-        //			-1 = No (single pregnancy, womb), -2 = No (single pregnancy, colon), -3 = No (double pregnancy, both not OK), -4 = No (double pregnancy, one OK, one not)
+        // This function provides a single common test that can be used both by this class and the PhoukaScene class
+        // Returns:	0 = canUse (not pregnant), 1 = canUse (single pregnancy, womb), 2 = canUse (single pregnancy, colon), 3 = canUse (double pregnancy, both OK),
+        // 			-1 = No (single pregnancy, womb), -2 = No (single pregnancy, colon), -3 = No (double pregnancy, both not OK), -4 = No (double pregnancy, one OK, one not)
         if (player.pregnancyIncubation == 0) {
             if (player.buttPregnancyIncubation == 0) return 0; //No baby. Simplest, most common case
             if (player.buttPregnancyType == PregnancyStore.PREGNANCY_SATYR) return 2;
             return -2;
         }
         if (player.buttPregnancyIncubation == 0) {
-            //Single pregnancy, carried in the womb
+            // Single pregnancy, carried in the womb
             if (player.pregnancyType == PregnancyStore.PREGNANCY_SATYR) return 1;
             if (player.pregnancyType == PregnancyStore.PREGNANCY_FAERIE) return 1;
             return -1;
         }
-        //Double pregnancy
+        // Double pregnancy
         var wombBabyLikesAlcohol: boolean =
             player.pregnancyType == PregnancyStore.PREGNANCY_SATYR ||
             player.pregnancyType == PregnancyStore.PREGNANCY_FAERIE;
@@ -103,9 +103,9 @@ export class PhoukaWhiskey extends Consumable {
     }
 
     public phoukaWhiskeyDrink(player: Player): number {
-        //This function provides a single common test that can be used both by this class and the PhoukaScene class
-        //Returns:	0 = Player is not pregnant, 1 = Player is pregnant with a satyr or phouka, 2 = Player is pregnant with a faerie that will become a phouka with this drink,
-        //			3 = Player is pregnant with a faerie that will remain a faerie after this drink
+        // This function provides a single common test that can be used both by this class and the PhoukaScene class
+        // Returns:	0 = Player is not pregnant, 1 = Player is pregnant with a satyr or phouka, 2 = Player is pregnant with a faerie that will become a phouka with this drink,
+        // 			3 = Player is pregnant with a faerie that will remain a faerie after this drink
         if (player.pregnancyIncubation == 0 && player.buttPregnancyIncubation == 0) return 0;
         if (player.pregnancyType == PregnancyStore.PREGNANCY_FAERIE) {
             if (this.game.flags[kFLAGS.PREGNANCY_CORRUPTION] == 0) return 2;
@@ -147,7 +147,7 @@ export class PhoukaWhiskey extends Consumable {
                 -intChange
             );
         } else {
-            //First time
+            // First time
             player.createStatusAffect(
                 StatusAffects.PhoukaWhiskeyAffect,
                 8,
@@ -155,7 +155,7 @@ export class PhoukaWhiskey extends Consumable {
                 256 * libidoChange + sensChange,
                 256 * speedChange + intChange
             );
-            //The four stats we’re affecting get paired together to save space. This way we don’t need a second StatusAffect to store more info.
+            // The four stats we’re affecting get paired together to save space. This way we don’t need a second StatusAffect to store more info.
             this.game.dynStats(
                 "lib",
                 libidoChange,

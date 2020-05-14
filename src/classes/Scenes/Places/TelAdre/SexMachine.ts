@@ -37,14 +37,14 @@ export class SexMachine extends TelAdreAbstractContent {
             this.doYesNo(this.useTheSexMachine, this.leaveShowers);
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00182] = 1;
         }
-        //Go directly to sex if you know what's in store!
+        // Go directly to sex if you know what's in store!
         else {
             if (this.flags[kFLAGS.BROOKE_MET] == 0) this.telAdre.brooke.meetBrookeFirstTime();
             else this.useTheSexMachine();
         }
     }
 
-    //[If you decide to leave.]
+    // [If you decide to leave.]
     private leaveShowers(): void {
         this.outputText("", true);
         this.outputText(
@@ -57,7 +57,7 @@ export class SexMachine extends TelAdreAbstractContent {
     private useTheSexMachine(): void {
         this.outputText("", true);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00182] = 2;
-        //[If you decide to mess with the machine: Male]
+        // [If you decide to mess with the machine: Male]
         if (this.player.gender == 1) {
             if (this.flags[kFLAGS.TIMES_USED_SEX_MACHINE_AS_MALE] == 0) {
                 this.outputText(
@@ -135,7 +135,7 @@ export class SexMachine extends TelAdreAbstractContent {
                     false
                 );
             }
-            //[Male repeat scene]
+            // [Male repeat scene]
             else {
                 this.outputText(
                     "You get a sly smirk on your face. If you're going to get a full body workout, you need to work out -every- muscle in your body, and there's only one machine that can do that.\n\n",
@@ -184,7 +184,7 @@ export class SexMachine extends TelAdreAbstractContent {
             }
             this.flags[kFLAGS.TIMES_USED_SEX_MACHINE_AS_MALE]++;
         }
-        //[If you decide to mess with the machine, female:]
+        // [If you decide to mess with the machine, female:]
         else if (this.player.gender == 2) {
             if (this.flags[kFLAGS.TIMES_USED_SEX_MACHINE_AS_FEMALE] == 0) {
                 this.outputText(
@@ -261,7 +261,7 @@ export class SexMachine extends TelAdreAbstractContent {
                     false
                 );
             }
-            //[Female repeat scene]
+            // [Female repeat scene]
             else {
                 this.outputText(
                     "You grin as you walk down the halls, wiping sweat from your forehead from your recent workout. Tired, but not exhausted, you decide to have a wind down session with your favorite machine in the building. Walking down the back halls, it doesn't take you long to find the quiet back room with the mysterious goblin machine in it. You quickly slip inside, letting the steel door close behind you with a soft metallic click.\n\n",
@@ -317,7 +317,7 @@ export class SexMachine extends TelAdreAbstractContent {
             }
             this.flags[kFLAGS.TIMES_USED_SEX_MACHINE_AS_FEMALE]++;
         }
-        //[Sexless]
+        // [Sexless]
         else if (this.player.gender == 0) {
             if (this.flags[kFLAGS.TIMES_USED_SEX_MACHINE_AS_EUNUCH] == 0) {
                 this.outputText(
@@ -364,7 +364,7 @@ export class SexMachine extends TelAdreAbstractContent {
                     false
                 );
             }
-            //[Sexless Repeat]
+            // [Sexless Repeat]
             else {
                 this.outputText(
                     "You walk down the halls after your brisk workout, once more headed for that quiet back room with that wonderful piece of exercise equipment. You smile as you slip in the door, looking around a moment to make sure you're alone in the room.\n\n",
@@ -417,7 +417,7 @@ export class SexMachine extends TelAdreAbstractContent {
             }
             this.flags[kFLAGS.TIMES_USED_SEX_MACHINE_AS_EUNUCH]++;
         }
-        //[Hermaphrodite]
+        // [Hermaphrodite]
         else {
             if (this.flags[kFLAGS.TIMES_USED_SEX_MACHINE_AS_HERM] == 0) {
                 this.outputText(
@@ -496,7 +496,7 @@ export class SexMachine extends TelAdreAbstractContent {
                     false
                 );
             }
-            //[Hermaphrodite repeat scene]
+            // [Hermaphrodite repeat scene]
             else {
                 this.outputText(
                     "You wipe yourself off with a towel after your extended workout, stretching languidly as you walk down the hallway towards the showers. You stop short, pausing, wondering if perhaps your workout isn't truly over yet. You smirk and turn down the hall, going away from the showers towards the back rooms for one last good session.\n\n",
@@ -547,7 +547,7 @@ export class SexMachine extends TelAdreAbstractContent {
             }
             this.flags[kFLAGS.TIMES_USED_SEX_MACHINE_AS_HERM]++;
         }
-        //PREG IT UP!
+        // PREG IT UP!
         if (this.player.hasVagina()) {
             this.temp = SexMachine.rand(6);
             switch (this.temp) {

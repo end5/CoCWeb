@@ -18,23 +18,23 @@ import { StatusAffects } from "../../StatusAffects";
 export class Hel extends Monster {
     private helAttack(): void {
         var damage: number;
-        //return to combat menu when finished
+        // return to combat menu when finished
         this.doNext(this.game.playerMenu);
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Hel.rand(3) < 1) {
             this.outputText(
                 this.capitalA + this.short + " completely misses you with a blind attack!\n",
                 false
             );
         }
-        //Determine if dodged!
+        // Determine if dodged!
         else if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
         ) {
             this.outputText("You nimbly dodge the salamander's massive sword thrust!", false);
         }
-        //Determine if evaded
+        // Determine if evaded
         else if (this.player.findPerk(PerkLib.Evade) >= 0 && Hel.rand(100) < 10) {
             this.outputText(
                 "Using your skills at evading attacks, you anticipate and sidestep " +
@@ -44,7 +44,7 @@ export class Hel extends Monster {
                 false
             );
         }
-        //("Misdirection"
+        // ("Misdirection"
         else if (
             this.player.findPerk(PerkLib.Misdirection) >= 0 &&
             Hel.rand(100) < 10 &&
@@ -58,7 +58,7 @@ export class Hel extends Monster {
                 false
             );
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         else if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Hel.rand(100) < 6) {
             this.outputText(
                 "With your incredible flexibility, you squeeze out of the way of " +
@@ -68,7 +68,7 @@ export class Hel extends Monster {
                 false
             );
         }
-        //Determine damage - str modified by enemy toughness!
+        // Determine damage - str modified by enemy toughness!
         else {
             damage = Math.floor(
                 this.str +
@@ -77,10 +77,10 @@ export class Hel extends Monster {
                     this.player.armorDef / 2
             );
             if (damage > 0) damage = this.player.takeDamage(damage);
-            //No damage
+            // No damage
             if (damage <= 0) {
                 damage = 0;
-                //Due to toughness or amor...
+                // Due to toughness or amor...
                 if (Hel.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
                     this.outputText(
                         "You absorb and deflect every " +
@@ -101,7 +101,7 @@ export class Hel extends Monster {
                         false
                     );
             }
-            //Take Damage
+            // Take Damage
             else
                 this.outputText(
                     "The salamander lunges at you, sword swinging in a high, savage arc.  You attempt to duck her attack, but she suddenly spins about mid-swing, bringing the sword around on a completely different path.  It bites deep into your flesh, sending you stumbling back. (" +
@@ -128,13 +128,13 @@ export class Hel extends Monster {
         this.combatRoundOver();
     }
 
-    //Attack 2 – Tail Slap (Hit)
-    //low dodge chance, lower damage
+    // Attack 2 – Tail Slap (Hit)
+    // low dodge chance, lower damage
     private helAttack2(): void {
         var damage: number;
-        //return to combat menu when finished
+        // return to combat menu when finished
         this.doNext(this.game.playerMenu);
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Hel.rand(3) < 1) {
             this.outputText(
                 this.capitalA + this.short + " completely misses you with a blind attack!\n",
@@ -142,7 +142,7 @@ export class Hel extends Monster {
             );
             return;
         }
-        //Determine if dodged!
+        // Determine if dodged!
         if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 83
@@ -153,7 +153,7 @@ export class Hel extends Monster {
             );
             return;
         }
-        //Determine if evaded
+        // Determine if evaded
         if (this.player.findPerk(PerkLib.Evade) >= 0 && Hel.rand(100) < 5) {
             this.outputText(
                 "Using your skills at evading attacks, you anticipate and sidestep " +
@@ -164,7 +164,7 @@ export class Hel extends Monster {
             );
             return;
         }
-        //("Misdirection"
+        // ("Misdirection"
         if (
             this.player.findPerk(PerkLib.Misdirection) >= 0 &&
             Hel.rand(100) < 5 &&
@@ -179,7 +179,7 @@ export class Hel extends Monster {
             );
             return;
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Hel.rand(100) < 3) {
             this.outputText(
                 "With your incredible flexibility, you squeeze out of the way of a tail-swipe!",
@@ -187,13 +187,13 @@ export class Hel extends Monster {
             );
             return;
         }
-        //Determine damage - str modified by enemy toughness!
+        // Determine damage - str modified by enemy toughness!
         damage = Math.floor(this.str - Hel.rand(this.player.tou) - this.player.armorDef);
         if (damage > 0) damage = this.player.takeDamage(damage);
-        //No damage
+        // No damage
         if (damage <= 0) {
             damage = 0;
-            //Due to toughness or amor...
+            // Due to toughness or amor...
             if (Hel.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
                 this.outputText(
                     "The salamander's tail-swipe harmlessly deflects off your armor!",
@@ -205,7 +205,7 @@ export class Hel extends Monster {
                     false
                 );
         }
-        //Take Damage
+        // Take Damage
         else
             this.outputText(
                 "The salamander rushes at you, knocking aside your defensive feint and sliding in past your guard.  She lashes out at your feet with her tail, and you can feel the heated wake of the fiery appendage on your ensuing fall toward the now-smouldering grass. (" +
@@ -231,7 +231,7 @@ export class Hel extends Monster {
     }
 
     private helCleavage(): void {
-        //FAIL
+        // FAIL
         if (
             (this.player.findPerk(PerkLib.Flexibility) >= 0 && Hel.rand(100) < 6) ||
             (this.player.findPerk(PerkLib.Evade) >= 0 && Hel.rand(100) < 10) ||
@@ -243,7 +243,7 @@ export class Hel extends Monster {
                 false
             );
         }
-        //Attack 3 – Lust – Cleavage (Failure)
+        // Attack 3 – Lust – Cleavage (Failure)
         else {
             this.outputText(
                 "To your surprise, the salamander suddenly yanks up her top, letting her hefty breasts hang free in the air; her small, bright pink nipples quickly harden from either arousal or temperature.  Before you can take your eyes off her impressive rack, she jumps at you.  One of her scaled arms encircles your waist, and the other forcefully shoves your face into her cleavage.  She jiggles her tits around your face for a moment before you're able to break free, though you can feel a distinct heat rising in your loins.  As quickly as they were revealed, the breasts are concealed again and your opponent is ready for more combat!",
@@ -252,9 +252,9 @@ export class Hel extends Monster {
             var lust: number =
                 20 + Hel.rand(10) + this.player.sens / 10 + Hel.rand(this.player.lib / 20);
             this.game.dynStats("lus", lust);
-            //Apply resistance
+            // Apply resistance
             lust *= this.game.lustPercent() / 100;
-            //Clean up
+            // Clean up
             lust = Math.round(lust * 10) / 10;
             this.outputText(" (+" + lust + " lust)\n", false);
         }

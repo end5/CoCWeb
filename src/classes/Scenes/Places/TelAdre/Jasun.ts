@@ -2,44 +2,44 @@ import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class Jasun extends TelAdreAbstractContent {
-    //Jasun, the Male Shark-Morph
-    //It's important to provide some context for what I'm trying to achieve with this submission. My submission involves one character right now, the most important of the characters I'd like to write up if I had a bit more time. Additionally, given more time I'd probably write a scene for when Urta visits the gym, but given only a few days this is what I came up with. The character I have is met at the 'Changing Rooms', which would be an option to go to once you've paid to get in and such. This paves the way for encountering other people at the gym so you don't have to keep stuffing new characters into different hours at the bar (this is especially reasonable because not all of the characters would even make sense to encounter them at the bar).
-    //If you insist on not having the changing room, which is totally your prerogative, and you like the character enough to have it win anything, I'd be more than happy to adjust the text to satisfy whatever implementation you desire.
-    //Also, if this gets picked as the winner, I'd really like to expand it in the future to have race-specific text for shark-girls. They don't get any real work done specifically for them and I think they deserve it. I'd have written it into this, but really, working 8 hours a day and only having a few days to write for this contest limited the amount of work I could do on it. All I have to say is this: UNDERWATER SEX SCENE! Hopefully what's here is awesome enough for purposes of this contest, though!
-    //Lastly before we get to the submission itself, I want to explain why I didn't make this shark-morph incredibly aggressive as males tend to be. By having escaped his captivity as a breeding-tool, he really has no love for their way of life. Furthermore, he's had a lot of time to think about what has happened and has come to terms with it; he's ready to move on away from his people. Him meeting the character is like a blessing in disguise, seeing as the character can provide him a very real memory of home without him having to face his people down. I felt that a male shark-morph really could be no other way having gotten away from the fate normally designed for him. Now hopefully you enjoy my entry!
+    // Jasun, the Male Shark-Morph
+    // It's important to provide some context for what I'm trying to achieve with this submission. My submission involves one character right now, the most important of the characters I'd like to write up if I had a bit more time. Additionally, given more time I'd probably write a scene for when Urta visits the gym, but given only a few days this is what I came up with. The character I have is met at the 'Changing Rooms', which would be an option to go to once you've paid to get in and such. This paves the way for encountering other people at the gym so you don't have to keep stuffing new characters into different hours at the bar (this is especially reasonable because not all of the characters would even make sense to encounter them at the bar).
+    // If you insist on not having the changing room, which is totally your prerogative, and you like the character enough to have it win anything, I'd be more than happy to adjust the text to satisfy whatever implementation you desire.
+    // Also, if this gets picked as the winner, I'd really like to expand it in the future to have race-specific text for shark-girls. They don't get any real work done specifically for them and I think they deserve it. I'd have written it into this, but really, working 8 hours a day and only having a few days to write for this contest limited the amount of work I could do on it. All I have to say is this: UNDERWATER SEX SCENE! Hopefully what's here is awesome enough for purposes of this contest, though!
+    // Lastly before we get to the submission itself, I want to explain why I didn't make this shark-morph incredibly aggressive as males tend to be. By having escaped his captivity as a breeding-tool, he really has no love for their way of life. Furthermore, he's had a lot of time to think about what has happened and has come to terms with it; he's ready to move on away from his people. Him meeting the character is like a blessing in disguise, seeing as the character can provide him a very real memory of home without him having to face his people down. I felt that a male shark-morph really could be no other way having gotten away from the fate normally designed for him. Now hopefully you enjoy my entry!
 
-    //REQUIREMENTS:
-    //Female (Male Shark-Morphs don't deal with other men by their very nature, and aren't really into the herms of their species)
-    //Max fitness (He doesn't shun you right away, but you can't have sex with him unless your fitness is maxed; he's used to shark-girls.)
-    //Wearing a skimpy bikini from the shark-girls. (Come on, this is perfect and you know it!)
+    // REQUIREMENTS:
+    // Female (Male Shark-Morphs don't deal with other men by their very nature, and aren't really into the herms of their species)
+    // Max fitness (He doesn't shun you right away, but you can't have sex with him unless your fitness is maxed; he's used to shark-girls.)
+    // Wearing a skimpy bikini from the shark-girls. (Come on, this is perfect and you know it!)
 
-    //((I use brackets [] to denote buttons that the player can select at a given juncture))
-    //-----
-    //GO TO GYM (FROM TEL'ADRE)
+    // ((I use brackets [] to denote buttons that the player can select at a given juncture))
+    // -----
+    // GO TO GYM (FROM TEL'ADRE)
 
     public changingRoom(): void {
-        //Charge for gym if no lifetime member!
+        // Charge for gym if no lifetime member!
         this.outputText("", true);
         if (this.flags[kFLAGS.LIFETIME_GYM_MEMBER] == 0) {
             this.outputText("You toss ten gems to centaur and head towards the back.\n\n", false);
             this.player.gems -= 10;
             this.statScreenRefresh();
         }
-        //AT CHANGING ROOM (1ST TIME)
+        // AT CHANGING ROOM (1ST TIME)
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00179] == 0) {
             this.outputText(
                 "You walk into the largest of the changing rooms and take a look about.  The room's walls appear to be some kind of adobe material and are rough to the touch, but flush and with few cracks.  You'd hazard that this building must be pretty new.  Looking to the right of the entrance, you find a series of rudimentary sinks and shiny metal plates on the walls above them which function as mirrors.  In front of you are six changing stalls, and immediately to your left are a few bathroom stalls.  You find it pretty practical that all of these things are together in one room, but are rather curious as to why there are so few of these rooms in the first place.\n\n",
                 false
             );
         }
-        //AT CHANGING ROOM (2ND+ TIME)
+        // AT CHANGING ROOM (2ND+ TIME)
         else {
             this.outputText(
                 "You enter back into the largest of the changing rooms. Everything seems to be as it was the last time you poked your head in here. Everything somehow stays so clean in this particular place despite that so much sex and debauchery goes down in this city. You find it all rather refreshing, quite honestly.",
                 false
             );
         }
-        //[Look Around]
+        // [Look Around]
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00181] == 0)
             this.simpleChoices(
                 "Look Around",
@@ -68,7 +68,7 @@ export class Jasun extends TelAdreAbstractContent {
             );
     }
 
-    //AT CHANGING ROOM (SELECTING TO SEE THE SHARK OR LOOK AROUND IF FIRST TIME)
+    // AT CHANGING ROOM (SELECTING TO SEE THE SHARK OR LOOK AROUND IF FIRST TIME)
     private meetJasun(): void {
         this.outputText("", true);
         this.spriteSelect(33);
@@ -90,7 +90,7 @@ export class Jasun extends TelAdreAbstractContent {
                 false
             );
 
-            //IF MALE
+            // IF MALE
             if (this.player.gender <= 1) {
                 this.outputText(
                     '"<i>Eyes to yourself, boy. Try to play any games and I\'ll tear you apart limb from limb. Now get out of here before I do it anyway.</i>" The shark-morph snarls threateningly before turning back to the mirror.\n\n',
@@ -104,7 +104,7 @@ export class Jasun extends TelAdreAbstractContent {
                 this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
-            //IF FEMALE
+            // IF FEMALE
             else {
                 this.outputText(
                     '"<i>You\'re no better than the women I used to deal with, I see!  Before you assail me anymore with those daring eyes of yours, care to at least tell me your name?</i>"\n\n',
@@ -121,47 +121,47 @@ export class Jasun extends TelAdreAbstractContent {
                     false
                 );
 
-                //IF FAIL FITNESS CHECK
+                // IF FAIL FITNESS CHECK
                 if (this.player.tone < 75) {
                     this.outputText(
                         "\"<i>Hrm, I was going to suggest something, but quite frankly, you'd just hold me back. Maybe we'll meet each other again at some point when you're better fleshed out.</i>\" He grins and thrusts himself past you to leave the changing room. You feel flushed from contact with his skin and otherwise long to be around him more - to think, he hadn't even introduced himself.  You leave the changing room and try to get your wits back about you for whatever happens next.\n\n",
                         false
                     );
-                    //(+15 Lust, back to gym entrance)
+                    // (+15 Lust, back to gym entrance)
                     this.dynStats("lus", 10 + this.player.lib / 10);
                     this.outputText("You book it out of there.  What a waste.", false);
                     this.doNext(this.camp.returnToCampUseOneHour);
                     return;
                 }
-                //IF PASS FITNESS CHECK
+                // IF PASS FITNESS CHECK
                 this.outputText(
                     "\"<i>You know, looking over your form, maybe this could work out for the both of us...</i>\"  As he sort of trails off, your eyebrows perk up, clearly intrigued by whatever he could possibly suggest to you.  \"<i>I've been looking for a challenge in the water... I haven't had a real challenge in a very long time.</i>\"  You aren't sure what he means exactly, especially as he's been very ambiguous with you so far, but you have a pretty good feeling what he needs of you.\n\n",
                     false
                 );
 
-                //IF DONT HAVE THE BIKINI ON
+                // IF DONT HAVE THE BIKINI ON
                 if (this.player.armorName != "slutty swimwear") {
                     this.outputText(
                         "\"<i>I was going to ask you to swim with me for a bit to get my blood really pumping, but you don't look like you're prepped for swimming at all!  Come back with the right gear on and maybe we can talk more about this.</i>\"  He walks with a very justified pose out of the room, almost exaggeratedly, and brushes by you just enough to make you blush from contact with his rough, and yet very arousing skin.  The right gear? Surely he's talking about a swimsuit?  Where can you get one of those... maybe the tailor in town has one, but if not there, then maybe you'll just have to find one on your journey.\n\n",
                         false
                     );
-                    //(+15 Lust, back to gym entrance)
+                    // (+15 Lust, back to gym entrance)
                     this.dynStats("lus", 10 + this.player.lib / 10);
                     this.outputText("You book it out of there.  What a waste.", false);
                     this.doNext(this.camp.returnToCampUseOneHour);
                     return;
                 }
-                //IF YOU HAVE THE BIKINI ON
+                // IF YOU HAVE THE BIKINI ON
                 this.outputText(
                     '"<i>Look at that, it\'s like you were ready for me the whole time!</i>" He motions with one of his clawed fingers at your attire. You shamelessly pose in a proud manner and it causes him to laugh heartily. He seems unperturbed or even turned on by the fact that your swimsuit barely covers anything at all, almost like he\'s totally used to seeing people wear this kind of thing. You wonder what world he could possibly be from to end up the way he is. "<i>Come, come with me. I have something to show you.</i>" He walks up to you and pushes by you with his humongous frame. As he does, he grabs your left wrist with his right arm and all but drags you from the changing room to show you whatever he\'s talking about.\n\n',
                     false
                 );
-                //[Continue]
+                // [Continue]
                 this.doNext(this.meetJasun2);
                 return;
             }
         }
-        //Met Jasun but not boned!
+        // Met Jasun but not boned!
         else if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00179] > 0 &&
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00180] == 0
@@ -173,7 +173,7 @@ export class Jasun extends TelAdreAbstractContent {
                 );
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00181]++;
             }
-            //If you're a dude.
+            // If you're a dude.
             if (this.player.gender <= 1) {
                 this.outputText(
                     "Jasun walks out of a stall, his thick and muscular figure still as glorious as the last time you set eyes upon it.  He glances your way and smirks.\n\n",
@@ -190,7 +190,7 @@ export class Jasun extends TelAdreAbstractContent {
                 this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
-            //IF YOU FAIL TO MEET ANY OF HIS CRITERIA NOW
+            // IF YOU FAIL TO MEET ANY OF HIS CRITERIA NOW
             if (this.player.tone < 75 || this.player.armorName != "slutty swimwear") {
                 this.outputText(
                     "Jasun walks out of a stall, his thick and muscular figure still as glorious as the last time you set eyes upon it. As he turns to greet you, though, you notice that his smirk suddenly turns around to a sense of shock. He's noticed that you're not quite the same as you were before, and you know it. He pauses a moment before turning back toward the mirror and addressing you without eye contact.\n\n",
@@ -211,7 +211,7 @@ export class Jasun extends TelAdreAbstractContent {
                     ", we can go swim.</i>\" He hesitates for a moment at the mirror, and then walks past you quickly without making eye contact. Feeling dejected and suddenly very alone, you ignore the sensation caused by his skin brushing against yours and walk back to the gym's entrance. Maybe you can work yourself back into Jasun's graces with time.\n\n",
                     false
                 );
-                //(-15 Lust, back to gym entrance)
+                // (-15 Lust, back to gym entrance)
                 this.dynStats("lus", -15);
                 this.doNext(this.camp.returnToCampUseOneHour);
                 return;
@@ -223,9 +223,9 @@ export class Jasun extends TelAdreAbstractContent {
             this.doYesNo(this.meetJasun2, this.turnAwayFromAdj);
             return;
         }
-        //Repeat
+        // Repeat
         else {
-            //If you're a dude.
+            // If you're a dude.
             if (this.player.gender <= 1) {
                 this.outputText(
                     "Jasun walks out of a stall, his thick and muscular figure still as glorious as the last time you set eyes upon it.  He glances your way and smirks.\n\n",
@@ -242,7 +242,7 @@ export class Jasun extends TelAdreAbstractContent {
                 this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
-            //IF YOU FAIL TO MEET ANY OF HIS CRITERIA NOW
+            // IF YOU FAIL TO MEET ANY OF HIS CRITERIA NOW
             if (this.player.tone < 75 || this.player.armorName != "slutty swimwear") {
                 this.outputText(
                     "Jasun walks out of a stall, his thick and muscular figure still as glorious as the last time you set eyes upon it. As he turns to greet you, though, you notice that his smirk suddenly turns around to a sense of shock. He's noticed that you're not quite the same as you were before, and you know it. He pauses a moment before turning back toward the mirror and addressing you without eye contact.\n\n",
@@ -255,19 +255,19 @@ export class Jasun extends TelAdreAbstractContent {
                         ", you know, I see that a lot has changed with you. That's fine, and it's entirely up to you, but I think today I should probably swim alone. You can come and visit me anytime, of course, maybe things will be like they were before in time.</i>\" He hesitates for a moment at the mirror, and then walks past you quickly without making eye contact. Feeling dejected and suddenly very alone, you ignore the sensation caused by his skin brushing against yours and walk back to the gym's entrance. Maybe you can work yourself back into Jasun's graces with time.\n\n",
                     false
                 );
-                //(-15 Lust, back to gym entrance)
+                // (-15 Lust, back to gym entrance)
                 this.dynStats("lus", -15);
                 this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
-            //IF YOU MEET ALL CRITERIA STILL
+            // IF YOU MEET ALL CRITERIA STILL
             this.outputText(
                 "Jasun steps out from the stall he usually changes in, already in his skimpy swimsuit. As he turns the corner and sees you, his red eyes open up widely and his characteristic shark-toothed grin plays across his features. He's clearly very excited to see you, and greets you by rubbing his clawed finger along your cheek. The sensation is highly arousing and you lean your face into the razor that is his claw, drawing a slight droplet of blood. He licks his lips seductively, hungry for you in more ways than one, but restraining himself to only sexual advances. The sight of blood has gotten him going, but before he gets totally hard and takes you right here in the stall, he lifts you up in his arms and carries you out the door. Down the hall you go, ignoring anyone you encounter and everyone else looking on with a mix of shock and approval. Jasun practically kicks down the door into the swimming pool area and continues inside, setting you down on the edge of the pool far more gently than he carried you. Stretching his arms and flexing his fin and tail muscles, he leaps through the air into the pool and slices through the surface of the water with the finesse only an aquatic creature could muster. As he swims small circles around where he entered the pool, you kick the water's edge playfully to get his attention. Jasun, sensing the ripples in the water, surfaces a few feet from the edge and grins widely at you. You slip into the water seductively and use your arms to push your breasts together to entice him further. In doing so, you can clearly tell that you've gotten Jasun ready to go as his cock has since elongated to a very impressive size.\n\n",
                 false
             );
 
-            //(This is here for the same reason as before)
-            //[InVagina]
+            // (This is here for the same reason as before)
+            // [InVagina]
             this.doNext(this.jasunSecks);
             return;
         }
@@ -297,7 +297,7 @@ export class Jasun extends TelAdreAbstractContent {
             false
         );
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00181] = 1;
-        //[Accept] [Turn Away]
+        // [Accept] [Turn Away]
         this.simpleChoices(
             "Accept",
             this.acceptJasunsAdvances,
@@ -312,7 +312,7 @@ export class Jasun extends TelAdreAbstractContent {
         );
     }
 
-    //IF YOU TURN AWAY
+    // IF YOU TURN AWAY
     private turnAwayFromAdj(): void {
         this.outputText("", true);
         this.spriteSelect(33);
@@ -320,13 +320,13 @@ export class Jasun extends TelAdreAbstractContent {
             '"<i>I understand,</i>" he says dejectedly. He steps up and walks back toward the door. He perks up at the last minute, not letting his being rejected hurt his pride in the least, and says, "<i>If you ever would like to swim, you know where to find me. Farewell.</i>" He stands at the door and waits for you to leave before leaping into the water alone, as he has done no doubt many times in the past.\n\n',
             false
         );
-        //(Back to gym entrance)
+        // (Back to gym entrance)
         this.outputText("You book it out of there.  What a waste.", false);
         this.doNext(this.camp.returnToCampUseOneHour);
         return;
     }
 
-    //IF YOU ACCEPT
+    // IF YOU ACCEPT
     private acceptJasunsAdvances(): void {
         this.outputText("", true);
         this.spriteSelect(33);
@@ -340,15 +340,15 @@ export class Jasun extends TelAdreAbstractContent {
             false
         );
 
-        //(This is here because it'd be really cool if this wins to expand it and have anal and/or blowjob scenes)
-        //[InVagina]
+        // (This is here because it'd be really cool if this wins to expand it and have anal and/or blowjob scenes)
+        // [InVagina]
         this.doNext(this.jasunSecks);
     }
 
     private jasunSecks(): void {
         this.outputText("", true);
         this.spriteSelect(33);
-        //Increment 'times had sex'
+        // Increment 'times had sex'
         this.player.slimeFeed();
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00180] == 0) {
             this.outputText(
@@ -376,9 +376,9 @@ export class Jasun extends TelAdreAbstractContent {
                 false
             );
         }
-        //Repeat
+        // Repeat
         else {
-            //REPEAT SEX
+            // REPEAT SEX
             this.outputText(
                 "Jasun swims over to your lithe form and grips you by your ass. You reach both of your arms around his head and reach out to kiss him, only to pull back just at the last second and tease him with almost-kisses and licks to his rubbery, but slippery, flesh. This sets him off and causes him to grab your ass even harder, causing you enough pain to get your attention and causing you to jump in either surprise or anticipation, you can't tell. You give him what he seeks and kiss him on the lips, using your tongue to line his teeth and slightly pull some blood from you to give him just a taste. In doing so, he shifts his grip of you to using both hands and grabbing you by your hips. Jasun, no longer content with just kissing, pushes your face aside with a gentle force and throws his face into your chest. Your skimpy bikini is no match for the ferocity of this creature and he casts it aside with little effort, revealing your luscious lumps. He licks and teases them with bites until they're practically jumping off of your flesh, giving you goose bumps nearly as prominent as the nipples themselves. You don't let him get away with this, however, and grip his cock between your thighs, pumping against it with your hips. This action sets him off quite nicely, causing him to grunt in sexual arousal and buck back against you. Before long, you're both immeasurably aroused and ready to get going with the real business of this encounter.\n\n",
                 false

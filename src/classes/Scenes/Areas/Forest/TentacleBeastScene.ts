@@ -11,7 +11,7 @@ import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 
 export class TentacleBeastScene extends BaseContent {
-    //Tentacle Encounter - beware legalese!
+    // Tentacle Encounter - beware legalese!
     /*
      LICENSE
 
@@ -58,8 +58,8 @@ export class TentacleBeastScene extends BaseContent {
         trace("Tentacle event here");
         this.clearOutput();
         this.spriteSelect(100);
-        //Tentacle Encounter - beware legalese!
-        //Gender hilarity chance.
+        // Tentacle Encounter - beware legalese!
+        // Gender hilarity chance.
         if (
             this.player.gender == 0 &&
             TentacleBeastScene.rand(3) == 0 &&
@@ -67,7 +67,7 @@ export class TentacleBeastScene extends BaseContent {
             !this.player.isTaur() &&
             !this.player.isGoo()
         ) {
-            //Warm up for neuters as per the old event:
+            // Warm up for neuters as per the old event:
             this.outputText(
                 "You see a massive, shambling form emerge from the underbrush. While first appearing to be a large shrub, it shifts its bulbous mass and reveals a collection of thorny tendrils and cephalopodic limbs. Sensing your presence, it lumbers at you, full speed, tentacles outstretched.\n\n",
                 false
@@ -83,7 +83,7 @@ export class TentacleBeastScene extends BaseContent {
                     "You smile and stride forward, welcoming the pleasure you expect from such a monster.  ",
                     false
                 );
-            //HILARIOUS NEUTER EVENT HERE
+            // HILARIOUS NEUTER EVENT HERE
             if (this.player.cor < 75)
                 this.outputText(
                     "While you attempt to resist the abomination, its raw muscle mass is too much. ",
@@ -117,7 +117,7 @@ export class TentacleBeastScene extends BaseContent {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //Combat starter
+        // Combat starter
         this.outputText(
             "You see a massive, shambling form emerge from the underbrush.  While it resembles a large shrub, a collection of thorny tendrils and cephalopodic limbs sprout from its bulbous mass.  Sensing your presence, it lumbers at you, full speed, tentacles outstretched.\n\n",
             false
@@ -129,7 +129,7 @@ export class TentacleBeastScene extends BaseContent {
                 "You smile and stride forward, welcoming the pleasure you expect from such a monster.\n\n",
                 false
             );
-        //Worms get nothing!
+        // Worms get nothing!
         if (this.player.findStatusAffect(StatusAffects.Infested) >= 0) {
             this.outputText(
                 "It stops itself completely in a moment and twitches, as if sniffing the air, before turning around and disappearing into the underbrush.",
@@ -163,7 +163,7 @@ export class TentacleBeastScene extends BaseContent {
     }
 
     private tentacleEntice(): void {
-        //Spoiler for Entice Attack Male/Herm:
+        // Spoiler for Entice Attack Male/Herm:
         if (this.player.gender == 1 || this.player.gender == 3) {
             if (TentacleBeastScene.rand(2) == 0) {
                 this.outputText(
@@ -172,18 +172,18 @@ export class TentacleBeastScene extends BaseContent {
                 );
                 this.monster.lust += 10 + TentacleBeastScene.rand(5);
             }
-            //Failure:
+            // Failure:
             else
                 this.outputText(
                     "You grab your penis and shake it feverishly at the creature in order to distract it.  It swats a tentacle at you, forcing you to adroitly dodge the reprisal.  Apparently, the beast found you unimpressive.\n\n",
                     false
                 );
         }
-        //Spoiler for Entice Attack-Female:
+        // Spoiler for Entice Attack-Female:
         else {
-            //Success:
+            // Success:
             if (TentacleBeastScene.rand(2) == 0) {
-                //GENDERLEZZ
+                // GENDERLEZZ
                 if (this.player.gender == 0)
                     this.outputText(
                         "You brazenly turn your back on the creature and, glancing over your shoulder, begin bending over and presenting your " +
@@ -193,7 +193,7 @@ export class TentacleBeastScene extends BaseContent {
                             ". You shift from side to side and observe the beast match your movements. You have obtained its attention to say the least.\n\n",
                         false
                     );
-                //CHICKS
+                // CHICKS
                 else
                     this.outputText(
                         "You brazenly turn your back on the creature and, glancing over your shoulder, begin bending over and presenting your " +
@@ -203,7 +203,7 @@ export class TentacleBeastScene extends BaseContent {
                     );
                 this.monster.lust += 10 + TentacleBeastScene.rand(5);
             }
-            //Failure
+            // Failure
             else {
                 this.outputText(
                     "You begin shaking your hips and grabbing your " +
@@ -219,7 +219,7 @@ export class TentacleBeastScene extends BaseContent {
     public tentacleVictoryRape(): void {
         this.outputText("", true);
         this.spriteSelect(100);
-        //Male/Herm
+        // Male/Herm
         if (this.player.gender == 1 || this.player.gender == 3) {
             this.outputText(
                 "Seizing the opportunity, you rush the monster while it is stopped. You grab the fattest hollow tentacle you can find and summarily shit-kick the beast onto the ground. Holding the creature down with one foot, you take the hollow tentacle and poise it in front of your raging erection.\n\n",
@@ -246,10 +246,10 @@ export class TentacleBeastScene extends BaseContent {
                 false
             );
         }
-        //Female:
+        // Female:
         else {
             this.player.slimeFeed();
-            //High Corruption
+            // High Corruption
             if (this.player.cor >= 66) {
                 this.outputText(
                     "Seizing the opportunity, you rush the monster while it is stopped. You grab the fattest phallic tentacle you can find and summarily shit-kick the beast onto the ground. Holding the creature down with one foot, you take the tentacle-cock and poise it in front of your dripping cunt.\n\n",
@@ -273,7 +273,7 @@ export class TentacleBeastScene extends BaseContent {
                     false
                 );
             }
-            //Rape Win Female-Low Corruption::
+            // Rape Win Female-Low Corruption::
             else {
                 this.outputText(
                     "Seizing the opportunity, you rush the monster while it is stopped. You grab the fattest phallic tentacle you can find and summarily push the beast onto the ground. Holding the creature down with your body weight, you take the tentacle-cock and poise it in front of your dripping cunt.\n\n",
@@ -298,8 +298,8 @@ export class TentacleBeastScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    //Spoiler for Bad End-Tentacle Monster:
-    //[CONDITIONS: Futa/Herm, Corruption > 50, Lust Defeat Only, Obtained 3 previous Lust Defeats to Tentacle Monster.]
+    // Spoiler for Bad End-Tentacle Monster:
+    // [CONDITIONS: Futa/Herm, Corruption > 50, Lust Defeat Only, Obtained 3 previous Lust Defeats to Tentacle Monster.]
     private futaTentacleBadEnd(): void {
         this.outputText("", true);
         this.spriteSelect(100);
@@ -329,14 +329,14 @@ export class TentacleBeastScene extends BaseContent {
             "However, you become lucid once and notice that you are no longer cumming. In fact, you feel a harsh warmth all over your body. Blinding light pierces you despite having your eyes closed. You also notice the absence of the tentacle from both your mouth and your ass. You also hear voices, yet you cannot make them out. A sharp, acrid smell invades your nostrils, rousing you to full wakefullness. You feel terribly weak and the light still prevents you from opening your eyes. However, for the most part, you are awake and cognizant of your environment.",
             false
         );
-        //Goto rape #2
+        // Goto rape #2
         this.doNext(this.futaTentacleEpilogue);
     }
 
     private futaTentacleEpilogue(): void {
         this.outputText("", true);
         this.spriteSelect(100);
-        //[Met Giacomo at least once]
+        // [Met Giacomo at least once]
         if (kGAMECLASS.giacomo > 0) {
             this.outputText(
                 '"<i>Well, well, well. You aren\'t a total loss, I see.</i>", says a sharp, masculine voice.\n\n',
@@ -363,7 +363,7 @@ export class TentacleBeastScene extends BaseContent {
                 false
             );
         }
-        //[Never met Giacomo]
+        // [Never met Giacomo]
         else {
             this.outputText('"<i>Will she live?</i>", says a soft and feminine voice.\n\n', false);
             this.outputText(
@@ -394,9 +394,9 @@ export class TentacleBeastScene extends BaseContent {
     public tentacleLossRape(): void {
         this.clearOutput();
         this.spriteSelect(100);
-        //Genderless madness
+        // Genderless madness
         if (this.player.gender == 0) {
-            //Taur madness
+            // Taur madness
             if (this.player.isTaur()) {
                 this.centaurGenderlessRetardation();
                 return;
@@ -441,7 +441,7 @@ export class TentacleBeastScene extends BaseContent {
                 return;
             }
         }
-        //Horsecock surprise!
+        // Horsecock surprise!
         if (
             this.player.horseCocks() > 0 &&
             this.player.cocks[0].cockLength > 15 &&
@@ -501,15 +501,15 @@ export class TentacleBeastScene extends BaseContent {
             else this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //Bad end + counter here
+        // Bad end + counter here
         if (this.player.lust > 99) {
             this.temp = this.player.findStatusAffect(StatusAffects.TentacleBadEndCounter);
             if (this.temp < 0) {
                 this.player.createStatusAffect(StatusAffects.TentacleBadEndCounter, 0, 0, 0, 0);
             } else {
-                //count up
+                // count up
                 this.player.statusAffect(this.temp).value1++;
-                //Bad end
+                // Bad end
                 if (
                     this.player.statusAffect(this.temp).value1 >= 3 &&
                     this.player.cor > 50 &&
@@ -520,7 +520,7 @@ export class TentacleBeastScene extends BaseContent {
                 }
             }
         }
-        //Centaur madness!
+        // Centaur madness!
         else if (this.player.isTaur()) {
             this.outputText(
                 "Tentacles wrap around your legs before you can stop them.  They continue to coil up your legs, spreading an uncomfortable warmth through your equine half.  Another tentacle wraps around your torso, spreading that same warmth and fuzzing your mind.  You grab one you can reach and attempt to tear it off of you, but two thinner, translucent feelers immobilize your arms, pulling them up behind your head.\n\n",
@@ -568,7 +568,7 @@ export class TentacleBeastScene extends BaseContent {
                             ".  It continues trying for a while, sending pangs of pleasure down the length.  The tentacle eventually gives up and latches onto the tip, positioned right at the opening to your urethra.  It sucks up your pre-cum as it drips from you, accompanied by a loud suckling noise.",
                         false
                     );
-                    //[With testicles:
+                    // [With testicles:
                     if (this.player.balls > 0)
                         this.outputText(
                             "The sucking reaches all the way to your " +
@@ -687,7 +687,7 @@ export class TentacleBeastScene extends BaseContent {
                     "The tentacles holding you release, leaking fluids everywhere.  You delight in giving one of the larger ones a hard stomp, as a reminder not to trifle with you.",
                     false
                 );
-                //end (victory)
+                // end (victory)
                 this.player.orgasm();
                 this.dynStats("tou", 0.5, "spe", -0.5, "int", -0.5, "lib", 1, "sen", 1, "cor", 1);
                 this.player.boostLactation(0.5);
@@ -697,7 +697,7 @@ export class TentacleBeastScene extends BaseContent {
                 else this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
-            //has cock:
+            // has cock:
             if (this.player.hasCock()) {
                 this.player.cumMultiplier += 0.5;
                 this.outputText(
@@ -706,7 +706,7 @@ export class TentacleBeastScene extends BaseContent {
                         " starts to swell.  ",
                     false
                 );
-                //[has testicles:
+                // [has testicles:
                 if (this.player.balls > 0)
                     this.outputText(
                         "Your " +
@@ -747,7 +747,7 @@ export class TentacleBeastScene extends BaseContent {
                     "  It continues to violate your ass until you black out from exhaustion, the number of loads you've released no longer countable.",
                     false
                 );
-                //end (loss)
+                // end (loss)
                 this.player.orgasm();
                 this.dynStats("tou", 1, "int", -0.5, "lib", 2, "sen", 1, "cor", 0.5);
                 if (this.getGame().inCombat) this.cleanupAfterCombat();
@@ -766,14 +766,14 @@ export class TentacleBeastScene extends BaseContent {
                         " begins to swell massively, causing another surge of cum to leave you, and another, and another.  It continues to violate your ass until you black out from exhaustion, the number of loads you've released no longer countable.",
                     false
                 );
-                //end (loss)
+                // end (loss)
                 this.player.orgasm();
                 this.dynStats("tou", 1, "int", -0.5, "lib", 2, "sen", 1, "cor", 0.5);
                 if (this.getGame().inCombat) this.cleanupAfterCombat();
                 else this.doNext(this.camp.returnToCampUseTwoHours);
                 return;
             }
-            //{ has vagina, anus < gaping:
+            // { has vagina, anus < gaping:
             if (this.player.hasVagina()) {
                 this.outputText(
                     "Just as you think it's over, a tentacle rams into your " +
@@ -786,14 +786,14 @@ export class TentacleBeastScene extends BaseContent {
                     "  It continues to violate your ass until you black out from exhaustion, the number of times you've orgasmed no longer countable.",
                     false
                 );
-                //end (loss)
+                // end (loss)
                 this.player.orgasm();
                 this.dynStats("tou", 1, "int", -0.5, "lib", 2, "sen", 1, "cor", 0.5);
                 if (this.getGame().inCombat) this.cleanupAfterCombat();
                 else this.doNext(this.camp.returnToCampUseTwoHours);
                 return;
             }
-            //{ has cock, huge cum amount:
+            // { has cock, huge cum amount:
             if (this.player.hasCock()) {
                 this.outputText(
                     "You continue to pump more and more baby batter into the monster until, much to your surprise, it overwhelms the beast and comes surging back out to coat your ",
@@ -811,7 +811,7 @@ export class TentacleBeastScene extends BaseContent {
                     " empty and you turn around to leave, giving the spunk covered mass a swift kick as a reminder of your superiority.",
                     false
                 );
-                //end (victory)
+                // end (victory)
                 this.player.orgasm();
                 this.dynStats("tou", 0.5, "spe", -0.5, "int", -0.5, "lib", 1, "sen", 1, "cor", 1);
                 this.monster.HP = 0;
@@ -820,14 +820,14 @@ export class TentacleBeastScene extends BaseContent {
                 else this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
-            //end (loss)
+            // end (loss)
             this.player.orgasm();
             this.dynStats("tou", 1, "int", -0.5, "lib", 2, "sen", 1, "cor", 0.5);
             if (this.getGame().inCombat) this.cleanupAfterCombat();
             else this.doNext(this.camp.returnToCampUseTwoHours);
             return;
         }
-        //Milk surprise!
+        // Milk surprise!
         if (this.player.biggestLactation() >= 3.5 && this.player.gender > 0) {
             this.player.slimeFeed();
             this.outputText(
@@ -839,15 +839,15 @@ export class TentacleBeastScene extends BaseContent {
                 "You feel light-headed as the drug spreads through your body quickly.  Your ",
                 false
             );
-            //Just dicks
+            // Just dicks
             if (this.player.gender == 1) {
                 this.outputText(this.multiCockDescriptLight(), false);
                 if (this.player.cockTotal() > 1) this.outputText(" begin ", false);
                 else this.outputText(" begins ", false);
             }
-            //Pussy
+            // Pussy
             else {
-                //AND dick(s)
+                // AND dick(s)
                 if (this.player.cockTotal() > 0) {
                     this.outputText(
                         this.vaginaDescript(0) + " and " + this.multiCockDescriptLight(),
@@ -855,7 +855,7 @@ export class TentacleBeastScene extends BaseContent {
                     );
                     this.outputText(" begin ", false);
                 }
-                //Nope just pussy
+                // Nope just pussy
                 else {
                     this.outputText(this.vaginaDescript(0), false);
                     this.outputText(" begins ", false);
@@ -871,9 +871,9 @@ export class TentacleBeastScene extends BaseContent {
                     " are quickly encircled and molested by the smaller tentacles.  Your swollen mammaries ache as the tentacles attach their orifices to your oozing nipples.  The tentacles begin a distinct milking pattern, alternating which nipple is milked first; you moan in delight and watch as your milk travels through the tentacle shaft and down to the shambling beast's body.\n\n",
                 false
             );
-            //(Optional Paragraphs)
+            // (Optional Paragraphs)
             if (this.player.gender == 2) {
-                //[Female/Virgin-Tight Cunt]
+                // [Female/Virgin-Tight Cunt]
                 if (this.player.vaginalCapacity() < 30)
                     this.outputText(
                         "The beast senses your excitement and with beguiling speed swiftly impales your " +
@@ -883,7 +883,7 @@ export class TentacleBeastScene extends BaseContent {
                             ".\n",
                         false
                     );
-                //[Female/Loose-Moist Cunt]
+                // [Female/Loose-Moist Cunt]
                 else
                     this.outputText(
                         "The beast senses your excitement and with beguiling speed swiftly impales your " +
@@ -897,7 +897,7 @@ export class TentacleBeastScene extends BaseContent {
                 this.outputText("\n", false);
             } //HERMS
             if (this.player.gender == 3) {
-                //[Herm/Virgin-Tight Cunt]
+                // [Herm/Virgin-Tight Cunt]
                 if (this.player.vaginalCapacity() < 30)
                     this.outputText(
                         "The beast senses your excitement and with beguiling speed swiftly impales your " +
@@ -909,7 +909,7 @@ export class TentacleBeastScene extends BaseContent {
                             " deeper into its tight fuck hole.\n\n",
                         false
                     );
-                //[Herm/Loose-Wet Cunt]
+                // [Herm/Loose-Wet Cunt]
                 else
                     this.outputText(
                         "The beast senses your excitement and with beguiling speed swiftly impales your " +
@@ -936,7 +936,7 @@ export class TentacleBeastScene extends BaseContent {
                     ".  The stimulation causes even more milk to gush down the tentacles length.  After a few moments of the increased assault the beast groans and releases you, the tentacles popping off your nipples audibly, spraying your milk about as they release you.\n\n",
                 false
             );
-            //[Female/Herm]
+            // [Female/Herm]
             if (this.player.gender >= 2)
                 this.outputText(
                     "Your " +
@@ -946,7 +946,7 @@ export class TentacleBeastScene extends BaseContent {
                         " with the living dildo.  The idea of turning the tables on the raping beast spurs you on to new heights and you cum quickly around the knobbly shaft, your cunt spasming and milking the bumpy tentacle hard.  As you finish with the tentacle the beast gives a final gurgle and retreats into the forest.",
                     false
                 );
-            //[Male]
+            // [Male]
             else
                 this.outputText(
                     "You feel your " +
@@ -1116,7 +1116,7 @@ export class TentacleBeastScene extends BaseContent {
                     false
                 );
         }
-        //Call page 2!
+        // Call page 2!
         this.doNext(this.tentacleRapeContinuation);
     }
 
@@ -1211,7 +1211,7 @@ export class TentacleBeastScene extends BaseContent {
             );
             this.doNext(this.tentacleRapeContinuationForFemales);
             this.player.slimeFeed();
-            //lactate more from the encounter.
+            // lactate more from the encounter.
             this.player.boostLactation(0.3);
             return;
         } else if (this.player.gender == 3) {
@@ -1293,7 +1293,7 @@ export class TentacleBeastScene extends BaseContent {
                 );
             }
             this.player.slimeFeed();
-            //lactate more from the encounter.
+            // lactate more from the encounter.
             this.player.boostLactation(0.3);
         }
         if (this.getGame().inCombat) this.cleanupAfterCombat();
@@ -1304,11 +1304,11 @@ export class TentacleBeastScene extends BaseContent {
         this.clearOutput();
         this.spriteSelect(100);
         if (this.player.vaginas.length == 1) {
-            //single coochie
+            // single coochie
             this.outputText(
                 "Satisfied, the creature drops you smartly, withdraws its limbs from you, and lumbers away.  Covered completely in cum, you see that your clitoris has swollen up to "
             );
-            //Big clit girls get huge clits
+            // Big clit girls get huge clits
             if (
                 (this.player.findPerk(PerkLib.BigClit) >= 0 && this.player.clitLength > 2) ||
                 this.player.clitLength > 3
@@ -1318,7 +1318,7 @@ export class TentacleBeastScene extends BaseContent {
                         TentacleBeastScene.num2Text(Math.floor(this.player.clitLength * 1.75)) +
                         " inches in length. "
                 );
-            //normal girls get big clits
+            // normal girls get big clits
             else
                 this.outputText(
                     "almost four inches in length.  Bruised and sore, you pass into unconsciousness "
@@ -1330,12 +1330,12 @@ export class TentacleBeastScene extends BaseContent {
                     " clits have swollen up to almost four inches in length.  Bruised and sore, you pass into unconsciousness, "
             );
         }
-        //Not too corrupt
+        // Not too corrupt
         if (this.player.cor < 75)
             this.outputText("too intoxicated with lust to fume over your violation. ");
-        //Very corrupt
+        // Very corrupt
         else this.outputText("too intoxicated with lust to continue the pleasure. ");
-        //If has big-clit grow to max of 6"
+        // If has big-clit grow to max of 6"
         if (
             this.player.clitLength < 7 &&
             this.player.clitLength >= 3.5 &&
@@ -1352,14 +1352,14 @@ export class TentacleBeastScene extends BaseContent {
                 this.outputText("like a slick throbbing cock.");
             if (this.player.clitLength >= 7) this.outputText("like a big thick cock.");
         }
-        //Grow clit if smaller than 3.5"
+        // Grow clit if smaller than 3.5"
         else if (this.player.clitLength < 3.5) {
             this.outputText(
                 "In time your clit returns to a more normal size, but retains a bit of extra volume."
             );
             this.player.clitLength += 0.2;
         }
-        //Mention that clit doesn't grow if your big enough.
+        // Mention that clit doesn't grow if your big enough.
         else this.outputText("In time it returns to its normal size, losing all the extra volume.");
         if (this.player.vaginas[0].vaginalLooseness == VAGINA_LOOSENESS_TIGHT)
             this.player.vaginas[0].vaginalLooseness = VAGINA_LOOSENESS_NORMAL;
@@ -1368,7 +1368,7 @@ export class TentacleBeastScene extends BaseContent {
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Centaur v. Tentacle Monster: (display if pc is unsexed centaur)
+    // Centaur v. Tentacle Monster: (display if pc is unsexed centaur)
     private centaurGenderlessRetardation(): void {
         this.outputText("", true);
         this.spriteSelect(100);
@@ -1439,7 +1439,7 @@ export class TentacleBeastScene extends BaseContent {
                 false
             );
         }
-        //(Followup scene, if pc has seen above at least once, is unsexed centaur and has balls: -Z)
+        // (Followup scene, if pc has seen above at least once, is unsexed centaur and has balls: -Z)
         else {
             this.outputText(
                 "Tentacles wrap around your legs before you can make a move to stop them, binding you tightly and coiling upwards.  One slides slowly along your underside, making you shiver in ",
@@ -1513,7 +1513,7 @@ export class TentacleBeastScene extends BaseContent {
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Naga v. Tentacle Monster:
+    // Naga v. Tentacle Monster:
     private genderlessHilarityForNagaKenDolls(): void {
         this.outputText("", true);
         this.spriteSelect(100);
@@ -1553,7 +1553,7 @@ export class TentacleBeastScene extends BaseContent {
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Goo v. Tentacle Monster:
+    // Goo v. Tentacle Monster:
     private tentacularGenderGooTimes(): void {
         this.outputText("", true);
         this.spriteSelect(100);

@@ -15,9 +15,9 @@ import { StatusAffects } from "../../../StatusAffects";
 
 export class Akbal extends Monster {
     public eAttack(): void {
-        //Chances to miss:
+        // Chances to miss:
         var damage: number = 0;
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0) {
             this.outputText(
                 this.capitalA +
@@ -26,7 +26,7 @@ export class Akbal extends Monster {
                 false
             );
         }
-        //Determine if dodged!
+        // Determine if dodged!
         if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
@@ -54,7 +54,7 @@ export class Akbal extends Monster {
             this.game.combatRoundOver();
             return;
         }
-        //Determine if evaded
+        // Determine if evaded
         if (this.player.findPerk(PerkLib.Evade) >= 0 && Akbal.rand(100) < 10) {
             this.outputText(
                 "Using your skills at evading attacks, you anticipate and sidestep " +
@@ -66,7 +66,7 @@ export class Akbal extends Monster {
             this.game.combatRoundOver();
             return;
         }
-        //Determine if flexibilitied
+        // Determine if flexibilitied
         if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Akbal.rand(100) < 10) {
             this.outputText(
                 "Using your cat-like agility, you twist out of the way of " +
@@ -78,10 +78,10 @@ export class Akbal extends Monster {
             this.game.combatRoundOver();
             return;
         }
-        //Determine damage - str modified by enemy toughness!
-        //*Normal Attack A -
+        // Determine damage - str modified by enemy toughness!
+        // *Normal Attack A -
         if (Akbal.rand(2) == 0) {
-            //(medium HP damage)
+            // (medium HP damage)
             damage = Math.floor(
                 this.str +
                     this.weaponAttack -
@@ -104,8 +104,8 @@ export class Akbal extends Monster {
                 this.player.takeDamage(damage);
             }
         } else {
-            //*Normal Attack B
-            //(high HP damage)
+            // *Normal Attack B
+            // (high HP damage)
             damage = Math.floor(
                 this.str +
                     25 +
@@ -141,50 +141,50 @@ export class Akbal extends Monster {
     }
 
     public akbalLustAttack(): void {
-        //*Lust Attack -
+        // *Lust Attack -
         if (this.player.findStatusAffect(StatusAffects.Whispered) < 0) {
             this.outputText(
                 "You hear whispering in your head. Akbal begins speaking to you as he circles you, telling all the ways he'll dominate you once he beats the fight out of you.",
                 false
             );
-            //(Lust increase)
+            // (Lust increase)
             this.game.dynStats("lus", 7 + (100 - this.player.inte) / 10);
             this.player.createStatusAffect(StatusAffects.Whispered, 0, 0, 0, 0);
         }
-        //Continuous Lust Attack -
+        // Continuous Lust Attack -
         else {
             this.outputText(
                 "The whispering in your head grows, many voices of undetermined sex telling you all the things the demon wishes to do to you. You can only blush.",
                 false
             );
-            //(Lust increase)
+            // (Lust increase)
             this.game.dynStats("lus", 12 + (100 - this.player.inte) / 10);
         }
         this.game.combatRoundOver();
     }
 
     public akbalSpecial(): void {
-        //*Special Attack A -
+        // *Special Attack A -
         if (Akbal.rand(2) == 0 && this.player.spe > 20) {
             var speedChange: number = (this.player.spe / 5) * -1;
             this.outputText(
                 "Akbal's eyes fill with light, and a strange sense of fear begins to paralyze your limbs.",
                 false
             );
-            //(Speed decrease)
+            // (Speed decrease)
             this.game.dynStats("spe", speedChange);
             if (this.player.findStatusAffect(StatusAffects.AkbalSpeed) >= 0)
                 this.player.addStatusValue(StatusAffects.AkbalSpeed, 1, speedChange);
             else this.player.createStatusAffect(StatusAffects.AkbalSpeed, speedChange, 0, 0, 0);
         }
-        //*Special Attack B -
+        // *Special Attack B -
         else {
             this.outputText(
                 "Akbal releases an ear-splitting roar, hurling a torrent of emerald green flames towards you.\n",
                 false
             );
-            //(high HP damage)
-            //Determine if dodged!
+            // (high HP damage)
+            // Determine if dodged!
             if (
                 this.player.spe - this.spe > 0 &&
                 Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
@@ -207,7 +207,7 @@ export class Akbal extends Monster {
                 this.game.combatRoundOver();
                 return;
             }
-            //Determine if evaded
+            // Determine if evaded
             if (this.player.findPerk(PerkLib.Evade) >= 0 && Akbal.rand(100) < 20) {
                 this.outputText(
                     "Using your skills at evading attacks, you anticipate and sidestep " +
@@ -219,7 +219,7 @@ export class Akbal extends Monster {
                 this.game.combatRoundOver();
                 return;
             }
-            //Determine if flexibilitied
+            // Determine if flexibilitied
             if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Akbal.rand(100) < 10) {
                 this.outputText(
                     "Using your cat-like agility, you contort your body to avoid " +
@@ -239,7 +239,7 @@ export class Akbal extends Monster {
         this.game.combatRoundOver();
     }
 
-    //*Support ability -
+    // *Support ability -
     public akbalHeal(): void {
         if (this.HPRatio() >= 1)
             this.outputText("Akbal licks himself, ignoring you for now.", false);
@@ -278,7 +278,7 @@ export class Akbal extends Monster {
         this.buttRating = BUTT_RATING_TIGHT;
         this.skinTone = "spotted";
         this.skinType = SKIN_TYPE_FUR;
-        //this.skinDesc = Appearance.Appearance.DEFAULT_SKIN_DESCS[SKIN_TYPE_FUR];
+        // this.skinDesc = Appearance.Appearance.DEFAULT_SKIN_DESCS[SKIN_TYPE_FUR];
         this.hairColor = "black";
         this.hairLength = 5;
         this.initStrTouSpeInte(55, 53, 50, 75);

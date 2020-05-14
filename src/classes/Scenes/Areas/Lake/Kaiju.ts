@@ -6,21 +6,21 @@ import { TONUGE_SNAKE, TONUGE_HUMAN } from "../../../../includes/appearanceDefs"
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 
 export class Kaiju extends AbstractLakeContent {
-    //const KAIJU_MEETINGS: number = 910;
-    //const KAIJU_DISABLED: number = 911;
-    //const KAIJU_TALK_CYCLE: number = 912;
-    //const KAIJU_COCK: number = 913;
-    //const KAIJU_BAD_END_COUNTER: number = 914;
+    // const KAIJU_MEETINGS: number = 910;
+    // const KAIJU_DISABLED: number = 911;
+    // const KAIJU_TALK_CYCLE: number = 912;
+    // const KAIJU_COCK: number = 913;
+    // const KAIJU_BAD_END_COUNTER: number = 914;
 
-    //First encounter
-    //Boat
+    // First encounter
+    // Boat
     public kaijuMeeting(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.KAIJU_MEETINGS] == 0) {
             this.outputText(
                 "Your explorations take you to a small island you haven't seen before.  It appears to be a large, smooth rock hill jutting out of the water.  Do you explore it?"
             );
-            //[Yes/No]
+            // [Yes/No]
             this.menu();
             this.addButton(0, "Yes", this.meetDatKaijuYo);
             this.addButton(1, "No", this.noMeetingKaijus);
@@ -39,15 +39,15 @@ export class Kaiju extends AbstractLakeContent {
         return this.flags[kFLAGS.KAIJU_COCK] == 1;
     }
 
-    //[If no]
+    // [If no]
     private noMeetingKaijus(): void {
         this.clearOutput();
         this.outputText("You continue rowing on, away from the hilly island.");
-        //[There is still a chance of finding the hill later]
+        // [There is still a chance of finding the hill later]
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If yes]
+    // [If yes]
     private meetDatKaijuYo(): void {
         this.clearOutput();
         this.spriteSelect(103);
@@ -69,7 +69,7 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText(
             "\n\nWhatever weight she gained, it seemed to all go up.  Despite the green skin and turtle shell, she appears completely humanoid, save for her giant size and proportions.  She looks to be kneeling in the lake, making her exact height hard to estimate.  Though her breasts are a bit larger than proportional, the rest of her matches what would be fit and trim for a person for her rather extreme stature.  Beyond size it would seem the corrupt fluids poured into the lake have heightened her lust as well, judging by how she tugs and pulls on her shapely tits while staring ever intensely at you.  It appears she expects an answer.  What do you do?"
         );
-        //[Compliment/Flirt/Insult]
+        // [Compliment/Flirt/Insult]
         this.menu();
 
         this.addButton(0, "Compliment", this.complimentKaiju);
@@ -77,12 +77,12 @@ export class Kaiju extends AbstractLakeContent {
         this.addButton(2, "Insult", this.insultTheKaijuFirstMeeting);
     }
 
-    //[If insult]
+    // [If insult]
     private insultTheKaijuFirstMeeting(): void {
         this.clearOutput();
         this.spriteSelect(103);
         if (this.kaijuCock()) {
-            //[If insult and Marae has been corrupted]
+            // [If insult and Marae has been corrupted]
             this.outputText(
                 "In perhaps not your brightest idea, you decide to make fun of the giant green girl in front of you, mocking her obvious insecurity over her figure.  The word 'fat' barely exits your mouth before her face goes red in anger and you realize your mistake."
             );
@@ -92,7 +92,7 @@ export class Kaiju extends AbstractLakeContent {
             this.outputText(
                 '\n\n"<i>How about you put that mean mouth of yours to some good,</i>" she tells you as she roughly picks you up between two large fingers and brings you to her stiffening cock.'
             );
-            //[If player has learned the Whitefire spell]
+            // [If player has learned the Whitefire spell]
             if (
                 this.player.findStatusAffect(StatusAffects.KnowsWhitefire) >= 0 &&
                 this.player.findPerk(PerkLib.BloodMage) < 0 &&
@@ -101,7 +101,7 @@ export class Kaiju extends AbstractLakeContent {
                 this.outputText(
                     "\n\nSensing her desires, you try to quickly think of how to avoid pleasing the giant's large cock.  It occurs to you that you could use the spell whitefire to attack her.  Do you cast it?"
                 );
-                //[Yes][No]
+                // [Yes][No]
                 this.menu();
                 this.addButton(0, "Yes", this.yesBurnDatClit);
                 this.addButton(1, "No", this.corruptKaijuInsertion);
@@ -113,13 +113,13 @@ export class Kaiju extends AbstractLakeContent {
             this.outputText(
                 "Perhaps not the smartest thing to do towards such a giant, you decide to mock her obvious insecurities over her body image.  The word 'fat' barely has time to leave your lips when in a rage she puffs up her lips and blows, sending you and your boat racing through the lake out of sight.  Sometime later the boat crashes back on shore, your hair and nerves a little windswept from the fast ride."
             );
-            //[Giant turtle no longer encounter-able]
+            // [Giant turtle no longer encounter-able]
             this.flags[kFLAGS.KAIJU_DISABLED] = 1;
             this.doNext(this.camp.returnToCampUseOneHour);
         }
     }
 
-    //[If yes]
+    // [If yes]
     private yesBurnDatClit(): void {
         this.clearOutput();
         this.spriteSelect(103);
@@ -127,13 +127,13 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText(
             "You narrow your eyes, focusing your mind with deadly intent.  You snap your fingers and the green girl's finger is enveloped in a flash of white flames!  She drops you back into the boat as she cries out and plunges her hand into the lake water.  \"<i>Ow! That was so mean!</i>\" she says before placing her singed finger into her mouth and sucking on it.  It doesn't take too long before her natural reflex to pain becomes clouded by her unnatural lust and she begins sucking on her finger erotically, her other hand reaching for her cock and pussy.  She seems to have lost interest in you as she tries to bring herself to orgasm.  You take this opportunity to quietly sneak away."
         );
-        //[Lust is increased and giant turtle girl is no longer encounter-able][End whitefire scene]
+        // [Lust is increased and giant turtle girl is no longer encounter-able][End whitefire scene]
         this.dynStats("lus", 15);
         this.flags[kFLAGS.KAIJU_DISABLED] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If no] (Scene returns to regular blowjob/urethral insertion scene.)
+    // [If no] (Scene returns to regular blowjob/urethral insertion scene.)
     private corruptKaijuInsertion(): void {
         this.clearOutput();
         this.spriteSelect(103);
@@ -153,13 +153,13 @@ export class Kaiju extends AbstractLakeContent {
             "\n\nYou come to almost an hour later, unsure of how you survived such an aerial trip.  Perhaps she snatched you out of the air?  You find yourself in your boat back on shore, hair matted down and sticky with cum."
         );
 
-        //[Corruption increases slightly and giant turtle girl is no longer encounter-able]
+        // [Corruption increases slightly and giant turtle girl is no longer encounter-able]
         this.dynStats("lus", 50, "cor", 1);
         this.flags[kFLAGS.KAIJU_DISABLED] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If compliment]
+    // [If compliment]
     private complimentKaiju(): void {
         this.clearOutput();
         this.spriteSelect(103);
@@ -170,31 +170,31 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText(
             '\n\n"<i>Aw, that\'s so sweet of you to say!</i>" she says as a smile forms on her face.  "<i>You\'re just so small and sweet I want to pick you up and give you a great big hug,</i>" she continues as she reaches down to pick you up.'
         );
-        //[Let her/Stop it]
+        // [Let her/Stop it]
         this.menu();
         this.addButton(0, "Let Her", this.letKaijuHaveWayWithYou);
         this.addButton(1, "Stop It", this.stopItPlease);
     }
 
-    //[If stop it]
+    // [If stop it]
     private stopItPlease(): void {
         this.clearOutput();
         this.spriteSelect(103);
         this.outputText(
             "You cry out and wave the inquisitive hand away.  You tell her that you mean no offense, but at such a size and strength disparity you are afraid of what a grip from such a woman could do accidentally.  She seems a bit saddened at that, but makes no further attempt to grab you."
         );
-        //[Giant turtle girl is still encounter-able]
+        // [Giant turtle girl is still encounter-able]
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If let her]
+    // [If let her]
     private letKaijuHaveWayWithYou(): void {
         this.clearOutput();
         this.spriteSelect(103);
         this.outputText(
             "You make no moves as the hand firmly but gently picks you up and brings you upwards towards her ample bosom.  She holds you tightly to a breast, nearly smothering you in tit flesh.  Her perky nipple seems massive up close as it practically bounces off your head when she begins grinding you up and down her gargantuan breast"
         );
-        //[only apply if player has dick]
+        // [only apply if player has dick]
         if (this.player.hasCock())
             this.outputText(
                 ", [eachCock] stiffening in your [armor] from the stimulation as your whole body is used in what seems more and more like a massive boob job"
@@ -213,7 +213,7 @@ export class Kaiju extends AbstractLakeContent {
         else this.outputText("bare groin");
         this.outputText('.  "<i>Let\'s have some fun!</i>"');
 
-        //[if player has cock]
+        // [if player has cock]
         if (this.player.hasCock()) {
             this.outputText("\n\nShe brings you up to her nipple, letting your throbbing cock");
             if (this.player.cockTotal() > 1) this.outputText("s");
@@ -223,14 +223,14 @@ export class Kaiju extends AbstractLakeContent {
                     this.multiCockDescriptLight() +
                     ' further into soft breast and firm nipple.  "<i>Please, cum on me!</i>" she commands, and almost as if on cue your body obeys, jizz flying and coating her breast with as much sperm as your body can produce.'
             );
-            //[if PC has balls]
+            // [if PC has balls]
             if (this.player.balls > 0)
                 this.outputText(
                     "  Your [balls] begin to ache as you slowly empty your load onto green flesh."
                 );
             this.player.orgasm();
         }
-        //[if player has vagina]
+        // [if player has vagina]
         else if (this.player.hasVagina()) {
             this.outputText(
                 "\n\nShe spreads your legs open and slowly brings your pink netherlips into place, your [vagina] hovering right in front of her massive, cock-sized nipple!  With a squeal of delight, she pushes the tip of her nip into your pussy, her eyes almost rolling back in her head as she slowly, steadily shoves her nipple inch by inch into your stretched [vagina]."
@@ -245,23 +245,23 @@ export class Kaiju extends AbstractLakeContent {
             );
             this.player.orgasm();
         }
-        //[if player is genderless]
+        // [if player is genderless]
         else {
             this.outputText(
                 '\n\nThe giantess begins to moan as she rubs you around her nipple, firmly pressing your body into her breast.  She moves you over to her other breast, using your body to tease her other stiffening nipple.  "<i>Would you mind licking it?  Please?</i>" she asks, pressing your face to her nipple.  You open your mouth to stick out your tongue when suddenly she pushes it up against your mouth, quickly getting the first few inches of pink nipple past your lips.  Your mouth is stuffed with nipple flesh, your tongue pushed to the bottom of your mouth.  She slowly forces more of herself into your, her nipple sliding down into your throat.  Her moans grow louder when you suddenly feel liquid spurting down into your gut.  She has begun lactating, pumping you full of tainted turtle milk!  You quickly fill up as your stomach expands with gallons of white fluid, until you\'re gurgling with milk, the stuff leaking around the nipple in your mouth.  When you feel like you will soon burst she pops her nip out and coats you with her milk.'
             );
             this.fatigue(-50);
         }
-        //[All genders]
+        // [All genders]
         this.outputText(
             '\n\n"<i>My, that was a mighty big hug.  I think I\'ll need another nap.  Come visit me again some time,</i>" she says, slowly putting you down in your boat.  You slowly roll away as the jolly green giantess giggles and slowly wades off.'
         );
-        //[Giant turtle girl now encounter-able at Boat and Swamp, corruption increases slightly]
+        // [Giant turtle girl now encounter-able at Boat and Swamp, corruption increases slightly]
         this.dynStats("cor", 1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If flirt]
+    // [If flirt]
     private flirtWithKaiju(): void {
         this.clearOutput();
         this.spriteSelect(103);
@@ -272,12 +272,12 @@ export class Kaiju extends AbstractLakeContent {
             "\n\n\"<i>Well now, aren't you just too sweet?  You know I don't get too many admirers these days.  Everyone seems so... intimidated by me.  They leave me all alone and frustrated,</i>\" the curvy tortoise says as she slowly emerges fully from the water.\n\n"
         );
 
-        //[If Marae is corrupted]
+        // [If Marae is corrupted]
         if (this.kaijuCock()) {
             this.outputText(
                 "You are surprised to see she has an enormous cock right where a clitoris would be.  It is already stiff and throbbing with arousal as corrupted lake water drips off it.  "
             );
-            //[Regardless of Marae's corruption]
+            // [Regardless of Marae's corruption]
         }
         this.outputText(
             "Her moist pussy is large and pink while a steady stream of feminine slime leaks from it, soaking her green thighs.  \"<i>It's so nice when a cute " +
@@ -290,19 +290,19 @@ export class Kaiju extends AbstractLakeContent {
                 this.player.skinFurScales() +
                 ".  Obviously her corrupt twat juices double as an aphrodisiac.  Beginning to feel lusty, you notice her vaginal muscles tightening around you, gently squeezing and releasing you as if you were receiving a full body massage.  It's actually rather pleasant in here, albeit strange."
         );
-        //[Lust increases]
+        // [Lust increases]
         this.dynStats("lus", 33);
 
         this.outputText(
             '\n\nShe still has your [leg] held gently between two fingers, and she begins to steadily push you deeper and deeper inside her wet honeypot, coating you liberally in more of the lust inducing wetness.  "<i>Oh that\'s it baby, slow and steady wins the race,</i>" she moans, her voice sounding muffled from where you are.  Her vaginal walls continue their rhythmic massage of your body, relaxing your own muscles as the tension of your adventures seem to evaporate.'
         );
-        //[If PC has breasts]
+        // [If PC has breasts]
         if (this.player.biggestTitSize() >= 1) {
             this.outputText(
                 "  Your [fullChest] slide across the slick yet firm vaginal flesh of her surprisingly dexterous cunt, your [nipples] stiffening from the constant teasing massage."
             );
         }
-        //[If PC has cock]
+        // [If PC has cock]
         if (this.player.hasCock()) {
             this.outputText("  [EachCock] ");
             if (this.player.cockTotal() > 1) this.outputText("are");
@@ -316,12 +316,12 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText(
             "\n\nJust when you begin to think you can see her womb her hand drags you back down her slippery passage, before pushing you back up again.  Her fingers push you up and down, in and out of her trembling pussy, her wet and skillful muscles helping to speed you along as she steadily picks up her pace.  The closer she seems to get to climax, the more her pussy walls tremble and push, the more her juices gather, and the faster she sends you on your dizzying roller coaster ride through her female sex."
         );
-        //[If PC's sensitivity is 50 or over]
+        // [If PC's sensitivity is 50 or over]
         if (this.player.sens < 50) {
             this.outputText(
                 "\n\nThe sensations of the giant's masterful cunt sends you into orgasm."
             );
-            //[If PC has cock]
+            // [If PC has cock]
             if (this.player.hasCock())
                 this.outputText(
                     "  [EachCock] spasms as you release your load onto her pussy walls, making them just a bit more slick with your contribution."
@@ -330,19 +330,19 @@ export class Kaiju extends AbstractLakeContent {
                 this.outputText(
                     "  Your own pussy releases its own feminine juices, soaking your thighs even further in wetness."
                 );
-            //[Lust decreases, end sensitivity scene]
+            // [Lust decreases, end sensitivity scene]
             this.player.orgasm();
         }
         this.outputText(
             "\n\nHer vaginal muscles clamp down on you tightly as she finally orgasms, the intense pressure and moistness sending you flying downwards and you slide out of her slick twat, slipping past her pink pussy lips and crashing into her waiting hand."
         );
 
-        //[If Marae is corrupt]
+        // [If Marae is corrupt]
         if (this.kaijuCock()) {
             this.outputText(
                 '\n\n"<i>Oh my, that was GOOD!  But we\'re not done just yet dear,</i>" the luscious green hermaphrodite proclaims as she gently places you on top of her large shaft.  "<i>As much pent up lust as I have to work through, it\'ll take more than one orgasm to finish the job.  So... mind giving me a hand or two?</i>" she asks, indicating she wishes for you to give her a hand job.  It might be best not to argue with a lustful giant.  Still slick from her vaginal juice, and horny as hell, you begin stroking her giant cock with your body, kneading with your hands and rubbing with your legs.'
             );
-            //[If vagina and/or cock is present]
+            // [If vagina and/or cock is present]
             if (this.player.gender > 0) {
                 this.outputText(
                     "\n\nYou grind your privates against her member, determined to get yourself off as well."
@@ -360,7 +360,7 @@ export class Kaiju extends AbstractLakeContent {
                 '\n\n"<i>By Marae you\'re good at this!</i>" the moaning giantess says as her cock begins to bounce in anticipation.  It nearly bucks you off your precarious perch!  "<i>I\'m...I\'m going to cum!</i>" she shouts as you redouble your efforts.  In another moment she makes good her statement, as a titanic load squirts out.'
             );
             if (this.player.gender > 0) {
-                //[If PC has vagina and/or cock]
+                // [If PC has vagina and/or cock]
                 this.outputText(
                     "  Undeterred, you continue grinding upon the spurting pole until you reach your own smaller, far less impressive orgasm, releasing your own "
                 );
@@ -370,7 +370,7 @@ export class Kaiju extends AbstractLakeContent {
                 this.outputText(
                     ".  You look out upon the lake to see much of it has taken on a remarkably more milky white color.  Even for a giant that was a prodigious amount of cum she unleashed!"
                 );
-                //[lust decreases, end corrupted herm scene]
+                // [lust decreases, end corrupted herm scene]
                 this.player.orgasm();
             }
         }
@@ -379,12 +379,12 @@ export class Kaiju extends AbstractLakeContent {
         );
 
         this.outputText("\n\nYou wave goodbye to the giant green girl as you begin to row away.");
-        //[Corruption increases, giant turtle girl now encounter-able at Boat and Swamp]
+        // [Corruption increases, giant turtle girl now encounter-able at Boat and Swamp]
         this.dynStats("cor", 1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Second/Repeatable encounter/s at Boat
+    // Second/Repeatable encounter/s at Boat
     private repeatKaijuEncounter(): void {
         this.clearOutput();
         this.spriteSelect(103);
@@ -393,7 +393,7 @@ export class Kaiju extends AbstractLakeContent {
         );
         this.menu();
         // var drafts: number = 0;
-        //[If PC has 15 incubus drafts (regular or pure) and Venus is not already a herm]
+        // [If PC has 15 incubus drafts (regular or pure) and Venus is not already a herm]
         if (
             this.player.itemCount(this.consumables.INCUBID) +
                 this.player.itemCount(this.consumables.P_DRAFT) >=
@@ -405,7 +405,7 @@ export class Kaiju extends AbstractLakeContent {
             );
             this.addButton(5, "Give Cock", this.yesTurnKaijuFuta);
         }
-        //[Peek][Hug Boobs][Fuck][Urethra Fuck (only if Venus is a herm)][Talk][Leave]
+        // [Peek][Hug Boobs][Fuck][Urethra Fuck (only if Venus is a herm)][Talk][Leave]
         this.addButton(0, "Peek", this.peekAtSomePhatAssKaijuButt);
         this.addButton(1, "Hug Boobs", this.kaijuRepeatBoobHug);
         this.addButton(2, "Fuck", this.fuckThisGiantYouDumbCunt);
@@ -413,7 +413,7 @@ export class Kaiju extends AbstractLakeContent {
         this.addButton(4, "Talk", this.talkToKaiju);
         this.addButton(9, "Leave", this.leaveRepeatKaiju);
     }
-    //[If Hug Boobs]
+    // [If Hug Boobs]
     private kaijuRepeatBoobHug(): void {
         this.clearOutput();
         this.spriteSelect(103);
@@ -424,7 +424,7 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText(
             "\n\nYou make no moves as the hand firmly but gently picks you up and brings you upwards towards her ample bosom.  She holds you tightly to a breast, nearly smothering you in tit flesh.  Her perky nipple seems massive up close as it practically bounces off your head as she begins grinding you up and down her gargantuan breast"
         );
-        //[only apply if player has dick]
+        // [only apply if player has dick]
         if (this.player.hasCock())
             this.outputText(
                 ", [eachCock] stiffening in your [armor] from the stimulation as your whole body is used in what seems more and more like a massive boob job"
@@ -442,7 +442,7 @@ export class Kaiju extends AbstractLakeContent {
         if (this.player.gender == 0) this.outputText("bare groin");
         this.outputText('.  "<i>Let\'s have some fun!</i>"');
 
-        //[if player has cock]
+        // [if player has cock]
         if (this.player.hasCock()) {
             this.outputText("\n\nShe brings you up to her nipple, letting your throbbing erection");
             if (this.player.cockTotal() > 1) this.outputText("s");
@@ -458,7 +458,7 @@ export class Kaiju extends AbstractLakeContent {
                 );
             this.player.orgasm();
         }
-        //[if player has vagina]
+        // [if player has vagina]
         if (this.player.hasVagina()) {
             this.outputText(
                 "\n\nShe spreads your legs open and slowly brings your pink netherlips into place, your [vagina] hovering right in front of her massive, cock-sized nipple!  With a squeal of delight she pushes the tip of her nip into your pussy, her eyes almost rolling back in her head as she slowly, steadily shoves her nipple inch by inch into your stretched hole."
@@ -472,22 +472,22 @@ export class Kaiju extends AbstractLakeContent {
             );
             this.player.orgasm();
         }
-        //[if player is genderless]
+        // [if player is genderless]
         if (this.player.gender == 0) {
             this.outputText(
                 '\n\nThe giantess begins to moan as she rubs you around her nipple, firmly pressing your body into her breast.  She moves you over to her other breast, using your body to tease her other stiffening nipple.  "<i>Would you mind licking it?  Please?</i>" she asks, pressing your face to her nipple.  You open your mouth to stick out your tongue when suddenly she pushes it up against your mouth, quickly getting the first few inches of pink nipple past your lips.  Your mouth is stuffed with nipple flesh, your tongue pushed to the bottom of your mouth.  She slowly forces more of herself into your, her nipple sliding down into your throat.  Her moans grow louder when you suddenly feel liquid spurting down into your gut.  She has begun lactating, pumping you full of tainted turtle milk!  You quickly fill up as your stomach expands with gallons of white fluid, until you\'re gurgling with milk, the stuff leaking around the nipple in your mouth.  When you feel like you will soon burst she pops her nip out and coats you with her milk.'
             );
         }
-        //[All genders]
+        // [All genders]
         this.outputText(
             '\n\n"<i>My, that was a mighty big hug.  I think I\'ll need another nap. Come visit me again some time,</i>" she says, slowly putting you down in your boat.  You slowly roll away as the jolly green giantess giggles and slowly wades off.'
         );
-        //[Giant turtle girl now encounter-able at Boat and Swamp, corruption increases slightly]
+        // [Giant turtle girl now encounter-able at Boat and Swamp, corruption increases slightly]
         this.flags[kFLAGS.KAIJU_BAD_END_COUNTER]++;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Fuck]
+    // [If Fuck]
     private fuckThisGiantYouDumbCunt(): void {
         this.clearOutput();
         this.spriteSelect(103);
@@ -499,7 +499,7 @@ export class Kaiju extends AbstractLakeContent {
         );
 
         if (this.kaijuCock()) {
-            //[If Venus is herm]
+            // [If Venus is herm]
             this.outputText(
                 "You are surprised to see she has an enormous cock right where a clitoris would be.  It is already stiff and throbbing with arousal as corrupted lake water drips off it.  "
             );
@@ -518,13 +518,13 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText(
             '\n\nShe still has your [leg] held gently between two fingers, and she begins to steadily push you deeper and deeper inside her wet honeypot, coating you liberally in more of the lust inducing wetness.  "<i>Oh that\'s it baby, slow and steady wins the race,</i>" she moans, her voice sounding muffled from where you are.  Her vaginal walls continue their rhythmic massage of your body, relaxing your own muscles as the tension of your adventures seem to evaporate.'
         );
-        //[If PC has breasts]
+        // [If PC has breasts]
         if (this.player.biggestTitSize() >= 1) {
             this.outputText(
                 "\n\nYour [chest] slide across the slick yet firm vaginal flesh of her surprisingly dexterous cunt, your [nipples] stiffening from the constant teasing massage."
             );
         }
-        //[If PC has cock]
+        // [If PC has cock]
         if (this.player.hasCock()) {
             this.outputText("\n\nYour hard cock");
             if (this.player.totalCocks() > 1) this.outputText("s are");
@@ -539,7 +539,7 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText(
             "\n\nJust when you begin to think you can see her womb her hand drags you back down her slippery passage, before pushing you back up again.  Her fingers push you up and down, in and out of her trembling pussy, her wet and skillful muscles helping to speed you along as she steadily picks up her pace.  The closer she seems to get to climax, the more her pussy walls tremble and push, the more her juices gather, and the faster she sends you on your dizzying roller coaster ride through her female sex."
         );
-        //[If PC's sensitivity is 50 or over]
+        // [If PC's sensitivity is 50 or over]
         if (this.player.sens >= 50) {
             this.outputText(
                 "\n\nThe sensations of the giant's masterful cunt sends you into orgasm."
@@ -552,25 +552,25 @@ export class Kaiju extends AbstractLakeContent {
                 this.outputText(
                     "  Your own pussy releases its own feminine juices, soaking your thighs even further in wetness."
                 );
-            //[Lust decreases, end sensitivity scene]
+            // [Lust decreases, end sensitivity scene]
             this.player.orgasm();
         } else {
             this.outputText(
                 "\n\nHer vaginal muscles clamp down on you tightly as she finally orgasms, the intense pressure and moistness sending you flying downwards and you slide out of her slick twat, slipping past her pink pussy lips and crashing into her waiting hand."
             );
 
-            //[If Marae is corrupt]
+            // [If Marae is corrupt]
             if (this.kaijuCock()) {
                 this.outputText(
                     '\n\n"<i>Oh my, that was GOOD!  But we\'re not done just yet dear,</i>" the luscious green hermaphrodite proclaims as she gently places you on top of her large shaft.  "<i>As much pent up lust as I have to work through, it\'ll take more than one orgasm to finish the job.  So... mind giving me a hand or two?</i>" she asks, indicating she wishes for you to give her a hand job.  It might be best not to argue with a lustful giant.  Still slick from her vaginal juice and horny as hell, you begin stroking her giant cock with your body, kneading with your hands and rubbing with your legs.\n\n'
                 );
-                //[If vagina and/or cock is present]
+                // [If vagina and/or cock is present]
                 if (this.player.gender > 0) {
                     this.outputText(
                         "You grind your privates against her member, determined to get yourself off as well.  "
                     );
                 }
-                //[If PC has boobs]
+                // [If PC has boobs]
                 if (this.player.biggestTitSize() >= 1)
                     this.outputText(
                         "You press your [fullChest] against her cock flesh as well, giving her penis as much a boob job as such a behemoth prick can be given."
@@ -583,7 +583,7 @@ export class Kaiju extends AbstractLakeContent {
                 this.outputText(
                     '\n\n"<i>By Marae you\'re good at this!</i>" the moaning giantess says as her cock begins to bounce in anticipation.  It nearly bucks you off your precarious perch!  "<i>I\'m...I\'m going to cum!</i>" she shouts as you redouble your efforts.  In another moment she makes good her statement, as a titanic load squirts out.'
                 );
-                //[If PC has vagina and/or cock]
+                // [If PC has vagina and/or cock]
                 if (this.player.gender > 0) {
                     this.outputText(
                         "  Undeterred, you continue grinding upon the spurting pole until you reach your own smaller, far less impressive orgasm, releasing your own "
@@ -597,7 +597,7 @@ export class Kaiju extends AbstractLakeContent {
                 this.outputText(
                     "  You look out upon the lake to see much of it has taken on a remarkably more milky white color. Even for a giant that was a prodigious amount of cum she unleashed!"
                 );
-                //[lust decreases, end corrupted herm scene]
+                // [lust decreases, end corrupted herm scene]
             }
         }
         this.outputText(
@@ -605,13 +605,13 @@ export class Kaiju extends AbstractLakeContent {
         );
 
         this.outputText("\n\nYou wave goodbye to the giant green girl as you begin to row away.");
-        //[Corruption increases]
+        // [Corruption increases]
         this.flags[kFLAGS.KAIJU_BAD_END_COUNTER]++;
         this.dynStats("cor", 1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Urethra Fuck]
+    // [If Urethra Fuck]
     private urethraFuckDatGiantCock(): void {
         this.clearOutput();
         this.spriteSelect(103);
@@ -663,14 +663,14 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText(
             "\n\nYou wake up about an hour later, dressed and in your boat, already docked back at shore.  The green giant Venus must have caught you."
         );
-        //[Corruption increases slightly, lust is decreased]
+        // [Corruption increases slightly, lust is decreased]
         this.flags[kFLAGS.KAIJU_BAD_END_COUNTER]++;
         this.player.orgasm();
         this.dynStats("cor", 1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Leave]
+    // [If Leave]
     private leaveRepeatKaiju(): void {
         this.clearOutput();
         this.spriteSelect(103);
@@ -680,7 +680,7 @@ export class Kaiju extends AbstractLakeContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Talk]
+    // [If Talk]
     private talkToKaiju(): void {
         this.clearOutput();
         this.spriteSelect(103);
@@ -689,9 +689,9 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText(
             '"<i>Oh?  You want to talk?</i>" she says, a bit taken by surprise, "<i>What about?</i>"'
         );
-        //(One of the available lines of dialog plays.)
+        // (One of the available lines of dialog plays.)
         if (this.flags[kFLAGS.KAIJU_TALK_CYCLE] == 1) {
-            //Dialog one:
+            // Dialog one:
             this.outputText("\n\nYou ask her to talk about herself and who she is.");
             this.outputText(
                 '\n\n"<i>Well, I\'m not really sure what to say.  I was born the youngest of my family shortly after the demons first took over.  Mother was once a shaman of our tribe, a beauteous woman famed for her dances that could call down the rain or predict small pieces of the future.  I never knew my father but mother claimed he was a demon.  Though whether he really was or she was just insulting him for not sticking around and raising his child I do not know.  My elder half sisters all took the path of becoming priestesses and my big brother became a warrior.  Eventually he went off to fight the demons, and I never saw him again,</i>" she says, a note of sadness creeping into her voice.'
@@ -708,7 +708,7 @@ export class Kaiju extends AbstractLakeContent {
                 "\n\nShe seems to grow silent and draws inward as she finishes her story.  She thanks you for listening before sending you on your way."
             );
         }
-        //Dialog two:
+        // Dialog two:
         else if (this.flags[kFLAGS.KAIJU_TALK_CYCLE] == 2) {
             this.outputText(
                 "\n\nYou decide to ask her a very delicate question that has been bothering you for a while.  How did she become such a giant?"
@@ -720,13 +720,13 @@ export class Kaiju extends AbstractLakeContent {
             this.outputText(
                 '\n\nHer body seems to quiver in delight as she continues on.  "<i>I\'m not sure why they want to taint the waters or what it is they use, but I found the spot where the corruption enters the lake and is the strongest.  I go there daily to absorb the warmth and delicious taint of those chemicals.  It increased my lust, and over time my size.</i>"'
             );
-            //[If factory has been shut down and Marae was left uncorrupted]
+            // [If factory has been shut down and Marae was left uncorrupted]
             if (
                 this.player.findStatusAffect(StatusAffects.DungeonShutDown) >= 0 &&
                 this.player.findStatusAffect(StatusAffects.FactoryOverload) < 0
             )
                 this.outputText("  But the flow of yummy fluids seems to have been stopped.");
-            //[If the Factory was shut down and Marae corrupted]
+            // [If the Factory was shut down and Marae corrupted]
             else if (this.kaijuCock())
                 this.outputText(
                     "  But the pouring of liquids has been stopped for some reason, but not before there was one final, huge burst of tainted fluids. It was so strong and changed me even further, making me grow this,</i>\" she says as she rises further out of the lake's waters, revealing a large green cock."
@@ -734,7 +734,7 @@ export class Kaiju extends AbstractLakeContent {
 
             this.outputText("\n\nYou thank the giantess for her explanation as you row away.");
         } else if (this.flags[kFLAGS.KAIJU_TALK_CYCLE] == 3) {
-            //Dialog three:
+            // Dialog three:
             this.outputText("\n\nYou decide to ask if there are any other turtle people.");
             this.outputText(
                 '\n\n"<i>Oh yes, lots,</i>" she says, "<i>though we’re all scattered about and hard to find these days.  Actually there are two groups of us.  The freshwater turtles are a bit more reptilian, bald with no ears, and they have no nipples, though they still have boobs.  I admit I spend a lot of time swimming in the lake, but I’m a land turtle. Hair, ears, pert nipples to tug and play with...</i>" she says, demonstrating just that as she pulls on one massive pink nub.  "<i>The water turtles teased us all the time, saying we look more like goblins with shells than turtles, but I think they’re just jealous.</i>"'
@@ -750,7 +750,7 @@ export class Kaiju extends AbstractLakeContent {
         if (this.player.lib > 50) this.dynStats("lib", -1);
     }
 
-    //[If Peek]
+    // [If Peek]
     private peekAtSomePhatAssKaijuButt(): void {
         this.clearOutput();
         this.spriteSelect(103);
@@ -761,7 +761,7 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText(
             "\n\nShe begins to probe at her loose fuck hole, her middle finger sliding past her pussy lips with ease"
         );
-        //[If Venus is pure/un-cocked]
+        // [If Venus is pure/un-cocked]
         if (!this.kaijuCock()) this.outputText(" while her thumb begins to rub her clit");
         else
             this.outputText(
@@ -770,12 +770,12 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText(
             '.  Her other hand is busy holding her giant nipple between forefinger and thumb as she tugs with surprising fierceness at her tit.  She begins moaning and slowly panting as sweat begins to form on her body.  She quickly slips another finger into her gaping twat, and then another.  Her right hand flits about from boob to boob, pinching her nipples or kneading a tit as she fondles her gargantuan jugs.  She seems to be giving it her all as her speed increases along with her shameless depravity.  Soon she has four fingers stretching out her cunt, and then her thumb and knuckles follow suit as she begins to fist herself.  "<i>Oh yes, oh by Marae yes!</i>" she squeals, moaning in delirious bliss as her feminine fluids soak her massive hand.  "<i>Please, look at me,</i>" she says, turning her attention to you. You have no intention of looking away as her hand slips in and out of her soaking stretched cunt.'
         );
-        //[If Venus is pure]
+        // [If Venus is pure]
         if (!this.kaijuCock())
             this.outputText(
                 "\n\nHer other hand moves away from her breasts, moving down to stimulate her clitoris"
             );
-        //[if Venus is corrupt/herm]
+        // [if Venus is corrupt/herm]
         else
             this.outputText(
                 "\n\nHer other hand darts away from her breasts to her now throbbing cock, slowly stroking it and squeezing it tightly"
@@ -783,14 +783,14 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText(
             ".  She pumps her clenched fist furiously as deep into herself as she can reach, going faster and faster as she quickly reaches orgasm, her pussy juices squirting out around her fist, soaking her forearm in the feminine fluid.  She slowly pulls her hand out with an audible 'Plop' and brings both hands back to her breasts, massaging her giant sized fuck pillows until two thick steady streams of milk begin flowing out her nipples and down her breasts."
         );
-        //[Lust is increased]
+        // [Lust is increased]
         this.dynStats("lus", 10 + this.player.lib / 3);
-        //[If Venus is corrupt/herm]
+        // [If Venus is corrupt/herm]
         if (this.kaijuCock()) {
             this.outputText(
                 "\n\nThough she appears to be ending the show, you know you can encourage her to go even further.  Do you egg her on?"
             );
-            //[Yes][No]
+            // [Yes][No]
             this.menu();
             this.addButton(0, "Yes", this.yesKaijuGimmePeepShowsMoar);
             this.addButton(1, "No", this.noKaijuPeepShows);
@@ -800,7 +800,7 @@ export class Kaiju extends AbstractLakeContent {
         }
     }
 
-    //[If yes]
+    // [If yes]
     private yesKaijuGimmePeepShowsMoar(): void {
         this.clearOutput();
         this.spriteSelect(103);
@@ -808,26 +808,26 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText(
             'You make your appreciation of her exhibition known, indicating that you would like her to continue on.  Smiling at your suggestion, and more than willing to give an encore performance, she brings her hands down to her trembling cock, slowly tracing a finger up the length of her shaft before grabbing onto it with one hand while the other begins to rub the tip of the head with her palm.  Her hand, still slick with her own cunt juice, slides easily across her cock.  She begins to moan again, even more lewdly than last time.  Her hips begin to buck as she practically begins to fuck her hand.  Beads of precum begin to bubble up from her cock head, and she quickly wipes it on the palm of her free hand before bringing it towards her face to lick the mess off her palm, her body trembling from the sheer delight of drinking her own pre.  "<i>Oh that\'s good!</i>" she pants, bringing her hand back down to begin stroking her throbbing dick with both hands.  "<i>Please, please watch me cum!</i>" the giantess begs of you as she goes into high gear, giving her cock everything she\'s got left.  It isn\'t much longer before she erupts like a geyser, spraying hermy turtle girl cum high into the air, only for it to rain back down on the green girl.  Her hands begin to slide across her torso, gently massaging the sperm into her skin.'
         );
-        //[Increase lust further, end corrupt/herm scene]
+        // [Increase lust further, end corrupt/herm scene]
         this.dynStats("lib", 1, "lus", 33);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If no] (Skip corrupt/herm scene)
+    // [If no] (Skip corrupt/herm scene)
     private noKaijuPeepShows(): void {
         this.clearOutput();
         this.spriteSelect(103);
         this.outputText(
             '"<i>My goodness, it\'s so much better with a captivated audience!</i>" she says, breathing heavily.  You thank her for the show as she places you back into your boat and giving it a push.  You row away, considering perhaps coming back for another show.'
         );
-        //[Libido is increased by 1]
+        // [Libido is increased by 1]
         this.dynStats("lib", 1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //One off scenes
-    //Scene for Newly Cocked Venus at Boat
-    //[Triggered if the PC has already had sex with pure female Venus before finishing the Factory quest, and has since stopped the Factory and corrupted the lake and Marae]
+    // One off scenes
+    // Scene for Newly Cocked Venus at Boat
+    // [Triggered if the PC has already had sex with pure female Venus before finishing the Factory quest, and has since stopped the Factory and corrupted the lake and Marae]
     private kaijuGrowsWangus(): void {
         this.flags[kFLAGS.KAIJU_COCK] = 1;
         this.clearOutput();
@@ -844,14 +844,14 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText(
             "\n\nYou never expected your actions in the factory to have such a perverse effect.  Do you help get her off?"
         );
-        //[Yes][No][Mock]
+        // [Yes][No][Mock]
         this.menu();
         this.addButton(1, "No", this.dontGetFutaTurtlesOffToday);
         this.addButton(0, "Yes", this.helpNewFutaKaijuGetOff);
         this.addButton(2, "Mock", this.mockDatTurtleGirl);
     }
 
-    //[If no]
+    // [If no]
     private dontGetFutaTurtlesOffToday(): void {
         this.clearOutput();
         this.spriteSelect(103);
@@ -861,7 +861,7 @@ export class Kaiju extends AbstractLakeContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Mock]
+    // [If Mock]
     private mockDatTurtleGirl(): void {
         this.clearOutput();
         this.spriteSelect(103);
@@ -872,22 +872,22 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText(
             "\n\nShe begins to move her hand back and forth, slowly sliding you against the bottom of her green shaft.  Though the mammoth penis resting on you is heavy and you are squeezed tightly against it, you are seemingly in no danger of being crushed as she strokes her massive herm meat-pole from top to bottom.  You can actually smell the salty pre forming at her tip.  "
         );
-        //[If player has balls of grapefruit size or larger]
+        // [If player has balls of grapefruit size or larger]
         if (this.player.balls > 0 && this.player.ballSize >= 6)
             this.outputText(
                 "Your [balls] rest on the hermaphrodite's hand, bouncing loudly with each thunderous stroke from the speed and force she is employing to get herself off.  "
             );
-        //[end balls] [If player has cock]
+        // [end balls] [If player has cock]
         if (this.player.hasCock())
             this.outputText(
                 "You can feel your [armor] getting tighter as [eachCock] begins to stiffen under your clothing from all the constant pressure of the cock squeezing down on your member.  "
             );
-        //[If player has vagina]
+        // [If player has vagina]
         if (this.player.hasVagina())
             this.outputText(
                 "You begin to feel a wetness between your legs as your cunt begins leaking as your arousal spikes from the intense rubbing the herm's penis is giving your whole body.  "
             );
-        //[If genderless]
+        // [If genderless]
         if (this.player.gender == 0)
             this.outputText("Your cheeks blush in arousal from all this heavy rubbing.  ");
         if (this.player.cor < 33)
@@ -909,14 +909,14 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText(
             '.  You can feel the spasming of the giant\'s cock as you feel the pressure from her shaft increase as a load of cum rushes through it, erupting out of her tip like a volcano with globs of white lava.  "<i>Well, that\'s a hell of a load,</i>" she says, seeming quite proud of herself.  She sets you back down in your boat and roughly shoves it out further into the lake.  "<i>Learn some manners you meanie!</i>" she calls out.'
         );
-        //[Lust is decreased, Venus is removed from the game]
+        // [Lust is decreased, Venus is removed from the game]
         this.player.orgasm();
         this.dynStats("cor", 1);
         this.flags[kFLAGS.KAIJU_DISABLED] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If yes]
+    // [If yes]
     private helpNewFutaKaijuGetOff(): void {
         this.clearOutput();
         this.spriteSelect(103);
@@ -928,7 +928,7 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText(
             "\n\nEnding your inspection and deciding to get down to work, you get down on your knees and begin rubbing your hands in gentle circles right at her cock's base.  Despite her enormous size Venus seems to be quite sensitive and it isn't long before she begins cooing in pleasure.  You start rubbing the green cock more roughly, kneading the dick flesh with your hands as you slowly start to move up the herm's shaft.  \"<i>Oh... I didn't know this would feel so good,</i>\" the giant moans, tugging on a tit with one hand as another snakes past you towards her wet gash, a finger probing into the depths of her cunt and leaving you to continue your work on her erect cock.  You massage the throbbing member with your hands, stroking and kneading it to the rhythm of the green girl’s moaning and cooing.  As you crawl further up her cock you get off your knees and lie on the twitching beast, freeing up your legs to better stroke her with your entire body."
         );
-        //[If PC has cock]
+        // [If PC has cock]
         if (this.player.hasCock())
             this.outputText(
                 "  [EachCock] quickly hardens now as it is rubbed up against the giant's massive shaft."
@@ -944,7 +944,7 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText(
             "\n\nYou finally reach the dark green head of her massive meat stick, treating it to your tender ministrations.  Pre-cum bubbles up from the tip, smelling potently of sex and arousal.  You're sure it contains pheromones and aphrodisiacs."
         );
-        //[If either corruption is under 50 or libido is under 75]
+        // [If either corruption is under 50 or libido is under 75]
         if (this.player.cor < 50 && this.player.lib < 75)
             this.outputText(
                 "  You knead the cock head with your hands, massaging it quickly and roughly as you grind up against it, rock back and forth on the giant member.  Some of the pre dribbles down and you begin to use it as sticky massage oil, working it into the cock flesh.  The cooing and lustful moaning coming from the giantess increases in intensity with your every movement."
@@ -968,26 +968,26 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText(
             "\n\nYou clean yourself up, get dressed, and wave goodbye before leaving the giantess, who's still blissed out from her intense orgasm."
         );
-        //[Corruption increases slightly, lust is decreased]
+        // [Corruption increases slightly, lust is decreased]
         this.player.orgasm();
         this.dynStats("cor", 1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Incubi Drafts]
+    // [If Incubi Drafts]
     private incubiDraftsDatKaiju(): void {
         this.clearOutput();
         this.spriteSelect(103);
         this.outputText(
             'You ask the big green slut if she’d be open to growing a new toy between her legs to play with.\n\nHer eyes go wide in surprise at the suggestion, a deep red blush spreading across her cheeks. "<i>I admit, I have thought about it. Something long and hard to stroke, but I really don’t know,</i>" she says, obviously excited yet embarrassed by the idea. "<i>Would you really be okay with it?</i>"'
         );
-        //[Yes][No]
-        //[If No] (Return to menu)
+        // [Yes][No]
+        // [If No] (Return to menu)
         this.addButton(0, "Yes", this.yesTurnKaijuFuta);
         this.addButton(1, "No", this.repeatKaijuEncounter);
     }
 
-    //[If Yes]
+    // [If Yes]
     private yesTurnKaijuFuta(): void {
         this.clearOutput();
         this.spriteSelect(103);
@@ -1034,12 +1034,12 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText(
             '\n\nJudging by the lustful cooing sounds, the jolly green girl is nearing her limit, her free hand snaking down to gently stroke her giant cock.  "<i>Going to cum I’m going to cum going to cum!</i>" she shouts as she reaches her own orgasm before you.  Suddenly her dick widens at the base as her second cum shot heads your way!  With your body lodged tightly in the way, the corrupted turtle sperm has nowhere to go but in, your [butt] suddenly filling up as your bowels are flooded with cum!'
         );
-        //[If PC has a cock]
+        // [If PC has a cock]
         if (this.player.hasCock())
             this.outputText(
                 "  So much jizz fills your ass it can’t help but to press in on your prostate, making [eachCock] stiffen with a seriously growing urge."
             );
-        //[If PC has a vagina]
+        // [If PC has a vagina]
         if (this.player.hasVagina())
             this.outputText(
                 "  Your ass isn’t alone in the feeling of being flooded as your [vagina] and womb are packed with the hermaphrodite’s sperm."
@@ -1052,22 +1052,22 @@ export class Kaiju extends AbstractLakeContent {
             '\n\nYou wake up about an hour later, dressed and in your boat, already docked back at shore.  The green giant Venus is there, sitting nearby and gazing out over the lake before your movements attract her attention.  "<i>Hey there voyeur,</i>" she says happily, a lot calmer than she was with you in her cock, but still with the ever present haze of lust in her eyes.  "<i>Look, I just wanted to thank you. Not a lot of people are cool with me, what with my size and perverse delights that’d probably make a succubus faint, don’t act like you don’t know.  But you’ve been pretty cool, even when I shove you into sex holes where whole people probably shouldn’t go.  And, you gave me a cock.  I wanted a dick even before I started soaking up corrupt fluids like a sponge, and now I have one thanks to you. So... thanks babe,</i>" she finishes before wading back out into the lake.  What a strange, grateful girl.'
         );
         this.flags[kFLAGS.KAIJU_COCK] = 1;
-        //[Corruption increases slightly, lust is decreased]
+        // [Corruption increases slightly, lust is decreased]
         this.player.orgasm();
         this.dynStats("cor", 1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Improved Bad End
-    //Venus' Sex Toy
-    //[Triggers after doing something sexual with Venus a lot in a few days, but with a cooldown]
+    // Improved Bad End
+    // Venus' Sex Toy
+    // [Triggers after doing something sexual with Venus a lot in a few days, but with a cooldown]
     private kaijuBadEndToyBOOSH(): void {
         this.clearOutput();
         this.spriteSelect(103);
         this.outputText(
             "As you are rowing through the lake you once more stumble upon the jolly green giantess Venus, who seems to be in the throes of pleasure as she masturbates furiously in some shallow waters, rubbing her large "
         );
-        //[if Venus is female]
+        // [if Venus is female]
         if (!this.kaijuCock()) this.outputText("clitoris");
         else this.outputText("cock");
         this.outputText(
@@ -1078,15 +1078,15 @@ export class Kaiju extends AbstractLakeContent {
             '\n\nYou\'re unsure whether you should speak up or sneak away when one of her eyes opens lazily and she spots you sitting there red faced.  "<i>Oh, has my sneaky voyeur come to play?</i>" she asks with a sultry moan, using both hands to mash her mammoth mammaries together and lean towards you, posing provocatively.  "<i>I was hoping you\'d show up cutie,</i>" she says when a sudden errant spurt of milk flies from one of her much abused tits to douse you and practically flood your boat with the delicious white liquid.  "<i>Oh my,</i>" she continues, raising a hand to stifle the laughter as she giggles at your suddenly milky white form.  She reaches to pick your boat up out of the water, her eyes glazing over in lust.  You get the bad feeling that she\'ll be far more insatiable today than she\'s been in the past, and for this hyper-sexed lusty giant that\'s saying something!'
         );
 
-        //[If PC has wings of any type]
+        // [If PC has wings of any type]
         if (this.player.canFly()) {
             this.outputText(
                 "\n\nIt is not too late to fly to safety if you so choose.  Do you make a go of it?"
             );
-            //[Yes][No]
+            // [Yes][No]
             this.menu();
-            //[If yes] Flapping your wings at max speed you beat a hasty retreat! [PC winds up back at camp]
-            //[If no] (Scene continues as normal)
+            // [If yes] Flapping your wings at max speed you beat a hasty retreat! [PC winds up back at camp]
+            // [If no] (Scene continues as normal)
             this.addButton(0, "Yes", this.flyAwayFromBadEnd);
             this.addButton(1, "No", this.badEndPartTwo);
         } else {
@@ -1102,7 +1102,7 @@ export class Kaiju extends AbstractLakeContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[End wings]
+    // [End wings]
     private badEndPartTwo(): void {
         this.clearOutput();
         this.spriteSelect(103);
@@ -1115,7 +1115,7 @@ export class Kaiju extends AbstractLakeContent {
             this.outputText(
                 "  Your snaky forked tongue begins lashing about, flicking at the nipple tip in your mouth while rubbing at the underside of it, urging the tender spot to give up a drop of the heavenly white liquid."
             );
-        //[If PC has demonic/dragon tongue]
+        // [If PC has demonic/dragon tongue]
         else if (this.player.tongueType > TONUGE_HUMAN) {
             this.outputText(
                 "  The long tongue in your mouth slowly crawls around the nipple tip clenched between your lips, wrapping around the milky nip and squeezing to urge a dollop of milk out."
@@ -1125,7 +1125,7 @@ export class Kaiju extends AbstractLakeContent {
                 "\n\nThe pink tip refuses to give up a drop however as your tongue begins to stroke up and down what small length of nipple flesh you have managed to gather up in your mouth.  Un-sated, the tongue pulls at the tender nipple flesh, forcing more into your oral sex hole as your head is pushed up further onto the moaning girl's unwieldy pink nub.  With the aid of your determined tongue you manage to get a few more inches into you.  Before the nipple can slide down into your throat however, a wicked idea comes over you.  Unwrapping your cursed tongue from the lusty girl's nipple, you aim the tip of your oral muscle and jam it at the head of the milky member in your mouth, your tongue slowly working its way into the nipple, inch by inch, until all of it has bottomed out, the giantess giving a sudden scream of ecstasy.\n\nWith determined strength, you begin working more of the nipple into your mouth, finally bringing it to the entrance of your throat before sliding it down your gullet.  How often do you get to deep throat a nipple?  You begin humming, trying your best to get the nipple to vibrate in your mouth as your tongue undulates and wiggles in the green breast, the very tip of your tongue tasting the liquid gold of her milk.  Your hands at the base of her nipple begin kneading the milky teat firmly with spurred on fury, massaging the much abused areola until the green girl is panting in short lusty breaths.  \"<i>My goodness!</i>\" she moans, milk suddenly pushing at the tip of your tongue, trying to leak around it to get to your mouth.  \"<i>Pull it out pull it out pull it out I gotta release!</i>\" she screams, desperately needing to release the milk that's backed up, your demonic tongue acting as some kind of nipple plug.  With a smile, or as much a smile as your mouth is capable of wrapped around a milk engorged nipple, you withdraw your tongue from her teat, a rather swift process as the pressure of her milk forces your corrupted tongue backwards.\n\nRemembering you have the end of her teat deep within your throat, and not wanting to have your tongue shot down into your own belly, you begin to pull the nipple out as quickly as you can.  Luckily at the last few inches her milk manages to flow around your tongue, covering every taste bud in white calcium rich fluid, pouring out into your sorely taxed throat and coating it in white as the milk sloshes into your belly, gallons of the stuff filling you up till you look nine months pregnant with triplets.  You finally manage to disengage the nipple from your mouth, your tongue finally popping out as you are once again splashed head to toe in the creamy white of the green girl's milk.  Your tongue just hangs out of your mouth as your milk bath slowly dwindles down to a shower, then a drizzle, and a slight dribble before tapping off."
             );
         }
-        //[Only if PC doesn't have a demon/dragon tongue]
+        // [Only if PC doesn't have a demon/dragon tongue]
         if (this.player.tongueType <= TONUGE_SNAKE) {
             this.outputText(
                 "\n\nYou suck at the prodigious nipple, teasing more and more of it into yourself until you're massaging much of its length with your throat.  The pink flesh stiffens from the green slut's pleasure as you service the slowly leaking teat, licking at the base while your hands massage the puffy areola.  The giantess squirms in delight as you work on the dribbling milk nozzle before she brings her other hand up to tease the nipple you aren't connected to.  \"<i>Oh, don't stop babe,</i>\" she tells you as you force out one large gushing 'drop' of milk from her mammoth mammary after another.  After you have your milky fill, you slowly draw the teat out from your throat until it plops out of your mouth with a popping sound.\n\nDeciding to tease the lusty girl further, you continue to flick your tongue over the gushing nip, letting the refreshing taste roll right off your tongue. You begin to pump at the nipple with both your hands, watching as the milk geyser continually shoots past your head to mix with the lake water below, making the area a cloudy white around the giant girl's knees.  You pump and lick in a rhythm, determined to empty her tit for all it’s worth.  The moaning turtle girl can barely stand as she sways from your administrations.  \"<i>So good!</i>\" she pants out, starting to use her thumb to rub your back in encouragement.  It takes a while, but eventually her titanic tit finally empties out."
@@ -1135,7 +1135,7 @@ export class Kaiju extends AbstractLakeContent {
             '\n\n"<i>Oh babe, you really know how to work a tit, don’t you?</i>" the lusty giant says before moving you towards her crotch.  "<i>It’s good you had all that milk to drink, I wouldn’t want you to get dehydrated during the next task at hand.</i>"  It seems her heightened lusts haven’t been dimmed just yet!'
         );
 
-        //[If Venus is a herm]
+        // [If Venus is a herm]
         if (this.kaijuCock()) {
             this.outputText(
                 '\n\nYou find yourself face to face with her giant green dick, which is already leaking a copious amount of pre in her arousal.  "<i>You know, growing up in the village I was expected to follow in my mother’s priestly footsteps, but I never really had the restraint for the work.  You know what they say about the high priestess’s daughter right?  But I did learn a bit about holy spell-work.  Well, with this corrupted body you’re going to see some decidedly unholy spell-work,</i>" she says before stroking her cock with her free hand, the giant dong inflating to its full size as she begins to mutter strange and incoherent words under her breath.  Suddenly her bubbling pre takes on a decidedly pink color as some kind of magic takes effect, the bright pink pre-jizz dimly glowing before your eyes.'
@@ -1189,7 +1189,7 @@ export class Kaiju extends AbstractLakeContent {
             "  Inches slide in at a time as it spasms inside of you, attempting to hit every sensitive spot your ass may have as it slowly tries to stretch you out.\n\n"
         );
 
-        //[If PC has a cock]
+        // [If PC has a cock]
         if (this.player.hasCock())
             this.outputText(
                 "[EachCock] stiffens as the tree tendril pushes against your prostate, forcing a thick glob of pre up your shaft.  "

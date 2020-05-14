@@ -13,16 +13,16 @@ import { CommonItem } from "./CommonItem";
 export class Useable extends CommonItem {
     public canUse(player?: Player, output?: boolean): boolean {
         return true;
-    } //If an item cannot be used it should provide some description of why not
+    } // If an item cannot be used it should provide some description of why not
 
-    //		public function hasSubMenu(): boolean { return false; } //Only GroPlus and Reducto use this. //Replaced with a return
+    // 		public function hasSubMenu(): boolean { return false; } //Only GroPlus and Reducto use this. //Replaced with a return
 
     public useItem(): boolean {
         CoC_Settings.errorAMC("Useable", "useItem", this.id);
         return false;
     }
 
-    public useText(): void {} //Produces any text seen when using or equipping the item normally
+    public useText(): void {} // Produces any text seen when using or equipping the item normally
 
     /**
      * @param player user

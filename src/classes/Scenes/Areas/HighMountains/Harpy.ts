@@ -17,16 +17,16 @@ import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
 
 export class Harpy extends Monster {
-    //*Note, special attack one is an idea based on Ceraph.
-    //About the attack that raises your Lust to 100 if you
-    //don't "wait" when she unleashes it. Alright, I
-    //basically used the idea, sorry. But it's a neat idea
-    //so it should be fitting, right? Or you could just
-    //dump it out altogether. It'd cause severe damage,
-    //in the 150 region if you don't wise up.*
+    // *Note, special attack one is an idea based on Ceraph.
+    // About the attack that raises your Lust to 100 if you
+    // don't "wait" when she unleashes it. Alright, I
+    // basically used the idea, sorry. But it's a neat idea
+    // so it should be fitting, right? Or you could just
+    // dump it out altogether. It'd cause severe damage,
+    // in the 150 region if you don't wise up.*
 
     protected harpyUberCharge(): void {
-        //(Harpy special attack 1, part one)
+        // (Harpy special attack 1, part one)
         if (this.findStatusAffect(StatusAffects.Uber) < 0) {
             this.createStatusAffect(StatusAffects.Uber, 0, 0, 0, 0);
             this.outputText(
@@ -34,7 +34,7 @@ export class Harpy extends Monster {
                 false
             );
         }
-        //(Harpy special attack 1, part two if PC does anything but "Wait")
+        // (Harpy special attack 1, part two if PC does anything but "Wait")
         else {
             if (this.flags[kFLAGS.IN_COMBAT_USE_PLAYER_WAITED_FLAG] == 0) {
                 var damage: number = 160 + Harpy.rand(20);
@@ -61,7 +61,7 @@ export class Harpy extends Monster {
         this.combatRoundOver();
     }
 
-    //(Harpy special attack 2, lust increase)
+    // (Harpy special attack 2, lust increase)
     protected harpyTease(): void {
         this.outputText(
             "The harpy charges at you carelessly, her body striking you with the full weight of her motherly hips.  The pair of you go crashing backwards onto the ground.  You grapple with her weighty ass, trying your best not to think dirty thoughts, but the way she's maniacally flapping and writhing her curvy body against you makes it impossible! After a brief, groping wrestle on the ground, she pushes you away and takes flight again.",

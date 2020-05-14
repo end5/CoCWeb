@@ -46,7 +46,7 @@ export class BeeHoney extends Consumable {
             this.value == BeeHoney.SPECIAL_HONEY_VALUE &&
             this.getGame().player.statusAffectv1(StatusAffects.Exgartuan) == 1
         ) {
-            //Exgartuan doesn't like the special honey
+            // Exgartuan doesn't like the special honey
             this.outputText(
                 "You uncork the bottle only to hear Exgartuan suddenly speak up.  <i>“Hey kid, this beautiful cock here doesn’t need any of that special bee shit.  Cork that bottle up right now or I’m going to make it so that you can’t drink anything but me.”</i>  You give an exasperated sigh and put the cork back in the bottle."
             );
@@ -63,36 +63,36 @@ export class BeeHoney extends Consumable {
         var changeLimit: number = 1;
         this.clearOutput();
         player.slimeFeed();
-        //Chances of boosting the change limit.
+        // Chances of boosting the change limit.
         if (Utils.rand(2) == 0) changeLimit++;
         if (Utils.rand(2) == 0) changeLimit++;
         if (Utils.rand(2) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
-        //Drink text
+        // Drink text
         if (special) {
             this.outputText(
                 "You uncork the bottle and pour the incredibly strong smelling concentrated honey down your throat.  Its taste is also mighty intense.  All at once you feel the effects of the substance start to course through your body."
             );
         } else {
-            //Text for normal or pure
+            // Text for normal or pure
             this.outputText(
                 "Opening the crystal vial, you are greeted by a super-concentrated wave of sweet honey-scent.  It makes you feel lightheaded.  You giggle and lick the honey from your lips, having drank down the syrupy elixir without a thought."
             );
         }
         if ((pure || special) && player.pregnancyType == PregnancyStore.PREGNANCY_FAERIE) {
-            //Pure or special honey can reduce the corruption of a phouka baby
+            // Pure or special honey can reduce the corruption of a phouka baby
             if (this.getGame().flags[kFLAGS.PREGNANCY_CORRUPTION] > 1) {
-                //Child is phouka, hates pure honey
+                // Child is phouka, hates pure honey
                 this.outputText(
                     "\n\nYou feel queasy and want to throw up.  There's a pain in your belly and you realize the baby you're carrying didn't like that at all.  Then again, maybe pure honey is good for it."
                 );
             } else if (this.getGame().flags[kFLAGS.PREGNANCY_CORRUPTION] < 1) {
-                //Child is faerie, loves pure honey
+                // Child is faerie, loves pure honey
                 this.outputText(
                     "\n\nA warm sensation starts in your belly and runs all through your body.  It's almost as if you're feeling music and you guess your passenger enjoyed the meal."
                 );
             } else {
-                //Child is on the line, will become a faerie with this drink
+                // Child is on the line, will become a faerie with this drink
                 this.outputText(
                     "\n\nAt first you feel your baby struggle against the honey, then it seems to grow content and enjoy it."
                 );
@@ -100,9 +100,9 @@ export class BeeHoney extends Consumable {
             this.getGame().flags[kFLAGS.PREGNANCY_CORRUPTION]--;
             if (pure) return false; //No transformative effects for the player because the pure honey was absorbed by the baby - Special honey will keep on giving
         }
-        //Corruption reduction
+        // Corruption reduction
         if (changes < changeLimit && pure) {
-            //Special honey will also reduce corruption, but uses different text and is handled separately
+            // Special honey will also reduce corruption, but uses different text and is handled separately
             this.outputText("\n\n");
             changes++;
             if (player.cor > 80)
@@ -118,7 +118,7 @@ export class BeeHoney extends Consumable {
             else this.outputText("You feel a mildly unpleasant tingling inside your skull.  ");
             if (player.cor > 0) this.outputText("It quickly passes, leaving you more clearheaded");
             this.getGame().dynStats("cor", -(1 + player.cor / 20));
-            //Libido Reduction
+            // Libido Reduction
             if (
                 player.cor > 0 &&
                 changes < changeLimit &&
@@ -130,17 +130,17 @@ export class BeeHoney extends Consumable {
                 changes++;
             } else if (player.cor > 0) this.outputText(".");
         }
-        //bee item corollary:
+        // bee item corollary:
         if (changes < changeLimit && player.hairType == 4 && Utils.rand(2) == 0) {
-            //-insert anemone hair removal into them under whatever criteria you like, though hair removal should precede abdomen growth; here's some sample text:
+            // -insert anemone hair removal into them under whatever criteria you like, though hair removal should precede abdomen growth; here's some sample text:
             this.outputText(
                 "\n\nAs you down the sticky-sweet honey, your head begins to feel heavier.  Reaching up, you notice your tentacles becoming soft and somewhat fibrous.  Pulling one down reveals that it feels and smells like the honey you just ate; you watch as it dissolves into many thin strands coated in the sugary syrup.  <b>Your hair is back to normal (well, once you wash the honey out)!</b>"
             );
             player.hairType = 0;
             changes++;
         }
-        //(removes tentacle hair status, restarts hair growth if not prevented by reptile status)
-        //Intelligence Boost
+        // (removes tentacle hair status, restarts hair growth if not prevented by reptile status)
+        // Intelligence Boost
         if (changes < changeLimit && Utils.rand(2) == 0 && player.inte < 80) {
             this.getGame().dynStats("int", 0.1 * (80 - player.inte));
             this.outputText(
@@ -148,10 +148,10 @@ export class BeeHoney extends Consumable {
             );
             changes++;
         }
-        //Sexual Stuff
-        //No idears
-        //Appearance Stuff
-        //Hair Color
+        // Sexual Stuff
+        // No idears
+        // Appearance Stuff
+        // Hair Color
         if (
             changes < changeLimit &&
             player.hairColor != "shiny black" &&
@@ -167,7 +167,7 @@ export class BeeHoney extends Consumable {
             this.outputText("Your hair is now " + player.hairColor + ", just like a bee-girl's!");
             changes++;
         }
-        //Hair Length
+        // Hair Length
         if (changes < changeLimit && player.hairLength < 25 && Utils.rand(3) == 0) {
             this.outputText(
                 "\n\nFeeling a bit off-balance, you discover your hair has lengthened, "
@@ -176,7 +176,7 @@ export class BeeHoney extends Consumable {
             this.outputText("becoming " + this.getGame().hairDescript() + ".");
             changes++;
         }
-        //-Remove extra breast rows
+        // -Remove extra breast rows
         if (
             changes < changeLimit &&
             player.bRows() > 2 &&
@@ -203,7 +203,7 @@ export class BeeHoney extends Consumable {
             this.getGame().dynStats("sen", -5);
             player.removeBreastRow(player.breastRows.length - 1, 1);
         }
-        //Antennae
+        // Antennae
         if (
             changes < changeLimit &&
             player.antennae == CoC.ANTENNAE_NONE &&
@@ -218,7 +218,7 @@ export class BeeHoney extends Consumable {
             player.antennae = CoC.ANTENNAE_BEE;
             changes++;
         }
-        //Horns
+        // Horns
         if (changes < changeLimit && player.horns > 0 && Utils.rand(3) == 0) {
             player.horns = 0;
             player.hornType = CoC.HORNS_NONE;
@@ -227,7 +227,7 @@ export class BeeHoney extends Consumable {
             );
             changes++;
         }
-        //Bee Legs
+        // Bee Legs
         if (
             changes < changeLimit &&
             player.lowerBody != CoC.LOWER_BODY_TYPE_BEE &&
@@ -240,7 +240,7 @@ export class BeeHoney extends Consumable {
             player.lowerBody = CoC.LOWER_BODY_TYPE_BEE;
             changes++;
         }
-        //-Nipples reduction to 1 per tit.
+        // -Nipples reduction to 1 per tit.
         if (player.averageNipplesPerBreast() > 1 && changes < changeLimit && Utils.rand(4) == 0) {
             this.outputText(
                 "\n\nA chill runs over your " +
@@ -252,12 +252,12 @@ export class BeeHoney extends Consumable {
             if (player.biggestTitSize() < 1) this.outputText("'breast'.");
             else this.outputText("breast.");
             changes++;
-            //Loop through and reset nipples
+            // Loop through and reset nipples
             for (var temp: number = 0; temp < player.breastRows.length; temp++) {
                 player.breastRows[temp].nipplesPerBreast = 1;
             }
         }
-        //Gain oviposition!
+        // Gain oviposition!
         if (
             changes < changeLimit &&
             player.findPerk(PerkLib.BeeOvipositor) < 0 &&
@@ -273,7 +273,7 @@ export class BeeHoney extends Consumable {
             player.createPerk(PerkLib.BeeOvipositor, 0, 0, 0, 0);
             changes++;
         }
-        //Bee butt - 66% lower chance if already has a tail
+        // Bee butt - 66% lower chance if already has a tail
         if (
             changes < changeLimit &&
             player.tailType != CoC.TAIL_TYPE_BEE_ABDOMEN &&
@@ -297,7 +297,7 @@ export class BeeHoney extends Consumable {
             player.tailRecharge = 2;
             changes++;
         }
-        //Venom Increase
+        // Venom Increase
         if (
             changes < changeLimit &&
             player.tailType == CoC.TAIL_TYPE_BEE_ABDOMEN &&
@@ -314,8 +314,8 @@ export class BeeHoney extends Consumable {
             );
             changes++;
         }
-        //Wings
-        //Grow bigger bee wings!
+        // Wings
+        // Grow bigger bee wings!
         if (
             changes < changeLimit &&
             player.wingType == CoC.WING_TYPE_BEE_LIKE_SMALL &&
@@ -329,7 +329,7 @@ export class BeeHoney extends Consumable {
             );
         }
 
-        //Grow new bee wings if player has none.
+        // Grow new bee wings if player has none.
         if (
             changes < changeLimit &&
             (player.wingType == CoC.WING_TYPE_NONE || player.wingType == CoC.WING_TYPE_SHARK_FIN) &&
@@ -355,7 +355,7 @@ export class BeeHoney extends Consumable {
             player.wingType = CoC.WING_TYPE_BEE_LIKE_SMALL;
             player.wingDesc = "small bee-like";
         }
-        //Melt demon wings!
+        // Melt demon wings!
         if (
             changes < changeLimit &&
             (player.wingType == CoC.WING_TYPE_BAT_LIKE_TINY ||
@@ -376,7 +376,7 @@ export class BeeHoney extends Consumable {
             changes++;
         }
         if (special) {
-            //All the speical honey effects occur after any normal bee transformations (if the player wasn't a full bee morph)
+            // All the speical honey effects occur after any normal bee transformations (if the player wasn't a full bee morph)
             if (!player.hasCock()) {
                 this.outputText(
                     "\n\nYou double over in pain as the effects start to concentrate into your groin.  You need to get release, but what you’ve got just isn’t cutting it.  You fall to the ground and grab at your crotch, trying desperately to get the release you need.  Finally, it happens.  With a sudden burst of intense relief and sexual satisfaction, a new human looking penis bursts from your skin and sprays your seed all over the ground in front of you.  When you’re able to recover and take a look at your new possession.  <b>You now have an eight inch long human cock that is very sensitive to stimulation.</b>"

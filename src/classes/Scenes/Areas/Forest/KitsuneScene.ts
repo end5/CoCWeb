@@ -20,11 +20,11 @@ import { Kitsune } from "./Kitsune";
  */
 
 export class KitsuneScene extends BaseContent {
-    //const MANSION_VISITED: number = 626;
-    //const redheadIsFuta: number = 627;
-    //const MET_KITSUNES: number = 628;
-    //const KITSUNE_SHRINE_VISIT: number = 708;
-    //const TOOK_KITSUNE_STATUE: number = 709;
+    // const MANSION_VISITED: number = 626;
+    // const redheadIsFuta: number = 627;
+    // const MET_KITSUNES: number = 628;
+    // const KITSUNE_SHRINE_VISIT: number = 708;
+    // const TOOK_KITSUNE_STATUE: number = 709;
 
     private kitsuneSprite(): void {
         if (this.monster.hairColor == "blonde") this.spriteSelect(105);
@@ -32,7 +32,7 @@ export class KitsuneScene extends BaseContent {
         else this.spriteSelect(106);
     }
 
-    //[Enter the Trickster] (Coded)
+    // [Enter the Trickster] (Coded)
     public enterTheTrickster(): void {
         if (this.flags[kFLAGS.MET_KITSUNES] > 0) {
             this.willOWisp();
@@ -56,10 +56,10 @@ export class KitsuneScene extends BaseContent {
         this.flags[kFLAGS.MET_KITSUNES]++;
     }
 
-    //Lose:
+    // Lose:
     public loseKitsuneImpFight(): void {
         this.clearOutput();
-        //randomly assign hair color
+        // randomly assign hair color
         if (KitsuneScene.rand(3) == 0) this.monster.hairColor = "blonde";
         else if (KitsuneScene.rand(2) == 0) this.monster.hairColor = "black";
         else this.monster.hairColor = "red";
@@ -83,10 +83,10 @@ export class KitsuneScene extends BaseContent {
         this.addButton(0, "Next", this.loseToKitsunes);
     }
 
-    //Win:
+    // Win:
     public winKitsuneImpFight(): void {
         this.clearOutput();
-        //randomly assign hair color
+        // randomly assign hair color
         if (KitsuneScene.rand(3) == 0) this.monster.hairColor = "blonde";
         else if (KitsuneScene.rand(2) == 0) this.monster.hairColor = "black";
         else this.monster.hairColor = "red";
@@ -108,7 +108,7 @@ export class KitsuneScene extends BaseContent {
                     : "\n\nWait.") +
                 "\n\n"
         );
-        //PC saw through glamour
+        // PC saw through glamour
         if (this.player.lust < 70 || this.player.inte >= 40) {
             this.outputText(
                 "You push her away, almost cracking your head open as you stumble over a stump.  Now that you have broken free of her sorcery, you can see her for what she is.  A pair of large triangular fox ears poke up from her "
@@ -124,7 +124,7 @@ export class KitsuneScene extends BaseContent {
             // -> Go to <i>"Going Somewhere?</i>\"
             this.doNext(this.createCallBackFunction(this.followTheWillOWisp, true));
         } //PC did NOT see through glamour
-        //With Religious BG:
+        // With Religious BG:
         else if (this.player.findPerk(PerkLib.HistoryReligious) >= 0) {
             this.outputText(
                 "The instant she touches you, she recoils with a yelp, a brilliant flash temporarily blinding you both.\n\n"
@@ -146,7 +146,7 @@ export class KitsuneScene extends BaseContent {
             // -> Go to <i>"Going Somewhere?</i>\"
             this.doNext(this.createCallBackFunction(this.followTheWillOWisp, true));
         }
-        //Else:
+        // Else:
         else {
             this.outputText(
                 "Her touch sends involuntary tingles down your spine, and you are drawn ever deeper into her eyes.  She trails a finger along your chin, slipping away from you and beckoning for you to follow her.  Your " +
@@ -158,15 +158,15 @@ export class KitsuneScene extends BaseContent {
         }
     }
 
-    //[Will 'O Wisp](C)
+    // [Will 'O Wisp](C)
     private willOWisp(): void {
         this.clearOutput();
-        //randomly assign hair color
+        // randomly assign hair color
         if (KitsuneScene.rand(3) == 0) this.monster.hairColor = "blonde";
         else if (KitsuneScene.rand(2) == 0) this.monster.hairColor = "black";
         else this.monster.hairColor = "red";
         this.kitsuneSprite();
-        //>[Explore Deep Forest] after encountering "Enter the Trickster"
+        // >[Explore Deep Forest] after encountering "Enter the Trickster"
         this.outputText(
             "As you explore deeper into the dense wood, you are abruptly aware that your surroundings have grown darker without warning.  The back of your neck tingles lightly with a sense of foreboding, and you instinctively ready your [weapon], feeling uneasy.  Wracked with paranoia, you find yourself swiveling to face toward every random noise, and you could <i>swear</i> you just heard a voice through the trees.  There it was again!  As the ghostly, feminine laughter fills your ears, you are positive that it can't just be your imagination.  You turn left, then right, trying to pinpoint its source, but it truly sounds as though it is all around you now.\n\n"
         );
@@ -174,12 +174,12 @@ export class KitsuneScene extends BaseContent {
             "Catching a glimpse of motion out of the corner of your eye, you whip around to face it, but are surprised to see that the only thing there is a small, pale blue flame, flitting about idly.  It dances around hypnotically, and as you stare into its ghostly light, you find your conscious mind growing hazy.  Your concerns suddenly seem trivial, and you find yourself relaxing gradually as the ethereal wisp glides along your arms, leaving behind a cool tingle where it touches you.\n\n"
         );
         this.outputText("It seems to be beckoning you to follow it.");
-        //If player has Traveler's Guide
+        // If player has Traveler's Guide
         if (this.player.hasKeyItem("Traveler's Guide") >= 0) {
             this.outputText(
                 "\n\nYour mind is jogged out of its haze when you remember a note from the Traveler's Guide.  It warned about mysterious flames in the forest that lead hapless adventurers astray.  You hesitate now, wondering what to do."
             );
-            //[Turn Back] [Follow] //automatically follow without traveler's guide.
+            // [Turn Back] [Follow] //automatically follow without traveler's guide.
             this.simpleChoices(
                 "Turn Back",
                 this.turnBackFromWillOWisp,
@@ -195,31 +195,31 @@ export class KitsuneScene extends BaseContent {
         } else this.doNext(this.followTheWillOWisp);
     }
 
-    //[Turn Back] (C)
+    // [Turn Back] (C)
     private turnBackFromWillOWisp(): void {
         this.clearOutput();
         this.outputText(
             "There's no way you're going to go gallivanting off into the woods after some flame.  You shake your head to clear your thoughts, and warily turn away to head back toward camp.  You could almost swear for a moment the flame looked disappointed, and you chuckle lightly at such a silly thought."
         );
-        //Advance time 1 hour, return to camp.
+        // Advance time 1 hour, return to camp.
         if (this.getGame().inCombat) this.cleanupAfterCombat();
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Follow] (C)
+    // [Follow] (C)
     private followTheWillOWisp(firstTime: boolean = false): void {
         this.clearOutput();
         if (!firstTime) {
             this.outputText(
                 "The flame suddenly darts off into the darkness of the trees, and you find yourself unable to resist giving chase.  It feels as though you are being drawn to it by some otherworldly force, but every time your suspicions begin to grow, the flame pauses to float around you, tickling your erogenous zones and then pressing onward."
             );
-            //+15 Lust
+            // +15 Lust
             this.dynStats("lus", 15);
         }
         if ((this.player.lust >= 100 || this.player.inte < 20) && !firstTime) {
             this.mansion(false, false);
         }
-        //Else:
+        // Else:
         else {
             this.kitsuneSprite();
             if (!firstTime) {
@@ -282,7 +282,7 @@ export class KitsuneScene extends BaseContent {
         }
     }
 
-    //[Talk] (C)
+    // [Talk] (C)
     private talkAfterResistingKitsunellusion(): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -290,7 +290,7 @@ export class KitsuneScene extends BaseContent {
             "Odd as she is, she doesn't seem to be overtly threatening, so you decide to try to talk to her.  Searching for something to say, you end up simply asking her why she led you here.\n\n"
         );
 
-        //Blonde
+        // Blonde
         if (this.monster.hairColor == "blonde") {
             this.outputText(
                 "\"<i>Oh, that's not important, dear,</i>\" she says with a sly grin.  \"<i>You're here now, that's what's important...</i>\"\n\n"
@@ -299,7 +299,7 @@ export class KitsuneScene extends BaseContent {
                 "Since the conversation began, she has been watching you with a hungry look, strolling around you casually.  Every now and again she leans in, caressing you with her tails and giving you a decent angle down the front of her skimpy robes.\n\n"
             );
         }
-        //Black Hair
+        // Black Hair
         else if (this.monster.hairColor == "black") {
             this.outputText(
                 'You blink, and she is upon you, her index finger circling its way across your chest.  She is practically hanging off of you as she says, "<i>You\'re the catch of the day, cutie!  Mm-mm, and such a tasty-looking morsel.</i>"\n\n'
@@ -308,7 +308,7 @@ export class KitsuneScene extends BaseContent {
                 "You're not sure whether to feel insulted or terrified at the prospect of her calling you food, so you settle on a mixture of the two.  Your eyes are drawn to her, though, as she strolls around, caressing you with her tails and leaning in to tease you with her ample bosom.\n\n"
             );
         }
-        //Redhead
+        // Redhead
         else {
             this.outputText(
                 '"<i>Ah!  You caught me,</i>" she says, feigning embarrassment.  "<i>It\'s just so deliciously adorable the way you mortals stumble around in the woods...  I can hardly resist!</i>"\n\n'
@@ -319,7 +319,7 @@ export class KitsuneScene extends BaseContent {
                     " and tickling your erogenous zones while she teases you with a glance down the front of her skimpy robes.\n\n"
             );
         }
-        //MERGE
+        // MERGE
         this.outputText(
             "You twist away, trying to shake off the tingling sensations that are crawling across your body, impairing your ability to think rationally.\n\n"
         );
@@ -335,7 +335,7 @@ export class KitsuneScene extends BaseContent {
                     : "eying the voluptuous curves that fill out her robes.")
         );
 
-        //[Follow { mansion(willing = true) }] [Leave]
+        // [Follow { mansion(willing = true) }] [Leave]
         this.simpleChoices(
             "Follow",
             this.createCallBackFunction2(this.mansion, true, false),
@@ -350,21 +350,21 @@ export class KitsuneScene extends BaseContent {
         );
     }
 
-    //[Leave] (C)
+    // [Leave] (C)
     private leaveKitsune(talked: boolean = false): void {
         this.clearOutput();
         this.kitsuneSprite();
-        //if PC was Talking to the kitsune
+        // if PC was Talking to the kitsune
         if (talked)
             this.outputText(
                 "Nervously, you thank her for her generous offer, but decline, turning to leave."
             );
-        //if PC defeated her in combat
+        // if PC defeated her in combat
         else
             this.outputText(
                 "You turn to leave, ready to put some distance between yourself and the fallen trickster."
             );
-        //MERGE:
+        // MERGE:
         this.outputText(
             "\n\n\"<i>Don't leave yet,</i>\" you hear as you turn, stopping dead when you almost bump into her.  She's done it again, popping up right in front of you with no warning.\n\n"
         );
@@ -378,12 +378,12 @@ export class KitsuneScene extends BaseContent {
             this.flags[kFLAGS.BONUS_ITEM_AFTER_COMBAT_ID] = this.consumables.KITGIFT.id;
             this.cleanupAfterCombat();
         } else {
-            //add Kitsune's Gift to inventory
+            // add Kitsune's Gift to inventory
             this.inventory.takeItem(this.consumables.KITGIFT, this.camp.returnToCampUseOneHour);
         }
     }
 
-    //Illusory Mansion (C)
+    // Illusory Mansion (C)
     private mansion(willing: boolean, firstTime: boolean = false): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -392,7 +392,7 @@ export class KitsuneScene extends BaseContent {
                 this.outputText(
                     "Curiosity and lust get the better of you, and you decide to throw caution to the wind and take her up on her offer.  If her sisters are any bit as stunning as she is, then you know you're in for a real treat.  She seems pleased with your decision, teasing the underside of your chin with one of her tails and beckoning you to follow her.\n\n"
                 );
-            //next
+            // next
             this.outputText(
                 "She leads you deeper and deeper into the woods, and before long night has fallen.  Thankfully your guide has summoned up a number of pale flames that light your way.  As you peer into the darkness beyond their range, you realize it is now too late to change your mind - even if you wanted to turn back, you would most certainly get lost.\n\n"
             );
@@ -404,7 +404,7 @@ export class KitsuneScene extends BaseContent {
                 "The hypnotic power of the flame compels you to follow it for hours, shambling through the woods in a daze.  The sky overhead has grown dark, and though every fiber of your being wills you to resist the wisp's temptation, your body simply refuses to listen.  You only vaguely register crossing the threshold of a large wooden gate, feeling like an observer outside your own body.  An imposing mansion lies before you, and what remains of your rational mind briefly wonders what sort of madman would build such an extravagant dwelling in the middle of nowhere.\n\n"
             );
         }
-        //MERGE:
+        // MERGE:
         this.outputText('"<i>Welcome');
         if (this.flags[kFLAGS.MANSION_VISITED] > 0) this.outputText(" back");
         this.outputText(
@@ -444,11 +444,11 @@ export class KitsuneScene extends BaseContent {
         this.outputText(
             "Your cup never remains empty for long, as one of the sisters is always quick to arrive with a fresh decanter.  The strong alcohol burns your throat as it goes down, and it does not take much before your head is swimming.  You have grown so tipsy by now that you don't even register as the girls usher you out of the dining room, only noticing your change of scenery as you feel yourself being pulled down into a warm pool of water.\n\n"
         );
-        //next
+        // next
         this.doNext(this.createCallBackFunction2(this.nonTentaclePCMansion, willing));
     }
 
-    //NON-TENTACLE PC SCENES:
+    // NON-TENTACLE PC SCENES:
     private nonTentaclePCMansion(willing: boolean): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -467,7 +467,7 @@ export class KitsuneScene extends BaseContent {
         }
     }
 
-    //Formerly maleOrHerm()
+    // Formerly maleOrHerm()
     private kitsuneMaleOrHermMansion(willing: boolean): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -510,7 +510,7 @@ export class KitsuneScene extends BaseContent {
         if (willing) {
             this.outputText("<b>How do you respond?</b>");
             // display choices:
-            //["Let Her" ] ["Shove Her" ]
+            // ["Let Her" ] ["Shove Her" ]
             this.simpleChoices(
                 "Let Her",
                 this.createCallBackFunction(this.kitSuneLetHerMansion, willing),
@@ -529,7 +529,7 @@ export class KitsuneScene extends BaseContent {
     }
 
     // end function
-    //fomerly letHer()
+    // fomerly letHer()
     private kitSuneLetHerMansion(willing: boolean = true): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -717,7 +717,7 @@ export class KitsuneScene extends BaseContent {
         this.doNext(this.kitsuneStillHungryMansion);
     } //End letHer()
 
-    //Formerly shoveHer()
+    // Formerly shoveHer()
     private kitsuneShoveHerMansion(willing: boolean = true): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -941,7 +941,7 @@ export class KitsuneScene extends BaseContent {
                     this.clitDescript() +
                     ".  A moment later, you rise an inch or two off the ground as a squirming invader spears your ass.  Her plush lips press against you like soft pillows, a muffled giggle vibrating up her tongue and into your prostate.  Your strength gives out as she prods your prostate, dragging you down with her weight at the same time to impale you on the redhead's cock."
             );
-            //[virginity loss/ stretching, redhead is 12x2]
+            // [virginity loss/ stretching, redhead is 12x2]
             this.player.cuntChange(24, true, true, false);
             this.outputText("\n\n");
             this.outputText(
@@ -1004,7 +1004,7 @@ export class KitsuneScene extends BaseContent {
         this.doNext(this.kitsuneStillHungryMansion);
     } // End shoveHer()
 
-    //formerly
+    // formerly
     private kitsuneStillHungryMansion(): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -1079,12 +1079,12 @@ export class KitsuneScene extends BaseContent {
         this.outputText(
             "Exhausted by the ordeal, you relax into a blissful stupor, only vaguely aware of the feeling of being dragged onto the deck.  The last thing you recall before slipping into unconsciousness is the three sisters crawling up alongside you, coaxing your twice-spent member back to life yet again with their magic, eyes glinting hungrily."
         );
-        //Increase PC cum production slightly due to residual effects from the kitsunes' magic.
+        // Increase PC cum production slightly due to residual effects from the kitsunes' magic.
         this.player.orgasm();
         this.outro();
     } //end stillHungry();
 
-    //formerly femaleOrGenderless()
+    // formerly femaleOrGenderless()
     private kitsuneFemaleOrGenderless(willing: boolean): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -1117,7 +1117,7 @@ export class KitsuneScene extends BaseContent {
         if (willing) {
             this.outputText("<b>How do you respond?</b>");
             // display choices:
-            //["Let Her" = letHer() ] ["Shove Her" = shoveHer() ]
+            // ["Let Her" = letHer() ] ["Shove Her" = shoveHer() ]
             this.simpleChoices(
                 "Let Her",
                 this.createCallBackFunction(this.kitsunesGenderlessLetHer, willing),
@@ -1205,7 +1205,7 @@ export class KitsuneScene extends BaseContent {
         this.doNext(this.createCallBackFunction(this.genderlessKitsuneStillHungry, willing));
     } // end letHer()
 
-    //fomerly shoveHer()
+    // fomerly shoveHer()
     private kitsunesGenderlessShoverHer(willing: boolean): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -1335,7 +1335,7 @@ export class KitsuneScene extends BaseContent {
         this.doNext(this.createCallBackFunction(this.genderlessKitsuneStillHungry, willing));
     } // end shoveHer()
 
-    //formerly stillHungry()
+    // formerly stillHungry()
     private genderlessKitsuneStillHungry(willing: boolean): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -1390,11 +1390,11 @@ export class KitsuneScene extends BaseContent {
         this.outputText(
             "Exhausted by the ordeal, you relax into a blissful stupor, only vaguely aware of the feeling of being dragged onto the deck.  The last thing you recall before slipping into unconsciousness is the three sisters crawling up alongside you, proffering their twisted magics on your spent body."
         );
-        //Increase PC milk production slightly due to residual effects from the kitsunes' magic. Note: The breast size boost was temporary and shouldn't actually result in a permanent change.
+        // Increase PC milk production slightly due to residual effects from the kitsunes' magic. Note: The breast size boost was temporary and shouldn't actually result in a permanent change.
         this.outro();
     } // end stillHungry();
 
-    //3+ Tentacle cocks of 30" or longer
+    // 3+ Tentacle cocks of 30" or longer
     private tentacleKitsuneWingWangs(): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -1489,7 +1489,7 @@ export class KitsuneScene extends BaseContent {
             );
         }
         if (this.player.fatigue >= 100) {
-            //mansionBadEnd();
+            // mansionBadEnd();
             this.doNext(this.mansionBadEnd);
         } else {
             this.outputText(
@@ -1620,7 +1620,7 @@ export class KitsuneScene extends BaseContent {
         this.getGame().gameOver();
     }
 
-    //[Fight]
+    // [Fight]
     private fightSomeKitsunes(): void {
         this.clearOutput();
         this.outputText(
@@ -1630,17 +1630,17 @@ export class KitsuneScene extends BaseContent {
         );
         this.startCombat(new Kitsune(this.monster.hairColor as "blonde" | "black" | "red")); // TODO refactor
         this.kitsuneSprite();
-        //Blonde
+        // Blonde
         if (this.monster.hairColor == "blonde")
             this.outputText(
                 "\"<i>Ah, so we're going to play like that, are we?</i>\"  she says with a grin, making a small clawing motion in the air.  \"<i>Very well my darling, if that's how you want it, but I won't be taking it easy on you just because you're cute~.</i>\""
             );
-        //Black Hair
+        // Black Hair
         else if (this.monster.hairColor == "black")
             this.outputText(
                 '"<i>Oh, dear...  are you sure you can\'t just spare the tiniest morsel?  I\'m so hungry...</i>"\n\nShe licks her lips to accentuate this, rubbing her stomach.  You however, have no intention of being made a meal, or whatever it is she intends to do with you.\n\n"<i>Well, I guess it can\'t be helped,</i>" she says, pursing her lips impishly.'
             );
-        //Redhead
+        // Redhead
         else {
             this.outputText('"<i>Oh, you\'re not going to make this easy for me, are you?</i>"');
             this.outputText(
@@ -1658,14 +1658,14 @@ export class KitsuneScene extends BaseContent {
 
     public loseToKitsunes(): void {
         var scene: any[] = [];
-        //[LOSE FIGHT]
-        //Shared Scenes
+        // [LOSE FIGHT]
+        // Shared Scenes
         // For Males and Herms
         if (this.player.hasCock()) scene.push(this.loseFightToHerms);
         // For Females and Genderless
         if (this.player.gender != 1) scene.push(this.femalesAndNuetersLoseToKitsunes);
-        //Blonde-exclusive
-        //Single cock < 9 inches long
+        // Blonde-exclusive
+        // Single cock < 9 inches long
         if (
             this.monster.hairColor == "blonde" &&
             this.player.cockTotal() == 1 &&
@@ -1678,8 +1678,8 @@ export class KitsuneScene extends BaseContent {
                 this.blondeKitsuneRapesSmallWangs
             );
         }
-        //Black-hair-exclusive
-        //Lose while lactating
+        // Black-hair-exclusive
+        // Lose while lactating
         if (this.monster.hairColor == "black" && this.player.lactationQ() >= 50) {
             scene.push(
                 this.loseToBlackHairLatexWhileMilky,
@@ -1695,8 +1695,8 @@ export class KitsuneScene extends BaseContent {
                 this.loseToKitsunesWithBallsAndHighCumQ
             );
         }
-        //Redhead-exclusive
-        //Futa rape - chance increases as redhead's lust increases
+        // Redhead-exclusive
+        // Futa rape - chance increases as redhead's lust increases
         if (this.monster.hairColor == "red") {
             scene.push(this.getRapedByRedHeadFutaKitsune);
             if (this.monster.lust > 50) scene.push(this.getRapedByRedHeadFutaKitsune);
@@ -1706,8 +1706,8 @@ export class KitsuneScene extends BaseContent {
         scene[KitsuneScene.rand(scene.length)]();
     }
 
-    //[LOSE FIGHT]
-    //Shared Scenes
+    // [LOSE FIGHT]
+    // Shared Scenes
     // For Males and Herms
     private loseFightToHerms(): void {
         this.clearOutput();
@@ -2012,8 +2012,8 @@ export class KitsuneScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    //Blonde-exclusive
-    //Single cock < 9 inches long
+    // Blonde-exclusive
+    // Single cock < 9 inches long
     private blondeKitsuneRapesSmallWangs(): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -2155,15 +2155,15 @@ export class KitsuneScene extends BaseContent {
         this.outputText(
             "Your last sight before blacking out from the kitsune's spell is a span of creamy white flesh jiggling seductively, quivering gently beneath a cluster of tails."
         );
-        //<b>You'll probably come to your senses in 8 hours or so, missing X gems</b>" );
+        // <b>You'll probably come to your senses in 8 hours or so, missing X gems</b>" );
         // Advance time 8hrs, lose X gems, return to camp. +Sensitivity +Libido
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 1);
         this.cleanupAfterCombat();
     }
 
-    //Black-hair-exclusive
-    //Lose while lactating
+    // Black-hair-exclusive
+    // Lose while lactating
     private loseToBlackHairLatexWhileMilky(): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -2246,8 +2246,8 @@ export class KitsuneScene extends BaseContent {
         this.outputText(
             "She whispers an incantation in a strange language, and you can slowly feel your already pleasure-worn consciousness leaving you, replaced with a warm, comforting darkness.  Your dreams are haunted by visions of yourself being turned into a human dairy cow, forced to live out the rest of your days as a living milk factory for your hungry kitsune mistress."
         );
-        //<b>You'll probably come to your senses in 8 hours or so, missing X gems.</b>" );
-        //Advance time 8 hours, lose X gems, return to camp. +Sensitivity, +Libido, +Lactation Amount
+        // <b>You'll probably come to your senses in 8 hours or so, missing X gems.</b>" );
+        // Advance time 8 hours, lose X gems, return to camp. +Sensitivity, +Libido, +Lactation Amount
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 1);
         this.player.boostLactation(1.5);
@@ -2372,16 +2372,16 @@ export class KitsuneScene extends BaseContent {
         this.outputText(
             "As your [cock biggest] begins to flag, your magically enhanced balls slowly return to their normal size.  Fatigue fills your muscles, and you find it hard to keep your eyes open.  The last thing you see before passing out is a quivering tattooed ass rising off your chest, two hands lovingly cradling a pregnant-looking stomach as it jiggles softly."
         );
-        //outputText("<b>You'll probably come to your senses in 8 hours or so, missing X gems.</b>" );
-        //Advance time 8 hours, lose X gems, return to camp. +Sensitivity, +Libido, +Cum Production
+        // outputText("<b>You'll probably come to your senses in 8 hours or so, missing X gems.</b>" );
+        // Advance time 8 hours, lose X gems, return to camp. +Sensitivity, +Libido, +Cum Production
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 1);
         if (this.player.cumQ() < 30000) this.player.cumMultiplier += 5;
         this.cleanupAfterCombat();
     }
 
-    //Redhead-exclusive
-    //Futa rape - chance increases as redhead's lust increases
+    // Redhead-exclusive
+    // Futa rape - chance increases as redhead's lust increases
     private getRapedByRedHeadFutaKitsune(): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -2437,7 +2437,7 @@ export class KitsuneScene extends BaseContent {
         this.outputText(
             ", and you realize that rather than burning you the ghostly flames are filling you with a cool tingling."
         );
-        //{Virginity loss/stretching text if appropriate; redhead is 12x2}\n\n");
+        // {Virginity loss/stretching text if appropriate; redhead is 12x2}\n\n");
         if (this.player.hasVagina()) this.player.cuntChange(24, true, true, false);
         else this.player.buttChange(24, true, true, false);
         this.outputText(
@@ -2458,7 +2458,7 @@ export class KitsuneScene extends BaseContent {
                 "pleasure.  Your muscles instinctively clench down on the intruder, milking her throbbing shaft in blatant disregard of your own desires, and the kitsune moans in pleasure, rolling her eyes back a little.\n\n"
             );
         }
-        //Use same text for anal sex, but using analCapacity instead:
+        // Use same text for anal sex, but using analCapacity instead:
         if (this.player.gender >= 2) {
             this.outputText(
                 this.player.vaginas[0].vaginalLooseness < VAGINA_LOOSENESS_GAPING
@@ -2500,14 +2500,14 @@ export class KitsuneScene extends BaseContent {
             "She leans down over you and whispers a line of some strange language into your ear, and almost immediately you can feel your consciousness begin to fail you.  The last thing you see before blacking out is her half-flaccid cock swaying happily between her legs as she bends down to pick up her clothes, flashing you one last look at her wide, round ass.\n\n"
         );
 
-        //Advance time 8 hrs, lose X gems, return to camp. +Sensitivity, +Libido.
+        // Advance time 8 hrs, lose X gems, return to camp. +Sensitivity, +Libido.
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 1);
         this.cleanupAfterCombat();
     }
 
-    //[WIN FIGHT]
-    //Damage victory
+    // [WIN FIGHT]
+    // Damage victory
     public defeatTheKitsunes(display: boolean = true): void {
         if (display) {
             this.clearOutput();
@@ -2528,7 +2528,7 @@ export class KitsuneScene extends BaseContent {
                             : "")
                 );
             }
-            //Lust victory
+            // Lust victory
             else {
                 this.outputText(
                     "The kitsune falls to the ground, one hand buried in her robes as she plays with herself shamelessly, too turned on to continue fighting." +
@@ -2544,8 +2544,8 @@ export class KitsuneScene extends BaseContent {
         }
         this.menu();
         var button: number = 0;
-        //Shared Scenes
-        //[Vaginal] - requires cock
+        // Shared Scenes
+        // [Vaginal] - requires cock
         if (this.player.hasCock())
             button = this.kitsuneButton(button, "FuckHerVag", this.fuckAKitsuneVaginally);
         if (this.player.cockThatFits(144) >= 0)
@@ -2554,27 +2554,27 @@ export class KitsuneScene extends BaseContent {
             button = this.kitsuneButton(button, "Tribbing", this.tribbingWithAKitsune);
         if (this.player.hasCock())
             button = this.kitsuneButton(button, "Tailjob", this.tailJobKitsuneWin);
-        //[Tentacles] - requires 3+ tentacles of 30" or longer
+        // [Tentacles] - requires 3+ tentacles of 30" or longer
         if (this.player.tentacleCocks() >= 3)
             button = this.kitsuneButton(
                 button,
                 "Tentacles...",
                 this.kitsunesGetBonedBy3PlusTentacles
             );
-        //Blonde-exclusive
+        // Blonde-exclusive
         if (this.monster.hairColor == "blonde") {
             if (this.player.hasCock()) {
-                //[Fuck Draft]
+                // [Fuck Draft]
                 if (this.player.hasItem(this.consumables.F_DRAFT)) {
                     if (display) this.outputText("  You could dose her with a fuck draft...");
                     button = this.kitsuneButton(button, "Use F.Draft", this.fuckDraftBlond);
                 }
-                //[Lactaid]
+                // [Lactaid]
                 if (this.player.hasItem(this.consumables.LACTAID)) {
                     if (display) this.outputText("  You could dose her with lactad...");
                     button = this.kitsuneButton(button, "Use L-Aid", this.lactaidDoseAKitSune);
                 }
-                //[Ovi Elixir]
+                // [Ovi Elixir]
                 if (this.player.hasItem(this.consumables.OVIELIX)) {
                     if (display) this.outputText("  You could use an oviposition elixir on her...");
                     button = this.kitsuneButton(
@@ -2585,9 +2585,9 @@ export class KitsuneScene extends BaseContent {
                 }
             }
         }
-        //Black-hair-exclusive
+        // Black-hair-exclusive
         if (this.monster.hairColor == "black") {
-            //[Hotdog Anal] - replaces regular Anal option only for the black-haired girl.
+            // [Hotdog Anal] - replaces regular Anal option only for the black-haired girl.
             // player.cockThatFits( 144 );
             if (this.player.cockThatFits(144) >= 0)
                 button = this.kitsuneButton(
@@ -2595,38 +2595,38 @@ export class KitsuneScene extends BaseContent {
                     "HotDogAnal",
                     this.hotdogAnalInKitsuneButtDontLetTailTickleYourNose
                 );
-            //[GetLicked] - requires a vagina
+            // [GetLicked] - requires a vagina
             if (this.player.hasVagina())
                 button = this.kitsuneButton(button, "GetLicked", this.getLickedByKitsunes);
-            //[GetBJ] - requires cock 108 area or less
+            // [GetBJ] - requires cock 108 area or less
             if (this.player.cockThatFits(108) >= 0)
                 button = this.kitsuneButton(button, "Get BJ", this.getABJFromAFoxGirl);
         }
         if (this.monster.hairColor == "red") {
-            //Non-futa Redhead: [Bondage] - requires a cock with area <= 144 due to some anal
+            // Non-futa Redhead: [Bondage] - requires a cock with area <= 144 due to some anal
             if (this.player.cockThatFits(144) >= 0)
                 button = this.kitsuneButton(
                     button,
                     "Bondage",
                     this.nonFutaRedHeadBondageIGuessYouTieHerUpWithYourPenisThenHuh
                 );
-            //Non-Futa Redhead: [Some sort of lapsitting handjob thing, I don't know]
+            // Non-Futa Redhead: [Some sort of lapsitting handjob thing, I don't know]
             if (this.flags[kFLAGS.redheadIsFuta] == 0 && this.player.hasCock())
                 button = this.kitsuneButton(
                     button,
                     "Lap HJ",
                     this.nonFutaRedHeadIsWorstRedheadLapsittingHandjobThingIDontKnow
                 );
-            //[Helix] - requires herm
+            // [Helix] - requires herm
             if (this.flags[kFLAGS.redheadIsFuta] > 0 && this.player.gender == 3)
                 button = this.kitsuneButton(button, "Herm Helix", this.helixZeKitsunes);
 
-            //[Bring Back Dick] // AKA you don't know dick about dick AKA the dickening
+            // [Bring Back Dick] // AKA you don't know dick about dick AKA the dickening
             if (this.flags[kFLAGS.redheadIsFuta] == 0)
                 button = this.kitsuneButton(button, "Grow Dick", this.bringBackDick);
-            //[Remove Dick]
+            // [Remove Dick]
             else {
-                //AKA Lose the dick, schweethaat AKA put that thing away
+                // AKA Lose the dick, schweethaat AKA put that thing away
                 button = this.kitsuneButton(
                     button,
                     "Ditch Dick",
@@ -2634,8 +2634,8 @@ export class KitsuneScene extends BaseContent {
                         .redheadsDontDeserveToHavePenisesBecauseTheyreTooGayForPenisOrSomethingIDontReallyKnowHowThisWorksOrWhyThisFunctionNameIsSoFuckingLong
                 );
             }
-            //Redhead-exclusive
-            //[Ride] - requires vagina & redheadIsFuta
+            // Redhead-exclusive
+            // [Ride] - requires vagina & redheadIsFuta
             if (this.player.hasVagina() && this.flags[kFLAGS.redheadIsFuta] > 0)
                 button = this.kitsuneButton(
                     button,
@@ -2654,7 +2654,7 @@ export class KitsuneScene extends BaseContent {
                     (this.player.armor as LustyMaidensArmor).lustyMaidenPaizuri
                 );
         }
-        //[Feeder]
+        // [Feeder]
         if (this.player.findPerk(PerkLib.Feeder) >= 0)
             button = this.kitsuneButton(button, "Breastfeed", this.feederTheKitsunes);
         this.addButton(9, "Leave", this.leaveKitsune);
@@ -2667,8 +2667,8 @@ export class KitsuneScene extends BaseContent {
         return button;
     }
 
-    //Shared Scenes
-    //[Vaginal] - requires cock
+    // Shared Scenes
+    // [Vaginal] - requires cock
     private fuckAKitsuneVaginally(): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -2836,13 +2836,13 @@ export class KitsuneScene extends BaseContent {
                 this.player.armorName +
                 " back on.  When you turn around again to check up on the insensate kitsune, you are left scratching your head, staring at the spot where she was mere moments ago.  All that remains of her is a puddle of mixed fluids, already mostly absorbed by the ground, and the faint sound of mischievous laughter filtering through the trees."
         );
-        //Advance time 1hr and return to camp. +Sensitivity, +Libido
+        // Advance time 1hr and return to camp. +Sensitivity, +Libido
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 1);
         this.cleanupAfterCombat();
     }
 
-    //[Anal] - requires cock area 144 or less
+    // [Anal] - requires cock area 144 or less
     private putItInAKitsunesAssWin(): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -2999,13 +2999,13 @@ export class KitsuneScene extends BaseContent {
         this.outputText(
             "You take a moment to recuperate, and then begin to gather your things, but when you turn your attention back to the kitsune, there's no sign of her save for the sound of a feminine giggle drifting through the leaves."
         );
-        //Advance time 1hr and return to camp. +Sensitivity, +Libido
+        // Advance time 1hr and return to camp. +Sensitivity, +Libido
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 1);
         this.cleanupAfterCombat();
     }
 
-    //[Tribbing] - requires vagina
+    // [Tribbing] - requires vagina
     private tribbingWithAKitsune(): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -3137,7 +3137,7 @@ export class KitsuneScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    //[Tail Job] - requires cock
+    // [Tail Job] - requires cock
     private tailJobKitsuneWin(): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -3230,13 +3230,13 @@ export class KitsuneScene extends BaseContent {
                 this.player.armorName +
                 " and turning back toward camp."
         );
-        //Advance time 1hr and return to camp.  +Sensitivity
+        // Advance time 1hr and return to camp.  +Sensitivity
         this.player.orgasm();
         this.dynStats("sen", 5);
         this.cleanupAfterCombat();
     }
 
-    //[Tentacles] - requires 3+ tentacles of 30" or longer
+    // [Tentacles] - requires 3+ tentacles of 30" or longer
     private kitsunesGetBonedBy3PlusTentacles(): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -3406,15 +3406,15 @@ export class KitsuneScene extends BaseContent {
         );
 
         this.outputText('"<i>Tentacles...</i>" she repeats, shuddering from head to toe.');
-        //Advance time 1hr and return to camp.  +Sensitivity, +Libido
+        // Advance time 1hr and return to camp.  +Sensitivity, +Libido
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 1);
         this.cleanupAfterCombat();
     }
 
-    //Blonde-exclusive
-    //[Fuck Draft]
-    //{all " + cockDescript(0) + " calls for this scene should prioritize dog cocks; if PC is in Rut, prioritize other animal dicks second, otherwise use the biggest cock.}
+    // Blonde-exclusive
+    // [Fuck Draft]
+    // {all " + cockDescript(0) + " calls for this scene should prioritize dog cocks; if PC is in Rut, prioritize other animal dicks second, otherwise use the biggest cock.}
     private fuckDraftBlond(): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -3546,7 +3546,7 @@ export class KitsuneScene extends BaseContent {
             "  The force with which she mashes her voluptuous derriere back into your pelvis would surely leave you sore in the morning were it not for the expansive tattoo-adorned ass cushioning the blows.\n\n"
         );
 
-        //if (dogCocks > 0)
+        // if (dogCocks > 0)
         if (this.player.dogCocks() > 0) {
             this.outputText(
                 "The lips of her slippery pussy stretch over your canine knot a little more with every thrust, and with one last savage assault you force the bulge inside her, shaking from head to toe in pleasure.\n\n"
@@ -3632,14 +3632,14 @@ export class KitsuneScene extends BaseContent {
         this.outputText(
             "You can't be certain how long you were asleep, but when you come to your senses, you are alone.  A musky trail of fluids leads into the underbrush, and though you doubt that she could have gotten far in her condition, you need to return to check on your camp.  As you gather your things, you pause briefly and smirk, certain you can hear the sound of moaning filtering through the trees."
         );
-        //Advance time 1hr and return to camp. +Sensitivity, +Libido
+        // Advance time 1hr and return to camp. +Sensitivity, +Libido
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 1);
         this.player.consumeItem(this.consumables.F_DRAFT);
         this.cleanupAfterCombat();
     }
 
-    //[Ovi Elixir]
+    // [Ovi Elixir]
     private doseAKitsuneWithOviElixirs(): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -3777,13 +3777,13 @@ export class KitsuneScene extends BaseContent {
         this.outputText("They are ");
 
         var itype: ItemType;
-        //Large eggs
+        // Large eggs
         if (KitsuneScene.rand(3) == 0) {
             itype = this.consumables.LARGE_EGGS[
                 KitsuneScene.rand(this.consumables.LARGE_EGGS.length)
             ];
         }
-        //Small eggs
+        // Small eggs
         else {
             itype = this.consumables.SMALL_EGGS[
                 KitsuneScene.rand(this.consumables.SMALL_EGGS.length)
@@ -3794,15 +3794,15 @@ export class KitsuneScene extends BaseContent {
         );
         this.player.consumeItem(this.consumables.OVIELIX);
         this.outputText('"<i>Take good care of my little eggies, darling!</i>"');
-        //{replace normal kitsune loot tables with randomly colored eggs}
+        // {replace normal kitsune loot tables with randomly colored eggs}
         this.flags[kFLAGS.BONUS_ITEM_AFTER_COMBAT_ID] = itype.id;
-        //Advance time 1hr and return to camp. +Sensitivity, +Libido
+        // Advance time 1hr and return to camp. +Sensitivity, +Libido
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 1);
         this.cleanupAfterCombat();
     }
 
-    //[Lactaid]
+    // [Lactaid]
     private lactaidDoseAKitSune(): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -3908,16 +3908,16 @@ export class KitsuneScene extends BaseContent {
         this.outputText(
             "\n\nShe groans deeply as an unexpected climax shudders through her chest, fresh fountains of milk spurting everywhere like a warm, creamy sprinkler and raining down around you.  Even after you lie back in satisfaction to catch your breath, the kitsune's breasts continue to leak milk, rivulets of creamy white slowly flowing down the massive curvature of her chest.  When you stand up to clean yourself off at last, you look back to see the horny fox-woman hefting one of her engorged jugs to her lips, suckling deeply."
         );
-        //Advance time 1hr and return to camp. +Sensitivity, +Libido
+        // Advance time 1hr and return to camp. +Sensitivity, +Libido
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 1);
-        //consume lactaid
+        // consume lactaid
         this.player.consumeItem(this.consumables.LACTAID);
         this.cleanupAfterCombat();
     }
 
-    //Black-hair-exclusive
-    //[Hotdog Anal] - replaces regular Anal option only for the black-haired girl.
+    // Black-hair-exclusive
+    // [Hotdog Anal] - replaces regular Anal option only for the black-haired girl.
     private hotdogAnalInKitsuneButtDontLetTailTickleYourNose(): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -4062,13 +4062,13 @@ export class KitsuneScene extends BaseContent {
                 (this.player.cumQ() > 1000 ? "inflated" : "pudgy") +
                 " stomach and sighing contentedly, the tips of her tails gently twitching with residual pleasure.  You take a moment to recuperate, then gather your things and turn toward camp, leaving the insensate kitsune to recover on her own."
         );
-        //Advance time 1hr and return to camp. +Sensitivity, +Libido
+        // Advance time 1hr and return to camp. +Sensitivity, +Libido
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 1);
         this.cleanupAfterCombat();
     }
 
-    //[Feeder]
+    // [Feeder]
     private feederTheKitsunes(): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -4166,8 +4166,8 @@ export class KitsuneScene extends BaseContent {
                 this.player.armorName +
                 " once again.  The kitsune remains rooted in the spot, weighed down by her oversized tummy.  Something tells you she won't be moving from that spot for some time."
         );
-        //Advance time 1hr and return to camp. +Sensitivity
-        //You've now been milked, reset the timer for that
+        // Advance time 1hr and return to camp. +Sensitivity
+        // You've now been milked, reset the timer for that
         this.player.addStatusValue(StatusAffects.Feeder, 1, 1);
         this.player.changeStatusValue(StatusAffects.Feeder, 2, 0);
         this.player.orgasm();
@@ -4175,7 +4175,7 @@ export class KitsuneScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    //[GetBJ] - requires cock 108 area or less
+    // [GetBJ] - requires cock 108 area or less
     private getABJFromAFoxGirl(): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -4376,13 +4376,13 @@ export class KitsuneScene extends BaseContent {
                     : "  The kitsune leans back, laying a hand on her stomach and rubbing it lightly.  An audible gurgle reaches your ears, and she sighs bemusedly, shaking her head.") +
                 "  Either way, it doesn't look like the exhausted girl is going to be getting up soon, so you gather your things and head back to camp."
         );
-        //Advance time 1hr and return to camp. +Sensitivity, +Libido
+        // Advance time 1hr and return to camp. +Sensitivity, +Libido
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 1);
         this.cleanupAfterCombat();
     }
 
-    //[GetLicked] - requires a vagina
+    // [GetLicked] - requires a vagina
     private getLickedByKitsunes(): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -4454,8 +4454,8 @@ export class KitsuneScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    //Redhead-exclusive
-    //[Ride] - requires vagina
+    // Redhead-exclusive
+    // [Ride] - requires vagina
     private rideDatRedheadKitsuneCockIntoTheSkyDiamonds(): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -4543,15 +4543,15 @@ export class KitsuneScene extends BaseContent {
         this.outputText(
             "Once her colossal load has finished draining out - primarily onto her - you clean up and begin to dress yourself once more.  Your attention is drawn by the sound of rustling leaves, and when you turn to look, a sextet of red tails disappears into the bushes, followed shortly after by a playfully waving hand."
         );
-        //Advance time 1hr and return to camp. +Sensitivity, +Libido
+        // Advance time 1hr and return to camp. +Sensitivity, +Libido
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 1);
         this.player.slimeFeed();
         this.cleanupAfterCombat();
     }
 
-    //[Helix] - requires herm
-    //REDHEAD KITSUNE
+    // [Helix] - requires herm
+    // REDHEAD KITSUNE
     private helixZeKitsunes(): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -4682,14 +4682,14 @@ export class KitsuneScene extends BaseContent {
                 this.player.armorName +
                 ", cleaning up and dressing once more, then whip around to the sound of rustling leaves.  A set of sticky footprints leads your gaze to the edge of a bush, a flash of red tails and a pair of plump hind cheeks disappearing into the forest."
         );
-        //Advance time 1hr and return to camp. +Sensitivity, +Libido
+        // Advance time 1hr and return to camp. +Sensitivity, +Libido
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 1);
         this.cleanupAfterCombat();
     }
 
-    //[Remove Dick]
-    //AKA Lose the dick, schweethaat AKA put that thing away
+    // [Remove Dick]
+    // AKA Lose the dick, schweethaat AKA put that thing away
     private redheadsDontDeserveToHavePenisesBecauseTheyreTooGayForPenisOrSomethingIDontReallyKnowHowThisWorksOrWhyThisFunctionNameIsSoFuckingLong(): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -4720,11 +4720,11 @@ export class KitsuneScene extends BaseContent {
         // Set flag (redheadIsFuta = false)
         this.flags[kFLAGS.redheadIsFuta] = 0;
         // Display shared scenes + nonfuta options
-        //kitsune sex
+        // kitsune sex
         this.defeatTheKitsunes(false);
     }
 
-    //[Bring Back Dick] // AKA you don't know dick about dick AKA the dickening
+    // [Bring Back Dick] // AKA you don't know dick about dick AKA the dickening
     private bringBackDick(): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -4749,7 +4749,7 @@ export class KitsuneScene extends BaseContent {
         this.defeatTheKitsunes(false);
     }
 
-    //Non-Futa Redhead: [Some sort of lapsitting handjob thing, I don't know]
+    // Non-Futa Redhead: [Some sort of lapsitting handjob thing, I don't know]
     private nonFutaRedHeadIsWorstRedheadLapsittingHandjobThingIDontKnow(): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -4854,13 +4854,13 @@ export class KitsuneScene extends BaseContent {
         this.outputText(
             "Finally, she shuts her eyes and rests her head against your shoulder, too insensate to react to your continued stroking with more than a gentle shiver.  It's almost a shame that you need to return to camp, as you have little doubt that she would probably curl up to sleep in your lap if you gave her the chance.  You set her aside in the grass, then clean yourself off before heading back."
         );
-        //Return to camp, advance time 1hr, +Sensitivity
+        // Return to camp, advance time 1hr, +Sensitivity
         this.player.orgasm();
         this.dynStats("sen", 3);
         this.cleanupAfterCombat();
     }
 
-    //Non-futa Redhead: [Bondage] - requires a cock with area <= 144 due to some anal
+    // Non-futa Redhead: [Bondage] - requires a cock with area <= 144 due to some anal
     private nonFutaRedHeadBondageIGuessYouTieHerUpWithYourPenisThenHuh(): void {
         this.clearOutput();
         this.kitsuneSprite();
@@ -4960,7 +4960,7 @@ export class KitsuneScene extends BaseContent {
                     ? "Smirking lightly, you give the dazed kitsune a patronizing slap on the ass, eliciting a delirious groan.  She remains dangling from the lofty bough as you gather your things, turning back toward camp."
                     : "Carefully, you pull her down from the tree, laying her on her side at its base.  You spread her robe over her naked body like a blanket, patting her on the head gently as she drifts to sleep, then turn to make your way back to camp.")
         );
-        //advance time 1hr and return to camp, +Sensitivity, +Libido
+        // advance time 1hr and return to camp, +Sensitivity, +Libido
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 1);
         this.cleanupAfterCombat();
@@ -4999,8 +4999,8 @@ export class KitsuneScene extends BaseContent {
      Before you can say anything, she disappears below the water, leaving you alone with the trickling sound of the fountain.  With a shrug, you place the mystically enhanced teardrop-shaped jewel into your pouch." );
      */
 
-    //[The Shrine of the Ninetails]
-    //Discovery
+    // [The Shrine of the Ninetails]
+    // Discovery
     public kitsuneShrine(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.KITSUNE_SHRINE_VISIT] == 0) {
@@ -5033,7 +5033,7 @@ export class KitsuneScene extends BaseContent {
             );
         }
         this.flags[kFLAGS.KITSUNE_SHRINE_VISIT]++;
-        //[Read Books] [Meditate] [Steal Statue] - [Leave]
+        // [Read Books] [Meditate] [Steal Statue] - [Leave]
         this.menu();
         this.addButton(0, "Read Books", this.readKitsuneBooks);
         if (this.flags[kFLAGS.TOOK_KITSUNE_STATUE] == 0)
@@ -5046,14 +5046,14 @@ export class KitsuneScene extends BaseContent {
         this.addButton(4, "Leave", this.camp.returnToCampUseOneHour);
     }
 
-    //[Read Books]
+    // [Read Books]
     private readKitsuneBooks(): void {
         this.clearOutput();
         this.outputText(
             "You decide to peruse the selection of old tomes on the bookshelf.  To your dismay, many of them seem to be written in a strange script that you can't understand.  After a bit of searching, though, you find a couple that you can read, carefully thumbing through the old, dusty pages.\n\n"
         );
         var choice: number = KitsuneScene.rand(3);
-        //Randomly Display one of the following:
+        // Randomly Display one of the following:
         if (choice == 0) {
             this.outputText(
                 "It's a rather dry read, but informative.  Chapter after chapter explains the underlying theory of magic, going to almost excruciating levels of detail.  " +
@@ -5061,14 +5061,14 @@ export class KitsuneScene extends BaseContent {
                         ? "Much of it flies over your head, but the book does manage to clarify a few points.  You close the book and set it back on the shelf, feeling like you've learned something."
                         : "Much of it is merely review, but you do manage to glean a few facts before closing the book and setting it back on the shelf.")
             );
-            //+2 INT, Advance 1hr and return to camp
+            // +2 INT, Advance 1hr and return to camp
             this.dynStats("int", 2);
             this.doNext(this.camp.returnToCampUseOneHour);
         } else if (choice == 1) {
             this.outputText(
                 "It seems to be a religious text of some sort.  As you flip through the pages, you read about various rituals and scriptures, familiarizing yourself with the spirits and gods of this land.  You close the tome at last, setting it reverently back on the shelf and reflecting upon the teachings housed within."
             );
-            //-1 COR, Advance 1hr and return to camp
+            // -1 COR, Advance 1hr and return to camp
             this.dynStats("cor", -1);
             this.doNext(this.camp.returnToCampUseOneHour);
         } else {
@@ -5078,13 +5078,13 @@ export class KitsuneScene extends BaseContent {
                         ? "and you slam the book shut before reading further, already feeling a heat building in your groin."
                         : "and you lick your lips hungrily, poring over every line and word of lascivious prose.")
             );
-            //+ 1 LIB, + 5 LUST, Advance 1hr and return to camp
+            // + 1 LIB, + 5 LUST, Advance 1hr and return to camp
             this.dynStats("lib", 1, "lus", 5);
             this.doNext(this.camp.returnToCampUseOneHour);
         }
     }
 
-    //[Meditate]
+    // [Meditate]
     private meditateLikeAKitsuneEhQuestionMark(): void {
         this.clearOutput();
         if (
@@ -5097,7 +5097,7 @@ export class KitsuneScene extends BaseContent {
             this.player.findPerk(PerkLib.CorruptedNinetails) < 0 &&
             this.player.findPerk(PerkLib.EnlightenedNinetails) < 0
         ) {
-            //20% chance if PC has fox ears, 1 or more fox tails, carries a Fox Jewel, and meets level & INT requirements for the next tail:
+            // 20% chance if PC has fox ears, 1 or more fox tails, carries a Fox Jewel, and meets level & INT requirements for the next tail:
             this.outputText(
                 "You sit down carefully on a small mat in front of the shrine and clear your mind.  Closing your eyes, you meditate on the things you've learned in your journey thus far, and resolve to continue fighting against the forces of corruption that permeate the land.\n\n"
             );
@@ -5129,8 +5129,8 @@ export class KitsuneScene extends BaseContent {
                 this.outputText(
                     "\n\nYou pause for a moment to reflect on your newfound wisdom, and with a renewed vigor for your quest, you stand and set off for camp."
                 );
-                //Increment tail by 1, consume Fox Jewel, -2 COR, -20 LUST, +2 INT, Advance 1 hr and return to camp.
-                //Apply Nine-Tails perk if applicable.
+                // Increment tail by 1, consume Fox Jewel, -2 COR, -20 LUST, +2 INT, Advance 1 hr and return to camp.
+                // Apply Nine-Tails perk if applicable.
                 this.player.tailVenom = 9;
                 this.player.createPerk(PerkLib.EnlightenedNinetails, 0, 0, 0, 0);
                 this.dynStats("int", 2, "lus", -20, "cor", -2);
@@ -5138,17 +5138,17 @@ export class KitsuneScene extends BaseContent {
             this.player.consumeItem(this.consumables.FOXJEWL);
             this.doNext(this.camp.returnToCampUseOneHour);
         } else {
-            //Normal:
+            // Normal:
             this.outputText(
                 "You sit down carefully on a small mat in front of the shrine and clear your mind.  Closing your eyes, you meditate on the things you've learned in your journey thus far, and resolve to continue fighting against the forces of corruption that permeate the land.  As you open your eyes again, you feel as if a great burden has been lifted from your shoulders.\n\nWith a renewed vigor for your quest, you stand up and set off for camp."
             );
-            //-2 COR, -20 LUST, +1 INT, Advance 1hr and return to camp.
+            // -2 COR, -20 LUST, +1 INT, Advance 1hr and return to camp.
             this.dynStats("int", 1, "lus", -20, "cor", -2);
             this.doNext(this.camp.returnToCampUseOneHour);
         }
     }
 
-    //[Steal Statue]
+    // [Steal Statue]
     private stealAStatue(): void {
         this.clearOutput();
         this.menu();
@@ -5156,7 +5156,7 @@ export class KitsuneScene extends BaseContent {
             this.outputText(
                 "Feeling the chance is just too great to pass up, you rub your hands together greedily and snatch the gold statue from the shrine.  As you stuff it into your pouch, you are overwhelmed with the sensation that what you are doing is very wrong.  You are starting to have second thoughts..."
             );
-            //[Take It] [Put it Back]
+            // [Take It] [Put it Back]
             this.addButton(0, "Take It", this.takeAKitsuneStatue);
         } else {
             this.outputText(
@@ -5167,31 +5167,31 @@ export class KitsuneScene extends BaseContent {
         this.addButton(4, "Back", this.kitsuneShrine);
     }
 
-    //[Take it]
+    // [Take it]
     private takeAKitsuneStatue(): void {
         this.clearOutput();
         this.outputText(
             "The thought of how many gems you'll be able to get for it is enough to quickly suppress those feelings, avarice winning out over guilt."
         );
-        //+10 COR, add Gold Statue to inventory, Advance 1hr and return to camp
+        // +10 COR, add Gold Statue to inventory, Advance 1hr and return to camp
         this.dynStats("lus", 10);
         this.inventory.takeItem(this.useables.GLDSTAT, this.camp.returnToCampUseOneHour);
         this.flags[kFLAGS.TOOK_KITSUNE_STATUE] = 1;
     }
 
-    //[Put it Back]
+    // [Put it Back]
     private putKitsuneStatueBack(): void {
         this.clearOutput();
         this.outputText(
             "Regretting your decision, you replace the statue on the pedestal, your guilty conscience winning out over greed today."
         );
-        //Advance 1hr and return to camp.
+        // Advance 1hr and return to camp.
         this.flags[kFLAGS.TOOK_KITSUNE_STATUE] = 0;
         this.player.consumeItem(this.useables.GLDSTAT);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Use:
+    // Use:
     public kitsuneStatue(): void {
         this.outputText(
             "You pull out the gold statue and turn it around in your hands a few times, carefully examining the intricate filigree and inscriptions covering the masterfully crafted idol.  Whoever made this certainly put a lot of time and love into their craft." +

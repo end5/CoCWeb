@@ -209,7 +209,7 @@ export class HermCentaurScenes extends BaseContent {
 
     private femFuckHerII(cockType: number): void {
         this.clearOutput();
-        //[Tentacle]
+        // [Tentacle]
         if (cockType == this.TENTACOCK) {
             this.outputText(
                 'You give her throbbing maleness an affection pat and proclaim, "<i>Make it a tentacle, one that will fit me properly.  Then we can fuck.</i>"'

@@ -40,7 +40,7 @@ export class HellHoundScene extends BaseContent {
     }
 
     public hellhoundRapesPlayer(): void {
-        //Lust or HP loss texts here
+        // Lust or HP loss texts here
         if (this.player.lust >= 100)
             this.outputText(
                 "Overcome by sexual desire, you submit to the hungry hellhound.\n\n",
@@ -124,7 +124,7 @@ export class HellHoundScene extends BaseContent {
                     ". Each thrust of the beast's twin manhoods bring you closer and closer to your peak.\n\n",
                 false
             );
-            //Cum
+            // Cum
             this.outputText(
                 "As you reach your climax, the beast howls and you feel its incredibly hot seed pour into you.  ",
                 false
@@ -147,7 +147,7 @@ export class HellHoundScene extends BaseContent {
                         " a single extended lick with his long dog-like tongue before he runs off. You quickly look over and manage to catch a glimpse of its tail before it disappears from view, just before your body falls into a deep sleep. When you wake, you can still feel the afterglow of the hot seed inside you.",
                     false
                 );
-            //Preggers chance!
+            // Preggers chance!
             this.player.knockUp(
                 PregnancyStore.PREGNANCY_HELL_HOUND,
                 PregnancyStore.INCUBATION_HELL_HOUND,
@@ -164,7 +164,7 @@ export class HellHoundScene extends BaseContent {
                     " above it brings you closer and closer to your peak.\n\n",
                 false
             );
-            //Cum
+            // Cum
             this.outputText(
                 "As you reach your climax, the beast howls and you feel its incredibly hot seed pour into you and onto your back.  ",
                 false
@@ -185,21 +185,21 @@ export class HellHoundScene extends BaseContent {
                 );
         }
         this.player.slimeFeed();
-        //(after either of them)
-        //(Lose player anal virginity; if player has vagina, lose vaginal virginity)
+        // (after either of them)
+        // (Lose player anal virginity; if player has vagina, lose vaginal virginity)
         this.player.buttChange(this.monster.cockArea(0), true);
         this.player.orgasm();
-        //[if not corrupt]
+        // [if not corrupt]
         if (this.player.cor < 40) this.dynStats("tou", -2, "cor", 1);
-        //[if corrupt]
+        // [if corrupt]
         else this.dynStats("cor", 1.5);
         this.cleanupAfterCombat();
     }
 
     public hellHoundGetsRaped(): void {
         this.outputText("", true);
-        //(Raped by player)
-        //[if player has only one dick and no vagina]
+        // (Raped by player)
+        // [if player has only one dick and no vagina]
         if (this.player.cocks.length == 1 && this.player.vaginas.length == 0)
             this.outputText(
                 "The twin heads of the hellhound eagerly lick your " +
@@ -209,7 +209,7 @@ export class HellHoundScene extends BaseContent {
                     " in their mouths. The fierce competition between the two means that most of the cum ends up outside their eager maws, but they are nontheless satisfied.  With a pair of happy barks, the hellhound turns and runs away.",
                 false
             );
-        //[if player has only a vagina and no dick]
+        // [if player has only a vagina and no dick]
         if (this.player.gender == 2)
             this.outputText(
                 "The twin heads of the hellhound eagerly lick your " +
@@ -223,7 +223,7 @@ export class HellHoundScene extends BaseContent {
                     " is definitely quite clean.  With a pair of happy barks, the hellhound turns and runs away.",
                 false
             );
-        //[if player has a dick and a vagina]
+        // [if player has a dick and a vagina]
         if (this.player.gender == 3 && this.player.cocks.length == 1)
             this.outputText(
                 "One of the heads eagerly starts licking your " +
@@ -237,7 +237,7 @@ export class HellHoundScene extends BaseContent {
                     ". The pleasure from this new arrangement quickly overwhelms you, leaving you dazed.  When your senses return to you, you look up to see the hellhound's tongues running all over their mouths, clearly very happy.  With a pair of happy barks, the hellhound turns and runs away.",
                 false
             );
-        //If player has multiple endowments
+        // If player has multiple endowments
         if (this.player.cocks.length > 1)
             this.outputText(
                 "One of the heads eagerly starts licking your " +
@@ -251,7 +251,7 @@ export class HellHoundScene extends BaseContent {
                     " into their mouths. The pleasure from this new arrangement quickly overwhelms you, leaving you dazed.  When your senses return to you, you look up to see the hellhound's tongues running all over their mouths, clearly very happy.  With a pair of happy barks, the hellhound turns and runs away.",
                 false
             );
-        //[if player has no endowments]
+        // [if player has no endowments]
         if (this.player.gender == 0)
             this.outputText(
                 "The two heads stare at your lack of sexual endowments for a few seconds before looking up at you sadly.  With a whine, the hellhound wanders off.  Feeling rather unsatisfied, you think that you should probably fix your lack of sexual 'parts'...",
@@ -261,42 +261,42 @@ export class HellHoundScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    //HELLHOUND MASTER+ BAD ENDZZZZZ
+    // HELLHOUND MASTER+ BAD ENDZZZZZ
     public HellHoundMasterEncounter(): void {
         this.outputText("", true);
-        //Initial encounter (A)
-        //Requires canine face, [either two dog dicks, or a vag and pregnant with a hellhound], at least two other hellhound features (black fur, dog legs, dog tail), and corruption >=60.
+        // Initial encounter (A)
+        // Requires canine face, [either two dog dicks, or a vag and pregnant with a hellhound], at least two other hellhound features (black fur, dog legs, dog tail), and corruption >=60.
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00141] == 0) {
             this.outputText(
                 "As you're wandering the mountains, you feel an odd presence in the back of your mind.  It calls out to you with promise of power and safety, but part of you feels a bit apprehensive at the prospect of giving yourself over to it.  Do you let the presence take over?",
                 false
             );
-            //Player chooses yes/no - no -> (B), yes -> (C)
+            // Player chooses yes/no - no -> (B), yes -> (C)
             this.doYesNo(this.acceptCrazyPresences, this.declineCrazyPresences);
         } else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00141] == 1) {
-            //Second Encounter (D)
-            //can be triggered if the PC still has the required canine traits, and has a piece of Lethicite.
+            // Second Encounter (D)
+            // can be triggered if the PC still has the required canine traits, and has a piece of Lethicite.
             this.outputText(
                 "As you're wandering the mountains, you once again feel an odd presence in the back of your mind.  You're sure it is the hellhound master once again.  You look at the pink crystal in your possession, and wonder if you should exchange it for the promissed hellfire.  Do you let the presence take over and give away the Lethicite?",
                 false
             );
             this.doYesNo(this.giveUpLethicite, this.declineGivingAwayLethicite);
-            //Player choose yes or no, no -> E, yes -> F
+            // Player choose yes or no, no -> E, yes -> F
         }
     }
 
-    //choose no (B)
+    // choose no (B)
     private declineCrazyPresences(): void {
         this.outputText("", true);
         this.outputText(
             "You force the presence out of your mind.  You feel almost a bit lost after it disappears, but giving yourself over to foreign control can never be a good idea, can it?",
             false
         );
-        //end event, A can repeat later.
+        // end event, A can repeat later.
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //choose yes (C)
+    // choose yes (C)
     private acceptCrazyPresences(): void {
         this.outputText("", true);
         this.outputText(
@@ -313,7 +313,7 @@ export class HellHoundScene extends BaseContent {
             "You continue your trek to the master's home, you can feel that you're close.  At the back of the vale, stands what seems to be a fort of sorts in front of a large cliff face.  At the entrance, stands a stunning indigo succubus holding the leash of a very big hellhound.  She smiles as she sees you approach and calls you over.  You happily trot over to the demon mistress and nuzzle your head against her thighs.  She takes your canine head between her hands and gives you a playful rub while saying \"<i>Ah, what a cute little lost doggy.  You here to see the master?  Go on in, he always has time for his faithful hounds.  You're probably really lonely, I'm sure he can find a friend to join you on that beautiful body.</i>\"  You nod at her eagerly and proceed inside.\n\n",
             false
         );
-        //nxt page
+        // nxt page
         this.doNext(this.acceptCrazyPresencesII);
     }
 
@@ -347,23 +347,23 @@ export class HellHoundScene extends BaseContent {
                 " You extract Marae's lethicite from your pack, and wonder if you really want to trade it for the hellfire he offered.",
                 false
             );
-        //advance to repeat version
+        // advance to repeat version
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00141] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Choose no (E)
+    // Choose no (E)
     private declineGivingAwayLethicite(): void {
         this.outputText("", true);
         this.outputText(
             "You push the presence out of your mind.  Maybe later you'll collect the hellfire, but for now you'd rather keep the lethicite.",
             false
         );
-        //end event, D can repeat.
+        // end event, D can repeat.
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Choose yes (F)
+    // Choose yes (F)
     private giveUpLethicite(): void {
         this.outputText("", true);
         this.outputText(
@@ -381,7 +381,7 @@ export class HellHoundScene extends BaseContent {
             false
         );
 
-        //Player chooses to either give Merae's full Lethicite, or a regular piece of Lethicite.  Limited by what they have, of course.  They cannot choose to leave at this point.  Merae's Lethicite -> G, Regular Lethicite -> H.
+        // Player chooses to either give Merae's full Lethicite, or a regular piece of Lethicite.  Limited by what they have, of course.  They cannot choose to leave at this point.  Merae's Lethicite -> G, Regular Lethicite -> H.
         if (this.player.keyItemv2("Marae's Lethicite") == 0)
             this.simpleChoices(
                 "Give All",
@@ -398,24 +398,24 @@ export class HellHoundScene extends BaseContent {
         else this.doNext(this.giveLethicitePiece);
     }
 
-    //Regular Lethicite
+    // Regular Lethicite
     private giveLethicitePiece(): void {
         this.outputText("", true);
-        //Give a single piece of Lethicite, get hellfire
+        // Give a single piece of Lethicite, get hellfire
         this.outputText(
             'You produce the pink crystal and hand it to the master.  As the crystal touches his hand, he gives a low growl of pleasure and holds the crystal up to his eyes.  "<i>Ah yes, excellent!  Thank you so much for this tasty treat of power.</i>"\n\n',
             false
         );
-        //if (PC gave ⅔ Merae's crystal)
+        // if (PC gave ⅔ Merae's crystal)
         if (this.player.keyItemv2("Marae's Lethicite") == 1) {
             this.outputText(
                 'He looks at the crystal for a moment, before biting off half of it and giving the other half back to you.  "<i>This is enough for the hellfire, I think.  Go ahead and keep the rest, my favorite fan!</i>"\n\n',
                 false
             );
-            //Replace ⅔ Merae's Lethicite with regular lethicite.
+            // Replace ⅔ Merae's Lethicite with regular lethicite.
             this.player.addStatusValue(StatusAffects.MaraesLethicite, 2, 1);
         } else {
-            //Remove 1 lethicite crystal from the PC
+            // Remove 1 lethicite crystal from the PC
             this.player.addStatusValue(StatusAffects.MaraesLethicite, 2, 1);
         }
         this.outputText(
@@ -447,20 +447,20 @@ export class HellHoundScene extends BaseContent {
             "<b>You now have the power to breath hellfire!</b>  (This power remains available to you so long as you maintain a corruption of at least 50.)",
             false
         );
-        //increase lust by 30, corruption by 6, and libido by 3
+        // increase lust by 30, corruption by 6, and libido by 3
         this.dynStats("lib", 3, "lus", 30, "cor", 6);
-        //player gains hellfire perk.  Hellfire deals physical damage to completely pure foes, lust damage to completely corrupt foes, and a mix for those in between.  Its power is based on the PC's corruption and level.  Appearance is slightly changed to mention that the PC's eyes and mouth occasionally show flicks of fire from within them, text could possibly vary based on corruption.
+        // player gains hellfire perk.  Hellfire deals physical damage to completely pure foes, lust damage to completely corrupt foes, and a mix for those in between.  Its power is based on the PC's corruption and level.  Appearance is slightly changed to mention that the PC's eyes and mouth occasionally show flicks of fire from within them, text could possibly vary based on corruption.
         this.player.createPerk(PerkLib.Hellfire, 0, 0, 0, 0);
-        //Hellhounds no longer encounterable.
+        // Hellhounds no longer encounterable.
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00141]++;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Merae's Lethicite
+    // Merae's Lethicite
     private giveALLTHELETHICITES(): void {
         this.outputText("", true);
-        //Give him Merae's Lethicite, now he's got enough power for a major upheaval in the demon hierarchy.  You don't get to keep being a champion.
-        //Max player's lust for genital descriptions.
+        // Give him Merae's Lethicite, now he's got enough power for a major upheaval in the demon hierarchy.  You don't get to keep being a champion.
+        // Max player's lust for genital descriptions.
         this.dynStats("lus=", 100);
 
         this.outputText(
@@ -473,9 +473,9 @@ export class HellHoundScene extends BaseContent {
             false
         );
 
-        //if (PC has two dog dicks)
+        // if (PC has two dog dicks)
         if (this.player.dogCocks() >= 2) {
-            //the male bad end
+            // the male bad end
             this.outputText(
                 'This hound is quite clearly a she, bearing a massive septuplet of breasts, and wide hips.  She is also quite clearly pregnant, and radiates an intense aura of power.  One of her two heads intones towards the crazed omnibus, "<i>You called me master?</i>"  "<i>Yes I did my precious Cremera!  Have sex with this imitation at once!  ' +
                     this.player.mf("He", "She") +
@@ -490,8 +490,8 @@ export class HellHoundScene extends BaseContent {
                 false
             );
 
-            //make sure that the PC will fit in the bitch
-            //(PC's dog cocks are not each of an area of 20 to 60 OR PC has more than two cocks)
+            // make sure that the PC will fit in the bitch
+            // (PC's dog cocks are not each of an area of 20 to 60 OR PC has more than two cocks)
             if (this.player.totalCocks() > 2 || this.player.cockThatFits(60) < 0) {
                 this.outputText(
                     "He then reaches around your waist and takes a hold of your " +
@@ -499,7 +499,7 @@ export class HellHoundScene extends BaseContent {
                         '.  "<i>Before we get started, let\'s make sure you\'re just right for Cremera.</i>"  He then reforms your body to have twin doggy pricks of appropriately sized.  "<i>Now.</i>"\n\n',
                     false
                 );
-                //PC's dicks become two 14 by 3 inch dog dicks, all other dicks are removed
+                // PC's dicks become two 14 by 3 inch dog dicks, all other dicks are removed
                 this.player.cocks[0].cockType = CockTypesEnum.DOG;
                 this.player.cocks[1].cockType = CockTypesEnum.DOG;
                 this.player.cocks[0].cockThickness = 3;
@@ -532,7 +532,7 @@ export class HellHoundScene extends BaseContent {
                 false
             );
         } else {
-            //female part
+            // female part
             this.outputText(
                 'The hound is quite clearly a he, carrying a pair of 15 inch long black pointed shafts, and a sack containing a quad of cantaloupe sized balls.  He radiates an intense aura of power.  One of his two heads intones towards the crazed omnibus, "<i>You called me master?</i>"  "<i>Yes I did my precious Cimer!  Have sex with this imitation at once!  ' +
                     this.player.mf("He", "She") +
@@ -567,7 +567,7 @@ export class HellHoundScene extends BaseContent {
                 false
             );
 
-            //If (PC's vag can't fit an area of 45)
+            // If (PC's vag can't fit an area of 45)
             if (this.player.vaginalCapacity() < 45) {
                 if (this.player.vaginas[0].virgin) {
                     this.outputText(
@@ -575,7 +575,7 @@ export class HellHoundScene extends BaseContent {
                         false
                     );
                 } else this.outputText("Y");
-                //stretch vag to very loose
+                // stretch vag to very loose
                 this.player.vaginas[0].vaginalLooseness = VAGINA_LOOSENESS_GAPING;
                 this.outputText(
                     "our two cunts quickly stretch larger to accommodate the intruders.\n\n",
@@ -649,7 +649,7 @@ export class HellHoundScene extends BaseContent {
                 "still manage to leak plenty of hot, steamy pre-cum all over his belly. Tentatively you give one of them a gentle lick, being rewarded with a dollop of the stuff.\n\n",
                 false
             );
-        //--- IF CORRUPTION < 20 ---
+        // --- IF CORRUPTION < 20 ---
         if (this.player.cor < 20) {
             this.outputText(
                 "The corrupt juice burns on your tongue, far worse than the hottest spicy dish you have ever had. You instantly back off from his member, cursing this abomination of nature. Leaving the submissive creature as it is, you head back for your camp.",
@@ -659,7 +659,7 @@ export class HellHoundScene extends BaseContent {
             this.cleanupAfterCombat();
             return;
         }
-        //--- ELSE (CORRUPTION >= 20) ---
+        // --- ELSE (CORRUPTION >= 20) ---
         else {
             this.outputText(
                 "The musky scent sends pleasure all over your body, moistening your " +
@@ -679,11 +679,11 @@ export class HellHoundScene extends BaseContent {
                 );
                 this.player.takeDamage(20);
                 this.dynStats("lus", -99);
-                //--> deals 20dmg (lowering hp to a minimum of 1), introduces inability to masturbate
+                // --> deals 20dmg (lowering hp to a minimum of 1), introduces inability to masturbate
                 this.cleanupAfterCombat();
                 return;
             }
-            //--- ELSE (CORRUPTION >= 40) ---
+            // --- ELSE (CORRUPTION >= 40) ---
             this.outputText(
                 "His magical natural flames fill your body with fierce warmth, arousing you further. You pick yourself up, letting the hellhound's cocks nearly escape your nethers just to sit down again, taking the duo of dog members to the hilt. Grabbing his hind legs like the handlebars of an exercise machine, you bring yourself into position for a good amount of training. Gradually, you pick up the pace, rocking your hips up and down, enjoying the awesome double penetration.",
                 false
@@ -704,13 +704,13 @@ export class HellHoundScene extends BaseContent {
                 false
             );
 
-            //--- IF PC HAS PENIS ---
+            // --- IF PC HAS PENIS ---
             if (this.player.hasCock()) {
                 this.outputText(
                     "His canine cock in your anus stimulates your prostate perfectly. His exotic black dong applies pressure in parts of your body you wouldn't expect to get such pleasure from.",
                     false
                 );
-                //--- IF ONE PENIS ---
+                // --- IF ONE PENIS ---
                 if (this.player.totalCocks() == 1)
                     this.outputText(
                         "  Soon your own " +
@@ -718,7 +718,7 @@ export class HellHoundScene extends BaseContent {
                             " reacts, quickly growing into a full throbbing erection. You leave your member alone, and it keeps flapping against the hellhound's belly while you ride him.",
                         false
                     );
-                //--- ELSE ---
+                // --- ELSE ---
                 else
                     this.outputText(
                         "  Soon " +
@@ -727,7 +727,7 @@ export class HellHoundScene extends BaseContent {
                         false
                     );
             }
-            //--- IF PC HAS BALLS ---
+            // --- IF PC HAS BALLS ---
             if (this.player.balls > 0)
                 this.outputText(
                     "  Whenever you lower your hips to your mates belly, your " +
@@ -746,7 +746,7 @@ export class HellHoundScene extends BaseContent {
                 "Slowly but steadily you bring yourself to the verge of orgasm. The hellhound under you squirms and tries to get free, his hind legs flailing through the air behind your back. You keep riding his magnificent member, grinding it up and down in your moist cave. Finally you feel the familiar rippling of your vaginal walls, milking his cock and intensifying your pleasant sensations. Clamping down on his members, you keep moving your hips in a circling motion, working your clit, vagina and butt in equal measure. The sensations eventually grant you an intense orgasm while the hellhound's still-distended members apply the perfect pressure to all of your sensitive spots and prolong your bliss.",
                 false
             );
-            //--- IF PC HAS PENIS ---
+            // --- IF PC HAS PENIS ---
             if (this.player.totalCocks() > 0) {
                 // --- IF ONE PENIS ---
                 if (this.player.cockTotal() == 1)
@@ -754,7 +754,7 @@ export class HellHoundScene extends BaseContent {
                         "Your " + this.cockDescript(0) + " twitches as it ejects its sticky load.",
                         false
                     );
-                //--- ELSE ---
+                // --- ELSE ---
                 else
                     this.outputText(
                         "Your " +
@@ -766,7 +766,7 @@ export class HellHoundScene extends BaseContent {
                     "  Keeping up your motions, you scatter your cum across the hellhound's body and the ground nearby.",
                     false
                 );
-                //--- IF MESSY ORGASM PERK OR CUM MULTIPILER > 5 ---
+                // --- IF MESSY ORGASM PERK OR CUM MULTIPILER > 5 ---
                 if (this.player.cumQ() > 700)
                     this.outputText(
                         "  As your orgasm drags on, you practically drench the hellhound in your seed. An especially large load lands on his snouts and the heads greedily start licking your juice with their canine toungues. Your mate's black fur is soaked with your cum, and he'll definitely be busy licking himself clean for some time.",
@@ -785,13 +785,13 @@ export class HellHoundScene extends BaseContent {
                 "Finally having finished, you relax your anal sphincter and allow his member to leave your anus. His members rise from the feel of the incredible amount of cum his quadruple balls pumped into your holes squirting back out to wash over them. The hellhound curls up, spent, his tail covering his privates. His rods look a little red from the intense fuck, and you're sure that in spite of his fiery nature he is experiencing a little more than a burning sensation.",
                 false
             );
-            //--> increases corruption, usual post coital procedure
+            // --> increases corruption, usual post coital procedure
             this.player.orgasm();
-            //[if not corrupt]
+            // [if not corrupt]
             if (this.player.cor < 40) this.dynStats("tou", -2, "cor", 1);
-            //[if corrupt]
+            // [if corrupt]
             else this.dynStats("cor", 1.5);
-            //Preggers chance!
+            // Preggers chance!
             this.player.knockUp(
                 PregnancyStore.PREGNANCY_HELL_HOUND,
                 PregnancyStore.INCUBATION_HELL_HOUND,

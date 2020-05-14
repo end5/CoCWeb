@@ -21,7 +21,7 @@ export class Reducto extends Consumable {
         return true;
     }
 
-    //		override public function hasSubMenu(): boolean { return true; } //Only GroPlus and Reducto use this.
+    // 		override public function hasSubMenu(): boolean { return true; } //Only GroPlus and Reducto use this.
 
     public useItem(): boolean {
         var rdtBalls =
@@ -153,7 +153,7 @@ export class Reducto extends Consumable {
                 ".  It burns with heat as it begins to make its effects known...\n\n"
         );
         this.game.player.clitLength /= 1.7;
-        //Set clitlength down to 2 digits in length
+        // Set clitlength down to 2 digits in length
         this.game.player.clitLength = Math.floor(this.game.player.clitLength * 100) / 100;
         this.outputText(
             "Your " +
@@ -194,7 +194,7 @@ export class Reducto extends Consumable {
                 this.game.player.cocks[0].cockLength *= 2 / 3;
                 this.game.player.cocks[0].cockThickness *= 2 / 3;
             } else {
-                //MULTI
+                // MULTI
                 this.outputText(
                     "Your " +
                         this.game.player.multiCockDescriptLight() +
@@ -243,7 +243,7 @@ export class Reducto extends Consumable {
                 this.game.player.nippleDescript(0) +
                 "s, being sure to cover them completely.\n\n"
         );
-        //Shrink
+        // Shrink
         if (this.game.player.nippleLength / 2 < 0.25) {
             this.outputText('Your nipples continue to shrink down until they stop at 1/4" long.');
             this.game.player.nippleLength = 0.25;

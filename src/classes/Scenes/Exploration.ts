@@ -23,10 +23,10 @@ export class Exploration extends BaseContent {
     public exploreDebug: ExploreDebug = new ExploreDebug();
     public giacomo: Giacomo = new Giacomo();
 
-    //const MET_OTTERGIRL: number = 777;
-    //const HAS_SEEN_MINO_AND_COWGIRL: number = 892;
-    //const EXPLORATION_PAGE: number = 1015;
-    //const BOG_EXPLORED: number = 1016;
+    // const MET_OTTERGIRL: number = 777;
+    // const HAS_SEEN_MINO_AND_COWGIRL: number = 892;
+    // const EXPLORATION_PAGE: number = 1015;
+    // const BOG_EXPLORED: number = 1016;
     public doExplore(): void {
         if (this.player.explored == 0) {
             this.outputText(
@@ -89,7 +89,7 @@ export class Exploration extends BaseContent {
         this.doExplore();
     }
 
-    //Try to find a new location - called from doExplore once the first location is found
+    // Try to find a new location - called from doExplore once the first location is found
     public tryDiscover(): void {
         // kGAMECLASS.goblinAssassinScene.goblinAssassinEncounter();
         // return;
@@ -166,7 +166,7 @@ export class Exploration extends BaseContent {
                 this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
-            //EXPLOOOOOOORE
+            // EXPLOOOOOOORE
             if (
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00272] == 0 &&
                 this.flags[kFLAGS.TIMES_EXPLORED_PLAINS] > 0 &&
@@ -187,14 +187,14 @@ export class Exploration extends BaseContent {
                 this.doNext(this.camp.returnToCampUseTwoHours);
                 return;
             }
-            //Used for chosing 'repeat' encounters.
+            // Used for chosing 'repeat' encounters.
             var choosey: number = Exploration.rand(6);
-            //2 (gargoyle) is never chosen once cathedral is discovered.
+            // 2 (gargoyle) is never chosen once cathedral is discovered.
             if (choosey == 2 && this.flags[kFLAGS.FOUND_CATHEDRAL] == 1) {
                 choosey = Exploration.rand(5);
                 if (choosey >= 2) choosey++;
             }
-            //Chance of encountering Giacomo!
+            // Chance of encountering Giacomo!
             if (choosey == 0) {
                 this.player.explored++;
                 this.giacomo.giacomoEncounter(); //eventParser(2015);
@@ -210,11 +210,11 @@ export class Exploration extends BaseContent {
                 else kGAMECLASS.gargoyle.returnToCathedral();
                 return;
             }
-            //Monster - 50/50 imp/gob split.
+            // Monster - 50/50 imp/gob split.
             else {
                 this.player.explored++;
                 var impGob: number = 5;
-                //Imptacular Encounter
+                // Imptacular Encounter
                 if (Exploration.rand(10) < impGob) {
                     if (this.player.level >= 8 && Exploration.rand(2) == 0) {
                         kGAMECLASS.impScene.impLordEncounter();
@@ -227,9 +227,9 @@ export class Exploration extends BaseContent {
                     }
                     return;
                 }
-                //Encounter Gobbalin!
+                // Encounter Gobbalin!
                 else {
-                    //50% of the time, goblin assassin!
+                    // 50% of the time, goblin assassin!
                     if (this.player.level >= 10 && Exploration.rand(2) == 0) {
                         kGAMECLASS.goblinAssassinScene.goblinAssassinEncounter();
                         return;
@@ -266,14 +266,14 @@ export class Exploration extends BaseContent {
         this.inventory.takeItem(this.consumables.W_FRUIT, this.playerMenu);
     }
 
-    //Massive bodyparts scene
-    //[DESERT]
-    //[RANDOM SCENE IF CHARACTER HAS AT LEAST ONE COCK LARGER THAN THEIR HEIGHT,
-    //AND THE TOTAL COMBINED WIDTH OF ALL THEIR COCKS IS TWELVE INCHES OR GREATER]
+    // Massive bodyparts scene
+    // [DESERT]
+    // [RANDOM SCENE IF CHARACTER HAS AT LEAST ONE COCK LARGER THAN THEIR HEIGHT,
+    // AND THE TOTAL COMBINED WIDTH OF ALL THEIR COCKS IS TWELVE INCHES OR GREATER]
     public bigJunkDesertScene(): void {
         this.outputText("", true);
         var x: number = this.player.longestCock();
-        //PARAGRAPH 1
+        // PARAGRAPH 1
         this.outputText(
             "Walking along the sandy dunes of the desert you find yourself increasingly impeded by the bulk of your " +
                 this.cockDescript(x) +
@@ -299,9 +299,9 @@ export class Exploration extends BaseContent {
             );
         this.outputText("\n\n", false);
 
-        //PARAGRAPH 2
+        // PARAGRAPH 2
 
-        //FOR NON-CENTAURS]
+        // FOR NON-CENTAURS]
         if (!this.player.isTaur()) {
             this.outputText(
                 "The impending erection can't seem to be stopped.  Your sexual frustration forces stiffness into your " +
@@ -314,7 +314,7 @@ export class Exploration extends BaseContent {
                 false
             );
 
-            //IF CHARACTER HAS GIANT BREASTS ADD SENTENCE
+            // IF CHARACTER HAS GIANT BREASTS ADD SENTENCE
             if (this.player.biggestTitSize() >= 35)
                 this.outputText(
                     "  Your " +
@@ -324,7 +324,7 @@ export class Exploration extends BaseContent {
                         "s mercilessly as they grind in the sand.",
                     false
                 );
-            //IF CHARACTER HAS A BALLS ADD SENTENCE
+            // IF CHARACTER HAS A BALLS ADD SENTENCE
             if (this.player.balls > 0)
                 this.outputText(
                     "  Your " +
@@ -339,7 +339,7 @@ export class Exploration extends BaseContent {
                         ".",
                     false
                 );
-            //IF CHARACTER HAS A VAGINA ADD SENTENCE
+            // IF CHARACTER HAS A VAGINA ADD SENTENCE
             if (this.player.vaginas.length >= 1) {
                 this.outputText(
                     "  Your " +
@@ -351,7 +351,7 @@ export class Exploration extends BaseContent {
                         " above.",
                     false
                 );
-                //IF CHARACTER HAS A DROOLING PUSSY ADD SENTENCE
+                // IF CHARACTER HAS A DROOLING PUSSY ADD SENTENCE
                 if (this.player.vaginas[0].vaginalWetness >= VAGINA_WETNESS_DROOLING)
                     this.outputText(
                         "  Juices stream from your womanhood and begin pooling on the hot sand beneath you.  Wisps of steam rise up into the air only to tease your genitals further.  ",
@@ -359,7 +359,7 @@ export class Exploration extends BaseContent {
                     );
             }
         }
-        //FOR CENTAURS
+        // FOR CENTAURS
         else {
             this.outputText(
                 "The impending erection can't seem to be stopped.  Your sexual frustration forces stiffness into your " +
@@ -371,7 +371,7 @@ export class Exploration extends BaseContent {
                     ".",
                 false
             );
-            //IF CHARACTER HAS GIANT BREASTS ADD SENTENCE
+            // IF CHARACTER HAS GIANT BREASTS ADD SENTENCE
             if (this.player.biggestTitSize() >= 35)
                 this.outputText(
                     "  Your " +
@@ -381,7 +381,7 @@ export class Exploration extends BaseContent {
                         "s incessantly.",
                     false
                 );
-            //IF CHARACTER HAS A BALLS ADD SENTENCE
+            // IF CHARACTER HAS A BALLS ADD SENTENCE
             if (this.player.balls > 0)
                 this.outputText(
                     "  Your " +
@@ -396,7 +396,7 @@ export class Exploration extends BaseContent {
                         ".",
                     false
                 );
-            //IF CHARACTER HAS A VAGINA ADD SENTENCE
+            // IF CHARACTER HAS A VAGINA ADD SENTENCE
             if (this.player.vaginas.length >= 1) {
                 this.outputText(
                     "  Your " +
@@ -408,7 +408,7 @@ export class Exploration extends BaseContent {
                         " above.",
                     false
                 );
-                //IF CHARACTER HAS A DROOLING PUSSY ADD SENTENCE
+                // IF CHARACTER HAS A DROOLING PUSSY ADD SENTENCE
                 if (this.player.vaginas[0].vaginalWetness >= VAGINA_WETNESS_DROOLING)
                     this.outputText(
                         "  The desert sun beats down on your body, its fiery heat inflaming the senses of your vaginal lips.  Juices stream from your womanhood and begin pooling on the hot sand beneath you.",
@@ -417,9 +417,9 @@ export class Exploration extends BaseContent {
             }
         }
         this.outputText("\n\n", false);
-        //PARAGRAPH 3
+        // PARAGRAPH 3
         this.outputText("You realize you are effectively trapped here by your own body.", false);
-        //CORRUPTION BASED CHARACTER'S VIEW OF SITUATION
+        // CORRUPTION BASED CHARACTER'S VIEW OF SITUATION
         if (this.player.cor < 33)
             this.outputText(
                 "  Panic slips into your heart as you realize that if any dangerous predator were to find you in this state, you'd be completely defenseless.  You must find a way to regain your mobility immediately!",
@@ -436,13 +436,13 @@ export class Exploration extends BaseContent {
                 false
             );
 
-        //SCENE END = IF CHARACTER HAS FULL WINGS ADD SENTENCE
+        // SCENE END = IF CHARACTER HAS FULL WINGS ADD SENTENCE
         if (this.player.canFly())
             this.outputText(
                 "  You extend your wings and flap as hard as you can, until at last you manage to lighten the bulk of your body somewhat - enough to allow yourself to drag your genitals across the hot sands and back to camp.  The ordeal takes nearly an hour.",
                 false
             );
-        //SCENE END IF CHARACTER HAS CENTAUR BODY
+        // SCENE END IF CHARACTER HAS CENTAUR BODY
         else if (this.player.isTaur())
             this.outputText(
                 "  You struggle and work your equine legs against the surface of the dune you are trapped on.  Your " +
@@ -450,7 +450,7 @@ export class Exploration extends BaseContent {
                     " have consistent trouble finding footing, the soft sand failing to provide enough leverage to lift your bulk.  You breath in deeply and lean from side to side, trying to find some easier vertical leverage.  Eventually, with a crude crawl, your legs manage to push the bulk of your body onto more solid ground.  With great difficulty, you spend the next hour shuffling your genitals across the sandscape and back to camp.",
                 false
             );
-        //SCENE END = FOR ALL OTHER CHARACTERS
+        // SCENE END = FOR ALL OTHER CHARACTERS
         else
             this.outputText(
                 "  You struggle and push with your " +

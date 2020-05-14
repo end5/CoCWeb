@@ -25,13 +25,13 @@ export class Lake extends BaseContent {
     public kaiju: Kaiju = new Kaiju();
     public swordInStone: SwordInStone = new SwordInStone();
     public Lake() {}
-    //Explore Lake
+    // Explore Lake
     public exploreLake(): void {
-        //Increment exploration count
+        // Increment exploration count
         this.player.exploredLake++;
         if (kGAMECLASS.poniesYN()) return;
 
-        //Helia monogamy fucks
+        // Helia monogamy fucks
         if (
             this.flags[kFLAGS.PC_PROMISED_HEL_MONOGAMY_FUCKS] == 1 &&
             this.flags[kFLAGS.HEL_RAPED_TODAY] == 0 &&
@@ -46,7 +46,7 @@ export class Lake extends BaseContent {
             this.ottahGirl();
             return;
         }
-        //Egg chooser
+        // Egg chooser
         if (
             Lake.rand(100) < 25 &&
             this.player.pregnancyIncubation > 1 &&
@@ -66,26 +66,26 @@ export class Lake extends BaseContent {
             this.addButton(9, "Escape", this.eggChooseEscape);
             return;
         }
-        //Did it already output something?
+        // Did it already output something?
         var displayed: boolean = false;
         var choice: any[] = [];
         var select: number;
 
-        //Build choice list.
-        //==================================================
-        //COMMON EVENTS
+        // Build choice list.
+        // ==================================================
+        // COMMON EVENTS
         if (this.player.level < 2 || this.player.spe < 50) choice[choice.length] = 0;
         choice[choice.length] = 1;
         choice[choice.length] = 2;
-        //Fetish cultist not encountered till level 2
+        // Fetish cultist not encountered till level 2
         if (
             this.player.level >= 2 &&
             this.player.findStatusAffect(StatusAffects.DungeonShutDown) >= 0
         )
             choice[choice.length] = 3;
-        //Slimes/Ooze = level >= 2
+        // Slimes/Ooze = level >= 2
         if (this.player.level >= 2) choice[choice.length] = 4;
-        //Izma
+        // Izma
         if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00230] > 0 &&
             this.player.exploredLake >= 10 &&
@@ -94,11 +94,11 @@ export class Lake extends BaseContent {
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00238] <= 0
         )
             choice[choice.length] = 5;
-        //Rathazul
+        // Rathazul
         if (this.player.findStatusAffect(StatusAffects.CampRathazul) < 0) choice[choice.length] = 6;
 
-        //UNCOMMON EVENTS
-        //Goo finding!
+        // UNCOMMON EVENTS
+        // Goo finding!
         if (
             Lake.rand(30) == 0 &&
             this.flags[kFLAGS.GOO_TFED_MEAN] + this.flags[kFLAGS.GOO_TFED_NICE] > 0 &&
@@ -107,7 +107,7 @@ export class Lake extends BaseContent {
             kGAMECLASS.latexGirl.encounterLeftBehindGooSlave();
             return;
         }
-        //Chance of dick-dragging! OLD:10% + 10% per two foot up to 30%
+        // Chance of dick-dragging! OLD:10% + 10% per two foot up to 30%
         this.temp = 10 + ((this.player.longestCockLength() - this.player.tallness) / 24) * 10;
         if (
             this.temp > 0 &&
@@ -116,48 +116,48 @@ export class Lake extends BaseContent {
         )
             choice[choice.length] = 8;
 
-        //ONE TIME EVENTS
-        //Amily Village discovery
+        // ONE TIME EVENTS
+        // Amily Village discovery
         if (this.flags[kFLAGS.AMILY_VILLAGE_ACCESSIBLE] == 0) choice[choice.length] = 9;
-        //Sword Discovery
+        // Sword Discovery
         if (
             this.player.findStatusAffect(StatusAffects.TookBlessedSword) < 0 &&
             this.player.findStatusAffect(StatusAffects.BSwordBroken) < 0
         )
             choice[choice.length] = 10;
-        //Pre-emptive chance of finding the boat
+        // Pre-emptive chance of finding the boat
         if (this.player.findStatusAffect(StatusAffects.BoatDiscovery) < 0)
             choice[choice.length] = 11;
 
-        //CHOOSE YOUR POISON!
+        // CHOOSE YOUR POISON!
         select = choice[Lake.rand(choice.length)];
 
-        //==============================
-        //EVENTS GO HERE!
-        //==============================
-        //Pre-emptive chance of discovering Amily the stupidshit mouse
+        // ==============================
+        // EVENTS GO HERE!
+        // ==============================
+        // Pre-emptive chance of discovering Amily the stupidshit mouse
         if (select == 9) {
             kGAMECLASS.amilyScene.discoverAmilyVillage();
         }
-        //Pre-emptive chance of discovering the Beautiful Sword
+        // Pre-emptive chance of discovering the Beautiful Sword
         else if (select == 10) {
             this.swordInStone.findSwordInStone();
         }
-        //Pre-emptive chance of finding the boat
+        // Pre-emptive chance of finding the boat
         else if (select == 11) {
             kGAMECLASS.boat.discoverBoat();
         }
-        //Meet Izma every 8 attempts
+        // Meet Izma every 8 attempts
         else if (select == 5) {
             kGAMECLASS.izmaScene.meetIzmaAtLake();
         }
-        //Chance of dick-dragging! 10% + 10% per two foot up to 30%
+        // Chance of dick-dragging! 10% + 10% per two foot up to 30%
         else if (select == 8) {
-            //True sets to use lake scene!
+            // True sets to use lake scene!
             kGAMECLASS.forest.bigJunkForestScene(true);
         } else if (select == 4) {
-            //Chance of seeing ooze convert goo!
-            //More common if factory blew up
+            // Chance of seeing ooze convert goo!
+            // More common if factory blew up
             if (
                 this.player.findStatusAffect(StatusAffects.FactoryOverload) >= 0 &&
                 Lake.rand(10) == 0
@@ -165,28 +165,28 @@ export class Lake extends BaseContent {
                 this.gooGirlScene.spyOnGooAndOozeSex();
                 return;
             }
-            //Else pretty rare.
+            // Else pretty rare.
             else if (Lake.rand(25) == 0) {
                 this.gooGirlScene.spyOnGooAndOozeSex();
                 return;
             }
             var girlOdds: number = 50;
-            //50% odds of slime-girl, 75% if shutdown factory
+            // 50% odds of slime-girl, 75% if shutdown factory
             if (
                 this.player.findStatusAffect(StatusAffects.DungeonShutDown) >= 0 &&
                 this.player.findStatusAffect(StatusAffects.FactoryOverload) < 0
             )
                 girlOdds += 25;
             if (this.player.findStatusAffect(StatusAffects.FactoryOverload) >= 0) girlOdds -= 25;
-            //Slimegirl!
+            // Slimegirl!
             if (Lake.rand(100) <= girlOdds) {
                 this.gooGirlScene.encounterGooGirl();
             }
-            //OOZE!
+            // OOZE!
             else {
                 this.flags[kFLAGS.TIMES_MET_OOZE]++;
                 this.spriteSelect(25);
-                //High int starts on even footing.
+                // High int starts on even footing.
                 if (this.player.inte >= 25) {
                     this.outputText(
                         "A soft shuffling sound catches your attention and you turn around, spotting an amorphous green mass sliding towards you!  Realizing it's been spotted, the ooze's mass surges upwards into a humanoid form with thick arms and wide shoulders.  The beast surges forward to attack!",
@@ -203,7 +203,7 @@ export class Lake extends BaseContent {
                         );
                     return;
                 }
-                //High speed starts on even footing.
+                // High speed starts on even footing.
                 if (this.player.spe >= 30) {
                     this.outputText(
                         "You feel something moist brush the back of your ankle and instinctively jump forward and roll, coming up to face whatever it is behind you.  The nearly silent, amorphous green slime that was at your feet surges vertically, its upper body taking the form of a humanoid with thick arms and wide shoulders, which attacks!",
@@ -220,7 +220,7 @@ export class Lake extends BaseContent {
                         );
                     return;
                 }
-                //High strength gets stunned first round.
+                // High strength gets stunned first round.
                 if (this.player.str >= 40) {
                     this.outputText(
                         "Without warning, you feel something moist and spongy wrap around your ankle, nearly pulling you off balance.  With a ferocious tug, you pull yourself free and turn to face your assailant.  It is a large green ooze that surges upwards to take the form of humanoid with wide shoulders and massive arms.  It shudders for a moment, and its featureless face shifts into a green version of your own! The sight gives you pause for a moment, and the creature strikes!",
@@ -239,7 +239,7 @@ export class Lake extends BaseContent {
                     this.monster.eAttack();
                     return;
                 }
-                //Player's stats suck and you should feel bad.
+                // Player's stats suck and you should feel bad.
                 this.outputText(
                     "Without warning, you feel something moist and spongy wrap around your ankle, pulling you off balance!  You turn and try to pull your leg away, struggling against a large green ooze for a moment before your foot comes away with a *schlorp* and a thin coating of green fluid.  The rest of the ooze rises to tower over you, forming a massive green humanoid torso with hugely muscled arms and wide shoulders.  Adrenaline rushes into your body as you prepare for combat, and you feel your heart skip a beat as your libido begins to kick up as well!",
                     true
@@ -267,7 +267,7 @@ export class Lake extends BaseContent {
             }
             this.doNext(this.camp.returnToCampUseOneHour);
         } else if (select == 1) {
-            //No boat, no kaiju
+            // No boat, no kaiju
             if (
                 this.player.level >= 5 &&
                 this.flags[kFLAGS.KAIJU_DISABLED] == 0 &&
@@ -304,25 +304,25 @@ export class Lake extends BaseContent {
             }
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //Find whitney or equinum
+        // Find whitney or equinum
         else if (select == 2) {
-            //40% chance of item, 60 of whitney.
+            // 40% chance of item, 60 of whitney.
             if (Lake.rand(10) < 4) {
                 this.findLakeLoot();
             }
-            //Find Whitney
+            // Find Whitney
             else {
-                //Have you met whitney?
+                // Have you met whitney?
                 if (this.player.findStatusAffect(StatusAffects.MetWhitney) >= 0) {
-                    //Is the farm in your places menu?
+                    // Is the farm in your places menu?
                     if (this.player.statusAffectv1(StatusAffects.MetWhitney) > 1) {
-                        //If so, find equinum or whisker fruit
+                        // If so, find equinum or whisker fruit
                         this.findLakeLoot();
                     }
-                    //If you havent met whitney enough to know the farm....
+                    // If you havent met whitney enough to know the farm....
                     else kGAMECLASS.farm.farmExploreEncounter();
                 }
-                //If you havent met whitney, you can find the farm....
+                // If you havent met whitney, you can find the farm....
                 else kGAMECLASS.farm.farmExploreEncounter();
             }
         } else if (select == 3) {
@@ -337,7 +337,7 @@ export class Lake extends BaseContent {
                     false
                 );
 
-                //(increase player lust from the sights they saw)
+                // (increase player lust from the sights they saw)
                 this.dynStats("lus", 5);
                 this.doNext(this.camp.returnToCampUseOneHour);
                 return;
@@ -407,11 +407,11 @@ export class Lake extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Just want to do a quick Ottergirl event submission after you mentioned it!
+    // Just want to do a quick Ottergirl event submission after you mentioned it!
     private ottahGirl(): void {
         this.clearOutput();
         this.flags[kFLAGS.MET_OTTERGIRL]++;
-        //First Time
+        // First Time
         if (this.flags[kFLAGS.MET_OTTERGIRL] == 1) {
             this.outputText(
                 "Your exploration of the lakeside takes you further than you've gone before.  The water here is almost completely still, its waters "
@@ -451,7 +451,7 @@ export class Lake extends BaseContent {
             this.outputText(
                 "\n\nThat's it?  She doesn't even know you and she's just offering it up like that?"
             );
-            //Silly Mode:
+            // Silly Mode:
             if (this.silly())
                 this.outputText(
                     "  No tragic backstory to go through? No annoying combat encounter? Just meet and fuck?  My god, what has this world come to?"
@@ -464,9 +464,9 @@ export class Lake extends BaseContent {
 
             this.outputText("\n\nWell, how about it?");
 
-            //[Facesitting] [Fuck Her] [Skedaddle]
+            // [Facesitting] [Fuck Her] [Skedaddle]
         }
-        //Repeats
+        // Repeats
         else {
             this.outputText(
                 "Your explorations of the lake lead you back to Callu, the otter girl. She sits lazily on the beach; fishing rod in hand, as usual. She gives a friendly wave as you approach, and pats the sandy patch of lakeside next to her."
@@ -477,12 +477,12 @@ export class Lake extends BaseContent {
 
             this.outputText("\n\nWell, are you?");
 
-            //[Facesitting] [Fuck Her] [Fish] [Skedaddle]
+            // [Facesitting] [Fuck Her] [Fish] [Skedaddle]
         }
         this.menu();
         if (this.player.lust < 33) this.outputText("\n\nYou aren't aroused enough to fuck her.");
         else {
-            //(If cocksize above 48")
+            // (If cocksize above 48")
             if (this.player.hasCock()) {
                 if (this.player.shortestCockLength() > 48)
                     this.outputText(
@@ -498,7 +498,7 @@ export class Lake extends BaseContent {
         this.addButton(4, "Leave", this.avoidZeOtterPussy);
     }
 
-    //For Dicks
+    // For Dicks
     private ottergirlLikesDongs(): void {
         this.clearOutput();
         this.outputText(
@@ -526,22 +526,22 @@ export class Lake extends BaseContent {
         if (y < 0) y = this.player.smallestCockIndex();
         x = y;
 
-        //(Under 6")
+        // (Under 6")
         if (this.player.cocks[x].cockLength < 6)
             this.outputText(
                 "\n\n\"<i>Well butter my buns and call me a biscuit, ain't this a cute little thing,</i>\" she remarks, inspecting your tiny cock.  \"<i>I ain't never seen one this small.  I just wanna wrap it up in a little bow and cuddle with it.  You sure it ain't a clit, darlin'?</i>\""
             );
-        //(6"-10")
+        // (6"-10")
         else if (this.player.cocks[x].cockLength < 10)
             this.outputText(
                 "\n\n\"<i>Just packin' the average model, eh?  Nothin' wrong with that,</i>\" she remarks while inspecting your cock."
             );
-        //(10"-24")
+        // (10"-24")
         else if (this.player.cocks[x].cockLength < 24)
             this.outputText(
                 '\n\n"<i>Oh my, now that\'s a manly piece of meat right there,</i>" she remarks, inspecting your oversized cock.  "<i>I could enjoy that bad boy all day.</i>"'
             );
-        //(24"-48")
+        // (24"-48")
         else
             this.outputText(
                 '\n\n"<i>Whoa nellie,</i>" she says, her eyes going wide as they feast upon your giant cock.  "<i>That.  That right there, darlin\', is one grade-A trouser snake.  I\'ve seen centaurs that\'d look like geldings next to you.</i>"'
@@ -557,7 +557,7 @@ export class Lake extends BaseContent {
         );
 
         this.outputText("\n\n\"<i>Hey darlin', better get to lickin', we want this ");
-        //{(lil dicks)
+        // {(lil dicks)
         if (this.player.cocks[x].cockLength < 6) this.outputText("little, wanna-be cock");
         else this.outputText("bad boy");
         this.outputText(
@@ -571,16 +571,16 @@ export class Lake extends BaseContent {
         );
         this.outputText("  She pays particularly close attention ");
 
-        //[equine]
+        // [equine]
         if (this.player.cocks[x].cockType == CockTypesEnum.HORSE)
             this.outputText("to your flare, sucking, teasing and ");
-        //[canine]
+        // [canine]
         else if (this.player.hasKnot(x))
             this.outputText("to the base of your cock, planting sloppy kisses on your knot, ");
-        //[demonic]
+        // [demonic]
         else if (this.player.cocks[x].cockType == CockTypesEnum.DEMON)
             this.outputText("to the demonic nodules ringing your cock, ");
-        //[anemone]
+        // [anemone]
         else if (this.player.cocks[x].cockType == CockTypesEnum.ANEMONE)
             this.outputText(
                 "to the little wriggling tentacles ringing the head and base of your cock, "
@@ -602,10 +602,10 @@ export class Lake extends BaseContent {
                 this.player.cockHead(x) +
                 ".  Her cunt, slick and aroused as it is, offers no resistance despite its tightness.  Its walls pulse and quiver around you, as though the otter has complete control over it.  Inch by inch she sinks down further, "
         );
-        //(dicks 10" or less)
+        // (dicks 10" or less)
         if (this.player.cocks[x].cockLength < 10)
             this.outputText("until she comes to rest on your lap");
-        //(10"-24")
+        // (10"-24")
         else if (this.player.cocks[x].cockLength < 24)
             this.outputText(
                 "slowly devouring your entire cock, until she finally comes to rest on your lap"
@@ -649,7 +649,7 @@ export class Lake extends BaseContent {
         this.outputText(
             "\n\nYour body arches, thrusting your cock fully inside Callu, your hips meeting with a lewd, wet smack.  Your cock jerks, spurting jet after jet of seed into the otter-girl's greedy cunt."
         );
-        //(Cum quantity high enough)
+        // (Cum quantity high enough)
         if (this.player.cumQ() >= 250) {
             this.outputText("  There's so much of it, ");
             if (this.player.cumQ() < 500)
@@ -699,7 +699,7 @@ export class Lake extends BaseContent {
         this.inventory.takeItem(this.consumables.FISHFIL, this.camp.returnToCampUseOneHour);
     }
 
-    //For Chicks
+    // For Chicks
     private ottersForGals(): void {
         this.clearOutput();
         this.outputText(
@@ -740,7 +740,7 @@ export class Lake extends BaseContent {
             "\n\nYou know full well that you could get out of this if you wanted to, however the scent of the girl's musky mustelid muff is just too powerful, too intoxicating, too heavenly to ignore.  Instead of struggling you go to town, rubbing your face in it as you lick, slurp and suck at the lips pressed against your mouth.  Up and down your tongue goes, in and out, teasing her soft, swollen lips and pressing hard against her hard, aching clit as you gorge yourself on her pussy."
         );
 
-        //(Demonic tongue)
+        // (Demonic tongue)
         if (this.player.tongueType == TONUGE_DEMONIC)
             this.outputText(
                 '\n\nYou extend your abnormal tongue, plunging it deep into Callu\'s depths. This actually elicits a little squeak from the fisherwoman, who shifts from side to side in shock.  You let your tongue push further in, as if it were a cock.  Spreading her as you delve deep, you taste the otter from the inside out, reveling in the taste of her sweet, tight hole.  Eventually your tongue comes to an obstruction, a tight ring that bars your way forward.  You grin, or at least try as hard as you can to do so, what with the weight of an otter-girl sitting on your face and 12 inches of tongue sticking out of your mouth.  The tip of your tongue whirls around her cervix before finding the center and slowly pushing inside.  Another "<i>eep</i>" arises from Callu, though this one turns into a contented sigh.  With the tip of your tongue in her womb, you begin to slather her walls with saliva.  Every tender flick of your tongue makes the girl riding your face shiver with pleasure.  All good things must come to an end, however, and your tongue eventually gets so tired you have no choice but to draw it back in.'
@@ -807,7 +807,7 @@ export class Lake extends BaseContent {
         this.inventory.takeItem(this.consumables.FISHFIL, this.camp.returnToCampUseOneHour);
     }
 
-    //For Pansies
+    // For Pansies
     private avoidZeOtterPussy(): void {
         this.clearOutput();
         this.outputText(
@@ -820,7 +820,7 @@ export class Lake extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //For Fatties
+    // For Fatties
     private getSomeFishYaFatty(): void {
         this.clearOutput();
         this.outputText(
@@ -833,7 +833,7 @@ export class Lake extends BaseContent {
 
         this.outputText("\n\nYou thank Callu for the food and take your leave.  ");
 
-        //(You have gained Fish Fillet!)
+        // (You have gained Fish Fillet!)
         this.inventory.takeItem(this.consumables.FISHFIL, this.camp.returnToCampUseOneHour);
     }
 }

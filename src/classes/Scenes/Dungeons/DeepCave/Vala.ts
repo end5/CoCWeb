@@ -14,15 +14,15 @@ import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
 
 export class Vala extends Monster {
-    //Vala AI
+    // Vala AI
 
-    //Blood magic?
+    // Blood magic?
     public valaSpecial1(): void {
         this.outputText(
             "Vala dabs at one of her wounds and swoons.  Is she actually getting off from the wounds?  Damn she's damaged!  Vala licks the blood from her fingers, winks, and blows pink mist from her mouth.",
             false
         );
-        //Lightly wounded.
+        // Lightly wounded.
         if (this.HPRatio() > 0.7) {
             this.outputText(
                 "  The sweet-smelling cloud rapidly fills the room, but the volume of mist is low enough that you don't end up breathing in that much of it.  It does make your pulse quicken in the most pleasant way though...",
@@ -44,7 +44,7 @@ export class Vala extends Monster {
         }
         this.combatRoundOver();
     }
-    //Milk magic
+    // Milk magic
     public valaSpecial2(): void {
         this.outputText(
             "With a look of ecstasy on her face, Vala throws back her head and squeezes her pillowy chest with her hands, firing gouts of thick faerie milk from her over-sized bosom!  You try to dodge, but she's squirting so much it's impossible to dodge it all, and in no time you're drenched with a thick coating of Vala's milk.",
@@ -74,7 +74,7 @@ export class Vala extends Monster {
         this.game.dynStats("lus", this.statusAffectv1(StatusAffects.Milk) + this.player.lib / 20);
         this.combatRoundOver();
     }
-    //Masturbation
+    // Masturbation
     public valaMasturbate(): void {
         this.outputText(
             'The mind-fucked faerie spreads her alabaster thighs and dips a finger into the glistening slit between her legs, sliding in and out, only pausing to circle her clit.  She brazenly masturbates, putting on quite the show.  Vala slides another two fingers inside herself and finger-fucks herself hard, moaning and panting lewdly.  Then she pulls them out and asks, "<i>Did you like that?  Will you fuck Vala now?</i>"',
@@ -84,7 +84,7 @@ export class Vala extends Monster {
         this.combatRoundOver();
     }
 
-    //[Fight dialog]
+    // [Fight dialog]
     public valaCombatDialogue(): void {
         if (this.findStatusAffect(StatusAffects.Vala) < 0) {
             this.outputText(
@@ -128,13 +128,13 @@ export class Vala extends Monster {
     }
 
     protected performCombatAction(): void {
-        //VALA SPEAKS!
+        // VALA SPEAKS!
         this.valaCombatDialogue();
         this.outputText("\n\n", false);
-        //Select Attack
-        //BLood magic special
+        // Select Attack
+        // BLood magic special
         if (this.HPRatio() < 0.85 && Vala.rand(3) == 0) this.valaSpecial1();
-        //25% chance of milksquirt.
+        // 25% chance of milksquirt.
         else if (Vala.rand(4) == 0) this.valaSpecial2();
         else this.valaMasturbate();
     }

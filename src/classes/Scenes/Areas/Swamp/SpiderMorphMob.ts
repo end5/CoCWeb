@@ -12,11 +12,11 @@ import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
 
 export class SpiderMorphMob extends Monster {
-    //==============================
+    // ==============================
     // SPOIDAH HORDE COMBAT SHIZZLE HERE!
-    //==============================
+    // ==============================
     private spiderStandardAttack(): void {
-        //SPIDER HORDE ATTACK - Miss (guaranteed if turns 1-3 and PC lost to Kiha)
+        // SPIDER HORDE ATTACK - Miss (guaranteed if turns 1-3 and PC lost to Kiha)
         if (
             this.findStatusAffect(StatusAffects.MissFirstRound) >= 0 ||
             this.combatMiss() ||
@@ -30,13 +30,13 @@ export class SpiderMorphMob extends Monster {
                 false
             );
         }
-        //SPIDER HORDE ATTACK - Hit
+        // SPIDER HORDE ATTACK - Hit
         else {
             this.outputText(
                 "A number of spiders rush at you, trying to claw and bite you.  You manage to knock most of them away, but a few nasty hits manage to punch through your [armorName].  ",
                 false
             );
-            //Determine damage - str modified by enemy toughness!
+            // Determine damage - str modified by enemy toughness!
             var damage: number =
                 Math.floor(
                     this.str +
@@ -136,9 +136,9 @@ export class SpiderMorphMob extends Monster {
         this.kihaSPOIDAHAI();
     }
 
-    //SPIDER HORDE WEB - Hit
+    // SPIDER HORDE WEB - Hit
     private spoidahHordeWebLaunchahs(): void {
-        //SPIDER HORDE WEB - Miss (guaranteed if turns 1-3 and PC lost to Kiha)
+        // SPIDER HORDE WEB - Miss (guaranteed if turns 1-3 and PC lost to Kiha)
         if (
             this.findStatusAffect(StatusAffects.MissFirstRound) >= 0 ||
             this.combatMiss() ||
@@ -156,7 +156,7 @@ export class SpiderMorphMob extends Monster {
                 "Some of the spiders and driders launch huge globs of wet webbing right at you, hitting you in the torso!  You try to wiggle out, but it's no use; you're stuck like this for now.  Though comfortingly, the driders' open stance and self-satisfaction allow Kiha to blast them in the side with a huge conflagration!",
                 false
             );
-            //(PC cannot attack or use spells for one turn; can use Magical Special and Possess)
+            // (PC cannot attack or use spells for one turn; can use Magical Special and Possess)
             this.player.createStatusAffect(StatusAffects.UBERWEB, 0, 0, 0, 0);
             this.HP -= 250;
             this.combatRoundOver();
@@ -170,7 +170,7 @@ export class SpiderMorphMob extends Monster {
             "While they're tangled up with you, however, Kiha takes the opportunity to get in a few shallow swings with her axe, to the accompaniment of crunching chitin.",
             false
         );
-        //horde loses HP
+        // horde loses HP
         this.HP -= 50;
         this.combatRoundOver();
     }

@@ -202,12 +202,12 @@ export class HermCentaur extends Monster {
         this._lustAtChargeStart = -1;
 
         if (this.lust >= this._lustAtChargeStart + 10) {
-            //(Interrupted)
+            // (Interrupted)
             this.outputText(
                 "Shuddering, the demoness stumbles over her words, and a flash of ruby light envelops her form!  A low, lurid moan escapes the crimson-fogged outline, echoing with lust beyond measure as its owner's spell backfires on her.  Ropes of pre as thick as most men's cum-shots splatter into the grass and cobble while the herm's balls seem to double in size.  Even then, the heavy male orbs shine dully, absolutely soaked with dripping mare-lube."
             );
         } else {
-            //(OH SHIT YOU GUNNA GET FUKKED)
+            // (OH SHIT YOU GUNNA GET FUKKED)
             this.outputText(
                 "The chanting reaches a crescendo before you can stop it, and as the nine-foot woman points at you, you barely have time to enunciate a single curse.  Her spell is upon you.  There's a flash of crimson light, seemingly as bright as the sun, and then you're hit with a wave of lust so strong it might as well be a physical force.  It slaps you hard enough to send you reeling, even while your heart pumps every spare drop of blood south.  You cry out at the forced arousal, blubbering wildly as the pleasure mounts and images of you and your foe locked together in every sexual position imaginable flood your consciousness."
             );

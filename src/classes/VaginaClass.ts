@@ -1,7 +1,7 @@
 import { Utils } from "./internals/Utils";
 
 export class VaginaClass {
-    //constructor
+    // constructor
     public constructor(
         vaginalWetness: number = 1,
         vaginalLooseness: number = 0,
@@ -11,8 +11,8 @@ export class VaginaClass {
         this.vaginalWetness = vaginalWetness;
         this.vaginalLooseness = vaginalLooseness;
     }
-    //data
-    //Vag wetness
+    // data
+    // Vag wetness
     public vaginalWetness: number = 1;
     /*Vag looseness
     0 - virgin
@@ -22,12 +22,12 @@ export class VaginaClass {
     4 - gaping
     5 - monstrous*/
     public vaginalLooseness: number = 0;
-    //Type
-    //0 - Normal
-    //5 - Black bugvag
+    // Type
+    // 0 - Normal
+    // 5 - Black bugvag
     public type: number = 0;
     public virgin: boolean = true;
-    //Used during sex to determine how full it currently is.  For multi-dick sex.
+    // Used during sex to determine how full it currently is.  For multi-dick sex.
     public fullness: number = 0;
     public labiaPierced: number = 0;
     public labiaPShort: string = "";

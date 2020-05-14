@@ -4,31 +4,31 @@ import { StatusAffects } from "../../../StatusAffects";
 export class Wanderer extends BaseContent {
     public wandererRouter(): void {
         this.spriteSelect(42);
-        //First meeting...
+        // First meeting...
         if (this.player.findStatusAffect(StatusAffects.MeetWanderer) < 0) {
             this.wandererFirstMeeting();
             this.player.createStatusAffect(StatusAffects.MeetWanderer, 0, 0, 0, 0);
         }
-        //Repeat offense!
+        // Repeat offense!
         else {
-            //Chosen demon ending
+            // Chosen demon ending
             if (this.player.findStatusAffect(StatusAffects.WandererDemon) >= 0) {
                 this.wandererDemonEpilogue();
                 return;
             }
-            //Chosen human ending
+            // Chosen human ending
             if (this.player.findStatusAffect(StatusAffects.WandererHuman) >= 0) {
                 this.wandererEpilogueHuman();
                 return;
             }
-            //No choose made repeat meeting
+            // No choose made repeat meeting
             this.wandererRepeatMeeting();
         }
     }
 
-    //Encounter the wanderer for the first time
+    // Encounter the wanderer for the first time
     private wandererFirstMeeting(): void {
-        //Each outputtext is a paragraph
+        // Each outputtext is a paragraph
         this.outputText(
             "A small plume of dust rises in the distance, betraying the position of something else moving amongst the sandy dunes.   It grows larger as it approaches your position, revealing a bulky distorted shape lurking inside the cloud.  You cautiously approach, preparing to face some new demonic monstrosity.   As the sandy cloud parts, the blurred figure resolves itself into two distinct outlines.\n\n",
             true
@@ -58,7 +58,7 @@ export class Wanderer extends BaseContent {
             this.wandererLeave
         );
     }
-    //Leave
+    // Leave
     private wandererLeave(): void {
         this.spriteSelect(42);
         this.outputText(
@@ -67,7 +67,7 @@ export class Wanderer extends BaseContent {
         );
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Repeated encounter if he left
+    // Repeated encounter if he left
     private wandererRepeatMeeting(): void {
         this.spriteSelect(42);
         this.outputText(
@@ -87,7 +87,7 @@ export class Wanderer extends BaseContent {
             this.wandererLeave
         );
     }
-    //Volunteer to help
+    // Volunteer to help
     private wandererHelpHim(): void {
         this.spriteSelect(42);
         this.outputText(
@@ -107,7 +107,7 @@ export class Wanderer extends BaseContent {
             undefined
         );
     }
-    //Ask marcus to stay human
+    // Ask marcus to stay human
     private wandererStayHuman(): void {
         this.spriteSelect(42);
         this.outputText(
@@ -133,7 +133,7 @@ export class Wanderer extends BaseContent {
         this.player.createStatusAffect(StatusAffects.WandererHuman, 0, 0, 0, 0);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Ask marcus to go demon
+    // Ask marcus to go demon
     private wandererGoDemon(): void {
         this.spriteSelect(42);
         this.outputText(
@@ -149,11 +149,11 @@ export class Wanderer extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Demonic epilogue v1
+    // Demonic epilogue v1
     private wandererDemonEpilogue(): void {
         this.spriteSelect(42);
         if (this.player.findStatusAffect(StatusAffects.WandererDemon) >= 0) {
-            //First time...
+            // First time...
             if (this.player.statusAffectv1(StatusAffects.WandererDemon) == 0) {
                 this.outputText(
                     "A winged shadow flashes by.  You look up, but can't find its source in the searing desert sun.   A tap on your shoulder is all the warning you get before a curvy body is pressed against you, stroking and touching you in all the right ways.\n\n",
@@ -177,13 +177,13 @@ export class Wanderer extends BaseContent {
                     this.player.findStatusAffect(StatusAffects.WandererDemon)
                 ).value1 = 1;
             }
-            //Second Encounter
+            // Second Encounter
             else if (this.player.statusAffectv1(StatusAffects.WandererDemon) == 1) {
                 this.outputText(
                     "Lucia zips by overhead, spreading her legs and openly frigging her moist hairless slit and moaning lustily.  After a few moments she creams herself, dripping her juices over the dunes.  She licks her fingers and waves, unclipping an item from her belt and dropping it down towards you.\n\n",
                     true
                 );
-                //Catch it
+                // Catch it
                 if (50 < this.player.spe + Wanderer.rand(60)) {
                     this.outputText(
                         "You handily catch a small potion vial.  When you look up, she's gone.\n\n",
@@ -194,7 +194,7 @@ export class Wanderer extends BaseContent {
                         this.camp.returnToCampUseOneHour
                     );
                 }
-                //Drop it
+                // Drop it
                 else {
                     this.outputText(
                         "You dive for the falling bottle, but miss, and it shatters into the sands, the fluids wicking away nearly instantaneously.",
@@ -205,11 +205,11 @@ export class Wanderer extends BaseContent {
             }
         }
     }
-    //Human Epilogue 1
+    // Human Epilogue 1
     private wandererEpilogueHuman(): void {
         this.spriteSelect(42);
         if (this.player.findStatusAffect(StatusAffects.WandererHuman) >= 0) {
-            //Human Epilogue 1
+            // Human Epilogue 1
             if (this.player.statusAffectv1(StatusAffects.WandererHuman) == 0) {
                 this.outputText(
                     "As you journey the desert, you see the twin figures of Marcus and his demonic companion, Lucia, in the distance.   Judging by the frantic bobbing of Lucia's head in Marcus's lap, she's just getting ready for a meal.  Closing the distance, you watch curiously as her throat bulges obscenely to keep up with the huge cum-load.  In time she flops back, a few huge globules of cum exploding onto her form like bursting water-balloons as Marcus' orgasm finishes, leaving her a cum-stained wreck.\n\n",
@@ -228,13 +228,13 @@ export class Wanderer extends BaseContent {
                         false
                     );
                 this.dynStats("lus", 10);
-                //Value 1 is used to track the status of the end state.
+                // Value 1 is used to track the status of the end state.
                 this.player.statusAffect(
                     this.player.findStatusAffect(StatusAffects.WandererHuman)
                 ).value1 = 1;
                 this.doNext(this.camp.returnToCampUseOneHour);
             }
-            //Human Epilogue 2
+            // Human Epilogue 2
             else if (this.player.statusAffectv1(StatusAffects.WandererHuman) == 1) {
                 this.outputText(
                     "While exploring the desert, you find a strange bottle half-buried in the sand.  A small note is tied to it:\n\n\"<i>I just knew you'd find this.  Try this a few times and I think you might change your mind about Marcus' situation.\n  -Lovely Lucia</i>\"\n\n",

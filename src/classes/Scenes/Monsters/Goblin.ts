@@ -23,7 +23,7 @@ export class Goblin extends Monster {
         if (temp2 == 2) color = "blue";
         if (temp2 == 3) color = "white";
         if (temp2 == 4) color = "black";
-        //Throw offensive potions at the player
+        // Throw offensive potions at the player
         if (color != "blue") {
             if (this.short == "Tamani's daughters")
                 this.outputText(
@@ -42,7 +42,7 @@ export class Goblin extends Monster {
                     false
                 );
         }
-        //Drink blue pots
+        // Drink blue pots
         else {
             if (this.short == "Tamani's daughters") {
                 this.outputText(
@@ -76,16 +76,16 @@ export class Goblin extends Monster {
             }
             return;
         }
-        //Dodge chance!
+        // Dodge chance!
         if (
             (this.player.findPerk(PerkLib.Evade) >= 0 && Goblin.rand(10) <= 3) ||
             Goblin.rand(100) < this.player.spe / 5
         ) {
             this.outputText("\nYou narrowly avoid the gush of alchemic fluids!\n", false);
         } else {
-            //Get hit!
+            // Get hit!
             if (color == "red") {
-                //Temporary heat
+                // Temporary heat
                 this.outputText(
                     "\nThe red fluids hit you and instantly soak into your skin, disappearing.  Your skin flushes and you feel warm.  Oh no...\n",
                     false
@@ -93,7 +93,7 @@ export class Goblin extends Monster {
                 if (this.player.findStatusAffect(StatusAffects.TemporaryHeat) < 0)
                     this.player.createStatusAffect(StatusAffects.TemporaryHeat, 0, 0, 0, 0);
             } else if (color == "green") {
-                //Green poison
+                // Green poison
                 this.outputText(
                     "\nThe greenish fluids splash over you, making you feel slimy and gross.  Nausea plagues you immediately - you have been poisoned!\n",
                     false
@@ -101,7 +101,7 @@ export class Goblin extends Monster {
                 if (this.player.findStatusAffect(StatusAffects.Poison) < 0)
                     this.player.createStatusAffect(StatusAffects.Poison, 0, 0, 0, 0);
             } else if (color == "white") {
-                //sticky flee prevention
+                // sticky flee prevention
                 this.outputText(
                     "\nYou try to avoid it, but it splatters the ground around you with very sticky white fluid, making it difficult to run.  You'll have a hard time escaping now!\n",
                     false
@@ -109,7 +109,7 @@ export class Goblin extends Monster {
                 if (this.player.findStatusAffect(StatusAffects.NoFlee) < 0)
                     this.player.createStatusAffect(StatusAffects.NoFlee, 0, 0, 0, 0);
             } else if (color == "black") {
-                //Increase fatigue
+                // Increase fatigue
                 this.outputText(
                     "\nThe black fluid splashes all over you and wicks into your skin near-instantly.  It makes you feel tired and drowsy.\n",
                     false

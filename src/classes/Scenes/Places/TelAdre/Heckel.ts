@@ -4,8 +4,8 @@ import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class Heckel extends TelAdreAbstractContent {
-    //const TIMES_LOST_HECKEL_DOM_CHALLENGE: number = 650;
-    //const TIMES_DOMMED_HECKEL: number = 651;
+    // const TIMES_LOST_HECKEL_DOM_CHALLENGE: number = 650;
+    // const TIMES_DOMMED_HECKEL: number = 651;
 
     /*By submitting content to Fenoxo for addition to Corruption of Champions, I agree to give up any
     and all creative and legal control over how the characters and events from my submissions are
@@ -19,7 +19,7 @@ export class Heckel extends TelAdreAbstractContent {
     genderless, since most of it would make no sense.
     Requirements for anal: ass 'a little loose'
     */
-    //Intro:
+    // Intro:
     public heckelAppearance(): void {
         if (this.flags[kFLAGS.MET_HECKEL] == 0)
             this.outputText(
@@ -33,7 +33,7 @@ export class Heckel extends TelAdreAbstractContent {
             );
     }
 
-    //Greeting scene:
+    // Greeting scene:
     public greetHeckel(): void {
         this.outputText("", true);
         if (this.flags[kFLAGS.MET_HECKEL] == 0) {
@@ -55,7 +55,7 @@ export class Heckel extends TelAdreAbstractContent {
             );
             this.flags[kFLAGS.MET_HECKEL]++;
         }
-        //Brooke + Heckel 3some
+        // Brooke + Heckel 3some
         // Affection = 70, after first-time sex, talk to Heckel between 13:00 and 15:00, must not be a first-time encounter with Heckel, requires a gender
         else if (
             this.telAdre.brooke.brookeAffection() >= 70 &&
@@ -69,7 +69,7 @@ export class Heckel extends TelAdreAbstractContent {
             this.telAdre.brooke.specialHeckelAndBrookeEncounter();
             return;
         }
-        //Repeat post sex
+        // Repeat post sex
         else {
             this.outputText(
                 'Heckel is checking her pulse between laps when you approach her.  She grins as she catches sight of you, her teeth flashing in the light.  "<i>Back again, fresh meat?  I thought I might have scared you off last time.</i>"  She puts her hands on her hips and very blatantly looks your body up and down.  After a moment she nods to herself, as if making up her mind.  "<i>I guess you can keep up after all.  What do you say to a workout, partner?</i>"\n\n',
@@ -90,12 +90,12 @@ export class Heckel extends TelAdreAbstractContent {
         );
     }
 
-    //First time Sex
+    // First time Sex
     private heckelTraining(): void {
         this.clearOutput();
         var dom = undefined;
-        //Rejection
-        //Tone not high enough or fat too high
+        // Rejection
+        // Tone not high enough or fat too high
         if (this.player.tone < 60) {
             this.outputText(
                 "You tell Heckel that you're looking for a training partner, and she makes no attempt to hide her gaze as she looks you up and down.  When she's finished, she shakes her head and picks up her pace on the track.  \"<i>I don't think so, " +
@@ -111,7 +111,7 @@ export class Heckel extends TelAdreAbstractContent {
             this.doNext(this.telAdre.gymDesc);
             return;
         }
-        //Centaur or Genderless
+        // Centaur or Genderless
         else if (this.player.gender == 0 || this.player.isTaur()) {
             this.outputText(
                 "You tell Heckel that you're looking for a training partner, but she suddenly looks off balance. She shifts from foot to foot as she looks you up and down, head cocked to the side.\n\n",
@@ -175,7 +175,7 @@ export class Heckel extends TelAdreAbstractContent {
                 );
                 dom = this.dominateHeckel;
             }
-            //ORAL or LEAVE
+            // ORAL or LEAVE
             this.simpleChoices(
                 "Oral",
                 this.heckelOrallyFixated,
@@ -189,7 +189,7 @@ export class Heckel extends TelAdreAbstractContent {
                 this.camp.returnToCampUseOneHour
             );
         }
-        //FOLLOWUP SECKZ
+        // FOLLOWUP SECKZ
         else {
             if (this.flags[kFLAGS.LIFETIME_GYM_MEMBER] == 0) {
                 this.outputText(
@@ -219,7 +219,7 @@ export class Heckel extends TelAdreAbstractContent {
                 );
                 dom = this.dominateHeckel;
             }
-            //ORAL or LEAVE
+            // ORAL or LEAVE
             this.simpleChoices(
                 "Oral",
                 this.heckelOrallyFixated,
@@ -235,7 +235,7 @@ export class Heckel extends TelAdreAbstractContent {
         }
     }
 
-    //oral
+    // oral
     private heckelOrallyFixated(): void {
         this.outputText("", true);
         if (this.flags[kFLAGS.TIMES_FUCKED_HECKEL_BLOWJOB] == 0) {
@@ -272,7 +272,7 @@ export class Heckel extends TelAdreAbstractContent {
             );
             this.doNext(this.heckelOralFixationII);
         }
-        //Repeat
+        // Repeat
         else {
             this.outputText(
                 "You lick your lips as you eye her swelling member. It pulses softly with her heartbeat, each jump leaving it slightly bigger than it was before. As you watch, it slowly stands to attention at around ten inches in length, Heckel's heavy balls drawing up beneath it. Her canine dick almost looks shiny with the skin taut like this, though it might also be the moisture from her shower. You make up your mind when you see a dribble of pre form at the tip, and you bend over to lick it up before it can drip down and escape.\n\n",
@@ -304,7 +304,7 @@ export class Heckel extends TelAdreAbstractContent {
                 false
             );
 
-            //[<PC IS MALE OR HERM>
+            // [<PC IS MALE OR HERM>
             if (this.player.hasCock())
                 this.outputText(
                     "You use one hand to fondle her balls, letting them roll over your fingers and pinching the skin lightly. Your other hand finds its way to your crotch, where you begin stroking your " +
@@ -314,7 +314,7 @@ export class Heckel extends TelAdreAbstractContent {
                         " twitch slightly.\n\n",
                     false
                 );
-            //[<PC IS FEMALE>
+            // [<PC IS FEMALE>
             else if (this.player.hasVagina())
                 this.outputText(
                     "You use one hand to fondle her balls, letting them roll over your fingers and pinching the skin lightly. Your other hand finds its way to your crotch, where you roll your " +
@@ -340,13 +340,13 @@ export class Heckel extends TelAdreAbstractContent {
                 false
             );
 
-            //[<PC IS FEMALE>
+            // [<PC IS FEMALE>
             if (this.player.gender == 2)
                 this.outputText(
                     "A growl rises in Heckel's throat, and you recognize the sign of her impending orgasm. It's all you can do to keep your balance as her thrusts into your throat come more frequently. Although you are barely able to breath between thrusts, your free hand feverishly works at your wet slit, plumbing your depths as your own orgasm builds. Heckel's paws grab your head and pull you deeply on to her dick as you feel it spasm, and you begin to moan as you feel her load travelling through her cock and finally spilling directly into your stomach. The warmth of her seed spreads throughout your body until it meets the warmth of your groin, and your cunt begins to spasm around your fingers as it sets you over the edge.\n\n",
                     false
                 );
-            //<PC IS MALE OR HERM>
+            // <PC IS MALE OR HERM>
             else
                 this.outputText(
                     "A growl rises in Heckel's throat, and you recognize the sign of her impending orgasm. It's all you can do to keep your balance as her thrusts into your throat come more frequently. Although you are barely able to breath between thrusts, your free hand feverishly strokes your " +
@@ -370,7 +370,7 @@ export class Heckel extends TelAdreAbstractContent {
             this.dynStats("sen", 4);
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //Increment BJ count
+        // Increment BJ count
         this.flags[kFLAGS.TIMES_FUCKED_HECKEL_BLOWJOB]++;
     }
 
@@ -403,10 +403,10 @@ export class Heckel extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //anal
+    // anal
     private heckelLovesDaAnal(loss: boolean = false): void {
         this.outputText("", true);
-        //rejection - ass not loose enough
+        // rejection - ass not loose enough
         if (this.player.analCapacity() <= 20 && !loss) {
             this.outputText(
                 "Heckel lets out a barking laugh when you suggest using your " +
@@ -419,7 +419,7 @@ export class Heckel extends TelAdreAbstractContent {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //success - requires ass to be 'a little loose'
+        // success - requires ass to be 'a little loose'
         this.outputText(
             "Heckel's eyes flash as her grin splits her face, and for just a moment you wonder if this might have been a bad idea. Before you can object, however, she's pushing you down onto your stomach, your arms and " +
                 this.player.legs() +
@@ -433,7 +433,7 @@ export class Heckel extends TelAdreAbstractContent {
                 " as she lets out a low growl.",
             false
         );
-        //[<IF TONE OVER 80>
+        // [<IF TONE OVER 80>
         if (this.player.tone >= 80)
             this.outputText(
                 '  "<i>Damn ' +
@@ -441,7 +441,7 @@ export class Heckel extends TelAdreAbstractContent {
                     ", you've got one hell of an ass. I bet it's gonna feel even better than it looks.</i>\"",
                 false
             );
-        //[<IF TONE BETWEEN 60-79>
+        // [<IF TONE BETWEEN 60-79>
         else if (this.player.tone >= 60)
             this.outputText(
                 '  "<i>Mmm, not bad ' + this.player.short + ', not perfect, but not bad.</i>"',
@@ -472,7 +472,7 @@ export class Heckel extends TelAdreAbstractContent {
             false
         );
 
-        //[<IF PC HAS PENIS AND VAGOO>
+        // [<IF PC HAS PENIS AND VAGOO>
         if (this.player.hasCock() && this.player.hasVagina())
             this.outputText(
                 this.SMultiCockDesc() +
@@ -481,14 +481,14 @@ export class Heckel extends TelAdreAbstractContent {
                     " is also being ignored, and having so much pleasure with so little stimulation is driving you crazy. You hump weakly up and down, trying to draw some pleasure out of the bench beneath you while simultaneously pushing her rolling and massaging tongue closer to your aching slit, but she ignores you and only licks deeper. She buries her face in your ass entirely, her cold nose and teeth rubbing up against your sensitive skin as her tongue pushes as far inside of you as she can get it.\n\n",
                 false
             );
-        //[<IF PC HAS PENIS>
+        // [<IF PC HAS PENIS>
         else if (this.player.hasCock())
             this.outputText(
                 this.SMultiCockDesc() +
                     " is trapped between you and the wooden bench, and you know Heckel won't let you shift position to free it. You hump weakly at the bench in a desperate attempt to get some stimulation, and you can feel the vibrations of Heckel's laugh as she buries her snout in your ass. She doesn't stop you, but the polished wood barely gives any pleasure anyway.\n\n",
                 false
             );
-        //[<IF PC HAS VAGOO>
+        // [<IF PC HAS VAGOO>
         else if (this.player.hasVagina())
             this.outputText(
                 "Your snatch starts to ache while moisture runs down your groin, and you groan at the lack of attention it's receiving. If Heckel notices, she doesn't react and keeps swirling her tongue around your hole. You push weakly backwards, hoping to make her drop her tongue down a few inches, but she instead takes this as an opportunity to bury her snout fully between your ass cheecks, her tongue slipping inside you deeper than before.\n\n",
@@ -499,9 +499,9 @@ export class Heckel extends TelAdreAbstractContent {
             "Even with only a few inches inside your ass, her tongue makes you moan almost immediately. She rolls in back and forth, then side to side, then pushes it in and out before starting the cycle over. The teasing becomes more and more unbearable until you're ready to abandon caution and begin masturbating, but just as you tense to change position she stops and pulls her tongue out suddenly.\n\n",
             false
         );
-        //NEXT
+        // NEXT
         this.doNext(this.heckelLovesAnal2);
-        //Increment Anal count
+        // Increment Anal count
         this.flags[kFLAGS.TIMES_FUCKED_HECKEL_ANAL]++;
     }
 
@@ -537,7 +537,7 @@ export class Heckel extends TelAdreAbstractContent {
             false
         );
 
-        //[<IF PC HAS PENIS AND VAGOO>
+        // [<IF PC HAS PENIS AND VAGOO>
         if (this.player.hasCock() && this.player.hasVagina())
             this.outputText(
                 "Although " +
@@ -551,7 +551,7 @@ export class Heckel extends TelAdreAbstractContent {
                     ', a perfect bitch for me to ride.</i>"\n\n',
                 false
             );
-        //[<IF PC HAS PENIS AND BALLS>
+        // [<IF PC HAS PENIS AND BALLS>
         else if (this.player.hasCock() && this.player.balls > 0)
             this.outputText(
                 this.SMultiCockDesc() +
@@ -562,7 +562,7 @@ export class Heckel extends TelAdreAbstractContent {
                     ', a perfect bitch for me to ride.</i>"\n\n',
                 false
             );
-        //[<IF PC HAS VAGOO>
+        // [<IF PC HAS VAGOO>
         else if (this.player.hasVagina())
             this.outputText(
                 "Heckel's fist-sized balls slap against your ass and grind your snatch with every thrust, driving you crazy with the desperate need to be filled. You moan in anguish, pushing yourself towards her with every thrust, desperate to milk as much stimulation out of her as possible. She laughs above you, but rewards you with harder and faster thrusts. \"<i>You moan like a whore, " +
@@ -575,13 +575,13 @@ export class Heckel extends TelAdreAbstractContent {
             "You don't bother to protest your indignation as she pushes her canine dick into you again, opening your ass farther than you thought possible. You're sure you could see the outline of her cock from your stomach if you weren't being pinned beneath her. Heckel pauses in her deliberate thrusts to lean over you, mashing her breasts across your back as she brings her mouth to your ear.",
             false
         );
-        //[<IF PC IS FEMALE>
+        // [<IF PC IS FEMALE>
         if (this.player.gender == 2)
             this.outputText(
                 "  \"<i>I'm going to fuck your ass like you wish I'd fuck your cunt,</i>\"",
                 false
             );
-        //[<IF PC IS MALE OR HERM >
+        // [<IF PC IS MALE OR HERM >
         else
             this.outputText(
                 '  "<i>I\'m going to ride your ass like you wish you could ride me,</i>"',
@@ -603,11 +603,11 @@ export class Heckel extends TelAdreAbstractContent {
             "Heckel suddenly freezes up and bites down on your shoulder, throwing her hips forward. Her knot pushes against your backdoor as she tries to force it in, but your ass just won't expand that much. She growls and pushes again, making you yelp as it spreads you even further. It feels like she's shoving a melon up there! She growls even louder and bites down harder, and you can feel her dick flare inside you as her knot pushes you further and further apart. You cry out as it passes the midway point, your ass sucking the knot up greedily and contracting around the other side.",
             false
         );
-        //<ASS BECOMES VERY LOOSE>
+        // <ASS BECOMES VERY LOOSE>
         this.player.buttChange(45, true, true, false);
         this.outputText("\n\n", false);
 
-        //[<HERM PC>
+        // [<HERM PC>
         if (this.player.gender == 3)
             this.outputText(
                 "Heckel wastes no time before going back to her brutal fucking, though her thrusts are limited to short bursts now. She makes up for this in speed as you lie helplessly below her, the pain of taking her knot slowly turning into intense pleasure. The heat and pleasure spreads from your ass to your entire groin, and the knot pushes against the walls of your vagina hard enough to make them rub against each other. Heckel cries out above you and slams her hips into you as much as she can, and you immediately feel a burning heat shooting up your gut. She pumps again as she seeds your insides with another spurt, and this time you orgasm along with her. Your " +
@@ -621,7 +621,7 @@ export class Heckel extends TelAdreAbstractContent {
                     " and coating your stomach. Even as your orgasm begins to taper off, you can do little more than lie panting in a pool of your own spunk. Your legs quiver beneath hers as the warmth spreads further up your gut, leading you into a warm and hazy afterglow.\n\n",
                 false
             );
-        //[<MALE PC>
+        // [<MALE PC>
         else if (this.player.hasCock())
             this.outputText(
                 "Heckel wastes no time before going back to her brutal fucking, though her thrusts are limited to short bursts now. She makes up for this in speed as you lie helplessly below her, the pain of taking her knot slowly turning into intense pleasure. The heat and pleasure spreads from your ass to your " +
@@ -633,7 +633,7 @@ export class Heckel extends TelAdreAbstractContent {
                     " twitches, shooting your cum up between your stomach and chest. Your legs quiver beneath hers as the warmth spread further up your gut, leading you into a warm and hazy afterglow.\n\n",
                 false
             );
-        //[<FEMALE PC>
+        // [<FEMALE PC>
         else if (this.player.hasVagina())
             this.outputText(
                 "Heckel wastes no time before going back to her brutal fucking, though her thrusts are limited to short bursts now. She makes up for this in speed as you lie helplessly below her, the pain of taking her knot slowly turning into intense pleasure. The heat and pleasure spreads from your ass to your entire groin, and the knot pushes against the walls of your " +
@@ -702,7 +702,7 @@ export class Heckel extends TelAdreAbstractContent {
         this.outputText(
             '\n\n"<i>Never!</i>" the powerful hyena retorts, clasping your palm with hers.  You can feel the barely restrained potential energy in her grip.  She says, "<i>On three.  One, two... THREE!</i>"  An avalanche of tension comes down across your forearm, but you throw your own considerable might into it, stopping your knuckles a half-inch off the table\'s surface.  Matched muscle to muscle, you look the hyena in the eye.  On each side of the table your free hands grab the edge for stability, squeezing so hard you swear you can hear the wood splintering.  '
         );
-        //{Lose}
+        // {Lose}
         if (this.player.str < 75) {
             this.outputText(
                 "Even with your mighty struggling, you cannot overcome the relentless hyena, and your shaking hand is forced down, eventually pressed flat into the wood."
@@ -714,7 +714,7 @@ export class Heckel extends TelAdreAbstractContent {
             this.addButton(0, "Next", this.heckelLovesDaAnal, 1);
             this.flags[kFLAGS.TIMES_LOST_HECKEL_DOM_CHALLENGE]++;
         }
-        //{Win}
+        // {Win}
         else {
             this.outputText(
                 "Inexorably, you turn the tide, slowly bending Heckel's arm back.  Nearly lost, the hyena catches a second wind and holds you there, arm shaking.  Her eyes are desperate and wide, her pupils tiny, focused pinpricks.  She grunts and groans as she struggles as hard she can, but you push harder, and press her knuckles against the woodgrain."
@@ -732,7 +732,7 @@ export class Heckel extends TelAdreAbstractContent {
         }
     }
 
-    //[Fuck Heckel]
+    // [Fuck Heckel]
     private dominateHeckelConclusion(): void {
         this.clearOutput();
         var x: number = this.player.cockThatFits(70);

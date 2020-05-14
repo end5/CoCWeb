@@ -96,7 +96,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         CoC.timeAwareClassAdd(this);
     }
 
-    //Implementation of TimeAwareInterface
+    // Implementation of TimeAwareInterface
     public timeChange(): boolean {
         if (this.flags[kFLAGS.ARIAN_EGG_COUNTER] > 0) this.flags[kFLAGS.ARIAN_EGG_COUNTER]++;
         if (this.model.time.hours > 23) {
@@ -111,7 +111,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
     public timeChangeLarge(): boolean {
         return false;
     }
-    //End of Interface Implementation
+    // End of Interface Implementation
 
     private arianCockSize(): number {
         if (this.flags[kFLAGS.ARIAN_COCK_SIZE] < 0 || this.flags[kFLAGS.ARIAN_COCK_SIZE] > 3)
@@ -165,13 +165,13 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
     }
     public arianChest(): string {
         var buffer: string = "";
-        //Men get no cool descriptions!
+        // Men get no cool descriptions!
         if (this.flags[kFLAGS.ARIAN_BREASTS] == 0) return "chest";
 
-        //Tits ahoy!
+        // Tits ahoy!
         if (ArianScene.rand(2) == 0) buffer += this.arianChestAdjective() + " ";
 
-        //Name 'dose titays
+        // Name 'dose titays
         var temp: number = ArianScene.rand(10);
         if (temp <= 2) buffer += "tits";
         else if (temp <= 5) buffer += "breasts";
@@ -180,15 +180,15 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         return buffer;
     }
 
-    //Initial Meeting
-    //Happens randomly while visiting Tel'Adre. If player doesn't choose to help, Arian is removed from the game.
-    //If you don't help, Arian is removed from the game.
+    // Initial Meeting
+    // Happens randomly while visiting Tel'Adre. If player doesn't choose to help, Arian is removed from the game.
+    // If you don't help, Arian is removed from the game.
     public meetArian(): void {
         this.clearOutput();
         this.outputText(
             "As you wander Tel'Adre's streets, you pass by one of the many dark alleys that litter the half-empty city; you hear the sound of hacking, rasping coughs.  Following your ears, you see a hooded figure wrapped in a form-concealing cloak slumped against the wall, bent over and coughing loudly, wheezing for breath.  They really don't sound very well at all... on the other hand, it could be a setup for muggers or something.  Maybe you shouldn't try playing the good samaritan here..."
         );
-        //[Help] [Don't Help]
+        // [Help] [Don't Help]
 
         this.menu();
         this.addButton(0, "Help", this.helpArianWhenYouMeetHim);
@@ -196,24 +196,24 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(2, "Never Help", this.dontHelpArianWhenYouMeetHim, true);
     }
 
-    //[=Don't Help=]
+    // [=Don't Help=]
     private dontHelpArianWhenYouMeetHim(never: boolean = false): void {
         this.clearOutput();
         this.outputText(
             "Not liking the risks it presents - after all, they could be a mugger, or have something nasty and highly contagious - you keep on walking.  You've not gone too far before a pair of figures, elegantly dressed ferret-morphs, nearly slam into you, running quickly.  You shout at them to watch where they're going, but they ignore you, instead heading straight for the alleyway you just passed.  You watch as they grab the hooded figure and pull them to their feet.  The ferrets start chattering at their target; though you can't make out precisely what they're saying, it sounds like a scolding, even as they take a bottle from a pouch they're carrying and make the hooded figure drink it.  The cloaked man's coughs start to subside, and they promptly take an arm each and half-lead, half-carry him away.  You wonder what that was all about, but decide it doesn't matter and press on."
         );
-        //Disable the bitch if appropriate.
+        // Disable the bitch if appropriate.
         if (never) {
             this.flags[kFLAGS.ARIAN_PARK] = -1;
         } else {
             this.flags[kFLAGS.NOT_HELPED_ARIAN_TODAY] = 1;
         }
-        //Player enters Tel'Adre main screen
+        // Player enters Tel'Adre main screen
         this.menu();
         this.addButton(0, "Next", this.telAdre.telAdreMenu);
     }
 
-    //[=Help=]
+    // [=Help=]
     private helpArianWhenYouMeetHim(): void {
         this.clearOutput();
 
@@ -268,24 +268,24 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outputText("\n\nYou decide to leave him for the moment, and head back to the camp.");
-        //(Park added to TA's Menu.  It will later be replaced by Arian's house.)
+        // (Park added to TA's Menu.  It will later be replaced by Arian's house.)
         this.outputText("\n\n(<b>The park has been added to Tel'Adre's menu.</b>)");
 
         this.arianHealth(1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Further Park Visits
-    //You need to get through the entirety of Arian's park dialogue before you can do anything meaningful with him.
-    //But you can just spam it if you want, there is no schedule and Arian will magically be at the park whenever you go there.
-    //Use variable ArianPark to determine the number of visits.
+    // Further Park Visits
+    // You need to get through the entirety of Arian's park dialogue before you can do anything meaningful with him.
+    // But you can just spam it if you want, there is no schedule and Arian will magically be at the park whenever you go there.
+    // Use variable ArianPark to determine the number of visits.
     public visitThePark(): void {
         this.clearOutput();
         this.outputText(
             'As you enter the ragged remnants of the park, you spot the sickly lizan, Arian, sitting at his usual bench, and greet him.  "<i>Oh, hello there [name].  Good to see you.</i>"  He waves lazily.'
         );
 
-        //Visit 1
+        // Visit 1
         if (this.flags[kFLAGS.ARIAN_PARK] == 1) {
             this.outputText("\n\nFeeling ");
             if (this.player.cor < 50) this.outputText("curious");
@@ -311,7 +311,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outputText("\n\nHow is that so?");
-            //(PC has at least 1 Black or White Magic spell:)
+            // (PC has at least 1 Black or White Magic spell:)
             if (this.player.hasSpells()) {
                 this.outputText(
                     "  You thought spellcasting merely took fatigue and the proper mindset, not life force, and you express that sentiment to the lizan."
@@ -331,7 +331,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
 
             this.outputText("\n\nYou excuse yourself and head back to camp.");
         }
-        //Visit 2
+        // Visit 2
         else if (this.flags[kFLAGS.ARIAN_PARK] == 2) {
             this.outputText(
                 '\n\nAfter you make yourself comfortable, you suggest that he continue his story.  He looks at you in surprise at first, but he smiles shortly afterwards.  "<i>Very well, where was I?</i>"  He rubs his chin in thought.  "<i>Ah, yes.</i>"'
@@ -365,7 +365,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nYou tell him that you've heard enough for this time, so it's probably best if he saves his strength and calls it quits there.  \"<i>Very well.  I'll be seeing you then, [name].</i>\"  He waves you off."
             );
         }
-        //Visit 3
+        // Visit 3
         else if (this.flags[kFLAGS.ARIAN_PARK] == 3) {
             this.outputText(
                 "\n\nYou bring up the last conversation you had with Arian and ask him whatever happened to his apprentices."
@@ -421,8 +421,8 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nYou assure him you'll think about it; it's time he went inside and had some rest.  \"<i>Thank you, I'll be seeing you then.</i>\"  He releases your hand and slowly walks inside, barely getting the door open before two pairs of arms grab him and drag him in, closing the door behind him.  You shrug it off and head back towards camp; that diversion was nice, but you have other things to do."
             );
-            //Player returns to (Tel'Adre / camp).
-            //Arian's House replaces Park in Tel'Adre menu.
+            // Player returns to (Tel'Adre / camp).
+            // Arian's House replaces Park in Tel'Adre menu.
             this.outputText(
                 "\n\n(<b>The park has been removed from Tel'Adre's menu.  Arian's house has been added to the homes submenu.</b>"
             );
@@ -433,7 +433,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //First Visit
+    // First Visit
     public visitAriansHouse(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.ARIAN_HEALTH] < 29 || this.flags[kFLAGS.ARIAN_VIRGIN] == 1)
@@ -596,18 +596,18 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     "\n\nYou promise to keep an eye out.  You then head back out to check up on your camp."
                 );
-                //PC returns to Tel'Adre menu screen
-                //PC begins Arian romance quest
-                //1 hour passes.
+                // PC returns to Tel'Adre menu screen
+                // PC begins Arian romance quest
+                // 1 hour passes.
                 this.doNext(this.camp.returnToCampUseOneHour);
             } else {
-                //Subsequent Visits
-                //His health affects the greeting you receive when seeing him.
-                //If you modified Arian's gender, skip this intro once.
-                //If you turned Arian into a girl/herm:
-                //This plays at your next visit to Arian's place if you had him become a herm/girl.
-                //Occurs only once, and after this intro plays as usual.
-                //Don't increment ArianGirlHermChat yet!
+                // Subsequent Visits
+                // His health affects the greeting you receive when seeing him.
+                // If you modified Arian's gender, skip this intro once.
+                // If you turned Arian into a girl/herm:
+                // This plays at your next visit to Arian's place if you had him become a herm/girl.
+                // Occurs only once, and after this intro plays as usual.
+                // Don't increment ArianGirlHermChat yet!
                 if (
                     this.flags[kFLAGS.ARIAN_VAGINA] > 0 &&
                     this.flags[kFLAGS.ARIAN_HERM_CHAT] == 1
@@ -657,7 +657,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                         "\n\nYou assure the ferrets that it's fine, and you understand how busy they are.  Remembering where Arian's room is from the last time you visited, you proceed to make your way to it, finding the door to be closed, as usual.  You slowly rap your knuckles on the closed door, trying to announce your presence without being a nuisance at the same time."
                     );
                 }
-                //(if ArianGirlHermChat == 1)
+                // (if ArianGirlHermChat == 1)
                 if (this.flags[kFLAGS.ARIAN_HERM_CHAT] == 1) {
                     this.outputText(
                         "\n\nBefore you can say anything, you hear the distinct sound of Laika's yell.  It seems Boon and Laika are still engaged in a heated argument.  Arian winces and immediately apologizes to you."
@@ -684,10 +684,10 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                     this.outputText(
                         '\n\nArian quickly changes the subject though.  "<i>So... what do you want to do today?</i>"'
                     );
-                    //ArianGirlHermChat++;
+                    // ArianGirlHermChat++;
                     this.flags[kFLAGS.ARIAN_HERM_CHAT]++;
                 }
-                //0-9 health:
+                // 0-9 health:
                 else if (this.flags[kFLAGS.ARIAN_HEALTH] < 10) {
                     this.outputText(
                         '\n\nYou hear a faint cough through the door.  "<i>Come in.</i>"  You hear a tired voice say.  Gently clasping the doorknob, you slowly open the door, careful of startling the sickly lizan.'
@@ -702,7 +702,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                         '\n\n"<i>So, is there anything you\'d like to do?  Maybe talk?</i>"  Arian asks.  You reply that talking is fine.'
                     );
                 }
-                //10-19 health:
+                // 10-19 health:
                 else if (this.flags[kFLAGS.ARIAN_HEALTH] < 20) {
                     this.outputText(
                         '\n\nYou hear the distinct groan of someone stretching from behind the door.  "<i>Come in,</i>" you hear a tired voice say.  Quietly but calmly you open the door and slip gently inside.'
@@ -716,11 +716,11 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                     this.outputText(
                         '\n\n"<i>I\'m fine, thanks.  So... to what do I owe the pleasure of your visit today?</i>"'
                     );
-                    //Display options
+                    // Display options
                 }
-                //20-29 health:
+                // 20-29 health:
                 else if (this.flags[kFLAGS.ARIAN_HEALTH] < 30) {
-                    //Repeat this until the PC decides to sex Arian up somehow.
+                    // Repeat this until the PC decides to sex Arian up somehow.
                     if (
                         this.flags[kFLAGS.ARIAN_VIRGIN] == 0 &&
                         this.flags[kFLAGS.ARIAN_S_DIALOGUE] == 2
@@ -729,7 +729,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                         this.outputText(
                             "\n\nIs he... no, he couldn't be.  Arian's still too sickly to get horny... isn't he?  You wonder if you should try and spy on him - or maybe listen at the keyhole?  Then again, you could just barge on in - after all, it's not like he's really playing with himself, right?"
                         );
-                        //[Eavesdrop] [Peep] [Barge In] [Leave]
+                        // [Eavesdrop] [Peep] [Barge In] [Leave]
                         this.menu();
                         this.addButton(0, "Eavesdrop", this.eavesDropOnArian);
                         this.addButton(1, "Peep", this.peepOnArian);
@@ -737,7 +737,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                         this.addButton(3, "Leave", this.leaveFappingArian);
                         return;
                     }
-                    //(else)
+                    // (else)
                     else {
                         this.outputText(
                             '\n\n"<i>Come in!</i>"  You hear Arian say, detecting a slight pep to [Arian eir] voice.  You step inside and smile at Arian as you close the door behind you.  [Arian Ey] smiles back at you and motions towards a nearby chair.'
@@ -752,7 +752,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                         );
                     }
                 }
-                //30-49 health:
+                // 30-49 health:
                 else if (this.flags[kFLAGS.ARIAN_HEALTH] < 50) {
                     this.outputText(
                         '\n\nYou hear the sound of drawers being pulled open and forcefully closed.  "<i>C-come in!</i>"  You hear Arian announce.  Curious as to what [Arian ey]\'s up to, you open the door  and step inside to see Arian sitting on [Arian eir] work desk.  [Arian Ey] slowly turns on [Arian eir] swivel chair to gaze at you with a smile.  "<i>Hello, [name]!</i>"  [Arian Ey] motions to a nearby chair.  "<i>I was just working on a little project, nothing important.  So, make yourself at home!</i>"  [Arian Ey] smiles happily at you.'
@@ -767,7 +767,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                         "\n\nYou stop and consider a moment, wondering what you should do now that you're here with the lizan."
                     );
                 }
-                //50-74 health
+                // 50-74 health
                 else if (this.flags[kFLAGS.ARIAN_HEALTH] < 75) {
                     this.outputText(
                         '\n\n"<i>[name], is that you?  Come in!</i>"  You hear Arian happily say.  You open the door and step in to find Arian sitting by [Arian eir] table, a book is laying on the table and a mug of tea in [Arian eir] hand.  [Arian Ey] motions to a chair nearby as [Arian ey] sips [Arian eir] tea.  "<i>Pull up a chair. May I offer you some tea?</i>"'
@@ -780,7 +780,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                         '\n\nArian sets [Arian eir] mug down and smiles at you.  "<i>So, to what do I owe the pleasure of your visit?</i>"'
                     );
                 }
-                //75-100 health:
+                // 75-100 health:
                 else {
                     this.outputText(
                         '\n\nArian opens the door, smiling brightly at you.  "<i>Hello [name]!  Come in!</i>"  [Arian Ey] says, stepping back and holding the door for you.  You step in and Arian closes the door behind you and embraces you in a friendly hug.  You return [Arian eir] hug with one of your own.'
@@ -791,7 +791,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                         '.  Taking another for [Arian em]self.  "<i>I love when you come visit, [name].  So, what are we going to do today?</i>" [Arian ey] asks, expectantly.'
                     );
                 }
-                //(Display Options)
+                // (Display Options)
                 this.arianHomeMenu();
             }
         }
@@ -811,7 +811,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             this.addButton(0, "Next", this.arianPlot4);
         else if (this.flags[kFLAGS.ARIAN_S_DIALOGUE] == 5 && this.arianHealth() >= 100)
             this.addButton(0, "Next", this.arianPlot5);
-        //If no story dialogue
+        // If no story dialogue
         else {
             this.addButton(0, "Talk", this.talkToArianChoices);
             if (this.flags[kFLAGS.ARIAN_S_DIALOGUE] >= 2)
@@ -841,7 +841,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.arianHomeMenu();
     }
 
-    //[=Eavesdrop=]
+    // [=Eavesdrop=]
     private eavesDropOnArian(): void {
         this.clearOutput();
         this.outputText(
@@ -856,7 +856,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(4, "Leave", this.leaveFappingArian);
     }
 
-    //[=Peep=]
+    // [=Peep=]
     private peepOnArian(): void {
         this.clearOutput();
         this.outputText(
@@ -875,13 +875,13 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nYou ponder this curious development.  So, the reptile has developed a crush on you?  He thinks you're attractive?  Well, now... should you give him the chance to finish himself off, or should you head in now - either to tell him off, or offer him something a bit better than his hand to play with?"
         );
         this.dynStats("int", 1);
-        //[Barge In - Leads on to \"<i>Barge In</i>\" scene from first choice] [Leave]
+        // [Barge In - Leads on to \"<i>Barge In</i>\" scene from first choice] [Leave]
         this.menu();
         this.addButton(0, "Barge In", this.bargeInOnArian);
         this.addButton(4, "Leave", this.leaveFappingArian);
     }
 
-    //[=Leave=]
+    // [=Leave=]
     private leaveFappingArian(): void {
         this.clearOutput();
         this.outputText(
@@ -899,11 +899,11 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nYou promise to return later and bid him farewell.  You step outside and make your way back to your camp."
         );
-        //Return to camp
+        // Return to camp
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=Barge in=]
+    // [=Barge in=]
     private bargeInOnArian(): void {
         this.clearOutput();
         this.outputText(
@@ -918,7 +918,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nArian peeks from under his covers.  \"<i>Y - You mean you're not mad at me?</i>\"  You smile and tell him you aren't.  Arian visibly relaxes, letting his covers fall on his chest."
         );
-        //(if PC is male)
+        // (if PC is male)
         if (this.player.hasCock() && !this.player.hasVagina()) {
             this.outputText(
                 '\n\n"<i>I just assumed... since we\'re both male....</i>" He explains himself, fidgeting.  "<i>I didn\'t know if you... well... if you would mind that....</i>"'
@@ -926,12 +926,12 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nYou raise your eyebrow; it seems that Arian is not opposed to some male on male.... What do you tell him?"
             );
-            //[Don't mind] [Like Girls]
+            // [Don't mind] [Like Girls]
             this.menu();
             this.addButton(0, "Don't Mind", this.youDontMindBeingGayForArian);
             this.addButton(1, "Like Girls", this.youLikeGirlsNotSickLizardDudes);
         }
-        //(else if PC is genderless)
+        // (else if PC is genderless)
         else if (!this.player.hasCock() && !this.player.hasVagina()) {
             this.outputText(
                 '\n\n"<i>I just assumed... since we\'re both male....</i>"  He fidgets with his hands.  "<i>I didn\'t know if you... well... if you would mind that....</i>"'
@@ -939,10 +939,10 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nYou stop him in his tracks, and tell him you're not exactly male.  You strip your undergarments and let Arian gaze in fascination at your crotch - your clean, smooth, genderless crotch.  Not believing what he is seeing Arian crawls forward to touch your crotch, mesmerized.  \"<i>How?  You... I... we can't....</i>\"  You silence him with a finger, and tell him there's plenty you two can do."
             );
-            //(Display Sex Menu)
+            // (Display Sex Menu)
             this.arianSexMenu(false);
         }
-        //(else if PC is female)
+        // (else if PC is female)
         else if (!this.player.hasCock() && this.player.hasVagina()) {
             this.outputText(
                 "\n\n\"<i>It's just that... well... you're so beautiful and I'm... I didn't think you....</i>\"  He trails off."
@@ -956,11 +956,11 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\nYou pull the covers off his face and say, "<i>Well... we\'ll have to fix that then.</i>"  You slip off his bed and begin stripping off your [armor].  Arian shyly does the same, stripping off his robes until he is laying in his bed, completely naked.'
             );
-            //(Proceed to Get Penetrated)
+            // (Proceed to Get Penetrated)
             this.menu();
             this.addButton(0, "Next", this.getPenetratedByArianAndHisHitlerMustache);
         }
-        //(else) //if PC is a herm
+        // (else) //if PC is a herm
         else {
             this.outputText(
                 "\n\n\"<i>It's just that... well... you're so beautiful and I'm... I didn't think you....</i>\"  He trails off."
@@ -989,28 +989,28 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\nArian quickly blurts out, "<i>No!  Of course not!  Never!  I just... well... to be honest I don\'t mind that you have extra... umm... parts; in fact I think that is... kinda... sexy.</i>"  He looks at you, cheeks red in shame over his admission.  "<i>So... umm... my point is... I don\'t mind if you....</i>"  Arian swallows audibly.  "<i>If you decide to penetrate me... that is if you don\'t mind me being male... I don\'t mean to offend you or anything!  I just heard that some girls like you prefer... other girls....</i>"  He looks away in shame.'
             );
             this.outputText("\n\nYou rub your chin in thought....");
-            //[Like Male] [Prefer Female]
+            // [Like Male] [Prefer Female]
             this.menu();
             this.addButton(0, "Like Male", this.hermsLikeMaleArian);
             this.addButton(1, "Like Female", this.hermsLikeFemaleArian);
         }
     }
 
-    //[=Like Male=]
+    // [=Like Male=]
     private hermsLikeMaleArian(): void {
         this.clearOutput();
         this.outputText(
             "You tell him that's not the case for you; you don't have a problem with him being a guy.  In fact, you think he looks very cute, earning you a nervous smile.  Arian relaxes, letting you look over his body and decide what you want to do...."
         );
-        //(Should you penetrate him or mount him?)
-        //Penetrate - (Proceed to appropriate scene)
-        //Get Penetrated - (Proceed to appropriate scene)
+        // (Should you penetrate him or mount him?)
+        // Penetrate - (Proceed to appropriate scene)
+        // Get Penetrated - (Proceed to appropriate scene)
         this.menu();
         if (this.player.hasCock() && this.player.cockThatFits(50) >= 0)
             this.addButton(0, "Penetrate", this.giveArianAnal);
         this.addButton(1, "Get Penetrated", this.getPenetratedByArianAndHisHitlerMustache);
     }
-    //[=Prefer Female=]
+    // [=Prefer Female=]
     private hermsLikeFemaleArian(): void {
         this.clearOutput();
         this.outputText(
@@ -1036,7 +1036,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nYou don't bother replying; you walk up to her and gently help her up.  Then you push her gently towards the bed and begin stripping.  Arian smiles and lays down."
         );
-        //(Proceed to Penetrate)
+        // (Proceed to Penetrate)
         this.flags[kFLAGS.ARIAN_HERM_CHAT] = 1;
         this.flags[kFLAGS.ARIAN_VAGINA] = 1;
         this.flags[kFLAGS.ARIAN_COCK_SIZE] = 0;
@@ -1045,7 +1045,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(0, "Next", this.penetrateArian);
     }
 
-    //[=Don't mind=]
+    // [=Don't mind=]
     private youDontMindBeingGayForArian(): void {
         this.clearOutput();
         this.outputText(
@@ -1060,7 +1060,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nWell, we'll have to fix that then.  You pull the covers off his face.  Slipping off his bed, you begin stripping off your [armor].  Arian shyly does the same, stripping out of his robes until he is laying in his bed, completely naked.\n\n"
         );
-        //(Proceed Give Anal)
+        // (Proceed Give Anal)
 
         // Redirecting the scene if the players cock is too big for the anal scene... not ideal, but its a QWIKFIX™
         this.menu();
@@ -1070,7 +1070,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             this.addButton(0, "Next", this.giveArianAnal);
         }
     }
-    //[=Like Girls=]
+    // [=Like Girls=]
     private youLikeGirlsNotSickLizardDudes(): void {
         this.clearOutput();
         this.outputText(
@@ -1095,7 +1095,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nYou don't bother replying; you walk up to her and help her up then gently push her towards the bed as you begin stripping.  Arian smiles and lays down. "
         );
-        //(Proceed to Penetrate)
+        // (Proceed to Penetrate)
         this.menu();
         this.flags[kFLAGS.ARIAN_HERM_CHAT] = 1;
         this.flags[kFLAGS.ARIAN_VAGINA] = 1;
@@ -1105,11 +1105,11 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(0, "Next", this.penetrateArian);
     }
 
-    //Story Dialogue
-    //Story Dialogue precedes all other interactions with Arian if the PC qualifies for any.
-    //They should happen whenever Arian reaches a new threshold.
-    //All of them occur only once.
-    //((if ArianHealth >= 10) && (ArianSDialogue == 0))//May give Vitality T. and Arian will accept it.
+    // Story Dialogue
+    // Story Dialogue precedes all other interactions with Arian if the PC qualifies for any.
+    // They should happen whenever Arian reaches a new threshold.
+    // All of them occur only once.
+    // ((if ArianHealth >= 10) && (ArianSDialogue == 0))//May give Vitality T. and Arian will accept it.
     private arianStoryDialogue1(): void {
         this.arianHealth(1);
         this.clearOutput();
@@ -1120,7 +1120,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nArian nods.  \"<i>I guess it isn't fair that I'm the only one that gets to hear your stories... but before we start....  How long ago do you think this whole demon trouble started?</i>\""
         );
         this.outputText("\n\nYou shrug your shoulders; ");
-        //PC has met Marae:
+        // PC has met Marae:
         if (this.player.findStatusAffect(StatusAffects.MetMarae) >= 0)
             this.outputText("Marae herself told you they showed up about, what, 20-30 years ago?");
         else
@@ -1229,14 +1229,14 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\nYou smile, and tell him that it\'s all right and he needs [Arian eir] sleep, so he had best get into bed. Arian nods and tucks himself in.  "<i>Thank you, [name].</i>"  You bid him goodnight and gently close [Arian eir] door behind you.  On your way out you let Boon and Laika know Arian is sleeping, then you make your way back to camp.'
         );
-        //ArianSDialogue++;
+        // ArianSDialogue++;
         this.flags[kFLAGS.ARIAN_S_DIALOGUE]++;
-        //player returns to camp.
+        // player returns to camp.
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     ////((if ArianHealth >= 20) && (ArianSDialogue == 1))
-    //Can sex Arian.
+    // Can sex Arian.
     private arianStoryDialogue2(): void {
         this.clearOutput();
         this.arianHealth(1);
@@ -1276,15 +1276,15 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nArian swallows audibly.  \"<i>No, that's not the point....  I mean... maybe... just... just forget about it....  I'm feeling a bit tired.... Do you mind if we talk some other time?</i>\""
         );
-        //ArianSDialogue++;
+        // ArianSDialogue++;
         this.flags[kFLAGS.ARIAN_S_DIALOGUE]++;
-        //[Drop It] [Pry]
+        // [Drop It] [Pry]
         this.menu();
         this.addButton(0, "Drop It", this.arianStory2DropIt);
         this.addButton(1, "Pry", this.arianStoryPry);
     }
 
-    //=Drop It=
+    // =Drop It=
     private arianStory2DropIt(): void {
         this.clearOutput();
         this.outputText(
@@ -1296,7 +1296,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //=Pry=
+    // =Pry=
     private arianStoryPry(): void {
         this.clearOutput();
         this.outputText(
@@ -1314,23 +1314,23 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //((if ArianHealth >= 30) && (ArianSDialogue == 2))
-    //Will Teach Magic
+    // ((if ArianHealth >= 30) && (ArianSDialogue == 2))
+    // Will Teach Magic
     private arianDialogue3(): void {
         this.clearOutput();
         this.arianHealth(1);
         this.outputText(
             "Before you can say anything, Arian asks you, \"<i>[name], I've been wondering....  Do you have any interest in magic?  You've done so much for me; I believe I should return the favor somehow.</i>\""
         );
-        //ArianSDialogue++;
+        // ArianSDialogue++;
         this.flags[kFLAGS.ARIAN_S_DIALOGUE]++;
-        //[Yes] [No]
+        // [Yes] [No]
         this.menu();
         this.addButton(0, "Yes", this.yesArianShouldMagicTeach);
         this.addButton(1, "No", this.noArianShouldntMagicTeach);
     }
 
-    //=Yes=
+    // =Yes=
     private yesArianShouldMagicTeach(): void {
         this.clearOutput();
         this.outputText(
@@ -1341,12 +1341,12 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nYou smirk and point out that's basically what you meant, but you're definitely still interested either way.  Arian nods happily.  \"<i>Okay, then, where to start....</i>\""
         );
 
-        //(Go to Talk about Magic)
+        // (Go to Talk about Magic)
         this.menu();
         this.addButton(0, "Next", this.arianMagicLessons);
     }
 
-    //=No=
+    // =No=
     private noArianShouldntMagicTeach(): void {
         this.clearOutput();
         this.outputText(
@@ -1356,12 +1356,12 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nArian nods happily.  \"<i>Certainly, I'd be happy to be of some help to you.  So... is there something you'd like to do today?</i>\""
         );
 
-        //(display options)
+        // (display options)
         this.arianHomeMenu();
     }
 
-    //((if ArianHealth >= 50) && (ArianSDialogue == 3))
-    //Give Talisman, Imbue unlocked.
+    // ((if ArianHealth >= 50) && (ArianSDialogue == 3))
+    // Give Talisman, Imbue unlocked.
     private arianImbue(): void {
         this.clearOutput();
         this.arianHealth(1);
@@ -1415,25 +1415,25 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("\n\nDo you have sex with Arian?");
         this.player.createKeyItem("Arian's Talisman", 0, 0, 0, 0);
-        //ArianSDialogue++;
+        // ArianSDialogue++;
         this.flags[kFLAGS.ARIAN_S_DIALOGUE]++;
-        //[Yes] [No]
+        // [Yes] [No]
         this.menu();
         this.addButton(0, "Yes", this.yesPlotSexArian);
         this.addButton(1, "No", this.noPlotSexNauArian);
     }
 
-    //=Yes=
+    // =Yes=
     private yesPlotSexArian(): void {
         this.clearOutput();
         this.outputText(
             "You approach the awkwardly amorous lizan and place your arms around [Arian eir] neck.  Leaning in close, you whisper into [Arian eir] ear that [Arian ey] only had to ask."
         );
-        //(Display Sex Menu)
+        // (Display Sex Menu)
         this.arianSexMenu(false);
     }
 
-    //=No=
+    // =No=
     private noPlotSexNauArian(): void {
         this.clearOutput();
         this.outputText(
@@ -1447,12 +1447,12 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\n Maybe next time, you agree. Arian grins at you.  "<i>Okay, then.  Is there something else you\'d like to do?</i>"'
         );
 
-        //(Display Options)
+        // (Display Options)
         this.arianHomeMenu();
     }
 
-    //((if ArianHealth >= 75) && (ArianSDialogue == 4))
-    //Will treat Corruption.
+    // ((if ArianHealth >= 75) && (ArianSDialogue == 4))
+    // Will treat Corruption.
     private arianPlot4(): void {
         this.clearOutput();
         this.arianHealth(1);
@@ -1472,13 +1472,13 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\nArian smiles brightly at you.  "<i>No problem.  I\'d do anything for you.</i>"  [Arian Ey] gazes into your eyes in silence... perhaps a bit too long....  You clear your throat and Arian seems to snap out of [Arian eir] trance.  "<i>Oh!  Umm... is there something you want to do?</i>"  [Arian Ey] fidgets.'
         );
 
-        //(Display Options)
-        //ArianSDialogue++;
+        // (Display Options)
+        // ArianSDialogue++;
         this.flags[kFLAGS.ARIAN_S_DIALOGUE]++;
         this.arianHomeMenu();
     }
 
-    //((if ArianHealth == 100) && (ArianSDialogue == 5))
+    // ((if ArianHealth == 100) && (ArianSDialogue == 5))
     private arianPlot5(): void {
         this.clearOutput();
         this.arianHealth(1);
@@ -1512,38 +1512,38 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outputText("\n\nWell... when [Arian ey] puts it that way... what should you do?");
-        //ArianSDialogue++;
+        // ArianSDialogue++;
         this.flags[kFLAGS.ARIAN_S_DIALOGUE]++;
-        //[Accept] [Deny]
+        // [Accept] [Deny]
         this.menu();
         this.addButton(0, "Accept", this.acceptArianMovingIntoCamp);
         this.addButton(1, "Deny", this.denyAriansMoveIn);
     }
 
-    //[=Accept=]
+    // [=Accept=]
     private acceptArianMovingIntoCamp(): void {
         this.clearOutput();
         this.outputText(
             "You tell Arian you'd be delighted to have [Arian em] move in with you.  Arian's face lights up like a kid's who's been given a bucket of candy.  \"<i>Really!?  Great!  I'll pack my stuff and we can go right away!</i>\""
         );
 
-        //(Skip to ‘Invite to Camp')
+        // (Skip to ‘Invite to Camp')
         this.menu();
         this.addButton(0, "Next", this.inviteArianToCamp);
     }
 
-    //[=Deny=]
+    // [=Deny=]
     private denyAriansMoveIn(): void {
         this.clearOutput();
         this.outputText(
             'You tell Arian you\'d like some time to think about it.  Arian looks disappointed at first, but smiles at you all the same.  "<i>I understand... no pressure....  So, what are we going to do today?</i>"'
         );
 
-        //(Display Options)
+        // (Display Options)
         this.arianHomeMenu();
     }
 
-    //Talk
+    // Talk
     private talkToArianChoices(): void {
         this.clearOutput();
         this.outputText(
@@ -1564,15 +1564,15 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(9, "Back", this.arianHomeMenu);
     }
 
-    //Magic:
-    //Magic Lessons, teaches white magic and increases int. Up to 100.
-    //Gain a pretty nice boost, 4 lessons per day, only.
+    // Magic:
+    // Magic Lessons, teaches white magic and increases int. Up to 100.
+    // Gain a pretty nice boost, 4 lessons per day, only.
     private arianMagicLessons(): void {
         this.clearOutput();
         this.arianHealth(1);
         this.outputText("You ask Arian if [Arian ey] wouldn't mind giving you some magic lessons.");
 
-        //(if ArianMLesson >= 4)
+        // (if ArianMLesson >= 4)
         if (this.flags[kFLAGS.ARIAN_LESSONS] >= 4) {
             this.outputText(
                 '\n\nArian raises [Arian eir] hand, stopping you in your tracks.  "<i>I appreciate your enthusiasm, [name].  But first you must rest and let the lessons of the day sink in.  I promise I\'ll teach you more tomorrow.</i>"  Arian smiles at you.'
@@ -1586,7 +1586,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         }
         this.outputText('\n\nArian nods.  "<i>Of course!  Now where do I begin....</i>"');
 
-        //(if PC int < 25) //Basics!
+        // (if PC int < 25) //Basics!
         if (this.player.inte < 25) {
             this.outputText(
                 '\n\nYou let Arian know you\'re actually pretty new to magic in general, so maybe [Arian ey] could teach you a few basics?  Arian nods.  "<i>Very well...</i>"  Arian clears [Arian eir] throat.'
@@ -1608,7 +1608,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             if (!this.arianFollower()) this.outputText("make your way back to your camp.");
             else this.outputText("return to your duties.");
         }
-        //(else if PC int < 50 //Teach Charge Weapon if PC doesn't know.
+        // (else if PC int < 50 //Teach Charge Weapon if PC doesn't know.
         else if (this.player.inte < 50) {
             this.outputText(
                 "\n\nYou tell Arian you've got the fundamentals down, so why not cover something a bit more advanced?"
@@ -1632,7 +1632,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             if (!this.arianFollower()) this.outputText(", making your way back to camp.");
             else this.outputText(", exiting [Arian eir] tent and going about your business.");
 
-            //(if PC doesn't know Charge Weapon)
+            // (if PC doesn't know Charge Weapon)
             if (this.player.findStatusAffect(StatusAffects.KnowsCharge) < 0) {
                 this.outputText("\n\nAs you ");
                 if (!this.player.isNaga()) this.outputText("walk");
@@ -1645,7 +1645,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             }
         } else if (this.player.inte < 75) {
             this.outputText("<b>Game Note: This isn't canon and will be re-written soonish.</b>");
-            //Teach Blind if PC doesn't know.
+            // Teach Blind if PC doesn't know.
             this.outputText(
                 "\n\nYou say you have a pretty good understanding of how magic works now, so you'd like [Arian em] to get started on the more complex theories."
             );
@@ -1659,7 +1659,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\n\"<i>Now to finish our lesson, I'll give you a practical example of how to effectively use conjuration to defend yourself.  So pay attention, [name].  Conjured objects are generally weaker than real objects, so conjuring a shield or a suit of armor or even a weapon is no good.  Not to mention it's quite complicated.  A suit of armor is made not only of metal, but of other components as well - you'd have to conjure and maintain each individually.  Instead, conjure a simple element that can turn the tide of the battle in your favor.</i>\""
             );
-            //(if PC doesn't know Blind)
+            // (if PC doesn't know Blind)
             if (this.player.findStatusAffect(StatusAffects.KnowsBlind) < 0) {
                 this.outputText("\n\nLike what?  You ask in curiosity.");
                 this.outputText(
@@ -1672,7 +1672,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                     "\n\nYou spend a few minutes learning how to properly use the spell, and after some practice you can reliably use the spell whenever you want to.  You thank Arian for the lesson and for teaching you a new spell.  Then bidding farewell to the grinning lizan, you leave, promising to visit [Arian em] again soon."
                 );
                 this.player.createStatusAffect(StatusAffects.KnowsBlind, 0, 0, 0, 0);
-                //Return to camp.
+                // Return to camp.
             } else {
                 this.outputText(
                     "\n\nYou understand what Arian's talking about.  [Arian Ey] means that rather than conjuring a barrier, it's best to conjure something akin to a bright light to try and blind your foe."
@@ -1685,7 +1685,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 );
             }
         } else {
-            //Teach Whitefire if PC doesn't know.
+            // Teach Whitefire if PC doesn't know.
             this.outputText("<b>Game Note: This isn't canon and will be re-written soonish.</b>");
             this.outputText(
                 "\n\nYou ask Arian if [Arian ey] wouldn't mind hearing some of your own theories about magic; you've been giving the subject a lot of thought lately."
@@ -1714,7 +1714,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             );
             if (!this.arianFollower()) this.outputText("begin the trek home.");
             else this.outputText("exit [Arian eir] tent.");
-            //(if PC doesn't know Whitefire)
+            // (if PC doesn't know Whitefire)
             if (this.player.findStatusAffect(StatusAffects.KnowsWhitefire) < 0) {
                 this.outputText(
                     "\n\nAs you walk, you ponder what you discussed with Arian and conclude that by combining conjuration with alteration, you could quickly and easily create an expanding conflagration of flames, burning your foes in combat."
@@ -1729,8 +1729,8 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.inte < 50) this.dynStats("int", 1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Sex:
-    //Available after the first time you have sex. (ArianVirgin > 0)
+    // Sex:
+    // Available after the first time you have sex. (ArianVirgin > 0)
     private arianSexingTalk(): void {
         this.clearOutput();
         this.arianHealth(1);
@@ -1742,9 +1742,9 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nArian bites [Arian eir] lower lip in embarrassment.  \"<i>I... umm... can't we talk about something else?</i>\"  You shake your head and tell [Arian em] there's nothing to be ashamed of.  The two of you have already shared intimacy after all; and you'd like to know [Arian eir] kinks and wishes as well."
         );
         this.outputText('\n\nArian blushes, and takes a deep breath.  "<i>Okay....</i>"');
-        //Block about penis. Should only show up if Arian has a cock at all.
+        // Block about penis. Should only show up if Arian has a cock at all.
         if (this.flags[kFLAGS.ARIAN_COCK_SIZE] != 0) {
-            //Arian talks about his lack of a second penis.
+            // Arian talks about his lack of a second penis.
             if (this.flags[kFLAGS.ARIAN_DOUBLE_COCK] == 0) {
                 this.outputText(
                     '\n\n"<i>I\'ve always resented my lack of a second dick,</i>" Arian admits.'
@@ -1764,7 +1764,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                     "\n\nYou ponder the idea, but decide that Arian is fine just the way [Arian ey] is; maybe someday though..."
                 );
             }
-            //Arian has 2 penis, thankful for the PC's help in that department.
+            // Arian has 2 penis, thankful for the PC's help in that department.
             else {
                 this.outputText(
                     '\n\n"<i>I had always resented my lack of a second dick,</i>" Arian admits.  "<i>But I guess I don\'t have to worry about this anymore, thanks to you.</i>"  Arian smiles at you.'
@@ -1784,20 +1784,20 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nWhat about [Arian eir] size though?  In this world it's quite easy to do something about that, if size is a problem."
             );
-            //Now deal with Cock Sizes, properly.
-            //Regular Cock.
+            // Now deal with Cock Sizes, properly.
+            // Regular Cock.
             if (this.flags[kFLAGS.ARIAN_COCK_SIZE] == 1) {
                 this.outputText(
                     "\n\n\"<i>Well, I don't have any complaints, personally.  I feel good no matter what we do.  Even if you don't touch me there.  But if you want me to grow bigger, or maybe want me to get rid of it... I don't have any objections.</i>\""
                 );
             }
-            //Big Cock.
+            // Big Cock.
             else if (this.flags[kFLAGS.ARIAN_COCK_SIZE] == 2) {
                 this.outputText(
                     "\n\n\"<i>I'm certainly a lot bigger than I hoped to ever get.  Sometimes it's a tight fit... in my slit I mean... but I kinda like it, and that also means it'll feel better for you if we... I mean... if you want to...  Not that I mind, I'm happy just being with you.  And if you want to change it somehow... I wouldn't mind.</i>\""
                 );
             }
-            //Huge Cock.
+            // Huge Cock.
             else if (this.flags[kFLAGS.ARIAN_COCK_SIZE] == 3) {
                 this.outputText(
                     "\n\n\"<i>It's a lot bigger than I'm comfortable with, to be honest.  But you said you liked it, so I'm keeping it.</i>\"  You see [Arian eir] robes beginning to tent, and can't help but tease the shy lizan.  It seems that despite [Arian eir] complaints, [Arian ey] enjoys having a monster between [Arian eir] legs... one that [Arian ey] can't hope to hide."
@@ -1808,8 +1808,8 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             }
             this.outputText("\n\nYou tell Arian you'll think about it....");
         }
-        //End of Cock Block. Innuendos ahoy!
-        //(if ArianVagina > 0) //Talk about Arian's new oviposition perk
+        // End of Cock Block. Innuendos ahoy!
+        // (if ArianVagina > 0) //Talk about Arian's new oviposition perk
         if (this.flags[kFLAGS.ARIAN_VAGINA] > 0) {
             this.outputText(
                 "\n\nArian sighs and flushes; the distinct smell of an aroused female begins to permeate the room.  That and the lizan's cute fidgeting are a dead giveaway of her current state."
@@ -1850,9 +1850,9 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nYou look Arian over, and decide to ask what [Arian eir] preferred form of sex is."
         );
-        //Finally discuss Arian's preferred sex acts. [Arian Ey] slowly takes a liking for anal.
+        // Finally discuss Arian's preferred sex acts. [Arian Ey] slowly takes a liking for anal.
         if (this.flags[kFLAGS.ARIAN_ANAL_XP] < 33) {
-            //No preference... yet.
+            // No preference... yet.
             this.outputText(
                 "\n\nArian rubs [Arian eir] chin in thought, but in the end [Arian ey] simply shrugs and says, \"<i>I guess I don't really have a preference... so I'm good with whatever you feel like doing.</i>\"  Arian smiles at you."
             );
@@ -1861,7 +1861,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             );
             this.outputText("\n\nArian smiles nervously at you and slowly nods in agreement.");
         } else if (this.flags[kFLAGS.ARIAN_ANAL_XP] < 66) {
-            //Kinda like anal, thought it was going to hurt but it feel nice...
+            // Kinda like anal, thought it was going to hurt but it feel nice...
             this.outputText(
                 '\n\nArian rubs [Arian eir] chin in thought.  "<i>To be honest... ever since you... umm... put it back there....</i>"  Arian blushes.  "<i>I\'ve been thinking that anal is not so bad... I was scared that it might hurt at first... and while it does hurt a bit, it also feels nice.</i>"'
             );
@@ -1870,8 +1870,8 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nArian averts [Arian eir] eyes.  \"<i>I'm not saying I enjoy it... but I don't mind if it's you....</i>\""
             );
         }
-        //Anal feels good, just as good as any other action if not better
-        //(else if (ArianAnalXP <= 100))
+        // Anal feels good, just as good as any other action if not better
+        // (else if (ArianAnalXP <= 100))
         else if (this.flags[kFLAGS.ARIAN_ANAL_XP] <= 100) {
             this.outputText(
                 '\n\nArian blushes.  "<i>I\'m... I like it when you use my ass... it feels really good,</i>" Arian admits.'
@@ -1886,7 +1886,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nYou chuckle.  Maybe... considering the things you've seen in this world, you'd be hard pressed to find what kind of rule defines a pervert.  But that doesn't matter; you enjoy using [Arian eir] ass too.  Arian smiles at you."
             );
         } else {
-            //Anal is definitely what Arian prefers, although [Arian ey] likes other stuff too, [Arian ey] prefers anal.
+            // Anal is definitely what Arian prefers, although [Arian ey] likes other stuff too, [Arian ey] prefers anal.
             this.outputText(
                 "\n\nArian blushes and averts [Arian eir] eyes.  \"<i>I can't stop thinking about when you use my ass... it feels really good... and if I had to say if there's anything I like... then it's that.... I hope it feels good for you, too.</i>\"  Arian smiles at you, nervously."
             );
@@ -1895,7 +1895,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             );
             this.outputText("\n\nArian takes a glance at your crotch.");
 
-            //if PC has no cock)
+            // if PC has no cock)
             if (!this.player.hasCock()) {
                 this.outputText(
                     '\n\nBut sighs in disappointment when [Arian ey] sees no bulge.  "<i>Maybe... you could grow your dick back and... nevermind....</i>"  Arian averts [Arian eir] eyes.'
@@ -1905,7 +1905,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     '\n\n[Arian Ey] smiles nervously at you and begins fidgeting.  "<i>Perhaps... you\'d like to... well... use me again?  Please?</i>" Arian asks hopefully.'
                 );
-                //[Yes][No]
+                // [Yes][No]
                 this.menu();
                 this.addButton(0, "Yes", this.yesYouButtslutIllFuckYou);
                 this.addButton(1, "No", this.goddamnitNoYouButtSlut);
@@ -1915,7 +1915,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.sexTalkFinish();
     }
 
-    //[=Yes=]
+    // [=Yes=]
     private yesYouButtslutIllFuckYou(): void {
         this.clearOutput();
         this.outputText(
@@ -1924,12 +1924,12 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nArian jumps to the task and eagerly strips, laying down in bed and swaying [Arian eir] tail back and forth as [Arian ey] waits for you to do the same."
         );
-        //(Go to Give Anal)
+        // (Go to Give Anal)
         this.menu();
         this.addButton(0, "Next", this.giveArianAnal);
     }
 
-    //[=No=]
+    // [=No=]
     private goddamnitNoYouButtSlut(): void {
         this.clearOutput();
         this.outputText(
@@ -1948,8 +1948,8 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Invite to Camp:
-    //Only available if ArianHealth == 100.
+    // Invite to Camp:
+    // Only available if ArianHealth == 100.
     private inviteArianToCamp(): void {
         this.clearOutput();
         this.outputText(
@@ -1969,7 +1969,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\n"<i>Great! I\'ll pack up and we can go right away!</i>" Arian announces happily.'
         );
 
-        //(Story Dialogue Links here.)
+        // (Story Dialogue Links here.)
         this.outputText(
             "\n\nArian opens a small closet and brings out a pair of small bags.  One of them is tightly closed and seems close to bursting, the other looks completely empty.  Arian takes a few neatly folded spare sets of clothes and gently packs them inside [Arian eir] bag, then turns and walks to [Arian eir] work desk where [Arian ey] picks up a few more trinkets and bags them all."
         );
@@ -2111,20 +2111,20 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nYou politely excuse yourself, saying you should let the lizan make [Arian emself] comfortable in [Arian eir] new home, and step back outside."
         );
-        //flag arian as follower
+        // flag arian as follower
         this.flags[kFLAGS.ARIAN_FOLLOWER] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Sex
-    //ArianHealth must be at least 20 before you can even pick Sex as an option.
+    // Sex
+    // ArianHealth must be at least 20 before you can even pick Sex as an option.
     private arianSexMenu(output: boolean = true): void {
         if (output) {
             this.clearOutput();
             this.outputText(
                 "You ask Arian if [Arian ey] feels strong enough to do a little lovemaking."
             );
-            //(if ArianHealth < 30)
+            // (if ArianHealth < 30)
             if (this.flags[kFLAGS.ARIAN_HEALTH] < 30) {
                 this.outputText(
                     '\n\nArian smiles nervously at you.  "<i>I... of course.  I\'d love to.  What do you feel like doing?</i>"'
@@ -2134,7 +2134,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                     '\n\nArian smiles nervously and averts [Arian eir] eyes.  "<i>Of course.  I want to learn more about you: your body, your thoughts, everything.  So... what do you want to do?</i>"'
                 );
             }
-            //(if ArianHealth < 75)
+            // (if ArianHealth < 75)
             else if (this.flags[kFLAGS.ARIAN_HEALTH] < 75) {
                 this.outputText(
                     '\n\nArian smiles and averts [Arian eir] eyes.  "<i>I would love to.  This isn\'t just thanks for my gift is it?</i>"'
@@ -2146,13 +2146,13 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                     '\n\nArian looks at you happily.  "<i>Okay... what do you feel like doing?</i>"'
                 );
             }
-            //(if ArianHealth < 100)
+            // (if ArianHealth < 100)
             else if (this.flags[kFLAGS.ARIAN_HEALTH] < 100) {
                 this.outputText(
                     '\n\nArian smiles tenderly at you.  "<i>I always have enough strength for lovemaking, [name].  What do you feel like doing?</i>"'
                 );
             }
-            //(if ArianHealth == 100) //Also used for follower Arian.
+            // (if ArianHealth == 100) //Also used for follower Arian.
             else {
                 this.outputText(
                     '\n\nArian smiles and strokes your [face].  "<i>Do you even need to ask?</i>"'
@@ -2162,35 +2162,35 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nYou smile at your lizan lover and begin shedding your [armor].  Arian follows in suit, settling down on [Arian eir] bed and watching you enraptured as [Arian ey] awaits your decision.  Once you're naked, much to the lizan's delight, you smile at [Arian em] and consider your options...."
             );
         }
-        //(Display Options)
+        // (Display Options)
         this.menu();
         if (this.player.hasCock()) {
-            //PC must have a cock that fits (cock area 50 or less)
+            // PC must have a cock that fits (cock area 50 or less)
             if (this.player.cockThatFits(50) >= 0)
                 this.addButton(0, "Anal - Pitch", this.giveArianAnal);
-            //Get Blown:
-            //PC must have a cock.
+            // Get Blown:
+            // PC must have a cock.
             this.addButton(2, "Get Blown", this.getBlownByArian);
-            //Penetrate:
-            //Arian must be herm/female.
-            //PC must have a cock that fits (cock area 50 or less)
+            // Penetrate:
+            // Arian must be herm/female.
+            // PC must have a cock that fits (cock area 50 or less)
             if (
                 this.player.cockThatFits(this.flags[kFLAGS.ARIAN_CAPACITY]) >= 0 &&
                 this.flags[kFLAGS.ARIAN_VAGINA] > 0
             )
                 this.addButton(4, "Fuck Vagina", this.penetrateArian);
-            //Double Pen Arian:
-            //PC must have at least 2 cocks that fit. That means two cocks with a cock area of <= 50.
-            //This isn't meant to give AnalXP, but given the fact that Arian's ass will get pen'd it would also be justified. Up to you Fen!
+            // Double Pen Arian:
+            // PC must have at least 2 cocks that fit. That means two cocks with a cock area of <= 50.
+            // This isn't meant to give AnalXP, but given the fact that Arian's ass will get pen'd it would also be justified. Up to you Fen!
             if (
                 this.player.cockThatFits(50) >= 0 &&
                 this.player.cockThatFits2(50) >= 0 &&
                 this.flags[kFLAGS.ARIAN_VAGINA] > 0
             )
                 this.addButton(8, "Double Pen", this.doublePenetrateArian);
-            //Docking
-            //ArianCockSize needs to be below 3. (ArianDblCock does not affect this decision.)
-            //PC cock area must be <= 30.
+            // Docking
+            // ArianCockSize needs to be below 3. (ArianDblCock does not affect this decision.)
+            // PC cock area must be <= 30.
             if (
                 this.player.smallestCockArea() <= 30 &&
                 this.flags[kFLAGS.ARIAN_COCK_SIZE] < 3 &&
@@ -2198,19 +2198,19 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             )
                 this.addButton(7, "Docking", this.arianDocking);
         }
-        //Get Anal:
-        //Arian must have a cock.
+        // Get Anal:
+        // Arian must have a cock.
         if (this.flags[kFLAGS.ARIAN_COCK_SIZE] > 0)
             this.addButton(1, "Anal - Catch", this.getButtWreckedByArian);
-        //Blow:
-        //Arian must have a cock.
+        // Blow:
+        // Arian must have a cock.
         if (this.flags[kFLAGS.ARIAN_COCK_SIZE] > 0)
             this.addButton(3, "Blow " + this.arianMF("Him", "Her"), this.suckAriansDick);
 
-        //PC must have a vagina.
+        // PC must have a vagina.
         if (this.player.hasVagina()) {
-            //Get Penetrated:
-            //Arian must have a cock.
+            // Get Penetrated:
+            // Arian must have a cock.
             if (this.flags[kFLAGS.ARIAN_COCK_SIZE] > 0)
                 this.addButton(5, "Get Fucked", this.getPenetratedByArianAndHisHitlerMustache);
             if (
@@ -2224,9 +2224,9 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(9, "Back", this.arianHomeMenu);
     }
 
-    //Give Anal:
-    //Modified by AnalXP.
-    //PC must have a cock that fits (cock area 50 or less)
+    // Give Anal:
+    // Modified by AnalXP.
+    // PC must have a cock that fits (cock area 50 or less)
     private giveArianAnal(): void {
         var x: number = this.player.cockThatFits(50);
         this.clearOutput();
@@ -2247,8 +2247,8 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "You tell Arian that, if [Arian ey]'s willing, you'd like to take [Arian em] from behind."
         );
-        //AnalXP < 33
-        //Tight, sensitive enough to orgasm. (It hurts... but feels good)
+        // AnalXP < 33
+        // Tight, sensitive enough to orgasm. (It hurts... but feels good)
         if (this.flags[kFLAGS.ARIAN_ANAL_XP] < 33) {
             this.outputText(
                 '\n\n[Arian Ey] fidgets, biting [Arian eir] lower lip.  "<i>I... okay.  J - Just be gentle, ok?  I\'m still tight back there.</i>"  Arian hesitantly rolls onto [Arian eir] hands and knees, lifting [Arian eir] tail out of the way to give you a glimpse of [Arian eir] puckered hole.'
@@ -2256,7 +2256,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nYou promise [Arian em] that you will, sidling yourself onto [Arian eir] bed behind [Arian em].  You reach out with one hand and stroke the base of [Arian eir] tail, gently admiring its cool, smooth-textured surface before running your hand down to rub across [Arian eir] asscheeks.  Mmm... [Arian ey] has a very nice ass, you tell [Arian em], groping [Arian em] in an effort to display your admiration for the lush, full, surprisingly soft cheeks.  Yes, for someone who was born male, [Arian ey] truly has a wonderful ass, so deliciously full and round and soft."
             );
-            //(if ArianVagina < 1)
+            // (if ArianVagina < 1)
             if (this.flags[kFLAGS.ARIAN_VAGINA] < 1) {
                 this.outputText(
                     "\n\n\"<i>I - I can't help it, I was born this way... that isn't a bad thing is it?</i>\" Arian asks, fidgeting and shuddering as you stroke [Arian eir] behind.  From [Arian eir] tone, it's clear that [Arian ey]'s torn between being flattered and being embarrassed at your evident approval of [Arian eir] butt.  You don't bother answering [Arian eir] question, instead you just firmly grip [Arian eir] scaly buttcheek, eliciting a gasp from the flustered lizan."
@@ -2332,19 +2332,19 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nYou groan and cry out as you promptly fulfill [Arian eir] request."
             );
 
-            //(Low Cum Amount)
+            // (Low Cum Amount)
             if (this.player.cumQ() < 250) {
                 this.outputText(
                     "\n\nEven though your load might pale in comparison to other creatures native to Mareth, you have no doubt that you're more than enough to fill Arian's tight ass flush with cum.  You unload inside [Arian em] with short, controlled thrusts."
                 );
             }
-            //(Medium Cum Amount)
+            // (Medium Cum Amount)
             else if (this.player.cumQ() < 1000) {
                 this.outputText(
                     "\n\nYou begin dumping your prodigious amount of cum inside your willing lizan lover.  The more you unload into [Arian eir] tight ass the more pleasurable [Arian eir] slick muscle spasms feel, milking you for more and more cum, such a lewd little hole this puckered rosebud of Arian's.  You sigh as [Arian eir] belly inflates and some of your spent seed begins dripping from around Arian's little hole."
                 );
             }
-            //(High Cum Amount)
+            // (High Cum Amount)
             else {
                 this.outputText(
                     "\n\nFor a moment you hesitate....  Arian is clearly inexperienced and you know your load is nothing if not enormous; you worry if the inexperienced lizan will be able to handle you, but your worries are soon forgotten; it's much too late to worry about it now.  Your spunk jets inside the moaning lizan like a fire hose, dowsing both your and [Arian eir] flames of lust with its immense output of white, creamy goodness.  Arian's belly protrudes like a gravid woman's belly - no, actually, it's even wider, and yet the lizan's lewd little hole never tires as it milks you, even though by now Arian is beyond full - copious amounts of cum leak from around your " +
@@ -2385,10 +2385,10 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nYou pat the lizan playfully on the head and tell [Arian em] to get some rest.  You watch as [Arian ey] settles down to sleep off the excitement of your sex, then carefully redress yourself and leave [Arian em] to rest."
             );
-            //PC returns to camp menu
+            // PC returns to camp menu
         }
-        //AnalXP < 66
-        //Loose, sensitive enough to make Arian scream in pleasure. (It's like a tight vagina, feels like one too, minor pain)
+        // AnalXP < 66
+        // Loose, sensitive enough to make Arian scream in pleasure. (It's like a tight vagina, feels like one too, minor pain)
         else if (this.flags[kFLAGS.ARIAN_ANAL_XP] < 66) {
             this.outputText(
                 "\n\n[Arian Ey] fidgets, smiling at you nervously.  \"<i>Okay, but don't be too rough.  I might have gotten a bit used to it, but you're still capable of giving me quite a stretch.</i>\"  Arian rolls onto [Arian eir] hands and knees, tail waving excitedly as you catch a glimpse of [Arian eir] stretched hole.  [Arian Ey] looks back at you, shooting you [Arian eir] best seductive look and wiggling [Arian eir] hips side to side."
@@ -2406,7 +2406,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\nArian turns as much as [Arian ey] can to look at you.  "<i>Lizan females have assholes that are as sensitive as vaginas to accommodate their mate\'s dual penises.</i>"  [Arian Ey] stops [Arian eir] explanation momentarily to moan in pleasure as you begin stroking [Arian eir] insides.'
             );
-            //(if ArianVagina < 1)
+            // (if ArianVagina < 1)
             if (this.flags[kFLAGS.ARIAN_VAGINA] < 1) {
                 this.outputText(
                     "\n\n\"<i>This shouldn't apply to me, since I'm male.  Ah!  But I guess I'm starting to develop some sensitivity back there.  It really feels good... hmm....</i>\""
@@ -2513,19 +2513,19 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 ".  Arian, completely blissed out, lays limply on [Arian eir] bed, [Arian eir] butt held up by your gripping hands.  With a final deep thrust you finally go over the edge."
             );
 
-            //(Low Cum Amount)
+            // (Low Cum Amount)
             if (this.player.cumQ() < 250)
                 this.outputText(
                     "\n\nYou pump Arian's insides with as much cum as you can muster, filling [Arian em] with your liquid love while the lizan gasps, moans, and grips you tightly with [Arian eir] distended sphincter.  You are quickly spent though, and after a couple more tugs, you feel the lizan's contracting rosebud relax to let you pull out of [Arian eir] depths."
                 );
-            //(Medium Cum Amount)
+            // (Medium Cum Amount)
             else if (this.player.cumQ() < 1000)
                 this.outputText(
                     "\n\nArian's butt feels so good that you can't help but paint it in white.  Gob after gob of searing hot cum flows from your " +
                         this.player.cockHead(x) +
                         " and into the lizan's willing bowels.  You can't help but continue thrusting inside [Arian eir] deliciously slick insides, even as Arian's distended sphincter tries its best to hold you in place.  By the time you're done, Arian looks like [Arian ey]'s three months pregnant; after a few final thrusts, you're confident you've given [Arian em] all that you can muster for the moment and pull out of the lizan's hungry ass."
                 );
-            //(High Cum Amount)
+            // (High Cum Amount)
             else {
                 this.outputText(
                     "\n\nYou bury yourself as deep as you can into the lizan's behind and brace yourself, holding onto [Arian eir] hips as the first of many jets of cum finally escapes your throbbing " +
@@ -2549,8 +2549,8 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             else this.outputText("tent");
             this.outputText(".");
         }
-        //AnalXP <= 100
-        //Very Loose, sensitive enough to make Arian cum just from insertion. (Feels better than anything else. Yep, Arian really becomes a buttslut at this point)
+        // AnalXP <= 100
+        // Very Loose, sensitive enough to make Arian cum just from insertion. (Feels better than anything else. Yep, Arian really becomes a buttslut at this point)
         else {
             this.outputText(
                 "\n\n[Arian Ey] fidgets and moans as [Arian ey] eagerly rolls onto [Arian eir] hands and knees, lifting [Arian eir] tail out of the way and spreading [Arian eir] cheeks to give you a glimpse of [Arian eir] throbbing, loose, puckered hole.  Arian pants and looks back at you in excitement.  \"<i>I'm all ready for you, [name].  Just go ahead and fill me up.</i>\"  [Arian Ey] grins at you.  It's clear to see that Arian likes the idea of being taken, but there really is no need to rush... you'd rather savor this, plus teasing your eager lizan lover is always a bonus."
@@ -2648,19 +2648,19 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nWith that in mind, you give yourself over to the pleasures of your reptilian lover and [Arian eir] naughty little ass, allowing the building orgasm to finally reach its climax and boil from your body in a gush of salty spooge."
             );
 
-            //(Low Cum amount)
+            // (Low Cum amount)
             if (this.player.cumQ() < 250) {
                 this.outputText(
                     '\n\nYou spill your load, deep into Arian\'s bowels, [Arian eir] ass working overtime to ensure not even a single drop of seed is left in you.  "<i>Ah!  I can feel it!  Yes!</i>"  [Arian Ey] screams, in ecstasy.  Gob after gob of cum travels down your urethra and into Arian\'s blooming rosebud, you almost feel bad when you run dry and are unable to give [Arian em] anymore; even as [Arian eir] ass continues to impatiently milk you. "<i>...Aww. No more?</i>" [Arian ey] jokes.'
                 );
             }
-            //(Medium Cum amount)
+            // (Medium Cum amount)
             else if (this.player.cumQ() < 1000) {
                 this.outputText(
                     '\n\nYou dig deep into [Arian eir] ass, intent on delivering your load as far inside the lizan\'s slutty ass as you can.  "<i>Ah!  You feel so good!  Give it to me!  Yesss!</i>" [Arian ey] screams in ecstasy.  You can feel your cum travelling down your urethra, forcing Arian\'s sphincter to loosen up enough so you can finally cum inside [Arian em] with the force of hose.  You reach down to massage the blissed out lizan\'s belly, feeling it inflate and expand with each potent jet.  By the time you\'re done, Arian has formed a small pot belly.  "<i>Already over?  No more?</i>"  [Arian Ey] jokes.  You give [Arian em] a wry smile and pound into [Arian em] one last time, spilling one last jet into [Arian eir] belly.  "<i>Aaaah, yesss...</i>"'
                 );
             }
-            //(High Cum amount)
+            // (High Cum amount)
             else {
                 this.outputText(
                     '\n\nYou have no doubt Arian will appreciate your prodigious load, so you make sure to press as deep as you can into [Arian eir] ass to ensure [Arian ey] will keep it all inside, then finally let your cum flow out of you and into the cock and cum hungry ass, eagerly massaging your shaft.  "<i>I can feel it!  It\'s going to be a big one!  Shoot it!</i>" [Arian ey] screams in ecstasy.  You groan and begin dumping obscene amounts of seed into your lizan lover.  The first few jets inflate [Arian eir] belly slightly, and you dart a hand to feel it expand with every subsequent blast of sticky jism.  "<i>So much cum!  So good... more!</i>"  Arian demands, blissed out by your pumping appendage.  [Arian Eir] ass never stops its assault on your ' +
@@ -2688,7 +2688,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\nYou find yourself collapsing on top of the collapsed lizan, heaving to regain your breath after such a vigorous fuck.  Finally, you regain sufficient energy to pull yourself free of the absent-minded sucking of [Arian eir] ass, which wetly slurps shut afterwards to hold your seed inside.  "<i>I feel so empty when you\'re not inside,</i>" Arian utters tiredly.'
             );
 
-            //(ArianAssChat == 0)
+            // (ArianAssChat == 0)
             if (this.flags[kFLAGS.ARIAN_ASS_CHAT] == 0) {
                 this.outputText(
                     "\n\nYou shake your head slowly in disbelief, telling Arian [Arian ey]'s really let [Arian emself] go.  Arian averts [Arian eir] gaze in embarrassment.  \"<i>I... sorry.  It's just that it feels so good, and I can't... sorry.</i>\"  [Arian Ey] looks away, moving [Arian eir] tail into [Arian eir] hands. You sigh softly and stroke [Arian eir] scaly face, telling him it's not a bad thing that [Arian ey] enjoys himself, it's just you're surprised at how \"<i>into it</i>\" [Arian ey] gets.  [Arian Ey] doesn't need to debase himself for you, this is supposed to be good for both of you."
@@ -2721,7 +2721,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     "\n\nNo, there's nothing about [Arian eir] behavior you want to change"
                 );
-                //(any physical TFs made to Arian:
+                // (any physical TFs made to Arian:
                 if (9999 == 9999) this.outputText(" as hypocritical as that may be");
                 this.outputText(
                     '... besides, you think [Arian ey]\'s kind of sexy when [Arian ey] gets like that.  At that Arian perks up.  "<i>Really?</i>"  Yes, really, you reply.  Arian smiles happily at you.  "<i>So... do you want to go again?</i>"'
@@ -2761,8 +2761,8 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Get Blown:
-    //PC must have a cock.
+    // Get Blown:
+    // PC must have a cock.
     private getBlownByArian(): void {
         this.clearOutput();
         this.flags[kFLAGS.ARIAN_VIRGIN] += 1;
@@ -2774,7 +2774,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             "You trail your hand down your belly, pondering what to do.  Arian doesn't seem to notice, instead staring with anticipation at your erection.  You idly swing your hips from side to side, and notice with amusement that the lizan seems to follow it.  Building on that train of thought, you ask if [Arian ey] would be willing to suck you off."
         );
 
-        //(if ArianHasBlown == 0)
+        // (if ArianHasBlown == 0)
         if (this.flags[kFLAGS.ARIAN_HAS_BLOWN] == 0) {
             this.outputText(
                 "\n\nThe lizan averts [Arian eir] eyes, snapping out of [Arian eir] reverie."
@@ -2818,7 +2818,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nWith one powerful slurp, Arian coaxes a small jet of pre out of your [cock biggest], which Arian is only too happy to drink down, moaning at the first taste of your seed; this in turn sends wonderful vibrations along your length, coaxing even more pre into Arian's hungry maw."
         );
 
-        //(If ArianHasBlown == 0)
+        // (If ArianHasBlown == 0)
         if (this.flags[kFLAGS.ARIAN_HAS_BLOWN] == 0) {
             this.outputText(
                 "\n\nAs you gasp in pleasure, you cannot help but wonder when did Arian get so skillful with [Arian eir] mouth; you thought [Arian ey] said [Arian ey] was a virgin before you came along."
@@ -2917,9 +2917,9 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Penetrate:
-    //Arian must be herm/female.
-    //PC must have a cock that fits (cock area 50 or less)
+    // Penetrate:
+    // Arian must be herm/female.
+    // PC must have a cock that fits (cock area 50 or less)
     private penetrateArian(): void {
         var x: number = this.player.cockThatFits(50);
         if (x < 0) x = this.player.smallestCockIndex();
@@ -3075,19 +3075,19 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         else this.outputText("Y");
         this.outputText("ou unleash your essence right into the lizan's burning womb.");
 
-        //(Low Cum amount)
+        // (Low Cum amount)
         if (this.player.cumQ() < 250) {
             this.outputText(
                 "\n\nArian's pussy is clamping down so hard on your dick, that you can feel it as the cum stretches your urethra, gathering at the tip, and exploding outwards.  Contracting walls carrying the seed deep into the awaiting womb that lies beyond.  You hug the shuddering lizan tightly as you thrust against her a few more times, delivering the last few ropes of cum and collapsing atop her."
             );
         }
-        //(Medium Cum amount)
+        // (Medium Cum amount)
         else if (this.player.cumQ() < 1000) {
             this.outputText(
                 "\n\nYou forcible stretch Arian's wet pussy with the sheer volume of the load traversing your cum-sleeve.  You imagine yourself, covering the lizan's canal in white... all the way to her cervix.  The weak barrier barely containing the enormous load that forces it open, to spatter and sit inside her womb.  \"<i>Ahh... so full,</i>\" Arian says, tongue lolling out.  You hug her tightly against you, an action she happy to return, and slowly you feel it.  Her slender belly gains volume, sloshing with the cum you just deposited in it.  Once spent, you collapse and sigh."
             );
         }
-        //(High Cum amount)
+        // (High Cum amount)
         else {
             this.outputText(
                 "\n\nYou threaten to blow the poor lizan straight off your " +
@@ -3116,8 +3116,8 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Get Anal:
-    //Arian must have a cock.
+    // Get Anal:
+    // Arian must have a cock.
     private getButtWreckedByArian(): void {
         this.clearOutput();
         this.flags[kFLAGS.ARIAN_VIRGIN] += 1;
@@ -3128,15 +3128,15 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "With a lick of your lips with your tongue, you ask how Arian would like to be on the pitching end of anal?"
         );
-        //(if AnalXP < 33)
+        // (if AnalXP < 33)
         if (this.flags[kFLAGS.ARIAN_ANAL_XP] < 33)
             this.outputText("\n\n\"<i>I don't know... won't it hurt, are you sure?</i>\"");
-        //(if AnalXP < 66)
+        // (if AnalXP < 66)
         else if (this.flags[kFLAGS.ARIAN_ANAL_XP] < 66)
             this.outputText(
                 '\n\n"<i>I like it when you use my ass, but if you want me to use yours, I would gladly comply.  That is, if you\'re sure you want me to...?</i>"'
             );
-        //(if AnalXP <= 100)
+        // (if AnalXP <= 100)
         else
             this.outputText(
                 "\n\n\"<i>I really love it when you fill me up, and personally I'd prefer we do it that way, but if you're really sure you want me to, I'll try and make you feel as good as you feel inside me.</i>\""
@@ -3297,7 +3297,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nWith a pleased grin, you tell [Arian em] that [Arian ey]'s not too shabby [Arian em]self, either.  So, how did [Arian ey] like being the pitcher?"
         );
 
-        //(if AnalXP < 33)
+        // (if AnalXP < 33)
         if (this.flags[kFLAGS.ARIAN_ANAL_XP] < 33) {
             this.outputText(
                 '\n\n"<i>Wow, that felt really good.  Did it feel good for you too, [name]?  I hope it did... wow,</i>"  Arian pants.'
@@ -3311,7 +3311,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\n"<i>I\'m glad,</i>" [Arian ey] replies, nuzzling you in affection.'
             );
         }
-        //(if AnalXP < 66)
+        // (if AnalXP < 66)
         else if (this.flags[kFLAGS.ARIAN_ANAL_XP] < 66) {
             this.outputText(
                 '\n\n"<i>You ass feels so good on my cock, [name].  I can only hope it feels this good when you\'re inside me.  Though to be honest, I think I like it best when our roles are reversed.</i>"'
@@ -3323,7 +3323,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\n"<i>It just feels so good when you\'re doing me from behind, but doing you is good too.</i>"  [Arian Ey] smiles.'
             );
         }
-        //(if AnalXP <= 100)
+        // (if AnalXP <= 100)
         else {
             this.outputText(
                 '\n\n"<i>That was great!  Now why don\'t you return the favor and use me instead?  After watching you sit on my shaft like that, I want to be fucked too.</i>"  [Arian Ey] bites [Arian eir] lower lip, tail waving as best as it can underneath the two of you.'
@@ -3340,13 +3340,13 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nAnd what if you want to be the catcher sometimes, huh?  [Arian Ey]'s got such a wonderful cock, how can [Arian ey] deny you the pleasure of taking it up the ass?  [Arian Ey]'s so greedy, you tell him, playfully tapping him on the nose.  [Arian Ey] whimpers.  \"<i>Okay, I like being the pitcher too, but can you do me now?  Please?</i>\"  [Arian Ey] asks, eagerly wiggling [Arian eir] hips."
             );
             this.outputText("\n\nYou contemplate it...");
-            //(if PC has a cock){
+            // (if PC has a cock){
             if (this.player.hasCock()) {
                 this.player.orgasm();
                 this.dynStats("sen", 2);
                 this.player.slimeFeed();
-                //[Yes: Play the \"<i>PC fucks Arian's ass</i>\" scene]
-                //[No: You tell Arian you've had enough fun for now; maybe later, after you've both recovered.]
+                // [Yes: Play the \"<i>PC fucks Arian's ass</i>\" scene]
+                // [No: You tell Arian you've had enough fun for now; maybe later, after you've both recovered.]
                 this.menu();
                 if (this.player.cockThatFits(50) >= 0 && this.player.hasCock())
                     this.addButton(0, "Yes", this.giveArianAnal);
@@ -3371,8 +3371,8 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Blow:
-    //Arian must have a cock.
+    // Blow:
+    // Arian must have a cock.
     private suckAriansDick(): void {
         this.clearOutput();
         this.flags[kFLAGS.ARIAN_VIRGIN] += 1;
@@ -3489,7 +3489,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\n"<i>Yes, I liked it very much!  Though I hope you\'ll let me return the favor... somehow,</i>"  [Arian Ey] says, releasing you from between [Arian eir] legs, while [Arian eir] tail lazily curls to gently massage your neck in a sign of affection.'
         );
 
-        //[NoCock:
+        // [NoCock:
         if (!this.player.hasCock())
             this.outputText(
                 "\n\nYou tell [Arian ey] you'll think of some way [Arian ey] can return the favor,"
@@ -3528,9 +3528,9 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Get Penetrated:
-    //PC must have a vagina.
-    //Arian must have a cock.
+    // Get Penetrated:
+    // PC must have a vagina.
+    // Arian must have a cock.
     private getPenetratedByArianAndHisHitlerMustache(): void {
         this.clearOutput();
         this.flags[kFLAGS.ARIAN_VIRGIN] += 1;
@@ -3601,7 +3601,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nArian smiles right back at you and finally begins easing [Arian emself] inside you."
         );
 
-        //(if ArianDblCock == 1) //DP PC
+        // (if ArianDblCock == 1) //DP PC
         if (this.flags[kFLAGS.ARIAN_DOUBLE_COCK] > 0) {
             this.outputText(
                 "\n\nHesitantly, the lizan tries to fit both of [Arian eir] cocks into your [vagina] and [asshole] at the same time.  You sigh at the intrusion and look at [Arian eir] face; Arian has a look of absolute bliss on [Arian eir], you can even see that the lizan is beginning to drool a bit.  The texture of Arian's twin cocks might be very similar, but they feel entirely different on both your ass and pussy."
@@ -3622,7 +3622,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nYou take hold of [Arian eir] arms and pull [Arian em] up towards you, making the lizan lose [Arian eir] balance and fully penetrate you."
             );
-            //(Enlargement/Virginity loss messages)
+            // (Enlargement/Virginity loss messages)
             this.player.cuntChange(this.arianCockSize(), true, true, false);
             this.player.buttChange(this.arianCockSize(), true, true, false);
 
@@ -3630,7 +3630,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nThe lizan moans in shock at the deed, as if [Arian ey] still can't believe this is actually happening.  [Arian Eir] fingers clutch you tightly, but [Arian ey] doesn't make any further motions - more likely [Arian ey] can't bring himself to thrust just yet, still full of that nervous virgin behavior."
             );
         } else {
-            //Only one pole for that hole.
+            // Only one pole for that hole.
             this.outputText(
                 "\n\nArian nervously begins to thrust [Arian eir] strange, bumpy cock into your cunt, timidly inserting an inch or two and then withdrawing, as if unable to bring [Arian em]self to fully penetrate you."
             );
@@ -3661,7 +3661,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nArian lets out a tiny squeak of shock at the pinching sensation, which instinctively makes [Arian em] thrust [Arian emself] forward, embedding [Arian emself] in you to the hilt."
             );
-            //(Enlargement/Virginity loss messages)
+            // (Enlargement/Virginity loss messages)
             this.player.cuntChange(this.arianCockSize(), true, true, false);
 
             this.outputText(
@@ -3778,9 +3778,9 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Double Pen Arian:
-    //PC must have at least 2 cocks that fit. That means two cocks with a cock area of <= 50.
-    //This isn't meant to give AnalXP, but given the fact that Arian's ass will get pen'd it would also be justified. Up to you Fen!
+    // Double Pen Arian:
+    // PC must have at least 2 cocks that fit. That means two cocks with a cock area of <= 50.
+    // This isn't meant to give AnalXP, but given the fact that Arian's ass will get pen'd it would also be justified. Up to you Fen!
     private doublePenetrateArian(): void {
         this.clearOutput();
         this.flags[kFLAGS.ARIAN_VIRGIN] += 1;
@@ -3812,7 +3812,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\nYou sidle gently into the bed behind her and gently squeeze her full, round cheeks, rubbing them before moving your hand into her crack in an effort to massage both anus and pussy at the same time.  You roll the palm of your hand against her back passage and stroke her softly scaled vulva lips with your fingers, asking how that feels.  "<i>G-good,</i>" Arian replies, shuddering.'
         );
 
-        //(if ArianAnalXP < 33)
+        // (if ArianAnalXP < 33)
         if (this.flags[kFLAGS.ARIAN_ANAL_XP] < 33) {
             this.outputText(
                 "\n\nYou slide your finger inside of Arian's pussy, getting it nice and slick with her juices, and then remove your hand; lining the finger up with her ass, you start pressing insistently against her back hole; it takes some effort, but finally her back passage yields and Arian moans as your finger presses past her sphincter and into her warm innards.  You smile and tell Arian she's really tight back here."
@@ -3830,7 +3830,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\n"<i>Ooohhh!</i>" Arian\'s initial cry of pain turns into a deep moan of pleasure as you finally make your way inside.  You stop to give her some time to adjust.  "<i>I feel so stuffed... it hurts, but feels good at the same time.  Hhmmm... keep moving, please.</i>"  You do as she asks, and slowly push yourself to the hilt.'
             );
         }
-        //(else if ArianAnalXP < 66)
+        // (else if ArianAnalXP < 66)
         else if (this.flags[kFLAGS.ARIAN_ANAL_XP] < 66) {
             this.outputText(
                 "\n\nYou know Arian's no stranger to anal sex, but you still figure it's polite to lube your finger up to some extent first.  Your fingers stroke and caress, sliding in and out of her moist depths, and you remove your hand to begin probing into her tailhole.  The well-trained orifice happily accepts you, posing little resistance as you begin sliding your femcum-slick digits inside."
@@ -3901,7 +3901,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nYou still can't quite drown your surprise at how this is making her act, but if that's what she wants.  Besides, with the vice-like grip her holes have on your cocks, it's not as if you have a choice, right?  You thrust two, three more times with all the ferocity you can muster, grab her ass and holler as your climax finally erupts from your twin dicks."
         );
 
-        //(Low Cum Amount)
+        // (Low Cum Amount)
         if (this.player.cumQ() <= 250) {
             this.outputText(
                 "\n\nYour " +
@@ -3913,7 +3913,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\n"<i>More, I need more for my eggs!</i>" Arian demands, yet you are truly spent...'
             );
         }
-        //(Medium Cum Amount)
+        // (Medium Cum Amount)
         else if (this.player.cumQ() <= 1000) {
             this.outputText(
                 "\n\nLiquid lust floods Arian's insides, as your " +
@@ -3934,7 +3934,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\n"<i>M-more,</i>" Arian pleads, even as her belly starts to distend.'
             );
         }
-        //(High Cum Amount)
+        // (High Cum Amount)
         else {
             this.outputText(
                 "\n\nYou cum with such force, that if Arian's ass wasn't clamping down on your " +
@@ -3952,7 +3952,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 ", and Arian slowly slides off your shaft to plop on her bed; eyes closed in bliss, as she takes a short nap."
         );
 
-        //(if ArianDblPenChat == 0)
+        // (if ArianDblPenChat == 0)
         if (this.flags[kFLAGS.ARIAN_DOUBLE_PENETRATION_CHAT] == 0) {
             this.outputText(
                 "\n\nBreathing a sigh of relief, you gently pat Arian on the ass and comment that you didn't expect her to be so eager to lay a batch of fertilized eggs, and you certainly didn't expect her to be so... bossy."
@@ -4025,9 +4025,9 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Docking
-    //ArianCockSize needs to be below 3. (ArianDblCock does not affect this decision.)
-    //PC cock area must be <= 30.
+    // Docking
+    // ArianCockSize needs to be below 3. (ArianDblCock does not affect this decision.)
+    // PC cock area must be <= 30.
     private arianDocking(): void {
         this.clearOutput();
         this.flags[kFLAGS.ARIAN_VIRGIN] += 1;
@@ -4046,7 +4046,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nYou tell [Arian em] that, yes, you want to try it - you're sorry, but it just sounds so kinky; and besides that, "
         );
-        //(if ArianDblCock == 0)
+        // (if ArianDblCock == 0)
         if (this.flags[kFLAGS.ARIAN_DOUBLE_COCK] == 0) {
             this.outputText(
                 "didn't [Arian ey] always want to have two dicks?  Well, now it's [Arian eir] chance to find out what it'd be like."
@@ -4118,19 +4118,19 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nNot, you gasp back, if you don't come first... with that desperate promise (warning? Plea? Who cares?) you piston yourself back and forth four more times and then howl at the ceiling above as you cum into Arian's makeshift vagina."
         );
 
-        //(Low Cum Amount)
+        // (Low Cum Amount)
         if (this.player.cumQ() < 250) {
             this.outputText(
                 "\n\nEven if your load is not that big to begin with; there is little room inside Arian's cramped genital slit, and you soon find yourself overflowing the little crevice."
             );
         }
-        //(Medium Cum Amount)
+        // (Medium Cum Amount)
         else if (this.player.cumQ() < 1000) {
             this.outputText(
                 "\n\nYour load is big enough to give females a bit of a potbelly, but Arian's slit being so shallow by comparison, means your cum practically erupts out of [Arian eir] overfilled crevice."
             );
         }
-        //(high Cum Amount)
+        // (high Cum Amount)
         else {
             this.outputText(
                 "\n\nYour prodigious load is so huge, not even goblins can hope to hold all of it inside.  So it's no wonder all it takes is a single jet to make Arian's little crevice erupt with backflow of your cum, painting your belly as well as Arian's with a perverted geyser of white."
@@ -4179,20 +4179,20 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nYou tell [Arian em] the sex is nice, but there's other things in [Arian eir] favor too.  Then, you kiss [Arian em] again before [Arian ey] can ask what those are.  While [Arian ey]'s left reeling, blissed out and goofy from the sexual overwhelm, you quietly slip out of [Arian eir] bed, pull your clothes back on and slip away, blowing [Arian em] a kiss before you depart."
         );
 
-        //Player returns to camp
+        // Player returns to camp
         this.player.orgasm();
         this.dynStats("sen", 1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Give Item
+    // Give Item
     private giveArianAnItem(): void {
         this.clearOutput();
         this.outputText(
             "Thinking about the many items in your possession, you ask if Arian would be willing to take something for you?"
         );
 
-        //(if ArianHealth < 10) //May not give anything.
+        // (if ArianHealth < 10) //May not give anything.
         if (this.flags[kFLAGS.ARIAN_S_DIALOGUE] < 1) {
             this.outputText(
                 "\n\n\"<i>Uhh... I'd rather not.  I'm not feeling very well, and I don't think it's wise for me to be drinking anything, well... strange.</i>\""
@@ -4201,16 +4201,16 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nYou nod your head in understanding and change the subject; if you want to give Arian any of the potions you've found, you'll need to nurse him back to strength first."
             );
-            //Display other Arian interaction options
+            // Display other Arian interaction options
             this.arianHomeMenu();
             return;
         } else if (this.flags[kFLAGS.ARIAN_HEALTH] < 20) {
-            //May only give Vitality T.
+            // May only give Vitality T.
             this.outputText(
                 "\n\n\"<i>Is it medicine you've brought me?  If so I'll be happy to take it; otherwise I think we should wait until I'm better; especially after that scolding you gave me earlier...</i>\""
             );
 
-            //If PC has Vitality T. go to Give VT section. Otherwise, play below:
+            // If PC has Vitality T. go to Give VT section. Otherwise, play below:
             if (!this.player.hasItem(this.consumables.VITAL_T)) {
                 this.outputText(
                     "\n\nYou admit you don't have any medicine on you at the moment, and change the subject."
@@ -4218,13 +4218,13 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 this.arianHomeMenu();
                 return;
             }
-            //Display other Arian interaction options
+            // Display other Arian interaction options
         } else {
-            //Anything goes baby.
+            // Anything goes baby.
             this.outputText(
                 "\n\n\"<i>Well, I guess it's okay.  I don't think you'd ever give me anything harmful, and if you have anything to... err... spice up the sex, I'd be happy to take it.</i>\"  Arian blushes."
             );
-            //Display PC inventory
+            // Display PC inventory
         }
 
         this.menu();
@@ -4259,9 +4259,9 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         }
     }
 
-    //Vitality Tincture:
-    //increases ArianHealth by 4.
-    //Remove this option once Arian's health hits 100.
+    // Vitality Tincture:
+    // increases ArianHealth by 4.
+    // Remove this option once Arian's health hits 100.
     private arianVitalityTincture(): void {
         this.clearOutput();
         this.outputText(
@@ -4306,10 +4306,10 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(0, "Next", this.giveArianAnItem);
     }
 
-    //P. Incubus Draft:
-    //Increase Cock(s) size. Gives one cock if Arian lacks any.
-    //If cock(s) size is maxed, next dose reduces breast size.
-    //If at min breast size, next dose reverts Arian to male. (Lose breasts and vagina.)
+    // P. Incubus Draft:
+    // Increase Cock(s) size. Gives one cock if Arian lacks any.
+    // If cock(s) size is maxed, next dose reduces breast size.
+    // If at min breast size, next dose reverts Arian to male. (Lose breasts and vagina.)
     private giveIncubusDraftToArian(): void {
         this.clearOutput();
         this.player.consumeItem(this.consumables.P_DRAFT);
@@ -4426,7 +4426,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 if (this.flags[kFLAGS.ARIAN_DOUBLE_COCK] > 0) this.outputText("s");
                 this.outputText(".");
 
-                //if ArianHerm:
+                // if ArianHerm:
                 if (this.flags[kFLAGS.ARIAN_VAGINA] > 0) {
                     this.outputText(
                         "\n\nYou can't resist quirking an eyebrow and asking if this is really more embarrassing than revealing that she'd grown an egg-filled womb and a pussy to use with it?  \"<i>Well, yes!  They'll give you a hard time too for getting me to do this, you know?</i>\" Arian protests."
@@ -4461,7 +4461,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 );
             }
         }
-        //(else if ArianBreasts > 1) //Boob shrinkage.
+        // (else if ArianBreasts > 1) //Boob shrinkage.
         if (this.flags[kFLAGS.ARIAN_BREASTS] > 1 && !this.flags[kFLAGS.HYPER_HAPPY]) {
             this.flags[kFLAGS.ARIAN_BREASTS]--;
             this.outputText(
@@ -4480,11 +4480,11 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\nYou wonder if maybe Laika had ulterior motives for those looks, but keep that thought to yourself. You ask if Arian would like to do something, or if you should leave her to get on with her work? Arian looks at you expectantly. "<i>I wouldn\'t refuse if you wanted to do anything.</i>", her dick growing hard at your suggestion.'
             );
-            //Display sex menu
+            // Display sex menu
             this.arianSexMenu(false);
             return;
         } else if (this.flags[kFLAGS.ARIAN_BREASTS] == 1 && !this.flags[kFLAGS.HYPER_HAPPY]) {
-            //Now you are male again.
+            // Now you are male again.
             this.outputText(
                 "\n\nArian shudders as she feels the changes sweep through her, but rather than settling on her huge lizan shaft, the warmth that precedes change settles on her breasts.  Arian moans and kneads her mounds as they shrink until they are completely gone.  Her nipples follow suit, being replaced by smooth scales."
             );
@@ -4531,7 +4531,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nArian's cock begins hardening.  \"<i>Well, I wouldn't mind doing anything else... if you want to.</i>\""
             );
         } else {
-            //Nothing happens.
+            // Nothing happens.
             this.outputText(
                 "\n\nArian moans and you can see [Arian ey]'s getting turned on, if the hardening tip of [Arian eir] exposed shaft is any indication, but you don't detect any change besides that."
             );
@@ -4540,15 +4540,15 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\nYou admit that seems to be the case, and ask if [Arian ey]\'d be willing to do something else, seeing as how that was a bust?  "<i>Uhh... Sure.  What do you want to do?</i>"'
             );
         }
-        //Back to Arian's Menu
+        // Back to Arian's Menu
         this.menu();
         this.addButton(0, "Next", this.giveArianAnItem);
     }
 
-    //P. Subbi's Milk:
-    //Gives Vagina and Breasts, also feminine curves if Arian was male.
-    //Extra doses increase breasts size.
-    //If breasts is at maximum size, extra doses reduce Cock Size. Removing first the second cock and then the first one if necessary.
+    // P. Subbi's Milk:
+    // Gives Vagina and Breasts, also feminine curves if Arian was male.
+    // Extra doses increase breasts size.
+    // If breasts is at maximum size, extra doses reduce Cock Size. Removing first the second cock and then the first one if necessary.
     private succubiMilkForArian(): void {
         this.clearOutput();
         this.player.consumeItem(this.consumables.P_S_MLK);
@@ -4562,7 +4562,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\nArian bites [Arian eir] lower lip.  "<i>For you?  Of course I wouldn\'t mind it.</i>"  You pass over the bottle, and watch as [Arian ey] removes the cork and drinks its contents.'
         );
 
-        //(if ArianVagina == 0) //Arian... you look so pretty!
+        // (if ArianVagina == 0) //Arian... you look so pretty!
         if (this.flags[kFLAGS.ARIAN_VAGINA] == 0) {
             this.flags[kFLAGS.ARIAN_VAGINA]++;
             if (this.flags[kFLAGS.ARIAN_BREASTS] == 0) this.flags[kFLAGS.ARIAN_BREASTS]++;
@@ -4581,7 +4581,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             );
             if (this.flags[kFLAGS.ARIAN_DOUBLE_COCK] > 0) this.outputText("s");
             this.outputText(" having already softened and retracted");
-            //if ArianCockSize >= 3:
+            // if ArianCockSize >= 3:
             if (this.flags[kFLAGS.ARIAN_COCK_SIZE] == 3) this.outputText(" as far as it'll go");
             this.outputText(" into its protective slit.");
 
@@ -4605,7 +4605,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nWarmth sweeps through Arian's body, eliciting a gasp and a moan.  Soon the warmth settles on Arian's mounds, and she opens her robes to gaze at the change that is taking place."
             );
 
-            //(if ArianBreasts == 2)
+            // (if ArianBreasts == 2)
             if (this.flags[kFLAGS.ARIAN_BREASTS] == 2) {
                 this.outputText(
                     '\n\nArian\'s perky breasts inflate into perfect, soft-looking mounds.  Arian gropes her newly enlarged breasts tentatively and gasps in pleasure at their softness and sensitivity.  "<i>It feels nice.</i>"  Looking at you with a blush, Arian asks, "<i>Would you like to touch them?</i>"'
@@ -4648,7 +4648,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 );
             }
         }
-        //(else If ArianCockSize > 1) //Dick shrinkage.
+        // (else If ArianCockSize > 1) //Dick shrinkage.
         else if (this.flags[kFLAGS.ARIAN_COCK_SIZE] > 1 && !this.flags[kFLAGS.HYPER_HAPPY]) {
             this.outputText(
                 "\n\nWarmth flows throughout Arian's body, and she moans in obvious pleasure.  Then, she opens her robes and looks at her rock-hard bulbous shaft.  It throbs as if edging a massive orgasm, but much to Arian's surprise it starts to shrink, until it finally grows limp and hides itself in its protective slit.  \"<i>I... didn't expect that,</i>\" Arian remarks."
@@ -4730,7 +4730,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\nArian bites her lower lip.  "<i>Umm, we could do something I guess.  If you\'re up for it?</i>"  Arian fidgets.'
             );
         } else {
-            //Nothing happens.
+            // Nothing happens.
             this.outputText(
                 "\n\nWarmth flows throughout Arian's body, and she moans in obvious pleasure.  But suddenly, the warmth goes away, and Arian opens her robes to inspect the changes.  Nothing seems changed.  \"<i>I guess I can't get any more girly than being an actual girl,</i>\" Arian remarks."
             );
@@ -4749,12 +4749,12 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
 
             this.outputText('\n\nArian smiles and fidgets. "<i>I could go for a spin...</i>"');
         }
-        //Display Sex Options.
+        // Display Sex Options.
         this.arianSexMenu(false);
     }
-    //Lactaid:
-    //Triggers Scene with temporary lactation
-    //If Arian has breasts, Increases breasts size by 1.
+    // Lactaid:
+    // Triggers Scene with temporary lactation
+    // If Arian has breasts, Increases breasts size by 1.
     private giveArianLactaid(): void {
         this.clearOutput();
         this.player.consumeItem(this.consumables.LACTAID);
@@ -4793,7 +4793,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             this.menu();
             this.addButton(0, "Next", this.giveArianAnItem);
         } else {
-            //Lizard milk! Recover some HP and fatigue.
+            // Lizard milk! Recover some HP and fatigue.
             this.fatigue(-15);
             this.HPChange(this.player.maxHP() * 0.2, false);
             this.outputText(
@@ -4847,7 +4847,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nIf she's willing, then certainly, you tell her, but you'll need to track down another vial first.  You think Arian should have a rest before then.  She nods and kneads her now emptied breasts."
             );
 
-            //(if ArianBreasts < 3)
+            // (if ArianBreasts < 3)
             if (this.flags[kFLAGS.ARIAN_BREASTS] < 3) {
                 this.flags[kFLAGS.ARIAN_BREASTS]++;
                 this.outputText(
@@ -4872,16 +4872,16 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         }
     }
 
-    //Reducto:
-    //Reduces the size of a part
-    //Has a Back option, it displays no text, just cancels the interaction and goes back to previous menu.
+    // Reducto:
+    // Reduces the size of a part
+    // Has a Back option, it displays no text, just cancels the interaction and goes back to previous menu.
     private giveArianReducto(): void {
         this.clearOutput();
         this.outputText(
             "Eyeing Arian up and down, you fish your pouches for a tube of Reducto.  Once you've found it, you hand it over to Arian and tell [Arian em] you'd like [Arian em] to reduce something for you."
         );
         this.outputText('\n\n"<i>Umm... sure, which part?</i>"');
-        //(Display Options)
+        // (Display Options)
         this.menu();
         if (this.flags[kFLAGS.ARIAN_BREASTS] > 0)
             this.addButton(0, "Breasts", this.useReductoOnAriansBreasts);
@@ -4890,8 +4890,8 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(2, "Asshole", this.useReductoOnAriansAsshole);
     }
 
-    //Breasts:
-    //Cannot go flat
+    // Breasts:
+    // Cannot go flat
     private useReductoOnAriansBreasts(): void {
         this.clearOutput();
         this.player.consumeItem(this.consumables.REDUCTO);
@@ -4907,7 +4907,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nArian kneads her breasts, lathering the paste all over her breasts.  You can't help but note that this is kinda sexy.  Arian's breasts glisten in the light of the room.  Once [Arian ey] is done, [Arian ey] cleans her hands with a piece of cloth that was laying nearby and waits for the Reducto's effect."
         );
 
-        //(if ArianBreasts > 1)
+        // (if ArianBreasts > 1)
         if (this.flags[kFLAGS.ARIAN_BREASTS] > 1) {
             this.outputText(
                 "\n\nArian gasps and the two of you watch as her breasts slowly shrink, setting into a smaller size.  You reach forward and feel her breasts; it's a much better fit for your hands now."
@@ -4924,13 +4924,13 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\n"<i>Umm... I...</i>"  Before Arian can continue, you tell her that it\'s fine, you\'ll just have to find another way to get rid of her breasts.  "<i>Okay.  So, is there anything else you\'d like to do?</i>"'
             );
         }
-        //(Back to Options menus)
+        // (Back to Options menus)
         this.menu();
         this.addButton(0, "Next", this.giveArianAnItem);
     }
-    //Cock(s):
-    //Removes 2nd cock if at minimum size.
-    //Cannot remove cocks.
+    // Cock(s):
+    // Removes 2nd cock if at minimum size.
+    // Cannot remove cocks.
     private useReductoOnArianCocks(): void {
         this.clearOutput();
         this.player.consumeItem(this.consumables.REDUCTO);
@@ -4965,7 +4965,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\n\"<i>Phew.  I won't say I didn't enjoy being that size, but it feels a lot more natural and comfortable now that I don't have to walk about exposed.</i>\"  You nod in agreement.  \"<i>So, is there anything else you'd like to do?</i>\""
             );
-            //(Back to Options menus)
+            // (Back to Options menus)
         } else if (this.flags[kFLAGS.ARIAN_COCK_SIZE] == 2) {
             this.flags[kFLAGS.ARIAN_COCK_SIZE]--;
             this.outputText(
@@ -5005,9 +5005,9 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\n"<i>I guess I\'m back to begin a lizan with a single cock,</i>" Arian says with a slight tinge of regret.  You cheer [Arian em] up by saying that\'s the way you prefer it, besides is it really that bad, having only one cock?  Arian smiles at you.  "<i>I guess it isn\'t too bad, just unusual for my species, but if you like me like this, then I\'m okay with it.</i>"  You nod and pat [Arian em] gently on the head.  "<i>So... is there anything else you\'d like to do?</i>"'
             );
-            //(Back to Options menus)
+            // (Back to Options menus)
         } else {
-            //Nothing happens
+            // Nothing happens
             this.outputText(
                 "\n\nThen coaxes [Arian eir] snake-dick out of its hiding place.  Finally [Arian ey] applies the paste on [Arian eir] dick and wait patiently for the changes to begin."
             );
@@ -5016,14 +5016,14 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nThe two of you wait for a while, but when no change happens Arian speaks up, \"<i>I guess... nothing changed?</i>\"  You're inclined to agree, something should've happened already.  Well that doesn't matter, you'll just have to try something else.  \"<i>Okay... so, anything else you'd like to do?</i>\""
             );
         }
-        //(Back to Options menus)
+        // (Back to Options menus)
         this.menu();
         this.addButton(0, "Next", this.giveArianAnItem);
     }
 
-    //Sphincter:
-    //Lose AnalXP, can't reduce it past 1.
-    //How much AnalXP should be lost per use is up to Fen.
+    // Sphincter:
+    // Lose AnalXP, can't reduce it past 1.
+    // How much AnalXP should be lost per use is up to Fen.
     private useReductoOnAriansAsshole(): void {
         this.clearOutput();
         this.player.consumeItem(this.consumables.REDUCTO);
@@ -5037,7 +5037,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             " does as you ask, allowing you to smear your fingers generously with the shrinking cream, even as [Arian ey] anticipates your next request and removes [Arian eir] clothes before lying down, bum up in the air and tail slowly swishing to and fro, [Arian eir] anus exposed and waiting for your ministrations."
         );
-        //(if AnalXP == 1)
+        // (if AnalXP == 1)
         if (this.flags[kFLAGS.ARIAN_ANAL_XP] <= 1) {
             this.outputText(
                 '\n\n"<i>I don\'t know if I can get any tighter than this, but... go ahead,</i>" Arian says, smiling nervously at you.'
@@ -5054,7 +5054,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\n[Arian Ey]\'s not wrong there, you agree.  Still, would [Arian ey] maybe like to do something else, seeing as how that was a bust?  Arian nods.  "<i>Of course.  What would you like to do?</i>"'
             );
         }
-        //(else if AnalXP < 33)
+        // (else if AnalXP < 33)
         else if (this.flags[kFLAGS.ARIAN_ANAL_XP] < 33) {
             this.outputText(
                 '\n\n"<i>I think I\'m still pretty tight back there, but if you want me to be tighter, go ahead,</i>" Arian says, smiling nervously at you.'
@@ -5121,14 +5121,14 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\nArian whimpers.  "<i>It feels a bit less sensitive now, but I\'m sure it\'ll still feel pretty good when you do me from behind.</i>"  Arian smiles.  "<i>Anything else you\'d like to do?</i>"'
             );
         }
-        //Back
+        // Back
         this.menu();
         this.addButton(0, "Next", this.giveArianAnItem);
     }
 
-    //Reptilum:
-    //Makes Arian horny and high, like giving catnip to a cat in some ways.
-    //Chance to make Arian grow a second dick, if [Arian ey] has only one. (high chance: 50%)
+    // Reptilum:
+    // Makes Arian horny and high, like giving catnip to a cat in some ways.
+    // Chance to make Arian grow a second dick, if [Arian ey] has only one. (high chance: 50%)
     private giveArianReptilum(): void {
         this.clearOutput();
         this.player.consumeItem(this.consumables.REPTLUM);
@@ -5165,7 +5165,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\nYou tell [Arian em] [Arian ey]\'ll just have to wait to find out, taking off [Arian eir] blindfold and smiling wryly at [Arian em].  "<i>Umm... ok...</i>"'
         );
-        //(if ArianFirstRept == 1)
+        // (if ArianFirstRept == 1)
         if (this.flags[kFLAGS.ARIAN_FIRST_REPTILUM] == 0) {
             this.outputText(
                 "\n\nThe two of you sit there in wait... but oddly nothing happens.  You ask Arian if [Arian ey]'s feeling any different."
@@ -5179,7 +5179,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\nArian suddenly shakes [Arian eir] head, blinking as if trying to focus; then [Arian ey] turns to look at you, and gives you a silly smile.  "<i>Hey, [name].  Did you know you have a very beautiful aura?  All the colors.  I wonder what it tastes like.</i>"'
         );
         this.flags[kFLAGS.ARIAN_FIRST_REPTILUM]++;
-        //(if ArianFirstRept == 1)
+        // (if ArianFirstRept == 1)
         if (this.flags[kFLAGS.ARIAN_FIRST_REPTILUM] == 1)
             this.outputText(
                 "\n\nYou blink; aura?  What is the lizan talking about?  And what would make [Arian em] think colors are tasty - or even edible?"
@@ -5197,7 +5197,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\n"<i>Hey [name], cats are flexible right?  Think I would turn into one if I could lick my butt?  I\'d be a sexy kitten!</i>"  Arian does away with [Arian eir] robes, tossing them around and bending over as far as [Arian ey] can in an attempt to lick at [Arian eir] butt.  "<i>J-just a bit more....  Help me here, [name]!  I want to turn into a cat so we can roleplay!  I\'ll be Mittens and you can be Fishbreath!</i>"'
         );
 
-        //(if ArianFirstRept == 1)
+        // (if ArianFirstRept == 1)
         if (this.flags[kFLAGS.ARIAN_FIRST_REPTILUM] == 1) {
             this.outputText(
                 "\n\nFeeling a touch nervous, you ask if [Arian ey]'s feeling all right.  \"<i>All right?  I'm super!</i>\" [Arian ey] replies, gigling madly."
@@ -5277,7 +5277,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nLooking at you dizzily, Arian smiles and says, \"<i>That was fun, [name].  You have truly gifted hands!</i>\"  You repress a laugh; this was just too much fun, and tell Arian that credit is due where it's due.  You leave it to the dazed lizan to eventually decipher if you're saying you were the one with the gifted hands or you were encouraging [Arian em] to recognize that [Arian ey] is the one with the gifted hands."
         );
 
-        //(if (random <= 50%) && (ArianDblCock == 0) && (ArianCockSize != 0)
+        // (if (random <= 50%) && (ArianDblCock == 0) && (ArianCockSize != 0)
         if (
             ArianScene.rand(2) == 0 &&
             this.flags[kFLAGS.ARIAN_DOUBLE_COCK] == 0 &&
@@ -5334,14 +5334,14 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nYou gently pull the covers up over the tired lizan, stroke [Arian eir] head fondly, and quietly excuse yourself from [Arian eir] sleeping quarters."
         );
 
-        //Player gains Lust.
+        // Player gains Lust.
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Treat Corruption
-    //Not with the power of friendship, but with magic!
-    //Balancing it is up to Fen.
-    //Reduce corruption, maybe libido, once per day.
+    // Treat Corruption
+    // Not with the power of friendship, but with magic!
+    // Balancing it is up to Fen.
+    // Reduce corruption, maybe libido, once per day.
     private treatCorruption(): void {
         this.clearOutput();
         this.outputText(
@@ -5357,7 +5357,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nYou apologize.  You had forgotten how much that taxes [Arian em], and you will come back for further treatments tomorrow.  However, there is something else [Arian ey] can help you with..."
             );
             this.arianHomeMenu();
-            //Back to previous menu.
+            // Back to previous menu.
         } else {
             this.outputText(
                 '\n\nArian nods.  "<i>Of course!  Just hold my hands.</i>"  [Arian Ey] extends [Arian eir] hands, waiting for you to get into position.'
@@ -5410,11 +5410,11 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         }
     }
 
-    //Imbue Talisman
-    //Make it as generic as possible, so more stuff can be added or removed without compromising too much time.
-    //if PC doesn't have the sufficient materials, option doesn't show up.
-    //Perhaps introduce a cooldown to the talisman?
-    //Ultimately, balance is in Fen's hands.
+    // Imbue Talisman
+    // Make it as generic as possible, so more stuff can be added or removed without compromising too much time.
+    // if PC doesn't have the sufficient materials, option doesn't show up.
+    // Perhaps introduce a cooldown to the talisman?
+    // Ultimately, balance is in Fen's hands.
     private imbueTalisman(): void {
         this.clearOutput();
         this.outputText(
@@ -5438,7 +5438,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         Shielding Spell: 2x Black Chitin and 1x Tough Silk. - Increases defense for the duration of the battle.
         Dispelling Spell: 1x White Book and 1x Black Book - Cancels all magical and alchemical effects currently affecting the PC, beneficial or not. (Does not cancel the effects of demon's lust aura.)
         Immolation Spell: 2x Goblin Ale and 1x Sweet Gossamer. - Deals damage over time.
-        //Back is also present as an option, and returns PC to previous menu.
+        // Back is also present as an option, and returns PC to previous menu.
         */
         this.outputText(
             "\n\n<b>Shielding Spell:</b> Two Black Chitin and One Tough Silk - Increases defense for the duration of the battle."
@@ -5500,17 +5500,17 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.clearCharges();
         if (spell == "Shielding Spell") {
             this.player.createStatusAffect(StatusAffects.ShieldingSpell, 0, 0, 0, 0);
-            //Shielding Spell: 2x Black Chitin and 1x Tough Silk. - Increases defense for the duration of the battle.
+            // Shielding Spell: 2x Black Chitin and 1x Tough Silk. - Increases defense for the duration of the battle.
             this.player.consumeItem(this.useables.B_CHITN, 2);
             this.player.consumeItem(this.useables.T_SSILK);
         }
         if (spell == "Immolation Spell") {
             this.player.createStatusAffect(StatusAffects.ImmolationSpell, 0, 0, 0, 0);
-            //Immolation Spell: 2x Goblin Ale and 1x Sweet Gossamer. - Deals damage over time.
+            // Immolation Spell: 2x Goblin Ale and 1x Sweet Gossamer. - Deals damage over time.
             this.player.consumeItem(this.consumables.GOB_ALE, 2);
             this.player.consumeItem(this.consumables.S_GOSSR);
         }
-        //If charged, stay chargggggeeed
+        // If charged, stay chargggggeeed
         if (this.player.hasKeyItem("Arian's Talisman") >= 0) {
             this.player.removeKeyItem("Arian's Talisman");
             this.player.createKeyItem("Arian's Charged Talisman", 0, 0, 0, 0);
@@ -5528,14 +5528,14 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.createKeyItem("Arian's Talisman", 0, 0, 0, 0);
     }
 
-    //Follower Stuff:
-    //Camp Modifier
+    // Follower Stuff:
+    // Camp Modifier
     /*9999
     The small tent that Arian dwells in is in its usual place in a quiet corner of the camp. You're not sure if he's inside, taking advantage of its uncannily larger interior, or out on one of his usual strolls outside of the camp.
     */
-    //Approach Arian
+    // Approach Arian
 
-    //Sleep With Arian
+    // Sleep With Arian
     public sleepWithArian(newl: boolean = false): void {
         if (newl) this.clearOutput();
         this.flags[kFLAGS.SLEEP_WITH] = "Arian";
@@ -5611,7 +5611,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 ' against my scales.  So warm...</i>" [Arian ey] sidles up against you, [Arian eir] tail draping over your waist as [Arian ey] sinks into your embrace.  You just squeeze [Arian em] a little tighter and hold [Arian em] close, saying nothing aside from a quiet whisper to sleep well.  "<i>Good night, [name],</i>" [Arian ey] whispers back, before extending a hand toward the globe illuminating the tent and snapping [Arian eir] fingers, shutting down the light.'
         );
 
-        //(if AnalXP <33)
+        // (if AnalXP <33)
         if (this.flags[kFLAGS.ARIAN_ANAL_XP] < 33) {
             this.outputText(
                 "\n\nA strange sensation, combined with a soft sound, stirs you from your sleep.  You realize that Arian is stirring in [Arian eir] sleep, softly mumbling to [Arian em]self as [Arian eir] tail gently swishes to and fro under the covers, sometimes accidentally running its warm length over your " +
@@ -5626,7 +5626,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             this.addButton(0, "Listen", this.listenToLowAnalXPArian);
             this.addButton(1, "Sleep", this.dontListenToLowAnalXPArian);
         }
-        //(else if AnalXP <66)
+        // (else if AnalXP <66)
         else if (this.flags[kFLAGS.ARIAN_ANAL_XP] < 66) {
             this.outputText(
                 "\n\nYou awaken blearily to the sound of soft whimpering, the feeling of hips rubbing softly and repeatedly against your groin, and the sensation of a long, smoothly-scaled tail flickering across your [chest].  Looks like Arian is dreaming something... probably something erotic, too."
@@ -5634,26 +5634,26 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nShould you listen in, and perhaps tease [Arian em]?  Or just go back to sleep?"
             );
-            //[Listen][Sleep]
+            // [Listen][Sleep]
             this.menu();
             this.addButton(0, "Listen", this.listenToMediumAnalXPArian);
             this.addButton(1, "Sleep", this.dontListenToMediumAnalXPArian);
         } else {
-            //AnalXP <= 100
+            // AnalXP <= 100
             this.outputText(
                 "\n\nYou wake up, confused and wondering what's disturbing your sleep.  When you wake up, you almost think Arian's also awake; [Arian ey]'s insistently moaning in pleasure, grinding [Arian eir] ass feverishly against your crotch, tail thrashing around wildly.  Why, that little cheeky lizard; [Arian ey]'s having a wet dream!"
             );
             this.outputText(
                 "\n\nShould you tease [Arian em] a bit?  Or try to calm [Arian em] down and go back to sleep?"
             );
-            //[Tease][Sleep]
+            // [Tease][Sleep]
             this.menu();
             this.addButton(0, "Tease", this.TeaseHighAnalXPArian);
             this.addButton(1, "Sleep", this.dontTeaseHighAnalXPArian);
         }
     }
 
-    //[=Sleep=]
+    // [=Sleep=]
     private dontListenToLowAnalXPArian(): void {
         this.clearOutput();
         this.outputText(
@@ -5663,7 +5663,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(0, "Next", this.camp.sleepWrapper);
     }
 
-    //[=Listen=]
+    // [=Listen=]
     private listenToLowAnalXPArian(): void {
         this.clearOutput();
         this.flags[kFLAGS.ARIAN_MORNING] = 1;
@@ -5675,7 +5675,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>But sausages belong inside breads,</i>" Arian whimpers.  "<i>But... if you\'re sure... okay....</i>"  Under the covers you feel Arian wiggling [Arian eir] butt against you, [Arian eir] tail lifting to make room for the "<i>sausage</i>".'
         );
-        //(if PC has a cock)
+        // (if PC has a cock)
         if (this.player.hasCock()) {
             this.outputText(
                 "\n\nYou wonder for a moment if maybe this is fair, but decide that, if [Arian ey]'s obviously dreaming about it eagerly....  Your hand slips under the covers to start stroking your [cock smallest], gently coaxing yourself to erection.  Once you've gotten yourself sufficiently stiff, you wrap your arms around the lizan's waist for balance and start pushing yourself in."
@@ -5702,7 +5702,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(0, "Next", this.camp.sleepWrapper);
     }
 
-    //[=Sleep=]
+    // [=Sleep=]
     private dontListenToMediumAnalXPArian(): void {
         this.clearOutput();
         this.outputText(
@@ -5712,7 +5712,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.menu();
         this.addButton(0, "Next", this.camp.sleepWrapper);
     }
-    //[=Listen=]
+    // [=Listen=]
     private listenToMediumAnalXPArian(): void {
         this.clearOutput();
         this.flags[kFLAGS.ARIAN_MORNING] = 1;
@@ -5727,7 +5727,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\n"<i>Hmm, okay then.  Shove it in.</i>"  Arian lifts [Arian eir] tail out of the way, wiggling [Arian eir] hips against you.'
         );
 
-        //(if PC has a cock)
+        // (if PC has a cock)
         if (this.player.hasCock()) {
             this.outputText(
                 "\n\nWell, if this is what [Arian ey] wants, you're happy to oblige.  Your hand slips under the covers to start stroking your [cock smallest], gently coaxing yourself to erection.  Once you've gotten yourself sufficiently stiff, you wrap your arms around the lizan's waist for balance and start pushing yourself in."
@@ -5773,7 +5773,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(0, "Next", this.camp.sleepWrapper);
     }
 
-    //[=Sleep=]
+    // [=Sleep=]
     private dontTeaseHighAnalXPArian(): void {
         this.clearOutput();
         this.outputText(
@@ -5783,7 +5783,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(0, "Next", this.camp.sleepWrapper);
     }
 
-    //[=Tease=]
+    // [=Tease=]
     private TeaseHighAnalXPArian(): void {
         this.clearOutput();
 
@@ -5796,7 +5796,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\n"<i>...[name]... no... don\'t stuff that turkey... stuff me....  I wanna be tasty too.</i>"'
         );
         this.outputText("\n\nIs [Arian ey] dreaming about food, or sex?");
-        //(if PC has a cock)
+        // (if PC has a cock)
         if (this.player.hasCock()) {
             this.outputText(
                 "\n\nAh well, why not indulge a little?  You take one hand and begin to sensuously stroke your shaft, aiming to get yourself nice and erect, while with the fingers of the other you slide into the lizan's tailhole, seeing if your teasing will get a reaction and prove [Arian ey] wants [Arian eir] butt fucked."
@@ -5864,18 +5864,18 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.menu();
         this.addButton(0, "Next", this.camp.sleepWrapper);
     }
-    //Waking up
-    //Always happens the morning after sleeping with Arian.
-    //Outcome slightly modified by AnalXP.
+    // Waking up
+    // Always happens the morning after sleeping with Arian.
+    // Outcome slightly modified by AnalXP.
     public wakeUpAfterArianSleep(): void {
         this.clearOutput();
         if (this.player.hasCock()) {
             if (this.flags[kFLAGS.ARIAN_VAGINA] > 0)
                 this.outputText(this.images.showImage("arianfemale-camp-dreamingArian"));
             else this.outputText(this.images.showImage("arianmale-camp-dreamingArian"));
-            //(if AnalXP < 33)
+            // (if AnalXP < 33)
             if (this.flags[kFLAGS.ARIAN_ANAL_XP] < 33) {
-                //(PC tried but didn't manage to get their cocks in. Even tho you slept with it inside, you do go flaccid at some point in the night.)
+                // (PC tried but didn't manage to get their cocks in. Even tho you slept with it inside, you do go flaccid at some point in the night.)
                 this.outputText(
                     "Your eyes open, and you suddenly realize that whatever dreams you were having... are now gone.  You make note of the still sleeping lizan right next to you and recall last night's events.  You wonder if Arian will remember any of that..."
                 );
@@ -6006,7 +6006,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 );
             } else {
                 // AnalXP <= 100
-                //(PC fucked and came inside Arian, couldn't pull out. Wake up with a morning wood and surprisingly... still inside the lizan.)
+                // (PC fucked and came inside Arian, couldn't pull out. Wake up with a morning wood and surprisingly... still inside the lizan.)
                 this.outputText(
                     "\n\nYou feel a sudden urge to hump and wake up, only to find yourself still deeply lodged inside the greedy lizan's wanton rosebud.  Recalling the previous night and your little quickie in the night, you smile.  It's no wonder you're feeling particularly rested this morning.  [Arian Eir] greedy butt is as clingy as it was during the night... refusing to yield and let your shaft go."
                 );
@@ -6066,18 +6066,18 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     "\n\nYou thrust into [Arian em] thrice more, then, with a hollow cry, let out all the seed you can to sate your lovely little buttslut's thirst.  And this time, you can properly focus on cumming, too."
                 );
-                //(Low cum amount)
+                // (Low cum amount)
                 if (this.player.cumQ() <= 200)
                     this.outputText(
                         "\n\nThe first jet of cum of the day spurts forth from your tip to paint the eager lizan's insides.  \"<i>Ahhh... that's the way you do it,</i>\"  Arian says, tongue lolling out in pleasure as your cock finishes throbbing and shooting inside."
                     );
-                //(Medium cum amount)
+                // (Medium cum amount)
                 else if (this.player.cumQ() <= 750) {
                     this.outputText(
                         '\n\nString after string of cum leaves your tool to paint the lizan\'s bowels white with the results of your morning escapade, even swelling [Arian eir] belly a bit.  "<i>Oh, yessss... breakfast.... Hah,</i>"  Arian says, tongue lolling out in pleasure as [Arian ey] anally devours your pent up cum.'
                     );
                 }
-                //(High cum amount)
+                // (High cum amount)
                 else
                     this.outputText(
                         '\n\nA veritable eruption explodes from within your cock and out of your tip, flooding the lizan\'s buttslut with the results [Arian ey] craved.  "<i>Yesssss!  Best... morning... ever,</i>"  [Arian ey] says, completely blissed out, tongue lolling out, as your prodigious amount of cum inflates [Arian em] like a balloon.'
@@ -6099,9 +6099,9 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             }
             this.player.orgasm();
         } else {
-            //PC has no cock
-            //These do not link to a sex scene. No cocks, no sex in the morning, sorry girls/genderless.
-            //(if AnalXP < 33)
+            // PC has no cock
+            // These do not link to a sex scene. No cocks, no sex in the morning, sorry girls/genderless.
+            // (if AnalXP < 33)
             if (this.flags[kFLAGS.ARIAN_ANAL_XP] < 33) {
                 this.outputText(
                     'You awaken with a yawn, still snuggling against your scaly sleeping partner.  You slip quietly from the bed and give a good stretch, enjoying the feeling but trying not to wake Arian up.  Shortly after you\'re done, the lizan\'s maw opens into a wide toothy yawn of [Arian eir] own, rubbing the sleep off [Arian eir] eyes, [Arian ey] looks about until [Arian ey] spots you.  "<i>Good morning, [name]!</i>"  [Arian ey] says cheerfully, getting up and lazily stretching [Arian emself] as well.  "<i>Sleep well?</i>"'
@@ -6206,11 +6206,11 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.playerMenu);
     }
 
-    //Egging Event
-    //Only if Arian has a vagina.
-    //Every 30 days, ArianEggEvent is set to 1. Allowing this event happen.
-    //It always happens the first time you visit Arian, every 30th day.
-    //If you don't visit Arian, you miss this event, and the eggs she would be laying.
+    // Egging Event
+    // Only if Arian has a vagina.
+    // Every 30 days, ArianEggEvent is set to 1. Allowing this event happen.
+    // It always happens the first time you visit Arian, every 30th day.
+    // If you don't visit Arian, you miss this event, and the eggs she would be laying.
     public arianEggingEvent(): void {
         this.clearOutput();
         this.flags[kFLAGS.ARIAN_EGG_EVENT] = 1;
@@ -6292,7 +6292,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\nAs you enter the tent, you are greeted with the sight of Arian laying on her bed, naked, as she rubs her belly in a slow circular motion.  She spots you walking towards her and greets you with a smile.  "<i>Hello, [name].  I have a new clutch of eggs growing inside me, would you like me to try and create a colored egg for you?</i>"'
             );
         }
-        //(Display Color Options, in the future you will also have the option of telling her you want to fertilise her eggs.) (Also include a leave option.)
+        // (Display Color Options, in the future you will also have the option of telling her you want to fertilise her eggs.) (Also include a leave option.)
         this.menu();
         this.addButton(0, "Brown", this.pickAnEggArian, "brown");
         this.addButton(1, "Purple", this.pickAnEggArian, "purple");
@@ -6303,7 +6303,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(6, "No Thanks", this.leaveEggs);
     }
 
-    //Pick a color
+    // Pick a color
     private pickAnEggArian(color: string = "pink"): void {
         this.clearOutput();
         this.flags[kFLAGS.ARIAN_EGG_COLOR] = color;
@@ -6324,7 +6324,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.ARIAN_EGG_COUNTER] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Leave
+    // Leave
     private leaveEggs(): void {
         this.clearOutput();
         this.outputText(
@@ -6333,11 +6333,11 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Display Arian options
-    //Arian Lays Colored Eggs
-    //Happens the day after Egging Event, always happens the first time the PC visits.
-    //Even if you miss, trigger it the next visit anyways, so as long as you don't miss the egging event, you don't miss out on your colored eggs.
-    //Randomly decide between small or large egg, I'd say 50% chance of either.
+    // Display Arian options
+    // Arian Lays Colored Eggs
+    // Happens the day after Egging Event, always happens the first time the PC visits.
+    // Even if you miss, trigger it the next visit anyways, so as long as you don't miss the egging event, you don't miss out on your colored eggs.
+    // Randomly decide between small or large egg, I'd say 50% chance of either.
     public arianLaysEggs(): void {
         this.clearOutput();
         var color: string = this.flags[kFLAGS.ARIAN_EGG_COLOR];
@@ -6432,7 +6432,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nYou laugh at Arian's reaction, telling her that you don't mind.  You should go right now.  You turn to pocket the egg and leave Arian's tent, bidding the lizan farewell before you do.\n\n"
         );
-        //(PC obtains (Large) Egg of the [color] asked message.)
+        // (PC obtains (Large) Egg of the [color] asked message.)
         var itype: ItemType;
         if (this.flags[kFLAGS.ARIAN_EGG_COLOR] == "brown") itype = this.consumables.L_BRNEG;
         else if (this.flags[kFLAGS.ARIAN_EGG_COLOR] == "purple") itype = this.consumables.L_PRPEG;
@@ -6443,14 +6443,14 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             itype = this.consumables.L_BLKEG;
         this.inventory.takeItem(itype!, this.camp.returnToCampUseOneHour);
     }
-    //DildoFun
+    // DildoFun
     private arianDildoFun(): void {
-        //As usual, nothing we write is centaur compatible.
-        //Cocks are going to be more or less forgotten here.
-        //PC must have the dildo sex toy from Giacomo to access this scene
-        //PC and Arian must both have vaginas to access this scene
+        // As usual, nothing we write is centaur compatible.
+        // Cocks are going to be more or less forgotten here.
+        // PC must have the dildo sex toy from Giacomo to access this scene
+        // PC and Arian must both have vaginas to access this scene
         this.clearOutput();
-        //1st time:
+        // 1st time:
         if (this.flags[kFLAGS.TIMES_ARIAN_DILDOED] == 0) {
             this.outputText("Looking over your reptilian girlfriend, your eyes go down her body");
             if (this.flags[kFLAGS.ARIAN_COCK_SIZE] > 0) {

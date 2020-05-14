@@ -19,13 +19,13 @@ export class Ember extends Monster {
     private emberMF(male: string, female: string): string {
         return this.game.emberScene.emberMF(male, female);
     }
-    //The Actual Ember Fight (Z)
-    //PC can't use any sexual moves in this battle. This means anything that deals or affects Ember's lust in any way.
-    //It doesn't make sense to affect Ember's lust due to the nature of the combat, however it IS possible and encouraged to use lust moves when fighting Bimbo or Corrupt Ember.
+    // The Actual Ember Fight (Z)
+    // PC can't use any sexual moves in this battle. This means anything that deals or affects Ember's lust in any way.
+    // It doesn't make sense to affect Ember's lust due to the nature of the combat, however it IS possible and encouraged to use lust moves when fighting Bimbo or Corrupt Ember.
 
-    //PC shouldn't lose their turn for doing this, unless you want to penalize them Fen.
+    // PC shouldn't lose their turn for doing this, unless you want to penalize them Fen.
     private emberReactsToLustiness(): void {
-        //(if PC uses any attack designed to increase Ember's lust)
+        // (if PC uses any attack designed to increase Ember's lust)
         this.outputText(
             "The dragon moans, weaving softly from side to side, eyes glazed and tongue lolling at the intimate prospect of sex... but then, to your surprise, " +
                 this.emberMF("he", "she") +
@@ -47,22 +47,22 @@ export class Ember extends Monster {
         this.HP = 0;
         this.game.cleanupAfterCombat();
     }
-    //Ember Attacks:
+    // Ember Attacks:
     private emberAttack(): void {
-        //Basic attack, average damage, average accuracy
+        // Basic attack, average damage, average accuracy
         this.outputText(
             "With a growl, the dragon lashes out in a ferocious splay-fingered slash, " +
                 this.emberMF("his", "her") +
                 " claws poised to rip into your flesh.  "
         );
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Ember.rand(2) == 0) {
             this.outputText(
                 this.capitalA + this.short + " completely misses you with a blind attack!",
                 false
             );
         }
-        //Miss/dodge
+        // Miss/dodge
         else if (
             this.combatMiss() ||
             this.combatEvade() ||
@@ -87,10 +87,10 @@ export class Ember extends Monster {
         this.combatRoundOver();
     }
 
-    //Dragon Breath: Very rare attack, very high damage
+    // Dragon Breath: Very rare attack, very high damage
     private embersSupahSpecialDragonBreath(): void {
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Ember.rand(2) == 0) {
-            //Blind Ember:
+            // Blind Ember:
             this.outputText(
                 "The blinded dragon tracks you with difficulty as you sprint around the landscape; seeing an opportunity, you strafe around " +
                     this.emberMF("his", "her") +
@@ -102,7 +102,7 @@ export class Ember extends Monster {
                     this.emberMF("his", "her") +
                     " face, is quite satisfying."
             );
-            //(Ember HP damage)
+            // (Ember HP damage)
             this.game.doDamage(50);
         } else {
             this.outputText(
@@ -131,9 +131,9 @@ export class Ember extends Monster {
         this.combatRoundOver();
     }
 
-    //Tailslap: Rare attack, high damage, low accuracy
+    // Tailslap: Rare attack, high damage, low accuracy
     private emberTailSlap(): void {
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0) {
             this.outputText(
                 this.capitalA + this.short + " completely misses you with a blind tail-slap!",
@@ -181,10 +181,10 @@ export class Ember extends Monster {
         this.combatRoundOver();
     }
 
-    //Dragon Force: Tainted Ember only
+    // Dragon Force: Tainted Ember only
     private dragonFarce(): void {
-        //Effect: Stuns the PC for one turn and deals some damage, not much though. (Note: PC's version of this does something different and Ember has no cooldown to use this again. Obviously do not spam or peeps will rage.)
-        //Description:
+        // Effect: Stuns the PC for one turn and deals some damage, not much though. (Note: PC's version of this does something different and Ember has no cooldown to use this again. Obviously do not spam or peeps will rage.)
+        // Description:
         this.outputText(
             "Ember bares " +
                 this.emberMF("his", "her") +
@@ -197,7 +197,7 @@ export class Ember extends Monster {
             this.outputText(
                 "  Your head swims - it'll take a moment before you can regain your balance."
             );
-            //Miss: You quickly manage to jump out of the way and watch in awe as the blast gouges into the ground you were standing on mere moments ago.
+            // Miss: You quickly manage to jump out of the way and watch in awe as the blast gouges into the ground you were standing on mere moments ago.
             this.player.createStatusAffect(StatusAffects.Stunned, 0, 0, 0, 0);
         }
         this.createStatusAffect(StatusAffects.StunCooldown, 4, 0, 0, 0);
@@ -226,7 +226,7 @@ export class Ember extends Monster {
     }
 
     public defeated(hpVictory: boolean): void {
-        //Hackers gonna hate. Tested and working as intended.
+        // Hackers gonna hate. Tested and working as intended.
         if (hpVictory) this.game.emberScene.beatEmberSpar();
         else this.emberReactsToLustiness();
     }

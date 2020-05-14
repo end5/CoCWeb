@@ -11,21 +11,21 @@ import {
 import { PerkLib } from "../../../PerkLib";
 
 export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface {
-    //Roxanne Poisontail
-    //-no hair,
-    //-stand roughly 5'11\" in height,
-    //-wang = 20" long at smallest
-    //-tits = DD
-    //-Dark purple, lighter violet up middle body.
-    //-A pair of horns towards back of head.
+    // Roxanne Poisontail
+    // -no hair,
+    // -stand roughly 5'11\" in height,
+    // -wang = 20" long at smallest
+    // -tits = DD
+    // -Dark purple, lighter violet up middle body.
+    // -A pair of horns towards back of head.
 
-    //-Black jacket, silver trim, leather pants + extra tight, black high heeled boots (2" up)
-    //-Male but appears female, refuses to received.
-    //-Dick grows the longer he goes without being sated.
-    //-Drinking contest, has other friends.
+    // -Black jacket, silver trim, leather pants + extra tight, black high heeled boots (2" up)
+    // -Male but appears female, refuses to received.
+    // -Dick grows the longer he goes without being sated.
+    // -Drinking contest, has other friends.
 
-    //Score = Height x (Thickness + 100)/200 x (toughness/100) + Bonus Score * 10 (bonus drops by 2 a week
-    //30-50 score needed to win
+    // Score = Height x (Thickness + 100)/200 x (toughness/100) + Bonus Score * 10 (bonus drops by 2 a week
+    // 30-50 score needed to win
 
     /*Sex scenes:
     LOSS:
@@ -36,35 +36,35 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
     -get fellatio'ed
     -get rimmed (cheap crappy scene)*/
 
-    //Flags:
-    //221 - //-Met her?
-    //222 -Times Won Contest
-    //223 -Times Lost Contest
-    //224 -Who won contest last? (1 = pc, 2 = strahza)
-    //225 -How long has Strahza gone without sex?
+    // Flags:
+    // 221 - //-Met her?
+    // 222 -Times Won Contest
+    // 223 -Times Lost Contest
+    // 224 -Who won contest last? (1 = pc, 2 = strahza)
+    // 225 -How long has Strahza gone without sex?
     //     (200+ huge, 300+ 20% chance each day of shrink)
-    //226 -Is PC losing the Roxanne's drinking contest intentionally?
-    //227 -Drinking Contest Bonus Score
+    // 226 -Is PC losing the Roxanne's drinking contest intentionally?
+    // 227 -Drinking Contest Bonus Score
 
     public constructor() {
         super();
         CoC.timeAwareClassAdd(this);
     }
 
-    //Implementation of TimeAwareInterface
+    // Implementation of TimeAwareInterface
     public timeChange(): boolean {
-        //Increase Roxanne's growing dick size...
+        // Increase Roxanne's growing dick size...
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00225]++;
-        //Reset if she finds someone to take it (random at high values)
+        // Reset if she finds someone to take it (random at high values)
         if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00225] >= 300 &&
             this.model.time.hours == 1 &&
             Roxanne.rand(5) == 0
         )
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00225] = 1;
-        //hangover status stuff
+        // hangover status stuff
         if (this.player.findStatusAffect(StatusAffects.Hangover) >= 0) {
-            //Countdown
+            // Countdown
             if (this.player.statusAffectv1(StatusAffects.Hangover) > 0)
                 this.player.addStatusValue(StatusAffects.Hangover, 1, -1);
             else {
@@ -72,12 +72,12 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
                     "\n<b>Your head finally clears as your hangover wears off.  Drinking with the shemale lizard was definitely a bad idea.</b>\n",
                     false
                 );
-                //Restore stats
+                // Restore stats
                 this.player.str += this.player.statusAffectv2(StatusAffects.Hangover);
                 this.player.spe += this.player.statusAffectv3(StatusAffects.Hangover);
                 this.player.inte += this.player.statusAffectv4(StatusAffects.Hangover);
                 this.dynStats("cor", 0);
-                //Clear status
+                // Clear status
                 this.player.removeStatusAffect(StatusAffects.Hangover);
                 return true;
             }
@@ -90,19 +90,19 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
     public timeChangeLarge(): boolean {
         return false;
     }
-    //End of Interface Implementation
+    // End of Interface Implementation
 
-    //[Drinking Table Appearance]
+    // [Drinking Table Appearance]
     public RoxanneAppearance() {
-        //When she there?
+        // When she there?
         if (this.model.time.hours > 12 && this.model.time.hours < 19) {
-            //(Not Met)
+            // (Not Met)
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00221] == 0)
                 this.outputText(
                     "\n\nThere's a table with a half-dozen oddly-dressed lizans not too far from the fire.  A keg is set up a few feet away and they seem to be having a good time.",
                     false
                 );
-            //Met)
+            // Met)
             else
                 this.outputText(
                     "\n\nRoxanne and her usual crew are sitting at a table, drinking and telling bawdy stories near the fire.",
@@ -113,7 +113,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         }
         return undefined;
     }
-    //[Drinking Table Approach, Not Met Yet]
+    // [Drinking Table Approach, Not Met Yet]
     private Roxanne1stApproach(): void {
         this.outputText("", true);
         this.spriteSelect(78);
@@ -131,7 +131,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         this.doYesNo(this.RoxanneChooseApproachOrRepeat, this.bazaar.enterTheBazaar);
     }
 
-    //[Approach] – Flag as Met
+    // [Approach] – Flag as Met
     private RoxanneChooseApproachOrRepeat(): void {
         this.spriteSelect(78);
         this.outputText("", true);
@@ -184,7 +184,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
             );
             this.outputText("Do you engage her in a drinking competition?", false);
         }
-        //[Approach – met but not drank yet]
+        // [Approach – met but not drank yet]
         else if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00222] +
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00223] <=
@@ -198,7 +198,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
             );
             this.outputText("Do you engage Captain Poisontail in a drinking contest?", false);
         }
-        //[Approach – lost last contest and she's huge]
+        // [Approach – lost last contest and she's huge]
         else if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00224] == 2 &&
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00225] >= 200
@@ -222,7 +222,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
                 );
             this.outputText(".  Do you enter a drinking contest with Roxanne?", false);
         }
-        //[Approach – lost last contest and she's not big]
+        // [Approach – lost last contest and she's not big]
         else if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00224] == 2 &&
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00225] < 200
@@ -235,7 +235,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
             );
             this.outputText("Do you drink with Roxanne again?", false);
         }
-        //[Approach Roxanne and won last time – small Roxanne]
+        // [Approach Roxanne and won last time – small Roxanne]
         else if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00224] == 1 &&
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00225] < 200
@@ -249,7 +249,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
                 false
             );
         }
-        //[Approach Roxanne and won last time – HUEG Roxanne]
+        // [Approach Roxanne and won last time – HUEG Roxanne]
         else if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00224] == 1 &&
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00225] >= 200
@@ -260,7 +260,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
             );
             this.outputText("Do you accept her offer to partake in the drinking contest?", false);
         } else this.outputText("If you're reading this, something broke.", false);
-        //Clear the 'are you losing the contest intionally flag'
+        // Clear the 'are you losing the contest intionally flag'
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00226] = 0;
         this.simpleChoices(
             "Yes",
@@ -338,7 +338,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         else this.outputText("smile and lick your lips, inhaling the hoppy aroma before", false);
         this.outputText(" you slam the dark beer back and swallow.\n\n", false);
 
-        //(FIRST TIME)
+        // (FIRST TIME)
         if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00222] +
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00223] <=
@@ -350,13 +350,13 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
                     '!</i>" shouts Roxanne triumphantly as she holds her mug aloft overhead.  The frothy beverage begins to pour out, an amber waterfall of intoxicant raining down towards the lizan\'s face, but the canny pirate is ready for it.  She opens her jaw and extends her tongue, over two feet of the pink-hued organ, catching the alcoholic downpour and funneling it past her smiling lips.  Finished, she belches loudly and pumps her hips at you rudely.  "<i>I hope you\'re ready to get fucked!</i>"\n\n',
                 false
             );
-        //(REPEAT: PC HAS NOT YET WON)
+        // (REPEAT: PC HAS NOT YET WON)
         else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00222] == 0)
             this.outputText(
                 '"<i>You still drink like an amateur.  Still, it doesn\'t surprise me that you came back to old Captain Poisontail for a bout with my little manhood,</i>" teases the lizan pirate as she wraps her tongue around the handle and lifts it to her lips, gulping the entire thing in one huge, throat-relaxing chug.  Roxanne belches loudly and pumps her hips at you as she says, "<i>Ready for another fucking?</i>"\n\n',
                 false
             );
-        //(REPEAT: PC HAS WON AND NEVER LOST)
+        // (REPEAT: PC HAS WON AND NEVER LOST)
         else if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00222] > 0 &&
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00223] <= 0
@@ -365,7 +365,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
                 "\"<i>Last time I wasn't ready!  Well, I guess it's on!  This time I won't lose, and you can bet I'm gonna ride you twice as hard for payback!</i>\" Roxanne shouts with a feigned air of confidence.  She downs her drink quickly, foam frothing at the corners of her draconian muzzle in her hurry not to be outdone by you.  As you watch, she licks her lips and shivers, fidgeting uncomfortably while her cursed cock gets a bit harder in her pants.\n\n",
                 false
             );
-        //(REPEAT: PC HAS LOST BEFORE BUT WON LAST TIME)
+        // (REPEAT: PC HAS LOST BEFORE BUT WON LAST TIME)
         else if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00223] > 0 &&
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00224] == 1
@@ -376,14 +376,14 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
                     ' without warning, and she chuckles when you nearly lurch out of your seat in surprise.  "<i>That\'s just a warm-up.</i>"\n\n',
                 false
             );
-        //(REPEAT: PC HAS WON BEFORE BUT LOST LAST TIME)
+        // (REPEAT: PC HAS WON BEFORE BUT LOST LAST TIME)
         else
             this.outputText(
                 '"<i>Don\'t you realize any previous victory was a fluke?  Watch and learn pup,</i>" taunts Roxanne as she devours her mug in a single, throat-bulging swallow.  You chuckle, an involuntary burp interrupting your mirth as the piratical lizan pumps her hips at you rudely, her bulging manhood clearly outlined in the suddenly-tight trousers.  "<i>I can\'t wait to bury this thing inside your ass again!</i>"\n\n',
                 false
             );
 
-        //[DRINKING CONTEST CONTINUES – not losing intentionally]
+        // [DRINKING CONTEST CONTINUES – not losing intentionally]
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00226] == 0) {
             this.outputText(
                 "The 'taur at the tap quickly grows bored with the constant bantering between the scaly swashbuckler and yourself, only bothering to look your way when the two of you walk back for a refill.  The gluttonous chugging that started the contest gives way to a more languid pace as you and Roxanne become increasingly intoxicated, slowing down in hopes that the other will be judged unfit first.  It does get a little hard to focus with the way she's constantly eyeballing you, and her curvy figure and ",
@@ -398,7 +398,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
             );
             this.dynStats("lus", 25);
         }
-        //[DRINKING CONTEST CONTINUES – losing intentionally]
+        // [DRINKING CONTEST CONTINUES – losing intentionally]
         else {
             this.outputText(
                 "The 'taur at the tap quickly grows bored with the constant bantering from Roxanne and the flirting you shower the lizan in.  You down your drinks quickly, even sneaking refills while the lizan is distracted in order to speed your inevitable loss.  She looks at you, clearly checking you out while you unabashedly fixate on the pulsing mass of cock-flesh that strains her oh-so-tight pants.  Roxanne stops drinking and walks over to you, a little unsteady but still in control of herself, and pulls your head against her groin, letting you nuzzle it while she puts filled mugs in your hands.  \"<i>Go on and drink... good " +
@@ -408,21 +408,21 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
             );
         }
         var score: number = 0;
-        //Calculate score if not
+        // Calculate score if not
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00226] == 0)
             score =
                 this.player.tallness *
                     ((this.player.thickness + 100) / 200) *
                     (this.player.tou / 100) +
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00227];
-        //If score is less than 30-50 (Strahza is inconsistant!)
-        //[Lose!]
+        // If score is less than 30-50 (Strahza is inconsistant!)
+        // [Lose!]
         if (score < 45 + Roxanne.rand(20)) {
-            //Increment loss count!
+            // Increment loss count!
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00223]++;
-            //Set who won contast last
+            // Set who won contast last
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00224] = 2;
-            //Gain big bonus
+            // Gain big bonus
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00227] += 10;
             this.outputText(
                 "Giggling and nearly tripping up on your own " +
@@ -443,8 +443,8 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
                     " spinning you around to fall drunkenly into the pirate's soft, cushy chest.  \"<i>Don't worry, I'll be gentle,</i>\" she whispers, hooking an arm around your sagging frame.",
                 false
             );
-            //CHOOSE SEX SCENE
-            //Chance of big booty butt loss!
+            // CHOOSE SEX SCENE
+            // Chance of big booty butt loss!
             if (
                 this.player.buttRating > 12 &&
                 this.player.tone <= 50 &&
@@ -452,20 +452,20 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
                 Roxanne.rand(2) == 0
             )
                 this.doNext(this.bigBootyRoxanneContestLoss);
-            //TO huge or regular anal
+            // TO huge or regular anal
             else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00225] >= 200)
                 this.doNext(this.roxanneFucksYourAssOHGODITSHUGE);
             else this.doNext(this.roxanneReamsYouNormal);
-            //Reset roxanne's cock
+            // Reset roxanne's cock
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00225] = 1;
         }
-        //[WIN]
+        // [WIN]
         else {
-            //Increment win count!
+            // Increment win count!
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00222]++;
-            //Set who won contest last
+            // Set who won contest last
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00224] = 1;
-            //Gain small bonus
+            // Gain small bonus
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00227] += 4;
             this.outputText(
                 "Laughing uproariously, you watch with a bemused expression while Roxanne tries to stumble up to the tap, tripping over her tail three times before she finally manages to ask for another mug.  The partly-corrupted deer-taur shakes his head and folds his arms across his chest.  She's been cut off!  You win!  The lecherous lizan stamps her heeled boot in the dirt before tramping back over to you, hips swaying drunkenly.  She trips on her tail again, this time falling face-first into your lap.  Hiccuping drunkenly, Roxanne slurs, \"<i>Well at leasht I don't havta go far to give you your winningshh, huh?</i>\"\n\n",
@@ -475,7 +475,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
                 "The other lizans are looking at you with a watchful eye.  It looks like you'll have to stick by the terms of the contest.  What manner of oral service do you make her provide?",
                 false
             );
-            //[Fellatio] [Cunnilingus] [Rimming]
+            // [Fellatio] [Cunnilingus] [Rimming]
             var fellatio = undefined;
             var cunnilingus = undefined;
             if (this.player.hasCock()) fellatio = this.roxanneGivesABlowjob;
@@ -495,7 +495,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         }
     }
 
-    //[GET A JOB OF BLOWNESS]
+    // [GET A JOB OF BLOWNESS]
     private roxanneGivesABlowjob(): void {
         this.spriteSelect(78);
         this.outputText("", true);
@@ -619,12 +619,12 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
                 " and wobble off back to camp.",
             false
         );
-        //(-100 lust, -1 int)
+        // (-100 lust, -1 int)
         this.player.orgasm();
         this.dynStats("int", -1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[Receive Oral – Vaginalingus]
+    // [Receive Oral – Vaginalingus]
     private roxanneCunnilingus(): void {
         this.spriteSelect(78);
         this.outputText("", true);
@@ -694,7 +694,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
             );
         this.outputText("\n\n", false);
 
-        //(ORGASM HERE!)
+        // (ORGASM HERE!)
         this.outputText(
             "Helplessly twitching in your place, you fight with your body's desire to copulate, trying not to impale your quivering snatch on the pirate's nose.  ",
             false
@@ -740,12 +740,12 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
             "You smirk back, slowly putting your clothes back on.  Roxanne can do little to prevent you from noting the massive, unmistakable cock-outline in her pre-cum-soaked pants.  She gives you a smoky glare filled with lust and aggression, but she won't be getting her prize this time!",
             false
         );
-        //(-100 lust, -1 int)
+        // (-100 lust, -1 int)
         this.player.orgasm();
         this.dynStats("int", -1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[Receive Oral – SkyrRimjoooooooob]
+    // [Receive Oral – SkyrRimjoooooooob]
     private roxanneRimjob(): void {
         this.spriteSelect(78);
         this.outputText("", true);
@@ -790,7 +790,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
             false
         );
 
-        //(Optional cock milking)
+        // (Optional cock milking)
         if (this.player.hasCock()) {
             this.outputText(
                 "Surprisingly, one of the pirate's hands comes off your " +
@@ -806,7 +806,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
                 false
             );
         }
-        //(Optional pussy milking if no cock)
+        // (Optional pussy milking if no cock)
         else if (this.player.hasVagina())
             this.outputText(
                 "Surprisingly, one of the pirate's hands comes off your " +
@@ -864,13 +864,13 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
             "Completely finished, you can do naught but tremble while Roxanne disentangles her tongue from your rectum, popping from your backside with a noisy slurp.  She immediately falls over and giggles, completely drunk, but she somehow staggers back up to give your ass a smack.  You follow her example and pull yourself to your feet, tired from the anal orgasm but feeling quite relaxed.  Once you've readied yourself, you realize that Roxanne's crew are arranged in a semi-circle around you.  You note a number of demons are on the prowl beyond that protective ring, though they seem to be dispersing now that the act has finished.  You make your way back to check on camp once it looks safe.",
             false
         );
-        //(-100 lust, -1 int
+        // (-100 lust, -1 int
         this.player.orgasm();
         this.dynStats("int", -1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[OH SHIT YOU SO DRUNK AND GETTING REAMED BY LIZARD CAWK]
+    // [OH SHIT YOU SO DRUNK AND GETTING REAMED BY LIZARD CAWK]
     private roxanneReamsYouNormal(): void {
         this.spriteSelect(78);
         this.outputText("", true);
@@ -966,7 +966,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
             false
         );
 
-        //(DICKS:
+        // (DICKS:
         if (this.player.hasCock()) {
             this.outputText(
                 "The constant pressure of her thrusts seems to flow straight to " +
@@ -995,7 +995,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
                 );
             this.outputText("\n\n", false);
         }
-        //(JUST CUNTS:
+        // (JUST CUNTS:
         else if (this.player.hasVagina()) {
             this.outputText(
                 "The constant pressure of her thrusts seems to flow straight to your " +
@@ -1084,14 +1084,14 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
                 " are weak, and you dribble cum with every movement.  It takes some doing to extricate yourself from Roxanne's slumbering form, but you find your equipment and leave, hanging your head in shame under the leering eyes of the caravan-goers.",
             false
         );
-        //(-100 lust, -1 int, hangover effect)
+        // (-100 lust, -1 int, hangover effect)
         this.player.orgasm();
         this.dynStats("int", -1);
         this.applyHangover();
         this.doNext(this.camp.returnToCampUseFourHours);
     }
 
-    //[Roxanne HAS A FUCKING TORPEDO DICK BUTTFUCK]
+    // [Roxanne HAS A FUCKING TORPEDO DICK BUTTFUCK]
     private roxanneFucksYourAssOHGODITSHUGE(): void {
         this.spriteSelect(78);
         this.outputText("", true);
@@ -1261,7 +1261,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
             "  <b>You'll wake and head back to camp with a massive hangover.</b>",
             false
         );
-        //(-100 lust, -1 int, hangover effect)
+        // (-100 lust, -1 int, hangover effect)
         this.player.orgasm();
         this.dynStats("int", -1);
         this.applyHangover();
@@ -1269,23 +1269,23 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
     }
 
     private applyHangover(): void {
-        //Status: Hangover.
-        //v1 = hours left.
-        //v2 = strength taken
-        //v3 = speed taken
-        //v4 = intelligence
+        // Status: Hangover.
+        // v1 = hours left.
+        // v2 = strength taken
+        // v3 = speed taken
+        // v4 = intelligence
 
-        //Already hungover?  Reset duration.
+        // Already hungover?  Reset duration.
         if (this.player.findStatusAffect(StatusAffects.Hangover) >= 0)
             this.player.changeStatusValue(StatusAffects.Hangover, 1, 8);
-        //No hangover yet?  Create and yoink stats
+        // No hangover yet?  Create and yoink stats
         else {
             this.player.createStatusAffect(StatusAffects.Hangover, 8, 0, 0, 0);
-            //Strength minus 5
+            // Strength minus 5
             this.temp = 5;
             while (this.temp > 0) {
                 this.temp--;
-                //If PC has strength to lose
+                // If PC has strength to lose
                 if (this.player.str >= 2) {
                     this.mainView.statsView.showStatDown("str");
                     // strDown.visible = true;
@@ -1294,11 +1294,11 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
                     this.player.addStatusValue(StatusAffects.Hangover, 2, 1);
                 }
             }
-            //speed minus 10
+            // speed minus 10
             this.temp = 10;
             while (this.temp > 0) {
                 this.temp--;
-                //If PC has speed to lose
+                // If PC has speed to lose
                 if (this.player.spe >= 2) {
                     this.mainView.statsView.showStatDown("spe");
                     // speDown.visible = true;
@@ -1307,11 +1307,11 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
                     this.player.addStatusValue(StatusAffects.Hangover, 3, 1);
                 }
             }
-            //int minus 15
+            // int minus 15
             this.temp = 15;
             while (this.temp > 0) {
                 this.temp--;
-                //If PC has intelligence to lose
+                // If PC has intelligence to lose
                 if (this.player.inte >= 2) {
                     this.mainView.statsView.showStatDown("inte");
                     // inteDown.visible = true;
@@ -1324,7 +1324,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         this.statScreenRefresh();
     }
 
-    //PC has a big butt and loses to normal Roxanne
+    // PC has a big butt and loses to normal Roxanne
     private bigBootyRoxanneContestLoss(): void {
         this.spriteSelect(78);
         this.clearOutput();
@@ -1409,7 +1409,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
                 this.player.legs() +
                 " are weak, and you dribble cum from your ass with every movement.  It takes some doing to extricate yourself from Roxanne's slumbering form, but you find your equipment and leave, hanging your head in shame under the leering eyes of the caravan-goers."
         );
-        //(-100 lust, -1 int, hangover effect)
+        // (-100 lust, -1 int, hangover effect)
         this.player.orgasm();
         this.dynStats("int", -1);
         this.applyHangover();

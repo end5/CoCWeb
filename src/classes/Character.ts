@@ -46,14 +46,14 @@ export class Character extends Creature {
         this._femininity = value;
     }
 
-    //BEARDS! Not used anywhere right now but WHO WANTS A BEARD?
+    // BEARDS! Not used anywhere right now but WHO WANTS A BEARD?
     public beardLength: number = 0;
     public beardStyle: number = 0;
 
-    //Used for hip ratings
+    // Used for hip ratings
     public thickness: number = 0;
 
-    //Body tone i.e. Lithe, stocky, etc
+    // Body tone i.e. Lithe, stocky, etc
     public tone: number = 0;
 
     private _pregnancyType: number = 0;
@@ -76,7 +76,7 @@ export class Character extends Creature {
         return this._buttPregnancyIncubation;
     }
 
-    //Key items
+    // Key items
     public keyItems: any[];
 
     public constructor() {
@@ -84,82 +84,82 @@ export class Character extends Creature {
         this.keyItems = [];
     }
 
-    //Return bonus fertility
+    // Return bonus fertility
 
-    //return total fertility
+    // return total fertility
 
     public faceDesc(): string {
         var faceo: string = "";
-        //0-10
+        // 0-10
         if (this.femininity < 10) {
             faceo = "a square chin";
             if (!this.hasBeard()) faceo += " and chiseled jawline";
             else faceo += ", chiseled jawline, and " + this.beard();
         }
-        //10+ -20
+        // 10+ -20
         else if (this.femininity < 20) {
             faceo = "a rugged looking " + this.face() + " ";
             if (this.hasBeard()) faceo += "and " + this.beard();
             faceo += "that's surely handsome";
         }
-        //21-28
+        // 21-28
         else if (this.femininity < 28)
             faceo = "a well-defined jawline and a fairly masculine profile";
-        //28+-35
+        // 28+-35
         else if (this.femininity < 35) faceo = "a somewhat masculine, angular jawline";
-        //35-45
+        // 35-45
         else if (this.femininity < 45) faceo = "the barest hint of masculinity on its features";
-        //45-55
+        // 45-55
         else if (this.femininity <= 55)
             faceo = "an androgynous set of features that would look normal on a male or female";
-        //55+-65
+        // 55+-65
         else if (this.femininity <= 65)
             faceo = "a tiny touch of femininity to it, with gentle curves";
-        //65+-72
+        // 65+-72
         else if (this.femininity <= 72)
             faceo = "a nice set of cheekbones and lips that have the barest hint of pout";
-        //72+-80
+        // 72+-80
         else if (this.femininity <= 80)
             faceo = "a beautiful, feminine shapeliness that's sure to draw the attention of males";
-        //81-90
+        // 81-90
         else if (this.femininity <= 90)
             faceo = "a gorgeous profile with full lips, a button nose, and noticeable eyelashes";
-        //91-100
+        // 91-100
         else
             faceo =
                 "a jaw-droppingly feminine shape with full, pouting lips, an adorable nose, and long, beautiful eyelashes";
         return faceo;
     }
 
-    //Modify femininity!
+    // Modify femininity!
     public modFem(goal: number, strength: number = 1): string {
         var output: string = "";
         var old: string = this.faceDesc();
         var oldN: number = this.femininity;
         var Changed: boolean = false;
-        //If already perfect!
+        // If already perfect!
         if (goal == this.femininity) return "";
-        //If turning MANLYMAN
+        // If turning MANLYMAN
         if (goal < this.femininity && goal <= 50) {
             this.femininity -= strength;
-            //YOUVE GONE TOO FAR! TURN BACK!
+            // YOUVE GONE TOO FAR! TURN BACK!
             if (this.femininity < goal) this.femininity = goal;
             Changed = true;
         }
-        //if turning GIRLGIRLY, like duh!
+        // if turning GIRLGIRLY, like duh!
         if (goal > this.femininity && goal >= 50) {
             this.femininity += strength;
-            //YOUVE GONE TOO FAR! TURN BACK!
+            // YOUVE GONE TOO FAR! TURN BACK!
             if (this.femininity > goal) this.femininity = goal;
             Changed = true;
         }
-        //Fix if it went out of bounds!
+        // Fix if it went out of bounds!
         if (this.findPerk(PerkLib.Androgyny) < 0) this.fixFemininity();
-        //Abort if nothing changed!
+        // Abort if nothing changed!
         if (!Changed) return "";
-        //See if a change happened!
+        // See if a change happened!
         if (old != this.faceDesc()) {
-            //Gain fem?
+            // Gain fem?
             if (goal > oldN)
                 output =
                     "\n\n<b>Your facial features soften as your body becomes more feminine. (+" +
@@ -171,7 +171,7 @@ export class Character extends Creature {
                     strength +
                     ")</b>";
         }
-        //Barely noticable change!
+        // Barely noticable change!
         else {
             if (goal > oldN)
                 output =
@@ -193,27 +193,27 @@ export class Character extends Creature {
 
     public modThickness(goal: number, strength: number = 1): string {
         if (goal == this.thickness) return "";
-        //Lose weight fatty!
+        // Lose weight fatty!
         if (goal < this.thickness && goal < 50) {
             this.thickness -= strength;
-            //YOUVE GONE TOO FAR! TURN BACK!
+            // YOUVE GONE TOO FAR! TURN BACK!
             if (this.thickness < goal) this.thickness = goal;
         }
-        //Sup tubby!
+        // Sup tubby!
         if (goal > this.thickness && goal > 50) {
             this.thickness += strength;
-            //YOUVE GONE TOO FAR! TURN BACK!
+            // YOUVE GONE TOO FAR! TURN BACK!
             if (this.thickness > goal) this.thickness = goal;
         }
         trace("MOD THICKNESS FIRE");
-        //DIsplay 'U GOT FAT'
+        // DIsplay 'U GOT FAT'
         if (goal >= this.thickness && goal >= 50)
             return (
                 "\n\nYour center of balance changes a little bit as your body noticeably widens. (+" +
                 strength +
                 " body thickness)"
             );
-        //GET THIN BITCH
+        // GET THIN BITCH
         else if (goal <= this.thickness && goal <= 50)
             return (
                 "\n\nEach movement feels a tiny bit easier than the last.  Did you just lose a little weight!? (+" +
@@ -225,10 +225,10 @@ export class Character extends Creature {
 
     public modTone(goal: number, strength: number = 1): string {
         if (goal == this.tone) return "";
-        //Lose muscle visibility!
+        // Lose muscle visibility!
         if (goal < this.tone && goal < 50) {
             this.tone -= strength;
-            //YOUVE GONE TOO FAR! TURN BACK!
+            // YOUVE GONE TOO FAR! TURN BACK!
             if (this.tone < goal) {
                 this.tone = goal;
                 return (
@@ -238,10 +238,10 @@ export class Character extends Creature {
                 );
             }
         }
-        //MOAR hulkness
+        // MOAR hulkness
         if (goal > this.tone && goal > 50) {
             this.tone += strength;
-            //YOUVE GONE TOO FAR! TURN BACK!
+            // YOUVE GONE TOO FAR! TURN BACK!
             if (this.tone > goal) {
                 this.tone = goal;
                 return (
@@ -251,14 +251,14 @@ export class Character extends Creature {
                 );
             }
         }
-        //DIsplay BITCH I WORK OUT
+        // DIsplay BITCH I WORK OUT
         if (goal >= this.tone && goal > 50)
             return (
                 "\n\nYour body feels a little more solid as you move, and your muscles look slightly more visible. (+" +
                 strength +
                 " muscle tone)"
             );
-        //Display DERP I HAVE GIRL MUSCLES
+        // Display DERP I HAVE GIRL MUSCLES
         else if (goal <= this.tone && goal < 50)
             return (
                 "\n\nMoving brings with it a little more jiggle than you're used to.  You don't seem to have gained weight, but your muscles look less visible. (-" +
@@ -268,10 +268,10 @@ export class Character extends Creature {
         return "";
     }
 
-    //Run this every hour to 'fix' femininity.
+    // Run this every hour to 'fix' femininity.
     public fixFemininity(): string {
         var output: string = "";
-        //Genderless/herms share the same bounds
+        // Genderless/herms share the same bounds
         if (this.gender == 0 || this.gender == 3) {
             if (this.femininity < 20) {
                 output +=
@@ -290,7 +290,7 @@ export class Character extends Creature {
                 this.femininity = 85;
             }
         }
-        //GURLS!
+        // GURLS!
         else if (this.gender == 2) {
             if (this.femininity < 30) {
                 output +=
@@ -305,7 +305,7 @@ export class Character extends Creature {
                 this.femininity = 30;
             }
         }
-        //BOIZ!
+        // BOIZ!
         else if (this.gender == 1) {
             if (this.femininity > 70) {
                 output +=
@@ -334,16 +334,16 @@ export class Character extends Creature {
     public beard(): string {
         if (this.hasBeard()) return "beard";
         else {
-            //CoC_Settings.error("");
+            // CoC_Settings.error("");
             return "ERROR: NO BEARD! <b>YOU ARE NOT A VIKING AND SHOULD TELL FEN IMMEDIATELY.</b>";
         }
     }
 
     public skin(noAdj: boolean = false, noTone: boolean = false): string {
         var skinzilla: string = "";
-        //Only show stuff other than skinDesc if justSkin is false
+        // Only show stuff other than skinDesc if justSkin is false
         if (!noAdj) {
-            //Adjectives first!
+            // Adjectives first!
             if (this.skinAdj != "" && !noTone && this.skinTone != "rough gray") {
                 skinzilla += this.skinAdj;
                 if (noTone) skinzilla += " ";
@@ -351,8 +351,8 @@ export class Character extends Creature {
             }
         }
         if (!noTone) skinzilla += this.skinTone + " ";
-        //Fur handled a little differently since it uses
-        //haircolor
+        // Fur handled a little differently since it uses
+        // haircolor
         if (this.skinType == 1) skinzilla += "skin";
         else skinzilla += this.skinDesc;
         return skinzilla;
@@ -374,15 +374,15 @@ export class Character extends Creature {
 
     public face(): string {
         var stringo: string = "";
-        //0 - human
-        //5 - Human w/Naga fangz
-        //8 - bunnah faceahhh bunbun
-        //10 - spidah-face (humanish)
+        // 0 - human
+        // 5 - Human w/Naga fangz
+        // 8 - bunnah faceahhh bunbun
+        // 10 - spidah-face (humanish)
         if (this.faceType == 0) return "face";
-        //1 - horse
-        //2 - dogface
-        //6 - kittah face
-        //9 - kangaface
+        // 1 - horse
+        // 2 - dogface
+        // 6 - kittah face
+        // 9 - kangaface
         if (
             this.faceType == 9 ||
             this.faceType == 6 ||
@@ -395,18 +395,18 @@ export class Character extends Creature {
             if (Math.floor(Math.random() * 3) == 0 && this.faceType == 6) stringo = "feline ";
             return stringo + "face";
         }
-        //3 - cowface
+        // 3 - cowface
         if (this.faceType == 3) {
             if (Math.floor(Math.random() * 4) == 0) stringo = "bovine ";
             if (Math.floor(Math.random() * 2) == 0) return "muzzle";
             return stringo + "face";
         }
-        //4 - sharkface-teeth
+        // 4 - sharkface-teeth
         if (this.faceType == 4) {
             if (Math.floor(Math.random() * 4) == 0) stringo = "angular ";
             return stringo + "face";
         }
-        //7 - lizard face (durned argonians!)
+        // 7 - lizard face (durned argonians!)
         if (this.faceType == 7 || this.faceType == 12) {
             if (Math.floor(Math.random() * 4) == 0) stringo = "reptilian ";
             if (Math.floor(Math.random() * 4) == 0) return stringo + "muzzle";
@@ -417,14 +417,14 @@ export class Character extends Creature {
     }
 
     public hasLongTail(): boolean {
-        //7 - shark tail!
-        //8 - catTAIIIIIL
-        //9 - lizard tail
-        //10 - bunbuntail
-        //11 - harpybutt
-        //12 - rootail
-        //13 - foxtail
-        //14 - dagron tail
+        // 7 - shark tail!
+        // 8 - catTAIIIIIL
+        // 9 - lizard tail
+        // 10 - bunbuntail
+        // 11 - harpybutt
+        // 12 - rootail
+        // 13 - foxtail
+        // 14 - dagron tail
         if (this.isNaga()) return true;
         if (
             this.tailType == 2 ||
@@ -449,22 +449,22 @@ export class Character extends Creature {
         return this._buttPregnancyType != 0;
     }
 
-    //fertility must be >= random(0-beat)
-    //If arg == 1 then override any contraceptives and guarantee fertilization
+    // fertility must be >= random(0-beat)
+    // If arg == 1 then override any contraceptives and guarantee fertilization
     public knockUp(
         type: number = 0,
         incubation: number = 0,
         beat: number = 100,
         arg: number = 0
     ): void {
-        //Contraceptives cancel!
+        // Contraceptives cancel!
         if (this.findStatusAffect(StatusAffects.Contraceptives) >= 0 && arg < 1) return;
-        //			if (findStatusAffect(StatusAffects.GooStuffed) >= 0) return; //No longer needed thanks to PREGNANCY_GOO_STUFFED being used as a blocking value
+        // 			if (findStatusAffect(StatusAffects.GooStuffed) >= 0) return; //No longer needed thanks to PREGNANCY_GOO_STUFFED being used as a blocking value
         var bonus: number = 0;
-        //If arg = 1 (always pregnant), bonus = 9000
+        // If arg = 1 (always pregnant), bonus = 9000
         if (arg >= 1) bonus = 9000;
         if (arg <= -1) bonus = -9000;
-        //If unpregnant and fertility wins out:
+        // If unpregnant and fertility wins out:
         if (
             this.pregnancyIncubation == 0 &&
             this.totalFertility() + bonus > Math.floor(Math.random() * beat) &&
@@ -475,7 +475,7 @@ export class Character extends Creature {
                 "PC Knocked up with pregnancy type: " + type + " for " + incubation + " incubation."
             );
         }
-        //Chance for eggs fertilization - ovi elixir and imps excluded!
+        // Chance for eggs fertilization - ovi elixir and imps excluded!
         if (
             type != PregnancyStore.PREGNANCY_IMP &&
             type != PregnancyStore.PREGNANCY_OVIELIXIR_EGGS &&
@@ -492,27 +492,27 @@ export class Character extends Creature {
         }
     }
 
-    //The more complex knockUp function used by the player is defined above
-    //The player doesn't need to be told of the last event triggered, so the code here is quite a bit simpler than that in PregnancyStore
+    // The more complex knockUp function used by the player is defined above
+    // The player doesn't need to be told of the last event triggered, so the code here is quite a bit simpler than that in PregnancyStore
     public knockUpForce(type: number = 0, incubation: number = 0): void {
         this._pregnancyType = type;
         this._pregnancyIncubation = type == 0 ? 0 : incubation; //Won't allow incubation time without pregnancy type
     }
 
-    //fertility must be >= random(0-beat)
+    // fertility must be >= random(0-beat)
     public buttKnockUp(
         type: number = 0,
         incubation: number = 0,
         beat: number = 100,
         arg: number = 0
     ): void {
-        //Contraceptives cancel!
+        // Contraceptives cancel!
         if (this.findStatusAffect(StatusAffects.Contraceptives) >= 0 && arg < 1) return;
         var bonus: number = 0;
-        //If arg = 1 (always pregnant), bonus = 9000
+        // If arg = 1 (always pregnant), bonus = 9000
         if (arg >= 1) bonus = 9000;
         if (arg <= -1) bonus = -9000;
-        //If unpregnant and fertility wins out:
+        // If unpregnant and fertility wins out:
         if (
             this.buttPregnancyIncubation == 0 &&
             this.totalFertility() + bonus > Math.floor(Math.random() * beat)
@@ -528,7 +528,7 @@ export class Character extends Creature {
         }
     }
 
-    //The more complex buttKnockUp function used by the player is defined in Character.as
+    // The more complex buttKnockUp function used by the player is defined in Character.as
     public buttKnockUpForce(type: number = 0, incubation: number = 0): void {
         this._buttPregnancyType = type;
         this._buttPregnancyIncubation = type == 0 ? 0 : incubation; //Won't allow incubation time without pregnancy type
@@ -546,7 +546,7 @@ export class Character extends Creature {
         return false;
     }
 
-    //Create a keyItem
+    // Create a keyItem
     public createKeyItem(
         keyName: string,
         value1: number,
@@ -555,52 +555,52 @@ export class Character extends Creature {
         value4: number
     ): void {
         var newKeyItem: KeyItemClass = new KeyItemClass();
-        //used to denote that the array has already had its new spot pushed on.
+        // used to denote that the array has already had its new spot pushed on.
         var arrayed: boolean = false;
-        //used to store where the array goes
+        // used to store where the array goes
         var keySlot: number = 0;
         var counter: number = 0;
-        //Start the array if its the first bit
+        // Start the array if its the first bit
         if (this.keyItems.length == 0) {
-            //trace("New Key Item Started Array! " + keyName);
+            // trace("New Key Item Started Array! " + keyName);
             this.keyItems.push(newKeyItem);
             arrayed = true;
             keySlot = 0;
         }
-        //If it belongs at the end, push it on
+        // If it belongs at the end, push it on
         if (this.keyItems[this.keyItems.length - 1].keyName < keyName && !arrayed) {
-            //trace("New Key Item Belongs at the end!! " + keyName);
+            // trace("New Key Item Belongs at the end!! " + keyName);
             this.keyItems.push(newKeyItem);
             arrayed = true;
             keySlot = this.keyItems.length - 1;
         }
-        //If it belongs in the beginning, splice it in
+        // If it belongs in the beginning, splice it in
         if (this.keyItems[0].keyName > keyName && !arrayed) {
-            //trace("New Key Item Belongs at the beginning! " + keyName);
+            // trace("New Key Item Belongs at the beginning! " + keyName);
             this.keyItems.splice(0, 0, newKeyItem);
             arrayed = true;
             keySlot = 0;
         }
-        //Find the spot it needs to go in and splice it in.
+        // Find the spot it needs to go in and splice it in.
         if (!arrayed) {
-            //trace("New Key Item using alphabetizer! " + keyName);
+            // trace("New Key Item using alphabetizer! " + keyName);
             counter = this.keyItems.length;
             while (counter > 0 && !arrayed) {
                 counter--;
-                //If the current slot is later than new key
+                // If the current slot is later than new key
                 if (this.keyItems[counter].keyName > keyName) {
-                    //If the earlier slot is earlier than new key && a real spot
+                    // If the earlier slot is earlier than new key && a real spot
                     if (counter - 1 >= 0) {
-                        //If the earlier slot is earlier slot in!
+                        // If the earlier slot is earlier slot in!
                         if (this.keyItems[counter - 1].keyName <= keyName) {
                             arrayed = true;
                             this.keyItems.splice(counter, 0, newKeyItem);
                             keySlot = counter;
                         }
                     }
-                    //If the item after 0 slot is later put here!
+                    // If the item after 0 slot is later put here!
                     else {
-                        //If the next slot is later we are go
+                        // If the next slot is later we are go
                         if (this.keyItems[counter].keyName <= keyName) {
                             arrayed = true;
                             this.keyItems.splice(counter, 0, newKeyItem);
@@ -610,9 +610,9 @@ export class Character extends Creature {
                 }
             }
         }
-        //Fallback
+        // Fallback
         if (!arrayed) {
-            //trace("New Key Item Belongs at the end!! " + keyName);
+            // trace("New Key Item Belongs at the end!! " + keyName);
             this.keyItems.push(newKeyItem);
             keySlot = this.keyItems.length - 1;
         }
@@ -622,15 +622,15 @@ export class Character extends Creature {
         this.keyItems[keySlot].value2 = value2;
         this.keyItems[keySlot].value3 = value3;
         this.keyItems[keySlot].value4 = value4;
-        //trace("NEW KEYITEM FOR PLAYER in slot " + keySlot + ": " + keyItems[keySlot].keyName);
+        // trace("NEW KEYITEM FOR PLAYER in slot " + keySlot + ": " + keyItems[keySlot].keyName);
     }
 
-    //Remove a key item
+    // Remove a key item
     public removeKeyItem(itemName: string): void {
         var counter: number = this.keyItems.length;
-        //Various Errors preventing action
+        // Various Errors preventing action
         if (this.keyItems.length <= 0) {
-            //trace("ERROR: KeyItem could not be removed because player has no key items.");
+            // trace("ERROR: KeyItem could not be removed because player has no key items.");
             return;
         }
         while (counter > 0) {
@@ -645,17 +645,17 @@ export class Character extends Creature {
 
     public addKeyValue(statusName: string, statusValueNum: number = 1, newNum: number = 0): void {
         var counter: number = this.keyItems.length;
-        //Various Errors preventing action
+        // Various Errors preventing action
         if (this.keyItems.length <= 0) {
             return;
-            //trace("ERROR: Looking for keyitem '" + statusName + "' to change value " + statusValueNum + ", and player has no key items.");
+            // trace("ERROR: Looking for keyitem '" + statusName + "' to change value " + statusValueNum + ", and player has no key items.");
         }
         while (counter > 0) {
             counter--;
-            //Find it, change it, quit out
+            // Find it, change it, quit out
             if (this.keyItems[counter].keyName == statusName) {
                 if (statusValueNum < 1 || statusValueNum > 4) {
-                    //trace("ERROR: AddKeyValue called with invalid key value number.");
+                    // trace("ERROR: AddKeyValue called with invalid key value number.");
                     return;
                 }
                 if (statusValueNum == 1) this.keyItems[counter].value1 += newNum;
@@ -665,66 +665,66 @@ export class Character extends Creature {
                 return;
             }
         }
-        //trace("ERROR: Looking for keyitem '" + statusName + "' to change value " + statusValueNum + ", and player does not have the key item.");
+        // trace("ERROR: Looking for keyitem '" + statusName + "' to change value " + statusValueNum + ", and player does not have the key item.");
     }
 
     public keyItemv1(statusName: string): number {
         var counter: number = this.keyItems.length;
-        //Various Errors preventing action
+        // Various Errors preventing action
         if (this.keyItems.length <= 0) {
             return 0;
-            //trace("ERROR: Looking for keyItem '" + statusName + "', and player has no key items.");
+            // trace("ERROR: Looking for keyItem '" + statusName + "', and player has no key items.");
         }
         while (counter > 0) {
             counter--;
             if (this.keyItems[counter].keyName == statusName) return this.keyItems[counter].value1;
         }
-        //trace("ERROR: Looking for key item '" + statusName + "', but player does not have it.");
+        // trace("ERROR: Looking for key item '" + statusName + "', but player does not have it.");
         return 0;
     }
 
     public keyItemv2(statusName: string): number {
         var counter: number = this.keyItems.length;
-        //Various Errors preventing action
+        // Various Errors preventing action
         if (this.keyItems.length <= 0) {
             return 0;
-            //trace("ERROR: Looking for keyItem '" + statusName + "', and player has no key items.");
+            // trace("ERROR: Looking for keyItem '" + statusName + "', and player has no key items.");
         }
         while (counter > 0) {
             counter--;
             if (this.keyItems[counter].keyName == statusName) return this.keyItems[counter].value2;
         }
-        //trace("ERROR: Looking for key item '" + statusName + "', but player does not have it.");
+        // trace("ERROR: Looking for key item '" + statusName + "', but player does not have it.");
         return 0;
     }
 
     public keyItemv3(statusName: string): number {
         var counter: number = this.keyItems.length;
-        //Various Errors preventing action
+        // Various Errors preventing action
         if (this.keyItems.length <= 0) {
             return 0;
-            //trace("ERROR: Looking for keyItem '" + statusName + "', and player has no key items.");
+            // trace("ERROR: Looking for keyItem '" + statusName + "', and player has no key items.");
         }
         while (counter > 0) {
             counter--;
             if (this.keyItems[counter].keyName == statusName) return this.keyItems[counter].value3;
         }
-        //trace("ERROR: Looking for key item '" + statusName + "', but player does not have it.");
+        // trace("ERROR: Looking for key item '" + statusName + "', but player does not have it.");
         return 0;
     }
 
     public keyItemv4(statusName: string): number {
         var counter: number = this.keyItems.length;
-        //Various Errors preventing action
+        // Various Errors preventing action
         if (this.keyItems.length <= 0) {
             return 0;
-            //trace("ERROR: Looking for keyItem '" + statusName + "', and player has no key items.");
+            // trace("ERROR: Looking for keyItem '" + statusName + "', and player has no key items.");
         }
         while (counter > 0) {
             counter--;
             if (this.keyItems[counter].keyName == statusName) return this.keyItems[counter].value4;
         }
-        //trace("ERROR: Looking for key item '" + statusName + "', but player does not have it.");
+        // trace("ERROR: Looking for key item '" + statusName + "', but player does not have it.");
         return 0;
     }
 
@@ -738,7 +738,7 @@ export class Character extends Creature {
 
     public hasKeyItem(keyName: string): number {
         var counter: number = this.keyItems.length;
-        //Various Errors preventing action
+        // Various Errors preventing action
         if (this.keyItems.length <= 0) return -2;
         while (counter > 0) {
             counter--;
@@ -747,9 +747,9 @@ export class Character extends Creature {
         return -1;
     }
 
-    //Grow
+    // Grow
 
-    //BreastCup
+    // BreastCup
 
     /*OLD AND UNUSED
        public  breastCupS(rowNum: number): string {

@@ -31,13 +31,13 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             0
         );
         this.pregnancy.addPregnancyEventSet(PregnancyStore.PREGNANCY_PLAYER, 150, 120, 100);
-        //Event: 0 (= not pregnant),  1,   2,   3,  4 (< 100)
+        // Event: 0 (= not pregnant),  1,   2,   3,  4 (< 100)
         CoC.timeAwareClassAdd(this);
     }
 
     private checkedSophie: number = 0; //Make sure we test this event just once in timeChangeLarge
 
-    //Implementation of TimeAwareInterface
+    // Implementation of TimeAwareInterface
     public timeChange(): boolean {
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00283] > 0) return false; //Nothing can happen if she's been kicked out or disappeared off into the mountains
         var needNext: boolean = false;
@@ -62,20 +62,20 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             needNext = true;
         }
         if (!this.sophieAtCamp()) {
-            //Could be at the farm or still in the wild
+            // Could be at the farm or still in the wild
             if (
                 this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0 &&
                 this.pregnancy.isPregnant &&
                 this.pregnancy.incubation == 0
             ) {
-                //As long as she's not at the farm it's alright to lay eggs
+                // As long as she's not at the farm it's alright to lay eggs
                 this.flags[kFLAGS.SOPHIE_EGGS_LAID]++; //Before she moves in she just produces harpies in the mountains
                 this.pregnancy.knockUpForce(); //Clear Pregnancy
             }
         } else {
-            //She might be a bimbo, debimboed or normal, but she's a follower and presently at camp
+            // She might be a bimbo, debimboed or normal, but she's a follower and presently at camp
             if (this.flags[kFLAGS.SOPHIE_CAMP_EGG_COUNTDOWN] > 0) {
-                //Maturation of the egg she laid
+                // Maturation of the egg she laid
                 this.flags[kFLAGS.SOPHIE_CAMP_EGG_COUNTDOWN]--;
                 if (this.flags[kFLAGS.SOPHIE_CAMP_EGG_COUNTDOWN] == 0) {
                     this.sophieBimbo.sophiesEggHatches();
@@ -83,7 +83,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 }
             }
             if (this.flags[kFLAGS.SOPHIE_DAUGHTER_MATURITY_COUNTER] > 0) {
-                //Maturation of her daughter into an adult
+                // Maturation of her daughter into an adult
                 this.flags[kFLAGS.SOPHIE_DAUGHTER_MATURITY_COUNTER]--;
                 if (this.flags[kFLAGS.SOPHIE_DAUGHTER_MATURITY_COUNTER] < 1) {
                     this.flags[kFLAGS.SOPHIE_DAUGHTER_MATURITY_COUNTER] = 1;
@@ -120,16 +120,16 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                     }
                 }
                 if (this.flags[kFLAGS.SOPHIE_HEAT_COUNTER] >= 552) {
-                    //She got knocked up while in heat
+                    // She got knocked up while in heat
                     if (this.sophieBimbo.bimboSophie()) this.sophieBimbo.sophieGotKnockedUp();
                     else this.sophieFollowerScene.sophieFertilityKnockedUpExpired();
                     this.flags[kFLAGS.SOPHIE_HEAT_COUNTER] = 551;
                     needNext = true;
                 }
             } else {
-                //She's in camp and not pregnant
+                // She's in camp and not pregnant
                 if (this.flags[kFLAGS.SOPHIE_HEAT_COUNTER] == 0) {
-                    //Tick over into heat if appropriate
+                    // Tick over into heat if appropriate
                     if (this.player.hasCock()) {
                         if (this.sophieBimbo.bimboSophie()) this.sophieBimbo.sophieGoesIntoSeason();
                         else this.sophieFollowerScene.sophieFollowerGoesIntoSeas();
@@ -139,7 +139,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 } else {
                     this.flags[kFLAGS.SOPHIE_HEAT_COUNTER]--;
                     if (this.flags[kFLAGS.SOPHIE_HEAT_COUNTER] == 552) {
-                        //Expire heat if it counts down to 552
+                        // Expire heat if it counts down to 552
                         if (this.sophieBimbo.bimboSophie())
                             this.sophieBimbo.sophieSeasonExpiration();
                         else this.sophieFollowerScene.sophieFertilityExpired();
@@ -200,14 +200,14 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         }
         return false;
     }
-    //End of Interface Implementation
+    // End of Interface Implementation
 
-    //Harpy MILF.  Hellzyeah
-    //-More fertile than average harpy.
-    //-In 'Upper Mountain' area (High Mountain?)
-    //-Blurb about other harpies flying away as PC approaches.
-    //-Too lazy/encumbered by her unusual breasts to fly away?
-    //-Asks PC for honey, sometimes is pissy and attacks
+    // Harpy MILF.  Hellzyeah
+    // -More fertile than average harpy.
+    // -In 'Upper Mountain' area (High Mountain?)
+    // -Blurb about other harpies flying away as PC approaches.
+    // -Too lazy/encumbered by her unusual breasts to fly away?
+    // -Asks PC for honey, sometimes is pissy and attacks
     /*
     Sophie vars:
     -Met Sophy?
@@ -223,10 +223,10 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
     Lasts 4-8 hours.
     */
 
-    //'Luststick' status
-    //v1 - time remaining
-    //50% chance to boost lust by 20-21(not reduced) every hour
-    //Forces minimum lust to be at least 50.
+    // 'Luststick' status
+    // v1 - time remaining
+    // 50% chance to boost lust by 20-21(not reduced) every hour
+    // Forces minimum lust to be at least 50.
 
     private get sophieBimbo(): SophieBimbo {
         return kGAMECLASS.sophieBimbo;
@@ -237,7 +237,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
     }
 
     public sophieAtCamp(): boolean {
-        //Whether she's a bimbo or not
+        // Whether she's a bimbo or not
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00283] > 0) return false;
         if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] != 0) return false;
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00282] > 0) return true;
@@ -295,7 +295,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             }
             this.dynStats("lus", 3);
         }
-        //Medium Bump*
+        // Medium Bump*
         else if (triggeredEvent == 2) {
             if (this.sophieBimbo.bimboSophie()) {
                 this.outputText(
@@ -314,7 +314,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             }
             this.dynStats("lus", 5);
         }
-        //Big Belly Bump*
+        // Big Belly Bump*
         else if (triggeredEvent == 3) {
             if (this.sophieBimbo.bimboSophie()) {
                 this.outputText(
@@ -335,10 +335,10 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         }
     }
 
-    //[Discovery]
+    // [Discovery]
     public meetSophie(): void {
         this.sophieBimbo.sophieSprite();
-        //increment met tag
+        // increment met tag
         this.flags[kFLAGS.MET_SOPHIE_COUNTER]++;
         this.outputText("", true);
         this.outputText(
@@ -377,7 +377,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             false
         );
 
-        //[Looking for Demons] [Sex] [Got Lost] [Foraging]
+        // [Looking for Demons] [Sex] [Got Lost] [Foraging]
         this.simpleChoices(
             "Foraging",
             this.tellSophieYoureForagingForStuff,
@@ -392,11 +392,11 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         );
     }
 
-    //[Repeat Meeting]
+    // [Repeat Meeting]
     public meetSophieRepeat(): void {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
-        //(Pissed)
+        // (Pissed)
         if (this.flags[kFLAGS.SOPHIE_ANGRY_AT_PC_COUNTER] > 0) {
             this.outputText(
                 "During your exploration of the mountains you wind up passing close to the harpy nests again.  Uh oh.  There's a constant, irritating buzz in the background that makes it hard to focus on what you're doing.  You crest a ledge and find yourself back on the edge of Sophie's nest.  Shit.  She glowers at you and raises one of her talons.  It's a fight!\n\n",
@@ -405,9 +405,9 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             this.startCombat(new Sophie());
             return;
         }
-        //(Has dick)
+        // (Has dick)
         if (this.player.totalCocks() > 0) {
-            //(Random Rape)
+            // (Random Rape)
             if (SophieScene.rand(2) == 0 && !this.pregnancy.isPregnant) {
                 this.outputText(
                     "During your exploration of the mountains you wind up passing close to the harpy nests again, and Sophie flaps her way over to you.  Her breasts jiggle pleasantly and she hooks her talons through the belt you use to hold your pouches before you can stop her.  The force of her flapping wings pulls you off the mountain, suspending you hundreds of feet above the ground as she flies you back towards her nest.  ",
@@ -430,13 +430,13 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                     false
                 );
 
-                //(low lust?)
+                // (low lust?)
                 if (this.player.lust < 60 || SophieScene.rand(3) <= 1) {
                     this.outputText(
                         "Her need amplifies the compulsion, making it difficult to resist.  It looks like if you turned her down now she'd probably try to force herself on you anyway.  Do you give in to her demand?",
                         false
                     );
-                    //[Yes-Consentual sex] [No - fight]
+                    // [Yes-Consentual sex] [No - fight]
                     this.simpleChoices(
                         "Yes",
                         this.consensualSexSelector,
@@ -450,18 +450,18 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                         undefined
                     );
                 }
-                //(high lust?)
+                // (high lust?)
                 else {
                     this.outputText(
                         "Her need amplifies the compulsion, and as turned on as you already are, there's no way you could resist.",
                         false
                     );
-                    //To sex
+                    // To sex
                     this.doNext(this.consensualSexSelector);
                 }
                 return;
             }
-            //(Have sexed)
+            // (Have sexed)
             if (this.flags[kFLAGS.FUCKED_SOPHIE_COUNTER] > 0) {
                 this.outputText(
                     "During your exploration of the mountains you wind up passing close to the harpy nests again, and Sophie flaps her way over to you.  Her breasts jiggle pleasantly and she hooks her talons through the belt you use to hold your pouches before you can stop her.  The force of her flapping wings pulls you off the mountain, suspending you hundreds of feet above the ground as she flies you back towards her nest.  ",
@@ -496,7 +496,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                     false
                 );
             }
-            //(Haven't sexed)
+            // (Haven't sexed)
             else {
                 this.outputText(
                     "During your exploration of the mountains you wind up passing close to the harpy nests again.  You hear a faint buzzing on the breeze but ignore it, focusing instead on climbing the rocky mountain.  Pulling yourself up a ledge, you find yourself face-to-face with Sophie the harpy once again.  She's pinching one of her nipples and stroking around the entrance to her sodden twat.  It's flushed bright pink with desire and Sophie explains in between pleasured gasps, \"<i>I've been thinking about you since the last time I saw you, cutey.  I'm normally a horny bundle of fuck anyway, but I'd sure love for a virile " +
@@ -510,7 +510,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 false
             );
             this.dynStats("lus", 20);
-            //[Yes – consentacle sex] [No – sad harpy]
+            // [Yes – consentacle sex] [No – sad harpy]
             this.simpleChoices(
                 "Yes",
                 this.consensualSexSelector,
@@ -525,9 +525,9 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             );
             return;
         }
-        //(NO DICK)
+        // (NO DICK)
         else {
-            //(NO LACTATE)
+            // (NO LACTATE)
             if (this.player.biggestLactation() < 1) {
                 this.outputText(
                     'Your climb manages to take you back into the harpy nests again.  Sophie flutters down next to you and warns, "<i>Cutey, a ' +
@@ -554,7 +554,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 );
                 return;
             }
-            //(LACTATE)
+            // (LACTATE)
             else {
                 this.outputText(
                     'Your climb manages to take you back into the harpy nests again.  Sophie flutters down next to you and licks her lips hungrily.  She asks, "<i>Would you mind coming up to my nest and sharing some of your milk?  I\'ve worked up quite a craving for cute girl-milk.</i>"\n\n',
@@ -573,8 +573,8 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                     "",
                     undefined
                 );
-                //No(cramANippleInIt,shootDownSophieSex);
-                //[Yes][No]
+                // No(cramANippleInIt,shootDownSophieSex);
+                // [Yes][No]
                 return;
             }
         }
@@ -595,7 +595,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.playerMenu();
     }
 
-    //[Yes]
+    // [Yes]
     private repeatBreastFeeding(): void {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
@@ -603,17 +603,17 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             "You agree and climb the rest of the way up to her nest, finding Sophie waiting for you there.",
             false
         );
-        //– to consentual breastfeeding.
+        // – to consentual breastfeeding.
         this.doNext(this.cramANippleInIt);
     }
-    //Normal Harpy Fight
+    // Normal Harpy Fight
     private PCIgnoresSophieAndHarpyIsFought(): void {
         this.outputText("A harpy wings out of the sky and attacks!", true);
         this.startCombat(new Harpy());
         this.spriteSelect(26);
     }
 
-    //[Looking for Demons]
+    // [Looking for Demons]
     private sophieLookingForDemons(): void {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
@@ -621,8 +621,8 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             "Sophie throws her head back and laughs. \"<i>Don't worry about any demons here.  Any time a demon is dumb enough to wander too close to our nests, we give him a 'foot-job' he won't forget.</i>\"  To illustrate, the busty harpy lifts her leg and proudly displays her razor-sharp talons.",
             false
         );
-        //Check her out if you're in the mood or dirty-minded
-        //Requires wang
+        // Check her out if you're in the mood or dirty-minded
+        // Requires wang
         if (
             (this.player.cor > 60 || this.player.lust > 60 || this.player.lib > 70) &&
             this.player.hasCock()
@@ -632,7 +632,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 false
             );
         }
-        //Otherwise leave.
+        // Otherwise leave.
         else {
             this.outputText(
                 "  You gulp and nod, understanding quite clearly that the harpies don't care for demons in their nesting grounds.  Sophie smiles and turns about, fluffing purple-tinted tail-feathers at you in what is clearly a dismissal.",
@@ -657,10 +657,10 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             false
         );
 
-        //[Yes – consentacle sex] [No – sad harpy]
+        // [Yes – consentacle sex] [No – sad harpy]
         this.doYesNo(this.consensualSexSelector, this.shootDownSophieSex);
     }
-    //[No]
+    // [No]
     private shootDownSophieSex(): void {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
@@ -673,11 +673,11 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         if (this.player.lust > 50) this.dynStats("lus", -5);
     }
 
-    //[Sex]
+    // [Sex]
     private sophieMeetingChoseSex(): void {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
-        //(FEMALE\Unsexed)(Genderless –  forces Leave.)
+        // (FEMALE\Unsexed)(Genderless –  forces Leave.)
         if (this.player.totalCocks() == 0) {
             this.outputText("Sophie looks you up and down", false);
             if (this.player.hasVagina())
@@ -691,7 +691,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             );
             if (this.player.hasVagina()) {
                 this.outputText("  What do you do?", false);
-                //[Stay&Sex] [Leave]
+                // [Stay&Sex] [Leave]
                 this.simpleChoices(
                     "Force Sex",
                     this.FirstTimeSophieForceSex,
@@ -709,7 +709,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //(Haz dick (male futa))
+        // (Haz dick (male futa))
         else {
             this.outputText(
                 "Sophie retreats to the far side of the nest and spreads her well-muscled thighs invitingly.  The harpy demands, \"<i>Well come on then, it's been so long since I've had such a virile young specimen servicing me.  Don't make me wait, cutey.</i>\"\n\n",
@@ -720,12 +720,12 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 "As if you could deny the curvy, sexy body of the motherly harpy...",
                 false
             );
-            //[To consentual sex]
+            // [To consentual sex]
             this.doNext(this.consensualSexSelector);
             return;
         }
     }
-    //	[Stay&Sex] – starts combat
+    // 	[Stay&Sex] – starts combat
     private FirstTimeSophieForceSex(): void {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
@@ -742,7 +742,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.startCombat(new Sophie());
     }
 
-    //[Got Lost]
+    // [Got Lost]
     private sophieMeetingGotLost(): void {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
@@ -751,7 +751,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             false
         );
 
-        //(Incongruity here: she disdains the young ones for wanting to fuck instead of talk and then jumps right to wanting to fuck. Not that cougars aren't dumb as hell. - Z)
+        // (Incongruity here: she disdains the young ones for wanting to fuck instead of talk and then jumps right to wanting to fuck. Not that cougars aren't dumb as hell. - Z)
 
         this.outputText(
             'The older harpy reclines in her nest and dips a hand between her muscled thighs while she talks, "<i>',
@@ -762,29 +762,29 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 'Would you stay and help a lonely matron with her needs?</i>"\n\n',
                 false
             );
-            //[To consensual sex or sophie sadface.
+            // [To consensual sex or sophie sadface.
             this.doYesNo(this.consensualSexSelector, this.shootDownSophieSex);
         } else if (this.player.biggestLactation() >= 1.5) {
             this.outputText(
                 "My, you're quite the laden little cow aren't you?  Would you mind sharing?</i>\"\n\n",
                 false
             );
-            //to b. feeding or sophie sadface.
+            // to b. feeding or sophie sadface.
             this.doYesNo(this.cramANippleInIt, this.shootDownSophieSex);
         } else {
             this.outputText(
                 "Mmm, it's a shame you don't have a penis, or you could show me what I was missing.</i>\"  The sexually deprived bird-woman plies you with questions about the world for the better part of an hour, masturbating to several mid-conversation orgasms.  Once she exhausts herself, she thanks you and leans down for her nap.  Her tail-feathers fluff in what is clearly a dismissal.",
                 false
             );
-            //(+10 + libmod lust, +1 int up to 50 int))
+            // (+10 + libmod lust, +1 int up to 50 int))
             this.dynStats("lus", 10 + this.player.lib / 4);
             if (this.player.inte < 50) this.dynStats("int", 1);
-            //[Go to camp if neither of the above]
+            // [Go to camp if neither of the above]
             this.doNext(this.camp.returnToCampUseOneHour);
         }
     }
 
-    //[Foraging For Supplies]
+    // [Foraging For Supplies]
     private tellSophieYoureForagingForStuff(): void {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
@@ -798,18 +798,18 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             false
         );
 
-        //(+10 + libmod lust, +1 int up to 50 int))
+        // (+10 + libmod lust, +1 int up to 50 int))
         this.dynStats("lus", 10 + this.player.lib / 4);
         if (this.player.inte < 50) this.dynStats("int", 1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Harpy Breastfeeding]
+    // [Harpy Breastfeeding]
     private cramANippleInIt(): void {
         this.sophieBimbo.sophieSprite();
         this.player.boostLactation(0.01);
         this.outputText("", true);
-        //Not a combat win
+        // Not a combat win
         if (!this.getGame().inCombat)
             this.outputText(
                 "Sophie steps back and drops onto her knees, balancing herself with her wings.   You pull your " +
@@ -819,15 +819,15 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                     " one at a time.  Sophie licks her lips as she patiently awaits the sharing of your bounty.\n\n",
                 false
             );
-        //COMBAT
+        // COMBAT
         else {
-            //(Lust Win)
+            // (Lust Win)
             if (this.monster.lust > 99)
                 this.outputText(
                     "Sophie pants and pulls herself up to her knees.  She barely keeps her balance as she rams four of her fingers deep into her dripping pussy, fiddling at her clit with her thumb.  The harpy opens her mouth to beg for your milk with her glossy lips as you slowly undress.\n\n",
                     false
                 );
-            //(HP Win)
+            // (HP Win)
             else
                 this.outputText(
                     "You pull the dazed and defeated harpy up to her knees.  She sways unsteadily as you undress and expose your " +
@@ -849,7 +849,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             false
         );
 
-        //(Low PG)
+        // (Low PG)
         if (this.player.biggestLactation() < 2) {
             this.outputText(
                 "She suckles harder and harder until your feel your milk let down.  A pleasant trickle of your breast-milk leaks from your " +
@@ -877,7 +877,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             }
             this.outputText("\n\n", false);
         }
-        //(Medium PG)
+        // (Medium PG)
         else if (this.player.biggestLactation() < 3.5) {
             this.outputText(
                 "She suckles hard, but it seems unnecessary given how quickly your milk lets down.  Breast-milk gushes into her mouth and causes her eyes to widen at the speed of the flow.   Her arms lock around your back in a firm embrace, as if she were worried you'd pull back and deny her.  She struggles to swallow all the milk you're putting out, but the expression on her face is one of pure bliss.  You have to wonder just what would make a bird love milk this much.  Her eyes droop closed while she relaxes against your " +
@@ -912,7 +912,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 );
             this.outputText("\n\n", false);
         }
-        //(High PG)
+        // (High PG)
         else {
             this.outputText(
                 "She suckles hard for a moment, and winds up sputtering at the flood of milk that you produce.  Breast-milk gushes over her face, and she can only look on with a ecstatic pleasure at what she's started.  Sophie leans forward and latches back on, her throat swallowing visibly and often as she struggles to keep up with your milk-flow.  Her arms close around your back and lock together in an effort to hold onto you, even as your milk squirts out from the corners of her mouth.  Her blissful expression makes you wonder just what would make a harpy love milk so much.  Her eyelids droop while she relaxes against the " +
@@ -938,19 +938,19 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         else this.outputText("a satisfied 'ahhh'.", false);
         this.outputText('  She wipes a bit of milk from her lips and says, "<i>', false);
         if (this.getGame().inCombat) {
-            //(Fought HP won:
+            // (Fought HP won:
             if (this.monster.HP < 1)
                 this.outputText(
                     "You know you don't have to beat me up to get me to drink your milk right? It's too delicious to turn down!</i>\"\n\n",
                     false
                 );
-            //(Fought Lust won:
+            // (Fought Lust won:
             else {
                 this.outputText(
                     "Mmmm, you sure know how to get a woman's blood pumping before you give her what she wants, don't you?",
                     false
                 );
-                //(Dick:
+                // (Dick:
                 if (this.player.totalCocks() > 0)
                     this.outputText(
                         "  Maybe you'll let me try your 'other' milk next time?",
@@ -967,7 +967,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             }
             this.flags[kFLAGS.SOPHIE_FOLLOWER_PROGRESS] = 0;
         }
-        //(Volunteered:
+        // (Volunteered:
         else {
             this.outputText(
                 "Delicious!  It's been so long since I've had someone to bring me such fresh milk.",
@@ -978,14 +978,14 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                     "  Maybe you'll let me try your 'other' milk next time?</i>\"  The harpie laughs and caresses your backside tenderly as she whispers, \"<i>It's been a long time, you know...</i>\"\n\n",
                     false
                 );
-                //(+25 lust)
+                // (+25 lust)
                 this.dynStats("lus", 25);
 
                 // Only progress the recruitment path if Sophie sees the players cock.
                 this.flags[kFLAGS.SOPHIE_FOLLOWER_PROGRESS]++;
             } else this.outputText('</i>"\n\n', false);
         }
-        //prevent lactation reduction and slightly boost
+        // prevent lactation reduction and slightly boost
         this.player.boostLactation(0.1);
         this.outputText(
             "The busty harpy rubs her full belly as she disentangles herself from you.  She accidentally gives a cute little burp and colors crimson.  To hide her embarrassment, she turns and dismisses you with a wave of her tail-feathers.  It looks like Sophie was rather happy with how things turned out.",
@@ -997,18 +997,18 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 false
             );
         this.dynStats("lus", -50);
-        //increment times bfed.
+        // increment times bfed.
         this.flags[kFLAGS.BREASTFEAD_SOPHIE_COUNTER]++;
         if (this.getGame().inCombat) this.cleanupAfterCombat();
         else this.doNext(this.camp.returnToCampUseOneHour);
-        //You've now been milked, reset the timer for that
+        // You've now been milked, reset the timer for that
         if (this.player.findStatusAffect(StatusAffects.Feeder) >= 0) {
             this.player.addStatusValue(StatusAffects.Feeder, 1, 1);
             this.player.changeStatusValue(StatusAffects.Feeder, 2, 0);
         }
     }
 
-    //[Consensual Secks – Requires Dick]
+    // [Consensual Secks – Requires Dick]
     private consensualHotSophieDickings(): void {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
@@ -1299,17 +1299,17 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 false
             );
         this.outputText('</i>"\n\n', false);
-        //Apply harpy status.
+        // Apply harpy status.
         this.luststickApplication(4);
         this.player.orgasm();
-        //Sophiepreg
+        // Sophiepreg
         this.sophieFucked();
         this.outputText("Do you take her up on her offer?", false);
-        //[Yes/No]
+        // [Yes/No]
         this.doYesNo(this.postSophieSexSnuggle, this.postSexSophieSnuggleTurnedDown);
     }
 
-    //[Yes]
+    // [Yes]
     private postSophieSexSnuggle(): void {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
@@ -1358,16 +1358,16 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 'give her a kiss on the cheek, knowing all-too-well the dangers of her lips.  She quips, "<i>Ohh, too bad.  I wanted to stroke you to sleep.</i>"\n\n',
                 false
             );
-        //Remove luststick
+        // Remove luststick
         this.player.removeStatusAffect(StatusAffects.Luststick);
-        //(+sensitivity, +libido
+        // (+sensitivity, +libido
         this.dynStats("lib", 1, "sen", 1);
 
-        //4 hours pass
+        // 4 hours pass
         this.doNext(this.camp.returnToCampUseFourHours);
     }
 
-    //[No]
+    // [No]
     private postSexSophieSnuggleTurnedDown(): void {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
@@ -1375,12 +1375,12 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             "You turn down her offer and assure her that you'll be fine.  Sophie giggles while you try to get dressed, and you see her amber eyes watching you as try to climb back down the mountain with a stiffy.  She seems greatly amused by your predicament.",
             false
         );
-        //(+sensitivity, +libido
+        // (+sensitivity, +libido
         this.dynStats("lib", 1, "sen", 1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Consentual Sex No Fito]
+    // [Consentual Sex No Fito]
     private consensualSophieSexNoFit(): void {
         this.sophieBimbo.sophieSprite();
         var x: number = this.player.biggestCockIndex();
@@ -1575,60 +1575,60 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 false
             );
         this.outputText('</i>"\n\n', false);
-        //Apply harpy status.
+        // Apply harpy status.
         this.luststickApplication(4);
         this.player.orgasm();
-        //Sophiepreg
+        // Sophiepreg
         this.sophieFucked();
         this.outputText("Do you take her up on her offer?", false);
-        //[Yes/No]
+        // [Yes/No]
         this.doYesNo(this.postSophieSexSnuggle, this.postSexSophieSnuggleTurnedDown);
-        //Go to same yes or no as 'fits' options.
+        // Go to same yes or no as 'fits' options.
     }
     private sophieFucked(dicked: boolean = true): void {
-        //knock up if not knocked up
+        // knock up if not knocked up
         if (!this.pregnancy.isPregnant && dicked) {
             this.pregnancy.knockUpForce(PregnancyStore.PREGNANCY_PLAYER, 48 + SophieScene.rand(48));
         }
-        //if forced to lesbosecks
+        // if forced to lesbosecks
         if (!dicked) {
             this.flags[kFLAGS.TIMES_FUCKED_SOPHIE_LESBIAN]++;
-            //If not pissed increment times pissed
+            // If not pissed increment times pissed
             if (this.flags[kFLAGS.SOPHIE_ANGRY_AT_PC_COUNTER] <= 0) {
                 this.flags[kFLAGS.SOPHIE_ANGRY_AT_PC_COUNTER] = 72 + SophieScene.rand(100);
                 this.flags[kFLAGS.TIMES_PISSED_OFF_SOPHIE_COUNTER]++;
             }
-            //Increase pissed time
+            // Increase pissed time
             else this.flags[kFLAGS.SOPHIE_ANGRY_AT_PC_COUNTER] += SophieScene.rand(72);
         }
-        //increment times fucked
+        // increment times fucked
         this.flags[kFLAGS.FUCKED_SOPHIE_COUNTER]++;
     }
 
     public luststickApplication(hours: number = 4): void {
-        //Immune to luststick?
+        // Immune to luststick?
         if (this.player.findPerk(PerkLib.LuststickAdapted) >= 0) return;
-        //Increment luststick resistance
+        // Increment luststick resistance
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00285] += Math.floor(hours / 2);
         if (!this.player.hasCock()) return;
-        //Max of 20.
+        // Max of 20.
         if (hours > 20) hours = 20;
-        //Add duration if under effects
+        // Add duration if under effects
         if (this.player.findStatusAffect(StatusAffects.Luststick) >= 0) {
-            //Max?
+            // Max?
             if (this.player.statusAffectv1(StatusAffects.Luststick) >= 20) {
             }
-            //Not maxed - increase duration
+            // Not maxed - increase duration
             else {
-                //lower hours if it pushes it too high.
+                // lower hours if it pushes it too high.
                 if (this.player.statusAffectv1(StatusAffects.Luststick) + hours > 20) {
                     hours = 20 - this.player.statusAffectv1(StatusAffects.Luststick);
                 }
-                //increase!
+                // increase!
                 this.player.addStatusValue(StatusAffects.Luststick, 1, hours);
             }
         }
-        //Apply a little of doctor L (thats Dr Lipstick you tard!)
+        // Apply a little of doctor L (thats Dr Lipstick you tard!)
         else this.player.createStatusAffect(StatusAffects.Luststick, hours, 0, 0, 0);
     }
 
@@ -1646,26 +1646,26 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 "She's too turned on to be a threat and is happily masturbating.",
                 false
             );
-        //RAEP OPTIONS
+        // RAEP OPTIONS
         if (this.player.gender != 0) {
             var dickRape = undefined;
             var clitFuck = undefined;
             var cuntFuck = undefined;
             var bimbo = undefined;
             if (this.player.lust >= 33 && this.player.totalCocks() > 0) {
-                //Set dick rape to correct scene.
-                //Too big
+                // Set dick rape to correct scene.
+                // Too big
                 if (this.player.cockThatFits(232) == -1) {
                     dickRape = this.maleVictorySophieRapeHUGE;
                 }
-                //Fits
+                // Fits
                 else dickRape = this.maleVictorySophieRape;
             }
-            //Girl options!
+            // Girl options!
             if (this.player.lust >= 33 && this.player.hasVagina()) {
-                //All girls get cuntfuck
+                // All girls get cuntfuck
                 cuntFuck = this.sophieVictoryPussyGrind;
-                //big clit girls
+                // big clit girls
                 if (this.player.clitLength >= 5) clitFuck = this.fuckDatClit;
             }
             if (this.player.hasItem(this.consumables.BIMBOLQ))
@@ -1703,8 +1703,8 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             this.SophieLossRapeNoDonguuuu();
         }
     }
-    //COMBAT STUFF HOOOO/
-    //Male 'Normal' – throw on back and grab ankles, force over head and fuck
+    // COMBAT STUFF HOOOO/
+    // Male 'Normal' – throw on back and grab ankles, force over head and fuck
     private maleVictorySophieRape(): void {
         this.sophieBimbo.sophieSprite();
         var x: number = this.player.cockThatFits(232);
@@ -1779,15 +1779,15 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             false
         );
 
-        //Victory - lust decrease, sensitivity decrease
+        // Victory - lust decrease, sensitivity decrease
         this.player.orgasm();
         this.dynStats("sen", -1);
-        //Fuck & Preg counter
+        // Fuck & Preg counter
         this.sophieFucked();
         this.cleanupAfterCombat();
     }
 
-    //Male 'Doesn't Fit'
+    // Male 'Doesn't Fit'
     private maleVictorySophieRapeHUGE(): void {
         this.sophieBimbo.sophieSprite();
         var x: number = this.player.biggestCockIndex();
@@ -1903,18 +1903,18 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 " stays hard, and you're sure it's only going to get worse for quite some time.  You glance down at the mother-harpy, considering a second fuck, but decide that it'd be better with a partner who was still awake.",
             false
         );
-        //Apply harpy status.
+        // Apply harpy status.
         this.luststickApplication(8);
 
-        //Victory - lust decrease, sensitivity decrease
+        // Victory - lust decrease, sensitivity decrease
         this.player.orgasm();
         this.dynStats("sen", -1);
-        //Fuck & Preg counter
+        // Fuck & Preg counter
         this.sophieFucked();
         this.cleanupAfterCombat();
     }
 
-    //Female Pussy Grind
+    // Female Pussy Grind
     private sophieVictoryPussyGrind(): void {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
@@ -1961,7 +1961,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             false
         );
 
-        //(small clit)
+        // (small clit)
         if (this.player.clitLength < 2)
             this.outputText(
                 "Your " +
@@ -1971,7 +1971,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                     " back and forth against Sophie's wet gash, shivering each time you bump into her own rapidly engorging clitoris.  ",
                 false
             );
-        //(large clit)
+        // (large clit)
         else if (this.player.clitLength < 5)
             this.outputText(
                 "Your " +
@@ -1983,7 +1983,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                     " continually slips in and out of it.  The harpy's own nub quickly grows hard, and you feel it bumping against you pleasantly while your hips gyrate against her.  ",
                 false
             );
-        //(cock-clit)
+        // (cock-clit)
         else
             this.outputText(
                 "Your " +
@@ -2077,15 +2077,15 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             false
         );
 
-        //Victory - lust decrease, sensitivity decrease
+        // Victory - lust decrease, sensitivity decrease
         this.player.orgasm();
         this.dynStats("sen", -1);
-        //Fuck & Piss-off counter
+        // Fuck & Piss-off counter
         this.sophieFucked(false);
         this.cleanupAfterCombat();
     }
 
-    //Female Clit-Fucking
+    // Female Clit-Fucking
     private fuckDatClit(): void {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
@@ -2205,8 +2205,8 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.dynStats("sen", 1);
     }
 
-    //LOSS SCENES
-    //Tiny Wang Emasculation
+    // LOSS SCENES
+    // Tiny Wang Emasculation
     private tinyDickSupremeSophieLoss(): void {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
@@ -2337,8 +2337,8 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             false
         );
 
-        //END
-        //(0 libido-0 sensitivity and mino-blood numb-parts acknowledgements would be funny here; like, she can't get the PC off with the heat alone because he's so frigid and/or numb and has to employ the drugs in frustration. Almost like turning the tables on the tentacle monster. -Z)
+        // END
+        // (0 libido-0 sensitivity and mino-blood numb-parts acknowledgements would be funny here; like, she can't get the PC off with the heat alone because he's so frigid and/or numb and has to employ the drugs in frustration. Almost like turning the tables on the tentacle monster. -Z)
         this.player.orgasm();
         this.dynStats("sen", 5);
         this.sophieFucked();
@@ -2346,7 +2346,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.cleanupAfterCombat();
     }
 
-    //Normal Sized Wang Rape – Kisstacular + Hypno
+    // Normal Sized Wang Rape – Kisstacular + Hypno
     private normalLossRapuuuuSophie(): void {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
@@ -2470,7 +2470,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.cleanupAfterCombat();
     }
 
-    //Too Big – Get knocked out and wake up with your dick covered in kisses.  Status for 16 hours (8 more after waking up)
+    // Too Big – Get knocked out and wake up with your dick covered in kisses.  Status for 16 hours (8 more after waking up)
     private tooBigForOwnGoodSophieLossRape(): void {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
@@ -2497,7 +2497,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.luststickApplication(16);
         this.cleanupAfterCombat();
     }
-    //No Dong – You wake up at the bottom of the mountain.
+    // No Dong – You wake up at the bottom of the mountain.
     private SophieLossRapeNoDonguuuu(): void {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
@@ -2512,12 +2512,12 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         );
         this.dynStats("str", -1, "tou", -1);
         this.cleanupAfterCombat();
-        //If not pissed increment times pissed
+        // If not pissed increment times pissed
         if (this.flags[kFLAGS.SOPHIE_ANGRY_AT_PC_COUNTER] <= 0) {
             this.flags[kFLAGS.SOPHIE_ANGRY_AT_PC_COUNTER] = 72 + SophieScene.rand(100);
             this.flags[kFLAGS.TIMES_PISSED_OFF_SOPHIE_COUNTER]++;
         }
-        //Increase pissed time
+        // Increase pissed time
         else this.flags[kFLAGS.SOPHIE_ANGRY_AT_PC_COUNTER] += SophieScene.rand(72);
     }
 }

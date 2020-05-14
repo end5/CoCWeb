@@ -26,8 +26,8 @@ export class ChameleonGirlScene extends BaseContent {
 
      /*FEN NOTE:  USE SKINADJ IN PLACE OF STRIPECOLOR*/
 
-    //ENCOUNTER TEXT (Introduction; First Time) (Z edited)
-    //Savin's Note: This is way too much intro shit for a repeat-encounter; I'm adding a 2nd Time + intro below.
+    // ENCOUNTER TEXT (Introduction; First Time) (Z edited)
+    // Savin's Note: This is way too much intro shit for a repeat-encounter; I'm adding a 2nd Time + intro below.
 
     // TIMES_MET_CHAMELEON: number = 561;
 
@@ -65,7 +65,7 @@ export class ChameleonGirlScene extends BaseContent {
 
             this.outputText("\n\nYou're fighting a chameleon girl!");
         } else {
-            //ENCOUNTER INTRO; REPEAT (Z edited)
+            // ENCOUNTER INTRO; REPEAT (Z edited)
             this.outputText(
                 "You work your way through the dense foliage of the bog, pushing aside branches and slogging through the thick mud in search of something new.  Feeling exhausted, you slow down and look for a place to rest; a small clearing with shallow water and firmer ground seems to fit the bill, and you sit back against a tree to catch your breath.  You're so soaked by now that you hardly notice the murky water beneath you and the slick mud on the trunk seeping into your " +
                     this.player.armorName +
@@ -83,7 +83,7 @@ export class ChameleonGirlScene extends BaseContent {
     public loseToChameleonGirl(): void {
         this.clearOutput();
         this.spriteSelect(89);
-        //-Lose by lust
+        // -Lose by lust
         if (this.player.lust > 99) {
             this.outputText(
                 "Losing control to your own growing arousal, you fall to your knees and desperately start working to get at your needy body beneath your " +
@@ -91,11 +91,11 @@ export class ChameleonGirlScene extends BaseContent {
                     "."
             );
         }
-        //Lose by HP
+        // Lose by HP
         else this.outputText("Too weak to keep fighting, you stagger back and fall to your knees.");
 
-        //Savin's Note: Dude what the fuck. Bracket off your bits and pieces and LABEL YOUR SCENES RIGHT. -Savin
-        //Abraxas' Note: This is like the tenth edition of this doc, something got mixed up in one of the transitions, I lost a paragraph along the way. Your scene is fine though, sorry about that.
+        // Savin's Note: Dude what the fuck. Bracket off your bits and pieces and LABEL YOUR SCENES RIGHT. -Savin
+        // Abraxas' Note: This is like the tenth edition of this doc, something got mixed up in one of the transitions, I lost a paragraph along the way. Your scene is fine though, sorry about that.
         if (this.player.gender == 3 && ChameleonGirlScene.rand(2) == 0)
             this.loseToChameleonWithCockAnBallsAnCunt();
         else if (
@@ -113,7 +113,7 @@ export class ChameleonGirlScene extends BaseContent {
         }
     }
 
-    //Herm Loss (Z edited)
+    // Herm Loss (Z edited)
     private loseToChameleonWithCockAnBallsAnCunt(): void {
         var x: number = this.player.biggestCockIndex();
         this.spriteSelect(89);
@@ -144,7 +144,7 @@ export class ChameleonGirlScene extends BaseContent {
         this.outputText(
             "  She keeps pushing in, thicker and thicker tail-flesh stretching your gash wider as she goes.  The stimulation arouses you despite your situation; lubricant drips from your pussy, allowing the chameleon girl to push a bit deeper into you.  Just when you think you can take no more, you feel the tip of her tail coil up, freeing a bit more room to be filled.  She grins maliciously, perhaps growing a tad more comfortable with being in charge, and forces into your innermost depths."
         );
-        //(stretch check)
+        // (stretch check)
         this.player.cuntChange(25, true, true, false);
 
         this.outputText(
@@ -154,7 +154,7 @@ export class ChameleonGirlScene extends BaseContent {
         this.outputText(
             "\n\nThe weight lifts from your chest, but you're kept where you are by what's filling you.  The chameleon girl slides her foot down your belly, dragging her dull claws lightly over your skin.  Her ankle bumps into the hard shaft of your prick, and she lifts her foot, balancing herself in practiced form on the other.  She chuckles quietly and bites her fingertip, teasing along your aching cock with her sole.  Its skin is smooth, and feels like thick, supple leather when she grips you with it.  You can tell from her flexibility that her feet are made for gripping and climbing trees, and she easily finds a hold on your cock.  Thankfully taking care to keep her claws out of the way, she begins to jerk you off with her foot, sliding the whole sole up and down"
         );
-        //[if(cockarea <40)
+        // [if(cockarea <40)
         if (this.player.cockArea(x) < 40)
             this.outputText(
                 " and occasionally lifting it to take the shaft between two dexterous toes and work it more delicately"
@@ -169,12 +169,12 @@ export class ChameleonGirlScene extends BaseContent {
                 " serviced by her foot are just too good, and you quickly reach orgasm, spattering her foot and shin with your hot cum.  Her face is red as she tries to maintain her composure, and her entire body is starting to grow flush with barely contained excitement.  She softly rubs your semen into your softening man-meat as you recover from your orgasm, looking at it almost blankly and smiling.  After a moment she snaps herself out of her reverie, remembering that she was supposed to be punishing you but obviously too aroused to do much.  \"<i>Um, yeah! And you, uhh, better not come back!</i>\"  She rushes off back into the trees, presumably to masturbate somewhere where you won't notice.  You shake your head at the girl's antics, dress yourself, and head back to camp."
         );
 
-        //send player back to camp, reset hours since cum, remove gems and add time
+        // send player back to camp, reset hours since cum, remove gems and add time
         this.player.orgasm();
         this.cleanupAfterCombat();
     }
 
-    //-Male Loss (Z edited)
+    // -Male Loss (Z edited)
     private dudesLoseToChamChams(): void {
         var x: number = ChameleonGirlScene.rand(this.player.totalCocks());
         this.spriteSelect(89);
@@ -239,10 +239,10 @@ export class ChameleonGirlScene extends BaseContent {
         );
         this.player.orgasm();
         this.cleanupAfterCombat();
-        //send player back to camp, reset hours since cum, remove gems and add time
+        // send player back to camp, reset hours since cum, remove gems and add time
     }
 
-    //-Female Loss (Z edited)
+    // -Female Loss (Z edited)
     private loseToChamChamWithPCCunt(): void {
         this.spriteSelect(89);
         this.outputText(
@@ -275,17 +275,17 @@ export class ChameleonGirlScene extends BaseContent {
                 " back up."
         );
 
-        //set lust to 100, return to camp
+        // set lust to 100, return to camp
         this.dynStats("lus=", 100);
         this.player.lust = 100;
         this.cleanupAfterCombat();
     }
 
-    //VICTORY SCENES INTRO(Z edited)
+    // VICTORY SCENES INTRO(Z edited)
     public defeatChameleonGirl(): void {
         this.clearOutput();
         this.spriteSelect(89);
-        //-Win by lust
+        // -Win by lust
         if (this.monster.lust > 99) {
             this.outputText(
                 "Unable to control her arousal, the chameleon girl collapses to her knees and begins masturbating underneath her thong, having lost all capacity to fight you; she moans and throws her head back as her hand splashes in and out of the water she's kneeling in.  Her skin returns to its usual " +
@@ -297,7 +297,7 @@ export class ChameleonGirlScene extends BaseContent {
                     "  Do you help the horny girl to get you both off?  Or maybe you could punish her bad attitude with something from your bag..."
                 );
         }
-        //-Win by HP
+        // -Win by HP
         else {
             this.outputText(
                 "Too weak to continue fighting, the chameleon girl drops to her knees, exhausted.  Her skin returns to its usual " +
@@ -313,7 +313,7 @@ export class ChameleonGirlScene extends BaseContent {
             this.cleanupAfterCombat();
             return;
         }
-        //(Display Options: [Fuck Her Face] [Pussy Rub] [Herm Style Pussyrub] [Incubi Draft] [Succubi Milk] [Lust&Sens Drafts])
+        // (Display Options: [Fuck Her Face] [Pussy Rub] [Herm Style Pussyrub] [Incubi Draft] [Succubi Milk] [Lust&Sens Drafts])
         var dick = undefined;
         var pussy = undefined;
         var herm = undefined;
@@ -321,7 +321,7 @@ export class ChameleonGirlScene extends BaseContent {
         if (this.player.hasCock()) dick = this.manFucksChameleonWithBiggishWang;
         if (this.player.hasVagina()) pussy = this.femaleHasWinSexWithChamCham;
         if (this.player.gender == 3) herm = this.fuckDatChameleonAsACoolGuyGirlHerm;
-        //let PC use item
+        // let PC use item
         if (
             (this.player.hasItem(this.consumables.SUCMILK) ||
                 this.player.hasItem(this.consumables.P_S_MLK)) &&
@@ -348,7 +348,7 @@ export class ChameleonGirlScene extends BaseContent {
         );
     }
 
-    //-Herm Victory (Z edited)
+    // -Herm Victory (Z edited)
     private fuckDatChameleonAsACoolGuyGirlHerm(): void {
         this.clearOutput();
         this.spriteSelect(89);
@@ -403,8 +403,8 @@ export class ChameleonGirlScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    //-Male (Z edited)
-    //(Savin's note: This only makes a lot of sense for biggus dickus characters; consider an alternative for traps/weany dick characters. We don't all have even footlongs) (yuh)
+    // -Male (Z edited)
+    // (Savin's note: This only makes a lot of sense for biggus dickus characters; consider an alternative for traps/weany dick characters. We don't all have even footlongs) (yuh)
     private manFucksChameleonWithBiggishWang(): void {
         this.clearOutput();
         this.spriteSelect(89);
@@ -416,7 +416,7 @@ export class ChameleonGirlScene extends BaseContent {
             this.outputText(
                 "her masturbating even more furiously than before at the thought of having your cock."
             );
-        //[if lost by HP:
+        // [if lost by HP:
         else
             this.outputText(
                 "her starting to work the fingers of her free hand in and out of her own sex."
@@ -457,12 +457,12 @@ export class ChameleonGirlScene extends BaseContent {
         this.outputText(
             "  Satisfied, you put your " + this.player.armorName + " back on and head back to camp."
         );
-        //send player back to camp, reset hours since cum, add gems and time
+        // send player back to camp, reset hours since cum, add gems and time
         this.player.orgasm();
         this.cleanupAfterCombat();
     }
 
-    //-Female (for herms without dicks) (Z edited)
+    // -Female (for herms without dicks) (Z edited)
     private femaleHasWinSexWithChamCham(): void {
         this.clearOutput();
         this.spriteSelect(89);
@@ -507,12 +507,12 @@ export class ChameleonGirlScene extends BaseContent {
                 this.player.armorName +
                 " back on and heading to camp."
         );
-        //send player back to camp, reset hours since cum, add gems and time
+        // send player back to camp, reset hours since cum, add gems and time
         this.player.orgasm();
         this.cleanupAfterCombat();
     }
 
-    //Item Use Scenes Intro (Victory) (Z edited)
+    // Item Use Scenes Intro (Victory) (Z edited)
     private useAnItemOnTheChamcham(): void {
         this.clearOutput();
         this.spriteSelect(89);
@@ -520,10 +520,10 @@ export class ChameleonGirlScene extends BaseContent {
             "Looking at the poor girl kneeling pathetically before you, you almost feel sorry for her.  But, she did try to rape you and claim that you were on 'her' territory.  You rummage through your bags, trying to find a fun way to punish her.  Fun for you, at least."
         );
 
-        //player must have either a purified or unpurified Succubi Milk (also requires cock,) Incubus Draft, or Lust & Sens Draft (both) in inventory
-        //also incubi draft and succubi milk should probably have something of a corruption requirement
-        //(Display Options: [Incubus Draft] [Succubi Milk](PC must have cock) [Lust&SensDrafts]
-        //optionz go herez
+        // player must have either a purified or unpurified Succubi Milk (also requires cock,) Incubus Draft, or Lust & Sens Draft (both) in inventory
+        // also incubi draft and succubi milk should probably have something of a corruption requirement
+        // (Display Options: [Incubus Draft] [Succubi Milk](PC must have cock) [Lust&SensDrafts]
+        // optionz go herez
         var milk = undefined;
         var drafts = undefined;
         if (
@@ -553,8 +553,8 @@ export class ChameleonGirlScene extends BaseContent {
         );
     }
 
-    //-P. Succubi Milk or Succubi Milk (Z edited)
-    //Prerequisite: at least one dick
+    // -P. Succubi Milk or Succubi Milk (Z edited)
+    // Prerequisite: at least one dick
     private giveTheChameleonASuccubiMilk(): void {
         this.clearOutput();
         this.spriteSelect(89);
@@ -592,7 +592,7 @@ export class ChameleonGirlScene extends BaseContent {
             "\n\nDespite her inexperience, her huge, soft breasts feel divine as they smother and stimulate your cock.  Enough of your pre-cum has leaked out onto her skin and been rubbed back into your shaft that it feels nearly as warm and sticky as her sex; hands work ever more efficiently at squeezing her tits against you and getting you off, and she even moans a little as she finds the time to tweak a nipple.  Her efforts don't go unrewarded, and soon you're releasing a torrent of hot cum all over her neck and face; she opens her mouth wide, catching what she can and swallowing greedily.  The colors of her body shift slightly and her stripes grow so bright that they seem to shine.  She collapses back into a blissed-out heap, still covered in your semen.  Pushing out the last of it, you recover yourself and stand up, leaving the girl to enjoy the taste of your seed and her new endowments."
         );
 
-        //send player back to camp, remove 1 succubi milk or p.milk, add gems and exp and time
+        // send player back to camp, remove 1 succubi milk or p.milk, add gems and exp and time
         this.player.orgasm();
         if (this.player.hasItem(this.consumables.P_S_MLK))
             this.player.consumeItem(this.consumables.P_S_MLK);
@@ -603,7 +603,7 @@ export class ChameleonGirlScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    //-Lust and Sens Draft (you you you you you need to find more ways to start sentences without using pronouns, she?) (Z edited)
+    // -Lust and Sens Draft (you you you you you need to find more ways to start sentences without using pronouns, she?) (Z edited)
     private doseDatChameleonWithLustAndSensitivityDrafts(): void {
         this.clearOutput();
         this.spriteSelect(89);
@@ -633,7 +633,7 @@ export class ChameleonGirlScene extends BaseContent {
             "\n\nYou keep going down her leg, though, teasing her along the length of her calf.  Reaching her foot, you bend her leg to give you better access to its sole.  You tickle her across her wide sole with just the lightest touch of your fingertips, and she shudders, too assaulted to even manage a proper giggle.  You play with her foot for a minute; she tries to kick back against your hand and her sole curls around and grips your fingers as though trying to milk them for their touch.  She seems to almost go limp below you, crazed by your tortuous wanderings over her hypersensitive flesh.  Deciding that she's finally had enough, you put her leg down and run your hand back up it, moving towards her waist."
         );
 
-        //(if no cock or cock is too damn big)
+        // (if no cock or cock is too damn big)
         if (
             !this.player.hasCock() ||
             this.player.cockArea(this.player.smallestCockIndex()) > this.monster.vaginalCapacity()
@@ -641,10 +641,10 @@ export class ChameleonGirlScene extends BaseContent {
             this.outputText(
                 "\n\nYou reach under her thong and toy with her clit for just a moment.  She nearly jumps, almost managing to sit up before collapsing back down into the water, and you slip a couple fingers into her slick cunt to be immediately met with a gush of her fluids.  She cries out loudly and her pussy clenches around your fingers as she cums, getting off quickly after all her waiting; then curls up on her side as her tail thrashes wildly while orgasm slowly melts her painful nerves down to normal levels.  After a minute she slackens and spreads out on the ground, panting heavily as she recovers.  Smiling down at the tired chameleon girl, you wish her luck with her new nerves and untie her hands.  She's too exhausted to get up, though, and you leave her lying there to sleep in the swampy water."
             );
-            //player.lust+=30;
+            // player.lust+=30;
             this.dynStats("lus", 30);
         }
-        //(else if at least one cock of appropriate size)
+        // (else if at least one cock of appropriate size)
         else {
             var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
             if (x < 0) {
@@ -669,11 +669,11 @@ export class ChameleonGirlScene extends BaseContent {
                     this.player.armorName +
                     " and leaving the semi-conscious girl there in the bog to recover.  The chemicals that you've gotten a contact high from leave you feeling somewhat aroused as you make your way back to camp."
             );
-            //player.lust = base + 20;
+            // player.lust = base + 20;
             this.player.orgasm();
             this.dynStats("lus", 20);
         }
-        //send player back to camp, remove sens/fuck draft, reset hours since cum, add gems and exp and time
+        // send player back to camp, remove sens/fuck draft, reset hours since cum, add gems and exp and time
         this.player.consumeItem(this.consumables.SENSDRF);
         if (this.player.hasItem(this.consumables.L_DRAFT))
             this.player.consumeItem(this.consumables.L_DRAFT);

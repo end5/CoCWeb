@@ -6,9 +6,9 @@ import { ItemType } from "../../ItemType";
 export class Lumi extends BaseContent {
     public lumiEncounter(): void {
         this.outputText("", true);
-        //1st time lumi meeting
+        // 1st time lumi meeting
         if (this.flags[kFLAGS.LUMI_MET] == 0) {
-            //placeholder text for outside the cathedral
+            // placeholder text for outside the cathedral
             this.outputText(
                 "You spot an anomaly in the barren wastes; a door that seems to be standing out in the middle of nowhere. Somehow, you figure that it must lead to some other part of the world, and the only reason it's here is because you can't get to where the door should be right now.\n\n",
                 false
@@ -16,22 +16,22 @@ export class Lumi extends BaseContent {
             this.outputText("Do you open it?", false);
             this.doYesNo(this.lumiLabChoices, this.camp.returnToCampUseOneHour);
         } else {
-            //placeholder text for outside the cathedral
+            // placeholder text for outside the cathedral
             this.outputText(
                 "You spot the door standing in the middle of nowhere again, and you guess that it will lead you back to Lumi's laboratory.  It swings open easily...",
                 false
             );
             this.doNext(this.lumiLabChoices);
         }
-        //end of placeholder text
+        // end of placeholder text
     }
 
     public lumiLabChoices(): void {
         this.spriteSelect(37);
         this.outputText("", true);
-        //First time meeting
+        // First time meeting
         if (this.flags[kFLAGS.LUMI_MET] == 0) {
-            //Set Lumi met flag
+            // Set Lumi met flag
             this.flags[kFLAGS.LUMI_MET]++;
             this.outputText(
                 "You open the door and carefully check inside for any enemies that may be trying to ambush you. The room seems to be some kind of alchemical lab, with shelves full of apparatuses all along the walls, a desk on one side of the room, and a long table across the room from you that is full of alchemical experiments in progress, many give off lots of smoke, and others are bottles of bubbling fluids.  A goblin wearing an apron and some kind of headband is sitting on a tall, wheeled stool; she is otherwise nude and seems to be watching at least 3 experiments right now. She suddenly turns around and looks straight in your direction.  It's hard to tell thanks to the dark goggles that hide her eyes from view, but you're fairly certain she's watching you.  After a few seconds she yells \"<i>Cuths-tohmer!</i>\" in a thick lisp. She looks harmless enough, so you step inside while she fiddles with her experiments, reducing the bubbling smoke.  She jumps down from her stool, tears off her apron, bounds over to the desk, and scrambles on top of it.\n\n",
@@ -53,7 +53,7 @@ export class Lumi extends BaseContent {
                 false
             );
         }
-        //Repeat Meetings
+        // Repeat Meetings
         else {
             this.outputText(
                 "Once more, you step into Lumi's lab.  She's still working on her experiments. Before you even have a chance to call out to her, she has already pivoted to watch you.  In a flash her apron hits the floor and she is standing on her desk, asking, \"<i>Stho, what can Lumi the Aochomist Extwaordinaire do fo you today?</i>\"",
@@ -78,7 +78,7 @@ export class Lumi extends BaseContent {
 
     public lumiShop(): void {
         this.spriteSelect(37);
-        //Set item handling to lumi shop
+        // Set item handling to lumi shop
         this.clearOutput();
         this.outputText(
             'You ask Lumi if you can see her potions.  She smiles at you and pulls out several bottles from her desk and shows them to you.\n\n"<i>Gawantied qwality, made by Lumi herself,</i>" she says proudly.\n\n',
@@ -89,7 +89,7 @@ export class Lumi extends BaseContent {
             false
         );
 
-        //The player is given a list of choices, clicking on one gives the description and the price, like Giacomo.
+        // The player is given a list of choices, clicking on one gives the description and the price, like Giacomo.
         this.simpleChoices(
             this.consumables.L_DRAFT.shortName,
             this.lumiLustDraftPitch,
@@ -104,7 +104,7 @@ export class Lumi extends BaseContent {
         );
     }
 
-    //Lust Draft
+    // Lust Draft
     private lumiLustDraftPitch(): void {
         this.spriteSelect(37);
         this.clearOutput();
@@ -115,7 +115,7 @@ export class Lumi extends BaseContent {
         this.outputText("Will you buy the lust draft?", false);
         this.doYesNo(Lumi.curry(this.lumiPurchase, this.consumables.L_DRAFT), this.lumiShop);
     }
-    //Goblin Ale
+    // Goblin Ale
     private lumiPitchGobboAle(): void {
         this.spriteSelect(37);
         this.clearOutput();
@@ -126,7 +126,7 @@ export class Lumi extends BaseContent {
         this.outputText("Will you buy the goblin ale?", false);
         this.doYesNo(Lumi.curry(this.lumiPurchase, this.consumables.GOB_ALE), this.lumiShop);
     }
-    //Ovi Elixir
+    // Ovi Elixir
     private lumiPitchOviElixer(): void {
         this.spriteSelect(37);
         this.clearOutput();
@@ -141,7 +141,7 @@ export class Lumi extends BaseContent {
     private lumiPurchase(itype: ItemType): void {
         this.spriteSelect(37);
         this.clearOutput();
-        //After choosing, and PC has enough gems
+        // After choosing, and PC has enough gems
         var cost: number = 0;
         if (itype == this.consumables.OVIELIX) cost = 45;
         if (itype == this.consumables.GOB_ALE) cost = 20;
@@ -157,12 +157,12 @@ export class Lumi extends BaseContent {
             this.statScreenRefresh();
             this.inventory.takeItem(itype, this.lumiShop, this.lumiLabChoices);
         } else {
-            //After choosing, and PC doesn't have enough gems
+            // After choosing, and PC doesn't have enough gems
             this.outputText(
                 'You go to pay Lumi the gems, but then you realize that you don\'t have enough. Lumi seems to know what happened and tells you "<i>Ok, is dere somefing you want to buy that you can affowd?</i>"\n\n',
                 false
             );
-            //Return to main Lumi menu
+            // Return to main Lumi menu
             this.doNext(this.lumiShop);
         }
     }
@@ -176,8 +176,8 @@ export class Lumi extends BaseContent {
         var succuDelight = undefined;
         if (this.player.hasItem(this.consumables.SDELITE)) succuDelight = this.lumiEnhanceSDelight;
         var oviElix = undefined;
-        //if(player.hasItem(consumables.OVIELIX))
-        //	oviElix = lumiEnhanceOviElix;
+        // if(player.hasItem(consumables.OVIELIX))
+        // 	oviElix = lumiEnhanceOviElix;
         var lustDraft = undefined;
         if (this.player.hasItem(this.consumables.L_DRAFT)) lustDraft = this.lumiEnhanceDraft;
         var seed = undefined;
@@ -200,13 +200,13 @@ export class Lumi extends BaseContent {
         }
         this.outputText("", true);
         this.outputText('"<i>Do you have 100 gems for de enhancement?</i>" asks Lumi.\n\n', false);
-        //If (player has less than 100 gems)
+        // If (player has less than 100 gems)
         if (this.player.gems < 100) {
             this.outputText(
                 'You shake your head no, and Lumi gives you a disappointed look and says, "<i>Den Lumi can do no enhancement for you. Anyfing else?</i>"\n\n',
                 false
             );
-            //Return to main Lumi menu
+            // Return to main Lumi menu
             this.doNext(this.lumiLabChoices);
             return false;
         } else {
@@ -214,7 +214,7 @@ export class Lumi extends BaseContent {
                 'You nod and Lumi gives an excited yell, "<i>Yay! Lumi loves to do enhancement, what you want to be bettar?</i>"\n\n',
                 false
             );
-            //The player chooses an item that can be enhanced from a list, regardless of which is chosen, the text for the next part is the same.
+            // The player chooses an item that can be enhanced from a list, regardless of which is chosen, the text for the next part is the same.
             this.choices(
                 this.consumables.FOXBERY.shortName,
                 fox,
@@ -276,7 +276,7 @@ export class Lumi extends BaseContent {
         } else if (itype == this.consumables.SDELITE) {
             nextItem = this.consumables.S_DREAM;
         } else if (itype == this.consumables.L_DRAFT) {
-        /*else if(itype == consumables.OVIELIX) {
+            /*else if(itype == consumables.OVIELIX) {
             nextItem = consumables.OVIMAX_;
         } */
             nextItem = this.consumables.F_DRAFT;
@@ -295,7 +295,7 @@ export class Lumi extends BaseContent {
             "Lumi grabs the item from you and runs over to her table, stopping for only a second to put her apron on.  ",
             false
         );
-        //start list of possible enhancement texts
+        // start list of possible enhancement texts
         this.temp = Lumi.rand(3);
         if (itype == this.consumables.GLDSEED)
             this.outputText(

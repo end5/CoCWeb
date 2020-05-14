@@ -11,19 +11,19 @@ import { WeightedDrop } from "../../internals/WeightedDrop";
 import { Imp } from "./Imp";
 
 export class ImpLord extends Imp {
-    //Special Attack 1
+    // Special Attack 1
     protected impFire(): void {
         this.outputText(
             "The imp mutters something to himself. Before you have time to react the demonic creature's hand is filled with a bright red fire that he hurls at you.  The flames lick at your body leaving a painful burn on you torso, as well as an arousing heat in your groin."
         );
-        //[-HP // +Lust(minor)]
+        // [-HP // +Lust(minor)]
         var damage: number = 40 + ImpLord.rand(10);
         this.player.takeDamage(damage);
         this.game.dynStats("lus", 20 + this.player.cor / 10);
         this.combatRoundOver();
     }
 
-    //Heavy Attack
+    // Heavy Attack
     protected impLordHeavyEncounter(): void {
         var damage: number = Math.floor(
             this.str + this.weaponAttack + 20 - ImpLord.rand(this.player.tou) - this.player.armorDef
@@ -47,17 +47,17 @@ export class ImpLord extends Imp {
         this.combatRoundOver();
     }
 
-    //Lust Attack
+    // Lust Attack
     protected impLordLustAttack(): void {
         this.outputText(
             "Lowering his loincloth the imp reveals his inhumanly thick shaft.  He smirks and licks his lips as he gives his cock a squeeze, milking a few beads of clear pre from the tip.  You shake your head and try to ignore your growing need."
         );
-        //[+Lust]
+        // [+Lust]
         this.game.dynStats("lus", 5 + this.player.lib / 5 + this.player.cor / 5);
         this.combatRoundOver();
     }
 
-    //Lust and Light Attack
+    // Lust and Light Attack
     protected impLordLustAttack2(): void {
         this.outputText(
             "Reaching into his satchel the devilish creature pulls out a leather riding crop.  He quickly rushes forward, but somehow manages to get behind you.  Before you can react the imp lashes out, striking your [butt] twice with the riding crop.  The strikes leave a slight burning feeling, as well as a strange sense of arousal."
@@ -65,7 +65,7 @@ export class ImpLord extends Imp {
         var damage: number = 3 + ImpLord.rand(10);
         damage = this.player.takeDamage(damage);
         this.outputText(" (" + damage + ")");
-        //[-HP(minor) // +Lust]
+        // [-HP(minor) // +Lust]
         this.game.dynStats("lus", 5 + this.player.sens / 4 + this.player.cor / 10);
         this.combatRoundOver();
     }

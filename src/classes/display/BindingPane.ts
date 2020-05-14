@@ -131,7 +131,7 @@ export class BindingPane {
         // helpLabel.htmlText += "Duplicate keys are automatically unbound from their old control action.\n\n";
         // helpLabel.htmlText += "<b>Reset Ctrls</b> will reset all of the control bindings to their defaults.\n\n";
         // helpLabel.htmlText += "<b>Clear Ctrls</b> will remove all of the current control bindings, leaving everything Unbound.\n\n";
-        var helpLabel = "<b>Keyboard Control Bindings:</b>\n\n";
+        let helpLabel = "<b>Keyboard Control Bindings:</b>\n\n";
         helpLabel +=
             "Click a button next to the action you wish to bind to a new key, then hit the key you want to bind the selected action to.\n\n";
         helpLabel += "Custom bindings are stored inside your save game files.\n\n";
@@ -145,15 +145,15 @@ export class BindingPane {
 
         const table = document.createElement("table");
 
-        //helpLabel.height *= 2;
+        // helpLabel.height *= 2;
 
         // this._contentChildren++;
         // this._content.addChild(helpLabel);
 
-        for (var i: number = 0; i < this._functions.length; i++) {
+        for (let i = 0; i < this._functions.length; i++) {
             // this._contentChildren++;
 
-            var newLabel = new BindDisplay();
+            const newLabel = new BindDisplay();
             // newLabel.name = this._functions[i].Name;
             // newLabel.x = 2;
             // newLabel.y = (BindDisplay.BUTTON_Y_DELTA * i) + (7 + helpLabel.textHeight);
@@ -162,14 +162,14 @@ export class BindingPane {
             newLabel.button2Text = String.fromCharCode(this._functions[i].SecondaryKey);
 
             // This is going to look crazy...
-            var genPrimaryCallback = function (funcName: string, inMan: InputManager) {
+            const genPrimaryCallback = function (funcName: string, inMan: InputManager) {
                 return () => {
                     inMan.ListenForNewBind(funcName, InputManager.PRIMARYKEY);
                     // _stage.focus = _stage;
                 };
             };
 
-            var genSecondaryCallback = function (funcName: string, inMan: InputManager) {
+            const genSecondaryCallback = function (funcName: string, inMan: InputManager) {
                 return () => {
                     inMan.ListenForNewBind(funcName, InputManager.SECONDARYKEY);
                     // _stage.focus = _stage;

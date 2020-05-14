@@ -13,28 +13,28 @@ import { PregnancyStore } from "../../PregnancyStore";
 import { NPCAwareContent } from "./NPCAwareContent";
 
 export class UrtaPregs extends NPCAwareContent {
-    //const URTA_INCUBATION: number = 789;
-    //const URTA_TIMES_BIRTHED: number = 790;
-    //const URTA_TIMES_PC_BIRTHED: number = 791;
-    //const URTA_KIDS_MALES: number = 792;
-    //const URTA_KIDS_FEMALES: number = 793;
-    //const URTA_KIDS_HERMS: number = 794;
-    //const URTA_FIRSTBORN_GENDER: number = 795;
-    //const URTA_FIRSTBORN_COCKTYPE: number = 796;
-    //const URTA_LATESTBORN_GENDER: number = 797;
-    //const URTA_LATESTBORN_COCKTYPE: number = 798;
-    //const NEED_URTA_LETTER: number = 799;
-    //const URTA_INCUBATION_CELEBRATION: number = 801;
-    //const URTA_PREGNANT_DELIVERY_SCENE: number = 802;
-    //const TIMES_MASSAGED_URTA_BELLY: number = 803;
-    //const TIMES_URTA_BOOB_WORSHIPPED: number = 804;
-    //const TIMES_NURSED_FROM_URTA: number = 805;
-    //const URTA_LUNCH_PLAY: number = 806;
-    //const LIANNA_HAVESTED_MALES: number = 807;
-    //const LIANNA_HAVESTED_LADIES: number = 808;
-    //const FIRST_TIME_AT_URTA_HOUSE: number = 809;
-    //const NEW_BABY_ANNOUNCED: number = 810;
-    //const DISCUSSED_LUBE_SPRAY: number = 811;
+    // const URTA_INCUBATION: number = 789;
+    // const URTA_TIMES_BIRTHED: number = 790;
+    // const URTA_TIMES_PC_BIRTHED: number = 791;
+    // const URTA_KIDS_MALES: number = 792;
+    // const URTA_KIDS_FEMALES: number = 793;
+    // const URTA_KIDS_HERMS: number = 794;
+    // const URTA_FIRSTBORN_GENDER: number = 795;
+    // const URTA_FIRSTBORN_COCKTYPE: number = 796;
+    // const URTA_LATESTBORN_GENDER: number = 797;
+    // const URTA_LATESTBORN_COCKTYPE: number = 798;
+    // const NEED_URTA_LETTER: number = 799;
+    // const URTA_INCUBATION_CELEBRATION: number = 801;
+    // const URTA_PREGNANT_DELIVERY_SCENE: number = 802;
+    // const TIMES_MASSAGED_URTA_BELLY: number = 803;
+    // const TIMES_URTA_BOOB_WORSHIPPED: number = 804;
+    // const TIMES_NURSED_FROM_URTA: number = 805;
+    // const URTA_LUNCH_PLAY: number = 806;
+    // const LIANNA_HAVESTED_MALES: number = 807;
+    // const LIANNA_HAVESTED_LADIES: number = 808;
+    // const FIRST_TIME_AT_URTA_HOUSE: number = 809;
+    // const NEW_BABY_ANNOUNCED: number = 810;
+    // const DISCUSSED_LUBE_SPRAY: number = 811;
     /*FLAGS NEEDING DEFINED
     URTA_TIMES_BIRTHED
     URTA_TIMES_PC_BIRTHED
@@ -51,9 +51,9 @@ export class UrtaPregs extends NPCAwareContent {
         return kGAMECLASS.urta.pregnancy;
     }
 
-    //Urta Pregnancy Stages
-    //Urta takes 2 days to progress from one pregnancy stage to the next
-    //In Bar Menu
+    // Urta Pregnancy Stages
+    // Urta takes 2 days to progress from one pregnancy stage to the next
+    // In Bar Menu
     public urtaKids(): number {
         return (
             this.flags[kFLAGS.URTA_KIDS_MALES] +
@@ -70,9 +70,9 @@ export class UrtaPregs extends NPCAwareContent {
         )
             spank = this.urta
                 .spankTheShitOutOfUrtaAndMakeHerCreamHerselfFromProstateStimulationAloneLikeTheHornyDrunkenSlutSheReallyIs;
-        //NOT Drunk
+        // NOT Drunk
         if (!this.urta.urtaDrunk()) {
-            //Lover
+            // Lover
             if (this.flags[kFLAGS.URTA_PC_LOVE_COUNTER] == 1) {
                 this.menu();
                 this.addButton(0, "Her Place", this.urta.goBackToUrtasForLuvinz);
@@ -81,7 +81,7 @@ export class UrtaPregs extends NPCAwareContent {
                 else this.addButton(1, "Suck Off", this.urta.blowUrtaUnderTheTableLuv);
                 this.addButton(2, "Eat Out", this.urta.eatUrtaOutNomNomPussy);
             }
-            //FRIEND
+            // FRIEND
             else {
                 this.menu();
                 if (this.flags[kFLAGS.URTA_CUM_NO_CUM_DAYS] >= 5)
@@ -91,9 +91,9 @@ export class UrtaPregs extends NPCAwareContent {
                 this.addButton(4, "Leave", this.telAdre.barTelAdre);
             }
         }
-        //DRUNK
+        // DRUNK
         else {
-            //LOVER
+            // LOVER
             if (this.urtaLove()) {
                 this.menu();
                 this.addButton(0, "Jerkoff", this.urta.getAPublicFacialFromUrta);
@@ -110,7 +110,7 @@ export class UrtaPregs extends NPCAwareContent {
                 }
                 this.addButton(9, "Leave", this.telAdre.barTelAdre);
             }
-            //FRIEND
+            // FRIEND
             else {
                 this.menu();
                 this.addButton(0, "Jerkoff", this.urta.getAPublicFacialFromUrta);
@@ -156,7 +156,7 @@ export class UrtaPregs extends NPCAwareContent {
         }
     }
 
-    //In Urta Menu
+    // In Urta Menu
     public urtaPreggoApproached(): void {
         this.clearOutput();
         this.menu();
@@ -165,7 +165,7 @@ export class UrtaPregs extends NPCAwareContent {
                 this.outputText(
                     "As you approach and take your usual seat, Urta chugs down a glass of something orange-colored and fizzy, which definitely doesn't smell like her usual taste in drinks.  She sees you looking at it and smiles, shrugging casually.  \"<i>Well, I can't drink alcohol while pregnant, can I, [name]?</i>\"  She then steals a kiss from you; she tastes sweet and a little tart - must be some sort of fruit-juice..."
                 );
-                //Horny:
+                // Horny:
                 if (this.flags[kFLAGS.URTA_TIME_SINCE_LAST_CAME] == 0) {
                     this.outputText(
                         "  Her cock audibly clonks against the table's underside, but she just grins at the sound, fully confident in who she is now.  \"<i>Wanna come back to my place, lover" +
@@ -177,7 +177,7 @@ export class UrtaPregs extends NPCAwareContent {
                     this.outputText(
                         "  The lack of cock-on-wood sounds or motion on Urta's part makes it clear she's not feeling amorous right this moment.  Breaking the kiss, she licks her glossy lips clean and looks at you with a good-natured smirk.  \"<i>Feeling up to talking for a little while?</i>\""
                     );
-                    //Display Urta Sexings or Urta Talking as appropriate
+                    // Display Urta Sexings or Urta Talking as appropriate
                     this.addButton(0, "Talk", this.urta.urtaDialogueMenu);
                 }
                 this.addButton(9, "Leave", this.telAdre.barTelAdre);
@@ -188,12 +188,12 @@ export class UrtaPregs extends NPCAwareContent {
                     this.outputText(
                         "Urta's sitting side-saddled in her usual seat, dress bulging in a way that makes it clear she's at least half-erect already, a small paunch of a belly stretching out her dress.  She gives you a somewhat embarrassed smile when she sees you looking at it.  \"<i>I just feel horny all the time now,</i>\" she professes.  \"<i>I think it might be something to do with the hormones, though if you'd rather talk instead, I'd be happy to do that.</i>\""
                     );
-                //(ALT)
+                // (ALT)
                 else
                     this.outputText(
                         'Urta\'s sitting side-saddle in her usual seat, belly subtly swollen and dress clearly tenting, more than a little moist at the tip of where her cock is obviously poking.  She gives you a dazzlingly eager smile when she sees notice it.  "<i>Hey, lover.  Did you come to give this knocked-up, horny vixen some sugar?</i>"  She pouts.  "<i>Or just talk?  I think you know which I\'d prefer...</i>"  Her finger dances in little circles around the tent, causing it to widen with her growing flare.'
                     );
-                //Display both Urta Sex Options and Urta Talk Options
+                // Display both Urta Sex Options and Urta Talk Options
                 this.addButton(0, "Sex", this.urtaSexMenu);
                 this.addButton(1, "Talk", this.urta.urtaDialogueMenu);
                 this.addButton(9, "Leave", this.telAdre.barTelAdre);
@@ -206,12 +206,12 @@ export class UrtaPregs extends NPCAwareContent {
                     this.outputText(
                         '\n\nHer dress stretches even more as her cock swells out of its sheath, precum already darkening the fabric.  "<i>Wanna fuck, lover?  Because I sure do...</i>" She licks her lips at the prospect.'
                     );
-                //Not Horny:
+                // Not Horny:
                 else
                     this.outputText(
                         "\n\n\"<i>You're in luck; I'm not currently in the mood to throw you onto the table and fuck you 'til you can't walk... but give me a minute, and I could probably fix that.</i>\"  Urta says.  She smiles, as if trying to prove it's a joke, but there's a gleam in her eyes that suggests she really could do that if you let her..."
                     );
-                //Pregnant Sex options should probably start displaying either here or in the next stage.
+                // Pregnant Sex options should probably start displaying either here or in the next stage.
                 this.addButton(0, "Sex", this.preggoUrtaSmexOrSomething);
                 this.addButton(1, "Talk", this.urta.urtaDialogueMenu);
                 this.addButton(9, "Leave", this.telAdre.barTelAdre);
@@ -224,7 +224,7 @@ export class UrtaPregs extends NPCAwareContent {
                     this.outputText(
                         "\n\nYour [foot] steps in something wet, and you realize Urta's dick is hanging out under the table and oozing precum all over the floor, her nipples blatantly displayed through her dress - you're half-surprised it hasn't split over them, yet.  Urta wordlessly puts the glass down and gives you a hooded stare, lust glazing in her eyes.  \"<i>Hey there, sexy... want to slip out the back with me?</i>\"  She purrs."
                     );
-                //Else:
+                // Else:
                 else
                     this.outputText(
                         'She places the glass down and licks her lips.  "<i>Mmm... that stuff tastes a lot better than you think, especially when you\'re pregnant.  So, sexy, what brings you here?  Wanted to check up on us?</i>"  She pats her belly with a smile.  "<i>Or did you maybe want to talk?  ...Or perhaps <b>talk</b> a little?</i>"  She grins wickedly.'
@@ -241,7 +241,7 @@ export class UrtaPregs extends NPCAwareContent {
                     this.outputText(
                         '\n\nYou can hear the precum dripping into a slowly-growing puddle under the table, and she gives you her most wicked grin.  "<i>Turns out my belly\'s not the only thing growing... care to help the mother of your child with her needs, [name]?</i>"'
                     );
-                //Not Horny:
+                // Not Horny:
                 else
                     this.outputText(
                         '\n\nShe\'s got a few glasses of milk next to her, but when she sees you, her expression turns a trifle embarrassed.  "<i>Hey, [name].  You just missed me tending to my hormones,</i>" she admits, more than a little sheepishly while pointing at the half-dozen glasses.  Your eyes widen when you realize just what the "milk" is.  Urta smirks, a little cockiness showing as she asks, "<i>So did you want to talk, or see if we can fill up a few more?</i>"'
@@ -271,12 +271,12 @@ export class UrtaPregs extends NPCAwareContent {
                 this.outputText(
                     "\n\nYou could take Urta back to her apartment and give her the release she's so desperately craving, or you could take advantage of her current state and tease her a bit.  This would, of course, encourage her to fill you up with her cock like she said she wanted to.  Or you could just leave her to get a hold of herself."
                 );
-                //[Sex] [Tease] [Leave]
+                // [Sex] [Tease] [Leave]
                 this.menu();
                 this.addButton(0, "Sex", this.preggoUrtaSmexOrSomething);
                 this.addButton(1, "Tease", this.urtaRaepsJoo);
                 this.addButton(4, "Leave", this.leavePreggoUrta);
-                //Sex triggers normal pregnant Urta sex options, Tease triggers unique PregUrtaRapefest sexscene, Leave is just Leave
+                // Sex triggers normal pregnant Urta sex options, Tease triggers unique PregUrtaRapefest sexscene, Leave is just Leave
                 break;
             case 9:
                 this.goVisitUrtaBirfs(true);
@@ -284,21 +284,21 @@ export class UrtaPregs extends NPCAwareContent {
         }
     }
 
-    //[=Leave=]
+    // [=Leave=]
     private leavePreggoUrta(): void {
         this.clearOutput();
         this.outputText(
             "You apologize to Urta, but you just really don't feel in the mood right now, and step away from her and start heading towards the door as quickly as politeness allows; if she really is as horny as she claims to be, you're not eager to give her too much temptation.  You pause at the door and look back; Urta looks a little hurt, but mostly resigned, and is clearly trying to calm herself down with breathing exercises.  Given the way one of the staff is approaching with a fresh bucket for her cock to drip into, you don't think it's working too well."
         );
-        //PC leaves the Wet Bitch as per choosing to Leave ordinary Urta
+        // PC leaves the Wet Bitch as per choosing to Leave ordinary Urta
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Urta Gives Birth
-    //Focus will be on a \"traditional\" birth, where PC is fetched to hospital by a runner to attend to Urta
+    // Urta Gives Birth
+    // Focus will be on a \"traditional\" birth, where PC is fetched to hospital by a runner to attend to Urta
     ///Later on, can potentially write an option for more sex-based \"home birth\" that PCs can opt to do instead
-    //☼☼
-    //Hospital
+    // ☼☼
+    // Hospital
     public preggoUrtaGivingBirth(): void {
         this.clearOutput();
         this.pregnancy.knockUpForce(); //Clear Pregnancy
@@ -310,13 +310,13 @@ export class UrtaPregs extends NPCAwareContent {
         this.outputText(
             "\n\nYou reply that you are, and ask who he is and what he wants.  \"<i>I'm a messenger from Tel'adre!  Captain Urta sent me to fetch you - she's in the hospital.</i>\"  He replies urgently.  \"<i>Please, you have to come with me - she's gone into labor; the baby is coming</i>!\""
         );
-        //[Go] [Refuse]
+        // [Go] [Refuse]
         this.menu();
         this.addButton(0, "Go", this.goVisitUrtaBirfs);
         this.addButton(1, "Refuse", this.IAintGotTimeForUrtaBirfs);
     }
 
-    //[=Refuse=]
+    // [=Refuse=]
     private IAintGotTimeForUrtaBirfs(): void {
         this.clearOutput();
         this.outputText(
@@ -325,7 +325,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.outputText(
             "\n\nYou nod your head, explaining why you can't go.  The centaur's jaw works, but he says nothing, instead nodding his head and galloping off.  You promptly go and turn in for the night."
         );
-        //set all appropriate birth variables here.
+        // set all appropriate birth variables here.
         this.flags[kFLAGS.URTA_TIMES_BIRTHED]++;
         this.flags[kFLAGS.URTA_LATESTBORN_GENDER] = UrtaPregs.rand(3) + 1;
         if (this.flags[kFLAGS.URTA_LATESTBORN_GENDER] == 1) this.flags[kFLAGS.URTA_KIDS_MALES]++;
@@ -339,7 +339,7 @@ export class UrtaPregs extends NPCAwareContent {
             if (UrtaPregs.rand(2) == 0) this.flags[kFLAGS.URTA_LATESTBORN_COCKTYPE] = 2;
             else this.flags[kFLAGS.URTA_LATESTBORN_COCKTYPE] = 1;
         }
-        //If firstborn, set as current.
+        // If firstborn, set as current.
         if (this.urtaKids() == 1) {
             this.flags[kFLAGS.URTA_FIRSTBORN_GENDER] = this.flags[kFLAGS.URTA_LATESTBORN_GENDER];
             this.flags[kFLAGS.URTA_FIRSTBORN_COCKTYPE] = this.flags[
@@ -350,7 +350,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Play new day begins text, plus the following:
+    // Play new day begins text, plus the following:
     public getUrtaLetter(): void {
         this.outputText(
             "\nYou discover a letter has arrived in the night.  Opening it up confirms it's from Urta... and she's not particularly happy with you after you failed to show up for the birth.  You do learn that you and she now have a "
@@ -362,7 +362,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.flags[kFLAGS.NEED_URTA_LETTER] = 0;
     }
 
-    //[=Go=]
+    // [=Go=]
     private goVisitUrtaBirfs(withUrta: boolean = false): void {
         this.clearOutput();
         this.pregnancy.knockUpForce(); //Clear Pregnancy
@@ -373,7 +373,7 @@ export class UrtaPregs extends NPCAwareContent {
                 "The trip to the clinic where Urta is giving birth to your child is a blur; all that matters is getting there as fast as possible.  The centaur abandons you at the hospital doors, and you make your own way inside, approaching the counter inside."
             );
 
-        //[1st time:
+        // [1st time:
         if (this.flags[kFLAGS.URTA_TIMES_BIRTHED] == 0) {
             this.outputText(
                 '\n\nA perky-looking young female mouse-morph, her nurse\'s outfit stretched a little tighter over her breasts than is considered professional, a small name tag with "Splinter" clipped onto one hem, looks up at you with a welcoming grin.  "<i>Hello, ' +
@@ -381,7 +381,7 @@ export class UrtaPregs extends NPCAwareContent {
                     '; please state the nature of the problem.</i>"  You explain your reason and her eyes widen with understanding.  "<i>Ah, I see.  Please, follow me, [name]; I will take you to Urta\'s room.</i>"  She promptly gets up out of her seat - allowing you to see a rather unladylike bulge at her crotch, though you have no idea if she\'s a herm or merely an effeminate male - and starts walking, with you following close behind.'
             );
         }
-        //Else:
+        // Else:
         else {
             this.outputText(
                 '\n\nSplinter grins when she sees you.  "<i>Back again, are we?  Here for Urta?  Wow, you two seem to really like popping them out - who\'d of thought that the captain of the Watch wanted to be a baby-maker, huh?  Hmm... you know, I\'ve been feeling a little broody myself...</i>"  She laughs at your response.  "<i>Just kidding; come on then, stud; Urta is this way.</i>"  She sets off on the now-familiar route.'
@@ -407,7 +407,7 @@ export class UrtaPregs extends NPCAwareContent {
             '\n\nA soft knocking comes from the door.  Urta breaks her lip lock with you with a slightly embarrassed giggle.  "<i>Come in, please.</i>"  She calls out.  The door opens to reveal a turtle-man wearing a white coat.  He adjusts his purple necktie before saying, "<i>Good Evening.  My name is Doctor Donatello, and I\'ll be overseeing your delivery today.</i>"  He smiles.'
         );
 
-        //1st time:
+        // 1st time:
         if (this.flags[kFLAGS.URTA_TIMES_BIRTHED] == 0) {
             this.outputText(
                 '\n\nDonatello?  That\'s a strange name... Noticing your thoughtful look, the doctor quickly puts the pieces together.  "<i>Weird name, no?  If you prefer you may just call me Dr. Don.</i>"  He extends a hand and you quickly introduce yourself, accepting the handshake.  He moves away.'
@@ -417,7 +417,7 @@ export class UrtaPregs extends NPCAwareContent {
                 '\n\n"<i>He\'s a very good doctor, [name],</i>" Urta interjects as if to reassure you.  "<i>He handles a lot of Watch-related treatments... he, uh, sort of specialises in this particular predicament,</i>" she grins sheepishly, patting her belly.'
             );
         }
-        //Else:
+        // Else:
         else {
             this.outputText(
                 '\n\n"<i>Hello again, [name].  I see you two have been busy.</i>"  He glances knowingly at you and Urta.  All you can do is smile sheepishly and hug Urta.  The vixen looks a little embarrassed, but doesn\'t bother to hide her pride.'
@@ -461,7 +461,7 @@ export class UrtaPregs extends NPCAwareContent {
             );
         this.outputText('</i>"');
 
-        //If Boy or Herm: FoxlingCockCheck
+        // If Boy or Herm: FoxlingCockCheck
         if (gender == 1 || gender == 3) {
             if (UrtaPregs.rand(2) == 0) {
                 this.outputText('\n\n"<i>Well, now... ');
@@ -474,7 +474,7 @@ export class UrtaPregs extends NPCAwareContent {
                 this.outputText("'s groin from where you are.");
                 this.flags[kFLAGS.URTA_LATESTBORN_COCKTYPE] = 2;
             }
-            //[Horse Dick:
+            // [Horse Dick:
             else {
                 this.outputText('\n\n"<i>...My, my; looks like ');
                 if (gender == 3) this.outputText("s");
@@ -504,7 +504,7 @@ export class UrtaPregs extends NPCAwareContent {
         if (gender >= 2) this.outputText("daughter");
         else this.outputText("son");
         this.outputText("... look, [name], ");
-        //[she's]
+        // [she's]
         if (gender >= 2) this.outputText("she's");
         else this.outputText("he's");
         this.outputText(' really here; our beautiful, beautiful little baby...</i>" She sobs, ');
@@ -519,32 +519,32 @@ export class UrtaPregs extends NPCAwareContent {
         this.outputText(
             "\n\nYou embrace Urta and kiss her, overflowing with happiness at the little foxy angel that's nursing from "
         );
-        //[her]
+        // [her]
         if (gender >= 2) this.outputText("her");
         else this.outputText("his");
         this.outputText(
             " mother's breast.  \"<i>Looks like my work here is done for now... I'll be back later to give a quick check-up on the baby, but from what I can see you have nothing to worry about.  Excuse me then.</i>\"  The doctor gets up and leaves the room, letting you have some privacy with the fox-herm."
         );
 
-        //1st time:
+        // 1st time:
         if (this.flags[kFLAGS.URTA_TIMES_BIRTHED] == 0) {
             this.outputText(
                 '\n\nYou look at Urta questioningly, wondering what happens now.  Urta strokes her newborn and then shyly looks up at you.  "<i>Would you mind staying with us?  Just for the night, please?</i>"'
             );
         }
-        //else:
+        // else:
         else {
             this.outputText(
                 '\n\nYou look at Urta knowingly, already anticipating what comes next.  Urta gives you a coy grin, looking up at you from hooded eyes.  "<i>Well, I hardly think you need me to tell you where the three of us go from here... if you have the time, that is?</i>"'
             );
         }
-        //set all appropriate birth variables here.
+        // set all appropriate birth variables here.
         this.flags[kFLAGS.URTA_TIMES_BIRTHED]++;
         this.flags[kFLAGS.URTA_LATESTBORN_GENDER] = gender;
         if (gender == 1) this.flags[kFLAGS.URTA_KIDS_MALES]++;
         else if (gender == 2) this.flags[kFLAGS.URTA_KIDS_FEMALES]++;
         else this.flags[kFLAGS.URTA_KIDS_HERMS]++;
-        //If firstborn, set as current.
+        // If firstborn, set as current.
         if (this.urtaKids() == 1) {
             this.flags[kFLAGS.URTA_FIRSTBORN_GENDER] = this.flags[kFLAGS.URTA_LATESTBORN_GENDER];
             this.flags[kFLAGS.URTA_FIRSTBORN_COCKTYPE] = this.flags[
@@ -556,7 +556,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.addButton(1, "Go", this.goAfterUrtaBirf);
     }
 
-    //[=No=]
+    // [=No=]
     private goAfterUrtaBirf(): void {
         this.clearOutput();
         this.outputText(
@@ -566,7 +566,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.doNext(this.playerMenu);
     }
 
-    //=Yes=]
+    // =Yes=]
     private stayAfterUrtaBirf(): void {
         this.clearOutput();
 
@@ -590,12 +590,12 @@ export class UrtaPregs extends NPCAwareContent {
             '\n\nAt this, the new mother gives you a wicked grin.  "<i>Now, I never said sex was out of the question... does that give you second thoughts?</i>"'
         );
         this.outputText("\n\nOf course not!");
-        //Next
+        // Next
         this.menu();
         this.addButton(0, "Next", this.wakeUpWithUrtaAfterStaying);
     }
 
-    //(PC spends the day with Urta, so fast forward to PC waking up by Urta's side.)
+    // (PC spends the day with Urta, so fast forward to PC waking up by Urta's side.)
     private wakeUpWithUrtaAfterStaying(): void {
         this.clearOutput();
         this.model.time.days++;
@@ -603,7 +603,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.statScreenRefresh();
         this.player.orgasm();
         this.camp.sleepRecovery(false);
-        //PC Wakes with Urta
+        // PC Wakes with Urta
         this.outputText(
             "As the morning sun shines on the blinds, you open your eyes.  Then you remember the events of the last day.  You spent the whole day with Urta, not having sex, just walking together and buying stuff for your newborn "
         );
@@ -617,7 +617,7 @@ export class UrtaPregs extends NPCAwareContent {
             "\n\nYou hear a soft snore coming from beside you and turn your head to see Urta has wrapped herself around you as if you were a giant teddybear, cuddling eagerly into your warmth and nuzzling into the crook of your neck.  It's not entirely innocent, however; Urta's hermhood betrays her, as you can feel the unsheathed, half-stiff length of her morning wood resting on your belly."
         );
 
-        //Low Corruption:
+        // Low Corruption:
         if (this.player.cor < 33) {
             this.outputText(
                 "\n\nYou gently begin prying Urta's arms from you, which accomplishes nothing; the fox-herm seems intent on constricting you with her wandering arms, hugging you tighter and tighter.  Seeing no other option you decide to reach for her shaft..."
@@ -626,7 +626,7 @@ export class UrtaPregs extends NPCAwareContent {
             this.outputText(
                 "\n\nShe's clinging to you a bit too tightly, and you decide to do a little mischief and reach for her shaft..."
             );
-        //{High Corruption:
+        // {High Corruption:
         else
             this.outputText(
                 "\n\nThe fox-herm glued to you is kinda bothersome, so you smile mischievously and shamelessly reach for her semi-erect shaft..."
@@ -645,7 +645,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.outputText(
             '\n\nYou bid her good morning, but continue stroking her.  Your other hand sneaks its way to her thigh, stroking the furry limb.  She giggles and wags her tail under the sheets, gently brushing it against you. "<i>Well, [name], since we\'re both up, could you pass me that bottle on the table beside you?</i>"  She asks.  '
         );
-        //1st time:
+        // 1st time:
         if (this.flags[kFLAGS.URTA_TIMES_BIRTHED] == 1)
             this.outputText(
                 "You look at her questioningly; she's breast-feeding, so she shouldn't be drinking alcohol.  \"<i>Oh, don't worry; even I don't drink booze in the morning.  It's a little pick-me-up of my own invention; totally non-alcoholic.  It's mostly fruit juice with a few spices thrown in.</i>\"  Urta laughs.  "
@@ -671,7 +671,7 @@ export class UrtaPregs extends NPCAwareContent {
             '\n\nYou stretch and give her a little peck on the lips, then promptly get off the bed in search for your [armor].  Urta watches you go with a disappointed look, "<i>[name], you are an awful tease,</i>" she scolds you.  Then she chuckles softly to herself, "<i>though I guess the fact I\'m such a horndog makes it easy, huh?</i>"  she suggests, clearly enjoying the chance to ogle you as you find your clothes.'
         );
 
-        //{Exhibitionist:
+        // {Exhibitionist:
         if (this.flags[kFLAGS.PC_FETISH] > 0)
             this.outputText(
                 "\n\nYou can't resist making a show for Urta, as you fetch piece after piece of your [armor], then begin dressing yourself in a reverse-strip manner... putting on clothes teasingly is way harder, not to mention less pleasant, than taking them off, but somehow you manage."
@@ -716,23 +716,23 @@ export class UrtaPregs extends NPCAwareContent {
         this.outputText(
             "\n\nUrta's breasts look awfully swollen... you'd guess she has way more milk than the baby will ever need.  Perhaps you could get a taste for yourself?"
         );
-        //[Drink] [Leave]
+        // [Drink] [Leave]
         this.menu();
         this.addButton(0, "Drink", this.drinkSomeUrtaPostBirthTitMilk);
         this.addButton(4, "Leave", this.noNeedForTitMilkTodayUrta);
     }
 
-    //[=Leave=]
+    // [=Leave=]
     private noNeedForTitMilkTodayUrta(): void {
         this.clearOutput();
         this.outputText(
             "It's better if you don't.  You kiss Urta on the cheek and let her know you should really be going. \"<i>Sure you don't want to stick around for breakfast, lover?  It's no trouble to set an extra plate at the table,</i>\" Urta asks, even as she continues rocking the baby.  The idea is tempting but... you shake your head.  \"<i>All right, lover; be safe out there, and come back to us when you can.</i>\"  Urta says, cuddling her child a little more enthusiastically as you quietly see yourself out of the house."
         );
-        //(Start day 1 hour later due to having to walk back to camp.)
+        // (Start day 1 hour later due to having to walk back to camp.)
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=Drink=]
+    // [=Drink=]
     private drinkSomeUrtaPostBirthTitMilk(): void {
         this.clearOutput();
         this.outputText(
@@ -763,13 +763,13 @@ export class UrtaPregs extends NPCAwareContent {
         this.outputText(
             " together... but that's a poor substitute if you don't ever come back.  Please, be careful with yourself, [name],</i>\" she tells you solemnly.  You kiss her goodbye, giving her shaft a teasing grope then step out of the room."
         );
-        //Maybe lower Libido by -1?//
+        // Maybe lower Libido by -1?//
         this.dynStats("lib", -1, "lus", 10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //PC Pregnancy Stages
-    //PC takes 3 days to progress from one pregnancy stage to the next
+    // PC Pregnancy Stages
+    // PC takes 3 days to progress from one pregnancy stage to the next
     public urtaPregooUpdates(): boolean {
         if (this.player.pregnancyIncubation == 504) {
             this.outputText(
@@ -793,7 +793,7 @@ export class UrtaPregs extends NPCAwareContent {
             );
             return true;
         }
-        //3:
+        // 3:
         else if (this.player.pregnancyIncubation == 360) {
             this.outputText(
                 '\n"<i>[name]?  [name], are you here?  Oh, please tell me I haven\'t come out here all the way for nothing...</i>"'
@@ -804,16 +804,16 @@ export class UrtaPregs extends NPCAwareContent {
             this.outputText(
                 "\n\nYou thank her for the supplies, and tell her those will help you with your latest cravings."
             );
-            //.. except for one.");
-            //outputText("\n\nUrta looks at you with a puzzled expression.  \"<i>What craving is that?</i>\"  Then she develops a sly look.  \"<i>It wouldn't happen to be something that a certain lucky vixen might be able to provide, hmm?</i>\"  You circle her, examining her with a sly smile.  Urta grins in anticipation, her erection already starting to lift her skirt up.  \"<i>You know... they don't expect me back in Tel'Adre for some time yet; plenty of time for us to help your cravings...</i>\"");
-            //outputText("\n\nDo you let Urta <i>help</i> you?");
-            //menu();
-            //addButton(0,"Yes",getUrtaHelpPreggoPC);
-            //addButton(1,"No",noHelpForUrtaPreggoPC);
-            //flags[kFLAGS.EVENT_PARSER_ESCAPE] = 1;
+            // .. except for one.");
+            // outputText("\n\nUrta looks at you with a puzzled expression.  \"<i>What craving is that?</i>\"  Then she develops a sly look.  \"<i>It wouldn't happen to be something that a certain lucky vixen might be able to provide, hmm?</i>\"  You circle her, examining her with a sly smile.  Urta grins in anticipation, her erection already starting to lift her skirt up.  \"<i>You know... they don't expect me back in Tel'Adre for some time yet; plenty of time for us to help your cravings...</i>\"");
+            // outputText("\n\nDo you let Urta <i>help</i> you?");
+            // menu();
+            // addButton(0,"Yes",getUrtaHelpPreggoPC);
+            // addButton(1,"No",noHelpForUrtaPreggoPC);
+            // flags[kFLAGS.EVENT_PARSER_ESCAPE] = 1;
             return true;
         }
-        //4:
+        // 4:
         else if (this.player.pregnancyIncubation == 288) {
             this.outputText(
                 "\nYou sit down near your tent to get some rest.  You're getting pretty heavy... and lugging this little guy around is starting to affect your performance while adventuring.  You decide to sit back and enjoy the cool breeze on this sunny day, when you spot the visage of a familiar vixen in the distance."
@@ -836,15 +836,15 @@ export class UrtaPregs extends NPCAwareContent {
             this.outputText(
                 "\n\n\"<i>Well, then I'll have to keep coming to see you,</i>\" Urta laughs, rubbing your belly.  \"<i>Now, it can't be easy carrying this big heavy belly around, so why don't you lie down and I'll give you a nice backrub, hmm?</i>\""
             );
-            //She shifts her arms to drape themselves flirtatiously around your neck, leaning in with a mischievous smile on her lips.  \"<i>Or I could take your mind off your belly altogether...</i>\"  She croons, then pecks you teasingly on the lips.");
-            //[Sex][Massage]
+            // She shifts her arms to drape themselves flirtatiously around your neck, leaning in with a mischievous smile on her lips.  \"<i>Or I could take your mind off your belly altogether...</i>\"  She croons, then pecks you teasingly on the lips.");
+            // [Sex][Massage]
             this.menu();
-            //addButton(0,"Sex",getUrtaSexWhenPreggoz);
+            // addButton(0,"Sex",getUrtaSexWhenPreggoz);
             this.addButton(0, "Massage", this.getAnUrtaMassageWhenPreggo);
             this.flags[kFLAGS.EVENT_PARSER_ESCAPE] = 1;
             return true;
         }
-        //5
+        // 5
         else if (this.player.pregnancyIncubation == 216) {
             this.outputText(
                 '\nYou fetch a waterskin to quench your thirst, then sit down on the outskirts of the camp to get some rest.  "<i>Hey there, beautiful.</i>"  A familiar voice echoes from behind you as Urta emerges from the wilderness.  She walks right up to you and reaches around to pat your distended belly.  "<i>And how\'s the baby treating you, sexy?  You carry that bump well, you know?</i>"'
@@ -876,7 +876,7 @@ export class UrtaPregs extends NPCAwareContent {
             );
             return true;
         }
-        //6:
+        // 6:
         else if (this.player.pregnancyIncubation == 144) {
             this.outputText(
                 "\nYou sigh.  You hope this baby will be born soon, your back is starting to ache after carrying the little guy everywhere.  \"<i>Hello, lover... oh, why the long face?</i>\"  Urta asks.  You're not surprised that she's here, now.  You explain to her about how tired you've been feeling lately, since you got this big.  Urta pats your shoulder, looking sympathetic.  \"<i>Really, you should take a break, lover.  I'm on an extended patrol right now, so you and I could stay here and rest together for the day - I'll handle the foraging and defending and stuff for you.</i>\"  She offers."
@@ -907,7 +907,7 @@ export class UrtaPregs extends NPCAwareContent {
         return false;
     }
 
-    //[=No=]
+    // [=No=]
     private noHelpForUrtaPreggoPC(): void {
         this.clearOutput();
         this.outputText(
@@ -916,18 +916,18 @@ export class UrtaPregs extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=Yes=]
+    // [=Yes=]
     private getUrtaHelpPreggoPC(): void {
         this.clearOutput();
         this.outputText(
             'Good, you hope this means she\'ll be having plenty of time, because you sure could use a fair share of vixen right now.  "<i>As long as you want me, I\'ll be here.</i>"  Urta laughs already starting to fiddle with the straps of her armor.  "<i>Do you have any preferences for what we do?</i>"'
         );
 
-        //(Display Urta sex menu.)
+        // (Display Urta sex menu.)
         this.urtaSexMenu();
     }
 
-    //[=Sex=]
+    // [=Sex=]
     private getUrtaSexWhenPreggoz(): void {
         this.clearOutput();
         this.outputText(
@@ -939,11 +939,11 @@ export class UrtaPregs extends NPCAwareContent {
         );
 
         this.outputText("\n\nYou follow her eagerly, thinking on what you should have her do...");
-        //(Display sex options)
+        // (Display sex options)
         this.urtaSexMenu();
     }
 
-    //[=Massage=]
+    // [=Massage=]
     private getAnUrtaMassageWhenPreggo(): void {
         this.clearOutput();
         this.outputText(
@@ -958,7 +958,7 @@ export class UrtaPregs extends NPCAwareContent {
             '\n\n"<i>Sorry, [name], I don\'t really have a lot of experience with this,</i>" Urta apologizes, looking depressed at her apparent failure to help you.'
         );
 
-        //cor>50:
+        // cor>50:
         if (this.player.cor > 50)
             this.outputText(
                 "\n\nYou'll let it slide this time, but she really should practice this before trying it on you."
@@ -978,7 +978,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=Decline=]
+    // [=Decline=]
     private declineUrtaLevelSixPreggoHelps(): void {
         this.clearOutput();
         this.outputText(
@@ -995,7 +995,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=Accept=]
+    // [=Accept=]
     private acceptUrtaLevelSixPreggoHelps(): void {
         this.clearOutput();
         this.outputText(
@@ -1014,7 +1014,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //PC Gives Birth
+    // PC Gives Birth
     public PCGivesBirf(): void {
         this.outputText("\n");
         this.flags[kFLAGS.URTA_PREGNANT_DELIVERY_SCENE] = 0;
@@ -1030,7 +1030,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.outputText(
             "You double over in pain as you feel a rush of fluids escape your [pussy].  Looks like your water broke.  You recall promising Urta that you'd go to the hospital before actually going into labor, but right now there's nothing you can do.  It hurts and you know you won't make it there in time, so you rush to your tent and lay down on your bedroll, silently praying that Urta will swing by to assist you."
         );
-        //1st Time:
+        // 1st Time:
         if (this.flags[kFLAGS.URTA_TIMES_PC_BIRTHED] == 0) {
             this.outputText(
                 '\n\n"<i>[name]?  Oh, I just knew this would happen!</i>"  Urta cries as she suddenly emerges from the undergrowth, racing over to your side.  Well, it looks like her little stalking habit is going to pay off for the two of you... well, for the three of you, rather: you, her and the baby.'
@@ -1056,9 +1056,9 @@ export class UrtaPregs extends NPCAwareContent {
             "\n\nWith a last few moans and a high-pitched cry, it's over; you've given birth.  Finally free from your burden, you slump down on the bedroll, sweating and panting after your ordeal.  \"<i>You're so strong, [name]; you did a good job, such a good job... now, what do we have here...?</i>\""
         );
 
-        //Gender check for infant
+        // Gender check for infant
         var gender: number = UrtaPregs.rand(3) + 1;
-        //Boy:
+        // Boy:
         if (gender == 1) {
             this.outputText(
                 "\n\nUrta smiles happily at you.  \"<i>Guess what?  It's a perfectly normal, healthy little boy.</i>\"  She says, proudly showing the crying baby to you.  He's got a little "
@@ -1076,7 +1076,7 @@ export class UrtaPregs extends NPCAwareContent {
             this.flags[kFLAGS.URTA_KIDS_MALES]++;
             this.flags[kFLAGS.URTA_LATESTBORN_GENDER] = 1;
         }
-        //Girl:
+        // Girl:
         else if (gender == 2) {
             this.outputText(
                 "\n\nUrta cries out in delight, grinning proudly.  \"<i>Oh, you're so beautiful... [name], it's a girl!  A perfect, wonderful, normal little female.</i>\"  She says, flaunting the newborn before you."
@@ -1084,7 +1084,7 @@ export class UrtaPregs extends NPCAwareContent {
             this.flags[kFLAGS.URTA_KIDS_FEMALES]++;
             this.flags[kFLAGS.URTA_LATESTBORN_GENDER] = 2;
         }
-        //Herm:
+        // Herm:
         else {
             this.outputText(
                 "\n\nUrta is silent for several nerve-wracking moments, a sad expression on her face.  She chokes back a sob and hugs the baby tightly to her breast.  \"<i>Oh, my little angel... mommy Urta will always love you.  I'm so sorry... [name]?  She takes after her daddy (and her other mommy).</i>\"  She shyly reveals that the baby you've given her is a herm.  She's got a little "
@@ -1123,16 +1123,16 @@ export class UrtaPregs extends NPCAwareContent {
         this.outputText(
             " was brought up in Tel'adre.  Urta smiles thankfully and gives both of you one particularly eager cuddle.  \"<i>Thank you for understanding, [name].  "
         );
-        //[She]
+        // [She]
         if (gender >= 2) this.outputText("She");
         else this.outputText("He");
         this.outputText(
             ' will be brought up safely, I promise.</i>"  With that, she carefully bundles up the sleeping child and quietly vanishes into the wilderness, leaving you to take yourself off to bed for a proper rest.\n'
         );
 
-        //SET ALL PREGGOGOGOGOGOGO
+        // SET ALL PREGGOGOGOGOGOGO
         this.flags[kFLAGS.URTA_TIMES_PC_BIRTHED]++;
-        //If firstborn, set as current.
+        // If firstborn, set as current.
         if (this.urtaKids() == 1) {
             this.flags[kFLAGS.URTA_FIRSTBORN_GENDER] = this.flags[kFLAGS.URTA_LATESTBORN_GENDER];
             this.flags[kFLAGS.URTA_FIRSTBORN_COCKTYPE] = this.flags[
@@ -1141,11 +1141,11 @@ export class UrtaPregs extends NPCAwareContent {
         }
     }
 
-    //Happy at the Wet Bitch
-    //Probably happens only one time
-    //Requires Urta and Nancy are both present at the Wet Bitch
-    //Requires Urta is pregnant
-    //Plays automatically on entering the Wet Bitch
+    // Happy at the Wet Bitch
+    // Probably happens only one time
+    // Requires Urta and Nancy are both present at the Wet Bitch
+    // Requires Urta is pregnant
+    // Plays automatically on entering the Wet Bitch
     public urtaIsHappyAboutPregnancyAtTheBar(): void {
         this.clearOutput();
         this.flags[kFLAGS.URTA_INCUBATION_CELEBRATION] = 1;
@@ -1163,9 +1163,9 @@ export class UrtaPregs extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Pregnant Cop is still Cop
-    //This scene plays automatically upon entering Tel'adre, ala the whole \"see Urta kick the shit out of a corrupt wolf\" scene
-    //Fenoxo's choice if this is a once-off or repeat scene
+    // Pregnant Cop is still Cop
+    // This scene plays automatically upon entering Tel'adre, ala the whole \"see Urta kick the shit out of a corrupt wolf\" scene
+    // Fenoxo's choice if this is a once-off or repeat scene
     // Urta should probably be at least stage 5 pregnancy to trigger this
     public urtaIsAPregnantCopScene(): void {
         this.clearOutput();
@@ -1189,13 +1189,13 @@ export class UrtaPregs extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Display Tel'adre menu options//
+    // Display Tel'adre menu options//
 
-    //Special Delivery☼☼☼
-    //Has a small-ish chance of playing when the PC enters Tel'Adre.
-    //Must have Urta's Key.
-    //Urta must be pregnant to trigger this scene.
-    //Play this scene upon entering Tel'Adre.
+    // Special Delivery☼☼☼
+    // Has a small-ish chance of playing when the PC enters Tel'Adre.
+    // Must have Urta's Key.
+    // Urta must be pregnant to trigger this scene.
+    // Play this scene upon entering Tel'Adre.
     public urtaSpecialDeliveries(): void {
         this.clearOutput();
 
@@ -1247,13 +1247,13 @@ export class UrtaPregs extends NPCAwareContent {
             "\n\nYou stroke her arm, and tell her to rest well.  You get up and close the door to Urta's room and head back to Tel'Adre's main street, saying a farewell to Lianna along the way."
         );
         this.flags[kFLAGS.URTA_PREGNANT_DELIVERY_SCENE] = 1;
-        //(Return to TA menu.)
+        // (Return to TA menu.)
         this.menu();
         this.addButton(0, "Next", this.telAdre.telAdreMenu);
     }
 
-    //New Talk Topic: Her House
-    //PC questions why Urta keeps her old apartment around.
+    // New Talk Topic: Her House
+    // PC questions why Urta keeps her old apartment around.
     public talkToUrtaAboutHerHouse(): void {
         this.clearOutput();
         this.outputText(
@@ -1290,7 +1290,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.addButton(1, "No", this.noUrtaHouseSex);
     }
 
-    //[=Yes=]
+    // [=Yes=]
     private yesUrtaHouseSex(): void {
         this.clearOutput();
         this.outputText("You smile seductively at her and raise a brow.");
@@ -1315,14 +1315,14 @@ export class UrtaPregs extends NPCAwareContent {
             "\n\nFishing out a key from her wallet, Urta unhooks herself from your arm to open the door and then saunters inside, flirtatiously flicking her tail at you as she goes.  You eagerly follow after her."
         );
 
-        //(Rest of the scene is like default scene.)
+        // (Rest of the scene is like default scene.)
         if (!this.urtaLove()) this.urta.goBackToUrtasForLuvinzII();
         else {
             this.outputText("\n\n");
             this.urta.urtaHomeLuvLuvinsMenu();
         }
     }
-    //[=No=]
+    // [=No=]
     private noUrtaHouseSex(): void {
         this.clearOutput();
         this.outputText("You smile at her and apologize, you're just not in the mood right now.");
@@ -1337,15 +1337,15 @@ export class UrtaPregs extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //New Talk Topic: Lianna
-    //Must have visited Urta's House by yourself after getting the key.
-    //Must have seen Lianna introduce herself properly to the PC.
+    // New Talk Topic: Lianna
+    // Must have visited Urta's House by yourself after getting the key.
+    // Must have seen Lianna introduce herself properly to the PC.
     private talkAboutLiana(): void {
         this.clearOutput();
         this.outputText("You tell Urta that you need to talk with her about something.");
         this.outputText('\n\n"<i>Yes, [name]?</i>"  The politely puzzled prick-vixen responds.');
 
-        //{Had sex with Lianna:
+        // {Had sex with Lianna:
         if (
             this.flags[kFLAGS.LIANNA_HAVESTED_LADIES] > 0 ||
             this.flags[kFLAGS.LIANNA_HAVESTED_MALES] > 0
@@ -1388,11 +1388,11 @@ export class UrtaPregs extends NPCAwareContent {
             "\n\n\"<i>Thanks, lover.  I'm sure you'll see that I didn't choose her for the wrong reasons, plus I'll be keeping a close eye on her.</i>\"  She winks at you.  \"<i>Now if you'll excuse me, I think I'll go check up on her, see you later?</i>\"   Urta kisses you goodbye and leaves the bar. You watch her go, order yourself a drink for the road, and set off yourself."
         );
 
-        //(Back to camp/TA)
+        // (Back to camp/TA)
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Pregnant Urta Sex
+    // Pregnant Urta Sex
     private preggoUrtaSmexOrSomething(): void {
         this.clearOutput();
         this.outputText(
@@ -1430,14 +1430,14 @@ export class UrtaPregs extends NPCAwareContent {
         this.addButton(4, "Cravings", this.urtaPregCravings);
     }
 
-    //Belly Massage
+    // Belly Massage
     private massagePregnantUrtasBelly(): void {
         this.clearOutput();
         this.outputText(
             "Looking over Urta's swollen form, you ask her if she'd like you to give her a belly rub.  The fox blinks, then smiles at the prospect, nodding her head happily.  You promptly ask if she has any oil that you can use; admittedly, it probably won't work so well on someone with a furry belly, but it can't hurt, right?"
         );
 
-        //1st Time:
+        // 1st Time:
         if (this.flags[kFLAGS.TIMES_MASSAGED_URTA_BELLY] == 0) {
             this.outputText(
                 "\n\nUrta shakes her head, \"<i>No, [name], sorry... it's not something I normally have much interest in,</i>\" she sadly tells you.  You declare that there must be something you can use for the purpose you have in mind, and, with Urta's approval, start to poke around the house.  You find quite a few different kinds of dildoes and even some hyper-sized fleshlights, but no oil.  Eventually, however, you find a gallon-sized bucket of lube in one closet and promptly carry that over to your pregnant lover."
@@ -1525,13 +1525,13 @@ export class UrtaPregs extends NPCAwareContent {
             "\n\nYou are a bit confused about Urta's choice of words, is she asking you to massage her pussy?  Then again, she's looking at her shaft... or at least you think she is.  What do you do?"
         );
         this.flags[kFLAGS.TIMES_MASSAGED_URTA_BELLY]++;
-        //[RubDick] [RubPussy]
+        // [RubDick] [RubPussy]
         this.menu();
         this.addButton(0, "Rub Dick", this.rubUrtaDick);
         this.addButton(1, "Rub Pussy", this.rubUrtaPussy);
     }
 
-    //[=RubDick=]
+    // [=RubDick=]
     private rubUrtaDick(): void {
         this.clearOutput();
         this.outputText(
@@ -1548,7 +1548,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.urtaMassageClimax();
     }
 
-    //[=RubPussy=]
+    // [=RubPussy=]
     private rubUrtaPussy(): void {
         this.clearOutput();
         this.outputText(
@@ -1561,7 +1561,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.urtaMassageClimax();
     }
 
-    //Both choices converge here
+    // Both choices converge here
     private urtaMassageClimax(): void {
         this.outputText(
             "\n\nWith a howl of pleasure, Urta thrusts her hips, her balls clenching tightly against her suddenly sopping-wet cunt as they explode their contents, the vein-like interior of her shaft visibly bulging as cum rockets up her length and explodes into her condom.  The latex visibly lifts from the surface of her cock's fully-widened crown with the force of her shot, a miniature fountain of spunk gurgling and spraying as it hits the impermeable barrier and is deflected, soon drowning the wedge from view with a growing flood of herm-seed.  The bubble-like tip of the condom stretches bigger and bigger, growing rounder and fuller as she gushes shot after shot of seed into it.  Eventually, it looks like an off-white basketball is wobbling around on the tip of her cock.  Urta's orgasm finally subsides, drawing an exhausted yet happy groan from the herm vixen.  Her dick gently falls limp onto the bed, bringing her condom down to rest on the sheets, soaked with her feminine fluids."
@@ -1583,17 +1583,17 @@ export class UrtaPregs extends NPCAwareContent {
             "\n\nYou are tempted to say something about the condom still hanging from her prick, full of fox-cum, or of her belly, still covered in a thin layer of cream, but it doesn't seem Urta is in any condition to do or say anything at the moment."
         );
 
-        //Low Cor:
+        // Low Cor:
         if (this.player.cor < 33)
             this.outputText(
                 "  You walk up to her and carefully remove her condom, tying it up with a knot to prevent any of her seed from escaping, then dispose of it."
             );
-        //Medium Cor:
+        // Medium Cor:
         else if (this.player.cor < 66)
             this.outputText(
                 "Well, whatever, she's probably too sleepy to do anything about it either way."
             );
-        //High Cor:
+        // High Cor:
         else
             this.outputText(
                 "You walk up to her with a smirk and remove her condom, then pour down its contents over her belly, chuckling to yourself.  Now that's a great cream topping for your lovely fox-herm."
@@ -1605,9 +1605,9 @@ export class UrtaPregs extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Boob Worship
-    //Requires preg stage 5 or above.
-    //Dicked PCs get an extension to the scene.  Centaurs do NOT get the extension.
+    // Boob Worship
+    // Requires preg stage 5 or above.
+    // Dicked PCs get an extension to the scene.  Centaurs do NOT get the extension.
     private urtaBoobWorshipScene(): void {
         this.clearOutput();
         this.outputText(
@@ -1618,7 +1618,7 @@ export class UrtaPregs extends NPCAwareContent {
             "\n\nYou can't help but note that Urta's breasts are pretty swollen.  Has she been milking herself lately?  Doesn't look like it."
         );
 
-        //1st Time:
+        // 1st Time:
         if (this.flags[kFLAGS.TIMES_URTA_BOOB_WORSHIPPED] == 0) {
             this.outputText(
                 '\n\n"<i>Uh, well...</i>"  Urta trails off, looking embarrassed.  "<i>I try but, I\'m... not very good, I guess.  They just get so swollen with milk that they become really sensitive and sore.</i>"'
@@ -1630,7 +1630,7 @@ export class UrtaPregs extends NPCAwareContent {
                 '\n\n"<i>Are you sure you don\'t just want a free shot at my tits?</i>"  Urta says, but she\'s smiling as she does so.  "<i>All right, if it\'s you asking... please, will you help me?</i>"  She asks.  You smile and nod at her.'
             );
         }
-        //Repeat:
+        // Repeat:
         else {
             this.outputText(
                 "\n\n\"<i>Yeah, I've been trying to keep myself milked more often, but... I guess I just don't have your magic fingers.  Will you be a darling and help me?</i>\"  She asks, a somewhat mischievous grin on her black lips."
@@ -1681,7 +1681,7 @@ export class UrtaPregs extends NPCAwareContent {
             '\n\nUrta lets out a shriek of equal parts pleasure and pain, arching her back as her cock suddenly explodes, bloating the hastily-applied condom with jet after jet of pregnant herm cum, swelling it into a misshapen, basketball-sized bubble of fluid-filled latex before she finally empties the last of herself into it.  With a long, drawn-out sigh she sinks back down, panting for air.  Finally, she musters the energy to say, "<i>Nice massage, lover, but whose enjoyment was that for?  Mine or yours?</i>"  The post-orgasmic glow on her face suggests she doesn\'t really care that much what your answer is.'
         );
 
-        //Dicked PCs only:
+        // Dicked PCs only:
         if (this.player.hasCock()) {
             this.outputText(
                 '\n\nYou step away from her breasts, displaying your erect package.  She smirks as she looks at it, then taps her lips thoughtfully.  "<i>Well, I guess since you were nice enough to get me off...</i>"  She laughs, then reaches out a hand to take hold of your [cock biggest] shaft.'
@@ -1707,7 +1707,7 @@ export class UrtaPregs extends NPCAwareContent {
                 "\n\nYou gasp and groan in pleasure as every nerve within you is set on fire, pleasure overtaking you like a wave."
             );
 
-            //Low Cum Amount:
+            // Low Cum Amount:
             if (this.player.cumQ() < 250) {
                 this.outputText(
                     "\n\nYou spurt rope after rope of jism into Urta's eager mouth.  She's all too happy to suck you dry, smacking her lips and licking your [cock].  All too soon, though, you are done, and you collapse on your back, completely sated."
@@ -1717,7 +1717,7 @@ export class UrtaPregs extends NPCAwareContent {
                     '\n\n"<i>Mmm, you taste so yummy,</i>"  Urta says, licking her lips with every sign of unfeigned delight.'
                 );
             }
-            //{Medium Cum Amount:}
+            // {Medium Cum Amount:}
             else if (this.player.cumQ() < 500) {
                 this.outputText(
                     "\n\nYou loosen a veritable jet of cum into the back of the fox-herm's throat.  Surprisingly she doesn't gag nor cough, she just drinks it down with glee.  From your vantage point, you can see that she's enjoying this almost as much as you; she has a happy expression, eyes closed, as she savors the taste of you until the last drop has hit her tongue."
@@ -1727,7 +1727,7 @@ export class UrtaPregs extends NPCAwareContent {
                     '\n\nShe licks her lips, making sure that she hasn\'t missed a drop, then looks you right in the eyes with a loving smile.  "<i>Ah, you really know how to give a girl what she wants - urp!</i>"  She slaps a hand over her mouth and looks embarrassed.  "<i>Beg pardon,</i>" she pleads.'
                 );
             }
-            //High Cum Amount:
+            // High Cum Amount:
             else {
                 this.outputText(
                     "\n\nRope after rope of steaming hot jizz shoots its way down Urta's throat, heavily setting itself into her belly.  The fox-herm doesn't seem to mind this in the least, if anything she seems quite happy that you're pumping out all of your stinking sperm down her throat.  She never stops licking either, caressing and sucking on your tip to draw out every single last drop from you, not that she has to try.  By the time you're done, her belly looks even bigger than it was, and you worry if Urta's forgotten that she has to breathe; she's been diligently sucking and licking you down ever since your prodigious orgasm started."
@@ -1753,14 +1753,14 @@ export class UrtaPregs extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Nurse
+    // Nurse
     private nurseFromMommaUrtasBooBees(): void {
         this.clearOutput();
         this.outputText(
             "You look at Urta's breasts, full of milk and dripping, and absentmindedly lick your lips. Urta follows your gaze and gives you a knowing smile.  \"<i>You know, no matter how much I milk myself, I always seem to fill up again right away... I wonder if that's part of Taoth's so-called parting gift,</i>\" she muses to herself."
         );
 
-        //1st Time:
+        // 1st Time:
         if (this.flags[kFLAGS.TIMES_NURSED_FROM_URTA] == 0) {
             this.outputText(
                 '\n\n"<i>But, either way, aren\'t you a little too grown-up to be interested in that, hmm?</i>"  She teases you.'
@@ -1770,7 +1770,7 @@ export class UrtaPregs extends NPCAwareContent {
             );
             this.outputText("\n\nYou grin widely at her, motioning for her to get comfortable.");
         }
-        //Repeat:
+        // Repeat:
         else {
             this.outputText(
                 '\n\n"<i>Are you thirsty again, lover?</i>"  Urta croons in a flirtatious tone.  You nod emphatically, eager for another taste of the vixen\'s milk.'
@@ -1821,13 +1821,13 @@ export class UrtaPregs extends NPCAwareContent {
         );
 
         this.flags[kFLAGS.TIMES_NURSED_FROM_URTA]++;
-        //[Stroke][Ignore]
+        // [Stroke][Ignore]
         this.menu();
         this.addButton(0, "Stroke", this.titWorshipAndStroke);
         this.addButton(1, "Ignore", this.ignoreUrtaBonerWhenWorship);
     }
 
-    //if Stroke:
+    // if Stroke:
     private titWorshipAndStroke(): void {
         this.clearOutput();
         this.outputText(
@@ -1847,7 +1847,7 @@ export class UrtaPregs extends NPCAwareContent {
         );
         this.finishTitWorshipWivUrta();
     }
-    //Else:
+    // Else:
     private ignoreUrtaBonerWhenWorship(): void {
         this.clearOutput();
         this.outputText(
@@ -1876,7 +1876,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Milk
+    // Milk
     private milkPregnantUrta(): void {
         this.clearOutput();
         this.outputText(
@@ -1935,7 +1935,7 @@ export class UrtaPregs extends NPCAwareContent {
             '\n\nYou begin pumping the toys, milking her breasts and cock out of their load.  Urta moos and moans, instinctively thrusting her hips as if her cock-pump was a pussy trying to milk her hyper-sized dick, visibly fighting to keep from playing with her breasts and to stay "in character".'
         );
 
-        //if PC has a cock:
+        // if PC has a cock:
         if (this.player.hasCock()) {
             this.outputText(
                 "\n\nFeeling horny and left out, you take one of Urta's hands and put it on your [cock biggest], smiling at her.  Almost instinctively it closes around your shaft and begins to rub up and down, the experienced herm almost effortlessly knowing just how much pressure and friction to apply to make you really enjoy her touch."
@@ -1960,7 +1960,7 @@ export class UrtaPregs extends NPCAwareContent {
             '\n\nYou resume your pumping.  Ecstatic moos and groans promptly result.  "<i>Mooo!  Oh, [name], I-I\'m so close!</i>" she whimpers around the hose, then moos again.'
         );
 
-        //If PC has a dick and is not a centaur:
+        // If PC has a dick and is not a centaur:
         if (
             this.player.hasCock() &&
             !this.player.isTaur() &&
@@ -1977,7 +1977,7 @@ export class UrtaPregs extends NPCAwareContent {
             '\n\nUrta gurgles as she drinks her own cum, the bottle almost completely filled with milk as Urta\'s inflamed nipples continue depositing their payload.  "<i>Moooo...</i>" Urta moans, making a few last weak thrusts before collapsing bonelessly onto the bed, the last of her jizz being sucked away into the pump.'
         );
 
-        //if PC has a dick and ain't a centaur:
+        // if PC has a dick and ain't a centaur:
         if (
             this.player.hasCock() &&
             !this.player.isTaur() &&
@@ -2002,7 +2002,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.addButton(1, "Stay", this.stayForHorseDickings);
     }
 
-    //[=Go=]
+    // [=Go=]
     private goHomeHorsecock(): void {
         this.clearOutput();
         this.outputText(
@@ -2011,7 +2011,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=Stay=]
+    // [=Stay=]
     private stayForHorseDickings(): void {
         this.clearOutput();
         this.outputText(
@@ -2043,20 +2043,20 @@ export class UrtaPregs extends NPCAwareContent {
             "\n\nShrugging, you find your clothes and redress yourself.  Once you're ready, you leave the apartment, remembering to lock the door as per Urta's request."
         );
 
-        //(Consume 1 extra hour if you go this route.)
+        // (Consume 1 extra hour if you go this route.)
         this.doNext(this.camp.returnToCampUseTwoHours);
         this.fatigue(-50);
     }
 
-    //Cravings
-    //PC needs a dick to actually do something.
-    //Not centaur compatible.
+    // Cravings
+    // PC needs a dick to actually do something.
+    // Not centaur compatible.
     private urtaPregCravings(): void {
         this.clearOutput();
         this.outputText(
             "You decide to ask Urta if she has any particular cravings right now.  The pregnant fox visibly thinks about, then surreptitiously eyes your crotch."
         );
-        //noDick:
+        // noDick:
         if (!this.player.hasCock()) {
             this.outputText(
                 '\n\n"<i>No, I\'m fine, really,</i>" she replies with a shake of her head.'
@@ -2069,7 +2069,7 @@ export class UrtaPregs extends NPCAwareContent {
             this.addButton(0, "Next", this.preggoUrtaSmexOrSomething);
             return;
         }
-        //Dick:
+        // Dick:
         this.outputText(
             '\n\n"<i>Hmm... well, there is something I want... but I\'m not sure what it is.  Something salty, I think...</i>"  She notes.'
         );
@@ -2145,7 +2145,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.addButton(1, "Hold Out", this.holdOnYouAintGettingYerCumYetYouNaughtyFox);
     }
 
-    //[=Blow=]
+    // [=Blow=]
     private getBlownByPregnantUrta(): void {
         this.clearOutput();
         this.outputText(
@@ -2172,7 +2172,7 @@ export class UrtaPregs extends NPCAwareContent {
             "\n\nUnflinchingly Urta allows you to spray her, occasionally blindly weaving her head around in an effort to catch some of the jetting spunk."
         );
 
-        //(Low Cum Amount)
+        // (Low Cum Amount)
         if (this.player.cumQ() < 250) {
             this.outputText(
                 "  Soon, all too soon, you're spent.  Urta is left with strands of cum covering her naked body, only a few having made it inside her open maw.  You pant as you slump down, satisfied with the outcome."
@@ -2181,7 +2181,7 @@ export class UrtaPregs extends NPCAwareContent {
                 '\n\nUrta smacks her lips and looks delicately at her body, shaking her head softly.  "<i>I think you need to work on your aim, lover,</i>" she teases you.  "<i>Still, I\'ll always be happy to help you practice.</i>"'
             );
         }
-        //(Medium Cum Amount)
+        // (Medium Cum Amount)
         else if (this.player.cumQ() < 1000) {
             this.outputText(
                 "  You blow your load into the air, like a perverted fountain, spraying the grey vixen with your white shower of semen.  She gladly takes it all, not flinching and looking quite pleased with the results, which only serves to drive you to push a few extra strands out as you finish painting her upper body white.  Finally done, you slump on the bed, enjoying the afterglow while your vulpine lover licks her lips of the stray strands of cum you've dumped on her willing body, not that it helps much considering the amount."
@@ -2190,7 +2190,7 @@ export class UrtaPregs extends NPCAwareContent {
                 '\n\n"<i>Quite an effort, lover.</i>"  She notes, delicately wiping her eyes free of spunk before smoothing the sticky seed over her belly and opening them to look at you.  "<i>I would have preferred to get a proper taste, though.</i>"  She playfully remonstrates you.'
             );
         }
-        //(High Cum Amount)
+        // (High Cum Amount)
         else {
             this.outputText(
                 "\n\nYour explosion is akin to a geyser of spunk, erupting and spattering against the fox-herm's body as it arches through the air like a perverted rain of jism.  Urta seems all too pleased with her impromptu semen shower, and you're pleased to give it all to her.  By the time she is completely drenched and the sheets are completely matted with the cum that's missed her open muzzle, you're only half empty, and you continue bombarding her body with spunk."
@@ -2215,7 +2215,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.addButton(0, "Next", this.weirdUrtaCravingsConclusion);
     }
 
-    //[=Hold On=]
+    // [=Hold On=]
     private holdOnYouAintGettingYerCumYetYouNaughtyFox(): void {
         this.clearOutput();
         this.outputText(
@@ -2240,7 +2240,7 @@ export class UrtaPregs extends NPCAwareContent {
         }
         this.outputText("  Urta eagerly gulps and slurps, doing her best to swallow every drop.");
 
-        //(Low Cum Amount)
+        // (Low Cum Amount)
         if (this.player.cumQ() < 250) {
             this.outputText("\n\nYou feed her all you can, ");
             if (this.player.cockTotal() > 1) {
@@ -2257,7 +2257,7 @@ export class UrtaPregs extends NPCAwareContent {
                 '\n\nOnce convinced you\'re not going to give her any more, she looks a little sad, letting go of your cock with a wet popping sound and smacking her lips.  "<i>Yummy, just like I thought; that really hit the spot.</i>"  She tells you.'
             );
         }
-        //(Medium Cum Amount)
+        // (Medium Cum Amount)
         else if (this.player.cumQ() < 1000) {
             this.outputText(
                 "\n\nYou fill her with your liquid pleasure, stretching her throat with your [cock biggest] as your jism flows through your cumvein and out into her stomach.  "
@@ -2279,7 +2279,7 @@ export class UrtaPregs extends NPCAwareContent {
                 '\n\nUrta lets go of your prick and burps quietly, then giggles with embarrassment.  "<i>You sure know how to fix me up, lover.</i>"'
             );
         }
-        //(High Cum Amount)
+        // (High Cum Amount)
         else {
             this.outputText(
                 "\n\nYou cum jets into her stomach with such force that you even feel Urta recoil at your sudden eruption of jism.  Yet she bravely clings to your cock, suckling and drinking it down.  Your prodigious load easily fills her mouth far faster than she can hope to drink it down, some of your jism escaping through the sides of her mouth, yet she refuses to give and adopts a new technique.  Instead of sucking, she just keeps her throat open and lets you douse her stomach with your hot spunk."
@@ -2338,7 +2338,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.addButton(0, "Next", this.weirdUrtaCravingsConclusion);
     }
 
-    //Both Options link here.
+    // Both Options link here.
     private weirdUrtaCravingsConclusion(): void {
         this.clearOutput();
         this.outputText(
@@ -2368,9 +2368,9 @@ export class UrtaPregs extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
-    //RapeFest
-    //The result of teasing her during the 7th stage of her preggo.
-    //Not centaur compatible, if someone wants to pursue that, be my guest!
+    // RapeFest
+    // The result of teasing her during the 7th stage of her preggo.
+    // Not centaur compatible, if someone wants to pursue that, be my guest!
     private urtaRaepsJoo(): void {
         this.clearOutput();
         this.outputText(
@@ -2435,17 +2435,17 @@ export class UrtaPregs extends NPCAwareContent {
         if (this.player.cockTotal() > 0) {
             if (this.player.cockTotal() > 1) this.outputText("  [EachCock] tenses in unison");
             else this.outputText("  [EachCock] throbs, tensing in preparation");
-            //(Low Cum Amount)
+            // (Low Cum Amount)
             if (this.player.cumQ() < 250)
                 this.outputText(
                     " and you unload on the floor, spilling rope after rope of cum, forming a small puddle where you stand.  An undeniable testament to your enjoyment of the kinkiness of the act, however small."
                 );
-            //(Medium Cum Amount)
+            // (Medium Cum Amount)
             else if (this.player.cumQ() < 1000)
                 this.outputText(
                     " and you deliver your payload right there on the floor.  Jet after jet splash against it, and you have no choice but to continue moaning and spilling your cum as Urta remains firmly lodged in your depths, no longer able to move now that you're squeezing her shaft so deliciously tight.  By the time you're done, the puddle you've formed is big enough that you can see your own face on the reflection, enraptured in pleasure and enjoyment of Urta's equine meatstick."
                 );
-            //(High Cum Amount)
+            // (High Cum Amount)
             else {
                 this.outputText(" and you let your prodigious load escape the confines of your ");
                 if (this.player.balls > 0) this.outputText("churning balls");
@@ -2467,7 +2467,7 @@ export class UrtaPregs extends NPCAwareContent {
             this.outputText(" the floor, where it gathers in a ");
             this.outputText("puddle of its own.");
         }
-        //Genderless:
+        // Genderless:
         if (this.player.gender == 0) {
             this.outputText(
                 "\n\nYou squeeze, massage and grip at Urta's intruding dong.  Groaning in what you can only call an assgasm as your "
@@ -2542,7 +2542,7 @@ export class UrtaPregs extends NPCAwareContent {
             '\n\nShe looks into your eyes, concern on her features.  "<i>[name]... I... I\'m sorry for what I did to you.  I was just so pent up and crazed with hormones; you really helped me out a lot, and it really, really felt good, but I still should have been gentler with you.  Are you feeling okay?</i>"'
         );
 
-        //(Low Anal Looseness)
+        // (Low Anal Looseness)
         if (this.player.analCapacity() < 40)
             this.outputText(
                 "\n\nYou complain that your ass is hurting a lot; you were definitely not made to handle the pounding she gave you earlier and you have no doubt you're going to be sore for a few days, at least."
@@ -2565,13 +2565,13 @@ export class UrtaPregs extends NPCAwareContent {
         this.addButton(1, "Decline", this.declineARimJob);
     }
 
-    //[=Decline=]
+    // [=Decline=]
     private declineARimJob(): void {
         this.clearOutput();
         this.outputText(
             "You tell her that you appreciate the offer, but you're going to sit this one out.  Though she tries to hide it, she looks relieved at your refusal; she probably isn't really comfortable with that level of kinkiness.  Instead, she eagerly captures your lips with hers, murmuring into your mouth as she devours your kiss, tongue sliding between your lips to caress your own tongue."
         );
-        //Both choices converge here.
+        // Both choices converge here.
         this.outputText(
             "\n\nIt takes a little work, but eventually the pair of you manage to get yourselves looking decent, though you've little doubt you still smell fairly strongly of sex.  Urta smiles, cuddles up against you and kisses you, then yawns.  \"<i>Well, I'm not pent up any more, but now I'm tired.  This baby could come any day now, so I need my sleep - I'm going home to take a nap, [name].  Take care of yourself, all right?</i>\" she tells you."
         );
@@ -2579,20 +2579,20 @@ export class UrtaPregs extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=Accept=]
+    // [=Accept=]
     private acceptUrtaRimJobbies(): void {
         this.clearOutput();
         this.outputText(
             'Well... she is responsible for your state, and her broad vulpine tongue must feel amazing on your sensitive ass... so you nod in acceptance of her offer.  "<i>All right then... you do know you\'re the only person I\'d ever do this for, right?</i>" Urta comments.  "<i>Now, roll around and present yourself to me; you can\'t expect a pregnant lady to do a lot of bending, now can you?</i>"  She smirks.'
         );
 
-        //Not Centaur:
+        // Not Centaur:
         if (!this.player.isTaur()) {
             this.outputText(
                 "\n\nYou roll on all fours and stick out your [ass].  Urta kneels somewhat awkwardly behind you, then firmly grips the cheeks of your ass with her fingers.  She inhales as if to calm herself, then gently slides one finger into the still-loose and stretched ring of your anal muscles.  You wince in pain at the sudden intrusion, shaking a bit."
             );
         }
-        //Centaur:
+        // Centaur:
         else {
             this.outputText(
                 "\n\nYou stand up and face your back to her, letting her look at your [ass].  With a grunt of effort, Urta hauls herself upright and then positions herself behind your horsey-ass, squeezing and kneading the muscles of your flanks with her skilled fingers. She inhales as if to calm herself, then gently slides one finger into the still-loose and stretched ring of your anal muscles.  You wince in pain at the sudden intrusion, shaking a bit."
@@ -2627,7 +2627,7 @@ export class UrtaPregs extends NPCAwareContent {
             "\n\nYou nod, though you're feeling a bit disappointed your fun was cut short.  \"<i>That's good.  All right, time we got dressed, I think,</i>\" she notes."
         );
 
-        //Both choices converge here.
+        // Both choices converge here.
         this.outputText(
             "\n\nIt takes a little work, but eventually the pair of you manage to get yourselves looking decent, though you've little doubt you still smell fairly strongly of sex.  Urta smiles, cuddles up against you and kisses you, then yawns.  \"<i>Well, I'm not pent up any more, but now I'm tired.  This baby could come any day now, so I need my sleep - I'm going home to take a nap, [name].  Take care of yourself, all right?</i>\" she tells you."
         );
@@ -2636,10 +2636,10 @@ export class UrtaPregs extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //(Urta's) Children Option - Required to visit her house
-    //This option is disabled after choosing it for the first time.
-    //It exists as an unlocker for Urta's new Home.  You will get the Key to the place.
-    //Appears as a Talk topic
+    // (Urta's) Children Option - Required to visit her house
+    // This option is disabled after choosing it for the first time.
+    // It exists as an unlocker for Urta's new Home.  You will get the Key to the place.
+    // Appears as a Talk topic
     public visitKidsFirstTime(): void {
         this.clearOutput();
         this.outputText("You ask Urta if she can take you to see your child");
@@ -2734,22 +2734,22 @@ export class UrtaPregs extends NPCAwareContent {
         this.outputText(
             "\n\n<b>You got the Key item: Urta's Key (Used at the 'Homes' menu in Tel'Adre.)</b>"
         );
-        //Description:  Spare key to Urta's house.  It is adorned with a small fox crest.
+        // Description:  Spare key to Urta's house.  It is adorned with a small fox crest.
         this.player.createKeyItem("Spare Key to Urta's House", 0, 0, 0, 0);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Kid Interactions
-    //Word of Fenoxo on important matters:
-    //Urta's kids age at a fairly \"normal\" fast rate, so they are toddlers/tweens when it comes to relating to their ages (aka about 4-7 years old)
+    // Kid Interactions
+    // Word of Fenoxo on important matters:
+    // Urta's kids age at a fairly \"normal\" fast rate, so they are toddlers/tweens when it comes to relating to their ages (aka about 4-7 years old)
 
-    //After Urta starts having kids of her own, she gets given a new, bigger house in which they live and are cared for by nannies when she's not in. However, she still keeps her old messy apartment as a private retreat, and comes here for sexing the PC.
-    //Male and herm kids are natural hypers, so will be bigger than normal even at their age.
-    //Male and herms also have a 50/50 chance of having either a vulpine or equine dick.
+    // After Urta starts having kids of her own, she gets given a new, bigger house in which they live and are cared for by nannies when she's not in. However, she still keeps her old messy apartment as a private retreat, and comes here for sexing the PC.
+    // Male and herm kids are natural hypers, so will be bigger than normal even at their age.
+    // Male and herms also have a 50/50 chance of having either a vulpine or equine dick.
     private pickKidSceneHere(): void {
         this.clearOutput();
-        //ANNOUNCE BEHBIES
-        //Once per pregnancy?
+        // ANNOUNCE BEHBIES
+        // Once per pregnancy?
         if (
             (this.pregnancy.type == PregnancyStore.PREGNANCY_PLAYER ||
                 (this.player.pregnancyIncubation < 300 &&
@@ -2758,22 +2758,22 @@ export class UrtaPregs extends NPCAwareContent {
         ) {
             this.newBabyComing();
         }
-        //Only possible between 12-14 hours.
-        //Lianna can cook, its hard to make a mess when you have someone who knows what they're doing around. Then again Lianna is a mad scientist, so...
+        // Only possible between 12-14 hours.
+        // Lianna can cook, its hard to make a mess when you have someone who knows what they're doing around. Then again Lianna is a mad scientist, so...
         else if (this.model.time.hours >= 12 && this.model.time.hours <= 14) {
             this.hugAttackScene();
         }
-        //Take the kids for a walk - Special thanks to Belin
-        //Randomly picked when selecting Kids option in Urta's house.
+        // Take the kids for a walk - Special thanks to Belin
+        // Randomly picked when selecting Kids option in Urta's house.
         else if (UrtaPregs.rand(2) == 0) this.takeTheKidsForWalk();
-        //Bathtime
-        //Randomly picked by selecting the Kids option in Urta's House.
-        //So far this is the ONLY option to use that button, so...
+        // Bathtime
+        // Randomly picked by selecting the Kids option in Urta's House.
+        // So far this is the ONLY option to use that button, so...
         else this.bathtime();
     }
 
-    //New Baby Coming
-    //Requires Urta be pregnant or PC be pregnant with UrtaKid
+    // New Baby Coming
+    // Requires Urta be pregnant or PC be pregnant with UrtaKid
     private newBabyComing(): void {
         this.clearOutput();
         this.outputText("You announce to your ");
@@ -2781,7 +2781,7 @@ export class UrtaPregs extends NPCAwareContent {
         else this.outputText(UrtaPregs.num2Text(this.urtaKids()) + " kids");
         this.outputText(" that you and Urta have something important to tell them.");
 
-        //If UrtaKids <8:
+        // If UrtaKids <8:
         if (this.urtaKids() < 8) {
             this.outputText("\n\nAs ");
             if (this.urtaKids() == 1) {
@@ -2797,7 +2797,7 @@ export class UrtaPregs extends NPCAwareContent {
             else this.outputText("him");
             this.outputText(" a loving smile.");
 
-            //Both Preg:
+            // Both Preg:
             if (
                 this.pregnancy.type == PregnancyStore.PREGNANCY_PLAYER &&
                 this.player.pregnancyType == PregnancyStore.PREGNANCY_URTA
@@ -2806,7 +2806,7 @@ export class UrtaPregs extends NPCAwareContent {
                     '\n\n"<i>Your mommies are both going to give you a little brother or a little sister soon,</i>" Urta says, giving you a comforting hug whilst still managing to pat your belly, even as she gently drums her fingers on her own.'
                 );
             }
-            //One person preg:
+            // One person preg:
             else if (
                 this.pregnancy.type == PregnancyStore.PREGNANCY_PLAYER ||
                 this.player.pregnancyType == PregnancyStore.PREGNANCY_URTA
@@ -2849,7 +2849,7 @@ export class UrtaPregs extends NPCAwareContent {
             else this.outputText(" are");
             this.outputText(" excited at the prospect.");
         }
-        //If UrtaKids =>8:
+        // If UrtaKids =>8:
         else {
             this.outputText(
                 "\n\nYour brood let out a chorus of amused giggles, while the biggest of their number sighs and folds their arms, shaking their head at you.  \"<i>We're going to get another brother or sister, aren't we?</i>\" they ask."
@@ -2865,10 +2865,10 @@ export class UrtaPregs extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Hug Attack - (Special thanks to DeceivedTadpole)
-    //Auto-plays if the PC goes to Urta's house at the appropriate time
-    //Only possible between 12-14 hours.
-    //Lianna can cook, its hard to make a mess when you have someone who knows what they're doing around. Then again Lianna is a mad scientist, so...
+    // Hug Attack - (Special thanks to DeceivedTadpole)
+    // Auto-plays if the PC goes to Urta's house at the appropriate time
+    // Only possible between 12-14 hours.
+    // Lianna can cook, its hard to make a mess when you have someone who knows what they're doing around. Then again Lianna is a mad scientist, so...
 
     private hugAttackScene(): void {
         this.clearOutput();
@@ -2907,25 +2907,25 @@ export class UrtaPregs extends NPCAwareContent {
         this.addButton(1, "No", this.noPlayTimeForKids);
     }
 
-    //[=No=]
+    // [=No=]
     private noPlayTimeForKids(): void {
         this.clearOutput();
         this.outputText(
             'You shake your head, telling your family that you\'re sorry but you have to go.  "<i>Really?  All right... but, you should at least hang around long enough to take some on the go.</i>"  Urta insists.  You tell her you\'ll be fine, but you\'ll definitely stop by to eat with them sometime.  Urta gives a melodramatic sigh and rolls her eyes, then nods and smiles.  "<i>All right... just make sure you do.</i>"  She tells you, then gives you a quick hug and a kiss.  "<i>We worry about you out there; come home safe to us.</i>"  She says, then lets you go.'
         );
         this.outputText("\n\nYou give your lover a kiss, and wave goodbye as you step out.");
-        //(Back to camp)
+        // (Back to camp)
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=Yes=]
+    // [=Yes=]
     private stayToPlay(): void {
         this.clearOutput();
         this.outputText(
             'You nod your head in acceptance.  Urta smiles in delight.  "<i>Take a seat, please, make yourself comfortable - I\'ll go and get it,</i>" she says happily, tail wagging as she saunters off to the kitchen.'
         );
 
-        //1st time:
+        // 1st time:
         if (this.flags[kFLAGS.URTA_LUNCH_PLAY] == 0) {
             this.flags[kFLAGS.URTA_LUNCH_PLAY]++;
             this.outputText(
@@ -2967,13 +2967,13 @@ export class UrtaPregs extends NPCAwareContent {
             this.outputText(
                 '\n\nYou finish eating and get up to take your dish to kitchen, when Lianna stops you from doing so.  "<i>I got this,</i>"  She states, taking your dish from your hands and proceeding to do the same for everyone else.  You thank Urta for the invitation, kissing her before telling her you should be going.  "<i>Thank you, lover.</i>"'
             );
-            //Token 1 HP damage? Due to failed cooking?
+            // Token 1 HP damage? Due to failed cooking?
             this.fatigue(-10);
             this.player.takeDamage(10);
-            //Recover some fatigue due to excellent food, by Lianna.
+            // Recover some fatigue due to excellent food, by Lianna.
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //Repeat:
+        // Repeat:
         else {
             this.outputText(
                 '\n\nYou wave Lianna over.  She steps over and before you can say anything she hands you another vial of medicine.  You thank her.  "<i>You\'re welcome,</i>"  She simply states before disappearing into the kitchen.'
@@ -2991,17 +2991,17 @@ export class UrtaPregs extends NPCAwareContent {
             this.outputText(
                 "\n\nAfter you're done, Lianna begins collecting the dishes.  Satisfied with your newly filled belly, you kiss Urta and head towards Tel'Adre's streets.  Urta gives you an embarrassed smile and pats your back, then lets you go."
             );
-            //Token 1 HP damage? Due to failed cooking?
+            // Token 1 HP damage? Due to failed cooking?
             this.fatigue(-10);
             this.player.takeDamage(10);
-            //Recover some fatigue due to excellent food, by Lianna.
+            // Recover some fatigue due to excellent food, by Lianna.
             this.doNext(this.camp.returnToCampUseOneHour);
         }
     }
 
-    //Bathtime
-    //Randomly picked by selecting the Kids option in Urta's House.
-    //So far this is the ONLY option to use that button, so...
+    // Bathtime
+    // Randomly picked by selecting the Kids option in Urta's House.
+    // So far this is the ONLY option to use that button, so...
     private bathtime(): void {
         this.clearOutput();
         this.outputText("You tell Lianna you just wanted to check in on your ");
@@ -3011,18 +3011,18 @@ export class UrtaPregs extends NPCAwareContent {
         this.outputText(
             '.  "<i>Sure, but they need a bath, maybe you\'d like to help me bathe them?</i>"'
         );
-        //[Yes] [No]
+        // [Yes] [No]
         this.menu();
         this.addButton(0, "Yes", this.giveTheKidsABath);
         this.addButton(1, "No", this.noBathTiemPlease);
     }
-    //[=No=]
+    // [=No=]
     private noBathTiemPlease(): void {
         this.clearOutput();
         this.outputText(
             '"<i>I see, in that case excuse me,</i>"  She says with a blank expression.  Looks like you don\'t have any business here for now, so you decide to leave.'
         );
-        //(Back to TA/Camp)
+        // (Back to TA/Camp)
         this.menu();
         this.addButton(0, "Next", this.telAdre.telAdreMenu);
     }
@@ -3032,7 +3032,7 @@ export class UrtaPregs extends NPCAwareContent {
             else return female;
         } else return plural;
     }
-    //[=Yes=]
+    // [=Yes=]
     private giveTheKidsABath(): void {
         this.clearOutput();
         this.outputText(
@@ -3095,7 +3095,7 @@ export class UrtaPregs extends NPCAwareContent {
                 "."
         );
 
-        //If any UrtaKids=Male:
+        // If any UrtaKids=Male:
         if (this.flags[kFLAGS.URTA_KIDS_MALES] > 0) {
             this.outputText(
                 "\n\nYou have " +
@@ -3140,7 +3140,7 @@ export class UrtaPregs extends NPCAwareContent {
                 this.outputText("strong fighters like she is.");
             else this.outputText("a strong fighter like she is.");
         }
-        //If any UrtaKids=Herm:
+        // If any UrtaKids=Herm:
         if (this.flags[kFLAGS.URTA_KIDS_HERMS] > 0) {
             this.outputText(
                 "\n\nYou have " +
@@ -3186,7 +3186,7 @@ export class UrtaPregs extends NPCAwareContent {
                 ", maybe because she remembers how much her parents hated her for being a herm."
             );
         }
-        //If any UrtaKids=Female:
+        // If any UrtaKids=Female:
         if (this.flags[kFLAGS.URTA_KIDS_FEMALES] > 0) {
             this.outputText(
                 "\n\nYou have " +
@@ -3315,7 +3315,7 @@ export class UrtaPregs extends NPCAwareContent {
         else this.outputText("his");
         this.outputText(" hair is done, shaking some of the water out of your own face.");
 
-        //1 child only:
+        // 1 child only:
         if (this.urtaKids() == 1) {
             this.outputText("\n\n\"<i>Good, now it's time to do ");
             if (this.flags[kFLAGS.URTA_LATESTBORN_GENDER] >= 2) this.outputText("her");
@@ -3358,13 +3358,13 @@ export class UrtaPregs extends NPCAwareContent {
         this.outputText(
             "\n\nJust curious, you reply.  You wonder whether or not you should take her up on her offer..."
         );
-        //[Yes] [No]
+        // [Yes] [No]
         this.menu();
         this.addButton(1, "No", this.noBathPleaseUrtaLian);
         this.addButton(0, "Yes", this.getABackWashFromLianna);
     }
 
-    //[=No=]
+    // [=No=]
     private noBathPleaseUrtaLian(): void {
         this.clearOutput();
         this.outputText(
@@ -3382,7 +3382,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
-    //[=Yes=]
+    // [=Yes=]
     private getABackWashFromLianna(): void {
         this.clearOutput();
         this.outputText(
@@ -3426,8 +3426,8 @@ export class UrtaPregs extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Take the kids for a walk - Special thanks to Belin
-    //Randomly picked when selecting Kids option in Urta's house.
+    // Take the kids for a walk - Special thanks to Belin
+    // Randomly picked when selecting Kids option in Urta's house.
     private takeTheKidsForWalk(): void {
         this.clearOutput();
         this.outputText(
@@ -3581,9 +3581,9 @@ export class UrtaPregs extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Lianna/Urta's House
-    //Only if the PC's got the key.
-    //To get the Key, you must talk to Urta about Children first.
+    // Lianna/Urta's House
+    // Only if the PC's got the key.
+    // To get the Key, you must talk to Urta about Children first.
     public visitTheHouse(): void {
         this.clearOutput();
         this.outputText(
@@ -3604,7 +3604,7 @@ export class UrtaPregs extends NPCAwareContent {
             if(urtaKids() > 1) outputText("s");
             outputText(" for a walk.  Be back soon!  - Lianna");
             outputText("\n\nPS: There's food in the pantry, in case you're feeling hungry when you wake up.</i>\n\nLooks like Urta is the only one in.  Should you go take a look?");
-            //9999
+            // 9999
         }
         [=No=]
         You decide its best to let her rest in peace for now.  So you quietly leave the house, making sure to lock the door on the way out, and go about your business.
@@ -3617,7 +3617,7 @@ export class UrtaPregs extends NPCAwareContent {
             "\n\nYou hear the sound of running water coming from the kitchen, moments later the sound stops and Lianna steps out of the kitchen."
         );
 
-        //1st time only:
+        // 1st time only:
         if (this.flags[kFLAGS.FIRST_TIME_AT_URTA_HOUSE] == 0) {
             this.flags[kFLAGS.FIRST_TIME_AT_URTA_HOUSE]++;
             this.outputText(
@@ -3633,7 +3633,7 @@ export class UrtaPregs extends NPCAwareContent {
                 '\n\n"<i>Now about that thing I wanted to talk to you about, [name]...</i>"'
             );
 
-            //If PC is still human:
+            // If PC is still human:
             if (this.player.race() == "human")
                 this.outputText(
                     "\n\n\"<i>I can't help but notice that you're a human.</i>\"  You are indeed - it is how you were born, you note."
@@ -3665,7 +3665,7 @@ export class UrtaPregs extends NPCAwareContent {
                 '\n\nShe adjusts her glasses once more.  "<i>So... what\'s your business?</i>"'
             );
         }
-        //Repeatable:
+        // Repeatable:
         else {
             this.outputText(
                 '\n\n"Hey, [name].</i>"  Lianna greets you as she exits the kitchen, finishing drying up her hands and tossing the towel onto the kitchen counter.  You greet the sexy skunkette as she appears.'
@@ -3673,7 +3673,7 @@ export class UrtaPregs extends NPCAwareContent {
 
             this.outputText('\n\n"<i>So... what\'s your business today?</i>"');
         }
-        //[Appearance] [Talk] [Sex] [Get DSSpray] [Kids]
+        // [Appearance] [Talk] [Sex] [Get DSSpray] [Kids]
         this.menu();
         this.addButton(0, "Appearance", this.liannasAppearance);
         this.addButton(1, "Talk", this.talkToLiana);
@@ -3683,14 +3683,14 @@ export class UrtaPregs extends NPCAwareContent {
         this.addButton(9, "Back", this.telAdre.telAdreMenu);
     }
 
-    //Lianna
-    //Appearance
+    // Lianna
+    // Appearance
     private liannasAppearance(): void {
         this.clearOutput();
         this.outputText(
             "Lianna is a healthy looking young anthro, a skunk-morph covered in sleek, shiny black fur, with white adorning her swishing, fluffy-looking tail.  Her hair is pure black with streaks of white, tied out of the way into a short ponytail, and her green eyes glitter behind round, silver-rimmed glasses that perch atop her nose.  She wears a conservative short-sleeved blouse, and pants that, while slightly baggy, still manage to show off her nice legs.  They're certainly tight enough that you can tell she's all girl; no hidden surprises here.  She goes without shoes, exposing her paw-like feet.  She has a very nicely rounded, generous handful of an ass, and womanly hips; up top, she is no less stacked, with what are easily E-cup breasts making her even bustier than her employer is; despite all that, she tries to tone them down with her style of dress."
         );
-        //(Display Options)
+        // (Display Options)
         this.menu();
         this.addButton(9, "Back", this.visitTheHouse);
     }
@@ -3715,7 +3715,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.addButton(9, "Back", this.visitTheHouse);
     }
 
-    //Her Job
+    // Her Job
     private talkToLianaAboutHerJob(): void {
         this.clearOutput();
         this.outputText(
@@ -3728,11 +3728,11 @@ export class UrtaPregs extends NPCAwareContent {
             "\n\n\"<i>Now about the future... I've always been fascinated by alchemy.  I believe I have a talent, and so this is what I want to do.  Just that.</i>\"  She shrugs. You spare a moment to wonder why so many people in this world seem fascinated by magical and chemical weirdness, even despite what the demons are doing with that very thing, but consider it's not important to ask any further."
         );
         this.outputText('\n\n"<i>Something else?</i>"');
-        //(Display Options)
+        // (Display Options)
         this.talkToLiana(false);
     }
 
-    //Her Research
+    // Her Research
     private talkToLianaAboutHerResearch(): void {
         this.clearOutput();
         this.outputText(
@@ -3765,14 +3765,14 @@ export class UrtaPregs extends NPCAwareContent {
             "\n\nNodding your head absently at the thought, you ask if her efforts have borne any fruit yet."
         );
 
-        //If PC sexed:
+        // If PC sexed:
         if (this.player.gender != 0) {
             this.outputText(
                 '\n\nShe sighs.  "<i>So far, nothing.  Though your help does take at least one step closer to finding out why that is so.  I hope I can count on your continued support?</i>"'
             );
             this.outputText("\n\nYou tell her that you'll try your best.");
         }
-        //Else:
+        // Else:
         else {
             this.outputText(
                 "\n\nShe shrugs.  \"<i>Sadly, I don't have any samples to work with, which is why I asked for your help.  So if you feel like helping me, just tell me.  And don't worry, I'll help extract your samples.  I'd like to think I'm pretty skilled at... extracting... samples.</i>\"  She smiles confidently."
@@ -3782,11 +3782,11 @@ export class UrtaPregs extends NPCAwareContent {
             );
         }
         this.outputText('\n\n"<i>Thanks.  Now, is there something else?</i>"');
-        //(Display options)
+        // (Display options)
         this.talkToLiana(false);
     }
-    //Her Lube Spray
-    //Must've had sex with her at least once
+    // Her Lube Spray
+    // Must've had sex with her at least once
     private talkAboutLiannasLubeSpray(): void {
         this.clearOutput();
         this.flags[kFLAGS.DISCUSSED_LUBE_SPRAY] = 1;
@@ -3817,12 +3817,12 @@ export class UrtaPregs extends NPCAwareContent {
             '\n\nFinished with her explanation, she adjusts her glasses and asks, "<i>Something else?</i>"'
         );
 
-        //(Display options)
+        // (Display options)
         this.talkToLiana(false);
     }
 
-    //Side Effects
-    //Must have talked about her Lube Spray
+    // Side Effects
+    // Must have talked about her Lube Spray
     private lubeSpraySideEffects(): void {
         this.clearOutput();
         this.outputText(
@@ -3901,34 +3901,34 @@ export class UrtaPregs extends NPCAwareContent {
         this.talkToLiana(false);
     }
 
-    //Get DSSpray
-    //Must have talked about her Lube Spray
-    //Can only get one per day, unless debug mode is active.
-    //You ask the budding alchemist if she would be willing to distill some of her spray for you.
-    //{If you already got one today and debug is off:
-    //\"Sorry, [name].  I'm afraid I've ran out of spray for the day.  So you'll just have to come back tomorrow if you want more.\"
+    // Get DSSpray
+    // Must have talked about her Lube Spray
+    // Can only get one per day, unless debug mode is active.
+    // You ask the budding alchemist if she would be willing to distill some of her spray for you.
+    // {If you already got one today and debug is off:
+    // \"Sorry, [name].  I'm afraid I've ran out of spray for the day.  So you'll just have to come back tomorrow if you want more.\"
 
-    //You apologize for forgetting, and tell her that you'll do that.
-    //(Display options)
-    //}
+    // You apologize for forgetting, and tell her that you'll do that.
+    // (Display options)
+    // }
 
-    //\"Sure, though I will need a heavily concentrated amount of it if you intend to get any effect other than lubing stuff out.\"
-    //You agree you're interested in it besides as a general source of lubricant, and thank her for her generosity.
-    //\"All right, I'll go get some for you, wait here.\"  She opens a closet and pulls out a strange contraption, then makes her way to the bathroom, closing and locking the door.
-    //You wait patiently... and wait... and wait some more.  You wonder just what she's doing in there; it's been nearly an hour already!
-    //Lianna emerges from the bathroom, holding a vial filled with a small amount of a clear liquid and the equipment you saw earlier.  \"Here you go.\"  She hands you the vial.
-    //You thank her, carefully accepting the vial of lubricant from her and stowing it away safely.
-    //(Item get message)
-    //(Display Options/Back to Camp or TA)
-    //Using DSSpray
-    //Random chance of:
+    // \"Sure, though I will need a heavily concentrated amount of it if you intend to get any effect other than lubing stuff out.\"
+    // You agree you're interested in it besides as a general source of lubricant, and thank her for her generosity.
+    // \"All right, I'll go get some for you, wait here.\"  She opens a closet and pulls out a strange contraption, then makes her way to the bathroom, closing and locking the door.
+    // You wait patiently... and wait... and wait some more.  You wonder just what she's doing in there; it's been nearly an hour already!
+    // Lianna emerges from the bathroom, holding a vial filled with a small amount of a clear liquid and the equipment you saw earlier.  \"Here you go.\"  She hands you the vial.
+    // You thank her, carefully accepting the vial of lubricant from her and stowing it away safely.
+    // (Item get message)
+    // (Display Options/Back to Camp or TA)
+    // Using DSSpray
+    // Random chance of:
 
-    //Increasing anal wetness (Rare)
-    //Increasing vaginal wetness (Must have vagina)
-    //Increasing Lactation (Must already be lactating)
-    //Increasing Cum production (Must have balls)
-    //Nothing
-    //Description: A highly concentrated spray juice Lianna distilled for you, it may have some transforming properties.
+    // Increasing anal wetness (Rare)
+    // Increasing vaginal wetness (Must have vagina)
+    // Increasing Lactation (Must already be lactating)
+    // Increasing Cum production (Must have balls)
+    // Nothing
+    // Description: A highly concentrated spray juice Lianna distilled for you, it may have some transforming properties.
     /*
     Use:
     You inhale the strong, musky scent of the fluid, then grit your teeth and toss it back in a single gulp.  It's got an oily kind of taste, but there's barely a mouthful of it and it slides down your belly quick and easy, leaving a slight queasiness in your guts as the aftereffect.
@@ -3963,9 +3963,9 @@ export class UrtaPregs extends NPCAwareContent {
     Somehow your [balls] feels heavier than before, though they don't look any bigger.  You reach down to weigh them and moan in pleasure as a sudden pressure erupts from then and you shoot a small rope of cum on the floor.  Looks like your <b>cum production has been augmented</b> somehow.
     }*/
 
-    //Sex
-    //Will expand with more options in the future.
-    //Possible Urta threesome in the future?
+    // Sex
+    // Will expand with more options in the future.
+    // Possible Urta threesome in the future?
     private sexWithLianna(): void {
         this.clearOutput();
         this.outputText(
@@ -3982,11 +3982,11 @@ export class UrtaPregs extends NPCAwareContent {
             '\n\n"<i>Why are you still dressed?</i>"  She asks, genuinely wondering what\'s taking you so long.  You quickly hasten to remove your [armor], exposing your naked form to the eager skunk.'
         );
         if (this.player.gender == 0) {
-            //PC is genderless
-            //{Offer gender injection to make them grow either:
-            //a 4-inch by 0.5-inch dick and 1-inch balls.
-            //a virgin vagina (wetness = 0) and A-Cup breasts (if flat).
-            //20% chance of turning PC into a herm with a 7-inch by 1-inch dick, 2-inch full balls, virgin vagina (Wetness = 2) and C-cup breasts (if smaller).)
+            // PC is genderless
+            // {Offer gender injection to make them grow either:
+            // a 4-inch by 0.5-inch dick and 1-inch balls.
+            // a virgin vagina (wetness = 0) and A-Cup breasts (if flat).
+            // 20% chance of turning PC into a herm with a 7-inch by 1-inch dick, 2-inch full balls, virgin vagina (Wetness = 2) and C-cup breasts (if smaller).)
             this.outputText(
                 "\n\nYou look down at the floor as you point out that you're kind of lacking in the equipment to provide any sort of donation for Lianna."
             );
@@ -3999,12 +3999,12 @@ export class UrtaPregs extends NPCAwareContent {
             return;
         }
 
-        //If herm:
+        // If herm:
         if (this.player.gender == 3)
             this.outputText(
                 '\n\n"<i>A herm, huh?  That\'s interesting.  I\'ll be sure to note that in my experiments.</i>"  She crosses her arms.  "<i>So which part will you be using to help me?</i>"'
             );
-        //(Display sex options)
+        // (Display sex options)
         this.menu();
         if (this.player.hasVagina()) {
             if (this.player.pregnancyIncubation == 0)
@@ -4018,7 +4018,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.addButton(4, "Back", this.visitTheHouse);
     }
 
-    //[=Refuse=]
+    // [=Refuse=]
     private refuseGenderlessInjection(): void {
         this.clearOutput();
         this.outputText(
@@ -4029,7 +4029,7 @@ export class UrtaPregs extends NPCAwareContent {
         );
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[=Accept=]
+    // [=Accept=]
     private acceptARandomGenderFromASkunk(): void {
         this.clearOutput();
         this.outputText(
@@ -4038,7 +4038,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.outputText(
             '\n\n"<i>Most excellent.</i>"  She ducks into her closet and rummages through it, then returns with a strange pointed vial and a notebook.  "<i>Okay, now I need you to bend over.'
         );
-        //{if Centaur:
+        // {if Centaur:
         if (this.player.isTaur())
             this.outputText(
                 "  Or at least hold on to something, this might sting a little and I don't need you kicking down anything in here."
@@ -4049,7 +4049,7 @@ export class UrtaPregs extends NPCAwareContent {
             "\n\nCautiously, you do as the alchemist says.  She walk behind you and grips your [butt].  Instinctively, you tense up.  Then she runs a finger through your crack, analysing the yield of your [asshole].  A shiver runs up your spine as she does so."
         );
 
-        //If Tight:
+        // If Tight:
         if (this.player.ass.analLooseness <= 2)
             this.outputText('\n\n"<i>Going to need some lube for this...</i>" she remarks.');
         else
@@ -4081,8 +4081,8 @@ export class UrtaPregs extends NPCAwareContent {
         );
 
         if (UrtaPregs.rand(10) <= 3) {
-            //if PC becomes male:
-            //(Discomfortable feeling, mild reaction)
+            // if PC becomes male:
+            // (Discomfortable feeling, mild reaction)
             this.outputText(
                 "\n\nA nagging, burning, unpleasant feel begins blooming inside your blank, featureless crotch.  You whimper and moan, wriggling as you try to find some relief from the pain - it feels like there's something poking into your groin from the inside."
             );
@@ -4110,7 +4110,7 @@ export class UrtaPregs extends NPCAwareContent {
                 "\n\nYou nod your head, carefully get dressed, and then show yourself out."
             );
         }
-        //if PC becomes Female:
+        // if PC becomes Female:
         else if (UrtaPregs.rand(10) <= 8) {
             this.outputText(
                 "\n\nAn itch, not unpleasant but quite noticeable, begins plaguing you from the blank space where your loins should be.  Instinctively, you try to scratch at it."
@@ -4142,7 +4142,7 @@ export class UrtaPregs extends NPCAwareContent {
                 "\n\nYou nod your head, carefully get dressed, and then show yourself out."
             );
         }
-        //if PC becomes Herm:
+        // if PC becomes Herm:
         else {
             this.outputText(
                 "\n\nYou moan lewdly as a warmth spreads between your legs, pleasure spiked with pain, itching under your skin, making you wriggle and squirm to try and find some kind of release.  The sensation just keeps building and building, feeling like it's driving you mad!"
@@ -4208,8 +4208,8 @@ export class UrtaPregs extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Dildo-syringe
-    //Needs vag.
+    // Dildo-syringe
+    // Needs vag.
     private getEggsHarvested(): void {
         this.clearOutput();
         this.outputText(
@@ -4227,7 +4227,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.outputText(
             "\n\nLianna takes the lollipop, removes its wrapping and shoves the candy in her mouth.  Sucking in its sugary goodness, she takes the dildo in her hands and aligns it with her ass.  You watch with "
         );
-        //1st time:
+        // 1st time:
         if (this.flags[kFLAGS.LIANNA_HAVESTED_LADIES] == 0) {
             this.outputText("confusion, wondering what she's playing at");
             this.flags[kFLAGS.LIANNA_HAVESTED_LADIES]++;
@@ -4305,8 +4305,8 @@ export class UrtaPregs extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Handjob
-    //Needs cock.
+    // Handjob
+    // Needs cock.
     private liannaHandjobbies(): void {
         this.clearOutput();
         this.flags[kFLAGS.LIANNA_HAVESTED_MALES]++;
@@ -4325,7 +4325,7 @@ export class UrtaPregs extends NPCAwareContent {
             "\n\nWell, now, that certainly sounds enjoyable.  You follow her lead and make yourself comfortable."
         );
 
-        //If more than one dick:
+        // If more than one dick:
         if (this.player.cockTotal() > 1) {
             this.outputText(
                 '\n\n"<i>I need to get something first.</i>"  She ducks out into her closet once more, rummaging through it until she emerges with a box full of cock-rings.  Okay, this doesn\'t look so inviting...'
@@ -4374,17 +4374,17 @@ export class UrtaPregs extends NPCAwareContent {
             "\n\nHer hands grasp your [hips] for support, and she bobs on your shaft, deepthroating you.  You shudder and buck, feeling her throat expertly wringing your already-oversensitive shaft through its latex coating, the warm wet depths slurping around you and pushing you to your limit.  She twists her head in order to take you even deeper and you feel yourself snap.  You cry out and make one last thrust into her mouth as you empty yourself into her."
         );
 
-        //{Normal or lower Cum:
+        // {Normal or lower Cum:
         if (this.player.cumQ() < 1000)
             this.outputText(
                 "\n\nYour cock spurts its creamy seed down into the waiting latex cocoon in the depths of her throat, neatly splashing into it and ready to be removed."
             );
-        //High Cum:
+        // High Cum:
         else if (this.player.cumQ() < 4000)
             this.outputText(
                 "\n\nGush after gush of seed floods from your unnaturally productive [balls], swelling the condom inside of Lianna's mouth like a balloon with your cascade of fluids, her belly slowly rounding as it swells wider and wider inside of her, distending her flesh into a noticable paunch before finally you spurt your last spurt."
             );
-        //Very High Cum:
+        // Very High Cum:
         else
             this.outputText(
                 "\n\nLianna may have bitten off more than she could chew; yet her expression doesn't change, even as your inhuman cascade of jism surges into her like a tightly focused tidal wave of cum, her belly almost instantly starting to swell as the condom starts bloating under the influx of fluid.  You wonder for a moment if the condom is going to end up being pushed off of your dick and wind up stuck in her stomach, or else just burst inside of her, but you can't stop until you've poured out everything you have to give..."
@@ -4405,15 +4405,15 @@ export class UrtaPregs extends NPCAwareContent {
             "\n\nShe wipes her mouth with a hand and proceeds to remove your condom, careful not to damage it and not to let even a single drop of jism escape.  She ties a knot at the end of the condom and weights the semen contained within."
         );
 
-        //Low Cum Amount:
+        // Low Cum Amount:
         if (this.player.cumQ() < 250)
             this.outputText(
                 '\n\n"<i>I suppose this will be sufficient for now,</i>" she declares.'
             );
-        //Medium Cum Amount:
+        // Medium Cum Amount:
         else if (this.player.cumQ() < 1000)
             this.outputText('\n\n"<i>Quite a bit, not bad,</i>" she says, nodding in approval.');
-        //Large Cum Amount:
+        // Large Cum Amount:
         else
             this.outputText(
                 '\n\n"<i>This will hold me for a while,</i>" she says, smiling and nodding in approval.'

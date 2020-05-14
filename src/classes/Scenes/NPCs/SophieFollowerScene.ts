@@ -9,21 +9,21 @@ import { Sophie } from "./Sophie";
 export class SophieFollowerScene extends NPCAwareContent {
     // private get pregnancy(): PregnancyStore { return kGAMECLASS.sophieScene.pregnancy; } //Quick way to access sophie's pregnancyStore
 
-    //Make Sophie \"smart\" again: Doing the Deed
-    //Visit Rathazul and he bitches.
-    //Notification (On Approaching Rathazul)*
+    // Make Sophie \"smart\" again: Doing the Deed
+    // Visit Rathazul and he bitches.
+    // Notification (On Approaching Rathazul)*
 
-    //SOPHIE_DEBIMBOED
-    //SOPHIES_DAUGHTERS_DEBIMBOED
-    //SOPHIE_RECRUITED_PURE
+    // SOPHIE_DEBIMBOED
+    // SOPHIES_DAUGHTERS_DEBIMBOED
+    // SOPHIE_RECRUITED_PURE
 
-    //const SOPHIE_DEBIMBOED: number = 745;
-    //const SOPHIES_DAUGHTERS_DEBIMBOED: number = 746;
-    //const SOPHIE_RECRUITED_PURE: number = 747;
-    //const SOPHIE_FOLLOWER_IRRITATION: number = 748;
-    //const TIMES_MORNING_SOPHIE_FEMDOMMED: number = 749;
-    //const NO_PURE_SOPHIE_RECRUITMENT: number = 754;
-    //const SOPHIE_FOLLOWER_PROGRESS: number = 755;
+    // const SOPHIE_DEBIMBOED: number = 745;
+    // const SOPHIES_DAUGHTERS_DEBIMBOED: number = 746;
+    // const SOPHIE_RECRUITED_PURE: number = 747;
+    // const SOPHIE_FOLLOWER_IRRITATION: number = 748;
+    // const TIMES_MORNING_SOPHIE_FEMDOMMED: number = 749;
+    // const NO_PURE_SOPHIE_RECRUITMENT: number = 754;
+    // const SOPHIE_FOLLOWER_PROGRESS: number = 755;
 
     public sophieFollower(): boolean {
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00283] > 0) return false;
@@ -41,30 +41,30 @@ export class SophieFollowerScene extends NPCAwareContent {
         kGAMECLASS.sophieBimbo.sophieSprite();
     }
 
-    //Un-Bimbo*
+    // Un-Bimbo*
     public unbimboSophie(): void {
         this.clearOutput();
         this.outputText(
             "Taking the potent mixture out of your pouch, you consider giving it to the bimbo harpy fluttering about in front of you.  She'd probably be pretty mad about the whole affair, but if you want to repair the damage you've inflicted, this is probably your best bet.  Do you un-bimbo Sophie?"
         );
-        //[Yes] [No]☼
+        // [Yes] [No]☼
         this.menu();
         this.addButton(0, "Yes", this.yesDebimboSophie);
         this.addButton(1, "No", this.noDontDebimbo);
     }
 
-    //No (You Monster)*
+    // No (You Monster)*
     private noDontDebimbo(): void {
         this.clearOutput();
         this.outputText(
             "You shrug and put the potion back in your pack.  Maybe later...  A mad Sophie isn't something you particularly want to deal with right now."
         );
-        //(Return to Sophie menu.  You monster)
+        // (Return to Sophie menu.  You monster)
         this.menu();
         this.addButton(0, "Next", this.sophieBimbo.approachBimboSophieInCamp);
     }
 
-    //Yes (God dammit what the fuck did I just say)*
+    // Yes (God dammit what the fuck did I just say)*
     private yesDebimboSophie(): void {
         this.clearOutput();
         this.player.consumeItem(this.consumables.DEBIMBO);
@@ -89,7 +89,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.flags[kFLAGS.SOPHIE_DEBIMBOED] = 1;
         if (this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] > 0)
             this.flags[kFLAGS.SOPHIES_DAUGHTERS_DEBIMBOED] = 1;
-        //[Beat her] {if Int > 30: [Apologize] [Why I Did It]} [Let Her Go] [Bimbo again!(if PC has Bimbo Liqueur)]
+        // [Beat her] {if Int > 30: [Apologize] [Why I Did It]} [Let Her Go] [Bimbo again!(if PC has Bimbo Liqueur)]
         this.menu();
         this.addButton(0, "Beat Her", this.beatSophieAroundYouMonster);
         if (this.player.inte > 30) {
@@ -101,7 +101,7 @@ export class SophieFollowerScene extends NPCAwareContent {
             this.addButton(4, "Bimbo Again", this.bimboSophieAgain);
     }
 
-    //Bimbo Again! (You monster)
+    // Bimbo Again! (You monster)
     private bimboSophieAgain(): void {
         this.clearOutput();
 
@@ -117,11 +117,11 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.flags[kFLAGS.SOPHIES_DAUGHTERS_DEBIMBOED] = 0;
         this.player.consumeItem(this.consumables.BIMBOLQ);
         if (this.getGame().inCombat) this.cleanupAfterCombat();
-        //(Display Sophie's normal options.You monster)
+        // (Display Sophie's normal options.You monster)
         else this.sophieBimbo.approachBimboSophieInCamp(false);
     }
 
-    //Beat Her (You Monster)*
+    // Beat Her (You Monster)*
     private beatSophieAroundYouMonster(): void {
         this.clearOutput();
         this.outputText(
@@ -129,29 +129,29 @@ export class SophieFollowerScene extends NPCAwareContent {
         );
 
         this.outputText('\n\n"<i>I\'m gonna make you pay for this!</i>"');
-        //(Go to normal Sophie Combat screen)
+        // (Go to normal Sophie Combat screen)
         this.startCombat(new Sophie());
         this.monster.createStatusAffect(StatusAffects.BimboBrawl, 0, 0, 0, 0);
         this.monster.createStatusAffect(StatusAffects.GenericRunDisabled, 0, 0, 0, 0);
     }
 
-    //Successful Beat the Shit Out of Sophie (You Monster)
+    // Successful Beat the Shit Out of Sophie (You Monster)
     public beatUpDebimboSophie(): void {
         this.clearOutput();
         this.outputText(
             "Sophie stumbles back, unable to withstand your furious assault.  You grab the harpy before she collapses, asking if she's ready to fucking listen now.  Defiantly, she looks away from you, though otherwise too weakened to resist you."
         );
-        //[Apologize] [Why I Did It] [Let Her Go] [Bimbo again!(if PC has Bimbo Liqueur)]
-        //{No INT gate now!}
+        // [Apologize] [Why I Did It] [Let Her Go] [Bimbo again!(if PC has Bimbo Liqueur)]
+        // {No INT gate now!}
         this.menu();
-        //addButton(0,"Beat Her",beatUpDebimboSophie) {
+        // addButton(0,"Beat Her",beatUpDebimboSophie) {
         this.addButton(1, "Apologize", this.apologizeToDebimboSophie);
         this.addButton(2, "WhyIDidIt", this.whyIDidItToDebimboSophie);
         this.addButton(3, "Let Her Go", this.letDebimboSophieGo);
         if (this.player.hasItem(this.consumables.BIMBOLQ))
             this.addButton(4, "Bimbo Again", this.bimboSophieAgain);
     }
-    //Get the Shit Beaten Out of You by a God-damn Bimbo (You (weakling) Monster)
+    // Get the Shit Beaten Out of You by a God-damn Bimbo (You (weakling) Monster)
     public debimboSophieBeatsYouUp(): void {
         this.clearOutput();
         this.outputText(
@@ -161,14 +161,14 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.outputText(
             "\n\nSophie buries her face in her hands and starts to cry, tears soon streaming around her fingers, staining her platinum blonde feathers."
         );
-        //[Apologize] [Why I Did It] [Let Her Go]
+        // [Apologize] [Why I Did It] [Let Her Go]
         this.menu();
         this.addButton(1, "Apologize", this.apologizeToDebimboSophie);
         this.addButton(2, "WhyIDidIt", this.whyIDidItToDebimboSophie);
         this.addButton(3, "Let Her Go", this.letDebimboSophieGo);
     }
 
-    //Let Her Go*
+    // Let Her Go*
     private letDebimboSophieGo(): void {
         this.clearOutput();
         this.outputText(
@@ -190,7 +190,7 @@ export class SophieFollowerScene extends NPCAwareContent {
                 this.outputText(
                     "  You blink repeatedly, trying to clear your head of these idle thoughts, but are nonetheless aroused."
                 );
-                //{+10 AROUSAL}
+                // {+10 AROUSAL}
                 this.dynStats("lus", 10);
             } else {
                 this.outputText(
@@ -220,7 +220,7 @@ export class SophieFollowerScene extends NPCAwareContent {
                 this.outputText(
                     "\n\nYou smile perversely from your fantasy, thoroughly aroused by it."
                 );
-                //{+25 AROUSAL}
+                // {+25 AROUSAL}
                 this.dynStats("lus", 25);
             }
         }
@@ -229,7 +229,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Why I Did It (I'm a Monster, you see)*
+    // Why I Did It (I'm a Monster, you see)*
     private whyIDidItToDebimboSophie(): void {
         this.clearOutput();
         this.outputText(
@@ -260,7 +260,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Apologize (Sorry I'm a Monster)*
+    // Apologize (Sorry I'm a Monster)*
     private apologizeToDebimboSophie(): void {
         this.clearOutput();
         this.outputText(
@@ -290,13 +290,13 @@ export class SophieFollowerScene extends NPCAwareContent {
         );
 
         this.outputText("\n\nYou nod, and tell Sophie to make herself at home.");
-        //{Sophie has been moved to the \"Followers\" tab!}
+        // {Sophie has been moved to the \"Followers\" tab!}
         this.outputText('\n\n(<b>Sophie has been moved to the "Followers" tab!</b>)');
         if (this.getGame().inCombat) this.cleanupAfterCombat();
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Catch Sophie Teaching Her Daughters Not To Talk Like Idiots*
+    // Catch Sophie Teaching Her Daughters Not To Talk Like Idiots*
     public sophieDaughterDebimboUpdate(): void {
         if (this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] == 1) {
             this.outputText(
@@ -314,18 +314,18 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.flags[kFLAGS.SOPHIES_DAUGHTERS_DEBIMBOED] = 0;
     }
 
-    //BimboBody Sophie Follower, Main Screen
+    // BimboBody Sophie Follower, Main Screen
     public followerSophieMainScreen(): void {
         this.clearOutput();
         this.sophieBimbo.sophieSprite();
-        //Sophie is in season
+        // Sophie is in season
         if (
             this.sophieBimbo.sophieIsInSeason() &&
             this.player.hasCock() &&
             this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0
         ) {
-            //Replacement Greeting Screen For In Season
-            //Similar to bimbo sophie
+            // Replacement Greeting Screen For In Season
+            // Similar to bimbo sophie
             this.outputText(
                 "Sophie's entire soft body jiggles and shudders visibly when she hears you call her.  Her walk towards you is a bit too fast to be sensuous, despite her best attempts, and her tail feathers twitch, fanning a breeze towards you that reeks of pheromones and her needy sex.  She puts a hand on her hip, making a small show of her jiggling butt and immense mammaries as she gives you a wink and stares at you with lowered eyelids, bedroom eyes seeking to provoke more arousal from you.  Her finger presses against your [chest] as she speaks, slowly and seductively, trying to accentuate every word by adding the power of her lips to it.  \"<i>Sooo, you wanted to see me?  That's good, because Momma Sophie wanted to see you as well.</i>\""
             );
@@ -343,9 +343,9 @@ export class SophieFollowerScene extends NPCAwareContent {
             this.outputText(
                 "\n\nYou guess there's no way Sophie would really accept any non-impregnating kind of sex right now, but you could refuse... or pick that special treat over your usual sex."
             );
-            //[Vaginal][Special]
-            //[Vaginal] → Leads to the \"fertile\" variation of vaginal smex!
-            //[Special]
+            // [Vaginal][Special]
+            // [Vaginal] → Leads to the \"fertile\" variation of vaginal smex!
+            // [Special]
             this.menu();
             this.addButton(0, "Appearance", this.sophieAppearance);
             if (this.player.hasCock()) {
@@ -384,7 +384,7 @@ export class SophieFollowerScene extends NPCAwareContent {
             this.outputText("\n\n“<i>Need something from Momma Sophie?</i>” she coos.");
         }
 
-        //BimboBody Sophie Follower, Options*
+        // BimboBody Sophie Follower, Options*
         this.menu();
         this.addButton(0, "Appearance", this.sophieAppearance);
         if (this.player.lust >= 33) this.addButton(1, "Sex", this.sexWithFollowerSophie);
@@ -565,7 +565,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.eggSelector();
     }
 
-    //[Sex]
+    // [Sex]
     private sexWithFollowerSophie(): void {
         this.clearOutput();
         this.menu();
@@ -573,7 +573,7 @@ export class SophieFollowerScene extends NPCAwareContent {
             '"<i>Oh, really? I was kind of hoping you\'d want a taste of me soon.</i>"  Sophie somewhat perks up at the mention of having sex with you.  "<i>So, what\'d you like? The usual, or should Momma do something special for you this time around?</i>"  She licks her lips at the suggestion.'
         );
 
-        //[Usual] [Nurse] [YouMove] [IMove] [Titfuck] [GetDMilked] [Extra1] [....]
+        // [Usual] [Nurse] [YouMove] [IMove] [Titfuck] [GetDMilked] [Extra1] [....]
         if (this.player.hasCock()) {
             if (this.player.cockThatFits(this.sophieBimbo.sophieCapacity()) >= 0)
                 this.addButton(0, "Vaginal", this.fuckFollowerSophie);
@@ -588,7 +588,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.addButton(9, "Back", this.followerSophieMainScreen);
     }
 
-    //Appearance:
+    // Appearance:
     private sophieAppearance(): void {
         this.clearOutput();
         this.outputText("Sophie is a big, buxom harpy, no two ways about her.  She has ");
@@ -648,14 +648,14 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.addButton(4, "Back", this.followerSophieMainScreen);
     }
 
-    //Sleep With: any
+    // Sleep With: any
     private sleepWithSophieToggle(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.SLEEP_WITH] != "Sophie") {
             this.outputText(
                 "You ask Sophie if she'd like to start sleeping with you at night.  Sophie cocks an eyebrow up at the suggestion."
             );
-            //DEBIMBO'ed
+            // DEBIMBO'ed
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00282] > 0) {
                 this.outputText(
                     '\n\n"<i>First you turn me into a bimbo, then you give me back my faculties.  Now, you expect me to just jump into bed with you like a brainless bimbo?</i>" she asks, looking you up and down.'
@@ -681,7 +681,7 @@ export class SophieFollowerScene extends NPCAwareContent {
                         "\n\n<b>If you don't want her to tease you about your small penis, you had better tell her to stop sleeping with you.</b>"
                     );
             }
-            //NORMAL
+            // NORMAL
             else {
                 this.outputText(
                     '\n\nSophie smiles radiantly and hugs you, her wing-tips fluttering excitedly for a few moments before wrapping around into an even more all-encompassing embrace.  She says, "<i>That sounds lovely.</i>"'
@@ -694,7 +694,7 @@ export class SophieFollowerScene extends NPCAwareContent {
             }
             this.flags[kFLAGS.SLEEP_WITH] = "Sophie";
         } else {
-            //Don't Sleep WIth: any
+            // Don't Sleep WIth: any
             this.outputText(
                 "You tell Sophie that you'd rather not sleep with her for now.  She sighs heavily at the proclamation and says, \"<i>"
             );
@@ -713,20 +713,20 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.addButton(4, "Back", this.followerSophieMainScreen);
     }
 
-    //vaginal Fuck*
-    //Needs some mods for when she's in season!
+    // vaginal Fuck*
+    // Needs some mods for when she's in season!
     private fuckFollowerSophie(): void {
         var x: number = this.player.cockThatFits(this.sophieBimbo.sophieCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         var y: number = this.player.cockThatFits2(this.sophieBimbo.sophieCapacity());
         this.clearOutput();
-        //In season intro
+        // In season intro
         if (this.sophieBimbo.sophieIsInSeason()) {
             this.outputText(
                 'Sophie pulls you into her feathery embrace, her fingertips sensually exploring every inch of your form.  Her voice coos huskily, "<i>So you want to help make a momma out of Momma Sophie, huh?</i>"  She grabs your hand and stuffs it between her luscious thighs, right into the dripping-wet delta of her mons.  "<i>Don\'t keep me waiting... you got me all... hot and bothered...</i>"'
             );
         }
-        //Regular Intro
+        // Regular Intro
         else {
             this.outputText(
                 'Sophie smirks as she saunters closer, fingertips casually exploring your body.  She coos huskily, "<i>So, you want to have a little fun with Momma Sophie, huh?</i>"  She spreads her luscious thighs apart, just enough to show you the glittering moisture on her mound.  "<i>Well, let\'s see how much of a ' +
@@ -734,14 +734,14 @@ export class SophieFollowerScene extends NPCAwareContent {
                     ' you are...</i>"'
             );
         }
-        //Both
+        // Both
         this.outputText(
             "  You strip out of your [armor] without a second thought and present your " +
                 this.cockDescript(x) +
                 " to Sophie."
         );
 
-        //Small
+        // Small
         if (this.player.cockArea(x) <= 5) {
             this.outputText(
                 '\n\nShe snickers, "<i>That little thing is going to fuck me?  ' +
@@ -752,7 +752,7 @@ export class SophieFollowerScene extends NPCAwareContent {
                     '</i>"  Prodding your girlish member, she comments, "<i>It\'s kind of cute in its own way, though I don\'t think I\'ll feel much.</i>"  Her fingers tickle along the underside of it as she giggles, "<i>I could just play with this dainty girl-cock all day long...</i>"'
             );
         }
-        //Medium
+        // Medium
         else if (this.player.cockArea(x) <= this.sophieBimbo.sophieCapacity() / 2) {
             this.outputText(
                 '\n\nShe asks, "<i>So this is what you want to fuck me with, huh?  It\'s not THAT impressive.</i>"  Her hand wraps around your ' +
@@ -760,7 +760,7 @@ export class SophieFollowerScene extends NPCAwareContent {
                     ', squeezing it softly until it rises in her palms.  "<i>Oooh, it does seem nice and virile, though, doesn\'t it?</i>"  She strokes the underside and coos to it, watching raptly as you fully erect.'
             );
         }
-        //Big
+        // Big
         else {
             this.outputText(
                 "\n\nShe gasps, \"<i>Well, that's a big, fat cock you've got there, isn't it?  I can see why the younger girls would lust after such a beast.</i>\"  She slowly strokes it, hefting the sizable weight and girth of the member.  \"<i>Such an immense dong...  I bet it's nice and virile,</i>\" she comments as it thickens in her grip."
@@ -872,7 +872,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.addButton(0, "Next", this.sophieVagFollowerFollowup);
     }
 
-    //[Next]
+    // [Next]
     private sophieVagFollowerFollowup(): void {
         this.clearOutput();
         var x: number = this.player.cockThatFits(this.sophieBimbo.sophieCapacity());
@@ -893,8 +893,8 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Blowjob*
-    //Sucking dicks.
+    // Blowjob*
+    // Sucking dicks.
     private sophieFollowerGivesBlowjobs(): void {
         this.clearOutput();
         var x: number = this.player.cockThatFits(this.sophieBimbo.sophieCapacity());
@@ -920,13 +920,13 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.outputText(
             "</i>\" she coos, \"<i>but that doesn't mean I'll wrap these beautiful lips around you for nothing.  How about you let me use that cute face of yours to grind my pussy on, and I'll return the favor?</i>\"  She blows you a kiss that culminates in her running her tongue over her swollen lips in a slow, wet circle."
         );
-        //[Force Her] [Sixtynine]
+        // [Force Her] [Sixtynine]
         this.menu();
         this.addButton(0, "Force Her", this.forceSophieBlowjob);
         this.addButton(1, "Sixtynine", this.sophieBlowsSixtyNine);
     }
 
-    //Blow Sixtynine*
+    // Blow Sixtynine*
     private sophieBlowsSixtyNine(): void {
         var x: number = this.player.cockThatFits(this.sophieBimbo.sophieCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
@@ -995,7 +995,7 @@ export class SophieFollowerScene extends NPCAwareContent {
                 " explores your [vagina] with two fingers, her thumb brushing across your [clit] every few seconds.  It seems the harpy is considerate of even your feminine needs - ones that serve to make you even harder, so full it almost hurts."
             );
         }
-        //else
+        // else
         else if (this.player.balls > 0) {
             this.outputText(
                 "  She tenderly caresses your [sack], allowing her fingers to dance over your [balls].  It seems the harpy is considerate of all your needs in a way that makes you even harder, so full it almost hurts."
@@ -1050,25 +1050,25 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.outputText(
             '\n\n"<i>I just knew you\'d get off harder once you had a few licks of Momma Sophie\'s slit,</i>" the feathery woman coos after noisily swallowing.  "<i>You should\'ve seen all the blood rushing into your dick... just like now.</i>"  She squeezes your already-stiff mast once more.  "<i>Let me know when you want more, though with all the lipstick soaking into this guy... that might be now.</i>"  Sophie smirks and spins on her heel, swaying her hips with a saucy swagger as she wanders away.  You DO kind of want to go again...'
         );
-        //Resets Displeasure Counter
+        // Resets Displeasure Counter
         this.flags[kFLAGS.SOPHIE_FOLLOWER_IRRITATION] = 0;
-        //Slimefeed
+        // Slimefeed
         this.player.slimeFeed();
-        //8 hours lust stick
+        // 8 hours lust stick
         this.sophieScene.luststickApplication(8);
-        //+10 lust
+        // +10 lust
         this.player.orgasm();
         this.dynStats("sen", 1);
         this.dynStats("lus", 10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Forceful Blowjob*
+    // Forceful Blowjob*
     private forceSophieBlowjob(): void {
         var x: number = this.player.cockThatFits(this.sophieBimbo.sophieCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.clearOutput();
-        //Increments a displeasure counter - doing enough of these causes her to leave in the night if it gets too high.
+        // Increments a displeasure counter - doing enough of these causes her to leave in the night if it gets too high.
         this.flags[kFLAGS.SOPHIE_FOLLOWER_IRRITATION]++;
         this.outputText(
             "You grab hold of her and push her down on her knees, a task aided by Sophie's utter, uncomprehending surprise.  She hits the ground, pouting, her thick thighs flexing to try and help her rise.  You scold her - if she didn't want to suck your dick, she shouldn't have moved into your camp.  Instead, she should be glad that you decided to ALLOW her to stay in your camp for a simple blowjob.  Pointing out her oozing snatch, you remind her that she's clearly enjoying this as much as you, and that she ought to just get to work and tend to her own needs while she satisfies you."
@@ -1206,8 +1206,8 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //SixtyNine (* Temp until someone writes dis shit)
-    //Get that vajajay in yo face.
+    // SixtyNine (* Temp until someone writes dis shit)
+    // Get that vajajay in yo face.
     private sophieSixtyNine(): void {
         this.clearOutput();
         this.outputText(
@@ -1217,8 +1217,8 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.addButton(0, "Next", this.sleepWithSophieToggle);
     }
 
-    //Sophie Teases Small Dicks In The Morning*
-    //No toggles.  If you have a small penis you deserve the small penis femdom.
+    // Sophie Teases Small Dicks In The Morning*
+    // No toggles.  If you have a small penis you deserve the small penis femdom.
     public sophieSmallDongTeases(): void {
         var x: number = this.player.smallestCockIndex();
         this.outputText("\n<b><u>As you're waking up that morning...</u></b>");
@@ -1297,7 +1297,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.outputText(
             "\n\nThe warmth around you seems to double, moisture beading on your [cock smallest] from the foggy lust within Sophie's thigh-canyon.  She slowly spreads her legs until they're split almost horizontal, hanging off of you to either side, her moist vulva closing in on you with each passing second.  She mouths, \"<i>You can cum, if you want to be a total bitch...</i>\"  Her hands hook onto the slippery skin and spread her passage wide, so close to you that your petite maleness can practically taste the pussy.  You throb in painful pleasure and wonder if this is it..."
         );
-        //{Low Sensitivity}
+        // {Low Sensitivity}
         if (this.player.sens / 5 + SophieFollowerScene.rand(20) + 1 <= 20) {
             this.outputText(
                 "\n\nEven though you're so hard, so very very hard, climax eludes you.  A small part of you wonders why you couldn't cum and be Sophie's bitch, yet you hastily dismiss it, focusing back on her breasts.  Sophie smiles tauntingly, smooshing her bouncy bosom together to give you a better view as she taunts, \"<i>Awww, your delicate boner must not be trained well enough.  Still, you look so close, and I'm sure a submissive slut like you will cream the outside of my nether-lips once I touch you...</i>\"  Her voice rings out, erotic and compelling, \"<i>Can't you feel the pressure in your [balls]?  All that cum just ready to burst out across my slick pussy?  It must be so hard to hold in, and your weak erection can't possibly keep all that slutty, submissive cum inside you for long, right?</i>\""
@@ -1344,7 +1344,7 @@ export class SophieFollowerScene extends NPCAwareContent {
                     "  Your bed is a reflective, sticky white as well, practically a lake of seed by now."
                 );
         }
-        //{High Sensitivity}
+        // {High Sensitivity}
         else {
             this.outputText(
                 "\n\nWithout warning, a wave of pleasure races through your midsection, culminating in an explosion of excitement.  A single drop of white drips from your tip, before the muscular contractions racing through your form hit their peak and launch a fat glob of cum right onto your [chest], the next arcing high enough to hit your face.  Sophie shifts position mid cum-gasm, planting her plush, excited labia around your small cock and feverishly grinding back and forth, jilling her clit against your spasming urethra as it distends with each load of jism.  The heated pressure pushes your cock down, and the remaining spurts all deposit themselves across your belly in messy spurts"
@@ -1368,7 +1368,7 @@ export class SophieFollowerScene extends NPCAwareContent {
                 "\n\nOnly after your orgasm concludes does the harpy finally climax, shuddering atop you and drenching your poor, teased-out cock with her girl-cum."
             );
         }
-        //{BOTH END HERE}
+        // {BOTH END HERE}
         this.outputText(
             '\n\nThe older harpy giggles, when it ends.  "<i>I love sensitive ' +
                 this.player.mf("lady-boys", "girls") +
@@ -1389,8 +1389,8 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.doNext(this.playerMenu);
     }
 
-    //Alert Message For Going Into Season☼
-    //Similar to bimbo sophie
+    // Alert Message For Going Into Season☼
+    // Similar to bimbo sophie
     public sophieFollowerGoesIntoSeas(): void {
         this.outputText(
             "\nWhenever you look towards Sophie, she seems to be trying to grab your attention.  She gives you small touches whenever you're close to her, apparently without any excuse for it, always trying to get a touch of your bulge and your [cock biggest] when you're close enough.  She smells like smoked lust, too, and when you're too far from her to touch, she looks to you with a gleam in her eyes, spreading her lower lips, puffier and more enlarged than usual.  When she notices you looking in her direction when behind her, she instinctively bends, accentuating the curves of her jiggly ass and showing off her pussy."
@@ -1398,22 +1398,22 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.outputText("\n\nThere's no mistaking it - Sophie wants to breed.\n");
     }
 
-    //Sophie Fertility Done (Expired or PC lost cock): any
+    // Sophie Fertility Done (Expired or PC lost cock): any
     public sophieFertilityExpired(): void {
         this.outputText(
             "\nSophie seems to have lost most of her unusual interest in you, and although she's sensual and provoking as usual, she no longer seems so hyper-focused on getting a cock in her pussy.  It appears her season, heat, or whatever, is gone for now.\n"
         );
     }
 
-    //Sophie Fertility Knocked Up*
+    // Sophie Fertility Knocked Up*
     public sophieFertilityKnockedUpExpired(): void {
         this.outputText(
             "\nSophie rubs her abdomen periodically and smirks or smiles, especially when looking at you while doing it.  She's a bit messy after the helping she got from you, but seems to care less about her looks and more about the results of your 'intervention', her eyes a bit dreamy as a finger reaches her mound, seeking your fluids.\n"
         );
     }
 
-    //{I'll write the special thingy this evening (a couple of hours from now on), it's basically Sophie femdomming again, starting with a blowjob and a premature ejaculation once she inserts the PCs cock. Of course, she continues after that. - Ven }
-    //[special]
+    // {I'll write the special thingy this evening (a couple of hours from now on), it's basically Sophie femdomming again, starting with a blowjob and a premature ejaculation once she inserts the PCs cock. Of course, she continues after that. - Ven }
+    // [special]
     private sophieSpecial(): void {
         this.clearOutput();
         var x: number = this.player.cockThatFits(this.sophieBimbo.sophieCapacity());
@@ -1617,9 +1617,9 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Regular Sophie Follower
-    //Requirements: Fuck Sophie five times without pissing her off
-    //Initial Intro
+    // Regular Sophie Follower
+    // Requirements: Fuck Sophie five times without pissing her off
+    // Initial Intro
     public sophieFollowerIntro(): void {
         this.outputText("\n<b><u>Something unusual happens this morning...</u></b>");
         this.outputText(
@@ -1634,14 +1634,14 @@ export class SophieFollowerScene extends NPCAwareContent {
             "\n\n\"<i>Oh shit - dear, it's hardly what you think.  I've just always been the one to capture young men to bone me raw, but ever since you've come along, all I can think about is your cock!  Oh and you, of course.  Please don't get mad darling, it was hard enough to try and find this place, and-</i>\""
         );
         this.dynStats("lus", 10);
-        //Plus lust!
-        //[Kiss Her][Get Out]
+        // Plus lust!
+        // [Kiss Her][Get Out]
         this.menu();
         this.addButton(0, "KissSophie", this.kissSophieRecruitment);
         this.addButton(1, "Get Out", this.getOutSophieRecruitment);
     }
 
-    //Get Out
+    // Get Out
     private getOutSophieRecruitment(): void {
         this.clearOutput();
         this.outputText(
@@ -1658,7 +1658,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.doNext(this.playerMenu);
     }
 
-    //Kiss Her
+    // Kiss Her
     private kissSophieRecruitment(): void {
         this.clearOutput();
         this.outputText(
@@ -1686,13 +1686,13 @@ export class SophieFollowerScene extends NPCAwareContent {
             "\n\n\"<i>You've got a cute set up here, sweetheart.  I don't mind moving away from all those harpies, if there was the possibility that I could stay here with you.</i>\""
         );
         this.dynStats("lus", 20);
-        //[Sure][No] – Note: [No] leads to the [Get Out] scene.
+        // [Sure][No] – Note: [No] leads to the [Get Out] scene.
         this.menu();
         this.addButton(0, "Sure", this.sophieRecruitmentFinale);
         this.addButton(1, "No", this.getOutSophieRecruitment);
     }
 
-    //If Sure
+    // If Sure
     private sophieRecruitmentFinale(): void {
         this.clearOutput();
         this.outputText(
@@ -1752,7 +1752,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         daughterCap = SophieFollowerScene.rand(daughterCap);
 
         if (daughterCap == 0) {
-            //[first daughter:
+            // [first daughter:
             this.outputText(
                 "\n\nYour busty bimbo of a daughter poses for you, pushing her massive mammaries out and blowing you a kiss, showing off her body's tremendous assets.  Lifting her hands, she pushes her soft pillows up before releasing them, letting them enticingly bounce and sway before your eyes.  Not able to wait a moment longer, she bounds over to you.  Her creamy cleavage shakes and jiggles like jello with every step until she wraps her arms around you and presses them against you, her marshmallow-like chest spilling over you as she tries her best to entice you into her nest, "
             );
@@ -1767,7 +1767,7 @@ export class SophieFollowerScene extends NPCAwareContent {
                         this.player.mf("Daddy", "Mommy") +
                         ', can you please touch me?  I want you so bad!  My pussy gets sooo wet when I, like, think about you pounding my cunny!</i>"'
                 );
-            //normal speech:
+            // normal speech:
             else
                 this.outputText(
                     "\"<i>Don't you like how big and soft my breasts are, " +
@@ -1796,7 +1796,7 @@ export class SophieFollowerScene extends NPCAwareContent {
                         this.player.mf("Dad", "Mom") +
                         '!<i>"'
                 );
-            //[normal speech:
+            // [normal speech:
             else
                 this.outputText(
                     '\n\n"<i>Ohhh, oooohhhh!  ' +
@@ -1806,7 +1806,7 @@ export class SophieFollowerScene extends NPCAwareContent {
                         '!<i>"'
                 );
         }
-        //second daughter:
+        // second daughter:
         else if (daughterCap == 1) {
             this.outputText(
                 "\n\nYour huge assed daughter poses for you, turning her back to you and showing off her huge, rounded ass and thick, fertile hips.  Her bountiful badonkadonk is teasingly hidden by her long, feathery hair and tail.  Looking back at you, she pouts her plump "
@@ -1841,7 +1841,7 @@ export class SophieFollowerScene extends NPCAwareContent {
                 "\n\nUnable to take her teasing any longer, you step forward, raising your hand, and you give her the swat on the butt she wanted, the hard touch pulling a gasp from your daughters lips.  Leaning your girl over, you take the time to properly inspect your voluptuous daughter's needy backside.  Sliding your hands over her round rump, you squeeze and grope the soft flesh, your hands kneading the blatantly begging behind before racing back and giving her the spanking she so wants.  Her cheeks burn red with embarrassment, but the way she is jiggling and shaking her blubbery bottom at you tells you she wants it just as much as you do.  Finally getting a really good view of it, your eyes widen as you run your hands over every inch of her bouncy rear.  An ass this fine isn't to be wasted, and so you lean down and bury your face between those luxurious orbs, planting your mouth firmly over her drooling pussy and tasting her sweet juices.  Your senses quickly get overwhelmed from how good the lewd flower of your big-assed daughter tastes.  She exudes the sweet flavor of a fine, feathery, daughterly 'bitch' in heat, lusting to have daddy's cock stuffed inside her dripping, eager pussy.  As sumptuous as her enormous rump is, you can't resist taking her right then and there.  The scent and taste of her pussy has taken a serious effect on you.  The call to rut and breed your daughter is just too much to stop."
             );
         }
-        //third daughter:
+        // third daughter:
         else if (daughterCap == 2) {
             this.outputText(
                 "\n\nUnlike her two older sisters, the daughterly harpy before you is far more average compared to her mother and sisters, though she is still more sumptuous and sexy than a common, mountain harpy.  Under your watchful gaze, your daughter can't help but be bashful.  She blushes and looks down, her hands fidgeting and feet playing with the dirt under them.  The harpy girl is clearly embarrassed by how she isn't as juicy and stacked as her mother and older sisters.  Despite how eager she is for you, she can't help but think herself unworthy of you when you could fuck her mother or older siblings.  She takes a deep breath, putting on a brave face before striking a pose for you."
@@ -1909,7 +1909,7 @@ export class SophieFollowerScene extends NPCAwareContent {
             this.outputText(
                 "\n\nUnable to hold back a moment longer, you grab hold of your fluffy, feathery daughter, your hands grabbing her ass, kneading and pulling at the soft curvaceous behind.  At your behest, she presses herself tighter against you, her perverted cock-pillows squishing like the softest, sweetest marshmallows between you."
             );
-            //bimbo speech
+            // bimbo speech
             if (
                 this.flags[kFLAGS.DAUGHTER_FOUR_BIMBO] > 0 &&
                 this.flags[kFLAGS.SOPHIES_DAUGHTERS_DEBIMBOED] == 0
@@ -1919,7 +1919,7 @@ export class SophieFollowerScene extends NPCAwareContent {
                         this.player.mf("Daddy", "Mommy") +
                         "!  You like my butt, don't you; isn't it nice?  It's so good to grab and squeeze.  I bet it would be fun to, like, spank it too....</i>\""
                 );
-            //[normal speech:]
+            // [normal speech:]
             else
                 this.outputText(
                     '  "<i>Mmmm... Oh, ' +
@@ -1960,10 +1960,10 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.outputText(
             " and grab her hard, squeezing and pulling her pliant flesh.  You growl to her, giving her rump a hard spank before pushing her down and pinning her beneath you.  Your eyes run over her body, taking in her creamy skin and her colorful feathers, her eyes looking back at you with burning, aching desire.  Not wanting to wait a moment longer, you free yourself from her long, silky legs and strip yourself of your [armor]."
         );
-        //[if breasts:
+        // [if breasts:
         if (this.player.biggestTitSize() >= 1) {
             this.outputText("  Your [chest], free from the confines of your gear");
-            //if small bust:
+            // if small bust:
             if (this.player.biggestTitSize() < 3)
                 this.outputText(
                     ", perk up as the cool air brushes past your hard, aroused nipples."
@@ -2063,17 +2063,17 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.outputText(
             "\n\nHolding your bodies close together, you jerk and grind your hips against hers, making sure that all of your precious seed goes only where it oh so rightfully belongs, into your sweet daughter's eager cunt and fertile womb."
         );
-        //[cum volume low:
+        // [cum volume low:
         if (this.player.cumQ() < 250)
             this.outputText(
                 "  Squirting over and over into your sweet, lusty girl, you inseminate your fertile daughter, spilling as much of your cream right into her needy, hungry womb as possible."
             );
-        //cum volume medium:
+        // cum volume medium:
         else if (this.player.cumQ() < 500)
             this.outputText(
                 "  Gushing over and over into your sweet, lusty daughter, you hold yourself tighter against her, making sure you force as much of your spunk into her waiting, hungry womb as you can."
             );
-        //[cum volume high:
+        // [cum volume high:
         else if (this.player.cumQ() < 2000)
             this.outputText(
                 "  Gush after gush of thick rich cum flows from you, basting your daughter's womb with your virile spunk.  Wedging yourself as tightly against her as you can, you make sure that every drop packs into her fertile belly.  The potent flow of your seed quickly swells her stomach into a cute cum bloated paunch."
@@ -2126,8 +2126,8 @@ export class SophieFollowerScene extends NPCAwareContent {
                 this.player.mf("father", "mother") +
                 ".  Not wanting to leave her so disappointed, you reach around and give her a spank on the ass and pull her close to you, kissing her once more before promising to spend more time with her later.  With a smile, she giggles and nods, her mind happily thinking about the next time you will spend some quality time with her."
         );
-        //pass time 1 hour//
-        //return PC to camp interface//
+        // pass time 1 hour//
+        // return PC to camp interface//
         this.player.orgasm();
         this.doNext(this.camp.returnToCampUseOneHour);
     }

@@ -132,7 +132,7 @@ export class ArmorLib {
         "",
         true
     );
-    //Not used in game:		public const FURLOIN:Armor = new FurLoincloth();
+    // Not used in game:		public const FURLOIN:Armor = new FurLoincloth();
     public GELARMR: Armor = new Armor(
         "GelArmr",
         "GelArmr",

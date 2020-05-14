@@ -16,7 +16,7 @@ import { StatusAffects } from "../../../StatusAffects";
 
 export class HellHound extends Monster {
     protected hellhoundFire(): void {
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0) {
             this.outputText(
                 this.capitalA +
@@ -65,7 +65,7 @@ export class HellHound extends Monster {
                 false
             );
         } else {
-            //Determine the damage to be taken
+            // Determine the damage to be taken
             var temp: number = 15 + HellHound.rand(10);
             temp = this.player.takeDamage(temp);
             this.outputText(
@@ -139,7 +139,7 @@ export class HellHound extends Monster {
                 "The hellhound's flames dim and the heads let out a whine before the creature slumps down, defeated and nearly unconscious.",
                 true
             );
-            //Rape if not naga, turned on, and girl that can fit!
+            // Rape if not naga, turned on, and girl that can fit!
             if (this.player.hasVagina() && this.player.lust >= 33 && !this.player.isNaga()) {
                 this.outputText(
                     "  You find yourself musing that you could probably take advantage of the poor 'doggy'.  Do you fuck it?",
@@ -171,7 +171,7 @@ export class HellHound extends Monster {
                     "You realize your desires aren't quite sated.  You could let it please you",
                     false
                 );
-                //Rape if not naga, turned on, and girl that can fit!
+                // Rape if not naga, turned on, and girl that can fit!
                 if (this.player.hasVagina() && this.player.lust >= 33 && !this.player.isNaga()) {
                     this.outputText(" or make it fuck you", false);
                     temp2 = this.game.mountain.hellHoundScene.hellHoundPropahRape;
@@ -235,7 +235,7 @@ export class HellHound extends Monster {
         this.lowerBody = LOWER_BODY_TYPE_DOG;
         this.skinTone = "black";
         this.skinType = SKIN_TYPE_FUR;
-        //this.skinDesc = Appearance.Appearance.DEFAULT_SKIN_DESCS[SKIN_TYPE_FUR];
+        // this.skinDesc = Appearance.Appearance.DEFAULT_SKIN_DESCS[SKIN_TYPE_FUR];
         this.hairColor = "red";
         this.hairLength = 3;
         this.initStrTouSpeInte(55, 60, 40, 1);

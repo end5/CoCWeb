@@ -24,37 +24,37 @@ import { Anemone } from "./Anemone";
  */
 
 export class AnemoneScene extends BaseContent implements TimeAwareInterface {
-    //Encountered via Boat (unless a new Under-Lake area is
-    //unlocked)
+    // Encountered via Boat (unless a new Under-Lake area is
+    // unlocked)
 
-    //NPC details (proto-codex): Giant, colorful freshwater
-    //anemones; mutated by factory runoff into hermaphroditic
-    //humanoid creatures that feed off of sexual fluids instead
-    //of fish. They have dark blue-black skin while idle but get
-    //lighter as they become active. Anemones have a svelte,
-    //feminine body shape with B-cup breasts and a smooth face
-    //with opaque eyes of a lighter cast than their usual skin
-    //tone. A pair of pale gills drape over their breasts.
-    //Simple-minded, their most common expression is a facile,
-    //open-mouthed grin which they assume when presented with
-    //any creature capable of giving them the fluids they
-    //cherish. They have a great mass of long tentacles atop
-    //their head that stretches instinctively toward whatever
-    //they're currently trying to capture, a cock-like branch on
-    //their base near the 'groin' with a head flanged by
-    //diminutive writhing tentacles, and a deep-blue vagina
-    //underneath with small feelers ringing the entrance.
+    // NPC details (proto-codex): Giant, colorful freshwater
+    // anemones; mutated by factory runoff into hermaphroditic
+    // humanoid creatures that feed off of sexual fluids instead
+    // of fish. They have dark blue-black skin while idle but get
+    // lighter as they become active. Anemones have a svelte,
+    // feminine body shape with B-cup breasts and a smooth face
+    // with opaque eyes of a lighter cast than their usual skin
+    // tone. A pair of pale gills drape over their breasts.
+    // Simple-minded, their most common expression is a facile,
+    // open-mouthed grin which they assume when presented with
+    // any creature capable of giving them the fluids they
+    // cherish. They have a great mass of long tentacles atop
+    // their head that stretches instinctively toward whatever
+    // they're currently trying to capture, a cock-like branch on
+    // their base near the 'groin' with a head flanged by
+    // diminutive writhing tentacles, and a deep-blue vagina
+    // underneath with small feelers ringing the entrance.
 
-    //game content:
-    //initial encounter:
-    //anemone combat:
-    //-fights through lust
-    //-raises lust at initial encounter
-    //-main attack is a sweep of tentacles that inflicts lust and temp loss of speed/str if it connects
-    //-similar to tentacle monsters but more genteel; 100% chance of escaping from combat as long as PC is not distracted by lust > 60
-    //-very high HP but very low speed means they do not dodge or hit often; however, see below
-    //-direct attacks cause PC to touch tentacles with a high probability, getting a shock of venom that lowers speed/str and inflames lust
-    //-drops [TF item] and maybe some other lake- or factory-related item
+    // game content:
+    // initial encounter:
+    // anemone combat:
+    // -fights through lust
+    // -raises lust at initial encounter
+    // -main attack is a sweep of tentacles that inflicts lust and temp loss of speed/str if it connects
+    // -similar to tentacle monsters but more genteel; 100% chance of escaping from combat as long as PC is not distracted by lust > 60
+    // -very high HP but very low speed means they do not dodge or hit often; however, see below
+    // -direct attacks cause PC to touch tentacles with a high probability, getting a shock of venom that lowers speed/str and inflames lust
+    // -drops [TF item] and maybe some other lake- or factory-related item
 
     //  TIMES_MET_ANEMONE: number = 453;
     //  ANEMONE_KID: number = 454;
@@ -70,7 +70,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         CoC.timeAwareClassAdd(this);
     }
 
-    //Implementation of TimeAwareInterface
+    // Implementation of TimeAwareInterface
     public timeChange(): boolean {
         var needNext: boolean = false;
         if (this.flags[kFLAGS.ANEMONE_KID] > 0) {
@@ -117,7 +117,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
     public timeChangeLarge(): boolean {
         return false;
     }
-    //End of Interface Implementation
+    // End of Interface Implementation
 
     private anemonePreg(): void {
         this.player.knockUp(
@@ -165,30 +165,30 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             );
         } else {
             this.flags[kFLAGS.TIMES_MET_ANEMONE]++;
-            //new anemone repeat combat encounter, once player has met one:
+            // new anemone repeat combat encounter, once player has met one:
             this.outputText(
                 "As you unmoor the boat and cast off, you hear a soft bubbling sound coming from amidships.  You look around only to see several green tentacles slip over the saxboard and pull down suddenly, pitching the boat and sending you overside into the welcoming embrace of a grinning anemone!  She swims alongside and gives you several playful caresses as you struggle back toward shore, already woozy and aroused from the venomous contact.\n\n"
             );
-            //(typical lust gain and temporary stat damage, start combat)
+            // (typical lust gain and temporary stat damage, start combat)
         }
         this.outputText("You are fighting an anemone!", false);
         var anemone: Anemone = new Anemone();
         this.startCombat(anemone);
-        //(gain lust, temp lose spd/str)
+        // (gain lust, temp lose spd/str)
         this.dynStats("lus", 4);
         anemone.applyVenom(1);
     }
 
-    //victory:
+    // victory:
     public defeatAnemone(): void {
         this.outputText("", true);
-        //Win by HP:
+        // Win by HP:
         if (this.monster.HP < 1)
             this.outputText(
                 "The anemone's knees buckle and she collapses, planting her hands behind her with a splash.  You stand over her, victorious.\n\n",
                 false
             );
-        //win by lust:
+        // win by lust:
         else
             this.outputText(
                 "The anemone slumps down and begins masturbating, stroking her cock furiously.  You think you can detect something like desperation in her opaque eyes.  It doesn't look like she'll trouble you anymore.\n\n",
@@ -199,8 +199,8 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 "You could always have your way with her.  If you do, which parts do you use to do the deed?",
                 false
             );
-            //victory sex choice for males with cock fit 48 or females with clit >7": "her anus"
-            //(change "If you do, which of your parts" to "If you do, which part" in pre-sex choice menu)
+            // victory sex choice for males with cock fit 48 or females with clit >7": "her anus"
+            // (change "If you do, which of your parts" to "If you do, which part" in pre-sex choice menu)
             var cockRape = undefined;
             var vaginaRape = undefined;
             var anal = undefined;
@@ -210,7 +210,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 anal = this.anemoneButtPlugginz;
             else if (this.player.hasCock() && this.player.cockThatFits(48) >= 0)
                 anal = this.anemoneButtPlugginz;
-            //Normal male: -requires dick of area < 36
+            // Normal male: -requires dick of area < 36
             if (this.player.cockTotal() > 0) cockRape = this.rapeAnemoneWithDick;
             if (this.player.hasVagina()) vaginaRape = this.rapeAnemoneWithPussy;
             var bikiniTits = undefined;
@@ -245,7 +245,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         } else this.cleanupAfterCombat();
     }
 
-    //anal: -requires butthole
+    // anal: -requires butthole
     private victoryButtholeRape(): void {
         this.spriteSelect(4);
         this.outputText("", true);
@@ -263,7 +263,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 " over her colorful shaft and gradually lower yourself towards it.  The florid crown slips into your hole, delivering the expected shock, and a gasp from behind you is accompanied by the anemone's hands moving to your hips.",
             false
         );
-        //[butt hymen removal]
+        // [butt hymen removal]
         if (!this.player.buttChange(this.monster.cockArea(0), true)) this.outputText("  ", false);
         this.outputText(
             "Despite your anticipatory stiffening you find yourself trembling and your muscles weakening, but by a superb effort you manage to concentrate and lower yourself gently, savoring the slow crawl of the warmth up your " +
@@ -288,7 +288,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 false
             );
         }
-        //[(if vag and nococks)
+        // [(if vag and nococks)
         else if (this.player.hasVagina()) {
             this.outputText(
                 "  You lift one hand up to your " +
@@ -321,7 +321,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             else if (this.player.cumQ() < 250) this.outputText("spray", false);
             else this.outputText("torrent", false);
             this.outputText(" of semen", false);
-            //[(if vag and cox)
+            // [(if vag and cox)
             if (this.player.hasVagina()) this.outputText(" and your pussy spasms", false);
         } else if (this.player.hasVagina()) {
             this.outputText(
@@ -339,14 +339,14 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 " and prompts ",
             false
         );
-        //[(dix)
+        // [(dix)
         if (this.player.totalCocks() > 0 || this.player.gender == 0) this.outputText("a ", false);
         else if (this.player.hasVagina()) this.outputText("another ", false);
         this.outputText(
             " giggle from the blue girl.  Standing up, you gather your gear and blow her a kiss before you leave.  She darkens in color, her camouflage reflex causing her to 'blush' in discomfort at this display of affection.",
             false
         );
-        //(pass 1 hour, reduce lust to min)
+        // (pass 1 hour, reduce lust to min)
         this.player.orgasm();
         this.cleanupAfterCombat();
     }
@@ -363,7 +363,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     ", you look over the anemone; your attention wanders down her torso to the blue slit between her legs",
                 false
             );
-            //[(lust victory)
+            // [(lust victory)
             if (this.monster.lust > 99)
                 this.outputText(
                     ", which she's currently diddling with the hand she's not using to stroke her cock",
@@ -380,7 +380,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 'You smile at how eager she is for you, but shake your head.  The anemone closes her mouth and looks at you quizzically.  <i>"No?"</i> she asks.  Only then does she follow your gaze down to her pussy.  The skin on her face darkens a bit as she realizes your intention... which turns out to be a blush, by the looks of the shy glance she gives you next!  <i>"Umm."</i>  The anemone\'s fingers',
                 false
             );
-            //[(HP defeat)
+            // [(HP defeat)
             if (this.monster.HP < 1) this.outputText(" move to the lips of her vagina and", false);
             this.outputText(
                 ' pull apart her feathery labia, showing a velvety interior.  <i>"Ok..."</i> she says haltingly.  You accept the invitation in a hurry, kneeling down and holding onto her hips, then guiding your ' +
@@ -393,7 +393,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 "After a moment of savoring the sensation, you push all of the way in, provoking a moan and a widening of the eyes from your partner.  ",
                 false
             );
-            //[(multicox)
+            // [(multicox)
             if (this.player.cockTotal() > 1) {
                 this.outputText("As you push all the way into her, your other dick", false);
                 if (this.player.cockTotal() > 2) this.outputText("s", false);
@@ -412,13 +412,13 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 "The fuck begins in earnest as you demonstrate all the techniques you know or can imagine; the anemone seems to be more impressed as you go on, cooing and moaning to goad you further while wrapping her hands and hair around your hips for chemical encouragement.  Her small tits bounce a little",
                 false
             );
-            //[(if PC boobs > A)
+            // [(if PC boobs > A)
             if (this.player.biggestTitSize() >= 1) this.outputText(" in time with your own", false);
             this.outputText(
                 "; here and there one of the bounces brush her gills away, giving you a tantalizing view of nipple.",
                 false
             );
-            //[(if balls)
+            // [(if balls)
             if (this.player.balls > 0)
                 this.outputText(
                     "  As your thrusts get faster your " +
@@ -428,7 +428,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                         ".  Your body answers with swelling, causing your sack to feel bigger and tighter with every slap.",
                     false
                 );
-            //[(if noballs and clit > 6")
+            // [(if noballs and clit > 6")
             else if (this.player.clitLength >= 6)
                 this.outputText(
                     "  As your thrusts into the blue girl arouse you, your " +
@@ -446,7 +446,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 "The anemone's eyes roll back in her head as she reaches her climax first, hips shaking and penis squirting a glob of semen that drools down the side.  ",
                 false
             );
-            //[(Flexibility cat perk)
+            // [(Flexibility cat perk)
             if (this.player.findPerk(PerkLib.Flexibility) >= 0)
                 this.outputText(
                     "You lean down and take the anemone's cock in your own mouth as she continues orgasming, swallowing the cool, slippery jism -- it tastes not salty and fishy as you'd hoped but somewhat faintly like algae.  The anemone, recovering her wits a bit, looks at you blankly, as though she can't fathom why anyone would want to drink <i>her</i> ejaculate instead of the other way around.  Your eyes twinkle mirthfully in response as you suck and swallow the last of her jizz.  ",
@@ -460,13 +460,13 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     " erupts in her pussy.  ",
                 false
             );
-            //[(big skeet)
+            // [(big skeet)
             if (this.player.cumQ() > 500) {
                 this.outputText(
                     "You continue to pour into her even after her convulsions stop, stretching her belly",
                     false
                 );
-                //[(super skeet)
+                // [(super skeet)
                 if (this.player.cumQ() > 2000)
                     this.outputText(
                         ' to enormous dimensions.  <i>"Ohh..."</i> she moans, as her waist distends to over four times its former slender diameter',
@@ -486,11 +486,11 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     " out and rinse it off in the lakewater.  You gather your gear while the anemone holds her belly and smiles placidly, staring into the sky.",
                 false
             );
-            //(pass 1 hour, reset lust to min or min+10 if big or greater skeet)
+            // (pass 1 hour, reset lust to min or min+10 if big or greater skeet)
             this.player.orgasm();
             this.cleanupAfterCombat();
         }
-        //Too-big male: -requires cockarea > 36
+        // Too-big male: -requires cockarea > 36
         else {
             this.outputText(
                 "Rubbing yourself through your " +
@@ -498,7 +498,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     ", you look over the anemone; your attention wanders down her torso to the blue slit between her legs",
                 false
             );
-            //[(lust victory)
+            // [(lust victory)
             if (this.player.lust > 99)
                 this.outputText(
                     ", which she's currently diddling with the hand she's not using to stroke her cock",
@@ -525,7 +525,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     ' against her <i>mons pubis</i>.  The skin on her face darkens a bit as she realizes your intention... which turns out to be a blush, by the looks of the shy glance she gives you next!  <i>"Umm."</i>  She gives it a moment of concerned study before her natural instincts take over and the anemone\'s fingers',
                 false
             );
-            //[(HP defeat)
+            // [(HP defeat)
             if (this.monster.HP < 1) this.outputText(" move to the lips of her vagina and", false);
             this.outputText(
                 ' pull apart her feathery labia, showing a velvety interior.  <i>"Ok..."</i> she says, clearly unsure of the wisdom of this.  You motion for her to lay back and lift her pussy as high as possible to reduce the angle, then attempt to guide your ' +
@@ -533,7 +533,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     " into her.",
                 false
             );
-            //[(PC height > 7' and non-centaur)
+            // [(PC height > 7' and non-centaur)
             if (this.player.tallness > 84)
                 this.outputText(
                     "  Finally, after having gone so far as to kneel down to bring yourself in line, you begin pushing your way in.",
@@ -555,7 +555,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     " as intently as you are; as your head pushes up her chest between her breasts she presses them together against the ridge, massaging them against the shaft through her skin.",
                 false
             );
-            //[(cocklength > 60")
+            // [(cocklength > 60")
             if (this.player.cocks[0].cockLength > 60)
                 this.outputText(
                     "  The imagery and the stimulation inspire you to increase your efforts, and you push even harder into her until your " +
@@ -571,7 +571,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     " so far in, you begin thrusting grandly, alternating huge back-and-forth pumps with hip gyrations that press you against the sides of your partner.  The anemone",
                 false
             );
-            //[(dick > 60")
+            // [(dick > 60")
             if (this.player.cocks[0].cockLength > 60)
                 this.outputText(
                     ", despite being unable to look anywhere except over her head thanks to the giant ridge running up the front of her body,",
@@ -587,10 +587,10 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     " twitches as you unload into your blue partner",
                 false
             );
-            //[(big skeet)
+            // [(big skeet)
             if (this.player.cumQ() > 500) this.outputText(" until it puffs out her cheeks", false);
             this.outputText(".", false);
-            //[(mega skeet)
+            // [(mega skeet)
             if (this.player.cumQ() > 1500)
                 this.outputText(
                     "  Eventually she can't hold in the sheer volume of your ejaculate, and it erupts from her mouth in a white spray.  Spurt after spurt goes into and then out of her, dribbling out of her slack mouth and down her face until her hair is covered with seed.",
@@ -608,25 +608,25 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     " out of her, making an extended, wet sucking noise.  As you pull up your gear and make your way up the beach, ",
                 false
             );
-            //[(normal/big skeet)
+            // [(normal/big skeet)
             if (this.player.cumQ() < 500)
                 this.outputText(
                     "her hands are still dazedly playing with the space between her breasts where your cock used to rest.",
                     false
                 );
-            //[(mega skeet)
+            // [(mega skeet)
             else
                 this.outputText(
                     "she continues to sputter and cough up bubbles of your spunk.",
                     false
                 );
-            //(pass 1 hour, reset lust to min or min+10 if big or greater skeet)
+            // (pass 1 hour, reset lust to min or min+10 if big or greater skeet)
             this.player.orgasm();
             this.cleanupAfterCombat();
         }
     }
 
-    //using pussy:
+    // using pussy:
     private rapeAnemoneWithPussy(): void {
         this.spriteSelect(4);
         this.outputText("", true);
@@ -640,13 +640,13 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             "The anemone looks vacantly up at you as you approach.  Reaching forward, you take her cock in your hand",
             false
         );
-        //[(lust victory)
+        // [(lust victory)
         if (this.monster.lust > 99) this.outputText(" after brushing hers aside", false);
         this.outputText(
             " and begin to fondle the crown, with its slippery tentacles.  As expected, her venom flows into your hand, imparting a sensation of heat that slides up your arm and diffuses into a gentle warmth.  After a few rubs, you lean down and carefully take her penis into your mouth.  It tastes of the lakewater and heats your mouth as it did your hand; ",
             false
         );
-        //[(HP victory)
+        // [(HP victory)
         if (this.monster.HP < 1) this.outputText("you can feel it harden as ", false);
         this.outputText(
             "you caress it with your tongue before pulling it out and giving it a squeeze.  The blue girl shivers as a drop of pre-cum is forced out.\n\n",
@@ -659,7 +659,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 ", making sure to give a good show; the anemone entertains herself by stroking her erect prick and smearing around the pre-cum, grinning as she watches you.",
             false
         );
-        //[(breastrow0>C-cup)
+        // [(breastrow0>C-cup)
         if (this.player.biggestTitSize() > 2)
             this.outputText(
                 "  You give special attention to the presentation of your " +
@@ -667,7 +667,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     ", removing your top with tantalizing slowness, letting each breast slip out and hang between you like fruit ripe to be taken, then making sure to rub them seductively to arouse the both of you further.",
                 false
             );
-        //(hipsize=girly or better)
+        // (hipsize=girly or better)
         if (this.player.hipRating > 6)
             this.outputText(
                 "  You make good use of your " +
@@ -679,7 +679,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             "  By the time you're finished, the anemone's crotch glistens with fluid from both her sexes; it's probably as wet as it was when she was underwater.  You lean into the anemone and give her a deep kiss, ",
             false
         );
-        //[(breast0>C)
+        // [(breast0>C)
         if (this.player.biggestTitSize() > 2)
             this.outputText(
                 "making sure to let your " +
@@ -688,7 +688,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 false
             );
         this.outputText("then pull apart from her and ", false);
-        //[(goddamn centaur)
+        // [(goddamn centaur)
         if (this.player.lowerBody == LOWER_BODY_TYPE_CENTAUR)
             this.outputText(
                 "turn away, kneeling down to display your animalistic, musky pussy readily.",
@@ -709,7 +709,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             "The anemone wastes no time in assessing your intention and crawls forward onto you, returning your kiss with equal passion.  ",
             false
         );
-        //[(no centaur)
+        // [(no centaur)
         if (this.player.lowerBody != LOWER_BODY_TYPE_CENTAUR)
             this.outputText(
                 "You take her by the upper arms and pull her on top of you as you lie back in the sun-warmed shallows.  ",
@@ -726,24 +726,24 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             "The penetration combines with the aphrodisiac being injected straight into your hungry pussy to produce a feeling like euphoria.  Unable to focus your thoughts any longer, you allow the anemone to take the lead as she begins pumping into you, coating your labia with a mixture of her pre-cum and your own secretion.  Soon you're moaning lustily with complete disregard for anything except the pleasure between you as your lover ups the pace; ",
             false
         );
-        //[(biped)
+        // [(biped)
         if (this.player.lowerBody != LOWER_BODY_TYPE_CENTAUR) {
             this.outputText(
                 "as she thrusts hard and fast, her hair whips back and forth over your ",
                 false
             );
-            //[(breasts>manly)
+            // [(breasts>manly)
             if (this.player.biggestTitSize() >= 1)
                 this.outputText(this.breastDescript(0) + " and ", false);
             this.outputText(this.nippleDescript(0) + "s,", false);
         }
-        //(centaur)
+        // (centaur)
         else {
             this.outputText(
                 "as she pushes deeply into your cunt, her hair flies forward past your upper body, brushing along your skin.  On one pass you grab some and use it as a pleasure tool, rubbing it vigorously on your ",
                 false
             );
-            //[(breasts>manly)
+            // [(breasts>manly)
             if (this.player.biggestTitSize() >= 1)
                 this.outputText(this.breastDescript(0) + " and ", false);
             this.outputText(this.nippleDescript(0) + "s,", false);
@@ -759,7 +759,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 " contracts hungrily around the heat radiating from the anemone's cock.  As your orgasming pussy ",
             false
         );
-        //(squirter)
+        // (squirter)
         if (this.player.vaginas[0].vaginalWetness >= VAGINA_WETNESS_DROOLING)
             this.outputText("soaks her crotch with juice and ", false);
         this.outputText(
@@ -768,7 +768,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         );
         if (this.player.lowerBody == LOWER_BODY_TYPE_CENTAUR)
             this.outputText(" on your back", false);
-        //[(notits)
+        // [(notits)
         else if (this.player.biggestTitSize() < 1) this.outputText(" on your chest", false);
         else this.outputText(" between your breasts", false);
         this.outputText(
@@ -781,18 +781,18 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             false
         );
         this.anemonePreg();
-        //(reduce lust to min, pregnancy check)
-        //(pass 1 hour, reset lust to min or min+10 if big or greater skeet)
+        // (reduce lust to min, pregnancy check)
+        // (pass 1 hour, reset lust to min or min+10 if big or greater skeet)
         this.player.orgasm();
         this.cleanupAfterCombat();
     }
 
-    //loss rapes:
+    // loss rapes:
     public loseToAnemone(): void {
         this.spriteSelect(4);
         var x: number = this.player.cockThatFits(36);
         this.outputText("", true);
-        //loss via hp (only possible if PC engages her while already being at zero or kills himself with Akbal powers):
+        // loss via hp (only possible if PC engages her while already being at zero or kills himself with Akbal powers):
         if (this.player.HP < 1) {
             this.outputText(
                 'You collapse face-first into the lake, weakened by your damage.  The last thing you hear before passing out is a faint <i>"What?"</i>\n\n',
@@ -806,10 +806,10 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             this.cleanupAfterCombat();
             return;
         }
-        //loss, pre-sex worm shot reaction:
-        //(wormshot blurb)
-        //The anemone, having reached out to try and catch some of the load but missing the grab, sets her face in an irate scowl and approaches you.
-        //loss, neuter:
+        // loss, pre-sex worm shot reaction:
+        // (wormshot blurb)
+        // The anemone, having reached out to try and catch some of the load but missing the grab, sets her face in an irate scowl and approaches you.
+        // loss, neuter:
         if (this.player.gender == 0) {
             this.outputText(
                 "Shivering, you slump before the anemone and begin trying to remove your " +
@@ -817,7 +817,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     ".  She claps and peals happily, splashing over to you.  Pushing your trembling hands out of the way, she unfastens your garments and pulls them free of you... and then stops.  You look the girl in the face uncomprehendingly and she answers your gaze with a look of equal confusion.  Your head turns to follow her as she looks you up and down and even makes a circle around you, inspecting every inch and chewing her lip anxiously.",
                 false
             );
-            //[(lactating)
+            // [(lactating)
             if (this.player.biggestLactation() > 1)
                 this.outputText(
                     "  For a moment the examination stops at the dribble of milk leaking from your " +
@@ -834,22 +834,22 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 "Hurriedly you begin to compose an explanation for your anatomy, and you get as far as telling her that you have no genitalia thanks to events since your arrival before she bursts into tears.  ",
                 false
             );
-            //[(low cor)
+            // [(low cor)
             if (this.player.cor < 33)
                 this.outputText("You reach out instinctively to comfort her, but ", false);
-            //(high cor)
+            // (high cor)
             else this.outputText("You smirk, amused by the turnabout, until ", false);
             this.outputText(
                 'the anemone lashes out with a slap that knocks the expression off your face and makes your eardrums sing.  <i>"Dumb!"</i> she shouts, turning sharply; her tentacles lash past you as she about-faces.  She dives down below the surface and kicks water into your face spitefully as she swims away.  You sputter and rub your jaw a bit, then stand up and walk dizzily back to camp.',
                 false
             );
-            //(1 hour pass, lose 1/10th of max hp from current hp, lose 20 lust)
+            // (1 hour pass, lose 1/10th of max hp from current hp, lose 20 lust)
             this.player.takeDamage(10);
             this.dynStats("lus", -20);
             this.cleanupAfterCombat();
             return;
         }
-        //loss, male:
+        // loss, male:
         if (this.player.cockTotal() > 0) {
             this.outputText(this.images.showImage("anemone-male-fuck"), false);
             if (this.player.cockThatFits(36) >= 0) {
@@ -873,10 +873,10 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     "She pushes you back on your haunches and leans over your groin.  Her hair-tentacles slither forward over her shoulders and drop",
                     false
                 );
-                //[(normal)
+                // [(normal)
                 if (this.player.lowerBody != LOWER_BODY_TYPE_CENTAUR)
                     this.outputText(" into your lap,", false);
-                //(shitty taur)
+                // (shitty taur)
                 else this.outputText(" downwards, onto your hams,", false);
                 this.outputText(
                     " delivering lances of venom into your lower body.  The tingle warms your groin and more pre-cum leaks out of " +
@@ -896,12 +896,12 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                         ".  ",
                     false
                 );
-                //[(if dual/multi-cox)
+                // [(if dual/multi-cox)
                 if (this.player.cockTotal() > 1) {
-                    //[(cock2 doesn't exist)
+                    // [(cock2 doesn't exist)
                     if (this.player.cockTotal() == 2)
                         this.outputText("Your other dick rubs", false);
-                    //(cock2 exists)
+                    // (cock2 exists)
                     else
                         this.outputText(
                             "The rest of your " + this.multiCockDescriptLight() + " rub",
@@ -924,7 +924,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                         " begins feeling hotter and hotter from the injections and the friction of her hair, secreting more pre-cum into her obliging mouth.",
                     false
                 );
-                //[(if vag)
+                // [(if vag)
                 if (this.player.hasVagina()) {
                     this.outputText("  Her other hand slips", false);
                     if (this.player.vaginalCapacity() < 15)
@@ -937,7 +937,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                             ", sending a tingle through your lower lips and exposing your clitoris.",
                         false
                     );
-                    //[(if clit > 5")
+                    // [(if clit > 5")
                     if (this.player.clitLength > 5)
                         this.outputText(
                             "  Having achieved this, she pulls her hand out and wraps another bundle of tentacles around your " +
@@ -960,15 +960,15 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                         " lets fly into the anemone girl's mouth",
                     false
                 );
-                //[(big skeet)
+                // [(big skeet)
                 if (this.player.cumQ() > 500) this.outputText(", bowing out her cheeks", false);
-                //[(cray-cray skeet)
+                // [(cray-cray skeet)
                 if (this.player.cumQ() > 2000)
                     this.outputText(" and squirting out her nose in thick ribbons", false);
-                //[(multi-dix)
+                // [(multi-dix)
                 if (this.player.totalCocks() > 1) {
                     this.outputText(" as ", false);
-                    //[(dick2 = no)
+                    // [(dick2 = no)
                     if (this.player.totalCocks() == 2) this.outputText("your cocks shoot", false);
                     else
                         this.outputText(
@@ -976,19 +976,19 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                             false
                         );
                     this.outputText(" all over her face and hair, ", false);
-                    //[(small skeet)
+                    // [(small skeet)
                     if (this.player.cumQ() < 500)
                         this.outputText(
                             "drawing a pattern like a musical score on her blue skin",
                             false
                         );
-                    //(big skeet)
+                    // (big skeet)
                     else if (this.player.cumQ() < 2000)
                         this.outputText(
                             "painting her skin white as she flinches and shuts her eyes tightly",
                             false
                         );
-                    //(cray-cray skeet)
+                    // (cray-cray skeet)
                     else
                         this.outputText(
                             "whitewashing her entire upper body and running off until a fan of milky color spreads through the water around you",
@@ -999,7 +999,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     ".  The anemone swallows greedily as she pumps each stroke into her mouth",
                     false
                 );
-                //[(big or > skeet)
+                // [(big or > skeet)
                 if (this.player.cumQ() >= 500)
                     this.outputText(", her taut blue belly distending as it fills", false);
                 this.outputText(".\n\n", false);
@@ -1010,7 +1010,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                         " quickly returns to erectness under the renewed siege of aphrodisiac",
                     false
                 );
-                //[(multi)
+                // [(multi)
                 if (this.player.cockTotal() > 1) {
                     if (this.player.cockTotal() == 2)
                         this.outputText(
@@ -1023,11 +1023,11 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     ".  The blue girl continues to stroke your privates with her tentacle hair, flicking your urethra with her tongue, until you've come twice more.  Nor does she display any intention of stopping there, but mercifully you black out and collapse into the water.  Half-frowning, the anemone shrugs and pushes your insensible form up onto the sandy shore.",
                     false
                 );
-                //(pass 8 hours, reset lust to min)
+                // (pass 8 hours, reset lust to min)
                 this.player.orgasm();
                 this.cleanupAfterCombat();
             }
-            //loss, too-big male (cock > 5" width or > 48" length):
+            // loss, too-big male (cock > 5" width or > 48" length):
             else {
                 this.outputText(
                     "Shivering, you slump before the anemone and begin trying to remove your " +
@@ -1037,7 +1037,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                         " flops out and bops her in the nose!  As you fumble the rest of the fastenings and finish removing your gear, the blue girl watches mesmerized at the bobbing flesh in front of her, slick pre-cum leaking from the tip",
                     false
                 );
-                //[(big skeet)
+                // [(big skeet)
                 if (this.player.cumQ() > 500) this.outputText(" in a steady stream", false);
                 this.outputText(".\n\n", false);
 
@@ -1054,7 +1054,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 if (this.player.lowerBody != LOWER_BODY_TYPE_CENTAUR)
                     this.outputText("waist", false);
                 else this.outputText("flank", false);
-                //[(not centaur)
+                // [(not centaur)
                 if (this.player.lowerBody != LOWER_BODY_TYPE_CENTAUR)
                     this.outputText(" and pushes your shoulders down with the other", false);
                 this.outputText(
@@ -1065,7 +1065,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     this.outputText("hands ", false);
                 else this.outputText("forelegs knee-", false);
                 this.outputText("down in front of you to keep from falling face-first.  ", false);
-                //[(if non-centaur)
+                // [(if non-centaur)
                 if (this.player.lowerBody != LOWER_BODY_TYPE_CENTAUR)
                     this.outputText(
                         "The head of your " +
@@ -1090,7 +1090,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                         ", pausing after every few strokes to gyrate her hips a bit, massaging your prostate with her feelers and smearing venom into it.  The stimulation brings you to your limit in minutes; your dick twitches spastically",
                     false
                 );
-                //[(if balls)
+                // [(if balls)
                 if (this.player.balls > 0)
                     this.outputText(" and your " + this.sackDescript() + " tightens up", false);
                 this.outputText(
@@ -1117,7 +1117,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                         " with her unoccupied tentacles.  Several more orgasms arrive and desert you without bringing any relief from the pressure on your ",
                     false
                 );
-                //[(if balls)
+                // [(if balls)
                 if (this.player.balls > 0)
                     this.outputText(this.ballsDescriptLight() + " and ", false);
                 this.outputText(
@@ -1125,7 +1125,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                         ".  Eventually you get to the point where you can't take it anymore, and when you feel the next orgasm drawing close you straighten up and begin ",
                     false
                 );
-                //[(man)
+                // [(man)
                 if (this.player.lowerBody != LOWER_BODY_TYPE_CENTAUR)
                     this.outputText(
                         "clawing at your tormentor's tentacles, trying to pry them from " +
@@ -1133,7 +1133,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                             " by main force.",
                         false
                     );
-                //(horse)
+                // (horse)
                 else
                     this.outputText(
                         "bucking and stamping the ground, wanting to shake the tentacles loose but unable to reach them with your hands.",
@@ -1149,12 +1149,12 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                         " begins unloading its immense backup of semen in a high arc.  The ",
                     false
                 );
-                //[(skeet amount)
+                // [(skeet amount)
                 if (this.player.cumQ() < 500) this.outputText("strings", false);
                 else if (this.player.cumQ() < 2000) this.outputText("streams", false);
                 else this.outputText("gouts", false);
                 this.outputText(" of jism ", false);
-                //[(height <4' and non-horse)
+                // [(height <4' and non-horse)
                 if (this.player.tallness < 48 && this.player.lowerBody != LOWER_BODY_TYPE_CENTAUR)
                     this.outputText(
                         "fly over your head, and turning behind you, you see the anemone trying to catch them with an open mouth and her tongue out.",
@@ -1170,7 +1170,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     );
                 else {
                     this.outputText(" land right on your", false);
-                    //[(if breasts)
+                    // [(if breasts)
                     if (this.player.biggestTitSize() >= 1) this.outputText(" breasts and", false);
                     this.outputText(
                         " face.  You hear the anemone giggling as you flinch from the white shower.",
@@ -1185,7 +1185,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                         ".  She idly swishes her tentacles in the",
                     false
                 );
-                //[(big skeet)
+                // [(big skeet)
                 if (this.player.cumQ() >= 500) this.outputText(" semen-colored", false);
                 this.outputText(
                     " water around her as you push out your last load and slip into a doze.\n\n",
@@ -1196,7 +1196,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     "Pushing your inert form off of her dick, she slips out from under you and sits up beside.  ",
                     false
                 );
-                //[(height <4' non-centaur)
+                // [(height <4' non-centaur)
                 if (this.player.tallness < 48 && this.player.lowerBody != LOWER_BODY_TYPE_CENTAUR)
                     this.outputText(
                         "She looks you over, then bends down and drinks up as much of the semen floating in the water as she can find nearby.",
@@ -1213,13 +1213,13 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                         ", then tows your floating body to the shoreline with it.  She rolls you onto the sand and then swims for deep water, vanishing.",
                     false
                 );
-                //(pass 8 hours, minus libido, reset lust to min)
+                // (pass 8 hours, minus libido, reset lust to min)
                 this.player.orgasm();
                 this.dynStats("lib", -1);
                 this.cleanupAfterCombat();
             }
         }
-        //loss rape, vaginal (only full females):
+        // loss rape, vaginal (only full females):
         else {
             this.outputText(this.images.showImage("anemone-female-fuck"), false);
             this.outputText(
@@ -1230,7 +1230,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     ".",
                 false
             );
-            //[(lactation)
+            // [(lactation)
             if (this.player.biggestLactation() > 1)
                 this.outputText(
                     "  For a moment it brightens again when she notices the dribble of milk leaking from your " +
@@ -1249,7 +1249,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 "Sitting down in the shallow water with her face toward yours, she takes your hand and pulls you forward until you're over her lap.  Her long tentacles settle into neat, straight rows and drape down her back and over one eye, giving her a sly, debonair look.  She rolls her gaze down your torso, and her free hand follows in short order as she caresses your",
                 false
             );
-            //[(if breasts)
+            // [(if breasts)
             if (this.player.biggestTitSize() > 1)
                 this.outputText(" " + this.breastDescript(0) + " and", false);
             this.outputText(
@@ -1264,7 +1264,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     " clench and release convulsively.  Her hand resumes downward pressure, guiding your twitching pussy toward her erect blue shaft; its small tentacles bend upward in the manner of a flower turning to face the sun.  In a breathless moment the head and then the shaft push past the boundary of your open lips, the first intrusion sending home its own venom and tipping you over the teetering precipice of your control.  ",
                 false
             );
-            //[hymen removal]
+            // [hymen removal]
             this.player.cuntChange(this.monster.cockArea(0), true);
             this.outputText(
                 '<i>"O-oh!"</i> the anemone exclaims as the intensifying contractions in your orgasming vagina cause the walls to lap at her penis.\n\n',
@@ -1291,15 +1291,15 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 false
             );
             this.anemonePreg();
-            //(reduce lust to min, add 10 lust, pregnancy check)
+            // (reduce lust to min, add 10 lust, pregnancy check)
             this.player.orgasm();
             this.dynStats("lib", 1, "lus", 10);
             this.cleanupAfterCombat();
         }
     }
 
-    //Minotaur Cum combat circumvention:
-    //(if PC has 1 or more Mino Cum, replaces last paragraph of initial encounter)
+    // Minotaur Cum combat circumvention:
+    // (if PC has 1 or more Mino Cum, replaces last paragraph of initial encounter)
     private minoCumForAnemonieeeeez(): void {
         this.spriteSelect(4);
         this.outputText(
@@ -1309,18 +1309,18 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             false
         );
 
-        //[(PC not addicted)
+        // [(PC not addicted)
         if (this.flags[kFLAGS.MINOTAUR_CUM_ADDICTION_STATE] == 0) {
             this.outputText("Do you want to make a present of the bottle?", false);
         }
-        //(PC addicted but sated)
+        // (PC addicted but sated)
         else if (this.flags[kFLAGS.MINOTAUR_CUM_ADDICTION_STATE] == 1) {
             this.outputText(
                 "You're still riding high from your last dose; do you want to share your buzz with the girl? It might lead to something fun...",
                 false
             );
         }
-        //(PC addicted but in withdrawal)
+        // (PC addicted but in withdrawal)
         else {
             this.outputText(
                 "Oh hell no, you're not going to give that bottle away when you haven't even gotten your own fix yet! You raise your " +
@@ -1328,10 +1328,10 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     " and advance on the girl with a wild look in your eyes. She shivers a bit at your expression and drops the bottle with a splash, then recovers her composure and backs up a few steps. You grab the floating bottle, and the rest of your stuff, quickly.",
                 false
             );
-            //(gain lust, temp lose spd/str; if in withdrawal then proceed to fight, otherwise present choices 'Give' and 'Don't Give')
+            // (gain lust, temp lose spd/str; if in withdrawal then proceed to fight, otherwise present choices 'Give' and 'Don't Give')
             var anemone: Anemone = new Anemone();
             this.startCombat(anemone);
-            //(gain lust, temp lose spd/str)
+            // (gain lust, temp lose spd/str)
             this.dynStats("lus", 4);
             anemone.applyVenom(1);
             return;
@@ -1350,7 +1350,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         );
     }
 
-    //'Don't Give':
+    // 'Don't Give':
     private dontGiveMino(): void {
         this.spriteSelect(4);
         this.outputText("", true);
@@ -1358,15 +1358,15 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             "You look sternly at the blue girl and hold out your hand.  As she realizes you don't intend to let her have the bottle, her face changes to a half-pout, half-frown.  When you don't react, she throws the bottle at your feet and shouts, \"<i>Mean!</i>\"  You bend down to pick it, and the other items, up, and when you straighten back up, she looks quite angry and her tentacles are waving all over the place.  Uh-oh.  You raise your weapon as the anemone giggles sadistically and attacks!\n\n",
             false
         );
-        //(proceed to combat)
+        // (proceed to combat)
         var anemone: Anemone = new Anemone();
         this.startCombat(anemone);
-        //(gain lust, temp lose spd/str)
+        // (gain lust, temp lose spd/str)
         this.dynStats("lus", 4);
         anemone.applyVenom(1);
     }
 
-    //'Give':
+    // 'Give':
     private giveMino(): void {
         this.spriteSelect(4);
         this.outputText("", true);
@@ -1375,7 +1375,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             "You nod at the girl and she smiles and responds with a very quiet \"<i>Yay.</i>\"  As you pick up the rest of your stuff, she takes the top off of the bottle and chugs it like a champ, without even stopping to breathe.  Her eyes widen a bit as the drug hits her system, then narrow into a heavy-lidded stare.  Dropping the bottle with a splash, she falls to her knees with another.  She looks at you and licks her lips as she begins playing with her nipples. Obviously, she's feelin' good.  ",
             false
         );
-        //[(lust<30)
+        // [(lust<30)
         if (this.player.lust < 30) {
             this.outputText(
                 "Watching as her fondling devolves into outright masturbation, your own ",
@@ -1391,16 +1391,16 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 false
             );
         }
-        //(lust>30)
+        // (lust>30)
         else {
-            //(decrement MinoCum by 1, opens victory sex menu, uses win-by-lust context in ensuing scenes, increment corruption by 2 for getting a girl high just to fuck her)
+            // (decrement MinoCum by 1, opens victory sex menu, uses win-by-lust context in ensuing scenes, increment corruption by 2 for getting a girl high just to fuck her)
             this.outputText(
                 "As her fondling devolves into genuine masturbation you realize this would be a good opportunity to take care of your own lusts.  If you do, how will you do it?",
                 false
             );
             var cockRape = undefined;
             var vaginaRape = undefined;
-            //Normal male: -requires dick of area < 36
+            // Normal male: -requires dick of area < 36
             if (this.player.cockTotal() > 0) cockRape = this.rapeAnemoneWithDick;
             if (this.player.hasVagina()) vaginaRape = this.rapeAnemoneWithPussy;
             this.simpleChoices(
@@ -1420,11 +1420,11 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //anal
+    // anal
     private anemoneButtPlugginz(): void {
         this.clearOutput();
-        //victory sex choice for males with cock fit 48 or females with clit >7": "her anus"
-        //(change "If you do, which of your parts" to "If you do, which part" in pre-sex choice menu)
+        // victory sex choice for males with cock fit 48 or females with clit >7": "her anus"
+        // (change "If you do, which of your parts" to "If you do, which part" in pre-sex choice menu)
         this.outputText(
             "Imagining your climax already, you look over the anemone.  Your gaze lingers on her breasts; she sticks them out enticingly, trying to catch your interest"
         );
@@ -1522,7 +1522,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         );
     }
 
-    //[FUCK IT] (if cock fit 48, use cock; else use clit scenes)
+    // [FUCK IT] (if cock fit 48, use cock; else use clit scenes)
     private anemoneQuoteUnquoteAnal(): void {
         this.clearOutput();
         var dick: boolean = this.player.cockThatFits(48) >= 0 && this.player.hasCock();
@@ -1661,20 +1661,20 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 );
             this.outputText(" and leave her.");
         }
-        //end scene, reset hours since cum and lust, reduce libido and sens a little
+        // end scene, reset hours since cum and lust, reduce libido and sens a little
         this.player.orgasm();
         this.dynStats("lib", -0.5, "sen", -0.5);
         this.cleanupAfterCombat();
     }
 
-    //[Hotdog!]
+    // [Hotdog!]
     private hotdogTheAnemone(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("anemone-doggy"), false);
         var dick: boolean = this.player.cockThatFits(48) >= 0 && this.player.hasCock();
         var x: number = 0;
         if (dick) x = this.player.cockThatFits(48);
-        //horses eat hay, not hotdogs
+        // horses eat hay, not hotdogs
         this.outputText(
             "Well... it's the spirit of the thing that counts, right?  That blue butt still does look pretty tempting.  You force the anemone forward again and squeeze them together; she giggles and tries once more to push her vagina toward you, but you push it down again and jam your "
         );
@@ -1746,13 +1746,13 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             );
         else this.outputText("looks indolently at you as you go.");
 
-        //end scene, reset hours since cum and lust, reduce libido and sens a bit
+        // end scene, reset hours since cum and lust, reduce libido and sens a bit
         this.player.orgasm();
         this.dynStats("lib", -0.5, "sen", -0.5);
         this.cleanupAfterCombat();
     }
 
-    //[Fuck Off]
+    // [Fuck Off]
     private fuckingAssholelessAnemoneeeez(): void {
         this.clearOutput();
         this.outputText(
@@ -1765,14 +1765,14 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             '\n\n"<i>Don\'t worry, I\'ve got something for you.</i>"  You place a hand behind your back and watch her face light up, then pull it out with the middle finger extended skyward.  "<i>Eat it.</i>"  As the rejection sinks in, you kick wet sand from the lakebed into her stricken face and stomp off, mad as hell.'
         );
 
-        //-30 lust)
+        // -30 lust)
         this.dynStats("lus", -20);
         this.cleanupAfterCombat();
     }
 
-    //Bee on Anemone: Finished (Zeik)
-    //madzeikfried@gmail.com
-    //[Ovipositor] option in rape menu
+    // Bee on Anemone: Finished (Zeik)
+    // madzeikfried@gmail.com
+    // [Ovipositor] option in rape menu
     private anemoneGetsLayedByBeePositor(): void {
         if (this.player.canOvipositSpider()) {
             this.spiderOvipositAnAnemone();
@@ -1814,12 +1814,12 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             '\n\n"<i>Lumpy... ?</i>"  Your intended receptacle pulls away grimacing as several more spurt from your organ, and deposits the one from her mouth into the lakewater alongside them.  The ovipositor in her grip squirms, wrapped in hands and tentacles, dropping spheres slowly and unsatisfyingly into the water as she decides what to do.'
         );
 
-        //[(sens>=50 or horse)
+        // [(sens>=50 or horse)
         if (this.player.sens >= 50 || this.player.isTaur()) {
             this.outputText(
                 '\n\n"<i>Weird,</i>" she says tersely, and starts jerking your ovipositor off with both hands once again; you shudder and try to will your arms to stop her onslaught of pleasure, but they can\'t.  As she smears her tentacles along the length of your black pseudo-cock, your resolve evaporates, and soon your tube is forcing out eggs into the open air, lulled by the enveloping warmth of anemone venom.  The brazen girl continues to stroke with four tentacles and one hand as she cherry-picks choice globs of your honey from your flow, spitting out any of the eggs she gets with them.  Your body does not even care, adding sphere after sphere to the spreading film floating on the choppy water.'
             );
-            //[(cock)
+            // [(cock)
             if (this.player.hasCock()) {
                 this.outputText("\n\nYou hurriedly open your armor as your ");
                 if (this.player.totalCocks() == 1) this.outputText("male part erupts");
@@ -1828,7 +1828,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     " in sympathy, lancing semen over your partner.  Surprisingly, the anemone doesn't even notice, so absorbed is she in experimenting with your modified stinger."
                 );
             }
-            //[(Lev3 eggs)
+            // [(Lev3 eggs)
             if (this.player.eggs() > 40) {
                 this.outputText("  Eventually there are so many eggs ");
                 if (this.player.hasCock() && this.player.cumQ() > 1000)
@@ -1883,7 +1883,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             );
 
             this.outputText("\n\nThat's too bad.");
-            //[(silly mode and fert eggs)
+            // [(silly mode and fert eggs)
             if (this.silly() && this.player.fertilizedEggs() > 1)
                 this.outputText(
                     "  You briefly amuse yourself imagining her carrying your eggs to term and having them hatch in her mouth, so that when she talks, she shoots bees.  Nicholas Cage would be proud."
@@ -1899,8 +1899,8 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         this.cleanupAfterCombat();
     }
 
-    //Drider on Anemone: Finished (Zeik)
-    //[Ovipositor] option with spiderbutts
+    // Drider on Anemone: Finished (Zeik)
+    // [Ovipositor] option with spiderbutts
     private spiderOvipositAnAnemone(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("anemone-egg"), false);
@@ -1922,7 +1922,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         this.outputText(
             "\n\nGrasping the nettle, you gather her squirming, writhing hair in your hands and pull it taut, then lasso it with a spray of silk, directing it with your foremost legs.  The feeling of your spinnerets weaving long criss-crossing strands down her hair to restrain it - of spewing white, sticky strings all over it - becomes increasingly sexual as her venom suffuses your bloodstream through your hands"
         );
-        //[(cock)
+        // [(cock)
         if (this.player.hasCock())
             this.outputText(", and your [armor] tightens as [eachCock] swells");
         else if (this.player.hasVagina())
@@ -1980,7 +1980,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         );
 
         this.outputText('\n\n"<i>Don\'t worry,</i>" you murmur, ');
-        //[(sexed)
+        // [(sexed)
         if (this.player.gender > 0)
             this.outputText("while unfastening your [armor] with one hand, ");
         this.outputText(
@@ -1992,7 +1992,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             );
             if (this.player.cockTotal() > 1) this.outputText("s");
         }
-        //(egg level 3)
+        // (egg level 3)
         if (this.player.eggs() >= 40)
             this.outputText(
                 "; so many eggs pump into her that she gives a little start when her distended belly touches the lukewarm water below"
@@ -2005,7 +2005,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             '\n\n"<i>W-wait,</i>" she pants, and you turn back.  "<i>Off...</i>"  The begging anemone fixes you with a desperate, pleading gaze, trying to reach around her body to her hair.'
         );
 
-        //[(corr < 75)
+        // [(corr < 75)
         if (this.player.cor < 75) {
             this.outputText(
                 "\n\nWell, you did say you would.  Bending over her, you cut the string tying her tentacles with one pointed leg, allowing them free play once again."
@@ -2015,7 +2015,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 '\n\n"<i>Thank... you...</i>" she pants, and closes her eyes in sleep.'
             );
         }
-        //(else corr >=75)
+        // (else corr >=75)
         else {
             this.outputText(
                 '\n\n"<i>Oh, that?  I lied,</i>" you say.  "<i>But really, it\'s a good look for you.  Very cute.  Just keep it.</i>"'
@@ -2024,7 +2024,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 "\n\nThe girl graces your retreating back with a look of horror, struggling to pull her suddenly-heavy body upright and reach her hair, and you can hear her plaintive whines for quite a while as you walk."
             );
         }
-        //ponytailed anemone with Lisa Loeb glasses WHEN
+        // ponytailed anemone with Lisa Loeb glasses WHEN
         this.player.dumpEggs();
         this.player.orgasm();
         this.cleanupAfterCombat();
@@ -2078,10 +2078,10 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             "",
             undefined
         );
-        //[yesno]
+        // [yesno]
     }
 
-    //[yes, i am allergic to fun. sweep the leg, johnny! get 'em a body bag!]
+    // [yes, i am allergic to fun. sweep the leg, johnny! get 'em a body bag!]
     private getRidOfAnemone(): void {
         this.clearOutput();
         this.spriteSelect(71);
@@ -2091,12 +2091,12 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         this.outputText(
             "\n\nUpon reaching your destination, you dump the contents of the anemone's erstwhile apartment into the babbling brook, then point down-current toward the lake and set your jaw.  Glancing at your stony demeanor, the blue girl steps into the water, moistens her gills, and then begins the long trek to her ancestral home."
         );
-        //(set Kidswag to -1)
+        // (set Kidswag to -1)
         this.flags[kFLAGS.ANEMONE_KID] = -1;
         this.doNext(this.playerMenu);
     }
 
-    //[no, bonsai anemone is awesome and fuck the haters]
+    // [no, bonsai anemone is awesome and fuck the haters]
     private keepAnemoneKid(): void {
         this.clearOutput();
         this.spriteSelect(71);
@@ -2121,15 +2121,15 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             "\n\nYe gods and little fishes, you've taught her how to pun.  You make a mental note to look for another water barrel, preferably sans occupant, and keep it stashed out of sight.  Briefly and halfheartedly you play with the idea of searching this world for species to comprise Kids B through Z, but put it aside."
         );
         this.outputText('\n\n(<b>Kid A can be found in your "Stash"!</b>)');
-        //set Kidswag flag to 1
+        // set Kidswag flag to 1
         this.flags[kFLAGS.ANEMONE_KID] = 1;
         this.doNext(this.playerMenu);
     }
 
-    //KID A FOLLOWER STUFF
+    // KID A FOLLOWER STUFF
     public anemoneBarrelDescription(): void {
         if (this.model.time.hours < 6)
-            //(morning)
+            // (morning)
             this.outputText("Kid A is sleeping in her barrel right now.");
         else if (this.model.time.hours <= 10)
             this.outputText(
@@ -2140,12 +2140,12 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 "Kid A is absent from her barrel right now, dragooned into babysitting again.\n\n"
             );
         else if (this.model.time.hours < 16)
-            //(midday)
+            // (midday)
             this.outputText(
                 "Kid A is deep in her barrel with the lid on top, hiding from the midday sun.\n\n"
             );
         else if (this.model.time.hours < 22)
-            //(night hours)
+            // (night hours)
             this.outputText(
                 "Kid A is peeking out of her barrel.  Whenever you make eye contact she breaks into a smile; otherwise she just stares off into the distance, relaxing.\n\n"
             );
@@ -2155,7 +2155,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             );
     }
 
-    //[Barrel] button in [Stash] menu (appears whenever Kidswag flag >= 1)
+    // [Barrel] button in [Stash] menu (appears whenever Kidswag flag >= 1)
     public approachAnemoneBarrel(): void {
         var item = undefined;
         var weaponT: string = "Give Weapon";
@@ -2163,25 +2163,25 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         this.clearOutput();
         this.spriteSelect(71);
         this.outputText("You walk over to the barrel.  ");
-        //[(display if hourssinceKiditem >= 16)
+        // [(display if hourssinceKiditem >= 16)
         if (this.flags[kFLAGS.KID_ITEM_FIND_HOURS] >= 16) {
             this.outputText(
                 "An item sits next to it, left there by the anemone as a present to you.  Or 'rent', if you choose to think of it that way.  "
             );
             item = this.getAnemoneItem;
         }
-        //[(if Kid A has been given a weapon)
+        // [(if Kid A has been given a weapon)
         if (this.flags[kFLAGS.ANEMONE_WEAPON_ID] != "") {
             this.outputText(
                 "She has " +
                     ItemType.lookupItem(this.flags[kFLAGS.ANEMONE_WEAPON_ID]).longName +
                     " sitting next to it.  "
             );
-            //outputText("Kid A pokes her head out and smiles at you.  What do you need from her?");
+            // outputText("Kid A pokes her head out and smiles at you.  What do you need from her?");
             weaponT = "Take Weapon";
             weaponB = this.takeOutOfAnemone;
         }
-        //(if babysitting)
+        // (if babysitting)
         if (this.flags[kFLAGS.KID_SITTER] > 1)
             this.outputText(
                 "Kid A is away right now, helping season some of Marble's children.  If you wanted to leave or take an item, she would discover it when she got back.  "
@@ -2195,11 +2195,11 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 "Kid A leans her head and shoulders out of the barrel and puts her elbows on the rim, staring unabashedly at you as she rests her chin on her hands.  "
             );
         this.outputText("What do you need from her?");
-        //[(if N.Watch is toggled on)
+        // [(if N.Watch is toggled on)
         if (this.flags[kFLAGS.ANEMONE_WATCH] > 0)
             this.outputText("\n\n<b>Kid A is currently watching for enemies at night.</b>");
 
-        //Tutor, N.Watch, and Evict require the anemone to be present
+        // Tutor, N.Watch, and Evict require the anemone to be present
         this.menu();
         this.addButton(0, "Item", item);
         this.addButton(1, weaponT, weaponB);
@@ -2236,7 +2236,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         this.addButton(9, "Back", this.inventory.stash);
     }
 
-    //[Item](only appears if hourssinceKiditem flag >= 16)
+    // [Item](only appears if hourssinceKiditem flag >= 16)
     private getAnemoneItem(): void {
         this.clearOutput();
         this.spriteSelect(71);
@@ -2256,7 +2256,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             else if (choice == 6) itype = this.consumables.W_FRUIT;
             else itype = this.consumables.EQUINUM;
         } else if (this.kidAXP() < 75) {
-            //White Book/Bee Honey/Ovi Elixir/Shark Tooth/S. Swimwear/Lust Draft/Bimbo Liqueur(same odds as player drop)
+            // White Book/Bee Honey/Ovi Elixir/Shark Tooth/S. Swimwear/Lust Draft/Bimbo Liqueur(same odds as player drop)
             choice = AnemoneScene.rand(6);
             if (choice == 0) itype = this.consumables.W__BOOK;
             else if (choice == 1) itype = this.consumables.BEEHONY;
@@ -2266,7 +2266,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             else if (choice == 5) itype = this.consumables.L_DRAFT;
             if (AnemoneScene.rand(100) == 0) itype = this.consumables.BIMBOLQ;
         } else if (this.kidAXP() < 100) {
-            //Mino Blood/Large Axe/Comfortable Clothes/Lust Draft/Lust Dagger/Bro Brew(same odds as player drop)
+            // Mino Blood/Large Axe/Comfortable Clothes/Lust Draft/Lust Dagger/Bro Brew(same odds as player drop)
             choice = AnemoneScene.rand(5);
             if (choice == 0) itype = this.consumables.MINOBLO;
             else if (choice == 1) itype = this.weapons.L__AXE;
@@ -2275,7 +2275,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             else if (choice == 4) itype = this.weapons.L_DAGGR;
             if (AnemoneScene.rand(100) == 0) itype = this.consumables.BROBREW;
         } else {
-            //T.Shark Tooth/Pink Gossamer/Black Gossamer/Reptilum
+            // T.Shark Tooth/Pink Gossamer/Black Gossamer/Reptilum
             choice = AnemoneScene.rand(4);
             if (choice == 0) itype = this.consumables.TSTOOTH;
             else if (choice == 1) itype = this.consumables.S_GOSSR;
@@ -2289,11 +2289,11 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             this.outputText("  Holy... how did she drag this thing home!?");
         this.outputText("\n\n");
         this.inventory.takeItem(itype!, this.playerMenu);
-        //(set hourssinceKiditem = 0)
+        // (set hourssinceKiditem = 0)
         this.flags[kFLAGS.KID_ITEM_FIND_HOURS] = 0;
     }
 
-    //[Give Weapon]
+    // [Give Weapon]
     private giveAnemoneWeapon(): void {
         this.clearOutput();
         this.spriteSelect(71);
@@ -2334,13 +2334,13 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         this.clearOutput();
         this.outputText("You leave the item by her barrel.");
         this.spriteSelect(71);
-        //(set Kidweapon to item name, remove from inventory)
+        // (set Kidweapon to item name, remove from inventory)
         this.flags[kFLAGS.ANEMONE_WEAPON_ID] = this.player.itemSlots[slot].itype.id;
         this.player.itemSlots[slot].removeOneItem();
         this.doNext(this.approachAnemoneBarrel);
     }
 
-    //[Take Weapon]
+    // [Take Weapon]
     private takeOutOfAnemone(): void {
         this.clearOutput();
         this.spriteSelect(71);
@@ -2353,16 +2353,16 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             this.flags[kFLAGS.ANEMONE_WATCH] = 0;
         }
         this.inventory.takeItem(itype, this.playerMenu);
-        //(add weapon to inventory, then revert Kidweapon to empty)
+        // (add weapon to inventory, then revert Kidweapon to empty)
         this.flags[kFLAGS.ANEMONE_WEAPON_ID] = "";
     }
 
-    //[N.Watch]
+    // [N.Watch]
     private anemoneWatchToggle(): void {
         this.clearOutput();
         this.spriteSelect(71);
-        //toggles Kid A's night watch; unusuable unless she's armed
-        //if Kid A is unarmed when PC tries to turn on, output:
+        // toggles Kid A's night watch; unusuable unless she's armed
+        // if Kid A is unarmed when PC tries to turn on, output:
         if (this.flags[kFLAGS.ANEMONE_WATCH] > 0) {
             this.outputText(
                 "You tell Kid A not to worry about guarding at night.  She nods in your direction."
@@ -2381,10 +2381,10 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         this.doNext(this.approachAnemoneBarrel);
     }
 
-    //[Tutor](only appears if Kid A is armed and present)
+    // [Tutor](only appears if Kid A is armed and present)
     private tutorAnemoneKid(): void {
         this.clearOutput();
-        //(if lust > 99, output)
+        // (if lust > 99, output)
         if (this.player.lust > 99) {
             this.outputText(
                 "You're way too horny to focus on any sort of weapon instruction right now, and the anemone can see it in your expression as your gaze wanders over her body; she blushes a deep blue and shrinks into her barrel with a shy glance."
@@ -2395,7 +2395,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         const weaponID = this.flags[kFLAGS.ANEMONE_WEAPON_ID];
 
         this.outputText("The anemone obediently climbs out of her barrel, ");
-        //[(KidXP < 33)]
+        // [(KidXP < 33)]
         if (this.kidAXP() < 33) {
             this.outputText(
                 "holding " +
@@ -2413,8 +2413,8 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             "  You spend some time instructing Kid A in the finer points of the equipment you've provided her with, and then finish up with a practice duel."
         );
 
-        //duel effects by weapon, output in new PG
-        //[Pipe] or [Wizard Staff] or [Eldritch Staff]
+        // duel effects by weapon, output in new PG
+        // [Pipe] or [Wizard Staff] or [Eldritch Staff]
         if (
             weaponID == this.weapons.PIPE.id ||
             weaponID == this.weapons.W_STAFF.id ||
@@ -2427,8 +2427,8 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             else this.outputText("stick");
             this.outputText(" is still enough to bruise you a bit.");
         }
-        //(HP - 5, KidXP + 1)
-        //[Riding Crop]
+        // (HP - 5, KidXP + 1)
+        // [Riding Crop]
         else if (weaponID == this.weapons.RIDINGC.id) {
             this.outputText(
                 "\n\nShe seems to enjoy smacking you with the riding crop, making sultry eyes at you and pursing her lips whenever she lands a crack on your [butt] or [chest].  So much so, in fact, that her own penis is betraying her arousal, bobbing in time as she swishes the weapon around.  The humiliation "
@@ -2438,22 +2438,22 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             this.outputText(
                 " enough to keep you from thinking dirty thoughts about grabbing her naughty, teasing face and mashing it into your crotch."
             );
-            //(HP - 5, lust +5 if lib>=50, KidXP + 2)
+            // (HP - 5, lust +5 if lib>=50, KidXP + 2)
             this.HPChange(-5, false);
             if (this.player.lib >= 50) this.dynStats("lus", 5, "resisted", false);
             this.kidAXP(6);
         }
-        //[Lust Dagger]
+        // [Lust Dagger]
         else if (weaponID == this.weapons.L_DAGGR.id) {
             this.outputText(
                 "\n\nThe enchanted dagger is light enough for the anemone to use one-handed, and she makes a good practice of turning aside your mock blows with it while reaching in to stimulate you with her other hand.  For good measure, she nicks you with the blade itself whenever her caress elicits a distracted flush."
             );
-            //(HP -5, lust +10, KidXP + 3)
+            // (HP -5, lust +10, KidXP + 3)
             this.HPChange(-5, false);
             this.dynStats("lus", 10, "resisted", false);
             this.kidAXP(5);
         }
-        //[Beautiful Sword]
+        // [Beautiful Sword]
         else if (weaponID == this.weapons.B_SWORD.id) {
             this.outputText(
                 "\n\nThe sword seems to dance in the air, as though it were the perfect weight and balance for your daughter.  She delivers several playful thrusts at you and though you deflect all but the last, that one slips by your guard.  The girl's eyes widen as the point lunges at your breast, but it delivers barely a scratch before twisting away."
@@ -2461,18 +2461,18 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nPerhaps anemones are a bit too corrupt to use the sword effectively?"
             );
-            //(HP -1, KidXP - 2)
+            // (HP -1, KidXP - 2)
             this.HPChange(-1, false);
             this.kidAXP(-2);
         }
-        //[Jeweled Rapier] or [Raphael's Rapier]
+        // [Jeweled Rapier] or [Raphael's Rapier]
         else if (weaponID == this.weapons.RRAPIER.id || weaponID == this.weapons.JRAPIER.id) {
             this.outputText(
                 "\n\nThe rapier is light enough for the girl, but it takes a multitude of reminders before she handles the slender blade with the care and style it deserves.  She seems to regard it as little more than a tool for thwacking you in the butt that, coincidentally, has a pointy end."
             );
-            //(no effect, señorita)
+            // (no effect, señorita)
         }
-        //[Large Axe], [Large Hammer], [Large Claymore], or [Huge Warhammer]
+        // [Large Axe], [Large Hammer], [Large Claymore], or [Huge Warhammer]
         else if (
             weaponID == this.weapons.L__AXE.id ||
             weaponID == this.weapons.L_HAMMR.id ||
@@ -2482,29 +2482,29 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nShe can barely lift the weapon you've given her, although for a while she does manage to support one end with the ground and tilt it by the haft to ward off your blows with cleverness.  Distracting her by way of a feint, you part her from it and advance with a smile full of playful menace... whereupon she shrieks and pushes you backwards, causing you to trip over the weapon and fall with a crash."
             );
-            //(HP - 5, KidXP - 4)
+            // (HP - 5, KidXP - 4)
             this.kidAXP(-4);
             this.HPChange(-5, false);
         }
-        //[Katana] or [Spellsword]
+        // [Katana] or [Spellsword]
         else if (weaponID == this.weapons.KATANA.id || weaponID == this.weapons.S_BLADE.id) {
             this.outputText(
                 "\n\nThe light sword and the light anemone seem to be a good match, and she actually manages to make several deft moves with it after your instruction.  One is a bit too deft, as she fails to rein in her swing and delivers a long, drawing cut that connects with your [leg]."
             );
-            //(HP - 20, KidXP + 2)
+            // (HP - 20, KidXP + 2)
             this.kidAXP(4);
             this.HPChange(-20, false);
         }
-        //[Spear]
+        // [Spear]
         else if (weaponID == this.weapons.SPEAR.id) {
             this.outputText(
                 "\n\nThe natural length of the spear and the anemone racial mindset to get close and communicate by touch don't mesh well; she chokes up well past halfway on the haft despite your repeated instruction and pokes at you from close range with very little force, the idle end of the weapon waggling through the air behind her."
             );
-            //(HP -5, KidXP - 1)
+            // (HP -5, KidXP - 1)
             this.kidAXP(-1);
             this.HPChange(-5, false);
         }
-        //[Whip] or [Succubi's Whip]
+        // [Whip] or [Succubi's Whip]
         else if (weaponID == this.weapons.WHIP.id || weaponID == this.weapons.SUCWHIP.id) {
             this.outputText(
                 "\n\nThe whip seems almost like an extension of her hand once she decides its purpose is to tangle things up as opposed to lashing and lacerating flesh.  One of her overzealous swings finds you <i>both</i> tied in its coils; her petite body presses against yours as she colors in embarrassment.  Her distracted struggles to loosen the bonds accomplish little except to rub her sensitive parts along yours."
@@ -2516,47 +2516,47 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             this.outputText(
                 "  You feel a point digging into your groin as her prick hardens and her struggles cease; she begins to moan openly in arousal.  As she relaxes, the coils of the whip finally loosen enough for you to extricate yourself."
             );
-            //(HP -0, lust +10 if normal whip or +20 if succubus, KidXP + 3)
+            // (HP -0, lust +10 if normal whip or +20 if succubus, KidXP + 3)
             this.dynStats("lus", 10, "resisted", false);
             if (weaponID == this.weapons.SUCWHIP.id) this.dynStats("lus", 10, "resisted", false);
             this.kidAXP(6);
         }
-        //[Spiked Gauntlets] or [Hooked Gauntlets]
+        // [Spiked Gauntlets] or [Hooked Gauntlets]
         else if (weaponID == this.weapons.S_GAUNT.id || weaponID == this.weapons.H_GAUNT.id) {
             this.outputText(
                 "\n\nThe anemone wears the gauntlets easily and comfortably, but doesn't seem to understand that to attack she needs to ball up her fists and swing them, no matter how many times you tell her.  The most she manages is to deflect a few of your mock lunges by batting them aside with the metal atop her knuckles."
             );
-            //(no tigereffect)
+            // (no tigereffect)
         }
-        //[Wingstick]
+        // [Wingstick]
         else if (weaponID == this.consumables.W_STICK.id) {
             this.outputText(
                 "\n\nThe girl stares at the stick, still uncomprehending how you intend her to use it.  One last time, you take the weapon from her and make a throwing motion, then return it.  She looks from it back to you once more, then tosses it at your head.  As it impacts with a clunk and your vision jars, she clutches her stomach in laughter."
             );
-            //(HP - 10, set Kidweapon to empty, KidXP + 1)
+            // (HP - 10, set Kidweapon to empty, KidXP + 1)
             this.HPChange(-10, false);
             this.flags[kFLAGS.ANEMONE_WEAPON_ID] = "";
             this.kidAXP(5);
         }
-        //[Dragonshell Shield]
+        // [Dragonshell Shield]
         else if (weaponID == this.weapons.DRGNSHL.id) {
             this.outputText(
                 "\n\nYour protégé takes to the shield quite well, hiding behind it like... well, like a portable water barrel.  Even the way she peeks over the top is reminiscent.  She makes effective use of her cover, pushing forward relentlessly and delivering soft headbutts to spread venom to unprotected areas."
             );
-            //(lust + 5, temp str/spd down, KidXP + 5)
-            //str/spd loss reverts after clicking Next button
+            // (lust + 5, temp str/spd down, KidXP + 5)
+            // str/spd loss reverts after clicking Next button
             this.kidAXP(5);
             this.dynStats("lus", 10, "resisted", false);
         }
-        //[White Book]
+        // [White Book]
         else if (weaponID == this.consumables.W__BOOK.id) {
             this.outputText(
                 "\n\nPart literacy training and part magic instruction, your progress through the book is painstakingly slow.  After almost an hour of trying to get the anemone to concentrate on the words, she finally manages to cause a small flash of white light on the page in front of her - whereupon she shrieks and drops the book, covering her head with her arms and backing away."
             );
-            //(KidXP - 5)
+            // (KidXP - 5)
             this.kidAXP(-5);
         }
-        //[Black Book]
+        // [Black Book]
         else if (weaponID == this.consumables.B__BOOK.id) {
             this.outputText(
                 "\n\nThe girl sits attentively with you, resting her head against your arm, as you teach her the words needed to evoke the formulae in the book.  When you suggest she try one out, however, she shakes her head with wide eyes.  Insisting, you stand apart from her and fold your arms.  Blushing a deep blue, the anemone resigns herself to focusing on your crotch as she mouths quiet syllables.  After a few moments, you actually feel a small glow of lust where she's staring.  The girl giggles nervously and looks away as you flush and your garments "
@@ -2565,38 +2565,38 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             else if (this.player.hasVagina()) this.outputText("dampen");
             else this.outputText("become a hindrance");
             this.outputText("... though the part between her own legs is still pointed at you.");
-            //(lust + 10, KidXP + 2)
+            // (lust + 10, KidXP + 2)
             this.dynStats("lus", 20);
             this.kidAXP(4);
         }
-        //[Scarred Blade](NYI)
+        // [Scarred Blade](NYI)
         else if (false) {
             this.outputText(
                 "\n\nThe anemone attempts to draw the bloodthirsty saber at your insistence, but as she pulls it free of the scabbard, it jerks from her hands, lashing across her thigh before clattering noisily to the ground and spinning away.  Her shock grows as thick, clear fluid seeps from the cut, and she covers her mouth with her hands, looking up at you with piteous, wet eyes."
             );
-            //[(if corr <=70)
+            // [(if corr <=70)
             if (this.player.cor <= 70)
                 this.outputText(
                     "  The blade's edge flashes toward you as well, when you try to pick it up.  After a few frustrated attempts, it becomes clear that you'll have to abandon it for now."
                 );
-            //empty Kidweapon, KidXP - 5; if corr <=70, set sheilacite = 5, else add Scarred Blade to inventory)
+            // empty Kidweapon, KidXP - 5; if corr <=70, set sheilacite = 5, else add Scarred Blade to inventory)
             this.flags[kFLAGS.ANEMONE_WEAPON_ID] = "";
             this.kidAXP(-5);
             if (this.player.cor <= 70) {
-                //9999
-                //9999
+                // 9999
+                // 9999
             }
         }
-        //[Any new weapon added without text written for it, or any custom item name set by a save editor]
+        // [Any new weapon added without text written for it, or any custom item name set by a save editor]
         else {
             this.outputText(
                 "\n\nFor the life of her, Kid A can't seem to grasp how to use the " +
                     ItemType.lookupItem(weaponID).longName +
                     " you've provided her with.  You have to interrupt the practice for explanations so many times that you don't actually get to do any sparring."
             );
-            //(no effect, but you can just save edit the values you want anyway)
+            // (no effect, but you can just save edit the values you want anyway)
         }
-        //if hp = 0 after tutor, override any other result and output new PG:
+        // if hp = 0 after tutor, override any other result and output new PG:
         if (this.player.HP < 1) {
             this.outputText(
                 "\n\nWith a groan, you fall flat on your back and close your eyes.  As if from far away, you hear "
@@ -2610,20 +2610,20 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 "\nYour bleary eyes open to a familiar-looking upside-down blue face.  It takes a minute before your brain can reconstruct the events preceding your lapse in consciousness; as soon as your expression gives a hint of understanding, Kid A sheepishly greets you."
             );
             this.outputText('\n\n"<i>Um... hi.</i>"');
-            //(lose 8 hours, restore HP amount consonant with 8hrs rest)
+            // (lose 8 hours, restore HP amount consonant with 8hrs rest)
             this.doNext(this.camp.returnToCampUseEightHours);
             this.player.createStatusAffect(StatusAffects.PostAnemoneBeatdown, 0, 0, 0, 0);
             return;
         }
-        //Sex scenes, post dream
+        // Sex scenes, post dream
         if (
             this.flags[kFLAGS.HAD_KID_A_DREAM] > 0 &&
             this.kidAXP() >= 40 &&
             this.player.lust > 99
         ) {
             if (this.kidASex()) return;
-            //nothing fits
-            //if KidXP >= 40 and lust > 99 after tutor and PC has only huge dicks of area >= 60 or hasn't got shit
+            // nothing fits
+            // if KidXP >= 40 and lust > 99 after tutor and PC has only huge dicks of area >= 60 or hasn't got shit
             else if (this.kidAXP() >= 40 && this.player.lust > 99) {
                 this.outputText(
                     "\n\nYou collapse onto your back, panting your arousal into the dry air.  Shyly at first but with increasing confidence as you fail to react, the girl slips a hand into your clothes and down to your crotch.  She stops, wide-eyed, as her fingers initially locate "
@@ -2637,11 +2637,11 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 this.outputText(
                     "\n\nAppearing to reach a decision, she reaches out and pats you apologetically on the head, then stands up and heads back to her barrel."
                 );
-                //no effect on lust, pass 1 hour
+                // no effect on lust, pass 1 hour
                 this.doNext(this.camp.returnToCampUseOneHour);
             }
         }
-        //else if no HP or lust outcome triggered: pass 1 hour, gain 40 xp, increment fatigue by 10
+        // else if no HP or lust outcome triggered: pass 1 hour, gain 40 xp, increment fatigue by 10
         else {
             if (this.player.level < 10) this.player.XP += 30;
             this.fatigue(10);
@@ -2658,8 +2658,8 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         }
         var x: number;
         var y: number;
-        //pseudo-virgin vaginal, one time only
-        //if KidXP >= 40 and lust > 99 after tutor and PC has wang of area <36 and Kidswag = 2
+        // pseudo-virgin vaginal, one time only
+        // if KidXP >= 40 and lust > 99 after tutor and PC has wang of area <36 and Kidswag = 2
         if (
             this.flags[kFLAGS.ANEMONE_KID] == 2 &&
             this.player.hasCock() &&
@@ -2693,7 +2693,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nThe girl herself doesn't seem to be faring much better; her left hand is furiously jerking her cock and her right is squeezing her small breasts as she rides, while her mouth hangs open and she makes tiny grunts of pleasure at each stroke.  Predictably, she twitches and sinks down one last time as her pecker spasms and she cries out.  She pushes her little blue shaft down onto your stomach again and rubs it back and forth as she ejaculates on your [chest]; her clenching pussy meanwhile wrings your dick vigorously, sending a shiver down your spine to spark the venom-induced climax that pours from you.  Your hands grasp her hips as your dick empties into the slender blue girl's womb, spitting semen with a furor enhanced by the continuing dose of aphrodisiac from the vaginal feelers stroking its base as she twitches."
             );
-            //[(big skeet)]
+            // [(big skeet)]
             if (this.player.cumQ() >= 1000)
                 this.outputText(
                     "  As you pour into her, the sensation of being stuffed with semen sets off a second orgasm in the quivering girl, and her own prick drools weakly onto your stomach"
@@ -2705,7 +2705,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                         " fills her until her belly is inflated so far that she can't contain more, and it begins to breach the seal her pussy makes around you, even as tight as it is, to squirt out in lazy globs as you deposit the last of your spunk"
                 );
             if (this.player.cumQ() >= 1000) this.outputText(".");
-            //[(multi)]
+            // [(multi)]
             if (this.player.cockTotal() > 1) {
                 this.outputText("  The loads from your other shaft");
                 if (this.player.cockTotal() > 2) this.outputText("s");
@@ -2714,16 +2714,16 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nSpent, your blue girl slumps down onto your chest, not even bothering to avoid the puddle of her own spunk or pull your cock out, and is quickly asleep.  Your eyes close as sleep overtakes you as well, though the venom trickling into your chest as she rests her head on it ensures the scene will play over and over in your dreams..."
             );
-            //pass 2 hr, remove 100 lust and add 30 base lust before resistance, set Kidswag = 3
+            // pass 2 hr, remove 100 lust and add 30 base lust before resistance, set Kidswag = 3
             this.player.orgasm();
             this.dynStats("lus", 30);
             if (this.flags[kFLAGS.ANEMONE_KID] < 3) this.flags[kFLAGS.ANEMONE_KID] = 3;
             this.doNext(this.camp.returnToCampUseTwoHours);
             return true;
         }
-        //sex revisited, for when KidXP >= 40 and confidence is mounting
-        //fellatio
-        //if KidXP >= 40 and lust > 99 after tutor and PC has wang of area <60, set that cock to x variable, also set biggest cock not yet used to y variable if multicocked
+        // sex revisited, for when KidXP >= 40 and confidence is mounting
+        // fellatio
+        // if KidXP >= 40 and lust > 99 after tutor and PC has wang of area <60, set that cock to x variable, also set biggest cock not yet used to y variable if multicocked
         else if (this.player.hasCock() && this.player.cockThatFits(60) >= 0) {
             x = this.player.cockThatFits(60);
             y = -1;
@@ -2751,7 +2751,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     " even as she casts down her gaze to avoid meeting your own.  As if to conceal herself, her shoulder-length tentacles shift forward to drape over her face, scraping along the end of your dick, right behind the head.  A dose of venom lances through your skin; your eyes roll back and your hips begin to buck gently into her mouth as your reason deserts."
             );
 
-            //(if multicock, balls, or vag, in order of priority)
+            // (if multicock, balls, or vag, in order of priority)
             if (y >= 0 || this.player.balls > 0 || this.player.hasVagina()) {
                 this.outputText(
                     "\n\nYou feel her bashful fingers sneak into your " +
@@ -2761,13 +2761,13 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 if (y >= 0) this.outputText(this.cockDescript(y));
                 else if (this.player.balls > 0) this.outputText(this.sackDescript());
                 else if (this.player.hasVagina()) this.outputText(this.vaginaDescript(0));
-                //[(if cock or sack)]
+                // [(if cock or sack)]
                 if (y >= 0 || this.player.balls > 0)
                     this.outputText(", pulling it free from your armor as well");
                 this.outputText(
                     ".  Her dextrous digits are emboldened as your head lolls in the dirt, staring skyward, and quickly begin to caress their find."
                 );
-                //[(cock)
+                // [(cock)
                 if (y >= 0) {
                     this.outputText(
                         "  Another hand quickly joins the first, stroking the length of your second shaft as it "
@@ -2779,14 +2779,14 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                         ".  Every time it brushes her hair, another jolt shoots to the base of your spine and both of your cocks force out another glob of precum which is quickly slurped up."
                     );
                 }
-                //[(sac)
+                // [(sac)
                 else if (this.player.balls > 0)
                     this.outputText(
                         "  One hand cups below your " +
                             this.ballsDescript() +
                             " and lifts them up to her chin, where the other, formerly tracing gentle circles along your shaft, grabs a tentacle from her head and begins to tickle."
                     );
-                //[(vag)
+                // [(vag)
                 else if (this.player.hasVagina()) {
                     this.outputText(
                         "  Her fingers part your labia and reveal your " +
@@ -2809,7 +2809,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             this.outputText(
                 "; seeing this, she dives down onto your shaft, forcing the head past the ginger care of lips and tongue into her welcoming throat.  Her hair drapes all around your groin, touching exposed flesh as she shakes her head and undulates her throat to coax out your climax.  Your body reacts before you can, and your hips thrust up into her face as your ejaculate erupts."
             );
-            //[(if multicock or sac)]
+            // [(if multicock or sac)]
             if (this.player.balls > 0 || y >= 0) {
                 this.outputText("  As her eyes twinkle, the hands on your ");
                 if (y >= 0) this.outputText(this.cockDescript(y));
@@ -2818,7 +2818,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     " renew their efforts, squeezing out squirts of semen with measured strokes and squeezes."
                 );
             }
-            //[(vag)
+            // [(vag)
             else if (this.player.hasVagina()) {
                 this.outputText(
                     "  As her eyes twinkle, a hand plunges all the way into your pussy, and your lonely muscles clamp down reflexively on the invader, attempting to wring her fingers."
@@ -2829,13 +2829,13 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             this.outputText(
                 ", the oral contractions squeezing the head of your penis and setting your body to shivering."
             );
-            //[(big cum)
+            // [(big cum)
             if (this.player.cumQ() >= 500) {
                 this.outputText(
                     "  Squirt after huge squirt disappears into the starveling's esophagus, sliding without fail down into her belly, until "
                 );
                 if (this.player.cumQ() < 1000) this.outputText("your climax is spent.");
-                //(mega skeet)
+                // (mega skeet)
                 else
                     this.outputText(
                         "she can hold no more and it begins to drool from her mouth; still she tries her best to swallow more and more, despite the limits of her body.  Obligingly, you grab her head and hold it to you, venom tingling in your fingertips, as the last half of your orgasm empties into her.  With her face mashed into your crotch and escape cut off, the semen has nowhere to go except down the throat, expanding her taut stomach and pushing her skinny butt into the air as she balloons against your legs.  Her eyes widen and look up at you as the pressure increases, and a hum travels down your prick as she attempts to protest."
@@ -2857,14 +2857,14 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             );
 
             this.outputText("\n\nYou lay back, spent, and slip from consciousness.");
-            //lose 100 lust, pass 2 hr, if Kidswag = 1, set Kidswag = 2
+            // lose 100 lust, pass 2 hr, if Kidswag = 1, set Kidswag = 2
             this.player.orgasm();
             if (this.flags[kFLAGS.ANEMONE_KID] == 1) this.flags[kFLAGS.ANEMONE_KID] = 2;
             this.doNext(this.camp.returnToCampUseTwoHours);
             return true;
         }
-        //femsex
-        //if KidXP >= 40 and lust > 99 after tutor and PC has vag and no cox
+        // femsex
+        // if KidXP >= 40 and lust > 99 after tutor and PC has vag and no cox
         else if (this.player.hasVagina()) {
             this.outputText("\n\n");
             this.outputText(this.images.showImage("anemone-kid-female-sex"), false);
@@ -2881,7 +2881,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     this.vaginaDescript(0) +
                     " ensures not a giggle escapes you; your hips begin writhing in her lap, trying to find purchase on the blue girl to better pump her shaft for its seed."
             );
-            //[(if pc is loose)
+            // [(if pc is loose)
             if (this.player.vaginas[0].vaginalLooseness >= VAGINA_LOOSENESS_GAPING)
                 this.outputText(
                     "  You can barely feel her little shaft in your stretched cunt, but the chemical stimulation from the tentacles stroking your insides goes a long way toward making up for that."
@@ -2895,7 +2895,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     this.clitDescript() +
                     " to the air."
             );
-            //[(clitsize<6)]
+            // [(clitsize<6)]
             if (this.player.clitLength < 6)
                 this.outputText(
                     "  The little button gets rubbed by her probing hand even as she resumes thrusting, accelerating your imminent peaking."
@@ -2916,7 +2916,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nYou pull away from her and stagger to your feet, then redress.  Kid A lies on the ground, already asleep from her exertion; you step over her with a grin."
             );
-            //anemone preg chance, slimefeed, reduce lust by 100, if Kidswag = 1 set Kidswag = 2
+            // anemone preg chance, slimefeed, reduce lust by 100, if Kidswag = 1 set Kidswag = 2
             this.anemonePreg();
             this.player.slimeFeed();
             this.player.orgasm();
@@ -2927,16 +2927,16 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         return false;
     }
 
-    //[Evict]
+    // [Evict]
     private evictANemone(): void {
         this.clearOutput();
         this.outputText("Really evict the anemone?");
         this.spriteSelect(71);
-        //[Yes][No]
+        // [Yes][No]
         this.doYesNo(this.reallyEvictDaAnemone, this.approachAnemoneBarrel);
     }
 
-    //Yes]
+    // Yes]
     private reallyEvictDaAnemone(): void {
         this.clearOutput();
         this.spriteSelect(71);
@@ -2958,16 +2958,16 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         this.outputText(
             "\n\nThe two girls continue to greet each other in this fashion as their attention shifts away from you, and you wonder exactly what kind of pernicious meme you've inflicted on the anemone community."
         );
-        //set Kidswag to -1, pass 1 hour
+        // set Kidswag to -1, pass 1 hour
         this.flags[kFLAGS.ANEMONE_KID] = -1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //dreams: possible once KidXP >= 40; function as visible notice of sex-readiness
-    //if KidXP drops below threshold for sex due to bad training, no more dreams and no more sex
+    // dreams: possible once KidXP >= 40; function as visible notice of sex-readiness
+    // if KidXP drops below threshold for sex due to bad training, no more dreams and no more sex
     public kidADreams(): void {
         this.outputText("\n<b><u>In the middle of the night...</u></b>");
-        //if male:
+        // if male:
         if (this.player.hasCock() && (!this.player.hasVagina() || this.player.femininity < 50)) {
             this.outputText(this.images.showImage("anemone-kid-male-masti"), false);
             this.outputText(
@@ -3010,7 +3010,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 '\n\n"<i>Um... hi?</i>"  She slowly backs away into the night, leaving you to try to sleep with your awakened libido.'
             );
         }
-        //if female:
+        // if female:
         else {
             this.outputText(this.images.showImage("anemone-kid-female-masti"), false);
             this.outputText(
@@ -3041,9 +3041,9 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         this.doNext(this.playerMenu);
     }
 
-    //Kid-and-kid interaction scenes:
-    //Cows one-time scene(plays the first time Kidswag > 0, Kidweapon is populated, and PC has 5+ delicious well-Marbled steak children)
-    //set Kidsitter flag = 1; 'unlocks' repeat babysitting, making Kid A unavailable with a 25% chance during daylight hours
+    // Kid-and-kid interaction scenes:
+    // Cows one-time scene(plays the first time Kidswag > 0, Kidweapon is populated, and PC has 5+ delicious well-Marbled steak children)
+    // set Kidsitter flag = 1; 'unlocks' repeat babysitting, making Kid A unavailable with a 25% chance during daylight hours
     public kidABabysitsCows(): void {
         this.outputText('\n<b>"<i>Come on, get out of your little hole and help!</i>"</b>');
         this.outputText(
@@ -3082,8 +3082,8 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         this.flags[kFLAGS.KID_SITTER] = 1;
     }
 
-    //Cow repeat
-    //triggered when PC selects the Kids option in Marble menu while Kid A is babysitting
+    // Cow repeat
+    // triggered when PC selects the Kids option in Marble menu while Kid A is babysitting
     public repeatCowSitting(): void {
         this.outputText(
             "Marble looks up from her work and regards you warmly.  \"<i>I appreciate the offer, [name].  I've already got someone on it, but if you want to go help, I'm sure there's something you could do.</i>\"  She gestures in a direction over your shoulder."
@@ -3110,19 +3110,19 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         this.outputText('\n\n"<i>...Sweetie.</i>"');
     }
 
-    //Sharks (get the fuck in the boat)
-    //repeatable, trigger possible when visiting 2+ Izma kids
+    // Sharks (get the fuck in the boat)
+    // repeatable, trigger possible when visiting 2+ Izma kids
     public kidAWatchesSharks(): void {
         this.clearOutput();
         this.outputText(
             "As you look over your shark family playing in the shallow stream, a soft, wet footstep sounds behind you.  Kid A is there when you turn around, holding empty waterskins and looking desperately at the running water."
         );
-        //[(KidXP < 40 or Kidweapon is empty)
+        // [(KidXP < 40 or Kidweapon is empty)
         if (this.kidAXP() < 40 || this.flags[kFLAGS.ANEMONE_WEAPON_ID] == "")
             this.outputText(
                 "\n\nThe sharks notice as well and stand up, baring their teeth in wide, unwelcoming smiles.  Kid A whimpers and shuffles behind you, placing her hands on your back and attempting to push you in front of her.  Your shark-daughters watch in amusement as she tries to maneuver close enough to fill her waterskins while still using you as cover.  Awkwardly, she manages to cap them off and then departs as fast as she can."
             );
-        //(else KidXP < 75 and Kidweapon = White Book or Black Book)
+        // (else KidXP < 75 and Kidweapon = White Book or Black Book)
         else if (
             this.kidAXP() < 40 &&
             (this.flags[kFLAGS.ANEMONE_WEAPON_ID] == this.consumables.B__BOOK.id ||
@@ -3141,7 +3141,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 ".  Before any of them can react, she dives into the water and fills the waterskins, then hightails it away."
             );
         }
-        //(else KidXP < 75)
+        // (else KidXP < 75)
         else if (this.kidAXP() < 75) {
             this.outputText(
                 "\n\nThe sharks look up from their play, baring teeth at the anemone.  She steels herself, then holds her " +
@@ -3149,7 +3149,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                     " menacingly in front of her as best she can while she steps into the stream and fills her waterskins.  Occasionally one of the shark-girls will feint at the anemone, who accordingly turns the weapon toward the aggressor until she retreats.  Once the skins are filled, Kid A hangs them over her shoulders and backs away, still facing the sharks with her weapon out."
             );
         }
-        //(else)
+        // (else)
         else
             this.outputText(
                 "\n\nThe anemone doesn't hesitate, but bursts into the middle of the shark-girls like a bomb, shrieking and making huge splashes, scattering them in multiple directions.  She quickly scoops up both skins' worth of water and then runs, giggling giddily with the shark-girls dogging her heels until she's halfway back to camp."
@@ -3157,9 +3157,9 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //goblins at night:
-    //req PC cocks > 0, Kid A watch on, and Tamani daughters encounter unlocked
-    //repeatable for now, but semi-rare
+    // goblins at night:
+    // req PC cocks > 0, Kid A watch on, and Tamani daughters encounter unlocked
+    // repeatable for now, but semi-rare
     public goblinNightAnemone(): void {
         this.outputText("\n<b>That night...</b>");
         this.outputText(

@@ -31,26 +31,26 @@ export class Basilisk extends Monster {
         // speDown.visible = true;
     }
 
-    //special 1: basilisk mental compulsion attack
-    //(Check vs. Intelligence/Sensitivity, loss = recurrent speed loss each
-    //round, one time lust increase):
+    // special 1: basilisk mental compulsion attack
+    // (Check vs. Intelligence/Sensitivity, loss = recurrent speed loss each
+    // round, one time lust increase):
     private compulsion(): void {
         this.outputText(
             "The basilisk opens its mouth and, staring at you, utters words in its strange, dry, sibilant tongue.  The sounds bore into your mind, working and buzzing at the edges of your resolve, suggesting, compelling, then demanding you look into the basilisk's eyes.  ",
             false
         );
-        //Success:
+        // Success:
         if (this.player.inte / 5 + Basilisk.rand(20) < 24) {
             this.outputText(
                 "You can't help yourself... you glimpse the reptile's grey, slit eyes. You look away quickly, but you can picture them in your mind's eye, staring in at your thoughts, making you feel sluggish and unable to coordinate. Something about the helplessness of it feels so good... you can't banish the feeling that really, you want to look in the basilisk's eyes forever, for it to have total control over you.",
                 false
             );
             this.game.dynStats("lus", 3);
-            //apply status here
+            // apply status here
             Basilisk.basiliskSpeed(this.player, 20);
             this.player.createStatusAffect(StatusAffects.BasiliskCompulsion, 0, 0, 0, 0);
         }
-        //Failure:
+        // Failure:
         else {
             this.outputText(
                 "You concentrate, focus your mind and resist the basilisk's psychic compulsion.",
@@ -60,7 +60,7 @@ export class Basilisk extends Monster {
         this.game.combatRoundOver();
     }
 
-    //Special 3: basilisk tail swipe (Small physical damage):
+    // Special 3: basilisk tail swipe (Small physical damage):
     private basiliskTailSwipe(): void {
         var damage: number = Math.floor(
             this.str + 20 - Math.random() * (this.player.tou + this.player.armorDef)
@@ -78,8 +78,8 @@ export class Basilisk extends Monster {
         this.game.combatRoundOver();
     }
 
-    //basilisk physical attack: With lightning speed, the basilisk slashes you with its index claws!
-    //Noun: claw
+    // basilisk physical attack: With lightning speed, the basilisk slashes you with its index claws!
+    // Noun: claw
 
     protected performCombatAction(): void {
         if (
@@ -126,7 +126,7 @@ export class Basilisk extends Monster {
         this.lowerBody = LOWER_BODY_TYPE_LIZARD;
         this.skinTone = "gray";
         this.skinType = SKIN_TYPE_SCALES;
-        //this.skinDesc = Appearance.Appearance.DEFAULT_SKIN_DESCS[SKIN_TYPE_SCALES];
+        // this.skinDesc = Appearance.Appearance.DEFAULT_SKIN_DESCS[SKIN_TYPE_SCALES];
         this.hairColor = "none";
         this.hairLength = 0;
         this.initStrTouSpeInte(85, 70, 35, 70);

@@ -18,7 +18,7 @@ import { HellHound } from "./HellHound";
  */
 
 export class InfestedHellhound extends HellHound {
-    //[Extra special attack]
+    // [Extra special attack]
     private hellHoundWormCannon(): void {
         this.outputText(
             "The thing rears up onto its hind legs, revealing its more humanoid stature, and allowing it to use its flexible paws to caress its twinned-penises.  It lurches forwards powerfully, its thickness twitching and flaring as it launches a wave of worm-filled canine cum at you.",
@@ -26,7 +26,7 @@ export class InfestedHellhound extends HellHound {
         );
         this.outputText("\n", false);
         if (InfestedHellhound.rand(2) == 0) {
-            //Get hit – 10+ lust
+            // Get hit – 10+ lust
             this.game.dynStats("lus", 5 + this.player.lib / 20);
             this.outputText(
                 "Taken off-guard by the unexpected sexual display, you fail to move out of the way, and the wormy jism splatters you from the chest down.",
@@ -69,13 +69,13 @@ export class InfestedHellhound extends HellHound {
                     false
                 );
         }
-        //Sidestep
+        // Sidestep
         else {
             this.outputText(
                 "You sidestep the gush of wormy fluid, letting it splatter against the rocks behind you.",
                 false
             );
-            //(If infested +10 lust:
+            // (If infested +10 lust:
             if (
                 this.player.findStatusAffect(StatusAffects.Infested) >= 0 &&
                 this.player.hasCock()
@@ -104,7 +104,7 @@ export class InfestedHellhound extends HellHound {
                     );
                 }
             }
-            //if aroused by worms +5 lust:
+            // if aroused by worms +5 lust:
             else if (
                 this.player.findStatusAffect(StatusAffects.WormsOn) >= 0 &&
                 this.player.findStatusAffect(StatusAffects.WormsHalf) < 0
@@ -198,7 +198,7 @@ export class InfestedHellhound extends HellHound {
         this.buttRating = BUTT_RATING_AVERAGE + 1;
         this.skinTone = "black";
         this.skinType = SKIN_TYPE_FUR;
-        //this.skinDesc = Appearance.Appearance.DEFAULT_SKIN_DESCS[SKIN_TYPE_FUR];
+        // this.skinDesc = Appearance.Appearance.DEFAULT_SKIN_DESCS[SKIN_TYPE_FUR];
         this.hairColor = "red";
         this.hairLength = 3;
         this.initStrTouSpeInte(65, 60, 50, 1);

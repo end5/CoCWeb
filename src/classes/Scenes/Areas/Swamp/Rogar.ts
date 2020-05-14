@@ -24,23 +24,23 @@ export class Rogar extends BaseContent {
 ((Scenario 3, [Drink! (sorta)]: Fun with Bro Brew(Requires one bro brew per visit, uses it and turns player into a Bro)))
 ((Scenario 4, [Frot]))*/
 
-    //flag list:
-    //Ro'gar phase flag: state 0 - zero phase, initial encounter; 1 - phase 1, bath/BJ chance; 2 - phase 2, Ro'gar begins the move; 3 - phase 3, Ro'gar is a [Cloaked Figure] in the Wet Bitch; 4 - phase 4 repeatables in the bar as [Ro'gar]
-    //const ROGAR_PHASE: number = 407;
-    //Dirt Mc Girt flag: state 0 - player has not had the opportunity to tongue-bathe Ro'; 1 - player gently turned down the chance to bathe him; 2 - player bathed Ro'
-    //Dirt Mc Girt flag legend: 2 = gave tongue bath; 1 = declined to give tongue bath; 0 = was not given the option to tongue bathe; default setting 0
-    //const ROGAR_DIRT: number = 408;
-    //Ro'roh Raggy flag: state 0 - Ro'gar perceives player as masculine or androgynous; 1 - Ro'gar perceives player as feminine
-    //const ROGAR_WARNING: number = 409;
-    //Crying Game flag: state 0 - Ro'gar events can trigger; 1 - Ro'gar is put off by the PC and will no longer appear
-    //const ROGAR_DISABLED: number = 410;
-    //unnamed phase 4 timing flag: measures how long it's been since player last saw Ro'gar once he enters phase 4, to enforce a once-per-day sex limit
-    //const ROGAR_FUCKED_TODAY: number = 411;
+    // flag list:
+    // Ro'gar phase flag: state 0 - zero phase, initial encounter; 1 - phase 1, bath/BJ chance; 2 - phase 2, Ro'gar begins the move; 3 - phase 3, Ro'gar is a [Cloaked Figure] in the Wet Bitch; 4 - phase 4 repeatables in the bar as [Ro'gar]
+    // const ROGAR_PHASE: number = 407;
+    // Dirt Mc Girt flag: state 0 - player has not had the opportunity to tongue-bathe Ro'; 1 - player gently turned down the chance to bathe him; 2 - player bathed Ro'
+    // Dirt Mc Girt flag legend: 2 = gave tongue bath; 1 = declined to give tongue bath; 0 = was not given the option to tongue bathe; default setting 0
+    // const ROGAR_DIRT: number = 408;
+    // Ro'roh Raggy flag: state 0 - Ro'gar perceives player as masculine or androgynous; 1 - Ro'gar perceives player as feminine
+    // const ROGAR_WARNING: number = 409;
+    // Crying Game flag: state 0 - Ro'gar events can trigger; 1 - Ro'gar is put off by the PC and will no longer appear
+    // const ROGAR_DISABLED: number = 410;
+    // unnamed phase 4 timing flag: measures how long it's been since player last saw Ro'gar once he enters phase 4, to enforce a once-per-day sex limit
+    // const ROGAR_FUCKED_TODAY: number = 411;
 
-    //notes: I'm using the Crying Game flag as an all-purpose Ro'gar lockout, so check it before every possible Ro'gar meeting and prevent swamp scenes and the bar button from loading if present; if Crying Game = 1, no Ro'gar scenes, period
-    //the reference originates from the half-scene in phase 4 where he can discover you're female or unsexed after already having gotten a BJ from you
+    // notes: I'm using the Crying Game flag as an all-purpose Ro'gar lockout, so check it before every possible Ro'gar meeting and prevent swamp scenes and the bar button from loading if present; if Crying Game = 1, no Ro'gar scenes, period
+    // the reference originates from the half-scene in phase 4 where he can discover you're female or unsexed after already having gotten a BJ from you
 
-    //Phase 0: Ro'gar initial encounter in the swamp; Ro'gar phase flag = 0 (edited)
+    // Phase 0: Ro'gar initial encounter in the swamp; Ro'gar phase flag = 0 (edited)
     public encounterRogarSwamp(): void {
         this.outputText("", true);
         this.spriteSelect(86);
@@ -50,13 +50,13 @@ export class Rogar extends BaseContent {
                 false
             );
 
-            //((Corruption less than 70))
+            // ((Corruption less than 70))
             if (this.player.cor < 70)
                 this.outputText(
                     "You nod at him, wiping at the sludge on your body before frowning at yourself.  Ro'gar rumbles thoughtfully, eyeing you over again.  \"<i>My house's over yonder.  Ain't nobody but m'self 'round here, but I kin find ya somethin' to wipe yer face with.</i>\"  Ro'gar offers his friendly smile again, his formidable rows of teeth defeating the gesture.  Though vainly, you try to ignore the teeth and smile back at the generosity.  Ro'gar's thick finger points to the ground.  \"<i>Ya jus' wait right here an' I'll be back,</i>\" he says as he turns, trotting through the mud casually.  Should you really wait for him?\n\n",
                     false
                 );
-            //((Corruption 70 or more))
+            // ((Corruption 70 or more))
             else {
                 this.outputText(
                     "You smile sweetly through the sludge on your face, leaning closer to him.  The orc gives you a confused look as he follows your line of sight.  You couldn't help but notice the equally formidable bulge stretching his ragged shorts obscenely.  It's easy to tell he's still only flaccid yet, as the thick shaft curves over the dark shadow of a cum-swollen sack beneath the damp cloth.  Ro'gar rubs the back of his neck uncomfortably and, despite the awkward exchange, the outline in his shorts begins to lengthen and thicken as he speaks.  \"<i>Listen... yer mighty dirty, an' I reckon I could get you something to clean yerself off with if'n you wait here.</i>\"  Ro'gar's finger points at the ground where you stand.  \"<i>I'll be right back.  You jus' wait.</i>\"  He turns, making his exit quickly.",
@@ -68,14 +68,14 @@ export class Rogar extends BaseContent {
             }
             this.doYesNo(this.waitForChunkyOrcLoe, this.dontWaitForRogar);
         }
-        //((Ro'gar phase = 1)) (edited)
+        // ((Ro'gar phase = 1)) (edited)
         else if (this.flags[kFLAGS.ROGAR_PHASE] == 1) {
             this.outputText(
                 "With map in hand you wander the swamp for some time, squinting at the rough scrawls Ro'gar had scribed for you.  You can't help but stop and scratch your head as you begin to wonder if you are hopelessly lost.\n\n",
                 false
             );
 
-            //((intellect less than 30))
+            // ((intellect less than 30))
             if (this.player.inte <= 30) {
                 this.outputText(
                     "As hours pass with continued efforts bearing no fruit it becomes clear that you are, in fact, completely lost.  As you wade through some deeper water, the sound of loud splashes and grunting grow louder.  The sound of violence makes your hair stand on end.  You come to a clearing in the swamp, and as you round a large tree trunk you can see two men thrashing in the swamp water.  Both are soaked with filth that drips over every inch of their bodies.  One has his arms locked around the other's neck, and the pinned one snarls and thrashes to get free.  Your eyes widen as you watch the pair wrestle.  During the course of the match you get a wonderful view of the bestial strength each uses to try to make the other submit.  With water making their thickly built bodies slick, your eyes can't help but trace each rivulet of water cascading from their biceps, between clenched abdominals, and down the musculature of their broad backs.  Their massive muscles strain as they grunt and struggle to pin each other down.\n\n",
@@ -104,7 +104,7 @@ export class Rogar extends BaseContent {
                     false
                 );
             }
-            //((intellect 30 or more))
+            // ((intellect 30 or more))
             else {
                 this.outputText(
                     "It takes some time but you eventually find a hut hidden away in the depths of the swamp.  As you get a good look around it, you see some basic camouflage is being used to hide from the other beasts that lurk the swamp.  If you didn't have the map to know it was here you could have easily passed by it and kept wandering for hours.  You approach the hut, rapping your knuckles against a crude door that seems to be the entrance.  A while passes without answer and with curiosity you try to open the door.  To your surprise, it swings free!\n\n",
@@ -116,7 +116,7 @@ export class Rogar extends BaseContent {
                     false
                 );
 
-                //[(lib > 50)
+                // [(lib > 50)
                 if (this.player.lib >= 50) this.outputText("  Your loins burn", false);
                 else this.outputText("  Your nose crinkles", false);
                 this.outputText(
@@ -129,7 +129,7 @@ export class Rogar extends BaseContent {
                     false
                 );
             }
-            //((Intellect paths combine))
+            // ((Intellect paths combine))
             this.outputText(
                 '"<i>Welcome to my li\'l getaway.</i>"  Ro\'gar extends his arms out inside the hut as he welcomes you.  You smile and politely compliment Ro\'gar on his cozy domicile.  The orc grins happily before reaching out to grab your shoulders in his strong hands.  "<i>Have yerself a seat.</i>"  He pulls out a chair and plops you into it before you can protest.  Once you are successfully plopped, the orc turns to rummage around with things on the other side of the small table.  "<i>There she is....</i>"  His deep tone rumbles as he pulls out a large bottle of dark liquid and two mugs.  He sets them on the table with a thud and pops the cork from the bottle, pouring two generous servings before sliding one towards you.  "<i>Ain\'t the finest but s\'all I got.</i>"  He nervously smiles, holding his own mug as he watches you.  Whether to appear polite or because you suddenly remember your thirst, you take the mug and sip.  The strong flavor hits your tongue and burns your throat.  You barely refrain from coughing and swallow hard with a gasp.  Ro\'gar grins and knocks back his mug with ease as he walks over and sits down on the edge of his bed to face you.  "<i>It just occurs ta me that I cain\'t recall yer name.  All this time an\' it\'s slipped my mind ta ask ya.</i>"  You tell him, and he grins toothily.  "<i>' +
                     this.player.short +
@@ -137,10 +137,10 @@ export class Rogar extends BaseContent {
                 false
             );
 
-            //((high femininity or breasts >=B-cup, libido 50 or more))
+            // ((high femininity or breasts >=B-cup, libido 50 or more))
             if (this.player.biggestTitSize() >= 2 && this.player.lib >= 50) {
                 this.outputText("As you drink more your mind wanders.  ", false);
-                //(Int<30)
+                // (Int<30)
                 if (this.player.inte <= 30) {
                     this.outputText(
                         "You can feel a heat rising in your groin at the memory of Ro'gar so aroused before.",
@@ -153,7 +153,7 @@ export class Rogar extends BaseContent {
                                 " during the match, and the memory is doing much the same now.",
                             false
                         );
-                    //((if player has cock(s))
+                    // ((if player has cock(s))
                     if (this.player.hasCock())
                         this.outputText(
                             "  You feel " +
@@ -166,48 +166,48 @@ export class Rogar extends BaseContent {
                         false
                     );
                 }
-                //(int>=30)
+                // (int>=30)
                 else {
                     this.outputText(
                         "You can see the dried cum stains on the bed from where you sit.  They were thick in the fabric, so much so they could only have been left behind by huge, creamy globs of spunk, the kind you can feel sliding down your throat after a hot, lengthy blowjob.  \"<i>You didn't see much while you was here a'fore me, didj'a?</i>\" Ro'gar asks slowly, his blue eyes peering at you searchingly.  Your own flick to the filthy sheets as you grin, and he coughs in mid-sip of his drink.  \"<i>Been meanin' to clean 'em...</i>\" he says, embarrassed.  You shake your head slowly, rising from your chair to sit next to him, leaning closer and sliding a hand along his powerful leg.  With a devious grin, you ask Ro'gar if he could make you dirty, too.\n\n",
                         false
                     );
                 }
-                //((lib>50 paths combine, new PG))
+                // ((lib>50 paths combine, new PG))
                 this.outputText(
                     "Ro'gar looks at you and blinks.  He sets his mug aside and smiles.  \"<i>Sorry, honey, but you're not my type.  Mighty kind of ya though.</i>\"  You furrow your brow in disappointment at his rejection.  \"<i>Ya ain't the drinking type are ya?</i>\" he continues.  \"<i>Should'a known this would'a been too strong.  'Pologies.  You should sleep it off.</i>\"  Blinking, you find yourself being gently but quickly removed from Ro'gar's hut.  The door closes behind you with a \"<i>Take care now,</i>\" and you're left standing in the swamp with a bewildered look on your face.  Maybe you did have too much to drink.  You stumble a bit as you make your way to camp, earning another faceful of mud and disappointment on the way.\n\n",
                     false
                 );
-                //set Ro'gar phase = 2
+                // set Ro'gar phase = 2
                 this.flags[kFLAGS.ROGAR_PHASE] = 2;
                 this.dynStats("lus", 30);
                 this.doNext(this.camp.returnToCampUseTwoHours);
                 return;
             }
-            //((high femininity or breasts >=B-cup, libido less than 50))
+            // ((high femininity or breasts >=B-cup, libido less than 50))
             else if (this.player.biggestTitSize() >= 2) {
                 this.outputText("You grin as you chat with Ro'gar mindlessly.  ", false);
-                //[(int <30)
+                // [(int <30)
                 if (this.player.inte < 30)
                     this.outputText(
                         "Ro'gar apologizes for wrestling for his territory in your sight.",
                         false
                     );
-                //(int>=30)
+                // (int>=30)
                 else this.outputText("Ro'gar apologizes for how messy his hut is.", false);
                 this.outputText(
                     "  You just grin and shake your head at his politeness.  \"<i>It's been too long since I got ta talk with any decent folk.</i>\" Ro'gar says, grinning.  Soon you both have empty mugs.  You can't help but sway where you sit from the alcohol, stronger than anything you've had before.  Ro'gar gives a hearty laugh at you, clearly enjoying your inebriated state.  \"<i>You don't look the heavy drinkin' type.</i>\" Ro'gar smirks, as you sway.  Frowning, you assure him that you can handle it, all the while punctuating your sentences with small hiccups which cause the both of you to break out in laughter.  \"<i>Ya know, I've been in this swamp here for so long.  I'm getting' the itch ta go out inta the world and find greener grass, if'n ya know what I'm sayin'.  Listenin' to yer stories about yer travels ain't helpin' none, either.</i>\"  His tone of voice is distant, almost sounding disappointed with himself.  He gets to his feet with a grunt as he rises.  \"<i>Yer lookin' like yer needin' some shut eye.</i>\"  He helps you to your feet; you manage to get your balance somehow and walk to the door.  \"<i>Y'alright?</i>\" he asks, looking you over.  Through a dumb grin you manage to assure him that you're fine.  \"<i>Well allll-right.</i>\"  Ro'gar nods at you as you turn to leave.  \"<i>Ya take care now.</i>\"  He watches you walk off with concern in his eyes, but you make it back to camp just fine.\n\n",
                     false
                 );
-                //set Ro'gar phase = 2
+                // set Ro'gar phase = 2
                 this.flags[kFLAGS.ROGAR_PHASE] = 2;
                 this.doNext(this.camp.returnToCampUseTwoHours);
                 return;
             }
-            //((androgynous or masculine and breasts <= A-cup, libido less than 50))
+            // ((androgynous or masculine and breasts <= A-cup, libido less than 50))
             else if (this.player.lib < 50) {
                 this.outputText("You grin as you chat with Ro'gar mindlessly.  ", false);
-                //[(int<30)
+                // [(int<30)
                 if (this.player.inte < 30)
                     this.outputText(
                         "Ro'gar apologizes for wrestling for his territory in your sight.",
@@ -233,12 +233,12 @@ export class Rogar extends BaseContent {
                     '  Ro\'gar follows your gaze, then his eyes glint oddly as he snickers.  "<i>Care ta... return the favor?</i>"  He slyly winks at you, eyes flicking from you to the bucket and back again.',
                     false
                 );
-                //goto sexy choices
+                // goto sexy choices
             }
-            //((androgynous or masculine and breasts <= A-cup, libido >= 50))
+            // ((androgynous or masculine and breasts <= A-cup, libido >= 50))
             else {
                 this.outputText("As you drink more your mind wanders.  ", false);
-                //(int <30)
+                // (int <30)
                 if (this.player.inte < 30) {
                     this.outputText(
                         "You can feel a heat rising in your groin at the memory of Ro'gar so aroused before.",
@@ -263,7 +263,7 @@ export class Rogar extends BaseContent {
                         false
                     );
                 }
-                //(int >=30)
+                // (int >=30)
                 else {
                     this.outputText(
                         "You can see the dried cum stains on the bed from where you sit.  They were thick in the fabric, so much so they could only have been left behind by huge, creamy globs of spunk, the kind you can feel sliding down your throat after a hot, lengthy blowjob.  \"<i>You didn't see much while you was here a'fore me, didj'a?</i>\" Ro'gar asks slowly, his blue eyes peering at you searchingly.  Your own flick to the filthy sheets as you grin, and he coughs in mid-sip of his drink.  \"<i>Been meanin' to clean 'em...</i>\" he says, embarrassed.  You shake your head slowly and reassure him, which seems to embolden him enough to make the next suggestion.  \"<i>You clean me up a bit, then how's about I get you dirty?</i>\"  Ro'gar's long, orcish tongue flicks over his lips invitingly.\n\n",
@@ -271,28 +271,28 @@ export class Rogar extends BaseContent {
                     );
                 } //goto sexy choices
             }
-            //SEXY CHOICES
+            // SEXY CHOICES
             this.sexyChoices();
         }
-        //Not sure what determines this yet
+        // Not sure what determines this yet
         else if (this.flags[kFLAGS.ROGAR_PHASE] == 2) {
-            //((high femininity or breasts >=B-cup))
+            // ((high femininity or breasts >=B-cup))
             if (this.player.biggestTitSize() >= 2) {
                 this.outputText(
                     "You travel to Ro'gar's hut using the map again, your memory of the earlier trip making the passage much smoother.  When you knock on the door, though, you receive no answer.  In fact, the hut is eerily silent.  Trying the handle, you find the door unlatched.  You peer inside and discover that not only is it quiet and dark, quite a bit is missing.  Ro'gar is nowhere to be found, along with most of his belongings.  Looking around, you find no sign of distress or struggle.  It doesn't seem like anything happened to him.  Perhaps he moved?  Either way, he's not here now and it doesn't look like he's coming back anytime soon.  As you head back to camp you wonder if you'll ever see him again.",
                     false
                 );
                 this.doNext(this.camp.returnToCampUseOneHour);
-                //move Ro'gar to Wet Bitch, set Ro'gar phase = 3
+                // move Ro'gar to Wet Bitch, set Ro'gar phase = 3
                 this.flags[kFLAGS.ROGAR_PHASE] = 3;
             }
-            //((androgynous or masculine and breasts <= A-cup))
+            // ((androgynous or masculine and breasts <= A-cup))
             else {
                 this.outputText(
                     "Remembering your way from memory, you find yourself on Ro'gar's doorstep. You gently knock with your fist, and soon you hear footsteps on the other side of the crude door. It opens with a snap and you are greeted with a wide grin of jagged, razor-like teeth.\n\n",
                     false
                 );
-                //(Dirt Mc Girt = 2)
+                // (Dirt Mc Girt = 2)
                 if (this.flags[kFLAGS.ROGAR_DIRT] == 2)
                     this.outputText(
                         '"<i>' +
@@ -300,7 +300,7 @@ export class Rogar extends BaseContent {
                             ', y\'all took off on me real quick like,</i>" he says through a snicker.  The joke falls flat and the orc seems to blush lime green as you stare at him uncomprehendingly.  He rubs the back of his neck with a hand before continuing.  "<i>Sorry about that.  I was plumb tuckered out afterwards.</i>"\n\n',
                         false
                     );
-                //(merge sex and non-sex, new PG)
+                // (merge sex and non-sex, new PG)
                 this.outputText(
                     '"<i>Come on in.</i>"  Ro\'gar extends a hand, welcoming you inside.  You quickly take a seat and fold your arms',
                     false
@@ -314,38 +314,38 @@ export class Rogar extends BaseContent {
                     ".  \"<i>I been meanin' ta speak with ya,</i>\" Ro'gar starts, from across the table.  He rests his arms on it and turns his head to face you before he continues.  \"<i>I've been plannin' to git away from this here place for some time now, an' I reckon if'n you didn't come along I'd have just taken off without a clue.</i>\"  He lets out a sigh before continuing. \"<i>I've just been lookin' fer a place to settle in an' be around people that'd be acceptin' of a feller like me.  Y'ever find a place like that?</i>\"  Ro'gar turns his whole body to face you, an expectant look in his eyes.\n\n",
                     false
                 );
-                //(If player hasn't been to Tel'Adre)
+                // (If player hasn't been to Tel'Adre)
                 if (this.player.statusAffectv1(StatusAffects.TelAdre) <= 0) {
                     this.outputText(
                         "You apologize to Ro'gar; your mind draws a complete blank on the question.  The orc pouts with disappointment.  \"<i>I reckon I could just wander until I find somewhere...</i>\"  You shake your head and suggest he wait here where he's already established, but promise you'll be keeping an eye out for anywhere that might suit him.  Ro'gar beams at the reassurance, his pout twisting into a grin.  \"<i>Mighty fine of you!</i>\"  His thick arms wrap around you in a bear hug over the table.  You spend the rest of your visit chatting with the burly orc, careful to avoid any topics that might stir his wanderlust.\n\n",
                         false
                     );
-                    //end scene without updating Ro'gar phase
+                    // end scene without updating Ro'gar phase
                     this.doNext(this.camp.returnToCampUseOneHour);
                 }
-                //(if player has been to Tel'Adre)
+                // (if player has been to Tel'Adre)
                 else {
                     this.outputText(
                         "You mention a city you have visited before, one that you think a large guy like Ro'gar would fit right into.  As you describe the city of Tel'Adre to him, his face grows more pensive as a large hand wraps around his chin.  \"<i>That's soundin' like a mighty fine place you've been to, though there ain't much water around, huh?</i>\"  You nod your head, somewhat unsettled by the question.  The city is in the middle of a desert, which clearly troubles him despite the determined set of his eyes.  \"<i>Ya reckon I could make the trip?</i>\" \n\n",
                         false
                     );
-                    //((intellect 30 or more))
+                    // ((intellect 30 or more))
                     if (this.player.inte >= 30) {
                         this.outputText(
                             "After brainstorming for a few moments you are struck by an idea on how to help him cross the desert.  You explain how the more sensitive natives wear cloaks with hoods to protect themselves from the harsh sun.  \"<i>That's brilliant!</i>\" Ro'gar exclaims, getting to his feet and wrapping his large arms around you in a tight bear hug.  You give out a slight wheeze as he crushes you with excitement.  He eventually lets you go, though your spine tingles from the scent of musky sweat.\n\n",
                             false
                         );
-                        //<Lust increased very slightly.>
+                        // <Lust increased very slightly.>
                         this.dynStats("lus", 15);
                     }
-                    //((Intellect less than 30))
+                    // ((Intellect less than 30))
                     else {
                         this.outputText(
                             "Finding yourself stumped for bright ideas you frown.  Ro'gar grunts as fingers thoughtfully rake over his smooth head.  \"<i>If'n I could just avoid the sun...</i>\"  His arms cross over his chest, thick biceps flexing from frustration.  Suddenly you smack your forehead with an open palm as an idea comes to mind!  You suggest Ro'gar travel only at night to avoid the harsh sun.  The orc frowns at you, almost looks like he's considering you to be stupid.  \"<i>I dunno if'n I can travel that fast...  Can't I just wear sumthin' ta keep me in the shade?</i>\"  Well, you have seen some of the city's residents wearing loose, hooded cloaks, which you suggest next.\n\n",
                             false
                         );
                     }
-                    //((int Paths combine here))
+                    // ((int Paths combine here))
                     this.outputText(
                         '"<i>I\'ll just make me one of those, then.  Err...</i>"  He gets up from his chair to move around the hut, rummaging through his possessions.  "<i>I reckon I could fix somethin\' up with this....</i>"  He pulls out a spare pair of bed sheets and begins to cut them crudely with a knife.  You wonder if he intentionally makes everything crudely, or if he doesn\'t possess the manual dexterity to fashion anything pleasing to the eye.  "<i>Stupid fabric...  Care to gimme a hand?</i>" the orc says, coyly smiling in your direction.  Some time passes as you help him, and after quite a bit of sewing, cutting, and teasing, the pair of you make a hooded cloak large enough for Ro\'gar\'s massive frame.  "<i>How do I look?</i>" He poses as he tries it on, flexing his muscles as he stands there.  Despite Ro\'gar\'s goofy modeling, the crude mantle makes him look mysterious beneath the fabric, the hood resting just enough over his eyes that it would be hard to tell him apart in a crowd.  The large orc chuckles as you stare at him, and soon you both are laughing.\n\n',
                         false
@@ -356,29 +356,29 @@ export class Rogar extends BaseContent {
                         false
                     );
 
-                    //(if Dirt Mc Girt = 1)
+                    // (if Dirt Mc Girt = 1)
                     if (this.flags[kFLAGS.ROGAR_DIRT] == 1) {
                         this.outputText(
                             "You leave Ro'gar to finish packing his things for now.",
                             false
                         );
-                        //set Ro'gar phase = 3
+                        // set Ro'gar phase = 3
                         this.flags[kFLAGS.ROGAR_PHASE] = 3;
                         this.doNext(this.camp.returnToCampUseOneHour);
                     }
-                    //(if Dirt Mc Girt = 2)
+                    // (if Dirt Mc Girt = 2)
                     else {
                         this.outputText(
                             "As you exit the door you suddenly feel a strong grip on your wrist, making you turn around.",
                             false
                         );
-                        //(if player height is shorter than 4 feet)
+                        // (if player height is shorter than 4 feet)
                         if (this.player.tallness < 48)
                             this.outputText(
                                 "  Hands hook under your armpits to lift you up gently.",
                                 false
                             );
-                        //(if player height is taller than 7 feet)
+                        // (if player height is taller than 7 feet)
                         if (this.player.tallness >= 84)
                             this.outputText(
                                 "  A hand on your shoulder tugs you to lower your head.",
@@ -400,7 +400,7 @@ export class Rogar extends BaseContent {
                             false
                         );
 
-                        //+lust, set Ro'gar phase = 3
+                        // +lust, set Ro'gar phase = 3
                         this.dynStats("lus", 30);
                         this.flags[kFLAGS.ROGAR_PHASE] = 3;
                         this.doNext(this.camp.returnToCampUseOneHour);
@@ -410,7 +410,7 @@ export class Rogar extends BaseContent {
         }
     }
 
-    //((No))
+    // ((No))
     private dontWaitForRogar(): void {
         this.outputText("", true);
         this.spriteSelect(86);
@@ -420,12 +420,12 @@ export class Rogar extends BaseContent {
         );
 
         this.outputText("Instead, you find only more mud.  You return to camp.", false);
-        //<set Crying Game = 1>
+        // <set Crying Game = 1>
         this.flags[kFLAGS.ROGAR_DISABLED] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //((Yes))
+    // ((Yes))
     private waitForChunkyOrcLoe(): void {
         this.outputText("", true);
         this.spriteSelect(86);
@@ -435,13 +435,13 @@ export class Rogar extends BaseContent {
                 false
             );
 
-            //((If libido is less than 50))
+            // ((If libido is less than 50))
             if (this.player.lib < 50)
                 this.outputText(
                     "The hulking orc is surprisingly gentle as he cleans you like a young child.  The warm waters and careful touch soothe your tired muscles.  Your skin becomes textured with goose bumps as the tickles of droplets roll down your body and the filth is washed down to the waters below.  You find yourself sighing in relaxation from the treatment.  A smile curls your lips as you look down at Ro'gar, and he returns the pleased look with a toothy smirk.\n\n",
                     false
                 );
-            //((If libido is 50 or more))
+            // ((If libido is 50 or more))
             else {
                 this.outputText(
                     "  Something about the burly orc rubbing you down with warm water excites you.",
@@ -483,13 +483,13 @@ export class Rogar extends BaseContent {
                 "<b>You can now find Ro'gar's hut when wandering the swamp occasionally!</b>",
                 false
             );
-            //pass 2 hours, set Ro'gar phase flag = 1
+            // pass 2 hours, set Ro'gar phase flag = 1
             this.flags[kFLAGS.ROGAR_PHASE] = 1;
             this.doNext(this.camp.returnToCampUseTwoHours);
         }
     }
 
-    //sexy choices
+    // sexy choices
     private sexyChoices(): void {
         this.spriteSelect(86);
         this.simpleChoices(
@@ -505,7 +505,7 @@ export class Rogar extends BaseContent {
             undefined
         );
     }
-    //((Ewww))
+    // ((Ewww))
     private ewwwRogarIsGay(): void {
         this.outputText("", true);
         this.spriteSelect(86);
@@ -513,12 +513,12 @@ export class Rogar extends BaseContent {
             "Declining in a clipped manner, you get to your feet and make for the door, doing your best to ignore Ro'gar's disappointed face.  He calls out to you, but it only falls on deaf ears as you shut the door quickly behind you, your legs powering through the swamp as you run with all the speed you can muster.  Only once you get back to camp do you realize you've lost the crude map... either in Ro'gar's hut or in the trackless swamp.",
             false
         );
-        //<set Crying Game = 1>
+        // <set Crying Game = 1>
         this.flags[kFLAGS.ROGAR_DISABLED] = 1;
         this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
-    //((No thanks bro))
+    // ((No thanks bro))
     private noSlowBroIDontWantPokeSex(): void {
         this.outputText("", true);
         this.spriteSelect(86);
@@ -526,13 +526,13 @@ export class Rogar extends BaseContent {
             "You give a nervous chuckle and politely decline.  Ro'gar's face suddenly droops with disappointment as you explain he's not your type.  \"<i>S'alright.</i>\"  The pair of you share an awkward moment before Ro'gar gives you a toothy grin.  \"<i>Yer always welcome to chat and drink if'n ya want.</i>\"  You smile in return, and the pair of you chat while enjoying a second round of drinks.  Time passes and you decide to leave.  Ro'gar waves you off as you trek through the swamp and back to camp.\n\n",
             false
         );
-        //<Continue without sex, set Dirt Mc Girt flag = 1 and Ro'gar phase = 2>
+        // <Continue without sex, set Dirt Mc Girt flag = 1 and Ro'gar phase = 2>
         this.flags[kFLAGS.ROGAR_DIRT] = 1;
         this.flags[kFLAGS.ROGAR_PHASE] = 2;
         this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
-    //((Ok))
+    // ((Ok))
     private okayBroLetsHaveAGayCarwash(): void {
         this.outputText("", true);
         this.spriteSelect(86);
@@ -558,7 +558,7 @@ export class Rogar extends BaseContent {
                 ".  The fat member is thick and easily ten inches long.  He grips the hilt of his gigantic shaft and begins to slap your cheeks with his erection.  \"<i>Piggy's not doing his job.  Gotta clean every last inch of me,</i>\" he teases, smearing his drooling cockhead over your cheeks as your tongue sticks out to catch the dripping length.  You can't help but feel like a hungry whore as you chase Ro'gar's orc cock.",
             false
         );
-        //[(if player has tail)
+        // [(if player has tail)
         if (this.player.hasLongTail() || this.player.isNaga())
             this.outputText(
                 "  Your tail brushes along Ro'gar's legs eagerly, tickling his thighs as you service him.",
@@ -588,7 +588,7 @@ export class Rogar extends BaseContent {
                 " before popping your cumslicked fingers into your mouth one by one.  You swirl the cum in your mouth before swallowing, the taste of the thick seed clinging to your tongue.  After you're done cleaning yourself and Ro'gar's mess, you notice the orc is snoring.  You chuckle, realizing just how exhausted he must have been.",
             false
         );
-        //(int <30)
+        // (int <30)
         if (this.player.inte < 30)
             this.outputText(
                 "  That fight between him and his opponent went on for quite a while, so it makes some sense.",
@@ -604,24 +604,24 @@ export class Rogar extends BaseContent {
         this.outputText(" aches, each step of the way rubbing the sensitive", false);
         if (this.player.gender > 0) this.outputText(", drooling", false);
         this.outputText(" parts against the fabric of your clothes.\n\n", false);
-        //<Lust increased, slimefeed,
+        // <Lust increased, slimefeed,
         this.player.slimeFeed();
         this.dynStats("lus", 40);
         // set Dirt Mc Girt flag = 2 and Ro'gar phase = 2>
         this.flags[kFLAGS.ROGAR_DIRT] = 2;
         this.flags[kFLAGS.ROGAR_PHASE] = 2;
         if (this.player.inte < 30) this.doNext(this.camp.returnToCampUseTwoHours);
-        //lose 3 hours instead of 1 if int<30
+        // lose 3 hours instead of 1 if int<30
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //((Third phase)) ([Cloaked Figure] button in Wet Bitch; Ro'gar phase = 3) (edited)
+    // ((Third phase)) ([Cloaked Figure] button in Wet Bitch; Ro'gar phase = 3) (edited)
     public rogarThirdPhase(): void {
         this.outputText("", true);
         this.spriteSelect(86);
-        //Ro'roh Raggy flag is set by how Ro' perceives the PC; in other words, it's toggled by whether the PC is feminine
+        // Ro'roh Raggy flag is set by how Ro' perceives the PC; in other words, it's toggled by whether the PC is feminine
 
-        //((high femininity or breasts >=B-cup, Ro'roh Raggy flag = 0))
+        // ((high femininity or breasts >=B-cup, Ro'roh Raggy flag = 0))
         if (this.player.biggestTitSize() >= 2) {
             if (this.flags[kFLAGS.ROGAR_WARNING] == 0) {
                 this.outputText(
@@ -635,10 +635,10 @@ export class Rogar extends BaseContent {
                     "You greet him warmly, but he seems a bit nervous around you.  \"<i>Well... after all ya tol' me about yer adventures, I, ah, thought I'd hit the road m'self.  An' so ya find me here.  Good ta see ya again, but I'm just finishin' up my drink afore I head on out.</i>\"  With this, he tips back the contents of his can and flashes you his standard grin, then departs.  He seemed a bit uneasy around you.",
                     false
                 );
-                //set Ro'roh Raggy flag to 1
+                // set Ro'roh Raggy flag to 1
                 this.flags[kFLAGS.ROGAR_WARNING] = 1;
             }
-            //(high fem or breasts >=B-cup and Ro'roh Raggy =1)
+            // (high fem or breasts >=B-cup and Ro'roh Raggy =1)
             else {
                 this.outputText(
                     "Ro'gar the orc is here drinking again, but as you catch his eye, a pained expression flashes across his face.  It's clear he doesn't relish the prospect of talking to you right now, but knowing him, he's too polite to say so.  The wind spills from your sails and your icebreaker slips from your mind - answering him with a simple glance of resignation is the most you can manage.  He gives you a weak smile and returns to his drink.\n\n",
@@ -646,16 +646,16 @@ export class Rogar extends BaseContent {
                 );
             }
 
-            //return to bar menu
+            // return to bar menu
             this.doNext(this.telAdre.barTelAdre);
         }
-        //((androgynous or masculine and breasts <= A-cup))
+        // ((androgynous or masculine and breasts <= A-cup))
         else {
             this.outputText(
                 "After taking a few moments to look over the familiar cloth of the cloak, your lips curl into a small smile.  Walking up quietly, ",
                 false
             );
-            //[(if Ro'roh Raggy flag >=1)
+            // [(if Ro'roh Raggy flag >=1)
             if (this.flags[kFLAGS.ROGAR_WARNING] >= 1) {
                 this.outputText(
                     'you tap him on the shoulder.  He turns around, then assumes a pleasant smile.  "<i>Well, h\'lo.  Who might you be?</i>"  Momentarily confused, it quickly comes to you that you were quite different at your prior meetings; you reintroduce yourself with a small bow.  "<i>Wow.  ' +
@@ -664,7 +664,7 @@ export class Rogar extends BaseContent {
                     false
                 );
             }
-            //(else if Ro'roh Raggy < 1 and player height >= 5 feet)
+            // (else if Ro'roh Raggy < 1 and player height >= 5 feet)
             else if (this.player.tallness >= 60) {
                 this.outputText(
                     'you carefully wrap your arms around the figure\'s head and cover his eyes with your hands.  A playful giggle escapes your lips as you murmur for him to "<i>guess who.</i>"  A familiar voice growls, but quickly relaxes as orcish hands cup over yours.  "<i>Dag nabbit ' +
@@ -673,7 +673,7 @@ export class Rogar extends BaseContent {
                     false
                 );
             }
-            //else if Ro'roh Raggy < 1 and player height < 5 feet)
+            // else if Ro'roh Raggy < 1 and player height < 5 feet)
             else {
                 this.outputText(
                     "you gently tug on the figure's cloak, mentioning aloud that it seemed to have held up all right with your sewing job.  The figure's back straightens sharply and a deep snicker is heard.  \"<i>Ya did a mighty fine job, " +
@@ -682,12 +682,12 @@ export class Rogar extends BaseContent {
                     false
                 );
             }
-            //((Paths combine here))
+            // ((Paths combine here))
             this.outputText(
                 "Returning the grin with your own, you take a seat next to Ro'gar.  \"<i>It was some trip hoofin' it all the way here, but I reckon it was worth it.</i>\"  His deep, familiar tone soothes your mind.  Ro'gar grips the can off the bar and drinks heavily before exhaling loudly, the container thudding as he rests it on the counter. \"<i>Would have dried up in that sun if not fer this here cloak.</i>\"  His head turns to flash a grin from under the hood.  You carefully reach a hand up to pull it back, wanting to see his face.  Ro'gar flushes lime green at that and turns his head away to scratch at his cheek with a calloused finger.",
                 false
             );
-            //[(if playerskincolor = green)
+            // [(if playerskincolor = green)
             if (this.player.skinTone == "green")
                 this.outputText(
                     "  \"<i>Hey... Have y'ever had somebody randomly run up an' ask ya ta 'Waaagh!'?</i>\" he mutters quietly.  You give him a perplexed look.  The orc laughs off your confusion dismissively.  \"<i>Nothin', nothin'.</i>\"",
@@ -700,19 +700,19 @@ export class Rogar extends BaseContent {
                 false
             );
 
-            //variable ending
-            //[(if Dirt Mc Girt = 0)
+            // variable ending
+            // [(if Dirt Mc Girt = 0)
             if (this.flags[kFLAGS.ROGAR_DIRT] == 0) {
                 this.outputText(
                     "You chat for a while longer before separating.  Ro'gar extracts a promise from you to come drink with him again before waving you off with his standard grin.",
                     false
                 );
-                //set Ro'gar phase = 4 and Ro'roh Raggy = 0
+                // set Ro'gar phase = 4 and Ro'roh Raggy = 0
                 this.flags[kFLAGS.ROGAR_PHASE] = 4;
                 this.flags[kFLAGS.ROGAR_WARNING] = 0;
                 this.doNext(this.camp.returnToCampUseOneHour);
             }
-            //(else if Dirt Mc Girt = 1)
+            // (else if Dirt Mc Girt = 1)
             else if (this.flags[kFLAGS.ROGAR_DIRT] == 1) {
                 this.outputText(
                     "Ro'gar gives a satisfied huff, relaxing his body as he takes another drink from his can.  \"<i>You been nothin' but good ta me ever since I met ya, " +
@@ -722,12 +722,12 @@ export class Rogar extends BaseContent {
                         '.  You kin drink with me any time.</i>"  The pair of you spend some time together at the bar, drinking and laughing as you empty mugs.  Eventually you part ways and wander back into the city.\n\n',
                     false
                 );
-                //set Ro'gar phase = 4 and Ro'roh Raggy = 0, Acquire 1x Bro Brew
+                // set Ro'gar phase = 4 and Ro'roh Raggy = 0, Acquire 1x Bro Brew
                 this.flags[kFLAGS.ROGAR_PHASE] = 4;
                 this.flags[kFLAGS.ROGAR_WARNING] = 0;
                 this.inventory.takeItem(this.consumables.BROBREW, this.camp.returnToCampUseOneHour);
             }
-            //(else if Dirt Mc Girt = 2)
+            // (else if Dirt Mc Girt = 2)
             else {
                 this.outputText(
                     "Your heart flutters as you realize he is still only wearing the ragged shorts beneath his hooded cloak, and your eyes rake over his musculature as he models.  \"<i>How's about you an' I go visit the baths sometime?</i>\"  Ro'gar asks coyly, relaxing his body as he takes another drink.  \"<i>You been nothin' but good ta me ever since I met ya, " +
@@ -735,7 +735,7 @@ export class Rogar extends BaseContent {
                         '.  I do ya one favor and you been a real friend ever since.</i>"  Ro\'gar\'s tone grows lower and more serious as a calloused finger rubs over his damp can.  You rest your arms against the polished wood of the bar as you listen.  "<i>Yer special ta me.</i>" he mutters quietly, just loud enough for you to hear him.  You smile warmly and rest a hand against his arm, coaxing him to turn his head to look at you.  His tongue slides over his lips as he gives you a seductive stare, with his hand reaching between your legs.',
                     false
                 );
-                //[(female or unsexed)
+                // [(female or unsexed)
                 if (this.player.gender == 2 || this.player.gender == 0) {
                     this.outputText(
                         "  It stops on your bare mons, and Ro'gar's eyes widen.  \"<i>Wh-wha... there's nothin' here!</i>\"  You color and nod.  His mouth hangs open for a long minute, then he masters himself.  \"<i>Well... I, uh, guess it was good t' see ya again...</i>\" he stammers.  \"<i>Hey, I'm sure you've got things to be doin' so I won't hold you up.</i>\"  As you attempt to protest, he chugs his drink and makes a show of slamming the can down, noisily and forcefully, on the bar.  Nodding at you, he pulls the cloak over his head and leaves the bar.  Apparently it was quite a shock to him.  You wonder if he'll avoid you from now on...",
@@ -762,14 +762,14 @@ export class Rogar extends BaseContent {
                         ".  I drink here whenever I'm not werkin' out or on a job.  I'll be waitin' for you.</i>\"  He lowers his eyelids suggestively at you, then gets up; you smile dumbly as he leaves the bar, watching him go with a blush in your cheeks",
                         false
                     );
-                    //[(If player has a tail)
+                    // [(If player has a tail)
                     if (this.player.hasLongTail() && this.player.isNaga())
                         this.outputText(
                             ", and you feel your tail flicking rapidly in excitement",
                             false
                         );
                     this.outputText(".\n\n", false);
-                    //Lust increased, set Ro'gar phase = 4 and Ro'roh Raggy = 0 if M or H, set Crying Game to 1 if F or U]
+                    // Lust increased, set Ro'gar phase = 4 and Ro'roh Raggy = 0 if M or H, set Crying Game to 1 if F or U]
                     this.flags[kFLAGS.ROGAR_PHASE] = 4;
                     this.flags[kFLAGS.ROGAR_WARNING] = 0;
                     this.dynStats("lus", 30);
@@ -778,11 +778,11 @@ export class Rogar extends BaseContent {
             }
         }
     }
-    //((Phase four, repeatable; Ro'gar phase flag = 4. Once per day.)) (all edited)
+    // ((Phase four, repeatable; Ro'gar phase flag = 4. Once per day.)) (all edited)
     public rogarPhaseFour(): void {
         this.outputText("", true);
         this.spriteSelect(86);
-        //(if high femininity or breasts <=B-cup and Ro'roh Raggy = 0)
+        // (if high femininity or breasts <=B-cup and Ro'roh Raggy = 0)
         if (this.player.biggestTitSize() >= 2 && this.flags[kFLAGS.ROGAR_WARNING] == 0) {
             this.outputText(
                 "Ro'gar the orc is drinking at the bar again, two crushed cans sitting by his half-empty one.  The bartender is casting irritated glances at them as though she'd like to throw them away, but doesn't dare take them from the enormous, burly orc until he finishes or leaves.  You tug on his cloak as you take a seat next to him, and he turns to you with a toothy smile.  That smile dims to a frown as he looks you over, eyes lingering on the womanly contours of your face",
@@ -794,20 +794,20 @@ export class Rogar extends BaseContent {
                 '.  "<i>Gee, ya look... different.  Been samplin\' some of the local foods, huh?</i>"  You agree cautiously, and he flags the bartender over and buys you a drink.  "<i>I\'m just bein\' polite since we\'re pals,</i>" the orc ventures.  "<i>Ya kin pay me back another time.</i>"  You nod, sip your drink, and converse reservedly with him for a while, then go on your way.',
                 false
             );
-            //set Ro'roh Raggy = 1
+            // set Ro'roh Raggy = 1
             this.flags[kFLAGS.ROGAR_WARNING] = 1;
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //(high fem or breasts >=B-cup and Ro'roh Raggy =1)
+        // (high fem or breasts >=B-cup and Ro'roh Raggy =1)
         else if (this.player.biggestTitSize() >= 2 && this.flags[kFLAGS.ROGAR_WARNING] == 1) {
             this.outputText(
                 "Ro'gar the orc is here drinking again, but as you catch his eye, a pained expression flashes across his face as he looks over your form.  It's clear he doesn't relish the prospect of talking to you right now, but knowing him, he's too polite to say so.  The wind spills from your sails and your icebreaker slips from your mind - answering him with a simple glance of resignation is the most you can manage.  He gives you a weak smile and returns to his drink.",
                 false
             );
-            //return to bar menu
+            // return to bar menu
             this.doNext(this.telAdre.barTelAdre);
         }
-        //(andro or masculine with tits <= A)
+        // (andro or masculine with tits <= A)
         else {
             this.outputText(
                 "Ro'gar is tipping his drink back when he catches sight of you, and waves you over.  \"<i>Ah, good ta see ya, " +
@@ -815,7 +815,7 @@ export class Rogar extends BaseContent {
                     "!",
                 false
             );
-            //[(Ro'roh Raggy = 1)
+            // [(Ro'roh Raggy = 1)
             if (this.flags[kFLAGS.ROGAR_WARNING] == 1) {
                 this.outputText(
                     "Yer lookin' much better today; ya been workin' out?</i>\"  You smile at the compliment, and ",
@@ -826,7 +826,7 @@ export class Rogar extends BaseContent {
                 "wave the bartender over for another round.  \"<i>So,</i>\" he begins once you've finished your drinks and she's out of earshot, \"<i>I was wonderin' if ya would like to hang out at my place later?  It ain't much, but it'd be a lot more... private... than here.</i>\"  He colors slightly and waggles an eyebrow at you, then slides a hand into your groin.",
                 false
             );
-            //[(if F or U)
+            // [(if F or U)
             if (this.player.gender == 2 || this.player.gender == 0) {
                 this.outputText(
                     '  It reaches the center without interruption, and Ro\'gar colors deeper.  "<i>Uh... ferget it,</i>" he mumbles.  "<i>Didn\'t mean ta be indecent with you or anythin\', miss.</i>"  He nods to you and quickly departs before you can recover from the surprise.',
@@ -840,7 +840,7 @@ export class Rogar extends BaseContent {
                         " trembles under his strong touch, as he increases the pressure and looks into your eyes meaningfully.  ",
                     false
                 );
-                //[(if Dirt Mc Gurt flag = 1)
+                // [(if Dirt Mc Gurt flag = 1)
                 if (this.flags[kFLAGS.ROGAR_DIRT] == 1)
                     this.outputText(
                         "</i>\"I know ya probably ain't ever imagined hangin' out with a feller like me, but... I could really use the company tonight.</i>\"  ",
@@ -850,10 +850,10 @@ export class Rogar extends BaseContent {
                     "He's clearly in the mood for some fun; do you want to head back to his place and do something?",
                     false
                 );
-                //+ lust, if M or H, set Ro'roh Raggy = 0
+                // + lust, if M or H, set Ro'roh Raggy = 0
                 this.flags[kFLAGS.ROGAR_WARNING] = 0;
-                //and give choices
-                //[Get Anal][Give Anal][Frot][Drink with your Bro! (requires 1x Bro Brew)][No Thanks]
+                // and give choices
+                // [Get Anal][Give Anal][Frot][Drink with your Bro! (requires 1x Bro Brew)][No Thanks]
                 this.rogarFuckMenu();
                 this.dynStats("lus", 10);
             }
@@ -887,7 +887,7 @@ export class Rogar extends BaseContent {
         this.addButton(6, "No Thanks", this.noTHanksRogarIAintGayDudeIjustLickedThatMudToBeNice);
     }
 
-    //[No Thanks]
+    // [No Thanks]
     private noTHanksRogarIAintGayDudeIjustLickedThatMudToBeNice(): void {
         this.outputText("", true);
         this.spriteSelect(86);
@@ -895,16 +895,16 @@ export class Rogar extends BaseContent {
             "You smile at the orc, but tell him that you're not really in the mood to hang out right now.  He looks crestfallen, but nods at you.  \"<i>Well, I understan'.  I'll be seein' ya later, then.</i>\"",
             false
         );
-        //Bar menu!
+        // Bar menu!
         this.doNext(this.telAdre.barTelAdre);
     }
 
-    //(([Get Anal], Scenario 1a: give up the buttcherry (buttvirgins only)))
+    // (([Get Anal], Scenario 1a: give up the buttcherry (buttvirgins only)))
     private loseButtGinity(): void {
         this.flags[kFLAGS.ROGAR_FUCKED_TODAY] = 1;
         this.outputText("", true);
         this.spriteSelect(86);
-        //BUTTCHERRIES
+        // BUTTCHERRIES
         if (this.player.ass.analLooseness == 0) {
             this.outputText(
                 "You nod eagerly, and the orc rewards you with another caress.  \"<i>Well then... let's head on out,</i>\" he says.  The two of you walk down the desert city's streets until you reach a discrete, out-of-the-way building labeled 'Steel Hogan Apartments'.  \"<i>This here's where I'm stayin',</i>\" Ro'gar says, handing you through the doorway.  He leads you down a hallway to his own lodgings, then pushes open the door for you; you step ",
@@ -956,7 +956,7 @@ export class Rogar extends BaseContent {
                     " before you see it, the deep green head towering over your groin menacingly, each vein pulsing as the mammoth cock belches pre-cum to leak down the orcish shaft.  Your skin is soon slick with his spurting pre as he groans out.  \"<i>Oh fuck... a bona-fied virgin ass.  Pure an' untainted, ripe for the pluckin'... or maybe the fuckin'.</i>\"  Ro'gar's breath becomes labored as he pants heavily and eagerly, his green length humping against your virgin rosebud, making you moan out in an excess of sensation.  His hands hold your cheeks apart with a strong grip as you begin to leak your own pre-cum onto your stomach.",
                 false
             );
-            //(if player has balls)
+            // (if player has balls)
             if (this.player.balls > 0)
                 this.outputText(
                     "  Ro'gar's dark green cockhead rubs over your " +
@@ -1016,7 +1016,7 @@ export class Rogar extends BaseContent {
             );
             if (this.player.hasLongTail() || this.player.isNaga())
                 this.outputText("  Your tail, still gripping Ro'gar's arm, squeezes tight.", false);
-            //(If player has balls)
+            // (If player has balls)
             if (this.player.balls > 0)
                 this.outputText(
                     "  Your " +
@@ -1038,9 +1038,9 @@ export class Rogar extends BaseContent {
                     "... come see me soon, alright?</i>\"  Ro'gar smiles from the door and waves a hand, watching you leave.  You wander back into the city exhausted.\n\n",
                 false
             );
-            //<Lust sated, slimefeed>
+            // <Lust sated, slimefeed>
         }
-        //(([Get Anal] Scenario 1b: Get fucked (normal)))
+        // (([Get Anal] Scenario 1b: Get fucked (normal)))
         else {
             this.outputText(
                 "You nod eagerly, and the orc rewards you with another caress.  \"<i>Well then... let's head on out,</i>\" he says.  The two of you walk down the desert city's streets until you reach a discrete, out-of-the-way building labeled 'Steel Hogan Apartments'.  \"<i>S'about time you came home with me, " +
@@ -1057,7 +1057,7 @@ export class Rogar extends BaseContent {
                     "  You lean down as Ro'gar tilts up, your lips connecting with his, both mouths open to let tongues wrestle.",
                     false
                 );
-            //(If player height is less than 7 feet)
+            // (If player height is less than 7 feet)
             if (this.player.tallness < 84)
                 this.outputText(
                     "  You lean up into Ro'gar's mouth, his hand caressing your cheek.",
@@ -1110,7 +1110,7 @@ export class Rogar extends BaseContent {
                 false
             );
 
-            //[(If player is fat or has very defined muscles)
+            // [(If player is fat or has very defined muscles)
             if ((this.player.thickness >= 75 && this.player.tone < 33) || this.player.tone >= 75) {
                 this.outputText(
                     "Riding Ro'gar's stiff manhood as fast as you can muster, you drive the orc man wild with need.  His thick girth stretches your " +
@@ -1132,7 +1132,7 @@ export class Rogar extends BaseContent {
                         false
                     );
                 this.outputText(".", false);
-                //[(if player has toes)
+                // [(if player has toes)
                 this.outputText(
                     "  You curl your fingers and " +
                         this.player.feet() +
@@ -1146,7 +1146,7 @@ export class Rogar extends BaseContent {
                     false
                 );
             }
-            //(else)
+            // (else)
             else {
                 this.outputText(
                     "\"<i>Enough horsin' around.</i>\"  Ro'gar snarls as his arms quickly yank back, sneaking under your legs and hoisting you up as he gets to his feet.  You grip Ro'gar's shoulders tight as he lifts you with a strained grunt.  You delight with sharp little moans as he begins to fuck you skyward, bouncing you off of his hips with each slam of his cock into you.  Slowly Ro'gar steps towards a wall, taking his time to be sure not to drop you, and you soon feel the cool surface pressed to your back.  Caught between a cock and a hard place, you stare into Ro'gar's predatory gaze as he holds you hoisted in the air and pinned, making you feel vulnerable.  The orc takes advantage of you and begins to abuse your " +
@@ -1160,7 +1160,7 @@ export class Rogar extends BaseContent {
                         " lays out over your chest, dribbling pre-cum on your skin as you make a mess of your torso in lust.",
                     false
                 );
-                //[(if player has tail)
+                // [(if player has tail)
                 if (this.player.hasLongTail() || this.player.isNaga())
                     this.outputText(
                         "  Your tail flicks helplessly below you, urgently wrapping around Ro'gar's thigh and trying to pull him deeper into you.",
@@ -1172,7 +1172,7 @@ export class Rogar extends BaseContent {
                         ".  The sound of flesh smacking flesh is loud in your ears as you squirm from Ro'gar's cock.  Each thrust drives you mad with pleasure, your mind in a lust-induced haze as your prostate is prodded and poked.",
                     false
                 );
-                //[(If player has balls)
+                // [(If player has balls)
                 if (this.player.balls > 0)
                     this.outputText(
                         "  You feel your " +
@@ -1185,14 +1185,14 @@ export class Rogar extends BaseContent {
                     false
                 );
             }
-            //((Paths combine here))
+            // ((Paths combine here))
             this.outputText(
                 "With exhausted panting the only sound from both Ro'gar and yourself, you take a few moments to catch your breath.  Ro'gar affectionately nuzzles you before letting you get to your feet, holding you until he's sure you can stand easily.  The pair of you share a knowing look and Ro'gar grins at you.  \"<i>You're amazin', " +
                     this.player.short +
                     ".  You're welcome anytime ya like.</i>\"  He gives you a tender embrace as you collect your things and walk on wobbly legs toward the door, still feeling cum running down your legs beneath your garments.  The orc sees you off with a wave and a toothy grin.\n\n",
                 false
             );
-            //<Lust sated, slimefeed>
+            // <Lust sated, slimefeed>
         }
         this.player.orgasm();
         this.dynStats("sen", 2);
@@ -1200,7 +1200,7 @@ export class Rogar extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //((Scenario 2, [Give Anal]: Fuck Ro'gar))
+    // ((Scenario 2, [Give Anal]: Fuck Ro'gar))
     private fuckRogarsButtPussyBoyCuntManMoundSissySlitQueerQuim(): void {
         this.flags[kFLAGS.ROGAR_FUCKED_TODAY] = 1;
         this.outputText("", true);
@@ -1209,13 +1209,13 @@ export class Rogar extends BaseContent {
             "You nod eagerly, and the orc rewards you with another caress.  \"<i>Well then... let's head on out,</i>\" he says.  The two of you walk down the desert city's streets until you reach a discrete, out-of-the-way building labeled 'Steel Hogan Apartments', and Ro'gar leads you up to his room.  He opens the door and holds it for you, but with a gesture, you allow him to enter first.  As he walks in, you pull the door sharply behind you.  With a slam behind you and a startled look from the burly orc, you fix your eyes on him and tell him it's time he finds out who the boy really is in this relationship.  A confused look appears on Ro'gar's face.  ",
             false
         );
-        //[(If player is shorter than 6 feet)
+        // [(If player is shorter than 6 feet)
         if (this.player.tallness < 72)
             this.outputText(
                 "You reach a hand up to cup his chin, yanking it roughly towards your face as you plant a kiss on his lips.",
                 false
             );
-        //(If player is taller than 7 feet)
+        // (If player is taller than 7 feet)
         else if (this.player.tallness > 84)
             this.outputText(
                 "You reach down and cup Ro'gar's chin, roughly yanking it up to crash his lips against yours.  ",
@@ -1232,7 +1232,7 @@ export class Rogar extends BaseContent {
             "Pushing your hands against Ro'gar's body, and feeling the slime under your fingertips burning against your skin, you crawl over the prone orc to sit on his chest and point your groin toward his face.  With a grip on the back of his smooth head, you shove his face between your spread legs and let out a loud and satisfied moan.\n\n",
             false
         );
-        //[(If player has vagina and over 70 corruption)
+        // [(If player has vagina and over 70 corruption)
         if (this.player.cor > 70 && this.player.hasVagina())
             this.outputText(
                 "Ro'gar flicks his tongue toward your " +
@@ -1248,7 +1248,7 @@ export class Rogar extends BaseContent {
                     ", your vaginal walls clenching around his tongue as you pleasure yourself, working the goo over your flesh with your hand.  You look down and grin devilishly at him.\n\n",
                 false
             );
-        //(If player doesn't have vagina but has 70+ corruption)
+        // (If player doesn't have vagina but has 70+ corruption)
         else if (this.player.cor > 70)
             this.outputText(
                 "Ro'gar flicks his tongue over your " +
@@ -1270,7 +1270,7 @@ export class Rogar extends BaseContent {
             false
         );
 
-        //[((If biggest cock is less than 4 inches))
+        // [((If biggest cock is less than 4 inches))
         if (this.player.longestCockLength() < 4) {
             this.outputText(
                 '"<i>Yer serious?</i>" Ro\'gar asks with a quirked eyebrow.  You blink as he suddenly gets up to stare you in the eyes.  "<i>Not to be rude, ' +
@@ -1281,7 +1281,7 @@ export class Rogar extends BaseContent {
             this.doNext(this.camp.returnToCampUseOneHour);
             return; //end if too small
         }
-        //((else If smallest cock is over 18 inches))
+        // ((else If smallest cock is over 18 inches))
         else if (this.player.shortestCockLength() > 18) {
             this.outputText(
                 "\"<i>E-easy there...</i>\" Ro'gar actually stutters, looking at you with concern.  You are impossibly huge for him, and despite your titanic head rubbing pre-cum over Ro'gar's green hole it just won't fit.  You let out an annoyed grumble and begin to rub your length over Ro'gar's body and orc cock.  With lustful grunts Ro'gar bucks his hips into your " +
@@ -1289,14 +1289,14 @@ export class Rogar extends BaseContent {
                     ", grinding the stiff masts together as they leak and drool over one another.\n\n",
                 false
             );
-            //[(If multiple cock)
+            // [(If multiple cock)
             if (this.player.cockTotal() > 1)
                 this.outputText(
                     this.SMultiCockDesc() +
                         " grinds over every inch of Ro'gar's front, and his dark olive skin soaks in your glistening fluids.  Ro'gar's length is lost in the forest of your meat.  With his green monster assaulted by multiple angles and dwarfed in size he whimpers softly.  \"<i>Ain't never felt nothin' like this.  Almost like fuckin' a dick.</i>\"",
                     false
                 );
-            //(else If single cock)
+            // (else If single cock)
             else
                 this.outputText(
                     "Your " +
@@ -1306,7 +1306,7 @@ export class Rogar extends BaseContent {
                         " and grunt in strain; your hands reach down to grip the pair of manhoods tightly, jerking them fast with squeezed pumps.",
                     false
                 );
-            //(If player has balls)
+            // (If player has balls)
             if (this.player.balls > 0)
                 this.outputText(
                     "  Ro'gar squirms under you, his chest heaving with labored breath while his musky scrotum presses against your own.",
@@ -1322,7 +1322,7 @@ export class Rogar extends BaseContent {
             );
             this.outputText("\n\n", false);
         }
-        //((If cock is between 18 and 4 inches))
+        // ((If cock is between 18 and 4 inches))
         else {
             this.outputText(
                 "\"<i>E-easy there.</i>\"  Ro'gar actually stutters, looking at you with concern. Your lips curl into a devious grin as you roughly press into Ro'gar's puckered hole.  You slide in with an abrupt grunt, ignoring Ro'gar's yelps of pain at the sudden entry and reasoning that it couldn't have hurt too much, judging by how your " +
@@ -1330,13 +1330,13 @@ export class Rogar extends BaseContent {
                     " was literally coated in pre-cum.  But still, you find it amusing to push the orc's button and make him squirm for once.  Slipping in further, you bury yourself in Ro'gar's hole until he groans out and prematurely spurts more orc cum onto his stomach.",
                 false
             );
-            //[(If using feline cock)
+            // [(If using feline cock)
             if (this.player.cocks[0].cockType == CockTypesEnum.CAT)
                 this.outputText(
                     "  You grind around in his green pucker, the barbs working over Ro'gar's inner walls.  \"<i>W-what in tarnation?</i>\" Ro'gar grunts as you watch him squirm under you.  You buck your hips, digging deeper into orcflesh with each thrust, his muscled ass tensing with each slam of your hips.",
                     false
                 );
-            //(If horse cock)
+            // (If horse cock)
             else if (this.player.cocks[0].cockType == CockTypesEnum.HORSE)
                 this.outputText(
                     "  The flared head of your " +
@@ -1344,13 +1344,13 @@ export class Rogar extends BaseContent {
                         " nestles in Ro'gar's hole.  His breath quickens as you push in, the girthy, flared head stretching Ro'gar's insides impossibly.  You simply thrust and buck you way deeper within the green pucker to force more of your lengthy shaft past that olive rosebud each time.\n\n",
                     false
                 );
-            //(If dog cock)
+            // (If dog cock)
             else if (this.player.hasKnot(0))
                 this.outputText(
                     "  Your pointed tip slips in easily and you begin to plunge into Ro'gar's depths, and the burly orc gives satisfied grunts as his strong hand reaches down to touch himself.  You begin to fill his orc hole, the pre-slicked cock working as a lubing tool as you begin to build a nice rhythm within Ro'gar.  Your knot bulges as your climax approaches and begins to ram into Ro'gar's green pucker, the tight ring unable to allow entry as you swell bigger and bigger.",
                     false
                 );
-            //(If other cock)
+            // (If other cock)
             else
                 this.outputText(
                     "  Breaking Ro'gar's orc hole open, you thrust deep within his hot, tight depths.  The burly orc pants with heated breaths, humid air fluttering out of his tusked mouth.  His musclegut heaves, each breath punctuating the thrusts of your hips.  You plow his ass roughly, pulling out until only the head remains inside him before plunging back in further than before.  Ro'gar grunts low in his chest with each bit of progress made, his strong, calloused hand stroking his drooling cock.  \"<i>Mmmf, " +
@@ -1358,7 +1358,7 @@ export class Rogar extends BaseContent {
                         ',</i>" he groans as you finally hilt yourself within him.',
                     false
                 );
-            //end racialdicks, still inside right fit path
+            // end racialdicks, still inside right fit path
 
             this.outputText(
                 "\n\nYou grip his hips and begin a steady pace, slapping flesh loudly against his muscled ass.  His thick, powerful legs twitch in the air as you pound into his orcish hole, and the orc's toes curl visibly with each brutal thrust you make into him.  You groan as his musk makes your " +
@@ -1382,13 +1382,13 @@ export class Rogar extends BaseContent {
                     " is milked hard as you feel your climax rapidly approaching.  Sweat drips from your body onto Ro'gar's skin, and you finally feel yourself hit the edge.  With a burst of ecstasy you hilt completely within your orc fuck toy.",
                 false
             );
-            //[(If dog cock)
+            // [(If dog cock)
             if (this.player.hasKnot(0))
                 this.outputText(
                     "  Your knot forces past Ro'gar's tight, anal ring to pulse inside him, joining the pair of you together.",
                     false
                 );
-            //[(if player has balls)
+            // [(if player has balls)
             if (this.player.balls > 0)
                 this.outputText(
                     "  With short jerks of your hips, you begin to unload your pent up orbs into the orc's innards.",
@@ -1398,7 +1398,7 @@ export class Rogar extends BaseContent {
                 "  Wave after wave of thick seed spills from your cock into Ro'gar as his head falls back at the blissful sensation.",
                 false
             );
-            //[(if multiple cock)
+            // [(if multiple cock)
             if (this.player.cockTotal() > 1)
                 this.outputText(
                     "  The other meat rubbing over his olive skin outside adds to the coating of spunk, making a giant mess of Ro'gar's body.  In seconds he resembles a well-paid whore beneath your " +
@@ -1408,21 +1408,21 @@ export class Rogar extends BaseContent {
                 );
             this.outputText("\n\n", false);
         }
-        //end right fit path
-        //((Combine too big, and right size paths))
+        // end right fit path
+        // ((Combine too big, and right size paths))
         this.outputText(
             "Ro'gar's cum-coated body lies panting under you.  You slowly soften and lay limp against his olive skin, then pull away and clean yourself off.  Ro'gar stirs slowly, only rising to a seated position by the time you are dressed.  \"<i>That was really... something.  I don't really know what got inta ya, " +
                 this.player.short +
                 ", but ya really know how ta surprise a feller.</i>\"  With a sly smirk you intone that he had it coming and finish putting on your clothes, then walk over to smack Ro'gar's cum-covered ass with your hand.  The giant orc looks stunned a moment before giving a playful grin.  \"<i>Frisky, aren't'cha?</i>\"  He snickers low in his rumbling chest, then gets up to wave you off, but you're already out the door and heading back into the city with a spritely skip added to your step.",
             false
         );
-        //<Lust sated>
+        // <Lust sated>
         this.player.orgasm();
         this.dynStats("sen", -1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //((Scenario 3, [Drink! (sorta)]: Fun with Bro Brew(Requires one bro brew per visit, uses it and turns player into a Bro)))
+    // ((Scenario 3, [Drink! (sorta)]: Fun with Bro Brew(Requires one bro brew per visit, uses it and turns player into a Bro)))
     private brobrobrobro(): void {
         this.outputText("", true);
         this.spriteSelect(86);
@@ -1430,7 +1430,7 @@ export class Rogar extends BaseContent {
             'You follow Ro\'gar home and walk into the apartment, draping your arm around the orc man in a tight hug. "<i>Glad ta see you too.  What\'s that you got?</i>"  Ro\'gar looks at the can in your pack.  "<i>Bro Brew!  Love the stuff.  That for me?</i>"  He snickers and snags it before you can object, then plays keepaway with you, yanking the can out of reach.  Did you want to keep that?  His dangerous, playful expression would suggest he means to make mischief for you if you try to grab it, and it may get spilled - on you!\n\n',
             false
         );
-        //[Fukkin' Grab It!][Reverse Psychology]
+        // [Fukkin' Grab It!][Reverse Psychology]
         this.simpleChoices(
             "FukkinGrabIt",
             this.takeDatBroBrewFromDaBigMeanOlOrc,
@@ -1444,7 +1444,7 @@ export class Rogar extends BaseContent {
             undefined
         );
     }
-    //[reverse psychology]
+    // [reverse psychology]
     private rogarIsDumb(): void {
         this.outputText("", true);
         this.spriteSelect(86);
@@ -1457,11 +1457,11 @@ export class Rogar extends BaseContent {
             "The playful mood broken, you hang out for a while and shoot the breeze, then head back.",
             false
         );
-        //end
+        // end
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Fukkin' Grab It!]
+    // [Fukkin' Grab It!]
     private takeDatBroBrewFromDaBigMeanOlOrc(): void {
         this.flags[kFLAGS.ROGAR_FUCKED_TODAY] = 1;
         this.player.consumeItem(this.consumables.BROBREW);
@@ -1514,7 +1514,7 @@ export class Rogar extends BaseContent {
                 this.dynStats("lib", 0.1);
             }
             this.outputText("\n\n", false);
-            //(Tits b' gone)
+            // (Tits b' gone)
             if (this.player.biggestTitSize() >= 1) {
                 if (this.player.breastRows.length > 1) {
                     while (this.player.breastRows.length > 1) {
@@ -1540,16 +1540,16 @@ export class Rogar extends BaseContent {
                     this.player.ballSize = 3;
                 }
             }
-            //(Pussy b gone)
+            // (Pussy b gone)
             if (this.player.hasVagina()) {
                 this.player.removeVagina(0, 1);
             }
             this.player.genderCheck();
-            //(below max masculinity)
+            // (below max masculinity)
             if (this.player.femininity > 0) {
                 this.player.modFem(0, 100);
             }
-            //max tone.  Thickness + 50
+            // max tone.  Thickness + 50
             if (this.player.tone < 100) {
                 this.player.modTone(100, 100);
             }
@@ -1561,17 +1561,17 @@ export class Rogar extends BaseContent {
             changed = true;
             this.player.removePerk(PerkLib.Feeder);
         }
-        //[(if player received a change from brew)
+        // [(if player received a change from brew)
         if (changed) {
             this.outputText("  You realize you look much stronger, bigger, and sexier", false);
-            //(if dick grew)
+            // (if dick grew)
             if (cocked)
                 this.outputText(
                     ", and you smile to yourself as your now-larger endowment rubs against garments not suited to it",
                     false
                 );
             this.outputText(".  Who needs book smarts anyway?  Nerds.", false);
-            //lose lust, gain bro traits, slimefeed
+            // lose lust, gain bro traits, slimefeed
             this.player.createPerk(PerkLib.BroBrains, 0, 0, 0, 0);
             this.player.createPerk(PerkLib.BroBody, 0, 0, 0, 0);
             this.outputText("<b>(Bro Body - Perk Gained!)\n", false);
@@ -1586,7 +1586,7 @@ export class Rogar extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //((Scenario 4, [Frot]))
+    // ((Scenario 4, [Frot]))
     private frotWithRogar(): void {
         this.flags[kFLAGS.ROGAR_FUCKED_TODAY] = 1;
         this.outputText("", true);
@@ -1599,7 +1599,7 @@ export class Rogar extends BaseContent {
                 ".\n\n",
             false
         );
-        //(If multiple cocks)
+        // (If multiple cocks)
         if (this.player.cockTotal() > 1) {
             this.outputText(
                 "Feeling your lengths stiffen against Ro'gar's hard green monster, you buck against Ro'gar's hard need, enveloping it in your cocks and coaxing a lewd groan from the orc.  Ro'gar growls as he feels his orc length surrounded, his green member being slathered with your pre-cum from multiple directions.  His arms wrap around you as he fucks your " +
@@ -1614,7 +1614,7 @@ export class Rogar extends BaseContent {
                 false
             );
         }
-        //(If single cock)
+        // (If single cock)
         else {
             this.outputText(
                 "Your cock presses tight against Ro'gar's fat orc cock. He growls low as he grinds himself over you, his thick, globbing pre-cum drooling onto your " +
@@ -1622,7 +1622,7 @@ export class Rogar extends BaseContent {
                     ".  Muffled groans escape Ro'gar's mouth as you kiss him roughly, tongues locked all the while in writhing combat.  ",
                 false
             );
-            //[(If player has balls)
+            // [(If player has balls)
             if (this.player.balls > 0)
                 this.outputText(
                     "Your " +
@@ -1637,18 +1637,18 @@ export class Rogar extends BaseContent {
                 false
             );
         }
-        //(( Paths combine here))
+        // (( Paths combine here))
         this.outputText(
             "The pair of you pant as you lean against the wall.  You manage to pick your head up to smile at the orc and rub Ro'gar's cum-covered chest, smearing your own spooge with your finger; the orc does the same with his cum on your chest.  You dip your cum-coated finger into his mouth as he mirrors the action with you, before falling into a lust-driven make-out session flavored with cum and saliva.  As you break the sloppy kiss, you can feel your slick, cum-covered, flaccid cocks pressing against each other.  With a laugh, you break the embrace.  Pleased grins flash back and forth as you get dressed and ready to leave.  Ro'gar remains nude and waves you off from the doorway, still covered in cum.",
             false
         );
-        //lose 100 lust, gain a little back, slimefeed?
+        // lose 100 lust, gain a little back, slimefeed?
         this.player.orgasm();
         this.dynStats("lus", 20);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //(([Get Tied Up], copy of Scenario 1a))
+    // (([Get Tied Up], copy of Scenario 1a))
     private kinkyWithDaOrc(): void {
         this.flags[kFLAGS.ROGAR_FUCKED_TODAY] = 1;
         this.outputText("", true);
@@ -1712,7 +1712,7 @@ export class Rogar extends BaseContent {
                 " before you see it, the deep green head towering over your groin menacingly, each vein pulsing as the mammoth cock belches pre-cum to leak down the orcish shaft.  Your skin is soon slick with his spurting pre as he groans out. \"That's much better.\"  Ro'gar's breath becomes labored as he pants heavily and eagerly, his green length humping against your rosebud, making you moan out in an excess of sensation.  His hands hold your cheeks apart with a strong grip as you begin to leak your own pre-cum onto your stomach.",
             false
         );
-        //(if player has balls)
+        // (if player has balls)
         if (this.player.balls > 0)
             this.outputText(
                 "  Ro'gar's dark green cockhead rubs over your " +
@@ -1794,7 +1794,7 @@ export class Rogar extends BaseContent {
         );
         if (this.player.hasLongTail() || this.player.isNaga())
             this.outputText("  Your tail, still gripping Ro'gar's arm, squeezes tight.", false);
-        //(If player has balls)
+        // (If player has balls)
         if (this.player.balls > 0)
             this.outputText(
                 "  Your " +
@@ -1828,7 +1828,7 @@ export class Rogar extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //(([Orc Rub Down], get some fun with oils))
+    // (([Orc Rub Down], get some fun with oils))
     private rubdubWithDaOrcWithoutDucky(): void {
         this.flags[kFLAGS.ROGAR_FUCKED_TODAY] = 1;
         this.outputText("", true);
@@ -1875,7 +1875,7 @@ export class Rogar extends BaseContent {
                 " with his throbbing cock with a chuckle, his mouth curls into a coy smile. You watch as Ro'gar reaches his arms back, resting his head on his hands as he bares his underarm and pits.\n\n",
             false
         );
-        //[Play with pits][Ignore pits]
+        // [Play with pits][Ignore pits]
         this.simpleChoices(
             "Play with pits",
             this.sexyOrcPitsAreSexy,
@@ -1889,7 +1889,7 @@ export class Rogar extends BaseContent {
             undefined
         );
     }
-    //[Play with pits]
+    // [Play with pits]
     private sexyOrcPitsAreSexy(): void {
         this.outputText("", true);
         this.spriteSelect(86);
@@ -1940,10 +1940,10 @@ export class Rogar extends BaseContent {
         this.player.orgasm();
         this.dynStats("sen", 2);
         this.player.slimeFeed();
-        //end
+        // end
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[Ignore pits]
+    // [Ignore pits]
     private lickSomeMoreOrcButNoPits(): void {
         this.outputText("", true);
         this.spriteSelect(86);
@@ -1986,7 +1986,7 @@ export class Rogar extends BaseContent {
         this.player.orgasm();
         this.dynStats("sen", 2);
         this.player.slimeFeed();
-        //end
+        // end
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 }

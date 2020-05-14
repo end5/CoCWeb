@@ -32,11 +32,11 @@ export class Mountain extends BaseContent {
     public infestedHellhoundScene: InfestedHellhoundScene = new InfestedHellhoundScene();
     public minotaurScene: MinotaurScene = new MinotaurScene();
     public salon: Salon = new Salon();
-    //Explore Mountain
+    // Explore Mountain
     public exploreMountain(): void {
         this.player.exploredMountain++;
         var chooser: number = Mountain.rand(4);
-        //Helia monogamy fucks
+        // Helia monogamy fucks
         if (
             this.flags[kFLAGS.PC_PROMISED_HEL_MONOGAMY_FUCKS] == 1 &&
             this.flags[kFLAGS.HEL_RAPED_TODAY] == 0 &&
@@ -47,7 +47,7 @@ export class Mountain extends BaseContent {
             kGAMECLASS.helScene.helSexualAmbush();
             return;
         }
-        //Discover 'high mountain' at level 5 or 40 explores of mountain
+        // Discover 'high mountain' at level 5 or 40 explores of mountain
         if (
             (this.player.level >= 5 || this.player.exploredMountain >= 40) &&
             this.flags[kFLAGS.DISCOVERED_HIGH_MOUNTAIN] == 0
@@ -61,7 +61,7 @@ export class Mountain extends BaseContent {
             return;
         }
         if (this.isHolidays()) {
-            //Gats xmas adventure!
+            // Gats xmas adventure!
             if (
                 Mountain.rand(5) == 0 &&
                 this.player.gender > 0 &&
@@ -83,11 +83,11 @@ export class Mountain extends BaseContent {
                 return;
             }
         }
-        //8% chance of hellhoundsplosions if appropriate
+        // 8% chance of hellhoundsplosions if appropriate
         if (Mountain.rand(100) <= 77) {
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00141] < 3) {
                 trace("CHANCE AT HELLHOUND GAO");
-                //Requires canine face, [either two dog dicks, or a vag and pregnant with a hellhound], at least two other hellhound features (black fur, dog legs, dog tail), and corruption >=60.
+                // Requires canine face, [either two dog dicks, or a vag and pregnant with a hellhound], at least two other hellhound features (black fur, dog legs, dog tail), and corruption >=60.
                 if (
                     this.player.faceType == FACE_DOG &&
                     (this.player.dogCocks() >= 2 ||
@@ -103,7 +103,7 @@ export class Mountain extends BaseContent {
                         this.hellHoundScene.HellHoundMasterEncounter();
                         return;
                     }
-                    //Level 2 requires lethecite
+                    // Level 2 requires lethecite
                     else if (
                         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00141] == 1 &&
                         this.player.hasKeyItem("Marae's Lethicite") >= 0 &&
@@ -115,8 +115,8 @@ export class Mountain extends BaseContent {
                 }
             }
         }
-        //Rarer 'nice' Ceraph encounter
-        //Overlaps half the old encounters once pierced.
+        // Rarer 'nice' Ceraph encounter
+        // Overlaps half the old encounters once pierced.
         if (
             !kGAMECLASS.ceraphFollowerScene.ceraphIsFollower() &&
             this.player.level > 2 &&
@@ -126,7 +126,7 @@ export class Mountain extends BaseContent {
             kGAMECLASS.ceraphScene.friendlyNeighborhoodSpiderManCeraph();
             return;
         }
-        //15% chance of Ceraph
+        // 15% chance of Ceraph
         if (
             !kGAMECLASS.ceraphFollowerScene.ceraphIsFollower() &&
             this.player.level > 2 &&
@@ -136,7 +136,7 @@ export class Mountain extends BaseContent {
             kGAMECLASS.ceraphScene.encounterCeraph();
             return;
         }
-        //10% chance of hairdresser encounter if not found yet
+        // 10% chance of hairdresser encounter if not found yet
         if (
             Mountain.rand(10) == 0 &&
             this.player.findStatusAffect(StatusAffects.HairdresserMeeting) < 0
@@ -150,20 +150,20 @@ export class Mountain extends BaseContent {
             kGAMECLASS.enterFactory();
             return;
         }
-        //Boosts mino and hellhound rates!
+        // Boosts mino and hellhound rates!
         if (this.player.findPerk(PerkLib.PiercedFurrite) >= 0 && Mountain.rand(3) == 0) {
             if (Mountain.rand(2) == 0) chooser = 1;
             else chooser = 3;
         }
-        //10% chance to mino encounter rate if addicted
+        // 10% chance to mino encounter rate if addicted
         if (this.flags[kFLAGS.MINOTAUR_CUM_ADDICTION_STATE] > 0 && Mountain.rand(10) == 0) {
             chooser = 1;
         }
-        //10% MORE chance for minos if uber-addicted
+        // 10% MORE chance for minos if uber-addicted
         if (this.player.findPerk(PerkLib.MinotaurCumAddict) >= 0 && Mountain.rand(10) == 0) {
             chooser = 1;
         }
-        //Every 15 explorations chance at mino bad-end!
+        // Every 15 explorations chance at mino bad-end!
         if (
             this.player.exploredMountain % 16 == 0 &&
             this.player.findPerk(PerkLib.MinotaurCumAddict) >= 0
@@ -173,21 +173,21 @@ export class Mountain extends BaseContent {
             return;
         }
         if (chooser == 0) {
-            //Determines likelyhood of imp/goblins
-            //Below - goblin, Equal and up - imp
+            // Determines likelyhood of imp/goblins
+            // Below - goblin, Equal and up - imp
             var impGob: number = 5;
             if (this.player.findPerk(PerkLib.PiercedLethite) >= 0) {
                 if (impGob <= 3) impGob += 2;
                 else if (impGob < 7) impGob = 7;
             }
             trace("IMP/Gobb");
-            //Dicks + lots of cum boosts goblin probability
-            //Vags + Fertility boosts imp probability
+            // Dicks + lots of cum boosts goblin probability
+            // Vags + Fertility boosts imp probability
             if (this.player.totalCocks() > 0) impGob--;
             if (this.player.hasVagina()) impGob++;
             if (this.player.totalFertility() >= 30) impGob++;
             if (this.player.cumQ() >= 200) impGob--;
-            //Imptacular Encounter
+            // Imptacular Encounter
             if (Mountain.rand(10) < impGob) {
                 if (this.player.level >= 8 && Mountain.rand(2) == 0) {
                     kGAMECLASS.impScene.impLordEncounter();
@@ -198,9 +198,9 @@ export class Mountain extends BaseContent {
                 this.spriteSelect(29);
                 return;
             }
-            //Encounter Gobbalin!
+            // Encounter Gobbalin!
             else {
-                //50% of the time, goblin assassin!
+                // 50% of the time, goblin assassin!
                 if (this.player.level >= 10 && Mountain.rand(2) == 0) {
                     kGAMECLASS.goblinAssassinScene.goblinAssassinEncounter();
                     return;
@@ -227,7 +227,7 @@ export class Mountain extends BaseContent {
                 }
             }
         }
-        //Minotauuuuur
+        // Minotauuuuur
         if (chooser == 1) {
             this.spriteSelect(44);
             if (
@@ -236,7 +236,7 @@ export class Mountain extends BaseContent {
                 this.player.str <= 40
             ) {
                 if (this.silly()) {
-                    //(Ideally, this should occur the first time the player would normally get an auto-rape encounter with the minotaur. The idea is to give a breather encounter to serve as a warning of how dangerous the mountain is)
+                    // (Ideally, this should occur the first time the player would normally get an auto-rape encounter with the minotaur. The idea is to give a breather encounter to serve as a warning of how dangerous the mountain is)
                     this.outputText(
                         "Crossing over the treacherous mountain paths, you walk past an ominous cave.  The bones and the smell of death convince you to hasten your pace.  However, as you walk by, you hear a deep bellow and a snort as a monstrous man with a bull's head steps out.  With hell in his eyes and a giant ax in his hand, he begins to approach you in clear rage.  As he comes out into the light, you see that he is completely naked and sports a monstrous erection as angry as the minotaur himself, freely leaking a steady stream of pre-cum as he stalks you.\n\n",
                         true
@@ -291,7 +291,7 @@ export class Mountain extends BaseContent {
                 this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
-            //Mino gangbang
+            // Mino gangbang
             if (
                 this.player.findStatusAffect(StatusAffects.MinoPlusCowgirl) < 0 ||
                 Mountain.rand(10) == 0
@@ -306,8 +306,8 @@ export class Mountain extends BaseContent {
                     this.player.biggestTitSize() >= 3 &&
                     this.player.minotaurAddicted()
                 ) {
-                    //PC must be a cowmorph (horns, legs, ears, tail, lactating, breasts at least C-cup)
-                    //Must be addicted to minocum
+                    // PC must be a cowmorph (horns, legs, ears, tail, lactating, breasts at least C-cup)
+                    // Must be addicted to minocum
                     this.outputText(
                         "As you pass a shadowy cleft in the mountainside, you hear the now-familiar call of a cowgirl echoing from within.  Knowing what's in store, you carefully inch closer and peek around the corner."
                     );
@@ -334,7 +334,7 @@ export class Mountain extends BaseContent {
                         "\n\nSnapping out of your imaginative reverie, you turn your attention back to the show. You wonder if you could make your way over there and join them, or if you should simply remain here and watch, as you have in the past."
                     );
                     this.menu();
-                    //[Join] [Watch]
+                    // [Join] [Watch]
                     this.addButton(0, "Join", this.joinBeingAMinoCumSlut);
                     this.addButton(1, "Watch", this.watchAMinoCumSlut);
                     return;
@@ -370,8 +370,8 @@ export class Mountain extends BaseContent {
                 this.doNext(this.continueMinoVoyeurism);
                 return;
             }
-            //Cum addictus interruptus!  LOL HARRY POTTERFAG
-            //Withdrawl auto-fuck!
+            // Cum addictus interruptus!  LOL HARRY POTTERFAG
+            // Withdrawl auto-fuck!
             if (this.flags[kFLAGS.MINOTAUR_CUM_ADDICTION_STATE] == 3) {
                 this.minotaurScene.minoAddictionFuck();
                 return;
@@ -379,9 +379,9 @@ export class Mountain extends BaseContent {
             this.minotaurScene.getRapedByMinotaur(true);
             this.spriteSelect(44);
         }
-        //Worms
+        // Worms
         if (chooser == 2) {
-            //If worms are on and not infested.
+            // If worms are on and not infested.
             if (
                 this.player.findStatusAffect(StatusAffects.WormsOn) >= 0 &&
                 this.player.findStatusAffect(StatusAffects.Infested) < 0
@@ -417,7 +417,7 @@ export class Mountain extends BaseContent {
                 }
                 kGAMECLASS.wormEncounter();
             } else {
-                //If worms are off or the PC is infested, no worms.
+                // If worms are off or the PC is infested, no worms.
                 if (
                     this.player.findStatusAffect(StatusAffects.WormsOff) >= 0 ||
                     this.player.findStatusAffect(StatusAffects.Infested) >= 0 ||
@@ -452,11 +452,11 @@ export class Mountain extends BaseContent {
                 }
             }
         }
-        //Hellhound
+        // Hellhound
         if (chooser == 3) {
             this.spriteSelect(27);
             if (this.player.findStatusAffect(StatusAffects.WormsOn) >= 0 && Mountain.rand(2) == 0) {
-                //If lowered encounter rate, 25% chance, otherwise 50%.
+                // If lowered encounter rate, 25% chance, otherwise 50%.
                 if (
                     this.player.findStatusAffect(StatusAffects.WormsHalf) >= 0 &&
                     Mountain.rand(2) == 0
@@ -469,7 +469,7 @@ export class Mountain extends BaseContent {
             }
             this.hellHoundScene.hellhoundEncounter();
         }
-        //Hairdresser
+        // Hairdresser
         if (chooser == 4) {
             this.salon.hairDresser();
         }
@@ -665,15 +665,15 @@ export class Mountain extends BaseContent {
             );
             this.dynStats("lus=", 100);
         }
-        //Chance to impregnate PC, get mino-fix, and maybe relief from feeder perk.
+        // Chance to impregnate PC, get mino-fix, and maybe relief from feeder perk.
         this.player.minoCumAddiction(10);
         this.player.knockUp(PregnancyStore.PREGNANCY_MINOTAUR, PregnancyStore.INCUBATION_MINOTAUR);
         if (this.player.findStatusAffect(StatusAffects.Feeder) >= 0) {
-            //You've now been milked, reset the timer for that
+            // You've now been milked, reset the timer for that
             this.player.addStatusValue(StatusAffects.Feeder, 1, 1);
             this.player.changeStatusValue(StatusAffects.Feeder, 2, 0);
         }
-        //(Acquired minotaur cum!)
+        // (Acquired minotaur cum!)
         this.model.time.hours++;
         this.inventory.takeItem(this.consumables.MINOCUM, this.camp.returnToCampUseOneHour);
     }
@@ -692,7 +692,7 @@ export class Mountain extends BaseContent {
         this.outputText(
             "\n\nThe pair quickly settles into a rhythm, punctuated with numerous grunts, groans, and moans of sexual excess.  To you it's almost a violent assault sure to leave both of them bruised and sore, but the cow-girl's lolling tongue and expression of overwhelming desire tells you otherwise.  She's enjoying every thrust as well as the strokes, gropes, and seemingly painful squeezes the minotaur's powerful hands deliver to her jiggling ass and ponderous tits.  He's little better, his eyes glazed over with lust as he continues banging the fuck-hole he found and all but mauling its owner."
         );
-        //[Next]
+        // [Next]
         this.dynStats("lus", 10);
         this.menu();
         this.addButton(0, "Next", this.watchMinoCumSlutII);
@@ -722,7 +722,7 @@ export class Mountain extends BaseContent {
             "As you look at the two cum-covered creatures laying their in their exhausted sex-induced stupors, the minotaur's thick horse-cock now slowly deflating, you realize that you've been touching yourself.  You make yourself stop ",
             false
         );
-        //[low corruption]
+        // [low corruption]
         if (this.player.cor < 33) this.outputText("in disgust.", false);
         else if (this.player.cor < 66) this.outputText("in confusion.", false);
         else this.outputText("reluctantly.", false);
@@ -730,13 +730,13 @@ export class Mountain extends BaseContent {
             "\n\nOnly now do you notice other faces peeking over ledges and ridges. You count at least two goblins and one imp who quickly pull back. From the sounds, they were busy getting themselves off.",
             false
         );
-        //[if first appearance of this event]
+        // [if first appearance of this event]
         if (this.player.statusAffectv1(StatusAffects.MinoPlusCowgirl) == 0)
             this.outputText(
                 "  Apparently this isn't an uncommon show, and the locals enjoy it immensely.",
                 false
             );
-        //Lust!
+        // Lust!
         this.dynStats(
             "lus",
             5 + this.player.lib / 20 + this.player.minoScore() + this.player.cowScore()

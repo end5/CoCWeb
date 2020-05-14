@@ -87,7 +87,7 @@ export class Parser {
         var argLower: string;
         argLower = arg.toLowerCase();
         if (argLower in singleArgConverters) {
-            //if (logErrors) trace("WARNING: Found corresponding anonymous function");
+            // if (logErrors) trace("WARNING: Found corresponding anonymous function");
             argResult = singleArgConverters[argLower](this._ownerClass);
 
             if (this.lookupParserDebug) trace("WARNING: Called, return = ", argResult);
@@ -429,7 +429,7 @@ export class Parser {
         var condArg1: any = this.convertConditionalArgumentFromStr(condArgStr1);
         var condArg2: any = this.convertConditionalArgumentFromStr(condArgStr2);
 
-        //Perform check
+        // Perform check
         if (operator == "=") retVal = condArg1 == condArg2;
         else if (operator == ">") retVal = condArg1 > condArg2;
         else if (operator == "==") retVal = condArg1 == condArg2;
@@ -572,7 +572,7 @@ export class Parser {
         var i: number = 0;
         var parenthesisCount: number = 0;
 
-        //var ifText;
+        // var ifText;
         var conditional: any;
         var output: any;
 
@@ -710,7 +710,7 @@ export class Parser {
 
             return tmp3; // and then stick it on the display
 
-            //if (sceneParserDebug) trace("WARNING: Scene contents: \"" + tmp1 + "\" as parsed: \"" + tmp2 + "\"")
+            // if (sceneParserDebug) trace("WARNING: Scene contents: \"" + tmp1 + "\" as parsed: \"" + tmp2 + "\"")
         } else {
             return (
                 'Insert sceneSection called with unknown arg "' +
@@ -750,7 +750,7 @@ export class Parser {
             trace("WARNING: Do we have the scene name? ", sceneName in this.parserState);
         if (sceneName == "exit") {
             if (this.sceneParserDebug) trace("WARNING: Enter scene called to exit");
-            //doNextClear(debugPane);
+            // doNextClear(debugPane);
 
             // TODO:
             // This needs to change to something else anyways. I need to add the ability to
@@ -769,7 +769,7 @@ export class Parser {
 
             this._ownerClass.rawOutputText(ret, true); // and then stick it on the display
 
-            //if (sceneParserDebug) trace("WARNING: Scene contents: \"" + tmp1 + "\" as parsed: \"" + tmp2 + "\"")
+            // if (sceneParserDebug) trace("WARNING: Scene contents: \"" + tmp1 + "\" as parsed: \"" + tmp2 + "\"")
             if (this.sceneParserDebug)
                 trace('WARNING: Scene contents after markdown: "' + ret + '"');
         } else if (this.getObjectFromString(this._ownerClass, sceneName) != undefined) {
@@ -832,7 +832,7 @@ export class Parser {
 
         var buttonName: string = this.stripStr(arr[1]);
         var buttonFunc: string = this.stripStr(arr[0].substring(arr[0].indexOf(" ")));
-        //trace("WARNING: adding a button with name\"" + buttonName + "\" and function \"" + buttonFunc + "\"");
+        // trace("WARNING: adding a button with name\"" + buttonName + "\" and function \"" + buttonFunc + "\"");
         this._ownerClass.addButton(this.buttonNum, buttonName, this.enterParserScene, buttonFunc);
         this.buttonNum += 1;
     }
@@ -934,12 +934,12 @@ export class Parser {
             for (i = lastBracket; i < textCtnt.length; i += 1) {
                 if (textCtnt.charAt(i) == "[") {
                     if (textCtnt.charAt(i - 1) != "\\") {
-                        //trace("WARNING: bracket is not escaped - 2");
+                        // trace("WARNING: bracket is not escaped - 2");
                         bracketCnt += 1;
                     }
                 } else if (textCtnt.charAt(i) == "]") {
                     if (textCtnt.charAt(i - 1) != "\\") {
-                        //trace("WARNING: bracket is not escaped - 3");
+                        // trace("WARNING: bracket is not escaped - 3");
                         bracketCnt -= 1;
                     }
                 }
@@ -966,7 +966,7 @@ export class Parser {
                             trace(
                                 "WARNING: ------------------0000000000000000000000000000000000000000000000000000000000000000-----------------------"
                             );
-                        //trace("WARNING: Parsed Ccnditional - ", retStr)
+                        // trace("WARNING: Parsed Ccnditional - ", retStr)
                     } else if (tmpStr) {
                         if (this.printCcntentDebug)
                             trace("WARNING: Parsing bracket contents = ", tmpStr);
@@ -1082,7 +1082,7 @@ export class Parser {
             // trace("WARNING: Returning: ", ret);
             this._ownerClass.currentText = ret;
         }
-        //trace(ret);
+        // trace(ret);
         // trace("WARNING: Maintext content @ recursiveParser = ", mainText.htmlText.length)
         return ret;
     }

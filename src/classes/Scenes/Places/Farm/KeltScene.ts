@@ -64,30 +64,30 @@ STATUSES:
         return this.player.statusAffectv1(StatusAffects.Kelt);
     }
 
-    //Function to choose which Kelt Encounter to load.
+    // Function to choose which Kelt Encounter to load.
     public keltEncounter(): void {
         this.spriteSelect(35);
-        //Clear screen, set next button, and count how many times hes been encountered
+        // Clear screen, set next button, and count how many times hes been encountered
         this.outputText("", true);
         this.player.addStatusValue(StatusAffects.Kelt, 3, 1);
-        //If First Encounter
+        // If First Encounter
         if (this.player.findStatusAffect(StatusAffects.Kelt) < 0) {
             this.player.createStatusAffect(StatusAffects.Kelt, 0, 0, 1, 0);
             this.keltFirstTime();
         }
-        //Repeated encounter
+        // Repeated encounter
         else {
-            //Second/Third Events - Normal
+            // Second/Third Events - Normal
             if (this.player.statusAffectv3(StatusAffects.Kelt) <= 3) {
                 this.keltMainEncounter();
                 return;
             }
-            //Bad Ends
+            // Bad Ends
             if (this.player.statusAffectv2(StatusAffects.Kelt) >= 130) {
                 this.keltSubmissiveBadEnd();
                 return;
             }
-            //Centaur bad end
+            // Centaur bad end
             if (
                 this.player.lowerBody == LOWER_BODY_TYPE_CENTAUR &&
                 this.player.statusAffectv2(StatusAffects.Kelt) >= 100 &&
@@ -108,7 +108,7 @@ STATUSES:
                 } else this.keltCentaurBadEnd();
                 return;
             }
-            //Naked event if its time for it
+            // Naked event if its time for it
             if (
                 this.player.statusAffectv3(StatusAffects.Kelt) == 4 &&
                 this.player.findStatusAffect(StatusAffects.NakedOn) < 0
@@ -116,7 +116,7 @@ STATUSES:
                 this.keltRequiresNakedness();
                 return;
             }
-            //60+ Submissiveness—First Time Blowjob Requirement
+            // 60+ Submissiveness—First Time Blowjob Requirement
             if (
                 this.player.statusAffectv2(StatusAffects.Kelt) >= 40 &&
                 this.player.findStatusAffect(StatusAffects.KeltBJ) < 0
@@ -124,15 +124,15 @@ STATUSES:
                 this.keltRequiresBlowjobs();
                 return;
             }
-            //75+ Submissiveness, 60+ Lust—Lust Encounter
-            //Remaining events
+            // 75+ Submissiveness, 60+ Lust—Lust Encounter
+            // Remaining events
             if (this.player.statusAffectv3(StatusAffects.Kelt) > 4) {
                 this.keltMainEncounter();
             }
         }
     }
 
-    //Introduction
+    // Introduction
     private keltFirstTime(): void {
         this.outputText(
             "As you approach Whitney's farm, you notice a figure in the pastures, way in the distance.  It seems to be someone riding a horse, to your surprise... possibly even Whitney herself.  You hadn't expected to find real horses in this forsaken realm.  If you could somehow trade for one, it would be a real help.  Energized by the idea, you hop the fence, approaching the distant figure.\r\r",
@@ -164,7 +164,7 @@ STATUSES:
         );
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Naked Requirement
+    // Naked Requirement
     private keltRequiresNakedness(): void {
         this.outputText(
             "Once more, you encounter Kelt the centaur at Whitney's farm.  You approach him to ask for another archery lesson, but Kelt is already scowling at you as you draw near.\r\r",
@@ -217,7 +217,7 @@ STATUSES:
                 "Never",
                 this.keltRefuseNakedness
             );
-        //(Corruption higher than 60 automatically chooses eagerly)
+        // (Corruption higher than 60 automatically chooses eagerly)
         if (this.player.cor + this.player.lib + this.player.lust >= 180) {
             this.outputText(" Of course you do.  You love putting on a show.", false);
             // go eagerly.
@@ -225,18 +225,18 @@ STATUSES:
         }
     }
 
-    //Naked Requirement, Never
+    // Naked Requirement, Never
     private keltRefuseNakedness(): void {
         this.spriteSelect(35);
         this.outputText(
             "You adamantly refuse, determined to not give this arrogant centaur the satisfaction.  Kelt sneers at you derisively, and gives you several pieces of advice as to what could fit up your rear end.  As his insults grow more colorful, you turn and leave; his mocking laughter follows behind you.  You resolve to not bother with him anymore.\r\r(Somehow you know you'll never encounter him again.)",
             true
         );
-        //(Kelt never encountered again)
+        // (Kelt never encountered again)
         this.player.createStatusAffect(StatusAffects.KeltOff, 0, 0, 0, 0);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Naked Requirement, Eagerly
+    // Naked Requirement, Eagerly
     private keltEagerlyGetNaked(): void {
         this.doNext(this.camp.returnToCampUseOneHour);
         this.spriteSelect(35);
@@ -262,7 +262,7 @@ STATUSES:
                     "\"<i>Oops!  Could have sworn I'd find a pair of tits on you.  That's okay... I'm sure you'll hit puberty some day!</i>\"\r\r",
                     false
                 );
-            //(Too small, A to DD:
+            // (Too small, A to DD:
             else if (this.player.biggestTitSize() <= 5)
                 this.outputText(
                     '"<i>Ha! No wonder you cover up like a sniveling human!  Any centaur maiden would be ashamed to go out in public with ' +
@@ -270,13 +270,13 @@ STATUSES:
                         " mosquito bites like that!  What do they call you back home... 'Tiny Tits'?  Or maybe they all just assume you're a guy!</i>\"\r\r",
                     false
                 );
-            //(Medium, E to HHH:
+            // (Medium, E to HHH:
             else if (this.player.biggestTitSize() <= 11)
                 this.outputText(
                     '"<i>Uh oh, boys... look out!  Miss Melons here has been putting on a little weight!  How did someone like you become an adventurer?  From the waist up, you\'re good for whoring and not much else!</i>"\r\r',
                     false
                 );
-            //(Big, Watermelon and beyond:
+            // (Big, Watermelon and beyond:
             else
                 this.outputText(
                     "\"<i>Oooh, doesn't that look yummy?  Be honest... you wanna learn to shoot?  You'll be slapping yourself in the tits with every shot!  Heh... I bet that's the way you like it too!  Time to change your profession, slut.  Wet nurse and milk cow... they're just about all you're suited for!</i>\"\r\r",
@@ -287,19 +287,19 @@ STATUSES:
             "Despite his harsh comments, you can see the lust in Kelt's eyes, and are more than a little turned on by his derisive laughter.  His critique only becomes more lewd when you continue.  As you remove the lower half of your clothes, stripping completely naked, he eyes your ass and lets out a crude hoot of scornful delight, ",
             false
         );
-        //(Too small, Firm to Shapely:
+        // (Too small, Firm to Shapely:
         if (this.player.buttRating < 6)
             this.outputText(
                 '"<i>Well, someone works out!  Got a nice, tight little ass there! Probably a little too tight, huh?  Don\'t worry, you can tell me... do the mean old monsters hurt when they fuck that poor little ass of yours? HA!</i>"\r\r',
                 false
             );
-        //(Medium, Large to Heavy:
+        // (Medium, Large to Heavy:
         else if (this.player.buttRating < 13)
             this.outputText(
                 "\"<i>Hey, nice little cushion you got back here!  Do you get that from sitting around all day?  Nah, can't be that.  I'm sure you get more than a workout on this baby... of course, cock is no substitute for a little exercise, you know!</i>\"\r\r",
                 false
             );
-        //(Big, Voluminous and beyond:
+        // (Big, Voluminous and beyond:
         else
             this.outputText(
                 '"<i>Now there\'s a rear end I could get behind!  For someone who claims to be a hero, you sure are built like a fucktoy!  With an ass like that, you remind me of my last lay... of course, she was a horse!</i>"\r\r',
@@ -309,57 +309,57 @@ STATUSES:
             "He slaps your ass with his open palm, getting in a good grope while he's at it.  His animalistic musk is in your nostrils, making you feel dizzy and more than a little aroused.  He grins widely, then walks around to your front, ",
             false
         );
-        //(No Cock:
+        // (No Cock:
         if (this.player.totalCocks() == 0)
             this.outputText(
                 "\"<i>Well, aren't you a pretty little thing, all together.  You and I will get along real nice, that's for sure!</i>\"\r\r",
                 false
             );
         else {
-            //(Any Cock:
+            // (Any Cock:
             this.outputText(
                 "and almost inevitably, his eyes drop down to your " +
                     this.cockDescript(0) +
                     ".  He snorts, ",
                 false
             );
-            //(Human Cock:
+            // (Human Cock:
             if (this.player.cocks[0].cockType == CockTypesEnum.HUMAN)
                 this.outputText(
                     "\"<i>Heh.  Just sporting the normal model, huh?  You know there's a phrase around here... hung like a human!  Trust me... it's not a compliment.  ",
                     false
                 );
-            //(Dog Cock:
+            // (Dog Cock:
             if (this.player.cocks[0].cockType == CockTypesEnum.DOG)
                 this.outputText(
                     "\"<i>Oh, lookie here!  We got ourselves a little doggie dong!  Well, cock or not, you'll always be a bitch to me, mutt.  ",
                     false
                 );
-            //(Horse Cock:
+            // (Horse Cock:
             if (this.player.cocks[0].cockType == CockTypesEnum.HORSE)
                 this.outputText(
                     "\"<i>Now that's just sad.  Getting a little envious of me, huh?  Had to go out and get a nice horsecock all your own?  Should have asked.  I'd have given you a taste of mine!  ",
                     false
                 );
-            //(Tentacle Cock or other weirdness
+            // (Tentacle Cock or other weirdness
             if (this.player.cocks[0].cockType.Index >= 3)
                 this.outputText(
                     "\"<i>Hah!  I'll bite... what the fuck are you supposed to be?  That a cock, or just an ugly, misplaced tail?  HA!  ",
                     false
                 );
-            //(Small Size, ?-10 inches:
+            // (Small Size, ?-10 inches:
             if (this.player.cocks[0].cockLength <= 10)
                 this.outputText(
                     '"So, when you poke a woman with that, does she notice?  Or do you have to tell her when to start faking her orgasm?</i>"\r\r',
                     false
                 );
-            //(Medium Size, 11-20 inches:
+            // (Medium Size, 11-20 inches:
             else if (this.player.cocks[0].cockLength <= 20)
                 this.outputText(
                     "\"Still, at least you've got a decent sized cock.  You know, for a colt.  Maybe you'll get lucky, and the real women will take pity on you!</i>\"\r\r",
                     false
                 );
-            //(Big Size, 21 inches and beyond:
+            // (Big Size, 21 inches and beyond:
             else
                 this.outputText(
                     '"Now if only they could find a way to get you to stop stepping on your own cock every other step, maybe you\'d be a real man!  Can you even get it up, at this point?  Or would that tip you over?  Ha!</i>"\r\r',
@@ -374,15 +374,15 @@ STATUSES:
             "You nod, almost grateful for the excuse to go naked.  From the way Kelt is eyeing your ass, you think he'll enjoy it too.\r\r",
             false
         );
-        //(Naked on. Every visit, player will automatically strip.)
+        // (Naked on. Every visit, player will automatically strip.)
         this.player.createStatusAffect(StatusAffects.NakedOn, 0, 0, 0, 0);
-        //(+10 Submissive)
+        // (+10 Submissive)
         this.player.addStatusValue(StatusAffects.Kelt, 2, 10);
         this.dynStats("lus", Math.floor(this.player.lib / 10) + 5);
         this.keltMainEncounter2();
     }
 
-    //Naked Requirement, Reluctantly
+    // Naked Requirement, Reluctantly
     private keltReluctantlyGetNaked(): void {
         this.doNext(this.camp.returnToCampUseOneHour);
         this.spriteSelect(35);
@@ -408,7 +408,7 @@ STATUSES:
                     "\"<i>Oops!  Could have sworn I'd find a pair of tits on you.  That's okay... I'm sure you'll hit puberty some day!</i>\"\r\r",
                     false
                 );
-            //(Too small, A to DD:
+            // (Too small, A to DD:
             else if (this.player.biggestTitSize() <= 5)
                 this.outputText(
                     '"<i>Ha! No wonder you cover up like a sniveling human!  Any centaur maiden would be ashamed to go out in public with ' +
@@ -416,13 +416,13 @@ STATUSES:
                         " mosquito bites like that!  What do they call you back home... 'Tiny Tits'?  Or maybe they all just assume you're a guy!</i>\"\r\r",
                     false
                 );
-            //(Medium, E to HHH:
+            // (Medium, E to HHH:
             else if (this.player.biggestTitSize() <= 11)
                 this.outputText(
                     '"<i>Uh oh, boys... look out!  Miss Melons here has been putting on a little weight!  How did someone like you become an adventurer?  From the waist up, you\'re good for whoring and not much else!</i>"\r\r',
                     false
                 );
-            //(Big, Watermelon and beyond:
+            // (Big, Watermelon and beyond:
             else
                 this.outputText(
                     "\"<i>Oooh, doesn't that look yummy?  Be honest... you wanna learn to shoot?  You'll be slapping yourself in the tits with every shot!  Heh... I bet that's the way you like it too!  Time to change your profession, slut.  Wet nurse and milk cow... they're just about all you're suited for!</i>\"\r\r",
@@ -433,19 +433,19 @@ STATUSES:
             "Even with his harsh comments, you can see the lust in Kelt's eyes.  He is obviously enjoying seeing your naked flesh.  Despite the embarrasment, you are determined to not let his remarks get to you.  His critique only becomes more lewd as you continue, though.  As you remove your lower clothes, stripping completely naked, he eyes your ass and lets out a crude hoot of scornful delight, ",
             false
         );
-        //(Too small, Firm to Shapely:
+        // (Too small, Firm to Shapely:
         if (this.player.buttRating < 6)
             this.outputText(
                 '"<i>Well, someone works out!  Got a nice, tight little ass there! Probably a little too tight, huh?  Don\'t worry, you can tell me... do the mean old monsters hurt when they fuck that poor little ass of yours? HA!</i>"\r\r',
                 false
             );
-        //(Medium, Large to Heavy:
+        // (Medium, Large to Heavy:
         else if (this.player.buttRating < 13)
             this.outputText(
                 "\"<i>Hey, nice little cushion you got back here!  Do you get that from sitting around all day?  Nah, can't be that.  I'm sure you get more than a workout on this baby... of course, cock is no substitute for a little exercise, you know!</i>\"\r\r",
                 false
             );
-        //(Big, Voluminous and beyond:
+        // (Big, Voluminous and beyond:
         else
             this.outputText(
                 '"<i>Now there\'s a rear end I could get behind!  For someone who claims to be a hero, you sure are built like a fucktoy!  With an ass like that, you remind me of my last lay... of course, she was a horse!</i>"\r\r',
@@ -457,57 +457,57 @@ STATUSES:
                 " with his open palm, getting in a good grope while he's at it.  His animalistic musk is in your nostrils, making you feel dizzy and somehow even a little aroused.  The centaur's obvious enjoyment of your body is a little flattering, even if his words are cruel.  He paces around to your front, a shameless grin on his face while he taunts you, ",
             false
         );
-        //(No Cock:
+        // (No Cock:
         if (this.player.totalCocks() == 0)
             this.outputText(
                 "\"<i>Well, aren't you a pretty little thing, all together.  You and I will get along real nice, that's for sure!</i>\"\r\r",
                 false
             );
         else {
-            //(Any Cock:
+            // (Any Cock:
             this.outputText(
                 "and almost inevitably, his eyes drop down to your " +
                     this.cockDescript(0) +
                     ".  He snorts, ",
                 false
             );
-            //(Human Cock:
+            // (Human Cock:
             if (this.player.cocks[0].cockType == CockTypesEnum.HUMAN)
                 this.outputText(
                     "\"<i>Heh.  Just sporting the normal model, huh?  You know there's a phrase around here... hung like a human!  Trust me... it's not a compliment.  ",
                     false
                 );
-            //(Dog Cock:
+            // (Dog Cock:
             if (this.player.cocks[0].cockType == CockTypesEnum.DOG)
                 this.outputText(
                     "\"<i>Oh, lookie here!  We got ourselves a little doggie dong!  Well, cock or not, you'll always be a bitch to me, mutt.  ",
                     false
                 );
-            //(Horse Cock:
+            // (Horse Cock:
             if (this.player.cocks[0].cockType == CockTypesEnum.HORSE)
                 this.outputText(
                     "\"<i>Now that's just sad.  Getting a little envious of me, huh?  Had to go out and get a nice horsecock all your own?  Should have asked.  I'd have given you a taste of mine!  ",
                     false
                 );
-            //(Tentacle Cock or other weirdness
+            // (Tentacle Cock or other weirdness
             if (this.player.cocks[0].cockType.Index >= 3)
                 this.outputText(
                     "\"<i>Hah!  I'll bite... what the fuck are you supposed to be?  That a cock, or just an ugly, misplaced tail?  HA!  ",
                     false
                 );
-            //(Small Size, ?-10 inches:
+            // (Small Size, ?-10 inches:
             if (this.player.cocks[0].cockLength <= 10)
                 this.outputText(
                     '"So, when you poke a woman with that, does she notice?  Or do you have to tell her when to start faking her orgasm?</i>"\r\r',
                     false
                 );
-            //(Medium Size, 11-20 inches:
+            // (Medium Size, 11-20 inches:
             else if (this.player.cocks[0].cockLength <= 20)
                 this.outputText(
                     "\"Still, at least you've got a decent sized cock.  You know, for a colt.  Maybe you'll get lucky, and the real women will take pity on you!</i>\"\r\r",
                     false
                 );
-            //(Big Size, 21 inches and beyond:
+            // (Big Size, 21 inches and beyond:
             else
                 this.outputText(
                     '"Now if only they could find a way to get you to stop stepping on your own cock every other step, maybe you\'d be a real man!  Can you even get it up, at this point?  Or would that tip you over?  Ha!</i>"\r\r',
@@ -522,13 +522,13 @@ STATUSES:
             "You nod, a little irritated at his callous nature.  You're not entirely sure you want to be naked in front of this crude centaur... but for now, at least, he'll teach you a little more.  Though the way he eyes your ass does make you feel a little uncomfortable.\r\r",
             false
         );
-        //(+7 Submissive)
+        // (+7 Submissive)
         this.player.addStatusValue(StatusAffects.Kelt, 2, 7);
         this.dynStats("lus", Math.floor(this.player.lib / 10) + 5);
         this.keltMainEncounter2();
     }
 
-    //Blowjob Requirement
+    // Blowjob Requirement
     private keltRequiresBlowjobs(): void {
         this.spriteSelect(35);
         this.player.createStatusAffect(StatusAffects.KeltBJ, 0, 0, 0, 0);
@@ -582,13 +582,13 @@ STATUSES:
             false
         );
         this.outputText("\r\rDo you submit?", false);
-        //(Corruption higher than 80 automatically chooses Eagerly)
+        // (Corruption higher than 80 automatically chooses Eagerly)
         if (this.player.cor + this.player.lib + this.player.lust >= 200 && this.player.inte < 60) {
             this.outputText("  Of course you do, slut that you are.", false);
             this.doNext(this.keltBlowjobRequirementEagerly);
             return;
         }
-        //Never!			Shamefully			Eagerly
+        // Never!			Shamefully			Eagerly
         if (
             this.player.inte > 40 &&
             this.player.cor > 70 &&
@@ -624,7 +624,7 @@ STATUSES:
             );
     }
 
-    //Blowjob Requirement, Never
+    // Blowjob Requirement, Never
     private keltBlowjobRequirementNever(newl: boolean = true): void {
         this.spriteSelect(35);
         if (newl) this.outputText("", true);
@@ -660,12 +660,12 @@ STATUSES:
             "But the feeling is weaker now.  Whatever is was that kept you bound to him seems to be fading now, albeit slowly.  A shiver of desire runs through you, even so.  It may be a long recovery.\r\r",
             false
         );
-        //(Kelt never encountered again)
+        // (Kelt never encountered again)
         this.player.createStatusAffect(StatusAffects.KeltOff, 0, 0, 0, 0);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Blowjob Requirement, Shamefully
+    // Blowjob Requirement, Shamefully
     private keltBlowjobRequirementShamefully(newl: boolean = true): void {
         this.spriteSelect(35);
         if (newl) this.outputText("", true);
@@ -735,13 +735,13 @@ STATUSES:
             "It may be unhealthy, to keep going back to him.  Of course, you could always say no, right?  He is a good teacher.  And... and would it be so bad to suck him off a few more times?  That wouldn't be so bad... would it?\r\r",
             false
         );
-        //(Blowjob Off, but activated.)
-        //(+7 Submissiveness)
+        // (Blowjob Off, but activated.)
+        // (+7 Submissiveness)
         this.player.addStatusValue(StatusAffects.Kelt, 2, 7);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Blowjob Requirement, Eagerly
+    // Blowjob Requirement, Eagerly
     private keltBlowjobRequirementEagerly(newl: boolean = true): void {
         this.spriteSelect(35);
         // This is never called with arguments, so newl will always be true. Can this be simplified?
@@ -812,71 +812,71 @@ STATUSES:
             "Still, part of you feels unsteady about this whole thing.  Are you becoming a little too dependent on Kelt?  It may be unhealthy to keep going back to him.  And there are others out there, right?  But... but you can't get the centaur out of your head.  It feels right to kneel at his feet; to be his slutty little cumdump.  It is becoming hard to remember why you came here in the first place...\r\r",
             false
         );
-        //(Blowjob On.)
+        // (Blowjob On.)
         this.player.createStatusAffect(StatusAffects.BlowjobOn, 0, 0, 0, 0);
-        //(+15 Submissiveness)
+        // (+15 Submissiveness)
         this.player.addStatusValue(StatusAffects.Kelt, 2, 15);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Normal Encounter
+    // Normal Encounter
     private keltMainEncounter(): void {
         this.spriteSelect(35);
         this.outputText(
             "Once more, you encounter Kelt the centaur at Whitney's farm.  He smirks at you, and asks if the fool has come once more to learn from the master.\r\r",
             false
         );
-        //(Submissive 0-30:
+        // (Submissive 0-30:
         if (this.player.statusAffectv2(StatusAffects.Kelt) <= 30)
             this.outputText(
                 "You grind your teeth in irritation, but swallow your pride enough to ask him for help.  ",
                 false
             );
-        //(Submissive 30-70:
+        // (Submissive 30-70:
         else if (this.player.statusAffectv2(StatusAffects.Kelt) <= 70)
             this.outputText(
                 "You nod reluctantly, and Kelt grins.  He may be arrogant, but he is rather good.  ",
                 false
             );
-        //(Submissive 70-100:
+        // (Submissive 70-100:
         else this.outputText("You nod enthusiastically, almost begging him to teach you.  ", false);
 
-        //(Before Naked Requirement)
+        // (Before Naked Requirement)
         if (this.player.statusAffectv3(StatusAffects.Kelt) <= 3) {
             this.outputText(
                 "Kelt seems to find the idea of training a human almost comical, but suggests that if you want to follow him around for a while, he has no problem with it.  Though his attitude is annoying, you resolve to learn what you can.\r\r",
                 false
             );
         }
-        //Stuff that happes after naked requirement
+        // Stuff that happes after naked requirement
         else {
             this.keltMainEncounterAfterNakedReq();
             return;
         }
-        //Continue encounter stuff
+        // Continue encounter stuff
         this.keltMainEncounter2();
     }
 
     private keltMainEncounterAfterNakedReq(): void {
-        //After naked requirement
-        //(Naked On)
+        // After naked requirement
+        // (Naked On)
         if (this.player.findStatusAffect(StatusAffects.NakedOn) >= 0) {
             this.outputText(
                 "He nods, smirking slightly, and gestures at your clothes impatiently.  With some pleasure, you strip down before him, discarding your clothes with a little flair.  Kelt is grinning by the end, openly admiring your body, and you feel a little more aroused for obeying his dominant command.\r\r",
                 false
             );
-            //(+5 Submissive)
+            // (+5 Submissive)
             this.player.addStatusValue(StatusAffects.Kelt, 2, 3);
         }
-        //(Naked Off)
+        // (Naked Off)
         else {
-            //(40% Chance:
+            // (40% Chance:
             if (KeltScene.rand(10) <= 5) {
                 this.outputText(
                     "Kelt looks down your body scornfully, and claims he is unwilling to teach you unless you are willing to learn naked again.  ",
                     false
                 );
-                //(Corruption 60+, or Submissive 60+:
+                // (Corruption 60+, or Submissive 60+:
                 if (
                     (this.player.cor + this.player.lib + this.player.lust >= 180 &&
                         this.player.inte < 30) ||
@@ -898,17 +898,17 @@ STATUSES:
                         this.player.createStatusAffect(StatusAffects.NakedOn, 0, 0, 0, 0);
                     }
                     this.outputText("\r\r", false);
-                    //[+5 Submissive])
+                    // [+5 Submissive])
                     this.player.addStatusValue(StatusAffects.Kelt, 2, 7);
                 }
-                //(Otherwise:
+                // (Otherwise:
                 else {
                     this.outputText(
                         "\r\rYou're not certain you want to practice naked again... particularly with the way Kelt is looking at you, his arrogant smirk plastered on his face.  Do you agree to his terms?",
                         false
                     );
-                    //(Yes[+5 Submissive]			No[Never event])
-                    //Link this to reluctant && never
+                    // (Yes[+5 Submissive]			No[Never event])
+                    // Link this to reluctant && never
 
                     if (
                         this.player.inte > 40 &&
@@ -934,13 +934,13 @@ STATUSES:
                     return;
                 }
             }
-            //(Otherwise:
+            // (Otherwise:
             else {
                 this.outputText(
                     "Kelt looks at your clothes sourly once more, and mocks you for what he calls 'human sensitivity'.  He does not, however, directly tell you to take them off.\r\r",
                     false
                 );
-                //(Corruption 60+, or Submissive 60+:
+                // (Corruption 60+, or Submissive 60+:
                 if (
                     (this.player.cor + this.player.lib + this.player.lust >= 180 &&
                         this.player.inte < 40) ||
@@ -964,7 +964,7 @@ STATUSES:
                     this.outputText("\r\r", false);
                     this.dynStats("lus", Math.floor(this.player.lib / 10) + 5);
                 }
-                //(Otherwise:
+                // (Otherwise:
                 else
                     this.outputText(
                         "You ignore his barbed comments as best as you can, and soon enough, he leaves the matter alone, instead critiquing your archery skills.\r\r",
@@ -975,11 +975,11 @@ STATUSES:
         this.keltMainEncounter2();
     }
 
-    //Normal Encounter 2
+    // Normal Encounter 2
     private keltMainEncounter2(): void {
-        //Used for randomization
+        // Used for randomization
         // var temporary: number = 0;
-        //(No bow equipped)
+        // (No bow equipped)
         if (this.player.hasKeyItem("Bow") < 0) {
             this.outputText(
                 '"<i>Here,</i>" Kelt says, tossing you a spare bow.  "<i>You can use this, for right now.  We train colts on it... you know, before their balls drop.  Should be just about right for your level.  Keep it if you want.</i>"\r\r',
@@ -991,7 +991,7 @@ STATUSES:
             );
             if (this.player.hasKeyItem("Bow") < 0) this.player.createKeyItem("Bow", 0, 0, 0, 0);
         }
-        //(Bow equipped)
+        // (Bow equipped)
         else {
             this.outputText(
                 "Kelt sneers as he looks at your bow, \"<i>You're still using that rotten old thing?  Well, it will do.  We'll just have to shoot for the close targets.</i>\"\r\r",
@@ -999,7 +999,7 @@ STATUSES:
             );
             this.outputText("Together, the two of you head off to the practice field.\r\r", false);
         }
-        //IF BLOWJOB HAS HAPPENED ALREADY, chances to repeat
+        // IF BLOWJOB HAS HAPPENED ALREADY, chances to repeat
         if (
             this.player.statusAffectv2(StatusAffects.Kelt) >= 60 &&
             KeltScene.rand(4) == 0 &&
@@ -1013,32 +1013,32 @@ STATUSES:
 
     private keltMainEncounter3(): void {
         var temporary: number = 0;
-        //(Clothed)
+        // (Clothed)
         if (this.player.findStatusAffect(StatusAffects.NakedOn) < 0) {
             this.outputText(
                 "Kelt is arrogant, crude, and all too often cruel as he mocks your attempts at archery again and again.  Despite all this, however, he obviously does know what he's doing.  You try to ignore his insults and lewd comments as best as you can and focus on the archery.  In the end, you feel you've learned a lot, though Kelt remains snide.\r\r",
                 false
             );
             this.temp = KeltScene.rand(4);
-            //(25% Chance:
+            // (25% Chance:
             if (this.temp == 0)
                 this.outputText(
                     "\"<i>Oh, yes.  Looks like you're shaping up to be a pretty accurate archer.  Just make sure you only fight blind giants.  You know, massive targets that have no chance to dodge.  You'll do fine.</i>\"\r\r",
                     false
                 );
-            //(25% Chance:
+            // (25% Chance:
             if (this.temp == 1)
                 this.outputText(
                     '"<i>Ha!  You want to become an archer?  Here\'s a hint... stop thinking about sucking cock for two seconds and AIM.</i>"\r\r',
                     false
                 );
-            //(25% Chance:
+            // (25% Chance:
             if (this.temp == 2)
                 this.outputText(
                     '"<i>See the red dot, in the middle of the target?  Imagine that\'s your ass, and the arrow is a big, fat, minotaur cock.  That should help you hit the target.</i>"\r\r',
                     false
                 );
-            //(25% Chance:
+            // (25% Chance:
             if (this.temp == 3) {
                 if (this.player.race() != "centaur")
                     this.outputText(
@@ -1053,12 +1053,12 @@ STATUSES:
                         false
                     );
             }
-            //player.addStatusValue(StatusAffects.Kelt,1,5+rand(4));
+            // player.addStatusValue(StatusAffects.Kelt,1,5+rand(4));
             this.bowSkill(5 + KeltScene.rand(4));
         }
-        //NAKERS
+        // NAKERS
         else {
-            //(Naked, Player in Heat:)
+            // (Naked, Player in Heat:)
             if (this.player.inHeat && this.player.gender > 1) {
                 this.outputText(this.images.showImage("kelt-farm-female-inheat"));
                 this.outputText(
@@ -1081,19 +1081,19 @@ STATUSES:
                     "Kelt's forelegs rear up just enough to plant them around your shoulders, his massive weight bearing down on you.  The bale of hay lifts you just high enough to line up with his fat erection, which presses between your asscheeks even now.\r\r",
                     false
                 );
-                //(Submissive, 0-30:
+                // (Submissive, 0-30:
                 if (this.player.statusAffectv2(StatusAffects.Kelt) <= 30)
                     this.outputText(
                         "You struggle as best as you can, but Kelt weighs a good deal more than you do.  As his thrusting hips anxiously press his cock to your nether-lips, you realize this is going to happen, whether you want it to or not.  The thought fills you with an undeniable shiver of pleasure.\r\r",
                         false
                     );
-                //(Submissive, 30-70:
+                // (Submissive, 30-70:
                 else if (this.player.statusAffectv2(StatusAffects.Kelt) <= 70)
                     this.outputText(
                         "You put forth a token effort to escape, but it is obvious from the beginning that there is no way to get out from under the heavy weight of the centaur.  Besides, the desire running through you is palpable... in a way, you want this to happen.  So much so that as Kelt is thrusting, trying to line up his cock, you raise your hips to help him out, silently longing for penetration.\r\r",
                         false
                     );
-                //(Submissive, 70-100:
+                // (Submissive, 70-100:
                 else
                     this.outputText(
                         "The masculine scent of him is overpowering, desperate.  Your body wants nothing more than to submit to Kelt's ferocious desires, and your mind agrees.  Eagerly, you thrust your hips up, reaching back with one hand to guide his cock to your wet pussy.  Kelt snorts his approval, and you feel a shivering tremor of lust run through you.\r\r",
@@ -1104,19 +1104,19 @@ STATUSES:
                     "The centaur's cock has truly equine proportions, being easily two and a half feet long and over three inches thick.  ",
                     false
                 );
-                //(Vagina, Small:
+                // (Vagina, Small:
                 if (this.player.vaginalCapacity() <= 16)
                     this.outputText(
                         "The fit seems impossible, but Kelt could care less about your comfort, and shoves the flared head into you without hesitation.  You let out a scream, feeling like you are being torn apart by his cock as it rudely presses against your insides, spreading you wide open.  Kelt thrusts with growing frustration, but can fit no more than half his cock inside of you, despite his best efforts.  Every twitch makes you cry out as your tight pussy squeezes and milks that massive organ.\r\r",
                         false
                     );
-                //(Vagina, Medium:
+                // (Vagina, Medium:
                 else if (this.player.vaginalCapacity() <= 40)
                     this.outputText(
                         "Even for you, Kelt's cock seems oversized as he presses the flared head of his massive manhood against your netherlips.  Even so, he does not hesitate, lunging forward and spearing you on his manhood without hesitation.  You let out a groan as that massive organ spreads you wide open, straining your bounderies and almost certainly stretching you out even further.  The centaur's thrusts are relentless, but even at his best, he can only fit in about three fourths of his cock.  He snorts, frustrated... but you are so filled that your head is spinning with pleasure.\r\r",
                         false
                     );
-                //(Vagina, Large:
+                // (Vagina, Large:
                 else
                     this.outputText(
                         "It seems like a perfect fit for your gaping, hungry pussy as Kelt rams the flared head deep into you.  You feel that glorious manhood filling you like few cocks can these days, spreading you wide and searching out your depths.  Kelt lets out a pleased laugh when he bottoms out with you just barely able to accommodate his size.  His heavy balls slap pleasantly against your ass as you groan with pleasure, filled to the core with cock.",
@@ -1132,19 +1132,19 @@ STATUSES:
                     "\"<i>Not too bad, not too bad!  You make for a pretty decent fuck!  Maybe after you bear a couple of my foals, I'll add you to my harem.  You'd like that, wouldn't you?  You just can't wait to get a bellyful of centaurs, can you?</i>\"\r\r",
                     false
                 );
-                //(Submissive, 0-30:
+                // (Submissive, 0-30:
                 if (this.player.statusAffectv2(StatusAffects.Kelt) <= 30)
                     this.outputText(
                         "You shiver and groan, unable to help yourself.  It is clear that Kelt has every intention of breeding you, and you are helpless to stop the urges of your body.  Terrifying images of being raped daily by this cruel beast fill your head... of your belly swelling with his young again and again.  You let out a moaning cry, and orgasm helplessly even as Kelt laughs.\r\r",
                         false
                     );
-                //(Submissive, 30-70:
+                // (Submissive, 30-70:
                 else if (this.player.statusAffectv2(StatusAffects.Kelt) <= 70)
                     this.outputText(
                         "The thought of that fills you with a dreadful shiver of lust, from your head to your toes.  Your body longs to be bred, again and again, and the idea of submitting to this powerful creature is so powerfully erotic that you cum on the spot, orgasming with delightful abandon.  The thought of being this centaur's breeding slave feels so right!\r\r",
                         false
                     );
-                //(Submissive, 70-100:
+                // (Submissive, 70-100:
                 else
                     this.outputText(
                         "You whimper in the afirmative helplessly, shivering with delight.  You have a feeling deep inside you that this powerful creature, this paragon of manhood, is your master, and you but his breeding slave.  Your pussy squeezes and milks his member, trying to urge out that explosion of cum that will make you his forever.  The knowledge that your great master will impregnate you soon, filling you with his seed, sends you over the edge into a mind-wracking orgasm.\r\r",
@@ -1166,54 +1166,54 @@ STATUSES:
                 this.player.slimeFeed();
                 this.player.orgasm();
                 this.outputText("He leaves you without another word.", false);
-                //(+5 Submissive)
+                // (+5 Submissive)
                 this.player.addStatusValue(StatusAffects.Kelt, 2, 5);
-                //(Pregnancy Chance)
+                // (Pregnancy Chance)
                 this.player.knockUp(
                     PregnancyStore.PREGNANCY_KELT,
                     PregnancyStore.INCUBATION_CENTAUR,
                     50
                 );
-                //Should be equivalent to the old way, but now Kelt does all the usual things like checking for contraceptives and fertilizing eggs if PC can oviposit
+                // Should be equivalent to the old way, but now Kelt does all the usual things like checking for contraceptives and fertilizing eggs if PC can oviposit
                 if (this.player.pregnancyType == PregnancyStore.PREGNANCY_KELT)
                     trace("PLAYER GOT KNOCKED UP BY KELT");
                 this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
             temporary = KeltScene.rand(5);
-            //(Naked, 60% Chance)
+            // (Naked, 60% Chance)
             if (temporary <= 2) {
                 this.outputText(
                     "The lesson proceeds as normal, with you taking shots while Kelt arrogantly critiques your style, tossing out colorful and creative insults whenever possible.  He has no shame about mocking your body as much as he laughs at your archery, and makes several crude comments about what it might be good for.",
                     false
                 );
-                //(Submissive, 0-30:
+                // (Submissive, 0-30:
                 if (this.player.statusAffectv2(StatusAffects.Kelt) <= 30)
                     this.outputText(
                         "You try to ignore the foul remarks, telling yourself that this is simply the way he is.  It does not help, though, that at times you feel Kelt's eyes wandering across you lustfully.  At least some of his comments are not mockeries, but suggestions.  The entire experience makes you feel a little more uncomfortable around the abusive centaur.",
                         false
                     );
-                //(Submissive, 30-70:
+                // (Submissive, 30-70:
                 else if (this.player.statusAffectv2(StatusAffects.Kelt) <= 70)
                     this.outputText(
                         "Despite yourself, some of his cruder comments make you blush.  By now, you're getting used to the oft times depraved sexuality of the demon world... but it is a little humiliating to subject yourself to this kind of treatment... and, to your shame, sometimes it's a little arousing.  Though Kelt is insulting, cruel, and crude, you also notice real lust in some of his glances.  By the end of the lesson, you are flushed with arousal as well as exertion.",
                         false
                     );
-                //(Submissive, 70-100:
+                // (Submissive, 70-100:
                 else
                     this.outputText(
                         "Of course, Kelt's words only distract you even more from hitting the target.  Not because you are angry... but because you are aroused.  Somehow, his lewd comments and crude jibes make you shiver with anticipation.  He's just so powerful, so masculine.  Kelt seems well aware of the effect he has on you, and once reaches out to slap your ass heartily.  By the end of the training, you feel intensely horny.",
                         false
                     );
                 this.dynStats("lus", 10);
-                //player.addStatusValue(StatusAffects.Kelt,1,4);
+                // player.addStatusValue(StatusAffects.Kelt,1,4);
                 this.bowSkill(4);
                 this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
-            //(No Breasts—Do standard Naked event)
+            // (No Breasts—Do standard Naked event)
             if (this.player.biggestTitSize() == 0 && temporary == 3) temporary = 4;
-            //(Naked, 20% Chance)
+            // (Naked, 20% Chance)
             if (temporary == 3) {
                 this.outputText(
                     "The practice begins as normal, but something is a little different today.  To your surprise, Kelt's regular insults and comments seem to be a little less harsh and a little more bemused.  Although he still insults your achievements and mocks your failures, he almost seems entertained by your efforts.  His apparent good mood is not necessarily better... without his usual fiery insults, you are a little unsure of how your progress is going.  One shot goes long, and to your surprise, Kelt doesn't yell at you.  Instead, he laughs heartily.  Flushed and a little embarrased, you ask what you did wrong.\r\r",
@@ -1237,19 +1237,19 @@ STATUSES:
                         " instead.  You stiffen, but before you can react further, he squeezes them brutally, mauling your breasts roughly with his hands.\r\r",
                     false
                 );
-                //(Small Size, A-DD:
+                // (Small Size, A-DD:
                 if (this.player.biggestTitSize() <= 5)
                     this.outputText(
                         '"<i>Ha!  Even with your itty-bitty-titty, you have to admit to a certain... weakness, is it?  Awfully sensitive, aren\'t they?  Ooh, am I making the little girl wet?  Naughty slut!</i>"\r\r',
                         false
                     );
-                //(Medium Size, E-HHH:
+                // (Medium Size, E-HHH:
                 else if (this.player.biggestTitSize() <= 11)
                     this.outputText(
                         "\"<i>Just look at these mommy melons!  You want to be an archer?  I'm amazed you don't slap yourself in the tits with every shot!  Easy target to grab onto.  But hey, I bet you like it that way.  Like it when people grope these fat titties of yours?</i>\"\r\r",
                         false
                     );
-                //(Big Size, Watermelon and beyond:
+                // (Big Size, Watermelon and beyond:
                 else
                     this.outputText(
                         '"<i>Look at you! You\'re a miracle of science, you are... any other creature would break their back, trying to haul these milk bags around!  Tell the truth, now... which one of your parents was actually a cow?</i>"\r\r',
@@ -1261,7 +1261,7 @@ STATUSES:
                         "s.\r\r",
                     false
                 );
-                //(Milk)
+                // (Milk)
                 if (this.player.biggestLactation() > 1) {
                     this.outputText(
                         "Inevitably, beads of milk appear on the tips of your breasts, and Kelt lets out a hoot of laughter.\r\r",
@@ -1283,7 +1283,7 @@ STATUSES:
                         "Even released, your teat continues to drizzle slightly, spilling your milk shamefully on the ground as Kelt continues to squeeze your breasts.\r\r",
                         false
                     );
-                    //You've now been milked, reset the timer for that
+                    // You've now been milked, reset the timer for that
                     this.player.addStatusValue(StatusAffects.Feeder, 1, 1);
                     this.player.changeStatusValue(StatusAffects.Feeder, 2, 0);
                 }
@@ -1296,13 +1296,13 @@ STATUSES:
                     false
                 );
                 this.doNext(this.camp.returnToCampUseOneHour);
-                //(+5 Submissive)
+                // (+5 Submissive)
                 this.player.addStatusValue(StatusAffects.Kelt, 2, 5);
-                //player.addStatusValue(StatusAffects.Kelt,1,4);
+                // player.addStatusValue(StatusAffects.Kelt,1,4);
                 this.bowSkill(4);
                 return;
             }
-            //(Naked, 20% Chance)
+            // (Naked, 20% Chance)
             if (temporary == 4) {
                 this.outputText(
                     "Nothing you do today seems to please your tutor, however.  He roars at you for every mistake, explodes at every misfire, and merely sneers contemptuously at every actual hit.  While his contempt for your efforts is nothing new, he seems particularly agitated today.  His aggressive behavior begins to distract you, and finally, you make a huge mistake.  Your shot goes flying, nowhere near the target, and Kelt is suddenly right behind you.\r\r",
@@ -1344,10 +1344,10 @@ STATUSES:
                     "He walks away without another word, taking some of your dignity with him.",
                     false
                 );
-                //(+5 Submissive)
+                // (+5 Submissive)
                 this.dynStats("lus", 15);
                 this.player.addStatusValue(StatusAffects.Kelt, 2, 5);
-                //player.addStatusValue(StatusAffects.Kelt,1,4);
+                // player.addStatusValue(StatusAffects.Kelt,1,4);
                 this.bowSkill(4);
                 this.doNext(this.camp.returnToCampUseOneHour);
                 return;
@@ -1357,9 +1357,9 @@ STATUSES:
     }
 
     private keltMainEncounterPostBlowjob(): void {
-        //(Blowjob Requirement On)
+        // (Blowjob Requirement On)
         if (this.player.findStatusAffect(StatusAffects.BlowjobOn) >= 0) {
-            //(Submissiveness 75+, Lust 60+)
+            // (Submissiveness 75+, Lust 60+)
             if (
                 this.player.lust >= 75 ||
                 (this.player.statusAffectv2(StatusAffects.Kelt) >= 90 && KeltScene.rand(2) == 0)
@@ -1385,7 +1385,7 @@ STATUSES:
                     "Lying on the rough table with your feet in the stirrups, your ass is suspended at just the right height.  Kelt moves with obvious hunger, running his finger along your nethers.",
                     false
                 );
-                //(Penis:
+                // (Penis:
                 if (this.player.totalCocks() > 0)
                     this.outputText(
                         "  Your " +
@@ -1393,7 +1393,7 @@ STATUSES:
                             " is rock hard, but he ignores it almost contemptuously.  You almost feel ashamed of it, compared to the slowly-growing manhood between his legs.",
                         false
                     );
-                //(Vagina:
+                // (Vagina:
                 if (this.player.hasVagina())
                     this.outputText(
                         "  For a moment, his fingers trace the line of your exposed " +
@@ -1422,7 +1422,7 @@ STATUSES:
                     "You can't help it... at the thought of being used as his worthless fucktoy, you suffer a mild orgasm of your own, crying out your submission to this powerful creature.",
                     false
                 );
-                //(Penis:
+                // (Penis:
                 if (this.player.totalCocks() > 0)
                     this.outputText(
                         "  Beneath you, pressed firmly into the harsh wood of the mounting board, your " +
@@ -1430,13 +1430,13 @@ STATUSES:
                             " erupts, splattering your stomach with your own cum.  As the thick semen slides down towards your face, you begin slipping on your own warm seed, rocking back and forth with each harsh pounding Kelt delivers to your backside.",
                         false
                     );
-                //(Vagina:
+                // (Vagina:
                 if (this.player.hasVagina())
                     this.outputText(
                         "  Your poor, neglected pussy quivers with delight, convulsing without even being touched.  Thick juices run freely down your leg, dripping off to splatter the hay below you as you moan like a bitch in heat.",
                         false
                     );
-                //(Genderless:
+                // (Genderless:
                 if (this.player.gender == 0)
                     this.outputText(
                         "  Never before has a complete lack of genitalia been so frustrating... or pleasurable.  Not being able to physically cum, the explosions of climax simply rack up within your body... waves of cascading pleasure with no release and no mercy.",
@@ -1481,14 +1481,14 @@ STATUSES:
                 );
                 this.doNext(this.camp.returnToCampUseTwoHours);
                 this.player.slimeFeed();
-                //(+10 Submissiveness)
+                // (+10 Submissiveness)
                 if (this.player.buttChange(70, true)) this.outputText("\r\r", false);
                 this.player.addStatusValue(StatusAffects.Kelt, 2, 10);
                 this.player.orgasm();
                 this.dynStats("cor", 1);
                 return;
             }
-            //(Otherwise)
+            // (Otherwise)
             else {
                 this.outputText(this.images.showImage("kelt-farm-eagerbj"));
                 this.outputText(
@@ -1517,16 +1517,16 @@ STATUSES:
                     false
                 );
                 this.player.slimeFeed();
-                //(+5 Submissiveness)
+                // (+5 Submissiveness)
                 this.player.addStatusValue(StatusAffects.Kelt, 2, 5);
-                //player.addStatusValue(StatusAffects.Kelt,1,3);
+                // player.addStatusValue(StatusAffects.Kelt,1,3);
                 this.bowSkill(3);
                 this.dynStats("lus", 20, "cor", 1);
                 this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
         }
-        //(Blowjob Requirement Off, 40% Chance)
+        // (Blowjob Requirement Off, 40% Chance)
         else if (KeltScene.rand(10) <= 3) {
             this.outputText(
                 "You move towards the practice field, trying to ignore the way Kelt openly and hungrily eyes your naked body.  He has become more and more open about his lust for you.  Despite yourself, you can't help but enjoy his attentions.\r\r",
@@ -1544,7 +1544,7 @@ STATUSES:
                 "A shiver of desire and a tremor of fear run through you.  You had hoped to avoid this requirement.  A hunger lies within you... the thought of once more slurping down centaur cum is all but irresistible.  But you fear that with each time, you are losing yourself more and more...\r\r",
                 false
             );
-            //(Submissiveness +80, or Corruption +80)
+            // (Submissiveness +80, or Corruption +80)
             if (
                 this.player.cor + this.player.lib + this.player.lust >= 220 &&
                 this.player.statusAffectv2(StatusAffects.Kelt) >= 80
@@ -1556,13 +1556,13 @@ STATUSES:
                 this.doNext(this.keltSubmitGivingBJ);
                 return;
             }
-            //Otherwise)
+            // Otherwise)
             else {
                 this.outputText(
                     "Despite the need, despite the desire, you are still in control of yourself enough to make a choice.  Do you submit to the centaur's will, and your own hunger?  Or will you somehow find the strength to walk away?",
                     false
                 );
-                //Submit				Resist!
+                // Submit				Resist!
                 this.simpleChoices(
                     "Submit",
                     this.keltSubmitGivingBJ,
@@ -1581,7 +1581,7 @@ STATUSES:
         this.keltMainEncounter3();
     }
 
-    //(Resist)
+    // (Resist)
     private keltResistGivingBJ(): void {
         this.spriteSelect(35);
         this.outputText("", true);
@@ -1597,12 +1597,12 @@ STATUSES:
             '"<i>Keep fooling yourself, bitch.  I\'ll be waiting when you get hungry.</i>"  \r\rKelt leaves, refusing to teach you now.',
             false
         );
-        //(-5 Submissiveness)
+        // (-5 Submissiveness)
         this.player.addStatusValue(StatusAffects.Kelt, 2, -5);
         this.dynStats("lus", 5);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //(Submit)
+    // (Submit)
     private keltSubmitGivingBJ(): void {
         this.spriteSelect(35);
         this.player.slimeFeed();
@@ -1621,7 +1621,7 @@ STATUSES:
         this.keltReluctantGivingBJ();
         this.doNext(this.continueAfterBJ);
     }
-    //Continue training post BJ
+    // Continue training post BJ
     private continueAfterBJ(): void {
         this.spriteSelect(35);
         this.outputText(
@@ -1630,7 +1630,7 @@ STATUSES:
         );
         this.keltMainEncounter3();
     }
-    //(Reluctant Blowjob)
+    // (Reluctant Blowjob)
     private keltReluctantGivingBJ(): void {
         this.spriteSelect(35);
         this.player.slimeFeed();
@@ -1658,13 +1658,13 @@ STATUSES:
             false
         );
         this.dynStats("lus", 5);
-        //(+5 Submissiveness)*/
+        // (+5 Submissiveness)*/
         this.player.addStatusValue(StatusAffects.Kelt, 2, 5);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Bad Ends
-    //(Centaur)
+    // Bad Ends
+    // (Centaur)
     private keltCentaurBadEnd(): void {
         this.spriteSelect(35);
         this.outputText("", true);
@@ -1684,7 +1684,7 @@ STATUSES:
             "He paces around you, and you stand at attention, quivering with pleasure at his compliments.  Involuntarily, you feel your horselike tail raise high into the air, as if to show off your nethers as well.  Kelt takes a moment to inspect them, obviously enjoying himself.\r\r",
             false
         );
-        //(Male)
+        // (Male)
         if (this.player.gender == 1) {
             this.outputText(
                 '"<i>Hmph.  Still technically male, huh?  What, you call this a cock?</i>"\r\r',
@@ -1718,7 +1718,7 @@ STATUSES:
                 false
             );
         }
-        //(Genderless)
+        // (Genderless)
         if (this.player.gender == 0) {
             this.outputText(
                 '"<i>Ha!  What the fuck are you supposed to be?  No cock, no cunt?  Well, no matter, bitch.  You\'ve still got what I want.</i>"\r\r',
@@ -1750,9 +1750,9 @@ STATUSES:
                 false
             );
         }
-        //(Female, Hermaphrodite)
+        // (Female, Hermaphrodite)
         if (this.player.gender >= 2) {
-            //(Hermaphrodite)
+            // (Hermaphrodite)
             if (this.player.gender == 3) {
                 this.outputText("", true);
                 this.outputText(
@@ -1768,7 +1768,7 @@ STATUSES:
                     false
                 );
             }
-            //(Both)
+            // (Both)
             this.outputText(
                 "Crudely, Kelt pushes three fingers into your exposed pussy, making you whinny slightly.  He laughs to himself, then pushes four fingers in... then his whole fist.  You whimper and moan, unable to tell yourself to walk away.  He pumps his hand experimentally for a moment, taking pleasure in how easily he disarms you.  Horny and needful, you couldn't stop him if you tried.\r\r",
                 false
@@ -1798,7 +1798,7 @@ STATUSES:
         this.doNext(this.keltBadEndEpilogue);
     }
 
-    //(Human) bad end
+    // (Human) bad end
     private keltSubmissiveBadEnd(): void {
         this.spriteSelect(35);
         this.outputText("", true);
@@ -1841,7 +1841,7 @@ STATUSES:
         this.doNext(this.keltBadEndEpilogue);
     }
 
-    //Bad End 2
+    // Bad End 2
     private keltBadEndEpilogue(): void {
         this.spriteSelect(35);
         this.outputText("", true);
@@ -1895,7 +1895,7 @@ STATUSES:
         );
         this.getGame().gameOver();
     }
-    //Requires 40+ int & 70+ corruption to resist his 'aura'.
+    // Requires 40+ int & 70+ corruption to resist his 'aura'.
     private keltResistance(): void {
         this.spriteSelect(35);
         this.outputText("You close your eyes, ", true);
@@ -1918,7 +1918,7 @@ STATUSES:
             "You suppress your anger for now.  Yes; Kelt's an asshole, but he's taught you a lot, and would it hurt to humor the cute stud?  You shake your head, uncomfortable with the out-of-place thought.  You leave in a hurry, unable to face your master.",
             true
         );
-        //(+2 submission)
+        // (+2 submission)
         this.player.addStatusValue(StatusAffects.Kelt, 2, 2);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
@@ -1926,7 +1926,7 @@ STATUSES:
     private fuckKeltsShitUp(): void {
         this.spriteSelect(35);
         this.outputText("", true);
-        //If naga folks
+        // If naga folks
         if (
             this.player.faceType == FACE_SNAKE_FANGS &&
             this.player.tongueType == TONUGE_SNAKE &&
@@ -1947,9 +1947,9 @@ STATUSES:
                 "You take a moment to indulge in the sensation - the feeling of this big, muscled creature against your warm scales, at your mercy.  His panicky heartbeat reverberates through your frame, and he glowers at you, unable to resist, as you languidly trace the line of his proud jaw with your finger.  \"<i>Let me go now, and I promise I won't kill you.  I may have to beat you, but I won't kill you,</i>\" he growls.  You are barely listening - you are staring into his eyes.  There is something there aside from anger - is it fear?  You smirk, and slowly begin to rise above him, until your genital slit is level with his face.  As you do so, you slide the tip of your tail towards Kelt's member and gently flick its end; he grits his teeth as his big horse cock begins to strain to attention again.  You gently circumnavigate his head, tormenting him as you speak.\r\r",
                 false
             );
-            //If male/hermaphrodite
+            // If male/hermaphrodite
             if (this.player.hasCock()) {
-                //Single cock:
+                // Single cock:
                 if (this.player.cockTotal() == 1) {
                     this.outputText(
                         '"<i>Pretty pony stepped on a snake.  Now pretty pony has to pay the price,</i>" you say, sighing as you part your lips and allow your ' +
@@ -1967,7 +1967,7 @@ STATUSES:
                         false
                     );
                 }
-                //Multiple dick:
+                // Multiple dick:
                 else {
                     this.outputText(
                         '"<i>Pretty pony stepped on a snake.  Now pretty pony has to pay the price,</i>" you say, sighing as you part your lips and allow your cocks to slide out and feel the fresh air.  You idly slap your ' +
@@ -2035,7 +2035,7 @@ STATUSES:
                         false
                     );
                 }
-                //If >10 inches:
+                // If >10 inches:
                 else {
                     this.outputText(
                         "Slowly but surely you feed more of your formidable member into his mouth until you feel the back of his throat, with most of your " +
@@ -2073,7 +2073,7 @@ STATUSES:
                     );
                 }
             }
-            //If Female:
+            // If Female:
             else if (this.player.hasVagina()) {
                 this.outputText(
                     '"<i>Pretty pony stepped on a snake.  Now pretty pony has to pay the price,</i>" you say, sighing as you part your lips and allow your ' +
@@ -2124,7 +2124,7 @@ STATUSES:
                     false
                 );
             }
-            //If Genderless:
+            // If Genderless:
             else {
                 this.outputText(
                     '"<i>Pretty pony stepped on a snake.  Now pretty pony has to pay the price,</i>" you say. "<i>What are you going to do, freak; read poetry at me?</i>" sneers Kelt. "<i>Form a book circle so we can discuss what it means to have no fucking genitals in a world built on lust?  Or is there some other way sexless nothings like you get.. .off...</i>" he trails off as, with sinuous grace, you twist your body so that his mouth is now facing your ' +
@@ -2171,7 +2171,7 @@ STATUSES:
                     false
                 );
             }
-            //All go to:
+            // All go to:
             this.outputText(
                 "You take your time unknotting yourself from the centaur, continuing to enjoy the feeling of your scales brushing against his thoroughbred form.  Kelt is in no shape to retaliate against you; your poison and treatment of him has left him semi-comatose.  His eyes are wide open and vague, as if he can't quite believe what just happened.  You leisurely put on your " +
                     this.player.armorName +
@@ -2179,7 +2179,7 @@ STATUSES:
                 false
             );
         }
-        //Standard anti-kelt scene
+        // Standard anti-kelt scene
         else {
             this.outputText(this.images.showImage("kelt-farm-subkelt"));
             this.outputText(

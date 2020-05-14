@@ -319,7 +319,7 @@ export class ConsumableLib extends BaseContent {
         "A yellow, fibrous, tubular pod.  A split in the end reveals many lumpy, small seeds inside.  The smell of mild fermentation wafts from them."
     );
     public KITGIFT: KitsuneGift = new KitsuneGift();
-    //		public const KITGIFT:SimpleConsumable = mk("KitGift","KitGift", "a kitsune's gift", m.kitsunesGift, "A small square package given to you by a forest kitsune.  It is wrapped up in plain white paper and tied with a string.  Who knows what's inside?", 0);
+    // 		public const KITGIFT:SimpleConsumable = mk("KitGift","KitGift", "a kitsune's gift", m.kitsunesGift, "A small square package given to you by a forest kitsune.  It is wrapped up in plain white paper and tied with a string.  Who knows what's inside?", 0);
     public KNOTTYP: SimpleConsumable = ConsumableLib.mk(
         "KnottyP",
         "KnottyP",

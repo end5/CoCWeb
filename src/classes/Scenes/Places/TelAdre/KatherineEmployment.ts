@@ -9,7 +9,7 @@ import { KatherineThreesome } from "./KatherineThreesome";
 import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class KatherineEmployment extends TelAdreAbstractContent {
-    //This class holds all the employment quest specific content for Katherine. It's split off to reduce the size of Katherine.as
+    // This class holds all the employment quest specific content for Katherine. It's split off to reduce the size of Katherine.as
 
     private static KBIT_TRAINING_TALK_EDRYN: number = 4;
     private static KBIT_TRAINING_TALK_URTA: number = 8;
@@ -159,7 +159,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         var pissedOffUrta: boolean = this.flags[kFLAGS.URTA_COMFORTABLE_WITH_OWN_BODY] == -1;
         var pissedOffEdryn: boolean = this.flags[kFLAGS.EDRYN_NEVER_SEE_AGAIN] == 1;
         if (pissedOffUrta && pissedOffEdryn) {
-            //Well aren't you a giant dick
+            // Well aren't you a giant dick
             this.outputText(
                 "\n\nSince you're not exactly on the best terms with either Edryn or Urta you decide to go to the nearest watch house and ask for advice.  You're greeted by an older dog morph manning the front desk.  “<i>What can I help you with?</i>” he asks, pulling out a fresh piece of paper from beneath the desk.  You explain that you're interested in what it takes to join the watch, what skills they look for in potential recruits.  He looks you up and down and says “<i>I doubt you'd have much trouble getting in.</i>”\n\n"
             );
@@ -190,7 +190,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
     }
 
     public talkToEdryn(): void {
-        //Triggers when you go to talk to Edryn in the Wet Bitch and
+        // Triggers when you go to talk to Edryn in the Wet Bitch and
         //    (KATHERINE_UNLOCKED == 1 && KATHERINE_TRAINING > 0
         //    && (KATHERINE_TRAINING & KBIT_TRAINING_TALK_EDRYN) == 0)
         this.clearOutput();
@@ -287,7 +287,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
     }
 
     public talkToUrta(): void {
-        //Triggers when you go to talk to Urta in the Wet Bitch
+        // Triggers when you go to talk to Urta in the Wet Bitch
         //    (KATHERINE_UNLOCKED == 1 && KATHERINE_TRAINING > 0 && (KATHERINE_TRAINING & KBIT_TRAINING_TALK_URTA) == 0)
         this.clearOutput();
         this.outputText(
@@ -304,7 +304,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         );
         this.flags[kFLAGS.KATHERINE_TRAINING] |= KatherineEmployment.KBIT_TRAINING_TALK_URTA; //Using a mask so it doesn’t matter what order you talk to Edryn and Urta in
         if (this.urta.urtaLove()) {
-            //Lover Urta
+            // Lover Urta
             this.outputText(
                 "She looks quietly at you for a few long moments, then sighs and shakes her head.  “<i>I should be so jealous of her... but, well, it’s not like either of us really went into this thing expecting monogamy, right?  Besides, you’re too noble and cute for me to stay mad at you.</i>”  She winks at you in a flirtatious manner.  “<i>In fact... how about this?  If you want to bring your little kitten to me, I’ll help you whip her into shape.  That’s all the help I can offer you, I’m afraid... But first...</i>”  She sets down her mug, then takes one of your hand and slides it into her lap, where you can feel the distinctive bulge swelling.  “<i>How about giving me a little appreciation for being so nice, hmm?</i>”  She asks, licking her lips and savoring your reaction.\n\n"
             );
@@ -324,7 +324,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
                 undefined
             );
         } else {
-            //Fuckbuddy Urta
+            // Fuckbuddy Urta
             this.outputText(
                 "She then sullenly starts gulping her mug down, one hand already waving to a bar attendant for a refill.  Looks like she might be a little jealous... You decide not to push your luck, instead thanking her for the advice and leaving her to her drinking.  Now, all you need to do is figure out how to convince Katherine to join the Watch..."
             );
@@ -333,7 +333,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
     }
 
     public talkToKath(): void {
-        //Only appears if you’ve talked to Edryn, Urta or the desk sargeant and haven’t yet had this talk with Kath
+        // Only appears if you’ve talked to Edryn, Urta or the desk sargeant and haven’t yet had this talk with Kath
         //    (KATHERINE_UNLOCKED == 1 && KATHERINE_TRAINING >= 3 &&
         //    && (KATHERINE_TRAINING & KBIT_TRAINING_TALK_KATH) == 0)
         this.outputText(
@@ -432,7 +432,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
     }
 
     public initiateTraining(): boolean {
-        //Only appears if you’ve talked to Kath about joining the watch
+        // Only appears if you’ve talked to Kath about joining the watch
         /*  Kath’s training progress is represented by a percentage, that goes from 0 to 100.  When it hit 100% Kath will take and pass the Watch’s admission test
             During the process of training, Kath’s traditional menu is disabled. Visiting Kath automatically initiates a training session.
             < 33% = Train Kath in basic survival. < 66% = Train Kath in weapons use. < 100 % = Train Kath in general guard behaviour. */
@@ -731,7 +731,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             if (this.player.cockThatFits2(70) > -1) penBoth = this.katherine.pcPenetratesKatDoubly;
         }
         if (this.player.hasVagina() && this.player.vaginalCapacity() >= 100) {
-            //Don't want to get knotted together out here at the lake
+            // Don't want to get knotted together out here at the lake
             takeVag = this.katherine.letKatKnotYourCuntPussyFuck;
             if (this.katherine.knotSize < 4 && this.katherine.cockNumber > 1)
                 takeVagAndAss = this.katherine.getDoublePennedByKat;
@@ -914,7 +914,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
     }
 
     public katherineTrainingComplete(): void {
-        //Triggers when you visit Kath with her training score at or over 100
+        // Triggers when you visit Kath with her training score at or over 100
         //    (KATHERINE_UNLOCKED == 2) && (KATHERINE_TRAINING >= 100)
         if (this.urta.urtaDrunk() || this.model.time.hours >= 15) {
             if (this.model.time.hours >= 15)
@@ -938,7 +938,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         );
         if (this.flags[kFLAGS.URTA_COMFORTABLE_WITH_OWN_BODY] > -1) {
             if (this.flags[kFLAGS.TIMES_FUCKED_URTA] > 0) {
-                //Urta is either your lover or a fuckbuddy
+                // Urta is either your lover or a fuckbuddy
                 this.outputText(
                     "Urta gives you a big smile as you lead Katherine over to her table.  “<i>How’s it going, " +
                         this.player.short +
@@ -1000,7 +1000,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
                 );
                 this.doNext(this.katherineTrainingCompleteUrtaLover);
             } else {
-                //You've never spoken to her
+                // You've never spoken to her
                 this.outputText(
                     "You haven’t spoken to the captain of Tel’Adre’s guard since that first day when you arrived in the city.  Urta is nursing some kind of hard liquor and working her way through piles of reports and other paperwork.  She notices your approach and puts aside her quill.\n\n"
                 );
@@ -1023,7 +1023,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             }
         } else {
             if (this.flags[kFLAGS.TIMES_FUCKED_URTA] == 0) {
-                //You ran away that first time, she assumed you hate her cock
+                // You ran away that first time, she assumed you hate her cock
                 this.outputText(
                     "Urta’s expressions wavers between curiosity, anger and fear when you bring Kath to her table and ask if you and Katherine can talk about the watch.  She does let you both sit down and then says little as you explain how Kath wants to join the watch and how you’ve been training her.\n\n"
                 );
@@ -1032,7 +1032,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
                 );
                 this.doNext(this.katherineTrainingCompleteUrtaThoughtYouDidntLikeHer);
             } else {
-                //You broke up with her over something else and she won’t come back
+                // You broke up with her over something else and she won’t come back
                 this.outputText(
                     "Urta really doesn’t look like she wants to talk to you.  To make sure Katherine has the best chance of being accepted you decide not to get involved.  You give Kath a kiss and send her over alone.  You watch from the corner of the bar while the two of them talk for several minutes.  Finally Urta finishes her drink and leads Kath out of the bar."
                 );
@@ -1271,7 +1271,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
     }
 
     private initiateTrainingWithUrta(): void {
-        //Happens next time you visit Kath after the visit to Urta
+        // Happens next time you visit Kath after the visit to Urta
         this.outputText(
             "You approach the alleyway behind the pawn shop, looking for Kath... and sure enough, you spot the cat-herm grooming herself.  Gently coughing to get her attention, you wave a hand at her.\n\n"
         );
@@ -2508,7 +2508,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
     }
 
     public katherineGetsEmployed(): void {
-        //This scene plays automatically the first time that the player goes to Tel’Adre after Kath’s training is done
+        // This scene plays automatically the first time that the player goes to Tel’Adre after Kath’s training is done
         this.clearOutput();
         this.outputText(
             "As you make your way past the familiar sight of the gate guards to Tel’Adre, you think one of them looks familiar.  Then, a moment later, you recognize who she is and stop.  There, grinning widely at you, clad in the usual armor and helmet of the Watch and with a brand-new sword strapped to her waist, is Katherine.\n\n"
@@ -2529,9 +2529,9 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         this.outputText(
             "You ask if you’ll be able to see her around town, now?  The new watch-cat nods her head.  “<i>Yeah; if you’re lucky, you might catch me when I'm on patrol around the markets; that's where I'm going to be assigned most days, so you should run into me eventually.  Otherwise, check for me at the Wet Bitch.  I go there after my shift to wet my whistle and wind down.  I guess in that way I take after Captain Urta a little.</i>”  She steps forward and presses a quick kiss to your lips.  “<i>But, right now, I’m on duty, so off with you.</i>”  She smirks.\n\n"
         );
-        //Prevent this scene from repeating
+        // Prevent this scene from repeating
         if (this.flags[kFLAGS.KATHERINE_TRAINING] == 200) this.flags[kFLAGS.KATHERINE_TRAINING] = 1;
-        //After training is completed the training flag indicates that Urta helped to train Kath
+        // After training is completed the training flag indicates that Urta helped to train Kath
         else this.flags[kFLAGS.KATHERINE_TRAINING] = 0;
         this.flags[kFLAGS.KATHERINE_LOCATION] = Katherine.KLOC_KATHS_APT; //Once again she disappears for the rest of the day so we don't find her at the bar right after seeing this encounter
         this.katherine.giveClothing(Katherine.KBIT_CLOTHES_UNIFORM);
@@ -2548,7 +2548,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "Looking closely you notice a few of the secret hiding spots among the crates have been emptied.  Kath must have been here to collect some of her more sentimental possessions.\n\n"
         );
         if (!this.katherine.isAt(Katherine.KLOC_KATHS_APT)) {
-            //Only possible if she's already been seen on guard duty at the gate and you've slept once since
+            // Only possible if she's already been seen on guard duty at the gate and you've slept once since
             this.outputText(
                 "You see a note tucked into the side of the crate Kath used to sleep on.  It says, 'Hi " +
                     this.player.short +

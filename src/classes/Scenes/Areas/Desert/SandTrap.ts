@@ -11,7 +11,7 @@ import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
 
 export class SandTrap extends Monster {
-    //Wait:
+    // Wait:
     public sandTrapWait(): void {
         this.clearOutput();
         this.game.spriteSelect(97);
@@ -25,14 +25,14 @@ export class SandTrap extends Monster {
                 "\n\nYou eye the ground above you.  The edge of the pit is too sheer, the ground too unstable... although it looks like you can fight against the currents carrying you further down, it seems impossible to gain freedom with the sand under the monster's spell."
             );
         } else {
-            //Strength check success: [Player goes up one level, does not go down a level this turn]
+            // Strength check success: [Player goes up one level, does not go down a level this turn]
             if (this.player.str / 10 + SandTrap.rand(20) > 10) {
                 this.outputText(
                     '\n\nSweat beads your forehead - trying to clamber out of this pit is like running against the softest treadmill imaginable.  Nonetheless, through considerable effort you see you\'ve managed to pull further clear of the sandtrap\'s grasp.  "<i>Watching you squirm around like that gets me so hot,</i>" it calls up to you.  Turning around you see that the creature is rubbing its hands all over its lean body whilst watching you struggle.  "<i>Such an energetic little mating dance, just for me... mmm, prey who do that are always the best!</i>"'
                 );
                 this.trapLevel(2);
             } else {
-                //Strength check fail:  [Player goes down as normal]
+                // Strength check fail:  [Player goes down as normal]
                 this.outputText(
                     '\n\nSweat beads your forehead - trying to clamber out of this pit is like running against the softest treadmill imaginable.  You feel like you\'re going to burst and you eventually give up, noting wearily that you\'ve managed to get nowhere. "<i>Watching you squirm around like that gets me so hot,</i>" the sandtrap calls to you.  Turning around you see that the creature is rubbing its hands all over its lean body whilst watching you struggle.  "<i>Such an energetic little mating dance, just for me... mmm, prey who do that are always the best!</i>"'
                 );
@@ -41,7 +41,7 @@ export class SandTrap extends Monster {
         }
         this.outputText("\n\n");
         this.doAI();
-        //combatRoundOver();
+        // combatRoundOver();
     }
 
     public trapLevel(adjustment: number = 0): number {
@@ -49,7 +49,7 @@ export class SandTrap extends Monster {
             this.createStatusAffect(StatusAffects.Level, 4, 0, 0, 0);
         if (adjustment != 0) {
             this.addStatusValue(StatusAffects.Level, 1, adjustment);
-            //Keep in bounds ya lummox
+            // Keep in bounds ya lummox
             if (this.statusAffectv1(StatusAffects.Level) < 1)
                 this.changeStatusValue(StatusAffects.Level, 1, 1);
             if (this.statusAffectv1(StatusAffects.Level) > 4)
@@ -58,7 +58,7 @@ export class SandTrap extends Monster {
         return this.statusAffectv1(StatusAffects.Level);
     }
 
-    //sandtrap pheromone attack:
+    // sandtrap pheromone attack:
     private sandTrapPheremones(): void {
         this.game.spriteSelect(97);
         this.outputText(
@@ -83,13 +83,13 @@ export class SandTrap extends Monster {
         }
     }
 
-    //sandtrap quicksand attack:
+    // sandtrap quicksand attack:
     private nestleQuikSandAttack(): void {
         this.game.spriteSelect(97);
         this.outputText(
             "The sandtrap smiles at you winningly as it thrusts its hands into the sifting granules.  The sand beneath you suddenly seems to lose even more of its density; you're sinking up to your thighs!"
         );
-        //Quicksand attack fail:
+        // Quicksand attack fail:
         if (
             this.player.spe / 10 + SandTrap.rand(20) > 10 ||
             this.combatEvade() ||
@@ -99,7 +99,7 @@ export class SandTrap extends Monster {
                 "  Acting with alacrity, you manage to haul yourself free of the area affected by the sandtrap's spell, and set yourself anew."
             );
         }
-        //Quicksand attack success: (Speed and Strength loss, ability to fly free lost)
+        // Quicksand attack success: (Speed and Strength loss, ability to fly free lost)
         else {
             this.outputText(
                 "  You can't get free in time and in a panic you realize you are now practically wading in sand.  Attempting to climb free now is going to be very difficult."
@@ -119,7 +119,7 @@ export class SandTrap extends Monster {
             if (this.trapLevel() == 4 && this.findStatusAffect(StatusAffects.Climbed) < 0)
                 this.nestleQuikSandAttack();
             else this.sandTrapPheremones();
-            //PC sinks a level (end of any turn in which player didn't successfully \"<i>Wait</i>\"):
+            // PC sinks a level (end of any turn in which player didn't successfully \"<i>Wait</i>\"):
             if (this.findStatusAffect(StatusAffects.Climbed) < 0) {
                 this.outputText(
                     "\n\nRivulets of sand run past you as you continue to sink deeper into both the pit and the sand itself."
@@ -145,7 +145,7 @@ export class SandTrap extends Monster {
 
     public constructor() {
         super();
-        //1/3 have fertilized eggs!
+        // 1/3 have fertilized eggs!
         if (SandTrap.rand(3) == 0) this.createStatusAffect(StatusAffects.Fertilized, 0, 0, 0, 0);
         this.a = "the ";
         if (this.game.silly()) this.short = "sand tarp";

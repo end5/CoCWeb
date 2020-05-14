@@ -172,7 +172,7 @@ export class SuccubusGardener extends Monster {
     private tentagrapple(): void {
         this.createStatusAffect(StatusAffects.TentagrappleCooldown, 10, 0, 0, 0);
 
-        //Used once every ten rounds
+        // Used once every ten rounds
         this.outputText(
             "A web of interwoven vines lashes out from behind the succubus, somehow leaving her untouched by the wave of advancing greenery. They're trying to grab you!"
         );
@@ -183,12 +183,12 @@ export class SuccubusGardener extends Monster {
             this.combatFlexibility() ||
             this.combatMisdirect()
         ) {
-            //Dodge
+            // Dodge
             this.outputText(
                 " You slip aside at the last moment, barely avoiding being wrapped in the squirming mass. It snaps back, perhaps at the limits of its reach, leaving you once more eye to eye with the alluring gardener."
             );
         } else {
-            //Do not dodddddddggggeee
+            // Do not dodddddddggggeee
             this.outputText(
                 " You twist to the side, but one snags you by the wrist. Another loops around your [leg], and an avalanche of slime-oozing tentacles falls across the rest of you, wrapping you up in snug coils. Their grip is equal parts iron grip and lover's caress. You'd better struggle free before they really start to work on you!"
             );
@@ -259,7 +259,7 @@ export class SuccubusGardener extends Monster {
         this.outputText(
             "Jiggling oh so pleasantly, the gardener twirls and points in your direction. <i>“Sic 'em, pets!”</i> There is no time for a retort, only a wave of unrelenting greenery lashing in your direction!"
         );
-        //Ten very low damage attacks.
+        // Ten very low damage attacks.
         // Geddynote- opted to convert to a lust-inducing attack, because LITERALLY EVERYTHING ELSE she does is lust-based.
 
         var damage: number = 0;
@@ -307,12 +307,12 @@ export class SuccubusGardener extends Monster {
             this.combatFlexibility() ||
             this.combatMisdirect()
         ) {
-            //Dodge
+            // Dodge
             this.outputText(
                 " Somehow, you manage to twist out from under the organic raincloud without getting stained by a single drop, though your breath has quickened, and not just from the physical effort."
             );
         } else {
-            //Fail
+            // Fail
             if (this.player.findStatusAffect(StatusAffects.ShowerDotEffect) < 0)
                 this.player.createStatusAffect(StatusAffects.ShowerDotEffect, 3, 0, 0, 0);
             else this.player.addStatusValue(StatusAffects.ShowerDotEffect, 1, 3);
@@ -328,7 +328,7 @@ export class SuccubusGardener extends Monster {
 
         this.player.addStatusValue(StatusAffects.ShowerDotEffect, 1, -1);
 
-        //Dot effect
+        // Dot effect
         if (this.player.lust < 50)
             this.outputText(
                 "The tentacles' sex-juices are still covering you - still slowly arousing you. You've got a good handle on it for now.\n\n"
@@ -414,7 +414,7 @@ export class SuccubusGardener extends Monster {
     }
 
     private sapSpeed(): void {
-        //Used once after first orgasm
+        // Used once after first orgasm
         // 9999 wot orgasm -- gonna assume it's used the heal at least once
 
         this.outputText(
@@ -449,7 +449,7 @@ export class SuccubusGardener extends Monster {
     }
 
     private tasteTheEcstasy(): void {
-        //Strength check based lust damage, used when aroused only.
+        // Strength check based lust damage, used when aroused only.
         this.outputText(
             "Three tentacles stab out at you like organic spears, but you easily evade them... directly into the succubus' arms! Too late, you realize that the offensive was a feint! Her tremendous tits are pressing into your back, and you feel a trickle of wetness leaking down your [leg] as she grinds against you. At the same time, she whispers into your ear, <i>“Just have a taste... sample the ecstasy. You'll see that indulging is the best thing you could possibly do.”</i>"
         );
@@ -458,7 +458,7 @@ export class SuccubusGardener extends Monster {
             "\n\nOne of those tentacles is above you now, and it points down, its phallic shape clear. The slit at the end spreads open, and a blob of whitish goo appears. "
         );
 
-        //Fail strength check!
+        // Fail strength check!
         if (SuccubusGardener.rand(this.player.str - 30) + 30 > this.str) {
             this.outputText(
                 "\n\nIt hangs there for a moment while the succubus yanks your mouth open, just in time to receive the undoubtedly drugged jism. It practically sizzles on your tongue, tasting of almonds and walnuts with a distinctly fruity aftertaste. Your mouth gulps it down automatically, and with slow-dawning comprehension, you understand how the succubus could be so obsessed with these plants. Your groin heats eagerly as the plant spunk absorbs into your system. Your pupils dilate. Gods, it feels good!"
@@ -474,7 +474,7 @@ export class SuccubusGardener extends Monster {
                 5
             );
         } else {
-            //Succeed strength check
+            // Succeed strength check
             this.outputText(
                 "\n\nThat's all the warning you need to redouble your efforts. Riding high on a surge of adrenaline, you tear your way out of the temptress' bonds before she can feed you any more corruption."
             );

@@ -19,74 +19,74 @@ import { NPCAwareContent } from "./NPCAwareContent";
 import { Sheila } from "./Sheila";
 
 export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
-    //const SHEILA_CORRUPTION: number = 760;
-    //const SHEILA_XP: number = 761
-    //const SHEILA_PREG: number = 762;
-    //const SHEILA_JOEYS: number = 763;
-    //const SHEILA_IMPS: number = 859;
-    //const SHEILA_DEMON: number = 764;
-    //const SHEILA_CITE: number = 765;
-    //const SHEILA_CLOCK: number = 858;
+    // const SHEILA_CORRUPTION: number = 760;
+    // const SHEILA_XP: number = 761
+    // const SHEILA_PREG: number = 762;
+    // const SHEILA_JOEYS: number = 763;
+    // const SHEILA_IMPS: number = 859;
+    // const SHEILA_DEMON: number = 764;
+    // const SHEILA_CITE: number = 765;
+    // const SHEILA_CLOCK: number = 858;
 
-    //Cautious around strangers; doesn't want anything much to do with other people. She'll greet you and introduce herself, but if you begin to pry into her business she'll ask you to leave (on first contact). Her people's bodies transfer emotional energy during sex in an osmotic fashion, pulling it from concentrated sources and pushing it to diffuse ones despite the will of the partner. By repeated contact and respecting her space you may befriend her. Or you may refuse to leave from the get-go and she'll try to drive you off forcefully, allowing you to whoop her and sexcrime her.
+    // Cautious around strangers; doesn't want anything much to do with other people. She'll greet you and introduce herself, but if you begin to pry into her business she'll ask you to leave (on first contact). Her people's bodies transfer emotional energy during sex in an osmotic fashion, pulling it from concentrated sources and pushing it to diffuse ones despite the will of the partner. By repeated contact and respecting her space you may befriend her. Or you may refuse to leave from the get-go and she'll try to drive you off forcefully, allowing you to whoop her and sexcrime her.
 
-    //Pseudo-code shit:
-    //flags required: sheila xp, sheila corruption, demon sheila, sheila clock, sheilapreg, joeycount, sheilacite, sheilaforge
-    //functions to run at 00:00 each day
-    //	-sheila clock + 1
-    //		-makes encounter available only once per day in conjunction with functions afterward; allows timing manipulations for her to get mad at PC for a while
-    //	-if sheilapreg >= 1, sheilapreg + 1
-    //		-'birth' occurs at sheilapreg >= 4
-    //	-if sheilaforge > 0 and sheilacite = 3, sheilaforge + 1
-    //		-blade forging is finished at sheilaforge >= 14 but is turned over to the Covenant as a dangerous item at sheilaforge >= 21
+    // Pseudo-code shit:
+    // flags required: sheila xp, sheila corruption, demon sheila, sheila clock, sheilapreg, joeycount, sheilacite, sheilaforge
+    // functions to run at 00:00 each day
+    // 	-sheila clock + 1
+    // 		-makes encounter available only once per day in conjunction with functions afterward; allows timing manipulations for her to get mad at PC for a while
+    // 	-if sheilapreg >= 1, sheilapreg + 1
+    // 		-'birth' occurs at sheilapreg >= 4
+    // 	-if sheilaforge > 0 and sheilacite = 3, sheilaforge + 1
+    // 		-blade forging is finished at sheilaforge >= 14 but is turned over to the Covenant as a dangerous item at sheilaforge >= 21
 
-    //functions to run before initiating a sheila encounter, in order (by no means mandatory if you have a better way):
-    //	-if sheilapreg < 0, prevent encounter
-    //		-no Sheila at all if PC rejects her pregnancy; too bad, so sad (also used as the general 'off' toggle)
-    //	-if sheila clock < 1, prevent encounter
-    //	-if sheila clock = 1, set sheila clock = 0
-    //		-avoids having to run it at the end of every single output; disregard if unfeasible
-    //	-if sheila corruption >= 100 and demon sheila = 0, set demon sheila = 1
-    //		-prevents save editors from changing Sheila's corruption without demonifying her and thereby fucking the game
-    //	-if demon sheila = 1, set sheila xp = 4
-    //		-prevents save editor from making a situation that bypasses the demon Sheila imp birth notif and thereby not incrementing the imp birth counter
-    //	-if sheilapreg >= 4 and sheila xp >= -2, search up a birth announcement instead of outputting usual encounter
-    //	-else, output the encounter that matches her current state
+    // functions to run before initiating a sheila encounter, in order (by no means mandatory if you have a better way):
+    // 	-if sheilapreg < 0, prevent encounter
+    // 		-no Sheila at all if PC rejects her pregnancy; too bad, so sad (also used as the general 'off' toggle)
+    // 	-if sheila clock < 1, prevent encounter
+    // 	-if sheila clock = 1, set sheila clock = 0
+    // 		-avoids having to run it at the end of every single output; disregard if unfeasible
+    // 	-if sheila corruption >= 100 and demon sheila = 0, set demon sheila = 1
+    // 		-prevents save editors from changing Sheila's corruption without demonifying her and thereby fucking the game
+    // 	-if demon sheila = 1, set sheila xp = 4
+    // 		-prevents save editor from making a situation that bypasses the demon Sheila imp birth notif and thereby not incrementing the imp birth counter
+    // 	-if sheilapreg >= 4 and sheila xp >= -2, search up a birth announcement instead of outputting usual encounter
+    // 	-else, output the encounter that matches her current state
 
-    //sheila xp flag quick reference:
-    //-4 or less: PC has raped Sheila; Sheila's madder than a cat trying to bury shit on a frozen pond and will always attack
-    //-3: PC has aggravated her; Sheila will attack and normal relationship is off-limits but PC can backdoor into -2
-    //-2: PC has never raped Sheila but has lost and been raped by her; triggers Sheila's apology
-    //-1: PC botched the first meeting but ran away or won/lost without rape; Sheila is wary but allows the PC to apologize
-    //0: first meeting
-    //1: reconciliation; Sheila will chat with PC and begin opening up to him
-    //2: acclimation: Sheila talks more and begins to befriend PC
-    //3: serendipity; Sheila will sex PC and advance to 4 if PC meets her at 20:00
-    //4 or more: Sheila wubs PC, will chat or sex as PC desires
+    // sheila xp flag quick reference:
+    // -4 or less: PC has raped Sheila; Sheila's madder than a cat trying to bury shit on a frozen pond and will always attack
+    // -3: PC has aggravated her; Sheila will attack and normal relationship is off-limits but PC can backdoor into -2
+    // -2: PC has never raped Sheila but has lost and been raped by her; triggers Sheila's apology
+    // -1: PC botched the first meeting but ran away or won/lost without rape; Sheila is wary but allows the PC to apologize
+    // 0: first meeting
+    // 1: reconciliation; Sheila will chat with PC and begin opening up to him
+    // 2: acclimation: Sheila talks more and begins to befriend PC
+    // 3: serendipity; Sheila will sex PC and advance to 4 if PC meets her at 20:00
+    // 4 or more: Sheila wubs PC, will chat or sex as PC desires
 
-    //sheila corruption flag quick reference (corruption level determines Sheila breast size and triggers some scenes; breast size function is below):
-    //0 or less: tits are nearly flat, may trigger special scene later if I give a shit (OUTLOOK NOT GOOD)
-    //30: C-cup; starting value, set at first meeting
-    //50: DD-cup; general cutoff point between scenes referring to them as perky vs. pillowy
-    //90: FF-cup; Sheila's lucidity threshold; triggers event where Sheila gives player a last chance to stop corrupting her
-    //100: G-cup; sets demon sheila = 1 upon reaching 100 for the first time; may be lowered afterward to adjust her breast size without undoing demonification
+    // sheila corruption flag quick reference (corruption level determines Sheila breast size and triggers some scenes; breast size function is below):
+    // 0 or less: tits are nearly flat, may trigger special scene later if I give a shit (OUTLOOK NOT GOOD)
+    // 30: C-cup; starting value, set at first meeting
+    // 50: DD-cup; general cutoff point between scenes referring to them as perky vs. pillowy
+    // 90: FF-cup; Sheila's lucidity threshold; triggers event where Sheila gives player a last chance to stop corrupting her
+    // 100: G-cup; sets demon sheila = 1 upon reaching 100 for the first time; may be lowered afterward to adjust her breast size without undoing demonification
 
-    //sheilacite flag quick reference (tracks Sheila's lethicite):
-    //-1 or less: Sheila was demonized by something other than the PC; lethicite was lost
-    //0: Sheila is still mortal; no lethicite has been created yet
-    //1: PC has inherited Sheila's lethicite but it is still in unrefined form
-    //2: PC turned Sheila's lethicite into a piercing
-    //3: PC turned Sheila's lethicite over to the weaponsmith
-    //4: PC received the Scarred Blade from the weaponsmith and currently has it on his person or in storage
-    //5: PC received the Scarred Blade from the weaponsmith but lost it and is eligible to find it if corr >= 70
-    //6: PC didn't claim the blade from the smith or found it again but elected not to take it
+    // sheilacite flag quick reference (tracks Sheila's lethicite):
+    // -1 or less: Sheila was demonized by something other than the PC; lethicite was lost
+    // 0: Sheila is still mortal; no lethicite has been created yet
+    // 1: PC has inherited Sheila's lethicite but it is still in unrefined form
+    // 2: PC turned Sheila's lethicite into a piercing
+    // 3: PC turned Sheila's lethicite over to the weaponsmith
+    // 4: PC received the Scarred Blade from the weaponsmith and currently has it on his person or in storage
+    // 5: PC received the Scarred Blade from the weaponsmith but lost it and is eligible to find it if corr >= 70
+    // 6: PC didn't claim the blade from the smith or found it again but elected not to take it
 
-    //Other flags:
-    //-demon sheila: if 1, sheila is a demon
-    //-sheila clock: prevents more than one sheila encounter per day; also prevents encounters for long periods if set to negative by functions
-    //-sheilapreg: turned on when PC impregs sheila, grows by one each day or if PC passes another check after sex (diapause lol), outputs a birth notif and turns itself back to 0 once it hits 4; also used to disable sheila entirely if set to negative
-    //-joeycount: counts number of PC's children with Sheila, both for determining her attitude toward pregnancy and for the More Stats page; may be better suited as a status affect
-    //-sheilaforge: counts up 1 per day once PC has turned Sheila's lethicite over to the T'A weaponsmith, modifies [Weapons] button outputs in that city's menu if sheilacite = 3
+    // Other flags:
+    // -demon sheila: if 1, sheila is a demon
+    // -sheila clock: prevents more than one sheila encounter per day; also prevents encounters for long periods if set to negative by functions
+    // -sheilapreg: turned on when PC impregs sheila, grows by one each day or if PC passes another check after sex (diapause lol), outputs a birth notif and turns itself back to 0 once it hits 4; also used to disable sheila entirely if set to negative
+    // -joeycount: counts number of PC's children with Sheila, both for determining her attitude toward pregnancy and for the More Stats page; may be better suited as a status affect
+    // -sheilaforge: counts up 1 per day once PC has turned Sheila's lethicite over to the T'A weaponsmith, modifies [Weapons] button outputs in that city's menu if sheilacite = 3
 
     public pregnancy: PregnancyStore;
 
@@ -101,7 +101,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         CoC.timeAwareClassAdd(this);
     }
 
-    //Implementation of TimeAwareInterface
+    // Implementation of TimeAwareInterface
     public timeChange(): boolean {
         this.pregnancy.pregnancyAdvance();
         if (this.model.time.hours > 23) {
@@ -119,10 +119,10 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
     public timeChangeLarge(): boolean {
         return false;
     }
-    //End of Interface Implementation
+    // End of Interface Implementation
 
     private sheilaPreg(reducedChance: boolean = false): void {
-        //CHANCE OF PREGGERS, GAO
+        // CHANCE OF PREGGERS, GAO
         if (this.pregnancy.isPregnant) return;
         var chance: number = 5;
         chance += this.player.cumQ() / 66;
@@ -148,7 +148,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         return this.flags[kFLAGS.SHEILA_CORRUPTION];
     }
 
-    //Sheila's cup function!
+    // Sheila's cup function!
     public sheilaCup(): string {
         if (this.flags[kFLAGS.SHEILA_CORRUPTION] < 10) return "tiny, almost-absent";
         else if (this.flags[kFLAGS.SHEILA_CORRUPTION] < 20) return "A-cup";
@@ -219,15 +219,15 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 " Sheila XP: " +
                 this.flags[kFLAGS.SHEILA_XP]
         );
-        //UNFUCK FLAGS
+        // UNFUCK FLAGS
         if (this.flags[kFLAGS.SHEILA_CLOCK] > 0) this.flags[kFLAGS.SHEILA_CLOCK] = 0;
         if (this.sheilaCorruption() >= 100 && this.flags[kFLAGS.SHEILA_DEMON] == 0)
             this.flags[kFLAGS.SHEILA_DEMON] = 1;
         if (this.flags[kFLAGS.SHEILA_DEMON] == 1) this.flags[kFLAGS.SHEILA_XP] = 4;
 
-        //ACTUALLY PICK ENCOUNTER!
+        // ACTUALLY PICK ENCOUNTER!
         if (this.flags[kFLAGS.SHEILA_DEMON] == 0) {
-            //PREG SHIT
+            // PREG SHIT
             if (
                 this.pregnancy.isPregnant &&
                 this.pregnancy.incubation == 0 &&
@@ -239,23 +239,23 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             }
             if (this.flags[kFLAGS.SHEILA_XP] == 0) this.sheilaFirstEncounter();
             else if (this.flags[kFLAGS.SHEILA_XP] == -1) this.sheilaApology();
-            //XP-2 Sheila's apology (sheila xp = -2 and demon sheila = 0):
+            // XP-2 Sheila's apology (sheila xp = -2 and demon sheila = 0):
             else if (this.flags[kFLAGS.SHEILA_XP] == -2) this.sheilaIsSorrySheRapedYou();
-            //XP-3 or XP-4 She-mad (Sheila XP <= -3 and demon sheila = 0):
+            // XP-3 or XP-4 She-mad (Sheila XP <= -3 and demon sheila = 0):
             else if (this.flags[kFLAGS.SHEILA_XP] == -3 || this.flags[kFLAGS.SHEILA_XP] == -4)
                 this.sheilaReallyMad();
-            //XP1: Reconciliation encounter (sheila xp = 1 and demon sheila = 0):
+            // XP1: Reconciliation encounter (sheila xp = 1 and demon sheila = 0):
             else if (this.flags[kFLAGS.SHEILA_XP] == 1) this.sheilaReconcile();
-            //XP2: Familiarizing (Sheila XP = 2; or Sheila XP = 3 AND time =/= 20:00 and demon sheila = 0):
+            // XP2: Familiarizing (Sheila XP = 2; or Sheila XP = 3 AND time =/= 20:00 and demon sheila = 0):
             else if (
                 this.flags[kFLAGS.SHEILA_XP] == 2 ||
                 (this.flags[kFLAGS.SHEILA_XP] == 3 && this.model.time.hours != 20)
             )
                 this.sheilaGettingFamiliar();
-            //XP3: Sexy Time (sheila xp = 3 AND time = 20:00 and demon sheila = 0):
+            // XP3: Sexy Time (sheila xp = 3 AND time = 20:00 and demon sheila = 0):
             else if (this.flags[kFLAGS.SHEILA_XP] == 3 && this.model.time.hours == 20)
                 this.sheilaXPThreeSexyTime();
-            //XP4: Fancy meeting you here (sheila xp >= 4 and demon sheila = 0):
+            // XP4: Fancy meeting you here (sheila xp >= 4 and demon sheila = 0):
             else if (this.flags[kFLAGS.SHEILA_XP] == 4) this.fuckBuddySheilaMeeting();
             else {
                 this.outputText(
@@ -266,30 +266,30 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.doNext(this.camp.returnToCampUseOneHour);
             }
         }
-        //DEMONS!
+        // DEMONS!
         else {
-            //Post-demon pregnancy notif (demon sheila = 1 and sheilapreg = 4)
-            //increment imp children counter?
+            // Post-demon pregnancy notif (demon sheila = 1 and sheilapreg = 4)
+            // increment imp children counter?
             if (this.pregnancy.isPregnant && this.pregnancy.incubation == 0)
                 this.demonImpChildren();
-            //Demon Sheila encounter (demon sheila = 1 and sheilapreg < 4)
+            // Demon Sheila encounter (demon sheila = 1 and sheilapreg < 4)
             else this.demonSheilaEncounter();
         }
     }
 
     private sheilaCorruptionUpdate(): void {
-        //Always dump 10 points.
+        // Always dump 10 points.
         if (this.player.cor > 90) {
             this.dynStats("cor", -10);
             this.sheilaCorruption(10);
         } else if (this.player.cor > this.sheilaCorruption()) {
-            //Big change, dump ten.
+            // Big change, dump ten.
             if (this.player.cor - this.sheilaCorruption() >= 10) {
                 this.dynStats("cor", -10);
                 this.sheilaCorruption(10);
             } else {
                 this.temp = 0;
-                //Small change, do as much as possible.
+                // Small change, do as much as possible.
                 while (Math.round(this.player.cor) != Math.round(this.sheilaCorruption())) {
                     this.player.cor -= 1;
                     if (Math.round(this.player.cor) <= Math.round(this.sheilaCorruption())) {
@@ -303,13 +303,13 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.statScreenRefresh();
             }
         } else if (this.player.cor < this.sheilaCorruption()) {
-            //Big Change!
+            // Big Change!
             if (this.sheilaCorruption() - this.player.cor >= 10) {
                 this.dynStats("cor", 10);
                 this.sheilaCorruption(-10);
             } else {
                 this.temp = 0;
-                //Small change, do as much as possible.
+                // Small change, do as much as possible.
                 while (Math.round(this.player.cor) != Math.round(this.sheilaCorruption())) {
                     this.player.cor += 1;
                     if (Math.round(this.player.cor) >= Math.round(this.sheilaCorruption())) {
@@ -323,37 +323,37 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.statScreenRefresh();
             }
         }
-        //Get one for demon Sheila regardless.
+        // Get one for demon Sheila regardless.
         if (this.flags[kFLAGS.SHEILA_DEMON] == 1) this.dynStats("cor", 1);
     }
 
-    //XP0: the first encounter (sheila xp =0 and demon sheila = 0):
+    // XP0: the first encounter (sheila xp =0 and demon sheila = 0):
     private sheilaFirstEncounter(): void {
         this.clearOutput();
-        //set sheila corruption = 30
+        // set sheila corruption = 30
         this.flags[kFLAGS.SHEILA_CORRUPTION] = 30;
         this.outputText(
             "A strange sight meets your eyes and you drop behind some brush to examine it carefully.  It looks like a dog, though all you can see is a pair of furry hindquarters and a stubby tail draped over them.  But as you get closer, it unbends, revealing a decidedly humanoid upper body!  The creature seems to be wearing a white shirt and a dirty brown vest; what looked like a dog's shoulders from afar is actually a small pack carried on its back.  On its head is a dusty slouch hat, which it presently takes off and begins to fan itself with.  With the hat off, you can see a pair of long reddish-brown ears sticking out from its hair, pointing to each side.  As it turns its body to look around it, you can actually make out a shapely pair of breasts.  What you thought were a dog's hindlegs from the rear are actually a pair of auburn, furry digitigrade appendages only passingly resembling a canine's, and bearing feet with elongated metatarsals.  The animalistic legs come up only as far as the thigh; above them you can make out a band of skin between the fur and the very short shorts that it wears to cover the rest of its posterior.  Its hips are a bit wider than its waist, and the stubby tapered tail sticks out of a tear in the fabric, just below a belt holding them up."
         );
 
         this.menu();
-        //[Look Closer][Stay Hidden]
+        // [Look Closer][Stay Hidden]
         this.addButton(0, "Look Closer", this.sheila1ndEncLookCloser);
         this.addButton(1, "Stay Hidden", this.sheila1stEncStayHidden);
-        //spacebar defaults to [Stay Hidden] -NOT POSSIBURU
+        // spacebar defaults to [Stay Hidden] -NOT POSSIBURU
     }
 
-    //[XP0 - Stay Hidden]
+    // [XP0 - Stay Hidden]
     private sheila1stEncStayHidden(): void {
         this.clearOutput();
         this.outputText(
             "You regulate your breathing and hold yourself still to avoid rustling anything softly, waiting for the creature to finish its business and leave."
         );
-        //no change in sheila xp
+        // no change in sheila xp
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[XP0 - Look Closer]
+    // [XP0 - Look Closer]
     private sheila1ndEncLookCloser(): void {
         this.clearOutput();
         this.outputText(
@@ -363,7 +363,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\nYou unbend to your full height and answer her challenge, making sure she can see you.  She makes no motion to close the distance, so you take it upon yourself to walk over to her; she doesn\'t move, but stops you at about ten paces.  "<i>Far enough!  Let me get a look,</i>" she shouts.'
         );
-        //--Next--
+        // --Next--
         this.menu();
         this.addButton(0, "Next", this.sheila1ndEncLookCloserPtII);
     }
@@ -373,7 +373,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "You subject yourself to her examination; she seems to take professional interest in the way you hold your [weapon].  "
         );
-        //[(PC weapon = Scarred Blade)]
+        // [(PC weapon = Scarred Blade)]
         if (this.player.weaponName == "Scarred Blade")
             this.outputText(
                 "As the blade feels her gaze, it vibrates eagerly toward her, sliding partway out of the oiled scabbard; she stares into the exposed metal transfixed, as if looking into the diary of a past life.  Abruptly, she shakes her head and turns away, and the saber calms down.  "
@@ -384,7 +384,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nFinally satisfied with looking you over, she says, \"<i>She'll be apples.  Sorry to put y'out, but you never know what sort you'll find in the back of nowhere, right?</i>\""
         );
-        //[(libido>=50)
+        // [(libido>=50)
         if (this.player.lib >= 50)
             this.outputText(
                 '  Noting you still checking out her body, she smirks and says, "<i>Enjoying your lookie, then?  Up here, cobber,</i>" causing you to snap your head up sheepishly.'
@@ -414,7 +414,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nCurious and eager to change the subject, you ask her where exactly her aforementioned 'mates' are.  She narrows her eyes at the question.  \"<i>Don't expect that's any of your bizzo, eh stickybeak?  No offense, but I don't know you from Marae an' I'm not about to give info to some dipstick demon dag in disguise."
         );
-        //[(high demon score)
+        // [(high demon score)
         if (this.player.demonScore() >= 4)
             this.outputText(
                 "  I mean, take a squizz at yourself.  It's like you're not even trying to hide it; I've seen imps that look more like normal people."
@@ -431,25 +431,25 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nYou ask her if you couldn't possibly talk more; it's been a while since you've met someone new.  She looks at you harder, and her posture tenses up slightly.  \"<i>Maybe, but not THIS arvo.  Be a corker and take the hint.  I'm trying to catch lunch, and a girl might think you mean something by making a nuisance of yourself.</i>\"  She seems cranky and disinclined to talk... you could let her be for now or try again."
         );
 
-        //[Talk][Leave]
+        // [Talk][Leave]
         this.menu();
         this.addButton(0, "Talk", this.sheila1ndEncLookCloserPtIITalk);
         this.addButton(1, "Leave", this.sheila1ndEncLookCloserPtIILeave);
     }
 
-    //[XP0 - Look Closer - Leave]
+    // [XP0 - Look Closer - Leave]
     private sheila1ndEncLookCloserPtIILeave(): void {
         this.clearOutput();
         this.outputText(
             '"<i>Good onya.  Maybe I\'ll see you around.</i>"  With that, you take your leave of the strange woman.'
         );
-        //set sheila xp = 1
+        // set sheila xp = 1
         this.flags[kFLAGS.SHEILA_XP] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[XP0 - Look Closer - Talk]
-    //set sheila xp = -1
+    // [XP0 - Look Closer - Talk]
+    // set sheila xp = -1
     private sheila1ndEncLookCloserPtIITalk(): void {
         this.clearOutput();
         this.flags[kFLAGS.SHEILA_XP] = -1;
@@ -461,23 +461,23 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\n\"<i>Feel like leaving now?</i>\" she asks, grinning mirthlessly and raising her fists in front of her.  You rub your smarting nose and sit up, looking angrily at her.  She's proven that she's very fast and probably quite strong, though you have no idea how experienced she is at actually fighting - and there's a bit of a regretful look in her eyes, to boot.  Do you turn tail or fight back?"
         );
 
-        //[Leave][Fight]
+        // [Leave][Fight]
         this.menu();
         this.addButton(0, "Fight", this.sheila1ndEncLookCloserPtIITalkFight);
         this.addButton(4, "Leave", this.sheila1ndEncLookCloserPtIITalkLeave);
     }
 
-    //[XP0 - Look Closer - Talk - Leave]
+    // [XP0 - Look Closer - Talk - Leave]
     private sheila1ndEncLookCloserPtIITalkLeave(): void {
         this.clearOutput();
         this.outputText(
             "Wordlessly, you get up and back away from the woman... though not without a dirty glance.  She follows you with her eyes until you judge yourself far enough away to turn your back to her."
         );
-        //go to camp
+        // go to camp
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[XP0 - Look Closer - Talk - Fight]
+    // [XP0 - Look Closer - Talk - Fight]
     // go to fight
     private sheila1ndEncLookCloserPtIITalkFight(): void {
         this.clearOutput();
@@ -485,7 +485,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.playerMenu();
     }
 
-    //XP-1: PC's apology (sheila xp = -1 and demon sheila = 0):
+    // XP-1: PC's apology (sheila xp = -1 and demon sheila = 0):
     private sheilaApology(): void {
         this.clearOutput();
         this.outputText(
@@ -505,8 +505,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nThis is probably about as receptive as you can expect in the circumstances.  Do you say something to her?"
         );
 
-        //[Apologize][Slap&Insult][Nothing][Avoid Her]
-        //spacebar defaults to [Nothing]
+        // [Apologize][Slap&Insult][Nothing][Avoid Her]
+        // spacebar defaults to [Nothing]
         this.menu();
         this.addButton(0, "Apologize", this.apologySheilaApology);
         this.addButton(1, "SlapNInsult", this.apologySheilaSlapSult);
@@ -514,7 +514,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(3, "Avoid Her", this.apologyAvoidSheila);
     }
 
-    //[XP-1 - Avoid Her]
+    // [XP-1 - Avoid Her]
     private apologyAvoidSheila(): void {
         this.clearOutput();
         this.outputText(
@@ -523,12 +523,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>Well... I expect I could arrange that if you\'ll play along,</i>" she says, ears twitching in irritation.  "<i>Take care of yourself, mate.</i>"  She resets the trap and lays down in her spot in the tall grass again, pointedly turning over on her side to show you her back.'
         );
-        //set sheilapreg = -1
+        // set sheilapreg = -1
         this.flags[kFLAGS.SHEILA_DISABLED] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[XP-1 - Apologize]
+    // [XP-1 - Apologize]
     private apologySheilaApology(): void {
         this.clearOutput();
         this.outputText(
@@ -547,12 +547,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("\n\nWell... it looks like you're back to square one.");
 
-        //set sheila xp = 1
+        // set sheila xp = 1
         this.flags[kFLAGS.SHEILA_XP] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[XP-1 - Slap'n'sult]
+    // [XP-1 - Slap'n'sult]
     private apologySheilaSlapSult(): void {
         this.clearOutput();
         this.outputText("You say nothing as she finishes with the snare and stands back up.");
@@ -584,12 +584,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\n\"<i>So that's how it'll be, then!  I'm done trying to talk sense to you, ya clacker!</i>\"  The incensed woman assumes a fighting posture, and you respond in kind."
         );
 
-        //set sheila xp = -3, go to fight
+        // set sheila xp = -3, go to fight
         this.flags[kFLAGS.SHEILA_XP] = -3;
         this.startCombat(new Sheila());
     }
 
-    //[XP-1 - Nothing]
+    // [XP-1 - Nothing]
     private apologySheilaSayNothing(): void {
         this.clearOutput();
         this.outputText(
@@ -604,12 +604,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nYou grunt and watch her resume her cover in the long grass, then turn about and head back to camp."
         );
 
-        //no change in sheila xp
+        // no change in sheila xp
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //XP-2 Sheila's apology (sheila xp = -2 and demon sheila = 0):
-    //Sheila apologizes to PC for taking advantage of him while she was horny
+    // XP-2 Sheila's apology (sheila xp = -2 and demon sheila = 0):
+    // Sheila apologizes to PC for taking advantage of him while she was horny
     private sheilaIsSorrySheRapedYou(): void {
         this.clearOutput();
         this.outputText(
@@ -625,7 +625,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.menu();
-        //[Forgive][Fight][Cast Arouse][Leave Me Alone]
+        // [Forgive][Fight][Cast Arouse][Leave Me Alone]
         this.addButton(0, "Forgive", this.sheilaIsSorryAndYouForgive);
         this.addButton(1, "Fight", this.sheilaPologyFight);
         if (this.player.findStatusAffect(StatusAffects.KnowsArouse) >= 0)
@@ -633,17 +633,17 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(3, "LemmeAlone", this.sheilaIsSorryButLeaveMeAlone);
     }
 
-    //[XP-2 - Leave Me Alone]
+    // [XP-2 - Leave Me Alone]
     private sheilaIsSorryButLeaveMeAlone(): void {
         this.clearOutput();
         this.outputText(
             'You shake your head and turn away, dismissing Sheila with a pointed gesture.  "<i>H-hey!</i>" the girl calls angrily from behind you.  "<i>Dammit, I said I was sorry, you bastard!  Screw you!  See if I talk to you again!</i>"'
         );
-        //set sheilapreg = -1
+        // set sheilapreg = -1
         this.flags[kFLAGS.SHEILA_DISABLED] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[XP-2 - Forgive]
+    // [XP-2 - Forgive]
     private sheilaIsSorryAndYouForgive(): void {
         this.clearOutput();
         this.outputText('"<i>Okay.</i>"');
@@ -658,25 +658,25 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("\n\nYou nod and she turns, loping away on her long legs.");
 
-        //set sheila xp to 4 if joeycount > 0, else set sheila xp to 1
+        // set sheila xp to 4 if joeycount > 0, else set sheila xp to 1
         if (this.flags[kFLAGS.SHEILA_JOEYS] > 0) this.flags[kFLAGS.SHEILA_XP] = 4;
         else this.flags[kFLAGS.SHEILA_XP] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[XP-2 - Fight]
+    // [XP-2 - Fight]
     private sheilaPologyFight(): void {
         this.clearOutput();
         this.outputText(
             "Saying nothing, you raise your [weapon] and take a swing!  Sheila starts a bit and dodges just in time, then with a look of resignation, raises her fists as well.  \"<i>That'll be right, I guess.  For what it's worth, I really am sorry.</i>\""
         );
-        //go to fight, set sheila xp = -3
+        // go to fight, set sheila xp = -3
         this.flags[kFLAGS.SHEILA_XP] = -3;
         this.startCombat(new Sheila());
     }
 
-    //[XP-2 - Cast Arouse]
-    //requires PC has mastered the spell and has enough fatigue/lust to use it
+    // [XP-2 - Cast Arouse]
+    // requires PC has mastered the spell and has enough fatigue/lust to use it
     private sheilaPologyCastArouse(): void {
         this.clearOutput();
         this.fatigue(15, 1);
@@ -722,13 +722,13 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("\n\nBetter and better.");
         this.dynStats("lus", this.player.lib / 5, "resisted", false);
-        //[Let Her][Leave]
+        // [Let Her][Leave]
         this.menu();
         this.addButton(0, "Let Her", this.castArouseAndLetHer);
         this.addButton(4, "Leave", this.castArouseAndLeaveSheila);
     }
 
-    //[XP-2 - Cast Arouse - Leave]
+    // [XP-2 - Cast Arouse - Leave]
     private castArouseAndLeaveSheila(): void {
         this.clearOutput();
         this.outputText(
@@ -745,7 +745,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nTurning away again, you leave the woman calling after you.  Not a very good way to avoid attention for someone who says she doesn't want to be discovered."
         );
 
-        //set sheila corruption = 100 and demon sheila = 1 and sheilacite = -1, increase PC corruption + 10
+        // set sheila corruption = 100 and demon sheila = 1 and sheilacite = -1, increase PC corruption + 10
         this.flags[kFLAGS.SHEILA_CORRUPTION] = 100;
         this.flags[kFLAGS.SHEILA_DEMON] = 1;
         this.flags[kFLAGS.SHEILA_CITE] = -1;
@@ -753,21 +753,21 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[XP-2 - Cast Arouse - Let Her]
+    // [XP-2 - Cast Arouse - Let Her]
     private castArouseAndLetHer(): void {
         this.clearOutput();
         this.outputText(
             "As soon as you nod, the girl bounds to her feet and jumps you, driving you slightly downward in her ardor."
         );
-        //increase PC corruption +10, output loss scene consonant with player's sex, set sheila xp = 4
+        // increase PC corruption +10, output loss scene consonant with player's sex, set sheila xp = 4
         this.dynStats("cor", 10);
         this.flags[kFLAGS.SHEILA_XP] = 4;
-        //Call appropriate loss router
+        // Call appropriate loss router
         this.menu();
         this.addButton(0, "Next", this.sheilaLossRapeRouter);
     }
 
-    //XP-3 or XP-4 She-mad (Sheila XP <= -3 and demon sheila = 0):
+    // XP-3 or XP-4 She-mad (Sheila XP <= -3 and demon sheila = 0):
     private sheilaReallyMad(): void {
         this.clearOutput();
         this.outputText(
@@ -781,7 +781,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>I don\'t want anything to do with you,</i>" she says, sulking and staring downward.  "<i>'
         );
-        //[(sheila corruption >= 90)
+        // [(sheila corruption >= 90)
         if (this.flags[kFLAGS.SHEILA_CORRUPTION] >= 90)
             this.outputText(
                 "It's so hard to remember myself anymore, and the taint you've put in my body goes crazy when you touch me.  Do you want me to get on my hands and knees?</i>\"  The woman lowers herself to the ground.  \"<i>I beg you.  "
@@ -792,32 +792,32 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 "  I know you... you're not as bad as the rest of the monsters out here, so... please."
             );
         this.outputText('</i>"');
-        //[Stand][Leave]
+        // [Stand][Leave]
         this.menu();
         this.addButton(4, "Leave", this.sheilaReallyMadLeave);
         this.addButton(0, "Stand", this.sheilaReallyMadStandGround);
-        //spacebar default should be leave
+        // spacebar default should be leave
     }
 
-    //[XP-3 - Leave]
+    // [XP-3 - Leave]
     private sheilaReallyMadLeave(): void {
         this.clearOutput();
         this.outputText("Huffing, you throw the animals down and turn away.  What a display.");
-        //go to camp, reincarnate as something slightly better next life
+        // go to camp, reincarnate as something slightly better next life
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[XP-3 - Stand]
+    // [XP-3 - Stand]
     private sheilaReallyMadStandGround(): void {
         this.clearOutput();
-        //[(normal mode)]
+        // [(normal mode)]
         if (!this.silly()) {
             this.outputText("You throw the animals behind you and fold your arms.");
             this.outputText(
                 '\n\nSheila shivers, then speaks.  "<i>Alright, mate.  If that\'s the way it has to be.</i>"  She raises her fists half-heartedly.'
             );
         }
-        //(silly mode)
+        // (silly mode)
         else {
             this.outputText(
                 "Throwing the bundle to the side dramatically, you call the name of your stand!  Sheila's eyes widen as your body surges with renewed energy, and she jumps back as a ghostly other self materializes next to you."
@@ -826,7 +826,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\n"<i>So... it has to be like this, then?  Alright!</i>"  Sheila thrusts a fist in the air, eyes glinting, and yells "<i>Come out!  \'Ready, World\'!</i>"  A form flows from her, taking the shape of a slim, dark woman with curly, almost liquid hair, in a loose vest and billowing, long-sleeved tunic.  Sheila jumps at you, and both the woman and her glamorous stand draw back to punch!'
             );
         }
-        //go to fight; if silly mode, heal 20 hp and 10 fatigue on PC and set sheila HP = 120%
+        // go to fight; if silly mode, heal 20 hp and 10 fatigue on PC and set sheila HP = 120%
         this.startCombat(new Sheila());
         if (this.silly()) {
             this.monster.HP *= 1.2;
@@ -835,8 +835,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         }
     }
 
-    //XP1: Reconciliation encounter (sheila xp = 1 and demon sheila = 0):
-    //wherein Sheila actually wipes the sand out of her shorts and talks to the PC
+    // XP1: Reconciliation encounter (sheila xp = 1 and demon sheila = 0):
+    // wherein Sheila actually wipes the sand out of her shorts and talks to the PC
     private sheilaReconcile(): void {
         this.clearOutput();
         this.outputText(
@@ -851,14 +851,14 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\n"<i>Heh,</i>" she says, grinning.  "<i>You catch on quick, mate.</i>"  The grass rustles next to her and her hand appears, holding a bundle of several dead rabbits by their tied-together feet.  "<i>I have plenty of protein donors already, though.  Was just lazing a bit before I decided what to do for grub, and then there you are, standing out like dog\'s balls.</i>"  She rubs the back of her head and looks away.  "<i>Well... care to join me for tea?  I guess I was a wee bit rude before, and it gives me an excuse to cook one of these beasties.  BYOB, of course.</i>"'
         );
 
-        //[Kay]/[Don't Wanna]
-        //spacebar default is [Don't Wanna]
+        // [Kay]/[Don't Wanna]
+        // spacebar default is [Don't Wanna]
         this.menu();
         this.addButton(0, "Kay", this.sheilaReconcileKay);
         this.addButton(1, "Don't Wanna", this.sheilaReconcileDunWanna);
     }
 
-    //[XP1 - Don't Wanna]
+    // [XP1 - Don't Wanna]
     private sheilaReconcileDunWanna(): void {
         this.clearOutput();
         this.outputText(
@@ -870,17 +870,17 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outputText('\n\n"<i>Guess it\'s bodgy bikkie again today...</i>"');
-        //no change in sheila xp
+        // no change in sheila xp
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[XP1 - Kay]
+    // [XP1 - Kay]
     private sheilaReconcileKay(): void {
         this.clearOutput();
         this.outputText(
             'Some fresh meat does sound pretty tempting.  You nod at the woman and she climbs to her feet.  "<i>Beaut!  Do me the favor and fossick about for some tinder.</i>"'
         );
-        //--Next--
+        // --Next--
         this.menu();
         this.addButton(0, "Next", this.sheilaReconcileKay2);
     }
@@ -922,7 +922,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\n\"<i>You make it sound like it's only the three blokes and yours truly huddled in a cave for warmth,</i>\" she responds, finally.  \"<i>Sorry, I know I've never said otherwise; just a funny thought.  Actually we're part of a little hidden alcove, village-sized, with over fifteen families.  Everyone I've ever met that's like me lives in a similar enclave, led by a political and quasi-religious yobbo"
         );
-        //[(pc is kangaroo)
+        // [(pc is kangaroo)
         if (this.player.race() == "kangaroo-morph") this.outputText(" - except you, I suppose");
         this.outputText(
             ".  We trade our goods in prearranged op shops and dead drops but avoid bringing outsiders into our own settlements, even when they're right corkers.</i>\""
@@ -931,7 +931,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\nYou press her on the last point.  "<i>Well, what you don\'t know, you can\'t reveal when the demons take you, right?</i>" she answers.  "<i>I dunno if I should tell you this, but... the other reason has to do with our bodies.</i>"  She looks over at you, searching your face for something inscrutable; you compose a mask of patient, perfect attention as you chew another mouthful of meat.  "<i>Y\'see, we\'re very empathetic to and conductive of emotions under certain circumstances - namely, during a shag.</i>"  She looks away again, into the fire; as you peer closer, she actually appears to be blushing.  "<i>When we, er... orgasm,</i>" she resumes, still not meeting your eyes, "<i>we give or take emotion and feeling from our partner depending on whether they have more or less than us.  For example, it means that horny buggers'
         );
-        //[(lib >50)]
+        // [(lib >50)]
         if (this.player.lib >= 50) this.outputText(" like yourself - I saw you perving -");
         this.outputText(
             ' make us a little hornier, and evil buggers make us a bit more evil.  Our bodies tend to change on their own to reflect how tainted we are... which is as much as saying there are a sad lot among us who flirt with demonic energy to up our sizes to suit our egos.  But versus the sexual appetite and limitless rapacity of the demons themselves...?</i>"'
@@ -941,7 +941,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\n\"<i>We were never prolific, but they tore through us like parchment when they first attacked.  Open-air villages disappeared overnight, leaving only those run by xenophobic, isolationist, stealth nutters.  You've likely met my ex-tribe before if you've met any number of demons; a mug unlucky enough to be caught turns pretty much instantly when he or she climaxes and is flooded with their feelings.</i>\"  She pulls the remaining meat out of the fire and examines it, then hands you half.  At the look in your eyes, she grins.  \"<i>It's not as bad as all that.  Unhappy marriages are almost unheard of, since emotional intensity evens out inside couples.  Bit of a 'build-your-own-soulmate' workshop, right?  Demons are the problem, as always.</i>\""
         );
 
-        //[(if PC has Tel'Adre)]
+        // [(if PC has Tel'Adre)]
         if (this.player.statusAffectv1(StatusAffects.TelAdre) >= 1) {
             this.outputText(
                 '\n\nYou interject here to mention the city you found in the desert.  Sheila grimaces and nods, then answers, "<i>We got word of that from one of our trading partners near the desert a while back.  Seems like they had a wild blue in a town meeting after finding out and half the younger residents grabbed swag and hiked there, tired of hiding.</i>"  She chews morosely, anticipating the end to her own story.'
@@ -958,12 +958,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nA broad smile lets you know she's just joking as she scatters the cooling fire with her spit, stirring and dispersing the ashes.  \"<i>Thanks for the chatter.  Maybe I'll see you again.</i>\"  Picking up her catch, she turns and lopes off."
         );
-        //set sheila xp to 2
+        // set sheila xp to 2
         this.flags[kFLAGS.SHEILA_XP] = 2;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //XP2: Familiarizing (Sheila XP = 2; or Sheila XP = 3 AND time =/= 20:00 and demon sheila = 0):
+    // XP2: Familiarizing (Sheila XP = 2; or Sheila XP = 3 AND time =/= 20:00 and demon sheila = 0):
     private sheilaGettingFamiliar(): void {
         this.clearOutput();
         this.outputText('"<i>Hey, it\'s [name].</i>"');
@@ -983,8 +983,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nYou sit next to her and pick over the offering.  She reclines, enjoying the sun; judging by her demeanor, she seems more far comfortable around you after you abetted her gluttony earlier.  You could probably get away with plying her for info now, if you wanted."
         );
-        //[Come Here Often?][Her People][Curfew?][No Questions][Leave]
-        //spavcebar defaults to [Leave]
+        // [Come Here Often?][Her People][Curfew?][No Questions][Leave]
+        // spavcebar defaults to [Leave]
         this.menu();
         this.addButton(0, "Here Often?", this.sheilaFriendlyComeHereOften);
         this.addButton(1, "Her People", this.sheilaFriendlyHerPeoples);
@@ -994,7 +994,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
     }
 
-    //[XP2 - No Questions]
+    // [XP2 - No Questions]
     private sheilaFriendlyNoQuestions(): void {
         this.clearOutput();
         this.outputText(
@@ -1015,12 +1015,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outputText('\n\n"<i>Yeah.</i>"  Sheila turns and departs with her long-legged gait.');
-        //set sheila xp to 3
+        // set sheila xp to 3
         this.flags[kFLAGS.SHEILA_XP] = 3;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[XP2 - Come Here Often?]
+    // [XP2 - Come Here Often?]
     private sheilaFriendlyComeHereOften(): void {
         this.clearOutput();
         this.outputText("You ask her why she enjoys being on the plains so much.");
@@ -1045,12 +1045,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nExplanation concluded, she folds her hands over her stomach and resumes staring at the clouds.  You join her for a while, then get up and depart."
         );
-        //set sheila xp to 3
+        // set sheila xp to 3
         this.flags[kFLAGS.SHEILA_XP] = 3;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[XP2 - Her People]
+    // [XP2 - Her People]
     private sheilaFriendlyHerPeoples(): void {
         this.clearOutput();
         this.outputText(
@@ -1083,7 +1083,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>... Not really a problem,</i>" she replies, considering.  "<i>If one\'s frigid, the partner will donate some of their... erm, excess ardor.  If they\'re both frigid, they\'re already the perfect couple in that sense.  The non-sexual rough spots always even out once they actually get in the nuddy.  Newlyweds are still newlyweds and dongers still dongers, right?  Bound to.</i>"'
         );
-        //[(pc femininity < 35 or whatever it takes to look manly)
+        // [(pc femininity < 35 or whatever it takes to look manly)
         if (this.player.femininity < 35) this.outputText("  She looks absently at your crotch.");
 
         this.outputText('\n\n"<i>Er,</i>" you interject.  "<i>What about same-sex couples?</i>"');
@@ -1092,7 +1092,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nSheila seems taken unawares by the question and a while passes before the reply comes.  \"<i>Doesn't usually happen.  We're pretty clannish and our captains are always whinging on about the need for every young person to bear children and carry on the family line.  But they can be persuaded to look the other way for two blokes or sheilas who're set on it - provided one is willing to use chemicals to jury-rig a fertile coupling.  Grow a pair, as it were.  If neither is, then they get the cold shoulder!</i>\"  Seeing your look of surprise, she elaborates.  \"<i>Not roughly; we're always short of labor.  The captains set them up in a space of their own, away from the hurly-burly of those in the family persuasion.  Hard to just flick on someone you've watched over all their life.  And they're always welcome to change their minds.</i>\""
         );
 
-        //[(lib<50)]
+        // [(lib<50)]
         if (this.player.lib < 50) {
             this.outputText(
                 '\n\n"<i>And,</i>" you persist, "<i>what if demons find a village with a transferee?</i>"'
@@ -1104,7 +1104,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\n"<i>Anyway,</i>" she resumes, sobering up, "<i>it\'s no more precarious than anyone else\'s situation as long as the demons control the skies and poison the world.</i>"  She climbs to her feet and picks up the bundle of caught game.  "<i>You\'re making me wanna check on my mob, [name].  I\'ll catch you later.</i>"'
             );
         }
-        //(lib >=50)
+        // (lib >=50)
         else {
             this.outputText(
                 "\n\nSmiling salaciously, you lean in and ask the question that naturally comes to your mind."
@@ -1137,13 +1137,13 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nShe gets to her feet, lips pressed tight and face flushed with embarrassment, and leaves without another word, the bundle of game animals hanging over her shoulder... but what's said is said."
             );
-            //set sheila xp to 3
+            // set sheila xp to 3
         }
         this.flags[kFLAGS.SHEILA_XP] = 3;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[XP2 - Curfew?]
+    // [XP2 - Curfew?]
     private sheilaFriendlyCurfew(): void {
         this.clearOutput();
         this.outputText('"<i>Curfew?</i>"');
@@ -1168,12 +1168,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\n"<i>Bet your ass!  Moles haven\'t got anything on us; we could dig right under you and you\'d never know it until the invasion popped up under your butt and moved in,</i>" the girl answers proudly, when you mention it.  "<i>You\'re not wrong, though... we love the surface and sun; there\'s not one person on the dig crew now who\'s not dreaming of the day he or she gets to rotate off of it and onto hunting or war crew.  Exigencies, you know?  The first shelters were only half-underground when the demons attacked and survived by the grace of whatever gods are left, but we took the hint.</i>"  Sheila climbs to her feet, and nods at you.  "<i>Enough for now... I should really get back.  Catch me later and we can talk more, ok?</i>"'
         );
 
-        //set sheila xp to 3
+        // set sheila xp to 3
         this.flags[kFLAGS.SHEILA_XP] = 3;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //XP3: Sexy Time (sheila xp = 3 AND time = 20:00 and demon sheila = 0):
+    // XP3: Sexy Time (sheila xp = 3 AND time = 20:00 and demon sheila = 0):
     public sheilaXPThreeSexyTime(): void {
         this.clearOutput();
         this.outputText(
@@ -1185,12 +1185,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nSheila clings to you, wrapping her arms around, and answers, \"<i>I... imp... there was an imp.  He snuck up on me and cast that spell they use, and my body just went soft!  I kicked him and ran, but... but he's still following me!  I've seen him...</i>\""
         );
 
-        //[(lib < 50)]
+        // [(lib < 50)]
         if (this.player.lib < 50)
             this.outputText(
                 "\n\nAn imp?  Really?  Your incredulity must show on your face, because Sheila squeezes harder.  \"<i>Please, [name]!  Don't leave me alone... I don't want to be ruined by an imp just because he got lucky!</i>\"  You idly lay a hand on her head as you consider."
             );
-        //(else lib >=50)
+        // (else lib >=50)
         else {
             this.outputText(
                 '\n\nHer body went crazy?  Really?  You pull her face up with a hand under her chin.  "<i>Just one spell, and you lost control?</i>" you ask.  "<i>Were you thinking about me all day?</i>"  Sheila\'s gaze drifts to the side as she stammers.  Bingo.'
@@ -1210,14 +1210,14 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nYou can think of a couple ways an inclined person might help, in fact..."
         );
 
-        //[Sex][Guard Duty][Ditch Her]
+        // [Sex][Guard Duty][Ditch Her]
         this.menu();
         this.addButton(0, "Sex", this.sheilaXPThreeSexyTimeSex);
         this.addButton(1, "Guard Duty", this.sheilaXPThreeSexyTimeGuardDuty);
         this.addButton(2, "Ditch Her", this.sheilaXPThreeSexyTimeDitchHer);
     }
 
-    //[XP3 - Ditch Her]
+    // [XP3 - Ditch Her]
     private sheilaXPThreeSexyTimeDitchHer(): void {
         this.clearOutput();
         this.outputText(
@@ -1228,14 +1228,14 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nYou don't have to do any such thing.  It's getting darker and you should head home, so you bid the girl farewell and depart, leaving Sheila calling your name - until the sound suddenly cuts off."
         );
 
-        //set sheila corruption = 100 and demon sheila = 1 and sheilacite = -1
+        // set sheila corruption = 100 and demon sheila = 1 and sheilacite = -1
         this.flags[kFLAGS.SHEILA_CORRUPTION] = 100;
         this.flags[kFLAGS.SHEILA_DEMON] = 1;
         this.flags[kFLAGS.SHEILA_CITE] = -1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[XP3 - Sex]
+    // [XP3 - Sex]
     private sheilaXPThreeSexyTimeSex(): void {
         this.clearOutput();
         this.outputText(
@@ -1249,24 +1249,24 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>Okay,</i>" she says meekly, catching your hand.  You let her pull you back.  "<i>What do you... want to do, mate?</i>"'
         );
-        //set sheila xp = 4, display consensual sex choices available to PC
+        // set sheila xp = 4, display consensual sex choices available to PC
         this.menu();
         this.sheilaXP4Sex(false);
-        //da choices from after XP3 sex
+        // da choices from after XP3 sex
     }
 
-    //[XP3 - Sex - any sex scene - Let Her Be]
+    // [XP3 - Sex - any sex scene - Let Her Be]
     private sheilaXPThreeSexyTimePostSexLetHerBe(): void {
         this.clearOutput();
         this.outputText(
             "Pulling away from you, Sheila gathers her clothing and departs, looking satisfied.  The glance she gives you over her shoulder is even a little warmer than before."
         );
-        //i had snoo-snoo!
+        // i had snoo-snoo!
         this.flags[kFLAGS.SHEILA_XP] = 4;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[XP3 - Sex - any sex scene - Stay With Her]
+    // [XP3 - Sex - any sex scene - Stay With Her]
     private shielaXPThreeSexyTimePostSexStay(): void {
         this.clearOutput();
         this.flags[kFLAGS.SHEILA_XP] = 4;
@@ -1296,19 +1296,19 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\n"<i>Horny again?</i>" you supply helpfully.  Sheila bites her lip, then nods.'
         );
 
-        //--Next--
+        // --Next--
         this.menu();
         this.addButton(0, "Next", this.shielaXPThreeSexyTimePostSexStayII);
     }
-    //fork
+    // fork
     private shielaXPThreeSexyTimePostSexStayII(): void {
         this.clearOutput();
-        //(has cockfit 32)
+        // (has cockfit 32)
         if (this.player.hasCock() && this.player.cockThatFits(32) >= 0) {
             this.outputText(
                 'Her hand slips down to your groin and, overcoming its trepidation, grabs your [cockFit 32] and begins to pump languidly, slowly stimulating blood back into it.  "<i>I don\'t know what\'s come over me,</i>" she says, giggling.  "<i>Maybe I\'m just greedy, but... I want you again.</i>"  She pushes you'
             );
-            //[(horse)]
+            // [(horse)]
             if (this.player.isTaur()) this.outputText(" and you playfully roll");
             this.outputText(" onto your back; Sheila slips her leg over you");
             if (this.player.isTaur()) this.outputText("r own");
@@ -1323,19 +1323,19 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\nShe slumps against you and swivels, stirring herself with your tool.  "<i>[name], you\'re awful... making me beg for it,</i>" Sheila says, kissing you'
             );
-            //[(not horse)]
+            // [(not horse)]
             if (!this.player.isTaur()) this.outputText(" just above one " + this.nippleDescript(0));
             else this.outputText(" on the thigh");
             this.outputText(
                 '.  "<i>I\'m gonna have to punish you for it, you dag.</i>"  Excusing herself thusly, she sits up and begins to slide up and down your [cockFit 32].  '
             );
-            //[(not horse)]
+            // [(not horse)]
             if (!this.player.isTaur())
                 this.outputText(
                     "Your hands squeeze her hips almost of their own volition, helping her slam down with force, and her head rolls back on her neck.  "
                 );
             this.outputText("Her ");
-            //[(sheila corruption < 30)]
+            // [(sheila corruption < 30)]
             if (this.flags[kFLAGS.SHEILA_CORRUPTION] < 30)
                 this.outputText(
                     "little breasts rise and fall with increasing frequency atop her ribcage as her pace picks up and her breaths come short and shallow."
@@ -1356,11 +1356,11 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nGod, this girl really is easy.  Sheila's vagina convulses around your dick, and she falls forward again as most of her body locks up, covering your "
             );
-            //(horse)
+            // (horse)
             if (this.player.isTaur()) this.outputText("barrel");
             else this.outputText("chest");
             this.outputText(" in her soft hair - but her hips keep pumping, incredibly.  ");
-            //(pc corr >= 90 or > sheila corruption)
+            // (pc corr >= 90 or > sheila corruption)
             if (this.player.cor >= 90 || this.player.cor > this.flags[kFLAGS.SHEILA_CORRUPTION]) {
                 this.outputText(
                     '  The tight, rippling muscles of her pussy clamp down on you, nearly holding your cock in place as she tries to ride you still but only manages to jerk your dick up and down and squeeze pre-cum from it.  "<i>S-so full,</i>" Sheila groans, "<i>did you just get bigger in me?</i>"  Her lungs inflate as she sucks in her breath, and her hard nipples push into your ' +
@@ -1373,7 +1373,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                         this.player.skinFurScales() +
                         " as her efforts peak."
                 );
-            //(else if magically equal but < 90)
+            // (else if magically equal but < 90)
             else
                 this.outputText(
                     '  Her pussy squirts and sucks alternately, trying to find purchase on your cock even as her pumping hips deny it; the sensation drives you wild.  "<i>[name], your old fella is amazing...</i>"'
@@ -1381,9 +1381,9 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "  Your dick twitches and swells, as if to fulfill her words, and your pelvis rocks into Sheila's as you begin to ejaculate.  \"<i>No... pull out, or you'll get me pregnant,</i>\" she cries, when "
             );
-            //[(single cox)
+            // [(single cox)
             if (this.player.cockTotal() == 1) this.outputText("your dick twitches inside her");
-            //(multicox)
+            // (multicox)
             else this.outputText("she spies the first bead of pearly semen exiting");
             if (this.player.cockTotal() == 2) this.outputText(" your lonely, unused prick");
             if (this.player.cockTotal() > 2) this.outputText(" each of your lonely, unused pricks");
@@ -1396,19 +1396,19 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\nSheila attempts to lift her still-spasming pussy off of your shaft, but wracked by her own orgasm, goes tense again.  "<i>F-fuck it!  Can\'t!  Come inside me, [name]!</i>"  At the invitation, your walls break down, and your penis sprays your held-back semen into your lover'
             );
-            //[(multi)]
+            // [(multi)]
             if (this.player.cockTotal() > 1)
                 this.outputText(
                     ", to be joined shortly by a messy external eruption that covers her thighs and belly in blotches of gooey white"
                 );
             this.outputText(".");
-            //[(big skeet)
+            // [(big skeet)
             if (this.player.cumQ() >= 1000)
                 this.outputText(
                     "  It rolls out of you in waves, packing Sheila's cunt until she fills to capacity and the excess is forced out, sliming your own crotch."
                 );
 
-            //reduce lust/lib and reset hours since cum; if sheila corruption >= 90 and pc corruption >= 90, redirect to demonization; else continue
+            // reduce lust/lib and reset hours since cum; if sheila corruption >= 90 and pc corruption >= 90, redirect to demonization; else continue
             this.player.orgasm();
             this.dynStats("lib", -2);
             if (this.player.cor >= 90 && this.sheilaCorruption() >= 90) {
@@ -1420,12 +1420,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nFinally spending yourselves, Sheila slides forward and lets your dick flop free; a warm, wet patch spreads on your stomach as her pussy drools out some of your deposit.  She kisses you repeatedly, fairly glowing with satisfaction, until she exhausts her affection and rolls off of you.  The two of you lie there again, peaceful for the most part - though as she nervously recounts what just happened in her head, her hands keep darting to her midriff."
             );
-            //[(corr < 30)]
+            // [(corr < 30)]
             if (this.player.cor < 30)
                 this.outputText(
                     '\n\n"<i>Relax,</i>" you say, capturing one and squeezing it.  She looks over at you, her amber eyes measuring you carefully, and at length rewards you with a smile and a shy nod.'
                 );
-            //sheilapreg check, reset hours since cum; if PC corr > sheila corruption then -10 PC corr and +10 sheila corruption, else if PC corr < sheila corruption then +10 PC corr and -10 sheila corruption
+            // sheilapreg check, reset hours since cum; if PC corr > sheila corruption then -10 PC corr and +10 sheila corruption, else if PC corr < sheila corruption then +10 PC corr and -10 sheila corruption
             this.sheilaPreg();
             this.sheilaCorruptionUpdate();
             /*if(player.cor > sheilaCorruption()) {
@@ -1437,7 +1437,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 sheilaCorruption(-5);
             }*/
         }
-        //(if no cockFit 32 and yes vag)
+        // (if no cockFit 32 and yes vag)
         else if (this.player.hasVagina()) {
             this.outputText(
                 "Her hand slips to your groin and, overcoming its trepidation, slides two fingers into your [vagina], stimulating you and forcing hardness back into your [clit].  \"<i>I don't know what's the matter with me,</i>\" Sheila says, nervously.  \"<i>I'm not usually aroused by " +
@@ -1467,17 +1467,17 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nSmiling, you kiss her softly on the inner thigh, then withdraw your hand.  "
             );
-            //[(horse)]
+            // [(horse)]
             if (this.player.isTaur())
                 this.outputText(
                     'You turn around and straddle a leg, squatting to bring your [vagina] atop her crotch.  "<i>Push up,</i>" you order, and Sheila obeys eagerly, twisting her body to connect her excited pussy with yours.'
                 );
-            //(else if naga)
+            // (else if naga)
             else if (this.player.isNaga())
                 this.outputText(
                     'You slide it under her and lift gently; Sheila plays along with a disquieted expression, rolling over and raising her pussy into the air, and you press your own against her butt as your tail slides between her legs.  "<i>See, you just need to be more... flexible,</i>" you quip.'
                 );
-            //(else if not horse and not naga)
+            // (else if not horse and not naga)
             else
                 this.outputText(
                     "You straddle her legs with your own, pressing her pussy into yours; Sheila gasps as the hot flesh connects and you tentatively rock your hips, dragging your lower lips across."
@@ -1486,10 +1486,10 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\n"<i>Mmmh,</i>" she moans, smearing her crotch against you.  The woman rubs harder, almost unbalancing you, as she works her body closer to yours.  "<i>I\'d feel better if you could squeeze my breasts, mate... it would make me rapt if you touched them'
             );
-            //(sheila corruption > 30)
+            // (sheila corruption > 30)
             if (this.sheilaCorruption() < 30)
                 this.outputText(" even though they're small and humble");
-            //(else sheila corruption > 60)
+            // (else sheila corruption > 60)
             else if (this.sheilaCorruption() > 60)
                 this.outputText("; I worry that they're getting too mountainous");
             this.outputText(
@@ -1531,7 +1531,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nIn answer, you thrust even harder against her, crossing her netherlips furiously with your"
             );
-            //[(naga)
+            // [(naga)
             if (this.player.isNaga())
                 this.outputText(
                     " tail, drawing it up the hot opening and coiling it so you can return the warm, lube-slicked length for another pass even as you hump her butt."
@@ -1545,7 +1545,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nSheila's skin turns ruddy red in embarrassment as her body locks up, and her climax starts.  \"<i>Oh god... oh... I wish you'd kiss me!</i>\""
             );
-            //[(pc corr >= 90 or > sheila corruption)
+            // [(pc corr >= 90 or > sheila corruption)
             if (this.player.cor >= 90 || this.player.cor > this.sheilaCorruption()) {
                 this.outputText(
                     "  Her vagina doesn't wait for romance, spasming and opening wide to try to suck you in, pulling at your "
@@ -1553,13 +1553,13 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 if (this.player.isNaga()) this.outputText("scales");
                 else this.outputText("pussy");
                 this.outputText(" until you can take no more of the heat and come as well.");
-                //[(naga)]
+                // [(naga)]
                 if (this.player.isNaga())
                     this.outputText(
                         "  Her breasts swell in your hands as she sucks in her breath sharply, feeling your pussy drool its juice onto her ass."
                     );
             }
-            //(else if PC corr < sheila corruption)
+            // (else if PC corr < sheila corruption)
             else if (this.player.cor < this.sheilaCorruption()) {
                 this.outputText(
                     "  Her vagina doesn't wait for symbolism, dumping a wave of orgasm that splashes almost audibly against you.  Your pussy answers with your own climax, and begins wetting the woman underneath"
@@ -1579,25 +1579,25 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                     " with a fresh coat of her hot fluids which trigger the expected response from you."
                 );
             }
-            //(if cock)
+            // (if cock)
             if (this.player.hasCock()) {
                 this.outputText("  Your neglected ");
                 if (this.player.cockTotal() == 1) this.outputText("prick quakes and spurts");
                 else this.outputText("pricks quake and spurt");
                 this.outputText(" weakly, drooling semen that pools on her skin.");
             }
-            //[(not horse)
+            // [(not horse)
             if (!this.player.isTaur())
                 this.outputText(
                     "\n\nLeaning down as your cunt works through your climax and pulling Sheila's head up to yours, you kiss her softly on the lips.  She draws you in with an eagerness mirroring her pussy's, probing your mouth with her little pink tongue, and holds you lip-locked like that until her orgasm ends and she slumps in your arms.  You lower her to the ground as your last strokes fire, then fall beside her."
                 );
-            //(else if horse)
+            // (else if horse)
             else
                 this.outputText(
                     "\n\nA good kiss sounds nice right now, but not as nice as rubbing your throbbing, hot cunt against your lover's, prolonging your body-shaking orgasm for as long as possible, and you answer her plea with renewed thrusting, provoking a gasp and another quiver from the limp girl.  Your body shivers as your climax intensifies, and it feels like your crotch is on fire as you squeeze and squirt on her.  Finally, spent, you lower yourself to the ground."
                 );
 
-            //reduce lust/lib and reset hours since cum; if sheila corruption >= 90 and PC corr >= 90 go to demonization here, else continue
+            // reduce lust/lib and reset hours since cum; if sheila corruption >= 90 and PC corr >= 90 go to demonization here, else continue
             this.player.orgasm();
             this.dynStats("lib", -2);
             if (this.sheilaCorruption() >= 90 && this.player.cor >= 90) {
@@ -1608,7 +1608,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\nSheila cuddles up to you, slipping an arm over your body, and you lie like that for a while before she speaks.  "<i>[name]... '
             );
-            //(not horse)
+            // (not horse)
             if (!this.player.isTaur())
                 this.outputText(
                     'maybe I do love you...</i>"\n\nYou turn over and look in her eyes and she abandons the thought.  "<i>Only having you on,</i>" she says, smiling and caressing your cheek.'
@@ -1621,7 +1621,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                     '\n\n"<i>God dammit, stop!</i>" Sheila gasps, almost crying in laughter as you push your face closer to hers.  You relent and close your mouth, then kiss her on the cheek as she calms down.'
                 );
             }
-            //if PC corr > sheila corruption then -10 PC corr and +10 sheila corruption, else if PC corr < sheila corruption then +10 PC corr and -10 sheila corruption
+            // if PC corr > sheila corruption then -10 PC corr and +10 sheila corruption, else if PC corr < sheila corruption then +10 PC corr and -10 sheila corruption
             this.sheilaCorruptionUpdate();
             /*
             if(player.cor > sheilaCorruption()) {
@@ -1633,7 +1633,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 sheilaCorruption(-5);
             }*/
         }
-        //(else if no cockFit 32 and no vag)
+        // (else if no cockFit 32 and no vag)
         else {
             this.outputText(
                 "Her hand lowers to her crotch and slides her middle finger into her pussy.  \"<i>I don't know what's wrong with me,</i>\" Sheila says, nervously.  \"<i>I'm not even sure why I get hot when I think of you... you don't have anything I can use.</i>\""
@@ -1652,14 +1652,14 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\n\"<i>And yet,</i>\" you reply.  Emphasizing your unspoken point, you grab Sheila's hand and pull it out of her crotch, popping the finger into your mouth.  Sheila shivers as you roll it on your tongue, and her pussy drools a drop of lube.  Smiling, you substitute your own hand for hers, penetrating the slick hole.  The woman's free hand quickly goes to yours, but simply rests atop it, caressing you and offering no resistance as you draw your fingers in and out of her.  Her mouth forms the word 'no', but the only sound that comes out is a soft sigh."
             );
 
-            //[(coc, new PG)
+            // [(coc, new PG)
             if (this.player.hasCock()) {
                 this.outputText(
                     "\n\nSheila pulls her finger from your mouth as she shifts closer to you, giving you yet more leverage over her vagina.  The hand "
                 );
-                //(mans)
+                // (mans)
                 if (!this.player.isTaur()) this.outputText("falls into your lap");
-                //(horse)
+                // (horse)
                 else this.outputText("drifts between your legs");
                 this.outputText(
                     ', then crawls its way to your [cock].  She begins stroking it, torpidly at first, but with increasing excitement as a drop of pre-cum slides down and wets her palm.  "<i>What\'s wrong, goblin girl?</i>" you ask.  "<i>Gotta get some sperm no matter what?</i>"'
@@ -1669,16 +1669,16 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                     'Sheila winces as your probing fingers send a shudder through her.  "<i>Shut up, you tosser,</i>" she retorts, yanking on your dick slightly harder in her irritation.'
                 );
             }
-            //(new PG)
+            // (new PG)
             this.outputText(
                 "\n\nYou work her soaked pussy over, plunging fingers in deep with little regard for anything but hitting nerves, and caressing her small, erect clitoris with your palm as you go.  At every touch, you whisper to her what a naughty girl she is; she responds by flicking her ear at you, but you reverse by blowing and nibbling on the long auricles, sending shivers through her body.  \"<i>Oh, my... seems this wanton woman has sensitive ears, doesn't it?</i>\" you tease, drawing out the syllables to hum into her skin.  Soon Sheila's melting against you, crying out her climax into your shoulder."
             );
-            //[(pc corr >= 90 or > sheila corruption)]
+            // [(pc corr >= 90 or > sheila corruption)]
             if (this.player.cor >= 90 || this.player.cor > this.sheilaCorruption())
                 this.outputText(
                     "  Her vagina heats up, squeezing your fingers so hard that you nearly can't pull out to rub her again, and you have a clear view of her breasts swelling up - arguable proof of your prowess, considering what she told you earlier.  Her people must be terrible at faking orgasm."
                 );
-            //(pc corr < sheila corruption)
+            // (pc corr < sheila corruption)
             else if (this.player.cor < this.sheilaCorruption())
                 this.outputText(
                     "  Her vagina gushes with clear fluid, filling the bowl made by your hand with warmth, and you think you can see her breasts tightening up slightly as her back arches, though it's hard to be sure with how she's shaking."
@@ -1688,29 +1688,29 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                     "  Her pussy quivers around you, and you draw the fingers out and pop them into Sheila's mouth.  The woman sucks on them greedily, and you raise an eyebrow at her.  She blushes again, but it's evidently not the first time she's done the same thing!"
                 );
 
-            //if sheila corruption >= 90 and PC corruption >= 90, go to demonization, else continue
+            // if sheila corruption >= 90 and PC corruption >= 90, go to demonization, else continue
             if (this.sheilaCorruption() >= 90 && this.player.cor >= 90) {
                 this.menu();
                 this.addButton(0, "Next", this.sheilaGoesDemon);
                 return;
             }
 
-            //[(cocks)
+            // [(cocks)
             if (this.player.hasCock()) {
                 this.outputText(
                     "\n\nYou reclaim your hand and rest it atop Sheila's, forcing the climax-addled woman to stroke again; she gasps apologetically and resumes with jerky, weak motions.  Irritated and almost at your peak, you up the pace, getting your hips into it until you're practically fucking her palm.  You tilt your pelvis toward Sheila, angling your prick at her face as you prepare to blow your load; she recoils slightly at first, but guiltily moves her mouth to your [cockHead], kissing the tip and playing her tongue over the hole.  The tingle of nerves pushes you over the brink, and you grab her head and hold it as you squirt seed past her lips."
                 );
-                //[(big skeet)
+                // [(big skeet)
                 if (this.player.cumQ() > 1000)
                     this.outputText(
                         '  Her mouth fills quickly, and she writhes in your grip, managing to turn her head.  "<i>Oh god, no way!</i>" she coughs, spitting up enough semen to coat her chin as your ongoing orgasm spatters against her cheek.'
                     );
-                //[(mega skeet)
+                // [(mega skeet)
                 if (this.player.cumQ() >= 2000)
                     this.outputText(
                         "  Not satisfied with that alone, you turn her head the other way for your finish, ejaculating on the rest of her face and completing her gooey, white beard as she squirms."
                     );
-                //[(multicock)
+                // [(multicock)
                 if (this.player.cockTotal() > 1)
                     this.outputText(
                         "  The other strokes not coming from this cock do their part to decorate your lover as well, turning her hair into a slimy mess."
@@ -1720,17 +1720,17 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 );
             }
             this.outputText("\n\nThe woman falls weakly backward");
-            //(cock.length > 0)
+            // (cock.length > 0)
             if (this.player.hasCock())
                 this.outputText(", her face still covered in globby white smears");
             this.outputText('.  "<i>Fuck...</i>" she groans.  "<i>You\'re a jerk, [name].');
-            //[(cock.length > 0)
+            // [(cock.length > 0)
             if (this.player.hasCock())
                 this.outputText("  I can't believe you called me a goblin, you arsehole.");
             this.outputText('</i>"');
 
             this.outputText("\n\nYou ");
-            //[(cock.length > 0)
+            // [(cock.length > 0)
             if (this.player.hasCock())
                 this.outputText("can't believe how much she acts like one sometimes... but you ");
             this.outputText(
@@ -1740,7 +1740,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\n"<i>Are you really so worried about it?</i>" you ask.  No answer comes'
             );
-            //[(cock.length > 0)
+            // [(cock.length > 0)
             if (this.player.hasCock())
                 this.outputText(
                     ", even after Sheila finishes wiping her face clean and stares at you"
@@ -1749,7 +1749,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 ", so you just content yourself with lying next to the woman for a while."
             );
 
-            //reset hours since cum and reduce lust/lib since cum if cock, else add mild lib-based lust damage if no cock; if PC corr > sheila corruption then -10 PC corr and +10 sheila corruption, else if PC corr < sheila corruption then +10 PC corr and -10 sheila corruption
+            // reset hours since cum and reduce lust/lib since cum if cock, else add mild lib-based lust damage if no cock; if PC corr > sheila corruption then -10 PC corr and +10 sheila corruption, else if PC corr < sheila corruption then +10 PC corr and -10 sheila corruption
             if (this.player.hasCock()) {
                 this.player.orgasm();
                 this.dynStats("lib", -2);
@@ -1765,7 +1765,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 sheilaCorruption(-5);
             }*/
         }
-        //end of fucking fork
+        // end of fucking fork
         this.outputText(
             '\n\n"<i>Erm...</i>" Sheila begins, breaking the renewed silence.  "<i>We should probably find a place to camp out.  I saw a little cave under a rock outcrop at the border to the mountains as I was running.  Didn\'t really consider it when I was alone - nowhere to go if I zone out and get cornered - but with two of us to watch in shifts, it\'d be perfect.  Will you... stay with me?</i>"'
         );
@@ -1780,7 +1780,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nYou nod sagely and get up to dress.  Sheila, or Harriet, does the same, shimmying into her panties and shorts quickly and pulling her top on.  Finished, she drags you off to the night's lodgings anxiously, hat in hand and body language more closely resembling a giddy girl's on her first date than a grizzled, solitary hunter's."
         );
-        //advance time to 6:00, gain 3 hours rest
+        // advance time to 6:00, gain 3 hours rest
         this.fatigue(-20);
         this.HPChange(this.player.maxHP() / 2, false);
         if (this.model.time.hours > 6) this.model.time.days++;
@@ -1789,7 +1789,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.playerMenu);
     }
 
-    //[XP3 - Guard Duty]
+    // [XP3 - Guard Duty]
     private sheilaXPThreeSexyTimeGuardDuty(): void {
         this.clearOutput();
         this.outputText(
@@ -1803,7 +1803,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nSheila releases you and turns around as well, folding her legs under herself and sitting on her knees to consider.  True to your word, you scan the horizon and sky for anything that could pose a threat"
         );
-        //[(PC level >=8)
+        // [(PC level >=8)
         if (this.player.level >= 8)
             this.outputText(
                 " - which, you suppose, must include imps even though they're so far beneath you they might as well be underground"
@@ -1812,7 +1812,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             ".  You stand there for so long that you nearly slip into a daydream, and are only roused by the noise of a leather belt being carefully unfastened.  Focused again, you can hear Sheila's ragged breathing and her thighs rubbing together, then a hand sliding against skin and fabric... seems like she's made her decision."
         );
 
-        //[(lib<40)
+        // [(lib<40)
         if (this.player.lib < 40) {
             this.outputText(
                 "\n\nWell, that's none of your concern.  Although you wouldn't really consider these erotic surroundings, the choice does make a certain kind of sense, based on what she's told you.  You continue studiously monitoring the plains, trying to ignore the wet sounds of female masturbation.  The scrapes of cloth intensify as well, as another hand is slipped into something else - the new noises seem to coincide with Sheila's breaths, as each sound is followed by the soft 'haahh' of her exhalation."
@@ -1834,7 +1834,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nQuirking an eyebrow, you turn away again and allow the queer girl to finish and dress; she furtively gets to her feet and buckles her belt, then clears her throat loudly."
             );
         }
-        //(else lib >= 40)
+        // (else lib >= 40)
         else {
             this.outputText(
                 "\n\nInteresting choice... you look over your shoulder at her.  Sheila's sitting with her shorts pulled down slightly and legs spread and, as you expected, has slid a hand into her panties.  While you watch, the other one ducks under her shirt, knuckles cresting visibly as she begins to squeeze and knead her breast.  She rubs vigorously, moaning softly whenever she grinds her erect nipple against her palm, and her other elbow jigs in the air as she works two fingers into and out of her pussy.  On one particularly deep plunge, her head rolls back and her eyes open - and she freezes as your gazes meet."
@@ -1851,9 +1851,9 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\nYou smile approvingly.  "<i>That looks just about right.  Perfect, almost.  It\'s only missing one thing.</i>"  Sheila stares at you without understanding, fingering herself only halfheartedly while she tries to work out your meaning, until you '
             );
-            //[(cock.length > 0)
+            // [(cock.length > 0)
             if (this.player.hasCock()) this.outputText("shift your pelvis forward");
-            //(cock.length == 0)
+            // (cock.length == 0)
             else this.outputText("stick out your tongue playfully");
             this.outputText(
                 ".  The girl giggles at that, relaxing and finally letting herself get into the masturbation."
@@ -1867,7 +1867,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nShe closes her eyes and tightens up, drawing her legs in to hold her hand in place and, sadly, blocking your view of her quaking pussy with a pair of long, auburn-furred feet.  Her body practically folds up as she orgasms, until she's tucked into a fetal position with her face buried in her knees, screaming her joy into her skin, ears twitching wildly.  Sheila exhausts herself after a minute, and uncurls, then dutifully begins re-dressing with a smile, darting glances at you."
             );
         }
-        //merge
+        // merge
         this.outputText(
             '\n\n"<i>[name],</i>" Sheila begins, leaving the thought unfinished.  She puts out a hand, and you absently reach out to shake it, until you notice the glistening wetness at the tips of her fingers.  Sheila looks down, following your gaze, then starts and wipes the liquid hurriedly on her shorts.  "<i>... can\'t believe I did that,</i>" she mumbles.  "<i>Um, I\'ll be alright now.  Bye.</i>"'
         );
@@ -1876,14 +1876,14 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nYou smile and offer to stay with her a bit longer, but Sheila turns beet-red and shakes her head, departing without another word."
         );
 
-        //set sheila xp = 4, small lib-based lust damage if lib < 40, or large if lib >= 40; advance time 1 hr
+        // set sheila xp = 4, small lib-based lust damage if lib < 40, or large if lib >= 40; advance time 1 hr
         this.flags[kFLAGS.SHEILA_XP] = 4;
         if (this.player.lib < 40) this.dynStats("lus", 5);
         else this.dynStats("lus", 15);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //XP4: Fancy meeting you here (sheila xp >= 4 and demon sheila = 0):
+    // XP4: Fancy meeting you here (sheila xp >= 4 and demon sheila = 0):
     private fuckBuddySheilaMeeting(): void {
         this.clearOutput();
         this.outputText('"<i>Hey...</i>"');
@@ -1904,7 +1904,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         );
         this.outputText("\n\nYou note that her breasts are " + this.sheilaCup() + " right now...");
 
-        //[Chat][Sex][Just Hang][Maybe Later]
+        // [Chat][Sex][Just Hang][Maybe Later]
         this.menu();
         this.addButton(0, "Chat", this.fuckBuddySheilaMeetingChat);
         this.addButton(1, "Sex", this.sheilaXP4Sex, true);
@@ -1912,8 +1912,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(3, "Maybe Later", this.fuckBuddySheilaMeetingMaybeLater);
     }
 
-    //[XP4 - Maybe Later]
-    //should be default spacebar choice
+    // [XP4 - Maybe Later]
+    // should be default spacebar choice
     private fuckBuddySheilaMeetingMaybeLater(): void {
         this.clearOutput();
         this.outputText(
@@ -1921,15 +1921,15 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outputText('\n\n"<i>Okay,</i>" she agrees, subdued.  "<i>Maybe later.</i>"');
-        //wow, it's fucking nothing!
+        // wow, it's fucking nothing!
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[XP4 - Just Hang]
+    // [XP4 - Just Hang]
     private fuckBuddySheilaMeetingJustHangOut(): void {
         this.clearOutput();
         this.outputText("In answer, you reach down to pinch her butt and then ");
-        //[(not horse or drider)
+        // [(not horse or drider)
         if (!this.player.isTaur() && !this.player.isDrider())
             this.outputText("scoot your own forward");
         else this.outputText("fold your legs under you");
@@ -1957,19 +1957,19 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>Maybe I\'ll be up for some fun when you catch me next time,</i>" she declares.  "<i>Stay safe.</i>"'
         );
-        //minus small lust and corruption
+        // minus small lust and corruption
         this.dynStats("lus", -10, "cor", -1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[XP4 - Chat]
+    // [XP4 - Chat]
     private fuckBuddySheilaMeetingChat(): void {
         this.clearOutput();
         this.outputText('"<i>Feeling talkative?</i>" Sheila asks.  "<i>Have at yer.</i>"');
 
         this.outputText("\n\nWhat do you bring up?");
 
-        //[Family&Friends][Old Loves][Why Hide?][Live With Me][Kids(only if joeycount > 0)]
+        // [Family&Friends][Old Loves][Why Hide?][Live With Me][Kids(only if joeycount > 0)]
         this.menu();
         this.addButton(0, "Fam'N Friends", this.fuckBuddySheilaMeetingChatFamilyAndFriends);
         this.addButton(1, "Old Loves", this.fuckBuddySheilaMeetingChatOldLoves);
@@ -1979,7 +1979,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.addButton(4, "Kids", this.fuckBuddySheilaMeetingChatKids);
     }
 
-    //[XP4 - Chat - Family&Friends]
+    // [XP4 - Chat - Family&Friends]
     private fuckBuddySheilaMeetingChatFamilyAndFriends(): void {
         this.clearOutput();
         this.outputText(
@@ -2024,7 +2024,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\n\"<i>Guess you'd call them work buddies.  I'm the girl in the group, so eventually I got upgraded from 'the sheila' to just 'Sheila'.  Like I said... wankers.  They're mostly blokes who glued themselves to me when they heard who my mum was, probably hoping I'd take after her eventually.  Too bad for them, I always wanted to be like my dad instead.</i>\"  She grins wickedly."
         );
 
-        //[(lib>=50)]
+        // [(lib>=50)]
         if (this.player.lib >= 50) {
             this.outputText(
                 '\n\n"<i>Oh,</i>" you say, leaning in conspiratorially, "<i>not so interested in sex?</i>"'
@@ -2061,7 +2061,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nSheila's neck burns and her ears twitch as she walks away, stiff with irritation."
             );
         }
-        //(else lib <50)
+        // (else lib <50)
         else {
             this.outputText('\n\n"<i>What,</i>" you say, "<i>all dudes and no girlfriends?</i>"');
 
@@ -2087,11 +2087,11 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nSheila's skin blooms with red and her lips compress to a thin line; she about-faces and walks off without another word."
             );
         }
-        //oh gosh someone dropped a dollar here how lucky
+        // oh gosh someone dropped a dollar here how lucky
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[XP4 - Chat - Old Loves]
+    // [XP4 - Chat - Old Loves]
     private fuckBuddySheilaMeetingChatOldLoves(): void {
         this.clearOutput();
         this.outputText(
@@ -2120,7 +2120,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nThe woman stifles a laugh.  \"<i>[name], that's not funny.  I... guess I would, though it'll take a while since I feel so strongly.  Deadset, there's not much to know; I promise.  Ask again after we've been together so much we have the same accent - after ten years of happy marriage, maybe.</i>\""
         );
 
-        //[(lib < 50)]
+        // [(lib < 50)]
         if (this.player.lib < 50) {
             this.outputText(
                 '\n\n"<i>Does that actually happen?  Couples sounding alike?</i>"  Privately, you can\'t even imagine understanding, let alone using, half the words she does.'
@@ -2146,7 +2146,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
             this.outputText('\n\n"<i>You\'ll get used to it.</i>"');
         }
-        //(else lib >=50)
+        // (else lib >=50)
         else {
             this.outputText('\n\n"<i>Did you just propose to me?</i>"');
 
@@ -2157,7 +2157,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outputText("\n\nThe woman looks away and folds her arms over her chest");
-            //[(sheila corruption >=60)]
+            // [(sheila corruption >=60)]
             if (this.player.cor >= 60)
                 this.outputText(
                     " - though it's probably meant to be a defensive gesture, all it does is push her tits together under her white shirt and frame them in light-brown skin"
@@ -2173,7 +2173,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nSheila seems increasingly distraught as she considers that logical conclusion.  \"<i>N-no... I don't wanna!</i>\" she finally blurts childishly, dropping her posture and throwing her arms around you.  \"<i>I don't want to let you go, and I don't want to have to hide in the ground while you're out here in danger; I want to stay with you!  I wish the demons would all just go to hell so I could have a proper life!</i>\"  She remains like that for several minutes, face pressed against you until her sniffling and shaking stop"
             );
-            //[(corr < 30)
+            // [(corr < 30)
             if (this.player.cor < 30)
                 this.outputText("; you lay a hand on her shoulder reassuringly");
             this.outputText(
@@ -2186,11 +2186,11 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nSheila frowns unhappily and doesn't answer... but she does play with your hand, articulating the fingers and rubbing it against her warm cheek until it's time for her to go."
             );
         }
-        //you no touch candle!
+        // you no touch candle!
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[XP4 - Chat - Why Hide?]
+    // [XP4 - Chat - Why Hide?]
     private fuckBuddySheilaMeetingChatWhyHide(): void {
         this.clearOutput();
         this.outputText(
@@ -2200,7 +2200,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nYou wave off her glare.  Seems like it'd still be better to have everyone in one place, to watch out for each other instead of shriveling up slowly without support."
         );
-        //(if T'A)
+        // (if T'A)
         if (this.player.statusAffectv1(StatusAffects.TelAdre) >= 1) {
             this.outputText(
                 "  After all, the city in the desert seems to be bustling and bristling with weapons to resist the demons, whatever her feelings may be about it."
@@ -2218,11 +2218,11 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nSheila shivers a bit and lifts your arm to place it around her shoulder, then looks gloomily out across the plains.  She doesn't seem to be in the mood to talk anymore."
         );
 
-        //blood on the sand
+        // blood on the sand
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[XP4 - Chat - Live With Me]
+    // [XP4 - Chat - Live With Me]
     private fuckBuddySheilaMeetingChatLiveWithMe(): void {
         this.clearOutput();
         this.outputText(
@@ -2239,14 +2239,14 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nSheila gets to her feet and balances her catch on her shoulders, looking wistful.  When you ask about it, however, she just shakes her head and tells you it's nothing, then walks off subdued.  Seems like she really wanted to say 'yes', instead."
         );
-        //ancient Chinese secret, eh?
+        // ancient Chinese secret, eh?
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[XP4 - Chat - Kids] - requires joeycount >= 1
+    // [XP4 - Chat - Kids] - requires joeycount >= 1
     private fuckBuddySheilaMeetingChatKids(): void {
         this.clearOutput();
-        //if joeycount = 1
+        // if joeycount = 1
         if (this.flags[kFLAGS.SHEILA_JOEYS] == 1) {
             this.outputText('"<i>Ah?</i>" Sheila says, turning toward you sheepishly.');
 
@@ -2261,18 +2261,18 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\n"<i>You really are serious about this, aren\'t you?</i>" Sheila mumbles.  You nod, and she continues.  "<i>You remind me of my dad... once I brought the joey home and told him about us, he was in the nursery to check on it all the time.  He says he wants to meet the man who was able to father such a healthy baby with his little girl - '
             );
-            //[(if PC femininity > androgynous)]
+            // [(if PC femininity > androgynous)]
             if (this.player.femininity > 50) {
                 this.outputText(
                     "I don't know how he'll react when he sees a pretty face like yours, though; he doesn't know that I'm-"
                 );
-                //[(PC is herm, fem)
+                // [(PC is herm, fem)
                 if (this.player.gender >= 2) {
                     this.outputText(
                         '</i>"\n\n"<i>A lesbian?  Attracted to women?  A clam diver?</i>"'
                     );
                 }
-                //(else PC is male or unsex)
+                // (else PC is male or unsex)
                 else
                     this.outputText(
                         '\n\n"<i>Into girly boys instead of big, strong, hairy bears?</i>"'
@@ -2280,12 +2280,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(" you guess, teasing her as her blush deepens.");
                 this.outputText('\n\n"<i>[name], stop it.</i>"');
             }
-            //else if PC masculine or andro, no new PG)
+            // else if PC masculine or andro, no new PG)
             else {
                 this.outputText(
                     "I'm not sure if he intends to shake your hand or punch you, though.</i>\""
                 );
-                //[(PC is male or neuter)]
+                // [(PC is male or neuter)]
                 if (this.player.gender <= 1) this.outputText('\n\n"<i>Sounds... protective.</i>"');
                 else
                     this.outputText(
@@ -2295,7 +2295,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                     "\n\nSheila sighs.  \"<i>I'm a daddy's girl.  His first child, got all the benefits of his time, and one without kids and a husband of her own to pull her emotions away from him.  I've always just been his baby... maybe longer than I should have, but I was lonely, mate.  We're close.</i>\""
                 );
             }
-            //merge gender/sex fork
+            // merge gender/sex fork
             this.outputText(
                 '\n\n"<i>So, is he serious... about meeting?</i>" you persist carefully.'
             );
@@ -2326,7 +2326,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nShaking your head, you lean against her; the two of you remain like that until she gets up to leave and bids you farewell."
             );
         }
-        //if 1 < joeycount < 10
+        // if 1 < joeycount < 10
         else if (this.flags[kFLAGS.SHEILA_JOEYS] < 10) {
             this.outputText('"<i>So how are the kids?</i>"');
             this.outputText(
@@ -2355,7 +2355,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.player.gender >= 3) this.outputText("nother");
             this.outputText(" lady's age, after all.</i>\"");
 
-            //[(lib >=50)
+            // [(lib >=50)
             if (this.player.lib >= 50) {
                 this.outputText(
                     "\n\n\"<i>But I'm no " +
@@ -2375,7 +2375,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                     "\n\n\"<i>Don't kill the messenger,</i>\" you tease, slipping your arm around her waist.  She shivers but doesn't resist, allowing you to play your fingers along her shirt hem until she gets up to leave."
                 );
             }
-            //(else lib < 50)
+            // (else lib < 50)
             else {
                 this.outputText(
                     '\n\n"<i>So you could really do that?</i>" you ask, changing tack.  "<i>Have your own kid when you\'re only four?</i>"'
@@ -2394,7 +2394,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 );
             }
         }
-        //if joeycount >= 10
+        // if joeycount >= 10
         else {
             this.outputText('"<i>Kids doing all right?</i>"');
             this.outputText(
@@ -2410,7 +2410,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\n"<i>I\'m not fishing, mate... don\'t worry about it.  I wouldn\'t trade you or a single one of your kids for all the beauty of the assembled succubus corps.</i>"  She slips her hand into yours.  "<i>Not even the little hellion.</i>"'
             );
-            //[(lib < 50)]
+            // [(lib < 50)]
             if (this.player.lib < 50) {
                 this.outputText(
                     '\n\n"<i>Don\'t you have someone else that can watch them for you?</i>" you ask.'
@@ -2444,7 +2444,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     "\n\nYour companion looks profoundly unhappy.  \"<i>Don't ask me to explain a policy I hate.  I'd like nothing more than to fall asleep at night in an actual bed with you instead of staying up alone, worrying if you'll be alright"
                 );
-                //[(silly)]
+                // [(silly)]
                 if (this.silly()) {
                     this.outputText(" and clutching the life-sized [name] bodypillow I made");
                     this.outputText(".  But it's not going to happen right now.</i>\"");
@@ -2458,10 +2458,10 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     '\n\nSheila sighs and gets up, nodding to you, and collects her stuff.  "<i>Love you.  See you soon.</i>"'
                 );
-                //corruption down if corr < 40
+                // corruption down if corr < 40
                 if (this.player.cor < 40) this.dynStats("cor", -1);
             }
-            //(else lib >=50)
+            // (else lib >=50)
             else {
                 this.outputText(
                     '\n\n"<i>I\'m still turned on by you,</i>" you persist with a whisper.  "<i>I want your body any time, anywhere.  Here, for example.  Or... here.</i>"  This last comment is accompanied by your hand sliding into her shirt and over a ' +
@@ -2472,7 +2472,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     '\n\n"<i>[name], trust you to never change.  Do... you really want to make love?</i>"  Her care-worn eyes look into yours, regaining a bit of their former enthusiasm, and her skin heats up under your fingers.'
                 );
-                //apply small lib-based lust damage and display [Sex] choices with [Rest For Now] instead of [Back]
+                // apply small lib-based lust damage and display [Sex] choices with [Rest For Now] instead of [Back]
                 this.dynStats("lus", this.player.lib / 10 + 5, "resisted", false);
                 this.sheilaXP4Sex(false);
                 this.addButton(9, "RestForNow", this.fuckBuddySheilaMeetingChatKidsRest4Now);
@@ -2482,7 +2482,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[XP4 - Chat - Kids - joeycount >= 10 - lib >= 50 - Rest For Now]
+    // [XP4 - Chat - Kids - joeycount >= 10 - lib >= 50 - Rest For Now]
     private fuckBuddySheilaMeetingChatKidsRest4Now(): void {
         this.clearOutput();
         this.outputText(
@@ -2501,12 +2501,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\nYou nod and she dozes off; her face looks much more placid in sleep.  After an hour you gently nudge her awake, and she picks herself up and leaves you with a hug.  "<i>Love you, [name].</i>"'
         );
-        //corruption down
+        // corruption down
         this.dynStats("cor", -1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[XP4 - Sex]
+    // [XP4 - Sex]
     private sheilaXP4Sex(display: boolean = false): void {
         if (display) {
             this.clearOutput();
@@ -2523,10 +2523,10 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
             this.outputText('\n\n"<i>I didn\'t say that...</i>"');
         }
-        //[Cock 69][Pussy 69][Vaginal Sex][Masturbate]
-        //outputs are below
-        //Consensual scenes (normal Sheila's vaginal capacity is 32, for reference):
-        //[Consensual - Either 69] - Fenoxo beware, omnibus scene!(req. vag or dix; both buttons direct here but decide the focus)
+        // [Cock 69][Pussy 69][Vaginal Sex][Masturbate]
+        // outputs are below
+        // Consensual scenes (normal Sheila's vaginal capacity is 32, for reference):
+        // [Consensual - Either 69] - Fenoxo beware, omnibus scene!(req. vag or dix; both buttons direct here but decide the focus)
         this.menu();
         if (this.player.gender > 0) {
             if (this.player.hasCock())
@@ -2534,15 +2534,15 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.player.hasVagina())
                 this.addButton(1, "69WithCooch", this.consensualSheila69, false);
         }
-        //[Consensual - Vaginal Sex] (req. cock <= 32 area):
+        // [Consensual - Vaginal Sex] (req. cock <= 32 area):
         if (this.player.hasCock() && this.player.cockThatFits(32) >= 0)
             this.addButton(2, "Fuck Her", this.consentacleVagSexForKangarooSlutBitches);
-        //da scene
+        // da scene
         this.addButton(3, "Masturbation", this.sheilaMutualMasturbation);
     }
 
-    //Consensual scenes (normal Sheila's vaginal capacity is 32, for reference):
-    //[Consensual - Either 69] - Fenoxo beware, omnibus scene!(req. vag or dix; both buttons direct here but decide the focus)
+    // Consensual scenes (normal Sheila's vaginal capacity is 32, for reference):
+    // [Consensual - Either 69] - Fenoxo beware, omnibus scene!(req. vag or dix; both buttons direct here but decide the focus)
     private consensualSheila69(cock: boolean = true): void {
         this.clearOutput();
         this.outputText(
@@ -2559,7 +2559,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                     '\n\n"<i>Will you be putting that in me, then?</i>" Sheila asks, spreading her labia softly in anticipation.  You make no reply, drawing a look of surprise.'
                 );
             } else {
-                //(all big cox > 32)
+                // (all big cox > 32)
                 this.outputText(
                     "\n\nIncreasingly wide eyes offset her thin, pressed lips as you reveal " +
                         this.sMultiCockDesc() +
@@ -2574,7 +2574,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 );
             }
         }
-        //(vag)
+        // (vag)
         else {
             this.outputText(
                 "  When you finally drop your bottoms, revealing your wet " +
@@ -2612,17 +2612,17 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outputText('\n\n"<i>Ah... ah... you could have just told me,</i>" Sheila gasps, ');
-        //[(cox)
+        // [(cox)
         if (cock) {
             this.outputText("wrapping a hand around your shaft");
-            //(big)
+            // (big)
             if (this.player.cockThatFits(32) < 0)
                 this.outputText(
                     " and guiding it to bend comfortably against her chest, drooling a trail of pre-cum as she slides it into position"
                 );
             this.outputText(".");
         }
-        //(vag)
+        // (vag)
         else
             this.outputText(
                 "returning the favor and plunging into your " +
@@ -2639,7 +2639,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(" so your ");
         if (cock) {
             this.outputText("cock sinks down");
-            //[(small cock)
+            // [(small cock)
             if (this.player.cockThatFits(32) >= 0) this.outputText(" into her warm, waiting mouth");
             else
                 this.outputText(
@@ -2674,17 +2674,17 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>Gods, yes!</i>" she cries.  Her pussy squeezes, trying to wring its invader for semen that won\'t come.  You let her body spasm and suck at you for a bit before recalling her to her duty with a soft clearing of your throat.  "<i>Shit!  Sorry, mate... k-keep going!</i>" Sheila says, '
         );
-        //[(ladyparts)
+        // [(ladyparts)
         if (!cock) {
             this.outputText("slipping her tongue back into you");
-            //[(bigclit)
+            // [(bigclit)
             if (this.player.clitLength > 8)
                 this.outputText(
                     " and stroking your " + this.clitDescript() + " rapidly with one hand"
                 );
             this.outputText(".");
         }
-        //(smallcox)
+        // (smallcox)
         else if (this.player.cockThatFits(32) >= 0)
             this.outputText(
                 "taking you into her mouth once again and licking away a neglected drop of pre-cum."
@@ -2694,7 +2694,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 "stroking your cock with one hand as she pushes an erect nipple against its side to trace a line."
             );
 
-        //[(no horse)
+        // [(no horse)
         if (!this.player.isTaur()) {
             this.outputText(
                 "\n\nHaving ensured that embarrassment, if nothing else, will keep her working away on your orgasm, you prepare to torment Sheila with an all-out siege of her pussy.  Your fingers join your busy mouth, taking up slack by stroking and pulling open the woman's small labia and allowing your lips to begin brushing her clitoris as you tongue-fuck her.  You can feel her shivering along your length as you force her steadily toward her pleasure threshold, which vibrations are transferred unintentionally to you through her "
@@ -2704,7 +2704,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             else this.outputText("mouth, humming in delight");
             this.outputText(".");
         }
-        //(horse)
+        // (horse)
         else {
             this.outputText(
                 "\n\nFeeling sure that Sheila will keep working on your sex after your remonstration, you focus on bringing her more sensation than she can possibly endure.  Two fingers of one hand hold her labia open, exposing her vagina to your questing middle digits; the other hand works busily at her clitoris, alternately rolling the petit button with a thumb and dragging it against the flat surface of the palm.  You make sure to collect the moisture oozing from Sheila to keep the nub slippery at all times and work it faster, stroking it up, down, and all over.  The poor woman under you moans and shudders, transferring the vibration to you with her "
@@ -2713,8 +2713,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             else this.outputText("throat");
             this.outputText(".");
         }
-        //merge horse with rider
-        //[(big cox)
+        // merge horse with rider
+        // [(big cox)
         if (cock && this.player.cockThatFits(32) < 0)
             this.outputText('\n\n"<i>[name]!  I\'m coming!</i>" Sheila cries.');
         else
@@ -2722,7 +2722,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\n"<i>Mmmh!  Mm mmnnn!</i>" Sheila moans, muffled by your body.  The import doesn\'t hit you until a second later.'
             );
         this.outputText("  Her vagina convulses, ");
-        //(pc corr >= 90 or > sheila corruption
+        // (pc corr >= 90 or > sheila corruption
         if (this.player.cor >= 90 || this.player.cor > this.flags[kFLAGS.SHEILA_CORRUPTION]) {
             this.outputText("trying to pull your ");
             if (!this.player.isTaur()) this.outputText("tongue");
@@ -2731,7 +2731,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 " in ravenously.  You can literally feel her internal muscles rippling and undulating, stroking you as if they could coax out an ejaculation.  Sheila sucks in her breath as she climaxes, filling her chest; you can feel her tits pushing harder and harder against you."
             );
         }
-        //(PC corr < sheila corruption)
+        // (PC corr < sheila corruption)
         else if (this.player.cor < this.flags[kFLAGS.SHEILA_CORRUPTION]) {
             this.outputText(
                 "pushing out a gush of fluid.  For what seems like several minutes, her pussy deluges your "
@@ -2742,14 +2742,14 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 "   Her thighs tense, forcing her pelvis into the air and her cunt toward you as her chest slumps; slowly, you feel the perky nipples pressing into your stomach pull away."
             );
         }
-        //(else if equal but below 90)
+        // (else if equal but below 90)
         else if (this.player.cor == this.flags[kFLAGS.SHEILA_CORRUPTION] && this.player.cor < 90) {
             this.outputText(
                 "drooling a trickle of fluid and licking at you as she screams her ecstasy into your crotch."
             );
         }
         this.outputText("  Sheila jams her face upward, ");
-        //[(big cox)
+        // [(big cox)
         if (cock && this.player.cockThatFits(32) < 0)
             this.outputText(
                 "pressing her lips and tongue to the base of your shaft as she masturbates it vigorously."
@@ -2767,43 +2767,43 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             "  Your body gives up under her frenzied assault, laying your crotch onto the woman's face as muscle control abandons you."
         );
 
-        //[(if cock-focus)]
+        // [(if cock-focus)]
         if (cock) {
             this.outputText(
                 "\n\nStroke after stroke of semen passes down " + this.sMultiCockDesc() + ", "
             );
-            //[(cock fits)
+            // [(cock fits)
             if (this.player.cockThatFits(32) >= 0) {
                 this.outputText(
                     "pouring out into your lover's waiting throat.  She gags and you can feel the gooey seed oozing back against your [cockHeadFit 32]"
                 );
-                //[(small cum)
+                // [(small cum)
                 if (this.player.cumQ() < 250)
                     this.outputText(
                         "; you withdraw from her, allowing her throat to force your ejaculate back up and over her lips and cheeks with a splutter."
                     );
-                //(big cum)
+                // (big cum)
                 else if (this.player.cumQ() < 2000)
                     this.outputText(
                         ", but your relentless orgasm forces it down again, dumping more jism into her throat.  You can feel her hands clawing at your [butt] as you relieve your buildup."
                     );
-                //[(mega cum)
+                // [(mega cum)
                 else
                     this.outputText(
                         ".  Soon, her visibly-rounding stomach fills and the tip of your dick is once again washed in backflow; the next spurts force the cum all the way up, and she begins drooling the slimy semen-saliva blend from her mouth and nose, hands all the more frantic in her alarm."
                     );
             }
-            //(else doesn't fit)
+            // (else doesn't fit)
             else {
                 this.outputText(
                     " squirting onto and between your intertwined bodies to soak your [chest] and neck, and Sheila's softly pumping crotch."
                 );
-                //(big skeet)
+                // (big skeet)
                 if (this.player.cumQ() > 1000)
                     this.outputText(
                         "  A wellspring of seed, your body continues producing until the fuzz on her thighs and tail is completely matted down with the whiteness drooling between you."
                     );
-                //(multicocks)
+                // (multicocks)
                 if (this.player.cockTotal() > 1) {
                     this.outputText("  Your other cock");
                     if (this.player.cockTotal() == 2) this.outputText(" spasms");
@@ -2814,7 +2814,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 }
             }
         }
-        //(else if vag-focus)
+        // (else if vag-focus)
         else {
             this.outputText(
                 "\n\nYour pussy quakes and latches onto her tongue as your orgasm takes over, caressing the wet muscle.  Sheila waggles and stretches it, trying to score your convulsing insides with the tip even as she torments your sensitized clit in revenge for her own.  Your juices "
@@ -2833,21 +2833,21 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         }
 
         this.outputText("\n\nSpent, you roll off of Sheila");
-        //[(smallcox)
+        // [(smallcox)
         if (cock && this.player.cockThatFits(32) >= 0)
             this.outputText(
                 ", pulling free of her throat.  She immediately turns over as well and forces herself to her hands and knees, then gags and coughs up a large amount of your jism.  When she's dumped enough to clear her passageway, she collapses forward, smearing the mess onto her chest as she spends a few minutes to catch her breath.  Once she's got it, she turns back over and sits up, strands of your slime linking her breasts to the grass."
             );
-        //(else not smallcox)
+        // (else not smallcox)
         else this.outputText(".  She sits up, wiping sweat and stray fluids away from her eyes.");
 
-        //if sheila corruption >= 90 and PC corr >= 90, go to demonization, else continue
+        // if sheila corruption >= 90 and PC corr >= 90, go to demonization, else continue
         if (this.player.cor >= 90 && this.sheilaCorruption() >= 90) {
             this.menu();
             this.addButton(0, "Next", this.sheilaGoesDemon);
             return;
         }
-        //[(corruption threshold warning if sheila corruption >= 80 and PC corr > sheila corruption and sheila xp =/= 3)
+        // [(corruption threshold warning if sheila corruption >= 80 and PC corr > sheila corruption and sheila xp =/= 3)
         else if (
             (this.player.cor > 90 || this.player.cor > this.sheilaCorruption()) &&
             this.sheilaCorruption() >= 80 &&
@@ -2873,18 +2873,18 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nEr... well, there's definitely something to be said against tying up her friends and fucking them silly... without sharing them with you, anyway.  Ah, wait, that slippery thought you were trying to hold onto just got away from you again when Sheila's breast heaved in your hand.  Speaking of things to grab hold of and tie up..."
             );
-            //minus lust, minus small libido; if PC corr > sheila corruption then -10 PC corr and +10 sheila corruption, else if PC corr < sheila corruption then +10 PC corr and -10 sheila corruption and slimefeed
+            // minus lust, minus small libido; if PC corr > sheila corruption then -10 PC corr and +10 sheila corruption, else if PC corr < sheila corruption then +10 PC corr and -10 sheila corruption and slimefeed
             this.player.orgasm();
             this.dynStats("lib", -0.5);
             this.player.slimeFeed();
-            //[Fondle Her][Listen to Her]
+            // [Fondle Her][Listen to Her]
             this.menu();
             this.addButton(0, "Listen2Her", this.sheilaCorruptionWarningListenToHer);
             this.addButton(1, "Fondle Her", this.sheilaCorruptionWarningsChooseFondle);
             return;
-            //choices go to corruption intercept
+            // choices go to corruption intercept
         }
-        //(else if no corruption warning)
+        // (else if no corruption warning)
         this.outputText(
             '\n\n"<i>Gods damn, [name],</i>" Sheila coughs, staring at you.  Still slack-muscled from your orgasm, you look over at her.  '
         );
@@ -2904,7 +2904,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             '"<i>You could give a girl a bloody warning before that sort of behavior.  I thought you were going to kill me!</i>"'
         );
 
-        //minus lust, minus small libido; if PC corr > sheila corruption then -10 PC corr and +10 sheila corruption, else if PC corr < sheila corruption then +10 PC corr and -10 sheila corruption and slimefeed
+        // minus lust, minus small libido; if PC corr > sheila corruption then -10 PC corr and +10 sheila corruption, else if PC corr < sheila corruption then +10 PC corr and -10 sheila corruption and slimefeed
         this.player.orgasm();
         this.dynStats("lib", -0.5);
         this.sheilaCorruptionUpdate();
@@ -2919,7 +2919,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.slimeFeed();
 
         this.outputText("\n\nShe unruffles for a moment, and then pulls in close beside you.  ");
-        //[(sheila xp = 3)
+        // [(sheila xp = 3)
         if (this.flags[kFLAGS.SHEILA_XP] == 3) {
             this.outputText(
                 '"<i>[name]... thanks.  Even being covered in your mess is better than being stuck outside all night, too scared to touch myself and too horny to run.</i>"  Sheila kisses you on the cheek.  "<i>My sloppy hero, eh?  I\'m okay now; I can make it \'til morning when the gate reopens.</i>"'
@@ -2933,14 +2933,14 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nSheila gives you a small hug and starts to pull away; she really intends to stay awake until morning, running and hiding from whatever might come close.  Doesn't sound like much fun."
             );
-            //[Stay With Her][Let Her Be]
-            //choices go to XP3 20:00 event
+            // [Stay With Her][Let Her Be]
+            // choices go to XP3 20:00 event
             this.menu();
             this.addButton(0, "Let Her Be", this.sheilaXPThreeSexyTimePostSexLetHerBe);
             this.addButton(1, "Stay With Her", this.shielaXPThreeSexyTimePostSexStay);
             return;
         }
-        //(else if sheila xp =/= 3)
+        // (else if sheila xp =/= 3)
         else {
             this.outputText(
                 '"<i>Forget it.  With the way you worked me, I forgive you.  Just be careful, you wanker.</i>"  Sheila closes her eyes and pulls your arm around her shoulder'
@@ -2954,7 +2954,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Consensual - Vaginal Sex] (req. cock <= 32 area):
+    // [Consensual - Vaginal Sex] (req. cock <= 32 area):
     private consentacleVagSexForKangarooSlutBitches(): void {
         this.clearOutput();
         var x: number = this.player.cockThatFits(48);
@@ -2986,7 +2986,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.sMultiCockDesc() +
                 " emerges, engorged with blood, from your clothing, she switches from undressing back to rubbing, breathing heavily and stroking herself through the fabric as she stares at your "
         );
-        //[(if wangaroo)
+        // [(if wangaroo)
         if (this.player.cocks[this.player.cockThatFits(32)].cockType == CockTypesEnum.KANGAROO)
             this.outputText('tapered, fleshy penis.  "<i>Wow... you never see those.</i>"');
         else this.outputText(this.multiCockDescriptLight() + ".");
@@ -3004,9 +3004,9 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outputText("\n\nYou grin.  ");
-        //[(no centaur)
+        // [(no centaur)
         if (!this.player.isTaur()) this.outputText("Taking hold of your " + this.cockDescript(x));
-        //(centard)
+        // (centard)
         else
             this.outputText(
                 "Attempting to maneuver your " + this.cockDescript(x) + " into position"
@@ -3014,10 +3014,10 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             ", you rub the head along her dripping snatch, smearing her fluid over it.  "
         );
-        //[(non-cent)
+        // [(non-cent)
         if (!this.player.isTaur())
             this.outputText("Gripping her fuzzy thighs next, you lift her bottom and line");
-        //(hoers)
+        // (hoers)
         else this.outputText("She lifts her bottom and lines");
         this.outputText(
             ' her slippery passage up with your cock.  "<i>Here it comes!</i>" you cry.  With that announcement, you thrust into her, parting her lips with your swollen ' +
@@ -3034,7 +3034,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nShe rubs and squeezes her breasts vigorously as you thrust, and the sight of her sensitive tit-flesh being shaped and massaged gives an extra impetus to your lust.  "
         );
-        //[(non-cent)]
+        // [(non-cent)]
         if (!this.player.isTaur()) {
             this.outputText(
                 "You pause briefly, adjusting your angle and leaning down to kiss her deeply once again and help caress her "
@@ -3045,13 +3045,13 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 " tits, then resume thrusting from your new position; her nipples now brush against your [chest] as you pump.  "
             );
         }
-        //(if balls/vag)
+        // (if balls/vag)
         if (this.player.balls > 0 || this.player.hasVagina()) {
             this.outputText("Her stubby tail curls inward toward you, rubbing up against your ");
             if (this.player.balls > 0) this.outputText("[balls]");
             else this.outputText(this.vaginaDescript(0));
             this.outputText(" and tickling you as she writhes in pleasure.  ");
-            //(if vag)
+            // (if vag)
             if (this.player.balls == 0 && this.player.hasVagina())
                 this.outputText(
                     "Your cunt twitches and drools a bit of fluid on the furry intruder.  "
@@ -3065,12 +3065,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             '.  "<i>Ohhh,</i>" she moans, "<i>YES!</i>"  At that moment you feel her vagina clamp around your [cockFit 32], wringing it frantically as she reaches her climax.  You continue pumping as best you\'re able, but you can\'t stand up to the siege of her spasming pussy for long; '
         );
 
-        //[(pc corr >= 90 or > sheila corruption)
+        // [(pc corr >= 90 or > sheila corruption)
         if (this.player.cor >= 90 || this.player.cor > this.flags[kFLAGS.SHEILA_CORRUPTION]) {
             this.outputText(
                 "something builds to a painful intensity in your crotch.  It feels like two mind-blowing orgasms arriving together and fighting over which one gets to come out first.  You rise toward climax quickly and then are drawn back in moments of maddening frustration, over and over.  In response you intensify your thrusts even more, sawing in and out of the girl at a pace that would be blistering if the two of you weren't leaking enough pre-cum and pussy juice to put out a brushfire.  Eventually the pleasure overwhelms the strange reticence of your orgasm; you cry out loudly as you peak, and squeeze a tiny trickle of cum into her grasping vagina."
             );
-            //[(multi)
+            // [(multi)
             if (this.player.cockTotal() > 1) {
                 this.outputText("  Your other ");
                 if (this.player.cockTotal() == 2) this.outputText("dick erupts");
@@ -3081,7 +3081,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 "  The intense sensation begins to ascend your dick slowly; your body works itself into overdrive and your partner's moans increase sympathetically as it nears the tip.  Finally, it exits your body with an enormous squeeze, alongside a jet of jism.  Sheila gives a complementary gasp as this pulse enters her, and her pussy convulses in a second orgasm, causing her back to arch.  Her breasts seem to jiggle more wildly than before as she thrashes on the ground in the grip of her pleasure."
             );
         }
-        //(PC corruption < sheila corruption)
+        // (PC corruption < sheila corruption)
         else if (this.player.cor < this.flags[kFLAGS.SHEILA_CORRUPTION]) {
             this.outputText(
                 "your resistance is condemned to die in failure as Sheila lets out a quavering scream of pleasure and wraps her arms and legs around you, pinning you inside.  Her vagina convulses around your cock powerfully; you could swear you feel yourself stretching longer and longer as her rippling pussy pulls you deeper in.  Just when you think that your dick must be a mile long, her whole body tenses up and her fingernails dig into your back.  Wearing a madwoman's expression, Sheila stares open-mouthed at you as her muscles lock and her pussy quivers out its fitful orgasm; even her "
@@ -3094,7 +3094,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                     " one last time with almost supernatural heat; your mind clouds over and a wracking orgasm shoots to the base of your spine, echoing back with the first wave of your ejaculation."
             );
         }
-        //(else if equal but below 90)
+        // (else if equal but below 90)
         else {
             this.outputText(
                 "your orgasm quickly supersedes your control as she wrings you and rubs her nipples against your [chest].  " +
@@ -3108,17 +3108,17 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>Oh god!</i>" she yells.  "<i>Pull out, before you get me pregnant!</i>"  '
         );
-        //[(non-dog cock)
+        // [(non-dog cock)
         if (!this.player.hasKnot(x)) {
             this.outputText(
                 "You oblige shakingly, pulling your " +
                     Appearance.cockNoun(this.player.cocks[x].cockType) +
                     " out of her clenching pussy with a wet, sucking noise.  A trickle of semen drools from between her lips as you unburden yourself of the rest of your load, squirting it onto her groin"
             );
-            //[(big skeet)
+            // [(big skeet)
             if (this.player.cumQ() > 500) this.outputText(", breasts, and face");
             this.outputText(".");
-            //[(Huge skeet)
+            // [(Huge skeet)
             if (this.player.cumQ() >= 1500)
                 this.outputText(
                     "  More and more globs of semen shoot from the end of " +
@@ -3126,31 +3126,31 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                         ", pasting Sheila to the dry grass as you paint her body white."
                 );
         }
-        //(dog cock)
+        // (dog cock)
         else {
             this.outputText(
                 "You attempt to oblige her, but your swollen knot sticks firmly in her squeezing pussy, locking you into place.  After a few fruitless tugs, you give yourself up to your orgasm with an apology, slumping against her heaving chest and helplessly dumping the rest of your load into the twitching woman. "
             );
-            //[(big skeet)
+            // [(big skeet)
             if (this.player.cumQ() >= 1000) {
                 this.outputText(
                     "Her belly begins to round as your overproductive gonads push out your massive store of semen"
                 );
-                //[(huge skeet)
+                // [(huge skeet)
                 if (this.player.cumQ() >= 3000)
                     this.outputText(
                         ", until it's stretched as far as possible and each successive jet forces out squirts of frothy jism from the tight seal her pussy makes around the knot"
                     );
                 this.outputText(". ");
             }
-            //[(multi)
+            // [(multi)
             if (this.player.cockTotal() > 2)
                 this.outputText(
                     "Your other cocks erupt as well, soaking her crotch and matting down the fur on her thighs with whiteness. "
                 );
         }
         this.outputText("Both of your orgasms finish up");
-        //(dog-c)
+        // (dog-c)
         if (this.player.hasKnot(x)) this.outputText(" and you finally manage to pull out of her");
         this.outputText(
             "; the two of you lie there breathing raggedly for several minutes.  Sheila breaks the silence first."
@@ -3159,13 +3159,13 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.orgasm();
         this.dynStats("lib", -0.5);
 
-        //if sheila corruption >= 90 and pc corr >= 90, go to demonization, else continue
+        // if sheila corruption >= 90 and pc corr >= 90, go to demonization, else continue
         if (this.player.cor >= 90 && this.sheilaCorruption() >= 90) {
             this.menu();
             this.addButton(0, "Next", this.sheilaGoesDemon);
             return;
         }
-        //[(corruption threshold warning if sheila corruption >= 80 and PC corr > sheila corruption and sheila xp =/= 3)
+        // [(corruption threshold warning if sheila corruption >= 80 and PC corr > sheila corruption and sheila xp =/= 3)
         else if (
             (this.player.cor > 90 || this.player.cor > this.sheilaCorruption()) &&
             this.sheilaCorruption() >= 80 &&
@@ -3210,14 +3210,14 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nPerhaps there's a kernel of truth buried somewhere in that... heap of heaving, rising, falling, shivering breast-flesh, but... uh, what were you just thinking?"
             );
-            //[Listen to Her][Fondle Her]
-            //outputs and stat changes for choices are below
+            // [Listen to Her][Fondle Her]
+            // outputs and stat changes for choices are below
             this.menu();
             this.addButton(0, "Listen2Her", this.sheilaCorruptionWarningListenToHer);
             this.addButton(1, "Fondle Her", this.sheilaCorruptionWarningsChooseFondle);
             return;
         }
-        //(else if no corruption warning)
+        // (else if no corruption warning)
         this.outputText('\n\n"<i>Ahh, you dipstick!</i>" she gripes.  "<i>You came in me!</i>"');
 
         this.outputText('\n\n"<i>Sorry,</i>" you gasp, almost too spent to speak.');
@@ -3225,7 +3225,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>You better be, mate,</i>" she teases.  Kissing your cheek gingerly, she murmurs, almost too quietly to hear, "<i>... you\'re still the best.</i>"'
         );
-        //[(sheila xp = 3)
+        // [(sheila xp = 3)
         if (this.flags[kFLAGS.SHEILA_XP] == 3) {
             this.outputText(
                 '  Sheila looks over, thankfulness written on every inch of her brow.  "<i>[name]... I really appreciate what you did.  I\'d rather be knocked up than caught by some nightmare because I was too horny to hide properly until the colony opened - er, not that I want to be knocked up by you, sweet as you are.</i>"'
@@ -3235,17 +3235,17 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\n"<i>Yeah,</i>" Sheila answers, when prompted.  "<i>It\'s not really so hard, you know, in the dark.  I can just dig a hole or something.</i>"  She squeezes your hand, then gets up.  This girl actually wants to hide alone in a hole for the entire night...'
             );
-            //[Stay With Her][Let Her Be]
+            // [Stay With Her][Let Her Be]
             this.menu();
             this.addButton(0, "Let Her Be", this.sheilaXPThreeSexyTimePostSexLetHerBe);
             this.addButton(1, "Stay With Her", this.shielaXPThreeSexyTimePostSexStay);
-            //choices go to XP3 20:00 event
+            // choices go to XP3 20:00 event
             return;
         }
-        //(else sheila xp =/= 3)
+        // (else sheila xp =/= 3)
         else {
             this.outputText("\n\nYou lie in the sun for some time ");
-            //[(norm skeet)
+            // [(norm skeet)
             if (this.player.cumQ() < 500)
                 this.outputText(
                     "as she strokes the " + this.player.skinFurScales() + " of your chest"
@@ -3256,8 +3256,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             );
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //minus lust, minus small libido, if PC corr > sheila corruption then -10 PC corr and +10 sheila corruption, else if PC corr < sheila corruption then +10 PC corr and -10 sheila corruption, low chance of sheilapreg +1 if non-dog cock or med-high chance if dog cock
-        //sheilaPreg stuff
+        // minus lust, minus small libido, if PC corr > sheila corruption then -10 PC corr and +10 sheila corruption, else if PC corr < sheila corruption then +10 PC corr and -10 sheila corruption, low chance of sheilapreg +1 if non-dog cock or med-high chance if dog cock
+        // sheilaPreg stuff
         this.sheilaPreg();
         this.sheilaCorruptionUpdate();
         /*if(player.cor > 90 || player.cor > sheilaCorruption()) {
@@ -3270,8 +3270,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         }*/
     }
 
-    //[Consensual - Masturbate] (mutual masturbation for F, M, H, me, and U)
-    //as the name implies, you'll probably need to replicate masturbation code and have RNG pick an option to use, rerolling until it gets one compatible with PC's equipment - and then store the choice unless you want to C&P 5 different scenes
+    // [Consensual - Masturbate] (mutual masturbation for F, M, H, me, and U)
+    // as the name implies, you'll probably need to replicate masturbation code and have RNG pick an option to use, rerolling until it gets one compatible with PC's equipment - and then store the choice unless you want to C&P 5 different scenes
     /*for example:
         -00-24: check for cocks, check cock length if centaur, if either ineligible reroll, else set a variable to{cock}
         -25-49: check for vag, reroll if centaur, else set variable to {vag}
@@ -3280,7 +3280,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         -if RNG rerolls 100 times without resolving, halt function and check for eligible parts; if all absent, set variable to {fucking nothing}, else restart
     let me know if this is totally heinous or whatever*/
 
-    //da scene
+    // da scene
     private sheilaMutualMasturbation(): void {
         this.clearOutput();
         var target: string = "";
@@ -3320,29 +3320,29 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outputText("\n\nYou lie down next to Sheila");
-        //[(horse)
+        // [(horse)
         if (this.player.isTaur()) this.outputText(", folding your legs under you,");
         this.outputText(" and begin ");
-        //[(adequate-length cock)
+        // [(adequate-length cock)
         if (target == "cock") {
             this.outputText(
                 "stroking your [cock], pointing it at her as you smear pre-cum onto your fingers"
             );
         }
-        //(non-horse vag)
+        // (non-horse vag)
         else if (target == "cunt")
             this.outputText(
                 " sliding your hand to your [vagina], parting your lips with two fingers"
             );
-        //(gross-ass nipcunts)
+        // (gross-ass nipcunts)
         else if (target == "nipplecunt")
             this.outputText("plunging your fingers into one of your awkward, distended nipples");
-        //(Unsexed non-centaur only)
+        // (Unsexed non-centaur only)
         else if (target == "ass" && !this.player.isTaur())
             this.outputText(
                 "licking a finger and teasing your asshole with shallow strokes, gently circling the ring"
             );
-        //(centaur who hasn't got shit)
+        // (centaur who hasn't got shit)
         else
             this.outputText(
                 "sucking a single digit salaciously, fingerfucking your mouth and coating it with saliva"
@@ -3364,7 +3364,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         );
         if (target == "cock")
             this.outputText("begin stroking your shaft, drooling pre-cum onto her skin and ");
-        //(non-horse vag)
+        // (non-horse vag)
         else if (target == "cunt")
             this.outputText("demonstrate by slipping your fingers into your own [vagina] and ");
         this.outputText(
@@ -3378,22 +3378,22 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>So, are you just going to make me do whatever you please?</i>" you ask, before rolling her firm little nipple on your tongue.  '
         );
-        //[(if using eligible cock)
+        // [(if using eligible cock)
         if (target == "cock")
             this.outputText(
                 "You return your hand to your [cock], pumping vigorously to catch up to your lover, spurred onward by the smooth skin she presses into your lips."
             );
-        //(else if nonhorse vag)
+        // (else if nonhorse vag)
         else if (target == "cunt")
             this.outputText(
                 "You slide your hand between your [legs] again, intent on recovering the march Sheila's stolen on you, and begin rubbing your [clit] vigorously while sighing into her breast."
             );
-        //(else if RNG disgusting nipplecunts)
+        // (else if RNG disgusting nipplecunts)
         else if (target == "nipplecunt")
             this.outputText(
                 "Your hand returns to your chest, slipping inside the sensitive flesh of your nipple, and you groan into Sheila's as a trickle of moisture falls from your chest."
             );
-        //(else if non-centaur asshole)
+        // (else if non-centaur asshole)
         else if (!this.player.isTaur())
             this.outputText(
                 "Your hand reaches back to your [asshole], neglected for too long, and a finger spears your pucker, stroking the nerves inside as you hurry to bring your arousal in line with Sheila's."
@@ -3403,7 +3403,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "You wish you had something to play with as you watch your lover writhe under you"
             );
-            //[(silly), even just a paperclip].]
+            // [(silly), even just a paperclip].]
             if (this.silly()) this.outputText(", even just a paperclip");
             this.outputText(".");
         }
@@ -3411,13 +3411,13 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nSheila places a hand alongside your head even as she gasps and shoves her fingers deep inside her pussy.  \"<i>[name], as long as you'll touch me like this, I'll be your star; I'll beg on my knees!</i>\"  Her hand moves irregularly now, as her hips jerk and swivel"
         );
-        //[(if fucking nothing)
+        // [(if fucking nothing)
         if (target != "cock" && target != "cunt" && target != "nipplecunt")
             this.outputText(", and yours joins her, slipping into her entrance alongside");
         this.outputText(
             '.  "<i>Just... say I\'m always yours!</i>"  She turns you toward her face again, locking you in a kiss, and your '
         );
-        //[(if cock)
+        // [(if cock)
         if (target == "cock") {
             if (this.player.cockTotal() == 1) this.outputText("prick begins");
             else this.outputText("pricks begin");
@@ -3425,7 +3425,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 " to twitch, ejaculating a stroke onto Sheila's midriff and wrist.  The girl groans in your mouth at the new heat, and her body shakes in orgasm."
             );
         }
-        //(vag)
+        // (vag)
         else if (target == "cunt") {
             this.outputText("pussy convulses, ");
             if (this.player.wetness() < 4) this.outputText("drooling");
@@ -3434,7 +3434,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 " around your hand.  As your body shakes and your lips rattle against Sheila's, she shivers and her own orgasm begins."
             );
         }
-        //(nipcunts)
+        // (nipcunts)
         else if (target == "nipplecunt") {
             this.outputText(
                 "nipple constricts around your fingers in climax, oozing lubrication onto your partner.  As the drops from your " +
@@ -3442,36 +3442,36 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                     " hit her own, Sheila's back arches again and her own orgasm begins."
             );
         }
-        //(jack shit)
+        // (jack shit)
         else
             this.outputText(
                 "fingers are pulled into her vagina by her muscles as her orgasm begins."
             );
-        //[( pc corr >= 90 or > sheila corruption)
+        // [( pc corr >= 90 or > sheila corruption)
         if (this.player.cor >= 90 || this.player.cor > this.flags[kFLAGS.SHEILA_CORRUPTION]) {
             this.outputText(
                 "\n\nHer lips seem to draw yours in when she comes, until it feels like you've been pressing them into her since time began; her chest rises as she sucks, and you can clearly see her breasts swelling up - it's too much to bear, and you grab one with your free hand and squeeze.  Sheila answers you by sticking her tongue even deeper into your mouth."
             );
         }
-        //(else pc corr < sheila corruption)
+        // (else pc corr < sheila corruption)
         else if (this.player.cor < this.flags[kFLAGS.SHEILA_CORRUPTION]) {
             this.outputText(
                 "\n\nThe kiss breaks as the girl loses muscle control, and she leans forward, pressing her forehead into yours and looking up into your eyes with a smile and a  heavy-lidded stare.  She shivers again, and you can feel heat gathering in your face and fogging your brain even as she seems to curl up in your arms."
             );
         }
-        //(else if equal corr but under 90)
+        // (else if equal corr but under 90)
         else {
             this.outputText(
                 "She breaks the kiss, drawing her hand from her pussy, and holds your head in front of her; her eyes soften with affection as she shudders."
             );
-            //[(not jack shit)
+            // [(not jack shit)
             if (target == "cunt" || target == "cock" || target == "nipplecunt")
                 this.outputText(
                     "  Emptying your reserves, you allow yourself to fall into her arms, resting your head on her chest."
                 );
         }
 
-        //if not fucking nothing, reduce lust and reset hours since cum; if sheila corr = 90 and pc corr >= 90, go to demonization, else continue
+        // if not fucking nothing, reduce lust and reset hours since cum; if sheila corr = 90 and pc corr >= 90, go to demonization, else continue
         if (target == "cunt" || target == "cock" || target == "nipplecunt") this.player.orgasm();
         else this.dynStats("lus", 50);
         if (this.player.cor >= 90 && this.sheilaCorruption() >= 90) {
@@ -3479,7 +3479,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.addButton(0, "Next", this.sheilaGoesDemon);
             return;
         }
-        //[(corruption threshold warning if sheila corruption >= 80 and PC corr > sheila corruption and sheila xp =/= 3)
+        // [(corruption threshold warning if sheila corruption >= 80 and PC corr > sheila corruption and sheila xp =/= 3)
         else if (
             (this.player.cor > 90 || this.player.cor > this.sheilaCorruption()) &&
             this.sheilaCorruption() >= 80 &&
@@ -3510,14 +3510,14 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nWell... what's so great about normal people?  Normal people have boring normal lives.  One more party shouldn't hurt, should it?  Come on, let's go..."
             );
 
-            //[Listen to Her][Fondle Her]
+            // [Listen to Her][Fondle Her]
             this.menu();
             this.addButton(0, "Listen2Her", this.sheilaCorruptionWarningListenToHer);
             this.addButton(1, "Fondle Her", this.sheilaCorruptionWarningsChooseFondle);
-            //choices go to corruption warning texts
+            // choices go to corruption warning texts
             return;
         }
-        //(else no corruption warning triggered)
+        // (else no corruption warning triggered)
         else {
             this.sheilaCorruptionUpdate();
             /*
@@ -3534,11 +3534,11 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText("there, staring at the load you left in her bellybutton");
             else this.outputText("together");
             this.outputText('.  "<i>Oh, I had so much fun, mate.');
-            //[(if sex =U and sillymode)
+            // [(if sex =U and sillymode)
             if (this.player.gender == 0 && this.silly())
                 this.outputText("  I love you, my Ken doll.");
             this.outputText('</i>"');
-            //[(if sheila xp = 3)
+            // [(if sheila xp = 3)
             if (this.flags[kFLAGS.SHEILA_XP] == 3) {
                 this.outputText("\n\nShe sighs and slips out from under you.");
                 this.outputText('\n\n"<i>What\'s up?</i>" you ask, sitting up.');
@@ -3547,8 +3547,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 );
                 this.outputText("\n\nHuh, she's really going to spend the night alone.");
 
-                //[Stay With Her][Let Her Go]
-                //choices go to XP3 section
+                // [Stay With Her][Let Her Go]
+                // choices go to XP3 section
                 this.menu();
                 this.addButton(0, "Let Her Be", this.sheilaXPThreeSexyTimePostSexLetHerBe);
                 this.addButton(1, "Stay With Her", this.shielaXPThreeSexyTimePostSexStay);
@@ -3562,8 +3562,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //corruption warning texts (redirected from here when Sheila corruption is about to hit 90)
-    //[Any Corruption Warning - Fondle Her]
+    // corruption warning texts (redirected from here when Sheila corruption is about to hit 90)
+    // [Any Corruption Warning - Fondle Her]
     private sheilaCorruptionWarningsChooseFondle(): void {
         this.clearOutput();
         this.outputText(
@@ -3585,14 +3585,14 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outputText("\n\nBitch tease.");
-        //set sheila xp to -3 and sheila corruption to 90, PC corr - 10
+        // set sheila xp to -3 and sheila corruption to 90, PC corr - 10
         this.flags[kFLAGS.SHEILA_XP] = -3;
         this.flags[kFLAGS.SHEILA_CORRUPTION] = 90;
         this.dynStats("cor", -10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Any Corruption Warning - Listen to Her]
+    // [Any Corruption Warning - Listen to Her]
     private sheilaCorruptionWarningListenToHer(): void {
         this.clearOutput();
         this.outputText('"<i>So...</i>" you answer, your feel frozen in mid-cop, "<i>what?</i>"');
@@ -3606,22 +3606,22 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\n\"<i>Thank you,</i>\" she says.  With a peck on your cheek, she stands up and gathers her clothes, then sighs.  \"<i>I know it's not just your fault; it takes two to tango.  I'm going to try to get myself under control for these next couple of weeks.  Please, please do the same.  When I feel like I'm ready, you'll see me again.  I... love you.  Bye.</i>\""
         );
-        //no change in sheila corruption (remains at 80), PC corr -10, set sheila clock = -13
+        // no change in sheila corruption (remains at 80), PC corr -10, set sheila clock = -13
         this.dynStats("lus", -10);
         this.flags[kFLAGS.SHEILA_CLOCK] = -4;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //normal Sheila combat aftermath quick reference:
-    //- if Sheila XP >= -1 and PC runs or wins without sexing, set Sheila XP = -1
-    //- if sheila wins with lust>75, sheila rapes PC; if Sheila XP >= -3, set Sheila xp to -2
-    //- if PC wins and rapes Sheila, generally set Sheila XP to - 4
+    // normal Sheila combat aftermath quick reference:
+    // - if Sheila XP >= -1 and PC runs or wins without sexing, set Sheila XP = -1
+    // - if sheila wins with lust>75, sheila rapes PC; if Sheila XP >= -3, set Sheila xp to -2
+    // - if PC wins and rapes Sheila, generally set Sheila XP to - 4
 
-    //victory rapin' on normal Sheila:
+    // victory rapin' on normal Sheila:
     public sheilaGotWhomped(): void {
         this.clearOutput();
         this.outputText("Sheila collapses, ");
-        //[(HP)
+        // [(HP)
         if (this.monster.HP < 1) this.outputText("completely spread-eagled from her injuries");
         ///(lust)
         else
@@ -3631,16 +3631,16 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             ".  As you stand over her, she forces herself to her elbows and tries to scoot away from you, fear written on her face.  \"<i>I'm sorry... please, no..."
         );
-        //[(sheila xp > -4)
+        // [(sheila xp > -4)
         if (this.flags[kFLAGS.SHEILA_XP] > -4)
             this.outputText("  I'll forgive you for everything else, but please, not this!");
         this.outputText('</i>" she implores.');
-        //[(sheila corruption >= 90)
+        // [(sheila corruption >= 90)
         if (this.sheilaCorruption() >= 90)
             this.outputText(
                 "  \"<i>I-if you touch me again... god, I can't even think straight anymore!  Don't do this!</i>\""
             );
-        //(lust >= 30)
+        // (lust >= 30)
         if (this.player.lust >= 33)
             this.outputText("\n\nWill you take advantage of the terrified girl or let her go?");
         else
@@ -3648,8 +3648,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nYou're not really horny enough to take advantage of her, anyway..."
             );
 
-        //[Rape Pussy][Forced Oral][Dildo Time][Let Her Go]
-        //Let Her Go is default choice if player hits spacebar or has PC lust < 30/no qualified options
+        // [Rape Pussy][Forced Oral][Dildo Time][Let Her Go]
+        // Let Her Go is default choice if player hits spacebar or has PC lust < 30/no qualified options
         this.menu();
         if (this.player.lust >= 33) {
             if (this.player.hasCock() && this.player.cockThatFits(48) >= 0)
@@ -3670,31 +3670,31 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         }
         this.addButton(9, "Leave", this.letSheilaGo);
     }
-    //if choosing Let Her Go and sheila xp > -3, set sheila xp = -1, then give xp/gems and Next button to camp
+    // if choosing Let Her Go and sheila xp > -3, set sheila xp = -1, then give xp/gems and Next button to camp
     private letSheilaGo(): void {
         if (this.flags[kFLAGS.SHEILA_XP] >= -3) this.flags[kFLAGS.SHEILA_XP] = -1;
         this.cleanupAfterCombat();
     }
 
-    //[Victory Rapin' - Rape Pussy] - uses cockarea <= 48:
+    // [Victory Rapin' - Rape Pussy] - uses cockarea <= 48:
     private rapeSheilasCooter(): void {
         this.clearOutput();
-        //set sheila xp = -4
+        // set sheila xp = -4
         this.flags[kFLAGS.SHEILA_XP] = -4;
         var x: number = this.player.cockThatFits(48);
 
         this.outputText(
             "You grab the girl by her fuzzy leg; she tries to kick away from you, but you pull her back, pinning her"
         );
-        //[(horse)
+        // [(horse)
         if (this.player.isTaur())
             this.outputText(" by planting your forehooves just above her hips");
         this.outputText(
             ".  Reaching down, you take the neck of her shirt in your hand, then rip it open, exposing her "
         );
-        //[(sheila corruption < 30)
+        // [(sheila corruption < 30)
         if (this.sheilaCorruption() < 30) this.outputText("tiny ");
-        //sheila corruption > 60)
+        // sheila corruption > 60)
         else if (this.sheilaCorruption() > 60) this.outputText("huge, soft ");
         this.outputText(
             "breasts, which jiggle from the force.  She tries to cover herself with her arms, but you grab and pull them aside, revealing her chest again.  As you appraise her naked flesh, she looks away, shame coloring her cheek.  Her mouth tightens and her eyes shut as you squeeze her tits roughly, flicking the nipples until they're erect."
@@ -3703,7 +3703,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nSliding down her body a bit, you devote your attention to her waist, unfastening her belt and unbuttoning her dusty shorts.  A triangle of white fabric greets you as you pull the flaps apart, and you tug the bottoms down quickly to expose her panties.  You place one finger at the entrance to her pussy, "
         );
-        //[(monster HP < 1)
+        // [(monster HP < 1)
         if (this.monster.HP < 1)
             this.outputText("sliding it between her labia and producing a damp spot, then ");
         this.outputText("dragging the wet fabric around her vulva.");
@@ -3714,8 +3714,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 ' drips with pre-cum as you pull it loose, and you lay it on her crotch, letting the goo soak the white fabric until you can see her light-brown skin through it.  She squirms under it, bringing up another droplet with her motion, and you place the tip at the entrance to her pussy, pressing eagerly against the fabric.  "<i>Please...</i>" she whimpers, "<i>I\'m begging you; don\'t.</i>"'
         );
 
-        //fuck-fork
-        //[(corruption < 50)
+        // fuck-fork
+        // [(corruption < 50)
         if (this.player.cor < 50) {
             this.outputText(
                 "\n\nYou frown at the girl.  She still wants to escape, even though her body is eager for this?  You can feel her wet pussy twitching at your " +
@@ -3757,12 +3757,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\n"<i>Shut up,</i>" you retort, through gritted teeth, "<i>I gave you what you wanted, now do the same for me!</i>"  Your [cockFit 48] twitches and your muscles quake as the first stroke of semen erupts; it takes all your effort to hold yourself up and avoid sinking onto your lover while the permeable barrier of her panties collects its toll from your spilling cum, thickening with the goo you pump into the girl.  She reddens as your warm seed squirts through the fabric to invade her body, but makes no further protest.'
             );
-            //[(big skeet)
+            // [(big skeet)
             if (this.player.cumQ() >= 500)
                 this.outputText(
                     "  Soon you've filled her as fully as the shallow penetration will allow, and the panties begin to press back against your cock, oozing onto you whatever semen the porous dam can't contain."
                 );
-            //(mega skeet)
+            // (mega skeet)
             else if (this.player.cumQ() >= 1500)
                 this.outputText(
                     "  It sags and bows around the tip of your spear, pulsing with each new stroke as the hemlines leak jizz onto her legs and butt."
@@ -3774,7 +3774,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nShe attempts to stand, holding her midriff and looking at you unhappily.  "
             );
-            //[(big skeet)
+            // [(big skeet)
             if (this.player.cumQ() >= 500)
                 this.outputText(
                     "So much cum fills her pussy that it slips out, once again restoring the opacity, though not the dryness, of her panties.  "
@@ -3782,7 +3782,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "You return her gaze, turning your nose up dismissively.  Conscious of her nudity, she pulls up her shorts and buttons her vest to conceal herself as you leave her behind."
             );
-            //end scene, sheilapreg check, reduce lust and libido
+            // end scene, sheilapreg check, reduce lust and libido
             this.sheilaPreg();
             this.player.orgasm();
             this.dynStats("lib", -1);
@@ -3811,29 +3811,29 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\n"<i>No,</i>" you repeat, as the shamed girl stares off to the side.  You thrust in all the way, sending a vibration through her body that'
             );
-            //[(sheila corruption > 10)
+            // [(sheila corruption > 10)
             if (this.sheilaCorruption() > 10) this.outputText(" jiggles her breasts and");
             this.outputText(
                 " clenches her jaw.  A bloom of red colors her cheeks, one brighter than the other from the blow... though she still refuses to look at you.  Doesn't matter; having sex.  You begin to pump her pussy vigorously, the wetness enough to allow quick, smooth thrusts without any warmup.  \"<i>You're a godawful liar,</i>\" you grunt"
             );
-            //[(not centaur)
+            // [(not centaur)
             if (!this.player.isTaur())
                 this.outputText(", leaning down to kiss her long neck and collarbone");
             this.outputText(
                 ".  Sheila quivers again, still looking away, as you continue.  \"<i>I can actually feel you stroking me with your vagina already.  Are you going to come soon?  Will you tell me how much you're hating this when you do, and wrap your legs around me to punish me by holding me inside?</i>\"  The girl's blush deepens, and she bites her lip in embarrassment.  Confidently, you release her hand"
             );
-            //[(nothors)
+            // [(nothors)
             if (!this.player.isTaur())
                 this.outputText(
                     ", transferring yours to her breast while brushing her torn shirt to the side"
                 );
             this.outputText("; without struggling further, she slowly lowers it");
-            //[(nothors)
+            // [(nothors)
             if (!this.player.isTaur()) this.outputText(" to rest atop your own");
             this.outputText(
                 ", confirming your suspicion.  Her eyes close and her chin raises resignedly"
             );
-            //[(nothors)
+            // [(nothors)
             if (!this.player.isTaur())
                 this.outputText(
                     " as you triumphantly squeeze the flesh in your hand and kiss her under the jaw"
@@ -3845,7 +3845,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outputText("\n\nAlmost affectionately, you ");
-            //[(mans)
+            // [(mans)
             if (!this.player.isTaur())
                 this.outputText(
                     "place a hand along her face, tuning it toward you, and kiss her on the lips."
@@ -3854,51 +3854,51 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '  "<i>Of course I won\'t,</i>" you answer sweetly.  "<i>What would be the point?</i>"  Sheila winces as you hilt yourself, sinking your [cockFit 48] so far into her that your crotch meets hers.  You shudder'
             );
-            //[(nonhors)
+            // [(nonhors)
             if (!this.player.isTaur()) this.outputText(" and squeeze her breast");
             this.outputText(
                 " as your climax arrives and the first of your seed pours into her grasping pussy.  While you fill her, her back arches"
             );
-            //[(nonhors)
+            // [(nonhors)
             if (!this.player.isTaur()) this.outputText(" and she presses your hand uncomfortably");
             this.outputText(
                 ", gasping as her own orgasm begins.  Her knees wrap around your sides, satisfying your predicition, and her vagina"
             );
-            //[(pc corr >= 90 or > sheila corruption)
+            // [(pc corr >= 90 or > sheila corruption)
             if (this.player.cor >= 90 || this.sheilaCorruption() < this.player.cor) {
                 this.outputText(
                     " pulls greedily at your [cockFit 48], drinking up your semen as fast as you can squirt it.  She sucks in breath as she climaxes, finally opening her eyes as her head tilts back"
                 );
-                //[(nonhors)
+                // [(nonhors)
                 if (!this.player.isTaur())
                     this.outputText(
                         "; you can almost feel her breast heating up and swelling with blood under your hand, as the nipple pokes into your palm"
                     );
                 this.outputText(".");
             }
-            //(PC corr < sheila corruption)
+            // (PC corr < sheila corruption)
             else if (this.player.cor < this.sheilaCorruption()) {
                 this.outputText(
                     " floods you with juices, dumping so much around your twitching cock that you feel like you're lowering it into a hot spring."
                 );
-                //[(nonhors)
+                // [(nonhors)
                 if (!this.player.isTaur())
                     this.outputText(
                         "  She squeezes your hand so hard that you swear you can feel her breast compressing under it as she screams her pleasure."
                     );
             }
-            //(else equal but < 90)
+            // (else equal but < 90)
             else {
                 this.outputText(
                     " drools eagerly as you mingle your juices with hers, until the fluid begins to thicken with white seed."
                 );
             }
-            //[(big skeet)
+            // [(big skeet)
             if (this.player.cumQ() >= 500)
                 this.outputText(
                     "  Overabundant as always, your semen quickly fills her to capacity and begins to squirt out around your shaft, staining her thighs."
                 );
-            //[(multicock)
+            // [(multicock)
             if (this.player.cockTotal() > 1) {
                 this.outputText("  Your other ");
                 if (this.player.cockTotal() == 2) this.outputText("dick spits");
@@ -3908,7 +3908,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\n"<i>Haha,</i>" you laugh softly.  "<i>You wanted this as much as I thought.</i>"'
             );
-            //if sheila corr >= 90 and PC corr > 90, go to demonization scene, else continue
+            // if sheila corr >= 90 and PC corr > 90, go to demonization scene, else continue
             if (this.sheilaCorruption() >= 90 && this.player.cor >= 90) {
                 this.menu();
                 this.addButton(0, "Next", this.sheilaGoesDemon);
@@ -3917,8 +3917,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nSheila pulls away from you wordlessly, then buttons her vest to hide her breasts and pulls up her shorts, flinching as the rough fabric touches her unprotected, sensitized crotch.  Once clothed again, she finally looks at you - not with anger, as you expect, but with a pained frown of resigned, familiar disappointment.  Huffing, you re-dress and leave the girl behind."
             );
-            //end scene, sheilapreg check, lose lust and libido, if PC corr > sheila corruption then -10 PC corr and +10 sheila corruption, else if PC corr < sheila corruption then +10 PC corr and -10 sheila corruption
-            //pregcheck
+            // end scene, sheilapreg check, lose lust and libido, if PC corr > sheila corruption then -10 PC corr and +10 sheila corruption, else if PC corr < sheila corruption then +10 PC corr and -10 sheila corruption
+            // pregcheck
             this.sheilaPreg();
             this.player.orgasm();
             this.dynStats("lib", -1);
@@ -3935,11 +3935,11 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.cleanupAfterCombat();
     }
 
-    //[Victory Rapin' - Forced Oral] - no corruption transfer, but adds some to PC
-    //it's fine if you make two different buttons for the male and female branches, but both should indicate that this is forced
+    // [Victory Rapin' - Forced Oral] - no corruption transfer, but adds some to PC
+    // it's fine if you make two different buttons for the male and female branches, but both should indicate that this is forced
     private forcedSheilaOral(dick: boolean = true): void {
         this.clearOutput();
-        //set sheila xp = -4
+        // set sheila xp = -4
         this.flags[kFLAGS.SHEILA_XP] = -4;
         this.outputText(
             "You lean down and grab the girl by her shirt-front, raising her to her knees; her hands automatically go to yours."
@@ -3950,7 +3950,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>Now, now; calm yourself,</i>" you admonish.  Your other hand slips up her shirt, caressing her stomach and searching out her'
         );
-        //[(sheila corruption >= 50
+        // [(sheila corruption >= 50
         if (this.sheilaCorruption() >= 50) this.outputText("soft, pillowy");
         else this.outputText("small, perky");
         this.outputText(
@@ -3964,10 +3964,10 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>Of course you don\'t,</i>" you interrupt smoothly, deliberately misinterpreting her answer.  "<i>Let\'s just get them out of the way...</i>"  You withdraw your hand; she looks almost disappointed at its absence as you slip the vest from her shoulders and take a better look at her breasts, '
         );
-        //[(sheila corruption < 20)]
+        // [(sheila corruption < 20)]
         if (this.sheilaCorruption() < 20)
             this.outputText("little round things that trace gentle curves under her loose shirt.");
-        //(else sheila corruption < 50)
+        // (else sheila corruption < 50)
         else if (this.sheilaCorruption() < 50)
             this.outputText("healthy mounds that fill out her shirt.");
         else
@@ -3979,13 +3979,13 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outputText("\n\nStill smiling, you unfasten your [armor] and reveal your crotch.  ");
-        //[(cock.length > 0)
+        // [(cock.length > 0)
         if (dick)
             this.outputText(
                 this.SMultiCockDesc() +
                     " flops free, half-erect and swelling steadily with blood as you appraise the woman's body."
             );
-        //(vag present)
+        // (vag present)
         else
             this.outputText(
                 "Your [vagina] drools slightly, labia parting and [clit] poking up; you imagine what you want to do with it."
@@ -3994,9 +3994,9 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             "  Sheila watches your face as you slip into a fantasy, half-playing with her nipples - but just when you start to get into your daydream, she turns and tries to scramble to her feet!"
         );
 
-        //begin encounter forking - Difficulty Level: Hell
-        //forced fellatio branch, for cocks sticking out <= arm length
-        //[(if not horse and smallest cock length <= 35% of height OR if horse and 120% of height <= smallest cock length <= 155% of height)
+        // begin encounter forking - Difficulty Level: Hell
+        // forced fellatio branch, for cocks sticking out <= arm length
+        // [(if not horse and smallest cock length <= 35% of height OR if horse and 120% of height <= smallest cock length <= 155% of height)
         if (dick) {
             this.outputText(
                 '\n\nYou seize the girl by her hair, cutting off her escape and depositing her in front of you once again.  Still holding her tight, you guide her shut mouth to the tip of your [cock shortest].  "<i>Oral,</i>" you demand tersely, grabbing your shaft and smearing her lips with the pre-cum you\'re beginning to drip.  Sheila\'s eyes close like her mouth and she tries to pull away, but you shake her until she\'s looking at you again and point at your cock insistently.  "<i>Oral,</i>" you repeat, pulling her hair harder.  "<i>Or we can slip you out of those pants instead, if you prefer...</i>"'
@@ -4005,7 +4005,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nHer mouth opens in either pain or alarm; you take advantage of the accommodation and shove your prick at it, "
             );
-            //[(cock width <= 6")
+            // [(cock width <= 6")
             if (this.player.cocks[this.player.shortestCockIndex()].cockThickness <= 6) {
                 this.outputText(
                     "parting her lips to pop neatly between them.  It feels good, but one-sided, and you order Sheila to get to work."
@@ -4019,8 +4019,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 );
             }
             this.outputText("  The reticent woman brings her lips into play, sucking gingerly, ");
-            //start length fork, no new PG
-            //[(dick length <= 8)
+            // start length fork, no new PG
+            // [(dick length <= 8)
             if (this.player.cocks[this.player.shortestCockIndex()].cockLength <= 8) {
                 this.outputText("and the warm embrace of her mouth is welcome stimulation.");
                 this.outputText(
@@ -4053,7 +4053,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                     ".  She pushes against you with her hands, trying to get free, but you just hold her against your crotch as you lean over her head."
                 );
             }
-            //(else dick length > 8)
+            // (else dick length > 8)
             else {
                 this.outputText(
                     "but this sort of half-assed attention won't get you off any time before sundown."
@@ -4062,8 +4062,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     '\n\n"<i>God,</i>" you groan, "<i>you\'re terrible at this.</i>"  Sheila\'s eyes widen with concern and her palms turn toward you in a futile defensive gesture, but too late; '
                 );
-                //start width fork, no new PG
-                //[(cock width <= 6)
+                // start width fork, no new PG
+                // [(cock width <= 6)
                 if (this.player.cocks[this.player.shortestCockIndex()].cockThickness <= 6) {
                     this.outputText(
                         "you grab her by both ears and force your [cock shortest] down her throat!  You can feel her esophageal muscles rippling around you as she gags and retches, and you pull it out again to be sure she's not going to throw up on your dick.  Nothing seems forthcoming, so you drag her head forward again, once more sliding into the convulsing warmth of her throat.  A groan escapes you as it closes around your crown; her squeezing passageway feels for all the world like a tight cunt, and your eager hips begin to use it as exactly that, pumping in and out of Sheila as she shudders and struggles weakly."
@@ -4095,9 +4095,9 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                     );
                 }
             }
-            //end width fork and length fork
-            //begin corruption worms fork
-            //(if corr >= 70 and Infest command is unlocked)
+            // end width fork and length fork
+            // begin corruption worms fork
+            // (if corr >= 70 and Infest command is unlocked)
             if (this.player.cor >= 70 && this.player.statusAffectv1(StatusAffects.Infested) == 5) {
                 this.outputText(
                     "\n\nA wicked idea flits through your head, brought on by the squirming annoyances "
@@ -4113,7 +4113,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     ", and you decide to indulge it.  \"<i>Don't worry about rations for the day,</i>\" you cry out, \"<i>I've got more than enough to feed you!</i>\"  Sheila's resigned expression registers this as little more than masculine braggadocio - all the better for your surprise.  Pulling deep inside yourself, you force out a thick load of wormy jism, depositing it directly into the woman's throat; her body tenses at the texture and she tries again to pull away.  As the writhing mass is pushed down her gullet by yet more arriving after it, she begins to struggle violently, hitting you with tired fists and trying to wrench her head free of your grip, even at the cost of her ears.  Luckily, she lacks the energy to do permanent damage to either you or herself after the fight and the cruel face-fucking, and you pour your infested load into her with abandon."
                 );
-                //[(big skeet)
+                // [(big skeet)
                 if (this.player.cumQ() >= 2500)
                     this.outputText(
                         "  The volume of semen and slimy worms you pack her with is so great that it strains her stomach; you can actually see dozens of the annelids slithering around in a tight ball under the taut skin of her swollen midriff."
@@ -4131,16 +4131,16 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                     '\n\nYou lean over to Sheila; her face is already pale and horrified as she holds her gut, feeling the worms inside.  "<i>Hope you enjoy today\'s catch,</i>" you whisper.  "<i>I\'ll come see you again when I have some more.</i>"  Re-donning and refastening your [armor], you leave the woman behind just as she begins to retch violently, dumping worms and cum onto the grass.'
                 );
             }
-            //(else if corr < 70 or PC cannot use Infest at will)
+            // (else if corr < 70 or PC cannot use Infest at will)
             else {
                 this.outputText(
                     "\n\n\"<i>Swallow it, bitch!</i>\" you cry, holding Sheila's head against your cock as your ejaculation begins.  Not like she has much choice, with the way you're holding her; she can either swallow or drown in semen.  Your orgasm fills her mouth, forcing its way down her throat"
                 );
-                //[(big skeet)
+                // [(big skeet)
                 if (this.player.cumQ() >= 1000)
                     this.outputText(", and soon you can feel it lapping at the end of your shaft");
                 this.outputText(".");
-                //[(mega skeet)
+                // [(mega skeet)
                 if (this.player.cumQ() >= 3000)
                     this.outputText(
                         "  Your body's not done with that, though, and keeps pushing out cum until it spurts around your prick and out Sheila's nose in little squirts."
@@ -4150,7 +4150,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 );
 
                 this.outputText("\n\nYou pull the soiled garment down over Sheila's breasts");
-                //[(big+ skeet)
+                // [(big+ skeet)
                 if (this.player.cumQ() >= 1000)
                     this.outputText(
                         ", though it's so wet with seed now that you can see them almost as well through it"
@@ -4159,17 +4159,17 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                     '.  "<i>This really is a nice fabric.  You should take better care of it.</i>"  With that parting shot, you leave the queasy-looking woman to digest your load and the humiliation.'
                 );
             }
-            //end worm fork
-            //end forced fellatio branch, reset hours since cum, lower lust and libido, add corruption
+            // end worm fork
+            // end forced fellatio branch, reset hours since cum, lower lust and libido, add corruption
             this.player.orgasm();
             this.dynStats("lib", -1, "cor", 1);
         } else {
-            //(else if no qualified cocks)
-            //cunnilingus/analingus branch
+            // (else if no qualified cocks)
+            // cunnilingus/analingus branch
             this.outputText(
                 "\n\nYou seize the girl by her hair, pulling her back and throwing her to the ground"
             );
-            //[(sheila corruption >= 30)
+            // [(sheila corruption >= 30)
             if (this.sheilaCorruption() >= 30)
                 this.outputText(
                     "; her breasts jiggle pleasingly as they settle on her chest, filling you with the urge to play with them"
@@ -4177,7 +4177,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '.  Straddling her, you lower your [vagOrAss] to her face.  "<i>Lick,</i>" you order, rubbing your [butt] on Sheila\'s nose'
             );
-            //[(not horse)
+            // [(not horse)
             if (!this.player.isTaur()) this.outputText(" as you fondle her tits");
             this.outputText(".");
 
@@ -4195,7 +4195,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\n"<i>You are awful at this,</i>" you gripe, sitting heavily on her head.  A muffled complaint comes from under you, but you pay it no mind.  "<i>No boy parts, tail too stubby to insert... and now no oral skills either.  Seriously, what are you good for except taking the dick and making babies?  Why don\'t you just stay home with your legs open and hold out a begging bowl?'
             );
-            //[(PC has met hellhound master)
+            // [(PC has met hellhound master)
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00141] > 0)
                 this.outputText(
                     "  I know a nice boy in the mountains who keeps dogs, and I'm sure he'd love to have a womb like yours for their seed.  By this time tomorrow, you could have a cock in both holes, filling you with hellhound babies since you can't please a person."
@@ -4205,18 +4205,18 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nYou can feel her face heating up under your [butt] as she flushes with shame; seems like you struck a nerve.  You "
             );
-            //[(no horse)
+            // [(no horse)
             if (!this.player.isTaur())
                 this.outputText(
                     "pinch her nipple for emphasis, then grind your hips across her face, mauling her nose with your ass.  \"<i>I could fuck a tree and it wouldn't be as wooden as you in the sack"
                 );
-            //[(PC has found corrupt glade)
+            // [(PC has found corrupt glade)
             if (this.player.exploredForest >= 40)
                 this.outputText(
                     " - in fact, there are quite a few I've seen who look like better lovers than you.  Maybe I should carry you to the forest and tie you to a nice pussy-shaped giant flower to give you lessons"
                 );
             this.outputText(".  ");
-            //[(minotaur addiction score =/= 0%)
+            // [(minotaur addiction score =/= 0%)
             if (
                 this.flags[kFLAGS.MINOTAUR_CUM_ADDICTION_TRACKER] > 0 ||
                 this.player.findPerk(PerkLib.MinotaurCumAddict) >= 0
@@ -4228,7 +4228,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "Or I could take you home and give you personal training myself, whenever I feel like it, and invite travelers to do the same"
             );
-            //[(PC has Izma with cock)
+            // [(PC has Izma with cock)
             if (this.izmaFollower() && this.flags[kFLAGS.IZMA_NO_COCK] == 0)
                 this.outputText(
                     "; I personally know fifteen inches of fat, orange dick and four heavy balls that'd love to get in at your other end while I ride your face"
@@ -4238,7 +4238,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nYour [vagOrAss] squeezes around Sheila's hesitant tongue, turned on more by the spectacle of selling her body than by any of her poor efforts.  She squirms under you, rubbing her thighs together as you paint the worst pictures of her future you can imagine, and you climax"
             );
-            //[(PC has met Lumi or Lynette)
+            // [(PC has met Lumi or Lynette)
             if (
                 this.player.findStatusAffect(StatusAffects.HairdresserMeeting) >= 0 ||
                 this.flags[kFLAGS.LUMI_MET] > 0
@@ -4250,7 +4250,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 ".  Your hole clenches and drools on her, and the woman's rude tongue retreats from the pressure, leaving you painfully empty."
             );
-            //[(no horse)
+            // [(no horse)
             if (!this.player.isTaur())
                 this.outputText(
                     "  Even squeezing her breasts viciously can't compel her to reinsert it, though you amuse yourself trying."
@@ -4259,15 +4259,15 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\n"<i>Worthless,</i>" you spit, climbing off.  She turns a disconsolate, wet face to you as you redress and leave, but doesn\'t defend herself.'
             );
-            //end lingus branch, reduce lust, lower libido, add corruption
+            // end lingus branch, reduce lust, lower libido, add corruption
             this.player.orgasm();
             this.dynStats("lib", -1, "cor", 1);
         }
         this.cleanupAfterCombat();
     }
 
-    //[Dildo Rape] - requires DX Dildo
-    //set sheila xp = -4
+    // [Dildo Rape] - requires DX Dildo
+    // set sheila xp = -4
     private sheilaGetsRapedWithADildont(): void {
         this.clearOutput();
         this.flags[kFLAGS.SHEILA_XP] = -4;
@@ -4328,19 +4328,19 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.player.skinFurScales() +
                 ".  "
         );
-        //[(PC corr >= 90 and sheila corr >= 90)
+        // [(PC corr >= 90 and sheila corr >= 90)
         if (this.player.cor >= 90 || this.player.cor > this.sheilaCorruption()) {
             this.outputText(
                 "Your face heats as she kisses you sloppily, and not all of the temperature is from her mouth.  It feels like she's pulling energy right out of you, and you can swear that her breasts are growing."
             );
         }
-        //(else PC corr < sheila corruption)
+        // (else PC corr < sheila corruption)
         else if (this.player.cor < this.sheilaCorruption()) {
             this.outputText(
                 "Her lips heat up and your body tingles; you can see her breasts shrinking as she shivers and slobbers on your face - or so it seems from the angle."
             );
         }
-        //(else if magically equal but < 90)
+        // (else if magically equal but < 90)
         else
             this.outputText(
                 "The kiss is wet and indecent as she shudders through her anal orgasm; her lips don't stay in one place, instead tracking drool all over your face."
@@ -4349,13 +4349,13 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>Well done, my little butt-slut,</i>" you quip, pulling the dildo free of the woman\'s ass.  A stream of pink faux-jizz slides out in its wake, mingling with the liquid that squirted from her pussy when she came.'
         );
-        //(cock)
+        // (cock)
         if (this.player.hasCock())
             this.outputText(
                 '  "<i>Perhaps next time you\'d like to try a real cock in there?</i>"  Even exhausted and messed up on goblin drugs, she has the presence of mind to shake her head at that.  You laugh.'
             );
 
-        //go to demonization if PC corr >= 90 and sheila corruption >= 90, else continue
+        // go to demonization if PC corr >= 90 and sheila corruption >= 90, else continue
         if (this.player.cor >= 90 && this.sheilaCorruption() >= 90) {
             this.menu();
             this.addButton(0, "Next", this.sheilaGoesDemon);
@@ -4365,7 +4365,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nTurning around, you walk away from the woman, holding the used dildo out at an angle to make sure she can see it until you disappear.  Privately, you're also waiting to wash it before you put it away again - or use it on yourself, imagining the scene again in your head."
         );
 
-        //end scene, gain lib-based lust, if PC corr > sheila corruption then -10 PC corr and +10 sheila corruption, else if PC corr < sheila corruption then +10 PC corr and -10 sheila corruption
+        // end scene, gain lib-based lust, if PC corr > sheila corruption then -10 PC corr and +10 sheila corruption, else if PC corr < sheila corruption then +10 PC corr and -10 sheila corruption
         if (this.player.cor >= 90 || this.sheilaCorruption() < this.player.cor) {
             this.dynStats("cor", -10);
             this.sheilaCorruption(10);
@@ -4377,10 +4377,10 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.cleanupAfterCombat();
     }
 
-    //loss in combat:
-    //- Reminder: non-demon Sheila will kick your ass and leave unless PC has raised her lust to 75+ before losing; only in those cases will she be overcome and actually take advantage of you
-    //- Sheila can't into rough, brutal sex and focuses on getting off quickly and leaving, so losses only cost 8 hours if she wins by HP; however, if she chooses not to sex the PC, he's stuck with whatever lust gained
-    //-Sheila doesn't care about gems after a win as much as getting the fuck away from you (or getting off and then getting the fuck away from you in shame)
+    // loss in combat:
+    // - Reminder: non-demon Sheila will kick your ass and leave unless PC has raised her lust to 75+ before losing; only in those cases will she be overcome and actually take advantage of you
+    // - Sheila can't into rough, brutal sex and focuses on getting off quickly and leaving, so losses only cost 8 hours if she wins by HP; however, if she chooses not to sex the PC, he's stuck with whatever lust gained
+    // -Sheila doesn't care about gems after a win as much as getting the fuck away from you (or getting off and then getting the fuck away from you in shame)
     public getBeatUpBySheila(): void {
         this.clearOutput();
         this.outputText("You slump down before Sheila, breathing heavily; the woman ");
@@ -4394,10 +4394,10 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                     "fantasies of her, stark naked but for her hat and waiting with her legs open"
                 );
             this.outputText(".");
-            //lose 8 hrs if HP < 1 or 1 hr if lust > 99, no gem loss
+            // lose 8 hrs if HP < 1 or 1 hr if lust > 99, no gem loss
             this.cleanupAfterCombat();
         }
-        //(else monster lust >= 75)
+        // (else monster lust >= 75)
         else {
             this.outputText(
                 "stares at you, desire and nerve at war in her face.  Her thighs rub together involuntarily as she tries and fails to will herself away... slowly, she takes a step toward you."
@@ -4409,33 +4409,33 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nYou shake your head, lost in a fog.  No sooner do you than she jumps you, pressing her body to yours and stealing a long passionate kiss that focuses your thoughts."
             );
-            //[(sheila xp > -4)
+            // [(sheila xp > -4)
             if (this.flags[kFLAGS.SHEILA_XP] > -4) {
                 this.outputText('\n\n"<i>Don\'t hate me for this...</i>" she whispers.');
-                //if sheila xp > -4, set sheila xp = -2, go to loss rape
+                // if sheila xp > -4, set sheila xp = -2, go to loss rape
                 this.flags[kFLAGS.SHEILA_XP] = -2;
             }
-            //TO ZE SCENE
+            // TO ZE SCENE
             this.addButton(0, "Next", this.sheilaLossRapeRouter);
         }
     }
 
     private sheilaLossRapeRouter(): void {
-        //loss - forced oral (for M,F,H,U)
-        //RNG biased against giving this scene to men/herms, but it should still be possible
-        //boilerplate face-in-cunt shit
-        //if sheila xp >= -3, set sheila xp = -2
+        // loss - forced oral (for M,F,H,U)
+        // RNG biased against giving this scene to men/herms, but it should still be possible
+        // boilerplate face-in-cunt shit
+        // if sheila xp >= -3, set sheila xp = -2
         if (!this.player.hasCock() || SheilaScene.rand(3) == 0) this.sheilaForcedOralGeneric();
-        //loss scene - cowgirl (for M,H)
-        //if sheila xp >= -3, set sheila xp = -2
+        // loss scene - cowgirl (for M,H)
+        // if sheila xp >= -3, set sheila xp = -2
         else {
             this.sheilaCowgirlRapesYou();
             return;
         }
     }
 
-    //loss scene - cowgirl (for M,H)
-    //if sheila xp >= -3, set sheila xp = -2
+    // loss scene - cowgirl (for M,H)
+    // if sheila xp >= -3, set sheila xp = -2
     private sheilaCowgirlRapesYou(): void {
         this.clearOutput();
         this.outputText(
@@ -4461,7 +4461,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.isTaur()) this.outputText("pulls your legs apart");
         else this.outputText("unfastens and strips off your [armor]");
         this.outputText(", revealing your " + this.multiCockDescriptLight() + "; ");
-        //[(if no cock fit 32)
+        // [(if no cock fit 32)
         if (this.player.cockThatFits(32) < 0) {
             this.outputText(
                 "her eyes widen as " +
@@ -4482,7 +4482,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\nRather, she means she\'s not imaginative enough to use it?  Sheila seems to see some of your assumed insult in your eyes, and she sets her jaw.  "<i>Alright,</i>" she says ominously, "<i>challenge accepted.</i>"  The woman unfastens her belt, stripping off her shorts and panties with the same haste as her top.  Her underwear comes away with ease, sticking hardly a bit - maybe she plans to make up the deficit in her arousal with willpower?  Sheila pushes your back flat against the ground again'
             );
-            //[(horse)
+            // [(horse)
             if (this.player.isTaur()) this.outputText(", or at least as flat as you can get it");
             this.outputText(", then sits on your stomach");
             if (this.player.isTaur()) this.outputText(", sliding her long legs between yours");
@@ -4510,18 +4510,18 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\nYou grunt a response, too involved in thrusting between her warm, juice-slicked thighs to form sentences.  "<i>[name]... I-I\'m... coming!</i>" Sheila shrieks.'
             );
 
-            //[(sens >=50)
+            // [(sens >=50)
             if (this.player.sens >= 50) {
                 this.outputText(
                     '\n\n"<i>Come!</i>" you order, close to your own orgasm as well.  '
                 );
             }
-            //(sens < 50)
+            // (sens < 50)
             else this.outputText("\n\nWhat?!  You're not even near finishing yet!  ");
             this.outputText(
                 "Sheila shivers and leans back, hair dangling, as her hips buck and her thighs squeeze your shaft.  "
             );
-            //(PC corr >=90 or > sheila corruption)
+            // (PC corr >=90 or > sheila corruption)
             if (this.player.cor >= 90 || this.sheilaCorruption() < this.player.cor) {
                 this.outputText(
                     "You can feel your prick heating up where her pussy rubs against it... it almost feels like the rest is cooling down at the same time.  The woman atop you arches her back and sucks in her breath sharply, and her tits seem to claim your field of vision, swelling up - though that could just be the angle."
@@ -4535,14 +4535,14 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                     "Her hips lock up when she comes, leaving you to try and finish yourself as she heats up around your shaft."
                 );
 
-            //[(sens >=50)
+            // [(sens >=50)
             if (this.player.sens >= 50) {
                 this.outputText(
                     "\n\nThe warm, smooth, wetness of her thighs is enough to bring out your own climax, and " +
                         this.sMultiCockDesc() +
                         " unburdens itself, forcing globs of semen into the air to rain down on your entwined bodies.  Sheila laughs as you coat her midriff with your mess, and playfully strokes your sensitized [cock] with one hand, sending shivers through you as she helps force your cum up your shaft."
                 );
-                //[(mega skeet)
+                // [(mega skeet)
                 if (this.player.cumQ() >= 2000)
                     this.outputText(
                         '  The giggles and the strokes stop long before your orgasm, though; eventually Sheila just lies there, dumbfounded, as you deposit layer after layer of white lattice on her skin.  "<i>Bloody hell,</i>" she mumbles vaguely, either stone-sober or drunk from the sight of it.'
@@ -4551,7 +4551,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                     "  Once the rain of semen peters out, she pulls apart from you, slimy and dripping."
                 );
 
-                //if PC corr >= 90 and sheila corruption >= 90, go to demonization, else continue
+                // if PC corr >= 90 and sheila corruption >= 90, go to demonization, else continue
                 if (this.player.cor >= 90 && this.sheilaCorruption() >= 90) {
                     this.menu();
                     this.addButton(0, "Next", this.sheilaGoesDemon);
@@ -4561,18 +4561,18 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     '\n\n"<i>Well... what do you think of that, then?</i>"  Sheila laughs and cleans herself on the grass, then picks up her stuff and leaves you to sleep off the fatigue and defeat.'
                 );
-                //reset hours since cum, pass 1 hr if lust loss or 8 if HP
+                // reset hours since cum, pass 1 hr if lust loss or 8 if HP
                 this.player.orgasm();
                 this.dynStats("sen", 1);
                 this.cleanupAfterCombat();
             }
-            //(else sens < 50)
+            // (else sens < 50)
             else {
                 this.outputText(
                     "\n\nYou thrust vigorously, trying to push yourself over the edge, but Sheila's orgasm is already winding down - she scoots up and pulls her pussy away from your rubbing, tormenting shaft, leaving you alone in a painful vacuum of sensation."
                 );
 
-                //if PC corr >= 90 and sheila corruption >= 90, go to demonization, else continue
+                // if PC corr >= 90 and sheila corruption >= 90, go to demonization, else continue
                 if (this.player.cor >= 90 && this.sheilaCorruption() >= 90) {
                     this.menu();
                     this.addButton(0, "Next", this.sheilaGoesDemon);
@@ -4589,18 +4589,18 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     "\n\nYour partner parts from you and stands up, redressing as you lie on your back.  She looks at you once more and rubs your [cock] one last time, right below the glans, before taking off with her bounding run."
                 );
-                //[(HP loss)
+                // [(HP loss)
                 if (this.player.HP < 1)
                     this.outputText(
                         "\n\nFatigue and desire contest in your head, but eventually you slip into unconsciousness, tormented by memories of soft, wet skin."
                     );
-                //huge sens-based lust damage and lose 8 hrs if HP loss or plus med libido and return to camp if lust loss
+                // huge sens-based lust damage and lose 8 hrs if HP loss or plus med libido and return to camp if lust loss
                 this.dynStats("sen", 3, "lus", 50 + this.player.lib / 10, "resisted", false);
-                //end cock don't fit branch
+                // end cock don't fit branch
                 this.cleanupAfterCombat();
             }
         }
-        //(else if cock fit 32)
+        // (else if cock fit 32)
         else {
             this.outputText(
                 "as you lean over to catch her expression, you can see her eyes glimmer with desire.  Sheila notices you from her peripheral vision, and her face reddens again.  She turns her back to you."
@@ -4610,7 +4610,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText('\n\n"<i>Where shall I look?</i>" you ask, innocently.');
 
             this.outputText("\n\nSheila's ears prick up, but she doesn't answer, instead ");
-            //[(multicock)]
+            // [(multicock)]
             if (this.player.cockTotal() > 1) this.outputText("separating out and ");
             this.outputText(
                 "stroking your [cockFit 32].  A drop of precum forms, and she touches it with the index finger of her free hand, sending a tingle through you; she pulls the finger away, drawing a string of slick moisture out.  Sheila passes the finger between her breasts, wiping the fluid away on her chest and shivering.  The display is too much for you, and you reach forward, navigating your hands around her waist quietly until you can reach the buckle of her belt.  The girl sighs as you begin to unfasten it, but an errant thought brings her back to reality - she grabs your hands abruptly."
@@ -4632,7 +4632,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\n"<i>What I want...</i>" Sheila trails off; shaking herself free she stands up, shorts half-unfastened.  "<i>Fine!  If you\'re intent on seeing it, then look!</i>"  She quickly pulls her belt apart and drops her bottoms to the ground, followed more carefully by her underwear.  "<i>Here!</i>"'
             );
 
-            //[(lib < 25)
+            // [(lib < 25)
             if (this.player.lib < 25) {
                 this.outputText(
                     '\n\nInstead of focusing on her pussy, you continue to stare into her guilty face.  Sheila\'s lips quaver and her eyes water; she seems almost on the verge of crying as your unceasing scrutiny breaks down her resolve.  "<i>Please...</i>" she whimpers unhappily, "<i>stop staring at me like that.</i>"'
@@ -4642,12 +4642,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     "\n\n\"<i>No, I'm...</i>\" she attempts, frowning, then slumps her shoulders in defeat.  \"<i>You're right.  This is wrong.  I'm sorry.</i>\"  Sheila turns and quietly pulls her shorts back up, fastening her belt, then locates her top and slips it over her breasts.  She picks up the rest of her stuff, looks back at you once, then lopes off.  You watch her go with high energy and mixed feelings - of all things, the image of her pulling the shirt down over her flushed, sweating back sticks in your head, taunting you and keeping your prick hard long after she's gone."
                 );
-                //end scene and return to camp, plus some libido, plus lots of lust
+                // end scene and return to camp, plus some libido, plus lots of lust
                 this.dynStats("lib", 1, "lus", 70);
                 this.cleanupAfterCombat();
                 return;
             }
-            //(else lib >= 25)
+            // (else lib >= 25)
             else {
                 this.outputText(
                     "\n\nHer soft, white panties stick to her pussy as she pulls them away, and closer inspection reveals the reason; her cunt is covered with a sheen of her lubrication, declaring its readiness.  The smell wafts to you, and your cock swells with blood, thickening and hardening painfully."
@@ -4684,22 +4684,22 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     "\n\nThe stimulation is too much, and on one of the downthrusts, the tingling nerves at your tip trigger your climax and you ejaculate wordlessly into the distracted woman, who is still busy pumping her soaking pussy, not noticing the extra moisture.  She moans and gasps, rubbing her clitoris with two fingers, and begins to twitch as well, fucking you messily with her increasingly slimy pussy.  "
                 );
-                //(PC corr >= 90 or > sheila corruption)
+                // (PC corr >= 90 or > sheila corruption)
                 if (this.player.cor >= 90 || this.player.cor > this.sheilaCorruption())
                     this.outputText(
                         "You can feel her cum-slick inner walls pulling at you as she begins to orgasm, and your mind clears as you blow your load inside her, wondering when she'll likewise return to sense."
                     );
-                //(else PC corr < sheila corruption)
+                // (else PC corr < sheila corruption)
                 else if (this.player.cor < this.sheilaCorruption())
                     this.outputText(
                         "Her pussy gushes with her orgasm, pushing out your semen and soaking her inner lips even as she continues riding your cock, and your mind clouds as you think of little except sneaking as much of your cum inside her as possible."
                     );
-                //else equal but < 90)
+                // else equal but < 90)
                 else
                     this.outputText(
                         "Even as she comes mindlessly something makes you hold in your own moans, wondering how long it will take her to notice her pussy being filled with your egg-hunting sperm."
                     );
-                //[(small cum)]
+                // [(small cum)]
                 if (this.player.cumQ() <= 250) {
                     this.outputText(
                         "  Sheila continues moving her hips even as she comes, lost in bliss; on one particularly lofty ascent, your cock flops out, squirting a line of jizz along "
@@ -4708,14 +4708,14 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                     else this.outputText("the grass");
                     this.outputText(", and her eyes go wide.");
                 }
-                //(big cum)
+                // (big cum)
                 else {
                     this.outputText(
                         "  With how much Sheila is still moving her hips, it's only a matter of time before she notices the mounting pressure in her cunt... on one particularly deep push, she forces out a squirt of white, and her eyes go wide as she pulls off and lets you finish on the grass."
                     );
                 }
 
-                //if PC corr >= 90 and sheila corruption >= 90, go to demonization, else continue
+                // if PC corr >= 90 and sheila corruption >= 90, go to demonization, else continue
                 if (this.player.cor >= 90 && this.sheilaCorruption() >= 90) {
                     this.menu();
                     this.addButton(0, "Next", this.sheilaGoesDemon);
@@ -4737,14 +4737,14 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                     "\n\nAs she panics and fusses her way back into her clothes, you lie there on the grass, tranquilly slipping into a doze.  Even if she does, what of it?  It was her idea in the first place..."
                 );
 
-                //reduce lust and lib, reset hrs since cum, lose 8 hrs if HP or 2-3 if lust loss?
+                // reduce lust and lib, reset hrs since cum, lose 8 hrs if HP or 2-3 if lust loss?
                 this.sheilaPreg(true);
                 this.player.orgasm();
                 this.dynStats("lib", -1);
                 this.cleanupAfterCombat();
             }
         }
-        //if not ended prematurely by small cock and lib < 25, PC corr > sheila corruption then -10 PC corr and +10 sheila corruption, else if PC corr < sheila corruption then +10 PC corr and -10 sheila corruption
+        // if not ended prematurely by small cock and lib < 25, PC corr > sheila corruption then -10 PC corr and +10 sheila corruption, else if PC corr < sheila corruption then +10 PC corr and -10 sheila corruption
         this.sheilaCorruptionUpdate();
         /*if(player.cor > sheilaCorruption() || player.cor >= 90) {
             dynStats("cor", -10);
@@ -4756,10 +4756,10 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         }*/
     }
 
-    //loss - forced oral (for M,F,H,U)
-    //RNG biased against giving this scene to men/herms, but it should still be possible
-    //boilerplate face-in-cunt shit
-    //if sheila xp >= -3, set sheila xp = -2
+    // loss - forced oral (for M,F,H,U)
+    // RNG biased against giving this scene to men/herms, but it should still be possible
+    // boilerplate face-in-cunt shit
+    // if sheila xp >= -3, set sheila xp = -2
     private sheilaForcedOralGeneric(): void {
         this.clearOutput();
         this.outputText(
@@ -4793,7 +4793,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\nThe woman jerks a bit as you enter her, but sighs in relaxation.  "<i>That\'s good... come on mate, lick me more.</i>"  She pushes her cunt against your [face], trying to take your tongue deeper.'
         );
-        //[(if d-mon/dragon/naga or other future long tongue)
+        // [(if d-mon/dragon/naga or other future long tongue)
         if (this.player.tongueType > TONUGE_HUMAN) {
             this.outputText(
                 '  A sly look crosses your face at her request; she notices it but has no time to dismount before your long tongue shoots into her, stroking the nerves around her entrance as you unspool.  "<i>Ah-ahhh!</i>" she moans, "<i>What the hell... is with your mouth?</i>"'
@@ -4812,7 +4812,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nIt takes almost an hour, but as your eyes start to close autonomously from sheer fatigue and you're contemplating pushing her off and escaping, she finally comes."
             );
         }
-        //(else no long tongue)
+        // (else no long tongue)
         else {
             this.outputText(
                 '\n\nYou use the increased leverage to baste her small, smooth vulva in your saliva, dragging your tongue from the bottom to the top and then scraping the broad side against her little clit as you angle it back down to search out her entrance.  "<i>Yes...</i>" Sheila moans, wrapping herself around your head, "<i>yes!  Oh god, rub my button harder!</i>"'
@@ -4821,15 +4821,15 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\nSeeing an easy way out of this, you do so; she shivers and convulses on you, battering your nose with her pelvis as you lick the little nub relentlessly.  The woman moans and gasps as you tease and flick, and eventually all her vocalizations run together in one long, unbroken groan.  She continues like that for several minutes, absently thrusting her hips into your face as you tease her clit and slip a finger into her pussy.  "<i>Ffffffuck!  N-no, ssso soon!  I don\'t want this to end!</i>"'
             );
             this.outputText("\n\nEager to see her orgasm, you slide into her cunt one last time.");
-            //merge tongue forks
+            // merge tongue forks
         }
         this.outputText("\n\nThe woman's pussy clenches as she finishes, ");
-        //[(PC corr >= 90 or > sheila corruption)]
+        // [(PC corr >= 90 or > sheila corruption)]
         if (this.player.cor >= 90 || this.player.cor > this.sheilaCorruption()) {
             this.outputText(
                 "strangling your tongue with muscles attempting to lock onto it, trying to pull it in."
             );
-            //[(demon/dragon tongue)
+            // [(demon/dragon tongue)
             if (this.player.tongueType > TONUGE_HUMAN)
                 this.outputText(
                     "  As tired as you are, you simply go along with it, allowing her rippling walls to slowly draw your tip deeper inside until it bumps against her cervix; she shivers and kisses the top of your head as you groggily run your tongue over the entrance to her womb."
@@ -4842,7 +4842,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 "  Sheila groans loudly and your vision fades; through the fog, you can swear you feel her breasts growing larger against your forehead."
             );
         }
-        //(else PC corr < sheila corruption)
+        // (else PC corr < sheila corruption)
         else if (this.player.cor < this.sheilaCorruption()) {
             this.outputText(
                 "filling your mouth with her liquid love.  Your lips and throat heat up as you're forced to drink it from the nearness of her pussy; as she bucks her hips weakly into your face, trying to draw out her climax, you increasingly wish that you could return the favor, "
@@ -4864,7 +4864,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 'and she pets your head affectionately as her walls squeeze your tongue.  "<i>Oh, mate...</i>" she whispers lovingly, completely forgetting the struggle that led to your tryst.'
             );
 
-        //if both sheila corruption and PC corr >= 90, go to demonization, else continue
+        // if both sheila corruption and PC corr >= 90, go to demonization, else continue
         if (this.player.cor >= 90 && this.sheilaCorruption() >= 90) {
             this.menu();
             this.addButton(0, "Next", this.sheilaGoesDemon);
@@ -4872,7 +4872,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         }
 
         this.outputText("\n\nSheila twitches her last twitch and pulls apart from you slowly, ");
-        //[(str < 61)
+        // [(str < 61)
         if (this.player.str < 61) this.outputText("climbing off and kneeling next to you.");
         else
             this.outputText(
@@ -4886,7 +4886,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nBefore you can ask for her meaning, she backs away and slips on her bottoms.  Studiously avoiding further eye contact, Sheila gathers her things and leaves you behind with her long, bounding run; tired from the struggle, you try to turn her words over in your head, but only muddle them further as you slip into a doze."
         );
 
-        //end scene, add fatigue if long tongue, very big lib-based lust gain, gain libido if lust hits 100; if PC corr > sheila corruption then -10 PC corr and +10 sheila corruption, else if PC corr < sheila corruption then +10 PC corr and -10 sheila corruption and slimefeed
+        // end scene, add fatigue if long tongue, very big lib-based lust gain, gain libido if lust hits 100; if PC corr > sheila corruption then -10 PC corr and +10 sheila corruption, else if PC corr < sheila corruption then +10 PC corr and -10 sheila corruption and slimefeed
         if (this.player.tongueType > TONUGE_HUMAN) this.fatigue(15);
         this.dynStats("lus", this.player.lib / 3 + 30, "resisted", false);
         if (this.player.lust >= 100) this.dynStats("lib", 1);
@@ -4903,9 +4903,9 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.cleanupAfterCombat();
     }
 
-    //Normal preg notif #1 (sheilapreg = 4 and demon sheila = 0 and sheila xp >= -2 and joeycount = 0):
-    //output at next sheila encounter if conditions are met, suppressing any normal output (this also includes the sheila xp = -2 or -1 apology outputs)
-    //set sheilapreg = 0
+    // Normal preg notif #1 (sheilapreg = 4 and demon sheila = 0 and sheila xp >= -2 and joeycount = 0):
+    // output at next sheila encounter if conditions are met, suppressing any normal output (this also includes the sheila xp = -2 or -1 apology outputs)
+    // set sheilapreg = 0
     private normalSheilaPregNotifNumberOne(): void {
         this.pregnancy.knockUpForce(); //Clear Pregnancy
         this.clearOutput();
@@ -4933,14 +4933,14 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\n\"<i>It doesn't take long for us,</i>\" she says, blushing a bit.  \"<i>So you didn't see anything much on me... but I pushed out a little [name] last night.  Baby's nursing well and is fit as a bull.  I left the nipper with the creche for the day when I came out to hunt; one of the wet nurses probably has it in a snuggy pouch right now, waiting for mom to come home.  Should be able to tell the sex in a week after it's grown a bit.  Er... is this gonna be an issue between us, going forward?</i>\"  The woman looks hopefully at you, clearly eager for reassurance."
         );
-        //[Yep, Issue][Nah]
+        // [Yep, Issue][Nah]
         this.menu();
 
         this.addButton(0, "Yep, Issue", this.normalSheilaPregNotifNumberOneYepIssue);
         this.addButton(1, "Nah", this.normalSheilaPregNotifNumberOneCoolDeal);
     }
 
-    //[Normal Preg Notif #1 - Yep, Issue]
+    // [Normal Preg Notif #1 - Yep, Issue]
     private normalSheilaPregNotifNumberOneYepIssue(): void {
         this.clearOutput();
         this.outputText(
@@ -4950,13 +4950,13 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nShe stands up suddenly and starts walking away.  \"<i>Nice knowing you, mate.  You won't see me again - I'll make sure of that.</i>\"  Within seconds of speaking, she's broken into a fast, bounding run, beyond any hope of catching."
         );
-        //set sheilapreg = -1, and set joeycount + 1 if you plan to track that stat even after Sheila's disabled
+        // set sheilapreg = -1, and set joeycount + 1 if you plan to track that stat even after Sheila's disabled
         this.flags[kFLAGS.SHEILA_DISABLED] = 2;
         this.flags[kFLAGS.SHEILA_JOEYS]++;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Normal Preg Notif #1 - Nah]
+    // [Normal Preg Notif #1 - Nah]
     private normalSheilaPregNotifNumberOneCoolDeal(): void {
         this.clearOutput();
         this.outputText(
@@ -4967,7 +4967,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\nShe releases you; a small wet spot marks the space her face just occupied.  Seeing it, she wipes her tears on the back of her hand.  "<i>Sorry.  Didn\'t mean to leak on you.</i>"'
         );
 
-        //[(sheila xp < 0)
+        // [(sheila xp < 0)
         if (this.flags[kFLAGS.SHEILA_XP] < 0) {
             this.outputText(
                 "\n\nShe sniffs a bit.  \"<i>I didn't really expect warm approbation, y'know?  I mean, we're not the best of friends, so I appreciate it.  Can't really bring you two together to show you how it's doing yet, and I feel all kinds of bad about not having the dad nearby while it's growing up, but... if you want, we can keep in touch and I'll tell you the news.  Do... would you be okay with seeing more of each other?</i>\""
@@ -4993,12 +4993,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.flags[kFLAGS.SHEILA_XP] < 4) this.flags[kFLAGS.SHEILA_XP] = 4;
         this.flags[kFLAGS.SHEILA_JOEYS]++;
         this.doNext(this.camp.returnToCampUseOneHour);
-        //if sheila xp < 4, set sheila xp = 4; increment joeycount + 1
+        // if sheila xp < 4, set sheila xp = 4; increment joeycount + 1
     }
 
-    //Normal Preg, Subsequent kids (sheilapreg = 4 and demon sheila = 0 and sheila xp >= -2 and joeycount > 0
-    //set sheilapreg = 0 and increment joeycount +1 now
-    //if sheila corruption > 80, set sheila corruption = 80
+    // Normal Preg, Subsequent kids (sheilapreg = 4 and demon sheila = 0 and sheila xp >= -2 and joeycount > 0
+    // set sheilapreg = 0 and increment joeycount +1 now
+    // if sheila corruption > 80, set sheila corruption = 80
     private normalSheilaPregNotifREPEATEDED(): void {
         this.clearOutput();
         this.outputText(
@@ -5030,7 +5030,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.SHEILA_JOEYS]++;
         if (this.sheilaCorruption() > 80) this.flags[kFLAGS.SHEILA_CORRUPTION] = 80;
         this.menu();
-        //[Help(requires >80 speed, centaur >= 5', naga, or big wings and archery)][Walk With Her][Let Her Go]
+        // [Help(requires >80 speed, centaur >= 5', naga, or big wings and archery)][Walk With Her][Let Her Go]
         if (
             (this.player.spe > 80 && this.player.findPerk(PerkLib.Runner) >= 0) ||
             this.player.isTaur() ||
@@ -5042,7 +5042,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(2, "Let Her Go", this.normalSheilaPregNotifREPEATEDEDLetHerGo);
     }
 
-    //[Normal Preg Subsequent - Let Her Go]
+    // [Normal Preg Subsequent - Let Her Go]
     private normalSheilaPregNotifREPEATEDEDLetHerGo(): void {
         this.clearOutput();
         this.outputText(
@@ -5064,11 +5064,11 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nPicking it up and seating it on her head, she nods curtly and shuffles off again."
         );
 
-        //wow, it's fucking nothing!
+        // wow, it's fucking nothing!
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Normal Preg Subsequent - Walk With Her]
+    // [Normal Preg Subsequent - Walk With Her]
     private normalSheilaPregNotifREPEATEDEDWalkWithHer(): void {
         this.clearOutput();
         this.outputText(
@@ -5099,12 +5099,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>Have a squizz over there, mate,</i>" she says, pointing at a patch of tall weeds.  "<i>Good cover for me to catch a wink.  This should be okay.</i>"  She pulls her hand from yours and finally sets her hat atop her head, then shrugs off her pack.  "<i>I\'m gonna get set up now.  Thanks again... see you soon.</i>"'
         );
-        //get slightly lowered corruption and a warm fuzzy
+        // get slightly lowered corruption and a warm fuzzy
         this.dynStats("cor", -1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Normal Preg Subsequent - Help]
+    // [Normal Preg Subsequent - Help]
     private normalSheilaPregNotifREPEATEDEDHelpABitchOut(): void {
         this.clearOutput();
         this.outputText(
@@ -5120,7 +5120,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\nIt twitches in front of your face and the woman pulls away, peering at you with curiosity from under her heavy eyelids.  "<i>I\'m not against it, but... how are you going to?</i>"'
         );
 
-        //[(outputs in order of preference; first, horse and >=5ft)
+        // [(outputs in order of preference; first, horse and >=5ft)
         if (this.player.isTaur()) {
             this.outputText(
                 '\n\nYou look into her dull amber eyes for a minute to nerve yourself, and then speak.  "<i>Climb on.</i>"'
@@ -5157,7 +5157,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nWaving off her embarrassment dismissively, you allow Sheila to hug you once more and hang the game animals - and hat - around her shoulders, then leave her to head back."
             );
         }
-        //(else naga)
+        // (else naga)
         else if (this.player.isNaga()) {
             this.outputText(
                 '\n\n"<i>Just do what you normally do and I\'ll think of something.</i>"'
@@ -5191,8 +5191,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\n"<i>Oh look,</i>" you retort, "<i>yet another woman who wants to sleep with me.</i>"  She laughs and catches your hand, pulling you down and snuggling up to you; her fatigue catches up to her quickly, and she\'s soon asleep with a peaceful smile on her face.  You watch her for a while before you, too, fall asleep, lulled by the rays of the sun.'
             );
         }
-        //(else wings and archery skill)
-        //less QQ, more pew pew
+        // (else wings and archery skill)
+        // less QQ, more pew pew
         else if (this.player.canFly() && this.player.hasKeyItem("Bow") >= 0) {
             this.outputText(
                 '\n\n"<i>Just wander around and flush game; point out animals you see.</i>"'
@@ -5223,7 +5223,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             );
             this.fatigue(20);
         }
-        //(else spd >= 80 and Runner perk)
+        // (else spd >= 80 and Runner perk)
         else if (this.player.spe >= 80 && this.player.findPerk(PerkLib.Runner) >= 0) {
             this.outputText('\n\n"<i>Just do what you normally do, and I\'ll help.</i>"');
 
@@ -5287,11 +5287,11 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nYou flush game like this for several hours, bantering with your increasingly-companionable companion between exertions; she seems to lose track of both time and her irritation, evolving from moping and staring at the ground to blushing and staring at you.  Eventually she's caught enough to take back, though, and you have to receive her thanks and bid her farewell."
             );
         }
-        //pass 4 hours and reduce corruption or something, give 3 hrs rest if naga, increase archery skill and increase fatigue by a lot (50-60+) if angel of death
+        // pass 4 hours and reduce corruption or something, give 3 hrs rest if naga, increase archery skill and increase fatigue by a lot (50-60+) if angel of death
         this.dynStats("cor", -2);
         if (this.model.time.hours + 4 < 21) this.doNext(this.camp.returnToCampUseFourHours);
         else {
-            //(if time after adding 4 hours >= 21:00 or = 0:00, additionally output)
+            // (if time after adding 4 hours >= 21:00 or = 0:00, additionally output)
             this.outputText('\n\n<b>"<i>Oh, god dammit.</i>"</b>');
             this.outputText(
                 "\n\nSheila's voice startles you, and you look over at her.  The woman is slumped down on the ground, staring at the horizon, and as you look closer you can see her chest quaking as she chokes back a sob.  \"<i>What's wrong?</i>\" you ask."
@@ -5301,7 +5301,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nShe turns wet eyes on you, at the verge of tears.  \"<i>So stupid of me... I lost track of time and missed curfew... now I can't deliver these, and I can't check on the baby!  I'll have to spend all night outside, keeping myself awake, and then do all this again tomorrow!</i>\"  Her composure is already breaking down in her face."
             );
 
-            //[Stay With Her][To Camp(excluded for PCs with Vapula or Holli)][Welp]
+            // [Stay With Her][To Camp(excluded for PCs with Vapula or Holli)][Welp]
             this.menu();
             this.addButton(
                 0,
@@ -5324,11 +5324,11 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         }
     }
 
-    //[Normal Preg Subsequent - Help - 21:00 hours - Welp]
+    // [Normal Preg Subsequent - Help - 21:00 hours - Welp]
     private normalSheilaPregNotifREPEATEDEDHelpABitchOutANDWELP(): void {
         this.clearOutput();
         this.outputText('"<i>Welp,</i>" you say softly.');
-        //[(corr <50)
+        // [(corr <50)
         if (this.player.cor < 50)
             this.outputText(
                 "  You set a hand on Sheila's shoulder to steady her a bit as the tears start to fall."
@@ -5346,11 +5346,11 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<I>You\'re right,</i>" Sheila sniffles finally, wiping her red eyes.  "<i>I just... let it get the better of me for a moment.  I\'m okay now.  Thanks, mate.</i>"  She hugs you weakly and picks up her catch.  "<i>I\'ll see ya later...</i>"'
         );
-        //suck it up, marine
+        // suck it up, marine
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Normal Preg Subsequent - Help - 21:00 hours - Stay With Her]
+    // [Normal Preg Subsequent - Help - 21:00 hours - Stay With Her]
     private normalSheilaPregNotifREPEATEDEDHelpABitchOutANDSTAYDERE(): void {
         this.clearOutput();
         this.outputText(
@@ -5378,8 +5378,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         else this.outputText("seat");
         this.outputText(" yourself, then grabs your arms and pulls them around her waist.");
 
-        //forks in order of priority, no new pg at start
-        //[(full gooey body)
+        // forks in order of priority, no new pg at start
+        // [(full gooey body)
         if (this.player.isGoo()) {
             this.outputText(
                 "  She considers for a moment, rubbing away some of the slime you've deposited on her shorts, and pulls free from your slimy skin again.  \"<i>Um... do you... would you be offended if I took my kit off, so it doesn't get ruined?</i>\""
@@ -5401,10 +5401,10 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\nSheila\'s blush deepens, but she nods and finishes undressing, pulling down her shorts and panties to expose her smooth pussy, then puts the clothing in a pile.  She turns her back to you and scoots in once more, leaving a tingle that spurs you to hold her closer when her flushed, embarrassed skin touches yours. "<i>This feels good,</i>" she says, "<i>like a warm bath.</i>"  Sheila giggles nervously as you instinctively pull her naked body deeper into your own.  "<i>H-hey, [name].  Don\'t swallow me, mate.</i>"  You bubble happily as you relax around her, covering most of the exposed skin below her collarbone with a thin layer of yourself.'
             );
-            //(apply libido AND sens-based lust damage)
+            // (apply libido AND sens-based lust damage)
             this.dynStats("lus", this.player.lib / 5 + this.player.sens / 3, "resisted", false);
         }
-        //(naga)
+        // (naga)
         else if (this.player.isNaga()) {
             this.outputText(
                 '\n\nYou wrap your tail around her as she settles in position, and Sheila wriggles against it.  "<i>This is... weird,</i>" she says, "<i>but not bad.  Kinda like a smooth, firm blanket.  Can you loosen a bit, mate?</i>"  With an unseen smile, you slacken the loops around her waist and hips'
@@ -5416,10 +5416,10 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '.  "<i>Ahh,</i>" she sighs, shifting in your coils.  "<i>Hold it right there...</i>"'
             );
-            //(apply libido-based lust damage if lib >= 40)
+            // (apply libido-based lust damage if lib >= 40)
             if (this.player.lib >= 40) this.dynStats("lus", this.player.lib / 4, "resisted", false);
         }
-        //(horse and >=5ft)
+        // (horse and >=5ft)
         else if (this.player.isTaur() && this.player.tallness >= 60) {
             this.outputText(
                 '\n\nStrapped for space, her long feet still poke a good way out of the grass canopy, and she gets back up, tucking them under her body.  "<i>Uh... [name], not to be forward but...</i>"  Her eyes dart toward your broad back, and you sigh and fold your legs as comfortably as you can before nodding.  She giggles and climbs atop you, then spreads herself generally around.'
@@ -5439,11 +5439,11 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                     "... or would be, if you weren't distracted by the nipples poking into you and the thighs squeezing your flank"
                 );
             this.outputText(".");
-            //(apply sens-based lust damage if sens >=40)
+            // (apply sens-based lust damage if sens >=40)
             if (this.player.sens >= 40)
                 this.dynStats("lus", this.player.sens / 4, "resisted", false);
         }
-        //(harpy - minimum score for birdlegs at least)
+        // (harpy - minimum score for birdlegs at least)
         else if (
             this.player.lowerBody == LOWER_BODY_TYPE_HARPY &&
             this.player.tailType == TAIL_TYPE_HARPY
@@ -5464,7 +5464,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nShe does so, resting in your downy lap for a moment, but gets up again.  You raise an eyebrow at her, but she just takes off her vest and sets it under her head, then settles, evidently at ease.  This is somewhat irritating; you're basically sitting up straight, with perfect posture.  A bit of an uncomfortable pose to hold for hours on end."
             );
         }
-        //(bees with boots)
+        // (bees with boots)
         else if (this.player.lowerBody == LOWER_BODY_TYPE_BEE) {
             this.outputText(
                 "\n\nNo sooner does she get her head down than it's back up again.  You look a question at her."
@@ -5482,7 +5482,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nAs she drifts off to sleep, you're stuck wondering if that was intentional..."
             );
         }
-        //(eight-legged freaks)
+        // (eight-legged freaks)
         else if (this.player.isDrider()) {
             this.outputText(
                 '\n\nShe shivers against you, even with your arms around her body.  "<i>Cold?</i>" you ask.'
@@ -5503,17 +5503,17 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\n"<i>I\'m keeping this,</i>" Sheila whispers.  And so softly you can barely hear it, adds, "<i>It\'s the nicest thing someone\'s given me lately.</i>"'
             );
-            //(reduce spinneret charge by 1-2 levels)
+            // (reduce spinneret charge by 1-2 levels)
             this.player.tailVenom -= 10;
             if (this.player.tailVenom < 0) this.player.tailVenom = 1;
         }
-        //(else)
+        // (else)
         else
             this.outputText(
                 '\n\n"<i>Sorry it\'s not as comfortable as it could be, mate,</i>" she apologizes.  "<i>And... thanks.</i>"'
             );
 
-        //merge forks
+        // merge forks
         this.outputText("\n\nYou adjust yourself occasionally to keep your ");
         if (!this.player.isGoo()) this.outputText("blood");
         else this.outputText("goo");
@@ -5525,7 +5525,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\n"<i>Mmm... lemme sleep for fifteen minutes more, mate,</i>" she mumbles.'
         );
 
-        //(corr <60)
+        // (corr <60)
         if (this.player.cor < 60)
             this.outputText(
                 "\n\nYou nearly consider it, tired as you are, until you remember that a sleeping person's fifteen minutes are two hours in the waking world and shake her again until she gets up."
@@ -5546,12 +5546,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.model.time.days++;
         this.model.time.hours = 2;
         this.statScreenRefresh();
-        //--Next--
+        // --Next--
         this.menu();
         this.addButton(0, "Next", this.normalSheilaPregNotifREPEATEDEDHelpABitchOutANDSTAYDERE2);
     }
 
-    //advance time to 5:00
+    // advance time to 5:00
     private normalSheilaPregNotifREPEATEDEDHelpABitchOutANDSTAYDERE2(): void {
         this.clearOutput();
         this.model.time.hours = 5;
@@ -5585,7 +5585,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\n\"<i>Well,</i>\" you answer, \"<i>perhaps that's why it's called 'making' love.</i>\"  Sheila doesn't answer, but smiles shyly."
             );
 
-            //end scene if lust <30, else add minor lib-based lust damage and display choices for consensual sex plus [Leave Her Be]
+            // end scene if lust <30, else add minor lib-based lust damage and display choices for consensual sex plus [Leave Her Be]
             this.dynStats("lus", this.player.lib / 10 + 5, "resisted", false);
             this.menu();
             this.sheilaXP4Sex(false);
@@ -5597,17 +5597,17 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         } else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Normal Preg Subsequent - Help - 21:00 hours - Stay Up With Her - Lust >= 30 - Leave Her Be]
+    // [Normal Preg Subsequent - Help - 21:00 hours - Stay Up With Her - Lust >= 30 - Leave Her Be]
     private normalSheilaPregNotifREPEATEDEDHelpABitchOutANDSTAYDEREBUTLEAVEHERBE(): void {
         this.clearOutput();
         this.outputText(
             'You relent, allowing the woman to free herself with a peck on your cheek.  She loads up her catch, and then turns to you.  "<i>Thanks, [name].  Owe you one.</i>"'
         );
-        //This is your Protoshield! I can't take this!
+        // This is your Protoshield! I can't take this!
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Normal Preg Subsequent - Help - 21:00 hours - To Camp]
+    // [Normal Preg Subsequent - Help - 21:00 hours - To Camp]
     private normalSheilaPregNotifREPEATEDEDHelpABitchOutTOCAMP(): void {
         this.clearOutput();
         this.outputText(
@@ -5628,12 +5628,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\n"<i>Seems... nice,</i>" Sheila says quietly, taking a seat, "<i>but it\'s exposed - not to mention the big target sign.</i>"  She looks at the portal, casting an ominous silhouette against the sky.  "<i>I dunno about this.</i>"'
         );
 
-        //[(if PC has thorn canopy on)
+        // [(if PC has thorn canopy on)
         if (this.player.findStatusAffect(StatusAffects.DefenseCanopy) >= 0)
             this.outputText(
                 "\n\nYou shrug off her objections, pointing at the thorns already growing over your point of entry.  Sheila seems duly impressed by the quasi-magical display."
             );
-        //(else if PC has Jojo and Jojo's n.watch is on)
+        // (else if PC has Jojo and Jojo's n.watch is on)
         else if (
             this.player.findStatusAffect(StatusAffects.JojoNightWatch) >= 0 ||
             this.player.findStatusAffect(StatusAffects.PureCampJojo) >= 0
@@ -5642,12 +5642,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\nYou wave Jojo over, introducing them and explaining that the monk watches the camp at night and you check it during the day.  The small white mouse bows politely to your guest, then seats himself nearby.  "<i>Hello, Sheila,</i>" he says.'
             );
         }
-        //(else if PC has Kid A and Kid's n.watch is on)
+        // (else if PC has Kid A and Kid's n.watch is on)
         else if (this.flags[kFLAGS.ANEMONE_WATCH] > 0)
             this.outputText(
                 '\n\nYou wave off Sheila\'s objections, pointing to the large barrel housing your skinny tenant and explaining that she watches the camp at night for you in exchange for a place to stay.  Sheila looks dubious as the tall blue girl shuffles over and sits down, shyly hiding herself behind you.  "<i>Um... hi,</i>" the anemone mumbles.'
             );
-        //(else if PC has no night watch turned on)
+        // (else if PC has no night watch turned on)
         else {
             this.outputText(
                 '\n\nYou sagely point out that even as such, spending the night trading shifts with someone she knows in a comfortable camp with a bedroll and hot food is infinitely preferable to slapping yourself awake in a dirty hole, hungry and scared.  Sheila nods, tight-lipped.  "<i>D\'you mind if I get second shift, then?</i>" she asks, apologetically.  "<i>I feel like you could knock me over with a feather.</i>"  You shrug.'
@@ -5657,14 +5657,14 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nSoon you've got a small fire lit and Sheila has numbly plucked and spitted some small birds from the catch.  As she twirls them in the flames, she sighs occasionally.  "
         );
-        //[(int >=60)]
+        // [(int >=60)]
         if (this.player.inte >= 60)
             this.outputText(
                 '"<i>The baby will be fine,</i>" you venture, hazarding a guess.  "<i>It\'s what the nurses are there for.</i>"'
             );
         else this.outputText("You slip an arm around her, and ask if she's okay.");
         this.outputText("  She nods mutely and pulls the food out of the fire.");
-        //[(if Jojo present)
+        // [(if Jojo present)
         if (
             this.player.findStatusAffect(StatusAffects.JojoNightWatch) >= 0 ||
             this.player.findStatusAffect(StatusAffects.PureCampJojo) >= 0
@@ -5684,7 +5684,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\n"<i>I need to go before dawn, so I\'ll get this out in case you\'re asleep when I do,</i>" she announces, still looking at the ground.  "<i>I appreciate the help... now, and from before.  Really, you\'re a bottler.</i>"'
         );
 
-        //[(if no watch)
+        // [(if no watch)
         if (
             this.player.findStatusAffect(StatusAffects.JojoNightWatch) < 0 ||
             this.player.findStatusAffect(StatusAffects.PureCampJojo) < 0 ||
@@ -5693,7 +5693,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nShe gets to her feet as you grin, then makes her way over to your bedroll.  It doesn't take her long to fall asleep; you amuse yourself watching her toss and turn... and drool on your pillow."
             );
-        //(if watch)
+        // (if watch)
         else {
             this.outputText("\n\nYou grin and get up, and Sheila tails you to your bed.  ");
             if (this.flags[kFLAGS.SLEEP_WITH] != "")
@@ -5705,19 +5705,19 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             );
         }
         this.outputText("\n\nShe's gone in the morning.");
-        //if nightwatch, normal night's sleep
-        //if no nightwatch, 4 hours sleep and suppress any imp rapes
-        //lparchive.org/Deadly-Premonition
+        // if nightwatch, normal night's sleep
+        // if no nightwatch, 4 hours sleep and suppress any imp rapes
+        // lparchive.org/Deadly-Premonition
         this.camp.sleepRecovery(false);
         this.model.time.hours = 7;
         this.model.time.days++;
         this.doNext(this.playerMenu);
     }
 
-    //demonization Sheila transformation (output when demon sheila = 0 and sheila corruption is about to hit 100 with the PC):
-    //-mad with desire, Sheila jumps the PC for another round of sex
-    //-squirts lethicite goo all over his face/cock when she finally orgasms
-    //no new PG
+    // demonization Sheila transformation (output when demon sheila = 0 and sheila corruption is about to hit 100 with the PC):
+    // -mad with desire, Sheila jumps the PC for another round of sex
+    // -squirts lethicite goo all over his face/cock when she finally orgasms
+    // no new PG
     private sheilaGoesDemon(): void {
         this.clearOutput();
         this.outputText(
@@ -5783,18 +5783,18 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\n"<i>Really?</i>" she calls after you, eagerly.  "<i>Will you still make love to me next time we meet?  Because... I could go again anytime, you know?  I don\'t care about hunting anymore... we could just root all day!  As long as I\'m with you!</i>"  Sheila\'s voice cuts off abruptly as the magic of the realm brings you out of the plains and back to camp.'
         );
 
-        //reduce lust and lib, raise corr slightly, gain key item Sheila's Lethicite, set sheilacite = 1
+        // reduce lust and lib, raise corr slightly, gain key item Sheila's Lethicite, set sheilacite = 1
         this.player.orgasm();
         this.dynStats("lib", -1, "cor", 3);
         this.player.createKeyItem("Sheila's Lethicite", 0, 0, 0, 0);
         this.flags[kFLAGS.SHEILA_CITE] = 1;
         this.flags[kFLAGS.SHEILA_DEMON] = 1;
-        //good place to cut off content if you don't have time to code it all in one go
+        // good place to cut off content if you don't have time to code it all in one go
         if (!this.getGame().inCombat) this.doNext(this.camp.returnToCampUseOneHour);
         else this.cleanupAfterCombat();
     }
 
-    //Demon Sheila encounter (demon sheila = 1 and sheilapreg < 4)
+    // Demon Sheila encounter (demon sheila = 1 and sheilapreg < 4)
     private demonSheilaEncounter(): void {
         this.clearOutput();
         this.outputText(
@@ -5807,22 +5807,22 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 " breasts and smooth, dripping snatch for all the world to see.  Two lithe tails, one spaded and one not, rub against her labia in anticipation as she takes a horse stance in front of you to wait on your answer, and her eyes smolder with lust."
         );
 
-        //[Talk][Let Her Fuck(req. lust >=30)][Resist][Run]
+        // [Talk][Let Her Fuck(req. lust >=30)][Resist][Run]
         this.menu();
         this.addButton(0, "Talk", this.demonSheilaTalk);
         if (this.player.lust >= 33) this.addButton(1, "LetHerFuck", this.sheilaLetHerFuckYou);
         this.addButton(2, "Resist", this.demonSheilaResist);
-        //run simply returns to camp and should be the default spacebar option
+        // run simply returns to camp and should be the default spacebar option
         this.addButton(4, "Run", this.camp.returnToCampUseOneHour);
     }
 
-    //[Demon Sheila - Resist]
+    // [Demon Sheila - Resist]
     private demonSheilaResist(): void {
         this.clearOutput();
         this.outputText(
             'You back away from the demon and raise your [weapon] with a dour glower.  Sheila purses her lips at you, then says, "<i>Not in the mood, eh mate?  I\'m so horny though... I bet I could get you into it.  Let me show you how much I love you...</i>"  Her ears twitch furiously, belying her intentions as she'
         );
-        //[(sheila corruption < 30)
+        // [(sheila corruption < 30)
         if (this.sheilaCorruption() < 30)
             this.outputText(
                 " thrusts her black spade forward and smears some of the constantly-oozing fluid from its tip down the length with her hand"
@@ -5834,33 +5834,33 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             ", but as she giggles sadistically and starts to approach, you tense up again.  It's pretty clear by the way she swaggers dismissively that she isn't taking the rejection well!"
         );
-        //go to fight
+        // go to fight
         this.startCombat(new Sheila());
     }
 
-    //[Demon Sheila - Talk]
+    // [Demon Sheila - Talk]
     private demonSheilaTalk(): void {
         this.clearOutput();
         this.outputText(
             "Questions nag at you, and you ask Sheila if she wouldn't mind answering a few of them.  She struts over and "
         );
-        //[(not horse)
+        // [(not horse)
         if (!this.player.isTaur())
             this.outputText("takes your arm in hers, then slips the other hand into your armor");
-        //[(horse)
+        // [(horse)
         else this.outputText("between your legs");
         this.outputText(" to touch your ");
         if (this.player.hasCock()) this.outputText("[cock]");
         else if (this.player.hasVagina()) this.outputText("[vagina]");
         else this.outputText("smooth skin");
-        //[(lib <20)
+        // [(lib <20)
         if (this.player.lib < 20) this.outputText(", giggling as your expression petrifies");
         this.outputText(
             ".  \"<i>Anything for you; I'll just find something to occupy my attention.  What's on your mind, love?</i>\""
         );
-        //plus lust depending on sens
+        // plus lust depending on sens
         this.dynStats("lus", 2 + this.player.sens / 5, "resisted", false);
-        //[The Change][Her Colony][What Now?][Fuck Off]
+        // [The Change][Her Colony][What Now?][Fuck Off]
         this.menu();
         this.addButton(0, "The Change", this.askDemonSheilaAboutDahChange);
         this.addButton(1, "Her Colony", this.askDemonSheilaAboutHerColony);
@@ -5868,13 +5868,13 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(3, "Fuck Off", this.tellSheilaDemonToFuckOff);
     }
 
-    //[ Demon Sheila - Talk - Fuck Off]
+    // [ Demon Sheila - Talk - Fuck Off]
     private tellSheilaDemonToFuckOff(): void {
         this.clearOutput();
         this.outputText(
             '"<i>Oh,</i>" she says.  "<i>Don\'t be like that.  You\'re my best mate, you know.  My beloved.  I\'ll never let you go, ever.</i>"  Her eyes gloss over a bit, '
         );
-        //[(RNG decides if dis bitch crazy, bias toward sane)
+        // [(RNG decides if dis bitch crazy, bias toward sane)
         if (SheilaScene.rand(10) < 3) {
             this.outputText(
                 'and she blurts, "<i>I know I can make you understand.  You can\'t go until you say it back!</i>"  You pull her hand free and back away from her, but she advances again, trying to grab you!'
@@ -5887,14 +5887,14 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             );
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //go to fight if bitch is crazy, else plus lust and return to camp
+        // go to fight if bitch is crazy, else plus lust and return to camp
         this.dynStats("lus", 10);
     }
 
-    //[Demon Sheila - Talk - The Change]
+    // [Demon Sheila - Talk - The Change]
     private askDemonSheilaAboutDahChange(): void {
         this.clearOutput();
-        //[(if sheilacite >= 1)]
+        // [(if sheilacite >= 1)]
         if (this.flags[kFLAGS.SHEILA_CITE] >= 1) {
             this.outputText(
                 'Sheila blushes deeply.  "<i>Silly.  You were there.</i>"  She looks at you, pupils dancing as she remembers the lovemaking session that led to her current form.  "<i>I suppose that\'s not what you\'re asking, though.</i>"'
@@ -5911,7 +5911,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\nYou raise an eyebrow at that.  Sheila smiles and explains, "<i>Strange to say, but the captain was right.  My purpose in life really is to fuck.  When you and I were together, I forgot about all the whining, the unimportant nagging that was dumped on me all my life.  The digging, the worrying, the hiding... it never mattered.  Any of it.  You were what made that clear for me; having you is what I care about.</i>"  She blows you a kiss.  "<i>So... we could do something real, if you like.</i>"'
             );
         }
-        //(else if sheilacite <= -1)
+        // (else if sheilacite <= -1)
         else if (this.flags[kFLAGS.SHEILA_CITE] <= -1) {
             this.outputText(
                 'Sheila looks wistful.  "<i>Well... I wish it could have been with you.  But after you left me, I fingered myself so hard that my voice attracted an imp.  Not a gnoll, or a satyr, or even one of those scary fuckin\' salamanders that are on fire all the time, but an honest-to-god imp.  Just this ragged little beat-up thing, one step away from dead but still trying to get his old fella in something to fill it with his seed and carry on his line.</i>"'
@@ -5920,13 +5920,13 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\n"<i>He was inside me in a blink, thrusting away like it was all that mattered, like his life wasn\'t worth shit if he couldn\'t ejaculate in me.  And...</i>"  She looks at you shyly, and blushes.  "<i>He was right.  Sex really is all he was good for, all anyone is good for.  As he came and flooded me with that hot spunk, something twigged in me.  I just let go of everything: the worries, the pretense, the effort to be a good, obedient worker.  God, that orgasm!  I sucked him dry!  And the whole time I lay there twitching and squeezing his little whacker, I just cried, and cried, as I realized how wrong I was to ever have cared about any of it.  Fucking is what matters, [name].  It\'s the real thing.  Even the basest imp knows that.  I could show you...</i>"'
             );
         }
-        //[(additional PG if PC looks masculine or has Bulge Armor perk)
+        // [(additional PG if PC looks masculine or has Bulge Armor perk)
         if (this.player.femininity < 50) {
             this.outputText(
                 '\n\nThe girl leans in and lowers her voice.  "<i>I feel most rapt, you know, when a bloke ejaculates in me.  It feels... pure, and right, like he\'s admitting his purpose in life is to give me babies.  Without pretense or bullshit.  I love it, and if you come inside me, I love you too.</i>"  Sheila blushes again.  "<i>That sounds sappy, but... would you like to be loved?</i>"'
             );
         }
-        //plus lust, present choices [Another Question][Let Her Fuck(req lust >=30)][Resist]
+        // plus lust, present choices [Another Question][Let Her Fuck(req lust >=30)][Resist]
         this.dynStats("lus", 12, "resisted", false);
         this.menu();
         this.addButton(0, "Another Q.", this.demonSheilaTalkAnotherQuestion);
@@ -5934,7 +5934,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(2, "Resist", this.demonSheilaResist);
     }
 
-    //[ Demon Sheila - Talk - Her Colony]
+    // [ Demon Sheila - Talk - Her Colony]
     private askDemonSheilaAboutHerColony(): void {
         this.clearOutput();
         this.outputText(
@@ -5947,7 +5947,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\nShe giggles.  "<i>The first thing I did when I got my new gift was to go home and share it with my loved ones, of course.  It felt incredible, [name]!  When we climaxed and they drank of me, it pulled away all my lust and longing and left me full of happiness and complete oneness.  And every time one drained me dry, I would fill back up again, to pour myself into another.  Thanks to you opening the door, I was able to express my feelings for them like I never could.</i>"  The girl leans her head against you and closes her eyes.  "<i>Especially to the captain.</i>"'
         );
 
-        //(corr <30)
+        // (corr <30)
         if (this.player.cor < 30) this.outputText("\n\nHorrified");
         else this.outputText("\n\nInterested despite yourself");
         this.outputText(
@@ -5958,7 +5958,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outputText("\n\nImagining the number of souls that were ");
-        //(corr >=75)
+        // (corr >=75)
         if (this.player.cor >= 75) this.outputText("harvested that day, you sigh wistfully");
         else this.outputText("stolen that day, you wince");
         this.outputText(
@@ -5968,7 +5968,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\nAs you stare at her, she opens both eyes and meets your gaze defiantly.  Flashes of lavender dance in her cold irises, inclining you to believe her words.  "<i>They were delicious, [name].  Every one I consumed made me feel more powerful, bigger, more important, more like a sex goddess.  By the time I got to the colony\'s inner sanctum, I was knocking people over with a touch.  Weaker blokes were soaking their dacks with precum when they saw in my eyes what I wanted to do to them.  On that note...</i>"  She looks harder at you, and you can feel a fantasy making its way into your mind, one where '
         );
-        //[(cock)
+        // [(cock)
         if (this.player.hasCock())
             this.outputText(
                 "she ties you down and rides you until she's so full of your spunk that she can push it back out just by pressing on her stomach"
@@ -5987,7 +5987,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText('\n\n"<i>Did you like my idea, lover?</i>" she laughs.');
 
-        //plus lots of libido-based lust, display choices [Another Question][Let Her Fuck(req lust >=30)][Resist]
+        // plus lots of libido-based lust, display choices [Another Question][Let Her Fuck(req lust >=30)][Resist]
         this.dynStats("lus", this.player.lib / 3 + 5, "resisted", false);
         this.menu();
 
@@ -5996,10 +5996,10 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(2, "Resist", this.demonSheilaResist);
     }
 
-    //[ Demon Sheila - Talk - What Now?]
+    // [ Demon Sheila - Talk - What Now?]
     private talkToDemonSheilaAboutWhatNow(): void {
         this.clearOutput();
-        //fucking daddy issues
+        // fucking daddy issues
         this.outputText(
             '"<i>What will I do now?  What else, my silly love?</i>"  Sheila looks out over the plains.  "<i>I\'m always hot for you.  We could have a bit of a naughty, and make each other feel good.</i>"'
         );
@@ -6008,7 +6008,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nThe woman leans in confidentially.  \"<i>Since you asked, mate, I'll spell it out... I have a lot more control over my power now.  I can use a little of it when I'm not coming, as long as we're touching... don't even have to use it at all, if I focus.  I could send all of my sensation to you as I finish.  Or I could sip at yours and use it to extend my climax instead, and let you ride the edge as long as we're together.  We could literally spend the day in one long orgasm...</i>\""
         );
 
-        //(lib>=30)
+        // (lib>=30)
         if (this.player.lib >= 30)
             this.outputText('\n\nYour eyebrows rise.  "<i>Got your attention, did I?  But,</i>"');
         else this.outputText('\n\nYour mouth hardens.  "<i>You\'re right,</i>"');
@@ -6021,7 +6021,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nShe raises her hand and takes your chin, bringing your gaze over to meet hers.  As the seconds stretch into minutes, it's unclear whether she's trying to be romantic or if she's taking your measure somehow.  Finally, she speaks.  "
         );
-        //(corr<50)
+        // (corr<50)
         if (this.player.cor < 50) {
             this.outputText(
                 "\"<i>I don't think I will, though, my sooky mate... I'd rather stain you in my colors, even if it costs my body to do it.  Or, would you like me more if my proportions were modest?  You, my confident, courtly " +
@@ -6050,7 +6050,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nShe's so fixated on having children now, more so than anyone you've met"
         );
-        //[(PC has been propositioned by Amily)]
+        // [(PC has been propositioned by Amily)]
         if (this.flags[kFLAGS.AMILY_OFFER_ACCEPTED] > 0)
             this.outputText(" save one.  Actually, the two are a bit reminiscent of each other..");
         this.outputText(".  Yet, any offspring a demon makes will be imps, right?");
@@ -6062,7 +6062,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("; even though you hide it, I've seen it lurking");
         this.outputText('.  Feel like flying your colors for a while?</i>"');
 
-        //plus libido-based lust damage, output choices [Another Question][Let Her Fuck(req lust >=30)][Resist]
+        // plus libido-based lust damage, output choices [Another Question][Let Her Fuck(req lust >=30)][Resist]
         this.dynStats("lus", this.player.lib / 15, "resisted", false);
         this.menu();
         this.addButton(0, "Another Q.", this.demonSheilaTalkAnotherQuestion);
@@ -6070,13 +6070,13 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(2, "Resist", this.demonSheilaResist);
     }
 
-    //[Demon Sheila - Talk - <any option> - Another Question]
+    // [Demon Sheila - Talk - <any option> - Another Question]
     private demonSheilaTalkAnotherQuestion(): void {
         this.clearOutput();
-        //(if lust <=99)
+        // (if lust <=99)
         if (this.player.lust <= 99) {
             this.outputText("Sheila reaches farther down, ");
-            //(cock)
+            // (cock)
             if (this.player.hasCock())
                 this.outputText("slipping more of her finger and thumb around your penis");
             else if (this.player.hasVagina()) this.outputText("parting your lips more");
@@ -6084,7 +6084,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 ' even as she smiles encouragingly.  "<i>Sure, mate.  Amuse yourself.  I certainly intend to.</i>"'
             );
-            //plus sens-based lust damage, display talk options again
+            // plus sens-based lust damage, display talk options again
             this.dynStats("lus", this.player.sens / 10);
             this.menu();
             this.addButton(0, "The Change", this.askDemonSheilaAboutDahChange);
@@ -6092,18 +6092,18 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.addButton(2, "What Now?", this.talkToDemonSheilaAboutWhatNow);
             this.addButton(3, "Fuck Off", this.tellSheilaDemonToFuckOff);
         }
-        //(if lust > 99)
+        // (if lust > 99)
         else {
             this.outputText(
                 'Sheila grins wickedly as you stammer and fumble your words.  "<i>Nah,</i>" she answers, using her free hand to turn your head.  "<i>I think it\'s time we left talking behind, don\'t you?</i>"  As her eyes meet yours, your body quavers dangerously; you\'ve let her stay too close for too long, and she glows with anticipation as she prepares to take what she wants.'
             );
-            //output loss scene determined by RNG and player parts
+            // output loss scene determined by RNG and player parts
             this.menu();
             this.addButton(0, "Next", this.loseToSheila, true);
         }
     }
 
-    //[Demon Sheila - Let Her Fuck]
+    // [Demon Sheila - Let Her Fuck]
     private sheilaLetHerFuckYou(): void {
         this.clearOutput();
         this.outputText(
@@ -6116,19 +6116,19 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.sheilaCorruption() >= 40) this.outputText("pillowy ");
         else this.outputText("pert ");
         this.outputText("breasts against you.");
-        //output loss scene dependent on RNG and player parts/choice
+        // output loss scene dependent on RNG and player parts/choice
         this.menu();
         this.addButton(0, "Next", this.loseToSheila, true);
     }
 
-    //Post-demon pregnancy notif (demon sheila = 1 and sheilapreg = 4)
-    //increment imp children counter?
+    // Post-demon pregnancy notif (demon sheila = 1 and sheilapreg = 4)
+    // increment imp children counter?
     private demonImpChildren(): void {
         this.clearOutput();
         this.outputText(
             '"<i>[name]!</i>"  A swishing in the grass behind you is the only prelude you get to a nude Sheila pressing herself against you in a hug, '
         );
-        //(sheila corruption < 40)
+        // (sheila corruption < 40)
         if (this.sheilaCorruption() < 40)
             this.outputText("her perky nipples rubbing into your arm as she snuggles up");
         else
@@ -6146,20 +6146,20 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.player.mf("daddy", "other mommy") +
                 "'s cock."
         );
-        //(if no cock)
+        // (if no cock)
         if (!this.player.hasCock())
             this.outputText(
                 '  Or, had...</i>" she finishes with a frown as she reaches your bare groin.  "<i>Where\'d you leave that magnificent old fella?  I was lookin\' forward to another go.</i>"  She pulls her hand out, then leans toward you with a pout.  "<i>I\'m so horny, too...</i>"'
             );
-        //(if cock)
+        // (if cock)
         else {
             this.outputText(
                 '  Still, it\'s not the same as having you inside me...</i>"  She squeezes the neck of your [cock] and then pulls her hand away, slipping it between her own legs.  "<i>I was thinking you could help me make another, and maybe up the population of men worth a damn around here.</i>"  Reclining, she spreads her thighs, pulling apart her small, smooth labia '
             );
-            //[(sheila corruption <=80)]
+            // [(sheila corruption <=80)]
             if (this.sheilaCorruption() <= 80)
                 this.outputText("with her fingers to make sure the invitation is all the way open");
-            //(else)
+            // (else)
             else
                 this.outputText(
                     "with her split tail while she cradles her massive tits to make sure you see the open invitation"
@@ -6170,39 +6170,39 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         }
         this.pregnancy.knockUpForce(); //Clear Pregnancy
         this.flags[kFLAGS.SHEILA_IMPS]++;
-        //plus lust if PC has cock
+        // plus lust if PC has cock
         if (this.player.hasCock())
             this.dynStats("lus", 10 + this.player.lib / 10, "resisted", false);
-        //[Other Sex][Knock Up(cock only)][Leave]
+        // [Other Sex][Knock Up(cock only)][Leave]
         this.menu();
         this.addButton(0, "Other Sex", this.pregDemonSheilaOtherSex);
         if (this.player.hasCock()) this.addButton(1, "Knock Up", this.pregDemonSheilaKnockUp);
-        //leave should be default spacebar option
+        // leave should be default spacebar option
         this.addButton(4, "Leave", this.leavePregDemonSheila);
     }
 
-    //[Preg Demon Sheila - Leave]
+    // [Preg Demon Sheila - Leave]
     private leavePregDemonSheila(): void {
         this.clearOutput();
         this.outputText(
             "You shake your head at her, backing away.  She sulks a bit, then speaks.  \"<i>I guess I'll let you off, since you sexed me up so well before.  Next time, though, you're gonna give me some... satisfaction.</i>\"  She runs a finger teasingly down her chest, giving you half a smile."
         );
-        //(if cock)
+        // (if cock)
         if (this.player.hasCock())
             this.outputText(
                 '  Your refusal doesn\'t stop her from consummating the affair herself by slipping the oozing spade past her entrance and thrusting vigorously.  "<i>What?</i>" she says, shaking you from your distracted stare.  "<i>I\'m always randy now, and you\'re not going to spend time with me, so... move along.  Maybe someone fun will find me and join in.</i>"  She throws her head back as her slippery tail makes a particularly deep push, crying her pleasure carelessly to the glaring sun.  The wet schlicks of her self-love follow you until the magic of the realm brings you abruptly back to camp.'
             );
 
-        //plus more lust if cock, go to camp
+        // plus more lust if cock, go to camp
         if (this.player.hasCock()) this.dynStats("lus", 10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Preg Demon Sheila - Other Sex]
+    // [Preg Demon Sheila - Other Sex]
     private pregDemonSheilaOtherSex(): void {
         this.clearOutput();
         this.outputText("Her eyebrows knit as you propose an alternative.  ");
-        //[(if cock)
+        // [(if cock)
         if (this.player.hasCock()) {
             this.outputText(
                 "\"<i>Well now, I think I get a say, don't I?  I was really hoping to have your seed inside me... it's practically worth bottling.</i>\"  She "
@@ -6215,12 +6215,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             );
             this.startCombat(new Sheila());
         }
-        //(if no cock)
+        // (if no cock)
         else if (this.player.hasVagina()) {
             this.outputText(
                 '"<i>Well, that doesn\'t sound as good as having your amazing self inside me, but I\'ll take what I can get, love.</i>"  Sheila snuggles closer to your arm, using one hand to turn your fingers out and slip them between her soft, hot labia, then kisses you on the cheek.  "<i>So, what do you have in mind?  I\'m all yours.</i>"  She pulls your fingers out and sits down on the grass, spreading her thighs and looking at you expectantly.'
             );
-            //go to fight if cock, else plus lust and present victory sex menu
+            // go to fight if cock, else plus lust and present victory sex menu
             this.dynStats("lus", 15);
             this.beatUpDemonSheila(false);
         } else {
@@ -6228,32 +6228,32 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         }
     }
 
-    //[Preg Demon Sheila - Knock Up]
+    // [Preg Demon Sheila - Knock Up]
     private pregDemonSheilaKnockUp(): void {
         this.clearOutput();
         this.outputText(
             "As she smears the entrance to her snatch with the slippery slime drooling out of her slitted spade, your [cock] hardens painfully.  The eye-fucking she's giving you while teasing her breasts doesn't help matters, and soon you're so erect that you have to expose your shaft just to relieve the pressure.  With the bulk of your dick bobbing free of your [armor], Sheila waggles her eyebrows at you.  \"<i>So... yes?</i>\""
         );
-        //output demon Sheila cock victory sex scene consonant with player's length and suppress gems/xp/item gain
+        // output demon Sheila cock victory sex scene consonant with player's length and suppress gems/xp/item gain
         this.menu();
         if (this.player.cockThatFits(56) >= 0)
             this.addButton(0, "Next", this.missionaryForThePurposesOfCreatingImpsWithSheila);
         else this.addButton(0, "Next", this.bigDickAndThighs);
     }
 
-    //Loss scenes - RNG's pick (bias toward norml cocks, but all should be possible if a PC meets multiple reqs):
-    //some losses auto-increase PC corr and decrease sheila corruption, others have the normal chance dependent on PC corr - please manipulate sheila corruption in increments of 10, to make the breast size changes immediately noticeable
-    //loss intro (only if coming from a fight, not from a scene that auto-outputs a loss to finish itself)
-    //[You lower your [weapon], unable to continue the fight.  ]
-    //thread into chosen scene with no new pg
+    // Loss scenes - RNG's pick (bias toward norml cocks, but all should be possible if a PC meets multiple reqs):
+    // some losses auto-increase PC corr and decrease sheila corruption, others have the normal chance dependent on PC corr - please manipulate sheila corruption in increments of 10, to make the breast size changes immediately noticeable
+    // loss intro (only if coming from a fight, not from a scene that auto-outputs a loss to finish itself)
+    // [You lower your [weapon], unable to continue the fight.  ]
+    // thread into chosen scene with no new pg
     public loseToSheila(consensual: boolean = false): void {
         this.clearOutput();
-        //Loss - if PC manages to lose by HP somehow (overrides all other losses)
+        // Loss - if PC manages to lose by HP somehow (overrides all other losses)
         if (this.player.HP < 1 && !consensual) {
             this.outputText(
                 "Your erstwhile opponent's eyes glimmer with excitement as you collapse from your injuries, and she runs over to you.  The demon strips off your [armor] eagerly, but you can't stay awake for the fun.  Consciousness slips away and you pass out."
             );
-            //--Next--
+            // --Next--
             this.model.time.hours += 8;
             if (this.model.time.hours > 23) {
                 this.model.time.hours -= 24;
@@ -6263,19 +6263,19 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.addButton(0, "Next", this.loseToDemonSheila);
         } else {
             var choices: any[] = new Array();
-            //Loss - normal cocks get rode (for cockarea <= 56)
+            // Loss - normal cocks get rode (for cockarea <= 56)
             if (this.player.hasCock() && this.player.cockThatFits(56) >= 0)
                 choices[choices.length] = this.loseToNormalSheilaAndGetRidden;
-            //Loss - tail-spade sounding for fuckhueg cock (for cockarea > 56)
+            // Loss - tail-spade sounding for fuckhueg cock (for cockarea > 56)
             if (this.player.hasCock() && this.player.biggestCockArea() > 56)
                 choices[choices.length] = this.tailSpadeSoundingForFuckHugeDongsWithDemonSheila;
-            //Loss - clit-swelling and clit-sounding or clit-anal
+            // Loss - clit-swelling and clit-sounding or clit-anal
             if (this.player.hasVagina())
                 choices[choices.length] = this.clitSwellingDemonSheilaClitSoundingAnal;
-            //Loss - unsexed joke scene
+            // Loss - unsexed joke scene
             if (this.player.gender == 0)
                 choices[choices.length] = this.aintGotNoGenderAndKangarooRaped;
-            //RUN DAT SHIT, YO!
+            // RUN DAT SHIT, YO!
             choices[SheilaScene.rand(choices.length)]();
         }
     }
@@ -6303,14 +6303,14 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.player.mf("boy", "girl") +
                 ' being fucked by trash makes me ill.</i>"  Saying nothing more, the woman turns and leaves you to walk back to your camp.'
         );
-        //suppress the "you'll probably come to in eight hours blah blah" message, subtract gems and add 8 hours, go to camp
+        // suppress the "you'll probably come to in eight hours blah blah" message, subtract gems and add 8 hours, go to camp
         this.player.orgasm();
         this.player.HP = this.player.maxHP();
         this.fatigue(-50);
         this.cleanupAfterCombat();
     }
 
-    //Loss - normal cocks get rode (for cockarea <= 56)
+    // Loss - normal cocks get rode (for cockarea <= 56)
     private loseToNormalSheilaAndGetRidden(): void {
         this.clearOutput();
         // var x: number = this.player.cockThatFits(56);
@@ -6326,7 +6326,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(", exposing your " + this.multiCockDescriptLight() + ".");
 
         this.outputText("\n\n");
-        //[(multi)
+        // [(multi)
         if (this.player.cockTotal() > 1)
             this.outputText(
                 '"<i>All of these look ripper, but... I want this one today,</i>" she says, selecting your [cockFit 56].  '
@@ -6352,7 +6352,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nSheila grins viciously and sinks down on your [cockFit 56], sliding it into her pussy at a painstaking pace"
         );
-        //[(multi)
+        // [(multi)
         if (this.player.hasCock())
             this.outputText(
                 " and slipping the unused remainder of your manhood between her thighs"
@@ -6363,7 +6363,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 " twitches in painful erectness."
         );
 
-        //balls fork
+        // balls fork
         if (this.player.balls > 0) {
             this.outputText(
                 '\n\n"<i>Oh my,</i>" she says, looking into your rolling eyes.  "<i>Can\'t hold it?  Well, if you\'re going to squirt so soon, mate, let\'s at least make sure you squirt a lot!</i>"'
@@ -6372,7 +6372,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nBehind the demon, her black, stubby spade dangles ominously above your [sack] and its brown neighbor wraps around it, squeezing and stroking.  A drizzle of dark, oily secretion falls from the end; as it lands, your [balls] begin to heat up painfully.  Your stomach turns as another drop of hot slime drools from your demonic lover onto your tender nuts; it feels like something is inside them, trying to push outwards in all directions."
             );
-            //(not horse)
+            // (not horse)
             if (!this.player.isTaur())
                 this.outputText(
                     "  Sheila takes your face in her hands and presses it into her breasts as she reassures you."
@@ -6410,9 +6410,9 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 ", displacing a glob of cum from her pussy that's soon followed by others as you ejaculate once more.  The jizz is so dense with sperm that it's thick, almost colloidal; it jiggles on her skin, barely sliding downward as your hips ram against hers.  It takes nearly "
             );
-            //(normal skeet)
+            // (normal skeet)
             if (this.player.cumQ() < 250) this.outputText("ten minutes and two");
-            //(big skeet)
+            // (big skeet)
             else if (this.player.cumQ() < 1000) this.outputText("thirty minutes and four");
             else this.outputText("fifty minutes and eight");
             this.outputText(
@@ -6422,7 +6422,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\n\"<i>I don't think I've ever felt so full in my life...</i>\" Sheila says, dreamily holding her stomach as an avalanche of cum-clumps rolls slowly out of her cunt.  You fall flat and are already passed out by the time she stops rubbing her midriff, imagining the child she'll mother.  She leans down.  \"<i>Falling asleep after coming... for shame, mate.  I didn't even get to tell you I love you.</i>\"  The demon plants a kiss on your cheek, squeezes your scrotum once more, and walks away, bottom half completely stained white.  Your swollen nuts slowly deflate as you doze, though they don't shrink down quite as far as their original size."
             );
-            //end scene, reduce lust, increment sheilapreg by 1 (in other words, 100% preg chance), increase ball size by ~10% and increase cum multiplier very slightly, reduce sheila corruption by 10 and increase PC corr by 10
+            // end scene, reduce lust, increment sheilapreg by 1 (in other words, 100% preg chance), increase ball size by ~10% and increase cum multiplier very slightly, reduce sheila corruption by 10 and increase PC corr by 10
             this.pregnancy.knockUpForce(
                 PregnancyStore.PREGNANCY_PLAYER,
                 PregnancyStore.INCUBATION_SHIELA
@@ -6436,7 +6436,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.getGame().inCombat) this.cleanupAfterCombat();
             else this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //(else if no balls)
+        // (else if no balls)
         else {
             this.outputText(
                 '\n\n"<i>Oi, [name],</i>" Sheila says, pausing now that she\'s reached the base of your [cockFit 56].  You look up at her, waiting for the other shoe to drop.  "<i>Where do you suppose your seed comes from?</i>"'
@@ -6469,8 +6469,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\nSheila\'s eyes twinkle mischievously.  "<i>I will when I see him, love.  In the meanwhile, you get all the benefits of my misplaced affection.</i>"  She descends your cock again, shifting her hips to rub you against a different side of her pussy.  "<i>I notice our little conversation kept you from shooting your wad too early, like a virgin...</i>"'
             );
 
-            //corr fork
-            //[(corr < 70)]
+            // corr fork
+            // [(corr < 70)]
             if (this.player.cor < 70) {
                 this.outputText(
                     "\n\nYou stiffen in embarrassment.  Sheila smiles and plants a kiss on your " +
@@ -6485,7 +6485,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                     '\n\n"<i>Yesss...</i>" she hisses, passing air through her teeth as you hit a sweet spot.  "<i>You\'re my one and only.</i>"'
                 );
             }
-            //(else)
+            // (else)
             else {
                 this.outputText(
                     '\n\nYou frown as her piquant revelation annoys you further.  "<i>Like I care about whether you finish, you nuisance,</i>" you retort, beginning to buck her hips up and down violently.  "<i>Why don\'t you shut up so I can blow my load, then roll off and make me a snack while I nap?</i>"'
@@ -6495,7 +6495,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                     "\n\nSheila kneads her breasts as you berate her and batter her cunt.  \"<i>Haha... is that what you want your woman for?  To suck the spunk from your fat dick and then bring you dinner?  I can do that... though I don't promise not to jerk my tail off over your food.  I get mean if I don't come every day.</i>\""
                 );
             }
-            //end corr fork
+            // end corr fork
 
             this.outputText(
                 "\n\nThe rough fuck goes on, pushing you back toward your climax, but your demon partner seems to be ahead of you no matter how hard you rail her, looking into your eyes lovingly as you shake her body with your thrusts."
@@ -6508,9 +6508,9 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\nThe demon releases you and allows gravity and your pressure to force her back down once more, and her pussy begins to drool and squirt in orgasm.  "<i>Ohh... c-coming!  You too!  Finish with me, love!</i>"  Sheila leans forward and presses her lips against you, half-kissing and half-drooling; a foreign wave of climax passes into you where her skin contacts yours, and you begin to ejaculate with the demon\'s borrowed sensation.  Your semen pools in her pussy'
             );
-            //[(multi)
+            // [(multi)
             if (this.player.cockTotal() > 1) this.outputText(" and lap");
-            //[(big skeet)
+            // [(big skeet)
             if (this.player.cumQ() >= 1000)
                 this.outputText(
                     "; she quickly reaches capacity and pulls off, jerking your messy, slimy [cockFit 56] and letting you squirt the last of your strokes all over her face and chest"
@@ -6525,7 +6525,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\n"<i>That was fun,</i>" Sheila laughs, scooting backward away from you and leaving a trail of white on the grass.  "<i>I\'ll see you later... remember what I said, mate.  Sack up and propose to me soon.</i>"  She laughs at her own joke, then blows you a sloppy kiss and stands up to leave.  Having done most of the actual work, you take the opportunity to keel over and pass out.'
             );
 
-            //end scene, reduce lust, normal sheilapreg check, reduce sheila corruption by 10 and increase PC corr by 10]
+            // end scene, reduce lust, normal sheilapreg check, reduce sheila corruption by 10 and increase PC corr by 10]
             this.player.orgasm();
             this.dynStats("cor", 10);
             this.sheilaPreg();
@@ -6535,7 +6535,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         }
     }
 
-    //Loss - tail-spade sounding for fuckhueg cock (for cockarea > 56)
+    // Loss - tail-spade sounding for fuckhueg cock (for cockarea > 56)
     private tailSpadeSoundingForFuckHugeDongsWithDemonSheila(): void {
         this.clearOutput();
         this.outputText(
@@ -6595,7 +6595,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nExhausted, you pass out, wondering what sort of permanent changes her fluids are wreaking on your body."
         );
-        //increase only biggest cock size by ~2-3% if possible, increase cum multiplier, reduce lust, increase PC corr by 10 and reduce sheila corruption by 10
+        // increase only biggest cock size by ~2-3% if possible, increase cum multiplier, reduce lust, increase PC corr by 10 and reduce sheila corruption by 10
         this.player.cumMultiplier++;
         this.player.orgasm();
         this.dynStats("cor", 10);
@@ -6604,10 +6604,10 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Loss - clit-swelling and clit-sounding or clit-anal
+    // Loss - clit-swelling and clit-sounding or clit-anal
     private clitSwellingDemonSheilaClitSoundingAnal(): void {
         this.clearOutput();
-        //(no horse)
+        // (no horse)
         if (!this.player.isTaur())
             this.outputText(
                 "Sheila places her hand in the small of your back and leans in, drawing closer to your face even as she pulls your waist inward."
@@ -6623,10 +6623,10 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nBefogged but still reserved, you nonetheless allow Sheila to lower you to the grass and remove your [armor].  She "
         );
-        //[(not horse)
+        // [(not horse)
         if (!this.player.isTaur())
             this.outputText("turns around, then straddles your groin and looks over her shoulder.");
-        //(Equus ferus caballus)
+        // (Equus ferus caballus)
         else
             this.outputText(
                 "circles you until she reaches your rump, then turns around and kneels down herself, looking at you over her shoulder."
@@ -6634,7 +6634,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "  Her black, spaded tail lifts from between her thighs and snakes toward your pussy,"
         );
-        //[(if manparts)
+        // [(if manparts)
         if (this.player.hasCock()) {
             this.outputText(" caressing ");
             if (this.player.balls > 0) this.outputText("your [balls]");
@@ -6664,7 +6664,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 " tighter and tighter; the siege lifts slightly, allowing you to focus with supreme effort and see that the demon is similarly affected!  Her head sags between her shoulders, even as she places two hands on the ground in front of her to steady herself.  The two tails on her butt whip spastically, squeezing another wave of painful pleasure into your crotch.  Staring, you can only watch as Sheila's thrashing black spade describes a clipped arc, a long, thick rod of flesh growing out of it to join your bodies."
         );
 
-        //[(<=6")
+        // [(<=6")
         if (this.player.clitLength <= 6)
             this.outputText(
                 "\n\nAwareness comes to you slowly; that flesh is your clitoris, gratuitously mutated by Sheila's fluids!"
@@ -6681,8 +6681,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\nThe burning has tapered off near the end of your clitoris, now more properly a lever than a button; only the base still tingles with the barely-bearable sensation that you realize to be new growth.  "<i>Bloody hell, [name],</i>" Sheila calls, forcing her elbows to straighten under her again.  "<i>If you get much thicker, you\'ll split me off another tail.</i>"  Your mouth only opens dumbly at this.'
         );
 
-        //divide scene here by clit size
-        //(clit<=6" initially)
+        // divide scene here by clit size
+        // (clit<=6" initially)
         if (this.player.clitLength <= 6) {
             this.outputText("\n\nShe sits up on her knees, then turns to face you.  ");
             if (!this.player.isTaur())
@@ -6693,7 +6693,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '  "<i>Why the look, mate?  Seems like you\'re saturated for now, and just in time.  This... is...</i>"  She pulls her tail up from the end of your clitoris, then slides it back down, slowly.  "<i>... perfect!</i>"  As her tight hole swallows your sensitive distaff staff once again, your eyes roll and her head drops, dragging her hair'
             );
-            //[(horse)
+            // [(horse)
             if (this.player.isTaur()) this.outputText(" through the grass");
             else if (this.player.biggestTitSize() >= 1)
                 this.outputText(" between your " + this.allBreastsDescript());
@@ -6712,7 +6712,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\nYour demon lover turns around again and, planting her hands once more against the ground, lifts her backside.  Her snubby spade plunges onto your rod with aplomb, going so fast that the lubrication begins to dissipate as quick strokes force fluid out of the tight confines.  Heat overtakes your clit again, not from chemicals but simply from your growing body temperatures and the friction between you.  Soon, you can feel the hot sensation of dry skin-on-skin contact closer to her tip, where the lube has been pushed out completely.  "<i>God... yes... fuck you, fuck my filthy tail, fuck it raw, rub all my dirty cum out with your freaky clit, penetrate me, show me who\'s the man!</i>"  Sheila\'s voice reaches the pitch of a scream as she finishes her demands.  "<i>F-fuck!  I\'m coming!</i>"  She slumps forward as '
             );
-            //[(PC corr<50)
+            // [(PC corr<50)
             if (this.player.cor < 50) {
                 this.outputText(
                     "her tail quakes and you feel something hot licking at the tip of your clitoris.  The spade pulls back and then sinks down again, and the heat gains several inches; she repeats this twice more until you can feel what must be her cum all the way down to her tail-tip, but as she attempts to pull back again and force her climax past the raw, hot skin at the edge, her tail simply jerks at your clit and she falls weakly onto the ground."
@@ -6735,7 +6735,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                         " to bubble and lick at your pussy, as if trying to get inside."
                 );
             }
-            //(else PC corr>=50)
+            // (else PC corr>=50)
             else {
                 this.outputText(
                     'her tail quakes, then pushes her pussy into yours.  "<i>God, yes!</i>"  A spatter of hot fluid hits your ' +
@@ -6752,14 +6752,14 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nSpent, she leans against you for several minutes, panting, then pushes herself up on wobbly legs.  Gingerly, she tugs her abused tail free of your enormous clit, then winces and puts her hand on her stomach as backed-up fluid oozes heavily from the spade.  \"<i>Ugh, feel like I'm gonna chunder.  Mate, I'll see you later.</i>\"  She turns and departs queasily, leaving a trail of black slime behind her.  As you slip into a doze, you wonder if your slowly dwindling clitoris will have returned to normal by the time you wake up.  For the most part it does, though it maintains at least an inch of the extra length."
             );
         }
-        //(else if clit >6" initially)
+        // (else if clit >6" initially)
         else {
             this.outputText(
                 '\n\nShe pulls her tail free of your clit, watching nervously as the coating of dark oil left behind is absorbed into the skin and it widens another half-inch.  Sheila turns uncertain eyes on you and speaks again.  "<i>Eh-heh.  Even as a woman, it looks like you\'re too much of a man for my little hole.</i>"  She plays with her nipples idly, watching as your breathing causes the abnormally elongated skin to bob in the warm air, then leans down and blows on it with a grin; you squirm, raising a giggle from her.  "<i>I could just jerk you off like any old cock... would you like that?</i>"  The demon caresses you with her hand and considers a bit.  "<i>Ahh, no good.  I\'m horny too, after having you inside me.  But this absurd thing... oh, I know.</i>"'
             );
 
             this.outputText("\n\nYou stare at Sheila as she turns around");
-            //[(horse)
+            // [(horse)
             if (this.player.isTaur()) this.outputText(" and rolls onto her back");
             this.outputText(
                 ', then wraps her tails around your thickened clit.  They twist and pull, sending spirals of pleasure along the numerous nerves, and begin gently but insistently tugging you toward her tan butt.  Sheila directs the tip right between her cheeks, and you can feel her using it to rub the ring around her hole.  "<i>I think this should be about the right size for you, love,</i>" she teases, spearing herself on your ' +
@@ -6780,7 +6780,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     "Her tails, one still swollen from being stretched and tormented by your growing clit, slip into you abruptly, bringing their mild burning sensation with them; if you hadn't been saturated with it already, you'd probably pass out."
                 );
-                //[(if virgin vagina)
+                // [(if virgin vagina)
                 if (this.player.hasVirginVagina())
                     this.outputText(
                         '  "<i>What\'s this?</i>" Sheila teases.  "<i>Why, your virtue is still intact, little girl!  I wouldn\'t want anything to happen to it!</i>"  She pulls her tails out a bit, contenting herself with simply teasing your lips and driving you mad for penetration.'
@@ -6791,7 +6791,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             }
 
             this.outputText("\n\nSheila places her long-taloned feet against ");
-            //(not naga)
+            // (not naga)
             if (!this.player.isNaga())
                 this.outputText(
                     "your thighs, spreading your [legs] wide and then hooking them over top to touch "
@@ -6801,7 +6801,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                     this.vaginaDescript(0) +
                     ' every time she slides home.  "<i>I could get used to this, love.  What say I keep you dosed up like this and you become my dildo?  I\'ll ride you with a different hole every time!</i>"  Your eyes roll back in your head, at least partially from the irregular pace at which she\'s stroking your clit.  Sheila grabs her breasts as she slows down drastically once again, mashing them with her hands and sinking onto you an inch at a time.  "<i>Fuck... I love your junk, [name].  Maybe I should catch a goblin, too, and make her tease my pussy while you fill my ass.</i>"  She raises back up and '
             );
-            //[(clit>12")
+            // [(clit>12")
             if (this.player.clitLength > 12)
                 this.outputText("pulls her black tail free, dripping with your juice, then ");
             this.outputText(
@@ -6828,12 +6828,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                     this.clitDescript() +
                     " into her asshole."
             );
-            //(clit>12")
+            // (clit>12")
             if (this.player.clitLength <= 12) {
                 this.outputText(
                     "  Her tails sink into you as she squirms, parting your lips and pushing their way inside."
                 );
-                //[output hymen check, but don't remove virgin flag yet]
+                // [output hymen check, but don't remove virgin flag yet]
                 if (this.player.hasVirginVagina())
                     this.outputText("  <b>You've lost your virginity!</b>");
                 this.outputText(
@@ -6841,7 +6841,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 );
             }
 
-            //(PC corr<50)
+            // (PC corr<50)
             if (this.player.cor < 50) {
                 this.outputText(
                     "  The demon's pussy gushes and pours with unnatural levels of fluids, soaking your crotch as a miniature cataract makes its way out of her lower lips.  Sheila spills herself onto you for at least a minute, producing more hot fluid than you thought possible, until she looks utterly dehydrated - even her breasts seem to be smaller and less jiggly."
@@ -6854,7 +6854,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\n"<i>Ahh, [name],</i>" Sheila says, after a minute to recover.  "<i>It feels good in my butt.</i>"  Slowly, she pulls apart from you, letting your clit out of her backdoor at an agonizing pace, and stands up.'
             );
-            //[(if clit >12" and virgin vag)
+            // [(if clit >12" and virgin vag)
             if (this.player.clitLength > 12 && this.player.hasVirginVagina()) {
                 this.outputText(
                     "  \"<i>Sorry about your hymen, love, but I just couldn't resist making a sweet little slut like you into my girl.  I hope you'll remember me - I only wish I had a proper donger so I could give you my baby, too.</i>\""
@@ -6873,7 +6873,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 '  "<i>... Oh, god dammit,</i>" Sheila gripes.  She walks over and forces your face into them with a long, slow shake, then giggles as a joke comes to her.  "<i>There, [name]; I\'ve stained you with my colors!</i>"  She plants a long kiss on your grass-smeared forehead, then drops you back to the ground, straightens up, and departs.  Exhausted, you slip into a doze, wondering if you\'ll be able to fit your swollen clit back into your clothing when you wake or if you\'ll have to walk back to camp with it sticking out.  It slowly deflates as you sleep, but does retain a bit of additional length.'
             );
         }
-        //reduce lust and libido, increase sensitivity, remove virgin vag if PC clit>12", slimefeed if PC clit>12" or PC corr <50, increase clit by 1" before perk mod; if PC corr <50 then +10 corr and -10 sheila corruption, else if PC corr >=50 then -10 corr and +10 sheila corruption
+        // reduce lust and libido, increase sensitivity, remove virgin vag if PC clit>12", slimefeed if PC clit>12" or PC corr <50, increase clit by 1" before perk mod; if PC corr <50 then +10 corr and -10 sheila corruption, else if PC corr >=50 then -10 corr and +10 sheila corruption
         if (this.player.clitLength > 12 || this.player.cor < 50) {
             this.player.cuntChange(12, false, false, false);
             this.player.slimeFeed();
@@ -6893,7 +6893,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Loss - unsexed joke scene
+    // Loss - unsexed joke scene
     private aintGotNoGenderAndKangarooRaped(): void {
         this.clearOutput();
         this.outputText(
@@ -6918,13 +6918,13 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\n"<i>I\'ll see you later, [name]... think about me.</i>"  You slip into a brief, tired doze as her lingering magic guarantees fulfillment of her request.'
         );
 
-        //big lib-based lust gain, med lib gain if lust hits 100, pass 1 hour
+        // big lib-based lust gain, med lib gain if lust hits 100, pass 1 hour
         this.dynStats("lus", 20 + this.player.lib / 4, "resisted", false);
         if (this.getGame().inCombat) this.cleanupAfterCombat();
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Win against demon Sheila
+    // Win against demon Sheila
     public beatUpDemonSheila(output: boolean = true): void {
         if (output) {
             this.clearOutput();
@@ -6935,13 +6935,13 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     "and her wounds begin to close with a soft lilac glow.  \"<i>So fuckin' strong.  I don't suppose you've got any sperm for me, do you?  I'd love to have some of your kids...</i>\"  She looks at you beseechingly, gently fingering herself."
                 );
-            //(lust)
+            // (lust)
             else
                 this.outputText(
                     'frigging herself vigorously.  "<i>Do with me what you will, lover; those were the terms.  Won\'t you take my body to satisfy yourself, you brute?</i>"  The audacious woman sticks her tongue out, as if to goad you into treating her roughly.'
                 );
         }
-        //[(lust < 30)]
+        // [(lust < 30)]
         if (this.player.lust <= 33 && output) {
             this.outputText(
                 "\n\nYou're just not horny enough to consider fucking her right now, though, and she wilts a bit as you turn away.  \"<i>Sorry, I was just having fun... I'll see you soon, then?</i>\" she calls, hopefully."
@@ -6953,27 +6953,27 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.cleanupAfterCombat();
             return;
         }
-        //if lust high enough, display choices [Missionary][Big Dick+Thighs][Penetration, In Spades][Nipple Kisses][Anal Hate-fuck(req >= 75 corr and monster lust >99 or monster HP < 1 to appear)]
+        // if lust high enough, display choices [Missionary][Big Dick+Thighs][Penetration, In Spades][Nipple Kisses][Anal Hate-fuck(req >= 75 corr and monster lust >99 or monster HP < 1 to appear)]
         this.menu();
-        //Win - [Missionary] - for the purpose of procreation
-        //requires a cockarea <= 56
+        // Win - [Missionary] - for the purpose of procreation
+        // requires a cockarea <= 56
         if (this.player.hasCock() && this.player.cockThatFits(56) >= 0)
             this.addButton(0, "Missionary", this.missionaryForThePurposesOfCreatingImpsWithSheila);
-        //Win - [Anal Hate-fuck] - peg-knocking with optional corr >=80 break-up (for your cock or C. Jojo's)
-        //if PC has both a dick and corrupted Jojo, output this scene and choice; else skip this output and go right to appropriate option
+        // Win - [Anal Hate-fuck] - peg-knocking with optional corr >=80 break-up (for your cock or C. Jojo's)
+        // if PC has both a dick and corrupted Jojo, output this scene and choice; else skip this output and go right to appropriate option
         if (this.player.hasCock() && this.player.cockThatFits(56) >= 0)
             this.addButton(1, "AnalHateFuck", this.analHateFuck);
-        //Win - [Big Dick+Thighs] (usable for dicks with cockarea > 56) (all 10 of them)
-        //penis envy, go!
+        // Win - [Big Dick+Thighs] (usable for dicks with cockarea > 56) (all 10 of them)
+        // penis envy, go!
         if (this.player.hasCock() && this.player.biggestCockArea() > 56)
             this.addButton(2, "UseHerThighs", this.bigDickAndThighs);
-        //Win - [Penetration, in Spades] - for self-loathing vaginas
+        // Win - [Penetration, in Spades] - for self-loathing vaginas
         if (this.player.hasVagina())
             this.addButton(3, "Clit-Fuck", this.winAgainstDemoNSheilaForVaginas);
     }
 
-    //Win - [Missionary] - for the purpose of procreation
-    //requires a cockarea <= 56
+    // Win - [Missionary] - for the purpose of procreation
+    // requires a cockarea <= 56
     private missionaryForThePurposesOfCreatingImpsWithSheila(): void {
         this.clearOutput();
         this.outputText(
@@ -7004,7 +7004,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nSheila pulls you down gently and a warmth envelops your [cockHeadFit 56] as it nudges past her inflamed labia.  Her command rings in your ears, and coupled with the sensation, it's as much as you can do to slip in at your own pace and enjoy yourself instead of obeying her every word.  Inch by inch you slide yourself into her pussy as she bites her lip impatiently.  \"<i>You're such a tease, [name].  You know how much I want you in me, and you make me wait for it every time.</i>\"  You begin pumping her slowly; her back arches "
         );
-        //(sheila corruption >=40)
+        // (sheila corruption >=40)
         if (this.sheilaCorruption() >= 40) this.outputText("and her soft breasts jiggle ");
         this.outputText(
             'as a twinge of sensation from your thrust provokes a gasp and forces her to reposition herself, to better find it again.  "<i>That\'s the spot!  Your dick is the <b>best!</b>  Pound me, you fucking cum-hose!</i>"'
@@ -7025,7 +7025,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 ", practically lifting herself off of the ground] as she impales her cunt on your [cockFit 56] to prevent you from pulling out."
             );
         }
-        //[(silly)
+        // [(silly)
         if (this.silly())
             this.outputText(
                 "  \"<i>Make me feel like I'm fifteen years old again and playin' with the dog-morphs in the field!</i>\"  Heavens to Betsy!"
@@ -7075,27 +7075,27 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\nDid this bitch just...  Sheila breaks into a wide grin as your eyes pop out.  "<i>Kidding, mate!  Stay cool!  '
         );
-        //[(RNG decides if scene ends here, bias toward short scene)
+        // [(RNG decides if scene ends here, bias toward short scene)
         if (SheilaScene.rand(10) <= 6) {
             this.outputText(
                 "I used a bit of power to help you finish.  Don't hate me for it; your orgasm face is just so cute when you're giving up your seed to me.</i>\"  The woman places her hand on her stomach, below her navel.  \"<i>Thank you for this.  I hope it takes, so I can raise a big strong imp to be just as " +
                     this.player.mf("productive as his father", "sexy as his mother") +
                     '.</i>"  She kisses you softly again, and you roll off with a groan.  "<i>Your sperm are the best,</i>" Sheila whispers, "<i>so come see me again soon.  I\'ll be wantin\' more.</i>"  Your demon stands up and winks at you, then walks off, tails swishing happily as a trickle of white runs down the brown skin of her naked thigh.'
             );
-            //(end scene)
+            // (end scene)
             this.player.orgasm();
             this.dynStats("lib", -1);
             this.sheilaPreg();
-            //if short scene, sheilapreg check, reduce PC lust and libido
+            // if short scene, sheilapreg check, reduce PC lust and libido
             if (this.getGame().inCombat) this.cleanupAfterCombat();
             else this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //(else if RNG doesn't end scene)
+        // (else if RNG doesn't end scene)
         else {
             this.outputText(
                 "I gave you a little push, because I wanted your semen inside me so bad... but we could keep going, if you like?  Look into my eyes, lover, and see how much I still need you.</i>\"  Spent by climax as you are, you can't really focus elsewhere, and stare dully at the girl under you.  A slow smile spreads across her face, as her eyes glitter and a picture forms in your mind: one of you fucking Sheila over and over, pumping abnormally-enhanced levels of jizz into her pussy every day"
             );
-            //(if vag)
+            // (if vag)
             if (this.player.hasVagina())
                 this.outputText(" as her imp spawn take turns doing the same to you from behind");
             else
@@ -7135,7 +7135,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\n"<i>Oh, <b>[name]</b>!  Come with me!</i>" Sheila screams, as she wraps her body around you again and a foreign wave of arousal washes over you.  '
             );
-            //[(PC corr <50)
+            // [(PC corr <50)
             if (this.player.cor < 50)
                 this.outputText(
                     "Her pussy convulses as she orgasms, and you feel a wave of heat overtaking your [cock biggest], starting at the tip and moving down the shaft.  As it reaches the base, a gush of her fluids breaches the seal her pussy makes around you, forcing your jizz out along with it in a mixed white and clear squirt.  The demon's vagina squeezes and drools for half a minute, pouring her tainted liquid love out against your tightly-held body until your crotch is soaked with her sticky heat and responds with its own."
@@ -7174,7 +7174,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\n"<i>This is where our baby will grow, lover.  Thank you for it.  See you soon.</i>"  Her eyes soften as she releases her grip, then she stands up and departs with tails waving happily.  After a few minutes to regain your strength, you collect your things and leave as well.'
             );
 
-            //if long scene, sheilapreg check, reduce lust, reduce libido, slimefeed if corr < 50; if PC corr <50 then +10 corr and -10 sheila corruption, else if PC corr >=50 then -10 corr and +10 sheila corruption
+            // if long scene, sheilapreg check, reduce lust, reduce libido, slimefeed if corr < 50; if PC corr <50 then +10 corr and -10 sheila corruption, else if PC corr >=50 then -10 corr and +10 sheila corruption
             this.sheilaPreg();
             this.player.orgasm();
             this.dynStats("lib", -1);
@@ -7192,23 +7192,23 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         }
     }
 
-    //Win - [Anal Hate-fuck] - peg-knocking with optional corr >=80 break-up (for your cock or C. Jojo's)
-    //if PC has both a dick and corrupted Jojo, output this scene and choice; else skip this output and go right to appropriate option
+    // Win - [Anal Hate-fuck] - peg-knocking with optional corr >=80 break-up (for your cock or C. Jojo's)
+    // if PC has both a dick and corrupted Jojo, output this scene and choice; else skip this output and go right to appropriate option
     private analHateFuck(): void {
         this.clearOutput();
         this.outputText(
             "Fucking bitch, playing with herself like nothing's the matter and you didn't just show her concrete proof of your superiority.  Part of you feels like punishing the insolent woman yourself, pounding her insides and dumping your load without a whit of regard for her own pleasure... but another part is thinking it might be fun to see her completely debased, to hammer home how pathetic she is - something like reducing her to a cock-sleeve for your personal cum-slave."
         );
 
-        //[Tear Her Up][Call Jojo]
+        // [Tear Her Up][Call Jojo]
         this.menu();
         this.addButton(0, "TearHerUp", this.sheilaAnalHateFuckAGoGo);
         if (this.jojoScene.campCorruptJojo())
             this.addButton(1, "Call Jojo", this.analHateFucksWithJojo);
     }
 
-    //[Demon Victory Sex - Anal Hate-fuck - Tear Her Up]
-    //with own cock version - for surprise buttsex
+    // [Demon Victory Sex - Anal Hate-fuck - Tear Her Up]
+    // with own cock version - for surprise buttsex
     private sheilaAnalHateFuckAGoGo(): void {
         this.clearOutput();
         this.outputText(
@@ -7229,7 +7229,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outputText('\n\n"<i>No.</i>"  You ');
-        //(not centaur)
+        // (not centaur)
         if (!this.player.isTaur())
             this.outputText("grab her thrashing legs, using them for leverage as you ");
         this.outputText(
@@ -7279,20 +7279,20 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\n"<i>[name]!  Finish in my pussy, please!  I want to raise your baby!  You\'re the only one that suits me!</i>"'
         );
 
-        //if corruption >= 80 and PC has worms, present choices
+        // if corruption >= 80 and PC has worms, present choices
         if (this.player.cor >= 80 && this.player.findStatusAffect(StatusAffects.Infested) >= 0) {
             this.menu();
-            //[No][Worms Suit You], else auto-output text from [No]
+            // [No][Worms Suit You], else auto-output text from [No]
             this.addButton(0, "No", this.sheilaAnalHateFuckAGoGoNO);
             this.addButton(1, "WormsSuitYou", this.sheilaAnalHateFuckAGoGoGETYOUSOMEWORMS);
         } else {
             this.menu();
-            //see above
+            // see above
             this.addButton(0, "Next", this.sheilaAnalHateFuckAGoGoNO);
         }
     }
 
-    //[Demon Victory Sex - Anal Hate-fuck - Tear Her Up - No]
+    // [Demon Victory Sex - Anal Hate-fuck - Tear Her Up - No]
     private sheilaAnalHateFuckAGoGoNO(): void {
         this.clearOutput();
         this.outputText(
@@ -7317,14 +7317,14 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText('\n\n"<i>Write a poem about your feelings.</i>"');
 
-        //minus lust, minus libido, plus small corruption
+        // minus lust, minus libido, plus small corruption
         this.player.orgasm();
         this.dynStats("lib", -1, "cor", 2);
         if (this.getGame().inCombat) this.cleanupAfterCombat();
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Demon Victory Sex - Anal Hate-fuck - Tear Her Up - Worms Suit You]
+    // [Demon Victory Sex - Anal Hate-fuck - Tear Her Up - Worms Suit You]
     private sheilaAnalHateFuckAGoGoGETYOUSOMEWORMS(): void {
         this.clearOutput();
         this.outputText('"<i>Mmm...</i>" you answer, noncommittally.  Your ');
@@ -7338,7 +7338,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\n"<i>You do!  God, you do, mate!  Your donger belongs in my pussy!</i>"  Sheila rubs her cunt against your wet prick, trying to coax you.'
         );
 
-        //(mans)
+        // (mans)
         if (!this.player.isTaur()) this.outputText("\n\nPlacing a hand on");
         else this.outputText("\n\nSqueezing your thighs around");
         this.outputText(" your ");
@@ -7362,7 +7362,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 " she kisses you affectionately, looking right into your eyes; you're flooded with nebulous mental images of fucking a slender, sickly pale Sheila as both of you are covered and hidden from the sunlight by a massive colony, of her riding you with her slithering, wormy pussy until the semen spitting from your [cockFit 56] leads the parasites within right to your slit, and, most disturbingly, of Sheila stretching your slick urethra wide open and climbing into your penis herself!  Shaking it off, you quickly break contact, pick up your stuff, and depart, leaving the infested woman behind... but the visions don't go away."
         );
 
-        //reduce lust to min and then take 20 libido-based lust damage, lower PC corruption by 10, remove dickworm infestation, set sheilapreg = -2 (yes, -2; in case I want to use Worm Sheila later)
+        // reduce lust to min and then take 20 libido-based lust damage, lower PC corruption by 10, remove dickworm infestation, set sheilapreg = -2 (yes, -2; in case I want to use Worm Sheila later)
         this.player.removeStatusAffect(StatusAffects.Infested);
         this.player.orgasm();
         this.dynStats("cor", 10);
@@ -7372,7 +7372,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Demon Victory Sex - Anal Hate-fuck - Call Jojo] - corrupted mouse version:
+    // [Demon Victory Sex - Anal Hate-fuck - Call Jojo] - corrupted mouse version:
     private analHateFucksWithJojo(): void {
         this.clearOutput();
         this.outputText(
@@ -7409,7 +7409,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>You are disgraceful!</i>" you shout.  Stunned by the sudden violence, Sheila doesn\'t move; Jojo takes the opportunity presented to start working his prick in her butthole.  Grabbing and twisting one of her long ears, you begin haranguing the demon.  "<i>Look at yourself; what about you is satisfactory?  Do you call this dirty mop on your head hair?  When\'s the last time you washed?  You\'re not even cute; I could throw a stone anywhere and find a face like yours!</i>"  You release her ear and squeeze her breast callously.  '
         );
-        //[(if sheila corruption <40)]
+        // [(if sheila corruption <40)]
         if (this.sheilaCorruption() < 40)
             this.outputText(
                 "\"<i>What's with these tiny titties?  Could any man possibly be aroused by your bug bites?  I've seen bigger breasts on incubi!</i>\""
@@ -7434,7 +7434,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\nHer face fills with defiant bitterness as she digests this last statement, looking at the ground.  "<i>Please... [master],</i>" she says, finally, "<i>will you have your slave come in my unworthy pussy instead?</i>"  She\'s still obviously resisting the lesson.'
         );
 
-        //present [No][Ruin Them]choices only if corruption >= 80, else output text from [No]
+        // present [No][Ruin Them]choices only if corruption >= 80, else output text from [No]
         if (this.player.cor >= 80) {
             this.menu();
             this.addButton(0, "Next", this.analHateFucksWithJojoNo, true);
@@ -7447,7 +7447,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         }
     }
 
-    //[Demon Victory Sex - Anal Hate-fuck - Call Jojo - No]
+    // [Demon Victory Sex - Anal Hate-fuck - Call Jojo - No]
     private analHateFucksWithJojoNo(clear: boolean): void {
         if (clear) this.clearOutput();
         else this.outputText("\n\n");
@@ -7466,13 +7466,13 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nResponding quickly, Jojo falls into formation beside you as you back away from the debased demon.  As she pushes herself upright, covered in liquid filth, the only glow you can see in her eyes now is one of simmering anger.  Satisfied with ruining her fun, you depart."
         );
-        //lust raised, plus some corruption
+        // lust raised, plus some corruption
         this.dynStats("lus", this.player.lib / 3, "cor", 2);
         if (this.getGame().inCombat) this.cleanupAfterCombat();
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Demon Victory Sex - Anal Hate-fuck - Call Jojo - Ruin Them]
+    // [Demon Victory Sex - Anal Hate-fuck - Call Jojo - Ruin Them]
     private jojoRuinsTheAnalHateFuck(clear: boolean = true): void {
         if (clear) this.clearOutput();
         else this.outputText("\n\n");
@@ -7549,7 +7549,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nSmiling grimly, you leave the wet sounds of sex behind you, wondering if Jojo will ever come when you call again."
         );
 
-        //set lust to 100, huge corruption gain (like it matters), set sheilapreg to -3 and disable Jojo unless and until new corrupted content is written to reflect changes
+        // set lust to 100, huge corruption gain (like it matters), set sheilapreg to -3 and disable Jojo unless and until new corrupted content is written to reflect changes
         this.dynStats("lus=", 100, "cor", 10, "resisted", false);
         this.flags[kFLAGS.SHEILA_DISABLED] = 4;
         this.flags[kFLAGS.JOJO_DEAD_OR_GONE] = 1;
@@ -7557,12 +7557,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Win - [Big Dick+Thighs] (usable for dicks with cockarea > 56) (all 10 of them)
-    //penis envy, go!
+    // Win - [Big Dick+Thighs] (usable for dicks with cockarea > 56) (all 10 of them)
+    // penis envy, go!
     private bigDickAndThighs(): void {
         this.clearOutput();
         this.outputText("As Sheila diddles herself, you ");
-        //[(not horse)
+        // [(not horse)
         if (!this.player.isTaur()) {
             this.outputText(
                 "doff your [armor]; the demon's eyebrows climb as you haul out " +
@@ -7572,7 +7572,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(" one at a time, practically stacking them atop each other");
             this.outputText(".");
         }
-        //(horse)
+        // (horse)
         else {
             this.outputText(
                 "slowly draw nearer to her, your " +
@@ -7584,8 +7584,8 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\n"<i>Oh no...</i>" she says, blushing.  "<i>[name], you\'re massive... are you really going to try to put something like that in my poor little pussy?</i>"'
         );
 
-        //corr split
-        //[(corr < 40)
+        // corr split
+        // [(corr < 40)
         if (this.player.cor < 40) {
             this.outputText(
                 '\n\nWell... her hole does look a bit lilliputian compared to your towering tool.  "<i>Where shall I put it, then?</i>" you reply.'
@@ -7600,7 +7600,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 " toward her and aim underneath her cunt to rub your [cockHead biggest] against her palm, smearing a glob of precum on it.  You can see her shivering wordlessly, sliding her fingers together to play with the hot, clingy fluid, making translucent webbing between them."
             );
-            //[(multi)
+            // [(multi)
             if (this.player.cockTotal() > 1) {
                 if (this.player.cockTotal() == 2) this.outputText("  Both");
                 else this.outputText("  All");
@@ -7617,7 +7617,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\n"<i>I\'m going to borrow a bit of your sensation...</i>" Sheila announces quietly.  '
             );
-            //[(not horse and not < 5"0)
+            // [(not horse and not < 5"0)
             if (!this.player.isTaur() && this.player.tallness >= 60)
                 this.outputText(
                     "She unbends and kisses you on the cheek, and your face feels a bit fuzzy where her lips touch.  "
@@ -7646,7 +7646,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 " and angling upward so the precum drools downward and lubes her fingers."
             );
         }
-        //(else corr >= 40)
+        // (else corr >= 40)
         else if (this.player.cor >= 40) {
             this.outputText(
                 '\n\nThe fuck does it matter?  She\'s a demon.  You set your face and advance, and Sheila turns over with a grimace, raising her ass in the air.  "<i>Just... go slowly so I can stretch,</i>" she insists.'
@@ -7668,7 +7668,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\nThe two tails release their grip on your [cock biggest] and arch above it, pushing it suddenly out of alignment so your next thrust slips it between her thighs and bumps it up against her midriff.  The demon\'s hands dart to it, holding it in place and preventing you from pulling back out.  "<i>Sorry, mate... can\'t focus like that...</i>" she mumbles, looking over her shoulder at you.  "<i>I\'ll make it up to you, though... promise.</i>"  Her fingers search out your pre-bubbling urethra, dancing over it and sending a tingle up your tool.'
             );
 
-            //[(multi)
+            // [(multi)
             if (this.player.cockTotal() > 1) {
                 this.outputText(
                     '\n\nYou shudder at her surprising facility, but your mind still latches onto a way to get even more pleasure.  "<i>Fine,</i>" you agree, "<i>but it won\'t be easy for you.</i>"  Lining up your other prick'
@@ -7694,7 +7694,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                     " breasts, smearing your secretions down her entire torso.  Her skin is hot and feels good, but not as vivid as you'd expect.  The demon's pussy contracts wildly again, despite being at rest against your shaft, and you come to a realization: she's actually siphoning the pleasure from you!"
             );
         }
-        //end corr split
+        // end corr split
         this.outputText(
             "\n\nThe woman quickly becomes lost in her own little world, searching out the nerves on your prick"
         );
@@ -7713,7 +7713,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.multiCockDescriptLight() +
                 " - and is quickly smothered with her chest."
         );
-        //[(sheila corruption < 50)
+        // [(sheila corruption < 50)
         if (this.sheilaCorruption() < 50)
             this.outputText(
                 "  Though her modest breasts can't even begin to encompass your girth, Sheila rubs her cleavage along your skin with gusto while she works your tip with her tongue."
@@ -7742,7 +7742,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nAnd yet, all these attentions basically amount to foreplay; you want more, want to finish and cover her face and chest with your load.  You pull your cock free of her mouth and begin to thrust between her slick thighs, wondering if hijacking your emotions makes her want the same thing.  Answering your question, Sheila pulls her sticky fingers away from her chest and lowers them to the ground, resuming her initial pose and squeezing her thighs together tightly.  "
         );
-        //[(sheila corruption >= 150)
+        // [(sheila corruption >= 150)
         if (this.sheilaCorruption() >= 150) {
             this.outputText(
                 "Her enormous breasts dangle all the way to the ground, forming a second, softer hole to push into with your swollen prick"
@@ -7796,7 +7796,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         );
         this.outputText("\n\nShaking your head, you leave her behind.");
 
-        //reduce lust, reduce libido, reduce sens, +10 corr and sheila corruption -10 if corr <50 or -10 corr and sheila corruption +10 if corr >= 50
+        // reduce lust, reduce libido, reduce sens, +10 corr and sheila corruption -10 if corr <50 or -10 corr and sheila corruption +10 if corr >= 50
         this.player.orgasm();
         this.dynStats("lib", -1, "sen", -1);
         if (this.player.cor < 50) {
@@ -7810,7 +7810,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Win - [Penetration, in Spades] - for self-loathing vaginas
+    // Win - [Penetration, in Spades] - for self-loathing vaginas
     private winAgainstDemoNSheilaForVaginas(): void {
         this.clearOutput();
         this.outputText("You drop onto the woman's lap without hesitation, ");
@@ -7836,7 +7836,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         );
         if (!this.player.isTaur()) {
             this.outputText("crawl away on your hands");
-            //[(tail or naga)
+            // [(tail or naga)
             if (this.player.tailType > TAIL_TYPE_NONE && this.player.isNaga())
                 this.outputText(" and raise your tail");
         } else this.outputText("clamber to your hooves and bend your forelegs");
@@ -7880,7 +7880,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nYour [vagina] convulses in climax at the thought of being so debased - "
         );
-        //[(lib <20)
+        // [(lib <20)
         if (this.player.lib < 20) this.outputText("even as proud as you are, ");
         this.outputText(
             "there's something appealing about the picture, something powerful in being cherished and used in equal measure.  Sheila screams and releases your hair, digging her fingers into your hips, spraying the inside of your pussy with a thick, oozing heat that spreads out and then dulls as your own pouring juices force her cum out.  Peering between your legs, you can see it falling to the ground; viscous black sludge that bubbles and steams as if it were trying to reach back up to your sex."
@@ -7896,7 +7896,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 ".  Sheila howls to the sky as she pours her demonic slime into you in one final, solid stream.  You can feel it pushing eagerly through even your copious fluids until it's at the entrance to your womb... and then inside."
             );
-            //[fertility up if not capped; tingle deep within body, instinctively you know you have become blah blah]
+            // [fertility up if not capped; tingle deep within body, instinctively you know you have become blah blah]
             if (this.player.fertility < 50) {
                 this.outputText("  There is a tingle deep inside you, making you more fertile.");
                 this.player.fertility++;
@@ -7909,13 +7909,13 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>God damn,</i>" she says, rubbing your [butt] and withdrawing her spade, to produce a splat as your pussy forces out the excess black slime.  "<i>I love you so much, [name].</i>"  You both collapse; your [vagina] continues to drool its dark-tinged lube for some time as you lay face-down with Sheila resting atop you, but eventually returns to nearly normal.'
         );
-        //[(if not wetness-capped)
+        // [(if not wetness-capped)
         if (this.player.wetness() < 5) {
             this.outputText("\n\nYou think you may be a little wetter than before, though.");
-            //[wetness level up]]
+            // [wetness level up]]
             this.player.vaginas[0].vaginalWetness++;
         }
-        //slimefeed, reduce lust, reduce libido, +10 corr and sheila corruption -10 if corr <50 or -10 corr and sheila corruption +10 if corr >= 50, also fertility and wetness increases as denoted in the text
+        // slimefeed, reduce lust, reduce libido, +10 corr and sheila corruption -10 if corr <50 or -10 corr and sheila corruption +10 if corr >= 50, also fertility and wetness increases as denoted in the text
         this.player.slimeFeed();
         this.player.orgasm();
         this.dynStats("lib", -1);
@@ -7933,7 +7933,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
     /*Sheila's Lethicite:
 
     [piercing for magicfags]
-    //add [S. Lethicite] to Rare Menu of any piercing
+    // add [S. Lethicite] to Rare Menu of any piercing
 
     [blah blah blah Tel'Adre blah blah piercing bodyparts furry shit gems - Rare Menu - S. Lethicite]
     You hold out the stone you acquired from Sheila to the artist, and ask if she can use it.
@@ -7944,12 +7944,12 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
 
     [blah blah blah Tel'Adre blah blah piercing bodyparts furry shit gems - Rare Menu - S. Lethicite - Yes]
-    //suppress usual Yara output
+    // suppress usual Yara output
     You can feel an odd, foreign arousal filling you as your skin wicks latent magical energy from your new piercing.  Yara's bewildered eyes meet yours briefly, then seem to gloss over as the magic dissipates, jumping the gap from you to her.  "Th-that looks nice," she says, shaking.  Her thighs clap together hurriedly, though not before a wet spot forms on the front of her pants, and she finishes her appraisal in a hurry.  "Thank you!  Co... co... cum again!"  Blushing, she shoos you out of the store.  <b>It looks like Sheila's gift has amplified your talent for magical emotional manipulation!</b>  You can only imagine how demons will react to the wellspring of tainted energy, though.
 
     (Gained Perk: Pierced: Lethicite)
 
-    //subtract 100 gems, add perk, remove Sheila's Lethicite key item, set sheilacite = 2
+    // subtract 100 gems, add perk, remove Sheila's Lethicite key item, set sheilacite = 2
 
 
 
@@ -7958,13 +7958,13 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
     Pierced: Lethicite - Sheila's stolen soul aids your black magic, but demons practically line up behind you now.
 
     da effect:
-    //improve black magic output by like 15-20% or someshit and increase demon and imp encounter rate by two or three times a normal Lethite piercing effect
-    //what am I, a fucking dev?
-    //if using Arouse against either version of Sheila with this perk active, automatically set monster lust = 100 and add to spell effect the output "The residual magic from Sheila's lethicite flares up in you, resonating with the woman as you cast your spell; her eyes widen as her knees buckle and dump her onto the ground, drooling lubrication from her vagina."
+    // improve black magic output by like 15-20% or someshit and increase demon and imp encounter rate by two or three times a normal Lethite piercing effect
+    // what am I, a fucking dev?
+    // if using Arouse against either version of Sheila with this perk active, automatically set monster lust = 100 and add to spell effect the output "The residual magic from Sheila's lethicite flares up in you, resonating with the woman as you cast your spell; her eyes widen as her knees buckle and dump her onto the ground, drooling lubrication from her vagina."
 
 
     Scarred Blade - Blacksmith-made:
-    //[Craft] button in Weapons option of Tel'Adre if PC has Sheila's Lethicite
+    // [Craft] button in Weapons option of Tel'Adre if PC has Sheila's Lethicite
 
     The blacksmith turns an appraising eye on you as you approach him without looking at any of the weapons on display.
 
@@ -7975,13 +7975,13 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
     "Stole it from a demon," you lie.
 
     He considers for a moment more before responding.  "Well done, then."  At that, he takes the crystal gingerly from your hand.  "Never worked with this before.  I promise nothing, but come back in two weeks.  I should have an update for you."
-    //remove Sheila's Lethicite key item, set sheilacite = 3, start sheilaforge timer, increment once per day at 0:00
+    // remove Sheila's Lethicite key item, set sheilacite = 3, start sheilaforge timer, increment once per day at 0:00
 
-    //repeat visits to weapons shop while sheilacite = 3
+    // repeat visits to weapons shop while sheilacite = 3
     [if sheilaforge < 14]
     The weaponsmith looks up from the forge as you enter.  "Oh, it's you.  I'm not done yet."  With a gesture, he dismisses you.  You can only content yourself with looking at the finished products.
 
-    //goto normal weapon list
+    // goto normal weapon list
 
 
     [if 14 <= sheilaforge < 21]
@@ -7995,7 +7995,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
     "Damnedest thing," he repeats, breaking your train of thought.  "Every time the blade slipped, it would twist toward my hands.  It's as if it's alive and eager to find flesh.  Truth be told... I was debating whether to turn it over to the Covenant and tell you the crystal couldn't be used.  But you're here, so take it and go."  Giving you barely enough time to sheathe the blade again, he places a strong hand against your back and all-but-pushes you out to the street.
 
-    //gain 1 Scarred Blade, set sheilacite = 4
+    // gain 1 Scarred Blade, set sheilacite = 4
 
 
     [if sheilaforge >=21]
@@ -8003,41 +8003,41 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
     "It's you.  I tried using your crystal.  It took to the metal easily enough but I couldn't get it to keep a... reliable edge.  City officials, ah, picked up the wasted scrap a little bit ago."  He looks away in what you guess is professional regret.  "Sorry."
 
-    //set sheilacite = 6
+    // set sheilacite = 6
 
 
     [Scarred Blade]
-    //tooltip
+    // tooltip
     This saber, made from lethicite-imbued metal, eagerly seeks flesh; it resonates with disdain and delivers deep, jagged wounds as it tries to bury itself in the bodies of others.
 
-    //base attack power
+    // base attack power
     ~10
 
-    //hit effect - deals med-high% armor-piercing damage with a power of (corruption - 70) in addition to normal damage, output (only once if d. attack):
+    // hit effect - deals med-high% armor-piercing damage with a power of (corruption - 70) in addition to normal damage, output (only once if d. attack):
     The blade jerks orgasmically as you send it home on [enemy], vibrating and trying to writhe out of your grip to get further inside them!
 
-    //if hitting Sheila with it, double all damage after calculation and output this instead of normal output:
+    // if hitting Sheila with it, double all damage after calculation and output this instead of normal output:
     The blade clings longingly to the woman, as if it had finally found its way home; when you pull it free with great effort, it leaves a long, tortuous cut in its wake.
-    //i found the control room!  -Metal Man
+    // i found the control room!  -Metal Man
 
     if PC has <= 70 corruption with Scarred Blade equipped, output this at end of hour
     The scratched sword you carry jerks wildly like a bucking horse, and, tilting hilt-downward, slides itself right out of its scabbard.  Before you can pick it up and re-sheathe it, it lashes out at your hand, cutting you and landing with the point out.  Even when you try to circle it and grab the handle, the uncanny saber spins its edge around to fend you off.  Sighing with irritation, you abandon it for now.
 
-    //deal 10 pts damage before armor, unequip Scarred Blade, remove from inventory, set sheilacite = 5
-    //don't put in Benoit's shop if blade leaves inventory and sheilacite > 4
+    // deal 10 pts damage before armor, unequip Scarred Blade, remove from inventory, set sheilacite = 5
+    // don't put in Benoit's shop if blade leaves inventory and sheilacite > 4
 
     if sheilacite >= 5 and PC corr > 70, output this at end of hour
     A nearby flash of light on metal catches your eye.  Drawing closer to it, you find the blade you abandoned before sticking point-down in the dirt.  The tainted saber leans toward you, presenting its hilt almost pleadingly.  Take up the sword again?
 
     [Yes]/[No] (don't set a spacebar default here)
 
-    //if PC says yes, add Scarred Blade to inventory and set sheilacite = 4
-    //if no, set sheilacite = 6
+    // if PC says yes, add Scarred Blade to inventory and set sheilacite = 4
+    // if no, set sheilacite = 6
 
 
     tutoring Kid A while she wields Scarred Blade
     The anemone attempts to draw the bloodthirsty saber at your insistence, but as she pulls it free of the scabbard, it jerks from her hands, lashing across her thigh before clattering noisily to the ground and spinning away.  Her shock grows as thick, clear fluid seeps from the cut, and she covers her mouth with her hands, looking up at you with piteous, wet eyes.  [(if corr <=70)The blade's edge flashes toward you as well, when you try to pick it up.  After a few frustrated attempts, it becomes clear that you'll have to abandon it for now.]
-    //empty Kidweapon; if corr <=70, set sheilacite = 5, else add Scarred Blade to inventory
+    // empty Kidweapon; if corr <=70, set sheilacite = 5, else add Scarred Blade to inventory
 
 
 

@@ -5,11 +5,11 @@ import { PregnancyStore } from "../../../PregnancyStore";
 import { Satyr } from "./Satyr";
 
 export class SatyrScene extends BaseContent {
-    //const SATYR_KIDS: number = 603;
-    //Game Implementation (code from here)
-    //Fight Encounter (Z)
-    //Happens either in the plains or the swamp.
-    //Fighting Descript (Z)
+    // const SATYR_KIDS: number = 603;
+    // Game Implementation (code from here)
+    // Fight Encounter (Z)
+    // Happens either in the plains or the swamp.
+    // Fighting Descript (Z)
 
     /*You are fighting a satyr! (Level: sumthin')
     Note: Satyrs actively increase their own lust in order to use their lust charge, if increasing their own lust will cause the satyr to lose the battle, then he should do something else! In other words, the conditions to execute a lust charge are mutually exclusive with the conditions to execute a lust increase.
@@ -32,9 +32,9 @@ export class SatyrScene extends BaseContent {
             );
             this.startCombat(new Satyr());
         }
-        //Non-aggressive Encounter (Z)
-        //Happens in either the plains or swamp
-        //Pregnant PCs can't get this encounter.
+        // Non-aggressive Encounter (Z)
+        // Happens in either the plains or swamp
+        // Pregnant PCs can't get this encounter.
         else {
             this.outputText("You wander through the ");
             if (location == 0) this.outputText("grassy plains");
@@ -42,7 +42,7 @@ export class SatyrScene extends BaseContent {
             this.outputText(
                 " when you hear strange music emanating not far from where you are.  Do you investigate?"
             );
-            //[Yes][No]
+            // [Yes][No]
             if (location == 0)
                 this.doYesNo(
                     this.createCallBackFunction(this.consensualSatyrFuck, 0),
@@ -56,7 +56,7 @@ export class SatyrScene extends BaseContent {
         }
     }
 
-    //[=Yes=]
+    // [=Yes=]
     private consensualSatyrFuck(loc: number = 0): void {
         this.clearOutput();
         this.spriteSelect(98);
@@ -88,7 +88,7 @@ export class SatyrScene extends BaseContent {
         this.outputText(
             "\n\nYou barely register what he's saying, the beverage hits you with such force you immediately stop drinking and start coughing, spilling some of the booze on the floor."
         );
-        //(+Lust)
+        // (+Lust)
         this.dynStats("lus", 25, "resisted", false);
         this.outputText(
             '\n\nThe satyr bellows with laughter and takes a huge swig of his own wineskin.  "<i>Looks like you need more practice with your liquor!</i>" he chortles.  "<i>Go on, drink up; practice makes perfect.</i>"'
@@ -97,24 +97,24 @@ export class SatyrScene extends BaseContent {
         this.outputText(
             "\n\nIt suddenly dawns upon you that this satyr might not have the most noble intentions... you're pretty sure there's some sort of aphrodisiac inside this beverage he offered you, judging by the heat that spreads through your body."
         );
-        //Trick him only available to High Int PCs and Skip Foreplay only available to High Libido PCs.
+        // Trick him only available to High Int PCs and Skip Foreplay only available to High Libido PCs.
 
         var trick = undefined;
-        //(if High Int)
+        // (if High Int)
         if (this.player.inte > 60 && this.player.lust <= 99) {
             this.outputText("\n\nPerhaps you could trick him into knocking himself out with it?");
             trick = this.trickZeSatyr;
         }
         var foreplay = undefined;
-        //(if High Libido)
+        // (if High Libido)
         if (this.player.lib > 60) {
             this.outputText(
                 "\n\nThat cock of his looks yummy, though... there's no need for all this ruse, you're pretty sure you know how to handle a dick; maybe you should skip foreplay and let him fill you up..."
             );
             foreplay = this.skipForeplay;
         }
-        //What should you do?
-        //[Trick him] [Keep Drinking] [Skip Foreplay] [Leave]
+        // What should you do?
+        // [Trick him] [Keep Drinking] [Skip Foreplay] [Leave]
         this.simpleChoices(
             "Trick Him",
             trick,
@@ -129,7 +129,7 @@ export class SatyrScene extends BaseContent {
         );
     }
 
-    //[=Keep Drinking=]
+    // [=Keep Drinking=]
     private keepDrinking(): void {
         this.clearOutput();
         this.spriteSelect(98);
@@ -156,7 +156,7 @@ export class SatyrScene extends BaseContent {
         this.outputText(
             "\n\nThe satyr keeps playing, smiling.  The last thing you see before unconsciousness takes you is an eager light in strangely goat-like eyes..."
         );
-        //[hymen check]
+        // [hymen check]
         if (this.player.hasVagina()) this.player.cuntChange(25, true, true, false);
         else this.player.buttChange(25, true, true, false);
         this.outputText(
@@ -167,12 +167,12 @@ export class SatyrScene extends BaseContent {
         this.outputText(
             ".  This must be the work of that satyr!  Mentally, you remind yourself to watch out for him next time.  You clean yourself up as best as you can and redress, then wobble your way towards your camp, trying to stifle the pain, in your head and elsewhere, along the way."
         );
-        //(8 hours lost) (PC is pregnant (either vagina or ass) with a satyr, slimefeed)
+        // (8 hours lost) (PC is pregnant (either vagina or ass) with a satyr, slimefeed)
         this.satyrPreggo();
         this.doNext(this.camp.returnToCampUseFourHours);
     }
 
-    //[=Leave=]
+    // [=Leave=]
     private leavePartySatyr(): void {
         this.clearOutput();
         this.spriteSelect(98);
@@ -186,11 +186,11 @@ export class SatyrScene extends BaseContent {
 
         var satyr: Satyr = new Satyr();
         this.startCombat(satyr);
-        //proc first attack;
+        // proc first attack;
         satyr.satyrCharge();
-        //(Initiate combat with frenzied satyr, on the first round PC suffers the effects of a satyr charge (some HP lost and stunned))
+        // (Initiate combat with frenzied satyr, on the first round PC suffers the effects of a satyr charge (some HP lost and stunned))
     }
-    //[=Trick Him=]
+    // [=Trick Him=]
     private trickZeSatyr(): void {
         this.clearOutput();
         this.spriteSelect(98);
@@ -226,7 +226,7 @@ export class SatyrScene extends BaseContent {
         this.statScreenRefresh();
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[=Skip Foreplay=]
+    // [=Skip Foreplay=]
     private skipForeplay(): void {
         this.clearOutput();
         this.spriteSelect(98);
@@ -238,17 +238,17 @@ export class SatyrScene extends BaseContent {
             '\n\nThe satyr looks surprised, then grins.  "<i>Very well, if you insist...</i>" he purrs, reaching out to grab and push you to the ground, tearing roughly at your [armor] until you are naked.'
         );
 
-        //Play appropriate willing sex scene//
+        // Play appropriate willing sex scene//
         this.doNext(this.willinglyBoneSatyr);
     }
 
-    //Sex Scenes
-    //Loss Rape (Z)
-    //If PC has a vagina, Satyrs will use that. If not, use ass instead.
+    // Sex Scenes
+    // Loss Rape (Z)
+    // If PC has a vagina, Satyrs will use that. If not, use ass instead.
     public loseToSatyr(): void {
         this.clearOutput();
         this.spriteSelect(98);
-        //[Lust loss
+        // [Lust loss
         if (this.player.lust > 99)
             this.outputText(
                 "You pant as you begin masturbating furiously, too horny to care about anything the grinning satyr before you has in mind."
@@ -287,7 +287,7 @@ export class SatyrScene extends BaseContent {
                 ", not even bothered by the fact that his cock doesn't even fit inside you"
             );
         this.outputText(".");
-        //[cunt/buttchange]
+        // [cunt/buttchange]
         if (this.player.hasVagina())
             this.player.cuntChange(this.monster.cockArea(0), true, true, false);
         else this.player.buttChange(this.monster.cockArea(0), true, true, false);
@@ -342,7 +342,7 @@ export class SatyrScene extends BaseContent {
         this.outputText(
             " gather and re-dress in your garments and head back to camp, cum still dribbling from you as you go."
         );
-        //reduce lust, slimefeed, pregnatize me cap'n
+        // reduce lust, slimefeed, pregnatize me cap'n
         this.player.slimeFeed();
         this.satyrPreggo();
         this.player.orgasm();
@@ -351,16 +351,16 @@ export class SatyrScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    //Victory Rapes
+    // Victory Rapes
     public defeatASatyr(): void {
         this.clearOutput();
         this.spriteSelect(98);
-        //Lust Victory
+        // Lust Victory
         if (this.monster.lust > 99)
             this.outputText(
                 "The satyr collapses to its caprine knees, bleating in dismay as it paws frantically at its huge cock, oblivious to everything in its need to get off.  Already, pre-cum is fountaining from the goat-man's shaft, his jerking motions smearing the pungent sexual fluid across the crown."
             );
-        //HP Victory
+        // HP Victory
         else
             this.outputText(
                 "Beaten and dazed, the satyr collapses to its caprine knees, shaking his head in a futile attempt to recover himself from the brutal trouncing you've just given him.  The combination of the blows and his previous drunken state mean he's quite incapable of getting back, however."
@@ -371,7 +371,7 @@ export class SatyrScene extends BaseContent {
             this.outputText(
                 "\n\nYou wonder if you should give the satyr some sort of payback for attempting to rape you... do you take advantage of the helpless goat-man?"
             );
-            //[Male][Female][Leave]
+            // [Male][Female][Leave]
             if (this.player.hasCock() && this.player.cockThatFits(this.monster.analCapacity()) >= 0)
                 butt = this.malesTakeAdvantageOfSatyrs;
             else if (this.player.hasCock())
@@ -398,7 +398,7 @@ export class SatyrScene extends BaseContent {
             this.cleanupAfterCombat
         );
     }
-    //Female (Z)
+    // Female (Z)
     private femaleTakesAdvantageOfSatyr(): void {
         this.clearOutput();
         this.spriteSelect(98);
@@ -452,12 +452,12 @@ export class SatyrScene extends BaseContent {
         this.outputText(
             "\n\nYou grind your pussy into his face one last time, then, with regal delicacy, you remove yourself from the unconscious, sex-splattered satyr.  Picking up your clothes, you redress yourself.  Once you're decent, you leave the unconscious goatman as prey for whatever creature comes to investigate the stink of cum spattered about in such copious quantities."
         );
-        //reduce lust
+        // reduce lust
         this.player.orgasm();
         this.cleanupAfterCombat();
     }
 
-    //Male (Z)
+    // Male (Z)
     private malesTakeAdvantageOfSatyrs(): void {
         this.clearOutput();
         this.spriteSelect(98);
@@ -500,17 +500,17 @@ export class SatyrScene extends BaseContent {
         this.outputText(
             "\n\nYou groan deep and low, and then let loose your own orgasm into his waiting bowels."
         );
-        //Low Cum Amount
+        // Low Cum Amount
         if (this.player.cumQ() < 250)
             this.outputText(
                 "  He tries to milk you for far more than you can give him, and at one point you feel like his anal muscles are going to tear your dick off, until finally they go lax and lets you slip out."
             );
-        //(Medium Cum Amount)
+        // (Medium Cum Amount)
         else if (this.player.cumQ() < 1000)
             this.outputText(
                 "  You dump far more than you usually do; the satyr's clenching asshole makes sure to drain you of every little drop of cum you have until finally it goes lax and lets you slip out, leaving the goat-man with a pudgy belly."
             );
-        //(High Cum Amount)
+        // (High Cum Amount)
         else
             this.outputText(
                 "  You shoot jet after jet of cum, far faster than the satyr's ass can milk you for it, and still he doesn't seem to stop trying.  His rippling muscles draw your cum inside his bowels in big bubbles.  When his ass finally goes lax, you're propelled halfway out of him by the force of your own backflowing seed; the satyr's ass looks like a wreck, and his belly is overflowing with so much spunk you're surprised it didn't come out of his mouth."
@@ -519,14 +519,14 @@ export class SatyrScene extends BaseContent {
         this.outputText(
             "\n\nSated for the moment, your gaze drifts towards the satyr.  He makes no sound; indeed, when you take a better look at him, you realize he's fallen asleep, still idly shaking his ass back and forth and jerking his cum-dribbling cock.  You don't even spare him a contemptuous look as you pull your bottoms up and head back."
         );
-        //reduce lust
+        // reduce lust
         this.player.orgasm();
         this.cleanupAfterCombat();
     }
 
-    //Willing Sex (Z)
-    //from skip foreplay
-    //always impregnates PC
+    // Willing Sex (Z)
+    // from skip foreplay
+    // always impregnates PC
     private willinglyBoneSatyr(): void {
         this.clearOutput();
         this.spriteSelect(98);
@@ -541,7 +541,7 @@ export class SatyrScene extends BaseContent {
             this.outputText(
                 "[balls], rolling each of your orbs around with reverence at the life-giving load they produce; finally he addresses your "
             );
-        //((if PC has a pussy)
+        // ((if PC has a pussy)
         if (this.player.hasVagina())
             this.outputText(
                 "[vagina], spreading your labia wide to see the interior of your rapidly moistening walls."
@@ -571,7 +571,7 @@ export class SatyrScene extends BaseContent {
         this.outputText(
             "\n\nHe takes hold of your hips and aligns his massive meat with your [vagOrAss]; then with a bleat he pushes in agonizingly slowly.  He slips a few inches in, then waits as his cock throbs, painting your [vagOrAss] walls with a slick dose of pre, then pulls out a couple inches and pushes more inches in. This process is repeated over and over, until finally he's hilted deep inside you."
         );
-        //(cunt/buttchange)
+        // (cunt/buttchange)
         if (this.player.hasVagina()) this.player.cuntChange(25, true, true, false);
         else this.player.buttChange(25, true, true, false);
 
@@ -617,7 +617,7 @@ export class SatyrScene extends BaseContent {
             '; making slow, short thrusts to ensure you\'ve got all the seed that you need.  Panting, he grins at you from his prone position.  "<i>Tell me then... did you like it?  Think that was enough baby batter to put a little satyr inside you?  Because if not I can go again.</i>"  He grins confidently.'
         );
 
-        //(if male/genderless and 0 satyr children)
+        // (if male/genderless and 0 satyr children)
         if (!this.player.hasVagina() && this.flags[kFLAGS.SATYR_KIDS] == 0) {
             this.outputText(
                 "\n\nYou stare at him blankly, then, as coherent thought returns to you, you ask how he can knock you up when you don't have a womb."
@@ -633,14 +633,14 @@ export class SatyrScene extends BaseContent {
                 "\n\nYou stare at your partner, then place a hand on your stomach in disbelief. You're going to have a baby?  Without even being female?  Shivering, you wonder if maybe having sex with this satyr was worth it, in that case..."
             );
         }
-        //(Medium Corruption)
+        // (Medium Corruption)
         if (this.player.cor < 66) {
             this.outputText(
                 "\n\nAs good as the invitation sounds, you just have to decline.  You think you got enough for a baby, and you think two little satyrs might be a bit above your capacity."
             );
             this.outputText('\n\nYour lover simply laughs.  "<i>Suit yourself.</i>"');
         }
-        //(High Corruption)
+        // (High Corruption)
         else {
             this.outputText(
                 "\n\nYou scratch your chin in thought and decide that you still need a bit more seed; reaching back, you give his balls a good squeeze, prompting a sick bleat from the satyr and a few more weak jets of jism from his overworked maleness."
@@ -658,14 +658,14 @@ export class SatyrScene extends BaseContent {
         this.outputText(
             "\n\nYou watch him as he goes, then manage to force yourself back to your feet and stagger off, lest something far less hospitable find you here."
         );
-        //slimefeed, reduce lust, impregnational geographic
+        // slimefeed, reduce lust, impregnational geographic
         this.player.slimeFeed();
         this.player.orgasm();
         this.satyrPreggo();
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Pregnancy Stuff (Z)
+    // Pregnancy Stuff (Z)
     private satyrPreggo(): void {
         if (this.player.hasVagina()) {
             this.player.knockUp(PregnancyStore.PREGNANCY_SATYR, PregnancyStore.INCUBATION_SATYR); //Satyrs can now fertilize eggs for ovipositing players
@@ -679,8 +679,8 @@ export class SatyrScene extends BaseContent {
         }
     }
 
-    //Birthing (Z)
-    //Baby is always male.
+    // Birthing (Z)
+    // Baby is always male.
     public satyrBirth(vag: boolean): void {
         this.spriteSelect(98);
         this.outputText(
@@ -722,7 +722,7 @@ export class SatyrScene extends BaseContent {
         );
         if (this.player.cor < 33) this.outputText(" and more than a bit disgusted");
         this.outputText(", you slip into a short, fitful sleep.");
-        //badabingbadaboom
+        // badabingbadaboom
         this.flags[kFLAGS.SATYR_KIDS]++;
     }
 }

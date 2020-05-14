@@ -1,10 +1,10 @@
 import { Utils } from "./internals/Utils";
 
 export class AssClass {
-    //constructor
+    // constructor
 
-    //data
-    //butt wetness
+    // data
+    // butt wetness
     public analWetness: number = 0;
     /*butt looseness
     0 - virgin
@@ -14,8 +14,8 @@ export class AssClass {
     4 - gaping
     5 - monstrous*/
     public analLooseness: number = 0;
-    //Used to determine thickness of knot relative to normal thickness
-    //Used during sex to determine how full it currently is.  For multi-dick sex.
+    // Used to determine thickness of knot relative to normal thickness
+    // Used during sex to determine how full it currently is.  For multi-dick sex.
     public fullness: number = 0;
 
     public validate(): string {

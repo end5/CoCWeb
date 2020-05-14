@@ -16,14 +16,14 @@ import { Isabella } from "./Isabella";
 import { NPCAwareContent } from "./NPCAwareContent";
 
 export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface {
-    //Isabella Flags:
-    //256	PC decided to approach Isabella's camp yet? 1
-    //257	Met Isabella?
-    //258	Is Isabella okay with tall folks?
-    //259	Has Isabella ever met the PC while PC is short?
-    //260	Isabella angry counter
-    //261  Times Izzy sleep-raped the PC?
-    //-Has PC raped her?
+    // Isabella Flags:
+    // 256	PC decided to approach Isabella's camp yet? 1
+    // 257	Met Isabella?
+    // 258	Is Isabella okay with tall folks?
+    // 259	Has Isabella ever met the PC while PC is short?
+    // 260	Isabella angry counter
+    // 261  Times Izzy sleep-raped the PC?
+    // -Has PC raped her?
 
     public constructor() {
         super();
@@ -32,11 +32,11 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
 
     private checkedIsabella: number = 0; //Make sure we test this event just once in timeChangeLarge
 
-    //Implementation of TimeAwareInterface
+    // Implementation of TimeAwareInterface
     public timeChange(): boolean {
         this.checkedIsabella = 0;
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00260] > 0) {
-            //Isabella is angry at the player
+            // Isabella is angry at the player
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00260]--;
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00260] > 300)
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00260] = 300;
@@ -82,20 +82,20 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         }
         return false;
     }
-    //End of Interface Implementation
+    // End of Interface Implementation
 
     public isabellaGreeting(): void {
         this.spriteSelect(31);
         this.outputText("", true);
         var suck = undefined;
-        //Not approached yet - the prequel!
+        // Not approached yet - the prequel!
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00256] == 0) {
             this.outputText(
                 "While walking through the high grasses you hear a rich, high voice warbling out a melodious tune in a language you don't quite understand.  Do you approach or avoid it?",
                 false
             );
-            //[Approach – to meeting] [Avoid – camp] – dont flag as met yet
-            //Approach - sets flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00256] to 1 and calls this function
+            // [Approach – to meeting] [Avoid – camp] – dont flag as met yet
+            // Approach - sets flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00256] to 1 and calls this function
             this.simpleChoices(
                 "Approach",
                 this.isabellaGreetingFirstTime,
@@ -110,7 +110,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
             );
             return;
         }
-        //CAMP MEETING – UMAD BRAH!?
+        // CAMP MEETING – UMAD BRAH!?
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00260] > 0) {
             this.outputText(
                 "You unintentionally wind up in Isabella's camp, and the cow-girl still seems pretty steamed at you.  She charges towards you, sliding her arm through the straps on her shield as she approaches.  It's a fight!",
@@ -121,7 +121,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
             this.spriteSelect(31);
             return;
         }
-        //[Camp Meeting First Time]
+        // [Camp Meeting First Time]
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00257] == 0) {
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00257]++;
             this.outputText(
@@ -148,7 +148,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                 "  Her skin is tanned dark, practically milk-chocolate brown, but a few rounded spots of white, pearly skin break up the uniformity.  The cow-girl is wearing a diaphanous silk shirt supported by a black leather corset and red lace.  She also wears a plain, olive-toned skirt that barely protects her modesty, and nearly fails in its purpose with every subtle breeze.  Her wide hips flare into spacious thighs before disappearing under a layer of shaggy, auburn fur that grows thicker and thicker the closer it gets to her hooves.\n\n",
                 false
             );
-            //(tall PC's 6'6</i>\"+)
+            // (tall PC's 6'6</i>\"+)
             if (this.player.tallness > 78) {
                 this.outputText(
                     'The cow-girl narrows her eyebrows in irritation as she sizes up your impressively large form.  She speaks with a strange accent, "<i>Who are you and vat are you doing here?</i>"\n\n',
@@ -162,7 +162,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                     "A bit taken aback by her violent reaction, you blink in confusion as she pulls a titanic shield from behind her chair and slides her arm comfortably into the strap.  What do you do?\n\n",
                     false
                 );
-                //[Talk] [Fight] [Leave]
+                // [Talk] [Fight] [Leave]
                 this.simpleChoices(
                     "Try to Talk",
                     this.tryToTalkDownAngryCow,
@@ -176,7 +176,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                     this.leaveAngryIzzy
                 );
             }
-            //(Shorter PC's)
+            // (Shorter PC's)
             else {
                 if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00259] < 0)
                     this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00259]++;
@@ -188,7 +188,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                     "\n\nYou approach and exchange introductions with the friendly woman, still a bit taken aback by her eagerness.",
                     false
                 );
-                //(Male PC's)
+                // (Male PC's)
                 if (this.player.hasCock()) {
                     this.outputText(
                         "  She sniffs the air and immediately glances towards your groin.",
@@ -206,7 +206,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                             false
                         );
                 }
-                //[Talk – real conversations] [Drink – leads to breastfeeding] [Get Licks – leads to oral for small fries] [Rape?]
+                // [Talk – real conversations] [Drink – leads to breastfeeding] [Get Licks – leads to oral for small fries] [Rape?]
                 this.simpleChoices(
                     "Talk",
                     this.talkWithIsabella,
@@ -222,14 +222,14 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
             }
             return;
         }
-        //Camp Meeting – Repeat Unwelcome
+        // Camp Meeting – Repeat Unwelcome
         else if (this.player.tallness > 78 && this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00258] == 0) {
             this.outputText(
                 'You stumble through the grass, nearly tripping as it parts to reveal the now-familiar sight of Isabella\'s camp.  The cow-girl spots you instantly and snarls, "<i>Begone!  I varned you once already!</i>"',
                 false
             );
-            //[Talk] [Fight] [Leave]
-            //Leave goes to special variation, see below.
+            // [Talk] [Fight] [Leave]
+            // Leave goes to special variation, see below.
             this.simpleChoices(
                 "Try To Talk",
                 this.tryToTalkDownAngryCow,
@@ -244,7 +244,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
             );
             return;
         }
-        //Camp Meeting – Was welcome tall, but not short yet!
+        // Camp Meeting – Was welcome tall, but not short yet!
         else if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00258] > 0 &&
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00259] == 0 &&
@@ -280,9 +280,9 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                 false
             );
             this.outputText("What do you want to do with Isabella today?", false);
-            //simpleChoices("Talk",0,"Drink",0,"Get Licked",suck,"Rape Attempt",0,"Leave",13);
+            // simpleChoices("Talk",0,"Drink",0,"Get Licked",suck,"Rape Attempt",0,"Leave",13);
         }
-        //Camp Meeting – Welcomed Short but Not Tall
+        // Camp Meeting – Welcomed Short but Not Tall
         else if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00259] > 0 &&
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00258] == 0 &&
@@ -292,7 +292,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                 "You easily brush through the tall grasses and stride into Isabella the cow-girl's camp.  It looks like she was sitting in her chair mending a blanket when you arrived, and you take a moment to watch her hunched posture squeeze her breasts tightly against the gauzy silk top she's so fond of wearing.  The outline of a single areola is clearly visible through the diaphanous material, but most striking is that each areola has four VERY prominent nipple-tips.  She looks at you, first in fright, and then in embarrassment as she recognizes you AND realizes what you were doing in a single instant.\n\n",
                 false
             );
-            //(+lust!)
+            // (+lust!)
             this.dynStats("lus", 10 + IsabellaScene.rand(10));
             this.outputText(
                 'Isabella complains, "<i>Vere you just checking me out?  Vell I must confess, I liked you better ven you were shorter.  Maybe if you ask nicely I might give you a peak and a drink.  That vould be nice, nein?\n\n',
@@ -311,9 +311,9 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                     suck = this.izzyGivesSmallWangsFreeOral;
                 }
             }
-            //simpleChoices("Talk",0,"Drink",0,"Get Licked",suck,"Rape Attempt",0,"Leave",13);
+            // simpleChoices("Talk",0,"Drink",0,"Get Licked",suck,"Rape Attempt",0,"Leave",13);
         }
-        //Follower go!
+        // Follower go!
         else if (
             this.flags[kFLAGS.ISABELLA_CAMP_DISABLED] == 0 &&
             this.flags[kFLAGS.ISABELLA_FOLLOWER_ACCEPTED] == 0 &&
@@ -323,8 +323,8 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
             this.isabellaFollowerScene.isabellaMoovesInGreeting();
             return;
         }
-        //[Standard welcome options]
-        //Camp Meeting – Standard Repeat
+        // [Standard welcome options]
+        // Camp Meeting – Standard Repeat
         else {
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00259] < 0)
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00259]++;
@@ -380,7 +380,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
             "Leave",
             this.camp.returnToCampUseOneHour
         );
-        //outputText("ISABELLA HAS BROKEN.  PLEASE TELL FENOXO.", true);
+        // outputText("ISABELLA HAS BROKEN.  PLEASE TELL FENOXO.", true);
     }
 
     private isabellaGreetingFirstTime(): void {
@@ -388,7 +388,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         this.isabellaGreeting();
     }
 
-    //Leave]
+    // Leave]
     public leaveAngryIzzy(): void {
         this.spriteSelect(31);
         this.outputText("", true);
@@ -398,7 +398,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         );
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[Fight]
+    // [Fight]
     public unwelcomeFightCowGal(): void {
         this.outputText("", true);
         this.outputText(
@@ -413,7 +413,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         this.spriteSelect(31);
         this.doNext(this.playerMenu);
     }
-    //Fuck-fight
+    // Fuck-fight
     public fightIsabella(): void {
         this.outputText("", true);
         if (!this.isabellaFollower()) this.isabellaFollowerScene.isabellaAffection(-5);
@@ -428,11 +428,11 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         this.spriteSelect(31);
         this.doNext(this.playerMenu);
     }
-    //[Talk]
+    // [Talk]
     public tryToTalkDownAngryCow(): void {
         this.outputText("", true);
         this.spriteSelect(31);
-        //(int below 25)
+        // (int below 25)
         if (this.player.inte < 25) {
             this.outputText(
                 "You open your mouth and tell her you won't be leaving until she understands that you aren't her enemy.  She snorts and taunts, \"<i>You zink Izabella vould fall for zuch trickery? HAH!</i>\"\n\n",
@@ -446,27 +446,27 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
             if (!this.isabellaFollower()) this.isabellaFollowerScene.isabellaAffection(-2);
             kGAMECLASS.enemyAI();
         }
-        //(int below 50)
+        // (int below 50)
         else if (this.player.inte < 50) {
             this.outputText(
                 'You start to try to explain your reasons for coming here, stuttering slightly in haste as the angry cow-girl looks to be paying less and less attention.  She snorts and lowers her shield, shouting, "<i>You zink Izabella vould fall for zuch nonzense? HAH!  Prepare to face mein fury!</i>"',
                 false
             );
             if (!this.isabellaFollower()) this.isabellaFollowerScene.isabellaAffection(-2);
-            //(start combat)
+            // (start combat)
             this.startCombat(new Isabella());
         }
-        //(Int below 75)
+        // (Int below 75)
         else if (this.player.inte < 75) {
             this.outputText(
                 "You do your best to explain the situation, but even giving her such a concise, well-explained argument doesn't seem to help you.  She snorts dismissively and says, \"<i>Shut up.  I have no patience for ze mutants of this land.  Now, if you truly mean no harm, you'd best find a way out of mein clearing before Izabella's shield breaks your noggin!</i>\"",
                 false
             );
             if (!this.isabellaFollower()) this.isabellaFollowerScene.isabellaAffection(-2);
-            //(Start combat)
+            // (Start combat)
             this.startCombat(new Isabella());
         }
-        //(Else)
+        // (Else)
         else {
             if (this.player.weaponName != "fists")
                 this.outputText("You toss aside your " + this.player.weaponName + " and", false);
@@ -496,7 +496,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         this.outputText("", true);
         this.spriteSelect(31);
         var x: number = this.player.cockThatFits(20);
-        //[Voluntary Nursing – PC is a big one or taur]
+        // [Voluntary Nursing – PC is a big one or taur]
         if (this.player.tallness > 78 || this.player.isTaur()) {
             this.outputText(
                 "Isabella's face lights up when you let her know that you could use a drink.  She grabs one of her blankets from atop a chest and throws it out over the ground.  The fabric of her intricately-patterned spread settles over the dirt, amazing you with its quality and size.  It's well over 10 feet from edge to edge and does a fantastic job of making the patch of dirt feel a lot more comfortable.  The busty cow-girl walks onto it, almost like a carpet, but then she lies down on her side and begins casually unlacing the red cord from her black corset.  Her mountainous mammaries wobble dangerously with each tug, and then she's tossing the corset aside.  With it out of the way, there's nothing between you and the cow-girl's glistening, sun-kissed skin except for a gauzy layer of silk.\n\n",
@@ -605,7 +605,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                 false
             );
 
-            //(Male and it fits end)
+            // (Male and it fits end)
             if (this.player.hasCock() && x >= 0) {
                 this.outputText(
                     "You wake after an hour of highly erotic dreams to find yourself snuggled against Isabella, held tightly in the crook of her arm.  She's snoring soundly, so you quietly extricate yourself from underneath her limb and cover her back up with her blanket.  As you stretch, you realize you're completely naked, your crotch is sore, and you absolutely reek of feminine lust.",
@@ -621,13 +621,13 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                         "  It looks like she fucked you in your sleep again.  You wish you wouldn't fall asleep so soundly after drinking her milk so that you could contribute to the sex, but you wake so COMPLETELY SATED in every way that you know it's going to be hard to ever turn her down.",
                         false
                     );
-                //(no lust!, minus 50 fatigue)
+                // (no lust!, minus 50 fatigue)
                 this.player.orgasm();
                 this.fatigue(-50);
-                //increment sleep rape counter
+                // increment sleep rape counter
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00261]++;
             }
-            //(Generic End)
+            // (Generic End)
             else {
                 this.outputText(
                     "You wake an hour later snuggled into a few of Isabella's blankets and feeling quite content.  The cow-girl is sitting in her chair, honing the bottom edge of her shield into a razor-sharp cutting surface.  She looks back at you and smiles, pausing her work to ask, "
@@ -642,11 +642,11 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                         '"<i>Did you enjoy the snack?  I think we both needed the drink, no?</i>" You nod, stand up stretch, feeling energized and awake.',
                         false
                     );
-                //(-65 fatigue)
+                // (-65 fatigue)
                 this.fatigue(-65);
             }
         }
-        //Voluntary Nursing (Small Characters)
+        // Voluntary Nursing (Small Characters)
         else {
             this.outputText(
                 "You are quite thirsty, and make no secret of it to Isabella, whose face broadens into a knowing smile as she replies, "
@@ -736,8 +736,8 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                 false
             );
 
-            //(Mandiggity!)
-            //(Male and it fits end)
+            // (Mandiggity!)
+            // (Male and it fits end)
             if (this.player.hasCock() && x >= 0) {
                 this.outputText(
                     "You wake up an hour later in a massive sprawl of blankets.  There's a soft pillow below you and another one above, and you struggle to dig your way out until a pair of arms wrap around you.  Those aren't pillows – you're trapped between the cow-girl's breasts!  You carefully slide downwards, giving her large, leaking nipples a longing look as you extricate yourself from the embrace with care.  She snores on, blissfully ignorant of your departure as you find your " +
@@ -768,13 +768,13 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                     else this.outputText("evening", false);
                     this.outputText(".", false);
                 }
-                //(no lust!, minus 50 fatigue)
+                // (no lust!, minus 50 fatigue)
                 this.player.orgasm();
                 this.fatigue(-50);
-                //increment sleep rape counter
+                // increment sleep rape counter
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00261]++;
             }
-            //(GENERIC)
+            // (GENERIC)
             else {
                 if (this.isabellaAccent())
                     this.outputText(
@@ -786,24 +786,24 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                         "You wake an hour later in a pile of blankets on the ground, feeling quite sated and rested.  Isabella is humming a pretty tune a few feet away and sharpening the bottom edge of a massive shield with a whetstone.  She stops when she notices you and sets the massive metal object aside with a noisy 'thunk'.  She reaches down for you with surprising quickness and lifts you up to kiss you on the forehead, saying, \"<i>Did you have a good nap?  Ya?  Thanks for being such a thirsty drinker, I haven't felt this light in days.</i>\"  Isabella sets you back on your feet and you stretch, feeling remarkably energized.",
                         false
                     );
-                //(-65 fatigue)
+                // (-65 fatigue)
                 this.fatigue(-65);
             }
         }
-        //Follower stuff
+        // Follower stuff
         if (!this.isabellaFollower()) this.isabellaFollowerScene.isabellaAffection(4);
-        //Decrease 'time since milked' count
+        // Decrease 'time since milked' count
         else if (this.flags[kFLAGS.ISABELLA_MILKED_YET] > 0)
             this.flags[kFLAGS.ISABELLA_MILKED_YET] = 0;
         this.player.slimeFeed();
-        //(Chance of thickening body to 75, chance of softening body if PC has a vag)
+        // (Chance of thickening body to 75, chance of softening body if PC has a vag)
         if (IsabellaScene.rand(2) == 0) this.outputText(this.player.modThickness(75, 4), false);
         if (IsabellaScene.rand(2) == 0 && this.player.hasVagina())
             this.outputText(this.player.modTone(0, 4), false);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[GET ORAL'ED AS A SMALL MALE]
+    // [GET ORAL'ED AS A SMALL MALE]
     public izzyGivesSmallWangsFreeOral(): void {
         this.spriteSelect(31);
         var x: number = this.player.smallestCockIndex();
@@ -931,7 +931,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
             false
         );
 
-        //(Low sensitivity success!)
+        // (Low sensitivity success!)
         if (this.player.sens < 50) {
             this.outputText(
                 "You moan happily, hips rocking instinctively against the cow-girl's vacuum-tight tongue-job as she cranks up her efforts to the maximum in an effort to make you blow already.  Panting lustily, you grab her horns and pull her face partway back, then slam it down while your " +
@@ -1100,7 +1100,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                 );
             }
         }
-        //(High sensitivity fail!)
+        // (High sensitivity fail!)
         else {
             this.outputText(
                 "You try to fight the heaven around your " +
@@ -1221,7 +1221,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Give Isy Oral]
+    // [Give Isy Oral]
     public volunteerToSlurpCowCunt(): void {
         this.spriteSelect(31);
         this.outputText("", true);
@@ -1346,7 +1346,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                 false
             );
         }
-        //(+lots of lust)
+        // (+lots of lust)
         this.dynStats("lus", 10 + this.player.lib / 10);
         if (this.player.hasCock()) {
             this.outputText("The cow-girl suddenly glances back at your crotch ", false);
@@ -1371,7 +1371,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         ) {
             this.doNext(this.camp.returnToCampUseOneHour);
         } else {
-            //(Change the ending of the \"Service Her\" option on an affectionate Isabella to the following; PC must NOT have a dick that suits her and MUST have a vagina)
+            // (Change the ending of the \"Service Her\" option on an affectionate Isabella to the following; PC must NOT have a dick that suits her and MUST have a vagina)
             if (!this.isabellaAccent())
                 this.outputText(
                     'Seeing the ardent desire your sexual service has so visibly inspired in your body - in your slick, ready cunt and erect nipples - the cow-girl smiles slightly, and asks, "<i>Perhaps you would like me to return the favor?  It seems only fair...</i>"'
@@ -1380,7 +1380,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                 this.outputText(
                     'Seeing the ardent desire your sexual service has so visibly inspired in your body - in your slick, ready cunt and erect nipples - the cow-girl smiles slightly, and asks, "<i>Perhaps you vould like me to return ze favor?  It seems only fair...</i>"'
                 );
-            //[Leave] [Get Cowlicked]
+            // [Leave] [Get Cowlicked]
             this.simpleChoices(
                 "Get Licked",
                 this.isabellaFollowerScene.receiveAllTheCowTOngues,
@@ -1398,7 +1398,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
 
     public IsabellaWinsAndSpanks(): void {
         this.outputText("", true);
-        //[Lose and get Spanked - Small]
+        // [Lose and get Spanked - Small]
         if (this.player.tallness <= 78) {
             if (this.player.HP < 1)
                 this.outputText(
@@ -1537,12 +1537,12 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                 "You go back to sleep, your backside bruised and your belly full of Isabella's milk.\n\n",
                 false
             );
-            //(+4 sensitivity, -100 lust if masochist, -40 fatigue)
+            // (+4 sensitivity, -100 lust if masochist, -40 fatigue)
             this.fatigue(-40);
             this.dynStats("sen", 4);
             if (this.player.findPerk(PerkLib.Masochist) >= 0) this.player.orgasm();
         }
-        //[Lose And Get Spanked – Tall]
+        // [Lose And Get Spanked – Tall]
         else {
             if (this.player.HP < 1)
                 this.outputText(
@@ -1680,7 +1680,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                 "You go back to sleep, your backside bruised and your belly full of Isabella's milk.",
                 false
             );
-            //(+4 sensitivity, -100 lust if masochist, -40 fatigue)
+            // (+4 sensitivity, -100 lust if masochist, -40 fatigue)
             this.fatigue(-40);
             this.dynStats("sen", 4);
             if (this.player.findPerk(PerkLib.Masochist) >= 0) this.player.orgasm();
@@ -1694,7 +1694,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         this.cleanupAfterCombat();
     }
 
-    //[Isabella rapes you with her ass]
+    // [Isabella rapes you with her ass]
     public isabellaRapesYouWithHerAss(): void {
         this.outputText("", true);
         var x: number = this.player.cockThatFits(38);
@@ -1855,8 +1855,8 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
             "The cow-girl grins like a cat with a mouthful of cream, though in this case the 'cat' makes plenty of her own.  She coos, \"<i>Mmmm, that's a good [boy], and I like to give my good [boy]s lots of treats.  Are you ready for momma Izabella to make you feel so good?</i>\"  You nod with enough enthusiasm to strain your neck, getting a cute giggle from the redhead.  ",
             false
         );
-        //(FORK – too big or small enough)
-        //[GOOD FIT]
+        // (FORK – too big or small enough)
+        // [GOOD FIT]
         if (this.player.cockThatFits(38) >= 0) {
             this.outputText(
                 "She slides her plump ass back down, arching her back to press your " +
@@ -1937,7 +1937,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                 false
             );
         }
-        //[TOOBIG]
+        // [TOOBIG]
         else {
             this.outputText("She slides her plump ass all the way down to your ", false);
             if (!this.player.hasSheath()) this.outputText("base", false);
@@ -2029,7 +2029,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         this.cleanupAfterCombat();
     }
 
-    //[OPTIONAL GET RAPED AFTER SPANKING/FEEDING]
+    // [OPTIONAL GET RAPED AFTER SPANKING/FEEDING]
     public IsabellaPostSpankFeedSex(): void {
         var x: number = this.player.smallestCockIndex();
         this.outputText("", true);
@@ -2150,7 +2150,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         this.cleanupAfterCombat();
     }
 
-    //LOSS
+    // LOSS
     public isabellaDefeats(): void {
         if (this.monster.statusAffectv1(StatusAffects.Sparring) <= 1) {
             if (this.player.hasCock() && IsabellaScene.rand(2) == 0)
@@ -2161,7 +2161,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         }
     }
 
-    //[VICTORY!]
+    // [VICTORY!]
     public defeatIsabella(): void {
         this.outputText("", true);
         if (this.monster.statusAffectv1(StatusAffects.Sparring) == 2) {
@@ -2277,7 +2277,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
             this.cleanupAfterCombat
         );
     }
-    //[LACTATION 69]
+    // [LACTATION 69]
     public victoryLactation69(): void {
         this.outputText("", true);
         this.outputText(
@@ -2411,7 +2411,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
             false
         );
 
-        //(Cuntnips)
+        // (Cuntnips)
         if (this.player.hasFuckableNipples())
             this.outputText(
                 "  Isabella thrusts her tongue at your " +
@@ -2419,7 +2419,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                     ", burrowing it deep into the unusual passage to get at the last of your liquid bounty and inadvertently intensifying your pleasure.  Your arm gives out and you drop on top of her, burying her in tit while hers serve as your pillows.",
                 false
             );
-        //(Cock & Puss)
+        // (Cock & Puss)
         if (this.player.gender == 3) {
             if (this.player.wetness() == 5)
                 this.outputText(
@@ -2443,7 +2443,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                     false
                 );
         }
-        //(Cock)
+        // (Cock)
         if (this.player.hasCock()) {
             this.outputText(
                 "  With a few more solid pumps " + this.sMultiCockDesc() + " goes rock hard",
@@ -2464,7 +2464,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                     false
                 );
         }
-        //(Puss only)
+        // (Puss only)
         if (this.player.gender == 2) {
             this.outputText(
                 "  The constant fingering of your " +
@@ -2488,7 +2488,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                 false
             );
         }
-        //(butt)
+        // (butt)
         if (this.player.gender == 0)
             this.outputText(
                 "  The constant fingering of your " +
@@ -2520,17 +2520,17 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
             false
         );
         if (!this.isabellaFollower()) this.isabellaFollowerScene.isabellaAffection(8);
-        //(slimefeed, -lust, +thickness & -tone?)
+        // (slimefeed, -lust, +thickness & -tone?)
         this.player.slimeFeed();
-        //You've now been milked, reset the timer for that
+        // You've now been milked, reset the timer for that
         this.player.addStatusValue(StatusAffects.Feeder, 1, 1);
         this.player.changeStatusValue(StatusAffects.Feeder, 2, 0);
-        //Reset anger
+        // Reset anger
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00260] = 0;
         this.player.orgasm();
         this.cleanupAfterCombat();
     }
-    //[VICTORY BUTTSEX]
+    // [VICTORY BUTTSEX]
     public PCVictoryOnIsabellaButtsex(): void {
         var x: number = this.player.cockThatFits(this.monster.analCapacity());
         var y: number = this.player.cockThatFits2(this.monster.analCapacity());
@@ -2780,7 +2780,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         this.cleanupAfterCombat();
     }
 
-    //[Victory 69]
+    // [Victory 69]
     public victoryAgainstIzzzzzySixtyNine(): void {
         var x: number = this.player.cockThatFits(38);
         if (x < 0) x = 0;
@@ -2847,7 +2847,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
             false
         );
 
-        //(VAGOOZLES)
+        // (VAGOOZLES)
         if (this.player.gender == 2) {
             this.outputText(
                 "Isabella returns to her task with gusto, muff-diving deep and hard to plant her exquisitely long tongue far inside you.  Her lips circle your " +
@@ -2877,7 +2877,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                 false
             );
         }
-        //(WANGS - fits)
+        // (WANGS - fits)
         else if (this.player.cockThatFits(38) != -1) {
             this.outputText(
                 "Isabella resumes her task with gusto, wrapping her lips around your ",
@@ -2905,7 +2905,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                     );
             }
         }
-        //(WANGS – no fit)
+        // (WANGS – no fit)
         else {
             this.outputText(
                 "Isabella resumes her task with gusto, wrapping her tongue around the ",
@@ -2960,7 +2960,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
             false
         );
 
-        //(Vagoo)
+        // (Vagoo)
         if (this.player.gender == 2) {
             this.outputText(
                 "Even as you exult in victory, the humming pleasure-squeals of Isabella's orgasm vibrate through her lips and tongue, straight up your " +
@@ -2979,7 +2979,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                 false
             );
         }
-        //(Dick Fitzwell)
+        // (Dick Fitzwell)
         else if (this.player.cockThatFits(38) != -1) {
             this.outputText(
                 "Even as you exult in your victory, the humming pleasure-squeals from Isabella vibrate your entire " +
@@ -3010,7 +3010,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
             } else this.outputText("your entire load", false);
             this.outputText(".", false);
         }
-        //(Dick + No fit)
+        // (Dick + No fit)
         else {
             this.outputText(
                 "Even as you exult in victory, the humming pleasure-squeals of Isabella's orgasm vibrate through her lips and tongue, spreading down your shaft.  The effect is profound and immediate, and even as Isabella loses control of her oral onahole, orgasm wracks your " +
@@ -3038,7 +3038,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                 this.outputText(".", false);
             }
         }
-        //(Extra dicks? - no new pg)
+        // (Extra dicks? - no new pg)
         if (this.player.cockTotal() > 1) {
             this.outputText(
                 "  Throughout it all you feel like a one-man bukkake show, spurting jism from your " +
@@ -3062,7 +3062,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
             false
         );
         this.outputText("You get dressed and leave with a smile.", false);
-        //(slimefeed + izzy unmad!)
+        // (slimefeed + izzy unmad!)
         this.player.orgasm();
         if (!this.isabellaFollower()) this.isabellaFollowerScene.isabellaAffection(9);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00260] = 0;
@@ -3071,7 +3071,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //['Too Big' Victory Titfucking Funtimes With Milk]
+    // ['Too Big' Victory Titfucking Funtimes With Milk]
     public tooBigVictoryTittyFuckingFuntimesWithMilk(): void {
         var x: number = this.player.biggestCockIndex();
         this.outputText("", true);
@@ -3288,7 +3288,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         this.cleanupAfterCombat();
     }
 
-    //[VAGINAL PROD N' POKE]
+    // [VAGINAL PROD N' POKE]
     public vaginalProdNPokeIsabella(): void {
         var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         if (x < 0) x = 0;
@@ -3486,14 +3486,14 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                 " and stop at the lake to clean up on your way back, though for most of the trip you're busy licking up her tasty milk-deposits.\n\n",
             false
         );
-        //Reset anger
+        // Reset anger
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00260] = 0;
         if (!this.isabellaFollower()) this.isabellaFollowerScene.isabellaAffection(7);
         this.cleanupAfterCombat();
         this.player.orgasm();
     }
 
-    //[Small dick tit-fucking] (Dicks less than 9 inches)
+    // [Small dick tit-fucking] (Dicks less than 9 inches)
     public tinyVictoryTittyFuckingFuntimesWithMilk(): void {
         var x: number = this.player.smallestCockIndex();
         this.outputText("", true);
@@ -3631,14 +3631,14 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                 '  "<i>Come back soon!  You have the tastiest little dick and I want to play with it more!</i>"',
                 false
             );
-        //Reset anger
+        // Reset anger
         if (!this.isabellaFollower()) this.isabellaFollowerScene.isabellaAffection(8);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00260] = 0;
         this.cleanupAfterCombat();
         this.player.orgasm();
     }
 
-    //[Discuss Isabella]
+    // [Discuss Isabella]
     public talkWithIsabella(): void {
         this.spriteSelect(31);
         this.outputText("", true);
@@ -3670,7 +3670,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
             );
             if (!this.isabellaFollower()) this.isabellaFollowerScene.isabellaAffection(10);
         }
-        //[Discuss Isabella Repeat]
+        // [Discuss Isabella Repeat]
         else
             this.outputText(
                 "You sit down with Isabella and share tales of your recent adventures.  While the companionship is nice, after an hour or so of discussion you decide to go your separate ways.",

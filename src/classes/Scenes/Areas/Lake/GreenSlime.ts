@@ -19,9 +19,9 @@ export class GreenSlime extends Monster {
                 " collapses, unable to continue fighting.",
             true
         );
-        //Boobfeed.
+        // Boobfeed.
         if (this.player.findStatusAffect(StatusAffects.Feeder) >= 0) {
-            //Eligable to rape
+            // Eligable to rape
             if (this.player.lust >= 33 && this.player.gender > 0) {
                 this.outputText(
                     "\n\nYou're horny enough to try and rape it, though you'd rather see how much milk you can squirt into it.  What do you do?",
@@ -40,7 +40,7 @@ export class GreenSlime extends Monster {
                     this.game.cleanupAfterCombat
                 );
             }
-            //Rapes not on the table.
+            // Rapes not on the table.
             else {
                 this.outputText(
                     "\n\nYour nipples ache with the desire to forcibly breastfeed the gelatinous beast.  Do you?",
@@ -52,7 +52,7 @@ export class GreenSlime extends Monster {
                 );
             }
         }
-        //Not a breastfeeder
+        // Not a breastfeeder
         else if (this.player.lust >= 33 && this.player.gender > 0) {
             this.outputText(
                 "  Sadly you realize your own needs have not been met.  Of course, you could always play with the poor thing... Do you rape it?",

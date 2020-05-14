@@ -347,7 +347,7 @@ export class Doppleganger extends Monster {
             (this.vaginas[0] as VaginaClass).vaginalWetness = this.player.vaginas[0].vaginalWetness;
             (this.vaginas[0] as VaginaClass).virgin = this.player.vaginas[0].virgin;
         }
-        //Genderless get forced to have a cunny
+        // Genderless get forced to have a cunny
         if (this.player.vaginas.length == 0 && this.player.cocks.length == 0) {
             this.createVagina();
             (this.vaginas[0] as VaginaClass).vaginalLooseness = 2;

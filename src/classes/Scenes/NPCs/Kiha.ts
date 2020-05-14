@@ -26,14 +26,14 @@ export class Kiha extends Monster {
         this.combatRoundOver();
     }
 
-    //This could be silly mode worthy! Should Expand? oh ok
+    // This could be silly mode worthy! Should Expand? oh ok
     private sillyModeKihaAttack(): void {
         this.game.spriteSelect(72);
         this.outputText(
             "Before you can stop to think, the dragon-woman steps back - throwing her axe into the air before she starts sprinting towards you. In seconds she's reached a hair's distance between her lithe form and your own, her fist recoiling and time seemingly stopping to allow you to note the powerful energy seeping from her arms.  ",
             false
         );
-        //Miss:
+        // Miss:
         if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
@@ -53,7 +53,7 @@ export class Kiha extends Monster {
                     false
                 );
         } else {
-            //Determine damage - str modified by enemy toughness!
+            // Determine damage - str modified by enemy toughness!
             var damage: number = Math.floor(
                 this.str + this.weaponAttack - Kiha.rand(this.player.tou) - this.player.armorDef
             );
@@ -81,7 +81,7 @@ export class Kiha extends Monster {
             false
         );
 
-        //Dodged
+        // Dodged
         if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
@@ -91,14 +91,14 @@ export class Kiha extends Monster {
                 false
             );
         }
-        //Determine if evaded
+        // Determine if evaded
         else if (this.player.findPerk(PerkLib.Evade) >= 0 && Kiha.rand(100) < 10) {
             this.outputText(
                 "Using your skills at evasion, you manage to jump to the side, intense heat rushing past you as you narrowly avoid her advance.  You twist around, finding that she's reunited with her axe and angrier than before.",
                 false
             );
         }
-        //("Misdirection"
+        // ("Misdirection"
         else if (
             this.player.findPerk(PerkLib.Misdirection) >= 0 &&
             Kiha.rand(100) < 10 &&
@@ -109,14 +109,14 @@ export class Kiha extends Monster {
                 false
             );
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         else if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Kiha.rand(100) < 6) {
             this.outputText(
                 "Using your cat-like reflexes, you manage to jump to the side, intense heat rushing past you as you narrowly avoid her advance.  You twist around, finding that she's reunited with her axe and angrier than before.",
                 false
             );
         }
-        //HIT!
+        // HIT!
         else {
             var damage: number = Math.floor(this.str - this.player.armorDef);
             damage = this.player.takeDamage(damage);
@@ -130,22 +130,22 @@ export class Kiha extends Monster {
         this.combatRoundOver();
     }
 
-    //Fire breath
+    // Fire breath
     private kihaFireBreath(): void {
         this.game.spriteSelect(72);
         this.outputText(
             "Kiha throws her arms back and roars, exhaling a swirling tornado of fire directly at you!\n",
             false
         );
-        //Miss:
-        //Determine if evaded
+        // Miss:
+        // Determine if evaded
         if (this.player.findPerk(PerkLib.Evade) >= 0 && Kiha.rand(100) < 10) {
             this.outputText(
                 "Using your talent for evasion, you manage to sidestep the flames in the nick of time; much to the dragoness' displeasure.",
                 false
             );
         }
-        //("Misdirection"
+        // ("Misdirection"
         else if (
             this.player.findPerk(PerkLib.Misdirection) >= 0 &&
             Kiha.rand(100) < 10 &&
@@ -156,7 +156,7 @@ export class Kiha extends Monster {
                 false
             );
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         else if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Kiha.rand(100) < 6) {
             this.outputText(
                 "Using your cat-like flexibility, you manage to sidestep the flames in the nick of time; much to the dragoness' displeasure.",

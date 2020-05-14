@@ -14,7 +14,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         CoC.timeAwareClassAdd(this);
     }
 
-    //Implementation of TimeAwareInterface
+    // Implementation of TimeAwareInterface
     public timeChange(): boolean {
         if (this.player.statusAffectv1(StatusAffects.GooStuffed) > 0) {
             this.player.addStatusValue(StatusAffects.GooStuffed, 1, -1);
@@ -29,11 +29,11 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
     public timeChangeLarge(): boolean {
         return false;
     }
-    //End of Interface Implementation
+    // End of Interface Implementation
 
-    //const VELARIA_FUTA: number = 499;
+    // const VELARIA_FUTA: number = 499;
 
-    //Camp Menu -- [Followers] -- [Valeria]
+    // Camp Menu -- [Followers] -- [Valeria]
     public valeriaFollower(): void {
         this.spriteSelect(79);
         this.clearOutput();
@@ -45,7 +45,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         );
         var sex = undefined;
         if (this.player.lust > 33) sex = this.followersValeriaSex;
-        //(Display Options: [Appearance] [Spar] [Sex] [Talk])
+        // (Display Options: [Appearance] [Spar] [Sex] [Talk])
         this.choices(
             "Appearance",
             this.valeriaAppearance,
@@ -70,7 +70,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         );
     }
 
-    //[Valeria] -- [Appearance]
+    // [Valeria] -- [Appearance]
     private valeriaAppearance(): void {
         this.clearOutput();
         this.spriteSelect(79);
@@ -80,7 +80,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nShe has a pair of C-cup breasts, with a single 0.5 inch nipple on each breast."
         );
-        //[If Valeria is cock'd:]
+        // [If Valeria is cock'd:]
         if (this.flags[kFLAGS.VELARIA_FUTA] == 1)
             this.outputText(
                 "\n\nWhen you desire it, she's able to form an impressive human-shaped cock above her twat, usually capping out at about 12 inches. Gooey as it is, it constantly dribbles bits of goop, not unlike pre-cum."
@@ -93,7 +93,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         );
         this.doNext(this.valeriaFollower);
     }
-    //Valeria] -- [Spar]
+    // Valeria] -- [Spar]
     private valeriaSpar(): void {
         this.clearOutput();
         this.spriteSelect(79);
@@ -104,14 +104,14 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nYou take Valeria out to the fringe of camp and ready your [weapon] as she forms a gooey greatsword in her hands."
         );
-        //(Play normal combat scenes, with EXP rewards. No rape options, however; use the following outtros:)
+        // (Play normal combat scenes, with EXP rewards. No rape options, however; use the following outtros:)
         this.startCombat(new GooArmor());
         this.monster.createStatusAffect(StatusAffects.Spar, 0, 0, 0, 0);
         this.monster.gems = 0;
         this.doNext(this.playerMenu);
     }
 
-    //[Valeria] -- [Spar] -- PC Victorious
+    // [Valeria] -- [Spar] -- PC Victorious
     public pcWinsValeriaSpar(): void {
         this.clearOutput();
         this.spriteSelect(79);
@@ -124,7 +124,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.cleanupAfterCombat();
     }
 
-    //[Valeria] -- [Spar] -- PC Defeated
+    // [Valeria] -- [Spar] -- PC Defeated
     public pcWinsValeriaSparDefeat(): void {
         this.clearOutput();
         this.spriteSelect(79);
@@ -139,24 +139,24 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>Tsk,</i>" she sighs, shaking her head.  "<i>Only reason I tagged along with you is I thought you might actually have a chance, Champion.  If you can\'t beat little old me... Oh, whatever am I going to do with you?</i>" she chuckles'
         );
-        //[if PC lost via HP or has no gender:
+        // [if PC lost via HP or has no gender:
         if (this.player.HP < 1 || this.player.gender == 0) {
             this.outputText(", offering you a hand up.");
             this.outputText("\n\n\"<i>C'mon, let's get back to camp.</i>\"");
-            //(Return to main Camp menu)
+            // (Return to main Camp menu)
             this.cleanupAfterCombat();
         }
-        //[else; If PC lost via lust & has a gender:
+        // [else; If PC lost via lust & has a gender:
         else {
             this.outputText(
                 ".  \"<i>Well, since you're so... eager... I might as well get my daily fluids while we're here.</i>\""
             );
-            //(Go to Valeria's gender-appropriate FemDom sex scenes)
+            // (Go to Valeria's gender-appropriate FemDom sex scenes)
             this.doNext(this.valeriaSexDominated);
         }
     }
 
-    //Followers -- [Valeria] -- [Sex]
+    // Followers -- [Valeria] -- [Sex]
     private followersValeriaSex(display: boolean = true): void {
         this.spriteSelect(79);
         if (display) {
@@ -173,8 +173,8 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
                 '\n\n"<i>Hmm... I suppose that could be arranged. What did you have in mind, partner?</i>"'
             );
         }
-        //(Display Options: \"<i>[Penetrate Her](Cockwielder PC Only)  [Get Fucked]  [Gooflation]
-        //[Get Dominated](Must have a gender)  [Dick/No Dick])
+        // (Display Options: \"<i>[Penetrate Her](Cockwielder PC Only)  [Get Fucked]  [Gooflation]
+        // [Get Dominated](Must have a gender)  [Dick/No Dick])
         var penetrate = undefined;
         if (this.player.hasCock()) penetrate = this.penetrateValeria;
         var getFucked = this.valeriaGetFucked;
@@ -210,11 +210,11 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         );
     }
 
-    //Valeria -- [Sex] -- [Dick/No Dick]
+    // Valeria -- [Sex] -- [Dick/No Dick]
     private valeriaDickToggle(): void {
         this.spriteSelect(79);
         this.clearOutput();
-        //[If Valeria has a dick:]
+        // [If Valeria has a dick:]
         if (this.flags[kFLAGS.VELARIA_FUTA] == 1) {
             this.outputText(
                 "Before you do anything, you ask Valeria if she wouldn't mind hiding her facsimile of a dick, at least when you aren't having sex."
@@ -226,16 +226,16 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nYou're gratified to see her thick gooey dick retract and dissipate into her groin."
             );
             this.outputText('\n\n"<i>All better now, partner?</i>"');
-            //(PC returns to sex menu)
+            // (PC returns to sex menu)
             this.flags[kFLAGS.VELARIA_FUTA] = 0;
         }
-        //[If Valeria doesn't have a dick:]
+        // [If Valeria doesn't have a dick:]
         else {
             this.flags[kFLAGS.VELARIA_FUTA] = 1;
             this.outputText(
                 "Struggling to find a less-than-awkward way of phrasing this, you ask Valeria if she wouldn't mind growing a certain extra appendage for you."
             );
-            //(If PC is female/herm/genderless:)
+            // (If PC is female/herm/genderless:)
             if (this.player.gender != 1) {
                 this.outputText(
                     '\n\nShe cocks an eyebrow at you. "<i>You know, I\'m pretty fond of being a girl... But for you, partner, I guess I could manage a little something extra.</i>"'
@@ -247,8 +247,8 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
                     '\n\n"<i>Well, this is going to be... different. So, what do you say we put this third leg of mine to good use, huh?</i>"'
                 );
             }
-            //(PC returns to sex menu)
-            //(If PC is Male:)
+            // (PC returns to sex menu)
+            // (If PC is Male:)
             else {
                 this.outputText(
                     '\n\nValeria cocks an eyebrow at you.  "<i>Dude. What\'re you, gay?</i>"'
@@ -263,13 +263,13 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     '\n\n"<i>Well, this is going to be... different. So, what do you say we put this third leg of mine to good use, huh?</i>"'
                 );
-                //(PC returns to sex menu)
+                // (PC returns to sex menu)
             }
         }
         this.doNext(this.valeriaFollower);
     }
 
-    //Valeria -- [Sex] -- [Get Fucked]
+    // Valeria -- [Sex] -- [Get Fucked]
     private valeriaGetFucked(): void {
         this.spriteSelect(79);
         this.clearOutput();
@@ -297,13 +297,13 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nThe tip of her goopy cock slips out of your well-used mouth, leaving its sticky, citrusy residue clinging to your lips.  Valeria slides back along your chest, "
         );
-        //[if PC has C-cups or bigger,
+        // [if PC has C-cups or bigger,
         if (this.player.biggestTitSize() > 3)
             this.outputText(
                 "bumping over your [chest] and stopping for a brief moment to tickle your sensitive tits with her goopy bottom before "
             );
         this.outputText("coming to a stop over your crotch.  She pours herself into your lap, ");
-        //[if PC has cock: \"<i>
+        // [if PC has cock: \"<i>
         if (this.player.hasCock())
             this.outputText(
                 "her gooey ass devouring your " +
@@ -315,7 +315,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 " letting bits of her goo-body slither into your wet, waiting [vagina], ever so slightly peeling your walls apart"
             );
-        //If PC has no gender
+        // If PC has no gender
         if (this.player.gender == 0)
             this.outputText(
                 "poking the shaft of her cock gingerly, teasingly against your [asshole]"
@@ -331,7 +331,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
             );
         this.outputText(".");
 
-        //(If Female)
+        // (If Female)
         if (!this.player.hasCock() && this.player.hasVagina()) {
             this.outputText(
                 "\n\nValeria gives you a little grin and, still grasping her cock, begins to push it downward.  Her shaft slides down her body in a way that only a goo-girl's appendage could, its base traveling down her groin until her rod flops wetly onto the lips of your [vagina].  Though her cock sits neatly atop your entrance, Valeria only gives you a little smirk and pushes down again.  Her gooey prick folds in on itself, slathering your pussylips with slime as she literally pours herself into you, reconstituting her cock to perfectly fill each and every crevase of your eager [vagina]."
@@ -342,18 +342,18 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nGrinning wickedly, Valeria shifts her legs closer to her body, running them over your [chest]. You gasp as her soft, sticky goo slithers across your sensitive flesh.  Her feet stop just atop your [nipples]."
             );
-            //(paragraph finishes with the below:)
-            //(If PC has normal tits)
+            // (paragraph finishes with the below:)
+            // (If PC has normal tits)
             if (!this.player.hasFuckableNipples())
                 this.outputText(
                     "  Valeria swirls her heels around your sensitive [nipples], letting the tips slip into her gooey feet.  She rocks her heels back and forth, popping your nips in and out of her gooey body, feeling like little pinches and squeezes on your defenseless flesh."
                 );
-            //if PC has nipplecunts)
+            // if PC has nipplecunts)
             else
                 this.outputText(
                     "  The goo-girl, still grinning, picks her feet up off your chest. You can only watch as both her dainty feet swirl and bend, reconstituting themselves as a pair of massive flared horsecocks.  You barely have time to yelp before she plunges both of her bestial shafts deep into your [chest].  You moan like a whore as the goo-girl triple-penetrates you, ramming her three cocks into your stretched cunt and the holes on your chest."
                 );
-            //(end if)
+            // (end if)
             this.outputText(
                 "\n\nUnder Valeria's triple attacks on your [vagina] and [nipples], you cannot last very long.  Gasping with pleasure, you feel your climax rising.  But not one to be outdone, your gooey lover lets out her own long, loud moan and rams her cock"
             );
@@ -370,7 +370,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
                 " until they literally pop inside you, flowing back out in goopy streaks."
             );
         }
-        //(If Male/Herm)
+        // (If Male/Herm)
         else if (this.player.hasCock()) {
             this.outputText(
                 '\n\nWith your cock stuffed into Valeria\'s warm, gooey innards, the goo-girl makes a show of rocking herself back and forth in your lap, using her entire bottom like one sopping-wet cunt riding your cock.  With her own rod in hand, she pushes down, letting the base of her prick shift down her body until it bends around your hips and pops back into form just above your [butt].  Your eyes go wide, but when you try to yelp, Val roughly shoves one of her feet into your mouth.  "<i>Shh, partner,</i>" she laughs, flicking your tongue with her soft, citrusy toes, "<i>just let it happen... It\'ll be good, I promise.</i>"'
@@ -385,7 +385,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nJust as you're getting into the rhythm of things, you feel a sudden pressure against your [asshole].  Oh, shit.  You squirm and try to relax yourself, but surprisingly, you don't feel the hard pinch of a cock's insertion.  Instead, Valeria pours a tiny trickle of herself into your anus, slowly but surely stretching you out as her cock inflates half-way inside you.  You groan in pleasure as she stretches you out and redoubles her pace on your " +
                     this.cockDescript(0)
             );
-            //(if Herm: [
+            // (if Herm: [
             if (this.player.hasVagina()) {
                 this.player.cuntChange(10, true, true, false);
                 this.outputText(
@@ -410,7 +410,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
             if (this.player.hasVagina()) this.outputText("and vag ");
             this.outputText("with warm, sticky goop.");
         }
-        //(If PC is Genderless OR [Gooflation])
+        // (If PC is Genderless OR [Gooflation])
         else {
             this.gooFlation(false);
         }
@@ -463,7 +463,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>Hey there, partner,</i>" you hear a laugh from inside you.  Before you can say anything else to the goo-girl inside you, your stomach rumbles.  You double over, half in pleasure half in pain as something lurches inside you.  You feel a rush going out your colon, and just squat in time for Val to explode out of your ass in one massive thrust.  You cum, an anal orgasm rocking your body as Valeria pops out your bum, pouring out of your well-stretched sphincter.'
         );
-        //(All Genders Reconvene)
+        // (All Genders Reconvene)
         if (clearText) {
             this.outputText(
                 "\n\nYou collapse, goop flowing freely from your abused body.  Laughing, Valeria pours out of your lap, "
@@ -479,7 +479,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         }
     }
 
-    //Valeria -- [Sex] -- [Penetrate Her] (Dickwielders only)
+    // Valeria -- [Sex] -- [Penetrate Her] (Dickwielders only)
     private penetrateValeria(): void {
         this.spriteSelect(79);
         this.clearOutput();
@@ -545,7 +545,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Valeria] -- [Sex] -- [Get Dominated]
+    // [Valeria] -- [Sex] -- [Get Dominated]
     private valeriaSexDominated(): void {
         this.spriteSelect(79);
         this.clearOutput();
@@ -560,7 +560,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>Just lie back and submit, partner. It\'ll be better that way...</i>"'
         );
-        //(PC has Vagina)
+        // (PC has Vagina)
         if (this.player.hasVagina() && (!this.player.hasCock() || Valeria.rand(2) == 0)) {
             this.outputText(
                 "\n\nValeria begins to use her goo to peel back your clothes, soon revealing your defenseless [vagina].  She makes a show of licking her lips as tendrils of goo seep into your cunt, filling you utterly.  You meekly submit to your gooey captor, letting Valeria have her way with you. Seeing your lack of resistance, she smiles and coos what a good " +
@@ -576,7 +576,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
                     this.player.mf("boy", "girl") +
                     ", I'll let you get off, too</i>\"  Still grinning, she begins to hammer her cock-like appendage into your pussy, fucking you fast and hard with her goo-dildo."
             );
-            //[If PC has breasts > A-cups:
+            // [If PC has breasts > A-cups:
             if (this.player.biggestTitSize() > 1) {
                 this.outputText(
                     "  As she hammers your cunny, bits of her goo swirl around your [chest], squeezing and massaging your tits. You squirm as she roughly teases your boobs, pinching at your nipples and squeezing your tender flesh roughly."
@@ -627,7 +627,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
                 'swirling around inside her.  "<i>We\'ll do this again sometime,</i>" she adds, walking off to another part of camp with a wink.'
             );
         }
-        //(PC has Dick)
+        // (PC has Dick)
         else {
             this.outputText(
                 "\n\nValeria begins to use her goo to peel back your clothes, soon revealing your defenseless, half-erect  package.  She makes a show of licking her lips as tendrils of goo wrap tightly around [eachCock] like a warm, wet onahole. You submit to your gooey bonds, and seeing your lack of resistance, Valeria smiles down at you and squeezes your " +
@@ -703,7 +703,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         else this.cleanupAfterCombat();
     }
 
-    //Followers -- [Valeria] -- [Talk]
+    // Followers -- [Valeria] -- [Talk]
     private talkWithValeria(): void {
         this.spriteSelect(79);
         this.clearOutput();
@@ -729,8 +729,8 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nValeria chuckles wryly. \"<i>Well, it's not like I'm completely unchanged,</i>\" she whispers huskily, leaning close and looking hungrily at your crotch.  \"<i>After all, I have certain... appetites... now, you know.  I'm not proud of my new needs, but I'm afraid I just can't ignore them...</i>\""
         );
-        //How do you respond to that?
-        //(Display Options: [Flirt](PC has Gender) [Accept] [Gross])
+        // How do you respond to that?
+        // (Display Options: [Flirt](PC has Gender) [Accept] [Gross])
         if (this.player.gender > 0)
             this.simpleChoices(
                 "Flirt",
@@ -759,7 +759,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
             );
     }
 
-    //[Flirt]
+    // [Flirt]
     private flirtWithValeria(): void {
         this.spriteSelect(79);
         this.clearOutput();
@@ -774,11 +774,11 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>Mmm. I\'m sure you are, partner,</i>" she murmurs into your neck, nuzzling against you.  "<i>So, what do you say you whip me up a little meal?</i>"'
         );
-        //(Display Sex Options)
+        // (Display Sex Options)
         this.followersValeriaSex(false);
     }
 
-    //[Accept]
+    // [Accept]
     private acceptValeriasNeeds(): void {
         this.spriteSelect(79);
         this.clearOutput();
@@ -794,7 +794,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\nNodding, you ruffle her gooey hair and get back to business.");
         this.doNext(this.valeriaFollower);
     }
-    //[Gross]
+    // [Gross]
     private declineValeriasNeeds(): void {
         this.spriteSelect(79);
         this.clearOutput();
@@ -804,7 +804,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>Well, fuck you kindly, [name],</i>" she says with a huff.  "<i>Pardon me for being... me.</i>"  She turns up her chin and saunters off to a part of camp about as far away from you as possible.'
         );
-        //(Disable Valeria sex for 6 hours)
+        // (Disable Valeria sex for 6 hours)
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
@@ -945,22 +945,22 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             " Spinning faster and faster, the intruding, cylindrical slime dilates your [asshole] to its maximum gape in four or five seconds, hardening its exterior into an butt-stuffing goo-pipe. You can feel it snaking around through your bowels, plumbing deeper inside you than you would have thought possible before stopping what feels like halfway through your large intestine."
         );
-        //{Butt-change: full anal size}
+        // {Butt-change: full anal size}
         this.player.buttChange(this.player.analCapacity() * 0.75, true, true, false);
-        //Lay pipes in cooch! {reqiores non pregnant}
+        // Lay pipes in cooch! {reqiores non pregnant}
         if (!this.player.isPregnant() && this.player.hasVagina()) {
             if (this.silly())
                 this.outputText('\n\n"<i>But wait, there\'s more!</i>" Billy Mays announces.');
             this.outputText(
                 "\n\nShortly after, a similar sized blob of semi-liquid matter rubs over your [vagina], brushing aside Valeria's feathery teases to spread your lips around the slick bubble, shooting tingles of pleasure through your body. You try to shift, to grind against the messy intruder, but all restrained as you are, all you can do is quiver against your bindings, vibrating in pleasures that would be plain to any watchers. The penetration doesn't stop Valeria's teases either. The talented woman continues to roll feathery caresses over the exterior of your genitalia while opening you open as wide as any dick you've ever taken, burrowing a tunnel straight to your cervix."
             );
-            //{cuntChange: MAXIMUM}
+            // {cuntChange: MAXIMUM}
             this.player.cuntChange(this.player.vaginalCapacity() * 0.75, true, true, false);
             this.outputText(
                 "\n\nThere, the cerulean shaft batters hard against the restrictive opening to your womb, pushing with firm pressure until some slime rolls into your empty, baby-making chamber. You cannot help but cry out to the sensation of your incredibly thorough doublestuffing. Wincing, you endure the slow stretching of your inner gates, and once the tunneling ooze has established a decent-size path to your uterus, the outside solidifies, much like the one in your ass. A suction starts on your [clit] to distract you from this, and its success is evidenced by the copious fuck-juices your [vagina] feeds the mixed goo-girls."
             );
         }
-        //Fuckable nipples
+        // Fuckable nipples
         if (this.player.hasFuckableNipples() && this.player.biggestTitSize() >= 5) {
             this.outputText(
                 "\n\nYour [fullChest] are roughly squeezed and groped by what feels like Valeria's hands, pressed together and pulled apart. Sometimes they even pull on them, suctioning your tits hard enough to make them appear larger for a time. No matter what, the licentious caresses always come back to your [nipples], squeezing and tugging on them until your lust makes them as wet and free-flowing"
@@ -973,7 +973,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
                     " phallic objects greedily push at your cunt-nipples, eagerly sliding themselves inside your welcome chest-pussies. Looking down, you can see the navy-blue outlines of the phallic tendrils waving and writhing as they push their way deep, embedding themselves tit-deep in blissful warmth."
             );
         }
-        //Dick
+        // Dick
         if (this.player.hasCock()) {
             this.outputText(
                 "\n\nValeria's voice calls out once more, \"<i>You didn't think I'd forget "
@@ -1010,7 +1010,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
                 " to your middle, where you can feel it travel a bit further before it finally stops at your [balls]."
             );
         }
-        //Merge
+        // Merge
         this.outputText(
             "\n\nGiggling, the sapphire slut does something that makes the body-wrapping sphere jiggle and contract slightly. "
         );
@@ -1026,7 +1026,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
             " Pumping deep into your bowels, the hardened protrusion is no longer simply stuffing you. It's pumping something slick and wet and oh so gooey straight into your [asshole], filling you up so strangely that you aren't sure what to make of beyond how... well, good it feels to be stuffed like this."
         );
 
-        //{Vagina!}
+        // {Vagina!}
         if (this.player.hasVagina()) {
             this.outputText(
                 "\n\nYe gods, this is good! You shudder as the tube in your twat follows the anal-obsessed booty-filler, shooting thick globs of gel-like material into your open, receptive womb. You can feel the bulges of ooze making the semi-solid pipe bulge in your channel, massaging your walls and cervix as they pass. They roll out into your rapidly-filling womb in a way that forces a blissful maternal glow to your cheeks and rounds your belly more than a little bit. You swoon, "
@@ -1038,7 +1038,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
                 " your girlcum in feverish releases of ecstasy, repeatedly getting off on this perverse, doubled slime-flation."
             );
         }
-        //{titties}
+        // {titties}
         if (this.player.hasFuckableNipples() && this.player.biggestTitSize() >= 5) {
             this.outputText(
                 "\n\nYour breasts soon experience something similar as the tentacle-like phalli convulse and squirt, ejaculating thick streamers of something hot straight into your tits. Rather than feeling the copious goo-spoo rolling back out your entrances, you just get fuller and fuller until you see the curve of your "
@@ -1049,7 +1049,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
                 " pulling away from your body, gaining cup sizes in a span of seconds, your skin stretching taut under the moist deluge. Your tit-twats quiver with delight, feeling nothing but obscene, ever-growing pleasure until they're squeezing down on the sloppy tentacle-cocks, milking them to cum harder and faster, which in turn bloats your ecstatic tits into blissful, bloated orbs."
             );
         }
-        //{cocks!}
+        // {cocks!}
         if (this.player.hasCock()) {
             this.outputText("\n\nThe sealed, cock-plugging tube");
             if (this.player.totalCocks() > 1) this.outputText("s");
@@ -1092,7 +1092,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
                 );
             this.outputText(".");
         }
-        //Butt fillinggasm
+        // Butt fillinggasm
         this.outputText(
             "\n\nWhimpering in ecstasy, you groan out with each ass-filling pump, letting your attention focus on the feeling of being filled. The imprisoning orb slowly loses cohesion, freeing you to instinctively rub your bloating belly as it expands"
         );
@@ -1126,17 +1126,17 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nYou stagger up on your [legs] and wobble off back towards camp, wondering how long you're going to be travelling for two..."
         );
-        //Increase ball size if has balls and cock
-        //Increase breast size by 3-6 steps.
-        //Add some faux pregnancy descriptors to the appearance screen
-        //Prevent pregnancy if has a vagina when it happens.
-        //Be sure to track what holes get filled, as body parts may change before birth!
+        // Increase ball size if has balls and cock
+        // Increase breast size by 3-6 steps.
+        // Add some faux pregnancy descriptors to the appearance screen
+        // Prevent pregnancy if has a vagina when it happens.
+        // Be sure to track what holes get filled, as body parts may change before birth!
         this.flags[kFLAGS.TIMES_VALERIA_GOO_THREESOMED]++;
         this.player.orgasm();
-        //v1 = time till birth.
-        //v2 = cock fill = 1, balls fill = 2
-        //v3 = cunt fill?
-        //v4 = tit fill?
+        // v1 = time till birth.
+        // v2 = cock fill = 1, balls fill = 2
+        // v3 = cunt fill?
+        // v4 = tit fill?
         this.player.createStatusAffect(StatusAffects.GooStuffed, 10 + Valeria.rand(300), 0, 0, 0);
         this.player.buttKnockUpForce(PregnancyStore.PREGNANCY_GOO_STUFFED, 500); //Blocks other pregnancies - Way higher than GooStuffed status can last. Cleared when GooStuffed removed
         if (this.player.hasVagina()) {
@@ -1153,7 +1153,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.cleanupAfterCombat();
     }
 
-    //Random Goo-girl Cum-Out:
+    // Random Goo-girl Cum-Out:
     public birthOutDatGooSlut(): void {
         this.outputText(
             "\n<b>Something odd happens...</b>\nA sudden, violent lurch in your gut nearly knocks you off your [feet]! You lower yourself to the ground before the quaking in your middle can upend you and cradle your slime-bloated belly, wondering if you're finally going to get relief from walking around with a gutful of goo."

@@ -59,7 +59,7 @@ export class Utils {
     }
 
     public static formatStringArray(stringList: any[]): string {
-        //Changes an array of values into "1", "1 and 2" or "1, (x, )y and z"
+        // Changes an array of values into "1", "1 and 2" or "1, (x, )y and z"
         switch (stringList.length) {
             case 0:
                 return "";
@@ -69,8 +69,8 @@ export class Utils {
                 return stringList[0] + " and " + stringList[1];
             default:
         }
-        var concat: string = stringList[0];
-        for (var x: number = 1; x < stringList.length - 1; x++) concat += ", " + stringList[x];
+        let concat: string = stringList[0];
+        for (let x = 1; x < stringList.length - 1; x++) concat += ", " + stringList[x];
         return concat + " and " + stringList[stringList.length - 1];
     }
 
@@ -80,7 +80,7 @@ export class Utils {
     }
 
     public static num2Text2(number: number): string {
-        if (number < 0) return number.toString(); //Can't really have the -10th of something
+        if (number < 0) return number.toString(); // Can't really have the -10th of something
         if (number <= 10) return Utils.NUMBER_WORDS_POSITIONAL[number];
         switch (number % 10) {
             case 1:
@@ -104,7 +104,7 @@ export class Utils {
     // Can also accept a *single* array of items, in which case it picks from the array instead.
     // This lets you pre-construct the argument, to make things cleaner
     public static randomChoice(...args: any[]): any {
-        var choice: number;
+        let choice: number;
         if (args.length == 1 && Array.isArray(args[0])) {
             choice = Math.floor(Math.round(Math.random() * (args[0].length - 1)));
             return args[0][choice];
@@ -123,8 +123,8 @@ export class Utils {
         func: string,
         nnf: any[]
     ): string {
-        var error: string = "";
-        for (var field of nnf) {
+        let error = "";
+        for (const field of nnf) {
             if (!(field in o) || (!(typeof o[field] == "number") && o[field] != undefined))
                 error += "Misspelling in " + func + ".nnf: '" + field + "'. ";
             else if (o[field] == undefined) error += "Null '" + field + "'. ";
@@ -138,8 +138,8 @@ export class Utils {
         func: string,
         nef: any[]
     ): string {
-        var error: string = "";
-        for (var field of nef) {
+        let error = "";
+        for (const field of nef) {
             if (!(field in o) || (!(typeof o[field] == "string") && o[field] != undefined))
                 error += "Misspelling in " + func + ".nef: '" + field + "'. ";
             else if (o[field] == undefined) error += "Null '" + field + "'. ";

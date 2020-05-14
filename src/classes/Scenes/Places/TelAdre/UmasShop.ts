@@ -236,7 +236,7 @@ export class UmasShop extends TelAdreAbstractContent {
             this.addButton(3, "Sex", this.sexMenu);
         }
 
-        //addButton(4, "Train Loppe", trainLoppe); // Unfinished in the doc
+        // addButton(4, "Train Loppe", trainLoppe); // Unfinished in the doc
         this.addButton(9, "Leave", this.telAdre.telAdreMenu);
     }
 
@@ -1210,7 +1210,7 @@ export class UmasShop extends TelAdreAbstractContent {
     public talkLoppeJoiner(): void {
         this.menu();
         this.doNext(this.camp.returnToCampUseOneHour);
-        //addButton(1, "Debugz", talkMenu);
+        // addButton(1, "Debugz", talkMenu);
     }
 
     /**
@@ -2779,9 +2779,9 @@ export class UmasShop extends TelAdreAbstractContent {
         this.menu();
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Needs Cock.
+    // Needs Cock.
     private sexGetABJFromDisMilfyLesboSlut(): void {
-        //Aim for something right around the biggest she can take, otherwise just take smallest.
+        // Aim for something right around the biggest she can take, otherwise just take smallest.
         var x: number = this.player.cockThatFits(25);
         if (x < 0) x = this.player.smallestCockIndex();
         this.clearOutput();
@@ -2835,7 +2835,7 @@ export class UmasShop extends TelAdreAbstractContent {
         );
 
         this.outputText("\n\nThe motherly mare kneels before you, examining your shaft.  ");
-        //VARIANTS NEEDED
+        // VARIANTS NEEDED
         if (this.flags[kFLAGS.UMA_TIMES_SUCKED_YOU] < 2)
             this.outputText(
                 'It’s clear that she doesn’t really enjoy the notion that much, considering the way she’s looking at you.  "<i>All right, let’s get this over with.</i>"  '
@@ -2891,7 +2891,7 @@ export class UmasShop extends TelAdreAbstractContent {
         else this.outputText("Hmmm, give me more, [name].");
         this.outputText('</i>"');
 
-        //Bonus handjobbies?
+        // Bonus handjobbies?
         if (this.player.cockTotal() > 1) {
             this.outputText("\n\nYou politely suggest she put ");
             if (this.player.cockTotal() == 2) this.outputText("one of ");
@@ -2941,7 +2941,7 @@ export class UmasShop extends TelAdreAbstractContent {
             "\n\nYou give up a moan of pleasure as your [hips] lift off the table's coverings.  The building ecstasy within you is rolling around your abdomen like an ingot of molten metal, bubbling and ready to explode.  It's all you can do to stop yourself from thrashing against Uma's tongue in an effort to bring that release on as quickly as possible.  You steady yourself, and with a gasp of pleasure, feel [eachCock] swell, as big and hard as it can get without exploding from the pressure.  Uma slows her fucking motions and starts to suck with the languid blowjob, getting more and more pre-cum on her tongue with each slide down.  Quiet, excited noises slip out of your throat, one after another as you come to the very edge of orgasm."
         );
 
-        //{Less than five blowjobs}
+        // {Less than five blowjobs}
         if (this.flags[kFLAGS.UMA_TIMES_SUCKED_YOU] < 5) {
             this.outputText(
                 "\n\nUma pulls off just as your flow of juices goes white and salty, the inevitable prelude to the first discharge of an orgasm.  A slightly sour expression is painted across her face from the sudden change and she looks on in shock as your length"
@@ -2960,7 +2960,7 @@ export class UmasShop extends TelAdreAbstractContent {
                     "  The massive cumsprays that land on you slowly slough off down towards the drains.  It's hard not to bliss at the sound of your loud noisily draining away."
                 );
         }
-        //{More than five blowjobs!}
+        // {More than five blowjobs!}
         else {
             this.outputText(
                 "\n\nUma valiantly holds herself in place on your " +
@@ -2994,7 +2994,7 @@ export class UmasShop extends TelAdreAbstractContent {
                 }
                 this.outputText("  Your crotch is absolutely glazed with the stuff.");
             }
-            //Bonus dicks
+            // Bonus dicks
             if (this.player.cockTotal() > 1) {
                 this.outputText("\n\nAngled off to the side");
                 if (this.player.cockTotal() > 2) this.outputText("s");
@@ -3014,8 +3014,8 @@ export class UmasShop extends TelAdreAbstractContent {
                 this.outputText(" aren't anywhere near as thick.");
             }
         }
-        //epilogue
-        //Came on her face
+        // epilogue
+        // Came on her face
         if (this.flags[kFLAGS.UMA_TIMES_SUCKED_YOU] < 2) {
             this.outputText(
                 '\n\nUma wipes her face off some of your seed.  "<i>I’m fine.  Sorry about that, dear... but blowing is not really my thing, you know?  The only other person I did this for was Loppe’s father, and even then I didn’t like it so much... maybe you should have gone to Loppe instead?</i>"'
@@ -3024,7 +3024,7 @@ export class UmasShop extends TelAdreAbstractContent {
             if (this.player.cor <= 40) this.outputText(" apologize, and ");
             this.outputText("get up to start getting dressed before quietly heading back to camp.");
         }
-        //Came on her face after second time:
+        // Came on her face after second time:
         else if (this.flags[kFLAGS.UMA_TIMES_SUCKED_YOU] < 5) {
             this.outputText(
                 '\n\nUma wipes her face off some of your seed.  "<i>I’m fine.  Sorry about that, dear... I\'m trying but to be honest, the idea of having a male member go off in my mouth like that startles me.  The gush of a wet pussy on your lips is just so much more understandable.  I bet Loppe wouldn\'t mind doing this for you, you know.</i>"  She suddenly smirks, "<i>Unless you\'ve got some kind of fetish for letting older mares milk you?</i>"'
@@ -3033,12 +3033,12 @@ export class UmasShop extends TelAdreAbstractContent {
                 "\n\nYou give her a wink and a smile as you depart.  She's getting better at this."
             );
         }
-        //Came in her mouth
+        // Came in her mouth
         else {
             this.outputText(
                 "\n\nUma slowly licks your cockslime from her lips and swallows, opening up her mouth to show you just how good she's getting at swallowing your goo.  \"<i>I never would have thought that I'd be looking forward to bending over and taking a penis in my mouth, but... there's something special about you, [name].  I can see why Loppe fell for you so quickly.</i>\"  She licks her lips once more, this time running her tongue along her teeth to collect every little drop of your jism.  \"<i>It's just nice, feeling you twitch inside me like that, trusting my mouth to please you so.  It's so different from a massage or a handjob - more intimate I suppose.</i>\"  The smell of feminine arousal is faint in the air under the musky aroma of your spunk."
             );
-            //Higher cum quantity epilogue.
+            // Higher cum quantity epilogue.
             if (this.player.cumQ() > 25) {
                 this.outputText(
                     "\n\nShe extends a towel to you.  \"<i>Just because your cum is starting to taste okay doesn't mean I'm licking all that up.  Get clean, dear.</i>\""
@@ -3047,7 +3047,7 @@ export class UmasShop extends TelAdreAbstractContent {
                     '\n\nYou wipe up with a rueful smile while Uma gets dressed.  She comes back with your clothes and helps you into them, giving your package an appreciative squeeze "to make sure it emptied" before sending you on your way to camp.'
                 );
             }
-            //Else normal epilogue.
+            // Else normal epilogue.
             else {
                 this.outputText(
                     '\n\nUma gets dressed while you cool off.  She comes back with your clothes and helps you into them, giving your package an appreciative squeeze "to make sure it emptied" before sending you on your way to camp.'

@@ -26,14 +26,14 @@ export class Amily extends Monster {
         else this.amilyAttack();
     }
 
-    //COMBAT AMILY STUFF
-    //(Has regular attack)
+    // COMBAT AMILY STUFF
+    // (Has regular attack)
     public amilyAttack(): void {
         var dodged: number = 0;
         var damage: number;
-        //return to combat menu when finished
+        // return to combat menu when finished
         this.doNext(this.game.playerMenu);
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Amily.rand(3) < 2) {
             this.outputText(
                 this.capitalA + this.short + " completely misses you with a blind attack!\n",
@@ -42,18 +42,18 @@ export class Amily extends Monster {
             this.game.combatRoundOver();
             return;
         }
-        //Determine if dodged!
+        // Determine if dodged!
         if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
         ) {
             dodged = 1;
         }
-        //Determine if evaded
+        // Determine if evaded
         if (this.player.findPerk(PerkLib.Evade) >= 0 && Amily.rand(100) < 10) {
             dodged = 2;
         }
-        //("Misdirection"
+        // ("Misdirection"
         if (
             this.player.findPerk(PerkLib.Misdirection) >= 0 &&
             Amily.rand(100) < 10 &&
@@ -61,21 +61,21 @@ export class Amily extends Monster {
         ) {
             dodged = 3;
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Amily.rand(100) < 6) {
             dodged = 4;
         }
-        //Determine damage - str modified by enemy toughness!
+        // Determine damage - str modified by enemy toughness!
         damage = Math.floor(
             this.str + this.weaponAttack - Math.random() * (this.player.tou + this.player.armorDef)
         );
-        //Dodged
+        // Dodged
         if (dodged > 0) {
             this.outputText(
                 "Amily dashes at you and swipes her knife, but you quickly sidestep the blow.",
                 false
             );
-            //Add tags for miss/evade/flexibility/etc.
+            // Add tags for miss/evade/flexibility/etc.
             switch (dodged) {
                 case 1:
                     this.outputText(" [Dodge]", false);
@@ -95,10 +95,10 @@ export class Amily extends Monster {
                     break;
             }
         }
-        //Blocked
+        // Blocked
         else if (damage <= 0) {
             damage = 0;
-            //Due to toughness or amor...
+            // Due to toughness or amor...
             if (Amily.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
                 this.outputText(
                     "Your " +
@@ -122,7 +122,7 @@ export class Amily extends Monster {
                     false
                 );
         }
-        //Got hit!
+        // Got hit!
         else {
             damage = this.player.takeDamage(damage);
             this.outputText(
@@ -156,29 +156,29 @@ export class Amily extends Monster {
         this.game.combatRoundOver();
     }
 
-    //(Special Attacks)
-    //-Double Attack: Same as a normal attack, but hits twice.
+    // (Special Attacks)
+    // -Double Attack: Same as a normal attack, but hits twice.
     public amilyDoubleAttack(): void {
         var dodged: number = 0;
         var damage: number = 0;
-        //return to combat menu when finished
+        // return to combat menu when finished
         this.doNext(this.game.playerMenu);
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Amily.rand(3) < 2) {
             dodged++;
         }
-        //Determine if dodged!
+        // Determine if dodged!
         if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
         ) {
             dodged++;
         }
-        //Determine if evaded
+        // Determine if evaded
         if (this.player.findPerk(PerkLib.Evade) >= 0 && Amily.rand(100) < 10) {
             dodged++;
         }
-        //("Misdirection"
+        // ("Misdirection"
         if (
             this.player.findPerk(PerkLib.Misdirection) >= 0 &&
             Amily.rand(100) < 10 &&
@@ -186,28 +186,28 @@ export class Amily extends Monster {
         ) {
             dodged++;
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Amily.rand(100) < 6) {
             dodged++;
         }
-        //Get hit!
+        // Get hit!
         if (dodged < 2) {
-            //Determine damage - str modified by enemy toughness!
+            // Determine damage - str modified by enemy toughness!
             damage = Math.floor(
                 this.str +
                     this.weaponAttack -
                     Math.random() * (this.player.tou + this.player.armorDef)
             );
-            //Double damage if no dodge.
+            // Double damage if no dodge.
             if (dodged == 0) damage *= 2;
-            //Blocked?
+            // Blocked?
             if (damage == 0) {
                 this.outputText(
                     "Amily dashes at you and slashes at you twice in the time it would take most to throw a single blow, but she can't cut deep enough to wound you!",
                     false
                 );
             }
-            //NOT BLOCKED!
+            // NOT BLOCKED!
             else {
                 damage = this.player.takeDamage(damage);
                 if (dodged > 0)
@@ -223,7 +223,7 @@ export class Amily extends Monster {
                 this.outputText(" (" + damage + ")!", false);
             }
         }
-        //Dodge all!
+        // Dodge all!
         else
             this.outputText(
                 "Amily dashes at you and quickly slashes you twice, but you quickly sidestep her first blow and jump back to avoid any follow-ups.",
@@ -233,10 +233,10 @@ export class Amily extends Monster {
         this.game.combatRoundOver();
     }
 
-    //-Poison Dart: Deals speed and str damage to the PC. (Not constant)
+    // -Poison Dart: Deals speed and str damage to the PC. (Not constant)
     private amilyDartGo(): void {
         var dodged: number = 0;
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Amily.rand(3) < 2) {
             this.outputText(
                 this.capitalA +
@@ -247,18 +247,18 @@ export class Amily extends Monster {
             this.game.combatRoundOver();
             return;
         }
-        //Determine if dodged!
+        // Determine if dodged!
         if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
         ) {
             dodged = 1;
         }
-        //Determine if evaded
+        // Determine if evaded
         if (this.player.findPerk(PerkLib.Evade) >= 0 && Amily.rand(100) < 10) {
             dodged = 2;
         }
-        //("Misdirection"
+        // ("Misdirection"
         if (
             this.player.findPerk(PerkLib.Misdirection) >= 0 &&
             Amily.rand(100) < 15 &&
@@ -266,17 +266,17 @@ export class Amily extends Monster {
         ) {
             dodged = 3;
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Amily.rand(100) < 15) {
             dodged = 4;
         }
-        //Dodged
+        // Dodged
         if (dodged > 0) {
             this.outputText(
                 "Amily dashes at you and swipes her knife rather slowly. You easily dodge the attack; but it was all a feint, her other hands tries to strike at you with a poisoned dart. Luckily you manage to avoid it.",
                 false
             );
-            //Add tags for miss/evade/flexibility/etc.
+            // Add tags for miss/evade/flexibility/etc.
             switch (dodged) {
                 case 1:
                     this.outputText(" [Dodge]", false);
@@ -296,13 +296,13 @@ export class Amily extends Monster {
                     break;
             }
         }
-        //Else hit!
+        // Else hit!
         else {
             this.outputText(
                 "Amily dashes at you and swipes her knife at you, surprisingly slowly.  You easily dodge the attack; but it was a feint - her other hand tries to strike at you with a poisoned dart. However, she only manages to scratch you, only causing your muscles to grow slightly numb.",
                 false
             );
-            //Set status
+            // Set status
             if (this.player.findStatusAffect(StatusAffects.AmilyVenom) < 0)
                 this.player.createStatusAffect(StatusAffects.AmilyVenom, 0, 0, 0, 0);
             var poison: number = 2 + Amily.rand(5);
@@ -323,7 +323,7 @@ export class Amily extends Monster {
                     this.player.addStatusValue(StatusAffects.AmilyVenom, 2, 1);
                 }
             }
-            //If PC is reduced to 0 Speed and Strength, normal defeat by HP plays.
+            // If PC is reduced to 0 Speed and Strength, normal defeat by HP plays.
             if (this.player.spe <= 2 && this.player.str <= 2) {
                 this.outputText(
                     "  You've become so weakened that you can't even make an attempt to defend yourself, and Amily rains blow after blow down upon your helpless form.",
@@ -335,7 +335,7 @@ export class Amily extends Monster {
         this.game.combatRoundOver();
     }
 
-    //Concentrate: always avoids the next attack. Can be disrupted by tease/seduce.
+    // Concentrate: always avoids the next attack. Can be disrupted by tease/seduce.
     private amilyConcentration(): void {
         this.outputText(
             "Amily takes a deep breath and attempts to concentrate on your movements.",
@@ -345,8 +345,8 @@ export class Amily extends Monster {
         this.game.combatRoundOver();
     }
 
-    //(if PC uses tease/seduce after this)
-    //Deals big lust increase, despite her resistance.
+    // (if PC uses tease/seduce after this)
+    // Deals big lust increase, despite her resistance.
     public teased(lustDelta: number): void {
         if (this.findStatusAffect(StatusAffects.Concentration) >= 0) {
             this.outputText(
@@ -383,7 +383,7 @@ export class Amily extends Monster {
         this.buttRating = BUTT_RATING_TIGHT;
         this.skinTone = "tawny";
         this.skinType = SKIN_TYPE_FUR;
-        //this.skinDesc = Appearance.Appearance.DEFAULT_SKIN_DESCS[SKIN_TYPE_FUR];
+        // this.skinDesc = Appearance.Appearance.DEFAULT_SKIN_DESCS[SKIN_TYPE_FUR];
         this.hairColor = "brown";
         this.hairLength = 5;
         this.initStrTouSpeInte(30, 30, 85, 60);

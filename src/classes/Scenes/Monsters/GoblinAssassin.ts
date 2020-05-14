@@ -21,7 +21,7 @@ export class GoblinAssassin extends Monster {
         if (temp2 == 2) color = "blue";
         if (temp2 == 3) color = "white";
         if (temp2 == 4) color = "black";
-        //Throw offensive potions at the player
+        // Throw offensive potions at the player
         if (color != "blue") {
             this.outputText(
                 this.capitalA +
@@ -32,7 +32,7 @@ export class GoblinAssassin extends Monster {
                 false
             );
         }
-        //Drink blue pots
+        // Drink blue pots
         else {
             this.outputText(
                 this.capitalA +
@@ -45,15 +45,15 @@ export class GoblinAssassin extends Monster {
                 this.addHP(this.eMaxHP() / 4);
             } else this.outputText("  There doesn't seem to be any effect.\n", false);
         }
-        //Dodge chance!
+        // Dodge chance!
         if (
             (this.player.findPerk(PerkLib.Evade) >= 0 && GoblinAssassin.rand(10) <= 3) ||
             GoblinAssassin.rand(100) < this.player.spe / 5
         ) {
             this.outputText("\nYou narrowly avoid the gush of alchemic fluids!\n", false);
         }
-        //Get hit!
-        //Temporary heat
+        // Get hit!
+        // Temporary heat
         if (color == "red") {
             this.outputText(
                 "\nThe red fluids hit you and instantly soak into your skin, disappearing.  Your skin flushes and you feel warm.  Oh no...\n",
@@ -62,7 +62,7 @@ export class GoblinAssassin extends Monster {
             if (this.player.findStatusAffect(StatusAffects.TemporaryHeat) < 0)
                 this.player.createStatusAffect(StatusAffects.TemporaryHeat, 0, 0, 0, 0);
         }
-        //Green poison
+        // Green poison
         if (color == "green") {
             this.outputText(
                 "\nThe greenish fluids splash over you, making you feel slimy and gross.  Nausea plagues you immediately - you have been poisoned!\n",
@@ -71,7 +71,7 @@ export class GoblinAssassin extends Monster {
             if (this.player.findStatusAffect(StatusAffects.Poison) < 0)
                 this.player.createStatusAffect(StatusAffects.Poison, 0, 0, 0, 0);
         }
-        //sticky flee prevention
+        // sticky flee prevention
         if (color == "white") {
             this.outputText(
                 "\nYou try to avoid it, but it splatters the ground around you with very sticky white fluid, making it difficult to run.  You'll have a hard time escaping now!\n",
@@ -80,7 +80,7 @@ export class GoblinAssassin extends Monster {
             if (this.player.findStatusAffect(StatusAffects.NoFlee) < 0)
                 this.player.createStatusAffect(StatusAffects.NoFlee, 0, 0, 0, 0);
         }
-        //Increase fatigue
+        // Increase fatigue
         if (color == "black") {
             this.outputText(
                 "\nThe black fluid splashes all over you and wicks into your skin near-instantly.  It makes you feel tired and drowsy.\n",
@@ -91,20 +91,20 @@ export class GoblinAssassin extends Monster {
         this.combatRoundOver();
         return;
     }
-    //Lust Needle
+    // Lust Needle
     protected lustNeedle(): void {
         this.outputText(
             "With a swift step, the assassin vanishes, her movements too quick for you to follow. You take a sharp breath as you feel her ample thighs clench your head in between them, her slick cunt in full view as you take in her scent."
         );
-        //Miss
+        // Miss
         if (this.combatMiss() || this.combatEvade()) {
-            //Miss:
+            // Miss:
             this.outputText(
                 "\nYou’ve already prepared, however, as you hold your breath and grab the goblin by her sides. Unhindered by her advance, you take the opportunity to move backwards, throwing the goblin off balance and leaving you only faintly smelling of her pussy."
             );
             this.game.dynStats("lus", GoblinAssassin.rand(this.player.lib / 10) + 4);
         }
-        //Hit:
+        // Hit:
         else {
             this.outputText(
                 "\nYou’re far too distracted to notice the needle injected into the back of your neck, but by the time she flips back into her original position you already feel the contents of the syringe beginning to take effect."
@@ -113,12 +113,12 @@ export class GoblinAssassin extends Monster {
         }
         this.combatRoundOver();
     }
-    //Dual Shot
+    // Dual Shot
     protected dualShot(): void {
         this.outputText(
             "The assassin throws a syringe onto the ground, shattering it and allowing the dissipating smoke from its contents to distract you long enough for her to slip underneath you. With a quick flick of her wrists two needles are placed into her hands, though you’ve already caught wind of her movements."
         );
-        //Miss:
+        // Miss:
         if (
             this.combatMiss() ||
             this.combatEvade() ||
@@ -129,12 +129,12 @@ export class GoblinAssassin extends Monster {
                 "\nYou jump backwards, far enough to avoid her quick thrust upwards as she attempts to lick the area in which your crotch once stood. Realising her situation, she quickly removes herself from the ground and faces you, more determined than before."
             );
         }
-        //Hit:
+        // Hit:
         else {
             this.outputText(
                 "\nBefore you can do anything to stop her, she lifts her head and takes a swift lick of your crotch, taking a small moan from you and giving her enough time to stab into the back of your knees. She rolls out of the way just as you pluck the two needles out and throw them back to the ground. They didn’t seem to have anything in them, but the pain is enough to make you stagger."
             );
-            //(Medium HP loss, small lust gain)
+            // (Medium HP loss, small lust gain)
             var damage: number = Math.floor(
                 this.str +
                     this.weaponAttack +
@@ -147,7 +147,7 @@ export class GoblinAssassin extends Monster {
         }
         this.combatRoundOver();
     }
-    //Explosion
+    // Explosion
     protected goblinExplosion(): void {
         this.outputText(
             "Without a second thought, the assassin pulls a thin needle from the belt wrapped around her chest and strikes it against the ground, causing a flame to erupt on the tip. She twirls forward, launching the needle in your direction which subsequently bursts apart and showers you with heat."
@@ -155,7 +155,7 @@ export class GoblinAssassin extends Monster {
         this.outputText(
             "\nYou shield yourself from the explosion, though the goblin has already lit a second needle which she throws behind you, launching your body forwards as it explodes behind your back. "
         );
-        //(High HP loss, no lust gain)
+        // (High HP loss, no lust gain)
         var damage: number = 25 + GoblinAssassin.rand(75);
         damage = this.player.takeDamage(damage);
         this.outputText(" (" + damage + ")");

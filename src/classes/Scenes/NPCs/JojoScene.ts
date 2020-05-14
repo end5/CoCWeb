@@ -31,7 +31,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         CoC.timeAwareClassAdd(this);
     }
 
-    //Implementation of TimeAwareInterface
+    // Implementation of TimeAwareInterface
     public timeChange(): boolean {
         this.pregnancy.pregnancyAdvance();
         trace(
@@ -63,17 +63,17 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
     public timeChangeLarge(): boolean {
         return false;
     }
-    //End of Interface Implementation
+    // End of Interface Implementation
 
     protected set monk(value: number) {
         kGAMECLASS.monk = value;
     }
 
-    //const TIMES_AMILY_AND_JOJO_PLAYED_TIMES: number = 434;
-    //const AMILY_X_JOJO_COOLDOWN: number = 435;
-    //const JOJO_MOVE_IN_DISABLED: number = 550;
-    //const TIMES_EGGED_JOJO: number = 590;
-    //const JOJO_EGGCUBATE_COUNT: number = 591;
+    // const TIMES_AMILY_AND_JOJO_PLAYED_TIMES: number = 434;
+    // const AMILY_X_JOJO_COOLDOWN: number = 435;
+    // const JOJO_MOVE_IN_DISABLED: number = 550;
+    // const TIMES_EGGED_JOJO: number = 590;
+    // const JOJO_EGGCUBATE_COUNT: number = 591;
 
     public jojoSprite(): void {
         if (this.tentacleJojo()) this.spriteSelect(81);
@@ -127,16 +127,16 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             "There are some lines even you won't cross.  Besides, having a sex-addled mouse with a constantly drooling foot-long cock is all the fun you can handle.\n\nWith that decided you prepare to call on your slut.",
             true
         );
-        //Normal jojo sex scene here
+        // Normal jojo sex scene here
         this.doNext(this.corruptJojoSexMenu);
     }
 
-    //CORRUPT CAMP JOJO
+    // CORRUPT CAMP JOJO
     public corruptCampJojo(): void {
         this.clearOutput();
         this.jojoSprite();
         if (this.flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] == 0) {
-            //Corrupt Amily and Jojo sexings
+            // Corrupt Amily and Jojo sexings
             if (
                 this.flags[kFLAGS.AMILY_FOLLOWER] == 2 &&
                 this.amilyScene.amilyFollower() &&
@@ -150,7 +150,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 this.amilyTeachingJojoBJ();
                 return;
             }
-            //Oh shit goes down! (Wiv Tentacles)
+            // Oh shit goes down! (Wiv Tentacles)
             if (
                 this.amilyScene.amilyFollower &&
                 this.flags[kFLAGS.AMILY_DISCOVERED_TENTATLE_JOJO] == 0 &&
@@ -161,7 +161,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 this.finter.amilyDiscoversJojoWithTentaclesAndShitOhBoy();
                 return;
             }
-            //Oh shit goes down! (No tentacles)
+            // Oh shit goes down! (No tentacles)
             else if (
                 this.flags[kFLAGS.AMILY_PISSED_PC_CORRUPED_JOJO] == 0 &&
                 JojoScene.rand(10) <= 1 &&
@@ -172,7 +172,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 this.finter.amilyIsPissedAtYouForRuiningJojo();
                 return;
             }
-            //Offer lethicite jojo tf if the player is ready
+            // Offer lethicite jojo tf if the player is ready
             if (
                 this.player.findStatusAffect(StatusAffects.JojoTFOffer) < 0 &&
                 this.player.hasKeyItem("Marae's Lethicite") >= 0 &&
@@ -255,7 +255,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                     "\n\n<b>Jojo is still drained from his last visit to the milkers - you should wait a few hours before taking him back.</b>",
                     false
                 );
-            //First time:
+            // First time:
             else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00331] != 0) {
                 milkHim = this.repeatMilkJojo;
                 if (this.tentacleJojo())
@@ -414,7 +414,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             "You lick the sharp crystalline dildo, slathering it with spit.  You aren't sure, but you seem unable to stop.  It's as if some demonic force guides you.  It's difficult to focus on much beyond your own arousal and the tingling feeling that spreads through your body as you taste this piece of a goddess' essence.  Your mind drifts off into a perverted fantasy, unable to cope with total loss of control and oral debauchery.\n==========================================\n<i>",
             false
         );
-        //[Male]
+        // [Male]
         if (this.player.gender <= 1) {
             this.outputText(
                 "In your fantasy you're fucking Jojo again, bottoming out against his cute girlish ass over and over.  His dick spurts mouse-milk with each thrust, feeding a dozen growing puddles underneath him as they slowly merge together.  He writhes and squirms, a pair of crystalline balls against his chin while he deep-throats a massive dildo.  You blast another wave into his overloaded spunk-dumpster, forcing a thick jet out of him and into the cum-puddles underneath you.\n\n",
@@ -434,7 +434,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.player.cockTotal() > 1) this.outputText("s");
             this.outputText(" and take the tainted artifact, now ready to be used.</i>\n", false);
         }
-        //[Female]
+        // [Female]
         else {
             this.outputText(
                 "In your fantasy, you're riding Jojo hard, milking his swollen dick with your pussy",
@@ -569,13 +569,13 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             false
         );
         this.dynStats("lus", 300, "cor", 10);
-        //(LIMITED MASTURBATE MENU – No Jojo)
+        // (LIMITED MASTURBATE MENU – No Jojo)
         this.player.createStatusAffect(StatusAffects.NoJojo, 0, 0, 0, 0);
         this.player.createStatusAffect(StatusAffects.TentacleJojo, 0, 0, 0, 0);
         this.doNext(this.playerMenu);
     }
 
-    //[POST TENTACLE DICKINGS]
+    // [POST TENTACLE DICKINGS]
     public useTentacleJojo(): void {
         this.jojoSprite();
         this.player.slimeFeed();
@@ -624,7 +624,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         );
         if (this.player.hasVagina()) this.outputText(" and " + this.vaginaDescript(0), false);
         this.outputText(".\n\n", false);
-        //REAL SECKS STARTS HERE
+        // REAL SECKS STARTS HERE
         if (this.player.totalCocks() > 0) {
             this.outputText(
                 "Upside down, you're forced to watch as his tail-tentacles curl out from between his legs, and extend towards your vulnerable " +
@@ -633,7 +633,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
             if (this.player.cockTotal() == 1) {
-                //(1dick+balls =
+                // (1dick+balls =
                 if (this.player.balls > 0) {
                     this.outputText("One of them lashes forwards, ", false);
                     if (this.player.cockArea(0) > 60)
@@ -650,7 +650,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                     );
                     this.outputText("\n\n", false);
                 }
-                //(1 dick no balls =
+                // (1 dick no balls =
                 else {
                     this.outputText("One of them lashes forwards, ", false);
                     if (this.player.cockArea(0) > 60)
@@ -675,7 +675,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                                 " inside.",
                             false
                         );
-                        //(If big clit –
+                        // (If big clit –
                         if (this.player.clitLength >= 4)
                             this.outputText(
                                 "  You nearly cum on the spot from the clitoral stimulation; it's like you have a super-sensitive cock being licked by a thousand tongues.",
@@ -685,9 +685,9 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                     this.outputText("\n\n", false);
                 }
             }
-            //(2 dicks +
+            // (2 dicks +
             if (this.player.cockTotal() == 2) {
-                //balls)
+                // balls)
                 if (this.player.balls > 0) {
                     this.outputText("Two of them lash forward, ", false);
                     if (this.player.cockArea(0) > 60)
@@ -703,7 +703,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         false
                     );
                 }
-                //(2 dicks no balls)
+                // (2 dicks no balls)
                 else {
                     this.outputText("Two of them lash forward, ", false);
                     if (this.player.cockArea(0) > 60)
@@ -721,7 +721,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                             "out your " + this.clitDescript() + " and sucking it inside.",
                             false
                         );
-                        //(If big clit –
+                        // (If big clit –
                         if (this.player.clitLength >= 4)
                             this.outputText(
                                 "  You nearly cum on the spot from the clitoral stimulation; it's like you have a super-sensitive cock being licked by a thousand tongues.",
@@ -735,7 +735,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                     this.outputText("\n\n", false);
                 }
             }
-            //(3 dicks)
+            // (3 dicks)
             if (this.player.cockTotal() >= 3) {
                 this.outputText("All three of them lash forward, ", false);
                 if (this.player.cockArea(0) > 60)
@@ -748,7 +748,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         " in tight vises of pleasure.  The sensation is overwhelmingly pleasurable, like having three cocks being licked and sucked by a thousand tongues.",
                     false
                 );
-                //(if extra:
+                // (if extra:
                 if (this.player.cockTotal() > 3)
                     this.outputText(
                         "  The remaining " +
@@ -759,7 +759,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText("\n\n", false);
             }
         }
-        //(0 dicks but clit)
+        // (0 dicks but clit)
         if (this.player.totalCocks() == 0 && this.player.hasVagina()) {
             this.outputText(
                 "One of Jojo's tail-tentacles slides underneath his body, shooting forwards to seek out your " +
@@ -767,7 +767,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                     ".  It pauses an inch or two away and opens up a horrific orifice full of wriggling tentacles and slick fluids.  The next moment it lunges forwards and sucks it inside.",
                 false
             );
-            //(If big clit –
+            // (If big clit –
             if (this.player.clitLength >= 4)
                 this.outputText(
                     "  You nearly cum on the spot from the clitoral stimulation; it's like you have a super-sensitive cock being licked by a thousand tongues.",
@@ -780,7 +780,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 );
             this.outputText("\n\n", false);
         }
-        //GET BUTT/VAGOO PENETRATED
+        // GET BUTT/VAGOO PENETRATED
         this.outputText("The ", false);
         if (this.player.hasVagina()) this.outputText("pair of tentacles ", false);
         else this.outputText("tentacle ", false);
@@ -789,15 +789,15 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(" that now is a good time to penetrate your undefended opening", false);
         if (this.player.hasVagina()) this.outputText("s", false);
         this.outputText(", and press against you, ", false);
-        //Virgin taking
+        // Virgin taking
         if (this.player.hasVirginVagina() || this.player.ass.analLooseness == 0) {
             this.outputText("barely slipping inside your virginal opening", false);
             if (this.player.hasVirginVagina() && this.player.ass.analLooseness == 0)
                 this.outputText("s", false);
         }
-        //not virgin taking
+        // not virgin taking
         else {
-            //With cunt
+            // With cunt
             if (this.player.hasVagina()) {
                 if (this.player.vaginas[0].vaginalLooseness >= VAGINA_LOOSENESS_GAPING_WIDE)
                     this.outputText(
@@ -820,7 +820,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         );
                 }
             }
-            //Just butt
+            // Just butt
             else {
                 if (this.player.ass.analLooseness >= 4)
                     this.outputText(
@@ -841,7 +841,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 }
             }
         }
-        //ON WITH THE PENETRATION
+        // ON WITH THE PENETRATION
         this.outputText(
             ".  Your " + this.mouthMuzzle() + " opens with a wordless cry of surprise ",
             false
@@ -885,7 +885,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 " like hungry snakes eyeing a mouse.\n\n",
             false
         );
-        //(Large tits &/or multitits with no lactation)
+        // (Large tits &/or multitits with no lactation)
         if (
             (this.player.biggestTitSize() >= 4 ||
                 (this.player.biggestTitSize() >= 4 && this.player.breastRows.length > 1)) &&
@@ -903,7 +903,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
         }
-        //(Lactating highly)
+        // (Lactating highly)
         if (this.player.biggestLactation() >= 2) {
             nippleSucking = true;
             this.outputText(
@@ -928,7 +928,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
             if (this.player.breastRows.length > 1) {
-                //(NewPG if multirow)
+                // (NewPG if multirow)
                 this.outputText(
                     "\n\nThere is nothing to do but enjoy the sensations until your " +
                         this.breastDescript(0) +
@@ -938,7 +938,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             }
             this.outputText("\n\n", false);
         }
-        //(NEITHER - JUST NIPS)
+        // (NEITHER - JUST NIPS)
         else if (this.player.biggestTitSize() < 4 && JojoScene.rand(2) == 0) {
             nippleSucking = true;
             this.outputText(
@@ -957,7 +957,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
         }
-        //mouthfuck – if shoulder-tentacles are unoccupied – random
+        // mouthfuck – if shoulder-tentacles are unoccupied – random
         else if (this.player.biggestTitSize() < 4 && this.player.biggestLactation() < 2) {
             mouthFucking = true;
             this.outputText(
@@ -969,7 +969,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
         }
-        //Cumsplosion
+        // Cumsplosion
         this.outputText("Jojo unleashes a howl of bestial pleasure, and you feel the ", false);
         if (this.player.hasVagina()) {
             this.outputText(
@@ -991,7 +991,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             else if (this.player.vaginas[0].vaginalWetness >= VAGINA_WETNESS_SLICK)
                 this.outputText(", as your drooling cunt forms a slick puddle.  ", false);
             else this.outputText(".  ", false);
-            //(If big clit being sucked –
+            // (If big clit being sucked –
             if (this.player.cockTotal() <= 2 && this.player.balls == 0) {
                 this.outputText(
                     "The tentacle locked around your " +
@@ -1015,7 +1015,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
         }
-        //Dick milkings ahoy!
+        // Dick milkings ahoy!
         if (this.player.cockTotal() > 0) {
             if (this.player.cockTotal() == 1) {
                 this.outputText(
@@ -1084,7 +1084,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 } else this.outputText(".", false);
             }
         }
-        //Breastgasm
+        // Breastgasm
         if (this.player.biggestLactation() >= 2 && nippleSucking) {
             this.outputText(
                 "Your " +
@@ -1117,7 +1117,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             );
             milkPuddle = true;
         }
-        //Titfucking breastgasm
+        // Titfucking breastgasm
         if (titFucking) {
             this.outputText(
                 "The titfucking tentacles squeeze tighter against your " +
@@ -1181,37 +1181,37 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Jojo milk payments
+    // Jojo milk payments
     private jojoMilkPay(tentacle: boolean = false): void {
         this.jojoSprite();
         this.flags[kFLAGS.JOJO_COCK_MILKING_COOLDOWN] = 4;
         this.outputText("A loud 'ding' chimes and a panel displays ", false);
 
-        //Set temp to liter amount produced.
+        // Set temp to liter amount produced.
         var payout: number = 0;
         var cap: number = 500;
         var cumQ: number = 0;
-        //Ez mode cap doubles
+        // Ez mode cap doubles
         if (this.flags[kFLAGS.EASY_MODE_ENABLE_FLAG] == 1) cap *= 2;
         if (this.debug) {
             this.flags[kFLAGS.WHITNEY_GEMS_PAID_THIS_WEEK] = 0;
             cap = 9999;
         }
-        //Get rid of extra digits
+        // Get rid of extra digits
         cumQ = this.jojoCumQ();
         if (tentacle) cumQ += 40000 + JojoScene.rand(1000);
 
-        //10% randomization
+        // 10% randomization
         cumQ -= JojoScene.rand(cumQ / 10);
         cumQ = Math.round(cumQ);
 
         this.outputText(cumQ / 1000 + " Ls.  ", false);
 
-        //Calculate payout
+        // Calculate payout
         if (cumQ > 100) {
             payout = 2 + Math.floor(cumQ / 200) * 2;
         }
-        //Reduce payout if it would push past
+        // Reduce payout if it would push past
         if (this.flags[kFLAGS.WHITNEY_GEMS_PAID_THIS_WEEK] + payout >= cap) {
             payout = cap - this.flags[kFLAGS.WHITNEY_GEMS_PAID_THIS_WEEK];
             this.outputText(
@@ -1219,7 +1219,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
         }
-        //If over cap!
+        // If over cap!
         else if (this.flags[kFLAGS.WHITNEY_GEMS_PAID_THIS_WEEK] >= cap) {
             payout = 0;
             this.outputText("It also shows a warning: <b>FUNDS EXHAUSTED.</b>  ", false);
@@ -1253,7 +1253,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         return cumQ;
     }
 
-    //Jojo - First Time Milking (edited)
+    // Jojo - First Time Milking (edited)
     private milkJojoFirst(): void {
         this.jojoSprite();
         var x: number = this.player.cockThatFits(40);
@@ -1328,7 +1328,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         if (this.player.hasCock()) {
-            //(Cock - too big!)
+            // (Cock - too big!)
             if (x < 0) {
                 x = this.player.biggestCockIndex();
                 if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00333] > 0)
@@ -1358,7 +1358,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                     false
                 );
             }
-            //(Cock - butt rape!)
+            // (Cock - butt rape!)
             else {
                 if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00333] > 0)
                     this.outputText(
@@ -1389,7 +1389,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             }
             this.player.orgasm();
         }
-        //(Vagoozle!)
+        // (Vagoozle!)
         else if (this.player.hasVagina()) {
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00333] > 0)
                 this.outputText(
@@ -1424,7 +1424,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             );
             this.player.orgasm();
         }
-        //(NEITHER!)
+        // (NEITHER!)
         else {
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00333] > 0)
                 this.outputText(
@@ -1466,7 +1466,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\n", false);
 
         if (this.player.hasCock()) {
-            //(Too big dick:
+            // (Too big dick:
             if (this.player.cockThatFits(40) < 0)
                 this.outputText(
                     "You release your cum all over Jojo's back, matting his white fur with cum.  Each successive splatter of spunk makes the mouse look even more like a semen-drenched whore.  It's a good look for him.",
@@ -1497,7 +1497,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             false
         );
 
-        //(COPY PASTA REGULAR MILKER STUFF: A loud 'ding' chimes and a panel displays 0.864 Ls.  Ten gems roll out into a collection plate.  Whitney really put a lot of work into this!  You pocket the gems and g
+        // (COPY PASTA REGULAR MILKER STUFF: A loud 'ding' chimes and a panel displays 0.864 Ls.  Ten gems roll out into a collection plate.  Whitney really put a lot of work into this!  You pocket the gems and g
         this.jojoMilkPay();
 
         this.outputText(
@@ -1510,7 +1510,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
     private repeatMilkJojo(tentacle: boolean = false): void {
         this.jojoSprite();
         this.outputText("", true);
-        //Jojo Repeat Milking - Non Tentacle (edited)
+        // Jojo Repeat Milking - Non Tentacle (edited)
         if (!tentacle || !this.tentacleJojo()) {
             this.outputText(
                 'You call for your corruption-filled mouse-pet, and Jojo immediately bounds out of the woods on all fours, his bloated dick practically dragging the ground as it dribbles behind him. He looks up at you with eyes full of hope, still remembering the pleasure of his last trip to the farm.  You sigh and say, "<i>Yes, I\'m going to take you for another milking.  Are your balls nice and full?  I expect you to earn me a few gems, my little cum-cow.</i>"\n\n',
@@ -1582,7 +1582,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
 
-            //(\"<i>Normal</i>\" Jojo cum)
+            // (\"<i>Normal</i>\" Jojo cum)
             if (this.jojoCumQ() < 1000) {
                 this.outputText(
                     "Your poor semen-slave does not disappoint.  His balls, looking far more swollen than when you arrived, tremble beneath him in time with his bouncing cock, convulsing as they begin to obey your commands.  Big spheres of cum suddenly distend the hose, stretching it with their liquid weight as they're pumped away toward the wall.  Jojo happily squeaks with each fresh burst he releases, though he rapidly devolves into just constantly screeching and moaning as his dick begins to continually twitch, unloading the rest of his spermy cargo in one thick deluge.  He hangs over the slightly dilated, whirring hose as it slurps down all of his cum.  Eventually, the mouse is totally drained, and his body goes limp in the harness.\n\n",
@@ -1597,7 +1597,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                     false
                 );
             }
-            //(\"<i>Big</i>\" Jojo Cum)
+            // (\"<i>Big</i>\" Jojo Cum)
             else if (this.jojoCumQ() < 4000) {
                 this.outputText(
                     "Your poor, pent-up semen-slave does not disappoint.  His swollen balls look like heavy grapefruits, only with a much different juice inside them.  Trembling to obey your commands, the hefty spheres bounce and shake, starting to pump out their syrupy rodent-sludge into Whitney's retrofitted demonic machinery.  Just below his swollen tip, the hose massively distends with cum in one climactic moment, accompanied by a squeal of pleasure from your slut.  You can hear the device's humming jump an octave from the heavy load it's being forced to accept, but it seems to manage well enough.  The blob slowly flattens out as it's siphoned down the spunk-devouring tube, just in time for another fat sphere to bloat the hose.  Jojo's eyes roll back, showing you just the whites, and he simply sits and shakes, depositing an inhuman amount of jizm into the milker's ravenous tubing.  After a time, the drained mouse goes limp, his dick still releasing a little more cream even after he goes unconscious.\n\n",
@@ -1614,7 +1614,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                     false
                 );
             }
-            //(\"<i>Victory</i>\" Jojo Cum)
+            // (\"<i>Victory</i>\" Jojo Cum)
             else {
                 this.outputText(
                     "Your poor, pent-up semen-slave does not disappoint.  His swollen balls are huge and heavy, swaying back and forth as they shudder and shake with the massive amount of jism they've built up.  Suddenly, they convulse in sync, absolutely flooding the milker's tube with a torrential spurt of mouse-cum.  Globules of jizz leak out around the seal at Jojo's crotch, drizzling down his stretched sack to drip to the floor in gooey strands.  The hose doubles in size, more reminiscent of a rubber balloon than a mechanical device.  Jojo is simply cumming far too hard and too fast for the machinery to handle.  Meanwhile, the noise of the milker's motor jumps up three octaves, becoming an earsplitting whine.  With the seal around your slave's cock failing, the tube is starting to slide off.  He really did it this time!  You rush underneath Jojo and grab hold of the tube with both hands, ramming it back up his shaft in time for his next gigantic pulse of cum to wash through the tube.  Some of it sprays out around the seal, but you hang on for dear life as your mouse's amazing orgasm floods into the receptacles.  He quickly slumps in his hardness, but you keep the milker in place until every drop has been siphoned from his body.\n\n",
@@ -1639,7 +1639,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
         }
-        //TENTACLE JOJO MILKING (edited)
+        // TENTACLE JOJO MILKING (edited)
         else {
             this.outputText(
                 "You call for your mutated mouse, and Jojo immediately lumbers out of the woods on all fours, his bloated tentacle-cock dragging on the ground and painting a trail of spooge behind it.  He looks up at you with eyes full of hope, two indistinct bulges on his shoulders twitching in excitement as he remembers the last time you took him to the farm.  You sigh and ask, \"<i>I suppose you're thinking that I'll be giving your tentacles a nice, firm milking, huh slut?  Well it looks like you lucked out today, but you had better cum hard enough with those three cocks to impress me.</i>\"\n\n",
@@ -1719,7 +1719,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.orgasm();
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Use Jojo to pay for Hair Care
+    // Use Jojo to pay for Hair Care
     private jojoPaysForPerms(): void {
         this.jojoSprite();
         this.outputText("", true);
@@ -1785,10 +1785,10 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         kGAMECLASS.mountain.salon.salonPurchaseMenu();
     }
 
-    //Scene 1: Amily Teaches Jojo How To Give Blowjobs. (Z)
+    // Scene 1: Amily Teaches Jojo How To Give Blowjobs. (Z)
     private amilyTeachingJojoBJ(): void {
         this.clearOutput();
-        //First time version
+        // First time version
         if (this.flags[kFLAGS.TIMES_AMILY_AND_JOJO_PLAYED_TIMES] == 0) {
             this.outputText(
                 "Your pet mice make an appearance as you're plotting your next move, Amily practically dragging Jojo behind her, ignoring the thick ropes of spunk he drizzles on the ground in his path.  He pants and whines, \"<i>-don't wanna suck cocks!  Fucking is totally better.</i>\""
@@ -1797,7 +1797,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nAmily turns about and boxes his rebellious little muzzle.  \"<i>You need schooling in how to properly please our [master].  Do you honestly think [he] will be satisfied with just plowing your ass or riding your thick... drooling... cock...</i>\" Amily's question trails off as she reaches down to caress Jojo's ever-present, cum-slicked boner."
             );
         }
-        //Repeat
+        // Repeat
         else {
             this.outputText(
                 "It seems Amily and Jojo are together again, this time in the center of the camp.  Amily is holding Jojo's swollen balls in one hand as she graphically explains how a proper slave should swallow every drop of cum in order to please his [master].  Jojo is panting, his tongue lolling from his mouth as he absently agrees with Amily's particularly pleasurable demonstration, too focused on her fingers to pay attention to her words."
@@ -1807,7 +1807,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             );
         }
         this.flags[kFLAGS.TIMES_AMILY_AND_JOJO_PLAYED_TIMES]++;
-        //Universal Outro
+        // Universal Outro
         this.outputText(
             "  She seems visibly distracted by the mouse's boner, and will likely wind up fucking him soon."
         );
@@ -1820,7 +1820,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(1, "Watch", this.amilyAndJojoFuck);
         this.addButton(4, "Leave", this.playerMenu);
     }
-    //Scene 1 Result: Male Gets BJ (Z)
+    // Scene 1 Result: Male Gets BJ (Z)
     private BJRidesGETYOUONE(): void {
         this.amilyScene.amilySprite();
         this.clearOutput();
@@ -1856,9 +1856,9 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             'almost too great to resist.  Amily seems to sense this, obediently offering their bodies for your release. "<i>[Master], would you like to fill your cum-slut\'s pussy or mouth?  Or maybe you want to give your bitch-boy a taste?</i>"'
         );
-        //[Cum in Amily Mouth] [Cum in Amily Pussy] [Cum in Jojo Mouth]
+        // [Cum in Amily Mouth] [Cum in Amily Pussy] [Cum in Jojo Mouth]
         this.outputText("\n\nWhere do you cum?");
-        //Pussy requires a minimum tallness?
+        // Pussy requires a minimum tallness?
         var puss = undefined;
         if (this.player.tallness > 55) puss = this.stuffAmilysMouthWithPostBJCUM;
         this.simpleChoices(
@@ -1874,7 +1874,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             undefined
         );
     }
-    //Fill Amily's Mouth (Z)
+    // Fill Amily's Mouth (Z)
     private fillAmilysMouth(): void {
         this.amilyScene.amilySprite();
         this.clearOutput();
@@ -1904,7 +1904,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.orgasm();
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Fill Amily's Twat (requires not short-ass, weak-ass nigga) (Z)
+    // Fill Amily's Twat (requires not short-ass, weak-ass nigga) (Z)
     private stuffAmilysMouthWithPostBJCUM(): void {
         this.amilyScene.amilySprite();
         this.clearOutput();
@@ -1926,11 +1926,11 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         );
         this.player.orgasm();
         this.dynStats("sen", -1);
-        //{DONT FORGET PREGNANCY CHECK}
+        // {DONT FORGET PREGNANCY CHECK}
         this.amilyScene.amilyPreggoChance();
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Fill Jojo's Mouth (Z)
+    // Fill Jojo's Mouth (Z)
     private fillJojosMouthWithHotStickyCum(): void {
         this.jojoSprite();
         this.clearOutput();
@@ -1948,7 +1948,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Scene 2: Amily And Jojo Fuck (w/o Tentacles) (Z)
+    // Scene 2: Amily And Jojo Fuck (w/o Tentacles) (Z)
     private amilyAndJojoFuck(): void {
         this.jojoSprite();
         this.clearOutput();
@@ -1990,8 +1990,8 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             );
         this.outputText(" Maybe you'll get to catch them in the act again?");
         this.player.orgasm();
-        //{DONT FORGET PREGNANCY CHECK}
-        //amilyPreggoChance();
+        // {DONT FORGET PREGNANCY CHECK}
+        // amilyPreggoChance();
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
@@ -2008,7 +2008,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 "The mouse monk leads you to a quiet spot away from the portal and the two of you sit down, him cross-legged and you mimicking to the best of your ability, back to back.  You close your eyes and meditate for half-an hour, centering your body and mind.  Afterwards, he guides you through stretches and exercises to help keep your bodies fit and healthy.\n\nWhen you are done, Jojo nods to you, and climbs back onto his rock, still thinking.",
                 this.doClear
             );
-            //Reduces lust
+            // Reduces lust
             this.dynStats("lus", -30);
             var cleanse: number = -2; //Corruption reduction - faster at high corruption
             if (this.player.cor > 80) cleanse -= 3;
@@ -2043,7 +2043,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     // Hurray var/function hoisting.
-    //this.semiglobalReferencer.jojoRape = jojoRape;
+    // this.semiglobalReferencer.jojoRape = jojoRape;
 
     public jojoAtCampRape(): void {
         this.jojoSprite();
@@ -2088,7 +2088,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.jojoSprite();
         this.player.slimeFeed();
-        //Track Jojo rapeage
+        // Track Jojo rapeage
         if (this.player.findStatusAffect(StatusAffects.EverRapedJojo) < 0)
             this.player.createStatusAffect(StatusAffects.EverRapedJojo, 1, 0, 0, 0);
         else this.player.addStatusValue(StatusAffects.EverRapedJojo, 1, 1);
@@ -2214,7 +2214,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             this.dynStats("lib", -10, "cor", 4);
             this.monk += 1;
 
-            //Preggers chance!
+            // Preggers chance!
             this.player.knockUp(
                 PregnancyStore.PREGNANCY_JOJO,
                 PregnancyStore.INCUBATION_MOUSE + 82
@@ -2377,7 +2377,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nSatisfied at last, you pull yourself away from the dazed mouse.  His shaft is still swollen with need, his hands irresistibly stroking it, eyes vacant.  You're going to corrupt him so much more next time.\n\n"
             );
-            //Preggers chance!
+            // Preggers chance!
             this.player.knockUp(
                 PregnancyStore.PREGNANCY_JOJO,
                 PregnancyStore.INCUBATION_MOUSE + 82
@@ -2526,7 +2526,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             } else {
                 this.dynStats("lib", 2, "cor", 1);
             }
-            //Preggers chance!
+            // Preggers chance!
             this.player.knockUp(
                 PregnancyStore.PREGNANCY_JOJO,
                 PregnancyStore.INCUBATION_MOUSE + 82
@@ -2622,7 +2622,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             } else {
                 this.dynStats("lib", 2, "cor", 1);
             }
-            //Preggers chance!
+            // Preggers chance!
             this.player.knockUp(
                 PregnancyStore.PREGNANCY_JOJO,
                 PregnancyStore.INCUBATION_MOUSE + 82
@@ -2635,7 +2635,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "Jojo flops down, eyes filled with anticipation.  His self-control has really slipped away.  The corrupted and horny mouse on display here is anathema to the studious monk you met before.  His cock is close to a foot long and over two inches thick, veiny with arousal.\n\n"
         );
-        //Male Version
+        // Male Version
         if (this.player.gender == 1) {
             this.outputText(
                 "The mousy former-monk kneels as you disrobe, his will nearly broken by desire.  "
@@ -2654,7 +2654,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         this.multiCockDescriptLight() +
                         ", smiling as he licks his lips in anticipation.  You gasp at the feelings of his soft lips and wet tongue on your heads as he pleasures you, your knees going weak from his efforts.  Jojo cups your balls and slips a fuzzy finger into your ass.  He labors to take in two shafts, struggling to swallow them as deep as possible, panting wetly around you.  You twitch with pleasure as he alternates pressure on your prostate with smooth strokes of his slick tongue.  "
                 );
-            //Too thick for him
+            // Too thick for him
             if (
                 this.player.averageCockThickness() > 3 ||
                 (this.player.dogCocks() > 0 && this.player.averageCockThickness() > 3)
@@ -2664,7 +2664,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         this.cockDescript(0) +
                         " from time to time to come up for air, barely opening his jaw wide enough to take your girth back inside his mouth.  "
                 );
-            //Too long for him
+            // Too long for him
             if (
                 this.player.averageCockLength() > 10 ||
                 (this.player.horseCocks() > 0 && this.player.averageCockLength() > 10)
@@ -2726,9 +2726,9 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 this.dynStats("lib", 2, "cor", 1);
             }
         }
-        //Female or Herm Version
+        // Female or Herm Version
         if (this.player.gender == 2 || this.player.gender == 3) {
-            //Oral
+            // Oral
             this.outputText(
                 "The mousy once-monk kneels as you disrobe, his will nearly broken by desire.  "
             );
@@ -2810,7 +2810,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         "s drizzle him with cum, covering his head with thick white streams of your jizz.  "
                 );
             this.outputText("Twitching weakly with pleasure, you fall back.\n\n");
-            //Fux!
+            // Fux!
             this.outputText(
                 "The pleasure was magnificent... but you want MORE.  You push yourself up, feeling pleased as you spy Jojo stroking his cum-slick " +
                     this.monster.cockDescriptShort(0) +
@@ -2872,11 +2872,11 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                     this.clitDescript() +
                     " the whole time.  "
             );
-            //Futacawk here
+            // Futacawk here
             if (this.player.cockTotal() > 0) {
-                //Single Cock
+                // Single Cock
                 if (this.player.cockTotal() == 1) {
-                    //Horsefun!
+                    // Horsefun!
                     if (this.player.horseCocks() == 1)
                         this.outputText(
                             "Your " +
@@ -2885,21 +2885,21 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                                 this.cockDescript(0) +
                                 " as pre practically fountains from it.  "
                         );
-                    //DogFun!
+                    // DogFun!
                     if (this.player.dogCocks() == 1)
                         this.outputText(
                             "Your " +
                                 this.cockDescript(0) +
                                 " feels an intense pressure, and begins bulging out obscenely above your sheath.  The knot thickens gratuitiously, filling as it pulses with need.  Cum drips from your pointed tip as it continues to bulge wider, filling you with unbearable pressure.  "
                         );
-                    //Else
+                    // Else
                     if (this.player.normalCocks() == 1)
                         this.outputText(
                             "Your " +
                                 this.cockDescript(0) +
                                 " twitches, muscle contractions slowly working their way up from the base.  "
                         );
-                    //CUMSPLOISION
+                    // CUMSPLOISION
                     if (this.player.cumQ() < 25)
                         this.outputText(
                             "Your body tenses and cums, spraying spurts of jizz over the mouse.  "
@@ -2951,7 +2951,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                             );
                     }
                 }
-                //Sorry multicocks, I'm donE!
+                // Sorry multicocks, I'm donE!
                 if (this.player.cockTotal() > 1) {
                     this.outputText(
                         "Your cocks feel a building pressure at their base. It only seems to get stronger and stronger, until at last it explodes out from you, jizz covering the poor mouse from the waist up.  "
@@ -2959,7 +2959,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 }
             }
 
-            //Milk here
+            // Milk here
             if (this.player.biggestLactation() >= 1 && this.player.biggestTitSize() > 3) {
                 if (
                     this.player.biggestTitSize() *
@@ -3015,12 +3015,12 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                     );
             }
             this.player.cuntChange(3, true);
-            //Preggers chance!
+            // Preggers chance!
             this.player.knockUp(
                 PregnancyStore.PREGNANCY_JOJO,
                 PregnancyStore.INCUBATION_MOUSE + 82
             ); //Jojo's kids take longer for some reason
-            //The end
+            // The end
             if (this.player.lib > 50 && this.player.cor > 80) {
                 this.outputText(
                     '\n\n<b>You feel a familiar power growing within you and decide to unleash it.</b>  You grab the prayer beads from his outfit and spit on them, making them slick and wet.  Holding them below his flagging cock, you focus on the demonic visions in your mind, slowly but constantly milking larger and larger dollops of cum onto the once holy beads.  Jojo moans as he comes to understand your intent, and turns around, shaking his lithe mouse-bum at you.  You lean over him, whispering into his ear, "<i>Each defiled bead I push into you is going to make you more of a willing slut.  More of a willing receptacle for demon cum.  More of a fountain of desire waiting to be tapped by Succubi.  More my toy.</i>"\n\n'
@@ -3051,7 +3051,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "Jojo smiles serenely, pleased at the outcome, a foot of tumescent mouse-meat bobbing at attention.\n\n"
         );
-        //Placeholder till I'm less lazy
+        // Placeholder till I'm less lazy
         this.outputText(
             "You fuck your mousey slut for what feels like hours, orgasming until both of you are tired and worn out.  "
         );
@@ -3135,7 +3135,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         "You black out as Jojo cums AGAIN, forcing a river of spunk from your already over-filled uterus."
                     );
                     this.player.cuntChange(this.monster.cocks[0].cockThickness, true);
-                    //Preggers chance!
+                    // Preggers chance!
                     this.player.knockUp(
                         PregnancyStore.PREGNANCY_MOUSE,
                         PregnancyStore.INCUBATION_MOUSE + 82,
@@ -3158,7 +3158,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 this.dynStats("cor", 1);
                 this.statScreenRefresh();
             }
-            //HP Defeat
+            // HP Defeat
             else {
                 this.outputText("You black out from the pain of your injuries.\n\n");
                 this.statScreenRefresh();
@@ -3386,7 +3386,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                     : "") +
                 ". You stay seated on his hips until your orgasm fades, then with a sigh of pleasure you stand off of him and dismiss him with a wave of your hand.  "
         );
-        //Preggers chance!
+        // Preggers chance!
         this.player.knockUp(PregnancyStore.PREGNANCY_JOJO, PregnancyStore.INCUBATION_MOUSE + 82); //Jojo's kids take longer for some reason
         this.player.orgasm();
         this.dynStats("cor", 0.5);
@@ -3553,7 +3553,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     private corruptJojoBreasts(): void {
-        //Should only be available to players with biggestBreastSize > 2
+        // Should only be available to players with biggestBreastSize > 2
         this.jojoSprite();
         this.clearOutput();
         this.outputText(
@@ -3563,7 +3563,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             "Your mouse slut obediently slips from the darkness and into your camp, approaching you and kneeling at your side. You can see the lust in his eyes as he looks at your breasts, longing and love reflecting wonderfully. You nod your approval and let him worship your bosom.  "
         );
         if (this.player.biggestLactation() > 1) {
-            //For suckling the scene is the same regardless of player's gender
+            // For suckling the scene is the same regardless of player's gender
             this.outputText(
                 "He leans in and starts to kiss along your nipples before taking one into his mouth. He gives a firm suckle at the engorged teat, and you can see his eyes open wider in surprise at the sudden surge of milk that fills his muzzle. He shivers and starts to suckle in earnest, drinking from first one breast, then the other, "
             );
@@ -3591,9 +3591,9 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Extra Scenes
-    //[Jojo Whispered Sex scene]
-    //(Requires the Whispered perk and Jojo as follower)
+    // Extra Scenes
+    // [Jojo Whispered Sex scene]
+    // (Requires the Whispered perk and Jojo as follower)
     private whisperJojobait(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("akbal-deepwoods-male-jojosex"));
@@ -3618,7 +3618,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "You bend down to pat Jojo's obscenely swollen sac; you're determined to empty them of the liquid you hear sloshing around inside.  Jojo yelps as you do, your spell having made his body overtly sensitive to your touch.  "
         );
-        //[Tentacle Penis]
+        // [Tentacle Penis]
         if (this.player.cocks[x].cockType == CockTypesEnum.TENTACLE) {
             this.outputText(
                 "His rodent tail wraps around your waist as you get into position, causing your " +
@@ -3630,7 +3630,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                     " goes ballistic inside of his hungry bowels.\n\n"
             );
         }
-        //[Small penis (7 inches or less)]
+        // [Small penis (7 inches or less)]
         else if (this.player.cockArea(x) < 13) {
             this.outputText(
                 "His hole flexes constantly, as if hungry for your " +
@@ -3642,7 +3642,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                     "makes you smile as you begin thrusting in and out of him.  Jojo groans beneath you like a whore in heat, his ass moving in time to meet your thrusts.  The sound of your bodies clapping together is an applause as you fuck the little mousey without reservation.\n\n"
             );
         }
-        //[Medium penis (8-12 inches)]
+        // [Medium penis (8-12 inches)]
         else if (this.player.cockArea(x) < 25) {
             this.outputText(
                 "His tail possessively wraps itself around your waist as you tease him with your " +
@@ -3650,7 +3650,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                     ", smearing your leaking pre all over his stretched tail hole.  You slide yourself into him with a sigh, feeling his hole quiver around your invading sex organ.  Jojo wails like a whore in heat beneath you, grunting as you begin to piston pump your swollen sex organ in and out of his greedy mousey hole.\n\n"
             );
         }
-        //[Large penis (13 inches and up)]
+        // [Large penis (13 inches and up)]
         else {
             this.outputText(
                 "Jojo's tail wraps around your waist as you get into position behind him, tightening possessively and trying to bring you closer.  You oblige the slut, sliding your " +
@@ -3671,7 +3671,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 ", working your prostate as you abuse the mouse's.\n\n"
         );
 
-        //[With Fertility/Lots of Jizz Perk]
+        // [With Fertility/Lots of Jizz Perk]
         if (this.player.cumQ() >= 1500) {
             this.outputText(
                 "You let out a roar as you cum together with Jojo.  Your hips work through your orgasm, fucking your seed deeper into the ex-monk even as you pump gallons of your sperm into him.  His bowels and stomach are filled in no time at all, causing your every thrust to squirt spunk out of his over-filled body.\n\n"
@@ -3686,7 +3686,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 "As you move away from the mouse, you step into a huge puddle of Jojo's creamy rodent cum and look back. You see that his dick, still trapped under his body and pointing behind the two of you, blasted long ropes of thick mouse spunk far into the depths of the forest.  Feeling the after-effects of your titanic orgasm, you lay next to your mousey whore and close your eyes, allowing him to curl up next to you as you both fall asleep, exhausted and beyond satisfied.\n\n"
             );
         }
-        //Without Fertility/Lots of Jizz Perk]
+        // Without Fertility/Lots of Jizz Perk]
         else {
             this.outputText(
                 "You grit your teeth as you cum together with Jojo.  With one last great thrust, you slam your trunk into his mousey tail hole and unload into his tightly clenched bowels.\n\n"
@@ -3708,7 +3708,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     /* The old code for sex with corrupt Jojo
-            //Jojo masturbation!
+            // Jojo masturbation!
             private  masturbateJojo(): void {
                 jojoSprite();
                 clearOutput();
@@ -3720,10 +3720,10 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 }
             var  storage: number = 0;
             var  selection: number = rand(4);
-                //Male
+                // Male
                 if (player.gender == 1 && player.biggestTitSize() < 2) {
                     storage = player.biggestCockIndex();
-                    //MALE SOFT BJ
+                    // MALE SOFT BJ
                     if (selection == 0) {
                         outputText("As if on command, Jojo slips into your camp from the jungle's shadows, dropping to his knees with a timid look of fear in his eyes. You step forward and caress your fingers through the fur between his shell-like ears, whispering softly to him, \"<i>It's all right, my beautiful slut, it will all be over soon.</i>\"");
                         outputText("  He whimpers as you say this, feeling the corruption flowing off of your body like an alluring musk, drawing him deeper into your service.  ");
@@ -3735,7 +3735,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         outputText("Your orgasm seems to last forever, filling his belly with your corrupted essence, causing his stomach to bulge slightly with the sheer volume of it. You pull away at last, letting him gasp for breath and fall to the ground, curling around his bloated belly.  ");
                         outputText("You give him one last fond caress, running your fingers through his fur in an almost patronizing petting motion, then turn without another word and leave him to retreat back into the jungle.  ");
                     }
-                    //MALE HARD BJ
+                    // MALE HARD BJ
                     if (selection == 1) {
                         outputText("You yell out into the jungle, \"<i>Slut!</i>\" Minutes later Jojo slips into your camp from the jungle's shadows, dropping to his knees with a timid look of fear in his eyes. You step forward and grip the fur between his shell-like ears firmly, hissing angrily, \"<i>When I call for you, you need to be here. Do I need to teach you your place again?</i>\"  ");
                         outputText("He shakes his head as you say this, trying to marshal up the strength to resist you. You draw your teeth back in a snarl of anger at this resistance and punch the mouse in the gut, dropping him to his knees gasping for breath.  ");
@@ -3748,7 +3748,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         outputText("Your orgasm seems to last forever, filling his belly with your corrupted essence, causing his stomach to bulge slightly with the sheer volume of it. You pull away at last, letting him gasp for breath and fall to the ground, curling around his bloated belly.  ");
                         outputText("You sneer at him and shake your head, hissing out, \"<i>It would be so much better for you if you didn't try to resist, my slut.</i>\"  ");
                     }
-                    //MALE ANAL GENTLE
+                    // MALE ANAL GENTLE
                     if (selection == 2) {
                         outputText("You watch as Jojo slinks into your camp from the dense jungle, moving timidly with his eyes focused on your feet. The sight of such a once pious monk reduced to your submissive fuck toy stirs your loins and brings a smile to your lips.  ");
                         outputText("You pull him against your body in a firm and possessive hug, and press your lips to his in a forceful kiss, laughing as you break the kiss to the sight of his discomfort. You pay it little mind as you gently force him back onto the ground and spread his legs. You can see in his eyes that he knows what is coming, and you can see that he is as eager for it as he is humiliated by that eagerness.  ");
@@ -3761,7 +3761,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         outputText("His eyes glaze over from the intensity of the act, his teeth tightly grit, and then you can hear a keening groan from him as he falls over the edge into his own orgasm, his untouched mouse cock bouncing and jerking on his belly as his thick seed is sprayed across his chest and face lewdly. He blushes deeply at the visible proof that he enjoyed what you did to him and trembles beneath you.  ");
                         outputText("You can't help but laugh at the scene, and draw out of his ass with a groan of pleasure. You watch as he crawls back into the jungle in shame, leaving a trail of your cum the whole way.  ");
                     }
-                    //MALE ANAL HARD
+                    // MALE ANAL HARD
                     if (selection == 3) {
                         outputText("You decided that it is time to seek out your pet monk slut, and stalk into the jungle after the mouse. It doesn't take long to find him, so you move silently to avoid his notice. You move with a predator's grace as you sneak up behind him, your hand reaching down to grab hold of his tail firmly as you shove him against a nearby tree.  ");
                         outputText("You press your body up behind him and hiss into his ear, \"<i>Hello slut...</i>\" You keep hold of the base of his tail, hiking it up to lift his ass enough that he has to go to his toes to stay standing. You listen to him whimper softly as he feels your stirring loins press against the cleft of his oh-so-fuckable ass.  ");
@@ -3774,10 +3774,10 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         outputText("You pull out of Jojo's ass once your orgasm has subsided and wipe your cock off on the fur of his back, then walk away to leave him to his own devices.  ");
                     }
                 }
-                //Shemale
+                // Shemale
                 if (player.gender == 1 && player.biggestTitSize() >= 2) {
                     storage = player.biggestCockIndex();
-                    //ORAL GENTLENESS FUCK YEAH
+                    // ORAL GENTLENESS FUCK YEAH
                     if (selection == 0) {
                         outputText("As if on command, Jojo slips into your camp from the jungle's shadows, dropping to his knees with a timid look of fear in his eyes. You step forward and caress your fingers through the fur between his shell-like ears, whispering softly to him, \"<i>It's all right, my beautiful slut, it will all be over soon.</i>\"  ");
                         outputText("He whimpers as you say this, feeling the corruption flowing off of your body like an alluring musk, drawing him deeper into your service.  ");
@@ -3790,7 +3790,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         outputText("Your orgasm seems to last forever, filling his belly with your corrupted essence, causing his stomach to bulge slightly with the sheer volume of it. You pull away at last, letting him gasp for breath and fall to the ground, curling around his bloated belly.  ");
                         outputText("You draw him to your bosom and kiss his forehead and then stand and go about your duties, leaving him to recover from the intense encounter and then retreat back into the jungle.  ");
                     }
-                    //Shemale 2: Breasts Gentle
+                    // Shemale 2: Breasts Gentle
                     if (selection == 1) {
                         outputText("You lay yourself out for a quiet moment of self pleasure, your hands moving to your breasts and fondling them gently, when the sound of a snapping twig brings your attention to the edge of camp. Jojo stands timidly, half hidden within the shadows just outside your encampment, watching you with a look of submissive desire. You smile and lift your hand, beckoning him towards you with a crook of your finger.  ");
                         outputText("Your mouse slut obediently slips from the darkness and into your camp, approaching you and kneeling at your side. You can see the lust in his eyes as he looks at your breasts, longing and love reflecting wonderfully. You nod your approval and let him worship your bosom.  ");
@@ -3802,7 +3802,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         outputText("You can hear Jojo's breath quickening, then his body shudders as he climaxes spontaneously, splashing his seed across your hip and belly. You can't help the laugh that rises from within you at his submissive gesture, watching as shame washes across his face and his ears lay back.  ");
                         outputText("He slinks back into the woods, chased by your amused laughter.  ");
                     }
-                    //Shemale 3: Anal Gentle
+                    // Shemale 3: Anal Gentle
                     if (selection == 2) {
                         outputText("You watch as Jojo slinks into your camp from the dense jungle, moving timidly with his eyes focused on your feet. The sight of such a once pious monk reduced to your submissive fuck toy stirs your loins and brings a smile to your lips.  ");
                         outputText("You pull him against your body in a firm and possessive hug, and press your lips to his in a forceful kiss, laughing as you break the kiss to the sight of his discomfort. You pay it little mind as you gently force him back onto the ground and spread his legs. You can see in his eyes that he knows what is coming, and you can see that he is as eager for it as he is humiliated by that eagerness.  ");
@@ -3815,7 +3815,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         outputText("His eyes glaze over from the intensity of the act, his teeth tightly grit, and then you can hear a keening groan from him as he falls over the edge into his own orgasm, his untouched mouse cock bouncing and jerking on his belly as his thick seed is sprayed across his chest and face lewdly. He blushes deep at the visible proof that he enjoyed what you did to him and trembles beneath you.  ");
                         outputText("You can't help but laugh at the scene, and draw out of his ass with a groan of pleasure. You watch as he crawls back into the jungle in shame, leaving a trail of your cum the whole way.  ");
                     }
-                    //Shemale 4: Anal Hard
+                    // Shemale 4: Anal Hard
                     if (selection == 3) {
                         outputText("You decided that it is time to seek out your pet monk slut, and stalk into the jungle after the mouse. It doesn't take long to find him, so you move silently to avoid his notice. You move with a predator's grace as you sneak up behind him, your hand reaching down to grab hold of his tail firmly as you shove him against a nearby tree.  ");
                         outputText("You press your body up behind him, mashing your breasts against his back, and hiss into his ear, \"<i>Hello slut...</i>\" You keep hold of the base of his tail, hiking it up to lift his ass enough that he has to go to his toes to stay standing. You listen to him whimper softly as he feels your stirring loins press against the cleft of his oh-so-fuckable ass.  ");
@@ -3828,9 +3828,9 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         outputText("You pull out of Jojo's ass once your orgasm has subsided and wipe your " + player.cockDescript(storage) + " off on the fur of his back, then walk away to leave him to his own devices.  ");
                     }
                 }
-                //CuntBOOOOOI
+                // CuntBOOOOOI
                 if (player.gender == 2 && player.biggestTitSize() < 2) {
-                    //Cuntboy 1: Vaginal Gentle
+                    // Cuntboy 1: Vaginal Gentle
                     if (selection == 0) {
                         outputText("Feeling the urge to be filled, you summon your mouse slut to you and smile as he quickly responds, moving to kneel before you reverently. You let your hand caress the side of his head, then order him to lay back.  ");
                         outputText("He swallows and nods, nervously obeying, stretching himself out on his back on the ground. He watches as you crawl slowly up his body and press a firm kiss to his muzzle, which he returns with the impossible lust you have planted within him. You can feel his member stirring between your legs, rising up firm against your crotch as you grind your dripping slit along it.  ");
@@ -3840,11 +3840,11 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                             outputText("You lower your hand to take hold of his cock, lining it up with your entrance, and then with a moan of pleasure, you lower your weight atop him. His cock slides into your pussy like a hand into a glove, fitting perfectly, as though he were made for you. You begin to rise and fall over him, setting a loving pace as you roll your hips. It doesn't last nearly  as long as you would wish, however, as soon enough you can feel him cumming within your body, filling you with his seed. Not dissuaded, you grind at him, working your clit against his sheath and belly fur.  ");
                         else outputText("You shift forward, and then tilt your hips and drive back, taking his length into your wide stretched body. You laugh at him, barely able to feel his dick within you, and whisper into his ear, \"<i>Just like a mouse to be tiny...</i>\" You watch his blush as you start to grind and roll atop his cock and belly, taking all the pleasure that you can from your slut.  ");
                         outputText("You cry out in pleasure as your orgasm floods through your body, causing your juices to splash out around your mouse slut's cock. You stay seated on his hips until your orgasm fades, then with a sigh of pleasure you stand up off of him and dismiss him with a wave of your hand.  ");
-                        //Preggers chance!
+                        // Preggers chance!
                         player.knockUp(PregnancyStore.PREGNANCY_JOJO, PregnancyStore.INCUBATION_MOUSE + 82); //Jojo's kids take longer for some reason
                         player.cuntChange(36.4, true);
                     }
-                    //Cuntboy 2: Anal Gentle
+                    // Cuntboy 2: Anal Gentle
                     if (selection == 1) {
                         outputText("You summon your mouse slut to you, feeling the urge to be filled and smile as he quickly responds, moving to kneel before you reverently. You let your hand caress the side of his head, then order him to lay back.  ");
                         outputText("He swallows and nods, nervously obeying, stretching himself out on his back on the ground. He watches as you crawl slowly up his body and press a firm kiss to his muzzle, which he returns with the impossible lust you have planted within him. You can feel his member stirring between your legs, rising up firm against your crotch as you grind your dripping slit along it.  ");
@@ -3855,7 +3855,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         else outputText("You shift forward, and then tilt your hips and drive back, taking his length into your wide stretched body. You laugh at him, barely able to feel his dick within you, and whisper into his ear, \"<i>Just like a mouse to be tiny...</i>\" You watch his blush as you start to grind and roll atop his cock and belly, taking all the pleasure that you can from your slut.  ");
                         outputText("You cry out in pleasure as your orgasm floods through your body, causing your juices to splash out across your mouse slut's belly as your anal ring flexes and grips at his endowments. You stay seated on his hips until your orgasm fades, then with a sigh of pleasure you stand off of him and dismiss him with a wave of your hand.  ");
                     }
-                    //Cuntboy 3: Smother Vaginal
+                    // Cuntboy 3: Smother Vaginal
                     if (selection == 2) {
                         outputText("You feel the need to gain a little sexual relief and a mischievous idea comes to your mind, making you grin wickedly. You slip off into the jungle to seek out your monk mouse fuck toy, and when you find him, you practically pounce atop him, pinning him to his back. He struggles in surprise until he realizes that it is you, at which point he blushes and tries to look away, unable to help the erection that you are sitting against as you straddle him.  ");
                         outputText("You crawl further up his body and grin down at him as you press your already dripping pussy to his mouth and command sharply, \"<i>Start licking if you want to breathe.</i>\" His eyes go wide, but you can feel his tongue already starting to work at your lusty slit.  ");
@@ -3869,7 +3869,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         outputText("His tongue digs deep into your body, finally bringing you to an explosive climax that leaves you shuddering thoughtlessly above him. You actually forget you are sitting on his face for a moment, feeling him go still as he nearly passes out from lack of breath before you stand up.  ");
                         outputText("He gasps for breath and coughs a few times, and once you are sure that he is safe, you laugh softly and walk back to your camp.  ");
                     }
-                    //Cuntboy 4: Smother Anal
+                    // Cuntboy 4: Smother Anal
                     if (selection == 3) {
                         outputText("You feel the need to gain a little sexual relief and a mischievous idea comes to your mind, making you grin wickedly. You slip off into the jungle to seek out your monk mouse fuck toy, and when you find him, you practically pounce atop him, pinning him to his back. He struggles in surprise until he realizes that it is you, at which point he blushes and tries to look away, unable to help the erection that you are sitting against as you straddle him.  ");
                         outputText("You crawl further up his body and grin down at him as he stares at your exposed pussy. You suddenly spin, sitting down the other way, so that your ass cheeks envelope his muzzle, trapping his nose and mouth against your tight pucker. \"<i>Get that tongue up in there slut.</i>\"  ");
@@ -3887,15 +3887,15 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         outputText("He gasps for breath and coughs a few times, and once you are sure that he is safe, you laugh softly and walk back to your camp.");
                     }
                 }
-                //Femalez
+                // Femalez
                 if (player.gender == 2 && player.biggestTitSize() >= 2) {
-                    //Female 1: Breasts Gentle
+                    // Female 1: Breasts Gentle
                     if (selection == 0) {
                         outputText("You lay yourself out for a quiet moment of self pleasure, your hands moving to your breasts and fondling them gently, when the sound of a snapping twig brings your attention to the edge of camp. Jojo stands timidly, half hidden within the shadows just outside your encampment, watching you with a look of submissive desire. You smile and lift your hand, beckoning him towards you with a crook of your finger.  ");
                         outputText("Your mouse slut obediently slips from the darkness and into your camp, approaching you and kneeling at your side. You can see the lust in his eyes as he looks at your breasts, longing and love reflecting wonderfully. You nod your approval and let him worship your bosom.  ");
                         if (player.biggestLactation() > 1) {
                             outputText("He leans in and starts to kiss along your nipples before taking one into his mouth. He gives a firm suckle at the engorged teat, and you can see his eyes open wider in surprise at the sudden surge of milk that fills his muzzle. He shivers and starts to suckle in earnest, drinking from first one breast, then the other, ");
-                            //Extra boob coverage
+                            // Extra boob coverage
                             if (player.breastRows.length > 1) outputText("and then all the others, ");
                             outputText("partaking of your blessing until his belly is full.  ");
                         }
@@ -3905,7 +3905,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         outputText("You can hear Jojo's breath quickening, then his body shudders as he climaxes spontaneously, splashing his seed across your hip and belly. You can't help the laugh that rises from within you at his submissive gesture, watching as shame washes across his face and his ears lay back.  ");
                         outputText("He slinks back into the woods, chased by your amused laughter.");
                     }
-                    //Female 2: Oral Gentle
+                    // Female 2: Oral Gentle
                     if (selection == 1) {
                         outputText("You decide to finally reward your slut for all his service to you, summoning him to your camp for pleasure. He meekly appears at your bidding and you direct him to lie down on the ground before you. He does as you ask and you gently spread his legs, settling down between them.  ");
                         outputText("He looks at you in confusion that turns to bliss as you start to lick and caress his sheath and balls, urging the male to a full erection.  ");
@@ -3921,7 +3921,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         outputText("You work until your slut explodes, and then, keeping all his seed in your mouth, you lift your head and press your lips to his in a firm kiss, feeding him the load of cum that he just released. He blushes as you do so, but obediently takes it all in, swallowing it down as you feed it to him.  ");
                         outputText("Once the vulgar kiss is finished, you stand and smile, dismissing him with a casual wave of your hand.  ");
                     }
-                    //Female 3: Vaginal Gentle
+                    // Female 3: Vaginal Gentle
                     if (selection == 2) {
                         outputText("You summon your mouse slut to you, feeling the urge to be filled and smile as he quickly responds, moving to kneel before you reverently. You let your hand caress the side of his head, then order him to lay back.  ");
                         outputText("He swallows and nods, nervously obeying, stretching himself out on his back on the ground. He watches as you crawl slowly up his body and press a firm kiss to his muzzle, which he returns with the impossible lust you have planted within him. You can feel his member stirring between your legs, rising up firm against your crotch as you grind your dripping slit along it.  ");
@@ -3931,11 +3931,11 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                             outputText("You lower your hand to take hold of his cock, lining it up with your entrance, and then with a moan of pleasure, you lower your weight atop him. His cock slides into your pussy like a hand into a glove, fitting perfectly, as though he were made for you. You begin to rise and fall over him, setting a loving pace as you roll your hips. It doesn't last near as long as you would wish, however, as soon enough you can feel him cumming within your body, filling you with his seed. Not dissuaded, you grind at him, working your clit against his sheath and belly fur.  ");
                         else outputText("You shift forward, and then tilt your hips and drive back, taking his length into your wide stretched body. You laugh at him, barely able to feel his dick within you, and whisper into his ear, \"<i>Just like a mouse to be tiny...</i>\" You watch his blush as you start to grind and roll atop his cock and belly, taking all the pleasure that you can from your slut.  ");
                         outputText("You cry out in pleasure as your orgasm floods through your body, causing your juices to splash out around your mouse slut's cock. You stay seated on his hips until your orgasm fades, then with a sigh of pleasure you stand off of him and dismiss him with a wave of your hand.  ");
-                        //Preggers chance!
+                        // Preggers chance!
                         player.knockUp(PregnancyStore.PREGNANCY_JOJO, PregnancyStore.INCUBATION_MOUSE + 82); //Jojo's kids take longer for some reason
                         player.cuntChange(36.4, true);
                     }
-                    //Female 4: Smother Vaginal
+                    // Female 4: Smother Vaginal
                     if (selection == 3) {
                         outputText("You feel the need to gain a little sexual relief and a mischievous idea comes to your mind, making you grin wickedly. You slip off into the jungle to seek out your monk mouse fuck toy, and when you find him, you practically pounce atop him, pinning him to his back. He struggles in surprise until he realizes that it is you, at which point he blushes and tries to look away, unable to help the erection that you are sitting against as you straddle him.  ");
                         outputText("You crawl further up his body and grin down at him as you press your already dripping pussy to his mouth and command sharply, \"<i>Start licking if you want to breathe.</i>\" His eyes go wide, but you can feel his tongue already starting to work at your lusty slit.  ");
@@ -3952,9 +3952,9 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         outputText("He gasps for breath and coughs a few times, and once you are sure that he is safe, you laugh softly and walk back to your camp.");
                     }
                 }
-                //Herm
+                // Herm
                 if (player.gender == 3) {
-                    //Herm 1: Oral Gentle
+                    // Herm 1: Oral Gentle
                     if (selection == 0) {
                         outputText("As if on command, Jojo slips into your camp from the jungle's shadows, dropping to his knees with a timid look of fear in his eyes. You step forward and caress your fingers through the fur between his shell-like ears, whispering softly to him, \"<i>It's all right, my beautiful slut, it will all be over soon.</i>\"  ");
                         outputText("He whimpers as you say this, feeling the corruption flowing off of your body like an alluring musk, drawing him deeper into your service.  ");
@@ -3967,7 +3967,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         outputText("Your orgasm seems to last forever, filling his belly with your corrupted essence, causing his stomach to bulge slightly with the sheer volume of it. You pull away at last, letting him gasp for breath and fall to the ground, curling around his bloated belly.  ");
                         outputText("You draw him to your bosom and kiss his forehead and then stand and go about your duties, leaving him to recover from the intense encounter and then retreat back into the jungle.  ");
                     }
-                    //Herm 2: Breasts Gentle
+                    // Herm 2: Breasts Gentle
                     if (selection == 1) {
                         if (player.biggestTitSize() < 2)
                             selection = 2;
@@ -3983,7 +3983,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                             outputText("He slinks back into the woods, chased by your amused laughter.  ");
                         }
                     }
-                    //Herm 3: Anal Gentle
+                    // Herm 3: Anal Gentle
                     if (selection == 2) {
                         outputText("You watch as Jojo slinks into your camp from the dense jungle, moving timidly with his eyes focused on your feet. The sight of such a once pious monk reduced to your submissive fuck toy stirs your loins and brings a smile to your lips.  ");
                         outputText("You pull him against your body in a firm and possessive hug, and press your lips to his in a forceful kiss, laughing as you break the kiss to the sight of his discomfort. You pay it little mind as you gently force him back onto the ground and spread his legs. You can see in his eyes that he knows what is coming, and you can see that he is as eager for it as he is humiliated by that eagerness.  ");
@@ -3996,7 +3996,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         outputText("His eyes glaze over from the intensity of the act, his teeth tightly grit, and then you can hear a keening groan from him as he falls over the edge into his own orgasm, his untouched mouse cock bouncing and jerking on his belly as his thick seed is sprayed across his chest and face lewdly. He blushes deep at the visible proof that he enjoyed what you did to him and trembles beneath you.  ");
                         outputText("You can't help but laugh at the scene, and draw out of his ass with a groan of pleasure. You watch as he crawls back into the jungle in shame, leaving a trail of your cum the whole way.  ");
                     }
-                    //Herm 4: Vaginal Gentle
+                    // Herm 4: Vaginal Gentle
                     if (selection == 3) {
                         outputText("You summon your mouse slut to you, feeling the urge to be filled and smile as he quickly responds, moving to kneel before you reverently. You let your hand caress the side of his head, then order him to lay back.  ");
                         outputText("He swallows and nods, nervously obeying, stretching himself out on his back on the ground. He watches as you crawl slowly up his body and press a firm kiss to his muzzle, which he returns with the impossible lust you have planted within him. You can feel his member stirring between your legs, rising up firm against your own endowments as you grind your dripping slit along it.  ");
@@ -4007,7 +4007,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         else outputText("You shift forward, and then tilt your hips and drive back, taking his length into your wide stretched body. You laugh at him, barely able to feel his dick within you, and whisper into his ear, \"<i>Just like a mouse to be tiny...</i>\" You watch his blush as you start to grind and roll atop his cock and belly, taking all the pleasure that you can from your slut.  ");
                         outputText("You cry out in pleasure as your orgasm floods through your body, causing your juices to splash out around your mouse slut's cock, and your own " + player.multiCockDescriptLight() + " to explode with thick splashes of your hot cum across his chest and belly.  ");
                         outputText("You stay seated on his hips until your orgasm fades, then with a sigh of pleasure you stand off of him and dismiss him with a wave of your hand.");
-                        //Preggers chance!
+                        // Preggers chance!
                         player.knockUp(PregnancyStore.PREGNANCY_JOJO, PregnancyStore.INCUBATION_MOUSE + 82); //Jojo's kids take longer for some reason
                         player.cuntChange(36.4, true);
                     }
@@ -4016,7 +4016,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             }
     */
 
-    //Bee on C. Jojo: Finished (Fenoxo) (Zedit)
+    // Bee on C. Jojo: Finished (Fenoxo) (Zedit)
     private beeEggsInCorruptJojo(): void {
         this.clearOutput();
         this.outputText(
@@ -4097,7 +4097,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.orgasm();
         this.cleanupAfterCombat();
     }
-    //Jojo Got Laid With Fertilized Bee Eggs (Zedit)
+    // Jojo Got Laid With Fertilized Bee Eggs (Zedit)
     public jojoLaysEggs(): void {
         this.outputText(
             "\nWhile passing time, you hear grunts of pleasure from the direction of the forest.  You amble over to investigate and find Jojo bent over, ass-up.  He's tugging on his cock non-stop, firing ropes of cum one after another while heavy, honey-slicked eggs roll out of his gaped anus to form an amber pile."
@@ -4115,9 +4115,9 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     // JOJO: THE EXPANSIONING
-    //Alternative Recruitment by LukaDoc
-    //Note: Since you are not corrupt here Jojo cannot sense you.
-    //Requirements: Level 4, Corruption < 20
+    // Alternative Recruitment by LukaDoc
+    // Note: Since you are not corrupt here Jojo cannot sense you.
+    // Requirements: Level 4, Corruption < 20
     public lowCorruptionJojoEncounter(): void {
         this.clearOutput();
         this.jojoSprite();
@@ -4176,7 +4176,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.lowCorruptionIntro();
     }
 
-    //No
+    // No
     public refuseJojosApology(): void {
         this.clearOutput();
         this.jojoSprite();
@@ -4195,7 +4195,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.lowCorruptionIntro();
     }
 
-    //Intro
+    // Intro
     public lowCorruptionIntro(): void {
         this.outputText(
             "He extends a hand, which you gladly shake. “<i>My name is Jojo, pleased to meet you.</i>” You introduce yourself in kind.\n\n"
@@ -4256,16 +4256,16 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nJojo nods respectfully at you when the meditation session is over and smiles.  "
             );
-            //Forest Jojo Eligible for Invite After Meditation but There's Trash in Camp -Z
+            // Forest Jojo Eligible for Invite After Meditation but There's Trash in Camp -Z
             if (
                 this.flags[kFLAGS.FUCK_FLOWER_LEVEL] >= 4 &&
                 this.flags[kFLAGS.FUCK_FLOWER_KILLED] == 0 &&
                 this.player.statusAffectv1(StatusAffects.JojoMeditationCount) % 5 == 0
             ) {
-                //replaces 'Jojo nods respectfully at you [...] "It seems you have quite a talent for this. [...]"' invite paragraphs while Treefingers is getting slut all over your campsite
-                //gives Small Talisman if PC never had follower Jojo or used it and ran from the fight
+                // replaces 'Jojo nods respectfully at you [...] "It seems you have quite a talent for this. [...]"' invite paragraphs while Treefingers is getting slut all over your campsite
+                // gives Small Talisman if PC never had follower Jojo or used it and ran from the fight
                 if (this.player.hasKeyItem("Jojo's Talisman") >= 0) {
-                    //[(if PC has Small Talisman)
+                    // [(if PC has Small Talisman)
                     this.outputText(
                         'Jojo smiles at you.  "<i>[name], well done.  Your talent at focusing is undiminished.  Regarding the other issue... you still have the item I gave you?</i>"'
                     );
@@ -4273,7 +4273,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         '\n\nYou hold up the talisman, and he nods.  "<i>Good.  Stay safe and signal me with it if you need help.</i>"'
                     );
                 } else {
-                    //(else no Small Talisman)
+                    // (else no Small Talisman)
                     this.outputText(
                         'Jojo nods at you respectfully.  "<i>Well done today; your dedication is impressive.  We could meditate together more often.</i>"'
                     );
@@ -4283,7 +4283,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                     this.outputText(
                         "\n\n\"<i>Yes, that's a problem.  Oh, that we did not have to resist the very spirit of the land!  [name], take this.  Use it to call me if the demon gives you trouble; I will come and render what aid I can.</i>\"  The monk fishes in his robe and places a small talisman into your hand.\n\n(Gained Key Item: Jojo's Talisman)"
                     );
-                    //get a small talisman if not have one
+                    // get a small talisman if not have one
                     this.player.createKeyItem("Jojo's Talisman", 0, 0, 0, 0);
                 }
                 this.doNext(this.camp.returnToCampUseTwoHours);
@@ -4327,9 +4327,9 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Jojo In Camp
+    // Jojo In Camp
     // Player approaches pure Jojo in camp, gets offer to mediate if > 10 cor -- responses
-    //[Yes]
+    // [Yes]
     public acceptOfferOfHelp(): void {
         this.clearOutput();
         this.jojoSprite();
@@ -4342,7 +4342,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.jojoFollowerMeditate();
     }
 
-    //[No]
+    // [No]
     public refuseOfferOfHelp(): void {
         this.clearOutput();
         this.jojoSprite();
@@ -4378,7 +4378,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             return;
         }
         if (this.player.cor > 10) {
-            //New "offer of help" menu
+            // New "offer of help" menu
             if (this.player.cor >= 40) {
                 this.outputText(
                     'You walk toward the boulder where Jojo usually sits, and as soon as you\'re close Jojo approaches you with urgency.  "<i>By Marae! [name], we must do something! I feel the corruption surrounding you like a dense fog.  We need to meditate or I’m going to lose you!</i>" Jojo pleads.\n\n'
@@ -4402,7 +4402,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 this.player.lust >= 33 && this.player.gender > 0 ? this.jojoAtCampRape : undefined
             );
         } else {
-            //Normal shit
+            // Normal shit
             switch (JojoScene.rand(3)) {
                 case 0:
                     this.outputText(
@@ -4426,8 +4426,8 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     private jojoCampMenu(): void {
-        //Normal Follower Choices
-        //[Appearance] [Talk] [Train] [Meditate] [Night Watch toggle]
+        // Normal Follower Choices
+        // [Appearance] [Talk] [Train] [Meditate] [Night Watch toggle]
         var jojoDefense: string = "N.Watch:";
         if (this.player.findStatusAffect(StatusAffects.JojoNightWatch) >= 0) {
             this.outputText("(Jojo is currently watching for enemies at night.)\n\n");
@@ -4452,7 +4452,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(9, "Leave", this.camp.campFollowers);
     }
 
-    //Appearance
+    // Appearance
     public jojoAppearance(): void {
         this.clearOutput();
         this.jojoSprite();
@@ -4500,10 +4500,10 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(9, "Back", this.jojoCamp);
     }
 
-    //Talk
-    //Jojo’s Past
+    // Talk
+    // Jojo’s Past
 
-    //Village Convo
+    // Village Convo
     public jojoTalkVillage(): void {
         this.clearOutput();
         this.jojoSprite();
@@ -4543,7 +4543,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour); // Dunno where exactly to kick back to, fuck it, back to camp yo!
     }
 
-    //Joining the Monks convo
+    // Joining the Monks convo
     public jojoTalkJoiningTheMonks(): void {
         this.clearOutput();
         this.jojoSprite();
@@ -4572,7 +4572,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Fall of the Monks convo
+    // Fall of the Monks convo
     public jojoTalkFallOfTheMonks(): void {
         this.clearOutput();
         this.jojoSprite();
@@ -4602,7 +4602,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Forest Convo
+    // Forest Convo
     public jojoTalkForestConvo(): void {
         this.clearOutput();
         this.jojoSprite();
@@ -4676,9 +4676,10 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Yourself
-    //Origin
-    public jojoTalkYourOrigin(): void { // Prob tack on some interaction count or something to unlock this
+    // Yourself
+    // Origin
+    public jojoTalkYourOrigin(): void {
+        // Prob tack on some interaction count or something to unlock this
         this.clearOutput();
         this.jojoSprite();
         this.flags[kFLAGS.TIMES_TALKED_WITH_JOJO]++;
@@ -4751,8 +4752,8 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Dungeon Convo: Factory
-    //Requirements: Completed Demon Factory -- player.findStatusAffect(StatusAffects.DungeonShutDown) >= 0
+    // Dungeon Convo: Factory
+    // Requirements: Completed Demon Factory -- player.findStatusAffect(StatusAffects.DungeonShutDown) >= 0
     public jojoTalkFactory(): void {
         this.clearOutput();
         this.jojoSprite();
@@ -4791,8 +4792,8 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Dungeon Convo: Sand Cave
-    //Requirements: Completed Sand Witch Dungeon
+    // Dungeon Convo: Sand Cave
+    // Requirements: Completed Sand Witch Dungeon
     public jojoTalkSandCave(): void {
         this.clearOutput();
         this.jojoSprite();
@@ -4805,13 +4806,13 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             "“<i>Wait... so you mean to tell me that these sand witches a-are... allies of Marae?  But they’re s-so... sexual.</i>”  He seems genuinely confused, but you tell him that sex is part of nature after all, and that there is nothing wrong or shameful about it.  He agrees with you, but decries the way the sand witches use their power.\n\n"
         );
 
-        //if PC raped Sand Mother
+        // if PC raped Sand Mother
         if (this.flags[kFLAGS.SAND_WITCHES_COWED] == 1) {
             this.outputText(
                 "You describe your battle with the Sand Mother in an animated blow by blow and when you get to the end where you raped the Sand Mother you look at Jojo and... lie.  You completely gloss over the fact that you sexually assaulted the Sand Mother because despite his interest he is a little naive and offended by the world of sexual conquest.  He appraises your actions, ignorant of what actually occurred.\n\n"
             );
         }
-        //if PC spoke to Sand Mother after Fighting her
+        // if PC spoke to Sand Mother after Fighting her
         // FRIENDLY is the overall victory flag (theres a separate flag used to indicate you dun wanna be attacked by sandbitches in the desert anymore)
         else if (
             this.flags[kFLAGS.SAND_WITCHES_FRIENDLY] == 1 &&
@@ -4824,7 +4825,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 "Jojo’s head tils to the side as he says, “<i>Maybe the whole thing didn’t need to come to an altercation in the first place, a little diplomacy on both sides....</i>”  He gives you a pointed look, “<i>Might have gone a long way.</i>”\n\n"
             );
         }
-        //if PC just spoke to the Sand Mother
+        // if PC just spoke to the Sand Mother
         else if (
             this.flags[kFLAGS.SAND_WITCHES_FRIENDLY] == 1 &&
             this.flags[kFLAGS.SAND_MOTHER_DEFEATED] == 0
@@ -4837,7 +4838,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             );
         }
 
-        //[if {PC met bath slut}
+        // [if {PC met bath slut}
         if (this.flags[kFLAGS.MET_MILK_SLAVE] == 1) {
             this.outputText(
                 "You tell Jojo about the poor mind addled thing you found sitting in a tub of milk acting as a slave to the sand witch coven.\n\n"
@@ -4846,7 +4847,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 "He shudders like a child being told a scary story and asks, “<i>What did you do?</i>”\n\n"
             );
 
-            //[if {PC hasn’t spoken to Sand Mother about Bath Slut yet}
+            // [if {PC hasn’t spoken to Sand Mother about Bath Slut yet}
             // Can't differentiate this
             // All I have is HAS_MET and HAS_RECRUITED effectively
             if (this.flags[kFLAGS.MILK_NAME] === "") {
@@ -4870,19 +4871,19 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         ".\n\n"
                 );
 
-                //[if (bathSlutStage1 - unaltered)
+                // [if (bathSlutStage1 - unaltered)
                 if (this.flags[kFLAGS.MILK_SIZE] == 0) {
                     this.outputText(
                         "“<i>She’ll fare much better in our care than in the coven’s,</i>” he states with conviction.\n\n"
                     );
                 }
-                //[if (bathSlutStage2 - HHH)
+                // [if (bathSlutStage2 - HHH)
                 else if (this.flags[kFLAGS.MILK_SIZE] == 1) {
                     this.outputText(
                         "“<i>She’s already much better than she was when she got here,</i>” he says with a grin.\n\n"
                     );
                 }
-                //[if (bathSlutStage3 - DD)
+                // [if (bathSlutStage3 - DD)
                 else {
                     this.outputText(
                         "“<i>The coven wouldn’t have done what you’ve done for her.  You’ve given her a much, much better life and even aided in fixing her condition, you truly are a champion, [name],</i>” he says, giving you a fond smile and a pat on the back.\n\n"
@@ -4892,7 +4893,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         }
 
         // There's an untracked gap here, where the player doesn't accept a blessing from the Cum Witch, but there's no other existing tracking for this shit.
-        //[if {PC met Cum Witch}
+        // [if {PC met Cum Witch}
         if (
             this.flags[kFLAGS.CUM_WITCH_DEFEATED] == 1 ||
             this.flags[kFLAGS.BEEN_BLESSED_BY_CUM_WITCH] == 1
@@ -4901,7 +4902,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 "You tell Jojo about the cum witch, the herm witch responsible for inseminating the witches there, acting as a father to the others.  When you do he scratches his ear, “<i>Like I said, I don’t get why sex is so overly important to these creatures but whatever, continue.</i>”\n\n"
             );
 
-            //[if {PC allowed Cum Witches to increase their numbers}
+            // [if {PC allowed Cum Witches to increase their numbers}
             if (this.flags[kFLAGS.MORE_CUM_WITCHES] == 1) {
                 this.outputText(
                     "You tell him how you tried to remedy the current cum witch’s situation by asking the Sand Mother to make more cum witches.\n\n"
@@ -4910,13 +4911,13 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                     "He whistles low, “<i>That’s a bold move [name].  It seems like they would want that though, it’d allow them to, er, you know... more often, and make more sand witches in the long run wouldn’t it?</i>” As the question sound rhetorical you plow on ahead.\n\n"
                 );
             }
-            //[if {PC allowed Cum Witches to rome}
+            // [if {PC allowed Cum Witches to rome}
             else if (this.flags[kFLAGS.CUM_WITCHES_FIGHTABLE] == 1) {
                 this.outputText(
                     "You describe to him how you convinced the Sand Mother to allow her cum witches to rome the desert along with the sand witches and he looks at you with astonishment, “<i>You are a generous spirit [name] and this Sand Mother doesn’t seem entirely unreasonable.</i>”\n\n"
                 );
             }
-            //[if {PC did nothing to help Cum Witch}
+            // [if {PC did nothing to help Cum Witch}
             else {
                 this.outputText(
                     "“You tell Jojo that you’re actually done. He says, “<i>Oh... well that’s weird.</i>” and after an awkward silence, the two of you burst out laughing.\n\n"
@@ -4932,13 +4933,13 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Training
+    // Training
     // Initiate first time as a talk option, and then display as a "base menu" option?
     public apparantlyJojoDOESlift(): void {
         this.clearOutput();
         this.jojoSprite();
 
-        //{First Session only}
+        // {First Session only}
         if (this.flags[kFLAGS.UNLOCKED_JOJO_TRAINING] == 0) {
             this.flags[kFLAGS.UNLOCKED_JOJO_TRAINING] = 1;
             this.outputText("You ask Jojo if he can teach you how to fight like a monk.\n\n");
@@ -5040,7 +5041,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 this.player.createPerk(PerkLib.ControlledBreath, 0, 0, 0, 0);
             }
         }
-        //{after the PC has gained the controlled breath perk}
+        // {after the PC has gained the controlled breath perk}
         else if (
             this.player.findPerk(PerkLib.ControlledBreath) >= 0 &&
             this.player.findPerk(PerkLib.CleansingPalm) < 0 &&
@@ -5073,7 +5074,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 this.player.createPerk(PerkLib.CleansingPalm, 0, 0, 0, 0);
             }
         }
-        //{after the PC has gained the Cleansing Palm attack}
+        // {after the PC has gained the Cleansing Palm attack}
         else if (
             this.player.findPerk(PerkLib.ControlledBreath) >= 0 &&
             this.player.findPerk(PerkLib.CleansingPalm) >= 0 &&
@@ -5096,7 +5097,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
 
             if (this.flags[kFLAGS.TIMES_TRAINED_WITH_JOJO] >= 16 && this.player.inte >= 70) {
                 trace("ADDING THIRD PERK");
-                //{text shows after generic 16th technique training session}
+                // {text shows after generic 16th technique training session}
                 this.outputText(
                     "As you finish training you decide to meditate alone; returning to your bedroll, you close your eyes and begin to breathe.  Then the world around you begins to sing.\n\n"
                 );
@@ -5111,7 +5112,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 this.player.createPerk(PerkLib.Enlightened, 0, 0, 0, 0);
             }
         }
-        //{after PC has gained the Enlightened Perk}
+        // {after PC has gained the Enlightened Perk}
         else {
             this.outputText(
                 "Jojo smiles, “<i>In all honesty [name], I should be asking you to teach me, but I’ll do my best.</i>”\n\n"
@@ -5122,7 +5123,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
 
             this.fatigue(60);
 
-            //{each scene only shows if the follower is there}
+            // {each scene only shows if the follower is there}
             var enlightenedBlurbs: any[] = new Array();
 
             enlightenedBlurbs.push(
@@ -5181,8 +5182,8 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "Being too tired for anything else, you join Jojo in meditation, which does much to relive you of your former woes."
         );
-        //Infestation removed. HP reduced to 50% of MAX. Sensitivity reduced by -25 or reduced to 10, which ever is the smaller reduction.
-        //Infestation purged. Hit Points reduced to 10% of MAX. Corruption -20.
+        // Infestation removed. HP reduced to 50% of MAX. Sensitivity reduced by -25 or reduced to 10, which ever is the smaller reduction.
+        // Infestation purged. Hit Points reduced to 10% of MAX. Corruption -20.
         if (this.player.HP > Math.floor(this.player.maxHP() * 0.5))
             this.player.HP = Math.floor(this.player.maxHP() * 0.5);
         this.player.sens = 11;

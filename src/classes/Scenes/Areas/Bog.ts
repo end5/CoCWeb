@@ -15,7 +15,7 @@ export class Bog extends BaseContent {
     public phoukaScene: PhoukaScene = new PhoukaScene();
     public exploreBog(): void {
         this.flags[kFLAGS.BOG_EXPLORED]++;
-        //Helia monogamy fucks
+        // Helia monogamy fucks
         if (
             this.flags[kFLAGS.PC_PROMISED_HEL_MONOGAMY_FUCKS] == 1 &&
             this.flags[kFLAGS.HEL_RAPED_TODAY] == 0 &&

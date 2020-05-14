@@ -8,9 +8,9 @@ import { TimeAwareInterface } from "../../../TimeAwareInterface";
 import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface {
-    //176 TIMES HAD YOGA
-    //177 MET/FUCKED - 0 = never met.  1 = met but not fucked. 2 = fucked
-    //24"x3" wang
+    // 176 TIMES HAD YOGA
+    // 177 MET/FUCKED - 0 = never met.  1 = met but not fucked. 2 = fucked
+    // 24"x3" wang
     // COTTON_PREGNANCY_INCUBATION: number = 673;
     // COTTON_PREGNANCY_TYPE: number = 674;
     // COTTON_KID_COUNT: number = 675;
@@ -33,11 +33,11 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             0
         );
         this.pregnancy.addPregnancyEventSet(PregnancyStore.PREGNANCY_PLAYER, 300, 200, 100, 40);
-        //Event: 0 (= not pregnant),  1,   2,   3,  4,  5 (< 40)
+        // Event: 0 (= not pregnant),  1,   2,   3,  4,  5 (< 40)
         CoC.timeAwareClassAdd(this);
     }
 
-    //Implementation of TimeAwareInterface
+    // Implementation of TimeAwareInterface
     public timeChange(): boolean {
         this.pregnancy.pregnancyAdvance();
         if (this.flags[kFLAGS.COTTON_KID_COUNT] > 0 && this.model.time.hours == 23)
@@ -65,14 +65,14 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         }
         return false;
     }
-    //End of Interface Implementation
+    // End of Interface Implementation
 
     private pregCottonChance(bonusMult: number = 1): void {
-        //No preg if already preg!
+        // No preg if already preg!
         if (this.pregnancy.isPregnant) return;
 
-        //Okay, we have a chance!  Run the numbers!
-        //Herbs off?  Good chances!
+        // Okay, we have a chance!  Run the numbers!
+        // Herbs off?  Good chances!
         if (this.flags[kFLAGS.COTTON_HERBS_OFF] > 0) {
             if (
                 Cotton.rand(5) == 0 ||
@@ -85,9 +85,9 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 );
             }
         }
-        //HERBS ON - LESS CHANCE
+        // HERBS ON - LESS CHANCE
         else {
-            //First kid is lucky!
+            // First kid is lucky!
             if (this.flags[kFLAGS.COTTON_KID_COUNT] == 0) {
                 if (
                     Cotton.rand(5) == 0 ||
@@ -99,7 +99,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     );
                 }
             }
-            //NOT FIRST KID - LESS LUCKY!
+            // NOT FIRST KID - LESS LUCKY!
             else if (this.player.cumQ() * this.player.virilityQ() >= Cotton.rand(1000)) {
                 this.pregnancy.knockUpForce(
                     PregnancyStore.PREGNANCY_PLAYER,
@@ -109,7 +109,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         }
     }
     private cottonPregPCChance(): void {
-        //No kids yet - lucky!
+        // No kids yet - lucky!
         if (this.flags[kFLAGS.COTTON_KID_COUNT] == 0 && this.flags[kFLAGS.COTTON_HERBS_OFF] == 0) {
             this.player.knockUp(
                 PregnancyStore.PREGNANCY_COTTON,
@@ -132,35 +132,35 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         }
     }
 
-    //ToC
-    //Cotton Pregnancy
+    // ToC
+    // Cotton Pregnancy
 
-    //Been told of naga book quest?
+    // Been told of naga book quest?
 
     public cottonsIntro(): boolean {
         if (this.model.time.hours >= 12 && this.model.time.hours <= 18) {
-            //Gym intro scene (haven't met):
+            // Gym intro scene (haven't met):
             if (this.flags[kFLAGS.COTTON_MET_FUCKED] == 0)
                 this.outputText(
                     "\n\nYou see a tall, busty horse-girl doing some stretches over on a nearby mat.  Even from this far away, you can tell from the bulge in her pants that she's no ordinary 'girl'.",
                     false
                 );
-            //Gym intro scene (met, haven't had sex):
+            // Gym intro scene (met, haven't had sex):
             else if (this.flags[kFLAGS.COTTON_MET_FUCKED] == 1)
                 this.outputText(
                     "\n\nYou spot Cotton, the busty hermaphrodite horse-girl, doing her yoga on a nearby mat.",
                     false
                 );
-            //Gym intro scene (met, have had sex):
+            // Gym intro scene (met, have had sex):
             else
                 this.outputText(
                     "\n\nYou spot Cotton, the busty hermaphrodite horse-girl, doing her yoga on a nearby mat. She gives you a wink, a smile and a little wave.",
                     false
                 );
-            //There!
+            // There!
             return true;
         }
-        //Not There!
+        // Not There!
         return false;
     }
 
@@ -173,36 +173,36 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 'The centauress sees you starting for the horse-girl and says, "<i>Go ahead and talk, but if you want to work out with her I\'ll have to charge you.</i>"\n\n',
                 false
             );
-        //Greeting (first time):
+        // Greeting (first time):
         if (this.flags[kFLAGS.COTTON_MET_FUCKED] == 0) {
             this.flags[kFLAGS.COTTON_MET_FUCKED] = 1;
             this.outputText(
                 'You wander over to the equine on the mat, curious as to what she\'s doing.  She stretches out on her mat, spine flexed.  Her head cranes backwards to see you approach.  "<i>Oh, hi there!</i>" She grins an upside-down grin at you and finishes her stretch before standing up.  ',
                 false
             );
-            //(If PC height is greater than 6'6</i>\"
+            // (If PC height is greater than 6'6</i>\"
             if (this.player.tallness > 78)
                 this.outputText(
                     "Despite her impressive stature, you still look down on her.",
                     false
                 );
-            //(If PC height is in between:
+            // (If PC height is in between:
             else if (this.player.tallness >= 76)
                 this.outputText(
                     "She's roughly your height, which is rather impressive in itself.",
                     false
                 );
-            //(If PC height is under 6'4</i>\":
+            // (If PC height is under 6'4</i>\":
             else this.outputText("She is truly tall, and you have to look up to her.", false);
             this.outputText(
                 "  She's garbed in a white and pink form-fitting tank top along with a pair of black skintight pants that come down to about her mid-shin.  The pants do absolutely nothing to hide the enormous bulge in her crotch, if anything they only enhance it.  Her dark brown skin seems smooth and hairless, unlike most equines you've met, and her red mane of hair falls just past her shoulders, though it's currently pulled back into an efficient ponytail.\n\n",
                 false
             );
 
-            //(If player has a Centaur or Naga body, replace last line with:
+            // (If player has a Centaur or Naga body, replace last line with:
             if (this.player.isTaur() || this.player.isNaga()) {
                 /*outputText("\"<i>I'd love to teach you, but I'm afraid I don't know any good routines for your... body type. Sorry, pet.</i>\"", false);
-                //Back to gym!
+                // Back to gym!
                 doNext(13);
                 return;*/
                 this.centaurNagaBodyBookStuff();
@@ -212,16 +212,16 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 '"<i>Hey, I\'m Cotton, what can I do you for?</i>" she says in a friendly manner.  You also give your name, and explain you were curious as to what she was doing.  "<i>Oh, this? Just doing some yoga.</i>"  Judging by your quizzical look, she continues, "<i>Yoga is like an exercise routine for your body and soul.  When the body is happy and healthy, the mind and soul follow.  It\'s a very relaxing and... sensual exercise.  Would you like to try it?</i>"',
                 false
             );
-            //[Yes] [No]
+            // [Yes] [No]
             this.doYesNo(this.acceptYoga, this.turnDownYogaWifCottonFirstTime);
         }
-        //Met before
+        // Met before
         else {
             if (this.pregnancy.event == 5) {
                 this.cottonPopsOutAKid();
                 return;
             }
-            //(If Centaur or Naga)
+            // (If Centaur or Naga)
             if (this.player.isTaur() || this.player.isNaga()) {
                 /*outputText("You approach Cotton, who gives you a friendly smile. \"<i>Hey, there little pet. I'm afraid I don't know any good stretches for your body... Maybe some other time.</i>\"", false);
                 doNext(13);
@@ -236,8 +236,8 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             this.player.pregnancyIncubation <= 225 &&
             this.player.pregnancyType == PregnancyStore.PREGNANCY_COTTON
         ) {
-            //Lamaze Class*
-            //Approach Cotton, PC visibly pregnant (at least 2nd trimester, or whatever is equivalent in CoC-land)
+            // Lamaze Class*
+            // Approach Cotton, PC visibly pregnant (at least 2nd trimester, or whatever is equivalent in CoC-land)
             this.outputText(
                 'As you approach Cotton, she smiles and looks at your round belly.  "<i>Hey there my pet, I\'m afraid in your condition, yoga is out of the question... but we can do some special stretches and lamaze, just get dressed as usual.</i>"'
             );
@@ -298,17 +298,17 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
 
     private centaurNagaBodyBookStuff(): void {
         this.spriteSelect(12);
-        //Havent been told about the book yet?
+        // Havent been told about the book yet?
         if (this.flags[kFLAGS.COTTON_UNUSUAL_YOGA_BOOK_TRACKER] == 0) {
             this.outputText(
                 "\"<i>I'd love to teach you, but I'm afraid I don't know any good routines for your... body type. Sorry, pet...</i>\" she trails off, as if considering something, and then turns back to you, saying, \"<i>Actually, I think I might know where you could find a book of exercises that would work for you. A traveling salesman came by once, and I saw it in his wares, a book of advanced yoga techniques, aimed at the more exotically shaped denizens of Mareth. I didn't pick it up, of course, because I didn't need it. But if you could find the salesman and bring the book back to me, I'd most definitely be able to coach you.</i>\"",
                 false
             );
-            //(Adds Yoga Book to Giacomo's inventory under Books)
+            // (Adds Yoga Book to Giacomo's inventory under Books)
             this.flags[kFLAGS.COTTON_UNUSUAL_YOGA_BOOK_TRACKER]++;
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //Come back wtih book first time
+        // Come back wtih book first time
         else if (
             this.flags[kFLAGS.COTTON_UNUSUAL_YOGA_BOOK_TRACKER] == 1 &&
             this.player.hasKeyItem("Yoga Guide") >= 0
@@ -320,7 +320,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             this.flags[kFLAGS.COTTON_UNUSUAL_YOGA_BOOK_TRACKER]++;
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //Been told about the book but dont have it.
+        // Been told about the book but dont have it.
         else if (this.flags[kFLAGS.COTTON_UNUSUAL_YOGA_BOOK_TRACKER] == 1) {
             this.outputText(
                 '"<i>Have you retrieved the book I mentioned?</i>" You shake your head sadly, and she sighs. "<i>Well, until you do there\'s not much I can do for you.</i>"',
@@ -328,9 +328,9 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             );
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //First time with book
+        // First time with book
         else if (this.flags[kFLAGS.COTTON_UNUSUAL_YOGA_BOOK_TRACKER] == 2) {
-            //(On approach with Centaur/Naga body first time after giving the book)
+            // (On approach with Centaur/Naga body first time after giving the book)
             this.outputText(
                 "You approach Cotton, who gives you an exuberant grin. \"<i>I've read through the book and I'm pretty confident I can coach you now. What do you say we give it a go? I've arranged for some proper yoga clothes for you. Well, really just the top, but that's what matters for you, isn't it?</i>\"\n\n",
                 false
@@ -341,7 +341,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         } else this.cottonGreetingCommonEnd();
     }
 
-    //(If No)
+    // (If No)
     private turnDownYogaWifCottonFirstTime(): void {
         this.spriteSelect(12);
         this.outputText("", true);
@@ -352,7 +352,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //(If Yes. Improves muscle tone up to 50, speed and feminine features.)
+    // (If Yes. Improves muscle tone up to 50, speed and feminine features.)
     private acceptYoga(): void {
         this.spriteSelect(12);
         this.outputText("", true);
@@ -382,7 +382,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 false
             );
         }
-        //(Yes) LAMAZE
+        // (Yes) LAMAZE
         if (
             this.player.pregnancyIncubation <= 225 &&
             this.player.pregnancyType == PregnancyStore.PREGNANCY_COTTON
@@ -391,17 +391,17 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 "You change into your yoga clothes and approach Cotton, saying you'd love a lamaze class. Cotton smiles and sets up a mat for you, then sits down, urging you to sit in front of her.  You do so, feeling the bulge in her pants pressing against your rump, and her breasts at your back.  You spend the next fifteen minutes doing breathing exercises like this, and another fifteen minutes doing stretches on an exercise ball.  As you're working out, Cotton presses her body against yours, running her hands around your swollen belly at every opportunity.\n\n"
             );
 
-            //CHAT STUFF!
+            // CHAT STUFF!
             this.cottonChat();
 
             this.outputText(
                 'Once you\'re done and about to hit the showers, Cotton pulls you aside and says with a grin, "<i>Up for some post-workout exercises?</i>"',
                 false
             );
-            //[Shower Sex (Fuck Her) (As Male or Herm only)] [Shower Sex (Get Fucked)] [Tantric Sex (Only if Speed is 50+)] [Leave]
+            // [Shower Sex (Fuck Her) (As Male or Herm only)] [Shower Sex (Get Fucked)] [Tantric Sex (Only if Speed is 50+)] [Leave]
             if (this.player.hasCock()) fuckHer = this.fuckCottonInShowerRepeat;
             if (this.player.gender > 0) getFucked = this.cottonFucksYouInShowerRepeat;
-            //if(player.spe >= 50 && !player.isTaur()) option3 = 2819;
+            // if(player.spe >= 50 && !player.isTaur()) option3 = 2819;
             this.simpleChoices(
                 "Fuck Her",
                 fuckHer,
@@ -415,7 +415,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 this.leaveCotton
             );
         }
-        //First time
+        // First time
         else if (this.flags[kFLAGS.TIMES_HAD_YOGA] == 0) {
             this.outputText(
                 "\"<i>Good, good, you won't regret it. First things first, pet, let's get you out of that dreadful clothing.</i>\"  She leads you to the lockers and helps you strip out of your " +
@@ -428,7 +428,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     '  She spies your crotch and smiles, "<i>Oh, best of both worlds, are we? Well you\'re in good company then.</i>"',
                     false
                 );
-            //(If PC is male:
+            // (If PC is male:
             else if (this.player.hasCock())
                 this.outputText(
                     "  She cradles your " +
@@ -436,7 +436,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         ' and smiles at you, "<i>Well, we might find a use for that later.</i>"',
                     false
                 );
-            //(If PC is female:
+            // (If PC is female:
             else if (this.player.hasVagina())
                 this.outputText(
                     "  She pats your groin and says, \"<i>Y'know, I know some good exercises that really work the vaginal muscles... perhaps we'll talk about that later.</i>\"",
@@ -459,7 +459,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 '"<i>Oh, that\'s too bad. But you\'ve done pretty good for a beginner,</i>" she helps you up off the mat and pats you gently on the back. "<i>Want to hit the showers then?</i>" Despite having done little more than stretching, you find you are sweating quite a bit... but something makes you wonder if her idea of hitting the shower is the same as yours.',
                 false
             );
-            //[Shower] or [Leave]
+            // [Shower] or [Leave]
             this.simpleChoices(
                 "Shower",
                 this.cottonShowerFunTimes,
@@ -473,8 +473,8 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 this.leaveAfterYoga
             );
         }
-        //(Repeat Encounter (Didn't have sex))
-        //Done yoga > 0 && met type = 1
+        // (Repeat Encounter (Didn't have sex))
+        // Done yoga > 0 && met type = 1
         else if (
             this.flags[kFLAGS.COTTON_MET_FUCKED] == 1 &&
             this.flags[kFLAGS.TIMES_HAD_YOGA] > 0
@@ -488,7 +488,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 "Once you're done and about to hit the showers, Cotton pulls you aside and says, \"<i>I know you weren't comfortable with our shower before, so I won't join you this time. But if you ever change your mind, just say the word.</i>\"",
                 false
             );
-            //[Shower Sex (Fuck Her)] [Shower Sex (Get Fucked)] [Tantric Sex (Only if Speed is 50+)] [Leave]
+            // [Shower Sex (Fuck Her)] [Shower Sex (Get Fucked)] [Tantric Sex (Only if Speed is 50+)] [Leave]
             if (this.player.hasCock()) fuckHer = this.fuckCottonInShowerRepeat;
             if (this.player.gender > 0) getFucked = this.cottonFucksYouInShowerRepeat;
             if (this.player.spe >= 50 && !this.player.isTaur()) option3 = this.cottonTantricSex;
@@ -505,35 +505,35 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 this.leaveCotton
             );
         }
-        //(Repeat Encounter (Had Sex))
+        // (Repeat Encounter (Had Sex))
         else {
-            //(For Centaur Bodies: )
+            // (For Centaur Bodies: )
             if (this.player.isTaur())
                 this.outputText(
                     "You change into your yoga clothes (just the tank top, really), and approach Cotton, saying you'd love a yoga workout. Cotton smiles and sets up a large mat for you. You spend the next half hour trying different poses and stretches, mostly dealing with your upper half but occasionally requiring you to stretch out your legs or lay down. As you work out, Cotton presses her body against yours under the pretense of showing you how it's done, but really just to press her tits and crotch up against you.\n\n",
                     false
                 );
-            //(For Naga Bodies: )
+            // (For Naga Bodies: )
             else if (this.player.isNaga())
                 this.outputText(
                     "You change into your yoga clothes (just the tank top, really), and approach Cotton, saying you'd love a yoga workout. Cotton smiles and sets up a large mat for you. You spend the next half hour trying different poses and stretches, a lot of which involves coiling in certain ways, or creating shapes with your snake-like body. Cotton seems genuinely impressed at your range of flexibility. As you work out, she presses her body against yours under the pretense of showing you how it's done, but really just to press her tits and crotch up against you.\n\n",
                     false
                 );
-            //(For Humanoid Bodies: )
+            // (For Humanoid Bodies: )
             else
                 this.outputText(
                     "You change into your yoga clothes and approach Cotton, saying you'd love a yoga workout. Cotton smiles and sets up a mat for you. You spend the next half hour trying different poses, including everything from simple stretches to awkward contortions. As you work out, Cotton presses her body against yours under the pretense of showing you how it's done, but really just to press her tits and crotch up against you.\n\n",
                     false
                 );
 
-            //CHAT STUFF!
+            // CHAT STUFF!
             this.cottonChat();
 
             this.outputText(
                 'Once you\'re done and about to hit the showers, Cotton pulls you aside and says with a grin, "<i>Up for some post-workout exercises?</i>"',
                 false
             );
-            //[Shower Sex (Fuck Her) (As Male or Herm only)] [Shower Sex (Get Fucked)] [Tantric Sex (Only if Speed is 50+)] [Leave]
+            // [Shower Sex (Fuck Her) (As Male or Herm only)] [Shower Sex (Get Fucked)] [Tantric Sex (Only if Speed is 50+)] [Leave]
             if (this.player.hasCock()) fuckHer = this.fuckCottonInShowerRepeat;
             if (this.player.gender > 0) getFucked = this.cottonFucksYouInShowerRepeat;
             if (this.player.spe >= 50 && !this.player.isTaur()) option3 = this.cottonTantricSex;
@@ -550,7 +550,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 this.leaveCotton
             );
         }
-        //(Increases muscle tone up to 50, speed and feminine features.)
+        // (Increases muscle tone up to 50, speed and feminine features.)
         this.player.modTone(52, 1);
         this.flags[kFLAGS.TIMES_HAD_YOGA]++;
         this.fatigue(20);
@@ -560,21 +560,21 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
     private cottonChat(): void {
         this.spriteSelect(12);
         var chats: any[] = [];
-        //Urta chance
+        // Urta chance
         if (this.flags[kFLAGS.TIMES_FUCKED_URTA] > 0) chats[chats.length] = 1;
-        //Edryn chance
+        // Edryn chance
         if (this.player.findStatusAffect(StatusAffects.Edryn) >= 0) chats[chats.length] = 2;
-        //(Scylla chat)
+        // (Scylla chat)
         if (this.flags[kFLAGS.NUMBER_OF_TIMES_MET_SCYLLA] > 0) chats[chats.length] = 2;
-        //VALA
+        // VALA
         if (this.flags[kFLAGS.FREED_VALA] != 0) chats[chats.length] = 3;
-        //(Jojo chat)
+        // (Jojo chat)
         if (kGAMECLASS.monk > 0) chats[chats.length] = 4;
         var choice: number = chats[Cotton.rand(chats.length)];
 
-        //(Urta Chat)
+        // (Urta Chat)
         if (choice == 1) {
-            //(If you've rejected Urta's love or left her)
+            // (If you've rejected Urta's love or left her)
             if (
                 this.flags[kFLAGS.URTA_COMFORTABLE_WITH_OWN_BODY] < 0 ||
                 this.flags[kFLAGS.URTA_PC_LOVE_COUNTER] < 0
@@ -583,28 +583,28 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     'While you\'re doing your stretches, you find yourself chatting about the folks of Tel\'Adre. "<i>Urta?</i>" Cotton says, "<i>She\'s a good woman, but she\'s been pretty depressed lately.</i>" Your yoga partner scowls at you, and presses you into an uncomfortable pose, "<i>I hear you upset her. The poor girl has had an awfully cruel life.  I hope you didn\'t make it any worse for her.</i>"\n\n',
                     false
                 );
-            //(If you've accepted Urta's love)
+            // (If you've accepted Urta's love)
             else if (kGAMECLASS.urta.urtaLove())
                 this.outputText(
                     "While you're doing your stretches, you find yourself chatting about the folks of Tel'Adre. \"<i>Urta?</i>\" Cotton says, \"<i>She's a good woman. I hear you two have been quite the couple lately.</i>\" You blush. \"<i>No need to be embarrassed, from what I hear you've been a good influence on her. She's not nearly as high-strung or stressed anymore. Whatever you're doing with her, keep it up, pet.</i>\"\n\n",
                     false
                 );
-            //(If Urta's relationship with PC is low, so she's still uncomfortable with her body)
+            // (If Urta's relationship with PC is low, so she's still uncomfortable with her body)
             else
                 this.outputText(
                     "While you're doing your stretches, you find yourself chatting about the folks of Tel'Adre. \"<i>Urta?</i>\" Cotton says, \"<i>She's a good woman. A bit high strung sometimes, but she's got a lot on her plate keeping us all safe here. I'd invite her 'round for some yoga, maybe to help her relax, but I don't think it's really her thing.</i>\"\n\n",
                     false
                 );
         }
-        //(Edryn chat)
+        // (Edryn chat)
         else if (choice == 2) {
-            //(If Edryn has been knocked up, and PC rejected it)
+            // (If Edryn has been knocked up, and PC rejected it)
             if (this.flags[kFLAGS.EDRYN_NEVER_SEE_AGAIN] > 0)
                 this.outputText(
                     'While you\'re doing your stretches, you find yourself chatting about the folks of Tel\'Adre. "<i>Edryn?</i>" Cotton says, "<i>I hear you knocked her up, then left her with the kid. Well, I think she\'ll make a great mom by herself, but really pet, what were you thinking? It was awfully cruel of you.</i>" The rest of the workout is filled with more painful stretches, and Cotton assists you more roughly than normal.\n\n',
                     false
                 );
-            //(If Edryn has been knocked up, and PC didn't reject it)
+            // (If Edryn has been knocked up, and PC didn't reject it)
             else if (this.flags[kFLAGS.EDRYN_NUMBER_OF_KIDS] > 0)
                 this.outputText(
                     "While you're doing your stretches, you find yourself chatting about the folks of Tel'Adre. \"<i>Edryn?</i>\" Cotton says and giggles, \"<i>I hear you knocked her up, good on you. I think she'll make a great mom, and you " +
@@ -612,16 +612,16 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         '.</i>"  She gives you a kiss on the cheek and continues the stretches.\n\n',
                     false
                 );
-            //(If Edryn hasn't been knocked up)
+            // (If Edryn hasn't been knocked up)
             else
                 this.outputText(
                     "While you're doing your stretches, you find yourself chatting about the folks of Tel'Adre. \"<i>Edryn?</i>\" Cotton says, \"<i>I've seen her around the Wet Bitch late at night. I hear she sells herself for money, though I've never purchased her services. She's a good guardswoman though. Saves a lot of lives.</i>\"\n\n",
                     false
                 );
         }
-        //(Scylla chat)
+        // (Scylla chat)
         else if (choice == 3) {
-            //(if Scylla hasn't formed support group)
+            // (if Scylla hasn't formed support group)
             if (
                 this.flags[kFLAGS.NUMBER_OF_TIMES_MET_SCYLLA] < 5 &&
                 this.flags[kFLAGS.NUMBER_OF_TIMES_MET_SCYLLA] > 0
@@ -630,25 +630,25 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     "While you're doing your stretches, you find yourself chatting about the folks of Tel'Adre. \"<i>Scylla?</i>\" Cotton says, \"<i>She's the oddly dressed woman at the Wet Bitch, right? Can't say I know much about her. She's so secretive.</i>\"\n\n",
                     false
                 );
-            //(if Scylla has formed support group)
+            // (if Scylla has formed support group)
             else if (this.flags[kFLAGS.NUMBER_OF_TIMES_MET_SCYLLA] >= 5)
                 this.outputText(
                     "While you're doing your stretches, you find yourself chatting about the folks of Tel'Adre. \"<i>Scylla?</i>\" Cotton says, \"<i>I hear she formed an addiction support group. Good on her, there's a lot of people in and around town who need help. I'm glad she's stepping up.</i>\"\n\n",
                     false
                 );
         }
-        //(Vala chat)
+        // (Vala chat)
         else if (choice == 4) {
-            //(Only if Vala has been freed)
+            // (Only if Vala has been freed)
             if (this.flags[kFLAGS.FREED_VALA] != 0)
                 this.outputText(
                     "While you're doing your stretches, you find yourself chatting about the folks of Tel'Adre. \"<i>Vala?</i>\" Cotton says, \"<i>That's the new waitress at the Wet Bitch, right? She's cute. A shame what she's gone through. Sometimes I wish we could wipe out every last imp.</i>\"\n\n",
                     false
                 );
         }
-        //(Jojo chat)
+        // (Jojo chat)
         else if (choice == 5) {
-            //(If Jojo hasn't been corrupted)
+            // (If Jojo hasn't been corrupted)
             if (kGAMECLASS.monk == 1) {
                 this.outputText(
                     "While you're doing your stretches, you find yourself chatting about the folks of Tel'Adre and beyond. \"<i>Jojo?</i>\" Cotton says, \"<i>You know Jojo too? I met him a while back. He taught me the finer points of meditation, which I incorporate into my yoga. Here, let's try.</i>\" You spend the rest of the workout in meditative poses, and by the time you're done, you feel... lighter somehow.\n\n",
@@ -656,7 +656,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 );
                 this.dynStats("cor", -1);
             }
-            //(If Jojo has been corrupted)
+            // (If Jojo has been corrupted)
             else if (kGAMECLASS.monk > 1)
                 this.outputText(
                     "While you're doing your stretches, you find yourself chatting about the folks of Tel'Adre. \"<i>Jojo?</i>\" Cotton says, \"<i>You know Jojo too? I met him a while back. He taught me the finer points of meditation. I haven't seen him much lately, though. I wonder where he's gone to.</i>\" You smile inwardly, knowing exactly where he's gone to.\n\n",
@@ -664,7 +664,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 );
         }
     }
-    //(If Leave)
+    // (If Leave)
     private leaveAfterYoga(): void {
         this.spriteSelect(12);
         this.outputText("", true);
@@ -675,7 +675,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //(If Shower)
+    // (If Shower)
     private cottonShowerFunTimes(): void {
         this.spriteSelect(12);
         var option1 = undefined;
@@ -692,7 +692,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         );
 
         this.outputText('"<i>Well? Care for a little... post-workout stretching?</i>"', false);
-        //[Fuck Her (Male or Herm only)] [Get Fucked] [Service her] [Refuse]
+        // [Fuck Her (Male or Herm only)] [Get Fucked] [Service her] [Refuse]
         if (this.player.hasCock()) option1 = this.cottonFirstTimeFuckHer;
         if (this.player.gender > 0) option2 = this.cottonFucksYou;
         this.simpleChoices(
@@ -709,7 +709,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         );
     }
 
-    //(Fuck Her)
+    // (Fuck Her)
     private cottonFirstTimeFuckHer(): void {
         this.spriteSelect(12);
         this.flags[kFLAGS.COTTON_MET_FUCKED] = 2;
@@ -760,7 +760,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.dynStats("sen", -1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //(Get fucked, as Male)
+    // (Get fucked, as Male)
     private cottonFucksYou(): void {
         this.spriteSelect(12);
         this.flags[kFLAGS.COTTON_MET_FUCKED] = 2;
@@ -828,7 +828,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             this.player.orgasm();
             this.dynStats("sen", 2);
         }
-        //(Get fucked, as Female)
+        // (Get fucked, as Female)
         else if (this.player.gender == 2) {
             this.outputText(
                 "You nod your head in assent. Noticing you didn't take the initiative, Cotton smiles and moves behind you, pushing you under your own shower spray. \"<i>Don't worry, my little pet, let Cotton take care of everything...</i>\" She gets a handful of soap and gently rubs your back, massaging the soap in while relaxing your muscles. You lean forward resting your arms and torso against the wall in front of you.\n\n",
@@ -881,7 +881,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             this.dynStats("sen", -1);
             this.cottonPregPCChance();
         }
-        //(Get fucked, as Herm)
+        // (Get fucked, as Herm)
         else {
             this.outputText(
                 "You nod your head in assent. Noticing you didn't take the initiative, Cotton smiles and moves behind you, pushing you under your own shower spray. \"<i>Don't worry, my little pet, let Cotton take care of everything...</i>\" She gets a handful of soap and gently rubs your back, massaging the soap in while relaxing your muscles. You lean forward resting your arms and torso against the wall in front of you.\n\n",
@@ -940,7 +940,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         }
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //(Service her, any gender)
+    // (Service her, any gender)
     private serviceFirstTimeCotton(): void {
         this.spriteSelect(12);
         this.flags[kFLAGS.COTTON_MET_FUCKED] = 2;
@@ -984,7 +984,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.dynStats("sen", 1, "lus", 10 + this.player.lib / 20 + this.player.sens / 20);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //(If Refuse)
+    // (If Refuse)
     private refuseFirstTimeCotton(): void {
         this.spriteSelect(12);
         this.outputText("", true);
@@ -995,7 +995,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //(Shower Sex, Fuck Her)
+    // (Shower Sex, Fuck Her)
     private fuckCottonInShowerRepeat(): void {
         this.flags[kFLAGS.COTTON_MET_FUCKED] = 2;
         this.spriteSelect(12);
@@ -1013,7 +1013,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
 
         outputText("After a moment you pull out, share a deep kiss, and wash each other up before redressing and leaving the gym.", false);
         */
-        //(Repeat Fuck Her, for centaurs)
+        // (Repeat Fuck Her, for centaurs)
         if (this.player.isTaur()) {
             this.outputText(
                 "You decide to take her up on her offer and lead her into the showers, quickly disrobing and turning on an available shower-head. Cotton strips as well and you pull her under the stream of water, letting your horse body remain out of the water for now, sharing a kiss as steam begins to form around you. She runs a hand through your " +
@@ -1026,7 +1026,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 );
             else this.outputText("pulling you closer.\n\n", false);
 
-            //(If PC has one cock)
+            // (If PC has one cock)
             if (this.player.cockArea(x) >= 100) {
                 if (this.player.cockTotal() == 1)
                     this.outputText(
@@ -1035,7 +1035,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                             " stirring beneath your large body, while Cotton's remains curiously limp.  While her cock dangles, yours strains for attention.",
                         false
                     );
-                //(If PC has multiple cocks)
+                // (If PC has multiple cocks)
                 else if (this.player.cockTotal() > 1)
                     this.outputText(
                         "You feel your " +
@@ -1051,7 +1051,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                             " stirring beneath your large body, while you watch Cotton's do the same. Her cock rubs against your stomach while yours strains for attention.",
                         false
                     );
-                //(If PC has multiple cocks)
+                // (If PC has multiple cocks)
                 else if (this.player.cockTotal() > 1)
                     this.outputText(
                         "You feel your " +
@@ -1060,7 +1060,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         false
                     );
             }
-            //(If PC has a pussy, add the following)
+            // (If PC has a pussy, add the following)
             if (this.player.hasVagina())
                 this.outputText(
                     "  Meanwhile, your " +
@@ -1072,7 +1072,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 );
             this.outputText("\n\n", false);
 
-            //(If PC has breasts)
+            // (If PC has breasts)
             if (this.player.biggestTitSize() >= 2) {
                 this.outputText(
                     "Cotton leans down, groping your " +
@@ -1082,7 +1082,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         " into her mouth and sucking it greedily.",
                     false
                 );
-                //(and if PC is lactating)
+                // (and if PC is lactating)
                 if (this.player.biggestLactation() >= 1) {
                     this.outputText(
                         "  Her efforts are soon rewarded as milk begins seeping from your " +
@@ -1092,7 +1092,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     );
                     this.flags[kFLAGS.COTTON_BREAKFAST_CLUB] = 1;
                 }
-                //(else is PC is not lactating)
+                // (else is PC is not lactating)
                 else
                     this.outputText(
                         "  Cotton soon switches to the other breast, teasing your " +
@@ -1107,19 +1107,19 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 "Suitably turned on now, you look around and drag one of the nearby benches from the changing rooms into the showers and pull it under the water. Cotton grins, understanding what you plan to do with it, and gets onto all fours on top of it. You walk over the bench, getting your body under the spray of water, and get your cock into position. Your fellow equine lover helps with the fine movement, placing your cock at her entrance while giving your underside a reassuring pat. You slowly push forward, and Cotton bites her lip, again giving a reassuring pat.",
                 false
             );
-            //(If player has two cocks, add)
+            // (If player has two cocks, add)
             if (this.player.cockTotal() == 2)
                 this.outputText(
                     "  With a slight grin, you begin poking your extra dick at Cotton's other hole. You hear an indignant grunt, followed by a sigh, and feel her hands on your member, guiding it all the way into her hole.",
                     false
                 );
-            //(If the player has more cocks, add)
+            // (If the player has more cocks, add)
             else if (this.player.cockTotal() > 2)
                 this.outputText(
                     "  The rest of your cocks jiggle and bob, rubbing up against her thighs and butt wildly.",
                     false
                 );
-            //(If player is too big, add)
+            // (If player is too big, add)
             if (this.player.cockArea(x) > 70)
                 this.outputText(
                     "  Though you are far too big for her, you make sure to stuff her as much as you can. Her cunt, big as it is, squeezes tightly on your " +
@@ -1127,7 +1127,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         ". She shivers and quakes, and leans against the bench, gripping your forelegs for support. You thrust your overly large tool inside her over and over, stretching her already not-insignificant cunt even wider. Her tongue actually rolls out of her snout, lolling to the side while her eyes roll up into her head, lost in the pleasure. Her body rocks with an orgasm while you piston away under the spray of water.",
                     false
                 );
-            //(if player is too small (under 4</i>\")
+            // (if player is too small (under 4</i>\")
             else if (this.player.cocks[x].cockLength < 4) {
                 this.outputText(
                     '  Her approval wavers and you hear from below you, "<i>Is it in yet?</i>" Your face flushes red and you confirm it is, looking down with embarrassment. Cotton rubs one of your forelegs reassuringly and says, "<i>'
@@ -1144,7 +1144,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     false
                 );
             }
-            //(if none of the above, add)
+            // (if none of the above, add)
             else
                 this.outputText(
                     "  You piston back and forth, and though Cotton's cunt is sizable, it's able to grip you tightly. Your equine lover moans and grasps at your chest, eventually seizing your leg for support, though she leans backwards.",
@@ -1168,7 +1168,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     "Oblivious to you, her own cock twitches and spasms, letting loose a spray of cum across her belly, breasts and the bench as an orgasm rocks her body.",
                     false
                 );
-            //(If player is too big, add)
+            // (If player is too big, add)
             if (this.player.cockArea(x) > 70)
                 this.outputText(
                     "  Even with all the pounding you've been doing, you can't fit your entire girth into her, but she doesn't care. Her eyes seem to roll back and forth like it's hard to focus, and her tongue drips water, sweat and saliva onto her body. She's panting for breath and you are able to make out faint, \"<i>Oh gods, oh gods</i>\" over the running water. Were you able to see her toned stomach, you're sure you could see the outline of your " +
@@ -1182,7 +1182,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 "Finally you just can't take any more. You give one last thrust into your partner and audibly gasp in relief as an orgasm rolls across your body, hitting your nerves with bolts of ecstatic lightning.",
                 false
             );
-            //(If PC has a pussy)
+            // (If PC has a pussy)
             if (this.player.hasVagina())
                 this.outputText(
                     "  Your " +
@@ -1190,7 +1190,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         " erupts inside Cotton's warm cunt which clenches you tightly, while your own femme sex twinges and clenches on air, drooling juices down your legs.",
                     false
                 );
-            //(else)
+            // (else)
             else
                 this.outputText(
                     "   Your " +
@@ -1198,7 +1198,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         " erupts inside Cotton's warm cunt which clenches you tightly.",
                     false
                 );
-            //(regardless or above, add)
+            // (regardless or above, add)
             this.outputText(
                 "  You give a couple more token thrusts and pull out. As you do, ",
                 false
@@ -1219,7 +1219,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 false
             );
         }
-        //(Repeat fuck her, for nagas)
+        // (Repeat fuck her, for nagas)
         else if (this.player.isNaga()) {
             this.outputText(
                 "You decide to take her up on her offer and lead her into the showers, quickly disrobing and turning on an available shower-head. Cotton strips as well and you pull her under the stream of water, sharing a kiss as steam begins to form around you. She runs a hand through your " +
@@ -1233,7 +1233,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             else this.outputText("pulling you closer.\n\n", false);
 
             if (this.player.cockArea(x) >= 100) {
-                //(If PC has one cock)
+                // (If PC has one cock)
                 if (this.player.cockTotal() == 1)
                     this.outputText(
                         "  You feel your " +
@@ -1243,7 +1243,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                             " rubs against her belly, sending ripples of pleasure up your spine.",
                         false
                     );
-                //(If PC has multiple cocks)
+                // (If PC has multiple cocks)
                 else if (this.player.cockTotal() > 1)
                     this.outputText(
                         "  You feel your " +
@@ -1252,7 +1252,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         false
                     );
             } else {
-                //(If PC has one cock)
+                // (If PC has one cock)
                 if (this.player.cockTotal() == 1)
                     this.outputText(
                         "You feel your " +
@@ -1260,7 +1260,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                             " stirring beneath you, slowly coming to attention alongside Cotton's equine member.  The two rub together as you make out, sending ripples of pleasure up your spine.",
                         false
                     );
-                //(If PC has multiple cocks)
+                // (If PC has multiple cocks)
                 else if (this.player.cockTotal() > 1)
                     this.outputText(
                         "You feel your " +
@@ -1269,7 +1269,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         false
                     );
             }
-            //(If PC has a pussy, add the following)
+            // (If PC has a pussy, add the following)
             if (this.player.hasVagina())
                 this.outputText(
                     "Your " +
@@ -1281,7 +1281,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 );
             this.outputText("\n\n", false);
 
-            //(If PC has breasts)
+            // (If PC has breasts)
             if (this.player.biggestTitSize() >= 2) {
                 this.outputText(
                     "Cotton leans down, groping your " +
@@ -1291,7 +1291,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         " into her mouth and sucking it greedily.",
                     false
                 );
-                //(and if PC is lactating)
+                // (and if PC is lactating)
                 if (this.player.biggestLactation() >= 1) {
                     this.outputText(
                         "  Her efforts are soon rewarded as milk begins seeping from your " +
@@ -1301,7 +1301,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     );
                     this.flags[kFLAGS.COTTON_BREAKFAST_CLUB] = 1;
                 }
-                //(else is PC is not lactating)
+                // (else is PC is not lactating)
                 else
                     this.outputText(
                         "  Cotton soon switches to the other breast, teasing your " +
@@ -1318,19 +1318,19 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     " at her pussy. You slowly push in, and Cotton bites her lip, looking at you in approval.",
                 false
             );
-            //(If player has two cocks, add)
+            // (If player has two cocks, add)
             if (this.player.cockTotal() == 2)
                 this.outputText(
                     "  With a slight grin, you position your extra dick at Cotton's other hole. She quirks her eyebrow and a look of panic momentarily crosses her face, but you push forward anyway. Cotton's eyes roll up briefly and her lip quivers.",
                     false
                 );
-            //(If the player has more cocks, add)
+            // (If the player has more cocks, add)
             else if (this.player.cockTotal() > 2)
                 this.outputText(
                     "  The rest of your cocks strain, aching for holes to fill. With none available, they throb as they rub against Cotton's smooth skin.",
                     false
                 );
-            //(If player is too big, add)
+            // (If player is too big, add)
             if (this.player.cockArea(x) > 70)
                 this.outputText(
                     "  Though you are far too big for her, you make sure to stuff her as much as you can. Her cunt, big as it is, squeezes tightly on your " +
@@ -1338,7 +1338,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         ". She shivers and quakes, and leans against the shower wall, gripping the shower-head for support. You thrust your overly large tool inside her over and over, stretching her already not insignificant cunt even wider. Her tongue actually rolls out of her snout, lolling to the side while her eyes roll up into her head, lost in the pleasure. Her body rocks with an orgasm while you piston away under the spray of water.",
                     false
                 );
-            //(if player is too small (under 4</i>\") add)
+            // (if player is too small (under 4</i>\") add)
             else if (this.player.cocks[x].cockLength < 4) {
                 this.outputText(
                     '  Her approval wavers and she asks, "<i>Is it in yet?</i>" Your face flushes red and you confirm it is, looking down with embarrassment. Cotton lifts your chin and gives you a kiss, "<i>'
@@ -1355,7 +1355,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     false
                 );
             }
-            //(otherwise add)
+            // (otherwise add)
             else
                 this.outputText(
                     "  You piston back and forth, and though Cotton's cunt is sizeable, it's able to grip you tightly. Your equine lover moans and grasps at your chest, eventually seizing your shoulder for support, though she leans backwards.",
@@ -1379,7 +1379,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     "Her own cock twitches and spasms, letting loose a spray of cum across her belly, breasts and face as an orgasm rocks her body.",
                     false
                 );
-            //(If player is too big, add)
+            // (If player is too big, add)
             if (this.player.cockArea(x) > 70)
                 this.outputText(
                     "  Even in this pseudo-missionary position you can't stuff your entire enormous girth into her, but she doesn't care. Her eyes seem to roll back and forth like it's hard to focus, and her tongue drips water, sweat and saliva onto her body. She's panting for breath and you are able to make out faint, \"<i>Oh gods, oh gods</i>\" over the running water. You can even make out the shape of your cock in Cotton's toned stomach, pumping back and forth, which brings a smile to your face. Her back arches under the shower, her hair messily spread out beneath her and she bites her lip as another orgasm rocks her body.",
@@ -1391,7 +1391,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 "Finally you just can't take anymore. You give one last thrust into your partner and audibly gasp in relief as an orgasm rolls across your body, hitting your nerves with bolts of ecstatic lightning.",
                 false
             );
-            //(If PC has a pussy)
+            // (If PC has a pussy)
             if (this.player.hasVagina())
                 this.outputText(
                     "  Your " +
@@ -1399,7 +1399,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         " erupts inside Cotton's warm cunt, which clenches you tightly, while your own femme sex twinges and clenches on air, drooling juices down your legs.",
                     false
                 );
-            //(else)
+            // (else)
             else
                 this.outputText(
                     "  Your " +
@@ -1407,7 +1407,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         " erupts inside Cotton's warm cunt, which clenches you tightly.",
                     false
                 );
-            //(regardless or above, add)
+            // (regardless or above, add)
             this.outputText(
                 "  You give a couple more token thrusts and pull out. As you do, ",
                 false
@@ -1428,7 +1428,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 false
             );
         }
-        //(Repeat Fuck Her, for humanoid bodies)
+        // (Repeat Fuck Her, for humanoid bodies)
         else {
             this.outputText(
                 "You decide to take her up on her offer and lead her into the showers, quickly disrobing and turning on an available shower-head. Cotton strips as well and you pull her under the stream of water, sharing a kiss as steam begins to form around you. She runs a hand through your " +
@@ -1442,7 +1442,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             else this.outputText("pulling you closer.", false);
 
             if (this.player.cockArea(x) >= 100) {
-                //(If PC has one cock)
+                // (If PC has one cock)
                 if (this.player.cockTotal() == 1)
                     this.outputText(
                         "  You feel your " +
@@ -1452,7 +1452,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                             " rubs against her belly, sending ripples of pleasure up your spine.",
                         false
                     );
-                //(If PC has multiple cocks)
+                // (If PC has multiple cocks)
                 else if (this.player.cockTotal() > 1)
                     this.outputText(
                         "  You feel your " +
@@ -1460,9 +1460,9 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                             " stirring beneath you, slowly coming to attention, though Cotton's remains curiously limp.  The group of cocks rubs together as you make out, sending ripples of pleasure up your spine.",
                         false
                     );
-                //(If PC has a pussy, add the following)
+                // (If PC has a pussy, add the following)
             } else {
-                //(If PC has one cock)
+                // (If PC has one cock)
                 if (this.player.cockTotal() == 1)
                     this.outputText(
                         "  You feel your " +
@@ -1470,7 +1470,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                             " stirring beneath you, slowly coming to attention alongside Cotton's equine member. The two rub together as you make out, sending ripples of pleasure up your spine.",
                         false
                     );
-                //(If PC has multiple cocks)
+                // (If PC has multiple cocks)
                 else if (this.player.cockTotal() > 1)
                     this.outputText(
                         "  You feel your " +
@@ -1478,7 +1478,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                             " stirring beneath you, slowly coming to attention alongside Cotton's equine member. The group of cocks rubs together as you make out, sending ripples of pleasure up your spine.",
                         false
                     );
-                //(If PC has a pussy, add the following)
+                // (If PC has a pussy, add the following)
             }
 
             if (this.player.hasVagina())
@@ -1492,7 +1492,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 );
             this.outputText("\n\n", false);
 
-            //(If PC has breasts)
+            // (If PC has breasts)
             if (this.player.biggestTitSize() >= 2) {
                 this.outputText(
                     "Cotton leans down, groping your " +
@@ -1502,7 +1502,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         " into her mouth and sucking it greedily.",
                     false
                 );
-                //(and if PC is lactating)
+                // (and if PC is lactating)
                 if (this.player.biggestLactation() >= 1) {
                     this.outputText(
                         "  Her efforts are soon rewarded as milk begins seeping from your " +
@@ -1512,7 +1512,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     );
                     this.flags[kFLAGS.COTTON_BREAKFAST_CLUB] = 1;
                 }
-                //(else is PC is not lactating)
+                // (else is PC is not lactating)
                 else
                     this.outputText(
                         "  Cotton soon switches to the other breast, teasing your " +
@@ -1529,19 +1529,19 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     " at her pussy. You slowly push in, and Cotton bites her lip, looking at you in approval.",
                 false
             );
-            //(If player has two cocks, add)
+            // (If player has two cocks, add)
             if (this.player.cockTotal() == 2)
                 this.outputText(
                     "  With a slight grin, you position your other dick at Cotton's other hole. She quirks her eyebrow and a look of panic momentarily crosses her face, but you push forward anyway. Cotton's eyes roll up briefly and her lip quivers.",
                     false
                 );
-            //(If the player has more cocks, add)
+            // (If the player has more cocks, add)
             if (this.player.cockTotal() > 2)
                 this.outputText(
                     "  The rest of your cocks strain, aching for holes to fill. With none available, they throb as they rub against Cotton's smooth skin.",
                     false
                 );
-            //(If player is too big, add)
+            // (If player is too big, add)
             if (this.player.cockArea(x) > 70)
                 this.outputText(
                     "  Though you are far too big for her, you make sure to stuff her as much as you can. Her cunt, big as it is, squeezes tightly on your " +
@@ -1549,7 +1549,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         ". She shivers and quakes, and leans against the shower wall, gripping the shower-head for support. You thrust your overly large tool inside her over and over, stretching her already not-insignificant cunt even wider. Her tongue actually rolls out of her snout, lolling to the side while her eyes roll up into her head, lost in the pleasure. Her body rocks with an orgasm while you piston away under the spray of water.",
                     false
                 );
-            //(if player is too small (under 4</i>\") add)
+            // (if player is too small (under 4</i>\") add)
             else if (this.player.cocks[x].cockLength < 4) {
                 this.outputText(
                     '  Her approval wavers and she asks, "<i>Is it in yet?</i>" Your face flushes red and you confirm it is, looking down in embarrassment. Cotton lifts your chin and gives you a kiss, "<i>'
@@ -1566,7 +1566,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     false
                 );
             }
-            //(otherwise add)
+            // (otherwise add)
             else
                 this.outputText(
                     "You piston back and forth, and though Cotton's cunt is sizeable, it's able to grip you tightly. Your equine lover moans and grasps at your chest, eventually seizing your shoulder for support, though she leans backwards.",
@@ -1590,7 +1590,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     "Her own cock twitches and spasms, letting loose a spray of cum across her belly, breasts and face as an orgasm rocks her body.",
                     false
                 );
-            //(If player is too big, add)
+            // (If player is too big, add)
             if (this.player.cockArea(x) > 70)
                 this.outputText(
                     "  Even in the missionary position you can't stuff your entire enormous girth into her, but she doesn't care. Her eyes seem to roll back and forth like it's hard to focus, and her tongue drips water, sweat and saliva onto her body. She's panting for breath and you are able to make out faint, \"<i>Oh gods, oh gods</i>\" over the running water. You can even make out the shape of your cock in Cotton's toned stomach, pumping back and forth, which brings a smile to your face. Her back arches under the shower, her hair messily spread out beneath her and she bites her lip as another orgasm rocks her body.",
@@ -1602,7 +1602,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 "Finally you just can't take any more. You give one last thrust into your partner and audibly gasp in relief as an orgasm rolls across your body, hitting your nerves with bolts of ecstatic lightning.",
                 false
             );
-            //(If PC has a pussy)
+            // (If PC has a pussy)
             if (this.player.hasVagina())
                 this.outputText(
                     "  Your " +
@@ -1610,7 +1610,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         " erupts inside Cotton's warm cunt, which clenches you tightly while your own femme sex twinges and clenches on air, drooling juices down your legs.",
                     false
                 );
-            //(else)
+            // (else)
             else
                 this.outputText(
                     "  Your " +
@@ -1618,7 +1618,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         " erupts inside Cotton's warm cunt, which clenches you tightly.",
                     false
                 );
-            //(regardless or above, add)
+            // (regardless or above, add)
             this.outputText(
                 "  You give a couple more token thrusts and pull out. As you do, ",
                 false
@@ -1645,7 +1645,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //(Shower Sex, Get Fucked as Male or Herm)
+    // (Shower Sex, Get Fucked as Male or Herm)
     private cottonFucksYouInShowerRepeat(): void {
         this.spriteSelect(12);
         this.player.slimeFeed();
@@ -1666,7 +1666,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             player.orgasm();
             dynStats("sen", 1);
         }
-        //(Shower Sex, Get Fucked as Female)
+        // (Shower Sex, Get Fucked as Female)
         else {
             outputText("You decide to take her up on her offer, and she pulls you towards the showers, quickly disrobing the both of you. She turns only one shower-head on and pulls you into an embrace underneath the rapidly heating stream. Cotton's cock stirs between you, and your " + vaginaDescript() + " burns with anticipation.\n\n", false);
 
@@ -1680,13 +1680,13 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             player.orgasm();
             dynStats("sen", -1);
         }*/
-        //(Repeat get fucked, for centaurs)
+        // (Repeat get fucked, for centaurs)
         if (this.player.isTaur()) {
             this.outputText(
                 "You decide to take her up on her offer and she pulls you towards the showers, quickly disrobing you forcibly and then herself. She turns only one shower-head on and pulls you into an embrace underneath the rapidly heating water. She kisses up your neck and playfully bites you with a grin.",
                 false
             );
-            //(If PC has a penis, no vagina)
+            // (If PC has a penis, no vagina)
             if (this.player.gender == 1)
                 this.outputText(
                     "  Your " +
@@ -1694,7 +1694,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         " tingles betwixt your legs, but remains limp in the presence of Cotton's impressive member.",
                     false
                 );
-            //(If PC has a penis and vagina)
+            // (If PC has a penis and vagina)
             else if (this.player.gender == 3)
                 this.outputText(
                     "  Your " +
@@ -1704,7 +1704,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         " moistens almost immediately from the steam and arousal.",
                     false
                 );
-            //(If PC has a vagina and no penis)
+            // (If PC has a vagina and no penis)
             else if (this.player.gender == 2)
                 this.outputText(
                     "  Your " +
@@ -1712,7 +1712,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         " moistens almost immediately as you make out, both from the steam and your increasing arousal.",
                     false
                 );
-            //(If PC is genderless)
+            // (If PC is genderless)
             else
                 this.outputText(
                     "  A deep aching burns within you, a need your body is ill-equipped to process, but still your nipples harden and you find your " +
@@ -1722,7 +1722,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 );
             this.outputText("\n\n", false);
 
-            //(If PC has breasts)
+            // (If PC has breasts)
             if (this.player.biggestTitSize() >= 2) {
                 this.outputText(
                     "Cotton's kisses lead down to your " +
@@ -1732,7 +1732,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         " into her mouth, sucking it greedily and teasing it masterfully.",
                     false
                 );
-                //(and if PC is lactating)
+                // (and if PC is lactating)
                 if (this.player.biggestLactation() >= 1) {
                     this.outputText(
                         "  Her efforts are soon rewarded as milk begins seeping from your " +
@@ -1742,7 +1742,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     );
                     this.flags[kFLAGS.COTTON_BREAKFAST_CLUB] = 1;
                 }
-                //(else is PC is not lactating)
+                // (else is PC is not lactating)
                 else
                     this.outputText(
                         "  Cotton soon switches to the other breast, teasing your " +
@@ -1757,27 +1757,27 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 "She continues kissing down your belly, reaching your centaur body. She makes you turn around so your rear end is in the spray of water with her.",
                 false
             );
-            //(If PC has a large penis, bigger than Cotton's capacity, add)
+            // (If PC has a large penis, bigger than Cotton's capacity, add)
             if (this.player.hasCock()) {
                 if (this.player.cockArea(0) > 70)
                     this.outputText(
                         '  "<i>Oh my, what\'s this?</i>" She puts a hand under your enormous, yet embarrassingly limp cock and lifts it slightly. "<i>My little pet has such a big dick... Just how I like it. Perhaps next time I\'ll get to try it out... but not today, hm? This is all about you right now.</i>"',
                         false
                     );
-                //(If PC has a penis under 4</i>\", add)
+                // (If PC has a penis under 4</i>\", add)
                 else if (this.player.longestCockLength() < 4)
                     this.outputText(
                         '  "<i>Awww, what\'s this?</i>" She puts a hand under your embarrassingly small and limp cock and lifts it slightly. "<i>It\'s so cute and tiny. And it certainly knows its place. Only room for one cock right now, not that this is much of a cock.</i>" She giggles and plants a kiss on the tip, "<i>It is cute though. I love it.</i>"',
                         false
                     );
-                //(If PC has a penis neither large or small, add)
+                // (If PC has a penis neither large or small, add)
                 else
                     this.outputText(
                         'Cotton puts a hand under your embarrassingly limp cock and smiles, "<i>You know how to show a girl you like her... There\'s only room for one cock right now.</i>"',
                         false
                     );
             }
-            //(If PC has a vagina)
+            // (If PC has a vagina)
             if (this.player.hasVagina())
                 this.outputText(
                     "  Spying your " +
@@ -1787,7 +1787,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         ' teasingly before slipping two fingers inside your folds and bringing them to her mouth, licking them clean. "<i>Mmm... I love the taste of your juices, pet...</i>"',
                     false
                 );
-            //(if PC is genderless)
+            // (if PC is genderless)
             if (this.player.gender == 0)
                 this.outputText(
                     '  She places a hand on your bare crotch and quirks an eyebrow. "<i>Well this is new... Certainly not bad though.</i>" She runs a hand along your bare mound, which somehow manages to send ripples of pleasure up your spine.',
@@ -1809,7 +1809,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     ", slipping it in gently, careful not to go too quick. You moan slightly and blush, whispering back at her, urging her to continue.",
                 false
             );
-            //(Stretch and appropriate virginity check)
+            // (Stretch and appropriate virginity check)
             if (this.player.hasVagina()) this.player.cuntChange(72, true, true, false);
             else this.player.buttChange(72, true, true, false);
             this.outputText("\n\n", false);
@@ -1838,13 +1838,13 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 false
             );
         }
-        //(Repeat get fucked for humanoids and nagas)
+        // (Repeat get fucked for humanoids and nagas)
         else {
             this.outputText(
                 "You decide to take her up on her offer, and she pulls you towards the showers, quickly disrobing you forcibly and then herself. She turns only one shower-head on and pulls you into an embrace underneath the rapidly heating water. She kisses up your neck and playfully bites you with a grin.",
                 false
             );
-            //(If PC has a penis, no vagina)
+            // (If PC has a penis, no vagina)
             if (this.player.gender == 1)
                 this.outputText(
                     "  Your " +
@@ -1852,7 +1852,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         " tingles beneath you, but remains limp in the presence of Cotton's impressive member.",
                     false
                 );
-            //(If PC has a penis and vagina)
+            // (If PC has a penis and vagina)
             else if (this.player.gender == 3)
                 this.outputText(
                     "  Your " +
@@ -1862,7 +1862,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         " moistens almost immediately from the steam and arousal.",
                     false
                 );
-            //(If PC has a vagina and no penis)
+            // (If PC has a vagina and no penis)
             else if (this.player.gender == 2)
                 this.outputText(
                     "  Your " +
@@ -1870,7 +1870,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         " moistens almost immediately as you make out, both from the steam and your increasing arousal.",
                     false
                 );
-            //(If PC is genderless)
+            // (If PC is genderless)
             else
                 this.outputText(
                     "  A deep aching burns within you, a need your body is ill-equipped to process, but still your nipples harden and you find your " +
@@ -1880,7 +1880,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 );
             this.outputText("\n\n", false);
 
-            //(If PC has breasts)
+            // (If PC has breasts)
             if (this.player.biggestTitSize() >= 2) {
                 this.outputText(
                     "Cotton's kisses lead down to your " +
@@ -1890,7 +1890,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         " into her mouth, sucking it greedily and teasing it masterfully.",
                     false
                 );
-                //(and if PC is lactating)
+                // (and if PC is lactating)
                 if (this.player.biggestLactation() >= 1) {
                     this.outputText(
                         "  Her efforts are soon rewarded as milk begins seeping from your " +
@@ -1900,7 +1900,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     );
                     this.flags[kFLAGS.COTTON_BREAKFAST_CLUB] = 1;
                 }
-                //(else is PC is not lactating)
+                // (else is PC is not lactating)
                 else
                     this.outputText(
                         "  Cotton soon switches to the other breast, teasing your " +
@@ -1916,26 +1916,26 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 false
             );
             if (this.player.hasCock()) {
-                //(If PC has a large penis, bigger than Cotton's capacity, add)
+                // (If PC has a large penis, bigger than Cotton's capacity, add)
                 if (this.player.biggestCockArea() > 70)
                     this.outputText(
                         '  "<i>Oh my, what\'s this?</i>" She puts a hand under your enormous, yet embarrassingly limp cock and lifts it slightly. "<i>My little pet has such a big dick... Just how I like it. Perhaps next time I\'ll get to try it out... but not today, hm? This is all about you right now.</i>"',
                         false
                     );
-                //(If PC has a penis under 4</i>\", add)
+                // (If PC has a penis under 4</i>\", add)
                 if (this.player.longestCockLength() < 4)
                     this.outputText(
                         '  "<i>Awww, what\'s this?</i>" She puts a hand under your embarrassingly small and limp cock and lifts it slightly. "<i>It\'s so cute and tiny. And it certainly knows its place. Only room for one cock right now, not that this is much of a cock.</i>" She giggles and plants a kiss on the tip, "<i>It is cute though. I love it.</i>"',
                         false
                     );
-                //(If PC has a penis neither large or small, add)
+                // (If PC has a penis neither large or small, add)
                 else
                     this.outputText(
                         '  Cotton puts a hand under your embarrassingly limp cock and smiles, "<i>You know how to show a girl you like her... There\'s only room for one cock right now.</i>"',
                         false
                     );
             }
-            //(If PC has a vagina)
+            // (If PC has a vagina)
             if (this.player.hasVagina())
                 this.outputText(
                     "  Spying your " +
@@ -1945,7 +1945,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         ' teasingly before slipping two fingers inside your folds and bringing them to her mouth, licking them clean. "<i>Mmm... I love the taste of your juices, pet...</i>"',
                     false
                 );
-            //(if PC is genderless)
+            // (if PC is genderless)
             if (this.player.gender == 0)
                 this.outputText(
                     '  She places a hand on your bare crotch and quirks an eyebrow. "<i>Well this is new... Certainly not bad though.</i>" She runs a hand along your bare mound, which somehow manages to send ripples of pleasure up your spine.',
@@ -1953,7 +1953,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 );
             this.outputText("\n\n", false);
 
-            //(If Naga body)
+            // (If Naga body)
             if (this.player.isNaga()) {
                 this.outputText(
                     "Cotton continues the kisses down to your " +
@@ -1970,7 +1970,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                         false
                     );
             }
-            //(If Humanoid body)
+            // (If Humanoid body)
             else {
                 this.outputText(
                     "Cotton continues the kisses down to your " +
@@ -1993,7 +1993,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     ", slipping it in gently, careful not to go too quick. You give her a submissive, but encouraging kiss, and whisper in her ear, urging her to continue.",
                 false
             );
-            //(Stretch and appropriate virginity check)
+            // (Stretch and appropriate virginity check)
             if (this.player.hasVagina()) this.player.cuntChange(72, true, true, false);
             else this.player.buttChange(72, true, true, false);
             this.outputText("\n\n", false);
@@ -2032,14 +2032,14 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //(Tantric Sex)
+    // (Tantric Sex)
     public cottonTantricSex(): void {
         this.spriteSelect(12);
         this.outputText("", true);
         this.outputText(this.images.showImage("cotton-tantric-sex"));
         this.player.slimeFeed();
         this.flags[kFLAGS.COTTON_MET_FUCKED] = 2;
-        //OLD TANTRIC SMEX
+        // OLD TANTRIC SMEX
         /*outputText("You decide to ask instead about using yoga to blow off some steam. She grins, \"<i>I know just what you need. It's called tantric sex, and I think you're just limber and quick enough to try it.</i>\"\n\n", false);
 
         outputText("She leads you to a private room in the gym and sets up a larger mat. She disrobes and you do the same. She sits on the mat and you sit opposite her. You spend a couple minutes just breathing, exploring your partner's body with your eyes only. Then Cotton slips her legs outwards, and leans backwards, letting her enormous member to waggle freely in the air. She curls a finger at you, and gives you your instructions.\n\n", false);
@@ -2053,8 +2053,8 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         outputText("With one last pose, you both stand, Cotton grabs your hips and you lean down to grab your ankles. Your whole body shivers with sexual energy, feeling like it's on fire with orgasmic light as your equine lover gives one final thrust into you and explodes, her own body shivering and shuddering. Unable to remain standing any longer, you flop down onto the mat, letting Cotton's seed slowly leak out of you, while Cotton lays down next to you, equally exhausted.\n\n", false);
 
         outputText("\"<i>I must say, my little pet, you are the best yoga partner I've had in a long time.</i>\" You share a kiss and take a moment to rest before heading to the showers and then heading home.", false);*/
-        //NU HOTNESSSSS
-        //(Tantric Sex ONLY available for humanoids and naga, still requires 50+ Speed)
+        // NU HOTNESSSSS
+        // (Tantric Sex ONLY available for humanoids and naga, still requires 50+ Speed)
         this.outputText(
             'Knowing full well what she plans for the showers, you instead ask about more "<i>advanced</i>" forms of yoga. With a certain coy emphasis on advanced. She grins, "<i>I know just what you mean. It\'s called tantric sex, and I think you\'re just limber and quick enough to try it.</i>"\n\n',
             false
@@ -2094,13 +2094,13 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 " on her meaty tool. In addition to the beautiful sensation of being filled, you also get the sensation of warm, tight constriction on your phantom cock.",
             false
         );
-        //(for Naga Body, add)
+        // (for Naga Body, add)
         if (this.player.isNaga())
             this.outputText(
                 "  You impale yourself fully, settling down and sitting on her lap, stretching your snake-like body out behind and to one side of her, with your arms propping you up as you lean back.",
                 false
             );
-        //(for Humanoid Body, add)
+        // (for Humanoid Body, add)
         else
             this.outputText(
                 "  You impale yourself fully, settling down and sitting on her lap, mimicking her pose with your legs stretched out behind her and your arms propping you up as you lean back.",
@@ -2116,7 +2116,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         );
         if (this.player.hasVagina()) this.player.cuntChange(72, true, true, false);
         else this.player.buttChange(72, true, true, false);
-        //(If PC has a penis, add)
+        // (If PC has a penis, add)
         if (this.player.hasCock())
             this.outputText(
                 "  Meanwhile, your own " +
@@ -2130,13 +2130,13 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             '"<i>Now let\'s move on to the Lotus,</i>" Cotton says, and sits up.',
             false
         );
-        //(Naga body, add)
+        // (Naga body, add)
         if (this.player.isNaga())
             this.outputText(
                 "  You do the same, curling your arms around your partner while your lower body coils around her midsection. Cotton pulls her legs in as well, and it almost looks like you're both sitting normally, if it weren't for you being on her lap with her dick up inside you.",
                 false
             );
-        //(Humanoid body, add)
+        // (Humanoid body, add)
         else
             this.outputText(
                 "  You do the same and curl your arms and legs around your partner. Cotton pulls her legs in as well, and it almost looks like you're both sitting cross legged if it weren't for you being on her lap with her dick up inside you.",
@@ -2147,7 +2147,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             false
         );
 
-        //(If PC has breasts)
+        // (If PC has breasts)
         if (this.player.biggestTitSize() >= 2) {
             this.outputText(
                 "Cotton returns the favor, her short-snouted mouth latching on to one " +
@@ -2155,7 +2155,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     " and sucking it relentlessly. The sensations you get from this are, if anything, greater than normal. Your nipples feel like they're on fire, with every molecule aching to be touched, licked, sucked and teased.",
                 false
             );
-            //(If PC is lactating, add)
+            // (If PC is lactating, add)
             if (this.player.biggestLactation() >= 1) {
                 this.outputText(
                     "  You feel a familiar sensation welling up in your breasts as milk begins pouring into Cotton's mouth. She grins as best she can without letting go of your tit, eagerly drinking down your milk. In yet another moment of trepidation, you realize you can taste your own milk slipping over Cotton's tongue. You smack your lips. It tastes sweet and creamy, and oh-so warm. Cotton moves to your next nipple, letting the first dribble milk onto the both of you. Again Cotton sucks on your " +
@@ -2165,7 +2165,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 );
                 this.flags[kFLAGS.COTTON_BREAKFAST_CLUB] = 1;
             }
-            //(else if PC is not lactating)
+            // (else if PC is not lactating)
             else
                 this.outputText(
                     "  She quickly switches to the other nipple, her tongue expertly teasing and tantalizing it before pulling away once more.",
@@ -2181,13 +2181,13 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             false
         );
 
-        //(for Naga bodies)
+        // (for Naga bodies)
         if (this.player.isNaga())
             this.outputText(
                 "Cotton takes a firm grip on your hips and ass, making sure you don't slip, so you carefully uncoil your body and slip it between Cotton's legs, then coiling it around her waist, chest, and between her breasts. The feeling is quite intense, though at this angle Cotton's cock doesn't fit completely inside you.",
                 false
             );
-        //(for Humanoid bodies)
+        // (for Humanoid bodies)
         else
             this.outputText(
                 "Cotton takes a firm grip on your hips and ass, making sure you don't slip, so you carefully extend your " +
@@ -2206,7 +2206,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             "It doesn't take much longer for the sensations to consume you, feeling yourself both getting fucked and fucking at the same time. Lightning fires through every nerve in your body as an orgasm begins to overtake you. Cotton doesn't look far behind. As your body begins to tremble and arch, so too does hers.",
             false
         );
-        //(If PC has a penis)
+        // (If PC has a penis)
         if (this.player.hasCock())
             this.outputText(
                 "  Your " +
@@ -2214,7 +2214,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     " twitches and tingles, releasing its pent up seed in a dribbling torrent down your belly and chest, right into your face and pooling around your head.",
                 false
             );
-        //(If PC has a vagina)
+        // (If PC has a vagina)
         if (this.player.hasVagina())
             this.outputText(
                 "  Your " +
@@ -2222,7 +2222,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     " shivers and clamps down hard on the invading cock, pulsing and milking it as it unloads directly into your womb.",
                 false
             );
-        //(If PC doesn't have a vagina)
+        // (If PC doesn't have a vagina)
         else
             this.outputText(
                 "  Your " +
@@ -2230,7 +2230,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     " shivers and clamps down hard on the invading cock, pulsing and milking it as it unloads directly into your intestines.",
                 false
             );
-        //(regardless of above, add)
+        // (regardless of above, add)
         this.outputText(
             "  Lightning arcs from nerve to nerve, in both of your bodies. You can feel every sensation Cotton feels. In that moment, you feel perfectly as one. You aren't simply getting fucked by Cotton. You are simultaneously Cotton fucking yourself, as is she.",
             false
@@ -2252,7 +2252,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //(Leave)
+    // (Leave)
     private leaveCotton(): void {
         this.spriteSelect(12);
         this.outputText("", true);
@@ -2260,22 +2260,22 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //New repeating scene where Cotton visit's the PC at camp
-    //(Cotton appears in camp event, triggered by having Cotton
-    //drink from a lactating character. Character must still be
-    //lactating.)
+    // New repeating scene where Cotton visit's the PC at camp
+    // (Cotton appears in camp event, triggered by having Cotton
+    // drink from a lactating character. Character must still be
+    // lactating.)
     public nomSomeTitMilkCereal(): void {
         this.spriteSelect(12);
         this.outputText(
             this.images.showImage("cotton-visits-you-at-camp-drinks-all-your-milk-the-asshole")
         );
-        //(Add to Sleep screen under the sunrise line.)
+        // (Add to Sleep screen under the sunrise line.)
         this.outputText(
             "\nAs you awaken you hear a rustling from the bushes around your camp.\n\n",
             false
         );
 
-        //(Event proper)
+        // (Event proper)
         this.outputText(
             "You quickly arise and ready your weapon, prepared for anything to come through the brush. After a moment, a large dark shape bursts through the bushes. You're about to strike when you recognize the figure! It's Cotton from the gym in Tel'Adre! Rather than her normal yoga outfit, she's wearing a tight brown shirt and loose brown pants, along with a backpack slung across one shoulder.\n\n",
             false
@@ -2334,10 +2334,10 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             false
         );
 
-        //(Event should increase lust (by 10?), or maybe reduce it if the player has the Feeder perk. Should also increase the character's lactation rating, or at least prevent it from decaying.)
+        // (Event should increase lust (by 10?), or maybe reduce it if the player has the Feeder perk. Should also increase the character's lactation rating, or at least prevent it from decaying.)
         this.dynStats("lib", -0.5, "sen", -0.5, "lus", -5);
         this.player.boostLactation(0.05);
-        //You've now been milked, reset the timer for that
+        // You've now been milked, reset the timer for that
         if (this.player.findStatusAffect(StatusAffects.Feeder) >= 0) {
             this.player.addStatusValue(StatusAffects.Feeder, 1, 1);
             this.player.changeStatusValue(StatusAffects.Feeder, 2, 0);
@@ -2345,7 +2345,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.doNext(this.playerMenu);
     }
 
-    //COTTON PREGNANCY
+    // COTTON PREGNANCY
     /*2. Preggo my Eggo!
     PC Pregnancy: Should be about as long as Centaur pregnancy?
     Cotton Pregnancy: Should be about as long as Edryn pregnancy? Cotton should be about as fertile as (maybe less fertile than) Edryn.
@@ -2353,14 +2353,14 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
     Total Children with Cotton: Covers both kids birthed by Cotton and the PC.
     Eldest Child Age: Interactions with your children depend on the age of your eldest kid.*/
 
-    //Champion, I'm PREGGERS!
-    //Like the Edryn scene, when you enter the Gym after knocking Cotton up, she will immediately approach you about it.
+    // Champion, I'm PREGGERS!
+    // Like the Edryn scene, when you enter the Gym after knocking Cotton up, she will immediately approach you about it.
     public cottonPregnantAlert(): void {
         this.clearOutput();
         this.outputText(
             "As you enter the gym, keen to work out (in one way or another), you spot Cotton in her usual area.  She's pacing around, and a worried look is plastered across her face. When she sees you, she smiles a little and approaches you. Whatever it is, it clearly can't wait."
         );
-        //-Next-
+        // -Next-
         this.menu();
         this.addButton(0, "Next", this.cottonPregnantAlertII);
     }
@@ -2390,12 +2390,12 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             this.outputText("you'll stick with me through this, right?");
         else this.outputText("you won't abandon me like you did Edryn, will you?");
         this.outputText('</i>"');
-        //[Leave Her] [Stay]
+        // [Leave Her] [Stay]
         this.menu();
         this.addButton(0, "Stay", this.beAGoodCottonDad);
         this.addButton(1, "Leave Her", this.beABadCottonDad);
     }
-    //(Leave Her)*
+    // (Leave Her)*
     private beABadCottonDad(): void {
         this.clearOutput();
         this.outputText(
@@ -2412,12 +2412,12 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         if (this.flags[kFLAGS.EDRYN_NEVER_SEE_AGAIN] > 0)
             this.outputText("  That was for Edryn too.");
         this.outputText('</i>"  With that, she turns on her hoof and leaves.');
-        //bold
+        // bold
         this.outputText("<b>(Cotton will no longer speak with you.)</b>");
         this.flags[kFLAGS.PC_IS_A_DEADBEAT_COTTON_DAD] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //(Stay)*
+    // (Stay)*
     private beAGoodCottonDad(): void {
         this.clearOutput();
         this.outputText(
@@ -2432,13 +2432,13 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.flags[kFLAGS.PC_IS_A_GOOD_COTTON_DAD] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Alternate Approach Cotton Scenes*
-    //(New scenes to show off Cotton's pregnancy)
-    //ORIGINAL:
-    //Cotton First-Time Birth*
+    // Alternate Approach Cotton Scenes*
+    // (New scenes to show off Cotton's pregnancy)
+    // ORIGINAL:
+    // Cotton First-Time Birth*
     private cottonPopsOutAKid(): void {
         var kid: number = 0;
-        //(Replaces Yoga session)
+        // (Replaces Yoga session)
         this.clearOutput();
         this.outputText(this.images.showImage("cotton-giving-birth"));
         if (this.flags[kFLAGS.COTTON_KID_COUNT] == 0) {
@@ -2459,10 +2459,10 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 "\n\nMind racing, you ask if she can make it to the pool.  You think you remember hearing something about it being easier to give birth in water or something."
             );
             this.outputText('\n\n"<i>That\'s fine,</i>" she responds quickly.  "<i>');
-            //{Silly Mode:}
+            // {Silly Mode:}
             if (this.silly()) this.outputText("As long as the cube shark isn't there.  ");
             this.outputText("Let's go.</i>\"");
-            //(Depending on PC height:
+            // (Depending on PC height:
             if (this.player.tallness < 60) this.outputText("She wraps an arm around your neck");
             else if (this.player.tallness < 70)
                 this.outputText("She places a hand on your shoulder");
@@ -2577,8 +2577,8 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 this.flags[kFLAGS.COTTON_OLDEST_KID_AGE] = 1;
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //Cotton Repeat Births*
-        //(Replaces the Approach scenes)
+        // Cotton Repeat Births*
+        // (Replaces the Approach scenes)
         else {
             this.outputText(
                 "As you head towards Cotton, you realize something about her is different; the swollen bulge of her late pregnancy is gone!  You ask her if everything is all right."
@@ -2654,18 +2654,18 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             if (this.flags[kFLAGS.COTTON_KID_COUNT] == 1)
                 this.flags[kFLAGS.COTTON_OLDEST_KID_AGE] = 1;
 
-            //Cotton menu here
+            // Cotton menu here
             this.cottonMenu();
         }
     }
 
-    //Contraception Toggle
-    //First Time
-    //Play this scene the first time Contraception is toggled
-    //Cotton must be pregnant or have CottonKids =>1 to activate this option
+    // Contraception Toggle
+    // First Time
+    // Play this scene the first time Contraception is toggled
+    // Cotton must be pregnant or have CottonKids =>1 to activate this option
     private cottonContraceptionToggle(): void {
         this.clearOutput();
-        //REPEATS
+        // REPEATS
         if (this.flags[kFLAGS.COTTON_CONTRACEPTION_TALK] > 0) {
             this.repeatContraceptionToggleCotton();
             return;
@@ -2677,7 +2677,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.outputText(
             "\n\nCotton nods, but then visibly thinks about it for a moment.  \"<i>I am, though I guess it hasn't been any match for you, hm?  You're too "
         );
-        //(Cottonpreg:
+        // (Cottonpreg:
         if (this.player.gender != 3 || this.pregnancy.isPregnant) this.outputText("virile");
         else this.outputText("fertile");
         this.outputText(
@@ -2698,13 +2698,13 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.outputText('</i>"');
 
         this.flags[kFLAGS.COTTON_CONTRACEPTION_TALK] = 1;
-        //[Stop Taking] [Keep Taking]
+        // [Stop Taking] [Keep Taking]
         this.menu();
         this.addButton(0, "Stop Taking", this.tellCottonStopEatingHorsePills);
         this.addButton(1, "Keep Taking", this.tellCottonToKeepFiringBlanksAsshole);
     }
 
-    //[=Stop Taking=]
+    // [=Stop Taking=]
     private tellCottonStopEatingHorsePills(): void {
         this.clearOutput();
         this.outputText(
@@ -2715,13 +2715,13 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         );
         this.outputText("\n\nYou thank her for understanding you and change the subject.");
 
-        //Display Cotton options
-        //Starting from next day, Cotton fertility & potency are set to Unherbed levels - 80% chance of getting pregnant, 50% chance of impregnating PC (boosted to 80-100% if PC is in heat)?
+        // Display Cotton options
+        // Starting from next day, Cotton fertility & potency are set to Unherbed levels - 80% chance of getting pregnant, 50% chance of impregnating PC (boosted to 80-100% if PC is in heat)?
         this.flags[kFLAGS.COTTON_HERBS_OFF] = 1;
         this.cottonMenu();
     }
 
-    //[=Keep Taking=]
+    // [=Keep Taking=]
     private tellCottonToKeepFiringBlanksAsshole(): void {
         this.clearOutput();
         this.outputText(
@@ -2736,16 +2736,16 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.outputText(
             "\n\nYou thank her for understanding you and change the subject, ready to discuss other matters."
         );
-        //Display Cotton options
-        //Cotton remains at contraception fertility levels
+        // Display Cotton options
+        // Cotton remains at contraception fertility levels
         this.flags[kFLAGS.COTTON_HERBS_OFF] = 0;
         this.cottonMenu();
     }
 
-    //Turn On
+    // Turn On
     private repeatContraceptionToggleCotton(): void {
         this.clearOutput();
-        //Play this scene if Contraception chosen when Cotton Contraception is turned off
+        // Play this scene if Contraception chosen when Cotton Contraception is turned off
         if (this.flags[kFLAGS.COTTON_HERBS_OFF] == 1) {
             this.outputText(
                 "You tell Cotton that, while you know it's not a perfect solution, you want her to start taking her herbs again."
@@ -2760,8 +2760,8 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 "\n\nYou thank her for understanding you and change the subject, ready to discuss other matters."
             );
         }
-        //Turn Off
-        //Play this scene on subsequent deactivations of Cotton Contraception
+        // Turn Off
+        // Play this scene on subsequent deactivations of Cotton Contraception
         else {
             this.outputText(
                 "You tell Cotton that you're ready for her to go off her herbs again if she wants to."
@@ -2770,15 +2770,15 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 '\n\nShe nods and says, "<i>Starting tomorrow I\'ll go ahead and stop, then.</i>"'
             );
             this.outputText("\n\nYou thank her for understanding you and change the subject.");
-            //Next day triggers Unherbed Cotton
+            // Next day triggers Unherbed Cotton
             this.flags[kFLAGS.COTTON_HERBS_OFF] = 1;
         }
         this.cottonMenu();
     }
 
-    //PC Pregnancy*
-    //Telling Cotton*
-    //This scene plays automatically the first time the PC reaches stage 2 of Cotton Pregnancy.
+    // PC Pregnancy*
+    // Telling Cotton*
+    // This scene plays automatically the first time the PC reaches stage 2 of Cotton Pregnancy.
     public goTellCottonShesAMomDad(): void {
         this.clearOutput();
         this.outputText(
@@ -2816,7 +2816,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Birthing*
+    // Birthing*
     public birthingCottonsKids(): void {
         this.outputText(
             "\nYou wake up suddenly to strong pains and pressures in your gut.  As your eyes shoot wide open, you look down to see your belly absurdly full and distended.  "
@@ -2890,7 +2890,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.outputText(
             "You trek through the town, eventually finding Cotton's apartment nuzzled in between a tailor's shop and a deli.  You only have to wait a moment after knocking before seeing the familiar face of your yoga instructor and lover.  At first she looks surprised to see you, then her eyes fall upon the little bundle of joy held in your arms.  Her hazel eyes go wide and she stifles a squee of excitement."
         );
-        //[Instead: If you've dumped Cotton]
+        // [Instead: If you've dumped Cotton]
         if (this.flags[kFLAGS.PC_IS_A_DEADBEAT_COTTON_DAD] > 0) {
             this.outputText(
                 '\n\nHer excitement diminishes as she looks up at you, glaring.  "<i>I suppose you can\'t take care of this one either?</i>"  You nod, explaining the dangers of being Champion.  She nods her head, "<i>Of course I won\'t turn away my '
@@ -2907,7 +2907,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             );
             this.outputText("\n\nWith a sigh, you begin your long walk back to camp.");
         }
-        //[First Child with Cotton?]
+        // [First Child with Cotton?]
         else if (this.flags[kFLAGS.COTTON_KID_COUNT] == 0) {
             this.flags[kFLAGS.COTTON_OLDEST_KID_GENDER] = kid;
             this.outputText(
@@ -2934,7 +2934,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             this.outputText(
                 "\n\n\"<i>Oh, she was a morph like me, most of my village was. Female, of course. Hermaphrodites like me weren't especially common back then, though I'm proud to say I'm all natural!"
             );
-            //if child is Herm:
+            // if child is Herm:
             if (kid == 3) this.outputText("  I guess it runs in the family.");
             this.outputText('</i>"');
 
@@ -2976,7 +2976,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 "\n\nYou tell her you'd like that, taking a seat nearby with the 'father' of your child and watching as your baby foal sleeps soundly. Eventually, though, you have to leave, and politely excuse yourself to head back to camp."
             );
         }
-        //[Additional Kids]
+        // [Additional Kids]
         else {
             this.outputText(
                 '\n\nAfter pulling you into a quick, awkward hug, she ushers you inside and into the nursery and its familiar pastel pinks, blues and purples. "<i>Oh '
@@ -3027,10 +3027,10 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.player.knockUpForce(); //Clear Pregnancy
     }
 
-    //Visit Kids*
-    //Visit Kids Option
-    //Present amongst ordinary Cotton options before Yoga
-    //Requires PC has at least one CottonKid
+    // Visit Kids*
+    // Visit Kids Option
+    // Present amongst ordinary Cotton options before Yoga
+    // Requires PC has at least one CottonKid
     private visitCottonKids(): void {
         this.clearOutput();
         this.outputText(
@@ -3054,8 +3054,8 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.outputText(" doing.");
 
         var scene: number = Cotton.rand(4);
-        //Play randomly chosen scene from list below
-        //Peek-a-boo
+        // Play randomly chosen scene from list below
+        // Peek-a-boo
         if (scene == 0) {
             this.outputText("\n\nYour ");
             if (this.flags[kFLAGS.COTTON_OLDEST_KID_GENDER] >= 2) this.outputText("baby girl is");
@@ -3107,7 +3107,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 " did at Cotton.  Feeling a little left out, Cotton rejoins you and you start playing peek-a-boo together, much to the baby's delight."
             );
 
-            //[Additional Kids:
+            // [Additional Kids:
             if (this.flags[kFLAGS.COTTON_KID_COUNT] > 1) {
                 this.outputText("\n\nYour other ");
                 if (this.flags[kFLAGS.COTTON_KID_COUNT] == 2) this.outputText("baby is");
@@ -3153,7 +3153,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 ", kiss her on the lips, and then quietly leave Cotton's house to head back to camp."
             );
         }
-        //Little Angel
+        // Little Angel
         else if (scene == 1) {
             this.outputText("\n\nHowever, it turns out that ");
             if (this.flags[kFLAGS.COTTON_KID_COUNT] == 1) this.outputText("your baby is");
@@ -3172,9 +3172,9 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             else this.outputText("babies");
             this.outputText(" to get some rest together.");
         }
-        //Breastfeeding
+        // Breastfeeding
         else if (scene == 2) {
-            //If player lactates, display \"<i>Stay Quiet</i>\" or \"<i>Feed</i>\" options; otherwise, skip straight to Stay Quiet option
+            // If player lactates, display \"<i>Stay Quiet</i>\" or \"<i>Feed</i>\" options; otherwise, skip straight to Stay Quiet option
             this.outputText("\n\nAt the sight of Cotton, your ");
             if (this.flags[kFLAGS.COTTON_OLDEST_KID_GENDER] >= 2) this.outputText("daughter");
             else this.outputText("son");
@@ -3186,7 +3186,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     "  Fortunately, your other kids don't seem to be hungry, so it's just the one who needs feeding."
                 );
 
-            //(If PC lactates:
+            // (If PC lactates:
             if (this.player.lactationQ() >= 50) {
                 this.outputText("  You could probably offer to nurse your ");
                 if (this.flags[kFLAGS.COTTON_OLDEST_KID_GENDER] != 1) this.outputText("daughter");
@@ -3194,7 +3194,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 this.outputText(
                     " for the poor mare-morph, rather than letting her use a bottle, or whatever she's going to do."
                 );
-                //[Feed] [Stay Quiet]
+                // [Feed] [Stay Quiet]
                 this.menu();
                 this.addButton(0, "Feed", this.feedYourCottonKids);
                 this.addButton(1, "Stay Quiet", this.letCottonFeedKids);
@@ -3204,7 +3204,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             }
             return;
         }
-        //Cuddlebug
+        // Cuddlebug
         else {
             this.outputText("\n\nYour ");
             if (this.flags[kFLAGS.COTTON_OLDEST_KID_GENDER] >= 2) this.outputText("daughter");
@@ -3252,7 +3252,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Feed
+    // Feed
     private feedYourCottonKids(): void {
         this.clearOutput();
         this.outputText(
@@ -3345,7 +3345,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             "\n\nYou kiss your equine lover, ruffle the sleeping child's hair, and quietly head back to camp, leaving Cotton to take care of things."
         );
         this.dynStats("lus", -10);
-        //You've now been milked, reset the timer for that
+        // You've now been milked, reset the timer for that
         if (this.player.findStatusAffect(StatusAffects.Feeder) >= 0) {
             this.player.addStatusValue(StatusAffects.Feeder, 1, 1);
             this.player.changeStatusValue(StatusAffects.Feeder, 2, 0);
@@ -3355,7 +3355,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Stay Quiet
+    // Stay Quiet
     private letCottonFeedKids(): void {
         this.clearOutput();
         this.outputText(

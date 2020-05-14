@@ -10,8 +10,8 @@ import { InfestedHellhound } from "./InfestedHellhound";
  */
 
 export class InfestedHellhoundScene extends BaseContent {
-    //[INTRO – 50% chance split with regular hellhound if worms
-    //turned on and over level 2]
+    // [INTRO – 50% chance split with regular hellhound if worms
+    // turned on and over level 2]
     public infestedHellhoundEncounter(): void {
         this.outputText("", true);
         this.outputText("A low snarl vibrates through your body, ", false);
@@ -34,12 +34,12 @@ export class InfestedHellhoundScene extends BaseContent {
 
     public infestedHellhoundLossRape(): void {
         this.outputText("", true);
-        //[BOTH INFESTED]
+        // [BOTH INFESTED]
         if (
             this.player.totalCocks() > 0 &&
             this.player.findStatusAffect(StatusAffects.Infested) >= 0
         ) {
-            //(LUST)
+            // (LUST)
             if (this.player.lust > 99) {
                 this.outputText(
                     "No amount of shame from the act of submitting to such a beast can overpower the furnace of lust raging in your loins.  ",
@@ -56,7 +56,7 @@ export class InfestedHellhoundScene extends BaseContent {
                     false
                 );
             }
-            //(HP)
+            // (HP)
             else
                 this.outputText(
                     "Too wounded to stand, you drop down to all fours in order to keep yourself off the ground.   Too late you realize your mistake – the snarling beast is behind you and its razor-sharp teeth easily sink into your " +
@@ -91,13 +91,13 @@ export class InfestedHellhoundScene extends BaseContent {
             this.player.cumMultiplier += 0.5;
             this.cleanupAfterCombat();
         }
-        //[PLAYER'S COCKS ARE BIG ENOUGH TO BE INFECTED]
+        // [PLAYER'S COCKS ARE BIG ENOUGH TO BE INFECTED]
         else if (
             this.player.findStatusAffect(StatusAffects.Infested) < 0 &&
             this.player.biggestCockArea() >= 40 &&
             this.player.hasCock()
         ) {
-            //(LUST)
+            // (LUST)
             if (this.player.lust > 99) {
                 this.outputText(
                     "No amount of shame from the act of submitting to such a beast can overpower the furnace of lust raging in your loins.  ",
@@ -114,7 +114,7 @@ export class InfestedHellhoundScene extends BaseContent {
                     false
                 );
             }
-            //(HP)
+            // (HP)
             else {
                 this.outputText(
                     "Too wounded to stand, you drop down to all fours in order to keep yourself off the ground.   Too late you realize your mistake – the snarling beast is behind you and its razor-shark teeth easily sink into your " +
@@ -236,7 +236,7 @@ export class InfestedHellhoundScene extends BaseContent {
                     false
                 );
             }
-            //(+infested)
+            // (+infested)
             this.player.createStatusAffect(StatusAffects.Infested, 0, 0, 0, 0);
             this.player.orgasm();
             this.dynStats("lib", 1, "sen", 1, "cor", 1);
@@ -247,13 +247,13 @@ export class InfestedHellhoundScene extends BaseContent {
             }
             this.cleanupAfterCombat();
         }
-        //[HAS PUSSY AND NO DICK BIG ENOUGH TO BE INFECTED]
+        // [HAS PUSSY AND NO DICK BIG ENOUGH TO BE INFECTED]
         else if (
             this.player.hasVagina() &&
             this.player.biggestCockArea() < 40 &&
             this.player.lowerBody != LOWER_BODY_TYPE_NAGA
         ) {
-            //(LUST)
+            // (LUST)
             if (this.player.lust > 99) {
                 this.outputText(
                     "No amount of shame from the act of submitting to such a beast can overpower the furnace of lust raging in your loins.  ",
@@ -270,7 +270,7 @@ export class InfestedHellhoundScene extends BaseContent {
                     false
                 );
             }
-            //(HP)
+            // (HP)
             else {
                 this.outputText(
                     "Too wounded to stand, you drop down to all fours in order to keep yourself off the ground.   Too late you realize your mistake – the snarling beast is behind you and its razor-shark teeth easily sink into your " +
@@ -333,10 +333,10 @@ export class InfestedHellhoundScene extends BaseContent {
             this.player.cuntChange(this.monster.cockArea(0), true);
             this.outputText("  ", false);
             this.player.buttChange(this.monster.cockArea(0), true);
-            //(Status applied – worm plugged) –
-            //random chance of big lust boost as worms evacuate
-            //your body.  When worms leave they take with them up
-            //to 5 fertility, to a minimum of 10.
+            // (Status applied – worm plugged) –
+            // random chance of big lust boost as worms evacuate
+            // your body.  When worms leave they take with them up
+            // to 5 fertility, to a minimum of 10.
             if (this.player.findStatusAffect(StatusAffects.WormPlugged) >= 0)
                 this.player.addStatusValue(
                     StatusAffects.WormPlugged,
@@ -359,9 +359,9 @@ export class InfestedHellhoundScene extends BaseContent {
             this.dynStats("lib", 1, "cor", 1);
             this.cleanupAfterCombat();
         }
-        //[GENDERLESS OR MALE WITH DICK TOO SMALL]
+        // [GENDERLESS OR MALE WITH DICK TOO SMALL]
         else {
-            //(LUST)
+            // (LUST)
             if (this.player.lust > 99) {
                 this.outputText(
                     "No amount of shame from the act of submitting to such a beast can overpower the furnace of lust raging in your loins.  ",
@@ -378,7 +378,7 @@ export class InfestedHellhoundScene extends BaseContent {
                     false
                 );
             }
-            //(HP)
+            // (HP)
             else {
                 this.outputText(
                     "Too wounded to stand, you drop down to on your elbows in order to keep yourself off the ground.   Too late you realize your mistake – the snarling beast is behind you and its razor-shark teeth easily sink into your " +

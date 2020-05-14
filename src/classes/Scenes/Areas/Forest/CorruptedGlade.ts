@@ -17,8 +17,8 @@ export class CorruptedGlade extends BaseContent {
             "Walking through the woods, you find a damp patch overgrown with corrupted plant-life.  Every flower seems warped into a colorful imitation of a female's genitals, each vine appears throbbing and veiny, and every knot on the nearby trees is capped with a nipple-like protrusion, leaking dark sap."
         );
         if (this.player.cor <= 33) {
-            //disgusted reaction
-            //Get plant-cum dripped on you if not fast and unlucky!
+            // disgusted reaction
+            // Get plant-cum dripped on you if not fast and unlucky!
             if (this.player.spe < 60 && CorruptedGlade.rand(this.player.spe + 50) < 50) {
                 this.outputText(
                     "  Disgusted by this perversion of nature, you turn to leave, catching a faceful of the white goop that's spurting down from the vines above!  It's slimy, gross, and difficult to clear from your eyes, nose, and mouth.  The musky smell and delicious salty flavor are undoubtedly a result of the plant's corruption.  You escape the tainted glade, but feel warmer and warmer as time passes..."
@@ -32,7 +32,7 @@ export class CorruptedGlade extends BaseContent {
             }
             this.doNext(this.camp.returnToCampUseOneHour);
         } else if (this.player.cor <= 66) {
-            //intrigued reaction
+            // intrigued reaction
             this.outputText("  You explore the glade with equal parts caution and curiosity.  ");
             switch (CorruptedGlade.rand(3)) {
                 case 0: //flowers...
@@ -46,7 +46,7 @@ export class CorruptedGlade extends BaseContent {
                     );
                     break;
                 default:
-                    //trees...
+                    // trees...
                     this.outputText(
                         "A cluster of huge breast-like knots on a nearby tree draws your attention.  Unable to resist, you poke one, and burst into giggles as it jiggles like a real breast!  You cautiously begin groping the tree-tit, and smile as it begins leaking sweet-smelling sap.  The scent conjures memories of helping to make maple syrup back home, and before you realize it, you've gathered a drop of the sap on your finger and tasted it.  It's powerfully sweet, making your tongue tingle and heart beat faster.  Unbidden, the thought of suckling the teat dry of its sweet treat comes to mind, but you manage to reject it and stumble away from the corrupted glade.  You have trouble with your tongue for the next hour: it won't stay in your mouth, and keeps licking your lips, seeking any leftover sweetness.  It almost distracts you from the palpable heat gathering between your thighs."
                     );
@@ -54,7 +54,7 @@ export class CorruptedGlade extends BaseContent {
             this.dynStats("lus", 20 + this.player.lib / 5, "cor", 0.5);
             this.doNext(this.camp.returnToCampUseOneHour);
         } else {
-            //drink sap/lick flower reaction
+            // drink sap/lick flower reaction
             this.outputText(
                 "  You smile as you enter the glade, wondering which of the forbidden fruits you should try...\n\nThere are flowers that bear more than a passing resemblance to pussies,\nvines with absurdly large penis-like tips,\nand trees covered in breast-like knots, leaking sap."
             );
@@ -71,16 +71,16 @@ export class CorruptedGlade extends BaseContent {
                 this.camp.returnToCampUseOneHour
             );
         }
-        //Wallow in decadence reaction - UNFINISHED
+        // Wallow in decadence reaction - UNFINISHED
     }
 
     private flowerFun(): void {
         this.clearOutput();
         this.spriteSelect(92);
         if (this.player.hasCock()) {
-            //Sex scenes for those with cawks
+            // Sex scenes for those with cawks
             if (this.player.cocks.length == 1) {
-                //Single Cawk
+                // Single Cawk
                 this.outputText(
                     "You grin to yourself as you decide to see just how close to a pussy these perverted little flowers are.  The thick stem bends with ease as you grasp it and bend it towards your groin, your other hand fumbling to open your " +
                         this.player.armorName +
@@ -105,7 +105,7 @@ export class CorruptedGlade extends BaseContent {
                         ".  The stem, now heavily distended by your massive member, continues rippling, squeezing, and sucking your over-engorged meat-pole, overwhelming your mind with sensation far beyond normal.  You'd wonder just what kind of tactile-enhancing fluids that plant excretes, if you weren't already mindlessly pistoning against the tainted plant, still locked inside it by tight little tentacles.\n\n"
                 );
             } else {
-                //Multicock
+                // Multicock
                 this.outputText(
                     "You grin to yourself as you decide to see just how close to a pussy these perverted little flowers are.  The thick stems bend with ease as you grab a few with your hand and pull them towards your groin, your other hand fumbling to open your " +
                         this.player.armorName +
@@ -171,7 +171,7 @@ export class CorruptedGlade extends BaseContent {
                 this.outputText(
                     "As you depart, you note the plants' stalks bulging out obscenely, looking like overfull balloons.  They're stretched so thin as to be transparent, your cum sloshing about inside them as they attempt to digest their meals.  Steady streams of your jism leak from the flowers' lips, unable to keep it all inside."
                 );
-            //Stat changes!
+            // Stat changes!
             this.player.orgasm();
             this.dynStats("sen", 2);
             var booster: number = 1;
@@ -181,7 +181,7 @@ export class CorruptedGlade extends BaseContent {
                 booster += 1;
             this.player.cumMultiplier += booster;
         } else {
-            //Oral sex for those without!
+            // Oral sex for those without!
             this.outputText(
                 "You grin to yourself and decide to sample the fine smelling nectar of the flowers. You grip the unusually thick stalk as you lean down, taking in the bright red and iridescent purples of the pussy-flower's petals. You give it an experimental lick, gaining a feeling for the flavor of the nectar. It's delicious, but leaves your tongue tingling and sensitive. A small budding protrusion emerges from between the petals, slick with more of the plants fluid, cherry red and looking very much like an engorged clit.\n\n"
             );
@@ -208,7 +208,7 @@ export class CorruptedGlade extends BaseContent {
         this.clearOutput();
         this.spriteSelect(92);
         if (this.player.vaginas.length > 0 && CorruptedGlade.rand(2) == 0) {
-            //Vaginal Variant 50% of the time
+            // Vaginal Variant 50% of the time
             this.outputText(
                 "You saunter over to a dangling group of perverted looking vines, discarding your " +
                     this.player.armorName +
@@ -217,7 +217,7 @@ export class CorruptedGlade extends BaseContent {
             var tentacle: number = CorruptedGlade.rand(3); //Big, medium or small size tentacle
             var tentacleSize: number = 0;
             if (tentacle == 0) {
-                //Small
+                // Small
                 this.outputText("a little small for your ");
                 switch (this.player.vaginas[0].vaginalLooseness) {
                     case VAGINA_LOOSENESS_TIGHT:
@@ -240,7 +240,7 @@ export class CorruptedGlade extends BaseContent {
                 }
             }
             if (tentacle == 1) {
-                //Normal
+                // Normal
                 this.outputText("well suited to your ");
                 switch (this.player.vaginas[0].vaginalLooseness) {
                     case VAGINA_LOOSENESS_TIGHT:
@@ -263,7 +263,7 @@ export class CorruptedGlade extends BaseContent {
                 }
             }
             if (tentacle == 2) {
-                //Large
+                // Large
                 this.outputText("almost too big to cram in your ");
                 switch (this.player.vaginas[0].vaginalLooseness) {
                     case VAGINA_LOOSENESS_TIGHT:
@@ -285,7 +285,7 @@ export class CorruptedGlade extends BaseContent {
                         tentacleSize = 210;
                 }
             }
-            //resume secksings
+            // resume secksings
             this.outputText(
                 this.vaginaDescript(0) +
                     ". Pulling gently, you manage to yank a bit more vine free, allowing it to brush against the damp forest loam. That same soft earth makes the perfect cushion for you as you lay down, spreading your legs. With both hands you grasp the vine, guiding it towards the entrance of your " +
@@ -294,21 +294,21 @@ export class CorruptedGlade extends BaseContent {
             );
 
             if (tentacle == 0)
-                //Small
+                // Small
                 this.outputText(
                     "With a sexy little sigh, you slip the mushroom-like tip between your nether-lips, feeling it bulge a little as it penetrates you. The vine's lubricants combine with your own, turning your horny cunt into a sloppy little slip-and-slide. You take it all the way to your cervix, easily handling its smaller size as you begin to use it like a favorite dildo. Deep inside your " +
                         this.vaginaDescript(0) +
                         ", the vine's lubricants begin to make your passage tingle, intensifying until your entire channel is overloaded with clit-like levels of sensation.\n\n"
                 );
             if (tentacle == 1)
-                //Medium
+                // Medium
                 this.outputText(
                     "With a soft grunt, you manage to wrangle the fat tip of the vine between your nether-lips, feeling the swollen bulge pulse inside you penetrate yourself with it. The vine's lubricants combine with your own, turning your horny cunt into a sloppy slip-and-slide. You force in the rest of the vine's length, taking it all the way to your cervix, enjoying the feeling of fullness it gives you as you begin pumping it in and out like an obscene green dildo. Deep inside your " +
                         this.vaginaDescript(0) +
                         ", the vine's lubricants begin to make your passage tingle, intensifying until your entire channel is overloaded with clit-like levels of sensation.\n\n"
                 );
             if (tentacle == 2)
-                //Large
+                // Large
                 this.outputText(
                     "With a desperate grunt, you barely manage to force the obscene cock-head of the vine between your nether-lips. The swollen bulge pulses inside you, stretching you uncomfortably as it reacts to the warmth and tightness of your " +
                         this.vaginaDescript(0) +
@@ -329,19 +329,19 @@ export class CorruptedGlade extends BaseContent {
             this.outputText(
                 "An hour or two later, you wake feeling very sore, but satisfied.  The vine must have popped free at some point and the bulb now rests on your pussy lips.  You go to brush it off and nearly orgasm from touching your nether-lips, still sensitive and parted from the overlarge tentacle they so recently took.  A rush of white goop escapes from between your thighs as you stand, soaking back into the soil immediately.   A quick stretch later, you don your gear and head back to camp with a smile.\n\n"
             );
-            //Normal stat changes
+            // Normal stat changes
             this.player.orgasm();
             this.dynStats("sen", 5, "cor", 2);
-            //Xforms
+            // Xforms
             if (CorruptedGlade.rand(3) == 0 && this.player.hairColor != "green") {
-                //Change hair to green sometimes
+                // Change hair to green sometimes
                 this.outputText(
                     "You don't get far before you realize all the hair on your body has shifted to a verdant green color.  <b>You now have green hair.</b>  "
                 );
                 this.player.hairColor = "green";
             }
             if (CorruptedGlade.rand(4) == 0 && this.player.hipRating <= 10) {
-                //+hip up to 10
+                // +hip up to 10
                 this.outputText(
                     "A strange shifting occurs below your waist, making your " +
                         this.player.armorName +
@@ -368,13 +368,13 @@ export class CorruptedGlade extends BaseContent {
             this.outputText(
                 "With a snap you feel consciousness return; the endless torrent of fluid has stopped, though your mouth is still pried wide open by the engorged bulb.  In panic, you thrash backwards, painfully yanking against the now-taut vine.  You struggle in vain  for a moment, the vine not giving an inch, until finally you feel the bulb start to soften.  Working it back and forth, you eventually manage to pry it free with a satisfying 'pop'.   Rubbing your hand against your sore jawline, you step away from the glade, spitting out some of the musky goop with every step.\n\n"
             );
-            //Last PG includes change-texts
+            // Last PG includes change-texts
             this.outputText(
                 "As you leave the corrupted plant-life behind a comforting warmth seems to radiate from your gut, suffusing you with gentle heat that makes your "
             );
 
             if (this.player.cocks.length > 0) {
-                //Cocks (and maybe vagina)
+                // Cocks (and maybe vagina)
                 this.outputText(
                     this.player.cocks.length == 1
                         ? this.cockDescript(0)
@@ -383,21 +383,21 @@ export class CorruptedGlade extends BaseContent {
                 if (this.player.vaginas.length > 0)
                     this.outputText(" and " + this.vaginaDescript(0));
             } else if (this.player.vaginas.length > 0)
-                //Vagina
+                // Vagina
                 this.outputText(this.vaginaDescript(0));
             else this.outputText("nipples"); //Nipples
-            //Finish sentance
+            // Finish sentance
             this.outputText(" tingle.  ");
-            //Simple stat changes - + lust.
+            // Simple stat changes - + lust.
             this.dynStats("lus", 25 + this.player.lib / 10, "cor", 2);
-            //Change hair to green sometimes
+            // Change hair to green sometimes
             if (CorruptedGlade.rand(3) == 0 && this.player.hairColor != "green") {
                 this.outputText(
                     "You don't get far before you realize all the hair on your body has shifted to a verdant green color.  <b>You now have green hair.</b>  "
                 );
                 this.player.hairColor = "green";
             }
-            //+butt up to 10
+            // +butt up to 10
             if (CorruptedGlade.rand(4) == 0 && this.player.buttRating <= 10) {
                 this.outputText(
                     "A strange shifting occurs on your backside, making your " +
@@ -408,7 +408,7 @@ export class CorruptedGlade extends BaseContent {
                 );
                 this.player.buttRating += CorruptedGlade.rand(3) + 1;
             }
-            //Rarely change one prick to a vine-like tentacle cock.
+            // Rarely change one prick to a vine-like tentacle cock.
             if (
                 CorruptedGlade.rand(3) == 0 &&
                 this.player.cocks.length > 0 &&
@@ -416,17 +416,17 @@ export class CorruptedGlade extends BaseContent {
             ) {
                 if (this.player.tentacleCocks() < this.player.cockTotal()) {
                     if (this.player.cocks.length == 1) {
-                        //Single cawks
+                        // Single cawks
                         this.outputText(
                             "Your feel your " +
                                 this.cockDescript(0) +
                                 " bending and flexing of its own volition... looking down, you see it morph into a green vine-like shape.  <b>You now have a tentacle cock!</b>  "
                         );
-                        //Set primary cock flag
+                        // Set primary cock flag
                         this.player.cocks[0].cockType = CockTypesEnum.TENTACLE;
                     }
                     if (this.player.cockTotal() > 1) {
-                        //multi
+                        // multi
                         this.outputText(
                             "Your feel your " +
                                 this.multiCockDescriptLight() +
@@ -458,7 +458,7 @@ export class CorruptedGlade extends BaseContent {
         this.player.slimeFeed();
         if (this.player.findStatusAffect(StatusAffects.LustyTongue) < 0) {
             if (CorruptedGlade.rand(4) == 0) {
-                //25% Chance of sensitive mouth status – increased lust gain/hour due to licking your lips :3
+                // 25% Chance of sensitive mouth status – increased lust gain/hour due to licking your lips :3
                 this.outputText(
                     "  The feeling doesn't seem to fade, only becoming more and more intense over the coming hour.  It will be hard to keep from getting turned on any time you lick your lips or eat some food."
                 );
@@ -469,7 +469,7 @@ export class CorruptedGlade extends BaseContent {
                 );
         }
         if (CorruptedGlade.rand(2) == 0) {
-            //50% Chance of breast-growth
+            // 50% Chance of breast-growth
             if (this.player.biggestTitSize() > 5) {
                 this.outputText(
                     "  As you redress, you feel a sense of added weight on your chest.  After a few moments you realize your already-formidable chest has grown even larger."
@@ -477,13 +477,13 @@ export class CorruptedGlade extends BaseContent {
                 this.player.growTits(1, 1 + CorruptedGlade.rand(3), false, 1);
             } else {
                 if (this.player.biggestTitSize() == 0) {
-                    //No tits yet
+                    // No tits yet
                     this.outputText(
                         "  As you redress, you realize you have grown a pair of luscious breasts!  Perhaps this was a good idea after all..."
                     );
                     this.player.growTits(1, 2 + CorruptedGlade.rand(3), false, 1);
                 } else {
-                    //Small tits growth
+                    // Small tits growth
                     this.outputText(
                         "  As you redress, you realize your breasts have gotten quite a bit larger!  Maybe you can come back later when you aren't so full and plump them up a bit more."
                     );

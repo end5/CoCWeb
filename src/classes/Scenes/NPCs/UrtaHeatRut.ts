@@ -8,7 +8,7 @@ export class UrtaHeatRut extends NPCAwareContent {
         return this.flags[kFLAGS.URTA_QUEST_STATUS] == 1;
     }
 
-    //[Approach Sober Urta]
+    // [Approach Sober Urta]
     public approachSoberUrtaHeatRutProc(): void {
         this.clearOutput();
         this.urta.urtaSprite();
@@ -28,7 +28,7 @@ export class UrtaHeatRut extends NPCAwareContent {
             this.outputText(
                 " Males stare at you with a hint of challenge in their eyes, whilst females eye you attentively. Herms don't seem sure whether they want to fight you or fuck you."
             );
-        //(Player in heat
+        // (Player in heat
         else if (this.player.inHeat && this.player.hasVagina())
             this.outputText(
                 " Males, and individuals who look like females at first, until you spot the telltale bulge of at least one cock in garments or hanging freely between their legs, stare at you with obvious desire as you go, more than a few erections starting to form in your wake."
@@ -101,7 +101,7 @@ export class UrtaHeatRut extends NPCAwareContent {
         else if (this.player.inRut && this.player.hasCock())
             this.outputText(" put a baby in her so she can push it out of those beautiful hips");
         else this.outputText(" put that beautiful big cock into your needy [vagina]");
-        //[If Urta's fertility quest wasnât done]
+        // [If Urta's fertility quest wasnât done]
         if (!this.urtaQuestDone())
             this.outputText(", even if something keeps reminding you that's impossible.");
         else this.outputText(".");
@@ -132,7 +132,7 @@ export class UrtaHeatRut extends NPCAwareContent {
             "\n\n\"<i>Um, you know, I'm horny, too, but at least wait 'til we get to my place...</i>\""
         );
 
-        //Player in heat and rut:
+        // Player in heat and rut:
         if (
             this.player.inRut &&
             this.player.inHeat &&
@@ -145,14 +145,14 @@ export class UrtaHeatRut extends NPCAwareContent {
             this.outputText(
                 '\n\nUrta looks like she\'s about to say something, but then she stops, confusion pushing aside horniness, if only for the moment.  "<i>I... What are you going to use?  Your cock?  Your pussy?</i>" she asks, panting with eagerness to begin.'
             );
-            //[Cock] [Pussy])
+            // [Cock] [Pussy])
             this.menu();
             if (this.player.cockThatFits(this.urta.urtaCapacity()) >= 0)
                 this.addButton(0, "Cock", this.sateRutWithSoberUrta);
             else this.addButton(0, "Cock", this.sateRutWithSoberUrtaButHuegDicked);
             this.addButton(1, "Pussy", this.soberUrtaSatingPCHeat);
         }
-        //Player in rut:
+        // Player in rut:
         else if (this.player.inRut && this.player.hasCock()) {
             this.outputText(
                 "\n\nYou roughly shove your fingers into her mouth as your hand moves lower, between her thighs. The naughty slut isn't even wearing proper underwear, and you quickly begin to molest her black pussy lips before slipping a finger inside."
@@ -180,7 +180,7 @@ export class UrtaHeatRut extends NPCAwareContent {
                 this.addButton(0, "Next", this.sateRutWithSoberUrta);
             else this.addButton(0, "Next", this.sateRutWithSoberUrtaButHuegDicked);
         }
-        //Player in heat:
+        // Player in heat:
         else {
             this.outputText(
                 "\n\nYou firmly grab Urta's breast and her cock through her clothes, pushing yourself against her and kissing the fox-morph hungrily.  You ask her to take you here and now, saying you can't wait anymore."
@@ -196,14 +196,14 @@ export class UrtaHeatRut extends NPCAwareContent {
         }
     }
 
-    //[Approach Drunken Urta]
+    // [Approach Drunken Urta]
     public approachDrunkenUrta(): void {
         this.clearOutput();
         this.urta.urtaSprite();
         this.outputText(
             "As you walk over to the table where your foxy herm-lover sits, you think you see eyes following you, your presence attracting an unusual amount of attention."
         );
-        //Player in heat and rut:
+        // Player in heat and rut:
         if (
             this.player.inHeat &&
             this.player.inRut &&
@@ -217,7 +217,7 @@ export class UrtaHeatRut extends NPCAwareContent {
             this.outputText(
                 "  Males stare at you with a hint of challenge in their eyes, whilst females eye you attentively. Herms don't seem sure whether they want to fight you or fuck you."
             );
-        //Player in heat:
+        // Player in heat:
         else
             this.outputText(
                 "  Males, and individuals who look like females at first, until you spot the telltale bulge of at least one cock in garments or hanging freely between their legs, stare at you with obvious desire as you go, more than a few erections starting to form in your wake."
@@ -236,13 +236,13 @@ export class UrtaHeatRut extends NPCAwareContent {
             "\n\nSomehow, the hermaphrodite seems a bit more clingy and flirty than usual, and less subtle about her relationship with you.  As you take in a deeper breath, you realize why - she does reek of one of her favorite drinks... Do you take interest, or decide it may be better to visit when she's her usual and a bit more sober self?"
         );
 
-        //[Interested] [Not interested]
+        // [Interested] [Not interested]
         this.menu();
         this.addButton(1, "NotInterested", this.notInterestedInUburDrunkUrtaRuts);
         this.addButton(0, "Interested", this.interestedInUburDrunkurtaRuts);
     }
 
-    //[=Not interested=]
+    // [=Not interested=]
     private notInterestedInUburDrunkUrtaRuts(): void {
         this.clearOutput();
         this.urta.urtaSprite();
@@ -257,33 +257,33 @@ export class UrtaHeatRut extends NPCAwareContent {
             this.outputText(
                 "[EachCock] twitches in protest at you leaving a willing lay behind.  "
             );
-        //[Medium lust increase]
+        // [Medium lust increase]
 
-        //[If the PC has a snake tongue]
+        // [If the PC has a snake tongue]
         if (this.player.tongueType == TONUGE_SNAKE)
             this.outputText(
                 "You instinctively taste the air, and Urta suddenly seems utterly delicious. "
             );
-        //Rut:
+        // Rut:
         if (this.player.inRut && this.player.hasCock())
             this.outputText(
                 "Your " +
                     this.multiCockDescriptLight() +
                     " hardens in your pants as you still force yourself to leave."
             );
-        //[Medium lust increase]
+        // [Medium lust increase]
         else
             this.outputText(
                 "Your condition does seem kind of protesting against leaving such a willing lay behind, but it isn't time to be indulging it."
             );
 
         this.dynStats("lust+", 5 + this.player.lib / 20, "resist", false);
-        //to Tel'Adre bar menu
+        // to Tel'Adre bar menu
         this.menu();
         this.addButton(0, "Next", this.telAdre.barTelAdre);
     }
 
-    //[=Interested=]
+    // [=Interested=]
     private interestedInUburDrunkurtaRuts(): void {
         this.clearOutput();
         this.urta.urtaSprite();
@@ -291,7 +291,7 @@ export class UrtaHeatRut extends NPCAwareContent {
             "You raise an eyebrow and ask Urta if she minds telling you the reason for such attention and what exactly it is that you smell like."
         );
 
-        //Rut And Heat:
+        // Rut And Heat:
         if (
             this.player.inRut &&
             this.player.inHeat &&
@@ -301,7 +301,7 @@ export class UrtaHeatRut extends NPCAwareContent {
             this.outputText(
                 '\n\n"<i>Gods, sexy!  You smell like you walked in here to make babies - like you want to grab the girls and the herms and plough them full of cum, even as you let the guys and the herms stuff your greedy cunt full of baby juice and make you just as pregnant.  It\'s the best smell ever...</i>"'
             );
-        //Rut:
+        // Rut:
         else if (this.player.inRut && this.player.hasCock())
             this.outputText(
                 '\n\n"<i>Well, let me put it like this: you smell like you walked in here to grab every girl here by the hips and breed them all for hours on end, until the whole lot of them\'s knocked up.</i>"'
@@ -311,7 +311,7 @@ export class UrtaHeatRut extends NPCAwareContent {
                 '\n\n"<i>Well, let me put it like this: You smell like you walked in here to tease and flirt with every man and herm in the place... stride into the middle of the floor like a queen, then pull off your clothes and bend over to let yourself be fucked and bred for hours until you were well and truly knocked up.</i>"'
             );
 
-        //If player is in both heat and rut:
+        // If player is in both heat and rut:
         if (
             this.player.inRut &&
             this.player.inHeat &&
@@ -329,7 +329,7 @@ export class UrtaHeatRut extends NPCAwareContent {
             this.outputText(
                 "\n\nDo you present her with your cock?  Your pussy?  Or do you just stand here and watch as she jacks herself off in the middle of the bar?"
             );
-            //[Cock] [Pussy] [Watch]
+            // [Cock] [Pussy] [Watch]
             this.menu();
             this.addButton(0, "Cock", this.drunkUrtaIntroPartDuex, 1);
             this.addButton(1, "Vagina", this.drunkUrtaIntroPartDuex, 2);
@@ -340,14 +340,14 @@ export class UrtaHeatRut extends NPCAwareContent {
             this.drunkUrtaIntroPartDuex(2, false);
         }
     }
-    //(If in heat OR rut, or did not pick Watch)
+    // (If in heat OR rut, or did not pick Watch)
     private drunkUrtaIntroPartDuex(chosenSex: number = 1, newl: boolean = true): void {
         if (newl) this.clearOutput();
         else this.outputText("\n\n");
         this.urta.urtaSprite();
 
         this.outputText("Suddenly, Urta's hand dashes to ");
-        //[if players has balls]
+        // [if players has balls]
         if (this.player.balls > 0 && chosenSex == 1)
             this.outputText(
                 "your [balls], rolling them in her hand and squeezing a bit too roughly."
@@ -376,7 +376,7 @@ export class UrtaHeatRut extends NPCAwareContent {
         this.outputText(
             "\n\nYou're a bit surprised by the reaction, and while you're still putty in her hands, Urta pushes you onto the bar table with strength nigh-impossible for her frame.  You feel wood under your back.  Her tail unfolds and presents her already erect equine penis to you, "
         );
-        //Player in both :
+        // Player in both :
         if (
             this.player.inRut &&
             this.player.inHeat &&
@@ -409,12 +409,12 @@ export class UrtaHeatRut extends NPCAwareContent {
             ".  Her smile opens wider as Urta presents you with a sexy face that seems a mix of positively delighted and predatory."
         );
 
-        //[If player is in Rut, OR is in Heat AND Rut AND chose "Cock":
+        // [If player is in Rut, OR is in Heat AND Rut AND chose "Cock":
         if (chosenSex == 1)
             this.outputText(
                 "\n\n\"<i>Well, I'm sure you don't mind if I take all your spunk and those few hours of fucking all for myself, instead,</i>\" she says as she brings one leg onto the table and the side of you as she sheds her dress, lubricant now drooling from the fox's female half, falling onto your [hips]."
             );
-        //[If player is in Heat, OR is in Heat AND Rut AND chose "Pussy":]
+        // [If player is in Heat, OR is in Heat AND Rut AND chose "Pussy":]
         else
             this.outputText(
                 "\n\n\"<i>I think you'll find that I'm more than stud enough for your greedy little twat...</i>\" she growls with lust, one hand stroking your [vagina], before she awkwardly hops up onto the table between your legs."
@@ -428,8 +428,8 @@ export class UrtaHeatRut extends NPCAwareContent {
         } else this.addButton(0, "Next", this.drunkenUrtaFucksPCInHeat);
     }
 
-    //[If player is in Heat AND Rut and chooses "Watch"]
-    //[Watch Drunken Urta Jerk Off]
+    // [If player is in Heat AND Rut and chooses "Watch"]
+    // [Watch Drunken Urta Jerk Off]
     private watchDrunkRuturtaJerkoff(): void {
         this.clearOutput();
         this.urta.urtaSprite();
@@ -459,14 +459,14 @@ export class UrtaHeatRut extends NPCAwareContent {
         this.outputText(
             "\n\nYou take a glance away from Urta and realize that the combination of your pheremones, her little show and your own efforts at teasing her have got the other customers very excited indeed.  Pairs and even trios are starting to make out all over, singletons are beginning to fiddle with themselves, and there's a couple of very interested-looking herms, all playing with their cocks, that are giving lustful looks your way and heading towards you with an inept attempt at stealth.  Things could get pretty wild if you keep teasing Urta; maybe you should knock it off?"
         );
-        //[Stop Teasing] [Keep Teasing]
+        // [Stop Teasing] [Keep Teasing]
         this.menu();
         this.addButton(1, "StopTeasing", this.stopTeasingDatHornyFox);
         this.addButton(0, "KeepTeasing", this.keepTeasingDatHornyFawkes);
-        //PCs with corruption 50+ will automatically choose Keep Teasing
+        // PCs with corruption 50+ will automatically choose Keep Teasing
     }
 
-    //[=Stop Teasing=]
+    // [=Stop Teasing=]
     private stopTeasingDatHornyFox(): void {
         this.clearOutput();
         this.urta.urtaSprite();
@@ -485,7 +485,7 @@ export class UrtaHeatRut extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=Keep Teasing=]
+    // [=Keep Teasing=]
     private keepTeasingDatHornyFawkes(): void {
         this.clearOutput();
         this.urta.urtaSprite();
@@ -521,23 +521,23 @@ export class UrtaHeatRut extends NPCAwareContent {
         else this.outputText("walk triumphantly");
         this.outputText(" from the racous orgy that is the Wet Bitch; truly an auspicious name.");
 
-        //PC loses 1 hour, returns to TelâAdre, gains 15 lust, heat/rut unaffected//
+        // PC loses 1 hour, returns to TelâAdre, gains 15 lust, heat/rut unaffected//
         this.dynStats("lust+", 15 + this.player.lib / 10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Sober Urta Variants
-    //Sober Urta has a 45% chance to end rut/heat, depending on which one she's sating, and a 5% chance to intensify it with no modifications to the PCs attributes.
+    // Sober Urta Variants
+    // Sober Urta has a 45% chance to end rut/heat, depending on which one she's sating, and a 5% chance to intensify it with no modifications to the PCs attributes.
     private soberUrtaSatingPCHeat(): void {
-        //If she's Lover Urta, her vaginal capacity increases to cock area 66 (or at least it's what we planned).
-        //Quote:[Sate Heat with Sober Urta]
+        // If she's Lover Urta, her vaginal capacity increases to cock area 66 (or at least it's what we planned).
+        // Quote:[Sate Heat with Sober Urta]
         this.clearOutput();
         this.urta.urtaSprite();
 
         this.outputText(
             "As she presses your back against the wall, you spread your [legs] wide, allowing Urta easy access to your awaiting womanhood"
         );
-        //[If herm]:
+        // [If herm]:
         if (this.player.hasCock()) {
             this.outputText(" by shoving your " + this.multiCockDescriptLight());
             if (this.player.hasCock() && this.player.balls > 0) this.outputText(" and [balls]");
@@ -560,12 +560,12 @@ export class UrtaHeatRut extends NPCAwareContent {
                 "  You wince in pain at being stretched so much, but you grow wetter and wetter as Urta slowly pushes herself inside your depths, your [vagina] slowly getting wetter and warmer, accepting the intruder.  Pleasure starts to override pain and you let out a gasp."
             );
         this.player.cuntChange(60, true, true, false);
-        //virginity loss message, if appropriate//)
+        // virginity loss message, if appropriate//)
 
         this.outputText(
             "\n\nYou moan in pleasure as Urta gets a foot or so of her erection inside you, and then keeps pushing.  Your insides, along with all their sensitive spots, are stimulated at once by the throbbing pillar of flesh that stretches you, and Urta finally has no more to give.  "
         );
-        //[If Very Loose]
+        // [If Very Loose]
         if (this.player.vaginalCapacity() >= 60)
             this.outputText(
                 "Urta's erection seems completely at home in your depths, completely embraced by the wet walls of your throbbing [vagina]."
@@ -623,7 +623,7 @@ export class UrtaHeatRut extends NPCAwareContent {
         );
 
         if (!this.urtaLove()) this.outputText('\n\n"<i>That feels so good!  Gonna cum!</i>"');
-        //[Lover Urta]
+        // [Lover Urta]
         else
             this.outputText(
                 "\n\n\"<i>Your pussy is absolutely the best, love!  I'm so close! I'll fill you up to the brim!</i>\""
@@ -676,9 +676,9 @@ export class UrtaHeatRut extends NPCAwareContent {
             "hardening again in response to the act.  Urta continues to slam into your backside, delivering a small smack to your [butt]."
         );
 
-        //Regular Urta]
+        // Regular Urta]
         if (!this.urtaLove()) this.outputText('\n\n"<i>Such a greedy slut!</i>"');
-        //[Lover Urta]
+        // [Lover Urta]
         else
             this.outputText(
                 "\n\n\"<i>You want your sexy vixen to breed you that much?  You can't think about anything else but my cock plastering your ravenous cunt with my fun juice?  You'll get it, baby, rest assured!</i>\""
@@ -691,7 +691,7 @@ export class UrtaHeatRut extends NPCAwareContent {
         this.outputText(
             "\n\nThe vixen squeezes your [butt] as she drives herself fully home, and you feel her member paint the deepest of your insides with her precious seed as it pulses and twitches inside you, stretching you unimaginably wide and pleasuring the entirety of your womanhood at once while delivering its seed straight into your womb.  You yell in complete, all-encompassing rapture as "
         );
-        //[Hermaphrodite]
+        // [Hermaphrodite]
         if (this.player.hasCock())
             this.outputText("[eachCock] shoots its seed onto the floor of the alley, helplessly");
         else
@@ -718,7 +718,7 @@ export class UrtaHeatRut extends NPCAwareContent {
         );
 
         this.outputText('\n\n"<i>');
-        //([Regular Urta]
+        // ([Regular Urta]
         if (!this.urtaLove())
             this.outputText("Sure thing, I'm here to help,</i>\" she responds with a wink.");
         else
@@ -726,7 +726,7 @@ export class UrtaHeatRut extends NPCAwareContent {
                 "I'm here if you need me, love.  Whatever makes you happy.  You've helped me with my own problems so much already, so I owe you at least one.  Not to mention, making love to you feels absolutely amazing!</i>\""
             );
 
-        //[If Urta is infertile]
+        // [If Urta is infertile]
         if (!this.urtaQuestDone()) {
             if (!this.urtaLove())
                 this.outputText(
@@ -738,7 +738,7 @@ export class UrtaHeatRut extends NPCAwareContent {
                 );
             this.outputText("  She grabs your hand and helps you stand up.");
         }
-        //[If Urta's fertility quest is done]
+        // [If Urta's fertility quest is done]
         else {
             this.outputText(
                 '\n\n"<i>Ahhh, [name], you might get pregnant!</i>"  She kneels in front of you, kissing you on the forehead. "<i>I don\'t think all the contraceptives in the world could stop that...</i>"'
@@ -762,13 +762,13 @@ export class UrtaHeatRut extends NPCAwareContent {
             }
         }
 
-        //([Regular Urta]"You probably should learn to control yourself well enough so that next time, we can get clean at my home, not to mention fucking in the middle of the street is just:"/[Lover Urta]â Baby, next time, at least wait until we get back home, okay? Not to mention, when you provoke me, you're completely irresistible, so try to be considerate: It was amazing, though. I love you.â She says, as she kisses you gently on the lips.)
+        // ([Regular Urta]"You probably should learn to control yourself well enough so that next time, we can get clean at my home, not to mention fucking in the middle of the street is just:"/[Lover Urta]â Baby, next time, at least wait until we get back home, okay? Not to mention, when you provoke me, you're completely irresistible, so try to be considerate: It was amazing, though. I love you.â She says, as she kisses you gently on the lips.)
         this.flags[kFLAGS.URTA_COMFORTABLE_WITH_OWN_BODY]++;
         this.urtaLove(1);
         this.outputText(
             "\n\nSatisfied, the two of you part ways here, Urta apparently searching for something after waving at you when you leave. Your heat somewhat calmer now, you find yourself on your way back to camp, sticky jism running in a thin trail down your [legs] while your [vagina] desperately clenches to hold it all in."
         );
-        //Usual one hour passes//
+        // Usual one hour passes//
         this.player.orgasm();
         this.dynStats("lib", 1, "sen-", 2);
         this.dynStats("lust=", 0);
@@ -779,7 +779,7 @@ export class UrtaHeatRut extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Quote:[=Sate Rut with Sober Urta: Cock Too Big=]
+    // Quote:[=Sate Rut with Sober Urta: Cock Too Big=]
     private sateRutWithSoberUrtaButHuegDicked(): void {
         this.clearOutput();
         this.urta.urtaSprite();
@@ -811,7 +811,7 @@ export class UrtaHeatRut extends NPCAwareContent {
             '\n\n"<i>One advantage of having a chick with a dick of her own for a lover,</i>" she comments, trying to sound nonchalant, but wearing the biggest, smuggest smirk you have ever seen on her face.  "<i>She knows exactly what makes a handjob feel good...</i>"'
         );
 
-        //Regular Urta path
+        // Regular Urta path
         if (!this.urtaLove()) {
             this.outputText(
                 "\n\nUrta isn't idly boasting; you can't remember the last time a handjob felt so good, even when you were the one doing it.  It's not very long before you find yourself cumming explosively, "
@@ -831,7 +831,7 @@ export class UrtaHeatRut extends NPCAwareContent {
                 "\n\nWith surprisingly vulpine shake of her body and a soft sigh, she turns and heads home at a swift pace, her erection bobbing up and down before her; evidently, she's intending to use some of her toys to find some release of her own. You re-dress and head back yourself, trying to make sense of your inhuman breeding rut."
             );
         }
-        //Lover Urta Path/
+        // Lover Urta Path/
         else {
             this.outputText(
                 '\n\n"<i>Of course,</i>" she adds. "<i>There are far nicer things to play with than mere hands,</i>" she teases, then she bows her head closer, jaws opening and long, drooling tongue descending to gently lick the head.  She carefully licks and suckles, getting the head nice and lubed, then bravely begins swallowing it, gulping it in as far as she can.  You can soon feel it jabbing against the back of her throat, and though she tries to go beyond, she can\'t; her gag reflex is too strong, making her choke and cough, drooling heavily down your shaft.'
@@ -869,7 +869,7 @@ export class UrtaHeatRut extends NPCAwareContent {
         ///Player returns to Tel'Adre Menu, usual one hor passes//
     }
 
-    //Quote:[=Sate Rut with Sober Urta=]
+    // Quote:[=Sate Rut with Sober Urta=]
     private sateRutWithSoberUrta(): void {
         var x: number = this.player.biggestCockIndex();
         this.clearOutput();
@@ -888,7 +888,7 @@ export class UrtaHeatRut extends NPCAwareContent {
                 " access to her drooling black netherlips."
         );
 
-        //(Regular:
+        // (Regular:
         if (!this.urtaLove()) this.outputText('\n\n"<i>Yes - give it to me!</i>"');
         else
             this.outputText(
@@ -963,7 +963,7 @@ export class UrtaHeatRut extends NPCAwareContent {
             "  You watch as she pries at a loose stone with her claws, removing it to reveal a small cubby, from which she withdraws a spare set of clothing."
         );
 
-        //If fertility quest done:
+        // If fertility quest done:
         if (this.urtaQuestDone()) {
             this.outputText(
                 "\n\nYou ask Urta what she's going to do; you didn't have the chance to use a condom."
@@ -1002,27 +1002,27 @@ export class UrtaHeatRut extends NPCAwareContent {
         }
         this.flags[kFLAGS.URTA_COMFORTABLE_WITH_OWN_BODY]++;
         this.urtaLove(1);
-        //usual one hour passess, player is back in TelâAdre//
-        //Knock up urta if appropriate.
+        // usual one hour passess, player is back in TelâAdre//
+        // Knock up urta if appropriate.
         this.flags[kFLAGS.TIMES_RUT_FUCKED_URTAS_CUNT]++;
         this.dynStats("lib+", 1, "sen-", 2, "lust=", 0);
         this.flags[kFLAGS.URTA_TIME_SINCE_LAST_CAME] += 6;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Drunken Urta Variants
-    //Quote:Drunken Urta always affects heat/rut when penetration is involved (meaning she doesn't in her frottage scene and watch-her-masturbate scene), and has a 50% chance to either extinguish it or intensify it.
-    //When penetration is involved, sex with Drunken Urta while in Heat/Rut increases both Toughness and Libido by 2 points and lowers Sensitivity by 4 points. Player often loses more than 1 hour and has to return to camp, rather than stay in TelâAdre. When getting penetrated, Urta's vaginal capacity is bumped up to 72.
+    // Drunken Urta Variants
+    // Quote:Drunken Urta always affects heat/rut when penetration is involved (meaning she doesn't in her frottage scene and watch-her-masturbate scene), and has a 50% chance to either extinguish it or intensify it.
+    // When penetration is involved, sex with Drunken Urta while in Heat/Rut increases both Toughness and Libido by 2 points and lowers Sensitivity by 4 points. Player often loses more than 1 hour and has to return to camp, rather than stay in TelâAdre. When getting penetrated, Urta's vaginal capacity is bumped up to 72.
 
-    //Quote:[Drunken Urta Fucks Vagina]
-    //This scene only plays if the character is in heat, or is in both heat and rut and chose "Pussy"
+    // Quote:[Drunken Urta Fucks Vagina]
+    // This scene only plays if the character is in heat, or is in both heat and rut and chose "Pussy"
     private drunkenUrtaFucksPCInHeat(): void {
         this.clearOutput();
         this.urta.urtaSprite();
         this.outputText(
             "You simply smile at her, inhaling deeply through your nose; you can swear you can smell her herm-musk, wafting off of her as strongly as your own pheromones must be wafting off of you.  That wonderful, earthy, primordial scent, the odor of a healthy breeder ready and willing to mate... there's nothing like it."
         );
-        //(Fertility Quest not done:
+        // (Fertility Quest not done:
         if (!this.urtaQuestDone())
             this.outputText(
                 "  You know that she can't give you babies... but, honestly, at this moment, you couldn't care less. Her wonderful stallion cock is there and ready and it's all for you."
@@ -1114,7 +1114,7 @@ export class UrtaHeatRut extends NPCAwareContent {
             "\n\nMoving gingerly, wincing at your own tenderness, you tell her you'll try and do that in the future."
         );
 
-        //If fertility quest is done:
+        // If fertility quest is done:
         if (this.urtaQuestDone()) {
             this.outputText(
                 "\n\nYou hesitantly ask her what the two of you are going to do now; you were in heat, and you know for a fact she didn't have a condom on."
@@ -1142,7 +1142,7 @@ export class UrtaHeatRut extends NPCAwareContent {
             this.player.knockUp(PregnancyStore.PREGNANCY_URTA, PregnancyStore.INCUBATION_URTA, 25);
             this.player.knockUp(PregnancyStore.PREGNANCY_URTA, PregnancyStore.INCUBATION_URTA, 25);
         }
-        //player returns to camp and loses 4 hours//
+        // player returns to camp and loses 4 hours//
         this.dynStats("lib", 2, "sen", -4, "lust=", 0);
         this.dynStats("lust=", 0);
         this.dynStats("lust=", 0);
@@ -1153,7 +1153,7 @@ export class UrtaHeatRut extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseFourHours);
     }
 
-    //[Sate Rut with Drunken Urta â Cock too big]
+    // [Sate Rut with Drunken Urta â Cock too big]
     private sateRutWithDrunkUrtaWithHugeDick(): void {
         this.clearOutput();
         this.urta.urtaSprite();
@@ -1229,16 +1229,16 @@ export class UrtaHeatRut extends NPCAwareContent {
         this.outputText(
             "\n\nRealizing there's no point in talking to her and just somewhat sated, you return to your camp."
         );
-        //[+1 Libido, -1 Sensitivity; No effect on your rut]
+        // [+1 Libido, -1 Sensitivity; No effect on your rut]
         this.dynStats("lib", 1, "sen", -1, "lust=", 0);
-        //player returns to TelâAdre and loses 1 hour
+        // player returns to TelâAdre and loses 1 hour
         this.flags[kFLAGS.URTA_TIME_SINCE_LAST_CAME] += 1;
         this.flags[kFLAGS.URTA_COMFORTABLE_WITH_OWN_BODY]++;
         this.urtaLove(1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Quote:[Drunken Urta Fucks Cock]
+    // Quote:[Drunken Urta Fucks Cock]
     private drunkUrtaRidesARutPCsCock(): void {
         this.clearOutput();
         var x: number = this.player.biggestCockIndex();
@@ -1273,7 +1273,7 @@ export class UrtaHeatRut extends NPCAwareContent {
         this.outputText(
             ", a telltale sign that your penis is ready to unload the potent spunk inside the herm-nympho bouncing on top of you.  You try to announce this, but she doesn't slow down.  Moments later, "
         );
-        //[Normal cum production]
+        // [Normal cum production]
         if (this.player.cumQ() <= 50) this.outputText("you unload your thick spunk into her pussy");
         else if (this.player.cumQ() <= 250)
             this.outputText(
@@ -1330,11 +1330,11 @@ export class UrtaHeatRut extends NPCAwareContent {
             "  Urta moans on top of you, increasing the speed of her movements and running her hand up and down her own member faster and with more intense strokes."
         );
 
-        //[Regular Urta]
+        // [Regular Urta]
         if (!this.urtaLove()) {
             this.outputText("\n\n<i>Now ain't I just the best fuck you ever had?</i>\"");
         }
-        //[Lover Urta]
+        // [Lover Urta]
         else
             this.outputText(
                 '\n\n"<i>Come on, lover, you know it\'ll feel better once you give me even more!</i>"'
@@ -1345,7 +1345,7 @@ export class UrtaHeatRut extends NPCAwareContent {
                 " finally gives in to your rut and the vixen's intense lust.  The two of you come in complete sync this time, her wet, black pussy milking you with vice-like tightness and intense, rhythmic squeezing as she fires a huge rope of jizz onto the floor next to your table before painting your chest and abdomen with lesser white strings."
         );
 
-        //[If large cum production]
+        // [If large cum production]
         if (this.player.cumQ() >= 500 && this.player.cumQ() <= 1500)
             this.outputText(
                 "\n\nUrta seems positively full and stretched now, and your rut almost subsides for a moment, her stretched tummy imitating a pregnancy quite well."
@@ -1508,7 +1508,7 @@ export class UrtaHeatRut extends NPCAwareContent {
             "\n\n\"<i>Lick.  I've sucked yours, so it's only fair.  Let's keep spurting jizz all over the place, drown it in semen.  Wait... no, you should just pump it into me and keep as much inside as possible.</i>\""
         );
 
-        //[If the PC is 4' 5'' feet tall or less]
+        // [If the PC is 4' 5'' feet tall or less]
         if (this.player.tallness <= 53)
             this.outputText(
                 "\n\nYou don't even have to bend down to start licking and slurping at the tip of her dick."
@@ -1517,12 +1517,12 @@ export class UrtaHeatRut extends NPCAwareContent {
             this.outputText(
                 "\n\nBy maneuvering your neck alone, you're easily able to press your lips against the tip of her erection."
             );
-        //[If the PC is between 5' 6'' and 6' 5'' feet tall]
+        // [If the PC is between 5' 6'' and 6' 5'' feet tall]
         else if (this.player.tallness <= 78)
             this.outputText(
                 "\n\nYou easily bend down to caress Urta's cock with your tongue, returning the pleasure."
             );
-        //[If the PC is between 6' 6'' and 7' 9'' tall]
+        // [If the PC is between 6' 6'' and 7' 9'' tall]
         else if (this.player.tallness <= 93)
             this.outputText(
                 "\n\nUrta has to bend backwards a bit and you have to stretch your back a bit painfully to access her erection, but you manage to start caressing her tip with your tongue."
@@ -1613,13 +1613,13 @@ export class UrtaHeatRut extends NPCAwareContent {
         );
 
         this.outputText("\n\nYou stop Urta, saying you're just as much to blame as she is.  ");
-        //If Corruption>35, or Exhibitionist
+        // If Corruption>35, or Exhibitionist
         if (this.player.cor > 35 || this.flags[kFLAGS.PC_FETISH] > 0)
             this.outputText(
                 "You tell her it was actually a great experience to have such passionate sex publicly.  She blushes at that suggestion."
             );
 
-        //[If Urta is infertile]
+        // [If Urta is infertile]
         if (!this.urtaQuestDone()) {
             this.outputText(
                 '\n\n"<i>Well, I guess it was nice, if painful afterwards, to be of use to someone who was so ready and willing to breed.'
@@ -1628,7 +1628,7 @@ export class UrtaHeatRut extends NPCAwareContent {
                 this.outputText("  If only I could... uh, I guess I should just enjoy what I can.");
             this.outputText('</i>"');
         }
-        //[If Urta is fertile]
+        // [If Urta is fertile]
         else {
             this.outputText(
                 "\n\nYou realize that Urta went ahead and forced many orgasms out of you and inside herself without as much as a hint of protection.  Worried that neither of you was in a clear state of mind at the time, you ask her about this."
@@ -1662,14 +1662,14 @@ export class UrtaHeatRut extends NPCAwareContent {
                     " and she punches your shoulder playfully, but keeps her face from blushing more.  She seems pleased that she brought herself to that declaration."
             );
         }
-        //[Both end here]
+        // [Both end here]
         this.outputText(
             "\n\nSatisfied even if your body hurts all over and your " +
                 this.cockDescript(x) +
                 " seems empty, dry, burning, and almost ruptured.  You leave the house with a small smile on your face, and a strong stench of sexual fluids following you back to the camp."
         );
 
-        //player returns to camp and loses 4 hours//
+        // player returns to camp and loses 4 hours//
         this.dynStats("lib", 2, "sen-", 10, "lust=", 0);
         this.player.orgasm();
         this.player.orgasm();
@@ -1692,7 +1692,7 @@ export class UrtaHeatRut extends NPCAwareContent {
 
     */
 
-    //Drunken Urta Variants
-    //Quote:Drunken Urta always affects heat/rut when penetration is involved (meaning she doesn't in her frottage scene and watch-her-masturbate scene), and has a 50% chance to either extinguish it or intensify it.
-    //When penetration is involved, sex with Drunken Urta while in Heat/Rut increases both Toughness and Libido by 2 points and lowers Sensitivity by 4 points. Player often loses more than 1 hour and has to return to camp, rather than stay in TelâAdre. When getting penetrated, Urta's vaginal capacity is bumped up to 72.
+    // Drunken Urta Variants
+    // Quote:Drunken Urta always affects heat/rut when penetration is involved (meaning she doesn't in her frottage scene and watch-her-masturbate scene), and has a 50% chance to either extinguish it or intensify it.
+    // When penetration is involved, sex with Drunken Urta while in Heat/Rut increases both Toughness and Libido by 2 points and lowers Sensitivity by 4 points. Player often loses more than 1 hour and has to return to camp, rather than stay in TelâAdre. When getting penetrated, Urta's vaginal capacity is bumped up to 72.
 }

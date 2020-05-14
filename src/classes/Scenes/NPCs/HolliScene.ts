@@ -9,19 +9,19 @@ import { Holli } from "./Holli";
 import { NPCAwareContent } from "./NPCAwareContent";
 
 export class HolliScene extends NPCAwareContent {
-    //VARS
-    //const TIMES_FUCKED_FLOWER: number = 594;
-    //const TIMES_RIDDEN_FLOWER: number = 595;
-    //const FUCK_FLOWER_LEVEL: number = 596;
-    //const FUCK_FLOWER_GROWTH_COUNTER: number = 597;
-    //const FUCK_FLOWER_KILLED: number = 598;
-    //const AMILY_TREE_FLIPOUT: number = 599;
-    //const HOLLI_FRUIT: number = 600;
-    //const HOLLI_FRUIT_EXPLAINED: number = 601;
-    //const HOLLI_DEFENSE_ON: number = 602;
-    //const HOLLI_SUBMISSIVE: number = 682;
-    //const FOUGHT_HOLLI: number = 923;
-    //const THREATENED_HOLLI: number = 924;
+    // VARS
+    // const TIMES_FUCKED_FLOWER: number = 594;
+    // const TIMES_RIDDEN_FLOWER: number = 595;
+    // const FUCK_FLOWER_LEVEL: number = 596;
+    // const FUCK_FLOWER_GROWTH_COUNTER: number = 597;
+    // const FUCK_FLOWER_KILLED: number = 598;
+    // const AMILY_TREE_FLIPOUT: number = 599;
+    // const HOLLI_FRUIT: number = 600;
+    // const HOLLI_FRUIT_EXPLAINED: number = 601;
+    // const HOLLI_DEFENSE_ON: number = 602;
+    // const HOLLI_SUBMISSIVE: number = 682;
+    // const FOUGHT_HOLLI: number = 923;
+    // const THREATENED_HOLLI: number = 924;
 
     /*Plant Sprout Notes:
         -Small sapling plants near corner of camp after 2nd Marae meeting.
@@ -58,12 +58,12 @@ export class HolliScene extends NPCAwareContent {
         var fuck = undefined;
         var burnIt = undefined;
         if (this.flags[kFLAGS.FOUGHT_HOLLI] > 0) {
-            //If You Fight, Run, and Come Back To Her in the Menu -Z
+            // If You Fight, Run, and Come Back To Her in the Menu -Z
             this.outputText(
                 "The demon tree is still here, and the face peeking from it still stares daggers at you even from a distance.  It looks like forgiveness won't be forthcoming."
             );
-            //[Fight][Call Jojo(req Small Talisman)][Retreat]
-            //Call Jojo goes to above scene, others go to fight or camp directly
+            // [Fight][Call Jojo(req Small Talisman)][Retreat]
+            // Call Jojo goes to above scene, others go to fight or camp directly
             this.menu();
             this.addButton(0, "Fight", this.fightHolli);
             if (this.player.hasKeyItem("Jojo's Talisman") >= 0)
@@ -87,7 +87,7 @@ export class HolliScene extends NPCAwareContent {
                 this.inventory.inventoryMenu
             );
         } else if (this.flags[kFLAGS.FUCK_FLOWER_LEVEL] == 2) {
-            //[Fuck It] [Ride Stamen] [Do Nothing] [Destroy It]
+            // [Fuck It] [Ride Stamen] [Do Nothing] [Destroy It]
             if (output)
                 this.outputText(
                     "Before you is a large, waist-high plant of questionable origin.  A huge, violet bloom sits atop a strong, central stalk, and the obscene flower looks positively female in every sense, right down to a clit-shaped bump and moist, gently parted lips.  Inside that central passage, you can see a bevy of wiggling staman surrounding a larger, flared stalk.  The scent that wafts out of that opening is sweet and floral, but undoubtedly sexual.  It looks like an organic sex toy and is clearly corrupt.  It wouldn't be hard to get rid of right now, assuming you don't let it grow larger."
@@ -132,7 +132,7 @@ export class HolliScene extends NPCAwareContent {
             }
             if (this.player.hasCock() && this.player.lust >= 33) fuck = this.fuckTheFlower;
             if (this.player.hasVagina() && this.player.lust >= 33) ride = this.rideTheWalrusP3;
-            //[Fuck flower] [Drink Sap] [Ride Tentacles] [{Torch It}] [Leave It]
+            // [Fuck flower] [Drink Sap] [Ride Tentacles] [{Torch It}] [Leave It]
             this.simpleChoices(
                 "Fuck Flower",
                 fuck,
@@ -146,7 +146,7 @@ export class HolliScene extends NPCAwareContent {
                 this.inventory.inventoryMenu
             );
         } else {
-            //Camp Menu (edited)
+            // Camp Menu (edited)
             if (output) {
                 this.outputText(
                     "Walking over to the edge of your camp, you approach the familiar demon-tree.  It looks innocent enough from a distance, but the pulsing purple veins in the green leaves show its true nature.  If they didn't, the tentacles cleverly camouflaged in the foliage certainly would!  Once you get closer, the bark splits like a pair of silken curtains, and a female form exposes itself from inside the interior.  Heavy, dripping tits and a fully-unfolded female flower dominate her form, but you drag your eyes up to her own, staring into Holli's golden-brown pupils and black sclera as you greet her."
@@ -190,7 +190,7 @@ export class HolliScene extends NPCAwareContent {
                         );
                     this.outputText('</i>"');
                 }
-                //Extra line on description:
+                // Extra line on description:
                 if (this.flags[kFLAGS.HOLLI_FRUIT] > 0) {
                     if (this.flags[kFLAGS.HOLLI_FRUIT] == 1)
                         this.outputText(
@@ -202,7 +202,7 @@ export class HolliScene extends NPCAwareContent {
                                 HolliScene.Num2Text(this.flags[kFLAGS.HOLLI_FRUIT]) +
                                 " large, purple fruits hang from Holli's branches, twisting softly in the breeze.  They look succulent and ripe."
                         );
-                    //Optional Addition:
+                    // Optional Addition:
                     if (this.flags[kFLAGS.HOLLI_FRUIT_EXPLAINED] > 0)
                         this.outputText(
                             "  A very small, strange part of you actually feels proud to have made something like that with the tree-woman."
@@ -222,7 +222,7 @@ export class HolliScene extends NPCAwareContent {
                 else guardT = "Guard Camp";
                 burnIt = this.askHolliToWatch;
 
-                //[Fuck Her] [Drink] [Tentacle Ride] {Guard Camp} {Threaten} [Leave]
+                // [Fuck Her] [Drink] [Tentacle Ride] {Guard Camp} {Threaten} [Leave]
                 this.choices(
                     "Fuck Holli",
                     fuck,
@@ -323,7 +323,7 @@ export class HolliScene extends NPCAwareContent {
     }
 
     private fertilizeHolli(cock: boolean = true): void {
-        //20% chance per sexing.  Up to bonus 20% for jizz or fertility! Max 62%.
+        // 20% chance per sexing.  Up to bonus 20% for jizz or fertility! Max 62%.
         var odds: number = 20;
         if (cock && this.player.hasCock()) {
             odds += this.player.cumQ() / 300;
@@ -345,7 +345,7 @@ export class HolliScene extends NPCAwareContent {
         }
     }
 
-    //Sprout Phase: (edited)
+    // Sprout Phase: (edited)
     public getASprout(): void {
         this.clearOutput();
         this.outputText(
@@ -361,7 +361,7 @@ export class HolliScene extends NPCAwareContent {
         );
         this.flags[kFLAGS.FUCK_FLOWER_LEVEL] = 1;
         this.flags[kFLAGS.FUCK_FLOWER_GROWTH_COUNTER] = 0;
-        //[Yes] [No]
+        // [Yes] [No]
         this.simpleChoices(
             "Yes",
             this.destroyDatFukkinTree,
@@ -375,7 +375,7 @@ export class HolliScene extends NPCAwareContent {
             undefined
         );
     }
-    //[Yes] Destroy Tree (edited)
+    // [Yes] Destroy Tree (edited)
     private destroyDatFukkinTree(): void {
         this.clearOutput();
         this.outputText(
@@ -387,12 +387,12 @@ export class HolliScene extends NPCAwareContent {
         this.outputText(
             "\n\nYou have a hopeful feeling that you won't see any more of those plants cropping up."
         );
-        //(-5 corruption)
+        // (-5 corruption)
         this.dynStats("cor", -5);
         this.flags[kFLAGS.FUCK_FLOWER_KILLED] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[No] (edited)
+    // [No] (edited)
     private letZeFuckingSproutLive(): void {
         this.clearOutput();
         this.outputText(
@@ -404,7 +404,7 @@ export class HolliScene extends NPCAwareContent {
         this.doNext(this.playerMenu);
     }
 
-    //Phase 2: Pussy Tentacle Flower Phase (edited)
+    // Phase 2: Pussy Tentacle Flower Phase (edited)
     public fuckPlantGrowsToLevel2(): void {
         this.clearOutput();
         this.flags[kFLAGS.FUCK_FLOWER_LEVEL] = 2;
@@ -431,7 +431,7 @@ export class HolliScene extends NPCAwareContent {
         this.dynStats("lus", 33, "resisted", false);
         if (this.silly()) this.outputText("\n\n<b>What do?</b>");
         else this.outputText("\n\n<b>What do you do?</b>");
-        //[Fuck It] [Ride Stamen] [Do Nothing] [Destroy It]
+        // [Fuck It] [Ride Stamen] [Do Nothing] [Destroy It]
         var fuck = undefined;
         if (this.player.hasCock() && this.player.cockThatFits(100) >= 0 && this.player.lust >= 33)
             fuck = this.fuckFuckingFuckFlowerP2;
@@ -452,7 +452,7 @@ export class HolliScene extends NPCAwareContent {
         );
     }
 
-    //Destroy It (edited)
+    // Destroy It (edited)
     private destroyDatFuckingPlantAtP2(): void {
         this.clearOutput();
         this.outputText(
@@ -461,13 +461,13 @@ export class HolliScene extends NPCAwareContent {
         this.outputText(
             "\n\nThe fire flutters, smoky purple sparks shooting into the air, blotting out the sky.  You cough and step back from the conflagration, waiting until it burns itself out and nothing but ash remains.  You have a hunch you won't be seeing any more of those plants... hopefully."
         );
-        //(-5 corruption)
+        // (-5 corruption)
         this.dynStats("cor", -5);
         this.flags[kFLAGS.FUCK_FLOWER_KILLED] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Fuck It (skimmed)
+    // Fuck It (skimmed)
     private fuckFuckingFuckFlowerP2(): void {
         this.clearOutput();
         var x: number = this.player.cockThatFits(100);
@@ -550,7 +550,7 @@ export class HolliScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Ride It (skimmed)(coded)
+    // Ride It (skimmed)(coded)
     private rideDatFuckingFukkFlowerP2(): void {
         this.clearOutput();
         this.outputText(
@@ -631,7 +631,7 @@ export class HolliScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Phase 3 Intro: (edited)
+    // Phase 3 Intro: (edited)
     public flowerGrowsToP3(): void {
         this.clearOutput();
         this.outputText(
@@ -667,7 +667,7 @@ export class HolliScene extends NPCAwareContent {
         var ride = undefined;
         if (this.player.hasCock() && this.player.lust >= 33) fuck = this.fuckTheFlower;
         if (this.player.hasVagina() && this.player.lust >= 33) ride = this.rideTheWalrusP3;
-        //[Fuck flower] [Drink Sap] [Ride Tentacles] [{Torch It}] [Leave It]
+        // [Fuck flower] [Drink Sap] [Ride Tentacles] [{Torch It}] [Leave It]
         this.simpleChoices(
             "Fuck Flower",
             fuck,
@@ -682,11 +682,11 @@ export class HolliScene extends NPCAwareContent {
         );
     }
 
-    //Fuck Flower (skimmed)
+    // Fuck Flower (skimmed)
     private fuckTheFlower(): void {
         this.clearOutput();
         var x: number = this.player.biggestCockIndex();
-        //(Similar to stage 2 fuck, but no cock limits, wetter, and more aggressive.
+        // (Similar to stage 2 fuck, but no cock limits, wetter, and more aggressive.
         this.outputText(
             "Smiling to yourself, you shed your [armor] like a snake wriggling free of useless, old skin and expose yourself.  Of course, the tree doesn't react - it's just a tree, right?  So, feeling a little cocky (in more than one way), you prowl up to the flower, intent on venting some frustration in the best way possible.  The petals are as violet as ever and glittering with the moisture you've grown used to seeing appear whenever you approach, as if by magic.  The inner folds look even softer, if a bit redder, and they drip steadily with sweet nectar."
         );
@@ -795,10 +795,10 @@ export class HolliScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Drink Sap (edited)
+    // Drink Sap (edited)
     private drinkThePlantGirlsSap(): void {
         this.clearOutput();
-        //Regain 50 fatigue but gain 1 corruption, .5 libido, 15 lust, and 1 sensitivity.
+        // Regain 50 fatigue but gain 1 corruption, .5 libido, 15 lust, and 1 sensitivity.
         this.dynStats("lib", 0.5, "sen", 1, "lus", 15, "cor", 1);
         this.fatigue(-50);
         this.outputText(
@@ -817,10 +817,10 @@ export class HolliScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Ride Tentacles (C)
+    // Ride Tentacles (C)
     private rideTheWalrusP3(): void {
         this.clearOutput();
-        //(Let them pull you into the tree and bang, battering you with cum repeatedly.)
+        // (Let them pull you into the tree and bang, battering you with cum repeatedly.)
         this.outputText(
             "You eye the tentacles hiding amongst the leafy branches above, writhing obscenely around each other as they snake through the foilage.  You shed your [armor] into a worthless pile and bare your body, cupping your [chest] enticingly as you whistle up at the tree.  Your calls seem to fall on deaf ears; the whirling vines stay put up in their perch.  They're ignoring your delicious, feminine flesh!  Irritated, you stomp up to the trunk's flower and plunge your fist inside it.  Fresh fluid gushes out over your armor, releasing a spray of sweet, musky lubricants.  You blindly feel around inside the pliant plant-pussy with your fingers, giggling to yourself whenever the soft cavity clenches tightly to your arm.  Whatever this is, it can feel pleasure."
         );
@@ -833,7 +833,7 @@ export class HolliScene extends NPCAwareContent {
         this.outputText(
             "\n\nWith a sweet sigh, you spread your arms and let the surprisingly talented feelers take you.  One wraps around your midsection on its way down to your claimed [vagina], cinching around you with gentle tightness.  A trio of verdant vines hooks under your armpits, two on the wet side, and one on your dry, unscented arm.  They really like the smell of cunt, even their own.  A mass of them gathers in and around your [legs], and as soon as they wrap you up tight, the whole group of them begins to lift you up.  A tremor of worry runs through your stomach, but a slow, gentle prodding in your [vagina] does much to assuage your worries.  Another, smaller cock circles around its lucky brother, pressing its tip insistently at your [clit] while the first slowly penetrates you."
         );
-        //cuntChange:15
+        // cuntChange:15
         this.player.cuntChange(15, true, true, false);
         this.outputText(
             "\n\nYour [nipples] go hard; whether from the penetration, reek of sex, or body-caressing vines, you cannot say.  A few more loops of plant-cock surround you, to the point where you're beginning to wonder if this is what a snake's prey feels like, bound up with smooth coils that cling tightly to every curve of your body.  Pumping slowly, the tentacle you eased into your [vagina] begins to fuck you with meticulous slowness.  The surface of the slick shaft turns glossy with your lust and wriggles pleasantly inside you, twirling around in a ballet of unnatural motions that make you feel like you're atop a tornado of sexual pleasure.  Between that and the numerous coils gliding across your sensitive nipples, you throw back your head and moan with unrestrained delight."
@@ -858,7 +858,7 @@ export class HolliScene extends NPCAwareContent {
                 this.player.skinDesc +
                 ".  You get dressed and stumble away a little drunkenly, your [vagina] raw and oozing."
         );
-        //{- big sensitivity loss, big libido gain, minus lust}
+        // {- big sensitivity loss, big libido gain, minus lust}
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", -5);
         if (this.flags[kFLAGS.FUCK_FLOWER_GROWTH_COUNTER] < 1000)
@@ -868,19 +868,19 @@ export class HolliScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Torch It (edited)(C)
+    // Torch It (edited)(C)
     private torchP3Tree(): void {
         this.clearOutput();
-        //Requires fire-based attack and fatigue at or below 30.  Maxes fatigue and removes the tree.
+        // Requires fire-based attack and fatigue at or below 30.  Maxes fatigue and removes the tree.
         this.outputText(
             "This has gone on long enough!  This thing cannot continue to grow in your camp any longer, and you have just the means to remove it: fire.  "
         );
-        //[(nerdfire)
+        // [(nerdfire)
         if (this.player.findStatusAffect(StatusAffects.KnowsWhitefire) >= 0)
             this.outputText(
                 "Closing your eyes to focus, you gather your energies, and unleash your white, supernatural flames upon the thing."
             );
-        //(bromancefire)
+        // (bromancefire)
         else if (this.player.findPerk(PerkLib.FireLord) >= 0)
             this.outputText(
                 "Sucking in your breath, you inflate your chest and stir the embers of the jaguar demon's gift.  Dredging up an enormous pine-green fireball, you exhale and launch it at the tree."
@@ -905,7 +905,7 @@ export class HolliScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
-    //Phase Four (edited)
+    // Phase Four (edited)
     public treePhaseFourGo(): void {
         this.clearOutput();
         this.outputText(
@@ -949,14 +949,14 @@ export class HolliScene extends NPCAwareContent {
         this.flags[kFLAGS.FUCK_FLOWER_LEVEL] = 4;
         this.flags[kFLAGS.FUCK_FLOWER_GROWTH_COUNTER] = 0;
         this.dynStats("lus", 15);
-        //[Load Camp Menu with no text]
+        // [Load Camp Menu with no text]
         this.treeMenu(false);
     }
 
-    //ojo Rolls Out -Z
+    // ojo Rolls Out -Z
     public JojoTransformAndRollOut(): void {
         this.clearOutput();
-        //triggers if both puru jojo and shoe tree are in camp
+        // triggers if both puru jojo and shoe tree are in camp
         this.outputText('"<i>[name], come here please.</i>"');
         this.outputText(
             "\n\nJojo is calling to you from the border of the camp.  Politely, you approach the monk.  This is probably the first time since your rather violent initial meeting that he's addressed you so directly, and you're a bit curious as to why."
@@ -988,7 +988,7 @@ export class HolliScene extends NPCAwareContent {
             this.outputText(
                 "To think that I must now consider Marae herself my enemy.  Forgive me, but this place is not safe for us anymore if it has attracted the attention of such a creature.  For now, I will return to the forest.  I know that you believe your mission keeps you here, but I urge you to stay away from that thing and watch the portal from an adequate distance."
             );
-        //(totally deflowered that flower)
+        // (totally deflowered that flower)
         else
             this.outputText(
                 "And even knowing that this could be the case, you still chose to fornicate with it?  [name]... I cannot say that I am not disappointed.  This place is not safe for me anymore.  For now, I will return to the forest."
@@ -1012,17 +1012,17 @@ export class HolliScene extends NPCAwareContent {
             '"<i>Until then, you will find me in the forest if you need my assistance.</i>"  Jojo makes a polite bow and departs.'
         );
         this.outputText("(<b>Jojo is no longer a companion!</b>)");
-        //no mo' Jojo; ho made schmo go
-        //return Jojo to forest, get key item Small Talisman
+        // no mo' Jojo; ho made schmo go
+        // return Jojo to forest, get key item Small Talisman
         this.player.removeStatusAffect(StatusAffects.PureCampJojo);
         this.player.createKeyItem("Jojo's Talisman", 0, 0, 0, 0);
 
         this.doNext(this.playerMenu);
     }
 
-    //Amily Hates Trees -Z
-    //new overriding line for Amily's camp descript if tree is there
-    //PC Fucked Adult Tree, Amily Leaves -Z
+    // Amily Hates Trees -Z
+    // new overriding line for Amily's camp descript if tree is there
+    // PC Fucked Adult Tree, Amily Leaves -Z
     public amilyHatesTreeFucking(): void {
         this.clearOutput();
         this.outputText(
@@ -1035,7 +1035,7 @@ export class HolliScene extends NPCAwareContent {
             "\n\nNo matter how you try to interrupt, Amily's not even giving you a chance to answer..."
         );
 
-        //[Stay Quiet][Slap Her]
+        // [Stay Quiet][Slap Her]
         this.simpleChoices(
             "Stay Quiet",
             this.stayQuietWhileAmilyBitchesAboutFuckingArborday,
@@ -1049,7 +1049,7 @@ export class HolliScene extends NPCAwareContent {
             undefined
         );
     }
-    //[Stay Quiet]
+    // [Stay Quiet]
     private stayQuietWhileAmilyBitchesAboutFuckingArborday(): void {
         this.clearOutput();
         this.outputText(
@@ -1061,15 +1061,15 @@ export class HolliScene extends NPCAwareContent {
         this.outputText(
             "\n\nCurtly, she turns and departs, tail lashing past you.  You wonder just how sincere her last words were."
         );
-        //put her in ruined village
-        //maybe flag her to re-add if plant dies
+        // put her in ruined village
+        // maybe flag her to re-add if plant dies
         this.flags[kFLAGS.AMILY_FOLLOWER] = 0;
-        //Set - amily flipped her shit
+        // Set - amily flipped her shit
         this.flags[kFLAGS.AMILY_TREE_FLIPOUT] = 1;
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00173] = 0;
-        //Enable village encounters
+        // Enable village encounters
         this.flags[kFLAGS.AMILY_VILLAGE_ENCOUNTERS_DISABLED] = 0;
-        //Change to plain mouse birth!
+        // Change to plain mouse birth!
         if (this.player.pregnancyType == PregnancyStore.PREGNANCY_AMILY)
             this.player.knockUpForce(
                 PregnancyStore.PREGNANCY_MOUSE,
@@ -1078,7 +1078,7 @@ export class HolliScene extends NPCAwareContent {
         this.doNext(this.playerMenu);
     }
 
-    //[Slapaho]
+    // [Slapaho]
     private slapAmilysWhoreFace(): void {
         this.clearOutput();
         this.outputText("You slap Amily across the ");
@@ -1099,12 +1099,12 @@ export class HolliScene extends NPCAwareContent {
         this.flags[kFLAGS.AMILY_CORRUPT_FLIPOUT] = 1;
         this.flags[kFLAGS.AMILY_VILLAGE_ENCOUNTERS_DISABLED] = 0;
         this.flags[kFLAGS.AMILY_VILLAGE_ACCESSIBLE] = 1;
-        //no more classes, no more books; no more Amily's dirty looks
-        //bitch goes in ruined village
+        // no more classes, no more books; no more Amily's dirty looks
+        // bitch goes in ruined village
         this.doNext(this.playerMenu);
     }
 
-    //(FUCK DAT TREE BITCH)
+    // (FUCK DAT TREE BITCH)
     private fuckHolliInZeFlowerPuss(): void {
         this.clearOutput();
         this.flags[kFLAGS.HOLLI_FUCKED_TODAY] = 1;
@@ -1177,7 +1177,7 @@ export class HolliScene extends NPCAwareContent {
             this.outputText(
                 "her mouth, which works noisily to swallow the hot load even as you inject it into her.  After a few swallows, she leans back and lets you shoot it up into the air, so that it can fall down over her face and hair, into a gossamer shroud."
             );
-        //highish cum:
+        // highish cum:
         if (this.player.cumQ() >= 500)
             this.outputText(
                 "  You keep blasting heavy ropes of seed until her body and trunk are painted with goo, and then you cum some more, smattering spunk until she looks more like a gooey waterfall than a fey creature."
@@ -1241,7 +1241,7 @@ export class HolliScene extends NPCAwareContent {
         this.outputText(
             "\n\nHolli pouts when you get dressed and leave, doing her best to entice you, but you can't sit around camp fucking all day.  Maybe after you defeat the demons, you can come back and give the perpetual bone zone a try..."
         );
-        //{+1 corruption, -100 lust, -1 sensitivity.}
+        // {+1 corruption, -100 lust, -1 sensitivity.}
         this.flags[kFLAGS.TIMES_FUCKED_FLOWER]++;
         this.fertilizeHolli();
         this.player.orgasm();
@@ -1249,7 +1249,7 @@ export class HolliScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Drink From Her (edited)(C)
+    // Drink From Her (edited)(C)
     private haveAMapleSyrupSnack(): void {
         this.clearOutput();
         this.outputText(
@@ -1285,17 +1285,17 @@ export class HolliScene extends NPCAwareContent {
         this.outputText(
             "\n\nPerhaps later.  You burp and walk off, having gotten just what you wanted."
         );
-        //stat changes n' shit
+        // stat changes n' shit
         this.dynStats("lib", 0.5, "sen", 1, "lus", 15, "cor", 1);
         this.fatigue(-60);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Tentacle Ride (looks ok)(C)
+    // Tentacle Ride (looks ok)(C)
     private level4RideHollisTentacruels(): void {
         this.clearOutput();
         this.flags[kFLAGS.HOLLI_FUCKED_TODAY] = 1;
-        //(PC voluntary gets tentacle pounded, and high from flower pussy spores.  clitoral BJ?  Nipple suckers!}
+        // (PC voluntary gets tentacle pounded, and high from flower pussy spores.  clitoral BJ?  Nipple suckers!}
         this.outputText(
             "You smirk knowingly and suggest to Holli that she take you for a ride... if she knows what you mean.  This earns you a pleased applause from the delighted demon dryad, and she immediately sets to helping you undress, her eager tentacles lowering from the tree and arching up like searching snakes.  You let her remove your [armor] with the patience of a goddess, shivering slightly when the sticky gear is peeled away from your eager undercarriage."
         );
@@ -1324,7 +1324,7 @@ export class HolliScene extends NPCAwareContent {
         this.outputText(
             "\n\nA burst of pleasure somewhat like a firework in strength and intensity goes off in your nether-lips, jarring you out of your drug-fueled stupor.  Aching fullness radiates from your [vagina] coupled with convulsing delight, brought on by twin tools, one wrapped around the other in a helix.  They fuck you like one giant dick, pushing in to your cervix with potent, forceful strokes that turn your [legs] to jelly.  A gush of femspunk splatters the wasteland soil beneath you, and as the paired pricks ravage you, greater and greater levels of lady-cum gush out.  You're so wet that it's like you're squirting with every thrust, and a puddle forms under you in no time, growing bigger with each piston-like reaming of your [vagina]."
         );
-        //cuntChange, 60
+        // cuntChange, 60
         this.player.cuntChange(60, true, true, false);
         this.outputText(
             "\n\nThe vibrant purples, pinks, and reds of the flower grow brighter and more intense.  When did Holli gain bioluminescence?  You barely suppress a giggle, which comes out as a snort, and turn to face the bright red, pollen-soaked bulb.  It doesn't take any encouragement for you to open wide and swallow it into your maw, but you do manage to miss the first few times, earning a good smearing of the stuff on your cheeks for your troubles.  The pollen is delicious, and as you lick it off, you get to savor the sweeter nectar below.  Your saliva runs from the shaft and down the inner lips in a curtain, unimpeded by your facile lips.  Meanwhile, you're aware of "
@@ -1358,7 +1358,7 @@ export class HolliScene extends NPCAwareContent {
         if (!this.player.isBiped())
             this.outputText("you'd be walking bowlegged for a week, if you had legs.");
         else this.outputText("you'll be walking bowlegged for a week!");
-        //empty lust, boost corruption, slimefeed(), +1 cor, -3 sens, +.5 libido
+        // empty lust, boost corruption, slimefeed(), +1 cor, -3 sens, +.5 libido
         this.player.orgasm();
         this.dynStats("lib", 0.5, "sen", 2, "cor", 1);
         this.fertilizeHolli(false);
@@ -1367,7 +1367,7 @@ export class HolliScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Bear Fruit(C)
+    // Bear Fruit(C)
     private eatHolliFruit(): void {
         this.clearOutput();
         this.outputText("You reach up into Holli's branches and pluck ");
@@ -1386,7 +1386,7 @@ export class HolliScene extends NPCAwareContent {
         this.outputText(
             "Biting into it, sweet juices seem to explode from the flesh, dribbling down your chin.  It tastes like a dessert and you chow down, happily munching away.  In no time flat, you're down to just a core.  You toss it and wipe your [face] clean, then burp.  Damn, that was good!"
         );
-        //TF CHANCES
+        // TF CHANCES
         if (HolliScene.rand(2) == 0 && this.player.cockTotal() > this.player.tentacleCocks()) {
             var choices: any[] = [];
             this.temp = 0;
@@ -1416,9 +1416,9 @@ export class HolliScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Beg Her To Guard (edited)(C)
+    // Beg Her To Guard (edited)(C)
 
-    //PC can beg or not beg?
+    // PC can beg or not beg?
     private askHolliToWatch(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.HOLLI_DEFENSE_ON] == 0) {
@@ -1430,9 +1430,9 @@ export class HolliScene extends NPCAwareContent {
             );
             if (this.flags[kFLAGS.THREATENED_HOLLI] > 0)
                 this.outputText("<b>  You could always just slap the cunt.</b>");
-            //choosing not to beg unlocks Threaten?
-            //[Beg][Threaten][Back]
-            //simpleChoices("Beg",begHolli4Watches,"Threaten",0,"Assert Self",domUpSomeHolli,"",0,"Back",treeMenu);
+            // choosing not to beg unlocks Threaten?
+            // [Beg][Threaten][Back]
+            // simpleChoices("Beg",begHolli4Watches,"Threaten",0,"Assert Self",domUpSomeHolli,"",0,"Back",treeMenu);
             this.menu();
             this.addButton(0, "Beg", this.begHolli4Watches);
             if (this.flags[kFLAGS.THREATENED_HOLLI] == 0)
@@ -1441,7 +1441,7 @@ export class HolliScene extends NPCAwareContent {
             this.addButton(2, "Assert Self", this.domUpSomeHolli);
             this.addButton(4, "Back", this.treeMenu);
         }
-        //Stop Guarding (edited)(C)
+        // Stop Guarding (edited)(C)
         else {
             this.outputText(
                 "You tell Holli you'd like her to stop watching at night.  She laughs, \"<i>You just want a chance to come back and beg some more, don't you?  I thought you were supposed to be tough shit, not a simpering little submissive.</i>\""
@@ -1451,7 +1451,7 @@ export class HolliScene extends NPCAwareContent {
         }
     }
 
-    //Actually beg: (edited)(C)
+    // Actually beg: (edited)(C)
     private begHolli4Watches(): void {
         this.clearOutput();
         this.outputText(
@@ -1474,13 +1474,13 @@ export class HolliScene extends NPCAwareContent {
         this.doNext(this.treeMenu);
     }
 
-    //Donation Day Dominate Holli Content
-    //Started by choosing "assert" at the prompt where you can beg.
-    //If PC is too low level, Holli closes up and nothing happens.
-    //Changes the dynamic significantly - Holli becomes very subservient in her scenes.
-    //Guard Camp
-    //Assert Self:
-    //Success/Fail dependent on: Level, height, tone, width.
+    // Donation Day Dominate Holli Content
+    // Started by choosing "assert" at the prompt where you can beg.
+    // If PC is too low level, Holli closes up and nothing happens.
+    // Changes the dynamic significantly - Holli becomes very subservient in her scenes.
+    // Guard Camp
+    // Assert Self:
+    // Success/Fail dependent on: Level, height, tone, width.
 
     private domUpSomeHolli(): void {
         this.clearOutput();
@@ -1495,7 +1495,7 @@ export class HolliScene extends NPCAwareContent {
         domPowah += this.player.tallness / 12;
         if (this.player.horns > 0) domPowah += 3;
         if (this.player.cor > 66) domPowah += 2;
-        //{fail}
+        // {fail}
         if (domPowah < 20) {
             this.outputText(
                 "\n\nRolling her eyes, Holli sinks back into her arboreal core, the bark 'lips' slowly pulling together, creaking ominously.  You grab hold of them and try to wrench them open, but inexorably, each continues on to meet the other.  An inch before the wood crushes around your fingers, you let go, reminded of a tree back home that somehow split a stone with its growth.  The demonic dryad's home is closed to you.  Perhaps, if you were a little more intimidating, it would have worked."
@@ -1503,7 +1503,7 @@ export class HolliScene extends NPCAwareContent {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //{success}
+        // {success}
         this.outputText(
             "\n\nSlowly, the demonic dryad's eyes widen, exposing more of her pitch-black sclera as she takes in your imposing visage.  She bites her lower lip and gnaws at it uncertainly, amber pupils flicking back and forth as she searches for any sign of weakness.  Without warning, you blow in her face and laugh when she flinches.  Her hands fold together in front of her abdomen, driven to nervelessly clutch at her pale viridian flesh."
         );
@@ -1513,12 +1513,12 @@ export class HolliScene extends NPCAwareContent {
         this.outputText(
             "\n\nThat went well.  <b>Holli's confidence is broken.  She'll serve you obediently from now on.</b>"
         );
-        //[Next] - Holli's Menu
+        // [Next] - Holli's Menu
         this.flags[kFLAGS.HOLLI_SUBMISSIVE] = 1;
         this.treeMenu(false);
     }
 
-    //Guard Camp
+    // Guard Camp
     private askBrokenHolliToGuard(): void {
         this.clearOutput();
         this.outputText(
@@ -1528,7 +1528,7 @@ export class HolliScene extends NPCAwareContent {
         else this.outputText("sleeping, instead");
         this.outputText('.</i>"');
 
-        //[Guard] [Don't Guard] [Back]
+        // [Guard] [Don't Guard] [Back]
         this.menu();
         if (this.flags[kFLAGS.HOLLI_DEFENSE_ON] == 1)
             this.addButton(1, "Don't Guard", this.toggleBrokenHolliGuard);
@@ -1536,7 +1536,7 @@ export class HolliScene extends NPCAwareContent {
         this.addButton(4, "Back", this.treeMenu);
     }
 
-    //Guard On
+    // Guard On
     private toggleBrokenHolliGuard(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.HOLLI_DEFENSE_ON] == 0) {
@@ -1548,7 +1548,7 @@ export class HolliScene extends NPCAwareContent {
             );
             this.flags[kFLAGS.HOLLI_DEFENSE_ON] = 1;
         }
-        //Guard Off
+        // Guard Off
         else {
             this.outputText(
                 '"<i>All right, they\'re yours to smite or play with,</i>" Holli says with a wink.  You give her a glare, to which she responds with a shrug.  "<i>What?  I know how it is!  You mortals can\'t fight worth a damn when you\'re sleeping.</i>"'
@@ -1562,7 +1562,7 @@ export class HolliScene extends NPCAwareContent {
         this.addButton(0, "Next", this.treeMenu);
     }
 
-    //Dom Her With a Dick
+    // Dom Her With a Dick
     private holliGetsDickDommed(): void {
         this.clearOutput();
         this.outputText(
@@ -1659,7 +1659,7 @@ export class HolliScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //.PC Has 10 Tentacle Go Full On Monster With Her
+    // .PC Has 10 Tentacle Go Full On Monster With Her
     private fullOnTentacleTasticGangBangForHolli(): void {
         this.clearOutput();
         this.flags[kFLAGS.HOLLI_FUCKED_TODAY] = 1;
@@ -1732,7 +1732,7 @@ export class HolliScene extends NPCAwareContent {
         this.fertilizeHolli();
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Vaginally Dominate Tentacles
+    // Vaginally Dominate Tentacles
     private vaginalDomHollisTentacruels(): void {
         this.clearOutput();
         this.flags[kFLAGS.HOLLI_FUCKED_TODAY] = 1;
@@ -1855,7 +1855,7 @@ export class HolliScene extends NPCAwareContent {
         this.outputText(
             '\n\n"<i>Now, I hope you rest well in the knowledge that I\'m going to stay firmly in my tree, no matter what.  Watching the vermin of this land walk over your bedroll while you try to sleep will be suitable recompense for your rudeness.</i>"'
         );
-        //[(kid a, thorn canopy, or other non-jojo watch is on)
+        // [(kid a, thorn canopy, or other non-jojo watch is on)
         if (
             (this.player.gender > 0 &&
                 this.player.findStatusAffect(StatusAffects.JojoNightWatch) >= 0 &&
@@ -1866,7 +1866,7 @@ export class HolliScene extends NPCAwareContent {
                 "\n\nYeah, whatever.  She'll be waiting a while for that; you've got your back covered.  With a dismissive, pointed gesture, you leave the smug arboreal demon behind."
             );
         }
-        //{No option to beg for night watch till PC has been imp raped}
+        // {No option to beg for night watch till PC has been imp raped}
         this.outputText(
             "\n\n<b>Maybe you should just slap her the next time she refuses to guard the camp and try your luck anyway.</b>"
         );
@@ -1874,8 +1874,8 @@ export class HolliScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Hit Her With Your Hand (requires failing to threaten) -Z
-    //replaces Threaten button once PC fails threaten
+    // Hit Her With Your Hand (requires failing to threaten) -Z
+    // replaces Threaten button once PC fails threaten
     private slapDatHo(): void {
         this.clearOutput();
         this.outputText(
@@ -1883,8 +1883,8 @@ export class HolliScene extends NPCAwareContent {
         );
         this.outputText('\n\n"<i>What do you want, meat?  Come to play?</i>"');
 
-        //[Cut Her Down][Call Jojo(requires talisman)][Ignore Her]
-        //ignore returns to previous menu and is default spacebar option
+        // [Cut Her Down][Call Jojo(requires talisman)][Ignore Her]
+        // ignore returns to previous menu and is default spacebar option
         this.menu();
         this.addButton(0, "CutHerDown", this.cutHerDown);
         if (this.player.hasKeyItem("Jojo's Talisman") >= 0)
@@ -1892,14 +1892,14 @@ export class HolliScene extends NPCAwareContent {
         this.addButton(4, "Ignore", this.treeMenu, true);
     }
 
-    //[Cut Her Down]
+    // [Cut Her Down]
     private cutHerDown(): void {
         this.clearOutput();
         this.outputText(
             '"<i>Are you serious?  You really want to be broken that badly, my little toy?</i>"  The demon folds her arms over her hefty chest, her earlier, suggestive posture completely absent now.  "<i>You know my bark is as strong as any armor, right?  That Marae herself - the land itself - bolsters me?  Take that back right now, and I\'ll let you return to my good graces... if you put your face in the dirt and plead for the duty to pleasure me whenever I want.</i>"'
         );
 
-        //(if PC weapon = Large Axe)
+        // (if PC weapon = Large Axe)
         if (this.player.weaponName == "large axe") {
             this.outputText(
                 "\n\nThat's a trick.  You get your axe.  A tree is a tree, after all, and you quietly test the blade with your thumb meaningfully while the demon looks on.  She seems to quail slightly at the sight of it, but soon recovers her composure.  The jade-skinned succubus slides back into her tree, until only her livid face is visible in the middle of its hard surface.  Several roots burst from the ground around you as her visage takes on a fierce, thunderous aspect; she's trying to strike first!"
@@ -1913,12 +1913,12 @@ export class HolliScene extends NPCAwareContent {
                 "\n\nThe verdant demon looks incensed at your words, and withdraws into her tree; bark slides over her body until only her face is visible.  It contorts with rage as roots burst from the ground around you and she begins to attack!"
             );
         }
-        //go to fight
+        // go to fight
         this.flags[kFLAGS.FOUGHT_HOLLI] = 1;
         this.startCombat(new Holli());
     }
 
-    //[Call Jojo]
+    // [Call Jojo]
     private callDatJojo(): void {
         this.clearOutput();
         this.player.removeKeyItem("Jojo's Talisman");
@@ -1930,11 +1930,11 @@ export class HolliScene extends NPCAwareContent {
             '\n\n"<i>Apologies, [name], but the sound and smell were the only way I could be sure of knowing and finding you when you needed me!</i>"  He raises a cloth over his nose, then hefts his staff.  "<i>If you choose to fight this demon plant creature, I will try to start a blaze to limit her ability to regrow.  It will take a lot of wood to burn a tree so unnatural, so I will not be able to do much else but ferry tinder from the stock I\'ve been laying in.  You will have to hold her attention.</i>"'
         );
 
-        //[(if not made hostile by fight yet)]
+        // [(if not made hostile by fight yet)]
         this.outputText(
             '\n\n"<i>What is this?</i>" the demon tree roars, breaking in on your conversation.  "<i>First you set off silly toys that foul my air, and now you talk of burning me?!  I will not tolerate this!</i>"  Her voluptuous body pulls back into the tree and bark closes over all of her form except her face.  Roots burst violently from the ground, waving with menace.  "<i>I will break you both!</i>"  Jojo quickly scurries off to fetch the first armfuls of wood, leaving you to withstand the onslaught!'
         );
-        //go to fight
+        // go to fight
         this.flags[kFLAGS.FOUGHT_HOLLI] = 1;
         this.startCombat(new Holli());
         this.monster.createStatusAffect(StatusAffects.JojoIsAssisting, 0, 0, 0, 0);
@@ -1943,7 +1943,7 @@ export class HolliScene extends NPCAwareContent {
     public defeatHolli(): void {
         this.clearOutput();
         this.flags[kFLAGS.FUCK_FLOWER_KILLED] = 1;
-        //Win without Jojo -Z
+        // Win without Jojo -Z
         if (this.monster.findStatusAffect(StatusAffects.JojoIsAssisting) < 0) {
             this.outputText(
                 "Weary, the succubus godling folds into her tree, unwilling to allow you the sight of her defeat.  With her energy suppressed, you're free to "
@@ -1963,7 +1963,7 @@ export class HolliScene extends NPCAwareContent {
             }
             this.statScreenRefresh();
         }
-        //Win with Jojo -Z
+        // Win with Jojo -Z
         else {
             this.outputText(
                 'The fire-blackened mouse cheers at you as the succubus groans and retreats completely into her bark.  "<i>Well done, [name]!  Help me carry tinder and we can burn this abomination to the ground!</i>"'
@@ -1981,12 +1981,12 @@ export class HolliScene extends NPCAwareContent {
                 }
             }
             this.statScreenRefresh();
-            //[(if no Vapula)]
+            // [(if no Vapula)]
             if (!this.vapulaSlave()) {
                 this.outputText(
                     "\n\nThe monk nods to you.  With the demon gone, you could probably invite him to remain in camp - after all, you are quite a good team.  Do you offer to let Jojo stay?"
                 );
-                //[yes][no]
+                // [yes][no]
                 this.menu();
                 this.addButton(0, "Yes", this.recruitJojoToCamp);
                 this.addButton(1, "No", this.dontRecruitJojoToCamp);
@@ -1998,7 +1998,7 @@ export class HolliScene extends NPCAwareContent {
         this.cleanupAfterCombat();
     }
 
-    //[yes gimme monk pls]
+    // [yes gimme monk pls]
     private recruitJojoToCamp(): void {
         this.clearOutput();
         this.outputText(
@@ -2011,7 +2011,7 @@ export class HolliScene extends NPCAwareContent {
         this.cleanupAfterCombat();
     }
 
-    //[no want]
+    // [no want]
     private dontRecruitJojoToCamp(): void {
         this.clearOutput();
         this.outputText("You hold your tongue, allowing Jojo to make his way back to the forest.");
@@ -2020,7 +2020,7 @@ export class HolliScene extends NPCAwareContent {
         this.cleanupAfterCombat();
     }
 
-    //>Lose
+    // >Lose
     public enjoyYourBadEndBIYAAAATCH(): void {
         this.clearOutput();
         this.outputText(
@@ -2035,8 +2035,8 @@ export class HolliScene extends NPCAwareContent {
             '"<i>Oh, my little meat...</i>" Holli coos dangerously.  "<i>Was I not clear enough before?  You exist to worship me.  If you won\'t give your mind to me, I\'ll have your body, instead.</i>"  A floral tendril descends from her upper branches, slipping into your mouth and beginning to drool a nectar down your throat.  Forced to drink or drown, you gulp unhappily, feeling increasingly light-headed with each swallow.'
         );
 
-        //FOOOOARK - choose with RNG for herms
-        //branch of penis-having
+        // FOOOOARK - choose with RNG for herms
+        // branch of penis-having
         if (this.player.gender == 1 || (HolliScene.rand(2) == 0 && this.player.hasCock())) {
             this.outputText(
                 "\n\nShe strips off your [armor] haphazardly, rending and shredding with vicious tugs and leaving deep lines where the clasps bite into your " +
@@ -2098,13 +2098,13 @@ export class HolliScene extends NPCAwareContent {
                 '\n\n"<i>Foolish little meat,</i>" the demon smiles down at you, "<i>I <b>am</b> Mareth.  There is a part of me in everything born in this land.  And now, in you as well.</i>"  Your tendril reaches for Holli\'s nethers at her unspoken command, dragging your [cock biggest] into her wet, lush depths as she wraps her arms around you...'
             );
 
-            //--Next--
+            // --Next--
             this.player.orgasm();
             this.dynStats("lib", 5, "sen", 20);
             this.menu();
             this.addButton(0, "Next", this.holliPlaysWithPenisesBadEnd);
         }
-        //branch of vagina-having
+        // branch of vagina-having
         else if (this.player.hasVagina()) {
             this.outputText(
                 '\n\nShe pulls impatiently at your [armor], ripping the fastenings and tearing it off of you to expose your crotch.  With a caress between your legs, she murmurs, "<i>Oh, my pet, we are going to plant something beautiful in this little furrow of yours.</i>"  Raising you above her head'
@@ -2186,13 +2186,13 @@ export class HolliScene extends NPCAwareContent {
                 '\n\nThe young sapling encasing you bends toward Holli with a gesture from the demon, and she leans over you.  "<i>Sweet little toy... you never had a chance.  I am Mareth. There is a part of me in everything of this world.  Now, in you as well.</i>"  The verdant woman smiles darkly as vines cover your eyes, blinding you.  As something begins nosing up to your pussy, she whispers, "<i>It won\'t be lonely, though...</i>"'
             );
 
-            //--Next--
+            // --Next--
             this.player.orgasm();
             this.dynStats("lib", 5, "sen", 20);
             this.menu();
             this.addButton(0, "Next", this.girlsGetANiceManToBadEnd);
         } else {
-            //branch of nothing-having
+            // branch of nothing-having
             this.player.orgasm();
             this.dynStats("lib", 5, "sen", 20);
             this.outputText(
@@ -2226,7 +2226,7 @@ export class HolliScene extends NPCAwareContent {
             this.outputText(
                 '\n\n"<i>Ah... ah-ahhh!</i>" she moans, as her body quivers and pushes out the growth.  "<i>H-here you are, my toy - I\'ve made the perfect key to unlock your body.</i>"  '
             );
-            //[(iff buttslut)
+            // [(iff buttslut)
             if (this.player.ass.analWetness > 0)
                 this.outputText(
                     "Try as you might, you can't see far enough down your back to determine what the demon has done.  The question answers itself, though, when she presses a shaft almost as thick as her leg into your [butt], nosing it into your wet, receptive asshole.  Despite yourself, you shiver in anticipation at being filled so completely.  "
@@ -2248,7 +2248,7 @@ export class HolliScene extends NPCAwareContent {
             this.outputText(
                 '\n\n"<i>O-oh, my little toy, be excited,</i>" she pants.  "<i>I\'m about to give you your purpose in this woh-world!</i>"  With a shriek from the demon, Holli\'s shaft erupts and fills you with another wave of liquid warmth.  As she rests, panting, on your back, your [asshole] itches with arousal; your own unreached orgasm hangs out of reach, maddening you.  Your demon lover pulls her rapidly-deflating tool from your backside, '
             );
-            //[(buttslut or loose)
+            // [(buttslut or loose)
             if (this.player.ass.analWetness > 0 || this.player.analCapacity() > 30)
                 this.outputText("spilling a wave of her deposited fluids down your [legs].  ");
             else
@@ -2281,14 +2281,14 @@ export class HolliScene extends NPCAwareContent {
             this.outputText(
                 '\n\n"<i>Lovely,</i>" Holli admires.  "<i>You\'ll make for a fine ambiance.</i>"  The demon sticks one finger into your still-drooling asshole, stroking the inside of the ring and fanning the flame of your magic-driven lust.  "<i>I may even consent to use you for release occasionally... if I can\'t find someone more interesting to have a tryst with!</i>"  With a cruel laugh, she pulls out of you and retreats into her tree, leaving you staring at her bark, smouldering with desire and helpless to indulge it.'
             );
-            //--Next--
+            // --Next--
             this.dynStats("lus=", 10000);
             this.menu();
             this.addButton(0, "Next", this.holliAndGenderlessSittingInATree);
         }
     }
 
-    //female champ for weiner-based bad end
+    // female champ for weiner-based bad end
     private holliPlaysWithPenisesBadEnd(): void {
         this.clearOutput();
         this.outputText(
@@ -2396,7 +2396,7 @@ export class HolliScene extends NPCAwareContent {
             '\n\n"<i>Simple-minded fool,</i>" Holli spits at the distant, retreating back of the newest Champion, stroking the erect shaft of her partner.  "<i>I\'m eager to see where and when she will take root.  Though, I wonder if your seed will impregnate her before mine can absorb it all?</i>"'
         );
 
-        //--[Game Over], man! [Game Over]!--
+        // --[Game Over], man! [Game Over]!--
         this.getGame().gameOver();
     }
 
@@ -2429,19 +2429,19 @@ export class HolliScene extends NPCAwareContent {
         this.outputText(
             "\n\nThe left tree lacks the nude resident of its fellows, though it appears older and thicker than any of the others, while the branches of the right one are bent low with juicy-looking fruit.  The figure in the right tree is contorted into a lewd pose, its "
         );
-        //[(if tits)
+        // [(if tits)
         if (this.player.biggestTitSize() > 1)
             this.outputText("[chest] cupped by vines and held out toward the young man, ");
         else this.outputText("chest crisscrossed with a mesh of fine vines, ");
         this.outputText("its legs elevated and spread apart to display a ");
         if (this.player.balls > 0 && this.player.ballSize > 10 && this.player.gender == 3)
             this.outputText(this.multiCockDescriptLight() + " with [balls] swinging below.");
-        //(if H and ballsize < 10)
+        // (if H and ballsize < 10)
         else if (this.player.balls > 0 && this.player.ballSize <= 10 && this.player.gender == 3)
             this.outputText(
                 this.multiCockDescriptLight() + " and [balls] that hang slightly over a [vagina]."
             );
-        //(if H and noballs)
+        // (if H and noballs)
         else if (this.player.gender == 3)
             this.outputText(this.multiCockDescriptLight() + " and a [vagina].");
         else this.outputText("a wet, drooling cunt that practically begs to be filled.");
@@ -2527,7 +2527,7 @@ export class HolliScene extends NPCAwareContent {
         }
         this.outputText(".");
 
-        //[(cock)]
+        // [(cock)]
         if (this.player.hasCock()) {
             this.outputText(
                 "\n\nThe youth's eyes widen briefly as he realizes what's coming, and he squeezes them shut against the expected load.  When none comes, he peeks at his lover again; several vines have reached down from her canopy and angled her cock"
@@ -2546,13 +2546,13 @@ export class HolliScene extends NPCAwareContent {
                 this.outputText(
                     "her mouth is now full of cockhead, and she gulps as eagerly as she spurts, drooling lines of white from the corners of her lips.  "
                 );
-                //[(big skeet)]
+                // [(big skeet)]
                 if (this.player.cumQ() >= 500)
                     this.outputText(
                         "The waves of seed don't stop coming, pouring into her and swelling her belly out until its round bulge pushes the cock away from her mouth and the remaining squirts fall on her [chest].  "
                     );
             }
-            //else cock biggest > 80)
+            // else cock biggest > 80)
             else {
                 this.outputText(
                     "her body is easily dwarfed by her male sex's massive size, and globs of sperm shoot into her canopy to splatter among her leaves and branches.  "
@@ -2563,7 +2563,7 @@ export class HolliScene extends NPCAwareContent {
                     );
             }
         }
-        //(vagina and no cock)
+        // (vagina and no cock)
         else {
             this.outputText("\n\nA ");
             if (this.player.wetness() < 3) this.outputText("gush");
@@ -2612,7 +2612,7 @@ export class HolliScene extends NPCAwareContent {
             "\n\nHolli watches him until he's out of sight.  \"<i>When something seems too good to be true... it probably is.  Stupid imbecile.</i>\"  She turns to the figure in the tree, who is frowning deeply.  \"<i>Oh my... I was just lying before, but <b>do</b> you actually like him?  Well, you'll meet him again - when he sprouts and joins with Marae's roots.  In the meanwhile, I'm eager to see what the child of a pure human man and a once-human dryad like you will be.  I wonder if its tree will be more interesting than those of the imp- and beast-spawns you've given birth to already?</i>\""
         );
 
-        //--Oh shit, it's already... [Game Over]--
+        // --Oh shit, it's already... [Game Over]--
         this.getGame().gameOver();
     }
 
@@ -2678,7 +2678,7 @@ export class HolliScene extends NPCAwareContent {
         else this.outputText("a blush of lust colors its " + this.player.skinFurScales());
         this.outputText("...");
 
-        //--Dante's Purgatorio is an epic poem about [Game Over]--
+        // --Dante's Purgatorio is an epic poem about [Game Over]--
         this.getGame().gameOver();
     }
 
@@ -2687,9 +2687,9 @@ export class HolliScene extends NPCAwareContent {
         this.outputText(
             "Amily arrives with her belongings over her shoulder and a smile on her face.  \"<i>I knew you'd do the right thing, [name].  I'll get my nest set back up.</i>\"\n\n(<b>Amily has moved back in!  She can be found in the lovers tab.</b>)"
         );
-        //flags[kFLAGS.AMILY_TREE_FLIPOUT] = 1;
+        // flags[kFLAGS.AMILY_TREE_FLIPOUT] = 1;
         this.flags[kFLAGS.AMILY_FOLLOWER] = 1;
-        //Enable village encounters
+        // Enable village encounters
         this.flags[kFLAGS.AMILY_VILLAGE_ENCOUNTERS_DISABLED] = 1;
         this.doNext(this.playerMenu);
     }

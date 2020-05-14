@@ -38,26 +38,26 @@ Optional Morning Oral for small-membered males*/
     /*===========================
     Variable List
     ===========================*/
-    //ISABELLAS CUNT CAPACITY: 164!
+    // ISABELLAS CUNT CAPACITY: 164!
 
-    //const ISABELLA_TIMES_OFFERED_FOLLOWER: number = 367;
-    //const ISABELLA_AFFECTION: number = 368;
-    //const ISABELLA_FOLLOWER_ACCEPTED: number = 369;
-    //const ISABELLA_PLAINS_DISABLED: number = 370;
-    //const ISABELLA_CAMP_DISABLED: number = 371;
-    //const ISABELLA_ACCENT_TRAINING_PERCENT: number = 372;
-    //const ISABELLA_ACCENT_TRAINING_COOLDOWN: number = 373;
-    //const ISABELLA_ACCENT_FORCED_ON: number = 374;
-    //const ISABELLA_MILKED_YET: number = 375;
-    //const ISABELLA_BLOWJOBS_DISABLED: number = 376;
-    //const ISABELLA_MORNING_FELLATIO_COUNT: number = 377;
-    //const ISABELLA_TIME_SINCE_LAST_HOTDOGGING: number = 378;
-    //const ISABELLA_TIMES_HOTDOGGED: number = 379;
-    //const ISABELLA_MILK_COOLDOWN: number = 380;
-    //const ISABELLA_MURBLE_BLEH: number = 381;
-    //const ISABELLA_SPARRING_INTRO: number = 382;
-    //const ISABELLA_PROBOVA_BURP_COUNT: number = 383;
-    //const FOUND_ISABELLA_AT_FARM_TODAY: number = 707;
+    // const ISABELLA_TIMES_OFFERED_FOLLOWER: number = 367;
+    // const ISABELLA_AFFECTION: number = 368;
+    // const ISABELLA_FOLLOWER_ACCEPTED: number = 369;
+    // const ISABELLA_PLAINS_DISABLED: number = 370;
+    // const ISABELLA_CAMP_DISABLED: number = 371;
+    // const ISABELLA_ACCENT_TRAINING_PERCENT: number = 372;
+    // const ISABELLA_ACCENT_TRAINING_COOLDOWN: number = 373;
+    // const ISABELLA_ACCENT_FORCED_ON: number = 374;
+    // const ISABELLA_MILKED_YET: number = 375;
+    // const ISABELLA_BLOWJOBS_DISABLED: number = 376;
+    // const ISABELLA_MORNING_FELLATIO_COUNT: number = 377;
+    // const ISABELLA_TIME_SINCE_LAST_HOTDOGGING: number = 378;
+    // const ISABELLA_TIMES_HOTDOGGED: number = 379;
+    // const ISABELLA_MILK_COOLDOWN: number = 380;
+    // const ISABELLA_MURBLE_BLEH: number = 381;
+    // const ISABELLA_SPARRING_INTRO: number = 382;
+    // const ISABELLA_PROBOVA_BURP_COUNT: number = 383;
+    // const FOUND_ISABELLA_AT_FARM_TODAY: number = 707;
 
     public isabellaFollower(): boolean {
         return (
@@ -83,7 +83,7 @@ Optional Morning Oral for small-membered males*/
         this.spriteSelect(31);
     }
 
-    //Isabella Moves In Intro
+    // Isabella Moves In Intro
     public isabellaMoovesInGreeting(): void {
         this.spriteSelect(31);
         this.outputText("", true);
@@ -139,7 +139,7 @@ Optional Morning Oral for small-membered males*/
             this.outputText("Do you invite her to camp?", false);
             this.doYesNo(this.moveTheBitchIn, this.turnDownIsabellaFollower);
         }
-        //Repeat Offer
+        // Repeat Offer
         else {
             this.outputText(
                 "You stumble into Isabella's camp and find her hard at work on her shield.  Currently she's banging dents out of it with a huge hammer.  She barely looks up when you arrive, but from what you can see, the corners of the cow-girl's mouth are curled up in a warm smile.  The dark-skinned beauty pauses long enough look up and ask, \"<i>Have you thought about mein offer?  Ve could do more good working together zen apart.</i>\"  She finishes her task and jams the edge of the shield into the ground, the hunk of metal vibrating slightly from the sudden impact.\n\n",
@@ -150,8 +150,8 @@ Optional Morning Oral for small-membered males*/
                 "Isabella still seems to think that moving in would be a good idea; do you accept her proposal, or demur for now?  She doesn't seem too dead-set on the idea.",
                 false
             );
-            //(Raise threshold for next occurance to current affection + 15)
-            //[Accept - Use standard] [Normal Menu Options]
+            // (Raise threshold for next occurance to current affection + 15)
+            // [Accept - Use standard] [Normal Menu Options]
             var suck = undefined;
             if (this.player.hasCock()) {
                 if (this.player.cocks[this.player.shortestCockIndex()].cockLength < 9)
@@ -182,7 +182,7 @@ Optional Morning Oral for small-membered males*/
         }
         this.flags[kFLAGS.ISABELLA_TIMES_OFFERED_FOLLOWER]++;
     }
-    //Decline Izzy Initial Moving Offer (-10 affection)
+    // Decline Izzy Initial Moving Offer (-10 affection)
     private turnDownIsabellaFollower(): void {
         this.spriteSelect(31);
         this.isabellaAffection(-10);
@@ -226,7 +226,7 @@ Optional Morning Oral for small-membered males*/
             this.camp.returnToCampUseOneHour
         );
     }
-    //Move Ze Bitch In!
+    // Move Ze Bitch In!
     private moveTheBitchIn(): void {
         this.spriteSelect(31);
         this.outputText("", true);
@@ -253,7 +253,7 @@ Optional Morning Oral for small-membered males*/
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Follower Summoned Text:
+    // Follower Summoned Text:
     public callForFollowerIsabella(): void {
         this.spriteSelect(31);
         this.outputText("", true);
@@ -485,23 +485,23 @@ Optional Morning Oral for small-membered males*/
         );
     }
 
-    //Accent Coaching
+    // Accent Coaching
     private isabellasAccentCoaching(): void {
         this.spriteSelect(31);
         this.outputText("", true);
-        //Cooldown rejection
+        // Cooldown rejection
         if (this.flags[kFLAGS.ISABELLA_ACCENT_TRAINING_COOLDOWN] > 1) {
             this.outputText(
                 'Isabella shakes her head and says, "<i>Nein.  I do not vish to spend time on zis now.</b>"',
                 false
             );
-            //Back to follower menu!
+            // Back to follower menu!
             this.doNext(this.callForFollowerIsabella);
             return;
         }
         /*(req's 100% teach score to replace dialogue.  Success
         based on inte)*/
-        //(FIRST TIME)
+        // (FIRST TIME)
         if (this.flags[kFLAGS.ISABELLA_ACCENT_TRAINING_PERCENT] == 0) {
             this.outputText(
                 'You tell Isabella you\'d like to offer her lessons in order to reduce her accent and make her more understandable.  She folds her arms across her chest and protests, "<i>You have an accent too, nein?</i>"\n\n',
@@ -513,12 +513,12 @@ Optional Morning Oral for small-membered males*/
             );
             this.flags[kFLAGS.ISABELLA_ACCENT_TRAINING_PERCENT] = 1;
         }
-        //Autosuccess at inte >= 60)
-        //Autofail at inte < 20)
-        //50/50 shot at inte 40ish
+        // Autosuccess at inte >= 60)
+        // Autofail at inte < 20)
+        // 50/50 shot at inte 40ish
         var result: number = this.player.inte / 5 + IsabellaFollowerScene.rand(9);
         var accentChange: number = 0;
-        //(Success/Fail texts)
+        // (Success/Fail texts)
         if (result < 12) {
             this.temp = IsabellaFollowerScene.rand(3);
             if (this.temp == 0)
@@ -526,7 +526,7 @@ Optional Morning Oral for small-membered males*/
                     "You spend an hour speaking with Isabella, but ultimately, you wind up making little, if any, progress.  The cow-girl seems a bit dispirited at the failure, but she gives you a big hug anyway.",
                     false
                 );
-            //(FAIL2)
+            // (FAIL2)
             else if (this.temp == 1) {
                 this.outputText(
                     "In spite of your efforts to teach the foreign cow-girl, she doesn't seem to make any progress.  The worst part is, she keeps slumping down when you correct her, which only sets her bosom to jiggling, her cleavage looking larger than ever before.  You wind up quite distracted by the time the two of you get finished.",
@@ -534,7 +534,7 @@ Optional Morning Oral for small-membered males*/
                 );
                 this.dynStats("lus", 10);
             }
-            //(FAIL3)
+            // (FAIL3)
             else {
                 this.outputText(
                     "No matter what you do, you can't get the normally-industrious cow-girl to focus right now.  She's obviously bored with your attempts to teach her, and she spends the entire lesson trying to tease you with her body.  It's more effective than you care to admit",
@@ -548,7 +548,7 @@ Optional Morning Oral for small-membered males*/
                 else if (this.player.hasVagina())
                     this.outputText(", and you leave the lesson with wet panties.", false);
                 else this.outputText(".", false);
-                //(+big lust)
+                // (+big lust)
                 this.dynStats("lus", 25);
             }
         } else if (result < 14) {
@@ -642,16 +642,16 @@ Optional Morning Oral for small-membered males*/
                 false
             );
 
-        //Bump up accent level appropriately.
+        // Bump up accent level appropriately.
         this.flags[kFLAGS.ISABELLA_ACCENT_TRAINING_PERCENT] += accentChange;
         if (this.flags[kFLAGS.ISABELLA_ACCENT_TRAINING_PERCENT] > 100)
             this.flags[kFLAGS.ISABELLA_ACCENT_TRAINING_PERCENT] = 100;
-        //4 to 12 hour cooldown
+        // 4 to 12 hour cooldown
         this.flags[kFLAGS.ISABELLA_ACCENT_TRAINING_COOLDOWN] = 4 + IsabellaFollowerScene.rand(13);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Morning Wakeup Call
+    // Morning Wakeup Call
     public isabellaMorningWakeupCall(): void {
         this.spriteSelect(31);
         this.flags[kFLAGS.ISABELLA_MORNING_FELLATIO_COUNT]++;
@@ -828,7 +828,7 @@ Optional Morning Oral for small-membered males*/
         this.dynStats("sen", -1.5);
         this.doNext(this.playerMenu);
     }
-    //No BJ's Plz
+    // No BJ's Plz
     private toggleIsabellasMorningWoodChopping(): void {
         this.spriteSelect(31);
         this.outputText("", true);
@@ -876,10 +876,10 @@ Optional Morning Oral for small-membered males*/
             this.outputText('</i>"', false);
             this.flags[kFLAGS.ISABELLA_BLOWJOBS_DISABLED] = 0;
         }
-        //To Izzy SEX menu
+        // To Izzy SEX menu
         this.doNext(this.campIzzySexMenu);
     }
-    //Repeatable Campsex: Hot Dogginz'
+    // Repeatable Campsex: Hot Dogginz'
     private repeatGermanBratwurstInCamp(): void {
         this.spriteSelect(31);
         this.outputText("", true);
@@ -905,7 +905,7 @@ Optional Morning Oral for small-membered males*/
                     false
                 );
         } else if (this.player.cockArea(x) > 38) {
-            //If too big, use the biggest dick for hotdoggin!
+            // If too big, use the biggest dick for hotdoggin!
             x = this.player.biggestCockIndex();
             if (this.isabellaAccent())
                 this.outputText(
@@ -1097,7 +1097,7 @@ Optional Morning Oral for small-membered males*/
             false
         );
 
-        //(Small enough for buttfukkins)
+        // (Small enough for buttfukkins)
         if (this.player.cockArea(x) <= 38) {
             if (this.isabellaAccent())
                 this.outputText(
@@ -1113,7 +1113,7 @@ Optional Morning Oral for small-membered males*/
                         ' to bend in response to the two dueling masses of her booty cheeks.  She keeps teasing you as she caresses your member with her hefty butt.  "<i>You have such a naughty look on your face, drooling on yourself from just a little bit of play with Momma Isabella.  No, don\'t stop, I want to watch the ecstasy spread through you while I work your nice, hot cock.  My asshole wants to kiss it... Can I kiss your dick with my asshole?</i>"',
                     false
                 );
-            //(if libido <=15:
+            // (if libido <=15:
             if (this.silly() && (this.player.lust < 50 || this.player.lib <= 20)) {
                 this.outputText(
                     "  Your cock immediately deflates from her laughable doujin-tier pillow talk and falls out of her buttcheeks.  You'll be posting that line to 4chan later for laughs.",
@@ -1224,7 +1224,7 @@ Optional Morning Oral for small-membered males*/
                 false
             );
         }
-        //(Big dicks)
+        // (Big dicks)
         else {
             if (this.isabellaAccent())
                 this.outputText(
@@ -1322,7 +1322,7 @@ Optional Morning Oral for small-membered males*/
         this.temp = this.player.cockTotal();
         while (counter < this.player.tentacleCocks() && this.temp > 0) {
             this.temp--;
-            //Does this dick work for it?
+            // Does this dick work for it?
             if (
                 this.player.cocks[this.temp].cockType == CockTypesEnum.TENTACLE &&
                 this.player.cocks[this.temp].cockLength >= 24
@@ -1334,12 +1334,12 @@ Optional Morning Oral for small-membered males*/
         else return false;
     }
 
-    //Tentacle Rape (edited, but see notes -Z)
-    //needs 3 cocks: 2 to tie her and lift her up and at least
-    //one for penetration
+    // Tentacle Rape (edited, but see notes -Z)
+    // needs 3 cocks: 2 to tie her and lift her up and at least
+    // one for penetration
     private tentacleBoneFollowerIzzy(): void {
         this.spriteSelect(31);
-        //Tentacle dick index holders
+        // Tentacle dick index holders
         var t1: number = -1;
         var t2: number = -1;
         var t3: number = -1;
@@ -1355,13 +1355,13 @@ Optional Morning Oral for small-membered males*/
         this.temp = this.player.cocks.length;
         while (counter < this.player.tentacleCocks() && this.temp > 0) {
             this.temp--;
-            //Does this dick work for it?
+            // Does this dick work for it?
             if (
                 this.player.cocks[this.temp].cockType == CockTypesEnum.TENTACLE &&
                 this.player.cocks[this.temp].cockLength >= 24
             ) {
                 counter++;
-                //Set the tentacle array up
+                // Set the tentacle array up
                 if (t1 == -1) t1 = this.temp;
                 else if (t2 == -1) t2 = this.temp;
                 else if (t3 == -1) t3 = this.temp;
@@ -1375,10 +1375,10 @@ Optional Morning Oral for small-membered males*/
             }
         }
         this.outputText("", true);
-        //(as written it also requires them in slots 0 through 2,
-        //and logically they would need to be a minimum of 15-20
-        //inches; also needs a mention in the beginning of just //
-        //where and when she herself undresses -Z)
+        // (as written it also requires them in slots 0 through 2,
+        // and logically they would need to be a minimum of 15-20
+        // inches; also needs a mention in the beginning of just //
+        // where and when she herself undresses -Z)
 
         this.outputText(
             "You grin at Isabella as you nonchalantly remove your " +
@@ -1423,7 +1423,7 @@ Optional Morning Oral for small-membered males*/
             false
         );
 
-        //[if wings]
+        // [if wings]
         if (this.player.canFly() && this.player.str >= 90) {
             this.outputText(
                 '"<i>Time for a wild ride, sweetheart.</i>"  You flap your ' +
@@ -1459,7 +1459,7 @@ Optional Morning Oral for small-membered males*/
             false
         );
 
-        //[if demon tongue]
+        // [if demon tongue]
         if (
             this.player.tongueType == TONUGE_DEMONIC ||
             this.player.tongueType == TONUGE_SNAKE ||
@@ -1469,10 +1469,10 @@ Optional Morning Oral for small-membered males*/
                 "Using your long, extensible tongue, you decide to take a lick at her body.  Your tongue darts forward and gently locates her supple tits; you bring Isabelle closer with your vigorous tentacle dicks and start suckling at her breasts, drinking drops of her tasty milk one at a time.  Your constant stimulations arouse her more and more, and soon her nipples are releasing a regular trickle of her essence. You mercilessly drink her, probing your tongue around either of her udders as if to dig deeper to the source of this wonderful ambrosia. You keep gulping milk until you reach satiation, and then you drink some more. It's sweet, savory and invigorating; you could feed off her breasts for days.  You suckle her until her body shakes from the steady tactile provocation, before darting your tongue back.\n\n",
                 false
             );
-            //end d-tongue inset
+            // end d-tongue inset
         }
 
-        //[if 4th tentacle dick] - BUTT
+        // [if 4th tentacle dick] - BUTT
         if (t4 >= 0)
             this.outputText(
                 "You remember another of your pricks not being put to use, and the sexy girl in your tentacle-embrace still has holes left to fill. You quickly proceed to maneuver your " +
@@ -1482,7 +1482,7 @@ Optional Morning Oral for small-membered males*/
                     ", enjoying the soft texture; finally, you grow bored of playing with her ass and ram your tentacle pecker into her anus, stretching it beyond its normal capacity.  Fortunately, the flexibility of your vegetal dong allows it to fit in entirely as it compresses itself and pushes its way through her colon.  You quickly fill her interior with your junk and start thrusting back and forth as you feel a rough but wonderful friction against her insides.  Isabella's eyes widen under the sheer violation and you can feel her moan silently, unable to fully express her powerful sentiment with her mouth filled by cock.  She then abandons herself to you, letting you play with her body as you solemnly stare at her eyes, arms crossed and tentacles deployed.\n\n",
                 false
             );
-        //[if 5th tentacle cock] - VAG
+        // [if 5th tentacle cock] - VAG
         if (t5 >= 0)
             this.outputText(
                 "But you still have junk left, and another one of her holes isn't being taken care of. You quickly move to remedy that; in a matter of seconds another " +
@@ -1492,7 +1492,7 @@ Optional Morning Oral for small-membered males*/
                     " seems almost unable to fit as her vagina muscles keep squeezing it and massaging it while you try to force it in... gods, she is so tight!  The steely grip of her cunt almost  makes you cum instantly, but you regain your composure with difficulty and force yourself to endure the wave of pleasure threatening to take over your crotch.  Her beautiful body deserves more than a mere cum-injection at first penetration; she obviously needs to be thoroughly fucked and rammed in order to satisfy the both of you.  Once you've managed to fit the maximum amount of your vegetal shaft in her love-tunnel, you adopt a more comfortable thrusting pace and alternately fuck each of her holes, making sure that she has at least one tower of dickflesh deep inside her at every instant.  You are both considerably aroused and appreciable ropes of pre-cum, as well as drool and girlcum, are being spilled out of her every hole; soon your camp is resonating with loud squelching noises from the triple penetration.\n\n",
                 false
             );
-        //[if 6th cock] - DOUBLE VAG STUFF
+        // [if 6th cock] - DOUBLE VAG STUFF
         if (t6 >= 0)
             this.outputText(
                 "But wait, that's not enough.  Another of your tentacle peckers is being left behind, unsatisfied.  With a coy smile, you agitate it in front of Isabella's eyes as she tries to get used to being triple-penetrated in the air.  Her eyes, first filled with longing, are becoming worried as she wonders what could possibly be done with your " +
@@ -1508,7 +1508,7 @@ Optional Morning Oral for small-membered males*/
                     " in speed and intensity, your pair of dicks literally competing with each other in a ruthless cunt-ravaging contest.\n\n",
                 false
             );
-        //[if 7th cock] - TITS
+        // [if 7th cock] - TITS
         if (t7 >= 0) {
             this.outputText(
                 "Abundantly entranced by the sight of her nude body being violated, you want to abuse it even more. Her enormous, jiggling tits are too tempting for you to resist; before you even think of it your " +
@@ -1518,7 +1518,7 @@ Optional Morning Oral for small-membered males*/
                     ", almost moving of its own will, decides to encircle her enticing orbs of flesh, grinding against her hard nipples and leaking sap-like pre-cum all over her chest.",
                 false
             );
-            //[if 8th cock] - TITS 2
+            // [if 8th cock] - TITS 2
             if (t8 >= 0)
                 this.outputText(
                     "  It is soon joined by your " +
@@ -1542,7 +1542,7 @@ Optional Morning Oral for small-membered males*/
                 );
             this.outputText("\n\n", false);
         }
-        //[if 9th or 10th cock]
+        // [if 9th or 10th cock]
         if (t9 >= 0) {
             this.outputText(
                 "Sadly, there is only so much space that can fit your voluminous junk.  Your companion doesn't have the gaping, slutty holes of a succubus and there's no way you could fit more dick inside her anywhere. Your remaining pecker",
@@ -1604,7 +1604,7 @@ Optional Morning Oral for small-membered males*/
                 this.outputText(" until she looks 8 months pregnant", false);
         }
         if (t7 >= 0) this.outputText("; drowning her nipples with your spunk", false);
-        //[if 10th cock]
+        // [if 10th cock]
         if (t10 >= 0) this.outputText(", and cuming on her face as you stare at her", false);
         this.outputText(".  Her luscious eyes are ", false);
         if (t10 < 0) this.outputText("eventually", false);
@@ -1640,11 +1640,11 @@ Optional Morning Oral for small-membered males*/
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Milking Isabella (dey terk Merble's jerb!)
-    //(not technically edited since the editor wrote it, huck huck)
+    // Milking Isabella (dey terk Merble's jerb!)
+    // (not technically edited since the editor wrote it, huck huck)
 
-    //triggers when Izzy Milked Yet flag >= 10 and PC has Bmilker at farm; unless negative, flag gets reset to 0 if PC nurses from her in any nursing scene written later
-    //PC wasn't thinking about the pressure; titties get swole
+    // triggers when Izzy Milked Yet flag >= 10 and PC has Bmilker at farm; unless negative, flag gets reset to 0 if PC nurses from her in any nursing scene written later
+    // PC wasn't thinking about the pressure; titties get swole
     public milktasticLacticLactation(): void {
         this.spriteSelect(31);
         this.outputText("", true);
@@ -1656,18 +1656,18 @@ Optional Morning Oral for small-membered males*/
             false
         );
 
-        //[Yes][No]
+        // [Yes][No]
         this.doYesNo(this.izzyMilkingMeinMilkersMya, this.izzyMilkYourselfDamnit);
     }
 
-    //[No]
+    // [No]
     private izzyMilkYourselfDamnit(): void {
-        //set Izzy Milked Yet flag to 0
-        //in other words, she handles it herself somehow but it repeats after another ten days without milking her
+        // set Izzy Milked Yet flag to 0
+        // in other words, she handles it herself somehow but it repeats after another ten days without milking her
         this.flags[kFLAGS.ISABELLA_MILKED_YET] = 0;
         this.camp.returnToCampUseOneHour();
     }
-    //[Yes]
+    // [Yes]
     private izzyMilkingMeinMilkersMya(): void {
         this.spriteSelect(31);
         this.outputText("", true);
@@ -1741,7 +1741,7 @@ Optional Morning Oral for small-membered males*/
                 false
             );
 
-        //--next--
+        // --next--
         this.doNext(this.izzyMilkingMeinMilkersMya2);
     }
     private izzyMilkingMeinMilkersMya2(): void {
@@ -1752,7 +1752,7 @@ Optional Morning Oral for small-membered males*/
             false
         );
 
-        //([PC fatness and muscle density check right hurr]
+        // ([PC fatness and muscle density check right hurr]
         if (this.player.thickness <= 50)
             this.outputText(
                 "with creaking effort, initially calibrated to your slender form as it was",
@@ -1853,7 +1853,7 @@ Optional Morning Oral for small-membered males*/
             );
         this.outputText("  What do you say?", false);
 
-        //[I'll Allow It][Mine Mine MINE!]
+        // [I'll Allow It][Mine Mine MINE!]
         this.simpleChoices(
             "Allow It",
             this.AllowIzzyMilkerUse,
@@ -1868,7 +1868,7 @@ Optional Morning Oral for small-membered males*/
         );
     }
 
-    //[I'll Allow It]
+    // [I'll Allow It]
     private AllowIzzyMilkerUse(): void {
         this.spriteSelect(31);
         this.outputText("", true);
@@ -1886,12 +1886,12 @@ Optional Morning Oral for small-membered males*/
             this.outputText(
                 "(You have a hunch that you might be able to catch her using the milkers at the farm if you 'explore' there, provided she hasn't been recently milked.)\n\n"
             );
-        //get 1 Izzit Milk or Cream? item, set Izzy Milked Yet flag to -1, which adds [GetMilk] button to follower menu
+        // get 1 Izzit Milk or Cream? item, set Izzy Milked Yet flag to -1, which adds [GetMilk] button to follower menu
         this.flags[kFLAGS.ISABELLA_MILKED_YET] = -1;
         this.inventory.takeItem(this.consumables.IZYMILK, this.camp.returnToCampUseOneHour);
     }
 
-    //[Mine Mine MINE!]
+    // [Mine Mine MINE!]
     private noMilkingMilky(): void {
         this.spriteSelect(31);
         this.outputText("", true);
@@ -1907,19 +1907,19 @@ Optional Morning Oral for small-membered males*/
             "arousal at your touch, blushing at putting on such a show in front of Whitney.  The farmer shrugs.  \"<i>Y'all please yourselves.  Milker'll be here if you need it.</i>\"\n\n",
             false
         );
-        //get 1 Izzit Milk or Cream? item, set Izzy Milked Yet flag to -2, which adds [GetMilk] button to follower menu
+        // get 1 Izzit Milk or Cream? item, set Izzy Milked Yet flag to -2, which adds [GetMilk] button to follower menu
         this.flags[kFLAGS.ISABELLA_MILKED_YET] = -2;
         this.inventory.takeItem(this.consumables.IZYMILK, this.camp.returnToCampUseOneHour);
     }
 
-    //[GetMilk]
-    //follower menu button
-    //(only appears if Izzy Milked Yet flag < 0)
+    // [GetMilk]
+    // follower menu button
+    // (only appears if Izzy Milked Yet flag < 0)
     private getMilk(): void {
         this.spriteSelect(31);
         this.outputText("", true);
         this.outputText("You tell Isabella that you want a bottle of her milk.  ", false);
-        //Izzy overmilked
+        // Izzy overmilked
         if (this.flags[kFLAGS.ISABELLA_MILK_COOLDOWN] > 0) {
             this.outputText("Isabella shakes her head and tells you she", false);
             if (this.flags[kFLAGS.ISABELLA_MILKED_YET] == -1)
@@ -1935,7 +1935,7 @@ Optional Morning Oral for small-membered males*/
             this.doNext(this.callForFollowerIsabella);
             return;
         }
-        //[(if Izzy Milked Yet flag = -1)
+        // [(if Izzy Milked Yet flag = -1)
         if (this.flags[kFLAGS.ISABELLA_MILKED_YET] == -1) {
             if (this.isabellaAccent())
                 this.outputText(
@@ -1979,12 +1979,12 @@ Optional Morning Oral for small-membered males*/
                 false
             );
         }
-        //get 1 Izzit Milk or Cream? item, lose some fatigue and gain some lust if Izzy Milked Yet flag = -2
+        // get 1 Izzit Milk or Cream? item, lose some fatigue and gain some lust if Izzy Milked Yet flag = -2
         this.flags[kFLAGS.ISABELLA_MILKED_YET] = -2;
         this.flags[kFLAGS.ISABELLA_MILK_COOLDOWN] = 7 + IsabellaFollowerScene.rand(4);
         this.inventory.takeItem(this.consumables.IZYMILK, this.camp.returnToCampUseOneHour);
     }
-    //TDM's Angry Murble
+    // TDM's Angry Murble
     public angryMurble(): void {
         this.outputText("", true);
         this.outputText(
@@ -2000,10 +2000,10 @@ Optional Morning Oral for small-membered males*/
         this.doNext(this.playerMenu);
     }
 
-    //Sparring
-    //normal isabella combat + status affect "sparring"
-    //v1 = 1, normal sparring.
-    //v2 = 2, 'light' sparring.
+    // Sparring
+    // normal isabella combat + status affect "sparring"
+    // v1 = 1, normal sparring.
+    // v2 = 2, 'light' sparring.
     private isabellaSparMenu(): void {
         this.spriteSelect(31);
         this.outputText("", true);
@@ -2085,21 +2085,21 @@ Optional Morning Oral for small-membered males*/
             );
         this.startCombat(new Isabella());
         this.monster.createStatusAffect(StatusAffects.Sparring, type, 0, 0, 0);
-        //No gems.
+        // No gems.
         this.monster.gems = 0;
-        //Nerf XP if light mode
+        // Nerf XP if light mode
         if (type == 2) this.monster.XP = Math.round(this.monster.XP / 2);
         this.spriteSelect(31);
     }
 
-    //Isabella Burps
+    // Isabella Burps
 
-    //first time (Z)
+    // first time (Z)
     private isabellaBurps(): void {
         this.player.consumeItem(this.consumables.PROBOVA);
         this.spriteSelect(31);
         this.outputText("", true);
-        //First time
+        // First time
         if (this.flags[kFLAGS.ISABELLA_PROBOVA_BURP_COUNT] == 0) {
             if (this.isabellaAccent()) this.outputText('"<i>Vhat is zat, dear?</i>"', false);
             else this.outputText('"<i>What do you have there?</i>"', false);
@@ -2148,7 +2148,7 @@ Optional Morning Oral for small-membered males*/
                 false
             );
 
-            //put 'run' and 'help' buttons root hurr
+            // put 'run' and 'help' buttons root hurr
             this.simpleChoices(
                 "Run",
                 this.runAwayFromIzzyBurps,
@@ -2162,9 +2162,9 @@ Optional Morning Oral for small-membered males*/
                 undefined
             );
         }
-        //Repeat
+        // Repeat
         else {
-            //Repeat encounter (Z)
+            // Repeat encounter (Z)
             this.outputText(
                 "She chuckles heartily as you pull another Pro Bova from your inventory and hand it to her, and she takes it with only a moment's hesitation.  \"<i>",
                 false
@@ -2199,11 +2199,11 @@ Optional Morning Oral for small-membered males*/
         }
     }
 
-    //run
+    // run
     private runAwayFromIzzyBurps(): void {
         this.outputText("", true);
         this.spriteSelect(31);
-        //First time
+        // First time
         if (this.flags[kFLAGS.ISABELLA_PROBOVA_BURP_COUNT] == 0) {
             this.outputText(
                 "Allowing common sense to dictate your judgment, you step back from the dark-skinned woman, backing up until she stops waving at you.  She grimaces in an evident cross of pain and... pleasure?  Her cheeks are puffing up and chest, puffing out.  Despite yourself, you can't help but admire the way her 'udders' sit on her out-thrust torso, jiggling constantly from the tremors running through her body.  Finally, when she can't seem to hold herself back any longer, her mouth flies open as wide as you've ever seen it, a gigantic burp thundering out.  A visible misty cloud issues from her gaping gob, gaining volume and hovering ominously around her as subsequent belches ripple forth.  In an attempt to free all of the offending gas from her poor body, Isabella roughly squishes her midsection, wincing at each emission as she forces them out.\n\n",
@@ -2236,10 +2236,10 @@ Optional Morning Oral for small-membered males*/
                     "It seems my body rejected this 'Pro Bova' for one reason or another.</i>\"  No harm, no foul, you offer hopefully, and she nods.  \"<i>But make sure to seriously think before giving me a potion again!</i>\" she warns, waggling a foreboding finger your way.  You think back to that cloud of gas, and what the probable effect of such a thing would be in close proximity.  Even if you wanted to test that out, however, you'd need another Pro Bova...",
                     false
                 );
-            //Back to follower menu
+            // Back to follower menu
             this.doNext(this.callForFollowerIsabella);
         } else {
-            //outta there
+            // outta there
             this.outputText(
                 "Allowing common sense to dictate your actions, you step back from the dark-skinned woman while explaining your change of heart.  She nods her consent before cradling her churning gut, grimacing in discomfort and only a little guilty pleasure.  Her cheeks and chest predictably puff up.  You take the chance to admire her rack, the ponderous belly only accentuating the huge, beautiful bosom, jiggling constantly from the tremors running through her body.  Finally, when she can't seem to hold herself back any longer, her mouth flies open as wide as you've ever seen it, a gigantic burp thundering out.  A visible misty cloud issues from her gaping gob, gaining volume and hovering ominously around her as subsequent belches ripple forth.  In an attempt to free all of the offending gas from her poor body, Isabella roughly squishes her midsection, wincing at each emission as she forces them out.\n\n",
                 false
@@ -2264,12 +2264,12 @@ Optional Morning Oral for small-membered males*/
         }
     }
 
-    //help (ya dumbo)
+    // help (ya dumbo)
     private getIzzyBurped(): void {
         this.outputText("", true);
         this.spriteSelect(31);
         this.flags[kFLAGS.ISABELLA_PROBOVA_BURP_COUNT]++;
-        //First time
+        // First time
         if (this.flags[kFLAGS.ISABELLA_PROBOVA_BURP_COUNT] == 1) {
             this.outputText(
                 'You completely ignore the warning, immediately moving to help your cow-girl companion with her upset stomach problems. She casts a disbelieving look at you, vocally stumbling over a dozen different protests. Determined as you are, however, you dutifully rub her belly, intent on alleviating her pains.  "<i>You... you.... dummkopf! ',
@@ -2295,7 +2295,7 @@ Optional Morning Oral for small-membered males*/
             );
 
             var changed: boolean = false;
-            //no new paragraph, but this obviously shouldn't happen with characters who already have hooves, cow/bull horns, lactating breasts, or a penis smaller than 8 inches. If you want to simply disable the following for those with the first two while simply adding a 'more' to the lactation or an 'even smaller' to the wang growing, I don't blame you, but if you could go in and 'if cow feet don't look at this shit' and whatever with each individual part, it'd probably read the best. Your call, you probably want to get done with this sooner than later. tl;dr it would be cool if you could make it fit as many of the criteria that apply at once.
+            // no new paragraph, but this obviously shouldn't happen with characters who already have hooves, cow/bull horns, lactating breasts, or a penis smaller than 8 inches. If you want to simply disable the following for those with the first two while simply adding a 'more' to the lactation or an 'even smaller' to the wang growing, I don't blame you, but if you could go in and 'if cow feet don't look at this shit' and whatever with each individual part, it'd probably read the best. Your call, you probably want to get done with this sooner than later. tl;dr it would be cool if you could make it fit as many of the criteria that apply at once.
             if (
                 this.player.lowerBody != LOWER_BODY_TYPE_HOOFED ||
                 this.player.horns <= 0 ||
@@ -2307,7 +2307,7 @@ Optional Morning Oral for small-membered males*/
                 );
             }
             if (this.player.lowerBody != LOWER_BODY_TYPE_HOOFED) {
-                //[if no hooves present already]
+                // [if no hooves present already]
                 if (this.player.isTaur())
                     this.outputText(
                         "  Confused, you quickly inspect yourself before your gaze settles on your hooves – or should you say, your SINGLE PAIR of hooves.  Triggered by what you surmise are the Pro Bova's fumes, your centaur body has vanished, leaving you with a single pair of cow-like hooves.",
@@ -2326,7 +2326,7 @@ Optional Morning Oral for small-membered males*/
                     );
                 changed = true;
             }
-            //[if no cow horns present]
+            // [if no cow horns present]
             if (this.player.horns <= 0 || this.player.hornType != HORNS_COW_MINOTAUR) {
                 if (this.player.horns > 0 && this.player.hornType > HORNS_NONE)
                     this.outputText(
@@ -2345,7 +2345,7 @@ Optional Morning Oral for small-membered males*/
                 );
                 changed = true;
             }
-            //[if no cow ears]
+            // [if no cow ears]
             if (this.player.earType != EARS_COW) {
                 this.outputText(
                     "  Your ears wiggle a bit, then simply migrate higher up your head, lengthening and widening as they go.  Before you know it, you have cow ears.",
@@ -2353,7 +2353,7 @@ Optional Morning Oral for small-membered males*/
                 );
                 changed = true;
             }
-            //[if no cow tail]
+            // [if no cow tail]
             if (this.player.tailType != TAIL_TYPE_COW) {
                 if (this.player.tailType > TAIL_TYPE_NONE)
                     this.outputText(
@@ -2369,7 +2369,7 @@ Optional Morning Oral for small-membered males*/
                     );
                 changed = true;
             }
-            //([Female/herm: if breasts smaller than G-cup and not lactating a whole lot]
+            // ([Female/herm: if breasts smaller than G-cup and not lactating a whole lot]
             if (
                 this.player.hasVagina() &&
                 this.player.biggestTitSize() < 15 &&
@@ -2385,7 +2385,7 @@ Optional Morning Oral for small-membered males*/
                 );
                 changed = true;
             }
-            //([Female/herm: if breasts >G-cup and lactating]
+            // ([Female/herm: if breasts >G-cup and lactating]
             else if (this.player.hasVagina() && this.player.biggestLactation() >= 2) {
                 this.outputText(
                     "  Propped up as you are with your soft " +
@@ -2397,8 +2397,8 @@ Optional Morning Oral for small-membered males*/
                 );
                 changed = true;
             }
-            //both cases, flavor text
-            //[Male/herm: if penis <18 inches & testicles smaller than however long in diameter a baseball is]
+            // both cases, flavor text
+            // [Male/herm: if penis <18 inches & testicles smaller than however long in diameter a baseball is]
             if (this.player.hasCock() && this.player.longestCockLength() < 18) {
                 this.outputText(
                     "  A pressure builds in your crotch, at first subtle, then incredibly obnoxious to the point where you're forced to undo the lower portion of your " +
@@ -2420,7 +2420,7 @@ Optional Morning Oral for small-membered males*/
                     );
                 changed = true;
             }
-            //[if female/herm and player race not cow-girl]
+            // [if female/herm and player race not cow-girl]
             if (changed && this.player.hasVagina() && this.player.race() != "cow-girl") {
                 this.outputText(
                     '  "<i>Goodness, look at you!</i>" Isabella exclaims, waving away the remnant wisps of the gassy mist.  "<i>Surely, you\'re giving me a run for ',
@@ -2461,7 +2461,7 @@ Optional Morning Oral for small-membered males*/
                 }
                 this.outputText('</i>"\n\n', false);
             }
-            //[if male and player race not cowboy]
+            // [if male and player race not cowboy]
             else if (changed && this.player.hasCock() && this.player.race() != "cow-morph") {
                 this.outputText('  "<i>', false);
                 if (this.isabellaAccent())
@@ -2499,7 +2499,7 @@ Optional Morning Oral for small-membered males*/
                 }
                 this.outputText("\n\n", false);
             }
-            //[if no changes occurred]
+            // [if no changes occurred]
             else {
                 this.outputText(
                     '  Isabella stands, inspecting you curiously.  "<i>It seems ',
@@ -2516,14 +2516,14 @@ Optional Morning Oral for small-membered males*/
                         false
                     );
             }
-            //'sorry for burping in your face bro'
+            // 'sorry for burping in your face bro'
             this.outputText(
                 'For a while the busty woman simply shuffles from hoof to hoof, kicking the ground and fiddling with her hair.  "<i>... I suppose an apology is in order,</i>" she finally mumbles between pursed and pouty lips.  She approaches slowly, but in lieu of any actual begs of forgiveness, she slips a hand around your head and brings you in for a lingering smooch.  Her eyes twinkle with undeniable lust as she slowly draws back, tongue licking up the small bridge of drool between your lips.  "<i>Do you accept my apology?</i>" she asks wryly.\n\n',
                 false
             );
             if (changed) this.player.createStatusAffect(StatusAffects.BurpChanged, 0, 0, 0, 0);
         } else {
-            //let's go Izzy I can dig it
+            // let's go Izzy I can dig it
             this.outputText(
                 'You get in close, nuzzling against your cow-girl lover as you wait for the inevitable.  Playfully, you press a hand against her bloated belly, slipping a little eruction and a feigned huff of exasperation from her.  "<i>Wait your - urp - turn!</i>" she scolds, the act of speaking forcing another preemptive burp from her depths.\n\n',
                 false
@@ -2539,7 +2539,7 @@ Optional Morning Oral for small-membered males*/
                 false
             );
 
-            //if meets any requirements for cow-y TF
+            // if meets any requirements for cow-y TF
             if (
                 this.player.lowerBody != LOWER_BODY_TYPE_HOOFED ||
                 this.player.horns <= 0 ||
@@ -2568,14 +2568,14 @@ Optional Morning Oral for small-membered males*/
                         false
                     );
             }
-            //if all requirements already filled (already a busty cow-girl/well-endowed cowboy)
+            // if all requirements already filled (already a busty cow-girl/well-endowed cowboy)
             else
                 this.outputText(
                     "Predictably, her sweet-smelling fumes do nothing but further exacerbate your sex-drive, and from the look in her eyes, she's looking forward to it.\n\n",
                     false
                 );
 
-            //'sorry for burping in your face bro'
+            // 'sorry for burping in your face bro'
             this.outputText(
                 'Isabella smiles and draws you in for a smooth.  "<i>I suppose I should really apologize again,</i>" she muses as she slowly draws back, tongue licking up the small bridge of drool between your lips.  "<i>Do you accept my apology?</i>" she asks wryly.',
                 false
@@ -2583,7 +2583,7 @@ Optional Morning Oral for small-membered males*/
         }
         this.doYesNo(this.acceptCowpology, this.declineIzzysCowBurpApology);
     }
-    //no
+    // no
     private declineIzzysCowBurpApology(): void {
         this.outputText("", true);
         this.spriteSelect(31);
@@ -2600,7 +2600,7 @@ Optional Morning Oral for small-membered males*/
                 this.player.removeStatusAffect(StatusAffects.BurpChanged);
             }
         }
-        //no
+        // no
         else {
             this.outputText(
                 "Despite your strangely inspired lust, you turn the cow-girl down.  Though crestfallen, she takes the news well, apologizing - sincerely and soberly - once more before moving back to her designated camping spot.  Happily, after about an hour, you get back to normal.",
@@ -2610,16 +2610,16 @@ Optional Morning Oral for small-membered males*/
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //yes
+    // yes
     private acceptCowpology(): void {
         this.outputText("", true);
         this.spriteSelect(31);
-        //Clear burps!
+        // Clear burps!
         if (this.player.findStatusAffect(StatusAffects.BurpChanged) >= 0)
             this.player.removeStatusAffect(StatusAffects.BurpChanged);
         this.player.orgasm();
         this.dynStats("sen", -1);
-        //FIRST TIME
+        // FIRST TIME
         if (this.flags[kFLAGS.ISABELLA_PROBOVA_BURP_COUNT] == 1) {
             this.outputText(
                 "Flashing a smirk, you beckon her your way, stripping from your " +
@@ -2627,7 +2627,7 @@ Optional Morning Oral for small-membered males*/
                     ".  With delicate and deliberate motions you pull the hem of Isabella's milk-stained blouse down, reaching into the depths of her cleavage and taking hold of her oversized breasts.  It takes effort to heave the heavy, fluid-filled mammaries up and out of her shirt.  Once exposed to the open air, her quadruplet of nipples twitch and stiffen, only swelling further as you alternatingly tease her teats with the edge of your fingernail.  You trace little circles along the areola, running up and over the nubs; your gentle-but-devastating caressing technique sets Isabella all a-shiver, knees knocking together in hardly-contained ecstasy.  If given enough time, you figure you could push the cow-girl to climax merely from nipple stimulation, but your own body demands satisfaction as well.\n\n",
                 false
             );
-            //male: titjoob (Z)
+            // male: titjoob (Z)
             if (this.player.hasCock()) {
                 this.outputText(
                     "Figuring to put your oversized organ to use, you pull Isabella's tits apart and slap your hard length between them.  As soon as she figures out your intentions, the cow-girl moves to take over, mashing her pillowy endowments together around your maleness.  Perhaps it was from the gas, but what should be a simple titty-fuck is driving you insane with pleasure; her warm, sweaty boob flesh contours to the curves of your shaft and head as well as any pussy.  You can't help yourself – you begin to pump your hips, your tip poking out to dance tantalizingly above Isabella's face before withdrawing, only to peek out again seconds later.  The cow-girl smiles and opens wide, her long tongue slithering free from its shelter.\n\n",
@@ -2678,7 +2678,7 @@ Optional Morning Oral for small-membered males*/
                         false
                     );
             }
-            //female: mutual boob suck-a suck-a
+            // female: mutual boob suck-a suck-a
             else {
                 this.outputText(
                     "Isabella decides to take the initiative, hefting one of your own breasts and dragging it to her mouth.  The feeling of her puffy lips closing around your already-sensitive nipple sets you back on your heels.  Determined to not allow her to get the upper hand, you open wide and engulf her four milk-leaking nubs.  The two of you go at it like a contest, sucking one breast while kneading the other.  Her blush darkens as the showoff continues, but her arousal doesn't really register with you until your thigh brushes against hers.  A ponderous amount of liquid arousal smears against your " +
@@ -2710,7 +2710,7 @@ Optional Morning Oral for small-membered males*/
                 );
             }
         }
-        //REPEAT
+        // REPEAT
         else {
             this.outputText(
                 "Flashing a smirk, you beckon her your way, stripping from your " +
@@ -2718,7 +2718,7 @@ Optional Morning Oral for small-membered males*/
                     ".  With delicate and deliberate motions you pull the hem of Isabella's milk-stained blouse down, reaching into the depths of her cleavage and taking hold of her oversized breasts.  It takes effort to heave the heavy, fluid-filled mammaries up and out of her shirt.  Once exposed to the open air, her quadruplet of nipples twitch and stiffen, only swelling further as you alternatingly tease her teats with the edge of your fingernail.  You trace little circles along the areola, running up and over the nubs; your gentle-but-devastating caressing technique sets Isabella all a-shiver, knees knocking together in hardly-contained ecstasy.  If given enough time, you figure you could push the cow-girl to climax merely from nipple stimulation, but your own body demands satisfaction as well.\n\n",
                 false
             );
-            //male
+            // male
             if (
                 this.player.hasCock() &&
                 (!this.player.hasVagina() || IsabellaFollowerScene.rand(2) == 0)
@@ -2772,7 +2772,7 @@ Optional Morning Oral for small-membered males*/
                         false
                     );
             }
-            //female
+            // female
             else {
                 this.outputText(
                     "Isabella decides to take the initiative, hefting one of your own breasts and dragging it to her mouth.  The feeling of her puffy lips closing around your already-sensitive nipple sets you back on your heels.  Determined to not allow her to get the upper hand, you open wide and engulf her four milk-leaking nubs.  The two of you go at it like a contest, sucking one breast while kneading the other.  Her blush darkens as the showoff continues, but her arousal doesn't really register with you until your thigh brushes against hers.  A ponderous amount of liquid arousal smears against your " +
@@ -2807,7 +2807,7 @@ Optional Morning Oral for small-membered males*/
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Get Licked in Return (seems incompatible with centaurs/driders due to lap-sitting)
+    // Get Licked in Return (seems incompatible with centaurs/driders due to lap-sitting)
     public receiveAllTheCowTOngues(): void {
         this.clearOutput();
         this.spriteSelect(31);
@@ -2905,22 +2905,22 @@ Optional Morning Oral for small-membered males*/
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Ey bitch u wan sum fuk? (Or, how Isabella learned to love the dick regardless of size and shape) (Z)
+    // Ey bitch u wan sum fuk? (Or, how Isabella learned to love the dick regardless of size and shape) (Z)
     private fuckIsabella(): void {
         this.clearOutput();
         this.spriteSelect(31);
-        //AREA FOR SCENE ACCESS: (164);
+        // AREA FOR SCENE ACCESS: (164);
         var x: number = this.player.shortestCockIndex();
         if (this.player.cocks[x].cockLength >= 9) x = this.player.cockThatFits(164);
         var y: number = x + 1;
 
-        //{New Option in Isabella's [Sex] Menu: [Fuck Her]} -- Requires sex-ready lust & a cock she is capable of taking
+        // {New Option in Isabella's [Sex] Menu: [Fuck Her]} -- Requires sex-ready lust & a cock she is capable of taking
         this.outputText(
             "You ask Isabella if she wouldn't mind helping you blow off some steam; it's evident for anyone to see that you're flushed with arousal, your [cock " +
                 y +
                 "] straining against the material of your [armor].  Looking at the state of you, Isabella "
         );
-        //[if cock in her size:
+        // [if cock in her size:
         if (this.player.cocks[x].cockLength < 9)
             this.outputText(
                 "pulls your small [cockFit " +
@@ -2941,7 +2941,7 @@ Optional Morning Oral for small-membered males*/
                 );
         }
 
-        //{If cock within her \"<i>I likes me some shota</i>\" range}
+        // {If cock within her \"<i>I likes me some shota</i>\" range}
         if (this.player.cocks[x].cockLength < 9) {
             if (this.isabellaAccent()) this.outputText('\n\n"<i>Oh, ja!</i>"');
             else this.outputText('\n\n"<i>Oh, yeah!</i>"');
@@ -2957,7 +2957,7 @@ Optional Morning Oral for small-membered males*/
                     '"<i>You\'ve got just the cutest little cock, [name]... how could I say no?</i>"'
                 );
         }
-        //{If cock bigger than she likes}
+        // {If cock bigger than she likes}
         else {
             this.outputText(
                 "\n\nYou urge her to reconsider, saying you really need to get off, and you're sure she's got some lust built up of her own... \"<i>Eh,</i>\" the big red-head says, looking sharply away.  "
@@ -3003,7 +3003,7 @@ Optional Morning Oral for small-membered males*/
         this.outputText(
             "\n\nYou slide your dick across her entrance, coating yourself in her slick lubricants in preparation.  Again the cow-girl bellows loudly as you slip your shaft into her, stretching her pussy-lips into a warm embrace.  "
         );
-        //[(dick fitzwell)
+        // [(dick fitzwell)
         if (this.player.cockArea(x) < 80)
             this.outputText(
                 "Ordinarily tight, Isabella is practically soaked with lube, making the effort to cram your cock into her an easy task; soon your hips are pressed against her raised ass, her thick thighs wrapped around your body.  "
@@ -3038,7 +3038,7 @@ Optional Morning Oral for small-membered males*/
         this.outputText(
             "You give Isabella a final swat on the ass, and laugh as the haughty cow-girl collapses in the pool of spunk and femcum you've made beneath her, utterly exhausted."
         );
-        //{If Izzy's favorite cocksize:}
+        // {If Izzy's favorite cocksize:}
         if (this.player.cocks[x].cockLength < 9) {
             if (this.isabellaAccent())
                 this.outputText(
@@ -3064,10 +3064,10 @@ Optional Morning Oral for small-membered males*/
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Isabella at the Farm
-    //Savin
-    //Introduction
-    //(Chance to play when you EXPLORE the farm after Isabella moves to camp)
+    // Isabella at the Farm
+    // Savin
+    // Introduction
+    // (Chance to play when you EXPLORE the farm after Isabella moves to camp)
     public findIzzyMilking(): void {
         this.clearOutput();
         this.outputText(
@@ -3076,12 +3076,12 @@ Optional Morning Oral for small-membered males*/
 
         this.menu();
         this.flags[kFLAGS.FOUND_ISABELLA_AT_FARM_TODAY] = 1;
-        //[Fuck her] [Leave]
+        // [Fuck her] [Leave]
         this.addButton(0, "Fuck Her", this.fuckIsabellaInTheBarn);
         this.addButton(4, "Leave", this.camp.returnToCampUseOneHour);
     }
 
-    //Fuck Her (Male/Dick'd Herms)
+    // Fuck Her (Male/Dick'd Herms)
     private fuckIsabellaInTheBarn(): void {
         var x: number = this.player.biggestCockIndex();
         this.clearOutput();
@@ -3164,7 +3164,7 @@ Optional Morning Oral for small-membered males*/
             "\n\nYour fingers dive in easily, but without warning.  Isabella throws her head back, crying out with surprise and ecstasy.  In an instant, your digits are buried in her up to the last knuckle, easily spreading her asshole apart so that your thumb can plunge in at the same time your whole tongue invades her slit, filling her completely and from two sides.  With your sudden, unexpected double penetration, Isabella's entire body clenches, barely holding back the floodgates.  It takes only a few quick, potent thrusts into her backside to send her screaming over, her operatic voice reverberating through the barn as she climaxes, clenching down hard upon your fingers and tongue.  With a smile, you make to help her through it, roughly finger-fucking her behind as your face is drenched in a liberal coating of femcum."
         );
 
-        //[Next]
+        // [Next]
         this.menu();
         this.addButton(0, "Next", this.isabellaBarnFuckPartII);
     }
@@ -3182,7 +3182,7 @@ Optional Morning Oral for small-membered males*/
         this.outputText(
             '\n\n"<i>Oh, [name]...</i>" the cowgirl groans as a single languid movement of your hips brings your [cock smallest] to her eager fuckhole, your crown just passing between her lips to kiss the warm mouth of her cunny.  Isabella takes hold of your shoulders, further burying your face into her pillowy bosom as her fur-covered thighs wrap around your [hips], urging you ever onward, her legs pushing another inch of your prick into her.  You get the hint and start easing into her, letting Isabella\'s powerful legs guide you in, ushering your [cock smallest] into her warm, welcoming vaginal embrace.'
         );
-        //{If small/Isabella-sized cock}
+        // {If small/Isabella-sized cock}
         if (this.player.cocks[this.player.smallestCockIndex()].cockLength < 9) {
             this.outputText(
                 "  You slide easily into her, until your [hips] press into Isabella's thighs, your groins joined together.  "
@@ -3193,7 +3193,7 @@ Optional Morning Oral for small-membered males*/
                     '"<i>Mmm, that\'s a nice fit,</i>"  Isabella sighs, her vaginal muscles gently caressing your shaft.'
                 );
         }
-        //{If medium cock}
+        // {If medium cock}
         else if (this.player.smallestCockArea() < 40) {
             this.outputText(
                 "  Your cock enters her, stretching Isabella's walls apart until your [cock smallest] comes to caress the closed mouth of her cervix, eagerly brushing up against the entrance to her womb.  "
@@ -3202,7 +3202,7 @@ Optional Morning Oral for small-membered males*/
             else this.outputText('"<i>It\'s so big,</i>"');
             this.outputText(" Isabella grunts, her cunt already working hard to milk your prick.");
         }
-        //{If big fucking cock}
+        // {If big fucking cock}
         else {
             this.outputText(
                 "  Isabella bites her lip as your oversized prick stretches her wide, whimpering that you'll tear her apart as your [cock smallest] pushes into her womb, her cervical lips clamping hard around your first inches of thick cockflesh.  \"<i>Aaaaahhhhhh, "

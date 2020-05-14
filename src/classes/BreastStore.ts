@@ -20,7 +20,7 @@ export class BreastStore extends Utils implements SaveAwareInterface {
     private _breastFlag: number;
     private _cupSize: number = 0;
     private _fullness: number = 0; //How much milk the breasts currently hold - use milkQuantity to decide how much milk is produced in a scene
-    //The milkIsFull and milkIsOverflowing functions let you know how much the NPC wants to be milked
+    // The milkIsFull and milkIsOverflowing functions let you know how much the NPC wants to be milked
     private _lactation: number = 0; //How fast the breasts refill with milk
     private _nippleLength: number = 0;
     private _timesMilked: number = 0; //How many times has this NPC been milked - only used internally
@@ -40,16 +40,16 @@ export class BreastStore extends Utils implements SaveAwareInterface {
             );
     }
 
-    //Implementation of SaveAwareInterface
+    // Implementation of SaveAwareInterface
     public updateAfterLoad(game: CoC): void {
         if (this._breastFlag < 1 || this._breastFlag > BreastStore.MAX_FLAG_VALUE) return;
         var flagData: any[] = String(game.flags[this._breastFlag]).split("^");
         if (flagData.length < 9) {
-            //Loading from a file that doesn't contain appropriate save data.
-            //Values will either have to be assigned in Saves.unFuckSave() or by the first encounter with this NPC
+            // Loading from a file that doesn't contain appropriate save data.
+            // Values will either have to be assigned in Saves.unFuckSave() or by the first encounter with this NPC
             return;
         }
-        //For now there's no need to check the version. If this class is ever updated to save more the version will become useful.
+        // For now there's no need to check the version. If this class is ever updated to save more the version will become useful.
         this.rows = Math.floor(flagData[1]);
         this.cupSize = Math.floor(flagData[2]);
         this.lactationLevel = Math.floor(flagData[3]);
@@ -81,7 +81,7 @@ export class BreastStore extends Utils implements SaveAwareInterface {
             "^" +
             this.preventLactationDecrease;
     }
-    //End of Interface Implementation
+    // End of Interface Implementation
 
     public static breastDescript(size: number, lactation: number = 0): string {
         if (size < 1) return "flat breasts";
@@ -130,7 +130,7 @@ export class BreastStore extends Utils implements SaveAwareInterface {
         if (value < BreastStore.LACTATION_DISABLED) value = BreastStore.LACTATION_DISABLED;
         if (value > BreastStore.LACTATION_EPIC) value = BreastStore.LACTATION_EPIC;
         if (this._lactation <= BreastStore.LACTATION_NONE && value >= BreastStore.LACTATION_LIGHT) {
-            //Lactation is just starting - zero the other vars involved
+            // Lactation is just starting - zero the other vars involved
             this._fullness = 0;
             this._timesMilked = 0;
         }
@@ -139,10 +139,10 @@ export class BreastStore extends Utils implements SaveAwareInterface {
 
     public advanceTime(): void {
         if (this._lactation <= BreastStore.LACTATION_NONE) return;
-        //Add to breastFullness and possibly adjust lactationLevel. Even when lactationLevel == LACTATION_NONE this is still doing something useful, adjusting _breastTimesMilked
+        // Add to breastFullness and possibly adjust lactationLevel. Even when lactationLevel == LACTATION_NONE this is still doing something useful, adjusting _breastTimesMilked
         this._fullness += BreastStore.LACTATION_BOOST[this._lactation]; //Higher lactation means faster refill
         if (this._fullness > 60 + 20 * BreastStore.LACTATION_BOOST[this._lactation]) {
-            //100 at LACTATION_LIGHT, 180 at LACTATION_EPIC - fullness over this value is overloaded, lactation may be reduced
+            // 100 at LACTATION_LIGHT, 180 at LACTATION_EPIC - fullness over this value is overloaded, lactation may be reduced
             this._fullness = 50; //This way fullness won't immediately hit the limit again
             if (this._timesMilked >= 5) {
                 this._timesMilked -= 5; //If enough milkings have occured then don't reduce lactation level right away
@@ -238,7 +238,7 @@ export class BreastStore extends Utils implements SaveAwareInterface {
     }
 
     public milked(): boolean {
-        //Returns true if this milking increased the NPC's lactationLevel
+        // Returns true if this milking increased the NPC's lactationLevel
         this._fullness = 0;
         this._timesMilked++;
         if (this.preventLactationIncrease == this._lactation) return false;
@@ -261,10 +261,10 @@ export class BreastStore extends Utils implements SaveAwareInterface {
                 if (this._timesMilked < 20) return false;
                 break;
             default:
-                //No amount of suckling will increase lactation levels for this NPC
+                // No amount of suckling will increase lactation levels for this NPC
                 return false;
         }
-        //Only reach this point if the NPC has been milked enough times to justify increasing their milk production
+        // Only reach this point if the NPC has been milked enough times to justify increasing their milk production
         this._timesMilked = 5;
         this.lactationLevel++;
         return true;
@@ -280,8 +280,8 @@ export class BreastStore extends Utils implements SaveAwareInterface {
             : this._fullness >= 60 + 5 * BreastStore.LACTATION_BOOST[this._lactation]; //Probably pretty desperate to be milked by this point
     }
 
-    //At fullness == 50 the maximum amount of milk is produced. When overfull, lactation level is reduced and fullness drops to 50.
-    //So a higher lactationLevel means more milk is produced and the breasts can stay full without drying up for longer. Will always return 0 if not lactating
+    // At fullness == 50 the maximum amount of milk is produced. When overfull, lactation level is reduced and fullness drops to 50.
+    // So a higher lactationLevel means more milk is produced and the breasts can stay full without drying up for longer. Will always return 0 if not lactating
     public milkQuantity(): number {
         if (this._lactation <= BreastStore.LACTATION_NONE) return 0;
         return (

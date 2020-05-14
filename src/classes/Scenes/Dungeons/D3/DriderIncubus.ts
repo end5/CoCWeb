@@ -142,7 +142,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
 
     private _hpGains: number = 0;
     private gainHpAndLust(): void {
-        //Heals 10% of HP but raises lust by 8.
+        // Heals 10% of HP but raises lust by 8.
 
         this.addHP(this.eMaxHP() * 0.1);
         this.lust += 8;
@@ -176,7 +176,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
     }
 
     private dropHpAndLust(): void {
-        //-8% of max HP, -10 lust.
+        // -8% of max HP, -10 lust.
 
         this.HP -= this.eMaxHP() * 0.08;
         this.lust -= 10;
@@ -187,8 +187,8 @@ export class DriderIncubus extends AbstractSpiderMorph {
     }
 
     private spearStrike(): void {
-        //Always does this once plus another physical attack when physically attacking
-        //Drider’s spear ignores armor and toughness completely.
+        // Always does this once plus another physical attack when physically attacking
+        // Drider’s spear ignores armor and toughness completely.
         this.outputText("The drider rears back, lancing out with his spear.");
 
         var damage: number = (this.str + this.weaponAttack) * 0.4;
@@ -208,7 +208,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
     private bite(): void {
         var amount: number;
 
-        //Inflicts venom that reduces strength.
+        // Inflicts venom that reduces strength.
         if (
             this.player.findStatusAffect(StatusAffects.Stunned) >= 0 ||
             (this.player.spe <= 1 && this.player.findStatusAffect(StatusAffects.Web) >= 2)
@@ -229,7 +229,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
             DriderIncubus.showStatDown("str");
             this.player.addStatusValue(StatusAffects.DriderIncubusVenom, 2, amount);
 
-            //Alternate if PC cannot move
+            // Alternate if PC cannot move
             this.outputText(
                 "Taking his time, the arachnid demon bares his fangs, easily biting deeply into you. His tongue slides sensually around the wounds as he pumps you full of venom, tasting your fear and desperation. You wince while the venom robs you of your strength."
             );
@@ -247,13 +247,13 @@ export class DriderIncubus extends AbstractSpiderMorph {
                 "Twisting over, the arachnid demon bares his fangs, attempting to bite you!"
             );
 
-            //Dodge
+            // Dodge
             if (this.combatMisdirect()) this.outputText(" You misdirect his venomous strike!");
             else if (this.combatEvade()) this.outputText(" You evade his venomous strike!");
             else if (this.combatMiss() || this.combatFlexibility())
                 this.outputText(" You avoid his venomous strike!");
             else {
-                //Hits
+                // Hits
                 this.outputText(
                     " Those needle-like canines punch into you, delivering their venomous payload! You already feel weaker, your muscles not responding as effectively."
                 );
@@ -298,7 +298,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
 
             if (damage > 0) {
                 damage = this.player.takeDamage(damage);
-                //Hit
+                // Hit
                 this.outputText(
                     " You go flying back into a pair of oiled-up slavegirls. They gasp in surprise as you tear your way back to the fight. Too late, they attempt to caress you, barely touching your [leg] before you’re back in the fight. (" +
                         damage +
@@ -311,12 +311,12 @@ export class DriderIncubus extends AbstractSpiderMorph {
     }
 
     private stunningSpear(): void {
-        //Used every six rounds, starting on the third (if he’s still in physical mode, of course)
+        // Used every six rounds, starting on the third (if he’s still in physical mode, of course)
         this.outputText(
             "Twirling his weapon until it appears a blurred disc, the drider pivots, bringing the haft around at your head!"
         );
 
-        //Dodge
+        // Dodge
         if (this.combatMiss() || this.combatFlexibility()) {
             this.outputText(" You duck in the nick of time.");
         } else if (this.combatMisdirect()) {
@@ -333,7 +333,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
 
             if (damage > 0) {
                 damage = this.player.takeDamage(damage);
-                //Hit
+                // Hit
                 this.outputText(
                     " You don’t feel the impact, but you do hear the crack of wood striking"
                 );
@@ -360,12 +360,12 @@ export class DriderIncubus extends AbstractSpiderMorph {
     }
 
     private doubleStrike(): void {
-        //Uses another strike like his normal one with a different intro
+        // Uses another strike like his normal one with a different intro
         this.outputText(
             "He skitters forward and presses his attack, stabbing out with his spear once more."
         );
 
-        //Use hit/dodge messages from above.
+        // Use hit/dodge messages from above.
         var damage: number =
             this.str + this.weaponAttack + 10 - DriderIncubus.rand(this.player.tou);
 
@@ -382,7 +382,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
     }
 
     private arouseSpell(): void {
-        //Like the imp one!
+        // Like the imp one!
 
         this.outputText(
             "The demonic drider mutters incomprehensible words that tickle at the back of your mind. Profane syllable mounts profane syllable until his mouth seems buried under the weight of the cacophony of corruption. His filth builds to a crescendo, and with a confident, arrogant gaze, he directs it at you."
@@ -410,8 +410,8 @@ export class DriderIncubus extends AbstractSpiderMorph {
     }
 
     private taintedMind(): void {
-        //Prevents use of attack, bow, other physical type stuff
-        //Lasts 4 rounds? Iunno. Tune to adjust difficulty.
+        // Prevents use of attack, bow, other physical type stuff
+        // Lasts 4 rounds? Iunno. Tune to adjust difficulty.
         this.outputText(
             "<i>“You fight well, for a mortal... but can you fight like a demon?”</i> He claps his hands together, bathing the immediate area in a wave of energy. Some of the nearby slaves cry out in alarm, then settle into giggling, cooing messes. You don’t seem any worse for the wear in its wake, though something feels wrong about holding your [weapon]."
         );
@@ -430,7 +430,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
         this.game.dynStats("lus", 15);
     }
 
-    //On same round timer as physical stun
+    // On same round timer as physical stun
     private constrictingThoughts(): void {
         this.outputText(
             "<i>“Try this on for size!”</i> the corrupted arachnid shouts, waving his hand in your direction."
@@ -439,12 +439,12 @@ export class DriderIncubus extends AbstractSpiderMorph {
             "\n\nDisjointed, erotic thoughts claw at your mind’s defenses, worming their way in through what cracks they find, plunging sensuous fantasies of every shape and size in place of your own imaginings."
         );
 
-        //Resist, no new line
+        // Resist, no new line
         if (this.player.findPerk(PerkLib.Resolute) >= 0) {
             this._seenResolute = true;
             this.outputText(" You marshal your mental discipline and discard the errant thoughts.");
         }
-        //Elsewise
+        // Elsewise
         else {
             this.outputText(
                 " The intensity overwhelms your ability to act, arousing and stunning you."
@@ -457,12 +457,12 @@ export class DriderIncubus extends AbstractSpiderMorph {
     private _seenResolute: boolean = false;
 
     private purpleHaze(): void {
-        //Blinds 2-3 turns
+        // Blinds 2-3 turns
         this.outputText(
             "<i>“Try this on for size!”</i> The drider gestures in your direction, gathering his will into a palpable force. It presses on your mind like a coiled snake, crushing down on you from all sides."
         );
 
-        //Avoid
+        // Avoid
         // 9999, scale avoidance off lust/lib/corr?
         if (this.player.findPerk(PerkLib.Resolute) >= 0 || DriderIncubus.rand(3) >= 0) {
             if (this.player.findPerk(PerkLib.Resolute) >= 0) this._seenResolute = true;
@@ -470,7 +470,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
                 " You flex your considerable will and feel the concentrated mental filth slough off. Whatever his attack was, it failed!"
             );
         } else {
-            //Fail
+            // Fail
             this.outputText(
                 " You concentrate to try and throw it off, but he overwhelms your mental defenses. Clouds of swirling pink filled with unsubtle erotic silhouettes fill your vision, effectively blinding you!"
             );
@@ -507,13 +507,13 @@ export class DriderIncubus extends AbstractSpiderMorph {
         );
         this.lust += 5;
 
-        //Didn’t max lust
+        // Didn’t max lust
         if (this.lust <= 100) {
             this.outputText(
                 "\n\nThe drider skitters back, the motion dropping the goblin to her knees. Her tongue stretches taut a long moment, then slips from his shaft, snapping back into her mouth hard enough to make her recoil. Both parties look disappointed with the outcome, none moreso than the goblin. Fortunately for her, she’ll get another chance - the drider is focusing on you once more."
             );
         }
-        //Maxxed lust
+        // Maxxed lust
         else {
             this.outputText(
                 "\n\nThe drider attempts to skitter back, but his legs are shaking to hard for proper movement. He looks longingly at his love slave, forgetting you for the moment."
@@ -540,7 +540,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
             );
             this._goblinWebChain = true;
         }
-        //Already nip-chained
+        // Already nip-chained
         else {
             this.outputText(
                 "\n\nThe goblin slave-girl shimmies and shakes once more, her arms pressing in on her tits from both sides to make the jiggling, web-painted mounds dance. Her eyes smoulder with desire, and her wanton smile promises nothing but hours of unending lewdness to her master. He does a double-take at the sight of it."
@@ -555,7 +555,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
         return this._goblinOiled;
     }
     private babyOilMeUp(): void {
-        //1x only.
+        // 1x only.
         this.outputText(
             "Darting into the crowd, the goblin comes back with a bottle of unusual shape and design. She pops the cork and upends it across her petite but all-too-stacked form, smearing it across her more-than-ample tits with one hand, making them shine in the flickering candlelight. Her eyes are bright and mischievous while she spreads it over the rest of her form, leaving the whole of her body slick and ready for love."
         );

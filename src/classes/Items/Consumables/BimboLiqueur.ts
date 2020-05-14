@@ -48,7 +48,7 @@ export class BimboLiqueur extends Consumable {
                 );
                 this.game.player.breastRows[0].breastRating = 7;
             }
-            //(If vagina = 2tight:
+            // (If vagina = 2tight:
             if (!this.game.player.hasVagina()) {
                 this.outputText(
                     "  Before you can even take a breath, an extremely peculiar sensation emanates from your crotch.  You can't see through your " +
@@ -263,14 +263,14 @@ export class BimboLiqueur extends Consumable {
             }
             this.game.player.orgasm();
             this.game.dynStats("int", -1, "lib", 4, "sen", 25);
-            //FULL ON BITCHFACE
+            // FULL ON BITCHFACE
             this.game.player.modFem(100, 100);
-            //Body
-            //Tease/Seduce Boost
-            //*boosts min lust and lust resistance)
-            //*Tit size
-            //Brain
-            //Max int - 50
+            // Body
+            // Tease/Seduce Boost
+            // *boosts min lust and lust resistance)
+            // *Tit size
+            // Brain
+            // Max int - 50
         }
         this.game.player.genderCheck();
         return false;

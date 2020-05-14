@@ -21,19 +21,19 @@ import { Harpy } from "../Areas/HighMountains/Harpy";
  */
 
 export class Sophie extends Harpy {
-    //Combat Attacks
-    //ON DICK'ED PCz
-    //Kiss (Only used on males) - +10 lust on kiss.  25% chance
-    //per round of increasing lust by 20.  Repeat kisses add
-    //+20 lust.  Each kiss adds 2 hours to length of status
-    //affect.
+    // Combat Attacks
+    // ON DICK'ED PCz
+    // Kiss (Only used on males) - +10 lust on kiss.  25% chance
+    // per round of increasing lust by 20.  Repeat kisses add
+    // +20 lust.  Each kiss adds 2 hours to length of status
+    // affect.
     private sophieKissAttack(): void {
         this.game.sophieBimbo.sophieSprite();
         this.outputText(
             "Sophie bobs and weaves as she closes the distance between you in an instant.  ",
             false
         );
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Sophie.rand(3) < 2) {
             this.outputText(
                 this.capitalA +
@@ -43,7 +43,7 @@ export class Sophie extends Harpy {
             );
             return;
         }
-        //Determine if dodged!
+        // Determine if dodged!
         if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
@@ -54,7 +54,7 @@ export class Sophie extends Harpy {
             );
             return;
         }
-        //Determine if evaded
+        // Determine if evaded
         if (this.player.findPerk(PerkLib.Evade) >= 0 && Sophie.rand(100) < 10) {
             this.outputText(
                 "Using your skills at evading attacks, you anticipate and sidestep " +
@@ -79,7 +79,7 @@ export class Sophie extends Harpy {
             );
             return;
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Sophie.rand(100) < 6) {
             this.outputText(
                 "With your incredible flexibility, you squeeze out of the way of " +
@@ -91,13 +91,13 @@ export class Sophie extends Harpy {
             this.outputText("'s attack.\n", false);
             return;
         }
-        //YOU GOT HIT SON
+        // YOU GOT HIT SON
         this.outputText(
             "Before you can react, she gives you a chaste peck on the lips.  The harpy pulls back with a sultry smile, watching you expectantly.",
             false
         );
 
-        //Already affected by it
+        // Already affected by it
         if (this.player.findStatusAffect(StatusAffects.Luststick) >= 0) {
             this.outputText(
                 "  Blood rushes to " +
@@ -171,11 +171,11 @@ export class Sophie extends Harpy {
         }
     }
 
-    //Harpy-Boating (Only used on males)
-    //Takes off and flies directly at PC, locking her hips
-    //around PC's torso and smothering the PC with breasts
-    //for a few moments.
-    //Easily dodged with evade or flexibility.
+    // Harpy-Boating (Only used on males)
+    // Takes off and flies directly at PC, locking her hips
+    // around PC's torso and smothering the PC with breasts
+    // for a few moments.
+    // Easily dodged with evade or flexibility.
     private sophieHarpyBoatsPC(): void {
         this.game.sophieBimbo.sophieSprite();
         this.outputText(
@@ -184,7 +184,7 @@ export class Sophie extends Harpy {
                 " flaps her wings and launches herself forwards with her talons up.  ",
             false
         );
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Sophie.rand(3) < 2) {
             this.outputText(
                 this.capitalA +
@@ -194,7 +194,7 @@ export class Sophie extends Harpy {
             );
             return;
         }
-        //Determine if dodged!
+        // Determine if dodged!
         if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
@@ -207,7 +207,7 @@ export class Sophie extends Harpy {
             );
             return;
         }
-        //Determine if evaded
+        // Determine if evaded
         if (this.player.findPerk(PerkLib.Evade) >= 0 && Sophie.rand(100) < 60) {
             this.outputText(
                 "Using your skills at evading attacks, you determine " +
@@ -232,7 +232,7 @@ export class Sophie extends Harpy {
             );
             return;
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Sophie.rand(100) < 40) {
             this.outputText(
                 "With your incredible flexibility, you squeeze out of the way of " +
@@ -244,7 +244,7 @@ export class Sophie extends Harpy {
             this.outputText("'s attack.\n", false);
             return;
         }
-        //YOU GOT HIT SON
+        // YOU GOT HIT SON
         this.outputText(
             "She hits you hard, nearly bowling you over.  Thankfully, her talons passed to either side of your torso.  They lock together behind your back and your face is pulled tightly into Sophie's smotheringly large mounds!",
             false
@@ -262,16 +262,16 @@ export class Sophie extends Harpy {
         this.game.dynStats("lus", 13 + this.player.sens / 10);
     }
 
-    //Compulsion (Male Only)
+    // Compulsion (Male Only)
     private sophieCompulsionAttack(): void {
         this.game.sophieBimbo.sophieSprite();
         this.outputText(
             'Sophie spreads her thick thighs and slips four fingers into her slippery sex.  She commands, "<i>Touch yourself for me.  Be a good pet and masturbate for me.</i>"  ',
             false
         );
-        //Autosucceeds if player inte < 40
-        //autofails if player inte > 80
-        //Player fails:
+        // Autosucceeds if player inte < 40
+        // autofails if player inte > 80
+        // Player fails:
         if (
             this.player.inte < 40 ||
             (this.player.inte < 80 && Sophie.rand(40) > this.player.inte - 40)
@@ -290,7 +290,7 @@ export class Sophie extends Harpy {
             );
             this.game.dynStats("lus", 15 + this.player.cor / 20 + this.player.lib / 20);
         }
-        //Player resists
+        // Player resists
         else {
             this.outputText(
                 "You can feel her words carrying the force of a magical compulsion behind them, but you focus your willpower and overcome it.",
@@ -299,9 +299,9 @@ export class Sophie extends Harpy {
         }
     }
 
-    //ON FEMALE PCz
-    //Talons (Female Only)
-    //High damage attack easily avoided by evade/flexibility.
+    // ON FEMALE PCz
+    // Talons (Female Only)
+    // High damage attack easily avoided by evade/flexibility.
     private talonsSophie(): void {
         this.game.sophieBimbo.sophieSprite();
         this.outputText(
@@ -309,7 +309,7 @@ export class Sophie extends Harpy {
             false
         );
         var damage: number = 0;
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Sophie.rand(3) < 2) {
             this.outputText(
                 this.capitalA +
@@ -319,7 +319,7 @@ export class Sophie extends Harpy {
             );
             return;
         }
-        //Determine if dodged!
+        // Determine if dodged!
         if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
@@ -332,7 +332,7 @@ export class Sophie extends Harpy {
             );
             return;
         }
-        //Determine if evaded
+        // Determine if evaded
         if (this.player.findPerk(PerkLib.Evade) >= 0 && Sophie.rand(100) < 60) {
             this.outputText(
                 "Using your skills at evading attacks, you watch " +
@@ -357,7 +357,7 @@ export class Sophie extends Harpy {
             );
             return;
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Sophie.rand(100) < 40) {
             this.outputText(
                 "With your incredible flexibility, you squeeze out of the way of " +
@@ -375,7 +375,7 @@ export class Sophie extends Harpy {
                 " with her razor-sharp talons! ",
             false
         );
-        //Determine damage - str modified by enemy toughness!
+        // Determine damage - str modified by enemy toughness!
         damage = Math.floor(
             this.str + this.weaponAttack - Math.random() * this.player.tou - this.player.armorDef
         );
@@ -384,8 +384,8 @@ export class Sophie extends Harpy {
         damage = this.player.takeDamage(damage);
         this.outputText("(" + damage + ")\n", false);
     }
-    //Batter (Female Only)
-    //Batters PC with wings – 4x attack impossible to dodge.*/
+    // Batter (Female Only)
+    // Batters PC with wings – 4x attack impossible to dodge.*/
     private batterAttackSophie(): void {
         this.game.sophieBimbo.sophieSprite();
         var damage: number = 0;
@@ -394,17 +394,17 @@ export class Sophie extends Harpy {
             false
         );
 
-        //Determine damage - str modified by enemy toughness!
+        // Determine damage - str modified by enemy toughness!
         damage = Math.floor(this.str - Math.random() * this.player.tou - this.player.armorDef);
         if (damage < 0) damage = 0;
         damage = this.player.takeDamage(damage);
         this.outputText("Her left primary wing batters your head! (" + damage + ")\n", false);
-        //Determine damage - str modified by enemy toughness!
+        // Determine damage - str modified by enemy toughness!
         damage = Math.floor(this.str - Math.random() * this.player.tou - this.player.armorDef);
         if (damage < 0) damage = 0;
         damage = this.player.takeDamage(damage);
         this.outputText("Her right, wing-like arm slaps at your torso! (" + damage + ")\n", false);
-        //Determine damage - str modified by enemy toughness!
+        // Determine damage - str modified by enemy toughness!
         damage = Math.floor(this.str - Math.random() * this.player.tou - this.player.armorDef);
         if (damage < 0) damage = 0;
         damage = this.player.takeDamage(damage);
@@ -412,7 +412,7 @@ export class Sophie extends Harpy {
             "Her other feathery arm punches at your shoulder! (" + damage + ")\n",
             false
         );
-        //Determine damage - str modified by enemy toughness!
+        // Determine damage - str modified by enemy toughness!
         damage = Math.floor(this.str - Math.random() * this.player.tou - this.player.armorDef);
         if (damage < 0) damage = 0;
         damage = this.player.takeDamage(damage);
@@ -423,26 +423,26 @@ export class Sophie extends Harpy {
     }
 
     protected performCombatAction(): void {
-        //Sophie has special AI in harpySophie.as
+        // Sophie has special AI in harpySophie.as
         this.game.sophieBimbo.sophieSprite();
         // var select: number = 1;
         var rando: number = 1;
-        //Update attacks for girls/neuters
+        // Update attacks for girls/neuters
         if (!this.player.hasCock() || this.findStatusAffect(StatusAffects.BimboBrawl) >= 0) {
-            //Talons
+            // Talons
             this.special1 = this.talonsSophie;
-            //Batter
+            // Batter
             this.special2 = this.batterAttackSophie;
-            //Clear
+            // Clear
             this.special3 = undefined;
         }
-        //Dicks ahoy
+        // Dicks ahoy
         else {
-            //kiss
+            // kiss
             this.special1 = this.sophieKissAttack;
-            //harpy-boating
+            // harpy-boating
             this.special2 = this.sophieHarpyBoatsPC;
-            //compulsion
+            // compulsion
             this.special3 = this.sophieCompulsionAttack;
         }
         if (this.player.hasCock() && this.findStatusAffect(StatusAffects.BimboBrawl) < 0)

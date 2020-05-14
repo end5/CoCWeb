@@ -27,11 +27,11 @@ export class MilkySuccubus extends AbstractSuccubus {
     }
 
     private cowCubiMilkSprayAttack(): void {
-        //Lasts a couple turns like the goblin lust poison?
+        // Lasts a couple turns like the goblin lust poison?
         this.outputText(
             '"<i>How about a taste?</i>"  The succubus asks, pressing her tits together.  Before you can reply, a veritable jet of milk sprays in your direction!\n'
         );
-        //Miss:
+        // Miss:
         if (MilkySuccubus.rand(20) + 1 + this.player.spe / 20 > 17) {
             this.outputText(
                 "With your trained reflexes, you manage to duck and roll, narrowly avoiding getting sprayed with milk."
@@ -41,7 +41,7 @@ export class MilkySuccubus extends AbstractSuccubus {
             );
             kGAMECLASS.dynStats("lus", 6);
         }
-        //Hit:
+        // Hit:
         else {
             this.outputText(
                 "All you manage to do is cover your face; the rest of you, however, gets completely soaked in the demon's corrupted milk.  Looking down at yourself, you realize that you are panting, and the places where the milk splashed your fur begin to heat up.  Oh no! <b>You'd better finish off this succubus before you succumb to your lusts!</b>"
@@ -56,7 +56,7 @@ export class MilkySuccubus extends AbstractSuccubus {
         this.outputText(
             "Smiling wryly and licking her lips, the succubus-cow procures a bottle of her pet's cum with her probing tail."
         );
-        //Success:
+        // Success:
         if (
             this.findStatusAffect(StatusAffects.DrankMinoCum) < 0 ||
             this.findStatusAffect(StatusAffects.DrankMinoCum2) < 0
@@ -70,7 +70,7 @@ export class MilkySuccubus extends AbstractSuccubus {
                 this.createStatusAffect(StatusAffects.DrankMinoCum, 0, 0, 0, 0);
             else this.createStatusAffect(StatusAffects.DrankMinoCum2, 0, 0, 0, 0);
         }
-        //Failure:
+        // Failure:
         else {
             this.outputText(
                 '\n\nShe frowns and looks behind her, pouting slightly when she turns to look back at you.  "<i>Seems like I\'m all out of cum.</i>"  She grins evilly.  "<i>I\'ll just have to get more after I\'m done with you.</i>"'

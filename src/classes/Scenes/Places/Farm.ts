@@ -21,7 +21,7 @@ export class Farm extends BaseContent {
     }
     public farmCorruption: FarmCorruption = new FarmCorruption();
 
-    //const FARM_DISABLED: number = 464;
+    // const FARM_DISABLED: number = 464;
 
     public whitneySprite(): void {
         this.spriteSelect(62);
@@ -50,7 +50,7 @@ export class Farm extends BaseContent {
         }
 
         // var temporary: number = 0;
-        //Farm not yet discovered
+        // Farm not yet discovered
         if (this.player.statusAffectv1(StatusAffects.MetWhitney) < 2) {
             this.spriteSelect(62);
             if (this.player.findStatusAffect(StatusAffects.MetWhitney) < 0) {
@@ -73,7 +73,7 @@ export class Farm extends BaseContent {
             }
             this.inventory.takeItem(this.consumables.CANINEP, this.camp.returnToCampUseOneHour);
         }
-        //Repeat Offender
+        // Repeat Offender
         else {
             this.spriteSelect(62);
 
@@ -149,7 +149,7 @@ export class Farm extends BaseContent {
                 if (this.flags[kFLAGS.WHITNEY_FLIPPED_OUT_OVER_KELLY] == 0)
                     this.addButton(3, "Marble", this.meetMarble);
             }
-            //choices("Explore",exploreFarm,"Kelt",keltEvent,"Get Milked",milkYou,"Marble",marble,"Milk Jojo",milkJojo,"Milk Cock",cockMilk,"Talk",talkWhitney,"Work",workFarm,"",0,"Leave",13);
+            // choices("Explore",exploreFarm,"Kelt",keltEvent,"Get Milked",milkYou,"Marble",marble,"Milk Jojo",milkJojo,"Milk Cock",cockMilk,"Talk",talkWhitney,"Work",workFarm,"",0,"Leave",13);
             if (this.flags[kFLAGS.WHITNEY_FLIPPED_OUT_OVER_KELLY] == 0)
                 this.addButton(0, "Explore", this.exploreFarm);
             if (this.flags[kFLAGS.WHITNEY_FLIPPED_OUT_OVER_KELLY] == 0)
@@ -160,7 +160,7 @@ export class Farm extends BaseContent {
         }
     }
 
-    //[YES]
+    // [YES]
     private whitneyMilkerHookup(breast: boolean = true): void {
         this.spriteSelect(62);
         this.outputText(
@@ -176,7 +176,7 @@ export class Farm extends BaseContent {
         }
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[NO]
+    // [NO]
     private whitneyMilkerRefusal(): void {
         this.spriteSelect(62);
         this.clearOutput();
@@ -185,12 +185,12 @@ export class Farm extends BaseContent {
         );
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //TALK
+    // TALK
     private talkWhitney(): void {
         this.spriteSelect(62);
-        //[FIND WHITNEY TXT]
+        // [FIND WHITNEY TXT]
         this.outputText("", true);
-        //Centaur Hookups!
+        // Centaur Hookups!
         if (this.player.hasKeyItem("Fake Mare") < 0 && this.player.isTaur()) {
             this.centaurToysHoooooo();
             return;
@@ -258,7 +258,7 @@ export class Farm extends BaseContent {
             this.outputText(
                 "You find Whitney outside the milking shed, carefully writing labels at a trestle table and sticking them on large bottles of milk."
             );
-            //[PC has used milking device:
+            // [PC has used milking device:
             if (this.player.findStatusAffect(StatusAffects.BreastsMilked) >= 0) {
                 this.outputText(
                     " You are uncomfortably aware of the number of them which are labelled ‘[name]’, and a charged memory of strong suction on your [nipples] comes back to you."
@@ -304,7 +304,7 @@ export class Farm extends BaseContent {
                 );
             }
 
-            //[PC has used cock milker:
+            // [PC has used cock milker:
             if (this.player.findStatusAffect(StatusAffects.CockPumped) >= 0) {
                 if (this.player.findStatusAffect(StatusAffects.BreastsMilked) < 0)
                     this.outputText("\n\n");
@@ -409,7 +409,7 @@ export class Farm extends BaseContent {
                 "She's leaning back against a thick tree with a wide-brimmed hat drooped low over her eyes.   You call out to her, thinking the dog-woman has fallen asleep, but her head snaps up and her alert eyes lock on to you immediately.  Maybe she wasn't dozing.  She calls out, \"<i>Come on over and 'ave a sit, I'm starved fer company!</i>\"  You settle in for a chat.\n\n",
                 false
             );
-        //[HAVE MILKER THAT ISN'T PLUGGED IN]
+        // [HAVE MILKER THAT ISN'T PLUGGED IN]
         if (
             Farm.rand(4) == 0 &&
             this.player.hasKeyItem("Breast Milker - Installed At Whitney's Farm") < 0
@@ -427,7 +427,7 @@ export class Farm extends BaseContent {
                     '"<i>Well of course, it needs hooked into a pump system, collection reservoir, and a power source.  It just happens I\'ve got all that equipment set up for my cows in the barn, and I reckon it\'d be easier to plug into than a girl sniffing minotaur musk,</i>" Whitney explains, "<i>If you like I could get it all set up for ya, hell, I might even toss you a few gems if you can produce enough milk.</i>"\n\n',
                     false
                 );
-                //(, hell, if you manage to gather large enough quantities with it, I might be able to find a way to inseminate my cattle with it and be able to pay you for it.  Don't you worry none, I know ways to make this kind of thing work).</i>\"
+                // (, hell, if you manage to gather large enough quantities with it, I might be able to find a way to inseminate my cattle with it and be able to pay you for it.  Don't you worry none, I know ways to make this kind of thing work).</i>\"
                 this.outputText(
                     "Do you give the breast milker to Whitney for her to hook up?",
                     false
@@ -483,7 +483,7 @@ export class Farm extends BaseContent {
                 return;
             }
         }
-        //[HAVE COCK MILKER THAT ISN'T PLUGGED IN]
+        // [HAVE COCK MILKER THAT ISN'T PLUGGED IN]
         if (
             Farm.rand(4) == 0 &&
             this.player.hasKeyItem("Cock Milker - Installed At Whitney's Farm") < 0 &&
@@ -508,7 +508,7 @@ export class Farm extends BaseContent {
             );
             return;
         }
-        //[GENERIC TALK]
+        // [GENERIC TALK]
         this.outputText("You tell her of your recent trials and tribulations ", false);
         if (this.player.cor > 50)
             this.outputText("or at least the parts you think she would want to hear ", false);
@@ -527,14 +527,14 @@ export class Farm extends BaseContent {
             ".  It feels good to get a chance to talk with another sane individual, but before long Whitney has to return to work, and you should check back on your camp.",
             false
         );
-        //+3 int if less than 15, +2 int if less 20, +1 int if less than 30, +.5 int if less than 40.
+        // +3 int if less than 15, +2 int if less 20, +1 int if less than 30, +.5 int if less than 40.
         if (this.player.inte < 15) this.dynStats("int", 1);
         if (this.player.inte < 20) this.dynStats("int", 1);
         if (this.player.inte < 30) this.dynStats("int", 0.5);
         if (this.player.inte < 40) this.dynStats("int", 0.5);
         this.dynStats("lus", -5);
         this.doNext(this.camp.returnToCampUseOneHour);
-        //+3 int if less than 15, +2 int if less 20, +1 int if less than 30, +.5 int if less than 40.
+        // +3 int if less than 15, +2 int if less 20, +1 int if less than 30, +.5 int if less than 40.
     }
 
     private breastMilkerPurchase(): void {
@@ -554,7 +554,7 @@ export class Farm extends BaseContent {
             "Whitney shrugs and the two of you chat about other things, just passing the time and enjoying a relatively normal chat.",
             true
         );
-        //+3 int if less than 15, +2 int if less 20, +1 int if less than 30, +.5 int if less than 40.
+        // +3 int if less than 15, +2 int if less 20, +1 int if less than 30, +.5 int if less than 40.
         if (this.player.inte < 15) this.dynStats("int", 1);
         if (this.player.inte < 20) this.dynStats("int", 1);
         if (this.player.inte < 30) this.dynStats("int", 0.5);
@@ -564,7 +564,7 @@ export class Farm extends BaseContent {
     public workFarm(): void {
         var marbling: number = 0;
         this.outputText("", true);
-        //In withdrawl odds are higher.
+        // In withdrawl odds are higher.
         if (
             this.player.findStatusAffect(StatusAffects.NoMoreMarble) < 0 &&
             this.player.findStatusAffect(StatusAffects.MarbleWithdrawl) >= 0
@@ -574,13 +574,13 @@ export class Farm extends BaseContent {
             else this.marbleScene.encounterMarbleAshamedAddiction();
             return;
         }
-        //1/3 chance of marblez
+        // 1/3 chance of marblez
         if (
             Farm.rand(3) == 0 &&
             this.player.findStatusAffect(StatusAffects.NoMoreMarble) < 0 &&
             this.player.findStatusAffect(StatusAffects.Marble) > 0
         ) {
-            //Rapez Override normal
+            // Rapez Override normal
             if (
                 this.player.findStatusAffect(StatusAffects.MarbleRapeAttempted) >= 0 ||
                 this.flags[kFLAGS.MARBLE_WARNING] == 3
@@ -589,23 +589,23 @@ export class Farm extends BaseContent {
                 this.player.createStatusAffect(StatusAffects.NoMoreMarble, 0, 0, 0, 0);
                 return;
             }
-            //Angry meeting
+            // Angry meeting
             if (this.flags[kFLAGS.MARBLE_WARNING] == 1) {
                 this.marbleScene.marbleWarningStateMeeting();
                 return;
             }
             if (this.player.findStatusAffect(StatusAffects.Marble) >= 0) {
-                //Pre-addiction events(explore events take 1 hour, working ones take 3)
+                // Pre-addiction events(explore events take 1 hour, working ones take 3)
                 if (this.player.statusAffectv3(StatusAffects.Marble) == 0) {
                     marbling = Farm.rand(2);
-                    //Help out Marble, version 1 (can occur anytime before the player becomes addicted):
+                    // Help out Marble, version 1 (can occur anytime before the player becomes addicted):
                     if (marbling == 0) this.marbleScene.helpMarble1();
-                    //Help out Marble, version 2 (can occur anytime before Marble knows about her milk):
+                    // Help out Marble, version 2 (can occur anytime before Marble knows about her milk):
                     if (marbling == 1) this.marbleScene.helpMarble2();
                     return;
                 } else {
                     if (this.player.findPerk(PerkLib.MarbleResistant) >= 0) {
-                        //(work with Marble when helping)
+                        // (work with Marble when helping)
                         this.marbleScene.postAddictionFarmHelpings();
                         return;
                     }
@@ -613,25 +613,25 @@ export class Farm extends BaseContent {
                         if (this.player.findStatusAffect(StatusAffects.MarbleWithdrawl) >= 0)
                             marbling = 0;
                         else marbling = 1;
-                        //While Addicted Events type 1 (Marble likes her addictive milk):
+                        // While Addicted Events type 1 (Marble likes her addictive milk):
                         if (marbling == 0) this.marbleScene.addictedEncounterHappy();
-                        //Exploration event while addicted (event triggered while addicted, but not suffering withdrawal):
+                        // Exploration event while addicted (event triggered while addicted, but not suffering withdrawal):
                         else this.marbleScene.marbleEncounterAddictedNonWithdrawl();
                         return;
                     } else {
                         if (this.player.findStatusAffect(StatusAffects.MarbleWithdrawl) >= 0)
                             marbling = 0;
                         else marbling = 1;
-                        //While Addicted Events type 2 (Marble is ashamed):
+                        // While Addicted Events type 2 (Marble is ashamed):
                         if (marbling == 0) this.marbleScene.encounterMarbleAshamedAddiction();
-                        //Exploration event while addicted (event triggered while addicted, but not suffering withdrawal):
+                        // Exploration event while addicted (event triggered while addicted, but not suffering withdrawal):
                         else this.marbleScene.marbleEncounterAddictedNonWithdrawlAshamed();
                         return;
                     }
                 }
             }
         }
-        //25% chance of stable mucking
+        // 25% chance of stable mucking
         if (Farm.rand(4) == 0) {
             this.spriteSelect(62);
             this.outputText(
@@ -649,13 +649,13 @@ export class Farm extends BaseContent {
             this.outputText("You steel yourself, ignore your ", false);
             if (this.player.faceType == FACE_DOG) this.outputText("sensitive ", false);
             this.outputText("nose, and set to work.", false);
-            //[Lust increase based on libido, degree of cow/mino features]
+            // [Lust increase based on libido, degree of cow/mino features]
             this.dynStats("lus", this.player.cowScore() + this.player.minoScore());
             this.outputText(
                 "\n\nAn hour later you can stand it no more and exit the milking barn. Gulping down the fresher air and dragging the tools back to their shed, you admit to yourself that Whitney is a much harder worker and has a stronger constitution than you thought. You promise yourself you'll come back and help her out some more -- as soon as your nose recovers.",
                 false
             );
-            //always +1 str till 50, then 50% chance.
+            // always +1 str till 50, then 50% chance.
             if (this.player.str <= 50) this.dynStats("str", 1);
             else this.dynStats("str", Farm.rand(2));
             this.doNext(this.camp.returnToCampUseOneHour);
@@ -670,21 +670,21 @@ export class Farm extends BaseContent {
             "You nod and borrow a basket, and set off towards the fields.  The next two hours are a blur of sweat and hard work as you prowl between the rows of plants, picking as many ripe red peppers as you can find.  When you finish, you drop the basket by Whitney's door, but not before taking your pepper.\n",
             false
         );
-        //(75% chance normal pepper, 25% chance \"<i>rare</i>\" pepper)
+        // (75% chance normal pepper, 25% chance \"<i>rare</i>\" pepper)
         var pepper: number = Farm.rand(4);
         var itype: ItemType;
         if (pepper <= 2) itype = this.consumables.CANINEP;
         else {
             this.temp = Farm.rand(5);
-            //-Oversized Pepper (+size, thickness)
+            // -Oversized Pepper (+size, thickness)
             if (this.temp == 0) itype = this.consumables.LARGEPP;
-            //-Double Pepper (+grows second cock or changes two cocks to dogcocks)
+            // -Double Pepper (+grows second cock or changes two cocks to dogcocks)
             if (this.temp == 1) itype = this.consumables.DBLPEPP;
-            //-Black Pepper (Dark Fur, +corruption/libido)
+            // -Black Pepper (Dark Fur, +corruption/libido)
             if (this.temp == 2) itype = this.consumables.BLACKPP;
-            //-Knotty Pepper (+Knot + Cum Multiplier)
+            // -Knotty Pepper (+Knot + Cum Multiplier)
             if (this.temp == 3) itype = this.consumables.KNOTTYP;
-            //-Bulbous Pepper (+ball size or fresh balls)
+            // -Bulbous Pepper (+ball size or fresh balls)
             if (this.temp == 4) itype = this.consumables.BULBYPP;
         }
         trace("FARM SHIT: " + itype!.shortName);
@@ -693,33 +693,33 @@ export class Farm extends BaseContent {
 
     public meetMarble(): void {
         var marbling: number = 0;
-        //Pre-addiction events(explore events take 1 hour, working ones take 3)
+        // Pre-addiction events(explore events take 1 hour, working ones take 3)
         if (this.player.statusAffectv3(StatusAffects.Marble) == 0) {
-            //Meet Marble while exploring version 1 (can occur anytime before the player becomes addicted):
-            //Higher chance after talk texts have been exhausted
+            // Meet Marble while exploring version 1 (can occur anytime before the player becomes addicted):
+            // Higher chance after talk texts have been exhausted
             if (this.flags[kFLAGS.MURBLE_FARM_TALK_LEVELS] >= 7)
                 this.marbleScene.encounterMarbleExploring();
-            //Meet Marble while exploring version 2 (can occur anytime before the player becomes addicted):
+            // Meet Marble while exploring version 2 (can occur anytime before the player becomes addicted):
             else this.marbleScene.encounterMarbleExploring2();
         } else {
             if (this.player.findPerk(PerkLib.MarbleResistant) >= 0) {
                 this.marbleScene.postAddictionFarmExplorings();
                 return;
             }
-            //PC Likes it
+            // PC Likes it
             if (this.player.statusAffectv3(StatusAffects.Marble) == 1) {
                 if (this.player.findStatusAffect(StatusAffects.MarbleWithdrawl) >= 0) marbling = 0;
                 else marbling = 1;
-                //While Addicted Events type 1 (Marble likes her addictive milk):
+                // While Addicted Events type 1 (Marble likes her addictive milk):
                 if (marbling == 0) this.marbleScene.addictedEncounterHappy();
-                //Exploration event while addicted (event triggered while addicted, but not suffering withdrawal):
+                // Exploration event while addicted (event triggered while addicted, but not suffering withdrawal):
                 else this.marbleScene.marbleEncounterAddictedNonWithdrawl();
             } else {
                 if (this.player.findStatusAffect(StatusAffects.MarbleWithdrawl) >= 0) marbling = 0;
                 else marbling = 1;
-                //While Addicted Events type 2 (Marble is ashamed):
+                // While Addicted Events type 2 (Marble is ashamed):
                 if (marbling == 0) this.marbleScene.encounterMarbleAshamedAddiction();
-                //Exploration event while addicted (event triggered while addicted, but not suffering withdrawal):
+                // Exploration event while addicted (event triggered while addicted, but not suffering withdrawal):
                 else this.marbleScene.marbleEncounterAddictedNonWithdrawlAshamed();
             }
         }
@@ -729,7 +729,7 @@ export class Farm extends BaseContent {
         // var marbling: number = 0;
         var explore: number = 0;
 
-        //Marble after-rape
+        // Marble after-rape
         if (
             this.player.findStatusAffect(StatusAffects.MarbleRapeAttempted) >= 0 &&
             this.player.findStatusAffect(StatusAffects.NoMoreMarble) < 0
@@ -738,7 +738,7 @@ export class Farm extends BaseContent {
             this.player.createStatusAffect(StatusAffects.NoMoreMarble, 0, 0, 0, 0);
             return;
         }
-        //FIND CARROT!
+        // FIND CARROT!
         if (
             kGAMECLASS.nieveHoliday() &&
             this.flags[kFLAGS.NIEVE_STAGE] == 3 &&
@@ -747,7 +747,7 @@ export class Farm extends BaseContent {
             kGAMECLASS.findACarrot();
             return;
         }
-        //Free Isabella Milkings!
+        // Free Isabella Milkings!
         if (
             this.player.hasCock() &&
             this.flags[kFLAGS.FOUND_ISABELLA_AT_FARM_TODAY] == 0 &&
@@ -759,7 +759,7 @@ export class Farm extends BaseContent {
             kGAMECLASS.isabellaFollowerScene.findIzzyMilking();
             return;
         }
-        //Meet Marble First Time
+        // Meet Marble First Time
         if (
             this.player.findStatusAffect(StatusAffects.Marble) < 0 &&
             this.player.findStatusAffect(StatusAffects.NoMoreMarble) < 0
@@ -768,7 +768,7 @@ export class Farm extends BaseContent {
             this.marbleScene.encounterMarbleInitially();
             return;
         }
-        //Meet kelt 1st time
+        // Meet kelt 1st time
         if (
             Farm.rand(2) == 0 &&
             this.player.findStatusAffect(StatusAffects.Kelt) < 0 &&
@@ -778,7 +778,7 @@ export class Farm extends BaseContent {
             this.keltScene.keltEncounter();
             return;
         }
-        //In withdrawl odds are higher.
+        // In withdrawl odds are higher.
         if (
             this.player.findStatusAffect(StatusAffects.NoMoreMarble) < 0 &&
             this.player.findStatusAffect(StatusAffects.MarbleWithdrawl) >= 0
@@ -789,14 +789,14 @@ export class Farm extends BaseContent {
             return;
         }
         explore = Farm.rand(3);
-        //[JOG]
+        // [JOG]
         if (explore == 0) {
             this.spriteSelect(62);
             this.outputText(
                 "You run around the farm, keeping an eye for any monsters or oddities around Whitney's property.  Eventually the she-dog joins you, and the two of you have a good time pushing your speed to its limits.  ",
                 true
             );
-            //Less than 30 speed (+2 speed)
+            // Less than 30 speed (+2 speed)
             if (this.player.spe < 30) {
                 this.dynStats("spe", 2);
                 this.outputText(
@@ -804,7 +804,7 @@ export class Farm extends BaseContent {
                     false
                 );
             }
-            //Less than 50 speed (+1 speed)
+            // Less than 50 speed (+1 speed)
             else if (this.player.spe < 50) {
                 this.dynStats("spe", 1);
                 this.outputText(
@@ -812,7 +812,7 @@ export class Farm extends BaseContent {
                     false
                 );
             }
-            //Less than 70 speed (+.75 speed)
+            // Less than 70 speed (+.75 speed)
             else if (this.player.spe < 70) {
                 this.dynStats("spe", 0.75);
                 this.outputText(
@@ -820,7 +820,7 @@ export class Farm extends BaseContent {
                     false
                 );
             }
-            //Else (+.5 speed)
+            // Else (+.5 speed)
             else {
                 this.dynStats("spe", 0.5);
                 this.outputText(
@@ -835,7 +835,7 @@ export class Farm extends BaseContent {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //Other stuff
+        // Other stuff
         if (explore == 1) {
             this.outputText(
                 "After wandering around for a while, you find yourself atop a slight rise looking out over the farm and the distant lake. Despite the corruption you know is slowly consuming this land, being here now makes you feel so at peace you wish it could go on forever.",
@@ -845,32 +845,32 @@ export class Farm extends BaseContent {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //Cows
+        // Cows
         if (explore == 2) {
             this.outputText(
                 "Your explorations take you to the cow pasture. There's no bull here, so the cows are all placidly grazing, building up milk for Whitney to gather. One turns to face you, and you get the odd feeling that it's trying to tell you something.\n\n",
                 true
             );
-            //[if have a horse dick and rape-high Lust]
+            // [if have a horse dick and rape-high Lust]
             if (this.player.horseCocks() > 0) {
                 this.outputText(
                     "Unbidden, the notion that a cow-slit would probably feel pretty good wrapped around your horse-prick flickers through your mind.  ",
                     false
                 );
-                //[if high corruption]
+                // [if high corruption]
                 if (this.player.cor > 60) this.outputText("It makes you smile.", false);
                 if (this.player.cor < 30) this.outputText("It disgusts you.", false);
-                //[else/mid-corruption]
+                // [else/mid-corruption]
                 else if (this.player.cor <= 60)
                     this.outputText("You aren't sure how you feel about that.", false);
-                //[continue paragraph condition]
+                // [continue paragraph condition]
                 this.outputText(
                     "  It for certain would get Whitney chasing you off with a pitchfork.\n\n",
                     false
                 );
                 this.dynStats("lus", 10);
             }
-            //[if no horse dick, a deep cow or horse vag, and in heat]
+            // [if no horse dick, a deep cow or horse vag, and in heat]
             else if (this.player.inHeat) {
                 this.outputText(
                     "Maybe it wants a bull? You do, one with long, thick dick-meat to satisfy your starving fuck-hole...\n\n",
@@ -878,7 +878,7 @@ export class Farm extends BaseContent {
                 );
                 this.dynStats("lus", 15);
             }
-            //- [if no dick, not in heat, but overfull with milk]
+            // - [if no dick, not in heat, but overfull with milk]
             else if (this.player.biggestLactation() >= 2) {
                 this.outputText(
                     '"<i>Maybe she wants to be milked?</i>" you think. You certainly do.\n\n',
@@ -895,7 +895,7 @@ export class Farm extends BaseContent {
         }
         if (explore == 3) {
         }
-        //[NOTHING]
+        // [NOTHING]
         else {
             this.outputText(
                 "You wander around, unable to find anything entertaining on this patch of rural bliss.",
@@ -911,13 +911,13 @@ export class Farm extends BaseContent {
         (Small – 0.01 mLs – Size 1 + 1 Multi)
         (Large – 0.8 - Size 10 + 4 Multi)
         (HUGE – 2.4 - Size 12 + 5 Multi + 4 tits)*/
-        //Lactation * breastSize x 10 (milkPerBreast) determines scene
-        //< 50 small output
-        //< 250 'good' output
-        //< 750 'high' output
-        //ELSE milk overload
+        // Lactation * breastSize x 10 (milkPerBreast) determines scene
+        // < 50 small output
+        // < 250 'good' output
+        // < 750 'high' output
+        // ELSE milk overload
         this.outputText("", true);
-        //First time barn entrance
+        // First time barn entrance
         this.outputText("The barn looms tall ahead of you as you step into its shadow.  ", false);
         if (this.player.findStatusAffect(StatusAffects.BreastsMilked) < 0) {
             if (this.player.cor < 50)
@@ -930,13 +930,13 @@ export class Farm extends BaseContent {
                 false
             );
         }
-        //Repeat
+        // Repeat
         else {
             this.outputText(
                 "You walk over to the barn, eagerly anticipating the opportunity to get milked.",
                 false
             );
-            //If ilk withdrawl or high lactation no dicks
+            // If ilk withdrawl or high lactation no dicks
             if (
                 this.player.findStatusAffect(StatusAffects.LactationReduction) >= 0 &&
                 this.player.totalCocks() == 0
@@ -947,7 +947,7 @@ export class Farm extends BaseContent {
                         "s are engorged and ready to be taken care of.",
                     false
                 );
-            //If cocks
+            // If cocks
             else if (this.player.totalCocks() > 0) {
                 this.outputText("Your " + this.multiCockDescriptLight() + " erect", false);
                 if (this.player.totalCocks() > 1) this.outputText("s", false);
@@ -955,7 +955,7 @@ export class Farm extends BaseContent {
                 if (this.player.totalCocks() == 1) this.outputText("s", false);
                 this.outputText(" with desire.", false);
             }
-            //If both
+            // If both
             if (
                 this.player.findStatusAffect(StatusAffects.LactationReduction) >= 0 &&
                 this.player.cockTotal() > 0
@@ -977,14 +977,14 @@ export class Farm extends BaseContent {
                 false
             );
         }
-        //Step into harness – first time only
+        // Step into harness – first time only
         if (this.player.findStatusAffect(StatusAffects.BreastsMilked) < 0) {
             this.outputText(
                 "A harness hangs limply in the stall, there to hold the occupant in place while they are milked of every last drop.  You exhale slowly and force yourself to step into it.  As you puzzle out the straps, it gets easier and easier to get the rest of the harness into place.  As you snap the last one into position, machinery whirs and pulls it tight, lifting you off the ground and suspending you, facedown.  The breast milk pumps pulse and vibrate on a tray below you, twitching slightly as you hear the machinery activate.\n\n",
                 false
             );
         }
-        //REPEAT
+        // REPEAT
         else {
             this.outputText(
                 "You easily attach the harnesses and lift up into position, hearing the machinery activate automatically. ",
@@ -992,9 +992,9 @@ export class Farm extends BaseContent {
             );
         }
         var application: number = Farm.rand(3);
-        //Super huge nips scene
+        // Super huge nips scene
         if (this.player.nippleLength == 3 && Farm.rand(2) == 0) application = 3;
-        //Apply
+        // Apply
         if (this.player.findStatusAffect(StatusAffects.BreastsMilked) < 0 || application == 0) {
             if (this.player.findStatusAffect(StatusAffects.BreastsMilked) < 0)
                 this.player.createStatusAffect(StatusAffects.BreastsMilked, 0, 0, 0, 0);
@@ -1025,7 +1025,7 @@ export class Farm extends BaseContent {
                 false
             );
         }
-        //Apply repeat alternate
+        // Apply repeat alternate
         else if (application == 1) {
             this.outputText(
                 "You stretch down and grab onto the suction cups, pulling them up to your eager nipples.  They latch on, slapping tight against you as the vacuum pressure seals them tightly against your body.  You can feel your " +
@@ -1045,7 +1045,7 @@ export class Farm extends BaseContent {
                 false
             );
         }
-        //Version 3
+        // Version 3
         else if (application == 2) {
             this.outputText(
                 "Despite the tightness of your harness, you manage to reach down to grab the clear cups of the breast milker.  The cups twitch and move in your hands as you bring them up, ready to milk you.  You begin holding them against your " +
@@ -1056,7 +1056,7 @@ export class Farm extends BaseContent {
                 false
             );
         }
-        //Version 4 huge nips
+        // Version 4 huge nips
         if (application == 3) {
             this.outputText(
                 "In spite of the tightness of your harness, you collect the suction cups and bring them up to your huge nipples, letting the machine pull them into the tight cups with agonizing slowness.  In spite of the large size of your aureola, the machine slowly sucks you inside, the tightness serving only to arouse you further.  The suction pulls the walls of the nipple-tubes tight against your nipples, turning them purple as they swell up like dicks.  Drops of milk leak from the tips as your body lets your milk down, letting it flow through your imprisoned nipples towards its release.\n\n",
@@ -1064,14 +1064,14 @@ export class Farm extends BaseContent {
             );
             this.dynStats("lus", 10);
         }
-        //Milksplosion Texts
-        //Lactation * breastSize x 10 (milkPerBreast) determines scene
-        //< 50 small output
-        //< 250 'good' output
-        //< 750 'high' output
-        //ELSE milk overload
+        // Milksplosion Texts
+        // Lactation * breastSize x 10 (milkPerBreast) determines scene
+        // < 50 small output
+        // < 250 'good' output
+        // < 750 'high' output
+        // ELSE milk overload
         var milksplosion: number = Farm.rand(3);
-        //Lightish (+15 lust)
+        // Lightish (+15 lust)
         if (this.player.lactationQ() < 50) {
             this.dynStats("lus", 15);
             if (milksplosion == 0) {
@@ -1089,7 +1089,7 @@ export class Farm extends BaseContent {
                     false
                 );
             }
-            //Lightish2
+            // Lightish2
             else if (milksplosion == 1) {
                 this.outputText(
                     "A tiny spurt of milk erupts from each of your " +
@@ -1102,7 +1102,7 @@ export class Farm extends BaseContent {
                     false
                 );
             }
-            //Lightish3
+            // Lightish3
             else if (milksplosion == 2) {
                 this.outputText(
                     "The tips of your " +
@@ -1112,10 +1112,10 @@ export class Farm extends BaseContent {
                 );
             }
         }
-        //Medium (+30 lust)
+        // Medium (+30 lust)
         else if (this.player.lactationQ() < 250) {
             this.dynStats("lus", 30);
-            //MEDIUMLICIOUS
+            // MEDIUMLICIOUS
             if (milksplosion == 0) {
                 this.outputText(
                     "Drops of your milk roll down the edge of the milk-cups as you begin lactating into them.  Milk sprays in solid streams from your nipples, forming a puddle at the bottom of the cup as the machinery siphons it through the clear tube towards the reservoir.   You moan hotly as the milking progresses, emptying your " +
@@ -1135,7 +1135,7 @@ export class Farm extends BaseContent {
                     false
                 );
             }
-            //Medium 3
+            // Medium 3
             if (milksplosion == 2) {
                 this.outputText(
                     "Fat drops of milk pour out of your " +
@@ -1158,7 +1158,7 @@ export class Farm extends BaseContent {
                 );
             }
         }
-        //High Output (+ 40 lust)
+        // High Output (+ 40 lust)
         else if (this.player.lactationQ() < 750) {
             this.dynStats("lus", 40);
             if (milksplosion == 0) {
@@ -1167,7 +1167,7 @@ export class Farm extends BaseContent {
                     false
                 );
             }
-            //High Output2
+            // High Output2
             if (milksplosion == 1) {
                 this.outputText(
                     "Your " +
@@ -1187,7 +1187,7 @@ export class Farm extends BaseContent {
                     false
                 );
             }
-            //High Output3
+            // High Output3
             if (milksplosion == 2) {
                 this.outputText(
                     "Milk floods the milker's cups as your breasts respond to the mechanized suckling.   The machinery groans as it kicks into high gear, working hard to keep up with your prodigious production rate.  Your nipples tingle with happy little bursts of pleasure as they continue to pour out ever greater quantities of milk.  Arousal wells up, flushing your body with a reddish tint that's difficult to hide.  You wriggle in the harness, sweating profusely and trying to grind against something, anything, whatever it takes to get off.  The milking drags on for an hour, but your breasts keep pouring out milk the entire time.  When it ends, you're lowered to the floor and released.  The milk-tubes pop off, leaving you lying in a milk-puddle as your leaky teats continue to drip.\n\n",
@@ -1195,7 +1195,7 @@ export class Farm extends BaseContent {
                 );
             }
         }
-        //CRAZY OUTPUT1 (+60 lust)
+        // CRAZY OUTPUT1 (+60 lust)
         else {
             this.dynStats("lus", 60);
             milksplosion = Farm.rand(2);
@@ -1216,7 +1216,7 @@ export class Farm extends BaseContent {
                     false
                 );
             }
-            //CRAZY OUTPUT2
+            // CRAZY OUTPUT2
             else {
                 this.outputText(
                     "Your body lets down its milk, flooding the tubes with creamy goodness.  Milk immediately begins leaking from the edges as the machine fails to keep up with the quantity of cream being released.   Alarms blare and soft footfalls fill the barn as help arrives.  You hear the clangs of metal on metal, and then the suction intensifies, nearly doubling, milking you HARD and draining you of your vast reservoir of milk.  Your nipples ache with the strange pleasure of it, leaving you grunting and bucking against your restraints, desperate for release, but you just can't get the stimulation you need.  For an hour you're teased like that, pumped of your milk until the machinery shuts off and the harness lowers you to the ground, leaving you in a puddle of your own creation when the nipple-cups pop off.\n\n",
@@ -1224,12 +1224,12 @@ export class Farm extends BaseContent {
                 );
             }
         }
-        //Aftermaths
-        //Set temp to liter amount produced.
+        // Aftermaths
+        // Set temp to liter amount produced.
         var liters: number = 0;
         var payout: number = 0;
         var cap: number = 500;
-        //Ez mode cap doubles
+        // Ez mode cap doubles
         if (this.flags[kFLAGS.EASY_MODE_ENABLE_FLAG] == 1) cap *= 2;
         if (this.debug) {
             this.flags[kFLAGS.WHITNEY_GEMS_PAID_THIS_WEEK] = 0;
@@ -1237,10 +1237,10 @@ export class Farm extends BaseContent {
         }
         liters = Math.floor((this.player.lactationQ() * (Farm.rand(10) + 90)) / 100) / 1000;
         if (liters < 0) liters = 1337;
-        //Pay 4 gem for every half-liter.
+        // Pay 4 gem for every half-liter.
         payout = Math.floor(liters * 2 * 4);
         this.outputText("The machinery displays " + liters + " liters of milk", false);
-        //If already at cap
+        // If already at cap
         if (this.flags[kFLAGS.WHITNEY_GEMS_PAID_THIS_WEEK] >= cap) {
             this.outputText(
                 " and displays a warning that <b>you're producing more than Whitney can pay for</b>",
@@ -1249,10 +1249,10 @@ export class Farm extends BaseContent {
             payout = 0;
         }
         if (payout > 0) {
-            //If over cap reduce payout to the difference
+            // If over cap reduce payout to the difference
             if (payout + this.flags[kFLAGS.WHITNEY_GEMS_PAID_THIS_WEEK] > cap)
                 payout = cap - this.flags[kFLAGS.WHITNEY_GEMS_PAID_THIS_WEEK];
-            //Keep track of how much is paid
+            // Keep track of how much is paid
             this.flags[kFLAGS.WHITNEY_GEMS_PAID_THIS_WEEK] += payout;
             this.outputText(
                 " and automatically dispenses " +
@@ -1262,7 +1262,7 @@ export class Farm extends BaseContent {
                     ".  Whitney really went all out with this setup!",
                 false
             );
-            //Display a warning that you've capped out.
+            // Display a warning that you've capped out.
             if (this.flags[kFLAGS.WHITNEY_GEMS_PAID_THIS_WEEK] >= cap)
                 this.outputText(
                     "  <b>The machinery warns you that Whitney can't afford any more this week!</b>",
@@ -1270,7 +1270,7 @@ export class Farm extends BaseContent {
                 );
             this.player.gems += payout;
         } else this.outputText(".", false);
-        //High production = stupid cow.
+        // High production = stupid cow.
         if (liters > 2) {
             this.outputText(
                 "\n\nYou feel woozy and lightheaded from the intense milking, and have difficulty focusing on anything but the residue of fluids coating your " +
@@ -1278,15 +1278,15 @@ export class Farm extends BaseContent {
                     ".",
                 false
             );
-            //Being a cow makes you less dumb
-            //Somehow
+            // Being a cow makes you less dumb
+            // Somehow
             if (this.player.findStatusAffect(StatusAffects.Feeder) >= 0) {
                 this.dynStats("int", -1);
                 if (liters > 5) this.dynStats("int", -1);
                 if (liters > 10) this.dynStats("int", -1);
                 if (liters > 20) this.dynStats("int", -1);
             }
-            //not a cow, bimbotize me!
+            // not a cow, bimbotize me!
             else {
                 if (liters / 2 > 10) this.dynStats("int", -10);
                 else this.dynStats("int", -liters / 2);
@@ -1308,14 +1308,14 @@ export class Farm extends BaseContent {
         }
 
         this.outputText("\n\n", false);
-        //Not very horny yet
+        // Not very horny yet
         if (this.player.lust < 75) {
             this.outputText(
                 "Feeling sore and VERY hungry, you make yourself decent and stagger back towards camp, ignoring the knowing smile Whitney gives you when you pass by her.",
                 false
             );
         }
-        //Horny
+        // Horny
         else {
             this.outputText(
                 "Overwhelmed with your desire, you don't even bother to cover up and make yourself decent, you just run out of the barn, " +
@@ -1329,11 +1329,11 @@ export class Farm extends BaseContent {
                 );
             this.dynStats("lus=", 100);
         }
-        //Boost lactation by a tiny bit and prevent lactation reduction
+        // Boost lactation by a tiny bit and prevent lactation reduction
         this.player.boostLactation(0.05);
-        //Reset 'feeder' status
+        // Reset 'feeder' status
         this.player.changeStatusValue(StatusAffects.Feeder, 2, 0);
-        //Boost endurance rating (more if low)
+        // Boost endurance rating (more if low)
         if (this.player.statusAffectv1(StatusAffects.LactationEndurance) < 1.5)
             this.player.addStatusValue(StatusAffects.LactationEndurance, 1, 0.05);
         this.player.addStatusValue(StatusAffects.LactationEndurance, 1, 0.05);
@@ -1344,7 +1344,7 @@ export class Farm extends BaseContent {
     public cockPumping(): void {
         var cumQ: number = (this.player.cumQ() * (Farm.rand(10) + 90)) / 100;
         this.outputText("", true);
-        //First time barn entrance
+        // First time barn entrance
         if (this.player.findStatusAffect(StatusAffects.CockPumped) < 0) {
             this.outputText(
                 "The barn looms tall ahead of you as you step into its shadow.  ",
@@ -1360,7 +1360,7 @@ export class Farm extends BaseContent {
                 false
             );
         }
-        //Repeat
+        // Repeat
         else {
             this.outputText(
                 "You walk over to the barn, eagerly anticipating your session with the 'milker'.  ",
@@ -1380,13 +1380,13 @@ export class Farm extends BaseContent {
                 false
             );
         }
-        //First time using cock milker – factory install
+        // First time using cock milker – factory install
         if (this.player.findStatusAffect(StatusAffects.CockPumped) < 0) {
             this.outputText(
                 "<b>There is a note tacked to the door from Whitney:</b>\n\n<i>I got your machine all rigged up, and even made a few modifications to bring it up to speed with the machinery I use on the bulls.  Enjoy your 'milkings', and don't overdo it – there are certain messes even a farm-girl like me WON'T clean up.</i>\n\n",
                 false
             );
-            //Step into harness – first time only
+            // Step into harness – first time only
             this.outputText(
                 "A harness hangs limply in the stall, there to hold the occupant in place while they are drained of every ounce of 'milk'.  You exhale slowly and force yourself to step into it.  As you puzzle out the straps, it gets easier and easier to get the rest into place.  You snap the last one in place, and machinery whirs and pulls them tight, lifting you off the ground and suspending you, facedown.  A hatch in the far wall slides open, revealing a mass of tubes, wires, and machinery.  A ",
                 false
@@ -1408,7 +1408,7 @@ export class Farm extends BaseContent {
                 );
             this.player.createStatusAffect(StatusAffects.CockPumped, 1, 0, 0, 0);
         }
-        //REPEAT
+        // REPEAT
         else {
             this.outputText(
                 "You easily attach the harnesses and lift up into position, hearing the machinery activate automatically.  The hungry ",
@@ -1424,12 +1424,12 @@ export class Farm extends BaseContent {
                     "hoses wriggle out from the wall, curving up towards your crotch. ",
                     false
                 );
-            //Count repeat milkings! Wootles for arbitrary stats
+            // Count repeat milkings! Wootles for arbitrary stats
             this.player.addStatusValue(StatusAffects.CockPumped, 1, 1);
         }
-        //Small/Medium/Large, 2x each
+        // Small/Medium/Large, 2x each
         if (this.player.cockArea(0) < 20) {
-            //Small 1
+            // Small 1
             if (Farm.rand(2) == 0) {
                 if (this.player.cockTotal() == 1)
                     this.outputText(
@@ -1446,7 +1446,7 @@ export class Farm extends BaseContent {
                         false
                     );
             }
-            //Small 2
+            // Small 2
             else {
                 if (this.player.cockTotal() == 1)
                     this.outputText(
@@ -1468,7 +1468,7 @@ export class Farm extends BaseContent {
                     );
             }
         } else if (this.player.cockArea(0) < 70) {
-            //Medium 1
+            // Medium 1
             if (Farm.rand(2) == 0) {
                 if (this.player.cockTotal() == 1) {
                     this.outputText(
@@ -1501,7 +1501,7 @@ export class Farm extends BaseContent {
                     );
                 }
             }
-            //medium 2
+            // medium 2
             else {
                 if (this.player.cockTotal() == 1)
                     this.outputText(
@@ -1527,7 +1527,7 @@ export class Farm extends BaseContent {
                     );
             }
         } else {
-            //large 1
+            // large 1
             if (Farm.rand(2) == 0) {
                 if (this.player.cockTotal() == 1)
                     this.outputText(
@@ -1552,7 +1552,7 @@ export class Farm extends BaseContent {
                         false
                     );
             }
-            //large 2
+            // large 2
             else {
                 if (this.player.cockTotal() == 1)
                     this.outputText(
@@ -1575,21 +1575,21 @@ export class Farm extends BaseContent {
             }
         }
 
-        //MILKIN ACTION GO
+        // MILKIN ACTION GO
         if (Farm.rand(2) == 0) {
             this.outputText(
                 "You squirm against your restraints, openly moaning and twitching your hips, trying to enhance the sensations further.  All you feel is hot wet warmth surrounding and caressing you, stroking you to new heights of pleasure.  Gods above and below, you could lose yourself to this!  You don't want to be released, or to orgasm, or even for the machine to slow down.  You only want MORE!   The heat in your groin gets increasingly worse as your pre-cum starts dripping, turning into a steady flow.  Noisy slurping noises greet your ears as the machinery sucks your pre-seed down the tubes.  The machine immediately backs off a notch, keeping you on the edge of release, much to your simultaneous delight and frustration.\n\n",
                 false
             );
         }
-        //Ver2
+        // Ver2
         else {
             this.outputText(
                 "You moan with lust, pushed beyond the limits of sensation to a mixture of heaven and hell.   Thankfully the harness holds your body still as you writhe inside the straps, utterly restrained but instinctively trying to thrust into the source of your good feelings.  The milking devices suck and stroke with feverish intensity, making you bigger and harder than you've ever been before.  You can practically feel the pre-cum dripping from your urethras, and you can definitely hear it being sucked down the tubes.  You feel release building, but the machinery somehow senses it, and backs off, keeping you on the edge of orgasm for as long as possible.\n\n",
                 false
             );
         }
-        //(OPTIONAL ANAL PROBE)
+        // (OPTIONAL ANAL PROBE)
         if (this.player.hasKeyItem("Cock Milker: Anal Attachment") >= 0) {
             if (this.player.cockTotal() == 1)
                 this.outputText(
@@ -1614,7 +1614,7 @@ export class Farm extends BaseContent {
                     false
                 );
         }
-        //(ELSE)
+        // (ELSE)
         else {
             if (this.player.cockTotal() == 1)
                 this.outputText(
@@ -1627,13 +1627,13 @@ export class Farm extends BaseContent {
                     false
                 );
         }
-        //BAD END!?
+        // BAD END!?
         if (
             this.player.cumQ() >= 50 &&
             this.player.fatigue >= 100 &&
             this.flags[kFLAGS.USED_MILKER_TODAY] > 0
         ) {
-            //(small/medium helperless skeet)
+            // (small/medium helperless skeet)
             if (cumQ < 1000) {
                 this.outputText(
                     "The orgasm rolls over you, shutting down your thoughts as your body spasms in its straps, boiling out ",
@@ -1649,7 +1649,7 @@ export class Farm extends BaseContent {
                 this.outputText(".\n\n", false);
 
                 this.outputText("A loud 'ding' sounds ", false);
-                //[(if enough for payout)
+                // [(if enough for payout)
                 if (cumQ > 100)
                     this.outputText("and a clatter of gems drop into the plate ", false);
                 this.outputText(
@@ -1660,7 +1660,7 @@ export class Farm extends BaseContent {
                         ", but with ",
                     false
                 );
-                //[(big dix)
+                // [(big dix)
                 if (this.player.biggestCockArea() > 70) {
                     this.outputText("the end", false);
                     if (this.player.cockTotal() > 1) this.outputText("s", false);
@@ -1677,7 +1677,7 @@ export class Farm extends BaseContent {
                     false
                 );
             }
-            //(big skeet, ordinarily would be helper-assisted)
+            // (big skeet, ordinarily would be helper-assisted)
             else {
                 this.outputText(
                     "An eruption of jism boils out, splattering with loud wet noises into the tube.  You can feel the pressure build up, pushing back against your " +
@@ -1715,7 +1715,7 @@ export class Farm extends BaseContent {
                         ", but the outside of the tubing is slick with your semen",
                     false
                 );
-                //[(big dix)
+                // [(big dix)
                 if (this.player.biggestCockArea() > 70) {
                     this.outputText(", and the end", false);
                     if (this.player.cockTotal() > 1) this.outputText("s", false);
@@ -1731,13 +1731,13 @@ export class Farm extends BaseContent {
                     false
                 );
             }
-            //TO BAD ENDAGE
+            // TO BAD ENDAGE
             this.doNext(this.milkerBadEnd1);
             return;
         }
         this.flags[kFLAGS.USED_MILKER_TODAY]++;
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00333]++;
-        //ORGAZMO
+        // ORGAZMO
         if (cumQ < 10) {
             if (this.player.cockTotal() == 1)
                 this.outputText(
@@ -1755,7 +1755,7 @@ export class Farm extends BaseContent {
                 );
             this.fatigue(5);
         }
-        //Light Scene – output less than 100 mLs
+        // Light Scene – output less than 100 mLs
         else if (cumQ < 100) {
             if (this.player.cockTotal() == 1)
                 this.outputText(
@@ -1773,7 +1773,7 @@ export class Farm extends BaseContent {
                 );
             this.fatigue(10);
         }
-        //Medium Scene – output less than 250 mLs
+        // Medium Scene – output less than 250 mLs
         else if (cumQ < 333) {
             if (this.player.cockTotal() == 1) {
                 this.outputText(
@@ -1805,7 +1805,7 @@ export class Farm extends BaseContent {
             }
             this.fatigue(15);
         }
-        //Heavy Scene – output less than 500 mLs
+        // Heavy Scene – output less than 500 mLs
         else if (cumQ < 1000) {
             if (this.player.cockTotal() == 1)
                 this.outputText(
@@ -1819,7 +1819,7 @@ export class Farm extends BaseContent {
                 );
             this.fatigue(20);
         }
-        //Massive Scene – else
+        // Massive Scene – else
         else {
             if (this.player.cockTotal() == 1) {
                 this.outputText(
@@ -1852,10 +1852,10 @@ export class Farm extends BaseContent {
                     false
                 );
             }
-            //(+40 fatigue)
+            // (+40 fatigue)
             this.fatigue(40);
         }
-        //EPILOGUE
+        // EPILOGUE
         this.outputText("There's a ", false);
         if (this.player.cumQ() < 20) this.outputText("barely noticeable ", false);
         else this.outputText("thick ", false);
@@ -1864,30 +1864,30 @@ export class Farm extends BaseContent {
             false
         );
 
-        //Set temp to liter amount produced.
+        // Set temp to liter amount produced.
         var payout: number = 0;
         var cap: number = 500;
-        //Ez mode cap doubles
+        // Ez mode cap doubles
         if (this.flags[kFLAGS.EASY_MODE_ENABLE_FLAG] == 1) cap *= 2;
         if (this.debug) {
             this.flags[kFLAGS.WHITNEY_GEMS_PAID_THIS_WEEK] = 0;
             cap = 9999;
         }
-        //Get rid of extra digits
+        // Get rid of extra digits
         cumQ = Math.floor(cumQ);
         if (cumQ > 100) this.outputText(cumQ / 1000 + " Ls.  ", false);
         else this.outputText(cumQ + " mLs.  ", false);
 
-        //Calculate payout
+        // Calculate payout
         if (cumQ > 100) {
             payout = 2 + Math.floor(cumQ / 200) * 2;
         }
-        //If over cap!
+        // If over cap!
         if (this.flags[kFLAGS.WHITNEY_GEMS_PAID_THIS_WEEK] >= cap) {
             payout = 0;
             this.outputText("It also shows a warning: <b>FUNDS EXHAUSTED.</b>  ", false);
         }
-        //Reduce payout if it would push past
+        // Reduce payout if it would push past
         else if (this.flags[kFLAGS.WHITNEY_GEMS_PAID_THIS_WEEK] + payout >= cap) {
             payout = cap - this.flags[kFLAGS.WHITNEY_GEMS_PAID_THIS_WEEK];
             this.outputText(
@@ -1985,7 +1985,7 @@ export class Farm extends BaseContent {
                 ", down to the very same orgasm denial.  Wracked by pleasure but now freed to move, you find yourself trying to thrust aganst the tubes, as best as your feeble grip and exhaustion will allow, in order to try to override the machine's will and achieve release.  Nevertheless, the suction expertly mainpulates your arousal and you can do little except endure it as another oversized batch of cum wells up",
             false
         );
-        //[(balls)
+        // [(balls)
         if (this.player.balls > 0) this.outputText(" in your " + this.ballsDescriptLight(), false);
         this.outputText(
             ".  As before, the machine works you on and off for roughly an hour before the wall light once again turns green and the suction on your " +
@@ -1997,7 +1997,7 @@ export class Farm extends BaseContent {
         else if (cumQ < 600) this.outputText("stream", false);
         else this.outputText("torrent", false);
         this.outputText(" of jism.", false);
-        //[(big skeet)
+        // [(big skeet)
         if (cumQ > 1000) {
             this.outputText(
                 "  Unlike before, a fleshy valve flap pops open in the rear of the suction cup",
@@ -2015,7 +2015,7 @@ export class Farm extends BaseContent {
         );
 
         this.outputText("Another 'ding'", false);
-        //[(payment-worthy skeet)
+        // [(payment-worthy skeet)
         if (cumQ > 100) this.outputText(" and another clatter of gems", false);
         this.outputText(
             " reaches your ears as your second deposit is massed, but your attention is drawn to the new tube",
@@ -2041,7 +2041,7 @@ export class Farm extends BaseContent {
             " inserts a rod-like end into your mouth and begins trickling salty fluids down your throat.",
             false
         );
-        //[(if vag)
+        // [(if vag)
         if (this.player.hasVagina()) {
             this.outputText(
                 "  Another tube, likewise capped with a thick, firm end instead of a suction cup, reaches your " +
@@ -2050,7 +2050,7 @@ export class Farm extends BaseContent {
                 false
             );
             this.player.cuntChange(15, true);
-            //[(bigclit)
+            // [(bigclit)
             if (this.player.clitLength > 3)
                 this.outputText(
                     "A smaller suction tube fastens over your " +
@@ -2059,7 +2059,7 @@ export class Farm extends BaseContent {
                     false
                 );
         }
-        //[(lactation, no nipplecunts)
+        // [(lactation, no nipplecunts)
         if (this.player.biggestLactation() >= 1 && !this.player.hasFuckableNipples()) {
             this.outputText(
                 "  Some tubes of the cup-type latch onto your " +
@@ -2068,7 +2068,7 @@ export class Farm extends BaseContent {
                 false
             );
         }
-        //[(nipplecunts)
+        // [(nipplecunts)
         if (this.player.hasFuckableNipples()) {
             this.outputText(
                 "  More tubes snake up to your " +
@@ -2092,7 +2092,7 @@ export class Farm extends BaseContent {
                 " inflates, engorging with blood until it's much larger than usual",
             false
         );
-        //[(balls)
+        // [(balls)
         if (this.player.balls > 0)
             this.outputText(
                 " and your " +
@@ -2108,23 +2108,23 @@ export class Farm extends BaseContent {
         );
         if (this.player.cockTotal() > 1) this.outputText("s", false);
         this.outputText(", thanks assuredly to the drug", false);
-        //[(balls)
+        // [(balls)
         if (this.player.balls > 0)
             this.outputText(" and the new volume of your monstrous testicles", false);
-        //[(big skeet)
+        // [(big skeet)
         if (cumQ > 1000)
             this.outputText(
                 ", spraying out of the overflow valve and coating your entire lower body",
                 false
             );
         this.outputText(".", false);
-        //[(if vag)
+        // [(if vag)
         if (this.player.hasVagina()) {
             this.outputText(
                 "  Your cunt spasms around its invader, milking the pseudo-cock and drawing the tainted semen it emits even deeper into your womb",
                 false
             );
-            //[(big clit)
+            // [(big clit)
             if (this.player.clitLength > 3)
                 this.outputText(
                     ", and your clitoris twitches under the cup, threatening to black you out from the pleasure",
@@ -2132,13 +2132,13 @@ export class Farm extends BaseContent {
                 );
             this.outputText(".", false);
         }
-        //[(lactation)
+        // [(lactation)
         if (this.player.biggestTitSize() > 1) {
             this.outputText(
                 "  Your milk sprays out of your " + this.nippleDescript(0) + "s",
                 false
             );
-            //[(nipplecunts)
+            // [(nipplecunts)
             if (this.player.hasFuckableNipples())
                 this.outputText(
                     " and rings raise from the bases of the shafts inside your nipples, forming a seal,",
@@ -2150,7 +2150,7 @@ export class Farm extends BaseContent {
             "  A minute after your release, the flow in the other direction intensifies, pouring more fluid into you than before",
             false
         );
-        //[(lactation)
+        // [(lactation)
         if (this.player.biggestLactation() > 1)
             this.outputText(", the drug now tasting of the milk mixed in", false);
         this.outputText(
@@ -2164,14 +2164,14 @@ export class Farm extends BaseContent {
                 " swelling to nearly twice its previous size and your orgasms coming one after another without a break as you pump your hips, knowing or caring about nothing except getting off on your machine lover and being fed in turn.  Your load each time is increased rather than decreased, with the cups growing multiple fleshy overflow valves and working overtime to vent the excess pressure every time you ejaculate.  ",
             false
         );
-        //[(corruption > 90, high demonscore)
+        // [(corruption > 90, high demonscore)
         if (this.player.cor > 90) {
             this.outputText(
                 "After literally hundreds of orgasms, the machine once again begins carefully regulating its suction, denying your release.  Repeatedly it teases your " +
                     this.multiCockDescriptLight(),
                 false
             );
-            //[(vag)
+            // [(vag)
             if (this.player.hasVagina()) this.outputText(" and " + this.vaginaDescript(0), false);
             this.outputText(
                 " to the edge of orgasm and then backs off.  All the pumping in the world can't seem to get you over it, and your frustration mounts as the minutes roll by.  A sharper pressure than usual forms at the base of your " +
@@ -2200,7 +2200,7 @@ export class Farm extends BaseContent {
             '"<i>What the FUCK!</i>" the rancher says, her eyes bugging out at the spectacle of you tied to the machine with demonic tubing and the sheer volume of semen you\'ve left in thick ropes all over her barn.',
             false
         );
-        //[(corruption < 90)
+        // [(corruption < 90)
         if (this.player.cor < 90) {
             this.outputText(
                 "  You barely take notice of her as another explosive orgasm goes off, your enormously swollen penis",
@@ -2215,19 +2215,19 @@ export class Farm extends BaseContent {
             );
             this.dynStats("lib", 20, "sen", 10, "lus", 80, "cor", 20);
         }
-        //[(corruption > 90, high demonscore)
+        // [(corruption > 90, high demonscore)
         else {
             this.outputText(
                 "  Still filled with the residual effects of your sudden burst of energy, you pull off the tubes one by one and, taking a moment to snatch up the pink crystal, saunter over to her. Her eyes widen at the simultaneously horrifying and comical sight of you approaching with lust in your eyes and ",
                 false
             );
-            //[(onecox)
+            // [(onecox)
             if (this.player.cockTotal() == 1)
                 this.outputText(
                     "a gigantic, erect penis bobbing in front of you and throwing off your balance",
                     false
                 );
-            //(multi)
+            // (multi)
             else
                 this.outputText(
                     "multiple gigantic, erect penises bobbing in front of you and dragging between your legs, head pinned against the floor",
@@ -2247,11 +2247,11 @@ export class Farm extends BaseContent {
         this.getGame().gameOver();
     }
 
-    //Introduction: Finding the Toys @ The Farm
+    // Introduction: Finding the Toys @ The Farm
     private centaurToysHoooooo(): void {
         this.spriteSelect(62);
         this.outputText("", true);
-        //[Places] - [Farm] - [Talk] If PC = Centaur
+        // [Places] - [Farm] - [Talk] If PC = Centaur
         this.outputText(
             "You find the dog-morph Whitney standing in the entrance to her barn, scratching her head with consternation.  You approach her and ask what's up.\n\n",
             false

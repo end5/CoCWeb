@@ -47,7 +47,7 @@ export class SuccubusGardenerScenes extends BaseContent {
 
     private tentaFail(): void {
         this.clearOutput();
-        //Start setting up to fuck the succubus -> surprise tentacle grape, idiot.
+        // Start setting up to fuck the succubus -> surprise tentacle grape, idiot.
         this.outputText(
             "There's no way you're going to pass up an opportunity to put a succubus's lips to use. Pillowy"
         );
@@ -107,7 +107,7 @@ export class SuccubusGardenerScenes extends BaseContent {
 
         var createdVag: boolean = false;
         if (!this.player.hasCock() && !this.player.hasVagina()) {
-            //Genderless
+            // Genderless
             this.outputText(
                 "\n\nInterestingly, the new arrival descends towards your featureless cross, dripping neon orange goo as it goes. Where the stuff lands on you, your flesh alights with tingles of raw, pure sensation, somewhere stuck between pain and pleasure and yet neither. Then, that column of pulsating, phallic meat is pressing down against you, ramming itself into you, and there is not you nor your flesh can do but yield to its touches. You gasp, opening... no, <i>blossoming</i>, revealing sensitive lips and folds."
             );
@@ -117,13 +117,13 @@ export class SuccubusGardenerScenes extends BaseContent {
             this.player.createVagina();
             createdVag = true;
         } else if (this.player.hasVagina() && !this.player.hasCock()) {
-            //Cooches only
+            // Cooches only
             this.outputText(
                 "\n\nThe new arrival descends towards your already well-lubricated pussy, dripping neon orange goo as it goes. Where the stuff lands on you, you alight with raw, deviously pleasurable sensation, particularly on your pussy lips. They burn with raw, unfiltered sensation, both pleasure and pain all in one. Then, that column of pulsating, phallic meat presses down against you, too fat for any normal pussy to take, and yet somehow, it's ramming itself into you. You spread to accept it... and then spread some more, blossoming."
             );
         }
 
-        //Merge Genderless & Coochies
+        // Merge Genderless & Coochies
         if (!this.player.hasCock()) {
             // 100% gonna have a cooch by this point
             this.outputText("\n\nYou can feel your");
@@ -143,7 +143,7 @@ export class SuccubusGardenerScenes extends BaseContent {
             this.menu();
             this.addButton(0, "Next", this.tentaFailII);
         }
-        //Dicks
+        // Dicks
         else {
             this.outputText(
                 "\n\nThat monstrous, hungry-looking pussy wastes no time in descending towards your " +
@@ -184,7 +184,7 @@ export class SuccubusGardenerScenes extends BaseContent {
                     " than you would expect given how tightly-stretched it looks. You'd think it'd be pressing down painfully, but it feels tailor made to take you instead."
                 );
 
-            //Dicks need to grow
+            // Dicks need to grow
             if (this.player.biggestCockLength() <= 30) {
                 this.outputText(
                     "\n\nGlowing orange goo leaks from the oversized slit in thick beads. You briefly wonder what purpose the odd coloration could serve when the feeling of your cock" +
@@ -453,7 +453,7 @@ export class SuccubusGardenerScenes extends BaseContent {
             "\n\nYour [vagina] clinges tightly to the girthy intruder. The size of the glistening, girlspunk-stained stalk seems perfectly suited to keeping your lips your comfortably stretched. Perhaps it's all the aphrodisiac-laced spooge you're guzzling, but you don't feel an ounce of pain. Your pussy is incandescent with ecstasy. Letting your eyes drift closed, you voluntarily abandon you other senses in order to focus on the rhythmic strumming of your vaginal nerves. The pleasure is so right... so perfect, that you feel compelled to play your tongue along the tentacle in your mouth and work forgotten, vaginal muscles, trying to say thank you in the only way you're capable of."
         );
 
-        //Dicks
+        // Dicks
         if (this.player.hasCock()) {
             this.outputText(
                 "\n\n[EachCock], long ignored and pulsing ribbons of off-white lust, is snapped up by what feels like a custom-made sleeve. You can hear the noisy slurp of it vacuuming up your length"
@@ -464,7 +464,7 @@ export class SuccubusGardenerScenes extends BaseContent {
             );
         }
 
-        //Back to normal.
+        // Back to normal.
         this.outputText(
             "\n\nMore cum splatters across the exterior of your womanhood a moment before an enclosure envelops your [clit]."
         );
@@ -689,7 +689,7 @@ export class SuccubusGardenerScenes extends BaseContent {
             "\n\nYay! You plod along after her, low to the ground and sniffing at the air. Mistress has a very unique aroma, now that you take a chance to appreciate it, like earth and berries and sex all mixed up into one scent. You've never sample its ilk before. Other aromas bring themselves to your attention, some wafting from side passages and other mere traces on the ground, but you're aware of them all, intrigued by them all and wishing that you could run off to see what every single one was. Maybe after you discover your new home, she'll let you go for a run."
         );
 
-        //Taurs
+        // Taurs
         if (this.player.isTaur() || this.player.isDrider()) {
             this.outputText(
                 "\n\nThe longer you follow, the more you bow over, submissively, and at some point, you even start putting your hands on the path, moving your weight onto them. Elsewhere, your middle is raising up, and your body is changing, you're sure of that. The change slows you at first, but soon enough you're plodding along just fine, the"
@@ -700,7 +700,7 @@ export class SuccubusGardenerScenes extends BaseContent {
                 " fading into the near silent pats of padded paws. Your hands are changing too: the fingers are shortening, but your nails are growing. Fur grows out over them, and your spine shifts, all so that you can follow on all fours that much easier."
             );
         } else {
-            //Nontaurs
+            // Nontaurs
             this.outputText("\n\nThe longer you follow, the easier it gets to stay on her heels.");
             if (this.player.isGoo())
                 this.outputText(
@@ -722,7 +722,7 @@ export class SuccubusGardenerScenes extends BaseContent {
             );
         }
 
-        //[Next]
+        // [Next]
         this.menu();
         this.addButton(0, "Next", this.maleLossPetII);
     }
@@ -794,7 +794,7 @@ export class SuccubusGardenerScenes extends BaseContent {
             "\n\nThe tentacle gardener holds her hand to your mouth for you to clean. You don't hesitate for a moment, licking the salty treat off her with gusto before being led into your kennel for a nap."
         );
 
-        //[Next]
+        // [Next]
         this.menu();
         this.addButton(0, "Next", this.maleLossPetIII);
     }
@@ -875,13 +875,13 @@ export class SuccubusGardenerScenes extends BaseContent {
                 ".... Well, you're leaking pre in thick, solid ropes now, an act that feels like halfway between a good tonguing and orgasm itself. Your lips are slick with the tentacle's fluid and tingling like sex-organs of their own. Sealing them tight, you moan, gurgle, and swallow. Attempts to beg for more have fallen away. This is enough, and if it keeps up, you're going to cum, touches or no."
         );
 
-        //Prostate swelling
+        // Prostate swelling
         if (this.player.balls == 0) {
             this.outputText(
                 "\n\nThe familiar tightness in your core is there, but rather than climaxing immediately, the sensation intensifies. It grows like an itch you can't scratch, driving you to distraction. Your body tightens like a watchspring being cranked before eventually snapping, sending your muscles into uncontrollable convulsions, squeezing and grinding against something swelling up inside you. Clenching down against it feels unconscionably good and earns you a thicker drizzle of pre. You twist in your bindings while the flow thickens and your spasms turn into a steady fluttering. It's clear that your prostate is getting bigger, but it feels too good to worry about."
             );
         }
-        //Ball filling
+        // Ball filling
         else {
             this.outputText(
                 "\n\nThe tightness in your [balls] is there, your [sack] drawing close against your crotch, but rather than climaxing immediately, the sensation intensifies. The feeling of tautness relaxes after a moment, but in its place comes an unfamiliar weightiness, one that only serves to remind you of the payload building inside them. As a matter of fact, you swear you can feel a certain liquid churning there, like every beat of your heart is somehow pumping more and more cum into your [balls]. Your mind knows it impossible, but the incredibly fullness of your swelling sack argues otherwise."
@@ -911,7 +911,7 @@ export class SuccubusGardenerScenes extends BaseContent {
         this.outputText(
             '. <i>"Oh, you\'ll have more soon enough: more pleasure... more sap... and more orgasms than you\'ll know what to do with. You\'re going to make fine fertilizer for my pets. Lethice will be pleased."</i> She laps at the alabaster treat and sighs. <i>"Pleased indeed. It is more rich than I thought."</i> She pauses as if considering something, then shakes her head. <i>"Perhaps I will use you later. For now, I think you are eager for my pets\' attentions. Why don\'t you get acquainted?"</i>'
         );
-        //[Next]
+        // [Next]
         this.menu();
         this.addButton(0, "Next", this.maleLossFeederII);
     }
@@ -983,7 +983,7 @@ export class SuccubusGardenerScenes extends BaseContent {
             );
         this.outputText(".");
 
-        //Fuckable nipples
+        // Fuckable nipples
         if (this.player.hasFuckableNipples()) {
             this.outputText(
                 "\n\nThe vines rubbing against your [nipples] soon discover their leaking, capacitive secrets and burrow in. If your mouth wasn't completely stuffed, you'd scream your love for this wonderful creature to the heavens. Instead, you merely whimper and cum against, a tiny boobgasm riding atop an ocean of squirting need. Your chest is taken for a ride by tentacle after tentacles. Sometimes one will withdraw to allow another entrance. Sometimes two will fuck your tits at once, sliding against each other inside of you. But you are never left empty for more than a second, your nipples like toys for the insatiable abominations."

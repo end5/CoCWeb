@@ -125,15 +125,15 @@ export class Mutations extends BaseContent {
 
     // import classes.ItemSlotClass;
 
-    //const FOX_BAD_END_WARNING: number = 477;
-    //const TIMES_MET_CHICKEN_HARPY: number = 652;
-    //const EGGS_BOUGHT: number = 653;
-    //const BIKINI_ARMOR_BONUS: number = 769;
+    // const FOX_BAD_END_WARNING: number = 477;
+    // const TIMES_MET_CHICKEN_HARPY: number = 652;
+    // const EGGS_BOUGHT: number = 653;
+    // const BIKINI_ARMOR_BONUS: number = 769;
 
-    //Cerulean P.
+    // Cerulean P.
     public ceruleanPotion(player: Player): void {
         player.slimeFeed();
-        //Repeat genderless encounters
+        // Repeat genderless encounters
         if (player.gender == 0 && this.flags[kFLAGS.CERULEAN_POTION_NEUTER_ATTEMPTED] > 0) {
             this.outputText(
                 "You take another sip of the Cerulean Potion.  You find it soothing and become very excited about the possibility of another visit from the succubus.",
@@ -145,13 +145,13 @@ export class Mutations extends BaseContent {
                 true
             );
         }
-        //All else
+        // All else
         else {
             this.outputText("The liquid tastes rather bland and goes down easily. ", true);
-            //Special repeat texts
+            // Special repeat texts
             if (player.findStatusAffect(StatusAffects.RepeatSuccubi) >= 0)
                 this.outputText("You look forwards to tonight's encounter.", false);
-            //First timer huh?
+            // First timer huh?
             else
                 this.outputText(
                     "You do not notice any real effects.  Did the merchant con you?",
@@ -164,24 +164,24 @@ export class Mutations extends BaseContent {
         } else player.createStatusAffect(StatusAffects.SuccubiNight, 1, 0, 0, 0);
     }
 
-    //Vitality Tincture
+    // Vitality Tincture
     public vitalityTincture(player: Player): void {
         player.slimeFeed();
         this.outputText(
             "You down the contents of the bottle. The liquid is thick and tastes remarkably like cherries. Within moments, you feel much more fit and healthy.",
             true
         );
-        //str change
+        // str change
         this.temp = Mutations.rand(3);
         this.dynStats("str", this.temp);
-        //Garunteed toughness if no str
+        // Garunteed toughness if no str
         if (this.temp == 0) {
             this.temp = Mutations.rand(3);
             if (this.temp == 0) this.temp = 1;
         } else this.temp = Mutations.rand(3);
-        //tou change
+        // tou change
         this.dynStats("tou", this.temp);
-        //Chance of fitness change
+        // Chance of fitness change
         if (player.HP < player.maxHP())
             this.outputText(
                 "  Any aches, pains and bruises you have suffered no longer hurt and you feel much better.",
@@ -192,7 +192,7 @@ export class Mutations extends BaseContent {
         if (Mutations.rand(3) == 0) this.outputText(player.modTone(95, 3), false);
     }
 
-    //Scholar's Tea
+    // Scholar's Tea
     public scholarsTea(player: Player): void {
         player.slimeFeed();
         this.outputText(
@@ -220,7 +220,7 @@ export class Mutations extends BaseContent {
                 "  You're sure it must be distilled from the cum of an incubus.",
                 false
             );
-        //Lowlevel changes
+        // Lowlevel changes
         if (rando < 50) {
             if (player.cocks.length == 1) {
                 if (player.cocks[0].cockType != CockTypesEnum.DEMON)
@@ -294,7 +294,7 @@ export class Mutations extends BaseContent {
             if (player.cocks.length > 1) {
                 this.temp = player.cocks.length;
                 temp2 = 0;
-                //Find shortest cock
+                // Find shortest cock
                 while (this.temp > 0) {
                     this.temp--;
                     if (player.cocks[this.temp].cockLength <= player.cocks[temp2].cockLength) {
@@ -306,7 +306,7 @@ export class Mutations extends BaseContent {
                 if (tainted)
                     this.dynStats("int", 1, "lib", 2, "sen", 1, "lus", 5 + this.temp * 3, "cor", 1);
                 else this.dynStats("int", 1, "lib", 2, "sen", 1, "lus", 5 + this.temp * 3);
-                //Grammar police for 2 cocks
+                // Grammar police for 2 cocks
                 if (player.cockTotal() == 2)
                     this.outputText(
                         "\n\nBoth of your " +
@@ -316,7 +316,7 @@ export class Mutations extends BaseContent {
                             " begins to grow.",
                         false
                     );
-                //For more than 2
+                // For more than 2
                 else
                     this.outputText(
                         "\n\nAll of your " +
@@ -356,7 +356,7 @@ export class Mutations extends BaseContent {
                     false
                 );
             }
-            //NO CAWKS?
+            // NO CAWKS?
             if (player.cocks.length == 0) {
                 player.createCock();
                 player.cocks[0].cockLength = Mutations.rand(3) + 4;
@@ -376,14 +376,14 @@ export class Mutations extends BaseContent {
                 if (tainted) this.dynStats("lib", 3, "sen", 5, "lus", 10, "cor", 5);
                 else this.dynStats("lib", 3, "sen", 5, "lus", 10);
             }
-            //TIT CHANGE 25% chance of shrinkage
+            // TIT CHANGE 25% chance of shrinkage
             if (Mutations.rand(4) == 0) {
                 if (!this.flags[kFLAGS.HYPER_HAPPY]) {
                     player.shrinkTits();
                 }
             }
         }
-        //Mid-level changes
+        // Mid-level changes
         if (rando >= 50 && rando < 93) {
             if (player.cocks.length > 1) {
                 this.outputText(
@@ -398,7 +398,7 @@ export class Mutations extends BaseContent {
                     if (temp3 < 0.1) player.cocks[this.temp].cockThickness += 0.05;
                 }
                 player.lengthChange(temp2, player.cocks.length);
-                //Display the degree of thickness change.
+                // Display the degree of thickness change.
                 if (temp3 >= 1) {
                     if (player.cocks.length == 1)
                         this.outputText(
@@ -446,7 +446,7 @@ export class Mutations extends BaseContent {
                 temp3 = player.cocks[0].thickenCock(1);
                 temp2 = player.increaseCock(0, Mutations.rand(3) + 2);
                 player.lengthChange(temp2, 1);
-                //Display the degree of thickness change.
+                // Display the degree of thickness change.
                 if (temp3 >= 1) {
                     if (player.cocks.length == 1)
                         this.outputText(
@@ -505,15 +505,15 @@ export class Mutations extends BaseContent {
                 if (tainted) this.dynStats("lib", 3, "sen", 5, "lus", 10, "cor", 3);
                 else this.dynStats("lib", 3, "sen", 5, "lus", 10);
             }
-            //Shrink breasts a more
-            //TIT CHANGE 50% chance of shrinkage
+            // Shrink breasts a more
+            // TIT CHANGE 50% chance of shrinkage
             if (Mutations.rand(2) == 0) {
                 if (!this.flags[kFLAGS.HYPER_HAPPY]) {
                     player.shrinkTits();
                 }
             }
         }
-        //High level change
+        // High level change
         if (rando >= 93) {
             if (player.cockTotal() < 10) {
                 if (Math.floor(Math.random() * 10) < Math.floor(player.cor / 25)) {
@@ -530,7 +530,7 @@ export class Mutations extends BaseContent {
                 player.shrinkTits();
             }
         }
-        //Demonic changes - higher chance with higher corruption.
+        // Demonic changes - higher chance with higher corruption.
         if (Mutations.rand(40) + player.cor / 3 > 35 && tainted) this.demonChanges(player);
         player.genderCheck();
         if (Mutations.rand(4) == 0 && tainted) this.outputText(player.modFem(5, 2), false);
@@ -610,7 +610,7 @@ export class Mutations extends BaseContent {
                 this.temp = player.breastRows.length;
                 while (this.temp > 0) {
                     this.temp--;
-                    //If that breast didnt have nipples reset length
+                    // If that breast didnt have nipples reset length
                     if (player.breastRows[0].nipplesPerBreast < 1)
                         player.breastRows[0].nippleLength = 0.2;
                     player.breastRows[0].nipplesPerBreast = 1;
@@ -678,7 +678,7 @@ export class Mutations extends BaseContent {
             this.doNext(this.camp.returnToCampUseOneHour);
         }
         if (!kGAMECLASS.inCombat) {
-            //RAEP
+            // RAEP
             this.spriteSelect(50);
             this.outputText(
                 "\n\nYou hear the soft impact of clothes hitting the ground behind you, and turn to see that the sand witch has found you! You cannot resist a peek at your uninvited guest, beholding a curvy dark-skinned beauty, her form dominated by a quartet of lactating breasts.  Somewhere in your lust-fogged mind you register the top two as something close to double-Ds, and her lower pair to be about Cs.  She smiles and leans over you, pushing you to the ground violently.\n\nShe turns around and drops, planting her slick honey-pot firmly against your mouth.  Her scent is strong, overpowering in its intensity.  Your tongue darts out for a taste and finds a treasure trove of sticky sweetness.  Instinctively you tongue-fuck her, greedily devouring her cunny-juice, shoving your tongue in as far as possible while suckling her clit.  Dimly you feel the milk spattering over you, splashing off you and into the cracked earth.  Everywhere the milk touches feels silky smooth and sensitive, and your hands begin stroking your body, rubbing it in as the witch sprays more and more of it.  You lose track of time, orgasming many times, slick and sticky with sexual fluids.",
@@ -692,7 +692,7 @@ export class Mutations extends BaseContent {
 
     public minotaurCum(player: Player): void {
         player.slimeFeed();
-        //Minotaur cum addiction
+        // Minotaur cum addiction
         player.minoCumAddiction(7);
         this.outputText("", true);
         this.outputText("As soon as you crack the seal on the bottled white fluid, a ", false);
@@ -710,10 +710,10 @@ export class Mutations extends BaseContent {
             "  Unbidden, your hand brings the bottle to your lips, and the heady taste fills your mouth as you convulsively swallow the entire bottle.",
             false
         );
-        //-Raises lust by 10.
-        //-Raises sensitivity
+        // -Raises lust by 10.
+        // -Raises sensitivity
         this.dynStats("sen", 1, "lus", 10);
-        //-Raises corruption by 1 to 50, then by .5 to 75, then by .25 to 100.
+        // -Raises corruption by 1 to 50, then by .5 to 75, then by .25 to 100.
         if (player.cor < 50) this.dynStats("cor", 1);
         else if (player.cor < 75) this.dynStats("cor", 0.5);
         else this.dynStats("cor", 0.25);
@@ -765,7 +765,7 @@ export class Mutations extends BaseContent {
                     false
                 );
         }
-        //(Minotaur fantasy)
+        // (Minotaur fantasy)
         if (!kGAMECLASS.inCombat && Mutations.rand(10) == 1) {
             this.outputText(
                 "\n\nYour eyes flutter closed for a second as a fantasy violates your mind.  You're on your knees, prostrate before a minotaur.  Its narcotic scent fills the air around you, and you're swaying back and forth with your belly already sloshing and full of spunk.  Its equine-like member is rubbing over your face, and you submit to the beast, stretching your jaw wide to take its sweaty, glistening girth inside you.  Your tongue quivers happily as you begin sucking and slurping, swallowing each drop of pre-cum you entice from the beastly erection.  Gurgling happily, you give yourself to your inhuman master for a chance to swallow into unthinking bliss.",
@@ -780,7 +780,7 @@ export class Mutations extends BaseContent {
                     this.flags[kFLAGS.MINOTAUR_CUM_ADDICTION_TRACKER] / 5
             );
         }
-        //(Healing – if hurt and uber-addicted (hasperk))
+        // (Healing – if hurt and uber-addicted (hasperk))
         if (player.HP < player.maxHP() && player.findPerk(PerkLib.MinotaurCumAddict) >= 0) {
             this.outputText(
                 "\n\nThe fire of your arousal consumes your body, leaving vitality in its wake.  You feel much better!",
@@ -788,7 +788,7 @@ export class Mutations extends BaseContent {
             );
             this.HPChange(Math.floor(player.maxHP() / 4), false);
         }
-        //Uber-addicted status!
+        // Uber-addicted status!
         if (
             player.findPerk(PerkLib.MinotaurCumAddict) >= 0 &&
             this.flags[kFLAGS.MINOTAUR_CUM_REALLY_ADDICTED_STATE] <= 0
@@ -803,49 +803,49 @@ export class Mutations extends BaseContent {
 
     public minotaurBlood(player: Player): void {
         player.slimeFeed();
-        //Changes done
+        // Changes done
         var changes: number = 0;
-        //Change limit
+        // Change limit
         var changeLimit: number = 1;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
         if (changeLimit == 1) changeLimit = 2;
-        //Temporary storage
+        // Temporary storage
         var temp: number = 0;
         var temp2: number = 0;
         var temp3: number = 0;
-        //Set up output
+        // Set up output
         this.outputText(
             "You drink the bubbling red fluid, tasting the tangy iron after-taste.",
             true
         );
-        //STATS
-        //Strength h
+        // STATS
+        // Strength h
         if (Mutations.rand(3) == 0 && changes < changeLimit) {
-            //weaker characters gain more
+            // weaker characters gain more
             if (player.str <= 50) {
                 this.outputText(
                     "\n\nPainful aches ripple through your body, flooding you with pain as your muscles flex and bulge, growing much stronger and more well-defined.",
                     false
                 );
-                //very weak players gain more
+                // very weak players gain more
                 if (player.str <= 20) this.dynStats("str", 3);
                 else this.dynStats("str", 2);
             }
-            //stronger characters gain less
+            // stronger characters gain less
             else {
-                //small growth if over 75
+                // small growth if over 75
                 if (player.str >= 75) this.dynStats("str", 0.5);
-                //faster from 50-75
+                // faster from 50-75
                 else this.dynStats("str", 1);
                 this.outputText(
                     "\n\nYour muscles grow tighter, bulging outwards powerfully as you get even stronger!",
                     false
                 );
             }
-            //Chance of speed drop
+            // Chance of speed drop
             if (Mutations.rand(2) == 0 && player.str > 50) {
                 this.outputText(
                     "\n\nYou begin to feel that the size of your muscles is starting to slow you down.",
@@ -855,27 +855,27 @@ export class Mutations extends BaseContent {
             }
             changes++;
         }
-        //Toughness (chance of - sensitivity)
+        // Toughness (chance of - sensitivity)
         if (Mutations.rand(3) == 0 && changes < changeLimit) {
-            //weaker characters gain more
+            // weaker characters gain more
             if (player.tou <= 50) {
                 this.outputText(
                     "\n\nYour hide... skin... whatever... you can feel it getting tougher as it thickens perceptibly.",
                     false
                 );
-                //very weak players gain more
+                // very weak players gain more
                 if (player.tou <= 20) this.dynStats("tou", 3);
                 else this.dynStats("tou", 2);
             }
-            //stronger characters gain less
+            // stronger characters gain less
             else {
-                //small growth if over 75
+                // small growth if over 75
                 if (player.tou >= 75) this.dynStats("tou", 0.5);
-                //faster from 50-75
+                // faster from 50-75
                 else this.dynStats("tou", 1);
                 this.outputText("\n\nYour tough hide grows slightly thicker.", false);
             }
-            //chance of less sensitivity
+            // chance of less sensitivity
             if (Mutations.rand(2) == 0 && player.sens > 10) {
                 if (player.tou > 75) {
                     this.outputText(
@@ -901,15 +901,15 @@ export class Mutations extends BaseContent {
             }
             changes++;
         }
-        //SEXUAL
-        //Boosts ball size MORE than equinum :D:D:D:D:D:D:
+        // SEXUAL
+        // Boosts ball size MORE than equinum :D:D:D:D:D:D:
         if (
             changes < changeLimit &&
             Mutations.rand(2) == 0 &&
             player.ballSize <= 5 &&
             player.horseCocks() > 0
         ) {
-            //Chance of ball growth if not 3" yet
+            // Chance of ball growth if not 3" yet
             if (player.balls == 0) {
                 player.balls = 2;
                 player.ballSize = 1;
@@ -940,7 +940,7 @@ export class Mutations extends BaseContent {
             }
             changes++;
         }
-        //-Remove feather-arms (copy this for goblin ale, mino blood, equinum, canine pepps, demon items)
+        // -Remove feather-arms (copy this for goblin ale, mino blood, equinum, canine pepps, demon items)
         if (changes < changeLimit && player.armType == ARM_TYPE_HARPY && Mutations.rand(4) == 0) {
             this.outputText(
                 "\n\nYou scratch at your biceps absentmindedly, but no matter how much you scratch, it isn't getting rid of the itch.  Glancing down in irritation, you discover that your feathery arms are shedding their feathery coating.  The wing-like shape your arms once had is gone in a matter of moments, leaving " +
@@ -951,7 +951,7 @@ export class Mutations extends BaseContent {
             player.armType = ARM_TYPE_HUMAN;
             changes++;
         }
-        //-Remove chitin-arms (copy this for goblin ale, mino blood, equinum, canine pepps, demon items)
+        // -Remove chitin-arms (copy this for goblin ale, mino blood, equinum, canine pepps, demon items)
         if (changes < changeLimit && player.armType == ARM_TYPE_SPIDER && Mutations.rand(4) == 0) {
             this.outputText(
                 "\n\nYou scratch at your biceps absentmindedly, but no matter how much you scratch, it isn't getting rid of the itch.  Glancing down in irritation, you discover that your arms' chitinous covering is flaking away.  The glossy black coating is soon gone, leaving " +
@@ -962,7 +962,7 @@ export class Mutations extends BaseContent {
             player.armType = ARM_TYPE_HUMAN;
             changes++;
         }
-        //+hooves
+        // +hooves
         if (
             player.lowerBody != LOWER_BODY_TYPE_HOOFED &&
             player.lowerBody != LOWER_BODY_TYPE_CENTAUR
@@ -984,7 +984,7 @@ export class Mutations extends BaseContent {
                         "\n\nYou collapse as your sinuous snake-tail tears in half, shifting into legs.  The pain is immense, particularly in your new feet as they curl inward and transform into hooves!",
                         false
                     );
-                //Catch-all
+                // Catch-all
                 if (player.lowerBody > LOWER_BODY_TYPE_NAGA)
                     this.outputText(
                         "\n\nYou stagger as your " +
@@ -1003,10 +1003,10 @@ export class Mutations extends BaseContent {
             }
         }
         if (!this.flags[kFLAGS.HYPER_HAPPY]) {
-            //Kills vagina size (and eventually the whole vagina)
+            // Kills vagina size (and eventually the whole vagina)
             if (player.vaginas.length > 0) {
                 if (player.vaginas[0].vaginalLooseness > VAGINA_LOOSENESS_TIGHT) {
-                    //tighten that bitch up!
+                    // tighten that bitch up!
                     this.outputText(
                         "\n\nYour " +
                             this.vaginaDescript(0) +
@@ -1021,7 +1021,7 @@ export class Mutations extends BaseContent {
                             " disappears forever</b>!",
                         false
                     );
-                    //Goodbye womanhood!
+                    // Goodbye womanhood!
                     player.removeVagina(0, 1);
                     if (player.cocks.length == 0) {
                         this.outputText(
@@ -1038,7 +1038,7 @@ export class Mutations extends BaseContent {
                 }
                 changes++;
             }
-            //-Remove extra breast rows
+            // -Remove extra breast rows
             if (changes < changeLimit && player.bRows() > 1 && Mutations.rand(3) == 0) {
                 changes++;
                 this.outputText(
@@ -1062,24 +1062,24 @@ export class Mutations extends BaseContent {
                 this.dynStats("sen", -5);
                 player.removeBreastRow(player.breastRows.length - 1, 1);
             }
-            //Shrink boobages till they are normal
+            // Shrink boobages till they are normal
             else if (
                 Mutations.rand(2) == 0 &&
                 changes < changeLimit &&
                 player.breastRows.length > 0
             ) {
-                //Single row
+                // Single row
                 if (player.breastRows.length == 1) {
-                    //Shrink if bigger than B cups
+                    // Shrink if bigger than B cups
                     if (player.breastRows[0].breastRating >= 1) {
                         temp = 1;
                         player.breastRows[0].breastRating--;
-                        //Shrink again if huuuuge
+                        // Shrink again if huuuuge
                         if (player.breastRows[0].breastRating > 8) {
                             temp++;
                             player.breastRows[0].breastRating--;
                         }
-                        //Talk about shrinkage
+                        // Talk about shrinkage
                         if (temp == 1)
                             this.outputText(
                                 "\n\nYou feel a weight lifted from you, and realize your " +
@@ -1099,10 +1099,10 @@ export class Mutations extends BaseContent {
                         changes++;
                     }
                 }
-                //multiple
+                // multiple
                 else {
-                    //temp2 = amount changed
-                    //temp3 = counter
+                    // temp2 = amount changed
+                    // temp3 = counter
                     temp = 0;
                     temp2 = 0;
                     temp3 = 0;
@@ -1112,7 +1112,7 @@ export class Mutations extends BaseContent {
                             player.breastRows[temp3].breastRating--;
                             temp2++;
                             this.outputText("\n", false);
-                            //If this isn't the first change...
+                            // If this isn't the first change...
                             if (temp2 > 1) this.outputText("...and y", false);
                             else this.outputText("Y", false);
                             this.outputText(
@@ -1142,7 +1142,7 @@ export class Mutations extends BaseContent {
                 }
             }
         }
-        //Boosts cock size up to 36"x5".
+        // Boosts cock size up to 36"x5".
         if (changes < changeLimit && Mutations.rand(2) == 0 && player.cocks.length > 0) {
             var selectedCock: number = -1;
             for (var i: number = 0; i < player.cocks.length; i++) {
@@ -1155,14 +1155,14 @@ export class Mutations extends BaseContent {
                 }
             }
 
-            //Length first
+            // Length first
             if (selectedCock != -1) {
-                //Thickness too if small enough
+                // Thickness too if small enough
                 if (player.cocks[selectedCock].cockThickness < 5) {
-                    //Increase by 2 + rand(8), and store the actual amount in temp
+                    // Increase by 2 + rand(8), and store the actual amount in temp
                     temp = player.increaseCock(selectedCock, 2 + Mutations.rand(8));
                     temp += player.cocks[selectedCock].thickenCock(1);
-                    //Comment on length changes
+                    // Comment on length changes
                     if (temp > 6)
                         this.outputText(
                             "\n\nGasping in sudden pleasure, your " +
@@ -1182,17 +1182,17 @@ export class Mutations extends BaseContent {
                             "\n\nGroaning softly, you feel a pleasurable change in your groin.  Looking down, you see [oneCock] grow slightly longer.",
                             false
                         );
-                    //Add a blurb about thickness...
+                    // Add a blurb about thickness...
                     this.outputText(
                         "  To your delight and surprise, you discover it has grown slightly thicker as well!",
                         false
                     );
                 }
-                //Just length...
+                // Just length...
                 else {
-                    //Increase by 2 + rand(8), and store the actual amount in temp
+                    // Increase by 2 + rand(8), and store the actual amount in temp
                     temp = player.increaseCock(selectedCock, 2 + Mutations.rand(8));
-                    //Comment on length changes
+                    // Comment on length changes
                     if (temp > 6)
                         this.outputText(
                             "\n\nGasping in sudden pleasure, your " +
@@ -1216,7 +1216,7 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //Morph dick to horsediiiiick
+        // Morph dick to horsediiiiick
         if (player.cocks.length > 0 && Mutations.rand(2) == 0 && changes < changeLimit) {
             var selectedCockValue: number = -1; //Changed as selectedCock and i caused duplicate var warnings
             for (var indexI: number = 0; indexI < player.cocks.length; indexI++) {
@@ -1227,7 +1227,7 @@ export class Mutations extends BaseContent {
             }
 
             if (selectedCockValue != -1) {
-                //Text for humandicks or others
+                // Text for humandicks or others
                 if (
                     player.cocks[selectedCockValue].cockType == CockTypesEnum.HUMAN ||
                     player.cocks[selectedCockValue].cockType.Index > 2
@@ -1238,7 +1238,7 @@ export class Mutations extends BaseContent {
                             " begins to feel strange... you pull down your pants to take a look and see it darkening as you feel a tightness near the base where your skin seems to be bunching up.  A sheath begins forming around your cock's base, tightening and pulling your cock inside its depths.  A hot feeling envelops your member as it suddenly grows into a horse penis, dwarfing its old size.  The skin is mottled brown and black and feels more sensitive than normal.  Your hands are irresistibly drawn to it, and you jerk yourself off, splattering cum with intense force.",
                         false
                     );
-                //Text for dogdicks
+                // Text for dogdicks
                 if (player.cocks[selectedCockValue].cockType == CockTypesEnum.DOG)
                     this.outputText(
                         "\n\nYour " +
@@ -1260,12 +1260,12 @@ export class Mutations extends BaseContent {
             }
         }
 
-        //Males go into rut
+        // Males go into rut
         if (Mutations.rand(4) == 0) {
             player.goIntoRut(true);
         }
 
-        //Anti-masturbation status
+        // Anti-masturbation status
         if (
             Mutations.rand(4) == 0 &&
             changes < changeLimit &&
@@ -1290,16 +1290,16 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //Appearance shit:
-        //Tail, Ears, Hooves, Horns, Height (no prereq), Face
-        //+height up to 9 foot
+        // Appearance shit:
+        // Tail, Ears, Hooves, Horns, Height (no prereq), Face
+        // +height up to 9 foot
         if (changes < changeLimit && Mutations.rand(1.7) == 0 && player.tallness < 108) {
             temp = Mutations.rand(5) + 3;
-            //Slow rate of growth near ceiling
+            // Slow rate of growth near ceiling
             if (player.tallness > 90) temp = Math.floor(temp / 2);
-            //Never 0
+            // Never 0
             if (temp == 0) temp = 1;
-            //Flavor texts.  Flavored like 1950's cigarettes. Yum.
+            // Flavor texts.  Flavored like 1950's cigarettes. Yum.
             if (temp < 5)
                 this.outputText(
                     "\n\nYou shift uncomfortably as you realize you feel off balance.  Gazing down, you realize you have grown SLIGHTLY taller.",
@@ -1318,7 +1318,7 @@ export class Mutations extends BaseContent {
             player.tallness += temp;
             changes++;
         }
-        //Face change, requires Ears + Height + Hooves
+        // Face change, requires Ears + Height + Hooves
         if (
             player.earType == EARS_COW &&
             player.lowerBody == LOWER_BODY_TYPE_HOOFED &&
@@ -1335,7 +1335,7 @@ export class Mutations extends BaseContent {
                 player.faceType = FACE_COW_MINOTAUR;
             }
         }
-        //+mino horns require ears/tail
+        // +mino horns require ears/tail
         if (
             changes < changeLimit &&
             Mutations.rand(3) == 0 &&
@@ -1343,11 +1343,11 @@ export class Mutations extends BaseContent {
             player.tailType == TAIL_TYPE_COW
         ) {
             temp = 1;
-            //New horns or expanding mino horns
+            // New horns or expanding mino horns
             if (player.hornType == HORNS_COW_MINOTAUR || player.hornType == HORNS_NONE) {
-                //Get bigger if player has horns
+                // Get bigger if player has horns
                 if (player.hornType == HORNS_COW_MINOTAUR) {
-                    //Fems horns don't get bigger.
+                    // Fems horns don't get bigger.
                     if (player.vaginas.length > 0) {
                         if (player.horns > 4) {
                             this.outputText(
@@ -1369,7 +1369,7 @@ export class Mutations extends BaseContent {
                         }
                         changes++;
                     }
-                    //Males horns get 'uge.
+                    // Males horns get 'uge.
                     else {
                         temp = 1 + Mutations.rand(3);
                         player.horns += temp;
@@ -1408,7 +1408,7 @@ export class Mutations extends BaseContent {
                                 "They are huge, heavy, and tipped with dangerous points.",
                                 false
                             );
-                        //boys get a cum refill sometimes
+                        // boys get a cum refill sometimes
                         if (Mutations.rand(2) == 0 && changes < changeLimit) {
                             this.outputText(
                                 "  Your headache clears as lust washes through you unnaturally.  You feel as if you haven't cum in months.",
@@ -1420,7 +1420,7 @@ export class Mutations extends BaseContent {
                         changes++;
                     }
                 }
-                //If no horns yet..
+                // If no horns yet..
                 else {
                     this.outputText(
                         "\n\nWith painful pressure, the skin on your forehead splits around two tiny nub-like horns, similar to those you would see on the cattle back in your homeland.",
@@ -1431,7 +1431,7 @@ export class Mutations extends BaseContent {
                     changes++;
                 }
             }
-            //Not mino horns, change to cow-horns
+            // Not mino horns, change to cow-horns
             if (player.hornType == HORNS_DEMON || player.hornType > HORNS_COW_MINOTAUR) {
                 this.outputText(
                     "\n\nYour horns vibrate and shift as if made of clay, reforming into two horns with a bovine-like shape.",
@@ -1441,7 +1441,7 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //+cow ears	- requires tail
+        // +cow ears	- requires tail
         if (
             player.earType != EARS_COW &&
             changes < changeLimit &&
@@ -1455,7 +1455,7 @@ export class Mutations extends BaseContent {
             player.earType = EARS_COW;
             changes++;
         }
-        //+cow tail
+        // +cow tail
         if (changes < changeLimit && Mutations.rand(2) == 0 && player.tailType != TAIL_TYPE_COW) {
             if (player.tailType == TAIL_TYPE_NONE)
                 this.outputText(
@@ -1474,7 +1474,7 @@ export class Mutations extends BaseContent {
                         false
                     );
                 }
-                //insect
+                // insect
                 if (
                     player.tailType == TAIL_TYPE_SPIDER_ADBOMEN ||
                     player.tailType == TAIL_TYPE_BEE_ABDOMEN
@@ -1509,11 +1509,11 @@ export class Mutations extends BaseContent {
             if (player.ass.analLooseness > 1) player.ass.analLooseness--;
             changes++;
         }
-        //Give you that mino build!
+        // Give you that mino build!
         if (Mutations.rand(4) == 0) this.outputText(player.modFem(5, 10), false);
         if (Mutations.rand(4) == 0) this.outputText(player.modTone(85, 3), false);
         if (Mutations.rand(4) == 0) this.outputText(player.modThickness(70, 4), false);
-        //Default
+        // Default
         if (changes == 0) {
             this.outputText(
                 "\n\nMinotaur-like vitality surges through your body, invigorating and arousing you!\n",
@@ -1533,33 +1533,33 @@ export class Mutations extends BaseContent {
 
     public equinum(player: Player): void {
         player.slimeFeed();
-        //Changes done
+        // Changes done
         var changes: number = 0;
-        //Change limit
+        // Change limit
         var changeLimit: number = 1;
-        //Temporary storage
+        // Temporary storage
         var temp: number = 0;
         var temp2: number = 0;
         var temp3: number = 0;
-        //Store location of cock to be changed
+        // Store location of cock to be changed
         // var old: number = 0;
-        //Chancee to raise limit
+        // Chancee to raise limit
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
-        //Used for random chances
-        //Set up output
+        // Used for random chances
+        // Set up output
         this.outputText("You down the potion, grimacing at the strong taste.", true);
-        //CHANCE OF BAD END - 20% if face/tail/skin/cock are appropriate.
-        //If hooved bad end doesn't appear till centaured
+        // CHANCE OF BAD END - 20% if face/tail/skin/cock are appropriate.
+        // If hooved bad end doesn't appear till centaured
         if (
             player.skinType == SKIN_TYPE_FUR &&
             player.faceType == FACE_HORSE &&
             player.tailType == TAIL_TYPE_HORSE &&
             player.lowerBody != LOWER_BODY_TYPE_HOOFED
         ) {
-            //WARNINGS
-            //Repeat warnings
+            // WARNINGS
+            // Repeat warnings
             if (
                 player.findStatusAffect(StatusAffects.HorseWarning) >= 0 &&
                 Mutations.rand(3) == 0
@@ -1576,7 +1576,7 @@ export class Mutations extends BaseContent {
                     );
                 player.addStatusValue(StatusAffects.HorseWarning, 1, 1);
             }
-            //First warning
+            // First warning
             if (player.findStatusAffect(StatusAffects.HorseWarning) < 0) {
                 this.outputText(
                     "<b>\n\nWhile you drink the tasty potion, you realize how horse-like you already are, and wonder what else the potion could possibly change...</b>",
@@ -1584,16 +1584,16 @@ export class Mutations extends BaseContent {
                 );
                 player.createStatusAffect(StatusAffects.HorseWarning, 0, 0, 0, 0);
             }
-            //Bad End
+            // Bad End
             if (
                 Mutations.rand(4) == 0 &&
                 player.findStatusAffect(StatusAffects.HorseWarning) >= 0
             ) {
-                //Must have been warned first...
+                // Must have been warned first...
                 if (player.statusAffectv1(StatusAffects.HorseWarning) > 0) {
-                    //If player has dicks check for horsedicks
+                    // If player has dicks check for horsedicks
                     if (player.cockTotal() > 0) {
-                        //If player has horsedicks
+                        // If player has horsedicks
                         if (player.horseCocks() > 0) {
                             this.outputText(
                                 "\n\nSoon after you drink the Equinum, a burning sensation fills your chest. You have consumed too much of the potion, and the overdose starts to provoke dramatic changes in your body.  You collapse suddenly, twitching in pain as all the bones and muscles in your body break and reform. Eventually, you pass out from the strain you are put through.\n\nYou wake up after a few minutes. Once you get up on your legs, doubt fills your mind. You rush to a nearby pond and look down, nearly jumping when the reflection of a ",
@@ -1638,7 +1638,7 @@ export class Mutations extends BaseContent {
                             return;
                         }
                     }
-                    //If player has no cocks
+                    // If player has no cocks
                     else {
                         this.outputText(
                             "\n\nSoon after you drink the Equinum, a burning sensation fills your chest. You have consumed too much of the drink, and the overdose starts to provoke dramatic changes in your body.  You collapse suddenly, twitching in pain as all the bones and all the muscles in your body break and reform. Eventually, you pass out from the strain you are put through.\n\nYou wake up after a few minutes. Once you get up on your legs, doubt fills your mind. You rush to a nearby pond and look down, nearly jumping when the reflection of a ",
@@ -1685,17 +1685,17 @@ export class Mutations extends BaseContent {
                 }
             }
         }
-        //Stat changes first
-        //STRENGTH
+        // Stat changes first
+        // STRENGTH
         if (Mutations.rand(2) == 0) {
-            //Maxxed
+            // Maxxed
             if (player.str >= 60) {
                 this.outputText(
                     "\n\nYou feel strong enough to single-handedly pull a fully-loaded wagon.",
                     false
                 );
             }
-            //NOT MAXXED
+            // NOT MAXXED
             else {
                 this.dynStats("str", 1);
                 this.outputText(
@@ -1705,22 +1705,22 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //TOUGHNESS
+        // TOUGHNESS
         if (Mutations.rand(2) == 0) {
-            //MAXXED ALREADY
+            // MAXXED ALREADY
             if (player.tou >= 75) {
                 this.outputText("\n\nYour body is as tough and solid as a ", false);
                 if (player.gender == 1 || player.gender == 3) this.outputText("stallion's.", false);
                 else this.outputText("mare's.", false);
             }
-            //NOT MAXXED
+            // NOT MAXXED
             else {
                 this.dynStats("tou", 1.25);
                 this.outputText("\n\nYour body suddenly feels tougher and more resilient.", false);
                 changes++;
             }
         }
-        //INTELLECT
+        // INTELLECT
         if (Mutations.rand(3) == 0) {
             if (player.inte <= 5) {
                 this.outputText(
@@ -1769,7 +1769,7 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //-Remove feather-arms (copy this for goblin ale, mino blood, equinum, canine pepps, demon items)
+        // -Remove feather-arms (copy this for goblin ale, mino blood, equinum, canine pepps, demon items)
         if (changes < changeLimit && player.armType == ARM_TYPE_HARPY && Mutations.rand(4) == 0) {
             this.outputText(
                 "\n\nYou scratch at your biceps absentmindedly, but no matter how much you scratch, it isn't getting rid of the itch.  Glancing down in irritation, you discover that your feathery arms are shedding their feathery coating.  The wing-like shape your arms once had is gone in a matter of moments, leaving " +
@@ -1780,7 +1780,7 @@ export class Mutations extends BaseContent {
             player.armType = ARM_TYPE_HUMAN;
             changes++;
         }
-        //-Remove chitin-arms (copy this for goblin ale, mino blood, equinum, canine pepps, demon items)
+        // -Remove chitin-arms (copy this for goblin ale, mino blood, equinum, canine pepps, demon items)
         if (changes < changeLimit && player.armType == ARM_TYPE_SPIDER && Mutations.rand(4) == 0) {
             this.outputText(
                 "\n\nYou scratch at your biceps absentmindedly, but no matter how much you scratch, it isn't getting rid of the itch.  Glancing down in irritation, you discover that your arms' chitinous covering is flaking away.  The glossy black coating is soon gone, leaving " +
@@ -1791,15 +1791,15 @@ export class Mutations extends BaseContent {
             player.armType = ARM_TYPE_HUMAN;
             changes++;
         }
-        //-Remove feathery hair (copy for equinum, canine peppers, Labova)
+        // -Remove feathery hair (copy for equinum, canine peppers, Labova)
         if (changes < changeLimit && player.hairType == 1 && Mutations.rand(4) == 0) {
-            //(long):
+            // (long):
             if (player.hairLength >= 6)
                 this.outputText(
                     "\n\nA lock of your downy-soft feather-hair droops over your eye.  Before you can blow the offending down away, you realize the feather is collapsing in on itself.  It continues to curl inward until all that remains is a normal strand of hair.  <b>Your hair is no longer feathery!</b>",
                     false
                 );
-            //(short)
+            // (short)
             else
                 this.outputText(
                     "\n\nYou run your fingers through your downy-soft feather-hair while you await the effects of the item you just ingested.  While your hand is up there, it detects a change in the texture of your feathers.  They're completely disappearing, merging down into strands of regular hair.  <b>Your hair is no longer feathery!</b>",
@@ -1809,21 +1809,21 @@ export class Mutations extends BaseContent {
             player.hairType = 0;
         }
         //
-        //SEXUAL CHARACTERISTICS
+        // SEXUAL CHARACTERISTICS
         //
-        //MALENESS.
+        // MALENESS.
         if (
             (player.gender == 1 || player.gender == 3) &&
             Mutations.rand(1.5) == 0 &&
             changes < changeLimit
         ) {
-            //If cocks that aren't horsified!
+            // If cocks that aren't horsified!
             if (player.horseCocks() + player.demonCocks() < player.cocks.length) {
-                //Transform a cock and store it's index value to talk about it.
-                //Single cock
+                // Transform a cock and store it's index value to talk about it.
+                // Single cock
                 if (player.cocks.length == 1) {
                     temp = 0;
-                    //Use temp3 to track whether or not anything is changed.
+                    // Use temp3 to track whether or not anything is changed.
                     temp3 = 0;
                     if (player.cocks[0].cockType == CockTypesEnum.HUMAN) {
                         this.outputText(
@@ -1891,7 +1891,7 @@ export class Mutations extends BaseContent {
                             false
                         );
                 }
-                //MULTICOCK
+                // MULTICOCK
                 else {
                     this.dynStats("lib", 5, "sen", 4, "lus", 35);
                     temp = player.addHorseCock();
@@ -1905,7 +1905,7 @@ export class Mutations extends BaseContent {
                         CoC_Settings.error("");
                         this.outputText("FUKKKK ERROR NO COCK XFORMED", true);
                     }
-                    //Already have a sheath
+                    // Already have a sheath
                     if (player.horseCocks() > 1 || player.dogCocks() > 0)
                         this.outputText(
                             "  Your sheath tingles and begins growing larger as the cock's base shifts to lie inside it.",
@@ -1927,35 +1927,35 @@ export class Mutations extends BaseContent {
                     );
                     this.outputText("  <b>You now have a horse-cock.</b>", false);
                 }
-                //Make cock thicker if not thick already!
+                // Make cock thicker if not thick already!
                 if (player.cocks[temp].cockThickness <= 2) player.cocks[temp].thickenCock(1);
                 changes++;
             }
-            //Players cocks are all horse-type - increase size!
+            // Players cocks are all horse-type - increase size!
             else {
-                //single cock
+                // single cock
                 if (player.cocks.length == 1) {
                     temp2 = player.increaseCock(0, Mutations.rand(3) + 1);
                     temp = 0;
                     this.dynStats("sen", 1, "lus", 10);
                 }
-                //Multicock
+                // Multicock
                 else {
-                    //Find smallest cock
-                    //Temp2 = smallness size
-                    //temp = current smallest
+                    // Find smallest cock
+                    // Temp2 = smallness size
+                    // temp = current smallest
                     temp3 = player.cocks.length;
                     temp = 0;
                     while (temp3 > 0) {
                         temp3--;
-                        //If current cock is smaller than saved, switch values.
+                        // If current cock is smaller than saved, switch values.
                         if (player.cocks[temp].cockLength > player.cocks[temp3].cockLength) {
                             temp2 = player.cocks[temp3].cockLength;
                             temp = temp3;
                         }
                     }
-                    //Grow smallest cock!
-                    //temp2 changes to growth amount
+                    // Grow smallest cock!
+                    // temp2 changes to growth amount
                     temp2 = player.increaseCock(temp, Mutations.rand(4) + 1);
                     this.dynStats("sen", 1, "lus", 10);
                 }
@@ -1983,7 +1983,7 @@ export class Mutations extends BaseContent {
                     );
                 changes++;
             }
-            //Chance of thickness + daydream
+            // Chance of thickness + daydream
             if (Mutations.rand(2) == 0 && changes < changeLimit && player.horseCocks() > 0) {
                 temp3 = 0;
                 temp2 = player.cocks.length;
@@ -2050,7 +2050,7 @@ export class Mutations extends BaseContent {
                     );
                 this.dynStats("lib", 0.5, "lus", 10);
             }
-            //Chance of ball growth if not 3" yet
+            // Chance of ball growth if not 3" yet
             if (
                 Mutations.rand(2) == 0 &&
                 changes < changeLimit &&
@@ -2088,9 +2088,9 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //FEMALE
+        // FEMALE
         if (player.gender == 2 || player.gender == 3) {
-            //Single vag
+            // Single vag
             if (player.vaginas.length == 1) {
                 if (
                     player.vaginas[0].vaginalLooseness <= VAGINA_LOOSENESS_GAPING &&
@@ -2121,12 +2121,12 @@ export class Mutations extends BaseContent {
                     changes++;
                 }
             }
-            //Multicooch
+            // Multicooch
             else {
-                //determine least wet
-                //temp - least wet
-                //temp2 - saved wetness
-                //temp3 - counter
+                // determine least wet
+                // temp - least wet
+                // temp2 - saved wetness
+                // temp3 - counter
                 temp = 0;
                 temp2 = player.vaginas[temp].vaginalWetness;
                 temp3 = player.vaginas.length;
@@ -2151,10 +2151,10 @@ export class Mutations extends BaseContent {
                     player.vaginas[temp].vaginalWetness++;
                     changes++;
                 }
-                //determine smallest
-                //temp - least big
-                //temp2 - saved looseness
-                //temp3 - counter
+                // determine smallest
+                // temp - least big
+                // temp2 - saved looseness
+                // temp3 - counter
                 temp = 0;
                 temp2 = player.vaginas[temp].vaginalLooseness;
                 temp3 = player.vaginas.length;
@@ -2192,19 +2192,19 @@ export class Mutations extends BaseContent {
 
             if (!this.flags[kFLAGS.HYPER_HAPPY]) {
                 if (Mutations.rand(2) == 0 && changes < changeLimit) {
-                    //Shrink B's!
-                    //Single row
+                    // Shrink B's!
+                    // Single row
                     if (player.breastRows.length == 1) {
-                        //Shrink if bigger than B cups
+                        // Shrink if bigger than B cups
                         if (player.breastRows[0].breastRating > 3) {
                             temp = 1;
                             player.breastRows[0].breastRating--;
-                            //Shrink again if huuuuge
+                            // Shrink again if huuuuge
                             if (player.breastRows[0].breastRating > 8) {
                                 temp++;
                                 player.breastRows[0].breastRating--;
                             }
-                            //Talk about shrinkage
+                            // Talk about shrinkage
                             if (temp == 1)
                                 this.outputText(
                                     "\n\nYou feel a weight lifted from you, and realize your " +
@@ -2224,10 +2224,10 @@ export class Mutations extends BaseContent {
                             changes++;
                         }
                     }
-                    //multiple
+                    // multiple
                     else {
-                        //temp2 = amount changed
-                        //temp3 = counter
+                        // temp2 = amount changed
+                        // temp3 = counter
                         temp2 = 0;
                         temp3 = player.breastRows.length;
                         if (player.biggestTitSize() > 3) this.outputText("\n", false);
@@ -2267,9 +2267,9 @@ export class Mutations extends BaseContent {
                 }
             }
         }
-        //NON - GENDER SPECIFIC CHANGES
-        //Tail -> Ears -> Fur -> Face
-        //Centaur if hooved
+        // NON - GENDER SPECIFIC CHANGES
+        // Tail -> Ears -> Fur -> Face
+        // Centaur if hooved
         if (
             changes < changeLimit &&
             Mutations.rand(6) == 0 &&
@@ -2289,7 +2289,7 @@ export class Mutations extends BaseContent {
             this.dynStats("spe", 3);
             player.lowerBody = LOWER_BODY_TYPE_CENTAUR;
         }
-        //Remove odd eyes
+        // Remove odd eyes
         if (changes < changeLimit && Mutations.rand(5) == 0 && player.eyeType > EYES_HUMAN) {
             if (player.eyeType == EYES_BLACK_EYES_SAND_TRAP) {
                 this.outputText(
@@ -2309,7 +2309,7 @@ export class Mutations extends BaseContent {
             player.eyeType = EYES_HUMAN;
             changes++;
         }
-        //HorseFace - Req's Fur && Ears
+        // HorseFace - Req's Fur && Ears
         if (
             player.faceType != FACE_HORSE &&
             player.skinType == SKIN_TYPE_FUR &&
@@ -2330,7 +2330,7 @@ export class Mutations extends BaseContent {
             changes++;
             player.faceType = FACE_HORSE;
         }
-        //Fur - if has horsetail && ears and not at changelimit
+        // Fur - if has horsetail && ears and not at changelimit
         if (
             player.skinType != SKIN_TYPE_FUR &&
             changes < changeLimit &&
@@ -2361,7 +2361,7 @@ export class Mutations extends BaseContent {
             player.skinType = SKIN_TYPE_FUR;
             player.skinDesc = "fur";
         }
-        //Ears - requires tail
+        // Ears - requires tail
         if (
             player.earType != EARS_HORSE &&
             player.tailType == TAIL_TYPE_HORSE &&
@@ -2393,9 +2393,9 @@ export class Mutations extends BaseContent {
             this.outputText("<b>You now have horse ears.</b>", false);
             changes++;
         }
-        //Tail - no-prereq
+        // Tail - no-prereq
         if (player.tailType != TAIL_TYPE_HORSE && Mutations.rand(2) == 0 && changes < changeLimit) {
-            //no tail
+            // no tail
             if (player.tailType == 0) {
                 this.outputText(
                     "\n\nThere is a sudden tickling on your ass, and you notice you have sprouted a long shiny horsetail of the same " +
@@ -2404,7 +2404,7 @@ export class Mutations extends BaseContent {
                     false
                 );
             }
-            //if other animal tail
+            // if other animal tail
             if (player.tailType > TAIL_TYPE_HORSE && player.tailType <= TAIL_TYPE_COW) {
                 this.outputText(
                     "\n\nPain lances up your " +
@@ -2413,7 +2413,7 @@ export class Mutations extends BaseContent {
                     false
                 );
             }
-            //if bee/spider-butt.
+            // if bee/spider-butt.
             if (player.tailType > TAIL_TYPE_COW && player.tailType < TAIL_TYPE_SHARK) {
                 this.outputText(
                     "\n\nYour insect-like abdomen bunches up as it begins shrinking, exoskeleton flaking off like a snake sheds its skin.  It bunches up until it is as small as a tennis ball, then explodes outwards, growing into an animalistic tail shape.  Moments later, it explodes into filaments of pain, dividing into hundreds of strands and turning into a shiny horsetail.",
@@ -2443,7 +2443,7 @@ export class Mutations extends BaseContent {
             changes++;
         }
         if (Mutations.rand(3) == 0) this.outputText(player.modTone(60, 1), false);
-        //FAILSAFE CHANGE
+        // FAILSAFE CHANGE
         if (changes == 0) {
             this.outputText(
                 "\n\nInhuman vitality spreads through your body, invigorating you!\n",
@@ -2533,9 +2533,9 @@ export class Mutations extends BaseContent {
         }
         if (tainted) this.dynStats("spe", 1, "lus", 3, "cor", 1);
         else this.dynStats("spe", 1, "lus", 3);
-        //Breast growth (maybe cock reduction!)
+        // Breast growth (maybe cock reduction!)
         if (rando <= 75) {
-            //Temp stores the level of growth...
+            // Temp stores the level of growth...
             this.temp = 1 + Mutations.rand(3);
             if (player.breastRows.length > 0) {
                 if (player.breastRows[0].breastRating < 2 && Mutations.rand(3) == 0) this.temp++;
@@ -2562,13 +2562,13 @@ export class Mutations extends BaseContent {
                     this.temp = 0;
                     temp2 = player.cocks.length;
                     temp3 = 0;
-                    //Find biggest cock
+                    // Find biggest cock
                     while (temp2 > 0) {
                         temp2--;
                         if (player.cocks[this.temp].cockLength <= player.cocks[temp2].cockLength)
                             this.temp = temp2;
                     }
-                    //Shrink said cock
+                    // Shrink said cock
                     if (
                         player.cocks[this.temp].cockLength < 6 &&
                         player.cocks[this.temp].cockLength >= 2.9
@@ -2612,20 +2612,20 @@ export class Mutations extends BaseContent {
                 false
             );
         }
-        //Increase pussy wetness or grow one!!
+        // Increase pussy wetness or grow one!!
         else if (rando > 75 && rando < 90) {
-            //Shrink cawk
+            // Shrink cawk
             if (player.cocks.length > 0 && !this.flags[kFLAGS.HYPER_HAPPY]) {
                 this.outputText("\n\n", false);
                 this.temp = 0;
                 temp2 = player.cocks.length;
-                //Find biggest cock
+                // Find biggest cock
                 while (temp2 > 0) {
                     temp2--;
                     if (player.cocks[this.temp].cockLength <= player.cocks[temp2].cockLength)
                         this.temp = temp2;
                 }
-                //Shrink said cock
+                // Shrink said cock
                 if (
                     player.cocks[this.temp].cockLength < 6 &&
                     player.cocks[this.temp].cockLength >= 2.9
@@ -2641,7 +2641,7 @@ export class Mutations extends BaseContent {
             }
             if (player.vaginas.length > 0) {
                 this.outputText("\n\n", false);
-                //0 = dry, 1 = wet, 2 = extra wet, 3 = always slick, 4 = drools constantly, 5 = female ejaculator
+                // 0 = dry, 1 = wet, 2 = extra wet, 3 = always slick, 4 = drools constantly, 5 = female ejaculator
                 if (player.vaginas[0].vaginalWetness == VAGINA_WETNESS_SLAVERING) {
                     if (player.vaginas.length == 1)
                         this.outputText(
@@ -2787,7 +2787,7 @@ export class Mutations extends BaseContent {
                 else this.dynStats("cor", 0);
             }
         }
-        //Demonic changes - higher chance with higher corruption.
+        // Demonic changes - higher chance with higher corruption.
         if (Mutations.rand(40) + player.cor / 3 > 35 && tainted) this.demonChanges(player);
         if (tainted) {
             this.outputText(player.modFem(100, 2), false);
@@ -2799,22 +2799,22 @@ export class Mutations extends BaseContent {
         player.genderCheck();
     }
 
-    //1-Oversized Pepper (+size, thickness)
-    //2-Double Pepper (+grows second cock or changes two cocks to dogcocks)
-    //3-Black Pepper (Dark Fur, +corruption/libido)
-    //4-Knotty Pepper (+Knot + Cum Multiplier)
-    //5-Bulbous Pepper (+ball size or fresh balls)
+    // 1-Oversized Pepper (+size, thickness)
+    // 2-Double Pepper (+grows second cock or changes two cocks to dogcocks)
+    // 3-Black Pepper (Dark Fur, +corruption/libido)
+    // 4-Knotty Pepper (+Knot + Cum Multiplier)
+    // 5-Bulbous Pepper (+ball size or fresh balls)
     public caninePepper(type: number, player: Player): void {
         var temp2: number = 0;
         var temp3: number = 0;
         var crit: number = 1;
-        //Set up changes and changeLimit
+        // Set up changes and changeLimit
         var changes: number = 0;
         var changeLimit: number = 1;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
-        //Initial outputs & crit level
+        // Initial outputs & crit level
         this.outputText("", true);
         if (type == 0) {
             if (Mutations.rand(100) < 15) {
@@ -2825,7 +2825,7 @@ export class Mutations extends BaseContent {
                 );
             } else this.outputText("The pepper is strangely spicy but very tasty.", false);
         }
-        //Oversized pepper
+        // Oversized pepper
         if (type == 1) {
             crit = Math.floor(Math.random() * 20) / 10 + 2;
             this.outputText(
@@ -2833,7 +2833,7 @@ export class Mutations extends BaseContent {
                 false
             );
         }
-        //Double Pepper
+        // Double Pepper
         if (type == 2) {
             crit = Math.floor(Math.random() * 20) / 10 + 2;
             this.outputText(
@@ -2841,7 +2841,7 @@ export class Mutations extends BaseContent {
                 false
             );
         }
-        //Black Pepper
+        // Black Pepper
         if (type == 3) {
             crit = Math.floor(Math.random() * 20) / 10 + 2;
             this.outputText(
@@ -2849,7 +2849,7 @@ export class Mutations extends BaseContent {
                 false
             );
         }
-        //Knotty Pepper
+        // Knotty Pepper
         if (type == 4) {
             crit = Math.floor(Math.random() * 20) / 10 + 2;
             this.outputText(
@@ -2857,7 +2857,7 @@ export class Mutations extends BaseContent {
                 false
             );
         }
-        //Bulbous Pepper
+        // Bulbous Pepper
         if (type == 5) {
             crit = Math.floor(Math.random() * 20) / 10 + 2;
             this.outputText(
@@ -2865,7 +2865,7 @@ export class Mutations extends BaseContent {
                 false
             );
         }
-        //OVERDOSE Bad End!
+        // OVERDOSE Bad End!
         if (
             type <= 0 &&
             crit > 1 &&
@@ -2904,7 +2904,7 @@ export class Mutations extends BaseContent {
             this.getGame().gameOver();
             return;
         }
-        //WARNING, overdose VERY close!
+        // WARNING, overdose VERY close!
         if (
             type <= 0 &&
             player.skinType == SKIN_TYPE_FUR &&
@@ -2920,7 +2920,7 @@ export class Mutations extends BaseContent {
                 false
             );
         }
-        //WARNING, overdose is close!
+        // WARNING, overdose is close!
         if (
             type <= 0 &&
             player.skinType == SKIN_TYPE_FUR &&
@@ -2979,7 +2979,7 @@ export class Mutations extends BaseContent {
             this.outputText("dumber.", false);
             changes++;
         }
-        //-Remove feather-arms (copy this for goblin ale, mino blood, equinum, canine pepps, demon items)
+        // -Remove feather-arms (copy this for goblin ale, mino blood, equinum, canine pepps, demon items)
         if (changes < changeLimit && player.armType == ARM_TYPE_HARPY && Mutations.rand(4) == 0) {
             this.outputText(
                 "\n\nYou scratch at your biceps absentmindedly, but no matter how much you scratch, it isn't getting rid of the itch.  Glancing down in irritation, you discover that your feathery arms are shedding their feathery coating.  The wing-like shape your arms once had is gone in a matter of moments, leaving " +
@@ -2990,7 +2990,7 @@ export class Mutations extends BaseContent {
             player.armType = ARM_TYPE_HUMAN;
             changes++;
         }
-        //-Remove chitin-arms (copy this for goblin ale, mino blood, equinum, canine pepps, demon items)
+        // -Remove chitin-arms (copy this for goblin ale, mino blood, equinum, canine pepps, demon items)
         if (changes < changeLimit && player.armType == ARM_TYPE_SPIDER && Mutations.rand(4) == 0) {
             this.outputText(
                 "\n\nYou scratch at your biceps absentmindedly, but no matter how much you scratch, it isn't getting rid of the itch.  Glancing down in irritation, you discover that your arms' chitinous covering is flaking away.  The glossy black coating is soon gone, leaving " +
@@ -3001,15 +3001,15 @@ export class Mutations extends BaseContent {
             player.armType = ARM_TYPE_HUMAN;
             changes++;
         }
-        //-Remove feathery hair (copy for equinum, canine peppers, Labova)
+        // -Remove feathery hair (copy for equinum, canine peppers, Labova)
         if (changes < changeLimit && player.hairType == 1 && Mutations.rand(4) == 0) {
-            //(long):
+            // (long):
             if (player.hairLength >= 6)
                 this.outputText(
                     "\n\nA lock of your downy-soft feather-hair droops over your eye.  Before you can blow the offending down away, you realize the feather is collapsing in on itself.  It continues to curl inward until all that remains is a normal strand of hair.  <b>Your hair is no longer feathery!</b>",
                     false
                 );
-            //(short)
+            // (short)
             else
                 this.outputText(
                     "\n\nYou run your fingers through your downy-soft feather-hair while you await the effects of the item you just ingested.  While your hand is up there, it detects a change in the texture of your feathers.  They're completely disappearing, merging down into strands of regular hair.  <b>Your hair is no longer feathery!</b>",
@@ -3018,19 +3018,19 @@ export class Mutations extends BaseContent {
             changes++;
             player.hairType = 0;
         }
-        //if(type != 2 && type != 4 && type != 5) outputText("\n", false);
-        //Double Pepper!
-        //Xforms/grows dicks to make you have two dogcocks
+        // if(type != 2 && type != 4 && type != 5) outputText("\n", false);
+        // Double Pepper!
+        // Xforms/grows dicks to make you have two dogcocks
         if (type == 2) {
-            //If already doubled up, GROWTH
+            // If already doubled up, GROWTH
             if (player.dogCocks() >= 2) {
                 type = 1;
             }
-            //If player doesnt have 2 dogdicks
+            // If player doesnt have 2 dogdicks
             else {
-                //If player has NO dogdicks
+                // If player has NO dogdicks
                 if (player.dogCocks() == 0) {
-                    //Dickless - grow two dogpeckers
+                    // Dickless - grow two dogpeckers
                     if (player.cockTotal() == 0) {
                         player.createCock(7 + Mutations.rand(7), 1.5 + Mutations.rand(10) / 10);
                         player.createCock(7 + Mutations.rand(7), 1.5 + Mutations.rand(10) / 10);
@@ -3046,7 +3046,7 @@ export class Mutations extends BaseContent {
                         player.cocks[1].cockType = CockTypesEnum.DOG;
                         this.dynStats("lus", 50);
                     }
-                    //1 dick - grow 1 and convert 1
+                    // 1 dick - grow 1 and convert 1
                     else if (player.cockTotal() == 1) {
                         this.outputText(
                             "\n\nYour " +
@@ -3065,7 +3065,7 @@ export class Mutations extends BaseContent {
                         player.cocks[1].cockType = CockTypesEnum.DOG;
                         this.dynStats("lib", 2, "lus", 50);
                     }
-                    //2 dicks+ - convert first 2 to doggie-dom
+                    // 2 dicks+ - convert first 2 to doggie-dom
                     else {
                         this.outputText(
                             "\n\nYour crotch twitches, and you pull open your " +
@@ -3084,9 +3084,9 @@ export class Mutations extends BaseContent {
                         this.dynStats("lib", 2, "lus", 50);
                     }
                 }
-                //If player has 1 dogdicks
+                // If player has 1 dogdicks
                 else {
-                    //if player has 1 total
+                    // if player has 1 total
                     if (player.cockTotal() == 1) {
                         this.outputText(
                             "\n\nYou feel something slippery wiggling inside your sheath, and another red point peeks out.  In spite of yourself, you start getting turned on by the change, and the new dick slowly slides free, eventually stopping once the thick knot pops free.  The pair of dog-dicks hang there, leaking pre-cum and arousing you far beyond normal.",
@@ -3097,9 +3097,9 @@ export class Mutations extends BaseContent {
                         player.cocks[1].knotMultiplier = 1.4;
                         this.dynStats("lib", 2, "lus", 50);
                     }
-                    //if player has more
+                    // if player has more
                     if (player.cockTotal() >= 1) {
-                        //if first dick is already doggi'ed
+                        // if first dick is already doggi'ed
                         if (player.cocks[0].cockType == CockTypesEnum.DOG) {
                             this.outputText(
                                 "\n\nYour crotch twitches, and you pull open your " +
@@ -3112,7 +3112,7 @@ export class Mutations extends BaseContent {
                             player.cocks[1].cockType = CockTypesEnum.DOG;
                             player.cocks[1].knotMultiplier = 1.4;
                         }
-                        //first dick is not dog
+                        // first dick is not dog
                         else {
                             this.outputText(
                                 "\n\nYour crotch twitches, and you pull open your " +
@@ -3131,23 +3131,23 @@ export class Mutations extends BaseContent {
             }
             player.genderCheck();
         }
-        //Knotty knot pepper!
+        // Knotty knot pepper!
         if (type == 4) {
-            //Cocks only!
+            // Cocks only!
             if (player.cockTotal() > 0) {
-                //biggify knots
+                // biggify knots
                 if (player.dogCocks() > 0) {
                     this.temp = 0;
-                    //set temp2 to first dogdick for initialization
+                    // set temp2 to first dogdick for initialization
                     while (this.temp < player.cocks.length) {
                         if (player.cocks[this.temp].cockType == CockTypesEnum.DOG) {
                             temp2 = this.temp;
                             break;
                         } else this.temp++;
                     }
-                    //Reset temp for nex tcheck
+                    // Reset temp for nex tcheck
                     this.temp = player.cocks.length;
-                    //Find smallest knot
+                    // Find smallest knot
                     while (this.temp > 0) {
                         this.temp--;
                         if (
@@ -3157,7 +3157,7 @@ export class Mutations extends BaseContent {
                         )
                             temp2 = this.temp;
                     }
-                    //Have smallest knotted cock selected.
+                    // Have smallest knotted cock selected.
                     temp3 = ((Mutations.rand(2) + 5) / 20) * crit;
                     if (player.cocks[temp2].knotMultiplier >= 1.5) temp3 /= 2;
                     if (player.cocks[temp2].knotMultiplier >= 1.75) temp3 /= 2;
@@ -3187,7 +3187,7 @@ export class Mutations extends BaseContent {
                         );
                     this.dynStats("sen", 0.5, "lus", 5 * crit);
                 }
-                //Grow dogdick with big knot
+                // Grow dogdick with big knot
                 else {
                     this.outputText(
                         "\n\nYour " +
@@ -3199,14 +3199,14 @@ export class Mutations extends BaseContent {
                     player.cocks[0].knotMultiplier = 2.1;
                 }
             }
-            //You wasted knot pepper!
+            // You wasted knot pepper!
             else
                 this.outputText(
                     "\n\nA slight wave of nausea passes through you.  It seems this pepper does not quite agree with your body.",
                     false
                 );
         }
-        //GROW BALLS
+        // GROW BALLS
         if (type == 5) {
             if (player.balls <= 1) {
                 this.outputText(
@@ -3217,11 +3217,11 @@ export class Mutations extends BaseContent {
                 player.ballSize = 1;
                 this.dynStats("lib", 2, "lus", -10);
             } else {
-                //Makes your balls biggah!
+                // Makes your balls biggah!
                 player.ballSize++;
-                //They grow slower as they get bigger...
+                // They grow slower as they get bigger...
                 if (player.ballSize > 10) player.ballSize -= 0.5;
-                //Texts
+                // Texts
                 if (player.ballSize <= 2)
                     this.outputText(
                         "\n\nA flash of warmth passes through you and a sudden weight develops in your groin.  You pause to examine the changes and your roving fingers discover your " +
@@ -3241,31 +3241,31 @@ export class Mutations extends BaseContent {
                 this.dynStats("lib", 1, "lus", 3);
             }
         }
-        //Sexual Stuff Now
-        //------------------
-        //Man-Parts
-        //3 Changes,
-        //1. Cock Xform
-        //2. Knot Size++
-        //3. cumMultiplier++ (to max of 1.5)
+        // Sexual Stuff Now
+        // ------------------
+        // Man-Parts
+        // 3 Changes,
+        // 1. Cock Xform
+        // 2. Knot Size++
+        // 3. cumMultiplier++ (to max of 1.5)
         if (player.cocks.length > 0) {
-            //Grow knot on smallest knotted dog cock
+            // Grow knot on smallest knotted dog cock
             if (
                 type != 4 &&
                 player.dogCocks() > 0 &&
                 ((changes < changeLimit && Mutations.rand(1.4) == 0) || type == 1)
             ) {
                 this.temp = 0;
-                //set temp2 to first dogdick for initialization
+                // set temp2 to first dogdick for initialization
                 while (this.temp < player.cocks.length) {
                     if (player.cocks[this.temp].cockType == CockTypesEnum.DOG) {
                         temp2 = this.temp;
                         break;
                     } else this.temp++;
                 }
-                //Reset temp for nex tcheck
+                // Reset temp for nex tcheck
                 this.temp = player.cocks.length;
-                //Find smallest knot
+                // Find smallest knot
                 while (this.temp > 0) {
                     this.temp--;
                     if (
@@ -3274,7 +3274,7 @@ export class Mutations extends BaseContent {
                     )
                         temp2 = this.temp;
                 }
-                //Have smallest knotted cock selected.
+                // Have smallest knotted cock selected.
                 temp3 = ((Mutations.rand(2) + 1) / 20) * crit;
                 if (player.cocks[temp2].knotMultiplier >= 1.5) temp3 /= 2;
                 if (player.cocks[temp2].knotMultiplier >= 1.75) temp3 /= 2;
@@ -3304,25 +3304,25 @@ export class Mutations extends BaseContent {
                 this.dynStats("sen", 0.5, "lus", 5 * crit);
                 changes++;
             }
-            //Cock Xform if player has free cocks.
+            // Cock Xform if player has free cocks.
             if (
                 player.dogCocks() < player.cocks.length &&
                 ((changes < changeLimit && Mutations.rand(1.6)) || type == 1) == 0
             ) {
-                //Select first human cock
+                // Select first human cock
                 this.temp = player.cocks.length;
                 temp2 = 0;
                 while (this.temp > 0 && temp2 == 0) {
                     this.temp--;
-                    //Store cock index if not a dogCock and exit loop.
+                    // Store cock index if not a dogCock and exit loop.
                     if (player.cocks[this.temp].cockType != CockTypesEnum.DOG) {
                         temp3 = this.temp;
-                        //kicking out of tah loop!
+                        // kicking out of tah loop!
                         temp2 = 1000;
                     }
                 }
-                //Talk about it
-                //Hooooman
+                // Talk about it
+                // Hooooman
                 if (player.cocks[temp3].cockType == CockTypesEnum.HUMAN) {
                     this.outputText(
                         "\n\nYour " +
@@ -3336,7 +3336,7 @@ export class Mutations extends BaseContent {
                     );
                     this.dynStats("sen", 10, "lus", 5 * crit);
                 }
-                //Horse
+                // Horse
                 if (player.cocks[temp3].cockType == CockTypesEnum.HORSE) {
                     this.outputText(
                         "\n\nYour " +
@@ -3344,14 +3344,14 @@ export class Mutations extends BaseContent {
                             " shrinks, the extra equine length seeming to shift into girth.  The flared tip vanishes into a more pointed form, a thick knotted bulge forming just above your sheath.  <b>You now have a dog-cock.</b>",
                         false
                     );
-                    //Tweak length/thickness.
+                    // Tweak length/thickness.
                     if (player.cocks[temp3].cockLength > 6) player.cocks[temp3].cockLength -= 2;
                     else player.cocks[temp3].cockLength -= 0.5;
                     player.cocks[temp3].cockThickness += 0.5;
 
                     this.dynStats("sen", 4, "lus", 5 * crit);
                 }
-                //Tentacular Tuesday!
+                // Tentacular Tuesday!
                 if (player.cocks[temp3].cockType == CockTypesEnum.TENTACLE) {
                     this.outputText(
                         "\n\nYour " +
@@ -3361,7 +3361,7 @@ export class Mutations extends BaseContent {
                     );
                     this.dynStats("sen", 4, "lus", 5 * crit);
                 }
-                //Misc
+                // Misc
                 if (player.cocks[temp3].cockType.Index > 4) {
                     this.outputText(
                         "\n\nYour " +
@@ -3372,7 +3372,7 @@ export class Mutations extends BaseContent {
                     this.dynStats("sen", 4, "lus", 5 * crit);
                 }
                 this.temp = 0;
-                //Demon
+                // Demon
                 if (player.cocks[temp3].cockType == CockTypesEnum.DEMON) {
                     this.outputText(
                         "\n\nYour " +
@@ -3383,7 +3383,7 @@ export class Mutations extends BaseContent {
                     this.dynStats("sen", 1, "lus", 2 * crit);
                     this.temp = 1;
                 }
-                //Xform it!
+                // Xform it!
                 player.cocks[temp3].cockType = CockTypesEnum.DOG;
                 player.cocks[temp3].knotMultiplier = 1.1;
                 player.cocks[temp3].thickenCock(2);
@@ -3392,16 +3392,16 @@ export class Mutations extends BaseContent {
                 }
                 changes++;
             }
-            //Cum Multiplier Xform
+            // Cum Multiplier Xform
             if (player.cumMultiplier < 2 && Mutations.rand(2) == 0 && changes < changeLimit) {
                 this.temp = 1.5;
-                //Lots of cum raises cum multiplier cap to 2 instead of 1.5
+                // Lots of cum raises cum multiplier cap to 2 instead of 1.5
                 if (player.findPerk(PerkLib.MessyOrgasms) >= 0) this.temp = 2;
                 if (this.temp < player.cumMultiplier + 0.05 * crit) {
                     changes--;
                 } else {
                     player.cumMultiplier += 0.05 * crit;
-                    //Flavor text
+                    // Flavor text
                     if (player.balls == 0)
                         this.outputText(
                             "\n\nYou feel a churning inside your gut as something inside you changes.",
@@ -3424,32 +3424,32 @@ export class Mutations extends BaseContent {
                 }
                 changes++;
             }
-            //Oversized pepper
+            // Oversized pepper
             if (type == 1) {
-                //GET LONGER
-                //single cock
+                // GET LONGER
+                // single cock
                 if (player.cocks.length == 1) {
                     temp2 = player.increaseCock(0, Mutations.rand(4) + 3);
                     this.temp = 0;
                     this.dynStats("sen", 1, "lus", 10);
                 }
-                //Multicock
+                // Multicock
                 else {
-                    //Find smallest cock
-                    //Temp2 = smallness size
-                    //temp = current smallest
+                    // Find smallest cock
+                    // Temp2 = smallness size
+                    // temp = current smallest
                     temp3 = player.cocks.length;
                     this.temp = 0;
                     while (temp3 > 0) {
                         temp3--;
-                        //If current cock is smaller than saved, switch values.
+                        // If current cock is smaller than saved, switch values.
                         if (player.cocks[this.temp].cockLength > player.cocks[temp3].cockLength) {
                             temp2 = player.cocks[temp3].cockLength;
                             this.temp = temp3;
                         }
                     }
-                    //Grow smallest cock!
-                    //temp2 changes to growth amount
+                    // Grow smallest cock!
+                    // temp2 changes to growth amount
                     temp2 = player.increaseCock(this.temp, Mutations.rand(4) + 3);
                     this.dynStats("sen", 1, "lus", 10);
                     if (player.cocks[this.temp].cockThickness <= 2)
@@ -3478,22 +3478,22 @@ export class Mutations extends BaseContent {
                     );
             }
         }
-        //Female Stuff
-        //Multiboobages
+        // Female Stuff
+        // Multiboobages
         if (player.breastRows.length > 0) {
-            //if bigger than A cup
+            // if bigger than A cup
             if (player.breastRows[0].breastRating > 0 && player.vaginas.length > 0) {
-                //Doggies only get 3 rows of tits! FENOXO HAS SPOKEN
+                // Doggies only get 3 rows of tits! FENOXO HAS SPOKEN
                 if (
                     player.breastRows.length < 3 &&
                     Mutations.rand(2) == 0 &&
                     changes < changeLimit
                 ) {
                     player.createBreastRow();
-                    //Store temp to the index of the newest row
+                    // Store temp to the index of the newest row
                     this.temp = player.breastRows.length - 1;
-                    //Breasts are too small to grow a new row, so they get bigger first
-                    //But ONLY if player has a vagina (dont want dudes weirded out)
+                    // Breasts are too small to grow a new row, so they get bigger first
+                    // But ONLY if player has a vagina (dont want dudes weirded out)
                     if (
                         player.vaginas.length > 0 &&
                         player.breastRows[0].breastRating <= player.breastRows.length
@@ -3512,9 +3512,9 @@ export class Mutations extends BaseContent {
                         );
                         changes++;
                     }
-                    //Had 1 row to start
+                    // Had 1 row to start
                     if (player.breastRows.length == 2) {
-                        //1 size below primary breast row!
+                        // 1 size below primary breast row!
                         player.breastRows[this.temp].breastRating =
                             player.breastRows[0].breastRating - 1;
                         if (player.breastRows[0].breastRating - 1 == 0)
@@ -3536,17 +3536,17 @@ export class Mutations extends BaseContent {
                         this.dynStats("sen", 6, "lus", 5);
                         changes++;
                     }
-                    //Many breast Rows - requires larger primary tits...
+                    // Many breast Rows - requires larger primary tits...
                     if (
                         player.breastRows.length > 2 &&
                         player.breastRows[0].breastRating > player.breastRows.length
                     ) {
                         this.dynStats("sen", 6, "lus", 5);
-                        //New row's size = the size of the row above -1
+                        // New row's size = the size of the row above -1
                         player.breastRows[this.temp].breastRating =
                             player.breastRows[this.temp - 1].breastRating - 1;
-                        //If second row are super small but primary row is huge it could go negative.
-                        //This corrects that problem.
+                        // If second row are super small but primary row is huge it could go negative.
+                        // This corrects that problem.
                         if (player.breastRows[this.temp].breastRating < 0)
                             player.breastRows[this.temp].breastRating = 0;
                         if (player.breastRows[this.temp - 1].breastRating < 0)
@@ -3571,7 +3571,7 @@ export class Mutations extends BaseContent {
                         );
                         changes++;
                     }
-                    //Extra sensitive if crit
+                    // Extra sensitive if crit
                     if (crit > 1) {
                         if (crit > 2) {
                             this.outputText(
@@ -3588,16 +3588,16 @@ export class Mutations extends BaseContent {
                         }
                     }
                 }
-                //If already has max doggie breasts!
+                // If already has max doggie breasts!
                 else if (Mutations.rand(2) == 0) {
-                    //Check for size mismatches, and move closer to spec!
+                    // Check for size mismatches, and move closer to spec!
                     this.temp = player.breastRows.length;
                     temp2 = 0;
                     var evened: boolean = false;
-                    //Check each row, and if the row above or below it is
+                    // Check each row, and if the row above or below it is
                     while (this.temp > 1 && temp2 == 0) {
                         this.temp--;
-                        //Gimme a sec
+                        // Gimme a sec
                         if (
                             player.breastRows[this.temp].breastRating + 1 <
                             player.breastRows[this.temp - 1].breastRating
@@ -3631,7 +3631,7 @@ export class Mutations extends BaseContent {
                 }
             }
         }
-        //Grow tits if have NO breasts/nipples AT ALL
+        // Grow tits if have NO breasts/nipples AT ALL
         else if (Mutations.rand(2) == 0 && changes < changeLimit) {
             this.outputText(
                 "\n\nYour chest tingles uncomfortably as your center of balance shifts.  <b>You now have a pair of B-cup breasts.</b>",
@@ -3647,7 +3647,7 @@ export class Mutations extends BaseContent {
             this.dynStats("sen", 4, "lus", 6);
             changes++;
         }
-        //Go into heat
+        // Go into heat
         if (Mutations.rand(2) == 0 && changes < changeLimit) {
             if (player.goIntoHeat(true)) {
                 changes++;
@@ -3660,14 +3660,14 @@ export class Mutations extends BaseContent {
                 "Images and thoughts come unbidden to your mind, overwhelming your control as you rapidly lose yourself in them, daydreaming of... ",
                 false
             );
-            //cawk fantasies
+            // cawk fantasies
             if (player.gender <= 1 || (player.gender == 3 && Mutations.rand(2) == 0)) {
                 this.outputText(
                     "bounding through the woods, hunting with your master.  Feeling the wind in your fur and the thrill of the hunt coursing through your veins intoxicates you.  You have your nose to the ground, tracking your quarry as you run, until a heavenly scent stops you in your tracks.",
                     false
                 );
                 this.dynStats("lus", 5 + player.lib / 20);
-                //break1
+                // break1
                 if (player.cor < 33 || !player.hasCock())
                     this.outputText(
                         "\nYou shake your head to clear the unwanted fantasy from your mind, repulsed by it.",
@@ -3683,7 +3683,7 @@ export class Mutations extends BaseContent {
                         false
                     );
                     this.dynStats("lus", 5 + player.lib / 20);
-                    //Break 2
+                    // Break 2
                     if (player.cor < 66)
                         this.outputText(
                             "\nYou blink a few times, the fantasy fading as you master yourself.  That daydream was so strange, yet so hot.",
@@ -3695,7 +3695,7 @@ export class Mutations extends BaseContent {
                             false
                         );
                         this.dynStats("lus", 5 + player.lib / 20);
-                        //break3
+                        // break3
                         if (player.cor < 80) {
                             if (player.vaginas.length > 0)
                                 this.outputText(
@@ -3725,7 +3725,7 @@ export class Mutations extends BaseContent {
                     }
                 }
             }
-            //Pure female fantasies
+            // Pure female fantasies
             else if (player.hasVagina()) {
                 this.outputText(
                     "wagging your dripping " +
@@ -3734,7 +3734,7 @@ export class Mutations extends BaseContent {
                     false
                 );
                 this.dynStats("lus", 5 + player.lib / 20);
-                //BREAK 1
+                // BREAK 1
                 if (player.cor < 33) {
                     this.outputText(
                         "\nYou shake your head to clear the unwanted fantasy from your mind, repulsed by it.",
@@ -3746,7 +3746,7 @@ export class Mutations extends BaseContent {
                         false
                     );
                     this.dynStats("lus", 5 + player.lib / 20);
-                    //BREAK 2
+                    // BREAK 2
                     if (player.cor <= 66) {
                         this.outputText(
                             "\nYou blink a few times, the fantasy fading as you master yourself.  That daydream was so strange, yet so hot.",
@@ -3758,7 +3758,7 @@ export class Mutations extends BaseContent {
                             false
                         );
                         this.dynStats("lus", 5 + player.lib / 20);
-                        //break3
+                        // break3
                         if (player.cor < 80) {
                             this.outputText(
                                 "\nYou reluctantly pry your hand from your aching " +
@@ -3780,7 +3780,7 @@ export class Mutations extends BaseContent {
                     "wagging your [asshole] before a pack of horny wolves, watching their shiny red doggie-pricks practically jump out of their sheaths at you after going so long without a female in the pack."
                 );
                 this.dynStats("lus", 5 + player.lib / 20);
-                //BREAK 1
+                // BREAK 1
                 if (player.cor < 33) {
                     this.outputText(
                         "\nYou shake your head to clear the unwanted fantasy from your mind, repulsed by it.",
@@ -3792,7 +3792,7 @@ export class Mutations extends BaseContent {
                         false
                     );
                     this.dynStats("lus", 5 + player.lib / 20);
-                    //BREAK 2
+                    // BREAK 2
                     if (player.cor <= 66) {
                         this.outputText(
                             "\nYou blink a few times, the fantasy fading as you master yourself.  That daydream was so strange, yet so hot.",
@@ -3804,7 +3804,7 @@ export class Mutations extends BaseContent {
                             false
                         );
                         this.dynStats("lus", 5 + player.lib / 20);
-                        //break3
+                        // break3
                         if (player.cor < 80) {
                             this.outputText(
                                 "\nYou reluctantly pry your hand from your aching asshole as you drag yourself out of your fantasy.",
@@ -3821,7 +3821,7 @@ export class Mutations extends BaseContent {
                 }
             }
         }
-        //Remove odd eyes
+        // Remove odd eyes
         if (changes < changeLimit && Mutations.rand(5) == 0 && player.eyeType > EYES_HUMAN) {
             if (player.eyeType == EYES_BLACK_EYES_SAND_TRAP) {
                 this.outputText(
@@ -3841,9 +3841,9 @@ export class Mutations extends BaseContent {
             player.eyeType = EYES_HUMAN;
             changes++;
         }
-        //Master Furry Appearance Order:
-        //Tail -> Ears -> Paws -> Fur -> Face
-        //Dog-face requires fur & paws  Should be last morph to take place
+        // Master Furry Appearance Order:
+        // Tail -> Ears -> Paws -> Fur -> Face
+        // Dog-face requires fur & paws  Should be last morph to take place
         if (
             Mutations.rand(5) == 0 &&
             changes < changeLimit &&
@@ -3882,7 +3882,7 @@ export class Mutations extends BaseContent {
             player.skinDesc = "fur";
             player.hairColor = "midnight black";
         }
-        //Become furred - requires paws and tail
+        // Become furred - requires paws and tail
         if (
             Mutations.rand(4) == 0 &&
             changes < changeLimit &&
@@ -3910,7 +3910,7 @@ export class Mutations extends BaseContent {
             player.skinDesc = "fur";
             changes++;
         }
-        //Change to paws - requires tail and ears
+        // Change to paws - requires tail and ears
         if (
             Mutations.rand(3) == 0 &&
             player.lowerBody != LOWER_BODY_TYPE_DOG &&
@@ -3918,13 +3918,13 @@ export class Mutations extends BaseContent {
             player.earType == EARS_DOG &&
             changes < changeLimit
         ) {
-            //Feet -> paws
+            // Feet -> paws
             if (player.lowerBody == LOWER_BODY_TYPE_HUMAN)
                 this.outputText(
                     "\n\nYou scream in agony as you feel the bones in your feet break and begin to rearrange. <b>You now have paws</b>.",
                     false
                 );
-            //Hooves -> Paws
+            // Hooves -> Paws
             else if (player.lowerBody == LOWER_BODY_TYPE_HOOFED)
                 this.outputText(
                     "\n\nYou feel your hooves suddenly splinter, growing into five unique digits.  Their flesh softens as your hooves reshape into furred paws.",
@@ -3938,7 +3938,7 @@ export class Mutations extends BaseContent {
             player.lowerBody = LOWER_BODY_TYPE_DOG;
             changes++;
         }
-        //Change to dog-ears!  Requires dog-tail
+        // Change to dog-ears!  Requires dog-tail
         if (
             Mutations.rand(2) == 0 &&
             player.earType != EARS_DOG &&
@@ -3970,7 +3970,7 @@ export class Mutations extends BaseContent {
             this.outputText("<b>You now have dog ears.</b>", false);
             changes++;
         }
-        //Grow tail if not dog-tailed
+        // Grow tail if not dog-tailed
         if (Mutations.rand(3) == 0 && changes < changeLimit && player.tailType != TAIL_TYPE_DOG) {
             if (player.tailType == TAIL_TYPE_NONE)
                 this.outputText(
@@ -3987,7 +3987,7 @@ export class Mutations extends BaseContent {
                     "\n\nThe tip of your tail feels strange.  As you pull it around to check on it, the spaded tip disappears, quickly replaced by a thick coat of fur over the entire surface of your tail.  ",
                     false
                 );
-            //Generic message for now
+            // Generic message for now
             if (player.tailType >= TAIL_TYPE_COW)
                 this.outputText(
                     "\n\nYou feel your backside shift and change, flesh molding and displacing into a long puffy tail!  ",
@@ -4013,7 +4013,7 @@ export class Mutations extends BaseContent {
             this.dynStats("tou", 4, "sen", -3);
             changes++;
         }
-        //If no changes yay
+        // If no changes yay
         if (changes == 0) {
             this.outputText(
                 "\n\nInhuman vitality spreads through your body, invigorating you!\n",
@@ -4042,7 +4042,7 @@ export class Mutations extends BaseContent {
             );
             this.HPChange(30 + player.tou / 3, true);
             this.dynStats("lus", 3, "cor", 1);
-            //Shrinkage!
+            // Shrinkage!
             if (Mutations.rand(2) == 0 && player.tallness > 42) {
                 this.outputText(
                     "\n\nYour skin crawls, making you close your eyes and shiver.  When you open them again the world seems... different.  After a bit of investigation, you realize you've become shorter!\n",
@@ -4050,7 +4050,7 @@ export class Mutations extends BaseContent {
                 );
                 player.tallness -= 1 + Mutations.rand(3);
             }
-            //Red skin!
+            // Red skin!
             if (Mutations.rand(30) == 0 && player.skinTone != "red") {
                 if (player.skinType == SKIN_TYPE_FUR)
                     this.outputText("\n\nUnderneath your fur, your skin ", false);
@@ -4070,7 +4070,7 @@ export class Mutations extends BaseContent {
             this.HPChange(20 + player.tou / 3, true);
             this.dynStats("lus", 3, "cor", 1);
         }
-        //Red skin!
+        // Red skin!
         if (Mutations.rand(30) == 0 && player.skinTone != "red") {
             if (player.skinType == SKIN_TYPE_FUR)
                 this.outputText("\n\nUnderneath your fur, your skin ", false);
@@ -4085,7 +4085,7 @@ export class Mutations extends BaseContent {
             );
         }
 
-        //Shrinkage!
+        // Shrinkage!
         if (Mutations.rand(2) == 0 && player.tallness > 42) {
             this.outputText(
                 "\n\nYour skin crawls, making you close your eyes and shiver.  When you open them again the world seems... different.  After a bit of investigation, you realize you've become shorter!",
@@ -4095,53 +4095,53 @@ export class Mutations extends BaseContent {
         }
     }
 
-    //pureHoney moved to BeeHoney.as
+    // pureHoney moved to BeeHoney.as
 
     public succubisDelight(tainted: boolean, player: Player): void {
         player.slimeFeed();
         var changes: number = 0;
         var crit: number = 1;
-        //Determine crit multiplier (x2 or x3)
+        // Determine crit multiplier (x2 or x3)
         if (Mutations.rand(4) == 0) crit += Mutations.rand(2) + 1;
         var changeLimit: number = 1;
-        //Chances to up the max number of changes
+        // Chances to up the max number of changes
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
-        //Generic drinking text
+        // Generic drinking text
         this.outputText(
             "You uncork the bottle and drink down the strange substance, struggling to down the thick liquid.",
             true
         );
-        //low corruption thoughts
+        // low corruption thoughts
         if (player.cor < 33)
             this.outputText("  This stuff is gross, why are you drinking it?", false);
-        //high corruption
+        // high corruption
         if (player.cor >= 66)
             this.outputText(
                 "  You lick your lips, marvelling at how thick and sticky it is.",
                 false
             );
-        //Corruption increase
+        // Corruption increase
         if (player.cor < 50 || Mutations.rand(2)) {
             this.outputText("\n\nThe drink makes you feel... dirty.", false);
             this.temp = 1;
-            //Corrupts the uncorrupted faster
+            // Corrupts the uncorrupted faster
             if (player.cor < 50) this.temp++;
             if (player.cor < 40) this.temp++;
             if (player.cor < 30) this.temp++;
-            //Corrupts the very corrupt slower
+            // Corrupts the very corrupt slower
             if (player.cor >= 90) this.temp = 0.5;
             if (tainted) this.dynStats("cor", this.temp);
             else this.dynStats("cor", 0);
             changes++;
         }
-        //Makes your balls biggah! (Or cummultiplier higher if futa!)
+        // Makes your balls biggah! (Or cummultiplier higher if futa!)
         if (Mutations.rand(1.5) == 0 && changes < changeLimit && player.balls > 0) {
             player.ballSize++;
-            //They grow slower as they get bigger...
+            // They grow slower as they get bigger...
             if (player.ballSize > 10) player.ballSize -= 0.5;
-            //Texts
+            // Texts
             if (player.ballSize <= 2)
                 this.outputText(
                     "\n\nA flash of warmth passes through you and a sudden weight develops in your groin.  You pause to examine the changes and your roving fingers discover your " +
@@ -4160,18 +4160,18 @@ export class Mutations extends BaseContent {
                 );
             this.dynStats("lib", 1, "lus", 3);
         }
-        //Boost cum multiplier
+        // Boost cum multiplier
         if (changes < changeLimit && Mutations.rand(2) == 0 && player.cocks.length > 0) {
             if (player.cumMultiplier < 6 && Mutations.rand(2) == 0 && changes < changeLimit) {
-                //Temp is the max it can be raised to
+                // Temp is the max it can be raised to
                 this.temp = 3;
-                //Lots of cum raises cum multiplier cap to 6 instead of 3
+                // Lots of cum raises cum multiplier cap to 6 instead of 3
                 if (player.findPerk(PerkLib.MessyOrgasms) >= 0) this.temp = 6;
                 if (this.temp < player.cumMultiplier + 0.4 * crit) {
                     changes--;
                 } else {
                     player.cumMultiplier += 0.4 * crit;
-                    //Flavor text
+                    // Flavor text
                     if (player.balls == 0)
                         this.outputText(
                             "\n\nYou feel a churning inside your body as something inside you changes.",
@@ -4196,7 +4196,7 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //Fail-safe
+        // Fail-safe
         if (changes == 0) {
             this.outputText(
                 "\n\nYour groin tingles, making it feel as if you haven't cum in a long time.",
@@ -4214,41 +4214,41 @@ export class Mutations extends BaseContent {
         player.slimeFeed();
         var changes: number = 0;
         var crit: number = 1;
-        //Determine crit multiplier (x2 or x3)
+        // Determine crit multiplier (x2 or x3)
         crit += Mutations.rand(2) + 1;
         var changeLimit: number = 1;
-        //Chances to up the max number of changes
+        // Chances to up the max number of changes
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
-        //Generic drinking text
+        // Generic drinking text
         this.outputText(
             "You uncork the bottle and drink down the strange substance, struggling to down the thick liquid.",
             true
         );
-        //low corruption thoughts
+        // low corruption thoughts
         if (player.cor < 33)
             this.outputText("  This stuff is gross, why are you drinking it?", false);
-        //high corruption
+        // high corruption
         if (player.cor >= 66)
             this.outputText(
                 "  You lick your lips, marvelling at how thick and sticky it is.",
                 false
             );
-        //Corruption increase
+        // Corruption increase
         if (player.cor < 50 || Mutations.rand(2)) {
             this.outputText("\n\nThe drink makes you feel... dirty.", false);
             this.temp = 1;
-            //Corrupts the uncorrupted faster
+            // Corrupts the uncorrupted faster
             if (player.cor < 50) this.temp++;
             if (player.cor < 40) this.temp++;
             if (player.cor < 30) this.temp++;
-            //Corrupts the very corrupt slower
+            // Corrupts the very corrupt slower
             if (player.cor >= 90) this.temp = 0.5;
             this.dynStats("cor", this.temp + 2);
             changes++;
         }
-        //NEW BALLZ
+        // NEW BALLZ
         if (player.balls < 4) {
             if (player.balls > 0) {
                 player.balls = 4;
@@ -4271,7 +4271,7 @@ export class Mutations extends BaseContent {
             }
             changes++;
         }
-        //Makes your balls biggah! (Or cummultiplier higher if futa!)
+        // Makes your balls biggah! (Or cummultiplier higher if futa!)
         if (
             Mutations.rand(1.5) == 0 &&
             changes < changeLimit &&
@@ -4279,9 +4279,9 @@ export class Mutations extends BaseContent {
             player.cocks.length > 0
         ) {
             player.ballSize++;
-            //They grow slower as they get bigger...
+            // They grow slower as they get bigger...
             if (player.ballSize > 10) player.ballSize -= 0.5;
-            //Texts
+            // Texts
             if (player.ballSize <= 2)
                 this.outputText(
                     "\n\nA flash of warmth passes through you and a sudden weight develops in your groin.  You pause to examine the changes and your roving fingers discover your " +
@@ -4300,18 +4300,18 @@ export class Mutations extends BaseContent {
                 );
             this.dynStats("lib", 1, "lus", 3);
         }
-        //Boost cum multiplier
+        // Boost cum multiplier
         if (changes < changeLimit && Mutations.rand(2) == 0 && player.cocks.length > 0) {
             if (player.cumMultiplier < 6 && Mutations.rand(2) == 0 && changes < changeLimit) {
-                //Temp is the max it can be raised to
+                // Temp is the max it can be raised to
                 this.temp = 3;
-                //Lots of cum raises cum multiplier cap to 6 instead of 3
+                // Lots of cum raises cum multiplier cap to 6 instead of 3
                 if (player.findPerk(PerkLib.MessyOrgasms) >= 0) this.temp = 6;
                 if (this.temp < player.cumMultiplier + 0.4 * crit) {
                     changes--;
                 } else {
                     player.cumMultiplier += 0.4 * crit;
-                    //Flavor text
+                    // Flavor text
                     if (player.balls == 0)
                         this.outputText(
                             "\n\nYou feel a churning inside your body as something inside you changes.",
@@ -4336,7 +4336,7 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //Fail-safe
+        // Fail-safe
         if (changes == 0) {
             this.outputText(
                 "\n\nYour groin tingles, making it feel as if you haven't cum in a long time.",
@@ -4350,7 +4350,7 @@ export class Mutations extends BaseContent {
         }
     }
 
-    //Oviposition Elixer!
+    // Oviposition Elixer!
     /*
      v1 = egg type.
      v2 = size - 0 for normal, 1 for large
@@ -4369,7 +4369,7 @@ export class Mutations extends BaseContent {
             {
                 player.slimeFeed();
             var  changes: number = 0;
-                //Females!
+                // Females!
                 outputText("You pop the cork and gulp down the thick greenish fluid.  The taste is unusual and unlike anything you've tasted before.", true);
                 if (player.pregnancyType == PregnancyStore.PREGNANCY_GOO_STUFFED) {
                     outputText("\n\nFor a moment you feel even more bloated than you already are. That feeling is soon replaced by a dull throbbing pain. It seems that with Valeria's goo filling your womb the ovielixir is unable to work its magic on you.");
@@ -4379,19 +4379,19 @@ export class Mutations extends BaseContent {
                     outputText("\n\nFor a moment you feel even more bloated than you already are. That feeling is soon replaced by a dull throbbing pain. It seems that with the worms filling your womb the ovielixir is unable to work its magic on you.");
                     return;
                 }
-                //If player already has eggs, chance of size increase!
+                // If player already has eggs, chance of size increase!
                 if (player.pregnancyType == PregnancyStore.PREGNANCY_OVIELIXIR_EGGS) {
                     if (player.findStatusAffect(StatusAffects.Eggs) >= 0) {
-                        //If eggs are small, chance of increase!
+                        // If eggs are small, chance of increase!
                         if (player.statusAffectv2(StatusAffects.Eggs) == 0) {
-                            //1 in 2 chance!
+                            // 1 in 2 chance!
                             if (rand(3) == 0) {
                                 player.addStatusValue(StatusAffects.Eggs,2,1);
                                 outputText("\n\nYour pregnant belly suddenly feels heavier and more bloated than before.  You wonder what the elixir just did.", false);
                                 changes++;
                             }
                         }
-                        //Chance of quantity increase!
+                        // Chance of quantity increase!
                         if (rand(2) == 0) {
                             outputText("\n\nA rumble radiates from your uterus as it shifts uncomfortably and your belly gets a bit larger.", false);
                             player.addStatusValue(StatusAffects.Eggs,3,rand(4) + 1);
@@ -4399,17 +4399,17 @@ export class Mutations extends BaseContent {
                         }
                     }
                 }
-                //If the player is not pregnant, get preggers with eggs!
+                // If the player is not pregnant, get preggers with eggs!
                 if (player.pregnancyIncubation == 0) {
                     outputText("\n\nThe elixir has an immediate effect on your belly, causing it to swell out slightly as if pregnant.  You guess you'll be laying eggs sometime soon!", false);
                     player.knockUp(PregnancyStore.PREGNANCY_OVIELIXIR_EGGS, PregnancyStore.INCUBATION_OVIELIXIR_EGGS, 1, 1);
-                    //v1 = egg type.
-                    //v2 = size - 0 for normal, 1 for large
-                    //v3 = quantity
+                    // v1 = egg type.
+                    // v2 = size - 0 for normal, 1 for large
+                    // v3 = quantity
                     player.createStatusAffect(StatusAffects.Eggs, rand(6), 0, (5 + rand(3)), 0);
                     changes++;
                 }
-                //If no changes, speed up pregnancy.
+                // If no changes, speed up pregnancy.
                 if (changes == 0 && player.pregnancyIncubation > 20 && player.pregnancyType != PregnancyStore.PREGNANCY_BUNNY) {
                     outputText("\n\nYou gasp as your pregnancy suddenly leaps forwards, your belly bulging outward a few inches as it gets closer to time for birthing.", false);
                 var  newIncubation: number = player.pregnancyIncubation - int(player.pregnancyIncubation * .3 + 10);
@@ -4420,7 +4420,7 @@ export class Mutations extends BaseContent {
             }
     */
 
-    //butt expansion
+    // butt expansion
     public brownEgg(large: boolean, player: Player): void {
         this.outputText("You devour the egg, momentarily sating your hunger.\n\n", true);
         if (!large) {
@@ -4446,7 +4446,7 @@ export class Mutations extends BaseContent {
         }
     }
 
-    //hip expansion
+    // hip expansion
     public purpleEgg(large: boolean, player: Player): void {
         this.outputText("You devour the egg, momentarily sating your hunger.\n\n", true);
         if (!large || player.hipRating > 20) {
@@ -4470,17 +4470,17 @@ export class Mutations extends BaseContent {
         }
     }
 
-    //Femminess
+    // Femminess
     public pinkEgg(large: boolean, player: Player): void {
         this.outputText("You devour the egg, momentarily sating your hunger.\n\n", true);
         if (!large) {
-            //Remove a dick
+            // Remove a dick
             if (player.cocks.length > 0) {
                 player.killCocks(1);
                 this.outputText("\n\n", false);
                 player.genderCheck();
             }
-            //remove balls
+            // remove balls
             if (player.balls > 0) {
                 if (player.ballSize > 15) {
                     player.ballSize -= 8;
@@ -4499,7 +4499,7 @@ export class Mutations extends BaseContent {
                     );
                 }
             }
-            //Fertility boost
+            // Fertility boost
             if (player.vaginas.length > 0 && player.fertility < 40) {
                 this.outputText(
                     "You feel a tingle deep inside your body, just above your " +
@@ -4510,9 +4510,9 @@ export class Mutations extends BaseContent {
                 player.fertility += 5;
             }
         }
-        //LARGE
+        // LARGE
         else {
-            //Remove a dick
+            // Remove a dick
             if (player.cocks.length > 0) {
                 player.killCocks(-1);
                 this.outputText("\n\n", false);
@@ -4526,7 +4526,7 @@ export class Mutations extends BaseContent {
                     false
                 );
             }
-            //Fertility boost
+            // Fertility boost
             if (player.vaginas.length > 0 && player.fertility < 70) {
                 this.outputText(
                     "You feel a powerful tingle deep inside your body, just above your " +
@@ -4543,13 +4543,13 @@ export class Mutations extends BaseContent {
         }
     }
 
-    //Maleness
+    // Maleness
     public blueEgg(large: boolean, player: Player): void {
         var temp2: number = 0;
         var temp3: number = 0;
         this.outputText("You devour the egg, momentarily sating your hunger.", true);
         if (!large) {
-            //Kill pussies!
+            // Kill pussies!
             if (player.vaginas.length > 0) {
                 this.outputText(
                     "\n\nYour vagina clenches in pain, doubling you over.  You slip a hand down to check on it, only to feel the slit growing smaller and smaller until it disappears, taking your clit with it! <b> Your vagina is gone!</b>",
@@ -4559,9 +4559,9 @@ export class Mutations extends BaseContent {
                 player.clitLength = 0.5;
                 player.genderCheck();
             }
-            //Dickz
+            // Dickz
             if (player.cocks.length > 0) {
-                //Multiz
+                // Multiz
                 if (player.cocks.length > 1) {
                     this.outputText(
                         "\n\nYour " +
@@ -4576,7 +4576,7 @@ export class Mutations extends BaseContent {
                         temp3 = player.cocks[this.temp].thickenCock(1);
                     }
                     player.lengthChange(temp2, player.cocks.length);
-                    //Display the degree of thickness change.
+                    // Display the degree of thickness change.
                     if (temp3 >= 1) {
                         if (player.cocks.length == 1)
                             this.outputText(
@@ -4627,7 +4627,7 @@ export class Mutations extends BaseContent {
                     }
                     this.dynStats("lib", 1, "sen", 1, "lus", 20);
                 }
-                //SINGLEZ
+                // SINGLEZ
                 if (player.cocks.length == 1) {
                     this.outputText(
                         "\n\nYour " +
@@ -4638,7 +4638,7 @@ export class Mutations extends BaseContent {
                     temp3 = player.cocks[0].thickenCock(1);
                     temp2 = player.increaseCock(0, Mutations.rand(3) + 2);
                     player.lengthChange(temp2, 1);
-                    //Display the degree of thickness change.
+                    // Display the degree of thickness change.
                     if (temp3 >= 1) {
                         if (player.cocks.length == 1)
                             this.outputText(
@@ -4691,9 +4691,9 @@ export class Mutations extends BaseContent {
                 }
             }
         }
-        //LARGE
+        // LARGE
         else {
-            //New lines if changes
+            // New lines if changes
             if (
                 player.bRows() > 1 ||
                 player.buttRating > 5 ||
@@ -4701,7 +4701,7 @@ export class Mutations extends BaseContent {
                 player.hasVagina()
             )
                 this.outputText("\n\n", false);
-            //Kill pussies!
+            // Kill pussies!
             if (player.vaginas.length > 0) {
                 this.outputText(
                     "Your vagina clenches in pain, doubling you over.  You slip a hand down to check on it, only to feel the slit growing smaller and smaller until it disappears, taking your clit with it!\n\n",
@@ -4713,7 +4713,7 @@ export class Mutations extends BaseContent {
                 player.clitLength = 0.5;
                 player.genderCheck();
             }
-            //Kill extra boobages
+            // Kill extra boobages
             if (player.bRows() > 1) {
                 this.outputText(
                     "Your back relaxes as extra weight vanishes from your chest.  <b>Your lowest " +
@@ -4722,10 +4722,10 @@ export class Mutations extends BaseContent {
                     false
                 );
                 if (player.buttRating > 5 || player.hipRating > 5) this.outputText("  ", false);
-                //Remove lowest row.
+                // Remove lowest row.
                 player.removeBreastRow(player.bRows() - 1, 1);
             }
-            //Ass/hips shrinkage!
+            // Ass/hips shrinkage!
             if (player.buttRating > 5) {
                 this.outputText(
                     "Muscles firm and tone as you feel your " +
@@ -4745,12 +4745,12 @@ export class Mutations extends BaseContent {
                 );
                 player.hipRating -= 2;
             }
-            //Shrink tits!
+            // Shrink tits!
             if (player.biggestTitSize() > 0) {
                 player.shrinkTits();
             }
             if (player.cocks.length > 0) {
-                //Multiz
+                // Multiz
                 if (player.cocks.length > 1) {
                     this.outputText(
                         "\n\nYour " +
@@ -4765,7 +4765,7 @@ export class Mutations extends BaseContent {
                         temp3 = player.cocks[this.temp].thickenCock(1.5);
                     }
                     player.lengthChange(temp2, player.cocks.length);
-                    //Display the degree of thickness change.
+                    // Display the degree of thickness change.
                     if (temp3 >= 1) {
                         if (player.cocks.length == 1)
                             this.outputText(
@@ -4816,7 +4816,7 @@ export class Mutations extends BaseContent {
                     }
                     this.dynStats("lib", 1, "sen", 1, "lus", 20);
                 }
-                //SINGLEZ
+                // SINGLEZ
                 if (player.cocks.length == 1) {
                     this.outputText(
                         "\n\nYour " +
@@ -4827,7 +4827,7 @@ export class Mutations extends BaseContent {
                     temp3 = player.cocks[0].thickenCock(1.5);
                     temp2 = player.increaseCock(0, Mutations.rand(3) + 5);
                     player.lengthChange(temp2, 1);
-                    //Display the degree of thickness change.
+                    // Display the degree of thickness change.
                     if (temp3 >= 1) {
                         if (player.cocks.length == 1)
                             this.outputText(
@@ -4886,12 +4886,12 @@ export class Mutations extends BaseContent {
         }
     }
 
-    //Nipplezzzzz
+    // Nipplezzzzz
     public whiteEgg(large: boolean, player: Player): void {
         var temp2: number = 0;
         this.outputText("You devour the egg, momentarily sating your hunger.", true);
         if (!large) {
-            //Grow nipples
+            // Grow nipples
             if (player.nippleLength < 3 && player.biggestTitSize() > 0) {
                 this.outputText(
                     "\n\nYour nipples engorge, prodding hard against the inside of your " +
@@ -4903,9 +4903,9 @@ export class Mutations extends BaseContent {
                 this.dynStats("lus", 15);
             }
         }
-        //LARGE
+        // LARGE
         else {
-            //Grow nipples
+            // Grow nipples
             if (player.nippleLength < 3 && player.biggestTitSize() > 0) {
                 this.outputText(
                     "\n\nYour nipples engorge, prodding hard against the inside of your " +
@@ -4916,18 +4916,18 @@ export class Mutations extends BaseContent {
                 player.nippleLength += (Mutations.rand(2) + 3) / 10;
                 this.dynStats("lus", 15);
             }
-            //NIPPLECUNTZZZ
+            // NIPPLECUNTZZZ
             this.temp = player.breastRows.length;
-            //Set nipplecunts on every row.
+            // Set nipplecunts on every row.
             while (this.temp > 0) {
                 this.temp--;
                 if (!player.breastRows[this.temp].fuckable && player.nippleLength >= 2) {
                     player.breastRows[this.temp].fuckable = true;
-                    //Keep track of changes.
+                    // Keep track of changes.
                     temp2++;
                 }
             }
-            //Talk about if anything was changed.
+            // Talk about if anything was changed.
             if (temp2 > 0)
                 this.outputText(
                     "\n\nYour " +
@@ -4940,9 +4940,9 @@ export class Mutations extends BaseContent {
 
     public blackRubberEgg(large: boolean, player: Player): void {
         this.outputText("You devour the egg, momentarily sating your hunger.", true);
-        //Small
+        // Small
         if (!large) {
-            //Change skin to normal if not flawless!
+            // Change skin to normal if not flawless!
             if (
                 (player.skinAdj != "smooth" &&
                     player.skinAdj != "latex" &&
@@ -4972,15 +4972,15 @@ export class Mutations extends BaseContent {
                 if (player.skinTone == "rough gray") player.skinTone = "gray";
                 player.skinType = SKIN_TYPE_PLAIN;
             }
-            //chance of hair change
+            // chance of hair change
             else {
-                //If hair isn't rubbery/latex yet
+                // If hair isn't rubbery/latex yet
                 if (
                     player.hairColor.indexOf("rubbery") == -1 &&
                     player.hairColor.indexOf("latex-textured") &&
                     player.hairLength != 0
                 ) {
-                    //if skin is already one...
+                    // if skin is already one...
                     if (player.skinDesc == "skin" && player.skinAdj == "rubber") {
                         this.outputText(
                             "\n\nYour scalp tingles and your " +
@@ -5006,9 +5006,9 @@ export class Mutations extends BaseContent {
                 }
             }
         }
-        //Large
+        // Large
         if (large) {
-            //Change skin to latex if smooth.
+            // Change skin to latex if smooth.
             if (player.skinDesc == "skin" && player.skinAdj == "smooth") {
                 this.outputText(
                     "\n\nYour already flawless smooth skin begins to tingle as it changes again.  It becomes shinier as its texture changes subtly.  You gasp as you touch yourself and realize your skin has become ",
@@ -5032,7 +5032,7 @@ export class Mutations extends BaseContent {
                     );
                 this.dynStats("spe", -3, "sen", 8, "lus", 10, "cor", 2);
             }
-            //Change skin to normal if not flawless!
+            // Change skin to normal if not flawless!
             if (
                 (player.skinAdj != "smooth" &&
                     player.skinAdj != "latex" &&
@@ -5062,15 +5062,15 @@ export class Mutations extends BaseContent {
                 if (player.skinTone == "rough gray") player.skinTone = "gray";
                 player.skinType = SKIN_TYPE_PLAIN;
             }
-            //chance of hair change
+            // chance of hair change
             else {
-                //If hair isn't rubbery/latex yet
+                // If hair isn't rubbery/latex yet
                 if (
                     player.hairColor.indexOf("rubbery") == -1 &&
                     player.hairColor.indexOf("latex-textured") &&
                     player.hairLength != 0
                 ) {
-                    //if skin is already one...
+                    // if skin is already one...
                     if (player.skinAdj == "rubber" && player.skinDesc == "skin") {
                         this.outputText(
                             "\n\nYour scalp tingles and your " +
@@ -5169,27 +5169,13 @@ export class Mutations extends BaseContent {
                 if (player.buttRating > 1) buttEvent = 1071;
             var  hipEvent: number = 0;
                 if (player.hipRating > 2) hipEvent = 1122;
-                */
-
-    //TODO FIX
-    /* Moved to new GroPlus item
-            public  growPlus(player:Player): void {
-            var  gpBalls = (player.balls > 0 ? growPlusBalls : undefined);
-            var  gpBreasts = (player.breastRows.length > 0 ? growPlusBreasts : undefined);
-            var  gpClit = (player.vaginas.length > 0 ? growPlusClit : undefined);
-            var  gpCock = (player.cockTotal() > 0 ? growPlusCock : undefined);
-            var  gpNipples = (player.totalNipples() > 0 ? growPlusNipples : undefined);
-                kGAMECLASS.itemSubMenu = true;
-                clearOutput();
-                outputText("You ponder the needle in your hand knowing it will enlarge the injection site.  What part of your body will you use it on?  ");
-                choices("Balls", gpBalls, "Breasts", gpBreasts, "Clit", gpClit, "Cock", gpCock, "Nipples", gpNipples, "", undefined, "", undefined, "", undefined, "", undefined, "Nevermind", growPlusCancel);
-    */ /*		}
+                */ /*		}
 
             private  growPlusBalls(): void {
                 clearOutput();
                 player.slimeFeed();
                 outputText("You sink the needle deep into your " + sackDescript() + ".  It hurts like hell, but you push down the plunger and the pain vanishes as the needles contents flow into you.\n\n");
-                //1 in 4 BIG growth.
+                // 1 in 4 BIG growth.
                 if (rand(4) == 0) {
                     outputText("You feel a trembling in your " + ballsDescriptLight() + " as the chemicals start to go to work.  You can tell they're going to be VERY effective.\n");
                     player.ballSize += 2 + rand(4);
@@ -5237,7 +5223,7 @@ export class Mutations extends BaseContent {
                     player.cocks[0].cockLength += 1; // This was forcing "what was said" to match "what actually happened" no matter what increase/growCock /actually/ did.
                     player.cocks[0].cockThickness += 0.5; // And growCock never actually touched thickness. Nor does the new version. Thickness mod was stripped out entirely.
                 }
-                //MULTI
+                // MULTI
                 else {
                     outputText("Your " + multiCockDescriptLight() + " twitch and thicken, each member pouring out more than an inch of new length from your ");
 
@@ -5259,11 +5245,11 @@ export class Mutations extends BaseContent {
                 clearOutput();
                 player.slimeFeed();
                 outputText("You sink the needle into each of your " + nippleDescript(0) + "s in turn, dividing the fluid evenly between them.  Though each injection hurts, the pain is quickly washed away by the potent chemical cocktail.\n\n");
-            //Grow nipples
+            // Grow nipples
                 outputText("Your nipples engorge, prodding hard against the inside of your " + player.armorName + ".  Abruptly you realize they've grown more than an additional quarter-inch.\n\n");
                 player.nippleLength += (rand(2) + 3) / 10;
                 dynStats("lus", 15);
-                //NIPPLECUNTZZZ
+                // NIPPLECUNTZZZ
                 if (!player.hasFuckableNipples() && rand(4) == 0) {
                 var  nowFuckable: boolean = false;
                     for (var x: number = 0; x < player.breastRows.length; x++) {
@@ -5272,7 +5258,7 @@ export class Mutations extends BaseContent {
                             nowFuckable = true;
                         }
                     }
-                    //Talk about if anything was changed.
+                    // Talk about if anything was changed.
                     if (nowFuckable) outputText("Your " + allBreastsDescript() + " tingle with warmth that slowly migrates to your nipples, filling them with warmth.  You pant and moan, rubbing them with your fingers.  A trickle of wetness suddenly coats your finger as it slips inside the nipple.  Shocked, you pull the finger free.  <b>You now have fuckable nipples!</b>\n\n");
                 }
                 inventory.itemGoNext();
@@ -5294,18 +5280,6 @@ export class Mutations extends BaseContent {
                     }
                 }
             }
-    */
-
-    /* Moved to new Reducto item
-            public  reducto(player:Player): void
-            {
-            var  rdtBalls = (player.balls > 0 && player.ballSize > 1 ? reductoBalls : undefined);
-            var  rdtBreasts = (player.breastRows.length > 0 && player.biggestTitSize() > 0 ? reductoBreasts : undefined);
-            var  rdtButt = (player.buttRating > 1 ? reductoButt : undefined);
-            var  rdtClit = (player.vaginas.length > 0 && player.clitLength > 0.25 ? reductoClit : undefined);
-            var  rdtCock = (player.cockTotal() > 0 && player.biggestCockArea() > 6 ? reductoCock : undefined);
-            var  rdtHips = (player.hipRating > 2 ? reductoHips : undefined);
-            var  rdtNipples = (player.nippleLength > 0.25 ? reductoNipples : undefined);
     */ /*
                 kGAMECLASS.itemSubMenu = true;
                 clearOutput();
@@ -5361,7 +5335,7 @@ export class Mutations extends BaseContent {
                 clearOutput();
                 outputText("You carefully apply the paste to your " + clitDescript() + ", being very careful to avoid getting it on your " + vaginaDescript(0) + ".  It burns with heat as it begins to make its effects known...\n\n");
                 player.clitLength /= 1.7;
-                //Set clitlength down to 2 digits in length
+                // Set clitlength down to 2 digits in length
                 player.clitLength = int(player.clitLength * 100) / 100;
                 outputText("Your " + clitDescript() + " shrinks rapidly, dwindling down to almost half its old size before it finishes absorbing the paste.");
                 dynStats("sen", 2, "lus", 10);
@@ -5376,7 +5350,7 @@ export class Mutations extends BaseContent {
                     player.cocks[0].cockLength *= 2 / 3;
                     player.cocks[0].cockThickness *= 2 / 3;
                 }
-                //MULTI
+                // MULTI
                 else {
                     outputText("Your " + multiCockDescriptLight() + " twitch and shrink, each member steadily disappearing into your " + (player.hasSheath() ? "sheath" : "crotch") + " until they've lost about a third of their old size.");
                     for (var i: number = 0; i < player.cocks.length; i++) {
@@ -5411,7 +5385,7 @@ export class Mutations extends BaseContent {
             private  reductoNipples(): void {
                 clearOutput();
                 outputText("You rub the paste evenly over your " + nippleDescript(0) + "s, being sure to cover them completely.\n\n");
-                //Shrink
+                // Shrink
                 if (player.nippleLength / 2 < 0.25) {
                     outputText("Your nipples continue to shrink down until they stop at 1/4\" long.");
                     player.nippleLength = 0.25;
@@ -5435,20 +5409,44 @@ export class Mutations extends BaseContent {
             }
     */
 
-    public lactaid(player: Player): void {
+    // TODO FIX
+    /* Moved to new GroPlus item
+            public  growPlus(player:Player): void {
+            var  gpBalls = (player.balls > 0 ? growPlusBalls : undefined);
+            var  gpBreasts = (player.breastRows.length > 0 ? growPlusBreasts : undefined);
+            var  gpClit = (player.vaginas.length > 0 ? growPlusClit : undefined);
+            var  gpCock = (player.cockTotal() > 0 ? growPlusCock : undefined);
+            var  gpNipples = (player.totalNipples() > 0 ? growPlusNipples : undefined);
+                kGAMECLASS.itemSubMenu = true;
+                clearOutput();
+                outputText("You ponder the needle in your hand knowing it will enlarge the injection site.  What part of your body will you use it on?  ");
+                choices("Balls", gpBalls, "Breasts", gpBreasts, "Clit", gpClit, "Cock", gpCock, "Nipples", gpNipples, "", undefined, "", undefined, "", undefined, "", undefined, "Nevermind", growPlusCancel);
+    */ /* Moved to new Reducto item
+            public  reducto(player:Player): void
+            {
+            var  rdtBalls = (player.balls > 0 && player.ballSize > 1 ? reductoBalls : undefined);
+            var  rdtBreasts = (player.breastRows.length > 0 && player.biggestTitSize() > 0 ? reductoBreasts : undefined);
+            var  rdtButt = (player.buttRating > 1 ? reductoButt : undefined);
+            var  rdtClit = (player.vaginas.length > 0 && player.clitLength > 0.25 ? reductoClit : undefined);
+            var  rdtCock = (player.cockTotal() > 0 && player.biggestCockArea() > 6 ? reductoCock : undefined);
+            var  rdtHips = (player.hipRating > 2 ? reductoHips : undefined);
+            var  rdtNipples = (player.nippleLength > 0.25 ? reductoNipples : undefined);
+    */ public lactaid(
+        player: Player
+    ): void {
         player.slimeFeed();
         var i: number = 0;
         this.outputText(
             "You gulp down the bottle of lactaid, easily swallowing the creamy liquid.",
             true
         );
-        //Bump up size!
+        // Bump up size!
         if (player.averageBreastSize() < 8) {
             this.outputText("\n\n", false);
             if (player.breastRows.length == 1) player.growTits(1 + Mutations.rand(5), 1, true, 1);
             else player.growTits(1 + Mutations.rand(2), player.breastRows.length, true, 1);
         }
-        //Player doesn't lactate
+        // Player doesn't lactate
         if (player.biggestLactation() < 1) {
             this.outputText("\n\n", false);
             this.outputText(
@@ -5461,7 +5459,7 @@ export class Mutations extends BaseContent {
                 player.breastRows[i].lactationMultiplier += 2;
             }
         }
-        //Boost lactation
+        // Boost lactation
         else {
             this.outputText("\n\n", false);
             this.outputText(
@@ -5482,11 +5480,11 @@ export class Mutations extends BaseContent {
 
     public useMarbleMilk(player: Player): void {
         player.slimeFeed();
-        //Bottle of Marble's milk - item
-        //Description: "A clear bottle of milk from Marble's breasts.  It smells delicious.  "
+        // Bottle of Marble's milk - item
+        // Description: "A clear bottle of milk from Marble's breasts.  It smells delicious.  "
         this.outputText("", true);
-        //Text for when the player uses the bottle:
-        //[before the player is addicted, Addiction < 30]
+        // Text for when the player uses the bottle:
+        // [before the player is addicted, Addiction < 30]
         if (
             player.statusAffectv2(StatusAffects.Marble) < 30 &&
             player.statusAffectv3(StatusAffects.Marble) == 0
@@ -5495,27 +5493,27 @@ export class Mutations extends BaseContent {
                 "You gulp down the bottle's contents; Marble makes some good tasting milk.\n\n",
                 false
             );
-        //[before the player is addicted, Addiction < 50]
+        // [before the player is addicted, Addiction < 50]
         else if (player.statusAffectv3(StatusAffects.Marble) <= 0)
             this.outputText(
                 "You gulp down the bottle's contents; Marble makes some really good tasting milk.\n\n",
                 false
             );
         else if (player.statusAffectv3(StatusAffects.Marble) > 0) {
-            //[player is completely addicted]
+            // [player is completely addicted]
             if (player.findPerk(PerkLib.MarblesMilk) >= 0)
                 this.outputText(
                     "You gulp down the bottle's contents; it's no substitute for the real thing, but it's a nice pick me up.\n\n",
                     false
                 );
             else {
-                //[player is no longer addicted]
+                // [player is no longer addicted]
                 if (player.findPerk(PerkLib.MarbleResistant) >= 0)
                     this.outputText(
                         "You gulp down the bottle's contents; you're careful not to get too attached to the taste.\n\n",
                         false
                     );
-                //[player is addicted]
+                // [player is addicted]
                 else
                     this.outputText(
                         "You gulp down the bottle's contents; you really needed that.\n\n",
@@ -5523,20 +5521,20 @@ export class Mutations extends BaseContent {
                     );
             }
         }
-        //Increases addiction by 5, up to a max of 50 before the player becomes addicted, no max after the player is addicted.
+        // Increases addiction by 5, up to a max of 50 before the player becomes addicted, no max after the player is addicted.
         kGAMECLASS.marbleScene.marbleStatusChange(0, 5);
-        //Does not apply the 'Marble's Milk' effect
-        //Purge withdrawl
+        // Does not apply the 'Marble's Milk' effect
+        // Purge withdrawl
         if (player.findStatusAffect(StatusAffects.MarbleWithdrawl) >= 0) {
             player.removeStatusAffect(StatusAffects.MarbleWithdrawl);
             this.dynStats("tou", 5, "int", 5);
             this.outputText("You no longer feel the symptoms of withdrawal.\n\n", false);
         }
-        //Heals the player 70-100 health
+        // Heals the player 70-100 health
         this.HPChange(70 + Mutations.rand(31), true);
-        //Restores a portion of fatigue (once implemented)
+        // Restores a portion of fatigue (once implemented)
         kGAMECLASS.changeFatigue(-25);
-        //If the player is addicted, this item negates the withdrawal effects for a few hours (suggest 6), there will need to be a check here to make sure the withdrawal effect doesn't reactivate while the player is under the effect of 'Marble's Milk'.
+        // If the player is addicted, this item negates the withdrawal effects for a few hours (suggest 6), there will need to be a check here to make sure the withdrawal effect doesn't reactivate while the player is under the effect of 'Marble's Milk'.
         if (player.findStatusAffect(StatusAffects.BottledMilk) >= 0) {
             player.addStatusValue(StatusAffects.BottledMilk, 1, 6 + Mutations.rand(6));
         } else player.createStatusAffect(StatusAffects.BottledMilk, 12, 0, 0, 0);
@@ -5562,22 +5560,22 @@ export class Mutations extends BaseContent {
      */
     public laBova(tainted: boolean, enhanced: boolean, player: Player): void {
         player.slimeFeed();
-        //Changes done
+        // Changes done
         var changes: number = 0;
-        //Change limit
+        // Change limit
         var changeLimit: number = 1;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
         if (enhanced) changeLimit += 2;
-        //Temporary storage
+        // Temporary storage
         var temp: number = 0;
         var temp2: number = 0;
         var temp3: number = 0;
-        //LaBova:
-        //ItemDesc: "A bottle containing a misty fluid with a grainy texture, it has a long neck and a ball-like base.  The label has a stylized picture of a well endowed cowgirl nursing two guys while they jerk themselves off.  "
-        //ItemUseText:
+        // LaBova:
+        // ItemDesc: "A bottle containing a misty fluid with a grainy texture, it has a long neck and a ball-like base.  The label has a stylized picture of a well endowed cowgirl nursing two guys while they jerk themselves off.  "
+        // ItemUseText:
         this.outputText("You drink the ", true);
         if (enhanced) this.outputText("Pro Bova", false);
         else this.outputText("La Bova", false);
@@ -5585,9 +5583,9 @@ export class Mutations extends BaseContent {
             ".  The drink has an odd texture, but is very sweet.  It has a slight aftertaste of milk.",
             false
         );
-        //Possible Item Effects:
-        //STATS
-        //Increase player str:
+        // Possible Item Effects:
+        // STATS
+        // Increase player str:
         if (changes < changeLimit && Mutations.rand(3) == 0) {
             temp = 60 - player.str;
             if (temp <= 0) temp = 0;
@@ -5606,7 +5604,7 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //Increase player tou:
+        // Increase player tou:
         if (changes < changeLimit && Mutations.rand(3) == 0) {
             temp = 60 - player.tou;
             if (temp <= 0) temp = 0;
@@ -5625,7 +5623,7 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //Decrease player spd if it is over 30:
+        // Decrease player spd if it is over 30:
         if (changes < changeLimit && Mutations.rand(3) == 0) {
             if (player.spe > 30) {
                 this.outputText(
@@ -5637,25 +5635,25 @@ export class Mutations extends BaseContent {
                 this.dynStats("spe", -temp);
             }
         }
-        //Increase Corr, up to a max of 50.
+        // Increase Corr, up to a max of 50.
         if (tainted) {
             temp = 50 - player.cor;
             if (temp < 0) temp = 0;
             this.dynStats("cor", temp / 10);
         }
-        //Sex bits - Duderiffic
+        // Sex bits - Duderiffic
         if (player.cocks.length > 0 && Mutations.rand(2) == 0 && !this.flags[kFLAGS.HYPER_HAPPY]) {
-            //If the player has at least one dick, decrease the size of each slightly,
+            // If the player has at least one dick, decrease the size of each slightly,
             this.outputText("\n\n", false);
             temp = 0;
             temp2 = player.cocks.length;
             temp3 = 0;
-            //Find biggest cock
+            // Find biggest cock
             while (temp2 > 0) {
                 temp2--;
                 if (player.cocks[temp].cockLength <= player.cocks[temp2].cockLength) temp = temp2;
             }
-            //Shrink said cock
+            // Shrink said cock
             if (player.cocks[temp].cockLength < 6 && player.cocks[temp].cockLength >= 2.9) {
                 player.cocks[temp].cockLength -= 0.5;
                 temp3 -= 0.5;
@@ -5692,7 +5690,7 @@ export class Mutations extends BaseContent {
                     player.genderCheck();
                 }
             }
-            //if the last of the player's dicks are eliminated this way, they gain a virgin vagina;
+            // if the last of the player's dicks are eliminated this way, they gain a virgin vagina;
             if (player.cocks.length == 0 && !player.hasVagina()) {
                 player.createVagina();
                 player.vaginas[0].vaginalLooseness = VAGINA_LOOSENESS_TIGHT;
@@ -5711,10 +5709,10 @@ export class Mutations extends BaseContent {
                 this.dynStats("lus", 10);
             }
         }
-        //Sex bits - girly
+        // Sex bits - girly
         var boobsGrew: boolean = false;
-        //Increase player's breast size, if they are HH or bigger
-        //do not increase size, but do the other actions:
+        // Increase player's breast size, if they are HH or bigger
+        // do not increase size, but do the other actions:
         if (
             ((tainted && player.biggestTitSize() <= 11) ||
                 (!tainted && player.biggestTitSize() <= 5)) &&
@@ -5740,15 +5738,15 @@ export class Mutations extends BaseContent {
             this.dynStats("sen", 0.5);
             boobsGrew = true;
         }
-        //-Remove feathery hair (copy for equinum, canine peppers, Labova)
+        // -Remove feathery hair (copy for equinum, canine peppers, Labova)
         if (changes < changeLimit && player.hairType == 1 && Mutations.rand(4) == 0) {
-            //(long):
+            // (long):
             if (player.hairLength >= 6)
                 this.outputText(
                     "\n\nA lock of your downy-soft feather-hair droops over your eye.  Before you can blow the offending down away, you realize the feather is collapsing in on itself.  It continues to curl inward until all that remains is a normal strand of hair.  <b>Your hair is no longer feathery!</b>",
                     false
                 );
-            //(short)
+            // (short)
             else
                 this.outputText(
                     "\n\nYou run your fingers through your downy-soft feather-hair while you await the effects of the item you just ingested.  While your hand is up there, it detects a change in the texture of your feathers.  They're completely disappearing, merging down into strands of regular hair.  <b>Your hair is no longer feathery!</b>",
@@ -5757,7 +5755,7 @@ export class Mutations extends BaseContent {
             changes++;
             player.hairType = 0;
         }
-        //If breasts are D or bigger and are not lactating, they also start lactating:
+        // If breasts are D or bigger and are not lactating, they also start lactating:
         if (
             player.biggestTitSize() >= 4 &&
             player.breastRows[0].lactationMultiplier < 1 &&
@@ -5776,9 +5774,9 @@ export class Mutations extends BaseContent {
             changes++;
             this.dynStats("sen", 0.5);
         }
-        //Quad nipples and other 'special enhanced things.
+        // Quad nipples and other 'special enhanced things.
         if (enhanced) {
-            //QUAD DAMAGE!
+            // QUAD DAMAGE!
             if (player.breastRows[0].nipplesPerBreast == 1) {
                 changes++;
                 player.breastRows[0].nipplesPerBreast = 4;
@@ -5828,7 +5826,7 @@ export class Mutations extends BaseContent {
                     );
                 }
             }
-            //QUAD DAMAGE IF WEIRD SHIT BROKE BEFORE
+            // QUAD DAMAGE IF WEIRD SHIT BROKE BEFORE
             else if (player.breastRows.length > 1 && player.breastRows[1].nipplesPerBreast == 1) {
                 if (player.breastRows[1].nipplesPerBreast == 1) {
                     this.outputText(
@@ -5903,7 +5901,7 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //If breasts are already lactating and the player is not lactating beyond a reasonable level, they start lactating more:
+        // If breasts are already lactating and the player is not lactating beyond a reasonable level, they start lactating more:
         else {
             if (
                 tainted &&
@@ -6000,11 +5998,11 @@ export class Mutations extends BaseContent {
                 }
             }
         }
-        //If breasts are lactating at a fair level
-        //and the player has not received this status,
-        //apply an effect where the player really wants
-        //to give their milk to other creatures
-        //(capable of getting them addicted):
+        // If breasts are lactating at a fair level
+        // and the player has not received this status,
+        // apply an effect where the player really wants
+        // to give their milk to other creatures
+        // (capable of getting them addicted):
         if (
             player.findStatusAffect(StatusAffects.Feeder) < 0 &&
             player.biggestLactation() >= 3 &&
@@ -6020,9 +6018,9 @@ export class Mutations extends BaseContent {
             player.createPerk(PerkLib.Feeder, 0, 0, 0, 0);
             changes++;
         }
-        //UNFINISHED
-        //If player has addictive quality and drinks pure version, removes addictive quality.
-        //if the player has a vagina and it is tight, it loosens.
+        // UNFINISHED
+        // If player has addictive quality and drinks pure version, removes addictive quality.
+        // if the player has a vagina and it is tight, it loosens.
         if (player.hasVagina()) {
             if (
                 player.vaginas[0].vaginalLooseness < VAGINA_LOOSENESS_LOOSE &&
@@ -6036,18 +6034,18 @@ export class Mutations extends BaseContent {
                     false
                 );
                 player.vaginas[0].vaginalLooseness++;
-                //Cunt Stretched used to determine how long since last enlargement
+                // Cunt Stretched used to determine how long since last enlargement
                 if (player.findStatusAffect(StatusAffects.CuntStretched) < 0)
                     player.createStatusAffect(StatusAffects.CuntStretched, 0, 0, 0, 0);
-                //Reset the timer on it to 0 when restretched.
+                // Reset the timer on it to 0 when restretched.
                 else player.changeStatusValue(StatusAffects.CuntStretched, 1, 0);
                 player.vaginas[0].vaginalLooseness++;
                 changes++;
                 this.dynStats("lus", 10);
             }
         }
-        //General Appearance (Tail -> Ears -> Paws(fur stripper) -> Face -> Horns
-        //Give the player a bovine tail, same as the minotaur
+        // General Appearance (Tail -> Ears -> Paws(fur stripper) -> Face -> Horns
+        // Give the player a bovine tail, same as the minotaur
         if (
             tainted &&
             player.tailType != TAIL_TYPE_COW &&
@@ -6071,7 +6069,7 @@ export class Mutations extends BaseContent {
                         false
                     );
                 }
-                //insect
+                // insect
                 if (
                     player.tailType == TAIL_TYPE_SPIDER_ADBOMEN ||
                     player.tailType == TAIL_TYPE_BEE_ABDOMEN
@@ -6085,7 +6083,7 @@ export class Mutations extends BaseContent {
             player.tailType = TAIL_TYPE_COW;
             changes++;
         }
-        //Give the player bovine ears, same as the minotaur
+        // Give the player bovine ears, same as the minotaur
         if (
             tainted &&
             player.earType != EARS_COW &&
@@ -6100,18 +6098,18 @@ export class Mutations extends BaseContent {
             player.earType = EARS_COW;
             changes++;
         }
-        //If the player is under 7 feet in height, increase their height, similar to the minotaur
+        // If the player is under 7 feet in height, increase their height, similar to the minotaur
         if (
             ((enhanced && player.tallness < 96) || player.tallness < 84) &&
             changes < changeLimit &&
             Mutations.rand(2) == 0
         ) {
             temp = Mutations.rand(5) + 3;
-            //Slow rate of growth near ceiling
+            // Slow rate of growth near ceiling
             if (player.tallness > 74) temp = Math.floor(temp / 2);
-            //Never 0
+            // Never 0
             if (temp == 0) temp = 1;
-            //Flavor texts.  Flavored like 1950's cigarettes. Yum.
+            // Flavor texts.  Flavored like 1950's cigarettes. Yum.
             if (temp < 5)
                 this.outputText(
                     "\n\nYou shift uncomfortably as you realize you feel off balance.  Gazing down, you realize you have grown SLIGHTLY taller.",
@@ -6130,7 +6128,7 @@ export class Mutations extends BaseContent {
             player.tallness += temp;
             changes++;
         }
-        //Give the player hoofs, if the player already has hoofs STRIP FUR
+        // Give the player hoofs, if the player already has hoofs STRIP FUR
         if (tainted && player.lowerBody != LOWER_BODY_TYPE_HOOFED && player.earType == EARS_COW) {
             if (changes < changeLimit && Mutations.rand(3) == 0) {
                 changes++;
@@ -6149,7 +6147,7 @@ export class Mutations extends BaseContent {
                         "\n\nYou collapse as your sinuous snake-tail tears in half, shifting into legs.  The pain is immense, particularly in your new feet as they curl inward and transform into hooves!",
                         false
                     );
-                //Catch-all
+                // Catch-all
                 if (player.lowerBody > LOWER_BODY_TYPE_NAGA)
                     this.outputText(
                         "\n\nYou stagger as your " +
@@ -6166,7 +6164,7 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //If the player's face is non-human, they gain a human face
+        // If the player's face is non-human, they gain a human face
         if (
             !enhanced &&
             player.lowerBody == LOWER_BODY_TYPE_HOOFED &&
@@ -6174,7 +6172,7 @@ export class Mutations extends BaseContent {
             changes < changeLimit &&
             Mutations.rand(4) == 0
         ) {
-            //Remove face before fur!
+            // Remove face before fur!
             this.outputText(
                 "\n\nYour visage twists painfully, returning to a normal human shape.  <b>Your face is human again!</b>",
                 false
@@ -6182,7 +6180,7 @@ export class Mutations extends BaseContent {
             player.faceType = FACE_HUMAN;
             changes++;
         }
-        //enhanced get shitty fur
+        // enhanced get shitty fur
         if (
             enhanced &&
             (player.skinDesc != "fur" || player.hairColor != "black and white spotted")
@@ -6204,7 +6202,7 @@ export class Mutations extends BaseContent {
             player.skinType = SKIN_TYPE_FUR;
             player.hairColor = "black and white spotted";
         }
-        //if enhanced to probova give a shitty cow face
+        // if enhanced to probova give a shitty cow face
         else if (enhanced && player.faceType != FACE_COW_MINOTAUR) {
             this.outputText(
                 "\n\nYour visage twists painfully, warping and crackling as your bones are molded into a new shape.  Once it finishes, you reach up to touch it, and you discover that <b>your face is like that of a cow!</b>",
@@ -6213,20 +6211,20 @@ export class Mutations extends BaseContent {
             player.faceType = FACE_COW_MINOTAUR;
             changes++;
         }
-        //Give the player bovine horns, or increase their size, same as the minotaur
-        //New horns or expanding mino horns
+        // Give the player bovine horns, or increase their size, same as the minotaur
+        // New horns or expanding mino horns
         if (
             tainted &&
             changes < changeLimit &&
             Mutations.rand(3) == 0 &&
             player.faceType == FACE_HUMAN
         ) {
-            //Get bigger or change horns
+            // Get bigger or change horns
             if (player.hornType == HORNS_COW_MINOTAUR || player.hornType == HORNS_NONE) {
-                //Get bigger if player has horns
+                // Get bigger if player has horns
                 if (player.hornType == HORNS_COW_MINOTAUR) {
                     if (player.horns < 5) {
-                        //Fems horns don't get bigger.
+                        // Fems horns don't get bigger.
                         this.outputText(
                             "\n\nYour small horns get a bit bigger, stopping as medium sized nubs.",
                             false
@@ -6235,7 +6233,7 @@ export class Mutations extends BaseContent {
                         changes++;
                     }
                 }
-                //If no horns yet..
+                // If no horns yet..
                 if (player.hornType == HORNS_NONE || player.horns == 0) {
                     this.outputText(
                         "\n\nWith painful pressure, the skin on your forehead splits around two tiny nub-like horns, similar to those you would see on the cattle back in your homeland.",
@@ -6245,7 +6243,7 @@ export class Mutations extends BaseContent {
                     player.horns = 1;
                     changes++;
                 }
-                //TF other horns
+                // TF other horns
                 if (
                     player.hornType != HORNS_NONE &&
                     player.hornType != HORNS_COW_MINOTAUR &&
@@ -6258,7 +6256,7 @@ export class Mutations extends BaseContent {
                     player.hornType = HORNS_COW_MINOTAUR;
                 }
             }
-            //Not mino horns, change to cow-horns
+            // Not mino horns, change to cow-horns
             if (player.hornType == HORNS_DEMON || player.hornType > HORNS_COW_MINOTAUR) {
                 this.outputText(
                     "\n\nYour horns vibrate and shift as if made of clay, reforming into two small bovine nubs.",
@@ -6269,7 +6267,7 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //Increase the size of the player's hips, if they are not already childbearing or larger
+        // Increase the size of the player's hips, if they are not already childbearing or larger
         if (Mutations.rand(2) == 0 && player.hipRating < 15 && changes < changeLimit) {
             if ((!tainted && player.hipRating < 8) || tainted) {
                 this.outputText(
@@ -6288,7 +6286,7 @@ export class Mutations extends BaseContent {
             player.gills = false;
             changes++;
         }
-        //Increase the size of the player's ass (less likely then hips), if it is not already somewhat big
+        // Increase the size of the player's ass (less likely then hips), if it is not already somewhat big
         if (Mutations.rand(2) == 0 && player.buttRating < 13 && changes < changeLimit) {
             if ((!tainted && player.buttRating < 8) || tainted) {
                 this.outputText(
@@ -6299,7 +6297,7 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //Nipples Turn Back:
+        // Nipples Turn Back:
         if (
             player.findStatusAffect(StatusAffects.BlackNipples) >= 0 &&
             changes < changeLimit &&
@@ -6313,7 +6311,7 @@ export class Mutations extends BaseContent {
             changes++;
             player.removeStatusAffect(StatusAffects.BlackNipples);
         }
-        //Debugcunt
+        // Debugcunt
         if (
             changes < changeLimit &&
             Mutations.rand(3) == 0 &&
@@ -6358,7 +6356,7 @@ export class Mutations extends BaseContent {
             );
             this.dynStats("int", 0.6);
         }
-        //Smart enough for arouse and doesnt have it
+        // Smart enough for arouse and doesnt have it
         if (player.inte >= 25 && player.findStatusAffect(StatusAffects.KnowsArouse) < 0) {
             this.outputText(
                 "\n\nYou blink in surprise, assaulted by the knowledge of a <b>new spell: Arouse.</b>",
@@ -6367,7 +6365,7 @@ export class Mutations extends BaseContent {
             player.createStatusAffect(StatusAffects.KnowsArouse, 0, 0, 0, 0);
             return;
         }
-        //Smart enough for arouse and doesnt have it
+        // Smart enough for arouse and doesnt have it
         if (player.inte >= 30 && player.findStatusAffect(StatusAffects.KnowsHeal) < 0) {
             this.outputText(
                 "\n\nYou blink in surprise, assaulted by the knowledge of a <b>new spell: Heal.</b>",
@@ -6376,7 +6374,7 @@ export class Mutations extends BaseContent {
             player.createStatusAffect(StatusAffects.KnowsHeal, 0, 0, 0, 0);
             return;
         }
-        //Smart enough for arouse and doesnt have it
+        // Smart enough for arouse and doesnt have it
         if (player.inte >= 40 && player.findStatusAffect(StatusAffects.KnowsMight) < 0) {
             this.outputText(
                 "\n\nYou blink in surprise, assaulted by the knowledge of a <b>new spell: Might.</b>",
@@ -6413,7 +6411,7 @@ export class Mutations extends BaseContent {
             );
             this.dynStats("int", 0.6);
         }
-        //Smart enough for arouse and doesnt have it
+        // Smart enough for arouse and doesnt have it
         if (player.inte >= 25 && player.findStatusAffect(StatusAffects.KnowsCharge) < 0) {
             this.outputText(
                 "\n\nYou blink in surprise, assaulted by the knowledge of a <b>new spell: Charge Weapon.</b>",
@@ -6422,7 +6420,7 @@ export class Mutations extends BaseContent {
             player.createStatusAffect(StatusAffects.KnowsCharge, 0, 0, 0, 0);
             return;
         }
-        //Smart enough for arouse and doesnt have it
+        // Smart enough for arouse and doesnt have it
         if (player.inte >= 30 && player.findStatusAffect(StatusAffects.KnowsBlind) < 0) {
             this.outputText(
                 "\n\nYou blink in surprise, assaulted by the knowledge of a <b>new spell: Blind.</b>",
@@ -6431,7 +6429,7 @@ export class Mutations extends BaseContent {
             player.createStatusAffect(StatusAffects.KnowsBlind, 0, 0, 0, 0);
             return;
         }
-        //Smart enough for arouse and doesnt have it
+        // Smart enough for arouse and doesnt have it
         if (player.inte >= 40 && player.findStatusAffect(StatusAffects.KnowsWhitefire) < 0) {
             this.outputText(
                 "\n\nYou blink in surprise, assaulted by the knowledge of a <b>new spell: Whitefire.</b>",
@@ -6452,14 +6450,14 @@ export class Mutations extends BaseContent {
         );
         this.dynStats("lus", 30 + Mutations.rand(player.lib / 10), "resisted", false);
 
-        //Heat/Rut for those that can have them if "fuck draft"
+        // Heat/Rut for those that can have them if "fuck draft"
         if (fuck) {
-            //Try to go into intense heat.
+            // Try to go into intense heat.
             player.goIntoHeat(true, 2);
-            //Males go into rut
+            // Males go into rut
             player.goIntoRut(true);
         }
-        //ORGAZMO
+        // ORGAZMO
         if (player.lust >= 100 && !kGAMECLASS.inCombat) {
             this.outputText(
                 "\n\nThe arousal from the potion overwhelms your senses and causes you to spontaneously orgasm.  You rip off your " +
@@ -6486,7 +6484,7 @@ export class Mutations extends BaseContent {
                 "Once you've had a chance to calm down, you notice that the explosion of pleasure you just experienced has rocked you to your core.  You are a little hornier than you were before.",
                 false
             );
-            //increase player libido, and maybe sensitivity too?
+            // increase player libido, and maybe sensitivity too?
             player.orgasm();
             this.dynStats("lib", 2, "sen", 1);
         }
@@ -6508,7 +6506,7 @@ export class Mutations extends BaseContent {
             true
         );
         this.dynStats("lus", 15);
-        //Stronger
+        // Stronger
         if (player.str > 50) {
             this.dynStats("str", -1);
             if (player.str > 70) this.dynStats("str", -1);
@@ -6528,9 +6526,9 @@ export class Mutations extends BaseContent {
             if (player.tou > 70) this.dynStats("tou", -1);
             if (player.tou > 90) this.dynStats("tou", -2);
         }
-        //antianemone corollary:
+        // antianemone corollary:
         if (changes < changeLimit && player.hairType == 4 && Mutations.rand(2) == 0) {
-            //-insert anemone hair removal into them under whatever criteria you like, though hair removal should precede abdomen growth; here's some sample text:
+            // -insert anemone hair removal into them under whatever criteria you like, though hair removal should precede abdomen growth; here's some sample text:
             this.outputText(
                 "\n\nAs you down the potent ale, your head begins to feel heavier - and not just from the alcohol!  Reaching up, you notice your tentacles becoming soft and somewhat fibrous.  Pulling one down reveals that it feels smooth, silky, and fibrous; you watch as it dissolves into many thin, hair-like strands.  <b>Your hair is now back to normal!</b>",
                 false
@@ -6538,7 +6536,7 @@ export class Mutations extends BaseContent {
             player.hairType = 0;
             changes++;
         }
-        //Shrink
+        // Shrink
         if (Mutations.rand(2) == 0 && player.tallness > 48) {
             changes++;
             this.outputText(
@@ -6547,7 +6545,7 @@ export class Mutations extends BaseContent {
             );
             player.tallness -= 1 + Mutations.rand(5);
         }
-        //Speed boost
+        // Speed boost
         if (Mutations.rand(3) == 0 && player.spe < 50 && changes < changeLimit) {
             this.dynStats("spe", 1 + Mutations.rand(2));
             this.outputText(
@@ -6556,7 +6554,7 @@ export class Mutations extends BaseContent {
             );
             changes++;
         }
-        //-Remove feather-arms (copy this for goblin ale, mino blood, equinum, canine pepps, demon items)
+        // -Remove feather-arms (copy this for goblin ale, mino blood, equinum, canine pepps, demon items)
         if (changes < changeLimit && player.armType == ARM_TYPE_HARPY && Mutations.rand(4) == 0) {
             this.outputText(
                 "\n\nYou scratch at your biceps absentmindedly, but no matter how much you scratch, it isn't getting rid of the itch.  Glancing down in irritation, you discover that your feathery arms are shedding their feathery coating.  The wing-like shape your arms once had is gone in a matter of moments, leaving " +
@@ -6567,7 +6565,7 @@ export class Mutations extends BaseContent {
             player.armType = ARM_TYPE_HUMAN;
             changes++;
         }
-        //-Remove chitin-arms (copy this for goblin ale, mino blood, equinum, canine pepps, demon items)
+        // -Remove chitin-arms (copy this for goblin ale, mino blood, equinum, canine pepps, demon items)
         if (changes < changeLimit && player.armType == ARM_TYPE_SPIDER && Mutations.rand(4) == 0) {
             this.outputText(
                 "\n\nYou scratch at your biceps absentmindedly, but no matter how much you scratch, it isn't getting rid of the itch.  Glancing down in irritation, you discover that your arms' chitinous covering is flaking away.  The glossy black coating is soon gone, leaving " +
@@ -6578,14 +6576,14 @@ export class Mutations extends BaseContent {
             player.armType = ARM_TYPE_HUMAN;
             changes++;
         }
-        //SEXYTIEMS
-        //Multidick killa!
+        // SEXYTIEMS
+        // Multidick killa!
         if (player.cocks.length > 1 && Mutations.rand(3) == 0 && changes < changeLimit) {
             this.outputText("\n\n", false);
             player.killCocks(1);
             changes++;
         }
-        //Boost vaginal capacity without gaping
+        // Boost vaginal capacity without gaping
         if (
             changes < changeLimit &&
             Mutations.rand(3) == 0 &&
@@ -6603,7 +6601,7 @@ export class Mutations extends BaseContent {
             );
             changes++;
         }
-        //Boost fertility
+        // Boost fertility
         if (
             changes < changeLimit &&
             Mutations.rand(4) == 0 &&
@@ -6617,7 +6615,7 @@ export class Mutations extends BaseContent {
                 false
             );
         }
-        //Shrink primary dick to no longer than 12 inches
+        // Shrink primary dick to no longer than 12 inches
         else if (
             player.cocks.length == 1 &&
             Mutations.rand(2) == 0 &&
@@ -6628,7 +6626,7 @@ export class Mutations extends BaseContent {
                 changes++;
                 var temp3: number = 0;
                 this.outputText("\n\n", false);
-                //Shrink said cock
+                // Shrink said cock
                 if (player.cocks[0].cockLength < 6 && player.cocks[0].cockLength >= 2.9) {
                     player.cocks[0].cockLength -= 0.5;
                     temp3 -= 0.5;
@@ -6637,9 +6635,9 @@ export class Mutations extends BaseContent {
                 player.lengthChange(temp3, 1);
             }
         }
-        //GENERAL APPEARANCE STUFF BELOW
-        //REMOVAL STUFF
-        //Removes wings and antennaes!
+        // GENERAL APPEARANCE STUFF BELOW
+        // REMOVAL STUFF
+        // Removes wings and antennaes!
         if (
             (player.wingType == WING_TYPE_BEE_LIKE_SMALL ||
                 player.wingType == WING_TYPE_BEE_LIKE_LARGE ||
@@ -6660,7 +6658,7 @@ export class Mutations extends BaseContent {
             player.wingType = WING_TYPE_NONE;
             changes++;
         }
-        //Removes wings and antennaes!
+        // Removes wings and antennaes!
         if (player.antennae > ANTENNAE_NONE && changes < changeLimit && Mutations.rand(3) == 0) {
             this.outputText(
                 "\n\nYour " +
@@ -6671,7 +6669,7 @@ export class Mutations extends BaseContent {
             changes++;
             player.antennae = ANTENNAE_NONE;
         }
-        //Remove odd eyes
+        // Remove odd eyes
         if (changes < changeLimit && Mutations.rand(5) == 0 && player.eyeType > EYES_HUMAN) {
             if (player.eyeType == EYES_BLACK_EYES_SAND_TRAP) {
                 this.outputText(
@@ -6691,7 +6689,7 @@ export class Mutations extends BaseContent {
             player.eyeType = EYES_HUMAN;
             changes++;
         }
-        //-Remove extra breast rows
+        // -Remove extra breast rows
         if (changes < changeLimit && player.bRows() > 1 && Mutations.rand(3) == 0) {
             changes++;
             this.outputText(
@@ -6715,7 +6713,7 @@ export class Mutations extends BaseContent {
             this.dynStats("sen", -5);
             player.removeBreastRow(player.breastRows.length - 1, 1);
         }
-        //Skin/fur
+        // Skin/fur
         if (
             player.skinType != SKIN_TYPE_PLAIN &&
             changes < changeLimit &&
@@ -6744,7 +6742,7 @@ export class Mutations extends BaseContent {
             player.skinType = SKIN_TYPE_PLAIN;
             changes++;
         }
-        //skinTone
+        // skinTone
         if (
             player.skinTone != "green" &&
             player.skinTone != "grayish-blue" &&
@@ -6767,7 +6765,7 @@ export class Mutations extends BaseContent {
                 false
             );
         }
-        //Face!
+        // Face!
         if (
             player.faceType != FACE_HUMAN &&
             changes < changeLimit &&
@@ -6781,7 +6779,7 @@ export class Mutations extends BaseContent {
                 false
             );
         }
-        //Ears!
+        // Ears!
         if (player.earType != EARS_ELFIN && changes < changeLimit && Mutations.rand(3) == 0) {
             this.outputText(
                 "\n\nA weird tingling runs through your scalp as your " +
@@ -6800,7 +6798,7 @@ export class Mutations extends BaseContent {
             player.gills = false;
             changes++;
         }
-        //Nipples Turn Back:
+        // Nipples Turn Back:
         if (
             player.findStatusAffect(StatusAffects.BlackNipples) >= 0 &&
             changes < changeLimit &&
@@ -6814,7 +6812,7 @@ export class Mutations extends BaseContent {
             changes++;
             player.removeStatusAffect(StatusAffects.BlackNipples);
         }
-        //Debugcunt
+        // Debugcunt
         if (
             changes < changeLimit &&
             Mutations.rand(3) == 0 &&
@@ -6854,8 +6852,8 @@ export class Mutations extends BaseContent {
                 " slowly.",
             true
         );
-        //Stat changes
-        //libido up to 80
+        // Stat changes
+        // libido up to 80
         if (player.lib < 80) {
             this.dynStats("lib", 0.5 + (90 - player.lib) / 10, "lus", player.lib / 2);
             this.outputText(
@@ -6863,7 +6861,7 @@ export class Mutations extends BaseContent {
                 false
             );
         }
-        //sensitivity moves towards 50
+        // sensitivity moves towards 50
         if (player.sens < 50) {
             this.outputText(
                 "\n\nThe slippery slime soaks into your " +
@@ -6888,8 +6886,8 @@ export class Mutations extends BaseContent {
          if(player.hasVagina()) {
          if(player.vaginalCapacity() >= 9000) goopiness++;
          }*/
-        //Cosmetic changes based on 'goopyness'
-        //Remove wings
+        // Cosmetic changes based on 'goopyness'
+        // Remove wings
         if (player.wingType > WING_TYPE_NONE) {
             if (player.wingType == WING_TYPE_SHARK_FIN)
                 this.outputText(
@@ -6904,10 +6902,10 @@ export class Mutations extends BaseContent {
             player.wingType = WING_TYPE_NONE;
             return;
         }
-        //Goopy hair
+        // Goopy hair
         if (player.hairType != 3) {
             player.hairType = 3;
-            //if bald
+            // if bald
             if (player.hairLength <= 0) {
                 this.outputText(
                     "\n\nYour head buzzes pleasantly, feeling suddenly hot and wet.  You instinctively reach up to feel the source of your wetness, and discover you've grown some kind of gooey hair.  From time to time it drips, running down your back to the crack of your " +
@@ -6917,7 +6915,7 @@ export class Mutations extends BaseContent {
                 );
                 player.hairLength = 5;
             } else {
-                //if hair isnt rubbery or latexy
+                // if hair isnt rubbery or latexy
                 if (
                     player.hairColor.indexOf("rubbery") == -1 &&
                     player.hairColor.indexOf("latex-textured") == -1
@@ -6929,7 +6927,7 @@ export class Mutations extends BaseContent {
                         false
                     );
                 }
-                //Latexy stuff
+                // Latexy stuff
                 else {
                     this.outputText(
                         "\n\nYour oddly inorganic hair shifts, becoming partly molten as rivulets of liquid material roll down your back.  How strange.",
@@ -6956,7 +6954,7 @@ export class Mutations extends BaseContent {
             this.dynStats("lus", 10);
             return;
         }
-        //1.Goopy skin
+        // 1.Goopy skin
         if (player.hairType == 3 && (player.skinDesc != "skin" || player.skinAdj != "slimy")) {
             if (player.skinType == SKIN_TYPE_PLAIN)
                 this.outputText(
@@ -7010,8 +7008,8 @@ export class Mutations extends BaseContent {
             return;
         }
         ////1a.Make alterations to dick/vaginal/nippular descriptors to match
-        //DONE EXCEPT FOR TITS & MULTIDICKS (UNFINISHED KINDA)
-        //2.Goo legs
+        // DONE EXCEPT FOR TITS & MULTIDICKS (UNFINISHED KINDA)
+        // 2.Goo legs
         if (
             player.skinAdj == "slimy" &&
             player.skinDesc == "skin" &&
@@ -7034,7 +7032,7 @@ export class Mutations extends BaseContent {
             player.lowerBody = LOWER_BODY_TYPE_GOO;
             return;
         }
-        //3a. Grow vagina if none
+        // 3a. Grow vagina if none
         if (!player.hasVagina()) {
             this.outputText(
                 "\n\nA wet warmth spreads through your slimey groin as a narrow gash appears on the surface of your groin.  <b>You have grown a vagina.</b>",
@@ -7047,7 +7045,7 @@ export class Mutations extends BaseContent {
             player.genderCheck();
             return;
         }
-        //3b.Infinite Vagina
+        // 3b.Infinite Vagina
         if (player.vaginalCapacity() < 9000) {
             if (player.findStatusAffect(StatusAffects.BonusVCapacity) < 0)
                 player.createStatusAffect(StatusAffects.BonusVCapacity, 9000, 0, 0, 0);
@@ -7067,7 +7065,7 @@ export class Mutations extends BaseContent {
             player.tallness += 2;
             this.dynStats("str", 1, "tou", 1);
         }
-        //Big slime girl
+        // Big slime girl
         else {
             if (player.findStatusAffect(StatusAffects.SlimeCraving) < 0) {
                 this.outputText(
@@ -7104,8 +7102,8 @@ export class Mutations extends BaseContent {
                 "You have no idea why, but you decide to eat the pointed, glowing tooth. To your surprise, it's actually quite brittle, crumbling into a fishy-tasting dust. Maybe it's just a tablet made to look like a shark's tooth.",
                 true
             );
-        //STATS
-        //Increase strength 1-2 points (Up to 50) (60 for tiger)
+        // STATS
+        // Increase strength 1-2 points (Up to 50) (60 for tiger)
         if (((player.str < 60 && type == 1) || player.str < 50) && Mutations.rand(3) == 0) {
             this.dynStats("str", 1 + Mutations.rand(2));
             this.outputText(
@@ -7114,7 +7112,7 @@ export class Mutations extends BaseContent {
             );
             changes++;
         }
-        //Increase Speed 1-3 points (Up to 75) (100 for tigers)
+        // Increase Speed 1-3 points (Up to 75) (100 for tigers)
         if (((player.spe < 100 && type == 1) || player.spe < 75) && Mutations.rand(3) == 0) {
             this.dynStats("spe", 1 + Mutations.rand(3));
             changes++;
@@ -7123,7 +7121,7 @@ export class Mutations extends BaseContent {
                 false
             );
         }
-        //Reduce sensitivity 1-3 Points (Down to 25 points)
+        // Reduce sensitivity 1-3 Points (Down to 25 points)
         if (player.sens > 25 && Mutations.rand(1.5) == 0 && changes < changeLimit) {
             this.dynStats("sen", -1 - Mutations.rand(3));
             changes++;
@@ -7132,7 +7130,7 @@ export class Mutations extends BaseContent {
                 false
             );
         }
-        //Increase Libido 2-4 points (Up to 75 points) (100 for tigers)
+        // Increase Libido 2-4 points (Up to 75 points) (100 for tigers)
         if (
             ((player.lib < 100 && type == 1) || player.lib < 75) &&
             Mutations.rand(3) == 0 &&
@@ -7145,7 +7143,7 @@ export class Mutations extends BaseContent {
                 false
             );
         }
-        //Decrease intellect 1-3 points (Down to 40 points)
+        // Decrease intellect 1-3 points (Down to 40 points)
         if (player.inte > 40 && Mutations.rand(3) == 0 && changes < changeLimit) {
             this.dynStats("int", -(1 + Mutations.rand(3)));
             changes++;
@@ -7154,15 +7152,15 @@ export class Mutations extends BaseContent {
                 false
             );
         }
-        //Smexual stuff!
-        //-TIGGERSHARK ONLY: Grow a cunt (guaranteed if no gender)
+        // Smexual stuff!
+        // -TIGGERSHARK ONLY: Grow a cunt (guaranteed if no gender)
         if (
             type == 1 &&
             (player.gender == 0 ||
                 (!player.hasVagina() && changes < changeLimit && Mutations.rand(3) == 0))
         ) {
             changes++;
-            //(balls)
+            // (balls)
             if (player.balls > 0)
                 this.outputText(
                     "\n\nAn itch starts behind your " +
@@ -7172,7 +7170,7 @@ export class Mutations extends BaseContent {
                         ", and curious about the sensation, <b>you lift up your balls to reveal your new vagina.</b>",
                     false
                 );
-            //(dick)
+            // (dick)
             else if (player.hasCock())
                 this.outputText(
                     "\n\nAn itch starts on your groin, just below your " +
@@ -7180,7 +7178,7 @@ export class Mutations extends BaseContent {
                         ". You pull the manhood aside to give you a better view, and you're able to watch as <b>your skin splits to give you a new vagina, complete with a tiny clit.</b>",
                     false
                 );
-            //(neither)
+            // (neither)
             else
                 this.outputText(
                     "\n\nAn itch starts on your groin and fades before you can take action. Curious about the intermittent sensation, <b>you peek under your " +
@@ -7193,15 +7191,15 @@ export class Mutations extends BaseContent {
             this.dynStats("sen", 10);
             player.genderCheck();
         }
-        //WANG GROWTH - TIGGERSHARK ONLY
+        // WANG GROWTH - TIGGERSHARK ONLY
         if (type == 1 && !player.hasCock() && changes < changeLimit && Mutations.rand(3) == 0) {
-            //Genderless:
+            // Genderless:
             if (!player.hasVagina())
                 this.outputText(
                     "\n\nYou feel a sudden stabbing pain in your featureless crotch and bend over, moaning in agony. Your hands clasp protectively over the surface - which is swelling in an alarming fashion under your fingers! Stripping off your clothes, you are presented with the shocking site of once-smooth flesh swelling and flowing like self-animate clay, resculpting itself into the form of male genitalia! When the pain dies down, you are the proud owner of a new human-shaped penis",
                     false
                 );
-            //Female:
+            // Female:
             else
                 this.outputText(
                     "\n\nYou feel a sudden stabbing pain just above your " +
@@ -7222,7 +7220,7 @@ export class Mutations extends BaseContent {
             player.genderCheck();
             changes++;
         }
-        //(Requires the player having two testicles)
+        // (Requires the player having two testicles)
         if (
             type == 1 &&
             (player.balls == 0 || player.balls == 2) &&
@@ -7249,8 +7247,8 @@ export class Mutations extends BaseContent {
             this.dynStats("lib", 2, "sen", 3, "lus", 10);
             changes++;
         }
-        //Transformations:
-        //Mouth TF
+        // Transformations:
+        // Mouth TF
         if (
             player.faceType != FACE_SHARK_TEETH &&
             Mutations.rand(3) == 0 &&
@@ -7271,7 +7269,7 @@ export class Mutations extends BaseContent {
             );
             changes++;
         }
-        //Remove odd eyes
+        // Remove odd eyes
         if (changes < changeLimit && Mutations.rand(5) == 0 && player.eyeType > EYES_HUMAN) {
             if (player.eyeType == EYES_BLACK_EYES_SAND_TRAP) {
                 this.outputText(
@@ -7291,7 +7289,7 @@ export class Mutations extends BaseContent {
             player.eyeType = EYES_HUMAN;
             changes++;
         }
-        //Tail TF
+        // Tail TF
         if (player.tailType != TAIL_TYPE_SHARK && Mutations.rand(3) == 0 && changes < changeLimit) {
             changes++;
             if (player.tailType == TAIL_TYPE_NONE)
@@ -7308,7 +7306,7 @@ export class Mutations extends BaseContent {
                 );
             player.tailType = TAIL_TYPE_SHARK;
         }
-        //Hair
+        // Hair
         if (player.hairColor != "silver" && Mutations.rand(4) == 0 && changes < changeLimit) {
             changes++;
             this.outputText(
@@ -7317,7 +7315,7 @@ export class Mutations extends BaseContent {
             );
             player.hairColor = "silver";
         }
-        //Skin
+        // Skin
         if (
             ((player.skinTone != "rough gray" && player.skinTone != "orange and black striped") ||
                 player.skinType != SKIN_TYPE_PLAIN) &&
@@ -7362,7 +7360,7 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //FINZ R WINGS
+        // FINZ R WINGS
         if (
             player.wingType != WING_TYPE_SHARK_FIN &&
             changes < changeLimit &&
@@ -7391,7 +7389,7 @@ export class Mutations extends BaseContent {
         }
     }
 
-    //9)  Transformation Item - Snake Oil (S. Oil)
+    // 9)  Transformation Item - Snake Oil (S. Oil)
     /*Effects:
       Boosts Speed stat
       Ass reduction
@@ -7422,18 +7420,18 @@ export class Mutations extends BaseContent {
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
-        //b) Description while used
+        // b) Description while used
         this.outputText(
             "Pinching your nose, you quickly uncork the vial and bring it to your mouth, determined to see what effects it might have on your body. Pouring in as much as you can take, you painfully swallow before going for another shot, emptying the bottle.",
             false
         );
-        //(if outside combat)
+        // (if outside combat)
         if (!kGAMECLASS.inCombat)
             this.outputText(
                 "  Minutes pass as you start wishing you had water with you, to get rid of the aftertaste.",
                 false
             );
-        //+ speed to 70!
+        // + speed to 70!
         if (player.spe < 70 && Mutations.rand(2) == 0) {
             this.dynStats("spe", 2 - player.spe / 10 / 5);
             this.outputText(
@@ -7444,7 +7442,7 @@ export class Mutations extends BaseContent {
                 this.outputText("  Of course, you're nowhere near as fast as that.", false);
             changes++;
         }
-        //Removes wings
+        // Removes wings
         if (player.wingType > WING_TYPE_NONE && Mutations.rand(3) == 0 && changes < changeLimit) {
             if (player.wingType == WING_TYPE_SHARK_FIN)
                 this.outputText(
@@ -7459,7 +7457,7 @@ export class Mutations extends BaseContent {
             player.wingType = WING_TYPE_NONE;
             changes++;
         }
-        //Removes antennae
+        // Removes antennae
         if (player.antennae > ANTENNAE_NONE && Mutations.rand(3) == 0 && changes < changeLimit) {
             this.outputText(
                 "\n\nThe muscles in your brow clench tightly, and you feel a tremendous pressure on your upper forehead.  When it passes, you touch yourself and discover your antennae have vanished!",
@@ -7468,7 +7466,7 @@ export class Mutations extends BaseContent {
             player.antennae = ANTENNAE_NONE;
             changes++;
         }
-        //9c) II The tongue (sensitivity bonus, stored as a perk?)
+        // 9c) II The tongue (sensitivity bonus, stored as a perk?)
         if (
             changes == 0 &&
             player.tongueType != TONUGE_SNAKE &&
@@ -7489,7 +7487,7 @@ export class Mutations extends BaseContent {
             this.dynStats("sen", 5);
             changes++;
         }
-        //9c) III The fangs
+        // 9c) III The fangs
         if (
             changes == 0 &&
             player.tongueType == TONUGE_SNAKE &&
@@ -7516,8 +7514,8 @@ export class Mutations extends BaseContent {
             player.faceType = FACE_SNAKE_FANGS;
             changes++;
         }
-        //9c) I The tail ( http://tvtropes.org/pmwiki/pmwiki.php/Main/TransformationIsAFreeAction ) (Shouldn't we try to avert this? -Ace)
-        //Should the enemy "kill" you during the transformation, it skips the scene and immediately goes to tthe rape scene. (Now that I'm thinking about it, we should add some sort of appendix where the player realizes how much he's/she's changed. -Ace)
+        // 9c) I The tail ( http://tvtropes.org/pmwiki/pmwiki.php/Main/TransformationIsAFreeAction ) (Shouldn't we try to avert this? -Ace)
+        // Should the enemy "kill" you during the transformation, it skips the scene and immediately goes to tthe rape scene. (Now that I'm thinking about it, we should add some sort of appendix where the player realizes how much he's/she's changed. -Ace)
         if (
             changes == 0 &&
             player.faceType == FACE_SNAKE_FANGS &&
@@ -7529,8 +7527,8 @@ export class Mutations extends BaseContent {
                 "\n\nYou find it increasingly harder to keep standing as your legs start feeling weak.  You swiftly collapse, unable to maintain your own weight.",
                 false
             );
-            //(If used in combat, you lose a turn here. Half-corrupted Jojo and the Naga won't attack you during that period, but other monsters will)
-            //FUCK NO
+            // (If used in combat, you lose a turn here. Half-corrupted Jojo and the Naga won't attack you during that period, but other monsters will)
+            // FUCK NO
             this.outputText(
                 "\n\nTrying to get back up, you realize that the skin on the inner sides of your thighs is merging together like it was being sewn by an invisible needle.",
                 false
@@ -7570,20 +7568,20 @@ export class Mutations extends BaseContent {
             changes++;
         }
 
-        //9e) Penis
+        // 9e) Penis
         /*
          if(player.cockTotal() > 0) {
-         //(If multiple penis, insert "one of your")
+         // (If multiple penis, insert "one of your")
          outputText("\n\nAs the liquid takes effect, ", false);
-         //(if multicock)
+         // (if multicock)
          if(player.cockTotal() > 1) outputText("one of ", false);
          outputText("your " + multiCockDescriptLight() + " starts to throb painfully and swell to its full size.  With a horrifying ripping sensation, your cock splits down the middle, the pain causing you to black out momentarily.", false);
          outputText("When you awaken, you quickly look down to see that where ", false);
-         //(if multicock)
+         // (if multicock)
          if(player.cockTotal() > 1) outputText("one of ", false);
          outputText("your " + multiCockDescriptLight() + " was, you now have two pointed reptilian cocks, still stiff and pulsing.", false);
          }*/
-        //Default change - blah
+        // Default change - blah
         if (changes == 0)
             this.outputText(
                 "\n\nRemakarbly, the snake-oil has no effect.  Should you really be surprised at snake-oil NOT doing anything?",
@@ -7680,12 +7678,12 @@ export class Mutations extends BaseContent {
         if (player.fertility > 15) player.fertility = 15;
         if (player.cumMultiplier > 50) player.cumMultiplier = 50;
         var virgin: boolean = false;
-        //Clear cocks
+        // Clear cocks
         while (player.cocks.length > 0) {
             player.removeCock(0, 1);
             trace("1 cock purged.");
         }
-        //Reset dongs!
+        // Reset dongs!
         if (player.gender == 1 || player.gender == 3) {
             player.createCock();
             player.cocks[0].cockLength = 6;
@@ -7693,33 +7691,33 @@ export class Mutations extends BaseContent {
             player.ballSize = 2;
             if (player.balls > 2) player.balls = 2;
         }
-        //Non duders lose any nuts
+        // Non duders lose any nuts
         else {
             player.balls = 0;
             player.ballSize = 2;
         }
-        //Clear vaginas
+        // Clear vaginas
         while (player.vaginas.length > 0) {
             virgin = player.vaginas[0].virgin;
             player.removeVagina(0, 1);
             trace("1 vagina purged.");
         }
-        //Reset vaginal virginity to correct state
+        // Reset vaginal virginity to correct state
         if (player.gender >= 2) {
             player.createVagina();
             player.vaginas[0].virgin = virgin;
         }
         player.clitLength = 0.25;
-        //Tighten butt!
+        // Tighten butt!
         player.buttRating = 2;
         player.hipRating = 2;
         if (player.ass.analLooseness > 1) player.ass.analLooseness = 1;
         if (player.ass.analWetness > 1) player.ass.analWetness = 1;
-        //Clear breasts
+        // Clear breasts
         player.breastRows = [];
         player.createBreastRow();
         player.nippleLength = 0.25;
-        //Girls and herms get bewbs back
+        // Girls and herms get bewbs back
         if (player.gender > 2) {
             player.breastRows[0].breastRating = 2;
         } else player.breastRows[0].breastRating = 0;
@@ -7736,15 +7734,15 @@ export class Mutations extends BaseContent {
             "You handle the coal rocks experimentally and they crumble to dust in your hands!  You cough as you breathe in the cloud, sputtering and wheezing.  After a minute of terrible coughing, you recover and realize there's no remaining trace of the rocks, not even a sooty stain on your hands!",
             false
         );
-        //Try to go into intense heat
+        // Try to go into intense heat
         if (player.goIntoHeat(true, 2)) {
             // changes++;
         }
-        //Males go into rut
+        // Males go into rut
         else if (player.goIntoRut(true)) {
             // changes++;
         } else {
-            //Boost anal capacity without gaping
+            // Boost anal capacity without gaping
             if (player.statusAffectv1(StatusAffects.BonusACapacity) < 80) {
                 if (player.findStatusAffect(StatusAffects.BonusACapacity) < 0)
                     player.createStatusAffect(StatusAffects.BonusACapacity, 0, 0, 0, 0);
@@ -7774,15 +7772,15 @@ export class Mutations extends BaseContent {
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
-        //Text go!
+        // Text go!
         this.outputText("", true);
         this.outputText(
             "You take a bite of the fruit and gulp it down. It's thick and juicy and has an almost overpowering sweetness. Nevertheless, it is delicious and you certainly could use a meal.  You devour the fruit, stopping only when the hard, nubby pit is left; which you toss aside.",
             false
         );
-        //Speed raises up to 75
+        // Speed raises up to 75
         if (player.spe < 75 && Mutations.rand(3) == 0 && changes < changeLimit) {
-            //low speed
+            // low speed
             if (player.spe <= 30) {
                 this.outputText(
                     "\n\nYou feel... more balanced, sure of step. You're certain that you've become just a little bit faster.",
@@ -7790,7 +7788,7 @@ export class Mutations extends BaseContent {
                 );
                 this.dynStats("spe", 2);
             }
-            //medium speed
+            // medium speed
             else if (player.spe <= 60) {
                 this.outputText(
                     "\n\nYou stumble as you shift position, surprised by how quickly you move. After a moment or two of disorientation, you adjust. You're certain that you can run faster now.",
@@ -7798,7 +7796,7 @@ export class Mutations extends BaseContent {
                 );
                 this.dynStats("spe", 1);
             }
-            //high speed
+            // high speed
             else {
                 this.outputText(
                     "\n\nYou pause mid-step and crouch. Your leg muscles have cramped up like crazy. After a few moments, the pain passes and you feel like you could chase anything down.",
@@ -7808,7 +7806,7 @@ export class Mutations extends BaseContent {
             }
             changes++;
         }
-        //Strength raises to 40
+        // Strength raises to 40
         if (player.str < 40 && Mutations.rand(3) == 0 && changes < changeLimit) {
             if (Mutations.rand(2) == 0)
                 this.outputText(
@@ -7823,8 +7821,8 @@ export class Mutations extends BaseContent {
             this.dynStats("str", 1);
             changes++;
         }
-        //Strength ALWAYS drops if over 60
-        //Does not add to change total
+        // Strength ALWAYS drops if over 60
+        // Does not add to change total
         else if (player.str > 60 && Mutations.rand(2) == 0) {
             this.outputText(
                 "\n\nShivers run from your head to your toes, leaving you feeling weak.  Looking yourself over, your muscles seemed to have lost some bulk.",
@@ -7832,8 +7830,8 @@ export class Mutations extends BaseContent {
             );
             this.dynStats("str", -2);
         }
-        //Toughness drops if over 50
-        //Does not add to change total
+        // Toughness drops if over 50
+        // Does not add to change total
         if (player.tou > 50 && Mutations.rand(2) == 0) {
             this.outputText(
                 "\n\nYour body seems to compress momentarily, becoming leaner and noticeably less tough.",
@@ -7841,9 +7839,9 @@ export class Mutations extends BaseContent {
             );
             this.dynStats("tou", -2);
         }
-        //Intelliloss
+        // Intelliloss
         if (Mutations.rand(4) == 0 && changes < changeLimit) {
-            //low intelligence
+            // low intelligence
             if (player.inte < 15)
                 this.outputText(
                     "\n\nYou feel like something is slipping away from you but can't figure out exactly what's happening.  You scrunch up your " +
@@ -7851,7 +7849,7 @@ export class Mutations extends BaseContent {
                         ", trying to understand the situation.  Before you can reach any kind of conclusion, something glitters in the distance, distracting your feeble mind long enough for you to forget the problem entirely.",
                     false
                 );
-            //medium intelligence
+            // medium intelligence
             else if (player.inte < 50) {
                 this.outputText(
                     "\n\nYour mind feels somewhat sluggish, and you wonder if you should just lie down ",
@@ -7866,7 +7864,7 @@ export class Mutations extends BaseContent {
                 } else this.outputText("in the sun and let your troubles slip away", false);
                 this.outputText(".", false);
             }
-            //High intelligence
+            // High intelligence
             else
                 this.outputText(
                     "\n\nYou start to feel a bit dizzy, but the sensation quickly passes.  Thinking hard on it, you mentally brush away the fuzziness that seems to permeate your brain and determine that this fruit may have actually made you dumber.  It would be best not to eat too much of it.",
@@ -7875,9 +7873,9 @@ export class Mutations extends BaseContent {
             this.dynStats("int", -1);
             changes++;
         }
-        //Libido gain
+        // Libido gain
         if (player.lib < 80 && changes < changeLimit && Mutations.rand(4) == 0) {
-            //Cat dicked folks
+            // Cat dicked folks
             if (player.catCocks() > 0) {
                 this.temp = player.findFirstCockType(CockTypesEnum.CAT);
                 this.outputText(
@@ -7895,7 +7893,7 @@ export class Mutations extends BaseContent {
                         false
                     );
             }
-            //Else –
+            // Else –
             else {
                 this.outputText(
                     "\n\nA rush of tingling warmth spreads through your body as it digests the fruit.  You can feel your blood pumping through your extremities, making them feel sensitive and surprisingly sensual.  It's going to be hard to resist getting ",
@@ -7908,8 +7906,8 @@ export class Mutations extends BaseContent {
             changes++;
         }
 
-        //Sexual changes would go here if I wasn't a tard.
-        //Heat
+        // Sexual changes would go here if I wasn't a tard.
+        // Heat
         if (Mutations.rand(4) == 0 && changes < changeLimit) {
             var intensified: boolean = player.inHeat;
 
@@ -7952,22 +7950,22 @@ export class Mutations extends BaseContent {
             }
         }
 
-        //Shrink the boobalies down to A for men or C for girls.
+        // Shrink the boobalies down to A for men or C for girls.
         if (changes < changeLimit && Mutations.rand(4) == 0 && !this.flags[kFLAGS.HYPER_HAPPY]) {
             temp2 = 0;
             temp3 = 0;
-            //Determine if shrinkage is required
-            //and set temp2 to threshold
+            // Determine if shrinkage is required
+            // and set temp2 to threshold
             if (!player.hasVagina() && player.biggestTitSize() > 2) temp2 = 2;
             else if (player.biggestTitSize() > 4) temp2 = 4;
-            //IT IS!
+            // IT IS!
             if (temp2 > 0) {
-                //temp3 stores how many rows are changed
+                // temp3 stores how many rows are changed
                 temp3 = 0;
                 for (var k: number = 0; k < player.breastRows.length; k++) {
-                    //If this row is over threshhold
+                    // If this row is over threshhold
                     if (player.breastRows[k].breastRating > temp2) {
-                        //Big change
+                        // Big change
                         if (player.breastRows[k].breastRating > 10) {
                             player.breastRows[k].breastRating -= 2 + Mutations.rand(3);
                             if (temp3 == 0)
@@ -7987,7 +7985,7 @@ export class Mutations extends BaseContent {
                                     false
                                 );
                         }
-                        //Small change
+                        // Small change
                         else {
                             player.breastRows[k].breastRating -= 1;
                             if (temp3 == 0)
@@ -8007,22 +8005,22 @@ export class Mutations extends BaseContent {
                                     false
                                 );
                         }
-                        //Increment changed rows
+                        // Increment changed rows
                         temp3++;
                     }
                 }
             }
-            //Count that tits were shrunk
+            // Count that tits were shrunk
             if (temp3 > 0) changes++;
         }
-        //Cat dangly-doo.
+        // Cat dangly-doo.
         if (
             player.cockTotal() > 0 &&
             player.catCocks() < player.cockTotal() &&
             changes < changeLimit &&
             Mutations.rand(4) == 0
         ) {
-            //loop through and find a non-cat wang.
+            // loop through and find a non-cat wang.
             for (
                 var i: number = 0;
                 i < player.cockTotal() && player.cocks[i].cockType == CockTypesEnum.CAT;
@@ -8048,14 +8046,14 @@ export class Mutations extends BaseContent {
             player.cocks[i].knotMultiplier = 1;
             changes++;
         }
-        //Cat penorz shrink
+        // Cat penorz shrink
         if (
             player.catCocks() > 0 &&
             Mutations.rand(3) == 0 &&
             changes < changeLimit &&
             !this.flags[kFLAGS.HYPER_HAPPY]
         ) {
-            //loop through and find a cat wang.
+            // loop through and find a cat wang.
             this.temp = 0;
             for (var j: number = 0; j < player.cockTotal(); j++) {
                 if (
@@ -8067,7 +8065,7 @@ export class Mutations extends BaseContent {
                 }
             }
             if (this.temp == 1) {
-                //lose 33% size until under 10, then lose 2" at a time
+                // lose 33% size until under 10, then lose 2" at a time
                 if (player.cocks[j].cockLength > 16) {
                     this.outputText(
                         "\n\nYour " +
@@ -8090,18 +8088,18 @@ export class Mutations extends BaseContent {
                     player.cocks[j].cockThickness > 1.25
                 )
                     player.cocks[j].cockThickness = player.cocks[j].cockLength / 6;
-                //Check for any more!
+                // Check for any more!
                 temp2 = 0;
                 j++;
                 for (j; j < player.cocks.length; j++) {
-                    //Found another cat wang!
+                    // Found another cat wang!
                     if (player.cocks[j].cockType == CockTypesEnum.CAT) {
-                        //Long enough - change it
+                        // Long enough - change it
                         if (player.cocks[j].cockLength > 6) {
                             if (player.cocks[j].cockLength > 16) player.cocks[j].cockLength *= 0.66;
                             else if (player.cocks[j].cockLength > 6)
                                 player.cocks[j].cockLength -= 2;
-                            //Thickness adjustments
+                            // Thickness adjustments
                             if (
                                 player.cocks[j].cockLength / 5 < player.cocks[j].cockThickness &&
                                 player.cocks[j].cockThickness > 1.25
@@ -8111,13 +8109,13 @@ export class Mutations extends BaseContent {
                         }
                     }
                 }
-                //(big sensitivity boost)
+                // (big sensitivity boost)
                 this.outputText(
                     "  Although the package is smaller, it feels even more sensitive – as if it retained all sensation of its larger size in its smaller form.",
                     false
                 );
                 this.dynStats("sen", 5);
-                //Make note of other dicks changing
+                // Make note of other dicks changing
                 if (temp2 == 1)
                     this.outputText(
                         "  Upon further inspection, all your " +
@@ -8128,10 +8126,10 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //Body type changes.  Teh rarest of the rare.
-        //DA EARZ
+        // Body type changes.  Teh rarest of the rare.
+        // DA EARZ
         if (player.earType != EARS_CAT && Mutations.rand(5) == 0 && changes < changeLimit) {
-            //human to cat:
+            // human to cat:
             if (player.earType == EARS_HUMAN) {
                 if (Mutations.rand(2) == 0)
                     this.outputText(
@@ -8144,7 +8142,7 @@ export class Mutations extends BaseContent {
                         false
                     );
             }
-            //non human to cat:
+            // non human to cat:
             else {
                 if (Mutations.rand(2) == 0)
                     this.outputText(
@@ -8160,7 +8158,7 @@ export class Mutations extends BaseContent {
             player.earType = EARS_CAT;
             changes++;
         }
-        //DA TAIL (IF ALREADY HAZ URZ)
+        // DA TAIL (IF ALREADY HAZ URZ)
         if (
             player.tailType != TAIL_TYPE_CAT &&
             player.earType == EARS_CAT &&
@@ -8196,7 +8194,7 @@ export class Mutations extends BaseContent {
             player.tailType = TAIL_TYPE_CAT;
             changes++;
         }
-        //Da paws (if already haz ears & tail)
+        // Da paws (if already haz ears & tail)
         if (
             player.tailType == TAIL_TYPE_CAT &&
             player.earType == EARS_CAT &&
@@ -8204,7 +8202,7 @@ export class Mutations extends BaseContent {
             changes < changeLimit &&
             player.lowerBody != LOWER_BODY_TYPE_CAT
         ) {
-            //hoof to cat:
+            // hoof to cat:
             if (
                 player.lowerBody == LOWER_BODY_TYPE_HOOFED ||
                 player.lowerBody == LOWER_BODY_TYPE_CENTAUR
@@ -8219,14 +8217,14 @@ export class Mutations extends BaseContent {
                         false
                     );
             }
-            //Goo to cat
+            // Goo to cat
             else if (player.lowerBody == LOWER_BODY_TYPE_GOO) {
                 this.outputText(
                     "\n\nYour lower body rushes inward, molding into two leg-like shapes that gradually stiffen up.  In moments they solidify into digitigrade legs, complete with soft, padded cat-paws.  <b>You now have cat-paws!</b>",
                     false
                 );
             }
-            //non hoof to cat:
+            // non hoof to cat:
             else
                 this.outputText(
                     "\n\nYou scream in agony as you feel the bones in your " +
@@ -8237,7 +8235,7 @@ export class Mutations extends BaseContent {
             player.lowerBody = LOWER_BODY_TYPE_CAT;
             changes++;
         }
-        //TURN INTO A FURRAH!  OH SHIT
+        // TURN INTO A FURRAH!  OH SHIT
         if (
             player.tailType == TAIL_TYPE_CAT &&
             player.earType == EARS_CAT &&
@@ -8258,7 +8256,7 @@ export class Mutations extends BaseContent {
             player.skinDesc = "fur";
             changes++;
         }
-        //CAT-FACE!  FULL ON FURRY!  RAGE AWAY NEKOZ
+        // CAT-FACE!  FULL ON FURRY!  RAGE AWAY NEKOZ
         if (
             player.tailType == TAIL_TYPE_CAT &&
             player.earType == EARS_CAT &&
@@ -8268,7 +8266,7 @@ export class Mutations extends BaseContent {
             player.skinType == SKIN_TYPE_FUR &&
             player.faceType != FACE_CAT
         ) {
-            //Gain cat face, replace old face
+            // Gain cat face, replace old face
             this.temp = Mutations.rand(3);
             if (this.temp == 0)
                 this.outputText(
@@ -8296,7 +8294,7 @@ export class Mutations extends BaseContent {
             player.gills = false;
             changes++;
         }
-        //FAILSAFE CHANGE
+        // FAILSAFE CHANGE
         if (changes == 0) {
             this.outputText(
                 "\n\nInhuman vitality spreads through your body, invigorating you!\n",
@@ -8316,24 +8314,24 @@ export class Mutations extends BaseContent {
 
     public reptilum(player: Player): void {
         player.slimeFeed();
-        //init variables
+        // init variables
         var changes: number = 0;
         var changeLimit: number = 1;
         var temp2: number = 0;
-        //Randomly choose affects limit
+        // Randomly choose affects limit
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(4) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
-        //clear screen
+        // clear screen
         this.outputText("", true);
         this.outputText(
             "You uncork the vial of fluid and drink it down.  The taste is sour, like a dry wine with an aftertaste not entirely dissimilar to alcohol.  Instead of the warmth you'd expect, it leaves your throat feeling cold and a little numb.",
             false
         );
 
-        //Statistical changes:
-        //-Reduces speed down to 50.
+        // Statistical changes:
+        // -Reduces speed down to 50.
         if (player.spe > 50 && changes < changeLimit && Mutations.rand(4) == 0) {
             this.outputText(
                 "\n\nYou start to feel sluggish and cold.  Lying down to bask in the sun might make you feel better.",
@@ -8342,7 +8340,7 @@ export class Mutations extends BaseContent {
             this.dynStats("spe", -1);
             changes++;
         }
-        //-Reduces sensitivity.
+        // -Reduces sensitivity.
         if (player.sens > 20 && changes < changeLimit && Mutations.rand(3) == 0) {
             this.outputText(
                 "\n\nThe sensation of prickly pins and needles moves over your body, leaving your senses a little dulled in its wake.",
@@ -8351,13 +8349,13 @@ export class Mutations extends BaseContent {
             this.dynStats("sen", -1);
             changes++;
         }
-        //Raises libido greatly to 50, then somewhat to 75, then slowly to 100.
+        // Raises libido greatly to 50, then somewhat to 75, then slowly to 100.
         if (player.lib < 100 && changes < changeLimit && Mutations.rand(3) == 0) {
             this.outputText(
                 "\n\nA knot of fire in your gut doubles you over but passes after a few moments.  As you straighten you can feel the heat seeping into you, ",
                 false
             );
-            //(DICK)
+            // (DICK)
             if (player.cocks.length > 0 && (player.gender != 3 || Mutations.rand(2) == 0)) {
                 this.outputText("filling ", false);
                 if (player.cocks.length > 1) this.outputText("each of ", false);
@@ -8368,7 +8366,7 @@ export class Mutations extends BaseContent {
                     false
                 );
             }
-            //(COOCH)
+            // (COOCH)
             else if (player.hasVagina())
                 this.outputText(
                     "puddling in your " +
@@ -8376,7 +8374,7 @@ export class Mutations extends BaseContent {
                         ".  An instinctive desire to mate and lay eggs spreads through you, increasing your lust and boosting your sex-drive.",
                     false
                 );
-            //(TARDS)
+            // (TARDS)
             else
                 this.outputText(
                     "puddling in your featureless crotch for a split-second before it slides into your " +
@@ -8384,18 +8382,18 @@ export class Mutations extends BaseContent {
                         ".  You want to be fucked, filled, and perhaps even gain a proper gender again.  Through the lust you realize your sex-drive has been permanently increased.",
                     false
                 );
-            //+3 lib if less than 50
+            // +3 lib if less than 50
             if (player.lib < 50) this.dynStats("lib", 1);
-            //+2 lib if less than 75
+            // +2 lib if less than 75
             if (player.lib < 75) this.dynStats("lib", 1);
-            //+1 if above 75.
+            // +1 if above 75.
             this.dynStats("lib", 1);
             changes++;
         }
-        //-Raises toughness to 70
-        //(+3 to 40, +2 to 55, +1 to 70)
+        // -Raises toughness to 70
+        // (+3 to 40, +2 to 55, +1 to 70)
         if (player.tou < 70 && changes < changeLimit && Mutations.rand(3) == 0) {
-            //(+3)
+            // (+3)
             if (player.tou < 40) {
                 this.outputText(
                     "\n\nYour body and skin both thicken noticeably.  You pinch your " +
@@ -8405,7 +8403,7 @@ export class Mutations extends BaseContent {
                 );
                 this.dynStats("tou", 3);
             }
-            //(+2)
+            // (+2)
             else if (player.tou < 55) {
                 this.outputText(
                     "\n\nYou grin as you feel your form getting a little more solid.  It seems like your whole body is toughening up quite nicely, and by the time the sensation goes away, you feel ready to take a hit.",
@@ -8413,7 +8411,7 @@ export class Mutations extends BaseContent {
                 );
                 this.dynStats("tou", 2);
             }
-            //(+1)
+            // (+1)
             else {
                 this.outputText(
                     "\n\nYou snarl happily as you feel yourself getting even tougher.  It's a barely discernible difference, but you can feel your " +
@@ -8426,17 +8424,17 @@ export class Mutations extends BaseContent {
             changes++;
         }
 
-        //Sexual Changes:
-        //-Lizard dick - first one
+        // Sexual Changes:
+        // -Lizard dick - first one
         if (
             player.lizardCocks() == 0 &&
             player.cockTotal() > 0 &&
             changes < changeLimit &&
             Mutations.rand(4) == 0
         ) {
-            //Find the first non-lizzy dick
+            // Find the first non-lizzy dick
             for (temp2 = 0; temp2 < player.cocks.length; temp2++) {
-                //Stop loopahn when dick be found
+                // Stop loopahn when dick be found
                 if (player.cocks[temp2].cockType != CockTypesEnum.LIZARD) break;
             }
             this.outputText(
@@ -8472,7 +8470,7 @@ export class Mutations extends BaseContent {
                     );
             }
             this.outputText("  <b>You now have a bulbous, lizard-like cock.</b>", false);
-            //Actually xform it nau
+            // Actually xform it nau
             if (player.hasSheath()) {
                 player.cocks[temp2].cockType = CockTypesEnum.LIZARD;
                 if (!player.hasSheath())
@@ -8486,8 +8484,8 @@ export class Mutations extends BaseContent {
             changes++;
             this.dynStats("lib", 3, "lus", 10);
         }
-        //(CHANGE OTHER DICK)
-        //Requires 1 lizard cock, multiple cocks
+        // (CHANGE OTHER DICK)
+        // Requires 1 lizard cock, multiple cocks
         if (
             player.cockTotal() > 1 &&
             player.lizardCocks() > 0 &&
@@ -8502,7 +8500,7 @@ export class Mutations extends BaseContent {
                 false
             );
             for (temp2 = 0; temp2 < player.cocks.length; temp2++) {
-                //Stop loopahn when dick be found
+                // Stop loopahn when dick be found
                 if (player.cocks[temp2].cockType != CockTypesEnum.LIZARD) break;
             }
             if (player.cockTotal() == 2) this.outputText("your other dick", false);
@@ -8519,7 +8517,7 @@ export class Mutations extends BaseContent {
                 " from the pleasure of the change.  In moments <b>you have a bulbous, lizard-like cock.</b>",
                 false
             );
-            //(REMOVE SHEATH IF NECESSARY)
+            // (REMOVE SHEATH IF NECESSARY)
             if (player.hasSheath()) {
                 player.cocks[temp2].cockType = CockTypesEnum.LIZARD;
                 if (!player.hasSheath())
@@ -8533,7 +8531,7 @@ export class Mutations extends BaseContent {
             changes++;
             this.dynStats("lib", 3, "lus", 10);
         }
-        //-Grows second lizard dick if only 1 dick
+        // -Grows second lizard dick if only 1 dick
         if (
             player.lizardCocks() == 1 &&
             player.cocks.length == 1 &&
@@ -8564,8 +8562,8 @@ export class Mutations extends BaseContent {
             changes++;
             this.dynStats("lib", 3, "lus", 10);
         }
-        //--Worms leave if 100% lizard dicks?
-        //Require mammals?
+        // --Worms leave if 100% lizard dicks?
+        // Require mammals?
         if (
             player.lizardCocks() == player.cockTotal() &&
             changes < changeLimit &&
@@ -8589,43 +8587,43 @@ export class Mutations extends BaseContent {
             player.removeStatusAffect(StatusAffects.Infested);
             changes++;
         }
-        //-Breasts vanish to 0 rating if male
+        // -Breasts vanish to 0 rating if male
         if (
             player.biggestTitSize() >= 1 &&
             player.gender == 1 &&
             changes < changeLimit &&
             Mutations.rand(3) == 0
         ) {
-            //(HUEG)
+            // (HUEG)
             if (player.biggestTitSize() > 8) {
                 this.outputText(
                     "\n\nThe flesh on your chest tightens up, losing nearly half its mass in the span of a few seconds.  With your center of balance shifted so suddenly, you stagger about trying not to fall on your ass.  You catch yourself and marvel at the massive change in breast size.",
                     false
                 );
-                //Half tit size
+                // Half tit size
             }
-            //(NOT HUEG < 4)
+            // (NOT HUEG < 4)
             else
                 this.outputText(
                     "\n\nIn an instant, your chest compacts in on itself, consuming every ounce of breast-flesh.  You're left with a  smooth, masculine torso, though your nipples remain.",
                     false
                 );
-            //(BOTH – no new PG)
+            // (BOTH – no new PG)
             this.outputText(
                 "  With the change in weight and gravity, you find it's gotten much easier to move about.",
                 false
             );
-            //Loop through behind the scenes and adjust all tits.
+            // Loop through behind the scenes and adjust all tits.
             for (temp2 = 0; temp2 < player.breastRows.length; temp2++) {
                 if (player.breastRows[temp2].breastRating > 8)
                     player.breastRows[temp2].breastRating /= 2;
                 else player.breastRows[temp2].breastRating = 0;
             }
-            //(+2 speed)
+            // (+2 speed)
             this.dynStats("lib", 2);
             changes++;
         }
-        //-Lactation stoppage.
+        // -Lactation stoppage.
         if (player.biggestLactation() >= 1 && changes < changeLimit && Mutations.rand(4) == 0) {
             if (player.totalNipples() == 2) this.outputText("\n\nBoth of your", false);
             else this.outputText("\n\nAll of your many", false);
@@ -8647,12 +8645,12 @@ export class Mutations extends BaseContent {
                 player.removeStatusAffect(StatusAffects.Feeder);
             }
             changes++;
-            //Loop through and reset lactation
+            // Loop through and reset lactation
             for (temp2 = 0; temp2 < player.breastRows.length; temp2++) {
                 player.breastRows[temp2].lactationMultiplier = 0;
             }
         }
-        //-Nipples reduction to 1 per tit.
+        // -Nipples reduction to 1 per tit.
         if (
             player.averageNipplesPerBreast() > 1 &&
             changes < changeLimit &&
@@ -8669,12 +8667,12 @@ export class Mutations extends BaseContent {
             if (player.biggestTitSize() < 1) this.outputText("'breast'.", false);
             else this.outputText("breast.", false);
             changes++;
-            //Loop through and reset nipples
+            // Loop through and reset nipples
             for (temp2 = 0; temp2 < player.breastRows.length; temp2++) {
                 player.breastRows[temp2].nipplesPerBreast = 1;
             }
         }
-        //-VAGs
+        // -VAGs
         if (
             player.hasVagina() &&
             player.findPerk(PerkLib.Oviposition) < 0 &&
@@ -8691,21 +8689,21 @@ export class Mutations extends BaseContent {
             changes++;
         }
 
-        //Physical changes:
-        //-Existing horns become draconic, max of 4, max length of 1'
+        // Physical changes:
+        // -Existing horns become draconic, max of 4, max length of 1'
         if (
             player.hornType != HORNS_DRACONIC_X4_12_INCH_LONG &&
             changes < changeLimit &&
             Mutations.rand(5) == 0
         ) {
-            //No dragon horns yet.
+            // No dragon horns yet.
             if (
                 player.hornType != HORNS_DRACONIC_X2 &&
                 player.hornType != HORNS_DRACONIC_X4_12_INCH_LONG
             ) {
-                //Already have horns
+                // Already have horns
                 if (player.horns > 0) {
-                    //High quantity demon horns
+                    // High quantity demon horns
                     if (player.hornType == HORNS_DEMON && player.horns > 4) {
                         this.outputText(
                             "\n\nYour horns condense, twisting around each other and merging into larger, pointed protrusions.  By the time they finish you have four draconic-looking horns, each about twelve inches long.",
@@ -8729,9 +8727,9 @@ export class Mutations extends BaseContent {
                     }
                     changes++;
                 }
-                //No horns
+                // No horns
                 else {
-                    //-If no horns, grow a pair
+                    // -If no horns, grow a pair
                     this.outputText(
                         "\n\nWith painful pressure, the skin on the sides of your forehead splits around two tiny nub-like horns.  They're angled back in such a way as to resemble those you saw on the dragons in your village's legends.  A few inches of horn sprout from your head before stopping.  <b>You have about four inches of dragon-like horn.</b>",
                         false
@@ -8742,7 +8740,7 @@ export class Mutations extends BaseContent {
                     changes++;
                 }
             }
-            //ALREADY DRAGON
+            // ALREADY DRAGON
             else {
                 if (player.hornType == HORNS_DRACONIC_X2) {
                     if (player.horns < 12) {
@@ -8766,9 +8764,9 @@ export class Mutations extends BaseContent {
                             );
                         changes++;
                     }
-                    //maxxed out, new row
+                    // maxxed out, new row
                     else {
-                        //--Next horn growth adds second row and brings length up to 12\"
+                        // --Next horn growth adds second row and brings length up to 12\"
                         this.outputText(
                             "\n\nA second row of horns erupts under the first, and though they are narrower, they grow nearly as long as your first row before they stop.  A sense of finality settles over you.  <b>You have as many horns as a lizan can grow.</b>",
                             false
@@ -8779,7 +8777,7 @@ export class Mutations extends BaseContent {
                 }
             }
         }
-        //-Hair stops growing!
+        // -Hair stops growing!
         if (
             this.flags[kFLAGS.HAIR_GROWTH_STOPPED_BECAUSE_LIZARD] == 0 &&
             changes < changeLimit &&
@@ -8795,26 +8793,26 @@ export class Mutations extends BaseContent {
             changes++;
             this.flags[kFLAGS.HAIR_GROWTH_STOPPED_BECAUSE_LIZARD]++;
         }
-        //Big physical changes:
-        //-Legs – Draconic, clawed feet
+        // Big physical changes:
+        // -Legs – Draconic, clawed feet
         if (
             player.lowerBody != LOWER_BODY_TYPE_LIZARD &&
             changes < changeLimit &&
             Mutations.rand(5) == 0
         ) {
-            //Hooves -
+            // Hooves -
             if (player.lowerBody == LOWER_BODY_TYPE_HOOFED)
                 this.outputText(
                     "\n\nYou scream in agony as you feel your hooves crack and break apart, beginning to rearrange.  Your legs change to a digitigrade shape while your feet grow claws and shift to have three toes on the front and a smaller toe on the heel.",
                     false
                 );
-            //TAURS -
+            // TAURS -
             else if (player.lowerBody == LOWER_BODY_TYPE_CENTAUR)
                 this.outputText(
                     "\n\nYour lower body is wracked by pain!  Once it passes, you discover that you're standing on digitigrade legs with lizard-like claws.",
                     false
                 );
-            //feet types -
+            // feet types -
             else if (
                 player.lowerBody == LOWER_BODY_TYPE_HUMAN ||
                 player.lowerBody == LOWER_BODY_TYPE_DOG ||
@@ -8828,7 +8826,7 @@ export class Mutations extends BaseContent {
                     "\n\nYou scream in agony as you feel the bones in your legs break and begin to rearrange. They change to a digitigrade shape while your feet grow claws and shift to have three toes on the front and a smaller toe on the heel.",
                     false
                 );
-            //Else –
+            // Else –
             else
                 this.outputText(
                     "\n\nPain rips through your " +
@@ -8840,14 +8838,14 @@ export class Mutations extends BaseContent {
             player.lowerBody = LOWER_BODY_TYPE_LIZARD;
             changes++;
         }
-        //-Tail – sinuous lizard tail
+        // -Tail – sinuous lizard tail
         if (
             player.tailType != TAIL_TYPE_LIZARD &&
             player.lowerBody == LOWER_BODY_TYPE_LIZARD &&
             changes < changeLimit &&
             Mutations.rand(5) == 0
         ) {
-            //No tail
+            // No tail
             if (player.tailType == TAIL_TYPE_NONE)
                 this.outputText(
                     "\n\nYou drop onto the ground as your spine twists and grows, forcing the flesh above your " +
@@ -8855,7 +8853,7 @@ export class Mutations extends BaseContent {
                         " to bulge out.  New bones form, one after another, building a tapered, prehensile tail onto the back of your body.  <b>You now have a reptilian tail!</b>",
                     false
                 );
-            //Yes tail
+            // Yes tail
             else
                 this.outputText(
                     "\n\nYou drop to the ground as your tail twists and grows, changing its shape in order to gradually taper to a point.  It flicks back and forth, prehensile and totally under your control.  <b>You now have a reptilian tail.</b>",
@@ -8864,7 +8862,7 @@ export class Mutations extends BaseContent {
             player.tailType = TAIL_TYPE_LIZARD;
             changes++;
         }
-        //Remove odd eyes
+        // Remove odd eyes
         if (changes < changeLimit && Mutations.rand(5) == 0 && player.eyeType > EYES_HUMAN) {
             if (player.eyeType == EYES_BLACK_EYES_SAND_TRAP) {
                 this.outputText(
@@ -8884,7 +8882,7 @@ export class Mutations extends BaseContent {
             player.eyeType = EYES_HUMAN;
             changes++;
         }
-        //-Ears become smaller nub-like openings?
+        // -Ears become smaller nub-like openings?
         if (
             player.earType != EARS_LIZARD &&
             player.tailType == TAIL_TYPE_LIZARD &&
@@ -8899,7 +8897,7 @@ export class Mutations extends BaseContent {
             player.earType = EARS_LIZARD;
             changes++;
         }
-        //-Scales – color changes to red, green, white, blue, or black.  Rarely: purple or silver.
+        // -Scales – color changes to red, green, white, blue, or black.  Rarely: purple or silver.
         if (
             player.skinType != SKIN_TYPE_SCALES &&
             player.earType == EARS_LIZARD &&
@@ -8908,14 +8906,14 @@ export class Mutations extends BaseContent {
             changes < changeLimit &&
             Mutations.rand(5) == 0
         ) {
-            //(fur)
+            // (fur)
             if (player.skinType == SKIN_TYPE_FUR) {
-                //set new skinTone
+                // set new skinTone
                 if (Mutations.rand(10) == 0) {
                     if (Mutations.rand(2) == 0) player.skinTone = "purple";
                     else player.skinTone = "silver";
                 }
-                //non rare skinTone
+                // non rare skinTone
                 else {
                     this.temp = Mutations.rand(5);
                     if (this.temp == 0) player.skinTone = "red";
@@ -8933,7 +8931,7 @@ export class Mutations extends BaseContent {
                     false
                 );
             }
-            //(no fur)
+            // (no fur)
             else {
                 this.outputText(
                     "\n\nYou idly reach back to scratch yourself and nearly jump out of your " +
@@ -8945,12 +8943,12 @@ export class Mutations extends BaseContent {
                         " and the transformation has already finished on the rest of your body.  <b>You're covered from head to toe in shiny ",
                     false
                 );
-                //set new skinTone
+                // set new skinTone
                 if (Mutations.rand(10) == 0) {
                     if (Mutations.rand(2) == 0) player.skinTone = "purple";
                     else player.skinTone = "silver";
                 }
-                //non rare skinTone
+                // non rare skinTone
                 else {
                     this.temp = Mutations.rand(5);
                     if (this.temp == 0) player.skinTone = "red";
@@ -8965,7 +8963,7 @@ export class Mutations extends BaseContent {
             player.skinDesc = "scales";
             changes++;
         }
-        //-Lizard-like face.
+        // -Lizard-like face.
         if (
             player.faceType != FACE_LIZARD &&
             player.skinType == SKIN_TYPE_SCALES &&
@@ -8991,7 +8989,7 @@ export class Mutations extends BaseContent {
             player.gills = false;
             changes++;
         }
-        //FAILSAFE CHANGE
+        // FAILSAFE CHANGE
         if (changes == 0) {
             this.outputText(
                 "\n\nInhuman vitality spreads through your body, invigorating you!\n",
@@ -9006,13 +9004,13 @@ export class Mutations extends BaseContent {
             public  wingStick(player:Player): void
             {
                 outputText("You toss a wingstick at your foe!  It flies straight and true, almost as if it has a mind of its own as it arcs towards " + monster.a + monster.short + "!\n", true);
-                //1% dodge for each point of speed over 80
+                // 1% dodge for each point of speed over 80
                 if (monster.spe - 80 > rand(100) + 1) {
                     outputText("Somehow " + monster.a + monster.short + "'", false);
                     if (!monster.plural) outputText("s", false);
                     outputText(" incredible speed allows " + monster.pronoun2 + " to avoid the spinning blades!  The deadly device shatters when it impacts something in the distance.", false);
                 }
-                //Not dodged
+                // Not dodged
                 else {
                 var  damage: number = 40 + rand(61);
                     outputText(monster.capitalA + monster.short + " is hit with the wingstick!  It breaks apart as it lacerates " + monster.pronoun2 + ". (" + damage + ")", false);
@@ -9028,16 +9026,16 @@ export class Mutations extends BaseContent {
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
-        //If this is a pregnancy change, only 1 change per proc.
+        // If this is a pregnancy change, only 1 change per proc.
         if (pregnantChange) changeLimit = 1;
         else this.outputText("", true);
-        //If not pregnancy, mention eating it.
+        // If not pregnancy, mention eating it.
         if (!pregnantChange)
             this.outputText(
                 "You eat the neon pink egg, and to your delight it tastes sweet, like candy.  In seconds you've gobbled down the entire thing, and you lick your fingers clean before you realize you ate the shell – and it still tasted like candy.",
                 false
             );
-        //If pregnancy, warning!
+        // If pregnancy, warning!
         if (pregnantChange) {
             this.outputText("\n<b>Your egg-stuffed ", false);
             if (player.pregnancyType == PregnancyStore.PREGNANCY_BUNNY) {
@@ -9058,8 +9056,8 @@ export class Mutations extends BaseContent {
                 false
             );
         }
-        //STATS CHANGURYUUUUU
-        //Boost speed (max 80!)
+        // STATS CHANGURYUUUUU
+        // Boost speed (max 80!)
         if (changes < changeLimit && Mutations.rand(3) == 0 && player.spe < 80) {
             if (player.spe < 30)
                 this.outputText(
@@ -9085,16 +9083,16 @@ export class Mutations extends BaseContent {
             if (player.spe < 35) this.dynStats("spe", 1);
             this.dynStats("spe", 1);
         }
-        //Boost libido
+        // Boost libido
         if (changes < changeLimit && Mutations.rand(5) == 0) {
             changes++;
             this.dynStats("lib", 1, "lus", 5 + player.lib / 7);
             if (player.lib < 30) this.dynStats("lib", 1);
             if (player.lib < 40) this.dynStats("lib", 1);
             if (player.lib < 60) this.dynStats("lib", 1);
-            //Lower ones are gender specific for some reason
+            // Lower ones are gender specific for some reason
             if (player.lib < 60) {
-                //(Cunts or assholes!
+                // (Cunts or assholes!
                 if (!player.hasCock() || (player.gender == 3 && Mutations.rand(2) == 0)) {
                     if (player.lib < 30) {
                         this.outputText(
@@ -9126,7 +9124,7 @@ export class Mutations extends BaseContent {
                             false
                         );
                 }
-                //WANGS!
+                // WANGS!
                 if (player.hasCock()) {
                     if (player.lib < 30) {
                         this.outputText(
@@ -9170,7 +9168,7 @@ export class Mutations extends BaseContent {
                         );
                 }
             }
-            //Libido over 60? FUCK YEAH!
+            // Libido over 60? FUCK YEAH!
             else if (player.lib < 80) {
                 this.outputText(
                     "\n\nYou fan your neck and start to pant as your " +
@@ -9212,7 +9210,7 @@ export class Mutations extends BaseContent {
                         false
                     );
             }
-            //MEGALIBIDO
+            // MEGALIBIDO
             else {
                 this.outputText(
                     "\n\nDelicious, unquenchable desire rises higher and higher inside you, until you're having trouble tamping it down all the time.  A little, nagging voice questions why you would ever want to tamp it down.  It feels so good to give in and breed that you nearly cave to the delicious idea on the spot.  Life is beginning to look increasingly like constant fucking or masturbating in a lust-induced haze, and you're having a harder and harder time finding fault with it.  ",
@@ -9232,11 +9230,11 @@ export class Mutations extends BaseContent {
                 }
             }
         }
-        //BIG sensitivity gains to 60.
+        // BIG sensitivity gains to 60.
         if (player.sens < 60 && changes < changeLimit && Mutations.rand(3) == 0) {
             changes++;
             this.outputText("\n\n", false);
-            //(low)
+            // (low)
             if (Mutations.rand(3) != 2) {
                 this.outputText(
                     "The feeling of small breezes blowing over your " +
@@ -9246,7 +9244,7 @@ export class Mutations extends BaseContent {
                 );
                 this.dynStats("sen", 5);
             }
-            //(BIG boost 1/3 chance)
+            // (BIG boost 1/3 chance)
             else {
                 this.dynStats("sen", 15);
                 this.outputText(
@@ -9283,7 +9281,7 @@ export class Mutations extends BaseContent {
                     if (player.balls > 0) this.outputText(this.ballsDescriptLight() + ", ", false);
                     this.outputText(this.vaginaDescript(0) + ", and " + this.clitDescript(), false);
                 }
-                //oh god genderless
+                // oh god genderless
                 else this.outputText("you " + this.assholeDescript(), false);
                 this.outputText(
                     " that you have to stay stock-still to keep yourself from falling down and masturbating on the spot.  Thankfully the orgy of tactile bliss fades after a minute, but you still feel way more sensitive than your previous norm.  This will take some getting used to!",
@@ -9291,7 +9289,7 @@ export class Mutations extends BaseContent {
                 );
             }
         }
-        //Makes girls very girl(90), guys somewhat girly (61).
+        // Makes girls very girl(90), guys somewhat girly (61).
         if (changes < changeLimit && Mutations.rand(2) == 0) {
             var buffer: string = "";
             if (player.gender < 2) buffer += player.modFem(61, 4);
@@ -9302,9 +9300,9 @@ export class Mutations extends BaseContent {
             }
         }
 
-        //De-wettification of cunt (down to 3?)!
+        // De-wettification of cunt (down to 3?)!
         if (player.wetness() > 3 && changes < changeLimit && Mutations.rand(3) == 0) {
-            //Just to be safe
+            // Just to be safe
             if (player.hasVagina()) {
                 this.outputText(
                     "\n\nThe constant flow of fluids that sluice from your " +
@@ -9316,7 +9314,7 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //Fertility boost!
+        // Fertility boost!
         if (
             changes < changeLimit &&
             Mutations.rand(4) == 0 &&
@@ -9330,7 +9328,7 @@ export class Mutations extends BaseContent {
                 false
             );
         }
-        //-VAGs
+        // -VAGs
         if (
             player.hasVagina() &&
             player.findPerk(PerkLib.BunnyEggs) < 0 &&
@@ -9346,7 +9344,7 @@ export class Mutations extends BaseContent {
             player.createPerk(PerkLib.BunnyEggs, 0, 0, 0, 0);
             changes++;
         }
-        //Shrink Balls!
+        // Shrink Balls!
         if (
             player.balls > 0 &&
             player.ballSize > 5 &&
@@ -9380,7 +9378,7 @@ export class Mutations extends BaseContent {
             }
             changes++;
         }
-        //Get rid of extra balls
+        // Get rid of extra balls
         if (player.balls > 2 && changes < changeLimit && Mutations.rand(3) == 0) {
             changes++;
             this.outputText(
@@ -9391,7 +9389,7 @@ export class Mutations extends BaseContent {
             );
             player.balls -= 2;
         }
-        //Boost cum production
+        // Boost cum production
         if (
             (player.balls > 0 || player.hasCock()) &&
             player.cumQ() < 3000 &&
@@ -9403,9 +9401,9 @@ export class Mutations extends BaseContent {
             if (player.cumQ() >= 250) this.dynStats("lus", 3);
             if (player.cumQ() >= 750) this.dynStats("lus", 4);
             if (player.cumQ() >= 2000) this.dynStats("lus", 5);
-            //Balls
+            // Balls
             if (player.balls > 0) {
-                //(Small cum quantity) < 50
+                // (Small cum quantity) < 50
                 if (player.cumQ() < 50)
                     this.outputText(
                         "\n\nA twinge of discomfort runs through your " +
@@ -9413,7 +9411,7 @@ export class Mutations extends BaseContent {
                             ", but quickly vanishes.  You heft your orbs but they haven't changed in size – they just feel a little bit denser.",
                         false
                     );
-                //(medium cum quantity) < 250
+                // (medium cum quantity) < 250
                 else if (player.cumQ() < 250) {
                     this.outputText(
                         "\n\nA ripple of discomfort runs through your " +
@@ -9429,7 +9427,7 @@ export class Mutations extends BaseContent {
                             false
                         );
                 }
-                //(large cum quantity) < 750
+                // (large cum quantity) < 750
                 else if (player.cumQ() < 750) {
                     this.outputText(
                         "\n\nA strong contraction passes through your " +
@@ -9451,7 +9449,7 @@ export class Mutations extends BaseContent {
                             false
                         );
                 }
-                //(XL cum quantity) < 2000
+                // (XL cum quantity) < 2000
                 else if (player.cumQ() < 2000) {
                     this.outputText(
                         "\n\nAn orgasmic contraction wracks your " +
@@ -9478,7 +9476,7 @@ export class Mutations extends BaseContent {
                         false
                     );
                 }
-                //(XXL cum quantity)
+                // (XXL cum quantity)
                 else {
                     this.outputText(
                         "\n\nA body-wrenching contraction thrums through your " +
@@ -9504,15 +9502,15 @@ export class Mutations extends BaseContent {
                         );
                 }
             }
-            //NO BALLZ (guaranteed cock tho)
+            // NO BALLZ (guaranteed cock tho)
             else {
-                //(Small cum quantity) < 50
+                // (Small cum quantity) < 50
                 if (player.cumQ() < 50)
                     this.outputText(
                         "\n\nA twinge of discomfort runs through your body, but passes before you have any chance to figure out exactly what it did.",
                         false
                     );
-                //(Medium cum quantity) < 250)
+                // (Medium cum quantity) < 250)
                 else if (player.cumQ() < 250)
                     this.outputText(
                         "\n\nA ripple of discomfort runs through your body, but it fades into a pleasant tingling that rushes down to " +
@@ -9520,7 +9518,7 @@ export class Mutations extends BaseContent {
                             ".  You reach down to heft yourself experimentally and smile when you see pre-beading from your maleness.  Your cum production has increased!",
                         false
                     );
-                //(large cum quantity) < 750
+                // (large cum quantity) < 750
                 else if (player.cumQ() < 750)
                     this.outputText(
                         "\n\nA strong contraction passes through your body, almost painful in its intensity.  " +
@@ -9530,7 +9528,7 @@ export class Mutations extends BaseContent {
                             " as your body's cum production kicks up even higher!  Wow, it feels kind of... good.",
                         false
                     );
-                //(XL cum quantity) < 2000
+                // (XL cum quantity) < 2000
                 else if (player.cumQ() < 2000)
                     this.outputText(
                         "\n\nAn orgasmic contraction wracks your abdomen, shivering through your midsection and down towards your groin.  A thick trail of slime leaks from " +
@@ -9540,7 +9538,7 @@ export class Mutations extends BaseContent {
                             ", pooling below you.  It's quite obvious that your body is producing even more cum now.",
                         false
                     );
-                //(XXL cum quantity)
+                // (XXL cum quantity)
                 else
                     this.outputText(
                         "\n\nA body-wrenching contraction thrums through your gut, bringing with it the orgasmic feeling of your body kicking into cum-production overdrive.  pre-cum explodes from " +
@@ -9554,20 +9552,20 @@ export class Mutations extends BaseContent {
                     );
             }
         }
-        //Bunny feet! - requirez earz
+        // Bunny feet! - requirez earz
         if (
             player.lowerBody != LOWER_BODY_TYPE_BUNNY &&
             changes < changeLimit &&
             Mutations.rand(5) == 0 &&
             player.earType == EARS_BUNNY
         ) {
-            //Taurs
+            // Taurs
             if (player.isTaur())
                 this.outputText(
                     "\n\nYour quadrupedal hind-quarters seizes, overbalancing your surprised front-end and causing you to stagger and fall to your side.  Pain lances throughout, contorting your body into a tightly clenched ball of pain while tendons melt and bones break, melt, and regrow.  When it finally stops, <b>you look down to behold your new pair of fur-covered rabbit feet</b>!",
                     false
                 );
-            //Non-taurs
+            // Non-taurs
             else {
                 this.outputText(
                     "\n\nNumbness envelops your " +
@@ -9587,7 +9585,7 @@ export class Mutations extends BaseContent {
             changes++;
             player.lowerBody = LOWER_BODY_TYPE_BUNNY;
         }
-        //BUN FACE!  REQUIREZ EARZ
+        // BUN FACE!  REQUIREZ EARZ
         if (
             player.earType == EARS_BUNNY &&
             player.faceType != FACE_BUNNY &&
@@ -9596,13 +9594,13 @@ export class Mutations extends BaseContent {
         ) {
             this.outputText("\n\n", false);
             changes++;
-            //Human(ish) face
+            // Human(ish) face
             if (player.faceType == FACE_HUMAN || player.faceType == FACE_SHARK_TEETH)
                 this.outputText(
                     "You catch your nose twitching on its own at the bottom of your vision, but as soon as you focus on it, it stops.  A moment later, some of your teeth tingle and brush past your lips, exposing a white pair of buckteeth!  <b>Your face has taken on some rabbit-like characteristics!</b>",
                     false
                 );
-            //Crazy furry TF shit
+            // Crazy furry TF shit
             else
                 this.outputText(
                     "You grunt as your " +
@@ -9612,7 +9610,7 @@ export class Mutations extends BaseContent {
                 );
             player.faceType = FACE_BUNNY;
         }
-        //DAH BUNBUN EARZ - requires poofbutt!
+        // DAH BUNBUN EARZ - requires poofbutt!
         if (
             player.earType != EARS_BUNNY &&
             changes < changeLimit &&
@@ -9626,7 +9624,7 @@ export class Mutations extends BaseContent {
             player.earType = EARS_BUNNY;
             changes++;
         }
-        //DAH BUNBUNTAILZ
+        // DAH BUNBUNTAILZ
         if (
             player.tailType != TAIL_TYPE_RABBIT &&
             Mutations.rand(2) == 0 &&
@@ -9653,17 +9651,17 @@ export class Mutations extends BaseContent {
             player.gills = false;
             changes++;
         }
-        //Bunny Breeder Perk?
-        //FAILSAAAAFE
+        // Bunny Breeder Perk?
+        // FAILSAAAAFE
         if (changes == 0) {
             if (player.lib < 100) changes++;
             this.dynStats("lib", 1, "lus", 5 + player.lib / 7);
             if (player.lib < 30) this.dynStats("lib", 1);
             if (player.lib < 40) this.dynStats("lib", 1);
             if (player.lib < 60) this.dynStats("lib", 1);
-            //Lower ones are gender specific for some reason
+            // Lower ones are gender specific for some reason
             if (player.lib < 60) {
-                //(Cunts or assholes!
+                // (Cunts or assholes!
                 if (!player.hasCock() || (player.gender == 3 && Mutations.rand(2) == 0)) {
                     if (player.lib < 30) {
                         this.outputText(
@@ -9695,7 +9693,7 @@ export class Mutations extends BaseContent {
                             false
                         );
                 }
-                //WANGS!
+                // WANGS!
                 if (player.hasCock()) {
                     if (player.lib < 30) {
                         this.outputText(
@@ -9739,7 +9737,7 @@ export class Mutations extends BaseContent {
                         );
                 }
             }
-            //Libido over 60? FUCK YEAH!
+            // Libido over 60? FUCK YEAH!
             else if (player.lib < 80) {
                 this.outputText(
                     "\n\nYou fan your neck and start to pant as your " +
@@ -9781,7 +9779,7 @@ export class Mutations extends BaseContent {
                         false
                     );
             }
-            //MEGALIBIDO
+            // MEGALIBIDO
             else {
                 this.outputText(
                     "\n\nDelicious, unquenchable desire rises higher and higher inside you, until you're having trouble tamping it down all the time.  A little, nagging voice questions why you would ever want to tamp it down.  It feels so good to give in and breed that you nearly cave to the delicious idea on the spot.  Life is beginning to look increasingly like constant fucking or masturbating in a lust-induced haze, and you're having a harder and harder time finding fault with it.  ",
@@ -9804,25 +9802,25 @@ export class Mutations extends BaseContent {
     }
 
     public goldenSeed(type: number, player: Player): void {
-        //'type' refers to the variety of seed.
-        //0 == standard.
-        //1 == enhanced - increase change limit and no pre-reqs for TF
+        // 'type' refers to the variety of seed.
+        // 0 == standard.
+        // 1 == enhanced - increase change limit and no pre-reqs for TF
         var changes: number = 0;
         var changeLimit: number = 1;
         if (type == 1) changeLimit += 2;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
-        //Generic eating text:
+        // Generic eating text:
         this.outputText("", true);
         this.outputText(
             "You pop the nut into your mouth, chewing the delicious treat and swallowing it quickly.  No wonder harpies love these things so much!",
             false
         );
-        //****************
-        //Stats:
-        //****************
-        //-Speed increase to 100.
+        // ****************
+        // Stats:
+        // ****************
+        // -Speed increase to 100.
         if (player.spe < 100 && Mutations.rand(3) == 0) {
             changes++;
             if (player.spe >= 75)
@@ -9835,12 +9833,12 @@ export class Mutations extends BaseContent {
                     "\n\nA chill runs through your spine, leaving you feeling like your reflexes are quicker and your body faster.",
                     false
                 );
-            //Speed gains diminish as it rises.
+            // Speed gains diminish as it rises.
             if (player.spe < 40) this.dynStats("spe", 0.5);
             if (player.spe < 75) this.dynStats("spe", 0.5);
             this.dynStats("spe", 0.5);
         }
-        //-Toughness decrease to 50
+        // -Toughness decrease to 50
         if (player.tou > 50 && Mutations.rand(3) == 0 && changes < changeLimit) {
             changes++;
             if (Mutations.rand(2) == 0)
@@ -9855,9 +9853,9 @@ export class Mutations extends BaseContent {
                 );
             this.dynStats("tou", -1);
         }
-        //antianemone corollary:
+        // antianemone corollary:
         if (changes < changeLimit && player.hairType == 4 && Mutations.rand(2) == 0) {
-            //-insert anemone hair removal into them under whatever criteria you like, though hair removal should precede abdomen growth; here's some sample text:
+            // -insert anemone hair removal into them under whatever criteria you like, though hair removal should precede abdomen growth; here's some sample text:
             this.outputText(
                 "\n\nAs you down the seed, your head begins to feel heavier.  Reaching up, you notice your tentacles becoming soft and somewhat fibrous.  Pulling one down reveals that it feels soft and fluffy, almost feathery; you watch as it dissolves into many thin, feathery strands.  <b>Your hair is now like that of a harpy!</b>",
                 false
@@ -9865,26 +9863,26 @@ export class Mutations extends BaseContent {
             player.hairType = 1;
             changes++;
         }
-        //-Strength increase to 70
+        // -Strength increase to 70
         if (player.str < 70 && Mutations.rand(3) == 0 && changes < changeLimit) {
             changes++;
-            //(low str)
+            // (low str)
             if (player.str < 40)
                 this.outputText(
                     "\n\nShivering, you feel a feverish sensation that reminds you of the last time you got sick. Thankfully, it passes swiftly, leaving slightly enhanced strength in its wake.",
                     false
                 );
-            //(hi str – 50+)
+            // (hi str – 50+)
             else
                 this.outputText(
                     "\n\nHeat builds in your muscles, their already-potent mass shifting slightly as they gain even more strength.",
                     false
                 );
-            //Faster until 40 str.
+            // Faster until 40 str.
             if (player.str < 40) this.dynStats("str", 0.5);
             this.dynStats("str", 0.5);
         }
-        //-Libido increase to 90
+        // -Libido increase to 90
         if (
             (player.lib < 90 || Mutations.rand(3) == 0) &&
             Mutations.rand(3) == 0 &&
@@ -9892,7 +9890,7 @@ export class Mutations extends BaseContent {
         ) {
             changes++;
             if (player.lib < 90) this.dynStats("lib", 1);
-            //(sub 40 lib)
+            // (sub 40 lib)
             if (player.lib < 40) {
                 this.outputText(
                     "\n\nA passing flush colors your " +
@@ -9912,31 +9910,31 @@ export class Mutations extends BaseContent {
                     );
                 this.dynStats("lus", 5);
             }
-            //(sub 75 lib)
+            // (sub 75 lib)
             else if (player.lib < 75)
                 this.outputText(
                     "\n\nHeat, blessed heat, works through you from head to groin, leaving you to shudder and fantasize about the sex you could be having right now.\n\n",
                     false
                 );
-            //(hi lib)
+            // (hi lib)
             else if (player.lib < 90)
                 this.outputText(
                     "\n\nSexual need courses through you, flushing your skin with a reddish hue while you pant and daydream of the wondrous sex you should be having right now.\n\n",
                     false
                 );
-            //(90+)
+            // (90+)
             else
                 this.outputText(
                     "\n\nYou groan, something about the seed rubbing your libido in just the right way to make you horny. Panting heavily, you sigh and fantasize about the sex you could be having.\n\n",
                     false
                 );
-            //(fork to fantasy)
+            // (fork to fantasy)
             if (player.lib >= 40) {
                 this.dynStats("lus", player.lib / 5 + 10);
-                //(herm – either or!)
-                //Cocks!
+                // (herm – either or!)
+                // Cocks!
                 if (player.hasCock() && (player.gender != 3 || Mutations.rand(2) == 0)) {
-                    //(male 1)
+                    // (male 1)
                     if (Mutations.rand(2) == 0) {
                         this.outputText(
                             "In your fantasy you're winging through the sky, " +
@@ -9964,7 +9962,7 @@ export class Mutations extends BaseContent {
                             );
                         }
                     }
-                    //(male 2)
+                    // (male 2)
                     else {
                         this.outputText(
                             "In your fantasy you're lying back in the nest your harem built for you, stroking your dick and watching the sexy bird-girl spread her thighs to deposit another egg onto the pile. The lewd moans do nothing to sate your need, and you beckon for another submissive harpy to approach. She does, her thick thighs swaying to show her understanding of your needs. The bird-woman crawls into your lap, sinking down atop your shaft to snuggle it with her molten heat. She begins kissing you, smearing your mouth with her drugged lipstick until you release the first of many loads. You sigh, riding the bliss, secure in the knowledge that this 'wife' won't let up until she's gravid with another egg. Then it'll be her sister-wife's turn. The tightness of " +
@@ -9976,9 +9974,9 @@ export class Mutations extends BaseContent {
                         );
                     }
                 }
-                //Cunts!
+                // Cunts!
                 else if (player.hasVagina()) {
-                    //(female 1)
+                    // (female 1)
                     if (Mutations.rand(2) == 0) {
                         this.outputText(
                             "In your fantasy you're a happy harpy mother, your womb stretched by the sizable egg it contains. The surging hormones in your body arouse you again, and you turn to the father of your children, planting a wet kiss on his slobbering, lipstick-gilt cock. The poor adventurer writhes, hips pumping futilely in the air. He's been much more agreeable since you started keeping his cock coated with your kisses. You mount the needy boy, fantasizing about that first time when you found him near the portal, in the ruins of your old camp. The feeling of your stiff nipples ",
@@ -9996,7 +9994,7 @@ export class Mutations extends BaseContent {
                             false
                         );
                     }
-                    //(female 2)
+                    // (female 2)
                     else {
                         this.outputText(
                             "In your fantasy you're sprawled on your back, thick thighs splayed wide while you're taken by a virile male. The poor stud was wandering the desert all alone, following some map, but soon you had his bright red rod sliding between your butt-cheeks, the pointed tip releasing runnels of submission to lubricate your loins. You let him mount your pussy before you grabbed him with your powerful thighs and took off. He panicked at first, but the extra blood flow just made him bigger. He soon forgot his fear and focused on the primal needs of all males – mating with a gorgeous harpy. You look back at him and wink, feeling his knot build inside you. Your aching, tender " +
@@ -10010,16 +10008,16 @@ export class Mutations extends BaseContent {
                 }
             }
         }
-        //****************
+        // ****************
         //   Sexual:
-        //****************
-        //-Grow a cunt (guaranteed if no gender)
+        // ****************
+        // -Grow a cunt (guaranteed if no gender)
         if (
             player.gender == 0 ||
             (!player.hasVagina() && changes < changeLimit && Mutations.rand(3) == 0)
         ) {
             changes++;
-            //(balls)
+            // (balls)
             if (player.balls > 0)
                 this.outputText(
                     "\n\nAn itch starts behind your " +
@@ -10029,7 +10027,7 @@ export class Mutations extends BaseContent {
                         ", and curious about the sensation, <b>you lift up your balls to reveal your new vagina.</b>",
                     false
                 );
-            //(dick)
+            // (dick)
             else if (player.hasCock())
                 this.outputText(
                     "\n\nAn itch starts on your groin, just below your " +
@@ -10037,7 +10035,7 @@ export class Mutations extends BaseContent {
                         ". You pull your manhood aside to give you a better view, and you're able to watch as <b>your skin splits to give you a new vagina, complete with a tiny clit.</b>",
                     false
                 );
-            //(neither)
+            // (neither)
             else
                 this.outputText(
                     "\n\nAn itch starts on your groin and fades before you can take action. Curious about the intermittent sensation, <b>you peek under your " +
@@ -10050,7 +10048,7 @@ export class Mutations extends BaseContent {
             this.dynStats("sen", 10);
             player.genderCheck();
         }
-        //-Remove extra breast rows
+        // -Remove extra breast rows
         if (
             changes < changeLimit &&
             player.breastRows.length > 1 &&
@@ -10079,8 +10077,8 @@ export class Mutations extends BaseContent {
             this.dynStats("sen", -5);
             player.removeBreastRow(player.breastRows.length - 1, 1);
         }
-        //-Shrink tits if above DDs.
-        //Cannot happen at same time as row removal
+        // -Shrink tits if above DDs.
+        // Cannot happen at same time as row removal
         else if (
             changes < changeLimit &&
             player.breastRows.length == 1 &&
@@ -10089,11 +10087,11 @@ export class Mutations extends BaseContent {
             !this.flags[kFLAGS.HYPER_HAPPY]
         ) {
             changes++;
-            //(Use standard breast shrinking mechanism if breasts are under 'h')
+            // (Use standard breast shrinking mechanism if breasts are under 'h')
             if (player.breastRows[0].breastRating < 19) {
                 player.shrinkTits();
             }
-            //(H+)
+            // (H+)
             else {
                 player.breastRows[0].breastRating -= 4 + Mutations.rand(4);
                 this.outputText(
@@ -10104,7 +10102,7 @@ export class Mutations extends BaseContent {
                 );
             }
         }
-        //-Grow tits to a B-cup if below.
+        // -Grow tits to a B-cup if below.
         if (
             changes < changeLimit &&
             player.breastRows[0].breastRating < 2 &&
@@ -10123,15 +10121,15 @@ export class Mutations extends BaseContent {
                 this.outputText("  <b>You have breasts now!</b>", false);
             player.breastRows[0].breastRating = 2;
         }
-        //****************
-        //General Appearance:
-        //****************
-        //-Femininity to 85
+        // ****************
+        // General Appearance:
+        // ****************
+        // -Femininity to 85
         if (player.femininity < 85 && changes < changeLimit && Mutations.rand(3) == 0) {
             changes++;
             this.outputText(player.modFem(85, 3 + Mutations.rand(5)), false);
         }
-        //-Skin color change – tan, olive, dark, light
+        // -Skin color change – tan, olive, dark, light
         if (
             player.skinTone != "tan" &&
             player.skinTone != "olive" &&
@@ -10156,7 +10154,7 @@ export class Mutations extends BaseContent {
             else if (this.temp == 3) player.skinTone = "light";
             this.outputText(player.skinTone + " colored.</b>", false);
         }
-        //-Grow hips out if narrow.
+        // -Grow hips out if narrow.
         if (player.hipRating < 10 && changes < changeLimit && Mutations.rand(3) == 0) {
             this.outputText(
                 "\n\nYour gait shifts slightly to accommodate your widening " +
@@ -10167,7 +10165,7 @@ export class Mutations extends BaseContent {
             player.hipRating++;
             changes++;
         }
-        //-Narrow hips if crazy wide
+        // -Narrow hips if crazy wide
         if (player.hipRating >= 15 && changes < changeLimit && Mutations.rand(3) == 0) {
             this.outputText(
                 "\n\nYour gait shifts inward, your " +
@@ -10178,7 +10176,7 @@ export class Mutations extends BaseContent {
             player.hipRating--;
             changes++;
         }
-        //-Big booty
+        // -Big booty
         if (player.buttRating < 8 && changes < changeLimit && Mutations.rand(3) == 0) {
             player.buttRating++;
             changes++;
@@ -10191,7 +10189,7 @@ export class Mutations extends BaseContent {
                 false
             );
         }
-        //-Narrow booty if crazy huge.
+        // -Narrow booty if crazy huge.
         if (player.buttRating >= 14 && changes < changeLimit && Mutations.rand(4) == 0) {
             changes++;
             player.buttRating--;
@@ -10202,12 +10200,12 @@ export class Mutations extends BaseContent {
                 false
             );
         }
-        //-Body thickness to 25ish
+        // -Body thickness to 25ish
         if (player.thickness > 25 && changes < changeLimit && Mutations.rand(3) == 0) {
             this.outputText(player.modThickness(25, 3 + Mutations.rand(4)), false);
             changes++;
         }
-        //Remove odd eyes
+        // Remove odd eyes
         if (changes < changeLimit && Mutations.rand(5) == 0 && player.eyeType > EYES_HUMAN) {
             if (player.eyeType == EYES_BLACK_EYES_SAND_TRAP) {
                 this.outputText(
@@ -10227,17 +10225,17 @@ export class Mutations extends BaseContent {
             player.eyeType = EYES_HUMAN;
             changes++;
         }
-        //****************
-        //Harpy Appearance:
-        //****************
-        //-Harpy legs
+        // ****************
+        // Harpy Appearance:
+        // ****************
+        // -Harpy legs
         if (
             player.lowerBody != LOWER_BODY_TYPE_HARPY &&
             changes < changeLimit &&
             (type == 1 || player.tailType == TAIL_TYPE_HARPY) &&
             Mutations.rand(4) == 0
         ) {
-            //(biped/taur)
+            // (biped/taur)
             if (!player.isGoo())
                 this.outputText(
                     "\n\nYour " +
@@ -10247,7 +10245,7 @@ export class Mutations extends BaseContent {
                         " have changed.  ",
                     false
                 );
-            //goo
+            // goo
             else
                 this.outputText(
                     "\n\nYour gooey undercarriage loses some of its viscosity, dumping you into the puddle that was once your legs. As you watch, the fluid pulls together into a pair of distinctly leg-like shapes, solidifying into a distinctly un-gooey form. You've even regained a pair of feet!  ",
@@ -10255,7 +10253,7 @@ export class Mutations extends BaseContent {
                 );
             player.lowerBody = LOWER_BODY_TYPE_HARPY;
             changes++;
-            //(cont)
+            // (cont)
             this.outputText(
                 "While humanoid in shape, they have two large, taloned toes on the front and a single claw protruding from the heel. The entire ensemble is coated in " +
                     player.hairColor +
@@ -10263,14 +10261,14 @@ export class Mutations extends BaseContent {
                 false
             );
         }
-        //-Feathery Tail
+        // -Feathery Tail
         if (
             player.tailType != TAIL_TYPE_HARPY &&
             changes < changeLimit &&
             (type == 1 || player.wingType == WING_TYPE_FEATHERED_LARGE) &&
             Mutations.rand(4) == 0
         ) {
-            //(tail)
+            // (tail)
             if (player.tailType > TAIL_TYPE_NONE)
                 this.outputText(
                     "\n\nYour tail shortens, folding into the crack of your " +
@@ -10278,7 +10276,7 @@ export class Mutations extends BaseContent {
                         " before it disappears. A moment later, a fan of feathers erupts in its place, fluffing up and down instinctively every time the breeze shifts. <b>You have a feathery harpy tail!</b>",
                     false
                 );
-            //(no tail)
+            // (no tail)
             else
                 this.outputText(
                     "\n\nA tingling tickles the base of your spine, making you squirm in place. A moment later, it fades, but a fan of feathers erupts from your " +
@@ -10289,7 +10287,7 @@ export class Mutations extends BaseContent {
             player.tailType = TAIL_TYPE_HARPY;
             changes++;
         }
-        //-Propah Wings
+        // -Propah Wings
         if (
             player.wingType == WING_TYPE_NONE &&
             changes < changeLimit &&
@@ -10310,7 +10308,7 @@ export class Mutations extends BaseContent {
             player.wingDesc = "large, feathered";
             changes++;
         }
-        //-Remove old wings
+        // -Remove old wings
         if (
             player.wingType != WING_TYPE_FEATHERED_LARGE &&
             player.wingType > WING_TYPE_NONE &&
@@ -10333,7 +10331,7 @@ export class Mutations extends BaseContent {
             player.wingDesc = "non-existant";
             changes++;
         }
-        //-Feathery Arms
+        // -Feathery Arms
         if (
             player.armType != ARM_TYPE_HARPY &&
             changes < changeLimit &&
@@ -10351,7 +10349,7 @@ export class Mutations extends BaseContent {
             changes++;
             player.armType = ARM_TYPE_HARPY;
         }
-        //-Feathery Hair
+        // -Feathery Hair
         if (
             player.hairType != 1 &&
             changes < changeLimit &&
@@ -10365,7 +10363,7 @@ export class Mutations extends BaseContent {
             player.hairType = 1;
             changes++;
         }
-        //-Human face
+        // -Human face
         if (
             player.faceType != FACE_HUMAN &&
             changes < changeLimit &&
@@ -10381,7 +10379,7 @@ export class Mutations extends BaseContent {
             player.faceType = FACE_HUMAN;
             changes++;
         }
-        //-Gain human ears (keep elf ears)
+        // -Gain human ears (keep elf ears)
         if (
             player.earType != EARS_HUMAN &&
             player.earType != EARS_ELFIN &&
@@ -10403,8 +10401,8 @@ export class Mutations extends BaseContent {
             player.gills = false;
             changes++;
         }
-        //SPECIAL:
-        //Harpy Womb – All eggs are automatically upgraded to large, requires legs + tail to be harpy.
+        // SPECIAL:
+        // Harpy Womb – All eggs are automatically upgraded to large, requires legs + tail to be harpy.
         if (
             player.findPerk(PerkLib.HarpyWomb) < 0 &&
             player.lowerBody == LOWER_BODY_TYPE_HARPY &&
@@ -10432,7 +10430,7 @@ export class Mutations extends BaseContent {
             if (player.ass.analLooseness > 1) player.ass.analLooseness--;
             changes++;
         }
-        //Nipples Turn Back:
+        // Nipples Turn Back:
         if (
             player.findStatusAffect(StatusAffects.BlackNipples) >= 0 &&
             changes < changeLimit &&
@@ -10446,7 +10444,7 @@ export class Mutations extends BaseContent {
             changes++;
             player.removeStatusAffect(StatusAffects.BlackNipples);
         }
-        //Debugcunt
+        // Debugcunt
         if (
             changes < changeLimit &&
             Mutations.rand(3) == 0 &&
@@ -10494,19 +10492,19 @@ export class Mutations extends BaseContent {
             "You squeeze the pod around the middle, forcing the end open.  Scooping out a handful of the yeasty-smelling seeds, you shovel them in your mouth.  Blech!  Tastes like soggy burnt bread... and yet, you find yourself going for another handful...",
             false
         );
-        //Used to track changes and the max
+        // Used to track changes and the max
         var changes: number = 0;
         var changeLimit: number = 1;
         if (type == 1) changeLimit += 2;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
-        //Used as a holding variable for biggest dicks and the like
+        // Used as a holding variable for biggest dicks and the like
         var biggestCock: number;
-        //****************
-        //General Effects:
-        //****************
-        //-Int less than 10
+        // ****************
+        // General Effects:
+        // ****************
+        // -Int less than 10
         if (player.inte < 10) {
             if (player.inte < 8 && player.kangaScore() >= 5) {
                 this.outputText(
@@ -10521,7 +10519,7 @@ export class Mutations extends BaseContent {
                     "\n\nLosing more of what little remains of yourself, your body is now entirely that of a feral kangaroo and your mind has devolved to match it.  After you finish the handful of fruits you found, you move on in search for more of the tasty treats.  Though you pass by your camp later on, there's no memory, no recognition, just a slight feeling of comfort and familiarity.  There's no food here so you hop away.",
                     false
                 );
-                //[GAME OVER]
+                // [GAME OVER]
                 this.getGame().gameOver();
                 return;
             }
@@ -10530,9 +10528,9 @@ export class Mutations extends BaseContent {
                 false
             );
         }
-        //-Speed to 70
+        // -Speed to 70
         if (player.spe < 70 && Mutations.rand(3) == 0) {
-            //2 points up if below 40!
+            // 2 points up if below 40!
             if (player.spe < 40) this.dynStats("spe", 1);
             this.dynStats("spe", 1);
             this.outputText(
@@ -10541,22 +10539,22 @@ export class Mutations extends BaseContent {
             );
             changes++;
         }
-        //-Int to 10
+        // -Int to 10
         if (player.inte > 2 && Mutations.rand(3) == 0 && changes < changeLimit) {
             changes++;
-            //Gain dumb (smart!)
+            // Gain dumb (smart!)
             if (player.inte > 30)
                 this.outputText(
                     "\n\nYou feel... antsy. You momentarily forget your other concerns as you look around you, trying to decide which direction you'd be most likely to find more food in.  You're about to set out on the search when your mind refocuses and you realize you already have some stored at camp.",
                     false
                 );
-            //gain dumb (30-10 int):
+            // gain dumb (30-10 int):
             else if (player.inte > 10)
                 this.outputText(
                     "\n\nYour mind wanders as you eat; you think of what it would be like to run forever, bounding across the wastes of Mareth in the simple joy of movement.  You bring the kanga fruit to your mouth one last time, only to realize there's nothing edible left on it.  The thought brings you back to yourself with a start.",
                     false
                 );
-            //gain dumb (10-1 int):
+            // gain dumb (10-1 int):
             else
                 this.outputText(
                     "\n\nYou lose track of everything as you eat, staring at the bugs crawling across the ground.  After a while you notice the dull taste of saliva in your mouth and realize you've been sitting there, chewing the same mouthful for five minutes.  You vacantly swallow and take another bite, then go back to staring at the ground.  Was there anything else to do today?",
@@ -10564,10 +10562,10 @@ export class Mutations extends BaseContent {
                 );
             this.dynStats("int", -1);
         }
-        //****************
-        //Appearance Effects:
-        //****************
-        //-Hip widening funtimes
+        // ****************
+        // Appearance Effects:
+        // ****************
+        // -Hip widening funtimes
         if (changes < changeLimit && Mutations.rand(4) == 0 && player.hipRating < 40) {
             this.outputText(
                 "\n\nYou weeble and wobble as your hipbones broaden noticeably, but somehow you don't fall down.  Actually, you feel a bit MORE stable on your new widened stance, if anything.",
@@ -10576,7 +10574,7 @@ export class Mutations extends BaseContent {
             player.hipRating++;
             changes++;
         }
-        //-Remove feather-arms (copy this for goblin ale, mino blood, equinum, canine pepps, demon items)
+        // -Remove feather-arms (copy this for goblin ale, mino blood, equinum, canine pepps, demon items)
         if (changes < changeLimit && player.armType == ARM_TYPE_HARPY && Mutations.rand(4) == 0) {
             this.outputText(
                 "\n\nYou scratch at your biceps absentmindedly, but no matter how much you scratch, it isn't getting rid of the itch.  Glancing down in irritation, you discover that your feathery arms are shedding their feathery coating.  The wing-like shape your arms once had is gone in a matter of moments, leaving " +
@@ -10587,7 +10585,7 @@ export class Mutations extends BaseContent {
             player.armType = ARM_TYPE_HUMAN;
             changes++;
         }
-        //-Remove chitin-arms (copy this for goblin ale, mino blood, equinum, canine pepps, demon items)
+        // -Remove chitin-arms (copy this for goblin ale, mino blood, equinum, canine pepps, demon items)
         if (changes < changeLimit && player.armType == ARM_TYPE_SPIDER && Mutations.rand(4) == 0) {
             this.outputText(
                 "\n\nYou scratch at your biceps absentmindedly, but no matter how much you scratch, it isn't getting rid of the itch.  Glancing down in irritation, you discover that your arms' chitinous covering is flaking away.  The glossy black coating is soon gone, leaving " +
@@ -10598,15 +10596,15 @@ export class Mutations extends BaseContent {
             player.armType = ARM_TYPE_HUMAN;
             changes++;
         }
-        //-Remove feathery hair (copy for equinum, canine peppers, Labova)
+        // -Remove feathery hair (copy for equinum, canine peppers, Labova)
         if (changes < changeLimit && player.hairType == 1 && Mutations.rand(4) == 0) {
-            //(long):
+            // (long):
             if (player.hairLength >= 6)
                 this.outputText(
                     "\n\nA lock of your downy-soft feather-hair droops over your eye.  Before you can blow the offending down away, you realize the feather is collapsing in on itself.  It continues to curl inward until all that remains is a normal strand of hair.  <b>Your hair is no longer feathery!</b>",
                     false
                 );
-            //(short)
+            // (short)
             else
                 this.outputText(
                     "\n\nYou run your fingers through your downy-soft feather-hair while you await the effects of the item you just ingested.  While your hand is up there, it detects a change in the texture of your feathers.  They're completely disappearing, merging down into strands of regular hair.  <b>Your hair is no longer feathery!</b>",
@@ -10615,7 +10613,7 @@ export class Mutations extends BaseContent {
             changes++;
             player.hairType = 0;
         }
-        //Remove odd eyes
+        // Remove odd eyes
         if (changes < changeLimit && Mutations.rand(5) == 0 && player.eyeType > EYES_HUMAN) {
             if (player.eyeType == EYES_BLACK_EYES_SAND_TRAP) {
                 this.outputText(
@@ -10635,10 +10633,10 @@ export class Mutations extends BaseContent {
             player.eyeType = EYES_HUMAN;
             changes++;
         }
-        //****************
-        //Sexual:
-        //****************
-        //-Shrink balls down to reasonable size (3?)
+        // ****************
+        // Sexual:
+        // ****************
+        // -Shrink balls down to reasonable size (3?)
         if (player.ballSize >= 4 && changes < changeLimit && Mutations.rand(2) == 0) {
             player.ballSize--;
             player.cumMultiplier++;
@@ -10652,7 +10650,7 @@ export class Mutations extends BaseContent {
             );
             changes++;
         }
-        //-Shorten clits to reasonable size
+        // -Shorten clits to reasonable size
         if (player.clitLength >= 4 && changes < changeLimit && Mutations.rand(5) == 0) {
             this.outputText(
                 "\n\nPainful pricks work through your " +
@@ -10663,9 +10661,9 @@ export class Mutations extends BaseContent {
             player.clitLength /= 2;
             changes++;
         }
-        //Find biggest dick!
+        // Find biggest dick!
         biggestCock = player.biggestCockIndex();
-        //-Shrink dicks down to 8\" max.
+        // -Shrink dicks down to 8\" max.
         if (player.hasCock()) {
             if (
                 player.cocks[biggestCock].cockLength >= 16 &&
@@ -10694,7 +10692,7 @@ export class Mutations extends BaseContent {
                     player.cocks[biggestCock].cockThickness = 0.5;
                 changes++;
             }
-            //COCK TF!
+            // COCK TF!
             if (
                 player.kangaCocks() < player.cockTotal() &&
                 type == 1 &&
@@ -10709,7 +10707,7 @@ export class Mutations extends BaseContent {
                 else this.outputText("a sheath that forms at the base of it", false);
                 this.outputText(".  <b>You now have a kangaroo-penis!</b>", false);
                 var cockIdx: number = 0;
-                //Find first non-roocock!
+                // Find first non-roocock!
                 while (cockIdx < player.cockTotal()) {
                     if (player.cocks[cockIdx].cockType != CockTypesEnum.KANGAROO) {
                         player.cocks[cockIdx].cockType = CockTypesEnum.KANGAROO;
@@ -10721,11 +10719,11 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //****************
-        //Big Kanga Morphs
-        //type 1 ignores normal restrictions
-        //****************
-        //-Face (Req: Fur + Feet)
+        // ****************
+        // Big Kanga Morphs
+        // type 1 ignores normal restrictions
+        // ****************
+        // -Face (Req: Fur + Feet)
         if (
             player.faceType != FACE_KANGAROO &&
             ((player.skinType == SKIN_TYPE_FUR && player.lowerBody == LOWER_BODY_TYPE_KANGAROO) ||
@@ -10733,7 +10731,7 @@ export class Mutations extends BaseContent {
             changes < changeLimit &&
             Mutations.rand(4) == 0
         ) {
-            //gain roo face from human/naga/shark/bun:
+            // gain roo face from human/naga/shark/bun:
             if (
                 player.faceType == FACE_HUMAN ||
                 player.faceType == FACE_SNAKE_FANGS ||
@@ -10744,7 +10742,7 @@ export class Mutations extends BaseContent {
                     "\n\nThe base of your nose suddenly hurts, as though someone were pinching and pulling at it.  As you shut your eyes against the pain and bring your hands to your face, you can feel your nose and palate shifting and elongating.  This continues for about twenty seconds as you stand there, quaking.  When the pain subsides, you run your hands all over your face; what you feel is a long muzzle sticking out, whiskered at the end and with a cleft lip under a pair of flat nostrils.  You open your eyes and receive confirmation. <b>You now have a kangaroo face!  Crikey!</b>",
                     false
                 );
-            //gain roo face from other snout:
+            // gain roo face from other snout:
             else
                 this.outputText(
                     "\n\nYour nose tingles. As you focus your eyes toward the end of it, it twitches and shifts into a muzzle similar to a stretched-out rabbit's, complete with harelip and whiskers.  <b>You now have a kangaroo face!</b>",
@@ -10753,7 +10751,7 @@ export class Mutations extends BaseContent {
             changes++;
             player.faceType = FACE_KANGAROO;
         }
-        //-Fur (Req: Footsies)
+        // -Fur (Req: Footsies)
         if (
             player.skinType != SKIN_TYPE_FUR &&
             (player.lowerBody == LOWER_BODY_TYPE_KANGAROO || type == 1) &&
@@ -10772,32 +10770,32 @@ export class Mutations extends BaseContent {
             player.skinType = SKIN_TYPE_FUR;
             player.skinDesc = "fur";
         }
-        //-Roo footsies (Req: Tail)
+        // -Roo footsies (Req: Tail)
         if (
             player.lowerBody != LOWER_BODY_TYPE_KANGAROO &&
             (type == 1 || player.tailType == TAIL_TYPE_KANGAROO) &&
             changes < changeLimit &&
             Mutations.rand(4) == 0
         ) {
-            //gain roo feet from centaur:
+            // gain roo feet from centaur:
             if (player.lowerBody == LOWER_BODY_TYPE_CENTAUR)
                 this.outputText(
                     "\n\nYour backlegs suddenly wobble and collapse, causing you to pitch over onto your side.  Try as you might, you can't get them to stop spasming so you can stand back up; you thrash your hooves wildly as a pins-and-needles sensation overtakes your lower body.  A dull throbbing along your spine makes you moan in agony; it's as though someone had set an entire bookshelf on your shoulders and your spine were being compressed far beyond its limit.  After a minute of pain, the pressure evaporates and you look down at your legs.  Not only are your backlegs gone, but your forelegs have taken on a dogleg shape, with extremely long feet bearing a prominent middle toe!  You set about rubbing the feeling back into your legs and trying to move the new feet.  <b>You now have kangaroo legs!</b>",
                     false
                 );
-            //gain roo feet from naga:
+            // gain roo feet from naga:
             else if (player.lowerBody == LOWER_BODY_TYPE_NAGA)
                 this.outputText(
                     "\n\nYour tail quivers, then shakes violently, planting you on your face.  As you try to bend around to look at it, you can just see the tip shrinking out of your field of vision from the corner of your eye.  The scaly skin below your waist tightens intolerably, then splits; you wriggle out of it, only to find yourself with a pair of long legs instead!  A bit of hair starts to grow in as you stand up unsteadily on your new, elongated feet.  <b>You now have kangaroo legs!</b>  Now, what are you going to do with a giant shed snakeskin?",
                     false
                 );
-            //gain roo feet from slime:
+            // gain roo feet from slime:
             else if (player.lowerBody == LOWER_BODY_TYPE_GOO)
                 this.outputText(
                     "\n\nYour mounds of goo shrink and part involuntarily, exposing your crotch.  Modesty overwhelms you and you try to pull them together, but the shrinkage is continuing faster than you can shift your gooey body around.  Before long you've run out of goo to move, and your lower body now ends in a pair of slippery digitigrade legs with long narrow feet.  They dry in the air and a bit of fur begins to sprout as you look for something to cover up with.  <b>You now have kangaroo legs!</b> You sigh.  Guess this means it's back to wearing underpants again.",
                     false
                 );
-            //gain roo feet from human/bee/demon/paw/lizard:
+            // gain roo feet from human/bee/demon/paw/lizard:
             else
                 this.outputText(
                     "\n\nYour feet begin to crack and shift as the metatarsal bones lengthen.  Your knees buckle from the pain of your bones rearranging themselves, and you fall over.  After fifteen seconds of what feels like your feet being racked, the sensation stops.  You look down at your legs; they've taken a roughly dog-leg shape, but they have extremely long feet with a prominent middle toe!  As you stand up you find that you're equally comfortable standing flat on your feet as you are on the balls of them!  <b>You now have kangaroo legs!</b>",
@@ -10806,20 +10804,20 @@ export class Mutations extends BaseContent {
             player.lowerBody = LOWER_BODY_TYPE_KANGAROO;
             changes++;
         }
-        //-Roo tail (Req: Ears)
+        // -Roo tail (Req: Ears)
         if (
             player.tailType != TAIL_TYPE_KANGAROO &&
             changes < changeLimit &&
             Mutations.rand(4) == 0 &&
             (type != 1 || player.earType == EARS_KANGAROO)
         ) {
-            //gain roo tail:
+            // gain roo tail:
             if (player.tailType == TAIL_TYPE_NONE)
                 this.outputText(
                     "\n\nA painful pressure in your lower body causes you to stand straight and lock up.  At first you think it might be gas.  No... something is growing at the end of your tailbone.  As you hold stock still so as not to exacerbate the pain, something thick pushes out from the rear of your garments.  The pain subsides and you crane your neck around to look; a long, tapered tail is now attached to your butt and a thin coat of fur is already growing in!  <b>You now have a kangaroo tail!</b>",
                     false
                 );
-            //gain roo tail from bee tail:
+            // gain roo tail from bee tail:
             else if (
                 player.tailType == TAIL_TYPE_SPIDER_ADBOMEN ||
                 player.tailType == TAIL_TYPE_BEE_ABDOMEN
@@ -10843,7 +10841,7 @@ export class Mutations extends BaseContent {
                     false
                 );
             }
-            //gain roo tail from other tail:
+            // gain roo tail from other tail:
             else {
                 this.outputText(
                     "\n\nYour tail twitches as you eat.  It begins to feel fat and swollen, and you try to look at your own butt as best you can.  What you see matches what you feel as your tail thickens and stretches out into a long cone shape.  <b>You now have a kangaroo tail!</b>",
@@ -10853,15 +10851,15 @@ export class Mutations extends BaseContent {
             player.tailType = TAIL_TYPE_KANGAROO;
             changes++;
         }
-        //-Roo ears
+        // -Roo ears
         if (player.earType != EARS_KANGAROO && changes < changeLimit && Mutations.rand(4) == 0) {
-            //Bunbun ears get special texts!
+            // Bunbun ears get special texts!
             if (player.earType == EARS_BUNNY)
                 this.outputText(
                     "\n\nYour ears stiffen and shift to the sides!  You reach up and find them pointed outwards instead of up and down; they feel a bit wider now as well.  As you touch them, you can feel them swiveling in place in response to nearby sounds.  <b>You now have a pair of kangaroo ears!</b>",
                     false
                 );
-            //Everybody else?  Yeah lazy.
+            // Everybody else?  Yeah lazy.
             else
                 this.outputText(
                     "\n\nYour ears twist painfully as though being yanked upwards and you clap your hands to your head.  Feeling them out, you discover them growing!  They stretch upwards, reaching past your fingertips, and then the tugging stops.  You cautiously feel along their lengths; they're long and stiff, but pointed outwards now, and they swivel around as you listen.  <b>You now have a pair of kangaroo ears!</b>",
@@ -10870,8 +10868,8 @@ export class Mutations extends BaseContent {
             changes++;
             player.earType = EARS_KANGAROO;
         }
-        //UBEROOOO
-        //kangaroo perk: - any liquid or food intake will accelerate a pregnancy, but it will not progress otherwise
+        // UBEROOOO
+        // kangaroo perk: - any liquid or food intake will accelerate a pregnancy, but it will not progress otherwise
         if (
             player.findPerk(PerkLib.Diapause) < 0 &&
             player.kangaScore() > 4 &&
@@ -10879,14 +10877,14 @@ export class Mutations extends BaseContent {
             changes < changeLimit &&
             player.hasVagina()
         ) {
-            //Perk name and description:
+            // Perk name and description:
             player.createPerk(PerkLib.Diapause, 0, 0, 0, 0);
             this.outputText(
                 "\n\nYour womb rumbles as something inside it changes.\n<b>(You have gained the Diapause perk.  Pregnancies will not progress when fluid intake is scarce, and will progress much faster when it isn't.)",
                 false
             );
             changes++;
-            //trigger effect: Your body reacts to the influx of nutrition, accelerating your pregnancy. Your belly bulges outward slightly.
+            // trigger effect: Your body reacts to the influx of nutrition, accelerating your pregnancy. Your belly bulges outward slightly.
         }
         if (Mutations.rand(4) == 0 && player.gills && changes < changeLimit) {
             this.outputText(
@@ -10905,7 +10903,7 @@ export class Mutations extends BaseContent {
         }
     }
 
-    //[Giant Chocolate Cupcake] – 500 gems
+    // [Giant Chocolate Cupcake] – 500 gems
     public giantChocolateCupcake(player: Player): void {
         this.outputText("", true);
         this.outputText(
@@ -10937,7 +10935,7 @@ export class Mutations extends BaseContent {
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
-        //Consuming Text
+        // Consuming Text
         if (type == 0)
             this.outputText(
                 "You wad up the sweet, pink gossamer and eat it, finding it to be delicious and chewy, almost like gum.  Munching away, your mouth generates an enormous amount of spit until you're drooling all over yourself while you devour the sweet treat.",
@@ -10949,10 +10947,10 @@ export class Mutations extends BaseContent {
                 false
             );
 
-        //*************
-        //Stat Changes
-        //*************
-        //(If speed<70, increases speed)
+        // *************
+        // Stat Changes
+        // *************
+        // (If speed<70, increases speed)
         if (player.spe < 70 && changes < changeLimit && Mutations.rand(3) == 0) {
             this.outputText(
                 "\n\nYour reflexes feel much faster. Experimentally, you make a grab at a fly on a nearby rock and quickly snatch it out of the air.  A compulsion to stuff it in your mouth and eat it surfaces, but you resist the odd desire.  Why would you ever want to do something like that?",
@@ -10961,7 +10959,7 @@ export class Mutations extends BaseContent {
             this.dynStats("spe", 1.5);
             changes++;
         }
-        //(If speed>80, decreases speed down to minimum of 80)
+        // (If speed>80, decreases speed down to minimum of 80)
         if (player.spe > 80 && changes < changeLimit && Mutations.rand(3) == 0) {
             this.outputText(
                 "\n\nYou feel like resting high in the trees and waiting for your unsuspecting prey to wander below so you can take them without having to exert yourself.  What an odd thought!",
@@ -10970,7 +10968,7 @@ export class Mutations extends BaseContent {
             this.dynStats("spe", -1.5);
             changes++;
         }
-        //(increases sensitivity)
+        // (increases sensitivity)
         if (changes < changeLimit && Mutations.rand(3) == 0) {
             this.outputText(
                 "\n\nThe hairs on your arms and legs stand up straight for a few moments, detecting the airflow around you. Touch appears to be more receptive from now on.",
@@ -10979,7 +10977,7 @@ export class Mutations extends BaseContent {
             this.dynStats("sen", 1);
             changes++;
         }
-        //(Increase libido)
+        // (Increase libido)
         if (changes < changeLimit && Mutations.rand(3) == 0) {
             this.outputText(
                 "\n\nYou suddenly feel slightly needier, and your loins stir in quiet reminder that they could be seen to. The aftertaste hangs on your tongue and your teeth.  You wish there had been more.",
@@ -10988,7 +10986,7 @@ export class Mutations extends BaseContent {
             this.dynStats("lib", 1);
             changes++;
         }
-        //(increase toughness to 60)
+        // (increase toughness to 60)
         if (changes < changeLimit && Mutations.rand(3) == 0 && player.tou < 60) {
             this.outputText(
                 "\n\nStretching languidly, you realize you're feeling a little tougher than before, almost as if you had a full-body shell of armor protecting your internal organs.  How strange.  You probe at yourself, and while your " +
@@ -10999,7 +10997,7 @@ export class Mutations extends BaseContent {
             this.dynStats("tou", 1);
             changes++;
         }
-        //(decrease strength to 70)
+        // (decrease strength to 70)
         if (player.str > 70 && Mutations.rand(3) == 0) {
             this.outputText(
                 "\n\nLethargy rolls through you while you burp noisily.  You rub at your muscles and sigh, wondering why you need to be strong when you could just sew up a nice sticky web to catch your enemies.  ",
@@ -11015,10 +11013,10 @@ export class Mutations extends BaseContent {
             this.dynStats("str", -1);
             changes++;
         }
-        //****************
-        //Sexual Changes
-        //****************
-        //Increase venom recharge
+        // ****************
+        // Sexual Changes
+        // ****************
+        // Increase venom recharge
         if (
             player.tailType == TAIL_TYPE_SPIDER_ADBOMEN &&
             player.tailRecharge < 25 &&
@@ -11031,7 +11029,7 @@ export class Mutations extends BaseContent {
             );
             player.tailRecharge += 5;
         }
-        //(tightens vagina to 1, increases lust/libido)
+        // (tightens vagina to 1, increases lust/libido)
         if (player.hasVagina()) {
             if (player.looseness() > 1 && changes < changeLimit && Mutations.rand(3) == 0) {
                 this.outputText(
@@ -11047,7 +11045,7 @@ export class Mutations extends BaseContent {
                 player.vaginas[0].vaginalLooseness--;
             }
         }
-        //(tightens asshole to 1, increases lust)
+        // (tightens asshole to 1, increases lust)
         if (player.ass.analLooseness > 1 && changes < changeLimit && Mutations.rand(3) == 0) {
             this.outputText(
                 "\n\nYou let out a small cry as your " +
@@ -11059,10 +11057,10 @@ export class Mutations extends BaseContent {
             changes++;
             player.ass.analLooseness--;
         }
-        //[Requires penises]
-        //(Thickens all cocks to a ratio of 1\" thickness per 5.5\"
+        // [Requires penises]
+        // (Thickens all cocks to a ratio of 1\" thickness per 5.5\"
         if (player.hasCock() && changes < changeLimit && Mutations.rand(4) == 0) {
-            //Use temp to see if any dicks can be thickened
+            // Use temp to see if any dicks can be thickened
             this.temp = 0;
             counter = 0;
             while (counter < player.cockTotal()) {
@@ -11072,7 +11070,7 @@ export class Mutations extends BaseContent {
                 }
                 counter++;
             }
-            //If something got thickened
+            // If something got thickened
             if (this.temp == 1) {
                 this.outputText(
                     "\n\nYou can feel your " +
@@ -11092,7 +11090,7 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //[Increase to Breast Size] - up to Large DD
+        // [Increase to Breast Size] - up to Large DD
         if (player.smallestTitSize() < 6 && changes < changeLimit && Mutations.rand(4) == 0) {
             this.outputText(
                 "\n\nAfter eating it, your chest aches and tingles, and your hands reach up to scratch at it unthinkingly.  Silently, you hope that you aren't allergic to it.  Just as you start to scratch at your " +
@@ -11103,7 +11101,7 @@ export class Mutations extends BaseContent {
             player.breastRows[player.smallestTitRow()].breastRating++;
             changes++;
         }
-        //[Increase to Ass Size] - to 11
+        // [Increase to Ass Size] - to 11
         if (player.buttRating < 11 && changes < changeLimit && Mutations.rand(4) == 0) {
             this.outputText(
                 "\n\nYou look over your shoulder at your " +
@@ -11114,10 +11112,10 @@ export class Mutations extends BaseContent {
             player.buttRating++;
             changes++;
         }
-        //***************
-        //Appearance Changes
-        //***************
-        //(Ears become pointed if not human)
+        // ***************
+        // Appearance Changes
+        // ***************
+        // (Ears become pointed if not human)
         if (
             player.earType != EARS_HUMAN &&
             player.earType != EARS_ELFIN &&
@@ -11131,7 +11129,7 @@ export class Mutations extends BaseContent {
             player.earType = EARS_ELFIN;
             changes++;
         }
-        //(Fur/Scales fall out)
+        // (Fur/Scales fall out)
         if (
             player.skinType != SKIN_TYPE_PLAIN &&
             (player.earType == EARS_HUMAN || player.earType == EARS_ELFIN) &&
@@ -11156,7 +11154,7 @@ export class Mutations extends BaseContent {
             player.skinDesc = "skin";
             changes++;
         }
-        //(Gain human face)
+        // (Gain human face)
         if (
             player.skinType == SKIN_TYPE_PLAIN &&
             player.faceType != FACE_SPIDER_FANGS &&
@@ -11171,7 +11169,7 @@ export class Mutations extends BaseContent {
             player.faceType = FACE_HUMAN;
             changes++;
         }
-        //-Remove breast rows over 2.
+        // -Remove breast rows over 2.
         if (
             changes < changeLimit &&
             player.bRows() > 2 &&
@@ -11200,7 +11198,7 @@ export class Mutations extends BaseContent {
             this.dynStats("sen", -5);
             player.removeBreastRow(player.breastRows.length - 1, 1);
         }
-        //-Nipples reduction to 1 per tit.
+        // -Nipples reduction to 1 per tit.
         if (
             player.averageNipplesPerBreast() > 1 &&
             changes < changeLimit &&
@@ -11217,12 +11215,12 @@ export class Mutations extends BaseContent {
             if (player.biggestTitSize() < 1) this.outputText("'breast'.", false);
             else this.outputText("breast.", false);
             changes++;
-            //Loop through and reset nipples
+            // Loop through and reset nipples
             for (this.temp = 0; this.temp < player.breastRows.length; this.temp++) {
                 player.breastRows[this.temp].nipplesPerBreast = 1;
             }
         }
-        //Nipples Turn Black:
+        // Nipples Turn Black:
         if (
             player.findStatusAffect(StatusAffects.BlackNipples) < 0 &&
             Mutations.rand(6) == 0 &&
@@ -11234,7 +11232,7 @@ export class Mutations extends BaseContent {
             player.createStatusAffect(StatusAffects.BlackNipples, 0, 0, 0, 0);
             changes++;
         }
-        //eyes!
+        // eyes!
         if (
             player.skinType == SKIN_TYPE_PLAIN &&
             (player.faceType != FACE_SPIDER_FANGS || player.faceType != FACE_HUMAN) &&
@@ -11250,7 +11248,7 @@ export class Mutations extends BaseContent {
             );
             this.dynStats("int", 5);
         }
-        //(Gain spider fangs)
+        // (Gain spider fangs)
         if (
             player.faceType == FACE_HUMAN &&
             player.skinType == SKIN_TYPE_PLAIN &&
@@ -11264,10 +11262,10 @@ export class Mutations extends BaseContent {
             player.faceType = FACE_SPIDER_FANGS;
             changes++;
         }
-        //(Arms to carapace-covered arms)
+        // (Arms to carapace-covered arms)
         if (player.armType != ARM_TYPE_SPIDER && changes < changeLimit && Mutations.rand(4) == 0) {
             this.outputText("\n\n", false);
-            //(Bird pretext)
+            // (Bird pretext)
             if (player.armType == ARM_TYPE_HARPY)
                 this.outputText(
                     "The feathers covering your arms fall away, leaving them to return to a far more human appearance.  ",
@@ -11282,7 +11280,7 @@ export class Mutations extends BaseContent {
             player.armType = ARM_TYPE_SPIDER;
             changes++;
         }
-        //(Centaurs -> Normal Human Legs) (copy from elsewhere)
+        // (Centaurs -> Normal Human Legs) (copy from elsewhere)
         if (player.isTaur() && changes < changeLimit && Mutations.rand(4) == 0) {
             this.outputText(
                 "\n\nYour quadrupedal hind-quarters seizes, overbalancing your surprised front-end and causing you to stagger and fall to your side.  Pain lances throughout, contorting your body into a tightly clenched ball of pain while tendons melt and bones break, melt, and regrow.  When it finally stops, <b>you look down to behold your new pair of human legs</b>!",
@@ -11291,7 +11289,7 @@ export class Mutations extends BaseContent {
             player.lowerBody = LOWER_BODY_TYPE_HUMAN;
             changes++;
         }
-        //(Goo -> Normal Human Legs) (copy from elsewhere)
+        // (Goo -> Normal Human Legs) (copy from elsewhere)
         if (player.isGoo() && changes < changeLimit && Mutations.rand(4) == 0) {
             this.outputText(
                 "\n\nYour lower body rushes inward, molding into two leg-like shapes that gradually stiffen up.  In moments they solidify into normal-looking legs, complete with regular, human feet.  <b>You now have normal feet!</b>",
@@ -11300,7 +11298,7 @@ export class Mutations extends BaseContent {
             player.lowerBody = LOWER_BODY_TYPE_HUMAN;
             changes++;
         }
-        //(Naga -> Normal Human Legs) (copy from elsewhere)
+        // (Naga -> Normal Human Legs) (copy from elsewhere)
         if (player.isNaga() && changes < changeLimit && Mutations.rand(4) == 0) {
             this.outputText(
                 "\n\nYou collapse as your sinuous snake-tail tears in half, shifting into legs.  The pain is immense, particularly where your new feet are forming.  <b>You have human legs again.</b>",
@@ -11309,7 +11307,7 @@ export class Mutations extends BaseContent {
             player.lowerBody = LOWER_BODY_TYPE_HUMAN;
             changes++;
         }
-        //Drider butt
+        // Drider butt
         if (
             type == 1 &&
             player.findPerk(PerkLib.SpiderOvipositor) < 0 &&
@@ -11325,19 +11323,19 @@ export class Mutations extends BaseContent {
             this.outputText(
                 "\n\n(<b>Perk Gained:  Spider Ovipositor - Allows you to lay eggs in your foes!</b>)"
             );
-            //V1 - Egg Count
-            //V2 - Fertilized Count
+            // V1 - Egg Count
+            // V2 - Fertilized Count
             player.createPerk(PerkLib.SpiderOvipositor, 0, 0, 0, 0);
-            //Opens up drider ovipositor scenes from available mobs. The character begins producing unfertilized eggs in their arachnid abdomen. Egg buildup raises minimum lust and eventually lowers speed until the player has gotten rid of them.  This perk may only be used with the drider lower body, so your scenes should reflect that.
-            //Any PC can get an Ovipositor perk, but it will be much rarer for characters without vaginas.
-            //Eggs are unfertilized by default, but can be fertilized:
-            //-female/herm characters can fertilize them by taking in semen; successfully passing a pregnancy check will convert one level ofunfertilized eggs to fertilized, even if the PC is already pregnant.
-            //-male/herm characters will have a sex dream if they reach stage three of unfertilized eggs; this will represent their bee/drider parts drawing their own semen from their body to fertilize the eggs, and is accompanied by a nocturnal emission.
-            //-unsexed characters cannot currently fertilize their eggs.
-            //Even while unfertilized, eggs can be deposited inside NPCs - obviously, unfertilized eggs will never hatch and cannot lead to any egg-birth scenes that may be written later.
+            // Opens up drider ovipositor scenes from available mobs. The character begins producing unfertilized eggs in their arachnid abdomen. Egg buildup raises minimum lust and eventually lowers speed until the player has gotten rid of them.  This perk may only be used with the drider lower body, so your scenes should reflect that.
+            // Any PC can get an Ovipositor perk, but it will be much rarer for characters without vaginas.
+            // Eggs are unfertilized by default, but can be fertilized:
+            // -female/herm characters can fertilize them by taking in semen; successfully passing a pregnancy check will convert one level ofunfertilized eggs to fertilized, even if the PC is already pregnant.
+            // -male/herm characters will have a sex dream if they reach stage three of unfertilized eggs; this will represent their bee/drider parts drawing their own semen from their body to fertilize the eggs, and is accompanied by a nocturnal emission.
+            // -unsexed characters cannot currently fertilize their eggs.
+            // Even while unfertilized, eggs can be deposited inside NPCs - obviously, unfertilized eggs will never hatch and cannot lead to any egg-birth scenes that may be written later.
             changes++;
         }
-        //(Normal Biped Legs -> Carapace-Clad Legs)
+        // (Normal Biped Legs -> Carapace-Clad Legs)
         if (
             ((type == 1 &&
                 player.lowerBody != LOWER_BODY_TYPE_DRIDER_LOWER_BODY &&
@@ -11362,7 +11360,7 @@ export class Mutations extends BaseContent {
             player.lowerBody = LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS;
             changes++;
         }
-        //(Tail becomes spider abdomen GRANT WEB ATTACK)
+        // (Tail becomes spider abdomen GRANT WEB ATTACK)
         if (
             player.tailType != TAIL_TYPE_SPIDER_ADBOMEN &&
             (player.lowerBody == LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS ||
@@ -11371,7 +11369,7 @@ export class Mutations extends BaseContent {
             Mutations.rand(4) == 0
         ) {
             this.outputText("\n\n", false);
-            //(Pre-existing tails)
+            // (Pre-existing tails)
             if (player.tailType > TAIL_TYPE_NONE)
                 this.outputText(
                     "Your tail shudders as heat races through it, twitching violently until it feels almost as if it's on fire.  You jump from the pain at your " +
@@ -11381,7 +11379,7 @@ export class Mutations extends BaseContent {
                         "!</b>\n\n",
                     false
                 );
-            //(No tail)
+            // (No tail)
             else
                 this.outputText(
                     "A burst of pain hits you just above your " +
@@ -11398,7 +11396,7 @@ export class Mutations extends BaseContent {
             player.tailRecharge = 5;
             changes++;
         }
-        //(Drider Item Only: Carapace-Clad Legs to Drider Legs)
+        // (Drider Item Only: Carapace-Clad Legs to Drider Legs)
         if (
             type == 1 &&
             player.lowerBody == LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS &&
@@ -11454,7 +11452,7 @@ export class Mutations extends BaseContent {
 
     public broBrew(player: Player): void {
         this.outputText("", true);
-        //no drink for bimbos!
+        // no drink for bimbos!
         if (player.findPerk(PerkLib.BimboBody) >= 0) {
             this.outputText(
                 "The stuff hits you like a giant cube, nearly staggering you as it begins to settle.",
@@ -11478,7 +11476,7 @@ export class Mutations extends BaseContent {
             }
             this.outputText("\n\n", false);
 
-            //female
+            // female
             if (!player.hasCock()) {
                 this.outputText(
                     "The beverage isn't done yet, however, and it makes it perfectly clear with a building pleasure in your groin.  You can only cry in ecstasy and loosen the bottoms of your " +
@@ -11530,7 +11528,7 @@ export class Mutations extends BaseContent {
             player.genderCheck();
             return;
         }
-        //HP restore for bros!
+        // HP restore for bros!
         if (player.findPerk(PerkLib.BroBody) >= 0 || player.findPerk(PerkLib.FutaForm) >= 0) {
             this.outputText(
                 "You crack open the can and guzzle it in a hurry.  Goddamn, this shit is the best.  As you crush the can against your forehead, you wonder if you can find a six-pack of it somewhere?\n\n",
@@ -11556,7 +11554,7 @@ export class Mutations extends BaseContent {
             );
         this.outputText(".\n\n", false);
 
-        //(Tits b' gone)
+        // (Tits b' gone)
         if (player.biggestTitSize() >= 1) {
             this.outputText(
                 "A tingle starts in your " +
@@ -11609,7 +11607,7 @@ export class Mutations extends BaseContent {
             false
         );
 
-        //(has dick less than 10 inches)
+        // (has dick less than 10 inches)
         if (player.hasCock()) {
             if (player.cocks[0].cockLength < 10) {
                 this.outputText(
@@ -11628,7 +11626,7 @@ export class Mutations extends BaseContent {
                 );
                 player.cocks[0].cockLength = 10;
             }
-            //Dick already big enough! BALL CHECK!
+            // Dick already big enough! BALL CHECK!
             if (player.balls > 0) {
                 this.outputText(
                     "Churning audibly, your " +
@@ -11648,7 +11646,7 @@ export class Mutations extends BaseContent {
             }
             this.outputText("\n\n", false);
         }
-        //(No dick)
+        // (No dick)
         else {
             this.outputText(
                 "You hear a straining, tearing noise before you realize it's coming from your underwear.  Pulling open your " +
@@ -11674,7 +11672,7 @@ export class Mutations extends BaseContent {
                 player.ballSize = 3;
             }
         }
-        //(Pussy b gone)
+        // (Pussy b gone)
         if (player.hasVagina()) {
             this.outputText(
                 "At the same time, your " +
@@ -11685,7 +11683,7 @@ export class Mutations extends BaseContent {
             player.removeVagina(0, 1);
         }
         player.genderCheck();
-        //(below max masculinity)
+        // (below max masculinity)
         if (player.femininity > 0) {
             this.outputText(
                 "Lastly, the change hits your face.  You can feel your jawbones shifting and sliding around, your skin changing to accommodate your face's new shape.  Once it's finished, you feel your impeccable square jaw and give a wide, easy-going grin.  You look awesome!\n\n",
@@ -11699,10 +11697,10 @@ export class Mutations extends BaseContent {
                 " to better fit your new physique.  Maybe there's some bitches around you can fuck.  Hell, as good as you look, you might have other dudes wanting you to fuck them too, no homo.\n\n",
             false
         );
-        //max tone.  Thickness + 50
+        // max tone.  Thickness + 50
         player.modTone(100, 100);
         player.modThickness(100, 50);
-        //Bonus cum production!
+        // Bonus cum production!
         player.createPerk(PerkLib.BroBrains, 0, 0, 0, 0);
         player.createPerk(PerkLib.BroBody, 0, 0, 0, 0);
         this.outputText("<b>(Bro Body - Perk Gained!)\n", false);
@@ -11715,12 +11713,12 @@ export class Mutations extends BaseContent {
         this.dynStats("str", 33, "tou", 33, "int", -1, "lib", 4, "lus", 40);
     }
 
-    //Miscellaneous
-    //ITEM GAINED FROM LUST WINS
-    //bottle of ectoplasm. Regular stat-stuff include higher speed, (reduced libido?), reduced sensitivity, and higher intelligence. First-tier effects include 50/50 chance of sable skin with bone-white veins or ivory skin with onyx veins. Second tier, \"wisp-like legs that flit back and forth between worlds,\" or \"wisp-like legs\" for short. Third tier gives an \"Ephemeral\" perk, makes you (10%, perhaps?) tougher to hit, and gives you a skill that replaces tease/seduce—allowing the PC to possess the creature and force it to masturbate to gain lust. Around the same effectiveness as seduce.
-    //Mouseover script: \"The green-tinted, hardly corporeal substance flows like a liquid inside its container. It makes you feel...uncomfortable, as you observe it.\"
+    // Miscellaneous
+    // ITEM GAINED FROM LUST WINS
+    // bottle of ectoplasm. Regular stat-stuff include higher speed, (reduced libido?), reduced sensitivity, and higher intelligence. First-tier effects include 50/50 chance of sable skin with bone-white veins or ivory skin with onyx veins. Second tier, \"wisp-like legs that flit back and forth between worlds,\" or \"wisp-like legs\" for short. Third tier gives an \"Ephemeral\" perk, makes you (10%, perhaps?) tougher to hit, and gives you a skill that replaces tease/seduce—allowing the PC to possess the creature and force it to masturbate to gain lust. Around the same effectiveness as seduce.
+    // Mouseover script: \"The green-tinted, hardly corporeal substance flows like a liquid inside its container. It makes you feel...uncomfortable, as you observe it.\"
 
-    //Bottle of Ectoplasm Text
+    // Bottle of Ectoplasm Text
     public ectoplasm(player: Player): void {
         this.outputText("", true);
         this.outputText(
@@ -11732,7 +11730,7 @@ export class Mutations extends BaseContent {
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
-        //Effect script 1:  (higher intelligence)
+        // Effect script 1:  (higher intelligence)
         if (player.inte < 100 && Mutations.rand(3) == 0 && changes < changeLimit) {
             this.outputText(
                 "\n\nYou groan softly as your head begins pounding something fierce.  Wincing in pain, you massage your temples as the throbbing continues, and soon, the pain begins to fade; in its place comes a strange sense of sureness and wit.",
@@ -11742,7 +11740,7 @@ export class Mutations extends BaseContent {
             if (player.inte < 50) this.dynStats("int", 1);
             changes++;
         }
-        //Effect script 2:  (lower sensitivity)
+        // Effect script 2:  (lower sensitivity)
         if (player.sens >= 20 && Mutations.rand(3) == 0 && changes < changeLimit) {
             this.outputText(
                 "\n\nWoah, what the... you pinch your " +
@@ -11754,9 +11752,9 @@ export class Mutations extends BaseContent {
             if (player.sens >= 75) this.dynStats("sen", -2);
             changes++;
         }
-        //Effect script 3:  (higher libido)
+        // Effect script 3:  (higher libido)
         if (player.lib < 100 && Mutations.rand(3) == 0 && changes < changeLimit) {
-            //([if libido >49]
+            // ([if libido >49]
             if (player.lib < 50)
                 this.outputText("\n\nIdly, you drop a hand to your crotch as", false);
             else
@@ -11772,7 +11770,7 @@ export class Mutations extends BaseContent {
             if (player.lib < 50) this.dynStats("lib", 1);
             changes++;
         }
-        //Effect script a:  (human wang)
+        // Effect script a:  (human wang)
         if (player.hasCock() && changes < changeLimit) {
             if (Mutations.rand(3) == 0 && player.cocks[0].cockType != CockTypesEnum.HUMAN) {
                 this.outputText(
@@ -11787,8 +11785,8 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //Appearnace Change
-        //Hair
+        // Appearnace Change
+        // Hair
         if (Mutations.rand(4) == 0 && changes < changeLimit && player.hairType != 2) {
             this.outputText(
                 "\n\nA sensation of weightlessness assaults your scalp. You reach up and grab a handful of hair, confused. Your perplexion only heightens when you actually feel the follicles becoming lighter in your grasp, before you can hardly tell you're holding anything.  Plucking a strand, you hold it up before you, surprised to see... it's completely transparent!  You have transparent hair!",
@@ -11797,7 +11795,7 @@ export class Mutations extends BaseContent {
             player.hairType = 2;
             changes++;
         }
-        //Skin
+        // Skin
         if (
             Mutations.rand(4) == 0 &&
             changes < changeLimit &&
@@ -11825,14 +11823,14 @@ export class Mutations extends BaseContent {
             }
             changes++;
         }
-        //Legs
+        // Legs
         if (
             changes < changeLimit &&
             player.findPerk(PerkLib.Incorporeality) < 0 &&
             (player.skinTone == "white" || player.skinTone == "sable") &&
             player.hairType == 2
         ) {
-            //(ghost-legs!  Absolutely no problem with regular encounters, though! [if you somehow got this with a centaur it'd probably do nothing cuz you're not supposed to be a centaur with ectoplasm ya dingus])
+            // (ghost-legs!  Absolutely no problem with regular encounters, though! [if you somehow got this with a centaur it'd probably do nothing cuz you're not supposed to be a centaur with ectoplasm ya dingus])
             this.outputText(
                 "\n\nAn otherworldly sensation begins in your belly, working its way to your " +
                     this.hipDescript() +
@@ -11846,7 +11844,7 @@ export class Mutations extends BaseContent {
             this.outputText("<b>(Gained Perk:  Incorporeality</b>)", false);
             player.createPerk(PerkLib.Incorporeality, 0, 0, 0, 0);
         }
-        //Effect Script 8: 100% chance of healing
+        // Effect Script 8: 100% chance of healing
         if (changes == 0) {
             this.outputText(
                 "You feel strangely refreshed, as if you just gobbled down a bottle of sunshine.  A smile graces your lips as vitality fills you.  ",
@@ -11855,10 +11853,10 @@ export class Mutations extends BaseContent {
             this.HPChange(player.level * 5 + 10, true);
             changes++;
         }
-        //Incorporeality Perk Text:  You seem to have inherited some of the spiritual powers of the residents of the afterlife!  While you wouldn't consider doing it for long due to its instability, you can temporarily become incorporeal for the sake of taking over enemies and giving them a taste of ghostly libido.
+        // Incorporeality Perk Text:  You seem to have inherited some of the spiritual powers of the residents of the afterlife!  While you wouldn't consider doing it for long due to its instability, you can temporarily become incorporeal for the sake of taking over enemies and giving them a taste of ghostly libido.
 
-        //Sample possession text (>79 int, perhaps?):  With a smile and a wink, your form becomes completely intangible, and you waste no time in throwing yourself into your opponent's frame. Before they can regain the initiative, you take control of one of their arms, vigorously masturbating for several seconds before you're finally thrown out. Recorporealizing, you notice your enemy's blush, and know your efforts were somewhat successful.
-        //Failure:  With a smile and a wink, your form becomes completely intangible, and you waste no time in throwing yourself into the opponent's frame. Unfortunately, it seems they were more mentally prepared than you hoped, and you're summarily thrown out of their body before you're even able to have fun with them. Darn, you muse. Gotta get smarter.
+        // Sample possession text (>79 int, perhaps?):  With a smile and a wink, your form becomes completely intangible, and you waste no time in throwing yourself into your opponent's frame. Before they can regain the initiative, you take control of one of their arms, vigorously masturbating for several seconds before you're finally thrown out. Recorporealizing, you notice your enemy's blush, and know your efforts were somewhat successful.
+        // Failure:  With a smile and a wink, your form becomes completely intangible, and you waste no time in throwing yourself into the opponent's frame. Unfortunately, it seems they were more mentally prepared than you hoped, and you're summarily thrown out of their body before you're even able to have fun with them. Darn, you muse. Gotta get smarter.
     }
 
     public isabellaMilk(player: Player): void {
@@ -11868,8 +11866,8 @@ export class Mutations extends BaseContent {
         this.fatigue(-33);
     }
 
-    //TF item - Shriveled Tentacle
-    //tooltip:
+    // TF item - Shriveled Tentacle
+    // tooltip:
     public shriveledTentacle(player: Player): void {
         this.outputText("", true);
         this.outputText(
@@ -11882,8 +11880,8 @@ export class Mutations extends BaseContent {
         if (Mutations.rand(3) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
 
-        //possible use effects:
-        //- toughess up, sensitivity down
+        // possible use effects:
+        // - toughess up, sensitivity down
         if (Mutations.rand(3) == 0 && player.tou < 50 && changes < changeLimit) {
             this.outputText(
                 "\n\nYour skin feels clammy and a little rubbery.  You touch yourself experimentally and notice that you can barely feel the pressure from your fingertips.  Consumed with curiosity, you punch yourself lightly in the arm; the most you feel is a dull throb!",
@@ -11892,7 +11890,7 @@ export class Mutations extends BaseContent {
             this.dynStats("tou", 1, "sen", -1);
             changes++;
         }
-        //- speed down
+        // - speed down
         if (Mutations.rand(3) == 0 && player.spe > 40 && changes < changeLimit) {
             this.outputText(
                 "\n\nA pinprick sensation radiates from your stomach down to your knees, as though your legs were falling asleep.  Wobbling slightly, you stand up and take a few stumbling steps to work the blood back into them.  The sensation fades, but your grace fails to return and you stumble again.  You'll have to be a little more careful moving around for a while.",
@@ -11901,7 +11899,7 @@ export class Mutations extends BaseContent {
             changes++;
             this.dynStats("spe", -1);
         }
-        //- corruption increases by 1 up to low threshold (~20)
+        // - corruption increases by 1 up to low threshold (~20)
         if (Mutations.rand(3) == 0 && player.cor < 20 && changes < changeLimit) {
             this.outputText(
                 "\n\nYou shiver, a sudden feeling of cold rushing through your extremities.",
@@ -11910,11 +11908,11 @@ export class Mutations extends BaseContent {
             changes++;
             this.dynStats("cor", 1);
         }
-        //-always increases lust by a function of sensitivity
-        //"The tingling of the tentacle
+        // -always increases lust by a function of sensitivity
+        // "The tingling of the tentacle
 
-        //physical changes:
-        //- may randomly remove bee abdomen, if present; always checks and does so when any changes to hair might happen
+        // physical changes:
+        // - may randomly remove bee abdomen, if present; always checks and does so when any changes to hair might happen
         if (
             Mutations.rand(4) == 0 &&
             changes < changeLimit &&
@@ -11927,7 +11925,7 @@ export class Mutations extends BaseContent {
             player.tailType = TAIL_TYPE_NONE;
             changes++;
         }
-        //-may randomly remove bee wings:
+        // -may randomly remove bee wings:
         if (
             Mutations.rand(4) == 0 &&
             (player.wingType == WING_TYPE_BEE_LIKE_SMALL ||
@@ -11942,7 +11940,7 @@ export class Mutations extends BaseContent {
             player.wingDesc = "non-existent";
             changes++;
         }
-        //-hair morphs to anemone tentacles, retains color, hair shrinks back to med-short('shaggy') and stops growing, lengthening treatments don't work and goblins won't cut it, but more anemone items can lengthen it one level at a time
+        // -hair morphs to anemone tentacles, retains color, hair shrinks back to med-short('shaggy') and stops growing, lengthening treatments don't work and goblins won't cut it, but more anemone items can lengthen it one level at a time
         if (
             player.gills &&
             player.hairType != 4 &&
@@ -11962,10 +11960,10 @@ export class Mutations extends BaseContent {
             changes++;
             changes++;
             changes++;
-            //(reset hair to 'shaggy', add tentacle hair status, stop hair growth)
-            //appearance screen: replace 'hair' with 'tentacle-hair'
+            // (reset hair to 'shaggy', add tentacle hair status, stop hair growth)
+            // appearance screen: replace 'hair' with 'tentacle-hair'
         }
-        //-feathery gills sprout from chest and drape sensually over nipples (cumulative swimming power boost with fin, if swimming is implemented)
+        // -feathery gills sprout from chest and drape sensually over nipples (cumulative swimming power boost with fin, if swimming is implemented)
         if (
             Mutations.rand(5) == 0 &&
             !player.gills &&
@@ -11981,7 +11979,7 @@ export class Mutations extends BaseContent {
             player.gills = true;
             changes++;
         }
-        //-[aphotic] skin tone (blue-black)
+        // -[aphotic] skin tone (blue-black)
         if (
             Mutations.rand(5) == 0 &&
             changes < changeLimit &&
@@ -11994,7 +11992,7 @@ export class Mutations extends BaseContent {
             player.skinTone = "aphotic blue-black";
             changes++;
         }
-        //-eat more, grow more 'hair':
+        // -eat more, grow more 'hair':
         if (
             player.hairType == 4 &&
             player.hairLength < 36 &&
@@ -12009,17 +12007,17 @@ export class Mutations extends BaseContent {
                     " inches longer!</b>",
                 false
             );
-            //(add one level of hairlength)
+            // (add one level of hairlength)
             changes++;
         }
     }
 
-    //ITEMS START
+    // ITEMS START
 
-    //Numb Rocks
+    // Numb Rocks
     public numbRocks(player: Player): void {
         this.outputText("", true);
-        //Numb rocks lower lust significantly but have a chance of inducing the masturbation preventing effect from minotaur.
+        // Numb rocks lower lust significantly but have a chance of inducing the masturbation preventing effect from minotaur.
         this.outputText(
             "You pop open the package of numb rocks and dump it into your waiting mouth.  The strange candy fizzes and pops, leaving the nerves on your tongue feeling a bit deadened as you swallow the sweet mess.",
             false
@@ -12091,7 +12089,7 @@ export class Mutations extends BaseContent {
         if (player.sens < 1) player.sens = 1;
     }
 
-    //2. Sensitivity Draft
+    // 2. Sensitivity Draft
     public sensitivityDraft(player: Player): void {
         this.outputText("", true);
         this.outputText(
@@ -12114,7 +12112,7 @@ export class Mutations extends BaseContent {
             if (player.hasVagina()) this.outputText("your", false);
             else this.outputText("a woman's", false);
             this.outputText(" lower lips.  You'll have to be careful not to lick them!", false);
-            //(Lustytongue status)
+            // (Lustytongue status)
             player.createStatusAffect(StatusAffects.LustyTongue, 25, 0, 0, 0);
         }
         this.outputText(
@@ -12151,7 +12149,7 @@ export class Mutations extends BaseContent {
         if (enhanced) changeLimit += 2;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(2) == 0) changeLimit++;
-        //Used for dick and boob TFs
+        // Used for dick and boob TFs
         var counter: number = 0;
 
         if (
@@ -12193,7 +12191,7 @@ export class Mutations extends BaseContent {
                 return;
             }
         }
-        //[increase Intelligence, Libido and Sensitivity]
+        // [increase Intelligence, Libido and Sensitivity]
         if (
             changes < changeLimit &&
             Mutations.rand(3) == 0 &&
@@ -12205,11 +12203,11 @@ export class Mutations extends BaseContent {
             if (player.inte < 80) this.dynStats("int", 4);
             if (player.lib < 80) this.dynStats("lib", 1);
             if (player.sens < 80) this.dynStats("sen", 1);
-            //gain small lust also
+            // gain small lust also
             this.dynStats("lus", 10);
             changes++;
         }
-        //[decrease Strength] (to some floor) // I figured 15 was fair, but you're in a better position to judge that than I am.
+        // [decrease Strength] (to some floor) // I figured 15 was fair, but you're in a better position to judge that than I am.
         if (changes < changeLimit && Mutations.rand(3) == 0 && player.str > 40) {
             this.outputText(
                 "\n\nYou can feel your muscles softening as they slowly relax, becoming a tad weaker than before.  Who needs physical strength when you can outwit your foes with trickery and mischief?  You tilt your head a bit, wondering where that thought came from."
@@ -12220,7 +12218,7 @@ export class Mutations extends BaseContent {
             if (player.str > 90) this.dynStats("str", -1);
             changes++;
         }
-        //[decrease Toughness] (to some floor) // 20 or so was my thought here
+        // [decrease Toughness] (to some floor) // 20 or so was my thought here
         if (changes < changeLimit && Mutations.rand(3) == 0 && player.tou > 30) {
             if (player.tou < 60)
                 this.outputText(
@@ -12237,7 +12235,7 @@ export class Mutations extends BaseContent {
             changes++;
         }
 
-        //[Change Hair Color: Golden-blonde or Reddish-orange]
+        // [Change Hair Color: Golden-blonde or Reddish-orange]
         if (
             player.hairColor != "golden-blonde" &&
             player.hairColor != "reddish-orange" &&
@@ -12260,9 +12258,9 @@ export class Mutations extends BaseContent {
                     "!"
             );
         }
-        //[Adjust hips toward 10 – wide/curvy/flared]
+        // [Adjust hips toward 10 – wide/curvy/flared]
         if (changes < changeLimit && Mutations.rand(3) == 0 && player.hipRating != 10) {
-            //from narrow to wide
+            // from narrow to wide
             if (player.hipRating < 10) {
                 this.outputText(
                     "\n\nYou stumble a bit as the bones in your pelvis rearrange themselves painfully.  Your waistline has widened into [hips]!"
@@ -12270,7 +12268,7 @@ export class Mutations extends BaseContent {
                 player.hipRating++;
                 if (player.hipRating < 7) player.hipRating++;
             }
-            //from wide to narrower
+            // from wide to narrower
             else {
                 this.outputText(
                     "\n\nYou stumble a bit as the bones in your pelvis rearrange themselves painfully.  Your waistline has narrowed, becoming [hips]."
@@ -12280,17 +12278,17 @@ export class Mutations extends BaseContent {
             }
             changes++;
         }
-        //[Remove tentacle hair]
-        //required if the hair length change below is triggered
+        // [Remove tentacle hair]
+        // required if the hair length change below is triggered
         if (changes < changeLimit && player.hairType == 4 && Mutations.rand(3) == 0) {
-            //-insert anemone hair removal into them under whatever criteria you like, though hair removal should precede abdomen growth; here's some sample text:
+            // -insert anemone hair removal into them under whatever criteria you like, though hair removal should precede abdomen growth; here's some sample text:
             this.outputText(
                 "\n\nEerie flames of the jewel migrate up your body to your head, where they cover your [hair].  Though they burned nowhere else in their lazy orbit, your head begins to heat up as they congregate.  Fearful, you raise your hands to it just as the temperature peaks, but as you touch your hair, the searing heat is suddenly gone - along with your tentacles!  <b>Your hair is normal again!</b>"
             );
             player.hairType = 0;
             changes++;
         }
-        //[Adjust hair length toward range of 16-26 – very long to ass-length]
+        // [Adjust hair length toward range of 16-26 – very long to ass-length]
         if (
             player.hairType != 4 &&
             (player.hairLength > 26 || player.hairLength < 16) &&
@@ -12328,7 +12326,7 @@ export class Mutations extends BaseContent {
             this.fatigue(-10);
         }
 
-        //dog cocks!
+        // dog cocks!
         if (
             changes < changeLimit &&
             Mutations.rand(3) == 0 &&
@@ -12338,7 +12336,7 @@ export class Mutations extends BaseContent {
             counter = player.cockTotal();
             while (counter > 0) {
                 counter--;
-                //Add non-dog locations to the array
+                // Add non-dog locations to the array
                 if (player.cocks[counter].cockType != CockTypesEnum.DOG)
                     choices[choices.length] = counter;
             }
@@ -12358,7 +12356,7 @@ export class Mutations extends BaseContent {
                     player.cocks[select].cockThickness += 0.3;
                     this.dynStats("sen", 10, "lus", 5);
                 }
-                //Horse
+                // Horse
                 else if (player.cocks[select].cockType == CockTypesEnum.HORSE) {
                     this.outputText(
                         "\n\nYour " +
@@ -12366,14 +12364,14 @@ export class Mutations extends BaseContent {
                             " shrinks, the extra equine length seeming to shift into girth.  The flared tip vanishes into a more pointed form, a thick knotted bulge forming just above your sheath.  <b>You now have a dog-cock.</b>",
                         false
                     );
-                    //Tweak length/thickness.
+                    // Tweak length/thickness.
                     if (player.cocks[select].cockLength > 6) player.cocks[select].cockLength -= 2;
                     else player.cocks[select].cockLength -= 0.5;
                     player.cocks[select].cockThickness += 0.5;
 
                     this.dynStats("sen", 4, "lus", 5);
                 }
-                //Tentacular Tuesday!
+                // Tentacular Tuesday!
                 else if (player.cocks[select].cockType == CockTypesEnum.TENTACLE) {
                     this.outputText(
                         "\n\nYour " +
@@ -12383,7 +12381,7 @@ export class Mutations extends BaseContent {
                     );
                     this.dynStats("sen", 4, "lus", 10);
                 }
-                //Misc
+                // Misc
                 else {
                     this.outputText(
                         "\n\nYour " +
@@ -12398,7 +12396,7 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //Cum Multiplier Xform
+        // Cum Multiplier Xform
         if (
             player.cumQ() < 5000 &&
             Mutations.rand(3) == 0 &&
@@ -12406,10 +12404,10 @@ export class Mutations extends BaseContent {
             player.hasCock()
         ) {
             this.temp = 2 + Mutations.rand(4);
-            //Lots of cum raises cum multiplier cap to 2 instead of 1.5
+            // Lots of cum raises cum multiplier cap to 2 instead of 1.5
             if (player.findPerk(PerkLib.MessyOrgasms) >= 0) this.temp += Mutations.rand(10);
             player.cumMultiplier += this.temp;
-            //Flavor text
+            // Flavor text
             if (player.balls == 0)
                 this.outputText(
                     "\n\nYou feel a churning inside your gut as something inside you changes.",
@@ -12449,7 +12447,7 @@ export class Mutations extends BaseContent {
             changes++;
             this.outputText("  You now have a [balls].");
         }
-        //Sprouting more!
+        // Sprouting more!
         if (
             changes < changeLimit &&
             enhanced &&
@@ -12496,12 +12494,12 @@ export class Mutations extends BaseContent {
             this.dynStats("sen", 2, "lus", 30);
             changes++;
         }
-        //Find out if tits are eligible for evening
+        // Find out if tits are eligible for evening
         var tits: boolean = false;
         counter = player.bRows();
         while (counter > 1) {
             counter--;
-            //If the row above is 1 size above, can be grown!
+            // If the row above is 1 size above, can be grown!
             if (
                 player.breastRows[counter].breastRating <=
                     player.breastRows[counter - 1].breastRating - 1 &&
@@ -12544,13 +12542,13 @@ export class Mutations extends BaseContent {
                         );
                     }
                 }
-                //Bigger change!
+                // Bigger change!
                 if (
                     player.breastRows[counter].breastRating <=
                     player.breastRows[counter - 1].breastRating - 3
                 )
                     player.breastRows[counter].breastRating += 2 + Mutations.rand(2);
-                //Smallish change.
+                // Smallish change.
                 else player.breastRows[counter].breastRating++;
                 this.outputText(
                     "  You do a quick measurement and determine that your " +
@@ -12567,7 +12565,7 @@ export class Mutations extends BaseContent {
                 this.dynStats("sen", 2, "lus", 10);
             }
         }
-        //HEAT!
+        // HEAT!
         if (
             player.statusAffectv2(StatusAffects.Heat) < 30 &&
             Mutations.rand(6) == 0 &&
@@ -12577,20 +12575,20 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //[Grow Fur]
-        //FOURTH
+        // [Grow Fur]
+        // FOURTH
         if (
             (enhanced || player.lowerBody == LOWER_BODY_TYPE_FOX) &&
             player.skinType != SKIN_TYPE_FUR &&
             changes < changeLimit &&
             Mutations.rand(4) == 0
         ) {
-            //from scales
+            // from scales
             if (player.skinType == SKIN_TYPE_SCALES)
                 this.outputText(
                     "\n\nYour skin shifts and every scale stands on end, sending you into a mild panic.  No matter how you tense, you can't seem to flatten them again.  The uncomfortable sensation continues for some minutes until, as one, every scale falls from your body and a fine coat of fur pushes out.  You briefly consider collecting them, but when you pick one up, it's already as dry and brittle as if it were hundreds of years old.  <b>Oh well; at least you won't need to sun yourself as much with your new fur.</b>"
                 );
-            //from skin
+            // from skin
             else
                 this.outputText(
                     "\n\nYour skin itches all over, the sudden intensity and uniformity making you too paranoid to scratch.  As you hold still through an agony of tiny tingles and pinches, fine, luxuriant fur sprouts from every bare inch of your skin!  <b>You'll have to get used to being furry...</b>"
@@ -12600,25 +12598,25 @@ export class Mutations extends BaseContent {
             player.skinDesc = "fur";
             changes++;
         }
-        //[Grow Fox Legs]
-        //THIRD
+        // [Grow Fox Legs]
+        // THIRD
         if (
             (enhanced || player.earType == EARS_FOX) &&
             player.lowerBody != LOWER_BODY_TYPE_FOX &&
             changes < changeLimit &&
             Mutations.rand(5) == 0
         ) {
-            //4 legs good, 2 legs better
+            // 4 legs good, 2 legs better
             if (player.isTaur())
                 this.outputText(
                     "\n\nYou shiver as the strength drains from your back legs.  Shaken, you sit on your haunches, forelegs braced wide to stop you from tipping over;  their hooves scrape the dirt as your lower body shrinks, dragging them backward until you can feel the upper surfaces of your hindlegs with their undersides.  A wave of nausea and vertigo overtakes you, and you close your eyes to shut out the sensations.  When they reopen, what greets them are not four legs, but only two... and those roughly in the shape of your old hindleg, except for the furry toes where your hooves used to be.  <b>You now have fox legs!</b>"
                 );
-            //n*ga please
+            // n*ga please
             else if (player.isNaga())
                 this.outputText(
                     "\n\nYour scales split at the waistline and begin to peel, shedding like old snakeskin.  If that weren't curious enough, the flesh - not scales - underneath is pink and new, and the legs it covers crooked into the hocks and elongated feet of a field animal.  As the scaly coating falls and you step out of it, walking of necessity on your toes, a fine powder blows from the dry skin.  Within minutes, it crumbles completely and is taken by the ever-moving wind.  <b>Your legs are now those of a fox!</b>"
                 );
-            //other digitigrade
+            // other digitigrade
             else if (
                 player.lowerBody == LOWER_BODY_TYPE_HOOFED ||
                 player.lowerBody == LOWER_BODY_TYPE_DOG ||
@@ -12629,17 +12627,17 @@ export class Mutations extends BaseContent {
                 this.outputText(
                     "\n\nYour legs twitch and quiver, forcing you to your seat.  As you watch, the ends shape themselves into furry, padded toes.  <b>You now have fox feet!</b>  Rather cute ones, actually."
                 );
-            //red drider bb gone
+            // red drider bb gone
             else if (player.lowerBody == LOWER_BODY_TYPE_DRIDER_LOWER_BODY)
                 this.outputText(
                     "\n\nYour legs buckle under you and you fall, smashing your abdomen on the ground.  Though your control deserts and you cannot see behind you, still you feel the disgusting sensation of chitin loosening and sloughing off your body, and the dry breeze on your exposed nerves.  Reflexively, your legs cling together to protect as much of their now-sensitive surface as possible.  When you try to part them, you find you cannot.  Several minutes pass uncomforably until you can again bend your legs, and when you do, you find that all the legs of a side bend together - <b>in the shape of a fox's leg!</b>"
                 );
-            //goo home and goo to bed
+            // goo home and goo to bed
             else if (player.isGoo())
                 this.outputText(
                     "\n\nIt takes a while before you notice that your gooey mounds have something more defined in them.  As you crane your body and shift them around to look, you can just make out a semi-solid mass in the shape of a crooked, animalistic leg.  You don't think much of it until, a few minutes later, you step right out of your swishing gooey undercarriage and onto the new foot.  The goo covering it quickly dries up, as does the part you left behind, <b>revealing a pair of dog-like fox legs!</b>"
                 );
-            //reg legs, not digitigrade
+            // reg legs, not digitigrade
             else {
                 this.outputText(
                     "\n\nYour hamstrings tense painfully and begin to pull, sending you onto your face.  As you writhe on the ground, you can feel your thighs shortening and your feet stretching"
@@ -12653,15 +12651,15 @@ export class Mutations extends BaseContent {
             player.lowerBody = LOWER_BODY_TYPE_FOX;
             changes++;
         }
-        //Grow Fox Ears]
-        //SECOND
+        // Grow Fox Ears]
+        // SECOND
         if (
             (enhanced || player.tailType == TAIL_TYPE_FOX) &&
             player.earType != EARS_FOX &&
             changes < changeLimit &&
             Mutations.rand(4) == 0
         ) {
-            //from human/gob/liz ears
+            // from human/gob/liz ears
             if (
                 player.earType == EARS_HUMAN ||
                 player.earType == EARS_ELFIN ||
@@ -12671,7 +12669,7 @@ export class Mutations extends BaseContent {
                     "\n\nThe sides of your face painfully stretch as your ears elongate and begin to push past your hairline, toward the top of your head.  They elongate, becoming large vulpine triangles covered in bushy fur.  <b>You now have fox ears.</b>"
                 );
             }
-            //from dog/cat/roo ears
+            // from dog/cat/roo ears
             else {
                 this.outputText(
                     "\n\nYour ears change, shifting from their current shape to become vulpine in nature.  <b>You now have fox ears.</b>"
@@ -12680,15 +12678,15 @@ export class Mutations extends BaseContent {
             player.earType = EARS_FOX;
             changes++;
         }
-        //[Grow Fox Tail](fairly common)
-        //FIRST
+        // [Grow Fox Tail](fairly common)
+        // FIRST
         if (player.tailType != TAIL_TYPE_FOX && changes < changeLimit && Mutations.rand(4) == 0) {
-            //from no tail
+            // from no tail
             if (player.tailType == TAIL_TYPE_NONE)
                 this.outputText(
                     "\n\nA pressure builds on your backside.  You feel under your [armor] and discover a strange nodule growing there that seems to be getting larger by the second.  With a sudden flourish of movement, it bursts out into a long and bushy tail that sways hypnotically, as if it had a mind of its own.  <b>You now have a fox's tail!</b>"
                 );
-            //from another type of tail
+            // from another type of tail
             else
                 this.outputText(
                     "\n\nPain lances through your lower back as your tail shifts violently.  With one final aberrant twitch, it fluffs out into a long, bushy fox tail that whips around in an almost hypnotic fashion.  <b>You now have a fox's tail!</b>"
@@ -12697,9 +12695,9 @@ export class Mutations extends BaseContent {
             player.tailVenom = 1;
             changes++;
         }
-        //[Grow Fox Face]
-        //LAST - muzzlygoodness
-        //should work from any face, including other muzzles
+        // [Grow Fox Face]
+        // LAST - muzzlygoodness
+        // should work from any face, including other muzzles
         if (
             player.skinType == SKIN_TYPE_FUR &&
             player.faceType != FACE_FOX &&
@@ -12719,7 +12717,7 @@ export class Mutations extends BaseContent {
             );
             player.tone -= 4;
         }
-        //Nipples Turn Back:
+        // Nipples Turn Back:
         if (
             player.findStatusAffect(StatusAffects.BlackNipples) >= 0 &&
             changes < changeLimit &&
@@ -12733,7 +12731,7 @@ export class Mutations extends BaseContent {
             changes++;
             player.removeStatusAffect(StatusAffects.BlackNipples);
         }
-        //Debugcunt
+        // Debugcunt
         if (
             changes < changeLimit &&
             Mutations.rand(3) == 0 &&
@@ -12758,10 +12756,10 @@ export class Mutations extends BaseContent {
             "You take a hearty swig of mead, savoring the honeyed taste on your tongue.  Emboldened by the first drink, you chug the remainder of the horn's contents in no time flat.  You wipe your lips, satisfied, and let off a small belch as you toss the empty horn aside."
         );
 
-        //Libido: No desc., always increases.
-        //Corruption: No desc., always decreases.
+        // Libido: No desc., always increases.
+        // Corruption: No desc., always decreases.
         this.dynStats("lib", 1, "cor", -1);
-        //Health/HP(Large increase; always occurs):
+        // Health/HP(Large increase; always occurs):
         this.outputText(
             "\n\nYou feel suddenly invigorated by the potent beverage, like you could take on a whole horde of barbarians or giants and come out victorious!"
         );
@@ -12776,16 +12774,16 @@ export class Mutations extends BaseContent {
                 );
             this.dynStats("str", 1);
         }
-        //Tough:
+        // Tough:
         else {
             this.outputText(
                 "\n\nYou thump your chest and grin - your foes will have a harder time taking you down while you're fortified by liquid courage."
             );
             this.dynStats("tou", 1);
         }
-        //Grow Beard [ONLY if PC has a masculine face & a dick.)( -- Why? Bearded ladies are also a fetish [That's just nasty.] (I want a lady beard)): A sudden tingling runs along your chin. You rub it with your hand, and find a thin layer of bristles covering your lower face. You now sport a fine [player.HairColor] beard!
-        //[If player already has beard] A sudden tingling runs along your chin. You stroke your beard proudly as it slowly grows in length and lustre.
-        //Grow hair: Your scalp is beset by pins and needles as your hair grows out, stopping after it reaches [medium/long] length.}
+        // Grow Beard [ONLY if PC has a masculine face & a dick.)( -- Why? Bearded ladies are also a fetish [That's just nasty.] (I want a lady beard)): A sudden tingling runs along your chin. You rub it with your hand, and find a thin layer of bristles covering your lower face. You now sport a fine [player.HairColor] beard!
+        // [If player already has beard] A sudden tingling runs along your chin. You stroke your beard proudly as it slowly grows in length and lustre.
+        // Grow hair: Your scalp is beset by pins and needles as your hair grows out, stopping after it reaches [medium/long] length.}
     }
 
     public proMead(player: Player): void {
@@ -12794,10 +12792,10 @@ export class Mutations extends BaseContent {
             "You take a hearty swig of mead, savoring the honeyed taste on your tongue.  Emboldened by the first drink, you chug the remainder of the horn's contents in no time flat.  You wipe your lips, satisfied, and let off a small belch as you toss the empty horn aside."
         );
 
-        //Libido: No desc., always increases.
-        //Corruption: No desc., always decreases.
+        // Libido: No desc., always increases.
+        // Corruption: No desc., always decreases.
         this.dynStats("lib", 1, "cor", -1);
-        //Health/HP(Large increase; always occurs):
+        // Health/HP(Large increase; always occurs):
         this.outputText(
             "\n\nYou feel suddenly invigorated by the potent beverage, like you could take on a whole horde of barbarians or giants and come out victorious!"
         );
@@ -12813,16 +12811,16 @@ export class Mutations extends BaseContent {
                 );
             this.dynStats("str", 1);
         }
-        //Tough:
+        // Tough:
         else {
             this.outputText(
                 "\n\nYou thump your chest and grin - your foes will have a harder time taking you down while you're fortified by liquid courage."
             );
             this.dynStats("tou", 1);
         }
-        //Grow Beard [ONLY if PC has a masculine face & a dick.)( -- Why? Bearded ladies are also a fetish [That's just nasty.] (I want a lady beard)): A sudden tingling runs along your chin. You rub it with your hand, and find a thin layer of bristles covering your lower face. You now sport a fine [player.HairColor] beard!
-        //[If player already has beard] A sudden tingling runs along your chin. You stroke your beard proudly as it slowly grows in length and lustre.
-        //Grow hair: Your scalp is beset by pins and needles as your hair grows out, stopping after it reaches [medium/long] length.}
+        // Grow Beard [ONLY if PC has a masculine face & a dick.)( -- Why? Bearded ladies are also a fetish [That's just nasty.] (I want a lady beard)): A sudden tingling runs along your chin. You rub it with your hand, and find a thin layer of bristles covering your lower face. You now sport a fine [player.HairColor] beard!
+        // [If player already has beard] A sudden tingling runs along your chin. You stroke your beard proudly as it slowly grows in length and lustre.
+        // Grow hair: Your scalp is beset by pins and needles as your hair grows out, stopping after it reaches [medium/long] length.}
     }
 
     public sheepMilk(player: Player): void {
@@ -12830,18 +12828,18 @@ export class Mutations extends BaseContent {
             "You gulp the bottle's contents, and its sweet taste immediately invigorates you, making you feel calm and concentrated",
             true
         );
-        //-30 fatigue, -2 libido, -10 lust]
+        // -30 fatigue, -2 libido, -10 lust]
         this.fatigue(-30);
         this.dynStats("lib", -0.25, "lus", -10, "cor", -0.5);
     }
 
-    //Item: Dragon Egg (Z) (FEN CODED TO HERE - OR AT LEAST COPIED INTO THE CODE FOR FUTURE CODING)
-    //Itemdescription - "A large, solid egg, easily the size of your clenched fist.  Its shell color is reddish-white, with blue splotches."
+    // Item: Dragon Egg (Z) (FEN CODED TO HERE - OR AT LEAST COPIED INTO THE CODE FOR FUTURE CODING)
+    // Itemdescription - "A large, solid egg, easily the size of your clenched fist.  Its shell color is reddish-white, with blue splotches."
 
     public eatEmberEgg(player: Player): void {
         this.clearOutput();
-        //Effect:
-        //Boosts the special effect of Dragonbreath by 20% for 1 use. ie: if Tainted's breath weapon has a 80% chance to stun on hit, +20% equals 100% chance to stun.
+        // Effect:
+        // Boosts the special effect of Dragonbreath by 20% for 1 use. ie: if Tainted's breath weapon has a 80% chance to stun on hit, +20% equals 100% chance to stun.
         this.outputText(
             "You crack the shell easily and swallow the large yolk and the copious amounts of albumen - the yolk is blue, while the rest is crimson-tinted.  It tastes like... well, it tastes mostly of spiced mint, you think."
         );
@@ -12852,7 +12850,7 @@ export class Mutations extends BaseContent {
                 if (player.findStatusAffect(StatusAffects.DragonBreathBoost) < 0)
                     player.createStatusAffect(StatusAffects.DragonBreathBoost, 0, 0, 0, 0);
             }
-            //(if PC has breath weapon)
+            // (if PC has breath weapon)
             this.outputText(
                 "\n\nA sudden surge of energy fills your being and you feel like you could blast anything to atoms with a single breath, like the mighty dragons of legends."
             );
@@ -12860,11 +12858,11 @@ export class Mutations extends BaseContent {
         this.fatigue(-20);
     }
 
-    //Inventory Description:
-    //9999A shining teardrop-shaped jewel.  An eerie blue flame dances beneath the surface.
-    //Fox Jewel (Magatama)
+    // Inventory Description:
+    // 9999A shining teardrop-shaped jewel.  An eerie blue flame dances beneath the surface.
+    // Fox Jewel (Magatama)
 
-    //Consume:
+    // Consume:
     public foxJewel(mystic: boolean, player: Player): void {
         this.clearOutput();
         var changes: number = 0;
@@ -12882,10 +12880,10 @@ export class Mutations extends BaseContent {
                 "You examine the jewel for a bit, rolling it around in your hand as you ponder its mysteries.  You hold it up to the light with fascinated curiosity, watching the eerie blue flame dancing within.  Without warning, the gem splits down the center, dissolving into nothing in your hand.  As the pale azure flames swirl around you, the air is filled with a sweet scent that drips with the aroma of wintergreen, sending chills down your spine."
             );
 
-        //**********************
-        //BASIC STATS
-        //**********************
-        //[increase Intelligence, Libido and Sensitivity]
+        // **********************
+        // BASIC STATS
+        // **********************
+        // [increase Intelligence, Libido and Sensitivity]
         if (
             player.inte < 100 &&
             changes < changeLimit &&
@@ -12894,11 +12892,11 @@ export class Mutations extends BaseContent {
             this.outputText(
                 "\n\nYou close your eyes, smirking to yourself mischievously as you suddenly think of several new tricks to try on your opponents; you feel quite a bit more cunning.  The mental image of them helpless before your cleverness makes you shudder a bit, and you lick your lips and stroke yourself as you feel your skin tingling from an involuntary arousal."
             );
-            //Raise INT, Lib, Sens. and +10 LUST
+            // Raise INT, Lib, Sens. and +10 LUST
             this.dynStats("int", 2, "lib", 1, "sen", 2, "lus", 10);
             changes++;
         }
-        //[decrease Strength toward 15]
+        // [decrease Strength toward 15]
         if (
             player.str > 15 &&
             changes < changeLimit &&
@@ -12913,13 +12911,13 @@ export class Mutations extends BaseContent {
             if (player.str > 30) this.dynStats("str", -1);
             changes++;
         }
-        //[decrease Toughness toward 20]
+        // [decrease Toughness toward 20]
         if (
             player.tou > 20 &&
             changes < changeLimit &&
             ((mystic && Mutations.rand(2) == 0) || (!mystic && Mutations.rand(3) == 0))
         ) {
-            //from 66 or less toughness
+            // from 66 or less toughness
             if (player.tou <= 66)
                 this.outputText(
                     "\n\nYou feel your " +
@@ -12928,7 +12926,7 @@ export class Mutations extends BaseContent {
                         player.skinFurScales() +
                         " won't offer you much protection."
                 );
-            //from 66 or greater toughness
+            // from 66 or greater toughness
             else
                 this.outputText(
                     "\n\nYou feel your " +
@@ -12955,14 +12953,14 @@ export class Mutations extends BaseContent {
             this.dynStats("cor", 1);
         }
 
-        //**********************
-        //MEDIUM/SEXUAL CHANGES
-        //**********************
-        //[adjust Femininity toward 50]
-        //from low to high
-        //Your facial features soften as your body becomes more androgynous.
-        //from high to low
-        //Your facial features harden as your body becomes more androgynous.
+        // **********************
+        // MEDIUM/SEXUAL CHANGES
+        // **********************
+        // [adjust Femininity toward 50]
+        // from low to high
+        // Your facial features soften as your body becomes more androgynous.
+        // from high to low
+        // Your facial features harden as your body becomes more androgynous.
         if (
             ((mystic && Mutations.rand(2) == 0) || (!mystic && Mutations.rand(4) == 0)) &&
             changes < changeLimit &&
@@ -12971,7 +12969,7 @@ export class Mutations extends BaseContent {
             this.outputText(player.modFem(50, 2), false);
             changes++;
         }
-        //[decrease muscle tone toward 40]
+        // [decrease muscle tone toward 40]
         if (
             player.tone >= 40 &&
             changes < changeLimit &&
@@ -12984,8 +12982,8 @@ export class Mutations extends BaseContent {
             changes++;
         }
 
-        //[Adjust hips toward 10 – wide/curvy/flared]
-        //from narrow to wide
+        // [Adjust hips toward 10 – wide/curvy/flared]
+        // from narrow to wide
         if (
             player.hipRating < 10 &&
             ((mystic && Mutations.rand(2) == 0) || (!mystic && Mutations.rand(3) == 0)) &&
@@ -12999,7 +12997,7 @@ export class Mutations extends BaseContent {
             );
             changes++;
         }
-        //from wide to narrower
+        // from wide to narrower
         if (
             player.hipRating > 10 &&
             ((mystic && Mutations.rand(2) == 0) || (!mystic && Mutations.rand(3) == 0)) &&
@@ -13015,13 +13013,13 @@ export class Mutations extends BaseContent {
             changes++;
         }
 
-        //[Adjust hair length toward range of 16-26 – very long to ass-length]
+        // [Adjust hair length toward range of 16-26 – very long to ass-length]
         if (
             (player.hairLength < 16 || player.hairLength > 26) &&
             ((mystic && Mutations.rand(2) == 0) || (!mystic && Mutations.rand(3) == 0)) &&
             changes < changeLimit
         ) {
-            //from short to long
+            // from short to long
             if (player.hairLength < 16) {
                 player.hairLength += 3 + Mutations.rand(3);
                 this.outputText(
@@ -13030,7 +13028,7 @@ export class Mutations extends BaseContent {
                         "."
                 );
             }
-            //from long to short
+            // from long to short
             else {
                 player.hairLength -= 3 + Mutations.rand(3);
                 this.outputText(
@@ -13041,7 +13039,7 @@ export class Mutations extends BaseContent {
             }
             changes++;
         }
-        //[Increase Vaginal Capacity] - requires vagina, of course
+        // [Increase Vaginal Capacity] - requires vagina, of course
         if (
             player.hasVagina() &&
             ((mystic && Mutations.rand(2) == 0) || (!mystic && Mutations.rand(3) == 0)) &&
@@ -13059,7 +13057,7 @@ export class Mutations extends BaseContent {
             player.addStatusValue(StatusAffects.BonusVCapacity, 1, 5 + Mutations.rand(10));
             changes++;
         }
-        //[Vag of Holding] - rare effect, only if PC has high vaginal looseness
+        // [Vag of Holding] - rare effect, only if PC has high vaginal looseness
         else if (
             player.hasVagina() &&
             (mystic || (!mystic && Mutations.rand(5) == 0)) &&
@@ -13082,16 +13080,16 @@ export class Mutations extends BaseContent {
             changes++;
         }
 
-        //**********************
-        //BIG APPEARANCE CHANGES
-        //**********************
-        //[Grow Fox Tail]
+        // **********************
+        // BIG APPEARANCE CHANGES
+        // **********************
+        // [Grow Fox Tail]
         if (
             player.tailType != TAIL_TYPE_FOX &&
             changes < changeLimit &&
             ((mystic && Mutations.rand(2) == 0) || (!mystic && Mutations.rand(4) == 0))
         ) {
-            //if PC has no tail
+            // if PC has no tail
             if (player.tailType == TAIL_TYPE_NONE) {
                 this.outputText(
                     "\n\nA pressure builds on your backside.  You feel under your " +
@@ -13099,7 +13097,7 @@ export class Mutations extends BaseContent {
                         " and discover a strange nodule growing there that seems to be getting larger by the second.  With a sudden flourish of movement, it bursts out into a long and bushy tail that sways hypnotically, as if it has a mind of its own.  <b>You now have a fox-tail.</b>"
                 );
             }
-            //if PC has another type of tail
+            // if PC has another type of tail
             else if (player.tailType != TAIL_TYPE_FOX) {
                 this.outputText(
                     "\n\nPain lances through your lower back as your tail shifts and twitches violently.  With one final aberrant twitch, it fluffs out into a long, bushy fox tail that whips around in an almost hypnotic fashion.  <b>You now have a fox-tail.</b>"
@@ -13120,8 +13118,8 @@ export class Mutations extends BaseContent {
                 "\n\nYou have the feeling that if you could grow a ninth tail you would be much more powerful, but you would need to find a way to enhance one of these gems or meditate with one to have a chance at unlocking your full potential."
             );
         }
-        //[Grow Addtl. Fox Tail]
-        //(rare effect, up to max of 8 tails, requires PC level and int*10 = number of tail to be added)
+        // [Grow Addtl. Fox Tail]
+        // (rare effect, up to max of 8 tails, requires PC level and int*10 = number of tail to be added)
         else if (
             player.tailType == TAIL_TYPE_FOX &&
             player.tailVenom < 8 &&
@@ -13130,14 +13128,14 @@ export class Mutations extends BaseContent {
             changes < changeLimit &&
             ((mystic && Mutations.rand(2) == 0) || (!mystic && Mutations.rand(3) == 0))
         ) {
-            //if PC has 1 fox tail
+            // if PC has 1 fox tail
             if (player.tailVenom == 1) {
                 this.outputText(
                     "\n\nA tingling pressure builds on your backside, and your bushy tail begins to glow with an eerie, ghostly light.  With a crackle of electrical energy, your tail splits into two!  <b>You now have a pair of fox-tails.</b>"
                 );
-                //increment tail by 1
+                // increment tail by 1
             }
-            //else if PC has 2 or more fox tails
+            // else if PC has 2 or more fox tails
             else {
                 this.outputText(
                     "\n\nA tingling pressure builds on your backside, and your bushy tails begin to glow with an eerie, ghostly light.  With a crackle of electrical energy, one of your tails splits in two, giving you " +
@@ -13146,12 +13144,12 @@ export class Mutations extends BaseContent {
                         Mutations.num2Text(player.tailVenom + 1) +
                         " fox-tails.</b>"
                 );
-                //increment tail by 1
+                // increment tail by 1
             }
             player.tailVenom++;
             changes++;
         }
-        //[Grow 9th tail and gain Corrupted Nine-tails perk]
+        // [Grow 9th tail and gain Corrupted Nine-tails perk]
         else if (
             mystic &&
             Mutations.rand(4) == 0 &&
@@ -13179,19 +13177,19 @@ export class Mutations extends BaseContent {
             changes++;
         }
 
-        //[Grow Fox Ears]
+        // [Grow Fox Ears]
         if (
             player.tailType == TAIL_TYPE_FOX &&
             ((mystic && Mutations.rand(2) == 0) || (!mystic && Mutations.rand(4) == 0)) &&
             player.earType != EARS_FOX &&
             changes < changeLimit
         ) {
-            //if PC has non-animal ears
+            // if PC has non-animal ears
             if (player.earType == EARS_HUMAN)
                 this.outputText(
                     "\n\nThe sides of your face painfully stretch as your ears morph and begin to migrate up past your hairline, toward the top of your head.  They elongate, becoming large vulpine triangles covered in bushy fur.  You now have fox ears."
                 );
-            //if PC has animal ears
+            // if PC has animal ears
             else
                 this.outputText(
                     "\n\nYour ears change shape, shifting from their current shape to become vulpine in nature.  You now have fox ears."
@@ -13199,7 +13197,7 @@ export class Mutations extends BaseContent {
             player.earType = EARS_FOX;
             changes++;
         }
-        //[Change Hair Color: Golden-blonde, SIlver Blonde, White, Black, Red]
+        // [Change Hair Color: Golden-blonde, SIlver Blonde, White, Black, Red]
         if (
             ((mystic && Mutations.rand(2) == 0) || (!mystic && Mutations.rand(4) == 0)) &&
             changes < changeLimit &&
@@ -13222,7 +13220,7 @@ export class Mutations extends BaseContent {
             );
             changes++;
         }
-        //[Change Skin Type: remove fur or scales, change skin to Tan, Olive, or Light]
+        // [Change Skin Type: remove fur or scales, change skin to Tan, Olive, or Light]
         if (
             player.skinType == SKIN_TYPE_FUR ||
             (player.skinType == SKIN_TYPE_SCALES && (mystic || (!mystic && Mutations.rand(2) == 0)))
@@ -13281,7 +13279,7 @@ export class Mutations extends BaseContent {
             this.outputText("  <b>You now have " + player.skin() + "!</b>");
             changes++;
         }
-        //Change skin tone if not changed you!
+        // Change skin tone if not changed you!
         else if (
             mystic &&
             player.skinTone != "dark" &&
@@ -13304,7 +13302,7 @@ export class Mutations extends BaseContent {
             this.outputText(player.skin() + "!</b>");
             changes++;
         }
-        //Change skin tone if not changed you!
+        // Change skin tone if not changed you!
         else if (
             !mystic &&
             player.skinTone != "tan" &&
@@ -13323,8 +13321,8 @@ export class Mutations extends BaseContent {
             this.outputText(player.skin() + "!</b>");
             changes++;
         }
-        //[Change Skin Color: add "Tattoos"]
-        //From Tan, Olive, or Light skin tones
+        // [Change Skin Color: add "Tattoos"]
+        // From Tan, Olive, or Light skin tones
         else if (
             (mystic &&
                 false &&
@@ -13350,9 +13348,9 @@ export class Mutations extends BaseContent {
             else this.outputText("curved");
             this.outputText(" markings remain, as if etched into your skin.");
             changes++;
-            //9999 - pending tats system
+            // 9999 - pending tats system
         }
-        //Nipples Turn Back:
+        // Nipples Turn Back:
         if (
             player.findStatusAffect(StatusAffects.BlackNipples) >= 0 &&
             changes < changeLimit &&
@@ -13366,7 +13364,7 @@ export class Mutations extends BaseContent {
             changes++;
             player.removeStatusAffect(StatusAffects.BlackNipples);
         }
-        //Debugcunt
+        // Debugcunt
         if (
             changes < changeLimit &&
             Mutations.rand(3) == 0 &&
@@ -13385,49 +13383,49 @@ export class Mutations extends BaseContent {
     }
 
     /* Moved to KitsuneGift.as
-    //Kitsune's Gift
+    // Kitsune's Gift
             public  kitsunesGift(player:Player): void
             {
                 clearOutput();
                 outputText("Curiosity gets the best of you, and you decide to open the package.  After all, what's the worst that could happen?\n\n");
-                //Opening the gift randomly results in one of the following:
-    //			menuLoc = MENU_LOCATION_KITSUNE_GIFT;
+                // Opening the gift randomly results in one of the following:
+    // 			menuLoc = MENU_LOCATION_KITSUNE_GIFT;
 
                 switch(rand(12)) {
-                //[Fox Jewel]
+                // [Fox Jewel]
                     case 0:
                     outputText("As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, and to your delight, sitting in the center is a small teardrop-shaped jewel!");
                     outputText("\n\n<b>You've received a shining Fox Jewel from the kitsune's gift!  How generous!</b>  ");
                     inventory.takeItem(consumables.FOXJEWL, inventory.inventoryMenu);
                     break;
 
-                //[Fox Berries]
+                // [Fox Berries]
                     case 1:
                     outputText("As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, and to your delight, there is a small cluster of orange-colored berries sitting in the center!");
                     outputText("\n\n<b>You've received a fox berry from the kitsune's gift!  How generous!</b>  ");
-                    //add Fox Berries to inventory
+                    // add Fox Berries to inventory
                     inventory.takeItem(consumables.FOXBERY, inventory.inventoryMenu);
                     break;
 
-                //[Gems]
+                // [Gems]
                     case 2:
                     outputText("As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, and to your delight, it is filled to the brim with shining gems!");
                 var  gems: number = 2 + rand(20);
                     outputText("\n\n<b>You've received " + num2Text(gems) + " shining gems from the kitsune's gift!  How generous!</b>");
                     player.gems += gems;
-                    //add X gems to inventory
+                    // add X gems to inventory
                     statScreenRefresh();
                     break;
 
-                //[Kitsune Tea/Scholar's Tea] //Just use Scholar's Tea and drop the "trick" effect if you don't want to throw in another new item.
+                // [Kitsune Tea/Scholar's Tea] //Just use Scholar's Tea and drop the "trick" effect if you don't want to throw in another new item.
                     case 3:
                     outputText("As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, and to your delight, it contains a small bag of dried tea leaves!");
                     outputText("\n\n<b>You've received a bag of tea from the kitsune's gift!  How thoughtful!</b>  ");
-                    //add Kitsune Tea/Scholar's Tea to inventory
+                    // add Kitsune Tea/Scholar's Tea to inventory
                     inventory.takeItem(consumables.SMART_T, inventory.inventoryMenu);
                     break;
 
-                //[Hair Dye]
+                // [Hair Dye]
                     case 4:
                     outputText("As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, and to your delight, it contains a small vial filled with hair dye!");
                 var  itype:ItemType = [
@@ -13438,20 +13436,20 @@ export class Mutations extends BaseContent {
                     ][rand(4)];
 
                     outputText("\n\n<b>You've received " + itype.longName + " from the kitsune's gift!  How generous!</b>  ");
-                    //add <color> Dye to inventory
+                    // add <color> Dye to inventory
                     inventory.takeItem(itype, inventory.inventoryMenu);
                     break;
 
-                //[Knowledge Spell]
+                // [Knowledge Spell]
                     case 5:
                     outputText("As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, but it seems like there's nothing else inside.  As you peer into the box, a glowing circle filled with strange symbols suddenly flashes to life!  Light washes over you, and your mind is suddenly assaulted with new knowledge...  and the urge to use that knowledge for mischief!");
 
                     outputText("\n\n<b>The kitsune has shared some of its knowledge with you!</b>  But in the process, you've gained some of the kitsune's promiscuous trickster nature...");
-                    //Increase INT and Libido, +10 LUST
+                    // Increase INT and Libido, +10 LUST
                     dynStats("int", 4, "sen", 2, "lus", 10);
                     break;
 
-                //[Thief!]
+                // [Thief!]
                     case 6:
                     outputText("As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, and sitting in the center is an artfully crafted paper doll.  Before your eyes, the doll springs to life, dancing about fancifully.  Without warning, it leaps into your item pouch, then hops away and gallavants into the woods, carting off a small fortune in gems.");
 
@@ -13461,37 +13459,37 @@ export class Mutations extends BaseContent {
                     statScreenRefresh();
                     break;
 
-                //[Prank]
+                // [Prank]
                     case 7:
                     outputText("As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, and sitting in the center is an artfully crafted paper doll.  Before your eyes, the doll springs to life, dancing about fancifully.  Without warning, it pulls a large calligraphy brush from thin air and leaps up into your face, then hops away and gallavants off into the woods.  Touching your face experimentally, you come away with a fresh coat of black ink on your fingertips.");
 
                     outputText("\n\n<b>The kitsune's familiar has drawn all over your face!</b>  The resilient marks take about an hour to completely scrub off in the nearby stream.  You could swear you heard some mirthful snickering among the trees while you were cleaning yourself off.");
-                    //Advance time 1 hour, -20 LUST
+                    // Advance time 1 hour, -20 LUST
                     dynStats("lus", -20);
                     break;
 
-                //[Aphrodisiac]
+                // [Aphrodisiac]
                     case 8:
                     outputText("As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, and sitting in the center is an artfully crafted paper doll.  Before your eyes, the doll springs to life, dancing about fancifully.  Without warning, it tosses a handful of sweet-smelling pink dust into your face, then hops over the rim of the box and gallavants off into the woods.  Before you know what has happened, you feel yourself growing hot and flushed, unable to keep your hands away from your groin.");
                     outputText("\n\n<b>Oh no!  The kitsune's familiar has hit you with a powerful aphrodisiac!  You are debilitatingly aroused and can think of nothing other than masturbating.</b>");
-                    //+100 LUST
+                    // +100 LUST
                     dynStats("lus=", 100, "resisted", false);
                     break;
 
-                //[Wither]
+                // [Wither]
                     case 9:
                     outputText("As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, and sitting in the center is an artfully crafted paper doll.  Before your eyes, the doll springs to life, dancing about fancifully.  Without warning, it tosses a handful of sour-smelling orange powder into your face, then hops over the rim of the box and gallavants off into the woods.  Before you know what has happened, you feel the strength draining from your muscles, withering away before your eyes.");
                     outputText("\n\n<b>Oh no!  The kitsune's familiar has hit you with a strength draining spell!  Hopefully it's only temporary...</b>");
                     dynStats("str", -5, "tou", -5);
                     break;
 
-                //[Dud]
+                // [Dud]
                     case 10:
                     outputText("As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, but to your disappointment, the only other contents appear to be nothing more than twigs, leaves, and other forest refuse.");
                     outputText("\n\n<b>It seems the kitsune's gift was just a pile of useless junk!  What a ripoff!</b>");
                     break;
 
-                //[Dud...  Or is it?]
+                // [Dud...  Or is it?]
                     case 11:
                     outputText("As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, but to your disappointment, the only other contents appear to be nothing more than twigs, leaves, and other forest refuse.  Upon further investigation, though, you find a shard of shiny black chitinous plating mixed in with the other useless junk.");
                         outputText("\n\n<b>At least you managed to salvage a shard of black chitin from it...</b>  ");
@@ -13509,7 +13507,7 @@ export class Mutations extends BaseContent {
      Corrupted Nine-tails:
      Description: The mystical energy of the nine-tails surges through you, filling you with phenomenal cosmic power!  Your boundless magic allows you to recover quickly after casting spells, but your method of attaining it has corrupted the transformation, preventing you from achieving true enlightenment.
      Effect: Recover 1-3 Fatigue per Round in combat, 3 per hour out of combat.  Victory sex recovers fatigue equal to 2x the enemy's level.  Also applies Masochist and Sadist perks, if they are not already.
-     //Alternatively, add the same effects as Masochist and Sadist but don't allow stacking, this way the effects can be removed if the player loses the corrupted nine-tails perk.
+     // Alternatively, add the same effects as Masochist and Sadist but don't allow stacking, this way the effects can be removed if the player loses the corrupted nine-tails perk.
      Requirements: Have fox ears and obtain your 9th tail from the Mystic Jewel item.  Must maintain at least 80 corruption and 80 intelligence, fox ears and 9 tails, or lose the perk.
 
      Corrupted Fox Fire
@@ -13552,7 +13550,7 @@ export class Mutations extends BaseContent {
      outputText( "You find yourself unable to stifle a flirtatious giggle, waggling your fingers at the tentacle beast and grinning.  You stroll fearlessly up to the writhing abomination and run your hands through its thick, foliage-like coat, your tail" + ((player.tailVenum > 1) ? "s" : "" ) + " curling around its wriggling limbs.  " + ((succeed) ? "The creature's wild thrashing is quelled by confusion and arousal, a few of its limbs running along your face tenderly before you break away.  The beast resumes its savage flailing, but you can tell your touch had an effect on it." : "The creature is unmoved by your tender caresses, swinging a thick limb at you violently.  Thankfully, you are able to break away from it unscathed, but it's obvious that you're going to have to try harder to fluster this beast.") );
      */
 
-    //Unbimbo Yourself: any
+    // Unbimbo Yourself: any
     /* Now handled by DeBimbo.as
             public  deBimbo(player:Player): void
             {
@@ -13577,29 +13575,29 @@ export class Mutations extends BaseContent {
                 }
             }
     */
-    //Fish Fillet
+    // Fish Fillet
     public fishFillet(player: Player): void {
         this.clearOutput();
         if (!this.getGame().inCombat)
             this.outputText(
                 "You sit down and unwrap your fish fillet. It's perfectly flaky, allowing you to break it off in bite-sized chunks.  The salty meal disappears quickly, and your stomach gives an appreciative gurgle."
             );
-        //(In combat?)
+        // (In combat?)
         else
             this.outputText(
                 "You produce the fish fillet from your bag.  Rather than unwrap it and savor the taste as you normally would, you take a large bite out of it, leaf wrapping and all.  In no time your salty meal is gone, your stomach giving an appreciative gurgle."
             );
 
-        //Increase HP by quite a bit!)
-        //(Slight chance at increasing Toughness?)
-        //(If lake has been tainted, +1 Corruption?)
+        // Increase HP by quite a bit!)
+        // (Slight chance at increasing Toughness?)
+        // (If lake has been tainted, +1 Corruption?)
         if (player.findStatusAffect(StatusAffects.FactoryOverload) >= 0) this.dynStats("cor", 0.5);
         this.dynStats("cor", 0.1);
         this.HPChange(Math.round(player.maxHP() * 0.25), false);
     }
 
-    //Trap Oil
-    //Flavour Description: A round, opaque glass vial filled with a clear, viscous fluid.  It has a symbol inscribed on it, a circle with a cross and arrow pointing out of it in opposite directions.  It looks and smells entirely innocuous.
+    // Trap Oil
+    // Flavour Description: A round, opaque glass vial filled with a clear, viscous fluid.  It has a symbol inscribed on it, a circle with a cross and arrow pointing out of it in opposite directions.  It looks and smells entirely innocuous.
     public trapOil(player: Player): void {
         this.clearOutput();
         var changes: number = 0;
@@ -13615,7 +13613,7 @@ export class Mutations extends BaseContent {
             "rub it into your arms and chest.  The substance is warm, coating and ever so slightly numbing; it quickly sinks into your skin, leaving you feeling smooth and sleek."
         );
 
-        //Speed Increase:
+        // Speed Increase:
         if (player.spe < 100 && Mutations.rand(3) == 0 && changes < changeLimit) {
             this.outputText(
                 "\n\nYou feel fleet and lighter on your toes; you sense you could dodge, dart or skip away from anything."
@@ -13623,7 +13621,7 @@ export class Mutations extends BaseContent {
             this.dynStats("spe", 1);
             changes++;
         }
-        //Strength Loss:
+        // Strength Loss:
         else if (player.str > 40 && Mutations.rand(3) == 0 && changes < changeLimit) {
             this.outputText(
                 "\n\nA sense of helplessness settles upon you as your limbs lose mass, leaving you feeling weaker and punier."
@@ -13631,7 +13629,7 @@ export class Mutations extends BaseContent {
             this.dynStats("str", -1);
             changes++;
         }
-        //Sensitivity Increase:
+        // Sensitivity Increase:
         if (
             player.sens < 70 &&
             player.hasCock() &&
@@ -13644,7 +13642,7 @@ export class Mutations extends BaseContent {
             this.dynStats("sen", 5);
             changes++;
         }
-        //Libido Increase:
+        // Libido Increase:
         if (
             player.lib < 70 &&
             player.hasVagina() &&
@@ -13658,7 +13656,7 @@ export class Mutations extends BaseContent {
             if (player.lib < 30) this.dynStats("lib", 2);
             changes++;
         }
-        //Body Mass Loss:
+        // Body Mass Loss:
         if (player.thickness > 40 && Mutations.rand(3) == 0 && changes < changeLimit) {
             this.outputText(
                 "\n\nYou feel an odd tightening sensation in your midriff, as if you were becoming narrower and lither.  You frown downwards, and then turn your arms around, examining them closely.  Is it just you or have you lost weight?"
@@ -13667,7 +13665,7 @@ export class Mutations extends BaseContent {
             changes++;
         }
 
-        //Thigh Loss: (towards “girly”)
+        // Thigh Loss: (towards “girly”)
         if (player.hipRating >= 10 && Mutations.rand(4) == 0 && changes < changeLimit) {
             this.outputText(
                 "\n\nYou touch your thighs speculatively.  It's not just your imagination; you've lost a bit of weight around your waist."
@@ -13676,7 +13674,7 @@ export class Mutations extends BaseContent {
             if (player.hipRating > 15) player.hipRating -= 2 + Mutations.rand(3);
             changes++;
         }
-        //Thigh Gain: (towards “girly”)
+        // Thigh Gain: (towards “girly”)
         if (player.hipRating < 6 && Mutations.rand(4) == 0 && changes < changeLimit) {
             this.outputText(
                 "\n\nYou touch your thighs speculatively.  You think you may have gained a little weight around your waist."
@@ -13684,7 +13682,7 @@ export class Mutations extends BaseContent {
             player.hipRating++;
             changes++;
         }
-        //Breast Loss: (towards A cup)
+        // Breast Loss: (towards A cup)
         if (player.biggestTitSize() > 1 && Mutations.rand(4) == 0 && changes < changeLimit) {
             this.outputText(
                 "\n\nYou gasp as you feel a compressing sensation in your chest and around your [fullChest].  The feeling quickly fades however, leaving you feeling like you have lost a considerable amount of weight from your upper body."
@@ -13706,7 +13704,7 @@ export class Mutations extends BaseContent {
             }
             changes++;
         }
-        //Breast Gain: (towards A cup)
+        // Breast Gain: (towards A cup)
         if (
             player.biggestTitSize() < 1 ||
             (player.breastRows[0].breastRating < 1 &&
@@ -13726,7 +13724,7 @@ export class Mutations extends BaseContent {
             }
             changes++;
         }
-        //Penis Reduction towards 3.5 Inches:
+        // Penis Reduction towards 3.5 Inches:
         if (
             player.longestCockLength() >= 3.5 &&
             player.hasCock() &&
@@ -13754,7 +13752,7 @@ export class Mutations extends BaseContent {
             this.temp = 0;
             while (this.temp < player.cockTotal()) {
                 if (player.cocks[this.temp].cockLength >= 3.5) {
-                    //Shrink said cock
+                    // Shrink said cock
                     if (
                         player.cocks[this.temp].cockLength < 6 &&
                         player.cocks[this.temp].cockLength >= 2.9
@@ -13783,7 +13781,7 @@ export class Mutations extends BaseContent {
             }
             changes++;
         }
-        //Testicle Reduction:
+        // Testicle Reduction:
         if (
             player.balls > 0 &&
             player.hasCock() &&
@@ -13800,7 +13798,7 @@ export class Mutations extends BaseContent {
             if (player.ballSize > 12) player.ballSize--;
             if (player.ballSize > 15) player.ballSize--;
             if (player.ballSize > 20) player.ballSize--;
-            //Testicle Reduction final:
+            // Testicle Reduction final:
             if (player.ballSize < 1 && player.findStatusAffect(StatusAffects.Uniball) < 0) {
                 this.outputText(
                     "  You whimper as once again, your balls tighten and shrink.  Your eyes widen when you feel the gentle weight of your testicles pushing against the top of your [hips], and a few hesitant swings of your rear confirm what you can feel - you've tightened your balls up so much they no longer hang beneath your " +
@@ -13809,53 +13807,53 @@ export class Mutations extends BaseContent {
                         Mutations.num2Text(player.balls) +
                         ", your balls now look and feel like one: one cute, tight little sissy parcel, its warm, insistent pressure upwards upon the joining of your thighs a never-ending reminder of it."
                 );
-                //[Note: Balls description should no longer say “swings heavily beneath”.  For simplicity's sake sex scenes should continue to assume two balls]
+                // [Note: Balls description should no longer say “swings heavily beneath”.  For simplicity's sake sex scenes should continue to assume two balls]
                 player.ballSize = 1;
                 player.createStatusAffect(StatusAffects.Uniball, 0, 0, 0, 0);
             } else if (player.ballSize < 1) player.ballSize = 1;
             changes++;
         }
-        //Anal Wetness Increase:
+        // Anal Wetness Increase:
         if (player.ass.analWetness < 5 && Mutations.rand(4) == 0 && changes < changeLimit) {
             if (player.ass.analWetness < 4)
                 this.outputText(
                     "\n\nYour eyes widen in shock as you feel oily moisture bead out of your [asshole].  Your asshole has become wetter and more pliable."
                 );
-            //Anal Wetness Increase Final (always loose):
+            // Anal Wetness Increase Final (always loose):
             else
                 this.outputText(
                     "\n\nYou moan as clear, odorless oil dribbles out of your [asshole], this time in enough quantity to stain your [armor].  Your back passage feels incredibly sensitive, wet and accommodating.  Your ass is ready to be plowed by anything, and always will be."
                 );
             player.ass.analWetness++;
-            //buttChange(30,false,false,false);
+            // buttChange(30,false,false,false);
             if (player.ass.analLooseness < 3) player.ass.analLooseness++;
             changes++;
             this.dynStats("sen", 2);
         }
-        //Fertility Decrease:
+        // Fertility Decrease:
         if (player.hasVagina() && Mutations.rand(4) == 0 && changes < changeLimit) {
             this.outputText(
                 "\n\nThe vague numbness in your skin sinks slowly downwards, and you put a hand on your lower stomach as the sensation centers itself there.  "
             );
             this.dynStats("sen", -2);
-            //High fertility:
+            // High fertility:
             if (player.fertility >= 30)
                 this.outputText(
                     "It feels like your overcharged reproductive organs have simmered down a bit."
                 );
-            //Average fertility:
+            // Average fertility:
             else if (player.fertility >= 5)
                 this.outputText(
                     "You feel like you have dried up a bit inside; you are left feeling oddly tranquil."
                 );
-            //[Low/No fertility:
+            // [Low/No fertility:
             else {
                 this.outputText(
                     "Although the numbness makes you feel serene, the trap oil has no effect upon your "
                 );
                 if (player.fertility > 0) this.outputText("mostly ");
                 this.outputText("sterile system.");
-                //[Low/No fertility + Trap/Corruption  >70:
+                // [Low/No fertility + Trap/Corruption  >70:
                 if (player.cor > 70)
                     this.outputText(
                         "  For some reason the fact that you cannot function as nature intended makes you feel helpless and submissive.  Perhaps the only way to be a useful creature now is to find a dominant, fertile being willing to plow you full of eggs? You shake the alien, yet oddly alluring thought away."
@@ -13865,9 +13863,9 @@ export class Mutations extends BaseContent {
             if (player.fertility < 4) player.fertility = 4;
             changes++;
         }
-        //Male Effects
+        // Male Effects
         if (player.gender == 1) {
-            //Femininity Increase Final (max femininity allowed increased by +10):
+            // Femininity Increase Final (max femininity allowed increased by +10):
             if (Mutations.rand(4) == 0 && changes < changeLimit) {
                 if (player.femininity < 70 && player.femininity >= 60) {
                     this.outputText(
@@ -13881,14 +13879,14 @@ export class Mutations extends BaseContent {
                     if (player.femininity > 70) player.femininity = 70;
                     changes++;
                 }
-                //Femininity Increase:
+                // Femininity Increase:
                 else {
                     this.outputText("\n\nYour face softens as your features become more feminine.");
                     player.femininity += 10;
                     changes++;
                 }
             }
-            //Muscle tone reduction:
+            // Muscle tone reduction:
             if (player.tone > 20 && Mutations.rand(4) == 0 && changes < changeLimit) {
                 this.outputText(
                     "\n\nYou sink a finger into your arm inquiringly.  You seem to have lost some of your muscle definition, leaving you looking softer."
@@ -13897,14 +13895,14 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //Female Effects
+        // Female Effects
         else if (player.gender == 2) {
-            //Masculinity Increase:
+            // Masculinity Increase:
             if (player.femininity > 30 && Mutations.rand(4) == 0 && changes < changeLimit) {
                 player.femininity -= 10;
                 if (player.femininity < 30) {
                     player.femininity = 30;
-                    //Masculinity Increase Final (max masculinity allowed increased by +10):
+                    // Masculinity Increase Final (max masculinity allowed increased by +10):
                     this.outputText(
                         "\n\nYou laugh as you feel your features once again soften, before stopping abruptly.  Your laugh sounded more like a boyish crow than anything else.  Feeling slightly more sober, you touch the defined lines of your face prospectively.  The trap oil has changed you profoundly, making your innate femaleness... difficult to discern, to say the least.  You suspect you could make yourself look even more like a boy now if you wanted to."
                     );
@@ -13919,7 +13917,7 @@ export class Mutations extends BaseContent {
                 }
                 changes++;
             }
-            //Muscle tone gain:
+            // Muscle tone gain:
             if (player.tone < 80 && Mutations.rand(4) == 0 && changes < changeLimit) {
                 this.outputText(
                     "\n\nYou flex your arm in interest.  Although you have become thinner, your muscles seem to have become more defined."
@@ -13928,7 +13926,7 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //Nipples Turn Black:
+        // Nipples Turn Black:
         if (
             player.findStatusAffect(StatusAffects.BlackNipples) < 0 &&
             Mutations.rand(6) == 0 &&
@@ -13940,7 +13938,7 @@ export class Mutations extends BaseContent {
             player.createStatusAffect(StatusAffects.BlackNipples, 0, 0, 0, 0);
             changes++;
         }
-        //Remove odd eyes
+        // Remove odd eyes
         if (
             player.eyeType == EYES_FOUR_SPIDER_EYES &&
             Mutations.rand(2) == 0 &&
@@ -13958,20 +13956,20 @@ export class Mutations extends BaseContent {
             player.eyeType = EYES_HUMAN;
             changes++;
         }
-        //PC Trap Effects
+        // PC Trap Effects
         if (
             player.eyeType != EYES_BLACK_EYES_SAND_TRAP &&
             Mutations.rand(4) == 0 &&
             changes < changeLimit
         ) {
             player.eyeType = EYES_BLACK_EYES_SAND_TRAP;
-            //Eyes Turn Black:
+            // Eyes Turn Black:
             this.outputText(
                 "\n\nYou blink, and then blink again.  It feels like something is irritating your eyes.  Panic sets in as black suddenly blooms in the corner of your left eye and then your right, as if drops of ink were falling into them.  You calm yourself down with the thought that rubbing at your eyes will certainly make whatever is happening to them worse; through force of will you hold your hands behind your back and wait for the strange affliction to run its course.  The strange inky substance pools over your entire vision before slowly fading, thankfully taking the irritation with it.  As soon as it goes you stride quickly over to the stream and stare at your reflection.  <b>Your pupils, your irises, your entire eye has turned a liquid black</b>, leaving you looking vaguely like the many half insect creatures which inhabit these lands.  You find you are merely grateful the change apparently hasn't affected your vision."
             );
             changes++;
         }
-        //Vagina Turns Black:
+        // Vagina Turns Black:
         if (
             player.hasVagina() &&
             player.vaginaType() != 5 &&
@@ -13981,10 +13979,10 @@ export class Mutations extends BaseContent {
             this.outputText(
                 "\n\nYour [vagina] feels... odd.  You undo your clothes and gingerly inspect your nether regions.  The tender pink color of your sex has disappeared, replaced with smooth, marble blackness starting at your lips and working inwards."
             );
-            //(Wet:
+            // (Wet:
             if (player.wetness() >= 3)
                 this.outputText("  Your natural lubrication makes it gleam invitingly.");
-            //(Corruption <50:
+            // (Corruption <50:
             if (player.cor < 50)
                 this.outputText(
                     "  After a few cautious touches you decide it doesn't feel any different- it does certainly look odd, though."
@@ -13998,7 +13996,7 @@ export class Mutations extends BaseContent {
             player.vaginaType(5);
             changes++;
         }
-        //Dragonfly Wings:
+        // Dragonfly Wings:
         if (
             player.wingType != WING_TYPE_GIANT_DRAGONFLY &&
             Mutations.rand(4) == 0 &&
@@ -14007,7 +14005,7 @@ export class Mutations extends BaseContent {
             this.outputText(
                 "\n\nYou scream and fall to your knees as incredible pain snags at your shoulders, as if needle like hooks were being sunk into your flesh just below your shoulder blades.  After about five seconds of white hot, keening agony it is with almost sexual relief that something splits out of your upper back.  You clench the dirt as you slide what feel like giant leaves of paper into the open air.  Eventually the sensation passes and you groggily get to your feet.  You can barely believe what you can see by craning your neck behind you - <b>you've grown a set of four giant dragonfly wings</b>, thinner, longer and more pointed than the ones you've seen upon the forest bee girls, but no less diaphanous and beautiful.  You cautiously flex the new muscle groups in your shoulder blades and gasp as your new wings whirr and lift you several inches off the ground.  What fun this is going to be!"
             );
-            //Wings Fall Out: You feel a sharp pinching sensation in your shoulders and you cringe slightly.  Your former dragonfly wings make soft, papery sounds as they fall into the dirt behind you.
+            // Wings Fall Out: You feel a sharp pinching sensation in your shoulders and you cringe slightly.  Your former dragonfly wings make soft, papery sounds as they fall into the dirt behind you.
             changes++;
             player.wingType = WING_TYPE_GIANT_DRAGONFLY;
         }
@@ -14017,8 +14015,8 @@ export class Mutations extends BaseContent {
         }
     }
 
-    //PurPeac
-    //Purity Peach - Inventory
+    // PurPeac
+    // Purity Peach - Inventory
     public purityPeach(player: Player): void {
         this.clearOutput();
         this.outputText(
@@ -14028,10 +14026,10 @@ export class Mutations extends BaseContent {
         this.HPChange(Math.round(player.maxHP() * 0.25), false);
     }
 
-    //New Item: "Purple Fruit"
-    //This sweet-smelling produce looks like an eggplant but feels almost squishy, and rubbery to the touch. Holding it to your ear, you think you can hear some fluid sloshing around inside.
+    // New Item: "Purple Fruit"
+    // This sweet-smelling produce looks like an eggplant but feels almost squishy, and rubbery to the touch. Holding it to your ear, you think you can hear some fluid sloshing around inside.
 
-    //>When Used
+    // >When Used
     public purpleFruitEssrayle(player: Player): void {
         this.clearOutput();
         this.outputText(
@@ -14051,19 +14049,19 @@ export class Mutations extends BaseContent {
                 player.breastRows[this.temp].nipplesPerBreast = 4;
             }
         }
-        //[Player gains quad nipples, milk production and libido way up]
+        // [Player gains quad nipples, milk production and libido way up]
         this.dynStats("lib", 5);
         player.boostLactation(3 * player.bRows());
     }
 
-    //TF Items
-    //Ringtail Fig/RingFig (please do not change the fruit type to suit whimsy because I have some plans for figs)
-    //tooltip:
-    //A dried fig with two lobes and thin dark rings just below its stem.  The skin is wrinkly and it looks vaguely like a bulging scrotum.
+    // TF Items
+    // Ringtail Fig/RingFig (please do not change the fruit type to suit whimsy because I have some plans for figs)
+    // tooltip:
+    // A dried fig with two lobes and thin dark rings just below its stem.  The skin is wrinkly and it looks vaguely like a bulging scrotum.
 
     public ringtailFig(player: Player): void {
         this.clearOutput();
-        //eat it:
+        // eat it:
         this.outputText(
             "You split the fruit and scoop out the pulp, eating it greedily.  It's sweet and slightly gritty with seeds, and you quickly finish both halves."
         );
@@ -14074,8 +14072,8 @@ export class Mutations extends BaseContent {
         if (Mutations.rand(3) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
 
-        //stat gains:
-        //gain speed to ceiling of 80
+        // stat gains:
+        // gain speed to ceiling of 80
         if (player.spe < 80 && Mutations.rand(3) == 0 && changes < changeLimit) {
             this.outputText(
                 "\n\nYou twitch and turn your head this way and that, feeling a bit more alert.  This will definitely help when defending your personal space from violators."
@@ -14084,7 +14082,7 @@ export class Mutations extends BaseContent {
             if (player.spe < 40) this.dynStats("spe", 1);
             this.dynStats("spe", 1);
         }
-        //gain sensitivity
+        // gain sensitivity
         if (player.sens < 80 && Mutations.rand(3) == 0 && changes < changeLimit) {
             this.outputText(
                 "\n\nThe wrinkled rind suddenly feels alarmingly distinct in your hands, and you drop the remnants of the fruit.  Wonderingly, you touch yourself with a finger - you can feel even the lightest pressure on your " +
@@ -14095,7 +14093,7 @@ export class Mutations extends BaseContent {
             this.dynStats("sen", 2);
             changes++;
         }
-        //lose toughness to floor of 50
+        // lose toughness to floor of 50
         if (Mutations.rand(4) && player.tou > 50 && changes < changeLimit) {
             this.outputText(
                 "\n\nYou find yourself wishing you could just sit around and eat all day, and spend a while lazing about and doing nothing before you can rouse yourself to get moving."
@@ -14105,9 +14103,9 @@ export class Mutations extends BaseContent {
             changes++;
         }
 
-        //Sex stuff
+        // Sex stuff
         if (player.hasCock()) {
-            //gain ball size
+            // gain ball size
             if (
                 player.balls > 0 &&
                 player.ballSize < 15 &&
@@ -14121,7 +14119,7 @@ export class Mutations extends BaseContent {
                 player.ballSize += 2 + Mutations.rand(3);
                 this.dynStats("lib", 1);
             }
-            //gain balls up to 2 (only if full-coon face and fur; no dick required)
+            // gain balls up to 2 (only if full-coon face and fur; no dick required)
             if (
                 player.balls == 0 &&
                 player.skinType == SKIN_TYPE_FUR &&
@@ -14137,25 +14135,25 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        //gain thickness or lose tone or whatever - standard message
+        // gain thickness or lose tone or whatever - standard message
         if (Mutations.rand(4) == 0 && player.thickness < 80 && changes < changeLimit) {
             this.outputText(player.modThickness(80, 2), false);
             changes++;
         }
-        //bodypart changes:
+        // bodypart changes:
         if (
             player.tailType != TAIL_TYPE_RACCOON &&
             Mutations.rand(4) == 0 &&
             changes < changeLimit
         ) {
-            //grow da tail
-            //from no tail:
+            // grow da tail
+            // from no tail:
             if (player.tailType == TAIL_TYPE_NONE) {
                 this.outputText(
                     "\n\nPain shivers through your spine and forces you onto the ground; your body locks up despite your attempt to rise again.  You can feel a tug on your spine from your backside, as if someone is trying to pull it out!  Several nodules form along your back, growing into new vertebrae and pushing the old ones downward and into your [armor].  An uncomfortable pressure grows there, as whatever development is taking place fights to free itself from the constriction.  Finally the shifting stops, and you're able to move again; the first thing you do is loosen your bottoms, allowing a matted tail to slide out.  <b>It twitches involuntarily, fluffing out into a ringed raccoon tail!</b>"
                 );
             }
-            //from other tail:
+            // from other tail:
             else {
                 this.outputText(
                     "\n\nYour tail goes rigid with pain, and soon your body follows.  It feels as though your spine is trying to push the growth off of your body... barely, you manage to turn your head to see almost exactly that!  A new ringed, fluffy tail is growing in behind its predecessor, dark bands after light.  Soon it reaches full length and a tear comes to your eye as your old tail parts from its end and drops to the ground like overripe fruit, dissolving.  <b>You now have a raccoon tail!</b>"
@@ -14164,7 +14162,7 @@ export class Mutations extends BaseContent {
             player.tailType = TAIL_TYPE_RACCOON;
             changes++;
         }
-        //gain fur
+        // gain fur
         if (
             player.lowerBody == LOWER_BODY_TYPE_RACCOON &&
             player.earType == EARS_RACCOON &&
@@ -14182,14 +14180,14 @@ export class Mutations extends BaseContent {
             player.skinDesc = "fur";
             changes++;
         }
-        //gain coon ears
+        // gain coon ears
         if (
             player.tailType == TAIL_TYPE_RACCOON &&
             player.earType != EARS_RACCOON &&
             Mutations.rand(4) == 0 &&
             changes < changeLimit
         ) {
-            //from dog, kangaroo, bunny, other long ears
+            // from dog, kangaroo, bunny, other long ears
             if (
                 player.earType == EARS_DOG ||
                 player.earType == EARS_BUNNY ||
@@ -14198,7 +14196,7 @@ export class Mutations extends BaseContent {
                 this.outputText(
                     "\n\nYour ears compress, constricting your ear canal momentarily.  You shake your head to get sound back, and reach up to touch the auricles, to find a pair of stubby egg-shaped ears in their place.  <b>You now have raccoon ears!</b>"
                 );
-            //from cat, horse, cow ears
+            // from cat, horse, cow ears
             else if (
                 player.earType == EARS_HORSE ||
                 player.earType == EARS_COW ||
@@ -14207,7 +14205,7 @@ export class Mutations extends BaseContent {
                 this.outputText(
                     "\n\nYour ears tingle.  Huh.  Do they feel a bit rounder at the tip now?  <b>Looks like you have raccoon ears.</b>"
                 );
-            //from human, goblin, lizard or other short ears
+            // from human, goblin, lizard or other short ears
             else
                 this.outputText(
                     "\n\nYour ears prick and stretch uncomfortably, poking up through your " +
@@ -14217,14 +14215,14 @@ export class Mutations extends BaseContent {
             player.earType = EARS_RACCOON;
             changes++;
         }
-        //gain feet-coon
+        // gain feet-coon
         if (
             player.earType == EARS_RACCOON &&
             player.lowerBody != LOWER_BODY_TYPE_RACCOON &&
             changes < changeLimit &&
             Mutations.rand(4) == 0
         ) {
-            //from naga non-feet (gain fatigue and lose lust)
+            // from naga non-feet (gain fatigue and lose lust)
             if (player.isNaga()) {
                 this.outputText(
                     "\n\nYour body straightens and telescopes suddenly and without the length of your snake half to anchor you, you're left with your face in the dirt.  A shuffling and scraping of falling scales sounds and a terrible cramp takes you as your back half continues migrating, subducting under your [butt] and making you feel extremely bloated.  As your once prominent tail dwindles to roughly the length of your torso, a sickly ripping noise fills your head and it bursts apart, revealing two new legs!  The tattered snake-skin continues melding into your groin as you examine the fuzzy legs and long-toed, sensitive feet.  <b>Looks like you now have raccoon hind-paws...</b> and an upset stomach."
@@ -14232,12 +14230,12 @@ export class Mutations extends BaseContent {
                 this.dynStats("lus", -30);
                 this.fatigue(5);
             }
-            //from amoeba non-feet
+            // from amoeba non-feet
             else if (player.isGoo())
                 this.outputText(
                     "\n\nYour gooey undercarriage begins to boil violently, and before you can do anything, it evaporates!  Left sitting on just the small pad of sticky half-dried slime that comprises your [butt], a sudden bulge under you is enough to push you onto your back.  Wondering idly and unable to see what's happening, you close your eyes and try to focus on what sensations you can feel from your lower body.  You feel... a swell of expansion, followed by weak muscles trying to contract for the first time, pulling flimsy, folded limbs apart and laying them flat.  As your attention wanders downward, you feel toes wiggling - far longer toes than you remember.  For several minutes you lie still and test muscles gingerly as your body solidifes, but when you can finally move again and look at your legs properly, what you see surprises you very little.  <b>You have fuzzy legs and a pair of long-toed raccoon paws!</b>"
                 );
-            //from hooves or hard feet, including centaurs and bees
+            // from hooves or hard feet, including centaurs and bees
             else if (
                 player.lowerBody == LOWER_BODY_TYPE_HOOFED ||
                 player.lowerBody == LOWER_BODY_TYPE_CENTAUR ||
@@ -14267,7 +14265,7 @@ export class Mutations extends BaseContent {
                     );
                 this.outputText("<b>You now have two fuzzy, long-toed raccoon legs.</b>");
             }
-            //from human, demon, paw feet
+            // from human, demon, paw feet
             else {
                 this.outputText(
                     "\n\nYour toes wiggle of their own accord, drawing your attention.  Looking down, you can see them changing from their current shape, stretching into oblongs.  When they finish, your foot appears humanoid, but with long, prehesile toes!  "
@@ -14286,14 +14284,14 @@ export class Mutations extends BaseContent {
             player.lowerBody = LOWER_BODY_TYPE_RACCOON;
             changes++;
         }
-        //gain half-coon face (prevented if already full-coon)
+        // gain half-coon face (prevented if already full-coon)
         if (
             player.faceType != FACE_RACCOON_MASK &&
             player.faceType != FACE_RACCOON &&
             Mutations.rand(4) == 0 &&
             changes < changeLimit
         ) {
-            //from human/naga/shark/bun face
+            // from human/naga/shark/bun face
             if (
                 player.faceType == FACE_HUMAN ||
                 player.faceType == FACE_SHARK_TEETH ||
@@ -14303,7 +14301,7 @@ export class Mutations extends BaseContent {
                 this.outputText(
                     "\n\nA sudden wave of exhaustion passes over you, and your face goes partially numb around your eyes.  "
                 );
-                //(nagasharkbunnies)
+                // (nagasharkbunnies)
                 if (
                     player.faceType == FACE_SHARK_TEETH ||
                     player.faceType == FACE_SNAKE_FANGS ||
@@ -14316,7 +14314,7 @@ export class Mutations extends BaseContent {
                 this.outputText(
                     "Shaking your head a bit, you wait for your energy to return, then examine your appearance.  "
                 );
-                //(if player skinTone = ebony/black/ebony with tats and no fur/scales or if black/midnight fur or if black scales
+                // (if player skinTone = ebony/black/ebony with tats and no fur/scales or if black/midnight fur or if black scales
                 if (
                     ((player.skinTone == "ebony" || player.skinTone == "black") &&
                         (player.skinType == SKIN_TYPE_PLAIN || player.skinType == SKIN_TYPE_GOO)) ||
@@ -14333,12 +14331,12 @@ export class Mutations extends BaseContent {
                             " around your eyes and over the topmost portion of your nose, lending you a criminal air!  <b>You now have a raccoon mask!</b>"
                     );
             }
-            //from snout (will not overwrite full-coon snout but will overwrite others)
+            // from snout (will not overwrite full-coon snout but will overwrite others)
             else {
                 this.outputText(
                     "\n\nA sudden migraine sweeps over you and you clutch your head in agony as your nose collapses back to human dimensions.  A worrying numb spot grows around your eyes, and you entertain several horrible premonitions until it passes as suddenly as it came.  Checking your reflection in your water barrel, you find "
                 );
-                //[(if black/midnight fur or if black scales)
+                // [(if black/midnight fur or if black scales)
                 if (
                     (player.hairColor == "black" || player.hairColor == "midnight") &&
                     (player.skinType == SKIN_TYPE_FUR || player.skinType == SKIN_TYPE_SCALES)
@@ -14363,8 +14361,8 @@ export class Mutations extends BaseContent {
             player.faceType = FACE_RACCOON_MASK;
             changes++;
         }
-        //gain full-coon face (requires half-coon and fur)
-        //from humanoid - should be the only one possible
+        // gain full-coon face (requires half-coon and fur)
+        // from humanoid - should be the only one possible
         else if (
             player.faceType == FACE_RACCOON_MASK &&
             player.lowerBody == LOWER_BODY_TYPE_RACCOON &&
@@ -14375,12 +14373,12 @@ export class Mutations extends BaseContent {
             this.outputText(
                 "\n\nYour face pinches with tension, and you rub the bridge of your nose to release it.  The action starts a miniature slide in your bone structure, and your nose extends out in front of you!  You shut your eyes, waiting for the sinus pressure to subside, and when you open them, a triangular, pointed snout dotted with whiskers and capped by a black nose greets you!  <b>You now have a raccoon's face!</b>"
             );
-            //from muzzleoid - should not be possible, but included if things change
-            //Your face goes numb, and you can see your snout shifting into a medium-long, tapered shape.  Closing your eyes, you rub at your forehead to try and get sensation back into it; it takes several minutes before full feeling returns.  <b>When it does, you look again at yourself and see a raccoon's pointy face, appointed with numerous whiskers and a black nose!</b>
+            // from muzzleoid - should not be possible, but included if things change
+            // Your face goes numb, and you can see your snout shifting into a medium-long, tapered shape.  Closing your eyes, you rub at your forehead to try and get sensation back into it; it takes several minutes before full feeling returns.  <b>When it does, you look again at yourself and see a raccoon's pointy face, appointed with numerous whiskers and a black nose!</b>
             changes++;
             player.faceType = FACE_RACCOON;
         }
-        //fatigue damage (only if face change was not triggered)
+        // fatigue damage (only if face change was not triggered)
         else if (
             Mutations.rand(2) == 0 &&
             changes < changeLimit &&
@@ -14399,11 +14397,11 @@ export class Mutations extends BaseContent {
         }
     }
 
-    //MouseCo
-    //tooltip:
-    //A handful of rare aromatic beans with sharp creases in the middle, making them look like small mouse ears.  Allegedly very popular and plentiful before the mice-folk were wiped out.
+    // MouseCo
+    // tooltip:
+    // A handful of rare aromatic beans with sharp creases in the middle, making them look like small mouse ears.  Allegedly very popular and plentiful before the mice-folk were wiped out.
 
-    //Mouse Cocoa/MousCoco (you can change the name if you're saddlesore I guess but I'll make fun of you for having no plausible source of chocolate for your bakery if you do)
+    // Mouse Cocoa/MousCoco (you can change the name if you're saddlesore I guess but I'll make fun of you for having no plausible source of chocolate for your bakery if you do)
     public mouseCocoa(player: Player): void {
         this.clearOutput();
 
@@ -14413,22 +14411,22 @@ export class Mutations extends BaseContent {
         if (Mutations.rand(3) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
 
-        //use:
+        // use:
         this.outputText(
             "You pop several of the beans in your mouth and suck; they immediately reward you by giving up an oily, chocolatey flavor with a hint of bitterness.  For several minutes you "
         );
         if (!player.isTaur()) this.outputText("sit and ");
         this.outputText("enjoy the taste.");
 
-        //stat changes:
-        //lose height + gain speed (42" height floor, no speed ceiling but no speed changes without height change)
+        // stat changes:
+        // lose height + gain speed (42" height floor, no speed ceiling but no speed changes without height change)
         if (player.tallness >= 45 && changes < changeLimit && Mutations.rand(3) == 0) {
-            //not horse
+            // not horse
             if (!player.isTaur())
                 this.outputText(
                     "\n\nYou tap your [feet] idly against the rock you sit upon as you enjoy the treat; it takes several minutes before you realize you don't reach as far down as you did when you sat down!  In shock, you jerk upright and leap off, nearly falling forward as your body moves more responsively than before!  Experimentally, you move in place as you look down at your now-closer [feet]; the sensation of a more compact agility stays with you."
                 );
-            //horse
+            // horse
             else
                 this.outputText(
                     "\n\nYou trot idly in place as you eat, moving quicker and quicker as you become increasingly bored; on one step, the ground sneaks up on you and you hit it sharply, expecting a few more inches before contact!  Looking down, you notice better resolution than before - you can make out the dirt a bit more clearly.  It looks like you just shed some height, but... you're feeling too jittery to care.  You just want to run around."
@@ -14442,7 +14440,7 @@ export class Mutations extends BaseContent {
             if (player.tallness > 100) player.tallness -= 2;
             changes++;
         }
-        //lose tough
+        // lose tough
         if (player.tou > 50 && changes < changeLimit && Mutations.rand(3) == 0) {
             this.outputText(
                 "\n\nYou feel a bit less sturdy, both physically and mentally.  In fact, you'd prefer to have somewhere to hide for the time being, until your confidence returns.  The next few minutes are passed in a mousey funk - even afterward, you can't quite regain the same sense of invincibility you had before."
@@ -14453,8 +14451,8 @@ export class Mutations extends BaseContent {
             if (player.tou >= 90) this.dynStats("tou", -1);
         }
 
-        //SEXYYYYYYYYYYY
-        //vag-anal capacity up for non-goo (available after PC < 5 ft; capacity ceiling reasonable but not horse-like or gooey)
+        // SEXYYYYYYYYYYY
+        // vag-anal capacity up for non-goo (available after PC < 5 ft; capacity ceiling reasonable but not horse-like or gooey)
         if (
             player.tallness < 60 &&
             (player.analCapacity() < 100 ||
@@ -14482,7 +14480,7 @@ export class Mutations extends BaseContent {
             if (player.isTaur()) this.outputText("back away from your erstwhile sedimentary lover");
             else this.outputText("pull your hand back out");
             this.outputText(".");
-            //adds some lust
+            // adds some lust
             this.dynStats("lus", 10 + player.sens / 5);
             if (player.vaginalCapacity() < 100 && player.hasVagina()) {
                 if (player.findStatusAffect(StatusAffects.BonusVCapacity) < 0)
@@ -14495,8 +14493,8 @@ export class Mutations extends BaseContent {
             }
             changes++;
         }
-        //fem fertility up and heat (suppress if pregnant)
-        //not already in heat (add heat and lust)
+        // fem fertility up and heat (suppress if pregnant)
+        // not already in heat (add heat and lust)
         if (
             player.statusAffectv2(StatusAffects.Heat) < 30 &&
             Mutations.rand(2) == 0 &&
@@ -14508,7 +14506,7 @@ export class Mutations extends BaseContent {
                     this.outputText(
                         "\n\nYour womb feels achingly empty, and your temperature shoots up.  Try as you might, you can't stop fantasizing about being filled with semen, drenched inside and out with it, enough to make a baker's dozen offspring.  "
                     );
-                    //[(no mino cum in inventory)]
+                    // [(no mino cum in inventory)]
                     if (!player.hasItem(this.consumables.MINOCUM)) {
                         this.outputText(
                             "<b>Your heat has intensified as much as your fertility has increased, which is a considerable amount!</b>"
@@ -14517,12 +14515,12 @@ export class Mutations extends BaseContent {
                         this.outputText(
                             "You even pull out a bottle of minotaur jism and spend several minutes considering the feasibility of pouring it directly in your [vagina], but regain your senses as you're unsealing the cap, setting it aside.  <b>Still, your heat is more intense than ever and your increasingly-fertile body is practically begging for dick - it'll be hard to resist any that come near!</b>"
                         );
-                    //(mino cum in inventory and non-horse, 100 lust)
+                    // (mino cum in inventory and non-horse, 100 lust)
                     else {
                         this.outputText(
                             "Desperately horny, you pull out your bottle of minotaur jism and break the seal in two shakes, then lie down with your hips elevated and upend it over your greedy vagina.  The gooey seed pours into you, and you orgasm fitfully, shaking and failing to hold the bottle in place as it coats your labia.  <b>As a hazy doze infiltrates your mind, you pray the pregnancy takes and dream of the sons you'll bear with your increasingly fertile body... you're going to go insane if you don't get a baby in you</b>."
                         );
-                        //(consumes item, increment addiction/output addict message, small chance of mino preg, reduce lust)]", false);
+                        // (consumes item, increment addiction/output addict message, small chance of mino preg, reduce lust)]", false);
                         player.minoCumAddiction(5);
                         player.knockUp(
                             PregnancyStore.PREGNANCY_MINOTAUR,
@@ -14544,8 +14542,8 @@ export class Mutations extends BaseContent {
             }
         }
 
-        //bodypart changes:
-        //gain ears
+        // bodypart changes:
+        // gain ears
         if (player.earType != EARS_MOUSE && changes < changeLimit && Mutations.rand(4) == 0) {
             this.outputText("\n\nYour ears ");
             if (
@@ -14565,15 +14563,15 @@ export class Mutations extends BaseContent {
             player.earType = EARS_MOUSE;
             changes++;
         }
-        //gain tail
-        //from no tail
+        // gain tail
+        // from no tail
         if (
             player.earType == EARS_MOUSE &&
             player.tailType != TAIL_TYPE_MOUSE &&
             changes < changeLimit &&
             Mutations.rand(4) == 0
         ) {
-            //from other tail
+            // from other tail
             if (player.tailType > TAIL_TYPE_NONE) {
                 this.outputText(
                     "\n\nYour tail clenches and itches simultaneously, leaving you wondering whether to cry out or try to scratch it.  The question is soon answered as the pain takes the forefront; looking backward is a horrible strain, but when you manage it, you can see your old appendage "
@@ -14590,7 +14588,7 @@ export class Mutations extends BaseContent {
             player.tailType = TAIL_TYPE_MOUSE;
             changes++;
         }
-        //get teeth - from human, bunny, coonmask, or other humanoid teeth faces
+        // get teeth - from human, bunny, coonmask, or other humanoid teeth faces
         if (
             player.earType == EARS_MOUSE &&
             (player.faceType == FACE_HUMAN ||
@@ -14611,7 +14609,7 @@ export class Mutations extends BaseContent {
             player.faceType = FACE_BUCKTEETH;
             changes++;
         }
-        //get mouse muzzle from mouse teeth or other muzzle
+        // get mouse muzzle from mouse teeth or other muzzle
         if (
             player.skinType == SKIN_TYPE_FUR &&
             player.faceType != FACE_MOUSE &&
@@ -14629,7 +14627,7 @@ export class Mutations extends BaseContent {
             player.faceType = FACE_MOUSE;
             changes++;
         }
-        //get fur
+        // get fur
         if (
             (player.skinType != SKIN_TYPE_FUR ||
                 (player.skinType == SKIN_TYPE_FUR &&
@@ -14638,7 +14636,7 @@ export class Mutations extends BaseContent {
             changes < changeLimit &&
             Mutations.rand(4) == 0
         ) {
-            //from skinscales
+            // from skinscales
             if (player.skinType != SKIN_TYPE_FUR) {
                 this.outputText("\n\nYour " + player.skinFurScales() + " itch");
                 if (player.skinType > SKIN_TYPE_PLAIN) this.outputText("es");
@@ -14660,7 +14658,7 @@ export class Mutations extends BaseContent {
                     this.outputText(", pushing your scales out with little pinches");
                 this.outputText(", resolving the problem for you.  <b>You now have fur.</b>");
             }
-            //from other color fur
+            // from other color fur
             else {
                 this.outputText(
                     "\n\nYour fur stands on end, as if trying to leap from your body - which it does next.  You watch, dumb with shock, as your covering deserts you, but it's quickly replaced with another layer of "
@@ -14682,18 +14680,18 @@ export class Mutations extends BaseContent {
         }
     }
 
-    //special attack - bite?
-    //tooth length counter starts when you get teef, mouse bite gets more powerful over time as teeth grow in
-    //hit
-    //You sink your prominent incisors deep into your foe.  They're not as sharp as a predator's, but even a mouse bites when threatened, and you punch quite a large hole.
-    //miss
-    //You attempt to turn and bite your foe, but " + monster.pronoun1 + " pulls back deftly and your jaws close on empty air.
+    // special attack - bite?
+    // tooth length counter starts when you get teef, mouse bite gets more powerful over time as teeth grow in
+    // hit
+    // You sink your prominent incisors deep into your foe.  They're not as sharp as a predator's, but even a mouse bites when threatened, and you punch quite a large hole.
+    // miss
+    // You attempt to turn and bite your foe, but " + monster.pronoun1 + " pulls back deftly and your jaws close on empty air.
 
-    //perk - fuck if i know
-    //maybe some pregnancy-accelerating thing
+    // perk - fuck if i know
+    // maybe some pregnancy-accelerating thing
 
     private demonChanges(player: Player): void {
-        //Change tail if already horned.
+        // Change tail if already horned.
         if (player.tailType != TAIL_TYPE_DEMONIC && player.horns > 0) {
             if (player.tailType != TAIL_TYPE_NONE) {
                 this.outputText("\n\n", false);
@@ -14719,7 +14717,7 @@ export class Mutations extends BaseContent {
             this.dynStats("cor", 4);
             player.tailType = TAIL_TYPE_DEMONIC;
         }
-        //grow horns!
+        // grow horns!
         if (player.horns == 0 || Mutations.rand(player.horns + 3) == 0) {
             if (
                 player.horns < 12 &&
@@ -14741,7 +14739,7 @@ export class Mutations extends BaseContent {
                 player.horns++;
                 this.dynStats("cor", 3);
             }
-            //Text for shifting horns
+            // Text for shifting horns
             else if (player.hornType > HORNS_DEMON) {
                 this.outputText("\n\n", false);
                 this.outputText(
@@ -14753,7 +14751,7 @@ export class Mutations extends BaseContent {
                 this.dynStats("cor", 3);
             }
         }
-        //Nipples Turn Back:
+        // Nipples Turn Back:
         if (player.findStatusAffect(StatusAffects.BlackNipples) >= 0 && Mutations.rand(3) == 0) {
             this.outputText(
                 "\n\nSomething invisible brushes against your " +
@@ -14762,12 +14760,12 @@ export class Mutations extends BaseContent {
             );
             player.removeStatusAffect(StatusAffects.BlackNipples);
         }
-        //remove fur
+        // remove fur
         if (
             (player.faceType != FACE_HUMAN || player.skinType != SKIN_TYPE_PLAIN) &&
             Mutations.rand(3) == 0
         ) {
-            //Remove face before fur!
+            // Remove face before fur!
             if (player.faceType != FACE_HUMAN) {
                 this.outputText("\n\n", false);
                 this.outputText(
@@ -14776,7 +14774,7 @@ export class Mutations extends BaseContent {
                 );
                 player.faceType = FACE_HUMAN;
             }
-            //De-fur
+            // De-fur
             else if (player.skinType != SKIN_TYPE_PLAIN) {
                 this.outputText("\n\n", false);
                 if (player.skinType == SKIN_TYPE_FUR)
@@ -14795,7 +14793,7 @@ export class Mutations extends BaseContent {
                 player.skinDesc = "skin";
             }
         }
-        //Demon tongue
+        // Demon tongue
         if (player.tongueType == TONUGE_SNAKE && Mutations.rand(3) == 0) {
             this.outputText(
                 "\n\nYour snake-like tongue tingles, thickening in your mouth until it feels more like your old human tongue, at least for the first few inches.  It bunches up inside you, and when you open up your mouth to release it, roughly two feet of tongue dangles out.  You find it easy to move and control, as natural as walking.  <b>You now have a long demon-tongue.</b>",
@@ -14803,9 +14801,9 @@ export class Mutations extends BaseContent {
             );
             player.tongueType = TONUGE_DEMONIC;
         }
-        //foot changes - requires furless
+        // foot changes - requires furless
         if (player.skinType == SKIN_TYPE_PLAIN && Mutations.rand(4) == 0) {
-            //Males/genderless get clawed feet
+            // Males/genderless get clawed feet
             if (player.gender <= 1) {
                 if (player.lowerBody != LOWER_BODY_TYPE_DEMONIC_CLAWS) {
                     this.outputText("\n\n", false);
@@ -14818,7 +14816,7 @@ export class Mutations extends BaseContent {
                     player.lowerBody = LOWER_BODY_TYPE_DEMONIC_CLAWS;
                 }
             }
-            //Females/futa get high heels
+            // Females/futa get high heels
             else if (player.lowerBody != LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS) {
                 this.outputText("\n\n", false);
                 this.outputText(
@@ -14830,13 +14828,13 @@ export class Mutations extends BaseContent {
                 player.lowerBody = LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS;
             }
         }
-        //Grow demon wings
+        // Grow demon wings
         if (
             player.wingType != WING_TYPE_BAT_LIKE_LARGE &&
             Mutations.rand(8) == 0 &&
             player.cor >= 50
         ) {
-            //grow smalls to large
+            // grow smalls to large
             if (player.wingType == WING_TYPE_BAT_LIKE_TINY && player.cor >= 75) {
                 this.outputText("\n\n", false);
                 this.outputText(
@@ -14875,7 +14873,7 @@ export class Mutations extends BaseContent {
                 }
                 this.outputText("<b>bat-like demon-wings!</b>", false);
             }
-            //No wings
+            // No wings
             else if (player.wingType == WING_TYPE_NONE) {
                 this.outputText("\n\n", false);
                 this.outputText(
@@ -14934,22 +14932,22 @@ export class Mutations extends BaseContent {
         }
     }
 
-    //Ferret Fruit
+    // Ferret Fruit
     public ferretTF(player: Player): void {
-        //CoC Ferret TF (Ferret Fruit)
-        //Finding Ferret Fruit
-        //- Ferret Fruit may be randomly found while exploring the plains.
-        //- Upon finding Ferret Fruit: “While searching the plains, you find an odd little tree with a curved trunk. The shape of its fruit appears to mimic that of the tree. A few of the fruits seem to have fallen off. You brush the dirt off of one of the fruits before placing in in your (x) pouch. (if there is no room in your inventory, you get the generic option to use now or abandon)
-        //- If you hover over the fruit in your inventory, this is its description:  “This fruit is curved oddly, just like the tree it came from.  The skin is fuzzy and brown, like the skin of a peach.”
-        //-Upon eating the fruit:
+        // CoC Ferret TF (Ferret Fruit)
+        // Finding Ferret Fruit
+        // - Ferret Fruit may be randomly found while exploring the plains.
+        // - Upon finding Ferret Fruit: “While searching the plains, you find an odd little tree with a curved trunk. The shape of its fruit appears to mimic that of the tree. A few of the fruits seem to have fallen off. You brush the dirt off of one of the fruits before placing in in your (x) pouch. (if there is no room in your inventory, you get the generic option to use now or abandon)
+        // - If you hover over the fruit in your inventory, this is its description:  “This fruit is curved oddly, just like the tree it came from.  The skin is fuzzy and brown, like the skin of a peach.”
+        // -Upon eating the fruit:
         this.clearOutput();
         this.outputText(
             "Feeling parched, you gobble down the fruit without much hesitation. Despite the skin being fuzzy like a peach, the inside is relatively hard, and its taste reminds you of that of an apple.  It even has a core like an apple. Finished, you toss the core aside."
         );
 
-        //BAD END:
+        // BAD END:
         if (player.ferretScore() >= 6) {
-            //Get warned!
+            // Get warned!
             if (this.flags[kFLAGS.FERRET_BAD_END_WARNING] == 0) {
                 this.outputText(
                     "\n\nYou find yourself staring off into the distance, dreaming idly of chasing rabbits through a warren.  You shake your head, returning to reality.  <b>Perhaps you should cut back on all the Ferret Fruit?</b>"
@@ -14958,9 +14956,9 @@ export class Mutations extends BaseContent {
                 if (player.inte < 5) player.inte = 5;
                 this.flags[kFLAGS.FERRET_BAD_END_WARNING] = 1;
             }
-            //BEEN WARNED! BAD END! DUN DUN DUN
+            // BEEN WARNED! BAD END! DUN DUN DUN
             else if (Mutations.rand(3) == 0) {
-                //-If you fail to heed the warning, it’s game over:
+                // -If you fail to heed the warning, it’s game over:
                 this.outputText(
                     "\n\nAs you down the fruit, you begin to feel all warm and fuzzy inside.  You flop over on your back, eagerly removing your clothes.  You laugh giddily, wanting nothing more than to roll about happily in the grass.  Finally finished, you attempt to get up, but something feels...  different.  Try as you may, you find yourself completely unable to stand upright for a long period of time.  You only manage to move about comfortably on all fours.  Your body now resembles that of a regular ferret.  That can’t be good!  As you attempt to comprehend your situation, you find yourself less and less able to focus on the problem.  Your attention eventually drifts to a rabbit in the distance.  You lick your lips. Nevermind that, you have warrens to raid!"
                 );
@@ -14968,7 +14966,7 @@ export class Mutations extends BaseContent {
                 return;
             }
         }
-        //Reset the warning if ferret score drops.
+        // Reset the warning if ferret score drops.
         else {
             this.flags[kFLAGS.FERRET_BAD_END_WARNING] = 0;
         }
@@ -14981,8 +14979,8 @@ export class Mutations extends BaseContent {
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
 
-        //Ferret Fruit Effects
-        //- + Thin:
+        // Ferret Fruit Effects
+        // - + Thin:
         if (player.thickness > 15 && changes < changeLimit && Mutations.rand(3) == 0) {
             this.outputText(
                 "\n\nEach movement feels a tiny bit easier than the last.  Did you just lose a little weight!? (+2 thin)"
@@ -14990,7 +14988,7 @@ export class Mutations extends BaseContent {
             player.thickness -= 2;
             changes++;
         }
-        //- If speed is > 80, increase speed:
+        // - If speed is > 80, increase speed:
         if (player.spe < 80 && Mutations.rand(3) == 0 && changes < changeLimit) {
             this.outputText(
                 "\n\nYour muscles begin to twitch rapidly, but the feeling is not entirely unpleasant.  In fact, you feel like running."
@@ -14998,7 +14996,7 @@ export class Mutations extends BaseContent {
             this.dynStats("spe", 1);
             changes++;
         }
-        //- If male with a hip rating >4 or a female/herm with a hip rating >6:
+        // - If male with a hip rating >4 or a female/herm with a hip rating >6:
         if (
             ((!player.hasCock() && player.hipRating > 6) ||
                 (player.hasCock() && player.hipRating > 4)) &&
@@ -15015,7 +15013,7 @@ export class Mutations extends BaseContent {
             if (player.hipRating > 23) player.hipRating--;
             changes++;
         }
-        //- If butt rating is greater than “petite”:
+        // - If butt rating is greater than “petite”:
         if (player.buttRating >= 8 && Mutations.rand(3) == 0 && changes < changeLimit) {
             this.outputText(
                 "\n\nYou cringe as your [butt] begins to feel uncomfortably tight.  Once the sensation passes, you look over your shoulder, inspecting yourself.  It would appear that your ass has become smaller!"
@@ -15028,7 +15026,7 @@ export class Mutations extends BaseContent {
             changes++;
         }
 
-        //-If male with breasts or female/herm with breasts > B cup:
+        // -If male with breasts or female/herm with breasts > B cup:
         if (
             !this.flags[kFLAGS.HYPER_HAPPY] &&
             (player.biggestTitSize() > 2 || (player.hasCock() && player.biggestTitSize() >= 1)) &&
@@ -15047,11 +15045,11 @@ export class Mutations extends BaseContent {
                 }
             }
             changes++;
-            //(this will occur incrementally until they become flat, manly breasts for males, or until they are A or B cups for females/herms)
+            // (this will occur incrementally until they become flat, manly breasts for males, or until they are A or B cups for females/herms)
         }
-        //-If penis size is > 6 inches:
+        // -If penis size is > 6 inches:
         if (player.hasCock()) {
-            //Find longest cock
+            // Find longest cock
             temp = -1;
             for (x = 0; x < player.cockTotal(); x++) {
                 if (temp == -1 || player.cocks[x].cockLength > player.cocks[temp].cockLength)
@@ -15079,7 +15077,7 @@ export class Mutations extends BaseContent {
                 }
             }
         }
-        //-If the PC has quad nipples:
+        // -If the PC has quad nipples:
         if (
             player.averageNipplesPerBreast() > 1 &&
             Mutations.rand(4) == 0 &&
@@ -15093,7 +15091,7 @@ export class Mutations extends BaseContent {
             }
             changes++;
         }
-        //If the PC has gills:
+        // If the PC has gills:
         if (player.gills && Mutations.rand(4) == 0 && changes < changeLimit) {
             this.outputText(
                 "\n\nYou grit your teeth as a stinging sensation arises in your gills.  Within moments, the sensation passes, and <b>your gills are gone!</b>"
@@ -15101,27 +15099,27 @@ export class Mutations extends BaseContent {
             player.gills = false;
             changes++;
         }
-        //If the PC has tentacle hair:
+        // If the PC has tentacle hair:
         if (player.hairType == HAIR_ANEMONE && Mutations.rand(4) == 0 && changes < changeLimit) {
             this.outputText(
                 "\n\nYour head feels strange as the tentacles you have for hair begin to recede back into your scalp, eventually leaving you with a bald head.  Your head is not left bald for long, though.  Within moments, a full head of hair sprouts from the skin of your scalp.  <b>Your hair is normal again!</b>"
             );
-            //Turn hair growth on.
+            // Turn hair growth on.
             this.flags[kFLAGS.HAIR_GROWTH_STOPPED_BECAUSE_LIZARD] = 0;
             player.hairType = 0;
             changes++;
         }
-        //If the PC has goo hair:
+        // If the PC has goo hair:
         if (player.hairType == HAIR_GOO && Mutations.rand(3) == 0 && changes < changeLimit) {
             this.outputText(
                 "\n\nYour gooey hair begins to fall out in globs, eventually leaving you with a bald head.  Your head is not left bald for long, though.  Within moments, a full head of hair sprouts from the skin of your scalp.  <b>Your hair is normal again!</b>"
             );
-            //Turn hair growth on.
+            // Turn hair growth on.
             this.flags[kFLAGS.HAIR_GROWTH_STOPPED_BECAUSE_LIZARD] = 0;
             player.hairType = 0;
             changes++;
         }
-        //If the PC has four eyes:
+        // If the PC has four eyes:
         if (
             player.eyeType == EYES_FOUR_SPIDER_EYES &&
             Mutations.rand(3) == 0 &&
@@ -15133,13 +15131,13 @@ export class Mutations extends BaseContent {
             player.eyeType = 0;
             changes++;
         }
-        //Go into heat
+        // Go into heat
         if (Mutations.rand(3) == 0 && changes < changeLimit) {
             if (player.goIntoHeat(true)) {
                 changes++;
             }
         }
-        //Turn ferret mask to full furface.
+        // Turn ferret mask to full furface.
         if (
             player.faceType == FACE_FERRET_MASK &&
             player.skinType == SKIN_TYPE_FUR &&
@@ -15155,7 +15153,7 @@ export class Mutations extends BaseContent {
             player.faceType = FACE_FERRET;
             changes++;
         }
-        //If face is human:
+        // If face is human:
         if (player.faceType == 0 && Mutations.rand(3) == 0 && changes < changeLimit) {
             this.outputText(
                 "\n\nA horrible itching begins to encompass the area around your eyes.  You grunt annoyedly, rubbing furiously at the afflicted area.  Once the feeling passes, you make your way to the nearest reflective surface to see if anything has changed.  Your suspicions are confirmed.  The [skinFurScales] around your eyes has darkened.  <b>You now have a ferret mask!</b>"
@@ -15163,7 +15161,7 @@ export class Mutations extends BaseContent {
             player.faceType = FACE_FERRET_MASK;
             changes++;
         }
-        //If face is not ferret, has ferret ears, tail, and legs:
+        // If face is not ferret, has ferret ears, tail, and legs:
         if (
             player.faceType != FACE_HUMAN &&
             player.faceType != FACE_FERRET_MASK &&
@@ -15177,7 +15175,7 @@ export class Mutations extends BaseContent {
             player.faceType = 0;
             changes++;
         }
-        //No fur, has ferret ears, tail, and legs:
+        // No fur, has ferret ears, tail, and legs:
         if (
             player.skinType != SKIN_TYPE_FUR &&
             player.earType == EARS_FERRET &&
@@ -15189,7 +15187,7 @@ export class Mutations extends BaseContent {
             this.outputText(
                 "\n\nYour skin starts to itch like crazy as a thick coat of fur sprouts out of your skin."
             );
-            //If hair was not sandy brown, silver, white, or brown
+            // If hair was not sandy brown, silver, white, or brown
             if (
                 player.hairColor != "sandy brown" &&
                 player.hairColor != "silver" &&
@@ -15207,76 +15205,76 @@ export class Mutations extends BaseContent {
             player.skinType = SKIN_TYPE_FUR;
             changes++;
         }
-        //Tail TFs!
+        // Tail TFs!
         if (
             player.tailType != TAIL_TYPE_FERRET &&
             player.earType == EARS_FERRET &&
             Mutations.rand(3) == 0 &&
             changes < changeLimit
         ) {
-            //If ears are ferret, no tail:
+            // If ears are ferret, no tail:
             if (player.tailType == 0) {
                 this.outputText(
                     "\n\nYou slump to the ground as you feel your spine lengthening and twisting, sprouting fur as it finishes growing.  Luckily the new growth does not seem to have ruined your [armor].  <b>You now have a ferret tail!</b>"
                 );
             }
-            //Placeholder for any future TFs that will need to be made compatible with this one
-            //centaur, has ferret ears:
+            // Placeholder for any future TFs that will need to be made compatible with this one
+            // centaur, has ferret ears:
             else if (player.tailType == TAIL_TYPE_HORSE && player.isTaur())
                 this.outputText(
                     "\n\nYou shiver as the wind gets to your tail, all of its shiny bristles having fallen out.  Your tail then begins to lengthen, warming back up as it sprouts a new, shaggier coat of fur.  This new, mismatched tail looks a bit odd on your horse lower body.  <b>You now have a ferret tail!</b>"
                 );
-            //If tail is harpy, has ferret ears:
+            // If tail is harpy, has ferret ears:
             else if (player.tailType == TAIL_TYPE_HARPY)
                 this.outputText(
                     "\n\nYou feel a soft tingle as your tail feathers fall out one by one.  The little stump that once held the feathers down begins to twist and lengthen before sprouting soft, fluffy fur.  <b>You now have a ferret tail!</b>"
                 );
-            //If tail is bunny, has ferret ears:
+            // If tail is bunny, has ferret ears:
             else if (player.tailType == TAIL_TYPE_RABBIT)
                 this.outputText(
                     "\n\nYou feel a pressure at the base of your tiny, poofy bunny tail as it begins to lengthen, gaining at least another foot in length.  <b>You now have a ferret tail!</b>"
                 );
-            //If tail is reptilian/draconic, has ferret ears:
+            // If tail is reptilian/draconic, has ferret ears:
             else if (player.tailType == TAIL_TYPE_DRACONIC || player.tailType == TAIL_TYPE_LIZARD)
                 this.outputText(
                     "\n\nYou reach a hand behind yourself to rub at your backside as your tail begins to twist and warp, becoming much thinner than before.  It then sprouts a thick coat of fur.  <b>You now have a ferret tail!</b>"
                 );
-            //If tail is cow, has ferret ears:
+            // If tail is cow, has ferret ears:
             else if (player.tailType == TAIL_TYPE_COW)
                 this.outputText(
                     "\n\nYour tail begins to itch slightly as the poof at the end of your tail begins to spread across its entire surface, making all of its fur much more dense than it was before. It also loses a tiny bit of its former length. <b>You now have a ferret tail!</b>"
                 );
-            //If tail is cat, has ferret ears:
+            // If tail is cat, has ferret ears:
             else if (player.tailType == TAIL_TYPE_CAT)
                 this.outputText(
                     "\n\nYour tail begins to itch as its fur becomes much denser than it was before.  It also loses a tiny bit of its former length.  <b>You now have a ferret tail!</b>"
                 );
-            //If tail is dog, has ferret ears:
+            // If tail is dog, has ferret ears:
             else if (player.tailType == TAIL_TYPE_DOG)
                 this.outputText(
                     "\n\nSomething about your tail feels... different.  You reach behind yourself, feeling it.  It feels a bit floppier than it was before, and the fur seems to have become a little more dense.  <b>You now have a ferret tail!</b>"
                 );
-            //If tail is kangaroo, has ferret ears:
+            // If tail is kangaroo, has ferret ears:
             else if (player.tailType == TAIL_TYPE_KANGAROO)
                 this.outputText(
                     "\n\nYour tail becomes uncomfortably tight as the entirety of its length begins to lose a lot of its former thickness.  The general shape remains tapered, but its fur has become much more dense and shaggy.  <b>You now have a ferret tail!</b>"
                 );
-            //If tail is fox, has ferret ears:
+            // If tail is fox, has ferret ears:
             else if (player.tailType == TAIL_TYPE_FOX)
                 this.outputText(
                     "\n\nYour tail begins to itch as its fur loses a lot of its former density.  It also appears to have lost a bit of length.  <b>You now have a ferret tail!</b>"
                 );
-            //If tail is raccoon, has ferret ears:
+            // If tail is raccoon, has ferret ears:
             else if (player.tailType == TAIL_TYPE_RACCOON)
                 this.outputText(
                     "\n\nYour tail begins to itch as its fur loses a lot of its former density, losing its trademark ring pattern as well.  It also appears to have lost a bit of length.  <b>You now have a ferret tail!</b>"
                 );
-            //If tail is horse, has ferret ears:
+            // If tail is horse, has ferret ears:
             else if (player.tailType == TAIL_TYPE_HORSE)
                 this.outputText(
                     "\n\nYou shiver as the wind gets to your tail, all of its shiny bristles having fallen out.  Your tail then begins to lengthen, warming back up as it sprouts a new, shaggier coat of fur.  <b>You now have a ferret tail!</b>"
                 );
-            //If tail is mouse, has ferret ears:
+            // If tail is mouse, has ferret ears:
             else if (player.tailType == TAIL_TYPE_MOUSE)
                 this.outputText(
                     "\n\nYour tail begins to itch as its bald surface begins to sprout a thick layer of fur.  It also appears to have lost a bit of its former length.  <b>You now have a ferret tail!</b>"
@@ -15288,8 +15286,8 @@ export class Mutations extends BaseContent {
             player.tailType = TAIL_TYPE_FERRET;
             changes++;
         }
-        //If naga, has ferret ears:
-        //(NOTE: this is the only exception to the legs coming after the tail, as the ferret tail will only go away right after it appears because of your snake lower half)
+        // If naga, has ferret ears:
+        // (NOTE: this is the only exception to the legs coming after the tail, as the ferret tail will only go away right after it appears because of your snake lower half)
         else if (
             player.isNaga() &&
             player.earType == EARS_FERRET &&
@@ -15302,7 +15300,7 @@ export class Mutations extends BaseContent {
             changes++;
             player.lowerBody = LOWER_BODY_FERRET;
         }
-        //If legs are not ferret, has ferret ears and tail
+        // If legs are not ferret, has ferret ears and tail
         if (
             player.lowerBody != LOWER_BODY_FERRET &&
             player.earType == EARS_FERRET &&
@@ -15310,7 +15308,7 @@ export class Mutations extends BaseContent {
             Mutations.rand(4) == 0 &&
             changes < changeLimit
         ) {
-            //-If centaur, has ferret ears and tail:
+            // -If centaur, has ferret ears and tail:
             if (player.isTaur())
                 this.outputText(
                     "\n\nYou scream in agony as a horrible pain racks your entire horse lower half.  Unable to take it anymore, you pass out.  When you wake up, you’re shocked to find that you no longer have the lower body of a horse.  Instead, you have soft, furry legs that resemble that of a ferret’s.  <b>You now have ferret legs!</b>"
@@ -15322,7 +15320,7 @@ export class Mutations extends BaseContent {
             changes++;
             player.lowerBody = LOWER_BODY_FERRET;
         }
-        //If ears are not ferret:
+        // If ears are not ferret:
         if (
             player.earType != EARS_FERRET &&
             Mutations.rand(4) == 0 &&
@@ -15336,7 +15334,7 @@ export class Mutations extends BaseContent {
             player.earType = EARS_FERRET;
             changes++;
         }
-        //If no other effect occurred, fatigue decreases:
+        // If no other effect occurred, fatigue decreases:
         if (changes == 0) {
             this.outputText(
                 "\n\nYour eyes widen.  With the consumption of the fruit, you feel much more energetic.  You’re wide awake now!"

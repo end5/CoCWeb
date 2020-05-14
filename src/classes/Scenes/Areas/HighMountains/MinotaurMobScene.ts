@@ -17,31 +17,31 @@ import { TimeAwareInterface } from "../../../TimeAwareInterface";
 import { MinotaurMob } from "./MinotaurMob";
 
 export class MinotaurMobScene extends BaseContent implements TimeAwareInterface {
-    //Vars:
-    //325 Times met
-    //326 Number of sons grown
-    //327 Number of sons pending
-    //328 growup countdown
+    // Vars:
+    // 325 Times met
+    // 326 Number of sons grown
+    // 327 Number of sons pending
+    // 328 growup countdown
 
     public constructor() {
         super();
         CoC.timeAwareClassAdd(this);
     }
 
-    //Implementation of TimeAwareInterface
+    // Implementation of TimeAwareInterface
     public timeChange(): boolean {
-        //326 Number of sons grown
-        //327 Number of sons pending
-        //328 growup countdown
-        //If it gets glitched somehow
+        // 326 Number of sons grown
+        // 327 Number of sons pending
+        // 328 growup countdown
+        // If it gets glitched somehow
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00328] > 30)
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00328] = 30;
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00328] < 0)
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00328] = 0;
-        //Countdown for son growing up
+        // Countdown for son growing up
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00328] > 0) {
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00328]--;
-            //Hit zero, move kid to grown up pile!
+            // Hit zero, move kid to grown up pile!
             if (
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00328] <= 0 &&
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00327] > 0
@@ -50,7 +50,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326]++;
             }
         }
-        //NEXT KID!
+        // NEXT KID!
         if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00327] > 0 &&
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00328] == 0
@@ -64,16 +64,16 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
     public timeChangeLarge(): boolean {
         return false;
     }
-    //End of Interface Implementation
+    // End of Interface Implementation
 
     public meetMinotaurSons(): void {
         this.outputText("", true);
         this.spriteSelect(94);
         this.dynStats("lus", 10);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00325]++;
-        //First Meeting
+        // First Meeting
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00325] == 1) {
-            //(Non-Addicted)
+            // (Non-Addicted)
             if (!this.player.minotaurAddicted()) {
                 this.outputText(
                     "You explore the hilly, almost cliff-like high mountains, searching for the next fight, item, or discovery that will put you closer to your goal.  The hot sun beats down on your back like a baleful flame, seeming to cook you in your " +
@@ -132,7 +132,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                     "You can't help but laugh with a mixture of maternal pride and rational worry.  What do your offspring have planned for you?  Judging by the three stiffening loincloths, they won't hold back much longer.  What will you do?",
                     false
                 );
-                //[Fight] [Submit] [Negotiate] [Run]
+                // [Fight] [Submit] [Negotiate] [Run]
                 this.simpleChoices(
                     "Fight",
                     this.fightOTaurs,
@@ -146,7 +146,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                     this.runFromMinotaurs
                 );
             }
-            //(Addicted)
+            // (Addicted)
             else {
                 this.outputText(
                     "You explore the hilly, almost cliff-like high mountains, searching for the next fight, item, or discovery that will put you closer to your goal.  The hot sun beats down on your back like a baleful flame, seeming to cook you in your " +
@@ -212,7 +212,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                         "Who cares if they're your offspring?  They're all grown up and they smell so... appetizing.",
                         false
                     );
-                //[Fight] [Submit] [Run]
+                // [Fight] [Submit] [Run]
                 this.simpleChoices(
                     "Fight",
                     this.fightOTaurs,
@@ -227,11 +227,11 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 );
             }
         }
-        //Repeat meetings
+        // Repeat meetings
         else {
-            //Non tribe size
+            // Non tribe size
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] < 20) {
-                //[Non Addicted Repeat]
+                // [Non Addicted Repeat]
                 if (!this.player.minotaurAddicted()) {
                     this.outputText(
                         "It doesn't take long for your exploration into the mountains to bring you face-to-face with your minotaur offspring once again.  There're " +
@@ -311,7 +311,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
 
                     this.outputText("What do you do?", false);
                 }
-                //[Addicted Repeat]
+                // [Addicted Repeat]
                 else {
                     this.outputText(
                         "It doesn't take too long for your exploration into the mountains to bring you face-to-face with your minotaur offspring once again.  There're " +
@@ -392,7 +392,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                             "Your mind is already fogging under the intense need of your addiction, and you do the only thing a junkie like you can do in this situation – drop down on all fours and get ready to be used.",
                             false
                         );
-                        //Same as 'submit'
+                        // Same as 'submit'
                         this.doNext(this.submitToMinotaurMob);
                         return;
                     }
@@ -401,7 +401,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                         false
                     );
                 }
-                //[Fight] [Submit] [Run]
+                // [Fight] [Submit] [Run]
                 this.simpleChoices(
                     "Fight",
                     this.fightOTaurs,
@@ -415,9 +415,9 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                     this.runFromMinotaurs
                 );
             }
-            //Tribe sized
+            // Tribe sized
             else {
-                //[Repeat Tribe-Size Non-Addict]
+                // [Repeat Tribe-Size Non-Addict]
                 if (!this.player.minotaurAddicted()) {
                     this.outputText(
                         "While exploring, you once again manage to stumble into your sons' territory.  You can practically see the musk, hanging so heavily in the air that it could be cut with a blade.  Somewhere in the distance, grunts and moos of pleasure ring out, echoing off the rocky cliff-sides.  Clearly one of your boys has found a willing female to expand the tribe with, and they seem to be procreating with rabid enthusiasm, from the sounds you're hearing.  You find yourself starting to envision big, strong hands, squeezing your hips and guiding you onto a fat shaft to be mounted and bred.\n\n",
@@ -499,7 +499,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                         );
                     this.outputText("  What do you do?", false);
                 }
-                //[Repeat Tribe-Size Addict]
+                // [Repeat Tribe-Size Addict]
                 else {
                     this.outputText(
                         "While exploring, you once again manage to stumble into your sons' territory.  You can practically see the musk, hanging so heavily in the air that it could be cut with a blade.  Somewhere in the distance, grunts and moos of pleasure are ringing out, echoing off the rocky cliff-sides.  Clearly one of your boys has found a willing female to expand the tribe with, and they seem to be procreating with rabid enthusiasm from the sounds you're hearing.  You find yourself starting to imagine the scene, envisioning the big, strong hands squeezing your hips and guiding you onto a fat shaft to be mounted.  Shivering a little in anticipation, you wonder just how you'll get your next dose of cum.\n\n",
@@ -572,7 +572,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                             "This is perfect... you need it so bad!  You drop down on all fours and wiggle your child-bearing hips, hoping they'll hurry and cum inside you.",
                             false
                         );
-                        //SUBMIT!
+                        // SUBMIT!
                         this.doNext(this.submitToMinotaurMob);
                         return;
                     }
@@ -581,7 +581,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                         false
                     );
                 }
-                //[Fight] [Submit]
+                // [Fight] [Submit]
                 this.simpleChoices(
                     "Fight",
                     this.fightOTaurs,
@@ -598,7 +598,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
         }
     }
 
-    //[Negotiate] (fucking Morton's fork, just add this to the end of the non-addict intro ~ but thou must!)
+    // [Negotiate] (fucking Morton's fork, just add this to the end of the non-addict intro ~ but thou must!)
     private negotiate(): void {
         this.outputText("", true);
         this.spriteSelect(94);
@@ -623,7 +623,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
         );
 
         this.outputText("Looks like they're only interested in one thing.", false);
-        //[Fight] [Submit] [Run]
+        // [Fight] [Submit] [Run]
         this.simpleChoices(
             "Fight",
             this.fightOTaurs,
@@ -638,7 +638,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
         );
     }
 
-    //[Run]
+    // [Run]
     private runFromMinotaurs(): void {
         this.outputText("", true);
         this.spriteSelect(94);
@@ -647,7 +647,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             this.outputText("leaping from the small cliffs to take flight", false);
         else this.outputText("fleeing down the mountainside", false);
         this.outputText(".  ", false);
-        //ESCAPE!
+        // ESCAPE!
         if (
             (this.player.canFly() && this.player.spe > MinotaurMobScene.rand(40)) ||
             (!this.player.canFly() && this.player.spe > MinotaurMobScene.rand(60))
@@ -660,7 +660,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             );
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //FAIL:
+        // FAIL:
         else {
             this.outputText(
                 "A furry arm catches hold of your " +
@@ -668,18 +668,18 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                     " and yanks on it hard enough to slam you into the cliff face.  Disoriented and bleeding, you wobble free, dazed.  It's a fight!",
                 false
             );
-            //go to combat
+            // go to combat
             this.fightOTaurs();
         }
     }
-    //[Fight]
+    // [Fight]
     private fightOTaurs(): void {
         this.startCombat(new MinotaurMob());
         this.spriteSelect(94);
         this.playerMenu();
     }
 
-    //[Submit]
+    // [Submit]
     private submitToMinotaurMob(): void {
         this.player.lust = 100;
         this.dynStats("lus", 1);
@@ -696,7 +696,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             this.cleanupAfterCombat();
             return;
         }
-        //(HP)
+        // (HP)
         if (this.player.HP < 1)
             this.outputText(
                 "You've been completely defeated.  Bruised and battered, your overtaxed body is barely able to move, and you slump down on the ground.  The minotaurs stomp closer, smiling in anticipation of what's to come.  Mouth agape, you stare while they discard their tiny, pre-cum soaked loincloths and reveal the massive, distinctive cocks that make their breed so famous.  One of the rags lands squarely on your face, by chance or cruel intent, and you gasp in surprise.  Like a lightning bolt shooting down your spine, arousal slams into you with thunderous force, rocking you back as you shake the sticky cloth from your face.  All thoughts of resistance are completely washed away by the tide of your aching need, and you spread your " +
@@ -706,7 +706,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                     " and wait anxiously for whatever the beast-men have planned.\n\n",
                 false
             );
-        //(Lust)
+        // (Lust)
         else {
             this.outputText(
                 "You're too turned on to fight, too aroused to think, and trembling too much to stand upright.  Slumping in the dirt, you pull away your " +
@@ -738,7 +738,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
         } else this.nonAddictMinotaurGangBang();
     }
 
-    //[Loss – Non-Addict Gangbang]
+    // [Loss – Non-Addict Gangbang]
     private nonAddictMinotaurGangBang(): void {
         this.spriteSelect(94);
         this.outputText(
@@ -956,7 +956,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 " a minotaur that hasn't had his chance to take you yet.  The beast laughs and smiles, pulling you to your knees.  ",
                 false
             );
-            //(1-2 more end paragraph)
+            // (1-2 more end paragraph)
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] <= 5)
                 this.outputText(
                     "You open your mouth wide, licking your lips until they're shiny and inviting enough for the stud to fuck.  He does not disappoint.  The fat head pushes past your puckered cock-suckers and slides into your throat, the passage eased by the leavings of the one before him.  You sigh happily and begin to suck his cock like a lollipop, though all you want is his creamy center.  The others crowd around, touching themselves and waiting for another turn.  ",
@@ -972,9 +972,9 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             "You black out at that point, but when you wake up soaked in cum with a bottle of it next to you, you know it was a good night.",
             false
         );
-        //Force cum bottle loot!
+        // Force cum bottle loot!
         this.flags[kFLAGS.BONUS_ITEM_AFTER_COMBAT_ID] = this.consumables.MINOCUM.id;
-        //Preggers chance!
+        // Preggers chance!
         this.player.knockUp(
             PregnancyStore.PREGNANCY_MINOTAUR,
             PregnancyStore.INCUBATION_MINOTAUR,
@@ -994,7 +994,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
         }
     }
 
-    //*[Loss - Very Pregnant, Lots of BJs]
+    // *[Loss - Very Pregnant, Lots of BJs]
     private loseToMinoMobVeryPregnant(): void {
         this.spriteSelect(94);
         this.outputText(
@@ -1154,7 +1154,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             '"<i>You\'ve got a nice tight throat, Mom... for a whore,</i>" says the minotaur as he steps back.  You beam in happiness from the tone of praise in his voice, too high to register the insult for what it really is.  A moment later you forget even that, as the next dick is pressed between your lips.  ',
             false
         );
-        //(short)
+        // (short)
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] < 8) {
             this.outputText(
                 "It's the minitaur's! His cock isn't nearly as huge as his brothers', though it's still more than large enough to leave you feeling gaped.  After the intense throat-fucking you've had to put up with, the smaller shaft and its spewing pre-seed feel like a balm, soothing your sore, cum-coated throat.  You swallow it down eagerly, ignoring the fullness of your belly as you try to milk every drop from your feminine son.  Lost in your oral heaven, you relax and let the dick anchor you in place, balls slapping your chin as your esophagus ripples around the sheath-deep member.\n\n",
@@ -1192,7 +1192,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 );
             this.outputText('</i>"', false);
         }
-        //(Long)
+        // (Long)
         else {
             this.outputText(
                 "It's the biggest one yet!  You look up to see which of your many sons is so well endowed.  He's not even that tall.  He's just a normal looking minotaur, but he's fucking HUNG.  His flare is the worst part of it all - it's so wide that you worry it'll dislocate your jaw.  As it enters your throat, stretching your poor neck even further, you note that he's not leaking like his brothers either, though his balls do look big enough to cause him great discomfort when he walks.\n\n",
@@ -1241,9 +1241,9 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
         else this.doNext(this.camp.returnToCampUseEightHours);
     }
 
-    //*[Loss Anal And BJ Spearing, Somewhat Preg?] (feels almost the same as the standard loss, added a demi-scene for nipcunts) (otherwise, edited)
-    //SEMI PREG
-    //> 120 && <= 216
+    // *[Loss Anal And BJ Spearing, Somewhat Preg?] (feels almost the same as the standard loss, added a demi-scene for nipcunts) (otherwise, edited)
+    // SEMI PREG
+    // > 120 && <= 216
     private analSpearSemiPregMinotaurGangbang(): void {
         this.spriteSelect(94);
         this.outputText(
@@ -1369,7 +1369,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
         else this.outputText("drip", false);
         this.outputText(" girl-juice everywhere.\n\n", false);
 
-        //(nipcunts)
+        // (nipcunts)
         if (this.player.hasFuckableNipples()) {
             this.outputText(
                 "Probing hands grasp your " +
@@ -1409,7 +1409,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 );
             this.outputText("\n\n", false);
         }
-        //(Lactation, no nipcunts)
+        // (Lactation, no nipcunts)
         else if (this.player.biggestLactation() >= 1) {
             this.outputText(
                 "Wet lips clasp around a " +
@@ -1424,7 +1424,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 false
             );
         }
-        //(No Lactate, no nipcunts)
+        // (No Lactate, no nipcunts)
         else {
             this.outputText(
                 "Wet lips clasp around a " +
@@ -1505,23 +1505,23 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
         else this.doNext(this.camp.returnToCampUseEightHours);
     }
 
-    //*[Victory - Generic Text]
+    // *[Victory - Generic Text]
     public victoryMinotaurGang(): void {
         this.outputText("", true);
         this.spriteSelect(94);
-        //(HP)
+        // (HP)
         if (this.monster.HP < 1)
             this.outputText(
                 "The last minotaur sinks to his knees, wobbling back and forth while fighting to stay upright. He gives up and slumps down onto his back, mooing in pain.  You exult in your victory as you look across the defeated beast-men.  Though they're strong and aided by potent natural aphrodisiacs, they were no match for you.  Amusingly enough, they're still hard, even in their semi-conscious state. The horse-like mino-cocks lift their loincloths to stab at the sky, dripping moisture.\n\n",
                 false
             );
-        //(Lust)
+        // (Lust)
         else
             this.outputText(
                 "The last minotaur sinks to his knees, pulling aside his loincloth with thread-rending strength to expose the pulsating, needy shaft to the air.  He begins to masturbate himself just like his brother, spilling his pre-seed over the ground into the messy, growing puddle.  The smell hangs thick in the air, but you've won and kept enough of your wits about you to walk away if you want.\n\n",
                 false
             );
-        //+lust regardless
+        // +lust regardless
         if (this.player.lust < 33) this.player.lust = 33;
         else this.dynStats("lus", 20);
         this.dynStats("lus", 1);
@@ -1529,7 +1529,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             "Your body is burning up, buzzing with growing lust from the obscenity going on a few feet away from you.  What do you do?",
             false
         );
-        //	[win options]
+        // 	[win options]
         var getSuck = undefined;
         if (this.player.hasCock())
             getSuck = this.createCallBackFunction(this.forceMinitaurToGiveOral, 1);
@@ -1560,7 +1560,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             this.cleanupAfterCombat
         );
     }
-    //*[Victory Tit-Fuck] (for only the fattest of fat bitch titties)
+    // *[Victory Tit-Fuck] (for only the fattest of fat bitch titties)
     private victoryMinotaurGangTitFuck(): void {
         this.outputText("", true);
         this.spriteSelect(94);
@@ -1652,8 +1652,8 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             "You lick at your lips and sway on your feet, feeling positively out-of-your-mind with artificial happiness.  ",
             false
         );
-        //(FORK: Small or large)
-        //(LARGE)
+        // (FORK: Small or large)
+        // (LARGE)
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] >= 10) {
             this.outputText(
                 "There're so many minotaurs left for you to milk that it makes your head spin.  Then again, it might just be the minotaur spooge addling your poor brain.  You dully remember your pledge to punish them all, and before your 'boys' can take the initiative, you grab the next two studs with your hands and begin jerking them off, slowly egging them closer to you.  The over-sized dicks eagerly advance in response, sliding right between mommy's mammaries where they belong.  Like their bigger bothers, these two obediently hold still once properly positioned and allow you to milk their cocks with your " +
@@ -1710,7 +1710,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 false
             );
         }
-        //(SMALL)
+        // (SMALL)
         else {
             this.outputText("There's only ", false);
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] == 3)
@@ -1805,7 +1805,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 );
             }
         }
-        //Force cum bottle loot!
+        // Force cum bottle loot!
         this.flags[kFLAGS.BONUS_ITEM_AFTER_COMBAT_ID] = this.consumables.MINOCUM.id;
         this.player.orgasm();
         this.dynStats("spe", -0.5, "int", -0.5, "lib", 0.5, "sen", 0.5, "cor", 0.5);
@@ -1821,7 +1821,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
         }
     }
 
-    //*[Victory - Double/Triple penetration]
+    // *[Victory - Double/Triple penetration]
     private victoryAllThePenetrationsMinotaurGangBang(): void {
         this.outputText("", true);
         this.spriteSelect(94);
@@ -1875,7 +1875,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             "  It pulsates wetly inside you with each beat of the minotaur's hammering heart.",
             false
         );
-        //(CUNT CHECK, REGISTER 4! And hymens are out of stock again!)
+        // (CUNT CHECK, REGISTER 4! And hymens are out of stock again!)
         this.player.cuntChange(60, true, true, false);
         this.outputText("\n\n", false);
 
@@ -1937,7 +1937,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             this.outputText("  There's still more you could be doing.", false);
         this.outputText("\n\n", false);
 
-        //(Nipplefuck PG:)
+        // (Nipplefuck PG:)
         if (this.player.hasFuckableNipples() && this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] > 4) {
             if (this.player.biggestLactation() >= 1) this.outputText("Milky lube", false);
             else this.outputText("Lubricant", false);
@@ -1982,7 +1982,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                     false
                 );
         }
-        //Dicks)
+        // Dicks)
         if (this.player.hasCock())
             this.outputText(
                 this.SMultiCockDesc() +
@@ -2078,7 +2078,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             false
         );
 
-        //Preggers chance!
+        // Preggers chance!
         this.player.knockUp(
             PregnancyStore.PREGNANCY_MINOTAUR,
             PregnancyStore.INCUBATION_MINOTAUR,
@@ -2092,7 +2092,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //*[Victory - Make minitaur oral (M/F/H)]
+    // *[Victory - Make minitaur oral (M/F/H)]
     private forceMinitaurToGiveOral(choice: number = 0): void {
         this.outputText("", true);
         this.spriteSelect(94);
@@ -2123,8 +2123,8 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             "The pathetic minitaur is hopelessly addicted to his brothers' cum.  You shrug, tired of his bitching and wanting the satisfaction you so desperately crave.  \"<i>Whining about your problems won't make them go away.  Now put that mouth to use and ",
             false
         );
-        //(FORK BETWEEN CUNT/DICK VARIATIONS)
-        //(CUNTPUSSIEFUCKER)
+        // (FORK BETWEEN CUNT/DICK VARIATIONS)
+        // (CUNTPUSSIEFUCKER)
         if (choice == 0) {
             this.outputText(
                 "start licking Momma's pussy.</i>\"  As if to emphasize your point, you ",
@@ -2136,7 +2136,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                     this.outputText("and lift your tail ", false);
                 this.outputText("to expose the glistening pinkness of your womanhood.", false);
             }
-            //ELSE
+            // ELSE
             else {
                 if (this.player.balls > 0) this.outputText("lift your balls and ", false);
                 this.outputText(
@@ -2253,7 +2253,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                     false
                 );
         }
-        //(PENISCOCKSUCKERFUCK)
+        // (PENISCOCKSUCKERFUCK)
         else {
             this.outputText(
                 "start sucking Mommy's hard cock.</i>\"  To emphasize your point, you ",
@@ -2399,7 +2399,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //*[Victory- BJ + Nipplefucking] (boring, samey, not actually punishment again, could have been shoving very long nipples into urethras) (edited)
+    // *[Victory- BJ + Nipplefucking] (boring, samey, not actually punishment again, could have been shoving very long nipples into urethras) (edited)
     private victoryBJNippleFuckMinotaurGang(): void {
         this.outputText("", true);
         this.spriteSelect(94);
@@ -2540,8 +2540,8 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Bad End Scene:
-    //*Summary: Req's a ton of sons and the PC be addickted to minotaur spooge, also to have seen the random scene with a minotaur fucking a cowgirl in the mountains at least _ times. :3
+    // Bad End Scene:
+    // *Summary: Req's a ton of sons and the PC be addickted to minotaur spooge, also to have seen the random scene with a minotaur fucking a cowgirl in the mountains at least _ times. :3
     private minotaurGangBadEnd(): void {
         this.outputText("", true);
         this.spriteSelect(94);
@@ -2675,7 +2675,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
         this.doNext(this.minotaurGangBadEnd2);
     }
 
-    //[Next]
+    // [Next]
     private minotaurGangBadEnd2(): void {
         this.outputText("", true);
         this.spriteSelect(94);
@@ -2759,7 +2759,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
         this.getGame().gameOver();
     }
 
-    //[Discipline Eldest]
+    // [Discipline Eldest]
     private disciplineEldestMinotaurSon(): void {
         this.outputText("", true);
         this.spriteSelect(94);

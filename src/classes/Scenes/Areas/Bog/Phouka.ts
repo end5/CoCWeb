@@ -22,7 +22,7 @@ import { PhoukaScene } from "./PhoukaScene";
 export class Phouka extends Monster {
     protected phoukaFightAttack(): void {
         var damage: number;
-        //Only the bunny, goat and horse forms make physical attacks
+        // Only the bunny, goat and horse forms make physical attacks
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Phouka.rand(3) < 1) {
             this.outputText(
                 this.capitalA + this.short + " completely misses you due to his blindness!\n",
@@ -75,7 +75,7 @@ export class Phouka extends Monster {
                 );
             }
         } else {
-            //HORSE
+            // HORSE
             damage = Math.round(95 + 55 + 10 - Phouka.rand(this.player.tou) - this.player.armorDef); //95 == Horse Strength, 55 == Horse Weapon Attack
             this.outputText(
                 "The stallion charges you, clearly intending to trample you under its hooves."
@@ -101,7 +101,7 @@ export class Phouka extends Monster {
     }
 
     protected phoukaFightLustAttack(): void {
-        //Only the faerie, bunny and horse forms make lust attacks
+        // Only the faerie, bunny and horse forms make lust attacks
         if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_FAERIE)
             this.outputText(
                 "The " +
@@ -161,7 +161,7 @@ export class Phouka extends Monster {
     }
 
     protected phoukaFightSilence(): void {
-        //Reuses the statusAffect Web-Silence from the spiders
+        // Reuses the statusAffect Web-Silence from the spiders
         this.outputText(
             this.capitalA +
                 this.short +
@@ -209,7 +209,7 @@ export class Phouka extends Monster {
             var transformChance: number = Phouka.rand(9); //2 in 3 chance of staying in current form
             if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_FAERIE) {
                 if (blinded) transformChance = Phouka.rand(3);
-                //100% chance of change from blind phouka if not doing silence attack
+                // 100% chance of change from blind phouka if not doing silence attack
                 else transformChance = Phouka.rand(4); //75% chance of change from phouka if not doing silence attack
             }
             switch (transformChance) {
@@ -225,21 +225,21 @@ export class Phouka extends Monster {
             }
             if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_FAERIE)
                 this.phoukaFightLustAttack();
-            //Can only get here if the phouka isn’t blind
+            // Can only get here if the phouka isn’t blind
             else if (
                 PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_BUNNY &&
                 Phouka.rand(4) != 0 &&
                 !blinded
             )
                 this.phoukaFightLustAttack();
-            //Bunny has a 75% chance of teasing attack, no teasing while blind
+            // Bunny has a 75% chance of teasing attack, no teasing while blind
             else if (
                 PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_HORSE &&
                 Phouka.rand(4) == 0 &&
                 !blinded
             )
                 this.phoukaFightLustAttack();
-            //Horse has a 25% chance of teasing attack, no teasing while blind
+            // Horse has a 25% chance of teasing attack, no teasing while blind
             else this.phoukaFightAttack();
         }
     }
@@ -284,10 +284,10 @@ export class Phouka extends Monster {
             this.doNext(this.game.endLustLoss);
         } else {
             if (this.player.hasVagina()) {
-                //Phouka prefer vaginal if they can get it
+                // Phouka prefer vaginal if they can get it
                 if (this.player.isTaur() || Phouka.rand(2) == 0)
                     this.game.bog.phoukaScene.phoukaSexHorse(true, !hpVictory);
-                //And they love mating with female or herm centaurs in their horse form
+                // And they love mating with female or herm centaurs in their horse form
                 else this.game.bog.phoukaScene.phoukaSexBunny(true, !hpVictory);
             } else this.game.bog.phoukaScene.phoukaSexGoat(true, !hpVictory);
         }
@@ -304,7 +304,7 @@ export class Phouka extends Monster {
                 "As the goat morph charges towards you it starts to grow.  By the time it gets close it has changed completely and you now face a 5 foot tall bunny morph.\n\n"
             );
         } else {
-            //Was a horse
+            // Was a horse
             this.outputText(
                 "As the horse morph charges towards you it quite suddenly shrinks.  You have to adjust your defence as a 5 foot tall bunny morph is now hopping your way.\n\n"
             );
@@ -329,7 +329,7 @@ export class Phouka extends Monster {
                 "The bunny morph hops back from you and starts to melt and change.  You blink and see that in front of you there is now a 4 foot tall goat morph.\n\n"
             );
         } else {
-            //Was a horse
+            // Was a horse
             this.outputText(
                 "As the horse morph charges towards you it quite suddenly shrinks.  You have to adjust your defence as it is now a 4 foot tall goat morph.\n\n"
             );
@@ -354,7 +354,7 @@ export class Phouka extends Monster {
                 "The bunny morph hops back from you and starts to grow and melt.  You watch amazed as the creature's form stretches.  Finally it seems unable to grow further and settles into the form of a massive stallion.\n\n"
             );
         } else {
-            //Was a goat
+            // Was a goat
             this.outputText(
                 "The goat morph eyes you then seems to think better of charging again.  It backs away and starts to grow larger and larger, its features and body shape twisting and reforming.  Finally it seems unable to grow further and settles into the form of a massive stallion.\n\n"
             );
@@ -379,7 +379,7 @@ export class Phouka extends Monster {
                 "The goat morph bounds away from you and starts to melt and deform.  In seconds only a tiny faerie is left floating in the air where the goat once was.\n\n"
             );
         } else {
-            //Was a horse
+            // Was a horse
             this.outputText(
                 "The horse morph charges past you.  You look over your shoulder and wonder where the stallion could have gone.  Then you see the tiny faerie zipping back for another attack.\n\n"
             );
@@ -416,7 +416,7 @@ export class Phouka extends Monster {
     }
 
     public handleAwardText(): void {
-        //Talk about gems and XP when the player looks in the hollow of the tree instead of here
+        // Talk about gems and XP when the player looks in the hollow of the tree instead of here
     }
 
     public handleCombatLossText(inDungeon: boolean, gemsLost: number): number {

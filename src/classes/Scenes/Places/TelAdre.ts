@@ -57,41 +57,41 @@ export class TelAdre extends BaseContent {
     public sexMachine: SexMachine = new SexMachine();
     public umasShop: UmasShop = new UmasShop();
 
-    //const YVONNE_FUCK_COUNTER:int = 437;
+    // const YVONNE_FUCK_COUNTER:int = 437;
 
     /**
      * 3 variables that define bonuses for piercing.
      */
-    //{region PiercingVariables
+    // {region PiercingVariables
 
-    //0) **Clit (+2 sens)
-    //1) **Dick (+2 lib) adds the word 'pierced' sometimes to the description
-    //2) **Ears
-    //3) **Eyebrow (-.5 def)
-    //4) **Lip (-.5 def)
-    //5) **Nipples (+1 sens, +1 lib)
-    //6) **Nose (+.5 attack)
-    //7) **Tongue (+1 sens)
-    //8) **Vulva (+1 sens)
+    // 0) **Clit (+2 sens)
+    // 1) **Dick (+2 lib) adds the word 'pierced' sometimes to the description
+    // 2) **Ears
+    // 3) **Eyebrow (-.5 def)
+    // 4) **Lip (-.5 def)
+    // 5) **Nipples (+1 sens, +1 lib)
+    // 6) **Nose (+.5 attack)
+    // 7) **Tongue (+1 sens)
+    // 8) **Vulva (+1 sens)
     public piercingLoc: number = 0;
 
-    //1. Amethyst (+1 int, +1 lib)
-    //2. Diamond (+2 int, -1 cor)
-    //3. Gold (+1 int, +1 sens)
-    //4. Emerald (+1 spe)
-    //5. Jade (+1 spe, -.5 tou)
-    //6. Onyx (+1 tou, -1 spe)
-    //7. Ruby (+1 lib, +1 sens)
-    //8. Steel (+2 str, -2 int)
+    // 1. Amethyst (+1 int, +1 lib)
+    // 2. Diamond (+2 int, -1 cor)
+    // 3. Gold (+1 int, +1 sens)
+    // 4. Emerald (+1 spe)
+    // 5. Jade (+1 spe, -.5 tou)
+    // 6. Onyx (+1 tou, -1 spe)
+    // 7. Ruby (+1 lib, +1 sens)
+    // 8. Steel (+2 str, -2 int)
     public piercingMat: number = 0;
 
-    //1. Stud
-    //2. Ring (Called prince albert on dick)
-    //3. Jacobs Ladder (dick only)
-    //4. Hoop (ears/nipples/clit)
-    //5. Chain (nipples only)
+    // 1. Stud
+    // 2. Ring (Called prince albert on dick)
+    // 3. Jacobs Ladder (dick only)
+    // 4. Hoop (ears/nipples/clit)
+    // 5. Chain (nipples only)
     public piercingType: number = 0;
-    //}endregion
+    // }endregion
 
     public discoverTelAdre(): void {
         this.outputText("", true);
@@ -112,7 +112,7 @@ export class TelAdre extends BaseContent {
         this.doYesNo(this.encounterTelAdre, this.camp.returnToCampUseOneHour);
     }
 
-    //player chose to approach the city in the distance
+    // player chose to approach the city in the distance
     private encounterTelAdre(): void {
         this.outputText("", true);
         if (this.player.findStatusAffect(StatusAffects.TelAdre) < 0) {
@@ -162,11 +162,11 @@ export class TelAdre extends BaseContent {
         }
     }
 
-    //Alignment crystal goooooo
+    // Alignment crystal goooooo
     private telAdreCrystal(): void {
         if (this.player.findStatusAffect(StatusAffects.TelAdre) < 0)
             this.player.createStatusAffect(StatusAffects.TelAdre, 0, 0, 0, 0);
-        //-70+ corruption, or possessed by exgartuan
+        // -70+ corruption, or possessed by exgartuan
         if (this.player.findStatusAffect(StatusAffects.Exgartuan) >= 0 || this.player.cor >= 70) {
             this.outputText(
                 "The crystal pendant begins to vibrate in the air, swirling around and glowing dangerously black.  Edryn snatches her hand back and says, \"<i>I'm sorry, but you're too far gone to step foot into our city.  If by some miracle you can shake the corruption within you, return to us.</i>\"\n\n",
@@ -179,14 +179,14 @@ export class TelAdre extends BaseContent {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //-50+ corruption or corrupted Jojo
+        // -50+ corruption or corrupted Jojo
         else if (this.player.cor >= 50 || kGAMECLASS.monk >= 5) {
             this.outputText(
                 "The crystal pendant shimmers, vibrating in place and glowing a purple hue.  Edryn steps back, watching you warily, \"<i>You've been deeply touched by corruption.  You balance on a razor's edge between falling completely and returning to sanity.  You may enter, but we will watch you closely.</i>\"\n\n",
                 false
             );
         }
-        //-25+ corruption or corrupted Marae
+        // -25+ corruption or corrupted Marae
         else if (
             this.player.cor >= 25 ||
             this.player.findStatusAffect(StatusAffects.FactoryOverload) >= 0
@@ -196,7 +196,7 @@ export class TelAdre extends BaseContent {
                 false
             );
         }
-        //-Low corruption/pure characters
+        // -Low corruption/pure characters
         else {
             this.outputText(
                 "The crystal shines a pale white light.  Edryn steps back and smiles broadly at you and says, \"<i>You've yet to be ruined by the demonic taint that suffuses the land of Mareth.  Come, you may enter our city walls and find safety here, though only so long as the covenant's white magic protects us from the demons' lapdogs.</i>\"\n\n",
@@ -302,9 +302,9 @@ export class TelAdre extends BaseContent {
                     return;
                 }
             default:
-                //Has given you a spare key to her apartment
+                // Has given you a spare key to her apartment
                 if (this.model.time.hours < 10 && TelAdre.rand(12) == 0) {
-                    //If employed or housed she can sometimes be encountered while on duty
+                    // If employed or housed she can sometimes be encountered while on duty
                     this.katherine.katherineOnDuty();
                     return;
                 }
@@ -318,12 +318,12 @@ export class TelAdre extends BaseContent {
             kGAMECLASS.arianScene.meetArian();
             return;
         }
-        //Display Tel'adre menu options//
-        //Special Delivery☼☼☼
-        //Has a small-ish chance of playing when the PC enters Tel'Adre.
-        //Must have Urta's Key.
-        //Urta must be pregnant to trigger this scene.
-        //Play this scene upon entering Tel'Adre.
+        // Display Tel'adre menu options//
+        // Special Delivery☼☼☼
+        // Has a small-ish chance of playing when the PC enters Tel'Adre.
+        // Must have Urta's Key.
+        // Urta must be pregnant to trigger this scene.
+        // Play this scene upon entering Tel'Adre.
         if (
             kGAMECLASS.urta.pregnancy.event > 2 &&
             TelAdre.rand(4) == 0 &&
@@ -358,7 +358,7 @@ export class TelAdre extends BaseContent {
     }
 
     public telAdreMenuShow(): void {
-        //Just displays the normal Tel'Adre menu options, no special events, no description. Useful if a special event has already played
+        // Just displays the normal Tel'Adre menu options, no special events, no description. Useful if a special event has already played
         var homes: Boolean = false;
         if (this.flags[kFLAGS.RAPHEAL_COUNTDOWN_TIMER] == -2 && kGAMECLASS.raphael.RaphaelLikes())
             homes = true;
@@ -898,10 +898,10 @@ export class TelAdre extends BaseContent {
         );
         this.doYesNo(this.normalPierceAssemble, this.piercingStudio);
     }
-    //9. Lethite (Demon Lure)
-    //10. Fertite (Fertility Booster)
-    //11. Furrite (Attracts Furries)
-    //12. Crimstone - + min lust
+    // 9. Lethite (Demon Lure)
+    // 10. Fertite (Fertility Booster)
+    // 11. Furrite (Attracts Furries)
+    // 12. Crimstone - + min lust
     private chooseAdvancedMaterials(): void {
         this.spriteSelect(63);
         this.outputText(
@@ -949,26 +949,26 @@ export class TelAdre extends BaseContent {
             "Yara makes you comfortable and has you look away while she uses her piercing tools.  It hurts, but she's skilled and before you know it, your piercing is done!",
             true
         );
-        //1. Amethyst (+1 int, +1 lib)
-        //2. Diamond (+2 int, -1 cor)
-        //3. Gold (+1 int, +1 sens)
-        //4. Emerald (+1 spe)
-        //5. Jade (+1 spe, -.5 tou)
-        //6. Onyx (+1 tou, -1 spe)
-        //7. Ruby (+1 lib, +1 sens)
-        //8. Steel (+2 str, -2 int)
-        //9. Lethite (Demon Lure)
-        //10. Fertite (Fertility Booster)
-        //11. Furrite (Attracts Furries)
-        //12. Crimsonite (+Min Lust)
-        //13.
-        //var piercingMat:Number = 0;
+        // 1. Amethyst (+1 int, +1 lib)
+        // 2. Diamond (+2 int, -1 cor)
+        // 3. Gold (+1 int, +1 sens)
+        // 4. Emerald (+1 spe)
+        // 5. Jade (+1 spe, -.5 tou)
+        // 6. Onyx (+1 tou, -1 spe)
+        // 7. Ruby (+1 lib, +1 sens)
+        // 8. Steel (+2 str, -2 int)
+        // 9. Lethite (Demon Lure)
+        // 10. Fertite (Fertility Booster)
+        // 11. Furrite (Attracts Furries)
+        // 12. Crimsonite (+Min Lust)
+        // 13.
+        // var piercingMat:Number = 0;
         var shortP = "";
         var longP = "";
         this.player.gems -= 100;
         if (this.piercingMat > 8) this.player.gems -= 900;
         this.statScreenRefresh();
-        //set up material description
+        // set up material description
         switch (this.piercingMat) {
             case 1:
                 shortP += "amethyst ";
@@ -1048,7 +1048,7 @@ export class TelAdre extends BaseContent {
             6) **Nose (+.5 attack)
             7) **Tongue (+1 sens)
             8) **Vulva (+1 sens)*/
-            //var piercingLoc:Number = 0;
+            // var piercingLoc:Number = 0;
             case 0:
                 shortP += "clit-";
                 longP += "clit-";
@@ -1096,9 +1096,9 @@ export class TelAdre extends BaseContent {
                 break;
         }
         switch (this.piercingType) {
-            //studs
+            // studs
             case 1:
-                //multiples
+                // multiples
                 if (this.piercingLoc == 2 || this.piercingLoc == 5 || this.piercingLoc == 8) {
                     shortP += "studs";
                     longP += "studs";
@@ -1107,9 +1107,9 @@ export class TelAdre extends BaseContent {
                     longP += "stud";
                 }
                 break;
-            //2. Ring (Called prince albert on dick)
+            // 2. Ring (Called prince albert on dick)
             case 2:
-                //multiples
+                // multiples
                 if (this.piercingLoc == 2 || this.piercingLoc == 5 || this.piercingLoc == 8) {
                     shortP += "rings";
                     longP += "rings";
@@ -1118,14 +1118,14 @@ export class TelAdre extends BaseContent {
                     longP += "ring";
                 }
                 break;
-            //3. Jacobs Ladder (dick only)
+            // 3. Jacobs Ladder (dick only)
             case 3:
                 shortP += "jacob's ladder";
                 longP += "jacob's ladder";
                 break;
-            //4. Hoop (ears/nipples/clit)
+            // 4. Hoop (ears/nipples/clit)
             case 4:
-                //multiples
+                // multiples
                 if (this.piercingLoc == 2 || this.piercingLoc == 5 || this.piercingLoc == 8) {
                     shortP += "hoops";
                     longP += "hoops";
@@ -1134,13 +1134,13 @@ export class TelAdre extends BaseContent {
                     longP += "hoop";
                 }
                 break;
-            //5. Chain (nipples only)
+            // 5. Chain (nipples only)
             case 5:
                 shortP += "chain";
                 longP += "chain";
                 break;
         }
-        //Actually assign values to their real storage locations
+        // Actually assign values to their real storage locations
         switch (this.piercingLoc) {
             /*
             0) **Clit (+2 sens)
@@ -1152,7 +1152,7 @@ export class TelAdre extends BaseContent {
             6) **Nose (+.5 attack)
             7) **Tongue (+1 sens)
             8) **Vulva (+1 sens)*/
-            //var piercingLoc:Number = 0;
+            // var piercingLoc:Number = 0;
             case 0:
                 this.player.vaginas[0].clitPierced = this.piercingType;
                 this.player.vaginas[0].clitPShort = shortP;
@@ -1199,12 +1199,12 @@ export class TelAdre extends BaseContent {
                 this.player.vaginas[0].labiaPLong = longP;
                 break;
         }
-        //Girls
+        // Girls
         if (this.piercingLoc == 8 || this.piercingLoc == 0) {
             this.yaraSex();
             return;
         }
-        //Dudes
+        // Dudes
         else if (
             this.piercingLoc == 1 &&
             (this.player.cockThatFits(36) >= 0 || this.flags[kFLAGS.HYPER_HAPPY])
@@ -1212,7 +1212,7 @@ export class TelAdre extends BaseContent {
             this.yaraSex(false);
             return;
         }
-        //Piercing shop main menu
+        // Piercing shop main menu
         this.doNext(this.piercingStudio);
     }
 
@@ -1507,7 +1507,7 @@ export class TelAdre extends BaseContent {
     }
 
     private oswaldPawnMenu(): void {
-        //Moved here from Inventory.as
+        // Moved here from Inventory.as
         this.spriteSelect(47);
         this.outputText("\n\n<b><u>Oswald's Estimates</u></b>");
         this.menu();
@@ -1556,7 +1556,7 @@ export class TelAdre extends BaseContent {
     }
 
     private oswaldPawnSell(slot: number): void {
-        //Moved here from Inventory.as
+        // Moved here from Inventory.as
         this.spriteSelect(47);
         var itemValue = Math.floor(this.player.itemSlots[slot].itype.value / 2);
         this.clearOutput();
@@ -1641,11 +1641,11 @@ export class TelAdre extends BaseContent {
         );
 
         this.scylla.scyllaBarSelectAction(); //Done before anything else so that other NPCs can check scylla.action to see what she's doing
-        //Thanks to this function and edryn.edrynHeliaThreesomePossible() the bar menu will always display the same possible options until the game time advances.
-        //So it's safe to return to this menu, Helia or Urta can't suddenly disappear or appear just from leaving and re-entering the bar.
+        // Thanks to this function and edryn.edrynHeliaThreesomePossible() the bar menu will always display the same possible options until the game time advances.
+        // So it's safe to return to this menu, Helia or Urta can't suddenly disappear or appear just from leaving and re-entering the bar.
 
         this.menu();
-        //AMILY!
+        // AMILY!
         if (this.flags[kFLAGS.AMILY_VISITING_URTA] == 1) {
             button = this.anotherButton(
                 button,
@@ -1653,7 +1653,7 @@ export class TelAdre extends BaseContent {
                 kGAMECLASS.followerInteractions.askAboutAmily
             );
         }
-        //DOMINIKA
+        // DOMINIKA
         if (
             this.model.time.hours > 17 &&
             this.model.time.hours < 20 &&
@@ -1661,15 +1661,15 @@ export class TelAdre extends BaseContent {
         ) {
             button = this.anotherButton(button, "Dominika", this.dominika.fellatrixBarApproach);
         }
-        //EDRYN!
+        // EDRYN!
         if (this.edryn.pregnancy.type != PregnancyStore.PREGNANCY_TAOTH) {
-            //Edryn is unavailable while pregnant with Taoth
+            // Edryn is unavailable while pregnant with Taoth
             if (this.edryn.edrynBar()) {
                 if (this.edryn.pregnancy.isPregnant) {
                     if (this.flags[kFLAGS.EDRYN_PREGNANT_AND_NOT_TOLD_PC_YET] == 0) {
                         this.flags[kFLAGS.EDRYN_PREGNANT_AND_NOT_TOLD_PC_YET] = 1;
                         if (this.flags[kFLAGS.EDRYN_NUMBER_OF_KIDS] == 0) {
-                            //Edryn panic appearance! (First time mom)
+                            // Edryn panic appearance! (First time mom)
                             this.outputText(
                                 "\n\nEdryn smiles when she sees you and beckons you towards her.  Fear and some kind of frantic need are painted across her face, imploring you to come immediately.  Whatever the problem is, it doesn't look like it can wait.",
                                 false
@@ -1677,7 +1677,7 @@ export class TelAdre extends BaseContent {
                             this.doNext(this.edryn.findOutEdrynIsPregnant);
                             return;
                         } else {
-                            //Edryn re-preggers appearance!
+                            // Edryn re-preggers appearance!
                             this.outputText(
                                 '\n\nEdryn smiles at you and yells, "<i>Guess what ' +
                                     this.player.short +
@@ -1686,21 +1686,21 @@ export class TelAdre extends BaseContent {
                             );
                         }
                     } else {
-                        //Mid-pregnancy appearance
+                        // Mid-pregnancy appearance
                         this.outputText(
                             "\n\nEdryn is seated at her usual table, and chowing down with wild abandon.  A stack of plates is piled up next to her.  Clearly she has been doing her best to feed her unborn child.  She notices you and waves, blushing heavily.",
                             false
                         );
                     }
                 }
-                //Edryn just had a kid and hasn't talked about it!
+                // Edryn just had a kid and hasn't talked about it!
                 else if (this.flags[kFLAGS.EDRYN_NEEDS_TO_TALK_ABOUT_KID] == 1) {
                     this.outputText(
                         "\n\nEdryn the centaur isn't pregnant anymore!  She waves excitedly at you, beckoning you over to see her.  It looks like she's already given birth to your child!",
                         false
                     );
                 }
-                //Appearance changes if has had kids
+                // Appearance changes if has had kids
                 else if (this.flags[kFLAGS.EDRYN_NUMBER_OF_KIDS] > 0) {
                     this.outputText(
                         "\n\nEdryn is seated at her usual place, picking at a plate of greens and sipping a mug of the local mead.  She looks bored until she sees you.  Her expression brightens immediately, and Edryn fiddles with her hair and changes her posture slightly.  You aren't sure if she means to, but her cleavage is prominently displayed in an enticing manner.",
@@ -1736,15 +1736,15 @@ export class TelAdre extends BaseContent {
             this.katherine.barDescription();
             button = this.anotherButton(button, "Katherine", this.katherine.barApproach);
         }
-        //trace("HEL FOLLOWER LEVEL: " + flags[kFLAGS.HEL_FOLLOWER_LEVEL] + " HEL FUCKBUDDY: " + flags[kFLAGS.HEL_FUCKBUDDY] + " HARPY QUEEN DEFEATED: " + flags[kFLAGS.HEL_HARPY_QUEEN_DEFEATED]);
-        //trace("REDUCED ENCOUNTER RATE (DISPLINED): " + flags[kFLAGS.HEL_REDUCED_ENCOUNTER_RATE]);
-        //HELIA
-        //	if(player.gender > 0 && model.time.hours >= 14 && rand(2) == 0 && model.time.hours < 20 && (flags[kFLAGS.HEL_FUCKBUDDY] != 0 || kGAMECLASS.helFollower.followerHel()) && !(flags[kFLAGS.HEL_FOLLOWER_LEVEL] == 1 && flags[kFLAGS.HEL_HARPY_QUEEN_DEFEATED]== 0)) {
+        // trace("HEL FOLLOWER LEVEL: " + flags[kFLAGS.HEL_FOLLOWER_LEVEL] + " HEL FUCKBUDDY: " + flags[kFLAGS.HEL_FUCKBUDDY] + " HARPY QUEEN DEFEATED: " + flags[kFLAGS.HEL_HARPY_QUEEN_DEFEATED]);
+        // trace("REDUCED ENCOUNTER RATE (DISPLINED): " + flags[kFLAGS.HEL_REDUCED_ENCOUNTER_RATE]);
+        // HELIA
+        // 	if(player.gender > 0 && model.time.hours >= 14 && rand(2) == 0 && model.time.hours < 20 && (flags[kFLAGS.HEL_FUCKBUDDY] != 0 || kGAMECLASS.helFollower.followerHel()) && !(flags[kFLAGS.HEL_FOLLOWER_LEVEL] == 1 && flags[kFLAGS.HEL_HARPY_QUEEN_DEFEATED]== 0)) {
         if (this.edryn.edrynHeliaThreesomePossible()) {
             this.edryn.helAppearance();
             button = this.anotherButton(button, "Helia", this.edryn.approachHelAtZeBitch);
         }
-        //NANCY
+        // NANCY
         if (this.auntNancy.auntNancy(false)) {
             this.auntNancy.auntNancy(true);
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00263] > 0)
@@ -1761,7 +1761,7 @@ export class TelAdre extends BaseContent {
                 false
             );
 
-        //NIAMH
+        // NIAMH
         if (
             this.model.time.hours >= 8 &&
             this.model.time.hours <= 16 &&
@@ -1772,7 +1772,7 @@ export class TelAdre extends BaseContent {
                 button = this.anotherButton(button, "Beer Cat", this.niamh.approachNiamh);
             else button = this.anotherButton(button, "Niamh", this.niamh.approachNiamh);
         }
-        //ROGAR #1
+        // ROGAR #1
         if (
             this.flags[kFLAGS.ROGAR_PHASE] == 3 &&
             this.flags[kFLAGS.ROGAR_DISABLED] == 0 &&
@@ -1783,20 +1783,20 @@ export class TelAdre extends BaseContent {
                 "HoodedFig",
                 kGAMECLASS.swamp.rogar.rogarThirdPhase
             );
-            //Wet Bitch screen text when Ro'gar phase = 3:
+            // Wet Bitch screen text when Ro'gar phase = 3:
             this.outputText(
                 "\n\nYou notice a cloaked figure at the bar, though you're quite unable to discern anything else as its back is turned to you.",
                 false
             );
         }
-        //ROGAR #2
+        // ROGAR #2
         else if (
             this.flags[kFLAGS.ROGAR_PHASE] >= 4 &&
             this.flags[kFLAGS.ROGAR_DISABLED] == 0 &&
             this.flags[kFLAGS.ROGAR_FUCKED_TODAY] == 0
         ) {
             button = this.anotherButton(button, "Rogar", kGAMECLASS.swamp.rogar.rogarPhaseFour);
-            //Wet Bitch bar text when Ro'gar phase = 4:
+            // Wet Bitch bar text when Ro'gar phase = 4:
             this.outputText(
                 "\n\nRo'gar is here with his back turned to the door, wearing his usual obscuring cloak.",
                 false
@@ -1841,14 +1841,14 @@ export class TelAdre extends BaseContent {
                 break;
             default:
         }
-        //Nun cat stuff!
+        // Nun cat stuff!
         if (this.katherine.needIntroductionFromScylla()) {
             this.katherine.catMorphIntr();
             button = this.anotherButton(button, "ScyllaCats", this.katherine.katherineGreeting);
         }
-        //URTA
+        // URTA
         if (kGAMECLASS.urta.urtaAtBar()) {
-            //Scylla & The Furries Foursome
+            // Scylla & The Furries Foursome
             if (this.scylla.action == Scylla.SCYLLA_ACTION_FURRY_FOURSOME) {
                 trace("SCYLLA ACTION: " + this.scylla.action);
                 this.outputText(
@@ -1860,7 +1860,7 @@ export class TelAdre extends BaseContent {
                     this.scylla.openTheDoorToFoursomeWivScyllaAndFurries
                 );
             }
-            //Urta X Scylla threesome
+            // Urta X Scylla threesome
             if (this.scylla.action == Scylla.SCYLLA_ACTION_FUCKING_URTA) {
                 if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00143] == 0)
                     this.outputText(
@@ -1888,7 +1888,7 @@ export class TelAdre extends BaseContent {
                 button = this.anotherButton(button, "Urta", kGAMECLASS.urta.urtaBarApproach);
             }
         }
-        //VALA
+        // VALA
         if (kGAMECLASS.purifiedFaerieBitchBar())
             button = this.anotherButton(button, "Vala", kGAMECLASS.chooseValaInBar);
 
@@ -1910,30 +1910,30 @@ export class TelAdre extends BaseContent {
         outputText("The interior of The Wet Bitch is far different than the mental picture its name implied.  It looks like a normal tavern, complete with a large central hearth, numerous tables and chairs, and a polished dark wood bar.  The patrons all seem to be dressed and interacting like normal people, that is if normal people were mostly centaurs and dog-morphs of various sub-species.  The atmosphere is warm and friendly, and ", false);
         if(player.humanScore() <= 3) outputText("despite your altered appearance, ", false);
         outputText("you hardly get any odd stares.  There are a number of rooms towards the back, as well as a stairway leading up to an upper level.", false);
-        //Hours of operation decrease after birth
+        // Hours of operation decrease after birth
         if(!kGAMECLASS.urtaQuest.urtaBusy()) {
             if(edryn.edrynBar()) {
-                //Edryn panic appearance!
+                // Edryn panic appearance!
                 if(flags[kFLAGS.EDRYN_PREGNAT_AND_NOT_TOLD_PC_YET] == 0 && flags[kFLAGS.EDRYN_PREGNANCY_INCUBATION] > 0 && flags[kFLAGS.EDRYN_NUMBER_OF_KIDS] == 0) {
                     outputText("\n\nEdryn smiles when she sees you and beckons you towards her.  Fear and some kind of frantic need are painted across her face, imploring you to come immediately.  Whatever the problem is, it doesn't look like it can wait.", false);
                     doNext(edryn.findOutEdrynIsPregnant);
                     flags[kFLAGS.EDRYN_PREGNAT_AND_NOT_TOLD_PC_YET]++;
                     return;
                 }
-                //Edryn re-preggers appearance!
+                // Edryn re-preggers appearance!
                 if(flags[kFLAGS.EDRYN_PREGNAT_AND_NOT_TOLD_PC_YET] == 0 && flags[kFLAGS.EDRYN_NUMBER_OF_KIDS] > 0) {
                     flags[kFLAGS.EDRYN_PREGNAT_AND_NOT_TOLD_PC_YET]++;
                     outputText("\n\nEdryn smiles at you and yells, \"<i>Guess what " + player.short + "?  I'm pregnant again!</i>\"  There are some hoots and catcalls but things quickly die down.  You wonder if her scent will be as potent as before?", false);
                 }
-                //Edryn just had a kid and hasn't talked about it!
+                // Edryn just had a kid and hasn't talked about it!
                 else if(flags[kFLAGS.EDRYN_NEEDS_TO_TALK_ABOUT_KID] == 1) {
                     outputText("\n\nEdryn the centaur isn't pregnant anymore!  She waves excitedly at you, beckoning you over to see her.  It looks like she's already given birth to your child!", false);
                 }
-                //Mid-pregnancy appearance
+                // Mid-pregnancy appearance
                 else if(flags[kFLAGS.EDRYN_PREGNANCY_INCUBATION] > 0) {
                     outputText("\n\nEdryn is seated at her usual table, and chowing down with wild abandon.  A stack of plates is piled up next to her.  Clearly she has been doing her best to feed her unborn child.  She notices you and waves, blushing heavily.", false);
                 }
-                //Appearance changes if has had kids
+                // Appearance changes if has had kids
                 else if(flags[kFLAGS.EDRYN_NUMBER_OF_KIDS] > 0) {
                     outputText("\n\nEdryn is seated at her usual place, picking at a plate of greens and sipping a mug of the local mead.  She looks bored until she sees you.  Her expression brightens immediately, and Edryn fiddles with her hair and changes her posture slightly.  You aren't sure if she means to, but her cleavage is prominently displayed in an enticing manner.", false);
                 }
@@ -1944,16 +1944,16 @@ export class TelAdre extends BaseContent {
                 if(edryn2 == 0) edryn2 = 2257;
             }
         }
-        //Nun cat stuff!
+        // Nun cat stuff!
         if((model.time.hours > 8 || model.time.hours < 18) && player.hasKeyItem("Silver Kitty-Bell") >= 0) {
             misc1Name = "ScyllaCats";
             misc1 = katherine.katherineGreeting;
             katherine.catMorphIntr();
         }
-        //Scylla - requires dungeon shut down
+        // Scylla - requires dungeon shut down
         if(player.totalCocks() > 0 && player.findStatusAffect(StatusAffects.DungeonShutDown) >= 0) {
-            //Scylla repeat
-            //big dick!
+            // Scylla repeat
+            // big dick!
             if(player.longestCockLength() >= 12) {
                 if(flags[kFLAGS.NUMBER_OF_TIMES_MET_SCYLLA] == 0) {
                     outputText("\n\nThere is one nun sitting in a corner booth who catches your eye.  She sits straight-backed against the dark, wood chair, her thin waist accentuating the supple curve of her breasts. She's dressed in a black robe that looks a few sizes too small for her hips and wears a black and white cloth over her head.", false);
@@ -1970,24 +1970,24 @@ export class TelAdre extends BaseContent {
                     scylla.scyllaRoundThreeCUM();
                     return;
                 }
-                //Round 4 goes here
+                // Round 4 goes here
                 else if(flags[kFLAGS.NUMBER_OF_TIMES_MET_SCYLLA] == 3 && rand(5) == 0) {
                     scylla.scyllaRoundIVGo();
                     return;
                 }
-                //Round 6 - catscratch!
+                // Round 6 - catscratch!
                 else if(flags[kFLAGS.NUMBER_OF_TIMES_MET_SCYLLA] == 5 && rand(5) == 0) {
                     outputText("\n\nIt looks like Scylla is here but getting ready to leave.  You could check and see what the misguided nun is up to.", false);
                     misc1Name = "Scylla";
                     misc1 = scylla.Scylla6;
                 }
-                //Round 5 - repeatable!
+                // Round 5 - repeatable!
                 else if(flags[kFLAGS.NUMBER_OF_TIMES_MET_SCYLLA] >= 4 && (model.time.hours == 18 || model.time.hours == 19)) {
                     outputText("\n\nYou see Scylla's white and black nun's habit poking above the heads of the other patrons. The tall woman seems unaware of her effect on those around her, but it's clear by the way people are crowding she's acquired a reputation by now. You're not sure what she's doing, but you could push your way through to find out.", false);
                     misc1Name = "Scylla";
                     misc1 = scylla.scyllaAdictsAnonV;
                 }
-                //Round 2.5 Repeatable
+                // Round 2.5 Repeatable
                 else if(flags[kFLAGS.NUMBER_OF_TIMES_MET_SCYLLA] >= 2 && flags[kFLAGS.FED_SCYLLA_TODAY] == 0 && model.time.hours >= 7 && model.time.hours <= 11) {
                     outputText("\n\nIt looks like Scylla is milling around here this morning, praying as she keeps an eye out for someone to 'help'.");
                     misc1Name = "Scylla";
@@ -2006,14 +2006,14 @@ export class TelAdre extends BaseContent {
             edryn.helAppearance();
             hel = edryn.approachHelAtZeBitch;
         }
-        //Everyone's favorite Vala!
+        // Everyone's favorite Vala!
         var vala:Number = 0;
-        //Backroom urta
+        // Backroom urta
         var backroom:* = 0;
         var backroomT:String = "Backrooms";
         if(kGAMECLASS.purifiedFaerieBitchBar()) vala = 2621;
         if(!kGAMECLASS.urtaQuest.urtaBusy() && flags[kFLAGS.AMILY_VISITING_URTA] != 1 && model.time.hours < 15) {
-            //Scylla + Urta sitting in a tree
+            // Scylla + Urta sitting in a tree
             // SOME COMFORT     FUCKED URTA      NOT PISSED      DRUNK TIME    SCYLLA TO LV4    RANDOM CHANCE  HAS THIS HAPPENED BEFORE? SCYLLA REQS ->
             if(flags[kFLAGS.URTA_TIME_SINCE_LAST_CAME] == 0 && flags[kFLAGS.URTA_COMFORTABLE_WITH_OWN_BODY] > 2 && flags[kFLAGS.TIMES_FUCKED_URTA] > 0 && flags[kFLAGS.URTA_ANGRY_AT_PC_COUNTDOWN] < 1 && (kGAMECLASS.urta.urtaDrunk() || flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00143] > 0) && flags[kFLAGS.NUMBER_OF_TIMES_MET_SCYLLA] >= 3 && rand(3) == 0 && (flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00143] == 0 || (flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00147] == 0 && flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00145] > 0)) && ((flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00143] > 0 && !kGAMECLASS.urta.urtaDrunk()) || player.balls > 0) && player.totalCocks() > 0 && misc1Name != "Scylla") {
                 if(flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00143] > 0) {
@@ -2042,7 +2042,7 @@ export class TelAdre extends BaseContent {
             }
             else urta2 = null;
         }
-        //Ask about Amily!
+        // Ask about Amily!
         if(flags[kFLAGS.AMILY_VISITING_URTA] == 1) {
             backroom = 3187;
             backroomT = "Ask4Amily";
@@ -2066,13 +2066,13 @@ export class TelAdre extends BaseContent {
         var rogarT:String = "HoodedFig";
         if(flags[kFLAGS.ROGAR_PHASE] == 3 && flags[kFLAGS.ROGAR_DISABLED] == 0 && flags[kFLAGS.ROGAR_FUCKED_TODAY] == 0) {
             rogarB = kGAMECLASS.swamp.rogar.rogarThirdPhase;
-            //Wet Bitch screen text when Ro'gar phase = 3:
+            // Wet Bitch screen text when Ro'gar phase = 3:
             outputText("\n\nYou notice a cloaked figure at the bar, though you're quite unable to discern anything else as its back is turned to you.", false);
         }
         else if(flags[kFLAGS.ROGAR_PHASE] >= 4 && flags[kFLAGS.ROGAR_DISABLED] == 0 && flags[kFLAGS.ROGAR_FUCKED_TODAY] == 0) {
             rogarB = kGAMECLASS.swamp.rogar.rogarPhaseFour;
             rogarT = "Rogar";
-            //Wet Bitch bar text when Ro'gar phase = 4:
+            // Wet Bitch bar text when Ro'gar phase = 4:
             outputText("\n\nRo'gar is here with his back turned to the door, wearing his usual obscuring cloak.", false);
         }
         var kath:Number = 0;
@@ -2099,7 +2099,7 @@ export class TelAdre extends BaseContent {
                 "She's clearly the tailor judging by her stylish, low-cut clothing and poofy hat.  A monocle perches on her nose, giving her a rather distinguished appearance.  The fashionable wench arches her back, showing off what she's got as she introduces herself, \"<i>Ello love, welcome to my shop.  My name's Victoria, though if you like, you can call me Vicky.  You'll find my clothing to be a cut above the rubbish sold elsewhere.</i>\"",
                 false
             );
-            //Flag as meeting her
+            // Flag as meeting her
             this.player.createStatusAffect(StatusAffects.Victoria, 0, 0, 0, 0);
         } else {
             this.outputText("You turn around to look ", false);
@@ -2164,11 +2164,11 @@ export class TelAdre extends BaseContent {
                 "You count out your gems and realize it's beyond your price range.",
                 false
             );
-            //Goto shop main menu
+            // Goto shop main menu
             this.doNext(this.tailorShoppe);
             return;
         }
-        //Go to debit/update function or back to shop window
+        // Go to debit/update function or back to shop window
         if (this.player.hasCock() && this.player.lust >= 33)
             this.simpleChoices(
                 "Yes",
@@ -2199,7 +2199,7 @@ export class TelAdre extends BaseContent {
             "The interior of the armory is blisteringly hot, filled with intense heat from the massive forge dominating the far side of the shop.  The bellows are blowing hard as a tall german-shepherd woman works the forge.  Incredibly, she's wearing nothing aside from a ragged leather apron.  It bulges from the front, barely containing her obscene proportions as it protects them from the heat of her forge.  She pulls a piece of metal from the forge and strikes it a few times with a hammer bigger than your head, then tosses it in a bucket filled with water, steam boiling out of it from the hot metal.  At last, the sweating forgemistress notices you and turns around, her breasts jiggling wildly.\n\n",
             true
         );
-        //outputText("\"<i>Vat can Yvonne make for you?  Ze platemail?  Or someting a bit lighter?</i>\" she asks you.", false);
+        // outputText("\"<i>Vat can Yvonne make for you?  Ze platemail?  Or someting a bit lighter?</i>\" she asks you.", false);
         this.outputText(
             '"<i>What can I make for you?  Platemail?  Or something that breathes a little easier?</i>" Yvonne asks, fanning herself.'
         );
@@ -2287,11 +2287,11 @@ export class TelAdre extends BaseContent {
                 "\n\nYou count out your gems and realize it's beyond your price range.",
                 false
             );
-            //Goto shop main menu
+            // Goto shop main menu
             this.doNext(this.weaponShop);
             return;
         } else this.outputText("\n\nDo you buy it?\n\n", false);
-        //Go to debit/update function or back to shop window
+        // Go to debit/update function or back to shop window
         this.doYesNo(TelAdre.curry(this.debitWeapon, itype), this.weaponShop);
     }
     private debitWeapon(itype: ItemType): void {
@@ -2318,11 +2318,11 @@ export class TelAdre extends BaseContent {
                 "\n\nYou count out your gems and realize it's beyond your price range.",
                 false
             );
-            //Goto shop main menu
+            // Goto shop main menu
             this.doNext(this.armorShop);
             return;
         } else this.outputText("\n\nDo you buy it?", false);
-        //Go to debit/update function or back to shop window
+        // Go to debit/update function or back to shop window
         this.doYesNo(TelAdre.curry(this.debitArmor, itype), this.armorShop);
     }
 
@@ -2355,7 +2355,7 @@ export class TelAdre extends BaseContent {
         );
     }
 
-    //[Invetigate]
+    // [Invetigate]
     private watchUrtaBeABadass(): void {
         this.outputText("", true);
         kGAMECLASS.urta.urtaSprite();
@@ -2399,7 +2399,7 @@ export class TelAdre extends BaseContent {
     }
 
     public gymDesc(): void {
-        //PREGGO ALERT!
+        // PREGGO ALERT!
         if (
             this.flags[kFLAGS.PC_IS_A_GOOD_COTTON_DAD] +
                 this.flags[kFLAGS.PC_IS_A_DEADBEAT_COTTON_DAD] ==
@@ -2427,9 +2427,9 @@ export class TelAdre extends BaseContent {
             "Though the gym sees heavy use by the city guard and various citizens, it's not too busy at present.",
             false
         );
-        //(Add possible character descripts here)
-        //(An extraordinarily well-muscled centaur male is by the weights, lifting some huge dumbbells and sweating like crazy.  In true centaur fashion, he's not wearing any clothes, but then again, male centaurs don't have much that regular clothes would hide.)
-        //(There's a lizan girl jogging laps on one of the tracks.  She's quite thin, but her muscles have a lean definition to them.  She's wearing a one-piece, spandex leotard that hugs her tight ass and pert, b-cup breasts nicely.)
+        // (Add possible character descripts here)
+        // (An extraordinarily well-muscled centaur male is by the weights, lifting some huge dumbbells and sweating like crazy.  In true centaur fashion, he's not wearing any clothes, but then again, male centaurs don't have much that regular clothes would hide.)
+        // (There's a lizan girl jogging laps on one of the tracks.  She's quite thin, but her muscles have a lean definition to them.  She's wearing a one-piece, spandex leotard that hugs her tight ass and pert, b-cup breasts nicely.)
         this.outputText(
             "  There's a centauress in a tank-top just inside the doorway with huge, rounded melons and perky nipples, but she merely coughs to get you to look up and says, \"<i>",
             false
@@ -2450,7 +2450,7 @@ export class TelAdre extends BaseContent {
                 "\n\n<b>You reach into your pockets for the fee and come up empty.  It looks like you don't have enough money to use the equipment or meet anyone.  Damn!</b>",
                 false
             );
-            //(back to tel'adre streets)
+            // (back to tel'adre streets)
             this.doNext(this.telAdreMenu);
             return;
         }
@@ -2517,7 +2517,7 @@ export class TelAdre extends BaseContent {
 
     private buyGymLifeTimeMembership(): void {
         this.outputText("", true);
-        //[Buy LifeTime Membership]
+        // [Buy LifeTime Membership]
         this.outputText(
             "You fish into your pouches and pull out 500 gems, dumping them into the centaur's hands.  Her eyes widen as she turns and trots towards a counter in the back.  She leans over as she counts, giving you a generous view down her low-cut top at the cleavage she barely bothers to conceal.",
             false
@@ -2532,13 +2532,13 @@ export class TelAdre extends BaseContent {
         this.flags[kFLAGS.LIFETIME_GYM_MEMBER] = 1;
         this.player.gems -= 500;
         this.statScreenRefresh();
-        //[Bring up gym menu]
+        // [Bring up gym menu]
         this.gymMenu();
     }
 
     private weightLifting(): void {
         this.outputText("", true);
-        //Too tired?  Fuck off.
+        // Too tired?  Fuck off.
         if (this.player.fatigue > 75) {
             this.outputText(
                 "<b>There's no way you could exercise right now - you're exhausted!</b>  ",
@@ -2552,56 +2552,56 @@ export class TelAdre extends BaseContent {
             this.doNext(this.telAdreMenu);
             return;
         }
-        //Deduct gems if not a full member.
+        // Deduct gems if not a full member.
         if (this.flags[kFLAGS.LIFETIME_GYM_MEMBER] == 0) {
             this.player.gems -= 10;
             this.statScreenRefresh();
         }
-        //[Lift Weights] +25 fatigue!
+        // [Lift Weights] +25 fatigue!
         this.fatigue(25);
-        //TEXTS!
+        // TEXTS!
         this.outputText("You walk up to the weights and begin your workout.  ", false);
-        //(< 25 str)
+        // (< 25 str)
         if (this.player.str < 25)
             this.outputText(
                 "You have to start out on the smaller weights to the left side of the rack due to your strength, but even so, you manage to work up a good burn and a modest sweat.",
                 false
             );
-        //(< 40 str)
+        // (< 40 str)
         else if (this.player.str < 40)
             this.outputText(
                 "You heft a few of the weights and select some of the ones just to the left of the middle.  It doesn't take you long to work up a sweat, but you push on through a variety of exercises that leave your body feeling sore and exhausted.",
                 false
             );
-        //(< 60 str)
+        // (< 60 str)
         else if (this.player.str < 60)
             this.outputText(
                 "You smile when you grip a few of the heavier weights on the rack and start to do some lifts.  With a start, you realize you're probably stronger now than Ingnam's master blacksmith, Ben.  Wow!  This realization fuels you to push yourself even harder, and you spend nearly an hour doing various strength-building exercises with the weights.",
                 false
             );
-        //(<80 str)
+        // (<80 str)
         else if (this.player.str < 80)
             this.outputText(
                 "You confidently grab the heaviest dumbbells in the place and heft them.  It doesn't take long for you to work up a lather of sweat and feel the burn thrumming through your slowly tiring form.  The workout takes about an hour, but you feel you made some good progress today.",
                 false
             );
-        //(<90)
+        // (<90)
         else if (this.player.str < 90)
             this.outputText(
                 "You grab the heaviest weights they have and launch into an exercise routine that leaves you panting from exertion.  Setting the weights aside, you flex and marvel at yourself – you could probably arm wrestle a minotaur or two and come out victorious!",
                 false
             );
-        //(else)
+        // (else)
         else
             this.outputText(
                 "This place barely has anything left to challenge you, but you take the heaviest weights you can get your mitts on and get to it.  By the time an hour has passed, you've worked up a good sweat, but without heavier weights you probably won't get any stronger.",
                 false
             );
-        //Stat changes HERE!
+        // Stat changes HERE!
         if (this.player.str < 90) this.dynStats("str", 0.5);
         if (this.player.tou < 40) this.dynStats("tou", 0.3);
-        //Body changes here
-        //Muscleness boost!
+        // Body changes here
+        // Muscleness boost!
         this.outputText(this.player.modTone(85, 5 + TelAdre.rand(5)), false);
         this.outputText("\n\nDo you want to hit the showers before you head back to camp?", false);
         if (this.flags[kFLAGS.BROOKE_MET] == 1) {
@@ -2614,7 +2614,7 @@ export class TelAdre extends BaseContent {
 
     private goJogging(): void {
         this.outputText("", true);
-        //Too tired?  Fuck off.
+        // Too tired?  Fuck off.
         if (this.player.fatigue > 70) {
             this.outputText(
                 "<b>There's no way you could exercise right now - you're exhausted!</b>  ",
@@ -2628,28 +2628,28 @@ export class TelAdre extends BaseContent {
             this.doNext(this.telAdreMenu);
             return;
         }
-        //Deduct gems if not a full member.
+        // Deduct gems if not a full member.
         if (this.flags[kFLAGS.LIFETIME_GYM_MEMBER] == 0) {
             this.player.gems -= 10;
             this.statScreenRefresh();
         }
-        //[Jogging] +30 fatigue!
+        // [Jogging] +30 fatigue!
         this.fatigue(30);
-        //Text!
+        // Text!
         this.outputText("You hit the jogging track, ", false);
-        //(<25 tou)
+        // (<25 tou)
         if (this.player.tou < 25)
             this.outputText(
                 "but you get so winded you have to stop after a few minutes.  Determined to improve, you force yourself to stay at a fast walk until you can run again.",
                 false
             );
-        //(<40 tou)
+        // (<40 tou)
         else if (this.player.tou < 40)
             this.outputText(
                 "but your performance isn't that great.  You nearly stop jogging a few times but manage to push through until you're completely exhausted.",
                 false
             );
-        //(<60 tou)
+        // (<60 tou)
         else if (this.player.tou < 60)
             this.outputText(
                 "and you do quite well.  You jog around for nearly an hour, working up a healthy lather of sweat.  Even your " +
@@ -2657,29 +2657,29 @@ export class TelAdre extends BaseContent {
                     " tingle and burn with exhaustion.",
                 false
             );
-        //(<80 tou)
+        // (<80 tou)
         else if (this.player.tou < 80)
             this.outputText(
                 "and it doesn't faze you in the slightest.  You run lap after lap at a decent clip, working yourself until you're soaked with sweat and fairly tired.",
                 false
             );
-        //(<90 tou)
+        // (<90 tou)
         else if (this.player.tou < 90)
             this.outputText(
                 "and you have a terrific time.  You can keep yourself just below your sprinting speed for the entire time, though you work up a huge amount of sweat in the process.",
                 false
             );
-        //else)
+        // else)
         else
             this.outputText(
                 "and it barely challenges you.  You run at a sprint half the time and still don't feel like you're improving in the slightest.  Still, you do manage to burn a lot of calories.",
                 false
             );
-        //Stat changes HERE!
+        // Stat changes HERE!
         if (this.player.spe < 40) this.dynStats("spe", 0.3);
         if (this.player.tou < 90) this.dynStats("tou", 0.5);
 
-        //If butt is over 15 guaranteed reduction
+        // If butt is over 15 guaranteed reduction
         if (this.player.buttRating >= 15) {
             this.outputText(
                 "\n\nAll that running must have done some good, because your " +
@@ -2749,9 +2749,9 @@ export class TelAdre extends BaseContent {
             }
         }
 
-        //Thickness decrease!
+        // Thickness decrease!
         this.outputText(this.player.modThickness(1, 5 + TelAdre.rand(2)), false);
-        //Muscleness boost!
+        // Muscleness boost!
         this.outputText(this.player.modTone(100, 2 + TelAdre.rand(4)), false);
         this.outputText("\n\nDo you want to hit the showers before you head back to camp?", false);
         if (this.flags[kFLAGS.BROOKE_MET] == 1) {
@@ -2781,7 +2781,7 @@ export class TelAdre extends BaseContent {
             "She seems intent on getting some loving - would you like to turn her down, or will you let nature run its course?",
             false
         );
-        //[not at all] [yeah baby]
+        // [not at all] [yeah baby]
         if (girl)
             this.simpleChoices(
                 "Turn down",
@@ -2886,7 +2886,7 @@ export class TelAdre extends BaseContent {
             false
         );
 
-        //male
+        // male
         if (!girl && this.player.hasCock()) {
             this.outputText(
                 "Yara's pursed lips touch down upon your cockhead, her head tilting from side to side as she vexingly and repeatedly kisses your " +
@@ -2919,14 +2919,14 @@ export class TelAdre extends BaseContent {
                 false
             );
 
-            //([cum quantity time, normal L/M/H/S quantities {IT'S A MARVEL REFERENCE} <no new paragraph>]
-            //light and medium
+            // ([cum quantity time, normal L/M/H/S quantities {IT'S A MARVEL REFERENCE} <no new paragraph>]
+            // light and medium
             if (this.player.cumQ() < 500)
                 this.outputText(
                     "Yara's entire frame spasms as your load paints her private passage with snowy-white seed.  The cat girl writhes happily, arching her spine so far back your eyes nearly meet.\n\nYara dismounts your dick and hops to the ground in one fluid movement.",
                     false
                 );
-            //heavy
+            // heavy
             else if (this.player.cumQ() <= 1500)
                 this.outputText(
                     "Yara's belly visibly plumps with the quantity of cum you pour into her, the extra weight bending her over to rest heavily against your " +
@@ -2934,7 +2934,7 @@ export class TelAdre extends BaseContent {
                         ".  She purrs happily, patting her distended gut even while the tremors of her own orgasm run through her.\n\nYara lifts herself off you, pressing a hand against her tummy as she somewhat ungracefully steps off the chair.",
                     false
                 );
-            //special (super-big)
+            // special (super-big)
             else
                 this.outputText(
                     "Her low-pitched ecstatic moans swiftly escalate to piercing shrieks as her taut belly quickly balloons to roughly beach ball-sized in moments.  With a huge effort, she manages to haul herself off your semen-pumping staff, falling back against you.  Sighing contentedly, Yara nestles herself into your " +
@@ -2956,9 +2956,9 @@ export class TelAdre extends BaseContent {
                 '.  "<i>Come back whenever, okay?  I\'m sure we can arrange another... appointment!</i>"',
                 false
             );
-            //ZA ENDO
+            // ZA ENDO
         }
-        //female
+        // female
         else {
             this.outputText(
                 "A duo of errant forefingers run along the perimeter of your feminine fortress, your signal to prepare for a siege.  Yara reaches down off the side of your seat, pushing on a lever that sends the back of the chair down to about a 30º angle.  She grasps for the armrests of the chair next, promptly lifting her body up and going into what looks like a forward somersault.  Before you can complement the feat, her legs fly up either side of your head.   The only things to have made contact were her nimble feet, gently stroking their way up from your belly, past your chest, off of your shoulders and soaring beyond the back of the chair.  The feline acrobat calls for you to lay your hands open at the sides of the chair, an order you fulfill with due haste.  She wastes no time in seizing your upper arms, causing her body to slide forward off of you.  You return the favor by clasping onto her as well in the same manner, stopping her descent.\n\n",
@@ -3003,7 +3003,7 @@ export class TelAdre extends BaseContent {
         this.doNext(this.piercingStudio);
     }
 
-    //[Flirt]
+    // [Flirt]
     private yvonneFlirt(): void {
         this.spriteSelect(64);
         this.clearOutput();
@@ -3042,7 +3042,7 @@ export class TelAdre extends BaseContent {
             );
         else this.outputText("You want to go again, huh?  I do love working up a sweat...");
         this.outputText('</i>"');
-        //[Fuck] [Nevermind]
+        // [Fuck] [Nevermind]
         this.simpleChoices(
             "Fuck Her",
             this.fuckYvonneInZeBlacksmith,
@@ -3056,7 +3056,7 @@ export class TelAdre extends BaseContent {
             null
         );
     }
-    //[Nevermind]
+    // [Nevermind]
     private backOutOfYvonneFuck(): void {
         this.spriteSelect(64);
         this.clearOutput();
@@ -3065,14 +3065,14 @@ export class TelAdre extends BaseContent {
         );
         this.doNext(this.armorShop);
     }
-    //[Fuck]
+    // [Fuck]
     private fuckYvonneInZeBlacksmith(): void {
         this.spriteSelect(64);
         this.clearOutput();
-        //X = cock that fits!
+        // X = cock that fits!
         var x = this.player.cockThatFits(75);
         if (x < 0) x = 0;
-        //Used for the new cock stuff
+        // Used for the new cock stuff
         var y = x + 1;
         this.outputText(
             "You walk over to the door and find a sign hanging in front of the window.  The side facing indoors has 'out' on it.  There's also a 'closed' sign hanging to the side of the doorframe.  You take the simple wood plaque in hand and flip it over - can't have anybody walking in on your sexual hijinks, can you?"
@@ -3118,7 +3118,7 @@ export class TelAdre extends BaseContent {
             this.outputText(
                 'Your jizz bubbles out to fill her depths, the spunk surging through her as it moves towards her womb.  Yvone sighs dreamily, "<i>Ahhhh...</i>" while you empty your [balls] inside her unprotected womanhood.[if (cumQuantity > 500) "  The pearly goop spatters into her uterus with egg-inseminating force, filling the bitch beyond her wildest expectations."][if (cumQuantity > 1000)   The blacksmith cries out in pain and pleasure, her belly rounding with your liquid, looking positively pregnant.  Her twat begins to dribble sperm, creampied beyond belief.][if (cumQuantity > 2000) "  Unfortunately, as your virility makes itself known, Yvonne\'s body hits its limit, and jets of ivory spooge squirt from all sides of her cunny, dribbling into a pearly puddle on the floor."]'
             );
-        //still no new pg
+        // still no new pg
         this.outputText("  With a thoroughly cream-stuffed twat beneath you, you ");
         if (this.player.hasKnot(x)) this.outputText("pop");
         else this.outputText("pull");
@@ -3135,8 +3135,8 @@ export class TelAdre extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //*Typical buy text goes here. Options are now Yes/No/Flirt*
-    //[Flirt]
+    // *Typical buy text goes here. Options are now Yes/No/Flirt*
+    // [Flirt]
     private flirtWithVictoria(itype: ItemType): void {
         this.clearOutput();
         var x = this.player.cockThatFits(70);

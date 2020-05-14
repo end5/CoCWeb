@@ -130,7 +130,7 @@ export class IncubusMechanic extends Monster {
 
     private cockTripAttack(): void {
         if (this.findStatusAffect(StatusAffects.Blind) >= 0) {
-            //Blind dodge change
+            // Blind dodge change
             this.outputText(
                 this.capitalA +
                     this.short +
@@ -155,7 +155,7 @@ export class IncubusMechanic extends Monster {
                     " unharmed."
             );
         } else {
-            //Fall down go boom
+            // Fall down go boom
             this.outputText(
                 "  You land hard on your ass, momentarily stunned as the demonic cock-tentacle curls around your " +
                     this.player.legs() +
@@ -193,7 +193,7 @@ export class IncubusMechanic extends Monster {
 
     private spoogeAttack(): void {
         if (this.findStatusAffect(StatusAffects.Blind) >= 0) {
-            //Blind dodge change
+            // Blind dodge change
             this.outputText(
                 this.capitalA +
                     this.short +
@@ -235,7 +235,7 @@ export class IncubusMechanic extends Monster {
                     );
                 break;
             default:
-                //Crotch
+                // Crotch
                 if (this.player.vaginas.length > 0) {
                     this.outputText(
                         "crotch.  The gooey demon-seed oozes and slides over you with a mind of its own, forcing its way past your " +

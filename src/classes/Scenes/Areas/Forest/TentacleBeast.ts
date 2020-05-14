@@ -22,7 +22,7 @@ export class TentacleBeast extends Monster {
             this.str + this.weaponAttack - Math.random() * this.player.tou - this.player.armorDef
         );
         if (temp < 0) temp = 0;
-        //Miss
+        // Miss
         if (
             temp == 0 ||
             (this.player.spe - this.spe > 0 &&
@@ -33,7 +33,7 @@ export class TentacleBeast extends Monster {
                 false
             );
         }
-        //Hit
+        // Hit
         else {
             temp = this.player.takeDamage(temp);
             this.outputText(
@@ -48,9 +48,9 @@ export class TentacleBeast extends Monster {
             "The beast lunges its tentacles at you from all directions in an attempt to immobilize you.\n",
             false
         );
-        //Not Trapped yet
+        // Not Trapped yet
         if (this.player.findStatusAffect(StatusAffects.TentacleBind) < 0) {
-            //Success
+            // Success
             if (
                 Math.floor(Math.random() * (this.player.spe / 2)) > 15 ||
                 (this.player.findPerk(PerkLib.Evade) >= 0 &&
@@ -61,7 +61,7 @@ export class TentacleBeast extends Monster {
                     false
                 );
             }
-            //Fail
+            // Fail
             else {
                 this.outputText(
                     "While you attempt to avoid the onslaught of pseudopods, one catches you around your " +
@@ -69,7 +69,7 @@ export class TentacleBeast extends Monster {
                         " and drags you to the ground. You attempt to reach for it to pull it off only to have all of the other tentacles grab you in various places and immobilize you in the air. You are trapped and helpless!!!\n\n",
                     false
                 );
-                //Male/Herm Version:
+                // Male/Herm Version:
                 if (this.player.hasCock())
                     this.outputText(
                         "The creature, having immobilized you, coils a long tendril about your penis. You shudder as the creature begins stroking your cock like a maid at a dairy farm in an attempt to provoke a response from you. Unable to resist, your " +
@@ -77,7 +77,7 @@ export class TentacleBeast extends Monster {
                             " easily becomes erect, signaling to the creature that you are responsive to harsher stimulation.\n",
                         false
                     );
-                //Female Version:
+                // Female Version:
                 else if (this.player.hasVagina())
                     this.outputText(
                         "The creature quickly positions a long tentacle with a single sucker over your clitoris. You feel the power of the suction on you, and your body quickly heats up.  Your clit engorges, prompting the beast to latch the sucker onto your " +
@@ -85,7 +85,7 @@ export class TentacleBeast extends Monster {
                             ".\n",
                         false
                     );
-                //Genderless
+                // Genderless
                 else
                     this.outputText(
                         "The creature quickly positions a long tentacle against your " +
@@ -153,7 +153,7 @@ export class TentacleBeast extends Monster {
     }
 
     protected performCombatAction(): void {
-        //tentacle beasts have special AI
+        // tentacle beasts have special AI
         if (
             TentacleBeast.rand(2) == 0 ||
             this.findStatusAffect(StatusAffects.TentacleCoolDown) >= 0

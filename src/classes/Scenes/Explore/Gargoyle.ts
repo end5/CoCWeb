@@ -4,13 +4,13 @@ import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 import { StatusAffects } from "../../StatusAffects";
 
 export class Gargoyle extends BaseContent {
-    //const GAR_NAME: number = 825;
-    //const GAR_CONFIDENCE: number = 826;
-    //const RITUAL_INTRO: number = 827;
-    //const KINKY_RITUALS_SPOKEN: number = 828;
-    //const GAR_HISTORY: number = 829;
-    //const GAR_CATHEDRAL: number = 830;
-    //const GAR_NAME_TALKS: number = 831;
+    // const GAR_NAME: number = 825;
+    // const GAR_CONFIDENCE: number = 826;
+    // const RITUAL_INTRO: number = 827;
+    // const KINKY_RITUALS_SPOKEN: number = 828;
+    // const GAR_HISTORY: number = 829;
+    // const GAR_CATHEDRAL: number = 830;
+    // const GAR_NAME_TALKS: number = 831;
 
     private gargoyleConfidence(arg: number = 0): number {
         if (arg != 0) {
@@ -21,14 +21,14 @@ export class Gargoyle extends BaseContent {
         return this.flags[kFLAGS.GAR_CONFIDENCE];
     }
 
-    //[b]Introduction, 1st Time:[/b]
+    // [b]Introduction, 1st Time:[/b]
     public gargoylesTheShowNowOnWBNetwork(): void {
         this.clearOutput();
-        //(When using the “Explore” option; perhaps a 15-25% chance of discovery per go)
+        // (When using the “Explore” option; perhaps a 15-25% chance of discovery per go)
         this.outputText(
             "You set off in search of new horizons, setting off from camp in a completely new direction than you've ever tried before.  Away from the parts of Mareth you have thus far discovered, much of the world seems to be a barren wasteland"
         );
-        //if Desert is discovered:
+        // if Desert is discovered:
         if (this.player.exploredDesert > 0)
             this.outputText(", making even the desert seem healthy and full of life");
         this.outputText(
@@ -38,27 +38,27 @@ export class Gargoyle extends BaseContent {
         this.outputText(
             "\n\nHowever, soon you catch the faintest glimpse of <b>something</b> in the distance!  Squinting, you shield your eyes from the sun and try to discern the strange glint on the horizon, but it's simply too far away.  Well, whatever it is, it certainly merits a check – it could be anything, perhaps a city, "
         );
-        //if Tel'Adre has been discovered:
+        // if Tel'Adre has been discovered:
         if (this.player.statusAffectv1(StatusAffects.TelAdre) >= 1)
             this.outputText("or the ruins of one of Tel'Adre's more distant neighbors, ");
         this.outputText(
             "or (even) some demon enclave that needs destroying.  With a quick check of your [weapon], you begin the long trek towards the shimmer in the distance."
         );
 
-        //[Next]
+        // [Next]
         this.menu();
         this.addButton(0, "Next", this.gargoyleMeeting2);
         this.model.time.hours++;
     }
 
-    //(Advance time by 1 hour)
+    // (Advance time by 1 hour)
     private gargoyleMeeting2(): void {
         this.clearOutput();
         this.outputText(
             "You finally close the distance between yourself and the strange structure, which begins to take shape ahead.  Though it's half-buried under what must be years of built-up sand and debris, you can clearly make out high stone walls supported by vaulted arches, broken every so often by the shattered remains of stained-glass windows and a pair of utterly destroyed oaken doors nearly hidden behind a row of tall marble pillars, many of which have long since crumbled.  High above the ground, you can see a pair of tall, slender towers reaching up to the heavens, one of which has been nearly obliterated by some unimaginably powerful impact, leaving it a stump compared to its twin.  From the rooftops, strange shapes look down upon you – stone statues made in the image of demons, dragons, and other monsters."
         );
 
-        //[b]You have discovered The Cathedral[/b] (If Fen wants to make this a Place; otherwise it can be encountered in the future via the Explore –> Explore function. Whichever works better. )
+        // [b]You have discovered The Cathedral[/b] (If Fen wants to make this a Place; otherwise it can be encountered in the future via the Explore –> Explore function. Whichever works better. )
 
         this.outputText(
             "\n\nYou arrive at the grounds around the ruins, cordoned off by a waist-high wrought-iron fence that surrounds the building and what once might have been a beautiful, pastoral garden, now rotting and wilted, its trees chopped down or burned, twig-like bushes a mere gale's difference from being tumbleweeds.  A few dozen tombstones outline the path to a gaping maw that was once the great wooden doors.  Seeing no obvious signs of danger, you make your way inside, stepping cautiously over the rubble and rotting debris that litters the courtyard."
@@ -92,13 +92,13 @@ export class Gargoyle extends BaseContent {
         this.outputText(
             "\n\n<b>You have discovered the cathedral. You can return here in the future by selecting it from the 'Places' menu in your camp.</b>\n"
         );
-        //(Display [Break Chains] and [Don't Break] options)
+        // (Display [Break Chains] and [Don't Break] options)
         this.menu();
         this.addButton(1, "Don't Break", this.dontBreakThatShit);
         this.addButton(0, "Break Chains", this.breakZeChains);
     }
 
-    //[b]Don't Break[/b]
+    // [b]Don't Break[/b]
     private dontBreakThatShit(): void {
         this.clearOutput();
         this.outputText(
@@ -108,16 +108,16 @@ export class Gargoyle extends BaseContent {
         this.outputText(
             "\n\nIf you change your mind, you can always come back.  The statue's been here for decades, it can wait a while longer."
         );
-        //(Return player to Camp, advance time an hour)
+        // (Return player to Camp, advance time an hour)
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[b]Break Chains[/b]
+    // [b]Break Chains[/b]
     private breakZeChains(): void {
         this.clearOutput();
-        //Introduces two new values: " + flags[kFLAGS.GAR_NAME] + ", the gargoyle's name, given by the Champion, and Confidence, a value that has a base score of 0 (submissive/slave) rising to 100 (equal). Negatives are possible.
+        // Introduces two new values: " + flags[kFLAGS.GAR_NAME] + ", the gargoyle's name, given by the Champion, and Confidence, a value that has a base score of 0 (submissive/slave) rising to 100 (equal). Negatives are possible.
         this.outputText("You swing your [weapon] up over your head and strike the chains.");
-        //if using your hands:
+        // if using your hands:
         if (this.player.weaponName == "fists")
             this.outputText(
                 '  "<i>OW! Dammit, that hurt!</i>"  What the hell were you thinking!?  Still, looks like you got results...'
@@ -154,7 +154,7 @@ export class Gargoyle extends BaseContent {
             '\n\nThat raised more questions than it answered.  Taking things slow for now, you ask her name.\n\n"<i>I... I am... I simply am.  What would Master call me?</i>"'
         );
 
-        //[Display a textbox, into which the player can type in a name. This new value will be called " + flags[kFLAGS.GAR_NAME] + ", henceforth. ] (Confidence +10)
+        // [Display a textbox, into which the player can type in a name. This new value will be called " + flags[kFLAGS.GAR_NAME] + ", henceforth. ] (Confidence +10)
 
         const input = document.createElement("input");
 
@@ -203,14 +203,14 @@ export class Gargoyle extends BaseContent {
     }
 
     private gargoyleStarterMenu(): void {
-        //(Display options [Funny Order], [Carnal Order]. and [Talk])
+        // (Display options [Funny Order], [Carnal Order]. and [Talk])
         this.menu();
         this.addButton(0, "Funny Order", this.giveGargoyleAFunnyOrder);
         this.addButton(1, "Carnal Order", this.carnalOrder);
         this.addButton(2, "Talk", this.firstGargoyleTalk);
     }
 
-    //[b]Funny Order[/b]
+    // [b]Funny Order[/b]
     private giveGargoyleAFunnyOrder(): void {
         this.clearOutput();
         this.outputText(
@@ -226,7 +226,7 @@ export class Gargoyle extends BaseContent {
         this.gargoyleStarterMenu();
     }
 
-    //[b]Carnal Order[/b]
+    // [b]Carnal Order[/b]
     private carnalOrder(): void {
         this.clearOutput();
         this.outputText(
@@ -246,7 +246,7 @@ export class Gargoyle extends BaseContent {
         this.gargoyleStarterMenu();
     }
 
-    //[b]Talk (First Time)[/b]
+    // [b]Talk (First Time)[/b]
     private firstGargoyleTalk(): void {
         this.clearOutput();
         this.outputText(
@@ -264,7 +264,7 @@ export class Gargoyle extends BaseContent {
         this.outputText('\n\n"<i>That is correct.</i>"');
         this.outputText('\n\n"<i>Who was. . . she?</i>"');
         this.outputText('\n\n"<i>She was. . . Master.</i>"');
-        //(Silly mode)
+        // (Silly mode)
         if (this.silly())
             this.outputText(
                 '\n\n"<i>You know \'master\' is masculine, right?</i>"\n\n"<i>Indeed.  Master was male, too.</i>"\n\n"<i>But you just. . . Nevermind.</i>"'
@@ -284,16 +284,16 @@ export class Gargoyle extends BaseContent {
                 this.flags[kFLAGS.GAR_NAME] +
                 "'s heart.  What do you do?"
         );
-        //(Display options: [Berate] and [Reassure])
+        // (Display options: [Berate] and [Reassure])
         this.menu();
         this.addButton(0, "Berate", this.berateTheGargoyle);
         this.addButton(1, "Reassure", this.reassureTheGargoyle);
     }
 
-    //[b]Berate[/b]
+    // [b]Berate[/b]
     private berateTheGargoyle(): void {
         this.clearOutput();
-        //(Confidence - 10)
+        // (Confidence - 10)
         this.gargoyleConfidence(-10);
         this.outputText(
             "A pillar of rage boils up inside you.  You are [name], Champion of Ingnam, you tell her, rising to your feet, fists clenched.  Your duty is the same as hers was, to protect your home.  And she failed.  She let all those people down.  You tell her that she's worthless, disgusting, a failure."
@@ -306,14 +306,14 @@ export class Gargoyle extends BaseContent {
         this.outputText(
             "\n\nYou storm out of the cathedral with a knot of disdain in your gut.  From behind you, you're not quite sure, but perhaps you heard \"<i>I couldn't leave here if I wanted to.</i>\""
         );
-        //(Player is returned to camp; advance time 1 hour)
+        // (Player is returned to camp; advance time 1 hour)
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[b]Reassure[/b]
+    // [b]Reassure[/b]
     private reassureTheGargoyle(): void {
         this.clearOutput();
-        //(Confidence +10)
+        // (Confidence +10)
         this.outputText(
             "You can't help but feel sorry for the poor gargoyle.  It isn't hard to figure out what happened, and in truth, she reminds you a bit of yourself – and of the consequences if you ever fail.  You reach over and put a hand on her smooth, cold shoulder.  As reassuringly as you can, you tell her that you are [name], the Champion of Ingnam.  Your duty isn't entirely dissimilar to what hers was, while you hope you'll never know what she's gone through, you can certainly sympathize."
         );
@@ -337,12 +337,12 @@ export class Gargoyle extends BaseContent {
                 this.flags[kFLAGS.GAR_NAME] +
                 "'s hair and assure her you will before you take your leave and return to camp."
         );
-        //(Return to camp, advance time 1 hour)
+        // (Return to camp, advance time 1 hour)
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[i](Whenever the player returns to the Cathedral, play one of the following introductions, then the “Cathedral Interior” scenes. )[/i]
-    //[b]Player Returns to the Cathedral A[/b]
+    // [i](Whenever the player returns to the Cathedral, play one of the following introductions, then the “Cathedral Interior” scenes. )[/i]
+    // [b]Player Returns to the Cathedral A[/b]
     public returnToCathedral(woken: boolean = false): void {
         this.flags[kFLAGS.FOUND_CATHEDRAL] = 1;
         if (!woken) {
@@ -353,19 +353,19 @@ export class Gargoyle extends BaseContent {
                         this.flags[kFLAGS.GAR_NAME] +
                         "'s obviously been working since you last left, trying to make the building more habitable.  With your path less obstructed than before, you enter."
                 );
-            //[b]Player Returns to the Cathedral B[/b]
+            // [b]Player Returns to the Cathedral B[/b]
             else if (Gargoyle.rand(2) == 0)
                 this.outputText(
                     "You spot the Cathedral in the distance, and see plumes of smoke rising. Alarmed, you ready your [weaponName] and rush over.  To your relief, however, you discover the burning objects are just a few dead imps that were looking for easy pillage, but found the Cathedral's newly-awoken protector instead.  Stepping around their charred corpses, you enter."
                 );
-            //[b]Player Returns to the Cathedral C[/b]
+            // [b]Player Returns to the Cathedral C[/b]
             else
                 this.outputText(
                     "You wander into the Cathedral grounds, and are rather alarmed to see a pair of little green goblin sluts poking around outside, trying to cart off some of the stone tombstones for their nefarious schemes.  They see you approaching, however, and quickly flee – more interested in salvage than fighting or fucking today.  Chuckling to yourself, you enter."
                 );
         }
         this.menu();
-        //[b]Cathedral Interior – 06:00 –> 09:00 & 18:00 –> 21:00[/b]
+        // [b]Cathedral Interior – 06:00 –> 09:00 & 18:00 –> 21:00[/b]
         if (this.model.time.hours <= 9 || this.model.time.hours >= 18 || woken) {
             if (!woken) {
                 this.outputText("\n\nIn the dim ");
@@ -392,7 +392,7 @@ export class Gargoyle extends BaseContent {
                 else this.outputText("solemnly.");
                 this.outputText('  "<i>What would you have of me?</i>"');
             }
-            //(Display options: [Sex] [Rituals] [Talk] [Appearance] and [Leave]. If Confidence is 70+, also display the option for [Kinky Rituals])
+            // (Display options: [Sex] [Rituals] [Talk] [Appearance] and [Leave]. If Confidence is 70+, also display the option for [Kinky Rituals])
             if (this.player.lust >= 33) this.addButton(0, "Sex", this.gargoyleSexMenu);
             this.addButton(1, "Rituals", this.ritualGargoyle);
             if (
@@ -405,7 +405,7 @@ export class Gargoyle extends BaseContent {
             if (this.gargoyleConfidence() >= 70 && this.flags[kFLAGS.RITUAL_INTRO] > 0)
                 this.addButton(4, "Kinky Rituals", this.gargoyleKinkyRituals);
         }
-        //[b]Cathedral Interior: 10:00 –> 17:00[/b]
+        // [b]Cathedral Interior: 10:00 –> 17:00[/b]
         else {
             if (!woken) {
                 this.outputText(
@@ -419,7 +419,7 @@ export class Gargoyle extends BaseContent {
                     );
                 this.outputText(".");
             }
-            //(Display options: [Wake Her] [Use Her (if Lust >= 30)] [Appearance] and [Leave])
+            // (Display options: [Wake Her] [Use Her (if Lust >= 30)] [Appearance] and [Leave])
             this.addButton(0, "Wake Her", this.returnToCathedral, true);
             if (this.player.lust >= 33) {
                 if (this.player.hasCock()) this.addButton(1, "Use Her", this.useGargoyleMaleHerm);
@@ -431,7 +431,7 @@ export class Gargoyle extends BaseContent {
         this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
     }
 
-    //[b]Sex[/b]
+    // [b]Sex[/b]
     private gargoyleSexMenu(): void {
         this.clearOutput();
         this.outputText(
@@ -439,7 +439,7 @@ export class Gargoyle extends BaseContent {
                 this.flags[kFLAGS.GAR_NAME] +
                 " and tell her you have some... pressure that needs relieving."
         );
-        //(if Confidence =< 69:
+        // (if Confidence =< 69:
         if (this.gargoyleConfidence() <= 69)
             this.outputText(
                 '  The gargoyle bows low before you, her face expressionless.  "<i>By your command, Master.  How would you have me?</i>"'
@@ -449,7 +449,7 @@ export class Gargoyle extends BaseContent {
                 '  Her ruby-red eyes lock with yours and a sultry grin plays across her gray marble features.  She slides an arm around your waist and presses her sizable, surprisingly soft breasts against your chest.  "<i>How would Master have me?</i>"'
             );
         this.menu();
-        //(If Male, display options: [Vaginal] [Anal] [Titfuck] [Strap-on] [Leave])
+        // (If Male, display options: [Vaginal] [Anal] [Titfuck] [Strap-on] [Leave])
         if (this.player.gender == 1) {
             this.addButton(1, "Anal", this.gargoyleAnal);
             this.addButton(0, "Vaginal", this.gargoyleCoochiiGetsPlowed);
@@ -457,13 +457,13 @@ export class Gargoyle extends BaseContent {
             this.addButton(3, "Strap-On", this.strapOnGargoyle);
             this.addButton(4, "Leave", this.returnToCathedral);
         }
-        //(If Female, display options: [Tail Fuck] and [Ride Strap-on] [Leave])
+        // (If Female, display options: [Tail Fuck] and [Ride Strap-on] [Leave])
         if (this.player.gender == 2) {
             this.addButton(0, "Tail Fuck", this.tailFuckGargoyleScene);
             this.addButton(1, "Strap-On", this.strapOnGargoyle);
             this.addButton(4, "Leave", this.returnToCathedral);
         }
-        //(If Herm, display all above options)
+        // (If Herm, display all above options)
         if (this.player.gender == 3) {
             this.addButton(1, "Anal", this.gargoyleAnal);
             this.addButton(0, "Vaginal", this.gargoyleCoochiiGetsPlowed);
@@ -472,14 +472,14 @@ export class Gargoyle extends BaseContent {
             this.addButton(4, "Tail Fuck", this.tailFuckGargoyleScene);
             this.addButton(9, "Leave", this.returnToCathedral);
         }
-        //(If Genderless, display [Strap-on] [Leave])
+        // (If Genderless, display [Strap-on] [Leave])
         if (this.player.gender == 0) {
             this.addButton(3, "Strap-On", this.strapOnGargoyle);
             this.addButton(9, "Leave", this.returnToCathedral);
         }
     }
 
-    //[b]Anal[/b]
+    // [b]Anal[/b]
     private gargoyleAnal(): void {
         this.clearOutput();
         this.outputText(
@@ -498,7 +498,7 @@ export class Gargoyle extends BaseContent {
             "\n\nDeciding you've gotten her more than ready, you grasp your [cock biggest] and push the head against her still-tight ass.  Her mouth forms a sharp “O” of pleasure as you grab her hips and push into her.  Though you've lubed her up plenty, her passage is still incredibly tight, and so cool inside it takes a force of will to keep your cock from wilting.  But all it takes is one look at her face over her shoulder, eyes rolled back in pleasure, to keep you thrusting in at full mast."
         );
 
-        //(if PC's first cock is 50 inches or bigger; Silly Mode only:)
+        // (if PC's first cock is 50 inches or bigger; Silly Mode only:)
         if (this.player.cocks[this.player.biggestCockIndex()].cockLength >= 50) {
             this.outputText(
                 "\n\nKnowing full well the living statue doesn't have much in the way of anatomy, you continue to push more and more of monstrous manhood into " +
@@ -521,12 +521,12 @@ export class Gargoyle extends BaseContent {
                 "\n\nNow sated, you put your hands on her butt and push her off your giant cock, causing her to go face-first into the sprawling pool of your cum on the floor.  With a chuckle, you pat the insensate gargoyle on the head and head back to camp."
             );
         }
-        //(if PC doesn't qualify for the above:)
+        // (if PC doesn't qualify for the above:)
         else {
             this.outputText(
                 "\n\nYou spend a few minutes making short, slow thrusts into the gargoyle's ass, slowly working your way further and further inside her until you bottom out"
             );
-            //if Balls:
+            // if Balls:
             if (this.player.balls > 0) this.outputText(", your balls slapping against her butt");
             this.outputText(
                 '.  "<i>M-Master,</i>" she pants, chest heaving after the experience.  You give her a playful push, leaving her face on the cold stone floor as you withdraw your cock to the tip from her cold stone insides.  She clenches up tight as you slam yourself back in, nearly making you cum on the spot.  Now you\'re the one moaning, and so decide to reward her with a sharp slap on the ass.  She makes a little squeak when you strike her, but she tightens up wonderfully, her anal passage trying to milk you as you withdraw.  You give her another swat as you push back in, and are treated to the same results.  Grinning, you pick up your pace, alternating between pounding her tight asshole and slapping her taut butt cheeks.'
@@ -549,8 +549,8 @@ export class Gargoyle extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[b]Vaginal[/b]
-    //no limits
+    // [b]Vaginal[/b]
+    // no limits
     private gargoyleCoochiiGetsPlowed(): void {
         this.clearOutput();
         var x: number = this.player.cockThatFits(60);
@@ -624,7 +624,7 @@ export class Gargoyle extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[b]Tit-Fuck[/b]
+    // [b]Tit-Fuck[/b]
     private titFuckTheGargoyle(): void {
         this.clearOutput();
         this.outputText(
@@ -682,8 +682,8 @@ export class Gargoyle extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[b]Strap-On[/b]
-    //(Coding this one may be a *little* complex)
+    // [b]Strap-On[/b]
+    // (Coding this one may be a *little* complex)
     private strapOnGargoyle(): void {
         this.clearOutput();
         this.outputText(
@@ -711,7 +711,7 @@ export class Gargoyle extends BaseContent {
                 this.flags[kFLAGS.GAR_NAME] +
                 " without SOME stimulation: "
         );
-        //(If Human Legs/Feet [ie, needs toes], as new paragraph):
+        // (If Human Legs/Feet [ie, needs toes], as new paragraph):
         if (
             !this.player.isTaur() &&
             !this.player.isGoo() &&
@@ -723,12 +723,12 @@ export class Gargoyle extends BaseContent {
                     this.flags[kFLAGS.GAR_NAME] +
                     " moans, rolling her head back as you start to foot-fuck her cock, slowly putting more and more pressure on the steel member until it's pressed against her belly.  Your heel takes over, running quickly along the underside of her cock as you finally rid yourself of your [armor]."
             );
-        //Else, continued from above paragraph:
+        // Else, continued from above paragraph:
         else
             this.outputText(
                 "you giver her a good show, putting on a brief striptease for the gargoyle.  You strip your [armor] slowly, sensually, showing only the barest hints of your privates until the last moment, when the last piece of your clothing falls to the floor."
             );
-        //(From Both, if has Vagina:)
+        // (From Both, if has Vagina:)
         if (this.player.hasVagina()) {
             this.outputText(
                 "\n\n" +
@@ -760,7 +760,7 @@ export class Gargoyle extends BaseContent {
                     " is fast asleep beside you, snoring cutely, her metal cock still standing straight up in the air.  You give her a gentle pat on the thigh and get dressed, leaving the gargoyle snoozing peacefully as you head back to camp."
             );
         }
-        //(ELSE, PC has no vagina:)
+        // (ELSE, PC has no vagina:)
         else {
             this.outputText(
                 "\n\n" +
@@ -799,8 +799,8 @@ export class Gargoyle extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[b]Tail Fuck[/b]
-    //Requires Vag
+    // [b]Tail Fuck[/b]
+    // Requires Vag
     private tailFuckGargoyleScene(): void {
         this.clearOutput();
         this.outputText(
@@ -851,7 +851,7 @@ export class Gargoyle extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[b]Use Her – Male/Herm[/b]
+    // [b]Use Her – Male/Herm[/b]
     private useGargoyleMaleHerm(): void {
         this.clearOutput();
         this.outputText(
@@ -888,7 +888,7 @@ export class Gargoyle extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[b]Use Her (Female)[/b]
+    // [b]Use Her (Female)[/b]
     private useHerGargoyleFemale(): void {
         this.clearOutput();
         this.outputText(
@@ -922,7 +922,7 @@ export class Gargoyle extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[b]Ritual (First Time)[/b]
+    // [b]Ritual (First Time)[/b]
     private ritualGargoyle(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.RITUAL_INTRO] == 0) {
@@ -940,7 +940,7 @@ export class Gargoyle extends BaseContent {
                 ' I thought perhaps Master might someday have need of these rites, and prepared them for you.  I know a ritual to purify the body, another to purify the mind, and a third that banishes evil creatures and spirits, though I warn you: cleansing the body can best be done through pain, and banishment may be as... invasive... as the possession itself.  Does Master have need of these?</i>"'
             );
         }
-        //[b]Ritual (Any after First)[/b]
+        // [b]Ritual (Any after First)[/b]
         else {
             this.outputText(
                 "You walk to the church's alter, shortly followed by " +
@@ -948,7 +948,7 @@ export class Gargoyle extends BaseContent {
                     ".  You ask her if she's still able to perform the church's Rituals, to which she replies \"<i>Of course, Master.  Do you have need of one?</i>\""
             );
         }
-        //(Display Options: [Body] [Mind] [Banish (only with Exgartuan or Worms)] and [Leave])
+        // (Display Options: [Body] [Mind] [Banish (only with Exgartuan or Worms)] and [Leave])
         this.menu();
         this.addButton(0, "Body", this.bodyRitual);
         this.addButton(1, "Mind", this.mindGargoyleRitual);
@@ -960,8 +960,8 @@ export class Gargoyle extends BaseContent {
         this.addButton(4, "Leave", this.returnToCathedral);
     }
 
-    //[b]Body[/b]
-    //(PC decreases Libido and Sensitivity. Suffers 20% Max HP damage, to a minimum of 1 pt. remaining)
+    // [b]Body[/b]
+    // (PC decreases Libido and Sensitivity. Suffers 20% Max HP damage, to a minimum of 1 pt. remaining)
     private bodyRitual(): void {
         this.clearOutput();
         this.outputText(
@@ -987,14 +987,14 @@ export class Gargoyle extends BaseContent {
         );
         this.dynStats("lib", -0.5, "sen", -2);
         this.player.takeDamage(Math.round(this.player.maxHP() / 2));
-        //(Display options: [Nothing] [Revenge] and [Cuddle])
+        // (Display options: [Nothing] [Revenge] and [Cuddle])
         this.menu();
         this.addButton(0, "Nothing", this.noReactionToBodyRitual);
         this.addButton(1, "Cuddle", this.gargoyleCuddleAfterBodyRitual);
         this.addButton(2, "Revenge", this.gargoyleRevengeAfterBodyRitual);
     }
 
-    //[b]Nothing[/b]
+    // [b]Nothing[/b]
     private noReactionToBodyRitual(): void {
         this.clearOutput();
         this.outputText(
@@ -1003,11 +1003,11 @@ export class Gargoyle extends BaseContent {
                 "'s \"gentle ministrations.\"  After a few minutes, you've caught your breath and, gathering your possessions, make your way out of the Cathedral without another word.  Damn, you're sore."
         );
         this.doNext(this.camp.returnToCampUseOneHour);
-        //(Return PC to camp, advance time 1 hour)
+        // (Return PC to camp, advance time 1 hour)
     }
 
-    //[b]Revenge[/b]
-    //(Confidence -5)
+    // [b]Revenge[/b]
+    // (Confidence -5)
     private gargoyleRevengeAfterBodyRitual(): void {
         this.clearOutput();
         this.outputText(
@@ -1015,13 +1015,13 @@ export class Gargoyle extends BaseContent {
                 this.flags[kFLAGS.GAR_NAME] +
                 " just standing over you, gloating, causes you to sneer and lash out.  You strike her dead-center in the chest, throwing her back against the tree-idol at the church's head.  She slumps to the floor, looking meekly away from you.  While she's stunned, you gather your [armor] and stagger out of the Cathedral."
         );
-        //(Return PC to camp, advance time 1 hour)
+        // (Return PC to camp, advance time 1 hour)
         this.gargoyleConfidence(-5);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[b]Cuddle[/b]
-    //(Confidence +5)
+    // [b]Cuddle[/b]
+    // (Confidence +5)
     private gargoyleCuddleAfterBodyRitual(): void {
         this.clearOutput();
         this.outputText(
@@ -1029,13 +1029,13 @@ export class Gargoyle extends BaseContent {
                 this.flags[kFLAGS.GAR_NAME] +
                 " did it at your command – and hell, it could only have helped you.  Before she can react, you reach up and pull the gray gargoyle down into a kiss, pressing firmly against her soft, cold lips.  She makes a cute little gasp, but soon relaxes into your hold, allowing you to shift her weight so that she's nearly lying atop you.  You sigh contentedly and wrap your gargoyle in a tight hug, holding her close for the few minutes it takes you to recover.  When you're feeling up to it, you rustle her hair and thank her for her... gentle ministrations.  If she could blush, you're sure she would be as she looks upon you with gleaming fiery eyes.  You gather your belongings and exit the Cathedral."
         );
-        //(Return PC to camp, advance time 1 hour)
+        // (Return PC to camp, advance time 1 hour)
         this.gargoyleConfidence(5);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[b]“Mind”[/b]
-    //(PC Decreases Corruption and Lust, increases Intelligence)
+    // [b]“Mind”[/b]
+    // (PC Decreases Corruption and Lust, increases Intelligence)
     private mindGargoyleRitual(): void {
         this.clearOutput();
         this.outputText(
@@ -1066,13 +1066,13 @@ export class Gargoyle extends BaseContent {
                 ", give her a pat on the head, and head back to camp with a skip in your step."
         );
         this.dynStats("lus", -10, "cor", -0.5);
-        //player.takeDamage(Math.round(player.maxHP()/2));
+        // player.takeDamage(Math.round(player.maxHP()/2));
         this.fatigue(50);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[b]Banishment[/b]
-    //(PC is cleared of Worms and/or Exgartuan)
+    // [b]Banishment[/b]
+    // (PC is cleared of Worms and/or Exgartuan)
     private banishmentGargoyleRitual(): void {
         this.clearOutput();
         this.outputText(
@@ -1111,12 +1111,12 @@ export class Gargoyle extends BaseContent {
         this.outputText(
             "\n\nStill, you can't help but hiss in agony as the holy burn spreads through you, seeping into your vulnerable gentials and sensitive chest."
         );
-        //with Exgartuan:
+        // with Exgartuan:
         if (this.player.findStatusAffect(StatusAffects.Exgartuan) >= 0)
             this.outputText(
                 "  Booming from within you, you hear the demon's voice: \"<i>Hey!  What the shit is this!?  What're you doing? Fucking stop, you ingrate!</i>\""
             );
-        //with Worms:
+        // with Worms:
         else
             this.outputText(
                 "  Gratifyingly, however, you can feel the infestation within you squirming and writhing, desperately seeking escape."
@@ -1148,13 +1148,13 @@ export class Gargoyle extends BaseContent {
         else this.player.removeStatusAffect(StatusAffects.Infested);
         this.player.takeDamage(Math.round(this.player.maxHP() / 3));
         this.fatigue(10);
-        //(Display options: [Nothing] [Revenge] and [Cuddle])
+        // (Display options: [Nothing] [Revenge] and [Cuddle])
         this.addButton(0, "Nothing", this.dontFreakOutAfterBanishment);
         this.addButton(1, "Cuddle", this.cuddleForBanishments);
         this.addButton(2, "Revenge", this.getRevengeForBanishments);
     }
 
-    //[b]Nothing[/b]
+    // [b]Nothing[/b]
     private dontFreakOutAfterBanishment(): void {
         this.clearOutput();
         this.outputText(
@@ -1162,12 +1162,12 @@ export class Gargoyle extends BaseContent {
                 this.flags[kFLAGS.GAR_NAME] +
                 "'s “gentle ministrations. ” After a few minutes, you've caught your breath and, gathering your possessions, make your way out of the Cathedral without another word. Damn, you're sore."
         );
-        //(Return PC to camp, advance time 1 hour)
+        // (Return PC to camp, advance time 1 hour)
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[b]Revenge[/b]
-    //(Confidence -5)
+    // [b]Revenge[/b]
+    // (Confidence -5)
     private getRevengeForBanishments(): void {
         this.clearOutput();
         this.outputText(
@@ -1175,13 +1175,13 @@ export class Gargoyle extends BaseContent {
                 this.flags[kFLAGS.GAR_NAME] +
                 " just standing over you, gloating, causes you to sneer and lash out.  You strike her dead-center in the chest, throwing her back against the tree-idol at the church's head.  She slumps to the floor, looking meekly away from you.  While she's stunned, you gather your [armor] and stagger out of the Cathedral."
         );
-        //(Return PC to camp, advance time 1 hour)
+        // (Return PC to camp, advance time 1 hour)
         this.gargoyleConfidence(-5);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[b]Cuddle[/b]
-    //(Confidence +5)
+    // [b]Cuddle[/b]
+    // (Confidence +5)
     private cuddleForBanishments(): void {
         this.clearOutput();
         this.outputText(
@@ -1189,12 +1189,12 @@ export class Gargoyle extends BaseContent {
                 this.flags[kFLAGS.GAR_NAME] +
                 " did it at your command – and hell, it could only have helped you.  Before she can react, you reach up and pull the gray gargoyle down into your lap, hugging her around the waist and putting a quick kiss into the nape of her neck.  Giggling, she wraps her tail around you, giving you a gentle squeeze as she nuzzles into your chest.  You stay like that for a few minutes, cuddling the cute gargoyle, but eventually you know you need to check on things back at camp.  When you're feeling up to it, you rustle her hair and thank her for her... gentle ministrations.  If she could blush, you're sure she would be as she looks upon you with gleaming fiery eyes.  You gather your belongings and exit the Cathedral."
         );
-        //(Return PC to camp, advance time 1 hour)
+        // (Return PC to camp, advance time 1 hour)
         this.gargoyleConfidence(5);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[b]Kinky Rituals (First Time)[/b]
-    //(While Confidence 70+)
+    // [b]Kinky Rituals (First Time)[/b]
+    // (While Confidence 70+)
     private gargoyleKinkyRituals(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.KINKY_RITUALS_SPOKEN] == 0) {
@@ -1207,10 +1207,10 @@ export class Gargoyle extends BaseContent {
             this.outputText(
                 '\n\n"<i>The last Master was obsessed with pleasures of the flesh, and when she learned I was able to perform spiritual rituals, designed corrupted versions of them to fit her tastes.  If you\'ll allow it, I believe I can strike a middle-ground – making the rituals more pleasurable to us both, without the corrupting influence.  Would Master be interested in attempting one with me?</i>"'
             );
-            //(Display Options: [Body] [Mind] [Banish (only with Exgartuan or Worms)] and [Leave])
+            // (Display Options: [Body] [Mind] [Banish (only with Exgartuan or Worms)] and [Leave])
         }
-        //[b]Kinky Rituals (Any after First)[/b]
-        //(While Confidence 70+)
+        // [b]Kinky Rituals (Any after First)[/b]
+        // (While Confidence 70+)
         else {
             this.outputText(
                 "You walk to the church's alter, shortly followed by " +
@@ -1218,7 +1218,7 @@ export class Gargoyle extends BaseContent {
                     '.  You tell her you need one of her holy rituals, but that you\'d prefer to have some fun as well.  Grinning, she says, "<i>It would be my pleasure, my Master. What shall we do?</i>"'
             );
         }
-        //(Display Options: [Body] [Mind] [Banish (only with Exgartuan or Worms)] and [Leave])
+        // (Display Options: [Body] [Mind] [Banish (only with Exgartuan or Worms)] and [Leave])
         this.menu();
         this.addButton(0, "Body", this.kinkyBodyRitual);
         this.addButton(1, "Mind", this.mindRitualPervy);
@@ -1230,11 +1230,11 @@ export class Gargoyle extends BaseContent {
         this.addButton(4, "Leave", this.returnToCathedral);
     }
 
-    //[b]Body[/b]
+    // [b]Body[/b]
     private kinkyBodyRitual(): void {
         this.clearOutput();
-        //(Confidence +2)
-        //(PC decreases Libido and Sensitivity. Suffers 20% Max HP damage, to a minimum of 1 pt. remaining)
+        // (Confidence +2)
+        // (PC decreases Libido and Sensitivity. Suffers 20% Max HP damage, to a minimum of 1 pt. remaining)
         this.outputText(
             "You tell " +
                 this.flags[kFLAGS.GAR_NAME] +
@@ -1265,7 +1265,7 @@ export class Gargoyle extends BaseContent {
         this.outputText(
             "\n\nShe plays easily within you, running her cool appendage over your own tongue, letting it slide across your teeth and cheeks as she slides a hand down to your "
         );
-        //if Male/Herm:
+        // if Male/Herm:
         if (this.player.hasCock()) this.outputText(this.cockDescript(0));
         else if (this.player.hasVagina()) this.outputText(this.vaginaDescript());
         else this.outputText("barren crotch");
@@ -1297,9 +1297,9 @@ export class Gargoyle extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[b]Mind[/b]
-    //(Confidence +2)
-    //(PC Decreases Corruption and Lust, increases Intelligence)
+    // [b]Mind[/b]
+    // (Confidence +2)
+    // (PC Decreases Corruption and Lust, increases Intelligence)
     private mindRitualPervy(): void {
         this.clearOutput();
         this.gargoyleConfidence(2);
@@ -1350,17 +1350,17 @@ export class Gargoyle extends BaseContent {
                 this.flags[kFLAGS.GAR_NAME] +
                 " arches her back and thrusts out her bat-wings to their full expanse, clamping down on your tongue as she cums.  You slow your pace, giving her a last few licks as she pants, gasps, and moans, slowly coming down from an orgasmic high.  She collapses backwards, clutching her chest and staring into the rafters.  Chuckling, you stand and give her a pleased pat on the inner thigh, letting her know she did a good job for you.  You leave her smiling atop the altar, slowly getting her breath under control."
         );
-        //(Return PC to camp, advance time 1 hour)
+        // (Return PC to camp, advance time 1 hour)
         this.dynStats("int", 0.5, "lus", -10, "cor", -0.5);
         this.fatigue(50);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[b]Banish[/b]
-    //(Confidence +2)
+    // [b]Banish[/b]
+    // (Confidence +2)
     private banishPervRitual(): void {
         this.clearOutput();
-        //(PC is cleared of Worms and/or Exgartuan)
+        // (PC is cleared of Worms and/or Exgartuan)
         this.outputText(
             "You explain to " + this.flags[kFLAGS.GAR_NAME] + " that you seem to have picked up "
         );
@@ -1402,7 +1402,7 @@ export class Gargoyle extends BaseContent {
                 this.flags[kFLAGS.GAR_NAME] +
                 " puts her hands on your [hips] for leverage and begins to pull out again, leaving a hot, intense tingling sensation in your rectum.  She thrusts in, this time much more quickly than you were expecting, making you gasp and moan as her hips slam into yours."
         );
-        //If PC has Worms:
+        // If PC has Worms:
         if (this.player.findStatusAffect(StatusAffects.Exgartuan) < 0)
             this.outputText(
                 "  You can feel her cock ram against your prostate, and shudder as the writhing mass of worms begin to panic as her cock pushes against them, obviously causing the creatures great pain."
@@ -1412,13 +1412,13 @@ export class Gargoyle extends BaseContent {
                 this.flags[kFLAGS.GAR_NAME] +
                 " begins to fuck you in earnest, hammering your [asshole] with the strap-on until you're both panting and gasping, nearly overwhelmed by sensation."
         );
-        //(If PC has Exgartuan:
+        // (If PC has Exgartuan:
         if (this.player.findStatusAffect(StatusAffects.Exgartuan) >= 0)
             this.outputText(
                 "  You can hear the demonic voice of Exgartuan inside your mind, yelling and cursing as he is rapidly drained from your body and sealed into the holy rod within you."
             );
 
-        //(If PC has a cock:
+        // (If PC has a cock:
         if (this.player.hasCock()) {
             this.outputText(
                 "\n\n" +
@@ -1462,7 +1462,7 @@ export class Gargoyle extends BaseContent {
                 this.flags[kFLAGS.GAR_NAME] +
                 ", but to your surprise, she's fast asleep, snoring softly.  With a grin, you untangle yourself from her embrace and find something to cover her with before giving her another kiss and making your way home."
         );
-        //(Return PC to camp, advance time 1 hour)
+        // (Return PC to camp, advance time 1 hour)
         if (this.player.findStatusAffect(StatusAffects.Exgartuan) >= 0)
             this.player.removeStatusAffect(StatusAffects.Exgartuan);
         else this.player.removeStatusAffect(StatusAffects.Infested);
@@ -1472,7 +1472,7 @@ export class Gargoyle extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[b]Talk[/b]
+    // [b]Talk[/b]
     private talkToGargoyle(output: boolean = true): void {
         if (output) {
             this.clearOutput();
@@ -1481,12 +1481,12 @@ export class Gargoyle extends BaseContent {
                     this.flags[kFLAGS.GAR_NAME] +
                     " to join you."
             );
-            //If Confidence <50:
+            // If Confidence <50:
             if (this.gargoyleConfidence() < 50)
                 this.outputText(
                     "  She meekly approaches her Master and kneels before you, head bowed submissively."
                 );
-            //if Confidence = 51-69:
+            // if Confidence = 51-69:
             else if (this.gargoyleConfidence() < 70)
                 this.outputText(
                     "  She nearly skips to follow you, assuming her low crouch at your feet and looking up at your expectantly."
@@ -1499,8 +1499,8 @@ export class Gargoyle extends BaseContent {
                 '  You tell her you\'d like to talk for a few minutes, which immediately causes her eyes to brighten excitedly.  "<i>Master honors me...  What would you like to talk about?</i>"'
             );
         }
-        //(Display Options: [History] [Cathedral] " + flags[kFLAGS.GAR_NAME] + " [Leave])
-        //(Whenever the player selects a topic, play one of the following dialogue scenes then return the PC to the main interaction menu and increase Confidence by +10, unless noted otherwise. Once a scene has been played, it will not play again. Once all three in a topic are played, it closes.)
+        // (Display Options: [History] [Cathedral] " + flags[kFLAGS.GAR_NAME] + " [Leave])
+        // (Whenever the player selects a topic, play one of the following dialogue scenes then return the PC to the main interaction menu and increase Confidence by +10, unless noted otherwise. Once a scene has been played, it will not play again. Once all three in a topic are played, it closes.)
         this.menu();
         if (this.flags[kFLAGS.GAR_HISTORY] < 3) this.addButton(0, "History", this.historyGo);
         if (this.flags[kFLAGS.GAR_CATHEDRAL] < 3)
@@ -1522,7 +1522,7 @@ export class Gargoyle extends BaseContent {
         }
     }
 
-    //[b]History A[/b]
+    // [b]History A[/b]
     private talkToGargoyleHistoryA(): void {
         this.clearOutput();
 
@@ -1535,44 +1535,44 @@ export class Gargoyle extends BaseContent {
         this.outputText(
             "\n\nYou tell her that, sure, you'd like to hear it.  \"<i>The church-folk believe – believed – that the goddess Marae created intelligent life here many generations ago, long before the demons came.  She was the highest goddess amongst many, an embodiment of the natural world.  She brought forth the animal-morphs who created this cathedral in her honor.  Using magical knowledge, the priests of this church sought to mirror Marae's power, creating creatures such as myself.  Eventually, though, the demons came, I know not from where, and began to spread their corruption.  The priests... tried to resist... t-to ward against...  I'm sorry, Master,</i>\" she says, sniffling.  You notice that she's turned away from you, trying to hide her shame.  \"<i>I don't want to think about this anymore.  Please,</i>\" she begs.  The memory of her failure to protect the people of the church still weighs heavily upon her.  You suppose you could berate her for her emotionality, or try and comfort her."
         );
-        //(Display Options: [Berate] and [Comfort])
+        // (Display Options: [Berate] and [Comfort])
         this.menu();
         this.addButton(0, "Berate", this.berateGargoyleForBeingDumb);
         this.addButton(1, "Comfort", this.comfortGargoyleDumbness);
     }
 
-    //[b]Berate[/b]
+    // [b]Berate[/b]
     private berateGargoyleForBeingDumb(): void {
         this.clearOutput();
-        //(Confidence -5)
+        // (Confidence -5)
         this.gargoyleConfidence(-5);
         this.outputText(
             "\n\nYou attempt to give " +
                 this.flags[kFLAGS.GAR_NAME] +
                 " a none-too-gentle swat on the head, and tell her off for presuming to refuse you information.  The harshness of your voice only causes her to sob openly, however, and recoil away from you before you can hit her.  You sigh with frustration, and storm out of the cathedral before you have to listen to a moment more of your servant's cries."
         );
-        //(Return PC to camp, advance time 1 hour.)
+        // (Return PC to camp, advance time 1 hour.)
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[b]Comfort[/b]
+    // [b]Comfort[/b]
     private comfortGargoyleDumbness(): void {
         this.clearOutput();
-        //(Confidence +3)
+        // (Confidence +3)
         this.gargoyleConfidence(10);
         this.outputText("You sigh and reach over to " + this.flags[kFLAGS.GAR_NAME] + "; ");
-        //if Confidence <50:
+        // if Confidence <50:
         if (this.gargoyleConfidence() < 50) this.outputText("she recoils, but ");
         this.outputText(
             "you cup her cheek, and turn her to face you.  If she could produce tears, you're sure they'd be streaming down her cheeks.  You give her your most reassuring smile and lean in to give her a quick kiss on the brow.  She gasps, but before you know it, she has leapt into your lap and has buried her face into your chest, holding onto you as if for dear life.  You put your arms around her and hold her close while she cries, spending the next few minutes either whispering reassurances to her or stroking her back and hair.  Eventually, she calms down.  Ever so shyly, " +
                 this.flags[kFLAGS.GAR_NAME] +
                 " returns the kiss you'd given her.  \"<i>I'm sorry, Master,</i>\" she whispers, curling up beside you.  \"<i>I should have been strong enough to protect my people.  I know that.  That it's my fault they've all been dragged off to some unholy carnal pit.  I just...</i>\"  You stop her before she can go on and tell her that no, it wasn't her fault.  She couldn't have done anything to stop it.  She tries to give you a brave smile and says, \"<i>I know. Can we... talk about something else, Master?</i>\""
         );
-        //(Return PC to the Talk menu)
+        // (Return PC to the Talk menu)
         this.talkToGargoyle(false);
     }
 
-    //[b]History B[/b]
+    // [b]History B[/b]
     private historyOfGargoylesB(): void {
         this.clearOutput();
         this.outputText(
@@ -1585,7 +1585,7 @@ export class Gargoyle extends BaseContent {
         this.outputText(
             "Hesitantly, she nods her assent, though she says, \"<i>I'm sorry, Master, but I must warn you: I was greatly abused by the demons.  They are responsible for everything that is wrong with my world"
         );
-        //if Confidence >70:
+        // if Confidence >70:
         if (this.gargoyleConfidence() > 70)
             this.outputText(", and I despise them with every fiber of my being");
         this.outputText(
@@ -1599,10 +1599,10 @@ export class Gargoyle extends BaseContent {
         this.talkToGargoyle(false);
     }
 
-    //[b]History C[/b]
+    // [b]History C[/b]
     private gargoyleHistoryC(): void {
         this.clearOutput();
-        //(PC has both Isabella and Izma as followers)
+        // (PC has both Isabella and Izma as followers)
         if (
             kGAMECLASS.izmaScene.izmaFollower() &&
             kGAMECLASS.isabellaFollowerScene.isabellaFollower()
@@ -1629,13 +1629,13 @@ export class Gargoyle extends BaseContent {
             this.outputText(
                 "\n\nOh shit.  Here we go.  You suppose you could dodge the bullet, or you could tell her what you really think: is she just a slave you wandered into owning, or do you think something more of her?"
             );
-            //(Display Options: [Dodge] [Slave] [Girlfriend]
+            // (Display Options: [Dodge] [Slave] [Girlfriend]
             this.menu();
             this.addButton(0, "Dodge", this.izmaAndIsabellaDodge);
             this.addButton(1, "Slave", this.gargoylesAreSlavesYo);
             this.addButton(2, "Girlfriend", this.gargoylesAreGirlfriends);
         }
-        //(If PC has Marble as a follower)
+        // (If PC has Marble as a follower)
         else if (this.player.findStatusAffect(StatusAffects.CampMarble) >= 0) {
             this.outputText(
                 "You ask " +
@@ -1652,12 +1652,12 @@ export class Gargoyle extends BaseContent {
                     this.flags[kFLAGS.GAR_NAME] +
                     " doesn't count, being a statue and all?"
             );
-            //(Display Options: [Not Exclusive] [Doesn't Count])
+            // (Display Options: [Not Exclusive] [Doesn't Count])
             this.menu();
             this.addButton(0, "Not Exclusive", this.marbleAintExclusiveBiatch);
             this.addButton(1, "Doesn'tCount", this.gargoyleDoesntCountAsAWaifu);
         }
-        //(If PC has Izma as a follower)
+        // (If PC has Izma as a follower)
         else if (kGAMECLASS.izmaScene.izmaFollower()) {
             this.outputText(
                 "You ask " +
@@ -1670,12 +1670,12 @@ export class Gargoyle extends BaseContent {
             this.outputText(
                 "\n\nWell. What do you say to that: that you're not exclusive with Izma, or that she doesn't count, being a statue and all?"
             );
-            //(Display Options: [Not Exclusive] [Doesn't Count])
+            // (Display Options: [Not Exclusive] [Doesn't Count])
             this.menu();
             this.addButton(0, "Not Exclusive", this.sharkgirlsArentExclusiveBiatch);
             this.addButton(1, "Doesn'tCount", this.gargoylesDontCountAsSharkWaifus);
         } else {
-            //(If PC has neither Marble nor Izma as a follower)
+            // (If PC has neither Marble nor Izma as a follower)
             this.outputText(
                 "You ask " +
                     this.flags[kFLAGS.GAR_NAME] +
@@ -1686,8 +1686,8 @@ export class Gargoyle extends BaseContent {
         }
     }
 
-    //MARBLE
-    //[b]Not Exclusive[/b]
+    // MARBLE
+    // [b]Not Exclusive[/b]
     private marbleAintExclusiveBiatch(): void {
         this.clearOutput();
         this.outputText(
@@ -1698,19 +1698,19 @@ export class Gargoyle extends BaseContent {
         this.returnToCathedral(true);
     }
 
-    //[b]Doesn't Count[/b]
-    //(Confidence -5)
+    // [b]Doesn't Count[/b]
+    // (Confidence -5)
     private gargoyleDoesntCountAsAWaifu(): void {
         this.clearOutput();
         this.outputText(
             "You scoff and tell her not to worry – it's not like you're cheating on Marble by being around her, after all.  She's just a statue – a toy, really. Her head sinks low, and the little gargoyle lets out a shudder that might just have been a sob.  You shake your head and change the subject."
         );
-        //(Return PC to " + flags[kFLAGS.GAR_NAME] + "'s main menu)
+        // (Return PC to " + flags[kFLAGS.GAR_NAME] + "'s main menu)
         this.gargoyleConfidence(-5);
         this.returnToCathedral(true);
     }
-    //IZMA
-    //[b]Not Exclusive[/b]
+    // IZMA
+    // [b]Not Exclusive[/b]
     private sharkgirlsArentExclusiveBiatch(): void {
         this.clearOutput();
         this.outputText(
@@ -1721,35 +1721,35 @@ export class Gargoyle extends BaseContent {
         this.returnToCathedral(true);
     }
 
-    //[b]Doesn't Count[/b]
+    // [b]Doesn't Count[/b]
     private gargoylesDontCountAsSharkWaifus(): void {
         this.clearOutput();
-        //(Confidence -5)
+        // (Confidence -5)
         this.gargoyleConfidence(-5);
         this.outputText(
             "You scoff and tell her not to worry – it's not like you're cheating on Izma by being around her, after all.  She's just a statue – a toy, really.  Her head sinks low, and the little gargoyle lets out a shudder that might just have been a sob.  You shake your head and change the subject."
         );
-        //(Return PC to " + flags[kFLAGS.GAR_NAME] + "'s main menu)
+        // (Return PC to " + flags[kFLAGS.GAR_NAME] + "'s main menu)
         this.returnToCathedral(true);
     }
 
-    //IZMA & ISABELLA
-    //[b]Dodge[/b]
+    // IZMA & ISABELLA
+    // [b]Dodge[/b]
     private izmaAndIsabellaDodge(): void {
         this.clearOutput();
-        //(Confidence -5)
+        // (Confidence -5)
         this.gargoyleConfidence(-5);
         this.outputText(
             "You make a shitty joke and laugh awkwardly, trying to avoid the topic altogether.  " +
                 this.flags[kFLAGS.GAR_NAME] +
                 " makes a pitiful little sniffle, but takes the hint and falls silent, allowing you to change the subject."
         );
-        //(Return PC to Talk menu)
+        // (Return PC to Talk menu)
         this.returnToCathedral(true);
     }
 
-    //[b]Slave[/b]
-    //(Confidence -15)
+    // [b]Slave[/b]
+    // (Confidence -15)
     private gargoylesAreSlavesYo(): void {
         this.clearOutput();
         this.gargoyleConfidence(-15);
@@ -1759,12 +1759,12 @@ export class Gargoyle extends BaseContent {
         this.outputText(
             "\n\nSince you've temporarily broken the gargoyle, you mosey on back to camp."
         );
-        //(Return PC to camp, advance time 1 hour)
+        // (Return PC to camp, advance time 1 hour)
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[b]Girlfriend[/b]
+    // [b]Girlfriend[/b]
     private gargoylesAreGirlfriends(): void {
-        //(Confidence +15)
+        // (Confidence +15)
         this.clearOutput();
 
         this.gargoyleConfidence(15);
@@ -1781,9 +1781,9 @@ export class Gargoyle extends BaseContent {
                 this.flags[kFLAGS.GAR_NAME] +
                 ' withdraws slightly from you, though her arms are still hooked about your neck.  "<i>Master... if you want me to be your girlfriend, then... we should – if you want, Master, of course – maybe...  Master, will you make love to me?</i>" she blurts, suddenly taken aback by her own forwardness.'
         );
-        //(Male Display Options: [Vaginal] [Leave])
-        //(All Other Display Options: [Strap-on] [Leave])
-        //(Use normal sex scenes for above options, as well as Leave options.
+        // (Male Display Options: [Vaginal] [Leave])
+        // (All Other Display Options: [Strap-on] [Leave])
+        // (Use normal sex scenes for above options, as well as Leave options.
         this.menu();
         if (this.player.hasCock()) this.addButton(0, "Vaginal", this.gargoyleCoochiiGetsPlowed);
         else this.addButton(1, "Strap-on", this.strapOnGargoyle);
@@ -1803,7 +1803,7 @@ export class Gargoyle extends BaseContent {
         }
     }
 
-    //[b]Cathedral A[/b]
+    // [b]Cathedral A[/b]
     private talkCathedralA(): void {
         this.clearOutput();
         this.outputText(
@@ -1819,14 +1819,14 @@ export class Gargoyle extends BaseContent {
         );
 
         this.outputText("\n\nYou could tell her it's pointless or encourage her.");
-        //(Display Options: [Pointless] [Encourage])
+        // (Display Options: [Pointless] [Encourage])
         this.menu();
         this.addButton(0, "Pointless", this.pointlessGargoylesArePointless);
         this.addButton(1, "Encourage", this.encourageGargoyleWaifuToDoSomething);
     }
 
-    //[b]Pointless[/b]
-    //(Confidence -2)
+    // [b]Pointless[/b]
+    // (Confidence -2)
     private pointlessGargoylesArePointless(): void {
         this.clearOutput();
         this.gargoyleConfidence(-5);
@@ -1837,12 +1837,12 @@ export class Gargoyle extends BaseContent {
         this.outputText('\n\n"<i>I...Of course, Master.  H-How silly of me.</i>"');
 
         this.outputText("\n\nYou nod, and change the subject.");
-        //(Return PC to Talk menu)
+        // (Return PC to Talk menu)
         this.talkToGargoyle(false);
     }
 
-    //[b]Encourage[/b]
-    //(Confidence +2)
+    // [b]Encourage[/b]
+    // (Confidence +2)
     private encourageGargoyleWaifuToDoSomething(): void {
         this.clearOutput();
         this.gargoyleConfidence(10);
@@ -1857,12 +1857,12 @@ export class Gargoyle extends BaseContent {
                 this.flags[kFLAGS.GAR_NAME] +
                 " has even managed to hang one of the candelabras back up in the rafters.  Exhausted, you say goodbye to the happy little gargoyle and head on back to camp."
         );
-        //(Return PC to camp, advance time 1 hour, +10 fatigue.
+        // (Return PC to camp, advance time 1 hour, +10 fatigue.
         this.fatigue(10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[b]Cathedral B[/b]
+    // [b]Cathedral B[/b]
     private cathedralBTalk(): void {
         this.clearOutput();
         this.outputText(
@@ -1882,7 +1882,7 @@ export class Gargoyle extends BaseContent {
         this.talkToGargoyle(false);
     }
 
-    //[b]Cathedral C[/b]
+    // [b]Cathedral C[/b]
     private cathedralC(): void {
         this.clearOutput();
         this.outputText(
@@ -1916,14 +1916,14 @@ export class Gargoyle extends BaseContent {
         this.outputText(
             "\n\nYou could comfort the little gargoyle, or you could remind her of the ramifications of her failure."
         );
-        //(Display Options: [Comfort] and [Berate])
+        // (Display Options: [Comfort] and [Berate])
         this.menu();
         this.addButton(0, "Berate", this.berateDatGargoyle4SomeSavin);
         this.addButton(1, "Comfort", this.comfortGargoyle);
     }
 
-    //[b]Comfort[/b]
-    //(Comfort +10)
+    // [b]Comfort[/b]
+    // (Comfort +10)
     private comfortGargoyle(): void {
         this.clearOutput();
         this.outputText(
@@ -1950,13 +1950,13 @@ export class Gargoyle extends BaseContent {
         this.outputText(
             "\n\nYou realize this is the first time you've ever seen her outside the sanctuary, and proudly give her a kiss on the lips at the gate.  When you part, she shyly tells you to take care on the way back, and that she'll be here waiting for you when you return."
         );
-        //(Return PC to camp, advance time 1 hour)
+        // (Return PC to camp, advance time 1 hour)
         this.gargoyleConfidence(10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[b]Berate[/b]
-    //(Confidence -10)
+    // [b]Berate[/b]
+    // (Confidence -10)
     private berateDatGargoyle4SomeSavin(): void {
         this.clearOutput();
         this.outputText(
@@ -1964,7 +1964,7 @@ export class Gargoyle extends BaseContent {
                 this.flags[kFLAGS.GAR_NAME] +
                 " a hard swat and remind her exactly how moronic she's being.  She recoils, shying away from you as you stand up and head for the door.  Over your shoulder, you tell her you're glad she's bound here – that way she can't fuck up and get you killed, too."
         );
-        //(Return PC to camp, advance time 1 hour)
+        // (Return PC to camp, advance time 1 hour)
         this.gargoyleConfidence(-10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
@@ -1982,8 +1982,8 @@ export class Gargoyle extends BaseContent {
         }
     }
 
-    //[b]" + flags[kFLAGS.GAR_NAME] + " A[/b]
-    //(Confidence +3)
+    // [b]" + flags[kFLAGS.GAR_NAME] + " A[/b]
+    // (Confidence +3)
     private garNameA(): void {
         this.clearOutput();
         this.outputText(
@@ -2016,7 +2016,7 @@ export class Gargoyle extends BaseContent {
         this.outputText(
             '\n\n"<i>When the last Master found me, I was not myself, however.  The coming of the demons was still vivid in my mind; the scars of their abuse weigh heavily upon me even now, yet they were crippling when she bound me.  I suppose it could have been worse – I could have been taken by a demon or a true sadist, but my time with her nearly destroyed my mind.'
         );
-        //If Confidence =<69:
+        // If Confidence =<69:
         if (this.gargoyleConfidence() <= 69)
             this.outputText(
                 '\n\nAfter what she did to me, I cannot enjoy sex; just the thought of it makes me shudder.</i>"'
@@ -2031,7 +2031,7 @@ export class Gargoyle extends BaseContent {
         this.outputText(
             "\n\nYou can't help but ask... what is it that her last Master did that was so awful, that made her fear you when you first met her, and now makes her terrified of the most intimate of contact?"
         );
-        //If Confidence =<69:
+        // If Confidence =<69:
         if (this.gargoyleConfidence() <= 69)
             this.outputText(
                 "  \"<i>I'm sorry, Master, I can't... it hurts too much to think about it.</i>\""
@@ -2044,15 +2044,15 @@ export class Gargoyle extends BaseContent {
         this.outputText(
             "\n\nYou consider pressing the issue, but remember that you've been away from camp a bit too long.  You resolve to ask her next time, and take your leave of the gargoyle."
         );
-        //(Return PC to camp, advance time 1 hour)
+        // (Return PC to camp, advance time 1 hour)
         this.gargoyleConfidence(10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[b]" + flags[kFLAGS.GAR_NAME] + " B[/b]
+    // [b]" + flags[kFLAGS.GAR_NAME] + " B[/b]
     private garNameB(): void {
         this.clearOutput();
-        //(Confidence +3)
+        // (Confidence +3)
         this.outputText(
             "Settling in for what could be a long talk, you ask " +
                 this.flags[kFLAGS.GAR_NAME] +
@@ -2083,9 +2083,9 @@ export class Gargoyle extends BaseContent {
         this.talkToGargoyle(false);
     }
 
-    //[b]" + flags[kFLAGS.GAR_NAME] + " C[/b]
+    // [b]" + flags[kFLAGS.GAR_NAME] + " C[/b]
     private garNameC(): void {
-        //(Confidence +3)
+        // (Confidence +3)
         this.gargoyleConfidence(5);
         this.clearOutput();
         this.outputText(
@@ -2110,14 +2110,14 @@ export class Gargoyle extends BaseContent {
         this.outputText(
             "\n\nShe falls silent, heaving a heavy, hopeless sigh.  You could reassure her that she isn't a helpless non-person, or perhaps you'd be better served by berating her about her emotional weakness?"
         );
-        //(Display Options: [Comfort] [Berate])
+        // (Display Options: [Comfort] [Berate])
         this.menu();
         this.addButton(0, "Comfort", this.comfortGarNameC);
         this.addButton(1, "Berate", this.berateGargoyleC);
     }
 
-    //[b]Comfort[/b]
-    //(Confidence +15)
+    // [b]Comfort[/b]
+    // (Confidence +15)
     private comfortGarNameC(): void {
         this.clearOutput();
         this.outputText(
@@ -2149,13 +2149,13 @@ export class Gargoyle extends BaseContent {
                 this.flags[kFLAGS.GAR_NAME] +
                 " on the head and tell her you'd be happy to stay for a while longer.  Beaming, she asks you what you'd like to do."
         );
-        //(Return to normal interaction menu)
+        // (Return to normal interaction menu)
         this.gargoyleConfidence(15);
         this.returnToCathedral(true);
     }
 
-    //[b]Berate[/b]
-    //(Confidence -10)
+    // [b]Berate[/b]
+    // (Confidence -10)
     private berateGargoyleC(): void {
         this.clearOutput();
         this.outputText(
@@ -2174,11 +2174,11 @@ export class Gargoyle extends BaseContent {
 
         this.outputText("\n\nNodding appreciatively, you think of what to tell her to do.");
         this.gargoyleConfidence(-10);
-        //(Return to normal interaction menu)
+        // (Return to normal interaction menu)
         this.returnToCathedral(true);
     }
 
-    //[b]Appearance[/b]
+    // [b]Appearance[/b]
     private gargoyleAppearance(): void {
         this.clearOutput();
         this.outputText(

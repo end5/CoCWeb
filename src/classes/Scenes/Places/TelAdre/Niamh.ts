@@ -8,22 +8,22 @@ import { Player } from "../../../Player";
 import { PregnancyStore } from "../../../PregnancyStore";
 
 export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface {
-    //const MET_NIAMH: number = 446;
-    //const GOT_NIAMH_BEER: number = 447;
-    //const TALKED_NIAMH: number = 448;
-    //-1 = bazaar moved in, 0 = nothing, 1 = trigger time, otherwise time till trigger
-    //const NIAMH_MOVED_OUT_COUNTER: number = 449;
-    //0 = normal, 1 = corrupt, 2 = bimbo
-    //const NIAMH_STATUS: number = 450;
-    //const NIAMH_SEAN_BREW_BIMBO_LIQUEUR_COUNTER: number = 451;
-    //const TIMES_NIAMH_BAZAAR_MET: number = 452;
+    // const MET_NIAMH: number = 446;
+    // const GOT_NIAMH_BEER: number = 447;
+    // const TALKED_NIAMH: number = 448;
+    // -1 = bazaar moved in, 0 = nothing, 1 = trigger time, otherwise time till trigger
+    // const NIAMH_MOVED_OUT_COUNTER: number = 449;
+    // 0 = normal, 1 = corrupt, 2 = bimbo
+    // const NIAMH_STATUS: number = 450;
+    // const NIAMH_SEAN_BREW_BIMBO_LIQUEUR_COUNTER: number = 451;
+    // const TIMES_NIAMH_BAZAAR_MET: number = 452;
 
     public constructor() {
         super();
         CoC.timeAwareClassAdd(this);
     }
 
-    //Implementation of TimeAwareInterface
+    // Implementation of TimeAwareInterface
     public timeChange(): boolean {
         var needNext: boolean = false;
         if (this.flags[kFLAGS.NIAMH_SEAN_BREW_BIMBO_LIQUEUR_COUNTER] > 1)
@@ -50,7 +50,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
     public timeChangeLarge(): boolean {
         return false;
     }
-    //End of Interface Implementation
+    // End of Interface Implementation
 
     public telAdreNiamh(): void {
         if (this.flags[kFLAGS.MET_NIAMH] == 0) {
@@ -79,7 +79,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                 ".  Smooth, touchable skin covers her chest, face, hands and presumably the rest of her; it seems her animalistic accoutrements stop at kitty ears and tail. She takes a deep swig of her drink, following it up with a cute little burp."
             );
         }
-        //This scene only plays if the PC has either Talked to Niamh or has gotten at least 1 mug of Black Cat Beer from her.
+        // This scene only plays if the PC has either Talked to Niamh or has gotten at least 1 mug of Black Cat Beer from her.
         else {
             this.outputText("\n\nNiamh is seated at her usual place near the back of the bar, ");
             if (this.model.time.hours <= 8)
@@ -104,7 +104,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         }
     }
 
-    //Approach:
+    // Approach:
     public approachNiamh(): void {
         this.clearOutput();
 
@@ -118,7 +118,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
             this.corruptOrBimboNiamhIntro();
             return;
         }
-        //(If player has Talked to Niamh or gotten 1+ mugs of Black Cat Beer, replace with the following:
+        // (If player has Talked to Niamh or gotten 1+ mugs of Black Cat Beer, replace with the following:
         if (this.flags[kFLAGS.MET_NIAMH] > 0)
             this.outputText(
                 "Niamh gives you a friendly, but professional, smile as you draw near.  She smiles and shakes her head knowingly as your gaze inevitably falls to her chest, obviously as full of booze as ever.  Small puddles of alcoholic fluid slowly accumulate from the steady drip of her swollen nipples.  \"<i>Well, hello, consumer - yes, up here - hello, consumer.  Did ye want to try more o' me Black Cat Beer?  Just remember the rules; two bits a glass, treat me gentle, and no sneakin' a drink from 'the tap'.</i>\""
@@ -131,7 +131,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         var beer = undefined;
         if (this.player.gems >= 2) beer = this.getANiamhBeer;
         else this.outputText("\n\n<b>You're too poor for beer.</b>");
-        //[Talk] [Get Beer] [Leave]
+        // [Talk] [Get Beer] [Leave]
         this.simpleChoices(
             "Talk",
             this.talkToNiamh,
@@ -146,19 +146,19 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         );
     }
 
-    //[Get Beer]
+    // [Get Beer]
     public getANiamhBeer(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("niamh-get-beer"));
         this.outputText(
             "\"<i>That'll be two gems,</i>\" she replies.  You hand over the payment, which she holds up to the light and scrutinizes thoroughly.  Satisfied, she drops the things into a sack at her waist.  \"<i>Sorry,</i>\" she mutters. \"<i>I do want to get this damned beer out o' me, but this is still my primary livelihood; I canno' afford to be cheated.  Anyway, here's your mug - you can keep that f'r another two gems; I get 'em cheap.  Go ahead and fill it up, but keep in mind what you're tweakin', right?</i>\""
         );
-        //Feeder
+        // Feeder
         if (this.player.findPerk(PerkLib.Feeder) >= 0)
             this.outputText(
                 "  You understand exactly what she's going through; the weight of a huge pair of breasts, the sensitivity as they engorge with fluids, the near-maddening sensation of the contents sloshing around underneath your straining skin..."
             );
-        //(Player has G-cups or bigger;
+        // (Player has G-cups or bigger;
         else if (this.player.biggestTitSize() >= 15) {
             if (this.player.lactationQ() == 0)
                 this.outputText(
@@ -173,7 +173,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                 "  You know just how distracting it is to have your tits full of fluid waiting to get out."
             );
 
-        //([if first time]
+        // ([if first time]
         if (this.flags[kFLAGS.GOT_NIAMH_BEER] == 0)
             this.outputText(
                 "\n\nYou briefly deliberate how you should go about the 'milking' process.  Should you focus on one nipple, or both...?  Deciding on both - most likely easier on the girl that way - you take the proffered mug and prepare to tap the... kegs."
@@ -191,13 +191,13 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         if (this.flags[kFLAGS.MET_NIAMH] > 0) this.outputText("Niamh ");
         else this.outputText("the cat-girl ");
         this.outputText("sighs in relief, biting her lower lip slightly.");
-        //General Ending
+        // General Ending
         this.outputText(
             "\n\nYou think her breasts may have decreased in size somewhat, but with how massive they are it's hard to tell.  She blushes, trying her hardest to conceal the grinding against her chair.  \"<i>Faith, you're good with yer hands,</i>\" she veritably purrs.  \"<i>Will ye be drinkin' it here or takin' the mug t'go?</i>\""
         );
         this.player.gems -= 2;
         this.statScreenRefresh();
-        //[Here][To Go]
+        // [Here][To Go]
         var togo = undefined;
         if (this.player.gems >= 2) togo = this.blackCatBeerToGo;
         else this.outputText("\n\n<b>You're too poor to buy the mug.</b>");
@@ -216,7 +216,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         );
     }
 
-    //[Here]
+    // [Here]
     private drinkNiamhsBeerInTelAdre(): void {
         this.clearOutput();
         if (
@@ -249,35 +249,35 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                 this.outputText(
                     ".  \"<i>Ye know, I got's an idea.  How's about ye stick by me for the next hour.  I'm sure ye must be diein' to drain those big'uns of yours.  We might as well sell your champagne ta the patrons.  Whaddaya say Lassie?</i>\""
                 );
-                //[SELL YOUR BOOZE]  [LEAVE]
+                // [SELL YOUR BOOZE]  [LEAVE]
             }
             // Saint Patrick's
             else if (this.date.date == 17 && this.date.month == 2) {
                 this.outputText(
                     "\n\nNiamh smiles.  The liquid in the shot glass is rich and dark, and you can't help but notice the foam that coats both the top of it and your nipples.  \"<i>Now this lass would be what I call a great lager.</i>\"  Niamh downs the shot quickly.  \"<i>Ah, that really hits the spot.  Wish I could squirt me a good mug o' that every so often.</i>\"  With a cat like grin she smiles at you before suggesting, \"<i>Tell you what sweetie.  We prop you and those big titties o' yours here on the bar and milk that beautiful rich lager out o' you for the next hour.  Make you a fair bit o' gems and alleviate that aweful swellin'.  What ye say sweetie?</i>\""
                 );
-                //[SELL YOUR BOOZE]  [LEAVE]
+                // [SELL YOUR BOOZE]  [LEAVE]
             }
             // Christmas
             else if (this.isHolidays()) {
                 this.outputText(
                     '\n\nThe off color indicates it isn\'t milk filling the shot glass, but you aren\'t sure what it is.  Niamh darts her tongue into it and grins.  "<i>Ooooh.  Mmmmm.  Egg nog.  So delicious.</i>"  She slurps the whole shot glass backs and then blinks.  "<i>Whoah.  An\' rather strong shtuff to boot!</i>"  She wraps an arm around your shoulders.  "<i>Lass, I bet those puppies of yours are gonna be squirting that holiday joy for awhile.  Hows about ye let me prop ye up onna bar here and sell that liquid cheer of yours?  I bet it won\'t take long to drain them considering how delicious ye are.  Make you a fair bit o\' gems too!</i>"'
                 );
-                //[SELL YOUR BOOZE]  [LEAVE]
+                // [SELL YOUR BOOZE]  [LEAVE]
             }
             // Valentine's
             else if (this.isValentine()) {
                 this.outputText(
                     "\n\nThe aroma is distinct and Niamh comments, \"<i>My, that's quite a delectable white wine you're leakin' there lass.</i>\"  She pulls on another nipple to drain a bit more from you.  \"<i>Mmmmm, and the other is a good red.</i>\"  She grins.  \"<i>I bet there are a bunch o' couples in town that'd pay good gems for what you've got sloshin' around inside those babies there.</i>\"  She cuddles up close to you.  \"<i>What you say sweetie?  Gimme an hour o' your time?  See if the bar goers can drain you dry?  Ah'll make it worth ye worth.</i>\"  She winks."
                 );
-                //[SELL YOUR BOOZE]  [LEAVE]
+                // [SELL YOUR BOOZE]  [LEAVE]
             }
             // Non-Holiday, Generic
             else {
                 this.outputText(
                     "\n\n\"<i>Well lass, it looks like those big ole titties o' yours are takin' a cue from me.  Sorry 'bout that.  Musta been the beer.</i>\"  She gives your other nipple a tweak to fill a second shot glass.  \"<i>Yup, definitely the beer.  You're lactatin' some delicious booze now, jus' like me.  Dinnae worry.  Ah seen it happen before.  Usually don't last long.  But seein' as how you're leaking some good beer there, what's you say to selling some o' it?  Afterall, I can't 'ave ye givin' the stuff away fo' free while I'm chargin' for it, right?</i>\""
                 );
-                //[SELL YOUR BOOZE]  [LEAVE]
+                // [SELL YOUR BOOZE]  [LEAVE]
             }
             this.simpleChoices(
                 "SellYourBooze",
@@ -296,16 +296,16 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         this.outputText(
             'You yell "<i>Skoal!</i>" and upend the mug into your mouth, drinking greedily.  The warmth of the booze quickly follows the liquid itself - potent stuff, this is.'
         );
-        //PC is affected by Black Cat Beer item effects
+        // PC is affected by Black Cat Beer item effects
         this.blackCatBeerEffects(this.player, false, true);
-        //both output
+        // both output
         if (this.model.time.hours <= 15)
             this.outputText(
                 '\n\n"<i>Thanks for the business, ' +
                     this.player.mfn("laddie", "lassie", "customer") +
                     '!  Remember, Niamh sells her Black Cat Beer every day from 8 until 4.</i>"  You nod your head in thanks and step away from the table.'
             );
-        //16:00 ending
+        // 16:00 ending
         else {
             this.outputText("\n\nThanks to your efforts, ");
             if (this.flags[kFLAGS.MET_NIAMH] == 0) this.outputText("the cat girl's");
@@ -318,7 +318,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[To Go]
+    // [To Go]
     private blackCatBeerToGo(): void {
         this.clearOutput();
         this.outputText(
@@ -326,14 +326,14 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         );
         this.player.gems -= 2;
         this.statScreenRefresh();
-        //both output
+        // both output
         if (this.model.time.hours <= 15)
             this.outputText(
                 '\n\n"<i>Thanks for the business, ' +
                     this.player.mfn("laddie", "lassie", "customer") +
                     '!  Remember, Niamh sells her Black Cat Beer every day from 8 until 4.</i>"  You nod your head in thanks and step away from the table.'
             );
-        //16:00 ending
+        // 16:00 ending
         else {
             this.outputText("\n\nThanks to your efforts, ");
             if (this.flags[kFLAGS.MET_NIAMH] == 0) this.outputText("the cat girl's");
@@ -344,14 +344,14 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         }
         this.outputText("\n\n");
         this.flags[kFLAGS.MET_NIAMH]++;
-        //PC gains 1x BCB
+        // PC gains 1x BCB
         this.inventory.takeItem(this.consumables.BC_BEER, this.telAdre.barTelAdre);
     }
 
-    //Talk
+    // Talk
     private talkToNiamh(): void {
         this.clearOutput();
-        //(first time only)
+        // (first time only)
         if (this.flags[kFLAGS.TALKED_NIAMH] == 0) {
             this.outputText("You ask the cat-girl to tell you about her past.");
             this.outputText(
@@ -370,7 +370,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
             this.flags[kFLAGS.MET_NIAMH]++;
             this.flags[kFLAGS.TALKED_NIAMH]++;
         }
-        //(repeated)
+        // (repeated)
         else {
             if (this.player.isTaur()) this.outputText("You clop up and stand awkwardly");
             else this.outputText("You pull up a chair and sit");
@@ -379,13 +379,13 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                     " next to Niamh, and she smiles wearily in response.  A conversation is struck up - meaningless small talk at first, but gradually shifting to... more intimate topics.  Finally, you can't help but ask how she feels when getting 'milked'.  Her cheeks darken and she looks away from you, shaking her head embarrassedly.  \"<i>It's... it's nothin',</i>\" she smiles ruefully, then huffs a resigned sigh.  \"<i>Well, y'can probably see right through that...  It feels fantastic,</i>\" she admits.  \"<i>Way better than it should, no matter how much it happens.  Th' damned witch's spell most likely has somethin' to do with the sensitivity.  Some customers order as many drinks as they can carry just to watch me squirm.  A few have even gotten me to... well, you know,</i>\" she concludes lamely, averting her eyes in shame.  Many moments slip by before she speaks again.  \"<i>...It DOES feel really good,</i>\" she says again, turning back to you with a mischievous glint in her eye. \"<i>I bet some Black Cat Beer sounds mighty good t'you right about now?</i>\""
                 );
             else {
-                //(alternative repeated, 50% chance of either)
+                // (alternative repeated, 50% chance of either)
                 this.outputText(
                     " next to Niamh, and she smiles wearily in response.  A conversation is struck up - meaningless small talk at first, but gradually shifting to... more intimate topics.  You can't help but ask how heavy her hefty chest is.  To your surprise, she actually chuckles.  \"<i>Depends on how well the sales are goin', of course, but typically, they're quite the haul in the mornin',</i>\" she answers, running a hand across a sloshy boob as if to accentuate her point.  \"<i>They're not too bad near the end o' the day, but during the night... let's just say I've taken to sleeping on me side,</i>\" she admits, and you get the picture.  You nearly begin drooling at the mental image of Niamh slowly smothered by her steadily growing beer-tits.  The girl notices your distraction and slyly says, \"<i>Speaking o' which, would ye like a taste o' Black Cat Beer?</i>\""
                 );
             }
         }
-        //[Beer] [Leave]
+        // [Beer] [Leave]
         var beer = undefined;
         if (this.player.gems >= 2) beer = this.getANiamhBeer;
         this.simpleChoices(
@@ -401,18 +401,18 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
             this.camp.returnToCampUseOneHour
         );
     }
-    //Leave
+    // Leave
     private leaveNiamh(): void {
         this.clearOutput();
         this.outputText(
             "You decide that you don't really want to talk to this strange cat-girl and, as politely as possible, excuse yourself."
         );
-        //Player returns to Wet Bitch menu
+        // Player returns to Wet Bitch menu
         this.doNext(this.telAdre.barTelAdre);
     }
 
-    //Black Cat Beer
-    //is affected by Black Cat Beer item effects
+    // Black Cat Beer
+    // is affected by Black Cat Beer item effects
     public blackCatBeerEffects(
         player: Player,
         clearScreen: boolean = true,
@@ -429,7 +429,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         this.outputText(
             "\n\nYour balance suddenly feels off-kilter and you stumble, narrowly avoiding falling.  You just can't move as fast as you could, not with your head feeling so full of fluff and fuzz; your body prickles and tingles with the warmth once your head feels full, the sensation concentrating around your erogenous zones.  You just feel so fluffy... you want to hold somebody and share your warmth with them, too; it's just so wonderful."
         );
-        //Regain 40 to 60 lost health, increase lust by 10 to 20 points, decrease Intelligence and Speed by 5, increase Libido by 5//
+        // Regain 40 to 60 lost health, increase lust by 10 to 20 points, decrease Intelligence and Speed by 5, increase Libido by 5//
         this.HPChange(40 + Niamh.rand(21), false);
         var lib: number = 0;
         if (player.findStatusAffect(StatusAffects.BlackCatBeer) >= 0) {
@@ -448,7 +448,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         player.slimeFeed();
     }
 
-    //Black Cat Beer Wears Off: This message is displayed eight hours after the last drink.
+    // Black Cat Beer Wears Off: This message is displayed eight hours after the last drink.
     public blackCatBeerExpires(): void {
         this.dynStats(
             "spe",
@@ -472,9 +472,9 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         this.taintNiamh(false);
     }
 
-    //Corruption Option
-    //20% chance of Nyam using this as her opening if PC has >= 90 corruption and either item in inventory
-    //[corruption chance encounter]
+    // Corruption Option
+    // 20% chance of Nyam using this as her opening if PC has >= 90 corruption and either item in inventory
+    // [corruption chance encounter]
     private corruptOrBimboNiamhIntro(): void {
         this.clearOutput();
         this.outputText(
@@ -492,7 +492,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
             "maybe even a Succubus Milk?  You'll have to consider your options.  On the other hand, of course, something that corruptive would probably mutate her booze-filled boobs, most likely forcing her out of Tel'Adre altogether... and may fall back on your own head, to boot.  What do you do?"
         );
 
-        //[Bimbo][Succubus][Maybe Later] (spacebar should select 'Maybe Later' as long as it's a repeatable
+        // [Bimbo][Succubus][Maybe Later] (spacebar should select 'Maybe Later' as long as it's a repeatable
 
         this.outputText("\n\n(Editors Note: Succubi Milk Option Currently in beta)\n\n\n");
 
@@ -503,7 +503,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
             this.addButton(1, "S.Milk", this.giveNiamphSuccubiMilk);
         this.addButton(4, "Back", this.maybeLaterNiamh);
     }
-    //[Maybe Later]
+    // [Maybe Later]
     public maybeLaterNiamh(): void {
         this.clearOutput();
         this.outputText(
@@ -512,7 +512,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         var beer = undefined;
         if (this.player.gems >= 2) beer = this.getANiamhBeer;
         else this.outputText("\n\n<b>You're too poor for beer.</b>");
-        //[Talk] [Get Beer] [Leave]
+        // [Talk] [Get Beer] [Leave]
         this.simpleChoices(
             "Talk",
             this.talkToNiamh,
@@ -527,13 +527,13 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         );
     }
 
-    //[Succubus Milk] or [Bimbo Liqueur]
+    // [Succubus Milk] or [Bimbo Liqueur]
     public taintNiamh(bimbo: boolean = false): void {
         this.clearOutput();
         this.outputText(
             "You grab Niamh's glass and one more and head off, making sure to turn a corner before commandeering an empty table.  Plunking the mugs down in front of you, you mutter to yourself as she moves away."
         );
-        //[if sucmilk]
+        // [if sucmilk]
         if (!bimbo) {
             this.player.consumeItem(this.consumables.SUCMILK);
             this.outputText(
@@ -546,7 +546,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                 '\n\nYou respond by raising your glass in toast, and she grudgingly complies.  Your mugs clink together, and she wastes no time in downing the creamy milk.  You raise your own drink to your lips and pretend to sip, not wanting anything to do with what\'s about to happen.  "<i>Went down smooth,</i>" she comments, licking her lips.  "<i>Say, there... mind if I have a swig o\' yours, too?</i>"  You readily hand the flagon over, marveling at how fast she chugs it.  Niamh gives a happy little burp, and you scoot back a bit in anticipation.'
             );
         }
-        //[if bimbo liqueur]
+        // [if bimbo liqueur]
         else {
             this.player.consumeItem(this.consumables.BIMBOLQ);
             this.outputText(
@@ -564,7 +564,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                 '\n\nYou respond by raising your glass in toast, and she grudgingly complies.  Your mugs clink together, and she wastes no time in downing the cloudy liqueur.  You raise your own drink to your lips and pretend to sip, not wanting anything to do with what\'s about to happen.  "<i>Burned pretty good,</i>" she comments, licking her lips.  "<i>Say, there...mind if I have a swig o\' yours, too?</i>"  You readily hand the flagon over, marveling at how fast she chugs it.  Niamh gives a happy little burp, and you scoot back a bit in anticipation.'
             );
         }
-        //[if succubus milk]
+        // [if succubus milk]
         if (!bimbo) {
             this.outputText(
                 "\n\nAfter several moments, a small groan escapes her lips, her slender hand flying under the table to press against her suddenly gurgling belly.  She looks up at you, horrified, and you only offer a shrug in response.  The increasingly panicked catgirl tries to rise, toppling her table and sweeping aside her empty flagons.  With a surprised cry, she loses her balance and falls onto her cushiony butt, her gigantic boob-barrels flopping onto her lap.  She tries to speak, but can only moan as a shudder runs through her.  Her hand is the first thing to be affected.  Her ebony skin slowly shifts to a blue tone, and she grunts as two nubs poke through her white bob-cut; the fur of her tail recedes, replaced with glimmering blue skin.  The tip of the appendage shivers and changes as well, going from rounded to spade-tipped."
@@ -578,7 +578,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
             this.flags[kFLAGS.NIAMH_STATUS] = 1;
             this.dynStats("cor", 5);
         }
-        //[if bimbo liquor]
+        // [if bimbo liquor]
         else {
             this.outputText(
                 "\n\nMoments pass by, and you begin to wonder if the bottle's label wasn't so much fancification... until she burps again, following the sound with a surprisingly bubbly giggle.  Niamh pauses, shaking her head vigorously, as if trying to clear out cobwebs from her skull.  \"<i>Now why'd I go and do that?</i>\" she mutters.  \"<i>What'd ya put in th- oooooh...</i>\"  She raises both arms and presses her boobs together, wincing as sudden arousal washes over her, then moans again, fingers digging into her fluid-filled cleavage.  Niamh's eyes widen as the beer inside churns, then she yelps in delight as the flesh shivers as though the contents had begun to... bubble?  Indeed, her sumptuous bosom bounces gaily as its contents struggle against the skin.  The confused catgirl starts to giggle again as the insidious liqueur takes hold, stroking her cursed chest with increasingly passionate motions.  She does stop momentarily when her hair begins to lengthen, her bob growing into a waist-length ivory shock."
@@ -602,9 +602,9 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //24 hours later, random encounter on the Plains
+    // 24 hours later, random encounter on the Plains
     public niamhPostTelAdreMoveOut(): void {
-        //Move her into the bazaar
+        // Move her into the bazaar
         this.flags[kFLAGS.NIAMH_MOVED_OUT_COUNTER] = -1;
         this.clearOutput();
         this.outputText(
@@ -646,7 +646,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         );
     }
 
-    //[no]
+    // [no]
     private niamhCorruptMobileSnackTurnDown(): void {
         this.clearOutput();
         this.outputText(
@@ -654,13 +654,13 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         );
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[yup]
+    // [yup]
     private niamhCorruptedMobileSnackDrinkTime(): void {
         this.clearOutput();
         this.outputText(
             "Of course you do!  You went through the trouble of getting her boobs to their current condition; drinking from the tap is exactly what you had in mind.  A smile brightens Niamh's features, and she plops down heavily on the ground, waving you over to sit next to her.  "
         );
-        //[bimbo version]
+        // [bimbo version]
         if (this.flags[kFLAGS.NIAMH_STATUS] == 2) {
             this.outputText(
                 "She does her best to jiggle her huge champagne-laden tits.  \"<i>Like, come 'n' get it!</i>\" she beckons.  \"<i>It's all bubbly and tickly and yummy.</i>\"  She giggles, belches hugely, then demurely puts her fingers across her mouth.  \"<i>Like, sorry; my tummy's all full of bubbles too.</i>\"  She giggles again; looks like that bimbo liqueur really down-shifted her mental gear.  But, hell, that's all right; she's only of any importance for what's in those gorgeous great boobs of her, not her brain.  You confidently stride over to her and sit down, positioning yourself where you can most easily access her breasts."
@@ -700,7 +700,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                 "\n\nHiccuping softly, you wave her goodbye and then head back to camp.  You idly wonder how long it's going to take to work off this booze-belly."
             );
         } else {
-            //[corrupted kitty version]
+            // [corrupted kitty version]
             this.outputText(
                 "\n\nAt her beckoning, you close the gap between her huge leaky tits and yourself, kneeling before her and clasping one of the long nipples gently, near-reverently.  You slowly raise it to your lips, lapping up some of the drizzling ale with long, teasing strokes of your tongue.  By the satisfied moans and periodic tremblings, you can tell Niamh's enjoying the treatment.  After a few more licks, you open wide and begin suckling on the oversized nub."
             );
@@ -735,7 +735,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                 '\n\nJust before you move out of earshot, a last word from Niamh floats to your ears.  You can\'t be sure, but... did she say... "<i>Thanks?</i>"'
             );
             this.blackCatBeerEffects(this.player, false, true);
-            //[end encounter]*/
+            // [end encounter]*/
         }
         this.doNext(this.camp.returnToCampUseOneHour);
     }
@@ -765,7 +765,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
             this.dynStats("spe", -2, "lib", 1, "lus", 10);
         } else {
             player.createStatusAffect(StatusAffects.BimboChampagne, 8, 0, 0, 0);
-            //(Player has breasts smaller than DD-cup:
+            // (Player has breasts smaller than DD-cup:
             if (player.breastRows[0].breastRating < 5) {
                 this.outputText(
                     "\n\nYou feel this, like, totally sweet tingling in your boobies... And then your [armor] gets, like, tighter; wow, it seems like Niamh's booze is making your boobies grow!  That's so awesome!  You giggle and gulp down as much as you can... Aw; your boobies are <b>kinda</b> big now, but, like, you wanted great big bouncy sloshy boobies like Niamh has.  That'd be so hot!"
@@ -777,7 +777,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                 );
                 player.breastRows[0].breastRating = 5;
             }
-            //(Player does not have vagina:
+            // (Player does not have vagina:
             if (!player.hasVagina()) {
                 player.createVagina();
                 player.genderCheck();
@@ -792,7 +792,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                 );
                 player.changeStatusValue(StatusAffects.BimboChampagne, 3, 1);
             }
-            //(player ass smaller than bimbo:
+            // (player ass smaller than bimbo:
             if (player.buttRating < 12) {
                 this.outputText(
                     "\n\nYour butt jiggles deliciously - it feels like the bubbles from the drink are pushing out your plump rump, filling it like bagged sparkling wine!  Your bubbly booty swells and inflates until it feels as airy as your head.  Like, this is soooo plush!"
@@ -838,7 +838,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
 
     public bazaarNiamh(): void {
         this.clearOutput();
-        //Bimbo Niamh:
+        // Bimbo Niamh:
         if (this.flags[kFLAGS.NIAMH_STATUS] == 2) {
             if (this.flags[kFLAGS.TIMES_NIAMH_BAZAAR_MET] == 0) {
                 this.outputText(
@@ -851,28 +851,28 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                     '"<i>Like, I was just roaming the plains, trying to, like, figure out where I was gonna go, and I found this place.  Isn\'t it, like, so neat here?</i>"  She has apparently already forgotten that this was her destination all along!  "<i>All these cool people who know how to have a totally good time!  Not like that dump in the desert, fulla buzzkills.  Yeah, I\'m gonna, like, party all night and day here, [name].</i>" She giggles yet again.  "<i>But you\'re still, like, my number one customer.  So... you, like, wanna do something?</i>" she asks.'
                 );
             }
-            //[Bizarre Bazaar, repeat encounter]
+            // [Bizarre Bazaar, repeat encounter]
             else {
-                //Bimbo:
-                //(General notification: The sounds of voices raised in song and girlish laughter makes it obvious where Niamh is holding her perpetual party.)
+                // Bimbo:
+                // (General notification: The sounds of voices raised in song and girlish laughter makes it obvious where Niamh is holding her perpetual party.)
                 this.outputText(
                     'Surrounded by blonde-haired, horny women, herms and traps, many of them sporting stomachs swollen with Niamh\'s copious champagne lactation, the bimbo catgirl enthusiastically waves you over.  "<i>[name]!  Like, what can I do you for?</i>" she giggles.'
                 );
             }
         }
-        //Corrupt:
+        // Corrupt:
         else {
-            //(General notification:
+            // (General notification:
             this.outputText(
                 "Given the pile of snoozing bodies, you can probably hazard a guess as to where Niamh decided to set up shop."
             );
-            //(Approach:
+            // (Approach:
             this.outputText(
                 'Pushing your way past the drugged, sloshing, and fitful sleepers, you approach the encircled cat girl.  You catch her eye, and she waves you over.  "<i>Welcome to me corner,</i>" she snickers, glancing around at all of her victims.  "<i>I don\'t suppose ya want a drink o\' the brew?</i>"  So saying, she lays her hands atop her ponderous bosom, leaning forward and smiling wickedly.'
             );
         }
         this.flags[kFLAGS.TIMES_NIAMH_BAZAAR_MET]++;
-        //[Bizarre Bazaar, beer purchase, bimbo and corrupted version]
+        // [Bizarre Bazaar, beer purchase, bimbo and corrupted version]
         var drink = undefined;
         if (this.player.gems >= 2) drink = this.bazaardNiamhDrink;
         else this.outputText("\n\n<b>You're too poor to get a drink.</b>");
@@ -892,14 +892,14 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         );
     }
 
-    //[bimbo/corrupted beer drink texts]
+    // [bimbo/corrupted beer drink texts]
     private bazaardNiamhDrink(): void {
         this.clearOutput();
         this.player.gems -= 2;
         this.outputText(
             "Approaching the fallen-from-grace (yet completely content) catgirl, you toss her a couple gems and request a glass of the house drink."
         );
-        //Bimbo:
+        // Bimbo:
         if (this.flags[kFLAGS.NIAMH_STATUS] == 2) {
             this.outputText(
                 "\n\nThe dark-skinned blonde giggles, snatching up the gems and jingling them in the palm of her hand. \"<i>Like, that's totally cool with me, but you're gonna have to serve yourself, y'know?</i>\" she jiggles her mountainous mammaries, the alcoholic beverage softly, yet audibly, sloshing inside them.  \"<i>I'm a wee bit too big to be, like, serving you.</i>\"  Sure enough, when she stretches her arms to demonstrate, her hands can't even reach her nipples anymore.  She titters, which makes the random drunkards around her giggle in amusement."
@@ -920,13 +920,13 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                 undefined
             );
         }
-        //Corrupt
+        // Corrupt
         else {
             this.outputText("Succubus milk Niamh Not implemented yet");
             this.doNext(this.camp.returnToCampUseOneHour);
         }
     }
-    //{If player drinks from the tap:}
+    // {If player drinks from the tap:}
     private drinkFromZeTap(): void {
         this.clearOutput();
         this.outputText(
@@ -947,7 +947,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //grabbing Bim Cham in a to-go box
+    // grabbing Bim Cham in a to-go box
     private getBimboChampFromNiamh(): void {
         this.clearOutput();
         this.outputText(
@@ -962,17 +962,17 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         this.outputText(
             "\n\nShe lands into a big pile of similarly blonde and giggling girls who waste no time in swarming her.  You chuckle and shake your head.  Perhaps you'll come back later.\n\n"
         );
-        //bimbo champagne aqua-aired
+        // bimbo champagne aqua-aired
         this.inventory.takeItem(this.consumables.BIMBOCH, this.camp.returnToCampUseOneHour);
     }
 
-    //[Bazaar sex]
+    // [Bazaar sex]
     private bazaarSex(): void {
         var x: number = this.player.biggestCockIndex();
         var y: number = x + 1;
         this.clearOutput();
         if (this.flags[kFLAGS.NIAMH_STATUS] == 2) {
-            //Bimbo:Fuck a Bimbo Catgirl and Suck Dem Boozetits Like You Got a Pair (Or at least a dick; gotta have one of them)
+            // Bimbo:Fuck a Bimbo Catgirl and Suck Dem Boozetits Like You Got a Pair (Or at least a dick; gotta have one of them)
             this.outputText(
                 'As you approach the bimbofied cat-girl, your eyes wander lustily toward her huge, beer-lactating tits.  Seeing you stare, she giggles and shakes her chest enticingly, letting the huge, liquid-filled mounds wobble.  "<i>Like, like what you see, [name]?</i>" she purrs, her long black tail wagging excitedly behind her.'
             );
@@ -1008,8 +1008,8 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Meet Sean with bimbo champagne in inventory]
-    //five bimbo champagne required, takes 24 hours to proc and 500 gems to do.
+    // [Meet Sean with bimbo champagne in inventory]
+    // five bimbo champagne required, takes 24 hours to proc and 500 gems to do.
     public seanBimboBrewing(): void {
         this.clearOutput();
         this.outputText(
@@ -1022,7 +1022,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
             '\n\nHe picks up one of the flasks and screws off the cap, leaning forward and wafting the drink to his nostrils.  "<i>Not as potent as the real stuff,</i>" he confirms, recapping the thing and setting it next to the others.  "<i>I can do it,</i>" he decides, "<i>but it will take a good amount of time and a good amount of effort.  Five hundred gems and I\'ll have it done by tomorrow.</i>"'
         );
         var yep = undefined;
-        //[Yep][Nope]
+        // [Yep][Nope]
         if (this.player.gems < 500)
             this.outputText("<b>\n\nYou're too poor to get Sean to make you bimbo liqueur.</b>");
         else yep = this.yeahSeanLetsBimbooze;
@@ -1040,7 +1040,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         );
     }
 
-    //yeah I got this
+    // yeah I got this
     private yeahSeanLetsBimbooze(): void {
         this.clearOutput();
         this.outputText(
@@ -1059,11 +1059,11 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         this.statScreenRefresh();
         this.flags[kFLAGS.NIAMH_SEAN_BREW_BIMBO_LIQUEUR_COUNTER] = 25;
     }
-    //back to camp
-    //remove 5 bimbo champagnes from inventory and also 500 gems
-    //set some kinda sorta flag to allow the 00:00 function to trigger the next scene
+    // back to camp
+    // remove 5 bimbo champagnes from inventory and also 500 gems
+    // set some kinda sorta flag to allow the 00:00 function to trigger the next scene
 
-    //24 hours later
+    // 24 hours later
     public getBimboozeFromSean(): void {
         this.clearOutput();
         this.outputText(
@@ -1073,7 +1073,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
             'He scoops a familiar-looking bottle from a tabletop, passing it off to you.  "<i>Be somewhat careful with this,</i>" he warns as you take it.  "<i>The original\'s deleterious effect on the mind has been duplicated, I assure you.</i>"\n\n'
         );
         this.outputText("You drop the vial into a pouch on your person.\n\n");
-        //bimbo liqueur aqcquired
+        // bimbo liqueur aqcquired
         this.flags[kFLAGS.NIAMH_SEAN_BREW_BIMBO_LIQUEUR_COUNTER] = 0;
         this.inventory.takeItem(this.consumables.BIMBOLQ, this.getGame().incubusShop);
     }
@@ -1099,12 +1099,12 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         this.player.gems += this.temp;
         this.player.gems = Math.round(this.player.gems);
         this.statScreenRefresh();
-        //If player has only two breasts.
+        // If player has only two breasts.
         if (this.player.bRows() == 1)
             this.outputText(
                 "With a chipper giggle Niamh pulls you closer to the bar.  With both hands she helps you heft your tits up and on to the counter."
             );
-        //If player has four or six breasts.
+        // If player has four or six breasts.
         else
             this.outputText(
                 "Niamh giggles as you try to move your breasts closer to the bar to be milked by the patrons, but it's obvious only the top pair of your tits can easily rest on the counter top.  \"<i>Lassie, it might be unconventional, but givin' the circumstance mayhaps it'd be best if ye laid down on the bar.</i>\""
@@ -1117,23 +1117,23 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                 "  You feel your excitement dripping down the inside of your thighs as your pussy wettens."
             );
         this.dynStats("lus", 10 + this.player.sens / 5, "resisted", false);
-        //[If player has cocks]
+        // [If player has cocks]
         if (this.player.hasCock())
             this.outputText(
                 "  You start to feel sympathetic sensations in [eachCock] as the hands and paws of the bar goers milk your nipples.  With their fingers sliding over your sensitive nubs you can easily imagine them sliding up and down your cock"
             );
         if (this.player.cockTotal() > 1) this.outputText("s");
         this.outputText(".");
-        //If lust is low
+        // If lust is low
         if (this.player.lust < 50 || this.player.gender == 0) {
             this.player.growTits(2, this.player.bRows(), false, 2);
             this.outputText(
                 "\n\nYou feel flushed from the sensations, but finally you run dry.  Your breasts have shrunk back down, but they still feel a little larger than they were earlier.  As little droplets of milk instead of booze return to dripping from your nipples, Niamh hands you your cut of the gems you earned from the sales."
             );
-            //[LEAVE]
+            // [LEAVE]
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //If lust is high
+        // If lust is high
         else {
             this.outputText(
                 "\n\nYou're not sure how much more you can give before it becomes impossible to ignore your raging hormones."
@@ -1150,7 +1150,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                         " as the need to fuck a pussy grows stronger.  A few wandering hands reveals some apparent interest amongst the folks in the bar in seeing your genitals as active as your nipples."
                 );
             }
-            //[FUCK THE BAR] [LEAVE]
+            // [FUCK THE BAR] [LEAVE]
             this.simpleChoices(
                 "Fuck Bar",
                 this.barBeerOrgyTits,
@@ -1166,18 +1166,18 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         }
     }
 
-    //Bar Fuck if character's Lust and/or corruption is high enough
-    //===============
-    //First Paragraph
-    //===============
+    // Bar Fuck if character's Lust and/or corruption is high enough
+    // ===============
+    // First Paragraph
+    // ===============
     private barBeerOrgyTits(): void {
         this.clearOutput();
-        //If [player has pussy]
+        // If [player has pussy]
         if (this.player.hasVagina())
             this.outputText(
                 'The drooling of your [vagina] gets worse as the constant "tapping of your kegs" drives your sense of self-restraint to its limits.  The hands of various drunks start moving more aggressively over your breasts, eventually winding their way down between your thighs.'
             );
-        //IF [player has cock/s]
+        // IF [player has cock/s]
         if (this.player.hasCock()) {
             this.outputText("[EachCock] grows to its full length.  You try to keep ");
             if (this.player.cockTotal() == 1) this.outputText("it");
@@ -1190,7 +1190,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         this.outputText(
             '\n\nNiamh purrs, "<i>O\' deary lass, you look fit to pop.</i>"  She pokes your bloated boob, "<i>An\' I don\'t mean ye booze balloons here.</i>"  She leans over, plopping her fat tits down on top of your own, and gives you a huge wet kiss on your lips.  A round of cheers go up through the bar as she shoves her tongue inside your mouth.  Smiling as she pulls back she cheekily announces, "<i>C\'mon folks!  What say we tap this keg the right way?</i>"'
         );
-        //IF [player has huge ass]
+        // IF [player has huge ass]
         if (this.player.buttRating >= 20)
             this.outputText(
                 "  She slaps your ass to emphasize her meaning, and the action sends jiggling waves through each immense cheek."
@@ -1220,10 +1220,10 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                 "  You are essentially a giant pregnant belly surrounded by your [chest] on the table, helpless to the sexual advances of the bar goers and you can't get enough of it."
             );
 
-        //===============
-        //Third Paragraph
-        //===============
-        //IF player has pussy and Urta is in the bar and sex with her is unlocked.
+        // ===============
+        // Third Paragraph
+        // ===============
+        // IF player has pussy and Urta is in the bar and sex with her is unlocked.
         if (
             this.model.time.hours < 15 &&
             this.flags[kFLAGS.URTA_COMFORTABLE_WITH_OWN_BODY] > 0 &&
@@ -1238,17 +1238,17 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                 );
             this.player.cuntChange(60, true, true, false);
         }
-        //ELSE IF player has pussy and Urta is not in the bar.
+        // ELSE IF player has pussy and Urta is not in the bar.
         else if (this.player.hasVagina()) {
             this.outputText(
                 "\n\nHands grip your legs and spread you apart while slathering your thighs with your own pussy juices until every square inch of your lower body is slick and slippery.  A pair of dog morphs clamor for position between your thighs."
             );
-            //IF [player has less than a gaping pussy]
+            // IF [player has less than a gaping pussy]
             if (this.player.vaginalCapacity() < 60)
                 this.outputText(
                     "  One is sporting a cock that is obviously too massive for your pussy, and eventually backs down so that the other one, despite still being on the large size, can take the honor of fucking your cunt silly."
                 );
-            //ELSE IF [player has a gaping pussy or bigger]
+            // ELSE IF [player has a gaping pussy or bigger]
             else
                 this.outputText(
                     "  They're both sporting large canine cocks, but one is particularly massive while the other would likely be a loose fit for a pussy as naturally stretched out as yours.  The largest one wins out and positions himself to give your overly wide fuck hole a much needed stretching."
@@ -1281,15 +1281,15 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                     this.boozeBoobsType() +
                     '.</i>"'
             );
-        //IF [Player has 2+ inch clit]
+        // IF [Player has 2+ inch clit]
         if (this.player.clitLength >= 2)
             this.outputText(
                 "\n\nThe sensations in your groin become more pleasurably irresistible as you feel something wet and tight slip around your clit.  Amongst the ruckus of voices in the bar you can make out the distinctive yelps of a fairy that call out in time with the sensations of whatever is sliding up and down your pussy's nub."
             );
 
-        //===============
-        //Fifth Paragraph
-        //===============
+        // ===============
+        // Fifth Paragraph
+        // ===============
         this.outputText(
             "\n\nYour nipples squirt relentlessly while the crowd thickens around you.  Each customer tries to suck off mouthfuls of your delectable " +
                 this.boozeBoobsType() +
@@ -1310,22 +1310,22 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                 "  Some of the hornier customers start shoving cocks of all shapes and sizes into the moist wet cleavages formed by yours and Niamh's breasts."
             );
 
-        //===============
-        //Sixth Paragraph
-        //===============
+        // ===============
+        // Sixth Paragraph
+        // ===============
         this.outputText(
             "\n\nAltogether the bar fucks you silly.  Your " +
                 this.boozeBoobsType() +
                 " filled tits jiggle with the relentless sex.  Orgasms run down your spine; quaking your flesh in pleasure as you cum.  Niamh's sweet pussy soaks your face with her own orgasms while others in the bar fill your canyons of cleavage with jizz."
         );
-        //IF [Player has fuckable nipples]
+        // IF [Player has fuckable nipples]
         if (this.player.hasFuckableNipples())
             this.outputText(
                 "  The cocks filling your nipples start pumping hot sperm into your breasts, mixing with your " +
                     this.boozeBoobsType() +
                     " and causing every nerve ending in your nipples to tingle.  Some of them ejaculate so much that it feels as if your breasts are swelling even larger, almost to the point of bursting before the cum spills out."
             );
-        //IF [Player has cocks]
+        // IF [Player has cocks]
         if (this.player.cockTotal() > 0) {
             this.outputText(
                 "  You feel as if your body is exploding everywhere.  Niamh gags momentarily as her mouth fills with your seed, and you realize your cock"
@@ -1338,16 +1338,16 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
             this.outputText(
                 "jizz.  Niamh swallows it down her throat but not without some of it getting plastered across her face."
             );
-            //IF [character is pregnant]
+            // IF [character is pregnant]
             if (this.player.pregnancyIncubation > 0 && this.player.pregnancyIncubation < 200)
                 this.outputText("  Globs of cum splatter across your gravid belly.");
         }
 
-        //================
-        //Ending Paragraph
-        //================================================
-        //Varies based on body type and characters present
-        //================================================
+        // ================
+        // Ending Paragraph
+        // ================================================
+        // Varies based on body type and characters present
+        // ================================================
         // IF [Edryn and Urta are present in the bar and free sex with both is unlocked and character is a herm]
         if (
             this.player.statusAffectv1(StatusAffects.Edryn) >= 5 &&
@@ -1387,20 +1387,20 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                     this.boozeBoobsType() +
                     " everywhere, slapping against Edryn's ass in the process."
             );
-            //IF [player has four huge tits]
+            // IF [player has four huge tits]
             if (this.player.bRows() == 2)
                 this.outputText(
                     "  Your second row of tits get thrust out to either side every time Urta's torso presses your own against Edryn."
                 );
-            //IF [player has six giant breasts]
+            // IF [player has six giant breasts]
             else if (this.player.bRows() == 3)
                 this.outputText(
                     "  Your lowest row of tits slap against all three of your thighs as the love making becomes more brutal."
                 );
-            //IF [player has large balls]
+            // IF [player has large balls]
             if (this.player.balls > 0 && this.player.ballSize > 14)
                 this.outputText("  Your hanging testicles bounce around between everyone's legs.");
-            //IF [player has giant ass]
+            // IF [player has giant ass]
             if (this.player.buttRating >= 22)
                 this.outputText(
                     '  The fat of your ass cheeks jiggles and quakes even as Urta practically stuffs her hips into your crack.  "<i>Damn, you\'ve got a bigger ass than Edryn,</i>" she chides as she spanks you.  "<i>Hey!</i>"  Edryn calls out with a false tone of hurt pride.'
@@ -1453,12 +1453,12 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                     this.boozeBoobsType() +
                     " and take in cum.  The bar patrons finally wear themselves out with fucking your oversexed body.  Niamh crawls off of your face and back down to the floor.  She pauses to catch her breath and regain her sense of balance, leaning on the table and resting her breasts on your face.  You've barely regained your own senses when Urta tries to help you up."
             );
-            //IF [Player has four or more breasts]
+            // IF [Player has four or more breasts]
             if (this.player.bRows() > 1)
                 this.outputText(
                     "  Your rows of breasts shift around as your posture changes, making squelching sounds as they slide around."
                 );
-            //If [player not pregnant]
+            // If [player not pregnant]
             if (this.player.pregnancyIncubation == 0)
                 this.outputText(
                     "  Urta's small ocean of sperm streams out from your pussy like a river down your legs as you try to stand."
@@ -1469,8 +1469,8 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
             );
             this.player.growTits(2, this.player.bRows(), false, 2);
         }
-        //=====
-        //Generic ending if the first two don't trigger
+        // =====
+        // Generic ending if the first two don't trigger
         else {
             this.outputText(
                 "\n\nFor what seems like forever your body is used as a cum dump and fuck toy."
@@ -1491,12 +1491,12 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                     "  You gag on it at the same time a new cock fills your cunt, ready to renew the thrusting that's been causing your tits to bounce all over the place."
                 );
 
-            //IF [player has single cock small-med cock]
+            // IF [player has single cock small-med cock]
             if (this.player.cockTotal() == 1 && this.player.cockArea(0) < 75)
                 this.outputText(
                     "\n\nA cat girl with six C-cup breasts jumps up onto the table and mounts you.  She grabs your cock and proceeds to shove it up between the folds of her tight pussy."
                 );
-            //OR IF [player has single huge cock]
+            // OR IF [player has single huge cock]
             else if (this.player.cockTotal() == 1)
                 this.outputText(
                     "\n\nA cow girl with six large tits and quad nipples crawls with difficulty up and onto the table, carefully positioning her bare bovine cunt above your massive member, and proceeds to thrust her ridiculously wide hips down around it."
@@ -1506,7 +1506,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                 this.outputText(
                     "  Your cock remains tightly embedded inside the girl.  She bounces up and down causing her six tits to shake for the crowd's enjoyment.  You're so hard that even if she tried to dismount the head of your cock would have grown too thick to allow it to slide out of her pussy's entrance.  You can't hold back and a surging sensation rushes through you, blasting your hot seed up inside the wildly busty girl.  You hear cries from the crowd \"<i>Knock her up!  Knock her up! Knock her up!</i>\"  You hear cheers when they see your cum leaking out of her."
                 );
-            //If [player has multiple cocks]
+            // If [player has multiple cocks]
             else if (this.player.cockTotal() > 1)
                 this.outputText(
                     "\n\nIt isn't long before mouths and pussies take their turns as the female inclined customers of the bar mount your shafts, eager to get loads of your man seed to erupt inside of them.  Girls and herms of every shape and breed take turns sucking the cum out of you.  You can't hold back and within minutes you're blasting sperm into various pussies all at once.  As soon as one pussy is removed another takes its place.  You start hearing chanting from the crowd \"<i>Knock them up!  Knock them up! Knock them up!</i>\"  The crowd cheers various hoorays whenever they see your cum suddenly erupt from one of the various cunts your cocks are stuffed in."
@@ -1539,7 +1539,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                 this.outputText(
                     "  You walk slightly bow legged out of the bar.  Cum is still dripping from your snatch and will likely continue to do so for a while."
                 );
-                //IF [player is not pregnant]
+                // IF [player is not pregnant]
                 if (this.player.pregnancyType == 0)
                     this.outputText(
                         "  You can't help but wonder how virile those dog morphs might have been as their cum and the cum of other customers sloshes around inside your uterus."

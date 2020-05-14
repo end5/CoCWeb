@@ -29,14 +29,14 @@ export class DriderIncubusScenes extends BaseContent {
 
         var m: DriderIncubus = this.monster as DriderIncubus;
 
-        //Because I ran out of steam for writing more!
+        // Because I ran out of steam for writing more!
         this.outputText(
             "The floor of Lethice’s throne room isn’t as cold as you would have thought against your"
         );
         if (hpVictory) this.outputText(" wounded");
         else this.outputText(" flushed");
         this.outputText(" cheek.");
-        //HP Fork (no new PG):
+        // HP Fork (no new PG):
         if (hpVictory) {
             this.outputText(
                 " You don’t even remember dropping. One moment you were fighting an eight-legged demonic aberration, and the next you were face down on polished granite, your head throbbing."
@@ -45,7 +45,7 @@ export class DriderIncubusScenes extends BaseContent {
                 "\n\nKinariel’s insectile legs clatter noisily as he circles you. <i>“I told you this would happen. It would have been better if you hadn’t struggled. The Demon Queen does not like her prey to bear bruises from capture.”</i> He clicks his jaw closed in consternation. <i>“There’s no helping it, I suppose. Cease your struggles and accept your fate.”</i>"
             );
         }
-        //Lust Fork (no new PG):
+        // Lust Fork (no new PG):
         else {
             this.outputText(
                 " You were too turned on to care when you started slinking down to the polished granite."
@@ -58,7 +58,7 @@ export class DriderIncubusScenes extends BaseContent {
                 "\n\nKinariel’s insectile legs clatter noisily as he circles you. <i>“A shame you resisted. I do regret driving you to such a state. The Demon Queen prefers to do so herself, you see.”</i> He clicks his jaw closed noisily. <i>“Cease your squirming. If you ever want to orgasm again, you’ll need to earn the reward from </i>her<i>.”</i>"
             );
         }
-        //Merge
+        // Merge
         this.outputText(
             "\n\nA sound somewhere between a hiss and tearing fabric follows the declaration from above and behind you. Those menacing legs curl beneath your hapless body and spin you with dizzying speed. You try to struggle, but your [legs] are pinned together by something, bound up in some kind of inelastic fabric that might as well be coils of steel. You look down and immediately wish you hadn’t. The lower half of your body is already wrapped in white fibers spun from the drider’s arachnid half. The wrappings creep higher with each casual spin of your body."
         );
@@ -305,13 +305,13 @@ export class DriderIncubusScenes extends BaseContent {
 
         this.clearOutput();
         var m: DriderIncubus = this.monster as DriderIncubus;
-        //HP
+        // HP
         if (hpVictory) {
             this.outputText(
                 "<i>“No!”</i> the corrupted drider cries before collapsing on the floor, too battered to stand any longer. <i>“It cannot be! A mortal cannot stand against Lethice and prevail!”</i>"
             );
         }
-        //Lust
+        // Lust
         else {
             this.outputText(
                 "<i>“No!”</i> the corrupted drider cries before collapsing to the floor, writhing widly. He’s too aroused for any kind of proper coordination"
@@ -482,13 +482,13 @@ export class DriderIncubusScenes extends BaseContent {
         this.outputText(
             "\n\nWith what she looks like on the outside, falling somewhere between high class call-girl and short, stacked succubus, you expected her slit to be equally pleasing. The slippery, heated heaven into which you now sheath yourself is beyond any expectations. She feels molded to you, her entrance designed to welcome cocks deep inside its deepest recesses. Even compared to other goblins and succubi, Mitzi’s cunt is exceptional. Her silky folds squeeze down on you the further you thrust in, tending to your budding pleasure with excess of slickened sensation."
         );
-        //Hugedix
+        // Hugedix
         if (this.player.biggestCockArea() > 250) {
             this.outputText(
                 "\n\nThe best part is that she doesn’t seem to care about how enormous the cock you’re forcing into her is. Her belly is bulging out, displaying an imprint of your [cock biggest]’s shape, and all she does is moan harder. The muscles of her girlcum-drizzling slit never stop squeezing you encouragingly, demanding that you bury the whole thing inside."
             );
         }
-        //Back to errybody
+        // Back to errybody
         this.outputText("\n\n");
         if (this.player.biggestCockArea() <= 250) this.outputText("Bottoming out");
         else this.outputText("Filling her with as much as she can take");
@@ -505,7 +505,7 @@ export class DriderIncubusScenes extends BaseContent {
             "\n\nJust looking at the goblin’s smiling face as you smear it back and forth through puddles of demon-cum has you almost ready to go off. You swat her cushy heiny in between rapid-fire thrusts, wondering if you should keep her while your orgasm rises up like a slumbering beast."
         );
 
-        //Followers
+        // Followers
         if (this.getGame().camp.companionsCount() > 0) {
             this.outputText("\n\nYour other follower");
             if (this.getGame().camp.companionsCount() > 1) this.outputText("s");
@@ -513,13 +513,13 @@ export class DriderIncubusScenes extends BaseContent {
                 " wouldn’t mind having a well-practiced goblin cooze around, would they? You certainly wouldn’t."
             );
         }
-        //No Followers
+        // No Followers
         else {
             this.outputText(
                 "\n\nYou certainly wouldn’t mind having a well-practiced goblin cooze around. She’s too obedient to be a problem."
             );
         }
-        //Continue from both forks, no new PG
+        // Continue from both forks, no new PG
         this.outputText("\n\n");
         if (this.player.cor <= 33)
             this.outputText(
@@ -586,9 +586,9 @@ export class DriderIncubusScenes extends BaseContent {
     public mitziEatsPussy(): void {
         this.clearOutput();
 
-        //Something something Mitzi puts that 3’ tongue to use.
-        //Kinathis shall do his best -with help from Fenoxo!
-        //Something something Mitzi puts that 3’ tongue to use on female PC
+        // Something something Mitzi puts that 3’ tongue to use.
+        // Kinathis shall do his best -with help from Fenoxo!
+        // Something something Mitzi puts that 3’ tongue to use on female PC
 
         this.outputText(
             "You shrug and start stripping out of your [armor] while you have the chance. Demons aren’t exactly known for their trustworthiness, but she’s doing this as a show of strength. Resorting to trickery to beat a simple mortal might lower her subordinates’ opinions of her. If there’s one thing you’ve learned to count on with demons, it’s hubris."
@@ -615,7 +615,7 @@ export class DriderIncubusScenes extends BaseContent {
         this.outputText(
             "\n\nEager to please you, Mitzi lets out a whorish moan, her plump lips pressing harder against your entrance as she plunges her tongue into your body, thrusting the thick oral tentacle like a rutting lover. The tip teases your cervix, ticking the entrance to your womb at the apex of each deep, ecstatic plunge. Your legs quiver under the pressure of your sexual need. Your lips part in throaty moan; your own tongue darts out to lick your parched lips as you hold your little lover against you, forcing her to please your feminine sex."
         );
-        //Kina text ends here
+        // Kina text ends here
 
         this.outputText(
             "\n\nMitzi might as well be a creature born of sapphic desire. She doesn’t show any sign of needing to breath or talk. It’s like her whole world is composed of vaginas, clits, and the fluids within. Her single mindedness is reflected in the motions of her unholy tongue, prowling around every sensitive fold to press on the most sensitive nerves, channeling your"
@@ -930,26 +930,26 @@ export class DriderIncubusScenes extends BaseContent {
             "\n\nYou can feel the pleasure spasms in your gut starting already, and she’s only been touching your [cocks] for thirty seconds or so! Mitzi mischievously meets your gaze and works her breasts faster, wetly slapping them against your [hips] to a regularly building rhythm. By the time you begin to twitch and moan, her voluptuous tits are a blur of green around your [cocks], but when you start to erupt, she slows to match the orgasmic throbs running through your body, milking you for every drop."
         );
 
-        //Low cum
+        // Low cum
         if (this.player.cumQ() <= 500) {
             this.outputText(
                 "\n\nHer lips never leave your tip; she swallows every drop with the kind of pleased expression that can only come from experiencing something extremely fulfilling."
             );
         }
-        //High cum
+        // High cum
         else {
             this.outputText(
                 "\n\nShe tries to keep her lips glued to your tip, her throat gulping noisily in an attempt to swallow every drop of your gushing cum, but she just can’t keep up. The volume of spermy fluid pushes her off your [cock biggest] just throwing a tremendously thick rope across her face. She dazedly drools spunk from her purple-painted lips while you coat her hair and face in a mask. Somehow, she looks extremely fulfilled."
             );
         }
-        //Multidick, no new PG
+        // Multidick, no new PG
         if (this.player.cocks.length > 1) {
             this.outputText(
                 " She only has one mouth, so the rest of your load spills across her bouncing tits, building to a milky froth between the quivering, dick-milking mounds. One of her hands starts smearing it around before you’ve even finished."
             );
         }
 
-        //Merge
+        // Merge
         this.outputText(
             "\n\nThe cock-hungry goblin never completely stops either, attacking your oversensitive member"
         );
@@ -1089,7 +1089,7 @@ export class DriderIncubusScenes extends BaseContent {
             this.outputText("-stuffing satisfaction that you can only get from real sex.");
         }
 
-        //Merge
+        // Merge
         this.outputText(
             "\n\nLifting your [hips], you edge your [vagina] closer and closer to the incubus drider’s demonic length. You swear you can smell the corruption pouring off it in waves, a rich musk that makes you dizzy and eager to have it inside you. It’s so big and thick and yet oh so very wrong. The head spears your lips while you’re still trying to digest all this, your body acting on autopilot, concerned only with the act of filling the overwhelming need."
         );
@@ -1153,28 +1153,28 @@ export class DriderIncubusScenes extends BaseContent {
             "\n\nIt’s only when your newly minted slut comes down that you follow suit. His dick must have finally gone dry, though not before his other one managed to significantly expand Mitzi’s belly. The goblin looks about at dazed as you feel, rubbing her tummy excitedly while half-heartedly trying to reach her master’s dick for a few more kisses."
         );
 
-        //Low corruption
+        // Low corruption
         if (this.player.cor <= 33) {
             this.outputText(
                 "\n\nYou stagger up feeling more than a little dirty. Demonic seed slides down your thighs in thick streams, but at least you’re not horny any more. You should be ready for whatever comes next so long as you can keep yourself from scoping out all the other hard cocks in the room. They seem to call to you..."
             );
         }
-        //Middle corr
+        // Middle corr
         else if (this.player.cor <= 75) {
             this.outputText(
                 "\n\nYou stagger up feeling better than ever. Sure, there’s demonic cum streaming down your thighs, and you’re surrounded by Lethice’s lieutenants, but at least  you’re wonderfully, totally sated. All you have to do is keep it together until you defeat the Demon Queen, and then you can have all the cocks you want. That’s what you came here for right? It’s getting hard to remember."
             );
         }
-        //High Corr
+        // High Corr
         else {
             this.outputText(
                 "\n\nYou make sure to give the drider a full, french kiss on the lips before standing back up. He performed above and beyond the call of duty, filling your [vagina] so full that you can hear it slosh whenever you move. Now that you can think straight, you should be able to take down your next foe. Hopefully you’ll get a chance to fuck them too."
             );
         }
 
-        //+20 corruption.
-        //Orgasm
-        //Pass an hour.
+        // +20 corruption.
+        // Orgasm
+        // Pass an hour.
         this.flags[kFLAGS.DRIDERINCUBUS_FUCKED] = 1;
         this.getGame().dynStats("cor+", 20);
         this.player.orgasm();
@@ -1279,7 +1279,7 @@ export class DriderIncubusScenes extends BaseContent {
             );
 
             // 9999 this just ends
-            //outputText("\n\nAnd right where");
+            // outputText("\n\nAnd right where");
         } else {
             this.outputText(
                 "\n\nThe goblin firmly mounted on Kinarial's cock makes a shrill, pleasured cry as her master's cock throbs to the beat of your anal assault. His shaft swells inside her, visibly straining the tiny greenskin's belly as it rises to full mast... and lets loose. You're treated to the wet squelching sounds of the goblin being pumped full of spunk as your spiderly victim is coaxed to climax by the sensation of your [cock] hammering his over-sized, demon-tainted prostate."

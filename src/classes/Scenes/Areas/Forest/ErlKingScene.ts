@@ -219,12 +219,12 @@ export class ErlKingScene extends BaseContent {
         );
 
         if (waited) {
-            //[If Stand Your Ground Selected]
+            // [If Stand Your Ground Selected]
             this.outputText(
                 "“<i>You’re a brave one, aren’t you?  Standing your ground in the face of the Wild Hunt?  I applaud your audacity.  I’m going to enjoy hunting you....</i>”\n\n"
             );
         } else {
-            //[If Run Selected]
+            // [If Run Selected]
             this.outputText(
                 "“<i>I’m afraid you’re going to have to learn to run faster if you hope to elude me in the future.  I do hope you won’t bore me.</i>”\n\n"
             );
@@ -353,7 +353,7 @@ export class ErlKingScene extends BaseContent {
         this.clearOutput();
 
         // Player Hunt Score < 150.  The Erlking captures you.
-        //If your score is above 100, the Erlking has his way with you.
+        // If your score is above 100, the Erlking has his way with you.
         // If your score is below 100, Gangbang by his Hounds (canine anthros).
         // If the PC is a kitsune, bunny, or harpy, disregard Wild Points because the Erlking will ALWAYS opt to do the PC personally.
         // The Erlking leaves the PC a nicely-wrapped gift of foxberries or canine peppers,  The Hunt reverts to 0 points.
@@ -540,7 +540,7 @@ export class ErlKingScene extends BaseContent {
             "Even with so many of these thoughts crowding your mind, there’s still a tiny spark of resentment burning.  You could rush him and turn the tables on this cocky asshole.\n\n"
         );
 
-        //Sex	 	What’s my prize?		Stop the Madness 		Surrender Forever		How Dare You!
+        // Sex	 	What’s my prize?		Stop the Madness 		Surrender Forever		How Dare You!
         this.fatigue(10);
         this.menu();
         this.addButton(0, "Sex", this.predatoryPrey);
@@ -565,7 +565,7 @@ export class ErlKingScene extends BaseContent {
             "“<i>Next hunt?</i>” you begin, but before you can get the words out, the Erlking is already on his horse, thundering away through the trees.\n\n"
         );
 
-        //[You gain: Gems + Fox berries / Canine Peppers / Neon Pink Egg ]
+        // [You gain: Gems + Fox berries / Canine Peppers / Neon Pink Egg ]
         var gemFind: number = 10 + ErlKingScene.rand(15);
 
         this.outputText("<b>You found " + gemFind + " gems.</b>\n\n");
@@ -584,7 +584,7 @@ export class ErlKingScene extends BaseContent {
         this.flags[kFLAGS.ERLKING_DISABLED] = 1;
         this.clearOutput();
 
-        //[This ends all the Erlking Encounters]
+        // [This ends all the Erlking Encounters]
 
         this.outputText("You have had enough of this maniac and his insane hunt.\n\n");
 
@@ -607,7 +607,7 @@ export class ErlKingScene extends BaseContent {
     }
 
     protected surrenderToTheHounds(): void {
-        //[Bad End]
+        // [Bad End]
         this.clearOutput();
 
         this.outputText(
@@ -751,8 +751,8 @@ export class ErlKingScene extends BaseContent {
         );
         this.getGame().gameOver();
 
-        //			menu();
-        //			doNext(5025); // Find out the gameover shits
+        // 			menu();
+        // 			doNext(5025); // Find out the gameover shits
     }
 
     protected predatoryPrey(): void {
@@ -918,7 +918,7 @@ export class ErlKingScene extends BaseContent {
             }
         }
 
-        //[+10 Fatigue, +1 Toughness / +1 Strength, 100 hp healed]
+        // [+10 Fatigue, +1 Toughness / +1 Strength, 100 hp healed]
         if (this.player.tou < this.player.str)
             this.dynStats("toughness+", 1, "fatigue+", 10, "health+", 100, "lust=", 0);
         else this.dynStats("strength+", 1, "fatigue+", 10, "health+", 100, "lust=", 0);
@@ -932,7 +932,7 @@ export class ErlKingScene extends BaseContent {
     protected howDareYou(): void {
         this.clearOutput();
 
-        //[ends the Hunt permanently, Opens Princess Option]
+        // [ends the Hunt permanently, Opens Princess Option]
         this.outputText(
             "You’ve had more than enough of the Erlking and his insane hunt.  You rise to your [feet], slapping away his outstretched hand.  He frowns, but before he can react, you’ve charged forward and knocked the black wood cane out of his hand.  It spins off into the undergrowth, out of sight.  The light in his eyes dims, as does the glow from his antlers.\n\n"
         );
@@ -1142,7 +1142,7 @@ export class ErlKingScene extends BaseContent {
             "You run through the options in your head, even briefly considering ‘getting some of her potion’ on your own terms.\n\n"
         );
 
-        //Suck My Dick  /  Fuck Her Ass  /  Eat My Pussy  /  Milk Her Dick  /  Gifts
+        // Suck My Dick  /  Fuck Her Ass  /  Eat My Pussy  /  Milk Her Dick  /  Gifts
         this.menu();
         if (this.player.hasCock()) {
             this.addButton(0, "Suck Me", this.gwynnSucksDicks);
@@ -1183,7 +1183,7 @@ export class ErlKingScene extends BaseContent {
 
         this.outputText("“<i>Thank you, M’lord!</i>” she calls as you walk off.\n\n");
 
-        //[Libido + 2]
+        // [Libido + 2]
         this.dynStats("lib+", 2, "lus=", 0);
         this.player.orgasm();
 
@@ -1220,7 +1220,7 @@ export class ErlKingScene extends BaseContent {
             "You withdraw from her and she sits up, giggling, spinning on her knees to slurp at your cock, cleaning you off.  Just as when you first turned her, she cleans you completely, then helps you dress, giggling happily as you kiss her cheek farewell.\n\n"
         );
 
-        //[Sensitivity -2]
+        // [Sensitivity -2]
         this.dynStats("sen-", 2, "lus=", 0);
         this.player.orgasm();
 
@@ -1257,7 +1257,7 @@ export class ErlKingScene extends BaseContent {
             "When you can finally move again, Princess is kneeling next to you obediently.  She closes her eyes, smiling as you pat her head, ruffling her pink hair.  When you stand, she rises to help dress you, blowing you a kiss as you leave the forest behind.\n\n"
         );
 
-        //[Sensitivity -2, Libido +2]
+        // [Sensitivity -2, Libido +2]
         this.dynStats("sen-", 2, "lib+", 2, "lus=", 0);
         this.player.orgasm();
 
@@ -1312,7 +1312,7 @@ export class ErlKingScene extends BaseContent {
             "Satisfied that she’ll be fine, you stand up, leaving the slutty doe to clean herself up.\n\n"
         );
 
-        //[Lust +20, Libido +2]
+        // [Lust +20, Libido +2]
         this.dynStats("lus+", 20, "lib+", 2);
         this.menu();
         this.doNext(this.camp.returnToCampUseOneHour);

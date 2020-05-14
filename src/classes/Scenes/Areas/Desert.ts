@@ -21,7 +21,7 @@ export class Desert extends BaseContent {
     public sandTrapScene: SandTrapScene = new SandTrapScene();
     public sandWitchScene: SandWitchScene = new SandWitchScene();
     public wanderer: Wanderer = new Wanderer();
-    //Explore desert
+    // Explore desert
     public exploreDesert(): void {
         this.player.exploredDesert++;
         if (
@@ -30,16 +30,16 @@ export class Desert extends BaseContent {
             this.flags[kFLAGS.DISCOVERED_WITCH_DUNGEON] == 0
         ) {
             kGAMECLASS.enterBoobsDungeon();
-            //				kGAMECLASS.inDungeon = true;
-            //				kGAMECLASS.dungeonLoc = 23;
-            //				eventParser(1);
+            // 				kGAMECLASS.inDungeon = true;
+            // 				kGAMECLASS.dungeonLoc = 23;
+            // 				eventParser(1);
             return;
         }
         if (Desert.rand(40) == 0) {
             kGAMECLASS.exgartuan.fountainEncounter();
             return;
         }
-        //Helia monogamy fucks
+        // Helia monogamy fucks
         if (
             this.flags[kFLAGS.PC_PROMISED_HEL_MONOGAMY_FUCKS] == 1 &&
             this.flags[kFLAGS.HEL_RAPED_TODAY] == 0 &&
@@ -64,7 +64,7 @@ export class Desert extends BaseContent {
             else this.sandWitchScene.witchBirfsSomeBees();
             return;
         }
-        //Ant colony debug chances
+        // Ant colony debug chances
         if (
             this.player.level >= 5 &&
             this.flags[kFLAGS.ANT_WAIFU] == 0 &&
@@ -75,7 +75,7 @@ export class Desert extends BaseContent {
             this.antsScene.antColonyEncounter();
             return;
         }
-        //int over 50?  Chance of alice encounter!
+        // int over 50?  Chance of alice encounter!
         if (
             Desert.rand(4) == 0 &&
             this.player.inte > 50 &&
@@ -98,7 +98,7 @@ export class Desert extends BaseContent {
             this.inventory.takeItem(this.weapons.W_STAFF, this.camp.returnToCampUseOneHour);
             return;
         }
-        //Possible chance of boosting camp space!
+        // Possible chance of boosting camp space!
         if (this.player.hasKeyItem("Camp - Chest") < 0 && Desert.rand(100) < 10) {
             this.outputText(
                 "While wandering the trackless sands of the desert, you break the silent monotony with a loud 'thunk'.  You look down and realize you're standing on the lid of an old chest, somehow intact and buried in the sand.  Overcome with curiosity, you dig it out, only to discover that it's empty.  It would make a nice addition to your campsite.\n\nYou decide to bring it back to your campsite.  <b>You now have six storage item slots at camp.</b>",
@@ -114,7 +114,7 @@ export class Desert extends BaseContent {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //Chance of dick-dragging! 10% + 10% per two foot up to 30%
+        // Chance of dick-dragging! 10% + 10% per two foot up to 30%
         this.temp = 10 + ((this.player.longestCockLength() - this.player.tallness) / 24) * 10;
         if (this.temp > 30) this.temp = 30;
         if (
@@ -126,10 +126,10 @@ export class Desert extends BaseContent {
             return;
         }
         var choices: any[] = [];
-        //-8008 is cheating for "no arg"
+        // -8008 is cheating for "no arg"
         var args: any[] = [];
 
-        //Encounter Sandwitch
+        // Encounter Sandwitch
         if (this.flags[kFLAGS.SAND_WITCH_LEAVE_ME_ALONE] == 0) {
             choices[choices.length] = this.sandWitchScene.encounter;
             args[args.length] = -8008;
@@ -138,7 +138,7 @@ export class Desert extends BaseContent {
             choices[choices.length] = kGAMECLASS.fightCumWitch;
             args[args.length] = -8008;
         }
-        //Encounter Marcus
+        // Encounter Marcus
         choices[choices.length] = this.wanderer.wandererRouter;
         args[args.length] = -8008;
         choices[choices.length] = this.walkingDesertStatBoost;
@@ -180,9 +180,9 @@ export class Desert extends BaseContent {
             "You walk through the shifting sands for an hour, finding nothing.\n\n",
             true
         );
-        //Chance of boost == 50%
+        // Chance of boost == 50%
         if (Desert.rand(2) == 0) {
-            //50/50 strength/toughness
+            // 50/50 strength/toughness
             if (Desert.rand(2) == 0 && this.player.str < 50) {
                 this.outputText(
                     "The effort of struggling with the uncertain footing has made you stronger.",
@@ -190,7 +190,7 @@ export class Desert extends BaseContent {
                 );
                 this.dynStats("str", 0.5);
             }
-            //Toughness
+            // Toughness
             else if (this.player.tou < 50) {
                 this.outputText(
                     "The effort of struggling with the uncertain footing has made you tougher.",

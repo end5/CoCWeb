@@ -48,7 +48,7 @@ export class GoblinScene extends BaseContent {
      Carries bottles of aphrodisiacs and drugs.
      Dressed in leather straps that support her chest (in a lewd way) while leaving her pierced nipples exposed and slightly parting her ass to expose her pucker & femmy funbits.  Pierced pointed ears.
      */
-    //RAEP TEXT 1
+    // RAEP TEXT 1
     public goblinRapesPlayer(): void {
         this.spriteSelect(24);
         this.outputText("", true);
@@ -56,7 +56,7 @@ export class GoblinScene extends BaseContent {
             this.player.findPerk(PerkLib.BimboBrains) >= 0 ||
             this.player.findPerk(PerkLib.FutaFaculties) >= 0
         ) {
-            //[Female Bimbo Loss Against Goblin]
+            // [Female Bimbo Loss Against Goblin]
             if (this.player.hasVagina()) {
                 this.outputText(this.images.showImage("goblin-loss-female-bimbodildo"));
                 this.outputText(
@@ -73,13 +73,13 @@ export class GoblinScene extends BaseContent {
                         "s easy targets for the goblin. She grabs hold of your breasts",
                     false
                 );
-                //--[If nipplecunts]
+                // --[If nipplecunts]
                 if (this.player.hasFuckableNipples())
                     this.outputText(
                         ", fingering your wet nipplecunts and pinching the now-puffy areolas tightly, sending uncontrollable waves of pleasure from your chest to your groin.",
                         false
                     );
-                //-[If not]
+                // -[If not]
                 else
                     this.outputText(
                         " and slides her fingers up to your nipples, pinching and twisting them, torturing you with pain and pleasure.",
@@ -235,12 +235,12 @@ export class GoblinScene extends BaseContent {
             );
         else this.outputText("twisting and tweaking", false);
         this.outputText(", torturing you with pain and pleasure.\n\n", false);
-        //[DICK VERSION]
+        // [DICK VERSION]
         if (
             this.player.totalCocks() > 0 &&
             (!this.player.hasVagina() || GoblinScene.rand(2) == 0)
         ) {
-            //[TOO BIG]
+            // [TOO BIG]
             if (this.player.cockArea(0) > this.monster.vaginalCapacity()) {
                 this.outputText(
                     "She lifts her body up high, grabbing your " +
@@ -325,7 +325,7 @@ export class GoblinScene extends BaseContent {
                 this.cleanupAfterCombat();
                 this.player.orgasm();
             }
-            //[DICK FITS]
+            // [DICK FITS]
             else {
                 this.outputText(
                     "The goblin-girl doesn't waste time with any more foreplay, she just arches her back like a cat about to get the cream, and slides her plush ass towards your " +
@@ -398,9 +398,9 @@ export class GoblinScene extends BaseContent {
                 this.player.orgasm();
                 this.cleanupAfterCombat();
             }
-            //[END MALE]
+            // [END MALE]
         }
-        //[FEMALEZ]
+        // [FEMALEZ]
         else {
             this.outputText(
                 "The goblin says, \"<i>Baby we're both horny, but fingers and tongues just aren't enough for me. Lucky for you, I've got just the thing.</i>\"\n\n",
@@ -484,17 +484,17 @@ export class GoblinScene extends BaseContent {
         }
     }
 
-    //[WIN RAEPZ]
+    // [WIN RAEPZ]
     public gobboRapeIntro(): void {
         this.spriteSelect(24);
         this.outputText("", true);
-        //[HP Intro]
+        // [HP Intro]
         if (this.monster.HP < 1)
             this.outputText(
                 "The goblin falls down, smashing her tits flat on the ground and crying softly from the pain.  She looks up at you and sniffles.",
                 false
             );
-        //[Lust Intro]
+        // [Lust Intro]
         else {
             this.outputText(
                 "The goblin groans and drops onto her back.  Her legs spread wide, displaying amazing flexibility as one hand dives into her cunt and the other begins twisting her pierced nipples, one at a time.  The display manages to stir your loins.",
@@ -502,7 +502,7 @@ export class GoblinScene extends BaseContent {
             );
             this.dynStats("lus", 20);
         }
-        //If cant rape or breastfeed
+        // If cant rape or breastfeed
         if (this.player.lust < 30 && this.player.findStatusAffect(StatusAffects.Feeder) < 0) {
             this.cleanupAfterCombat();
             return;
@@ -519,11 +519,11 @@ export class GoblinScene extends BaseContent {
         if (this.player.canOvipositSpider()) {
             eggs = this.laySomeDriderEggsInGobboTwat;
         }
-        //cunt stuff
+        // cunt stuff
         if (this.player.hasVagina()) cuntFuck = this.gobboGetsRapedFem;
-        //Dick stuff:
+        // Dick stuff:
         if (this.player.hasCock()) {
-            //Corrupt too big scene
+            // Corrupt too big scene
             if (
                 this.player.cockArea(this.player.biggestCockIndex()) >
                     this.monster.vaginalCapacity() &&
@@ -531,28 +531,28 @@ export class GoblinScene extends BaseContent {
                 kGAMECLASS.monk > 2
             )
                 corruptTooBig = this.rapeAGoblinCorruptTooBig;
-            //Regular too big scene
+            // Regular too big scene
             if (
                 this.player.cockArea(this.player.biggestCockIndex()) >
                 this.monster.vaginalCapacity()
             )
                 tooBig = this.manRapesGoblinTooBig;
-            //It fits!
+            // It fits!
             if (this.player.cockThatFits(this.monster.vaginalCapacity()) >= 0) {
                 jog = this.gobboGetsRapedMaleFits;
                 fitsFuck = this.gatsGoblinBoners;
             }
-            //Buttsex toggle
+            // Buttsex toggle
             if (this.player.cockThatFits(this.monster.analCapacity()) >= 0 && this.player.cor > 70)
                 buttseks = this.gobboButtSecks;
-            //Spidercondom
+            // Spidercondom
             if (
                 this.player.tailType == TAIL_TYPE_SPIDER_ADBOMEN &&
                 this.player.cockThatFits(this.monster.vaginalCapacity()) >= 0
             )
                 spiderCondom = this.goblinCondomed;
         }
-        //Breastfeed adds an option
+        // Breastfeed adds an option
         if (this.player.findStatusAffect(StatusAffects.Feeder) >= 0) {
             feeder = this.giveGoblinAMilkMustache;
         }
@@ -617,7 +617,7 @@ export class GoblinScene extends BaseContent {
                 "Leave",
                 this.cleanupAfterCombat
             );
-            //doYesNo(feeder,cleanupAfterCombat);
+            // doYesNo(feeder,cleanupAfterCombat);
         } else this.cleanupAfterCombat();
     }
     private giveGoblinAMilkMustache(): void {
@@ -646,9 +646,9 @@ export class GoblinScene extends BaseContent {
                 ". You smile, satisfied, and gently lift the goblin off your chest. You pat her shoulder softly, and she stirs awake again. She gives you a bit of a dazed look before you give her a gentle push, and she starts walking away with a vacant, drooling stare.",
             false
         );
-        //set lust to 0, increase sensitivity slightly
+        // set lust to 0, increase sensitivity slightly
         this.dynStats("lib", 0.2, "lus", -50);
-        //You've now been milked, reset the timer for that
+        // You've now been milked, reset the timer for that
         this.player.addStatusValue(StatusAffects.Feeder, 1, 1);
         this.player.changeStatusValue(StatusAffects.Feeder, 2, 0);
         this.cleanupAfterCombat();
@@ -731,7 +731,7 @@ export class GoblinScene extends BaseContent {
         this.player.orgasm();
     }
 
-    //[FEMSAUCE]
+    // [FEMSAUCE]
     private gobboGetsRapedFem(): void {
         this.spriteSelect(24);
         this.outputText("", true);
@@ -790,20 +790,20 @@ export class GoblinScene extends BaseContent {
             this.cleanupAfterCombat();
             this.player.orgasm();
         }
-        //Goblin victory rape, female naga:
+        // Goblin victory rape, female naga:
         else if (this.player.isNaga()) {
             this.outputText(this.images.showImage("goblin-win-female-naga-rapedfem"));
             this.outputText(
                 "You slither over to the helpless goblin, who watches you half in fear, half in curiosity. ",
                 false
             );
-            //[Has fangs:
+            // [Has fangs:
             if (this.player.faceType == FACE_SNAKE_FANGS)
                 this.outputText(
                     "You bare your fangs at her and the curiosity disappears. She turns to run, but your tail is faster than she is.",
                     false
                 );
-            //[No fangs:
+            // [No fangs:
             else
                 this.outputText(
                     "You smile at her and the fear disappears. She's still wary though, and you make sure to grab her with your tail before she changes her mind about you.",
@@ -816,7 +816,7 @@ export class GoblinScene extends BaseContent {
                 false
             );
 
-            //[Corrupt characters:
+            // [Corrupt characters:
             if (this.player.cor > 60) {
                 this.outputText(
                     "You hiss something incoherent to the terrified woman, who starts to quiver in your grip. Laughing, your fingers slide into her mouth and she begins to suck on them in an attempt to appease you. Her tiny tongue feels wonderful; clearly she's very experienced at this.  ",
@@ -827,7 +827,7 @@ export class GoblinScene extends BaseContent {
                     false
                 );
             }
-            //[Non-corrupt characters:
+            // [Non-corrupt characters:
             else {
                 this.outputText(
                     "You ask her if she's sorry for trying to poison you as your fingers slide around her face. She nods vehemently at you, too constricted or afraid to answer. You smile pleasantly at her and feel her body relax a little in your grip.  Your fingers slide into her mouth and she sucks on them eagerly, clearly not wanting to anger you. Her tongue is talented and you enjoy the experience for a little bit until you decide you've toyed with her enough.\n\n",
@@ -984,7 +984,7 @@ export class GoblinScene extends BaseContent {
         }
     }
 
-    //Corrupt too big fuck
+    // Corrupt too big fuck
     private rapeAGoblinCorruptTooBig(): void {
         var x: number = this.player.biggestCockIndex();
         this.outputText("", true);
@@ -1196,7 +1196,7 @@ export class GoblinScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    //(TOO BIG – pin the bitch to the ground with your cock, coat it in her potions, and make her lick it clean, then blow your load in her mouth, possible cum inflation.)
+    // (TOO BIG – pin the bitch to the ground with your cock, coat it in her potions, and make her lick it clean, then blow your load in her mouth, possible cum inflation.)
     private manRapesGoblinTooBig(): void {
         this.outputText("", true);
         this.outputText(this.images.showImage("goblin-win-male-corruptedbj"));
@@ -1271,14 +1271,14 @@ export class GoblinScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    //[DUDEGASM]
+    // [DUDEGASM]
     private gobboGetsRapedMaleFits(): void {
         this.spriteSelect(24);
         var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         if (x < 0) x = this.player.biggestCockIndex();
         this.outputText("", true);
         this.outputText(this.images.showImage("goblin-win-male-getridden"));
-        //(FITS( barley) – Get ridden)
+        // (FITS( barley) – Get ridden)
         if (this.player.cockArea(x) > this.monster.vaginalCapacity() * 0.8) {
             this.outputText(
                 'You pick up the defeated goblin, looking her over. She crosses her arms across her chest pitifully and asks, "<i>What now?</i>" with her eyes darting down when she thinks you won\'t notice. A grimace temporarily crossing her face at the size of your ' +
@@ -1387,7 +1387,7 @@ export class GoblinScene extends BaseContent {
             else this.outputText("Shuddering", false);
             this.outputText(", you make your way back to camp, satisfied.", false);
         }
-        //(FITS – Get ridden)
+        // (FITS – Get ridden)
         else {
             this.outputText(
                 "You pick up the defeated goblin, looking her over.  She crosses her arms across her chest pitifully and asks, \"<i>What now?</i>\" with her eyes darting down when she thinks you won't notice.  You muse to yourself 'great minds think alike' and lower her down towards your " +
@@ -1493,7 +1493,7 @@ export class GoblinScene extends BaseContent {
         this.player.orgasm();
     }
 
-    //Spider goblin condom
+    // Spider goblin condom
     private goblinCondomed(): void {
         this.spriteSelect(24);
         var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
@@ -1564,7 +1564,7 @@ export class GoblinScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    //REQUIRES: AT LEAST ONE DICK AND A COPY OF ATLAS SHRUGGED - MUST NOT BE MONSTROUSLY HUGE
+    // REQUIRES: AT LEAST ONE DICK AND A COPY OF ATLAS SHRUGGED - MUST NOT BE MONSTROUSLY HUGE
     private gatsGoblinBoners(): void {
         this.outputText("", true);
         var x: number = this.player.cockThatFits(this.monster.analCapacity());
@@ -1650,7 +1650,7 @@ export class GoblinScene extends BaseContent {
     private laySomeDriderEggsInGobboTwat(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("goblin-win-drider-egged"));
-        //Play standard goblin victory text
+        // Play standard goblin victory text
         this.outputText(
             "The pitiful struggling of the little green-skinned creature as she tries to scramble away from you gives you a rather generous view of her drooling box.  While you feel yourself "
         );
@@ -1665,12 +1665,12 @@ export class GoblinScene extends BaseContent {
             "\n\nYou quickly undress and skitter over to the sniffling slut, reaching down to pull her up and turning her to face you as you do.  Looping one arm under her armpits, you prod at her soft stomach with your free hand, inquiring about the state of her children."
         );
 
-        //[if (femininity > 50)
+        // [if (femininity > 50)
         if (this.player.femininity > 50)
             this.outputText(
                 "\n\n\"<i>W-what?  You- I haven't got any, you stupid bitch!  This your idea of fun, jackass?  Kicking people when they're down?!</i>\""
             );
-        //[if (femininity < 51)
+        // [if (femininity < 51)
         else
             this.outputText(
                 "\n\n\"<i>W-what?  You- I haven't got any, you stupid bastard!  This your idea of fun, jackass?  Kicking people when they're down?!</i>\""

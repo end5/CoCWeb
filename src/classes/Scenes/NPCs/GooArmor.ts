@@ -50,7 +50,7 @@ export class GooArmor extends GooGirl {
         this.buttRating = BUTT_RATING_LARGE;
         this.skinTone = "blue";
         this.skinType = SKIN_TYPE_GOO;
-        //this.skinDesc = Appearance.Appearance.DEFAULT_SKIN_DESCS[SKIN_TYPE_GOO];
+        // this.skinDesc = Appearance.Appearance.DEFAULT_SKIN_DESCS[SKIN_TYPE_GOO];
         this.skinAdj = "goopey";
         this.hairColor = "black";
         this.hairLength = 15;

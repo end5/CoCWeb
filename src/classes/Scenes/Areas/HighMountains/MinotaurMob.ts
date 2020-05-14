@@ -23,7 +23,7 @@ export class MinotaurMob extends Monster {
         var damage: number = 0;
         var oldLust: number = this.player.lust;
         this.game.spriteSelect(94);
-        //(Big taur pre-cum tease)
+        // (Big taur pre-cum tease)
         if (MinotaurMob.rand(2) == 0) {
             teased = true;
             if (MinotaurMob.rand(5) > 0) {
@@ -33,7 +33,7 @@ export class MinotaurMob extends Monster {
                 );
                 damage = 7 + this.player.lib / 20;
             }
-            //crit)
+            // crit)
             else {
                 this.outputText(
                     "The largest bull in the crowd flaps his cum-soaked loincloth up and wraps a massive, muscled hand around his incredible erection.  Shaking it back and forth, he flicks his bubbling pre-cum in your direction, letting it spatter noisily against the rocks around you.  A few droplets even land on your skin, fogging the air with minotaur pheromones.\n",
@@ -42,7 +42,7 @@ export class MinotaurMob extends Monster {
                 damage = 13 + this.player.lib / 20;
             }
         }
-        //(Middle Taur pre-cum tease)
+        // (Middle Taur pre-cum tease)
         if (MinotaurMob.rand(2) == 0) {
             teased = true;
             if (MinotaurMob.rand(5) > 0) {
@@ -72,7 +72,7 @@ export class MinotaurMob extends Monster {
             }
             this.outputText("\n", false);
         }
-        //(Minitaur pre-cum tease)
+        // (Minitaur pre-cum tease)
         if (!teased || MinotaurMob.rand(3) == 0) {
             this.outputText(
                 "The smallest of the beastmen, the minitaur, moans and begs, \"<i>Please Mom, can we please fuck you?  I... I need it so bad.</i>\"  He raises the edge of his loincloth to show exactly what he's talking about.  His member is limp but leaking.  What really catches your eyes sits behind that drizzling shaft - a pair of balls looking swollen and pent up beyond belief.  A sticky web of his leavings hangs between his genitals and his loincloth, showing you just how much he's been leaking at the thought of fucking you.  Fanning the sopping garment, he inadvertently blows a wave of his pheromones your way.\n",
@@ -82,8 +82,8 @@ export class MinotaurMob extends Monster {
         }
         this.game.dynStats("lus", damage);
         damage = this.player.lust - oldLust;
-        //UNIVERSAL pre-cum RESULT:
-        //(Low damage taken)
+        // UNIVERSAL pre-cum RESULT:
+        // (Low damage taken)
         if (damage <= 8) {
             this.outputText(
                 "Though your body is tingling from the show the horny beasts are giving you, it doesn't effect you as much as it could have.",
@@ -92,7 +92,7 @@ export class MinotaurMob extends Monster {
             if (this.player.lust > 99)
                 this.outputText("  Still, you're too horny to fight any longer.", false);
         }
-        //(Medium damage taken)
+        // (Medium damage taken)
         else if (damage <= 14) {
             this.outputText(
                 "The powerful pheromones and scents hanging in the air around you make your body flush hotly.  Your " +
@@ -116,7 +116,7 @@ export class MinotaurMob extends Monster {
                 this.outputText("  Fuck it, they smell so good.  You want, no, NEED more.", false);
             else this.outputText("  A growing part of you wants to experience that.", false);
         }
-        //(high damage taken)
+        // (high damage taken)
         else {
             this.outputText("All that potent pre-ejaculate makes your cunny ", false);
             if (this.player.wetness() <= 1) this.outputText("moisten", false);
@@ -158,7 +158,7 @@ export class MinotaurMob extends Monster {
         this.combatRoundOver();
     }
 
-    //Grope
+    // Grope
     private minotaurGangGropeAttack(): void {
         this.game.spriteSelect(94);
         this.outputText(
@@ -175,7 +175,7 @@ export class MinotaurMob extends Monster {
         this.game.dynStats("lus", 5 + this.player.sens / 10);
         this.combatRoundOver();
     }
-    //Gang Grope
+    // Gang Grope
     private minotaurGangGangGropeAttack(): void {
         this.game.spriteSelect(94);
         this.outputText(
@@ -189,7 +189,7 @@ export class MinotaurMob extends Monster {
         this.game.dynStats("lus", 15 + this.player.sens / 10);
         this.combatRoundOver();
     }
-    //Waste  a turn
+    // Waste  a turn
     private minotaurGangWaste(): void {
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00329] = 1;
         this.game.spriteSelect(94);

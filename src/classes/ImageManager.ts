@@ -8,7 +8,7 @@ import { ImageExtensions, ImageSets } from "./ImageSets";
 export type ImageSetKey = keyof typeof ImageSets;
 
 export class ImageManager {
-    //Hashmap of all images
+    // Hashmap of all images
     private static imageTable = {} as Record<ImageSetKey, string[]>;
 
     private MAXSIZE = 400;
@@ -102,7 +102,7 @@ export class ImageManager {
         image.src = ImageManager.imageTable[imageID][imageIndex];
 
         if (align == "left" || align == "right") {
-            //Scale images down to fit the box
+            // Scale images down to fit the box
             var ratio: number = image.width / image.height;
             var scaler: number;
 

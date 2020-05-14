@@ -9,17 +9,17 @@ import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 export class KihaScene extends NPCAwareContent {
     /*FLAGS STUFF*/
-    //1 = PC asked her about it, past that it counts the times paid
-    //const KIHA_TOLL: number = 341;
-    //Tracks how many special explores the PC gets.
-    //const KIHA_TOLL_DURATION: number = 342;
-    //const TIMES_MET_KIHA: number = 343;
-    //used to track the different levels of 'talk to Kiha
-    //const KIHA_TALK_STAGE: number = 344;
-    //const PC_WIN_LAST_KIHA_FIGHT: number = 345;
-    //const KIHA_CHOKED_OUT_PC: number = 432;
+    // 1 = PC asked her about it, past that it counts the times paid
+    // const KIHA_TOLL: number = 341;
+    // Tracks how many special explores the PC gets.
+    // const KIHA_TOLL_DURATION: number = 342;
+    // const TIMES_MET_KIHA: number = 343;
+    // used to track the different levels of 'talk to Kiha
+    // const KIHA_TALK_STAGE: number = 344;
+    // const PC_WIN_LAST_KIHA_FIGHT: number = 345;
+    // const KIHA_CHOKED_OUT_PC: number = 432;
 
-    //Encounter Dragon-Gal
+    // Encounter Dragon-Gal
     public encounterKiha(): void {
         var temp;
         this.outputText("", true);
@@ -31,7 +31,7 @@ export class KihaScene extends NPCAwareContent {
             this.kihaFollower.kihaReactsToHorseDicking();
             return;
         }
-        //kihaBitchesOutCorruptPCs()
+        // kihaBitchesOutCorruptPCs()
         if (
             this.flags[kFLAGS.KIHA_AFFECTION_LEVEL] > 0 &&
             this.player.cor >= 66 &&
@@ -40,12 +40,12 @@ export class KihaScene extends NPCAwareContent {
             this.kihaFollower.kihaBitchesOutCorruptPCs();
             return;
         }
-        //kihaUnBitchesOutCorruptPCs()
+        // kihaUnBitchesOutCorruptPCs()
         if (this.player.cor < 66 && this.flags[kFLAGS.KIHA_CORRUPTION_BITCH] == 1) {
             this.kihaFollower.kihaUnbitchesUncorruptedFolks();
             return;
         }
-        //Friendly+ meeting
+        // Friendly+ meeting
         if (
             this.flags[kFLAGS.KIHA_AFFECTION_LEVEL] >= 1 &&
             this.flags[kFLAGS.KIHA_CORRUPTION_BITCH] != 1
@@ -61,14 +61,14 @@ export class KihaScene extends NPCAwareContent {
             this.kihaFollower.kihaFriendlyGreeting();
             return;
         }
-        //If currently paid up on toll, don't run into her!
+        // If currently paid up on toll, don't run into her!
         if (this.flags[kFLAGS.KIHA_TOLL_DURATION] > 1) {
             this.kihaExplore();
             return;
         }
-        //Count meetings
+        // Count meetings
         this.flags[kFLAGS.TIMES_MET_KIHA]++;
-        //PLOT FIGHT TIME!
+        // PLOT FIGHT TIME!
         if (
             this.player.cor < 66 &&
             this.flags[kFLAGS.KIHA_AFFECTION_LEVEL] == 0 &&
@@ -78,7 +78,7 @@ export class KihaScene extends NPCAwareContent {
             this.kihaFollower.kihaSpiderEventIntro();
             return;
         }
-        //First time
+        // First time
         if (this.flags[kFLAGS.TIMES_MET_KIHA] == 1) {
             this.outputText(
                 "An imposing figure drops out of the gnarled swamp trees, spraying loam and moss everywhere as it impacts the ground.  You immediately put up your " +
@@ -95,7 +95,7 @@ export class KihaScene extends NPCAwareContent {
             );
 
             this.outputText("What do you do?", false);
-            //[Fight] [Ask Why][Buy Passage][Leave]
+            // [Fight] [Ask Why][Buy Passage][Leave]
             this.simpleChoices(
                 "Fight",
                 this.meetKihaAndFight,
@@ -109,7 +109,7 @@ export class KihaScene extends NPCAwareContent {
                 this.leaveWhenMeetingAgressiveKiha
             );
         }
-        //*Repeat Encounter - PC WAS VICTORIOUS LAST FIGHT
+        // *Repeat Encounter - PC WAS VICTORIOUS LAST FIGHT
         else if (this.flags[kFLAGS.PC_WIN_LAST_KIHA_FIGHT] == 1) {
             this.outputText(
                 "Kiha plummets from the sky, slamming down into the mossy earth with enough force to spray chunks of dirt everywhere.  She stands and growls, \"<i>Just because you beat me before doesn't mean you've defeated me.  I'll NEVER BE DEFEATED!</i>\"\n\n",
@@ -120,11 +120,11 @@ export class KihaScene extends NPCAwareContent {
                 "As she screams out in defiance, she charges you, giving you barely enough time to ready yourself for combat!",
                 false
             );
-            //Clear 'won last fight' toggle
+            // Clear 'won last fight' toggle
             this.flags[kFLAGS.PC_WIN_LAST_KIHA_FIGHT] = 0;
             this.startCombat(new Kiha());
         }
-        //Tribute Offer (1st Time) - Req's Kiha not be mad and PC suggested it at some point.
+        // Tribute Offer (1st Time) - Req's Kiha not be mad and PC suggested it at some point.
         else if (this.flags[kFLAGS.KIHA_TOLL] == 1 && KihaScene.rand(2) == 0) {
             this.outputText(
                 "Kiha steps out from behind a tree with her axe on her back and her arms folded across her sizable chest.  \"<i>You again?  I've been thinking about what you said.  How about instead of beating you senseless, you pay me a tribute of 200 gems, and I'll let you pass through my territory unhindered.  Of course, if you stumble into my lair I might have to teach you a lesson.</i>\"  A greedy smile spreads across her dusky visage while her eyes burn with mischievous crimson light.  Wait a moment... wasn't this your idea?\n\n",
@@ -135,7 +135,7 @@ export class KihaScene extends NPCAwareContent {
                 this.outputText("You can't afford to pay her!", false);
                 temp = undefined;
             }
-            //[Pay] [This was my idea] [Leave] [Fight] - Leave uses standard leave text
+            // [Pay] [This was my idea] [Leave] [Fight] - Leave uses standard leave text
             this.simpleChoices(
                 "Fight",
                 this.meetKihaAndFight,
@@ -149,7 +149,7 @@ export class KihaScene extends NPCAwareContent {
                 this.leaveWhenMeetingAgressiveKiha
             );
         }
-        //*Repeat Encounter - Tribute Wore off
+        // *Repeat Encounter - Tribute Wore off
         else if (
             this.flags[kFLAGS.KIHA_TOLL] > 1 &&
             (this.flags[kFLAGS.KIHA_TOLL_DURATION] == 1 ||
@@ -164,7 +164,7 @@ export class KihaScene extends NPCAwareContent {
                 this.outputText("\n\nYou can't afford to pay her again!", false);
                 temp = undefined;
             }
-            //[Pay Again] [This was my idea] [Leave]  [Fight] - As first time Tribute Offer encounter
+            // [Pay Again] [This was my idea] [Leave]  [Fight] - As first time Tribute Offer encounter
             this.simpleChoices(
                 "Fight",
                 this.meetKihaAndFight,
@@ -178,7 +178,7 @@ export class KihaScene extends NPCAwareContent {
                 this.leaveWhenMeetingAgressiveKiha
             );
         }
-        //Generic Repeat Encounter
+        // Generic Repeat Encounter
         else {
             this.outputText(
                 "A nearby tree suddenly explodes in a shower of splintering wood and burning embers.  Kiha steps through the wreckage with her characteristic double-sided axe.\n\n",
@@ -195,7 +195,7 @@ export class KihaScene extends NPCAwareContent {
                     "If you hurry, you might get a word in edge-wise.  What do you do?",
                     false
                 );
-                //[Fight] [Ask Why][Buy Passage][Leave]
+                // [Fight] [Ask Why][Buy Passage][Leave]
                 this.simpleChoices(
                     "Fight",
                     this.meetKihaAndFight,
@@ -214,7 +214,7 @@ export class KihaScene extends NPCAwareContent {
             }
         }
     }
-    //[Buy Passage]
+    // [Buy Passage]
     private offerToBuyPassageFromKiha(): void {
         this.outputText("", true);
         this.spriteSelect(72);
@@ -222,9 +222,9 @@ export class KihaScene extends NPCAwareContent {
             'You jingle your gem pouch and ask if you could pay her to allow you passage.  Kiha shoulders her axe and scratches at one of her horns, mulling the idea over.  She stops and abruptly shakes her head.  "<i>Not today.  Now scram, before I change my mind!</i>"\n\n',
             false
         );
-        //(Unlocks toll option next encounter)
+        // (Unlocks toll option next encounter)
         this.flags[kFLAGS.KIHA_TOLL] = 1;
-        //[Fight] [Leave] - Same results as main fight/leave.
+        // [Fight] [Leave] - Same results as main fight/leave.
         this.simpleChoices(
             "Fight",
             this.meetKihaAndFight,
@@ -238,7 +238,7 @@ export class KihaScene extends NPCAwareContent {
             this.leaveWhenMeetingAgressiveKiha
         );
     }
-    //[Leave]
+    // [Leave]
     private leaveWhenMeetingAgressiveKiha(): void {
         this.outputText("", true);
         this.spriteSelect(72);
@@ -248,7 +248,7 @@ export class KihaScene extends NPCAwareContent {
         );
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[Fight]
+    // [Fight]
     public meetKihaAndFight(): void {
         this.outputText("", true);
         this.spriteSelect(72);
@@ -256,10 +256,10 @@ export class KihaScene extends NPCAwareContent {
             'You step closer and proclaim that you go where you please.  Kiha snorts and says, "<i>Cute.  Sadly, misplaced confidence will only make this hurt that much more.</i>"',
             false
         );
-        //(START COMBAT)
+        // (START COMBAT)
         this.startCombat(new Kiha());
     }
-    //[Ask Why]
+    // [Ask Why]
     private askWhy(): void {
         this.outputText("", true);
         this.spriteSelect(72);
@@ -273,10 +273,10 @@ export class KihaScene extends NPCAwareContent {
             false
         );
 
-        //(START COMBAT!)
+        // (START COMBAT!)
         this.startCombat(new Kiha());
     }
-    //[Pay]
+    // [Pay]
     private payKihaTribute(): void {
         this.outputText("", true);
         this.spriteSelect(72);
@@ -284,22 +284,22 @@ export class KihaScene extends NPCAwareContent {
             "You sigh and pay her 200 gems.  She doesn't even mention that it was originally your idea, but still, you're getting what you want - the ability to explore her territory unhindered.  Of course, you have no idea how long this 200 gems will last.\n\n",
             false
         );
-        //(gems -= 200;)
+        // (gems -= 200;)
         this.player.gems -= 200;
         this.flags[kFLAGS.KIHA_TOLL_DURATION] = 3 + KihaScene.rand(4);
-        //Count times paid
+        // Count times paid
         this.flags[kFLAGS.KIHA_TOLL]++;
-        //(2-5 more explorations of her area before she shows up demanding more tribute!)
-        //(do a 'Kiha' exploration with chances of fantabulous prizes)
+        // (2-5 more explorations of her area before she shows up demanding more tribute!)
+        // (do a 'Kiha' exploration with chances of fantabulous prizes)
         this.doNext(this.kihaExplore);
     }
     public kihaExplore(clearScreen: boolean = true): void {
         if (clearScreen) this.outputText("", true);
-        //spriteSelect(72);
+        // spriteSelect(72);
         this.flags[kFLAGS.KIHA_TOLL_DURATION]--;
         var event: number = KihaScene.rand(10);
         var itype: ItemType;
-        //Grabbin' Inquisitor Armor
+        // Grabbin' Inquisitor Armor
         if (event == 0 && this.flags[kFLAGS.GOTTEN_INQUISITOR_ARMOR] == 0) {
             kGAMECLASS.inquisitorRobesDiscovery();
             return;
@@ -312,7 +312,7 @@ export class KihaScene extends NPCAwareContent {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //Reducto
+        // Reducto
         else if (event < 7) itype = this.consumables.REDUCTO;
         else if (event < 8) itype = this.consumables.GROPLUS;
         else if (event < 9) itype = this.consumables.COAL___;
@@ -321,7 +321,7 @@ export class KihaScene extends NPCAwareContent {
         this.inventory.takeItem(itype!, this.camp.returnToCampUseOneHour);
     }
 
-    //[This was my idea!]
+    // [This was my idea!]
     private tellKihaTributeWasYourIdea(): void {
         this.outputText("", true);
         this.spriteSelect(72);
@@ -337,7 +337,7 @@ export class KihaScene extends NPCAwareContent {
         this.startCombat(new Kiha());
     }
 
-    //*Generic PC Victory Introduction:
+    // *Generic PC Victory Introduction:
     public kihaVictoryIntroduction(): void {
         this.flags[kFLAGS.PC_WIN_LAST_KIHA_FIGHT] = 1;
         this.outputText("", true);
@@ -355,35 +355,35 @@ export class KihaScene extends NPCAwareContent {
         else this.outputText("weakly", false);
         this.outputText(" as she tries to rise.\n\n", false);
 
-        //(Lust)
+        // (Lust)
         if (this.monster.lust > 99)
             this.outputText(
                 '"<i>You... can\'t make me like it!,</i>" she shouts, struggling with all her might to keep her hands away from her genitals.  Somehow, she seems to be managing.',
                 false
             );
-        //(HP)
+        // (HP)
         else
             this.outputText(
                 "\"<i>You... you... haven't... beaten me,</i>\" she mutters, even though it's quite clear that you have.",
                 false
             );
 
-        //(no new PG)
+        // (no new PG)
         this.outputText(
             "  What do you do with the wannabe dragon now that you've taken her down a peg?",
             false
         );
-        //[OPTIONS]
-        //All
+        // [OPTIONS]
+        // All
         var forceMasturbate = this.tsundereMasturbationChristmasCarol;
         this.outputText("\n\nYou could forcibly masturbate her.", false);
-        //Fems
+        // Fems
         var useHerTail = undefined;
         if (this.player.lust >= 33 && this.player.hasVagina()) {
             this.outputText("\n\nYou could use her tail as a dildo.", false);
             useHerTail = this.kihaVictoryPomfTail;
         }
-        //Vagina with optional double-dick!
+        // Vagina with optional double-dick!
         var fuckHer = undefined;
         if (this.player.hasCock()) {
             if (
@@ -401,11 +401,11 @@ export class KihaScene extends NPCAwareContent {
             }
         }
         var buttFuck = undefined;
-        //Buttfuck 20 or less
+        // Buttfuck 20 or less
         if (this.player.cockThatFits(this.monster.analCapacity()) >= 0 && this.player.lust >= 33) {
             buttFuck = this.analRapuzulaKiha;
         }
-        //Conversation Only - Emotional Rape! (40- Corruption!)
+        // Conversation Only - Emotional Rape! (40- Corruption!)
         var wordRape = undefined;
         if (this.player.cor < 40) {
             this.outputText(
@@ -437,26 +437,26 @@ export class KihaScene extends NPCAwareContent {
             this.cleanupAfterCombat
         );
     }
-    //*Generic PC Loss Intro
+    // *Generic PC Loss Intro
     public kihaLossIntro(): void {
         this.outputText("", true);
         this.spriteSelect(72);
-        //(Lust)
+        // (Lust)
         if (this.player.lust > 99)
             this.outputText(
                 "You give up on fighting, too horny to keep fighting.  Kiha strikes the ground with her axe and snorts out a puff of smoke.  \"<i>What a shameless slut!  You're lusting after me even in the heat of battle, like a common imp!  You aren't worthy to lick between my foot-claws!</i>\"\n\n",
                 false
             );
-        //(HP)
+        // (HP)
         else
             this.outputText(
                 "You collapse, too wounded to keep fighting.  Kiha strikes the ground with her axe and snorts out a puff of smoke.  \"<i>What a wimp!  I've barely started fighting and you're already beaten!</i>\"\n\n",
                 false
             );
 
-        //33% of tit-milk humiliation if applicable.
+        // 33% of tit-milk humiliation if applicable.
         if (this.player.biggestLactation() >= 2) this.kihaMilkTitHumiliation();
-        //Rape texts if horny
+        // Rape texts if horny
         else if (this.monster.lust >= 50) {
             this.outputText(
                 "The dragoness sighs and glances around.  \"<i>Since you weren't able to satisfy me in battle, let's see if you have anything else to offer...</i>\"\n\n",
@@ -473,17 +473,17 @@ export class KihaScene extends NPCAwareContent {
             if (this.player.hasCock() && this.player.hasVagina()) this.outputText(" and ", false);
             if (this.player.hasVagina()) this.outputText(this.vaginaDescript(), false);
             this.outputText(".\n\n", false);
-            //TO THE RAPES!
+            // TO THE RAPES!
 
-            //Genderless - Lukadoc (Zed)
+            // Genderless - Lukadoc (Zed)
             if (this.player.gender == 0) this.kihaGenderlessBeating();
-            //*Male - Adj
+            // *Male - Adj
             else if (this.player.gender == 1) this.kihaRapesMen();
-            //*Herm - Adj
+            // *Herm - Adj
             else if (this.player.gender == 3) this.kihaRapesHerms();
             else if (this.player.gender == 2) this.kihaRapesLittleGirlsISawItOnTheNews();
         }
-        //If not horny, get a beating!
+        // If not horny, get a beating!
         else {
             this.outputText(
                 "Kiha pulls her axe back in a two handed grip, and you're sure the moment of your death is upon you.  A moment later, the flat of the blade slams into your head, knocking you unconscious.",
@@ -494,9 +494,9 @@ export class KihaScene extends NPCAwareContent {
         }
     }
 
-    //*Milky Tit Humiliation - Fen
+    // *Milky Tit Humiliation - Fen
     private kihaMilkTitHumiliation(): void {
-        //(Does not use the defeat intro - clear screen)
+        // (Does not use the defeat intro - clear screen)
         this.outputText("", true);
         this.spriteSelect(72);
         if (this.player.lust > 99)
@@ -585,7 +585,7 @@ export class KihaScene extends NPCAwareContent {
         this.dynStats("tou", -1, "sen", 5);
         this.cleanupAfterCombat();
     }
-    //Genderless - Lukadoc (Zed)
+    // Genderless - Lukadoc (Zed)
     private kihaGenderlessBeating(): void {
         this.spriteSelect(72);
         this.outputText(
@@ -596,7 +596,7 @@ export class KihaScene extends NPCAwareContent {
         this.cleanupAfterCombat();
     }
 
-    //*Male - Adj
+    // *Male - Adj
     private kihaRapesMen(): void {
         this.outputText("", true);
         this.spriteSelect(72);
@@ -677,7 +677,7 @@ export class KihaScene extends NPCAwareContent {
                 " hard enough to knock the wind from your lungs. She clamps down and begins rolling her ass back and forth over your groin, stroking you off with only the rippling contractions from the toned walls of her rectum.  Your orgasm moments away, you helplessly clench your fingers in the earth",
             false
         );
-        //[Lizard/naga tail:
+        // [Lizard/naga tail:
         if (this.player.isNaga() || this.player.tailType == TAIL_TYPE_LIZARD)
             this.outputText(
                 " while your tail curls around to find your own asshole.  The grip of the dragon's nethers so intense, you barely feel the pressure of your own tail, pushing in easily to soothingly stroke your overtaxed prostate",
@@ -734,7 +734,7 @@ export class KihaScene extends NPCAwareContent {
         this.player.orgasm();
         this.cleanupAfterCombat();
     }
-    //*Herm - Adj
+    // *Herm - Adj
     private kihaRapesHerms(): void {
         this.outputText("", true);
         this.spriteSelect(72);
@@ -762,10 +762,10 @@ export class KihaScene extends NPCAwareContent {
                 " slowly stiffening against your abdomen.  Noticing your arousal, the dragoness pulls her tail from your mouth and curls it back behind her again.  \"<i>You'd love to stuff my tight box with every inch you've got, wouldn't you?</i>\" she taunts, pressing her hands to the ground behind her. Leaning back, she derisively stares down the bridge of her nose and curls her upper lip to display her jagged fangs.  ",
             false
         );
-        //NAGA OR SLIME:
+        // NAGA OR SLIME:
         if (this.player.isNaga() || this.player.isGoo())
             this.outputText("Sliding backward slightly", false);
-        //LEGS:
+        // LEGS:
         else this.outputText("Hooking a leg under one of yours", false);
         this.outputText(
             ", Kiha repositions herself so that her ashen-hued vulva presses moistly against your " +
@@ -787,14 +787,14 @@ export class KihaScene extends NPCAwareContent {
 
         var dicked: boolean = false;
 
-        //[If the player has an incubus draft:
+        // [If the player has an incubus draft:
         if (this.player.hasItem(this.consumables.INCUBID)) {
             this.outputText(
                 'As the two of you entwine yourselves against Kiha\'s honey-slick tail, she notices your belongings in a heap next to the two of you. "<i>What kind of s-s-shitty gifts did you bring me,</i>" she pants through a toothy grin.  Scattering your belongings with one hand, she notices the phallic shape of your incubus draft, and snatches the bottle between her thumb and forefinger.  "<i>Demon trash, of course.  You wouldn\'t even know how to use this right.  Let me show you.</i>"  She flicks the cork from the vial and upends the concoction down her gullet in one swallow.  You don\'t have time to protest as the hood over her clitoris slides back, the fingertip-sized bead above her engorged vulva swelling thicker by the second. With a lurching spasm, the flesh of her joy buzzer rises into the air, growing three, then six inches before finally settling at nine inches long.  The two-inch-thick shaft of her massive clit throbs, the underside bulging outward as rectangular, interlocking plates harden into a ladder from base to summit. The featureless, rounded tip of her draconic phallus swells and juts obscenely as it curves into a sloping crest, tinted with the flush of arousal as a thin slit opens at the very crown of her newly grown cock.\n\n',
                 false
             );
             this.player.consumeItem(this.consumables.INCUBID);
-            //[Incubus Draft cont.:
+            // [Incubus Draft cont.:
             this.outputText(
                 "Without breaking her stride, Kiha threads more of her tail between the gushing lips of your spurting nethers and loops the long, flexible tip around your " +
                     this.cockDescript(0) +
@@ -803,7 +803,7 @@ export class KihaScene extends NPCAwareContent {
             );
             dicked = true;
         }
-        //Both scenes:
+        // Both scenes:
         this.outputText(
             "When Kiha climaxes, a shuddering, vulnerable moan escapes her careless lips and your own resolve crumbles.  Your " +
                 this.vaginaDescript(0) +
@@ -813,7 +813,7 @@ export class KihaScene extends NPCAwareContent {
             false
         );
 
-        //[Incubus Draft end:
+        // [Incubus Draft end:
         if (dicked)
             this.outputText(
                 '\n\nAs she steps back into the mire, the sound of her muttering carries back to you. "<i>Much as I\'d like to keep it, better to be done with this,</i>" she sighs, glancing down at her turgid, draconic shaft.  "<i>Just as well I held onto all those pink eggs after that crystal vial knocked me up.</i>"  The rest of that story is lost to you, however, as her lean, swaying torso is swallowed back into the swamp\'s embrace.',
@@ -824,7 +824,7 @@ export class KihaScene extends NPCAwareContent {
         this.cleanupAfterCombat();
     }
 
-    //Mutual Masturbation - A Tsundere Masturbation Christmas Carol, by Gats Dickings
+    // Mutual Masturbation - A Tsundere Masturbation Christmas Carol, by Gats Dickings
     private tsundereMasturbationChristmasCarol(): void {
         this.outputText("", true);
         this.spriteSelect(72);
@@ -844,25 +844,25 @@ export class KihaScene extends NPCAwareContent {
         else this.outputText("distinct lack of genitals", false);
         this.outputText(".\n\n", false);
 
-        //If Multi/Herm
+        // If Multi/Herm
         if (this.player.cockTotal() > 1 || this.player.gender == 3)
             this.outputText(
                 '"<i>W-what are you going to do, you freak of nature?  If you make me play with those, I swear... I swear I\'ll hit you!</i>"',
                 false
             );
-        //If Cock
+        // If Cock
         else if (this.player.hasCock())
             this.outputText(
                 '"<i>G-get that away from me!  As if I\'d want anything to do with your hard, juicy cock!  Idiot!</i>"',
                 false
             );
-        //If Vagina
+        // If Vagina
         else if (this.player.hasVagina())
             this.outputText(
                 '"<i>What do you think you\'re going to do with that pathetic, dripping pussy, huh?  I swear, if you make me l-lick that thing...</i>"',
                 false
             );
-        //If Genderless
+        // If Genderless
         else
             this.outputText(
                 '"<i>H-huh?  Why the hell are you coming closer?  How can you possibly do anything when you\'re as smooth as a board down there, you loser!</i>"',
@@ -947,7 +947,7 @@ export class KihaScene extends NPCAwareContent {
         if (!this.player.hasCock()) this.dynStats("lus", 120);
         this.cleanupAfterCombat();
     }
-    //*Victory Tail-dildo, for girls - Fencrafted for maximum pomf (Zed)
+    // *Victory Tail-dildo, for girls - Fencrafted for maximum pomf (Zed)
     private kihaVictoryPomfTail(): void {
         this.outputText("", true);
         this.spriteSelect(72);
@@ -1069,7 +1069,7 @@ export class KihaScene extends NPCAwareContent {
         this.player.orgasm();
         this.cleanupAfterCombat();
     }
-    //*Victory Dicking - Fencrafted
+    // *Victory Dicking - Fencrafted
     private victoryDickKiha(): void {
         this.spriteSelect(72);
         var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
@@ -1131,7 +1131,7 @@ export class KihaScene extends NPCAwareContent {
             false
         );
 
-        //(DOUBLE DICKING VARIANT)
+        // (DOUBLE DICKING VARIANT)
         if (y != -1 && this.player.cockTotal() > 1) {
             this.outputText(
                 "That perfect, dripping entrance beckons for your " +
@@ -1173,7 +1173,7 @@ export class KihaScene extends NPCAwareContent {
                 false
             );
             this.flags[kFLAGS.KIHA_CHOKED_OUT_PC] = 1;
-            //[if PC has naga tail or 40</i>\"+ tentacle dick not currently in use:
+            // [if PC has naga tail or 40</i>\"+ tentacle dick not currently in use:
             var z: number = -1;
             this.temp = this.player.cocks.length;
             while (this.temp > 0) {
@@ -1239,7 +1239,7 @@ export class KihaScene extends NPCAwareContent {
                 false
             );
         }
-        //(SINGLE DICKING VARIANT)
+        // (SINGLE DICKING VARIANT)
         else {
             this.outputText(
                 "That perfect, dripping entrance beckons for your " +
@@ -1382,7 +1382,7 @@ export class KihaScene extends NPCAwareContent {
         this.cleanupAfterCombat();
     }
 
-    //Conversation Only - Emotional Rape! (40- Corruption! PUREBABIES ONLY) (Zed)
+    // Conversation Only - Emotional Rape! (40- Corruption! PUREBABIES ONLY) (Zed)
     private rapeKihaWithWORDS(): void {
         this.outputText("", true);
         this.spriteSelect(72);
@@ -1407,7 +1407,7 @@ export class KihaScene extends NPCAwareContent {
                 false
             );
         }
-        //Conversation Level 2 (40- Corruption! PUREBABIES ONLY!) (Zed)
+        // Conversation Level 2 (40- Corruption! PUREBABIES ONLY!) (Zed)
         else if (this.flags[kFLAGS.KIHA_TALK_STAGE] == 1) {
             this.outputText(
                 'Once again, you crouch down and begin talking with your foe.  Kiha immediately sighs and says, "<i>This again? I thought I told you - you\'re wrong.</i>"\n\n',
@@ -1435,7 +1435,7 @@ export class KihaScene extends NPCAwareContent {
             )
                 this.outputText("  Is that what it feels like to be Lottie?", false);
         }
-        //Conversation Level 3 (40- Corruption! PUREBABIES ONLY!) (Zed)
+        // Conversation Level 3 (40- Corruption! PUREBABIES ONLY!) (Zed)
         else if (this.flags[kFLAGS.KIHA_TALK_STAGE] == 2) {
             this.outputText(
                 'Even though you\'ve taken the dragoness down again, you settle down for another chat instead of anything more carnal.  Kiha smiles at that, relaxing a little as she asks, "<i>Still sticking to your morals, huh?</i>"\n\n',
@@ -1467,7 +1467,7 @@ export class KihaScene extends NPCAwareContent {
                 false
             );
         }
-        //Conversation Level 4: Requires Low Corruption, Repeating for now (Zed)
+        // Conversation Level 4: Requires Low Corruption, Repeating for now (Zed)
         else {
             this.outputText(
                 "You sit down next to Kiha and start to talk again.  While she initially gives the barest hint of a smile, she soon begins to sulk.  No matter what you say or do you can't seem to bring her out of it.  Perhaps for now, there's simply no more to discuss with her.",
@@ -1483,13 +1483,13 @@ export class KihaScene extends NPCAwareContent {
     Slowly, the conversation winds back around to the story of her origin.  You casually mention that she owes you at least the attempt to remember more now since you met the terms of your agreement, a claim she meets with more than the expected skepticism.  Cocking an eyebrow at her protest, you raise your face skyward and, cupping hands around
     */
 
-    //Kiha PC victory anal scene - by Space.
+    // Kiha PC victory anal scene - by Space.
     private analRapuzulaKiha(): void {
-        //Requires at least one penis with area <= 20
+        // Requires at least one penis with area <= 20
         this.outputText("", true);
         this.spriteSelect(72);
-        //Kiha PC victory anal scene - by Space.
-        //Requires at least one penis with area <= 20
+        // Kiha PC victory anal scene - by Space.
+        // Requires at least one penis with area <= 20
         var x: number = this.player.cockThatFits(this.monster.analCapacity());
         if (x < 0) x = 0;
         var y: number = this.player.cockThatFits2(this.monster.analCapacity());
@@ -1615,7 +1615,7 @@ export class KihaScene extends NPCAwareContent {
             false
         );
 
-        //[if multi-cocks and one is within cock area of 20]
+        // [if multi-cocks and one is within cock area of 20]
         if (y >= 0) {
             this.outputText("A perverted idea forms in your mind. You reach down, grab", false);
             if (this.player.cockTotal() == 2) this.outputText(" your other dick", false);

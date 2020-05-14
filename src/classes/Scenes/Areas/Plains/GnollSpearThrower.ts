@@ -20,25 +20,25 @@ import { StatusAffects } from "../../../StatusAffects";
 export class GnollSpearThrower extends Monster {
     private hyenaPhysicalAttack(): void {
         var damage: number = 0;
-        //return to combat menu when finished
+        // return to combat menu when finished
         this.doNext(this.game.playerMenu);
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && GnollSpearThrower.rand(3) < 2) {
             this.outputText(
                 this.capitalA + this.short + " completely misses you with a blind attack!\n",
                 false
             );
-            //See below, removes the attack count once it hits rock bottom.
+            // See below, removes the attack count once it hits rock bottom.
             if (this.statusAffectv1(StatusAffects.Attacks) == 0)
                 this.removeStatusAffect(StatusAffects.Attacks);
-            //Count down 1 attack then recursively call the function, chipping away at it.
+            // Count down 1 attack then recursively call the function, chipping away at it.
             if (this.statusAffectv1(StatusAffects.Attacks) - 1 >= 0) {
                 this.addStatusValue(StatusAffects.Attacks, 1, -1);
                 this.eAttack();
             }
             return;
         }
-        //Determine if dodged!
+        // Determine if dodged!
         if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
@@ -49,7 +49,7 @@ export class GnollSpearThrower extends Monster {
             );
             return;
         }
-        //Determine if evaded
+        // Determine if evaded
         if (this.player.findPerk(PerkLib.Evade) >= 0 && GnollSpearThrower.rand(100) < 10) {
             this.outputText(
                 "Using your skills at evading attacks, you anticipate and sidestep " +
@@ -58,17 +58,17 @@ export class GnollSpearThrower extends Monster {
                     "'s attack.\n",
                 false
             );
-            //See below, removes the attack count once it hits rock bottom.
+            // See below, removes the attack count once it hits rock bottom.
             if (this.statusAffectv1(StatusAffects.Attacks) == 0)
                 this.removeStatusAffect(StatusAffects.Attacks);
-            //Count down 1 attack then recursively call the function, chipping away at it.
+            // Count down 1 attack then recursively call the function, chipping away at it.
             if (this.statusAffectv1(StatusAffects.Attacks) - 1 >= 0) {
                 this.addStatusValue(StatusAffects.Attacks, 1, -1);
                 this.eAttack();
             }
             return;
         }
-        //("Misdirection"
+        // ("Misdirection"
         if (
             this.player.findPerk(PerkLib.Misdirection) >= 0 &&
             GnollSpearThrower.rand(100) < 10 &&
@@ -81,17 +81,17 @@ export class GnollSpearThrower extends Monster {
                     "' attacks.\n",
                 false
             );
-            //See below, removes the attack count once it hits rock bottom.
+            // See below, removes the attack count once it hits rock bottom.
             if (this.statusAffectv1(StatusAffects.Attacks) == 0)
                 this.removeStatusAffect(StatusAffects.Attacks);
-            //Count down 1 attack then recursively call the function, chipping away at it.
+            // Count down 1 attack then recursively call the function, chipping away at it.
             if (this.statusAffectv1(StatusAffects.Attacks) - 1 >= 0) {
                 this.addStatusValue(StatusAffects.Attacks, 1, -1);
                 this.eAttack();
             }
             return;
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         if (this.player.findPerk(PerkLib.Flexibility) >= 0 && GnollSpearThrower.rand(100) < 6) {
             this.outputText(
                 "With your incredible flexibility, you squeeze out of the way of " +
@@ -102,24 +102,24 @@ export class GnollSpearThrower extends Monster {
             );
             if (this.plural) this.outputText("' attacks.\n", false);
             else this.outputText("'s attack.\n", false);
-            //See below, removes the attack count once it hits rock bottom.
+            // See below, removes the attack count once it hits rock bottom.
             if (this.statusAffectv1(StatusAffects.Attacks) == 0)
                 this.removeStatusAffect(StatusAffects.Attacks);
-            //Count down 1 attack then recursively call the function, chipping away at it.
+            // Count down 1 attack then recursively call the function, chipping away at it.
             if (this.statusAffectv1(StatusAffects.Attacks) - 1 >= 0) {
                 this.addStatusValue(StatusAffects.Attacks, 1, -1);
                 this.eAttack();
             }
             return;
         }
-        //Determine damage - str modified by enemy toughness!
+        // Determine damage - str modified by enemy toughness!
         damage = Math.floor(
             this.str + this.weaponAttack - Math.random() * this.player.tou - this.player.armorDef
         );
         if (damage > 0) damage = this.player.takeDamage(damage);
         if (damage <= 0) {
             damage = 0;
-            //Due to toughness or amor...
+            // Due to toughness or amor...
             if (
                 GnollSpearThrower.rand(this.player.armorDef + this.player.tou) <
                 this.player.armorDef
@@ -194,19 +194,19 @@ export class GnollSpearThrower extends Monster {
         this.combatRoundOver();
     }
 
-    //<Writers note: I recommend that the javelin have a chance to greatly decrease speed for the remaining battle.  I am writing the flavor text for this event if you choose to include it>
+    // <Writers note: I recommend that the javelin have a chance to greatly decrease speed for the remaining battle.  I am writing the flavor text for this event if you choose to include it>
     private hyenaJavelinAttack(): void {
         var damage: number = 0;
         var slow: number = 0;
-        //<Hyena Attack 2 – Javelin – Unsuccessful – Dodged>
-        //Blind dodge change
+        // <Hyena Attack 2 – Javelin – Unsuccessful – Dodged>
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && GnollSpearThrower.rand(3) < 2) {
             this.outputText(
                 "The gnoll pulls a javelin from behind her and throws it at you, but blind as she is, it goes wide.",
                 false
             );
         }
-        //Determine if dodged!
+        // Determine if dodged!
         else if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
@@ -216,7 +216,7 @@ export class GnollSpearThrower extends Monster {
                 false
             );
         }
-        //Determine if evaded
+        // Determine if evaded
         else if (this.player.findPerk(PerkLib.Evade) >= 0 && GnollSpearThrower.rand(100) < 10) {
             this.outputText(
                 "Using your skills at evading attacks, you anticipate and sidestep " +
@@ -226,7 +226,7 @@ export class GnollSpearThrower extends Monster {
                 false
             );
         }
-        //("Misdirection"
+        // ("Misdirection"
         else if (
             this.player.findPerk(PerkLib.Misdirection) >= 0 &&
             GnollSpearThrower.rand(100) < 10 &&
@@ -240,7 +240,7 @@ export class GnollSpearThrower extends Monster {
                 false
             );
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         else if (
             this.player.findPerk(PerkLib.Flexibility) >= 0 &&
             GnollSpearThrower.rand(100) < 6
@@ -253,7 +253,7 @@ export class GnollSpearThrower extends Monster {
                 false
             );
         }
-        //<Hyena Attack 2 – Javelin – Unsuccessful – Absorbed>
+        // <Hyena Attack 2 – Javelin – Unsuccessful – Absorbed>
         else if (this.player.armorDef > 10 && GnollSpearThrower.rand(2) == 0) {
             this.outputText(
                 "The gnoll pulls a long, dark wooden javelin from over her shoulder.  Her spotted arm strikes forward, launching the missile through the air.  The spear flashes through the air but hits at an angle, sliding off your " +
@@ -266,7 +266,7 @@ export class GnollSpearThrower extends Monster {
                 "You resolutely ignore the spear, brushing the blunted tip away when it hits you.\n"
             );
         }
-        //<Hyena Attack 2 – Javelin – Successful – Player Entangled>
+        // <Hyena Attack 2 – Javelin – Successful – Player Entangled>
         else if (GnollSpearThrower.rand(3) >= 1) {
             damage = this.player.takeDamage(25 + GnollSpearThrower.rand(20));
             this.outputText(
@@ -289,7 +289,7 @@ export class GnollSpearThrower extends Monster {
                 // speUp.visible = false;
             }
         }
-        //<Hyena Attack 2 – Javelin – Successful – Player Not Entangled>
+        // <Hyena Attack 2 – Javelin – Successful – Player Not Entangled>
         else {
             damage = this.player.takeDamage(25 + GnollSpearThrower.rand(20));
             this.outputText(
@@ -302,17 +302,17 @@ export class GnollSpearThrower extends Monster {
         this.combatRoundOver();
     }
 
-    //<Writer's Note: With the third attack, I intend that the damage be increased based on the breast size of the player.  Thus, the text will vary if the player is flat-chested as indicated by colored text.>
+    // <Writer's Note: With the third attack, I intend that the damage be increased based on the breast size of the player.  Thus, the text will vary if the player is flat-chested as indicated by colored text.>
     private hyenaSnapKicku(): void {
         var damage: number = 0;
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && GnollSpearThrower.rand(3) < 2) {
             this.outputText(
                 "The gnoll tries to catch you with a brutal snap-kick, but blind as she is, she completely misses.",
                 false
             );
         }
-        //Determine if dodged!
+        // Determine if dodged!
         else if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
@@ -324,7 +324,7 @@ export class GnollSpearThrower extends Monster {
                 false
             );
         }
-        //Determine if evaded
+        // Determine if evaded
         else if (this.player.findPerk(PerkLib.Evade) >= 0 && GnollSpearThrower.rand(100) < 10) {
             this.outputText(
                 "Using your skills at evading attacks, you anticipate and sidestep " +
@@ -334,7 +334,7 @@ export class GnollSpearThrower extends Monster {
                 false
             );
         }
-        //("Misdirection"
+        // ("Misdirection"
         else if (
             this.player.findPerk(PerkLib.Misdirection) >= 0 &&
             GnollSpearThrower.rand(100) < 10 &&
@@ -348,7 +348,7 @@ export class GnollSpearThrower extends Monster {
                 false
             );
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         else if (
             this.player.findPerk(PerkLib.Flexibility) >= 0 &&
             GnollSpearThrower.rand(100) < 6
@@ -361,13 +361,13 @@ export class GnollSpearThrower extends Monster {
                 false
             );
         }
-        //Determine damage - str modified by enemy toughness!
+        // Determine damage - str modified by enemy toughness!
         else {
             damage = this.player.biggestTitSize();
             if (damage > 20) damage = 20;
             damage += Math.floor(this.str - Math.random() * this.player.tou - this.player.armorDef);
             if (damage > 0) damage = this.player.takeDamage(damage);
-            //No damage
+            // No damage
             if (damage <= 0) {
                 this.outputText(
                     "The gnoll tries to catch your " +
@@ -376,7 +376,7 @@ export class GnollSpearThrower extends Monster {
                     false
                 );
             }
-            //<Hyena Attack 3 – Snap Kick – Successful>
+            // <Hyena Attack 3 – Snap Kick – Successful>
             else {
                 this.outputText(
                     "A glint enters the dark eyes of the gnoll before she strides forward and pivots.  A long, spotted leg snaps up and out to slam against your " +
@@ -398,9 +398,9 @@ export class GnollSpearThrower extends Monster {
     }
 
     private hyenaArousalAttack(): void {
-        //Success = cor+lib > rand(150)
+        // Success = cor+lib > rand(150)
         var chance: number = GnollSpearThrower.rand(150);
-        //<Hyena Attack 4 – Arousal Attack – Highly Successful>
+        // <Hyena Attack 4 – Arousal Attack – Highly Successful>
         if (this.player.cor + this.player.lib > chance + 50) {
             this.outputText(
                 "A wry grin spreads across the gnoll's face before she sprints towards you.  Too fast to follow, she flies forward, and you desperately brace for an impact that doesn't come.  Instead of striking you, two spotted paws clamp behind your neck and pull your head down, planting your face against her leather loincloth.  A powerful, musky smell burns in your nose and the feel of firm flesh behind the flimsy leather leaves a tingling sensation along your face.  She holds you there, pressed against her groin for several moments, desire growing deep within your body, before you find the strength and will to pull away.  The amazon grins, letting you stumble back as you try to fight off the feel of her body.\n\n",
@@ -408,7 +408,7 @@ export class GnollSpearThrower extends Monster {
             );
             this.game.dynStats("lus", 25 + this.player.lib / 20 + this.player.sens / 5);
         }
-        //<Hyena Attack 4 – Arousal Attack – Mildly Successful>
+        // <Hyena Attack 4 – Arousal Attack – Mildly Successful>
         else if (20 + this.player.cor + this.player.lib > chance) {
             this.outputText(
                 "A lazy grin spreads across the gnoll's face before she sprints towards you.  Too fast to follow, she flies forward, and you desperately brace for an impact that doesn't come.  Instead of striking you, two spotted paws clamp behind your neck and pull your head down, planting your face against her leather loincloth.  A powerful, musky smell burns in your nose and the feel of firm flesh behind the flimsy leather leaves a tingling sensation along your face.  Instinctively, you tear away from the hold, stumbling away from the sensations filling your mind, though some desire remains kindled within you.",
@@ -416,7 +416,7 @@ export class GnollSpearThrower extends Monster {
             );
             this.game.dynStats("lus", 15 + this.player.lib / 20 + this.player.sens / 5);
         }
-        //<Hyena Attack 4 – Arousal Attack – Unsuccessful>
+        // <Hyena Attack 4 – Arousal Attack – Unsuccessful>
         else {
             this.outputText(
                 "A knowing glint fills the dark eyes of the gnoll before she sprints forward.  Your muscles tense as she reaches you and starts to lock two spotted paws behind your neck.  She pulls you down towards her musky crotch, but just as you brush her loincloth, you twist away.  The hyena snarls in frustration, and you're left wondering if that was her idea of foreplay.",
@@ -428,24 +428,24 @@ export class GnollSpearThrower extends Monster {
 
     public eAttack(): void {
         var damage: number = 0;
-        //return to combat menu when finished
+        // return to combat menu when finished
         this.doNext(this.game.playerMenu);
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && GnollSpearThrower.rand(3) < 2) {
             this.outputText(
                 this.capitalA + this.short + " completely misses you with a blind attack!\n",
                 false
             );
-            //See below, removes the attack count once it hits rock bottom.
+            // See below, removes the attack count once it hits rock bottom.
             if (this.statusAffectv1(StatusAffects.Attacks) == 0)
                 this.removeStatusAffect(StatusAffects.Attacks);
-            //Count down 1 attack then recursively call the function, chipping away at it.
+            // Count down 1 attack then recursively call the function, chipping away at it.
             if (this.statusAffectv1(StatusAffects.Attacks) - 1 >= 0) {
                 this.addStatusValue(StatusAffects.Attacks, 1, -1);
                 this.eAttack();
             }
         }
-        //Determine if dodged!
+        // Determine if dodged!
         if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
@@ -455,7 +455,7 @@ export class GnollSpearThrower extends Monster {
                 false
             );
         }
-        //Determine if evaded
+        // Determine if evaded
         if (this.player.findPerk(PerkLib.Evade) >= 0 && GnollSpearThrower.rand(100) < 10) {
             this.outputText(
                 "Using your skills at evading attacks, you anticipate and sidestep " +
@@ -464,16 +464,16 @@ export class GnollSpearThrower extends Monster {
                     "'s attack.\n",
                 false
             );
-            //See below, removes the attack count once it hits rock bottom.
+            // See below, removes the attack count once it hits rock bottom.
             if (this.statusAffectv1(StatusAffects.Attacks) == 0)
                 this.removeStatusAffect(StatusAffects.Attacks);
-            //Count down 1 attack then recursively call the function, chipping away at it.
+            // Count down 1 attack then recursively call the function, chipping away at it.
             if (this.statusAffectv1(StatusAffects.Attacks) - 1 >= 0) {
                 this.addStatusValue(StatusAffects.Attacks, 1, -1);
                 this.eAttack();
             }
         }
-        //("Misdirection"
+        // ("Misdirection"
         if (
             this.player.findPerk(PerkLib.Misdirection) >= 0 &&
             GnollSpearThrower.rand(100) < 10 &&
@@ -486,16 +486,16 @@ export class GnollSpearThrower extends Monster {
                     "' attacks.\n",
                 false
             );
-            //See below, removes the attack count once it hits rock bottom.
+            // See below, removes the attack count once it hits rock bottom.
             if (this.statusAffectv1(StatusAffects.Attacks) == 0)
                 this.removeStatusAffect(StatusAffects.Attacks);
-            //Count down 1 attack then recursively call the function, chipping away at it.
+            // Count down 1 attack then recursively call the function, chipping away at it.
             if (this.statusAffectv1(StatusAffects.Attacks) - 1 >= 0) {
                 this.addStatusValue(StatusAffects.Attacks, 1, -1);
                 this.eAttack();
             }
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         if (this.player.findPerk(PerkLib.Flexibility) >= 0 && GnollSpearThrower.rand(100) < 6) {
             this.outputText(
                 "With your incredible flexibility, you squeeze out of the way of " +
@@ -506,23 +506,23 @@ export class GnollSpearThrower extends Monster {
             );
             if (this.plural) this.outputText("' attacks.\n", false);
             else this.outputText("'s attack.\n", false);
-            //See below, removes the attack count once it hits rock bottom.
+            // See below, removes the attack count once it hits rock bottom.
             if (this.statusAffectv1(StatusAffects.Attacks) == 0)
                 this.removeStatusAffect(StatusAffects.Attacks);
-            //Count down 1 attack then recursively call the function, chipping away at it.
+            // Count down 1 attack then recursively call the function, chipping away at it.
             if (this.statusAffectv1(StatusAffects.Attacks) - 1 >= 0) {
                 this.addStatusValue(StatusAffects.Attacks, 1, -1);
                 this.eAttack();
             }
         }
-        //Determine damage - str modified by enemy toughness!
+        // Determine damage - str modified by enemy toughness!
         damage = Math.floor(
             this.str + this.weaponAttack - Math.random() * this.player.tou - this.player.armorDef
         );
         if (damage > 0) damage = this.player.takeDamage(damage);
         if (damage <= 0) {
             damage = 0;
-            //Due to toughness or amor...
+            // Due to toughness or amor...
             if (
                 GnollSpearThrower.rand(this.player.armorDef + this.player.tou) <
                 this.player.armorDef
@@ -645,7 +645,7 @@ export class GnollSpearThrower extends Monster {
         this.buttRating = BUTT_RATING_TIGHT;
         this.skinTone = "tawny";
         this.skinType = SKIN_TYPE_FUR;
-        //this.skinDesc = Appearance.Appearance.DEFAULT_SKIN_DESCS[SKIN_TYPE_FUR];
+        // this.skinDesc = Appearance.Appearance.DEFAULT_SKIN_DESCS[SKIN_TYPE_FUR];
         this.hairColor = "black";
         this.hairLength = 22;
         this.initStrTouSpeInte(85, 60, 100, 50);

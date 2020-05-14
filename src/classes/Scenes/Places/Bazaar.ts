@@ -17,7 +17,7 @@ export class Bazaar extends BaseContent {
     // FOUND_SOCKS: number = 897;
     // SOCKS_BOUGHT: number = 898;
     // GILDED_JERKED: number = 899;
-    //Set Up With The Travelling, Tainted Bazaar
+    // Set Up With The Travelling, Tainted Bazaar
 
     public benoit: Benoit = new Benoit();
     public cinnabar: Cinnabar = new Cinnabar();
@@ -25,7 +25,7 @@ export class Bazaar extends BaseContent {
     public lilium: Lilium = new Lilium();
     public roxanne: Roxanne = new Roxanne();
 
-    //[Find Travelling Bazaar]
+    // [Find Travelling Bazaar]
     public findBazaar(): void {
         this.outputText("", true);
         if (this.flags[kFLAGS.BAZAAR_ENCOUNTERED] == 0) {
@@ -53,11 +53,11 @@ export class Bazaar extends BaseContent {
             );
         }
         this.outputText("\n\nDo you approach?", false);
-        //[YES] [NOOOO]
+        // [YES] [NOOOO]
         this.doYesNo(this.approachBazaarGuard, this.camp.returnToCampUseOneHour);
     }
 
-    //[FUCK YES I WILL PUT IT IN YOUR BIZARRE ANUS]
+    // [FUCK YES I WILL PUT IT IN YOUR BIZARRE ANUS]
     private approachBazaarGuard(): void {
         this.outputText("", true);
         this.outputText(
@@ -114,7 +114,7 @@ export class Bazaar extends BaseContent {
         this.enterTheBazaarAndMenu();
     }
 
-    //[Enter]
+    // [Enter]
     public enterTheBazaarAndMenu(demons: boolean = true): void {
         this.outputText("", true);
         var rat: string = "Rat";
@@ -125,7 +125,7 @@ export class Bazaar extends BaseContent {
             this.flags[kFLAGS.CINNABAR_NUMBER_ENCOUNTERS] > 0
         )
             rat = "Cinnabar";
-        //Make sure flags to allow entrance is set.
+        // Make sure flags to allow entrance is set.
         if (this.flags[kFLAGS.BAZAAR_ENTERED] == 0) this.flags[kFLAGS.BAZAAR_ENTERED] = 1;
         this.outputText(
             "You breeze past the crimson guard and enter the interior of the Bizarre Bazaar.  The ground is hard-packed, trampled as if walked over by hundreds of hooves, paws, and feet.  A massive bonfire rages in the center of the clearing, crackling and popping as it consumes its fuel gluttonously.  Surrounding the blazing behemoth are tiny, wheeled food-carts with vendors hawking everything from sausage to something called a 'marshmallow'.  Huge wagons ring the clearing, many set up to display exotic wares or services.  You can see everything from dancing centaurs to demons browsing the wares, but it seems an uneasy truce of sorts reigns here.  Then again, maybe the demons have just not had the chance to openly attack this place yet.",
@@ -175,7 +175,7 @@ export class Bazaar extends BaseContent {
             demons &&
             Bazaar.rand(10) == 0
         ) {
-            //[Repeat Variant]
+            // [Repeat Variant]
             this.outputText(
                 "\n\n<b>The familiar sounds of the two griping demons can be heard nearby.  Do you listen in again?</b>",
                 false
@@ -209,14 +209,14 @@ export class Bazaar extends BaseContent {
         this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
     }
 
-    //Semen Bukkake and Massage Parlor
-    //-Femboi Bunny owner - Joey
-    //-Catboi (10%) assistants.  Some equipped with tentacles.
-    //-Optional Female Masseuse.
-    //--Bunnygal (10%) with horns and a similar addiction to Scylla.
-    //--Named Sara.
-    //(find/replace curly quotes/apo for straights -Z)
-    //[The Slippery Squeeze!]
+    // Semen Bukkake and Massage Parlor
+    // -Femboi Bunny owner - Joey
+    // -Catboi (10%) assistants.  Some equipped with tentacles.
+    // -Optional Female Masseuse.
+    // --Bunnygal (10%) with horns and a similar addiction to Scylla.
+    // --Named Sara.
+    // (find/replace curly quotes/apo for straights -Z)
+    // [The Slippery Squeeze!]
     private theSlipperySqueeze(): void {
         this.outputText("", true);
         this.outputText(
@@ -227,7 +227,7 @@ export class Bazaar extends BaseContent {
         );
         var androgyny = undefined;
         var milker = undefined;
-        //(First time desc:
+        // (First time desc:
         if (this.flags[kFLAGS.BAZAAR_SLIPPERY_SQUEEZE_VISITED] == 0) {
             this.flags[kFLAGS.BAZAAR_SLIPPERY_SQUEEZE_VISITED]++;
             this.outputText(
@@ -253,12 +253,12 @@ export class Bazaar extends BaseContent {
                 false
             );
         }
-        //Big balls variant
+        // Big balls variant
         else if (Bazaar.rand(10) == 0) {
             this.joeyBigBalls();
             return;
         }
-        //Cock Milker
+        // Cock Milker
         else if (
             this.player.hasKeyItem("Cock Milker") < 0 &&
             this.flags[kFLAGS.JOEY_OFFERED_MILKER] == 0 &&
@@ -269,7 +269,7 @@ export class Bazaar extends BaseContent {
             );
             this.flags[kFLAGS.JOEY_OFFERED_MILKER] = 1;
         }
-        //(Repeat visit:
+        // (Repeat visit:
         else {
             this.outputText(
                 "Joey purses his glossed lips when you enter and coyly cocks one of his ears as he says, \"<i>Welcome back to 'The Slippery Squeeze', " +
@@ -277,7 +277,7 @@ export class Bazaar extends BaseContent {
                     ".  Would you like me to give you a nice, salty rub-down?  Or would you prefer Sara do it?  Just remember, she can't make her own 'oil' like I can.</i>\"\n\n",
                 false
             );
-            //No scenes for Sara yet!
+            // No scenes for Sara yet!
             this.outputText(
                 '"<i>I told you I\'m not working until you give me a raise!  Do the damned massages yourself!</i>"\n\nJoey blushes and apologies.  "<i>I guess I\'m the only one available for now.</i>"\n\n',
                 false
@@ -293,7 +293,7 @@ export class Bazaar extends BaseContent {
                 );
                 androgyny = this.joeyAndrogyny;
             }
-            //You could have Joey or Sara give you one, though it's obvious they plan to use spooge as massage oil. (Sara needs an introduction before she gets a mention and a menu entry -Z)
+            // You could have Joey or Sara give you one, though it's obvious they plan to use spooge as massage oil. (Sara needs an introduction before she gets a mention and a menu entry -Z)
         }
         if (
             this.flags[kFLAGS.JOEY_OFFERED_MILKER] > 0 &&
@@ -301,9 +301,9 @@ export class Bazaar extends BaseContent {
             this.player.hasKeyItem("Cock Milker - Installed At Whitney's Farm") < 0
         )
             milker = this.askJoeyAboutOffer;
-        //	[Joey] [Sara] [][] [Leave]
+        // 	[Joey] [Sara] [][] [Leave]
 
-        //simpleChoices("JoeyMassage",joeyMassage,"Androgyny",androgyny,"Joey'sOffer",milker,"",0,"Leave",2855);
+        // simpleChoices("JoeyMassage",joeyMassage,"Androgyny",androgyny,"Joey'sOffer",milker,"",0,"Leave",2855);
         this.menu();
         this.addButton(0, "JoeyMassage", this.joeyMassage);
         this.addButton(1, "Adrogyny", androgyny);
@@ -318,7 +318,7 @@ export class Bazaar extends BaseContent {
         this.addButton(4, "Leave", this.enterTheBazaar);
     }
 
-    //[Ask]
+    // [Ask]
     private askJoeyAboutOffer(): void {
         this.clearOutput();
         this.outputText(
@@ -333,19 +333,19 @@ export class Bazaar extends BaseContent {
             this.doNext(this.noMilkerPlzJoey);
             return;
         }
-        //[Yes] [No]
+        // [Yes] [No]
         this.doYesNo(this.buyCockMilker, this.noMilkerPlzJoey);
     }
-    //[No]
+    // [No]
     private noMilkerPlzJoey(): void {
         this.clearOutput();
         this.outputText(
             'You decline; it\'s not really the sort of thing you need in your camp.  "<i>Ah well,</i>" Joey shrugs, "<i>I\'ll just have to hang onto it for now I guess.  Shame.  Anyway,</i>" he resumes his usual grin, "<i>is there something else you need?  A massage, perhaps?</i>"'
         );
-        //return to normal options, scene is never brought up again
+        // return to normal options, scene is never brought up again
         this.doNext(this.enterTheBazaar);
     }
-    //[Yes]
+    // [Yes]
     private buyCockMilker(): void {
         this.clearOutput();
         this.outputText(
@@ -419,7 +419,7 @@ export class Bazaar extends BaseContent {
         this.dynStats("lus", 5);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[Joey]
+    // [Joey]
     private joeyMassage(): void {
         this.outputText("", true);
         if (this.player.gems < 10) {
@@ -469,7 +469,7 @@ export class Bazaar extends BaseContent {
 
     private joeysMassageWifNoExtraJizz(): void {
         this.outputText("", true);
-        //(Continue as NoWang)
+        // (Continue as NoWang)
         this.outputText(
             "The rabbit-eared fem-boy climbs back onto the table and strokes himself a few times over your " +
                 this.assDescript() +
@@ -525,8 +525,8 @@ export class Bazaar extends BaseContent {
                 ", puddling seed around your eyes and forehead before it drips down your cheeks and bubbles on your lips.  You're quickly distracted from the salty, cummy facial when your personal leporid lotion-dispenser ",
             false
         );
-        //(fork to male or genderless, no new PG)
-        //(MALE)
+        // (fork to male or genderless, no new PG)
+        // (MALE)
         if (this.player.hasCock()) {
             this.outputText(
                 "slides his warm, ruby lips over your " +
@@ -574,7 +574,7 @@ export class Bazaar extends BaseContent {
                 false
             );
         }
-        //(FEM/GENDERLESS)
+        // (FEM/GENDERLESS)
         else {
             if (this.player.hasVagina())
                 this.outputText(
@@ -592,9 +592,9 @@ export class Bazaar extends BaseContent {
                 false
             );
         }
-        //Fems/Genderless cum+epilogue
+        // Fems/Genderless cum+epilogue
         if (!this.player.hasCock()) {
-            //(Genderless orgasm)
+            // (Genderless orgasm)
             if (this.player.gender == 0)
                 this.outputText(
                     "Though his single finger makes you burn with passion, Joey's second slides effortlessly after it, filling your " +
@@ -604,7 +604,7 @@ export class Bazaar extends BaseContent {
                         "s, egging up the gradual upwelling of pleasure while you lick the bunny-cream from your lips.  A moment later, the no-longer-offending digits press hard on a sensitive spot, and you're arching your back, screaming with pleasure.\n\n",
                     false
                 );
-            //(Female orgasm)
+            // (Female orgasm)
             else {
                 this.outputText(
                     "Though his spit and cum-lubed tongue is quite skilled, deftly tasting your labia and channel, the bunny adds a pair of fingers to the mix, pulling the musky tunnel wide and letting more of his slippery seed inside you.  He uses it like lube, sliding his digits around while he sucks your " +
@@ -622,13 +622,13 @@ export class Bazaar extends BaseContent {
                     false
                 );
             }
-            //(continuing)
+            // (continuing)
             this.outputText(
                 "You tremble and moan for some time, until you realize there's no more cum dripping onto your face and your pleasantly tingly hole is empty.   Joey pads around you, rubbing your neck sensually as you blink the spunk from your eyes and lick his flavorful spooge from your lips.  A towel is placed into your hand by the breathy masseuse.  He says, \"<i>There's a shower and more towels in the back if you want to clean up.</i>\"  You note that he's already got his thong back on, but the front is dark and nearly spherical from what he's leaking into it.  He turns to leave you, and you're given a better view – his thong is bulging from between his legs all the way around to his ass.  The feminine bunny-boy is still cumming, and his special thong seems to be directing it all into his back door.  Kinky.",
                 false
             );
         }
-        //(Dickgasms
+        // (Dickgasms
         else {
             this.outputText(
                 "Though Joey's mouth is making you burn with passion, it's the feeling of a single, intruding fingertip against your " +
@@ -661,7 +661,7 @@ export class Bazaar extends BaseContent {
                 false
             );
         }
-        //(reduces libido significantly if very high, reduces lust, and reduces sensitivity to 40)
+        // (reduces libido significantly if very high, reduces lust, and reduces sensitivity to 40)
         this.player.orgasm();
         if (this.player.lib > 20) this.dynStats("lib", -0.5);
         if (this.player.lib > 80) this.dynStats("lib", -1);
@@ -670,7 +670,7 @@ export class Bazaar extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[CONTINUE – DRANK JOEY'S SPECIAL POTION]
+    // [CONTINUE – DRANK JOEY'S SPECIAL POTION]
     private joeysMassageWithEXTRASpooge(): void {
         this.outputText("", true);
         this.outputText(
@@ -809,7 +809,7 @@ export class Bazaar extends BaseContent {
     }
     private joeyBigBalls(): void {
         this.outputText("", true);
-        //(FIRST TIME)
+        // (FIRST TIME)
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00348] == 0) {
             this.outputText(
                 "Before you can even clear the door-frame, Joey the bunny-boy masseuse launches himself into you, his hands clutching wildly at your " +
@@ -838,7 +838,7 @@ export class Bazaar extends BaseContent {
                     false
                 );
             this.outputText(".  What do you decide?", false);
-            //[SuckCumOut] [MasturbateOut]
+            // [SuckCumOut] [MasturbateOut]
             this.simpleChoices(
                 "SuckCumOut",
                 this.suckOffJoeysGardenHose,
@@ -852,13 +852,13 @@ export class Bazaar extends BaseContent {
                 undefined
             );
         }
-        //(Sucked Joey once)
+        // (Sucked Joey once)
         else {
             this.outputText(
                 'As soon as you enter The Slippery Squeeze, you know somehow that something is amiss.  Joey staggers out from a back-room, his balls once again swollen huge and round.  He looks at you and admits, "<i>Someone\'s <b>got</b> to be sabotaging me... gods, this hurts!  Could you help me, or should I go in the back and jerk it out myself?</i>"\n\n',
                 false
             );
-            //[SuckCumOut] [MasturbateOut]
+            // [SuckCumOut] [MasturbateOut]
             this.simpleChoices(
                 "SuckCumOut",
                 this.suckOffJoeysGardenHose,
@@ -875,7 +875,7 @@ export class Bazaar extends BaseContent {
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00348]++;
     }
 
-    //Masturbate It Out (work it out on the floor)
+    // Masturbate It Out (work it out on the floor)
     private joeyWanksItOut(): void {
         this.outputText("", true);
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00349] == 0) {
@@ -887,7 +887,7 @@ export class Bazaar extends BaseContent {
         } else this.camp.returnToCampUseOneHour();
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00349]++;
     }
-    //Suck Cum Out (not your garden-variety hoes)
+    // Suck Cum Out (not your garden-variety hoes)
     private suckOffJoeysGardenHose(): void {
         this.outputText("", true);
         this.outputText(
@@ -1033,7 +1033,7 @@ export class Bazaar extends BaseContent {
                 false
             );
         }
-        //[Listen in repeat]
+        // [Listen in repeat]
         else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00292] == 1) {
             this.outputText(
                 "Just as before, you spot the collar-popping incubus and his lab coat-clad lover complaining about their boss.\n\n",
@@ -1060,7 +1060,7 @@ export class Bazaar extends BaseContent {
                 false
             );
         }
-        //[Listen in Repeat 2]
+        // [Listen in Repeat 2]
         else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00292] >= 2) {
             this.outputText(
                 "This time, the two chatty demons are seated near the fire, and the reason for their altered location seems clear.  The succubus' belly is gravid to an unusual degree, utterly packed with some kind of corrupted offspring.  She's rubbing both her hands over the stretched skin-dome and moaning in discomfort, the packed womb squirming beneath her touches.\n\n",
@@ -1091,12 +1091,12 @@ export class Bazaar extends BaseContent {
                 false
             );
         }
-        //enterTheBazaarAndMenu(false);
+        // enterTheBazaarAndMenu(false);
         this.doNext(this.enterTheBazaar);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00292]++;
     }
 
-    //"Greta's Garments" - Interior
+    // "Greta's Garments" - Interior
     private gretasGarments(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.FOUND_SOCKS] == 1 && this.flags[kFLAGS.SOCK_COUNTER] == 0) {
@@ -1157,7 +1157,7 @@ export class Bazaar extends BaseContent {
             this.addButton(0, "Bikini", this.askGretaAboutZeBikini);
         this.addButton(9, "Back", this.enterTheBazaarAndMenu);
     }
-    //Ask About Inventory
+    // Ask About Inventory
     private askGretaAboutInventory(): void {
         this.clearOutput();
         this.outputText(
@@ -1183,14 +1183,14 @@ export class Bazaar extends BaseContent {
         this.outputText(
             "\n\n\"<i>I've got back-orders on these things for miles, so you'll have to wait for me to get caught up before I consider crafting any for you.</i>\""
         );
-        //[Back]
+        // [Back]
         if (this.flags[kFLAGS.FOUND_SOCKS] == 0) this.flags[kFLAGS.FOUND_SOCKS] = 1;
         if (this.flags[kFLAGS.SOCK_COUNTER] == 0) this.flags[kFLAGS.SOCK_COUNTER] = 24;
         this.menu();
         this.addButton(4, "Back", this.gretasGarments);
     }
 
-    //Ask About Bikini:
+    // Ask About Bikini:
     private askGretaAboutZeBikini(): void {
         this.clearOutput();
         this.outputText(
@@ -1203,14 +1203,14 @@ export class Bazaar extends BaseContent {
         this.outputText(
             "\n\nGreta blows a lock of inky black hair out of her face and muses, \"<i>I guess not, huh?  Well, I got about halfway done with it - it won't burn you if you've got a lot of corruption in you, but I can't quite easily handle it yet.  From what my pet tells me, it's actually stronger when worn by a virgin, but it may, umm... induce some baser urges thanks to my meddling.  I suppose if you want it, you can have it for 500 gems.  Rent on this heap is coming up, after all.</i>\""
         );
-        //[Buy It] [Back]
+        // [Buy It] [Back]
         this.menu();
         if (this.player.gems < 500) this.outputText("\n\n<b>You can't afford it.</b>");
         else this.addButton(0, "Buy Bikini", this.buyGretasBikini);
         this.addButton(4, "Back", this.gretasGarments);
     }
 
-    //Buy Bikini
+    // Buy Bikini
     private buyGretasBikini(): void {
         this.clearOutput();
         this.flags[kFLAGS.OWN_MAIDEN_BIKINI] = 1;
@@ -1227,11 +1227,11 @@ export class Bazaar extends BaseContent {
         this.inventory.takeItem(this.armors.LMARMOR, this.camp.returnToCampUseOneHour);
     }
 
-    //Cock-socks Available - First Time
+    // Cock-socks Available - First Time
     private browseDemSocksSon(): void {
         this.clearOutput();
         this.outputText("What type of cock-sock do you want to look at?");
-        //Cock-sock Menu
+        // Cock-sock Menu
         this.menu();
         this.addButton(0, "Wool", this.woolCockSock);
         this.addButton(1, "Alabaster", this.alabasterCockSock);
@@ -1244,7 +1244,7 @@ export class Bazaar extends BaseContent {
         this.addButton(9, "Back", this.gretasGarments);
     }
 
-    //Wool Cock-sock
+    // Wool Cock-sock
     private woolCockSock(): void {
         this.clearOutput();
         this.outputText(
@@ -1254,18 +1254,18 @@ export class Bazaar extends BaseContent {
         this.cockSelectionMenu();
     }
 
-    //Alabaster Cock-sock
+    // Alabaster Cock-sock
     private alabasterCockSock(): void {
         this.clearOutput();
         this.outputText(
             "You pick up a one sock and inspect it.  It's a pure white cock sock, edged with delicate lace.  It almost appears to be some kind of bridal wear... although you don't know of any kind of bride that would wear something like this.  \"<i>Ah yeah, that's a popular one.  Some folks like the purity that it suggests... though I can't guess why.  It's 25 gems, though.</i>\""
         );
-        //[Buy] [Back]
+        // [Buy] [Back]
         this.flags[kFLAGS.SOCK_HOLDING] = "alabaster";
         this.cockSelectionMenu();
     }
 
-    //Cockring Cock-sock
+    // Cockring Cock-sock
     private cockringCockSock(): void {
         this.clearOutput();
         this.outputText(
@@ -1275,7 +1275,7 @@ export class Bazaar extends BaseContent {
         this.cockSelectionMenu();
     }
 
-    //Viridian Cock-sock
+    // Viridian Cock-sock
     private viridianCockSock(): void {
         this.clearOutput();
         this.outputText(
@@ -1285,7 +1285,7 @@ export class Bazaar extends BaseContent {
         this.cockSelectionMenu();
     }
 
-    //Scarlet Cock-sock
+    // Scarlet Cock-sock
     private scarletCockSocK(): void {
         this.clearOutput();
         this.outputText(
@@ -1295,7 +1295,7 @@ export class Bazaar extends BaseContent {
         this.cockSelectionMenu();
     }
 
-    //Cobalt Cock-sock
+    // Cobalt Cock-sock
     private cobaltCockSock(): void {
         this.clearOutput();
         this.outputText(
@@ -1304,7 +1304,7 @@ export class Bazaar extends BaseContent {
         this.flags[kFLAGS.SOCK_HOLDING] = "cobalt";
         this.cockSelectionMenu();
     }
-    //Gilded Cock-sock
+    // Gilded Cock-sock
     private gildedCockSock(): void {
         this.clearOutput();
         this.outputText(
@@ -1314,13 +1314,13 @@ export class Bazaar extends BaseContent {
         this.cockSelectionMenu();
     }
 
-    //Amaranthine
+    // Amaranthine
     private amaranthineCockSock(): void {
         this.clearOutput();
         this.outputText(
             "You pick up one sock and inspect it.  It's a silky smooth lavish purple color, with fine lace depicting some kind of six-legged wolf-like creature.  Overall, though, the sock is an odd shape, seemingly intended for someone with a knot AND some kind of equine-like flare.  Greta's eyebrows raise as she sees the item you're holding,  \"<i>Ohh, that one.  That, honey, was an experiment.  I took some magic channeled down from the stars themselves and infused it into a new sock, and that was the result.  Truth be told, I'm not entirely sure what it does, but I'll sell it to you for 1,000 gems.</i>\""
         );
-        //Increase fertility by a small amount
+        // Increase fertility by a small amount
         this.flags[kFLAGS.SOCK_HOLDING] = "amaranthine";
         this.cockSelectionMenu();
     }
@@ -1343,13 +1343,13 @@ export class Bazaar extends BaseContent {
     }
 
     private pickACockForSock(): void {
-        //Buy Cock-sock
+        // Buy Cock-sock
         this.clearOutput();
         this.outputText(
             'You take the cock-sock over to the counter where Greta sits, knitting even more garments and place down the gems required.  "<i>Aha, good choice, honey!</i>" the succubus says, snatching up the money and stashing it away.  "<i>Now let\'s get that bad boy fitted on you.</i>"'
         );
 
-        //[If PC only has one cock, jump immediately to Putting It On, else:
+        // [If PC only has one cock, jump immediately to Putting It On, else:
         if (this.player.cockTotal() == 1) {
             this.menu();
             this.addButton(0, "Next", this.cockSockTarget, 0);
@@ -1369,7 +1369,7 @@ export class Bazaar extends BaseContent {
     private cockSockTarget(target: number): void {
         this.clearOutput();
         this.flags[kFLAGS.SOCKS_BOUGHT]++;
-        //Putting it On - First Time
+        // Putting it On - First Time
         if (this.flags[kFLAGS.SOCKS_BOUGHT] == 1) {
             this.outputText(
                 'The gravity-defying succubus gestures towards your crotch.  "<i>Well, come on then, let\'s see the tasty cock getting all dressed up,</i>" she says, her voice becoming a deep purr.  You raise your eyebrow, questioning why she needs to see that.'
@@ -1387,7 +1387,7 @@ export class Bazaar extends BaseContent {
                 "\n\nYou gulp.  Do you want this cock-sock attached to your penis semi-permanently?"
             );
         }
-        //Putting It On - Additional Times
+        // Putting It On - Additional Times
         else {
             this.outputText(
                 'Greta motions with her hand, a movement that causes her mountainous cleavage to jiggle hypnotically.  "<i>Well, come on then, let\'s see the tasty cock getting all dressed up,</i>" she says, her voice becoming a deep purr.'
@@ -1401,7 +1401,7 @@ export class Bazaar extends BaseContent {
         this.addButton(1, "No", this.noCockSock);
     }
 
-    //Yes
+    // Yes
     private yesPutDatSockOnMe(target: number): void {
         this.clearOutput();
 
@@ -1417,7 +1417,7 @@ export class Bazaar extends BaseContent {
         }
 
         if (this.flags[kFLAGS.SOCK_HOLDING] == "scarlet") {
-            //if(player.findPerk(PerkLib.PhallicPotential) < 0) player.createPerk(PerkLib.PhallicPotential,0,0,0,0);
+            // if(player.findPerk(PerkLib.PhallicPotential) < 0) player.createPerk(PerkLib.PhallicPotential,0,0,0,0);
             this.player.gems -= 250;
         }
 
@@ -1465,7 +1465,7 @@ export class Bazaar extends BaseContent {
             this.outputText(
                 "\n\nGreta smiles knowingly and returns to her chair behind the counter."
             );
-            //(Cock-sock get! +2 Corruption, +5 Arousal)
+            // (Cock-sock get! +2 Corruption, +5 Arousal)
             this.dynStats("lus", 5, "cor", 2);
             this.menu();
             this.addButton(0, "Next", this.gretasGarments);
@@ -1486,16 +1486,16 @@ export class Bazaar extends BaseContent {
         this.outputText(
             'You shake your head.  Greta sighs, "<i>Figures.  Here\'s your money back, honey.  Come back when you change your mind.</i>"'
         );
-        //(Back to menu)
+        // (Back to menu)
         this.menu();
         this.addButton(0, "Next", this.gretasGarments);
     }
 
-    //Remove Cock-sock
+    // Remove Cock-sock
     private takeOffDatSock(): void {
         this.clearOutput();
         this.outputText("Which cock-sock would you like to get removed?");
-        //(display list of socked cocks)
+        // (display list of socked cocks)
         this.temp = 0;
         var button: number = 0;
         this.menu();
@@ -1508,7 +1508,7 @@ export class Bazaar extends BaseContent {
 
     private removeTargettedSock(index: number): void {
         this.clearOutput();
-        //Select-A-Cock!
+        // Select-A-Cock!
         this.outputText(
             "You walk up to the counter top.  Greta the succubus looks up at you over her latest creation, and you explain you'd like to remove a cocksock."
         );
@@ -1538,7 +1538,7 @@ export class Bazaar extends BaseContent {
         this.temp = this.player.cockTotal();
         while (this.temp > 0) {
             this.temp--;
-            //If the PC has another cock with the same effect.
+            // If the PC has another cock with the same effect.
             if (this.player.cocks[this.temp].sock == storage) {
                 extra = true;
             }
@@ -1565,7 +1565,7 @@ export class Bazaar extends BaseContent {
             }
         }
         this.outputText('\n\n"<i>If you need another one, we\'ve got plenty more for sale.</i>"');
-        //(Cock-sock lost! +5 Corruption, -10 Arousal)
+        // (Cock-sock lost! +5 Corruption, -10 Arousal)
         this.dynStats("lus", -10, "cor", 1);
         this.menu();
         this.addButton(0, "Next", this.gretasGarments);
@@ -1575,7 +1575,7 @@ export class Bazaar extends BaseContent {
     There's another option on the list, cheerfully presented with a pastel border and a little painted egg next to it.  'Sweet Massage' it says.  \"<i>That's our spring special,</i>\" Joey explains, \"<i>using our new chocolate-flavored massage oil.  It comes with a complimentary 'dessert.'</i>\"  He gives you a little wink at that last word, so you can be certain that it's no normal dessert.
     */
 
-    //"Sweet Massage"
+    // "Sweet Massage"
     private joeySweetMassage(): void {
         this.clearOutput();
         this.player.gems -= 20;
@@ -1602,7 +1602,7 @@ export class Bazaar extends BaseContent {
             '\n\nRather than the usual stream of off-white jism, what starts pouring out the tip of his cock is a rich brown color.  It\'s viscous, and when it dribbles down onto the floor it forms a velvety pool.  Your masseuse scoops some of it up with two fingers and slips them into his mouth, closing his eyes as if he\'s enjoying an incredibly tasty treat.  "<i>Mmm,</i>" he moans, "<i>chocolate.  This is what makes the sweet massage so sweet.  It\'s just as good as my creamy lotion, and twice as tasty.</i>"  Joey turns away, retrieving another large egg from the table.  You wonder briefly if he has room for two of the two huge eggs in his ass, before he asks, "<i>Would you like an egg too?  They don\'t have anything to do with the massage, but I just </i>love<i> feeling so full, don\'t you?</i>"'
         );
         this.dynStats("lus", 25);
-        //[Yes (gives the chocolate-egg stuffed ass from the Easter bunny)] [No (This just skips the "If Yes" paragraphs)]
+        // [Yes (gives the chocolate-egg stuffed ass from the Easter bunny)] [No (This just skips the "If Yes" paragraphs)]
         this.menu();
         this.addButton(0, "Yes", this.eggsInButt, true);
         this.addButton(1, "No", this.eggsInButt, false);
@@ -1621,7 +1621,7 @@ export class Bazaar extends BaseContent {
                 "\n\nJoey rubs your asshole some more, working his little masseuse fingers all over, helping it to relax once more.  You feel so deliciously full with that egg inside you, like you have a giant cock constantly fucking you.  It gives you a little thrill to know that both of you are packing this monster of an egg inside of you, and that he's feeling the same things you are.  You lower your legs and ass marveling at the sensations of the egg shifting around.\n\n"
             );
         }
-        //(Continue Here)
+        // (Continue Here)
         this.outputText(
             "The dainty little femboy hops back up onto the table, straddling your ass.  He gives his cock a few little strokes, pouring the warm chocolatey 'massage oil' right onto the small of your back.  Rivulets of the bunny-spunk cover your back, giving you goosebumps as they roll across you like velvety rivers.  His hands go to work once more, working the rich brown liquid into every pore, coating your back in chocolate.  He repeats his actions from before, his thumbs and knuckles working your flesh as though he were a master sculptor working clay."
         );
@@ -1733,7 +1733,7 @@ export class Bazaar extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Visit the Bizarre Bazaar at night.
+    // Visit the Bizarre Bazaar at night.
     public nightBazaarButtfuck(): void {
         this.clearOutput();
         this.outputText(
@@ -1750,81 +1750,81 @@ export class Bazaar extends BaseContent {
         this.outputText(
             "\n\nThe figure finally comes before you. Now that you're closer you can make him out better.  \"<i>What you doin' here?</i>\"  The large feline asks, a growl to his voice that leaves you wondering if he's annoyed or upset.  You do your best to calm yourself down and explain how you were just exploring the bazaar. To match the glowing eyes, a glinting grin of jagged teeth forms between the figure's black lips.  \"<i>I was just headin' there myself.  We should go together.  It's not safe to wander around at night, even for a big guy like me.</i>\"  A raspy snicker follows as a strong grip wraps around your shoulder.  \"<i>Let me just get some more cash and I'll treat ya.</i>\"  The feline purrs a generous offer as you feel him pulling you towards the tent he just exited from.  Your eyes peer around as the feline starts to drag you.  No one is around to help you.  The trail is completely vacant. An uneasy feeling quickly grows in the pit of your stomach.  Something is wrong."
         );
-        //open options [Escape][Wait][Assault]
+        // open options [Escape][Wait][Assault]
         this.menu();
         this.addButton(0, "Escape", this.escapeFromCertainRape);
         this.addButton(1, "Wait", this.waitOnStuff);
         this.addButton(2, "Assault", this.assaultYoRapistYo);
     }
 
-    //<Option 1 Escape>
+    // <Option 1 Escape>
     private escapeFromCertainRape(): void {
         this.clearOutput();
         this.outputText(
             "You tear yourself away from the feline. Wide, surprised eyes stare at you as you make a break for it.  You run as quickly as your legs can carry you, the echoes of the feline's feet padding behind you urging you to run faster.  You flee through the trees mindlessly, darting down whatever path you see first.  In your panic, though, you quickly wear yourself out.  How far did you run? Where are you now?  You lean against a trunk and pant for breath.  Thankfully no one seems to be around, including your pursuer.  You pat yourself off as you notice the bright lights of the bazaar nearby and retreat back to the well-lit collection of tents."
         );
-        //gtfo
+        // gtfo
         this.menu();
         this.addButton(0, "Next", this.enterTheBazaarAndMenu);
     }
 
-    //<Option 2 Wait>
+    // <Option 2 Wait>
     private waitOnStuff(): void {
         this.clearOutput();
         this.outputText(
             "Uncertainty plagues you as you wait to see what happens.  The large feline reaches the entrance of the large tent.  His free hand grips the tent and, as you let out a loud yelp, you are shoved forcefully through."
         );
-        //Pass go and collect 200 rape
+        // Pass go and collect 200 rape
         this.menu();
         this.addButton(0, "Next", this.collectSomeButtSmex);
     }
 
-    //<Option 3 Assault>
+    // <Option 3 Assault>
     private assaultYoRapistYo(): void {
         this.clearOutput();
-        //Strength Check
-        //[(If strength is less than 50)
+        // Strength Check
+        // [(If strength is less than 50)
         if (this.player.str < 50) {
             this.outputText(
                 'Intending to turn the tables, you grip the feline man\'s wrists and pull as hard as you can to wrest yourself away from the strange figure.  Your muscles fail you, though, and the feline quickly pins your arms behind your back.  Though you strain against them, the stronger hands hold you in place.  You spit silent curses at yourself for not spending more time at the gym.  "<i>Nice try.  It was almost... Cute.</i>" You hear the figure snicker again behind you before you are promptly shoved through the entrance to the large tent.'
             );
-            //Pass go collect 200 rape
+            // Pass go collect 200 rape
             this.menu();
             this.addButton(0, "Next", this.collectSomeButtSmex);
         }
-        //<Option 3 Assault>
-        //Strength Check
-        //[(If strength is 50 or more)
+        // <Option 3 Assault>
+        // Strength Check
+        // [(If strength is 50 or more)
         else {
             this.outputText(
                 "You huff your breath as the weaker figure tries to force you to cooperate.  You shake your head before quickly overpowering the figure. Your strong grip clenches him around the wrists, his fur soft under your fingers.  With a sharp grunt you bend them over and push their face into the dirt.  The feline snarls and attempts to yank his arms from your grasp as you hold both wrists in one hand.  You lean down to look him over, the light peeking through the nearby tent to reveal his orange fur with black stripes.  You have a large, burly tiger man pinned under you.  What do you do with him?"
             );
-            //open options [Leave][Abuse ass(70 or more corruption)]
+            // open options [Leave][Abuse ass(70 or more corruption)]
             this.menu();
             this.addButton(4, "Leave", this.assaultWinAndLeave);
             if (this.player.cor >= 66) this.addButton(0, "Abuse Ass", this.abuseHisAss);
         }
     }
 
-    //<Option 1 Leave>
+    // <Option 1 Leave>
     private assaultWinAndLeave(): void {
         this.clearOutput();
         this.outputText(
             "You shove the large tiger man across the dirt.  His annoyed growls are muffled by the dirt his face is sliding across.  You issue a warning about picking fights with those stronger than he is and leave him lying in the dirt, his pride battered and bruised.  The dirt under your heel grinds in the darkness as you turn and casually continue down the path until you find yourself back in the bazaar."
         );
-        //gtfo
+        // gtfo
         this.menu();
         this.addButton(0, "Next", this.enterTheBazaarAndMenu);
     }
 
-    //<Option 2 Abuse Ass(Visible with 70 or more corruption)>
+    // <Option 2 Abuse Ass(Visible with 70 or more corruption)>
     private abuseHisAss(): void {
         this.clearOutput();
         this.outputText(
             'Your tongue flicks from your lips at all the possibilities that course through your mind.  "<i>Lemme go!</i>"  The feline barks out from under you, though you have better ideas.  You move your free hand back and roughly pull down his pants, exposing his muscled rump to the cool, night air.  Feeling a firm cheek beneath your hand, you rub and squeeze it almost affectionately before swatting the cheek roughly, coaxing a strained grunt from the tiger man\'s mouth.'
         );
 
-        //[(If player doesn't have cock)
+        // [(If player doesn't have cock)
         if (!this.player.hasCock()) {
             this.outputText(
                 "\n\nDeciding to humiliate the poor fool, you begin to spank your hand against the tiger man's rear.  Your swats grow steadily more forceful and your slaps begin to grow louder and louder, filling the night air with the sound of your hand slapping firm cheeks.  You reduce the defiant growls uttered by the tiger man to soft whimpers and he slowly ceases his struggles and submits.  Your hand grips a cheek firmly, fingers digging into the abused flesh and feeling the warmth of the sting you've inflicted.  Tilting your head over, you can't help but smirk as the tiger's erect manhood juts out between his legs."
@@ -1833,18 +1833,18 @@ export class Bazaar extends BaseContent {
             this.outputText(
                 '\n\n"<i>What\'s that racket?</i>" You turn your head, hearing a low voice shout from inside the nearby tent.  With a snicker you shove the humiliated tiger to the ground and leave him exposed and aroused as the occupants of the tent pour out.  By the time they surround him you are long gone and back to the well-lit collection of tents in the bazaar.'
             );
-            //gtfo
+            // gtfo
             this.menu();
             this.addButton(0, "Next", this.enterTheBazaarAndMenu);
             return;
         }
-        //[[[(If player does have cock)
+        // [[[(If player does have cock)
         this.outputText(
             "\n\nYou decide to have a little fun with the muscular ass in front of you.  You hold the struggling tiger's wrists with one hand and fish out your " +
                 this.multiCockDescriptLight() +
                 " free from your [armor].  Your eyes drink in how the burly tiger man writhes under you.  He's completely at your mercy."
         );
-        //[(If multicock)
+        // [(If multicock)
         if (this.player.cockTotal() > 1)
             this.outputText(
                 "  Your hand strokes along your " +
@@ -1861,8 +1861,8 @@ export class Bazaar extends BaseContent {
             "  \"<i>O-OI!</i>\"  The tiger man shouts out, his head turning to try to see behind him.  With a grin on your lips you grip the hilt of [oneCock] and slap its length over the tiger's rump.  You can see the tint to the tiger man's cheek as he hears and feels your dick smacking his exposed ass.  Pre-cum drips down [oneCock] as you line yourself up, jamming it between the tiger's lovely mounds. He gives a surprised shout as your cockhead presses to his tiny, puckered hole."
         );
 
-        //Cocksize check
-        //[[If smallest cock is over 16 inches)
+        // Cocksize check
+        // [[If smallest cock is over 16 inches)
         if (this.player.smallestCockLength() >= 16) {
             this.outputText(
                 "\n\nYour lips part to let out a grunt of frustration.  Your cockhead is unable to break through the tiger man's tight resistance.  His struggles start to die down as [eachCock] continues to drool over his muscled rear."
@@ -1881,12 +1881,12 @@ export class Bazaar extends BaseContent {
                 "  The tiger man's muscled butt is soon glazed with your pre-cum.  Wet, slapping noises echo out into the alley as you grind your hips into his rear.  You can't help but think in the back of your head that the noise is stirring people inside the tent he came out of."
             );
         }
-        //[[(If largest cock is smaller than 16)
+        // [[(If largest cock is smaller than 16)
         else {
             this.outputText(
                 "\n\nYou jam your cockhead into the tiger man's tight ring.  He groans in displeasure under you as your persistent force pushes past his resistance."
             );
-            //[(If multicock)
+            // [(If multicock)
             if (this.player.cockTotal() > 1)
                 this.outputText(
                     "  One of your cocks slips into his hot, constricting confines, the remaining lengths pressed fast to the tiger man's rear and leaving glistening trails of eager fluids like markings on a bitch's ass."
@@ -1912,7 +1912,7 @@ export class Bazaar extends BaseContent {
                 ".  All his shouting stirs whoever resides in the tent he came out of."
             );
         }
-        //(combine cock size paths)
+        // (combine cock size paths)
         this.outputText(
             "\n\nAs you continue to use the burly tiger man pinned beneath you, three figures exit from the tent.  Two of the figures are large and bulky and are joined by a third, slender man.  They watch as you abuse the tiger under you.  You glance over at them and can't help but notice smiles on their faces."
         );
@@ -1928,12 +1928,12 @@ export class Bazaar extends BaseContent {
                 this.multiCockDescriptLight() +
                 " back into your [armor].  The trio are too drunk to stop you as you leave.  Turning your head back to glance at the tiger, you see the three figures surrounding the victim and your lips curl into a pleased smile.  Within moments you return to the lights of the Bazaar."
         );
-        //gtfo
+        // gtfo
         this.menu();
         this.addButton(0, "Next", this.enterTheBazaarAndMenu);
     }
 
-    //((If waited, or failed assault  //Pass go collect 200 rape))
+    // ((If waited, or failed assault  //Pass go collect 200 rape))
     private collectSomeButtSmex(): void {
         this.clearOutput();
         this.outputText(
@@ -2002,7 +2002,7 @@ export class Bazaar extends BaseContent {
         if (this.player.cockTotal() > 1) this.outputText("s");
         this.outputText(".");
 
-        //[(If muticock 3 or more)
+        // [(If muticock 3 or more)
         if (this.player.cockTotal() >= 3)
             this.outputText(
                 "\n\nNot to be left out, each of the two men take a hand off of your limbs and grip one of your " +
@@ -2010,7 +2010,7 @@ export class Bazaar extends BaseContent {
                     ".  Your head swings back onto the table you're laid out on, mouth open wide as you moan and arch your back.  Each hand goes at an individual rhythm as sex overwhelms your thoughts.  The hands pinning you down are gone, though you're unable to focus on escaping."
             );
 
-        //(if cock(s)
+        // (if cock(s)
         if (this.player.hasCock())
             this.outputText(
                 "\n\nThe satyr pumps your length in his hand.  Your hips buck madly as the hand spreads your own pre-cum over your shaft with lewd schlicking noises."
@@ -2086,14 +2086,14 @@ export class Bazaar extends BaseContent {
                 this.buttDescript() +
                 " is slapped over and over by the low-hanging satyr balls.  The satyr lets out a pleased groan every now and then as your body shivers and trembles from his length hilting in you over and over and over.  He doesn't look like he'll stop anytime soon, though.  You turn your head to see the tiger's barbed, nine inch cock.  The stubby barbs make your skin tingle with each graze across your cheek.  On the other hand, the bear's cock looks shorter, about seven inches though by far the thickest meat in the bunch.  The massive girth would most likely hurt your jaw if you tried to wrap your mouth around it. What do you do?"
         );
-        //open menu of options [Suck tiger] [Suck bear] [Suck none]
+        // open menu of options [Suck tiger] [Suck bear] [Suck none]
         this.menu();
         this.addButton(0, "Suck Tiger", this.suckOffATiger);
         this.addButton(1, "Suck Bear", this.suckOffABear);
         this.addButton(2, "Suck None", this.suckOffNone);
     }
 
-    //<option 1 Suck tiger>
+    // <option 1 Suck tiger>
     private suckOffATiger(): void {
         this.clearOutput();
         this.outputText(
@@ -2101,11 +2101,11 @@ export class Bazaar extends BaseContent {
                 this.buttDescript() +
                 " as you suck off the tiger, his hands gripping your head as he throatfucks your eager mouth.  You slither your tongue under his shaft and let out a muffled moan as the barbs tingle over your throat, lips, and tongue.  With a rough thrust he buries your face into his furred groin, making his heavy sack slap your cheek.  The tiger man fucks your face furiously as you feel the satyr finishing in your ass.  Thick tiger cock continues to pound down your throat as warmth spreads within your gut, satyr cum flooding your inner walls."
         );
-        //bumpy road
+        // bumpy road
         this.finalGayFinallee(0);
     }
 
-    //<option 2 Suck bear>
+    // <option 2 Suck bear>
     private suckOffABear(): void {
         this.clearOutput();
         this.outputText(
@@ -2116,21 +2116,21 @@ export class Bazaar extends BaseContent {
             "\n\n\"<i>Bitches know the better cock when they see it.</i>\"  The bear lords over the tiger, making the angry feline snarl. Thinking quickly, you reach up a hand and begin to stroke along the barbed member while pushing the massive bear girth further past your lips, suppressing gags while the fat cockhead blunts against the back of your throat.  A hand grips the back of your head as the bear's hips begin to rock in and out of your wet mouth.  Soon, your lips are wet with the combination of saliva and copious bearspunk.  The hand on your head pushes you against the bear's groin, nestling your face in his furred, musky crotch while burying every inch of his fat cock down your mouth and plugging your throat.  Your eyes begin to water from the strain on your jaw and throat as the fat bear cock pulses, filling your mouth and pouring pre-cum straight down your gullet.  The bear begins to fuck your face, giving you a chance to gasp for breath every now and then.  This goes on for some time before you feel the satyr's cock pulse in your ass, spooge quickly filling you up.  Thick bear-cock pounds down your throat and distracts you from the satyr, though you can't help but feel the warmth of cum spreading deep within your gut and flooding your inner walls."
         );
 
-        //crazy steel jaw
+        // crazy steel jaw
         this.finalGayFinallee(1);
     }
 
-    //<Option 3 Suck none>
+    // <Option 3 Suck none>
     private suckOffNone(): void {
         this.clearOutput();
         this.outputText(
             "Unwilling to wrap your lips around either of their lengths, you reach up with your hands and start to stroke the pair of arguing men off.  Each ceases their bickering to look down at you in confusion.  Their dazed expressions don't last long, quickly melting into pleasured, half-lidded gazes and moans.  Their drooling cockheads glaze your cheeks white with their pre-cum, making you reek of their strong, salty musk.  They seem eager for more and press their hard dicks over your face, prodding your closed lips with hot, pre-slicked cockheads.  You shut your eyes, one hand from each of them pressing the back of your head more into their needy cocks.  Your lips part just enough to taste their copious pre-cum, moans escaping your parted lips quietly as the satyr begins ramming his hips against you hard while his pent-up balls unload in your ass and paint your lower body with cum."
         );
-        //no furry plx
+        // no furry plx
         this.finalGayFinallee(2);
     }
 
-    //all options lead to here for now
+    // all options lead to here for now
     private finalGayFinallee(road: number = 0): void {
         this.outputText(
             "\n\nWith a wet pop, the satyr pulls his spent manhood from your " +
@@ -2163,8 +2163,8 @@ export class Bazaar extends BaseContent {
                 this.assholeDescript() +
                 " dripping orc spunk like a leaking dam."
         );
-        //now it's time for the choice before to matter, we got three endings here, one for each choice.
-        //((Ending 1 , suck tiger, //bumpy road))
+        // now it's time for the choice before to matter, we got three endings here, one for each choice.
+        // ((Ending 1 , suck tiger, //bumpy road))
         if (road == 0) {
             this.outputText(
                 '\n\nYou are hardly able to focus on the barbed cock in your mouth, moaning around the hard cock as you look at the small bump on your belly.  With your hands servicing the bear as the tiger fills your mouth, the two men haven\'t left either side of your head.  With a wet pop, the tiger man pulls his saliva-coated prick from your mouth and he moves to the orc, shoving him aside with a grunt.  "<i>My turn now.</i>"  He grins impishly as he lines himself up with your hole, your ' +
@@ -2221,13 +2221,13 @@ export class Bazaar extends BaseContent {
             this.dynStats("sen", 5);
             this.model.time.days++;
             this.model.time.hours = 6;
-            //Lust sated
-            //Gained 1 lust draft, lost a few gems(9 or so?)
+            // Lust sated
+            // Gained 1 lust draft, lost a few gems(9 or so?)
             this.inventory.takeItem(this.consumables.L_DRAFT, this.camp.returnToCampUseOneHour);
-            //Time set to morning
+            // Time set to morning
             this.statScreenRefresh();
         }
-        //((Ending 2 , suck bear, //crazy steel jaw))
+        // ((Ending 2 , suck bear, //crazy steel jaw))
         else if (road == 1) {
             this.outputText(
                 '\n\nYou are hardly able to focus on the girthy bear-cock in your mouth, moaning around the fat cock as you look at the small bump on your belly.  With your hands servicing the tiger as the bear fills your mouth, the two men haven\'t left either side of your head.  With a wet pop the bear pulls his saliva-coated prick from your mouth and he moves to the orc, shoving him aside with a grunt.  "<i>My turn now.</i>"  He grins impishly as he lines himself up with your hole, your ' +
@@ -2251,7 +2251,7 @@ export class Bazaar extends BaseContent {
             this.outputText(
                 "\n\nWith a raspy growl the bear is last, his thick dick spasming as he grinds his fat cock over your cum soaked walls while he grows closer and closer to adding his own spunk to your collection.  He leans down over your laying form and gives you a wink.  "
             );
-            //[(If cock(s))
+            // [(If cock(s))
             if (this.player.hasCock())
                 this.outputText(
                     "His hand dips down to play with your " +
@@ -2290,13 +2290,13 @@ export class Bazaar extends BaseContent {
             this.dynStats("sen", 5);
             this.model.time.days++;
             this.model.time.hours = 6;
-            //Lust sated
-            //Gained 1 lust draft, lost a few gems(9 or so?)
+            // Lust sated
+            // Gained 1 lust draft, lost a few gems(9 or so?)
             this.inventory.takeItem(this.consumables.L_DRAFT, this.camp.returnToCampUseOneHour);
-            //Time set to morning
+            // Time set to morning
             this.statScreenRefresh();
         }
-        //((Ending 3 , suck none, //No furry plx))
+        // ((Ending 3 , suck none, //No furry plx))
         else {
             this.outputText(
                 "\n\nYou pant labored breaths as your skin tingles from the orc's flood of thick spunk.  Shakily, your hands continue to stroke off the bear and tiger's cocks and they continue to press to your cheeks and glaze your skin with pre-cum.  You feel the bear make a move towards the orc, but the green muscleman snarls and leans forward possessively.  \"<i>This Zug's hole!  Zug not done!</i>\"  The orc growls out as he protects his territory.  The bear backs away carefully and returns his dick to your face, pressing his cock back against your lips in determination to at least get some action.  The orc's fat cock stiffens as it revs back up for round two (Or in your case, round 3).  He pounds into your spunk-filled confines and you cry out in pleasure.  The two cocks in front of your face immediately thrust past your open lips, their cockheads rubbing together and filling your mouth with gushes of pre-cum.  Your tongue flicks over them to push them from your mouth but it only encourages them."
@@ -2339,19 +2339,19 @@ export class Bazaar extends BaseContent {
             this.outputText(
                 'You re-dress yourself quickly before realizing that you have something extra:  A bimbo potion with a green ribbon tied to it.  A note at the end of the ribbon reads: "<i>Zug think you make good orc bitch. Drink this and Zug fuck all your holes!</i>"  The writing is a childish scrawl, and you can barely make out the rest of the words.  By the stains on the paper, it\'s obvious the orc got too excited to properly finish his note, broken English or otherwise.  You pocket the bimbo potion and leave the tent to head back to the bazaar in the morning light.\n\n'
             );
-            //Lust sated
-            //Gained 1 Bimbo brew, lost a few gems(9 or so?)
-            //Time set to morning
+            // Lust sated
+            // Gained 1 Bimbo brew, lost a few gems(9 or so?)
+            // Time set to morning
             this.player.orgasm();
             this.dynStats("sen", 5);
             this.model.time.days++;
 
             this.model.time.hours = 6;
-            //Lust sated
-            //Gained 1 lust draft, lost a few gems(9 or so?)
+            // Lust sated
+            // Gained 1 lust draft, lost a few gems(9 or so?)
             this.inventory.takeItem(this.consumables.BIMBOLQ, this.camp.returnToCampUseOneHour);
             this.statScreenRefresh();
-            //Time set to morning
+            // Time set to morning
         }
     }
 }

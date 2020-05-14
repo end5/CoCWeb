@@ -40,12 +40,12 @@ export class Forest extends BaseContent {
         var chooser: number = Forest.rand(5);
 
         // var temp2: number = 0;
-        //Every tenth exploration finds a pumpkin if eligible!
+        // Every tenth exploration finds a pumpkin if eligible!
         if (
             this.player.statusAffectv1(StatusAffects.ExploredDeepwoods) % 10 == 0 &&
             this.isHalloween()
         ) {
-            //If Fera isn't free yet...
+            // If Fera isn't free yet...
             if (
                 this.player.findPerk(PerkLib.FerasBoonBreedingBitch) < 0 &&
                 this.player.findPerk(PerkLib.FerasBoonAlpha) < 0
@@ -55,7 +55,7 @@ export class Forest extends BaseContent {
                     return;
                 }
             }
-            //Fera is free!
+            // Fera is free!
             else {
                 if (this.flags[kFLAGS.FERAS_TRAP_SPRUNG_YEAR] == 0) {
                     if (this.date.fullYear > this.flags[kFLAGS.FERAS_GLADE_EXPLORED_YEAR]) {
@@ -65,7 +65,7 @@ export class Forest extends BaseContent {
                 }
             }
         }
-        //Hel jumps you for sex.
+        // Hel jumps you for sex.
         if (
             this.flags[kFLAGS.PC_PROMISED_HEL_MONOGAMY_FUCKS] == 1 &&
             this.flags[kFLAGS.HEL_RAPED_TODAY] == 0 &&
@@ -76,7 +76,7 @@ export class Forest extends BaseContent {
             kGAMECLASS.helScene.helSexualAmbush();
             return;
         }
-        //Every 5th exploration encounters d2 if hasnt been met yet and factory done
+        // Every 5th exploration encounters d2 if hasnt been met yet and factory done
         if (
             this.flags[kFLAGS.DISCOVERED_DUNGEON_2_ZETAZ] == 0 &&
             this.player.statusAffectv1(StatusAffects.ExploredDeepwoods) % 5 == 0 &&
@@ -102,7 +102,7 @@ export class Forest extends BaseContent {
             this.flags[kFLAGS.DISCOVERED_DUNGEON_2_ZETAZ]++;
             return;
         }
-        //Tamani 20% encounter rate
+        // Tamani 20% encounter rate
         if (
             this.flags[kFLAGS.TAMANI_TIME_OUT] == 0 &&
             Forest.rand(5) == 0 &&
@@ -130,16 +130,16 @@ export class Forest extends BaseContent {
             this.flags[kFLAGS.ERLKING_ENCOUNTER_COUNTER]++;
         }
 
-        //Faerie
+        // Faerie
         if (chooser == 0) {
             this.faerie.encounterFaerie();
             return;
         }
-        //Tentacle monster
+        // Tentacle monster
         if (chooser == 1) {
-            //Reset hilarious shit
+            // Reset hilarious shit
             if (this.player.gender > 0) this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00247] = 0;
-            //Tentacle avoidance chance due to dangerous plants
+            // Tentacle avoidance chance due to dangerous plants
             if (
                 this.player.hasKeyItem("Dangerous Plants") >= 0 &&
                 this.player.inte / 2 > Forest.rand(50)
@@ -167,7 +167,7 @@ export class Forest extends BaseContent {
                 return;
             }
         }
-        //Corrupted Glade
+        // Corrupted Glade
         if (chooser == 2) {
             if (Forest.rand(4) == 0) {
                 this.trappedSatyr();
@@ -183,24 +183,24 @@ export class Forest extends BaseContent {
         }
     }
 
-    //Explore forest
+    // Explore forest
     public exploreForest(): void {
         this.player.exploredForest++;
 
         trace("FOREST EVENT CALLED");
         var chooser: number = Forest.rand(4);
         // var temp2: number = 0;
-        //Cut bee encounter rate 50%
+        // Cut bee encounter rate 50%
         if (chooser == 3 && Forest.rand(2)) chooser = Forest.rand(3);
-        //Quick changes:
-        //If monk is fully corrupted, encounter him less (unless haz ferriiite).
+        // Quick changes:
+        // If monk is fully corrupted, encounter him less (unless haz ferriiite).
         if (chooser == 1 && kGAMECLASS.monk >= 2) {
             this.temp = Forest.rand(4);
             if (this.temp == 0) chooser = 0;
             if (this.temp == 1) chooser = 2;
             if (this.temp == 2) chooser = 3;
         }
-        //Helia monogamy fucks
+        // Helia monogamy fucks
         if (
             this.flags[kFLAGS.PC_PROMISED_HEL_MONOGAMY_FUCKS] == 1 &&
             this.flags[kFLAGS.HEL_RAPED_TODAY] == 0 &&
@@ -211,7 +211,7 @@ export class Forest extends BaseContent {
             kGAMECLASS.helScene.helSexualAmbush();
             return;
         }
-        //Raise Jojo chances for furrite
+        // Raise Jojo chances for furrite
         if (
             this.player.findPerk(PerkLib.PiercedFurrite) >= 0 &&
             Forest.rand(5) == 0 &&
@@ -219,7 +219,7 @@ export class Forest extends BaseContent {
         ) {
             chooser = 1;
         }
-        //If Jojo lives in camp, never encounter him
+        // If Jojo lives in camp, never encounter him
         if (
             this.player.findStatusAffect(StatusAffects.PureCampJojo) >= 0 ||
             this.flags[kFLAGS.JOJO_DEAD_OR_GONE] == 1
@@ -227,7 +227,7 @@ export class Forest extends BaseContent {
             chooser = Forest.rand(3);
             if (chooser >= 1) chooser++;
         }
-        //Chance to discover deepwoods
+        // Chance to discover deepwoods
         if (
             this.player.exploredForest >= 20 &&
             this.player.findStatusAffect(StatusAffects.ExploredDeepwoods) < 0
@@ -240,7 +240,7 @@ export class Forest extends BaseContent {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //Essy every 20 explores or so
+        // Essy every 20 explores or so
         if (
             Forest.rand(100) <= 1 &&
             this.player.gender > 0 &&
@@ -250,7 +250,7 @@ export class Forest extends BaseContent {
             this.essrayle.essrayleMeetingI();
             return;
         }
-        //Chance of dick-dragging! 10% + 10% per two foot up to 30%
+        // Chance of dick-dragging! 10% + 10% per two foot up to 30%
         this.temp = 10 + ((this.player.longestCockLength() - this.player.tallness) / 24) * 10;
         if (this.temp > 30) this.temp = 30;
         if (
@@ -261,7 +261,7 @@ export class Forest extends BaseContent {
             this.bigJunkForestScene();
             return;
         }
-        //Marble randomness
+        // Marble randomness
         if (
             this.player.exploredForest % 50 == 0 &&
             this.player.exploredForest > 0 &&
@@ -270,7 +270,7 @@ export class Forest extends BaseContent {
             this.player.findStatusAffect(StatusAffects.Marble) >= 0 &&
             this.flags[kFLAGS.MARBLE_WARNING] == 0
         ) {
-            //can be triggered one time after Marble has been met, but before the addiction quest starts.
+            // can be triggered one time after Marble has been met, but before the addiction quest starts.
             this.clearOutput();
             this.outputText(
                 "While you're moving through the trees, you suddenly hear yelling ahead, followed by a crash and a scream as an imp comes flying at high speed through the foliage and impacts a nearby tree.  The small demon slowly slides down the tree before landing at the base, still.  A moment later, a familiar-looking cow-girl steps through the bushes brandishing a huge two-handed hammer with an angry look on her face."
@@ -281,18 +281,18 @@ export class Forest extends BaseContent {
             this.outputText(
                 "\n\nShe gives a wistful sigh. \"<i>I haven't really explored much since getting to the farm.  Between the jobs Whitney gives me, keeping in practice with my hammer, milking to make sure I don't get too full, cooking, and beauty sleep, I don't get a lot of free time to do much else.</i>\"  She sighs again.  \"<i>Well, I need to get this back, so I'll see you later!</i>\""
             );
-            //end event
+            // end event
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         if (chooser == 0) {
-            //Determines likelyhood of imp/goblins
-            //Below - goblin, Equal and up - imp
+            // Determines likelyhood of imp/goblins
+            // Below - goblin, Equal and up - imp
             var impGob: number = 5;
             trace("IMP/Gobb");
 
-            //Dicks + lots of cum boosts goblin probability
-            //Vags + Fertility boosts imp probability
+            // Dicks + lots of cum boosts goblin probability
+            // Vags + Fertility boosts imp probability
             if (this.player.totalCocks() > 0) impGob--;
             if (this.player.hasVagina()) impGob++;
             if (this.player.totalFertility() >= 30) impGob++;
@@ -301,7 +301,7 @@ export class Forest extends BaseContent {
                 if (impGob <= 3) impGob += 2;
                 else if (impGob < 7) impGob = 7;
             }
-            //Imptacular Encounter
+            // Imptacular Encounter
             if (Forest.rand(10) < impGob) {
                 if (this.player.level >= 8 && Forest.rand(2) == 0) {
                     kGAMECLASS.impScene.impLordEncounter();
@@ -312,9 +312,9 @@ export class Forest extends BaseContent {
                 this.spriteSelect(29);
                 return;
             }
-            //Encounter Gobbalin!
+            // Encounter Gobbalin!
             else {
-                //Tamani 25% of all goblin encounters encounter rate
+                // Tamani 25% of all goblin encounters encounter rate
                 if (
                     Forest.rand(4) <= 0 &&
                     this.flags[kFLAGS.TAMANI_TIME_OUT] == 0 &&
@@ -330,7 +330,7 @@ export class Forest extends BaseContent {
                     } else this.tamaniScene.encounterTamani();
                     return;
                 }
-                //50% of the time, goblin assassin!
+                // 50% of the time, goblin assassin!
                 if (this.player.level >= 10 && Forest.rand(2) == 0) {
                     kGAMECLASS.goblinAssassinScene.goblinAssassinEncounter();
                     return;
@@ -526,14 +526,14 @@ export class Forest extends BaseContent {
                 this.startCombat(new Jojo());
             }
         }
-        //Tentacles 25% of the time...
+        // Tentacles 25% of the time...
         if (chooser == 2) {
             trace("TRACE TENTACRUELS");
             this.outputText("", true);
             this.temp = Forest.rand(5);
-            //Oh noes, tentacles!
+            // Oh noes, tentacles!
             if (this.temp == 0) {
-                //Tentacle avoidance chance due to dangerous plants
+                // Tentacle avoidance chance due to dangerous plants
                 if (
                     this.player.hasKeyItem("Dangerous Plants") >= 0 &&
                     this.player.inte / 2 > Forest.rand(50)
@@ -604,7 +604,7 @@ export class Forest extends BaseContent {
                 this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
-            //CORRUPTED GLADE
+            // CORRUPTED GLADE
             if (this.temp == 2 || this.temp >= 4) {
                 if (Forest.rand(4) == 0) {
                     this.trappedSatyr();
@@ -612,7 +612,7 @@ export class Forest extends BaseContent {
                 }
                 this.corruptedGlade.intro();
             }
-            //Trip on a root!
+            // Trip on a root!
             if (this.temp == 3) {
                 this.outputText(
                     "You trip on an exposed root, scraping yourself somewhat, but otherwise the hour is uneventful.",
@@ -624,7 +624,7 @@ export class Forest extends BaseContent {
                 return;
             }
         }
-        //Bee-girl encounter
+        // Bee-girl encounter
         if (chooser == 3) {
             if (Forest.rand(10) == 0) {
                 this.outputText(
@@ -637,13 +637,13 @@ export class Forest extends BaseContent {
             this.beeGirlScene.beeEncounter();
         }
     }
-    //[FOREST]
-    //[RANDOM SCENE IF CHARACTER HAS AT LEAST ONE COCK LARGER THAN THEIR HEIGHT, AND THE TOTAL COMBINED WIDTH OF ALL THEIR COCKS IS TWELVE INCHES OR GREATER]
+    // [FOREST]
+    // [RANDOM SCENE IF CHARACTER HAS AT LEAST ONE COCK LARGER THAN THEIR HEIGHT, AND THE TOTAL COMBINED WIDTH OF ALL THEIR COCKS IS TWELVE INCHES OR GREATER]
     public bigJunkForestScene(lake: boolean = false): void {
         this.outputText("", true);
         var x: number = this.player.longestCock();
 
-        //PARAGRAPH 1
+        // PARAGRAPH 1
         this.outputText("Walking along the ", false);
         if (lake) this.outputText("grassy and muddy shores of the lake", false);
         else this.outputText("various paths of the forest", false);
@@ -692,8 +692,8 @@ export class Forest extends BaseContent {
         }
         this.outputText("\n\n", false);
 
-        //PARAGRAPH 2
-        //FOR NON-CENTAURS]
+        // PARAGRAPH 2
+        // FOR NON-CENTAURS]
         if (!this.player.isTaur()) {
             this.outputText(
                 "The impending erection can't seem to be stopped.  Your sexual frustration forces stiffness into your " +
@@ -705,7 +705,7 @@ export class Forest extends BaseContent {
                     ".",
                 false
             );
-            //IF CHARACTER HAS GIANT BREASTS ADD SENTENCE
+            // IF CHARACTER HAS GIANT BREASTS ADD SENTENCE
             if (this.player.biggestTitSize() >= 35) {
                 if (lake)
                     this.outputText(
@@ -726,7 +726,7 @@ export class Forest extends BaseContent {
                         false
                     );
             }
-            //IF CHARACTER HAS A BALLS ADD SENTENCE
+            // IF CHARACTER HAS A BALLS ADD SENTENCE
             if (this.player.balls > 0) {
                 this.outputText(
                     "  Your " +
@@ -745,7 +745,7 @@ export class Forest extends BaseContent {
                 if (lake) this.outputText("into the waters of the nearby lake.", false);
                 else this.outputText("onto the fertile soil of the forest.", false);
             }
-            //IF CHARACTER HAS A VAGINA ADD SENTENCE
+            // IF CHARACTER HAS A VAGINA ADD SENTENCE
             if (this.player.vaginas.length >= 1) {
                 this.outputText(
                     "  Your " +
@@ -757,7 +757,7 @@ export class Forest extends BaseContent {
                         " above.",
                     false
                 );
-                //IF CHARACTER HAS A DROOLING PUSSY ADD SENTENCE
+                // IF CHARACTER HAS A DROOLING PUSSY ADD SENTENCE
                 if (this.player.vaginas[0].vaginalWetness >= VAGINA_WETNESS_DROOLING) {
                     this.outputText(
                         "  Juices stream from your womanhood and begin pooling on the dirt and twigs beneath you.  ",
@@ -776,7 +776,7 @@ export class Forest extends BaseContent {
                 }
             }
         }
-        //FOR CENTAURS
+        // FOR CENTAURS
         else if (this.player.lowerBody == LOWER_BODY_TYPE_CENTAUR) {
             this.outputText(
                 "  The impending erection can't seem to be stopped.  Your sexual frustration forces stiffness into your " +
@@ -788,7 +788,7 @@ export class Forest extends BaseContent {
                     ".",
                 false
             );
-            //IF CHARACTER HAS GIANT BREASTS ADD SENTENCE
+            // IF CHARACTER HAS GIANT BREASTS ADD SENTENCE
             if (this.player.biggestTitSize() >= 35) {
                 if (lake)
                     this.outputText(
@@ -809,7 +809,7 @@ export class Forest extends BaseContent {
                         false
                     );
             }
-            //IF CHARACTER HAS A BALLS ADD SENTENCE
+            // IF CHARACTER HAS A BALLS ADD SENTENCE
             if (this.player.balls > 0) {
                 this.outputText(
                     "  Your " +
@@ -827,7 +827,7 @@ export class Forest extends BaseContent {
                 if (lake) this.outputText("into the waters of the nearby lake.", false);
                 else this.outputText("onto the fertile soil of the forest floor.", false);
             }
-            //IF CHARACTER HAS A VAGINA ADD SENTENCE
+            // IF CHARACTER HAS A VAGINA ADD SENTENCE
             if (this.player.vaginas.length >= 1) {
                 this.outputText(
                     "  Your " +
@@ -839,7 +839,7 @@ export class Forest extends BaseContent {
                         " above.",
                     false
                 );
-                //IF CHARACTER HAS A DROOLING PUSSY ADD SENTENCE
+                // IF CHARACTER HAS A DROOLING PUSSY ADD SENTENCE
                 if (this.player.vaginas[0].vaginalWetness >= VAGINA_WETNESS_DROOLING) {
                     if (lake)
                         this.outputText(
@@ -855,9 +855,9 @@ export class Forest extends BaseContent {
             }
         }
         this.outputText("\n\n", false);
-        //PARAGRAPH 3
+        // PARAGRAPH 3
         this.outputText("You realize you are effectively trapped here by your own body.", false);
-        //CORRUPTION BASED CHARACTER'S VIEW OF SITUATION
+        // CORRUPTION BASED CHARACTER'S VIEW OF SITUATION
         if (this.player.cor < 33)
             this.outputText(
                 "  Panic slips into your heart as you realize that if any dangerous predator were to find you in this state, you'd be completely defenseless.  You must find a way to regain your mobility immediately!",
@@ -875,13 +875,13 @@ export class Forest extends BaseContent {
             );
 
         if (lake) {
-            //SCENE END = IF CHARACTER HAS FULL WINGS ADD SENTENCE
+            // SCENE END = IF CHARACTER HAS FULL WINGS ADD SENTENCE
             if (this.player.canFly())
                 this.outputText(
                     "  You extend your wings and flap as hard as you can until at last, you manage to lighten the bulk of your body.  It helps just enough to let you drag your genitals out of the mud and back to camp.  The ordeal takes nearly an hour for you to return and deal with.",
                     false
                 );
-            //Taurs
+            // Taurs
             else if (this.player.lowerBody == LOWER_BODY_TYPE_CENTAUR)
                 this.outputText(
                     "  You struggle and work your equine legs against the wet ground.  Your " +
@@ -889,7 +889,7 @@ export class Forest extends BaseContent {
                         " have consistent trouble finding footing as the mud fails to provide enough leverage to lift your bulk.  You breath in deeply and lean side to side, trying to find some easier vertical leverage beneath your feet.  Eventually, with a crude crawl, your centaur legs manages to push the bulk of your body onto more solid ground.  With great difficulty, you spend the next hour shuffling your genitals back to camp.",
                     false
                 );
-            //SCENE END = FOR ALL OTHER CHARACTERS
+            // SCENE END = FOR ALL OTHER CHARACTERS
             else
                 this.outputText(
                     "  You struggle and push with your " +
@@ -902,13 +902,13 @@ export class Forest extends BaseContent {
                     false
                 );
         } else {
-            //SCENE END = IF CHARACTER HAS FULL WINGS ADD SENTENCE
+            // SCENE END = IF CHARACTER HAS FULL WINGS ADD SENTENCE
             if (this.player.canFly())
                 this.outputText(
                     "  You extend your wings and flap as hard as you can, until at last, you manage to lighten the bulk of your body.  It helps just enough to let you drag your genitals out of the forest and back to camp.  The ordeal takes nearly an hour for you to return and deal with.",
                     false
                 );
-            //SCENE END IF CHARACTER HAS CENTAUR BODY
+            // SCENE END IF CHARACTER HAS CENTAUR BODY
             else if (this.player.lowerBody == LOWER_BODY_TYPE_CENTAUR)
                 this.outputText(
                     "  You struggle and work your equine legs against the soft dirt.  Your " +
@@ -916,7 +916,7 @@ export class Forest extends BaseContent {
                         " have consistent trouble finding footing as the ground fails to provide enough leverage to lift your bulk.  You breath in deeply and lean side to side, until eventually, your feet brace against the various roots of the trees around you.  With a crude crawl, your centaur legs manage to shuffle your body and genitals out of the forest and back to camp.",
                     false
                 );
-            //SCENE END = FOR ALL OTHER CHARACTERS
+            // SCENE END = FOR ALL OTHER CHARACTERS
             else
                 this.outputText(
                     "  You struggle and push with your " +
@@ -933,9 +933,9 @@ export class Forest extends BaseContent {
         this.fatigue(5);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Catch a Satyr using the corrupt glade and either leave or have your way with him.
-    //Suggested to Fen as the MaleXMale submission.
-    //Will be standalone
+    // Catch a Satyr using the corrupt glade and either leave or have your way with him.
+    // Suggested to Fen as the MaleXMale submission.
+    // Will be standalone
     private trappedSatyr(): void {
         this.outputText("", true);
         this.spriteSelect(99);
@@ -949,7 +949,7 @@ export class Forest extends BaseContent {
             false
         );
 
-        //(Player lacks a penis:
+        // (Player lacks a penis:
         if (!this.player.hasCock()) {
             this.outputText(
                 "You can't really see any way to take advantage of this scenario, so you simply turn back and leave the way you came.",
@@ -957,14 +957,14 @@ export class Forest extends BaseContent {
             );
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //Player returns to camp)
-        //(Player has penis:
+        // Player returns to camp)
+        // (Player has penis:
         else {
             this.outputText(
                 "You can see his goat tail flitting happily above his tight, squeezable asscheeks, the loincloth discarded beside him failing to obscure his black cherry, ripe for the picking.  Do you take advantage of his distraction and ravage his ass while he's helpless?\n\n",
                 false
             );
-            //[Yes] [No]
+            // [Yes] [No]
             this.simpleChoices(
                 "Ravage",
                 this.rapeSatyr,
@@ -980,7 +980,7 @@ export class Forest extends BaseContent {
         }
     }
 
-    //[=No=]
+    // [=No=]
     private ignoreSatyr(): void {
         this.outputText("", true);
         this.spriteSelect(99);
@@ -995,25 +995,25 @@ export class Forest extends BaseContent {
         this.dynStats("lus", 5 + this.player.lib / 20);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Player returns to camp
+    // Player returns to camp
     private rapeSatyr(): void {
         this.outputText("", true);
         this.spriteSelect(99);
         var x: number = this.player.biggestCockIndex();
 
-        //(Low Corruption)
+        // (Low Corruption)
         if (this.player.cor < 33)
             this.outputText(
                 "For a moment you hesitate... taking someone from behind without their consent seems wrong... but then again you doubt a satyr would pass on the opportunity if you were in his position.",
                 false
             );
-        //(Medium Corruption)
+        // (Medium Corruption)
         else if (this.player.cor < 66)
             this.outputText(
                 "You smirk; normally you would have given this some thought, but the idea of free booty is all you need to make a decision.",
                 false
             );
-        //High Corruption
+        // High Corruption
         else
             this.outputText(
                 "You grin; this is not even a choice!  Passing on free anal is just not something a decent person does, is it?",
@@ -1085,19 +1085,19 @@ export class Forest extends BaseContent {
             false
         );
 
-        //(Low Cum Amount)
+        // (Low Cum Amount)
         if (this.player.cumQ() < 250)
             this.outputText(
                 "  As much as you'd love to fill his belly so full of spunk he'd look pregnant, you just can't muster any more, and pull out with a sigh.\n\n",
                 false
             );
-        //(Medium Cum Amount)
+        // (Medium Cum Amount)
         else if (this.player.cumQ() < 1000)
             this.outputText(
                 "  You cum and cum, filling every crevice of his anal passage with warm jism, the slutty goatman doesn't seem to mind this in the least.  When you're finally spent, you pull out with a sigh, and watch as your cum backflows out of his ass to fall on the grass below.\n\n",
                 false
             );
-        //(Large Cum Amount)
+        // (Large Cum Amount)
         else
             this.outputText(
                 "  You cum and cum, filling every crevice of his anal passage with warm jism, and the slutty goatman doesn't seem to mind this in the least - yet.  You push him to his limits; cum backflows out of his ass and around your spewing prick, but still you dump more and more of your heavy load inside your now-willing cock-sleeve, inflating his belly like a balloon.  When you're finally spent, you pull out with a sigh and look at your handiwork; cum pours out of his ass like an open tap and his belly is absolutely bulging, making him look pregnant.\n\n",
@@ -1127,7 +1127,7 @@ export class Forest extends BaseContent {
             false
         );
         this.player.orgasm();
-        //[Again][Leave]
+        // [Again][Leave]
         this.simpleChoices(
             "Again",
             this.secondSatyrFuck,
@@ -1142,7 +1142,7 @@ export class Forest extends BaseContent {
         );
     }
 
-    //[=Leave=]
+    // [=Leave=]
     private dontRepeatFuckSatyr(): void {
         this.outputText("", true);
         this.spriteSelect(99);
@@ -1154,7 +1154,7 @@ export class Forest extends BaseContent {
         );
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[=Again=]
+    // [=Again=]
     private secondSatyrFuck(): void {
         var x: number = this.player.cockThatFits(this.monster.analCapacity());
         if (x < 0) x = this.player.smallestCockIndex();

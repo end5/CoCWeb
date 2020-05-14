@@ -52,7 +52,7 @@ export class Monster extends Creature {
         this.game.statScreenRefresh();
     }
     protected doNext(eventNo: any): void {
-        //Now typesafe
+        // Now typesafe
         this.game.doNext(eventNo);
     }
     protected combatMiss(): boolean {
@@ -79,7 +79,7 @@ export class Monster extends Creature {
     protected get armors(): ArmorLib {
         return this.game.armors;
     }
-    //For enemies
+    // For enemies
     public bonusHP: number = 0;
     private _long: string =
         "<b>You have encountered an unitialized  Please report this as a bug</b>.";
@@ -91,11 +91,11 @@ export class Monster extends Creature {
         this._long = value;
     }
 
-    //Is a creature a 'plural' encounter - mob, etc.
+    // Is a creature a 'plural' encounter - mob, etc.
     public plural: boolean = false;
     public imageName: string = "";
 
-    //Lust vulnerability
+    // Lust vulnerability
     public lustVuln: number = 1;
 
     public static TEMPERMENT_AVOID_GRAPPLES: number = 0;
@@ -111,24 +111,24 @@ export class Monster extends Creature {
      */
     public temperment: number = Monster.TEMPERMENT_AVOID_GRAPPLES;
 
-    //Used for special attacks.
+    // Used for special attacks.
     public special1: any = undefined;
     public special2: any = undefined;
     public special3: any = undefined;
 
-    //he
+    // he
     public pronoun1: string = "";
     public get Pronoun1(): string {
         if (this.pronoun1 == "") return "";
         return this.pronoun1.substr(0, 1).toUpperCase() + this.pronoun1.substr(1);
     }
-    //him
+    // him
     public pronoun2: string = "";
     public get Pronoun2(): string {
         if (this.pronoun2 == "") return "";
         return this.pronoun2.substr(0, 1).toUpperCase() + this.pronoun2.substr(1);
     }
-    //3: Possessive his
+    // 3: Possessive his
     public pronoun3: string = "";
     public get Pronoun3(): string {
         if (this.pronoun3 == "") return "";
@@ -400,7 +400,7 @@ export class Monster extends Creature {
 
         //// REQUIRED !!!
         //// In debug mode will throw an error for uninitialized monster
-        //checkMonster();
+        // checkMonster();
     }
 
     private _checkCalled: boolean = false;
@@ -606,7 +606,7 @@ export class Monster extends Creature {
      * @return damage
      */
     public eOneAttack(): number {
-        //Determine damage - str modified by enemy toughness!
+        // Determine damage - str modified by enemy toughness!
         var damage: number = this.calcDamage();
         if (damage > 0) damage = this.player.takeDamage(damage);
         return damage;
@@ -617,7 +617,7 @@ export class Monster extends Creature {
      */
     protected attackSucceeded(): boolean {
         var attack: boolean = true;
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0) {
             attack = attack && this.handleBlind();
         }
@@ -642,7 +642,7 @@ export class Monster extends Creature {
             attacks--;
         }
         this.removeStatusAffect(StatusAffects.Attacks);
-        //			if (!game.combatRoundOver()) game.doNext(1);
+        // 			if (!game.combatRoundOver()) game.doNext(1);
         this.game.combatRoundOver(); //The doNext here was not required
     }
 
@@ -676,7 +676,7 @@ export class Monster extends Creature {
 
     public outputAttack(damage: number): void {
         if (damage <= 0) {
-            //Due to toughness or amor...
+            // Due to toughness or amor...
             if (Monster.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
                 this.outputText(
                     "You absorb and deflect every " +
@@ -798,13 +798,13 @@ export class Monster extends Creature {
     }
 
     private playerDodged(): boolean {
-        //Determine if dodged!
+        // Determine if dodged!
         var dodge: number = this.player.speedDodge(this);
         if (dodge > 0) {
             this.outputPlayerDodged(dodge);
             return true;
         }
-        //Determine if evaded
+        // Determine if evaded
         if (
             !(this.short === "Kiha") &&
             this.player.findPerk(PerkLib.Evade) >= 0 &&
@@ -820,7 +820,7 @@ export class Monster extends Creature {
             this.outputText(" attack.\n", false);
             return true;
         }
-        //("Misdirection"
+        // ("Misdirection"
         if (
             this.player.findPerk(PerkLib.Misdirection) >= 0 &&
             Monster.rand(100) < 10 &&
@@ -835,7 +835,7 @@ export class Monster extends Creature {
             );
             return true;
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Monster.rand(100) < 6) {
             this.outputText(
                 "With your incredible flexibility, you squeeze out of the way of " +
@@ -858,7 +858,7 @@ export class Monster extends Creature {
         if (this.findStatusAffect(StatusAffects.Fear) >= 0) {
             if (!this.handleFear()) return;
         }
-        //Exgartuan gets to do stuff!
+        // Exgartuan gets to do stuff!
         if (
             this.game.player.findStatusAffect(StatusAffects.Exgartuan) >= 0 &&
             this.game.player.statusAffectv2(StatusAffects.Exgartuan) == 0 &&
@@ -869,25 +869,25 @@ export class Monster extends Creature {
         if (this.findStatusAffect(StatusAffects.Constricted) >= 0) {
             if (!this.handleConstricted()) return;
         }
-        //If grappling... TODO implement grappling
-        //			if (game.gameState == 2) {
-        //				game.gameState = 1;
-        //temperment - used for determining grapple behaviors
-        //0 - avoid grapples/break grapple
-        //1 - lust determines > 50 grapple
-        //2 - random
-        //3 - love grapples
+        // If grappling... TODO implement grappling
+        // 			if (game.gameState == 2) {
+        // 				game.gameState = 1;
+        // temperment - used for determining grapple behaviors
+        // 0 - avoid grapples/break grapple
+        // 1 - lust determines > 50 grapple
+        // 2 - random
+        // 3 - love grapples
         /*
-         //		if(temperment == 0) eGrappleRetreat();
+         // 		if(temperment == 0) eGrappleRetreat();
          if (temperment == 1) {
-         //			if(lust < 50) eGrappleRetreat();
+         // 			if(lust < 50) eGrappleRetreat();
          mainClassPtr.doNext(3);
          return;
          }
          mainClassPtr.outputText("Lust Placeholder!!", false);
          mainClassPtr.doNext(3);
          return;*/
-        //			}
+        // 			}
         this.performCombatAction();
     }
 
@@ -895,7 +895,7 @@ export class Monster extends Creature {
      * Called if monster is constricted. Should return true if constriction is ignored and need to proceed with ai
      */
     protected handleConstricted(): boolean {
-        //Enemy struggles -
+        // Enemy struggles -
         this.game.outputText(
             "Your prey pushes at your tail, twisting and writhing in an effort to escape from your tail's tight bonds.",
             false
@@ -1055,14 +1055,14 @@ export class Monster extends Creature {
     public teased(lustDelta: number): void {
         this.outputDefaultTeaseReaction(lustDelta);
         if (lustDelta > 0) {
-            //Imp mob uber interrupt!
+            // Imp mob uber interrupt!
             if (this.findStatusAffect(StatusAffects.ImpUber) >= 0) {
                 // TODO move to proper class
                 this.outputText(
                     "\nThe imps in the back stumble over their spell, their loincloths tenting obviously as your display interrupts their casting.  One of them spontaneously orgasms, having managed to have his spell backfire.  He falls over, weakly twitching as a growing puddle of whiteness surrounds his defeated form.",
                     false
                 );
-                //(-5% of max enemy HP)
+                // (-5% of max enemy HP)
                 this.HP -= this.bonusHP * 0.05;
                 this.lust -= 15;
                 this.removeStatusAffect(StatusAffects.ImpUber);
@@ -1571,7 +1571,7 @@ export class Monster extends Creature {
         if (this.findStatusAffect(StatusAffects.MilkyUrta) >= 0) {
             this.game.urtaQuest.milkyUrtaTic();
         }
-        //Countdown
+        // Countdown
         if (this.findStatusAffect(StatusAffects.TentacleCoolDown) >= 0) {
             this.addStatusValue(StatusAffects.TentacleCoolDown, 1, -1);
             if (
@@ -1623,7 +1623,7 @@ export class Monster extends Creature {
             );
         }
         if (this.findStatusAffect(StatusAffects.Sandstorm) >= 0) {
-            //Blinded:
+            // Blinded:
             if (this.player.findStatusAffect(StatusAffects.Blind) >= 0) {
                 this.outputText(
                     "<b>You blink the sand from your eyes, but you're sure that more will get you if you don't end it soon!</b>\n\n"
@@ -1672,9 +1672,9 @@ export class Monster extends Creature {
             }
         }
         if (this.findStatusAffect(StatusAffects.IzmaBleed) >= 0) {
-            //Countdown to heal
+            // Countdown to heal
             this.addStatusValue(StatusAffects.IzmaBleed, 1, -1);
-            //Heal wounds
+            // Heal wounds
             if (this.statusAffectv1(StatusAffects.IzmaBleed) <= 0) {
                 this.outputText(
                     "The wounds you left on " +
@@ -1685,7 +1685,7 @@ export class Monster extends Creature {
                 );
                 this.removeStatusAffect(StatusAffects.IzmaBleed);
             }
-            //Deal damage if still wounded.
+            // Deal damage if still wounded.
             else {
                 var store: number = (this.eMaxHP() * (3 + Monster.rand(4))) / 100;
                 store = this.game.doDamage(store);
@@ -1715,9 +1715,9 @@ export class Monster extends Creature {
             this.addStatusValue(StatusAffects.Timer, 1, -1);
         }
         if (this.findStatusAffect(StatusAffects.LustStick) >= 0) {
-            //LoT Effect Messages:
+            // LoT Effect Messages:
             switch (this.statusAffectv1(StatusAffects.LustStick)) {
-                //First:
+                // First:
                 case 1:
                     if (this.plural)
                         this.outputText(
@@ -1757,7 +1757,7 @@ export class Monster extends Creature {
                             false
                         );
                     break;
-                //Second:
+                // Second:
                 case 2:
                     if (this.plural)
                         this.outputText(
@@ -1784,7 +1784,7 @@ export class Monster extends Creature {
                             false
                         );
                     break;
-                //Third:
+                // Third:
                 case 3:
                     if (this.plural)
                         this.outputText(
@@ -1809,7 +1809,7 @@ export class Monster extends Creature {
                             false
                         );
                     break;
-                //Fourth:
+                // Fourth:
                 case 4:
                     if (this.plural)
                         this.outputText(
@@ -1834,7 +1834,7 @@ export class Monster extends Creature {
                             false
                         );
                     break;
-                //Fifth and repeat:
+                // Fifth and repeat:
                 default:
                     if (this.plural)
                         this.outputText(
@@ -1860,14 +1860,14 @@ export class Monster extends Creature {
                     break;
             }
             this.addStatusValue(StatusAffects.LustStick, 1, 1);
-            //Damage = 5 + bonus score minus
-            //Reduced by lust vuln of course
+            // Damage = 5 + bonus score minus
+            // Reduced by lust vuln of course
             this.lust += Math.round(
                 this.lustVuln * (5 + this.statusAffectv2(StatusAffects.LustStick))
             );
         }
         if (this.findStatusAffect(StatusAffects.PCTailTangle) >= 0) {
-            //when Entwined
+            // when Entwined
             this.outputText(
                 "You are bound tightly in the kitsune's tails.  <b>The only thing you can do is try to struggle free!</b>\n\n"
             );
@@ -1903,7 +1903,7 @@ export class Monster extends Creature {
                 );
             this.game.dynStats("lus", 1 + Monster.rand(8));
         }
-        //[LUST GAINED PER ROUND] - Omnibus
+        // [LUST GAINED PER ROUND] - Omnibus
         if (this.findStatusAffect(StatusAffects.LustAura) >= 0) {
             if (this.player.lust < 33)
                 this.outputText(
@@ -1947,14 +1947,14 @@ export class Monster extends Creature {
     }
 
     public handleAwardItemText(itype?: ItemType): void {
-        //New Function, override this function in child classes if you want a monster to output special item drop text
+        // New Function, override this function in child classes if you want a monster to output special item drop text
         if (itype != undefined)
             this.outputText("\nThere is " + itype.longName + " on your defeated opponent.  ");
     }
 
     public handleAwardText(): void {
-        //New Function, override this function in child classes if you want a monster to output special gem and XP text
-        //This function doesn’t add the gems or XP to the player, it just provides the output text
+        // New Function, override this function in child classes if you want a monster to output special gem and XP text
+        // This function doesn’t add the gems or XP to the player, it just provides the output text
         if (this.gems == 1)
             this.outputText(
                 "\n\nYou snag a single gem and " +
@@ -1970,8 +1970,8 @@ export class Monster extends Creature {
     }
 
     public handleCombatLossText(inDungeon: boolean, gemsLost: number): number {
-        //New Function, override this function in child classes if you want a monster to output special text after the player loses in combat
-        //This function doesn’t take the gems away from the player, it just provides the output text
+        // New Function, override this function in child classes if you want a monster to output special text after the player loses in combat
+        // This function doesn’t take the gems away from the player, it just provides the output text
         if (!inDungeon) {
             this.outputText("\n\nYou'll probably come to your senses in eight hours or so");
             if (this.player.gems > 1) this.outputText(", missing " + gemsLost + " gems.");

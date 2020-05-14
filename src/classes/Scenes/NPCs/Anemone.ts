@@ -27,20 +27,20 @@ export class Anemone extends Monster {
         return 1;
     }
 
-    //Apply the effects of AnemoneVenom()
+    // Apply the effects of AnemoneVenom()
     public applyVenom(str: number = 1): void {
-        //First application
+        // First application
         if (this.player.findStatusAffect(StatusAffects.AnemoneVenom) < 0)
             this.player.createStatusAffect(StatusAffects.AnemoneVenom, 0, 0, 0, 0);
-        //Gain some lust
+        // Gain some lust
         this.game.dynStats("lus", 2 * str);
 
-        //Loop through applying 1 point of venom at a time.
+        // Loop through applying 1 point of venom at a time.
         while (str > 0) {
             str--;
-            //Str bottommed out, convert to lust
+            // Str bottommed out, convert to lust
             if (this.player.str < 2) this.game.dynStats("lus", 2);
-            //Lose a point of str.
+            // Lose a point of str.
             else {
                 Anemone.showStatDown("str");
                 // strDown.visible = true;
@@ -48,9 +48,9 @@ export class Anemone extends Monster {
                 this.player.str--;
                 this.player.addStatusValue(StatusAffects.AnemoneVenom, 1, 1);
             }
-            //Spe bottomed out, convert to lust
+            // Spe bottomed out, convert to lust
             if (this.player.spe < 2) this.game.dynStats("lus", 2);
-            //Lose a point of spe.
+            // Lose a point of spe.
             else {
                 Anemone.showStatDown("spe");
                 // speDown.visible = true;

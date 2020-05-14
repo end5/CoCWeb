@@ -24,11 +24,11 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
             0
         );
         this.pregnancy.addPregnancyEventSet(PregnancyStore.PREGNANCY_PLAYER, 100);
-        //Event: 0 (= not pregnant),  1,  2 (< 100)
+        // Event: 0 (= not pregnant),  1,  2 (< 100)
         CoC.timeAwareClassAdd(this);
     }
 
-    //Implementation of TimeAwareInterface
+    // Implementation of TimeAwareInterface
     public timeChange(): boolean {
         this.pregnancy.pregnancyAdvance();
         if (this.pregnancy.isPregnant && this.pregnancy.incubation == 0)
@@ -47,18 +47,18 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
     public timeChangeLarge(): boolean {
         return false;
     }
-    //End of Interface Implementation
+    // End of Interface Implementation
 
     public fSpiderMorphGreeting(): void {
         this.outputText("", true);
         this.spriteSelect(73);
-        //Egg sack sometimes
+        // Egg sack sometimes
         if (this.pregnancy.event == 2) {
-            //If she's past event 2 then she has laid the eggs
+            // If she's past event 2 then she has laid the eggs
             this.findASpiderMorphEggSack();
             return;
         }
-        //*Greeting Event (1st time):
+        // *Greeting Event (1st time):
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00270] == 0) {
             this.outputText(
                 "You go exploring into the swamp, doing your best to ignore the oppressive heat and moisture of the place.  Insects buzz and flit about you constantly in an attempt to drive you mad with their incessant buzzing.  You swat a particularly noisy one from your " +
@@ -72,13 +72,13 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
                 false
             );
         }
-        //*Greeting Event (Repeat)
+        // *Greeting Event (Repeat)
         else
             this.outputText(
                 "You go exploring in the swamp, and before you get far, a female spider-morph appears!  She's clearly different than the last one you ran into, though many of her features remain the same.  You realize she's no more than a dozen paces away and slowly approaching with a strange glint in her eye.\n\n",
                 false
             );
-        //Menu for either
+        // Menu for either
         this.outputText("What do you do?", false);
         this.simpleChoices(
             "Fight",
@@ -92,22 +92,22 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
             "Leave",
             this.runFromFSpiderMorph
         );
-        //Incremement 'times encountered spider-girls'
+        // Incremement 'times encountered spider-girls'
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00270]++;
     }
 
-    //Selecting fight starts combat and eventParsers to 1 to display the combat menu and enemy description.
+    // Selecting fight starts combat and eventParsers to 1 to display the combat menu and enemy description.
     private fightFSpiderMorph(): void {
         this.startCombat(new FemaleSpiderMorph());
         this.spriteSelect(73);
         this.playerMenu();
     }
 
-    //Run
+    // Run
     private runFromFSpiderMorph(): void {
         this.outputText("", true);
         this.spriteSelect(73);
-        //Selecting has a 50% chance of displaying the following:
+        // Selecting has a 50% chance of displaying the following:
         if (FemaleSpiderMorphScene.rand(2) == 0) {
             this.outputText(
                 "You turn around and flee before she can get any closer.  After running for a few moments, you realize the spider-woman isn't trying to pursue you at all.  The last image you see of her is her looking down at the ground with an expression of incredible melancholy.",
@@ -115,14 +115,14 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
             );
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //The other 50% will start combat and then immediately attempt to run.
+        // The other 50% will start combat and then immediately attempt to run.
         else {
             this.startCombat(new FemaleSpiderMorph());
             kGAMECLASS.runAway();
         }
     }
 
-    //*Try to Talk
+    // *Try to Talk
     private talkToFSpiderMorph(): void {
         this.outputText("", true);
         this.spriteSelect(73);
@@ -135,7 +135,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
                 "The spider-girl twiddles her fingers nervously for a moment until you give her a nod.  You did mean to talk to her, and it seems that it's worked out a little better than you intended.  She takes a few tiny steps forward before sitting down cross-legged on some ferns.  Feeling no threat from the strange monster-girl, you sit down across from her and let her ply you with questions about your adventures, and once she's finished, you do the same.\n\n",
                 false
             );
-            //(OPTION 1 - SEX)
+            // (OPTION 1 - SEX)
             if (FemaleSpiderMorphScene.rand(2) == 0) {
                 this.outputText(
                     "After you've both had your fill of talk, the spider-girl asks, \"<i>I-I w-was wondering if you'd do me a favor... I have certain... urges, and",
@@ -167,7 +167,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
                     this.declinedCrazyFemaleSpiderMorphSexFunTimes
                 );
             }
-            //(OPTION 2 - GIFT)
+            // (OPTION 2 - GIFT)
             else {
                 this.outputText(
                     "After you've both had your fill of talk, the spider-girl smiles and gives you a gentle hug.  She trills, \"<i>Thank you so much for talking to me!  It feels so good to actually... communicate with someone again.  I can't thank you enough, but here, take this.  Maybe it will help you on your journey.</i>\"\n\n",
@@ -176,20 +176,20 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
                 this.inventory.takeItem(this.consumables.S_GOSSR, this.camp.returnToCampUseOneHour);
             }
         }
-        //*Try to Talk - Aggressive Variant
+        // *Try to Talk - Aggressive Variant
         else {
             this.outputText(
                 "You hold your hands up non-threateningly and ask the spider-girl why she's trying to sneak up on you.\n\n",
                 false
             );
-            //(Start combat and immediately call a web attack)
+            // (Start combat and immediately call a web attack)
             var femaleSpiderMorph: FemaleSpiderMorph = new FemaleSpiderMorph();
             this.startCombat(femaleSpiderMorph);
             femaleSpiderMorph.spiderMorphWebAttack();
         }
     }
 
-    //*OPTION 1 Yes - Let Her Fuck You
+    // *OPTION 1 Yes - Let Her Fuck You
     private voluntaryFemaleSpiderMorphRapesYou(): void {
         this.startCombat(new FemaleSpiderMorph());
         this.spriteSelect(73);
@@ -197,7 +197,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
         this.loseToFemaleSpiderMorph();
     }
 
-    //*OPTION 1 No (Declined sex)
+    // *OPTION 1 No (Declined sex)
     private declinedCrazyFemaleSpiderMorphSexFunTimes(): void {
         this.outputText("", true);
         this.outputText(
@@ -207,12 +207,12 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //*Defeat Female
-    //*Summary: Webs PC down, suckles nipple and injects aphrodisiac into each breast, then sixty-nine's, ending with webbing bukkake?
+    // *Defeat Female
+    // *Summary: Webs PC down, suckles nipple and injects aphrodisiac into each breast, then sixty-nine's, ending with webbing bukkake?
     private defeatFemale(): void {
         this.outputText("", true);
         this.spriteSelect(73);
-        //(Noncombat Intro)
+        // (Noncombat Intro)
         if (!this.getGame().inCombat) {
             this.outputText(
                 "You agree to have sex with the poor, pent-up arachnid maid, and ",
@@ -278,7 +278,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
                 false
             );
         }
-        //(Combat Intro: HP)
+        // (Combat Intro: HP)
         else if (this.player.HP < 1) {
             this.outputText(
                 "You drop to the ground, utterly defeated and unable to resist the cruel spider-kin's intentions any longer.  She kicks you in the side, the hard carapace of her foot digging into you quite painfully.  Rolling onto your back from the impact, you look up at her with fear in your eyes as she deftly removes your equipment.  She turns about, takes a slow, sensuous step back, and begins wiggling her sizable backside at you, almost teasing you with it.  You take the moment to get a better look at her, and your eyes trace up her lissom, carapace-coated legs to her heart-shaped ass before finally settling on the bobbing, heavy weight of her abdomen.\n\n",
@@ -302,7 +302,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
                 false
             );
         }
-        //(Combat Intro: Lust Loss)
+        // (Combat Intro: Lust Loss)
         else {
             this.outputText(
                 "You drop to the ground and begin to furiously finger your " +
@@ -340,7 +340,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
                 false
             );
         }
-        //START FUNFUNSEXYTIMES)
+        // START FUNFUNSEXYTIMES)
         this.outputText(
             "The spider-morph licks her lips and rubs her hands over her ass and abdomen, moaning lewdly as she gives in to her long-neglected sexual needs.  Narrowing slightly, her glittering purple eyes lock onto your exposed " +
                 this.nippleDescript(0) +
@@ -496,21 +496,21 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
             "During your dreamless sleep, your body registers the feeling of your restraints being removed, but you slumber on, completely unaware.",
             false
         );
-        //[end]
+        // [end]
         this.player.orgasm();
         this.dynStats("lib", 2, "sen", 1);
         if (!this.getGame().inCombat) this.doNext(this.camp.returnToCampUseOneHour);
         else this.cleanupAfterCombat();
     }
 
-    //*Defeat Male
+    // *Defeat Male
     private spiderMorphFemaleRidesACawk(): void {
-        //*SUMMARY:  PC is tied down and has a web-condom sprayed around their dick, then a webbing cock-ring.  The PC is then ridden hard, bit numerous times, and never able to cum until pain lances through his (balls/cock) from the lack of release.  Finally, she bites PC's neck and the PC cums, inflating web-condom of various size.
+        // *SUMMARY:  PC is tied down and has a web-condom sprayed around their dick, then a webbing cock-ring.  The PC is then ridden hard, bit numerous times, and never able to cum until pain lances through his (balls/cock) from the lack of release.  Finally, she bites PC's neck and the PC cums, inflating web-condom of various size.
         this.outputText("", true);
         this.spriteSelect(73);
         var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         if (x < 0) x = 0;
-        //(Noncombat Intro:)
+        // (Noncombat Intro:)
         if (!this.getGame().inCombat) {
             this.outputText(
                 "You shuck your " +
@@ -535,7 +535,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
                 false
             );
         }
-        //(All:)
+        // (All:)
         if (!this.getGame().inCombat)
             this.outputText("You shrug and step back to lay down in the soft moss,", false);
         else if (this.player.HP < 1) this.outputText("You collapse into the soft moss,", false);
@@ -731,14 +731,14 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
         else this.cleanupAfterCombat();
     }
 
-    //*Defeat Male - Too Big
-    //Summary: web-spooling around dick, then webjob.
+    // *Defeat Male - Too Big
+    // Summary: web-spooling around dick, then webjob.
     private femaleSpiderMorphTooBigWebRape(): void {
         this.outputText("", true);
         this.spriteSelect(73);
         var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         if (x < 0) x = 0;
-        //(Consensual)
+        // (Consensual)
         if (!this.getGame().inCombat) {
             this.outputText(
                 "You hastily remove your " +
@@ -787,7 +787,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
                 false
             );
         }
-        //(COMBAT LOSS)
+        // (COMBAT LOSS)
         else {
             this.outputText("You drop to the ground and ", false);
             if (this.player.lust > 99)
@@ -824,7 +824,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
                 false
             );
         }
-        //(All)
+        // (All)
         this.outputText(
             "You start to protest, but the dominatrix squats down, resting the smooth carapace of her abdomen directly on top of your " +
                 this.cockDescript(x) +
@@ -950,7 +950,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
         }
     }
 
-    //*Victory Intro
+    // *Victory Intro
     public defeatASpiderBitch(): void {
         this.outputText("", true);
         this.spriteSelect(73);
@@ -994,8 +994,8 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
         } else this.cleanupAfterCombat();
     }
 
-    //*Victory Female
-    //*Summary: Make her bite herself in the tit and inject aphrodisiac venom, then scissor (or brief clit-fuck)
+    // *Victory Female
+    // *Summary: Make her bite herself in the tit and inject aphrodisiac venom, then scissor (or brief clit-fuck)
     private fSpiderMorphRape(): void {
         this.outputText("", true);
         this.spriteSelect(73);
@@ -1155,8 +1155,8 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
         else this.cleanupAfterCombat();
     }
 
-    //*Victory Male
-    //Summary:  Bind her hands with vines and fuck the immobilized spider-girl. BORING
+    // *Victory Male
+    // Summary:  Bind her hands with vines and fuck the immobilized spider-girl. BORING
     private fSpiderMorphRapeDude(): void {
         var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         if (x < 0) x = 0;
@@ -1299,8 +1299,8 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
         else this.cleanupAfterCombat();
     }
 
-    //*Victory Anal:
-    //Summary: Fuck her ass until she loses control of her spinnerets and starts spraying webs willy-nilly.
+    // *Victory Anal:
+    // Summary: Fuck her ass until she loses control of her spinnerets and starts spraying webs willy-nilly.
     private evilSpiderGirlVictoryAnal(): void {
         var x: number = this.player.cockThatFits(this.monster.analCapacity());
         if (x == -1) x = 0;
@@ -1448,7 +1448,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
         else this.cleanupAfterCombat();
     }
 
-    //*Egg Sack Find
+    // *Egg Sack Find
     private findASpiderMorphEggSack(): void {
         this.outputText("", true);
         this.spriteSelect(73);

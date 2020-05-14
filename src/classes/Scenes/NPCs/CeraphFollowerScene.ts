@@ -16,9 +16,9 @@ export class CeraphFollowerScene extends NPCAwareContent {
     // CERAPH_ROLEPLAY_AS_DOMINIKA_COUNT: number = 389;
     // CERAPH_HIDING_DICK: number = 288;
     // TIMES_CERAPH_PORTAL_FUCKED: number = 438;
-    //Capacity = 115;
+    // Capacity = 115;
 
-    //Is Ceraph a follower?
+    // Is Ceraph a follower?
     public ceraphIsFollower(): boolean {
         return (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00286] > 0 ||
@@ -47,7 +47,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         this.spriteSelect(87);
     }
 
-    //[Actually Ceraph] -
+    // [Actually Ceraph] -
     public ceraphFollowerAppearance(output: boolean = true): void {
         if (output) this.outputText("", true);
         this.spriteSelect(87);
@@ -267,11 +267,11 @@ export class CeraphFollowerScene extends NPCAwareContent {
         this.addButton(5, "Dominika", dominika);
         this.addButton(6, "Marble Play", marbles);
         this.addButton(7, "Urta Play", urta);
-        //choices("Defeat Her",winRapeChoices,"Lose to Her",ceraphRapesYouBADDAWGYODIGGITY,"",0,"",0,"",0,"",0,"Dominika P.",dominika,"Marble Play",marbles,"Urta Play",urta,"Back",ceraphFollowerAppearance);
+        // choices("Defeat Her",winRapeChoices,"Lose to Her",ceraphRapesYouBADDAWGYODIGGITY,"",0,"",0,"",0,"",0,"Dominika P.",dominika,"Marble Play",marbles,"Urta Play",urta,"Back",ceraphFollowerAppearance);
         this.addButton(9, "Back", this.ceraphFollowerAppearance);
     }
 
-    //*Ceraph is Defeated #4 - Offers Funtimes (Zeddited)
+    // *Ceraph is Defeated #4 - Offers Funtimes (Zeddited)
     public submissiveCeraphOffer(): void {
         this.spriteSelect(7);
         this.outputText("", true);
@@ -308,7 +308,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
             false
         );
 
-        //[Display Rape Options + Collar Option]
+        // [Display Rape Options + Collar Option]
         if (this.player.gender > 0) {
             this.outputText(
                 "Do you fuck her? (And if so, which of your body parts do you do it with?)",
@@ -317,7 +317,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
 
             var dicking = undefined;
             var buttsmexing = undefined;
-            //Dickings ahoyu!
+            // Dickings ahoyu!
             if (this.player.hasCock()) {
                 dicking = this.ceraphScene.maleFuckCeraphsPussy;
                 if (this.player.cockThatFits(this.monster.analCapacity()) != -1)
@@ -359,7 +359,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
             );
     }
 
-    //Collar Ceraph After 4th Defeat + Rape: (Zeddited)
+    // Collar Ceraph After 4th Defeat + Rape: (Zeddited)
     private collarCeraph(): void {
         this.outputText("", true);
         this.spriteSelect(7);
@@ -422,7 +422,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
             false
         );
 
-        //[Carry] [Pierce]
+        // [Carry] [Pierce]
         this.simpleChoices(
             "Carry",
             this.carryCarephsToken,
@@ -437,7 +437,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         );
     }
 
-    //[Carry]
+    // [Carry]
     private carryCarephsToken(): void {
         this.outputText("", true);
         this.spriteSelect(7);
@@ -456,7 +456,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         this.outputText("<b>(Received Key Item: Onyx Token)</b>\n\n", false);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00287] = 1;
         this.player.createKeyItem("Onyx Token - Ceraph's", 0, 0, 0, 0);
-        //[Display Rape Options + Collar Option]
+        // [Display Rape Options + Collar Option]
         if (this.player.gender > 0) {
             this.outputText(
                 "Do you fuck her as a disobedient demon, one last time? (And if so, which of your body parts do you do it with?)",
@@ -465,7 +465,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
 
             var dicking = undefined;
             var buttsmexing = undefined;
-            //Dickings ahoyu!
+            // Dickings ahoyu!
             if (this.player.hasCock()) {
                 dicking = this.ceraphScene.maleFuckCeraphsPussy;
                 if (this.player.cockThatFits(this.monster.analCapacity()) != -1)
@@ -497,11 +497,11 @@ export class CeraphFollowerScene extends NPCAwareContent {
         }
     }
 
-    //[Pierce]
+    // [Pierce]
     private getCeraphFollowerPiercing(): void {
         this.outputText("", true);
         this.spriteSelect(7);
-        //Set belly button pierced as active
+        // Set belly button pierced as active
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00286] = 1;
         this.outputText("You bare your midriff to your new slut with ", false);
         if (this.player.cor < 40) this.outputText("a little hesitation.", false);
@@ -522,7 +522,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
                 ', before you go, would you like to fuck your slut one of the old ways, one last time?</i>"',
             false
         );
-        //[Display Rape Options + Collar Option]
+        // [Display Rape Options + Collar Option]
         if (this.player.gender > 0) {
             this.outputText(
                 "\n\nDo you fuck her as a disobedient demon, one last time? (And if so, which of your body parts do you do it with?)",
@@ -531,7 +531,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
 
             var dicking = undefined;
             var buttsmexing = undefined;
-            //Dickings ahoyu!
+            // Dickings ahoyu!
             if (this.player.hasCock()) {
                 dicking = this.ceraphScene.maleFuckCeraphsPussy;
                 if (this.player.cockThatFits(this.monster.analCapacity()) != -1)
@@ -563,11 +563,11 @@ export class CeraphFollowerScene extends NPCAwareContent {
         }
     }
 
-    //*Decision to Display Demonic Dick or Demur (pretty sure Fen mentioned wanting this -Z)
+    // *Decision to Display Demonic Dick or Demur (pretty sure Fen mentioned wanting this -Z)
     private cawkTawgle(): void {
         this.outputText("", true);
         this.spriteSelect(87);
-        //Off
+        // Off
         if (this.flags[kFLAGS.CERAPH_HIDING_DICK] == 0) {
             this.outputText(
                 "You tell Ceraph that you want her to hide her demonic cock when she's around you.  Your collared demoness nods, lowering her eyelids seductively.  She slides a hand up the front of her latex panties, stroking her defiled member through the material once before concealing its form with fingers pointed down.\n\n",
@@ -581,7 +581,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
                 false
             );
 
-            //(set DemonDomDongDisplay to OFF)
+            // (set DemonDomDongDisplay to OFF)
             this.flags[kFLAGS.CERAPH_HIDING_DICK] = 1;
         } else {
             this.outputText(
@@ -595,18 +595,18 @@ export class CeraphFollowerScene extends NPCAwareContent {
                     '?</i>"  Clearly, this particular magical feat is very enjoyable to her, on a personal level.',
                 false
             );
-            //set DemonDomDongDisplay to ON)
+            // set DemonDomDongDisplay to ON)
             this.flags[kFLAGS.CERAPH_HIDING_DICK] = 0;
         }
-        //To Ceraph follower menu
+        // To Ceraph follower menu
         this.doNext(this.ceraphFollowerAppearance);
     }
 
-    //Volunteer for new fetishes!
+    // Volunteer for new fetishes!
     private CeraphHandsOutNewFetishesLikePervCandy(): void {
         this.outputText("", true);
         this.spriteSelect(87);
-        //*Fetish level = 0
+        // *Fetish level = 0
         if (this.flags[kFLAGS.PC_FETISH] == 0) {
             this.outputText(
                 "Ceraph comes forward on your command, whispering calmly as she ",
@@ -627,13 +627,13 @@ export class CeraphFollowerScene extends NPCAwareContent {
                     false
                 );
             this.outputText("\n\n", false);
-            //(NOT PIERCED)
+            // (NOT PIERCED)
             if (this.player.earsPierced == 0)
                 this.outputText(
                     "The demon places a hand on your forehead and rubs your temples.  Numbness spreads through your body with every touch, until you can barely feel a thing.  She snaps an earring into your left ear, and dizziness washes over you.  A moment later she's piercing the other side, and the now-familiar vertigo that accompanies it seems to come and go quicker than before.  ",
                     false
                 );
-            //(PIERCED)
+            // (PIERCED)
             else
                 this.outputText(
                     "The demon rubs your ears in her hands, numbing them slightly.  A gradual buzz builds behind your eyes, accompanied by a wave of dizziness.  You blink and try to shake your head, but as numb as you are, it's quite difficult.  After a few moments, the odd sensations pass, returning normal feeling to your ears and " +
@@ -670,7 +670,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
             this.flags[kFLAGS.PC_FETISH] = 1;
             this.dynStats("lus", 25, "cor", 1);
         }
-        //*Fetish level = 1
+        // *Fetish level = 1
         else if (this.flags[kFLAGS.PC_FETISH] == 1) {
             this.outputText(
                 "Ceraph giggles as she closes in on you once again.  Sighing, you lie there and allow your slave to massage your temples, using her magic to paralyze and numb your body.  ",
@@ -691,7 +691,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
                     false
                 );
             }
-            //If already pierced
+            // If already pierced
             if (this.player.nipplesPierced > 0)
                 this.outputText(
                     "She's all too happy to build up the suspense as she lays  her hands on your pierced nipples, giving them a gentle tweak that you can barely feel.  \"<i>Don't worry, " +
@@ -699,7 +699,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
                         '.  Imbuing your new fetish into you through these will be easy.  Just tell me all about which fetishes make you hottest while I do it, and see if you can guess your new kink.</i>"\n\n',
                     false
                 );
-            //Business as usual!
+            // Business as usual!
             this.outputText(
                 "The demon doesn't give you a chance to reply; instead, she focuses on ",
                 false
@@ -742,7 +742,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
             }
             this.flags[kFLAGS.PC_FETISH] = 2;
         }
-        //*Fetish level = 2
+        // *Fetish level = 2
         else if (this.flags[kFLAGS.PC_FETISH] == 2) {
             this.outputText(
                 "The demoness pulls out a diamond-studded piercing and closes in on you, her cock peeking out of her panties, her pussy moist, and her hips swaying seductively as she advances.  Ceraph gives you a serious look and warns you, \"<i>You realize you're not even going to be able to lift a hand against your foes after this?  You really love a challenge, don't you " +
@@ -768,7 +768,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
                 );
             else this.outputText("your body aches for release.", false);
             this.outputText("  With an amused grin, Ceraph yanks down your gear and ", false);
-            //[dicks]
+            // [dicks]
             if (this.player.totalCocks() > 0) {
                 this.outputText("grabs your " + this.cockDescript(0), false);
                 if (this.player.cocks[0].pierced > 0)
@@ -784,7 +784,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
                 this.player.cocks[0].pShortDesc = "diamond cock-stud";
                 this.player.cocks[0].pLongDesc = "Diamond cock-stud";
             }
-            //[cunts]
+            // [cunts]
             else if (this.player.hasVagina()) {
                 this.outputText("spreads your lips", false);
                 if (this.player.vaginas[0].clitPierced > 0)
@@ -802,7 +802,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
                 this.player.vaginas[0].clitPShort = "diamond clit-stud";
                 this.player.vaginas[0].clitPLong = "Diamond clit-stud";
             }
-            //[else]
+            // [else]
             else {
                 this.outputText("snaps the diamond stud into your eye-brow, piercing it", false);
                 if (this.player.eyebrowPierced > 0)
@@ -818,7 +818,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
                 this.player.eyebrowPShort = "diamond eyebrow-stud";
                 this.player.eyebrowPLong = "Diamond eyebrow-stud";
             }
-            //Set fetish level
+            // Set fetish level
             this.flags[kFLAGS.PC_FETISH] = 3;
             this.outputText(
                 "As she finishes, you get up and attempt to test your slut's work.  Raising your hand for a slap, you try to bring it down on Ceraph's face.  She flinches, but the blow stops a few inches away from her, melting into a gentle caress.  <b>You can no longer use basic physical attacks!</b>  She drops to her knees and asks, \"<i>Have I displeased you?  I can remove the compulsion in it if you like.</i>\"\n\n",
@@ -839,7 +839,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         this.doNext(this.ceraphFollowerAppearance);
     }
 
-    //*Request Ceraph Remove a Fetish. (Zeddited)
+    // *Request Ceraph Remove a Fetish. (Zeddited)
     private unfetishifyYourselfWithFollowerCeraph(): void {
         this.outputText("", true);
         this.spriteSelect(87);
@@ -859,7 +859,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         );
 
         this.outputText("Do you go through with it?", false);
-        //[Yes] [No] - back to follower menu
+        // [Yes] [No] - back to follower menu
         this.simpleChoices(
             "Yes",
             this.goThroughWithCeraphUnfetishification,
@@ -874,7 +874,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         );
     }
 
-    //*Ceraph Actually Removes The Fetish (Zeddited)
+    // *Ceraph Actually Removes The Fetish (Zeddited)
     private goThroughWithCeraphUnfetishification(): void {
         this.outputText("", true);
         this.spriteSelect(87);
@@ -905,18 +905,18 @@ export class CeraphFollowerScene extends NPCAwareContent {
         if (this.flags[kFLAGS.PC_FETISH] == 3) this.flags[kFLAGS.PC_FETISH] = 2;
         else if (this.flags[kFLAGS.PC_FETISH] == 2) this.flags[kFLAGS.PC_FETISH] = 1;
         else if (this.flags[kFLAGS.PC_FETISH] == 1) this.flags[kFLAGS.PC_FETISH] = 0;
-        //Back to follower menu
+        // Back to follower menu
         this.doNext(this.ceraphFollowerAppearance);
     }
 
-    //*Fuck Ceraph's Pussy (Zeddited)
+    // *Fuck Ceraph's Pussy (Zeddited)
     private fuckFollowerCeraphsVagoo(): void {
         var x: number = this.player.cockThatFits(115);
         if (x < 0) x = 0;
         var y: number = this.player.cockThatFits2(115);
         this.outputText("", true);
         this.spriteSelect(87);
-        //*Summary: Bind Ceraph's arms behind her back and make her lie facedown in the dirt, then grab her ankles and wheelbarrow fuck her, with her face as the wheel.
+        // *Summary: Bind Ceraph's arms behind her back and make her lie facedown in the dirt, then grab her ankles and wheelbarrow fuck her, with her face as the wheel.
         this.outputText(
             "You let Ceraph know that you'll be using her pussy.  She sighs and says, \"<i>Yes, " +
                 this.player.mf("Master", "Mistress") +
@@ -1033,7 +1033,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
             false
         );
 
-        //(DOUBLE PENN!)
+        // (DOUBLE PENN!)
         if (y >= 0) {
             this.outputText(
                 "A wicked idea crosses your mind, and you reach down to grab your " +
@@ -1067,7 +1067,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
             }
             this.outputText("\n\n", false);
         }
-        //(Single Penn!)
+        // (Single Penn!)
         else {
             this.outputText(
                 "Working the bitch harder and harder, you start slamming your " +
@@ -1145,7 +1145,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //*Ceraph TongueFucks The PC (Zeddited)
+    // *Ceraph TongueFucks The PC (Zeddited)
     private followerCeraphTongueFucking(): void {
         this.outputText("", true);
         this.spriteSelect(87);
@@ -1275,7 +1275,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //*Ceraph goes full tentacle and double penetrates herms (+ standard dick BJ if ceraph dick toggle is on) (Zeddited)
+    // *Ceraph goes full tentacle and double penetrates herms (+ standard dick BJ if ceraph dick toggle is on) (Zeddited)
     private ceraphTentacleGrape(): void {
         this.outputText("", true);
         this.spriteSelect(87);
@@ -1432,7 +1432,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
                 this.camp.returnToCampUseOneHour
             );
         }
-        //ELSE:
+        // ELSE:
         else {
             this.outputText(
                 "You nod graciously and begin to clean up, dismissing your personal demon... for now.",
@@ -1442,7 +1442,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         }
     }
 
-    //[Punish Her]
+    // [Punish Her]
     private punishCeraphForSurpriseThroatFuck(): void {
         this.spriteSelect(87);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00290] = 1;
@@ -1460,10 +1460,10 @@ export class CeraphFollowerScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Siamese Catgirl Twins - TDM (Zeddited, nya)
+    // Siamese Catgirl Twins - TDM (Zeddited, nya)
     public catgirlEncounter(): void {
         this.outputText("", true);
-        //requires that the PC have a cock, just to keep it simple, no centaurs and probably not slimes
+        // requires that the PC have a cock, just to keep it simple, no centaurs and probably not slimes
         this.outputText(
             "You call on Ceraph, but are a bit taken aback when she doesn't appear right away.  You look around to see if you might have missed her, then spot something else streaking towards you from the wastes.  It is kicking up so much dust that you don't have time to see what it is before it ",
             false
@@ -1483,7 +1483,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
             );
         this.outputText("\n\n", false);
 
-        //describing your new friends
+        // describing your new friends
         this.outputText(
             "You study them for a few moments.  They have glossy, soft, and pliable fur covering most of their bodies, generally with a whitish or mother-of-pearl tone.  That color gives way to darker layers on their legs and face, giving them a mischievous, owlish look.  They have feline legs with paws, but their arms look more like fuzzy hands with pads.  Long, flexible tails swish behind them, and pointy cat ears adorn the tops of their heads.  Their chests bear generous E-cup breasts, with small bare patches further down where other pairs of nipples poke out.  They have kittenish, clear blue eyes that lend an air of innocence to them, but the small horns on their foreheads suggest anything but.  Being Ceraph's pets, they are predictably perforated with piercings on their ears and tails.  One thing that plays over and over in the back of your mind is that the two are completely identical; <b>you're facing a pair of siamese cat twins</b>!\n\n",
             false
@@ -1494,7 +1494,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
             false
         );
 
-        //player chooses sex, no sex(, extermination)
+        // player chooses sex, no sex(, extermination)
         this.simpleChoices(
             "Sex",
             this.fuckCeraphsCatgirls,
@@ -1509,18 +1509,18 @@ export class CeraphFollowerScene extends NPCAwareContent {
         );
     }
 
-    //No sex
+    // No sex
     private declineCeraphsCatgirls(): void {
         this.outputText("", true);
         this.outputText(
             "You shake your head at the kitty sisters and tell them that you aren't interested in fucking cats; you wanted the sexy demoness you were promised.  The two mewl meekly before slumping away.",
             false
         );
-        //to camp menu
+        // to camp menu
         this.doNext(this.playerMenu);
     }
 
-    //SEX!
+    // SEX!
     private fuckCeraphsCatgirls(): void {
         this.outputText("", true);
         var x: number = this.player.biggestCockIndex();
@@ -1533,7 +1533,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
             false
         );
 
-        //purrfect tit fuck
+        // purrfect tit fuck
         this.outputText(
             "You can't help but put your hands to their heads and start rubbing and scratching them behind their ears.  Suddenly, one of them steps back as the other moves down in front of your " +
                 this.cockDescript(x) +
@@ -1541,7 +1541,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
             false
         );
 
-        //play with da boobies
+        // play with da boobies
         this.outputText(
             "The other sister has been looking for something else to rub herself on, and she seems to have decided on your " +
                 this.chestDesc() +
@@ -1627,10 +1627,10 @@ export class CeraphFollowerScene extends NPCAwareContent {
             false
         );
 
-        //lust to 0, corruption +0.5
+        // lust to 0, corruption +0.5
         this.player.orgasm();
         this.dynStats("lib", -1);
-        //end scene
+        // end scene
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
@@ -1671,7 +1671,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
             false
         );
 
-        //[Drink][Sober]
+        // [Drink][Sober]
         var sober = undefined;
         if (this.player.hasCock()) sober = this.ceraphUrtaRoleplaySober;
         var drunk = undefined;
@@ -1690,8 +1690,8 @@ export class CeraphFollowerScene extends NPCAwareContent {
         );
     }
 
-    //DRANK AS FCUK
-    //[Drunk] (female/herm only. No centaurs)
+    // DRANK AS FCUK
+    // [Drunk] (female/herm only. No centaurs)
     private ceraphUrtaRoleplayDrunk(): void {
         this.outputText("", true);
         kGAMECLASS.urta.urtaSprite();
@@ -1725,7 +1725,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
             false
         );
         this.dynStats("lus", 125);
-        //[Next]
+        // [Next]
         this.doNext(this.ceraphUrtaRoleplayDrunk2);
     }
 
@@ -1796,7 +1796,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         );
         this.player.orgasm();
         this.dynStats("lib", -1, "sen", -2, "cor", 2);
-        //Preggers chance!
+        // Preggers chance!
         if (
             this.player.hasVagina() &&
             this.player.totalFertility() >= CeraphFollowerScene.rand(45) &&
@@ -1812,7 +1812,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Sober]
+    // [Sober]
     private ceraphUrtaRoleplaySober(): void {
         kGAMECLASS.urta.urtaSprite();
         this.outputText("", true);
@@ -1847,7 +1847,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
                 false
             );
         this.dynStats("lus", 200);
-        //[Next]
+        // [Next]
         this.doNext(this.ceraphUrtaRoleplaySober2);
     }
 
@@ -1901,15 +1901,15 @@ export class CeraphFollowerScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Corrupting the Innocent with optional gangbang -Luka (Zeddited) (with Shake N' Bake) (and Shambles helped)
+    // Corrupting the Innocent with optional gangbang -Luka (Zeddited) (with Shake N' Bake) (and Shambles helped)
 
-    //Demon cock supplied for PCs without one.
-    //This probably does not fit Pure PCs either. This should probably give the PC massive Corruption increase too.
-    //PC gets to pick if they want to offer the girl to be gangbanged by the imps or not.
-    //You will be fucking her with an audience.
+    // Demon cock supplied for PCs without one.
+    // This probably does not fit Pure PCs either. This should probably give the PC massive Corruption increase too.
+    // PC gets to pick if they want to offer the girl to be gangbanged by the imps or not.
+    // You will be fucking her with an audience.
 
-    //NOTE: This will probably need an alternate version for centaurs. Goo and Nagas should be fine.
-    //NOTE2: Fen you might want to store the variable for the PC's cock type and cock size.
+    // NOTE: This will probably need an alternate version for centaurs. Goo and Nagas should be fine.
+    // NOTE2: Fen you might want to store the variable for the PC's cock type and cock size.
     public carephCorruptionSlaves(): void {
         this.outputText("", true);
         this.outputText(
@@ -1928,7 +1928,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
             false
         );
 
-        //(Very High Corruption)
+        // (Very High Corruption)
         if (this.player.cor >= 75) {
             this.outputText(
                 "You glare at the imp, asking if Ceraph's implying you're not able to fuck this girl by yourself.\n\n",
@@ -1953,7 +1953,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         );
 
         this.outputText("Do you accept the 'offering' of the girl and drink the potion?", false);
-        //[Yes][No]
+        // [Yes][No]
         this.simpleChoices(
             "Yes",
             this.ceraphLackeyCorruption,
@@ -1968,7 +1968,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         );
     }
 
-    //[=No=]
+    // [=No=]
     private makeCarephsLackeysLeave(): void {
         this.outputText("", true);
         this.outputText(
@@ -1987,7 +1987,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         this.doNext(this.camp.campSlavesMenu);
     }
 
-    //[=Yes=]
+    // [=Yes=]
     private ceraphLackeyCorruption(): void {
         this.outputText("", true);
         this.outputText(
@@ -2015,8 +2015,8 @@ export class CeraphFollowerScene extends NPCAwareContent {
             false
         );
 
-        //Cock obtained from this is human-looking, so you'd trigger the next paragraph too.
-        //(if PC has no cock)
+        // Cock obtained from this is human-looking, so you'd trigger the next paragraph too.
+        // (if PC has no cock)
         if (!this.player.hasCock()) {
             this.outputText(
                 "Intense pleasure overcomes you as you feel blood rush to your groin; ",
@@ -2036,7 +2036,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         if (this.player.hasCock()) {
             if (this.player.cocks[x].cockType == CockTypesEnum.DEMON) demon = true;
         }
-        //(else if PC's cock is below cock area 48)
+        // (else if PC's cock is below cock area 48)
         if (this.player.cockArea(this.player.biggestCockIndex()) < 48 && this.player.hasCock()) {
             this.outputText(
                 "Your " +
@@ -2045,7 +2045,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
                 false
             );
         }
-        //(if PC's cock is not demonic or pc has/had no cock prior)
+        // (if PC's cock is not demonic or pc has/had no cock prior)
         if (!this.player.hasCock() || !demon) {
             this.outputText(
                 "A heady, musky scent emanates from your cock, then its color changes abruptly to a shiny inhuman purple hue and tiny sensitive nodules form along the length of the shaft; the crown develops a circle of rubbery protrusions that grow larger as you become more aroused.\n\n",
@@ -2079,7 +2079,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
             false
         );
 
-        //(if PC is above 60 cock area)
+        // (if PC is above 60 cock area)
         if (this.player.cockArea(x) >= 60) {
             this.outputText(
                 "It's clear to see that if you push inside her with a member of your size, you will rip her apart; thankfully one of the imps step forward with a vial containing a bluish fluid and forces it down her throat.  She drinks without resistance, then gasps as she orgasms once more, juices splattering about as her cunt seemingly grows elastic and wet enough for you to push the tip of your massive demonic cock inside her effortlessly.\n\n",
@@ -2126,7 +2126,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
             false
         );
 
-        //(if PC's dick is not demonic naturally)
+        // (if PC's dick is not demonic naturally)
         if (!demon)
             this.outputText(
                 'You lift yourself off her and sit in the dirt; she grins and slowly crawls toward you to take your demonic prick into her mouth, sucking with so much pressure you fear she will swallow your cock whole.  Slowly, you feel something trickle out of your sensitive cock and into her mouth, then she pulls away with a <b>POP</b>. "<i>This should take care of the medicine, ' +
@@ -2134,7 +2134,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
                     '.</i>"  True to her word, you watch as your cock slowly reverts its coloration',
                 false
             );
-        //[(if PC didn't have a cock)
+        // [(if PC didn't have a cock)
         if (!demon && !this.player.hasCock())
             this.outputText(
                 ", then the temporary phallus shrinks and disappears back into your crotch",
@@ -2150,7 +2150,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         this.outputText("Do you?", false);
         this.player.orgasm();
         this.dynStats("lib", -3, "cor", 5);
-        //[Yes][No][Never Again]
+        // [Yes][No][Never Again]
         this.simpleChoices(
             "Yes",
             this.acceptMoreCeraphFauxCorruption,
@@ -2165,7 +2165,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         );
     }
 
-    //[=Never Again - Fuck this nerd shit=]
+    // [=Never Again - Fuck this nerd shit=]
     private iQuitCeraphCorruptionDemons(): void {
         this.outputText("", true);
         this.outputText(
@@ -2177,12 +2177,12 @@ export class CeraphFollowerScene extends NPCAwareContent {
             "Chagrined, she unfurls her wings and flies off, the imps quickly wilting and following suit.",
             false
         );
-        //(disable repeat of scene)
+        // (disable repeat of scene)
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00293] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=No=]
+    // [=No=]
     private declineCeraphFauxCorruption(): void {
         this.outputText("", true);
         this.outputText(
@@ -2199,7 +2199,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=Yes=]
+    // [=Yes=]
     private acceptMoreCeraphFauxCorruption(): void {
         this.outputText("", true);
         this.outputText(
@@ -2239,12 +2239,12 @@ export class CeraphFollowerScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //(not optimized in any way for centaur)
-    //(should probably add a cock-limit of like, whatever you want, cuz you're fucking her butt)
+    // (not optimized in any way for centaur)
+    // (should probably add a cock-limit of like, whatever you want, cuz you're fucking her butt)
     private sweetieNOOOO(): void {
         this.spriteSelect(41);
         this.outputText("", true);
-        //requires PC to have Marble as follower or have removed Marble from game via rape attempt and confrontation
+        // requires PC to have Marble as follower or have removed Marble from game via rape attempt and confrontation
         this.outputText(
             '"<i>Aaaah, not satisfied with me, ' +
                 this.player.mf("Master", "Mistress") +
@@ -2276,7 +2276,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
             "  Any more exploration of your environment is put on hold as your gaze falls back to Ceraph.  Her latex ensemble shimmers and slackens, the strategic peep-holes closing up with unremarkable cotton.  The material reforms until she's left with a pair of overalls and a button-up blouse that are both at least four sizes too big.  ",
             false
         );
-        //([if first time]
+        // ([if first time]
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00294] == 0)
             this.outputText(
                 'Seeing your confused stare, she simply answers with, "<i>Ah, do be patient... sweetie,</i>" and goes back to her work.',
@@ -2310,7 +2310,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
             "The increasingly cow-like omnibus takes a grip on either side of her hips and, with an ecstatic cry, tugs outward, widening her hips and throwing her gait off even more.  She sticks her thumb into her mouth and blows, and though you suspect that's simply for theatrics, her thighs thicken and her butt plumps up, filling up her overalls perfectly.  Ceraph reaches up and pinches her own cheeks, rounding her angled features off into a more rounded, softer visage.  With a snap of her fingers, a blossom of creamy-colored skin starts at her nose, running along her face and down her neck, enveloping the previously purple hue.  ",
             false
         );
-        //([if real Marble has cock]
+        // ([if real Marble has cock]
         if (this.flags[kFLAGS.MARBLE_DICK_LENGTH] > 0 && this.flags[kFLAGS.CERAPH_HIDING_DICK] == 0)
             this.outputText(
                 "Her nubbly member presumably shifts its color from royal purple to a lighter, brownish tone as well, inflating to the familiar seven-inch measurement; at least, so you'd judge by the sudden bulge in the overalls.  ",
@@ -2338,7 +2338,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
                 "The question strikes you as a curious one.  Do you want your make-believe Marble to make an udder, or is she better off without?",
                 false
             );
-            //[yep] [no way jose]
+            // [yep] [no way jose]
             this.simpleChoices(
                 "Udder",
                 this.yesUdderPWEASE,
@@ -2354,7 +2354,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         }
     }
 
-    //[in a pig's eye, pal]
+    // [in a pig's eye, pal]
     private noUdderPlz(perm: boolean = false): void {
         this.outputText("", true);
         this.spriteSelect(41);
@@ -2367,7 +2367,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         this.postUdderChoice();
     }
 
-    //[of course honey-buns]
+    // [of course honey-buns]
     private yesUdderPWEASE(): void {
         this.outputText("", true);
         this.spriteSelect(41);
@@ -2391,14 +2391,14 @@ export class CeraphFollowerScene extends NPCAwareContent {
             "'Marble' backs up, tripping over a bucket and falling onto her spacious ass.  \"<i>Please, don't hook me up to that milker, sweetie... anything but that!</i>\"  An evil smirk graces your lips as you catch up to her intention; you regard the cowgirl omnibus, her face a mask of terror and her body all a-tremble.  She manages a small squeak of terror as you approach and take a handful of her voluminous hair, dragging her over to the indicated stall.  Her blubbering sobs don't cease as you ready the equipment",
             false
         );
-        //([if udder]
+        // ([if udder]
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00296] == 1)
             this.outputText(", making sure to prep four extra tubes for her udder", false);
         this.outputText(
             ".  You idly reach over and rip her strained blouse right off, sliding the overall straps off her shoulders and exposing her massive HH-cups.  Despite her protests, her sunken nipples quickly snap to attention, milk leaking freely from the excited things.  You reach over and flick the machine on, dragging 'Marble' across to it.  You're aware of the actual cowgirl's fear of bondage, so you take great pleasure in chaining her understudy's hands to two overhanging shackles and dangling the two cups in front of her huge tits.  The suction is just strong enough to draw her nipples towards the hoses.  Her scream of protest is stifled by a strangled cry as you jam the two cups home, the machine instantly kicking in.",
             false
         );
-        //([if udder]
+        // ([if udder]
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00296] == 1)
             this.outputText(
                 "  The four others quickly follow, the udder-cups sucking onto the nubs like hungry children.",
@@ -2509,19 +2509,19 @@ export class CeraphFollowerScene extends NPCAwareContent {
             'Her grip fades, and you turn around to see... nothing.  She\'s simply gone, vanished without a trace.  No... not without a trace, you realize.  Right near where the milker used to lie sits a lone cowbell, lying in a pool of what you can only assume to be cum.  You reach for it, but it disappears as well, turned into a small puff of smoke and dispersing with the wind.  "<i>Bye, sweetie,</i>" the disembodied voice of your demonic slave whispers into your ear, mocking tones interspersed with a promise of further pleasure.',
             false
         );
-        //end (stat changes?)
+        // end (stat changes?)
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", -5, "cor", 3);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //NOTES:
-    //Ceraph roleplay. [Dominika] option. There is text for the first time you do it, then transformation text that is intended to play at the front of every scene.
-    //After that is a scene tailored more specifically for the PC. Intention is to give nagas and centaurs and all that their own scene. Currently only scene is for PCs with a dick - should be naga-compatible.
+    // NOTES:
+    // Ceraph roleplay. [Dominika] option. There is text for the first time you do it, then transformation text that is intended to play at the front of every scene.
+    // After that is a scene tailored more specifically for the PC. Intention is to give nagas and centaurs and all that their own scene. Currently only scene is for PCs with a dick - should be naga-compatible.
     private cerminika(): void {
         this.spriteSelect(58);
         this.outputText("", true);
-        //[first time]
+        // [first time]
         if (this.flags[kFLAGS.CERAPH_ROLEPLAY_AS_DOMINIKA_COUNT] == 0) {
             this.outputText('"<i>Who?</i>" Ceraph asks.\n\n', false);
 
@@ -2557,13 +2557,13 @@ export class CeraphFollowerScene extends NPCAwareContent {
             false
         );
 
-        //[Cock'd PC]
+        // [Cock'd PC]
         if (this.player.hasCock()) {
             this.outputText(
                 '"<i>Champion,</i>" those dark lips purr, "<i>You have done everything I could have asked you for.</i>"  She runs a hand along your cheek, stepping in close and caressing your arm.  "<i>I owe you more than I can express.</i>"  Her hand roams up into your hair, brushing through it before cupping the back of your head.  Dominika pulls you into a deep kiss, pressing her lips to yours in a breath-stealing passion.  Her tongue rolls into your mouth as though it intends to steal yours away, her leg eventually rising up and curling around you.',
                 false
             );
-            //[CERAPH COCK:
+            // [CERAPH COCK:
             if (this.flags[kFLAGS.CERAPH_HIDING_DICK] == 0)
                 this.outputText("  Her dick presses up into your crotch.", false);
             this.outputText(
@@ -2784,7 +2784,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
                 "Satisfied with the ruined chastity of the former scholar, you wrap your arms around her hips and give a few final gut-wrenching slams into her dominated pucker.  Each one makes her squeal and gasp, and each one brings you one step closer to the shuddering eruption that is that slut's purpose.  Groping one of the whorish slutbags on her chest, you hold her to your body not out of intimacy, but dominance.  There is no mistaking your absolute control over her as the first thick blasts of cum spew into her abused ass and clog her cockhole.  Whimpering and clutching at you, all she can do is squeal and gasp your name, spitting your praises for destroying her dignity.",
                 false
             );
-            //[Player has large cum production:
+            // [Player has large cum production:
             if (this.player.cumQ() >= 500)
                 this.outputText(
                     "  You dump loads in her as though she's an addict who hasn't fed for days, bloating and humiliating her with the sheer volume of spunk that now inflates her belly.  Not as though the demon whore has much humility left to take.",
@@ -2828,7 +2828,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
                 '"<i>Was that good?</i>" Ceraph asks in her own voice, immediately ruining the illusion. "<i>',
                 false
             );
-            //[Player has huge dick:
+            // [Player has huge dick:
             if (this.player.cockArea(0) >= 75)
                 this.outputText(
                     "I doubt her ass could actually take you so well, but... I wanted my " +
@@ -2860,14 +2860,14 @@ export class CeraphFollowerScene extends NPCAwareContent {
      ▶[Leave]
      [Introduction]*/
 
-    //(First Time):
+    // (First Time):
     public encounterZetsuko(): void {
         this.outputText("", true);
         this.flags[kFLAGS.ZETSUKO_MET]++;
         var banana = undefined;
         var vag = undefined;
         var dick = undefined;
-        //First time
+        // First time
         if (this.flags[kFLAGS.ZETSUKO_MET] == 1) {
             this.outputText(
                 "You call on Ceraph, but rather than the purple-skinned demoness you were expecting, you are surprised to see a fox-eared girl appear in a wash of corrupted violet flames.  She steps out of the portal and shakes off the flames as if they are water, and you take a moment to look her over.  The first thing you notice is that her arms are bound in a white straitjacket that is open at the chest, allowing her F-cup breasts to swing freely.  Four large fox tails twist erratically in the air behind her, and you can see a pair of small horns poking up from her hair in front of her large triangular ears.  Her body and face are covered in tribal tattoos, and her somewhat maniacal amber eyes are framed nicely by a head of messy auburn hair with black highlights.  Like many of Ceraph's harem members, she is adorned with numerous piercings and studs — almost too many to count them all — as well as a large studded collar.  Once you have had time to take it all in, she speaks.\n\n",
@@ -2940,7 +2940,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
             this.outputText("Will you make use of Zetsuko now, or send her back to Ceraph?", false);
             if (this.silly()) banana = this.zetsukoBanana;
         }
-        //(Subsequent times):
+        // (Subsequent times):
         else {
             this.outputText(
                 "You call on Ceraph, but rather than the purple-skinned demoness you were expecting, Zetsuko appears in a wash of corrupted violet flames, turning to you with a wide, toothy grin.\n\n",
@@ -2970,7 +2970,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
                 banana = this.zetsukoBanana;
             }
         }
-        //[FuckVagina] [GetTongued] [Banana?]silly mode — [Leave]
+        // [FuckVagina] [GetTongued] [Banana?]silly mode — [Leave]
         if (this.player.hasCock()) dick = this.fuckZetsukosTonguepussy;
         if (this.player.hasVagina()) vag = this.getTonguedByZetsuko;
         this.simpleChoices(
@@ -2987,7 +2987,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         );
     }
 
-    //▶[FuckVagina] requires penis
+    // ▶[FuckVagina] requires penis
     private fuckZetsukosTonguepussy(): void {
         this.outputText("", true);
         var x: number = this.player.biggestCockIndex();
@@ -3115,7 +3115,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //▶[GetTongued] requires vagina
+    // ▶[GetTongued] requires vagina
     private getTonguedByZetsuko(): void {
         this.outputText("", true);
         var x: number = -1;
@@ -3257,7 +3257,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //▶[Banana?] silly mode
+    // ▶[Banana?] silly mode
     private zetsukoBanana(): void {
         this.outputText("", true);
         this.outputText("Banana? What the flying fuck is a banana?\n\n", false);
@@ -3365,7 +3365,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
                 if (this.player.bRows() > 2)
                     breasts3 = this.createCallBackFunction(this.ceraphFollowerTitTaking, 2);
             }
-            //[(Biggest )Penis] [Smallest Penis][Vagina] [TopBreastRow] [2ndBreastRow] [3rdBreastRow]
+            // [(Biggest )Penis] [Smallest Penis][Vagina] [TopBreastRow] [2ndBreastRow] [3rdBreastRow]
             this.choices(
                 "Penis",
                 wang,
@@ -3417,7 +3417,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         );
         if (this.player.balls > 0 && this.player.cockTotal() == 1) {
             this.outputText(" and balls", false);
-            //Gotcher balls!
+            // Gotcher balls!
             this.player.balls = 0;
             this.player.ballSize = 1;
         }
@@ -3469,7 +3469,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         );
         this.player.removeVagina(0, 1);
         this.player.genderCheck();
-        //(-100 lust, -1 fetish, +1 vagina toy status)
+        // (-100 lust, -1 fetish, +1 vagina toy status)
         this.player.orgasm();
         this.dynStats("lib", -2, "sen", -2, "cor", 5);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00219]++;
@@ -3480,7 +3480,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         this.spriteSelect(87);
         this.clearOutput();
         var x: number = rowNum;
-        //Store nipplecuntz or milks
+        // Store nipplecuntz or milks
         if (this.player.breastRows[x].fuckable) this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00217] = 4;
         else if (this.player.lactationQ() >= 100) this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00217] = 5;
         else this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00217] = 3;
@@ -3493,9 +3493,9 @@ export class CeraphFollowerScene extends NPCAwareContent {
                 " in her hands, playing with them for just a few seconds before she digs her nails in and pulls.  Your tits stretch for a moment, pulled tight while Ceraph giggles cruelly.  Heat blooms inside your chest, vivid tingles radiating from Ceraph's fingertips deep inside you.  At last it peaks and with a deep 'POMF', your tit-flesh separates from your body.  You look closely at the departing bosom – where it once joined with your body, it's covered in healthy pink skin and intricate, arcane tattoos.  Meanwhile, ",
             false
         );
-        //More than 1 set of tits and not on bottom row?
+        // More than 1 set of tits and not on bottom row?
         if (x < this.player.breastRows.length - 1 && this.player.breastRows.length > 1) {
-            //If only 1 row below
+            // If only 1 row below
             if (x >= this.player.breastRows.length - 2)
                 this.outputText(
                     "your torso has shifted and your " +
@@ -3503,7 +3503,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
                         " have moved up to fill the void.",
                     false
                 );
-            //Multiple below
+            // Multiple below
             else
                 this.outputText(
                     "your torso has shifted and your other breasts have moved up to fill the void.",
@@ -3511,7 +3511,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
                 );
             this.player.removeBreastRow(x, 1);
         }
-        //Top row is only row
+        // Top row is only row
         else if (x == 0) {
             this.outputText(
                 "your now-flat chest slowly gains two tiny, quarter-inch nipples.",
@@ -3524,7 +3524,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
             this.player.breastRows[0].fuckable = false;
             this.player.breastRows[0].lactationMultiplier = 0;
         }
-        //everybody else
+        // everybody else
         else {
             this.outputText(
                 "your torso leaves the now-empty spot as a flat, featureless void.",
@@ -3532,7 +3532,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
             );
             this.player.removeBreastRow(x, 1);
         }
-        //Oh shit something went wrong.
+        // Oh shit something went wrong.
         if (this.player.breastRows.length == 0)
             this.outputText(
                 "<b>ERROR!  ERROR!  Please contact Fenoxo and reload your game if you don't want your save messed up.</b>",
@@ -3560,13 +3560,13 @@ export class CeraphFollowerScene extends NPCAwareContent {
             "Ceraph turns and prances off through the rocks, tweaking your nipples HARD every few moments to remind you of your choice.  She vanishes before long, leaving you to deal with the slowly dwindling sensation of her cock in your tits.\n\n",
             false
         );
-        //(-1 fetish, +1 tit toy status)
+        // (-1 fetish, +1 tit toy status)
         this.dynStats("lus", 20, "cor", 5);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00220]++;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //NippleCunt Stuffing (Ceraph grows dick-nipples to plow your lusty twats!)
+    // NippleCunt Stuffing (Ceraph grows dick-nipples to plow your lusty twats!)
     private stuffSomeNippleCunts(): void {
         this.spriteSelect(87);
         this.clearOutput();
@@ -3668,13 +3668,13 @@ export class CeraphFollowerScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Portal Fuck (AKA Ceraph Hung Out With Cinnabar, Req's PC dick)
+    // Portal Fuck (AKA Ceraph Hung Out With Cinnabar, Req's PC dick)
     private portalFuckWithFollowerCeraph(): void {
         this.spriteSelect(87);
         this.clearOutput();
         var x: number = this.player.cockThatFits(100);
         var y: number = x + 1;
-        //FIRST TIME:
+        // FIRST TIME:
         if (this.flags[kFLAGS.TIMES_CERAPH_PORTAL_FUCKED] == 0) {
             this.outputText(
                 'You undress and ask Ceraph if she has any ideas to mix things up.  Your demon smiles and answers, "<i>Oh, I think I have just the thing: a pair of trinkets I picked up at the bazaar.  There\'s a... gifted prostitute there who I would love to have in my harem, but alas, if I am to have access to that cursed place, I must abide by their rules.</i>"  A shadow clouds the greedy demoness\'s expression at that admission, but she continues on, "<i>I was able to get her to produce for me two magical cock-rings.  They\'re powerfully enchanted with white AND black magic.</i>"'
@@ -3768,7 +3768,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
 
     private layEggsInSlaveCeraph(): void {
         this.clearOutput();
-        //Either Type on Ceraph Follower: Finished (Posthuman) (Zedit)
+        // Either Type on Ceraph Follower: Finished (Posthuman) (Zedit)
         this.outputText("You ");
         if (!this.player.isTaur())
             this.outputText("absently rub the sensitive bulge in your abdomen as you ");
@@ -3776,7 +3776,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
             "regard your slave.  There certainly is something she could do for you.  Imperiously, you let her know that you have a load you wish to get rid of, and you intend to plant it in her."
         );
 
-        //[if (cocks > 0)
+        // [if (cocks > 0)
         if (this.player.hasCock())
             this.outputText(
                 '  Ceraph glances at the bulge in your [armor] quickly before she demurely lowers her eyes.  A wicked smile plays across her beautiful face as she responds, "<i>Yes, [master].</i>"'
@@ -3867,8 +3867,8 @@ export class CeraphFollowerScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Ceraph Pegging + Bonus Petplay!
-    //Adds "Submission" option to the roleplay menu.
+    // Ceraph Pegging + Bonus Petplay!
+    // Adds "Submission" option to the roleplay menu.
     private sumissivenessToCeraphFollower(): void {
         this.clearOutput();
         this.spriteSelect(87);
@@ -3944,10 +3944,10 @@ export class CeraphFollowerScene extends NPCAwareContent {
         if (this.player.hasCock())
             this.outputText("\n\n(Agreeing could result in some humiliating milking...)");
         else this.outputText("\n\n(Agreeing could result in some humiliating pegging...)");
-        //+50 lust, affected by resistance
+        // +50 lust, affected by resistance
         this.dynStats("lus", 50);
         this.menu();
-        //[Mewl once] [Bark once] [Either twice][Apple]
+        // [Mewl once] [Bark once] [Either twice][Apple]
         this.addButton(0, "Mewl Once", this.barkToCeraphOnce, false);
         this.addButton(1, "Bark Once", this.barkToCeraphOnce, true);
         this.addButton(2, "Meow Twice", this.barkOrMeowTwiceToCeraph, false);
@@ -3955,7 +3955,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         this.addButton(4, "Apple", this.sayAppleToCeraph);
     }
 
-    //[Apple]
+    // [Apple]
     private sayAppleToCeraph(): void {
         this.clearOutput();
         this.spriteSelect(87);
@@ -3968,7 +3968,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Either Once]
+    // [Either Once]
     private barkToCeraphOnce(dog: boolean = true): void {
         this.clearOutput();
         this.spriteSelect(87);
@@ -4162,14 +4162,14 @@ export class CeraphFollowerScene extends NPCAwareContent {
                 this.player.mf("boy", "girl") +
                 '.</i>" her voice says, slowly fading into the wind.'
         );
-        //Increase corruption, reset lust, increase sensitivity.
+        // Increase corruption, reset lust, increase sensitivity.
         this.player.slimeFeed();
         this.player.orgasm();
         this.dynStats("sen", 2, "cor", 1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Either Twice]
+    // [Either Twice]
     private barkOrMeowTwiceToCeraph(dog: boolean = true): void {
         this.clearOutput();
         this.spriteSelect(87);
@@ -4191,7 +4191,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
         this.outputText(" like a needy animal.");
 
         var choices: any[] = [];
-        //Choose one of the following at random
+        // Choose one of the following at random
         if (this.flags[kFLAGS.FUCK_FLOWER_LEVEL] >= 4 && this.flags[kFLAGS.FUCK_FLOWER_KILLED] == 0)
             choices[choices.length] = 0;
         if (this.amilyFollower() && this.flags[kFLAGS.AMILY_FOLLOWER] == 2)
@@ -4201,9 +4201,9 @@ export class CeraphFollowerScene extends NPCAwareContent {
 
         var select: number = choices[CeraphFollowerScene.rand(choices.length)];
 
-        //HOLLI
+        // HOLLI
         if (select == 0) {
-            //{Normal Holli}
+            // {Normal Holli}
             if (this.flags[kFLAGS.HOLLI_SUBMISSIVE] == 0) {
                 this.outputText(
                     '\n\nThe corrupted dryad peeps out of her tree when Ceraph leads you by.  "<i>Oh, this is just too rich!  Are you a little '
@@ -4214,7 +4214,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
                     " now?  Why the hell did Mother Marae send me out to thank someone like you?  It's pathetic!</i>\"  Lowering out of her canopy, an array of cock-like tentacles homes in on you while Ceraph watches, bemused.  They start to pat your head, pushing down a little harder than necessary and rubbing down your back like condescending hands.  She's laughing and petting you, thrilled to have you in such a position.  The shame is more potent than a minotaur's spunk, and when combined with the magic of your demonic 'collar', it twists in your head, twining inexorably with arousal to make you leak even harder.  It feels soooo good to wallow in the piteous, condescending touches."
                 );
             }
-            //{Intimidated Holli}
+            // {Intimidated Holli}
             else {
                 this.outputText(
                     '\n\nThe corrupted dryad peeps out of her tree when Ceraph leads you by.  "<i>[name]?  What... what are you doing?  Oh my god!  Are you some kind of secret submissive?</i>"  Holli giggles cruelly, "<i>You\'re a fucking submissive slut!  I should\'ve known that tough act was all bluster!  Damn, you really SHOULD be begging me just to let me fuck you.  What do you have to say for yourself?</i>"'
@@ -4236,7 +4236,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
                 );
                 this.flags[kFLAGS.HOLLI_SUBMISSIVE] = 0;
             }
-            //Either Holli ending:
+            // Either Holli ending:
             this.outputText(
                 "\n\nCeraph and you continue your walk, though she has to scold you a number of times for dripping on her heels.  Whenever you misbehave, she flicks "
             );
@@ -4258,15 +4258,15 @@ export class CeraphFollowerScene extends NPCAwareContent {
                 " with unfilled need, but there's no sating it.  Only after all your muscles are sore and exhausted does Ceraph take you home.  You collapse onto your belly, panting while the whip is untied.  When you turn to talk to Ceraph, you find she's left you there, aroused beyond measure."
             );
         }
-        //Corrupt Jojo or Amily
+        // Corrupt Jojo or Amily
         else if (select == 1) {
-            //Both
+            // Both
             if (
                 this.amilyFollower() &&
                 this.flags[kFLAGS.AMILY_FOLLOWER] == 2 &&
                 this.campCorruptJojo()
             ) {
-                //Both Corrupt Jojo & Amily
+                // Both Corrupt Jojo & Amily
                 this.outputText(
                     '\n\nBefore long, you come across both of your corrupt, mouse-like slaves.  They stop fondling each other\'s genitals long enough to ask, "<i>[Master], what are you doing?</i>"'
                 );
@@ -4318,7 +4318,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
                         " most basic needs in check."
                 );
             }
-            //Mice finisher
+            // Mice finisher
             this.outputText(
                 "\n\nYou go for an exhausting walk around the nearby wasteland with your companion"
             );
@@ -4356,7 +4356,7 @@ export class CeraphFollowerScene extends NPCAwareContent {
                     "looks around uncertainly before darting back to the usual places, knowing you'll give the command if you want a slave to take care of your desires."
                 );
         }
-        //Generic
+        // Generic
         else {
             this.outputText(
                 "\n\nCeraph leads you out into the wasteland on an exhausting, humiliating journey.  Somehow, she keeps finding imps and goblins to show you off to.  The "

@@ -22,7 +22,7 @@ export class HighMountains extends BaseContent {
     public minotaurMobScene: MinotaurMobScene = new MinotaurMobScene();
     public izumiScenes: IzumiScene = new IzumiScene();
 
-    //Explore High Mountain
+    // Explore High Mountain
     public exploreHighMountain(): void {
         this.flags[kFLAGS.DISCOVERED_HIGH_MOUNTAIN]++;
         this.doNext(this.playerMenu);
@@ -32,11 +32,11 @@ export class HighMountains extends BaseContent {
         }
 
         var chooser: number = HighMountains.rand(4);
-        //Boosts mino and hellhound rates!
+        // Boosts mino and hellhound rates!
         if (this.player.findPerk(PerkLib.PiercedFurrite) >= 0 && HighMountains.rand(3) == 0) {
             chooser = 1;
         }
-        //Helia monogamy fucks
+        // Helia monogamy fucks
         if (
             this.flags[kFLAGS.PC_PROMISED_HEL_MONOGAMY_FUCKS] == 1 &&
             this.flags[kFLAGS.HEL_RAPED_TODAY] == 0 &&
@@ -47,7 +47,7 @@ export class HighMountains extends BaseContent {
             kGAMECLASS.helScene.helSexualAmbush();
             return;
         }
-        //Gats xmas adventure!
+        // Gats xmas adventure!
         if (
             HighMountains.rand(5) == 0 &&
             this.player.gender > 0 &&
@@ -60,7 +60,7 @@ export class HighMountains extends BaseContent {
             kGAMECLASS.gatsSpectacularRouter();
             return;
         }
-        //Minerva
+        // Minerva
         if (
             this.flags[kFLAGS.DISCOVERED_HIGH_MOUNTAIN] % 8 == 0 &&
             this.flags[kFLAGS.MET_MINERVA] < 4
@@ -68,7 +68,7 @@ export class HighMountains extends BaseContent {
             this.minervaScene.encounterMinerva();
             return;
         }
-        //25% minotaur sons!
+        // 25% minotaur sons!
         if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] >= 3 &&
             HighMountains.rand(4) == 0 &&
@@ -78,7 +78,7 @@ export class HighMountains extends BaseContent {
             this.minotaurMobScene.meetMinotaurSons();
             return;
         }
-        //Harpy odds!
+        // Harpy odds!
         if (this.player.hasItem(this.consumables.OVIELIX)) {
             if (this.player.hasItem(this.consumables.OVIELIX, 2)) {
                 if (HighMountains.rand(4) == 0) {
@@ -92,11 +92,11 @@ export class HighMountains extends BaseContent {
                 }
             }
         }
-        //10% chance to mino encounter rate if addicted
+        // 10% chance to mino encounter rate if addicted
         if (this.flags[kFLAGS.MINOTAUR_CUM_ADDICTION_STATE] > 0 && HighMountains.rand(10) == 0) {
             this.spriteSelect(44);
-            //Cum addictus interruptus!  LOL HARRY POTTERFAG
-            //Withdrawl auto-fuck!
+            // Cum addictus interruptus!  LOL HARRY POTTERFAG
+            // Withdrawl auto-fuck!
             if (this.flags[kFLAGS.MINOTAUR_CUM_ADDICTION_STATE] == 3) {
                 this.getGame().mountain.minotaurScene.minoAddictionFuck();
                 return;
@@ -107,19 +107,19 @@ export class HighMountains extends BaseContent {
         }
         trace("Chooser goin for" + chooser);
 
-        //Generic harpy
+        // Generic harpy
         if (chooser == 0) {
             this.outputText("A harpy wings out of the sky and attacks!", true);
             this.startCombat(new Harpy());
             this.spriteSelect(26);
             return;
         }
-        //Basilisk!
+        // Basilisk!
         if (chooser == 1) {
             this.basiliskScene.basiliskGreeting();
             return;
         }
-        //Sophie
+        // Sophie
         if (chooser == 2) {
             if (
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00282] > 0 ||
@@ -139,8 +139,8 @@ export class HighMountains extends BaseContent {
             return;
         }
     }
-    //\"<i>Chicken Harpy</i>\" by Jay Gatsby and not Savin he didn't do ANYTHING
-    //Initial Intro
+    // \"<i>Chicken Harpy</i>\" by Jay Gatsby and not Savin he didn't do ANYTHING
+    // Initial Intro
     public chickenHarpy(): void {
         this.clearOutput();
         this.spriteSelect(90);
@@ -173,7 +173,7 @@ export class HighMountains extends BaseContent {
                 '\n\n"<i>So whaddya say, do y\'have any elixirs you can fork over?</i>"'
             );
         } else {
-            //Repeat Intro
+            // Repeat Intro
             this.outputText(
                 "Taking a stroll along the mountains, you come across a familiar-looking shorty wandering around with a large wooden cart in tow."
             );
@@ -186,10 +186,10 @@ export class HighMountains extends BaseContent {
             this.outputText(
                 '\n\n"<i>Hey sunshine, do y\'have any elixirs you can give me today?</i>"'
             );
-            //[Give Two][Give Three]	[No, I Must Now Return To My People]
+            // [Give Two][Give Three]	[No, I Must Now Return To My People]
         }
         this.flags[kFLAGS.TIMES_MET_CHICKEN_HARPY]++;
-        //[Give Two][Give Three]		[Not Really, No]
+        // [Give Two][Give Three]		[Not Really, No]
         this.menu();
         if (this.player.hasItem(this.consumables.OVIELIX, 2))
             this.addButton(0, "Give Two", this.giveTwoOviElix);
@@ -198,7 +198,7 @@ export class HighMountains extends BaseContent {
         this.addButton(4, "Leave", this.leaveChickenx);
     }
 
-    //If Give Two
+    // If Give Two
     public giveTwoOviElix(): void {
         this.clearOutput();
         this.spriteSelect(90);
@@ -207,7 +207,7 @@ export class HighMountains extends BaseContent {
         this.outputText(
             "You hand over two elixirs, the harpy more than happy to take them from you.  In return, she unties a corner of the sheet atop the cart, allowing you to take a look at her collection of eggs."
         );
-        //[Black][Blue][Brown][Pink][Purple]
+        // [Black][Blue][Brown][Pink][Purple]
         this.menu();
         this.addButton(0, "Black", this.getHarpyEgg, this.consumables.BLACKEG);
         this.addButton(1, "Blue", this.getHarpyEgg, this.consumables.BLUEEGG);
@@ -217,7 +217,7 @@ export class HighMountains extends BaseContent {
         this.addButton(5, "White", this.getHarpyEgg, this.consumables.WHITEEG);
     }
 
-    //If Give Three
+    // If Give Three
     public giveThreeOviElix(): void {
         this.clearOutput();
         this.spriteSelect(90);
@@ -225,7 +225,7 @@ export class HighMountains extends BaseContent {
         this.outputText(
             "You hand over three elixirs, the harpy ecstatic over the fact that you're willing to part with them.  In return, she unties a side of the sheet atop the cart, allowing you to take a look at a large collection of her eggs."
         );
-        //[Black][Blue][Brown][Pink][Purple]
+        // [Black][Blue][Brown][Pink][Purple]
         this.menu();
         this.addButton(0, "Black", this.getHarpyEgg, this.consumables.L_BLKEG);
         this.addButton(1, "Blue", this.getHarpyEgg, this.consumables.L_BLUEG);
@@ -235,7 +235,7 @@ export class HighMountains extends BaseContent {
         this.addButton(5, "White", this.getHarpyEgg, this.consumables.L_WHTEG);
     }
 
-    //All Text
+    // All Text
     public getHarpyEgg(itype: ItemType): void {
         this.clearOutput();
         this.spriteSelect(90);
@@ -248,7 +248,7 @@ export class HighMountains extends BaseContent {
         this.inventory.takeItem(itype, this.chickenHarpy);
     }
 
-    //If No
+    // If No
     public leaveChickenx(): void {
         this.clearOutput();
         this.spriteSelect(90);

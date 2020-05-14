@@ -1514,103 +1514,103 @@ export class LethiceScenes extends BaseContent {
     private HowFuckedIsThePlayerOMeter(): number {
         var levelOfFuckedness: number = 0;
 
-        //Marae corrupt +50
+        // Marae corrupt +50
         if (this.player.findStatusAffect(StatusAffects.FactoryOverload) >= 0)
             levelOfFuckedness += 50;
 
-        //Sheila demon + 10
+        // Sheila demon + 10
         if (this.flags[kFLAGS.SHEILA_DEMON] == 1) levelOfFuckedness += 10;
 
-        //Lethice alive +25
+        // Lethice alive +25
         if (this.flags[kFLAGS.LETHICE_KILLED] == 0) levelOfFuckedness += 25;
 
         // Minotaur King alive +10
         if (this.flags[kFLAGS.MINOTAURKING_KILLED] == 0) levelOfFuckedness += 10;
 
-        //Drider Incubutt alive +10
+        // Drider Incubutt alive +10
         if (this.flags[kFLAGS.DRIDERINCUBUS_KILLED] == 0) levelOfFuckedness += 10;
 
-        //Herm centaur demon alive +10
+        // Herm centaur demon alive +10
         if (this.flags[kFLAGS.D3_CENTAUR_DEFEATED] != 1) levelOfFuckedness += 10;
 
-        //Succubus gardener alive +10
+        // Succubus gardener alive +10
         if (this.flags[kFLAGS.D3_GARDENER_DEFEATED] != 3) levelOfFuckedness += 10;
 
-        //Factory Omnibus alive +10
+        // Factory Omnibus alive +10
         if (this.flags[kFLAGS.D1_OMNIBUS_KILLED] != 1) levelOfFuckedness += 10;
 
-        //Zetaz alive +10
+        // Zetaz alive +10
         if (this.flags[kFLAGS.ZETAZ_DEFEATED_AND_KILLED] != 1) levelOfFuckedness += 10;
 
-        //Harpy Queen dead? +25 (9999 is this correct? shouldn't it be +25 if she's alive?)
+        // Harpy Queen dead? +25 (9999 is this correct? shouldn't it be +25 if she's alive?)
         if (this.flags[kFLAGS.HARPY_QUEEN_EXECUTED] != 1) levelOfFuckedness += 25;
 
-        //Jojo corrupt +10
+        // Jojo corrupt +10
         if (this.getGame().camp.campCorruptJojo()) levelOfFuckedness += 10;
 
-        //Added more cum witches? -10
+        // Added more cum witches? -10
         if (this.flags[kFLAGS.MORE_CUM_WITCHES] == 1) levelOfFuckedness -= 10;
 
-        //Vala saved -10
+        // Vala saved -10
         if (this.flags[kFLAGS.FREED_VALA] == 1) levelOfFuckedness -= 10;
 
-        //Ceraph tamed -5
+        // Ceraph tamed -5
         if (this.getGame().camp.ceraphIsFollower()) levelOfFuckedness -= 5;
 
-        //Owca saved -10
+        // Owca saved -10
         if (this.flags[kFLAGS.OWCA_SACRIFICE_DISABLED] == 1) levelOfFuckedness -= 10;
 
-        //Marcus (Wheelbarrow balls guy) turned into demon +10
+        // Marcus (Wheelbarrow balls guy) turned into demon +10
         if (this.player.findStatusAffect(StatusAffects.WandererDemon) >= 0) levelOfFuckedness += 10;
 
-        //Amily corrupted +10
+        // Amily corrupted +10
         if (this.flags[kFLAGS.AMILY_FOLLOWER] == 2) levelOfFuckedness += 10;
 
-        //Sand witches friendly -10 (Didn’t get Sand Mother all pissed off and/or raped her)
+        // Sand witches friendly -10 (Didn’t get Sand Mother all pissed off and/or raped her)
         if (this.flags[kFLAGS.SAND_WITCHES_FRIENDLY] == 1) levelOfFuckedness -= 10;
 
-        //Urta Quest complete -30
+        // Urta Quest complete -30
         if (this.flags[kFLAGS.URTA_QUEST_STATUS] == 1) levelOfFuckedness -= 30;
 
-        //Fera release +10
+        // Fera release +10
         if (this.flags[kFLAGS.PUMPKIN_FUCK_YEAR_DONE] != 0) levelOfFuckedness += 10;
 
-        //Helspawn exists -10
+        // Helspawn exists -10
         if (this.flags[kFLAGS.HELSPAWN_NAME] != "") levelOfFuckedness -= 10;
 
-        //Farm corrupted + 20
+        // Farm corrupted + 20
         if (this.flags[kFLAGS.FARM_CORRUPTION_FIRST_DATE] != 0) levelOfFuckedness += 20;
 
-        //Amily mousevillage made -20
+        // Amily mousevillage made -20
         // I can't find where the fuck this is flagged, jesus fucking christ fuck this mess.
 
-        //Anemone trained + equipped -10
+        // Anemone trained + equipped -10
         if (this.flags[kFLAGS.KID_A_XP] >= 100 && this.flags[kFLAGS.ANEMONE_WEAPON_ID] != "")
             levelOfFuckedness -= 10;
 
-        //Holli fully grown +15
+        // Holli fully grown +15
         if (this.flags[kFLAGS.FUCK_FLOWER_LEVEL] > 3) levelOfFuckedness += 15;
 
-        //Edryn has baby (or babies) -5
+        // Edryn has baby (or babies) -5
         if (this.flags[kFLAGS.EDRYN_NUMBER_OF_KIDS] != 0) levelOfFuckedness -= 5;
 
-        //Cotton has babies or baby -5
+        // Cotton has babies or baby -5
         if (this.flags[kFLAGS.COTTON_KID_COUNT] != 0) levelOfFuckedness -= 5;
 
-        //Phylla ant army pure? -20 (Pretty sure there’s corrupt versions. +20 if corrupt)
+        // Phylla ant army pure? -20 (Pretty sure there’s corrupt versions. +20 if corrupt)
         // Can't spot anything overtly corrupt-phylla-ish being flagged. SHOULDA FLAGGED IT GOODER M8.
         if (this.flags[kFLAGS.ANT_KIDS] != 0) levelOfFuckedness -= 20;
 
-        //Kiha followered -15
+        // Kiha followered -15
         if (this.getGame().camp.followerKiha()) levelOfFuckedness -= 15;
 
-        //Pure Jojo recruited -5
+        // Pure Jojo recruited -5
         if (this.player.findStatusAffect(StatusAffects.PureCampJojo) >= 0) levelOfFuckedness -= 5;
 
-        //Kath got a job with the watch -5
+        // Kath got a job with the watch -5
         if (this.flags[kFLAGS.KATHERINE_UNLOCKED] == 4) levelOfFuckedness -= 5;
 
-        //Rathazul recruited -5
+        // Rathazul recruited -5
         if (this.player.findStatusAffect(StatusAffects.CampRathazul) >= 0) levelOfFuckedness -= 5;
 
         return levelOfFuckedness;

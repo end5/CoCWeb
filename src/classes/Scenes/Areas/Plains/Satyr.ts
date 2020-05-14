@@ -14,17 +14,17 @@ import { PerkLib } from "../../../PerkLib";
 import { StatusAffects } from "../../../StatusAffects";
 
 export class Satyr extends Monster {
-    //Attacks (Z)
+    // Attacks (Z)
     private satyrAttack(): void {
         this.outputText("The satyr swings at you with one knuckled fist.  ");
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Satyr.rand(3) < 1) {
             this.outputText(
                 this.capitalA + this.short + " completely misses you with a blind punch!\n",
                 false
             );
         }
-        //Evade:
+        // Evade:
         else if (
             this.combatMiss() ||
             this.combatEvade() ||
@@ -52,7 +52,7 @@ export class Satyr extends Monster {
         this.outputText(
             "He glares at you, panting while his tongue hangs out and begins to masturbate.  You can nearly see his lewd thoughts reflected in his eyes, as beads of pre form on his massive cock and begin sliding down the erect shaft."
         );
-        //(small Libido based Lust increase, and increase lust)
+        // (small Libido based Lust increase, and increase lust)
         this.game.dynStats("lus", this.player.lib / 5 + 4);
         this.lust += 5;
         this.combatRoundOver();
@@ -102,7 +102,7 @@ export class Satyr extends Monster {
                     );
                     this.player.createStatusAffect(StatusAffects.Stunned, 0, 0, 0, 0);
                 }
-                //stun PC + hp damage if hit, hp damage dependent on str if miss
+                // stun PC + hp damage if hit, hp damage dependent on str if miss
                 this.outputText(" (" + damage + ")");
             } else
                 this.outputText(
@@ -116,13 +116,13 @@ export class Satyr extends Monster {
         this.outputText(
             "He whips a bottle of wine seemingly from nowhere and begins chugging it down, then lets out a bellowing belch towards you.  The smell is so horrible you cover your nose in disgust, yet you feel hot as you inhale some of the fetid scent."
         );
-        //(damage PC lust very slightly and raise the satyr's lust.)
+        // (damage PC lust very slightly and raise the satyr's lust.)
         this.game.dynStats("lus", this.player.lib / 5);
         this.lust += 5;
         this.combatRoundOver();
     }
 
-    //5:(Only executed at high lust)
+    // 5:(Only executed at high lust)
     private highLustChugRape(): void {
         this.outputText(
             "Panting with barely-contained lust, the Satyr charges at you and tries to ram you into the ground.  "
@@ -147,7 +147,7 @@ export class Satyr extends Monster {
                     this.player.skinFurScales() +
                     " with slimy, hot cum.  As it rubs into your body, you shiver with unwanted arousal."
             );
-            //large-ish sensitivity based lust increase if hit.)(This also relieves him of some of his lust, though not completely.)
+            // large-ish sensitivity based lust increase if hit.)(This also relieves him of some of his lust, though not completely.)
             this.lust -= 50;
             this.game.dynStats("lus", this.player.sens / 5 + 20);
         }

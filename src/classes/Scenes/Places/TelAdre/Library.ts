@@ -5,11 +5,11 @@ import { StatusAffects } from "../../../StatusAffects";
 import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class Library extends TelAdreAbstractContent {
-    //const TIMES_VISITED_MALI: number = 860
-    //const TIMES_BEEN_TO_LIBRARY: number = 861;
-    //const MALI_TAKEN_BLADE: number = 862;
+    // const TIMES_VISITED_MALI: number = 860
+    // const TIMES_BEEN_TO_LIBRARY: number = 861;
+    // const MALI_TAKEN_BLADE: number = 862;
 
-    //[Mage's Tower]
+    // [Mage's Tower]
     public visitZeMagesTower(): void {
         if (this.flags[kFLAGS.TIMES_BEEN_TO_LIBRARY] == 0) this.firstTowerVisit();
         else this.towerFollowUpVisits();
@@ -25,7 +25,7 @@ export class Library extends TelAdreAbstractContent {
         this.addButton(4, "Back", this.telAdre.telAdreMenu);
     }
 
-    //(first visit)
+    // (first visit)
     private firstTowerVisit(): void {
         this.clearOutput();
         this.outputText(
@@ -41,7 +41,7 @@ export class Library extends TelAdreAbstractContent {
         );
 
         if (this.model.time.hours <= 17) {
-            //Don't want to meet Quinn if he's not supposed to be there
+            // Don't want to meet Quinn if he's not supposed to be there
             this.outputText("  A single man carefully turns through the pages of one book");
             this.commonQuinnTroduction();
         } else {
@@ -55,7 +55,7 @@ export class Library extends TelAdreAbstractContent {
     private towerFollowUpVisits(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.TIMES_BEEN_TO_LIBRARY] == -1) {
-            //Return visits before you meet Quinn. Either you meet him or you continue to go to the library at night like some bibliophile vampire
+            // Return visits before you meet Quinn. Either you meet him or you continue to go to the library at night like some bibliophile vampire
             if (this.model.time.hours <= 17) {
                 this.outputText(
                     "You return to the mage's tower.  Entering the main room, you're surprised to see a man carefully turning the pages of one of the tomes"
@@ -70,7 +70,7 @@ export class Library extends TelAdreAbstractContent {
             return;
         }
 
-        //(follow-up visits, 6:00 – 17:00)
+        // (follow-up visits, 6:00 – 17:00)
         if (this.model.time.hours <= 17) {
             this.outputText(
                 "You return to the mage's tower.  Entering the main room, Quinn is carefully inspecting the pages of a book.  The room looks slightly more organized from when you last saw it, but it looks as though Quinn will be working on it for some time."
@@ -78,10 +78,10 @@ export class Library extends TelAdreAbstractContent {
             this.outputText(
                 '\n\nHe notices you\'ve arrived and quirks an eyebrow.  "<i>Yes?</i>" he asks wearily, "<i>Is there something I can assist you with?</i>"'
             );
-            //If the player has encountered Asa Mali they may ask for Mali.  Otherwise they can either leave, ask to study, or ask Quinn if he is okay.
-            //[Mali] [You OK?][Study]
+            // If the player has encountered Asa Mali they may ask for Mali.  Otherwise they can either leave, ask to study, or ask Quinn if he is okay.
+            // [Mali] [You OK?][Study]
         }
-        //(follow-up visits, 18:00-20:00)
+        // (follow-up visits, 18:00-20:00)
         else {
             this.outputText(
                 "You return to the mage's tower.  Entering the main room, Quinn is nowhere to be seen.  The room looks slightly cleaner from when you saw it last, but at the rate he's going it seems like it will be some time before it's finished."
@@ -90,7 +90,7 @@ export class Library extends TelAdreAbstractContent {
             this.outputText(
                 "\n\nYou could probably read some of the books here if you wanted to, without Quinn around to tell you no.  Looking up and down the staircases reveals two locked doors, so it's unlikely you could do anything else here."
             );
-            //The player can Study now, but due to the rest of the building being locked there are no other options. This is intended to serve as an alternative to Dominika's magic training, for players such as centaurs and naga, or players that hate blowjobs.
+            // The player can Study now, but due to the rest of the building being locked there are no other options. This is intended to serve as an alternative to Dominika's magic training, for players such as centaurs and naga, or players that hate blowjobs.
         }
     }
 
@@ -115,14 +115,14 @@ export class Library extends TelAdreAbstractContent {
             '\n\n"<i>But that is of little matter now,</i>" Quinn concludes, folding his hands together.  "<i>If you do not have any business with me or any members of the Covenant, I shall have to ask you to depart.  We are not a free range tower.</i>"'
         );
 
-        //If the player has encountered Asa Mali they may ask for Mali. Otherwise they can either leave, ask to study, or ask Quinn if he is OK.
-        //Met Asa Mali? flag 175
+        // If the player has encountered Asa Mali they may ask for Mali. Otherwise they can either leave, ask to study, or ask Quinn if he is OK.
+        // Met Asa Mali? flag 175
     }
 
-    //[Study]
+    // [Study]
     private studyInTA(): void {
         this.clearOutput();
-        //[Study, 6:00-17:00]
+        // [Study, 6:00-17:00]
         if (this.model.time.hours <= 17) {
             this.outputText("You ask Quinn if you can use the library to study and learn.");
             this.outputText(
@@ -134,7 +134,7 @@ export class Library extends TelAdreAbstractContent {
             this.menu();
             this.addButton(4, "Back", this.telAdre.telAdreMenu);
         }
-        //[Study, 18:00-20:00]
+        // [Study, 18:00-20:00]
         else {
             if (this.flags[kFLAGS.TIMES_BEEN_TO_LIBRARY] == -1) {
                 this.outputText("Looking around you decide to spend some time reading");
@@ -145,13 +145,13 @@ export class Library extends TelAdreAbstractContent {
             }
             this.outputText(" through some of the literature collected by the Covenant.");
             if (Library.rand(3) == 0) {
-                //magic)
+                // magic)
                 this.outputText(
                     '\n\nSelecting a book at chance from the mess across the tables, you are delighted to find that it is a tome about magic.  Though the language used is archaic at first you slowly find yourself getting the grasp of it and understanding more of the theory put down in the text.  You find yourself thinking about how to apply the things you\'re reading about to your own abilities, and figuring out how to better utilize magic yourself.  In short, you experience the condition known as "learning", and feel smarter for it.'
                 );
                 this.dynStats("int", 3 + Library.rand(4));
-                //(Intelligence increase)
-                //Smart enough for arouse and doesnt have it
+                // (Intelligence increase)
+                // Smart enough for arouse and doesnt have it
                 if (
                     this.player.inte >= 25 &&
                     this.player.findStatusAffect(StatusAffects.KnowsArouse) < 0
@@ -162,7 +162,7 @@ export class Library extends TelAdreAbstractContent {
                     );
                     this.player.createStatusAffect(StatusAffects.KnowsArouse, 0, 0, 0, 0);
                 }
-                //Smart enough for arouse and doesnt have it
+                // Smart enough for arouse and doesnt have it
                 else if (
                     this.player.inte >= 30 &&
                     this.player.findStatusAffect(StatusAffects.KnowsHeal) < 0
@@ -173,7 +173,7 @@ export class Library extends TelAdreAbstractContent {
                     );
                     this.player.createStatusAffect(StatusAffects.KnowsHeal, 0, 0, 0, 0);
                 }
-                //Smart enough for arouse and doesnt have it
+                // Smart enough for arouse and doesnt have it
                 else if (
                     this.player.inte >= 40 &&
                     this.player.findStatusAffect(StatusAffects.KnowsMight) < 0
@@ -184,7 +184,7 @@ export class Library extends TelAdreAbstractContent {
                     );
                     this.player.createStatusAffect(StatusAffects.KnowsMight, 0, 0, 0, 0);
                 }
-                //Smart enough for arouse and doesnt have it
+                // Smart enough for arouse and doesnt have it
                 else if (
                     this.player.inte >= 25 &&
                     this.player.findStatusAffect(StatusAffects.KnowsCharge) < 0
@@ -195,7 +195,7 @@ export class Library extends TelAdreAbstractContent {
                     );
                     this.player.createStatusAffect(StatusAffects.KnowsCharge, 0, 0, 0, 0);
                 }
-                //Smart enough for arouse and doesnt have it
+                // Smart enough for arouse and doesnt have it
                 else if (
                     this.player.inte >= 30 &&
                     this.player.findStatusAffect(StatusAffects.KnowsBlind) < 0
@@ -206,7 +206,7 @@ export class Library extends TelAdreAbstractContent {
                     );
                     this.player.createStatusAffect(StatusAffects.KnowsBlind, 0, 0, 0, 0);
                 }
-                //Smart enough for arouse and doesnt have it
+                // Smart enough for arouse and doesnt have it
                 else if (
                     this.player.inte >= 40 &&
                     this.player.findStatusAffect(StatusAffects.KnowsWhitefire) < 0
@@ -218,7 +218,7 @@ export class Library extends TelAdreAbstractContent {
                     this.player.createStatusAffect(StatusAffects.KnowsWhitefire, 0, 0, 0, 0);
                 }
             }
-            //OR (player is bimbo/bimbro/whatever)
+            // OR (player is bimbo/bimbro/whatever)
             else if (
                 (this.player.lib > 75 ||
                     this.player.cor > 75 ||
@@ -230,7 +230,7 @@ export class Library extends TelAdreAbstractContent {
                 this.outputText(
                     "\n\nYou pick up a book from a table randomly and open it up.  Incredibly disappointed, you soon realize that there are no pictures of people fucking at all.  Reading sucks.  You eventually toss the book aside and resolve to go do something more fun."
                 );
-            //OR (history)
+            // OR (history)
             else
                 this.outputText(
                     "\n\nSelecting a book randomly from the scattered tomes, you find a historical text documenting life in Mareth.  It's dreadfully dull, and though you do your best to learn what you can the dry work is putting you to sleep.  Eventually you close the book and accept that you're not going to be learning anything tonight."
@@ -240,7 +240,7 @@ export class Library extends TelAdreAbstractContent {
         }
     }
 
-    //[You OK?]
+    // [You OK?]
     private youOkayBuddy(): void {
         this.clearOutput();
         this.outputText(
@@ -265,7 +265,7 @@ export class Library extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Mali]
+    // [Mali]
     private talkToMali(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.TIMES_VISITED_MALI] == 0) {
@@ -311,10 +311,10 @@ export class Library extends TelAdreAbstractContent {
             this.outputText(
                 "\n\nMali does not talk business for the rest of the visit, instead sharing tea with you and making small talk about life in Tel'adre.  It is polite and pleasant, and quite relaxing.  Eventually you excuse yourself, needing to return to the camp.  Descending back down the long staircase you scare off a crow resting on one of the tower's windowsills."
             );
-            //[Mali] is added permanently to the tower's menu during the day.
+            // [Mali] is added permanently to the tower's menu during the day.
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //[[Mali], player has spellblade]
+        // [[Mali], player has spellblade]
         else if (
             (this.player.weaponName == "inscribed spellblade" ||
                 this.player.hasItem(this.weapons.S_BLADE)) &&
@@ -338,15 +338,15 @@ export class Library extends TelAdreAbstractContent {
             this.outputText("\n\n(<b>Conclusion not yet complete...</b>)");
             if (this.player.weapon == this.weapons.S_BLADE) {
                 this.player.setWeapon(WeaponLib.FISTS);
-                //			player.weapon.unequip(player, false, true);
-                //			player.removePerk(PerkLib.WizardsFocus);
+                // 			player.weapon.unequip(player, false, true);
+                // 			player.removePerk(PerkLib.WizardsFocus);
             } else {
                 this.player.consumeItem(this.weapons.S_BLADE);
             }
             this.flags[kFLAGS.MALI_TAKEN_BLADE] = 1;
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //[[Mali], player does not have spellblade]
+        // [[Mali], player does not have spellblade]
         else {
             this.outputText(
                 "You tell Quinn you're here to see Mali.  He rolls his eyes but doesn't say anything, unlocking the second floor and leading you up once more."

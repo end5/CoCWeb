@@ -5,19 +5,19 @@ import { StatusAffects } from "../../../StatusAffects";
 import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class Lottie extends TelAdreAbstractContent {
-    //spriteSelect(36);
-    //9999 - PUT IN SPRITES
-    //FLAGS
-    //278 - LOTTIE OFF - NEVER ENCOUNTER PIG BITCH AGAIN
-    //279 - LOTTIES FIGURE - HIGHER = LIGHTER
-    //280 - Encouragement Value - higher = happier
-    //281 - times met lottie
-    //297 - lottie love her body?
-    //298 - times porked lottie
-    //299 - lottie's trainer (1 = yes)
-    //300 - Last encouragement state
+    // spriteSelect(36);
+    // 9999 - PUT IN SPRITES
+    // FLAGS
+    // 278 - LOTTIE OFF - NEVER ENCOUNTER PIG BITCH AGAIN
+    // 279 - LOTTIES FIGURE - HIGHER = LIGHTER
+    // 280 - Encouragement Value - higher = happier
+    // 281 - times met lottie
+    // 297 - lottie love her body?
+    // 298 - times porked lottie
+    // 299 - lottie's trainer (1 = yes)
+    // 300 - Last encouragement state
 
-    //[INITIAL INTRO – Requires Male/Herm, visits at 5pm – 7pm]
+    // [INITIAL INTRO – Requires Male/Herm, visits at 5pm – 7pm]
     public lottieAppearance(display: boolean = true) {
         if (!this.player.hasCock()) return undefined;
         if (this.player.findStatusAffect(StatusAffects.MetMarae) < 0) return undefined;
@@ -31,8 +31,8 @@ export class Lottie extends TelAdreAbstractContent {
                 return this.encounterLottieCharge;
             } else {
                 if (display) {
-                    //[RANDOM INTROS]
-                    //[Encouragement 0 – 30]
+                    // [RANDOM INTROS]
+                    // [Encouragement 0 – 30]
                     if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00280] < 30 && Lottie.rand(6) == 0) {
                         this.outputText(
                             "\n\nYou find Lottie crying in the sauna. She often comes here alone, wondering what went wrong with her weight loss. Every time you catch her, she begs for you not to leave her like everyone else. You tell her you won't, as long as she keeps doing as you instruct. She thanks you over and over again, crawling over to your legs and sobbing, squishing her luscious tits against you. You watch as she slowly lumbers her way to the cafe, waiting expectantly for you."
@@ -40,7 +40,7 @@ export class Lottie extends TelAdreAbstractContent {
                         if (this.silly())
                             this.outputText("  What can you say? You love making bacon.", false);
                     }
-                    //[Encouragement 0 – 30]
+                    // [Encouragement 0 – 30]
                     else if (
                         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00280] < 30 &&
                         Lottie.rand(5) == 0
@@ -54,7 +54,7 @@ export class Lottie extends TelAdreAbstractContent {
                                 false
                             );
                     }
-                    //[REPEAT INTROS]
+                    // [REPEAT INTROS]
                     else if (Lottie.rand(2) == 0) {
                         this.outputText(
                             "\n\nYou see Lottie exiting the yoga room nearby, her session finished. You can't help but notice the tight blue tank top and dark booty shorts she's wearing today. The ",
@@ -97,10 +97,10 @@ export class Lottie extends TelAdreAbstractContent {
         } else return undefined;
     }
 
-    //return cupsize!
-    //279 - LOTTIES FIGURE - HIGHER = LIGHTER
+    // return cupsize!
+    // 279 - LOTTIES FIGURE - HIGHER = LIGHTER
     private lottieCup(): string {
-        //(d/e/f/g)
+        // (d/e/f/g)
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] >= 75) return "D";
         else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] >= 50) return "E";
         else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] >= 25) return "F";
@@ -115,8 +115,8 @@ export class Lottie extends TelAdreAbstractContent {
         this.spriteSelect(36);
         var comedy1 = undefined;
 
-        //Choice menu vars
-        //[Appearance][Talk][Exercise][Give Item][Sex][Hug]
+        // Choice menu vars
+        // [Appearance][Talk][Exercise][Give Item][Sex][Hug]
         var item = this.giveLottieAnItem;
         var sex = undefined;
         var hug = this.hugTheShitOutOfYourHam;
@@ -152,7 +152,7 @@ export class Lottie extends TelAdreAbstractContent {
             }
         }
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00281]++;
-        //[INITIAL ENCOUNTER]
+        // [INITIAL ENCOUNTER]
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00281] == 1) {
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] = 50;
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00280] = 50;
@@ -173,19 +173,19 @@ export class Lottie extends TelAdreAbstractContent {
                 false
             );
 
-            //[If Meet Full Requirements]
+            // [If Meet Full Requirements]
             if (!this.player.isNaga() && !this.player.isTaur() && this.player.tone >= 50) {
                 this.outputText(
                     "\"<i>R-really? Y'think so?</i>\"  She blushes and looks down towards her feet.  \"<i>Y'know, I can't help but feel pretty confident when I'm around you – it might have something to do with those big muscles o' yours!</i>\"  She playfully pokes at your bicep.  \"<i>Hey, I was thinkin'... do you like, wanna be gym partners? I need to lose weight badly, and I think – I know I can do it if I'm with someone like you.</i>\"\n\n",
                     false
                 );
-                //[Accept][Decline]
+                // [Accept][Decline]
                 this.doYesNo(
                     this.acceptBeingLottiesHamSandwich,
                     this.declineBeingLottiesGymHamsandwich
                 );
             }
-            //[If Don't Meet Full Requirements]
+            // [If Don't Meet Full Requirements]
             else {
                 this.outputText(
                     '"<i>Oh, uh... thanks! Hey, listen – I gotta go start my yoga class now, but it was pretty great letting it all out with you. We should run into each other again sometime!</i>"  The girl flashes a grin and jogs towards the showers.  "<i>My name\'s Lottie, by the way!</i>"\n\n',
@@ -200,13 +200,13 @@ export class Lottie extends TelAdreAbstractContent {
             }
             return;
         }
-        //278 - LOTTIE OFF - NEVER ENCOUNTER PIG BITCH AGAIN
-        //279 - LOTTIES FIGURE - HIGHER = LIGHTER
-        //280 - Encouragement Value - higher = happier
-        //281 - times met lottie
-        //297 - lottie love her body?
-        //298 - times porked lottie
-        //[REPEAT ENCOUNTER]
+        // 278 - LOTTIE OFF - NEVER ENCOUNTER PIG BITCH AGAIN
+        // 279 - LOTTIES FIGURE - HIGHER = LIGHTER
+        // 280 - Encouragement Value - higher = happier
+        // 281 - times met lottie
+        // 297 - lottie love her body?
+        // 298 - times porked lottie
+        // [REPEAT ENCOUNTER]
         else {
             this.outputText("You approach the pig girl ", false);
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00280] >= 50)
@@ -234,7 +234,7 @@ export class Lottie extends TelAdreAbstractContent {
                 false
             );
 
-            //[Repeat If didn't meet requirements]
+            // [Repeat If didn't meet requirements]
             if (
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00299] == 0 &&
                 (this.player.isNaga() || this.player.isTaur() || this.player.tone < 50)
@@ -245,7 +245,7 @@ export class Lottie extends TelAdreAbstractContent {
                         "! I...I'm really glad I talked about myself with you, you're a really great friend, y'know. I really think I can achieve something this time, if I work hard!</i>\" You smile and tell her how glad you are that she's doing this. Lottie responds with a delighted expression, and continues to talk. \"<i>Anyway, I've been trying to look for a personal trainer, but it's kinda difficult, heh. I mean... I'm sure there's lots of trainers here and all, but I – I'd prefer someone I know personally, right?</i>\" She looks up at you expectantly, but then looks back towards the floor. </i>\"But I guess we can't always have what we want.</i>\"\n\n",
                     false
                 );
-                //(Note: No options but 'leave' are available until you meet requirements.)
+                // (Note: No options but 'leave' are available until you meet requirements.)
                 this.simpleChoices(
                     "",
                     undefined,
@@ -260,7 +260,7 @@ export class Lottie extends TelAdreAbstractContent {
                 );
                 return;
             }
-            //[Normal Encounter, If became met requirements]
+            // [Normal Encounter, If became met requirements]
             else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00299] == 0) {
                 this.outputText(
                     '"<i>Hey, ' +
@@ -271,7 +271,7 @@ export class Lottie extends TelAdreAbstractContent {
                     false
                 );
                 this.outputText("Well, are you?", false);
-                //[Yes][No][God No]
+                // [Yes][No][God No]
                 if (this.silly() && this.player.cor >= 80)
                     comedy1 = this.gotInShapeComedyDeclineLottie;
                 this.simpleChoices(
@@ -288,7 +288,7 @@ export class Lottie extends TelAdreAbstractContent {
                 );
                 return;
             }
-            //[Second Encounter, If fucked Lottie]
+            // [Second Encounter, If fucked Lottie]
             else if (
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00281] == 2 &&
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00298] > 0
@@ -300,7 +300,7 @@ export class Lottie extends TelAdreAbstractContent {
                     false
                 );
             }
-            //[Second Encounter, If didn't fuck Lottie]
+            // [Second Encounter, If didn't fuck Lottie]
             else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00281] == 2) {
                 this.outputText(
                     '"<i>Hey, ' +
@@ -308,9 +308,9 @@ export class Lottie extends TelAdreAbstractContent {
                         "! I...I'm really glad we're doing this, y'know? I really think I can achieve something this time, if I work hard – and if you work hard with me!</i>\" You smile and tell her how glad you are that she's doing this. Lottie responds with a delighted expression as you both return to normal conversation.",
                     false
                 );
-                //(Note: 'Give Item' and 'Sex' options aren't available until she brings up the subject of sex on your fourth encounter with her.)
+                // (Note: 'Give Item' and 'Sex' options aren't available until she brings up the subject of sex on your fourth encounter with her.)
             }
-            //[Fourth Encounter, If didn't take Lust Draft]
+            // [Fourth Encounter, If didn't take Lust Draft]
             else if (
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00281] == 4 &&
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00298] == 0
@@ -321,7 +321,7 @@ export class Lottie extends TelAdreAbstractContent {
                         ", it's nice to see you again. Um, I... I have this thing I gotta ask you, if you don't mind.</i>\" You look up at Lottie, your curiosity piqued. \"<i>Well, uh! I was at the bar last night, and this lady told me, uh... y'see, there's this, um, this technique. There's a technique. A technique for sex.</i>\" You smile at her obvious embarrassment while her face turns a brighter pink than usual. You're not denying that a girl like Lottie might've had some experience in the sex department, but she's clearly uncomfortable with the issue. Still, she presses on. \"<i>I just heard that, well, this sex technique, it helps you lose weight, y'know? And I was thinkin', what with all the exercise we're doing... what about sex?</i>\" Lottie leans forward, crushing her breasts against the table while she tries to stare an answer out of you. Her awkward forwardness is cute, if anything. Do you take her up on the offer, or is it easier just to be exercise buddies?",
                     false
                 );
-                //[Sex][Buddies]
+                // [Sex][Buddies]
                 this.simpleChoices(
                     "Sex",
                     this.fourthMeetingChooseSexWithLottie,
@@ -336,7 +336,7 @@ export class Lottie extends TelAdreAbstractContent {
                 );
                 return;
             }
-            //[Encouragement moved from 31 to 30, first time]
+            // [Encouragement moved from 31 to 30, first time]
             else if (
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00301] == 0 &&
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00300] > 30 &&
@@ -355,7 +355,7 @@ export class Lottie extends TelAdreAbstractContent {
                     kFLAGS.UNKNOWN_FLAG_NUMBER_00280
                 ];
             }
-            //[Encouragement moved from 31 to 30, regular]
+            // [Encouragement moved from 31 to 30, regular]
             else if (
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00301] > 0 &&
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00300] > 30 &&
@@ -371,7 +371,7 @@ export class Lottie extends TelAdreAbstractContent {
                     kFLAGS.UNKNOWN_FLAG_NUMBER_00280
                 ];
             }
-            //[Encouragement moved from 30 to 31
+            // [Encouragement moved from 30 to 31
             else if (
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00300] <= 30 &&
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00280] > 30
@@ -379,7 +379,7 @@ export class Lottie extends TelAdreAbstractContent {
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00300] = this.flags[
                     kFLAGS.UNKNOWN_FLAG_NUMBER_00280
                 ];
-                //first time
+                // first time
                 if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00302] == 0) {
                     this.outputText(
                         '"<i>H-hiya, ' +
@@ -389,7 +389,7 @@ export class Lottie extends TelAdreAbstractContent {
                     );
                     this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00302] = 1;
                 }
-                //[Encouragement moved from 30 to 31, regular]
+                // [Encouragement moved from 30 to 31, regular]
                 else {
                     this.outputText(
                         '"<i>H-hiya, ' +
@@ -399,7 +399,7 @@ export class Lottie extends TelAdreAbstractContent {
                     );
                 }
             }
-            //[Encouragement moved from 80 to 79
+            // [Encouragement moved from 80 to 79
             else if (
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00300] > 80 &&
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00280] <= 80
@@ -407,7 +407,7 @@ export class Lottie extends TelAdreAbstractContent {
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00300] = this.flags[
                     kFLAGS.UNKNOWN_FLAG_NUMBER_00280
                 ];
-                //, first time]
+                // , first time]
                 if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00303] == 0) {
                     this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00303] = 1;
                     this.outputText(
@@ -417,7 +417,7 @@ export class Lottie extends TelAdreAbstractContent {
                         false
                     );
                 }
-                //[Encouragement moved from 80 to 79, regular]
+                // [Encouragement moved from 80 to 79, regular]
                 else {
                     this.outputText(
                         '"<i>Hey, ' +
@@ -427,7 +427,7 @@ export class Lottie extends TelAdreAbstractContent {
                     );
                 }
             }
-            //[Encouragement moved from 79 to 80, first time]
+            // [Encouragement moved from 79 to 80, first time]
             else if (
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00300] <= 80 &&
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00280] > 80
@@ -435,7 +435,7 @@ export class Lottie extends TelAdreAbstractContent {
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00300] = this.flags[
                     kFLAGS.UNKNOWN_FLAG_NUMBER_00280
                 ];
-                //, first time]
+                // , first time]
                 if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00304] == 0) {
                     this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00304] = 1;
                     this.outputText(
@@ -450,7 +450,7 @@ export class Lottie extends TelAdreAbstractContent {
                     );
                     this.outputText("You don't know the answer.", false);
                 }
-                //[Encouragement moved from 79 to 80, regular]
+                // [Encouragement moved from 79 to 80, regular]
                 else {
                     this.outputText(
                         '"<i>Hey, ' +
@@ -460,9 +460,9 @@ export class Lottie extends TelAdreAbstractContent {
                     );
                 }
             }
-            //[Normal Encounter, Encouragement 60 - 100]
+            // [Normal Encounter, Encouragement 60 - 100]
             else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00280] >= 60) {
-                //[Figure 0 – 20]
+                // [Figure 0 – 20]
                 if (
                     this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] <= 20 &&
                     this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00297] == 0
@@ -473,7 +473,7 @@ export class Lottie extends TelAdreAbstractContent {
                             "! Let's do our best today, I really wanna lose those pounds! I know I can do my best when I'm with you!</i>\" Lottie beams, her massive tits pushed against the table. She seems to be excited for what you've got in store today.",
                         false
                     );
-                //[Figure 0 - 20, convinced her to accept body]
+                // [Figure 0 - 20, convinced her to accept body]
                 else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] <= 20)
                     this.outputText(
                         '"<i>Hey, ' +
@@ -481,7 +481,7 @@ export class Lottie extends TelAdreAbstractContent {
                             "! You shouldn't keep a big girl like me waiting; unless you wanna get crushed by these!</i>\" Lottie grins and grabs her luscious breasts firmly, giggling when she notices you're at full attention now. She seems to be excited for what you've got in store today.",
                         false
                     );
-                //Figure 20 - 40, haven't convinced her to accept body]
+                // Figure 20 - 40, haven't convinced her to accept body]
                 else if (
                     this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] <= 40 &&
                     this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00297] == 0
@@ -492,7 +492,7 @@ export class Lottie extends TelAdreAbstractContent {
                             "! We should probably get started soon; I'm gonna push myself to the limit today!</i>\" Lottie's arms are folded over her chest, subconsciously trying to hide her nervousness, though squishing her pillowy tits in the process. She seems to be excited for what you've got in store today.",
                         false
                     );
-                //[Figure 20 - 40, convinced her to accept body]
+                // [Figure 20 - 40, convinced her to accept body]
                 else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] <= 40)
                     this.outputText(
                         '"<i>Hey, ' +
@@ -500,13 +500,13 @@ export class Lottie extends TelAdreAbstractContent {
                             "! You shouldn't keep me waiting; the only thing I'm losing right now is my patience!</i>\" Lottie grins and punches your arm playfully, squealing when you try to get her back. She seems to be excited for what you've got in store today.",
                         false
                     );
-                //[Figure 40 - 60]
+                // [Figure 40 - 60]
                 else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] <= 60)
                     this.outputText(
                         "\"<i>Hey! I was looking for you earlier, y'know? I can't wait to get started.</i>\" She looks happy that you've arrived. Lottie leans over to grab her beverage, giving you an excellent view of her supple mounds. She seems to be excited for what you've got in store today.",
                         false
                     );
-                //[Figure 60 - 80]
+                // [Figure 60 - 80]
                 else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] <= 80)
                     this.outputText(
                         '"<i>Yo, ' +
@@ -514,7 +514,7 @@ export class Lottie extends TelAdreAbstractContent {
                             "! I've been waiting for you, so you better be pumped! Ready to get started?</i>\" Lottie leans over, her creamy tits pushed against the table. She seems to be excited for what you've got in store today.",
                         false
                     );
-                //[Figure 80 - 100]
+                // [Figure 80 - 100]
                 else
                     this.outputText(
                         '"<i>Hey, ' +
@@ -523,9 +523,9 @@ export class Lottie extends TelAdreAbstractContent {
                         false
                     );
             }
-            //[Normal Encounter, Encouragement 30 - 60]
+            // [Normal Encounter, Encouragement 30 - 60]
             else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00280] >= 30) {
-                //[Figure 0 - 20]
+                // [Figure 0 - 20]
                 if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] <= 20)
                     this.outputText(
                         '"<i>Oh, ' +
@@ -533,7 +533,7 @@ export class Lottie extends TelAdreAbstractContent {
                             ", hey. I think we should try and get into it today. I don't think I tried hard enough last time, y'know?</i>\" Lottie leans over to grab her beverage, her massive tits pushed against the table. She seems to be intent on trying her best today.",
                         false
                     );
-                //[Figure 20 - 40]
+                // [Figure 20 - 40]
                 else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] <= 40)
                     this.outputText(
                         '"<i>A-ah, ' +
@@ -541,13 +541,13 @@ export class Lottie extends TelAdreAbstractContent {
                             "! We should probably get started soon; I... I want to push myself to the limit today!</i>\" Lottie's arms are folded over her chest, subconsciously trying to hide her nervousness, though squishing her pillowy tits in the process. She seems curious as to what you both plan to do today.",
                         false
                     );
-                //[Figure 40 - 60]
+                // [Figure 40 - 60]
                 else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] <= 60)
                     this.outputText(
                         "\"<i>H-hey! I was looking for you earlier, y'know? I can't wait to get started.</i>\" She looks at ease now that you've arrived. Lottie leans over to grab her beverage, giving you an excellent view of her supple mounds. She seems curious as to what you both plan to do today.",
                         false
                     );
-                //[Figure 60 - 80]
+                // [Figure 60 - 80]
                 else
                     this.outputText(
                         '"<i>Hello ' +
@@ -556,9 +556,9 @@ export class Lottie extends TelAdreAbstractContent {
                         false
                     );
             }
-            //[Normal Encounter, Encouragement 0 - 30]
+            // [Normal Encounter, Encouragement 0 - 30]
             else {
-                //[Normal Encounter, Figure 0 – 70]
+                // [Normal Encounter, Figure 0 – 70]
                 if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] <= 70)
                     this.outputText(
                         '"<i>Oh, ' +
@@ -566,7 +566,7 @@ export class Lottie extends TelAdreAbstractContent {
                             "... I know I haven't been trying the way you want me to. I – I punished myself extra hard last night! Please, let me try again today!</i>\" Lottie leans over and looks at you desperately, her creamy tits pushed against the table. You can see they're redder than before. Has she been trying to slap her fat away? You turn away, not giving her the pleasure of looking at your face. You agree to help her – but don't expect to be looked at by the only person who can stand you if this goes on. Lottie squeals and manages to blurt out a 'th-thank you!' in response.",
                         false
                     );
-                //[Normal Encounter, Figure 70 - 100]
+                // [Normal Encounter, Figure 70 - 100]
                 else
                     this.outputText(
                         '"<i>' +
@@ -576,7 +576,7 @@ export class Lottie extends TelAdreAbstractContent {
                     );
             }
         }
-        //[Appearance][Talk][Exercise][Give Item][Sex][Hug]
+        // [Appearance][Talk][Exercise][Give Item][Sex][Hug]
         this.choices(
             "Appearance",
             this.lotteryAppearance,
@@ -604,7 +604,7 @@ export class Lottie extends TelAdreAbstractContent {
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00308] = this.lottieTone();
     }
 
-    //[Sex]
+    // [Sex]
     private fourthMeetingChooseSexWithLottie(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -629,8 +629,8 @@ export class Lottie extends TelAdreAbstractContent {
             "You tell Lottie you've decided you're going to take her for a vigorous work out. She can only pant with anticipation.\n\n",
             false
         );
-        //[Oral][Anal] – [After scenes, options for 'sex' and 'give item' are opened up.]
-        //Use same as other first time sex I presume
+        // [Oral][Anal] – [After scenes, options for 'sex' and 'give item' are opened up.]
+        // Use same as other first time sex I presume
         this.simpleChoices(
             "Oral",
             this.getSuckedOffByAHamSandwich,
@@ -645,7 +645,7 @@ export class Lottie extends TelAdreAbstractContent {
         );
     }
 
-    //[Buddies]
+    // [Buddies]
     private stayLottieBuds4Evah(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -664,7 +664,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Decline]
+    // [If Decline]
     private declineBeingLottiesGymHamsandwich(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -672,12 +672,12 @@ export class Lottie extends TelAdreAbstractContent {
             "\"<i>O-oh, um... okay. I understand! You're probably busy what with all that lifting you're getting up to, haha!</i>\" The pig girl chuckles nervously, shifting her towel to cover more of her soft cleavage.  \"<i>I'll uh – I'll go get outta your hair then. I've got some stuff to do at home.</i>\"  You watch as she jogs off through the door and out into Tel'Adre, towel and all.  You decide you better return home too, and head back towards the camp.",
             false
         );
-        //[PC no longer encounters Lottie.]
+        // [PC no longer encounters Lottie.]
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00278] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Accept]
+    // [If Accept]
     private acceptBeingLottiesHamSandwich(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -710,7 +710,7 @@ export class Lottie extends TelAdreAbstractContent {
             "An hour later, both you and Lottie are running along the track. She's clearly focused on matching your speed, but after a few minutes she tires herself out and begins to lightly jog. You pull back and wait for her to catch up to you and then power walk with her for the next lap or so, making light conversation when possible. After another lap, you both decide to take a break, Lottie bouncing happily at her progress today. You sit down on the bench and reach over to one of the cups of water you poured out for yourself and Lottie, when you spy another cup filled with a pink, bubbly liquid. The color itself isn't all that enticing, but your curiosity is piqued nonetheless. Is it an energy drink? You pick the cup with your free hand and smell its contents. It has a sweet, intoxicating scent similar to strawberries, or bubblegum. Immediately you begin to feel dizzy. You know this isn't any ordinary protein shake. You look back at your water. You're really thirsty... do you play it safe with the water, or take the enticingly peculiar shake?",
             false
         );
-        //[Water][Shake]
+        // [Water][Shake]
         this.simpleChoices(
             "Water",
             this.drinkWaterWithYourHamhock,
@@ -725,20 +725,20 @@ export class Lottie extends TelAdreAbstractContent {
         );
     }
 
-    //Followups to this: outputText("\"<i>Hey, " + player.short + "! I was just... I...</i>\"Lottie seems to be at a loss of words, gaping at your new, chiselled physique. You smile and tell her how glad you are that she's doing this, thought it's a shame she hasn't found a personal trainer yet. Lottie responds with a hazy expression and an open mouth. \"<i>Y-yeah... it's a shame...</i>\" She begins, until snapping out of her daze and looking up excitedly at you. \"<i>I- Y'know, I don't know what you've been doing to yourself lately, but... you look a... you're really amazing right now, " + player.mf("big guy","babe") + "!</i>\" She squeals as you flex at her, giggling at your blatant attempts at showing off. You never really took her as one to appreciate muscles, but you figure her obsession towards the perfect body might extend to other people as well. You take one stern look at the chubby porcine in front of you and grin, asking if she wants you to be her personal trainer. She seems shocked at your proposal. </i>\"Are... are you serious?</i>\"\n\n", false);
-    //If No]
+    // Followups to this: outputText("\"<i>Hey, " + player.short + "! I was just... I...</i>\"Lottie seems to be at a loss of words, gaping at your new, chiselled physique. You smile and tell her how glad you are that she's doing this, thought it's a shame she hasn't found a personal trainer yet. Lottie responds with a hazy expression and an open mouth. \"<i>Y-yeah... it's a shame...</i>\" She begins, until snapping out of her daze and looking up excitedly at you. \"<i>I- Y'know, I don't know what you've been doing to yourself lately, but... you look a... you're really amazing right now, " + player.mf("big guy","babe") + "!</i>\" She squeals as you flex at her, giggling at your blatant attempts at showing off. You never really took her as one to appreciate muscles, but you figure her obsession towards the perfect body might extend to other people as well. You take one stern look at the chubby porcine in front of you and grin, asking if she wants you to be her personal trainer. She seems shocked at your proposal. </i>\"Are... are you serious?</i>\"\n\n", false);
+    // If No]
     private gotInShapeButTurnedDownLottie(): void {
         this.spriteSelect(36);
         this.outputText(
             "\"<i>O-oh, um... okay. I understand! You're probably busy what with all that lifting you're getting up to, haha!</i>\" The pig girl chuckles nervously, shifting her towel to cover more of her soft cleavage. \"<i>I'll uh – I'll go get outta your hair then. I've got some stuff to do at home.</i>\" You watch as she jogs off through the door and out into Tel'Adre, towel and all. You decide you'd better return home too, and head back towards the camp.",
             false
         );
-        //[PC no longer encounters Lottie.]
+        // [PC no longer encounters Lottie.]
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00278] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If God No]
+    // [If God No]
     public gotInShapeComedyDeclineLottie(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -750,12 +750,12 @@ export class Lottie extends TelAdreAbstractContent {
                 " and swing at her face, hitting dead on and managing to leave a bit of pre-cum on her newly-christened cheek. You stand triumphantly at your latest work of art, though Lottie seems to have other ideas, running out the door in complete misery, pre-cum and all. You decide you'd better return home too, and head back towards the camp – but not before spending the next hour or so chasing after Lottie and taking grabs at her plush ass.",
             false
         );
-        //[PC no longer encounters Lottie.]
+        // [PC no longer encounters Lottie.]
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00278] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Yes]
+    // [If Yes]
     private gotInShapeAcceptTrainingOffer(): void {
         this.spriteSelect(36);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00299] = 1;
@@ -786,7 +786,7 @@ export class Lottie extends TelAdreAbstractContent {
             "A half-hour later, both you and Lottie are running along the track. She's clearly focused on matching your speed, but after a few minutes she tires herself out and begins to jog. You pull back and wait for her to catch up to you and then power walk with her for the next lap or so, making light conversation when possible. After another lap, you both decide to take a break, Lottie bouncing happily at her progress today. You sit down on the bench and reach over to one of the cups of water you poured out for yourself and Lottie when you spot another cup filled with a pink, bubbly liquid. The color itself isn't all that enticing, but your curiosity is piqued nonetheless. Is it an energy drink? You pick the cup up with your free hand and smell its contents. It has a sweet, intoxicating scent similar to strawberries, or bubblegum. You immediately begin to feel dizzy. You know this isn't any ordinary protein shake. You look back at your water. You're really thirsty... do you play it safe with the water, or take the enticingly peculiar shake?",
             false
         );
-        //[Water][Shake]
+        // [Water][Shake]
         this.simpleChoices(
             "Water",
             this.drinkWaterWithYourHamhock,
@@ -799,10 +799,10 @@ export class Lottie extends TelAdreAbstractContent {
             "",
             undefined
         );
-        //[Both options are the same as the initial encounter ones]
+        // [Both options are the same as the initial encounter ones]
     }
 
-    //[Water]
+    // [Water]
     private drinkWaterWithYourHamhock(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -832,7 +832,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Shake]
+    // [Shake]
     private drinkLustWithYourHamhock(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -850,7 +850,7 @@ export class Lottie extends TelAdreAbstractContent {
                 ", using her palm to massage your shaft",
             false
         );
-        //[if balls]
+        // [if balls]
         if (this.player.balls > 0)
             this.outputText(" while her fingers nervously trace around your balls", false);
         this.outputText(
@@ -879,7 +879,7 @@ export class Lottie extends TelAdreAbstractContent {
         );
         this.dynStats("lus", 99);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00298]++;
-        //[Oral][Anal]
+        // [Oral][Anal]
         this.simpleChoices(
             "Oral",
             this.getSuckedOffByAHamSandwich,
@@ -894,7 +894,7 @@ export class Lottie extends TelAdreAbstractContent {
         );
     }
 
-    //[If Anal]
+    // [If Anal]
     public analLottieMilkshake(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -938,7 +938,7 @@ export class Lottie extends TelAdreAbstractContent {
             this.outputText(", her soaked pussy rubbing against your balls", false);
         this.outputText(".\n\n", false);
 
-        //[If Multi]
+        // [If Multi]
         if (this.player.cockTotal() > 1) {
             this.outputText("Deciding you aren't done with her bouncy rear, you take ", false);
             if (this.player.cockTotal() == 2) this.outputText("your other cock", false);
@@ -970,7 +970,7 @@ export class Lottie extends TelAdreAbstractContent {
             " with your hot, thick spunk. She squeals again as you bring her to orgasm, ramming herself into you to collect as much of your cum as possible. You continue to pound her bouncy buttocks as you release the rest of your seed inside of her",
             false
         );
-        //[If large cum production]
+        // [If large cum production]
         if (this.player.cumQ() >= 500)
             this.outputText(", a heavy amount leaking from her ass", false);
         this.outputText(
@@ -979,7 +979,7 @@ export class Lottie extends TelAdreAbstractContent {
         );
         if (this.silly()) this.outputText("bacon ", false);
         this.outputText("shake on the way out.", false);
-        //LOTTIE FIGURE +1, MUSCLE TONE +1, DRAINS PC'S LUST.
+        // LOTTIE FIGURE +1, MUSCLE TONE +1, DRAINS PC'S LUST.
         this.lottieTone(1);
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00307] == 0)
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00307] = 1;
@@ -988,7 +988,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Oral]
+    // [If Oral]
     public getSuckedOffByAHamSandwich(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -1004,7 +1004,7 @@ export class Lottie extends TelAdreAbstractContent {
             false
         );
 
-        //[If player cock is at or below 4']
+        // [If player cock is at or below 4']
         if (this.player.cocks[x].cockLength <= 4) {
             this.outputText(
                 "She stares at your " +
@@ -1024,7 +1024,7 @@ export class Lottie extends TelAdreAbstractContent {
             }
             this.outputText(".\n\n", false);
         }
-        //[If the player has a cock between 5' – 12']
+        // [If the player has a cock between 5' – 12']
         else if (this.player.cocks[x].cockLength <= 12) {
             this.outputText(
                 "She stares intently at your " +
@@ -1052,7 +1052,7 @@ export class Lottie extends TelAdreAbstractContent {
                 false
             );
         }
-        //[If the player has a cock equal to or over 13']
+        // [If the player has a cock equal to or over 13']
         else {
             this.outputText(
                 "She gasps as you lift your " +
@@ -1114,16 +1114,16 @@ export class Lottie extends TelAdreAbstractContent {
             "  Lottie's slick tongue desperately wraps itself around your length as you drive in and out of her fuckhole relentlessly, drool beginning to leak from her mouth. She",
             false
         );
-        //[if Multi]
+        // [if Multi]
         if (this.player.cockTotal() > 1)
             this.outputText(" stops rubbing your " + this.cockDescript(x) + " to ", false);
-        //(Otherwise)
+        // (Otherwise)
         else
             this.outputText(
                 " reaches down towards her dripping pussy; plunging two fingers into her wetness while using the other hand to ",
                 false
             );
-        //If Balls]
+        // If Balls]
         if (this.player.balls > 0)
             this.outputText("knead your " + this.ballsDescriptLight(), false);
         else this.outputText("reach around and squeeze your " + this.buttDescript(), false);
@@ -1140,17 +1140,17 @@ export class Lottie extends TelAdreAbstractContent {
                 " against her sweaty chest a few times before burying it in between her cleavage, ",
             false
         );
-        //[If the player has a cock equal to or over 13']
+        // [If the player has a cock equal to or over 13']
         if (this.player.cocks[x].cockLength > 12)
             this.outputText("your sensitive tip brushing against her eager mouth", false);
-        //Otherwise]
+        // Otherwise]
         else this.outputText("resting comfortably in between her cushiony fuckpillows", false);
         this.outputText(
             ". Lottie wraps her tits around your length and begins working at pleasuring your every inch.\n\n",
             false
         );
 
-        //[If the player has a cock equal to or over 13']
+        // [If the player has a cock equal to or over 13']
         if (this.player.cocks[x].cockLength > 12)
             this.outputText(
                 "Licking at your cockhead, Lottie squishes her breasts against the rest of your member, making sure to lap up the stray beads of pre-cum squirting from your tip. Relishing the taste of your " +
@@ -1159,7 +1159,7 @@ export class Lottie extends TelAdreAbstractContent {
                 false
             );
 
-        //[If Multi]
+        // [If Multi]
         if (this.player.cockTotal() > 1) {
             this.outputText("You decide to make use of ", false);
             if (this.player.cockTotal() == 2) this.outputText("your", false);
@@ -1208,7 +1208,7 @@ export class Lottie extends TelAdreAbstractContent {
         );
         if (this.silly()) this.outputText("bacon ", false);
         this.outputText("shake on the way out.", false);
-        //LOTTIE FIGURE -1, MUSCLE TONE +1, DRAINS PC'S LUST.
+        // LOTTIE FIGURE -1, MUSCLE TONE +1, DRAINS PC'S LUST.
         this.lottieTone(-1);
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00306] == 0)
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00306] = 1;
@@ -1216,12 +1216,12 @@ export class Lottie extends TelAdreAbstractContent {
         this.player.orgasm();
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[Appearance]
+    // [Appearance]
     private lotteryAppearance(): void {
         this.spriteSelect(36);
         this.outputText("", true);
         this.outputText(this.images.showImage("lottie-examine-appearance"));
-        //[If Figure between 0 – 20]
+        // [If Figure between 0 – 20]
         if (this.lottieTone() <= 20) {
             this.outputText(
                 "She stands at around 4'8</i>\", considerably short on average, ",
@@ -1236,7 +1236,7 @@ export class Lottie extends TelAdreAbstractContent {
                 false
             );
         }
-        //[If Figure between 20 - 40]
+        // [If Figure between 20 - 40]
         else if (this.lottieTone() <= 40) {
             this.outputText(
                 "She stands at around 4'8</i>\", considerably short on average, ",
@@ -1251,7 +1251,7 @@ export class Lottie extends TelAdreAbstractContent {
                 false
             );
         }
-        //[If Figure between 40 - 60]
+        // [If Figure between 40 - 60]
         else if (this.lottieTone() <= 60) {
             this.outputText("She stands at around 4'8</i>\", short on average, ", false);
             if (this.player.tallness > 60) this.outputText("and shorter than you", false);
@@ -1263,7 +1263,7 @@ export class Lottie extends TelAdreAbstractContent {
                 false
             );
         }
-        //[If Figure between 60 - 80]
+        // [If Figure between 60 - 80]
         else if (this.lottieTone() <= 80) {
             this.outputText(
                 "She stands at around 4'8</i>\", considerably short on average, ",
@@ -1278,7 +1278,7 @@ export class Lottie extends TelAdreAbstractContent {
                 false
             );
         }
-        //[If Figure between 80 - 100]
+        // [If Figure between 80 - 100]
         else {
             this.outputText(
                 "She stands at around 4'8</i>\", considerably short on average, ",
@@ -1293,7 +1293,7 @@ export class Lottie extends TelAdreAbstractContent {
                 false
             );
         }
-        //Back to lottery menu
+        // Back to lottery menu
         this.doNext(this.encounterLottie);
     }
 
@@ -1306,7 +1306,7 @@ export class Lottie extends TelAdreAbstractContent {
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] = 100;
         else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] < 0)
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] = 0;
-        //Clear blowjob/anal change talk flags in case tone is getting out of whack.
+        // Clear blowjob/anal change talk flags in case tone is getting out of whack.
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00306] == 1)
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00306] = 0;
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00307] == 1)
@@ -1325,13 +1325,13 @@ export class Lottie extends TelAdreAbstractContent {
         return this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00280];
     }
 
-    //[Talk]
+    // [Talk]
     private talkToPigSlut(): void {
         this.spriteSelect(36);
         this.clearOutput();
         var comedy1 = undefined;
-        //FIRST TIMER SHIT
-        //[If 1st Time Oral]
+        // FIRST TIMER SHIT
+        // [If 1st Time Oral]
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00306] == 1) {
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00306] = 2;
             this.outputText(
@@ -1340,7 +1340,7 @@ export class Lottie extends TelAdreAbstractContent {
                     ", ever since I... you know, I've actually - I've gained weight!</i>\"  She stands up, her chubby cheeks puffed out in frustration. \"<i>I mean, i-it's not like I didn't enjoy it or anything, but... it seems to be having the opposite effect of what I want!</i>\" She's clearly annoyed, but you place your hand on her shoulder. Do you encourage her, or is it her own fault?",
                 false
             );
-            //[Encourage][Abuse]
+            // [Encourage][Abuse]
             this.simpleChoices(
                 "Encourage",
                 this.firstOralReactionChooseEncourage,
@@ -1354,7 +1354,7 @@ export class Lottie extends TelAdreAbstractContent {
                 undefined
             );
         }
-        //[If 1st Time Anal]
+        // [If 1st Time Anal]
         else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00307] == 1) {
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00307] = 2;
             this.outputText(
@@ -1363,7 +1363,7 @@ export class Lottie extends TelAdreAbstractContent {
                     ", ever since we... you know, I've actually – I've lost weight!</i>\" She stands up, pumping her fist in the air and wiggling her plump ass. \"<i>I mean, I know it's not a big difference, but it's still a result! This is amazing!</i>\" She's clearly pleased with herself. You place a hand on her shoulder, and she beams at you. Do you encourage her, or break the bad news?",
                 false
             );
-            //[Encourage][Abuse]
+            // [Encourage][Abuse]
             this.simpleChoices(
                 "Encourage",
                 this.firstAnalReactionChooseEncourage,
@@ -1377,8 +1377,8 @@ export class Lottie extends TelAdreAbstractContent {
                 undefined
             );
         }
-        //FATNESS
-        //[If Gained Weight since Last Encounter, Encouragement 0 - 30]
+        // FATNESS
+        // [If Gained Weight since Last Encounter, Encouragement 0 - 30]
         else if (
             this.lottieMorale() <= 30 &&
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00308] - 5 > this.lottieTone()
@@ -1389,7 +1389,7 @@ export class Lottie extends TelAdreAbstractContent {
                     ", since we last m-met, I've actually – I've actually...</i>\" She mumbles the rest of the sentence, but you demand her to repeat it. \"<i>... I've gained w-weight.</i>\" The girl immediately flinches, expecting a backlash from you at any moment. Before long, she slowly raises her head to find you staring. You grab her by the chin, the girl moaning at your touch. Do you congratulate her, or break the bad news?",
                 false
             );
-            //[Encourage][Abuse]
+            // [Encourage][Abuse]
             this.simpleChoices(
                 "Encourage",
                 this.lottieLowMoraleWeightGainEncourage,
@@ -1403,7 +1403,7 @@ export class Lottie extends TelAdreAbstractContent {
                 undefined
             );
         }
-        //[If Gained Weight since Last Encounter, Encouragement 30 - 70]
+        // [If Gained Weight since Last Encounter, Encouragement 30 - 70]
         else if (
             this.lottieMorale() <= 70 &&
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00308] - 5 > this.lottieTone()
@@ -1414,7 +1414,7 @@ export class Lottie extends TelAdreAbstractContent {
                     ", ever since we last met, I've actually - I've gained weight!</i>\" She stands up, her chubby cheeks puffed out in frustration. \"<i>I mean, i-it's not like I'm angry at you or anything, but... I'm just a little frustrated, that's all.</i>\" She's clearly more than a little frustrated, but you place your hand on her shoulder. Do you encourage her, or is it her own fault?",
                 false
             );
-            //[Encourage][Abuse]
+            // [Encourage][Abuse]
             this.simpleChoices(
                 "Encourage",
                 this.lottieMediumMoraleWeightGainEncourage,
@@ -1428,7 +1428,7 @@ export class Lottie extends TelAdreAbstractContent {
                 undefined
             );
         }
-        //[If Gained Weight since Last Encounter, Encouragement 70 – 100, convinced 'Bigger is Better']
+        // [If Gained Weight since Last Encounter, Encouragement 70 – 100, convinced 'Bigger is Better']
         else if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00308] - 5 > this.lottieTone() &&
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00297] == 1
@@ -1439,7 +1439,7 @@ export class Lottie extends TelAdreAbstractContent {
                     ", ever since we last met, I've gone ahead and gained a bit more weight...</i>\" She remains in her chair, resting her face between her arms, though her chubby cheeks remain puffed out in frustration. \"<i>I mean, I love my body and I love you, but... it gets to me sometimes, y'know?</i>\" She's clearly more than a little frustrated, but you place your hand on her shoulder, rubbing it gently. Do you encourage her, or is it her own fault?",
                 false
             );
-            //[Encourage][Abuse]
+            // [Encourage][Abuse]
             this.simpleChoices(
                 "Encourage",
                 this.lottieHighMoraleWeightGainFATTYLOVESIT,
@@ -1453,7 +1453,7 @@ export class Lottie extends TelAdreAbstractContent {
                 undefined
             );
         }
-        //[If Gained Weight since Last Encounter, Encouragement 70 - 100]
+        // [If Gained Weight since Last Encounter, Encouragement 70 - 100]
         else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00308] - 5 > this.lottieTone()) {
             this.outputText(
                 "Her ears perk up at your eagerness to talk, though she seems rather distracted by something. You ask her what's wrong. \"<i>Oh babe, it's really nothing...</i>\" Lottie looks up and smiles, but your questioning gaze earns another answer. \"<i>Dang, well, y'see " +
@@ -1461,7 +1461,7 @@ export class Lottie extends TelAdreAbstractContent {
                     ", ever since we last met, I've gone ahead and gained weight!</i>\" She stands up, her chubby cheeks puffed out in frustration. \"<i>I mean, i-it's not like I'm angry at you or anything, but... I'm just a little frustrated, that's all.</i>\" She's clearly more than a little frustrated, but you place your hand on her shoulder. Do you encourage her, or is it her own fault?",
                 false
             );
-            //[Encourage][Abuse]
+            // [Encourage][Abuse]
             this.simpleChoices(
                 "Encourage",
                 this.lottieHighMoraleWeightGainEncourage,
@@ -1475,8 +1475,8 @@ export class Lottie extends TelAdreAbstractContent {
                 undefined
             );
         }
-        //DEFATNESS
-        //[If Lost Weight since Last Encounter, Encouragement 0 - 30]
+        // DEFATNESS
+        // [If Lost Weight since Last Encounter, Encouragement 0 - 30]
         else if (
             this.lottieMorale() <= 30 &&
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00308] < this.lottieTone() - 5
@@ -1487,7 +1487,7 @@ export class Lottie extends TelAdreAbstractContent {
                     ", since we last m-met, I've actually – I've lost weight!</i>\" Her minute expression turns into a full blown grin, though immediately fades as soon as she realizes what she's done. \"<i>No, I'm – I'm sorry, I didn't... I got ahead of myself again, I was being stupid, I was-</i>\"  You cut her off by placing a finger to her lips. She moans at your touch, though squeals at your intention. Do you congratulate her, or break the bad news?",
                 false
             );
-            //[Encourage][Abuse]
+            // [Encourage][Abuse]
             this.simpleChoices(
                 "Encourage",
                 this.lottieLowMoraleWeightLossEncourage,
@@ -1501,7 +1501,7 @@ export class Lottie extends TelAdreAbstractContent {
                 undefined
             );
         }
-        //[If Lost Weight since Last Encounter, Encouragement 30 - 70]
+        // [If Lost Weight since Last Encounter, Encouragement 30 - 70]
         else if (
             this.lottieMorale() <= 70 &&
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00308] < this.lottieTone() - 5
@@ -1510,7 +1510,7 @@ export class Lottie extends TelAdreAbstractContent {
                 "Her ears perk up at your eagerness to talk; she seems to be pretty excited about something. You ask her what's on her mind.  \"<i>That obvious, huh?</i>\" Lottie looks up at you and grins. \"<i>Y'see babe, since the last time we met, I've actually – I've lost weight!</i>\" She stands up, pumping her fist in the air and wiggling her plump ass. \"<i>I mean, I know it's not a big difference, but it's still a result! This is amazing!</i>\" She's clearly pleased with herself. You place a hand on her shoulder, and she beams at you. Do you encourage her, or break the bad news?\n\n",
                 false
             );
-            //[Encourage][Abuse]
+            // [Encourage][Abuse]
             this.simpleChoices(
                 "Encourage",
                 this.lottieMediumMoraleWeightLossEncourage,
@@ -1524,7 +1524,7 @@ export class Lottie extends TelAdreAbstractContent {
                 undefined
             );
         }
-        //[If Lost Weight since Last Encounter, Encouragement 70 – 100, convinced 'Bigger is Better']
+        // [If Lost Weight since Last Encounter, Encouragement 70 – 100, convinced 'Bigger is Better']
         else if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00308] < this.lottieTone() - 5 &&
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00297] == 1
@@ -1546,7 +1546,7 @@ export class Lottie extends TelAdreAbstractContent {
                 undefined
             );
         }
-        //[If Lost Weight since Last Encounter, Encouragement 70 - 100]
+        // [If Lost Weight since Last Encounter, Encouragement 70 - 100]
         else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00308] < this.lottieTone() - 5) {
             this.outputText(
                 "Her ears perk up at your eagerness to talk; she seems to be pretty excited about something. You ask her what's on her mind.  \"<i>That obvious, huh?</i>\" Lottie looks up at you and grins. \"<i>Y'see babe, since the last time we met, I've actually – I've lost weight!</i>\" She stands up, pumping her fist in the air and wiggling her plump ass. \"<i>I mean, I know it's not a big difference, but it's still a result! This is amazing!</i>\" She's clearly pleased with herself. You place a hand on her shoulder, and she beams at you. Do you encourage her, or break the bad news?\n\n",
@@ -1565,7 +1565,7 @@ export class Lottie extends TelAdreAbstractContent {
                 undefined
             );
         }
-        //[If Encouragement = 0, Figure = 0, first time]
+        // [If Encouragement = 0, Figure = 0, first time]
         else if (
             this.lottieMorale() == 0 &&
             this.lottieTone() == 0 &&
@@ -1578,7 +1578,7 @@ export class Lottie extends TelAdreAbstractContent {
                     "! I just don't know what went wrong!</i>\" she cries, her face buried in her hands. A few of the cafe-goers seem to look your way, but quietly ignore what obviously isn't their business. \"<i>I've wasted your time, I-I've wasted my time, and... oh god, please, please forgive me for being like this!</i>\" The girl looks up at you, her tear-stricken face in complete anguish. You take one look at your pigslut before calmly telling her that you don't see the point in trying anymore. In fact, why should you be here now? You might as well go, seeing as she can't possibly get any worse. \"<i>I'LL DO ANYTHING!</i>\" she blurts out desperately, clinging to your arm as you try to take your leave. \"<i>I'll... I'll do anything you want.</i>\" You smile at her enthusiasm. There's so many things that you want, though. But what do you want... from her?",
                 false
             );
-            //[To Fuck][To Humiliate][To Leave]
+            // [To Fuck][To Humiliate][To Leave]
             comedy1 = undefined;
             if (this.silly()) comedy1 = this.lottieFatLoserCulminationLeaveComedyChoice;
             this.simpleChoices(
@@ -1594,7 +1594,7 @@ export class Lottie extends TelAdreAbstractContent {
                 undefined
             );
         }
-        //[If Encouragement =100, Figure =0, first time]
+        // [If Encouragement =100, Figure =0, first time]
         else if (
             this.lottieMorale() == 100 &&
             this.lottieTone() == 0 &&
@@ -1607,7 +1607,7 @@ export class Lottie extends TelAdreAbstractContent {
                     ". I'm grateful for everything you've done for me.</i>\" She begins. \"<i>In fact, I'm grateful that you're even still here after all this time. I haven't been losing weight, even under your guidance. In fact, I know I've gained much more than before. I just... I don't feel pretty any more. I can't. Not like this.</i>\"  The girl stares at you with deep emerald eyes, tears starting to form at the corners. \"<i>I don't know what to do. I don't want to lose you – not as a friend, or as... more. But I know inside that I – that I could never deserve someone as amazing as you.</i>\" You're visibly surprised at her confession. You're entirely aware of her feelings for you – in fact; you're certain that by now everyone in the cafe knows about it. Still, you remain confused. She... doesn't deserve you?  You know full well that Lottie's never been quite comfortable with how she looks, but it seems to you that her opinion of her body seems to rely on yours. You take her hand into your own, looking Lottie in the eyes before telling her how you feel.\n\n",
                 false
             );
-            //[Love Yourself][You'll Get There][Ew Lottie No]
+            // [Love Yourself][You'll Get There][Ew Lottie No]
             comedy1 = undefined;
             if (this.silly()) comedy1 = this.ewLottieNo;
             this.simpleChoices(
@@ -1623,7 +1623,7 @@ export class Lottie extends TelAdreAbstractContent {
                 undefined
             );
         }
-        //[If Encouragement = 0, Figure = 100, first time]
+        // [If Encouragement = 0, Figure = 100, first time]
         else if (
             this.lottieMorale() == 0 &&
             this.lottieTone() == 100 &&
@@ -1643,7 +1643,7 @@ export class Lottie extends TelAdreAbstractContent {
             );
 
             this.outputText("You might as well embrace the new member of your group.", false);
-            //[Threesome][Elle][Oh I Get It]
+            // [Threesome][Elle][Oh I Get It]
             comedy1 = undefined;
             if (this.silly()) comedy1 = this.charlottesWebComedyBullshit;
             this.simpleChoices(
@@ -1659,7 +1659,7 @@ export class Lottie extends TelAdreAbstractContent {
                 undefined
             );
         }
-        //[If Encouragement = 100, Figure = 100, first time]
+        // [If Encouragement = 100, Figure = 100, first time]
         else if (
             this.lottieMorale() == 100 &&
             this.lottieTone() == 100 &&
@@ -1672,7 +1672,7 @@ export class Lottie extends TelAdreAbstractContent {
                     ' and squeezes gently, stirring the beast within. "<i>Meet me in the yoga room,</i>" she purrs before walking out of the cafe.',
                 false
             );
-            //[Yoga Room][Leave]
+            // [Yoga Room][Leave]
             this.simpleChoices(
                 "Yoga Room",
                 this.lottieSuccessOneShot,
@@ -1686,7 +1686,7 @@ export class Lottie extends TelAdreAbstractContent {
                 undefined
             );
         }
-        //If Neither, Encouragement 0 - 30]
+        // If Neither, Encouragement 0 - 30]
         else if (this.lottieMorale() <= 30) {
             this.outputText(
                 "You tell her you want to talk, though the girl only winces in response, shying away from your stern gaze. The nervous pig-slut knows from experience how most of your 'talks' usually end – with a sobbing, miserable little piggy.  In the sweetest voice you can muster you ask her how your favorite girl is doing. Lottie hesitates before facing you again – you know she hates it when you use that voice, but she doesn't seem to have anything important to say. Regardless, you tell her to spill what's on her mind. \"<i>W-well, you see...</i>\" Lottie looks up at you and manages the tiniest smile. \"<i>Y'see, " +
@@ -1696,7 +1696,7 @@ export class Lottie extends TelAdreAbstractContent {
             );
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //[If Neither, Encouragement 30 - 70]
+        // [If Neither, Encouragement 30 - 70]
         else if (this.lottieMorale() <= 70) {
             this.outputText(
                 "Her ears perk up at your eagerness to talk, though she doesn't seem to have much on her mind. Regardless, you ask how she's been doing. \"<i>Haha, a bit curious, are we?</i>\" Lottie looks up at you and grins. \"<i>Well, I'm afraid nothing's really happened since we last met y'know? Maybe today we can get some results!</i>\" she stands up, pumping her fist in the air and wiggling her plump ass. \"<i>And if you want... we could go do some yoga, eheh...</i>\" She's clearly quite antsy. You chuckle at her comment, though you feel a familiar sensation stirring in your groin.",
@@ -1709,7 +1709,7 @@ export class Lottie extends TelAdreAbstractContent {
             );
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //[If Neither, Encouragement 70 - 100]
+        // [If Neither, Encouragement 70 - 100]
         else if (this.lottieMorale() <= 100000) {
             this.outputText(
                 "Her ears perk up at your eagerness to talk, though she doesn't seem to have much on her mind. Regardless, you ask how she's been doing. \"<i>Haha, you really that interested in me, babe?</i>\" Lottie looks up at you and grins. \"<i>Well, I'm afraid nothing's really happened since we last met y'know? I don't mind, but hey – you get what you get!</i>\" she stands up, grinning slyly before turning around and wiggling her plump ass at you. \"<i>And if you want... we could go do some yoga, eheh...</i>\" She's clearly quite antsy. You reach over and slap her bouncing butt, Lottie squealing in return. You both chuckle at her comment, though you feel a familiar sensation stirring in your groin.\n\n",
@@ -1728,7 +1728,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00308] = this.lottieTone();
     }
 
-    //[If Encourage]
+    // [If Encourage]
     private firstOralReactionChooseEncourage(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -1740,13 +1740,13 @@ export class Lottie extends TelAdreAbstractContent {
             "<b>...</b>\nAfter a good workout, you decide to return back to camp, exhausted.",
             false
         );
-        //ENCOURAGEMENT +2
+        // ENCOURAGEMENT +2
         this.lottieMorale(3);
         this.fatigue(10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Abuse]
+    // [If Abuse]
     private firstOralReactionChooseAbuse(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -1754,12 +1754,12 @@ export class Lottie extends TelAdreAbstractContent {
             "You tell Lottie your methods never fail, and if something happened that wasn't supposed to, it's her that's at fault. She looks up at you, shocked at your outburst. Lost for words, her eyes begin to well up. \"<i>I... god, I'm so stupid! Of course it was me! It's always me!</i>\" She cries softly to herself, pushing your hand off her shoulder and burying her head in her arms. \"<i>I wasted your time! I'm... I'm...</i>\" Before she finishes her sentence, you walk away from the cafe, content with what you've done. You don't stop hearing her whimpering voice until you leave the gym, returning back to camp – strangely satisfied.",
             false
         );
-        //ENCOURAGEMENT -2
+        // ENCOURAGEMENT -2
         this.lottieMorale(-10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Encourage]
+    // [If Encourage]
     private firstAnalReactionChooseEncourage(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -1773,13 +1773,13 @@ export class Lottie extends TelAdreAbstractContent {
             "<b>...</b>\nAfter a good workout, you decide to return back to camp, exhausted.",
             false
         );
-        //ENCOURAGEMENT +2
+        // ENCOURAGEMENT +2
         this.lottieMorale(3);
         this.fatigue(10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Abuse]
+    // [If Abuse]
     private firstAnalReactionChooseAbuse(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -1787,12 +1787,12 @@ export class Lottie extends TelAdreAbstractContent {
             "You sneer at Lottie, sternly reminding her that she's nowhere near her goal the way she is now – and a few pounds isn't going to change anything. In fact, she probably just measured herself in the morning, and it's likely she hasn't lost any weight at all, being the pig she is. Lottie doesn't seem to have anything to say. She stares at you, wondering where this all came from. After a few seconds of silence, she breaks into sobs, pushing herself out of her chair and running away from the gym. You know she'll come back, though. Deciding you're done here, you return back to camp – strangely satisfied.",
             false
         );
-        //ENCOURAGEMENT -2
+        // ENCOURAGEMENT -2
         this.lottieMorale(-10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Encourage]
+    // [If Encourage]
     private lottieLowMoraleWeightGainEncourage(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -1806,13 +1806,13 @@ export class Lottie extends TelAdreAbstractContent {
             "<b>...</b>After a good workout, you decide to return back to camp, exhausted.",
             false
         );
-        //ENCOURAGEMENT +2
+        // ENCOURAGEMENT +2
         this.lottieMorale(3);
         this.fatigue(10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Abuse]
+    // [If Abuse]
     private lottieLowMorealeWeightGainAbuse(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -1829,7 +1829,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Encourage]
+    // [If Encourage]
     private lottieMediumMoraleWeightGainEncourage(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -1841,12 +1841,12 @@ export class Lottie extends TelAdreAbstractContent {
             "<b>...</b>\nAfter a good workout, you decide to return back to camp, exhausted.",
             false
         );
-        //ENCOURAGEMENT +2
+        // ENCOURAGEMENT +2
         this.lottieMorale(3);
         this.fatigue(10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //If Abuse]
+    // If Abuse]
     private lottieMediumMorealeWeightGainAbuse(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -1858,7 +1858,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Encourage]
+    // [If Encourage]
     private lottieHighMoraleWeightGainEncourage(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -1872,13 +1872,13 @@ export class Lottie extends TelAdreAbstractContent {
             "<b>...</b>\nAfter a good workout, you decide to return back to camp, exhausted.",
             false
         );
-        //ENCOURAGEMENT +2
+        // ENCOURAGEMENT +2
         this.lottieMorale(3);
         this.fatigue(10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Abuse]
+    // [If Abuse]
     private lottieHighMoraleWeightGainAbuse(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -1894,7 +1894,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Encourage]
+    // [If Encourage]
     private lottieHighMoraleWeightGainFATTYLOVESIT(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -1908,12 +1908,12 @@ export class Lottie extends TelAdreAbstractContent {
             "<b>...</b>\nAfter a good workout, you decide to return back to camp, exhausted.",
             false
         );
-        //ENCOURAGEMENT +2
+        // ENCOURAGEMENT +2
         this.lottieMorale(3);
         this.fatigue(10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[If Abuse]
+    // [If Abuse]
     private lottieHighMoraleWeightGainFATTYLOVESABUSE(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -1929,7 +1929,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Encourage]
+    // [If Encourage]
     private lottieLowMoraleWeightLossEncourage(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -1943,13 +1943,13 @@ export class Lottie extends TelAdreAbstractContent {
             "<b>...</b>\nAfter a good workout, you decide to return back to camp, exhausted.",
             false
         );
-        //ENCOURAGEMENT +2
+        // ENCOURAGEMENT +2
         this.lottieMorale(3);
         this.fatigue(10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Abuse]f
+    // [If Abuse]f
     private lottieLowMoraleWeightLossAbuse(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -1961,7 +1961,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Encourage]
+    // [If Encourage]
     private lottieMediumMoraleWeightLossEncourage(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -1980,7 +1980,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Abuse]
+    // [If Abuse]
     private lottieMediumMoraleWeightLossAbuse(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -1992,7 +1992,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Encourage]
+    // [If Encourage]
     private lottieHighMoraleWeightLossEncourage(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2011,7 +2011,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Abuse]
+    // [If Abuse]
     private lottieHighMoraleWeightLossAbuse(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2029,7 +2029,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Encourage]
+    // [If Encourage]
     private lottieHighMoraleWeightLossFATTYLOVESIT(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2048,7 +2048,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Abuse]
+    // [If Abuse]
     private lottieHighMoraleWeightLossFATTYLOVESABUSE(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2066,7 +2066,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[To Fuck]
+    // [To Fuck]
     private lottieFatLoserCulminationFuckChoice(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2113,7 +2113,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[To Humiliate] – (Corruption must be >40)
+    // [To Humiliate] – (Corruption must be >40)
     private lottieFatLoserCulminationHumiliationChoice(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2162,7 +2162,7 @@ export class Lottie extends TelAdreAbstractContent {
         );
         if (this.silly()) this.outputText("bacon ", false);
         this.outputText("shake.", false);
-        //[Unlocks Walkies]
+        // [Unlocks Walkies]
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00311] = 1;
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00298]++;
         this.outputText("\n\n(<i>'Walkies' unlocked from Lottie's sex menu.</i>)", false);
@@ -2171,7 +2171,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[To Leave]
+    // [To Leave]
     public lottieFatLoserCulminationLeaveComedyChoice(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2194,7 +2194,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Love Yourself]
+    // [Love Yourself]
     private lottieHighMoraleFatLoveSelfOneTimeEvent(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2255,7 +2255,7 @@ export class Lottie extends TelAdreAbstractContent {
             );
         else this.outputText("\n\n");
 
-        //[Unlocks Cowgirl]
+        // [Unlocks Cowgirl]
         this.outputText("(<i>'Cowgirl' unlocked from Lottie's sex menu.</i>)", false);
         this.player.orgasm();
         this.dynStats("sen", -3, "cor", -1);
@@ -2264,7 +2264,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[You'll get there]
+    // [You'll get there]
     private lottieHighMoraleFatYoullGetThereOneTimeEvent(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2313,7 +2313,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.outputText("shake on the way out.", false);
         if (this.silly()) this.outputText("  They're fucking delicious.", false);
         this.outputText("\n\n", false);
-        //[Unlocks Quickie]
+        // [Unlocks Quickie]
         this.outputText("(<i>'Quickie' has been unlocked from Lottie's sex menu.</i>)", false);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00314] = 1;
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00298]++;
@@ -2322,7 +2322,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Ew Lottie No]
+    // [Ew Lottie No]
     public ewLottieNo(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2341,14 +2341,14 @@ export class Lottie extends TelAdreAbstractContent {
         );
 
         this.outputText("You really need glasses.", false);
-        //[Note: Lottie will no longer be encountered at the gym.]
+        // [Note: Lottie will no longer be encountered at the gym.]
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00278] = 1;
         this.player.orgasm();
         this.dynStats("cor", 10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Threesome]
+    // Threesome]
     private lottieElleThreesomeFirstTime(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2376,14 +2376,14 @@ export class Lottie extends TelAdreAbstractContent {
         if (this.silly()) this.outputText("  You only need one of those to satisfy you.", false);
         this.player.orgasm();
         this.dynStats("sen", -2);
-        //[Unlocks Threesome]
+        // [Unlocks Threesome]
         this.outputText("\n\n(<i>'Threesome' unlocked from Lottie's sex menu.</i>)", false);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00316] = 1;
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00298]++;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Elle] – (Corruption must be >40)
+    // [Elle] – (Corruption must be >40)
     private fuckElleInsteadOfThatFatSlutFirstTime(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2439,7 +2439,7 @@ export class Lottie extends TelAdreAbstractContent {
                 ", making sure to grab a bacon shake on the way out. You only need one of those to satisfy you"
             );
         this.outputText(".", false);
-        //[Unlocks Netorare]
+        // [Unlocks Netorare]
         this.outputText("\n\n(<i>'Elle' unlocked in Lottie's sex menu.</i>)", false);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00317] = 1;
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00298]++;
@@ -2447,7 +2447,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.dynStats("sen", 2, "cor", 10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[Oh I Get It]
+    // [Oh I Get It]
     public charlottesWebComedyBullshit(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2471,7 +2471,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Not Fat]
+    // [If Not Fat]
     private lottieSuccessOneShot(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2500,12 +2500,12 @@ export class Lottie extends TelAdreAbstractContent {
             );
             if (this.silly()) this.outputText("bacon ", false);
             this.outputText("shake from the cafe. They're fantastic.\n\n", false);
-            //[Unlocks Reverse Cowgirl]
+            // [Unlocks Reverse Cowgirl]
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00320] = 1;
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00298]++;
             this.outputText("(<i>'Reverse Cowgirl'</i> unlocked in Lottie's sex menu</i>)", false);
         }
-        //[Otherwise]
+        // [Otherwise]
         else {
             this.outputText(
                 "You walk into the yoga area and are met with the smell of sweat and flowers pervading the room. You look around, unable to find your lover until –THUNK! A heavy weight is brought down upon your head, pulling you down to the ground and away from consciousness as everything fades to black.\n\n",
@@ -2526,7 +2526,7 @@ export class Lottie extends TelAdreAbstractContent {
                 false
             );
 
-            //[If Cum Production Average]
+            // [If Cum Production Average]
             if (this.player.cumQ() < 500) {
                 this.outputText(
                     '"<i>Hm. Your dick here seems to be twitching. Were you... were you going to cum for me?</i>" you nod feverishly, anything to get her to release her grip. "<i>No. Not here. In me.</i>" She straddles you, plunging your ' +
@@ -2542,7 +2542,7 @@ export class Lottie extends TelAdreAbstractContent {
                     );
                 else this.outputText("\n\n");
             }
-            //[If Cum Production High]
+            // [If Cum Production High]
             else
                 this.outputText(
                     "Unfortunately for her, you have far too much built up to stop now. With another thrust, your " +
@@ -2555,7 +2555,7 @@ export class Lottie extends TelAdreAbstractContent {
             if (this.silly()) this.outputText("bacon ", false);
             this.outputText("shake before deciding to head home.", false);
             if (this.silly()) this.outputText("  You fucking love bacon shakes.", false);
-            //[Unlocks FemDom]
+            // [Unlocks FemDom]
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00319] = 1;
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00298]++;
             this.outputText("(<i>'FemDom'</i> unlocked in Lottie's sex menu</i>)", false);
@@ -2565,7 +2565,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Leave]
+    // [Leave]
     private leaveLottieInsteadOfYogaSex(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2580,7 +2580,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Exercise]
+    // [Exercise]
     private lottieExercise(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2594,8 +2594,8 @@ export class Lottie extends TelAdreAbstractContent {
                 "?</i>\" She responds, as you both walk through the cafe's entranceway leading to the rest of the gym. A wall of various weights stands proud amongst the different citizens that make use of it. You spot several jogging tracks, and outside, a large, grassy field mostly occupied by centaurs looking for a nightly run - though other, bipedal gym members try to jog along with them without much success. A large, hidden door hides the entrance to the indoor pool and sauna area, along with the door to the candlelit yoga room. Where do you wish to work out?",
             false
         );
-        //[Weights][Jogging][Yoga][Pool]
-        //Pool only available when morale is high
+        // [Weights][Jogging][Yoga][Pool]
+        // Pool only available when morale is high
         this.simpleChoices(
             "Weights",
             this.lottieWeights,
@@ -2610,7 +2610,7 @@ export class Lottie extends TelAdreAbstractContent {
         );
     }
 
-    //[Weights]
+    // [Weights]
     private lottieWeights(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2623,13 +2623,13 @@ export class Lottie extends TelAdreAbstractContent {
             this.player.cumQ() >= 1000
         )
             NTR = this.ifrisAndLottieGetsNTRedLiftingWeights;
-        //[If Figure 0 – 70]
+        // [If Figure 0 – 70]
         if (this.lottieTone() <= 70) {
             this.outputText(
                 "Lottie looks at you nervously as you tell her you've decided on doing a little lifting today. Obviously not having that in mind, she takes your advice regardless and trots over to the weights, met with the gaze of several other, far more muscular members. Nervously walking along the wall of equipment, she picks up one of the smallest weights and begins lifting as hard as she can, audibly grunting as she manages a few reps. Not wanting to be outdone, you follow her and walk over to the weight gear – many of the other lifters are already snickering as you stand near the smaller weights. Lottie looks over to you nervously, not wanting to embarrass herself. You'd prefer not to be embarrassed either. Should you pick one of the larger weights and show off your skills, or ignore the lifters and train with Lottie?",
                 false
             );
-            //[Boast][Train]
+            // [Boast][Train]
             this.simpleChoices(
                 "Boast",
                 this.boastAtLottie,
@@ -2643,13 +2643,13 @@ export class Lottie extends TelAdreAbstractContent {
                 undefined
             );
         }
-        //[If Figure 70 - 100]
+        // [If Figure 70 - 100]
         else {
             this.outputText(
                 "Lottie pumps her fist in the air at your suggestion to do a bit of lifting today. Although she isn't quite at your level, she's skilled enough to not embarrass herself around the other, more skilled gym members hanging around the equipment wall. Walking around the weights, Lottie takes note of the sizes before choosing one suitable to her level, and lifting it at a slow pace, making sure to pace her breaths. Not wanting to be outdone, you follow her and walk over to the weight gear – many of the other lifters are already snickering as you stand near the smaller weights. Lottie looks over to you nervously, not wanting to embarrass herself. You'd prefer not to be embarrassed either. Should you pick one of the larger weights and show off your skills, or ignore the lifters and train with Lottie?",
                 false
             );
-            //[Boast][Train]
+            // [Boast][Train]
             this.simpleChoices(
                 "Boast",
                 this.boastAtFitLottie,
@@ -2665,7 +2665,7 @@ export class Lottie extends TelAdreAbstractContent {
         }
     }
 
-    //[Boast]
+    // [Boast]
     private boastAtLottie(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2690,7 +2690,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Train]
+    // [Train]
     private trainWithLottie(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2709,7 +2709,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Boast]
+    // [Boast]
     private boastAtFitLottie(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2728,7 +2728,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Train]
+    // [Train]
     private trainWithFitLottie(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2748,17 +2748,17 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Jogging]
+    // [Jogging]
     private goJoggingWithLottie(): void {
         this.spriteSelect(36);
         this.outputText("", true);
-        //[If Figure 0 – 70]
+        // [If Figure 0 – 70]
         if (this.lottieTone() <= 70) {
             this.outputText(
                 "You tell Lottie you've decided on jogging, and she nods – running has never been her strong suit, but it's still something she can achieve with enough effort. You head out to the track, taking note of the few people running along. A cheetah-morph sprints around the trail with considerable ease, whilst a short, pug-like man simply jogs along quite contently. Once on the track you decide to start off with a brisk walk, Lottie following close behind, her cute body jiggling slightly with each movement. You note that she's having no trouble keeping up, so you figure you should pick up the pace. You know it'd be best for her if you kept it to a light jog, but your own fitness would suffer as a result. Would a more forceful work out benefit the both of you, or is it better to take it easy?\n\n",
                 false
             );
-            //[Sprint][Jog]
+            // [Sprint][Jog]
             this.simpleChoices(
                 "Sprint",
                 this.sprintAndLeaveLottieBehind,
@@ -2772,13 +2772,13 @@ export class Lottie extends TelAdreAbstractContent {
                 undefined
             );
         }
-        //[If Figure 70 - 100]
+        // [If Figure 70 - 100]
         else {
             this.outputText(
                 "You tell Lottie you've decided on jogging, and she happily agrees – she's perfectly content with running nowadays, not tiring out as much as she used to. You head out to the tracks, taking note of the few people running along. A cheetah-morph sprints around the trail with considerable ease, whilst a short, pug-like man simply jogs along quite contently. Once on the track you decide to start off with a brisk walk, Lottie following close behind. You note that she's having no trouble keeping up, so you figure you should pick up the pace. You know she'd be fine with a quick run, but your own fitness might suffer as a result. Is it easier to concentrate on your physique with a hard sprint, or would it be better to help Lottie with hers?",
                 false
             );
-            //[Sprint][Run]
+            // [Sprint][Run]
             this.simpleChoices(
                 "Sprint",
                 this.sprintAndLeaveFitLottieBehind,
@@ -2793,7 +2793,7 @@ export class Lottie extends TelAdreAbstractContent {
             );
         }
     }
-    //[Sprint]
+    // [Sprint]
     private sprintAndLeaveLottieBehind(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2811,7 +2811,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Jog]
+    // [Jog]
     private jogWithLottie(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2825,7 +2825,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.fatigue(10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[Sprint]
+    // [Sprint]
     private sprintAndLeaveFitLottieBehind(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2842,7 +2842,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.fatigue(10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[Jog]
+    // [Jog]
     private jogWithFitLottie(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2856,16 +2856,16 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Yoga]
+    // [Yoga]
     private lottieYoga(): void {
         this.spriteSelect(36);
         this.outputText("", true);
-        //[If Figure 0 – 100]
+        // [If Figure 0 – 100]
         this.outputText(
             "You know that Lottie has an affinity for yoga, so you decide to enter the dimly lit room at the end of the pool. She gladly follows, bouncing along with you as you take two of the mats out. A class has already started, and you can see many people gathering around a tanned, four-armed woman performing warm-up exercises. Knowing you both have a little time before they break out into the more complicated stretches; you scan around the room for optimal places to sit down without blocking your view of the tetra-armed instructor. By the time you've searched the room, a few more people had already blocked off most of the available spots. You look over to see Lottie already spread out and lying on her stomach – she looks over to you and giggles before patting the vacant area next to her. Throwing a quick smile, you also notice a small unused area right next to the teacher – you'd be able to take it if you went by yourself. Should you go at it alone, or stretch with Lottie?",
             false
         );
-        //[Alone] [Together]
+        // [Alone] [Together]
         this.simpleChoices(
             "Alone",
             this.lottieYogaAlone,
@@ -2880,7 +2880,7 @@ export class Lottie extends TelAdreAbstractContent {
         );
     }
 
-    //[Alone]
+    // [Alone]
     private lottieYogaAlone(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2899,7 +2899,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Together]
+    // [Together]
     private togetherLottieYoga(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2926,7 +2926,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Pool – only available at high encouragement]
+    // [Pool – only available at high encouragement]
     private lottiePool(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2938,7 +2938,7 @@ export class Lottie extends TelAdreAbstractContent {
                 ". A thought passes your mind to cover up, but before you can begin to reflect on the idea the bouncing girl sits her plump ass next to you. You wonder if it's easier to jump straight into the pool or to wait it out – hell, she might even be flattered by your reaction.",
             false
         );
-        //[Jump][Wait]
+        // [Jump][Wait]
         this.simpleChoices(
             "Jump",
             this.jumpInPoolBeforeLottieSeesYourWingWang,
@@ -2953,7 +2953,7 @@ export class Lottie extends TelAdreAbstractContent {
         );
     }
 
-    //[Jump]
+    // [Jump]
     private jumpInPoolBeforeLottieSeesYourWingWang(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -2966,7 +2966,7 @@ export class Lottie extends TelAdreAbstractContent {
             " decided to say hello. Needless to say, you decide it'd be better if you swam alone – nothing's wrong with the occasional chubby-assed slut wandering now and then, but it's a pain to not be distracted. Lottie wades at the other end of the pool, doing the occasional stretch before breaking into laps. You take a page from her book and begin to work back and forth from either end, making sure not to stare at Lottie's massive chest as it bounces into the air every so often after a stroke. After a considerable amount of time, you both finish considerably more exhausted than before. She seems to have lightened up since your initial reaction to her body, so you shrug it off and head home.",
             false
         );
-        //ENCOURAGEMENT -1, FIGURE +2, MUSCLE TONE +2, LUST +9001
+        // ENCOURAGEMENT -1, FIGURE +2, MUSCLE TONE +2, LUST +9001
         this.outputText(this.player.modTone(100, 2), false);
         this.dynStats("lus", 40);
         this.lottieTone(2);
@@ -2974,7 +2974,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.fatigue(5);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[Wait]
+    // [Wait]
     private waitAndShowLottieYourPoolBoner(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -3006,7 +3006,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Give Item – First Time] [Only Available with High INT]
+    // [Give Item – First Time] [Only Available with High INT]
     public giveLottieAnItem(): void {
         this.spriteSelect(36);
         this.clearOutput();
@@ -3024,7 +3024,7 @@ export class Lottie extends TelAdreAbstractContent {
             this.outputText(
                 "You tell Lottie you've been doing a little research on weight loss aids, discovering several items that could possibly have an effect on her figure if she's willing to try. Lottie nods, albeit rather hesitantly – she's mentioned her unsuccessful attempts at weight loss methods involving diets before, so you can't really blame her. However, you push the idea forward – it couldn't hurt to try some of them, and heck, she could be skinny before she knows it! Lottie easily falls for your flattery, and eagerly agrees to the idea. You look into your inventory – one of these things must have an effect, right?"
             );
-            //[LaBova][Gro+][Reducto]
+            // [LaBova][Gro+][Reducto]
             this.simpleChoices(
                 "LaBova",
                 bova,
@@ -3039,12 +3039,12 @@ export class Lottie extends TelAdreAbstractContent {
             );
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00321]++;
         }
-        //[Give Item – Repeat Encounter]
+        // [Give Item – Repeat Encounter]
         else {
             this.outputText(
                 "You tell Lottie you might have a few other items that'll have an effect on her figure, if she's willing to try. The pork-girl nods, albeit rather hesitantly – the last time you gave her something to try out, it certainly changed her figure – but whether or not it was for the better is still up for debate in Lottie's head. However, you push the idea forward – it couldn't hurt to try some of them, and heck, any one of them could give her the perfect body! Again, Lottie easily melts under your slick tongue, eagerly agreeing to the idea. You look into your inventory – one of these things must have an effect, right?"
             );
-            //[Cafe][LaBova][Gro+][Reducto][Ham Sandwich]
+            // [Cafe][LaBova][Gro+][Reducto][Ham Sandwich]
             var sammich = undefined;
             if (this.silly()) sammich = this.hamSammitchTimeBIATCH;
             this.choices(
@@ -3071,7 +3071,7 @@ export class Lottie extends TelAdreAbstractContent {
             );
         }
     }
-    //[If Cafe]
+    // [If Cafe]
     private feedLottieAWholeCafe(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -3085,7 +3085,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If LaBova]
+    // [If LaBova]
     public feedLottieLaBova(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -3097,7 +3097,7 @@ export class Lottie extends TelAdreAbstractContent {
                 false
             );
         }
-        //[If LaBova – Repeat Encounter]
+        // [If LaBova – Repeat Encounter]
         else {
             this.outputText(
                 'You pick up the bottle of LaBova, secretly pouring its contents into an opaque container before handing it over to Lottie, obscuring its milky contents. "<i>W-what\'s this going to do? Do you know?</i>" She asks, attempting to peak into the bottle without much success – it\'s far too dark to notice the misty elixir it contains. You tell her you\'re uncertain of its exact effects, but it definitely did mention something about changing your bust and thickness. "<i>Oh! Well... if you say so,</i>" Lottie remarks, convinced by the apparent assurance of a slimmer body. "<i>Here goes nothing!</i>" The pig-girl exclaims before downing the grainy mixture in one fell swoop, stopping to examine its familiar, sweet taste. She looks down at her body, keen to observe the instantaneous change expected to occur. "<i>Hey babe, I\'m... I\'m getting that feeling again.</i>" Lottie mutters, quickly looking towards you before squealing and turning down just in time to watch her breasts and hips grow slightly larger than before. "<i>H-huh?! But I thought- what did you give me, ' +
@@ -3111,7 +3111,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00322] = 40;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[If Gro+]
+    // [If Gro+]
     public giveLottieGroPlus(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -3119,7 +3119,7 @@ export class Lottie extends TelAdreAbstractContent {
             "You take out the needle filled with Gro+, taking care to flick it to remove any air bubbles that might have remained in the odd blue liquid. Lottie pales at the sight of the pointed object, and shakes her head several times before backing away. \"<i>Nuh-uh,</i>\" she begins, \"<i>there's no way I'm going to stick that thing anywhere, y'hear?</i>\" You figure it's going to take a lot of convincing to get her to take the needle.\n\n",
             false
         );
-        //[If Very High INT]
+        // [If Very High INT]
         if (this.player.inte >= 80) {
             this.outputText(
                 "You take Lottie by the hand, surprising her with your suave movements. Spending a few minutes of her time, you reflect on the many situations you've found yourself caught in and how none of them seemed to have rewarded you well – until you took on the demonic factory. The porcine lady is glued to your every word as you describe the details of your adventure, distressed when you mention the enslaved humans and impressed by your (slightly exaggerated) recounting of your run-in with the omnibus. You hold up the now sacriligous needle in front of her, to clinch your epic tale. This, you tell her, was your reward. Without a second glance, Lottie seizes the needle and pokes it into the soft flesh of her breasts, ignorant of both the pain and the fact that you didn't mention the actual effects of the syringe. She waits with excited fervour for the reaction to begin, only to be surprised when her chest grows larger than before. Dropping the needle, she looks to you with tears beginning to well in her eyes and runs out of the cafe. If only she could see the glint in yours, she might be able to understand your intentions.",
@@ -3129,7 +3129,7 @@ export class Lottie extends TelAdreAbstractContent {
             this.lottieMorale(-1);
             this.player.consumeItem(this.consumables.GROPLUS);
         }
-        //[Otherwise]
+        // [Otherwise]
         else {
             this.outputText(
                 "You grab Lottie's shoulder, surprising her with your sudden movements. She quickly brushes you off, and looks sternly into your eyes. \"<i>I'm sorry, but I'm really not comfortable with taking needles, okay?</i>\" the girl looks far more serious than usual – perhaps she's encountered needles in her weight loss schemes before? Regardless, you tell her that a single needle wouldn't make much difference to her figure – in fact, you're not even sure it might work! You smirk, but Lottie continues to stare. \"<i>Then why are you giving it to me?</i>\" She swipes the needle from your hand before walking over to throw it in the trash. Your face twists into a grimace – that needle was one of a kind. Standing up, you walk over to the pig-slut and grab her firmly by the arm. She turns quickly in annoyance but immediately pales at the sight of your anger. You raise your hand high and tell her you're going to teach her a lesson about the worth of things. How that needle was worth a billion of her. Her eyes widen, her free arm trying to pull you off in desperation. You swing down and she flinches – but you stop. Lottie's eyes slowly open to see your hand hovering only a few inches above her face. She squeals and falls to the floor as you relinquish your grip, leaving a small bruise on her otherwise smooth arm. You walk away to the sound of her sobbing quietly, making sure to take the needle of Gro+ on your way out. It's completely unharmed – though you can't say the same about the snivelling whore behind you.",
@@ -3140,7 +3140,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.dynStats("cor", 1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[If Reducto]
+    // [If Reducto]
     public giveLottieReducto(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -3158,7 +3158,7 @@ export class Lottie extends TelAdreAbstractContent {
                 false
             );
         }
-        //[If Reducto, Repeat Encounter]
+        // [If Reducto, Repeat Encounter]
         else {
             this.outputText(
                 "You take the medicinal tube out and give it to Lottie, who recognises the word 'Reducto' marked upon the side and looks up at you. \"<i>Are you sure this is okay, " +
@@ -3177,7 +3177,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Ham Sandwich]
+    // [If Ham Sandwich]
     public hamSammitchTimeBIATCH(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -3199,7 +3199,7 @@ export class Lottie extends TelAdreAbstractContent {
 
             this.outputText("You reach for a high five that never comes.", false);
         }
-        //[If Ham Sandwich, Repeat Encounter, High Corruption]
+        // [If Ham Sandwich, Repeat Encounter, High Corruption]
         else if (this.player.cor >= 75) {
             this.outputText(
                 "You walk over to the cafe, Lottie watching as you order a sandwich from their menu. In a matter of seconds the collie-like clerk pulls one up from the glass display and hands it over to you, mumbling something about giving a pig-girl a ham sandwich being a stupid fucking idea. You exchange a smile before quickly walking out of the cafe and into the currently empty pool area. You hastily remove your " +
@@ -3212,7 +3212,7 @@ export class Lottie extends TelAdreAbstractContent {
             this.outputText("You reach for a high five that never comes.", false);
             this.player.orgasm();
         }
-        //[If Ham Sandwich, Repeat Encounter]
+        // [If Ham Sandwich, Repeat Encounter]
         else {
             this.outputText(
                 'You walk over to the cafe, Lottie watching as you order a sandwich from their menu. In a matter of seconds the collie-like clerk pulls one up from the glass display and hands it over to you, mumbling something about giving a pig-girl a ham sandwich being a stupid fucking idea. You exchange a smile before walking back to the table and handing Lottie the moist meal, explaining that you saw the ham sandwich the other day, figuring she might enjoy it. Lottie throws it on the floor. "<i>Stop giving me ham sandwiches, asshole!</i>"\n\n',
@@ -3223,9 +3223,9 @@ export class Lottie extends TelAdreAbstractContent {
         this.dynStats("cor", 1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //LOTTIE SEX STARTS HERE
-    //[Sex]
-    //LOTTIE SEX STARTS HERE
+    // LOTTIE SEX STARTS HERE
+    // [Sex]
+    // LOTTIE SEX STARTS HERE
 
     public lottieFuck(): void {
         this.spriteSelect(36);
@@ -3237,7 +3237,7 @@ export class Lottie extends TelAdreAbstractContent {
         var x: number = this.player.cockThatFits(40);
         if (x < 0) x = 0;
         this.outputText("", true);
-        //[If Encouragement 0 – 30]
+        // [If Encouragement 0 – 30]
         if (this.lottieMorale() <= 40) {
             this.outputText(
                 "You take Lottie's hand in your own, though the girl seems to flinch at your touch. \"<i>D-did I do something?</i>\" she asks, slowly recoiling into her seat. You choose not to answer, though the both of you know what's coming next. Silently, you increase your grip on Lottie, leading her out of her seat and into the pool area, checking for any bystanders before taking her inside one of the empty saunas. Lottie grows more and more anxious as you undress yourself in front of her, taking out " +
@@ -3262,7 +3262,7 @@ export class Lottie extends TelAdreAbstractContent {
                 "You turn Lottie around to face you, telling her you've decided you're going to take her for a vigorous work out. She only pants with anticipation.",
                 false
             );
-            //[Anal][Oral] – [Doggystyle][Walkies][Threesome][Netorare]
+            // [Anal][Oral] – [Doggystyle][Walkies][Threesome][Netorare]
             var dog = undefined;
             var walk = undefined;
             var three = undefined;
@@ -3298,7 +3298,7 @@ export class Lottie extends TelAdreAbstractContent {
                 thirtyMinute
             );
         }
-        //[If Encouragement 30 – 60]
+        // [If Encouragement 30 – 60]
         else if (this.lottieMorale() <= 60) {
             this.outputText(
                 "You ask Lottie if she's keen for a little 'extracurricular workout', earning a giggle and a tilt of the head from the pig-girl. \"<i>What do you mean, " +
@@ -3327,7 +3327,7 @@ export class Lottie extends TelAdreAbstractContent {
                 "Not wanting to be left unsatisfied, you tell her you've decided you're going to take her for a vigorous work out. She can only pant with anticipation.",
                 false
             );
-            //[Anal][Oral]
+            // [Anal][Oral]
             this.simpleChoices(
                 "Anal",
                 this.analLottieMilkshake,
@@ -3341,7 +3341,7 @@ export class Lottie extends TelAdreAbstractContent {
                 thirtyMinute
             );
         }
-        //[If Encouragement 60 – 100]
+        // [If Encouragement 60 – 100]
         else {
             this.outputText(
                 "You take Lottie's hand in your own, causing a small blush from her in response. \"<i>" +
@@ -3370,7 +3370,7 @@ export class Lottie extends TelAdreAbstractContent {
                 "You turn Lottie around to face you, telling her you've decided you're going to take her for a vigorous work out. \"<i>I'll work you out, babe,</i>\" she moans in response.",
                 false
             );
-            //[Anal][Oral] – [Quickie][Cowgirl][ReverseCowgirl][FemDom]
+            // [Anal][Oral] – [Quickie][Cowgirl][ReverseCowgirl][FemDom]
             var quickie =
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00314] > 0
                     ? this.lottieRepeatQuickie
@@ -3413,7 +3413,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.dynStats("lus", 50);
     }
 
-    //[Doggystyle]
+    // [Doggystyle]
     public lottieRepeatDoggieStyle(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -3459,7 +3459,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Walkies]
+    // [Walkies]
     public lottieRepeatWalkies(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -3514,7 +3514,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Cowgirl]
+    // [Cowgirl]
     public lottieRepeatCowGirl(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -3574,7 +3574,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Quickie]
+    // [Quickie]
     public lottieRepeatQuickie(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -3619,7 +3619,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Threesome]
+    // [Threesome]
     public lottieRepeatThreesome(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -3644,7 +3644,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Netorare]
+    // [Netorare]
     public lottieRepeatSUPERNEATORARES(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -3704,7 +3704,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Reverse Cowgirl]
+    // [Reverse Cowgirl]
     public lottieRepeatBackwardsAssCowgirl(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -3732,7 +3732,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[FemDom]
+    // [FemDom]
     public lottieRepeatFEMDOMFEMFDOM(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -3758,7 +3758,7 @@ export class Lottie extends TelAdreAbstractContent {
             false
         );
 
-        //[If Cum Production Average]
+        // [If Cum Production Average]
         if (this.player.cumQ() <= 500) {
             this.outputText(
                 '"<i>Hm. Your dick here seems to be twitching. Were you... were you going to cum for me?</i>" you nod feverishly, anything to get her to release her grip. "<i>No. Not here. In me.</i>" She straddles you, plunging your ' +
@@ -3772,7 +3772,7 @@ export class Lottie extends TelAdreAbstractContent {
             this.outputText("shake before deciding to head home.", false);
             if (this.silly()) this.outputText("  You fucking love bacon shakes.", false);
         }
-        //[If Cum Production High]
+        // [If Cum Production High]
         else {
             this.outputText(
                 "Unfortunately for her, you have far too much built up to stop now. With another thrust, your " +
@@ -3790,7 +3790,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.dynStats("sen", -2);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[Hug]
+    // [Hug]
     public hugTheShitOutOfYourHam(): void {
         this.spriteSelect(36);
         this.outputText("", true);
@@ -3799,7 +3799,7 @@ export class Lottie extends TelAdreAbstractContent {
             false
         );
         if (this.lottieMorale() < 70) this.lottieMorale(1);
-        //[If Encouragement 0 – 30]
+        // [If Encouragement 0 – 30]
         if (this.lottieMorale() <= 30 && this.player.cor >= 75) {
             this.outputText(
                 'You tell Lottie to wake up, slapping her face into consciousness. She yelps at the pain, a strand of drool flying as she jerks awake from her fantasy. She sniffs quietly, keeping her thoughts to herself. "<i>What kind of useless slut daydreams?</i>" You smirk.\n\n',
@@ -3814,14 +3814,14 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //END OF EVENTS FUCKIN FINALLY
-    //(Note1: [Anal] and [Oral] are the exact same as their first encounter counterparts.)
-    //(Note2: Once Encouragement and Figure hit an extreme (either 0 or 100), they permanently lock, to avoid repeating 'talk' options that suggest first time encounters.)
-    //(Note3: If this is undesirable, an alternative is allowing the Encouragement and Figure to continue being mouldable, though 'unlocked' scenes will relock once past a specific point – ie. 0 encouragement, 0 figure scenes relock once either is past 30, and returning to 0 only unlocks the scenes, rather than triggering the 'talk' option again to avoid repetition.)
+    // END OF EVENTS FUCKIN FINALLY
+    // (Note1: [Anal] and [Oral] are the exact same as their first encounter counterparts.)
+    // (Note2: Once Encouragement and Figure hit an extreme (either 0 or 100), they permanently lock, to avoid repeating 'talk' options that suggest first time encounters.)
+    // (Note3: If this is undesirable, an alternative is allowing the Encouragement and Figure to continue being mouldable, though 'unlocked' scenes will relock once past a specific point – ie. 0 encouragement, 0 figure scenes relock once either is past 30, and returning to 0 only unlocks the scenes, rather than triggering the 'talk' option again to avoid repetition.)
 
-    //iii-i. Tentacle Scene
-    //Requires: Tentacle dicks. Obviously. Must have unlocked at least one other
-    //vaginal sex scene.
+    // iii-i. Tentacle Scene
+    // Requires: Tentacle dicks. Obviously. Must have unlocked at least one other
+    // vaginal sex scene.
     public tentaDickLottieButtFuckbuttFuckButtFUCKBUTTFUCKBUTTFUCK(): void {
         this.outputText("", true);
         this.outputText(this.images.showImage("lottie-fuck-her-with-tentacle-dick"));
@@ -3891,7 +3891,7 @@ export class Lottie extends TelAdreAbstractContent {
             false
         );
 
-        //[if a single, lonely tentapenis]
+        // [if a single, lonely tentapenis]
         this.outputText("You firmly squeeze your ", false);
         if (this.player.tentacleCocks() > 1) this.outputText("first ", false);
         this.outputText(
@@ -3904,7 +3904,7 @@ export class Lottie extends TelAdreAbstractContent {
             false
         );
 
-        //[if extra cock] //this is to be added to the standard text
+        // [if extra cock] //this is to be added to the standard text
         if (y >= 0) {
             this.outputText(
                 "Seeing that you have extra junk left to be used, and she has some vacant holes, you quickly remedy this problematic situation; guiding your " +
@@ -3920,7 +3920,7 @@ export class Lottie extends TelAdreAbstractContent {
                 false
             );
 
-            //[if another extra cock]//this is to be added to the standard text
+            // [if another extra cock]//this is to be added to the standard text
             if (z >= 0) {
                 this.outputText(
                     "Her constant moaning and screaming reminds you that one of her holes at least isn't being put to use.  Her eyes widen in awe as she sees your " +
@@ -3941,7 +3941,7 @@ export class Lottie extends TelAdreAbstractContent {
                     "  A bunch of tight fuck-holes, each taking care of your tentacle pricks in its own way, all different but all so wonderful!  A horny girl begging to be rammed with cock in her every hole... You almost feel bad for using her like a broken fuck-toy, but she is clearly asking for it.  She keeps twisting in every direction as you savagely triple-penetrate her, her silent moans of pleasure being muffled by the beast lodging in her mouth.\n\n",
                     false
                 );
-                //[if another extra cock]//to be added to standard text
+                // [if another extra cock]//to be added to standard text
                 if (zz >= 0) {
                     this.outputText(
                         "Surely her twat must have some room left for more cock?  Before you even think of it, your free tentacle prick is already squirming its way to the piggy's love-tunnel, trying to fit as its companion ruthlessly rams her fuckhole.  You feel her whole body clench as you press the tip of your " +
@@ -3949,7 +3949,7 @@ export class Lottie extends TelAdreAbstractContent {
                             " between her netherlips, stretching them beyond their normal capacity as you keep pushing forward.  If her mouth wasn't so full of dick, you'd be sure she would scream like a harpy in heat.  Once the tip manages to get through her tight vaginal entrance, the rest easily follows, and you effortlessly slide your dickflesh down her now-gaping cunt.  You synchronize your pricks penetrating her cuntwardly, literally ravaging her pussy as you pork her insides with your genitals.\n\n",
                         false
                     );
-                    //[if another extra cock]//to be added to standard text
+                    // [if another extra cock]//to be added to standard text
                     if (zzz >= 0) {
                         this.outputText(
                             "Since her dripping twat has been able to take some extra dick, why not try her backside?  Your " +
@@ -3961,7 +3961,7 @@ export class Lottie extends TelAdreAbstractContent {
                                 ", and you can't imagine how the teasing stimulation feels for the poor prisoner of your tentacle embrace.  At last, with a brutal thrust, your flexible dong somehow manages to clear a path for additional butt-penetration.  Your twin erect pricks are incredibly squeezed against her tight anal walls and her body is about to be torn in half from all the rods impaling her from many directions at once.  That doesn't prevent you from thrusting back and forth very carefully through her colon, never completely pulling out.\n\n",
                             false
                         );
-                        //[if another extra cock]//to be added to standard text
+                        // [if another extra cock]//to be added to standard text
                         if (zzzz >= 0) {
                             this.outputText(
                                 "No matter how hard you try, you can't fit any more cock in her toy-like body. Your " +
@@ -3974,7 +3974,7 @@ export class Lottie extends TelAdreAbstractContent {
                                 false
                             );
 
-                            //[if another extra cock]//to be added to standard text
+                            // [if another extra cock]//to be added to standard text
                             if (zzzzz >= 0) {
                                 this.outputText(
                                     "As you idly pump Lottie's body with all your junk, you mentally count all the extra ways her body could be used, since you have some tentacle dong left.  Mouth, cunt, ass, tits... wait!  Her hands are still free!  By the way they are twitching convulsively, you can clearly tell they are aching for some dick to handle.  You graciously comply to her cocky needs and shove your " +
@@ -3982,7 +3982,7 @@ export class Lottie extends TelAdreAbstractContent {
                                         " against her palm, coating it with your pre-cum.  She instinctively clings to your rod of flesh as if her life depended on it and starts jerking you off, ferociously rubbing your dickflesh and using a mix of her sweat and your pre-cum as lube.",
                                     false
                                 );
-                                //[if another extra cock]
+                                // [if another extra cock]
                                 if (zzzzzz >= 0)
                                     this.outputText(
                                         "  Seeing the effect your junk had on her, you move your " +
@@ -3995,13 +3995,13 @@ export class Lottie extends TelAdreAbstractContent {
                                     false
                                 );
                                 this.outputText("\n\n", false);
-                                //[if another extra cock]//to be added to standard text
+                                // [if another extra cock]//to be added to standard text
                                 if (zzzzzzz >= 0) {
                                     this.outputText(
                                         "With another cock left unsatisfied, you place your thick, tentacled member against the soft flesh of Lottie's ass, driving it to and fro as the sensation of her chubby flesh drives you wild.\n\n",
                                         false
                                     );
-                                    //[if yet another extra fucking cock jesus tittyshitting christ]
+                                    // [if yet another extra fucking cock jesus tittyshitting christ]
                                 }
                             }
                         }
@@ -4009,13 +4009,13 @@ export class Lottie extends TelAdreAbstractContent {
                 }
             }
         }
-        //generic
+        // generic
         this.outputText(
             "You continue to shove your junk into the broken slut in front of you, her sweaty curves jiggling with the intense force of your thrusts.  Lottie twists and turns in immense arousal, unable to handle the feeling of you inside of her.  Before long, the desperate pig-girl shudders and collapses against the weight of the mattress, stretching out and twitching in deep orgasm while you remain pumping in and out of her with intense motion.  Stretching back, you drive yourself deeper inside while you walk forward, Lottie's eyes rolling back while her tongue hangs idly outside of her mouth, unable to control the wild sensation of you pervading her inner self.  Inevitably, you increase your thrusts, beginning to feel yourself building towards an intensified climax.  Your dickflesh thickens, squeezing against Lottie's walls and causing your deep thrusts to shove Lottie further across the room.  In moments your tentacled meat explodes in orgasm, pumping the pork-slut's insides with your white, creamy liqueur as beads of spunk pool out onto the mattress below.\n\n",
             false
         );
 
-        //[if cum production in metric fuck tons]
+        // [if cum production in metric fuck tons]
         if (this.player.cumQ() >= 1500)
             this.outputText(
                 "The warm flood of cum erupting from your body continues to build up, beginning to plug up Lottie's orifices with the scent of your thick liquid.  The relentless advance of your ejaculate doesn't seem to be stopping, while the pig-girl snaps back into consciousness as her insides churn with your seed.  She squeaks desperately, unsure of the sudden feeling of fullness while her stomach begins to expand with your spunk.  Lottie wastes effort in attempting to squeeze out the flow of man-milk filling her insides, clenching in her soft belly and trying to push out while at the same time buckling under the pressure of your meat still inside of her.  With a final blast, you knock her back unconscious as your cock cream blasts a final wave inside of her, whipping out and releasing jets of hot semen onto her back and ample ass.  A steady flow of your spunk pours outside, eventually returning Lottie to her original weight.\n\n",
@@ -4033,7 +4033,7 @@ export class Lottie extends TelAdreAbstractContent {
                     '...</i>" the girl mumbles, struggling to move out only to find she\'s still underneath the small weighted mattress.  "<i>H-hey! I\'m still stuck!</i>"\n\n',
                 false
             );
-        //[if enc. 100]
+        // [if enc. 100]
         if (this.lottieMorale() >= 99) {
             this.outputText(
                 "You laugh at your lover as she tries to move around, before lifting off the weight to help Lottie onto to her feet.  She gently massages her cushiony breasts, having leaned against them through the entire ordeal.  You ask if she wants to go another round, and she responds by puffing her cheeks up and pushing you into the mat.  Together, you walk outside of the shed, waving to the bewildered spider-morph running the small food cart nearby.",
@@ -4046,7 +4046,7 @@ export class Lottie extends TelAdreAbstractContent {
                 );
             this.outputText("\n\n", false);
         }
-        //[if enc. 0]
+        // [if enc. 0]
         else {
             this.outputText(
                 "You turn to see your slut as she tries to move around, before snorting and walking outside of the shed towards the direction of your camp.  A familiar-looking spider-morph running the stand nearby notices you out alone, walking towards the direction of the shed.  You're long gone before she can catch up to you, though.",
@@ -4063,7 +4063,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Weights]
+    // [Weights]
     public ifrisAndLottieGetsNTRedLiftingWeights(): void {
         this.outputText("", true);
         this.outputText(this.images.showImage("lottie-ifris-threesome"));
@@ -4166,7 +4166,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.player.orgasm();
         this.dynStats("lib", 1, "cor", 5);
         this.doNext(this.lottieAndIfrisNTREpilogue);
-        //--next--
+        // --next--
     }
     private lottieAndIfrisNTREpilogue(): void {
         this.outputText("", true);

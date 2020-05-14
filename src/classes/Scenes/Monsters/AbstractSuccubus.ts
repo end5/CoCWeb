@@ -10,7 +10,7 @@ import { StatusAffects } from "../../StatusAffects";
 export class AbstractSuccubus extends Monster {
     protected whipAttack(): void {
         if (this.findStatusAffect(StatusAffects.WhipReady) >= 0) {
-            //Blind dodge change
+            // Blind dodge change
             if (this.findStatusAffect(StatusAffects.Blind) >= 0) {
                 this.outputText(
                     this.capitalA +
@@ -26,13 +26,13 @@ export class AbstractSuccubus extends Monster {
                 false
             );
             var temp: number = AbstractSuccubus.rand(6);
-            //Whip yo ass!
+            // Whip yo ass!
             if (temp == 0) {
                 this.outputText("ass (4)", false);
                 this.player.takeDamage(4);
                 this.game.dynStats("lus", 6 + Math.floor(this.player.sens / 20));
             }
-            //Whip yo tits!
+            // Whip yo tits!
             if (temp == 1) {
                 if (this.player.breastRows.length > 0 && this.player.biggestTitSize() > 0)
                     this.outputText(this.player.allBreastsDescript() + " (9)", false);
@@ -40,7 +40,7 @@ export class AbstractSuccubus extends Monster {
                 this.player.takeDamage(9);
                 this.game.dynStats("lus", 4 + Math.floor(this.player.sens / 15));
             }
-            //Whip yo groin
+            // Whip yo groin
             if (temp == 2) {
                 if (this.player.gender == 0) {
                     this.outputText("groin (5)", false);
@@ -81,17 +81,17 @@ export class AbstractSuccubus extends Monster {
                     this.player.takeDamage(Math.floor(this.player.maxHP() / 3));
                 }
             }
-            //Whip yo legs
+            // Whip yo legs
             if (temp == 3) {
                 this.outputText("legs (7)", false);
                 this.player.takeDamage(7);
             }
-            //Whip yo arms
+            // Whip yo arms
             if (temp == 4) {
                 this.outputText("arms (8)", false);
                 this.player.takeDamage(8);
             }
-            //Whip yo neck
+            // Whip yo neck
             if (temp == 5) {
                 this.outputText("neck (24)", false);
                 this.player.takeDamage(24);
@@ -111,12 +111,12 @@ export class AbstractSuccubus extends Monster {
     }
 
     protected kissAttack(): void {
-        //[Kiss of Death Text]
+        // [Kiss of Death Text]
         this.outputText(
             "The succubus dances forwards, cocking her elbow back for a vicious strike.",
             false
         );
-        //avoid!
+        // avoid!
         if (
             (this.player.spe > this.spe && AbstractSuccubus.rand(4) == 0) ||
             (this.player.findPerk(PerkLib.Evade) >= 0 && AbstractSuccubus.rand(4) == 0) ||
@@ -134,7 +134,7 @@ export class AbstractSuccubus extends Monster {
                     false
                 );
         }
-        //get hit
+        // get hit
         else {
             this.outputText(
                 "  You start to dodge to the side, but she shifts direction expertly and plants a wet kiss on your lips.  She spins and dodges away with a ballet dancer's grace, leaving you to wonder what just happened.  ",
@@ -148,9 +148,9 @@ export class AbstractSuccubus extends Monster {
 
     protected seduceAttack(): void {
         var temp: number;
-        //determine which method of teasing you use
+        // determine which method of teasing you use
         temp = AbstractSuccubus.rand(3);
-        //Butt slap!
+        // Butt slap!
         if (temp == 0) {
             this.outputText(
                 this.capitalA + this.short + " slaps her " + Appearance.buttDescriptionShort(this),
@@ -158,26 +158,26 @@ export class AbstractSuccubus extends Monster {
             );
             if (this.buttRating >= 10) {
                 this.outputText(", making it jiggle delightfully.", false);
-                //85% success rate for the jiggly girls
+                // 85% success rate for the jiggly girls
                 if (AbstractSuccubus.rand(100) <= 95) {
                     this.game.dynStats("lus", AbstractSuccubus.rand(this.buttRating) + 10);
                     this.outputText("\nThe display is quite arousing.", false);
                 } else this.outputText("\nYou're unimpressed.\n\n", false);
             } else {
                 this.outputText(".", false);
-                //50%ish chance of success for the tight butted.
+                // 50%ish chance of success for the tight butted.
                 if (AbstractSuccubus.rand(100) <= 70 + this.buttRating * 2) {
                     this.game.dynStats("lus", AbstractSuccubus.rand(this.buttRating) + 9);
                     this.outputText("\nThe display is quite arousing.", false);
                 } else this.outputText("\nYou're unimpressed.\n\n", false);
             }
         }
-        //Jiggly-tits
+        // Jiggly-tits
         if (temp == 1 && this.breastRows[0].breastRating >= 2) {
-            //rand(breastRating) + breastRows*BreastperRow
-            //Single breast row
+            // rand(breastRating) + breastRows*BreastperRow
+            // Single breast row
             if (this.breastRows.length == 1) {
-                //50+ breastsize% success rate
+                // 50+ breastsize% success rate
                 this.outputText(
                     this.capitalA +
                         this.short +
@@ -200,7 +200,7 @@ export class AbstractSuccubus extends Monster {
                 } else this.outputText("\nYou're unimpressed.\n\n", false);
             }
             if (this.breastRows.length > 1) {
-                //50 + 10% per breastRow + breastSize%
+                // 50 + 10% per breastRow + breastSize%
                 this.outputText(
                     this.capitalA +
                         this.short +
@@ -229,7 +229,7 @@ export class AbstractSuccubus extends Monster {
                 } else this.outputText("\nYou're unimpressed.\n\n", false);
             }
         }
-        //Genetals flash!
+        // Genetals flash!
         if (temp == 2) {
             this.outputText(
                 this.capitalA +
@@ -237,8 +237,8 @@ export class AbstractSuccubus extends Monster {
                     " reaches down and strokes her moist lips.  She sighs and licks her fingers clean, giving you a smoldering gaze.",
                 false
             );
-            //Success = 50% + 10% times each cock/vagina
-            //rand(vaginas*2 + cocks*2) + wetness and/or length/6
+            // Success = 50% + 10% times each cock/vagina
+            // rand(vaginas*2 + cocks*2) + wetness and/or length/6
             if (
                 AbstractSuccubus.rand(101) <=
                 65 + this.vaginas.length * 10 + this.cocks.length * 10

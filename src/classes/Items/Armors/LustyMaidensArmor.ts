@@ -33,14 +33,14 @@ export class LustyMaidensArmor extends Armor {
 
     public canUse(): boolean {
         if (this.game.player.biggestTitSize() < CoC.BREAST_CUP_A) {
-            //{No titties}
+            // {No titties}
             this.outputText(
                 "You slide the bikini top over your chest and buckle it into place, but the material hangs almost comically across your flat chest.  The cold chain dangles away from you, swaying around ridiculously before smacking, cold and hard into your [nipples].  This simply won't do - it doesn't fit you, and you switch back to your old armor.\n\n"
             );
             return false;
         }
         if (this.game.player.biggestTitSize() < CoC.BREAST_CUP_D) {
-            //{Too small titties}
+            // {Too small titties}
             this.outputText(
                 "You slide the bikini top over your chest, shivering when the cold chains catch on your nipples, stiffening them nicely. The material nicely accentuates your chest, but there's a definite problem.  Your [chest] aren't big enough!  Sure, they look nice done up in glittering silver and gold trim.  If only the metal wasn't hanging loosely around your underbust, flopping around whenever you move.  It doesn't even look that sexy on you!  You'll need a bigger chest to truly make use of this armor.  For now, you switch back to your old equipment.\n\n"
             );
@@ -126,7 +126,7 @@ export class LustyMaidensArmor extends Armor {
         return super.playerRemove();
     }
 
-    //"Chaste" Paizuri - works for most foes with penises.
+    // "Chaste" Paizuri - works for most foes with penises.
     public lustyMaidenPaizuri(player?: Player, monster?: Monster): void {
         if (player == undefined) player = this.game.player;
         if (monster == undefined) monster = this.game.monster;
@@ -340,7 +340,7 @@ export class LustyMaidensArmor extends Armor {
         this.outputText(
             "\n\nThe stink of sperm slowly fades as you move, almost seeming to absorb into your skin.  It leaves you with a healthy glow and a surety to your movements, sure that your revealing armor is going to protect you."
         );
-        //Slimefeed, minus slight corruption if PC is a virgin, raise sensitivity
+        // Slimefeed, minus slight corruption if PC is a virgin, raise sensitivity
         player.slimeFeed();
         this.game.flags[kFLAGS.BIKINI_ARMOR_BONUS] += 2;
         if (this.game.flags[kFLAGS.BIKINI_ARMOR_BONUS] > 8)
@@ -348,11 +348,11 @@ export class LustyMaidensArmor extends Armor {
         player.orgasm();
         this.game.dynStats("sen", 2);
         if (player.hasVirginVagina()) this.game.dynStats("cor", -1);
-        //If minotaur, increase addiction slightly.
+        // If minotaur, increase addiction slightly.
         if (monster instanceof Minotaur || monster instanceof MinotaurMob)
             player.minoCumAddiction(3);
         if (monster.short == "Ceraph") this.game.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00291]++;
-        //Usable on: Imps, Minotaurs, Satyrs, Incubus Mechanic, Anemones, Spider Guys, Akbal, Drider, Fetish Zealot, Sand Trap, Very Corrupt Jojo (Maybe slight decorruption to him), Ceraph, Red Kitsune if cock out.
+        // Usable on: Imps, Minotaurs, Satyrs, Incubus Mechanic, Anemones, Spider Guys, Akbal, Drider, Fetish Zealot, Sand Trap, Very Corrupt Jojo (Maybe slight decorruption to him), Ceraph, Red Kitsune if cock out.
         if (this.game.inCombat) this.game.cleanupAfterCombat();
         else this.game.doNext(this.game.camp.returnToCampUseOneHour);
     }
@@ -363,9 +363,9 @@ export class LustyMaidensArmor extends Armor {
                 if(wearer.lib < 50) game.dynStats("lib", 1, "sen", 1);
                 /*Stats: Virgin - 9, Non-Virgin - 5
 
-                //NONVIRGIN:
+                // NONVIRGIN:
                 if(wearer.hasPerk("Slutty Seduction") < 0) wearer.createPerk("Slutty Seduction",6,0,0,0,"Your incredibly revealing steel armor allows you access to 'Seduce', an improved form of 'Tease'.");
-                //VIRGIN:
+                // VIRGIN:
                 if(wearer.hasPerk("Slutty Seduction") < 0) wearer.createPerk("Slutty Seduction",10,0,0,0,"Your incredibly revealing steel armor allows you access to 'Seduce', an improved form of 'Tease'.");
                 Special Bonus: Every time you use the special titfuck scene, you gain two defense and 2 tease damage up to a max of 8.  Every night you lose half your bonus (minimum 1).
                 Min lust: 30

@@ -78,8 +78,8 @@ export class Camp extends NPCAwareContent {
     //  SLEEP_WITH: number = 701;
 
     private doCamp(): void {
-        //Only called by playerMenu
-        //trace("Current fertility: " + player.totalFertility());
+        // Only called by playerMenu
+        // trace("Current fertility: " + player.totalFertility());
         this.mainView.showMenuButton(MainView.MENU_NEW_MAIN);
         if (this.player.findStatusAffect(StatusAffects.PostAkbalSubmission) >= 0) {
             this.player.removeStatusAffect(StatusAffects.PostAkbalSubmission);
@@ -90,7 +90,7 @@ export class Camp extends NPCAwareContent {
             this.HPChange(Math.round(this.player.maxHP() / 2), false);
             this.player.removeStatusAffect(StatusAffects.PostAnemoneBeatdown);
         }
-        //make sure gameState is cleared if coming from combat or giacomo
+        // make sure gameState is cleared if coming from combat or giacomo
         this.getGame().inCombat = false;
         /* Can't happen - playerMenu will call dungeon appropriate menu instead of doCamp while inDungeon is true
             if (kGAMECLASS.inDungeon) {
@@ -100,14 +100,14 @@ export class Camp extends NPCAwareContent {
                 return;
             }
         */
-        //Clear out Izma's saved loot status
+        // Clear out Izma's saved loot status
         this.flags[kFLAGS.BONUS_ITEM_AFTER_COMBAT_ID] = "";
-        //History perk backup
+        // History perk backup
         if (this.flags[kFLAGS.HISTORY_PERK_SELECTED] == 0) {
             this.flags[kFLAGS.HISTORY_PERK_SELECTED] = 2;
             this.hideMenus();
             this.getGame().charCreation.chooseHistory();
-            //		fixHistory();
+            // 		fixHistory();
             return;
         }
         if (!this.marbleScene.marbleFollower()) {
@@ -118,9 +118,9 @@ export class Camp extends NPCAwareContent {
             }
         }
         if (this.marbleScene.marbleFollower()) {
-            //Cor < 50
-            //No corrupt: Jojo, Amily, or Vapula
-            //Purifying Murble
+            // Cor < 50
+            // No corrupt: Jojo, Amily, or Vapula
+            // Purifying Murble
             if (
                 this.player.cor < 50 &&
                 !this.campCorruptJojo() &&
@@ -334,7 +334,7 @@ export class Camp extends NPCAwareContent {
             this.hideMenus();
             return;
         }
-        //Bimbo Sophie Move In Request!
+        // Bimbo Sophie Move In Request!
         if (
             this.bimboSophie() &&
             this.flags[kFLAGS.SOPHIE_BROACHED_SLEEP_WITH] == 0 &&
@@ -352,7 +352,7 @@ export class Camp extends NPCAwareContent {
             kGAMECLASS.nieveIsOver();
             return;
         }
-        //Amily followup!
+        // Amily followup!
         if (this.flags[kFLAGS.PC_PENDING_PREGGERS] == 1) {
             kGAMECLASS.amilyScene.postBirthingEndChoices();
             this.flags[kFLAGS.PC_PENDING_PREGGERS] = 2;
@@ -400,7 +400,7 @@ export class Camp extends NPCAwareContent {
                 this.hideMenus();
                 return;
             }
-            //Level 4 growth
+            // Level 4 growth
             if (
                 this.flags[kFLAGS.FUCK_FLOWER_LEVEL] == 3 &&
                 this.flags[kFLAGS.FUCK_FLOWER_GROWTH_COUNTER] >= 40
@@ -410,7 +410,7 @@ export class Camp extends NPCAwareContent {
                 return;
             }
         }
-        //Jojo treeflips!
+        // Jojo treeflips!
         if (
             this.flags[kFLAGS.FUCK_FLOWER_LEVEL] >= 4 &&
             this.flags[kFLAGS.FUCK_FLOWER_KILLED] == 0 &&
@@ -420,7 +420,7 @@ export class Camp extends NPCAwareContent {
             this.hideMenus();
             return;
         }
-        //Amily flips out
+        // Amily flips out
         if (
             this.amilyScene.amilyFollower() &&
             !this.amilyScene.amilyCorrupt() &&
@@ -442,14 +442,14 @@ export class Camp extends NPCAwareContent {
             this.hideMenus();
             return;
         }
-        //Anemone birth followup!
+        // Anemone birth followup!
         if (this.player.findStatusAffect(StatusAffects.CampAnemoneTrigger) >= 0) {
             this.player.removeStatusAffect(StatusAffects.CampAnemoneTrigger);
             this.anemoneScene.anemoneKidBirthPtII();
             this.hideMenus();
             return;
         }
-        //Exgartuan clearing
+        // Exgartuan clearing
         if (
             this.player.statusAffectv1(StatusAffects.Exgartuan) == 1 &&
             (this.player.cockArea(0) < 100 || this.player.cocks.length == 0)
@@ -463,7 +463,7 @@ export class Camp extends NPCAwareContent {
             this.exgartuanCampUpdate();
             return;
         }
-        //Izzys tits asplode
+        // Izzys tits asplode
         if (
             this.isabellaFollower() &&
             this.flags[kFLAGS.ISABELLA_MILKED_YET] >= 10 &&
@@ -473,7 +473,7 @@ export class Camp extends NPCAwareContent {
             this.hideMenus();
             return;
         }
-        //Marble meets follower izzy when moving in
+        // Marble meets follower izzy when moving in
         if (
             this.flags[kFLAGS.ISABELLA_MURBLE_BLEH] == 1 &&
             this.isabellaFollower() &&
@@ -483,7 +483,7 @@ export class Camp extends NPCAwareContent {
             this.hideMenus();
             return;
         }
-        //Cotton preg freakout
+        // Cotton preg freakout
         if (
             this.player.pregnancyIncubation <= 280 &&
             this.player.pregnancyType == PregnancyStore.PREGNANCY_COTTON &&
@@ -494,7 +494,7 @@ export class Camp extends NPCAwareContent {
             this.hideMenus();
             return;
         }
-        //Bimbo Sophie finds ovi elixer in chest!
+        // Bimbo Sophie finds ovi elixer in chest!
         if (
             this.bimboSophie() &&
             this.hasItemInStorage(this.consumables.OVIELIX) &&
@@ -506,7 +506,7 @@ export class Camp extends NPCAwareContent {
             this.hideMenus();
             return;
         }
-        //Amily + Urta freakout!
+        // Amily + Urta freakout!
         if (
             !kGAMECLASS.urtaQuest.urtaBusy() &&
             this.flags[kFLAGS.AMILY_VISITING_URTA] == 0 &&
@@ -522,7 +522,7 @@ export class Camp extends NPCAwareContent {
             this.hideMenus();
             return;
         }
-        //Find jojo's note!
+        // Find jojo's note!
         if (
             this.flags[kFLAGS.JOJO_FIXED_STATUS] == 1 &&
             this.flags[kFLAGS.AMILY_BLOCK_COUNTDOWN_BECAUSE_CORRUPTED_JOJO] == 0
@@ -531,7 +531,7 @@ export class Camp extends NPCAwareContent {
             this.hideMenus();
             return;
         }
-        //Rathazul freaks out about jojo
+        // Rathazul freaks out about jojo
         if (
             this.flags[kFLAGS.RATHAZUL_CORRUPT_JOJO_FREAKOUT] == 0 &&
             Camp.rand(5) == 0 &&
@@ -542,19 +542,19 @@ export class Camp extends NPCAwareContent {
             this.hideMenus();
             return;
         }
-        //Izma/Marble freakout - marble moves in
+        // Izma/Marble freakout - marble moves in
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00237] == 1) {
             this.izmaScene.newMarbleMeetsIzma();
             this.hideMenus();
             return;
         }
-        //Izma/Amily freakout - Amily moves in
+        // Izma/Amily freakout - Amily moves in
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00236] == 1) {
             this.izmaScene.newAmilyMeetsIzma();
             this.hideMenus();
             return;
         }
-        //Amily/Marble Freakout
+        // Amily/Marble Freakout
         if (
             this.flags[kFLAGS.AMILY_NOT_FREAKED_OUT] == 0 &&
             this.player.findStatusAffect(StatusAffects.CampMarble) >= 0 &&
@@ -566,27 +566,27 @@ export class Camp extends NPCAwareContent {
             this.hideMenus();
             return;
         }
-        //Amily and/or Jojo freakout about Vapula!!
+        // Amily and/or Jojo freakout about Vapula!!
         if (
             this.vapulaSlave() &&
             (this.player.findStatusAffect(StatusAffects.PureCampJojo) >= 0 ||
                 (this.amilyScene.amilyFollower() && !this.amilyScene.amilyCorrupt()))
         ) {
-            //Jojo but not Amily
+            // Jojo but not Amily
             if (
                 this.player.findStatusAffect(StatusAffects.PureCampJojo) >= 0 &&
                 !(this.amilyScene.amilyFollower() && !this.amilyScene.amilyCorrupt())
             )
                 this.vapula.mouseWaifuFreakout(false, true);
-            //Amily but not Jojo
+            // Amily but not Jojo
             else if (this.amilyScene.amilyFollower() && !this.amilyScene.amilyCorrupt())
                 this.vapula.mouseWaifuFreakout(true, false);
-            //Both
+            // Both
             else this.vapula.mouseWaifuFreakout(true, true);
             this.hideMenus();
             return;
         }
-        //Go through Helia's first time move in interactions if  you haven't yet.
+        // Go through Helia's first time move in interactions if  you haven't yet.
         if (
             this.flags[kFLAGS.HEL_FOLLOWER_LEVEL] == 2 &&
             kGAMECLASS.helScene.followerHel() &&
@@ -596,7 +596,7 @@ export class Camp extends NPCAwareContent {
             this.hideMenus();
             return;
         }
-        //If you've gone through Hel's first time actions and Issy moves in without being okay with threesomes.
+        // If you've gone through Hel's first time actions and Issy moves in without being okay with threesomes.
         if (
             this.flags[kFLAGS.HEL_INTROS_LEVEL] > 9000 &&
             kGAMECLASS.helScene.followerHel() &&
@@ -607,33 +607,33 @@ export class Camp extends NPCAwareContent {
             this.hideMenus();
             return;
         }
-        //Reset.
+        // Reset.
         this.flags[kFLAGS.CAME_WORMS_AFTER_COMBAT] = 0;
         this.campQ = false;
-        //Build explore menus
+        // Build explore menus
         var placesEvent = this.placesKnown() ? this.places : undefined;
         var followers = undefined;
         var lovers = undefined;
         var slaves = undefined;
         var storage = undefined;
         if (this.inventory.showStash()) storage = this.inventory.stash;
-        //Clear stuff
+        // Clear stuff
         if (this.player.findStatusAffect(StatusAffects.SlimeCravingOutput) >= 0)
             this.player.removeStatusAffect(StatusAffects.SlimeCravingOutput);
-        //Reset luststick display status (see event parser)
+        // Reset luststick display status (see event parser)
         this.flags[kFLAGS.PC_CURRENTLY_LUSTSTICK_AFFECTED] = 0;
-        //Display Proper Buttons
+        // Display Proper Buttons
         this.mainView.showMenuButton(MainView.MENU_APPEARANCE);
         this.mainView.showMenuButton(MainView.MENU_PERKS);
         this.mainView.showMenuButton(MainView.MENU_STATS);
         this.mainView.showMenuButton(MainView.MENU_DATA);
         this.showStats();
-        //Change settings of new game buttons to go to main menu
+        // Change settings of new game buttons to go to main menu
         this.mainView.setMenuButton(MainView.MENU_NEW_MAIN, "Main Menu", kGAMECLASS.mainMenu);
 
-        //clear up/down arrows
+        // clear up/down arrows
         this.hideUpDown();
-        //Level junk
+        // Level junk
         if (this.player.XP >= this.player.level * 100 || this.player.perkPoints > 0) {
             if (this.player.XP < this.player.level * 100)
                 this.mainView.setMenuButton(MainView.MENU_LEVEL, "Perk Up");
@@ -644,14 +644,14 @@ export class Camp extends NPCAwareContent {
             this.mainView.hideMenuButton(MainView.MENU_LEVEL);
             this.mainView.statsView.hideLevelUp();
         }
-        //Build main menu
+        // Build main menu
         var exploreEvent: (() => void) | undefined = this.getGame().exploration.doExplore;
         var masturbate =
             this.player.lust > 30 ? this.getGame().masturbation.masturbateMenu : undefined;
         this.clearOutput();
 
         this.outputText(this.images.showImage("camping"), false);
-        //Isabella upgrades camp level!
+        // Isabella upgrades camp level!
 
         if (this.isabellaFollower()) {
             this.outputText(
@@ -664,7 +664,7 @@ export class Camp extends NPCAwareContent {
                     false
                 );
         }
-        //Live in-ness
+        // Live in-ness
         else {
             if (this.model.time.days < 10)
                 this.outputText(
@@ -685,7 +685,7 @@ export class Camp extends NPCAwareContent {
         if (this.flags[kFLAGS.CLARA_IMPRISONED] > 0) {
             this.marblePurification.claraCampAddition();
         }
-        //Nursery
+        // Nursery
         if (
             this.flags[kFLAGS.MARBLE_NURSERY_CONSTRUCTION] == 100 &&
             this.player.findStatusAffect(StatusAffects.CampMarble) >= 0
@@ -701,53 +701,53 @@ export class Camp extends NPCAwareContent {
             }
             this.outputText(".", false);
         }
-        //HARPY ROOKERY
+        // HARPY ROOKERY
         if (this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] > 0) {
-            //Rookery Descriptions (Short)
-            //Small (1 mature daughter)
+            // Rookery Descriptions (Short)
+            // Small (1 mature daughter)
             if (this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] == 1) {
                 this.outputText(
                     "  There's a smallish harpy nest that your daughter has built up with rocks piled high near the fringes of your camp.  It's kind of pathetic, but she seems proud of her accomplishment."
                 );
             }
-            //Medium (2-3 mature daughters)
+            // Medium (2-3 mature daughters)
             else if (this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] <= 3) {
                 this.outputText(
                     "  There's a growing pile of stones built up at the fringes of your camp.  It's big enough to be considered a small hill by this point, dotted with a couple small harpy nests just barely big enough for two."
                 );
             }
-            //Big (4 mature daughters)
+            // Big (4 mature daughters)
             else if (this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] <= 4) {
                 this.outputText(
                     "  The harpy rookery at the edge of camp has gotten pretty big.  It's taller than most of the standing stones that surround the portal, and there's more nests than harpies at this point.  Every now and then you see the four of them managing a boulder they dragged in from somewhere to add to it."
                 );
             }
-            //Large (5-10 mature daughters)
+            // Large (5-10 mature daughters)
             else if (this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] <= 10) {
                 this.outputText(
                     "  The rookery has gotten quite large.  It stands nearly two stories tall at this point, dotted with nests and hollowed out places in the center.  It's surrounded by the many feathers the assembled harpies leave behind."
                 );
             }
-            //Giant (11-20 mature daughters)
+            // Giant (11-20 mature daughters)
             else if (this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] <= 20) {
                 this.outputText(
                     "  A towering harpy rookery has risen up at the fringes of your camp, filled with all of your harpy brood.  It's at least three stories tall at this point, and it has actually begun to resemble a secure structure.  These harpies are always rebuilding and adding onto it."
                 );
             }
-            //Massive (31-50 mature daughters)
+            // Massive (31-50 mature daughters)
             else if (this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] <= 50) {
                 this.outputText(
                     "  A massive harpy rookery towers over the edges of your camp.  It's almost entirely built out of stones that are fit seamlessly into each other, with many ledges and overhangs for nests.  There's a constant hum of activity over there day or night."
                 );
             }
-            //Immense (51+ Mature daughters)
+            // Immense (51+ Mature daughters)
             else {
                 this.outputText(
                     "  An immense harpy rookery dominates the edge of your camp, towering over the rest of it.  Innumerable harpies flit around it, always working on it, assisted from below by the few sisters unlucky enough to be flightless."
                 );
             }
         }
-        //Traps
+        // Traps
         if (this.player.findStatusAffect(StatusAffects.DefenseCanopy) >= 0) {
             this.outputText(
                 "  A thorny tree has sprouted near the center of the camp, growing a protective canopy of spiky vines around the portal and your camp.",
@@ -763,9 +763,9 @@ export class Camp extends NPCAwareContent {
             false
         );
 
-        //Ember's anti-minotaur crusade!
+        // Ember's anti-minotaur crusade!
         if (this.flags[kFLAGS.EMBER_CURRENTLY_FREAKING_ABOUT_MINOCUM] == 1) {
-            //Modified Camp Description
+            // Modified Camp Description
             this.outputText(
                 "Since Ember began " +
                     this.emberMF("his", "her") +
@@ -774,7 +774,7 @@ export class Camp extends NPCAwareContent {
                     " den.  There're quite a lot of them.\n\n"
             );
         }
-        //Dat tree!
+        // Dat tree!
         if (
             this.flags[kFLAGS.FUCK_FLOWER_LEVEL] >= 4 &&
             this.flags[kFLAGS.FUCK_FLOWER_KILLED] == 0
@@ -784,9 +784,9 @@ export class Camp extends NPCAwareContent {
             );
         }
         if (this.flags[kFLAGS.CLARA_IMPRISONED] > 0) {
-            //claraCampAddition();
+            // claraCampAddition();
         }
-        //BIMBO SOPHAH
+        // BIMBO SOPHAH
         if (this.bimboSophie() && this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0)
             this.sophieBimbo.sophieCampLines();
         if (this.player.findStatusAffect(StatusAffects.CampMarble) >= 0) {
@@ -795,10 +795,10 @@ export class Camp extends NPCAwareContent {
                 "A second bedroll rests next to yours; a large two-handed hammer sometimes rests against it, depending on whether or not its owner needs it at the time.  ",
                 false
             );
-            //Marble is out!
+            // Marble is out!
             if (this.flags[kFLAGS.MARBLE_PURIFICATION_STAGE] == 4)
                 this.outputText("Marble isn’t here right now; she’s still off to see her family.");
-            //requires at least 1 kid, time is just before sunset, this scene always happens at this time if the PC has at least one kid.
+            // requires at least 1 kid, time is just before sunset, this scene always happens at this time if the PC has at least one kid.
             else if (
                 this.flags[kFLAGS.MARBLE_KIDS] >= 1 &&
                 (this.model.time.hours == 19 || this.model.time.hours == 20)
@@ -808,12 +808,12 @@ export class Camp extends NPCAwareContent {
                 else this.outputText("children");
                 this.outputText(" to bed.");
             }
-            //at 6-7 in the morning, scene always displays at this time
+            // at 6-7 in the morning, scene always displays at this time
             else if (this.model.time.hours == 6 || this.model.time.hours == 7)
                 this.outputText(
                     "Marble is off in an open area to the side of your camp right now.  She is practicing with her large hammer, going through her daily training."
                 );
-            //after nightfall, scene always displays at this time unless PC is wormed
+            // after nightfall, scene always displays at this time unless PC is wormed
             else if (
                 this.model.time.hours >= 21 &&
                 this.player.findStatusAffect(StatusAffects.Infested) < 0
@@ -828,25 +828,25 @@ export class Camp extends NPCAwareContent {
                 this.model.time.hours < 19 &&
                 this.model.time.hours > 7
             ) {
-                //requires at least 6 kids, and no other parental characters in camp
+                // requires at least 6 kids, and no other parental characters in camp
                 if (Camp.rand(2) == 0 && this.flags[kFLAGS.MARBLE_KIDS] > 5)
                     this.outputText(
                         "Marble is currently tending to your kids, but she looks a bit stressed out right now.  It looks like " +
                             Camp.num2Text(this.flags[kFLAGS.MARBLE_KIDS]) +
                             " might just be too many for her to handle on her own..."
                     );
-                //requires at least 4 kids
+                // requires at least 4 kids
                 else if (Camp.rand(3) == 0 && this.flags[kFLAGS.MARBLE_KIDS] > 3)
                     this.outputText(
                         "Marble herself is in the camp right now, telling a story about her travels around the world to her kids as they gather around her.  The children are completely enthralled by her words.  You can't help but smile."
                     );
-                //Requires 2 boys
+                // Requires 2 boys
                 else if (Camp.rand(3) == 0 && this.flags[kFLAGS.MARBLE_BOYS] > 1) {
                     this.outputText(
                         "Marble herself is currently refereeing a wrestling match between two of your sons.  It seems like it's a contest to see which one of them gets to go for a ride between her breasts in a game of <i>Bull Blasters</i>, while the loser has to sit on her shoulders."
                     );
                 }
-                //requires at least 2 kids
+                // requires at least 2 kids
                 else if (
                     Camp.rand(3) == 0 &&
                     this.flags[kFLAGS.MARBLE_KIDS] - this.flags[kFLAGS.MARBLE_BOYS] > 1
@@ -859,7 +859,7 @@ export class Camp extends NPCAwareContent {
                         "Marble herself is out right now; she's taken her kids to go visit Whitney.  You're sure though that she'll be back within the hour, so you could just wait if you needed her."
                     );
                 else {
-                    //requires at least 1 kid
+                    // requires at least 1 kid
                     if (Camp.rand(2) == 0) {
                         this.outputText("Marble herself is nursing ");
                         if (this.flags[kFLAGS.MARBLE_KIDS] > 1)
@@ -873,7 +873,7 @@ export class Camp extends NPCAwareContent {
                     }
                 }
             }
-            //(Choose one of these at random to display each hour)
+            // (Choose one of these at random to display each hour)
             else if (this.temp == 0)
                 this.outputText(
                     "Marble herself has gone off to Whitney's farm to get milked right now.  You're sure she'd be back in moments if you needed her.",
@@ -896,8 +896,8 @@ export class Camp extends NPCAwareContent {
             }
             this.outputText("\n\n", false);
         }
-        //RATHAZUL
-        //if rathazul has joined the camp
+        // RATHAZUL
+        // if rathazul has joined the camp
         if (this.player.findStatusAffect(StatusAffects.CampRathazul) >= 0) {
             if (this.flags[kFLAGS.RATHAZUL_SILK_ARMOR_COUNTDOWN] <= 1) {
                 this.outputText(
@@ -916,7 +916,7 @@ export class Camp extends NPCAwareContent {
                     false
                 );
         }
-        //MOUSEBITCH
+        // MOUSEBITCH
         if (this.amilyScene.amilyFollower() && this.flags[kFLAGS.AMILY_FOLLOWER] == 1) {
             if (this.flags[kFLAGS.FUCK_FLOWER_LEVEL] >= 4)
                 this.outputText(
@@ -928,7 +928,7 @@ export class Camp extends NPCAwareContent {
                     false
                 );
         }
-        //Corrupt mousebitch!
+        // Corrupt mousebitch!
         else if (
             this.amilyScene.amilyFollower() &&
             this.flags[kFLAGS.AMILY_FOLLOWER] == 2 &&
@@ -939,7 +939,7 @@ export class Camp extends NPCAwareContent {
                 false
             );
         }
-        //Amily out freaking Urta?
+        // Amily out freaking Urta?
         else if (
             this.flags[kFLAGS.AMILY_VISITING_URTA] == 1 ||
             this.flags[kFLAGS.AMILY_VISITING_URTA] == 2
@@ -949,39 +949,39 @@ export class Camp extends NPCAwareContent {
                 false
             );
         }
-        //JOJO
-        //If Jojo is corrupted, add him to the masturbate menu.
+        // JOJO
+        // If Jojo is corrupted, add him to the masturbate menu.
         if (this.campCorruptJojo() && this.flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] == 0)
             this.outputText(
                 "From time to time you can hear movement from around your camp, and you routinely find thick puddles of mouse semen.  You are sure Jojo is here if you ever need to sate yourself.\n\n",
                 false
             );
-        //Pure Jojo
+        // Pure Jojo
         if (this.player.findStatusAffect(StatusAffects.PureCampJojo) >= 0)
             this.outputText(
                 "There is a small bedroll for Jojo near your own, though the mouse is probably hanging around the camp's perimeter.\n\n",
                 false
             );
-        //Izma
+        // Izma
         if (this.izmaFollower() && this.flags[kFLAGS.FOLLOWER_AT_FARM_IZMA] == 0) {
             this.outputText(
                 "Neatly laid near the base of your own is a worn bedroll belonging to Izma, your tigershark lover.  It's a snug fit for her toned body, though it has some noticeable cuts and tears in the fabric.  Close to her bed is her old trunk, almost as if she wants to have it at arms length if anyone tries to rob her in her sleep.  ",
                 false
             );
             this.temp = Camp.rand(3);
-            //Text 1} I
+            // Text 1} I
             if (this.temp == 0)
                 this.outputText(
                     "Izma's lazily sitting on the trunk beside her bedroll, reading one of the many books from inside it.  She smiles happily when your eyes linger on her, and you know full well she's only half-interested in it.",
                     false
                 );
-            //Text 2
+            // Text 2
             else if (this.temp == 1)
                 this.outputText(
                     "You notice Izma isn't around right now.  She's probably gone off to the nearby stream to get some water.  Never mind, she comes around from behind a rock, still dripping wet.",
                     false
                 );
-            //Text 3
+            // Text 3
             else
                 this.outputText(
                     "Izma is lying on her back near her bedroll.  You wonder at first just why she isn't using her bed, but as you look closer you notice all the water pooled beneath her and the few droplets running down her arm, evidence that she's just returned from the stream.",
@@ -989,12 +989,12 @@ export class Camp extends NPCAwareContent {
                 );
             this.outputText("\n\n", false);
         }
-        //►[Added Campsite Description]
+        // ►[Added Campsite Description]
         if (kGAMECLASS.desert.antsScene.phyllaWaifu()) {
             this.outputText(
                 "You see Phylla's anthill in the distance.  Every now and then you see"
             );
-            //If PC has children w/ Phylla:
+            // If PC has children w/ Phylla:
             if (this.flags[kFLAGS.ANT_KIDS] > 0)
                 this.outputText(
                     " one of your many children exit the anthill to unload some dirt before continuing back down into the colony.  It makes you feel good knowing your offspring are so productive."
@@ -1005,7 +1005,7 @@ export class Camp extends NPCAwareContent {
                 );
             this.outputText("\n\n");
         }
-        //Clear bee-status
+        // Clear bee-status
         if (this.player.findStatusAffect(StatusAffects.ParalyzeVenom) >= 0) {
             this.dynStats(
                 "str",
@@ -1019,7 +1019,7 @@ export class Camp extends NPCAwareContent {
                 false
             );
         }
-        //The uber horny
+        // The uber horny
         if (this.player.lust >= 100) {
             if (this.player.findStatusAffect(StatusAffects.Dysfunction) >= 0) {
                 this.outputText(
@@ -1041,7 +1041,7 @@ export class Camp extends NPCAwareContent {
                 );
                 exploreEvent = undefined;
                 placesEvent = undefined;
-                //This once disabled the ability to rest, sleep or wait, but ir hasn't done that for many many builds
+                // This once disabled the ability to rest, sleep or wait, but ir hasn't done that for many many builds
             }
         }
         var baitText: string = "Masturbate";
@@ -1054,7 +1054,7 @@ export class Camp extends NPCAwareContent {
             )
         )
             baitText = "Meditate";
-        //Initialize companions/followers
+        // Initialize companions/followers
         if (this.model.time.hours > 4 && this.model.time.hours < 23) {
             if (this.followersCount() > 0) followers = this.campFollowers;
             if (this.slavesCount() > 0) slaves = this.campSlavesMenu;
@@ -1062,8 +1062,8 @@ export class Camp extends NPCAwareContent {
         }
         var restEvent = this.doWait;
         var restName: string = "Wait";
-        //Set up rest stuff
-        //Night
+        // Set up rest stuff
+        // Night
         if (this.model.time.hours < 6 || this.model.time.hours > 20) {
             this.outputText(
                 "It is dark out, made worse by the lack of stars in the sky.  A blood-red moon hangs in the sky, seeming to watch you, but providing little light.  It's far too dark to leave camp.\n",
@@ -1074,7 +1074,7 @@ export class Camp extends NPCAwareContent {
             exploreEvent = undefined;
             placesEvent = undefined;
         }
-        //Day Time!
+        // Day Time!
         else {
             this.outputText(
                 "It's light outside, a good time to explore and forage for supplies with which to fortify your camp.\n",
@@ -1085,7 +1085,7 @@ export class Camp extends NPCAwareContent {
                 restEvent = this.rest;
             }
         }
-        //Menu
+        // Menu
 
         this.choices(
             "Explore",
@@ -1109,9 +1109,9 @@ export class Camp extends NPCAwareContent {
             restName,
             restEvent
         );
-        //Lovers
-        //Followers
-        //Slaves
+        // Lovers
+        // Followers
+        // Slaves
     }
 
     public hasCompanions(): boolean {
@@ -1145,7 +1145,7 @@ export class Camp extends NPCAwareContent {
             this.flags[kFLAGS.FOLLOWER_AT_FARM_AMILY] == 0
         )
             counter++;
-        //Bimbo sophie
+        // Bimbo sophie
         if (this.bimboSophie() && this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0) counter++;
         if (this.ceraphIsFollower()) counter++;
         if (this.milkSlave() && this.flags[kFLAGS.FOLLOWER_AT_FARM_BATH_GIRL] == 0) counter++;
@@ -1156,7 +1156,7 @@ export class Camp extends NPCAwareContent {
         var counter: number = 0;
         if (this.arianScene.arianFollower()) counter++;
         if (this.followerHel()) counter++;
-        //Izma!
+        // Izma!
         if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00238] == 1 &&
             this.flags[kFLAGS.FOLLOWER_AT_FARM_IZMA] == 0
@@ -1191,23 +1191,23 @@ export class Camp extends NPCAwareContent {
         }
         if (kGAMECLASS.helScene.followerHel()) {
             if (this.flags[kFLAGS.HEL_FOLLOWER_LEVEL] == 2) {
-                //Hel @ Camp: Follower Menu
-                //(6-7)
+                // Hel @ Camp: Follower Menu
+                // (6-7)
                 if (this.model.time.hours <= 7)
                     this.outputText(
                         "Hel is currently sitting at the edge of camp, surrounded by her scraps of armor, sword, and a few half-empty bottles of vodka.  By the way she's grunting and growling, it looks like she's getting ready to flip her shit and go running off into the plains in her berserker state.\n\n"
                     );
-                //(8a-5p)
+                // (8a-5p)
                 else if (this.model.time.hours <= 17)
                     this.outputText(
                         "Hel's out of camp at the moment, adventuring on the plains.  You're sure she'd be on hand in moments if you needed her, though.\n\n"
                     );
-                //5-7)
+                // 5-7)
                 else if (this.model.time.hours <= 19)
                     this.outputText(
                         "Hel's out visiting her family in Tel'Adre right now, though you're sure she's only moments away if you need her.\n\n"
                     );
-                //(7+)
+                // (7+)
                 else
                     this.outputText(
                         "Hel is fussing around her hammock, checking her gear and sharpening her collection of blades.  Each time you glance her way, though, the salamander puts a little extra sway in her hips and her tail wags happily.\n\n"
@@ -1225,9 +1225,9 @@ export class Camp extends NPCAwareContent {
             }
             hel = this.helFollower.heliaFollowerMenu;
         }
-        //Kiha!
+        // Kiha!
         if (this.followerKiha()) {
-            //(6-7)
+            // (6-7)
             if (this.model.time.hours < 7)
                 this.outputText(
                     "Kiha is sitting near the fire, her axe laying across her knees as she polishes it.[pg]"
@@ -1242,7 +1242,7 @@ export class Camp extends NPCAwareContent {
                 );
             kihaButt = this.kihaScene.encounterKiha;
         }
-        //Isabella
+        // Isabella
         if (this.isabellaFollower() && this.flags[kFLAGS.FOLLOWER_AT_FARM_ISABELLA] == 0) {
             isabellaButt = this.isabellaFollowerScene.callForFollowerIsabella;
             if (this.model.time.hours >= 21 || this.model.time.hours <= 5)
@@ -1285,7 +1285,7 @@ export class Camp extends NPCAwareContent {
             else if (this.model.time.hours == 13) {
                 this.outputText("Isabella ", false);
                 var izzyCreeps: any[] = [];
-                //Build array of choices for izzy to talk to
+                // Build array of choices for izzy to talk to
                 if (this.player.findStatusAffect(StatusAffects.CampRathazul) >= 0)
                     izzyCreeps[izzyCreeps.length] = 0;
                 if (this.player.findStatusAffect(StatusAffects.PureCampJojo) >= 0)
@@ -1308,9 +1308,9 @@ export class Camp extends NPCAwareContent {
                     this.flags[kFLAGS.FOLLOWER_AT_FARM_IZMA] == 0
                 )
                     izzyCreeps[izzyCreeps.length] = 4;
-                //Base choice - book
+                // Base choice - book
                 izzyCreeps[izzyCreeps.length] = 5;
-                //Select!
+                // Select!
                 var choice: number = Camp.rand(izzyCreeps.length);
 
                 if (izzyCreeps[choice] == 0)
@@ -1365,7 +1365,7 @@ export class Camp extends NPCAwareContent {
                     false
                 );
             else if (this.model.time.hours == 19) {
-                //[(Izzy Milked Yet flag = -1)
+                // [(Izzy Milked Yet flag = -1)
                 if (this.flags[kFLAGS.ISABELLA_MILKED_YET] == -1)
                     this.outputText(
                         "Isabella has just returned from a late visit to Whitney's farm, bearing a few filled bottles and a small pouch of gems.",
@@ -1384,7 +1384,7 @@ export class Camp extends NPCAwareContent {
             else this.outputText("Isabella looks incredibly bored right now.", false);
             this.outputText("\n\n", false);
         }
-        //Izma
+        // Izma
         if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00238] == 1 &&
             this.flags[kFLAGS.FOLLOWER_AT_FARM_IZMA] == 0
@@ -1395,7 +1395,7 @@ export class Camp extends NPCAwareContent {
             );
             izmaEvent = this.izmaScene.izmaFollowerMenu;
         }
-        //MARBLE
+        // MARBLE
         if (
             this.player.findStatusAffect(StatusAffects.CampMarble) >= 0 &&
             this.flags[kFLAGS.FOLLOWER_AT_FARM_MARBLE] == 0
@@ -1405,9 +1405,9 @@ export class Camp extends NPCAwareContent {
                 "A second bedroll rests next to yours; a large two handed hammer sometimes rests against it, depending on whether or not its owner needs it at the time.  ",
                 false
             );
-            //Normal Murbles
+            // Normal Murbles
             if (this.flags[kFLAGS.MARBLE_PURIFICATION_STAGE] != 4) {
-                //(Choose one of these at random to display each hour)
+                // (Choose one of these at random to display each hour)
                 if (this.temp == 0)
                     this.outputText(
                         "Marble herself has gone off to Whitney's farm to get milked right now.",
@@ -1439,14 +1439,14 @@ export class Camp extends NPCAwareContent {
                     );
                 marbleEvent = this.marbleScene.interactWithMarbleAtCamp;
             }
-            //Out getting family
+            // Out getting family
             else
                 this.outputText(
                     "Marble is out in the wilderness right now, searching for a relative."
                 );
             this.outputText("\n\n", false);
         }
-        //AMILY
+        // AMILY
         if (
             this.amilyScene.amilyFollower() &&
             this.flags[kFLAGS.AMILY_FOLLOWER] == 1 &&
@@ -1482,7 +1482,7 @@ export class Camp extends NPCAwareContent {
             this.outputText(".\n\n", false);
             amilyEvent = this.amilyScene.amilyFollowerEncounter;
         }
-        //Amily out freaking Urta?
+        // Amily out freaking Urta?
         else if (
             this.flags[kFLAGS.AMILY_VISITING_URTA] == 1 ||
             this.flags[kFLAGS.AMILY_VISITING_URTA] == 2
@@ -1494,7 +1494,7 @@ export class Camp extends NPCAwareContent {
         }
         if (this.arianScene.arianFollower())
             this.outputText("Arian's tent is here, if you'd like to go inside.\n\n");
-        //choices("Amily",amilyEvent,"Helia",hel,"Isabella",isabellaButt,"Izma",izmaEvent,"Kiha",kihaButt,"Marble",marbleEvent,"Nieve",nieve,"",0,"",0,"Back",1);
+        // choices("Amily",amilyEvent,"Helia",hel,"Isabella",isabellaButt,"Izma",izmaEvent,"Kiha",kihaButt,"Marble",marbleEvent,"Nieve",nieve,"",0,"",0,"Back",1);
         this.menu();
         if (amilyEvent != undefined) this.addButton(0, "Amily", amilyEvent);
         if (this.arianScene.arianFollower())
@@ -1527,7 +1527,7 @@ export class Camp extends NPCAwareContent {
             this.outputText("\n\n");
             vapula2 = this.vapula.callSlaveVapula;
         }
-        //Bimbo Sophie
+        // Bimbo Sophie
         if (this.bimboSophie() && this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0) {
             this.sophieBimbo.sophieCampLines();
             sophieEvent = this.sophieBimbo.approachBimboSophieInCamp;
@@ -1540,8 +1540,8 @@ export class Camp extends NPCAwareContent {
             goo = this.latexGirl.approachLatexy;
         }
         if (this.ceraphIsFollower()) ceraph = this.ceraphFollowerScene.ceraphFollowerEncounter;
-        //JOJO
-        //If Jojo is corrupted, add him to the masturbate menu.
+        // JOJO
+        // If Jojo is corrupted, add him to the masturbate menu.
         if (this.campCorruptJojo() && this.flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] == 0) {
             this.outputText(
                 "From time to time you can hear movement from around your camp, and you routinely find thick puddles of mouse semen.  You are sure Jojo is here if you ever need to sate yourself.\n\n",
@@ -1549,7 +1549,7 @@ export class Camp extends NPCAwareContent {
             );
             jojoEvent = this.jojoScene.corruptCampJojo;
         }
-        //Modified Camp/Follower List Description:
+        // Modified Camp/Follower List Description:
         if (
             this.amilyScene.amilyFollower() &&
             this.flags[kFLAGS.AMILY_FOLLOWER] == 2 &&
@@ -1567,7 +1567,7 @@ export class Camp extends NPCAwareContent {
                 "Your well-endowed, dark-skinned milk-girl is here.  She flicks hopeful eyes towards you whenever she thinks she has your attention.\n\n"
             );
         }
-        //choices("Amily",amilyEvent,"Ceraph",ceraph,"Jojo",jojoEvent,"Sophie",sophieEvent,"Vapula",vapula,"",0,"",0,"",0,flags[kFLAGS.GOO_NAME],goo,"Back",1);
+        // choices("Amily",amilyEvent,"Ceraph",ceraph,"Jojo",jojoEvent,"Sophie",sophieEvent,"Vapula",vapula,"",0,"",0,"",0,flags[kFLAGS.GOO_NAME],goo,"Back",1);
         this.menu();
         if (amilyEvent != undefined) this.addButton(0, "Amily", amilyEvent);
         if (ceraph != undefined) this.addButton(1, "Ceraph", ceraph);
@@ -1588,7 +1588,7 @@ export class Camp extends NPCAwareContent {
         var ember = undefined;
         this.clearOutput();
         this.getGame().inCombat = false;
-        //ADD MENU FLAGS/INDIVIDUAL FOLLOWER TEXTS
+        // ADD MENU FLAGS/INDIVIDUAL FOLLOWER TEXTS
         this.menu();
         if (this.emberScene.followerEmber()) {
             this.emberScene.emberCampDesc();
@@ -1597,7 +1597,7 @@ export class Camp extends NPCAwareContent {
         if (this.followerShouldra()) {
             shouldra = this.shouldraFollower.shouldraFollowerScreen;
         }
-        //Pure Jojo
+        // Pure Jojo
         if (this.player.findStatusAffect(StatusAffects.PureCampJojo) >= 0) {
             this.outputText(
                 "There is a small bedroll for Jojo near your own, though the mouse is probably hanging around the camp's perimeter.\n\n",
@@ -1605,8 +1605,8 @@ export class Camp extends NPCAwareContent {
             );
             jojoEvent = this.jojoScene.jojoCamp;
         }
-        //RATHAZUL
-        //if rathazul has joined the camp
+        // RATHAZUL
+        // if rathazul has joined the camp
         if (this.player.findStatusAffect(StatusAffects.CampRathazul) >= 0) {
             rathazulEvent = kGAMECLASS.rathazul.returnToRathazulMenu;
             if (this.flags[kFLAGS.RATHAZUL_SILK_ARMOR_COUNTDOWN] <= 1) {
@@ -1674,7 +1674,7 @@ export class Camp extends NPCAwareContent {
         this.addButton(2, "Jojo", jojoEvent);
         this.addButton(3, "Rathazul", rathazulEvent);
         this.addButton(4, "Shouldra", shouldra);
-        //ABOVE: addButton(4,"Sophie",followerSophieMainScreen);
+        // ABOVE: addButton(4,"Sophie",followerSophieMainScreen);
         this.addButton(6, "Valeria", valeria2);
         this.addButton(9, "Back", this.playerMenu);
     }
@@ -1684,7 +1684,7 @@ export class Camp extends NPCAwareContent {
         if (this.timeQ == 0) {
             this.outputText("You lie down to rest for four hours.\n", true);
             this.timeQ = 4;
-            //Marble withdrawl
+            // Marble withdrawl
             if (this.player.findStatusAffect(StatusAffects.MarbleWithdrawl) >= 0) {
                 this.outputText(
                     "\nYour rest is very troubled, and you aren't able to settle down.  You get up feeling tired and unsatisfied, always thinking of Marble's milk.\n",
@@ -1692,15 +1692,15 @@ export class Camp extends NPCAwareContent {
                 );
                 this.HPChange(this.timeQ * 5, true);
                 this.dynStats("tou", -0.1, "int", -0.1);
-                //fatigue
+                // fatigue
                 this.fatigue(-2 * this.timeQ);
                 if (this.player.findPerk(PerkLib.SpeedyRecovery) >= 0)
                     this.fatigue(-1 * this.timeQ);
             }
-            //REGULAR HP/FATIGUE RECOVERY
+            // REGULAR HP/FATIGUE RECOVERY
             else {
                 this.HPChange(this.timeQ * 10, true);
-                //fatigue
+                // fatigue
                 this.fatigue(-4 * this.timeQ);
                 if (this.player.findPerk(PerkLib.SpeedyRecovery) >= 0)
                     this.fatigue(-2 * this.timeQ);
@@ -1722,20 +1722,20 @@ export class Camp extends NPCAwareContent {
         if (this.timeQ == 0) {
             this.outputText("You wait four hours...\n", false);
             this.timeQ = 4;
-            //Marble withdrawl
+            // Marble withdrawl
             if (this.player.findStatusAffect(StatusAffects.MarbleWithdrawl) >= 0) {
                 this.outputText(
                     "\nYour time spent waiting is very troubled, and you aren't able to settle down.  You get up feeling tired and unsatisfied, always thinking of Marble's milk.\n",
                     false
                 );
-                //fatigue
+                // fatigue
                 this.fatigue(-1 * this.timeQ);
                 if (this.player.findPerk(PerkLib.SpeedyRecovery) >= 0)
                     this.fatigue(-0.5 * this.timeQ);
             }
-            //REGULAR HP/FATIGUE RECOVERY
+            // REGULAR HP/FATIGUE RECOVERY
             else {
-                //fatigue
+                // fatigue
                 this.fatigue(-2 * this.timeQ);
                 if (this.player.findPerk(PerkLib.SpeedyRecovery) >= 0)
                     this.fatigue(-1 * this.timeQ);
@@ -1772,7 +1772,7 @@ export class Camp extends NPCAwareContent {
             if (this.model.time.hours == 3) this.timeQ = 3;
             if (this.model.time.hours == 4) this.timeQ = 2;
             if (this.model.time.hours == 5) this.timeQ = 1;
-            //Autosave stuff
+            // Autosave stuff
             if (
                 this.player.slotName != "VOID" &&
                 this.player.autoSave &&
@@ -1782,12 +1782,12 @@ export class Camp extends NPCAwareContent {
 
                 this.getGame().saves.saveGame(this.player.slotName);
             }
-            //Clear screen
+            // Clear screen
             if (clrScreen) this.outputText("", true);
             /******************************************************************/
             /*       ONE TIME SPECIAL EVENTS                                  */
             /******************************************************************/
-            //HEL SLEEPIES!
+            // HEL SLEEPIES!
             if (
                 this.helFollower.helAffection() >= 70 &&
                 this.flags[kFLAGS.HEL_REDUCED_ENCOUNTER_RATE] == 0 &&
@@ -1797,7 +1797,7 @@ export class Camp extends NPCAwareContent {
                 this.sleepRecovery(false);
                 return;
             }
-            //Shouldra xgartuan fight
+            // Shouldra xgartuan fight
             if (
                 this.player.hasCock() &&
                 this.followerShouldra() &&
@@ -1825,7 +1825,7 @@ export class Camp extends NPCAwareContent {
             /******************************************************************/
             /*       SLEEP WITH SYSTEM GOOOO                                  */
             /******************************************************************/
-            //Marble Sleepies
+            // Marble Sleepies
             if (
                 this.marbleScene.marbleAtCamp() &&
                 this.player.findStatusAffect(StatusAffects.CampMarble) >= 0 &&
@@ -1847,8 +1847,8 @@ export class Camp extends NPCAwareContent {
                 (this.bimboSophie() || this.sophieFollower()) &&
                 this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0
             ) {
-                //Night Time Snuggle Alerts!*
-                //(1)
+                // Night Time Snuggle Alerts!*
+                // (1)
                 if (Camp.rand(4) == 0) {
                     this.outputText(
                         "You curl up next to Sophie, planning to sleep for " +
@@ -1860,7 +1860,7 @@ export class Camp extends NPCAwareContent {
                         ".  She wraps her feathery arms around you and nestles her chin into your shoulder.  Her heavy breasts cushion flat against your back as she gives you a rather chaste peck on the cheek and drifts off towards dreamland..."
                     );
                 }
-                //(2)
+                // (2)
                 else if (Camp.rand(3) == 0) {
                     this.outputText(
                         "While you're getting ready for bed, you see that Sophie has already beaten you there.  She's sprawled out on her back with her arms outstretched, making little beckoning motions towards the valley of her cleavage.  You snuggle in against her, her pillowy breasts supporting your head and her familiar heartbeat drumming you to sleep for " +
@@ -1870,7 +1870,7 @@ export class Camp extends NPCAwareContent {
                     if (this.timeQ > 1) this.outputText("s");
                     this.outputText(".");
                 }
-                //(3)
+                // (3)
                 else if (Camp.rand(2) == 0) {
                     this.outputText(
                         "As you lay down to sleep for " + Camp.num2Text(this.timeQ) + " hour"
@@ -1880,7 +1880,7 @@ export class Camp extends NPCAwareContent {
                         ', you find the harpy-girl, Sophie, snuggling herself under her blankets with you.  She slips in between your arms and guides your hands to her enormous breasts, her backside already snug against your loins.  She whispers, "<i>Something to think about for next morning...  Sweet dreams.</i>" as she settles in for the night.'
                     );
                 }
-                //(4)
+                // (4)
                 else {
                     this.outputText(
                         "Sophie climbs under the sheets with you when you go to sleep, planning on resting for " +
@@ -1901,7 +1901,7 @@ export class Camp extends NPCAwareContent {
                             " "
                     );
                 }
-                //Normal sleep message
+                // Normal sleep message
                 else
                     this.outputText(
                         "You curl up, planning to sleep for " + Camp.num2Text(this.timeQ) + " ",
@@ -1923,7 +1923,7 @@ export class Camp extends NPCAwareContent {
         }
         this.goNext(this.timeQ, true);
     }
-    //For shit that breaks normal sleep processing.
+    // For shit that breaks normal sleep processing.
     public sleepWrapper(): void {
         if (this.model.time.hours == 16) this.timeQ = 14;
         if (this.model.time.hours == 17) this.timeQ = 13;
@@ -1953,7 +1953,7 @@ export class Camp extends NPCAwareContent {
     }
 
     public sleepRecovery(display: boolean = false): void {
-        //Marble withdrawl
+        // Marble withdrawl
         if (this.player.findStatusAffect(StatusAffects.MarbleWithdrawl) >= 0) {
             if (display)
                 this.outputText(
@@ -1962,12 +1962,12 @@ export class Camp extends NPCAwareContent {
                 );
             this.HPChange(this.timeQ * 10, true);
             this.dynStats("tou", -0.1, "int", -0.1);
-            //fatigue
+            // fatigue
             this.fatigue(-Math.floor(this.player.fatigue / 2));
             if (this.player.findPerk(PerkLib.SpeedyRecovery) >= 0)
                 this.fatigue(-Math.floor(this.player.fatigue / 4));
         }
-        //Mino withdrawal
+        // Mino withdrawal
         else if (this.flags[kFLAGS.MINOTAUR_CUM_ADDICTION_STATE] == 3) {
             if (display)
                 this.outputText(
@@ -1979,16 +1979,16 @@ export class Camp extends NPCAwareContent {
             if (this.player.findPerk(PerkLib.SpeedyRecovery) >= 0)
                 this.fatigue(-Math.floor(this.player.fatigue / 4));
         }
-        //REGULAR HP/FATIGUE RECOVERY
+        // REGULAR HP/FATIGUE RECOVERY
         else {
             this.HPChange(this.timeQ * 20, display);
-            //fatigue
+            // fatigue
             this.fatigue(-this.player.fatigue);
         }
     }
 
     private dungeonFound(): boolean {
-        //Returns true as soon as any known dungeon is found
+        // Returns true as soon as any known dungeon is found
         if (this.flags[kFLAGS.DISCOVERED_DUNGEON_2_ZETAZ] > 0) return true;
         if (this.player.findStatusAffect(StatusAffects.FoundFactory) >= 0) return true;
         if (this.flags[kFLAGS.DISCOVERED_WITCH_DUNGEON] > 0) return true;
@@ -1997,7 +1997,7 @@ export class Camp extends NPCAwareContent {
     }
 
     private farmFound(): boolean {
-        //Returns true as soon as any known dungeon is found
+        // Returns true as soon as any known dungeon is found
         if (
             this.player.findStatusAffect(StatusAffects.MetWhitney) >= 0 &&
             this.player.statusAffectv1(StatusAffects.MetWhitney) > 1
@@ -2016,7 +2016,7 @@ export class Camp extends NPCAwareContent {
     }
 
     private placesKnown(): boolean {
-        //Returns true as soon as any known place is found
+        // Returns true as soon as any known place is found
         if (this.flags[kFLAGS.BAZAAR_ENTERED] > 0) return true;
         if (this.player.findStatusAffect(StatusAffects.BoatDiscovery) >= 0) return true;
         if (this.flags[kFLAGS.FOUND_CATHEDRAL] == 1) return true;
@@ -2030,9 +2030,9 @@ export class Camp extends NPCAwareContent {
         return false;
     }
 
-    //Places menu
+    // Places menu
     private places(): void {
-        //Displays a menu for all known places
+        // Displays a menu for all known places
         if (this.flags[kFLAGS.PLACES_PAGE] != 0) {
             this.placesPage2();
             return;
@@ -2066,7 +2066,7 @@ export class Camp extends NPCAwareContent {
     private placesPage2(): void {
         this.menu();
         this.flags[kFLAGS.PLACES_PAGE] = 1;
-        //turn on ruins
+        // turn on ruins
         if (this.flags[kFLAGS.AMILY_VILLAGE_ACCESSIBLE] > 0)
             this.addButton(0, "TownRuins", this.amilyScene.exploreVillageRuin);
         if (this.flags[kFLAGS.MET_MINERVA] >= 4)
@@ -2086,7 +2086,7 @@ export class Camp extends NPCAwareContent {
 
     private dungeons(): void {
         this.menu();
-        //Turn on dungeons
+        // Turn on dungeons
         if (this.flags[kFLAGS.DISCOVERED_DUNGEON_2_ZETAZ] > 0)
             this.addButton(0, "Deep Cave", kGAMECLASS.enterZetazsLair);
         if (this.player.findStatusAffect(StatusAffects.FoundFactory) >= 0)
@@ -2099,7 +2099,7 @@ export class Camp extends NPCAwareContent {
     }
 
     private exgartuanCampUpdate(): void {
-        //Update Exgartuan stuff
+        // Update Exgartuan stuff
         if (this.player.findStatusAffect(StatusAffects.Exgartuan) >= 0) {
             trace(
                 "EXGARTUAN V1: " +
@@ -2107,7 +2107,7 @@ export class Camp extends NPCAwareContent {
                     " V2: " +
                     this.player.statusAffectv2(StatusAffects.Exgartuan)
             );
-            //if too small dick, remove him
+            // if too small dick, remove him
             if (
                 this.player.statusAffectv1(StatusAffects.Exgartuan) == 1 &&
                 (this.player.cockArea(0) < 100 || this.player.cocks.length == 0)
@@ -2129,7 +2129,7 @@ export class Camp extends NPCAwareContent {
                     );
                 this.player.removeStatusAffect(StatusAffects.Exgartuan);
             }
-            //Tit removal
+            // Tit removal
             else if (
                 this.player.statusAffectv1(StatusAffects.Exgartuan) == 2 &&
                 this.player.biggestTitSize() < 12

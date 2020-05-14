@@ -43,7 +43,7 @@ export class MinotaurKing extends Monster {
         this.drop = this.NO_DROP;
         this.drop = new WeightedDrop(this.consumables.PROMEAD, 1);
 
-        //I don’t know if we ever got multiple item drops set up for CoC. If we did, have this guy drop a five-stack of God’s Mead for the Lethice fight. Otherwise, perhaps drop a single item that will full heal once?
+        // I don’t know if we ever got multiple item drops set up for CoC. If we did, have this guy drop a five-stack of God’s Mead for the Lethice fight. Otherwise, perhaps drop a single item that will full heal once?
 
         this.checkMonster();
 
@@ -171,7 +171,7 @@ export class MinotaurKing extends Monster {
             this.outputText(
                 " He impacts with stunning force, leaving you reeling! (" + damage + ")"
             );
-            //{Stun for one turn, minor HP damage}
+            // {Stun for one turn, minor HP damage}
             if (this.player.findPerk(PerkLib.Resolute) < 0) {
                 this.outputText(" <b>You're left stunned by the force of the blow!</b>");
                 this.player.createStatusAffect(StatusAffects.Stunned, 0, 0, 0, 0);
@@ -180,7 +180,7 @@ export class MinotaurKing extends Monster {
     }
 
     private dickslap(): void {
-        //Used after stunning PC.
+        // Used after stunning PC.
         this.outputText(
             "Before you can completely regain your wits, the brute is on you, easily holding your hand in one hand while he none-too-gently smacks his cock into your face, dragging his musky member back and forth across your cheeks before finally breaking contact."
         );
@@ -221,7 +221,7 @@ export class MinotaurKing extends Monster {
         this.lustVuln += 0.15;
 
         this._milkDrinks++;
-        //Full HP restore.
+        // Full HP restore.
         this.outputText(
             "Staggering back, the King wastes no time in appropriating his willing slave, lifting her up to his face as easily as one might heft a stein of fresh-brewed beer. One of her huge tits easily fits against the oversized minotaur’s lips, and you see him noisily gulping down a quick, milky pick-me-up. By the time he finishes, his wounds are closing, but his cock is twitching and leaking pre-cum like water from a sieve."
         );
@@ -236,7 +236,7 @@ export class MinotaurKing extends Monster {
             "The minotaur smiles at you and lifts his loincloth, flicking it at you.  Thick ropes of pre-cum fly through the air, ",
             false
         );
-        //sometimes get hit with the pre for stronger effect!
+        // sometimes get hit with the pre for stronger effect!
         if (MinotaurKing.rand(3) == 0) {
             this.outputText(
                 "slapping into your face before you can react!  You wipe the slick snot-like stuff out of your eyes and nose, ",

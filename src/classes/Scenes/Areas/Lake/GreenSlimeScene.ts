@@ -5,13 +5,13 @@ import { trace } from "../../../../console";
 import { StatusAffects } from "../../../StatusAffects";
 
 export class GreenSlimeScene extends AbstractLakeContent {
-    //serviceLowCorruption();
-    //servuceLowCorruptionHighLust();
-    //maleRapesOoze();
-    //femaleRapesOoze();
-    //oozeButtRapesYou();
-    //oozeRapesYouOrally();
-    //oozeRapesYouVaginally();
+    // serviceLowCorruption();
+    // servuceLowCorruptionHighLust();
+    // maleRapesOoze();
+    // femaleRapesOoze();
+    // oozeButtRapesYou();
+    // oozeRapesYouOrally();
+    // oozeRapesYouVaginally();
 
     private serviceLowCorruption(): void {
         this.outputText(
@@ -22,14 +22,14 @@ export class GreenSlimeScene extends AbstractLakeContent {
             "You sit next to the blob and gently touch its throbbing member.  The surface membrane is moist and almost velvety in texture, not entirely smooth but not truly rough either.  You slowly run a hand along its length, glancing at the creature's face as you do so.  It seems calmer somehow, more in control of its breathing.\n\n",
             false
         );
-        //Big peoples!
+        // Big peoples!
         if (this.player.tallness >= 82) {
             this.outputText(
                 "You try gently wrapping one of your massive hands around its erection, and squeezing.",
                 false
             );
         }
-        //Not so big peoples
+        // Not so big peoples
         else {
             this.outputText(
                 "You try to wrap one of your hands around the erection, but end up having to use both to get a firm grip.",
@@ -42,7 +42,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                 ".\n\n",
             false
         );
-        //Big peoples!
+        // Big peoples!
         if (this.player.tallness >= 82) {
             this.outputText(
                 "The throbbing of the slime's " +
@@ -51,7 +51,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                 false
             );
         }
-        //Not so big peoples!
+        // Not so big peoples!
         else {
             this.outputText(
                 "The throbbing of the slime's " +
@@ -73,13 +73,13 @@ export class GreenSlimeScene extends AbstractLakeContent {
             "You straddle the creature's chest and playfully run a hand over the tip of its featureless member, which is moist and soft to the touch.",
             false
         );
-        //Tall peeps
+        // Tall peeps
         if (this.player.tallness >= 82)
             this.outputText(
                 "  You grip the head of the member firmly with one of your large hands and tease the tip with your thumb for a moment before squeezing and sliding your hand to its base.",
                 false
             );
-        //Short peeps
+        // Short peeps
         else
             this.outputText(
                 "  You run a finger up and down the creature's member a few times before tightly wrapping your hands around the tip and running them to its base.",
@@ -89,7 +89,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
             "  The erection is spongy and pliable to the touch, and with every pulse it seems to fill the cracks between your fingers.\n\n",
             false
         );
-        //If player has a cunny
+        // If player has a cunny
         if (this.player.vaginas.length > 0) {
             this.outputText(
                 "As you rub the creature's shaft you toy with the idea of inserting the thing into your " +
@@ -99,11 +99,11 @@ export class GreenSlimeScene extends AbstractLakeContent {
                     ".  You moan a bit and lose yourself for a moment, caught between desire ",
                 false
             );
-            //Non virgin's are sluts!
+            // Non virgin's are sluts!
             if (!this.player.vaginas[0].virgin)
                 this.outputText("for that familiar full feeling ", false);
             this.outputText("and paranoid about allowing this creature inside of you.", false);
-            //If you be hella tight
+            // If you be hella tight
             if (this.player.vaginalCapacity() <= 18)
                 this.outputText(
                     "  On top of that, you are unsure if the thick, foot and a half long appendage would even fit inside of you.",
@@ -111,9 +111,9 @@ export class GreenSlimeScene extends AbstractLakeContent {
                 );
             this.outputText("\n\n", false); //this line present to ensure proper paragraph structure
         }
-        //Penises foreplay
+        // Penises foreplay
         if (this.player.cockTotal() > 0) {
-            //Multicock folk get in their own way
+            // Multicock folk get in their own way
             if (this.player.cockTotal() > 1)
                 this.outputText(
                     "Your own erect " +
@@ -121,7 +121,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                         " rub against the creature's as you work, getting in the way somewhat.  ",
                     false
                 );
-            //Big single cocked folk get in their own way too!
+            // Big single cocked folk get in their own way too!
             else if (this.player.cocks[0].cockThickness >= 36)
                 this.outputText(
                     "Your own erect " +
@@ -129,7 +129,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                         " rubs against the creature's as you work, getting in the way somewhat.  ",
                     false
                 );
-            //Single dick contemplation
+            // Single dick contemplation
             if (this.player.cockTotal() == 1)
                 this.outputText(
                     "You feel your " +
@@ -137,7 +137,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                         " begin to throb and entertain the idea of trying to penetrate it somehow.  You turn a bit and look around the creature for an orifice, but find nothing.  After a few frustrated moments of searching you give up and decide to handle things yourself.",
                     false
                 );
-            //Multidick contemplation
+            // Multidick contemplation
             else
                 this.outputText(
                     "You feel your " +
@@ -147,26 +147,26 @@ export class GreenSlimeScene extends AbstractLakeContent {
                 );
             this.outputText("\n\n", false);
         }
-        //Next PG
-        //Get it hard
+        // Next PG
+        // Get it hard
         this.outputText(
             "As you continue to work the creature's mass its erection gains more and more definition, slowly but surely turning into an unmistakable human penis.  ",
             false
         );
-        //And here begins the giant goddamn height split.  Hoo boy.
-        //Smaller characters!
+        // And here begins the giant goddamn height split.  Hoo boy.
+        // Smaller characters!
         if (this.player.tallness < 82) {
-            //Hand gets coated in sensitive slime\n
+            // Hand gets coated in sensitive slime\n
             this.outputText(
                 "A light green fluid begins to coat your hand as you stroke the slime's cock, making your fingers feel warm and sending shivers of arousal through your entire body.\n\n",
                 false
             );
-            //Male or sometimes herm...
+            // Male or sometimes herm...
             if (
                 this.player.gender == 1 ||
                 (this.player.gender == 3 && GreenSlimeScene.rand(2) == 0)
             ) {
-                //multiCock - mutual masturbation + cum
+                // multiCock - mutual masturbation + cum
                 if (this.player.cocks.length > 1) {
                     if (this.player.cocks.length > 0)
                         this.outputText(
@@ -179,7 +179,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                                 " cover the creature with cum.  ",
                             false
                         );
-                    //Herms - vegemita vaga-cum.
+                    // Herms - vegemita vaga-cum.
                     if (this.player.vaginas.length > 0)
                         this.outputText(
                             "Your " +
@@ -187,15 +187,15 @@ export class GreenSlimeScene extends AbstractLakeContent {
                                 " quivers and shares in the sensation as you grind yourself against the slime.  ",
                             false
                         );
-                    //Create cumz
+                    // Create cumz
                     this.outputText(
                         "The creature reaches its peak as well, and a thick, powerful gout of more green fluid shoots from the slime's cock and into your waiting palm.  You shudder as your orgasm seems to drag on for longer than usual, and notice that the slime's body regains some of its definition for a moment before its cock quickly recedes back into its body.",
                         false
                     );
                 }
-                //Single cocks
+                // Single cocks
                 else {
-                    //'Small' cocks
+                    // 'Small' cocks
                     if (this.player.cocks[0].cockLength <= 30) {
                         this.outputText(
                             "Eventually your own arousal becomes unbearable and you reach down to work your own " +
@@ -205,7 +205,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                                 ", the creature's fluid making you exceptionally sensitive.  You moan in spite of yourself and start to thrust your hips a bit against your fist, feeling both yourself and the creature begin to throb harder and harder.  Before long you can hold out no longer, and feel your body racked by an orgasmic spasm, squeezing tightly with both hands as you blow your load onto the creature.  ",
                             false
                         );
-                        //Herm orgasm text
+                        // Herm orgasm text
                         if (this.player.vaginas.length > 0) {
                             this.outputText(
                                 "Your " +
@@ -219,7 +219,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                             false
                         );
                     }
-                    //FUGGIN' 'UGE PRICKS!
+                    // FUGGIN' 'UGE PRICKS!
                     else if (this.player.cocks[0].cockLength >= 31) {
                         this.outputText(
                             "Eventually your own arousal becomes unbearable and you reach down to grope at yourself as well, working the monster's swollen, throbbing head with one of your hands.  Unable to grip it properly you moan a little and hold yourself down against the creature's skin, moving your hips back and forth to get off.  You begin to moan louder as the same greenish secretion that coats your hands begins to cover your " +
@@ -227,7 +227,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                                 " as well, making it throb even harder than before.  Before long you gasp and double over as you orgasm, hips shaking as you come all over the creature.  ",
                             false
                         );
-                        //Herm orgasm text
+                        // Herm orgasm text
                         if (this.player.vaginas.length > 0) {
                             this.outputText(
                                 "Your " +
@@ -244,19 +244,19 @@ export class GreenSlimeScene extends AbstractLakeContent {
                         );
                     }
                 }
-                //Newline PG
+                // Newline PG
                 this.outputText("\n\n", false);
             }
-            //female or herm version (if the herm didn't trigger male)
+            // female or herm version (if the herm didn't trigger male)
             else if (this.player.gender == 2 || this.player.gender == 3) {
-                //Foreplay and smearing goo about
+                // Foreplay and smearing goo about
                 this.outputText(
                     "Eventually your own arousal becomes unbearable and you let one of your hands slide down the creature's erection and body and up your leg, purring softly as a slight warm sensation spreads everywhere you get the green fluid the creature has been so readily leaking.  You let your hand crawl between your legs and gasp slightly as you run a hand over the lips of your " +
                         this.vaginaDescript(0) +
                         ", savoring the sensation before going to work on yourself.  ",
                     false
                 );
-                //Big clitties
+                // Big clitties
                 if (this.player.clitLength >= 2)
                     this.outputText(
                         "You moan and lean back slightly as you grip your " +
@@ -266,7 +266,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                             " and shuddering in anticipation and delight.  ",
                         false
                     );
-                //Small clitties
+                // Small clitties
                 else
                     this.outputText(
                         "You moan and lean back slightly as you start to flick your " +
@@ -274,12 +274,12 @@ export class GreenSlimeScene extends AbstractLakeContent {
                             ", the slime's fluid providing excellent lubrication and a luxurious warming feeling as you make small circles around your nub.  ",
                         false
                     );
-                //Jack off slime and make it human shapes
+                // Jack off slime and make it human shapes
                 this.outputText(
                     "At the same time you continue to work the head of the slime beneath you, slowly twisting your hand around the top of its large erection.  Before long the mass starts to slim and bulge, becoming more defined before taking on the distinct image of a human penis.  The sight of it further excites you and you begin to work it harder, feeling it start to throb in earnest beneath your touch.  ",
                     false
                 );
-                //Tit stuff
+                // Tit stuff
                 if (this.player.breastRows.length > 0 && this.player.biggestTitSize() > 0) {
                     this.outputText(
                         "You gasp a little as the slime's massive arms reach up from behind you to cup your " +
@@ -287,15 +287,15 @@ export class GreenSlimeScene extends AbstractLakeContent {
                             ", and the soft material ",
                         false
                     );
-                    //Tig ol' bitties
+                    // Tig ol' bitties
                     if (this.player.biggestTitSize() > 8)
                         this.outputText("barely contains them.", false);
-                    //Middling Boobiliciousness
+                    // Middling Boobiliciousness
                     else if (this.player.biggestTitSize() > 3)
                         this.outputText("gently covers them.", false);
-                    //Tiny ta-tas.
+                    // Tiny ta-tas.
                     else this.outputText("easily smothers them.", false);
-                    //Get nips played with and nearly cum
+                    // Get nips played with and nearly cum
                     this.outputText(
                         "  You feel the thing tweak your nipples and you moan a little as the ooze begins a gentle, rhythmic massage, teasing your " +
                             this.nippleDescript(0) +
@@ -303,7 +303,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                         false
                     );
                 }
-                //No titties or too small to bother with
+                // No titties or too small to bother with
                 else
                     this.outputText(
                         "You gasp a little as the slime's massive arms suddenly grab your " +
@@ -311,9 +311,9 @@ export class GreenSlimeScene extends AbstractLakeContent {
                             " and press you down against its body, and another bulge pushes out between your legs to force your hand away.  Instead of sprouting a second penis, however, the creature starts to gently rock you back and forth along it, eliciting a moan escaping your mouth as the soft material slides delightfully against your nethers.  This, and the aphrodisiac effects of its natural secretions, quickly bring you to your peak.  ",
                         false
                     );
-                //Herms rock out with their cocks out
+                // Herms rock out with their cocks out
                 if (this.player.cockTotal() > 0) {
-                    //Multicock
+                    // Multicock
                     if (this.player.cockTotal() > 1) {
                         this.outputText(
                             "You feel your " +
@@ -321,14 +321,14 @@ export class GreenSlimeScene extends AbstractLakeContent {
                                 " surge to their full size as the slime works you over.  They quickly begin to throb and ache for release, a need made only more pressing by your desire to have it fondled.  ",
                             false
                         );
-                        //of course, if the creature is working the player's crotch because they don't have breasts, they -can- jerk off!
+                        // of course, if the creature is working the player's crotch because they don't have breasts, they -can- jerk off!
                         if (this.player.biggestTitSize() == 0)
                             this.outputText(
                                 "You delicately grasp the head of one of your cocks, your hand slick with the fluids of yourself and of the creature.  The combination of the creature's movements and your own quickly overwhelms you.",
                                 false
                             );
                     }
-                    //Single prick
+                    // Single prick
                     else {
                         this.outputText(
                             "You feel your " +
@@ -336,7 +336,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                                 " surge to full size as the slime works you over.  It begins to throb and ache for release, a need made only more pressing by your desire to have it fondled.  ",
                             false
                         );
-                        //Play with it if your boobs aren't being manhandled
+                        // Play with it if your boobs aren't being manhandled
                         if (this.player.biggestTitSize() == 0)
                             this.outputText(
                                 "You delicately grasp the head of your " +
@@ -346,18 +346,18 @@ export class GreenSlimeScene extends AbstractLakeContent {
                             );
                     }
                 }
-                //New paragraph for orgazms.
+                // New paragraph for orgazms.
                 this.outputText("\n\n", false);
-                //Female cum!
+                // Female cum!
                 this.outputText(
                     "Finally, you feel a tsunami of pleasure begin to wash over you as you orgasm, and as your entire body shakes you unconsciously try to squeeze the creature between your legs.  It pulls back slightly and with a final mighty pulse, a green fluid explodes from the tip of its " +
                         this.monster.cockDescriptShort(0) +
                         ", splashing over your entire body.  Everywhere it touches seems to catch fire with pleasure and your already reeling mind almost collapses, and you let yourself fall back against the slime's body as wave after wave of pleasure flows through you.  ",
                     false
                 );
-                //Herm bonus cum!
+                // Herm bonus cum!
                 if (this.player.cockTotal() > 0) {
-                    //Multidicked herms
+                    // Multidicked herms
                     if (this.player.cockTotal() > 1)
                         this.outputText(
                             "You let out a strangled gasp as your body, already straining from exertion, shudders again as your " +
@@ -365,7 +365,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                                 " explodes into orgasm, showering both you and the creature in jizz.  ",
                             false
                         );
-                    //Single cocked herms
+                    // Single cocked herms
                     else
                         this.outputText(
                             "You let out a strangled gasp as your body, already straining from exertion, shudders again as your " +
@@ -378,30 +378,30 @@ export class GreenSlimeScene extends AbstractLakeContent {
                     "When you open your eyes you notice that the creature's erection has disappeared and the almost predatory calm it possessed when you first encountered it has returned, though different somehow.",
                     false
                 );
-                //New PG
+                // New PG
                 this.outputText("\n\n", false);
             }
-            //UNFINISHED - Genderless Text goes here - suggested giving monster oral with possible slimecock growth?
+            // UNFINISHED - Genderless Text goes here - suggested giving monster oral with possible slimecock growth?
             if (this.player.gender == 0) {
             }
-            //Monster leaves (for both male and female variants)
+            // Monster leaves (for both male and female variants)
             this.outputText(
                 "After a few moments the creature slides out from under you, slinking back into the waters of the lake as you recover from the ordeal.  When your wits return, there is nothing to do but stop back by camp.\n",
                 false
             );
         }
-        //PHEW! that was a big one.  now...  we do it all again for large players, whee! and this is why this thing is so goddamn long.
+        // PHEW! that was a big one.  now...  we do it all again for large players, whee! and this is why this thing is so goddamn long.
         else if (this.player.tallness >= 82) {
             this.outputText(
                 "A light green fluid begins to coat your hand as you stroke the slime's cock, making your fingers feel warm and sending shivers of arousal through your entire body.  ",
                 false
             );
-            //Males/Herms
+            // Males/Herms
             if (
                 this.player.gender == 1 ||
                 (this.player.gender == 3 && GreenSlimeScene.rand(2) == 0)
             ) {
-                //Multicock foreplay
+                // Multicock foreplay
                 if (this.player.cockTotal() > 1)
                     this.outputText(
                         "Eventually your own arousal becomes unbearable and you reach down to work one of the shafts in your " +
@@ -411,7 +411,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                             ", the creature's fluid making you exceptionally sensitive.  You moan in spite of yourself and start to thrust your hips a bit against your fist, stroking yourself and the creature from crest to root.  The creature's erection gains definition as it starts pulsing harder and faster, turning into a distinctly human penis.  ",
                         false
                     );
-                //SingleCock
+                // SingleCock
                 else {
                     this.outputText(
                         "Eventually your own arousal becomes unbearable and you reach down to work your own " +
@@ -421,16 +421,16 @@ export class GreenSlimeScene extends AbstractLakeContent {
                             ", the creature's fluid making you exceptionally sensitive.  You moan softly in spite of yourself and begin to thrust your hips a bit against your fist, stroking yourself and the creature from crest to root.  The creature's erection gains definition as it starts pulsing harder and faster, turning into ",
                         false
                     );
-                    //Compare cocks
+                    // Compare cocks
                     if (this.player.cocks[0].cockType == CockTypesEnum.HUMAN)
                         this.outputText(
                             "a near exact replica of your own " + this.cockDescript(0) + "!  ",
                             false
                         );
-                    //Cocks are different so it's a 'human' penis
+                    // Cocks are different so it's a 'human' penis
                     else this.outputText("a distinctly human penis.  ", false);
                 }
-                //vaginal arousal & cum text for herms
+                // vaginal arousal & cum text for herms
                 if (this.player.vaginas.length > 0) {
                     this.outputText(
                         "The intense sensations ripple through your entire body, and your " +
@@ -447,20 +447,20 @@ export class GreenSlimeScene extends AbstractLakeContent {
                         false
                     );
                 }
-                //Pure male orgasm
+                // Pure male orgasm
                 else
                     this.outputText(
                         "\n\nIt isn't long before you can no longer hold yourself back and with a groan, you explode, showering the creature with your seed.  The ooze's penis also seems to swell and a torrent of the green fluid gushes from the tip, creating a large, slippery pool that coats your bottom half and forms a small pool on the ground around you before soaking into the earth.  As you catch your breath the creature's cock begins to lose definition and then recedes as the thing pulls itself back into a blob and slides out from under you, quietly escaping into the nearby water as you watch.",
                         false
                     );
             }
-            //Female/Herm Masturbation
+            // Female/Herm Masturbation
             else if (this.player.gender == 2 || this.player.gender == 3) {
                 this.outputText(
                     "Eventually your own arousal becomes unbearable and your other hand finds its way to your ",
                     false
                 );
-                //TITTY ACTIOOOON
+                // TITTY ACTIOOOON
                 if (this.player.breastRows.length > 0 && this.player.biggestTitSize() > 0) {
                     this.outputText(
                         this.allBreastsDescript() +
@@ -469,7 +469,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                             ".  ",
                         false
                     );
-                    //Cant cover all of tig ol' bitties
+                    // Cant cover all of tig ol' bitties
                     if (this.player.biggestTitSize() > 8)
                         this.outputText(
                             "Its hand expands, struggling to cover all of your " +
@@ -477,7 +477,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                                 ", ",
                             false
                         );
-                    //Middling ta-tas get covered
+                    // Middling ta-tas get covered
                     else if (this.player.biggestTitSize() > 3)
                         this.outputText(
                             "Its hand expands and gently covers your " +
@@ -485,7 +485,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                                 ", ",
                             false
                         );
-                    //Small tits?  Pwned.
+                    // Small tits?  Pwned.
                     else
                         this.outputText(
                             "Its hand easily smothers your " + this.allBreastsDescript() + ", ",
@@ -502,7 +502,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                         false
                     );
                 }
-                //Non titty foreplay
+                // Non titty foreplay
                 else
                     this.outputText(
                         "rapidly moistening " +
@@ -512,9 +512,9 @@ export class GreenSlimeScene extends AbstractLakeContent {
                             ".\n",
                         false
                     );
-                //clitoris play w/ cock text
+                // clitoris play w/ cock text
                 if (this.player.cockTotal() > 0) {
-                    //since players without breasts are wholly surprised here, this needs to be acknowledged.
+                    // since players without breasts are wholly surprised here, this needs to be acknowledged.
                     if (this.player.biggestTitSize() == 0 || this.player.breastRows.length == 0) {
                         this.outputText(
                             "You begin to moan as the creature rubs the " +
@@ -524,17 +524,17 @@ export class GreenSlimeScene extends AbstractLakeContent {
                                 ", working you with incredible skill, but sadly ignoring your needy ",
                             false
                         );
-                        //multi!
+                        // multi!
                         if (this.player.cockTotal() > 1) this.outputText("penii ", false);
-                        //Single
+                        // Single
                         else this.outputText("penis ", false);
-                        //SURPRIZES!
+                        // SURPRIZES!
                         this.outputText(
                             "as it does.  What comes next is an utter surprise, making you unconsciously wring the head of the slime's cock.  ",
                             false
                         );
                     }
-                    //Clit engulph'ed!
+                    // Clit engulph'ed!
                     this.outputText(
                         "The creature's smooth, gel-like body envelopes your " +
                             this.clitDescript() +
@@ -542,9 +542,9 @@ export class GreenSlimeScene extends AbstractLakeContent {
                         false
                     );
                 }
-                //Just clits, no cocks.
+                // Just clits, no cocks.
                 else {
-                    //since players without breasts are wholly surprised here, this needs to be acknowledged.
+                    // since players without breasts are wholly surprised here, this needs to be acknowledged.
                     if (this.player.biggestTitSize() == 0 || this.player.breastRows.length == 0)
                         this.outputText(
                             "You begin to moan as the creature rubs your " +
@@ -552,7 +552,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                                 ", working you with incredible skill, but what comes next is an utter surprise, making you unconsciously wring the head of the slime's cock.  ",
                             false
                         );
-                    //Clit engulph'ed!
+                    // Clit engulph'ed!
                     this.outputText(
                         "The creature's smooth, gel-like body envelopes your " +
                             this.clitDescript() +
@@ -560,10 +560,10 @@ export class GreenSlimeScene extends AbstractLakeContent {
                         false
                     );
                 }
-                //New PG, CUM!
+                // New PG, CUM!
                 this.outputText("\n\n", false);
-                //slime has orgasmed, time for the player.  again, split for cock-appropriateness.
-                //Herms
+                // slime has orgasmed, time for the player.  again, split for cock-appropriateness.
+                // Herms
                 if (this.player.cockTotal() > 0)
                     this.outputText(
                         "Even as it does so it continues to masterfully work your body, putting you on edge with its ministrations and keeping you there for several torturous, glorious minutes as you practically lose control over your body.  Eventually the creature seems to pull on everything at once, finally causing you to orgasm as you all but scream in pleasure.  Your " +
@@ -571,13 +571,13 @@ export class GreenSlimeScene extends AbstractLakeContent {
                             " explodes as well, sending thick ropes of your steaming ejaculate into the air as the monster finishes with you.  ",
                         false
                     );
-                //Fems
+                // Fems
                 else
                     this.outputText(
                         "Even as it does so it continues to masterfully work your body, putting you on edge with its ministrations and keeping you there for several torturous, glorious minutes as you practically lose control over your body.  Eventually the creature seems to pull on everything at once, finally causing you to orgasm as you all but scream in pleasure.  ",
                         false
                     );
-                //Creature exits stage left!
+                // Creature exits stage left!
                 this.outputText(
                     "You barely notice as the creature's erection recedes and it slides out from under you, leaving you utterly satisfied.  When you do finally recover your senses you find no other traces of its presence.",
                     false
@@ -600,7 +600,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
         // Random check here for oral or anal
         // oral rape text
         if (GreenSlimeScene.rand(2) == 0) {
-            //MULTICAWK
+            // MULTICAWK
             if (this.player.cockTotal() > 1)
                 this.outputText(
                     "Shrugging, you decide to go with the closest thing available and walk towards its head.  You spend a moment deciding which of your organs to ravage the creature with, eventually settling on the largest,  ",
@@ -613,24 +613,24 @@ export class GreenSlimeScene extends AbstractLakeContent {
                         " as you do so.  You kneel over the thing's head and stroke your penis lightly to ensure it is fully ready,  ",
                     false
                 );
-            //Balls ftw
+            // Balls ftw
             if (this.player.balls > 1)
                 this.outputText(
                     "anointing the slime's face with your " + this.sackDescript() + " as you do.  ",
                     false
                 );
-            //Ball-less bitches
+            // Ball-less bitches
             else
                 this.outputText(
                     "probing at the 'mouth' of the creature with your free hand.  ",
                     false
                 );
-            //Continue the setup...
+            // Continue the setup...
             this.outputText(
                 "You pull back for a moment and aim your penis downward, resting the ",
                 false
             );
-            //!! PENISTYPE
+            // !! PENISTYPE
             switch (this.player.cocks[0].cockType) {
                 case 0: //human cock
                     this.outputText("tip", false);
@@ -645,7 +645,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                     this.outputText("rounded tip", false);
                     break;
                 default:
-                    //error text
+                    // error text
                     this.outputText("tip", false);
                     CoC_Settings.error("");
                     trace("ERROR: Penis type not supported, defaulting to tip.");
@@ -657,7 +657,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                     " surge into its mouth",
                 false
             );
-            //This series deliberately not else-if statements.
+            // This series deliberately not else-if statements.
             if (this.player.cocks[0].cockLength >= 12) this.outputText(", down its throat,", false);
             if (this.player.cocks[0].cockLength >= 24) this.outputText(" into its torso,", false);
             if (this.player.cocks[0].cockLength >= 48)
@@ -666,28 +666,28 @@ export class GreenSlimeScene extends AbstractLakeContent {
                 " and grunt approvingly.  You begin to slowly pull yourself out and then thrust yourself back in, feeling a moistness as some fluid surrounds your cock.  ",
                 false
             );
-            //player doesn't care about monster's wellbeing
+            // player doesn't care about monster's wellbeing
             if (this.player.cor >= 60)
                 this.outputText(
                     "You wonder for a moment if you've broken the creature's membranous skin, then shrug and decide you don't care.",
                     false
                 );
-            //player shows concern for monster
+            // player shows concern for monster
             else
                 this.outputText(
                     "You wonder for a moment if you've broken the creature's membranous skin, but the continuing presence of the creature's throbbing erection implies that it's in relatively little distress.",
                     false
                 );
-            //New PG
+            // New PG
             this.outputText("\n\n", false);
-            //Start fucking in earnest
+            // Start fucking in earnest
             this.outputText(
                 "You start to thrust with more vigor, thrusting until your hips mash against the ooze's skin, feeling yourself build to orgasm even faster than usual as your " +
                     this.cockDescript(0) +
                     " begins to feel warm and incredibly sensitive.  Oddly, as you pump the creature's mouth it seems to regain some of the definition it lost when it collapsed earlier, the protrusion between its legs shaping into a fully defined human dick",
                 false
             );
-            //Balls ftw
+            // Balls ftw
             if (this.player.balls > 1)
                 this.outputText(
                     " as your " + this.ballsDescriptLight() + " slap against its face",
@@ -697,7 +697,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                 ".  One of its arms reaches up to meekly rub at its own erection.  You grin as this fuels your own lust, and you start to thrust even harder.",
                 false
             );
-            //vaginal arousal text
+            // vaginal arousal text
             if (this.player.vaginas.length > 0)
                 this.outputText(
                     "  Your " +
@@ -705,13 +705,13 @@ export class GreenSlimeScene extends AbstractLakeContent {
                         " begins to grow wet as you repeatedly force yourself into the creature's throat.  You take a single deep stroke and bottom out into the creature, grinding your moist femininity against the soft, sensual material of the creature's face.",
                     false
                 );
-            //New PG for cumming!
+            // New PG for cumming!
             this.outputText("\n\n", false);
             this.outputText(
                 "Before long you find yourself shouting as you pump your seed into the creature, watching as the semen is caught by unseen currents and dispersed into its body.",
                 false
             );
-            //vaginal orgasm text
+            // vaginal orgasm text
             if (this.player.vaginas.length > 0)
                 this.outputText(
                     "  This is quickly followed by a quivering between your nether-lips as your " +
@@ -726,9 +726,9 @@ export class GreenSlimeScene extends AbstractLakeContent {
                 false
             );
         }
-        //anal rape text
+        // anal rape text
         else {
-            //Multipricks
+            // Multipricks
             if (this.player.cockTotal() > 1) {
                 this.outputText(
                     "You shrug at the lack of obvious orifices and decide to go for the most common one, choosing the ",
@@ -743,7 +743,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                     false
                 );
             }
-            //Single dicks
+            // Single dicks
             else
                 this.outputText(
                     "You shrug at the lack of obvious orifices and decide to go for the most common one, pulling out your " +
@@ -780,7 +780,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                 "  With a satisfied smile you begin pumping, slowly at first before picking up speed.  The slime's anus feels better than anything you've ever had before, apparently coming with its own lubrication but still being tight, hugging your cock like a custom-fit fuck toy.  ",
                 false
             );
-            //vaginal arousal text
+            // vaginal arousal text
             if (this.player.vaginas.length > 0)
                 this.outputText(
                     "Your " +
@@ -804,7 +804,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                     "exploding inside it, your load filling the space around your cock with a white, milky fluid.",
                     false
                 );
-            //vaginal orgasm text
+            // vaginal orgasm text
             if (this.player.vaginas.length > 0)
                 this.outputText(
                     "  As you pump your jizz into the creature an almost electrical shock runs through your body, starting from your " +
@@ -867,7 +867,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
         /*
         else
         {
-            //this line designed to return helpful text if something goes wrong.it should work. i think. maybe. i have no idea, this project is my first experience with as3.
+            // this line designed to return helpful text if something goes wrong.it should work. i think. maybe. i have no idea, this project is my first experience with as3.
             outputText("<<ERROR: breast size check returned invalid number -" + String(player.biggestTitSize()) + "- at green slime' player win + vagina + high lust;>>", false);
         }*/
         this.outputText(
@@ -876,16 +876,16 @@ export class GreenSlimeScene extends AbstractLakeContent {
                 ".",
             false
         );
-        //defloration text
+        // defloration text
         if (this.player.vaginas[0].virgin) {
-            //low corruption reveres this loss
+            // low corruption reveres this loss
             if (this.player.cor <= 20) {
                 this.outputText(
                     "  You hesitate for a moment as you hover over the creature, a sudden surge of nervousness comes over you.  This is a moment that only comes once.  You let your weight push the creature into you, slowly at first, then forcing yourself down as far you can go.  You gasp at the initial pain, but it quickly dissipates as the creature's fluids coat your interior with a cool, soothing fluid.  ",
                     false
                 );
             }
-            //higher corruption tosses it aside
+            // higher corruption tosses it aside
             else {
                 this.outputText(
                     "  You smile as you ram yourself onto the creature, finally removing your virginity.  You quickly start moving and give a pleased gasp as the creature's fluids coat your interior with a cool, soothing fluid.  ",
@@ -909,7 +909,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                 " with ease as you ride it.",
             false
         );
-        //penis arousal text
+        // penis arousal text
         if (this.player.cockTotal() > 0) {
             if (this.player.cockTotal() == 1) {
                 this.outputText(
@@ -919,7 +919,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                     false
                 );
             } else {
-                //might be kind of interesting to include text that identifies the cocks you use, but is possibly pointless.
+                // might be kind of interesting to include text that identifies the cocks you use, but is possibly pointless.
                 this.outputText(
                     "  Your cock grows hard as you are penetrated, and with the creature handling the movement you reach down, jerking off a different cock with each hand.",
                     false
@@ -939,7 +939,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                 " tightly against its own.  You let out a loud gasp as the thing begins to stir itself around inside of you, vigorously massaging your insides with its cock.  Before long this pushes you over the edge, and you clutch at the slime, pressing yourself against it as hard as you can.  ",
             false
         );
-        //penis orgasm text
+        // penis orgasm text
         if (this.player.cockTotal() > 0) {
             if (this.player.cockTotal() > 1) {
                 this.outputText(
@@ -986,22 +986,22 @@ export class GreenSlimeScene extends AbstractLakeContent {
                 " into the air as it takes up a position behind you.  It holds your head against the ground with one hand and strips off your clothes with the other, pressing its trunk up against you.  Its skin is soft, velvety, and firm, but it is also easily pliable.  You feel something grow out of its body and almost instantly realize what's going on.  The slime rubs its moist cock between your cheeks for a moment, before pulling back.  You realize with a tiny bit of fear that the creature's tool must be massive – over a foot, at least, and several inches wide!  It runs its tip over your ",
             false
         );
-        //Girls get fondled.
+        // Girls get fondled.
         if (this.player.vaginas.length > 0)
             this.outputText(this.vaginaDescript(0) + " and " + this.assholeDescript(), false);
-        //No coochie
+        // No coochie
         else {
-            //Ballsy
+            // Ballsy
             if (this.player.balls >= 2)
                 this.outputText(this.assholeDescript() + " and " + this.ballsDescript(), false);
-            //No balls, no pussy, just butt
+            // No balls, no pussy, just butt
             else this.outputText(this.assholeDescript(), false);
         }
         this.outputText(" before settling over your rear entrance.  ", false);
         // virgins just assume it wont fit
         if (this.player.analCapacity() < 18 || this.player.ass.analLooseness == 0) {
-            //...but this wont necessarily be a turnoff.  id put in some sort of formula that determines the corruption rating needed for this
-            //based on player's current anus size, but that seems excessive and uneccesary.
+            // ...but this wont necessarily be a turnoff.  id put in some sort of formula that determines the corruption rating needed for this
+            // based on player's current anus size, but that seems excessive and uneccesary.
             if (this.player.cor <= 50)
                 this.outputText(
                     "You feel a bit of fear as you tremble under the creature's weight, worried about the damage that its massive size might do to your ass.  ",
@@ -1012,7 +1012,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                     "In spite of your worries about the creature's size, you can't help but feel a little bit excited at the idea of having this beast take you from behind.  ",
                     false
                 );
-            //and something special for the total whorebags that have somehow not already wrecked their asses.
+            // and something special for the total whorebags that have somehow not already wrecked their asses.
             else
                 this.outputText(
                     "You almost lick your lips in anticipation and push your hips back greedily, eager to feel the monster's cock stretch your asshole wide.  ",
@@ -1023,7 +1023,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
             "You grimace slightly and it pushes at your sphincter, then penetrates.  You let out a slight gasp in spite of yourself as its cock warps, deforming to stretch your ass without pushing you beyond your limits.  It pushes itself several inches inside you and stops, pausing as you catch your breath and collect yourself.",
             false
         );
-        //De-virgin
+        // De-virgin
         this.player.buttChange(this.monster.cockArea(0), true);
         this.outputText("\n\n", false);
         this.outputText(
@@ -1034,7 +1034,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
             "Before long you find yourself moaning under the beast's attack, pleasure washing through your nethers in spite of yourself as it pumps your ass.  ",
             false
         );
-        //cock arousal
+        // cock arousal
         if (this.player.cockTotal() > 0)
             this.outputText(
                 "You feel pangs of pleasure run through your body as its member repeatedly strokes your prostate from the inside, stimulating it.  ",
@@ -1044,16 +1044,16 @@ export class GreenSlimeScene extends AbstractLakeContent {
             "Its dick shifts slightly, continually growing and shrinking in tiny amounts in a continual, heavy throb.  ",
             false
         );
-        //masturbation begin
-        //Cawkz!
+        // masturbation begin
+        // Cawkz!
         if (this.player.cockTotal() > 0) {
-            //Single
+            // Single
             if (this.player.cockTotal() == 1)
                 this.outputText(
                     "You quickly grow erect under the creature's embrace as it pistons into your ass, and before long you stand at full attention.  You weakly rub yourself with one hand as it pumps you, and quickly approach orgasm.  ",
                     false
                 );
-            //Multi!
+            // Multi!
             else
                 this.outputText(
                     "Your " +
@@ -1062,7 +1062,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                     false
                 );
         }
-        //Vaginas!
+        // Vaginas!
         if (this.player.vaginas.length > 0)
             this.outputText(
                 "Your " +
@@ -1072,15 +1072,15 @@ export class GreenSlimeScene extends AbstractLakeContent {
                     ".",
                 false
             );
-        //New PG
+        // New PG
         this.outputText("\n\n", false);
         this.outputText(
             "The creature begins to throb more powerfully as its arousal builds, your own arousal growing with it, equally from sexual and fearful excitement.  With a final powerful thrust the creature rams its entire length inside you and you feel a surge of fluid run through its entire member before exploding from the tip.  You open your mouth in a silent shout as you lose your voice for a moment, unable to make a sound as liquid pours into you in an almost endless stream as its cock swells.  ",
             false
         );
-        //Vaginal Orgasmzzzzzz
+        // Vaginal Orgasmzzzzzz
         if (this.player.vaginas.length > 0) {
-            //hermaphrodite orgasm
+            // hermaphrodite orgasm
             if (this.player.cockTotal() > 0)
                 this.outputText(
                     "The creature finally plunges a pair of fingers into your " +
@@ -1088,7 +1088,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                         ", and between this and the additional pressure against your prostate you finally come, harder than you ever have before.  Thick ropes of jizm spray onto the ground as the feeling wracks your body.  ",
                     false
                 );
-            //vaginal-only orgasm
+            // vaginal-only orgasm
             else
                 this.outputText(
                     "The creature finally plunges a pair of fingers into your " +
@@ -1097,7 +1097,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                     false
                 );
         }
-        //mangasm
+        // mangasm
         else if (this.player.cockTotal() > 0)
             this.outputText(
                 "The additional pressure against your prostate finally pushes you over the edge and you come hard, spraying your load against the ground.  Thick ropes of jizm spray onto the ground as the feeling wracks your body.  ",
@@ -1117,13 +1117,13 @@ export class GreenSlimeScene extends AbstractLakeContent {
             "You collapse under the beating from the slime's soft but heavy fists, dazed and disoriented.  The creature surges forward, covering you and forcing you to the ground as it rests on your gut, putting just enough of its apparently enormous weight onto you to keep you pinned.  It leans forward, its massive upper body easily shadowing you, and ",
             false
         );
-        //Low corrupppppption blush!
+        // Low corrupppppption blush!
         if (this.player.cor < 20) this.outputText("you blush as ", false);
         this.outputText(
             "a large erection shaped like a human's dick forms at the bottom of its torso.  The creature thrusts its hips forward, pushing this new appendage against your face and making its intent very clear.\n",
             false
         );
-        //slutty
+        // slutty
         if (this.player.cor >= 70) {
             this.outputText(
                 "You lick the tip with more than a little bit of delight, noticing that the creature's skin is somewhat velvety, with a hint of a minty taste to it.  The thing obligingly runs its length along your face as you tease it with your tongue, enjoying its mild taste as it leaves traces of greenish fluids on your face.  Eventually the beast pulls back and rests its tip against your lips, nudging you several times to get you to open your mouth wide before pushing inside your mouth.\n",
@@ -1183,7 +1183,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                     false
                 );
         }
-        //standard
+        // standard
         else if (this.player.cor >= 20) {
             this.outputText(
                 "You make only minor attempts to thwart the creature as it forces its way between your lips, not exactly aroused by its decision but certainly glad that it didn't decide to kill you.  Its member squishes, deforms, and expands to conform to the shape of your mouth as it begins to pump your mouth, going deeper with each stroke.  You brace yourself as it pauses at your lips for a moment before slowly pushing deeper and deeper into your mouth, and then your throat.  You almost feel yourself gag, but find that the creature's unique material helps it avoid this reaction.  The creature keeps pushing until your nose presses against its main body and holds there for a moment, its cock filling your mouth and throat entirely.\n",
@@ -1202,7 +1202,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                 false
             );
         }
-        //resistant
+        // resistant
         else {
             this.outputText(
                 "You close your mouth tightly as the penis rubs against your face, the soft, moist skin leaving a trace of green fluid around your mouth.  You try to turn away and the thing forms a third arm from its chest, pressing it over your mouth.  ",
@@ -1241,7 +1241,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
             "You collapse under the beating from the slime's soft but heavy fists, dazed and disoriented.  The creature lunges at you with surprising speed, grabbing you by the ankles and pulling you towards it.  You try to pull away as it pulls you up against its trunk, momentarily fearful that it's going to try and absorb you.  ",
             false
         );
-        //shy result
+        // shy result
         if (this.player.cor <= 20) {
             this.outputText(
                 "This fear quickly disappears as a large, human cock grows from the creature's trunk, and is replaced by an entirely different fear as you realize what it is planning.  The slime wraps its arms around your " +
@@ -1259,14 +1259,14 @@ export class GreenSlimeScene extends AbstractLakeContent {
                     " grows wet.  Without warning the creature pulls your legs apart and draws its member back along your crotch, pausing a moment to rest the tip on your sex.  You watch it with equal parts excitement and anxiety and steel yourself as it holds there for a moment.",
                 false
             );
-            //!!NOTE
-            //i was considering, as a twist from the usual pattern with events in CoC and in going with the idea that the lake is a sort of low-corruption zone, that the slime would actually just let virgins be - or possibly divert to the oral/anal events.  regardless, heres the text.
+            // !!NOTE
+            // i was considering, as a twist from the usual pattern with events in CoC and in going with the idea that the lake is a sort of low-corruption zone, that the slime would actually just let virgins be - or possibly divert to the oral/anal events.  regardless, heres the text.
             if (this.player.vaginas[0].virgin)
                 this.outputText(
                     "The thing slowly presses against you to penetrate and you grab at the grass beneath you, absolutely certain that it won't fit.  You bite your bottom lip as the cock pierces your virginity, arcing your back as a sharp pang of pain runs through you.  You let out a stuttering gasp as it penetrates deeper into your body, filling the contours of your interior perfectly.  As it does it coats your inside with a tingling, soothing fluid that quickly turns whatever pain you may have felt into a wonderful pleasure.  When the creature finally bottoms out inside you, what remains of its length seems to slide back into the creature's body.  ",
                     false
                 );
-            //Middle coochie
+            // Middle coochie
             else if (this.player.vaginalCapacity() < 18)
                 this.outputText(
                     "The thing slowly presses against you to penetrate and you grab at the grass beneath you, almost entirely certain that it won't fit.  You bite your bottom lip to hold in a moan as the cock slides into your " +
@@ -1274,7 +1274,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                         ", its girth squeezing down to comfortably slide into you.  You let out a pleasant sigh as it penetrates deeper into your body, filling the contours of your interior perfectly until it finally bottoms out.  What remains of its length seems to slide back into the creature's body as it pulls your hips against its trunk.  ",
                     false
                 );
-            //Ginormo coochie
+            // Ginormo coochie
             else if (this.player.vaginalCapacity() <= 30)
                 this.outputText(
                     "The thing slowly presses against you to penetrate and you grab at the grass beneath you.  A soft moan escapes your lips as the cock slides into your " +
@@ -1284,7 +1284,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                         " perfectly.  ",
                     false
                 );
-            //MEGA coochie
+            // MEGA coochie
             else
                 this.outputText(
                     "The thing slowly presses against you to penetrate and you grab at the grass beneath you.  A soft moan escapes your lips as the cock slides into your " +
@@ -1301,9 +1301,9 @@ export class GreenSlimeScene extends AbstractLakeContent {
                     ".  As it picks up speed a small amount of the thing's greenish fluid builds up around your lower mouth, making your skin tingle and filling you with an unusual arousal.\n\n",
                 false
             );
-            //Cocks
+            // Cocks
             if (this.player.cockTotal() > 0) {
-                //Multi biiiiitches
+                // Multi biiiiitches
                 if (this.player.cockTotal() > 1) {
                     this.outputText(
                         "Your " +
@@ -1322,7 +1322,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                             false
                         );
                 }
-                //Single dick
+                // Single dick
                 else
                     this.outputText(
                         "Your " +
@@ -1341,9 +1341,9 @@ export class GreenSlimeScene extends AbstractLakeContent {
                 "It doesn't take much of this to bring you to orgasm.  Your entire body shudders and you arch your back as shocks of pleasure run through you.  The creature pulls you tightly against it and swells just slightly as its movement inside you slows and then stops, then swells at the tip for just a second before releasing a flood of thin, cool fluid inside of you.  It forces its way around the creature's cock and spills out of you.  ",
                 false
             );
-            //Dicks again!
+            // Dicks again!
             if (this.player.cockTotal() > 0) {
-                //Multi
+                // Multi
                 if (this.player.cockTotal() > 1)
                     this.outputText(
                         "Your " +
@@ -1351,7 +1351,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                             " climaxes as well, sending rope after rope of hot, thick cum onto your face and chest.",
                         false
                     );
-                //Single
+                // Single
                 else
                     this.outputText(
                         "Your member climaxes as well, and you pull a hand to cover your eyes and face as your jism explodes onto yourself.  Your other hand slides to the base of your " +
@@ -1363,7 +1363,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
             this.player.orgasm();
             this.dynStats("sen", 4);
         }
-        //standard result
+        // standard result
         else {
             this.outputText(
                 "This fear quickly disappears as a large, human cock grows from the creature's trunk, and is replaced by excitement as you realize what it is planning.  The slime wraps its arms around your legs and squeezes them around its cock.  You moan softly as it moves back and forth several times, sliding its member between your thighs and along your " +
@@ -1377,17 +1377,17 @@ export class GreenSlimeScene extends AbstractLakeContent {
                     " grows wet.  Without warning the creature pulls your legs apart and draws its member back along your nethers, pausing a moment to rest the tip on your sex.  You push yourself up against it impatiently, growing even wetter from the anticipation.  ",
                 false
             );
-            //VIRGIIIIIN
+            // VIRGIIIIIN
             if (this.player.vaginas[0].virgin) {
-                //!!NOTE
-                //same as before with the virginity
+                // !!NOTE
+                // same as before with the virginity
                 this.outputText(
                     "The thing slowly presses against you to penetrate and you grab at the grass beneath you, certain that it won't fit, but excited to finally have sex for the first time.  You bite your bottom lip as the cock pierces your virginity, arcing your back as a sharp pang of pain runs through you.  You let out a stuttering gasp as it penetrates deeper into your body, filling the contours of your interior perfectly.  As it does it coats your inside with a tingling, soothing fluid that quickly turns whatever pain you may have felt into a wonderful pleasure.  When the creature finally bottoms out inside you, what remains of its length seems to slide back into the creature's body.  ",
                     false
                 );
                 this.player.cuntChange(15, true);
             }
-            //TIGHT
+            // TIGHT
             else if (this.player.vaginalCapacity() < 18)
                 this.outputText(
                     "It finally begins to penetrate you and you grab at the grass beneath you, excited and anxious for it to try and squeeze itself into you.  You bite your bottom lip hold in a moan loudly as the cock slides into your " +
@@ -1395,13 +1395,13 @@ export class GreenSlimeScene extends AbstractLakeContent {
                         ", its girth squeezing down to comfortably slide into you.  You let out a pleasant sigh as it penetrates deeper into your body, filling the contours of your interior perfectly until it finally bottoms out.  What remains of its length seems to slide back into the creatures body as it pulls your hips against it's trunk.  ",
                     false
                 );
-            //Loose
+            // Loose
             else {
                 this.outputText(
                     "It finally begins to penetrate and you grab at the grass beneath you, delighted that its cock seems large enough to fill you",
                     false
                 );
-                //SLUT!
+                // SLUT!
                 if (this.player.vaginalCapacity() >= 30) this.outputText(" at least partly", false);
                 this.outputText(
                     ".  A deep, throaty moan escapes your lips as the cock slides into your " +
@@ -1420,9 +1420,9 @@ export class GreenSlimeScene extends AbstractLakeContent {
                     ".  It picks up speed and a small amount of the thing's greenish fluid builds up around your lower mouth, making your skin tingle and filling you with an unusually strong arousal.",
                 false
             );
-            //Herm text goes here
+            // Herm text goes here
             if (this.player.cockTotal() > 0) {
-                //Multi herms
+                // Multi herms
                 if (this.player.cockTotal() > 1) {
                     this.outputText(
                         "Your " +
@@ -1430,7 +1430,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                             " rapidly grows erect under this assault and begins to throb.  Having now released yourself to instinct you reach to jerk off, ",
                         false
                     );
-                    //Lotsa dicks
+                    // Lotsa dicks
                     if (this.player.cockTotal() > 2)
                         this.outputText(
                             "switching between cocks as you rapidly stroke yourself in time with the creature's movements.  ",
@@ -1442,7 +1442,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                             false
                         );
                 }
-                //Single herms
+                // Single herms
                 else
                     this.outputText(
                         "Your " +
@@ -1453,7 +1453,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                         false
                     );
             }
-            //CUM
+            // CUM
             this.outputText(
                 "After a short time the creature penetrates you fully again and stops, and you continue to buck your hips against it for a few moments more until it grabs your thighs and holds you tightly and motionless against it.  You quiver against it and moan with desire, desperately wishing that it would continue fucking you.  You gasp in surprise as the slime's cock begins churning inside of you, massaging you from the inside in a uniquely pleasurable fashion.\n\n",
                 false
@@ -1462,9 +1462,9 @@ export class GreenSlimeScene extends AbstractLakeContent {
                 "It doesn't take much of this to bring you to orgasm, and you feel your entire body shudder.  You arch your back as shocks of pleasure run through you, your entire body tensing from the force of the orgasm.  The creature pulls you tightly against it and swells just slightly as its movement inside you slows and then stops, then swells at the tip for just a second before releasing a flood of thin, cool fluid inside of you.  This release doubles the strength of your own orgasm as the fluid forces its way around the creature's cock and spills out of you.  ",
                 false
             );
-            //Herms cum
+            // Herms cum
             if (this.player.cockTotal() > 0) {
-                //multi
+                // multi
                 if (this.player.cockTotal() > 1)
                     this.outputText(
                         "Your " +
@@ -1472,7 +1472,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                             " climaxes as well, and you open your mouth as you spray rope after rope of hot, thick jism onto your face and chest.  You relish its salty taste, continuing to stroke yourself even as you come.  ",
                         false
                     );
-                //single cock
+                // single cock
                 else
                     this.outputText(
                         "Your own member finally reaches its climax as well, and you open your mouth as jism explodes onto your face and chest.  Your hands slide to the base of your " +
@@ -1523,7 +1523,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
         else if (this.player.gender == 2) {
             this.outputText("manipulating your " + this.clitDescript() + ". ", false);
         }
-        //[If Herm-
+        // [If Herm-
         else if (this.player.gender == 3) {
             this.outputText("caressing your " + this.multiCockDescriptLight(), false);
             if (this.player.balls > 0)
@@ -1541,7 +1541,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                     false
                 );
         }
-        //[If Genderless-
+        // [If Genderless-
         else {
             this.outputText(
                 "caressing the blank spot where your genitalia should be despite your " +
@@ -1557,19 +1557,19 @@ export class GreenSlimeScene extends AbstractLakeContent {
                 false
             );
         }
-        //[if male or genderless-
+        // [if male or genderless-
         if (this.player.gender < 1)
             this.outputText(
                 "gripping the ground as the slime has left you nothing to do; adding your hands to the mix feels like it'd be an insult to the creature's expert work.  ",
                 false
             );
-        //if duder
+        // if duder
         else if (this.player.gender == 1)
             this.outputText(
                 "Your hands grip the ground as the slime has left you nothing to do; adding your fingers to the mix feels like it'd be an insult to the creature's expert work.  ",
                 false
             );
-        //[if female or Herm-
+        // [if female or Herm-
         else
             this.outputText(
                 "Your hands fly to your " +
@@ -1585,15 +1585,15 @@ export class GreenSlimeScene extends AbstractLakeContent {
             false
         );
 
-        //[if male-
+        // [if male-
         if (this.player.gender == 1) {
             this.outputText(this.multiCockDescriptLight(), false);
             if (this.player.balls > 0) this.outputText(" and " + this.ballsDescript(), false);
             this.outputText(" and ", false);
         }
-        //[if female-
+        // [if female-
         else if (this.player.gender == 2) this.outputText(this.clitDescript() + " and ", false);
-        //[if Herm-
+        // [if Herm-
         else if (this.player.gender == 3) {
             this.outputText(this.multiCockDescriptLight(), false);
             if (this.player.balls > 0)
@@ -1611,7 +1611,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                 "feverishly jacking yourself off with it.  The cool feel of it contrasts enough to send you over the edge relatively quickly, and you release your cum into it.  You drop most of its bulk ",
                 false
             );
-        //[if female-
+        // [if female-
         else if (this.player.gender == 2)
             this.outputText(
                 "rapidly entering it in and out of your " +
@@ -1619,7 +1619,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                     " by way of your fingers.  The cool feel of it contrasts enough to send you over the edge relatively quickly, and you release your juices into it.  You flick it off your fingers ",
                 false
             );
-        //[if herm-
+        // [if herm-
         else if (this.player.gender == 3)
             this.outputText(
                 "feverishly jacking yourself off with it while rapidly entering it in and out of your " +
@@ -1629,7 +1629,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                     ".  You drop some of its bulk ",
                 false
             );
-        //[if genderless-
+        // [if genderless-
         else
             this.outputText(
                 "rubbing it over your " +
@@ -1650,32 +1650,32 @@ export class GreenSlimeScene extends AbstractLakeContent {
             false
         );
 
-        //set lust to 0, increase sensitivity slightly
+        // set lust to 0, increase sensitivity slightly
         this.player.orgasm();
         this.dynStats("lib", 0.2);
-        //You've now been milked, reset the timer for that
+        // You've now been milked, reset the timer for that
         this.player.addStatusValue(StatusAffects.Feeder, 1, 1);
         this.player.changeStatusValue(StatusAffects.Feeder, 2, 0);
         this.cleanupAfterCombat();
     }
 
     public slimeVictoryRape(): void {
-        //Service for lower corruption
+        // Service for lower corruption
         if (this.player.cor <= 33) {
             this.outputText("", true);
             if (this.player.lust < 60) this.serviceLowCorruption();
             else this.serviceLowCorruptionHighLust();
         }
-        //higher corruption raaaaeeeep
+        // higher corruption raaaaeeeep
         else {
             this.outputText("", true);
-            //male or futa
+            // male or futa
             if (
                 this.player.gender == 1 ||
                 (this.player.gender == 3 && GreenSlimeScene.rand(2) == 0)
             )
                 this.maleRapesOoze();
-            //female or futa
+            // female or futa
             else if (this.player.gender > 0) this.femaleRapesOoze();
         }
         this.cleanupAfterCombat();
@@ -1691,7 +1691,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
             if (this.temp == 1) this.oozeRapesYouOrally();
             if (this.temp == 2) this.oozeButtRapesYou();
         }
-        //Everybody else
+        // Everybody else
         else {
             this.temp = GreenSlimeScene.rand(2);
             if (this.temp == 0) this.oozeRapesYouOrally();

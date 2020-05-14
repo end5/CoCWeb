@@ -2,9 +2,9 @@ import { CoC_Settings } from "./CoC_Settings";
 import { ItemType } from "./ItemType";
 
 export class ItemSlotClass {
-    //constructor
+    // constructor
 
-    //data
+    // data
     private _quantity: number = 0;
     private _itype: ItemType = ItemType.NOTHING;
     private _unlocked: boolean = false;

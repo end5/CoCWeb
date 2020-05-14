@@ -7,23 +7,23 @@ import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class Loppe extends TelAdreAbstractContent {
-    //const LOPPE_FURRY: number = 684;
-    //const LOPPE_FERTILE: number = 685;
-    //const LOPPE_KIDS: number = 686;
-    //const LOPPE_TRAINING: number = 687;
-    //const LOPPE_KIDS_LIMIT: number = 688;
-    //const LOPPE_URTA_CHATS: number = 689;
-    //const LOPPE_PC_MET_UMA: number = 690;
-    //const LOPPE_TIMES_SEXED: number = 691;
-    //const LOPPE_DENIAL_COUNTER: number = 692;
-    //const LOPPE_DISABLED: number = 693;
-    //const TIMES_ASKED_LOPPE_ABOUT_LOPPE: number = 694;
-    //const LOPPE_MET: number = 695;
+    // const LOPPE_FURRY: number = 684;
+    // const LOPPE_FERTILE: number = 685;
+    // const LOPPE_KIDS: number = 686;
+    // const LOPPE_TRAINING: number = 687;
+    // const LOPPE_KIDS_LIMIT: number = 688;
+    // const LOPPE_URTA_CHATS: number = 689;
+    // const LOPPE_PC_MET_UMA: number = 690;
+    // const LOPPE_TIMES_SEXED: number = 691;
+    // const LOPPE_DENIAL_COUNTER: number = 692;
+    // const LOPPE_DISABLED: number = 693;
+    // const TIMES_ASKED_LOPPE_ABOUT_LOPPE: number = 694;
+    // const LOPPE_MET: number = 695;
 
     private loppeCapacity(): number {
         return 90;
     }
-    //Tags/Booleans (C)
+    // Tags/Booleans (C)
     /*QB Note: I've never actually done this before, so I'm probably missing a few.
     LoppeRace: 0 toggles Loppe in \"<i>laquine-girl</i>\" form (human with bunny ears/legs and horse cock/tail), 1 toggles Loppe in \"<i>laquine-morph</i>\" form (anthro bunny with horse tail & horse cock)
     LoppeBreed: 0 means Loppe is sterile, 1 means Loppe is fertile.
@@ -36,7 +36,7 @@ export class Loppe extends TelAdreAbstractContent {
     LoppeDenial: Counter for determining when Loppe is willing to go through with the Orgasm Denial scene again. Decrements by 1 every day if higher than 1; at 1 she's willing, at 0 she's never done it before (and is willing).
     */
 
-    //Appearance (edited) (C)
+    // Appearance (edited) (C)
     private appearanceOfLoppe(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.LOPPE_FURRY] == 0) {
@@ -59,7 +59,7 @@ export class Loppe extends TelAdreAbstractContent {
                 "\n\nHer pussy is tight, despite the amount of action she must get; you wonder how she manages to keep it that way.  Although if you ask, all it earns you is a sultry smile and a wink."
             );
         }
-        //Appearance (Anthro) (edited) (C)
+        // Appearance (Anthro) (edited) (C)
         else {
             this.outputText(
                 "Loppe is a 6'2</i>\" bunny-morph with deep brown eyes set above her soft muzzle.  Shoulder-length black hair and a pair of snow-white rabbit ears adorn the top of her head; both ears flop backward at an angle.  Her face used to be that of a human woman, but it has since returned to 'normal' ever since you helped her rid herself of her curse."
@@ -81,8 +81,8 @@ export class Loppe extends TelAdreAbstractContent {
         this.addButton(0, "Next", this.loppeGenericMeetings);
     }
 
-    //First Meeting (edited) (C)
-    //Happens randomly when choosing to go into the bar after 16:00
+    // First Meeting (edited) (C)
+    // Happens randomly when choosing to go into the bar after 16:00
     public loppeFirstMeeting(): void {
         this.clearOutput();
         this.outputText(
@@ -92,34 +92,34 @@ export class Loppe extends TelAdreAbstractContent {
             "\n\n\"<i>You don't know?  Today we're having a show at the bar.  A dancer is going to be dancing for us.  You should go and have a look, it's very beautiful!</i>\""
         );
         this.outputText("\n\nDo you watch the show?");
-        //[Yes][Not Now][Uninterested]
+        // [Yes][Not Now][Uninterested]
         this.menu();
         this.addButton(0, "Yes", this.yesToMeetingLoppe);
         this.addButton(1, "Not Now", this.mebbeLaterToLoppe);
         this.addButton(2, "Uninterested", this.noLoppeInterest);
-        //no spacebar default here
+        // no spacebar default here
     }
 
-    //[=Uninterested=]
+    // [=Uninterested=]
     private noLoppeInterest(): void {
         this.clearOutput();
         this.outputText("Dancers aren't really your thing, and you shake your head.");
-        //(disable repeat and NPC)
+        // (disable repeat and NPC)
         this.flags[kFLAGS.LOPPE_DISABLED] = 1;
         this.menu();
         this.addButton(0, "Next", this.telAdre.barTelAdre);
     }
 
-    //[=Not Now=]
+    // [=Not Now=]
     private mebbeLaterToLoppe(): void {
         this.clearOutput();
         this.outputText("You're not really in the mood for this right now, so you leave the bar.");
-        //(go to T'A main menu, repeat event in 15 days.)
+        // (go to T'A main menu, repeat event in 15 days.)
         this.menu();
         this.addButton(0, "Next", this.telAdre.telAdreMenu);
     }
 
-    //[=Yes=]
+    // [=Yes=]
     private yesToMeetingLoppe(): void {
         this.clearOutput();
         this.flags[kFLAGS.LOPPE_MET] = 1;
@@ -128,7 +128,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.outputText(
             "\n\nYou make your way through the crowd, pushing past the doorway to try and find a table to sit down at.  The place is really jam-packed, and it's not helped by the fact that a small makeshift stage has been set up in the center of the room.  The bartender is working flat-out to provide drinks for all the thirsty people, and you wonder where in the world you'll find a place to sit down and watch.  After a lot of elbowing, narrowly avoiding being stepped on, and small confusions, you manage to find what you think is a good place to watch the 'show'."
         );
-        //--Next--
+        // --Next--
         this.menu();
         this.addButton(0, "Next", this.yesToLoppeMeetingTwo);
     }
@@ -168,7 +168,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.outputText(
             "\n\nYou watch her as she goes, and then get up to try to leave, elbowing your way through the crowd"
         );
-        //[(corr < 40)]
+        // [(corr < 40)]
         if (this.player.cor < 40)
             this.outputText(
                 " as politely as possible. It felt nice to see a display like that here; makes it feel a little less like a wasteland of sex-mad monsters and a little more like home"
@@ -196,12 +196,12 @@ export class Loppe extends TelAdreAbstractContent {
         this.outputText(
             "\n\nYou smile, share your own name in turn and then shake her hand.  It's quite a coincidence to see someone who has the same race as the dancer that was just eyeballing you in the Wet Bitch so soon afterward.  Loppe giggles, then comes clean.  \"<i>Yeah, that was me... did you enjoy the show?  Ah, actually, let's not talk about it here in the street... did you maybe want to come with me to this little bakery I know?  They make a mean carrot cake.</i>\""
         );
-        //[Sure] [Not Really]
+        // [Sure] [Not Really]
         this.menu();
         this.addButton(1, "Not Really", this.notReallyInterestedInLoppe);
         this.addButton(0, "Sure", this.sureBakeryWithLoppe);
     }
-    //[=Not Really=]
+    // [=Not Really=]
     private notReallyInterestedInLoppe(): void {
         this.clearOutput();
         this.outputText("You decline, and the girl gives you a look of disappointment.");
@@ -214,7 +214,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.addButton(0, "Next", this.telAdre.barTelAdre);
     }
 
-    //[=Sure=]
+    // [=Sure=]
     private sureBakeryWithLoppe(): void {
         this.clearOutput();
         this.outputText(
@@ -239,17 +239,17 @@ export class Loppe extends TelAdreAbstractContent {
                 '...  When I get my hands on something I like, I eat it up whole...</i>"  Slowly, you feel a foot gently glide across your [legs].'
         );
 
-        //(Low Libido)
+        // (Low Libido)
         if (this.player.lib < 33)
             this.outputText(
                 "\n\nWell, now.  This is a different kind of world, indeed, but this feels a little too quick.  You're not sure you're all that comfortable with the bunny-girl feeling you up under the table, cute as she may be.  An awkward silence falls over the both of you as you try to think of a polite way to stop or slow her advances without telling her off... thankfully, the waitress arrives to take your orders."
             );
-        //(Moderate Libido)
+        // (Moderate Libido)
         else if (this.player.lib < 66)
             this.outputText(
                 "\n\nWell, now.  This is a different kind of world, indeed, but this feels a little too quick.  Still, it's not entirely unwelcome, and while you decide to leave your hand where it is, you allow her to continue, not hiding that you recognize what she's doing and you rather like it.  However, the waitress stops your playing around with her approach."
             );
-        //(High Libido)
+        // (High Libido)
         else
             this.outputText(
                 "\n\nWell, now.  You surreptitiously slide a hand under the table and start stroking her calf through her robe, casually commenting that she must have quite an appetite for such a little lady."
@@ -267,17 +267,17 @@ export class Loppe extends TelAdreAbstractContent {
             '\n\nLoppe clicks her tongue in disappointment and quietly retracts her foot.  "<i>You know what I want, sugar.</i>"  She smiles lasciviously, reinforcing the double entendre behind her apparently innocuous words.'
         );
 
-        //(if PC has >= 30 gems)
+        // (if PC has >= 30 gems)
         if (this.player.gems >= 30) {
             this.outputText(
                 "\n\nYou tell the waitress, a fetching young cat-woman, what you'd like, and pull out the thirty gems needed to cover the tab; as mostly specialty items not on the usual menu, the price is a bit higher."
             );
-            //[(corr > 40)
+            // [(corr > 40)
             if (this.player.cor > 40)
                 this.outputText(
                     "  A small voice inside wonders if she'd eat so extravagantly were she footing her own bill."
                 );
-            //remove 30 gems
+            // remove 30 gems
             this.player.gems -= 30;
             this.statScreenRefresh();
         } else {
@@ -296,13 +296,13 @@ export class Loppe extends TelAdreAbstractContent {
         this.outputText(
             "\n\n\"<i>... So?</i>\" she carefully asks.  \"<i>I do have a pussy as well, by the way.  I'm hermaphroditic.  This is the part where you can tell me to... fuck off, or go away, or something similar, if you like.  I've dated enough to know when someone isn't into me... and I'm not made of glass; I won't break, so don't worry.</i>\"  Despite her tough display you do notice a bit of moisture gather in her eyes."
         );
-        //[Okay]  [NoWay]
+        // [Okay]  [NoWay]
         this.menu();
         this.addButton(0, "StickAround", this.okayLoppeLetsGo);
         this.addButton(1, "Go Away", this.NoWayLoppe);
     }
-    //[=NoWay=]
-    //Removes Loppe from game.
+    // [=NoWay=]
+    // Removes Loppe from game.
     private NoWayLoppe(): void {
         this.clearOutput();
         this.outputText(
@@ -316,7 +316,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=Okay=]
+    // [=Okay=]
     private okayLoppeLetsGo(): void {
         this.clearOutput();
         this.outputText(
@@ -337,27 +337,27 @@ export class Loppe extends TelAdreAbstractContent {
                 ", y'know?  And kind... how about a quick stop at my place, before we say goodbye?</i>\""
         );
 
-        //[Yes][No]
+        // [Yes][No]
         this.menu();
         this.addButton(0, "Yes", this.yesLoppesHouse);
         this.addButton(1, "No", this.noLoppesHouse);
     }
 
-    //[=No=]
+    // [=No=]
     private noLoppesHouse(): void {
         this.clearOutput();
         this.outputText(
             'Loppe gives a disappointed sigh, but smiles at you all the same.  "<i>I understand... if you ever feel like talking some more, you can find me in the gym.  I need to keep myself in tip-top shape for my dancing shows, after all.</i>"'
         );
         this.outputText("\n\nShe sighs again, picks up her last cookie, and leaves.");
-        //Loppe can now be found in the Gym
+        // Loppe can now be found in the Gym
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=Yes=]
+    // [=Yes=]
     private yesLoppesHouse(): void {
         this.clearOutput();
-        //Loppe can now be found in the Gym
+        // Loppe can now be found in the Gym
         this.outputText(
             "The dancer smiles mischievously at you.  \"<i>Wonderful.  I'm going to show you just how great my body looks without this dress.  You wouldn't believe how much time I spend in the gym, working out.</i>\"  Loppe grabs her last cookie in one hand and your arm in the other, leading you away - presumably to her house.  Enroute, she giggles constantly, provoking a question from you."
         );
@@ -366,7 +366,7 @@ export class Loppe extends TelAdreAbstractContent {
             '\n\n"<i>I always get giddy when I can spend time with a sexy thing like you...</i>" she replies, "<i>but I was just recalling some of my earlier encounters.  I should warn you, I tend to get very, and I do mean <b>very</b> carried away during the act.  Things can get pretty intense.</i>"'
         );
 
-        //(Min Lust >= 50)
+        // (Min Lust >= 50)
         if (this.player.minLust() >= 50) {
             this.outputText(
                 "\n\nYou grin and warn her that your appetite is a lot higher than normal; you are usually so aroused that you have no doubt you can go at it a lot more than the average person."
@@ -375,7 +375,7 @@ export class Loppe extends TelAdreAbstractContent {
                 "\n\nLoppe shoots you a sultry look.  \"<i>Well, sugar, I guess I'll just have to take care of this 'endless lust' of yours, huh?</i>\"  She tightens her hold on your hand and starts walking faster, eager to get you to her place."
             );
         }
-        //(else High Libido)
+        // (else High Libido)
         else if (this.player.lib >= 70) {
             this.outputText(
                 "\n\nYou smirk back and announce that you like it intense.  Perhaps she's the one who should watch out?"
@@ -384,7 +384,7 @@ export class Loppe extends TelAdreAbstractContent {
                 '\n\n"<i>Oh, I like the sound of that... let\'s go, sugar!</i>"  Loppe tightens her hold on your hand and starts walking faster, eager to get you to her place.'
             );
         }
-        //(else High Toughness and has beaten mino mob)
+        // (else High Toughness and has beaten mino mob)
         else if (this.player.tou >= 70) {
             this.outputText(
                 "\n\nYou tell her that you're confident in your stamina.  Truth be told, you can withstand a fight with a whole mob of minotaurs and still have enough energy left to fight off demons."
@@ -397,32 +397,32 @@ export class Loppe extends TelAdreAbstractContent {
                 "\n\nYou bite your lip eagerly, hoping that you haven't gotten in over your head with this girl."
             );
         }
-        //(Continue on \"<i>Sex</i>\")
+        // (Continue on \"<i>Sex</i>\")
         this.menu();
         this.addButton(0, "Next", this.loppeSexChoice, true);
     }
 
-    //Generic Meeting (edited) (C)
-    //Loppe can be found from 6:00 to 15:00 (yeah she works out like a boss!)
+    // Generic Meeting (edited) (C)
+    // Loppe can be found from 6:00 to 15:00 (yeah she works out like a boss!)
     public loppeGenericMeetings(): void {
         this.clearOutput();
         this.outputText(
             "You decide to approach the bunny-girl.  Loppe smiles and wipes the sweat off her brow with the towel.  \"<i>Hey there, [name], nice seeing you around here.  So... do you want to do something?  Talk, maybe?  Or go to my place for a 'workout'?</i>\" she asks with a smirk."
         );
-        //Appearance
-        //Talk
-        //Sex
-        //Special Training (Available after talking about \"<i>Your Job</i>\" at least once)
-        //Meet Uma (Must have spoken about Loppe's mother and shagged Loppe at least once before.)
+        // Appearance
+        // Talk
+        // Sex
+        // Special Training (Available after talking about \"<i>Your Job</i>\" at least once)
+        // Meet Uma (Must have spoken about Loppe's mother and shagged Loppe at least once before.)
         this.menu();
         this.addButton(0, "Appearance", this.appearanceOfLoppe);
         this.addButton(1, "Talk", this.talkWithLoppe);
         this.addButton(2, "Sex", this.loppeSexChoice);
         this.addButton(4, "Leave", this.telAdre.telAdreMenu);
-        //Leave (Return to Tel'Adre menu)
+        // Leave (Return to Tel'Adre menu)
     }
 
-    //Talk (edited) (C)
+    // Talk (edited) (C)
     private talkWithLoppe(): void {
         this.clearOutput();
         this.outputText(
@@ -435,25 +435,25 @@ export class Loppe extends TelAdreAbstractContent {
         this.outputText('\n\n"<i>Okay then, what do you want to talk about?</i>"');
 
         this.menu();
-        //Loppe
+        // Loppe
         this.addButton(0, "Loppe", this.talkWithLoppeAboutLoppe);
-        //Children (available after having sex with Loppe at least once)
+        // Children (available after having sex with Loppe at least once)
         if (this.flags[kFLAGS.LOPPE_TIMES_SEXED] > 0)
             this.addButton(1, "Children", this.askLoppeAboutChildren);
-        //Gossip (after sexin' once)
+        // Gossip (after sexin' once)
         if (this.flags[kFLAGS.LOPPE_TIMES_SEXED] > 0)
             this.addButton(2, "Gossip", this.gossipWithLoppe);
-        //Working (after [Loppe]
+        // Working (after [Loppe]
         if (this.flags[kFLAGS.TIMES_ASKED_LOPPE_ABOUT_LOPPE] > 0)
             this.addButton(3, "Working", this.talkWithLoppeAboutWorking);
-        //Her Mom (available after choosing \"<i>Loppe</i>\" at least once)
+        // Her Mom (available after choosing \"<i>Loppe</i>\" at least once)
         if (this.flags[kFLAGS.TIMES_ASKED_LOPPE_ABOUT_LOPPE] > 0)
             this.addButton(4, "Her Mom", this.chatWithLoppeAboutHerMom);
-        //Her Village (after [Loppe]
+        // Her Village (after [Loppe]
         if (this.flags[kFLAGS.TIMES_ASKED_LOPPE_ABOUT_LOPPE] > 0)
             this.addButton(5, "Her Village", this.chatWithLoppeAboutLoppesVillage);
-        //The curse (unfinished; available after choosing \"<i>Loppe</i>\" at least once)
-        //Fondle (after "Loppe"; see appropriate section)
+        // The curse (unfinished; available after choosing \"<i>Loppe</i>\" at least once)
+        // Fondle (after "Loppe"; see appropriate section)
         if (
             this.flags[kFLAGS.TIMES_ASKED_LOPPE_ABOUT_LOPPE] > 0 &&
             this.flags[kFLAGS.LOPPE_TIMES_SEXED] > 0
@@ -462,7 +462,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.addButton(9, "Back", this.loppeGenericMeetings);
     }
 
-    //Loppe (edited) (C)
+    // Loppe (edited) (C)
     private talkWithLoppeAboutLoppe(): void {
         this.clearOutput();
         this.outputText(
@@ -491,7 +491,7 @@ export class Loppe extends TelAdreAbstractContent {
             "\n\nYou tell her that from what her mom says, Loppe definitely must take after her dad's side of the family, giving her a winsome grin. Loppe smiles at you."
         );
 
-        //(if first dialogue)
+        // (if first dialogue)
         if (this.flags[kFLAGS.TIMES_ASKED_LOPPE_ABOUT_LOPPE] == 0) {
             this.outputText(
                 '\n\n"<i>Flatterer...  To tell the truth I used to look a lot more like my dad, but then came the curse...</i>"'
@@ -549,13 +549,13 @@ export class Loppe extends TelAdreAbstractContent {
             "\n\nSurprised at the abrupt end, you rise when Loppe does, and return her thanks."
         );
         this.outputText('\n\n"<i>I guess I\'ll see you later then.</i>"');
-        //set LoppeChat = 1
+        // set LoppeChat = 1
         this.flags[kFLAGS.TIMES_ASKED_LOPPE_ABOUT_LOPPE] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Children (edited) (C)
-    //req LoppeSexed > 0 and LoppeChat > 0
+    // Children (edited) (C)
+    // req LoppeSexed > 0 and LoppeChat > 0
     private askLoppeAboutChildren(): void {
         this.clearOutput();
         this.outputText(
@@ -570,7 +570,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.outputText(
             '\n\nLoppe grins at you.  "<i>I have taken special measures to ensure neither my partners nor I will end up with an unexpected package.</i>"'
         );
-        //(If EdrynKids or CottonKids =>1:
+        // (If EdrynKids or CottonKids =>1:
         if (this.flags[kFLAGS.EDRYN_NUMBER_OF_KIDS] + this.flags[kFLAGS.COTTON_KID_COUNT] > 0)
             this.outputText(
                 "\n\nYou warn her that might not be enough, as you've learned the hard way you're a bit too potent for most herbal contraceptives to handle."
@@ -601,7 +601,7 @@ export class Loppe extends TelAdreAbstractContent {
         );
 
         this.menu();
-        //[Don't Want][Maybe][Someday][Soon][No Opinion]
+        // [Don't Want][Maybe][Someday][Soon][No Opinion]
         this.addButton(0, "Don't Want", this.loppeIDontReallyWantKidsYouStupidTwat);
         this.addButton(1, "Maybe", this.loppeKidsAreOkayIfYoureARabbitOrSumthin);
         this.addButton(2, "Someday", this.loppeIWantKidsSomedayJeezeQuitHasslingMe);
@@ -609,7 +609,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.addButton(4, "No Opinion", this.noOpinionOnLoppeArt);
     }
 
-    //[No Opinion] (spacebar default)
+    // [No Opinion] (spacebar default)
     private noOpinionOnLoppeArt(): void {
         this.clearOutput();
         this.outputText(
@@ -623,7 +623,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=Don't Really Want Them=]
+    // [=Don't Really Want Them=]
     private loppeIDontReallyWantKidsYouStupidTwat(): void {
         this.clearOutput();
         this.outputText(
@@ -640,7 +640,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=They're Okay=]
+    // [=They're Okay=]
     private loppeKidsAreOkayIfYoureARabbitOrSumthin(): void {
         this.clearOutput();
         this.outputText(
@@ -655,7 +655,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.outputText("\n\nShe rises from her seat and departs.");
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[=Someday=]
+    // [=Someday=]
     private loppeIWantKidsSomedayJeezeQuitHasslingMe(): void {
         this.clearOutput();
         this.outputText(
@@ -675,7 +675,7 @@ export class Loppe extends TelAdreAbstractContent {
         );
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[=Soon=]
+    // [=Soon=]
     private loppeIWantKidsSoonOkayCanWeFuck(): void {
         this.clearOutput();
         this.outputText(
@@ -702,10 +702,10 @@ export class Loppe extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Gossip (edited) (C)
-    //req LoppeSexed > 0
-    //Player can pick the character they want to talk about via buttons; if no options are present, auto-leave.
-    //Must also have met the character they want to talk about at least once, and said character must not have been disabled from the game. Otherwise we might have awkward results...
+    // Gossip (edited) (C)
+    // req LoppeSexed > 0
+    // Player can pick the character they want to talk about via buttons; if no options are present, auto-leave.
+    // Must also have met the character they want to talk about at least once, and said character must not have been disabled from the game. Otherwise we might have awkward results...
     private gossipWithLoppe(): void {
         this.clearOutput();
         this.outputText(
@@ -715,34 +715,34 @@ export class Loppe extends TelAdreAbstractContent {
             "\n\nLoppe closes her eyes, weighing your request carefully, before replying, \"<i>Even so, I think I'll humor you... I do get to meet all sorts of people in my line of work.  But you'll have to be a bit more specific; why don't you tell me who you'd like to talk about?</i>\""
         );
         this.menu();
-        //Build menu - see notes above func name
-        //Urta
+        // Build menu - see notes above func name
+        // Urta
         this.addButton(0, "Urta", this.gossipWithLoppeAboutUrta);
-        //Scylla (Must have helped her enough times to know she needs cum to survive.)
+        // Scylla (Must have helped her enough times to know she needs cum to survive.)
         if (this.flags[kFLAGS.NUMBER_OF_TIMES_MET_SCYLLA] > 0)
             this.addButton(1, "Scylla", this.gossipWithLoppeAboutScylla);
-        //Jasun
+        // Jasun
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00179] > 0)
             this.addButton(2, "Jasun", this.gossipWithLoppeAboutJasun);
-        //Heckel
+        // Heckel
         if (this.flags[kFLAGS.MET_HECKEL] > 0)
             this.addButton(3, "Heckel", this.gossipWithLoppeAboutHeckel);
-        //Edryn
+        // Edryn
         this.addButton(4, "Edryn", this.gossipWithLoppeAboutEdryn);
-        //Lottie
+        // Lottie
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00281] > 0)
             this.addButton(5, "Lottie", this.gossipWithLoppeAboutLottie);
-        //Cotton
+        // Cotton
         if (this.flags[kFLAGS.COTTON_MET_FUCKED] > 0)
             this.addButton(6, "Cotton", this.gossipWithLoppeAboutCotton);
-        //Back (spacebar default)
+        // Back (spacebar default)
         this.addButton(9, "Back", this.talkWithLoppe);
     }
 
-    //Urta:
+    // Urta:
     private gossipWithLoppeAboutUrta(): void {
         this.clearOutput();
-        //(if UrtaSex or UrtaLover flags are NOT active)
+        // (if UrtaSex or UrtaLover flags are NOT active)
         if (
             this.flags[kFLAGS.TIMES_FUCKED_URTA] <= 0 ||
             this.flags[kFLAGS.URTA_COMFORTABLE_WITH_OWN_BODY] == -1
@@ -758,37 +758,37 @@ export class Loppe extends TelAdreAbstractContent {
             this.outputText(
                 "Loppe smirks at you.  \"<i>I heard she's been getting along nicely with a certain outsider; you wouldn't happen to know anything about that, would you, [name]?</i>\""
             );
-            //[It's Me] [No]
+            // [It's Me] [No]
             this.menu();
             this.addButton(0, "It's Me", this.itsMeFuckingUrtaLoppe);
             this.addButton(1, "No", this.noLoppeWhosFuckingUrta);
         }
-        //(if LoppeUrtaKnowledge > 0)
+        // (if LoppeUrtaKnowledge > 0)
         else {
             this.outputText(
                 '"<i>Urta again, huh?</i>"  Loppe stares you, but her curious expression turns into one of smug triumph, like a cat that\'s caught a mouse.  "<i>So... she has a big horse-cock.  I\'m beginning to see a pattern here, sugar.   You like women with huge equine parts?  Is that why you hang out with me?  With Urta?</i>"'
             );
             this.menu();
-            //[Play Along][Admit][Deny]
+            // [Play Along][Admit][Deny]
             this.addButton(0, "Play Along", this.playAlongWivLoppesesUrtaGossip);
             this.addButton(1, "Admit", this.admitToLoppeThatYouLoveZeHorsecock);
             this.addButton(2, "Deny", this.denyToLoppeThatYouLoveZeHorsecock);
         }
     }
 
-    //[=No=]
+    // [=No=]
     private noLoppeWhosFuckingUrta(): void {
         this.clearOutput();
         this.outputText(
             "You shake your head, claiming that you have no idea what she's talking about.  Loppe looks at you, then shrugs, clearly not caring if you don't have any gossip on the subject to share."
         );
-        //end scene
+        // end scene
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[=It's Me=]
+    // [=It's Me=]
     private itsMeFuckingUrtaLoppe(): void {
         this.clearOutput();
-        //set LoppeUrtaKnowledge = 1
+        // set LoppeUrtaKnowledge = 1
         this.flags[kFLAGS.LOPPE_URTA_CHATS] = 1;
         this.outputText(
             "Loppe is surprised at this news.  \"<i>Really?  I would never have guessed... anyways, that is not important right now!  Give me all the juicy details of your rendezvous!  I thought I saw her packing something non-regulation into her trousers, but... let's just say the watch uniforms aren't as concealing as a kimono.</i>\"  She looks at you expectantly, like a rabbit that's found the literal carrot patch.  You smile back, then gently tap her on the nose to chastise."
@@ -814,10 +814,10 @@ export class Loppe extends TelAdreAbstractContent {
         );
         this.dynStats("lus", 10 + this.player.lib / 10);
         this.doNext(this.camp.returnToCampUseOneHour);
-        //End Scene
+        // End Scene
     }
 
-    //[=Play Along=]
+    // [=Play Along=]
     private playAlongWivLoppesesUrtaGossip(): void {
         this.clearOutput();
         this.outputText(
@@ -854,13 +854,13 @@ export class Loppe extends TelAdreAbstractContent {
             "\n\nYou could just leave her like this or give her some relief... though you'd better be quick if you choose the latter.   You could always slide under the table and help blow off her steam, but a small part of you wonders just how upset she'd be if you kept rubbing her until her seams gave out and she creamed herself."
         );
         this.dynStats("lus", 10 + this.player.lib / 10);
-        //[Suck] [Handjob] [Kiss 'n' Run]
-        //See the Tease section for these scenes//
-        //Tease Menu options!
+        // [Suck] [Handjob] [Kiss 'n' Run]
+        // See the Tease section for these scenes//
+        // Tease Menu options!
         this.fondleAndTease(false);
     }
 
-    //[=Admit=]
+    // [=Admit=]
     private admitToLoppeThatYouLoveZeHorsecock(): void {
         this.clearOutput();
         this.outputText(
@@ -903,13 +903,13 @@ export class Loppe extends TelAdreAbstractContent {
         this.outputText(
             '\n\nLoppe taps her chin in thought.  "<i>Maybe you\'re right...</i>"   Then she dismisses the subject and shoots you a come-hither look, resting her chin on both hands and lowering her eyelids at you.  "<i>So, sugar, want me to help you enact your wet dreams?  I\'m just as happy getting my workout in the comforts of home, y\'know... ?</i>"'
         );
-        //[Yes] [No]
+        // [Yes] [No]
         this.menu();
         this.addButton(0, "Yes", this.loppeSexChoice, true);
         this.addButton(1, "No", this.dontLoppesHouse4Fucks);
     }
 
-    //[Admit -> No]
+    // [Admit -> No]
     private dontLoppesHouse4Fucks(): void {
         this.clearOutput();
         this.outputText(
@@ -918,11 +918,11 @@ export class Loppe extends TelAdreAbstractContent {
         this.outputText(
             "\n\nThe dancer finishes her drink and leaves you, with a sly glance out of the corner of her eye.  It's unlikely that you've heard the last of this..."
         );
-        //return to wherever
+        // return to wherever
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=Deny=]
+    // [=Deny=]
     private denyToLoppeThatYouLoveZeHorsecock(): void {
         this.clearOutput();
         this.outputText(
@@ -932,11 +932,11 @@ export class Loppe extends TelAdreAbstractContent {
             '\n\n"<i>Aww, sugar.  You\'re no fun...</i>" Loppe says, pouting at your refusal to play along with her games.  "<i>But you\'re really sweet, so I guess I can forgive you.</i>"  The dancer gets up and gives you a quick peck on the cheek.  "<i>I should get back to my training now.  I\'ll see you later!</i>"'
         );
         this.outputText("\n\nLoppe waves and runs off to get back to her routine.");
-        //return to wherever location
+        // return to wherever location
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Scylla:
+    // Scylla:
     private gossipWithLoppeAboutScylla(): void {
         this.clearOutput();
         this.outputText(
@@ -957,7 +957,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Jasun:
+    // Jasun:
     private gossipWithLoppeAboutJasun(): void {
         this.clearOutput();
         this.outputText(
@@ -987,7 +987,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Edryn:
+    // Edryn:
     private gossipWithLoppeAboutEdryn(): void {
         this.clearOutput();
         this.outputText(
@@ -1000,19 +1000,19 @@ export class Loppe extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Lottie:
+    // Lottie:
     private gossipWithLoppeAboutLottie(): void {
         this.clearOutput();
         this.outputText(
             '"<i>That pig-girl that started hanging around the gym in the evenings?  I heard about her... I believe she wants to get fit,</i>" Loppe comments conversationally.'
         );
-        //(if PC's training Lottie)
+        // (if PC's training Lottie)
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00299] == 1) {
             this.outputText(
                 '\n\n"<i>Seems like she found a gym buddy.  That\'s great; poor thing could really use some help with that.  She tries hard in short bursts, but she needs to actually stick with it and eat a proper diet.  Ah, I suppose I should hide the carrot cake before saying that, huh?</i>"'
             );
         }
-        //(else if PC's met Lottie)
+        // (else if PC's met Lottie)
         else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00281] > 0) {
             this.outputText(
                 "\n\n\"<i>Poor girl hasn't found a real partner to help her yet.  Maybe you could give her a little attention if you're going to be around?  I bet she'd be grateful.</i>\""
@@ -1025,7 +1025,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Cotton:
+    // Cotton:
     private gossipWithLoppeAboutCotton(): void {
         this.clearOutput();
         this.outputText(
@@ -1040,8 +1040,8 @@ export class Loppe extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Working (edited)
-    //req LoppeChat > 0
+    // Working (edited)
+    // req LoppeChat > 0
     private talkWithLoppeAboutWorking(): void {
         this.clearOutput();
         this.outputText(
@@ -1066,15 +1066,15 @@ export class Loppe extends TelAdreAbstractContent {
         this.outputText(
             '\n\n"<i>Oh, ok.  I should get back to my exercises anyways.</i>"  Loppe gets up and gives you a little peck on the cheek.  "<i>It was nice chatting with you; come see me soon.</i>"'
         );
-        //set LoppeChat = 2
+        // set LoppeChat = 2
         this.flags[kFLAGS.TIMES_ASKED_LOPPE_ABOUT_LOPPE] = 2;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Her Mother (edited)
+    // Her Mother (edited)
     private chatWithLoppeAboutHerMom(): void {
         this.clearOutput();
-        //req LoppeChat > 0
+        // req LoppeChat > 0
         this.outputText(
             'Loppe rubs her chin, deep in thought.  "<i>Where do I start?  I guess by saying that my mom is a super mom.  She raised me all on her own, and she\'s always had time for me, despite having to keep up with her job.  I love her very much.</i>"'
         );
@@ -1111,7 +1111,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.outputText(
             "\n\nYou ignore the question and point out that if Uma's got a girlfriend of her own, never mind if she's been playing the field, well, she can't really get upset if her daughter's found herself a lover... or several."
         );
-        //(If PC is male:)
+        // (If PC is male:)
         if (this.player.gender == 1)
             this.outputText(
                 "  Well, from what Loppe's told you, Uma wouldn't be attracted to you anyway."
@@ -1141,8 +1141,8 @@ export class Loppe extends TelAdreAbstractContent {
         }
     }
 
-    //Her Village (edited)
-    //req LoppeChat > 0
+    // Her Village (edited)
+    // req LoppeChat > 0
     private chatWithLoppeAboutLoppesVillage(): void {
         this.clearOutput();
         this.outputText("You ask if Loppe would be willing to tell you about her village.");
@@ -1167,18 +1167,18 @@ export class Loppe extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Sex
+    // Sex
     private loppeSexChoice(bakery: boolean = false): void {
         this.clearOutput();
-        //First Time Intro (edited)
+        // First Time Intro (edited)
         if (this.flags[kFLAGS.LOPPE_TIMES_SEXED] == 0) {
-            //first-time only output, if not coming from bakery date
+            // first-time only output, if not coming from bakery date
             if (!bakery) {
                 this.outputText("That 'workout' seems like a nice option right now.");
                 this.outputText(
                     '\n\nLoppe lifts an eyebrow and smiles at you.  "<i>Are you sure, sugar?  I tend to get carried away, so it can be pretty intense.</i>"'
                 );
-                //(Min Lust >= 50)
+                // (Min Lust >= 50)
                 if (this.player.minLust() >= 50) {
                     this.outputText(
                         "\n\nYou grin and warn her that your appetite is a lot higher than normal; you are usually so aroused that you have no doubt you can go at it a lot more than the average person."
@@ -1187,7 +1187,7 @@ export class Loppe extends TelAdreAbstractContent {
                         "\n\nLoppe shoots you a sultry look.  \"<i>Well, sugar, I guess I'll just have to take care of this 'endless lust' of yours, huh?</i>\" She tightens her hold on your hand and starts walking faster, eager to get you to her place."
                     );
                 }
-                //(else High Libido)
+                // (else High Libido)
                 else if (this.player.lib >= 70) {
                     this.outputText(
                         "\n\nYou smirk back and announce that you like it intense.  Perhaps she's the one who should watch out?"
@@ -1196,7 +1196,7 @@ export class Loppe extends TelAdreAbstractContent {
                         '\n\n"<i>Oh, I like the sound of that... let\'s go, sugar!</i>"  Loppe tightens her hold on your hand and starts walking faster, eager to get you to her place.'
                     );
                 }
-                //(else High Toughness and has beaten mino mob)
+                // (else High Toughness and has beaten mino mob)
                 else if (this.player.tou >= 70) {
                     this.outputText(
                         "\n\nYou tell her that you're confident in your stamina.  Truth be told, you can withstand a fight with a whole mob of minotaurs and still have enough energy left to fight off demons."
@@ -1205,12 +1205,12 @@ export class Loppe extends TelAdreAbstractContent {
                         '\n\nLoppe smirks.  "<i>So if I manage to tire you out, that would make me stronger than a mob of minotaurs, right?  Okay!  Challenge accepted!</i>"  She tightens her hold on your hand and starts walking faster, eager to get you to her place.'
                     );
                 }
-                //(else)
+                // (else)
                 else {
                     this.outputText(
                         "\n\nYou tell her that, even despite that, you still want this."
                     );
-                    //[(lib>40)]
+                    // [(lib>40)]
                     if (this.player.lib >= 40) this.outputText(".. it almost sounds exciting.");
                 }
                 this.outputText(
@@ -1220,9 +1220,9 @@ export class Loppe extends TelAdreAbstractContent {
                 this.outputText(
                     "\n\nOminous... or perhaps intriguing, depending on your point of view.\n\n"
                 );
-                //end of non-bakery section, continue with remainder
+                // end of non-bakery section, continue with remainder
             }
-            //bakery date output starts from here!
+            // bakery date output starts from here!
             this.outputText(
                 "It's not very difficult to reach Loppe's place; it happens to be located only a few blocks away from the gym, behind a small shop with the sign \"<i>Kemono's Oriental Clinic</i>\"."
             );
@@ -1230,7 +1230,7 @@ export class Loppe extends TelAdreAbstractContent {
             this.outputText(
                 "\n\nOnce you get to the front door you're surprised to see that Loppe's house is most unusual.  The structure is the same as all other houses in Tel'Adre but the decoration is what sets it apart, it is covered in symbols that just don't any make sense to you; noticing your confusion, Loppe explains, \"<i>Mom drew these, it's supposed to be something to help ward off bad influences.  It's a cultural thing.</i>\" Loppe grins."
             );
-            //[(corr < 40)]
+            // [(corr < 40)]
             if (this.player.cor < 40)
                 this.outputText(
                     "  You tell her they're quite nice... though privately you're curious what the interior looks like."
@@ -1267,7 +1267,7 @@ export class Loppe extends TelAdreAbstractContent {
                 '\n\n"<i>So, sugar,</i>" she says, interrupting your reverie, "<i>we can do this however you like.  I don\'t really mind pitching or catching, especially with a cutie like you.</i>"  Loppe winks at you, posing for your benefit.\n\n'
             );
 
-            //[(any cock fits area 80)
+            // [(any cock fits area 80)
             if (this.player.hasCock()) {
                 if (this.player.smallestCockArea() <= this.loppeCapacity())
                     this.outputText(
@@ -1278,7 +1278,7 @@ export class Loppe extends TelAdreAbstractContent {
                         "As good as it would feel to shove your [cock smallest] into her cunt, the nervous looks she's giving it tell you what her response would probably be.  "
                     );
             }
-            //[(any cock)
+            // [(any cock)
             if (this.player.hasCock())
                 this.outputText(
                     "You could just whip it out and ask what she thinks of it, compared to hers - it might lead to some cross words and crossed swords, though.  "
@@ -1287,7 +1287,7 @@ export class Loppe extends TelAdreAbstractContent {
                 this.outputText(
                     "You could take her monster length vaginally, but if her libido is what she claims, you'll probably wind up quite stretched.  "
                 );
-            //[(boobs >= boobjob req)
+            // [(boobs >= boobjob req)
             if (this.player.biggestTitSize() >= 5)
                 this.outputText(
                     "Her hardening horsecock looks like it would fit between your [chest], an act likely to net you a messy demonstration of her enthusiasm.  "
@@ -1295,17 +1295,17 @@ export class Loppe extends TelAdreAbstractContent {
             this.outputText(
                 "There's always the option to receive her anally, though with her vaunted libido, you'd probably end up so flooded with her cum that it would wash from your mouth.  Or you could be a prick-tease and leave."
             );
-            //Display sex options
-            //[Cowgirl][Frot][TakeVaginal][Boobjob][TakeAnal][Bail]
+            // Display sex options
+            // [Cowgirl][Frot][TakeVaginal][Boobjob][TakeAnal][Bail]
         }
-        //Repeat Intro (edited)
+        // Repeat Intro (edited)
         else {
             this.outputText("Loppe's other 'workout' sounds pretty good right now.");
             this.outputText(
                 '\n\nThe dancer grins and gives you a little peck on the lips.  "<i>Can\'t get enough laquine loving, can you?</i>"'
             );
 
-            //(High Min Lust)
+            // (High Min Lust)
             if (this.player.minLust() >= 50) {
                 this.outputText(
                     "\n\nWell, after all, how many people can actually sate your hunger for sex?"
@@ -1314,7 +1314,7 @@ export class Loppe extends TelAdreAbstractContent {
                     '\n\nLoppe grins at you.  "<i>I just knew you\'d come back for more.</i>"  She takes your hand in hers and fairly drags you along, already heading for the door.'
                 );
             }
-            //(High Libido)
+            // (High Libido)
             else if (this.player.lib >= 70) {
                 this.outputText("\n\nYou thought you held out pretty well last time.");
                 this.outputText(
@@ -1324,7 +1324,7 @@ export class Loppe extends TelAdreAbstractContent {
                     "\n\nWho, indeed?  Didn't Loppe herself fall asleep at the same time?  Your lover giggles.  \"<i>I was just being nice, sugar; I thought you'd like to sleep with someone besides you.  But if you're so confident in your abilities, why don't you follow me and show me just what you're made of?</i>\""
                 );
             }
-            //(High Toughness)
+            // (High Toughness)
             else if (this.player.tou >= 70) {
                 this.outputText("\n\nThe test of your stamina was nice; now you want a rematch.");
                 this.outputText(
@@ -1347,7 +1347,7 @@ export class Loppe extends TelAdreAbstractContent {
                 '\n\n"<i>How will you be having me, sugar?</i>" she asks, hopefully.\n\n'
             );
 
-            //[(any cock fits area 80)
+            // [(any cock fits area 80)
             if (this.player.hasCock()) {
                 if (this.player.smallestCockArea() <= this.loppeCapacity())
                     this.outputText(
@@ -1358,7 +1358,7 @@ export class Loppe extends TelAdreAbstractContent {
                         "As good as it would feel to shove your [cock smallest] into her cunt, the nervous looks she's giving it tell you what her response would probably be.  "
                     );
             }
-            //[(any cock)
+            // [(any cock)
             if (this.player.hasCock())
                 this.outputText(
                     "You could just whip it out and ask what she thinks of it, compared to hers - it might lead to some cross words and crossed swords, though.  "
@@ -1367,7 +1367,7 @@ export class Loppe extends TelAdreAbstractContent {
                 this.outputText(
                     "You could take her monster length vaginally, but if her libido is what she claims, you'll probably wind up quite stretched.  "
                 );
-            //[(boobs >= boobjob req)
+            // [(boobs >= boobjob req)
             if (this.player.biggestTitSize() >= 5)
                 this.outputText(
                     "Her hardening horsecock looks like it would fit between your [chest], an act likely to net you a messy demonstration of her enthusiasm.  "
@@ -1375,22 +1375,22 @@ export class Loppe extends TelAdreAbstractContent {
             this.outputText(
                 "There's always the option to receive her anally, though with her vaunted libido, you'd probably end up so flooded with her cum that it would wash from your mouth.  Or you could be a prick-tease and leave."
             );
-            //[(loppesexed)
+            // [(loppesexed)
             this.outputText(
                 "  Just jerking that cock and squeezing it so hard her balls swell up when she comes, though, that might be fun.  It'd be interesting to see how big they can get."
             );
 
-            //Display sex options
-            //[Cowgirl][CockWorship][TakeVaginal][Boobjob][TakeAnal][Squeezejob][Bail]
+            // Display sex options
+            // [Cowgirl][CockWorship][TakeVaginal][Boobjob][TakeAnal][Squeezejob][Bail]
         }
         if (this.player.lust < 33) {
             this.player.lust = 33;
             this.dynStats("lus", 0.2);
         }
-        //Display sex options
-        //[Cowgirl][Frot][TakeVaginal][Boobjob][TakeAnal][Bail]
+        // Display sex options
+        // [Cowgirl][Frot][TakeVaginal][Boobjob][TakeAnal][Bail]
         this.menu();
-        //if(flags[kFLAGS.LOPPE_TIMES_SEXED] > 0)
+        // if(flags[kFLAGS.LOPPE_TIMES_SEXED] > 0)
         if (this.player.hasCock() && this.player.lust >= 33) {
             if (this.player.cockThatFits(this.loppeCapacity()) >= 0)
                 this.addButton(0, "Cow-girl", this.loppeRidesCocks);
@@ -1409,21 +1409,21 @@ export class Loppe extends TelAdreAbstractContent {
         this.addButton(9, "Leave", this.beATeaseAndLeaveLoppeAfterSexInvite);
     }
 
-    //Male
-    //Cowgirl Cock Ride: (edited)
-    //Loppe's vag capacity = 80-100
+    // Male
+    // Cowgirl Cock Ride: (edited)
+    // Loppe's vag capacity = 80-100
     private loppeRidesCocks(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("loppe-rides-your-cocks"));
         this.outputText(
             "Looking over the hermaphroditic, horse-cocked bunny-girl, you contemplate your options.  You settle yourself "
         );
-        //[(not centaur)]
+        // [(not centaur)]
         if (!this.player.isTaur())
             this.outputText(
                 "on her bed, making yourself comfortable, and start suggestively stroking yourself"
             );
-        //(centaur)
+        // (centaur)
         else
             this.outputText(
                 "cumbersomely on the floor, rolling over and spreading your hindlegs to expose yourself"
@@ -1437,13 +1437,13 @@ export class Loppe extends TelAdreAbstractContent {
                 this.multiCockDescriptLight() +
                 "."
         );
-        //[(2 fit cocks)
+        // [(2 fit cocks)
         var x: number = this.player.cockThatFits(this.loppeCapacity());
         var y: number = this.player.cockThatFits2(this.loppeCapacity());
 
         if (y >= 0 && this.player.cockTotal() == 2)
             this.outputText('  "<i>In fact... I could just eat both of those up.</i>"');
-        //(3+ fit cocks)
+        // (3+ fit cocks)
         else if (y >= 0 && this.player.cockTotal() == 3)
             this.outputText("  \"<i>But I'm afraid I'll only be able to handle two of them.</i>\"");
         if (this.player.cockTotal() > 1 && y >= 0)
@@ -1530,12 +1530,12 @@ export class Loppe extends TelAdreAbstractContent {
         );
 
         this.outputText("\n\n");
-        //[(not horse)]
+        // [(not horse)]
         if (!this.player.isTaur()) {
             this.outputText(
                 "<b>You realize that if you keep holding onto Loppe, you're going to end up with a face covered in herm-cum - if you act quickly, though, you can avoid the impromptu facial.  You could even turn her hose of a cock back on her.</b>"
             );
-            //[NoFace] [Facial] [HoseHer]
+            // [NoFace] [Facial] [HoseHer]
             this.menu();
             this.addButton(0, "NoFace", this.loppeRidesYouNoFaceJizz);
             this.addButton(1, "Facial", this.loppeRidesYouSpunksInYourEye);
@@ -1547,7 +1547,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.dynStats("lus=", 100, "resisted", false);
     }
 
-    //{If NoFace:
+    // {If NoFace:
     private loppeRidesYouNoFaceJizz(): void {
         this.clearOutput();
         var y: number = this.player.cockThatFits2(this.loppeCapacity());
@@ -1576,7 +1576,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.loppeRidesPCCockFinal();
     }
 
-    //{If Facial:}
+    // {If Facial:}
     private loppeRidesYouSpunksInYourEye(): void {
         this.clearOutput();
         var x: number = this.player.cockThatFits(this.loppeCapacity());
@@ -1605,7 +1605,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.loppeRidesPCCockFinal();
     }
 
-    //{If HoseHer:
+    // {If HoseHer:
     private loppeRidesYouHoseHer(): void {
         this.clearOutput();
 
@@ -1655,13 +1655,13 @@ export class Loppe extends TelAdreAbstractContent {
             " around her, pulling her into a post-coital cuddle.  Her wet cock quietly slaps against your belly as she embraces you back, clearly savoring the closeness the same way you are.  However, moments later, you feel Loppe's hips start to twitch, slowly building into more lustful thrustings, seconds before Loppe pushes herself back into a deliberately upright position, her pace building steadily.  With a lusty smile and a mischievous twinkle in her eyes, Loppe looks you straight in the eye as she proclaims, \"<i>It's time for round two, [name]!</i>\""
         );
 
-        //(High libido or High Min lust)
+        // (High libido or High Min lust)
         if (this.player.lib >= 70 || this.player.minLust() >= 50) {
             this.outputText(
                 "\n\nYou remember what she told you about her libido and shrug; what's another round, after all?  You're happy to finally have someone capable of sating your endless hunger for sex.  [EachCock] begins to harden again, and the girl on top of you gives you a knowing smile."
             );
         }
-        //(Medium libido or Medium Min lust)
+        // (Medium libido or Medium Min lust)
         else if (this.player.lib >= 50 || this.player.minLust() >= 35) {
             this.outputText(
                 "\n\nYou remember what she told you about her libido, but another round?  So soon?  Sighing, you tell Loppe that you just can't handle so much sex in such a short notice; she'd have to at least give you a few moments to recover."
@@ -1729,7 +1729,7 @@ export class Loppe extends TelAdreAbstractContent {
                 this.player.skin() +
                 "; the cum-filled flesh deforms as the pressure pushes some of the skin-stretching load out of her nethers and further smears the proof of your pleasure on your entwined lower halves, but even so she still looks ready to pop with three or four kids.  You consider answering her, but find that you lack the will to do so... in fact, you lack the energy to do anything at all, Loppe having fucked you until you were shooting blanks"
         );
-        //[(if high cum amount)]
+        // [(if high cum amount)]
         if (this.player.cumQ() >= 500) this.outputText(" despite your usually messy orgasms");
         this.outputText(".");
 
@@ -1751,7 +1751,7 @@ export class Loppe extends TelAdreAbstractContent {
             "\n\nLoppe giggles, sauntering over to you and helping you up, before offering you the tray with a small peck on the cheek.  \"<i>Here you go; I made these especially for you.  Eat up!</i>\"  Ravenously, you dig into the humble fare, finding it takes the edge off of your fatigue... though your muscles still feel drained and weak from the amount of 'exercise' you gave them."
         );
 
-        //(First Time)
+        // (First Time)
         if (this.flags[kFLAGS.LOPPE_TIMES_SEXED] == 0) {
             this.outputText(
                 '\n\nLoppe zeroes in on a trembling hand and takes the tray from you as you finish, then grins nervously.  "<i>Sorry about that, sugar.  I guess I might have overdone it, but it was so exciting being with someone new.  If it was too much, I\'ll be happy to make it up to you - maybe a date, or... maybe another, much slower session.</i>"  She looks slyly at you.  "<i>Whichever you\'re up for.</i>"'
@@ -1767,7 +1767,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.outputText(
             '\n\nReleasing you, Loppe points to a nearby chair.  "<i>I\'ve laid out your [armor] over there, but feel free to stay as long as you want to.</i>"  You thank her for the kind offer, but the last thing you need are imps or goblins getting into your supplies and making off with your things.  You redress yourself, negligently allowing Loppe glimpses of your naked body as you do so'
         );
-        //[(Exhibitionist)
+        // [(Exhibitionist)
         if (this.flags[kFLAGS.PC_FETISH] > 0)
             this.outputText(
                 "; it gives you something of a thrill, though nowhere near as much as taking them off for her in the first place did"
@@ -1776,14 +1776,14 @@ export class Loppe extends TelAdreAbstractContent {
         this.player.orgasm();
         this.dynStats("tou", 0.5, "lib", 0.5, "sen", -4);
         this.flags[kFLAGS.LOPPE_TIMES_SEXED]++;
-        //3 hours pass.
+        // 3 hours pass.
         this.doNext(this.camp.returnToCampUseFourHours);
     }
 
-    //Cock Worship: (edited)
-    //Obviously, PC needs a cock.
-    //For tentacle variant, you need a tentacle cock 14</i>\" long or more.
-    //Not available to centaurs.
+    // Cock Worship: (edited)
+    // Obviously, PC needs a cock.
+    // For tentacle variant, you need a tentacle cock 14</i>\" long or more.
+    // Not available to centaurs.
     private loppeWorshipsDicks(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("loppe-worships-your-cock"));
@@ -1795,7 +1795,7 @@ export class Loppe extends TelAdreAbstractContent {
             ", you conversationally ask Loppe what she thinks of your [cock biggest], an idea starting to form in your mind."
         );
 
-        //(if cock area <= 17.5)
+        // (if cock area <= 17.5)
         if (this.player.biggestCockArea() <= 17.5) {
             this.outputText(
                 "\n\n\"<i>What do I think about your dick?  Well... it's much smaller than my own, but it's cute.  And to be honest I wouldn't mind having it fill me up, even if you won't be able to go that deep.</i>\""
@@ -1808,11 +1808,11 @@ export class Loppe extends TelAdreAbstractContent {
                 "\n\n\"<i>What do I think about your dick?  Well, it's about the same size as mine, which is good, I think... and it looks hard too.  I can see the veins bulge each time it throbs.  Looks tasty... and I wouldn't mind having something like that inside me.</i>\"  She nods appreciatively."
             );
         } else {
-            //cock area > 35
+            // cock area > 35
             this.outputText(
                 "\n\n\"<i>What do I think about your dick?  Well... it's huge!  So big, hard and juicy - that's a cock I can really get my hands around.  To be honest with you, I'm having a hard time not taking it for a spin.  Such a wonderful looking member... "
             );
-            //[(if cock area > Loppe's capacity)
+            // [(if cock area > Loppe's capacity)
             if (this.player.biggestCockArea() > this.loppeCapacity())
                 this.outputText("even if it does look too big to fit.");
             else this.outputText("or maybe I should get a taste first?");
@@ -1868,7 +1868,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.outputText(
             " against your [cock biggest] sends tingles of pleasure rippling through your loins.  The half-breed doesn't stop her ministrations, barely noticing your reaction.  All she does is giggle as you continue pumping more of your slick pre all over her breasts.  Murmuring and moaning appreciatively, you continue to thrust and grind, eagerly spilling pre-cum all over your herm lover's cleavage and midriff, though you can't prevent one sudden spurt from landing right on her face"
         );
-        //[(lib > 40)
+        // [(lib > 40)
         if (this.player.lib >= 40)
             this.outputText(
                 " - nor would you want to; she looks just right covered in your fluids"
@@ -1897,17 +1897,17 @@ export class Loppe extends TelAdreAbstractContent {
             '\n\n"<i>You\'re the best, sugar.</i>"  You simply nod, too dazed to really listen.  She humps you a couple more times, noting your softening member.  Giggling, she says,  "<i>It\'s too early for you to go soft on me, [name].  I still have a lot of appreciation to show you... and I\'m sure you still want to show your appreciation for me too.  So get ready for round two!</i>"  She leers at you, licking her lips in blatant anticipation.'
         );
 
-        //Low Libido:
+        // Low Libido:
         if (this.player.lib < 33 && this.player.minLust() < 30)
             this.outputText(
                 "\n\nYou groan from the depths of your throat; Loppe and her libido..."
             );
-        //{Moderate Libido:
+        // {Moderate Libido:
         else if (this.player.lib < 66 && this.player.minLust() < 50)
             this.outputText(
                 "\n\nWith a wince of equal parts anticipated pleasure and pain, you ready yourself for a long session."
             );
-        //High Libido:
+        // High Libido:
         else
             this.outputText(
                 "\n\nYour fatigue ebbs away, chased off by your eagerness for more of the incredible sex you just had."
@@ -1933,15 +1933,15 @@ export class Loppe extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseFourHours);
     }
 
-    //Female
-    //Get Vagina-Fucked: (edited)
+    // Female
+    // Get Vagina-Fucked: (edited)
     private getFuckedInYerTwatYaCunt(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("loppe-sticks-it-in-your-vagoo"));
         this.outputText(
             "As you contemplate the delicious possibilities that the herm presents, your eyes are drawn to her admirable piece of horse-meat.  With a half-grin, you settle yourself on her bed, "
         );
-        //[(mans)
+        // [(mans)
         if (!this.player.isTaur())
             this.outputText("spreading your labia in an invitation that needs no words.");
         else
@@ -1952,13 +1952,13 @@ export class Loppe extends TelAdreAbstractContent {
         this.outputText(
             "\n\nLoppe smirks at you and winks.  \"<i>Don't worry; I'll treat you like a "
         );
-        //[(femininity <= 40)
+        // [(femininity <= 40)
         if (this.player.femininity > 50) this.outputText("princess.  A sexy, smoking hot princess");
         else this.outputText("prince.  A dashing, dandy prince");
         this.outputText(
             ' that I intend to fill up with my laquine love.</i>"  She wastes no time and pounces on the bed, ready to bury her face between your [legs], licking her lips while taking deep breaths to inhale as much of your pheromones as she can.  You blink at the speed with which she moves, but smile, repositioning yourself to give her better access'
         );
-        //[(herm non-horse)
+        // [(herm non-horse)
         if (this.player.gender == 3 && !this.player.isTaur()) {
             this.outputText(", though she needs to move aside " + this.sMultiCockDesc() + " ");
             if (this.player.balls > 0) this.outputText("and [balls] ");
@@ -1969,7 +1969,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.outputText(
             '\n\n"<i>Sugar, you have no idea how good you smell.  Oh, I just have to get a taste of that sweet-looking pussy of yours.</i>"  Loppe dives forward'
         );
-        //[(not horse and herm)
+        // [(not horse and herm)
         if (!this.player.isTaur() && this.player.gender == 3) {
             this.outputText(", under your ");
             if (this.player.balls > 0) this.outputText("[sack]");
@@ -1984,14 +1984,14 @@ export class Loppe extends TelAdreAbstractContent {
             this.outputText(
                 "\n\n\"<i>You taste like a virgin, [name].  But that's impossible, right?  There's no way a hottie like you would let a silly horse-bunny like me be your first.</i>\""
             );
-            //[(low corr)]
+            // [(low corr)]
             if (this.player.cor < 50)
                 this.outputText("  You look coy, for her benefit, and cast your eyes down shyly.");
             else
                 this.outputText(
                     "  You do your best to warn her away from the topic with your eyes, eager to get on with the fuck."
                 );
-            //(not for horsez)
+            // (not for horsez)
             if (!this.player.isTaur())
                 this.outputText(
                     "\n\nLoppe gasps and persists.  \"<i>Wow... I'll actually get to be your first... are you sure that's okay?</i>\""
@@ -2008,7 +2008,7 @@ export class Loppe extends TelAdreAbstractContent {
                 "\n\nShe swallows audibly and grins.  \"<i>I assure you I'll be gentle and that I'll make your first time as memorable as I can.  You're not leaving this room until you are completely satisfied, I promise!</i>\""
             );
         }
-        //(else if vaginalLooseness < 3)
+        // (else if vaginalLooseness < 3)
         else if (this.player.looseness() < 3)
             this.outputText(
                 '\n\n"<i>You taste so sweet... I knew I was right to call you \'sugar\', sugar!</i>" Loppe comments with a smile and lick of her lips.  "<i>But enough foreplay!</i>"'
@@ -2023,7 +2023,7 @@ export class Loppe extends TelAdreAbstractContent {
         );
         if (this.player.vaginalCapacity() >= 35)
             this.outputText(" bottoms out, completely hilted inside you");
-        //[else:
+        // [else:
         else this.outputText(" bumps against your cervix");
         this.outputText(". You moan in delight as she sinks into you");
         if (this.player.vaginas[0].virgin)
@@ -2033,13 +2033,13 @@ export class Loppe extends TelAdreAbstractContent {
         else if (this.player.vaginalCapacity() < 35)
             this.outputText(", forcing your entrance wide to accommodate herself");
         this.outputText(".");
-        //cuntchange, but suppress standard messages
+        // cuntchange, but suppress standard messages
         this.player.cuntChange(35, true, true, false);
 
         this.outputText(
             '\n\n"<i>Ah, It feels even better than it tastes...</i>" Loppe says airily as she begins humping you, her powerful hips working to bring both of you closer to the edge and beyond.'
         );
-        //[(not horse)
+        // [(not horse)
         if (!this.player.isTaur())
             this.outputText(
                 "  You wrap your [legs] around her hips as best you can, thrusting in your efforts to meet her strong rhythm, feeling your cunt rippling around her wonderfully long, thick horsecock."
@@ -2056,7 +2056,7 @@ export class Loppe extends TelAdreAbstractContent {
             this.outputText(", precum begins to drool from your " + this.multiCockDescriptLight());
         this.outputText(".");
 
-        //Not Centaur:
+        // Not Centaur:
         if (!this.player.isTaur()) {
             this.outputText(
                 "\n\nYou grab Loppe's face to kiss her passionately. One hand strokes her long, dark hair, while the other slides down her back - it takes some work to position yourself right, but you're finally able to grasp her balls, kneading and jiggling them in the palm of your hand, fingers curling around to tickle their way into her wet, dripping cunt.\n\nLoppe breaks the kiss and gasps. \"<i>If you... ah... keep this up, sugar, you'll be getting a healthy dose of laquine love anytime now.  Oh, right there!</i>\" Loppe moves to kiss along your collarbone and suckle on your neck.\n\nWell, now, if that isn't encouraging in its own right... your free hand starts to play with her long, rabbit-like ears - after all, those should be sensitive, right?  Them being erogenous zones makes as much sense as anything about your relationship with Loppe does - even as your busy hand continues to massage her balls and her pussy, flicking her clit and pumping your increasingly juice-smeared fingers into her neglected, greedily-sucking hole, you grind your hips into hers, gyrating in a countermeasure to her own motions"
@@ -2065,7 +2065,7 @@ export class Loppe extends TelAdreAbstractContent {
                 this.outputText(" and smearing both your bellies with herm-pre");
             this.outputText(".");
         }
-        //Centaur:
+        // Centaur:
         else {
             this.outputText(
                 "\n\nYou find yourself pushing back against her, lifting your [butt] to better receive Loppe's thrusts, even forcing her back as you do so."
@@ -2126,7 +2126,7 @@ export class Loppe extends TelAdreAbstractContent {
         );
 
         this.outputText("\n\nWords fail you, and you give her ");
-        //[(low corr)
+        // [(low corr)
         if (this.player.cor < 50)
             this.outputText(
                 "a pleading look... and if there's maybe a trace of horror dancing in the depths of your eyes, well, that's understandable, isn't it?"
@@ -2160,7 +2160,7 @@ export class Loppe extends TelAdreAbstractContent {
         );
         if (this.silly()) this.outputText('  "<i>Da! Sandvich is kredit to team!</i>"');
 
-        //(First Time)
+        // (First Time)
         if (this.flags[kFLAGS.LOPPE_TIMES_SEXED] == 0) {
             this.outputText(
                 '\n\nLoppe grins nervously as you ravenously tuck into your meal, hovering by your side until you finish.  Once you\'re done, she gives you a sheepish smile.  "<i>Sorry about that.  I guess I might have overdone it, but it was so exciting being with someone new.  If it was too much, I\'ll be happy to make it up to you - maybe a date, or... maybe another, much slower session.</i>"  She looks slyly at you.  "<i>Whichever you\'re up for.</i>"'
@@ -2169,7 +2169,7 @@ export class Loppe extends TelAdreAbstractContent {
                 "\n\nBefore you have a chance to answer, she leans in and captures your lips in a kiss."
             );
         }
-        //Else
+        // Else
         else {
             this.outputText(
                 "\n\nLoppe watches you feast with an amused, loving smile.  \"<i>Sorry about that.  I still can't quite control myself, especially not when I have a cutie like you as my lover.  But... thanks for coming back again.  You're sweet, sugar!</i>\""
@@ -2182,7 +2182,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.outputText(
             "\n\nYou think it over, but then laugh and turn her down; just how can you trust her not to follow you into the bath and stuff you so full you can't get out of it?"
         );
-        //[Libido >=50:
+        // [Libido >=50:
         if (this.player.lib >= 50 || this.player.minLust() >= 30)
             this.outputText("  Not that you didn't just titillate yourself thinking of it...");
         this.outputText(
@@ -2192,7 +2192,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.outputText(
             "\n\nYou slide out from beneath the covers and start redressing yourself.  Once you're done, Loppe steals a quick peck on the lips before you head out."
         );
-        //3 hours pass.
+        // 3 hours pass.
         this.player.slimeFeed();
         this.flags[kFLAGS.LOPPE_TIMES_SEXED]++;
         this.player.orgasm();
@@ -2200,8 +2200,8 @@ export class Loppe extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseFourHours);
     }
 
-    //Any(C)
-    //Get Ass-Fucked, for not horses: (edited)(C)
+    // Any(C)
+    // Get Ass-Fucked, for not horses: (edited)(C)
     private getButtFuckedNonHoarseByLoppe(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("loppe-sticks-it-in-your-butt"));
@@ -2224,7 +2224,7 @@ export class Loppe extends TelAdreAbstractContent {
             '\n\nLoppe moves back towards the bed and gently places the vial beside you.  "<i>Since you\'re so eager for this, you may do the honors.</i>"  She crosses her arms and stands beside the bed, waiting for you to get started; her cock looks painfully erect and throbs visibly.'
         );
 
-        //(PC has Anal Wetness)
+        // (PC has Anal Wetness)
         if (this.player.ass.analWetness > 0) {
             this.outputText(
                 '\n\nYou smirk and fold your arms - you don\'t need it; your ass makes its own lube.  Loppe\'s eyes widen in surprise.  "<i>What? Are you serious?</i>"  A coy look and an elevated rear invite her to see for herself, but for emphasis, you suck with exaggerated innocence on the tip of a finger.  Already, you can feel your arousal stimulating you, resulting in beads of moisture welling up within your sex-ready hole.  Loppe reaches in and thrusts her index finger into your butt, gasping in surprise.  "<i>Wow... you really are full of surprises, aren\'t you, sugar?</i>"'
@@ -2266,7 +2266,7 @@ export class Loppe extends TelAdreAbstractContent {
             "\n\nLoppe pants and smiles at you.  \"<i>Now you've done it... you got me really going now, so get ready.  I'll give you a ride you won't forget anytime soon!</i>\" your lover hurriedly snatches the vial of lube and puts it away, then literally pounces on your elevated butt and aligns the tip with your moist rosebud."
         );
 
-        //(if Anal Looseness == 0)
+        // (if Anal Looseness == 0)
         if (this.player.ass.analLooseness == 0) {
             this.outputText(
                 "\n\nLoppe presses her flared head against your tight little hole, but it won't go in, despite all the lube.  \"<i>Wow, sugar.  You're really tight here... how many times have you done this before?</i>\""
@@ -2281,13 +2281,13 @@ export class Loppe extends TelAdreAbstractContent {
             this.outputText(
                 "\n\nHaving said that, she begins to push against your tightly-sealed sphincter, slowly increasing the pressure until her flared tip finally pops in.  You try to relax, like she said, but still can't restrain a soft groan of pleasure-pain as she forces her way inside of you, stretching you in a way you know you'll never completely recover from."
             );
-            //insert anal virginity loss message
+            // insert anal virginity loss message
             this.player.buttChange(35, true, true, false);
             this.outputText(
                 "\n\nOnce inside, Loppe slowly slides forward, aided by the lube you've poured on her shaft earlier, until she's as far in as she's going to get."
             );
         }
-        //(else if Anal Looseness < 3)
+        // (else if Anal Looseness < 3)
         else if (this.player.ass.analLooseness < 3) {
             this.outputText(
                 "\n\nLoppe presses her flared head against your [butt]; it takes a little work, but she manages to pop her tip inside your waiting hole.  You shiver and let out a purr of pleasure at being filled so..."
@@ -2337,7 +2337,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.outputText("... you beg her to go faster, to do it harder!");
 
         this.outputText("\n\nLoppe happily complies, thrusting herself deeper and stronger.  ");
-        //[(cock)
+        // [(cock)
         if (this.player.hasCock())
             this.outputText(
                 "One of her hands reaches around to grasp your pre-slickned [cock biggest], stroking you in time with her thrusts.  "
@@ -2400,7 +2400,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.outputText(
             "\n\n\"<i>Now you're just being silly; I'm not that virile... nobody's that virile.</i>\"  The laquine pouts, clearly upset.  "
         );
-        //[(has had 1+ satyr babies)
+        // [(has had 1+ satyr babies)
         if (this.flags[kFLAGS.SATYR_KIDS] > 0)
             this.outputText(
                 "You laugh softly; hopefully she'll never have to meet the creature that dispelled that same doubt in you.  "
@@ -2427,7 +2427,7 @@ export class Loppe extends TelAdreAbstractContent {
             "\n\nYou think it over, then shake your head.  No, you feel too queasy still to really eat anything for a while yet."
         );
 
-        //(First Time)
+        // (First Time)
         if (this.flags[kFLAGS.LOPPE_TIMES_SEXED] == 0) {
             this.outputText(
                 "Loppe laughs nervously.  \"<i>Sorry about that.  It's just that I usually can't bag a real cutie like you, and I think I might have gone a bit overboard... is there anyway I can make it up to you?</i>\""
@@ -2439,23 +2439,23 @@ export class Loppe extends TelAdreAbstractContent {
             this.outputText(
                 '\n\n"<i>H-hey, I know for a fact that you enjoyed it too, so try not to think of anything too abusive... unless you want another round?</i>"'
             );
-            //(Low Libido)
+            // (Low Libido)
             if (this.player.lib < 33)
                 this.outputText(
                     "\n\nYou give her a flat stare, letting your expression speak for you."
                 );
-            //(Medium Libido)
+            // (Medium Libido)
             else if (this.player.lib < 66)
                 this.outputText(
                     "\n\nYou tell her that maybe you'll take her up on that... some other time."
                 );
-            //(High Libido)
+            // (High Libido)
             else this.outputText("\n\nIt's tempting, but no.");
             this.outputText(
                 "\n\nLoppe averts her eyes, rubbing the back of her neck with a sorrowful attitude.  \"<i>Well... I guess I don't have anything clever to say.  I'll understand if you don't come back, but... I really, really did enjoy our time together.</i>\""
             );
         }
-        //(Else)
+        // (Else)
         else {
             this.outputText(
                 '\n\nLoppe draws you into a short kiss.  "<i>Sorry... but you know how much I like sex, and you\'re really cute too.  It\'s kinda hard to control myself.</i>"  She smiles seductively at you.  "<i>Then again, maybe I could just fuck you into staying here with me - that way you wouldn\'t have to bother leaving and coming back.</i>"'
@@ -2487,14 +2487,14 @@ export class Loppe extends TelAdreAbstractContent {
         );
         this.player.slimeFeed();
         this.flags[kFLAGS.LOPPE_TIMES_SEXED]++;
-        //3 hours pass
+        // 3 hours pass
         this.player.orgasm();
         this.dynStats("tou", 0.5, "lib", 0.5, "sen", -4);
         this.doNext(this.camp.returnToCampUseFourHours);
     }
 
-    //Get Ass-Fucked: Centaur Enhanced Edition (edited)(C)
-    //Replaces the normal anal scene in case you're a centaur.
+    // Get Ass-Fucked: Centaur Enhanced Edition (edited)(C)
+    // Replaces the normal anal scene in case you're a centaur.
     private getAssFuckedByLoppeAsACentaur(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("loppe-sticks-it-in-your-butt-you-centaur"));
@@ -2513,7 +2513,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.outputText(
             "\n\n\"<i>Mmm... maybe it's the horse in me, but this sounds like a wonderful idea.  If you're willing to let me loose back there, I'm going to enjoy this...</i>\"  Loppe croons, already advancing towards you, hands reaching out to grab at your flank.  You're more than prepared for her..."
         );
-        //[ass wet)
+        // [ass wet)
         if (this.player.ass.analWetness > 0)
             this.outputText(
                 "  She doesn't even have to bother with lube; your ass is wet enough to accommodate her on its own."
@@ -2527,7 +2527,7 @@ export class Loppe extends TelAdreAbstractContent {
             "\n\nSo caught up are you in your fantasy that you don't realize Loppe has finished lubing herself up and is behind you until you feel hands caressing your flanks.  \"<i>Alright, sugar, let's just see what we're getting into...</i>\"  One hand continues to rub your ass, while the other begins pressing something against your black rosebud..."
         );
 
-        //(if Anal Looseness == 0)
+        // (if Anal Looseness == 0)
         if (this.player.ass.analLooseness == 0) {
             this.outputText(
                 "\n\nIt won't go in, despite all the lube.  \"<i>Wow, sugar.  You're really tight here... how many times have you done this before?</i>\""
@@ -2544,14 +2544,14 @@ export class Loppe extends TelAdreAbstractContent {
             this.outputText(
                 "\n\nHaving said that, she begins to push against your tightly-sealed sphincter, slowly increasing the pressure until her flared tip finally pops in.  You try to relax, like she said, but still can't restrain a soft groan of pleasure-pain as she forces her way inside of you, stretching you in a way you know you'll never completely recover from."
             );
-            //insert anal virginity loss message
+            // insert anal virginity loss message
             this.player.buttChange(35, true, true, false);
 
             this.outputText(
                 "\n\nOnce inside, Loppe slowly slides forward, aided by the lube you've poured on her shaft earlier, until she's as far in as she's going to get."
             );
         }
-        //(else if Anal Looseness < 3)
+        // (else if Anal Looseness < 3)
         else if (this.player.ass.analLooseness < 3) {
             this.outputText(
                 "\n\nLoppe presses her flared head against your [butt]; it takes a little work, but she manages to pop her tip inside your waiting hole.  You shiver and let out a purr of pleasure at being filled so..."
@@ -2590,7 +2590,7 @@ export class Loppe extends TelAdreAbstractContent {
             this.outputText(
                 ", feeling your erect [cock] press against your underbelly, mashed between your centaur half and the soft carpet of Loppe's room.  You hope she doesn't mind a few stains...  "
             );
-        //(else vag)
+        // (else vag)
         else if (this.player.hasVagina())
             this.outputText(
                 "; your cunt is sopping, making a small pool of juices one the floor.  "
@@ -2609,7 +2609,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.outputText(
             "\n\nHer enthusiasm is contagious, and you find yourself bucking against her with almost as much eagerness as she's using to fuck your [asshole].  The pleasure is exquisite; that flared tip of hers plugs your hole in a most wonderful way... it's almost like every thrust fills up a part of you that was missing, while every pull creates a vacuum that threatens to suck that big horse-dick right where it belongs.  "
         );
-        //[PC has cock:
+        // [PC has cock:
         if (this.player.hasCock())
             this.outputText(
                 "  The bumps against your prostate send waves of pleasure running through [eachCock] and spreading along your body, until they reach your throat and come out as a ragged groan.  "
@@ -2641,7 +2641,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.outputText(".");
 
         this.outputText('\n\n"<i>Ohhh... you are incredible, [name].  ');
-        //[PC has dick that fits)
+        // [PC has dick that fits)
         if (this.player.cockThatFits(this.loppeCapacity()) >= 0)
             this.outputText(
                 'Though I hope you won\'t mind riding me, sometime,</i>" she laughs.  "<i>'
@@ -2650,14 +2650,14 @@ export class Loppe extends TelAdreAbstractContent {
             "How about another round, hmm?  Big strong 'taur like you should certainly be able to hold a little more loving inside of you, right?</i>\"  She croons happily, running her hands up and down your ass as if trying to entice you."
         );
 
-        //(Low Libido)
+        // (Low Libido)
         if (this.player.lib < 33) {
             this.outputText("\n\nCentaur or not, you do have your limits...");
             this.outputText(
                 "\n\n\"<i>Oh, I'll be gentle with you,</i>\"  Loppe murmurs... though the way she's looking at you and already starting to hump your ass again, having never pulled out, makes her reassurance less than reassuring."
             );
         }
-        //(Medium Libido)
+        // (Medium Libido)
         else if (this.player.lib < 66) {
             this.outputText(
                 "\n\nYou stop and consider her words... you still do have some fight left in you."
@@ -2666,7 +2666,7 @@ export class Loppe extends TelAdreAbstractContent {
                 '\n\n"<i>You want to see what kind of bronco buster I am?  Alright, let\'s get ready to do some real riding!</i>" Loppe cheers, already beginning to thrust back and forth.'
             );
         }
-        //(High Libido)
+        // (High Libido)
         else {
             this.outputText(
                 "\n\nCentaur or not, you wouldn't just stop with a single fuck... if Loppe thinks she's got enough stallion in her to satisfy you, she should get to work ASAP."
@@ -2721,7 +2721,7 @@ export class Loppe extends TelAdreAbstractContent {
 
         this.outputText("\n\nYou exit the bathroom, much lighter than you were previously.");
 
-        //(First Time)
+        // (First Time)
         if (this.flags[kFLAGS.LOPPE_TIMES_SEXED] == 0) {
             this.outputText(
                 "\n\n\"<i>I'm sorry I stuffed you that full,</i>\" Loppe apologizes, having the decency to look sheepish.  \"<i>I just get so horny, and my balls fill up so fast, that I just can't help it.  If it makes you feel any better, I wind up just as bloated when I'm the one getting the dick; I can't stop milking a cock until they've stuffed me as full as I can get.</i>\""
@@ -2733,7 +2733,7 @@ export class Loppe extends TelAdreAbstractContent {
                 "\n\n\"<i>I won't lie and promise it won't happen again, but I swear I'll always try to make it as good for you as it is for me."
             );
         }
-        //(else)
+        // (else)
         else {
             this.outputText(
                 "\n\n\"<i>You are such a sexy centaur; you do know that, right?</i>\" she asks.  \"<i>I can't tell whether you're hotter normally or when you're inflated like a balloon with all my love for you."
@@ -2752,12 +2752,12 @@ export class Loppe extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseFourHours);
     }
 
-    //SqueezeDick: (edited)(C)
-    //LoppeSexed must be true.
+    // SqueezeDick: (edited)(C)
+    // LoppeSexed must be true.
     private loppeSqueezedickWhateverThatIs(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("loppe-orgazm-denial"));
-        //(if LoppeDenial == 0)
+        // (if LoppeDenial == 0)
         if (this.flags[kFLAGS.LOPPE_DENIAL_COUNTER] == 0) {
             this.outputText(
                 "After seeing Loppe's prodigious output, you wonder how she would handle not being able to orgasm."
@@ -2781,7 +2781,7 @@ export class Loppe extends TelAdreAbstractContent {
                 "\n\n\"<i>Hmm... I like the long, hard orgasm part,  and I haven't ever tried something like this - let's do it!</i>\""
             );
         }
-        //(else if LoppeDenial == 1)
+        // (else if LoppeDenial == 1)
         else if (this.flags[kFLAGS.LOPPE_DENIAL_COUNTER] == 1) {
             this.outputText(
                 "\n\nWith a wry smile, you hold out a hand in response to her question, curling it into a half-clenched fist.  Loppe follows curiously, then starts when you squeeze it shut."
@@ -2796,7 +2796,7 @@ export class Loppe extends TelAdreAbstractContent {
             this.outputText(
                 "\n\n\"<i>I don't know, sugar.  I'm still a bit sore from last time... maybe we can do it after I've had some more time to recover?</i>\""
             );
-            //Display Sex Options.
+            // Display Sex Options.
             this.menu();
             this.addButton(4, "Back", this.loppeSexChoice);
             return;
@@ -2880,17 +2880,17 @@ export class Loppe extends TelAdreAbstractContent {
             "\n\nLoppe gasps raggedly, trying to recapture her breath.  \"<i>Please... you have to let me go.  It hurts!  I-I need to cum!  If you keep holding me I'm going to explode... ah!  No!  Here it comes again!</i>\"  She warns as you feel her rock hard shaft throb once more; yet another toe curling orgasm approaches, and you're not sure how much more she can physically take."
         );
 
-        //(Low corruption, no new pg)
+        // (Low corruption, no new pg)
         if (this.player.cor < 50) {
             this.outputText(
                 "  You loosen your grip; this was supposed to be pleasurable, not painful, so it's definitely time to stop."
             );
-            //Goto [Let Go]
+            // Goto [Let Go]
             this.menu();
             this.addButton(0, "Let Go", this.letsLoppeGoCum);
             this.addButton(1, "Hold", this.superLoppeOrgasmDenialGo);
         }
-        //(High Corruption, no new pg)
+        // (High Corruption, no new pg)
         else {
             this.outputText(
                 "  You suppose you could let her go... on the other hand, it might be fun to see just how big she'll get if you keep holding her in."
@@ -2901,7 +2901,7 @@ export class Loppe extends TelAdreAbstractContent {
         }
     }
 
-    //[=Let Go=]
+    // [=Let Go=]
     private letsLoppeGoCum(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("loppe-comes-after-orgasm-denial"));
@@ -2919,7 +2919,7 @@ export class Loppe extends TelAdreAbstractContent {
             "\n\nHaving caught her breath and recovered her senses, Loppe looks at you with a smile.  \"<i>No kidding.  I don't think I've ever come so hard before.  You really know how to get a girl worked up, don't you?  I still can't feel my toes.</i>\"  She tries to wiggle them experimentally, but if they're moving, you can't tell under the complete glazing she gave herself.  \"<i>Help me up, we should get cleaned up.</i>\""
         );
 
-        //[(low corr)
+        // [(low corr)
         if (this.player.cor < 50) {
             this.outputText(
                 "\n\nYou nod and give her a hand to rise to her feet.  Not the brightest idea, in retrospect; she's so numb from the waist down that she promptly collapses against you and it's only your swift action that keeps her from falling.  The creamy-white liquid is now smeared all over your front, and Loppe giggles and delivers a cum-caked kiss straight to your lips.  \"<i>As fun as that was, I think I'll want to wait some time before trying that again.</i>\""
@@ -2928,7 +2928,7 @@ export class Loppe extends TelAdreAbstractContent {
                 '\n\nThe two of you manage to clean up the worst of the mess you\'ve made, and you move to leave.  Loppe draws you into another, much cleaner, kiss before letting you go.  "<i>See you later, sugar!</i>"'
             );
         }
-        //(high corr)
+        // (high corr)
         else {
             this.outputText(
                 "\n\nYou hold out your hand with some distaste and, when she takes it shakily, pull her to her feet.  She wobbles on them and promptly collapses - only your swift action keeps her from crumpling against you.  The pool of viscous semen on the floor splashes sluggishly as she lands tits-down in it with a grunt.  \"<i>Holy... can't even walk right!  As fun as that was, I think it'll be some time before I feel like another.</i>\""
@@ -2939,13 +2939,13 @@ export class Loppe extends TelAdreAbstractContent {
 
             this.outputText('\n\n"<i>Fuck...</i>"');
         }
-        //set LoppeDenial to 4
+        // set LoppeDenial to 4
         this.flags[kFLAGS.LOPPE_DENIAL_COUNTER] = 3;
         this.dynStats("lus", 30 + this.player.lib / 10, "resisted", false);
         this.flags[kFLAGS.LOPPE_TIMES_SEXED]++;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[=Hold=]
+    // [=Hold=]
     private superLoppeOrgasmDenialGo(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("loppe-comes-after-moar-orgasm-denial"));
@@ -2985,7 +2985,7 @@ export class Loppe extends TelAdreAbstractContent {
             "\n\nYou sigh reluctantly; she's a real spoilsport.  \"<i>And that's exactly why you love me.  I keep you wanting more.  Now, onwards!</i>\""
         );
 
-        //[(med-high corr)
+        // [(med-high corr)
         if (this.player.cor >= 66)
             this.outputText(
                 "\n\nYou leave her assertion unanswered and haul your childish date to the bath; soon, the two of you are clean enough that you can dry yourself off and pull your clothes on."
@@ -2995,9 +2995,9 @@ export class Loppe extends TelAdreAbstractContent {
         if (this.player.hasCock())
             this.outputText("  Maybe next time I'll be the one to give you a bit of a holdout!");
         this.outputText('</i>"');
-        //leave, set LoppeDenial flag = 7
+        // leave, set LoppeDenial flag = 7
         this.flags[kFLAGS.LOPPE_DENIAL_COUNTER] = 5;
-        //(very high corr)
+        // (very high corr)
         if (this.player.cor >= 90) {
             this.outputText(
                 '\n\nYou laugh softly, staring at her with hooded eyes.  "<i>I just squeezed your dick until your balls inflated so much that they hurt, then kept torturing you until you came so hard you screamed and fainted.  What makes you think I love you?</i>"'
@@ -3007,15 +3007,15 @@ export class Loppe extends TelAdreAbstractContent {
                 "\n\nLoppe looks hurt and, for once, is at a loss for words.  To torment her further, you give her a smile just warm enough to make her think you might be joking, but not open enough to assuage her doubts.  You leave her like that, confused in a pool of her own wasted seed, as you step out of her room to take advantage of the clean bath first."
             );
             this.flags[kFLAGS.LOPPE_DENIAL_COUNTER] = 10;
-            //leave, set LoppeDenial flag = 14 (an extra 7 for being a jerk)
+            // leave, set LoppeDenial flag = 14 (an extra 7 for being a jerk)
         }
         this.dynStats("lus", 30 + this.player.lib / 10, "resisted", false);
         this.flags[kFLAGS.LOPPE_TIMES_SEXED]++;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Boobjob Loppe: (edited, pending boob size decision)(C)
-    //Needs DD-(cup) boobs.
+    // Boobjob Loppe: (edited, pending boob size decision)(C)
+    // Needs DD-(cup) boobs.
     private boobjobLoppe(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("loppe-give-her-a-titty-fuck"));
@@ -3058,12 +3058,12 @@ export class Loppe extends TelAdreAbstractContent {
                 " up and down the half-breed's prick.  It feels so hot and firm against your chest, growing increasingly damp as Loppe oozes gouts as voluminous as the cumshots of ordinary men, making your breasts and her prick alike equally slippery and enabling you to stroke her faster and faster. \"<i>K-keep that up and I'm gonna shoot anytime,</i>\" Loppe groans, trying to hump into your cleavage."
         );
 
-        //[(Normal/Naga tongue)
+        // [(Normal/Naga tongue)
         if (this.player.tongueType < TONUGE_DEMONIC)
             this.outputText(
                 "\n\nYou bend your head and lean down, letting your tongue flick out of your lips and slide gently across the flared head of Loppe's horse-prick, seductively tasting the sweet-salty flavor of her pre.  \"<i>Ah!  Hmm... I seriously hope you like the taste, because you're getting a faceful anytime now!</i>\"  Loppe moans."
             );
-        //Demon/Dragon:
+        // Demon/Dragon:
         else
             this.outputText(
                 '\n\nYour inhumanly long tongue slithers out of your mouth like a tentacle, swiping itself playfully across Loppe\'s flare to give you a taste of sweet and salty precum before you send it questing down, curling in a spiral pattern around her long shaft and burrowing into your cleavage to lap and squeeze and massage, filling your senses with the tang of her overheated cock.  "<i>D-damn, sugar!  Such a wonderful tongue you have,</i>" she groans, equine member throbbing against your hold.'
@@ -3082,7 +3082,7 @@ export class Loppe extends TelAdreAbstractContent {
             '\n\nShe looks back with the hungry stare of a predator eyeing a morsel.  "<i>Boobies!</i>" Loppe yells as she pounces you, trying to force you backward onto her bed.'
         );
 
-        //[(non-horse and str < 40 or horse and str < 20)
+        // [(non-horse and str < 40 or horse and str < 20)
         if (
             (this.player.str < 50 && !this.player.isTaur()) ||
             (this.player.str < 30 && this.player.isTaur())
@@ -3125,7 +3125,7 @@ export class Loppe extends TelAdreAbstractContent {
             this.outputText(
                 "\n\nWith one last belch for confirmation and possibly chastisement, you allow the herm bunny-hybrid to snuggle up against you, close your eyes, and try to doze off whilst ignoring the complaints of your over-stretched stomach."
             );
-            //goto Two hours later...
+            // goto Two hours later...
         } else {
             this.outputText(
                 '  You hold the laquine\'s arms and force her onto the floor; she lands with an audible "<i>oomph</i>" and you grin as you hold the eager herm down.'
@@ -3171,10 +3171,10 @@ export class Loppe extends TelAdreAbstractContent {
 
             this.outputText('\n\n"<i>Pleaaase?</i>" she asks, giving you her best doe eyes.');
 
-            //[(corr >= 60)That's for babies.  Pulling the sheet off of Loppe's bed, you wipe the crust off of your face and chest, then let the stained fabric drop to the floor.  You take one of the stuffed dolls off of her shelf and, raising an eyebrow, toss it at her; her eyes widen as it hits her squarely in the sopping, white tits.  "Cuddle with that.  I need to go."
-            //"You jerk, [name]; now I have to wash this!"
-            //Laughing, you blow her a kiss and make your way out of the house.
-            //end scene
+            // [(corr >= 60)That's for babies.  Pulling the sheet off of Loppe's bed, you wipe the crust off of your face and chest, then let the stained fabric drop to the floor.  You take one of the stuffed dolls off of her shelf and, raising an eyebrow, toss it at her; her eyes widen as it hits her squarely in the sopping, white tits.  "Cuddle with that.  I need to go."
+            // "You jerk, [name]; now I have to wash this!"
+            // Laughing, you blow her a kiss and make your way out of the house.
+            // end scene
             this.outputText("\n\n");
             if (this.player.cor >= 60)
                 this.outputText(
@@ -3215,7 +3215,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseFourHours);
     }
 
-    //Leave (edited)
+    // Leave (edited)
     private beATeaseAndLeaveLoppeAfterSexInvite(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("loppe-teaze-and-leave"));
@@ -3253,8 +3253,8 @@ export class Loppe extends TelAdreAbstractContent {
         this.addButton(0, "Next", this.telAdre.telAdreMenu);
     }
 
-    //Fondle&Tease (rewritten and edited)(C)
-    //req LoppeChat > 1
+    // Fondle&Tease (rewritten and edited)(C)
+    // req LoppeChat > 1
     private fondleAndTease(output: boolean = true): void {
         if (output) {
             this.clearOutput();
@@ -3294,14 +3294,14 @@ export class Loppe extends TelAdreAbstractContent {
                 "\n\nYou contemplate your options; you could just run away and leave her to calm down.  On the other hand, you could help.  But, take her home?  Why?  It might be more fun to see if you can keep stroking her until she busts her pants <i>and</i> her nut.  Or else you could be nice and cut her a deal under the table."
             );
         }
-        //[Suck] [Handjob] [Kiss&Run]
+        // [Suck] [Handjob] [Kiss&Run]
         this.menu();
         this.addButton(0, "Suck", this.teaseLoppeNSuck);
         this.addButton(1, "Handjob", this.teaseLoppeNHJ);
         this.addButton(2, "KissNRun", this.teaseLoppeKissRun);
     }
 
-    //Handjob (edited)(C)
+    // Handjob (edited)(C)
     private teaseLoppeNHJ(): void {
         this.clearOutput();
         this.outputText(
@@ -3411,13 +3411,13 @@ export class Loppe extends TelAdreAbstractContent {
             '\n\nA small voice sounds behind you as you exit.  "<i>Oh my!  Look at all this cum!  What a waste... not to worry though!  I know just where to store it!</i>"'
         );
 
-        //If FertileLoppe flag is not active, no special effects
-        //If FertileLoppe flag is active, PC who can become pregnant who uses the Goblin Machine at the Gym will become pregnant with Loppe-daughter if they use it within a week of playing this scene
+        // If FertileLoppe flag is not active, no special effects
+        // If FertileLoppe flag is active, PC who can become pregnant who uses the Goblin Machine at the Gym will become pregnant with Loppe-daughter if they use it within a week of playing this scene
         this.dynStats("lus", 10 + this.player.lib / 5);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Suck (edited)(C)
+    // Suck (edited)(C)
     private teaseLoppeNSuck(): void {
         this.clearOutput();
         this.outputText(
@@ -3543,15 +3543,15 @@ export class Loppe extends TelAdreAbstractContent {
         this.outputText(
             "\n\nIt's quite awkward walking like this, and you draw a few curious stares as well as a knowing one from the centauress at the reception as you pass by the desk on the way to Loppe's house."
         );
-        //commented lines are for expansion content
-        //output refuse without making offer until expansion is implemented
-        //It doesn't take long for you to arrive, once at the front door Loppe let's go and opens the door. Then turns to look at you. \"<i>Want to come in, sugar? You could use my bath... I think I left something on your back.</i>\" She smiles seductively. You reach back and sure enough, your back is wet with Loppe's pre-cum.
+        // commented lines are for expansion content
+        // output refuse without making offer until expansion is implemented
+        // It doesn't take long for you to arrive, once at the front door Loppe let's go and opens the door. Then turns to look at you. \"<i>Want to come in, sugar? You could use my bath... I think I left something on your back.</i>\" She smiles seductively. You reach back and sure enough, your back is wet with Loppe's pre-cum.
 
-        //You consider your options. On one hand, the bath sounds nice, but, given the way Loppe's looking at you and her cock is throbbing, you feel that there's more to this offer than a simple bath... On the other hand though... that would mean making it back to camp covered in laquine-spunk...
+        // You consider your options. On one hand, the bath sounds nice, but, given the way Loppe's looking at you and her cock is throbbing, you feel that there's more to this offer than a simple bath... On the other hand though... that would mean making it back to camp covered in laquine-spunk...
 
-        //[Accept][Refuse]
-        //[=Accept=]
-        //[=Refuse=]
+        // [Accept][Refuse]
+        // [=Accept=]
+        // [=Refuse=]
         this.outputText(
             '\n\nLoppe smiles at you, holding her cock in her hand.  "<i>Alright then, sugar.  I\'ll be going in then; I have business to handle.  See you later!</i>"'
         );
@@ -3560,7 +3560,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.player.slimeFeed();
     }
 
-    //Kiss 'n' Run (edited)(C)
+    // Kiss 'n' Run (edited)(C)
     private teaseLoppeKissRun(): void {
         this.clearOutput();
         this.outputText(

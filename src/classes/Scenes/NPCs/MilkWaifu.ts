@@ -4,19 +4,19 @@ import { StatusAffects } from "../../StatusAffects";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 export class MilkWaifu extends NPCAwareContent {
-    //New Variables
-    //" + flags[kFLAGS.MILK_NAME] + ": This slut's name. Can't call her Bath Slut forever. Unless you do.
-    //[MilkySize]: Does Milky have GIANT HUGE BOOBS that she can't fucking walk with, does she have a big plump set of HHH cups you can smother yourself and your big fat cock with, or a more reasonable DD bust, the perfect size to drink from, titfuck, and play with all day long.
+    // New Variables
+    // " + flags[kFLAGS.MILK_NAME] + ": This slut's name. Can't call her Bath Slut forever. Unless you do.
+    // [MilkySize]: Does Milky have GIANT HUGE BOOBS that she can't fucking walk with, does she have a big plump set of HHH cups you can smother yourself and your big fat cock with, or a more reasonable DD bust, the perfect size to drink from, titfuck, and play with all day long.
 
-    //const MILK_NAME: number = 869;
-    //const MILK_SIZE: number = 870;
-    //const MET_MILK_SLAVE: number = 871;
+    // const MILK_NAME: number = 869;
+    // const MILK_SIZE: number = 870;
+    // const MET_MILK_SLAVE: number = 871;
 
     public milkSlave(): boolean {
         return this.flags[kFLAGS.MILK_NAME] !== "";
     }
 
-    //Arriving at Camp
+    // Arriving at Camp
     public arriveWithLacticWaifuAtCamp(): void {
         this.clearOutput();
         this.outputText(
@@ -33,7 +33,7 @@ export class MilkWaifu extends NPCAwareContent {
 
         const input = document.createElement("input");
 
-        //[Name Field.  If left empty, defaults to "Bath Slut"]
+        // [Name Field.  If left empty, defaults to "Bath Slut"]
         this.menu();
         this.addButton(0, "Next", () => this.nameZeMilkBath(input));
         this.mainView.mainText.appendChild(input);
@@ -58,13 +58,13 @@ export class MilkWaifu extends NPCAwareContent {
         this.clearOutput();
         this.flags[kFLAGS.MILK_NAME] = input.value;
 
-        //Call her Bath Slut (You Asshole)
+        // Call her Bath Slut (You Asshole)
         if (input.value == "Bath Slut")
             this.outputText("Fuck it, Bath Slut it is.  At least she won't get confused.");
         else if (input.value == "Biscuit")
             this.outputText("Fuck it, you may as well butter her buns!");
-        //Variable: " + flags[kFLAGS.MILK_NAME] + "
-        //Having Named the Girl (Didn't name her Bath Slut)
+        // Variable: " + flags[kFLAGS.MILK_NAME] + "
+        // Having Named the Girl (Didn't name her Bath Slut)
         else {
             this.outputText(
                 "You crouch down beside the newly-named girl, brushing a few stray strands of her dark hair from her cheeks.  \"<i>No more Bath Slut.  You're " +
@@ -82,7 +82,7 @@ export class MilkWaifu extends NPCAwareContent {
                     '!</i>" she says, more confidently as you encourage her.'
             );
         }
-        //Arrival: Part 2 (PC has Rath in camp)
+        // Arrival: Part 2 (PC has Rath in camp)
         if (
             this.player.findStatusAffect(StatusAffects.CampRathazul) >= 0 &&
             this.player.statusAffectv2(StatusAffects.MetRathazul) >= 4
@@ -128,11 +128,11 @@ export class MilkWaifu extends NPCAwareContent {
             this.outputText(
                 '\n\n"<i>Rat nice,</i>" she mumbles, shifting her giant teats around beneath her.'
             );
-            //{Plot Item gained: "Super Reducto"}
+            // {Plot Item gained: "Super Reducto"}
             this.player.createKeyItem("Super Reducto", 0, 0, 0, 0);
             this.outputText("\n\n(<b>Key Item Acquired: Super Reducto</b>)");
         }
-        //Arrival: Part 2 (No Rath)
+        // Arrival: Part 2 (No Rath)
         else {
             this.outputText(
                 "\n\nAs you finish deciding on what to call your new companion, your eyes wander down to her massive, milk-laden bosoms.  She can barely move around with such udders weighing her down, and while she's always eager to be milked, the weight of her lactic burden can't be the most pleasant thing.  Can it?"
@@ -141,9 +141,9 @@ export class MilkWaifu extends NPCAwareContent {
                 "\n\nEither way, you figure that a good alchemist might be able to help the poor girl, if that's what you want to do.  But where to find an alchemist in this hell-hole...?"
             );
 
-            //[Next time Rath's at camp and PC accesses Milky's meny, play the Arrival w/ Rath scene, sans first sentence]
+            // [Next time Rath's at camp and PC accesses Milky's meny, play the Arrival w/ Rath scene, sans first sentence]
         }
-        //Set before this function is called:	kGAMECLASS.inDungeon = false;
+        // Set before this function is called:	kGAMECLASS.inDungeon = false;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
@@ -188,13 +188,13 @@ export class MilkWaifu extends NPCAwareContent {
         this.outputText(
             '\n\n"<i>Rat nice,</i>" she mumbles, shifting her giant teats around beneath her.'
         );
-        //{Plot Item gained: "Super Reducto"}
+        // {Plot Item gained: "Super Reducto"}
         this.player.createKeyItem("Super Reducto", 0, 0, 0, 0);
         this.outputText("\n\n(<b>Key Item Acquired: Super Reducto</b>)");
         this.doNext(this.playerMenu);
     }
 
-    //Milky's Menu (Accessed from the FOLLOWERS tab)
+    // Milky's Menu (Accessed from the FOLLOWERS tab)
     public milkyMenu(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.FOLLOWER_AT_FARM_BATH_GIRL] == 0) {
@@ -250,11 +250,11 @@ export class MilkWaifu extends NPCAwareContent {
             );
         }
 
-        //Options:
-        //Milk Time!  (HHH or DD boobs)
-        //Milk Bath (Giant or HHH boobs)
-        //Appearance
-        //{Reducto} (GIANT or HHH boobs)
+        // Options:
+        // Milk Time!  (HHH or DD boobs)
+        // Milk Bath (Giant or HHH boobs)
+        // Appearance
+        // {Reducto} (GIANT or HHH boobs)
         this.menu();
         this.addButton(0, "Appearance", this.milkWriteFuAppearance);
         if (this.flags[kFLAGS.MILK_SIZE] > 0) this.addButton(1, "Milk Time!", this.nyanCatMilkTime);
@@ -304,7 +304,7 @@ export class MilkWaifu extends NPCAwareContent {
     private backToCamp(): void {
         this.clearOutput();
 
-        //TODO
+        // TODO
         this.outputText(
             "“<i>I want you to head on back to camp,</i>” you tell her. “<i>You’ll be more useful to me there.</i>” [bathgirlName]’s brow crinkles but she seems to accept your instruction."
         );
@@ -318,7 +318,7 @@ export class MilkWaifu extends NPCAwareContent {
         this.doNext(kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
-    //Appearance
+    // Appearance
     private milkWriteFuAppearance(): void {
         this.clearOutput();
         this.outputText(
@@ -334,7 +334,7 @@ export class MilkWaifu extends NPCAwareContent {
             "She has a human face with rich, smooth skin dotted with the faintest trace of freckles.  Her hair is long and full, hanging down her back to her waist.  She's got a curvaceous body, bust aside, with supple hips and thighs, and a big butt you can just sink your fingers into."
         );
 
-        //{If GIANT boobs:
+        // {If GIANT boobs:
         if (this.flags[kFLAGS.MILK_SIZE] == 0)
             this.outputText(
                 "\n\nHer most distinguishing feature, though, is her massive bust.  Enough to drag her down onto all fours without support, " +
@@ -397,7 +397,7 @@ export class MilkWaifu extends NPCAwareContent {
         this.addButton(0, "Next", this.milkyMenu);
     }
 
-    //Reducto
+    // Reducto
     private superReductoUsage(): void {
         this.clearOutput();
         this.outputText(
@@ -418,7 +418,7 @@ export class MilkWaifu extends NPCAwareContent {
                 " stops fussing about the Reducto and does her best to curl up in your lap, giving you free access to her big ol' rack.  You tussle her hair and start thinking about how to go about this."
         );
 
-        //If GIANT BOOBS:
+        // If GIANT BOOBS:
         if (this.flags[kFLAGS.MILK_SIZE] == 0) {
             this.outputText(
                 "\n\nHer tits are huge.  No hiding that.  Reducto could bring them down to a more modest level, but then...  she does have amazing tits.  You're sure it wouldn't hurt her to keep them pretty big; any reduction is a favor at this point.  Then again, you could go all the way and drop her down to a \"normal\" cup size, something like some nice DDs: leave her enough to be considered a busty beauty, but little enough that she doesn't have back problems, though you don't know if she'll still lactate enough to bathe in with that small of a bust."
@@ -465,7 +465,7 @@ export class MilkWaifu extends NPCAwareContent {
             this.outputText(
                 ".  She seems much happier now, and is still able to produce enough milk to drown you; it's a happy balance.  Still, she still has to support them everywhere, and you can't find any clothes that fit her particular shape, thanks to her human stature.  That said, you've got enough Reducto left to bring her down to a pair of nice, firm DDs.  She'll still be nice and milky, though perhaps not enough to bathe in, and with a more reasonable bust size, you might actually be able to find a bra somewhere that will fit her."
             );
-            //Down to DD Cups
+            // Down to DD Cups
             this.outputText(
                 "\n\nYou shift " +
                     this.flags[kFLAGS.MILK_NAME] +
@@ -508,7 +508,7 @@ export class MilkWaifu extends NPCAwareContent {
             );
 
             this.outputText("\n\nYou tell her it was your pleasure.  ");
-            //{If Rath is at camp:
+            // {If Rath is at camp:
             this.outputText(
                 "Rathazul approaches, clearly having seen the preceeding events.  He smiles warmly at the two of you, clearly happy to have helped.  Wordlessly, the old rat produces a folded set of garments: a cloth shirt with intricate embroidery, and a pair of expensive-looking women's underthings, handing them over to " +
                     this.flags[kFLAGS.MILK_NAME] +
@@ -520,13 +520,13 @@ export class MilkWaifu extends NPCAwareContent {
                     this.flags[kFLAGS.MILK_NAME] +
                     " into her new clothes, probably the first she's been able to wear in years, and leave her to get used to her new body - though not before she draws you into a long kiss, holding you tight once again and whispering her heartfelt thanks."
             );
-            //If no Rath: "You tell " + flags[kFLAGS.MILK_NAME] + " to wait a moment, and go digging through your possessions.  It takes a few minutes, but eventually you find some comfortable-looking clothing.  She takes them eagerly, saying she'll trim them down to her size as soon as she's got herself settled down: it's a lot to take in all at once, and she seems eager to experiment with her new, slender body, walking all over camp with a gay smile.  You leave her to exercise, but not before she draws you into a long kiss, holding you tight once again and whispering her heartfelt thanks."}
+            // If no Rath: "You tell " + flags[kFLAGS.MILK_NAME] + " to wait a moment, and go digging through your possessions.  It takes a few minutes, but eventually you find some comfortable-looking clothing.  She takes them eagerly, saying she'll trim them down to her size as soon as she's got herself settled down: it's a lot to take in all at once, and she seems eager to experiment with her new, slender body, walking all over camp with a gay smile.  You leave her to exercise, but not before she draws you into a long kiss, holding you tight once again and whispering her heartfelt thanks."}
         }
         this.flags[kFLAGS.MILK_SIZE]++;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Milk Bath (HHH or Giant boobs only)
+    // Milk Bath (HHH or Giant boobs only)
     private milkBathTime(): void {
         this.clearOutput();
         this.outputText(
@@ -572,7 +572,7 @@ export class MilkWaifu extends NPCAwareContent {
                 this.flags[kFLAGS.MILK_NAME] +
                 " lets out a satisfied groan, her breasts finally seeming to wind down somewhat as the milk reaches your [chest], though by now she's positively quivering with pleasure, mindlessly working her nipples with eyes rolled back in her head."
         );
-        //{If GIANT boobs:
+        // {If GIANT boobs:
         if (this.flags[kFLAGS.MILK_SIZE] == 0)
             this.outputText(
                 "\n\nStill, the mammoth milkers are more than large enough to keep her pinned beside the tub.  At this rate she'll likely remain immobile, even after you're neck-deep in her delightful fluids."
@@ -600,10 +600,10 @@ export class MilkWaifu extends NPCAwareContent {
             this.outputText(
                 "  You could probably masturbate in the tub if you wanted to, or maybe pull the dusky milk-maid in for company."
             );
-        //If PC has Sophie, Hel, Isabella, Izma, Ember, or Amily:
+        // If PC has Sophie, Hel, Isabella, Izma, Ember, or Amily:
 
         this.outputText("  What do you do?");
-        //{If can masturbate [Drink & Masturbate] [Milk Girl] [Communal Bath] [Relax]}
+        // {If can masturbate [Drink & Masturbate] [Milk Girl] [Communal Bath] [Relax]}
         this.menu();
         this.addButton(1, "Milk Girl", this.pullInZeMilkGirl);
         if (this.player.gender > 0 && this.player.lust >= 33)
@@ -627,7 +627,7 @@ export class MilkWaifu extends NPCAwareContent {
         this.addButton(4, "Relax", this.relaxWithMilkWaifu);
     }
 
-    //[Next] (Relax)
+    // [Next] (Relax)
     private relaxWithMilkWaifu(): void {
         this.clearOutput();
         this.outputText(
@@ -637,13 +637,13 @@ export class MilkWaifu extends NPCAwareContent {
                 this.flags[kFLAGS.MILK_NAME] +
                 "'s endless white bounty.  Finally though, you pull out the tub's plug and climb out, finding a towel nearby.  Thankfully, the milk doesn't seem to leave behind any residue, and you feel clean and refreshed, if a bit horny."
         );
-        //(+Lust, -Fatigue)
+        // (+Lust, -Fatigue)
         this.dynStats("lus", 10 + this.player.sens / 10, "resisted", false);
         this.fatigue(-34);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Communal Bath] (PC must have 3+ of the following followers)
+    // [Communal Bath] (PC must have 3+ of the following followers)
     private communalBath(): void {
         this.clearOutput();
         this.outputText(
@@ -651,7 +651,7 @@ export class MilkWaifu extends NPCAwareContent {
                 this.flags[kFLAGS.MILK_NAME] +
                 " by the waist and dragging her in.  She tumbles into her own lactation with a sharp cry of surprise, breaching a moment later with a splutter."
         );
-        //If PC has Isabella:
+        // If PC has Isabella:
         if (this.isabellaFollowerScene.isabellaFollower()) {
             this.outputText(
                 '\n\nA moment later, the towering form of Isabella saunters over, already tossing aside her skirts.  "<i>'
@@ -666,49 +666,49 @@ export class MilkWaifu extends NPCAwareContent {
                 );
             this.outputText('</i>"');
         }
-        //If PC has Sophie:
+        // If PC has Sophie:
         if (this.sophieFollowerScene.sophieFollower())
             this.outputText(
                 '\n\n"<i>Oh, fresh milk!</i>" Sophie exclaims cheerily.  She drops down by the edge of the pool and scoops up a handful, bringing the thick, creamy milk up to her lips.  Her wings flutter happily as she laps it up, rubbing more into her fair skin between clumps of downy feathers.'
             );
 
-        //If PC has Pure!Jojo:
+        // If PC has Pure!Jojo:
         if (this.player.findStatusAffect(StatusAffects.PureCampJojo) >= 0)
             this.outputText(
                 '\n\nThe white-furred monk Jojo approaches the pool with some hesitation, eyeing the tub full of cream.  "<i>How...  lewd.  Though it would be a shame for such a bounty to go to waste.</i>"  Slowly, the monk disrobes down to his undergarments, and lowers himself into the pool nearby.'
             );
 
-        //{If PC has Latexy:
+        // {If PC has Latexy:
         if (this.latexGirl.latexGooFollower())
             this.outputText(
                 '\n\nYou wave over your ebony-skinned latex goo, telling her to drink up.  "<i>M-[master]?</i>" she says, pausing at the poolside.  You repeat your command, patting the surface of the milky waves.  It looks like her primal hunger takes over a moment later as she slips into the vast sea of lactation, soaking it up.'
             );
 
-        //{If PC has Valeria:
+        // {If PC has Valeria:
         if (this.flags[kFLAGS.VALARIA_AT_CAMP] == 1)
             this.outputText(
                 "\n\nThe gooey mass of Valeria materializes a few feet away, assuming her human shape as she surveys the milkbath awaiting her.  \"<i>Damn, [name].  This girl's got some faucets on her.  Ought to get some of the girls from the lake on up here to finish the job when we're done.</i>\"  Chuckling, Val slips into the pool, turning a brighter shade of blue as cream rushes through her porous body."
             );
 
-        //If PC has Pure!Amily:
+        // If PC has Pure!Amily:
         if (this.amilyScene.amilyFollower() && !this.amilyScene.amilyCorrupt())
             this.outputText(
                 "\n\nThe mouse-girl, Amily, is quick to respond to your call.  Happy for the luxury of a simple bath, even a milky one, she quickly tosses her clothes aside and dives in beside you, laughing and splashing playfully even as her brown hair is soaked."
             );
 
-        //If PC has Helia:
+        // If PC has Helia:
         if (this.helScene.followerHel())
             this.outputText(
                 "\n\nWith a gleeful shout, Hel rushes the pool.  In one swift motion, she tosses her scale bikini aside and cannon-balls in, splashing everyone with a creamy tidal wave.  Chuckling, you clear your eyes - just in time for her bikini bottom to land on your face."
             );
 
-        //If PC has Izma:
+        // If PC has Izma:
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00238] == 1)
             this.outputText(
                 "\n\nYou didn't even notice Izma getting into the pool.  The first sign of her is the sudden appearance of a bright red fin sticking above the water, closing in on you.  She breaches at the last moment, laughing gaily as she gives her alpha a kiss."
             );
 
-        //{If PC has Ember:
+        // {If PC has Ember:
         if (this.emberScene.followerEmber())
             this.outputText(
                 "\n\nEmber approaches the pool, reptilian tail swishing eagerly.  " +
@@ -722,13 +722,13 @@ export class MilkWaifu extends NPCAwareContent {
                     ' muses.  "<i>How bizarre.</i>"'
             );
 
-        //{If PC has Kiha:
+        // {If PC has Kiha:
         if (this.kihaFollower.followerKiha())
             this.outputText(
                 '\n\nKiha, your dear dusky dragoness, wanders over to see what the commotion is, but turns her nose up at the sight of you bathing in breastmilk.  "<i>Ew.  How the hell can you just...  wallow in that?  Disgusting!</i>"'
             );
 
-        //[Combine]
+        // [Combine]
         this.outputText(
             "\n\nSurrounded by friends and lovers, you relax in the pool, leaning your arms back over the rim and closing your eyes, sighing contentedly.  Your friends splash and play with each other, happy to enjoy a few blissful, normal moments away from the cares of the world, away from the demons, and the monsters, and the horror their world has become.  The waves displace beside you, milk parting as a pair of giant jugs move over to you; you look down to see " +
                 this.flags[kFLAGS.MILK_NAME] +
@@ -758,7 +758,7 @@ export class MilkWaifu extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Milk Girl]
+    // [Milk Girl]
     private pullInZeMilkGirl(): void {
         this.clearOutput();
         this.outputText(
@@ -806,7 +806,7 @@ export class MilkWaifu extends NPCAwareContent {
                 " in her rich, delicious milk."
         );
 
-        //If PC has a dick:
+        // If PC has a dick:
         if (this.player.hasCock()) {
             this.outputText(
                 "\n\nOne of the milk girl's hands brushes against your thigh, slipping around your [leg]; slender fingers wrap around your [cock], milky lubricant making her soft strokes all the more pleasurable.  You groan in lusty delight as her fingers slide up and down your quickly-hardening length"
@@ -821,12 +821,12 @@ export class MilkWaifu extends NPCAwareContent {
                 ".  Leaning over the two titanic teats between you, she traces a line of kisses down your back, licking up stray drops of milk between affectionate caresses."
             );
         }
-        //{If PC has cooch:
+        // {If PC has cooch:
         if (this.player.hasVagina()) {
             this.outputText(
                 "\n\nHer hands shift downwards, delicate fingertips slipping across the slit of your [vagina].  You gasp, shivering as her milk-slick fingers easily slip into your sodden box, her thumb swirling gently around your [clit].  Her other hand traces upwards, carressing your [hips] and [butt] before finally arriving at your [chest], which she massages with well-practiced skill."
             );
-            //If PC has tits:
+            // If PC has tits:
             if (this.player.biggestTitSize() >= 1) {
                 this.outputText(
                     "  She cups your breasts, having to reach so far around both your rack and hers that she's straining her arms to rub your [nipples], but she does so valiantly, stroking them with her incredibly deft fingers."
@@ -837,7 +837,7 @@ export class MilkWaifu extends NPCAwareContent {
                     );
             }
         }
-        //[Fuck Her](PC must have gender; if cooch, also C+ cups) [Don't]
+        // [Fuck Her](PC must have gender; if cooch, also C+ cups) [Don't]
         this.menu();
         this.addButton(4, "Don't", this.dontFuckTheMilkWaifu);
         if (this.player.hasCock()) this.addButton(0, "Fuck Her", this.fuckTheMilkWaifu);
@@ -845,20 +845,20 @@ export class MilkWaifu extends NPCAwareContent {
             this.addButton(1, "LesboFuck", this.beARugMunchingMilkDyke);
     }
 
-    //	[Don't]
+    // 	[Don't]
     private dontFuckTheMilkWaifu(): void {
         this.clearOutput();
         this.outputText(
             "You allow the girl to continue for a long, long while until your entire body feels deeply refreshed, her milk having soaked thoroughly into your body and making you feel fresh and revitalized.  You start to thank the milk girl for the pleasurable company, but when you open your mouth, she slips into your arms and presses her lips to yours.  Chuckling to yourself, you hold the girl as tight against yourself as her udders will allow, turning her to the side to let her nuzzle her cheek into your [chest], kissing the top of her head before the two of you climb from the pool.  You have to help her out, her massive extra weight nearly dragging her back in except for your quick reflexes.  You gather your [armor] and ruffle the milk slave's hair before grabbing a towel and wandering back to the heart of camp."
         );
-        //[+Lust, +HP, -Fatigue]
+        // [+Lust, +HP, -Fatigue]
         this.dynStats("lus", 10 + this.player.sens / 10, "resisted", false);
         this.HPChange(this.player.maxHP() * 0.33, false);
         this.fatigue(-20);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Fuck Her] (PC has a Dick)
+    // [Fuck Her] (PC has a Dick)
     private fuckTheMilkWaifu(): void {
         this.clearOutput();
         this.outputText(
@@ -901,13 +901,13 @@ export class MilkWaifu extends NPCAwareContent {
                 this.flags[kFLAGS.MILK_NAME] +
                 " for the pleasurable company, but when you open your mouth, she presses her lips to yours for a long, tongue-filled kiss.  Chuckling to yourself, you hold the girl as tight as her udders will allow, turning her to the side to let her nuzzle her cheek into your [chest], kissing the top of her head before the two of you climb from the pool.  You have to help her out, her massive extra weight nearly dragging her back in except for your quick reflexes.  You gather your [armor] and ruffle the milk slave's hair before grabbing a towel and wandering back to the heart of camp."
         );
-        //[+Lust, +HP, -Fatigue]
+        // [+Lust, +HP, -Fatigue]
         this.player.orgasm();
         this.HPChange(this.player.maxHP() * 0.33, false);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Fuck Her] (PC has Cooch & C+cups)
+    // [Fuck Her] (PC has Cooch & C+cups)
     private beARugMunchingMilkDyke(): void {
         this.clearOutput();
         this.outputText(
@@ -948,13 +948,13 @@ export class MilkWaifu extends NPCAwareContent {
         this.outputText(
             "\n\nYour entire body feels deeply refreshed, her milk having soaked into your body and making you feel fresh and revitalized, and every muscle seems to have relaxed thanks to your blissful coitus.  You start to thank the milk girl for the pleasurable company, but when you open your mouth, she presses her lips to yours for a long, tongue-filled kiss.  Chuckling to yourself, you hold the girl as tight as her udders will allow, turning her to the side to let her nuzzle her cheek into your [chest], kissing the top of her head before the two of you climb from the pool.  You have to help her out, her massive extra weight nearly dragging her back in except for your quick reflexes.  You gather your [armor] and ruffle the milk slave's hair before grabbing a towel and wandering back to the heart of camp."
         );
-        //[+Lust, +HP, -Fatigue]
+        // [+Lust, +HP, -Fatigue]
         this.player.orgasm();
         this.HPChange(this.player.maxHP() * 0.33, false);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Drink & Masturbate]
+    // [Drink & Masturbate]
     private drinkAndFapturbate(): void {
         this.clearOutput();
         this.outputText(
@@ -995,8 +995,8 @@ export class MilkWaifu extends NPCAwareContent {
                 this.flags[kFLAGS.MILK_NAME] +
                 "'s puffy lips, a testament to the raw sensitivity of her milk-bloated jugs.  As your tongue swirls over the leaky nozzle's pebbly skin, she releases another breathy pant of delight.  The vocal tremors seem to coo all the way down to your loins, joining with your fingers' caresses to stir you to aching, trembling arousal.  "
         );
-        //{Fork, no new PG}
-        //(DA HERMS)
+        // {Fork, no new PG}
+        // (DA HERMS)
         if (this.player.gender == 3) {
             this.outputText(
                 "Your [cock] throbs painfully in your hand, so hot and hard that you're sure you must have begun to leak precum, but any fluid is swiftly washed away by the ever-present milk.  "
@@ -1009,12 +1009,12 @@ export class MilkWaifu extends NPCAwareContent {
                 "With your off-hand, you rub your cream-lubricated fingers through your sodden gash, the flesh parting easily to allow a few of your questing fingers inside.  Delicious bliss unfolds from your [clit] as it pushes free of its hood, fully engorging, faintly throbbing from aching need.  You brush the button a few times before going back to fingering your box, yet you make sure to strum your thumb across your clit every few moments to keep yourself as close to peak as possible.  Truly, being a hermaphrodite is bliss."
             );
         }
-        //(DA SCHLICKS)
+        // (DA SCHLICKS)
         else if (this.player.hasVagina())
             this.outputText(
                 "Your pussy juices mix freely with the tub's white-colored 'waters', allowing your cream-lubed fingers to plunge into your [vagina] with ease.  You stroke your lips and caress the interior of your birth canal with the intimate familiarity of a skilled lover, playing with your body until you feel your control slipping, so wound up with lust that you feel like an over-tightened guitar string vibrating out of control."
             );
-        //(DA DUDES)
+        // (DA DUDES)
         else {
             this.outputText(
                 "[OneCock] throbs painfully in your hand, so hot and hard that you're sure you must have begun to leak precum, but any fluid is swiftly washed away by the ever-present milk."
@@ -1028,7 +1028,7 @@ export class MilkWaifu extends NPCAwareContent {
                     "  With your offhand, you cradle your [sack], hefting your [balls] as you feel your desire churning to new levels."
                 );
         }
-        //(TOGETHER)
+        // (TOGETHER)
         this.outputText(
             "\n\nA spray of warmth impacts off your shoulders, and you turn into it, delighted to see " +
                 this.flags[kFLAGS.MILK_NAME] +
@@ -1072,7 +1072,7 @@ export class MilkWaifu extends NPCAwareContent {
 
     private nyanCatMilkTime(): void {
         this.clearOutput();
-        //Milk Time!  (HHH Boobs ver.)
+        // Milk Time!  (HHH Boobs ver.)
         if (this.flags[kFLAGS.MILK_SIZE] == 1) {
             this.outputText(
                 '"<i>Milk time!</i>" you say, giving ' +
@@ -1094,7 +1094,7 @@ export class MilkWaifu extends NPCAwareContent {
                     " moans and groans as you roughly milk her, rewarded with gallon after gallon of delightful motherly milk."
             );
 
-            //If PC has Smart/Normal Sophie:
+            // If PC has Smart/Normal Sophie:
             if (this.sophieFollowerScene.sophieFollower())
                 this.outputText(
                     "\n\nAs you milk " +
@@ -1104,13 +1104,13 @@ export class MilkWaifu extends NPCAwareContent {
                         '\'s quivering body.  "<i>Fresh milk!</i>" Sophie laughs, cupping up a handful and bringing it to her mouth.  "<i>You don\'t mind if Momma Sophie has a taste, do you honey?</i>"\n\nThe milky girl shakes her head, barely paying attention as Sophie flops down beside her, avian tongue lapping at the stream pouring down into the pool.'
                 );
 
-            //If PC has Kiha:
+            // If PC has Kiha:
             if (this.kihaFollower.followerKiha())
                 this.outputText(
                     '\n\nFeeling like you\'re being watched, you cast a glance over your shoulder in time to see the dusky form of Kiha standing behind you.  She simply says "<i>Ew,</i>" before walking off.'
                 );
 
-            //If PC has Isabella:
+            // If PC has Isabella:
             if (this.isabellaFollowerScene.isabellaFollower()) {
                 if (this.isabellaFollowerScene.isabellaAccent())
                     this.outputText('\n\n"<i>Tsk, [name].  Vhat are you doing to zhat poor voman?');
@@ -1130,7 +1130,7 @@ export class MilkWaifu extends NPCAwareContent {
                 );
             }
 
-            //If PC has ONLY KIha or if PC dun have Izzy, Sophie, OR Kiha:
+            // If PC has ONLY KIha or if PC dun have Izzy, Sophie, OR Kiha:
             if (
                 !this.isabellaFollowerScene.isabellaFollower() ||
                 !this.sophieFollowerScene.sophieFollower()
@@ -1142,7 +1142,7 @@ export class MilkWaifu extends NPCAwareContent {
                         this.flags[kFLAGS.MILK_NAME] +
                         ' reaches up and pulls you down to her, just long enough to plant a kiss on your cheek and whisper, "<i>Thank you, [name].  That felt good.</i>"'
                 );
-            //If PC has Sophie or Isabella:
+            // If PC has Sophie or Isabella:
             else
                 this.outputText(
                     "\n\nThough you didn't intend for this to turn communal, " +
@@ -1155,7 +1155,7 @@ export class MilkWaifu extends NPCAwareContent {
             this.dynStats("lus", 10 + this.player.sens / 10, "resisted", false);
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //Milk Time!  (DD Boobs Ver.)
+        // Milk Time!  (DD Boobs Ver.)
         else {
             this.outputText(
                 "You sit yourself down with " +
@@ -1183,7 +1183,7 @@ export class MilkWaifu extends NPCAwareContent {
                     this.flags[kFLAGS.MILK_NAME] +
                     " cries, squirming in your embrace, your hands firmly locked on her tits, milking her for every drop.  She's in for a mighty boobgasm in mere moments: you could soothe her through it with a gentle suckle or finish her off normally."
             );
-            //If PC has a cock that fits:
+            // If PC has a cock that fits:
             if (this.player.cockThatFits(50) >= 0 && this.player.hasCock())
                 this.outputText(
                     "  Then again, maybe you could hike her panties down and give her a good fucking to send her over the edge.  In her state, she certainly won't mind!"
@@ -1196,7 +1196,7 @@ export class MilkWaifu extends NPCAwareContent {
         }
     }
 
-    //[Finish Normally]
+    // [Finish Normally]
     private finishMilkNormall(): void {
         this.clearOutput();
         this.outputText(
@@ -1217,7 +1217,7 @@ export class MilkWaifu extends NPCAwareContent {
         this.dynStats("lus", 10 + this.player.sens / 10, "resisted", false);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[Suckle]
+    // [Suckle]
     private suckleDatMilk(): void {
         this.clearOutput();
         this.outputText(
@@ -1259,7 +1259,7 @@ export class MilkWaifu extends NPCAwareContent {
         this.dynStats("lus", 10 + this.player.sens / 10, "resisted", false);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[Fuck Her] (Needs a dick what fits)
+    // [Fuck Her] (Needs a dick what fits)
     private fuckDatMilkSlat(): void {
         this.clearOutput();
         var x: number = this.player.cockThatFits(50);
@@ -1337,7 +1337,7 @@ export class MilkWaifu extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Titfuck (ie, an Excuse for Savin to use "Lactic Lust" because Fen just taught him that and he has fallen in love) (Requires DD or HHH tittehs & a dick)
+    // Titfuck (ie, an Excuse for Savin to use "Lactic Lust" because Fen just taught him that and he has fallen in love) (Requires DD or HHH tittehs & a dick)
     private titFuckDatMilkSlut(): void {
         this.clearOutput();
         this.outputText(
@@ -1378,7 +1378,7 @@ export class MilkWaifu extends NPCAwareContent {
                 this.flags[kFLAGS.MILK_NAME] +
                 "'s oral ministrations, you abandon her breasts for a moment, "
         );
-        //If not naga:
+        // If not naga:
         if (!this.player.isNaga()) this.outputText("straddling her shoulders and shoving");
         else this.outputText("wrapping yourself around her to shove");
         this.outputText(

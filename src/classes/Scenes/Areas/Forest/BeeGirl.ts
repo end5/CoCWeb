@@ -56,7 +56,7 @@ export class BeeGirl extends Monster {
                 this.leaveAfterDefeating
             );
         } else if (this.player.findStatusAffect(StatusAffects.Feeder) >= 0) {
-            //Genderless can still breastfeed
+            // Genderless can still breastfeed
             if (hpVictory) {
                 this.outputText(
                     "You smile in satisfaction as the " +
@@ -108,7 +108,7 @@ export class BeeGirl extends Monster {
     }
 
     private beeStingAttack(): void {
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0) {
             this.outputText(
                 this.capitalA + this.short + " completely misses you with a blind sting!!"
@@ -116,7 +116,7 @@ export class BeeGirl extends Monster {
             this.combatRoundOver();
             return;
         }
-        //Determine if dodged!
+        // Determine if dodged!
         if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
@@ -134,7 +134,7 @@ export class BeeGirl extends Monster {
             this.combatRoundOver();
             return;
         }
-        //determine if avoided with armor.
+        // determine if avoided with armor.
         if (this.player.armorDef >= 10 && BeeGirl.rand(4) > 0) {
             this.outputText(
                 "Despite her best efforts, " +
@@ -145,8 +145,8 @@ export class BeeGirl extends Monster {
             this.combatRoundOver();
             return;
         }
-        //Sting successful!  Paralize or lust?
-        //Lust 50% of the time
+        // Sting successful!  Paralize or lust?
+        // Lust 50% of the time
         if (BeeGirl.rand(2) == 0) {
             this.outputText(
                 "Searing pain lances through you as " +
@@ -184,7 +184,7 @@ export class BeeGirl extends Monster {
             if (this.player.findStatusAffect(StatusAffects.lustvenom) < 0)
                 this.player.createStatusAffect(StatusAffects.lustvenom, 0, 0, 0, 0);
         }
-        //Paralise the other 50%!
+        // Paralise the other 50%!
         else {
             this.outputText(
                 "Searing pain lances through you as " +

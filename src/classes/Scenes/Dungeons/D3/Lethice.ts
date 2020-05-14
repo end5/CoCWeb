@@ -186,7 +186,7 @@ export class Lethice extends Monster {
     }
 
     private rapetacles(): void {
-        //Adds a button - Dispel - Only if PC knows Whitefire
+        // Adds a button - Dispel - Only if PC knows Whitefire
         this.outputText(
             "Lethice gestures at the ground underfoot. A pulse of black mist rolls out around you for dozens of feet in every direction. The crowd of watching demons pulls back fearfully, save for a few foolish slaves who blithely step into the magic circle. A second later, hundreds of oily, black tentacles emerge from the floor, unspooling from whatever horrible dimension they were summoned from. They immediately attack every living creature within reach, wrapping around wrists and ankles, violating vaginas and assholes alike. They come at you from every direction!"
         );
@@ -251,7 +251,7 @@ export class Lethice extends Monster {
     }
 
     private demonfire(): void {
-        //I can’t believe it’s not whitefire. Cannot be avoided/blocked. Medium damage.
+        // I can’t believe it’s not whitefire. Cannot be avoided/blocked. Medium damage.
         this.outputText(
             "Lethice narrows her eyes, focusing her mind with deadly intent. She snaps her fingers and a gout of black, twisting flames engulfs you!"
         );
@@ -764,7 +764,7 @@ export class Lethice extends Monster {
     }
 
     private phase3(): void {
-        //Every turn she boosts her defense against lust or HP depending on how the PC damaged her.
+        // Every turn she boosts her defense against lust or HP depending on how the PC damaged her.
 
         // If you hit her with a physical attack, the next turn she’ll have massive evasion (200 speed or some shit) and massively boosted defense.
         // GEDNOTE: We can't really do this- CoCs combat was NEVER designed with that in mind wrt to enemy stats, it would mean modifying EVERY player attack, spell and special to account for it. However, I figured out a potential workaround that covers this so....
@@ -854,7 +854,7 @@ export class Lethice extends Monster {
     }
 
     private whiptrip(): void {
-        //Light damages even on avoidance. Can stun.
+        // Light damages even on avoidance. Can stun.
         this.outputText("Lethice slashes her whip in a wide, low arc.");
 
         var minDamage: boolean = false;
@@ -937,7 +937,7 @@ export class Lethice extends Monster {
     }
 
     private triplestroke(): void {
-        //Three normal whip attacks
+        // Three normal whip attacks
         this.outputText(
             "Lethice’s arm blurs in figure eights, snapping the whip at you from every sides. You’ll have a tough time avoiding so many strikes!"
         );

@@ -17,9 +17,9 @@ import { StatusAffects } from "../../StatusAffects";
 
 export class Marble extends Monster {
     private marbleSpecialAttackOne(): void {
-        //Special1: Heavy overhead swing, high chance of being avoided with evasion, does heavy damage if it hits.
+        // Special1: Heavy overhead swing, high chance of being avoided with evasion, does heavy damage if it hits.
         var damage: number = 0;
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0) {
             this.outputText(
                 "Marble unwisely tries to make a massive swing while blinded, which you are easily able to avoid.",
@@ -28,7 +28,7 @@ export class Marble extends Monster {
             this.combatRoundOver();
             return;
         }
-        //Determine if dodged!
+        // Determine if dodged!
         if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 60
@@ -40,7 +40,7 @@ export class Marble extends Monster {
             this.combatRoundOver();
             return;
         }
-        //Determine if evaded
+        // Determine if evaded
         if (this.player.findPerk(PerkLib.Evade) >= 0 && Marble.rand(100) < 60) {
             this.outputText(
                 "You easily sidestep as Marble tries to deliver a huge overhand blow.",
@@ -49,7 +49,7 @@ export class Marble extends Monster {
             this.combatRoundOver();
             return;
         }
-        //Determine damage - str modified by enemy toughness!
+        // Determine damage - str modified by enemy toughness!
         damage = Math.floor(
             this.str +
                 20 +
@@ -59,7 +59,7 @@ export class Marble extends Monster {
         );
         if (damage <= 0) {
             damage = 0;
-            //Due to toughness or amor...
+            // Due to toughness or amor...
             this.outputText(
                 "You somehow manage to deflect and block Marble's massive overhead swing.",
                 false
@@ -76,16 +76,16 @@ export class Marble extends Monster {
         this.combatRoundOver();
     }
     private marbleSpecialAttackTwo(): void {
-        //Special2: Wide sweep; very high hit chance, does low damage.
+        // Special2: Wide sweep; very high hit chance, does low damage.
         var damage: number = 0;
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0) {
             this.outputText(
                 "Marble makes a wide sweeping attack with her hammer, which is difficult to avoid even from a blinded opponent.\n",
                 false
             );
         }
-        //Determine if evaded
+        // Determine if evaded
         if (this.player.findPerk(PerkLib.Evade) >= 0 && Marble.rand(100) < 10) {
             this.outputText(
                 "You barely manage to avoid a wide sweeping attack from marble by rolling under it.",
@@ -94,7 +94,7 @@ export class Marble extends Monster {
             this.combatRoundOver();
             return;
         }
-        //Determine damage - str modified by enemy toughness!
+        // Determine damage - str modified by enemy toughness!
         damage = Math.floor(
             this.str +
                 40 +
@@ -105,7 +105,7 @@ export class Marble extends Monster {
         damage /= 2;
         if (damage <= 0) {
             damage = 0;
-            //Due to toughness or amor...
+            // Due to toughness or amor...
             this.outputText(
                 "You easily deflect and block the damage from Marble's wide swing.",
                 false

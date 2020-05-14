@@ -19,13 +19,13 @@ import { TimeAwareInterface } from "../../../TimeAwareInterface";
 import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class Katherine extends TelAdreAbstractContent implements TimeAwareInterface {
-    //CAPACITY: 70
-    //const KATHERINE_UNLOCKED: number = 398;
-    //const KATHERINE_DICK_COUNT: number = 399;
-    //const KATHERINE_DICK_LENGTH: number = 400;
-    //const KATHERINE_KNOT_THICKNESS: number = 401;
-    //const KATHERINE_BALL_SIZE: number = 402;
-    //const KATHERINE_TIMES_SEXED: number = 403;
+    // CAPACITY: 70
+    // const KATHERINE_UNLOCKED: number = 398;
+    // const KATHERINE_DICK_COUNT: number = 399;
+    // const KATHERINE_DICK_LENGTH: number = 400;
+    // const KATHERINE_KNOT_THICKNESS: number = 401;
+    // const KATHERINE_BALL_SIZE: number = 402;
+    // const KATHERINE_TIMES_SEXED: number = 403;
 
     public static KBIT_CLOTHES_TATTERED: number = 0; //These values are used for the KATHERINE_CLOTHES, KATHERINE_CLOTHES_PREF and KATHERINE_CLOTHES_WORN flags
     public static KBIT_CLOTHES_UNIFORM: number = 1;
@@ -56,42 +56,42 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     public static KBIT_MILK_SHARE_WITH_VALA: number = 32;
 
     public static KBIT_SUB_HIGH_CUM: number = 1; //Caused by double penetrate Kath scene
-    //High Cum Corrupt Double Penetration (No submissiveness requirement but player must have a cock and produce 1500+ cum. Must have 75+ corruption for the first time)
+    // High Cum Corrupt Double Penetration (No submissiveness requirement but player must have a cock and produce 1500+ cum. Must have 75+ corruption for the first time)
     public static KBIT_SUB_BED_BOND: number = 2; //Caused by the bedroom bondage scene
-    //Bedroom bondage and roleplaying (No submissiveness requirement)
+    // Bedroom bondage and roleplaying (No submissiveness requirement)
     public static KBIT_SUB_ORGASM_DENIAL: number = 4; //Caused by the bath scene
-    //Orgasm Denial (No submissiveness requirement but player must be a female or herm. Must have 75+ corruption for the first time)
+    // Orgasm Denial (No submissiveness requirement but player must be a female or herm. Must have 75+ corruption for the first time)
     public static KBIT_SUB_CALL_MASTER: number = 8; //This bit is just an indicator, it does not count towards Katherine’s submissiveness
-    //If set Kath will call the player either Master or Mistress (Requires submissiveness 4+)
+    // If set Kath will call the player either Master or Mistress (Requires submissiveness 4+)
     public static KBIT_SUB_GROW_KNOT: number = 16;
-    //You have made Kath regrow her knot(s) to their original 6” diameter at least once after helping her shrink them (Requires submissiveness of 1 or more)
+    // You have made Kath regrow her knot(s) to their original 6” diameter at least once after helping her shrink them (Requires submissiveness of 1 or more)
     public static KBIT_SUB_CAT_DICK: number = 32;
-    //You have convinced Kath to change her cock(s) into cat cocks instead of canine cock(s) at least once (Requires submissiveness of 1 or more)
+    // You have convinced Kath to change her cock(s) into cat cocks instead of canine cock(s) at least once (Requires submissiveness of 1 or more)
     public static KBIT_SUB_GROW_BIG_BOOBS: number = 64;
-    //You have convinced Kath to supersize her breasts (E-Cups or EE-Cups) at least once (Requires submissiveness of 2 or more)
+    // You have convinced Kath to supersize her breasts (E-Cups or EE-Cups) at least once (Requires submissiveness of 2 or more)
     public static KBIT_SUB_GROW_BIG_DICK: number = 128;
-    //You have convinced Kath to supersize her cock (grow it larger than 16 inches long) at least once (Requires submissiveness of 2 or more)
+    // You have convinced Kath to supersize her cock (grow it larger than 16 inches long) at least once (Requires submissiveness of 2 or more)
     public static KBIT_SUB_CAT_GIRL: number = 256;
-    //You have convinced Kath to change into a cat girl at least once (Requires submissiveness of 3 or more)
+    // You have convinced Kath to change into a cat girl at least once (Requires submissiveness of 3 or more)
     public static KBIT_SUB_HIGH_LACTATION: number = 512;
-    //You have convinced Kath to boost her lactation to abnormal levels at least once (Requires submissiveness of 3 or more) For later - Not implemented in this expansion
+    // You have convinced Kath to boost her lactation to abnormal levels at least once (Requires submissiveness of 3 or more) For later - Not implemented in this expansion
     public static KBIT_SUB_REM_BALLS: number = 1024;
-    //You have convinced Kath to remove her balls using reducto and a pink egg at least once (Requires submissiveness of 3 or more)
+    // You have convinced Kath to remove her balls using reducto and a pink egg at least once (Requires submissiveness of 3 or more)
     public static KBIT_SUB_GROW_BIG_BALLS: number = 2048;
-    //You have convinced Kath to grow her balls larger than 5 inches across at least once (Requires submissiveness of 4 or more)
+    // You have convinced Kath to grow her balls larger than 5 inches across at least once (Requires submissiveness of 4 or more)
     public static KBIT_SUB_PUBLIC_EXHIBITION: number = 4096;
-    //You have convinced Kath to strip down and perform in front of a crowd at least once (Requires submissiveness of 6 or more and the player must have 75+ corruption)
+    // You have convinced Kath to strip down and perform in front of a crowd at least once (Requires submissiveness of 6 or more and the player must have 75+ corruption)
     public static KBIT_SUB_REM_COCK: number = 8192;
-    //You have convinced Kath to lose her cock and become a woman (Requires submissiveness of 6 or more)
+    // You have convinced Kath to lose her cock and become a woman (Requires submissiveness of 6 or more)
     public static KBIT_SUB_START_LACTATION: number = 16384;
-    //You have convinced Kath to start lactating (No submissiveness requirement, but this flag doesn't count once Kath gets to a submissiveness of 4 or more)
+    // You have convinced Kath to start lactating (No submissiveness requirement, but this flag doesn't count once Kath gets to a submissiveness of 4 or more)
 
     public static KLOC_STREETS: number = 0; //Sex happens in a non-descript alleyway, possibly behind the Wet Bitch
     public static KLOC_KATHS_APT: number = 1; //At her own home. After sex she will generally stay there
     public static KLOC_URTAS_APT: number = 2; //Kath may stay here if she and Urta are fuckbuddies or lovers
     public static KLOC_URTAS_HOME: number = 3; //Kath may stay here if she and Urta are fuckbuddies or lovers. They will stay all night.
     public static KLOC_BAR: number = 4; //At the Wet Bitch. Returns here unless it's after 14:00 or you were last at her place, Urta's apt or Urta's home.
-    //During sex scenes this indicates the bar or a backroom at the bar depending on the scene.
+    // During sex scenes this indicates the bar or a backroom at the bar depending on the scene.
     public static KLOC_BAR_DRUNK: number = 5; //At the Wet Bitch. You got her to drink a lot of booze.
     public static KLOC_BAR_URTA_REFUSED: number = 6; //At the Wet Bitch. She's drunk and Urta has refused to have sex with her right now.
     public static KLOC_LAKE: number = 7; //You take her out to the lake, either for training or for a date
@@ -117,7 +117,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         CoC.timeAwareClassAdd(this);
     }
 
-    //Implementation of TimeAwareInterface
+    // Implementation of TimeAwareInterface
     public timeChange(): boolean {
         if (this.breasts.lactationLevel <= this.breasts.preventLactationIncrease) {
             switch (
@@ -174,7 +174,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.breasts.advanceTime();
         this.flags[kFLAGS.KATHERINE_HOURS_SINCE_CUM]++;
         if (this.flags[kFLAGS.KATHERINE_UNLOCKED] < 4) {
-            //Before employment always returns to the alleyway behind Oswald’s after sex.
+            // Before employment always returns to the alleyway behind Oswald’s after sex.
             this.flags[kFLAGS.KATHERINE_LOCATION] = Katherine.KLOC_STREETS;
             return false; //She only has tattered clothes, so no need to deal with clothing either.
         }
@@ -190,17 +190,17 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             } else if (this.flags[kFLAGS.KATHERINE_VALA_DATE] == Katherine.KDATE_LOTS)
                 this.katherineAndValaHadSex(); //They fuck at least once a day
         } else if (this.model.time.hours == 10) {
-            //Must select her civilian clothes for the day once her shift is over
+            // Must select her civilian clothes for the day once her shift is over
             var clothesPref: number = this.flags[kFLAGS.KATHERINE_CLOTHES_PREF];
 
             if (clothesPref < 0) {
-                //She’s been told what to wear by the PC
+                // She’s been told what to wear by the PC
                 this.flags[kFLAGS.KATHERINE_CLOTHES_WORN] = -clothesPref;
             } else if (clothesPref > 0 && Katherine.rand(3) != 0) {
-                //You suggested you like one outfit. Kath will listen 3/4 of the time.
+                // You suggested you like one outfit. Kath will listen 3/4 of the time.
                 this.flags[kFLAGS.KATHERINE_CLOTHES_WORN] = clothesPref;
             } else {
-                //Kath picks an outfit for herself at random
+                // Kath picks an outfit for herself at random
                 var clothes: number = this.flags[kFLAGS.KATHERINE_CLOTHES];
                 var clothesArray: any[] = [];
 
@@ -236,7 +236,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             }
         }
         if (this.model.time.hours >= 14) {
-            //Once employed Kath goes home from any encounter after 14:00 hours, unless they happened at either Urta’s apartment or Urta’s house.
+            // Once employed Kath goes home from any encounter after 14:00 hours, unless they happened at either Urta’s apartment or Urta’s house.
             switch (this.flags[kFLAGS.KATHERINE_LOCATION]) {
                 case Katherine.KLOC_KATHS_APT:
                 case Katherine.KLOC_URTAS_HOME:
@@ -244,7 +244,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 case Katherine.KLOC_URTAS_APT:
                     if (this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] > 31) {
                         if (Katherine.rand(4) != 0) {
-                            //A three in four chance that Kath will stay with Urta once they've hooked up
+                            // A three in four chance that Kath will stay with Urta once they've hooked up
                             if (this.player.hasKeyItem("Spare Key to Urta's House") >= 0)
                                 this.flags[kFLAGS.KATHERINE_LOCATION] = Katherine.KLOC_URTAS_HOME;
                             break; //If Urta doesn't have a home to return to then she and Kath stay at the apartment
@@ -254,7 +254,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                         this.flags[kFLAGS.KATHERINE_URTA_DATE] != Katherine.KDATE_LITTLE
                     ) {
                         if (Katherine.rand(3) != 0) {
-                            //A two in three chance that Kath will stay with Urta if they're fuckbuddies
+                            // A two in three chance that Kath will stay with Urta if they're fuckbuddies
                             if (this.player.hasKeyItem("Spare Key to Urta's House") >= 0)
                                 this.flags[kFLAGS.KATHERINE_LOCATION] = Katherine.KLOC_URTAS_HOME;
                             break; //If Urta doesn't have a home to return to then she and Kath stay at the apartment
@@ -264,7 +264,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     this.flags[kFLAGS.KATHERINE_LOCATION] = Katherine.KLOC_KATHS_APT;
             }
         } else if (this.model.time.hours >= 10) {
-            //Any time after 10:00 but before 14:00 Kath returns to the bar after encounters, though she will stay at her home if the encounter happened there.
+            // Any time after 10:00 but before 14:00 Kath returns to the bar after encounters, though she will stay at her home if the encounter happened there.
             switch (this.flags[kFLAGS.KATHERINE_LOCATION]) {
                 case Katherine.KLOC_BAR:
                 case Katherine.KLOC_KATHS_APT:
@@ -279,11 +279,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     public timeChangeLarge(): boolean {
         return false;
     }
-    //End of Interface Implementation
+    // End of Interface Implementation
 
     public initFlags(): void {
-        //These are all the flags related to Kath that have a non-zero default value
-        //			flags[kFLAGS.KATHERINE_BREAST_SIZE]		= BREAST_CUP_B;
+        // These are all the flags related to Kath that have a non-zero default value
+        // 			flags[kFLAGS.KATHERINE_BREAST_SIZE]		= BREAST_CUP_B;
         this.breasts.cupSize = CoC.BREAST_CUP_B;
         this.breasts.lactationLevel = BreastStore.LACTATION_DISABLED;
         this.flags[kFLAGS.KATHERINE_DICK_COUNT] = 1;
@@ -307,9 +307,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.flags[kFLAGS.KATHERINE_BALL_SIZE] = value;
     }
 
-    //		public function get cupSize(): number { return flags[kFLAGS.KATHERINE_BREAST_SIZE]; }
+    // 		public function get cupSize(): number { return flags[kFLAGS.KATHERINE_BREAST_SIZE]; }
 
-    //		public function set cupSize(value: number): void { flags[kFLAGS.KATHERINE_BREAST_SIZE] = value; }
+    // 		public function set cupSize(value: number): void { flags[kFLAGS.KATHERINE_BREAST_SIZE] = value; }
 
     public get cockLength(): number {
         return this.flags[kFLAGS.KATHERINE_DICK_LENGTH];
@@ -423,21 +423,21 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     } //Set a single bit to one
 
     public cumQ(): number {
-        //Uses roughly the same calculations as for the player's cum production with cumMultiplier == 10, bonusCum == 300
-        //For no balls: Min = 312, Average =  411, Max =  510 //Without any prostate boosting
-        //For 1" balls: Min = 317, Average =  448, Max =  580
-        //For 2" balls: Min = 333, Average =  596, Max =  860
-        //For 3" balls: Min = 350, Average =  745, Max = 1140
-        //For 4" balls: Min = 367, Average =  893, Max = 1420
-        //For 5" balls: Min = 383, Average = 1041, Max = 1700 //Previous max size
-        //For 6" balls: Min = 400, Average = 1190, Max = 1980
-        //For 7" balls: Min = 416, Average = 1338, Max = 2260
-        //For 8" balls: Min = 433, Average = 1486, Max = 2540
-        //For 9" balls: Min = 450, Average = 1635, Max = 2820
+        // Uses roughly the same calculations as for the player's cum production with cumMultiplier == 10, bonusCum == 300
+        // For no balls: Min = 312, Average =  411, Max =  510 //Without any prostate boosting
+        // For 1" balls: Min = 317, Average =  448, Max =  580
+        // For 2" balls: Min = 333, Average =  596, Max =  860
+        // For 3" balls: Min = 350, Average =  745, Max = 1140
+        // For 4" balls: Min = 367, Average =  893, Max = 1420
+        // For 5" balls: Min = 383, Average = 1041, Max = 1700 //Previous max size
+        // For 6" balls: Min = 400, Average = 1190, Max = 1980
+        // For 7" balls: Min = 416, Average = 1338, Max = 2260
+        // For 8" balls: Min = 433, Average = 1486, Max = 2540
+        // For 9" balls: Min = 450, Average = 1635, Max = 2820
         var quantity: number =
             (40 * Math.min(168, this.flags[kFLAGS.KATHERINE_HOURS_SINCE_CUM] + 10)) / 24;
         if (this.ballSize <= 0) quantity *= 0.75 + 0.25 * -this.ballSize;
-        //Values below zero indicate a prostate enhanced by Succubi's Delight
+        // Values below zero indicate a prostate enhanced by Succubi's Delight
         else quantity *= this.ballSize;
         return quantity + 300;
     }
@@ -539,7 +539,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     }
 
     public isMilky(): boolean {
-        //Quick check to decide if we should mention her lactation in descriptions
+        // Quick check to decide if we should mention her lactation in descriptions
         return (
             (this.breasts.milkIsOverflowing() &&
                 this.breasts.lactationLevel >= BreastStore.LACTATION_MODERATE) ||
@@ -578,7 +578,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     }
 
     public clothes(): void {
-        //Produces a few sentences which describe what Katherine is currently wearing
+        // Produces a few sentences which describe what Katherine is currently wearing
         var milky: boolean = this.isMilky();
         switch (this.flags[kFLAGS.KATHERINE_CLOTHES_WORN]) {
             case Katherine.KBIT_CLOTHES_UNIFORM: //Guard Uniform
@@ -686,7 +686,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 );
                 break;
             default:
-                //Tattered Clothes
+                // Tattered Clothes
                 this.outputText(
                     "She wears weatherbeaten, somewhat ragged, clearly second-hand clothing, consisting of a too-large shirt and a very tight pair of shorts."
                 );
@@ -755,7 +755,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         if ((subFlags & Katherine.KBIT_SUB_HIGH_CUM) > 0) subCount++;
         if ((subFlags & Katherine.KBIT_SUB_BED_BOND) > 0) subCount++;
         if ((subFlags & Katherine.KBIT_SUB_ORGASM_DENIAL) > 0) subCount++;
-        //KBIT_SUB_CALL_MASTER doesn’t count - it just shows you told her to call you master
+        // KBIT_SUB_CALL_MASTER doesn’t count - it just shows you told her to call you master
         if ((subFlags & Katherine.KBIT_SUB_GROW_KNOT) > 0) subCount++;
         if ((subFlags & Katherine.KBIT_SUB_CAT_DICK) > 0) subCount++;
         if ((subFlags & Katherine.KBIT_SUB_GROW_BIG_BOOBS) > 0) subCount++;
@@ -783,16 +783,16 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     }
 
     public playerText(): string {
-        //For the simplest case. Will not work properly at the start of sentences.
+        // For the simplest case. Will not work properly at the start of sentences.
         if ((this.flags[kFLAGS.KATHERINE_SUB_FLAGS] & Katherine.KBIT_SUB_CALL_MASTER) > 0)
             return "[master]";
         return this.player.short;
     }
 
     public katherineAndUrtaHadSex(drunkSex: boolean): void {
-        //Every time they have sex they get a little closer, but this is limited to a max of 30
-        //while still in training. Once Kath has a job they can tell you they love each other.
-        //Only the two of them having sex sober can cause them to gain the last point.
+        // Every time they have sex they get a little closer, but this is limited to a max of 30
+        // while still in training. Once Kath has a job they can tell you they love each other.
+        // Only the two of them having sex sober can cause them to gain the last point.
         this.flags[kFLAGS.KATHERINE_URTA_TIMES_SEX]++;
         if (this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] >= 31) return;
         if (
@@ -802,14 +802,14 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 this.flags[kFLAGS.KATHERINE_URTA_DATE] == Katherine.KDATE_LITTLE)
         )
             return;
-        //Kath and Urta can’t gain that last point and become lovers if Kath has not yet
-        //completed her training, if this was alcohol fueled sex or if you told them to only
-        //fuck each other when you were around.
+        // Kath and Urta can’t gain that last point and become lovers if Kath has not yet
+        // completed her training, if this was alcohol fueled sex or if you told them to only
+        // fuck each other when you were around.
         this.flags[kFLAGS.KATHERINE_URTA_AFFECTION]++;
     }
 
     public katherineAndValaHadSex(): void {
-        //Every time they have sex they get a little closer, but this is limited to a max of 11.
+        // Every time they have sex they get a little closer, but this is limited to a max of 11.
         this.flags[kFLAGS.KATHERINE_VALA_TIMES_SEX]++;
         if (this.flags[kFLAGS.KATHERINE_VALA_AFFECTION] > 11) return;
         this.flags[kFLAGS.KATHERINE_VALA_AFFECTION]++;
@@ -823,7 +823,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
     }
 
-    //If player has Silver Bell key item and is at Wet Bitch when Scylla is not busy with her Addicts Anonymous group
+    // If player has Silver Bell key item and is at Wet Bitch when Scylla is not busy with her Addicts Anonymous group
     public catMorphIntr(): void {
         this.outputText(
             "\n\nThe cum-drinking nun Scylla is here, apparently resting up between one of her missions.  Recalling the last 'mission' you went on, your hand unthinkingly touches the silver bell you received from that strange herm cat-morph.  Scylla could probably help you find her again."
@@ -832,7 +832,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
 
     public katherineGreeting(): void {
         this.outputText("", true);
-        //[If Player chooses 'Scylla' button]
+        // [If Player chooses 'Scylla' button]
         this.outputText(
             "Scylla smiles when she sees you approaching, and politely greets you.  “<i>Why, hello, " +
                 this.player.short +
@@ -911,19 +911,19 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             flags[kFLAGS.KATHERINE_DICK_LENGTH] = 8;
             flags[kFLAGS.KATHERINE_KNOT_THICKNESS] = 6;
             flags[kFLAGS.KATHERINE_BALL_SIZE] = 1; */
-        //Player can now encounter Katherine by using the Back Alley button at the Pawn Shop
+        // Player can now encounter Katherine by using the Back Alley button at the Pawn Shop
         this.flags[kFLAGS.KATHERINE_UNLOCKED] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Seeing Katherine
+    // Seeing Katherine
     public visitKatherine(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("katherine-visit-alley"));
         if (this.flags[kFLAGS.KATHERINE_UNLOCKED] == 1) {
             if (this.telAdre.katherineEmployment.initiateTraining()) return;
         }
-        //If Back Alley button is selected
+        // If Back Alley button is selected
         this.outputText(
             "The back alley behind Oswald's pawnshop is quite unremarkable, except that it's reasonably clean.  A number of empty crates, old blankets and torn strips of cloth have been assembled into a makeshift “<i>nest</i>”, the kind of place that a homeless vagrant would use as a resting place.\n\n"
         );
@@ -949,20 +949,20 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 this.outputText("waking up from a cat-nap");
         }
         if (this.flags[kFLAGS.KATHERINE_UNLOCKED] == 1) {
-            //Regular menu
+            // Regular menu
             this.outputText(
                 ", and she smiles when she sees you.  “<i>" +
                     this.player.short +
                     "!  Did you come to see me?</i>”"
             );
             if (checkTraining && this.flags[kFLAGS.KATHERINE_TRAINING] > 2) {
-                //You have talked to at least one of Edryn, Urta or the desk sargeant
+                // You have talked to at least one of Edryn, Urta or the desk sargeant
                 this.telAdre.katherineEmployment.talkToKath();
                 return;
             }
             this.katherineMenu();
         } else {
-            //You are training her alone
+            // You are training her alone
             this.outputText(".\n\n");
             if (this.flags[kFLAGS.KATHERINE_TRAINING] >= 100)
                 this.telAdre.katherineEmployment.katherineTrainingComplete();
@@ -975,11 +975,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     }
 
     public visitAtHome(): void {
-        //You go to Kath's place alone - she may or may not be home
+        // You go to Kath's place alone - she may or may not be home
         this.clearOutput();
         if (this.isAt(Katherine.KLOC_KATHS_APT)) {
             if (this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] == 31) {
-                //Special event that happens only once
+                // Special event that happens only once
                 this.outputText(
                     "When you open the door to Kath’s place you see Kath and Urta both sitting together on the bed.  As soon as they spot you Kath crooks her finger and scoots over, leaving a space between her and Urta.\n\n"
                 );
@@ -1079,7 +1079,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     public katherineAtUrtas(): void {
         this.outputText("You lock up and walk over to Urta's ");
         if (this.isAt(Katherine.KLOC_URTAS_APT)) {
-            //This option happens if you and Urta have no children
+            // This option happens if you and Urta have no children
             this.outputText(
                 "apartment.  A few knocks on the door and " +
                     (this.hasCock() ? "a sheepish looking pair of herms" : "your sheepish lovers") +
@@ -1106,7 +1106,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 this.telAdre.telAdreMenu
             );
         } else {
-            //At Urta's House
+            // At Urta's House
             switch (Katherine.rand(4)) {
                 case 0:
                     this.outputText(
@@ -1320,7 +1320,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "As you walk through the streets of Tel’Adre you notice a small group of Watch officers out on patrol.  One of them looks your way and you see a familiar face.  Kath says something to one of the other officers.  Soon enough Kath is headed your way while the others walk to a nearby cafe.\n\n"
         );
         if (this.flags[kFLAGS.KATHERINE_UNLOCKED] == 4) {
-            //First encounter since training
+            // First encounter since training
             this.outputText(
                 "“<i>" +
                     this.player.short +
@@ -1328,7 +1328,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
             this.flags[kFLAGS.KATHERINE_UNLOCKED] = 5;
         } else {
-            //Normal introduction
+            // Normal introduction
             this.outputText(
                 "When she reaches you Katherine skids to a stop.  “<i>" +
                     (this.playerMaster() ? "[master]" : "Hi " + this.player.short) +
@@ -1355,7 +1355,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             penetratePussy = this.penetrateKatsVag;
             penetrateAss = this.pcPenetratesKatAnally;
         }
-        //[Give Oral] [Kath Laps] [Fuck Her] [Anal] [Leave]
+        // [Give Oral] [Kath Laps] [Fuck Her] [Anal] [Leave]
         this.simpleChoices(
             "Give Oral",
             this.giveKatOralPenisWingWang,
@@ -1454,14 +1454,14 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "You laugh, give her a scratch behind the ear and let her lead you back to her table."
         );
-        //Show the same menu options you would normally see if sitting with Kath
+        // Show the same menu options you would normally see if sitting with Kath
         this.flags[kFLAGS.KATHERINE_UNLOCKED] = 5; //She’s met you at the wet bitch and given you her apt key
         this.katherineMenu();
     }
 
     public barKathUrtaLoveAnnounce(): void {
-        //Special event that happens on entering the bar when KATHERINE_URTA_AFFECTION == 31
-        //and both Kath and (sober) Urta should be present in the bar at this time normally
+        // Special event that happens on entering the bar when KATHERINE_URTA_AFFECTION == 31
+        // and both Kath and (sober) Urta should be present in the bar at this time normally
         this.clearOutput();
         this.outputText(
             "When you walk into the Wet Bitch you see Kath and Urta sitting together at Urta's table.  As soon as Kath spots you she waves you over enthusiastically.\n\n"
@@ -1496,12 +1496,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.addButton(button++, "Spitr Kath", this.telAdre.katherineThreesome.spitroastKath);
     }
 
-    //Main menu for Kath while she lives in the alley behind Oswald's
+    // Main menu for Kath while she lives in the alley behind Oswald's
     private katherineMenu(): void {
-        //One menu to rule them all (so the code never gets confused about what it should go back to
+        // One menu to rule them all (so the code never gets confused about what it should go back to
         if (this.flags[kFLAGS.KATHERINE_UNLOCKED] < 4) {
-            //Behind Oswald's pawn shop
-            //[Sex] [Talk] [Appearance] [Give Item]
+            // Behind Oswald's pawn shop
+            // [Sex] [Talk] [Appearance] [Give Item]
             this.simpleChoices(
                 "Sex",
                 this.katherineSex,
@@ -1563,7 +1563,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         }
     }
 
-    //Talk
+    // Talk
     private talkToKatherine(): void {
         this.clearOutput();
         this.outputText("You tell Katherine that you'd like to talk.  ");
@@ -1577,7 +1577,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 this.flags[kFLAGS.KATHERINE_TRAINING] == 1
             )
                 employmentTalk = this.telAdre.katherineEmployment.employmentTalk;
-            //[Racial Tension] [Her History] [Gang] [Dog Cock] [Vagrancy] [Love & Lust]
+            // [Racial Tension] [Her History] [Gang] [Dog Cock] [Vagrancy] [Love & Lust]
             this.choices(
                 "RacialTension",
                 this.katherineDefur,
@@ -1623,8 +1623,8 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.addButton(9, "Back", this.katherineMenu);
     }
 
-    //Talk Scenes
-    //Racial Tension
+    // Talk Scenes
+    // Racial Tension
     private katherineDefur(): void {
         this.clearOutput();
         this.outputText(
@@ -1646,11 +1646,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "You click your tongue reflexively.  Politely thanking Katherine for the talk, you turn and walk away."
         );
-        //Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
+        // Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
         this.doNext(this.telAdre.telAdreMenu);
     }
 
-    //Her History
+    // Her History
     private katherinesHistory(): void {
         this.clearOutput();
         this.outputText(
@@ -1680,11 +1680,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "You're skeptical, but reason there's nothing you can do about it right now.  Politely thanking Katherine for the talk, you turn and walk away."
         );
-        //Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
+        // Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
         this.doNext(this.telAdre.telAdreMenu);
     }
 
-    //Gang
+    // Gang
     private askKatherineAboutGang(): void {
         this.clearOutput();
         this.outputText(
@@ -1750,11 +1750,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
 
         this.outputText("Politely thanking Katherine for the talk, you turn and walk away.\n\n");
-        //Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
+        // Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
         this.doNext(this.telAdre.telAdreMenu);
     }
 
-    //Dog Cock
+    // Dog Cock
     private askKatherineAboutDogCock(): void {
         this.clearOutput();
         this.outputText(
@@ -1786,11 +1786,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
 
         this.outputText("Politely thanking Katherine for the chat, you turn and walk away.");
-        //Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
+        // Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
         this.doNext(this.telAdre.telAdreMenu);
     }
 
-    //Vagrancy
+    // Vagrancy
     private askKatherineAboutVagrancy(): void {
         this.clearOutput();
         this.outputText(
@@ -1804,12 +1804,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "You can't help wondering how much of that is true and how much of that is prejudice.  Politely thanking Katherine for the talk, you turn and walk away."
         );
-        //Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
+        // Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
         this.flags[kFLAGS.KATHERINE_TRAINING] = 1; //Now you can talk about Kath getting a job
         this.doNext(this.telAdre.telAdreMenu);
     }
 
-    //Love & Lust
+    // Love & Lust
     private askKatherineAboutLoveAndLust(): void {
         this.clearOutput();
         this.outputText(
@@ -1829,7 +1829,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
 
         this.outputText("Politely thanking Katherine for the talk, you turn and walk away.");
-        //Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
+        // Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
         this.doNext(this.telAdre.telAdreMenu);
     }
 
@@ -2487,7 +2487,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
 
     private talkLovers(): void {
         this.clearOutput();
-        //More can be added later
+        // More can be added later
         var loverSet: number = this.playerLovers();
         var loverCount: number = 0;
         var optionAmily = undefined;
@@ -2553,7 +2553,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     }
 
     private playerLovers(): number {
-        //This function exists so that both talkLovers and talkToKatherine can use the same code to determine who else the player is fucking.
+        // This function exists so that both talkLovers and talkToKatherine can use the same code to determine who else the player is fucking.
         var loverSet: number = 0;
         if (this.flags[kFLAGS.AMILY_FOLLOWER] == 1) loverSet |= Katherine.KBIT_LOVER_AMILY; //Not > 0; probably don’t want to admit having corrupt Amily follower to Katherine
         if (this.flags[kFLAGS.COTTON_MET_FUCKED] >= 2) loverSet |= Katherine.KBIT_LOVER_COTTON;
@@ -2744,7 +2744,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     private talkLoversUrta(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] == 0) {
-            //She doesn’t know about you and Urta
+            // She doesn’t know about you and Urta
             var urtaKids: number = this.getGame().urtaPregs.urtaKids();
             this.outputText(
                 "You decide to tell Katherine about Urta.  It’s amazing it hasn’t come up since they work together.  After you explain things Katherine " +
@@ -2775,19 +2775,19 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 );
             this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] = 1;
         } else if (this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] == 1)
-            //She knows about you and Urta
+            // She knows about you and Urta
             this.outputText(
                 "You bring up Urta and Kath smiles.  “<i>Yeah, Urta and I have been talking about you.  It’s weird, I always thought I’d get really angry and go after any girl who’s been fucking my " +
                     this.player.genderText("guy", "girl", "girl", "lover") +
                     " but it just didn’t happen.  I actually feel just fine about you and her.</i>”"
             );
         else if (this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] <= 10)
-            //They’ve had some sex in training/while drunk
+            // They’ve had some sex in training/while drunk
             this.outputText(
                 "You bring up Urta and Kath smiles.  “<i>I still don’t know if I should be sleeping with her or anything, but those times the three of us have got together, well they’ve been pretty damn good.  I’m not asking for a repeat or anything, but I know what you see in her and I don’t blame either of you.</i>”\n\n"
             );
         else if (this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] <= 31) {
-            //Fuckbuddies - they’ve had sex sober
+            // Fuckbuddies - they’ve had sex sober
             this.outputText(
                 "You bring up Urta and Kath sighs and gives you a big grin.  She truly looks like the cat that ate the canary, or in this case ate out the fox.  “<i>It’s your fault, you know.  I wasn’t aiming to get into my superior’s pants, but you just wouldn’t quit.  Now we share those looks in the hall and I’m always wondering if she’s just going to lead me somewhere if we’re both on break at the same time.  She hasn’t - but I’m always expecting it.  Maybe it’s just me and I need another good fucking.</i>”\n\n"
             );
@@ -2811,7 +2811,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
             return;
         } else {
-            //Kath has decided she loves Urta too
+            // Kath has decided she loves Urta too
             this.outputText(
                 "When you mention Urta Kath gets up and gives you a hug.  “<i>I was a girl who never thought anyone was going to love her cause of a big doggie dick.  Now I’ve got you and you got me together with Urta too.  I’m so happy, everyday I get a workout - who needs a gym?  And I’ve always got someone I can go home with, someone I can talk to, someone I can just hug and hold on to.  Thank you so much " +
                     this.playerText() +
@@ -3128,7 +3128,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             var sharingArray: any[] = ["you"];
             if (this.milkOption(Katherine.KBIT_MILK_SHARE_WITH_OLD_GANG))
                 sharingArray.push("her old gang");
-            //Old gang includes Helena
+            // Old gang includes Helena
             else if (this.milkOption(Katherine.KBIT_MILK_SHARE_WITH_HELENA))
                 sharingArray.push("Helena");
             if (canShareWithUrta && this.milkOption(Katherine.KBIT_MILK_SHARE_WITH_URTA))
@@ -3478,7 +3478,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     }
 
     private takeKathHome(): void {
-        //You are bringing her home for sexy times
+        // You are bringing her home for sexy times
         this.outputText(
             "\n\nThe two of you race through the streets heading for Kath's apartment.  You let her stay ahead of you most of the way so you get a nice view of her tight little ass.\n\n"
         );
@@ -3527,7 +3527,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     }
 
     private takeKathToTheBar(): void {
-        //You are bringing her to the Wet Bitch
+        // You are bringing her to the Wet Bitch
         this.outputText(
             "\n\nThe two of you walk through the streets of Tel'Adre arm in arm.  Kath enjoys the walk while you think about what you'd like to do with her once you reach the bar.\n\n"
         );
@@ -3592,18 +3592,18 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.katSexMenu();
     }
 
-    //Katherine Appearance:
+    // Katherine Appearance:
     private katherinesAppearance(clear: boolean = true): void {
         if (clear) this.clearOutput();
         this.outputText(this.images.showImage("katherine-examine-her-appearance"));
         if (this.flags[kFLAGS.KATHERINE_UNLOCKED] < 4) {
-            //Still unemployed
+            // Still unemployed
             this.outputText(
                 "Katherine stands before you, nervously watching as you scrutinize her form.  “<i>Um... do you like what you see?</i>”  Nervously trying to break the ice and amateurishly trying to flaunt her body, she strikes what might be a sexy pose... in her mind.\n\n"
             );
         } else if (this.model.time.hours >= 10) {
-            //She’s off duty (on duty doesn’t need intro text)
-            //She’s at home (appearance function doesn’t get used at the bar)
+            // She’s off duty (on duty doesn’t need intro text)
+            // She’s at home (appearance function doesn’t get used at the bar)
             this.outputText(
                 "Katherine stands before you, beaming with pride.  She moves her fingers across her body, hoping to give you ideas.  “<i>Is there anything you’d like to do?</i>” she purrs.\n\n"
             );
@@ -3664,7 +3664,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 );
                 break;
             default:
-                //Tattered Clothes
+                // Tattered Clothes
                 this.outputText(
                     "  At your gesture, she meekly undresses herself so that you can get a better look at her"
                 );
@@ -3717,13 +3717,13 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(" her wet, eager cunt.\n\n");
 
         if (this.flags[kFLAGS.KATHERINE_UNLOCKED] < 4) {
-            //Still unemployed
+            // Still unemployed
             this.outputText(
                 "When you're finished looking at her she quickly redresses herself, flaunting her rear at you as if by accident and waiting to see what else you want, reassured by your lack of comments."
             );
             this.katherineMenu(); //Display default Katherine options
         } else if (this.model.time.hours >= 10) {
-            //She’s at home (appearance function is never called at the bar). If time < 10 then she is on duty. See katherineOnDuty() for end of conversation & menu
+            // She’s at home (appearance function is never called at the bar). If time < 10 then she is on duty. See katherineOnDuty() for end of conversation & menu
             this.outputText(
                 "Totally naked, tail waving with pleasure, Katherine stretches, giving you a very good show of all her most private parts.  “<i>Like what you see, dearest?</i>” she purrs.\n\n"
             );
@@ -3739,7 +3739,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         }
     }
 
-    //Give Item:
+    // Give Item:
     private giveKatherineAnItem(): void {
         this.clearOutput();
         this.outputText("You tell Katherine that you have a present for her.\n\n");
@@ -3897,7 +3897,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.addButton(9, "Back", this.katherineMenu);
     }
 
-    //Reducto
+    // Reducto
     private useReductoOnKat(): void {
         this.clearOutput();
         var dickMin: number = this.flags[kFLAGS.KATHERINE_UNLOCKED] >= 4 ? 6 : 8; //If she's employed she'll go as low as 6 inches
@@ -3907,7 +3907,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.knotSize <= 2 &&
             breasts.cupSize == BREAST_CUP_A
         ) {
-            //If min size on all Kat parts reached:
+            // If min size on all Kat parts reached:
             this.outputText(
                 "She looks at the jar and then visibly thinks about it, but shakes her head.  “<i>I'm sorry, " +
                     this.playerText() +
@@ -3945,7 +3945,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 this.outputText(
                     "a nearby crate, holding the precious jar of ointment and waiting for you to begin.\n\n"
                 );
-            //Kath is at her apartment
+            // Kath is at her apartment
             else
                 this.outputText(
                     "her bed and strips off the rest of her clothes in a seductive little dance.  Then she hands you the precious jar of ointment and waits for you to begin.\n\n"
@@ -4026,7 +4026,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "She rewards you with a glowing, orgasmic smile.  “<i>That was... incredible.  Thank you so much for the present... did you want to do anything else?  Maybe... have a little fun?</i>” she asks, her voice low and husky with desire.\n\n"
         );
-        //use 1x Reducto, reduce Kat knot size by 2, increase PC lust value, go to Kat sex menu
+        // use 1x Reducto, reduce Kat knot size by 2, increase PC lust value, go to Kat sex menu
         this.knotSize -= 2;
         if (this.knotSize < 2) this.knotSize = 2;
         this.dynStats("lus", 10 + this.player.lib / 20);
@@ -4034,7 +4034,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.katSexMenu();
     }
 
-    //[Cock Length] (unavailable unless Kat cocklength is >8, or >6 if she's employed)
+    // [Cock Length] (unavailable unless Kat cocklength is >8, or >6 if she's employed)
     private useReductoOnKatsKock(): void {
         this.clearOutput();
         this.outputText(
@@ -4112,7 +4112,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         if (this.player.lib > 50) this.outputText(", if fatigued,");
         this.outputText(" look on you.\n\n");
 
-        //remove 2 inches from Kat's length, use 1x Reducto, increase PC lust value, go to Kat sex menu
+        // remove 2 inches from Kat's length, use 1x Reducto, increase PC lust value, go to Kat sex menu
         this.cockLength -= 2;
         var dickMin: number = this.flags[kFLAGS.KATHERINE_UNLOCKED] >= 4 ? 6 : 8; //If she's employed she'll go as low as 6 inches
         if (this.cockLength < dickMin) this.cockLength = dickMin;
@@ -4121,7 +4121,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.katSexMenu();
     }
 
-    //[Ball Size](unavailable until Kat balls > 1")
+    // [Ball Size](unavailable until Kat balls > 1")
     private reductoBallSize(): void {
         this.clearOutput();
         if (this.isAt(Katherine.KLOC_STREETS))
@@ -4151,7 +4151,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 this.cockMultiple("", "s") +
                 ".  “<i>Uh... I think shrinking my balls put their contents under pressure.  You wanna help me vent some?</i>” she meekly suggests, coloring and biting her lip in either embarrassment or anticipation.\n\n"
         );
-        //use 1x Reducto, reduce Kat ball size by two inches, increase PC lust by small value, go to Kat sex menu
+        // use 1x Reducto, reduce Kat ball size by two inches, increase PC lust by small value, go to Kat sex menu
         this.ballSize -= 2;
         if (this.ballSize < 1) this.ballSize = 1;
         this.dynStats("lus", 10 + this.player.lib / 20);
@@ -4223,7 +4223,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.katSexMenu();
     }
 
-    //Bulbous Pepper
+    // Bulbous Pepper
     private giveKatABulbousPepper(): void {
         this.clearOutput();
         this.outputText(
@@ -4381,9 +4381,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.player.consumeItem(this.consumables.BULBYPP);
             this.katSexMenu();
         } else {
-            //Too big
+            // Too big
             if (this.submissiveness() >= 4) {
-                //Too big even for submissive Kath
+                // Too big even for submissive Kath
                 this.outputText(
                     "She gets down on her knees and begs you.  “<i>Please " +
                         this.playerText() +
@@ -4472,7 +4472,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.katSexMenu();
     }
 
-    //Double Pepper
+    // Double Pepper
     private giveKatADoublePepper(): void {
         this.clearOutput();
         if (!this.hasCock()) {
@@ -4573,7 +4573,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.katSexMenu();
     }
 
-    //Overly Large Pepper
+    // Overly Large Pepper
     private giveKatAOverlyLargePepper(): void {
         this.clearOutput();
         var kathSubEnough: boolean =
@@ -4715,7 +4715,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.player.consumeItem(this.consumables.LARGEPP);
             this.katSexMenu();
         } else if (kathSubEnough) {
-            //Too big, even for submissive Kath
+            // Too big, even for submissive Kath
             this.outputText(
                 "She looks at the pepper and then looks down at her already enormous package.  “<i>Please " +
                     this.playerText() +
@@ -4783,12 +4783,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             return;
         }
         if (this.doneSubmissive(Katherine.KBIT_SUB_CAT_GIRL))
-            //Already been changed to cat girl and changed back
+            // Already been changed to cat girl and changed back
             this.outputText(
                 "She hugs you and says, “<i>Mmmm, that’s what I thought.  Guess you need another taste of home, huh?  Well I did enjoy it last time, so why not?</i>”"
             );
         else {
-            //First time
+            // First time
             this.outputText(
                 "Kath’s mouth falls open and puts a hand to her chest.  “<i>You want me to change what I am?</i>”  You nod.\n\n"
             );
@@ -4824,7 +4824,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "Kath strips off her clothes and walks to the corner of the room, swaying her hips ever so seductively.  She sits in the corner and waits for you to sit down next to her.  She takes the cup from you and tips it back like she’s finishing a shot of vodka.\n\n"
             );
         else {
-            //First time
+            // First time
             this.outputText(
                 "Meanwhile Kath has stripped off her clothes.  Kath takes the cup and sits on the bed.  Just before she takes a sip she stops.  “<i>This stuff is going to get rid of my fur, right?</i>”  She stands up and goes to a bare corner of the room.  “<i>If it all falls out I am never getting it out of the sheets.</i>”  She sits down on the floor and tips the drinking cup back like she’s finishing a shot of vodka.\n\n"
             );
@@ -4854,7 +4854,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     " I hope you enjoy another taste of home.  And I hope you want to make love to me again and again because my body might look human but my libido is all feline.</i>”\n\n"
             );
         } else {
-            //First time
+            // First time
             this.outputText(
                 "“<i>That’s so different,</i>” she says, twisting and turning in place and touching her still furry ears, “<i>and yet it’s still mostly the same.</i>”\n\n"
             );
@@ -4879,7 +4879,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     }
 
     private giveKatAKnottyPepper(): void {
-        //Kath can now regrow her knot. At first she’s willing to regrow it to 4", at submissiveness 1 she //will regrow it to its original 6" size.
+        // Kath can now regrow her knot. At first she’s willing to regrow it to 4", at submissiveness 1 she //will regrow it to its original 6" size.
         this.clearOutput();
         this.outputText(
             "You show Kath the knotted canine pepper and ask if it brings back any memories.\n\n"
@@ -4904,7 +4904,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.dynStats("lus", 10 + this.player.lib / 20);
             this.player.consumeItem(this.consumables.KNOTTYP);
         } else if (this.knotSize >= 6) {
-            //Original size - it won’t grow any further
+            // Original size - it won’t grow any further
             this.outputText(
                 "Kath gestures towards her cock" +
                     this.cockMultiple("", "s") +
@@ -4944,7 +4944,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.dynStats("lus", 10 + this.player.lib / 20);
             this.player.consumeItem(this.consumables.KNOTTYP);
         } else if (this.knotSize >= 4) {
-            //Need submissiveness 1+ to grow
+            // Need submissiveness 1+ to grow
             this.outputText(
                 "Kath takes the pepper a little uncertainly.  “<i>It brings back some good memories, from after I met you; it also brings back memories of being an outcast among my own kind.</i>”\n\n"
             );
@@ -5015,7 +5015,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 this.player.consumeItem(this.consumables.KNOTTYP);
             }
         } else {
-            //Knot is < 4", Always willing to grow if you ask
+            // Knot is < 4", Always willing to grow if you ask
             this.outputText(
                 "Kath takes the pepper and laughs.  “<i>How could I forget?  I don’t even remember how many of these I ate trying to make my cock just a bit bigger.</i>”  She rubs the base of " +
                     this.cockMultiple("her cock", "one cock then the other") +
@@ -5292,7 +5292,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     "Kath smiles and looks deep into your eyes, the hornyness written all over her face.  “<i>I wasn’t sure I wanted this, but it feels good.  Do you like it?</i>” she asks, “<i>maybe you could show me how much, hmmm?  Be a shame to let the chance go to waste...</i>”\n\n"
                 );
             } else if (kathSubEnough) {
-                //Too big, even for submissive Kath
+                // Too big, even for submissive Kath
                 this.outputText(
                     "She looks at the bottle and then looks down at her already enormous package.  “<i>Please " +
                         this.playerText() +
@@ -5438,9 +5438,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     " ballsack and whispers in your ear, “<i>So... you wanna give them a test run?</i>”"
             );
         } else {
-            //Too big
+            // Too big
             if (this.submissiveness() >= 4) {
-                //Too big even for submissive Kath
+                // Too big even for submissive Kath
                 this.outputText(
                     "She gets down on her knees and begs you.  “<i>Please " +
                         this.playerText() +
@@ -5481,7 +5481,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.clearOutput();
         var kathSubEnough: boolean = this.submissiveness() >= 2;
         if (this.breasts.cupSize < CoC.BREAST_CUP_DD_BIG) {
-            //She’s willing to go up to big DD-Cup normally
+            // She’s willing to go up to big DD-Cup normally
             this.outputText(
                 "You show Kath the bottle of Succubus’ Milk and tell her that it’s been purified.  Kath takes it and tips the bottle from side to side, examining the cloudy liquid inside.\n\n"
             );
@@ -5523,7 +5523,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     "Kath bounces up and down a few times and watches her new rack react to her motion.  She notices you watching, turns and walks into your arms, hugging you against her new assets.  You feel her nipples start to harden and as you rub her back her tail begins to flick from side to side.\n\n"
                 );
             } else {
-                //She's now up to BREAST_CUP_DD_BIG
+                // She's now up to BREAST_CUP_DD_BIG
                 this.outputText(
                     "Oof.  These puppies are a lot heavier" +
                         (this.breasts.lactating() ? ", especially with the milk" : "") +
@@ -5555,7 +5555,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.dynStats("lus", 10 + this.player.lib / 20);
             this.player.consumeItem(this.consumables.P_S_MLK);
         } else if (this.breasts.cupSize < CoC.BREAST_CUP_EE && kathSubEnough) {
-            //Allows E-Cup, big E-Cup and EE-Cup
+            // Allows E-Cup, big E-Cup and EE-Cup
             this.outputText(
                 "You tell Katherine to disrobe.  You have a present for her.  She hops on the bed and takes her clothes off slowly, giving you a nice little striptease.  When she’s finished you place the bottle of succubi’ milk in her hand.\n\n"
             );
@@ -5589,7 +5589,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.dynStats("lus", 10 + this.player.lib / 20);
             this.player.consumeItem(this.consumables.P_S_MLK);
         } else if (kathSubEnough) {
-            //Too big, even for more submissive Kath
+            // Too big, even for more submissive Kath
             this.outputText(
                 "You tell Katherine to disrobe.  You have a present for her.  She hops on the bed and takes her clothes off slowly, teasing you with her striptease.  When she’s finished you place the bottle of succubus’ milk in her hand.\n\n"
             );
@@ -5602,7 +5602,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     " was the present you wanted to give me.</i>”\n\n"
             );
         } else {
-            //Too big - she needs to be more submissive
+            // Too big - she needs to be more submissive
             this.outputText(
                 "You show Kath the bottle of Succubus’ Milk and tell her that it’s been purified.  Kath takes it and tips the bottle from side to side, examining the cloudy liquid inside.\n\n"
             );
@@ -5663,7 +5663,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 " and removes her bra, exposing her breasts.\n\n"
         );
         if (this.breasts.lactationLevel < BreastStore.LACTATION_MODERATE) {
-            //Always willing to go up to moderate
+            // Always willing to go up to moderate
             if (this.doneSubmissive(Katherine.KBIT_SUB_START_LACTATION)) {
                 this.outputText(
                     "“<i>You want more kitty milk?</i>” she asks playfully.  Taking the bottle and yanking the cork free she says, “<i>I suppose I can oblige, as long as you'll be here to take care of my needs.</i>”  With that she tips the bottle back and swallows the pink fluid in one gulp.\n\n"
@@ -5703,14 +5703,14 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 this.breasts.preventLactationIncrease == BreastStore.LACTATION_LIGHT
             )
                 this.breasts.preventLactationIncrease = 0;
-            //You're handing her the Lactaid, so obviously you want more milk
+            // You're handing her the Lactaid, so obviously you want more milk
             if (!this.doneSubmissive(Katherine.KBIT_SUB_HIGH_LACTATION))
                 this.breasts.preventLactationIncrease == BreastStore.LACTATION_MODERATE;
-            //This limit will remain in place until you are able to feed her enough Lactaid to push her up to strong lactation.
+            // This limit will remain in place until you are able to feed her enough Lactaid to push her up to strong lactation.
             this.breasts.lactationLevel++;
             this.player.consumeItem(this.consumables.LACTAID);
         } else if (this.submissiveness() < 3) {
-            //Not sub enough to go higher
+            // Not sub enough to go higher
             this.outputText(
                 "Kath cups her mammaries and gives them a gentle squeeze.  A few droplets of creamy liquid dribble from her nipples.  Kath sighs and wipes away the wetness with her fingers, saying, “<i>I don't think I should, " +
                     this.playerText() +
@@ -5758,7 +5758,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.breasts.lactationLevel++;
             this.player.consumeItem(this.consumables.LACTAID);
             if (!this.doneSubmissive(Katherine.KBIT_SUB_HIGH_LACTATION)) {
-                //First time turbocharging her mammaries
+                // First time turbocharging her mammaries
                 this.outputText(
                     "Kath cups her mammaries and gives them a gentle squeeze.  A few droplets of creamy liquid dribble from her nipples.  Kath sighs and wipes away the wetness with her fingers, saying, “<i>I don't think I should, " +
                         this.playerText() +
@@ -5792,7 +5792,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 this.addSubmissive(Katherine.KBIT_SUB_HIGH_LACTATION);
                 return;
             } else {
-                //Sky's the limit
+                // Sky's the limit
                 this.outputText(
                     "Katherine puts the bottle aside, then takes your hands and places them against her chest.  “<i>Can't get enough of my cream?</i>” she asks with a wry smile.  “<i>Well OK, as long as you're always there to lick up every drop.</i>”\n\n"
                 );
@@ -5909,7 +5909,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "You show Katherine the pink egg and the jar of reducto.  “<i>What’s that for?</i>” she asks.  You tell her that you’ve met herms that have no balls.  You’re pretty sure that together the egg and the salve can make her like that.\n\n"
         );
         if (!this.doneSubmissive(Katherine.KBIT_SUB_REM_BALLS))
-            //First time doing this
+            // First time doing this
             this.outputText(
                 "Kath reaches down and feels her balls.  Then she shakes her head and tells you, “<i>Maybe it would help when criminals try to kick me in the nuts, but I don’t know if it’s worth it.</i>”\n\n"
             );
@@ -5933,7 +5933,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "You take the jar of reducto and place it on Kath’s belly.  She opens her eyes and watches as you unscrew the lid.  You tell her that you <b>know</b> she would look more attractive without a scrotum dangling in front of her pussy.\n\n"
             );
             if (!this.doneSubmissive(Katherine.KBIT_SUB_REM_BALLS)) {
-                //First time doing this
+                // First time doing this
                 this.outputText(
                     "She tries to respond but you put your finger on her lips and tell her to trust you.  Kath looks worried but finally nods and lays her head back on the pillow.  "
                 );
@@ -6780,7 +6780,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.giveKatDyeEnd();
     }
 
-    //Sex
+    // Sex
     public katherineSex(): void {
         this.clearOutput();
         if (this.getGame().urta.drainedByKath) {
@@ -6816,7 +6816,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         var helix = undefined;
         var suckle = undefined;
         if (this.player.lust >= 33) {
-            //No penetration or helix if you’re at low lust
+            // No penetration or helix if you’re at low lust
             if (this.player.hasCock()) {
                 if (this.player.cockThatFits(70) >= 0) penetrate = this.katPenetrate;
             }
@@ -6868,12 +6868,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 this.katherineMenu
             );
         } else {
-            //Not yet employed or at the bar. Kath can't be on duty, since there's a special sex menu for on duty encounters
+            // Not yet employed or at the bar. Kath can't be on duty, since there's a special sex menu for on duty encounters
             var seeUrta = undefined;
             var seeVala = undefined;
             var backOpt: any = this.katherineMenu;
             if (this.isAt(Katherine.KLOC_BAR)) {
-                //Check to see if her partners are comfortable fucking her sober
+                // Check to see if her partners are comfortable fucking her sober
                 if (
                     this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] > 10 &&
                     this.getGame().urta.urtaAtBar() &&
@@ -6975,7 +6975,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     );
             }
         } else if (this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] > 10) {
-            //Willing to bang Kath (when sober)
+            // Willing to bang Kath (when sober)
             this.outputText(
                 "Urta hugs her back and asks, “<i>" +
                     this.player.short +
@@ -6999,7 +6999,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 undefined
             ); //Do not show knothole button for genderless
         } else {
-            //Not willing to bang Kath (while sober) just yet
+            // Not willing to bang Kath (while sober) just yet
             this.outputText(
                 "Urta pushes Kath back gently.  “<i>Whoa - " +
                     this.player.short +
@@ -7085,14 +7085,14 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.menu();
         this.addButton(0, "Fist Them", this.telAdre.katherineThreesome.fistKathAndVala);
         if (this.hasCock()) {
-            //All but the fisting scene require Kath be a herm
+            // All but the fisting scene require Kath be a herm
             this.addButton(1, "Eat Out", this.telAdre.katherineThreesome.eatOutVala);
             if (!this.player.isTaur() && this.player.hasCock())
                 this.addButton(2, "Dbl Stuff", this.telAdre.katherineThreesome.doubleStuffVala);
         }
     }
 
-    //Penetrate
+    // Penetrate
     private katPenetrate(): void {
         this.clearOutput();
         if (
@@ -7100,7 +7100,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.isAt(Katherine.KLOC_BAR_DRUNK) ||
             this.isAt(Katherine.KLOC_BAR_URTA_REFUSED)
         ) {
-            //At the bar
+            // At the bar
             this.outputText(
                 "Kath's tail twitches excitedly and she polishes off her drink, eager to see what you have in mind.\n\n"
             );
@@ -7143,9 +7143,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
     }
 
-    //PC Penetrates Kath: Vaginal (doin' a cat doggy-style)
+    // PC Penetrates Kath: Vaginal (doin' a cat doggy-style)
     public penetrateKatsVag(): void {
-        //Scene can happen in the streets, at Kath's apartment or at the lake
+        // Scene can happen in the streets, at Kath's apartment or at the lake
         var x: number = this.player.cockThatFits(70);
         this.clearOutput();
         this.outputText(this.images.showImage("katherine-fuck-her-vagoo"));
@@ -7162,7 +7162,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.outputText("positions herself over a nearby barrel");
         else if (this.isAt(Katherine.KLOC_KATHS_APT))
             this.outputText("kneels at the edge of her bed");
-        //At the lake
+        // At the lake
         else this.outputText("gets down on all fours");
         this.outputText(" so that it's easier for her to support the two of you.\n\n");
 
@@ -7220,7 +7220,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
         if (this.isAt(Katherine.KLOC_STREETS)) this.outputText("sprawls against the barrel");
         else if (this.isAt(Katherine.KLOC_KATHS_APT)) this.outputText("sprawls across her bed");
-        //At the lake
+        // At the lake
         else this.outputText("collapses onto the soft grass");
         this.outputText(
             ", flicking her tail lazily and purring loudly.  “<i>Mmm... you have no idea how good you are, lover,</i>” she tells you, before patting her belly and giggling softly.  “<i>I'm not saying I want to be a mom just yet"
@@ -7243,7 +7243,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "off in Kath’s washbasin, and then politely say goodbye, redressing yourself and heading back out into Tel'Adre."
             );
         else {
-            //At the lake
+            // At the lake
             this.outputText(
                 "and Kath off with some lake water and a towel Kath brought.  You would like to stay longer and enjoy the view but it’s much safer to head back to Tel’Adre before something investigates all the noise you two just made."
             );
@@ -7252,7 +7252,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     "\n\nOn the journey back to the city both you and Kath rub her cum bloated belly, leaving a trail of juices that stretch from the shores of the lake to the edge of the desert."
                 );
         }
-        //lust -100, Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
+        // lust -100, Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
         this.player.orgasm();
         this.orgasm();
         this.dynStats("sen", -1);
@@ -7260,9 +7260,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //PC Penetrates Kath: Anal
+    // PC Penetrates Kath: Anal
     public pcPenetratesKatAnally(): void {
-        //Scene can happen in the streets, at Kath's apartment or at the lake
+        // Scene can happen in the streets, at Kath's apartment or at the lake
         var x: number = this.player.cockThatFits(70);
         this.clearOutput();
         this.outputText(this.images.showImage("katherine-fuck-her-bungholio"));
@@ -7287,7 +7287,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.outputText(
                 "her hips are pressed firmly against the side of her bed frame and she timidly waits"
             );
-        //At the lake
+        // At the lake
         else
             this.outputText(
                 "her head is pressed against the grass and her ass and tail are raised high in the air. She looks back at you, timidly waiting"
@@ -7391,7 +7391,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                         : "soaking her") +
                     " sheets and bed"
             );
-        //At the lake
+        // At the lake
         else
             this.outputText(
                 "raining femcum down onto the ground below" +
@@ -7445,7 +7445,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                         ".  She looks unsure, but starts licking the sheets.  You rub the back of her neck to encourage her and soon Katherine is lapping away at her own juices.  Leaving Kath to her meal, you walk back out onto the streets of Tel’Adre."
                 );
         } else {
-            //At the lake
+            // At the lake
             this.outputText(
                 "you help Katherine to her feet and collect all your things.  You have a long walk back to Tel’Adre waiting for you"
             );
@@ -7455,7 +7455,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 );
             this.outputText(".");
         }
-        //lust -100, Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
+        // lust -100, Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
         this.player.orgasm();
         this.orgasm();
         this.dynStats("sen", -1);
@@ -7465,7 +7465,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     }
 
     public pcPenetratesKatDoubly(): void {
-        //Scene can happen in the streets, at Kath's apartment or at the lake
+        // Scene can happen in the streets, at Kath's apartment or at the lake
         this.clearOutput();
         var x: number = this.player.cockThatFits(70);
         this.outputText(
@@ -7505,7 +7505,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
         if (this.isAt(Katherine.KLOC_STREETS)) this.outputText("in the soft dirt of the alley");
         else if (this.isAt(Katherine.KLOC_KATHS_APT)) this.outputText("on top of her bed");
-        //At the lake
+        // At the lake
         else this.outputText("in the sand at the water’s edge");
         this.outputText(" and presenting her pussy and ass.\n\n");
 
@@ -7517,7 +7517,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         if (this.isAt(Katherine.KLOC_STREETS)) this.outputText("dig into the dirt and s");
         else if (this.isAt(Katherine.KLOC_KATHS_APT))
             this.outputText("tighten, bunching up her sheets. S");
-        //At the lake
+        // At the lake
         else this.outputText("dig into the sand and s");
         this.outputText(
             "he lets out a low, feral meow.  Taking that as your cue you raise your hips slightly and press your slick cockhead against her pucker. " +
@@ -7594,7 +7594,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                             ? ".  In fact Kath’s cum is pooling on the floor too,"
                             : "")
                 );
-            //At the lake
+            // At the lake
             else
                 this.outputText(
                     "A good amount of gritty semen slides down the beach and into the lake"
@@ -7668,7 +7668,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 this.outputText((this.hasCock() ? "spermy" : "femcum soaked") + " mud");
             else if (this.isAt(Katherine.KLOC_KATHS_APT))
                 this.outputText((this.hasCock() ? "" : "fem") + "cum soaked sheets");
-            //At the lake
+            // At the lake
             else
                 this.outputText(
                     (this.hasCock() ? "spermy" : "femcum soaked") + " sand of the beach"
@@ -7699,7 +7699,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.outputText("Finally the torrent stops and ");
             if (wombShot) {
                 if (this.doneSubmissive(Katherine.KBIT_SUB_HIGH_CUM)) {
-                    //Repeats of this scene are allowed regardless of corruption
+                    // Repeats of this scene are allowed regardless of corruption
                     this.outputText("you recall there's a fun way to ‘help’ her.");
                     this.simpleChoices(
                         "Squeeze",
@@ -7716,7 +7716,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     return;
                 }
                 if (this.player.cor >= 75) {
-                    //First time you have to be corrupt
+                    // First time you have to be corrupt
                     this.outputText("your perverse mind comes up with a way to ‘help’ her.");
                     this.simpleChoices(
                         "Help",
@@ -7823,7 +7823,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.outputText(
                 "Completely spent, Kath collapses back onto the bed with a massive wet splat.  You give her a little pat on the head and promise you’ll see her soon.  All you get in reply is a contented murmur followed by some snoring."
             );
-        //At the lake
+        // At the lake
         else
             this.outputText(
                 "When she recovers Kath washes herself off in a nearby stream and then the two of you begin the long march back to Tel’Adre.  When you reach the gates you put your arms around Kath, give her a long kiss and promise you’ll see her soon."
@@ -7876,7 +7876,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
             this.addSubmissive(Katherine.KBIT_SUB_HIGH_CUM);
         } else {
-            //Repeat business
+            // Repeat business
             this.outputText(
                 "You grip her belly and squeeze, ratcheting up the pressure that you know will overcome the involuntary resistance of her innards.  Kath mewls in a mixture of pain and pleasure, wiggling her hips and inadvertently keeping your cocks hard.  When you force your hands even deeper into her flesh, kneading her overfilled belly, you feel the familiar sensation of her inner sphincter giving way.\n\n"
             );
@@ -7942,9 +7942,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Suck 'n' Fuck (unavailable if knot > 4")
+    // Suck 'n' Fuck (unavailable if knot > 4")
     public suckNFuck(): void {
-        //Scene can happen in the streets or at Kath's apartment
+        // Scene can happen in the streets or at Kath's apartment
         var x: number = this.player.cockThatFits(70);
         this.clearOutput();
         this.outputText(this.images.showImage("katherine-fuck-and-suck"));
@@ -7972,7 +7972,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.outputText(
                 "turns around so that she is sitting on the crate instead of leaning on it"
             );
-        //Kath’s Apartment
+        // Kath’s Apartment
         else this.outputText("sits down on her bed and spreads her legs");
 
         this.outputText(
@@ -7986,7 +7986,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
         if (this.player.findPerk(PerkLib.Flexibility) < 0)
             this.outputText("  The sight is enough to make your spine wince in sympathy.");
-        //(player has Feline Flexibility:
+        // (player has Feline Flexibility:
         else
             this.outputText(
                 "  You watch how she does it, resolving to test your body and see if you can bend like that."
@@ -8028,7 +8028,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 ) +
                 ".  You thrust into her harder and harder; you can feel your climax coming... but she's the one who comes first.  With a muffled yowl, she squirts femcum from her cunt, splattering your belly in her juices.  The cry is cut off and her lips and cheeks visibly bulge as her knot suddenly inflates, trapping her cock in her own mouth and forcing her to drink every last drop as her balls release their cargo into her.  "
         );
-        //This was previously based on Kath's ball size
+        // This was previously based on Kath's ball size
         var kathCum: number = this.cumQ();
         var playerCum: number = this.player.cumQ();
         if (kathCum <= 500)
@@ -8071,7 +8071,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     "  The cat herm looks panicked as you just keep pouring jet after jet into her body, her womb swelling and her skin already distended from her own massive discharge into her stomach.  Her belly swells out and out until it is visibly pushing against her neck and upper torso, her own body forming an impenetrable barrier that leaves it with nowhere to expand to, the pressure making your cum squirt out in jets that splatter all over the "
                 );
                 if (this.isAt(Katherine.KLOC_STREETS)) this.outputText("alley.");
-                //Kath’s Apartment
+                // Kath’s Apartment
                 else this.outputText("floor of her apartment.");
             }
         }
@@ -8103,7 +8103,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "You promise her you'll remember that.  Redressed, you bid her farewell and head back out into the streets of Tel'Adre.\n\n"
         );
-        //lust -100, Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
+        // lust -100, Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
         this.player.orgasm();
         this.orgasm();
         this.dynStats("sen", -1);
@@ -8112,7 +8112,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Get Penetrated
+    // Get Penetrated
     private letKatKnotYou(): void {
         // var x: number;
         this.clearOutput();
@@ -8121,7 +8121,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.isAt(Katherine.KLOC_BAR_DRUNK) ||
             this.isAt(Katherine.KLOC_BAR_URTA_REFUSED)
         ) {
-            //At the bar
+            // At the bar
             this.outputText(
                 "As you wait for Katherine to finish off her drink you start rubbing " +
                     (this.player.isNaga() ? "the tip of your tail" : "your toe") +
@@ -8135,13 +8135,13 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     " into your body.\n\n"
             );
         } else this.letKatKnotYouCommonDialogue(false); //Either at her apartment or behind Oswald's
-        //[Vagina] [Anus] [Double Penetrate] [Sucked 'n' Fucked]
+        // [Vagina] [Anus] [Double Penetrate] [Sucked 'n' Fucked]
         var dubs = undefined;
         if (this.cockNumber > 1 && this.player.hasVagina()) dubs = this.getDoublePennedByKat;
         var sukn = undefined;
         var vag = undefined;
         if (this.player.hasVagina()) vag = this.letKatKnotYourCuntPussyFuck;
-        //This scene requires the PC has a penis and has fucked Kat at least once since moving her
+        // This scene requires the PC has a penis and has fucked Kat at least once since moving her
         if (this.player.hasCock() && this.flags[kFLAGS.KATHERINE_TIMES_SEXED] > 0)
             sukn = this.suckedNFuckedByKat;
         var backroomFuck =
@@ -8216,14 +8216,14 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 " had " + this.cockMultiple("a dog dick", "dog dicks") + " for a long time"
             );
         this.outputText(", so I'm just doing it the way nature intended,</i>” she cracks.");
-        //(if player has anus & vagina:
+        // (if player has anus & vagina:
         if (this.player.hasVagina())
             this.outputText("  “<i>So, which hole do you want me to use?</i>”");
     }
 
-    //Get Penetrated (Vaginal)
+    // Get Penetrated (Vaginal)
     public letKatKnotYourCuntPussyFuck(): void {
-        //Scene can happen in the streets or at Kath's apartment
+        // Scene can happen in the streets or at Kath's apartment
         this.clearOutput();
         this.outputText(this.images.showImage("katherine-fucks-you-knottily-in-the-vagoo"));
         if (
@@ -8256,7 +8256,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.outputText(".");
         }
         var cunt: number = this.player.vaginas[0].vaginalLooseness;
-        //(hymen check and stretching)
+        // (hymen check and stretching)
         this.player.cuntChange(this.cockArea(), true, true, false);
         this.outputText("\n\n");
 
@@ -8305,13 +8305,13 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "“<i>Ohhh!  Gonna plug you up; fill you fulla kitty-cat spunk!</i>” Katherine moans, her knot growing to its maximum size inside of you, anchoring you together so that she can no longer pull out."
         );
-        //(stretch check again)
+        // (stretch check again)
         cunt = this.player.vaginas[0].vaginalLooseness;
         this.player.cuntChange(this.cockArea(), true, true, false);
         this.outputText(
             "  She lunges forward and grabs your shoulders, trying to push her way in deeper."
         );
-        //(if stretched:
+        // (if stretched:
         if (cunt < this.player.vaginas[0].vaginalLooseness)
             this.outputText(
                 "  The amount of swollen cockmeat she's stuffing inside you is on the border of being painful, but mostly it's pleasure that fills you."
@@ -8349,7 +8349,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     " below"
             );
         this.outputText(".  ");
-        //These cum volumes were previously based on Kath's ball size
+        // These cum volumes were previously based on Kath's ball size
         if (this.cumQ() <= 500)
             this.outputText(
                 "She makes a surprisingly large amount of cum for " +
@@ -8392,7 +8392,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         else this.outputText("“<i>If you pull hard enough, I should pop right out of you.");
         this.outputText("</i>”\n\n");
 
-        //[(PC is very loose)
+        // [(PC is very loose)
         if (this.player.vaginalCapacity() >= 100 && this.isAt(Katherine.KLOC_STREETS))
             this.outputText(
                 "Nonplussed by the idea of waiting naked and penetrated in a back alley, and eager to see the look on Katherine's face, you pull apart anyway; your thoroughly stretched-out pussy relinquishes the knot with no more than a long sucking noise.  Free of her, you look back over your shoulder.  As you guessed, Katherine is sitting there wordlessly with her mouth open, staring alternately at the abused, cum-drooling lips of your pussy and at the enormous mass of flesh you just managed to pass through it."
@@ -8407,7 +8407,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.outputText("About an hour later, she's deflated and y");
         else this.outputText("Y");
         this.outputText("ou get dressed, thank her, and head back to your camp.");
-        //minus lust, slimefeed, Player returns to camp
+        // minus lust, slimefeed, Player returns to camp
         this.player.orgasm();
         this.orgasm();
         this.dynStats("sen", -1);
@@ -8417,9 +8417,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Get Penetrated (Anal)
+    // Get Penetrated (Anal)
     public getPenetrated(): void {
-        //Scene can happen in the streets or at Kath's apartment
+        // Scene can happen in the streets or at Kath's apartment
         this.clearOutput();
         this.outputText(this.images.showImage("katherine-fucks-you-knottily-in-the-bungholio"));
         if (
@@ -8460,7 +8460,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 ) +
                 ".  With soft hands, she rubs the goo into your pucker and all over her pointed shaft, then there's a void of sensation as she pulls it from your asscheeks.  Before you can react, she pushes them open again and rams her cock into your anus!"
         );
-        //(butt hymen check + stretch check)
+        // (butt hymen check + stretch check)
         var butts: number = this.player.ass.analLooseness;
         this.player.buttChange(this.cockArea(), true, true, false);
         this.outputText("\n\n");
@@ -8475,7 +8475,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 this.cockMultiple("", ", her secondary cock slapping wetly against your back") +
                 ".  She grunts and groans, “<i>Oh- Oh yeah, you're unbelievable!"
         );
-        //[(player has high harpy/shark/cat/dog/bunny score)
+        // [(player has high harpy/shark/cat/dog/bunny score)
         if (
             this.player.harpyScore() >= 4 ||
             this.player.sharkScore() >= 4 ||
@@ -8551,7 +8551,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     " below you"
             );
         this.outputText(".  ");
-        //These cum volumes were previously based on Kath's ball size
+        // These cum volumes were previously based on Kath's ball size
         if (this.cumQ() <= 500)
             this.outputText(
                 "She makes a surprisingly large amount of cum for " +
@@ -8600,7 +8600,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "About an hour later, she's deflated and you are able to get dressed, thank her, and head back to your camp."
         );
-        //minus lust, slimefeed, Player returns to camp
+        // minus lust, slimefeed, Player returns to camp
         this.player.orgasm();
         this.orgasm();
         this.dynStats("sen", -1);
@@ -8610,9 +8610,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Get Penetrated (Double)
+    // Get Penetrated (Double)
     public getDoublePennedByKat(): void {
-        //Scene can happen in the streets or at Kath's apartment
+        // Scene can happen in the streets or at Kath's apartment
         this.clearOutput();
         var doneBefore: boolean = this.hasAlready(Katherine.KBIT_TRIED_GIVE_DOUBLE_PEN);
 
@@ -8645,7 +8645,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 " length, then, drawing back her hips, she suddenly thrusts the bottom one home without any hesitation.  The other slides along your asscrack harmlessly."
         );
         this.player.cuntChange(this.cockArea(), true, true, false);
-        //[check vag hymen and stretch it]
+        // [check vag hymen and stretch it]
         this.outputText("\n\n");
 
         this.outputText(
@@ -8679,7 +8679,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "She suddenly arches her back and lets out a yowl of pleasure as it ripples through her and she cums inside you.  "
         );
-        //These cum volumes were previously based on Kath's ball size
+        // These cum volumes were previously based on Kath's ball size
         if (this.cumQ() <= 500)
             this.outputText(
                 "She makes a surprisingly large amount of cum for " +
@@ -8762,7 +8762,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "About an hour later, she's deflated and you are finally able to rise off of her, get dressed, and head back to your camp.\n\n"
         );
-        //minus lust, slimefeed, Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
+        // minus lust, slimefeed, Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
         this.player.slimeFeed();
         this.player.orgasm();
         this.orgasm();
@@ -8772,10 +8772,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Sucked 'n' Fucked
-    //This scene requires the PC has a penis and has fucked Kat at least once since moving her
+    // Sucked 'n' Fucked
+    // This scene requires the PC has a penis and has fucked Kat at least once since moving her
     public suckedNFuckedByKat(): void {
-        //Scene can happen in the streets or at Kath's apartment
+        // Scene can happen in the streets or at Kath's apartment
         this.clearOutput();
         var doneBefore: boolean = this.hasAlready(Katherine.KBIT_TRIED_GIVE_SUCK_N_FUCK);
         var x: number = this.player.biggestCockIndex();
@@ -8896,17 +8896,17 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "And then it's your turn to cum, flooding the startled, oblivious cat's mouth with your remembrance and making her swallow rapidly to keep it down.  "
         );
-        //(Low/Normal:
+        // (Low/Normal:
         if (this.player.cumQ() <= 250)
             this.outputText(
                 "She drinks every last drop with gusto, popping wetly off of your cock and licking her lips as she audibly purrs with delight."
             );
-        //(High:
+        // (High:
         else if (this.player.cumQ() <= 600)
             this.outputText(
                 "She gulps it down desperately, stomach swelling with the influx of spunk, but manages to avoid spilling anything, popping her head free and gasping for breath as soon as she thinks you're done."
             );
-        //(Very High:
+        // (Very High:
         else
             this.outputText(
                 "You can see a hint of panic at the titanic cascade of fluids coming from your " +
@@ -8943,7 +8943,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     ? ", leaving Kath passed out on her bed."
                     : " into the street.")
         );
-        //lust -100, slimefeed, Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
+        // lust -100, slimefeed, Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
         this.player.slimeFeed();
         this.player.orgasm();
         this.orgasm();
@@ -8953,7 +8953,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Oral
+    // Oral
     private oralKatherineChoices(): void {
         this.clearOutput();
         if (
@@ -8961,7 +8961,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.isAt(Katherine.KLOC_BAR_DRUNK) ||
             this.isAt(Katherine.KLOC_BAR_URTA_REFUSED)
         ) {
-            //At the bar
+            // At the bar
             this.outputText(
                 "Kath's tail twitches excitedly and she polishes off her drink, eager to see what you have in mind.\n\n"
             );
@@ -8986,9 +8986,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.addButton(4, "Back", this.katSexMenu);
     }
 
-    //Give Katherine Oral scene, single cock
+    // Give Katherine Oral scene, single cock
     public giveKatOralPenisWingWang(): void {
-        //Scene can happen in the streets, at Kath's apartment or in the Desert
+        // Scene can happen in the streets, at Kath's apartment or in the Desert
         this.clearOutput();
         var doneBefore: boolean = this.hasAlready(Katherine.KBIT_TRIED_RECEIVE_ORAL);
         this.outputText(this.images.showImage("katherine-give-her-blowjobs"));
@@ -9027,19 +9027,19 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.outputText("You motion for her to sit on ");
             if (!this.player.isTaur() && this.player.tallness < 102)
                 this.outputText("the edge of her bed");
-            //Non-centaurs who are 8'6 or shorter
+            // Non-centaurs who are 8'6 or shorter
             else this.outputText("top of her dresser"); //Centaurs and those 8'6 or taller
         } else if (this.isAt(Katherine.KLOC_DESERT)) {
             this.outputText("You motion for her to sit ");
             if (!this.player.isTaur() && this.player.tallness < 102)
                 this.outputText("on top of a large sand dune");
-            //Non-centaurs who are 8'6 or shorter
+            // Non-centaurs who are 8'6 or shorter
             else this.outputText("near the top of a small sand dune"); //Centaurs and those 8'6 or taller
         } else {
-            //Alleyway
+            // Alleyway
             this.outputText("You motion for her to half-sit on a nearby ");
             if (!this.player.isTaur() && this.player.tallness < 102) this.outputText("empty crate");
-            //Non-centaurs who are 8'6 or shorter
+            // Non-centaurs who are 8'6 or shorter
             else this.outputText("broad stone wall"); //Centaurs and those 8'6 or taller
         }
         this.outputText(
@@ -9097,7 +9097,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "Deciding the girl's vagina is sufficiently teased for now, you move back to her erection, opening your mouth and slipping her inside.\n\n"
             );
 
-            //[Naga tongue]
+            // [Naga tongue]
             if (this.player.tongueType == TONUGE_SNAKE)
                 this.outputText(
                     (this.hasBalls()
@@ -9115,7 +9115,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                         : "You slowly move your tongue down and down her erection.  When it reaches the spot") +
                         " where her knot usually pops out, you decide to give the girl a treat.  Slowly, your incredibly long flexible tongue moves towards your kittenish partner's pussy, giving it a long, sloppy lick.  Katherine's hips shiver and she only barely stops herself from pushing them forward.  Rewarding that show of self-control, you move your tongue up to wrap it around the very base of her penis just as the entire length of your inhuman muscle slips from your mouth; you manage to get the tip of it down, then brush it against the cat-girl's vagina.  Katherine just stares at you wide-eyed as you slip your demonic appendage inside her pussy, effectively pleasing nearly all of her lower's body erogenous zones at once.\n\n"
                 );
-            //([Normal tongue]
+            // ([Normal tongue]
             else
                 this.outputText(
                     "Your hand remains in her pussy, however, adding to the multiple ways with which you please your lover.\n\n"
@@ -9132,7 +9132,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 this.outputText(
                     ", you decide it's time to slightly change tactics in order not to humiliate the girl by making her blow her load too quickly.  The cat-herm's balls have been largely ignored so far, and you decide to amend that, slowly withdrawing from your blowjob and sinking your mouth down to her testicles.  You lick them softly before sucking one inside your mouth.\n\n"
                 );
-                //([Snake tongue]
+                // ([Snake tongue]
                 if (this.player.tongueType == TONUGE_SNAKE) {
                     this.outputText(
                         "Balls or no balls in the way, you find it pretty easy to mercilessly toy with the girl's pussy using your long tongue.  You can easily tease her clit and even slip the tip inside, flicking at the sides of her inner walls as she purrs with delight at the gentler attentions and occasionally releases a silent moan.  You stroke her cock at the base - this thing will have to wait for more attention.\n\n"
@@ -9141,7 +9141,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                         "You attend to the cat-girl's member while teasing the insides of her pussy with your inhuman tongue, all the while slurping on her testicles.  Katherine has a look of bliss on her face - you think it may be too cruel not to push her to orgasm a bit more quickly than planned.\n\n"
                     );
                 }
-                //[Demon Tongue]
+                // [Demon Tongue]
                 else if (this.player.tongueType == TONUGE_DEMONIC) {
                     this.outputText(
                         "You can feel Katherine shiver with helpless desire once she feels your excessively long tongue sliding over her balls.  You slide it upwards, teasing the knot area of her member, and then back down, oozing it over the poor kitten's clitoris and completely smothering it with your tongue.  Finally, you slip it inside as Katherine releases a loud scream of pleasure, then bites her own hand to silence herself.\n\n"
@@ -9151,7 +9151,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                         "You attend to the cat-girl's member while teasing the insides of her pussy with your inhuman tongue, all the while slurping on her testicles.  Katherine has a look of bliss on her face - you think it may be too cruel not to push her to orgasm a bit more quickly than planned.\n\n"
                     );
                 }
-                //{([Normal Tongue]
+                // {([Normal Tongue]
                 else {
                     if (this.ballSize <= 1)
                         this.outputText(
@@ -9188,7 +9188,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "You nod, before considering how exactly you will seal the deal and have the cat-girl get off.\n\n"
             );
 
-            //([Naga tongue]
+            // ([Naga tongue]
             if (this.player.tongueType == TONUGE_SNAKE) {
                 this.outputText(
                     "With a smirk, you grab her cock around the base and lick your lips as Katherine shivers in anticipation.  Without much care for safety, you dive in, deep-throating the kitten up to the point where your lips meet your fingers.  It isn't the easiest thing you've ever done, but while having her deep down your throat you can extend your tongue far enough to lick her clit again.  The cat-girl is ecstatic at your simultaneous attentions.\n\n"
@@ -9197,12 +9197,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 this.outputText(
                     "Soon, you feel the telltale signs of her orgasm appearing.  Katherine is panting loudly, unable to control herself; her knot is bulging out and her pussy is getting wetter and wetter."
                 );
-                //([Katherine's knot is 6 inches wide]
+                // ([Katherine's knot is 6 inches wide]
                 if (this.knotSize >= 6)
                     this.outputText(
                         "  Regrettably, the cat-girl's bulging knot makes it a lot harder to please her pussy with your long tongue in this position than you'd hoped, and you have to give it up once she's completely swollen."
                     );
-                //([Player has a naga tail]
+                // ([Player has a naga tail]
                 if (this.player.isNaga())
                     this.outputText(
                         "  You decide to play the part of the snake to the very end and, not content to leave her pussy unattended, you slip the tip of your long tail inside her.  She groans in ecstasy, finally reaching orgasm."
@@ -9242,7 +9242,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     "  Slowly, you pull her cock out of your mouth while Katherine smiles at you and purrs gratefully."
                 );
             }
-            //(Demon tongue)
+            // (Demon tongue)
             else if (this.player.tongueType == TONUGE_DEMONIC) {
                 this.outputText(
                     "You separate the place where the knot should appear with your own fingers and dive down her shaft.  You're going to pleasure most of her anyway, as you repeat your trick, wrapping your demonic appendage around the base of her cock with your other hand as your long tongue slides out to lick and play with her " +
@@ -9255,7 +9255,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                             : "pushing") +
                         " the tip of your tongue inside her pussy.  You can taste her feminine juices dripping out as her vagina starts to clench, her inner walls twitching and her knot bulging to full size"
                 );
-                //([If 6 inches knot]
+                // ([If 6 inches knot]
                 if (this.knotSize >= 6)
                     this.outputText(
                         ", even making it hard for you to keep your tongue buried all the way inside"
@@ -9294,7 +9294,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     "Once she's done climaxing, you allow her member to slide out of your mouth before rolling your tongue along her pussy, drinking her feminine juices.  Her initial yowl turns into soft purring as you delicately finish her up."
                 );
             }
-            //([Normal tongue]
+            // ([Normal tongue]
             else {
                 this.outputText(
                     "Deciding to follow her advice, you dive down to the girl's soaking-wet vagina" +
@@ -9313,7 +9313,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     );
             }
         }
-        //Double Cock Scene
+        // Double Cock Scene
         else {
             this.outputText(
                 "Seeing one of her cocks bob and twitch as your face gets closer you decide to reward the eagerness and start with it.  You open your lips and lick the tip before slowly sliding down her crown and then lower, onto the shaft and down to the base.  Then, you pull your lips up, assaulting her with your tongue all along the way.  Her " +
@@ -9352,7 +9352,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 " work here starts with soft kisses on her lower lips, and then slowly moves up to her clit.  Katherine's thighs gently bend as her feet rest on your shoulders, egging you on to give more attention to her drenched pussy.  You humor her, tongue sliding inside her as you suck on her clit while slowly jerking off both of her erections.  Her feminine juices start flowing even more freely - you find yourself suffused with almost as much taste as sound from her soft panting and moaning.\n\n"
             );
 
-            //([Demon tongue]
+            // ([Demon tongue]
             if (this.player.tongueType == TONUGE_DEMONIC)
                 this.outputText(
                     "The opportunity for some extra service doesn't escape you; you suck her clit in with your lips as the long, prehensile organ you house in your mouth slides up against " +
@@ -9378,12 +9378,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "She pants and whimpers at the lost stimulation, hands barely restrained from grabbing the reins herself and capping your efforts.  “<i>P... please!  I'm almost there!</i>”  Not willing to make her suffer, you decide to finish the job and make your kitten cum.\n\n"
             );
 
-            //([Normal/Naga Tongue]
+            // ([Normal/Naga Tongue]
             if (this.player.tongueType != TONUGE_DEMONIC) {
                 this.outputText(
                     "You wrap both your hands around her members just above the knot and start stroking her off, aiming them both at your mouth as you lick the tips.  Her knots swell to full size as she starts panting."
                 );
-                //([If the character has a naga lower body or a demon tail]
+                // ([If the character has a naga lower body or a demon tail]
                 if (this.player.isNaga() || this.player.tailType == TAIL_TYPE_DEMONIC)
                     this.outputText(
                         "  Wanting to grant her maximum stimulation and complete release, you slip the tip of your tail inside the cat-girl, feeling her pussy gratefully squeeze it."
@@ -9446,8 +9446,8 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     }
 
     public giveKatOralPussyLicking(): void {
-        //This version assumes Kath has no cock
-        //Scene can happen in the streets, at Kath's apartment or in the Desert
+        // This version assumes Kath has no cock
+        // Scene can happen in the streets, at Kath's apartment or in the Desert
         this.clearOutput();
         this.outputText(
             "With a small grin, you tell Katherine that you wouldn't mind satisfying her orally.\n\n"
@@ -9458,19 +9458,19 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.outputText("You motion for her to sit on ");
             if (!this.player.isTaur() && this.player.tallness < 102)
                 this.outputText("the edge of her bed");
-            //Non-centaurs who are 8'6 or shorter
+            // Non-centaurs who are 8'6 or shorter
             else this.outputText("top of her dresser"); //Centaurs and those 8'6 or taller
         } else if (this.isAt(Katherine.KLOC_DESERT)) {
             this.outputText("You motion for her to sit ");
             if (!this.player.isTaur() && this.player.tallness < 102)
                 this.outputText("on top of a large sand dune");
-            //Non-centaurs who are 8'6 or shorter
+            // Non-centaurs who are 8'6 or shorter
             else this.outputText("near the top of a small sand dune"); //Centaurs and those 8'6 or taller
         } else {
-            //Alleyway
+            // Alleyway
             this.outputText("You motion for her to half-sit on a nearby ");
             if (!this.player.isTaur() && this.player.tallness < 102) this.outputText("empty crate");
-            //Non-centaurs who are 8'6 or shorter
+            // Non-centaurs who are 8'6 or shorter
             else this.outputText("broad stone wall"); //Centaurs and those 8'6 or taller
         }
         this.outputText(
@@ -9553,9 +9553,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Katherine performs Oral on PC:
+    // Katherine performs Oral on PC:
     private katherineGivesPCOralAllDayLongDotJPG(): void {
-        //Scene can happen in the streets or at Kath's apartment
+        // Scene can happen in the streets or at Kath's apartment
         this.clearOutput();
         this.outputText(
             "You tell Katherine you'd like to see what she can do with her tongue.  The black cat blinks in surprise, then grins widely.  “<i>Well, that can be arranged...</i>”  She purrs, taking you by the arm and " +
@@ -9569,7 +9569,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         else this.doNext(this.katherineGoesDownOnTheGirlsOhYahBabyLesbo);
     }
 
-    //[Female]
+    // [Female]
     private katherineGoesDownOnTheGirlsOhYahBabyLesbo(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("katherine-eats-out-your-vagoo"));
@@ -9610,7 +9610,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.player.orgasm();
     }
 
-    //[Male/Herm]
+    // [Male/Herm]
     private katherineLicksAllTheBoyPenises(): void {
         var x: number = this.player.biggestCockIndex();
         this.clearOutput();
@@ -9683,15 +9683,15 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     : "helping her up and to her own 'bed'") +
                 ", then get dressed and head back out into Tel'Adre's streets."
         );
-        //lust -100 regardless of sex, return to wherever
+        // lust -100 regardless of sex, return to wherever
         this.player.orgasm();
         this.flags[kFLAGS.KATHERINE_TIMES_SEXED]++;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Double Helix
+    // Double Helix
     private katDoubleHelixCraziness(): void {
-        //Scene can happen in the streets or at Kath's apartment
+        // Scene can happen in the streets or at Kath's apartment
         var x: number = this.player.cockThatFits(70);
         if (x < 0) x = 0;
         this.clearOutput();
@@ -9701,7 +9701,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.isAt(Katherine.KLOC_BAR_DRUNK) ||
             this.isAt(Katherine.KLOC_BAR_URTA_REFUSED)
         ) {
-            //At the bar
+            // At the bar
             this.outputText(
                 "Kath's tail twitches excitedly and she polishes off her drink, eager to see what you have in mind.\n\n"
             );
@@ -9715,7 +9715,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
             this.flags[kFLAGS.KATHERINE_LOCATION] = Katherine.KLOC_STREETS;
         } else this.outputText("You");
-        //PC must have a cock and a vagina and not be a centaur
+        // PC must have a cock and a vagina and not be a centaur
         this.outputText(
             " give the matter some thought... your partner here has both male and female sexual organs; which to choose...?  "
         );
@@ -9864,17 +9864,17 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "You feel your belly beginning to rapidly bloat while Katherine fills you with her jism.  Not even her knot is equal to the task of keeping all of her cum inside you, as the backflow stretches your lips even wider to spill gouts of semen against Katherine's crotch.  By the time she's stopped cumming, you look like you're carrying multiple litters of kittens."
             );
         this.outputText("  ");
-        //PC Medium Cum Amount)
+        // PC Medium Cum Amount)
         if (this.player.cumQ() <= 500)
             this.outputText(
                 "You pay Katherine back in kind though, dumping your considerable load inside the eager cat and giving her a round belly of her own as you spurt thick gobs of semen inside her."
             );
-        //(PC High Cum Amount)
+        // (PC High Cum Amount)
         else if (this.player.cumQ() <= 1500)
             this.outputText(
                 "You pay Katherine back in kind though, dumping your massive load inside the eager cat, bloating her belly until she looks a few months pregnant and is unable to take any more cum.  Some of it flows back to splatter against you, pooling beneath both of you in a messy pool of hot white jism."
             );
-        //(PC Very High Cum Amount)
+        // (PC Very High Cum Amount)
         else
             this.outputText(
                 "You pay Katherine back in kind though, dumping your massive load inside the eager cat, bloating her belly until she looks a several months pregnant and is unable to take any more cum.  Some of it flows back to splatter against you, pooling beneath both of you in a messy pool of hot white jism.  Yet it doesn't seem likely to stop anytime soon; if it weren't for Katherine's knot you're pretty sure you'd have sent the cat rocketing straight off of your cock.  Katherine trembles and her pussy walls clench as if to hold more of your cum inside her, and indeed she inflates beyond her capacity for a while, until she relaxes and your load pours out of her."
@@ -9991,7 +9991,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "Righting and redressing yourself, you say goodbye to the charming kitty, then head back to camp, still feeling rather drained.\n\n"
         );
-        //Player returns to camp without his lust, slimefeed
+        // Player returns to camp without his lust, slimefeed
         this.player.slimeFeed();
         this.player.orgasm();
         this.orgasm();
@@ -10001,7 +10001,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Suckle
+    // Suckle
     private suckleMenu(): void {
         this.simpleChoices(
             "She Suckles",
@@ -10018,7 +10018,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     }
 
     private suckleFromKath(): void {
-        //Scene can happen in the streets, in a backroom at the bar or at Kath's apartment
+        // Scene can happen in the streets, in a backroom at the bar or at Kath's apartment
         this.clearOutput();
         this.outputText(
             "You give Kath a smile and ask if there's anything she'd like to 'get off her chest'.\n\n"
@@ -10037,7 +10037,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         } else if (this.isAt(Katherine.KLOC_KATHS_APT)) {
             this.outputText("She grins and makes a show of cupping her ");
         } else {
-            //She must have been on patrol
+            // She must have been on patrol
             this.outputText(
                 "She looks up and down the alley before sitting on a convenient crate.  Her hands shift subconsciously to cup her "
             );
@@ -10127,7 +10127,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     ".  The flicking of Kath's tail tells you how excited she is as she finally removes her bra and exposes her chest.\n\n"
             );
         } else {
-            //She must have been on patrol
+            // She must have been on patrol
             this.outputText(
                 "Kath pulls off her breastplate and gives you another smile.  You can tell she's a little worried at being caught feeding you, even though this can't even be close to the raunchiest thing Tel'Adre's citizens have seen on their streets.  At last her bra comes off and her breasts hang free in the open air.\n\n"
             );
@@ -10326,7 +10326,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             } else if (this.isAt(Katherine.KLOC_KATHS_APT)) {
                 this.outputText("\n\n");
             } else {
-                //Alleyway, on duty
+                // Alleyway, on duty
                 this.outputText(
                     "  Since she's on duty you have to nudge her awake.  She looks confused and disoriented until you press her breastplate into her hands.  Realization dawns and Katherine quickly redresses in her uniform.\n\n"
                 );
@@ -10376,7 +10376,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "You smile as your lover, still partially naked, slowly uncurls onto the bed.  She looks so peaceful and innocent.\n\n"
             );
         } else {
-            //Alleyway, on duty
+            // Alleyway, on duty
             this.outputText(
                 "When she sees one of the other members of her patrol at the end of the alley she hops to her feet, grabs her stuff and gives you a quick peck on the cheek.  As she leaves she says, “<i>Gotta run - but thanks again.  Stop by at the bar, my place, somewhere, just please see me again soon.</i>”\n\n"
             );
@@ -10384,9 +10384,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //PC must lactate to have this option
+    // PC must lactate to have this option
     private suckleTacularKats(): void {
-        //Scene can happen in the streets or at Kath's apartment
+        // Scene can happen in the streets or at Kath's apartment
         this.clearOutput();
         this.outputText(this.images.showImage("katherine-suckles-you"));
         this.outputText(
@@ -10405,7 +10405,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.isAt(Katherine.KLOC_BAR_DRUNK) ||
             this.isAt(Katherine.KLOC_BAR_URTA_REFUSED)
         ) {
-            //At the bar
+            // At the bar
             this.outputText(
                 "moving to your side of the bench.  She cups your breasts and lifts them to get a sense of how much milk you've got stored up.  “<i>Of course I love milk.  What a silly question - and you know I love your milk most of all, " +
                     this.playerText() +
@@ -10474,7 +10474,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         if (this.isAt(Katherine.KLOC_KATHS_APT)) this.outputText("bedroom walls");
         else if (this.isAt(Katherine.KLOC_STREETS)) this.outputText("alley walls");
         else {
-            //At the bar
+            // At the bar
             this.outputText("walls of the bar");
             if (
                 this.model.time.hours >= 8 &&
@@ -10498,37 +10498,37 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "Smiling at the flattery, you help the very well-fed cat out of your lap, then quietly put your top back on and head out into the streets.\n\n"
         );
-        //some lust loss, satisfy feeder, Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
+        // some lust loss, satisfy feeder, Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
         this.dynStats("sen", -2, "lus", -40);
         this.flags[kFLAGS.KATHERINE_TIMES_SEXED]++;
         this.player.milked();
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //With Quiet Browser and Adjatha’s permission I have been working on finishing Katherine’s Employment Expansion so that it can be coded into CoC. This document covers a part of that. It has been mentioned before that meeting Katherine is quite complex. Many have suggested having an alternate recruitment route. Since I’m writing even more content for Kath I decided to tackle the recruitment route too.
-    //There is a list of implementation details at the end of this file that, I hope, will help in cutting down on the amount of work needed to implement this expansion in-game.
-    //Implementation details written in code are in dark cyan. I used these where I had to refer to flags or where I had to show changes to an existing function. The existing code is from the Corruption-of-Champions GitHub. Each function has a block of red text describing the file it comes from and before and after blocks of code.
+    // With Quiet Browser and Adjatha’s permission I have been working on finishing Katherine’s Employment Expansion so that it can be coded into CoC. This document covers a part of that. It has been mentioned before that meeting Katherine is quite complex. Many have suggested having an alternate recruitment route. Since I’m writing even more content for Kath I decided to tackle the recruitment route too.
+    // There is a list of implementation details at the end of this file that, I hope, will help in cutting down on the amount of work needed to implement this expansion in-game.
+    // Implementation details written in code are in dark cyan. I used these where I had to refer to flags or where I had to show changes to an existing function. The existing code is from the Corruption-of-Champions GitHub. Each function has a block of red text describing the file it comes from and before and after blocks of code.
 
-    //Alternate Katherine Recruitment
-    //This provides a way to meet Katherine without meeting Scylla first. Being ambushed by the vagrant cats should be a rare event which can trigger when you enter Tel’Adre. I think it should be at least 4 times rarer than encountering Arian. Also, to keep things simple this event should not trigger if the PC has less than 35 gems.
-    //Also requires lactation, apparently!
+    // Alternate Katherine Recruitment
+    // This provides a way to meet Katherine without meeting Scylla first. Being ambushed by the vagrant cats should be a rare event which can trigger when you enter Tel’Adre. I think it should be at least 4 times rarer than encountering Arian. Also, to keep things simple this event should not trigger if the PC has less than 35 gems.
+    // Also requires lactation, apparently!
 
-    //Ambush by Vagrant Cats
+    // Ambush by Vagrant Cats
     public ambushByVagrantKittyKats(): void {
         this.clearOutput();
         this.outputText(
             "As you walk through Tel’Adre, taking in the sights, you catch a glimpse of some cat morphs part way down an alley.  It looks like three cat morph men have a younger cat morph woman backed into a corner.  None of the men look to be armed.  The girl is wearing a tattered dress that could once have been white and she looks worried."
         );
-        //[Get Help] [Intervene] [Leave]
-        //Can’t leave if below 25 corruption - you’re a champion after all.
-        //Can’t get help if at or above 75 corruption - you’re a perverted monster after all.
+        // [Get Help] [Intervene] [Leave]
+        // Can’t leave if below 25 corruption - you’re a champion after all.
+        // Can’t get help if at or above 75 corruption - you’re a perverted monster after all.
         this.menu();
         this.addButton(0, "Get Help", this.getHelpVsKittyKats);
         this.addButton(1, "Intervene", this.interveneWithKittyKats);
         this.addButton(4, "Leave", this.leaveKittyKatsLikeANeeeeeerrrrd);
     }
 
-    //Get Help:
+    // Get Help:
     private getHelpVsKittyKats(): void {
         this.clearOutput();
         this.outputText(
@@ -10544,7 +10544,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.doNext(this.telAdre.telAdreMenu);
     }
 
-    //Intervene:
+    // Intervene:
     private interveneWithKittyKats(): void {
         this.clearOutput();
         this.outputText(
@@ -10556,12 +10556,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "\n\nYou fall to the ground and the air is knocked out of you as half a dozen bodies land on top of you.  Something smacks the back of your skull and you see stars.  Half a brick lands in front of you and as the haze closes in your brain pieces together a single thought: “<i>Well this is embarrassing.</i>”"
         );
-        //[Next]
-        //Leads Intervene (Part 2)
+        // [Next]
+        // Leads Intervene (Part 2)
         this.doNext(this.interveneWithKittyKats2);
     }
 
-    //Intervene (Part 2):
+    // Intervene (Part 2):
     private interveneWithKittyKats2(): void {
         this.clearOutput();
         this.outputText(
@@ -10597,12 +10597,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "\n\nYou can tell she’s a bit nervous thanks to the twitching of her slender tail.  It swishes back and forth the same way that a feral cat's might when agitated.  Since you can speak, you try to strike up a conversation with the girl."
         );
-        //[Next]
-        //Leads to Intervene (Part 3)
+        // [Next]
+        // Leads to Intervene (Part 3)
         this.doNext(this.interveneWithKittyKats3);
     }
 
-    //Intervene (Part 3):
+    // Intervene (Part 3):
     private interveneWithKittyKats3(): void {
         this.clearOutput();
         this.outputText(
@@ -10614,7 +10614,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "\n\n“<i>We need to eat, just like everyone else, and milk is the best kind of food.  All of us love milk.</i>”  Once again she stops to quiet a rumble from her stomach.  “<i>But milk goes off fast.  Last time they saved me some milk but it was almost cheese by the time it got to me.</i>”"
         );
-        //(remove 25 gems from inventory)
+        // (remove 25 gems from inventory)
         this.player.gems -= 25;
         this.outputText(
             "\n\nYou ask her why she’s the one guarding you.  “<i>I’m new at this so I get all the jobs from the bottom of the barrel.</i>”  She pulls a bundle up from inside the crate she’s sitting on.  “<i>All your stuff’s here except for a few gems.  Just enough for all of us to get a meal.</i>”  She lowers the bundle back into the crate."
@@ -10625,12 +10625,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "\n\n“<i>Lots of gangs have stripped people bare.  They always get caught.  Other gangs killed their marks so they couldn’t tell the Watch who robbed them.  The Watch <b>really</b> stomped on them.  That’s why Evelyn’s plan works so well.  We’re not enough trouble for anyone to go after and we’re never the worst people on the street.</i>”"
         );
-        //[Next]
-        //Leads to Intervene (Part 4)
+        // [Next]
+        // Leads to Intervene (Part 4)
         this.doNext(this.interveneWithKittyKats4);
     }
 
-    //Intervene (Part 4):
+    // Intervene (Part 4):
     private interveneWithKittyKats4(): void {
         this.clearOutput();
         this.outputText(
@@ -10641,7 +10641,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "\n\nYou shift on the ground and reply that you’re lactating.  She gets up and kneels beside you, stomach growling once again."
         );
-        //(if flat chested)
+        // (if flat chested)
         if (this.player.biggestTitSize() < 3)
             this.outputText(
                 "\n\n“<i>But you barely even have breasts,</i>” she says, resting her hand gently on your chest.  You ask her if that means anything in Mareth."
@@ -10666,12 +10666,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "\n\nShe freezes in place, staring into your eyes.  Then her fingers reach up and, after some fumbling, free your hands.  You remind her that considering she just robbed you calling out isn’t a good idea.  Then you take your hands away and ask what her name is."
         );
-        //[Next]
-        //Leads to Intervene (Part 5)
+        // [Next]
+        // Leads to Intervene (Part 5)
         this.doNext(this.interveneWithKittyKats5);
     }
 
-    //Intervene (Part 5):
+    // Intervene (Part 5):
     private interveneWithKittyKats5(): void {
         this.clearOutput();
         this.outputText(
@@ -10705,7 +10705,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
 
     private helpKathAfterInterruptu(): void {
         this.clearOutput();
-        //(corruption <25)
+        // (corruption <25)
         if (this.player.cor < 25)
             this.outputText(
                 "You feel you just have to do something for her.  She needs food and she’s ashamed of her own body.  That’s rare in this land, but it’s not a good way to live your life."
@@ -10718,10 +10718,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.outputText(
                 "You could take her here and now, but her ‘friends’ might come back and help her.  Or a member of the Watch might find you.  Better to play the long game with this very fuckable kitty."
             );
-        //(Set KATHERINE_UNLOCKED to -1)
+        // (Set KATHERINE_UNLOCKED to -1)
         this.flags[kFLAGS.KATHERINE_UNLOCKED] = -1;
 
-        //(remove 10 gems from inventory)
+        // (remove 10 gems from inventory)
         this.player.gems -= 10;
         this.outputText(
             "\n\nYou free your legs, go to the crate, and collect your gear.  Katherine remains on the ground, eyes squeezed shut.  She’s tucked her erection inside her shirt and she’s clutching it to herself, seemingly trying to force it to die down.  You count out 10 gems and press them into her hand."
@@ -10732,12 +10732,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "\n\nYou stride out of the alley, hoping that you’ll meet Katherine again."
         );
-        //[Next]
-        //Proceed to normal Tel’Adre menu
+        // [Next]
+        // Proceed to normal Tel’Adre menu
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Leave:
+    // Leave:
     private leaveKittyKatsLikeANeeeeeerrrrd(): void {
         this.clearOutput();
         this.outputText(
@@ -10749,9 +10749,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.doNext(this.telAdre.telAdreMenu);
     }
 
-    //Second Ambush - First time with Katherine
-    //This only happens if you intervened the first time (KATHERINE_UNLOCKED == -1)
-    //Otherwise you would just run into the first ambush once again. As with the first ambush this one should not trigger if the PC has less than 35 gems.
+    // Second Ambush - First time with Katherine
+    // This only happens if you intervened the first time (KATHERINE_UNLOCKED == -1)
+    // Otherwise you would just run into the first ambush once again. As with the first ambush this one should not trigger if the PC has less than 35 gems.
     public repeatAmbushKatherineRecruitMent(): void {
         this.clearOutput();
         this.outputText(
@@ -10786,14 +10786,14 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "\n\nYou could try to bargain for some time with Kath, you could donate some gems to feed them, or you could try threatening her."
         );
-        //[Bargain] [Donate] [Threaten]
+        // [Bargain] [Donate] [Threaten]
         this.menu();
         this.addButton(0, "Bargain", this.bargainForKittahKatPussah);
         this.addButton(1, "Donate", this.donateToCatSlutsYouCatSlut);
         this.addButton(2, "Threaten", this.threatenCatSluts);
     }
 
-    //Bargain:
+    // Bargain:
     private bargainForKittahKatPussah(): void {
         this.clearOutput();
         this.outputText(
@@ -10805,23 +10805,23 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "\n\nYou point at Katherine and hold out 25 gems.  You point out that it’s how much they would have taken anyway.  This way they don’t have to rush because nobody’s going to call the Watch, nobody’s going to report a theft."
         );
-        //(remove 25 gems from inventory)
+        // (remove 25 gems from inventory)
         this.player.gems -= 25;
         this.outputText(
             "\n\nEvelyn seems to consider for a moment, then takes the gems.  She growls that it’s cruel to prey on people’s hunger, and she points at Kath, telling you she’d better not get hurt.  Then she and the others take off, probably making a beeline to the nearest milk vendor."
         );
-        //[Next]
-        //Leads to Bargain (Part 2)
+        // [Next]
+        // Leads to Bargain (Part 2)
         this.doNext(this.bargainForKittahKataPussah2);
     }
 
-    //Bargain (Part 2):
+    // Bargain (Part 2):
     private bargainForKittahKataPussah2(): void {
         this.clearOutput();
         this.outputText(
             "Kath’s shoulders sag, and she sits down heavily on a crate.  She looks up at you and says, “<i>I joined the vagrant cats so I wouldn’t have to sell myself.  Not that most people want me.  And now my ‘friends’ just sold my ass for a drink of milk.</i>”  She sniffs a little and adds, “<i>I won’t fight, there’s no point.  Just do whatever you want.</i>”"
         );
-        //(corruption <25)
+        // (corruption <25)
         if (this.player.cor < 25)
             this.outputText(
                 "\n\nIt really breaks your heart.  She’s so crushed right now that you have got to find some way to help her, some way to lift her spirits."
@@ -10845,17 +10845,17 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "\n\nYou ask if it’s illegal to take a pretty girl out on a date.  You can’t see her blush, but you can feel the warmth right through her fur."
         );
-        //[Next] //Leads to Second Talk with Katherine
+        // [Next] //Leads to Second Talk with Katherine
         this.doNext(this.secondTalkWithKatherine);
     }
 
-    //Donate:
+    // Donate:
     private donateToCatSlutsYouCatSlut(): void {
         this.clearOutput();
         this.outputText(
             "You tell the cat morphs that you know they’re just doing this because they’re hungry.  You say that last time they needed 25 gems and you stick your hand into your coinpurse, pulling out a handful of stones."
         );
-        //(remove 25 gems from inventory)
+        // (remove 25 gems from inventory)
         this.player.gems -= 25;
 
         this.outputText(
@@ -10870,12 +10870,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "\n\nEvelyn nods and says, “<i>I suppose it is.  Just remember that makes it Reth’s turn next time.</i>”  Then she and the others take off, probably making a beeline to the nearest milk seller."
         );
-        //[Next]
-        //Leads to Donate (Part 2)
+        // [Next]
+        // Leads to Donate (Part 2)
         this.doNext(this.donateToCatSlutsYouCatSlutPt2);
     }
 
-    //Donate (Part 2):
+    // Donate (Part 2):
     private donateToCatSlutsYouCatSlutPt2(): void {
         this.clearOutput();
         this.outputText(
@@ -10892,7 +10892,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "\n\nShe pounces on you, wrapping her arms around you.  “<i>You really want to take <b>me</b> on a date?</i>” she asks, her voice filled with hope. "
         );
-        //(corruption <25)
+        // (corruption <25)
         if (this.player.cor < 25)
             this.outputText(
                 "You tell her that of course you want to.  She seems like a nice person, and you want to get to know her better."
@@ -10905,12 +10905,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.outputText(
                 "You promised yourself you’d play the long game with this pussy.  She already defers to you so quickly - with just a little work up front you could have a really submissive little fuck toy."
             );
-        //[Next]
-        //Leads to Second Talk with Katherine
+        // [Next]
+        // Leads to Second Talk with Katherine
         this.doNext(this.secondTalkWithKatherine);
     }
 
-    //Threaten:
+    // Threaten:
     private threatenCatSluts(): void {
         this.clearOutput();
         this.outputText(
@@ -10925,7 +10925,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "\n\nWhile she’s talking you see Kath wink at you.  You wait for the cat morph gang to clear out then walk out onto the street.  Soon enough you hear some footsteps behind you. Katherine is there, alone.  “<i>Hi,</i>” she says.  “<i>I, um, was wondering if I’d see you again.</i>”"
         );
 
-        //(corruption <25)
+        // (corruption <25)
         if (this.player.cor < 25)
             this.outputText(
                 "The poor girl is desperate for a friend.  You hope you can be a good enough person and help her out."
@@ -10947,18 +10947,18 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "\n\nYou ask if it’s illegal to take a pretty girl out on a date.  You didn’t walk into that ambush a second time for yourself.  You did it because you wanted to see her.  Katherine’s eyes light up and she squeezes you tight as though she wants to make sure this is real."
         );
-        //[Next]
-        //Leads to Second Talk with Katherine
+        // [Next]
+        // Leads to Second Talk with Katherine
         this.doNext(this.secondTalkWithKatherine);
     }
 
-    //Second Talk with Katherine:
+    // Second Talk with Katherine:
     private secondTalkWithKatherine(): void {
         this.clearOutput();
         this.outputText(
             "A short walk takes you to the restaurant where you grab a table and ask Katherine what she’d like.  Without hesitation she says, “<i>A milkshake!  Oh, it’s been soooo long since I had one.</i>”"
         );
-        //(remove 10 gems from inventory)
+        // (remove 10 gems from inventory)
         this.player.gems -= 10;
         this.outputText(
             "You had hoped that you might be able to talk to her over food, but when the milkshake arrives Kath drinks it with gusto.  In under a minute the whole thing is gone and Kath looks at you sheepishly while rubbing away the little milk mustache she gave herself.  “<i>Sorry, I really needed that.</i>”  She looks around and adds, “<i>Besides, maybe we could talk somewhere else.</i>”"
@@ -10969,12 +10969,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(
             "\n\nYou pay the bill quickly and Katherine leads you back into the streets.  For some reason she seems excited and nervous, though you aren’t sure why.  She soon finds a quiet corner in a bricked off alleyway between two buildings.  She sits on the edge of a broken desk and fidgets."
         );
-        //[Next]
-        //Leads to First Time with Katherine
+        // [Next]
+        // Leads to First Time with Katherine
         this.doNext(this.firstTimeWithKatherineUTerribleScrub);
     }
 
-    //First Time with Katherine:
+    // First Time with Katherine:
     private firstTimeWithKatherineUTerribleScrub(): void {
         this.clearOutput();
         this.outputText(
@@ -11037,25 +11037,25 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
         }
         this.outputText("\n\nKatherine lets out a quiet, “<i>Yes,</i>” and that’s all you need.");
-        //[Next]
-        //Leads to the new handjob scene, described later in this document
+        // [Next]
+        // Leads to the new handjob scene, described later in this document
         this.initFlags();
         this.doNext(this.handjobbiesFurrDemCatFurries);
     }
 
-    //Handjob Scene
-    //This is used in the new recruitment path and is also available as a repeatable scene once
-    //Katherine is accessible in the alley behind the pawn shop. At the pawn shop I think this scene //should be available even if lust < 33, since you’re doing this for and to her.
-    //Makes use of katKnot(), a new helper function which is listed under implementation details.
+    // Handjob Scene
+    // This is used in the new recruitment path and is also available as a repeatable scene once
+    // Katherine is accessible in the alley behind the pawn shop. At the pawn shop I think this scene //should be available even if lust < 33, since you’re doing this for and to her.
+    // Makes use of katKnot(), a new helper function which is listed under implementation details.
     public handjobbiesFurrDemCatFurries(): void {
-        //Scene can happen in the streets or at Kath's apartment
+        // Scene can happen in the streets or at Kath's apartment
         this.clearOutput();
         if (
             this.isAt(Katherine.KLOC_BAR) ||
             this.isAt(Katherine.KLOC_BAR_DRUNK) ||
             this.isAt(Katherine.KLOC_BAR_URTA_REFUSED)
         ) {
-            //At the bar
+            // At the bar
             this.outputText(
                 "Kath's tail twitches excitedly and she polishes off her drink, eager to see what you have in mind.\n\n"
             );
@@ -11086,7 +11086,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     " to rise to the occasion."
             );
         else if (this.player.hasVagina()) this.outputText(", teasing your hot little slit.");
-        //(genderless)
+        // (genderless)
         else this.outputText("in a seductive manner.");
 
         this.outputText(
@@ -11231,23 +11231,23 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //First Time with Katherine (Part 2):
+    // First Time with Katherine (Part 2):
     private firstTimeWithKatherinePartTwoUltraChampionshipEditionHyperTurbo(): void {
         this.clearOutput();
         this.outputText(
             "You help Kath get to her feet and she gives you a big hug.  A few sniffles lead to some sobs before she pulls herself together enough to say, “<i>I didn’t believe anyone cared about me.</i>”"
         );
-        //(corruption <25)
+        // (corruption <25)
         if (this.player.cor < 25)
             this.outputText(
                 "\n\nYou assure her that you do, and that you want to see her again.  In fact you hope to see her often and you would love to get to know her better."
             );
-        //(corruption < 75)
+        // (corruption < 75)
         else if (this.player.cor < 75)
             this.outputText(
                 "\n\nYou assure her that you do, and that you want to see her again.  In fact, you hope to see her often, and you would love to get to know her better.  What you don’t add is that you mean ‘get to know her’ both in terms of friendship and carnally."
             );
-        //(corruption >= 75)
+        // (corruption >= 75)
         else
             this.outputText(
                 "\n\nYou debate just crushing her spirits right here and now, but she’s so delightfully submissive.  You can find (or make) an abused fucktoy just about anywhere in Mareth, but what are the chances of finding a naturally submissive, needy young herm with no friends or family?\n\nTickling her clit once more, you assure her that you want to see a lot more of her and you would love to introduce her to some new experiences."
@@ -11282,7 +11282,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "[name], that was an amazing first date.  I hope we can do some more things like that - and believe me, I’ve got some ideas!"
         );
 
-        //(Set KATHERINE_UNLOCKED to 1)
+        // (Set KATHERINE_UNLOCKED to 1)
         this.flags[kFLAGS.KATHERINE_UNLOCKED] = 1; //If Kath was recruited through Scyllia then KATHERINE_MET_SCYLLA will be set to 1
 
         /*	// Setup her cock defaults - No longer needed, all handled in firstTimeWithKatherineUTerribleScrub so the handjob scene works properly first time through
@@ -11334,7 +11334,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         }
         if (this.player.isTaur()) {
             if (this.player.cocks.length == 0)
-                //Female or genderless
+                // Female or genderless
                 this.doNext(this.bathTimeCentaurPenetrated);
             else
                 this.simpleChoices(
@@ -11351,9 +11351,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 );
         } else {
             if (this.player.cocks.length == 0)
-                //Female or genderless
+                // Female or genderless
                 this.doNext(this.hasCock() ? this.bathTimePenetrated : this.bathTimeFrustrated);
-            //Herm or Male
+            // Herm or Male
             else
                 this.simpleChoices(
                     "Penetrate",
@@ -11547,11 +11547,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                             : "")
                 );
             } else {
-                //Can use common text for when Kath has big balls
+                // Can use common text for when Kath has big balls
                 if (this.player.hasVagina())
-                    //Non-pregnant female/herm
+                    // Non-pregnant female/herm
                     this.outputText("vagina, her semen forcing its way into your womb.");
-                //Male or genderless
+                // Male or genderless
                 else
                     this.outputText(
                         "rectum, her semen inflating inch after inch of your intestines."
@@ -11825,7 +11825,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     }
 
     private bathTimeFrustrated(): void {
-        //You took away her cock. This is your fault
+        // You took away her cock. This is your fault
         this.clearOutput();
         this.outputText(
             "Kath hugs you tight and you feel her fingers sliding across your " +
@@ -11859,7 +11859,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
 
     private bathTimePenetrated(): void {
         if (!this.player.hasVagina()) {
-            //Genderless or Male - get this out of the way since it will be a little different
+            // Genderless or Male - get this out of the way since it will be a little different
             if (this.player.hasCock()) {
                 this.outputText(
                     "\n\nKath's " +
@@ -12092,7 +12092,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.experience(Katherine.KBIT_TRIED_BATH);
             this.doNext(this.camp.returnToCampUseOneHour);
         } else {
-            //Female or Herm
+            // Female or Herm
             this.outputText(
                 "\n\nIn response you roll your hips so that Kath’s " +
                     this.cockMultiple("", "uppermost ") +
@@ -12398,7 +12398,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     }
 
     private bedroomBondage(): void {
-        //If this is the first time then the player needs to have at least 40 gems to buy stuff (10g per scarf)
+        // If this is the first time then the player needs to have at least 40 gems to buy stuff (10g per scarf)
         this.clearOutput();
         if (this.doneSubmissive(Katherine.KBIT_SUB_BED_BOND)) {
             this.outputText(
@@ -12675,7 +12675,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
 
         var x: number = this.player.cockThatFits(70);
         if (this.player.hasCock() && x > -1) {
-            //Males and herms (with small enough junk to fit)
+            // Males and herms (with small enough junk to fit)
             var pcLen: number = this.player.cocks[x].cockLength;
             this.outputText(
                 "  You sit down astride Kath and ask her why she thinks you’re going to stop?  You’ve only just warmed her up.  Now she’s ready for the main course.  Her eyes go wide and she pulls at the scarves but there’s no escape.\n\n"
@@ -12718,7 +12718,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                         "“<i>Oh yes!  Fuck me!  Cum inside me, please!  I need it so bad,</i>” she whines."
                     );
             } else {
-                //Is pregnant
+                // Is pregnant
                 this.outputText("pregnant belly and ask her if she does this often.\n\n");
 
                 this.outputText(
@@ -12913,12 +12913,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "After that marathon Katherine is so tired that within a minute or two she starts to snore.  You gently untie her arms from the bed without waking her.  Cats need their naps after all.  She looks so content that you leave her soaking in a puddle of her own cum and let yourself out."
             );
         } else if (!this.hasCock()) {
-            //She has no cock and you either don't have one or it's too big
+            // She has no cock and you either don't have one or it's too big
             this.outputText(
                 "You stroke her hair and tell her not to worry.  You had lots of fun tying her up.  Kath laughs and says she can't wait to try this again, anytime you want.  Still, after that marathon Katherine is so tired that within a minute or two she starts to snore.  You gently untie her arms from the bed without waking her.  Cats need their naps after all.  She looks so content that you leave her be and let yourself out."
             );
         } else {
-            //Female, Genderless or your cock is too big
+            // Female, Genderless or your cock is too big
             var dPen: boolean = this.player.hasVagina() && this.cockNumber > 1;
             this.outputText(
                 "  You sit down astride Kath and ask her why she thinks you’re going to stop?  You’ve only just warmed her up.  Now she’s ready for the main course.  Her eyes go wide and she pulls at the scarves but there’s no escape.\n\n"
@@ -13404,5 +13404,5 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Leave 'dese
+    // Leave 'dese
 }

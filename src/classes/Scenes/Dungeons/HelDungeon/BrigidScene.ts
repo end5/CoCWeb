@@ -6,7 +6,7 @@ import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
  */
 
 export class BrigidScene extends BaseContent {
-    //Brigid the Jailer -- PC Victorious
+    // Brigid the Jailer -- PC Victorious
     public pcDefeatsBrigid(): void {
         this.clearOutput();
         this.outputText("The harpy jailer collapses, ");
@@ -15,20 +15,20 @@ export class BrigidScene extends BaseContent {
         this.outputText(
             " to continue the fight.  You quickly snatch the keys from inside her shield, and hook them onto your own belt."
         );
-        //(New Key Item: Harpy Key A)
+        // (New Key Item: Harpy Key A)
         this.player.createKeyItem("Harpy Key A", 0, 0, 0, 0);
         this.cleanupAfterCombat();
         this.flags[kFLAGS.HEL_BRIGID_DEFEATED] = 1;
     }
 
-    //Brigid the Jailer -- PC Defeated
+    // Brigid the Jailer -- PC Defeated
     public pcDefeatedByBrigid(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.HEL_HARPY_QUEEN_DEFEATED] == 0) {
             this.outputText(
                 '"<i>Tsk tsk tsk,</i>" the harpy jailer croons, looming over you as you slump to the ground. "<i>You shouldn\'t have messed with me, bitch!</i>" she snaps, giving you a rough kick to the side. "<i>Now, let\'s see what Mother has to say about this...</i>"'
             );
-            //(Go to \"<i>Harpy Breeding Slut</i>\" Bad End)
+            // (Go to \"<i>Harpy Breeding Slut</i>\" Bad End)
             this.menu();
             this.addButton(0, "Next", this.getGame().harpyQueenBeatsUpPCBadEnd, true);
         } else {
@@ -58,10 +58,10 @@ export class BrigidScene extends BaseContent {
         }
     }
 
-    //--Next--
+    // --Next--
     private brigitPostQueenDeathBadEndII(): void {
         this.clearOutput();
-        //[(if M, U, or visibly pregnant F/H)
+        // [(if M, U, or visibly pregnant F/H)
         if (this.player.gender <= 1 || this.player.pregnancyIncubation > 0) {
             this.outputText(
                 'A soft, ticklish feeling against your [chest] is the first thing to bring you back to reality.  Your eyes open slowly, revealing a confusing blur of orange.  "<i>[name],</i>" murmurs a familiar voice from the unfocused smear, "<i>you\'re all right... thank god.</i>"  As your head clears, the picture slowly resolves into the tear-streaked face of Kiri, the little harpy from before; she smiles as you recognize her, and wraps her arms around your neck.  You try to hold her back, but find you cannot move your hands - looking at them, you notice your wrists secured to the table you\'re lying on with metal clasps!'
@@ -84,7 +84,7 @@ export class BrigidScene extends BaseContent {
                 "\n\nA sharp crack sounds and Kiri's eyes widen as her chest jerks forward; Brigid stands behind her, holding a leather crop.  \"<i>You're here to fuck, not talk!</i>\" the torturer screams, shaking the whip at you.  \"<i>I don't care if it's salamanders, phoenixes, or just half-breed harpies, but you are going to help make me a new army to replace the one you wiped out!</i>\"  Kiri grimaces at the brutal woman, but begins shifting her hips against you, sending a wave of pleasure to the base of your spine."
             );
 
-            //[(if F or U)
+            // [(if F or U)
             if (!this.player.hasCock()) {
                 this.outputText(
                     '\n\nYour eyes widen in shock at the sensation, and Kiri flinches at your expression.  "<i>What,</i>" Brigid asks, glowering at you, "<i>did you think we\'d let you go after what you did, just because we couldn\'t breed you?'
@@ -135,12 +135,12 @@ export class BrigidScene extends BaseContent {
             this.outputText(
                 '\n\nKiri frowns unhappily as she slips your cock from her pussy, then kisses you.  "<i>Remember, [name]... just hold on!  And... save some of your seed for me!</i>"  She lingers for a while, looking in your eyes affectionately, but Brigid grabs her by the hair and, swearing filthily, pulls her away.  A sadistic-looking phoenix takes her place, straddling you and slipping your sore prick into her cunt... the last thing you manage to do before your head is filled with the agony and ecstasy of having your raw shaft ridden again right after orgasm is to wonder exactly how long salamander-harpy half-breeds gestate...'
             );
-            //[GAME THE FUCK OVER, SON; WHERE IS MY MONEY?]
+            // [GAME THE FUCK OVER, SON; WHERE IS MY MONEY?]
             this.getGame().gameOver();
         }
-        //(else if not visibly pregnant F or H)
+        // (else if not visibly pregnant F or H)
         else {
-            //hymen check]
+            // hymen check]
             this.player.cuntChange(15, false, false, false);
             this.outputText(
                 "The heat in your [vagina] is the first thing to stir you.  Your eyes open painfully, fluttering with each soft pulse of your head; it feels like an imp was set loose inside, covering your brain with thick jizz, but eventually you manage to focus and look down.  What greets you is the sight of "
@@ -189,7 +189,7 @@ export class BrigidScene extends BaseContent {
             this.outputText(
                 ".  Brigid makes her way up the stairs, leaving you and the others at the mercy of the assorted horde.  The harpy rides your mouth greedily, knocking your head into the hard stone floor, and the last thing you can see around her feathery thighs before you slip into unconsciousness again is Kiri being pulled roughly from her resting place atop Hel by a mean-looking, wide-hipped harpy matron who takes her place, sitting sideways and drawing her talons sadistically across Hel's vulnerable chest to smear Kiri's seed around..."
             );
-            //[GAME OVER, MOTHERFUCKER]
+            // [GAME OVER, MOTHERFUCKER]
             this.getGame().gameOver();
         }
     }

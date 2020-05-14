@@ -7,18 +7,18 @@ export class Cock {
     private _cockThickness: number;
     private _cockType: CockTypesEnum; //See CockTypesEnum.as for all cock types
 
-    //Used to determine thickness of knot relative to normal thickness
+    // Used to determine thickness of knot relative to normal thickness
     private _knotMultiplier: number;
 
-    //Piercing info
+    // Piercing info
     private _isPierced: boolean;
     private _pierced: number;
-    //Not yet, sweet prince. PiercedType current has no uses. But it will, one day.
+    // Not yet, sweet prince. PiercedType current has no uses. But it will, one day.
     // private var _pierceType:PiercingTypesEnum;
     private _pShortDesc: string;
     private _pLongDesc: string;
 
-    //Sock
+    // Sock
     private _sock: string;
 
     /**
@@ -44,7 +44,7 @@ export class Cock {
         return error;
     }
 
-    //constructor. Default type is HUMAN
+    // constructor. Default type is HUMAN
     public constructor(
         i_cockLength: number = 5.5,
         i_cockThickness: number = 1,
@@ -57,13 +57,13 @@ export class Cock {
         this._pierced = 0;
         this._knotMultiplier = 1;
         this._isPierced = false;
-        //_pierceType = PiercingTypesEnum.NONE;
+        // _pierceType = PiercingTypesEnum.NONE;
         this._pShortDesc = "";
         this._pLongDesc = "";
         this._sock = "";
     }
 
-    //MEMBER FUNCTIONS
+    // MEMBER FUNCTIONS
     public cArea(): number {
         return this.cockThickness * this.cockLength;
     }
@@ -145,23 +145,23 @@ export class Cock {
             while (increase > 0) {
                 if (increase < 1) temp = increase;
                 else temp = 1;
-                //Cut thickness growth for huge dicked
+                // Cut thickness growth for huge dicked
                 if (this.cockThickness > 1 && this.cockLength < 12) {
                     temp /= 4;
                 }
                 if (this.cockThickness > 1.5 && this.cockLength < 18) temp /= 5;
                 if (this.cockThickness > 2 && this.cockLength < 24) temp /= 5;
                 if (this.cockThickness > 3 && this.cockLength < 30) temp /= 5;
-                //proportional thickness diminishing returns.
+                // proportional thickness diminishing returns.
                 if (this.cockThickness > this.cockLength * 0.15) temp /= 3;
                 if (this.cockThickness > this.cockLength * 0.2) temp /= 3;
                 if (this.cockThickness > this.cockLength * 0.3) temp /= 5;
-                //massive thickness limiters
+                // massive thickness limiters
                 if (this.cockThickness > 4) temp /= 2;
                 if (this.cockThickness > 5) temp /= 2;
                 if (this.cockThickness > 6) temp /= 2;
                 if (this.cockThickness > 7) temp /= 2;
-                //Start adding up bonus length
+                // Start adding up bonus length
                 amountGrown += temp;
                 this.cockThickness += temp;
                 temp = 0;
@@ -171,15 +171,15 @@ export class Cock {
         } else if (increase < 0) {
             while (increase < 0) {
                 temp = -1;
-                //Cut length growth for huge dicked
+                // Cut length growth for huge dicked
                 if (this.cockThickness <= 1) temp /= 2;
                 if (this.cockThickness < 2 && this.cockLength < 10) temp /= 2;
-                //Cut again for massively dicked
+                // Cut again for massively dicked
                 if (this.cockThickness < 3 && this.cockLength < 18) temp /= 2;
                 if (this.cockThickness < 4 && this.cockLength < 24) temp /= 2;
-                //MINIMUM Thickness of OF .5!
+                // MINIMUM Thickness of OF .5!
                 if (this.cockThickness <= 0.5) temp = 0;
-                //Start adding up bonus length
+                // Start adding up bonus length
                 amountGrown += temp;
                 this.cockThickness += temp;
                 temp = 0;
@@ -242,7 +242,7 @@ export class Cock {
     }
     */
 
-    //{ region Getter/Setters
+    // { region Getter/Setters
     public get pShortDesc(): string {
         return this._pShortDesc;
     }
@@ -274,5 +274,5 @@ export class Cock {
     public set pierced(value: number) {
         this._pierced = value;
     }
-    //} endregion
+    // } endregion
 }

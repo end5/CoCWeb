@@ -41,7 +41,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
     */
 
     public circlejerk(): void {
-        //Not available if Kath has no cock
+        // Not available if Kath has no cock
         this.clearOutput();
         this.outputText(
             "There’s no reason to not have some fun with the two of them... plus you don’t think you’d be able resist the allure of joining two of your favourite girls in their bonding.  Stripping off your " +
@@ -210,23 +210,23 @@ export class KatherineThreesome extends TelAdreAbstractContent {
                 ".  For a moment you feel utter bliss, and then "
         );
         if (this.player.hasCock() && this.player.hasVagina()) {
-            //Herm
+            // Herm
             this.outputText(
                 "you're overcome.  Your pussy and hips lock up and you dribble femcum as Urta and Kath's efforts pay off.  You feel hot liquid rushing up from your " +
                     (this.player.balls > 0 ? "balls" : "prostate") +
                     ", then an explosion...\n\n"
             );
         } else if (this.player.hasVagina()) {
-            //Female
+            // Female
             this.outputText(
                 "you're overcome.  Your pussy and hips lock up and you dribble femcum as Urta and Kath's efforts pay off.\n\n"
             );
         } else {
-            //Male
+            // Male
             this.outputText("an explosion...\n\n");
         }
         if (this.player.hasCock()) {
-            //Male or herm
+            // Male or herm
             if (this.player.cumQ() < 500)
                 this.outputText(
                     "Rope upon rope of hot, white jism erupts from your [cocks] arching through the air to fall back on the three of you.  Adding another small layer of white to your entwined bodies.  Urta and Kath both look at you with wanton eyes, and you know this isn’t finished yet..."
@@ -458,7 +458,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
     }
 
     public roastYou(): void {
-        //Not available if Kath has no cock
+        // Not available if Kath has no cock
         this.clearOutput();
         if (
             this.katherine.isAt(Katherine.KLOC_BAR) ||
@@ -695,7 +695,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
                 );
                 break;
             default:
-                //Male or Herm
+                // Male or Herm
                 this.outputText(
                     "Urta’s fingers wrap around your cock.  Ignored until now it jumps at the attention.  “<i>Yes, of course I’ll help you,</i>” says Urta, softly stroking your member.  “<i>You just need a little something - like " +
                         this.player.short +
@@ -736,7 +736,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
     }
 
     public spitroastKath(): void {
-        //Works for all except genderless characters
+        // Works for all except genderless characters
         this.clearOutput();
         var atBar: boolean =
             this.katherine.isAt(Katherine.KLOC_BAR) ||
@@ -772,17 +772,17 @@ export class KatherineThreesome extends TelAdreAbstractContent {
         );
         this.outputText("You put Kath back in the same position as before and Urta ");
         if (this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] <= 15) {
-            //They’ve had little or no sex together sober
+            // They’ve had little or no sex together sober
             this.outputText(
                 "looks uncomfortable, trying to keep her cock from rubbing against Kath’s ass or pussy.  You give her a smile and place her shaft against Kath’s opening.  Kath lets out a very happy purr and tries to angle her pussy for better access.  Urta gives in, closes her eyes and allows Kath to sink down the length of her shaft"
             );
         } else if (this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] <= 31) {
-            //They’ve had sex a lot
+            // They’ve had sex a lot
             this.outputText(
                 "allows her cock to slide against Kath’s pussy lips.  With an encouraging nod from you Urta slips it inside and Kath squirms in her arms, trying to pull herself down onto Urta’s massive member"
             );
         } else {
-            //They’re lovers
+            // They’re lovers
             this.outputText(
                 "gives you a big smile as she pulls Kath down onto her shaft, impaling her.  Kath twists around and gives Urta a kiss before looking back to you expectantly.  A giant sized horsecock between her folds just isn’t enough for Kath these days - she wants you both"
             );
@@ -908,7 +908,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
     }
 
     public pinAndFuck(): void {
-        //Kath is sober, Urta is drunk //Not available if Kath has no cock
+        // Kath is sober, Urta is drunk //Not available if Kath has no cock
         this.clearOutput();
         this.outputText(
             "When you get to Urta’s table she pulls you both in for a hug and takes the opportunity to bury her head between Katherine’s breasts" +
@@ -1018,7 +1018,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
     }
 
     private pinAndFuckMountUrta(): void {
-        //Plays for anyone without a cock and for herms who select this option
+        // Plays for anyone without a cock and for herms who select this option
         this.clearOutput();
         this.outputText(
             "You roll Kath and Urta over so you can get access to Urta’s equine cock.  It’s a little soft but a couple of strokes along its cum slicked length start to change that.  Urta opens her eyes and tries to focus on you but you’re already " +
@@ -1043,7 +1043,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
                         "stroke your goo stuffed belly and hope your passenger enjoys the ride."
                     );
                 else if (this.player.pregnancyType == PregnancyStore.PREGNANCY_URTA)
-                    //Carrying Urta’s baby
+                    // Carrying Urta’s baby
                     this.outputText(
                         "put a hand on your belly and think about the child she’s already planted in your belly."
                     );
@@ -1121,7 +1121,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
     }
 
     private pinAndFuckStuffKath(): void {
-        //Plays for any males and for herms who select this option
+        // Plays for any males and for herms who select this option
         this.clearOutput();
         this.outputText(
             "When Kath flopped on top of Urta her legs spread apart and gave you a great view of " +
@@ -1270,7 +1270,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
     }
 
     public watch(urtaIsDrunk: boolean): void {
-        //Kath is sober (or drunk), Urta is drunk
+        // Kath is sober (or drunk), Urta is drunk
         this.clearOutput();
         this.outputText(
             "By the time you reach Urta’s table she’s downed the last of her beverage.  She stands up and gives both of you big hugs.  You feel her horsecock grind against you and you see Kath looking self-conscious after her hug from Urta.\n\n"
@@ -1279,13 +1279,13 @@ export class KatherineThreesome extends TelAdreAbstractContent {
     }
 
     public watchNoIntro(urtaIsDrunk: boolean): void {
-        //Kath is sober (or drunk), Urta is drunk
+        // Kath is sober (or drunk), Urta is drunk
         this.clearOutput();
         this.watchMainBody(urtaIsDrunk);
     }
 
     private watchMainBody(urtaIsDrunk: boolean): void {
-        //Kath is sober, Urta is drunk
+        // Kath is sober, Urta is drunk
         this.outputText(
             "The three of you quickly commandeer one of the back rooms.  Urta is " +
                 (urtaIsDrunk ? "a little unsteady" : "pretty horny") +
@@ -1447,7 +1447,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
     }
 
     public kathLicksOutUrta(): void {
-        //Kath is drunk, Urta is sober
+        // Kath is drunk, Urta is sober
         this.clearOutput();
         this.outputText(
             "Kath begins to twitch and pant as Urta plays with her ears, which leads her to start stroking Urta's tail.  Pretty soon a deep 'thunk' from beneath the table lets you know how much Urta appreciates the attention.  There's no need to get involved, so you smile at Urta and lean back.  You can have fun with either of them later and right now you're content to watch and see what develops as the " +
@@ -1490,7 +1490,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
     }
 
     public knothole(): void {
-        //Kath is drunk, Urta is sober //Not available if Kath has no cock
+        // Kath is drunk, Urta is sober //Not available if Kath has no cock
         this.clearOutput();
         this.outputText(
             "Urta scratches behind Kath’s ear and suggests slipping into one of the back rooms.  As soon as you get her inside Kath strips off her clothes and tackles Urta.  Urta is unprepared, but her combat experience is more than enough to deal with Kath when she’s drunk.  Urta laughs and easily gains control of the horny " +
@@ -1595,7 +1595,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
     }
 
     public sandwich(): void {
-        //Kath is drunk, Urta is sober //Not available if Kath has no cock
+        // Kath is drunk, Urta is sober //Not available if Kath has no cock
         this.clearOutput();
         this.outputText(
             "Urta scratches behind Kath’s ear and suggests slipping into one of the back rooms.  As soon as you close the door behind you Kath jumps into Urta’s arms and gives her a long kiss.\n\n"
@@ -1965,7 +1965,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
     }
 
     public orgy(): void {
-        //Both Kath and Urta are drunk
+        // Both Kath and Urta are drunk
         this.clearOutput();
         this.outputText(
             "Your attempt to draw them off into one of the backrooms comes too late.  Urta kisses Kath and Kath responds by undoing Urta’s belt.  Her massive schlong smacks the underside of the table on its way to freedom.  The deep wooden ‘knock’ silences most of the bar and everyone looks your way to see what’s going on.\n\n"
@@ -2098,7 +2098,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
     }
 
     public doubleStuffKath(): void {
-        //Both Kath and Urta are drunk
+        // Both Kath and Urta are drunk
         this.clearOutput();
         this.outputText(
             "You ask your two " +
@@ -2317,9 +2317,9 @@ export class KatherineThreesome extends TelAdreAbstractContent {
                 );
             }
         } else {
-            //Just one cock
+            // Just one cock
             if (KatherineThreesome.rand(2) == 0) {
-                //Urta takes it
+                // Urta takes it
                 this.outputText(
                     "Urta had just swallowed you again, the ride down her throat setting you off.  You grip the back of her head and your " +
                         (this.player.balls > 0 ? "balls start" : "prostate starts") +
@@ -2361,7 +2361,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
                     );
                 }
             } else {
-                //Kath takes it
+                // Kath takes it
                 this.outputText(
                     "Kath’s licking and humming set you off, so you grip the back of her head.  Your " +
                         (this.player.balls > 0 ? "balls start" : "prostate starts") +
@@ -2426,7 +2426,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
     }
 
     public doublePenetrateKath(): void {
-        //Both Kath and Urta are drunk
+        // Both Kath and Urta are drunk
         this.clearOutput();
         this.outputText(
             "You ask your two " +
@@ -2658,7 +2658,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
             "Urta and Kath both start giggling and Urta starts patting Kath’s belly.  When she sees that you’re still standing Urta traps your feet with her legs and pulls you down into the sticky pile.\n\n"
         );
         if (this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] == 1) {
-            //First time they’ve ever had sex together
+            // First time they’ve ever had sex together
             this.outputText(
                 "“<i>Wow!</i>” they both say at the same time.  Then they look at each other and laugh like they’ve gone crazy.\n\n"
             );
@@ -2680,7 +2680,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
                 "Rather than answering her you give them both a little scratch behind the ears and then collect your clothes.  You leave your lovers in a puddle of their own spunk, telling them to ‘get to know each other better’."
             );
         } else if (this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] < 32) {
-            //Willing to have sober sex
+            // Willing to have sober sex
             this.outputText(
                 "Kath hugs Urta and then you.  She says, “<i>Don’t worry.  Once we feel better we’ll clean this place up.  Oh, and thanks again for getting me to fuck your foxy girlfriend.</i>”\n\n"
             );
@@ -2693,7 +2693,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
                 "You get a dreamy “<i>Yeah</i>” from Kath before she curls up in Urta’s arms and falls asleep."
             );
         } else {
-            //Lovers
+            // Lovers
             this.outputText(
                 "Urta hugs both of you against her body and kisses each of you in turn.  “<i>You two... what would I do without you?  I can still remember the days when I just sat in the bar drinking.  Now I’m spoilt for choice.</i>”\n\n"
             );
@@ -2713,7 +2713,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
     }
 
     public doubleStuffVala(): void {
-        //Not available if Kath has no cock
+        // Not available if Kath has no cock
         this.valaCommonStart();
         this.outputText(
             "When Katherine finally rips off her bra you push her back onto an old table that’s sitting in the corner.  Before she has a chance to react you spin Vala around and place her on top of Kath’s thighs, her pussy close enough to feel the heat from Kath’s shaft" +
@@ -2830,7 +2830,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
     }
 
     public eatOutVala(): void {
-        //Not available if Kath has no cock
+        // Not available if Kath has no cock
         this.valaCommonStart();
         this.outputText(
             "You pull Vala into your arms and then walk her backwards, toward Kath.  Vala doesn’t notice what you’re doing and Kath backs up into a wall.  You keep moving and press Vala against Kath.  Neither of them have anywhere to go and you feel the tip" +
@@ -2982,7 +2982,7 @@ export class KatherineThreesome extends TelAdreAbstractContent {
     }
 
     private valaCommonPostSex(theyWereFucking: boolean): void {
-        //This bit happens in all three Vala sex scenes
+        // This bit happens in all three Vala sex scenes
         if (this.flags[kFLAGS.KATHERINE_VALA_TIMES_SEX] == 0) {
             this.outputText(
                 "She looks back at Kath and says, “<i>Oh - I’m Vala, by the way.</i>”\n\n"

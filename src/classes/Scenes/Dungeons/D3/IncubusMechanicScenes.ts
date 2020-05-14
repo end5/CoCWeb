@@ -427,7 +427,7 @@ export class IncubusMechanicScenes extends BaseContent {
                 " out after depositing your meager load into your demonic fuck-hole. One slick strand of creamy spunk is leaking out over the demon's ballsack."
             );
         }
-        //Medium cum exit
+        // Medium cum exit
         else if (this.player.cumQ() <= 1000) {
             this.outputText("\n\nYou pull");
             if (this.player.hasKnot(x)) this.outputText(", popping your knot");
@@ -435,7 +435,7 @@ export class IncubusMechanicScenes extends BaseContent {
                 " out of the demon's creampied fuck-hole with a smile. His stretched-out ass looks virtually glazed with cum, and you can see small rivers of it trickling down over his balls and slowly shrinking cock."
             );
         }
-        //High cum exit
+        // High cum exit
         else if (this.player.cumQ() <= 2500) {
             this.outputText("\n\nYou pull");
             if (this.player.hasKnot(x)) this.outputText(", popping your knot");
@@ -443,7 +443,7 @@ export class IncubusMechanicScenes extends BaseContent {
                 " out of the demon's well-fucked asshole with a smile. As soon as the bulk of your dick unplugs him, a river of white spills out, washing over his balls and cock to drip down into his puddle. You smirk at the white-glazed demon. His butt is still full of your spunk."
             );
         }
-        //Huge cum
+        // Huge cum
         else {
             this.outputText("\n\nYou pull");
             if (this.player.hasKnot(x)) this.outputText(", popping your knot");
@@ -458,7 +458,7 @@ export class IncubusMechanicScenes extends BaseContent {
             );
         }
 
-        //No new paragraph
+        // No new paragraph
         this.outputText("The incubus slumps down into the puddled semen, gasping in exhaustion.");
 
         this.outputText(
@@ -530,13 +530,13 @@ export class IncubusMechanicScenes extends BaseContent {
 
         this.clearOutput();
 
-        //Demon first:
+        // Demon first:
         if (cType == this.MECHANIC_DEMON_COCK) {
             this.outputText(
                 "Giving the incubus's sweaty cock an affectionate squeeze, you decide, \"<i>I think I like this just the way it is.\"</i> With your hand, you cup his balls and tenderly stroke his surprisingly smooth, supple sack for emphasis, rewarding him for not struggling any further. He moans and releases a dollop of pre-cum from his tip, coating his own glans is liquid excitement. Around his swollen crown, the bumps flare and expand out to reach their full size. You can't help but wonder what it would feel like to have his dick inside you, pulsating, sliding, and dragging its many stimulating knobs all over your slick, sensitive inner walls."
             );
         }
-        //Demon first:
+        // Demon first:
         else if (cType == this.MECHANIC_HORZ_GOG) {
             this.outputText(
                 "Giving the incubus's sweaty tool an affectionate squeeze, you decide, \"<i>Make it a horse-cock. If I'm going to play with you, I want you to have the biggest, strongest, most inhumanly virile cock to put inside me.</i>\" He starts twitching and leaking pre-cum halfway through your explanation."
@@ -551,13 +551,13 @@ export class IncubusMechanicScenes extends BaseContent {
                 "\n\nWith a final whimper of relief, the demon completes his transformation by doubling the size of his balls. His sack grows taut and heavy, and the space between his legs is rapidly filled by the heavy orbs. He groans, leaking a solid strand of pre-cum all the way down to his belly as the cock juts up away from him, bobbing in the air and ready to sate your desire."
             );
 
-            //22" horsecock
-            //4" thick. WE CALL HIM THOR!
+            // 22" horsecock
+            // 4" thick. WE CALL HIM THOR!
             this.monster.cocks[0].cockLength = 22;
             this.monster.cocks[0].cockThickness = 4;
             this.monster.cocks[0].cockType = CockTypesEnum.HORSE;
         }
-        //Dogdick
+        // Dogdick
         else if (cType == this.MECHANIC_DOG_COCK) {
             this.outputText(
                 "Giving the incubus's sweaty tool an affectionate squeeze, you decide, \"<i>Grow a dog-cock. Let's see if I can take the knot, shall we, pet?</i>\""
@@ -575,14 +575,14 @@ export class IncubusMechanicScenes extends BaseContent {
                 "\n\nYou give your pet an encouraging tug, grinning as a huge knot slips out and stretches the sheath on the way. Your demonic slut-puppy moans happily, leaking ropes of pre onto his belly as his immense dog-cock points skyward, ready to be used."
             );
 
-            //12" dogdick. 6" wide knot.
+            // 12" dogdick. 6" wide knot.
             this.monster.cocks[0].cockLength = 12;
             this.monster.cocks[0].cockThickness = 2;
             this.monster.cocks[0].knotMultiplier = 3;
             this.monster.cocks[0].cockType = CockTypesEnum.DOG;
         }
 
-        //ALL CONTINUE TO THIS:
+        // ALL CONTINUE TO THIS:
         this.outputText(
             "\n\nYou dare not delay any further. Your [vagina] is so hot and slick with lube that it feels almost like it's steaming. It aches for penetration. Lifting yourself up off your [legs], you guide your wanton honeypot up until it's poised just above the " +
                 this.monster.cockDescriptShort()
@@ -612,7 +612,7 @@ export class IncubusMechanicScenes extends BaseContent {
         var pCuntArea: number = this.player.vaginalCapacity();
         var tightFit: boolean = false;
 
-        //Easy fit -- Player cunt can fit at least 50% more cock
+        // Easy fit -- Player cunt can fit at least 50% more cock
         if (pCuntArea >= mCockArea * 1.5) {
             this.outputText(
                 " and feel the girthy boner start to slide deeper inside you. Your capacitative cunt hugs and squeezes tightly about its new best friend, guiding it deep into your heated channel. You slide on down, reveling in the blissful sensation of being properly filled for once, ecstatic as you realize just how hard this demon's dick is going to make you cum. You're so busy riding the thrill of pleasure that you barely notice when you bottom out above his balls"
@@ -623,7 +623,7 @@ export class IncubusMechanicScenes extends BaseContent {
                 this.outputText(", your lips slurping noisily about his knot");
             this.outputText(".");
         }
-        //Decent Fit - Player cunt can fit between 95% - 149% of the total cock area
+        // Decent Fit - Player cunt can fit between 95% - 149% of the total cock area
         else if (pCuntArea >= mCockArea * 0.95) {
             this.outputText(
                 " and feel the girthy boner slowly start to slide through your clinging lips. He's so big and yet fits so well. It's like his " +
@@ -636,7 +636,7 @@ export class IncubusMechanicScenes extends BaseContent {
                 this.outputText(", your lips slurping noisily about his knot");
             this.outputText(".");
         }
-        //Two (dohohoh, wrong too) tight - Player cunt can fit between 50% - 94% of the total cock area
+        // Two (dohohoh, wrong too) tight - Player cunt can fit between 50% - 94% of the total cock area
         else if (pCuntArea >= mCockArea * 0.5) {
             tightFit = true;
             this.outputText(
@@ -650,7 +650,7 @@ export class IncubusMechanicScenes extends BaseContent {
                 this.outputText(", your lips slurping noisily about his knot");
             this.outputText(".");
         }
-        //Cunt WRECKER - Basically anything sub-50% of the cock area
+        // Cunt WRECKER - Basically anything sub-50% of the cock area
         else {
             tightFit = true;
             this.outputText(
@@ -661,7 +661,7 @@ export class IncubusMechanicScenes extends BaseContent {
         }
         this.player.cuntChange(this.monster.cockArea(0), false, false, false);
 
-        //Merge together
+        // Merge together
         this.outputText(
             "\n\nYou hold yourself atop him and let your abdominal muscles flutter around the incubus' " +
                 this.monster.cockDescriptShort() +
@@ -794,8 +794,8 @@ export class IncubusMechanicScenes extends BaseContent {
     private maleLossToMechanic(hpVictory: boolean): void {
         this.clearOutput();
 
-        //Turned into living Sybian, more or less. Always hard and with a magic cockring that vibrates your dick on contact with pussy.
-        //Lust loss
+        // Turned into living Sybian, more or less. Always hard and with a magic cockring that vibrates your dick on contact with pussy.
+        // Lust loss
         if (!hpVictory) {
             this.outputText(
                 "Your [legs] are quivering too wildly to support you anymore, and you collapse, splaying yourself out so that your rigid cock"
@@ -807,35 +807,35 @@ export class IncubusMechanicScenes extends BaseContent {
 
             this.outputText("\n\nThe inubus leers, smiling down at you.");
 
-            //Small cocks
+            // Small cocks
             if (this.player.biggestCockLength() < 6) {
                 this.outputText(
                     '\n\n"<i>That\'s it? You expect to please anyone with such a pitiful endowment? I suppose there may be someone into that, somewhere.</i>" The incubus sighs. <i>"Your flaws only make my job harder.</i>"'
                 );
             }
-            //Medium cocks
+            // Medium cocks
             else if (this.player.biggestCockLength() < 12) {
                 this.outputText(
                     '"<i>You\'re so... average. I suppose you\'ll do, if the succubi feel like having a drab, everyday orgasm.</i>" The incubus shrugs. "<i>A dick will do...</i>"'
                 );
             }
-            //Big cocks
+            // Big cocks
             else if (this.player.biggestCockLength() < 18) {
                 this.outputText(
                     '\n\n"<i>Huh....</i>" The incubus seems pleasantly surprised by your endowment. "<i>I gotta say, that\'ll probably work good for what I have in mind. Maybe you\'ll even be popular with the succubi.</i>" He laughs.'
                 );
             }
-            //Huge cocks
+            // Huge cocks
             else {
                 this.outputText(
                     '"<i>Seriously?</i>" the incubus asks. "<i>How am I supposed to work with something so gargantuan?</i>" He disdainfully pulls a vial from his pocket and upends it over your crotch. The effect is immediate. [Eachcock] shrinks from ridiculously large down to horse-sized. <i>"There, that\'s better."</i>'
                 );
-                //Shrink down to 18" by 3"
+                // Shrink down to 18" by 3"
                 this.player.cocks[this.player.biggestCockIndex()].cockLength = 18;
                 this.player.cocks[this.player.biggestCockIndex()].cockThickness = 3;
             }
 
-            //Merge size forks
+            // Merge size forks
             this.outputText(
                 "\n\nYou hump against your palm and lick your lips encouragingly. The sheer need thrumming through your veins will allow nothing less. You want to fuck and be fucked. To be used and abused. To sink"
             );
@@ -845,7 +845,7 @@ export class IncubusMechanicScenes extends BaseContent {
                 " length inside any hole and thrust until you're quivering in orgasmic release. That gorgeous demon-cock taunts you, swaying just out of reach."
             );
         }
-        //HP Loss
+        // HP Loss
         else {
             this.outputText(
                 "Dropping prone, you gasp for breath, struggling against your injured body to rise. Your muscles burn with the effort, exhausted from the fight, and ultimately, you fail to stand. Slumping down on the ground, you're forced to come to terms with your defeat. The incubus has won. You came all this way, gave your best, and got smacked down by a lower demon for all your troubles. Some champion you are."
@@ -857,36 +857,36 @@ export class IncubusMechanicScenes extends BaseContent {
                     " with interest, judging them."
             );
 
-            //Small cocks
+            // Small cocks
             if (this.player.biggestCockLength() < 6) {
                 this.outputText(
                     '\n\n"<i>That\'s it? You expect to please anyone with such a pitiful endowment? I suppose there may be someone into that, somewhere.</i>" The incubus sighs. <i>"Your flaws only make my job harder.</i>"'
                 );
             }
-            //Medium cocks
+            // Medium cocks
             else if (this.player.biggestCockLength() < 12) {
                 this.outputText(
                     '\n\n"<i>You\'re so... average. I suppose you\'ll do, if the succubi feel like having a drab, everyday orgasm.</i>" The incubus shrugs. "<i>A dick will do...</i>"'
                 );
             }
-            //Big cocks
+            // Big cocks
             else if (this.player.biggestCockLength() < 18) {
                 this.outputText(
                     '\n\n"<i>Huh....</i>" The incubus seems pleasantly surprised by your endowment. "<i>I gotta say, that\'ll probably work good for what I have in mind. Maybe you\'ll even be popular with the succubi.</i>" He laughs.'
                 );
             }
-            //Huge cocks
+            // Huge cocks
             else {
                 this.outputText(
                     '\n\n"<i>Seriously?</i>" the incubus asks. "<i>How am I supposed to work with something so gargantuan?</i>" He disdainfully pulls a vial from his pocket and upends it over your crotch. The effect is immediate. [Eachcock] shrinks from ridiculously large down to horse-sized. <i>"There, that\'s better."</i>'
                 );
 
-                //Shrink down to 18" by 3"
+                // Shrink down to 18" by 3"
                 this.player.cocks[this.player.biggestCockIndex()].cockLength = 18;
                 this.player.cocks[this.player.biggestCockIndex()].cockThickness = 3;
             }
 
-            //MERGE size fork
+            // MERGE size fork
             this.outputText(
                 "\n\nThe incubus strokes his finely-groomed goatee while considering you further. He comes to a decision a moment later, though he does not bother to explain his thoughts to you, his fallen foe. Holding his hand aloft, he inhales deeply and utters words of nonsense - words that make your head hurt just listening to them. A swirling vortex of incandescent pink appears in his hand, glowing with a light all its own, growing bigger with every uttered word. When it is as big as a basketball, the demon gestures towards you, and the ball flies as true as an arrow, impacting you square in the chest."
             );
@@ -904,7 +904,7 @@ export class IncubusMechanicScenes extends BaseContent {
             "\n\nFirst, he reaches into his pocket and produces a shining, golden ring. It gleams with unnatural brightness in his hand, far too thick to be worn on a finger and yet far too narrow to be a collar of any kind. The demon twirls it over his knuckles and kneels beside you, letting his member flop against your cheek. A trickle of corrupted pre-seed oozes out onto your cheek, and you cannot help but turn your head to suck his crown into your mouth. As you suckle and polish the phallus, your throat works to swallow everything he gives you, and he feeds you plenty."
         );
 
-        //Multicock
+        // Multicock
         if (this.player.cocks.length > 1) {
             this.outputText(
                 "\n\nThe incubus gathers your " +
@@ -927,17 +927,17 @@ export class IncubusMechanicScenes extends BaseContent {
                 " The incubus chuckles, easily pushing the ring the rest of the way down, smiling at the way your demonic tip pulsates and leaks pre-cum. Once it's nestled firmly against your groin, your new master withdraws his hands (and his cock). <b>Your singular, demonic cock is impossibly hard.</b>"
             );
         } else {
-            //Single
+            // Single
             this.outputText(
                 "\n\nThe incubus grabs your [cock] in his hand, holding it steady, not really intending to bring you much pleasure. His touch feels so nice that you piston your [hips] against him anyway, but he holds you firm and steady. A warm tightness, pleasant and unyielding presses down against your [cockHead], so tight that you whimper at the slight touch of pain. You crane your head for a better look, careful not to lose your mouth's grip on its leaking fixation. What you see nearly makes you swoon."
             );
-            //Has nondemon dick
+            // Has nondemon dick
             if (this.player.demonCocks() == 0) {
                 this.outputText(
                     "\n\nThe gleaming ring is sliding down your length, and every inch that passes through it is turning... changing into a purple-hued monstrosity - a pale imitation of the cock currently plugging your hungry lips. It feels... surprisingly good to transform, and the sensation of your dick's nubs growing in is wonderfully divine. You blissfully sigh as the ring touches down against your crotch, <b>completing your transformation into a demon-cocked toy.</b>"
                 );
             }
-            //Has demon cock
+            // Has demon cock
             else {
                 this.outputText(
                     "\n\nThe gleaming ring is sliding down your length, and every inch that passes through it seems to grow more impressive: darker purple, bigger nubs, bulgier veins. Your length is becoming more tainted with every passing second, more firmly encased in corruption, steeped so deeply in it that you doubt it'll ever look like anything else. That cock-ring is making your demonic tool so powerfully and completely tainted that you can feel it transmitting a desire for demon-pussy up your spine."
@@ -945,7 +945,7 @@ export class IncubusMechanicScenes extends BaseContent {
             }
         }
 
-        //Merge all
+        // Merge all
         this.outputText(
             '\n\nRather than let you play with your enhanced member, the incubus grabs you by the neck and hauls you to your feet, dragging you towards a doorway. "<i>Now to put you to work.</i>" His grip feels so powerful that you don\'t bother to resist. Instead, you just grab your extremely hard length and begin to masturbate in earnest, hoping to get at least one good cum in before you arrive at whatever destination the demon has planned for you. Ropes of pre-cum thicker than jizz spill out of your distended cumslit as you passionately milk your shaft. You convulse in near orgasm, using your own cock-syrup as lube, but release never comes. All that you accomplish is bringing your need to a new, quivering peak before backsliding, the summit of pleasure a few steps beyond your reach.'
         );
@@ -1013,8 +1013,8 @@ export class IncubusMechanicScenes extends BaseContent {
     private errybodyelseLossToMechanic(hpVictory: boolean): void {
         this.clearOutput();
 
-        //Get turned into girl-lube pot.
-        //Genderless Lust Loss
+        // Get turned into girl-lube pot.
+        // Genderless Lust Loss
         if (!this.player.hasVagina() && !hpVictory) {
             this.outputText(
                 "You stagger about drunkenly, stuffing your hand down your [armor] to get at your needy, aching [asshole]. You feel like a molten-hot font of lust and a delirious, jizz-craving slut all at the same time. Nothing short of hours of endlessly rutting on a virile, demonic cock for hours will quench the flames of your ardor and give you the pleasure you now crave. You whimper, looking up at the incubus imploringly as you try to get him to take you, yanking open your [armor] to show off your ready sphincter and busily pumping fingers. You even spread yourself open, beckoning him to stuff you."
@@ -1025,7 +1025,7 @@ export class IncubusMechanicScenes extends BaseContent {
             this.player.createVagina();
             this.outputText("\n\n");
         }
-        //Genderless HP Loss
+        // Genderless HP Loss
         else if (!this.player.hasVagina() && hpVictory) {
             this.outputText(
                 "Collapsing onto the ground, you look up at the demonic aggressor with hate in your eyes, unwilling to admit defeat even when staring full-on into its face. The incubus, for his part, simply smiles down at you as he steps closer, claws clicking noisily on the smooth, tiled pavement."
@@ -1076,13 +1076,13 @@ export class IncubusMechanicScenes extends BaseContent {
                 "\n\nYou give a mewl of disappointment and open your eyes to see the incubus standing back a few feet, smirking at you, his cock hard, jutting, and leaking. That simply won't do! A dick like that... it needs to be sucked... tended to... until it can cum! You struggle out of your [armor] and up onto your [feet], staggering towards it with your hand still firmly lodged in your [vagina]. You've got to tempt him back to you, or catch him at the very least."
             );
         }
-        //Lust Lawss
+        // Lust Lawss
         else if (this.player.hasVagina() && !hpVictory) {
             this.outputText(
                 "You stagger about drunkenly, stuffing your hand down your [armor] to get at your needy, aching [vagina]. You feel like a molten-hot font of lust and a delirious, jizz-craving slut all at the same time. Nothing short of hours of endlessly rutting on a virile, demonic cock for hours will quench the flames of your ardor and give you the pleasure you now crave. You whimper, looking up at the incubus imploringly as you try to get him to take you, yanking open your [armor] to show off your splayed-open twat and busily pumping fingers. You even pull them out lick clean, hoping he'll enjoy the show as much as you enjoy your own taste."
             );
         }
-        //HP Lawss:
+        // HP Lawss:
         else {
             this.outputText(
                 "Collapsing onto the ground, you look up at the demonic aggressor with hate in your eyes, unwilling to admit defeat even when staring full-on into its face. The incubus, for his part, simply smiles down at you as he steps closer, claws clicking noisily on the smooth, tiled pavement."
@@ -1122,7 +1122,7 @@ export class IncubusMechanicScenes extends BaseContent {
             );
         }
 
-        //MERGE BOTH FORKS
+        // MERGE BOTH FORKS
         this.outputText(
             "\n\n\"<i>Come along now, girl. I'll give you all the dick you can suck, but not here,</i>\" the twisted creature promises as he backs away, holding his member in one hand and shaking it before you like a treat for a dog. You stagger after, knowing that a male, even a demonic one, won't deny you the throbbing-hard relief you seek, even if he makes you work for a bit first. The light from outside dims as you clear an open doorway, ignoring everything but the deliciously enticing sway of the member before you. Gods, you <b>need</b> that thing inside you."
         );

@@ -31,7 +31,7 @@ export class WingStick extends Consumable {
                 "!\n"
         );
         if (this.game.monster.spe - 80 > Utils.rand(100) + 1) {
-            //1% dodge for each point of speed over 80
+            // 1% dodge for each point of speed over 80
             this.outputText("Somehow " + this.game.monster.a + this.game.monster.short + "'");
             if (!this.game.monster.plural) this.outputText("s");
             this.outputText(
@@ -40,7 +40,7 @@ export class WingStick extends Consumable {
                     " to avoid the spinning blades!  The deadly device shatters when it impacts something in the distance."
             );
         } else {
-            //Not dodged
+            // Not dodged
             var damage: number = 40 + Utils.rand(61);
             this.outputText(
                 this.game.monster.capitalA +

@@ -15,10 +15,10 @@ import { PerkLib } from "../../../PerkLib";
 import { StatusAffects } from "../../../StatusAffects";
 
 export class Naga extends Monster {
-    //2a)  Ability -  Poison Bite - poisons player
+    // 2a)  Ability -  Poison Bite - poisons player
     protected nagaPoisonBiteAttack(): void {
-        //(Deals damage over 4-5 turns, invariably reducing
-        //your speed. It wears off once combat is over.)
+        // (Deals damage over 4-5 turns, invariably reducing
+        // your speed. It wears off once combat is over.)
         this.outputText(
             "The naga strikes with the speed of a cobra, sinking her fangs into your flesh!  ",
             false
@@ -29,7 +29,7 @@ export class Naga extends Monster {
                 false
             );
             if (this.player.spe > 4) {
-                //stats(0,0,-3,0,0,0,0,0);
+                // stats(0,0,-3,0,0,0,0,0);
                 this.player.spe -= 3;
                 Naga.showStatDown("spe");
                 // speUp.visible = false;
@@ -46,7 +46,7 @@ export class Naga extends Monster {
                 false
             );
             if (this.player.spe > 3) {
-                //stats(0,0,-2,0,0,0,0,0);
+                // stats(0,0,-2,0,0,0,0,0);
                 this.player.spe -= 2;
                 Naga.showStatDown("spe");
                 // speUp.visible = false;
@@ -58,8 +58,8 @@ export class Naga extends Monster {
         this.combatRoundOver();
     }
 
-    //2b)  Ability - Constrict - entangles player, raises lust
-    //every turn until you break free
+    // 2b)  Ability - Constrict - entangles player, raises lust
+    // every turn until you break free
     protected nagaConstrict(): void {
         this.outputText(
             "The naga draws close and suddenly wraps herself around you, binding you in place! You can't help but feel strangely aroused by the sensation of her scales rubbing against your body. All you can do is struggle as she begins to squeeze tighter!",
@@ -70,11 +70,11 @@ export class Naga extends Monster {
         this.combatRoundOver();
     }
 
-    //2c) Abiliy - Tail Whip - minus ??? HP
-    //(base it on toughness?)
+    // 2c) Abiliy - Tail Whip - minus ??? HP
+    // (base it on toughness?)
     protected nagaTailWhip(): void {
         this.outputText("The naga tenses and twists herself forcefully.  ", false);
-        //[if evaded]
+        // [if evaded]
         if (this.player.findPerk(PerkLib.Evade) && Naga.rand(6) == 0) {
             this.outputText(
                 "You see her tail whipping toward you and evade it at the last second. You quickly roll back onto your feet.",

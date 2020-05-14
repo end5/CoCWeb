@@ -7,47 +7,47 @@ import { Helspawn } from "./Helspawn";
 import { NPCAwareContent } from "./NPCAwareContent";
 
 export class HelSpawnScene extends NPCAwareContent {
-    //Helia Expansion 4: The Edge of Paradise
-    //A CoC Multi-Character Expansion
-    //Savin
+    // Helia Expansion 4: The Edge of Paradise
+    // A CoC Multi-Character Expansion
+    // Savin
 
-    //Content Pack: Introduction
-    //Expanded Variable: HelAffection can now reach 250%. When this occur, At the Edge of Paradise begins. HelAffection is raised as: 10 for sex, 15 for threesomes, 10 for talking/hugging/cuddling.
-    //New Variable: " + flags[kFLAGS.HELSPAWN_NAME] + ", the name of Hel’s daughter
-    //New Variable: [HelspawnPersonality], rated 0-100.
-    //New Variable: " + championRef() + ", being whatever the fuck Helspawn calls you.
-    //New Variable: [HelspawnDadddy], recording who, exactly, fathered Hel’s daughter
-    //New Variable: [HelLove] Yes/No, set by the PC in the beginning.
+    // Content Pack: Introduction
+    // Expanded Variable: HelAffection can now reach 250%. When this occur, At the Edge of Paradise begins. HelAffection is raised as: 10 for sex, 15 for threesomes, 10 for talking/hugging/cuddling.
+    // New Variable: " + flags[kFLAGS.HELSPAWN_NAME] + ", the name of Hel’s daughter
+    // New Variable: [HelspawnPersonality], rated 0-100.
+    // New Variable: " + championRef() + ", being whatever the fuck Helspawn calls you.
+    // New Variable: [HelspawnDadddy], recording who, exactly, fathered Hel’s daughter
+    // New Variable: [HelLove] Yes/No, set by the PC in the beginning.
 
-    //const HELSPAWN_NAME: number = 956;
-    //const HELSPAWN_PERSONALITY: number = 957;
-    //0 = PC, 1 = Spider, 2 = Mai
-    //const HELSPAWN_DADDY: number = 958;
-    //const HELSPAWN_WEAPON: number = 959;
-    //const HELSPAWN_AGE: number = 960;
-    //const HELSPAWN_GROWUP_COUNTER: number = 961;
-    //const HEL_LOVE: number = 962;
-    //Has Helia had the pale flame event happen?
-    //const HELIA_KIDS_CHAT: number = 963;
-    //const HELIA_TALK_SEVEN: number = 964;
-    //Track Hel getting knocked up by others. 1 = doing it. 2 = talked to PC about it.
-    //const HEL_NTR_TRACKER: number = 965;
-    //const HEL_BONUS_POINTS: number = 966;
-    //const HEL_PREGNANCY_INCUBATION: number = 967;
-    //0 = no notices. 1 = bulgy. 2 = pretty preg. 3 = gravid.
-    //const HEL_PREGNANCY_NOTICES: number = 968;
-    //const HAD_FIRST_HELSPAWN_TALK: number = 969;
-    //const HELSPAWN_INCEST: number = 970;
-    //const HEL_TALK_EIGHT: number = 971;
-    //const HELSPAWN_DISCOVER_BOOZE: number = 972;
-    //const HELSPAWN_FUCK_INTERRUPTUS: number = 973;
-    //const SPIDER_BRO_GIFT: number = 974;
-    //const HAKON_AND_KIRI_VISIT: number = 975;
+    // const HELSPAWN_NAME: number = 956;
+    // const HELSPAWN_PERSONALITY: number = 957;
+    // 0 = PC, 1 = Spider, 2 = Mai
+    // const HELSPAWN_DADDY: number = 958;
+    // const HELSPAWN_WEAPON: number = 959;
+    // const HELSPAWN_AGE: number = 960;
+    // const HELSPAWN_GROWUP_COUNTER: number = 961;
+    // const HEL_LOVE: number = 962;
+    // Has Helia had the pale flame event happen?
+    // const HELIA_KIDS_CHAT: number = 963;
+    // const HELIA_TALK_SEVEN: number = 964;
+    // Track Hel getting knocked up by others. 1 = doing it. 2 = talked to PC about it.
+    // const HEL_NTR_TRACKER: number = 965;
+    // const HEL_BONUS_POINTS: number = 966;
+    // const HEL_PREGNANCY_INCUBATION: number = 967;
+    // 0 = no notices. 1 = bulgy. 2 = pretty preg. 3 = gravid.
+    // const HEL_PREGNANCY_NOTICES: number = 968;
+    // const HAD_FIRST_HELSPAWN_TALK: number = 969;
+    // const HELSPAWN_INCEST: number = 970;
+    // const HEL_TALK_EIGHT: number = 971;
+    // const HELSPAWN_DISCOVER_BOOZE: number = 972;
+    // const HELSPAWN_FUCK_INTERRUPTUS: number = 973;
+    // const SPIDER_BRO_GIFT: number = 974;
+    // const HAKON_AND_KIRI_VISIT: number = 975;
 
-    //In this Expansion, Helia the Salamander, who’s spent much of her life alone until the brave Champion took her into his confidence, enters a stage in her life called The Pale Flame: whether she wants to admit it or not, her body’s ready for children; she’s found the person she truly wants to be with. She asks the Champion to father her child; if that is impossible, but desired (or the PC doesn’t want to be the daddy, but wants Hel to have kids anyway), she will offer to get Mai the Foxgirl to knock her up instead; if it is undesired at all, the PC can ask Hel to go on herbs, suppressing her fertility until the PC's ready. Hel will remain on herbs until the PC decides he’s ready.
+    // In this Expansion, Helia the Salamander, who’s spent much of her life alone until the brave Champion took her into his confidence, enters a stage in her life called The Pale Flame: whether she wants to admit it or not, her body’s ready for children; she’s found the person she truly wants to be with. She asks the Champion to father her child; if that is impossible, but desired (or the PC doesn’t want to be the daddy, but wants Hel to have kids anyway), she will offer to get Mai the Foxgirl to knock her up instead; if it is undesired at all, the PC can ask Hel to go on herbs, suppressing her fertility until the PC's ready. Hel will remain on herbs until the PC decides he’s ready.
 
-    //Setting " + championRef() + ":
-    //It was really fucking hard to decide what this bitch is supposed to call you. So, here’s the dealio: If you’re a herm AND her mother, she calls you “Mom;” dude and her dad, she calls you “Daddy;” she’ll change between mom and daddy as the PC’s gender changes. If she was fathered by someone OTHER than the PC, she calls the PC by their name. Simple enough?
+    // Setting " + championRef() + ":
+    // It was really fucking hard to decide what this bitch is supposed to call you. So, here’s the dealio: If you’re a herm AND her mother, she calls you “Mom;” dude and her dad, she calls you “Daddy;” she’ll change between mom and daddy as the PC’s gender changes. If she was fathered by someone OTHER than the PC, she calls the PC by their name. Simple enough?
 
     private championRef(): string {
         if (this.flags[kFLAGS.HELSPAWN_DADDY] == 0) return this.player.mf("Daddy", "Mom");
@@ -62,7 +62,7 @@ export class HelSpawnScene extends NPCAwareContent {
         return kGAMECLASS.helScene.pregnancy.isPregnant;
     }
 
-    //Hel’s New Appearance Screen: Taking Things Into Account
+    // Hel’s New Appearance Screen: Taking Things Into Account
     public heliasAppearanceScreen(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -74,7 +74,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.outputText(
             " that lets off a pleasant heat, though it never seems to burn you.  Hel is wearing her scale bikini and a leather thong, and using her scimitar as a weapon"
         );
-        //if Isabella is cool:
+        // if Isabella is cool:
         if (this.flags[kFLAGS.HEL_ISABELLA_THREESOME_ENABLED] >= 1)
             this.outputText(
                 "; she’s got her blue bandanna wrapped around her head, mostly obscured by her fiery hair"
@@ -106,7 +106,7 @@ export class HelSpawnScene extends NPCAwareContent {
                     );
                     break;
                 default:
-                    //She's not pregnant, check if she's ready for it
+                    // She's not pregnant, check if she's ready for it
                     if (this.flags[kFLAGS.HEL_BONUS_POINTS] >= 150)
                         this.outputText(
                             "  Hel’s long, reptilian tail is currently burning white-hot, signaling her body’s ready for motherhood."
@@ -124,7 +124,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.addButton(0, "Next", this.helFollower.heliaFollowerMenu);
     }
 
-    //" + flags[kFLAGS.HELSPAWN_NAME] + "’s Appearance Screen
+    // " + flags[kFLAGS.HELSPAWN_NAME] + "’s Appearance Screen
     private helSpawnsAppearanceScreen(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.HELSPAWN_DADDY] == 0) this.outputText("Your ");
@@ -174,8 +174,8 @@ export class HelSpawnScene extends NPCAwareContent {
         this.addButton(0, "Next", this.helspawnsMainMenu);
     }
 
-    //Hel Affection Reaches 250 & Salamander is @ Camp
-    //[Play at night, after PC goes to sleep (with or without anybody)]
+    // Hel Affection Reaches 250 & Salamander is @ Camp
+    // [Play at night, after PC goes to sleep (with or without anybody)]
     public heliaBonusPointsAward(): void {
         this.flags[kFLAGS.HELIA_KIDS_CHAT] = 1;
         this.spriteSelect(68);
@@ -187,7 +187,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.outputText(
             "\n\nYou nod, rubbing the sleep out of your eyes as you stagger up onto your [feet].  You note that Hel's wrapped her old cloak tightly around herself, held closed so that nothing but her face is visible.  You start to ask what's up, but Hel shushes you, saying she needs to talk to you privately.  "
         );
-        //{If Hel's the only one at camp:
+        // {If Hel's the only one at camp:
         if (this.camp.companionsCount() == 1)
             this.outputText(
                 "You cock an eyebrow, saying that you're already alone, but she shakes her head, saying she needs somewhere private, away from prying eyes.  "
@@ -224,7 +224,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.addButton(1, "No", this.noYouDontLoveHeliaYouMonster);
     }
 
-    //No
+    // No
     private noYouDontLoveHeliaYouMonster(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -234,12 +234,12 @@ export class HelSpawnScene extends NPCAwareContent {
         this.outputText(
             "\n\n\"<i>Well, thanks for being honest, [name].  I... I really do appreciate it.  But, maybe you can still help me with my problem.  I'll understand if not, but still, I have to ask: "
         );
-        //[HelLove to NO]
+        // [HelLove to NO]
         this.flags[kFLAGS.HEL_LOVE] = -1;
         this.heliaLoveFollowup();
     }
 
-    //Yes
+    // Yes
     private yesHeliaILoveYourButtHoleReaming(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -252,25 +252,25 @@ export class HelSpawnScene extends NPCAwareContent {
         this.outputText(
             "\n\nYou shrug, saying that you never really felt like you had the chance until now... and it's a lot cuter when she bumbles through a confession.  Helia gives you a gentle punch on the shoulder, but softens the blow with another series of kisses along your [chest] and neck, holding you close as the two of you revel in the newly-revealed love you share.  After a few minutes, though, Hel steps back and says, \"<i>I love you, [name], with all my heart.  You're the person I want to spend the rest of my life with, if you'll have me.  But I still have to tell you what's wrong. The reason I brought this all up: "
         );
-        //[HelLove to YES]
+        // [HelLove to YES]
         this.flags[kFLAGS.HEL_LOVE] = 1;
         this.heliaLoveFollowup();
     }
 
-    //Combine
+    // Combine
     private heliaLoveFollowup(): void {
         this.spriteSelect(68);
         this.outputText(
             "You're not from here, so you probably don't know much about salamanders.  Basically, we're effectively infertile.  I can get filled with gallons of cum day in and day out, and chances are none of it will take inside me.  I've always thought I could slut around as much as I wanted, and I'd never have to worry about the consequences.  But... that's not forever, I guess.  When a salamander girl finds the person she wants to be with forever, "
         );
-        //if PC is female/herm:
+        // if PC is female/herm:
         if (this.player.hasVagina()) this.outputText("even another woman, it seems, ");
         this.outputText('we... change.</i>"');
 
         this.outputText(
             "\n\nHel reaches up and undoes the clasp on her cloak.  When it falls away, your eyes are drawn immediately to her tail - once burning with a blood-red hellfire, her leathery tail is now surrounded by a pale radiance, shimmering like white gold.  Your eyes widen, but Hel flinches back as you try to approach.  \"<i>It's called the Pale Flame, [name].  Just like it looks.  When a 'mander girl finds the person she wants to be with, our bodies change.  While I'm like this... I'm as fertile as a goblin, and... and I </i>want<i> to be.  I want... I need... a child, [name].  I want to be pumped full of cum until I'm bloated, to bear a little salamander for us to raise and love.  "
         );
-        //If HelLove = No:
+        // If HelLove = No:
         if (this.flags[kFLAGS.HEL_LOVE] == -1)
             this.outputText(
                 "Even if you don't love me, you'd love our child, right?  You can fuck me full of kids, or even... even get someone else to, I don't care.  I just </i>need<i> it, [name].  More than anything else in the whole wide world."
@@ -303,7 +303,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.addButton(2, "No Or Later", this.noKidsHel);
     }
 
-    //[Have a Kid] (PC has a Dick)
+    // [Have a Kid] (PC has a Dick)
     public haveAKid(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -376,7 +376,7 @@ export class HelSpawnScene extends NPCAwareContent {
                 this.cockDescript(0) +
                 ", it isn't long before you can feel the mounting pressure of your inevitable release mounting furiously inside your [balls]."
         );
-        //If PC has lost Anal Virginity:
+        // If PC has lost Anal Virginity:
         if (this.player.ass.analLooseness > 0)
             this.outputText(
                 "\n\nBetween rough thrusts into your lover, you can feel her pale-glowing tail snake itself around your [legs], the slender little tip brushing between the cheeks of your [butt].  You can't help but gasp as it presses into your clenched backdoor, teasing your [asshole] with probing thrusts and flicks across the brim.  Helia grins up at you as your sphincter finally relaxes, letting the first inches slither inside, undulating through your anal passage.  \"<i>I'm going to milk every last fucking drop out of you,</i>\" she whispers huskily, breath hot on your neck. You moan in response as her ever-thickening appendage wriggles into you, penetrating you to the beat of your own " +
@@ -464,14 +464,14 @@ export class HelSpawnScene extends NPCAwareContent {
         this.outputText(
             "\n\nYou give your lover one last kiss before taking her back to camp proper, never letting her hand slip from yours all the way."
         );
-        //[Back to Camp menu]
+        // [Back to Camp menu]
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     private getAnotherDad(): void {
         this.clearOutput();
         this.spriteSelect(68);
-        //[Another Dad] (PC has no dick)
+        // [Another Dad] (PC has no dick)
         if (!this.player.hasCock()) {
             this.outputText(
                 "You tell Helia you'd love to a share a child with her, but you're not... properly equipped for the endeavor.  \"<i>That's fine!  I can... I can wait, a little.  I-if you want to go grow one, I mean.  If not, then we can find someone with a cock.  "
@@ -483,9 +483,9 @@ export class HelSpawnScene extends NPCAwareContent {
             this.outputText(
                 "Uh, maybe not a minotaur... they always plug more minotaurs, and I don't want a bull coming out of my twat.  Uh, maybe I could track down one of the spider boys from the swamp and jump on </i>his<i> dick.  They're pretty cute, right?  Dunno how that'd affect a child, though.  Maybe he'd end up with like, extra eyes, or chitin?  Still, better than an imp or some shit.  So what do you think?  Wanna grow a dick, or leave the knocking-up to someone else?</i>\""
             );
-            //{Options in next section}
+            // {Options in next section}
         }
-        //[Another Dad] (PC has a dick)
+        // [Another Dad] (PC has a dick)
         else {
             this.outputText(
                 '"<i>W-wha?</i>" Hel says, cocking an eyebrow.  "<i>You sure, [name]?  I-if you don\'t want to be the dad, I guess I understand.  But why?  Am I not... no, nevermind.  I don\'t want to know.  Okay, uh, we can find someone with a cock.  '
@@ -499,12 +499,12 @@ export class HelSpawnScene extends NPCAwareContent {
             );
         }
         this.menu();
-        //{If Tel'Adre has been discovered: [Mai]}
+        // {If Tel'Adre has been discovered: [Mai]}
         if (this.player.statusAffectv1(StatusAffects.TelAdre) >= 1)
             this.addButton(0, "Mai", this.maiWouldBeTheBestInseminator);
-        //[Spiderboy]
+        // [Spiderboy]
         this.addButton(1, "Spiderboy", this.spiderboyWouldBeBestDad);
-        //[I will] (If PC has a dick)
+        // [I will] (If PC has a dick)
         if (
             this.player.hasCock() &&
             this.player.cockThatFits(this.helFollower.heliaCapacity()) >= 0
@@ -514,7 +514,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.addButton(3, "No Or Later", this.noKidsHel);
     }
 
-    //Mai
+    // Mai
     private maiWouldBeTheBestInseminator(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -532,7 +532,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.flags[kFLAGS.HELSPAWN_DADDY] = 2;
         this.doNext(this.playerMenu);
     }
-    //Spiderboy
+    // Spiderboy
     private spiderboyWouldBeBestDad(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -548,7 +548,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.doNext(this.playerMenu);
     }
 
-    //I Will (PC ain't got a wang)
+    // I Will (PC ain't got a wang)
     private growingDicks4Hel(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -561,11 +561,11 @@ export class HelSpawnScene extends NPCAwareContent {
         this.outputText(
             "\n\nOnce you've finished with Hel, she leaves you with a longing look as you head back to camp.  Eventually, you manage to go back to sleep..."
         );
-        //[Resume night]
+        // [Resume night]
         this.doNext(this.playerMenu);
     }
 
-    //[No Kids]
+    // [No Kids]
     private noKidsHel(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -587,12 +587,12 @@ export class HelSpawnScene extends NPCAwareContent {
         this.outputText(
             "\n\nShe leans up and gives you a peck on the cheek before wandering back to camp, leaving you standing alone in the dark with your choices.  Eventually, you manage to go back to sleep..."
         );
-        //[Resume night]
+        // [Resume night]
         this.doNext(this.playerMenu);
     }
 
-    //Hel Dun Got Knocked Up (Play first time PC goes to Hel's menu after telling her to get knocked up by someone else)
-    //Proc day after dad choice @ 8AM.
+    // Hel Dun Got Knocked Up (Play first time PC goes to Hel's menu after telling her to get knocked up by someone else)
+    // Proc day after dad choice @ 8AM.
     public helGotKnockedUp(): void {
         this.spriteSelect(68);
         this.flags[kFLAGS.HEL_NTR_TRACKER] = 2;
@@ -611,19 +611,19 @@ export class HelSpawnScene extends NPCAwareContent {
         );
 
         this.menu();
-        //Hel Got Knocked Up by Mai
+        // Hel Got Knocked Up by Mai
         if (this.flags[kFLAGS.HELSPAWN_DADDY] == 2) {
             this.addButton(0, "Sure", this.sureHelGimmeMaiDetails);
             this.addButton(1, "Nope", this.dontTellMeAboutMai);
         }
-        //Hel Got Knocked Up by a Spiderboy
+        // Hel Got Knocked Up by a Spiderboy
         else if (this.flags[kFLAGS.HELSPAWN_DADDY] == 1) {
             this.addButton(0, "Sure", this.sureHelGimmeSpidahBoyDetails);
             this.addButton(1, "Nope", this.dontTellMeAboutSpiderboy);
         }
     }
 
-    //Sure
+    // Sure
     private sureHelGimmeSpidahBoyDetails(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -642,7 +642,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.outputText(
             "\n\n\"<i>I swear it took him like, half an hour to actually just tie me up properly.  His spinners are spurting like little cocks everywhere, and he's apologizing and trembling all over until I actually have to help the poor kid get me all tied up and gagged.  But then - and this is rich - he wiggles out of his shirt, and oh my god the kid's a fucking tripod.  I mean he puts minotaurs to shame, and how.  Here's this shy kid, never had a girl before, and he's packing a god-damn monster down under"
         );
-        //If PC has a giant wang:
+        // If PC has a giant wang:
         if (this.player.biggestCockArea() >= 20)
             this.outputText(", though still nothing compared to you, lover mine");
         this.outputText(
@@ -661,7 +661,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.addButton(0, "Next", this.dontTellMeAboutSpiderboy);
     }
 
-    //Nah // Combine
+    // Nah // Combine
     private dontTellMeAboutSpiderboy(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -707,7 +707,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Hel Got Knocked Up by Some Random Slut at the Bar, and Nobody Was Really Surprised, All Things Considered.
+    // Hel Got Knocked Up by Some Random Slut at the Bar, and Nobody Was Really Surprised, All Things Considered.
     private sureHelGimmeMaiDetails(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -732,7 +732,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.addButton(0, "Next", this.dontTellMeAboutMai);
     }
 
-    //Nah // Combine
+    // Nah // Combine
     private dontTellMeAboutMai(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -757,7 +757,7 @@ export class HelSpawnScene extends NPCAwareContent {
                 this.player.mf("he", "she") +
                 "'s the one, this is a keeper!  Time to propagate!'  I-I can't help but feel like this wasn't entirely my choice, you know? Like I was acting on instinct, like an animal, not a person.  But at the same time, if I've made a mistake, then I have you here with me, to help me like you always do.  I love you with all my heart, [name]"
         );
-        //if HelLove is Yes:
+        // if HelLove is Yes:
         if (this.flags[kFLAGS.HEL_LOVE] == 1)
             this.outputText(", and I'm so very, very glad you love me back.");
         else
@@ -783,13 +783,13 @@ export class HelSpawnScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Helia's Pregnancy
-    //In addition to the alterations to her appearance screen, given above, the following new scenes and changes occur once Hel's been knocked up.
-    //Hel's pregnancy should last for ~2 weeks in-game time. Each week, she'll move from bulging to swollen to gravid every 5 days or so, which alters her Appearance slightly, and can change her pregsex scenes.
-    //Note that, during the pregnancy, Hel's ability to Fight and Wrestle with the PC is removed. She's not willing to let her baby get hurt!
+    // Helia's Pregnancy
+    // In addition to the alterations to her appearance screen, given above, the following new scenes and changes occur once Hel's been knocked up.
+    // Hel's pregnancy should last for ~2 weeks in-game time. Each week, she'll move from bulging to swollen to gravid every 5 days or so, which alters her Appearance slightly, and can change her pregsex scenes.
+    // Note that, during the pregnancy, Hel's ability to Fight and Wrestle with the PC is removed. She's not willing to let her baby get hurt!
 
-    //Hel enters "bulging" state, play at random from camp menu:
-    //if(flags[kFLAGS.HELIA_PREGNANCY_INCUBATION] < 300 && flags[kFLAGS.HEL_PREGNANCY_NOTICES] == 0) {
+    // Hel enters "bulging" state, play at random from camp menu:
+    // if(flags[kFLAGS.HELIA_PREGNANCY_INCUBATION] < 300 && flags[kFLAGS.HEL_PREGNANCY_NOTICES] == 0) {
     public bulgyCampNotice(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -798,8 +798,8 @@ export class HelSpawnScene extends NPCAwareContent {
         );
         this.doNext(this.playerMenu);
     }
-    //Hel enters "swollen" state, play at random from camp menu:
-    //if(flags[kFLAGS.HELIA_PREGNANCY_INCUBATION] == 200 && flags[kFLAGS.HEL_PREGNANCY_NOTICES] == 1)
+    // Hel enters "swollen" state, play at random from camp menu:
+    // if(flags[kFLAGS.HELIA_PREGNANCY_INCUBATION] == 200 && flags[kFLAGS.HEL_PREGNANCY_NOTICES] == 1)
     public heliaSwollenNotice(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -817,13 +817,13 @@ export class HelSpawnScene extends NPCAwareContent {
         this.outputText(
             '\n\n"<i>Or he.  Whichever... so, which do you want, lover mine?  A big strong boy, or a fiery little girl just like her mom?</i>"'
         );
-        //Shouldn't be needed, bet this was originally here to stop duplicate notices:	flags[kFLAGS.HEL_PREGNANCY_INCUBATION]--;
+        // Shouldn't be needed, bet this was originally here to stop duplicate notices:	flags[kFLAGS.HEL_PREGNANCY_INCUBATION]--;
         this.menu();
         this.addButton(0, "Boy", this.youWantABoy);
         this.addButton(1, "Girl", this.youWantAGirl);
     }
 
-    //Boy
+    // Boy
     private youWantABoy(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -845,12 +845,12 @@ export class HelSpawnScene extends NPCAwareContent {
         this.doNext(this.playerMenu);
     }
 
-    //Girl
+    // Girl
     private youWantAGirl(): void {
         this.clearOutput();
         this.spriteSelect(68);
         this.outputText('"<i>Yeah, a girl would be pretty great.  ');
-        //if PC is male:
+        // if PC is male:
         if (this.player.hasCock() && !this.player.hasVagina()) {
             this.outputText(
                 "I dunno if you had any sisters growing up, [name], but let me warn you: a little girl, especially a little salamandress, is going to be a hell of a handful.  But I can just see you when she's all grown up, packing a big old sword and threatening every boy that wants a piece of her: 'Treat her right or you'll have the CHAMPION to deal with.  Rawr.'"
@@ -869,12 +869,12 @@ export class HelSpawnScene extends NPCAwareContent {
         this.doNext(this.playerMenu);
     }
 
-    //Hel enters "gravid" state, play at random from camp menu:
-    //if(flags[kFLAGS.HELIA_PREGNANCY_INCUBATION] == 100)
+    // Hel enters "gravid" state, play at random from camp menu:
+    // if(flags[kFLAGS.HELIA_PREGNANCY_INCUBATION] == 100)
     public heliaGravidity(): void {
         this.clearOutput();
         this.spriteSelect(68);
-        //Shouldn't be needed, bet this was originally here to stop duplicate notices:	flags[kFLAGS.HEL_PREGNANCY_INCUBATION]--;
+        // Shouldn't be needed, bet this was originally here to stop duplicate notices:	flags[kFLAGS.HEL_PREGNANCY_INCUBATION]--;
         this.outputText(
             "You can't help but notice that Hel's starting to have a hard time getting around, lately - and she's been sticking closer and closer to camp, barely leaving at all the last few days.  Now, she's fussing around her part of camp, trying to beat some spare logs into a crib one-handed.  You can't remember the last time you saw her walking around without a hand on her back to support her gravid belly, the other absently rubbing or poking at it, already playing with the child inside her."
         );
@@ -912,7 +912,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.doNext(this.playerMenu);
     }
 
-    //Hel Talk 7 (New, play first time PC [Talk]s to Hel once she's at least "swollen")
+    // Hel Talk 7 (New, play first time PC [Talk]s to Hel once she's at least "swollen")
     public heliaTalkSeven(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -934,7 +934,7 @@ export class HelSpawnScene extends NPCAwareContent {
                 this.player.mf("man", "woman") +
                 "; stronger than I'll ever be.  I just hope a tiny little sliver of your strength - and maybe a healthy dose of your looks - rub off on him.  Or her.  That's all I'd ask for"
         );
-        //if PC isn't daddy:
+        // if PC isn't daddy:
         if (this.flags[kFLAGS.HELSPAWN_DADDY] != 0)
             this.outputText(
                 ", even if he's not your get, I can hope, you know?  If he spends enough time around you, maybe he'll take more after you than me"
@@ -945,9 +945,9 @@ export class HelSpawnScene extends NPCAwareContent {
         this.addButton(1, "Wellll...", this.helsLifestyle);
     }
 
-    //[Encourage Her]
-    //[Hel's Lifestyle]
-    //Encourage Her
+    // [Encourage Her]
+    // [Hel's Lifestyle]
+    // Encourage Her
     private encouragePregalia(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -963,7 +963,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.doNext(this.playerMenu);
     }
 
-    //Hel's Lifestyle
+    // Hel's Lifestyle
     private helsLifestyle(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -986,7 +986,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.doNext(this.playerMenu);
     }
 
-    //IT'S TIME! (Play the morning of the 15th Day of Helia's pregnancy)
+    // IT'S TIME! (Play the morning of the 15th Day of Helia's pregnancy)
     public heliaBirthtime(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -1021,13 +1021,13 @@ export class HelSpawnScene extends NPCAwareContent {
     private heliaBirthEpilogue(): void {
         this.clearOutput();
         this.spriteSelect(68);
-        //It's a girl!
-        //If PC was the father:
+        // It's a girl!
+        // If PC was the father:
         if (this.flags[kFLAGS.HELSPAWN_DADDY] == 0)
             this.outputText(
                 "A healthy baby salamander gurgles and cries as you wrap her in a towel, looking up at you with a pair of bright golden eyes.  Hel takes your daughter, holding the little bundle of you to herself, cooing and laughing at the new life in her arms.  \"<i>Oh my god, [name], look... it's... it's our baby girl.  And she's got your eyes.  The same look I see in your eyes every day.  Oh, this one's going to grow up big and strong.  Aren't you?</i>\" she laughs, rubbing the baby's cheek.  It makes a high, gay little coo in response, nuzzling against Hel's finger."
             );
-        //If Mai was the father:
+        // If Mai was the father:
         else if (this.flags[kFLAGS.HELSPAWN_DADDY] == 2)
             this.outputText(
                 "What you hold in your arms isn't <b>quite</b> a salamander, though.  The little girl you've by now got wrapped up in a towel looks mostly like her mother, with a full body of red scales and pale flesh, and a brightly flaming tail; but atop her head, rather than finned reptilian ears are a pair of perky, puppy-dog like ears.  Taking her daughter, Hel laughs, scratching the newborn behind the ears, making it coo and giggle.  \"<i>Oh my god, [name], look... it's... it's our baby girl.  And she's got Mai's ears, holy shit.  Look at that.  Oh, you're going to be adorable when you grow up, aren't you?</i>\" she laughs, rubbing the baby's cheek.  It makes a high, gay little giggle in response, nuzzling against Hel's finger."
@@ -1036,7 +1036,7 @@ export class HelSpawnScene extends NPCAwareContent {
             this.outputText(
                 "What you hold in your arms isn't <b>quite</b> a salamander, though. The little girl you've got wrapped up in a towel has the same shape as her mothers, a body covered in leather scales and a brightly-flaming tail... but her scales are a midnight black, the same color as a spider's chitin.  The little girl looks up at you with bright red eyes as Hel takes her from you, laughing as she runs her hand across her daughter's dark scales.  \"<i>Well, that's a hell of a thing, isn't it [name]?  A black-scaled salamander... she's beautiful.  Oh you're going to be gorgeous when you grow up, aren't you?</i>\" she laughs, rubbing the baby's cheek.  It makes a high, gay little giggle in response, nuzzling against Hel's finger."
             );
-        //[New Paragraph]
+        // [New Paragraph]
         this.outputText(
             "\n\nThough still panting from the ordeal, Hel's motherly instincts kick in as her daughter tries to eat her finger, and pulls her scaled top down to reveal the swell of her big, milky breast.  The newborn latches on immediately, sighing happily as it takes its first meal.  A sentiment echoed by her mother, who slumps over onto your shoulder, breathing easy for the first time in the day.  \"<i>That was... gaaah.  But look... look at her.  My god, she's amazing.  So beautiful... she's perfect, [name].  And she's- oh, she's got a hell of a bite.  Ow.</i>\""
         );
@@ -1044,7 +1044,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.addButton(0, "Next", this.nameDatHelspawn);
     }
 
-    //[NEXT]
+    // [NEXT]
     private nameDatHelspawn(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -1066,7 +1066,7 @@ export class HelSpawnScene extends NPCAwareContent {
     }
     private applyHelspawnName(input: HTMLInputElement): void {
         this.spriteSelect(68);
-        //Easter Egg Names Hel WILL NOT ALLOW:
+        // Easter Egg Names Hel WILL NOT ALLOW:
         // if (kGAMECLASS.testingBlockExiting) {
         // We're running under the testing script.
         // Stuff a name in the box and go go go
@@ -1099,7 +1099,7 @@ export class HelSpawnScene extends NPCAwareContent {
                 );
             else if (input.value == "Mini-doofus")
                 this.outputText('"<i>Oh yeah, Kiha\'ll get a laugh out of that.  You ass.</i>"');
-            //[Back to the name field you go!]
+            // [Back to the name field you go!]
 
             this.menu();
             this.addButton(0, "Next", () => this.applyHelspawnName(input));
@@ -1108,8 +1108,8 @@ export class HelSpawnScene extends NPCAwareContent {
         }
         this.flags[kFLAGS.HELSPAWN_NAME] = input.value;
 
-        //[Name Field]
-        //Easter Egg Names:
+        // [Name Field]
+        // Easter Egg Names:
         this.clearOutput();
         if (this.flags[kFLAGS.HELSPAWN_NAME] == "Helspawn")
             this.outputText(
@@ -1135,7 +1135,7 @@ export class HelSpawnScene extends NPCAwareContent {
             this.outputText(
                 "<i>I don't... I don't know if I want her to have that name, lover.  It's got a lot of baggage, but... but it does my mother an honor.  More than I could ever give her.</i>\"\n\n"
             );
-        //Syn:
+        // Syn:
         if (this.flags[kFLAGS.HELSPAWN_NAME] == "Syn")
             this.outputText('"Awesome.  I was hoping you\'d choose that one, lover mine.</i>"\n\n');
         if (this.flags[kFLAGS.HELSPAWN_NAME] == "Chara")
@@ -1161,28 +1161,28 @@ export class HelSpawnScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
-    //NOTE: HelSpawn's personality meter & Growing Up
+    // NOTE: HelSpawn's personality meter & Growing Up
     private helSpawnsSetup(): void {
-        //HelspawnChaste and HelspawnSlutty are the new Variabls for Helspawn, indicating the ways you can morph her personality, whichever is higher at the end of the Teenage years indicates whether she gets to be a proud, chaste warrior girl fit for Paladinhood or a slutty, filthy whore of a berzerker like mom.
-        //Depending on who her daddy was, she gets a bonus to one or the other stat:
-        //>If Mai is the daddy: +10 HelspawnSlutty
+        // HelspawnChaste and HelspawnSlutty are the new Variabls for Helspawn, indicating the ways you can morph her personality, whichever is higher at the end of the Teenage years indicates whether she gets to be a proud, chaste warrior girl fit for Paladinhood or a slutty, filthy whore of a berzerker like mom.
+        // Depending on who her daddy was, she gets a bonus to one or the other stat:
+        // >If Mai is the daddy: +10 HelspawnSlutty
         this.flags[kFLAGS.HELSPAWN_PERSONALITY] = 50;
         if (this.flags[kFLAGS.HELSPAWN_DADDY] == 2) this.flags[kFLAGS.HELSPAWN_PERSONALITY] += 10;
-        //>If Spiderbro is daddy: +10 HelspawnChaste
+        // >If Spiderbro is daddy: +10 HelspawnChaste
         if (this.flags[kFLAGS.HELSPAWN_DADDY] == 1) this.flags[kFLAGS.HELSPAWN_PERSONALITY] -= 10;
         if (this.flags[kFLAGS.HELSPAWN_DADDY] == 0) {
-            //>If Corrupt (66+ Corr) PC is daddy: +10 Helspawn Slutty
+            // >If Corrupt (66+ Corr) PC is daddy: +10 Helspawn Slutty
             if (this.player.cor >= 66) this.flags[kFLAGS.HELSPAWN_PERSONALITY] += 10;
-            //>If Pure (33> Corr) PC is daddy: +10 Helspawn Chaste
+            // >If Pure (33> Corr) PC is daddy: +10 Helspawn Chaste
             if (this.player.cor <= 33) this.flags[kFLAGS.HELSPAWN_PERSONALITY] -= 10;
         }
         this.flags[kFLAGS.HELSPAWN_AGE] = 1;
         this.flags[kFLAGS.HELSPAWN_GROWUP_COUNTER] = 1;
         kGAMECLASS.helScene.pregnancy.knockUpForce(); //Clear Pregnancy
-        //>If the two scores tie at the end somehow, Sluttymandergirl prevails!
+        // >If the two scores tie at the end somehow, Sluttymandergirl prevails!
     }
 
-    //Hel Talk 8 (Only while HelSpawn is still a baby)
+    // Hel Talk 8 (Only while HelSpawn is still a baby)
     public heliaTalkEight(): void {
         this.clearOutput();
         this.flags[kFLAGS.HEL_TALK_EIGHT] = 1;
@@ -1207,7 +1207,7 @@ export class HelSpawnScene extends NPCAwareContent {
             "\n\nHel's right. Your little girl looks like she's five, maybe six years old already."
         );
 
-        //If Amily is at camp:
+        // If Amily is at camp:
         if (this.amilyScene.amilyFollower())
             this.outputText(
                 "\n\nYou mention how Amily managed to reverse-engineer a goblin's potion to accelerate her childrens' growth.  Hel grimaces, running a hand over her belly.  \"<i>God damn green menaces.  I never - almost never - drank any of their shit.  Succubus milk?  Sure, why not.  Snake oil, bring it on... But goblin potions?  I'm not that stupid, [name].  It couldn't have been...</i>\""
@@ -1230,7 +1230,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //From Hel's menu: [Play with Kid]
+    // From Hel's menu: [Play with Kid]
     public playWithYourKid(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -1267,8 +1267,8 @@ export class HelSpawnScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Event: Helspawn Graduates from Baby to Teenager
-    //(Play as the PC wakes up)
+    // Event: Helspawn Graduates from Baby to Teenager
+    // (Play as the PC wakes up)
 
     public helSpawnGraduation(): void {
         this.clearOutput();
@@ -1334,8 +1334,8 @@ export class HelSpawnScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Event: Helspawn Discovers Booze
-    //(Play at random during Teenage Helspawn days)
+    // Event: Helspawn Discovers Booze
+    // (Play at random during Teenage Helspawn days)
     public helspawnDiscoversBooze(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -1360,7 +1360,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.addButton(0, "Encourage", this.encourageHelspawn);
     }
 
-    //Scold Her
+    // Scold Her
     private scoldHelSpawn(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -1396,11 +1396,11 @@ export class HelSpawnScene extends NPCAwareContent {
                 this.flags[kFLAGS.HELSPAWN_NAME] +
                 " says, curling up beside you, head resting on your [chest]."
         );
-        //{HelspawnChaste +10}
+        // {HelspawnChaste +10}
         this.flags[kFLAGS.HELSPAWN_PERSONALITY] -= 10;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Encourage Her
+    // Encourage Her
     private encourageHelspawn(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -1450,13 +1450,13 @@ export class HelSpawnScene extends NPCAwareContent {
         this.outputText(
             '\n\n"<i>I am so not cleaning this up,</i>" Hel grumbles, flopping down beside you and fishing out a flask from her cloak.  "<i>Well, at least you didn\'t drink </i>everything<i>.</i>"'
         );
-        //{HelspawnSlutty +10}
+        // {HelspawnSlutty +10}
         this.flags[kFLAGS.HELSPAWN_PERSONALITY] += 10;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Event: Helspawn Chooses a Fighting Style
-    //(Play during the day when returning to camp)
+    // Event: Helspawn Chooses a Fighting Style
+    // (Play during the day when returning to camp)
     public helSpawnChoosesAFightingStyle(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -1502,7 +1502,7 @@ export class HelSpawnScene extends NPCAwareContent {
                 this.flags[kFLAGS.HELSPAWN_NAME] +
                 " grow up as a furious salamander berzerker just like dear old mom.  Or, if you have the time, you could instead do her combat training yourself.  You probably can't completely get rid of the 'mander temper, but a few hours in the ring with you would certainly make her less brazenly reckless - something Hel could benefit from, too, if she's willing to stick around."
         );
-        //{If PC has a bow & skill 100+}:
+        // {If PC has a bow & skill 100+}:
         if (this.player.statusAffectv1(StatusAffects.Kelt) >= 100) {
             this.outputText(
                 "\n\nThen again, while the little salamander needs to be able to defend herself, it might be better to give her a more defensive weapon altogether.  The guards of your village called the bow the wise man's weapon, as the archers sat behind the lines or atop high walls, picking off enemies.  While you weren't trained with it back home, you've gotten pretty good with your bow during your time here.  Perhaps it's time to pass on those skills to " +
@@ -1517,7 +1517,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.addButton(1, "Loan", this.dasBarbarimander);
     }
 
-    //Archery (Dat Snipermander)
+    // Archery (Dat Snipermander)
     private snipermanders(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -1547,14 +1547,14 @@ export class HelSpawnScene extends NPCAwareContent {
         this.outputText(
             "\n\nBreathing hard, the young salamander draws back the bowstring, lining up on her target.  She chews on her lower lip, eyes squinting, deep in concentration, wanting to make this first shot count - to make you proud.  She looses the arrow, and gasps as it bolts away with lethal force... and sails across camp, well away from the target."
         );
-        //If Rath is @ camp:
+        // If Rath is @ camp:
         if (this.player.findStatusAffect(StatusAffects.CampRathazul) >= 0)
             this.outputText(
                 "  You hear your old alchemist friend suddenly putting up a ruckus as the sounds of breaking glass echo throughout camp.  " +
                     this.flags[kFLAGS.HELSPAWN_NAME] +
                     " looks up at you nervously, but you ruffle her fiery hair and tell her to try again. Rath is probably just fine."
             );
-        //else if Valeria/Latexy is at camp:
+        // else if Valeria/Latexy is at camp:
         else if (this.flags[kFLAGS.VALARIA_AT_CAMP] == 1)
             this.outputText(
                 '  You hear a sudden yelp of pain from across camp. Valeria slithers up to you with an irritated look on her gooey face, pointing an accusing finger at an arrow sticking out of her tit.  "<i>Dammit, [name], I\'m a googirl, not a pin cushion!</i>"  You wave her off, and tell ' +
@@ -1623,7 +1623,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Teach Her {Sword and Boardmander}
+    // Teach Her {Sword and Boardmander}
     private swordAndBoardmander(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -1722,13 +1722,13 @@ export class HelSpawnScene extends NPCAwareContent {
         this.outputText("daughter will be a warrior worthy of her parent");
         if (this.flags[kFLAGS.HELSPAWN_DADDY] == 0) this.outputText("s");
         this.outputText(".");
-        //{HelSpawnChaste +10}
+        // {HelSpawnChaste +10}
         this.flags[kFLAGS.HELSPAWN_PERSONALITY] -= 10;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Berzerker (Das Barbarimander)
-    //{if PC has 200 gems}
+    // Berzerker (Das Barbarimander)
+    // {if PC has 200 gems}
     private dasBarbarimander(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -1744,7 +1744,7 @@ export class HelSpawnScene extends NPCAwareContent {
             );
             this.player.gems -= 200;
         }
-        //{if PC is po' as fuck}
+        // {if PC is po' as fuck}
         else {
             this.outputText(
                 '\n\nYou turn out your pockets, telling Hel you\'re about a broke as she is.  The salamander groans, dramatically putting a hand to her brow in mock shame, "<i>Woe is me, forced to turn tricks in a dark alley to provide for my child!</i>"'
@@ -1756,14 +1756,14 @@ export class HelSpawnScene extends NPCAwareContent {
                 '\n\n"<i>Awesome!</i>" the little \'mander grins, following along after her mother.'
             );
             this.outputText("\n\nYou can't imagine how that could end badly.");
-            //{HelSpawnSlutty +10}
+            // {HelSpawnSlutty +10}
             this.flags[kFLAGS.HELSPAWN_PERSONALITY] += 10;
         }
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Event: Helspawn's a Little Slut Like Mommy
-    //{Play at night, while sleeping.}
+    // Event: Helspawn's a Little Slut Like Mommy
+    // {Play at night, while sleeping.}
     public helspawnIsASlut(): void {
         this.spriteSelect(68);
         this.flags[kFLAGS.HELSPAWN_FUCK_INTERRUPTUS] = 1;
@@ -1807,7 +1807,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.addButton(1, "Do Nothing", this.helspawnDoNothing);
     }
 
-    //Do Nothing
+    // Do Nothing
     private helspawnDoNothing(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -1816,12 +1816,12 @@ export class HelSpawnScene extends NPCAwareContent {
                 this.flags[kFLAGS.HELSPAWN_NAME] +
                 "'s bed as she and her first little boyfriend get it on.  You can practically hear the tail-pegging from here.  How cute!"
         );
-        //{HelspawnSlutty +10}
+        // {HelspawnSlutty +10}
         this.flags[kFLAGS.HELSPAWN_PERSONALITY] += 10;
         this.doNext(this.playerMenu);
     }
 
-    //Stop Them
+    // Stop Them
     private helSpawnStopFucking(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -1877,12 +1877,12 @@ export class HelSpawnScene extends NPCAwareContent {
         this.outputText(
             "\n\n\"<i>That's why you </i>shouldn't<i> be bringing men home.  Or women.  Or anything else, kiddo."
         );
-        //If No Hel Love:
+        // If No Hel Love:
         if (this.flags[kFLAGS.HEL_LOVE] != 0)
             this.outputText(
                 "  You don't want to be a whore like your mother, do you?  The girl that everyone's had a ride with."
             );
-        //if HelLove:
+        // if HelLove:
         if (this.flags[kFLAGS.HEL_LOVE] == 1)
             this.outputText(
                 "  I'm not going to a raise a whore, " +
@@ -1897,13 +1897,13 @@ export class HelSpawnScene extends NPCAwareContent {
         this.outputText(
             "\n\nYou spend a bit more time with the chastened, and hopefully now more chaste, salamander girl before putting her to bed.  Stroking her hair, you slip back to your own bunk, hoping she'll take what you've said to heart."
         );
-        //{HelspawnChaste +10}
+        // {HelspawnChaste +10}
         this.flags[kFLAGS.HELSPAWN_PERSONALITY] -= 10;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Capstone Event: Helspawn's All Grown Up
-    //{Play the morning after Event 3}
+    // Capstone Event: Helspawn's All Grown Up
+    // {Play the morning after Event 3}
     public helspawnAllGrownUp(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -1933,7 +1933,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Helspawn’s Main Menu @ Camp [Followers Tab]
+    // Helspawn’s Main Menu @ Camp [Followers Tab]
     public helspawnsMainMenu(): void {
         this.clearOutput();
         this.outputText(
@@ -1948,23 +1948,23 @@ export class HelSpawnScene extends NPCAwareContent {
 
         this.outputText('\n\n"<i>Sure, ' + this.championRef() + '!  What’s up?</i>"');
         this.menu();
-        //Display Options:
-        //[Hug]
+        // Display Options:
+        // [Hug]
         this.addButton(0, "Hug", this.hugHelspawn);
-        //[Talk]
+        // [Talk]
         this.addButton(1, "Talk", this.talkToHelspawn);
-        //[Spar]
+        // [Spar]
         this.addButton(2, "Spar", this.sparHelspawn);
-        //[Sex] {?}
-        //[Appearance]
+        // [Sex] {?}
+        // [Appearance]
         this.addButton(8, "Appearance", this.helSpawnsAppearanceScreen);
         this.addButton(9, "Back", this.camp.campFollowers);
     }
 
-    //Hug
+    // Hug
     private hugHelspawn(): void {
         this.clearOutput();
-        //{if PC is less than 6' tall:}
+        // {if PC is less than 6' tall:}
         if (this.player.tallness <= 72) {
             this.outputText(
                 "You reach up and pull " +
@@ -1981,7 +1981,7 @@ export class HelSpawnScene extends NPCAwareContent {
                     ',</i>" she laughs, planting a quick kiss on your cheek before letting you go.'
             );
         }
-        //{If PC is 6' or taller:}
+        // {If PC is 6' or taller:}
         else {
             this.outputText(
                 "You grab " +
@@ -2001,12 +2001,12 @@ export class HelSpawnScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Talk
+    // Talk
     private talkToHelspawn(): void {
-        //{Note: Talk 1 displays first and only once, followed by a random selection from the other scenes. Most of Helspawn's talk scenes involve other characters from camp, since after all, it takes a village!}
+        // {Note: Talk 1 displays first and only once, followed by a random selection from the other scenes. Most of Helspawn's talk scenes involve other characters from camp, since after all, it takes a village!}
         this.clearOutput();
         var temp: number = HelSpawnScene.rand(5);
-        //Talk 1
+        // Talk 1
         if (this.flags[kFLAGS.HAD_FIRST_HELSPAWN_TALK] == 0) {
             this.flags[kFLAGS.HAD_FIRST_HELSPAWN_TALK]++;
             this.outputText(
@@ -2019,7 +2019,7 @@ export class HelSpawnScene extends NPCAwareContent {
                     this.championRef() +
                     ",</i>\" she says, resting her head on your shoulder, tail slipping around your waist.  You smile, holding the young 'mander girl - no, woman - close.  You tell her that you love her too, and that you're worried about her bringing random monsters home."
             );
-            //{if Sluttymander:
+            // {if Sluttymander:
             if (this.flags[kFLAGS.HELSPAWN_PERSONALITY] >= 50)
                 this.outputText(
                     "  Even if she wants to be just like mom, she shouldn't be bringing monsters home.  Some of them may be dangerous, and she's not a warrior quite like you and Helia yet."
@@ -2046,8 +2046,8 @@ export class HelSpawnScene extends NPCAwareContent {
             this.addButton(1, "Her Boyfriend", this.helSpawnBoyfriend);
             this.addButton(2, "Incest", this.incestWithHelspawn);
         }
-        //Talk 2
-        //{Kiha must be at camp}
+        // Talk 2
+        // {Kiha must be at camp}
         else if (temp <= 0 && this.followerKiha()) {
             this.outputText(
                 '"<i>Oh hey, ' +
@@ -2068,13 +2068,13 @@ export class HelSpawnScene extends NPCAwareContent {
             this.outputText(
                 '\n\n"<i>And it\'ll be YOUR favorite too, mini-doofus, just you wait,</i>" the dragoness laughs, her foot making another slow, steady circuit around the pot, stirring the ingredients.  Grinning at you, Kiha lifts her landle up, letting you take it from between her toes.  The powerful reek of whatever it is they’re trying to cook almost overwhelms you when you bring it up to your lips, nearly staggering you.  By Marae, what did Kiha <i>put</i> in this?  Raw ass?'
             );
-            //[Oh God EW] [Um, yum?]
+            // [Oh God EW] [Um, yum?]
             this.menu();
             this.addButton(0, "Oh God Ew", this.ohGodEwKihaAndHelspawnSuckAtCooking);
             this.addButton(1, "Um, Yum?", this.umYum);
         }
-        //Talk 3
-        //{Needs Rath at camp]
+        // Talk 3
+        // {Needs Rath at camp]
         else if (temp <= 1 && this.player.findStatusAffect(StatusAffects.CampRathazul) >= 0) {
             this.outputText(
                 '"<i>' +
@@ -2116,8 +2116,8 @@ export class HelSpawnScene extends NPCAwareContent {
             );
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //Talk 4
-        //{Bath Slut w/ DD or HHH must be at camp}
+        // Talk 4
+        // {Bath Slut w/ DD or HHH must be at camp}
         else if (temp <= 2 && this.milkSlave() && this.flags[kFLAGS.MILK_SIZE] > 0) {
             this.outputText(
                 '"<i>Hey, have you seen ' +
@@ -2154,8 +2154,8 @@ export class HelSpawnScene extends NPCAwareContent {
             this.addButton(0, "MilkHerLater", this.helSpawnSureMilkHerLater);
             this.addButton(1, "MilkHerNow", this.helSpawnMilkHerNow);
         }
-        //Talk 5
-        //{Isabella must be at camp}
+        // Talk 5
+        // {Isabella must be at camp}
         else if (temp <= 3 && this.isabellaFollower()) {
             this.outputText(
                 '"<i>Oh hey, ' +
@@ -2217,7 +2217,7 @@ export class HelSpawnScene extends NPCAwareContent {
         }
     }
 
-    //Boyfriend
+    // Boyfriend
     private helSpawnBoyfriend(): void {
         this.clearOutput();
         this.outputText('"<i>So tell me about this spider boy.</i>"');
@@ -2231,7 +2231,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //StopFucking
+    // StopFucking
     private dontFuckAlex(): void {
         this.clearOutput();
         this.outputText(
@@ -2239,7 +2239,7 @@ export class HelSpawnScene extends NPCAwareContent {
                 this.flags[kFLAGS.HELSPAWN_NAME] +
                 "'s hair, you try to tell her that there's a better way, that she doesn't have to just fuck everything she comes across.  Her mother's that way, sure, but she could do so much better, so much more with herself than giving in to constant lust."
         );
-        //{If Sluttymander:}
+        // {If Sluttymander:}
         if (this.flags[kFLAGS.HELSPAWN_PERSONALITY] >= 50) {
             this.outputText(
                 "\n\n" +
@@ -2259,7 +2259,7 @@ export class HelSpawnScene extends NPCAwareContent {
 
             this.outputText("\n\nYou may have made a horrible mistake.");
         }
-        //{If Chastemander:}
+        // {If Chastemander:}
         else {
             this.outputText(
                 "\n\n" +
@@ -2276,7 +2276,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Incest / You & Me
+    // Incest / You & Me
     private incestWithHelspawn(): void {
         this.clearOutput();
         this.outputText(
@@ -2303,7 +2303,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Oh God EW]
+    // [Oh God EW]
     private ohGodEwKihaAndHelspawnSuckAtCooking(): void {
         this.clearOutput();
         this.outputText(
@@ -2385,7 +2385,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Sure
+    // Sure
     private helSpawnSureMilkHerLater(): void {
         this.clearOutput();
         this.outputText(
@@ -2394,7 +2394,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Now
+    // Now
     private helSpawnMilkHerNow(): void {
         this.clearOutput();
         this.outputText(
@@ -2422,7 +2422,7 @@ export class HelSpawnScene extends NPCAwareContent {
                 "."
         );
 
-        //If Sluttymander:
+        // If Sluttymander:
         if (this.flags[kFLAGS.HELSPAWN_PERSONALITY] >= 50)
             this.outputText(
                 '\n\n"<i>Wouldn\'t have it any other way!</i>" the salamander answers with an eager grin, easing herself into ' +
@@ -2433,7 +2433,7 @@ export class HelSpawnScene extends NPCAwareContent {
                     this.flags[kFLAGS.HELSPAWN_NAME] +
                     " starts to suckle like a babe, drinking down the dusky maid's seemingly endless supply of milk."
             );
-        //If Chastemander:
+        // If Chastemander:
         else
             this.outputText(
                 '\n\n"<i>Sorry, ' +
@@ -2453,7 +2453,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Spar
+    // Spar
     private sparHelspawn(): void {
         this.clearOutput();
         this.outputText(
@@ -2461,7 +2461,7 @@ export class HelSpawnScene extends NPCAwareContent {
                 this.flags[kFLAGS.HELSPAWN_NAME] +
                 " if she's up for some battle practice, and she answers with an eager nod as she grabs her weapon."
         );
-        //If Sluttymander:
+        // If Sluttymander:
         if (this.flags[kFLAGS.HELSPAWN_PERSONALITY] >= 50)
             this.outputText(
                 '\n\n"<i>Ready to get your shit kicked in, old ' +
@@ -2475,10 +2475,10 @@ export class HelSpawnScene extends NPCAwareContent {
         this.startCombat(new Helspawn());
     }
 
-    //PC Somehow Loses Despite Being Like Level 20+
+    // PC Somehow Loses Despite Being Like Level 20+
     // The irony is that you can't even get her till like, Level 20 because dungeon. And she's lower level but then Hel's lower level than HER which makes shit for sense. Fuck logic, get bitches.
     public loseSparringToDaughter(): void {
-        //if Sluttymander:
+        // if Sluttymander:
         if (this.flags[kFLAGS.HELSPAWN_PERSONALITY] >= 50) {
             this.outputText("As you stumble back, ");
             if (this.player.lust > 99) this.outputText("succumbing to your own lusts");
@@ -2510,7 +2510,7 @@ export class HelSpawnScene extends NPCAwareContent {
             );
             this.outputText("\n\nDamn but they grow up fast.");
         }
-        //Else If Chastemander:
+        // Else If Chastemander:
         else {
             this.outputText("As you stumble back, ");
             if (this.player.lust > 99) this.outputText("succumbing to your own lusts");
@@ -2538,10 +2538,10 @@ export class HelSpawnScene extends NPCAwareContent {
         this.cleanupAfterCombat();
     }
 
-    //PC kicks Helspawn's shit in, surprising nobody.
+    // PC kicks Helspawn's shit in, surprising nobody.
     public beatUpYourDaughter(): void {
         this.clearOutput();
-        //{If Sluttymander loses to lust (you monster)}:
+        // {If Sluttymander loses to lust (you monster)}:
         if (this.flags[kFLAGS.HELSPAWN_PERSONALITY] >= 50 && this.monster.lust > 99) {
             this.outputText(
                 '"<i>N-no more...</i>" the slutty little salamander moans, slumping down to the ground, arms wrapping around herself.  "<i>Fuck, you\'re sexy... so horny...</i>" she groans, hands slipping down to her soaked bikini bottom.'
@@ -2550,7 +2550,7 @@ export class HelSpawnScene extends NPCAwareContent {
             this.outputText(
                 '\n\nShaking your head, you give her a little push, flopping her onto her back.  She just lets out a little whimper and finally tears her panties away, giving her unrestricted access to her sodden box.  "<i>Hey, d-don\'t just leave me like this,</i>" she whines, but to no avail.'
             );
-            //If No Incest:
+            // If No Incest:
             if (this.flags[kFLAGS.HELSPAWN_INCEST] == 0)
                 this.outputText(
                     "  You wash your hands of the defeated slut and head back to camp, leaving her to work through her tension herself."
@@ -2585,10 +2585,10 @@ export class HelSpawnScene extends NPCAwareContent {
         this.cleanupAfterCombat();
     }
 
-    //BONUS SCENES!
-    //(Scenes are repeatable; small chance to play one at any given [appropriate] time. All require Adult Minimander.)
-    //Mai Visits Her Kid
-    //{Requires Helspawn be Mai's daughter; play when returning to camp:}
+    // BONUS SCENES!
+    // (Scenes are repeatable; small chance to play one at any given [appropriate] time. All require Adult Minimander.)
+    // Mai Visits Her Kid
+    // {Requires Helspawn be Mai's daughter; play when returning to camp:}
     public maiVisitsHerKids(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -2609,7 +2609,7 @@ export class HelSpawnScene extends NPCAwareContent {
                 this.flags[kFLAGS.HELSPAWN_NAME] +
                 " drops down to sit beside her mother and father, and quickly has both a smooth and scaly hand stroking her hair."
         );
-        //If Chastemander:
+        // If Chastemander:
         if (this.flags[kFLAGS.HELSPAWN_PERSONALITY] < 50)
             this.outputText(
                 "\n\n" +
@@ -2673,8 +2673,8 @@ export class HelSpawnScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Spider Bro's Gift
-    //{Requires Helspawn be fathered by a spiderbro. Play at morning.}
+    // Spider Bro's Gift
+    // {Requires Helspawn be fathered by a spiderbro. Play at morning.}
     public spiderBrosGift(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -2692,7 +2692,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.outputText(
             "\n\nShe grins, hugging the scarf to herself.  \"<i>I don't know, I woke up and there it was, right next to me.  I think mom bought it for me"
         );
-        //if Isabella:
+        // if Isabella:
         if (this.isabellaFollower())
             this.outputText(", or aunt Isabella might have knitted me a new one, I don't know");
         this.outputText('.</i>"');
@@ -2707,8 +2707,8 @@ export class HelSpawnScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Hakon and Kiri Come to Visit
-    //{Play as the PC returns to camp in the evening / late afternoon}
+    // Hakon and Kiri Come to Visit
+    // {Play as the PC returns to camp in the evening / late afternoon}
     public hakonAndKiriComeVisit(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -2808,9 +2808,9 @@ export class HelSpawnScene extends NPCAwareContent {
         this.addButton(1, "Maybe Not", this.noHuntingBitches);
     }
 
-    //Sure!
-    //Eventually needed to get into Helia Expansion 5: The Valley of Fire
-    //lol like I'll ever actually get there
+    // Sure!
+    // Eventually needed to get into Helia Expansion 5: The Valley of Fire
+    // lol like I'll ever actually get there
     private goHuntingBitches(): void {
         this.clearOutput();
         this.spriteSelect(68);
@@ -2828,7 +2828,7 @@ export class HelSpawnScene extends NPCAwareContent {
         );
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Maybe not
+    // Maybe not
     private noHuntingBitches(): void {
         this.clearOutput();
         this.spriteSelect(68);

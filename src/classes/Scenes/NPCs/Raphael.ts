@@ -13,14 +13,14 @@ import { TimeAwareInterface } from "../../TimeAwareInterface";
 import { NPCAwareContent } from "./NPCAwareContent";
 
 export class Raphael extends NPCAwareContent implements TimeAwareInterface {
-    //The event itself:
-    //Requirement: Player has found Desert storage chest &
-    //Tel'Adre has been found.
-    //PC has 5+ gems
+    // The event itself:
+    // Requirement: Player has found Desert storage chest &
+    // Tel'Adre has been found.
+    // PC has 5+ gems
 
-    //Second requirement:
-    //- Player has C,D,DD or E breasts, at least girly/ample thighs, no humongous ass, is between 4 and 6 feet and has a bipedal lower body.
-    //- Player does not have a cock or balls, for now
+    // Second requirement:
+    // - Player has C,D,DD or E breasts, at least girly/ample thighs, no humongous ass, is between 4 and 6 feet and has a bipedal lower body.
+    // - Player does not have a cock or balls, for now
 
     public constructor() {
         super();
@@ -29,14 +29,14 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
 
     private checkedRussetRogue: number = 0;
 
-    //Implementation of TimeAwareInterface
+    // Implementation of TimeAwareInterface
     public timeChange(): boolean {
         this.checkedRussetRogue = 0; //Make sure we test just once in timeChangeLarge
         if (this.flags[kFLAGS.RAPHAEL_DRESS_TIMER] > 1 && this.player.gems >= 5)
             this.flags[kFLAGS.RAPHAEL_DRESS_TIMER]--;
         if (this.flags[kFLAGS.RAPHEAL_COUNTDOWN_TIMER] > 1 && this.player.gems >= 5)
             this.flags[kFLAGS.RAPHEAL_COUNTDOWN_TIMER]--;
-        //Fix 'hangs' - PC is at the bottom of the dress countdown
+        // Fix 'hangs' - PC is at the bottom of the dress countdown
         if (
             this.flags[kFLAGS.RAPHAEL_DRESS_TIMER] == 1 &&
             this.flags[kFLAGS.RAPHEAL_COUNTDOWN_TIMER] == 0 &&
@@ -60,26 +60,26 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             trace("RAPHAEL DRESS TIMER: " + flags[kFLAGS.RAPHAEL_DRESS_TIMER]);
             trace("RAPHAEL DISGUSTED: " + flags[kFLAGS.RAPHAEL_DISGUSTED_BY_PC_APPEARANCE]);*/
             if (this.flags[kFLAGS.RAPHEAL_COUNTDOWN_TIMER] == 0) {
-                //Countdown to finale not currently engaged!
-                //If the PC meets his criteria!
+                // Countdown to finale not currently engaged!
+                // If the PC meets his criteria!
                 if (this.RaphaelLikes()) {
-                    //Not yet met!  MEETING TIEM!
+                    // Not yet met!  MEETING TIEM!
                     if (this.flags[kFLAGS.RAPHAEL_MET] == 0) {
                         this.outputText("<b>\nSomething unusual happens that morning...</b>\n");
                         this.doNext(this.meetRaphael);
                         return true;
                     } else {
-                        //Already met!
+                        // Already met!
                         if (
                             this.flags[kFLAGS.RAPHAEL_DRESS_TIMER] == 0 &&
                             this.flags[kFLAGS.RAPHAEL_SECOND_DATE] == 0
                         ) {
-                            //Not given dress yet
+                            // Not given dress yet
                             this.outputText("<b>\nSomething unusual happens that morning...</b>\n");
                             this.doNext(this.RaphaelDress);
                             return true;
                         }
-                        //Dress followup - Call picnic date prologue!
+                        // Dress followup - Call picnic date prologue!
                         if (
                             this.player.armor == this.armors.R_BDYST &&
                             this.flags[kFLAGS.RAPHAEL_DRESS_TIMER] > 1 &&
@@ -91,15 +91,15 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                         }
                     }
                 } else {
-                    //If the PC does not currently meet his criteria
-                    //Dress countdown - if pc isn't wearing it yet, kick out to
-                    //Finale!
+                    // If the PC does not currently meet his criteria
+                    // Dress countdown - if pc isn't wearing it yet, kick out to
+                    // Finale!
                     if (this.flags[kFLAGS.RAPHAEL_DRESS_TIMER] == 1) {
                         this.flags[kFLAGS.RAPHAEL_DRESS_TIMER] = -1;
                         this.flags[kFLAGS.RAPHEAL_COUNTDOWN_TIMER] = 7;
                     }
-                    //PC get ready for the 2nd encounter and hasn't been
-                    //shot down yet?
+                    // PC get ready for the 2nd encounter and hasn't been
+                    // shot down yet?
                     if (
                         this.player.armor == this.armors.R_BDYST &&
                         this.flags[kFLAGS.RAPHAEL_DISGUSTED_BY_PC_APPEARANCE] == 0
@@ -110,7 +110,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                     }
                 }
             } else if (this.flags[kFLAGS.RAPHEAL_COUNTDOWN_TIMER] == 1) {
-                //FINALE
+                // FINALE
                 this.outputText("<b>\nSomething unusual happens that morning...</b>\n");
                 this.doNext(this.quiksilverFawkesEndGame);
                 return true;
@@ -118,7 +118,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
         }
         return false;
     }
-    //End of Interface Implementation
+    // End of Interface Implementation
 
     public RaphaelLikes(): boolean {
         if (this.flags[kFLAGS.LOW_STANDARDS_FOR_ALL]) {
@@ -127,32 +127,32 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                 return true;
         }
 
-        //({If player has no legs, or a centaur body.}
+        // ({If player has no legs, or a centaur body.}
         if (!this.player.isBiped()) return false;
-        //({If player has above E cup breasts}
+        // ({If player has above E cup breasts}
         if (this.player.biggestTitSize() >= 12) return false;
-        //({If player has below C cup breasts}
+        // ({If player has below C cup breasts}
         if (this.player.biggestTitSize() < 3) return false;
-        //({If player has grown less than girly hips}
+        // ({If player has grown less than girly hips}
         if (this.player.hipRating < 6) return false;
-        //({If player has gotten a massive butt}
+        // ({If player has gotten a massive butt}
         if (this.player.buttRating >= 16) return false;
-        //({If female player has gotten bigger than 6 feet}
+        // ({If female player has gotten bigger than 6 feet}
         if (this.player.tallness > 72) return false;
-        //({If female player has gotten smaller than 4 feet}
+        // ({If female player has gotten smaller than 4 feet}
         if (this.player.tallness < 48) return false;
-        //({If player has grown ANY cock and balls}
+        // ({If player has grown ANY cock and balls}
         if (this.player.balls > 0 || this.player.cockTotal() > 0) return false;
-        //(For now:
-        //({If player has lost all gender}
+        // (For now:
+        // ({If player has lost all gender}
         if (this.player.gender == 0) return false;
         return true;
     }
 
-    //If first two requirements are met, than trigger when:
-    //Female PC wakes up.
+    // If first two requirements are met, than trigger when:
+    // Female PC wakes up.
 
-    //{First encounter}
+    // {First encounter}
     private meetRaphael(): void {
         this.outputText("", true);
         this.outputText(
@@ -181,12 +181,12 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             "You rub your eyes, walk towards the wall and take a curious look up. It appears to be a red fox. He's looking down on you with a triumphant smirk on a tapered snout; most definitely male and masculine. Although not the broadest figure around, his muscles are lean and strong. His contoured torso flares up above narrow hips and gives him a body that has an agile deftness to it. He wears a loose, red-brown jacket and supple deerskin pants, with a red sash across the hip and soft-soled boots below. They do much to complement the vivid color of his fur, which is a vibrant crimson, broken only by the beige fur running down his chest and towards his crotch. Lithe, the only two things that are large about him is the clear bulge in his thin leather pants and the bushy tail that flicks playfully from side to side. The russet rogue takes quite a bit of pleasure from larceny it seems. Judging by his ornate outfit, he does it for the thrill of it. He himself must be well off.",
             false
         );
-        //Set first meeting complete
+        // Set first meeting complete
         this.flags[kFLAGS.RAPHAEL_MET] = 1;
         this.doNext(this.meetRaphaelPtII);
     }
 
-    //~~~ Next Page ~~~
+    // ~~~ Next Page ~~~
     private meetRaphaelPtII(): void {
         this.outputText("", true);
         this.outputText(
@@ -210,7 +210,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outputText("What do you do?", false);
-        //[Talk] [Slap] [Swoon]
+        // [Talk] [Slap] [Swoon]
         this.simpleChoices(
             "Talk",
             this.RaphaelFirstMeetingTALK,
@@ -225,7 +225,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
         );
     }
 
-    //{When Player chooses Slap/refuse after the first encounter}
+    // {When Player chooses Slap/refuse after the first encounter}
     private RaphaelFirstMeetingSLAP(): void {
         this.outputText("", true);
         this.outputText(
@@ -263,14 +263,14 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             false
         );
 
-        //{Game Removal}
-        //No more meetings + endgame in 21 days
+        // {Game Removal}
+        // No more meetings + endgame in 21 days
         this.flags[kFLAGS.RAPHEAL_COUNTDOWN_TIMER] = 0;
         this.flags[kFLAGS.REJECTED_RAPHAEL] = 1;
         this.doNext(this.playerMenu);
     }
 
-    //{When player chooses swoon after the first encounter}
+    // {When player chooses swoon after the first encounter}
     private RaphaelFirstMeetingSWOON(): void {
         this.outputText("", true);
         this.outputText(
@@ -311,7 +311,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.playerMenu);
     }
 
-    //{When you choose the [Talk] option in the first encounter}
+    // {When you choose the [Talk] option in the first encounter}
     private RaphaelFirstMeetingTALK(): void {
         this.outputText("", true);
 
@@ -350,7 +350,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             false
         );
 
-        //{Optional: Raph makes off with 5 gems)
+        // {Optional: Raph makes off with 5 gems)
         this.player.gems -= 5;
         if (this.player.gems < 0) this.player.gems = 0;
         this.statScreenRefresh();
@@ -358,8 +358,8 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.playerMenu);
     }
 
-    //{Second encounter.}
-    //Again at bedtime
+    // {Second encounter.}
+    // Again at bedtime
     private RaphaelDress(): void {
         this.outputText("", true);
         this.outputText(
@@ -398,11 +398,11 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             "Soon enough you put it down and begin to inspect the equally lustrous garment he left you. You unfold it and marvel at the Bordeaux colored clothes.",
             false
         );
-        //nxt page
+        // nxt page
         this.doNext(this.RaphaelDressPtII);
     }
 
-    //~~~ Next Page ~~~
+    // ~~~ Next Page ~~~
     private RaphaelDressPtII(): void {
         this.outputText("", true);
         this.outputText(
@@ -418,7 +418,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                 " feel equally exposed despite the presence of four sweeping rosebranches stitched across them, but at least the jacket trails past your lower back and partly covers your buttocks with its parted tailflaps.",
             false
         );
-        //({If player has tail}
+        // ({If player has tail}
         if (this.player.tailType > TAIL_TYPE_NONE)
             this.outputText("  Your tail peeks out through the cut.", false);
         this.outputText(
@@ -444,8 +444,8 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             false
         );
 
-        //{Third encounter unlocked}
-        //Set 'time to wear dress' countdown.
+        // {Third encounter unlocked}
+        // Set 'time to wear dress' countdown.
         this.flags[kFLAGS.RAPHAEL_DRESS_TIMER] = 7;
         this.inventory.takeItem(this.armors.R_BDYST, this.playerMenu);
     }
@@ -457,11 +457,11 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
     ~~~*/
 
     private RaphaelEncounterIIDressFollowup(): void {
-        //{Encounter two}
-        //{Requirement: PC is wearing High society bodysuit.
-        //Sequence: When PC wakes up the next day.})
+        // {Encounter two}
+        // {Requirement: PC is wearing High society bodysuit.
+        // Sequence: When PC wakes up the next day.})
         this.flags[kFLAGS.RAPHAEL_SECOND_DATE] = 1;
-        //Clear dress countdown.  Its over and done with.
+        // Clear dress countdown.  Its over and done with.
         this.flags[kFLAGS.RAPHAEL_DRESS_TIMER] = 7;
         this.outputText("", true);
 
@@ -480,7 +480,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             false
         );
 
-        //({If player still meets the first encounter requirements:}
+        // ({If player still meets the first encounter requirements:}
         if (this.RaphaelLikes()) {
             this.outputText(
                 '"<i>How long ago was it, that you had a decent breakfast, hhhmmm?</i>" He smirks. "<i>One that didn\'t include imp gut and hellhound testicles. A worn out camp like this one is no place for a lady. Let me at least endeavor to give a woman of your caliber a taste of the good life.</i>"\n\n',
@@ -499,7 +499,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
 
             this.outputText("What do you do?", false);
             this.flags[kFLAGS.RAPHAEL_DISGUSTED_BY_PC_APPEARANCE] = 0;
-            //[Reject] [Frisk] [Date]
+            // [Reject] [Frisk] [Date]
             this.simpleChoices(
                 "Reject",
                 this.RaphaelChooseReject,
@@ -513,7 +513,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                 undefined
             );
         }
-        //({If player does not meet the first encounter requirements:}
+        // ({If player does not meet the first encounter requirements:}
         else {
             this.outputText("When he catches sight of you, he spurts out the sip.\n\n", false);
 
@@ -527,7 +527,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
 
-            //({If player has no legs, or a centaur body.}
+            // ({If player has no legs, or a centaur body.}
             if (
                 this.player.lowerBody == LOWER_BODY_TYPE_NAGA ||
                 this.player.lowerBody == LOWER_BODY_TYPE_CENTAUR ||
@@ -538,25 +538,25 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                     '"<i>You\'re missing half your body!</i>" He refers to your morphed legs.\n\n',
                     false
                 );
-            //({If player has above E cup breasts}
+            // ({If player has above E cup breasts}
             if (this.player.biggestTitSize() >= 7)
                 this.outputText(
                     '"<i>Your female curves... replaced with such... udders!</i>" He looks at your bosom. "<i>No woman could be elegant with such monstrosities up front!</i>"\n\n',
                     false
                 );
-            //({If player has below C cup breasts}
+            // ({If player has below C cup breasts}
             if (this.player.biggestTitSize() < 3)
                 this.outputText(
                     '"<i>Your female curves... gone!</i>" He looks at your bosom. "<i>It\'s hard to tell you apart from a little girl!</i>"\n\n',
                     false
                 );
-            //({If player has grown less than girly hips}
+            // ({If player has grown less than girly hips}
             if (this.player.hipRating < 6)
                 this.outputText(
                     '"<i>What happened to that fine hourglass shaped figure? Those comely hips?</i>"\n\n',
                     false
                 );
-            //({If player has gotten a massive butt}
+            // ({If player has gotten a massive butt}
             if (this.player.buttRating >= 13)
                 this.outputText(
                     '"<i>Oh... my... Marae! ' +
@@ -564,26 +564,26 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                         ", look at your butt. It is so big! You look one of those cat guy's girlfriends. Who understands those cat guys? You look like a total prostitute. I mean, your butt. It's just so big. I can't believe it's just so round and so out there! Gross!</i>\"  The fox shakes his head and breaks it down. \"<i>I hate big butts! So vulgar.</i>\"\n\n",
                     false
                 );
-            //({If female player has gotten bigger than 6 feet}
+            // ({If female player has gotten bigger than 6 feet}
             if (this.player.tallness > 72)
                 this.outputText(
                     'Raphael rolls his eyes across your giant body and looks intimidated. "<i>I can forget about remaining unseen when I take someone of your size somewhere!</i>"\n\n',
                     false
                 );
-            //({If female player has gotten smaller than 4 feet}
+            // ({If female player has gotten smaller than 4 feet}
             if (this.player.tallness < 48)
                 this.outputText(
                     "Raphael squints like he has trouble seeing you from there, because of your dimunitive size. \"<i>I've dated goblins once... didn't work out.</i>\"\n\n",
                     false
                 );
-            //({If player has grown ANY cock and balls}
+            // ({If player has grown ANY cock and balls}
             if (this.player.balls > 0 || this.player.cockTotal() > 0)
                 this.outputText(
                     '"<i>What is that bulge below the tight outfit I gave you?</i>" The fox inspects your groin. "<i>No, never mind. I don\'t want to know.</i>"\n\n',
                     false
                 );
-            //(For now:
-            //({If player has lost all gender}
+            // (For now:
+            // ({If player has lost all gender}
             if (this.player.gender == 0)
                 this.outputText(
                     '"<i>There\'s... something different about you today. Your smell, it has changed.</i>"\n\n',
@@ -597,14 +597,14 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
 
             this.outputText("You clench your jaw as he vanishes, more than a bit offended.", false);
 
-            //{Game removal untill the PC complies with the requirements again.})
+            // {Game removal untill the PC complies with the requirements again.})
             this.doNext(this.playerMenu);
             this.flags[kFLAGS.RAPHAEL_DISGUSTED_BY_PC_APPEARANCE] = 1;
-            //7 days to fix or done with!
+            // 7 days to fix or done with!
         }
     }
 
-    //{Choose [Date] after second encounter}
+    // {Choose [Date] after second encounter}
     private RaphaelSelectDate(): void {
         this.outputText("", true);
         this.outputText(
@@ -621,10 +621,10 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             "It almost feels like you're consenting when you reach for his soft, cushioned padded furry paw, after which he pulls you up and helps you over the wall.",
             false
         );
-        //{Unlocks Picnic}
+        // {Unlocks Picnic}
         this.doNext(this.RaphaelPicnic);
     }
-    //{When player chooses [Reject] after second encounter}
+    // {When player chooses [Reject] after second encounter}
     private RaphaelChooseReject(): void {
         this.outputText("", true);
         this.outputText(
@@ -651,13 +651,13 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             "In the two seconds it takes for you to pick up the pouch, you find that the fox has vanished as though he were never there. Amazed, you climb onto the wall and try to figure out where he'd gone that fast. Peeking over the wall confirms your suspicions of him simply letting himself fall off the wall to make an elegant exit. A single shattered glass can be found on the other side, but no trace of the fox.",
             false
         );
-        //{Game Removal.}
+        // {Game Removal.}
         this.flags[kFLAGS.RAPHEAL_COUNTDOWN_TIMER] = 14;
         this.flags[kFLAGS.REJECTED_RAPHAEL] = 1;
         this.doNext(this.playerMenu);
     }
 
-    //{When player chooses [Frisk] after second encounter}
+    // {When player chooses [Frisk] after second encounter}
     private RaphaelChooseFrisk(): void {
         this.flags[kFLAGS.FUCK_YOU_GOT_MINE_RAPHAEL] = 0;
         this.outputText("", true);
@@ -677,7 +677,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
         );
 
         /// Int/Spe Variables ///
-        //({Int or Spe below 24 and Cor is not higher than 19}
+        // ({Int or Spe below 24 and Cor is not higher than 19}
         if (this.player.inte < 24 && this.player.spe < 24 && this.player.cor < 19) {
             this.outputText(
                 "You frown, befuddled and eyeing the body you hold close to yours. He must be a magician, you conclude.\n\n",
@@ -698,23 +698,23 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                 '"<i>But the day is young!</i>" He proclaims before slipping from your hold and up the wall, extending you his paw. "<i>Join me! Together we shall paint the forest russet red!</i>" He winks at you while pulling you up. "<i>Maybe I could even show you how I do it, huh?</i>"\n\n',
                 false
             );
-            //{Next scene picnic}
+            // {Next scene picnic}
             this.doNext(this.RaphaelPicnic);
         }
-        //({Int or Spe between 24-36 and Cor is not higher than that}
+        // ({Int or Spe between 24-36 and Cor is not higher than that}
         else if (this.player.inte < 36 && this.player.spe < 36 && this.player.cor < 36) {
             this.outputText(
                 "Not outdone through wit, you notice how the fox is moving his tail about. The wileful rogue is using his fifth limb to move the pendant about his body! You quickly reach around and pat him across the back and flanks, but inspecting the tip of his tail leaves the pendant nowhere to be found. By then Raphael is moving his arms and legs to misplace it further. In a game of cat and mouse all through his red fur, you follow the movement from his lower back, to his feet and his thighs. The sly vulpine clearly enjoys leading you on your hunt across his skin and supple deerskin attire, as you graze over taut leather spanned across a contoured, masculine body. Raphael always appears one step ahead. That is, until the trail ends near his crotch.\n\n",
                 false
             );
 
-            //({If player corruption is below 15}
+            // ({If player corruption is below 15}
             if (this.player.cor <= 15)
                 this.outputText(
                     "You have the stronge urge to grab hold of the oddly enlarged bulge between his legs and retrieve the necklace from within his pants, but the lewdness of the gesture keeps you from it.\n\n",
                     false
                 );
-            //{If player corruption is at or higher than 15}
+            // {If player corruption is at or higher than 15}
             else
                 this.outputText(
                     "With no intention to relent, you grab him by the oddly enlarged bulge in his tight leather pants and squeeze softly, discovering how several of his jewels are harder than others. He hid your gem amongst his own!\n\n",
@@ -730,10 +730,10 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                 '"<i>But the day is young!</i>" He proclaims before slipping from your hold and up the wall, extending you his paw. "<i>Join me! Together we shall paint the forest russet red!</i>" He winks at you while pulling you up. "<i>You have skill though. Stick with me and maybe I can teach you.</i>"\n\n',
                 false
             );
-            //{Next scene picnic}
+            // {Next scene picnic}
             this.doNext(this.RaphaelPicnic);
         }
-        //({Int or Spe are above 35 and Cor is not higher than that}
+        // ({Int or Spe are above 35 and Cor is not higher than that}
         else if (this.player.cor < 35) {
             this.outputText(
                 "Figuring it out easily, you notice how the fox is moving his tail about. The sneaky rogue is using his fifth limb to move the pendant about his body! Deducing the only way he could do that without moving his arms, you reach for the heel of his lifted foot and intercept the string before he can pass it onto his leg.\n\n",
@@ -751,7 +751,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outputText("How do you respond?", false);
-            //Reject] [Accept]
+            // Reject] [Accept]
             this.simpleChoices(
                 "Reject",
                 this.friskRejectChoice,
@@ -765,7 +765,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                 undefined
             );
         }
-        //{If player's corruption is higher than 19 and higher than Intelligence.}
+        // {If player's corruption is higher than 19 and higher than Intelligence.}
         else {
             this.outputText(
                 "You don't quite manage to follow where Raphael keeps the pendant, but you're certain it's somewhere on his body and you intend to find out where! With more eagerness than the fox had expected, you paw across his lean body. You slip into his leather clothes and run the hairs of his fur through scraping fingers. It makes Raphael gasp slightly as you trace down his body, eventually discovering that the bulge in front of his tight leather pants has become larger than you noticed it to be earlier!\n\n",
@@ -783,7 +783,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outputText("What do you do?", false);
-            //[Squeeze] [Fondle]
+            // [Squeeze] [Fondle]
             this.simpleChoices(
                 "Squeeze",
                 this.friskSqueezeChoice,
@@ -799,7 +799,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
         }
     }
 
-    //[Accept]
+    // [Accept]
     private friskAcceptChoice(): void {
         this.flags[kFLAGS.FUCK_OFF_THEIVING_RAPHAEL] = 1;
         this.outputText("", true);
@@ -812,11 +812,11 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             'You waive his paw and choose to walk around the 8 foot long wall, instead of struggling to climb over it. Raphael flashes a grin of delight when you do. "<i>I can see I\'ve caught on to a smart one! Stick with me and I could even finish your education. I promise that graduation will be something... special.</i>"\n\n',
             false
         );
-        //{Next scene picnic}
+        // {Next scene picnic}
         this.doNext(this.RaphaelPicnic);
     }
 
-    //[reject]
+    // [reject]
     private friskRejectChoice(): void {
         this.outputText("", true);
         this.outputText(
@@ -863,13 +863,13 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             "You laugh as he blushes, beating a sound retreat. You're sure this won't be the last you'll see of him however.",
             false
         );
-        //{Game removal}
+        // {Game removal}
         this.flags[kFLAGS.RAPHEAL_COUNTDOWN_TIMER] = 14;
         this.flags[kFLAGS.REJECTED_RAPHAEL] = 1;
         this.doNext(this.playerMenu);
     }
 
-    //[Fondle]
+    // [Fondle]
     private friskFondleChoice(): void {
         this.outputText("", true);
         this.outputText(
@@ -897,11 +897,11 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             false
         );
         this.dynStats("str", -1, "tou", -1, "spe", 3, "sen", 1, "lus", 25);
-        //{Next scene Picnic}
+        // {Next scene Picnic}
         this.doNext(this.RaphaelPicnic);
     }
 
-    //[Squeeze]
+    // [Squeeze]
     private friskSqueezeChoice(): void {
         this.outputText("", true);
         this.outputText(
@@ -934,7 +934,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             false
         );
 
-        //{Game removal}
+        // {Game removal}
         this.flags[kFLAGS.RAPHEAL_COUNTDOWN_TIMER] = 14;
         this.flags[kFLAGS.REJECTED_RAPHAEL] = 1;
         this.doNext(this.playerMenu);
@@ -966,7 +966,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             "Only when Raphael picks up a piece of bacon and nibbles on it, do you seek to satisfy your own urge by breaking off a piece of baguette and washing the moist bread down with a sip of wine. You're oddly at peace with consuming something of Raphael's. Not only because he partakes just as eagerly, but because spiking the food doesn't seem like his style. Going over the dangers in your mind however, you also quickly realize that this is simply his method of winning you over with charm. Deep down, you're still supposed to be the hero champion this realm needs. It will take more than just wine and pastry to win you over.",
             false
         );
-        //~~~ Next page ~~~
+        // ~~~ Next page ~~~
         this.doNext(this.RaphaelPicnicII);
     }
     private RaphaelPicnicII(): void {
@@ -980,7 +980,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             "Curious and certain he has a great deal of knowledge on Mareth, you begin asking Raphael questions about his craft and his experiences. Soon enough, two distinct subjects come up as possible topics. Then again, the wine goes straight to your head and this seems like the perfect time to enjoy more leisurely activities and simply enjoy yourself.\n\n",
             false
         );
-        //[Discuss] [Skill] [Flirt]
+        // [Discuss] [Skill] [Flirt]
         this.simpleChoices(
             "Fencing",
             this.RaphaelPicnicSkill,
@@ -1044,10 +1044,10 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.playerMenu);
     }
 
-    //{Player chooses [Skill]}
+    // {Player chooses [Skill]}
     private RaphaelPicnicSkill(): void {
         this.outputText("", true);
-        //{Introduction scene that Plays out only once.}
+        // {Introduction scene that Plays out only once.}
         if (this.flags[kFLAGS.RAPHAEL_RAPIER_TRANING] == 0) {
             this.outputText(
                 "You allow yourself to be distracted by the sheer opulence of the picnic. Crystal glasses, fine linen blanket, intricately woven basket... and then the clothes and pendant he put on you. Where does he get these things from? It almost leaves you jealous. While you peer across the arrangement, Raphael even manages to retrieve a small guitar. With his long slender fingers, he picks the snares and fine-tunes it. When the Russet Rogue frowns seriously and occupies himself with the small instrument - cradling in its arms focusing on its tortured plinks - you notice just how dedicated and dashing he is.\n\n",
@@ -1108,9 +1108,9 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                 'When you ask him if you shouldn\'t be wearing armor instead of wafer-thin silk bodystockings, he laughs. "<i>I assure you. For the Rapier, you are dressed perfectly.</i>"\n\n',
                 false
             );
-            //{Leads up to fencing variables}
+            // {Leads up to fencing variables}
         }
-        //{Below 30 speed. PC chooses [Skill] Must play out at least once}
+        // {Below 30 speed. PC chooses [Skill] Must play out at least once}
         if (this.player.spe < 30 || this.flags[kFLAGS.RAPHAEL_RAPIER_TRANING] == 0) {
             this.outputText(
                 "The two of you amble over to a mossy field. Raphael is up front and waving about his rapier playfully, grazing the tip through the flora and even slashing at a wasp. You can't seem to spot the insect flying around after he does that.\n\n",
@@ -1167,7 +1167,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
 
-            //(If this looked like something like this in your mind, I've done well. I couldn't help but try and describe that in words. Warn me if I overdid it. Could try to cut a few sequences. Maybe just a summary will do with fewer Freudian references to sex.)
+            // (If this looked like something like this in your mind, I've done well. I couldn't help but try and describe that in words. Warn me if I overdid it. Could try to cut a few sequences. Maybe just a summary will do with fewer Freudian references to sex.)
             this.outputText(
                 '"<i>Join me my fine fae, and I will teach you to dance.</i>" He states while discarding the blade.\n\n',
                 false
@@ -1215,7 +1215,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             this.dynStats("str", -1, "tou", -1, "spe", 3, "sen", 1, "lus", 25);
             this.flags[kFLAGS.RAPHAEL_RAPIER_TRANING] = 1;
         }
-        //{Fencing practice variables: Speed 30-39 Must play out at least once}
+        // {Fencing practice variables: Speed 30-39 Must play out at least once}
         else if (this.player.spe < 39 || this.flags[kFLAGS.RAPHAEL_RAPIER_TRANING] == 1) {
             this.outputText(
                 "In the middle of the mossy field, you grab Raphael by his paw as he offers it. The other you instinctively put around his shoulder, when he does the same around your waist. This forces the both of you to hold each other close. A little closer than what you're normally comfortable with. Raphael doesn't seem to mind when you lean away from him however. He treats it as a game between you.\n\n",
@@ -1287,7 +1287,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             this.dynStats("str", -1, "tou", -1, "spe", 3, "sen", 1, "lus", 25);
             this.flags[kFLAGS.RAPHAEL_RAPIER_TRANING] = 2;
         }
-        //{Fencing practice variables: Speed 40-49, Must play out at least once}
+        // {Fencing practice variables: Speed 40-49, Must play out at least once}
         else if (this.player.spe < 49 || this.flags[kFLAGS.RAPHAEL_RAPIER_TRANING] == 2) {
             this.outputText(
                 "Impressed by your fancy footwork - fast and accurate - Raphael has granted you the use of his rapier.  You are still unsure of how to wield such a precise instrument, but the fox circles you curiously while he makes you practice lunges.  It frustrates you.  They aren't fierce lunges, nor are they long ones.  You don't even get to sweep across the mossy field as playfully or as dramatically as Raphael makes fencing out to be.  Basically you're stuck in your place, walking a straight line and jabbing it limply at an invisible opponent or twisting your wrist in awkward angles to learn all the different parries.  Raphael has given you strict instructions on how to bear your body, but you have to admit that you pay such things lip service.  You'd much rather be impaling something or slashing off the top of a melon, looking cool while doing it.\n\n",
@@ -1346,7 +1346,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             this.dynStats("str", -1, "tou", -1, "spe", 3, "sen", 2, "lus", 60);
             this.flags[kFLAGS.RAPHAEL_RAPIER_TRANING] = 3;
         }
-        //{Warning when you have 50 speed, played through all 3 variables and choose {Skill} at the opening picnic}
+        // {Warning when you have 50 speed, played through all 3 variables and choose {Skill} at the opening picnic}
         else {
             this.outputText(
                 "Regardless of the picnic's splendor, you are quickly drawn to Raphael's rapier again, having gained real feelings for the weapons during your previous sessions with it.  The fox chuckles.  <i>\"My fair fae; she is a woman of taste.  She knows what she wants.\"</i>\n\n",
@@ -1372,7 +1372,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
 
             this.outputText("What do you do?", false);
             this.flags[kFLAGS.RAPHAEL_RAPIER_TRANING] = 4;
-            //[Fence] [Discuss]
+            // [Fence] [Discuss]
             this.simpleChoices(
                 "Fence",
                 this.fenceRaphaelSexily,
@@ -1392,14 +1392,14 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
 
     private fenceOfferChangeToDiscuss(): void {
         this.outputText("You blush, intimidated, and change the subject.\n\n", true);
-        //{Leads to conversation intro}
+        // {Leads to conversation intro}
         this.RaphaelPicnicChooseThieving(false);
     }
 
-    //{Fence leads to the final sex fencing scenes}
+    // {Fence leads to the final sex fencing scenes}
     private fenceRaphaelSexily(): void {
         this.outputText("", true);
-        //[sexy fencing finale]
+        // [sexy fencing finale]
         this.outputText(
             "It's the most beautiful morning yet out on the mossy field - at least, for fencing.  It is a clouded day with perfect overcast.  The fall of light is dispersed and faded, not harsh enough to blind anyone in any direction.  Instead it falls gently upon the dark-green moss in rays of silver gray, shimmering on shoals of opaque pollen and glittering in drifting morning mists.\n\n",
             false
@@ -1444,7 +1444,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             "With a soft metallic scrape, the sword falls into his sheath and you bump clumsily into his body, while Raphael continues to stand firm and proud.  When he holds your wrist to the scabbard, he has effectively disarmed you.  You can't believe it's over when you get back up, using his body as a support.\n\n",
             false
         );
-        //~~~ Next Page ~~~
+        // ~~~ Next Page ~~~
         this.doNext(this.fenceRaphaelSexilyPtII);
     }
 
@@ -1484,7 +1484,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             false
         );
 
-        //{If PC has also reached the intelligence Apex}
+        // {If PC has also reached the intelligence Apex}
         if (this.flags[kFLAGS.RAPHAEL_INTELLIGENCE_TRAINING] == 4) {
             this.outputText(
                 "By now, you've grown wise enough to know of his ways.  You spent enough time sitting with him around the picnic blanket to resist his wiles... when you want to.  You hold your breath as the rogue closes in on you, putting his face close to yours.  He growls softly at you and you moan back at him, but only after allowing yourself to do so.\n\n",
@@ -1496,7 +1496,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
         }
-        //({Female characters who have also raised Intelligence to 49+}
+        // ({Female characters who have also raised Intelligence to 49+}
         if (this.player.inte > 49) {
             this.outputText(
                 "Still possessing the fighting spirit of earlier and enough wits to resist him, it seems fitting to stand your ground and you push Raphael away from you.  Surprised, he looks you in the eyes and realizes you're still very much in control of your mind and of the situation.  To take you roughly on the moss instead of sweeping you off your feet would be a thing unbecoming of the refined fox. He needs you to consent, to win the game.\n\n",
@@ -1519,16 +1519,16 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outputText("Do you let him?", false);
-            //[Yes] [No])
-            //yes to sex
-            //[No] leads up to the universal rejection scene
+            // [Yes] [No])
+            // yes to sex
+            // [No] leads up to the universal rejection scene
             this.doYesNo(this.RaphaelPostFenceSex, this.declinePuttingOutForRogues);
         }
-        //Elsewise to smex!
+        // Elsewise to smex!
         else this.doNext(this.RaphaelPostFenceSex);
     }
 
-    //{speedsex}
+    // {speedsex}
     private RaphaelPostFenceSex(): void {
         this.outputText("", true);
         this.outputText(
@@ -1599,37 +1599,37 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             false
         );
 
-        //({When player had reached the SPE fencing apex}
+        // ({When player had reached the SPE fencing apex}
         if (this.flags[kFLAGS.RAPHAEL_RAPIER_TRANING] == 4) {
             this.outputText(
                 "The only thing left behind is his rapier, sticking out of the moss.  He's bound it with his red sash around the length like a ribbon, as though he has now gifted it to you.  Perhaps it is his way of congratulating you.\n\n",
                 false
             );
-            //[Weapon: Rapier. Speed, instead of strength, influences the damage rating. Never as strong as the heavier weapons or sword, but works great with speed & evasion, encouraged by the rapier.])
+            // [Weapon: Rapier. Speed, instead of strength, influences the damage rating. Never as strong as the heavier weapons or sword, but works great with speed & evasion, encouraged by the rapier.])
             this.inventory.takeItem(this.weapons.RRAPIER, this.playerMenu);
         }
-        //({When player has reached the INT Conversation apex}
+        // ({When player has reached the INT Conversation apex}
         if (this.flags[kFLAGS.RAPHAEL_INTELLIGENCE_TRAINING] == 4) {
             this.outputText(
                 "However, you realize he's left you with more than just pleasant memories of sitting with him around the picnic.  Realizing how skillfully you declined him and how deftly you led him around, you realize you may have mastered his art of keeping another's attention and leading them around with cunning and acting.  This misdirection could have great applications in battle.\n\n",
                 false
             );
-            //Optional Perk: Misdirection. Intelligence adds to the chance to evade. Turns you into a true rogue together with the bodysuit.])
+            // Optional Perk: Misdirection. Intelligence adds to the chance to evade. Turns you into a true rogue together with the bodysuit.])
             this.player.createPerk(PerkLib.Misdirection, 0, 0, 0, 0);
         }
         this.outputText(
             "You return to camp, having cleaned up the picnic and taking the rations that were left with you.  You can't help but wonder if you'll ever see him again though.\n\n",
             false
         );
-        //[Removes Raph from the game. 7 days later, the Quicksilver scene plays out.]
+        // [Removes Raph from the game. 7 days later, the Quicksilver scene plays out.]
         this.flags[kFLAGS.RAPHEAL_COUNTDOWN_TIMER] = 7;
-        //Next button if not taking Rapier
+        // Next button if not taking Rapier
         if (this.flags[kFLAGS.RAPHAEL_RAPIER_TRANING] != 4) this.doNext(this.playerMenu);
     }
 
-    //~~~
+    // ~~~
 
-    //{Player chooses no to sex}
+    // {Player chooses no to sex}
     private declinePuttingOutForRogues(): void {
         this.outputText("", true);
         this.outputText(
@@ -1672,22 +1672,22 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             false
         );
 
-        //({When player had reached the SPE fencing apex}
+        // ({When player had reached the SPE fencing apex}
         if (this.flags[kFLAGS.RAPHAEL_RAPIER_TRANING] == 4) {
             this.outputText(
                 "The only thing left behind is his rapier, sticking out of the moss. He's bound it with his red sash around the length like a ribbon, like he has now gifted it to you. Perhaps it is his way of congratulating you.\n\n",
                 false
             );
-            //[Weapon: Rapier. Speed, instead of strength, influences the damage rating. Never as strong as the heavier weapons or sword, but works great with speed & evasion, encouraged by the rapier.])
+            // [Weapon: Rapier. Speed, instead of strength, influences the damage rating. Never as strong as the heavier weapons or sword, but works great with speed & evasion, encouraged by the rapier.])
             this.inventory.takeItem(this.weapons.RRAPIER, this.playerMenu);
         }
-        //({When player has reached the INT Conversation apex}
+        // ({When player has reached the INT Conversation apex}
         if (this.flags[kFLAGS.RAPHAEL_INTELLIGENCE_TRAINING] == 4) {
             this.outputText(
                 "You realize he's left you with more than just pleasant memories of sitting with him around the picnic, though. Realizing how skillfully you declined him and how deftly you led him around, you realize you may have mastered his art of keeping another's attention and leading them around with cunning and acting. This misdirection could have great applications in battle.\n\n",
                 false
             );
-            //[Optional Perk: Misdirection. Intelligence adds to the chance to evade. Turns you into a true rogue together with the bodysuit.])
+            // [Optional Perk: Misdirection. Intelligence adds to the chance to evade. Turns you into a true rogue together with the bodysuit.])
             this.player.createPerk(PerkLib.Misdirection, 0, 0, 0, 0);
         }
 
@@ -1696,17 +1696,17 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             false
         );
 
-        //[Removes Raph from the game. 7 days later, the Quicksilver scene plays out.]
+        // [Removes Raph from the game. 7 days later, the Quicksilver scene plays out.]
         this.flags[kFLAGS.RAPHEAL_COUNTDOWN_TIMER] = 7;
         this.flags[kFLAGS.REJECTED_RAPHAEL] = 1;
-        //Next button if not looting!
+        // Next button if not looting!
         if (this.flags[kFLAGS.RAPHAEL_RAPIER_TRANING] != 4) this.doNext(this.playerMenu);
     }
 
-    //{Player chooses [Thieving] while in the picnic}
+    // {Player chooses [Thieving] while in the picnic}
     private RaphaelPicnicChooseThieving(newl: boolean = true): void {
         if (newl == true) this.outputText("", true);
-        //(Introduction; plays out only once)
+        // (Introduction; plays out only once)
         if (this.flags[kFLAGS.RAPHAEL_INTELLIGENCE_TRAINING] == 0) {
             this.outputText(
                 "Faced by the 'world-renowned Russet Rogue' - self proclaimed though he may be - your mind fills itself with questions as you try to come up with topics of conversation.  The flamboyant fox must lead an interesting life; one made only more infamous by superstitious folktale and colorful exaggerations.  You intend to get to the bottom of it however!  You lean slightly forward and ask Raphael if everything they say about rogues is true.\n\n",
@@ -1732,9 +1732,9 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                 '<i>"What else would you like revealed?"</i> Raphael quips suggestively, smiling.\n\n',
                 false
             );
-            //{Leads to [Thieving] scenes subjects to PC stats.}
+            // {Leads to [Thieving] scenes subjects to PC stats.}
         }
-        //{[Thieving], intelligence (Less than 30): Must play out at least once.}
+        // {[Thieving], intelligence (Less than 30): Must play out at least once.}
         if (this.player.inte < 30 || this.flags[kFLAGS.RAPHAEL_INTELLIGENCE_TRAINING] == 0) {
             this.outputText(
                 '<i>"How do pickpockets do it?"</i> you blurt out bashfully; the first thing coming to mind is how it\'s possible for them to reach into pockets without the victims even sensing it.\n\n',
@@ -1778,7 +1778,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             this.dynStats("str", -1, "tou", -1, "int", 3, "sen", 1, "lus", 40);
             this.flags[kFLAGS.RAPHAEL_INTELLIGENCE_TRAINING] = 1;
         }
-        //{Picnic Thieving 30-39 Int. Must play out at least once.}
+        // {Picnic Thieving 30-39 Int. Must play out at least once.}
         else if (this.player.inte < 39 || this.flags[kFLAGS.RAPHAEL_INTELLIGENCE_TRAINING] == 1) {
             this.outputText(
                 '<i>"Are rogues born to be what they are?"</i> you ask him curiously.\n\n',
@@ -1847,7 +1847,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             this.dynStats("str", -1, "tou", -1, "int", 3, "sen", 1, "lus", 40);
             this.flags[kFLAGS.RAPHAEL_INTELLIGENCE_TRAINING] = 2;
         }
-        //{Picnic Thieving at 40-49 Int. Must play out at least once.}
+        // {Picnic Thieving at 40-49 Int. Must play out at least once.}
         else if (this.player.inte < 39 || this.flags[kFLAGS.RAPHAEL_INTELLIGENCE_TRAINING] == 2) {
             this.outputText(
                 '<i>"Are you always this much of a charmer?"</i> you wonder about Raphael, and how he always manages to keep his cool.\n\n',
@@ -1900,7 +1900,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             this.dynStats("str", -1, "tou", -1, "int", 3, "sen", 1, "lus", 20);
             this.flags[kFLAGS.RAPHAEL_INTELLIGENCE_TRAINING] = 3;
         }
-        //{Int Thieving Apex Warning: When the PC's intelligence is at 50 or higher.}
+        // {Int Thieving Apex Warning: When the PC's intelligence is at 50 or higher.}
         else {
             this.outputText(
                 "You've gotten used to dealing with the rogue, at least in respects to witty repartee and jousts of flirting.  You disregard the exuberant display of food between you, as you size up your opponent.  His rapier is lying exactly between the two of you, even though steel has not been the weapon you've engaged him with last.\n\n",
@@ -1929,9 +1929,9 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
 
             this.outputText("What do you do?", false);
             this.flags[kFLAGS.RAPHAEL_INTELLIGENCE_TRAINING] = 4;
-            //[Fencing] [Flirt]
-            //[Fencing] {Leads to Fencing Variables}
-            //[Flirt] Leads towards the final Int Sex scene.
+            // [Fencing] [Flirt]
+            // [Fencing] {Leads to Fencing Variables}
+            // [Flirt] Leads towards the final Int Sex scene.
             this.simpleChoices(
                 "Fencing",
                 this.RaphaelPicnicSkill,
@@ -1949,7 +1949,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.playerMenu);
     }
 
-    //{High Int picnic ending}
+    // {High Int picnic ending}
     private thieveryEnding(): void {
         this.outputText("", true);
         this.outputText(
@@ -2000,13 +2000,13 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             "A brooch that can only be described as priceless decorates the soft silk sash.  ",
             false
         );
-        //({When player has not reached the apex of fencing lessons/Optional: and also has less than 60 speed}
+        // ({When player has not reached the apex of fencing lessons/Optional: and also has less than 60 speed}
         if (this.flags[kFLAGS.RAPHAEL_RAPIER_TRANING] != 4)
             this.outputText(
                 "You try to reach for the magnificent ornament hanging off his hips, but as the fox continues to move, you lack the nimbleness to remove it.\n\n",
                 false
             );
-        //({When player has also reached the apex of fencing lessons
+        // ({When player has also reached the apex of fencing lessons
         else
             this.outputText(
                 "You reach and fondle the magnificent ornament hanging off his hips. With a few nimble flicks of your fingers, you manage to get it off.\n\n",
@@ -2041,13 +2041,13 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
         );
         this.outputText("Do you?", false);
         this.dynStats("lus", 25);
-        //Choose:
-        //[Yes] [No]
+        // Choose:
+        // [Yes] [No]
         this.doYesNo(this.RaphaelThieverySmex, this.declinePuttingOutForRogues);
-        //press [Yes] to smart sex
-        //[No] leads up to universal rejection scene
+        // press [Yes] to smart sex
+        // [No] leads up to universal rejection scene
     }
-    //{Player chooses Yes to Int sex}
+    // {Player chooses Yes to Int sex}
     private RaphaelThieverySmex(): void {
         this.outputText("", true);
         this.outputText(
@@ -2100,7 +2100,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             false
         );
 
-        //~~~ Next page ~~~
+        // ~~~ Next page ~~~
         this.doNext(this.RaphaelThieverySmexPtII);
     }
 
@@ -2111,22 +2111,22 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             false
         );
 
-        //({When player had reached the SPE fencing apex}
+        // ({When player had reached the SPE fencing apex}
         if (this.flags[kFLAGS.RAPHAEL_RAPIER_TRANING] == 4) {
             this.outputText(
                 "The only thing left behind is his rapier, sticking out of the moss.  He's bound it with his red sash around the length like a ribbon, as though he has now gifted it to you.  Perhaps it is his way of congratulating you.\n\n",
                 false
             );
-            //[Weapon: Rapier. Speed, instead of strength, influences the damage rating. Never as strong as the heavier weapons or sword, but works great with speed & evasion, encouraged by the rapier.])
+            // [Weapon: Rapier. Speed, instead of strength, influences the damage rating. Never as strong as the heavier weapons or sword, but works great with speed & evasion, encouraged by the rapier.])
             this.inventory.takeItem(this.weapons.RRAPIER, this.playerMenu);
         }
-        //({When player has reached the INT Conversation apex}
+        // ({When player has reached the INT Conversation apex}
         if (this.flags[kFLAGS.RAPHAEL_INTELLIGENCE_TRAINING] == 4) {
             this.outputText(
                 "However, you realize he's left you with more than just pleasant memories of sitting with him around the picnic.  Realizing how skillfully you declined him and how deftly you led him around, you realize you may have mastered his art of keeping another's attention and leading them around with cunning and acting.  This misdirection could have great applications in battle.\n\n",
                 false
             );
-            //[Optional Perk: Misdirection. Intelligence adds to the chance to evade. Turns you into a true rogue together with the bodysuit.])
+            // [Optional Perk: Misdirection. Intelligence adds to the chance to evade. Turns you into a true rogue together with the bodysuit.])
             this.player.createPerk(PerkLib.Misdirection, 0, 0, 0, 0);
             this.outputText("(Gained Perk: Misdirection!)\n\n");
         }
@@ -2135,14 +2135,14 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             false
         );
 
-        //[Removes Raphael from game. In 7 days, the quicksilver scene plays out]
+        // [Removes Raphael from game. In 7 days, the quicksilver scene plays out]
         this.flags[kFLAGS.RAPHEAL_COUNTDOWN_TIMER] = 7;
-        //If not taking item, go next.
+        // If not taking item, go next.
         if (this.flags[kFLAGS.RAPHAEL_RAPIER_TRANING] != 4) this.doNext(this.playerMenu);
     }
 
-    //OH SHIT ENDGAME SHIT HERE SONS!
-    //[Quicksilver scene]
+    // OH SHIT ENDGAME SHIT HERE SONS!
+    // [Quicksilver scene]
     private quiksilverFawkesEndGame(): void {
         this.outputText("", true);
         this.outputText(
@@ -2160,14 +2160,14 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             false
         );
 
-        //({If player rejected him earlier}
+        // ({If player rejected him earlier}
         if (this.flags[kFLAGS.REJECTED_RAPHAEL] == 1) {
             this.outputText(
                 "You're immediately confused and you ask him what's going on, but the fox is out of breath.  What's more, a similar howl now calls out from the opposite direction too!  Whatever these sounds are or this fog is, they have the camp surrounded!\n\n",
                 false
             );
         }
-        //({If player had an INT or SPE ending with him earlier}
+        // ({If player had an INT or SPE ending with him earlier}
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00149] == 1) {
             this.outputText(
                 "You're a bit miffed at the fox.  You haven't heard from him for more than a week after he slept with you, and now he only shows up because he's looking for help.  The fox however, is out of breath.  What's more; a similar howl now calls out from the opposite direction too!  Whatever these sounds are or this fog is, they have the camp surrounded!\n\n",
@@ -2207,7 +2207,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             false
         );
 
-        //~Next Page~
+        // ~Next Page~
         this.doNext(this.QuiksilverFawkesPtII);
     }
 
@@ -2250,13 +2250,13 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             false
         );
 
-        //({If player removed him earlier}
+        // ({If player removed him earlier}
         if (this.flags[kFLAGS.REJECTED_RAPHAEL] == 1)
             this.outputText(
                 '<i>"I can smell traces of him,"</i> Hati states, nearing the waterbarrel, <i>"but it\'s hard to tell.  There\'re too many other scents here."</i>\n\n',
                 false
             );
-        //Played around/special ending
+        // Played around/special ending
         else
             this.outputText(
                 'Hati breaks into the conversation.  <i>"She must know.  The entire camp reeks of him. She has his scent on her.  I can smell strong trails leading towards a nearby meadow.  A bit stale.  Might have been a while ago."</i>  He nears the water barrel.  <i>"...but it\'s hard to tell. There\'s too many other scents here."</i>\n\n',
@@ -2267,7 +2267,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             "Your heart jumps as Hati manages to discover a pile of Raphael's clothes, near the barrel.  It's irrefutable proof.  Raphael must have put them there to throw the wolves off.  Hati gives you a look of dissapointment.  <i>\"He's nude. They must have slept together.\"</i>",
             false
         );
-        //({If player is wearing red bodysuit}
+        // ({If player is wearing red bodysuit}
         if (this.player.armorName == "red, high-society bodysuit")
             this.outputText(
                 "  Suddenly, his eyes and ears perk.  <i>\"Isn't that the stolen clothing of the widow Camembert that she's wearing? You know, before she mysteriously dropped the charges after a nightly visit from the fox? Should we confiscate it anyway?\"</i>",
@@ -2295,7 +2295,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             false
         );
 
-        //[Cover] [Sell out]
+        // [Cover] [Sell out]
         this.simpleChoices(
             "Cover",
             this.coverForRaphael,
@@ -2310,7 +2310,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
         );
     }
 
-    //{PC chooses to cover for Raphael}
+    // {PC chooses to cover for Raphael}
     private coverForRaphael(): void {
         this.outputText("", true);
         this.outputText(
@@ -2318,7 +2318,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             false
         );
 
-        //({Player corruption below 30}
+        // ({Player corruption below 30}
         if (this.player.cor < 30)
             this.outputText(
                 "You instantly feel bad for lying to the wolf. More so because he doesn't get troubled, disappointed or vexed.  He seems to instantly believe you... or at least, he wants to believe you, even though being a detective probably keeps him cynical.  You'll only be adding to that cynicism if he discovers your lie.\n\n",
@@ -2338,7 +2338,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             '<i>"Hati, enough!"</i> The wolf in front of you turns his head, throws back his cuneate ears and snarls at his partner.  <i>"We\'re not in the habit of throwing around accusations without material proof."</i>  His anger starts to decrease. <i>"Don\'t help Raphael turn us into the bad guys."</i>  Skoll turns back to you with just as much friendly patience as ever.  <i>"I\'m sure she would have told us if she knew anything about that."</i>',
             false
         );
-        //({If cor is below 30}
+        // ({If cor is below 30}
         if (this.player.cor < 30)
             this.outputText(
                 "  You slowly shake your head, tortured by the trusting twinkle in the wolf's soft yellow eyes.",
@@ -2360,7 +2360,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             "Skoll picks up Raphael's clothes.  The two brothers then get on all four of their limbs and speed off into the fog.  Fierce, dangerous beasts they are.\n\n",
             false
         );
-        //~~~ Next page ~~~
+        // ~~~ Next page ~~~
         this.doNext(this.coverForRaphaelII);
     }
 
@@ -2416,11 +2416,11 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             "You blink as he fades off into the mist and you're left to absorb the morning's events by yourself.  For a minute you're concerned with the wolves, but at least you've managed to keep Raphael as a friend.  Though, you are curious what he means by 'orphanage'.",
             false
         );
-        //Concludify things
+        // Concludify things
         this.flags[kFLAGS.RAPHEAL_COUNTDOWN_TIMER] = -2;
         this.doNext(this.playerMenu);
     }
-    //{PC chooses to betray Raphael}
+    // {PC chooses to betray Raphael}
     private betrayRaphael(): void {
         this.outputText("", true);
         this.outputText(
@@ -2472,11 +2472,11 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             false
         );
         this.flags[kFLAGS.RAPHEAL_COUNTDOWN_TIMER] = -1;
-        //1k gems?
+        // 1k gems?
         this.doNext(this.playerMenu);
     }
 
-    //Intro
+    // Intro
     public orphanageIntro(): void {
         this.clearOutput();
         if (this.RaphaelLikes()) {
@@ -2544,17 +2544,17 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                     "\n\nYou're still waiting for an answer when he grabs a hidden piece of rope inside the wall and holds you tightly around your waist.  For a moment you wonder what's going on, but it becomes clear when he pulls the rope.  With great speed the rope pulls the both of you upwards, and in the blink of an eye you find yourself gently put down on the roof of the orphanage by the swinging arm of a crane."
                 );
 
-                //~~~ Page ~~~
+                // ~~~ Page ~~~
                 this.menu();
                 this.addButton(0, "Next", this.raphaelIntroPageTwo);
                 this.flags[kFLAGS.TIMES_ORPHANAGED_WITH_RAPHAEL]++;
             } else if (this.model.time.hours >= 19 && this.model.time.hours <= 21) {
-                //Repeat Approaches
-                //Repeat encounter: When the Orphanage is selected between 19:00 and 21:00
+                // Repeat Approaches
+                // Repeat encounter: When the Orphanage is selected between 19:00 and 21:00
                 this.outputText(
                     "You walk into the alley to the side of the orphanage and look up expectantly, brushing by shady looking teens who enjoy patting you down, but leaving you and your possessions alone otherwise.  They seem to make a game out of it.  The little staging room is lit and you begin to search for the one rope out of many that will hoist you up there by pulling it.  You stay clear of the other ones, not quite sure what they'd do, but half expecting them to fire a crossbow bolt or drop an anvil on your head.  Anxious, you grab the right one and hold on tight as it pulls you up into the air and swings you towards the correct window."
                 );
-                //[One of the three sex / dialogue scenes follows]
+                // [One of the three sex / dialogue scenes follows]
                 this.flags[kFLAGS.TIMES_ORPHANAGED_WITH_RAPHAEL]++;
                 if (this.player.spe < 33) {
                     this.outputText(
@@ -2564,7 +2564,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                         '"<i>Ho-ho, I\'ve not even begun the night and already I\'m snatching the priceless treasure out of thin air.</i>"  When your eyes focus, Raphael is smiling back at you and leans you backward in his embrace.  His long vulpine snout hovers over you and his green eyes twinkle in the light.  "<i>I must admit that I was feeling a bit nervous about my chances in the coming night, but now that you\'re here?</i>"  He shrugs playfully.  "<i>I\'d say that fallen angels are a blessing.  With you seeing me off for good luck, I can\'t go wrong!</i>" he chuckles while setting you down.'
                     );
                 }
-                //~~
+                // ~~
                 else if (this.player.spe < 66) {
                     this.outputText(
                         "\n\nGetting the hang of it, you sweep up and manage a deft landing in the little rogue's pad by sinking to your knees as you land.  When you look up, you barely manage a fleeting glimpse of Raphael's luscious bare butt before the young man hoists up his pants by candlelight.  Apparently he was just getting dressed."
@@ -2573,7 +2573,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                         '\n\nHe turns around.  "<i>Getting better at it my little moth of the night; catching a master thief with his pants down.</i>" he chuckles as he puts on his leather jacket and buttons it up.  Throwing his lavender scarf around his neck, he turns around all prim and proper.  "<i>Though let me see what a lowly rogue can do to muster an introduction more becoming of his lady guest.</i>"'
                     );
                 }
-                //~~
+                // ~~
                 else {
                     this.outputText(
                         "\n\nToday's hoist comes up a little short and manages to land you right on top of the windowsill all quiet like.  The fox has sharp ears however and you can see him wake up from behind the thin paper screen in front of the little bed.  Apparently the fox was still napping in a darker corner of the dimly lit room when you entered.  He lights a candle, casting a powerful black silhouette of himself against the screen and gets up.  You can pretty much see everything, despite it being just the shadow of the young man.  He probably doesn't know.  His broad downy chest is the first thing to rise from above the bedspread.  Standing up, the fox then bends over and fetches clothes from the floor next to him.  He tries to subdue the rather large and inappropriate erection jutting out from his hips, before deciding to hurry up and simply muffle it within the pants he slips on. The quick application of a jacket later, the fox steps out from behind the screen."
@@ -2595,23 +2595,23 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     '\n\nIn fact, the only thing in the room that keeps you on alert is the young man taking his seat besides you.  He flashes his trademark mien, one that always manages to somehow confuse and make his intentions crystal clear at the same time.  "<i>So señorita, what brings you to my humble abode?  Do I dare guess what brings a lady of such indiscriminating taste to visit a scoundrel of sordid repute?</i>"  He leans in closer and brings his lips to yours, glancing at your eyes with his emerald irises.'
                 );
-                //[Talk] [Sex]
+                // [Talk] [Sex]
                 this.menu();
                 this.addButton(0, "Talk", this.talkWithRedFoxLooksOutHesASpy);
                 this.addButton(1, "Sex", this.raphaelOrphanageSexMenu);
                 this.addButton(4, "Leave", this.telAdre.telAdreMenu);
-                //build a menu here!
+                // build a menu here!
             } else {
-                //When the orphanage is selected on any other time
+                // When the orphanage is selected on any other time
                 this.outputText(
                     "You walk into the alley to the side of the orphanage and look up expectantly, brushing by shady looking teens who enjoy patting you down, but leaving you and your possessions alone otherwise.  They seem to make a game out of it.  It's hard to see if any of the rooms are lit because it's still quite bright outside.  There probably aren't.  Still, you begin to search for the one rope out of many that will hoist you up there by pulling it.  You stay clear of the other ones, not quite sure what they'd do, but half expect them to fire a crossbow bolt or drop an anvil on your head.  Anxious, you grab the right one and hold on tight when you pull it, but oddly enough, nothing happens.  You're sure it's the right one, but something is preventing the system from kicking into gear.  You shake your head and step back in silent admiration.  You're not sure what mechanical marvel is responsible for it, but the orphanage must be decked with all manner of clever contraptions that even manage to factor time into the system."
                 );
-                //[nothing happens]
+                // [nothing happens]
                 this.menu();
                 this.addButton(0, "Back", this.telAdre.telAdreMenu);
             }
         }
-        //PLACEHOLDER UNTIL VIXENS ARE DONE
+        // PLACEHOLDER UNTIL VIXENS ARE DONE
         else {
         }
     }
@@ -2639,7 +2639,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(0, "Next", this.evenMoreRaphaelIntro);
     }
 
-    //Raphael's Shit Expanded
+    // Raphael's Shit Expanded
     private evenMoreRaphaelIntro(): void {
         this.clearOutput();
         this.outputText(
@@ -2672,7 +2672,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             '\n\nWith one firm swerve, he turns you around to face him again.  "<i>I have but one wonder mademoiselle...</i>"  The fox smiles, holds you by the waist, and presses his body closer onto yours.  "<i>What would such a fair beauty be doing in the seedy part of town, other than brightening the day of a lowly rogue?</i>"  The russet rogue looms in over you with a develish twinkle in his emerald eyes.  His sharp triangular face and pointy ears are turned towards you inquisitively.'
         );
 
-        //[Kiss] [Goodbye]
+        // [Kiss] [Goodbye]
         this.menu();
         this.addButton(0, "Next", this.kissRaphaelFirstTimeOrphanage);
     }
@@ -2686,8 +2686,8 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //RaphSex
-    //Sex1
+    // RaphSex
+    // Sex1
     private kissRaphaelFirstTimeOrphanage(): void {
         this.clearOutput();
         this.outputText(
@@ -2729,10 +2729,10 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(0, "Next", this.followupToFirstTimeOrphanageRaphSex);
     }
 
-    //After Sex1
+    // After Sex1
     private followupToFirstTimeOrphanageRaphSex(): void {
         this.clearOutput();
-        //[ Scene after rose garden sex on top of the orphanage roof ]
+        // [ Scene after rose garden sex on top of the orphanage roof ]
         this.outputText(
             "You wake up startled.  The last thing you remember is a sunset rendezvous with the russet rogue upon a rooftop garden of roses, but when you look around you realize you're lying in a foreign bed.  It's an odd room you find yourself in.  It's a small wooden dive, but warmly decorated and enchanted by the playful flicker of candlelight shadows and the haunting undulation of curtains breezing in the wind.  There are pillows on the large bed, silken bedspreads and a worn rug.  A large wardrobe, a distant vanity, a table full of tools and the small creaky bed cast silhouettes in the darkness.  A single candle on the bedstand beside you provides all the light available and casts long shadows across the rough wooden floorboards.  You don't appear to be trapped, however.  The room has no door, but a large window opening leads out into the night sky.  For a moment you're startled by just how late it already is, but not enough to contain your curiosity."
         );
@@ -2759,7 +2759,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Cunnilingus
+    // Cunnilingus
     private cunnilingusWithRaphael(): void {
         this.clearOutput();
         this.outputText(
@@ -2783,12 +2783,12 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nAfter five minutes of this, sending you gasping and writhing, you dare to raise your head and look down with a fierce blush.  Raphael is still at it.  He looks up and patiently resumes eye contact, like you're an invitee to the discourse between him and the glistening red, tongue-lashed and dilated femslit before him.  The look he throws you is enough to send you over the edge and you cum hard, "
         );
-        //({Low wetness multiplier})
+        // ({Low wetness multiplier})
         if (this.player.wetness() < 3) this.outputText("your cunt fluttering");
-        //({Medium wetness multiplier}
+        // ({Medium wetness multiplier}
         else if (this.player.wetness() < 4)
             this.outputText("sending out a small spurt of femcum landing on your belly");
-        //({High wetness multiplier}
+        // ({High wetness multiplier}
         else this.outputText("gushing a torrent of femcum into the air");
         this.outputText(
             ".  Raphael backs off a bit afterwards, giving you a few more laps of admiration around the throbbing fissure and cleaning you of any spillage. He ends with a tiny kiss, just inside your inner thigh."
@@ -2798,7 +2798,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Second Raphael variable sex scene: Girl on top:
+    // Second Raphael variable sex scene: Girl on top:
     private girlOnTopOfRedFoxesOhMy(): void {
         this.clearOutput();
         this.outputText(
@@ -2843,7 +2843,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("sen", -2);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Available side by side to having sex: Dialogue scenes.
+    // Available side by side to having sex: Dialogue scenes.
     private talkWithRedFoxLooksOutHesASpy(): void {
         this.clearOutput();
         this.outputText(

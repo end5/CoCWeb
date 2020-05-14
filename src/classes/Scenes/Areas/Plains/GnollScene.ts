@@ -8,7 +8,7 @@ import { Gnoll } from "./Gnoll";
  */
 
 export class GnollScene extends BaseContent {
-    //Gnoll Entrance
+    // Gnoll Entrance
     public gnollEncounter(): void {
         this.spriteSelect(11);
         this.outputText("", true);
@@ -19,9 +19,9 @@ export class GnollScene extends BaseContent {
         this.startCombat(new Gnoll());
     }
 
-    //Gnoll Rape
+    // Gnoll Rape
     public getRapedByGnoll(): void {
-        //Oh shit get anal raped.
+        // Oh shit get anal raped.
         if (this.player.hasItem(this.consumables.S_DREAM)) {
             this.yoDawgIHeardULiekGNollBallzzzdahdakjldh();
             return;
@@ -52,18 +52,18 @@ export class GnollScene extends BaseContent {
                 this.player.cuntChange(9, true, true, false);
                 this.outputText("\n\n", false);
             }
-            //(if cockTotal=0 AND vaginas=0)
+            // (if cockTotal=0 AND vaginas=0)
             else
                 this.outputText(
                     'The gnoll actually stops laughing for a moment when she takes in your featureless crotch.  "<i>Well.  That\'s a new one,</i>" she mutters.  She then takes two bobbing steps up the length of your body and rudely shoves her thumb into your mouth.  Her other hand guides her giant clitoris in after it, and you are in no position to stop her.\n\n',
                     false
                 );
         }
-        //(if cockTotal>0 AND
+        // (if cockTotal>0 AND
         if (this.player.cockTotal() > 0) {
-            //thickestCock()>2")
+            // thickestCock()>2")
             if (this.player.thickestCockThickness() > 2) {
-                //(if cockTotal>1)
+                // (if cockTotal>1)
                 if (this.player.cockTotal() > 1)
                     this.outputText(
                         "The gnoll fishes into your " +
@@ -71,7 +71,7 @@ export class GnollScene extends BaseContent {
                             " and quickly snaps up the thickest one.  ",
                         false
                     );
-                //(if cockTotal=1)
+                // (if cockTotal=1)
                 else
                     this.outputText(
                         "The gnoll's hands dart down to your crotch and grabs " +
@@ -96,15 +96,15 @@ export class GnollScene extends BaseContent {
                     false
                 );
             }
-            //(if cockTotal>0 AND thickestCock()<2")
+            // (if cockTotal>0 AND thickestCock()<2")
             else {
-                //(if cockTotal>1)
+                // (if cockTotal>1)
                 if (this.player.cockTotal() > 1)
                     this.outputText(
                         '"<i>This will have to do,</i>" she says with the barest trace of disappointment as she grabs your thickest cock.  ',
                         false
                     );
-                //(if cockTotal=1)
+                // (if cockTotal=1)
                 else
                     this.outputText(
                         '"<i>This will have to do,</i>" she says as she grabs your cock.  ',
@@ -128,7 +128,7 @@ export class GnollScene extends BaseContent {
                     ".  All she can do is laugh as she plunges it deeper and deeper into you.\n\n",
                     false
                 );
-                //(increase thickness of thickestCock())
+                // (increase thickness of thickestCock())
                 this.player.cocks[this.player.thickestCock()].cockThickness += 0.25;
             }
         }
@@ -136,7 +136,7 @@ export class GnollScene extends BaseContent {
             "In no time whatsoever she falls into an easy rhythm, pistoning her obscene girl-dick in and out of you.  At first, you can do little more than gurgle and squirm under the assault, but all too soon you feel the telltale signs of your own arousal building.  You find yourself moving in sympathy with her thrusts, at least as best you can given the circumstances.",
             false
         );
-        //(if breastRating>C)
+        // (if breastRating>C)
         if (this.player.biggestTitSize() >= 3)
             this.outputText(
                 "  Your " +
@@ -146,7 +146,7 @@ export class GnollScene extends BaseContent {
                     "s tighten and flush as your whole body submits to the rough fuck administered by the hyena girl.",
                 false
             );
-        //(if cockTotal>0)
+        // (if cockTotal>0)
         if (this.player.cockTotal() > 0) {
             this.outputText(
                 '  Your hips begin to buck as your orgasm builds, but the gnoll slams her hands down on your sides, pinning you to the hardscrabble ground.  "<i>Best if you don\'t move too much, lover,</i>" she laughs, even as she quickens her pace.  Immediately your ',
@@ -164,7 +164,7 @@ export class GnollScene extends BaseContent {
                 false
             );
         }
-        //(if cockTotal<0)
+        // (if cockTotal<0)
         else {
             this.outputText(
                 "  You squirm in the dirt as your orgasm builds and the gnoll simply giggles.  Heat seems to flash across the length of your body, and then every muscle spasms and twitches all at once.  At the same time, the gnoll screams up at the empty sky, her giant clitoris lurching inside you.\n\n",
@@ -186,27 +186,27 @@ export class GnollScene extends BaseContent {
     public defeatHyena(): void {
         this.outputText("", true);
         var dickDownClit = undefined;
-        //Gnoll Defeat (HP)
+        // Gnoll Defeat (HP)
         if (this.monster.HP < 1)
             this.outputText(
                 "The hyena girl collapses backwards onto the dusty ground, unable to continue the fight.",
                 false
             );
-        //Gnoll Defeat (Lust)
+        // Gnoll Defeat (Lust)
         else
             this.outputText(
                 "The hyena girl heaves a giant breath and takes a single step backwards.  Her club thumps to the ground and her hands fall to her shaft, stroking along its rough length.",
                 false
             );
 
-        //Do You Rape The Gnoll?
+        // Do You Rape The Gnoll?
         if (this.player.lust >= 33) {
-            //(if cockTotal>0 AND vaginas=0)
+            // (if cockTotal>0 AND vaginas=0)
             if (this.player.gender == 1) {
                 if (this.player.cockThatFits(this.monster.vaginalCapacity()) != -1)
                     dickDownClit = this.dickDownGnollClit;
                 this.outputText("  The gnoll is at your mercy.  What will you do with her?", false);
-                //[DickDownClit] [DickInAss] [SuckHerClit] [Leave]
+                // [DickDownClit] [DickInAss] [SuckHerClit] [Leave]
                 this.simpleChoices(
                     "DickDownClit",
                     dickDownClit,
@@ -220,12 +220,12 @@ export class GnollScene extends BaseContent {
                     this.cleanupAfterCombat
                 );
             }
-            //(if cockTotal>0 AND vaginas=1)
+            // (if cockTotal>0 AND vaginas=1)
             else if (this.player.gender == 3) {
                 if (this.player.cockThatFits(this.monster.vaginalCapacity()) != -1)
                     dickDownClit = this.dickDownGnollClit;
                 this.outputText("  The gnoll is at your mercy.  What will you do with her?", false);
-                //[DickDownClit] [DickInAss] [SuckHerClit] [TakeHerClit] [Leave]
+                // [DickDownClit] [DickInAss] [SuckHerClit] [TakeHerClit] [Leave]
                 this.simpleChoices(
                     "DickDownClit",
                     dickDownClit,
@@ -239,10 +239,10 @@ export class GnollScene extends BaseContent {
                     this.cleanupAfterCombat
                 );
             }
-            //(if cockTotal=0 AND vaginas=1)
+            // (if cockTotal=0 AND vaginas=1)
             else if (this.player.gender == 2) {
                 this.outputText("  The gnoll is at your mercy.  What will you do with her?", false);
-                //[SuckHerClit] [TakeHerClit] [Leave]
+                // [SuckHerClit] [TakeHerClit] [Leave]
                 this.simpleChoices(
                     "SuckHerClit",
                     this.suckGnollClit,
@@ -256,10 +256,10 @@ export class GnollScene extends BaseContent {
                     this.cleanupAfterCombat
                 );
             }
-            //(if cockTotal=0 AND vaginas=0)
+            // (if cockTotal=0 AND vaginas=0)
             else {
                 this.outputText("  The gnoll is at your mercy.  What will you do with her?", false);
-                //[SuckHerClit] [Leave]
+                // [SuckHerClit] [Leave]
                 this.simpleChoices(
                     "SuckHerClit",
                     this.suckGnollClit,
@@ -276,7 +276,7 @@ export class GnollScene extends BaseContent {
         } else this.cleanupAfterCombat();
     }
 
-    //DickDownClit
+    // DickDownClit
     private dickDownGnollClit(): void {
         this.outputText("", true);
         this.outputText(
@@ -288,7 +288,7 @@ export class GnollScene extends BaseContent {
             false
         );
         var x: number = this.player.longestCock();
-        //(if biggestCockLength()>9)
+        // (if biggestCockLength()>9)
         if (this.player.cocks[x].cockLength > 9)
             this.outputText(
                 "Finally you can feel your cockhead push free into a deeper, wetter place.  You look down at her strange anatomy, the entire length of her tube bulging thicker to accommodate your " +
@@ -308,7 +308,7 @@ export class GnollScene extends BaseContent {
             "Now you begin to roll your hips in a steady rhythm, running your dick up and down her long clitoral tunnel.  It's like the deepest, tightest cunt you've ever had, gripping every inch of you.",
             false
         );
-        //(if balls>0)
+        // (if balls>0)
         if (this.player.balls > 0)
             this.outputText(
                 "  It doesn't take long before your " +
@@ -321,7 +321,7 @@ export class GnollScene extends BaseContent {
             false
         );
 
-        //(if cumQ()<25)
+        // (if cumQ()<25)
         if (this.player.cumQ() < 25)
             this.outputText(
                 "Your " +
@@ -329,7 +329,7 @@ export class GnollScene extends BaseContent {
                     " convulses, pumping down the length of her clitoris.  She squirms and howls beneath you, hissing for more.",
                 false
             );
-        //(if cumQ()>25 AND cumQ()<500)
+        // (if cumQ()>25 AND cumQ()<500)
         else if (this.player.cumQ() < 500)
             this.outputText(
                 "Your " +
@@ -337,7 +337,7 @@ export class GnollScene extends BaseContent {
                     " convulses, pumping cum into her.  Her clitoris bulges even more as the jism backs up.  The warm, wet, sticky insides swirl around your dick.",
                 false
             );
-        //(if cumQ()>500)
+        // (if cumQ()>500)
         else
             this.outputText(
                 "Your " +
@@ -353,7 +353,7 @@ export class GnollScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    //DickInAss
+    // DickInAss
     private dickInGnollAss(): void {
         this.outputText("", true);
         var x: number = this.player.cockThatFits(this.monster.analCapacity());
@@ -366,7 +366,7 @@ export class GnollScene extends BaseContent {
                     " and ram it home into her tiny puckered entrance, eliciting a half-conscious gasp from the hyena girl.\n\n",
                 false
             );
-            //(if cockTotal>1)
+            // (if cockTotal>1)
             if (
                 this.player.totalCocks() > 1 &&
                 this.player.cockArea(x) < this.monster.analCapacity() &&
@@ -378,7 +378,7 @@ export class GnollScene extends BaseContent {
                         " alongside the first.  With a grunt and a thrust, you shove both of them inside.",
                     false
                 );
-                //(if cockTotal>2)
+                // (if cockTotal>2)
                 if (
                     this.player.totalCocks() > 2 &&
                     this.player.cockArea(x) + this.player.cockArea(y) < this.monster.analCapacity()
@@ -387,7 +387,7 @@ export class GnollScene extends BaseContent {
                         "  A few thrusts more, and you slow again.  As you gather up your third cock, the gnoll whimpers quietly, fearing what she knows will come next.  You slowly push forward, sinking your rigid meat into her ass.  When all three are in, it's very slow going, but you don't let up.",
                         false
                     );
-                //(if cockTotal>3)
+                // (if cockTotal>3)
                 if (
                     this.player.cockTotal() > 3 &&
                     this.player.cockArea(0) + this.player.cockArea(1) + this.player.cockArea(2) <
@@ -399,7 +399,7 @@ export class GnollScene extends BaseContent {
                             ".  You slap it into the bundle of dicks and then ram it home.",
                         false
                     );
-                //(if cockTotal>4)
+                // (if cockTotal>4)
                 if (
                     this.player.cockTotal() > 4 &&
                     this.player.cockArea(0) +
@@ -409,7 +409,7 @@ export class GnollScene extends BaseContent {
                         this.monster.analCapacity()
                 )
                     this.outputText("  And then the next.", false);
-                //(if cockTotal>5)
+                // (if cockTotal>5)
                 if (
                     this.player.cockTotal() > 5 &&
                     this.player.cockArea(0) +
@@ -420,7 +420,7 @@ export class GnollScene extends BaseContent {
                         this.monster.analCapacity()
                 )
                     this.outputText("  And the next.", false);
-                //(if cockTotal>6)
+                // (if cockTotal>6)
                 if (
                     this.player.cockTotal() > 6 &&
                     this.player.cockArea(0) +
@@ -494,7 +494,7 @@ export class GnollScene extends BaseContent {
                 );
             this.outputText(".\n\n", false);
 
-            //(Low cumQ):
+            // (Low cumQ):
             if (this.player.cumQ() <= 250) {
                 this.outputText(
                     "Pressing your fingertips into her sides, you let out a moan into the open air, spurting cum deep and hard into her warm rectum",
@@ -511,7 +511,7 @@ export class GnollScene extends BaseContent {
                     false
                 );
             }
-            //Med CumQ):
+            // Med CumQ):
             else if (this.player.cumQ() <= 500) {
                 this.outputText(
                     "Gripping her sides tightly, you let out a bellowing moan that echos through the grasslands, " +
@@ -531,7 +531,7 @@ export class GnollScene extends BaseContent {
                     false
                 );
             }
-            //(High CumQ):
+            // (High CumQ):
             else {
                 this.outputText(
                     "You bear down on the limber hyena girl with all your force, groaning through clenched teeth as " +
@@ -569,7 +569,7 @@ export class GnollScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    //SuckHerClit
+    // SuckHerClit
     private suckGnollClit(): void {
         this.outputText("", true);
         this.outputText(
@@ -600,7 +600,7 @@ export class GnollScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    //TakeHerClit
+    // TakeHerClit
     private takeGnollClit(): void {
         this.outputText("", true);
         this.outputText(
@@ -636,7 +636,7 @@ export class GnollScene extends BaseContent {
     public yoDawgIHeardULiekGNollBallzzzdahdakjldh(): void {
         this.outputText("", true);
         this.player.consumeItem(this.consumables.S_DREAM);
-        //[either Gnoll loss, if the player has a succubi's dream in inventory]
+        // [either Gnoll loss, if the player has a succubi's dream in inventory]
 
         this.outputText(
             "A rolling, harsh laughter surrounds you as you sink to ground, no longer strong enough to remain upright.  The gnoll's mocking bark fills the air as she disposes of your " +
@@ -666,7 +666,7 @@ export class GnollScene extends BaseContent {
             '"<i>What... what have you poisoned me with?</i>" she gasps, staggering to her knees.  Catching herself, the gnoll pulls her hands away from her crotch, revealing the effects of the Succubi\'s Dream.  A pair of huge, apple-sized testicles sway under her throbbing pussy lips, covered in a fine chocolate fuzz that glistens from the honey that leaks from her over-stimulated cunt.  The hyena\'s balls hang heavily from her groin, achingly filled with seed that she has no way of emptying.  "<i>What is this?</i>" she demands, her voice frantic with seething, unfamiliar urges.  "<i>I don\'t... I can\'t...</i>" She stumbles to all fours, her hips impotently bucking at the air, as her eyes cloud over, mouth hanging open in the primal need to mate.\n\n',
             false
         );
-        //[NEXT]
+        // [NEXT]
         this.doNext(this.yoDawgHyenaBallz2);
     }
 
@@ -725,7 +725,7 @@ export class GnollScene extends BaseContent {
             "Again and again, she rushes toward a release, and every time, her balls slosh with overflowing lust, unable to climax yet urging her to greater depravity until even words are too difficult to manage.  Your ravaged body aches under the endless rape.  It's all you can do to work your hands under your hips to masturbate in the blissful pauses while the gnoll's muscles clench in near orgasm, before she slams you back to the dirt for another round.  You lose track of time as your world narrows to the endlessly thrusting shaft of the hyena-girl's massive clitoris and the merciless weight of her ball-slapping, spunk-swollen pouch. Every time you climax, it fuels her mad frenzy until you silently beg your body to shut out the overwhelming sensations, to no avail.  Day fades into night and night into day as the amazon fucks your spasming, shuddering pucker without thought, or pity, or release.\n\n",
             false
         );
-        //[NEXT]
+        // [NEXT]
         this.doNext(this.yoDawgHyenaBallz3);
         this.model.time.hours = 7;
         this.model.time.days++;
@@ -738,7 +738,7 @@ export class GnollScene extends BaseContent {
             "Finally, you feel the gnoll's clit slide out of your anus as the overly-endowed girl collapses at your side.  Broken utterly, she pants with depraved exhaustion, no strength left to continue pounding your body into the dirt.  Even now, she strokes her massive clit with one spotted paw as the other helplessly massages the basketball-sized testicles that audibly churn with gallons of the girl's jizz.  Finding a reserve of strength you didn't know you had, you rise tenderly and gather your belongings, creeping away before the hyena-girl can get her second wind.",
             false
         );
-        //[24 hours pass, player asshole size increased, sensitivity significantly lowered, toughness lowered temporarily, fatigue maxed, remove one succubi's dream]
+        // [24 hours pass, player asshole size increased, sensitivity significantly lowered, toughness lowered temporarily, fatigue maxed, remove one succubi's dream]
         this.player.orgasm();
         this.dynStats("lib", 2, "sen", -10);
         this.cleanupAfterCombat();

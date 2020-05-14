@@ -13,24 +13,24 @@ import { PerkLib } from "../../PerkLib";
 import { StatusAffects } from "../../StatusAffects";
 
 export class Isabella extends Monster {
-    //IZZY AI:
+    // IZZY AI:
 
-    //Isabella Combat texttttttsss
+    // Isabella Combat texttttttsss
     public isabellaAttack(): void {
-        //[Standard attack]
+        // [Standard attack]
         this.outputText(
             "Isabella snorts and lowers a shield a moment before she begins to charge towards you. Her hooves tear huge divots out of the ground as she closes the distance with surprising speed!  ",
             false
         );
 
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Isabella.rand(3) < 2) {
             this.outputText(
                 "Isabella blindly tries to charge at you, but misses completely.\n",
                 false
             );
         }
-        //Determine if dodged!
+        // Determine if dodged!
         else if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
@@ -40,11 +40,11 @@ export class Isabella extends Monster {
                 false
             );
         }
-        //Determine if evaded
+        // Determine if evaded
         else if (this.player.findPerk(PerkLib.Evade) >= 0 && Isabella.rand(100) < 10) {
             this.outputText("You easily evade her incredibly linear attack.\n", false);
         }
-        //("Misdirection"
+        // ("Misdirection"
         else if (
             this.player.findPerk(PerkLib.Misdirection) >= 0 &&
             Isabella.rand(100) < 10 &&
@@ -52,7 +52,7 @@ export class Isabella extends Monster {
         ) {
             this.outputText("You easily misdirect her and step aside at the last moment.\n", false);
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         else if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Isabella.rand(100) < 6) {
             this.outputText(
                 "You throw yourself out of the way with cat-like agility at the last moment, avoiding her attack.\n",
@@ -85,20 +85,20 @@ export class Isabella extends Monster {
     }
 
     public isabellaStun(): void {
-        //[Stunning Impact]
+        // [Stunning Impact]
         this.outputText(
             "Isabella spins her shield back at you in a potent, steel-assisted backhand.  ",
             false
         );
 
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Isabella.rand(3) < 2) {
             this.outputText(
                 "Isabella blindly tries to charge at you, but misses completely.\n",
                 false
             );
         }
-        //Determine if dodged!
+        // Determine if dodged!
         else if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
@@ -108,11 +108,11 @@ export class Isabella extends Monster {
                 false
             );
         }
-        //Determine if evaded
+        // Determine if evaded
         else if (this.player.findPerk(PerkLib.Evade) >= 0 && Isabella.rand(100) < 10) {
             this.outputText("You easily evade her incredibly linear attack.\n", false);
         }
-        //("Misdirection"
+        // ("Misdirection"
         else if (
             this.player.findPerk(PerkLib.Misdirection) >= 0 &&
             Isabella.rand(100) < 10 &&
@@ -120,7 +120,7 @@ export class Isabella extends Monster {
         ) {
             this.outputText("You easily misdirect her and step aside at the last moment.\n", false);
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         else if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Isabella.rand(100) < 6) {
             this.outputText(
                 "You bend backward with cat-like agility to avoid her attack.\n",
@@ -159,14 +159,14 @@ export class Isabella extends Monster {
             false
         );
 
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Isabella.rand(3) < 2) {
             this.outputText(
                 "Isabella blindly tries to charge at you, but misses completely.\n",
                 false
             );
         }
-        //Determine if dodged!
+        // Determine if dodged!
         else if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
@@ -176,11 +176,11 @@ export class Isabella extends Monster {
                 false
             );
         }
-        //Determine if evaded
+        // Determine if evaded
         else if (this.player.findPerk(PerkLib.Evade) >= 0 && Isabella.rand(100) < 10) {
             this.outputText("You easily evade her incredibly linear attack.\n", false);
         }
-        //("Misdirection"
+        // ("Misdirection"
         else if (
             this.player.findPerk(PerkLib.Misdirection) >= 0 &&
             Isabella.rand(100) < 10 &&
@@ -188,7 +188,7 @@ export class Isabella extends Monster {
         ) {
             this.outputText("You easily misdirect her and step aside at the last moment.\n", false);
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         else if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Isabella.rand(100) < 6) {
             this.outputText(
                 "You bend backward with cat-like agility to avoid her attack.\n",
@@ -217,7 +217,7 @@ export class Isabella extends Monster {
         this.combatRoundOver();
     }
 
-    //[Milk Self-Heal]
+    // [Milk Self-Heal]
     public drankMalkYaCunt(): void {
         this.outputText(
             "Isabella pulls one of her breasts out of her low-cut shirt and begins to suckle at one of the many-tipped nipples. Her cheeks fill and hollow a few times while you watch with spellbound intensity.  She finishes and tucks the weighty orb away, blushing furiously.  The quick drink seems to have reinvigorated her, and watching it has definitely aroused you.",
@@ -230,9 +230,9 @@ export class Isabella extends Monster {
     }
 
     protected performCombatAction(): void {
-        //-If below 70% HP, 50% chance of milk drinking
+        // -If below 70% HP, 50% chance of milk drinking
         if (this.HPRatio() < 0.7 && Isabella.rand(3) == 0) this.drankMalkYaCunt();
-        //if PC has spells and isn't silenced, 1/3 chance of silence.
+        // if PC has spells and isn't silenced, 1/3 chance of silence.
         else if (
             this.player.hasSpells() &&
             this.player.findStatusAffect(StatusAffects.ThroatPunch) < 0 &&
@@ -240,7 +240,7 @@ export class Isabella extends Monster {
         ) {
             this.isabellaThroatPunch();
         }
-        //if PC isn't stunned, 1/4 chance of stun
+        // if PC isn't stunned, 1/4 chance of stun
         else if (
             this.player.findStatusAffect(StatusAffects.IsabellaStunned) < 0 &&
             Isabella.rand(4) == 0

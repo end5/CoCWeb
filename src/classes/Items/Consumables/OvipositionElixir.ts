@@ -27,7 +27,7 @@ export class OvipositionElixir extends Consumable {
         return false;
     }
 
-    //Oviposition Elixer!
+    // Oviposition Elixer!
     /* Notes on StatusAffects.Eggs
      v1 = egg type.
      v2 = size - 0 for normal, 1 for large
@@ -58,7 +58,7 @@ export class OvipositionElixir extends Consumable {
             return false;
         }
         if (this.game.player.pregnancyIncubation == 0) {
-            //If the player is not pregnant, get preggers with eggs!
+            // If the player is not pregnant, get preggers with eggs!
             this.outputText(
                 "\n\nThe elixir has an immediate effect on your belly, causing it to swell out slightly as if pregnant.  You guess you'll be laying eggs sometime soon!"
             );
@@ -79,11 +79,11 @@ export class OvipositionElixir extends Consumable {
         }
         var changeOccurred: boolean = false;
         if (this.game.player.pregnancyType == PregnancyStore.PREGNANCY_OVIELIXIR_EGGS) {
-            //If player already has eggs, chance of size increase!
+            // If player already has eggs, chance of size increase!
             if (this.game.player.findStatusAffect(StatusAffects.Eggs) >= 0) {
-                //If eggs are small, chance of increase!
+                // If eggs are small, chance of increase!
                 if (this.game.player.statusAffectv2(StatusAffects.Eggs) == 0) {
-                    //1 in 2 chance!
+                    // 1 in 2 chance!
                     if (Utils.rand(3) == 0) {
                         this.game.player.addStatusValue(StatusAffects.Eggs, 2, 1);
                         this.outputText(
@@ -92,7 +92,7 @@ export class OvipositionElixir extends Consumable {
                         changeOccurred = true;
                     }
                 }
-                //Chance of quantity increase!
+                // Chance of quantity increase!
                 if (Utils.rand(2) == 0) {
                     this.outputText(
                         "\n\nA rumble radiates from your uterus as it shifts uncomfortably and your belly gets a bit larger."
@@ -107,7 +107,7 @@ export class OvipositionElixir extends Consumable {
             this.game.player.pregnancyIncubation > 20 &&
             this.game.player.pregnancyType != PregnancyStore.PREGNANCY_BUNNY
         ) {
-            //If no changes, speed up pregnancy.
+            // If no changes, speed up pregnancy.
             this.outputText(
                 "\n\nYou gasp as your pregnancy suddenly leaps forwards, your belly bulging outward a few inches as it gets closer to time for birthing."
             );

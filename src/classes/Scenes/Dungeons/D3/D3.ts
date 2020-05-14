@@ -513,7 +513,7 @@ export class D3 extends BaseContent {
         if (eggMask == this.BROWN) item = this.consumables.L_BRNEG;
         if (eggMask == this.PURPLE) item = this.consumables.L_PRPEG;
 
-        //menuLoc = 9999;
+        // menuLoc = 9999;
         // Should actually be handled by the fallthrough of doNext(1) in the takeItem shit
 
         this.clearOutput();
@@ -625,7 +625,7 @@ export class D3 extends BaseContent {
 
             this.outputText('\n\nShe smiles encouragingly. <i>"What\'ll it be?"</i>');
 
-            //[Surrender] [Fight]
+            // [Surrender] [Fight]
             this.menu();
             this.addButton(0, "Fight", this.startCombatImmediate, new SuccubusGardener());
             this.addButton(1, "Surrender", this.succubusGardener.surrenderToTheGardener);
@@ -726,7 +726,7 @@ export class D3 extends BaseContent {
 
     // 9999 - Check this
     private courtyardsquareRoomFunc(): boolean {
-        //Statue not exploded - mossy - 30’ high
+        // Statue not exploded - mossy - 30’ high
         this.outputText(
             "A circle of polished stone wraps around a colossus here in the center of the courtyard, ringed by cushioned benches that would be a delight to sit on were they not stained with bodily fluids of all colors and sexes. You didn’t think pink cum was possible, but the demons’ endless sexual creativity doesn’t seem to be bound by such notions. You can leave east and west from here."
         );

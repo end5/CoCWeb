@@ -16,18 +16,18 @@ import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 //Fur – rust red/'ruddy'
 //Tail – Barely touches the ground, but is prehensile and capable of being lengthened at will.
 export class Cinnabar extends BazaarAbstractContent {
-    //Appearnace
+    // Appearnace
     public cinnabarAppearance(output: boolean = true) {
-        //Send back 0 for 'closed'.
+        // Send back 0 for 'closed'.
         if (this.model.time.hours < 15 || this.model.time.hours > 20) return undefined;
         if (output) {
-            //Not yet introduced
+            // Not yet introduced
             if (this.flags[kFLAGS.CINNABAR_NUMBER_ENCOUNTERS] == 0)
                 this.outputText(
                     "\n\nThere's a generously proportioned woman lurking near a tavern.  Looking closer, you can see she has a ruby-red dress over her ruddy fur, and as she turns you make out an unmistakable, rat-like muzzle.",
                     false
                 );
-            //Appearance Repeat:
+            // Appearance Repeat:
             else
                 this.outputText(
                     "\n\nCinnabar is on the prowl, looking for well-endowed johns to lie with.",
@@ -36,20 +36,20 @@ export class Cinnabar extends BazaarAbstractContent {
         }
         return this.cinnabarGreeting;
     }
-    //Approach
+    // Approach
     private cinnabarGreeting(): void {
         this.outputText("", true);
         this.spriteSelect(91);
-        //1st Time:
+        // 1st Time:
         if (this.flags[kFLAGS.CINNABAR_NUMBER_ENCOUNTERS] == 0) {
             this.flags[kFLAGS.CINNABAR_NUMBER_ENCOUNTERS]++;
-            //(No cock)
+            // (No cock)
             if (!this.player.hasCock()) {
                 this.outputText(
                     'You walk over towards the rat-morph, and as you near, she places her hands on her hips, sizing you up with her intense, blood-red eyes.  She licks her lips and sidles alongside you, caressing your body as she offers, "<i>50 gems for an hour.  That\'s all it takes to have Cinnabar be your companion...</i>"  Her voice trails off into a husky vibration as she awaits your response.\n\n',
                     false
                 );
-                //[Buy an hour] [Leave]
+                // [Buy an hour] [Leave]
                 this.simpleChoices(
                     "Buy1Hour",
                     this.cinnabarNonHugeDickings,
@@ -63,13 +63,13 @@ export class Cinnabar extends BazaarAbstractContent {
                     this.bazaar.enterTheBazaar
                 );
             }
-            //(Small Cock)
+            // (Small Cock)
             else if (this.player.biggestCockArea() < 100) {
                 this.outputText(
                     "You walk over towards the rat-morph, and as you near she places her hands on her hips, sizing you up with her intense, blood-red eyes.  She sidles up alongside you, caressing your body until she feels your bulge.  Her hand stops in place and licks her black, glossy lips,  giggling, \"<i>I see you've still got a little boy-cock, huh? Well, 50 gems will get you an hour of my time.  That's all it takes to have Cinnabar be your companion...</i>\"  The slutty rat-girl's voice trails off into a husky vibration while she awaits your response.",
                     false
                 );
-                //[Buy an hour] [Leave]
+                // [Buy an hour] [Leave]
                 this.simpleChoices(
                     "Buy1Hour",
                     this.cinnabarNonHugeDickings,
@@ -83,7 +83,7 @@ export class Cinnabar extends BazaarAbstractContent {
                     this.bazaar.enterTheBazaar
                 );
             }
-            //(Big enough Cock)
+            // (Big enough Cock)
             else {
                 this.outputText(
                     "You walk over towards the rat-morph, and as you near she places her hands on her hips, sizing you up with her intense, blood-red eyes.  She sidles up alongside you, caressing your body and giving a happy hum as her fingers trace the huge, rounded bulk of your bulge. The slutty rat coos, \"<i>Such a big... hot fuck-stick you've got there.  You make me drip, " +
@@ -91,7 +91,7 @@ export class Cinnabar extends BazaarAbstractContent {
                         ".  Normally I'd charge some gems, but fuck it – I want ",
                     false
                 );
-                //Multicocks if the PC has 2 big enough
+                // Multicocks if the PC has 2 big enough
                 if (this.player.cockTotal() > 1 && this.player.biggestCockArea2() >= 75)
                     this.outputText("those things", false);
                 else this.outputText("that thing", false);
@@ -99,7 +99,7 @@ export class Cinnabar extends BazaarAbstractContent {
                     " inside me... the name's Cinnabar, but I'd rather you plug me and call me whatever you want.</i>\"  Her voice trails off into a husky, barely heard vibration as she awaits your response.",
                     false
                 );
-                //[Fuck] [Leave]
+                // [Fuck] [Leave]
                 if (this.player.cockTotal() > 2 && this.player.biggestCockArea2() >= 75)
                     this.simpleChoices(
                         "Fuck Her",
@@ -128,15 +128,15 @@ export class Cinnabar extends BazaarAbstractContent {
                     );
             }
         }
-        //Not first time
+        // Not first time
         else {
-            //(No cock)
+            // (No cock)
             if (!this.player.hasCock()) {
                 this.outputText(
                     'You walk over towards Cinnabar, and as you near, she places her hands on her hips, sizing you up with her intense, blood-red eyes.  She licks her lips and sidles alongside you, caressing your body as she offers, "<i>50 gems for an hour.  That\'s all it takes to have a companion...</i>"  Her voice trails off into a husky vibration as she awaits your response.\n\n',
                     false
                 );
-                //[Buy an hour] [Leave]
+                // [Buy an hour] [Leave]
                 this.simpleChoices(
                     "Buy1Hour",
                     this.cinnabarNonHugeDickings,
@@ -150,13 +150,13 @@ export class Cinnabar extends BazaarAbstractContent {
                     this.bazaar.enterTheBazaar
                 );
             }
-            //(Small Cock)
+            // (Small Cock)
             else if (this.player.biggestCockArea() < 100) {
                 this.outputText(
                     "You walk over towards Cinnabar, and as you near, she places her hands on her hips, sizing you up with her intense, blood-red eyes.  She sidles up alongside you, caressing your body until she feels your bulge.  Her hand stops in place and licks her black, glossy lips,  giggling, \"<i>I see you've still got a little boy, huh? Well, 50 gems will get you an hour of my time.  That's all it takes to have a VERY skilled companion...</i>\"  The slutty rat-girl's voice trails off into a husky vibration while she awaits your response.",
                     false
                 );
-                //[Buy an hour] [Leave]
+                // [Buy an hour] [Leave]
                 this.simpleChoices(
                     "Buy1Hour",
                     this.cinnabarNonHugeDickings,
@@ -170,7 +170,7 @@ export class Cinnabar extends BazaarAbstractContent {
                     this.bazaar.enterTheBazaar
                 );
             }
-            //(Big enough Cock)
+            // (Big enough Cock)
             else {
                 this.outputText(
                     "You walk over towards the rat-morph, and as you near she places her hands on her hips, sizing you up with her intense, blood-red eyes.  She sidles up alongside you, caressing your body and giving a happy hum as her fingers trace the huge, rounded bulk of your bulge. The slutty rat coos, \"<i>Such a big... hot fuck-stick you've got there.  You make me drip, " +
@@ -178,7 +178,7 @@ export class Cinnabar extends BazaarAbstractContent {
                         ".  Normally I'd charge some gems, but fuck it – I want ",
                     false
                 );
-                //Multicocks if the PC has 2 big enough && at least 3 total
+                // Multicocks if the PC has 2 big enough && at least 3 total
                 if (this.player.cockTotal() > 2 && this.player.biggestCockArea2() >= 75)
                     this.outputText("those things", false);
                 else this.outputText("that thing", false);
@@ -186,7 +186,7 @@ export class Cinnabar extends BazaarAbstractContent {
                     " inside me... We could sit here and talk, but I'd rather you plug me and call me your slut.</i>\"  Her voice trails off into a husky, barely heard vibration as she awaits your response.",
                     false
                 );
-                //[Fuck] [Leave]
+                // [Fuck] [Leave]
                 if (this.player.cockTotal() > 2 && this.player.biggestCockArea2() >= 75)
                     this.simpleChoices(
                         "Fuck Her",
@@ -217,14 +217,14 @@ export class Cinnabar extends BazaarAbstractContent {
         }
     }
 
-    //[Buy an Hour]
+    // [Buy an Hour]
     private cinnabarNonHugeDickings(): void {
         this.flags[kFLAGS.CINNABAR_HOUSE_VISITED]++;
         this.flags[kFLAGS.CINNABAR_NUMBER_TIMES_FUCKED]++;
         this.flags[kFLAGS.CINNABAR_FUCKED_CORRUPT_PREVIOUSLY] = 0;
         this.outputText("", true);
         this.spriteSelect(91);
-        //(Too poor)
+        // (Too poor)
         if (this.player.gems < 50) {
             this.outputText(
                 "\"<i>Ooooh... I'm sorry, but you don't have the gems to hire a companion, babe.   You should get some practice spreading your thighs and earn a REAL living,</i>\" Cinnabar teases.",
@@ -233,7 +233,7 @@ export class Cinnabar extends BazaarAbstractContent {
             this.doNext(this.bazaar.enterTheBazaar);
             return;
         }
-        //(Enough cash)
+        // (Enough cash)
         this.player.gems -= 50;
         this.statScreenRefresh();
         this.outputText(
@@ -331,7 +331,7 @@ export class Cinnabar extends BazaarAbstractContent {
             " and settle to the business of sliding back and forth, caressing you from the inside out.",
             false
         );
-        //Finger poke
+        // Finger poke
         if (this.player.hasVagina()) this.player.cuntChange(8, true, true, false);
         else this.player.buttChange(8, true, true, false);
         if (this.player.hasCock() && !this.player.hasVagina())
@@ -370,7 +370,7 @@ export class Cinnabar extends BazaarAbstractContent {
         if (this.player.vaginalCapacity() < 30) this.outputText("fingers", false);
         else this.outputText("fingers - no, fist", false);
         this.outputText(" tells you just how much she likes it.  ", false);
-        //CUNTZ
+        // CUNTZ
         if (this.player.hasVagina()) {
             this.outputText("She even works ", false);
             if (this.player.analCapacity() < 30) this.outputText("her fingers", false);
@@ -448,7 +448,7 @@ export class Cinnabar extends BazaarAbstractContent {
             else this.outputText("hand", false);
             this.outputText(" in its hungry embrace.", false);
         }
-        //(No dick/cunt:
+        // (No dick/cunt:
         if (this.player.gender == 0)
             this.outputText(
                 "  Her soft pads rub your " +
@@ -482,7 +482,7 @@ export class Cinnabar extends BazaarAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[FUCK] – tracks if last fuck was huger + corrupteded version
+    // [FUCK] – tracks if last fuck was huger + corrupteded version
     private cinnabarGetsFUKKKKED(): void {
         this.flags[kFLAGS.CINNABAR_HOUSE_VISITED]++;
         this.flags[kFLAGS.CINNABAR_NUMBER_TIMES_FUCKED]++;
@@ -639,14 +639,14 @@ export class Cinnabar extends BazaarAbstractContent {
             "It barely registers – you're too busy cramming inch after inch into the slowly-widening vice in front of you, enthralled by just how much cock-flesh her body can devour.  She's frothing at the mouth, screaming, squeaking, and pounding on the bed.  You push forward a little harder, tugging on the base of her tail for leverage as huge globs of rat-cum rain from the stretched-out snatch onto the sheets.   Another three inches sink into your new cock-sleeve, and she starts to whimper and squeak, reminding you of an old, worn-out chew-toy that your father's dog used to play with.",
             false
         );
-        //HUger
+        // HUger
         if (this.player.cockArea(x) >= 200) {
             if (this.player.cor >= 75) this.doNext(this.fuckCinnabarHugerAndCorruptedEr);
             else this.doNext(this.cinnabarHuger);
         } else this.doNext(this.cinnabarHuge);
     }
 
-    //(Huger and Corrupteder) (75+ corr)
+    // (Huger and Corrupteder) (75+ corr)
     private fuckCinnabarHugerAndCorruptedEr(): void {
         this.flags[kFLAGS.CINNABAR_FUCKED_CORRUPT_PREVIOUSLY] = 1;
         var x: number = this.player.biggestCockIndex();
@@ -816,14 +816,14 @@ export class Cinnabar extends BazaarAbstractContent {
             "Once she lets you go, you leave, and you find yourself mulling over her statement about empathy for some time.",
             false
         );
-        //(-2 corruption!)
+        // (-2 corruption!)
         this.player.orgasm();
         this.dynStats("sen", 3, "cor", -2);
         this.player.takeDamage(25);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //(HUGER)
+    // (HUGER)
     private cinnabarHuger(): void {
         this.flags[kFLAGS.CINNABAR_FUCKED_CORRUPT_PREVIOUSLY] = 0;
         var x: number = this.player.biggestCockIndex();
@@ -961,7 +961,7 @@ export class Cinnabar extends BazaarAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //(HUGE)
+    // (HUGE)
     private cinnabarHuge(): void {
         this.flags[kFLAGS.CINNABAR_FUCKED_CORRUPT_PREVIOUSLY] = 0;
         var x: number = this.player.biggestCockIndex();
@@ -1067,18 +1067,18 @@ export class Cinnabar extends BazaarAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Multi Cock Portals] – Requires 2 75+ cock area members and at least 3 total.
-    //Cinnabar gets the PC in and has them fuck the portals on the wall,
-    //setting two mirrors on the bed before she sits on them and fellates one on the wall.
-    //surprise – at the end she moves the portal when you pull back and makes you cum in her
-    //and in your own ass.
+    // [Multi Cock Portals] – Requires 2 75+ cock area members and at least 3 total.
+    // Cinnabar gets the PC in and has them fuck the portals on the wall,
+    // setting two mirrors on the bed before she sits on them and fellates one on the wall.
+    // surprise – at the end she moves the portal when you pull back and makes you cum in her
+    // and in your own ass.
     private cinnabarMultiCockPortalFuckFest(): void {
         this.flags[kFLAGS.CINNABAR_HOUSE_VISITED]++;
         this.flags[kFLAGS.CINNABAR_NUMBER_TIMES_FUCKED]++;
         this.flags[kFLAGS.CINNABAR_FUCKED_CORRUPT_PREVIOUSLY] = 0;
         this.outputText("", true);
         this.spriteSelect(91);
-        //x pussy, y butt, z face
+        // x pussy, y butt, z face
         var x: number = this.player.biggestCockIndex();
         var y: number = this.player.biggestCockIndex2();
         var z: number = this.player.biggestCockIndex3();
@@ -1286,7 +1286,7 @@ export class Cinnabar extends BazaarAbstractContent {
             );
         this.outputText(".\n\n", false);
 
-        //(Medium-high cum production)
+        // (Medium-high cum production)
         if (this.player.cumQ() >= 500 && this.player.cumQ() < 1000) {
             this.outputText(
                 "Cinnabar's belly gurgles, her gut and womb packing with enough spunk to make her belly wobble slightly while you empty inside her.  Semen froths on her lips while she works to swallow it all.  It just adds to her already-impressive paunch.",
@@ -1302,7 +1302,7 @@ export class Cinnabar extends BazaarAbstractContent {
                 false
             );
         }
-        //(High cum production)
+        // (High cum production)
         else if (this.player.cumQ() >= 1000) {
             this.outputText(
                 "Cinnabar's belly gurgles, the skin pulling tight from all the seed you're pumping into her womb, gut, and belly.  She looks positively pregnant, and she even begins to slosh from each fresh deposit that you leave inside her.  The rat's eyes look up at you through a portal.  They're lidded with a mix of lust and pleasure, but your gaze goes lower to watch spooge bubble from her nose while her overtaxed throat fails to keep up with your heavy spunk-streams.",

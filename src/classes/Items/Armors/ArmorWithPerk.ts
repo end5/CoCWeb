@@ -38,7 +38,7 @@ export class ArmorWithPerk extends Armor {
     }
 
     public playerEquip(): Armor {
-        //This item is being equipped by the player. Add any perks, etc.
+        // This item is being equipped by the player. Add any perks, etc.
         while (this.game.player.findPerk(this.playerPerk) >= 0)
             this.game.player.removePerk(this.playerPerk);
         this.game.player.createPerk(
@@ -52,7 +52,7 @@ export class ArmorWithPerk extends Armor {
     }
 
     public playerRemove() {
-        //This item is being removed by the player. Remove any perks, etc.
+        // This item is being removed by the player. Remove any perks, etc.
         while (this.game.player.findPerk(this.playerPerk) >= 0)
             this.game.player.removePerk(this.playerPerk);
         return super.playerRemove();

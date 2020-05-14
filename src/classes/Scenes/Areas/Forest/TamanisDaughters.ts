@@ -72,14 +72,14 @@ export class TamanisDaughters extends Goblin {
                 "You can see Tamani lurking around the rear of the goblin pack, visibly berating her daughters.  On one hand it sounds like she might help you, but knowing goblins, she'll probably forget about her anger and help them subdue you for more cum...\n\n",
                 false
             );
-            //(+5 mob strength)
+            // (+5 mob strength)
             this.str += 5;
-            //(+5 mob toughness)
+            // (+5 mob toughness)
             this.tou += 5;
             this.HP += 10;
-            //(-20 mob lust)
+            // (-20 mob lust)
             this.lust -= 20;
-            //append combat desc
+            // append combat desc
             this.long +=
                 " <b>Tamani lurks in the back of the crowd, curvier than her brood and watching with a mixture of amusement and irritation.  She runs a hand through her pink and black hair, waiting for an opportunity to get involved...</b>";
         }
@@ -87,7 +87,7 @@ export class TamanisDaughters extends Goblin {
 
     protected performCombatAction(): void {
         var select: number = 1;
-        //mid-round madness!
+        // mid-round madness!
         this.midRoundMadness();
         this.tamaniShowsUp();
 

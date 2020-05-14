@@ -24,16 +24,16 @@ export class ChameleonGirl extends Monster {
         this.combatRoundOver();
     }
 
-    //Ignores armor
+    // Ignores armor
     public chameleonClaws(): void {
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && ChameleonGirl.rand(3) < 1) {
             this.outputText(
                 this.capitalA + this.short + " completely misses you with a blind claw-attack!\n",
                 false
             );
         }
-        //Evade:
+        // Evade:
         else if (
             this.game.combatMiss() ||
             this.game.combatEvade() ||
@@ -43,7 +43,7 @@ export class ChameleonGirl extends Monster {
             this.outputText(
                 "The chameleon girl's claws slash towards you, but you lean away from them and they fly by in a harmless blur."
             );
-        //Get hit
+        // Get hit
         else {
             var damage: number = Math.floor(
                 this.str + this.weaponAttack - ChameleonGirl.rand(this.player.tou)
@@ -63,16 +63,16 @@ export class ChameleonGirl extends Monster {
         this.combatRoundOver();
     }
 
-    //Attack 3:
+    // Attack 3:
     public rollKickClawWhatTheFuckComboIsThisShit(): void {
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && ChameleonGirl.rand(3) < 1) {
             this.outputText(
                 this.capitalA + this.short + " completely misses you with a blind roll-kick!\n",
                 false
             );
         }
-        //Evade:
+        // Evade:
         else if (
             this.game.combatMiss() ||
             this.game.combatEvade() ||
@@ -87,7 +87,7 @@ export class ChameleonGirl extends Monster {
                     ")"
             );
         }
-        //Get hit
+        // Get hit
         else {
             var damage: number =
                 Math.floor(

@@ -45,19 +45,19 @@ export class Armor extends Useable {
     public get supportsBulge(): boolean {
         return this._supportsBulge && this.game.player.modArmorName == "";
     }
-    //For most clothes if the modArmorName is set then it's Exgartuan's doing. The comfortable clothes are the exception, they override this function.
+    // For most clothes if the modArmorName is set then it's Exgartuan's doing. The comfortable clothes are the exception, they override this function.
 
     public useText(): void {
         this.outputText("You equip " + this.longName + ".  ");
     }
 
     public playerEquip(): Armor {
-        //This item is being equipped by the player. Add any perks, etc. - This function should only handle mechanics, not text output
+        // This item is being equipped by the player. Add any perks, etc. - This function should only handle mechanics, not text output
         return this;
     }
 
     public playerRemove(): Armor | undefined {
-        //This item is being removed by the player. Remove any perks, etc. - This function should only handle mechanics, not text output
+        // This item is being removed by the player. Remove any perks, etc. - This function should only handle mechanics, not text output
         while (this.game.player.findPerk(PerkLib.BulgeArmor) >= 0)
             this.game.player.removePerk(PerkLib.BulgeArmor); //TODO remove this Exgartuan hack
         if (this.game.player.modArmorName.length > 0) this.game.player.modArmorName = "";

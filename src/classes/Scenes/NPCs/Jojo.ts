@@ -19,7 +19,7 @@ export class Jojo extends Monster {
 
     protected performCombatAction(): void {
         if (this.game.monk > 1 && Jojo.rand(2) == 0) this.selfCorruption();
-        //Shouldn't do any self corruption at monk one. Otherwise a 50/50 chance
+        // Shouldn't do any self corruption at monk one. Otherwise a 50/50 chance
         else this.eAttack();
     }
 
@@ -108,8 +108,8 @@ export class Jojo extends Monster {
         this.level = 4;
         this.gems = Jojo.rand(5) + 2;
         this.special1 = this.selfCorruption;
-        //Create jojo sex attributes
-        //Variations based on jojo's corruption.
+        // Create jojo sex attributes
+        // Variations based on jojo's corruption.
         if (this.game.monk == 3) {
             this.lust += 30;
             this.cocks[0].cockThickness += 0.2;

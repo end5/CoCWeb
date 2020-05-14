@@ -13,30 +13,30 @@ import { LustyDemons } from "./Owca/LustyDemons";
 export class Owca extends BaseContent {
     /* Written by Nonesuch and PKD, edited by Abraxas, Anzuaz, 05095coc and some helpful anons; ideas suggested by Abraxas, G3 and some helpful anons. */
 
-    //const DECLINED_TO_VISIT_REBECCS_VILLAGE: number = 500;
-    //const TIMES_IN_DEMON_PIT: number = 501;
-    //const TIMES_REFUSED_REBECCS_OFFER: number = 502;
-    //const OWCAS_ATTITUDE: number = 503;
-    //const VAPULA_SUBMISSIVENESS: number = 504;
-    //const DAYS_SINCE_LAST_DEMON_DEALINGS: number = 505;
-    //const OWCA_UNLOCKED: number = 506;
-    //const REBECCS_LAST_PLEA: number = 507;
-    //const OWCA_ANGER_DISABLED: number = 508;
+    // const DECLINED_TO_VISIT_REBECCS_VILLAGE: number = 500;
+    // const TIMES_IN_DEMON_PIT: number = 501;
+    // const TIMES_REFUSED_REBECCS_OFFER: number = 502;
+    // const OWCAS_ATTITUDE: number = 503;
+    // const VAPULA_SUBMISSIVENESS: number = 504;
+    // const DAYS_SINCE_LAST_DEMON_DEALINGS: number = 505;
+    // const OWCA_UNLOCKED: number = 506;
+    // const REBECCS_LAST_PLEA: number = 507;
+    // const OWCA_ANGER_DISABLED: number = 508;
 
-    //const VAPULA_HAREM_FUCK: number = 546;
-    //const VAPULA_THREESOMES: number = 547;
-    //const OWCA_SACRIFICE_DISABLED: number = 548;
-    //const VAPULA_FOLLOWER: number = 549;
-    //const VAPULA_DAYS_SINCE_FED: number = 551;
-    //const VAPULA_TEASE_COUNT: number = 552;
-    //const VAPULA_EARNED_A_SPANK: number = 634;
+    // const VAPULA_HAREM_FUCK: number = 546;
+    // const VAPULA_THREESOMES: number = 547;
+    // const OWCA_SACRIFICE_DISABLED: number = 548;
+    // const VAPULA_FOLLOWER: number = 549;
+    // const VAPULA_DAYS_SINCE_FED: number = 551;
+    // const VAPULA_TEASE_COUNT: number = 552;
+    // const VAPULA_EARNED_A_SPANK: number = 634;
 
     public gangbangVillageStuff(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.OWCA_UNLOCKED] == 1) this.owcaMainScreenOn();
         else this.gangbangVillageFirstGoRound();
     }
-    //First encounter (Z)
+    // First encounter (Z)
     private gangbangVillageFirstGoRound(): void {
         this.clearOutput();
         /*if(flags[kFLAGS.OWCAS_ATTITUDE] < 5) {
@@ -48,7 +48,7 @@ export class Owca extends BaseContent {
             this.flags[kFLAGS.TIMES_REFUSED_REBECCS_OFFER] == 0 &&
             this.flags[kFLAGS.TIMES_IN_DEMON_PIT] == 0
         ) {
-            //[Attitude is set to 50]
+            // [Attitude is set to 50]
             this.flags[kFLAGS.OWCAS_ATTITUDE] = 50;
             this.flags[kFLAGS.VAPULA_SUBMISSIVENESS] = 50;
             this.outputText(
@@ -69,7 +69,7 @@ export class Owca extends BaseContent {
             this.outputText("\n\nDo you follow her?");
             this.doYesNo(this.agreeToFollowRebecFirstTime, this.dontGoToZeVillage);
         }
-        //As long as you don't follow her once, display this on subsequent encounters (Z)
+        // As long as you don't follow her once, display this on subsequent encounters (Z)
         else if (this.flags[kFLAGS.TIMES_IN_DEMON_PIT] == 0) {
             this.outputText(
                 'After wandering across the plains for a while, you spot Rebecc, the girl you met before, amongst a group of fellow farmers; she calls out to you.  "<i>Hello again, traveler!  You seem lost... would you mind spending some time with us at our village?</i>"'
@@ -77,10 +77,10 @@ export class Owca extends BaseContent {
             this.outputText(
                 "\n\nAs before, you notice while speaking with her that she keeps glancing at your crotch for a few seconds at a time.  She puts on a sultry smile as she nudges the edges of her dress, revealing more and more cleavage each time.  She's a bit shaky as well; it's almost as if she's attempting to seduce you, but is only with difficulty able to contain herself.  Will you spend time with her in the village?"
             );
-            //Yes/No
+            // Yes/No
             this.doYesNo(this.agreeToFollowRebecFirstTime, this.dontGoToZeVillage);
         }
-        //Second (and subsequent) encounter; only happens once PC accepted being sacrificed once (Z)
+        // Second (and subsequent) encounter; only happens once PC accepted being sacrificed once (Z)
         else {
             this.outputText(
                 "Using the vivid memory of your last encounter, you easily find Owca village; the first houses are in sight when you spot someone rushing to you.  You recognize Rebecc, the girl you first met in the plains and who begged you for your help.  She is smiling, her arms open for a welcoming embrace.  Before you even try to say something she is already hugging you, pressing her warm body against yours as she takes you in her arms.  She holds you tightly for a minute before kissing you everywhere affectionately; you haven't said a single word and your cheeks and lips are already bearing the mark of her lipstick."
@@ -90,7 +90,7 @@ export class Owca extends BaseContent {
                     this.player.short +
                     '!  You are a wonderful person!  What you did was noble and selfless.  Our people will remember you for years to come!</i>"'
             );
-            //[if corr >= 50]
+            // [if corr >= 50]
             if (this.player.cor > 50)
                 this.outputText(
                     "  You can't help but smile internally.  Let her think that, if she wants."
@@ -111,7 +111,7 @@ export class Owca extends BaseContent {
         this.flags[kFLAGS.DECLINED_TO_VISIT_REBECCS_VILLAGE]++;
         this.camp.returnToCampUseOneHour();
     }
-    //First plea (Z)
+    // First plea (Z)
     private agreeToFollowRebecFirstTime(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.TIMES_REFUSED_REBECCS_OFFER] == 0) {
@@ -125,46 +125,46 @@ export class Owca extends BaseContent {
             this.outputText(
                 "\n\n\"<i>There, we've almost arrived at Owca, our village; you can see the first houses.  As for demons... well, you know, they are the reason we wanted you to follow us.  You see, a large group of them have been harassing us.  At first they were just scavenging for food and various supplies, but soon they started claiming... another kind of prize.  You know these creatures, you know what they do.  There have been many battles to protect our rightful clay and hard-earned food, but there were simply too many of them.  Besides, they often use some kind of... black magic in order to subdue their foes and turn them into obedient slaves.  "
             );
-            //[if silly mode on]
+            // [if silly mode on]
             if (this.silly())
                 this.outputText(
                     "I-I don't think there's a single grown man or woman in our village that still has their anal virginity."
                 );
-            //[if silly mode off]
+            // [if silly mode off]
             else
                 this.outputText(
                     "Th-they abused us.  They mistreated us.  They would gather in circles and... use us in every possible way."
                 );
             this.outputText('</i>"');
-            //[if Corr < 20]
+            // [if Corr < 20]
             if (this.player.cor < 20) {
                 this.outputText(
                     "\n\nYou are shocked by this revelation. You wrap your arms around Rebecc's shoulders protectively, and tell her in a reassuring tone that "
                 );
-                //[[if silly mode on]
+                // [[if silly mode on]
                 if (this.silly())
                     this.outputText("she'll never have to worry about her asshole again.");
-                //[if silly mode off]
+                // [if silly mode off]
                 else this.outputText("she will never be abused again.");
                 this.outputText(
                     "  If there's anything that can be done to hold off these evil creatures, you will do it."
                 );
             }
-            //[else if corr and libido both > 60]
+            // [else if corr and libido both > 60]
             else if (this.player.cor > 60 && this.player.lib > 60 && this.player.hasCock()) {
-                //[if silly mode on and presence of penis]
+                // [if silly mode on and presence of penis]
                 if (this.silly())
                     this.outputText(
                         "\n\nYou can't help but pop an enormous boner.  [EachCock] is pressing so hard against your [armor] that you're afraid that one or the other might break.  "
                     );
-                //end of local silly willy condition
+                // end of local silly willy condition
                 else this.outputText("\n\n");
                 this.outputText(
                     "You are uncontrollably turned on by this revelation; your genitals actually hurt at your absurd level of arousal.  Just imagining groups of demons gathered around the helpless villagers, sometimes taking turns with each one and sometimes taking someone all at once, turns you on way more than it should.  You stupidly grin for a few seconds as your mind pictures vivid and lecherous scenes of collective ass-rape, but then you remember this is supposed to be bad news; you quickly recompose yourself and put on a false expression of worry.  Luckily she didn't notice the lust that temporarily filled your eyes; neither does she spot the massive tent growing in your " +
                         this.player.armorName +
                         ".  You ask her if there's anything you can do to meet these demons and 'handle' them on your own."
                 );
-                //end of condition about PC's corruption
+                // end of condition about PC's corruption
             }
             this.outputText(
                 '\n\n"<i>Well, a man from our village decided to go meet these demons at their camp in order to negotiate with them.  They agreed to a deal.  As you may guess, it was a... special kind of deal.</i>"'
@@ -175,7 +175,7 @@ export class Owca extends BaseContent {
             this.outputText(
                 "\n\n\"<i>At the end of every week, one of us must be chained and left at the demons' disposal for the full night.  It must be someone different every night.  Chosen people usually come back battered and sore, and they have dirty fluids and unthinkable mixtures leaking from every hole of their body.  It's a difficult thing to think about, but it's necessary for our community.  But then...</i>\"  She wavers for a moment, before looking back to you with a desperate plea in her eyes.  \"<i>You're a brave, courageous adventurer; you just said you were willing to handle these demons!  It would almost be a blessing to us if you could help - not that you have to, but... it seems like we're beyond saving.</i>\"  The girl looks despondent, but then changes her composure when she turns back to the village.  \"<i>I might be being selfish, but you'd have my eternal gratitude if you helped.</i>\""
             );
-            //[if corr < 50 and int >= 50]
+            // [if corr < 50 and int >= 50]
             if (this.player.cor < 50 && this.player.inte >= 50) {
                 this.outputText(
                     "\n\nSo this is what it has come to.  Her playfulness, her enticing gestures, her seductive play... she had been planning it all along.  She must have put on the same act for many people before you.  You feel slightly angry at yourself for having been fooled that easily; you feel angrier at her because she tried to use you as a mere disposable victim to be toyed with and manipulated; but you feel angriest at these demons for forcing honest folks to resort to infamous practices and deceptive seduction so they can live their lives as usual."
@@ -187,7 +187,7 @@ export class Owca extends BaseContent {
                     this.outputText("... and considering what Rebecc meant by 'gratitude'");
                 this.outputText(".  Maybe it wasn't all an act?");
             }
-            //[if corr < 50 and int < 50]
+            // [if corr < 50 and int < 50]
             else if (this.player.cor < 50) {
                 this.outputText(
                     "\n\nYour eyes widen in surprise when you understand what she's asking of you, but after all, why not?  You're the champion; you're supposed to be selfless and resolute.  You were sent to this cursed land to prevent further corruption; your own physical integrity does not matter when other people are at stake.  Giving in to her demands would be certainly a noble and difficult act, something your elders would be proud of.  Of course it would seem like you had fallen for her trick, but do you really care?  You consider your choices"
@@ -196,12 +196,12 @@ export class Owca extends BaseContent {
                     this.outputText("... and considering what Rebecc meant by 'gratitude'");
                 this.outputText(".  Maybe it wasn't all an act?");
             }
-            //[if corr >= 50]
+            // [if corr >= 50]
             else {
                 this.outputText(
                     "\n\nSo this is what it has come to.  Her playfulness, her enticing gestures, her seductive acting... she had been planning it all along.  She was doing it all on purpose, teasing you and tricking you into accepting her offer.  She must have put on the same act for many people before you.  You feel slightly angry at yourself for having been fooled that easily; you feel angrier at her because she tried to use you as a mere disposable victim to be toyed with and manipulated.  Well, if it comes down to that, you could probably agree and either beat the demons to take their place, or help them 'renegotiate' with the villagers..."
                 );
-                //[[lib>=50]
+                // [[lib>=50]
                 if (this.player.lib >= 50) {
                     this.outputText(
                         "\n\nOn second thought, the prospect of meeting a full horde of horny, sexually-exploratory demons has appeal all on its own.  Your mind wanders a bit, thinking of all the luscious things they could do with your body; oh, the feeling of a half-dozen cocks and pussies working your every hole and pumping fluids in and out of you... perhaps you could even take a dominant position and fuck the demons until they pass out."
@@ -210,7 +210,7 @@ export class Owca extends BaseContent {
             }
             this.outputText("\n\nDo you accept?");
         }
-        //Subsequent pleas upon first refusal (Z)
+        // Subsequent pleas upon first refusal (Z)
         else {
             this.outputText(
                 '"<i>So, have you changed your mind yet?  Will you help us?  The demons will want another sacrifice soon, and we are afraid of what might happen if we don\'t comply!  Please, do accept this time!</i>"'
@@ -219,7 +219,7 @@ export class Owca extends BaseContent {
                 "\n\nYou know very well what these people want: some meat to appease the demons.  Will you help them?"
             );
         }
-        //Yes/No
+        // Yes/No
         if (this.flags[kFLAGS.TIMES_IN_DEMON_PIT] == 0)
             this.doYesNo(
                 this.createCallBackFunction2(this.acceptRebeccsPlea, true, true),
@@ -231,20 +231,20 @@ export class Owca extends BaseContent {
                 this.declineRebeccsPlea
             );
     }
-    //Refuse plea (Z)
+    // Refuse plea (Z)
     private declineRebeccsPlea(): void {
         this.clearOutput();
         this.outputText(
             "You can't give in to her demand; you are a proud warrior fighting demons.  You were certainly not meant to serve as a scapegoat or sex-toy.  She sighs in disappointment.  \"<i>Well, I should have expected that.  I wasn't full of hope either.  No hard feelings.</i>\"  Everyone is looking at you with sad or apathetically hostile eyes, making you feel uncomfortable.  You quickly leave the village and return to your camp."
         );
-        //[if more than 40 int, a warning after 4 consecutive refusals]
-        //if(flags[kFLAGS.TIMES_REFUSED_REBECCS_OFFER] >= 3 && player.inte >= 40) outputText("\n\nThe villagers are growing impatient of your repeated refusals; you can hear them exchange hushed whispers as you depart.  Failing to grant their request again will probably anger them considerably.");
-        //[Attitude is set to 50]
+        // [if more than 40 int, a warning after 4 consecutive refusals]
+        // if(flags[kFLAGS.TIMES_REFUSED_REBECCS_OFFER] >= 3 && player.inte >= 40) outputText("\n\nThe villagers are growing impatient of your repeated refusals; you can hear them exchange hushed whispers as you depart.  Failing to grant their request again will probably anger them considerably.");
+        // [Attitude is set to 50]
         if (this.flags[kFLAGS.OWCAS_ATTITUDE] > 5) this.flags[kFLAGS.OWCAS_ATTITUDE] -= 5;
         this.flags[kFLAGS.TIMES_REFUSED_REBECCS_OFFER]++;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Accept plea (Z)
+    // Accept plea (Z)
     private acceptRebeccsPlea(firstTime: boolean = false, sacrificed: boolean = false): void {
         this.clearOutput();
         this.flags[kFLAGS.OWCAS_ATTITUDE] += 10;
@@ -255,8 +255,8 @@ export class Owca extends BaseContent {
         this.outputText(
             "\n\nA group of the farmers then proceeds to lead you across the village to a strange circle-shaped pit.  It's about one meter deep and ten meters in diameter.  At the center of the pit stands a tall wooden pole, adorned with several dangling ropes and chains.  You grimace as you realize you will be tied up and bound to the crudely fashioned post in order to make sure you don't escape before the demons show up."
         );
-        //if(player.armorName != "comfortable clothes") outputText("  The farmers almost eagerly help you out of your " +player.armorName+ ", supplying you with a set of shabby but comfortable peasant clothes.");
-        //[[if corr >70 and have gender]
+        // if(player.armorName != "comfortable clothes") outputText("  The farmers almost eagerly help you out of your " +player.armorName+ ", supplying you with a set of shabby but comfortable peasant clothes.");
+        // [[if corr >70 and have gender]
         if (this.player.cor > 70 && this.player.gender > 0) {
             this.outputText("\n\nYou lick your lips in anticipation, your ");
             if (this.player.hasVagina()) this.outputText(this.vaginaDescript(0));
@@ -266,24 +266,24 @@ export class Owca extends BaseContent {
                 " already slickening with sexual juices; the sight of these restraints brings all kinds of perverted thoughts to your mind: dozens of ways to be used and deliciously abused like a sex-toy by wretched and well-endowed beings."
             );
         }
-        //[else]
+        // [else]
         else
             this.outputText(
                 "\n\nYou shrug and tell yourself it was to be expected; after all, they barely know you and must be afraid that you may flee at the last moment.  Maybe some previous victims had already done so, with disastrous consequences for the village folks."
             );
-        //end of condition
+        // end of condition
         this.outputText(
             "\n\nThis vivid thought only helps strengthen your determination and you resolutely march toward the pit and the tall pole at the center.  As you drop into it, you notice the ground is soft, wet and has slightly whitish stains here and there.  Your nose is immediately assaulted by a strong musk that you instantly recognize – the smell of semen.  The villagers, used as they must be to working on sullied land, seem unfazed by these details.  You decide it's wiser not to make any comment and let them chain you to the pole.  They silently work for a few minutes, being careful not to knot the ropes too tightly so they don't hurt you.  At last, they give you a few encouraging pats on your shoulder; some females give you chaste kisses on your head, others wish you good luck and give you a last thankful wave, and a few seconds later they're all gone. You're left alone and naked in a sex-scented pit, bound to a post, waiting for the arrival of lustful, soulless creatures.  The villagers have retained all of your equipment in the name of keeping it safe, assuring you that it'll be returned to you the next morning."
         );
         this.outputText(
             "\n\nPutting your dread aside, you close your eyes and attempt to sleep, vowing to save your strength for the ordeal that awaits you tonight."
         );
-        //Dusk transition text (Z)
+        // Dusk transition text (Z)
         this.doNext(this.createCallBackFunction(this.intoTheDemonPit, true));
     }
     private intoTheDemonPit(sacrifice: boolean = true): void {
         this.clearOutput();
-        //N is the number of hours left before night
+        // N is the number of hours left before night
         if (this.model.time.hours < 21) {
             var passed: number = 21 - this.model.time.hours;
             this.outputText(
@@ -308,24 +308,24 @@ export class Owca extends BaseContent {
         this.outputText("\n\nA tall purple demoness walks up to you as you stand there");
         if (sacrifice) this.outputText(", tangled in your restraints");
         this.outputText(".  She leans down and coos, ");
-        //[if first time]
+        // [if first time]
         if (this.flags[kFLAGS.TIMES_IN_DEMON_PIT] == 0)
             this.outputText(
                 "\"<i>Awww, look at the poor little thing!  So this is what they gave us this time... Look at [him], everyone!  Do you know you'd be a cute pet?  People here call me Vapula, and I don't think you'll forget that name any time soon.</i>\""
             );
-        //[else if Vapula Submissiveness >50]
+        // [else if Vapula Submissiveness >50]
         else if (this.flags[kFLAGS.VAPULA_SUBMISSIVENESS] > 50)
             this.outputText(
                 '"<i>You again?  By Lethice, you must really enjoy it!  You love being a bitch for Vapula, don\'t you?  Yes you do!</i>"'
             );
-        //[else]
+        // [else]
         else
             this.outputText(
                 "\"<i>Fuck, you again?  Tell me it's so!  I've been looking forward to putting you in your place as my newest slut!</i>\""
             );
-        //[(if sacrificed)
+        // [(if sacrificed)
         if (sacrifice) {
-            //[if str >= 80]
+            // [if str >= 80]
             if (this.player.str >= 80) {
                 this.outputText(
                     "\n\nYou test the chains holding you to the pole; they're slack enough that you have room to flex and you could probably break them if you decided to fight..."
@@ -335,7 +335,7 @@ export class Owca extends BaseContent {
                     "\n\nYou test the chains holding you to the pole; they're slack enough that you could probably make use of your incredible dexterity to slip free..."
                 );
             }
-            //[else]
+            // [else]
             else
                 this.outputText(
                     "\n\nThe chains binding you aren't very tight or of the finest craftsmanship, but they're sufficient to hold you more or less in place; though you can probably twist to avoid a few attacks, you won't be able to make any of your own if you decide to resist... at least, not physically."
@@ -373,15 +373,15 @@ export class Owca extends BaseContent {
                 undefined
             );
     }
-    //Submit/Fight
+    // Submit/Fight
     private fightZeDemons(sacrifice: boolean = true): void {
         this.clearOutput();
-        //Fight leads to the Horde Fight
-        //When acting as sacrifice, Item button is disabled; Fight, Run, and Phys Special buttons are disabled unless PC has str >= 80; Run is furthermore prevented entirely if PC is non-winged; outputs text: \"<i>You'd like to run, but you can't scale the walls of the pit with so many demonic hands pulling you down!</i>\"
-        //PC's weapon is temporarily set to fists and armor to comfortable clothes during a Horde Fight if he triggered it in response to a sacrifice request, but not if triggered through volunteering to guard the pit later once the village is unlocked
+        // Fight leads to the Horde Fight
+        // When acting as sacrifice, Item button is disabled; Fight, Run, and Phys Special buttons are disabled unless PC has str >= 80; Run is furthermore prevented entirely if PC is non-winged; outputs text: \"<i>You'd like to run, but you can't scale the walls of the pit with so many demonic hands pulling you down!</i>\"
+        // PC's weapon is temporarily set to fists and armor to comfortable clothes during a Horde Fight if he triggered it in response to a sacrifice request, but not if triggered through volunteering to guard the pit later once the village is unlocked
         this.startCombat(new LustyDemons());
         if (sacrifice) {
-            //Remove weapon
+            // Remove weapon
             this.player.createStatusAffect(StatusAffects.Disarmed, 0, 0, 0, 0);
             this.flags[kFLAGS.PLAYER_DISARMED_WEAPON_ID] = this.player.weapon.id;
             this.player.setWeapon(WeaponLib.FISTS);
@@ -398,7 +398,7 @@ export class Owca extends BaseContent {
         this.playerMenu(); //Avoid showing the next button. Must call it here, after setting up all the statuses, so the first round combat menu is correct
     }
 
-    //Loss scene/Submit (gangrape) (Z)
+    // Loss scene/Submit (gangrape) (Z)
     public loseOrSubmitToVapula(): void {
         this.clearOutput();
         this.outputText(
@@ -421,12 +421,12 @@ export class Owca extends BaseContent {
                 this.assholeDescript() +
                 " with their mammoth peckers."
         );
-        //[ass stretching check]
+        // [ass stretching check]
         this.player.buttChange(60, true, true, false);
         this.outputText(
             "  The double penetration is brutal, unexpected and painful.  Your insides are protesting vigorously against this rough treatment, even though you feel a tingle of pleasure gently tickling your colon at every thrust.  "
         );
-        //[(no Buttslut)
+        // [(no Buttslut)
         if (this.player.findPerk(PerkLib.Buttslut) < 0)
             this.outputText("No!  You aren't supposed to enjoy it...  ");
         this.outputText(
@@ -444,17 +444,17 @@ export class Owca extends BaseContent {
             this.outputText(
                 "  It wraps around [eachCock] for a while, jerking it for a bit and rubbing its tip against yours."
             );
-        //[if antennae]
+        // [if antennae]
         if (this.player.antennae > ANTENNAE_NONE)
             this.outputText(
                 "  Your antennae are being harshly pulled and twisted; some imps, in a crazy show of libertinism, start inserting your sensitive peduncles down their bloated urethrae. The intimate friction and the sudden jolts when the internal walls slather your appendages in slick, hot pre-cum are driving you mad with irregular shots of unbearable pleasure."
             );
-        //[if horns]
+        // [if horns]
         if (this.player.horns > 0)
             this.outputText(
                 "  You feel your horns being used as leverage to slap your head with even more rock-hard dick.  The impacts stun you until your whole forehead feels numb and coated with a mixture of ballsweat and pre-cum."
             );
-        //[if vagina
+        // [if vagina
         if (this.player.hasVagina()) {
             this.outputText(
                 "\n\nYou suddenly feel a sharp sensation: your womanhood is finally being penetrated."
@@ -467,7 +467,7 @@ export class Owca extends BaseContent {
                     this.vaginaDescript(0) +
                     ", it automatically starts leaking girl-cum in prodigious amounts, and you let out a stifled moan as a delicious shiver runs teasingly across your body.  Your fuck-hole widens under the corrupting effect of the weird mixture you were administered.  "
             );
-            //[set vagstretch up a few levels]
+            // [set vagstretch up a few levels]
             if (this.player.findStatusAffect(StatusAffects.BonusVCapacity) < 0)
                 this.player.createStatusAffect(StatusAffects.BonusVCapacity, 0, 0, 0, 0);
             if (this.player.statusAffectv1(StatusAffects.BonusVCapacity) < 200)
@@ -477,10 +477,10 @@ export class Owca extends BaseContent {
                     this.assholeDescript() +
                     ".  The penetration of both holes is almost too much too handle, but you finally get used to it as your own anal and vaginal muscles try their best to milk as much spunk as possible from these cum-tubes.  Even though you are being violated in every hole, the raw and powerful sensation is quite pleasurable; it feels so right to be used this way, so full of demon wang.  You don't have to focus on anything, just to enjoy the sheer amazing feeling of being pounded by many pistons at once.  You squirt over and over again as the dicks and the fluid force you into a series of wild female orgasms."
             );
-            //[crank up vaginal wetness one level, why not?]
+            // [crank up vaginal wetness one level, why not?]
             if (this.player.wetness() < 5) this.player.vaginas[0].vaginalWetness++;
         }
-        //[if cocks]
+        // [if cocks]
         if (this.player.hasCock()) {
             this.outputText(
                 "\n\nA soft brush against your " +
@@ -489,17 +489,17 @@ export class Owca extends BaseContent {
                     this.cockDescript(0) +
                     " at full force, driving a very whorish and high-pitched cry from its owner."
             );
-            //[if more than 1 and less than 4 cocks]
+            // [if more than 1 and less than 4 cocks]
             if (this.player.cockTotal() > 1)
                 this.outputText(
                     "  She is soon joined by other horny girls, too eager to wait for a piece of your crotch to play with.  They all comfortably position themselves, positioning their pussy or anus atop each of your cocks before riding you like there's no tomorrow."
                 );
-            //[if 4 to 7 cocks]
+            // [if 4 to 7 cocks]
             if (this.player.cockTotal() >= 4)
                 this.outputText(
                     "  Nevertheless, they aren't satisfied with a single insertion and most grab hold of one of your extra cocks before forcefully stuffing it in their other hole, howling and thrashing all the more as they are penetrated a second time."
                 );
-            //[if 7 cocks or more]
+            // [if 7 cocks or more]
             if (this.player.cockTotal() >= 7) {
                 this.outputText(
                     "  Sadly, surrounded as you are, no one will be able to find extra room to ride your remaining cocks; fortunately, you feel warm, long demonic tongues being pressed against your " +
@@ -522,7 +522,7 @@ export class Owca extends BaseContent {
                 "\n\nYou are ridden for a while, the hell-girls thrashing wildly and yelling in pure ecstasy as they reach their climax.  They release so many powerful orgasms you stop keeping track of them."
             );
         }
-        //[if lactating breasts]
+        // [if lactating breasts]
         if (this.player.lactationQ() > 0)
             this.outputText(
                 "\n\nLost in your feverish state of arousal, you feel your nipples harden and a thin trickle of milk comes out.  A couple of demons spot this new source of fluids and rush to your " +
@@ -532,10 +532,10 @@ export class Owca extends BaseContent {
         this.outputText(
             "\n\nEventually, your insane mix of violation-induced pleasure and pain proves too much for your wrecked body and your whole consciousness winds up as you brace yourself for your incoming climax.  Your eventual spasm is so strong that some of the demons lose the grip they have on you.  Your hands twitch, unintentionally squeezing the cocks pressing against them.  Your head bumps against a wall of dicks, and your nose lodges itself in a miraculously free pussy that was waiting its turn near your mouth.  You even manage to liberate your mouth from that duo of monster-sized members; as you gasp for some air, you can't help but let out a shrilling cry of pleasure.  You scream aimlessly; all the violations you've endured, every sensation inflicted upon your body is expressed in that helpless shriek.  Of course, you can't hear yourself screaming because of all the cum that has been unloaded onto your ears, but you don't care.  Your body is becoming a nexus of pleasure in this show of debauchery as unholy liquids are pumped in and out of it.  As you scream, your groin clenches and you climax with unequaled intensity."
         );
-        //[if cocks]
+        // [if cocks]
         if (this.player.hasCock()) {
             this.outputText("  " + this.SMultiCockDesc() + " pulsates and throbs");
-            //[[if balls]
+            // [[if balls]
             if (this.player.balls > 0) this.outputText(", and your balls swell and boil");
             this.outputText(
                 "; a gigantic spooge-flow pushes its way up your urethra and spurts outside in the waiting love-tunnels"
@@ -544,7 +544,7 @@ export class Owca extends BaseContent {
             this.outputText(
                 ".  The violent cumshot almost instantly produces a shiver of orgasm once again and vaginal walls contract furiously, determined to absorb as much of your baby-batter as possible."
             );
-            //[if cum production is massive]
+            // [if cum production is massive]
             if (this.player.cumQ() > 1500)
                 this.outputText(
                     "  The effort appears to be vain, as the absurdly high volume you've ejected is enough to completely pack every hole; the remaining jism spills on the tainted ground, soaking it further."
@@ -559,14 +559,14 @@ export class Owca extends BaseContent {
         this.outputText(
             ".  The remaining cum spurts outside and dribbles onto your [legs].  Your asshole clenches, squeezing the dongs inside you and milking their very last drops of spunk."
         );
-        //[if vagina]
+        // [if vagina]
         if (this.player.hasVagina())
             this.outputText(
                 "\n\nYour own " +
                     this.vaginaDescript(0) +
                     " clenches too, doing its best to waste as little semen as possible.  Your muscles quiver as they feel the incoming last release.  Then, in climax, you squirt your own girl-cum, splattering the demon dicks with your juice."
             );
-        //[if lactating breasts]
+        // [if lactating breasts]
         if (this.player.lactationQ() > 0)
             this.outputText(
                 "\n\nThe combined efforts of a dozen demons proves too much for your poor " +
@@ -580,7 +580,7 @@ export class Owca extends BaseContent {
         this.outputText(
             "\n\nYou keep oozing out fluids until you reach your own body's capacity.  When the flow of various juices starts to ebb, you relax, completely exhausted.  You simply lie there in a bed of cocks and naked flesh, abandoning all hope of struggling against the demons' will.  Of course, they aren't done yet.  A few seconds later - the time needed for everyone to switch positions - and they're at it again.  You are touched and caressed, filled and used again, and again, and again.  You black out."
         );
-        //[Vapula Submissiveness raises by 10. If it reaches 100 or more, go on to the Vapula Slave Bad End. Otherwise Wake up scene. Additionally, if it is raised to 90 or more this way, display warning:]
+        // [Vapula Submissiveness raises by 10. If it reaches 100 or more, go on to the Vapula Slave Bad End. Otherwise Wake up scene. Additionally, if it is raised to 90 or more this way, display warning:]
         this.flags[kFLAGS.VAPULA_SUBMISSIVENESS] += 10;
         if (
             this.flags[kFLAGS.VAPULA_SUBMISSIVENESS] >= 90 &&
@@ -605,7 +605,7 @@ export class Owca extends BaseContent {
         this.outputText(
             "When you wake up, you are alone, and your restraints are broken.  You are sloshing in a pool of stinky juices; your mouth and ears are still full of it.  Your whole body is covered with a thin white layer that must certainly be dried spooge.  Underneath, you're nothing but bruises and every movement seems to hurt.  A few meters away, outside the pit, you notice your items and your gear.  The village itself appears to be empty... your best assumption is that the residents are hiding, either from shame at having sacrificed you or from awkwardness at the prospect of talking to a sloshing, crusty cumdumpster.  Wearily, you head back to your camp."
         );
-        //+med-high corruption, - libido, - toughness, - strength, +20 fatigue, high imp preg chance, slimefeed
+        // +med-high corruption, - libido, - toughness, - strength, +20 fatigue, high imp preg chance, slimefeed
         this.fatigue(20);
         this.player.slimeFeed();
         this.dynStats(
@@ -628,10 +628,10 @@ export class Owca extends BaseContent {
         );
         if (this.getGame().inCombat) this.cleanupAfterCombat();
         else this.doNext(this.camp.returnToCampUseOneHour);
-        //PC is redirected to camp, next morning. No nightly camp scenes or dreams.
+        // PC is redirected to camp, next morning. No nightly camp scenes or dreams.
     }
 
-    //Victory (Z)
+    // Victory (Z)
     public defeetVapulasHorde(): void {
         this.clearOutput();
         this.flags[kFLAGS.REBECCS_LAST_PLEA] = 0;
@@ -639,29 +639,29 @@ export class Owca extends BaseContent {
             this.subdueVapula();
             return;
         }
-        //Sacrificed and bound
+        // Sacrificed and bound
         if (this.monster.findStatusAffect(StatusAffects.AttackDisabled) >= 0) {
             if (this.monster.HP < 1)
                 this.outputText(
                     "You grin wickedly as the last demons fall, defeated.  Some of the errant blows have broken and mangled the links of your chains, and you find you can get free with a bit of additional effort."
                 );
-            //[if won by Lust]
+            // [if won by Lust]
             else
                 this.outputText(
                     "You grin wickedly as the demons give up the fight, too turned on to care about you.  One even begins unfastening your bindings, hopeful desperation glinting in her eyes as she attempts to entice you with her long, thick nipples and enormous, dripping gash."
                 );
         }
-        //Not
+        // Not
         else {
             if (this.monster.HP < 1)
                 this.outputText("You grin wickedly as the last demons fall, defeated.");
-            //[if won by Lust]
+            // [if won by Lust]
             else
                 this.outputText(
                     "You grin wickedly as the demons give up the fight, too turned on to care about you.  One even has hopeful desperation glinting in her eyes as she attempts to entice you with her long, thick nipples and enormous, dripping gash."
                 );
         }
-        //[(requires genitals and and corr >60)
+        // [(requires genitals and and corr >60)
         if (this.player.cor > 60 && this.player.gender > 0) {
             this.outputText("\n\nDo you take advantage of them?");
             this.doYesNo(this.rapeZeVapula, this.noVapulaSex);
@@ -678,24 +678,24 @@ export class Owca extends BaseContent {
         this.flags[kFLAGS.VAPULA_SUBMISSIVENESS] -= 5;
         this.cleanupAfterCombat();
     }
-    //Yes/
-    //[Yes: submissiveness is lowered by 10. No or auto-reject: submissiveness is lowered by 5.]
+    // Yes/
+    // [Yes: submissiveness is lowered by 10. No or auto-reject: submissiveness is lowered by 5.]
     private rapeZeVapula(): void {
         this.flags[kFLAGS.VAPULA_SUBMISSIVENESS] -= 10;
-        //Victory rape with penis [Anal Orgy and Bukkake] (NTR Vapula) (Z)
+        // Victory rape with penis [Anal Orgy and Bukkake] (NTR Vapula) (Z)
         if (this.player.hasCock()) {
             this.clearOutput();
             this.outputText(
                 "The demon horde struggles before you.  With a disdainful smile, you fully expose your genitals for everyone to see.  "
             );
-            //[if cocks]
+            // [if cocks]
             if (this.player.hasCock())
                 this.outputText(
                     "\n\nYou gently stroke your " +
                         this.cockDescript(0) +
                         ", bringing it to full erectness.  "
                 );
-            //[if vagina]
+            // [if vagina]
             if (this.player.hasVagina())
                 this.outputText(
                     "You stick a finger in your own " +
@@ -749,7 +749,7 @@ export class Owca extends BaseContent {
             );
             if (this.player.cockTotal() > 1) this.outputText(" and her love-tunnel");
             this.outputText(".");
-            //[if massive cum production]
+            // [if massive cum production]
             if (this.player.cumQ() > 1000)
                 this.outputText(
                     "  Some of it spurts by little jets outside of her, even as she instinctively contracts her muscles to keep as much spooge as possible and her belly accomodates by bloating out absurdly."
@@ -776,7 +776,7 @@ export class Owca extends BaseContent {
             );
             if (this.player.balls > 0)
                 this.outputText("fondling your " + this.ballsDescriptLight() + ", ");
-            //[if multicocks]
+            // [if multicocks]
             if (this.player.cockTotal() > 1)
                 this.outputText("alternatively deepthroating or jerking every cock of yours, ");
             this.outputText(
@@ -840,24 +840,24 @@ export class Owca extends BaseContent {
             );
             if (this.silly())
                 this.outputText('  As you look back, you snicker, "<i>Ass for ass, assholes.</i>"');
-            //+med-high corruption, + strength/cons, -10 libido
+            // +med-high corruption, + strength/cons, -10 libido
             this.player.orgasm();
             this.dynStats("str", 1, "tou", 1, "lib", -4, "cor", 4);
         }
-        //Victory rape using vagina/anus [Take Dicks in All Holes](Z)
+        // Victory rape using vagina/anus [Take Dicks in All Holes](Z)
         else {
             this.clearOutput();
             this.outputText(
                 "The demon horde struggles before you.  With a disdainful smile, you fully expose your genitals for everyone to see.  "
             );
-            //[if cocks]
+            // [if cocks]
             if (this.player.hasCock())
                 this.outputText(
                     "\n\nYou gently stroke your " +
                         this.cockDescript(0) +
                         ", bringing it to full erectness.  "
                 );
-            //[if vagina]
+            // [if vagina]
             if (this.player.hasVagina())
                 this.outputText(
                     "You stick a finger in your own " +
@@ -909,7 +909,7 @@ export class Owca extends BaseContent {
                     this.vaginaDescript() +
                     " clenches and spasms.  "
             );
-            //[if squirter]
+            // [if squirter]
             if (this.player.wetness() >= 5)
                 this.outputText(
                     "The sound of spattering fluid fills the air as your cunt spurts its juices around the incubus's cock, coating him in your fragrant slime.  "
@@ -957,7 +957,7 @@ export class Owca extends BaseContent {
                     this.vaginaDescript(0) +
                     ".  You laugh breathlessly and manically as the other demon in your grasp helplessly falls over his own peak, further soaking the horny ex-domniatrix."
             );
-            //[cunt nipples]
+            // [cunt nipples]
             if (this.player.hasFuckableNipples())
                 this.outputText(
                     "  Your freakish nipples moisten with excitement to the smell of man juice, and you feel your libido ratcheting up even higher.  Bending forward, you grab two other imps with smaller dicks, quickly guiding their lengths into your nipplecunts; they are small enough that you can mash their bodies against your soft flesh, doing all the work for them as your sensitive nubs are penetrated."
@@ -999,20 +999,20 @@ export class Owca extends BaseContent {
                     this.player.armorName +
                     ". The village appears to be deserted. Considering these demons will have a hard time threatening anyone with white goo oozing out of their absurdly milked urethras, you let them rest, wallowing in their pool of mixed spunk.  You pick up your belongings and head back to camp."
             );
-            //+med-high corruption, + strength/cons, -10 libido, slimefeed, imp preg check
+            // +med-high corruption, + strength/cons, -10 libido, slimefeed, imp preg check
             this.player.orgasm();
             this.dynStats("str", 1, "tou", 1, "lib", -4, "cor", 4);
             this.player.slimeFeed();
             this.player.knockUp(PregnancyStore.PREGNANCY_IMP, PregnancyStore.INCUBATION_IMP);
         }
-        //PC is redirected to camp, next morning. No nightly camp scenes.
+        // PC is redirected to camp, next morning. No nightly camp scenes.
         this.model.time.hours = 7;
         this.model.time.days++;
         this.cleanupAfterCombat();
     }
 
-    //Main Owca Village menu (Z)
-    //[displayed after the second encounter text and right away in subsequent encounters]
+    // Main Owca Village menu (Z)
+    // [displayed after the second encounter text and right away in subsequent encounters]
     private owcaMainScreenOn(): void {
         this.clearOutput();
 
@@ -1028,14 +1028,14 @@ export class Owca extends BaseContent {
             this.desperateVillages();
             return;
         }
-        //Desperate plea
+        // Desperate plea
         if (
             Owca.rand(10) <= 2 &&
             this.flags[kFLAGS.DAYS_SINCE_LAST_DEMON_DEALINGS] >= 7 &&
             this.flags[kFLAGS.OWCA_SACRIFICE_DISABLED] == 0
         ) {
-            //(30% chance of spawning upon going to the village once a week has passed since last demon fight)
-            //should happen instead of the normal village menu every week
+            // (30% chance of spawning upon going to the village once a week has passed since last demon fight)
+            // should happen instead of the normal village menu every week
             this.outputText(
                 "The village shows unusual signs of activity.  As you walk down the main road, people are all looking at you uncomfortably.  Some try to approach you but back off awkwardly at the last moment.  You don't understand until you stumble upon Rebecc, who seems on better terms with you than the rest of the village; she is displaying a worried face."
             );
@@ -1047,47 +1047,47 @@ export class Owca extends BaseContent {
             this.outputText(
                 "\n\nThis time you fully understand the consequences of another sacrifice.  Do you comply?"
             );
-            //Yes: Leads to Accept Plea scene. Attitude is raised by 5.
-            //No: Leads to Refuse Plea scene. Attitude is lowered by 10.
+            // Yes: Leads to Accept Plea scene. Attitude is raised by 5.
+            // No: Leads to Refuse Plea scene. Attitude is lowered by 10.
             this.doYesNo(
                 this.createCallBackFunction2(this.acceptRebeccsPlea, false, true),
                 this.declineRebeccsPlea
             );
             return;
         }
-        //[if attitude > 80]
+        // [if attitude > 80]
         if (this.flags[kFLAGS.OWCAS_ATTITUDE] > 80)
             this.outputText(
                 "Villagers greet you as you arrive, praising your courage and your heroism.  People shake your hands or ask you to kiss them, as if they hoped your nobility were somehow contagious.  Once they're done complimenting and flattering you in every way possible, they leave you to your business."
             );
-        //[if 60<=attitude<80]
+        // [if 60<=attitude<80]
         else if (this.flags[kFLAGS.OWCAS_ATTITUDE] > 60)
             this.outputText(
                 "Villagers greet you with a friendly smile as you arrive.  Some approach you and thank you for what you've done, before leaving awkwardly.  They're obviously not used to strangers."
             );
-        //[if 40<=attitude<60]
+        // [if 40<=attitude<60]
         else if (this.flags[kFLAGS.OWCAS_ATTITUDE] > 40)
             this.outputText(
                 "Villagers seem to accept your presence without comment now; though none go out of their way to greet you, neither do they avoid doing so when you pass by."
             );
-        //[if 20<attitude <= 40]
+        // [if 20<attitude <= 40]
         else if (this.flags[kFLAGS.OWCAS_ATTITUDE] > 20)
             this.outputText(
                 "Villagers keep looking at you uncomfortably; no one seems to be willing to talk to you apart from Rebecc, your friend."
             );
-        //[if attitude <= 20]
+        // [if attitude <= 20]
         else
             this.outputText(
                 "Villagers here appear to be openly hostile.  You keep hearing muffled whispers as you pass by, and people look at you rancorously.  They don't bother you, though."
             );
-        //end variable display
+        // end variable display
         this.outputText(
             "  The village is rather small.  A dozen humble thatched cottages are standing here and there, linked by dirt tracks and enclosed with small palisades.  There seems to be very little activity."
         );
         this.outputText(
             "\n\nAt the end of the main road you notice the pit and the pole standing at the middle of it.  It looks rather sinister, reminding you of the permanent curse that lies on the villagers.  It is still unguarded."
         );
-        //[if a week has passed since last sacrifice]
+        // [if a week has passed since last sacrifice]
         if (
             this.flags[kFLAGS.DAYS_SINCE_LAST_DEMON_DEALINGS] == 7 &&
             this.flags[kFLAGS.OWCA_SACRIFICE_DISABLED] == 0
@@ -1105,12 +1105,12 @@ export class Owca extends BaseContent {
             this.outputText(
                 " has passed since the last offering to the demons; guarding the pit would certainly help improve your relations with the little town's denizens."
             );
-        //Option:
+        // Option:
         var pit = undefined;
         var herd = undefined;
         var tavern = undefined;
         if (this.model.time.hours >= 16 && this.flags[kFLAGS.OWCA_SACRIFICE_DISABLED] == 0) {
-            //Pit. Requires 16:00 or later. Leads to the night gangbang (with possible fight) scene, this time fully equipped and clothed. Attitude is raised by 3.
+            // Pit. Requires 16:00 or later. Leads to the night gangbang (with possible fight) scene, this time fully equipped and clothed. Attitude is raised by 3.
             pit = this.zePit;
         }
         if (this.flags[kFLAGS.OWCAS_ATTITUDE] >= 50) {
@@ -1118,20 +1118,20 @@ export class Owca extends BaseContent {
                 "\n\nBeyond the tiny hamlet you see herders guarding a considerable amount of sheep.  You could probably join them and ask them for work."
             );
             herd = this.herds;
-            //Option: Herds, needs 50 attitude.
+            // Option: Herds, needs 50 attitude.
         }
         this.outputText(
             "\n\nRebecc's house is nearby, and her door is open. She would probably welcome the chance to wash away any taint you've received from your time in the pit."
         );
-        //Option: Rebecc. Leads to Rebecc Menu
+        // Option: Rebecc. Leads to Rebecc Menu
         if (this.flags[kFLAGS.OWCAS_ATTITUDE] >= 10) {
             this.outputText(
                 "\n\nA tavern appears to be open; various Owca folk are drinking and chatting in it.  They give you friendly waves when you make eye contact."
             );
-            //Option: Tavern. Leads to the Tavern, needs 10 attitude
+            // Option: Tavern. Leads to the Tavern, needs 10 attitude
             tavern = this.owcaTavern;
         }
-        //[Pit][Herds][Rebecc][Tavern]
+        // [Pit][Herds][Rebecc][Tavern]
         this.simpleChoices(
             "Pit",
             pit,
@@ -1145,13 +1145,13 @@ export class Owca extends BaseContent {
             this.camp.returnToCampUseOneHour
         );
     }
-    //Tavern (Z)
+    // Tavern (Z)
     public owcaTavern(): void {
         this.clearOutput();
         this.outputText(
             "The tavern is nice and cozy; there are a few tables and chairs scattered around in no ordered pattern, and most clients here appear to belong to the same species.  By the crude wooden bar, you see a list of all the current drinks on sale:\n<i>"
         );
-        //SheepMk
+        // SheepMk
         var milk: any = this.createCallBackFunction(this.owcaBuySetup, this.consumables.SHEEPMK);
         this.outputText(
             "\nSheep Milk Bottle: " + (180 - this.flags[kFLAGS.OWCAS_ATTITUDE]) + " gems"
@@ -1208,7 +1208,7 @@ export class Owca extends BaseContent {
         this.inventory.takeItem(bleh, this.owcaTavern);
     }
 
-    //Herds (Z)
+    // Herds (Z)
     private herds(): void {
         this.clearOutput();
         this.outputText(
@@ -1217,11 +1217,11 @@ export class Owca extends BaseContent {
         this.outputText(
             "\n\n\"<i>Well, our sheep badly need to be sheared and we could really use an extra pair of hands to get the work done.</i>\"  The herder proceeds to hand you some tools, and redirects you to a group of villagers working actively.  You rapidly join them and soon enough you are having a pleasant conversation, chatting and laughing as you collect the wool, so much so that you don't see where time goes; in what seems like minutes you're already done."
         );
-        //attitude +5, int +1
+        // attitude +5, int +1
         this.flags[kFLAGS.OWCAS_ATTITUDE] += 5;
         if (this.flags[kFLAGS.OWCAS_ATTITUDE] > 100) this.flags[kFLAGS.OWCAS_ATTITUDE] = 100;
         this.dynStats("int", 1);
-        //[if attitude > 70]
+        // [if attitude > 70]
         if (this.flags[kFLAGS.OWCAS_ATTITUDE] > 70) {
             this.outputText(
                 "\n\nThe villagers thank you for your hard work and one of them hands you a bottle of sheep milk.  \"<i>'Tis good for your health.  Don't worry, it won't... mutate you.</i>\"\n\n"
@@ -1230,17 +1230,17 @@ export class Owca extends BaseContent {
         } else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Pit (Z)
+    // Pit (Z)
     private zePit(): void {
         this.clearOutput();
         this.outputText(
             "You announce to all the villagers present that you're going to guard the pit as well as the village's entrance against the demons, trusting them to spread the news; they seem glad that you took this initiative on your own.  Checking your equipment, you head toward the pit, ready to stand your ground against the lewd horde."
         );
-        //Redirects to the Dusk Transition Scene, then to a combat with full equipment and weapons. Loss/Victory scenes as usual.
+        // Redirects to the Dusk Transition Scene, then to a combat with full equipment and weapons. Loss/Victory scenes as usual.
         this.doNext(this.createCallBackFunction(this.intoTheDemonPit, false));
     }
 
-    //Rebecc Menu (Z)
+    // Rebecc Menu (Z)
     private rebeccMenu(): void {
         this.clearOutput();
         this.outputText(
@@ -1251,11 +1251,11 @@ export class Owca extends BaseContent {
                 this.player.short +
                 '!  You came!  I was just preparing a hot bath.  My poor darling, you must have gone through a really perilous ordeal.  Here, do you want to get cleaned up?</i>"'
         );
-        //Option: Appearance: Leads to Rebecc Descrpition.
-        //Option: Bath: Leads to Rebecc Bath Scene.
-        //Option: Rape: Leads to Rebecc Rape scene. Ends the quest. Requires sizable corruption score.
-        //Option: Leave: Redirects PC to Owca Village.
-        //[Appearance][Bath][Leave][Surprise Sex!]
+        // Option: Appearance: Leads to Rebecc Descrpition.
+        // Option: Bath: Leads to Rebecc Bath Scene.
+        // Option: Rape: Leads to Rebecc Rape scene. Ends the quest. Requires sizable corruption score.
+        // Option: Leave: Redirects PC to Owca Village.
+        // [Appearance][Bath][Leave][Surprise Sex!]
         var sex = undefined;
         if (this.player.cor >= 66) {
             sex = this.createCallBackFunction(this.rapeRebecc, false);
@@ -1276,7 +1276,7 @@ export class Owca extends BaseContent {
             this.gangbangVillageStuff
         );
     }
-    //Rebecc Appearance (Z)
+    // Rebecc Appearance (Z)
     private rebeccAppearance(): void {
         this.clearOutput();
         this.outputText(
@@ -1293,7 +1293,7 @@ export class Owca extends BaseContent {
         );
         this.doNext(this.rebeccMenu);
     }
-    //Rebecc Bath scene (Z)
+    // Rebecc Bath scene (Z)
     private rebeccBathScene(): void {
         this.clearOutput();
         this.outputText(
@@ -1320,7 +1320,7 @@ export class Owca extends BaseContent {
         );
         if (this.player.gender == 0) this.outputText(".");
         else {
-            //[if cock]
+            // [if cock]
             if (this.player.hasCock())
                 this.outputText("; your " + this.cockDescript(0) + " grows to full erect size");
             if (this.player.hasVagina() && this.player.hasCock()) this.outputText(" and ");
@@ -1340,12 +1340,12 @@ export class Owca extends BaseContent {
         this.outputText(
             '\n\nHer hands stimulate and arouse you ever so slightly, until you tell her desperately you must be completely clean of any demon soiling by now.  You both laugh together awkwardly as you rise from the bathtub; she watches you greedily as you slowly don your [armor].  You eventually leave her, a little saddened.  Rebecc gives you a chaste kiss on your cheek before bidding you farewell.  "<i>And be sure to come back, hero.  I can\'t wait to clean you up again.</i>"'
         );
-        //Lust +30, Corr -2, Lib +1, slimefeed
+        // Lust +30, Corr -2, Lib +1, slimefeed
         this.dynStats("lib", 1, "lus", 30, "cor", -2);
         this.player.slimeFeed();
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Rebecc Rape scene (for discerning penises) (Z)
+    // Rebecc Rape scene (for discerning penises) (Z)
     private rapeRebecc(outside: boolean = false): void {
         this.clearOutput();
         if (this.player.hasCock()) {
@@ -1360,7 +1360,7 @@ export class Owca extends BaseContent {
                     this.cockDescript(0) +
                     " between her plush cheeks, bracing yourself for torrid anal penetration.  She keeps whining, unable to break free of your iron grasp.  In her constant struggles you notice an opening between her buttocks - you thrust inside with all your might, devastating her backdoor entrance, stretching her holes, tearing her insides and grinding against her rugged anal walls in a extremely rough way."
             );
-            //[if cock is too long, >12 inches]
+            // [if cock is too long, >12 inches]
             if (this.player.cocks[0].cockLength > 12)
                 this.outputText(
                     "  You keep burying more of your " +
@@ -1386,7 +1386,7 @@ export class Owca extends BaseContent {
                     this.cockDescript(0) +
                     " is receiving is making you heedless of anything else but the burning heat of her insides cooking your meat.  You feel your lust rise as you keep riding the buttslut below you, ignoring her muffled complaints and whining, her tight confines gradually taking over any control you have over your rod.  You pound Rebecc's ass as if your life depended on it, clutching her curvy hips instinctively like an imp in rut.  Your groin impacts her buttocks with a loud SLAP at every thrust"
             );
-            //[if balls]
+            // [if balls]
             if (this.player.balls > 0)
                 this.outputText(
                     ", and your " +
@@ -1420,12 +1420,12 @@ export class Owca extends BaseContent {
             this.outputText(
                 " to the manipulative slut who kept teasing you.  Serves her right, to use her body in the most provocative ways and never let you actually have your way with her.  You're unlikely to ever see her again."
             );
-            //minus lust, minus libido, plus corruption, Remove Owca Village from 'Places' menu.
+            // minus lust, minus libido, plus corruption, Remove Owca Village from 'Places' menu.
             this.outputText("\n\n(<b>Owca removed from the places menu.</b>)");
         }
-        //Rebecc Female Rape Scene (Z)
+        // Rebecc Female Rape Scene (Z)
         else {
-            //Requires: PC female and biped
+            // Requires: PC female and biped
             this.outputText(
                 'Within three strides you are upon Rebecc; you slap her twice on her cheeks, brutally yank her hair and in a harsh gesture, you turn her around.  The woman yells, "<i>W-what are you doing?  No, please stop!</i>"  Completely caught unaware, she gasps and jolts in surprise, crying loudly until you slap her again to shut her up.'
             );
@@ -1462,7 +1462,7 @@ export class Owca extends BaseContent {
                     this.clitDescript() +
                     " and suck in your breath as Rebecc squeals.  Irritated with her constant noise, you bend into the prostrate sheep girl and slap her again, before roaming your hand down her lush front, your fingers landing upon a dark nipple.  You squeeze it as you rub your clits together, her warm flesh wobbling against yours, her own juices dribbling now as you push her relentlessly along the boundary between pain and pleasure until she arches her back and moans in miserable ecstasy, her cunt spasming a gush of girlcum onto you.  You reward her with another slap as she twists in her involuntary orgasm, so that your red hand mark has a partner upon the other side of her face.  It's a good look for her."
             );
-            //[big clit]
+            // [big clit]
             if (this.player.clitLength > 3)
                 this.outputText(
                     "\n\nYou aren't done yet.  Your own clit has long since pushed out of its hood and is bulging with obscene need.  You rotate your hips, teasing Rebecc's dribbling entrance with it whilst immersing yourself in pleasure, rubbing every inch of your sensitive femcock over her lips and hole before forcing yourself against her own tiny pleasure button, making her twitch and moan.  Your lust stoked to incredible heights by the slick pressure on your clit and the sight and feeling of your yielding, insensate victim, you finally thrust it into her slick hole, eager for release.  Clutching her gelatinous ass and firm neck as you fuck her like a man, you're forced to grit your teeth against the unbearably pleasurable sensation of your clit rubbing on her tender inner walls.  Your " +
@@ -1473,7 +1473,7 @@ export class Owca extends BaseContent {
                         this.allBreastsDescript() +
                         " are pushed into her own soft pillows as you rub every inch of yourself over her, determined in your lust craze to violate all of this slut's teasing body."
                 );
-            //[other]
+            // [other]
             else {
                 this.outputText(
                     "\n\nYou aren't done yet.  Your own clit has long since pushed out of its hood and is bulging with need.   You rotate your hips, teasing Rebecc's dribbling entrance with it whilst immersing yourself in pleasure, rubbing every inch of your sensitive female nub over her lips and hole before forcing yourself against her own tiny pleasure button, making her twitch and moan.  Casually you slap her face again, making her start; the movement translates through her body into your own needy sex as her lips involuntary shrink and rub against yours.  What a lovely sensation!  Your lust stoked to incredible heights by the slick pressure on your clit and the sight and feeling of your yielding, insensate victim, you thrust against her slick hole, eager for your own release.  You scissor her as hard and as violently as you can, slapping into her brutalized sex a few times before embedding yourself and rotating, striking her face carelessly again and again and again.  Her shuddering and sobbing only serves to heighten your pleasure."
@@ -1495,7 +1495,7 @@ export class Owca extends BaseContent {
             );
             this.outputText("\n\n(<b>Owca removed from the places menu.</b>)");
         }
-        //minus lust, minus libido, plus corruption, remove village from places
+        // minus lust, minus libido, plus corruption, remove village from places
         this.player.orgasm();
         this.dynStats("lib", -2, "cor", 5);
         this.flags[kFLAGS.OWCA_UNLOCKED] = -1;
@@ -1504,8 +1504,8 @@ export class Owca extends BaseContent {
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Desperate Villagers (Z)
-    //[Dialogue once Attitude reaches 0 or less, pops automatically as you go to the village]
+    // Desperate Villagers (Z)
+    // [Dialogue once Attitude reaches 0 or less, pops automatically as you go to the village]
     private desperateVillages(): void {
         this.clearOutput();
         this.outputText(
@@ -1521,29 +1521,29 @@ export class Owca extends BaseContent {
             "\n\nIt seems that these villagers have grown weary of your repeated refusals; they are likely to react angrily if you deny them another sacrifice."
         );
         this.outputText("\n\nDo you submit?");
-        //Yes/No. Yes leads to Accept Plea, Attitude raised by 10. No to Villagers Fight
+        // Yes/No. Yes leads to Accept Plea, Attitude raised by 10. No to Villagers Fight
         this.doYesNo(
             this.createCallBackFunction2(this.acceptRebeccsPlea, false, true),
             this.fightZeVillagers
         );
     }
-    //Villagers Fight (Z, but pretty barebones)
+    // Villagers Fight (Z, but pretty barebones)
     private fightZeVillagers(): void {
         this.clearOutput();
-        //You are fighting the villagers (level 14):
+        // You are fighting the villagers (level 14):
         this.startCombat(new Farmers());
         this.monster.createStatusAffect(StatusAffects.GenericRunDisabled, 0, 0, 0, 0);
         this.playerMenu();
-        //~500 HP, 6 different attacks at 20 hp, can't run, 100% lust resistance (can't arouse), ~200 xp
+        // ~500 HP, 6 different attacks at 20 hp, can't run, 100% lust resistance (can't arouse), ~200 xp
     }
 
-    //Defeat Villagers (only displayed if corruption >= 60ish) (Z)
+    // Defeat Villagers (only displayed if corruption >= 60ish) (Z)
     public beatUpOwca(): void {
         this.clearOutput();
         this.outputText(
             "The last of the villagers drops his improvised weapon.  They are all lying defenseless before you.  At last, you notice Rebecc, the only one still conscious, curled up as she weeps uncontrollably.  She is clearly oblivious of her surroundings, undoubtedly shocked by the violent fight.  Even if she calls herself your friend, you don't think you'd be able to reason with her after pummeling her kin.  What do you do?"
         );
-        //Rape Rebbecc/Torch Village (needs Akbal's fire or Whitefire)/Leave
+        // Rape Rebbecc/Torch Village (needs Akbal's fire or Whitefire)/Leave
         var torch = undefined;
         if (
             this.player.findStatusAffect(StatusAffects.KnowsWhitefire) >= 0 ||
@@ -1568,13 +1568,13 @@ export class Owca extends BaseContent {
         );
     }
 
-    //"Leave" redirects the PC to camp; next encounter is Rebecc's Last Plea.
+    // "Leave" redirects the PC to camp; next encounter is Rebecc's Last Plea.
     private leaveOwcaAfterWhupping(): void {
-        //tag for calling last plea
+        // tag for calling last plea
         this.flags[kFLAGS.REBECCS_LAST_PLEA] = 1;
         this.cleanupAfterCombat();
     }
-    //Village Torching scene - requires a fire skill (Z)
+    // Village Torching scene - requires a fire skill (Z)
     private torchOwcaMotherFuckers(): void {
         this.clearOutput();
         this.outputText(
@@ -1601,20 +1601,20 @@ export class Owca extends BaseContent {
         } else this.doNext(this.torchUpVillagersAndLeave);
     }
 
-    //Fuck off village
+    // Fuck off village
     private torchUpVillagersAndLeave(): void {
         this.clearOutput();
         this.outputText(
             "You don't think you're going to see these villagers again, and you don't really want to."
         );
-        //Corruption +15 (plus extra for rape), ~ 1000 gems, fatigue set to 100
+        // Corruption +15 (plus extra for rape), ~ 1000 gems, fatigue set to 100
         this.player.gems += 900 + Owca.rand(150);
         this.fatigue(100);
         this.statScreenRefresh();
         this.cleanupAfterCombat();
     }
-    //End of quest
-    //Lose to Villagers (Z)
+    // End of quest
+    // Lose to Villagers (Z)
     public loseToOwca(): void {
         this.clearOutput();
         this.outputText(
@@ -1625,14 +1625,14 @@ export class Owca extends BaseContent {
         this.outputText(
             "you are being uncomfortably transported to a destination you can guess easily.  Too dazed to resist or even worry about it; you are promptly brought to the dreaded pit, where the villagers tie you up and rudely shackle you.  Then, before you even realize how desperate your situation is, they're all gone.  Your numerous bruises and fatigue get the better of you and you quickly fall asleep."
         );
-        //redirect to dusk transition text, restore hp/fat consonant with sleeping until nightfall
+        // redirect to dusk transition text, restore hp/fat consonant with sleeping until nightfall
         this.HPChange(50, false);
         this.fatigue(-30);
-        //after nightly scene, next encounter is Post-Mob Encounter
+        // after nightly scene, next encounter is Post-Mob Encounter
         this.doNext(this.loseOrSubmitToVapula);
         this.player.createStatusAffect(StatusAffects.LostVillagerSpecial, 0, 0, 0, 0);
     }
-    //Post-Mob Encounter (Z)
+    // Post-Mob Encounter (Z)
     private morningAfterRape(): void {
         this.player.removeStatusAffect(StatusAffects.LostVillagerSpecial);
         this.clearOutput();
@@ -1643,9 +1643,9 @@ export class Owca extends BaseContent {
             "\n\n\"<i>T-they forced you to be abused... I promise I didn't want that!  I tried to convince them... they wouldn't listen... they threw you to the pit... at least I made them give you back your belongings as usual... now you must hate me, don't you?  Oh, I'm so sorry!  It's all my fault!</i>\""
         );
         this.outputText("\n\nWhat do you do?");
-        //Option: Forgive. Sets Attitude to 50, quest goes back to normal.
-        //Option: Rape. Leads to Rebecc Rape scene and ends the quest.
-        //Option: Leave. Redirects PC to camp, next encounter leads to Rebecc's Last Plea
+        // Option: Forgive. Sets Attitude to 50, quest goes back to normal.
+        // Option: Rape. Leads to Rebecc Rape scene and ends the quest.
+        // Option: Leave. Redirects PC to camp, next encounter leads to Rebecc's Last Plea
         this.simpleChoices(
             "Forgive",
             this.forgiveOwca,
@@ -1659,7 +1659,7 @@ export class Owca extends BaseContent {
             this.fuckThisShit
         );
     }
-    //Option: Forgive (Z)
+    // Option: Forgive (Z)
     private forgiveOwca(): void {
         this.clearOutput();
         this.outputText(
@@ -1672,15 +1672,15 @@ export class Owca extends BaseContent {
         this.outputText(
             "\n\nRebecc's face is overcome with joy as you speak.  \"<i>Thank you, thank you!  I've been filled with remorse and sorrow since this last awful encounter, you can't believe how relieved I am!</i>\"  You take her in your arms and hold her tight until the last of her tears finally dries up.  \"<i>I'm going to tell everyone in the village how great a person you are!  You will be acclaimed as our hero!</i>\""
         );
-        //Corruption -8, Int +2, Attitude raised to 60, will never shrink below 1 (i.e. villagers won't get angry at you again)
+        // Corruption -8, Int +2, Attitude raised to 60, will never shrink below 1 (i.e. villagers won't get angry at you again)
         this.dynStats("int", 2, "cor", -8);
         this.flags[kFLAGS.OWCAS_ATTITUDE] = 60;
         this.flags[kFLAGS.OWCA_ANGER_DISABLED] = 1;
-        //To main owca menu
+        // To main owca menu
         if (this.getGame().inCombat) this.cleanupAfterCombat(this.gangbangVillageStuff);
         else this.doNext(this.gangbangVillageStuff);
     }
-    //Option: Leave (Z)
+    // Option: Leave (Z)
     private fuckThisShit(): void {
         this.clearOutput();
         this.outputText(
@@ -1690,7 +1690,7 @@ export class Owca extends BaseContent {
         if (this.getGame().inCombat) this.cleanupAfterCombat();
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Rebecc's Last Plea (Z)
+    // Rebecc's Last Plea (Z)
     private rebeccsLastPlea(): void {
         this.clearOutput();
         this.outputText(
@@ -1700,9 +1700,9 @@ export class Owca extends BaseContent {
             "\n\n\"<i>They... they chose me!</i>\" she wails, choking back.  \"<i>They voted and I was chosen to be thrown in the pit!  They're angry at me for befriending you and I was blamed for the recent troubles with the demons!  They think you've abandoned us and I'm responsible for all this... they hate me!  They hate you too!  I'm going to be tied up, abused and broken... and everyone will pretend nothing happened!  I don't want to go to the pit; I don't know what to do!</i>\""
         );
         this.outputText("\n\nWhat do you do?");
-        //(You could rape her.) //Leads to Rebecc Rape scene.
-        //(You could face the villagers and demons in her stead.)
-        //(You could leave.) //End of quest.
+        // (You could rape her.) //Leads to Rebecc Rape scene.
+        // (You could face the villagers and demons in her stead.)
+        // (You could leave.) //End of quest.
         this.simpleChoices(
             "Rape Her",
             this.createCallBackFunction(this.rapeRebecc, true),
@@ -1716,18 +1716,18 @@ export class Owca extends BaseContent {
             this.leaveRebeccToBeRaped
         );
     }
-    //Option: Leave (Z)
+    // Option: Leave (Z)
     private leaveRebeccToBeRaped(): void {
         this.clearOutput();
         this.outputText(
             "You tell Rebecc you don't want to have anything to do with her or her sick people and promptly turn around.  She wails and begs you at first but you're faster than the tear-blinded girl, and she soon falls behind.  Your safe, simple camp looms large in your thoughts, pushing out any desire to return to this wicked village and its wicked people."
         );
-        //[Owca Village removed from "Places" menu.]
+        // [Owca Village removed from "Places" menu.]
         this.outputText("\n\n(Owca has been removed from the places menu.)");
         this.flags[kFLAGS.OWCA_UNLOCKED] = -1;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //Option: Face Down the World (Z)
+    // Option: Face Down the World (Z)
     private faceDownHordes(): void {
         this.clearOutput();
         this.outputText(
@@ -1744,13 +1744,13 @@ export class Owca extends BaseContent {
         this.outputText(
             "\n\nThe villagers keep staring at you, defiance as well as cautiousness reflected in their pondering eyes.  Caution wins out and they leave you, abandoning to your fate - and the horde.  It's time for you to prove your worth."
         );
-        //Redirects to the Dusk Transition Scene, then to a combat with full equipment and weapons. Loss sets Submissiveness to 100 and gives Bad End.  Victory sets Attitude to 60 and it can never shrink below 1.
+        // Redirects to the Dusk Transition Scene, then to a combat with full equipment and weapons. Loss sets Submissiveness to 100 and gives Bad End.  Victory sets Attitude to 60 and it can never shrink below 1.
         this.doNext(this.createCallBackFunction(this.fightZeDemons, false));
     }
-    //Slave to Vapula - Bad End (Z)
+    // Slave to Vapula - Bad End (Z)
     private slaveToVapulaBadEnd(): void {
         this.clearOutput();
-        //[Displayed if Vapula Submissiveness reaches 100]
+        // [Displayed if Vapula Submissiveness reaches 100]
         this.outputText(
             "When you wake up, you find yourself tied and gagged in a strange cave.  A pair of smelly red fruits dangle before your eyes, dripping sap.  Chattering and moaning sounds come from everywhere, and your crotch feels numb.  You come back to your senses and realize your mouth is full of cock - the red 'fruits' are actually an imp's balls, and the 'sap' the drippings of a pussy just behind them!  You struggle to remove the rod of dickflesh but there's not much you can do, bound as you are.  Your constant writhing only makes the hermaphrodite imp harder and she grabs a fistful of your hair as she cums, hard.  Her balls shrink even as the sticky vaginal wetness running along their underside swells, and you can feel the veins in her dong pulsate as she unloads an enormous deposit of spooge in your throat; you are forced to swallow the unnaturally hot globs just to clear room to breathe.  Gods, it is so humiliating... yet, somehow, it's also strangely habit-forming.  Each gulp is easier than the last.  You hear an inhuman snicker as the shaft is pulled out, wiped clean of any residual cum by your lips.  The glittering pair of balls is removed from your sight as the imp is pushed aside."
         );
@@ -1810,8 +1810,8 @@ export class Owca extends BaseContent {
         this.getGame().gameOver();
     }
 
-    //Subdue Vapula Scene - begins Vapula Follower Content(Z)
-    //[Triggered if submissiveness reaches 0 when beating the horde.]
+    // Subdue Vapula Scene - begins Vapula Follower Content(Z)
+    // [Triggered if submissiveness reaches 0 when beating the horde.]
     private subdueVapula(): void {
         this.clearOutput();
         this.outputText("At last, the final demon falls, ");
@@ -1826,7 +1826,7 @@ export class Owca extends BaseContent {
         this.outputText(
             "\n\nBy now, you've completely broken the back of the rapacious demon horde.  Their leader is starting to get used to her repeated defeats; it's time for you to make a decision... what do you do?"
         );
-        //choices: [Disband the horde]/[Enslave Vapula(requires cock or non-centaur vagina, D2 completion, libido >= 60, and corr >= 70)]
+        // choices: [Disband the horde]/[Enslave Vapula(requires cock or non-centaur vagina, D2 completion, libido >= 60, and corr >= 70)]
         var fuck = undefined;
         if (this.player.gender > 0 && this.player.lust >= 33) fuck = this.rapeZeVapula;
         var enslave = undefined;
@@ -1845,7 +1845,7 @@ export class Owca extends BaseContent {
             this.cleanupAfterCombat
         );
     }
-    //Option: Disband (Z)
+    // Option: Disband (Z)
     private disbandHorde(): void {
         this.clearOutput();
         this.outputText(
@@ -1862,12 +1862,12 @@ export class Owca extends BaseContent {
         this.outputText(
             "\n\nShe nods again in acknowledgement and starts shaking her pets out of their torpor.  The imps quickly awaken each other, giving you a few frightened glances every now and then.  Then, a bit pathetically, Vapula gives the retreat signal.  In no time the once-proud bunch disappears, probably gone for good.  Hopefully, the demons have learned from their mistakes and won't bother the village again."
         );
-        //Attitude set to 100
+        // Attitude set to 100
         this.flags[kFLAGS.OWCAS_ATTITUDE] = 100;
         this.flags[kFLAGS.OWCA_SACRIFICE_DISABLED] = 1;
         this.cleanupAfterCombat();
     }
-    //Option: Enslave - penis version (requires D2 completion and libido >= 60 and corr >= 70) (Z)
+    // Option: Enslave - penis version (requires D2 completion and libido >= 60 and corr >= 70) (Z)
     private enslaveVapulaWithYourWang(): void {
         this.clearOutput();
         if (!this.player.hasCock()) {
@@ -1905,19 +1905,19 @@ export class Owca extends BaseContent {
             "\n\nYou lend a hand to your newly-acquired succubus slut and help her to her feet.  She stumbles at first, still stunned by the recent fight; she quickly follows you though, firmly lead by your iron grip.  Hand in hand, you walk away from the pit and the scattered bodies without a look back.  On your way to the camp, you don't hesitate to give your succubus toy a few gropes to her boobs and buttocks, making her giggle; she playfully returns the favor, and by the time you reach your camp you are already stroking each other's crotches, your fingers softly probing her vaginal entrance until she openly moans in delight.  You stop teasing her and dismiss her at last."
         );
         this.outputText("\n\n(<b>The demon Vapula has been added to your slaves.</b>)");
-        //[Vapula added as follwer.]
+        // [Vapula added as follwer.]
         this.flags[kFLAGS.VAPULA_FOLLOWER] = 1;
         this.flags[kFLAGS.OWCAS_ATTITUDE] = 100;
         this.flags[kFLAGS.VAPULA_HAREM_FUCK] = 1;
         this.flags[kFLAGS.OWCA_SACRIFICE_DISABLED] = 1;
-        //Chance to trigger imp gangbang is increased by 7%!
-        //Attitude set to 100, sacrifices will never be asked again. Lust set to 80 if below.
+        // Chance to trigger imp gangbang is increased by 7%!
+        // Attitude set to 100, sacrifices will never be asked again. Lust set to 80 if below.
         if (this.player.lust < 80) this.player.lust = 80;
         this.dynStats("lus", 0.1);
         this.cleanupAfterCombat();
     }
-    //Option: Enslave - vagina version (requires D2 completion and libido >= 60 and corr >= 70 and, apparently, no centaurs)(Z)
-    //NOTE: No Centaurs. Fuck Centaurs.
+    // Option: Enslave - vagina version (requires D2 completion and libido >= 60 and corr >= 70 and, apparently, no centaurs)(Z)
+    // NOTE: No Centaurs. Fuck Centaurs.
     private enslaveVapulaAsACuntWielder(): void {
         this.clearOutput();
         this.outputText(
@@ -1953,12 +1953,12 @@ export class Owca extends BaseContent {
         this.outputText(
             "\n\nVapula wags her head, ecstatic with relief; she quickly stumbles to her feet and scurries off, pushing through her defeated horde as if they weren't there.  You watch her bouncing ass, wondering if it was a wise thing to trust a demon.  You suppose it's no skin off your nose if she doesn't come back, but there is no doubting the attraction of being able to dig into that luscious body of hers whenever you want.  You shrug and slowly make your way back to camp, absentmindedly kicking a comatose imp out of the way as you do."
         );
-        //[QUE VAPULA NIGHT MEETING]
+        // [QUE VAPULA NIGHT MEETING]
         this.flags[kFLAGS.VAPULA_FOLLOWER] = 0.5;
-        //VILLAGE LOVES YOU + NO MORE SACRIFICES
+        // VILLAGE LOVES YOU + NO MORE SACRIFICES
         this.flags[kFLAGS.OWCAS_ATTITUDE] = 100;
         this.flags[kFLAGS.OWCA_SACRIFICE_DISABLED] = 1;
-        //Chance to trigger imp gangbang is increased by 7%!
+        // Chance to trigger imp gangbang is increased by 7%!
         this.cleanupAfterCombat();
     }
 }

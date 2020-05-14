@@ -6,18 +6,18 @@ import { StatusAffects } from "../../../StatusAffects";
 import { Minerva } from "./Minerva";
 
 export class MinervaScene extends BaseContent {
-    //const MINERVA_LOVE: number = 813;
-    //const MINERVA_BACKSTORY: number = 814;
-    //const MINERVA_BACKSTORY_LEARNED: number = 815;
-    //const TIMES_MINERVA_SEXED: number = 816;
-    //const TIMES_BUTTFUCKED_MINERVA: number = 817;
-    //const TIMES_MINERVA_COWGIRLED: number = 818;
-    //const TIMES_MINERVA_LAPSEXED: number = 819;
-    //const MINERVA_LEZZES_OUT: number = 820;
-    //const MET_MINERVA: number = 821;
+    // const MINERVA_LOVE: number = 813;
+    // const MINERVA_BACKSTORY: number = 814;
+    // const MINERVA_BACKSTORY_LEARNED: number = 815;
+    // const TIMES_MINERVA_SEXED: number = 816;
+    // const TIMES_BUTTFUCKED_MINERVA: number = 817;
+    // const TIMES_MINERVA_COWGIRLED: number = 818;
+    // const TIMES_MINERVA_LAPSEXED: number = 819;
+    // const MINERVA_LEZZES_OUT: number = 820;
+    // const MET_MINERVA: number = 821;
 
-    //-Tainted Minerva vaginal capacity: 90
-    //-Tainted Minerva anal capacity: 100
+    // -Tainted Minerva vaginal capacity: 90
+    // -Tainted Minerva anal capacity: 100
     private minervaVCapacity(): number {
         return 90;
     }
@@ -28,20 +28,20 @@ export class MinervaScene extends BaseContent {
         return this.flags[kFLAGS.MINERVA_LOVE] == 1;
     }
 
-    //All readers, please read the actual scenes before judging this work. Notes may be rough but the scenes aren't
-    //LOCATION
-    //Location: High Mountains - a small oasis high in the mountains with small grove of fruit-bearing trees and a pond of pure, crystal clear water.  Lanterns around the oasis and around the edge of the pond burn with purifying white fire.  The soothing scent of mint wafts up from numerous peppermint plants that sprout from the moss.
-    //Due to the pure nature, and its location, demons do not approach the spring oasis to get rid of it. Harpies drive off demons that come into their territory, as well, and the oasis is close to their territory, which offers some protection as well.
-    //What you can get from coming here (subject to Fen-balancing)
-    //item data can be found at the bottom of the doc
-    //The trees grow purity peaches, yellowy orange with reddish tiger stripes, and the size of a pomegranate.  The fruit can be consumed to give a small speed and intelligence stat boost of 2-3 points, lower fatigue by 10 and lower corruption by 1-2 (if Minerva becomes corrupted, the fruits still give stat boosts and remove fatigue, but now give corruption instead of lowering it).
-    //Consuming the calming mint lowers libido and lust by 3 and 10 respectively (if Minerva becomes corrupted, the mint instead raises libido and lust).
-    //The pc can drink from, or relax in, the spring to lower fatigue by 10 as well as lower corruption by 4-5 - The corrupted spring also boosts Lust by at least 10-20 points with each dip as well as raising corruption 5-6 points.
+    // All readers, please read the actual scenes before judging this work. Notes may be rough but the scenes aren't
+    // LOCATION
+    // Location: High Mountains - a small oasis high in the mountains with small grove of fruit-bearing trees and a pond of pure, crystal clear water.  Lanterns around the oasis and around the edge of the pond burn with purifying white fire.  The soothing scent of mint wafts up from numerous peppermint plants that sprout from the moss.
+    // Due to the pure nature, and its location, demons do not approach the spring oasis to get rid of it. Harpies drive off demons that come into their territory, as well, and the oasis is close to their territory, which offers some protection as well.
+    // What you can get from coming here (subject to Fen-balancing)
+    // item data can be found at the bottom of the doc
+    // The trees grow purity peaches, yellowy orange with reddish tiger stripes, and the size of a pomegranate.  The fruit can be consumed to give a small speed and intelligence stat boost of 2-3 points, lower fatigue by 10 and lower corruption by 1-2 (if Minerva becomes corrupted, the fruits still give stat boosts and remove fatigue, but now give corruption instead of lowering it).
+    // Consuming the calming mint lowers libido and lust by 3 and 10 respectively (if Minerva becomes corrupted, the mint instead raises libido and lust).
+    // The pc can drink from, or relax in, the spring to lower fatigue by 10 as well as lower corruption by 4-5 - The corrupted spring also boosts Lust by at least 10-20 points with each dip as well as raising corruption 5-6 points.
 
-    //When corrupted or purified, Minerva can get pregnant and impregnate the pc with baby sirens.
-    //Minerva herself!
-    //Minerva appearance (normal)
-    //http://i46.tinypic.com/20z1f1x.jpg
+    // When corrupted or purified, Minerva can get pregnant and impregnate the pc with baby sirens.
+    // Minerva herself!
+    // Minerva appearance (normal)
+    // http://i46.tinypic.com/20z1f1x.jpg
 
     private minervaAppearance(): void {
         this.clearOutput();
@@ -68,8 +68,8 @@ export class MinervaScene extends BaseContent {
             "\n\nA white tube top and a pair of short shorts are all the siren wears for clothing."
         );
         this.menu();
-        //[Talk] [Sex] [Eat] [Fight] [Leave]
-        //addButton(0,"Appearance",minervaAppearance);
+        // [Talk] [Sex] [Eat] [Fight] [Leave]
+        // addButton(0,"Appearance",minervaAppearance);
         this.addButton(1, "Talk", this.minervaTalkSelect);
         if (this.player.lust >= 33) this.addButton(2, "Sex", this.minervaSexMenu);
         this.addButton(3, "Eat", this.eatSomethingYouCunt);
@@ -95,14 +95,14 @@ export class MinervaScene extends BaseContent {
         }
     }
 
-    //Basic intros
-    //1-1 First Encounter.
+    // Basic intros
+    // 1-1 First Encounter.
     private firstMinervaEncounter(): void {
         this.clearOutput();
         this.outputText(
             "Returning to the mountains, you begin to climb; the usual search for loot and, perhaps, some harpies driving your upward efforts.  Perhaps you'll run into"
         );
-        //If Sophie Bimbo=0:
+        // If Sophie Bimbo=0:
         if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00282] == 0 &&
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00283] == 0 &&
@@ -111,7 +111,7 @@ export class MinervaScene extends BaseContent {
             this.outputText(" that matronly harpy, Sophie");
         else this.outputText(" something interesting");
         this.outputText(", or get some good plunder from some of the local beasts");
-        //if minotaur cum addict:
+        // if minotaur cum addict:
         if (this.player.minotaurAddicted())
             this.outputText(
                 ".  With any luck, you might even find a hunky minotaur to scratch that burning itch in your mind"
@@ -119,13 +119,13 @@ export class MinervaScene extends BaseContent {
         this.outputText(
             ".  Trudging on, you make your way up and up the mountain, passing the occasional harpy nest as you climb and traverse along the mountain paths.  Just when it looks like you're going to hit the clouds, you catch sight of a trail that you had never really noticed before."
         );
-        //Choice
-        //[Ignore Path] [Take Path]
+        // Choice
+        // [Ignore Path] [Take Path]
         this.menu();
         this.addButton(1, "Take Path", this.takeMinervasPath);
         this.addButton(2, "Ignore Path", this.ignoreMinervasPath);
     }
-    //[Ignore Path]
+    // [Ignore Path]
     private ignoreMinervasPath(): void {
         this.clearOutput();
         this.outputText(
@@ -134,7 +134,7 @@ export class MinervaScene extends BaseContent {
         // PC returns to camp.
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[Take Path]
+    // [Take Path]
     private takeMinervasPath(): void {
         this.clearOutput();
         this.spriteSelect(95);
@@ -166,7 +166,7 @@ export class MinervaScene extends BaseContent {
                 "\n\nYour thrashing loosens the grip of your captor, but instead of simply dropping you to your doom, it flies near the cliffs and drops you on your [ass] to the solid ground."
             );
         }
-        //legs=centaur/drider:
+        // legs=centaur/drider:
         else {
             this.outputText(
                 "The shadow reveals itself to be a huge, winged being, something that becomes painfully obvious as it slams into you with all its might.  The sudden, powerful impact rams you clean out of the tower and to the edge of the cliff.  Rushing to get back on your [legs], you see your assailant for the first time."
@@ -183,17 +183,17 @@ export class MinervaScene extends BaseContent {
         this.outputText(
             ", bodily swinging you out over the abyss, with only her grip keeping you from plunging back down the mountainside."
         );
-        //Low corruption:
+        // Low corruption:
         if (this.player.cor < 50)
             this.outputText(
                 "  \"<i>All right, you!  Who are you and what are you doing here?!  I don't get any visitors besides those horny harpies, so what are you after?  Hm?"
             );
-        //High corruption:
+        // High corruption:
         else
             this.outputText(
                 "  \"<i>All right, you corrupted beast!  Who are you and what are you doing here?  Your presence is not welcome in this sanctuary... answer quickly or I'll drop you to your death!"
             );
-        //Demon Score=3>:
+        // Demon Score=3>:
         if (this.player.demonScore() >= 3)
             this.outputText(
                 "  Filthy demon!  Come to finish your work, have you?!  You won't take me without a fight!  Maybe if you beg for your life I'll give you a chance. Speak!  Convince me to not simply kill you here and now!"
@@ -202,19 +202,19 @@ export class MinervaScene extends BaseContent {
             "</i>\" the creature demands, clearly threatening to drop you if you don't answer to her liking."
         );
 
-        //Goo:
+        // Goo:
         if (this.player.isGoo()) {
             this.outputText(
                 "\n\nNuts to this, you think to yourself.  Your goopy form is more than capable of surviving an impact with the ground, you tell the bizarre creature as you swallow her legs into your mass, something that her own form can't do.  You could envelop her body and force her into the unyielding ground if you wanted to.  But you decide against it... for now.  You chide the mysterious creature and tell her that you don't wish to cause her harm"
             );
-            //Corruption=75>:
+            // Corruption=75>:
             if (this.player.cor >= 75) this.outputText('... "<i>yet</i>", you think to yourself.');
 
             this.outputText(
                 "\n\nIf she feels set on conflict, however, you are more than willing to help calm such aggressive intentions.  Realizing the position she's in, the feminine beast sighs and asks what you want."
             );
         }
-        //Wings:
+        // Wings:
         else if (this.player.canFly()) {
             this.outputText(
                 "\n\nYou're sure you could fly to safety if she released you, but you figure there'd be more to gain by answering her."
@@ -227,7 +227,7 @@ export class MinervaScene extends BaseContent {
         this.outputText(
             '\n\nShe analyzes you and your words, her bright electric blue eyes scrutinizing every inch of you.  "<i>I sense no lies in your voice, but make no mistake, I don\'t trust you yet,</i>" the strange harpy says, setting you back down on the relative safety of the rocky edge.'
         );
-        //High corruption:
+        // High corruption:
         if (this.player.cor > 66) this.outputText("  She is wise not to fully trust you.");
 
         this.outputText("\n\nWith");
@@ -253,30 +253,30 @@ export class MinervaScene extends BaseContent {
             "\n\nLooking at her curiously, you admit that you had a different name in mind for what she is, you would perhaps have called her a 'sharpy,' since she is part shark and part harpy, though her choice has a pleasant ring to it.  Hearing your name for her actually seems to amuse her.  \"<i>Ah, an apt name for sure, but I like to call myself a siren.  It's something from my homeland, you see.  Where I'm from, it was a name for these mythical half-fish, half-bird girls that would lure men into traps with their songs.  And since I'm... well, this,</i>\" she states while gesturing to herself, \"<i>I thought I would use that name for what I am now.  And not because I like to sing, though I do... It's just... I'm part girl, part bird, part fish and part... never mind... just call me a siren... I guess you can come inside if you want.</i>\"  Minerva turns around and heads toward her tower."
         );
         this.flags[kFLAGS.MET_MINERVA] = 1;
-        //[Follow] [Leave]
+        // [Follow] [Leave]
         this.menu();
         this.addButton(0, "Follow", this.followMinerva);
         this.addButton(1, "Don'tFollow", this.leaveMinervasFirstEncounter);
     }
 
-    //[Follow]
+    // [Follow]
     private followMinerva(): void {
         this.clearOutput();
         this.spriteSelect(95);
         this.outputText(
             'Deciding that you want to know more about Minerva, you follow her into the tower.  "<i>So, now that you\'re inside, would you like to talk?  Or perhaps to partake in some of the peaches that grow on my trees?</i>" she asks, looking at you with interest.'
         );
-        //[Talk] [Drink] [Eat] [Leave]
+        // [Talk] [Drink] [Eat] [Leave]
         this.menu();
         this.addButton(9, "Leave", this.leaveMinervasFirstEncounter);
-        //addButton(0,"Appearance",minervaAppearance);
+        // addButton(0,"Appearance",minervaAppearance);
         this.addButton(1, "Talk", this.minervaTalkSelect);
-        //addButton(2,"Sex",minervaSexMenu);
+        // addButton(2,"Sex",minervaSexMenu);
         this.addButton(3, "Eat", this.eatSomethingYouCunt);
         this.addButton(4, "Drink", this.getADrinkYouBitch);
     }
 
-    //[Leave](for first encounter options)
+    // [Leave](for first encounter options)
     private leaveMinervasFirstEncounter(): void {
         this.clearOutput();
         this.spriteSelect(95);
@@ -287,7 +287,7 @@ export class MinervaScene extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //1-2 Repeat Encounter 1.  Use any time.
+    // 1-2 Repeat Encounter 1.  Use any time.
     private repeatEncounterMinerva(): void {
         this.clearOutput();
         this.spriteSelect(95);
@@ -300,7 +300,7 @@ export class MinervaScene extends BaseContent {
         this.outputText(
             "\n\nAs you approach the pond, she catches sight of you and twists in the water, swimming to the shore and wading out to greet you.  Her smooth sharkskin is glossy and dripping wet from her recent swim, the rolling moisture accentuating her well-defined curves."
         );
-        //No romance:
+        // No romance:
         if (!this.minervaRomanced())
             this.outputText('  "<i>Ah, [name], you have returned!  What can I do for you?</i>"');
         else
@@ -308,7 +308,7 @@ export class MinervaScene extends BaseContent {
                 '  "<i>Mmm... my lover has come to see me!  Oh, how I have missed you, my sweet!  Won\'t you join me for a bath?  Or... is there anything else I can do for you?</i>"'
             );
 
-        //[Talk] [Sex] [Eat] [Fight] [Leave]
+        // [Talk] [Sex] [Eat] [Fight] [Leave]
         this.menu();
         this.addButton(0, "Appearance", this.minervaAppearance);
         this.addButton(1, "Talk", this.minervaTalkSelect);
@@ -319,7 +319,7 @@ export class MinervaScene extends BaseContent {
         this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
     }
 
-    //1-3 Repeat Encounter 2.  Use if 3rd+ time visiting Minerva.
+    // 1-3 Repeat Encounter 2.  Use if 3rd+ time visiting Minerva.
     private minervaThirdPlusEncounter(): void {
         this.clearOutput();
         this.spriteSelect(95);
@@ -333,7 +333,7 @@ export class MinervaScene extends BaseContent {
         this.outputText(
             "\n\nSurprisingly, you don't see Minerva anywhere.  The shark-harpy isn't lounging in the water, or doing her usual calming exercises.  After a moment, though, a familiar shadow passes over you, and the siren in question lands nearby, smiling at you, looking blissfully happy to finally have some company."
         );
-        //No romance:
+        // No romance:
         if (!this.minervaRomanced())
             this.outputText(
                 '  "<i>Welcome back, [name]!  It\'s good to see you again.  Have you come to give me some company, or would you like to partake in some of the fruit?  Or are you maybe here to sate your thirst?</i>"'
@@ -347,7 +347,7 @@ export class MinervaScene extends BaseContent {
         );
 
         this.menu();
-        //[Talk] [Sex] [Eat] [Fight] [Leave]
+        // [Talk] [Sex] [Eat] [Fight] [Leave]
         this.addButton(0, "Appearance", this.minervaAppearance);
         this.addButton(1, "Talk", this.minervaTalkSelect);
         if (this.player.lust >= 33) this.addButton(2, "Sex", this.minervaSexMenu);
@@ -357,8 +357,8 @@ export class MinervaScene extends BaseContent {
         this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
     }
 
-    //Romancing scenes encounter with all sub scenes.
-    //1-1 Cute Encounter. Minerva has taken a special liking to the pc by talking to her 5 times.
+    // Romancing scenes encounter with all sub scenes.
+    // 1-1 Cute Encounter. Minerva has taken a special liking to the pc by talking to her 5 times.
     private minervaAfterFiveTalksRomancing(): void {
         this.clearOutput();
         this.spriteSelect(95);
@@ -374,7 +374,7 @@ export class MinervaScene extends BaseContent {
             this.outputText(
                 '  Looking up, you see the grinning face of Minerva, clearly playing with you.  "<i>Well, hello there, [name]!  I was wondering when you would come and visit me.  I can be away from the oasis for a little while, so... want to go for a flight, or are you scared of heights?</i>"  she asks playfully.'
             );
-            //[Flight] [Land]
+            // [Flight] [Land]
             this.menu();
             this.addButton(0, "Flight", this.goForASkyRideWithMinervaHeartBaring);
             this.addButton(1, "Land", this.dontFlyWithWithMeYouCrazyBitch);
@@ -395,7 +395,7 @@ export class MinervaScene extends BaseContent {
         }
     }
 
-    //[Flight]
+    // [Flight]
     private goForASkyRideWithMinervaHeartBaring(): void {
         this.clearOutput();
         this.spriteSelect(95);
@@ -405,12 +405,12 @@ export class MinervaScene extends BaseContent {
         this.outputText(
             " onto the large shark-harpy, telling her that you don't mind flying with her."
         );
-        //No or small wings:
+        // No or small wings:
         if (!this.player.canFly())
             this.outputText(
                 "  Minerva seems quite pleased when you accept her offer, her arms hugging you against her and resting your head on her soft chest as she beats her wings harder.  With each pump of Minerva's wings, you ascend higher into the tower, and through the huge opening at the top.  Both of you keep going higher and higher until you finally breach the clouds.  As soon as you get above the clouds, the siren suddenly does a spin midair, positioning the two of you so that her back is turned to the distant ground, and you're lying atop her body with the heavens behind your back.  The two of you seem to float there for a moment before gravity kicks in and you both plummet back down through the clouds."
             );
-        //Large wings:
+        // Large wings:
         else {
             this.outputText(
                 "  Minerva seems quite pleased that you accepted her offer.  Seeing you have powerful wings of your own, she slowly lets go, allowing your wings to spread out and beat as you hover next to her.  The pair of you fly out of the tower together, streaking through the air as you both zoom around the mountain, and it becomes almost like a playful race between you."
@@ -424,20 +424,20 @@ export class MinervaScene extends BaseContent {
                 "\n\nSeeing you getting ahead brings a grin to Minerva's face.  Gritting her teeth, she pushes herself to catch up with you, her arms reaching out and grabbing you in a playful air tackle."
             );
         }
-        //Lead in for Minerva opening her heart (All body types except Centaur and Drider)
+        // Lead in for Minerva opening her heart (All body types except Centaur and Drider)
         this.outputText("\n\nThe two of you dive faster and faster, screaming toward the ground");
-        //Goo:
+        // Goo:
         if (this.player.isGoo())
             this.outputText(" while you're barely able to maintain your slimy cohesion");
         this.outputText(
             '.  You almost think that this is going to be the end of you, only for Minerva to roll you both around in the air and spread her wings, slowing down the rapid descent.  The pair of you rocket in through the crumbling entrance of the tower and crash into the steaming spring, the cleansing waters spraying out from the impact, splashing across the surrounding plants and slowly running back toward the spring.  As you and Minerva come up for air, the tall shark-harpy pulls you back into her arms and holds you close to her chest.  "<i>This was so much fun!  It means a lot to me, you know, that you actually want to help get this thing out of me and put an end to its vile presence,</i>"  the redheaded siren says warmly,  hugging you close as you sit together in the water.'
         );
-        //Lead to Opening her heart.
+        // Lead to Opening her heart.
         this.menu();
         this.addButton(0, "Next", this.minervaOpensHerHeartAndDisplaysHerVentricals);
     }
 
-    //Opening her heart
+    // Opening her heart
     private minervaOpensHerHeartAndDisplaysHerVentricals(): void {
         this.clearOutput();
         this.spriteSelect(95);
@@ -450,14 +450,14 @@ export class MinervaScene extends BaseContent {
         this.outputText(
             "\n\nYou chuckle at her reaction before apologizing and asking the siren to continue.  Minerva sighs, reaching up and stroking your cheek before leaning in and planting a soft kiss on your lips.  \"<i>What I'm trying to say here is... you managed to win over the heart of a lonely siren. I've fallen for you and your dashing charms... there is no other way to say it than... I love you.  I know it's a bother to come here to see me, but I will have you, if you will have me,</i>\" Minerva admits, looking you straight in the eyes as she waits for your answer."
         );
-        //Choice
-        //[Kiss] [Reject]
+        // Choice
+        // [Kiss] [Reject]
         this.menu();
         this.addButton(0, "Kiss Her", this.yeahSureMinervaILikeYouAndShit);
         this.addButton(1, "Reject", this.rejectMinervasLove);
     }
 
-    //Kiss
+    // Kiss
     private yeahSureMinervaILikeYouAndShit(): void {
         this.clearOutput();
         this.spriteSelect(95);
@@ -469,8 +469,8 @@ export class MinervaScene extends BaseContent {
         );
         this.flags[kFLAGS.MINERVA_LOVE] = 1;
         this.menu();
-        //{Male: [NEXT] / Female/Herm: [NEXT]}
-        //Sex Menu
+        // {Male: [NEXT] / Female/Herm: [NEXT]}
+        // Sex Menu
         if (this.player.gender == 1) {
             if (this.player.cockThatFits(this.minervaVCapacity()) >= 0)
                 this.addButton(0, "Next", this.minervaCowgirlSex);
@@ -478,7 +478,7 @@ export class MinervaScene extends BaseContent {
         } else this.addButton(0, "Next", this.minervaLapSex);
     }
 
-    //[Reject]
+    // [Reject]
     private rejectMinervasLove(): void {
         this.clearOutput();
         this.spriteSelect(95);
@@ -509,7 +509,7 @@ export class MinervaScene extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Land]
+    // [Land]
     private dontFlyWithWithMeYouCrazyBitch(): void {
         this.clearOutput();
         this.spriteSelect(95);
@@ -520,8 +520,8 @@ export class MinervaScene extends BaseContent {
         this.outputText(
             '\n\nMinerva looks at you nervously, as if she wants to say something, but then she just smiles and shakes her head.  "<i>Well... now that you\'re safe and sound on the ground, is there anything I can do for you, hun?</i>"'
         );
-        //Randomly present flying option scene in future interactions.
-        //[Talk] [Sex] [Eat] [Fight] [Leave]
+        // Randomly present flying option scene in future interactions.
+        // [Talk] [Sex] [Eat] [Fight] [Leave]
         this.menu();
         this.addButton(0, "Appearance", this.minervaAppearance);
         this.addButton(1, "Talk", this.minervaTalkSelect);
@@ -538,7 +538,7 @@ export class MinervaScene extends BaseContent {
         this.playerMenu();
     }
 
-    //1-2 Repeatable Cute, Romantic Encounter. Only if PC accepted Minerva's feelings. Add to normal encounters.
+    // 1-2 Repeatable Cute, Romantic Encounter. Only if PC accepted Minerva's feelings. Add to normal encounters.
     private repeatableMinervaRomanceScene(): void {
         this.clearOutput();
         this.spriteSelect(95);
@@ -551,7 +551,7 @@ export class MinervaScene extends BaseContent {
         );
 
         this.menu();
-        //[Talk] [Sex] [Eat] [Fight] [Leave]
+        // [Talk] [Sex] [Eat] [Fight] [Leave]
         this.addButton(0, "Appearance", this.minervaAppearance);
         this.addButton(1, "Talk", this.minervaTalkSelect);
         if (this.player.lust >= 33) this.addButton(2, "Sex", this.minervaSexMenu);
@@ -564,7 +564,7 @@ export class MinervaScene extends BaseContent {
     private minervaTalkSelect(bath: boolean = true): void {
         var choices: any[] = [this.talkingToMinervaAboutBackstory];
         if (this.flags[kFLAGS.MINERVA_BACKSTORY_LEARNED] == 0) {
-            //Force first time to talk about her early backstory!
+            // Force first time to talk about her early backstory!
             if (this.flags[kFLAGS.MINERVA_BACKSTORY] == 0) {
                 this.talkingToMinervaAboutBackstory();
                 return;
@@ -575,36 +575,36 @@ export class MinervaScene extends BaseContent {
             choices[choices.length] = this.talkingToMinervaAboutBackstory;
             choices[choices.length] = this.talkingToMinervaAboutBackstory;
         }
-        //3-2 Talk Scene 2 - talks about the spring
-        //-repeatable
+        // 3-2 Talk Scene 2 - talks about the spring
+        // -repeatable
         choices[choices.length] = this.talkAboutTheSpringWithMinerva;
-        //- requires that backstory has been told
-        //- if already romanced Minerva shamefully confesses she may have fathered a granddaughter with her first daughter -repeatable
-        //3-3 Talking Scene 3 - talks about her shark girl daughter
+        // - requires that backstory has been told
+        // - if already romanced Minerva shamefully confesses she may have fathered a granddaughter with her first daughter -repeatable
+        // 3-3 Talking Scene 3 - talks about her shark girl daughter
         if (this.minervaRomanced() && this.flags[kFLAGS.MINERVA_BACKSTORY_LEARNED] == 1)
             choices[choices.length] = this.talkWithMinervaAboutSharkGirlDaughter;
 
-        //3-4 Talk Scene 4 - talks about her corruption
-        //- romance yes only or if you trick her into thinking you love her. - Repeatable until Minerva is purified or corrupted
+        // 3-4 Talk Scene 4 - talks about her corruption
+        // - romance yes only or if you trick her into thinking you love her. - Repeatable until Minerva is purified or corrupted
         if (this.minervaRomanced()) choices[choices.length] = this.talkToMinervaAboutHerCorruption;
-        //3-5 Motherhood
-        //-talks about how she wishes to be a real mother, have an actual loving family and not made from being raped- repeatable
+        // 3-5 Motherhood
+        // -talks about how she wishes to be a real mother, have an actual loving family and not made from being raped- repeatable
         choices[choices.length] = this.minervaMotherhood;
-        //3-6 Bath Time - romance only
-        //Needs an option to be disabled.
+        // 3-6 Bath Time - romance only
+        // Needs an option to be disabled.
         if (bath && this.minervaRomanced()) choices[choices.length] = this.bathTimeTalkWithMinerva;
 
         choices[MinervaScene.rand(choices.length)]();
     }
 
-    //Talking scenes
-    //3-1 Talk Scene 1 - talks about back story pt1 to pt3
-    //-repeatable
-    //Scenes occur in order, starting with part 1 and reset after part 3 is told. Talking is still somewhat random but backstory scenes will trigger in order.
+    // Talking scenes
+    // 3-1 Talk Scene 1 - talks about back story pt1 to pt3
+    // -repeatable
+    // Scenes occur in order, starting with part 1 and reset after part 3 is told. Talking is still somewhat random but backstory scenes will trigger in order.
     private talkingToMinervaAboutBackstory(): void {
         this.clearOutput();
         this.spriteSelect(95);
-        //PART 1
+        // PART 1
         if (this.flags[kFLAGS.MINERVA_BACKSTORY] == 0) {
             this.flags[kFLAGS.MINERVA_BACKSTORY] = 1;
             this.outputText(
@@ -630,7 +630,7 @@ export class MinervaScene extends BaseContent {
             );
             // PC returns to camp.
         }
-        //PART 2
+        // PART 2
         else if (this.flags[kFLAGS.MINERVA_BACKSTORY] == 1) {
             this.flags[kFLAGS.MINERVA_BACKSTORY] = 2;
             this.outputText(
@@ -691,7 +691,7 @@ export class MinervaScene extends BaseContent {
             );
             // PC returns to camp.
         }
-        //PART 3
+        // PART 3
         else {
             this.flags[kFLAGS.MINERVA_BACKSTORY] = 0;
             this.outputText(
@@ -731,12 +731,12 @@ export class MinervaScene extends BaseContent {
             this.outputText(
                 '\n\nReaching out to her, you put an arm around her shoulder, trying to make her feel better.  It seems to help, as the look on her face visibly changes, a tiny smile resurfacing.  "<i>Thank you for listening to my story; I know it was long and boring,</i>" she says with a chuckle.  "<i>You\'re the first sane person to visit me.  Sometimes, harpies come and try to get me to fuck them... it might even be those same harpies from before... anyway, I just want to tell you how much I appreciate you coming to visit me like this,</i>" she explains with a genuine smile.  The siren leans in to give you a small peck on the cheek.'
             );
-            //No Romance:
+            // No Romance:
             if (!this.minervaRomanced())
                 this.outputText(
                     '  "<i>You\'re a good friend to have, and you know that, [name].</i>"'
                 );
-            //Romance:
+            // Romance:
             else
                 this.outputText(
                     "  \"<i>You're a wonderful lover, you know.  I couldn't be happier that you found me.</i>\""
@@ -747,8 +747,8 @@ export class MinervaScene extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //3-2 Talk Scene 2 - talks about the spring
-    //-repeatable
+    // 3-2 Talk Scene 2 - talks about the spring
+    // -repeatable
     private talkAboutTheSpringWithMinerva(): void {
         this.clearOutput();
         this.spriteSelect(95);
@@ -783,12 +783,12 @@ export class MinervaScene extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //3-3 Talking Scene 3 - talks about her shark girl daughter
+    // 3-3 Talking Scene 3 - talks about her shark girl daughter
     private talkWithMinervaAboutSharkGirlDaughter(): void {
         this.clearOutput();
         this.spriteSelect(95);
-        //- requires that backstory has been told
-        //- if already romanced Minerva shamefully confesses she may have fathered a granddaughter with her first daughter -repeatable
+        // - requires that backstory has been told
+        // - if already romanced Minerva shamefully confesses she may have fathered a granddaughter with her first daughter -repeatable
         this.outputText(
             'Telling Minerva that you want to sit down and talk brings a pleasant smile to her face. The siren more than happy to talk with you.  "<i>Well, since you came all this way to see me, I guess we could talk</i>" she says playfully.  "<i>All right, what do you want to know?</i>" she asks as she sits down cross-legged on the soft, pillowy moss across from you.'
         );
@@ -807,12 +807,12 @@ export class MinervaScene extends BaseContent {
             '\n\n"<i>The little one would never leave my side, and I had never been a mother before, so I did the best I could... I played with her, kept her well-fed and taught her all that I could about how to feed herself, how to defend herself and to be wary of her surroundings at all times.  Like a sponge, she absorbed it all.  I really wish I could have had more time with her...</i>" the siren says, sadness bleeding out into her smile.'
         );
 
-        //No romance:
+        // No romance:
         if (!this.minervaRomanced())
             this.outputText(
                 "\n\n\"<i>I think that's enough for now...  I would rather not get into it any further...  It gets... bad after that.  Thank you for listening, though.  Perhaps, some day when we are more familiar, I think I could probably tell you the rest.</i>\"  With her being reluctant to continue, you decide it's time to go.  Saying goodbye to the siren, you leave the tower and head back to camp, leaving Minerva to her thoughts."
             );
-        //Romance:
+        // Romance:
         else {
             this.outputText(
                 '\n\n"<i>I may have told you this already, but there was an incident between us.  She grew up so fast, I didn\'t expect her become an adult in only a few months.  It... it was such a shock to me; I had no idea she would grow that quickly.  If I had, I would have established proper boundaries...</i>" she says, looking down and sighing.  "<i>I guess it could\'ve had something to do with her shark girl nature, as well, the ones I encountered always were sexually aggressive creatures, especially when it came to breeding,</i>" Minerva notes with a sigh and a sour look on her face, clearly not happy with how things went with her daughter.'
@@ -833,8 +833,8 @@ export class MinervaScene extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //3-4 Talk Scene 4 - talks about her corruption
-    //- romance yes only or if you trick her into thinking you love her. - Repeatable until Minerva is purified or corrupted
+    // 3-4 Talk Scene 4 - talks about her corruption
+    // - romance yes only or if you trick her into thinking you love her. - Repeatable until Minerva is purified or corrupted
     private talkToMinervaAboutHerCorruption(): void {
         this.clearOutput();
         this.spriteSelect(95);
@@ -850,7 +850,7 @@ export class MinervaScene extends BaseContent {
         this.outputText(
             "\n\nYou look at her with wide eyes, your gaze automatically shifting to her chest where her hand is.  Quickly noticing your look, she turns away, a little embarrassed that you're just staring at her chest.  \"<i>Anyway.  It's this thing that binds me here; it's why I need to consume the blessed water and fruit of this grove.  At one point, this corruption made me do things I feel great shame for..."
         );
-        //PC told about shark daughter:
+        // PC told about shark daughter:
         if (this.flags[kFLAGS.MINERVA_BACKSTORY_LEARNED] == 1)
             this.outputText(
                 "  You remember my firstborn, the shark girl I had?  Well... not long after she reached maturity, she... well, she got a bit amorous...  She seduced me and I... I mated with her.  I mated with her over and over that night.  I enjoyed it... it was like I couldn't get enough...  I probably got her pregnant...  So shameful...  I impregnated my own daughter and made her bear my grandchild,"
@@ -871,8 +871,8 @@ export class MinervaScene extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //3-5 Motherhood
-    //-talks about how she wishes to be a real mother, have an actual loving family and not made from being raped- repeatable
+    // 3-5 Motherhood
+    // -talks about how she wishes to be a real mother, have an actual loving family and not made from being raped- repeatable
     private minervaMotherhood(): void {
         this.clearOutput();
         this.spriteSelect(95);
@@ -897,19 +897,19 @@ export class MinervaScene extends BaseContent {
             "\n\nWith your foes beaten, you saved a group of scantily clad damsels, a pair of goblins, a harpy, a shark girl, and even a busty cowgirl, each of them eager to thank their hero for saving them from the mean minotaurs that only wanted to rape them.  The silly story of your own bravado draws giggles and snickers from Minerva, completely absorbed with your fabrication, but whether she knows you're lying, you can't tell.  It's clear she is enjoying your story about bringing the thankful ladies back to your camp for a long night of impassioned loving, though."
         );
 
-        //PC vagina:
+        // PC vagina:
         if (this.player.hasVagina()) {
             this.outputText(
                 "\n\nNot wanting to disappoint, you quickly think of another story to tell your "
             );
-            //friend/lover
+            // friend/lover
             if (!this.minervaRomanced()) this.outputText("friend");
             else this.outputText("lover");
             this.outputText(
                 ".  Without further ado, you weave a tale of how you saved a nice herm bee-girl from several of those nasty imps.  The little buggers were trying to rape the nice girl, and you couldn't just stand there and do nothing.  Taking it upon yourself, you beat those smelly imps into a pulp before carrying the grateful herm away.  To find a bee-girl that was a herm is a rare thing, indeed, and this one was just as pretty as her sisters.  She was so grateful for being saved from those little monsters that she gave you a mass of her honey and explained that she only wanted to find someone to have her eggs with.  Being the generous champion you are, you offered to help her out, flirtatiously pulling the curvy girl to you before kissing her.  That night, you spent your time with your grateful damsel, making love and having your womb and rear filled with sticky eggs and bearing the bee-girl's eggy babies for her."
             );
         }
-        //PC cock:
+        // PC cock:
         if (this.player.hasCock()) {
             this.outputText(
                 "\n\nRolling right into another story, you begin to tell Minerva about the time you fought three hundred goblins, yet another fierce battle, with them tearing your clothes off and trying to rape you for your seed.  They would cry, \"<i>We claim this pole for the horde,</i>\" but you wouldn't let them have it without a fight, raising your spear of impregnation, you thrust deep into their ranks, activating your mighty spear's life-giving magics, and flooding the enemy lines with rich, potent streams of power.  Your attack was successful, the thick goopy mess defeating the goblin horde temporarily; they always came back each time though, with greater numbers."
@@ -919,9 +919,9 @@ export class MinervaScene extends BaseContent {
             '\n\nWith your tale over, your audience claps excitedly, the lonely siren quite happy to hear such silly stories.  "<i>Oh, that was wonderful!  You tell such great stories!</i>" she says happily, her tail swaying between her legs.  "<i>It was a lot of fun to listen to, even if it got a bit silly,</i>" she says with a bright smile before looking down, and putting a hand on her toned, flat stomach.  "<i>Those damsels'
         );
         if (this.player.gender == 1) this.outputText(" and those goblins");
-        //PC vagina:
+        // PC vagina:
         else if (this.player.gender == 2) this.outputText(" and that bee-girl");
-        //PC herm:
+        // PC herm:
         if (this.player.gender == 3) this.outputText(", goblins and that bee-girl");
         this.outputText(
             ", if the stories were real, I'm sure you gave them plenty of children.  I wish to one day have kids... to have a great, loving family to call my own.</i>\""
@@ -930,12 +930,12 @@ export class MinervaScene extends BaseContent {
         this.outputText(
             "\n\nShaking your head, you grin and shuffle over to Minerva.  Sitting down with her, you"
         );
-        //Romance:
+        // Romance:
         if (this.minervaRomanced())
             this.outputText(
                 " hug her tightly and kiss her cheek, telling her that she will have children one day, and perhaps you will have to see about helping her with that 'problem.'"
             );
-        //No romance:
+        // No romance:
         else
             this.outputText(
                 " place a hand on her shoulder and give her a comforting smile before telling her that she will have that one day - you're sure of it."
@@ -951,20 +951,20 @@ export class MinervaScene extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //3-6 Bath Time - romance only
+    // 3-6 Bath Time - romance only
     private bathTimeTalkWithMinerva(): void {
         this.clearOutput();
         this.spriteSelect(95);
         this.outputText(
             'Telling Minerva that you want to sit down and talk with her brings a smile to her lips; she certainly didn\'t expect you to want to just chat, but is clearly happy to talk.  "<i>Really?  You want to talk with me?  All right, well, what do you want to know?</i>"  she asks, before looking off to the side, clearly distracted.  "<i>You know... if you don\'t mind, instead of talking, we could take a bath together.  Relax and just spend some time together,</i>" she says with a hopeful look on her face.'
         );
-        //[Yes] [No]
+        // [Yes] [No]
         this.menu();
         this.addButton(0, "Yes", this.bathTimeWithMinerva);
         this.addButton(1, "No", this.noBathTime);
     }
 
-    //[No] // add and take to another talking scene
+    // [No] // add and take to another talking scene
     private noBathTime(): void {
         this.clearOutput();
         this.outputText(
@@ -974,7 +974,7 @@ export class MinervaScene extends BaseContent {
         this.addButton(0, "Next", this.minervaTalkSelect, false);
     }
 
-    //[Yes]
+    // [Yes]
     private bathTimeWithMinerva(): void {
         this.clearOutput();
         this.spriteSelect(95);
@@ -1015,30 +1015,30 @@ export class MinervaScene extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //SEX SCENES!!!!!!!!!
-    //PC Chooses Sex from Minerva's Options:
+    // SEX SCENES!!!!!!!!!
+    // PC Chooses Sex from Minerva's Options:
     private minervaSexMenu(display: boolean = true): void {
         if (display) {
             this.clearOutput();
             this.spriteSelect(95);
             this.outputText("You tell Minerva that, this time, you'd like to have sex with her.");
-            //Default, first time:
+            // Default, first time:
             if (this.flags[kFLAGS.TIMES_MINERVA_SEXED] == 0) {
                 this.outputText(
                     "\n\nMinerva blushes and looks you up and down, looking a little nervous.  \"<i>Well... it's been a long time since I have been with someone, let alone someone who wasn't some domineering beast...  I guess it would be all right, some companionship would be nice..."
                 );
-                //PC cock, add:
+                // PC cock, add:
                 if (this.player.hasCock())
                     this.outputText(" just... not in my vagina, all right?  That's... special.");
                 this.outputText("  Did you have anything specific in mind?");
-                //PC female, add: "
+                // PC female, add: "
                 if (this.player.hasVagina())
                     this.outputText(
                         "  Would you mind how we do it?  You're the one asking, so... would you want me to fuck your ass?  Or... do you want me to try to fit between those sexy hips of yours?"
                     );
                 this.outputText('</i>"');
             }
-            //Dick Too Big - PC exceed capacity
+            // Dick Too Big - PC exceed capacity
             else if (
                 MinervaScene.rand(2) == 0 &&
                 this.player.hasCock() &&
@@ -1047,7 +1047,7 @@ export class MinervaScene extends BaseContent {
                 this.outputText(
                     "Looking at the monstrous mass of your mammoth member, Minerva blushes hard and stares at it with wide eyes.  \"<i>Oh... oh my, that... that's </i>big</i>... I'm sorry, I don't think that's going to fit inside me, how about we try something else?  I'm sure we can come up with something!</i>\"  Minerva says with confidence."
                 );
-            //{Repeated/No romance:
+            // {Repeated/No romance:
             else if (!this.minervaRomanced()) {
                 this.outputText(
                     '\n\nMinerva blushes and looks you up and down, looking a little nervous to have sex, but seemingly more comfortable with the idea.  "<i>Well, I suppose... last time was fun and felt really good, so why not?  Was there anything specific you wanted to do?'
@@ -1058,17 +1058,17 @@ export class MinervaScene extends BaseContent {
                     );
                 this.outputText('</i>"');
             }
-            //Romanced:
+            // Romanced:
             else {
                 this.outputText(
                     "\n\nMinerva blushes and smiles at you, looking pleased that you're eager to spend some quality time with her.  \"<i>Sure, love!  I always have fun when we lie together, and I could use some of our quality time."
                 );
-                //PC cock, add:
+                // PC cock, add:
                 if (this.player.hasCock())
                     this.outputText(
                         "  Since we're together, I'll even let you have my pussy, I bet you like the sound of that!"
                     );
-                //PC female, add:
+                // PC female, add:
                 if (this.player.hasVagina())
                     this.outputText(
                         "  I'd be happy to pound that cute butt of yours and stuff your hot pussy - which would you rather have, my dear?"
@@ -1094,8 +1094,8 @@ export class MinervaScene extends BaseContent {
         this.addButton(9, "Leave", this.repeatEncounterMinerva);
     }
 
-    //4-1= sex scene 1 male/herm:  Anal
-    //-pc pushes Minerva down onto her chest ass up and fucks her ass = needs penis
+    // 4-1= sex scene 1 male/herm:  Anal
+    // -pc pushes Minerva down onto her chest ass up and fucks her ass = needs penis
     private fuckMinervasAsshole(): void {
         this.clearOutput();
         this.spriteSelect(95);
@@ -1161,32 +1161,32 @@ export class MinervaScene extends BaseContent {
             "\n\nYou can't take it any more and, with a cry, unleash your seething, frothy seed into the siren's waiting bowels.  The intense, rough fucking and the feeling of your sweltering seed flooding her bowels sets her off as well, the siren's orgasm bursting around you.  The siren's tight, slick inner walls squeeze around you as her own member blows its load onto the mossy ground.  Minerva's fat phallus throbs and pulses hard, her thick cumvein bulging as it spews its copious load, making a slick, thick puddle beneath her."
         );
 
-        //Moderate cum or less:
+        // Moderate cum or less:
         this.outputText(
             '\n\nYou keep gushing into her until totally spent, her innards swallowing your load without the slightest effort.  "<i>Ahhh... please, let it all out, give me every drop you can muster!</i>" she groans loudly as her tail squeezes around you, not wanting you to leave her body, her tight anal muscles squeezing you so tightly, trying to suck everything she can from your cock.'
         );
-        //High cum:
+        // High cum:
         if (this.player.cumQ() >= 1000)
             this.outputText(
                 '  Your unnatural orgasm keeps pouring into her guts, flooding her interior with sticky cum.  By the time you give out with a gasp of effort, her stomach is visibly bulging, swollen from the amount of cum you have filled her with.  "<i>Ooohhh... fuck... so much...  It looks like I have a baby in there,</i>" Minerva says with a long, drawn out groan, unused to the feeling of having her guts filled up by such hot, thick stuff.'
             );
-        //Very High cum:
+        // Very High cum:
         if (this.player.cumQ() >= 5000)
             this.outputText(
                 '  Your freakish orgasm continues seemingly without end, cascades of jizz pouring into her bowels and through them to her stomach, "<i>Oh gods... oh gods...  S-so much... how are you cumming this much!?</i>"  You keep cumming though, the sheer quantity resulting in a buildup of pressure that sends yet more of your spunk spurting out from her curvy backside.  Finally, when you have finished, Minerva\'s belly is so swollen that she looks like she could give birth any moment, the creamy sperm inside her softly sloshing around.  "<i>Fu... fuck... h-how... s-so much cum...</i>" Minerva babbles as a trail of white slowly drips from her drooling mouth before she swallows it back, "<i>I-I think I can taste it.  I\'ve never felt so full in my life...</i>"'
             );
 
-        //Low to moderate cum volume:
+        // Low to moderate cum volume:
         if (this.player.cumQ() < 1000)
             this.outputText(
                 '\n\nPanting from the rough ass fucking she just received, Minerva slumps forward and sighs, her tail pulling you down on top of her smooth, sweaty body.  "<i>That... that was good, it felt really good...  You know, we could do that again sometime, if you want to,</i>" she says before slowly moving and pulling her hips away from yours so she can turn to face you, putting her arms around you for some after-sex cuddling, the blue and gray siren nuzzling your neck gently before giving you a peck on the neck.'
             );
-        //{High to moderate cum volume:
+        // {High to moderate cum volume:
         else if (this.player.cumQ() < 5000)
             this.outputText(
                 "\n\nGroaning from being filled so much, Minerva puts a hand on her now swollen belly and pushes, clearly feeling the thick stuff sloshing around inside, her belly giving a soft gurgle from being so stuffed.  Sighing, she props herself up before slowly pulling her hips forward to get you out, then turning and pulling you close for some after-sex cuddling, the sweet blue siren nuzzling your neck before giving you a little peck.  Now that you're not plugging her up, your copious load gushes from her stretched rear, oozing down her round ass and pooling under her flared thighs."
             );
-        //Very high cum volume:
+        // Very high cum volume:
         else
             this.outputText(
                 "\n\nGasping and gurgling softly, Minerva does her best to hold in the veritable pond of jizz you shot into her.  Her hands keep running up and down the huge, swollen belly she has now, clearly amazed that she was able to withstand such a ridiculous stuffing.  Swallowing again, she slowly pulls away from you, clearly needing to let off the pressure.  As soon as your " +
@@ -1199,13 +1199,13 @@ export class MinervaScene extends BaseContent {
         );
 
         if (!this.minervaRomanced()) {
-            //First time ending:
+            // First time ending:
             if (this.flags[kFLAGS.TIMES_BUTTFUCKED_MINERVA] == 0) {
                 this.outputText(
                     "\n\nMinerva actually seems a little sad that you're leaving.  \"<i>I guess you are a busy person.  But I'm glad we did this; it was a lot of fun.  And... you know... I wouldn't mind if we did this again soon...</i>\" she says with a small, hopeful smile on her face.  You promise her that you'll try to come back again soon.  Though looking nervous, Minerva approaches you and pulls you into a hug, happy that you at least say that you will return to visit."
                 );
             }
-            //Repeated ending:
+            // Repeated ending:
             else {
                 this.outputText(
                     "\n\nSeeing that you have to leave again draws a disappointed sigh from the lonely siren.  \"<i>Well, if you have to go... come back soon, though; we can do this again, if you want.  I know I've enjoyed our encounters,</i>\" she explains with a genuine smile on her slightly angular face.  You promise her that you'll try to come back again soon.  Clearly happy with your promise, Minerva pulls you into a hug, giving you a small peck on the neck before sending you on your way."
@@ -1216,7 +1216,7 @@ export class MinervaScene extends BaseContent {
                 "\n\nThe lovestruck siren sighs and sits up, looking up at you with affection clearly written on her face.  \"<i>I hope you'll come back soon, I always feel so much happier when you're around,</i>\" she says as she brings a hand to her chest, holding it over her heart.  The gentle herm pulls you into a deep hug before engaging you in a tongue-tangling kiss.  Grinning ear to ear, Minerva finally lets you go, albeit reluctantly, allowing you to leave her tower and return to your camp."
             );
         }
-        //PC returns to main camp menu
+        // PC returns to main camp menu
         this.flags[kFLAGS.TIMES_BUTTFUCKED_MINERVA]++;
         this.player.orgasm();
         this.dynStats("sen", -1);
@@ -1224,8 +1224,8 @@ export class MinervaScene extends BaseContent {
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //4-2= sex scene 2:  Cowgirl
-    //normal/pure  - Cowgirl position, Minerva on top needs penis.
+    // 4-2= sex scene 2:  Cowgirl
+    // normal/pure  - Cowgirl position, Minerva on top needs penis.
     private minervaCowgirlSex(): void {
         this.clearOutput();
         this.spriteSelect(95);
@@ -1238,13 +1238,13 @@ export class MinervaScene extends BaseContent {
         this.outputText(
             " ask if Minerva would like to give her female parts some pleasure, promising to allow her control of the pace."
         );
-        //First time:
+        // First time:
         if (this.flags[kFLAGS.TIMES_MINERVA_COWGIRLED] == 0) {
             this.outputText(
                 "  Minerva looks unsure, the siren biting her lip and looking a little away from you, \"<i>I don't know.  That's... special...  After the things I have been through, I don't want to just do it with anyone.  You... </i>have<i> been really nice to me though... I guess I can trust you.</i>\""
             );
         }
-        //Repeated:
+        // Repeated:
         else
             this.outputText(
                 '  Minerva runs a hand through her hair and smiles, "<i>Well... the last time was quite nice, I think it could be fun.  Sure, let\'s do it.</i>"'
@@ -1307,24 +1307,24 @@ export class MinervaScene extends BaseContent {
             '\n\nYou plead with her, begging her to let you cum.  You NEED to cum, you feel like you\'re going to burst!  You ache for relief.  "<i>Please, let me release myself into your womb!</i>" you cry out to her.  Licking her lips in anticipation, Minerva lets go of your dick, her cum-blocking tentacles relaxing around you and letting the pressure off of your swollen prick.  With a hollow groan of release, you unleash everything you have into her, flooding her waiting womb with your spooge.'
         );
 
-        //Low-moderate cum:
+        // Low-moderate cum:
         if (this.player.cumQ() < 500) {
             this.outputText(
                 '\n\nMinerva shivers in delight as your seed bursts into her tight, hungry cunt, the tightness of her walls making sure not a drop is wasted.  The hundreds of cilia squirm around,  drawing your cum up and into her waiting womb, "<i>Yesss... let it all out, let me feel your warmth in my belly.</i>"'
             );
         }
-        //Moderate-high cum:
+        // Moderate-high cum:
         else if (this.player.cumQ() < 4000)
             this.outputText(
                 "\n\nYour blissful release surges from you like froth from an over-shaken champagne bottle, gushing into Minerva's cunt with such eagerness that it barely needs her threshing cilia to draw it up into her belly, which becomes visibly bloated after your deposit.  \"<i>Oh!  Oh!  W-wow!  That... that's a lot.  So warm... I feel... so heavy now.  If I could, I bet you would have gotten me pregnant with all that,</i>\" she croons as she strokes her rounded, swollen tummy."
             );
-        //Very high cum:
+        // Very high cum:
         else
             this.outputText(
                 "\n\nThe idle thought that Minerva may have bitten off more than she can chew by holding back your orgasm races across your brain, but is scattered like dust on the wind by the bliss of release.  Minerva's belly explosively inflates as gush after frothy gush of copious spunk floods her womb, making it balloon out until it is lying on your own belly, heavy and full.  Minerva's eyes widen as her belly swells bigger and bigger, her trim, firm stomach soon appearing like she was carrying a whole litter of baby shark girls inside her.  Her hands gently stroke her huge, drum-tight belly, the massive load gently sloshing around in her womb.  \"<i>G-geez... how can you let out so much...  Oh gods... so much...  You could knock up a whole village with all this stuff.</i>\""
             );
 
-        //Moderate-very high only:
+        // Moderate-very high only:
         if (this.player.cumQ() >= 500) {
             this.outputText(
                 "\n\nNot nearly done, but needing to let off a bit of your load so the fun can continue, Minerva slowly rises from your " +
@@ -1366,7 +1366,7 @@ export class MinervaScene extends BaseContent {
                 '\n\nUndeterred by your orgasm, Minerva continues to bounce up and down, biting her lip as she hugs you tightly.  Curling her legs under you as she slams her hips down in her own orgasm.  She shudders as her climax fills her, her own forearm-length cock swelling and pulsing, a cool stream of siren sperm lancing out, flying well over you and splattering against moss and stone.  Panting and groaning, Minerva holds her swelling stomach, her hands running over the smooth, taut flesh and feeling how your creamy cum swirls inside her.  "<i>Ooohh... you let out so much... Look at my belly all swollen... looks a bit like I\'m pregnant,</i>" she states with a soft, hopeful tone in her voice.'
             );
         }
-        //High:
+        // High:
         if (this.player.cumQ() >= 500 && this.player.cumQ() < 4000) {
             this.outputText(
                 "\n\nMinerva's belly almost doubles in size as your massive load adds itself to that which remained from the last orgasm.  Gritting her teeth, she groans as her middle is stretched by your huge sperm-filled load, \"<i>Oh gods, I feel so full.  You can really let it out, can't you?</i>\""
@@ -1377,7 +1377,7 @@ export class MinervaScene extends BaseContent {
             if (this.minervaRomanced()) this.outputText(" with your child");
             this.outputText(".");
         }
-        //Very High:
+        // Very High:
         if (this.player.cumQ() >= 4000) {
             this.outputText(
                 '\n\nYou don\'t know if Minerva could have safely held the entire contents of both this orgasm and the last.  Luckily, this time, she releases most of it to splash back down onto you, but even so, her belly swells rounder and fuller than before, reaching the bloated state of your last orgasm and then some.  Minerva gasps and groans in some discomfort as her belly swells more and more from your torrential flood of jizz, her tummy taut under the sheer amount of cum crammed into her womb.  Finally, to her palpable relief, her swelling stops as a pool of slick spooge forms underneath your bodies, "<i>Ooohh...  How... how did you cum even more this time?  I gotta lay off the venom...</i>"'
@@ -1394,17 +1394,17 @@ export class MinervaScene extends BaseContent {
                     "  \"<i>Oohhh... I'm so... so big... cumming so much, I didn't know you were so desperate to get me pregnant.</i>\""
                 );
         }
-        //Low-to-moderate:
+        // Low-to-moderate:
         if (this.player.cumQ() >= 500)
             this.outputText(
                 "\n\nSighing with satisfaction, Minerva leans down, her sperm-swollen tummy pressing against you and squishing her dick against your body.  It's easy to tell she very much enjoyed the sexual union you just shared.  Not yet pulling out, her tight cunt rhythmically squeezes you as she lies on top of you, her fingers tenderly stroking you.  The siren simply basks in the afterglow of sex."
             );
-        //High:
+        // High:
         else if (this.player.cumQ() < 4000)
             this.outputText(
                 "\n\nSighing and panting, Minerva rubs her jizz-bloated belly, looking positively pregnant.  She leans down, lying over you and caresses her belly against you.  It's easy to tell she very much enjoyed the sexual union you just shared, despite being so full of your cum.  Not yet pulling out, her tight cunt gently squeezes you while she lies on top of you, her fingers tenderly stroking you as she cuddles your body.  The siren simply basks in the afterglow of sex."
             );
-        //Very high:
+        // Very high:
         else
             this.outputText(
                 "\n\nGroaning and shuddering from the intense sperm injection, Minerva looks down at herself, her hands gently squeezing her distended stomach, each squeeze making a bit of your frothy cream gush out from between the tight vaginal connection.  If she wasn't so tight, there would be far less trapped inside her.  It's easy to tell she very much enjoyed the sexual union you just shared.  Not yet pulling out, her tight cunt gently squeezes you as she, with some difficulty, lies down on top of you, her fingers lightly stroking you as she cuddles against you.  The act of trying to cuddle forces more of your virile baby batter out of her body to add to the ever-growing pool of cum on the ground.  The siren sighs, basking in the afterglow of sex."
@@ -1414,18 +1414,18 @@ export class MinervaScene extends BaseContent {
             "\n\nYou let Minerva hold you against her soft, curvy body, recovering your strength from the draining sex you just had.  Eventually, though, your strength returns and you gently pry yourself free of her, telling her that the sex and her company was wonderful and that, despite still being very aroused from all the venom she stung you with, you need to return to camp."
         );
         if (!this.minervaRomanced()) {
-            //Default, first time ending:
+            // Default, first time ending:
             if (this.flags[kFLAGS.TIMES_MINERVA_COWGIRLED] == 0)
                 this.outputText(
                     "\n\nMinerva actually seems a little sad that you're leaving.  \"<i>I guess you are a busy person.  But I'm glad we did this; it was a lot of fun.  And... you know...  I wouldn't mind if we did this again soon,</i>\" she suggests with a small, hopeful smile on her face.  You promise her that you'll try to come back again soon."
                 );
-            //Repeated ending:
+            // Repeated ending:
             else
                 this.outputText(
                     "\n\nSeeing that you have to leave again draws a disappointed sigh from the lonely siren.  \"<i>Well, if you have to go... come back soon, we can do this again if you want!  I know I've enjoyed our encounters,</i>\" she insists with a genuine smile on her slightly angular face.  You promise her that you'll try to come back again soon, then take your leave."
                 );
         }
-        //Romanced ending:
+        // Romanced ending:
         else
             this.outputText(
                 "\n\nThe lovestruck siren sighs and sits up, looking up at you with affection clearly written on her face.  \"<i>I hope you'll come back soon; I always feel so much happier when you're around,</i>\" she says as she brings a hand to her chest, holding it over her heart."
@@ -1437,8 +1437,8 @@ export class MinervaScene extends BaseContent {
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //SEX SCENE 2.5 female/herm: LAP SEX
-    //PC in Minerva's lap getting fucked by Minerva:
+    // SEX SCENE 2.5 female/herm: LAP SEX
+    // PC in Minerva's lap getting fucked by Minerva:
     private minervaLapSex(): void {
         var x: number = this.player.cockThatFits(this.minervaACapacity());
         if (x < 0) x = this.player.smallestCockIndex();
@@ -1468,7 +1468,7 @@ export class MinervaScene extends BaseContent {
         this.outputText(
             "\n\nMinerva's hands slide down to grope and squeeze your ass tightly, kneading your [butt] with aggressive fingers.  \"<i>You're so damn sexy, you know that?</i>\" she compliments, as her tentacles squirm around inside your body, teasing and stinging you further to help your arousal.  The venom inside you, and the feeling of her tentacles, leave you panting and groaning, all the while, her hands explore your body, touching you teasingly."
         );
-        //PC herm:
+        // PC herm:
         if (this.player.gender == 3)
             this.outputText(
                 "  One of her hands trail down to your hard herm " +
@@ -1491,12 +1491,12 @@ export class MinervaScene extends BaseContent {
         this.outputText(
             "\n\nLetting out a groan, your lover can't seem to take it any longer and pulls you down into her lap."
         );
-        //Nonvirgin:
+        // Nonvirgin:
         if (!this.player.hasVirginVagina())
             this.outputText(
                 "  The thick siren prick plunges into your soaked cunt and fills your sweltering hole with her oddly cool cock, both of you groaning in delightful pleasure."
             );
-        //Virgin:
+        // Virgin:
         else
             this.outputText(
                 "  The thick siren prick plunges into your soaked cunt, filling your sweltering pussy with her oddly cool cock, in the process tearing right through your hymen, claiming your first fuck for herself as you bite back a pained yelp, though it is quickly displaced by the pleasure from the stimulation and venom."
@@ -1528,20 +1528,20 @@ export class MinervaScene extends BaseContent {
         this.outputText(
             "\n\nThe feeling of being stuffed by such a cool, thick, and sticky fluid sends you spiraling over the edge in a mind-blowing orgasm.  Back arching and hands gripping the ground as you let out a piercing cry, your [vagina] clenches tightly and quivers around the invading member"
         );
-        //PC herm:
+        // PC herm:
         if (this.player.hasCock()) {
             this.outputText(", your own throbbing phallus");
             if (this.player.cockTotal() > 1) this.outputText("es");
             this.outputText(" cumming alongside,");
-            //{Low-moderate cum:
+            // {Low-moderate cum:
             if (this.player.cumQ() < 500)
                 this.outputText(" gushing your cum all over both of your bellies");
-            //High cum volume:
+            // High cum volume:
             else if (this.player.cumQ() < 4000)
                 this.outputText(
                     " splattering thick splooge all over you and Minerva, caking your torsos in fertile jizz"
                 );
-            //Very high cum:
+            // Very high cum:
             else
                 this.outputText(
                     " exploding out onto your unsuspecting bodies, thick ropes of starkly white sperm gushing over your bodies, quickly dousing both of you in buckets of cum and pooling on the ground"
@@ -1566,20 +1566,20 @@ export class MinervaScene extends BaseContent {
         );
 
         if (!this.minervaRomanced()) {
-            //Default, first time:
+            // Default, first time:
             if (this.flags[kFLAGS.TIMES_MINERVA_LAPSEXED] == 0) {
                 this.outputText(
                     "\n\nMinerva actually seems a little sad that you're leaving.  \"<i>I guess you are a busy person.  But I'm glad we did this, it was a lot of fun.  And... you know...  I wouldn't mind if we did this again, soon,</i>\" She suggests with a small, hopeful smile on her face.  You promise her that you'll try to come back again soon."
                 );
             }
-            //Default, repeated:
+            // Default, repeated:
             else {
                 this.outputText(
                     "\n\nSeeing that you have to leave again draws a disappointed sigh from the lonely siren.  \"<i>Well, if you have to go... come back soon, we can do this again if you want!  I know I've enjoyed our encounters,</i>\" she insists with a genuine smile on her slightly angular face.  You promise her that you'll try to come back again soon."
                 );
             }
         }
-        //Romanced:
+        // Romanced:
         else
             this.outputText(
                 "\n\nThe lovestruck siren sighs and sits up, looking up at you with affection clearly written on her face.  \"<i>I hope you'll come back soon, I always feel so much happier when you're around,</i>\" she says as she brings a hand to her chest, holding it over her heart."
@@ -1592,9 +1592,9 @@ export class MinervaScene extends BaseContent {
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //4-5= sex scene 4: Hermy oral
-    //(tool tip: There is a LITTLE bit of ball kissing on the pc's part)
-    //any- PC goes down on Minerva for some oral fun.
+    // 4-5= sex scene 4: Hermy oral
+    // (tool tip: There is a LITTLE bit of ball kissing on the pc's part)
+    // any- PC goes down on Minerva for some oral fun.
     private goDownOnAHermAndLoveItYouDirtySlutYou(): void {
         this.clearOutput();
         this.spriteSelect(95);
@@ -1639,7 +1639,7 @@ export class MinervaScene extends BaseContent {
         this.outputText(
             "\n\nNow ready to give her your full attention, you dive in, your lips pressing against her nethers as your tongue slides in, giving her a perverted tongue filled kiss.  Your teasing tongue slides in deep and pleasures her inner walls, licking and lapping at every sensitive surface it can reach.  As you lick, you can clearly feel the squirming cilia that cover the quivering depths of her cunt, the little squirming things tickling your tongue as you lick.  "
         );
-        //Dragon/Demon tongue
+        // Dragon/Demon tongue
         if (this.player.tongueType == TONUGE_DEMONIC || this.player.tongueType == TONUGE_DRACONIC)
             this.outputText(
                 'Your deliciously long tongue slithers deeper and deeper, reaching sensitive walls and nerves that only the deepest penetrations would reach.  The deep licking makes Minerva shudder and let out a long drawn out moan, "<i>O-oh!  Your tongue is so... licking me so deep...</i>"'
@@ -1652,8 +1652,8 @@ export class MinervaScene extends BaseContent {
             "\n\nNot wanting her to cum too soon, you pull your mouth back from her tight, cilia-filled snatch, drawing a disappointed moan from Minerva, clearly missing having your tongue inside her.  Licking your lips, you can still taste her delightful juices.  With your face so close to her genitals and her so close to orgasm, you have a few options to push her over.  Dig back into her creamy cunt, or give her needy, swollen balls some attention."
         );
 
-        //[Balls] [No balls]
-        //-if balls clicked, use this paragraph
+        // [Balls] [No balls]
+        // -if balls clicked, use this paragraph
         this.menu();
         this.addButton(0, "Balls", this.lickMinervasBalls);
         this.addButton(1, "No Balls", this.noBallsMinervaAndContinuation);
@@ -1698,7 +1698,7 @@ export class MinervaScene extends BaseContent {
         this.outputText(
             '\n\nThe intense sexual crescendo leaves her panting and sweaty as she struggles to stay up, her entire body shaking like jelly.  "<i>Oh... oh, [name], that was amazing.  Gods... I came so hard, from both my dick and cunt...  You\'re amazing, you know that, hun?  Look at all that seed you made me waste,</i>" she says, looking back at you with a playful grin.  Minerva loosens the hold her tail has on you, giving you the chance to pull back from her juicy nethers'
         );
-        //if demonic tongue:
+        // if demonic tongue:
         if (this.player.tongueType == TONUGE_DEMONIC)
             this.outputText(
                 ", your perversely prehensile tongue slowly retracting from her quivering quim, rubbing and teasing as it comes out and nearly sending the overly sensitive herm into another climax"
@@ -1722,8 +1722,8 @@ export class MinervaScene extends BaseContent {
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //4-6= sex scene 6: Blow job!
-    //any - Minerva sucks off male/herm = needs penis
+    // 4-6= sex scene 6: Blow job!
+    // any - Minerva sucks off male/herm = needs penis
     private letMinervaSuckYouOff(): void {
         var x: number = this.player.cockThatFits(this.minervaVCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
@@ -1741,7 +1741,7 @@ export class MinervaScene extends BaseContent {
         this.outputText(
             "\n\nHearing your request brings an unsure look to Minerva's face.  \"<i>You want me to suck you off?  Well, I guess that wouldn't be so bad...  You're sure about this?  I mean, aren't you a bit freaked out by my teeth?  I promise I would never bite, but still...</i>\"  Undeterred by her sharky features, you answer her.  You know she would not harm you like that.  Guiding her over to one of the fallen pieces of stone, you"
         );
-        //If naga:
+        // If naga:
         if (this.player.isNaga())
             this.outputText(
                 " lounge against the rock, spreading open your protective slit and letting your " +
@@ -1761,19 +1761,19 @@ export class MinervaScene extends BaseContent {
                 " and slowly starts to stroke it.  Her eyes looking up at you, she leans in and starts to gently lick your hardening flesh with the tip of her tongue.  Under her careful, deliberate attentions your manhood is quickly brought to full attention."
         );
 
-        //if cock area 21+:
+        // if cock area 21+:
         if (this.player.cockArea(x) < 21) {
         } else if (this.player.cockArea(x) < 34) {
             this.outputText(
                 "\n\nMinerva's eyes widen as your dick grows before her eyes.  \"<i>Goodness, you have a pretty good size, don't you?  I'm going to make you feel really good.</i>\""
             );
         }
-        //if cock area 34+:
+        // if cock area 34+:
         else if (this.player.cockArea(x) < 60)
             this.outputText(
                 "\n\nMinerva's eyes widen as your dick grows and grows, quickly growing almost as large as her own sizable package.  \"<i>Wow, you're hung, aren't you?  I'll do my best to take everything... wow,</i>\" she says with a blush on her face."
             );
-        //if cock area 60+:
+        // if cock area 60+:
         else
             this.outputText(
                 "\n\nMinerva's eyes widen and her mouth opens in shock as your dick grows and grows... and grows, quickly dwarfing her own sizable package.  \"<i>G-geez, what a huge dick, it's enormous...</i>\" she says with wonder in her voice.  Gulping, she licks her lips.  \"<i>W-well... I'll do my best to take all of it...</i>\"  A little nervousness is mixed into her voice, but with how tall she is, you're sure she could take it all."
@@ -1787,7 +1787,7 @@ export class MinervaScene extends BaseContent {
                 " of your throbbing, needy dick."
         );
 
-        //If balls:
+        // If balls:
         if (this.player.balls > 0)
             this.outputText(
                 "  Her hand on your hip moves down between your legs, sliding inwards to gently caress and massage your cum-filled [balls] to increase your pleasure even more, her hands trying their best to get your nuts worked up and prepare a good load for her at the end."
@@ -1796,7 +1796,7 @@ export class MinervaScene extends BaseContent {
         this.outputText(
             "\n\nHolding the kiss for a moment, your siren lover slides her tongue out, slowly teasing around the tip.  She look up at you briefly, before a playful smirk slips across her face, her tongue extending from her mouth like a snake, the long appendage coiling around your length and constricting around you tightly, sending shudders of pleasure through your body.  The oral embrace feels tight, wet and cool around your comparatively hot dick, the tip of her tongue teasing the underside of your hard flesh"
         );
-        //If balls:
+        // If balls:
         if (this.player.balls > 0) this.outputText(" before licking and teasing your [balls]");
         this.outputText(".");
 
@@ -1809,7 +1809,7 @@ export class MinervaScene extends BaseContent {
         this.outputText(
             "\n\nPuckering her glossy black lips, Minerva starts to bob her head, taking in more and more of you with each downwards motion"
         );
-        //If cockarea 50+:
+        // If cockarea 50+:
         if (this.player.cockArea(x) >= 50)
             this.outputText(
                 ", your huge cock deep inside her mouth, and soon far down her throat.  With some difficulty, her slightly angular nose presses down against your crotch, every inch of your " +
@@ -1826,7 +1826,7 @@ export class MinervaScene extends BaseContent {
             "\n\nThe furiously teasing tongue-action, coupled with the powerful sucking, leaves you braced against the rock, groaning in sweet pleasure as Minerva works your dick, practically worshiping your manhood, her tongue licking and wrapping around you as she sucks and pulls you deep inside.  With how good her mouth is, you're glad she can't sting you with her aphrodisiac in this situation, or she would surely reduce you to a quivering pile of lust."
         );
 
-        //If vagina:
+        // If vagina:
         if (this.player.hasVagina())
             this.outputText(
                 "\n\nExtending her tongue as far as she can, Minerva slithers it further from her mouth and down to your womanhood, her demonic tongue licking around your puffy lips before snaking its way inside to cause you more pleasure, licking and squirming against your walls and making you gasp and quiver under her attentions."
@@ -1847,22 +1847,22 @@ export class MinervaScene extends BaseContent {
                 " bloating with each ejaculation.  Eager to please, Minerva does her best to drink down every drop you give her, her hands gripping your [hips] and pressing her nose against your crotch, puckering her full black lips around your [sheath]."
         );
 
-        //Low cum:
+        // Low cum:
         if (this.player.cumQ() < 500)
             this.outputText(
                 "\n\nFeeling your orgasm burst inside her, Minerva's long tongue licks up every drop as she keeps sucking you hard, determined to milk as much as she can from you.  Not lasting very long, your climax dies down, leaving you panting as Minerva slowly pulls her tongue off of you and licks her lips, leaning back from your saliva-soaked cock.  \"<i>Mmm, did you like that?  I didn't do too bad, did I?  And, you know, you don't taste too bad, either,</i>\" she says with a shark-like grin before licking your tip.  \"<i>I wouldn't mind doing this again with you.</i>\""
             );
-        //Moderate cum:
+        // Moderate cum:
         else if (this.player.cumQ() < 1000)
             this.outputText(
                 "\n\nFeeling your orgasm burst inside her, Minerva's long tongue licks up every drop as she keeps sucking you hard, your load slightly bigger than she had thought, your warm seed filling her mouth and completely drenching her tongue in the sticky stuff.  Lasting about a minute, your powerful, breathtaking climax dies down as your siren lover swallows one last time, her tongue licking you a bit longer just to make sure, before popping off your saliva-drenched dick.  \"<i>Mmm, that was pretty good, and you let out more than I expected!  I didn't do too bad, did I?  You don't taste too bad either, either, you know</i>\" she says with a shark-like grin before licking your tip.  \"<i>I wouldn't mind doing this again with you.</i>\""
             );
-        //High cum:
+        // High cum:
         else if (this.player.cumQ() < 4000)
             this.outputText(
                 "\n\nFeeling your orgasm suddenly burst inside her, Minerva's long tongue licks up every drop as she keeps sucking you hard, your load notably bigger than she thought it would be, flooding her mouth and puffing out her cheeks, forcing her to struggle to swallow and gulp down your thick, copious load.  Lasting well over a minute, your stomach-filling ejaculations finally end, and Minerva pops off your cum hose with a deep sigh, some of your pearly cream running down her chin before being licked up by that delightfully long tongue of hers.  \"<i>W-wow... that was quite the load.  I'm impressed, I wasn't expecting to get such a... filling meal like this, but you taste pretty good.  And I don't think I'm too bad at giving head, either, considering how much I made you cum,</i>\" she says with a shark-like grin and a gentle pat on her slightly swollen tummy.  \"<i>I wouldn't mind doing this again with you.</i>\""
             );
-        //holy shit cum volume:
+        // holy shit cum volume:
         else
             this.outputText(
                 "\n\nFeeling your orgasm suddenly burst inside her, Minerva's long tongue licks up every drop as she keeps sucking you hard, your colossal load far more than she was expecting.  Like a great flood, your sperm gushes into her sucking mouth, quickly overflowing Minerva despite her constant swallowing and attempts to contain it, her stomach rapidly bloating under the intense flow.  Choking and gagging on the thick cream filling her throat, Minerva squeezes her eyes shut, not about to give up and pull away.  She swallows great gulps of your thick, hot cum, but can't catch it all and some begins to gush from her nose and the seal of her lips.\n\nWith your orgasm lasting for what has to be several minutes, you let out a long, satisfied groan as your sperm fountain of a cock is finally released from Minerva's sucking mouth.  The filled up siren groans and leans back, a hand on her bloated, cum-stuffed belly, her chest and face plastered with your thick, white cream.  Coughing a couple of times to free her throat and sinuses from your jizz, she stares up at you with shock and awe.  \"<i>Gods... I had no idea you could cum so much, I've never seen such a potent " +
@@ -1873,15 +1873,15 @@ export class MinervaScene extends BaseContent {
         this.outputText(
             "\n\nDeciding to relax for a while after your sexual exertion, you curl up on the soft moss with Minerva, both of you just basking in the warmth that the spring gives off, and the softness of the moss, content with each other's presence.  Unfortunately, you know you have to go; the call of your duty to this land is too great, and despite the comfort of this place, you must go.  Pulling away from the siren you promise to return and visit her soon."
         );
-        //PC returns to camp.
+        // PC returns to camp.
         this.player.orgasm();
 
         if (this.getGame().inCombat) this.cleanupAfterCombat();
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //4-4= sex scene 4:  hand held behind
-    //any- pc fucks Minerva, holding min's wrists from behind
+    // 4-4= sex scene 4:  hand held behind
+    // any- pc fucks Minerva, holding min's wrists from behind
     private fuckMinervaWithHerHandsBehindHerBack(): void {
         var x: number = this.player.cockThatFits(this.minervaVCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
@@ -1923,7 +1923,7 @@ export class MinervaScene extends BaseContent {
                 this.cockDescript(x) +
                 " into her with only a few hard, deep thrusts.  With your hips pressed against Minerva's accepting body, you grind against her, making sure she can feel every inch moving inside her clinging cunt."
         );
-        //If balls:
+        // If balls:
         if (this.player.balls > 0)
             this.outputText(
                 "  As you continue to pound the siren, your [balls] swing between your legs, the sperm-filled orbs churning with your fertility, preparing to fill the needy siren with every drop you can muster when you let loose your eventual orgasm."
@@ -1959,19 +1959,19 @@ export class MinervaScene extends BaseContent {
             "\n\nWith your body so stimulated, so aroused by the tight, passionate fuck, and the potent anemone venom coursing through you, you can't hold out a minute longer under the siren's orgasmic assault.  Letting out what can only be described as a primal roar of dominance, you ram your hips against Minerva, letting go of her wrists and grabbing her flanks tightly, spearing your throbbing cockmeat into her desperately quivering quim and let loose your hot, frothy load into her belly."
         );
 
-        //Low-moderate cum:
+        // Low-moderate cum:
         if (this.player.cumQ() < 500) {
             this.outputText(
                 '\n\nMinerva groans in delight as your seed bursts into her tight, hungry cunt, the tightness of her walls making sure not a drop is wasted, while hundreds of cilia squirm and draw your cum up and into her waiting womb.  "<i>Yesss... let it all out, let me feel your warmth in my belly,</i>" she demands before her eyes roll back, clearly enjoying the wet heat spreading through her clinging cunt and cum craving womb.'
             );
         }
-        //Moderate-high cum:
+        // Moderate-high cum:
         else if (this.player.cumQ() < 1000) {
             this.outputText(
                 '\n\nYour blissful release surges from you like froth from an over-shaken champagne bottle, gushing into Minerva\'s cunt with such eagerness that it barely needs her thrashing cilia to draw it up into her belly, which becomes visibly bloated after your deposit.  "<i>O-oh!  Oh gods!  F-fuuuck!  That... that\'s sooo, so much.  So hot... so full...</i>" she babbles, letting out a long satisfied sigh before looking down at her sperm-bloated belly.  "<i>Oh gods... what if... you get me pregnant with all that?</i>" she croons as she gulps and looks down, a surprisingly happy look on her face.  Perhaps she wants you to knock her up?'
             );
         }
-        //Holy shit!:
+        // Holy shit!:
         else {
             this.outputText(
                 "\n\nYour inhuman load fills the siren's accepting belly with what can only be described as a flood, as gallons of your hot spooge instantly bloat her belly, swelling her womb like a balloon of raw fertility."
@@ -1998,15 +1998,15 @@ export class MinervaScene extends BaseContent {
         this.outputText(
             "\n\nWith an amused grin, you give the sharky herm a pat on the rump before heading out, your hand sliding along that sexy tail of hers as you let the well-fucked woman rest."
         );
-        //PC returns to camp
+        // PC returns to camp
         this.dynStats("sen", -1);
         this.player.orgasm();
         if (this.getGame().inCombat) this.cleanupAfterCombat();
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //4-9= sex scene 9: lesing out
-    //pure/normal - pc gets eaten out
+    // 4-9= sex scene 9: lesing out
+    // pure/normal - pc gets eaten out
     private pcGetsEatenOutByMinerva(): void {
         this.clearOutput();
         this.spriteSelect(95);
@@ -2046,12 +2046,12 @@ export class MinervaScene extends BaseContent {
             "\n\nWith a lick of her lips, the siren starts her sexual stimulation.  Leaning in, she plants a kiss on your [vagina], giving your womanly flower a long, slow kiss before sliding her tongue out and licking you, her tongue dragging across your pussy from bottom to top, teasing you as shivers of sweet pleasure run through your body.  As her long tongue teases you, the tip dancing along the outside of your sex, yet never sliding inside.  Her fingers gently caress your vulva, rubbing and stroking you as her perverse oral appendage plays with your entrance."
         );
 
-        //If herm:
+        // If herm:
         if (this.player.gender == 3)
             this.outputText(
                 "\n\nLicking her way up, she drags her tongue up to your hardening maleness, her perversely prehensile tongue coiling around your growing cock and, like a snake, squeezing down around the swelling mass, drawing a gasp of delight from your lips as the long demonic tongue slowly slithers off you, squeezing you even as it uncoils from you and slides back down."
             );
-        //If balls:
+        // If balls:
         if (this.player.balls == 0)
             this.outputText(
                 "\n\nThe siren's tongue proceeds to slither around your spunk-filled nuts, slapping them with her tongue before opening her maw and sucking on one of the fertile orbs, nearly sucking it into her mouth, before moving back to down to your quivering cunt."
@@ -2096,7 +2096,7 @@ export class MinervaScene extends BaseContent {
             "\n\nUnfortunately... or perhaps fortunately, Minerva is not yet done with you.  Licking her lips clean from your juices, she leans back in and draws her tongue up your still quivering cunt.  The slow, teasing touch on your freshly orgasmic flesh feels even better than before, your eyes snapping wide open as you gasp from the sensation.  Grinning her sharky grin, Minerva digs in again, her hands reaching around and grabbing hold of your [butt] before opening her mouth wide and clamping down on you, enclosing your feminine sex inside her cool, wet mouth, her tongue lashing out and spearing into you again, delving deeper then ever before, licking walls that had been left untouched by the siren."
         );
 
-        //If dick:
+        // If dick:
         if (this.player.hasCock())
             this.outputText(
                 "\n\nOne of her hands slides back from your rear and across your flesh to your swollen, untouched cock, her soft hand closing around your member and stroking you as she works to send you plummeting back into that ocean of heavenly delights."
@@ -2111,7 +2111,7 @@ export class MinervaScene extends BaseContent {
         );
 
         this.outputText("\n\n");
-        //If dick:
+        // If dick:
         if (this.player.hasVagina())
             this.outputText(
                 "Thanks to her handy stimulation, your musky maleness throbs and dilates along your femininity, the thick cockvein feeding your bloating member as your seed rushes out, splattering up and onto Minerva's back, defiling her smooth skin with your fertility.  "
@@ -2128,7 +2128,7 @@ export class MinervaScene extends BaseContent {
             "\n\nNearly an hour goes by as you rest from your orgasms at the hands of Minerva's skilled mouth and tongue.  Stirring softly, you feel the siren cuddled up next to you, her bright, electric blue eyes looking at you tenderly as you awaken, perhaps even watching you as you slept.  Slowly sitting up, you stretch and yawn, feeling somewhat rejuvenated from the pleasurable sex and brief nap.  You let out a content sigh and look around for your clothes, only to remember that you never took them off in the first place, though it seems they have been fixed up by the dutiful siren.  Though you had a wonderful time with the scantily clad hermaphrodite, you must return to your duties as a Champion."
         );
         if (!this.minervaRomanced()) {
-            //First time ending:
+            // First time ending:
             if (this.flags[kFLAGS.MINERVA_LEZZES_OUT] == 0)
                 this.outputText(
                     "\n\nMinerva actually seems a little sad that you're leaving.  \"<i>Well, I guess you are a busy person.  But I'm glad we did this though, it was a lot of fun.  And, you know... I wouldn't mind if maybe we could do this again, soon,</i>\"  she says with a small, hopeful smile on her face.  You promise her that you'll try to come back again soon."
@@ -2138,7 +2138,7 @@ export class MinervaScene extends BaseContent {
                     "\n\nSeeing that you have to leave again draws a disappointed sigh from the lonely siren.  \"<i>Well, if you have to go... come back soon, we can do this again, if you want...  I know I've enjoyed our encounters,</i>\" she says with a genuine smile on her slightly angular face.  You promise her that you'll try to come back again soon."
                 );
         }
-        //Romanced ending:
+        // Romanced ending:
         else
             this.outputText(
                 "\n\nThe lovestruck siren sighs and sits up, looking up at you with affection clearly written on her face.  \"<i>I hope you'll come back soon, I always feel so much happier when you're around,</i>\" she says as she brings a hand to her chest, holding it over her heart.  Smiling down at the tender woman, you promise her that you'll try to come back again soon and visit her."
@@ -2155,7 +2155,7 @@ export class MinervaScene extends BaseContent {
     public loseToMinerva(): void {
         this.clearOutput();
         this.spriteSelect(95);
-        //PC loss by physical
+        // PC loss by physical
         if (this.player.HP < 1) {
             this.outputText(
                 'Falling back from the siren\'s final strike, the blow sends you on your back as you drop your [weapon] in exhaustion.  Thankfully, the soft, pillow-like moss covering the ground softens your fall.  As you lay there, panting and exhausted from the fierce spar you had with the halberd-wielding siren, you hear her approach, laying her weapon on the ground and beginning to tend to your wounds.  "<i>Are you all right, [name]?  Was I too rough on you?</i>" she says with a worried tone in her voice.'
@@ -2169,7 +2169,7 @@ export class MinervaScene extends BaseContent {
             this.inventory.takeItem(this.consumables.PURPEAC, this.camp.returnToCampUseOneHour);
             this.cleanupAfterCombat();
         }
-        //PC loss by Lust
+        // PC loss by Lust
         else {
             this.outputText(
                 'Falling back from the siren\'s final move, the lustful need is too much to ignore as you fall to your knees and drop your [weapon], sliding your hands into your [armor] and fondling yourself.  As you sit there, panting and groaning from the fierce spar you had with the halberd-wielding siren, you hear her approach you, laying her weapon on the ground.  "<i>Are you all right, [name]?  Was I too rough on you?</i>" she says as she looks your needy body over, realizing your predicament.  "<i>G-goodness... did... did I do that to you?</i>"  A blush flooding over her cheeks at seeing her work.'
@@ -2177,17 +2177,17 @@ export class MinervaScene extends BaseContent {
             this.outputText(
                 '\n\n"<i>W-well... don\'t worry, Minerva is going to take care of you, just tell me how you want it, all right?</i>" she says earnestly, clearly intending to finish what she started and help you with your battle induced lust.'
             );
-            //Take PC to sex menu
+            // Take PC to sex menu
             this.minervaSexMenu(false);
             this.addButton(9, "Leave", this.cleanupAfterCombat);
         }
     }
 
-    //Victory text for tainted
+    // Victory text for tainted
     public beatUpDatSharpie(): void {
         this.clearOutput();
         this.spriteSelect(95);
-        //Win by damage
+        // Win by damage
         if (this.monster.HP < 1) {
             this.outputText(
                 'With your final blow against the siren, you send her silver halberd flying from her hands.  The metal weapon skitters across the ground as Minerva herself falls to the soft moss, her sharky skin covered in sweat and bruises as she sits her butt down, letting out a sigh.  "<i>Wow... you sure are something, aren\'t you...  I\'m glad this was just a friendly spar and not a real fight,</i>" she says with a content smile on her face as she looks up at you.  You could swear that she is even blushing a little.  "<i>Such a big strong warrior you are.</i>"'
@@ -2195,10 +2195,10 @@ export class MinervaScene extends BaseContent {
             this.outputText(
                 "\n\nAfter a moment, the siren manages to get up before presenting you with a freshly picked peach and a small sack.  \"<i>I get these gems from the harpies, they seem to like shiny things, but I have no use for them... though I could do with some decorations I guess.  And here's a peach, as well, it'll help you regain your strength... not that you need it with how strong you are...</i>\" she says with a coy chuckle.\n\n"
             );
-            //PC gains 1 purity peach
+            // PC gains 1 purity peach
             this.cleanupAfterCombat();
         }
-        //Win by lust
+        // Win by lust
         else {
             this.outputText(
                 "Your final move finishes the horny siren, her shorts bulging obscenely and soaked with her arousal.  Falling to her knees, Minerva desperately grabs hold of her shorts, yanking them from her curvy hips, letting out a gasp of relief and a moan of need.  Between the lusty herm's legs stands her painfully hard cock, all sixteen thick inches throbbing with desperate need, her thighs soaked in womanly juices.  Minerva's hands grab hold of her cock, stroking herself as she slips a pair of fingers into her quivering, slippery quim.  \"<i>Oh, [name], p-please... ohhh... look what you've done.  So mean, getting me so horny like this,</i>\" she says before letting out a long moan."
@@ -2211,12 +2211,12 @@ export class MinervaScene extends BaseContent {
         }
     }
 
-    //Item/oasis interactions
-    //Purity/Corruption Peach
+    // Item/oasis interactions
+    // Purity/Corruption Peach
     private eatSomethingYouCunt(): void {
         this.clearOutput();
         this.spriteSelect(95);
-        //Acquiring:
+        // Acquiring:
         this.outputText(
             "You walk over to the fruit trees surrounding the spring, examining the strange treats.  You decide that one ripe fruit, one resembling a peach, is the best choice, and pluck it from the tree.  Thanking Minerva for letting you have it, you stow it away safely and head back to camp.\n\n"
         );
@@ -2233,15 +2233,15 @@ export class MinervaScene extends BaseContent {
     C. Mint - Eating the sprig of raw mint is a bit of a stretch, but you manage to gulp it down.  As the strong minty flavor overwhelms your taste buds, your mind feels calmer, and a relaxed sensation spreads through your body.
     // -3 Libido, -10 Lust, intelligence +2
     */
-    //Spring Water
+    // Spring Water
     private getADrinkYouBitch(): void {
         this.clearOutput();
         this.spriteSelect(95);
         this.outputText(
             "You ask Minerva if she's okay with allowing you to drink from her spring.  She replies with a nod, a smile and a casual wave towards the pool.  Making it quite clear that you can drink your fill."
         );
-        //[Bottle] [Drink]
-        //[Drink]
+        // [Bottle] [Drink]
+        // [Drink]
         this.outputText(
             "\n\nApproaching the pristine pond, you kneel on the shore and dip your hands into the water, cupping them together and lifting them out to scoop up a decent drink.  The water is cool and sweet to the taste, and every swallow makes you feel calmer, cleaner, and refreshed.  You drink until your thirst is quenched, feeling purer in both mind and body."
         );

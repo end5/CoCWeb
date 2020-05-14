@@ -9,7 +9,7 @@ import { MaleSpiderMorph } from "./MaleSpiderMorph";
  */
 
 export class MaleSpiderMorphScene extends BaseContent {
-    //Greeting
+    // Greeting
     public greetMaleSpiderMorph(): void {
         this.outputText("", true);
         this.spriteSelect(74);
@@ -17,22 +17,22 @@ export class MaleSpiderMorphScene extends BaseContent {
             "A spider-morph drops out of a tree in front of you, hanging by a single thread of sparkling webbing.  His purple eyes gaze deeply into your own while he looks you up and down.  ",
             false
         );
-        //DANGER MODE:
+        // DANGER MODE:
         if (MaleSpiderMorphScene.rand(2) == 0) {
             this.outputText(
                 "A moment later, he flips down onto his feet and advances, touching his half-hard, foreskin-shrouded cock.  Judging from the glint in his eyes, he plans to force himself upon you!",
                 false
             );
-            //- auto fight
+            // - auto fight
             this.startCombat(new MaleSpiderMorph());
         }
-        //NICE GUY MODE:
+        // NICE GUY MODE:
         else {
             this.outputText(
                 'He breaks into a smile and says, "<i>Hi there!  I haven\'t seen anyone else with a shred of sanity in FOREVER.  Would you mind just, talking with me?</i>"',
                 false
             );
-            //[Fight] [Talk] [Leave]
+            // [Fight] [Talk] [Leave]
             this.simpleChoices(
                 "Fight",
                 this.fightSpiderBoy,
@@ -54,7 +54,7 @@ export class MaleSpiderMorphScene extends BaseContent {
         this.playerMenu();
     }
 
-    //Talk
+    // Talk
     private talkToSpiderBoy(): void {
         this.outputText("", true);
         this.spriteSelect(74);
@@ -77,7 +77,7 @@ export class MaleSpiderMorphScene extends BaseContent {
         this.inventory.takeItem(this.consumables.S_GOSSR, this.camp.returnToCampUseOneHour);
     }
 
-    //*Victory Pretext:rr
+    // *Victory Pretext:rr
     public defeatSpiderBoy(): void {
         this.outputText("", true);
         this.spriteSelect(74);
@@ -115,7 +115,7 @@ export class MaleSpiderMorphScene extends BaseContent {
             );
         if (this.player.gender > 0 && this.player.lust >= 33) {
             this.outputText("\n\nWhat do you do?", false);
-            //[CHOICES]
+            // [CHOICES]
             this.simpleChoices(
                 "Mount",
                 mount,
@@ -131,7 +131,7 @@ export class MaleSpiderMorphScene extends BaseContent {
         } else this.cleanupAfterCombat();
     }
 
-    //Loss selector
+    // Loss selector
     public loseToMaleSpiderMorph(): void {
         var choices: any[] = [];
         if (this.player.hasCock()) choices[choices.length] = 0;
@@ -153,12 +153,12 @@ export class MaleSpiderMorphScene extends BaseContent {
         else this.loseToSpiderBoyVagFucked();
     }
 
-    //*Victory Buttfucko
+    // *Victory Buttfucko
     private victoryButtFuck(): void {
         var x: number = this.player.cockThatFits(this.monster.analCapacity());
         this.outputText("", true);
         this.spriteSelect(74);
-        //*Summary:  Reaming some anus.
+        // *Summary:  Reaming some anus.
         this.outputText(
             "You approach and turn the spider-boy around, pushing the spider's bulbous abdomen aside to give yourself a better view of the his tight, heart-shaped ass.  ",
             false
@@ -292,7 +292,7 @@ export class MaleSpiderMorphScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    //*Victory Frotting? (too biggo)
+    // *Victory Frotting? (too biggo)
     private victoryFrotTheSpoidah(): void {
         this.outputText("", true);
         this.spriteSelect(74);
@@ -385,9 +385,9 @@ export class MaleSpiderMorphScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    //*Victory Cowgirl
+    // *Victory Cowgirl
     private victoryCowgirlRidingOnSpiderBoi(): void {
-        //*Summary: Throw him on his back and mount up on that throbbing, ebon piece of uncut spidercock as he looks to you meekly, panting, needing something to tend to his foreskinned dick so badly...
+        // *Summary: Throw him on his back and mount up on that throbbing, ebon piece of uncut spidercock as he looks to you meekly, panting, needing something to tend to his foreskinned dick so badly...
         this.outputText("", true);
         this.spriteSelect(74);
         this.outputText(
@@ -430,7 +430,7 @@ export class MaleSpiderMorphScene extends BaseContent {
                 " atop the floppy, folded skin that obscures his cockhead.  The drippy arachnid-cock easily slides inside you while your labia push the skin back, exposing his pre-cum-drooling cum-slit to your hot, inner walls.  You can feel him swelling further from the stimulation, his twitching cock trying to stuff you as effectively as possible.",
             false
         );
-        //(virgin check)
+        // (virgin check)
         this.player.cuntChange(this.monster.cockArea(0), true, true, false);
         this.outputText("\n\n", false);
 
@@ -498,14 +498,14 @@ export class MaleSpiderMorphScene extends BaseContent {
                 false
             );
         this.player.slimeFeed();
-        //Pregnancy Goes Here
+        // Pregnancy Goes Here
         this.player.knockUp(PregnancyStore.PREGNANCY_SPIDER, PregnancyStore.INCUBATION_SPIDER, 151);
         this.player.orgasm();
         this.cleanupAfterCombat();
     }
 
-    //*Loss: Get butt-fucked
-    //*Summary: Male only scene for maximum prostate pounding - possible random choice between two positions, plain doggy style or the 'lucky' one, where he will curl you over yourself and fuck you so you can watch his foreskinned spiderboy cock slam your asshole -while- you drip all over your face.
+    // *Loss: Get butt-fucked
+    // *Summary: Male only scene for maximum prostate pounding - possible random choice between two positions, plain doggy style or the 'lucky' one, where he will curl you over yourself and fuck you so you can watch his foreskinned spiderboy cock slam your asshole -while- you drip all over your face.
     private spiderBoyLossMaleButtfuck(): void {
         this.outputText("", true);
         this.spriteSelect(74);
@@ -719,8 +719,8 @@ export class MaleSpiderMorphScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    //*Loss: Impregnation?
-    //*Summary: Vagoozles only!
+    // *Loss: Impregnation?
+    // *Summary: Vagoozles only!
     private loseToSpiderBoyVagFucked(): void {
         this.outputText("", true);
         this.spriteSelect(74);
@@ -902,13 +902,13 @@ export class MaleSpiderMorphScene extends BaseContent {
                 " so much wetter.  You push out another, and another, each ball rubbing against your inner walls before dropping into the slimy pool of goo. After the sixth, you orgasm, ",
             false
         );
-        //[if male/herm]
+        // [if male/herm]
         if (this.player.gender != 2)
             this.outputText(
                 "spraying your cum all over the ground underneath you, each egg squeezing out and prolonging the intense feeling.\n\n",
                 false
             );
-        //[if female/genderless]
+        // [if female/genderless]
         else
             this.outputText(
                 "spraying your juices all over the ground and mixing in with the green slime, soaking your legs, each egg you squeeze out only prolonging the intense feeling.\n\n",

@@ -8,14 +8,14 @@ import { BazaarAbstractContent } from "./BazaarAbstractContent";
 export class FapArena extends BazaarAbstractContent {
     public fapAppearance(display: boolean = true): void {
         if (display) {
-            //[Paragraph: Bazaar description, 1st time]
+            // [Paragraph: Bazaar description, 1st time]
             if (this.flags[kFLAGS.FAP_ARENA_RULES_EXPLAINED] == 0)
                 this.outputText(
                     "\n\nThere is a gigantic tent standing in the clearing, with a large crowd gathering around it.   Perhaps you could investigate and see what is going on inside.",
                     false
                 );
-            //Option labeled "Tent» is available.
-            //[Paragraph: Bazaar description: after 1st time]
+            // Option labeled "Tent» is available.
+            // [Paragraph: Bazaar description: after 1st time]
             else
                 this.outputText(
                     "\n\nA large crowd is gathering around the large tent, probably going for another 'session'.   Perhaps you could join them?",
@@ -23,12 +23,12 @@ export class FapArena extends BazaarAbstractContent {
                 );
         }
     }
-    //Option labeled "Arena» is available.
+    // Option labeled "Arena» is available.
     public fapArenaGOOOO(): void {
         this.outputText("", true);
-        //(set X = longest cock)
+        // (set X = longest cock)
         var x: number = this.player.longestCock();
-        //[1st time]
+        // [1st time]
         if (this.flags[kFLAGS.FAP_ARENA_RULES_EXPLAINED] == 0)
             this.outputText(
                 "As you approach the tent, you notice these people are actually waiting in line, pleasantly chatting with each other.  All varieties of species are there, from cute little goblins and mouse-faced people with rodent-like teeth, to towering centaurs and minotaurs, the latter easily noticed with their strong scent.   You spot the occasional sharp-toothed dog-morph or shark breeder, some traditional incubi and a few tentacled mutants, victims of consuming corrupted vegetation.  There are even a few humans, nonchalantly standing in the waiting line and making conversation, as if some of the others weren't monstrosities.  What strikes you is everyone's perfect civility.  Obviously everyone is used to the place.\n\n",
@@ -39,7 +39,7 @@ export class FapArena extends BazaarAbstractContent {
             "The waiting line advances and you finally end up in front of the tent's entrance guarded by a surprisingly tall goblin.  She looks at you with assessing eyes, suddenly grabs your crotch with her left hand, rubs it for a second, and says, ",
             false
         );
-        //[if dick size < 8 inches]
+        // [if dick size < 8 inches]
         if (this.player.longestCockLength() < 8) {
             this.outputText(
                 "\"<i>I'm afraid you aren't well-endowed enough to take part in our sessions.  Please come back when ",
@@ -48,14 +48,14 @@ export class FapArena extends BazaarAbstractContent {
             if (!this.player.hasCock()) this.outputText("you have a cock.", false);
             else this.outputText("your cock is sufficiently long.", false);
             this.outputText('</i>"', false);
-            //THE FOLLOWING IS CUT - I AINT SELLING GRO+ HERE! NOAP
-            //, or consider buying products in our local shop.</i>\"\n\n", false);
-            //outputText("She redirects you to a small stall near the entrance with various potions stored on shelves.  A poster placed on it reads: "Your dick must qualify to the house's standards.  80 gems for a vial of Gro+, 80 for the session of your life!"
-            //Do you buy products? (Yes/No) //Yes gives you a vial of Gro+, No does nothing. In both cases, the PC is redirected to the Bazaar.
+            // THE FOLLOWING IS CUT - I AINT SELLING GRO+ HERE! NOAP
+            // , or consider buying products in our local shop.</i>\"\n\n", false);
+            // outputText("She redirects you to a small stall near the entrance with various potions stored on shelves.  A poster placed on it reads: "Your dick must qualify to the house's standards.  80 gems for a vial of Gro+, 80 for the session of your life!"
+            // Do you buy products? (Yes/No) //Yes gives you a vial of Gro+, No does nothing. In both cases, the PC is redirected to the Bazaar.
             this.doNext(this.bazaar.enterTheBazaar);
             return;
         }
-        //[if dick size >= 8 inches: 1st time]
+        // [if dick size >= 8 inches: 1st time]
         else if (this.flags[kFLAGS.FAP_ARENA_RULES_EXPLAINED] == 0) {
             this.flags[kFLAGS.FAP_ARENA_RULES_EXPLAINED]++;
             this.outputText(
@@ -120,15 +120,15 @@ export class FapArena extends BazaarAbstractContent {
                 "Everyone nods in agreement, hands and genitalia quivering in excitement.  ",
                 false
             );
-            //[if Corr >40]
+            // [if Corr >40]
             if (this.player.cor > 66) this.outputText("Sounds fun!", false);
-            //[else]
+            // [else]
             else this.outputText("By gods, what are you doing here?", false);
-            //end of condition about PC's corr
+            // end of condition about PC's corr
             this.outputText("\n\nDo you stay?", false);
             this.doYesNo(this.fapArenaPageII, this.bazaar.enterTheBazaar);
         }
-        //[if dick size > 8 inches: after first time]
+        // [if dick size > 8 inches: after first time]
         else {
             this.outputText(
                 '"<i>Welcome back.  Please undress yourself in the backroom and wait with the others in the main room.</i>"\n\n',
@@ -152,16 +152,16 @@ export class FapArena extends BazaarAbstractContent {
                 "Everyone nods in agreement, hands and genitalia quivering in excitement.",
                 false
             );
-            //[if Corr >40]
+            // [if Corr >40]
             if (this.player.cor > 66)
                 this.outputText("  You look forward to this new masturbating session.", false);
             this.doNext(this.fapArenaPageII);
         }
-        //end of condition about PC's first time, display the following
+        // end of condition about PC's first time, display the following
     }
 
     private fapArenaPageII(): void {
-        //Increment 'times fap-arena'ed
+        // Increment 'times fap-arena'ed
         this.flags[kFLAGS.FAP_ARENA_SESSIONS]++;
         this.outputText("", true);
         var x: number = this.player.longestCock();
@@ -193,7 +193,7 @@ export class FapArena extends BazaarAbstractContent {
                 false
             );
         }
-        //end of global condition about PC's corr, display the following
+        // end of global condition about PC's corr, display the following
         this.outputText(
             "You firmly settle your " +
                 this.player.legs() +
@@ -230,33 +230,33 @@ export class FapArena extends BazaarAbstractContent {
 
         // var winner: boolean = true;
         // if (FapArena.rand(100) <= 4) winner = false;
-        //[how the game rolls:
-        //5% chance of losing no matter what.
-        //If that check fails,
-        //Let S be the PC's sensitivity
+        // [how the game rolls:
+        // 5% chance of losing no matter what.
+        // If that check fails,
+        // Let S be the PC's sensitivity
         var s: number = this.player.sens;
-        //D the number of hours since he last came
+        // D the number of hours since he last came
         var d: number = this.player.hoursSinceCum;
         var c: number = 0;
         if (this.player.cocks[x].cockType == CockTypesEnum.DEMON) c = 10;
         else if (this.player.cocks[x].cockType == CockTypesEnum.TENTACLE) c = 5;
         else if (this.player.cocks[x].cockType == CockTypesEnum.LIZARD) c = 3;
         else if (this.player.cocks[x].cockType == CockTypesEnum.HORSE) c = 2;
-        //R the player's lust resistance (0<R<1)
+        // R the player's lust resistance (0<R<1)
         var r: number = kGAMECLASS.lustPercent() / 100;
-        //The game does a roll between 0 and 100, call it N.
+        // The game does a roll between 0 and 100, call it N.
         var n: number = FapArena.rand(100);
-        //We define the PC's stamina as ST = (N-S*R-4*D)/(D+1) + C
+        // We define the PC's stamina as ST = (N-S*R-4*D)/(D+1) + C
         var st: number = c + (n - s * r - 4 * d) / (1.2 + d / 10);
-        //outputText("<B>CHEAT: " + st + "</b> N: " + n + " c: " + c + " s: " + s + " r: " + r + " D: " + d + "\n", false);
-        //If ST is 0 or less, the PC loses.
-        //If ST > 30, the PC wins.
-        //Otherwise the PC's rating is ST, rounded up.]
-        //[if the player loses]
+        // outputText("<B>CHEAT: " + st + "</b> N: " + n + " c: " + c + " s: " + s + " r: " + r + " D: " + d + "\n", false);
+        // If ST is 0 or less, the PC loses.
+        // If ST > 30, the PC wins.
+        // Otherwise the PC's rating is ST, rounded up.]
+        // [if the player loses]
         if (st <= 0) this.doNext(this.createCallBackFunction(this.fapResults, 3));
-        //[else if the player doesn't lose, but doesn't win either - he cums neither first nor last]
+        // [else if the player doesn't lose, but doesn't win either - he cums neither first nor last]
         else if (st < 29.5) this.doNext(this.createCallBackFunction(this.fapResults, 2));
-        //[else, the player wins]
+        // [else, the player wins]
         else this.doNext(this.createCallBackFunction(this.fapResults, 1));
     }
 
@@ -265,7 +265,7 @@ export class FapArena extends BazaarAbstractContent {
         var x: number = this.player.longestCock();
         var num: number = FapArena.rand(50) + 5;
         var tent: boolean = false;
-        //Loses
+        // Loses
         if (place == 3) {
             this.outputText(
                 "You try to focus as much as possible on your right arm and the cum-tube it's holding, but the raw sensations are starting to prove too much for your needy " +
@@ -291,7 +291,7 @@ export class FapArena extends BazaarAbstractContent {
             if (this.player.cumQ() > 1000) this.outputText("unholy", false);
             else if (this.player.cumQ() >= 500) this.outputText("enormous", false);
             else this.outputText("appreciable", false);
-            //(depending on cum production)
+            // (depending on cum production)
             this.outputText(" rope of the creamiest, whitest liquid you've ever produced.", false);
             if (this.player.cockTotal() > 1)
                 this.outputText(
@@ -327,7 +327,7 @@ export class FapArena extends BazaarAbstractContent {
                 else this.outputText("smear", false);
                 this.outputText(" of girl-jizz on the floor.", false);
             }
-            //[if player lactates]
+            // [if player lactates]
             if (this.player.biggestLactation() > 1.5)
                 this.outputText(
                     "  Your " +
@@ -344,7 +344,7 @@ export class FapArena extends BazaarAbstractContent {
                 false
             );
 
-            //[1/2 chance of this paragraph appearing]
+            // [1/2 chance of this paragraph appearing]
             if (FapArena.rand(2) == 0)
                 this.outputText(
                     "As soon as your semen starts flying up in the air, you feel pressure being released in your hand.  Exhausted by your ministrations and now that he doesn't have to fear losing anymore, your right neighbor also starts cumming, blowing his load toward the referee.  She fails to dodge the shot but nods when you angrily yell: \"<i>NUMBER " +
@@ -354,7 +354,7 @@ export class FapArena extends BazaarAbstractContent {
                         ' CUMMING!</i>" from your neighbor.  Annoyed that he profited from your lack of stamina and came just after you, you give his member a raging twist for good measure. It makes him scream in pain and pleasure and spills cum all the more abundantly.\n\n',
                     false
                 );
-            //[else]
+            // [else]
             else
                 this.outputText(
                     "You remember you still have to make your right partner cum.  Now that you've lost, you don't care about being disqualified and you twist your partner's cock ragingly, fondling, cupping his balls, occasionally giving them a nice squeeze for good measure.  Your partner's cock starts twitching in indignation but it soon releases a milky torrent of semen.  Angry at your own lack of stamina, you yell, \"<i>NUMBER " +
@@ -364,7 +364,7 @@ export class FapArena extends BazaarAbstractContent {
                         " CUMMING!</i>\"  You keep twisting that pecker until you're absolutely positive that you've milked every drop of seed out of it.  Your hand is drenched in sexual juices, but you don't care.\n\n",
                     false
                 );
-            //end of else
+            // end of else
 
             this.outputText(
                 "Quite satisfied, your left partner decides to stop torturing himself; he must have had a rough handjob too.  You watch in amazement as his enormous shaft starts shooting globs of sticky goo, aiming at the referee with an expert's precision.  He grins lewdly and yells: \"<i>NUMBER " +
@@ -378,7 +378,7 @@ export class FapArena extends BazaarAbstractContent {
                 false
             );
         }
-        //[else if the player doesn't lose, but doesn't win either - he cums neither first nor last]
+        // [else if the player doesn't lose, but doesn't win either - he cums neither first nor last]
         else if (place == 2) {
             this.outputText(
                 "For what seems like hours you try to hold on, resisting wave after wave of unbearable pleasure in your crotch.  Nevertheless, you feel your stamina gradually depleting; each orgasm is harder to deny.  You know you won't be able to hold on much longer, but you muster up your courage and count to ten in your head.  Surely someone will cum before you... they better do it now because your mind is about to collapse and you will no longer be able to control your body.  Gods, it feels too good.  That stroking, teasing hand is torturing you in a delicious way, but you keep denying the pleasure.  You have to.  It's so rough, so...\n\n",
@@ -460,7 +460,7 @@ export class FapArena extends BazaarAbstractContent {
                 false
             );
         }
-        //[else, the player wins]
+        // [else, the player wins]
         else {
             this.outputText(
                 "For what seems hours you try to hold on, resisting wave after wave of unbearable pleasure in your crotch.  Nevertheless, you feel your stamina gradually depleting; each orgasm is harder to deny.  You know you won't be able to hold on much longer, but you muster up your courage and count to ten in your head.  You must win.  All these efforts can't have been in vain.  Surely someone will cum before you... and someone else, and someone else.  They better do it soon though.  You don't know how long you will be able to control your body.  Gods, it feels too good.  That stroking, teasing hand is torturing you in a delicious way, but you keep denying the pleasure.  You have to.  It's so rough, so...\n\n",
@@ -550,7 +550,7 @@ export class FapArena extends BazaarAbstractContent {
                     false
                 );
         }
-        //Post fap
+        // Post fap
         this.outputText(
             "You pant and relax, exhausted.  Your right arm is cramped and your " +
                 this.cockDescript(x) +
@@ -558,7 +558,7 @@ export class FapArena extends BazaarAbstractContent {
             false
         );
 
-        //[if first time]
+        // [if first time]
         if (this.flags[kFLAGS.FAP_ARENA_RULES_EXPLAINED] == 1)
             this.outputText(
                 "You stand here, a little lost, wondering what will happen next.",
@@ -580,13 +580,13 @@ export class FapArena extends BazaarAbstractContent {
             false
         );
 
-        //[if corr < 50]
+        // [if corr < 50]
         if (this.player.cor < 50)
             this.outputText(
                 "You find yourself yelling with them, astounded by everyone's enthusiasm and eagerness to be fucked in the ass, even after this rough masturbating session.  You wish you weren't so blindly following others, but they are so hypnotizing, their hard glistening cocks pointing at the air as they keep shouting over and over again, \"<i>BUTT-FUCK!  BUTT-FUCK!  BUTT-FUCK!  BUTT-FUCK!  BUTT-FUCK!</i>\"  ",
                 false
             );
-        //[else, corr >50]
+        // [else, corr >50]
         else
             this.outputText(
                 "Your body tenses and " +
@@ -594,31 +594,31 @@ export class FapArena extends BazaarAbstractContent {
                     ' hardens at the perspective of a collective anal orgy.  You yell in lust like a minotaur in rut, "<i>BUTT-FUCK!  BUTT-FUCK!  BUTT-FUCK!  BUTT-FUCK!  BUTT-FUCK!</i>" along with the others.  ',
                 false
             );
-        //end of global condition about PC's corr, display the following
+        // end of global condition about PC's corr, display the following
         this.outputText(
             "As they shout rhythmically, they start forming a straight line, their position in the line reflecting their rating.\n\n",
             false
         );
 
-        //[if you won]
+        // [if you won]
         if (place <= 1)
             this.outputText(
                 "Since you're the winner, you walk to the tail of the butt-fuck train, enjoying your prize.  ",
                 false
             );
-        //[if you didn't win, didn't lose]
+        // [if you didn't win, didn't lose]
         else if (place <= 2)
             this.outputText(
                 "You place yourself between two horny bodies.  The lust and confusion have obscured your senses and all you see is a rock-hard dick and a gaping anus, both waiting for you to play with.  ",
                 false
             );
-        //[if you lost]
+        // [if you lost]
         else {
             this.outputText(
                 "You meekly place yourself at the end of the butt-fuck wagon, knowing you'll have to endure the thrusts of everyone else.  In your shame and lust, all you can see is a member of enormous size, trembling in arousal, waiting to lodge between your ass-cheeks.  With ",
                 false
             );
-            //([if corr < 50]
+            // ([if corr < 50]
             if (this.player.cor < 50) this.outputText("a whorish smile", false);
             else this.outputText("apprehension", false);
             this.outputText(
@@ -633,13 +633,13 @@ export class FapArena extends BazaarAbstractContent {
 
         this.outputText('The referee shouts, "<i>LET THE BUTT-FUCK TRAIN BEGIN!</i>"\n\n', false);
 
-        //[if you won]
+        // [if you won]
         if (place <= 1) {
             this.outputText(
                 "You can't believe you will get to fuck a whole train's worth of anuses and cocks.  This seems so unreal...  nevertheless, the tension and the scent of cum prove too much for you, and you give in to your lust.  ",
                 false
             );
-            //[1/2 chance of this]
+            // [1/2 chance of this]
             if (FapArena.rand(2) == 0) {
                 this.temp = 3;
                 this.outputText(
@@ -685,7 +685,7 @@ export class FapArena extends BazaarAbstractContent {
                 false
             );
             tent = this.tentacleFapCum();
-            //[if player has multicocks]
+            // [if player has multicocks]
             if (this.player.cockTotal() > 2 || (!tent && this.player.cockTotal() > 1)) {
                 if (this.player.cockTotal() > 3 || (!tent && this.player.cockTotal() > 2))
                     this.outputText("  Your other cocks also spill ", false);
@@ -709,7 +709,7 @@ export class FapArena extends BazaarAbstractContent {
                     false
                 );
             }
-            //[if player has vagina]
+            // [if player has vagina]
             if (this.player.hasVagina()) {
                 this.outputText("  Your feminine part squirts a ", false);
                 if (this.player.wetness() >= 5) this.outputText("titanic", false);
@@ -720,7 +720,7 @@ export class FapArena extends BazaarAbstractContent {
                     false
                 );
             }
-            //end of conditions
+            // end of conditions
 
             this.outputText(
                 "\n\nWincing in pain and pleasure mixed, your " +
@@ -729,7 +729,7 @@ export class FapArena extends BazaarAbstractContent {
                 false
             );
         }
-        //[else if you didn't win]
+        // [else if you didn't win]
         else if (place == 2) {
             this.outputText(
                 "You almost instantly feel firm arms groping your " +
@@ -738,7 +738,7 @@ export class FapArena extends BazaarAbstractContent {
                 false
             );
 
-            //[1/2 chance of this]
+            // [1/2 chance of this]
             if (FapArena.rand(2) == 0)
                 this.outputText(
                     "You eagerly grab the luxurious, gelatinous butt cheeks in front of you.  You notice a pussy underneath that fine ass, freely spilling sexual juices.  If the compelling order weren't resonating deep in your mind, you would easily lose yourself in the herm's glorious depths.  Nevertheless, your " +
@@ -779,7 +779,7 @@ export class FapArena extends BazaarAbstractContent {
                 false
             );
             tent = this.tentacleFapCum();
-            //[if player has multicocks]
+            // [if player has multicocks]
             if (this.player.cockTotal() > 2 || (!tent && this.player.cockTotal() > 1)) {
                 if (this.player.cockTotal() > 3 || (!tent && this.player.cockTotal() > 2))
                     this.outputText("  Your other cocks also spill ", false);
@@ -803,7 +803,7 @@ export class FapArena extends BazaarAbstractContent {
                     false
                 );
             }
-            //[if player has vagina]
+            // [if player has vagina]
             if (this.player.hasVagina()) {
                 this.outputText("  Your feminine part squirts a ", false);
                 if (this.player.wetness() >= 5) this.outputText("titanic", false);
@@ -814,7 +814,7 @@ export class FapArena extends BazaarAbstractContent {
                     false
                 );
             }
-            //end of conditions
+            // end of conditions
             this.outputText(
                 "\n\nFinally the strength of all the ejaculations is starting to ebb, as well as your fading orgasm.  Wincing in pain and pleasure mixed, your " +
                     this.cockDescript(x) +
@@ -824,7 +824,7 @@ export class FapArena extends BazaarAbstractContent {
                 false
             );
         }
-        //[else, if you lost]
+        // [else, if you lost]
         else {
             this.outputText(
                 "You almost instantly feel firm arms groping your " +
@@ -860,7 +860,7 @@ export class FapArena extends BazaarAbstractContent {
                 false
             );
             this.tentacleFapCum();
-            //[if player has vagina]
+            // [if player has vagina]
             if (this.player.hasVagina()) {
                 this.outputText("  Your feminine part squirts a ", false);
                 if (this.player.wetness() >= 5) this.outputText("titanic", false);
@@ -882,8 +882,8 @@ export class FapArena extends BazaarAbstractContent {
                 );
             this.outputText("\n\n", false);
         }
-        //end of global condition about the PC's position in the buttfuck train, display the following
-        //[if you won]
+        // end of global condition about the PC's position in the buttfuck train, display the following
+        // [if you won]
         if (place <= 1) {
             this.outputText(
                 "You quickly stand back up and start dressing yourself.  Before you go, the cute little referee hands you a small box, her coy smile and nude body somehow awakening " +
@@ -891,7 +891,7 @@ export class FapArena extends BazaarAbstractContent {
                     ' again. Ye Gods, it never ends.  "<i>Here\'s a little something for being the winner of this session.  Hope you enjoy your prize.  Come and play again!</i>"',
                 false
             );
-            //You find [random item from the list: gro+, succubi's dream, large blue egg].
+            // You find [random item from the list: gro+, succubi's dream, large blue egg].
 
             var itype: ItemType = this.consumables.GROPLUS;
             switch (FapArena.rand(3)) {
@@ -909,7 +909,7 @@ export class FapArena extends BazaarAbstractContent {
             this.player.orgasm();
             this.inventory.takeItem(itype, this.camp.returnToCampUseOneHour);
         }
-        //[if you didn't win]
+        // [if you didn't win]
         else if (place == 2) {
             this.outputText(
                 "You awkwardly remove the dick from your ass and start dressing yourself.  Before you go, the cute little referee waves at you, her coy smile and nude body somehow awakening " +
@@ -920,7 +920,7 @@ export class FapArena extends BazaarAbstractContent {
             this.player.orgasm();
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //[if you lost]
+        // [if you lost]
         else {
             this.outputText(
                 "You awkwardly remove the dick from your ass, start cleaning yourself from all the dirt and cum before leaving the tent.  Before you go, the nude referee approaches you and gently squeezes your " +
@@ -933,7 +933,7 @@ export class FapArena extends BazaarAbstractContent {
         }
     }
 
-    //[SPECIAL: if player has an extra tentacle dick more than 40 inches long OR if the player has lost and has a unique tentacle dick, add this paragraph before the PC cums]
+    // [SPECIAL: if player has an extra tentacle dick more than 40 inches long OR if the player has lost and has a unique tentacle dick, add this paragraph before the PC cums]
     private tentacleFapSpecial(place: number): void {
         this.temp = this.player.cocks.length;
         var x: number = this.player.longestCock();
@@ -959,7 +959,7 @@ export class FapArena extends BazaarAbstractContent {
             if (place == 2) this.outputText(" and", false);
             if (place >= 2) this.outputText(" being fucked from behind", false);
             this.outputText(".\n\n", false);
-            //[if you didn't lose or if you won]
+            // [if you didn't lose or if you won]
             if (place <= 2) {
                 this.outputText(
                     "Needless to say, this interference creates a general disruption in the whole butt-fuck wave.  The whole train of peckers and puckers starts moving irregularly, grinding against your " +
@@ -982,7 +982,7 @@ export class FapArena extends BazaarAbstractContent {
                     false
                 );
             }
-            //[if you lost]
+            // [if you lost]
             else {
                 this.outputText(
                     "This is such an awkward position, moving your " +
@@ -997,7 +997,7 @@ export class FapArena extends BazaarAbstractContent {
             }
         }
     }
-    //[in both cases, special paragraph for cumming with tentacle dick]
+    // [in both cases, special paragraph for cumming with tentacle dick]
     private tentacleFapCum(): boolean {
         this.temp = this.player.cocks.length;
         var x: number = this.player.longestCock();

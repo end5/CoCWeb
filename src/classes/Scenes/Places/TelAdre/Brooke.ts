@@ -13,34 +13,34 @@ import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 //  BROOKE_GRUMPS_ABOUT_TA: number = 922;
 
 export class Brooke extends TelAdreAbstractContent {
-    //Introduction
-    //Go to the showers; no Brooke
-    //Second scene
-    //Go to the showers; Brooke is there, but affection is too low
-    //Third scene
-    //Go to the showers; Brooke is there, and is affectionate
-    //	Working out
-    //	Gym Members
-    //	Her Rockin’ Bod
-    //	Grope
-    //		Penetrate Her
-    //		Anal
-    //		Tribadism
-    //		Down On Her
-    //		Get Laid
-    //		Double-Dicked
-    //Fourth Scene
-    //	Male Only
-    //	Female Only
-    //	Herm Only
-    //Talk to Heckel
-    //	Leave
-    //	Butterfly
-    //		Aftermath
-    //	Leg Press
-    //		Males/Herms Only
-    //		Females Only
-    //		Aftermath
+    // Introduction
+    // Go to the showers; no Brooke
+    // Second scene
+    // Go to the showers; Brooke is there, but affection is too low
+    // Third scene
+    // Go to the showers; Brooke is there, and is affectionate
+    // 	Working out
+    // 	Gym Members
+    // 	Her Rockin’ Bod
+    // 	Grope
+    // 		Penetrate Her
+    // 		Anal
+    // 		Tribadism
+    // 		Down On Her
+    // 		Get Laid
+    // 		Double-Dicked
+    // Fourth Scene
+    // 	Male Only
+    // 	Female Only
+    // 	Herm Only
+    // Talk to Heckel
+    // 	Leave
+    // 	Butterfly
+    // 		Aftermath
+    // 	Leg Press
+    // 		Males/Herms Only
+    // 		Females Only
+    // 		Aftermath
 
     public brookeAffection(arg: number = 0): number {
         this.flags[kFLAGS.BROOKE_AFFECTION] += arg;
@@ -57,7 +57,7 @@ export class Brooke extends TelAdreAbstractContent {
         return 60;
     }
 
-    //Occurs automatically after the second time you choose to hit the showers after a workout.  From then, the choice to ‘hit the showers’ then becomes either visit the machine or to actually go to the shower.
+    // Occurs automatically after the second time you choose to hit the showers after a workout.  From then, the choice to ‘hit the showers’ then becomes either visit the machine or to actually go to the shower.
     public meetBrookeFirstTime(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("brooke-first-meeting"));
@@ -101,7 +101,7 @@ export class Brooke extends TelAdreAbstractContent {
             this.outputText(
                 'She twists her mouth a bit, while otherwise trying to keep a straight face.  You suddenly feel awfully self-conscious – maybe you should watch what you eat a bit more closely, and come to the gym more often.  "<i>Well, uh, enjoy your shower,</i>" she says haltingly, before walking past you without another glance.'
             );
-        //if {Tone >= 21} {Tone <= 50}
+        // if {Tone >= 21} {Tone <= 50}
         else if (this.player.tone <= 50)
             this.outputText(
                 'She looks a bit, nodding approvingly after a while.  For some reason, you feel slightly relieved that she considers you, if nothing else, adequate.  "<i>Nice,</i>" she compliments.  "<i>Keep it up, hot stuff.  It\'s hard, believe me, but it pays off.</i>"  She walks past you, towards the lockers, giving up a single glance on her way by.'
@@ -119,8 +119,8 @@ export class Brooke extends TelAdreAbstractContent {
             "\n\nYou watch her walk down the hallway, her features hidden behind the towel as she turns into one of the locker rooms.  You remove the towel and take a stall, turning the dials to start the nozzle and feeling the water rush over you.  Your idle thoughts occasionally drift to Brooke and you imagine the amount of work she must have done to get such an amazing body.  The water is cold, keeping you from wanting to stay and soak, but by the time you’re dry and your [armor] is back on, you feel like a new Champion."
         );
 
-        //Brooke can now be encountered.  After each workout, the player has the option to either go to the sex machine, or to actually hit the showers.  Brooke sticks to a somewhat realistic schedule and isn't available all hours of the day – she can be encountered in the showers between 16:00 and 18:00.  She can only be met once a day.
-        //Brooke has an affection meter after the first meeting, and will rise with every additional encounter.  For males and herms, the meter rises by 4 per encounter – for females, it rises by 3.  It caps at 70.
+        // Brooke can now be encountered.  After each workout, the player has the option to either go to the sex machine, or to actually hit the showers.  Brooke sticks to a somewhat realistic schedule and isn't available all hours of the day – she can be encountered in the showers between 16:00 and 18:00.  She can only be met once a day.
+        // Brooke has an affection meter after the first meeting, and will rise with every additional encounter.  For males and herms, the meter rises by 4 per encounter – for females, it rises by 3.  It caps at 70.
         this.brookeAffection(5);
         this.flags[kFLAGS.BROOKE_MET_TODAY] = 1;
         this.flags[kFLAGS.BROOKE_MET] = 1;
@@ -130,7 +130,7 @@ export class Brooke extends TelAdreAbstractContent {
     public repeatChooseShower(): void {
         this.clearOutput();
         if (this.model.time.hours < 16 || this.model.time.hours > 18 || this.player.tone < 30) {
-            //Before 16:00/after 18:00, affection <= 19
+            // Before 16:00/after 18:00, affection <= 19
             if (this.brookeAffection() <= 19) {
                 this.outputText(
                     "You head your way back to the showers, feeling the sweet ache of your muscles as you easily find your way there.  The showers are completely empty when you arrive.  On the one hand, you enjoy having the place to yourself and taking your time, but on the other, you can’t help but feel a little disappointed that the Shepherd girl Brooke wasn't there to greet you."
@@ -163,18 +163,18 @@ export class Brooke extends TelAdreAbstractContent {
             this.doNext(this.camp.returnToCampUseOneHour);
             this.fatigue(-5);
         }
-        //Between 16:00 and 18:00
-        //Third encounter; body tone 30 minimum
+        // Between 16:00 and 18:00
+        // Third encounter; body tone 30 minimum
         else if (this.flags[kFLAGS.BROOKE_GRUMPS_ABOUT_TA] == 0 && this.player.tone >= 30) {
             this.brookeThirdEncounter();
         }
-        //Affection <= 19
+        // Affection <= 19
         else if (this.brookeAffection() <= 19) {
             this.lowAffectionBrookeMeeting();
         } else if (this.brookeAffection() <= 39 && this.flags[kFLAGS.BROOKE_SHOWERED_WITH] == 0) {
             this.mediumLowBrookeAffectionOneTime();
         }
-        //Affection >=40, after first-time sex
+        // Affection >=40, after first-time sex
         else if (this.brookeAffection() >= 40 && this.flags[kFLAGS.BROOKE_MEDIUM_SCENE] > 0) {
             this.mediumBrookeAffectionMeetingAfterSex();
         } else if (
@@ -185,13 +185,13 @@ export class Brooke extends TelAdreAbstractContent {
         ) {
             this.mediumAffectionOneTimeEvent();
         }
-        //Haven't fucked brooke yet.
+        // Haven't fucked brooke yet.
         else if (this.brookeAffection()) {
             this.mediumLowBrookeAffection();
         }
     }
 
-    //Third encounter; body tone 30 minimum
+    // Third encounter; body tone 30 minimum
     public brookeThirdEncounter(): void {
         this.clearOutput();
         this.outputText(
@@ -256,7 +256,7 @@ export class Brooke extends TelAdreAbstractContent {
             '\n\nSure enough, there she is, although she\'s looking a little... melancholy.  She\'s staring down at her feet, letting the water rush over her body, not really moving or anything.  One of her ears perks as she hears you coming, and she turns to face you.  <i>"Oh,"</i> she sighs, <i>"hey, [name]."</i>'
         );
 
-        //[if (isTaur = true)]
+        // [if (isTaur = true)]
         if (this.player.isTaur()) {
             this.outputText(
                 '\n\nYou ask her if everything\'s all right – she\'s usually much more upbeat and relaxed than this. She\'s usually the one who starts the conversation. She looks back down, not immediately answering, before drawing her head back and taking a deep breath through her nose.  <i>"I have a favor to ask,"</i> she says.  You wait patiently for her to ask it, when, face clouding, she seems to reconsider.  <i>"Never mind,"</i> she says eventually, resuming her wash.  <i>"It\'s not a big deal.  I\'m a big girl; I can handle it myself.  So, how has your day been so far?"</i>'
@@ -268,7 +268,7 @@ export class Brooke extends TelAdreAbstractContent {
             // (Brooke's affection now caps at 20 until the PC is no longer a centaur.  This scene will re-proc until this condition is met, and then will proceed normally)
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //[if (isTaur = false)
+        // [if (isTaur = false)
         else {
             this.outputText(
                 '\n\nYou ask her if everything\'s all right – she\'s usually much more upbeat and relaxed than this.  She\'s usually the one who starts the conversation.  She looks back down, not immediately answering, before drawing her head back and taking a deep breath through her nose.  <i>"I have a favor to ask,"</i> she says.  <i>"We don\'t really know each other out of the gym, so this is going to seem really forward, okay?"</i>  You nod, patiently waiting for what she\'s going to ask you.  <i>"I... well, could you... wash my back?"</i>'
@@ -277,7 +277,7 @@ export class Brooke extends TelAdreAbstractContent {
             this.outputText(
                 "\n\nThat's all?  That's not so bad.  Just a friend innocently washing another friend's back.  Still, you could refuse her request, if you'd rather.  What do you do?"
             );
-            //[=Help=][=Don't help=]
+            // [=Help=][=Don't help=]
             this.menu();
             this.addButton(0, "Help", this.helpBrookeOut);
             this.addButton(1, "Don't Help", this.dontHelpBrookeShower);
@@ -292,7 +292,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText(
             "\n\nYour shower proceeds uneventfully, and just a short while later, you're clean as a whistle and out the door."
         );
-        //(Brooke's affection resets to zero)
+        // (Brooke's affection resets to zero)
         this.flags[kFLAGS.BROOKE_AFFECTION] = 0;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
@@ -364,7 +364,7 @@ export class Brooke extends TelAdreAbstractContent {
             this.outputText(
                 "not caring about the stirring in [eachCock] in the privacy of the stall"
             );
-        //[if {PC is female}]
+        // [if {PC is female}]
         if (this.player.gender == 2)
             this.outputText("feeling a fire stoke in your [vagina] even under the constant water");
         if (this.player.gender == 3)
@@ -395,7 +395,7 @@ export class Brooke extends TelAdreAbstractContent {
         );
 
         this.outputText("\n\nWhat do you talk about?");
-        //talk menu here
+        // talk menu here
         this.menu();
         this.addButton(0, "Working Out", this.talkWithBrookeAboutWorkingOut);
         this.addButton(1, "GymMembers", this.talkToBrookeAboutGymFolks);
@@ -407,7 +407,7 @@ export class Brooke extends TelAdreAbstractContent {
         )
             this.addButton(3, "Grope", this.gropeDatBrooke);
     }
-    //Between 16:00 and 18:00, Affection >=40, after first-time sex
+    // Between 16:00 and 18:00, Affection >=40, after first-time sex
     public mediumBrookeAffectionMeetingAfterSex(): void {
         this.clearOutput();
         this.outputText(
@@ -421,8 +421,8 @@ export class Brooke extends TelAdreAbstractContent {
             "\n\nShe remains quiet while you continue to massage her shoulders, letting the warm water wash over you both.  You're no stranger to taking this opportunity to start the conversation yourself, and you begin to think of a topic to talk about."
         );
         this.outputText("\n\nWhat do you talk about?");
-        //talk menu here!
-        //[=Working Out=] [=Gym Members=] [=Her Rockin Bod=] [=Grope=]
+        // talk menu here!
+        // [=Working Out=] [=Gym Members=] [=Her Rockin Bod=] [=Grope=]
         this.menu();
         this.addButton(0, "Working Out", this.talkWithBrookeAboutWorkingOut);
         this.addButton(1, "Gym Members", this.talkToBrookeAboutGymFolks);
@@ -431,7 +431,7 @@ export class Brooke extends TelAdreAbstractContent {
             this.addButton(3, "Grope", this.gropeDatBrooke);
     }
 
-    //[=Working Out=]
+    // [=Working Out=]
     public talkWithBrookeAboutWorkingOut(): void {
         this.clearOutput();
         this.outputText(
@@ -478,7 +478,7 @@ export class Brooke extends TelAdreAbstractContent {
             '\n\n<i>"I\'ll see you when I see you, hot stuff,"</i> she says, glancing back to you as she wraps her towel around her upper body.  She leaves the room, wagging her tight, toned ass, just for you, as she leaves.'
         );
 
-        //[if {Brooke's Affection <= 39}
+        // [if {Brooke's Affection <= 39}
         if (this.brookeAffection() <= 39)
             this.outputText(
                 "\n\nSharing a shower with a naked girl just a few feet away is an unusual experience.  Of course, though, you're certainly not complaining – Brooke's an interesting girl, and she takes very good care of herself physically.  You enjoy her company."
@@ -494,7 +494,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=Gym Members=]
+    // [=Gym Members=]
     public talkToBrookeAboutGymFolks(): void {
         this.clearOutput();
         this.outputText(
@@ -508,19 +508,19 @@ export class Brooke extends TelAdreAbstractContent {
             "\n\nThat centaur lady who owns the place is an all right sort, I guess.  Never really paid much attention to her.  I pay for my lifetime membership and she leaves me be.  Got a nice rack on her, but truth be told, I'm not the biggest fan of centaurs.  I know how racist that sounds and everything, and I even hate myself for admitting it, but...  I don't know; I think it has to do with my pa being a horse-morph.  It just looks unsettling to me."
         );
 
-        //[if {met Cotton}]
+        // [if {met Cotton}]
         if (this.flags[kFLAGS.COTTON_MET_FUCKED] > 0)
             this.outputText(
                 "\n\nSpeaking of: Cotton, that horse-morph gal?  Cute as a button, sexy as a... well, as a big-titted ten-outta-ten.  Not really into that flowery yoga stuff, though, that's just not my style, and she's not into lifting the heavy stuff, so we don't really cross paths much.  I'd jump her bones if I didn't know that her horsecock of hers would split me in half."
             );
 
-        //[if {met Heckel}]
+        // [if {met Heckel}]
         if (this.flags[kFLAGS.MET_HECKEL] > 0)
             this.outputText(
                 "\n\nHeckel's way too competitive and dominant.  I just wanna lift some weights, and she takes that as a personal challenge or something, and tries to outlift me.  Well, us Shepherds aren't too taken with being submissive, so I gotta outlift her right back.  Occasionally, we make it into competitions: whoever wins is the dom for the day, and whoever loses is the sub.  In the end, really, we both win – she's a damn good fuck either way – but it's more the principle of the thing.  We go more-or-less even, although she'd probably tell you otherwise."
             );
 
-        //[if {had Heckel/Brooke threeway between one and three times}
+        // [if {had Heckel/Brooke threeway between one and three times}
         if (
             this.flags[kFLAGS.BROOKE_AND_HELIA_3SOME] > 0 &&
             this.flags[kFLAGS.BROOKE_AND_HELIA_3SOME] < 4
@@ -528,7 +528,7 @@ export class Brooke extends TelAdreAbstractContent {
             this.outputText(
                 "\n\nHeckel's still just as competitive as always.  I walk into the gym and do my warmups, and there's the bitch, challenging me to something right off the bat.  Lately our 'games' have been going on a bit longer, and the 'aftermath' has been getting a lot more energetic and intense.  Don't tell her I said this, but that stuff we say, about one of us just wanting to fuck the other?  Usually that's just dirty, dominant talk, and I can't really speak for her, but, sometimes..."
             );
-        //[if {had Heckel/Brooke threeway between four and six times}
+        // [if {had Heckel/Brooke threeway between four and six times}
         else if (
             this.flags[kFLAGS.BROOKE_AND_HELIA_3SOME] > 3 &&
             this.flags[kFLAGS.BROOKE_AND_HELIA_3SOME] < 7
@@ -536,29 +536,29 @@ export class Brooke extends TelAdreAbstractContent {
             this.outputText(
                 "\n\nHeckel takes some getting used to, but she's actually an all right gal if you can prove you're on her level.  She takes working out very seriously and is quick to prove her superiority and dominance against anyone she thinks might threaten her status as 'alpha', but you can just fuck her a couple times and she'll calm right down.  Lately, she's actually been flirting with me – don't tell anyone I said this, but Heckel is the cutest thing ever when she's flustered.  I think she might be into me... you know, romantically.  And you know what?  I think I might be into her, too.  As long as she's into open relationships, of course."
             );
-        //[if {had Heckel/Brooke threeway seven times or more}
+        // [if {had Heckel/Brooke threeway seven times or more}
         else if (this.flags[kFLAGS.BROOKE_AND_HELIA_3SOME] > 6)
             this.outputText(
                 "\n\nHeckel's actually a pretty sweet girl if you take the time to get to know her out of the gym.  I mean, sure, <b>in</b> the gym, she's a huge control freak and an asshole to work with, but if you can get her out of it, you'd be surprised how relatable of a person she could be.  I should know; we're dating, so I've had the chance to see her softer side.  Sex with her is a marathon, as always, and we're both as aggressive as you've seen us, but mutual satisfaction is a priority with us both, so it's always its own reward.  Our relationship is very open, but we always wind up coming back to each other at the end of the day."
             );
 
-        //[if {met Ifris}]
+        // [if {met Ifris}]
         if (this.flags[kFLAGS.MET_IFRIS] > 0)
             this.outputText(
                 "\n\nIfris is a creeper.  Just hangs around the gym, watching everyone lift some weights or doing some laps or whatever.  She finds a cutie hard at work, then she makes 'em feel real good with all her sweet-talk, and then <b>bam!</b>  Getting laid on the benchpress.  I love when people notice my body, but the way she stalks like a predator around the gym just kind of gives me the creeps."
             );
-        //[if {met Jasun}
+        // [if {met Jasun}
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00179] > 0)
             this.outputText(
                 "\n\nYou know Jasun, the shark guy?  Hard as a rock, in every place, if you know what I mean.  Huge narcissist, if you ask me, which puts me off.  Big difference between admiring yourself and others admiring you.  I'm not a big fan of zero-percent-body-fat types, either – being fit and healthy and solid is great and a big turn-on, but being all muscle and all business is no fun, you know?  Kind of tough cuddling with a rock.  Besides, not a big fan of the taste of fish anyway."
             );
-        //[if {met Loppe}]
+        // [if {met Loppe}]
         if (this.flags[kFLAGS.LOPPE_MET] > 0) {
             this.outputText(
                 "\n\nI've seen that bunny-girl show up a whole lot lately.  She's a pretty nice gal, all in all – lives and looks after her mom and wants to take up the family business, or something.  Whatever; she's got a smoking hot body and a face cute enough to give me cavities.  She fucks like a truck and cums like a geyser, too, which is always fun."
             );
         }
-        //[if {met Lottie}]
+        // [if {met Lottie}]
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00281] > 0) {
             this.outputText(
                 "\n\nAs for Lottie, that little piglet chick... not the first of her 'body-type' to wander into the gym, and won't be the last.  Love seeing guys and gals like her – success stories in motion.  If you got the drive, you got the will, then you'll get the results.  She works for it, she works hard, but she's really indecisive and easy to put-off in front of company.  With the right push I can see a girl like her being the hottest thing on the block."
@@ -572,12 +572,12 @@ export class Brooke extends TelAdreAbstractContent {
             "\n\nJust as the water begins to run cold, she grabs her towel off the opposite wall of her stall with one hand, and turns the showerhead off with the other.  She wraps the towel over her upper body as she leaves the room, wagging her firm, incredible ass, just for you, as she leaves, leaving alone in the showers to finish up."
         );
 
-        //[if {Brooke's Affection <= 39}]
+        // [if {Brooke's Affection <= 39}]
         if (this.brookeAffection() <= 39)
             this.outputText(
                 "\n\nSharing a shower with a naked girl just a few feet away is a little unusual.  Of course, though, you're certainly not complaining – Brooke's an interesting girl, and she takes very good care of herself physically.  You enjoy her company."
             );
-        //[if {Brooke's Affection >= 40}]
+        // [if {Brooke's Affection >= 40}]
         else
             this.outputText(
                 "\n\nThat damn Shepherd knows all of your buttons and all your weaknesses.  Every shower, she teases you in just the right ways, and it gets harder and harder to not just fuck her there in the stall.  Not that she'd mind, you're sure... but, it's a game you two play.  She likes pushing your limits, knowing that, when that limit breaks, it'll be a much harder workout than anything the gym could give her.  Which is something you both wouldn't mind."
@@ -588,7 +588,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=Her Rockin Bod=]
+    // [=Her Rockin Bod=]
     public brookesRockinBod(): void {
         this.clearOutput();
         this.outputText(
@@ -628,23 +628,23 @@ export class Brooke extends TelAdreAbstractContent {
             '\n\nShe lingers for just a bit, before pulling away.  The water was beginning to turn cold after running for so long.  <i>"Thanks for the compliment, sweet thing,"</i> she says, reaching for her towel on the opposite stall wall.  <i>"Can\'t wait until next time."</i>  With that, she turns off the water and wraps the towel over her upper body as she leaves the room, wagging her tight, firm ass, just for you, as she leaves you alone in the room.'
         );
 
-        //[if {Brooke's Affection <= 39}
+        // [if {Brooke's Affection <= 39}
         if (this.brookeAffection() <= 39)
             this.outputText(
                 "\n\nSharing a shower with a naked girl just a few feet away is a little unusual.  Of course, though, you're certainly not complaining – Brooke's an interesting girl, and she takes very good care of herself physically.  You enjoy her company."
             );
-        //[if {Brooke's Affection >= 40}
+        // [if {Brooke's Affection >= 40}
         else
             this.outputText(
                 "\n\nThat damn Shepherd knows all of your buttons and all your weaknesses.  Every shower, she teases you in just the right ways, and it gets harder and harder to not just fuck her there in the stall.  Not that she'd mind, you're sure... but, it's a game you two play.  She likes pushing your limits, knowing that, when that limit breaks, it'll be a much harder workout than anything the gym could give her.  Which is something you both wouldn't mind."
             );
-        //(Lust increases by 15)
+        // (Lust increases by 15)
         this.dynStats("lus", 15, "resisted", false);
         this.brookeAffection(15);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=Grope=]
+    // [=Grope=]
     // Affection >= 40, <= 70, after first-time sex, raises lust by 30
     public gropeDatBrooke(): void {
         this.clearOutput();
@@ -652,7 +652,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText(
             "Brooke has an amazing body and she knows it.  She consciously chose to flaunt it in front of you by asking you to 'wash her back'.  The tightness of her muscles; the upright perkiness of her breasts; the taut, flawless features of her thighs... you bet if you smacked her ass, it'd be like slapping clay."
         );
-        //[if (hasCock = true)]
+        // [if (hasCock = true)]
         if (this.player.hasCock())
             this.outputText(
                 "  You can only imagine what it could feel like to drive your [cock] between those cheeks, just inches away from you.  The thought makes [eachCock] rouse."
@@ -685,7 +685,7 @@ export class Brooke extends TelAdreAbstractContent {
         );
         this.dynStats("lus", 33, "resisted", false);
         this.outputText("\n\nWhat is your weapon of choice?");
-        //[=Penetrate her=] [=Anal=] [=Tribadism=] [=Down on her=] [=Get laid=] [=Double-dicked=]
+        // [=Penetrate her=] [=Anal=] [=Tribadism=] [=Down on her=] [=Get laid=] [=Double-dicked=]
         this.menu();
         if (this.player.hasCock() && this.player.cockThatFits(this.brookeCapacity()) >= 0)
             this.addButton(0, "Penetrate", this.penetrateBrooke);
@@ -697,8 +697,8 @@ export class Brooke extends TelAdreAbstractContent {
         if (this.player.cockTotal() >= 2) this.addButton(5, "Double-Dick", this.doubleDicked);
     }
 
-    //[=Penetrate her=]
-    //Requires at least one penis
+    // [=Penetrate her=]
+    // Requires at least one penis
     public penetrateBrooke(): void {
         this.clearOutput();
         var x: number = this.player.cockThatFits(this.brookeCapacity());
@@ -730,14 +730,14 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText(
             '\n\n<i>"Oh yeah,"</i> she moans, wrapping as much of her tail around your torso as possible, matching your steady pace and humping back up against you.  <i>"Nice and slow, baby, mmm... just like that."</i>  You reply by leaning into her, pressing your [chest] against her back and kissing at her neck while you keep up your fucking'
         );
-        //[if (cocks >= 2)]
+        // [if (cocks >= 2)]
         if (y >= 2)
             this.outputText(
                 ".  Your " +
                     this.cockDescript(y) +
                     " rubs up and down the crack of her ass lamely, though the way she clenches against you with every inward thrust makes every sensation worth the effort"
             );
-        //[if (isHerm = true)
+        // [if (isHerm = true)
         if (this.player.gender == 3)
             this.outputText(
                 ".  Your [vagina] pulses longingly, jealous of the attention you're giving to Brooke's own, and hungers for something to suffocate the fire built inside it"
@@ -775,12 +775,12 @@ export class Brooke extends TelAdreAbstractContent {
                     this.cockDescript(y) +
                     " shoots its own load up and onto her lower back and the base of her tail, snug between the cheeks of her ass"
             );
-        //[if (cocks >= 3)
+        // [if (cocks >= 3)
         if (this.player.cockTotal() > 1 && y >= 0)
             this.outputText(
                 " while [eachCock] sprays your jizz all over the place: the floor and the walls of the small stall in particular, but also on her ass, onto her tail, and down her legs.  Most of it washes into the drain beneath you, but it'll definitely take a bit of scrubbing for her to get really clean after this."
             );
-        //[if (cocks = 2)
+        // [if (cocks = 2)
         if (this.player.cockTotal() == 2 && y >= 0) this.outputText(".");
         if (this.player.gender == 3)
             this.outputText(
@@ -796,22 +796,22 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText(
             "\n\nYou two spend the next few minutes keeping each other warm in the frozen cold shower water while you finish cleaning up.  You get to drying each other off, flirting and groping some more, but it doesn't progress any farther than that.  She kisses you one last time after you slip on your [armor], and you both leave the gym, looking forward to next time."
         );
-        //Lust reduced to zero.
+        // Lust reduced to zero.
         this.player.orgasm();
         this.dynStats("sen", -2);
         this.brookeAffection(10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=Anal=]
-    //Requires at least one penis
+    // [=Anal=]
+    // Requires at least one penis
     public brookeAnal(): void {
         this.clearOutput();
         var x: number = this.player.cockThatFits(this.brookeCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         // var y: number = this.player.cockThatFits2(this.brookeCapacity());
 
-        //[if {cockFit >= 61}
+        // [if {cockFit >= 61}
         if (this.player.cockArea(x) >= 61) {
             this.outputText(
                 'Bluntly, you ask Brooke what her opinion is on anal.  <i>"What, with you?"</i> she asks, leaning her ass back and trapping your ' +
@@ -820,18 +820,18 @@ export class Brooke extends TelAdreAbstractContent {
                     this.cockDescript(x) +
                     '!  <i>"Sorry, sweet thing, but maybe not this time.  I just got in from the gym, and working a beast like that into my ass would be a workout in of itself.  I\'m up for anything else, though."</i>'
             );
-            //Go back to 'grope' menu
+            // Go back to 'grope' menu
             this.menu();
             this.addButton(4, "Back", this.gropeDatBrooke);
             return;
         }
-        //[if {first time}]
+        // [if {first time}]
         if (this.flags[kFLAGS.TIMES_IN_BROOKES_BUTT] == 0) {
             this.outputText(
                 '\n\nBluntly, you ask Brooke what her opinion is on anal.  <i>"What, with you?"</i> she asks playfully'
             );
         }
-        //[if {not first time}]
+        // [if {not first time}]
         else
             this.outputText(
                 "\n\nRemembering how hard on you she was last time, you're almost hesitant to ask, but the allure of her sweet, toned ass is too strong.  You ask her if she's up for some anal.  She doesn't answer – instead, she smiles greedily"
@@ -847,7 +847,7 @@ export class Brooke extends TelAdreAbstractContent {
                 this.cockDescript(x) +
                 " through the crack of her ass, working yourself up further before you jump right in.  Thanks to the shower, you're both lubed up well enough - just what you were both waiting on.  Brooke leans into the wall of the shower stall, bracing herself while trying to keep herself relaxed, waiting for you to make your move although it's difficult; the thought of taking you up her ass is making her a little short of breath."
         );
-        //[if {first time}]
+        // [if {first time}]
         if (this.flags[kFLAGS.TIMES_IN_BROOKES_BUTT] == 0)
             this.outputText("  You wonder – is this the first time she's ever had anal before?");
         else
@@ -939,7 +939,7 @@ export class Brooke extends TelAdreAbstractContent {
                     this.cockDescript(x) +
                     ", spraying onto the wall in front of Brooke and across the lips of her sex."
             );
-        //[if (cocks >= 3)]
+        // [if (cocks >= 3)]
         if (this.player.cockTotal() > 2)
             this.outputText(
                 "  [EachCock] blasts in time with your " +
@@ -950,7 +950,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText(
             "\n\nYou both pant from the rigorous sex, and when you're both finished, you collapse onto Brooke's back, exhausted.  You weren't expecting her to take so much out of you.  <i>\"Wow,\"</i> she finally manages to say, catching her own breath.  "
         );
-        //[if {first time}]
+        // [if {first time}]
         if (this.flags[kFLAGS.TIMES_IN_BROOKES_BUTT] == 0)
             this.outputText(
                 "<i>\"I never knew anal could be such a thrill!  We'll have to do that again sometime!\"</i>  You chuckle politely but deep down you're almost dreading your next anal session with her.  You'll have to build up your stamina some more to keep up with her."
@@ -965,7 +965,7 @@ export class Brooke extends TelAdreAbstractContent {
                 this.cockDescript(x) +
                 " and kisses your neck sensually, eager for some more anal-play, but you're just too worn from her earlier energy.  She pouts, but gives in, finally allowing you to slip on your [armor] and leave the gym in peace."
         );
-        //Lust reduced to 0, fatigue increased by 15
+        // Lust reduced to 0, fatigue increased by 15
         this.player.orgasm();
         this.fatigue(15);
         this.flags[kFLAGS.TIMES_IN_BROOKES_BUTT]++;
@@ -973,15 +973,15 @@ export class Brooke extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=Tribadism=]
-    //Requires a vagina
+    // [=Tribadism=]
+    // Requires a vagina
     public tribadism(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("brooke-gym-female-tribadism"));
         this.outputText(
             "You fondle her full breasts, wet and heavy from the shower water beating down on them.  She moans and leans into your touch as you squish and fondle her flesh, flicking and pinching at her nipples.  You bend your head down and start kissing at her neck – trying to avoid getting any fur sticking to your tongue.  She loves it, and drags her ass over your pelvis some more, humping against"
         );
-        //[if (isHerm = true)
+        // [if (isHerm = true)
         if (this.player.gender == 3)
             this.outputText(
                 " your [cock], impishly wishing it were put to use.  You have some other plans this time, though."
@@ -1036,7 +1036,7 @@ export class Brooke extends TelAdreAbstractContent {
             this.outputText(
                 ".  Brooke moves her hands up to your tits, her hands groping onto your [chest], her palms pressing onto your [nipples] mindlessly, and her tongue lolls and flags with each buck up against her you make"
             );
-        //[if {is not a herm and is lactating}
+        // [if {is not a herm and is lactating}
         if (!this.player.hasCock() && this.player.lactationQ() >= 200)
             this.outputText(
                 ".  Your milk streams from your [chest] as Brooke puts more of her weak pressure on them: it sprays from between her fingers and drips down the back of her hands on across her wrists"
@@ -1069,7 +1069,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText(
             "\n\nYou continue to thrust against each other for a bit, but eventually you wind down"
         );
-        //[if (isHerm = true)]
+        // [if (isHerm = true)]
         if (this.player.gender == 3) this.outputText(" and [eachCock] goes limp");
         this.outputText(
             ' from all the excitement.  Brooke\'s body shudders several times, feeling several miniature orgasms rip through her, until finally, she opens her eyes and meets yours.  Without a sound, she pulls forward, making out with you once more, shamelessly gliding her tongue over yours.  <i>"Leave it to a girl to know how to fuck another so well,"</i> she smiles, rubbing against you some more for emphasis'
@@ -1083,7 +1083,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText(
             "\n\nYou use what's left of the shower water to clean yourselves of your lovemaking, and then you take turns playfully drying each other off.  You start to feel the familiar heat rise in your loins from the way she works your towel on you, and from the way she acts, you don't doubt she's getting randy again herself.  Sighing, you cut her off – you have other things to do today, unfortunately.  She understands, and before you know it, you have your [armor] back on and you're out the door."
         );
-        //Lust reduced to 0, fatigue increased by 15
+        // Lust reduced to 0, fatigue increased by 15
         this.player.orgasm();
         this.dynStats("sen", -2);
         this.fatigue(15);
@@ -1091,7 +1091,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=Down on her=]
+    // [=Down on her=]
     public goDownOnBrooke(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("brooke-gym-goDown"));
@@ -1110,7 +1110,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText(
             "\n\nShe sighs and practically melts into your body, loving every touch and every twitch your fingers make to her delicate folds."
         );
-        //[if (hasCock = true)
+        // [if (hasCock = true)
         if (this.player.hasCock())
             this.outputText(
                 "  [EachCock] begins to fill with your desire, desperate to replace your fingers, and it takes no small amount of willpower to deny yourself."
@@ -1186,7 +1186,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText(
             "\n\nThe shower's water went cold some time ago.  Brooke, for the most part, just needed to clean her crotch, while you have most of your front to vigorously scrub.  Like a sweetheart, though, she sticks around, innocently helping you wash herself off of you.  With her help, you're clean before you know it, and then you're drying each other off."
         );
-        //[if (hasCock = true)]
+        // [if (hasCock = true)]
         if (this.player.hasCock())
             this.outputText(
                 "  [EachCock] has hardly gone unnoticed this whole while, still standing at attention and begging, absolutely pleading for some action."
@@ -1208,7 +1208,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=Get laid=]
+    // [=Get laid=]
     // Requires a gender
     public getLaidByBrooke(): void {
         this.clearOutput();
@@ -1227,7 +1227,7 @@ export class Brooke extends TelAdreAbstractContent {
                     this.cockDescript(x) +
                     " between her cheeks wickedly, feeling it rise effortlessly against her soft fur and the smooth, strong muscles of her glutes"
             );
-        //[if (hasCock = false)]
+        // [if (hasCock = false)]
         else
             this.outputText(
                 "and with some clever maneuvering, you manage to wiggle her tail between your legs, and you feel the soft fur and the smooth, powerful muscles of her tail brush against your [vagina], stimulating you easily"
@@ -1287,7 +1287,7 @@ export class Brooke extends TelAdreAbstractContent {
             );
         this.outputText(", and, licking her drooling lips, leans in.");
 
-        //{male/herm scene}[if (cocks = 1)
+        // {male/herm scene}[if (cocks = 1)
         if (this.player.hasCock()) {
             this.outputText(this.images.showImage("brooke-gym-male-getLaid"));
             this.outputText(
@@ -1370,12 +1370,12 @@ export class Brooke extends TelAdreAbstractContent {
             this.outputText(
                 "\n\nShe picks up her pace, bobbing up and down on you faster and harder.  You're not fucking her face so much as she's fucking you with her mouth"
             );
-            //[if (cocks >= 3)]
+            // [if (cocks >= 3)]
             if (this.player.cockTotal() >= 3)
                 this.outputText(
                     ".  Her hands are practically a blur, up and down on [eachCock] – she's pulled them each down and towards her, aiming them towards their proper target"
                 );
-            //[if (isHerm = true)]
+            // [if (isHerm = true)]
             if (this.player.hasVagina())
                 this.outputText(
                     ".  Her fingers are straight as can be, pistoning into you roughly while her thumb frigs against your [clit], and the feel of her enthusiastic fingers inside your [vagina], massaging and caressing your walls, has you seeing stars"
@@ -1384,14 +1384,14 @@ export class Brooke extends TelAdreAbstractContent {
                 ".  You're not entirely positive if she's giving you pleasure because she wants to, or if you're just some perverse toy for her to suck on.  Whatever the case, you're not complaining, that's for sure.  Your hands grip hard onto her head, harder than you intend to, but that seems only to spur her on.  It's not much longer until you cum from her expertise."
             );
 
-            //[if (cumQuantity <= 349)]
+            // [if (cumQuantity <= 349)]
             if (this.player.cumQ() <= 349)
                 this.outputText(
                     "\n\nYou blow your load into her sucking mouth, and she licks and laps at every drop.  Your " +
                         this.cockDescript(x) +
                         " shakes and explodes with your jizz, coating her hot mouth, but it's never quite enough for her: she doesn't stop her sucking, milking you of every drop of cum you can make.  You fill her mouth once, and she audibly swallows hard, and you fill it once more before you're depleted.  She only calms down with her sucking once she's beyond doubt that you gave her everything."
                 );
-            //[if (cumQuantity <= 999)]
+            // [if (cumQuantity <= 999)]
             else if (this.player.cumQ() <= 999)
                 this.outputText(
                     "\n\nYou cum into her hungry mouth, and you do not disappoint the cum-hungry canine beneath you.  You coat her tongue with your seed, blowing out her cheeks with your sperm, and she swallows quickly before your next blast fills her mouth to the brim again.  You're a faucet, and she's your sink, taking every drop, clamping her lips securely on your " +
@@ -1404,7 +1404,7 @@ export class Brooke extends TelAdreAbstractContent {
                         this.cockDescript(x) +
                         " hard, trying to not let anything escape, but it's hardly effective: seconds later, cum is leaking out from her mouth and out of her nose, before she relents and lets go, letting your [cock] spray her in the face instead.  You cum and you cum, coating her face and her neck with your offering; she groans gutturally, half in love with the scenario and half disappointed she lost the competition between your dick and her throat."
                 );
-            //if (cocks >= 3)
+            // if (cocks >= 3)
             if (this.player.cockTotal() >= 3)
                 this.outputText(
                     "  She strokes along [eachCock] while you orgasm, and the rest of you sprays with the one in her throat.  She does her best to keep [eachCock] pointed somewhere at herself, letting you spray her with your sperm over and over, from different angles.  You're barely able to pay attention with the ecstasy flowing from your groin, but you could swear she was smiling the whole while, moaning along with your every blast."
@@ -1414,7 +1414,7 @@ export class Brooke extends TelAdreAbstractContent {
                     "\n\nThe hand in your pussy is finally rewarded for its diligence, and gets a heaping blast of femcum all over Brooke's hand, flowing down her wrist and dripping off at her forearm.  Your [vagina] pulls hard at her, milking her fingers for all the sperm it wishes it could get.  Brooke doesn't stop her thrusting, even while she tries to focus on [eachCock], sympathetic to your feminine requirements.  You thank her by coming for her some more, soaking her arm even more than it was."
                 );
         }
-        //{female scene}
+        // {female scene}
         else {
             this.outputText(this.images.showImage("brooke-gym-female-getLaid"));
             this.outputText(
@@ -1485,21 +1485,21 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText(
             "\n\nClean as a whistle and with your [armor] back on you, you wave farewell to your canine lover and leave the gym."
         );
-        //Lust reduced to 0
+        // Lust reduced to 0
         this.brookeAffection(10);
         this.player.orgasm();
         this.dynStats("sen", -2);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    //[=Double-dicked=]
-    //Requires at least two penises
+    // [=Double-dicked=]
+    // Requires at least two penises
     public doubleDicked(): void {
         this.clearOutput();
         var x: number = this.player.cockThatFits(this.brookeCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         var y: number = this.player.cockThatFits2(this.brookeCapacity());
 
-        //if {all cockFits  >= 61}
+        // if {all cockFits  >= 61}
         if (y < 0 || this.player.cockThatFits(x) >= this.brookeCapacity()) {
             this.outputText(
                 "You hump against her, enjoying the warm, wet feel of her fur against your sensitive monsters.  Brooke moans out, enjoying the way you're using her body, but freezes slightly when one of them begins to press and ply against her butthole.  <i>\"Sorry, sweet thing, but maybe not this time.  Much as I'd love me some double-dickings, one of those things in my butt would be one too many.  I'm down for something else, though.\"</i>"
@@ -1546,7 +1546,7 @@ export class Brooke extends TelAdreAbstractContent {
                 this.cockDescript(x) +
                 " further across her labia."
         );
-        //[if {not first time anal}
+        // [if {not first time anal}
         if (this.flags[kFLAGS.TIMES_IN_BROOKES_BUTT] > 0)
             this.outputText(
                 "  <i>\"Let's just hope this doesn't turn me any more into a buttfucking freak, huh?\"</i>"
@@ -1593,7 +1593,7 @@ export class Brooke extends TelAdreAbstractContent {
                 this.cockDescript(y) +
                 " pops in, she lets out a gasp, opening her eyes a bit, before focusing once again to work more of it into her.  Her muscles relax and tense sporadically – "
         );
-        //[if {first time anal}
+        // [if {first time anal}
         if (this.flags[kFLAGS.TIMES_IN_BROOKES_BUTT] == 0)
             this.outputText("it's certainly not a workout she's accustomed to,");
         else
@@ -1672,7 +1672,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText(
             "\n\nThe intense pressure makes it just a little harder-going, but the feel of having her entire body trap all of you, milking you for the cum it craves, spurs you into your own throes of orgasm.  You grunt and lean forward, resting your head on her shoulder, as [eachCock] sprays forth, blasting into her from every angle.  "
         );
-        //[if (cumQuantity <= 349)]
+        // [if (cumQuantity <= 349)]
         if (this.player.cumQ() <= 349)
             this.outputText(
                 "Your jizz blasts into her, filling into her womb nice and comfortably and shooting deep into her bowels.  Your both shake: her from the feeling of getting two doses of your cum at once and you from having your " +
@@ -1681,7 +1681,7 @@ export class Brooke extends TelAdreAbstractContent {
                     this.cockDescript(y) +
                     " pleased so uniquely.  Your orgasm goes for two, three, and four blasts, before tapering off to nothing inside of her."
             );
-        //[if (cumQuantity <= 999)
+        // [if (cumQuantity <= 999)
         else if (this.player.cumQ() <= 999)
             this.outputText(
                 "You cum hard, shooting your potent spunk into her thirsty cunt and her slurping asshole.  Her orifices fill out quickly, stuffed full, but you don't relent, shooting more and more into her.  She groans out, feeling so much sperm pool inside her, and her breathing shortens while she tries to focus on the feeling.  By the time you've finally finished inside her, your creamy jizz leaks from each of her holes."
@@ -1706,7 +1706,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText(
             "\n\nThe two of you stay like that for just a moment, basking in your afterglow with each other.  Brooke's face is still lodged firmly in your [chest], and, while you can still feel the errant twitch and squeeze from either part of her, her breathing calms and evens.  Her arms are wobbly and her legs are shaky from the unreal session between you"
         );
-        //[if (cumQuantity >= 1000)
+        // [if (cumQuantity >= 1000)
         if (this.player.cumQ() >= 10000)
             this.outputText(
                 " – she's probably going to have trouble doing much of anything for a day or two until she 'digests' her load"
@@ -1722,7 +1722,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText(
             "\n\nClean as a whistle, you both go to the lockers, pulling out your towels to dry yourselves.  You're both rather quiet and subdued through the whole thing – there isn't really much to say, "
         );
-        //[if {first time anal}
+        // [if {first time anal}
         if (this.flags[kFLAGS.TIMES_IN_BROOKES_BUTT] == 0)
             this.outputText(
                 'but Brooke eventually breaks the silence.  <i>"Hot damn,"</i> she finally says, rubbing her hands over her sore ass.  <i>"Never knew anal sex could be such a trial.  And getting it in the cooch at the same time?  Man, out of this world."</i>  She drags her index finger down your [chest] playfully, giving you a sultry smile.  <i>"I hope you didn\'t think it was a one-time thing, sweet thing.  We\'re going to have to try it again sometime."</i>  You smile back at her and tell her you\'re looking forward to it – but in the back of your mind, you wonder if you might have just awakened some sort of beast.'
@@ -1735,15 +1735,15 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText(
             "\n\nThe rest of your drying continues without much incident, and before long, you have your [armor] back on you and you're out of the gym, heading back towards camp."
         );
-        //Lust reduced to 0
+        // Lust reduced to 0
         this.player.orgasm();
         this.doNext(this.camp.returnToCampUseOneHour);
         this.brookeAffection(10);
     }
 
-    //Between 16:00 and 18:00, Affection >= 40, <= 70, body tone 50 minimum, one-time event, requires a gender
-    //Dick that fits or cunt.
-    //flags[kFLAGS.BROOKE_MEDIUM_SCENE] == 1
+    // Between 16:00 and 18:00, Affection >= 40, <= 70, body tone 50 minimum, one-time event, requires a gender
+    // Dick that fits or cunt.
+    // flags[kFLAGS.BROOKE_MEDIUM_SCENE] == 1
     public mediumAffectionOneTimeEvent(): void {
         this.clearOutput();
         this.outputText(
@@ -1769,7 +1769,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText(
             "\n\nShe gets to work right away, rubbing at your shoulders, soaking the water into your skin.  You don't know if she even has any soap on them, but you don't particularly care.  You return the motions, getting at her usual spots, just from a different perspective.  <i>\"I was on the jogging track earlier today,\"</i> she says, nearly a whisper, leaning in close, letting her breasts squeeze against your [chest], her thighs pressed tightly together and leaning into yours, <i>\"and I thought to myself, 'man, I can't wait to talk to [name] again today.  I should ask [him] for another massage.  [He] really knows how to work a pair of shoulders.'\"</i>"
         );
-        //[if (hasCock = true)]
+        // [if (hasCock = true)]
         if (this.player.hasCock())
             this.outputText(
                 "  You feel [eachCock] beginning to wake from her proximity, and in just a few seconds, she'll know it."
@@ -1797,7 +1797,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText(
             '\n\nSo hopefully,"</i> she says, closing the gap between your faces, <i>"you won\'t mind if this horny bitch indulges herself."</i>  With that, she presses her lips against yours, although this time, there is no resistance or apprehensiveness: her tongue quickly slips out, running unimpeded into your mouth and dancing along with yours.  She turns you to the side, pushing your back up against the stall wall, her mouth never leaving yours as she hungrily, ravenously, explores your mouth with her tongue.  There was nothing teasing or cutesy about it: Brooke wants you, and wants you <b>bad.</b>'
         );
-        //[=Next=]
+        // [=Next=]
         this.menu();
         this.addButton(0, "Next", this.brookeSpecialMediumSceneContinued);
     }
@@ -1808,7 +1808,7 @@ export class Brooke extends TelAdreAbstractContent {
 
         this.flags[kFLAGS.BROOKE_MEDIUM_SCENE] = 1;
 
-        //{Male only}
+        // {Male only}
         if (x >= 0 && !this.player.hasVagina()) {
             this.outputText(this.images.showImage("brooke-gym-male-specialscene"));
             this.outputText(
@@ -1825,7 +1825,7 @@ export class Brooke extends TelAdreAbstractContent {
                 this.outputText(
                     " while your second phallus brushes higher, rubbing itself through the wet fur on her stomach between the gorge of her abs"
                 );
-            //[if (cocks >= 3)
+            // [if (cocks >= 3)
             if (y >= 0 && this.player.cockTotal() >= 3)
                 this.outputText(
                     " while [eachCock] finds themselves either driving themselves higher, through the wet fur on her stomach and across each of her tensed abs, or joining the first in between her legs, pressing and pulling with her needy humping"
@@ -1904,7 +1904,7 @@ export class Brooke extends TelAdreAbstractContent {
                     " pulls and tightens in her pussy.  With some more encouraging, demanding words, and with a little more activity on her part, you finally cum, giving Brooke everything she asked for."
             );
 
-            //if (cumNormal = true)
+            // if (cumNormal = true)
             if (this.player.cumQ() <= 250)
                 this.outputText(
                     "\n\nYou paint her walls with your seed, ejaculating deep into her body, letting it all come out in a heavy force as you cum the hardest you have in quite a while.  Brooke coos with each blast into her tunnel.  She's done thrusting, instead simply grinding tightly against your crotch, squeezing her thighs in time with you to milk out all she can."
@@ -1971,7 +1971,7 @@ export class Brooke extends TelAdreAbstractContent {
             this.dynStats("sen", 0 - 2);
             this.fatigue(10);
         }
-        //{Female only}
+        // {Female only}
         else if (this.player.hasVagina() && x < 0) {
             this.outputText(this.images.showImage("brooke-gym-female-specialscene"));
             this.outputText(
@@ -1986,12 +1986,12 @@ export class Brooke extends TelAdreAbstractContent {
                 "\n\nBrooke suddenly pulls her mouth away, leaving you breathless and panting, but she never even slows – her tongue travels from your lips to your neck, and from your neck to your collarbone and down to your [chest].  Her waist closes in, pressing her tight cunt against your lower stomach while her inner thighs clamp onto your right leg.  Her hungry mouth easily finds your left nipple while her hand pinches and plays with your right, and she begins to earnestly hump against your leg, rubbing you both in all the right areas."
             );
 
-            //if (hasNippleCunts = true)
+            // if (hasNippleCunts = true)
             if (this.player.hasFuckableNipples())
                 this.outputText(
                     "\n\nOnly moments after she begins licking and sucking at your breasts, she slows, then pulls back, looking at your nipples inquisitively.  She runs her thumb over one, pressing in, and gasps in surprise when it sinks in easily.  You moan, thrusting your chest out to her – she catches on quickly and starts rotating her thumb around, teasingly, intentionally.  You rock your body in time with her teasing, and she grins, recognizing the feminine response and the texture of the inside of your nipple.  She doesn't keep you waiting as she lowers her head back down, taking your other nipple back into her maw."
                 );
-            //[if (isLactating = true)]
+            // [if (isLactating = true)]
             if (this.player.lactationQ() >= 200)
                 this.outputText(
                     "\n\nYou feel your milk drip from your breasts as she licks and nurses, flowing easily into her mouth.  She quickly pulls back in surprise, her wide eyes locking onto yours for just a moment, before she smiles and licks her lips.  She experimentally squeezes your breast and pinches your [nipple] once more with her hand, and she barely manages to force out a few more spurts of your milk.  Once she confirms that she didn't imagine that, she dives back to your chest, sucking a tit back into her mouth, this time with a specific goal in mind."
@@ -2033,12 +2033,12 @@ export class Brooke extends TelAdreAbstractContent {
                 "\n\nBrooke begins to thrash, too excited and heated to keep to any pattern any longer.  You can tell she's close.  She growls and snarls, her eyes closed and her hands gripping onto most parts of you as hard as they can.  Every few seconds your clits bump against each other, and eventually, she reaches her breaking point: she howls, smashing you against the wall, and you can feel a warmness spread over your crotch, up your stomach, and down your legs.  Her humping slows just a bit, and you can feel each contraction she has all the way up her shoulders.  It's only a few seconds before you join her."
             );
 
-            //[if (isSquirter = false)
+            // [if (isSquirter = false)
             if (this.player.wetness() < 4)
                 this.outputText(
                     "\n\nYou cum.  Your eyes cross and your mind fuzzes out on you for a moment.  You can't tell if you have one incredible orgasm, or one huge one and several smaller ones; regardless, your euphoria seems to have no end in sight as your canine lover continues to fuck against you.  You become dimly aware of everything your skin feels, from the beating of the chilling shower water to the heavy drag of Brooke's breast fur to the fine, ticklish fur on her pussy as she slowly stops fucking you."
                 );
-            //[if (isSquirter = true)
+            // [if (isSquirter = true)
             else
                 this.outputText(
                     "\n\nYou shake and quake yourself, feeling your orgasm overtake you.  You press as much of you as you can into her, feeling your juices burst from you and onto Brooke.  With each contraction you feel, you feel your own liquids squirt from your [vagina] and all over her, just as she's done to you.  Even in the chilling water of the shower, you feel another familiar wave of heat wash against your canine lover and up her own stomach.  Though your actions have slowed a bit, she continues to fuck against you, bringing herself to another, milder orgasm – not to be outdone, you fuck back, having a second one yourself."
@@ -2072,7 +2072,7 @@ export class Brooke extends TelAdreAbstractContent {
             this.dynStats("sen", -2);
             this.fatigue(10);
         }
-        //{Herms only}
+        // {Herms only}
         else {
             this.outputText(
                 "Your hands waste no time in feeling and groping all over your new canine lover's body, appreciating every nuance of the tight muscles you feel under her short fur.  Her strong shoulders; her thick upper-back; her taut lower-back; and her tight ass.  [EachCock] rises in the excitement, reaching up between your bodies, scratching itself across her fine belly fur.  Your [vagina] likewise quivers in excitement, readying itself, though in Brooke's ravaging passion, you wonder how you'll be able to satisfy all of yourself, if you even can."
@@ -2097,12 +2097,12 @@ export class Brooke extends TelAdreAbstractContent {
             this.outputText(
                 "\n\nShe keeps you pinned against the stall wall as she lowers her body, bringing her head to your [chest].  Eagerly, she begins licking the flesh of your breasts, using her tongue to heft and drag the fat of them with each lick, slowing and moaning every time she hits a [nipple]."
             );
-            //[if (hasNippleCunts = true)]
+            // [if (hasNippleCunts = true)]
             if (this.player.hasFuckableNipples())
                 this.outputText(
                     "\n\nYou shudder and moan each time her tongue caresses your sensitive nipple-cunts.  At first she takes your reaction to just mean you have sensitive nipples, but on her second pass, she notices the odd textures – unfamiliar with any nipple she's ever tasted.  She doesn't lift her mouth off: instead, she keeps still, her tongue tasting and moving, making you squirm and buckle helplessly under her ministrations.  She eventually figures it out, and removes herself, grinning wickedly, not wanting to spoil the fun too quickly."
                 );
-            //[if (isLactating = true)]
+            // [if (isLactating = true)]
             if (this.player.lactationQ() >= 200)
                 this.outputText(
                     "\n\nYou feel your milk slosh in your [chest] and trickle out from Brooke's insistency.  She doesn't realize it immediately, the milk diluting with the shower water, but soon enough, she pulls back, licking her lips inquisitively, her eyes squinted in thought.  She squeezes the nipple again, and her eyes widen when she sees the white fluid drip from you in response.  Grinning, she dives back in, hungry and intent for more."
@@ -2120,14 +2120,14 @@ export class Brooke extends TelAdreAbstractContent {
                     " while the other begins to gently pump into your [vagina], all the while her tongue continues to bathe your [chest].  You cradle her head in your own hands, unable to do much else with how she's treating your body.  Finally, she gets down to business, dropping to her knees and bringing herself face-to-face with your equipment."
             );
 
-            //[if (cocks = 1)]
+            // [if (cocks = 1)]
             if (this.player.cockTotal() == 1)
                 this.outputText(
                     "\n\nShe can hardly contain herself as she sets her tongue to work once again.  She opens wide and sucks you into her, clamping her mouth gently shut around your meat, minding her teeth.  She takes it slowly, in contrast to her apparent eagerness: she eases her head down, slowly taking it more and more, until her nose presses against your pelvis and she slowly begins to rise back up.  However, all the while, her tongue is going a mile a minute, pressing and playing, teasing and tasting, working every nerve you have in your sensitive " +
                         this.cockDescript(x) +
                         ".  The attentions make you melt into her mouth, and the sounds of her 'mmm'ing with every pass just get you that much more excited."
                 );
-            //[if (cocks = 2)]
+            // [if (cocks = 2)]
             if (this.player.cockTotal() == 2)
                 this.outputText(
                     "\n\nShe looks almost ecstatic, seeing [eachCock] up close.  She keeps her left hand busy with your [vagina], and puts her right back to work stroking your " +
@@ -2136,7 +2136,7 @@ export class Brooke extends TelAdreAbstractContent {
                         this.cockDescript(x) +
                         " eagerly, sensuously sliding up and down, gripping the base as tight as she can in one motion then rubbing the head carefully and expertly the next.  Her mouth takes its time crawling down the length of your second erection, her head going slowly but her tongue excitedly wrapping and worshipping it on the inside.  Her expertise is impressive, really, and you voice your appreciation with dumb, happy moans as she does everything she can to you."
                 );
-            //[if (cocks >= 3)]
+            // [if (cocks >= 3)]
             if (this.player.cockTotal() >= 3)
                 this.outputText(
                     "\n\nShe looks at each of your [eachCock], wide-eyed – she almost looks lost, staring, entranced by the multitude of dicks you're sporting.  She whimpers, nearly pulling her left hand away from your [vagina] so she can use everything she has to pleasure your masculinity, but resolves instead to keep it there, knowing just how important it is to not ignore your femininity.  She gets to work with what she has: her right hand pumps your " +
@@ -2179,7 +2179,7 @@ export class Brooke extends TelAdreAbstractContent {
             this.outputText(
                 '\n\n<i>"Fuck yes, [name],"</i> she chants every once in a while.  <i>"Fuck me, you dirty herm bitch.  Show me what you got.  Cum in me, [name], fucking give me all you got."</i>  You say nothing in response, and simply keep doing what you\'re doing.'
             );
-            //[if (hasBalls = true)
+            // [if (hasBalls = true)
             if (this.player.balls > 0) {
                 if (this.player.findStatusAffect(StatusAffects.Uniball) < 0) {
                     this.outputText(
@@ -2213,51 +2213,51 @@ export class Brooke extends TelAdreAbstractContent {
                     " hard, making your last few thrusts all the sweeter before you cum yourself."
             );
 
-            //[if (cumNormal = true)]
+            // [if (cumNormal = true)]
             if (this.player.cumQ() <= 250)
                 this.outputText(
                     "  Your cum erupts into the Shepherd girl, pumping into her hard, and she continues to coax as much as she can with each ripple her orgasm gives her.  It's the grandest orgasm you've had in some time, and it takes a good few moments before you finally calm down."
                 );
-            //[if (cumMedium = true)]
+            // [if (cumMedium = true)]
             if (this.player.cumQ() <= 500)
                 this.outputText(
                     "  Your fluid pumps into her hungry cooch with abandon: each of your heartbeats begets a pulse through your " +
                         this.cockDescript(x) +
                         " and into her womb.  She continues to shout with each of her convulsions, her voice slowly and steadily descending as her own orgasm subsides.  It takes you a moment to calm down, yourself."
                 );
-            //[if (cumHigh = true)]
+            // [if (cumHigh = true)]
             else if (this.player.cumQ() <= 1000)
                 this.outputText(
                     "  Urgently, your cum floods into her, pumping into her with each heartbeat.  She feels it all and squirms with each new squirt she manages to pull out of you – she continues to rock her hips, her howling from her orgasm keeping up with your own.  She holds you tight with her powerful legs, intent on not letting a drop go."
                 );
-            //[if (cumVeryHigh = true)]
+            // [if (cumVeryHigh = true)]
             else if (this.player.cumQ() <= 3000)
                 this.outputText(
                     "  You orgasm powerfully, the cum ripping through your " +
                         this.cockDescript(x) +
                         " and into her with a force she's never experienced before.  Her howling is cut short as she doubles over, pressing her tits into your face, her hips desperately rocking into yours every time you deposit another spurt.  Her stomach begins to lose some definition from the sheer amount of cum of pumping into her, but from how she continues to convulse even long after her initial orgasm, she seems to like it."
                 );
-            //[if (cumExtreme = true)]
+            // [if (cumExtreme = true)]
             else
                 this.outputText(
                     "  Your orgasm is undeniable, the initial blast into her womb barely even a hint of the torrent following behind it.  Her howl is cut short as she feels her womb fill so full, so immediately, and then she howls again, even louder, as you continue to relentlessly pump your semen into her.  Her stomach not only loses its six-pack definition, but it actually begins to balloon slightly, nearly suggesting that she's not all muscle.  Her orgasm either never stops, or she has more than a few – you're not positive."
                 );
-            //[if (cocks = 2)]
+            // [if (cocks = 2)]
             if (this.player.cockTotal() == 2)
                 this.outputText(
                     "  Your second phallus erupts in time with its brother, spraying into the air uselessly, but coating the underside of Brooke's breasts just as it promised it would.  Your cum erupts in equal parts from both dicks, soaking into her fine fur, blending in with the white strip of fur running down her torso.  She'll definitely need a second rinsing after this."
                 );
-            //[if (cocks >= 3)]
+            // [if (cocks >= 3)]
             if (this.player.cockTotal() >= 3)
                 this.outputText(
                     "  [EachCock] not inside her sprays out in time with their lucky brother, aimed right at her hunched, humping body and coating it all with your cum.  Her tight thighs, her taught belly, her ribs, her round tits, and even as high as her collarbone and her face each get a hefty blast of your cum, fulfilling their unspoken promise."
                 );
-            //if (isSquirter = false)
+            // if (isSquirter = false)
             if (this.player.wetness() >= 4)
                 this.outputText(
                     "  Your poor, lonely pussy erupts with the rest of you, coming in a torrent.  It robs whatever energy remains in your body for itself, and you buckle your knees, nearly falling with Brooke still in your arms.  You become aware of every sensation between your legs – from the water dripping down between your legs to the feel of your own heartbeat energizing your vulva.  You simultaneously crave something long and hard to drive into you, and want nothing of the sort, afraid the slightest of stimulation will send you reeling once more."
                 );
-            //[if (isSquirter = true)
+            // [if (isSquirter = true)
             else
                 this.outputText(
                     "  Whatever's left of your energy goes into your neglected cunt as it erupts itself, spraying its own juices down your legs and onto the shower floor.  Your pussy quivers and cums long and hard, squirting in time with [eachCock], the warm fluids mingling and contrasting with the cooling shower water.  As it winds down with the rest of you, you're conflicted between reaching down and giving your feminine half some special attention, and simply not touching anything, afraid that the sensations would be too much for your addled body."
@@ -2275,7 +2275,7 @@ export class Brooke extends TelAdreAbstractContent {
                 "\n\nYou bend your [legs] slightly and move your hands gently up her back, wordlessly telling her to stand on her own.  She moans, disappointed, but complies, and she eventually pulls away from you.  You're both panting hard, feeling as though you've been worked over far harder than any machine in the gym could do.  <i>\"Holy shit,\"</i> she says.  Hardly the most romantic phrase, but succinct and appropriate."
             );
 
-            //[if (cocks >= 2)]
+            // [if (cocks >= 2)]
             if (this.player.cockTotal() >= 2)
                 this.outputText(
                     "\n\nHer eyes wander, unfocused and dazed but absolutely lit up.  She leans back against the opposite wall of the stall and lets her hands run across her body.  She picks out your cum that came from your unloved dick; most of it washed off, but not all.  Still reeling from the sex, she mindlessly licks what little she found off her fingers.  Only when the taste hits her tongue does she realize what she just did, but from the look of her, she doesn't really care."
@@ -2315,25 +2315,25 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText(
             "\n\nIn one of the corners of the room, you hear a bit of a commotion.  Despite the size of the room, the echoes of the commotion make it a bit confusing as to just where the noise is coming from.  Do you look to your left, towards the butterfly machines, or do you look to your right, towards the leg press?"
         );
-        //[=Butterfly=] [=Leg Press=] [=Leave=]
+        // [=Butterfly=] [=Leg Press=] [=Leave=]
         this.menu();
         this.addButton(0, "Butterfly", this.butterflyMachinesGooooo);
         this.addButton(1, "Leg Press", this.legPressInsteadOfThreesome);
         this.addButton(4, "Leave", this.leaveHeckelEncounter);
     }
 
-    //[=Leave=]
+    // [=Leave=]
     public leaveHeckelEncounter(): void {
         this.clearOutput();
         this.outputText(
             "Well, whatever.  You came here looking for Heckel, and she's not here, as far as you can tell.  You turn around and leave the gym, without investigating the cause of the commotion."
         );
-        //Return to Tel'Adre, no time loss
+        // Return to Tel'Adre, no time loss
         this.menu();
         this.addButton(0, "Next", kGAMECLASS.telAdre.telAdreMenu);
     }
 
-    //[=Butterfly=]
+    // [=Butterfly=]
     public butterflyMachinesGooooo(): void {
         this.clearOutput();
         this.outputText(
@@ -2364,7 +2364,7 @@ export class Brooke extends TelAdreAbstractContent {
             "\n\nHeckel uses her other hand to grab you by the collar of your [armor], and, before you have a chance to object, presses her lips to yours, aggressively slipping her tongue in for a brief moment.  Some of the matrons from the crowd behind you whistle and cat-call, but you're too stunned from the reaction to reply, and before you know it, you and Brooke are pulled into the locker rooms."
         );
 
-        //[=Next=]
+        // [=Next=]
         this.menu();
         this.addButton(0, "Next", this.brookeAndHeckelStuffPartTwo);
     }
@@ -2530,7 +2530,7 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText(
             "\n\nHeckel continues to cum again and again, her hips doing tiny thrusts with each pump, her heavy balls gurgling and swaying with each spasm.  Thanks to her obscene knot, not a drop escapes from Brooke's cunt, and it all just keeps building into her womb.  "
         );
-        //[if (hasCock = true)]
+        // [if (hasCock = true)]
         if (this.player.hasCock())
             this.outputText(
                 "Based on how you know Brooke to be such a cum-hungry bitch when she's really into it, you doubt she'd rather have it any other way.  "
@@ -2565,12 +2565,12 @@ export class Brooke extends TelAdreAbstractContent {
         this.outputText(
             "\n\nYou take her advice and leave the gym before Heckel wakes up and decides to run on her dominance rush some more."
         );
-        //Lust reduced to 0, sensitivity increased by 1
+        // Lust reduced to 0, sensitivity increased by 1
         this.brookeAffection(5);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=Leg Press=]
+    // [=Leg Press=]
     public legPressInsteadOfThreesome(): void {
         this.clearOutput();
         this.outputText(
@@ -2601,7 +2601,7 @@ export class Brooke extends TelAdreAbstractContent {
             "\n\nYou accept, and wrap Heckel's right arm around your own shoulders.  You don't <i>really</i> know what to expect, but judging from the lecherous leers and callous cat-calls that follow behind you, Heckel and Brooke with every step out of the gym and into the locker rooms, you have a pretty solid idea."
         );
 
-        //[=Next=]
+        // [=Next=]
         this.menu();
         this.addButton(0, "Next", this.brookeVHeckelBrookeWins2);
     }
@@ -2665,7 +2665,7 @@ export class Brooke extends TelAdreAbstractContent {
             "\n\nTo demonstrate her dominance, Brooke grips onto the base of Heckel's cock as tightly as she can, and shucks the whole thing into her mouth in one go.  Heckel jerks, barks, and desperately tries to pump into the Shepherd's mouth, but Brooke holds her still with her one commanding hand while she suckles on the meat for just a second, before pulling back, leaving Heckel confused and even more frustrated."
         );
 
-        //{Males/herms only}
+        // {Males/herms only}
         var x: number = this.player.cockThatFits(this.brookeCapacity());
         if (x >= 0) {
             this.outputText(
@@ -2722,7 +2722,7 @@ export class Brooke extends TelAdreAbstractContent {
                     this.cockDescript(x) +
                     " with the fruit you've been forbidden all this time."
             );
-            //[if (cocks >= 2)
+            // [if (cocks >= 2)
             if (this.player.cockTotal() >= 2)
                 this.outputText(
                     "  Your extra dick flops lamely up the crack of her ass, hotdogging between her cheeks with every thrust.  You consider the possibility of maybe double-dicking the cocky hyena, but you opt against it, not willing to break the good flow you've got between the three of you."
@@ -2767,7 +2767,7 @@ export class Brooke extends TelAdreAbstractContent {
             this.outputText(
                 "  You cum and you cum, thrusting hard, making sure to drench every possible nook and cranny within Heckel's needy tunnel, seeding her deeply with your every thrust, and from how she coos and rocks in time with each of your pulses rather than her own as she does the same to Brooke, it's safe to say she enjoys it"
             );
-            //[if (isHerm = true)]
+            // [if (isHerm = true)]
             if (this.player.gender == 3)
                 this.outputText(
                     ".  Your [vagina] pulses in time with your " +
@@ -2784,7 +2784,7 @@ export class Brooke extends TelAdreAbstractContent {
                 );
             this.outputText(".");
         }
-        //{Females only}
+        // {Females only}
         else {
             this.outputText(
                 "\n\n<i>\"On the floor,\"</i> Brooke demands.  Heckel looks at the dog with an expression bordering on pleading – she's already proven her point.  Is Brooke really going to make her lie on the dirty floor like a feral mutt?  Brooke doesn't say again, simply looking at Heckel expectantly, and finally, she relents, slipping off the bench and lying across the cold tile of the floor, face- and dick-up.  Brooke, hips swaying sultrily, steps over Heckel's mast, shifting onto her knees, keeping her pussy just inches from the head of her dog-cock.  She looks up at you and, winking, invites you to take your own position over the hyena's face.  You eagerly oblige."
@@ -2841,15 +2841,15 @@ export class Brooke extends TelAdreAbstractContent {
                 this.outputText(
                     "  Your excretions are easily too much for the hyena to take, and your cum splashes out between her lips, running down her face and her neck, soaking her head almost completely.  Heckel swallows what she can, but for the most part she's more concerned with not passing out from the deluge you're subjecting her to."
                 );
-            //{End female scene}
+            // {End female scene}
         }
         this.outputText(
             "\n\nYour orgasm slowly winds down, with you panting with pleasure and exertion from the whole ordeal, but Brooke continues to fuck against Heckel, determined to squeeze out every last drop from the abused hyena.  Heckel whines and moans, unable to give any more or take any more, wordlessly begging Brooke to stop, but she doesn't: either determined to run her dominance-fueled lust to the last stop or just a bit of a whore for cum, you're not sure, but it's some time before Brooke feels satisfied and gives Heckel's abused, oversensitive dick a rest."
         );
-        //Lust reduced to 0, sensitivity increased by 1
+        // Lust reduced to 0, sensitivity increased by 1
         this.player.orgasm();
         this.dynStats("sen", 1);
-        //[=Next=]
+        // [=Next=]
         this.menu();
         this.addButton(0, "Next", this.brookeVHeckelBrookeWins3);
     }

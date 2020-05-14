@@ -9,17 +9,17 @@ import { TimeAwareInterface } from "../../TimeAwareInterface";
 import { NPCAwareContent } from "./NPCAwareContent";
 
 export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
-    //const RATHAZUL_DEBIMBO_OFFERED: number = 744;
+    // const RATHAZUL_DEBIMBO_OFFERED: number = 744;
 
-    //Rathazul the Alchemist
-    //Encounter, random text for potential uses, choices.
-    //After he has crafted 3 things for the player, option to move into camp.
+    // Rathazul the Alchemist
+    // Encounter, random text for potential uses, choices.
+    // After he has crafted 3 things for the player, option to move into camp.
     public constructor() {
         super();
         CoC.timeAwareClassAdd(this);
     }
 
-    //Implementation of TimeAwareInterface
+    // Implementation of TimeAwareInterface
     public timeChange(): boolean {
         if (this.flags[kFLAGS.RATHAZUL_SILK_ARMOR_COUNTDOWN] > 1) {
             this.flags[kFLAGS.RATHAZUL_SILK_ARMOR_COUNTDOWN]--;
@@ -39,7 +39,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
     public timeChangeLarge(): boolean {
         return false;
     }
-    //End of Interface Implementation
+    // End of Interface Implementation
 
     public returnToRathazulMenu(): void {
         if (this.player.findStatusAffect(StatusAffects.CampRathazul) >= 0) this.campRathazul();
@@ -57,9 +57,9 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             return;
         }
         var offered: boolean;
-        //Rat is definitely not sexy!
+        // Rat is definitely not sexy!
         if (this.player.lust > 30) this.dynStats("lus", -10);
-        //Introduction
+        // Introduction
         if (this.player.findStatusAffect(StatusAffects.MetRathazul) >= 0) {
             if (this.player.findStatusAffect(StatusAffects.CampRathazul) >= 0)
                 this.outputText(
@@ -78,7 +78,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             );
             this.player.createStatusAffect(StatusAffects.MetRathazul, 0, 0, 0, 0);
         }
-        //Camp offer!
+        // Camp offer!
         if (
             this.player.statusAffectv2(StatusAffects.MetRathazul) >= 3 &&
             this.player.statusAffectv3(StatusAffects.MetRathazul) != 1 &&
@@ -89,7 +89,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
             this.doYesNo(this.rathazulMoveToCamp, this.rathazulMoveDecline);
-            //Set rathazul flag that he has offered to move in (1 time offer)
+            // Set rathazul flag that he has offered to move in (1 time offer)
             this.player.changeStatusValue(StatusAffects.MetRathazul, 3, 1);
             return;
         }
@@ -136,10 +136,10 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             this.collectRathazulArmor();
             return;
         }
-        //Special rathazul/follower scenes scenes.
+        // Special rathazul/follower scenes scenes.
         if (Rathazul.rand(6) == 0 && this.flags[kFLAGS.RATHAZUL_CAMP_INTERACTION_COUNTDOWN] == 0) {
             this.flags[kFLAGS.RATHAZUL_CAMP_INTERACTION_COUNTDOWN] = 3;
-            //Pure jojo
+            // Pure jojo
             if (
                 this.flags[kFLAGS.JOJO_RATHAZUL_INTERACTION_COUNTER] == 0 &&
                 this.player.findStatusAffect(StatusAffects.PureCampJojo) >= 0 &&
@@ -174,19 +174,19 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             }
         }
         var offered: boolean;
-        //Rat is definitely not sexy!
+        // Rat is definitely not sexy!
         if (this.player.lust > 50) this.dynStats("lus", -1);
         if (this.player.lust > 65) this.dynStats("lus", -5);
         if (this.player.lust > 80) this.dynStats("lus", -5);
         if (this.player.lust > 90) this.dynStats("lus", -5);
-        //Introduction
+        // Introduction
         this.outputText(
             'Rathazul looks up from his equipment and gives you an uncertain smile.\n\n"<i>Oh, don\'t mind me,</i>" he says, "<i>I\'m just running some tests here.  Was there something you needed, ' +
                 this.player.short +
                 '?</i>"\n\n',
             true
         );
-        //player.createStatusAffect(StatusAffects.metRathazul,0,0,0,0);
+        // player.createStatusAffect(StatusAffects.metRathazul,0,0,0,0);
         offered = this.rathazulWorkOffer();
         if (!offered) {
             this.outputText(
@@ -219,7 +219,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
                 'He eyes the onyx egg in your inventory and offers a little advice.  "<i>Be careful with black eggs.  They can turn your skin to living latex or rubber.  The smaller ones are usually safer, but everyone reacts differently.  I\'d get rid of them, if you want my opinion.</i>"\n\n'
             );
         }
-        //Item crafting offer
+        // Item crafting offer
         if (this.player.hasItem(this.useables.GREENGL, 2)) {
             if (this.player.findStatusAffect(StatusAffects.RathazulArmor) < 0)
                 this.outputText(
@@ -239,7 +239,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText("You realize you're still a bit short of gel.\n\n", false);
             }
         }
-        //Item crafting offer
+        // Item crafting offer
         if (this.player.hasItem(this.useables.B_CHITN)) {
             this.outputText(
                 'The elderly rat looks at you intently and offers, "<i>I see you\'ve gathered a piece of chitin from the giant bees of the forests.  If you bring me five pieces I could probably craft it into some tough armor.</i>"\n\n',
@@ -257,7 +257,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             }
         }
         var pCounter: number = 0;
-        //Item purification offer
+        // Item purification offer
         if (this.player.hasItem(this.consumables.INCUBID)) {
             purify = this.purifySomething;
             totalOffers++;
@@ -278,7 +278,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             totalOffers++;
             pCounter++;
         }
-        //Single Offer
+        // Single Offer
         if (pCounter == 1) {
             this.outputText(
                 'The rat mentions, "<i>I see you have at least one tainted item on you... for 20 gems I could remove most of the taint, making it a good deal safer to use.  Of course, who knows what kind of freakish transformations it would cause...</i>"\n\n',
@@ -295,7 +295,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             spoken = true;
             totalOffers += 2;
         }
-        //Offer dyes if offering something else.
+        // Offer dyes if offering something else.
         if (this.player.gems >= 50) {
             this.outputText(
                 'Rathazul offers, "<i>Since you have enough gems to cover the cost of materials for my dyes as well, you could buy one of my dyes for your hair.  I will need 50 gems up-front.</i>"\n\n',
@@ -305,7 +305,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             totalOffers++;
             dyes = this.buyDyes;
         }
-        //Reducto
+        // Reducto
         if (
             this.player.findStatusAffect(StatusAffects.CampRathazul) >= 0 &&
             this.player.statusAffectv2(StatusAffects.MetRathazul) >= 4
@@ -320,7 +320,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             spoken = true;
             reductos = this.buyReducto;
         }
-        //SPOIDAH
+        // SPOIDAH
         if (
             this.player.findStatusAffect(StatusAffects.CampRathazul) >= 0 &&
             this.player.hasItem(this.useables.T_SSILK) &&
@@ -336,7 +336,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
         }
-        //Vines
+        // Vines
         if (
             this.player.hasKeyItem("Marae's Lethicite") >= 0 &&
             this.player.keyItemv2("Marae's Lethicite") < 3 &&
@@ -378,7 +378,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
         }
         if (totalOffers > 0) {
             this.outputText("Will you take him up on an offer or leave?", false);
-            //In camp has no time passage if left.
+            // In camp has no time passage if left.
             this.menu();
             if (showArmorMenu) this.addButton(0, "Armor", this.rathazulArmorMenu);
             if (debimbo > 0) this.addButton(1, "Debimbo", this.makeADeBimboDraft);
@@ -399,7 +399,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
         this.clearOutput();
         this.outputText('Rathazul asks, "<i>What would you like me to purify?</i>"');
         this.menu();
-        //Item purification offer
+        // Item purification offer
         if (this.player.hasItem(this.consumables.INCUBID)) {
             this.addButton(0, "Incubi Draft", this.rathazulPurifyIncubiDraft);
         }
@@ -496,7 +496,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
                     '\n\n"<i>Oh?  Nmm, YES, bimbos, that\'s right!  As I was saying, five Scholar\'s Teas along with 250 gems for other reagents should give me all I need to create a bimbo-beating brew!  Oh my, the alliteration!  How absurd.</i>"  Rathazul chuckles slowly, wiping a drop from his eye before he looks back at you fiercely, "<i>It is a worthwhile goal - no creature should be subjected to a reduced intellect.  Let me know when you have acquired what is needed.</i>"'
                 );
             } else {
-                //Notification if the PC is the one bimbo'ed*
+                // Notification if the PC is the one bimbo'ed*
                 this.outputText(
                     '\n\nRathazul glances your way as you approach his lab, a thoughtful expression on his age-lined face.  "<i>Tell me [name], do you truly enjoy living your life under the debilitating effects of that cursed potion?  Even now the spark of intelligence has all but left from your eyes.  Do you even understand what I\'m saying?</i>"'
                 );
@@ -509,12 +509,12 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             }
             this.flags[kFLAGS.RATHAZUL_DEBIMBO_OFFERED]++;
         }
-        //Rath menu
+        // Rath menu
         this.menu();
         this.addButton(0, "Next", this.campRathazul);
     }
 
-    //Creation Of The Draft: any
+    // Creation Of The Draft: any
     private makeADeBimboDraft(): void {
         this.clearOutput();
         this.spriteSelect(49);
@@ -524,7 +524,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>That <b>should</b> do,</i>" he mutters to himself.  Rathazul turns, carefully handing you the mixture.  "<i>This should counter the mental-inhibiting effects of the Bimbo Liqueur, but I have no idea to what extent those who imbibe it will retain of their time spent as a bimbo...</i>"\n\n'
         );
-        //Take items
+        // Take items
         this.player.gems -= 250;
         this.player.consumeItem(this.consumables.SMART_T, 5);
         this.statScreenRefresh();
@@ -573,13 +573,13 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             'You hand the bundled webbing to Rathazul carefully, lest you damage the elderly mouse.  He gives you a bemused smile and snatches the stuff from your grasp while he mutters, "<i>I\'m not falling apart you know.</i>"\n\n',
             false
         );
-        //(Not enough webs:
+        // (Not enough webs:
         if (!this.player.hasItem(this.useables.T_SSILK, 5)) {
             this.outputText(
                 "The rat shakes his head and hands it back to you.  \"<i>This isn't enough for me to make anything with.  I'll need at least five bundles of this stuff total, so you'll need to find more,</i>\" he explains.\n\n",
                 false
             );
-            //(optional spider bonus:
+            // (optional spider bonus:
             if (this.player.tailType == TAIL_TYPE_SPIDER_ADBOMEN) {
                 this.outputText(
                     'You show him your spider-like abdomen in response, offering to produce more webbing for him.  Rathazul chuckles dryly, a sound that reminds you of hot wind rushing through a dead valley.  "<i>Dear child, this would never do.  Silk this tough can only be produced by a true-born spider.  No matter how you change yourself, you\'ll always be a human at heart.</i>"\n\n',
@@ -606,7 +606,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             this.doNext(this.returnToRathazulMenu);
             return;
         }
-        //[Yes] [No]
+        // [Yes] [No]
         this.doYesNo(this.commissionSilkArmorForReal, this.declineSilkArmorCommish);
     }
     private commissionSilkArmorForReal(): void {
@@ -652,7 +652,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00275] == 1) this.outputText("armor", false);
         else this.outputText("robe", false);
         this.outputText(' is finished!</i>"\n\n', false);
-        //Robe
+        // Robe
         var itype: ItemType;
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00275] == 2) {
             this.outputText(
@@ -666,7 +666,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             );
             itype = this.armors.SS_ROBE;
         }
-        //(Armor)
+        // (Armor)
         else {
             this.outputText(
                 "A glittering white suit of armor sits atop a crude armor rack, reflecting the light that plays across its surface beautifully.  You definitely didn't expect anything like this!  It looks nearly identical to a set of light platemail, though instead of having a cold metal surface, the armor feels slightly spongy, with just a little bit of give in it.\n\n",
@@ -679,7 +679,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             );
             itype = this.armors.SSARMOR;
         }
-        //Reset counters
+        // Reset counters
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00275] = 0;
         this.flags[kFLAGS.RATHAZUL_SILK_ARMOR_COUNTDOWN] = 0;
         this.inventory.takeItem(itype, this.returnToRathazulMenu);

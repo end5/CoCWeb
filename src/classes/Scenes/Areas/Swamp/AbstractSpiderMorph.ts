@@ -40,25 +40,25 @@ export class AbstractSpiderMorph extends Monster {
                 " abdomen and unleashes a spray of webbing in your direction!  ",
             false
         );
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && AbstractSpiderMorph.rand(3) < 2) {
             this.outputText(
                 this.capitalA + this.short + " misses completely due to their blindness.",
                 false
             );
         }
-        //Determine if dodged!
+        // Determine if dodged!
         else if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
         ) {
             this.outputText("You dodge away, avoiding the sticky strands!", false);
         }
-        //Determine if evaded
+        // Determine if evaded
         else if (this.player.findPerk(PerkLib.Evade) >= 0 && AbstractSpiderMorph.rand(100) < 10) {
             this.outputText("You evade, avoiding the sticky strands!", false);
         }
-        //("Misdirection"
+        // ("Misdirection"
         else if (
             this.player.findPerk(PerkLib.Misdirection) >= 0 &&
             AbstractSpiderMorph.rand(100) < 10 &&
@@ -69,7 +69,7 @@ export class AbstractSpiderMorph extends Monster {
                 false
             );
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         else if (
             this.player.findPerk(PerkLib.Flexibility) >= 0 &&
             AbstractSpiderMorph.rand(100) < 6
@@ -81,7 +81,7 @@ export class AbstractSpiderMorph extends Monster {
                 false
             );
         }
-        //Got hit
+        // Got hit
         else {
             if (this.player.findStatusAffect(StatusAffects.Web) < 0) {
                 this.outputText(
@@ -101,12 +101,12 @@ export class AbstractSpiderMorph extends Monster {
                     false
                 );
             }
-            //Only apply as much speed slow as necessary.
+            // Only apply as much speed slow as necessary.
             var amount: number = 25;
             if (this.player.spe - amount < 1) {
                 amount = this.player.spe - 1;
             }
-            //Apply changes, display arrows, and track speed lost
+            // Apply changes, display arrows, and track speed lost
             this.player.spe -= amount;
             AbstractSpiderMorph.showStatDown("spe");
             // speUp.visible = false;
@@ -118,7 +118,7 @@ export class AbstractSpiderMorph extends Monster {
 
     /**-Bite - Raises arousal by 30*/
     public getBitten(): void {
-        //-Languid Bite - Inflicted on PC's who have been reduced to 1 speed by webbing, raises arousal by 60.
+        // -Languid Bite - Inflicted on PC's who have been reduced to 1 speed by webbing, raises arousal by 60.
         if (this.player.spe < 2 && this.player.findStatusAffect(StatusAffects.Web) >= 0) {
             this.outputText(
                 "The arachnid aggressor slowly saunters forward while you struggle under the heaps of webbing, gently placing " +
@@ -192,25 +192,25 @@ export class AbstractSpiderMorph extends Monster {
                 " two needle-like fangs closing rapidly.  ",
             false
         );
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && AbstractSpiderMorph.rand(3) < 2) {
             this.outputText(
                 this.capitalA + this.short + " misses completely due to their blindness.",
                 false
             );
         }
-        //Determine if dodged!
+        // Determine if dodged!
         else if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
         ) {
             this.outputText("You dodge away, avoiding " + this.mf("his", "her") + " bite!", false);
         }
-        //Determine if evaded
+        // Determine if evaded
         else if (this.player.findPerk(PerkLib.Evade) >= 0 && AbstractSpiderMorph.rand(100) < 10) {
             this.outputText("You evade, avoiding the bite!", false);
         }
-        //("Misdirection"
+        // ("Misdirection"
         else if (
             this.player.findPerk(PerkLib.Misdirection) >= 0 &&
             AbstractSpiderMorph.rand(100) < 10 &&
@@ -221,7 +221,7 @@ export class AbstractSpiderMorph extends Monster {
                 false
             );
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         else if (
             this.player.findPerk(PerkLib.Flexibility) >= 0 &&
             AbstractSpiderMorph.rand(100) < 6
@@ -281,11 +281,11 @@ export class AbstractSpiderMorph extends Monster {
                 ".  ",
             false
         );
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && AbstractSpiderMorph.rand(3) < 2) {
             this.outputText("The blind web-shot goes horribly wide, missing you entirely.", false);
         }
-        //Determine if dodged!
+        // Determine if dodged!
         else if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
@@ -295,14 +295,14 @@ export class AbstractSpiderMorph extends Monster {
                 false
             );
         }
-        //Determine if evaded
+        // Determine if evaded
         else if (this.player.findPerk(PerkLib.Evade) >= 0 && AbstractSpiderMorph.rand(100) < 10) {
             this.outputText(
                 "You pull your weapon back evasively and the webbing goes wide, missing entirely!",
                 false
             );
         }
-        //("Misdirection"
+        // ("Misdirection"
         else if (
             this.player.findPerk(PerkLib.Misdirection) >= 0 &&
             AbstractSpiderMorph.rand(100) < 10 &&
@@ -313,7 +313,7 @@ export class AbstractSpiderMorph extends Monster {
                 false
             );
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         else if (
             this.player.findPerk(PerkLib.Flexibility) >= 0 &&
             AbstractSpiderMorph.rand(100) < 6
@@ -348,8 +348,8 @@ export class AbstractSpiderMorph extends Monster {
             );
             this.flags[kFLAGS.PLAYER_DISARMED_WEAPON_ID] = this.player.weapon.id;
             this.player.setWeapon(WeaponLib.FISTS);
-            //No longer appears to be used				flags[kFLAGS.PLAYER_DISARMED_WEAPON_ATTACK] = player.weaponAttack;
-            //				player.weapon.unequip(player,false,true);
+            // No longer appears to be used				flags[kFLAGS.PLAYER_DISARMED_WEAPON_ATTACK] = player.weaponAttack;
+            // 				player.weapon.unequip(player,false,true);
             this.player.createStatusAffect(StatusAffects.Disarmed, 0, 0, 0, 0);
         }
         this.combatRoundOver();
@@ -365,11 +365,11 @@ export class AbstractSpiderMorph extends Monster {
                 " webs directly at your face!  ",
             false
         );
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && AbstractSpiderMorph.rand(3) < 2) {
             this.outputText("The blind web-shot goes horribly wide, missing you entirely.", false);
         }
-        //Determine if dodged!
+        // Determine if dodged!
         else if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
@@ -379,14 +379,14 @@ export class AbstractSpiderMorph extends Monster {
                 false
             );
         }
-        //Determine if evaded
+        // Determine if evaded
         else if (this.player.findPerk(PerkLib.Evade) >= 0 && AbstractSpiderMorph.rand(100) < 10) {
             this.outputText(
                 "You pull your weapon back evasively and the webbing goes wide, missing entirely.",
                 false
             );
         }
-        //("Misdirection"
+        // ("Misdirection"
         else if (
             this.player.findPerk(PerkLib.Misdirection) >= 0 &&
             AbstractSpiderMorph.rand(100) < 10 &&
@@ -397,7 +397,7 @@ export class AbstractSpiderMorph extends Monster {
                 false
             );
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         else if (
             this.player.findPerk(PerkLib.Flexibility) >= 0 &&
             AbstractSpiderMorph.rand(100) < 6

@@ -20,18 +20,18 @@ import { AbstractSpiderMorph } from "./AbstractSpiderMorph";
  * @author ...
  */
 export class CorruptedDrider extends AbstractSpiderMorph {
-    //Drider kiss!
+    // Drider kiss!
     public driderKiss(): void {
         var temp: number;
         this.outputText(
             "The corrupted drider closes in on your web-bound form, cooing happily at you while you struggle with the sticky fibers.\n\n",
             false
         );
-        //Blind dodge change
+        // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && CorruptedDrider.rand(3) < 2) {
             this.outputText("She's too blind to get anywhere near you.\n", false);
         }
-        //Dodge
+        // Dodge
         else if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
@@ -55,7 +55,7 @@ export class CorruptedDrider extends AbstractSpiderMorph {
                     false
                 );
         }
-        //Determine if evaded
+        // Determine if evaded
         else if (this.player.findPerk(PerkLib.Evade) >= 0 && CorruptedDrider.rand(100) < 10) {
             this.outputText(
                 'Somehow, you manage to evade her lusty attack.  She sighs and licks her lips.  "<i>',
@@ -76,7 +76,7 @@ export class CorruptedDrider extends AbstractSpiderMorph {
                     false
                 );
         }
-        //("Misdirection"
+        // ("Misdirection"
         else if (
             this.player.findPerk(PerkLib.Misdirection) >= 0 &&
             CorruptedDrider.rand(100) < 10 &&
@@ -101,7 +101,7 @@ export class CorruptedDrider extends AbstractSpiderMorph {
                     false
                 );
         }
-        //Determine if cat'ed
+        // Determine if cat'ed
         else if (this.player.findPerk(PerkLib.Flexibility) >= 0 && CorruptedDrider.rand(100) < 6) {
             this.outputText(
                 'You manage to twist your cat-like body out of the way at the last second, avoiding it at the last second.  She sighs and licks her lips.  "<i>',
@@ -122,7 +122,7 @@ export class CorruptedDrider extends AbstractSpiderMorph {
                     false
                 );
         } else if (this.player.findStatusAffect(StatusAffects.DriderKiss) < 0) {
-            //(HIT? + 10 lust)
+            // (HIT? + 10 lust)
             this.game.dynStats("lus", 10);
             this.outputText("Before you can move, she's right on top of you, leaning ", false);
             if (this.player.tallness < 72) this.outputText("down", false);
@@ -138,11 +138,11 @@ export class CorruptedDrider extends AbstractSpiderMorph {
                 );
             this.player.createStatusAffect(StatusAffects.DriderKiss, 0, 0, 0, 0);
         }
-        //Get hit 2nd time)
+        // Get hit 2nd time)
         else {
             this.player.addStatusValue(StatusAffects.DriderKiss, 1, 1);
             if (this.player.statusAffectv1(StatusAffects.DriderKiss) == 1) {
-                //(HIT? + 15 lust)
+                // (HIT? + 15 lust)
                 this.game.dynStats("lus", 15);
                 this.outputText(
                     "Again, the drider ties your mouth up in her syrupy lip-lock, seeming to bind your mouth as effectively as her webs bind your body.  Her sweet venom bubbles and froths at the corners of the oral embrace, dripping over her many-breasted bosom and your " +
@@ -175,7 +175,7 @@ export class CorruptedDrider extends AbstractSpiderMorph {
                 if (this.player.lust <= 99)
                     this.outputText("You shake your head 'no' and stand your ground!\n", false);
             }
-            //(Get hit 3rd+ time)
+            // (Get hit 3rd+ time)
             else {
                 this.outputText(
                     "This time you barely move.  Your body is too entranced by the idea of another venom-laced kiss to resist.  Glorious purple goo washes into your mouth as her lips meet yours, sealing tight but letting your tongue enter her mouth to swirl around and feel the venom drip from her fangs.  It's heavenly!  Your " +
@@ -185,7 +185,7 @@ export class CorruptedDrider extends AbstractSpiderMorph {
                         "s feel hard enough to cut glass, and a growing part of you admits that you'd love to feel the drider's chitinous fingers pulling on them.",
                     false
                 );
-                //(HIT? + 20 lust)
+                // (HIT? + 20 lust)
                 this.game.dynStats("lus", 20);
                 if (this.player.hasCock() || this.player.hasVagina()) {
                     this.outputText(
@@ -215,7 +215,7 @@ export class CorruptedDrider extends AbstractSpiderMorph {
     }
 
     public driderMasturbate(): void {
-        //-Masturbate - (Lowers lust by 50, raises PC lust)
+        // -Masturbate - (Lowers lust by 50, raises PC lust)
         this.lust -= 30;
         this.game.dynStats("lus", 10 + this.player.lib / 20);
         this.outputText(
@@ -242,7 +242,7 @@ export class CorruptedDrider extends AbstractSpiderMorph {
     protected performCombatAction(): void {
         this.game.spriteSelect(77);
         if (this.lust > 70 && CorruptedDrider.rand(4) == 0) this.driderMasturbate();
-        //1/4 chance of silence if pc knows spells
+        // 1/4 chance of silence if pc knows spells
         else if (
             this.game.hasSpells() &&
             this.player.findStatusAffect(StatusAffects.WebSilence) < 0 &&
@@ -250,7 +250,7 @@ export class CorruptedDrider extends AbstractSpiderMorph {
         ) {
             this.spiderSilence();
         }
-        //1/4 chance of disarm
+        // 1/4 chance of disarm
         else if (
             this.player.findStatusAffect(StatusAffects.Disarmed) < 0 &&
             this.player.weaponName != "fists" &&
@@ -258,14 +258,14 @@ export class CorruptedDrider extends AbstractSpiderMorph {
         ) {
             this.spiderDisarm();
         }
-        //Always web unless already webbed
+        // Always web unless already webbed
         else if (
             this.player.spe >= 2 &&
             (this.player.findStatusAffect(StatusAffects.Web) < 0 || CorruptedDrider.rand(2) == 0)
         ) {
             this.spiderMorphWebAttack();
         }
-        //Kiss!
+        // Kiss!
         else this.driderKiss();
     }
 
@@ -318,7 +318,7 @@ export class CorruptedDrider extends AbstractSpiderMorph {
         this.lowerBody = LOWER_BODY_TYPE_DRIDER_LOWER_BODY;
         this.skinTone = skinTone;
         this.skinType = SKIN_TYPE_PLAIN;
-        //this.skinDesc = Appearance.Appearance.DEFAULT_SKIN_DESCS[SKIN_TYPE_PLAIN];
+        // this.skinDesc = Appearance.Appearance.DEFAULT_SKIN_DESCS[SKIN_TYPE_PLAIN];
         this.hairColor = hairColor;
         this.hairLength = 24;
         this.initStrTouSpeInte(100, 50, 70, 100);

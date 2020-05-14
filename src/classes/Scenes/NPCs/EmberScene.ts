@@ -34,11 +34,11 @@ import { NPCAwareContent } from "./NPCAwareContent";
  */
 
 export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
-    //import flash.media.Video;
+    // import flash.media.Video;
 
-    //Tainted Ember
-    //Link: Tainted Ember
-    //Variable and Flag Listing
+    // Tainted Ember
+    // Link: Tainted Ember
+    // Variable and Flag Listing
     // EMBER_AFFECTION: number = 523; //: Pretty obvious
     // EMBER_HATCHED: number = 524; //: is ember hatched? 1 = true
     // EMBER_GENDER: number = 525; // 1 for male, 2 for female, 3 for herm. This also controls the egg's shell color.
@@ -49,14 +49,14 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     // EMBER_OVIPOSITION: number = 530; //0 for no egg laying, 1 for egg laying.
     // EMBER_ROUNDFACE: number = 531; //0 for anthro Ember, 1 for dragon-girl Ember. (You might want to control this with the Type flag since only default Embers use this variable.)
     // EMBER_EGG_FLUID_COUNT: number = 532; //This controls when it's time to hatch. Every item use and every time you use the egg as a masturbation aid, this will be incremented. Threshold for birthing is 5, but the birthing process can only be triggered when using as a masturbatory aid. This is done to allow players the chance to modify Ember before actually hatching.
-    //BreathType: Controls which breath weapon the PC will have via TFing. Every Ember has its unique breath weapon to pass on.
-    //EmberQuestTrigger: Controls whether the PC can still visit the lost dragon city. 0 can visit and 1 can't, special text will be displayed. (Future Expansion)
-    //BreathCooldown: How many hours you need to wait to be able to use the breath weapon again.
+    // BreathType: Controls which breath weapon the PC will have via TFing. Every Ember has its unique breath weapon to pass on.
+    // EmberQuestTrigger: Controls whether the PC can still visit the lost dragon city. 0 can visit and 1 can't, special text will be displayed. (Future Expansion)
+    // BreathCooldown: How many hours you need to wait to be able to use the breath weapon again.
     // EMBER_STAT: number = 533; //All Embers have a hidden stat, Corrupt has Ego, Pure has Confidence, Tainted has Affection, and hybrids vary. There is a need to track this, but only 1 special stat for every Ember.
     // EMBER_INTERNAL_DICK: number = 534; //Dragon-girl Ember can have either a internal sheath to keep " + emberMF("his","her") + " dick in or have it be more human-like. 0 = internal, 1 = external.
-    //EmberKidsCount: How many children you've had with Ember, this will be important later.
-    //BooleanEmberKidMale: If you've had a male child with Ember, having a herm sets both flags to 1 (true).
-    //BooleanEmberKidFemale: If you've had a female child with Ember, having a herm sets both flags to 1 (true).
+    // EmberKidsCount: How many children you've had with Ember, this will be important later.
+    // BooleanEmberKidMale: If you've had a male child with Ember, having a herm sets both flags to 1 (true).
+    // BooleanEmberKidFemale: If you've had a female child with Ember, having a herm sets both flags to 1 (true).
     // TIMES_EQUIPPED_EMBER_SHIELD: number = 535;
     // TOOK_EMBER_EGG: number = 536; //PC Take ember's egg home?
     // EGG_BROKEN: number = 537; //PC Smash!? ember's egg?
@@ -102,11 +102,11 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             48,
             15
         );
-        //Event: 0 (= not pregnant),  1,   2,   3,   4,   5,  6,  7,  8 (< 15)
+        // Event: 0 (= not pregnant),  1,   2,   3,   4,   5,  6,  7,  8 (< 15)
         CoC.timeAwareClassAdd(this);
     }
 
-    //Implementation of TimeAwareInterface
+    // Implementation of TimeAwareInterface
     public timeChange(): boolean {
         var needNext: boolean = false;
         this.pregnancy.pregnancyAdvance();
@@ -126,20 +126,20 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 needNext = true;
             }
         }
-        //Ember fuck cooldown
+        // Ember fuck cooldown
         if (this.player.statusAffectv1(StatusAffects.EmberFuckCooldown) > 0) {
             this.player.addStatusValue(StatusAffects.EmberFuckCooldown, 1, -1);
             if (this.player.statusAffectv1(StatusAffects.EmberFuckCooldown) < 1)
                 this.player.removeStatusAffect(StatusAffects.EmberFuckCooldown);
         }
-        //Ember napping
+        // Ember napping
         if (this.player.findStatusAffect(StatusAffects.EmberNapping) >= 0) {
             this.player.addStatusValue(StatusAffects.EmberNapping, 1, -1);
             if (this.player.statusAffectv1(StatusAffects.EmberNapping) <= 0)
                 this.player.removeStatusAffect(StatusAffects.EmberNapping);
         }
         if (this.followerEmber() && this.player.findStatusAffect(StatusAffects.EmberNapping) < 0) {
-            //Mino cum freakout - PC partly addicted!
+            // Mino cum freakout - PC partly addicted!
             if (
                 this.flags[kFLAGS.MINOTAUR_CUM_ADDICTION_STATE] == 1 &&
                 this.player.findPerk(PerkLib.MinotaurCumAddict) < 0 &&
@@ -148,7 +148,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.minotaurJizzFreakout();
                 needNext = true;
             }
-            //Ember is freaking out about addiction, but PC no longer addicted!
+            // Ember is freaking out about addiction, but PC no longer addicted!
             else if (
                 this.flags[kFLAGS.MINOTAUR_CUM_ADDICTION_STATE] == 0 &&
                 this.flags[kFLAGS.EMBER_CURRENTLY_FREAKING_ABOUT_MINOCUM] == 1
@@ -156,7 +156,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.emberGetOverFreakingOutAboutMinoJizz();
                 needNext = true;
             }
-            //At max lust, count up - if ten hours lusty, ember yells at ya!
+            // At max lust, count up - if ten hours lusty, ember yells at ya!
             if (this.player.lust >= 100 && this.player.gender > 0) {
                 this.flags[kFLAGS.EMBER_LUST_BITCHING_COUNTER]++;
                 if (this.flags[kFLAGS.EMBER_LUST_BITCHING_COUNTER] >= 10) {
@@ -164,7 +164,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     needNext = true;
                 }
             }
-            //Reset lust counter if not max lust'ed
+            // Reset lust counter if not max lust'ed
             else this.flags[kFLAGS.EMBER_LUST_BITCHING_COUNTER] = 0;
         }
         if (this.model.time.hours > 23) {
@@ -180,7 +180,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.followerEmber() &&
             this.player.findStatusAffect(StatusAffects.EmberFuckCooldown) < 0
         ) {
-            //Ember get's a whiff of fuckscent and knocks up PC!
+            // Ember get's a whiff of fuckscent and knocks up PC!
             if (
                 this.player.hasVagina() &&
                 this.player.inHeat &&
@@ -203,7 +203,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         }
         return false;
     }
-    //End of Interface Implementation
+    // End of Interface Implementation
 
     public emberAffection(changes: number = 0): number {
         this.flags[kFLAGS.EMBER_AFFECTION] += changes;
@@ -254,16 +254,16 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
     }
 
-    //Approaching Ember (Z)
+    // Approaching Ember (Z)
     public emberCampMenu(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("ember-visit-at-camp"));
-        //Low Affection:
+        // Low Affection:
         if (this.emberAffection() <= 25)
             this.outputText(
                 'Ember sighs as you approach, and doesn\'t even look you in the eye before speaking.  "<i>What do you want?</i>"'
             );
-        //Moderate Affection:
+        // Moderate Affection:
         else if (this.emberAffection() <= 75)
             this.outputText(
                 "Ember fidgets as " +
@@ -280,8 +280,8 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.emberMF("he", "she") +
                     ' smiles nervously.  "<i>Y-Yes?</i>"'
             );
-        //OPTIONS HERE
-        //[APPEARANCE]
+        // OPTIONS HERE
+        // [APPEARANCE]
         /*Talk (always available)
          Egg (get a dragon egg, available if she has a pussy and received Ovi Elixir before hatching) (unlimited times/day)
          Milk (get dragon milk, available if " + emberMF("he","she") + " has received Lactaid before hatching.) (unlimited times/day)
@@ -321,7 +321,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
     }
 
-    //Approach for sex - initial output when selecting [Sex] menu (Z)
+    // Approach for sex - initial output when selecting [Sex] menu (Z)
     private emberSexMenu(output: boolean = true): void {
         if (output) {
             this.clearOutput();
@@ -330,21 +330,21 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.emberMF("his", "her") +
                     " body."
             );
-            //(Low Affection)
+            // (Low Affection)
             if (this.emberAffection() <= 25)
                 this.outputText(
                     '\n\n"<i>Why are you looking at me like that?</i>" ' +
                         this.emberMF("he", "she") +
                         " says, flatly."
                 );
-            //(Medium Affection)
+            // (Medium Affection)
             else if (this.emberAffection() < 75)
                 this.outputText(
                     '\n\n"<i>What is it?  Is something wrong with my body?</i>" Ember asks, checking ' +
                         this.emberMF("him", "her") +
                         "self."
                 );
-            //(High Affection)
+            // (High Affection)
             else
                 this.outputText(
                     '\n\n"<i>D-don\'t stare at me like that!</i>" Ember protests, biting ' +
@@ -355,17 +355,17 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nYou smile at Ember, admiring the shape of the dragon, and casually mention as much."
             );
 
-            //Low Affection)
+            // Low Affection)
             if (this.emberAffection() <= 25)
                 this.outputText(
                     '\n\n"<i>Flattery won\'t get you any points with me!</i>" Ember declares.'
                 );
-            //(Medium Affection)
+            // (Medium Affection)
             else if (this.emberAffection() < 75)
                 this.outputText(
                     "\n\n\"<i>I don't buy it... you're up to something; I can tell,</i>\" Ember replies."
                 );
-            //(High Affection)
+            // (High Affection)
             else
                 this.outputText(
                     '\n\n"<i>Well, stop it!  You\'re making me...</i>"  Ember never finishes ' +
@@ -394,19 +394,19 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     " is a sexy beast; you ask what naturally comes to mind."
             );
 
-            //(Lo-rider Affection)
+            // (Lo-rider Affection)
             if (this.emberAffection() <= 25)
                 this.outputText(
                     '\n\n"<i>T-this is just a reflex! It has nothing to do with you!</i>"  You chuckle at Ember\'s failed attempt to justify ' +
                         this.emberMF("his", "her") +
                         " growing arousal."
                 );
-            //(Medium Affection)
+            // (Medium Affection)
             else if (this.emberAffection() < 75)
                 this.outputText(
                     '\n\n"<i>I... I think I can help you with something, if you want.</i>"'
                 );
-            //(High Affection)
+            // (High Affection)
             else this.outputText('\n\n"<i>Depends... what do you have in mind?</i>"');
         }
 
@@ -418,8 +418,8 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         var getEatenOut = undefined;
         var penetrateHer = undefined;
         var getPenetrated = undefined;
-        //Display Options:[Catch Anal][Pitch Anal][Blow Ember][Get Blown][Eat Ember Out][Get Eaten Out][Penetrate Her][Get Penetrated][Leave]
-        //Scenes that require Ember to have a dick
+        // Display Options:[Catch Anal][Pitch Anal][Blow Ember][Get Blown][Eat Ember Out][Get Eaten Out][Penetrate Her][Get Penetrated][Leave]
+        // Scenes that require Ember to have a dick
         if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3) {
             blowEmber = this.suckEmberCock;
             catchAnal_ = this.catchAnal;
@@ -427,7 +427,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 getPenetrated = this.getPenetratedByEmberLastSexSceneWoooo;
             }
         }
-        //scenes that require Ember to have a cunt
+        // scenes that require Ember to have a cunt
         if (this.flags[kFLAGS.EMBER_GENDER] >= 2) {
             eatOut = this.slurpDraggieCunnies;
             if (this.player.hasCock() && this.player.lust >= 33)
@@ -439,7 +439,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             getBlown = this.stickDickInKnifeDrawer;
             pitchAnal = this.stickItInEmbersButt;
         }
-        //choices("Catch Anal",catchAnal,"Pitch Anal",pitchAnal,"Blow Ember",blowEmber,"Get Blown",getBlown,"Eat Her Out",eatOut,"Get Eaten Out",getEatenOut,"Penetrate Her",penetrateHer,"Get Penetrated",getPenetrated,"",0,"Leave",emberCampMenu);
+        // choices("Catch Anal",catchAnal,"Pitch Anal",pitchAnal,"Blow Ember",blowEmber,"Get Blown",getBlown,"Eat Her Out",eatOut,"Get Eaten Out",getEatenOut,"Penetrate Her",penetrateHer,"Get Penetrated",getPenetrated,"",0,"Leave",emberCampMenu);
         this.menu();
 
         this.addButton(0, "Catch Anal", catchAnal_);
@@ -462,8 +462,8 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(9, "Leave", this.emberCampMenu);
     }
 
-    //Finding the Egg (Z)
-    //Triggers randomly on exploration in Swamp
+    // Finding the Egg (Z)
+    // Triggers randomly on exploration in Swamp
     public findEmbersEgg(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.TIMES_FOUND_EMBERS_EGG] == 0) {
@@ -496,7 +496,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
             this.outputText("\n\nStill, should you even consider taking this egg with you?");
         } else {
-            //Finding the Egg - repeat (Z)
+            // Finding the Egg - repeat (Z)
             this.outputText(
                 "You spot a familiar cave partially hidden behind the mossy vegetation and decide to confirm your suspicion."
             );
@@ -519,17 +519,17 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
     }
 
-    //[=Leave=] (Z)
+    // [=Leave=] (Z)
     private leaveEmbersAssOutToDry(): void {
         this.clearOutput();
         this.outputText(
             "You can't decide what to do right now, so you leave the egg where it is and return to your camp."
         );
-        //(You can restart this quest by randomly encountering this chamber again. It continues to reappear until you either Destroy or Take the egg.)
+        // (You can restart this quest by randomly encountering this chamber again. It continues to reappear until you either Destroy or Take the egg.)
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=Destroy it=] (Z)
+    // [=Destroy it=] (Z)
     private destroyBabyEmberYouMonster(): void {
         this.clearOutput();
         this.outputText(
@@ -544,7 +544,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nWith nothing else in the cave, you prepare to leave, but find yourself stopped by a sudden thought.  The egg yolk, though raw, looks strangely appetizing..."
         );
         this.flags[kFLAGS.EGG_BROKEN] = 1;
-        //[Eat][Leave]
+        // [Eat][Leave]
         this.simpleChoices(
             "Eat It",
             this.eatEmbersYolkLikeAnEvenBiggerDick,
@@ -559,7 +559,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
     }
 
-    //[=Eat=]
+    // [=Eat=]
     private eatEmbersYolkLikeAnEvenBiggerDick(): void {
         this.clearOutput();
         this.outputText(
@@ -576,9 +576,9 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
         this.outputText("\n\n(<b>Gained Key Item: Dragon Eggshell</b>)");
         this.player.createKeyItem("Dragon Eggshell", 0, 0, 0, 0);
-        //(+5-10 to strength, toughness, and speed.)
-        //(+20 Corruption)
-        //(also slimefeed!)
+        // (+5-10 to strength, toughness, and speed.)
+        // (+20 Corruption)
+        // (also slimefeed!)
         this.dynStats(
             "str",
             5 + EmberScene.rand(5),
@@ -593,7 +593,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Yes]
+    // [Yes]
     public getSomeStuff(): void {
         this.clearOutput();
         this.outputText(
@@ -611,26 +611,26 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nHanding over the gems, you take the white shell back from her; true to her word, she's rounded it into a proper shield and fitted adjustable straps to the back.  Its hardness is indisputable, but you can only wonder if its liquid absorption properties are still intact.  Worth a test, right?"
         );
-        //this is where the Dragonshell Shield lives, git you one!
+        // this is where the Dragonshell Shield lives, git you one!
         this.player.gems -= 200;
         this.statScreenRefresh();
         this.player.removeKeyItem("Dragon Eggshell");
         this.inventory.takeItem(this.weapons.DRGNSHL, this.telAdre.armorShop);
     }
 
-    //Suggested Reward:
-    //Dragonshell Shield: a 'weapon' that cannot be disarmed and has 0 attack, but boosts defense.  Has a chance to stun when attacking and has a high chance to block the effects of any 'fluid' attack (Such as Minotaur Cum, Potions, Sticky Web, Valeria Silence Goo, etc.) due to the shell's innate fluid absorption abilities.
-    //sells for 100G
-    //Block Effect Description: (Z)
-    //You raise your shield and block the onrushing liquid.  The porous shell quickly absorbs the fluid, wicking it away to who-knows-where and rendering the attack completely useless.
+    // Suggested Reward:
+    // Dragonshell Shield: a 'weapon' that cannot be disarmed and has 0 attack, but boosts defense.  Has a chance to stun when attacking and has a high chance to block the effects of any 'fluid' attack (Such as Minotaur Cum, Potions, Sticky Web, Valeria Silence Goo, etc.) due to the shell's innate fluid absorption abilities.
+    // sells for 100G
+    // Block Effect Description: (Z)
+    // You raise your shield and block the onrushing liquid.  The porous shell quickly absorbs the fluid, wicking it away to who-knows-where and rendering the attack completely useless.
 
-    //[=Take=] (Z)
+    // [=Take=] (Z)
     private takeEmbersEggHomeInADoggieBag(): void {
         this.clearOutput();
         this.outputText(
             "You decide to take the egg, figuring that perhaps this dragon could aid you in your quest."
         );
-        //(If player is shorter than 7 feet)
+        // (If player is shorter than 7 feet)
         if (this.player.tallness < 84)
             this.outputText(
                 "  Lifting it isn't as much of a problem as you thought; it's surprisingly light.  It is, however, very big and very awkward to carry."
@@ -649,7 +649,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nVexed, you decide to look around the egg chamber for another way out."
         );
 
-        //(if PC has >= 50 int)
+        // (if PC has >= 50 int)
         if (this.player.inte >= 50) {
             this.outputText(
                 "\n\nYou feel electricity run down your spine as you pass by a far wall in the back of the cave; inspecting the wall, you quickly locate an odd rock.  When you pick it up, you realize it has some sort of inscription drawn all over the underside; figuring it's probably the source of the ward, you fling the rock at the far wall, shattering it into many pieces."
@@ -658,7 +658,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nYou feel a small pulse of energy run through the chamber and into the corridor.  Running towards the entrance; you discover that you can easily remove the egg.  It begins to glow softly as you remove it from the cave; at first you take it for a trick of the light, but remember there isn't any in this damned dark swamp!"
             );
         }
-        //(else if PC has >= 90 str)
+        // (else if PC has >= 90 str)
         else if (this.player.str >= 90) {
             this.outputText(
                 "\n\nou look around over and over and over... but no matter how much you look, you don't see anything at all that could even resemble some kind of magic rune, or activation button, or anything that could disable the ward.  You groan in frustration."
@@ -676,28 +676,28 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nIt looks like you will have to leave the egg for now until you're better versed in magical methods... or strong enough to knock down a mountain!  You roll it back down the corridor into its shrine to prevent its being seen from the cave entrance."
             );
-            //Same as taking the Leave option. Must find the egg again to take it.
+            // Same as taking the Leave option. Must find the egg again to take it.
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
         this.outputText(
             "\n\n(<b>You have now begun the Mysterious Egg quest.  The Mysterious Egg is added to the <i>Items</i> at the Camp.</b>)"
         );
-        //set flags
+        // set flags
         this.player.createKeyItem("Dragon Egg", 0, 0, 0, 0);
         this.flags[kFLAGS.TOOK_EMBER_EGG] = 1;
         this.flags[kFLAGS.EMBER_COR] = 50;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Modified Camp Description (Z)
+    // Modified Camp Description (Z)
     public emberCampDesc(): void {
-        //Iz Ember an egg?
+        // Iz Ember an egg?
         if (this.flags[kFLAGS.EMBER_HATCHED] == 0)
             this.outputText(
                 "\nThat mysterious egg that you brought back to the camp is sitting in the crude nest you made.\n"
             );
-        //NOT AN EGG! HAHA!
+        // NOT AN EGG! HAHA!
         else {
             var choice: number = EmberScene.rand(3);
             if (choice == 0)
@@ -725,78 +725,78 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         }
     }
 
-    //Followers Descriptor (Z)
+    // Followers Descriptor (Z)
     private emberFollowerDesc(): void {
         this.outputText(
             "The mysterious egg you found in the cave sits in the grass nest you assembled for it; it is three feet tall and nearly two feet in circumference.  The nest itself isn't very pretty, but at least it's sturdy enough to keep the egg from rolling around.\n\n"
         );
     }
 
-    //How Ember should hatch
-    //General Hatching Rules
-    //Can only be hatched by using in masturbation.
-    //Must use in masturbation or use items on egg at least five times before it can be hatched.
-    //This means that even if 5 items are used on the egg, it won't hatch until the PC masturbates on it at least once.
-    //Egg starts at 50 Corruption.
+    // How Ember should hatch
+    // General Hatching Rules
+    // Can only be hatched by using in masturbation.
+    // Must use in masturbation or use items on egg at least five times before it can be hatched.
+    // This means that even if 5 items are used on the egg, it won't hatch until the PC masturbates on it at least once.
+    // Egg starts at 50 Corruption.
 
-    //Items that change traits
-    //Lactaid sets EmberMilk to 1.
-    //Ovielixir sets EmberOviposition to 1.
-    //Hair Ext. Serum increments EmberHair from 0 to 1, then to 2.
-    //Blood is always presented as an option, PC will share their own blood with the egg setting EmberMonstergirl to 1. (Makes Ember more human looking.)
+    // Items that change traits
+    // Lactaid sets EmberMilk to 1.
+    // Ovielixir sets EmberOviposition to 1.
+    // Hair Ext. Serum increments EmberHair from 0 to 1, then to 2.
+    // Blood is always presented as an option, PC will share their own blood with the egg setting EmberMonstergirl to 1. (Makes Ember more human looking.)
 
-    //How to decide Ember's sex
-    //Incubi's Draft, changes Egg's sex to male if its herm or has no sex, herm if it was female.
-    //Succubi's Milk, changes Egg's sex to female if its herm or has no sex, herm if it was male.
-    //If the PC uses the Sexless Egg in masturbation, sex is set to opposite PC's sex for male/female PCs and the same sex for herm PCs.
+    // How to decide Ember's sex
+    // Incubi's Draft, changes Egg's sex to male if its herm or has no sex, herm if it was female.
+    // Succubi's Milk, changes Egg's sex to female if its herm or has no sex, herm if it was male.
+    // If the PC uses the Sexless Egg in masturbation, sex is set to opposite PC's sex for male/female PCs and the same sex for herm PCs.
 
-    //Egg's shell color changes based on sex:
-    //White: Unsexed (initial color).
-    //Blue:  Male
-    //Pink:  Female
-    //Purple: Herm
+    // Egg's shell color changes based on sex:
+    // White: Unsexed (initial color).
+    // Blue:  Male
+    // Pink:  Female
+    // Purple: Herm
 
-    //Modifying the Egg's Corruption
-    //If PC uses the egg in masturbation, modify Egg's Corruption by +5 if the PC has Corruption >= 50, or -5 if the PC has <50 Corruption.
+    // Modifying the Egg's Corruption
+    // If PC uses the egg in masturbation, modify Egg's Corruption by +5 if the PC has Corruption >= 50, or -5 if the PC has <50 Corruption.
 
-    //Normal Incubi's Draft, modify Corruption by +10
-    //Normal Succubi's Milk, modify Corruption by +10
+    // Normal Incubi's Draft, modify Corruption by +10
+    // Normal Succubi's Milk, modify Corruption by +10
 
-    //Purified Succubi's Milk, modify Corruption by -10
-    //Purified Incubi's Draft, modify Corruption by -10
+    // Purified Succubi's Milk, modify Corruption by -10
+    // Purified Incubi's Draft, modify Corruption by -10
 
-    //Enhanced Succubi's Milk, modify Corruption by +15
-    //Enhanced Incubi's Draft, modify Corruption by +15
+    // Enhanced Succubi's Milk, modify Corruption by +15
+    // Enhanced Incubi's Draft, modify Corruption by +15
 
-    //How to decide which Ember should hatch.
+    // How to decide which Ember should hatch.
 
-    //For now only Tainted Ember has been written so there's no need to track, but later more types of Ember may be hatched.
-    //if Egg's Corruption is:
-    //0-25	= Pure Ember is Born
-    //26-74	= Tainted Ember is Born
-    //75-100	= Corrupted Ember is Born
+    // For now only Tainted Ember has been written so there's no need to track, but later more types of Ember may be hatched.
+    // if Egg's Corruption is:
+    // 0-25	= Pure Ember is Born
+    // 26-74	= Tainted Ember is Born
+    // 75-100	= Corrupted Ember is Born
 
-    //if EmberType has been altered, forget corruption. Hybrid forms have no corruption variants.
+    // if EmberType has been altered, forget corruption. Hybrid forms have no corruption variants.
 
-    //General Egg Interaction (Z)
+    // General Egg Interaction (Z)
     public emberEggInteraction(): void {
         this.clearOutput();
         this.outputText(
             "You approach the egg you found in that illusion-concealed cave. Though the light continues to pulse with its heartbeat overtones, it still just sits there, doing nothing."
         );
-        //(If the egg Corruption level is 0-25, aka \"<i>Pure</i>\")
+        // (If the egg Corruption level is 0-25, aka \"<i>Pure</i>\")
         if (this.flags[kFLAGS.EMBER_COR] <= 25) {
             this.outputText(
                 "  As you observe the egg, it glows with soft, metered pulses and you're overcome with a sense of calm and peace.  Watching them, you feel serene, as if untouched by this world's taint."
             );
         }
-        //(else If the egg Corruption level is 26-74, aka \"<i>Tainted</i>\")
+        // (else If the egg Corruption level is 26-74, aka \"<i>Tainted</i>\")
         else if (this.flags[kFLAGS.EMBER_COR] <= 75) {
             this.outputText(
                 "  As you observe the egg, it glows with bright, gaudy pulses and you're overcome with a sense of arrogance and strength.  You feel somehow as if you could do anything, as if you were superior to everything, and no one could dare say otherwise."
             );
         }
-        //(If the egg Corruption level is 75-100, aka \"<i>Corrupt</i>\")
+        // (If the egg Corruption level is 75-100, aka \"<i>Corrupt</i>\")
         else {
             this.outputText(
                 "  As you observe the egg you realize what you had taken for its pulses are actually just its normal color; the egg is actually 'glowing' with a black light!  As you stare, mesmerized, you begin to consider the pleasing contrast that would result if you covered it in your "
@@ -812,7 +812,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
             this.dynStats("lus", 10 + this.player.cor / 10);
         }
-        //(If player has lust >= 33)
+        // (If player has lust >= 33)
         if (
             this.player.lust >= 33 &&
             (this.flags[kFLAGS.EMBER_EGG_FLUID_COUNT] < 5 ||
@@ -824,20 +824,20 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nYou reach out and have the distinct impression of breathing... no, not breathing... panting.  It feels like the egg is panting, eager for something, and you find its eagerness infectious.  Placing a hand on the shell, you lean in and press your cheek to the surface, listening; the egg feels warm and throbs as it pulses... almost like a lover's chest just before you consummate your feelings for each other.  You have the strangest urge to do just that with this mysterious egg..."
             );
-            //(additionally to above, if the egg is about to hatch)
+            // (additionally to above, if the egg is about to hatch)
             if (this.flags[kFLAGS.EMBER_EGG_FLUID_COUNT] == 4) {
                 this.outputText(
                     "\n\nA feeling of exasperation fills you as well, as if you were almost finished achieving something, but lacked the last step necessary to complete it."
                 );
             }
-            //Do you give in to the urge?
-            //[Yes][No]
-            //[= Yes =]
+            // Do you give in to the urge?
+            // [Yes][No]
+            // [= Yes =]
             this.doYesNo(this.masturbateOntoAnEgg, this.dontEggFap);
-            //(Use the appropriate Egg Masturbation scene.)
+            // (Use the appropriate Egg Masturbation scene.)
             return;
         }
-        //(If player meets no other requirements)
+        // (If player meets no other requirements)
         else {
             this.outputText(
                 "\n\nYou stare at the egg's pulsations as the rhythm shifts slightly.  You feel a tinge of excitement, a distant expectation not your own.  Though curious about what could be inside, you decide nothing more can be done for now."
@@ -943,14 +943,14 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
     }
 
-    //[= No =]
+    // [= No =]
     private dontEggFap(): void {
         this.clearOutput();
         this.outputText(
             "Shaking your head, confused and startled by these strange impulses, you step away for a moment. Once away from the egg, its pattern of pulsations returns to normal and you feel the urges disappear."
         );
-        //If PC picks No and qualifies for item use, display the text below.
-        //(If player has an item that is valid for application)
+        // If PC picks No and qualifies for item use, display the text below.
+        // (If player has an item that is valid for application)
         var fap = undefined;
         if (this.player.lust >= 33) fap = this.masturbateOntoAnEgg;
         var draft = undefined;
@@ -1059,7 +1059,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
     }
 
-    //Leave Without Using Item (Z)
+    // Leave Without Using Item (Z)
     private leaveWithoutUsingAnEmberItem(): void {
         this.clearOutput();
         this.outputText(
@@ -1068,7 +1068,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.inventory.inventoryMenu);
     }
 
-    //Incubus Draft/Purified Incubus Draft (Z)
+    // Incubus Draft/Purified Incubus Draft (Z)
     private useIncubusDraftOnEmber(purified: boolean = false): void {
         this.clearOutput();
         if (purified) {
@@ -1094,7 +1094,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.playerMenu);
     }
 
-    //Succubi Milk/Purified Succubi Milk (Z)
+    // Succubi Milk/Purified Succubi Milk (Z)
     private useSuccubiMilkOnEmber(purified: boolean = false): void {
         this.clearOutput();
         if (purified) {
@@ -1109,12 +1109,12 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "Popping the cap off of the milk bottle, you pour the contents onto the egg - the porous shell soaks up the milk as fast as you dump it, spilling not a drop."
         );
-        //(If Unsexed or Herm:
+        // (If Unsexed or Herm:
         if (this.flags[kFLAGS.EMBER_GENDER] == 3 || this.flags[kFLAGS.EMBER_GENDER] == 0) {
             this.outputText("  The egg's shell slowly changes to a muted pink color.");
             this.flags[kFLAGS.EMBER_GENDER] = 2;
         }
-        //If Male:
+        // If Male:
         else if (this.flags[kFLAGS.EMBER_GENDER] == 1) {
             this.outputText("  The egg's shell slowly changes to a lavender hue.");
             this.flags[kFLAGS.EMBER_GENDER] = 3;
@@ -1123,11 +1123,11 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.playerMenu);
     }
 
-    //Ovi Elixir (Z)
+    // Ovi Elixir (Z)
     private useOviElixerOnEmber(): void {
         this.clearOutput();
         this.player.consumeItem(this.consumables.OVIELIX);
-        //max uses 1
+        // max uses 1
         this.outputText(
             "Uncorking the crystalline bottle, you pour the strange green liquid inside onto the egg, briefly wondering what on earth it could want with this stuff, before catching your fallacy.  It's an egg, right?  It can't want things...  The fluid spills all over the shell, coating it, and then seeps inside, leaving the egg's previously pale surface marked with small green splotches."
         );
@@ -1136,11 +1136,11 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.playerMenu);
     }
 
-    //Lactaid (Z)
+    // Lactaid (Z)
     private useLactaidOnEmber(): void {
         this.clearOutput();
         this.player.consumeItem(this.consumables.LACTAID);
-        //max uses 1
+        // max uses 1
         this.outputText(
             "Feeling a little bemused, you pour the creamy fluid onto the egg.  It is absorbed through the shell, and a spiderwork of creamy yellow vein-like markings suddenly forms on the shell's surface."
         );
@@ -1149,11 +1149,11 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.playerMenu);
     }
 
-    //Hair Extension Serum (Z)
+    // Hair Extension Serum (Z)
     private hairExtensionSerum(): void {
         this.clearOutput();
         this.player.consumeItem(this.consumables.EXTSERM);
-        //max uses 2
+        // max uses 2
         this.outputText(
             "Wondering at your motivations, you pour the goblin gunk onto the egg.  Most rolls harmlessly off of the shell, leaving you annoyed at the waste... until you see "
         );
@@ -1169,14 +1169,14 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.playerMenu);
     }
 
-    //Your Blood (Z)
+    // Your Blood (Z)
     private giveEmberBludSausages(): void {
         this.clearOutput();
-        //max uses 2
+        // max uses 2
         this.outputText(
             'Examining your hand and the egg\'s reaction to it, you wonder if this is what the book meant by "<i>sharing your essence</i>".  Could be worth trying.  Wincing in pain as you bite the skin on your thumb, you smear the bloody digit along the surface of the egg, marking its exterior in crimson.  Shortly thereafter the blood is absorbed, leaving only a stain.  You wait expectantly for something else to happen'
         );
-        //[(0 prior),
+        // [(0 prior),
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0) {
             this.outputText(" but the egg just glows its excitement, as if it wanted still more.");
             this.flags[kFLAGS.EMBER_INTERNAL_DICK] = 1;
@@ -1186,14 +1186,14 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         }
         this.player.takeDamage(1);
         this.flags[kFLAGS.EMBER_ROUNDFACE] = 1;
-        //(Token HP Loss, can't drop below 1 HP.)
+        // (Token HP Loss, can't drop below 1 HP.)
         this.player.takeDamage(10);
         this.flags[kFLAGS.EMBER_EGG_FLUID_COUNT]++;
         this.doNext(this.playerMenu);
     }
 
-    //Masturbate Onto the Egg (Z)
-    //Genderless Version (Z)
+    // Masturbate Onto the Egg (Z)
+    // Genderless Version (Z)
     private masturbateOntoAnEgg(): void {
         this.clearOutput();
         if (this.player.gender == 0) {
@@ -1203,8 +1203,8 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //Nothing changes. PC can go do something else, lose no time.
-        //Male Version (Z)
+        // Nothing changes. PC can go do something else, lose no time.
+        // Male Version (Z)
         if (this.player.gender == 1) {
             this.outputText(
                 "The light of the egg pulses rapidly, throwing strange illumination and shadow over your form as you hastily peel off your [armor], too far gone to recognize the absurdity.  Your heart is racing so fast with excitement, lust, anticipation... it actually matches the tempo of the pulses from the egg, when you care to notice."
@@ -1230,7 +1230,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nPanting, you stare at what you have unleashed.  Before your eyes, the pulsations come with incredible rapidity as your sexual fluid literally seeps into the egg's shell.  Then, when every drop has been drunk, the light resumes its normal rhythm."
             );
-            //(If the egg has no sex)
+            // (If the egg has no sex)
             if (this.flags[kFLAGS.EMBER_GENDER] == 0) {
                 this.outputText("\n\nThe egg's shell changes color, from white to muted pink.");
                 this.flags[kFLAGS.EMBER_GENDER] = 2;
@@ -1239,7 +1239,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nYou look at the egg's surface in amazement and examine it for any trace of cum; when you touch the shell, you feel a strange feeling emanate from the egg; a feeling of satisfaction and fulfillment.  Whatever life-force exists inside that egg may have been strengthened by your... contribution.  You can't help but wonder what the creature inside is."
             );
         }
-        //Female Version (Z)
+        // Female Version (Z)
         else if (this.player.gender == 2) {
             this.outputText(
                 "The light of the egg pulses rapidly, throwing strange illumination and shadow over your form as you hastily peel off your [armor], too far gone to recognize the absurdity.  Your heart is racing so fast with excitement, lust, anticipation... it actually matches the tempo of the pulses from the egg, when you care to notice."
@@ -1254,7 +1254,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nReleasing its surface and panting with the exertion, you step back, your legs wobbly for a few moments.  You stare at what you have unleashed.  Before your eyes, the pulsations come with incredible rapidity as your sexual fluid literally seeps into the egg's shell.  Then, when every drop has been drunk, the light resumes its normal rhythm."
             );
-            //(If the egg has no sex)
+            // (If the egg has no sex)
             if (this.flags[kFLAGS.EMBER_GENDER] == 0) {
                 this.flags[kFLAGS.EMBER_GENDER] = 1;
                 this.outputText(
@@ -1265,7 +1265,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nYou look at the egg's surface in amazement and examine it for any trace of cum; when you touch the shell, you feel a strange feeling emanate from the egg; a feeling of satisfaction and fulfillment.  Whatever life-force exists inside that egg may have been strengthened by your... contribution.  You can't help but wonder what the creature inside is."
             );
         } else {
-            //Herm Version (Z)
+            // Herm Version (Z)
             this.outputText(
                 "The light of the egg pulses rapidly, throwing strange illumination and shadow over your form as you hastily peel off your [armor], too far gone to recognize the absurdity.  Your heart is racing so fast with excitement, lust, anticipation... it actually matches the tempo of the pulses from the egg, when you care to notice."
             );
@@ -1285,7 +1285,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nIt's no wonder that you finally lose your battle and slip off, landing hard on your back.  You lay there, gasping for air, and are only just starting to breathe normally again when you see what is happening to the egg.  Before your eyes, the pulsations come with incredible rapidity as your sexual fluid literally seeps into the egg's shell.  Then, when every drop has been drunk, the light resumes its normal rhythm."
             );
-            //(If the egg has no sex)
+            // (If the egg has no sex)
             if (this.flags[kFLAGS.EMBER_GENDER] == 0) {
                 this.flags[kFLAGS.EMBER_GENDER] = 3;
                 this.outputText(
@@ -1296,7 +1296,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nYou look at the egg's surface in amazement and examine it for any trace of cum; when you touch the shell, you feel a strange feeling emanate from the egg; a feeling of satisfaction and fulfillment.  Whatever life-force exists inside that egg may have been strengthened by your... contribution.  You can't help but wonder what the creature inside is."
             );
         }
-        //(If egg has been fed at least once but not enough)
+        // (If egg has been fed at least once but not enough)
         if (this.flags[kFLAGS.EMBER_EGG_FLUID_COUNT] < 5) {
             this.outputText(
                 "\n\nYou note the egg emanates a feeling of greater satisfaction than before, but still not enough. Maybe it will hatch if you feed it more?"
@@ -1304,14 +1304,14 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         }
         this.player.orgasm();
         this.dynStats("sen", -1);
-        //MAKE SURE EMBER HAS BEEN JACKED ON FLAG IS SET TO TRUE
+        // MAKE SURE EMBER HAS BEEN JACKED ON FLAG IS SET TO TRUE
         this.flags[kFLAGS.EMBER_JACKED_ON] = 1;
-        //INCREMENT EMBER FEEDINZ
+        // INCREMENT EMBER FEEDINZ
         this.flags[kFLAGS.EMBER_EGG_FLUID_COUNT]++;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //HATCH DAT BITCH
+    // HATCH DAT BITCH
     private hatchZeMuzzles(): void {
         this.clearOutput();
         this.outputText(
@@ -1325,9 +1325,9 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         else if (this.flags[kFLAGS.EMBER_GENDER] == 2) this.outputText("pink ");
         else this.outputText("purple ");
         this.outputText("dust.");
-        //FURRAH
+        // FURRAH
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0) {
-            //Male Anthro (Z)
+            // Male Anthro (Z)
             if (this.flags[kFLAGS.EMBER_GENDER] == 1) {
                 this.outputText(
                     "\n\nIt's huge, standing 7 feet tall at the very least.  Its build is lean and slender, with powerful arms and legs that end in reptilian claws, complete with splay-toed feet capped by menacing talons."
@@ -1341,17 +1341,17 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     "\n\nThe creature is covered from head to toe in prominent, shield-shaped scales.  Its dorsal scales are silver and reflect light, while its underbelly is a golden color, giving it a regal appearance."
                 );
-                //(If Ember lactates)
+                // (If Ember lactates)
                 if (this.flags[kFLAGS.EMBER_MILK] > 0)
                     this.outputText(
                         "\n\nYour eyes set upon its chest, where perky, dribbling nipples jut from the breasts resting there.  You size the creature as roughly an F-cup."
                     );
-                //(Otherwise)
+                // (Otherwise)
                 else
                     this.outputText(
                         "\n\nYour eyes set upon its chest, where perky nipples jut from between small, aureate ventral scales."
                     );
-                //[(libido check)
+                // [(libido check)
                 if (this.player.lib >= 50)
                     this.outputText("\n\nUnthinkingly, your eyes wander next to");
                 else this.outputText("\n\nSurreptitiously, you sneak a peek at");
@@ -1362,7 +1362,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.outputText(", drooling nipples notwithstanding");
                 this.outputText(".");
             }
-            //Female Anthro (Z)
+            // Female Anthro (Z)
             else if (this.flags[kFLAGS.EMBER_GENDER] == 2) {
                 this.outputText(
                     "\n\nIt's huge, standing 7 feet tall at the very least.  Its build is lean and slender, with powerful arms and legs that end in reptilian claws, complete with splay-toed feet capped by menacing talons."
@@ -1379,14 +1379,14 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     "\n\nYour eyes set upon its chest, where perky nipples jut from the breasts resting there.  You size the creature as roughly an F-cup."
                 );
-                //[(libido check)
+                // [(libido check)
                 if (this.player.lib >= 50) this.outputText("\n\nUnthinkingly, your eyes wander to");
                 else this.outputText("\n\nSurreptitiously, you sneak a peek at");
                 this.outputText(
                     " the monster's crotch; there, you see that the fine scales actually separate to reveal a slick-looking pussy.  She's clearly a female, with no noteworthy 'additions' that you can see."
                 );
             }
-            //Herm Anthro (Z)
+            // Herm Anthro (Z)
             else {
                 this.outputText(
                     "\n\nIt's huge, standing 7 feet tall at the very least.  Its build is lean and slender, with powerful arms and legs that end in reptilian claws, complete with splay-toed feet capped by menacing talons."
@@ -1411,9 +1411,9 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 );
             }
         }
-        //Boring version
+        // Boring version
         else {
-            //Male Monstergirl (Z)
+            // Male Monstergirl (Z)
             if (this.flags[kFLAGS.EMBER_GENDER] == 1) {
                 this.outputText(
                     "\n\nYour first impression is of a humanoid figure, but a closer look reveals some very non-human traits.  While parts of it are covered in olive-hued skin, the rest glints with silvery, reptilian scales.  It stands taller than any human, easily over 7 feet, and even from here you can see huge draconic wings, a pair of long, ebony-black horns, and a lashing, scaled tail.  Reptilian eyes literally glow a fiery orange as they stare warily at you."
@@ -1440,7 +1440,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     );
                 this.outputText(", completed by apple-size nuts held inside a fleshy sack.");
             }
-            //Female Monstergirl (Z)
+            // Female Monstergirl (Z)
             else if (this.flags[kFLAGS.EMBER_GENDER] == 2) {
                 this.outputText(
                     "\n\nYour first impression is of a humanoid figure, but a closer look reveals some very non-human traits.  While parts of it are covered in olive-hued skin, the rest glints with silvery, reptilian scales.  It stands taller than any human, easily over 7 feet, and even from here you can see huge draconic wings, a pair of long, ebony-black horns, and a lashing reptilian tail. Reptilian eyes literally glow a fiery orange as they stare warily at you."
@@ -1449,7 +1449,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     "\n\nThe figure is feminine in appearance, with graceful, well-toned curves.  Her form is delightful, giving her a silhouette that any woman back in Ingnam would kill for; huge, soft breasts adorn her chest.  Down below you see a taut belly, a handful of rounded butt, and feminine thighs that draw your attention with every move... and in-between those wonderful thighs you see an inviting, human-looking slit; some moisture has gathered, giving it a slick look that just begs for attention."
                 );
             }
-            //Herm Monstergirl (Z)
+            // Herm Monstergirl (Z)
             else {
                 this.outputText(
                     "\n\nYour first impression is of a humanoid figure, but a closer look reveals some very non-human traits.  While parts of it are covered in olive-hued skin, the rest glints with silvery, reptilian scales.  It stands taller than any human, easily over 7 feet, and even from here you can see huge draconic wings, a pair of long, ebony-black horns, and a lashing reptilian tail. Reptilian eyes literally glow a fiery orange as they stare warily at you."
@@ -1465,11 +1465,11 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 );
             }
         }
-        //Aftermath (Z)
+        // Aftermath (Z)
         this.doNext(this.meetEmberAftermath);
     }
 
-    //Aftermath (Z)
+    // Aftermath (Z)
     private meetEmberAftermath(): void {
         this.clearOutput();
         this.outputText(
@@ -1493,11 +1493,11 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Appearance (shows Ember's appearance, always available)
+    // Appearance (shows Ember's appearance, always available)
     private embersAppearance(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("ember-examine-appearance"));
-        //Anthro Ember's Appearance (Z)
+        // Anthro Ember's Appearance (Z)
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0) {
             this.outputText(
                 "Ember is a 7' 3\" tall humanoid dragon, with supple, long limbs and a build that is toned and athletic, with powerful underlying muscles.  " +
@@ -1507,7 +1507,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.flags[kFLAGS.EMBER_GENDER] == 1) this.outputText(" not overly muscled.");
             else this.outputText(" feminine.");
 
-            //(Male)
+            // (Male)
             if (this.flags[kFLAGS.EMBER_GENDER] == 1) {
                 this.outputText(
                     "\n\nEmber's body is the perfect picture of a healthy male.  Not underweight or overweight, but with just the perfect amount of fat that, excepting the"
@@ -1517,7 +1517,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     " snout, wings, and horns, gives him the silhouette of a prince from your village's stories: dashing and handsome."
                 );
             }
-            //(Female/Herm)
+            // (Female/Herm)
             else {
                 this.outputText(
                     "\n\nEmber's body is a curvy thing, not rough like you'd expect from a reptilian creature, but rounded and almost soft-looking, with a taut belly and a perfect hourglass figure, giving " +
@@ -1549,7 +1549,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.emberMF("his", "her") +
                     " jaws and teeth.  Prideful, fierce eyes, with slit pupils and burning orange irises, glitter even in the darkness."
             );
-            //(if Ember has any hair)
+            // (if Ember has any hair)
             if (this.flags[kFLAGS.EMBER_HAIR] == 1) {
                 if (this.flags[kFLAGS.EMBER_GENDER] == 1) this.outputText("  Short ");
                 else this.outputText("  Shoulder-length ");
@@ -1559,7 +1559,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                         " head.  You'd think that a dragon with hair would look weird, but it actually compliments Ember's looks very well."
                 );
             }
-            //(if Ember has a level 2 mane)
+            // (if Ember has a level 2 mane)
             else if (this.flags[kFLAGS.EMBER_HAIR] == 2) {
                 this.outputText(
                     "  Tracing " +
@@ -1581,12 +1581,12 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     " back supports a pair of strong, scaly dragon wings, covered in membranous leathery scales.  The muscles are held taut, as though ready to extend and take to the skies at any notice."
             );
 
-            //(Male)
+            // (Male)
             if (this.flags[kFLAGS.EMBER_GENDER] == 1)
                 this.outputText(
                     "\n\nHis hips are normal-looking, not demanding any kind of extra attention.  His butt is taut and firm, lending itself well to balance."
                 );
-            //(Female/Herm)
+            // (Female/Herm)
             else
                 this.outputText(
                     "\n\nHer girly hips are as eye-catching as the shapely handful that graces her posterior, giving Ember a graceful strut.  That same delightful butt of hers just begs to be touched, soft enough to jiggle only slightly and yet firm enough to not trouble the dragon's balance."
@@ -1668,7 +1668,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 default:
             }
 
-            //(Ember breast check)
+            // (Ember breast check)
             this.outputText(
                 "\n\nSituated upon " + this.emberMF("his", "her") + " chest are a pair of "
             );
@@ -1685,7 +1685,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             else this.outputText("masculine pectorals");
             this.outputText(".");
 
-            //(If Ember has a penis)
+            // (If Ember has a penis)
             if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3) {
                 this.outputText(
                     "\n\nHanging from " +
@@ -1700,7 +1700,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                         " genital slit."
                 );
             }
-            //(If Ember has a vagina)
+            // (If Ember has a vagina)
             if (this.flags[kFLAGS.EMBER_GENDER] == 2 || this.flags[kFLAGS.EMBER_GENDER] == 3)
                 this.outputText(
                     "\n\nThe scales in-between Ember's legs are particularly smooth and fine, and part just enough to reveal the insides of her slick pussy; soft, inviting and moist."
@@ -1731,9 +1731,9 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     "self a bit too much..."
             );
         }
-        //Dragon-girl Appearance (By Radar) (Z)
+        // Dragon-girl Appearance (By Radar) (Z)
         else {
-            //Credit him with additional scenes.
+            // Credit him with additional scenes.
             this.outputText("Ember is a 7' 3</i>\" tall ");
             if (this.flags[kFLAGS.EMBER_GENDER] == 1) this.outputText("male");
             else if (this.flags[kFLAGS.EMBER_GENDER] == 2) this.outputText("female");
@@ -1775,7 +1775,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.emberMF("his", "her") +
                     " facial features well and "
             );
-            //Short:
+            // Short:
             if (this.flags[kFLAGS.EMBER_HAIR] < 1)
                 this.outputText(
                     "is quite short, giving " +
@@ -1850,7 +1850,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                             " dick from the elements as well as stray blows.  You can't see it right now; but you remember it to be about 16 inches long and 2 inches thick."
                     );
             }
-            //Ember has a pussy:
+            // Ember has a pussy:
             if (this.flags[kFLAGS.EMBER_GENDER] >= 2)
                 this.outputText(
                     "  The inviting lips of a human-looking pussy purse between her legs; some moisture seems to have gathered on her labia, giving it a slick look that just begs for attention."
@@ -1874,12 +1874,12 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.emberCampMenu);
     }
 
-    //Talk
+    // Talk
     private talkToEmber(): void {
-        //Checks for special scenes go here!
-        //If the PC fulfills one of the requirements for the Special Scenes, they occur the moment the player picks the talk option.
+        // Checks for special scenes go here!
+        // If the PC fulfills one of the requirements for the Special Scenes, they occur the moment the player picks the talk option.
         if (this.player.isPregnant()) {
-            //Extra check might protect against inappropriate Ember complaints
+            // Extra check might protect against inappropriate Ember complaints
             if (
                 this.flags[kFLAGS.EMBER_OVI_BITCHED_YET] == 0 &&
                 this.player.pregnancyType == PregnancyStore.PREGNANCY_OVIELIXIR_EGGS
@@ -1913,10 +1913,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         }
         this.clearOutput();
         this.outputText("What will you talk about?");
-        //Else you can pick one of three topics:
-        //Talk about Dragons
-        //Talk about Exploring
-        //Talk about Yourself
+        // Else you can pick one of three topics:
+        // Talk about Dragons
+        // Talk about Exploring
+        // Talk about Yourself
         this.simpleChoices(
             "Dragons",
             this.talkToEmberAboutDragonzzz,
@@ -1931,7 +1931,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
     }
 
-    //Talk about Dragons (Z)
+    // Talk about Dragons (Z)
     private talkToEmberAboutDragonzzz(): void {
         this.clearOutput();
         this.outputText(
@@ -1946,7 +1946,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.emberMF("his", "her") +
                     " species."
             );
-            //(+Affection)
+            // (+Affection)
             this.emberAffection(2 + EmberScene.rand(3));
         } else if (choice == 1) {
             this.outputText(
@@ -1954,7 +1954,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.emberMF("his", "her") +
                     " chest.  You thank Ember for the explanation, then leave."
             );
-            //(+Affection)
+            // (+Affection)
             this.emberAffection(2 + EmberScene.rand(3));
         } else if (choice == 2) {
             this.outputText(
@@ -1976,7 +1976,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.emberMF("his", "her") +
                     " den."
             );
-            //(+Affection)
+            // (+Affection)
             this.emberAffection(5);
         } else if (choice == 3) {
             this.outputText(
@@ -1985,7 +1985,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\nThe flower an utter mystery to you, you curiously ask Ember what this "<i>Drake\'s Heart</i>" looks like, and where it grows... or used to grow.'
             );
-            //Low affection:
+            // Low affection:
             if (this.emberAffection() <= 25)
                 this.outputText(
                     "\n\nSnorting, Ember cracks an amused smile as " +
@@ -2006,7 +2006,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                         this.emberMF("he", "she") +
                         "'s really waiting for you to show some affection and attention."
                 );
-            //High affection:
+            // High affection:
             else
                 this.outputText(
                     "\n\nThe dragon makes no effort to hide " +
@@ -2053,7 +2053,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Exploration (Z)
+    // Exploration (Z)
     private discussExplorationWithEmber(): void {
         this.clearOutput();
         var choice: number = EmberScene.rand(4);
@@ -2126,7 +2126,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     "this strange bee-woman creature... she made this, this music that started messing with my head.  I spat a tongue of flames at her and she flew away in fright, luckily."
                 );
-            //(If player has impregnated Tamani)
+            // (If player has impregnated Tamani)
             else if (subChoice == 3 && this.flags[kFLAGS.TAMANI_NUMBER_OF_DAUGHTERS] > 0) {
                 this.outputText(
                     "that green-skinned baby-making whore, Tamani.  She was letting some of her daughters suckle from her and grinning ear to ear as she named the 'prize catch' she got to father them, exhorting them to hunt him down."
@@ -2136,12 +2136,12 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                         "  You should have more pride than to let some brainless cunt like that have her way with you!"
                     );
             }
-            //(If player has not yet impregnated Tamani)
+            // (If player has not yet impregnated Tamani)
             else if (subChoice == 3 && !kGAMECLASS.forest.tamaniScene.pregnancy.isPregnant)
                 this.outputText(
                     "one goblin being teased by a bunch of pregnant goblins for not being pregnant yet.  She just spat back that she wanted a 'better catch' to be her baby-maker than a mere imp and wandered off."
                 );
-            //(If Jojo isn't in the camp & not corrupt)
+            // (If Jojo isn't in the camp & not corrupt)
             else if (
                 EmberScene.rand(2) == 0 &&
                 this.monk <= 1 &&
@@ -2166,7 +2166,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 if (this.flags[kFLAGS.EMBER_GENDER] == 3) this.outputText(" like me");
                 this.outputText(". They were on the beach, fucking each other's brains out.");
             } else {
-                //(If Whitney's Farm is not yet in the Places menu)
+                // (If Whitney's Farm is not yet in the Places menu)
                 if (
                     EmberScene.rand(3) == 0 &&
                     this.player.statusAffectv1(StatusAffects.MetWhitney) <= 1
@@ -2174,7 +2174,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.outputText(
                         " a big farm on the shoreline.  I saw some sort of cow-woman tending to fields of peppers, and a dog-woman herding cattle. They looked pretty fat and tasty, too... What?  I meant the cattle, stupid!  And I wouldn't have taken them - it's no fun snatching up livestock.  I prefer to chase down a deer or a wild auroch or something like that."
                     );
-                //(if Fetish Cult is encounterable)
+                // (if Fetish Cult is encounterable)
                 else if (
                     EmberScene.rand(3) == 0 &&
                     this.player.findStatusAffect(StatusAffects.FetishOn) >= 0
@@ -2182,7 +2182,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.outputText(
                         "a pair of humans, arguing about sex.  They both wanted it, but the guy said he wanted to do the 'naughty schoolboy and female teacher' routine, while the girl wanted to do the 'noblewoman and love-servant' routine.  Weird; their clothes kept changing back and forth as they argued."
                     );
-                //(If Beautiful Sword has not been acquired)
+                // (If Beautiful Sword has not been acquired)
                 else if (
                     EmberScene.rand(3) == 0 &&
                     this.player.findStatusAffect(StatusAffects.TookBlessedSword) < 0 &&
@@ -2216,7 +2216,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     "a whole tribe of demons, lounging around an oasis.  Would have been too much bother to kick the crap out of them, so I left them alone - well, alright, I did buzz them to make them scatter like scared sheep for fun."
                 );
-            //(if player hasn't solved Marcus & Lucia's argument)
+            // (if player hasn't solved Marcus & Lucia's argument)
             else if (
                 EmberScene.rand(2) == 0 &&
                 this.player.findStatusAffect(StatusAffects.WandererDemon) < 0 &&
@@ -2237,12 +2237,12 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Talk about Yourself (Z)
+    // Talk about Yourself (Z)
     private talkToEmberAboutYourself(): void {
         this.clearOutput();
         var points: number = 0;
         this.outputText("You ask Ember what " + this.emberMF("he", "she") + " thinks about you.");
-        //(Low Affection)
+        // (Low Affection)
         if (this.emberAffection() <= 25) {
             this.outputText(
                 '\n\n"<i>You\'re a waste of time,</i>" Ember says nonchalantly.  ' +
@@ -2252,8 +2252,8 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //There's a points system here, that can range from 0 to 8, this is used to check Ember's final answer after " + emberMF("he","she") + "'s done examining the PC.
-        //(Medium/High Affection)
+        // There's a points system here, that can range from 0 to 8, this is used to check Ember's final answer after " + emberMF("he","she") + "'s done examining the PC.
+        // (Medium/High Affection)
         this.outputText(
             "\n\nEmber puts a hand on " +
                 this.emberMF("his", "her") +
@@ -2261,68 +2261,68 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.emberMF("He", "She") +
                 " closes up on you and grips your arms, checking your muscles."
         );
-        //(If PC Str < 50)
+        // (If PC Str < 50)
         if (this.player.str < 50)
             this.outputText(
                 '  "<i>You could use more training; you look pretty weak...</i>" Ember says, critically.'
             );
-        //(If PC Str < 90)
+        // (If PC Str < 90)
         else if (this.player.str < 90) {
             this.outputText(
                 "  \"<i>You're well on your way to being as strong as a dragon, but there's still room for improvement.</i>\" Ember says, pleased."
             );
-            //(+1 point)
+            // (+1 point)
             points++;
         }
-        //(If PC Str >= 90)
+        // (If PC Str >= 90)
         else {
             this.outputText(
                 '  "<i>With muscles like these, you could easily lift anything you wanted... even me...</i>" Ember trails off dreamily, almost purring.  "<i>N-Not that I\'d want you to carry me in your arms or anything...</i>"'
             );
-            //(+2 points)
+            // (+2 points)
             points += 2;
         }
         this.outputText("\n\nNext, Ember pokes at your chest and your ribs.  ");
-        //(If PC Tou < 50)
+        // (If PC Tou < 50)
         if (this.player.tou < 50)
             this.outputText(
                 '"<i>I don\'t know how you could hope to survive out there.  You look like the wind could blow you away.</i>"'
             );
-        //(If PC Tou < 90)
+        // (If PC Tou < 90)
         else if (this.player.tou < 90) {
             this.outputText(
                 '"<i>Not bad; some more training and you could be as tough as me!</i>" Ember says, pleased.'
             );
-            //(+1 point)
+            // (+1 point)
             points++;
         }
-        //(If PC Tou >= 90)
+        // (If PC Tou >= 90)
         else {
             this.outputText(
                 "\"<i>Your body's as tough as rock, you should show off more frequently...  N-Not that I'd want you to go naked!  You should always wear something to protect yourself,</i>\" " +
                     this.emberMF("he", "she") +
                     " quickly adds."
             );
-            //(+1 Affection)
+            // (+1 Affection)
             this.emberAffection(1);
-            //(+2 points)
+            // (+2 points)
             points += 2;
         }
         this.outputText("\n\nThen the dragon looks directly into your eyes.  ");
-        //(If PC Int < 50)
+        // (If PC Int < 50)
         if (this.player.inte < 50)
             this.outputText(
                 '"<i>You\'re still very naive... anyone or anything could trick you at any time...</i>"  Ember frowns.'
             );
-        //(If PC Int < 90)
+        // (If PC Int < 90)
         else if (this.player.inte < 90) {
             this.outputText(
                 '"<i>I see wisdom in your eyes, but you could always use more lessons.</i>"'
             );
-            //(+1 point)
+            // (+1 point)
             points++;
         }
-        //(If PC Int >= 90)
+        // (If PC Int >= 90)
         else {
             this.outputText(
                 "Ember's eyes widen.  \"<i>I see great wisdom in your eyes...</i>\"  Ember's face grows more absent by the minute as " +
@@ -2331,7 +2331,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.emberMF("He", "She") +
                     ' blows at your face, brushing a claw on your forehead.  "<i>Y-You had something in your face... I wasn\'t staring into your steely eyes.</i>"'
             );
-            //(+2 points)
+            // (+2 points)
             points += 2;
         }
         this.outputText(
@@ -2342,20 +2342,20 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 " tail, flinging a pebble at you.  "
         );
 
-        //(If PC Spd < 50)
+        // (If PC Spd < 50)
         if (this.player.spe < 50)
             this.outputText(
                 "You try to block the pebble, but you're not quick enough.  It hits your belly, not hard enough to hurt.  \"<i>You need to work on your reactions; anything could surprise you out there and you'd be helpless.</i>\""
             );
-        //(If PC Spd < 90)
+        // (If PC Spd < 90)
         else if (this.player.spe < 90) {
             this.outputText(
                 'You successfully deflect the pebble.  "<i>Not bad!  Next time try to catch it,</i>"  Ember says, pleased.'
             );
-            //(+1 point)
+            // (+1 point)
             points++;
         }
-        //(If PC Spd >= 90)
+        // (If PC Spd >= 90)
         else {
             this.outputText(
                 "You easily catch the pebble and throw it back at Ember, surprising " +
@@ -2364,11 +2364,11 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.emberMF("he", "she") +
                     " snaps."
             );
-            //(+2 points
+            // (+2 points
             points += 2;
         }
         this.outputText("\n\nSatisfied, Ember turns to take another look at you.");
-        //(If PC has high dragon or lizard score)
+        // (If PC has high dragon or lizard score)
         if (
             this.player.nagaScore() >= 3 ||
             this.player.lizardScore() >= 3 ||
@@ -2383,7 +2383,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.emberMF("his", "her") +
                     " throat before saying."
             );
-            //(+1 Affection)
+            // (+1 Affection)
             points++;
         }
         this.outputText('\n\n"<i>All right, here\'s what I think about you.</i>"  ');
@@ -2392,7 +2392,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 "\"<i>This is not good at all; it's a miracle you even managed to survive in this world thus far.  With the things I've seen roaming the land...</i>\" Ember trails off, concerned.  \"<i>You should stay in the camp; I'll help you train.</i>\"  You don't much like the assessment."
             );
         }
-        //(else if points < 6)
+        // (else if points < 6)
         else if (points < 6) {
             this.outputText(
                 "\"<i>You're doing fine, but make sure you don't slack off, and keep training.</i>\"  You thank Ember for sharing " +
@@ -2400,7 +2400,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     " thoughts."
             );
         }
-        //(else)
+        // (else)
         else {
             this.outputText(
                 "\"<i>You're quite a catch... if you strolled down the street you'd have dragons fawning all over you...</i>\"  Realizing what " +
@@ -2412,17 +2412,17 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Ember Interactions: Special Events (edited, but pending modifications -Z)
-    //Most of these scenes occur if you pick the option "Talk" while meeting the conditions, unless otherwise noted.
-    //Scene appears when selecting [Talk]
-    //This scene only appears if Ember is male or herm and PC is pregnant and showing (ie: pregnancy has progressed as much as stage 2, at least.)
-    //PC must be pregnant with something besides Ember's child/egg to get this scene.
-    //Occurs once per pregnancy.
-    //To be implimented once preggers is set up.
+    // Ember Interactions: Special Events (edited, but pending modifications -Z)
+    // Most of these scenes occur if you pick the option "Talk" while meeting the conditions, unless otherwise noted.
+    // Scene appears when selecting [Talk]
+    // This scene only appears if Ember is male or herm and PC is pregnant and showing (ie: pregnancy has progressed as much as stage 2, at least.)
+    // PC must be pregnant with something besides Ember's child/egg to get this scene.
+    // Occurs once per pregnancy.
+    // To be implimented once preggers is set up.
     private manEmberBitchesAboutPCPregnancy(): void {
         this.clearOutput();
         this.flags[kFLAGS.EMBER_BITCHES_ABOUT_PREGNANT_PC] = 1;
-        //(Low Affection)
+        // (Low Affection)
         if (this.emberAffection() <= 25)
             this.outputText(
                 "The two of you talk about nothing in particular.  It's light, airy and pointless.  When you finish up, though, you realize something odd; Ember was doing " +
@@ -2431,12 +2431,12 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.emberMF("he", "she") +
                     " were upset by it?"
             );
-        //(Moderate Affection)
+        // (Moderate Affection)
         else if (this.emberAffection() < 75)
             this.outputText(
                 'Ember stares coldly at your gravid midriff as icebreaker after icebreaker from you falls flat.  You ask what\'s wrong.  "<i>Nothing.  Nothing is wrong,</i>" Ember states, flatly.'
             );
-        //(High Affection)
+        // (High Affection)
         else
             this.outputText(
                 'The expression Ember gives you is very cold.  "<i>What is the meaning of this!?</i>" ' +
@@ -2445,10 +2445,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
     }
 
-    //Scene appears when selecting [Talk]
-    //This scene only appears if the PC is pregnant with Ember's child.
-    //Occurs only once.
-    //To be implimented once preggers is set up.
+    // Scene appears when selecting [Talk]
+    // This scene only appears if the PC is pregnant with Ember's child.
+    // Occurs only once.
+    // To be implimented once preggers is set up.
     private emberTalksToPCAboutPCDragoNPregnancy(): void {
         this.clearOutput();
         this.flags[kFLAGS.EMBER_TALKS_TO_PC_ABOUT_PC_MOTHERING_DRAGONS] = 1;
@@ -2514,9 +2514,9 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
     }
 
-    //Scene appears when selecting [Talk]
-    //This scene only appears if Ember is pregnant.
-    //Occurs once during Ember's first pregnancy.
+    // Scene appears when selecting [Talk]
+    // This scene only appears if Ember is pregnant.
+    // Occurs once during Ember's first pregnancy.
     private emberIsPregnantFirstTimeTalkScene(): void {
         this.clearOutput();
         this.flags[kFLAGS.EMBER_PREGNANT_TALK] = 1;
@@ -2574,10 +2574,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
     }
 
-    //Scene appears when selecting [Talk]
-    //This scene only appears if the PC is pregnant with eggs due to using Ovi Elixir/Oviposition.
-    //It doesn't matter if Ember doesn't have the parts, imagination is there for a reason.
-    //Yup, you guessed it, only once.
+    // Scene appears when selecting [Talk]
+    // This scene only appears if the PC is pregnant with eggs due to using Ovi Elixir/Oviposition.
+    // It doesn't matter if Ember doesn't have the parts, imagination is there for a reason.
+    // Yup, you guessed it, only once.
     private emberBitchesAboutPCBeingFullOfEggs(): void {
         this.clearOutput();
         this.outputText(
@@ -2600,8 +2600,8 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.EMBER_OVI_BITCHED_YET] = 1;
     }
 
-    //Occurs if PC spends too much time at 100 Lust.
-    //counter triggered when PC starts an hour in camp at 100 Lust, output when reaching 10 counters
+    // Occurs if PC spends too much time at 100 Lust.
+    // counter triggered when PC starts an hour in camp at 100 Lust, output when reaching 10 counters
     public emberBitchesAtYouAboutLustiness(): void {
         this.outputText(
             "\nYou strive to keep your mind focused, but... your libido is screaming at you, "
@@ -2623,12 +2623,12 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nYou gamely try to insist that nothing's wrong, but have to eventually confess that you are feeling a bit... pent up."
         );
-        //(Low Affection)
+        // (Low Affection)
         if (this.emberAffection() <= 25)
             this.outputText(
                 '\n\n"<i>Well, you should do something about it... it\'s not like I can help you with that anyway.</i>"'
             );
-        //(Medium Affection)
+        // (Medium Affection)
         else if (this.emberAffection() < 75)
             this.outputText(
                 '\n\n"<i>Well... I might be persuaded to help you with that, if you ask nicely.</i>"'
@@ -2643,9 +2643,9 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.EMBER_LUST_BITCHING_COUNTER] = 0;
     }
 
-    //This scene only appears if the player is suffering from Minotaur Cum addiction, and only before PC develops addicted perk.
-    //Output automatically when PC enters camp while conditions are met
-    //This should reduce the chance of meeting minotaurs.
+    // This scene only appears if the player is suffering from Minotaur Cum addiction, and only before PC develops addicted perk.
+    // Output automatically when PC enters camp while conditions are met
+    // This should reduce the chance of meeting minotaurs.
     public minotaurJizzFreakout(): void {
         this.outputText(
             "\nYou try to hold a conversation with Ember, but it's hard for you to concentrate; you keep thinking about the delicious, soul-burning taste of hot, salty minotaur cum, straight from the bull-man's cock.  Inevitably, Ember asks you what the matter is and, salivating, you paint the picture for her."
@@ -2670,9 +2670,9 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n");
     }
 
-    //Scene
-    //This plays automatically when the PC gets over " + emberMF("his","her") + " temporary addiction to minotaur cum
-    //Normal note for PC getting over mino cum addiction plays first
+    // Scene
+    // This plays automatically when the PC gets over " + emberMF("his","her") + " temporary addiction to minotaur cum
+    // Normal note for PC getting over mino cum addiction plays first
     public emberGetOverFreakingOutAboutMinoJizz(): void {
         this.flags[kFLAGS.EMBER_CURRENTLY_FREAKING_ABOUT_MINOCUM] = 0;
         this.outputText(
@@ -2713,7 +2713,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.emberMF("he", "she") +
                 "'s built up."
         );
-        //(Low Affection)
+        // (Low Affection)
         if (this.emberAffection() <= 25) {
             this.outputText(
                 '\n\n"<i>Stupid.  As if I was doing it for you.</i>"  Ember looks at you and quickly adds.  "<i>You\'re not worth the time if you take pleasure from sampling bulls\' dicks.</i>"  ' +
@@ -2728,7 +2728,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     " just felt like beef for the last few days, the fact remains that she helped tamp down the, ah, temptation they presented."
             );
         }
-        //(Medium Affection)
+        // (Medium Affection)
         else if (this.emberAffection() < 75) {
             this.outputText(
                 '\n\n"<i>Finally... I was getting tired of eating roasted beef all the time.</i>"  Ember looks at you and quickly adds.  "<i>You should be grateful that I used a bit of my valuable time to help you!</i>"'
@@ -2763,12 +2763,12 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
             this.outputText("\n\nLife is fucking weird.");
         }
-        //(High Affection)
+        // (High Affection)
         else {
             this.outputText(
                 "\n\nEmber sighs and turns to look at you.  \"<i>I hope you'll stay away from those stupid bulls from now on.  Next time you have a craving"
             );
-            //(Male/HermEmber:
+            // (Male/HermEmber:
             if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3)
                 this.outputText(", especially for sucking cock,");
             this.outputText(
@@ -2809,12 +2809,12 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
     }
 
-    //Get Blood - the dragon TF vehicle(Z)
-    //Can only be picked once per day.
-    //Player may drink a small bit or drink more.
-    //Drinking only a bit will boost 3 of the PC's status randomly (Strength, Toughness, Intelligence, Speed), a random amount between 1-5.
-    //Drinking more blood, will in addition to the status boost, TF the player into a dragon, gaining the respective skills that come attached to each part.
-    //PCs that are dragony enough might be bestowed with Tainted Ember's signature breath weapon.
+    // Get Blood - the dragon TF vehicle(Z)
+    // Can only be picked once per day.
+    // Player may drink a small bit or drink more.
+    // Drinking only a bit will boost 3 of the PC's status randomly (Strength, Toughness, Intelligence, Speed), a random amount between 1-5.
+    // Drinking more blood, will in addition to the status boost, TF the player into a dragon, gaining the respective skills that come attached to each part.
+    // PCs that are dragony enough might be bestowed with Tainted Ember's signature breath weapon.
     private bloodForTheBloodGod(): void {
         this.clearOutput();
         this.outputText(
@@ -2824,7 +2824,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.emberMF("his", "her") +
                 " blood, desirous of the power that lies within it."
         );
-        //(If Ember hasn't recovered from the last time " + emberMF("he","she") + " shared her blood)
+        // (If Ember hasn't recovered from the last time " + emberMF("he","she") + " shared her blood)
         if (this.flags[kFLAGS.DRANK_EMBER_BLOOD_TODAY] == 1 && !this.debug) {
             this.outputText(
                 '\n\n"<i>Sorry, but I\'m still recovering from last time, so no blood for you,</i>" Ember states matter-of-factly.'
@@ -2832,7 +2832,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.doNext(this.playerMenu);
             return;
         }
-        //(Low Affection)
+        // (Low Affection)
         if (this.emberAffection() <= 25) {
             this.outputText(
                 '\n\n"<i>What!?  Why should I hurt myself for you?!</i>"  Ember indignantly blows a small ring of flames at you and walks away.'
@@ -2840,7 +2840,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.doNext(this.playerMenu);
             return;
         }
-        //(Medium Affection)
+        // (Medium Affection)
         else if (this.emberAffection() < 75) {
             this.outputText(
                 '\n\n"<i>Hmm... fine!  If anything, I might rub off on you.  You could stand to be a bit more majestic!</i>"  Ember makes a cut on ' +
@@ -2877,7 +2877,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nAs you drink, you feel a rush of energy course throughout your body; you feel lofty, powerful, and erudite.  Who knows what will happen if you keep drinking..."
             );
-            //[Continue][Stop]
+            // [Continue][Stop]
             this.simpleChoices(
                 "Continue",
                 this.drinkDeeplyOfDagronBlud,
@@ -2891,7 +2891,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 undefined
             );
         }
-        //(High Affection)
+        // (High Affection)
         else {
             this.outputText(
                 '\n\n"<i>I think you\'ve been nice enough to deserve a small favor... but I expect you to make it worth my while.  Come and get it.</i>"'
@@ -2920,7 +2920,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nAs you drink, you feel a rush of energy course throughout your body; you feel lofty, powerful, and erudite.  Who knows what will happen if you keep drinking?"
             );
-            //[Continue][Stop]
+            // [Continue][Stop]
             this.simpleChoices(
                 "Continue",
                 this.drinkDeeplyOfDagronBlud,
@@ -2934,9 +2934,9 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 undefined
             );
         }
-        //Flag as drinking her blood today!
+        // Flag as drinking her blood today!
         this.flags[kFLAGS.DRANK_EMBER_BLOOD_TODAY] = 1;
-        //Medium/high get stat boosts!
+        // Medium/high get stat boosts!
         var stat: number = EmberScene.rand(4);
         if (stat == 0) this.dynStats("str", 1);
         else if (stat == 1) this.dynStats("tou", 1);
@@ -2944,7 +2944,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         else this.dynStats("int", 1);
     }
 
-    //[=Stop=]
+    // [=Stop=]
     private noMoDagronBlud(): void {
         this.clearOutput();
         if (this.emberAffection() < 75) {
@@ -2996,7 +2996,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "You decide to continue drinking Ember's blood; intent on acquiring all the power it can bring out from within you."
             );
-            //check for TFs and output appropriate text from below
+            // check for TFs and output appropriate text from below
             this.emberTFs();
             this.outputText(
                 '\n\n"<i>Ugh... you drank too much... I feel woozy,</i>" the dragon gripes.'
@@ -3010,7 +3010,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nYou decide to continue drinking Ember's blood; intent on acquiring all the power it can bring out from within you."
             );
-            //output tf from below
+            // output tf from below
             this.emberTFs();
             this.outputText(
                 "\n\nAs you break the kiss; Ember leans over, supporting " +
@@ -3030,11 +3030,11 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //TF messages (Z)
+    // TF messages (Z)
     private emberTFs(): void {
         var changes: number = 0;
         var changeLimit: number = 2;
-        //Gain Dragon Dick
+        // Gain Dragon Dick
         if (
             changes < changeLimit &&
             this.player.dragonCocks() < this.player.totalCocks() &&
@@ -3044,13 +3044,13 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             var choices: any[] = [];
             var select: number;
             this.temp = this.player.cockTotal();
-            //Build an array of all the locations for TF'able cocks.
+            // Build an array of all the locations for TF'able cocks.
             while (this.temp > 0) {
                 this.temp--;
                 if (this.player.cocks[this.temp].cockType != CockTypesEnum.DRAGON)
                     choices[choices.length] = this.temp;
             }
-            //Randomly choose one of those locations
+            // Randomly choose one of those locations
             select = choices[EmberScene.rand(choices.length)];
             this.outputText(
                 "\n\nYour " +
@@ -3066,14 +3066,14 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     "but you sternly rein in your hands and tuck them into your armpits as the arousing changes run their course."
                 );
             this.outputText("  <b>You now have a dragon penis.</b>");
-            //lose lust if sens>=50, gain lust if else
+            // lose lust if sens>=50, gain lust if else
             this.dynStats("sen", 10, "lus", 10);
             changes++;
-            //Apply the TF
+            // Apply the TF
             this.player.cocks[select].cockType = CockTypesEnum.DRAGON;
             this.player.cocks[select].knotMultiplier = 1.3;
         }
-        //Gain Dragon Head
+        // Gain Dragon Head
         if (
             changes < changeLimit &&
             EmberScene.rand(3) == 0 &&
@@ -3086,20 +3086,20 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.faceType = FACE_DRAGON;
             changes++;
         }
-        //-Existing horns become draconic, max of 4, max length of 1'
+        // -Existing horns become draconic, max of 4, max length of 1'
         if (
             this.player.hornType != HORNS_DRACONIC_X4_12_INCH_LONG &&
             changes < changeLimit &&
             EmberScene.rand(5) == 0
         ) {
-            //No dragon horns yet.
+            // No dragon horns yet.
             if (
                 this.player.hornType != HORNS_DRACONIC_X2 &&
                 this.player.hornType != HORNS_DRACONIC_X4_12_INCH_LONG
             ) {
-                //Already have horns
+                // Already have horns
                 if (this.player.horns > 0) {
-                    //High quantity demon horns
+                    // High quantity demon horns
                     if (this.player.hornType == HORNS_DEMON && this.player.horns > 4) {
                         this.outputText(
                             "\n\nYour horns condense, twisting around each other and merging into larger, pointed protrusions.  By the time they finish you have four draconic-looking horns, each about twelve inches long.",
@@ -3123,9 +3123,9 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     }
                     changes++;
                 }
-                //No horns
+                // No horns
                 else {
-                    //-If no horns, grow a pair
+                    // -If no horns, grow a pair
                     this.outputText(
                         "\n\nWith painful pressure, the skin on the sides of your forehead splits around two tiny nub-like horns.  They're angled back in such a way as to resemble those you saw on the dragons in your village's legends.  A few inches of horn sprout from your head before stopping.  <b>You have about four inches of dragon-like horn.</b>",
                         false
@@ -3136,7 +3136,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     changes++;
                 }
             }
-            //ALREADY DRAGON
+            // ALREADY DRAGON
             else {
                 if (this.player.hornType == HORNS_DRACONIC_X2) {
                     if (this.player.horns < 12) {
@@ -3160,9 +3160,9 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                             );
                         changes++;
                     }
-                    //maxxed out, new row
+                    // maxxed out, new row
                     else {
-                        //--Next horn growth adds second row and brings length up to 12\"
+                        // --Next horn growth adds second row and brings length up to 12\"
                         this.outputText(
                             "\n\nA second row of horns erupts under the first, and though they are narrower, they grow nearly as long as your first row before they stop.  A sense of finality settles over you.  <b>You have as many horns as a lizan can grow.</b>",
                             false
@@ -3173,7 +3173,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 }
             }
         }
-        //Gain Dragon Ears
+        // Gain Dragon Ears
         if (
             changes < changeLimit &&
             EmberScene.rand(3) == 0 &&
@@ -3185,7 +3185,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
             changes++;
         }
-        //Gain Dragon Tongue
+        // Gain Dragon Tongue
         if (
             changes < changeLimit &&
             EmberScene.rand(3) == 0 &&
@@ -3196,10 +3196,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
             this.player.tongueType = TONUGE_DRACONIC;
             changes++;
-            //Note: This type of tongue should be eligible for all things you can do with demon tongue... Dunno if it's best attaching a boolean just to change the description or creating a whole new tongue type.
+            // Note: This type of tongue should be eligible for all things you can do with demon tongue... Dunno if it's best attaching a boolean just to change the description or creating a whole new tongue type.
         }
-        //(Pending Tongue Masturbation Variants; if we ever get around to doing that.)
-        //Gain Dragon Scales
+        // (Pending Tongue Masturbation Variants; if we ever get around to doing that.)
+        // Gain Dragon Scales
         if (
             this.player.skinType != SKIN_TYPE_SCALES &&
             changes < changeLimit &&
@@ -3215,44 +3215,44 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.skinType = SKIN_TYPE_SCALES;
             this.player.skinAdj = "";
             this.player.skinDesc = "scales";
-            //def bonus of scales
+            // def bonus of scales
         }
-        //Gain Dragon Legs
+        // Gain Dragon Legs
         if (
             this.player.lowerBody != LOWER_BODY_TYPE_DRAGON &&
             changes < changeLimit &&
             EmberScene.rand(3) == 0
         ) {
-            //(if drider)
+            // (if drider)
             if (this.player.lowerBody == LOWER_BODY_TYPE_DRIDER_LOWER_BODY)
                 this.outputText(
                     "\n\nA disquieting feeling ripples through your arachnid abdomen, and you find yourself losing control of your body from the waist down.  Your spidery legs flail madly as your abdomen visibly swells, chitin cracking ominously as the pressure builds up inside of you... and then explodes!  You wipe the gore from your face in disgust, wondering why you feel no pain.  Rolling over, you see that, caked with spider-slime, you now have a new pair of legs, human-like save for the scales and the bestial paws that serve as feet.  <b>You now have dragon feet.</b>"
                 );
-            //(If naga)
+            // (If naga)
             else if (this.player.isNaga()) {
                 this.outputText(
                     "\n\nYou fall on your face to the ground, hissing and screeching in pain - it feels like someone has grabbed the tip of your tail, pulled it viciously straight, and is now splitting it up the middle with a knife!  Paralyzed from the waist down, you claw desperately at the earth to try and alleviate the pain, and can only think to thank your lucky stars when it fades away.  Looking down where your tail was, though the scales remain, you realize you've become a biped again, your new feet sporting bestial claws on their toes.  <b>You now have dragon feet.</b>"
                 );
             }
-            //(If Goo)
+            // (If Goo)
             else if (this.player.isGoo()) {
                 this.outputText(
                     "\n\nA strange tingling sensation fills you, and you watch as your gooey blob of a body begins to ripple and shudder; you try to make it stop, but you can't control it.  Before your eyes, it shapes itself into the appearance of legs, the colored slime growing denser and thicker, the surface membrane texturing itself to look like scales.  Before you've quite realized what's happened, the slime has set like water freezing, leaving you with humanoid legs once again, though tipped with claws and very reptilian in appearance.  <b>You now have dragon feet.</b>"
                 );
             }
-            //(If hoofed legs)
+            // (If hoofed legs)
             else if (this.player.lowerBody == LOWER_BODY_TYPE_HOOFED) {
                 this.outputText(
                     "\n\nYou bellow in pain as your legs break and reform and your hooves seem to suddenly explode, the bones within twisting themselves into monstrous three-toed appendages, more like those of some terrible lizard-thing than anything else. <b>You now have dragon feet.</b>"
                 );
             }
-            //(if centaur)
+            // (if centaur)
             else if (this.player.isTaur()) {
                 this.outputText(
                     "\n\nYou cry out as spasms of pain suddenly rip through your quadrupedal body, bringing you crashing onto the ground.  Words cannot define the agony as muscles and bones twist and shift and collapse violently.  When it's all over, you stagger upright, finding yourself standing on two legs again.  Though covered in scales and with the paws of some monster lizard instead of feet, they otherwise look like your old human legs.  <b>You now have dragon feet.</b>"
                 );
             }
-            //(If non-hoofed legs)
+            // (If non-hoofed legs)
             else {
                 this.outputText(
                     "\n\nYou scream in agony as you feel the bones in your feet suddenly break and restructure themselves, toes fusing together, bone swelling out of the merged masses of flesh.  When the pain is over, you realize that you still stand atop human-looking legs, but your feet have become like those of some bipedal reptilian killer, with powerful claws meant for gripping the ground. <b>You now have dragon feet.</b>"
@@ -3261,20 +3261,20 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.lowerBody = LOWER_BODY_TYPE_DRAGON;
             changes++;
         }
-        //Gain Dragon Tail
+        // Gain Dragon Tail
         if (
             this.player.tailType != TAIL_TYPE_DRACONIC &&
             changes < changeLimit &&
             EmberScene.rand(3) == 0
         ) {
-            //(If no tail)
+            // (If no tail)
             if (this.player.tailType == TAIL_TYPE_NONE)
                 this.outputText(
                     "\n\nA sudden dull, throbbing pain in your " +
                         this.buttDescript() +
                         " forces your hands to it; you can feel an ominous lump over your tail bone, swelling bigger and bigger with every heartbeat.  All of a sudden, it seems to explode, jutting out and around until it hovers near your ankles, the skin under your flesh hard and scaly.  <b>You now have a dragon tail flicking at your back, flexible as a whip.</b>"
                 );
-            //(If tail)
+            // (If tail)
             else
                 this.outputText(
                     "\n\nAn icy sensation fills your behind as your tail suddenly goes curiously numb.  Twisting your head around, you watch as it melts and transforms into a reptilian appendage, long and flexible, its tip adorned with wicked spikes.  <b>You now have a dragon tail.</b>"
@@ -3283,7 +3283,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             changes++;
         }
         /*
-         //9999 - prolly not gonna do this!
+         // 9999 - prolly not gonna do this!
          Tail Slam Attack Effects:
          Deals ⅓ normal damage, but pierces 30 defense (stacks with perks) and has a (strength / 2) chance of stunning the opponent that turn.
          Note: Dunno how much defense critters usually have, but this is meant as a surprise attack of sorts, so it pierces a good amount of it.
@@ -3293,7 +3293,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
          Hit: Your tail slams against it/" + emberMF("him","her") + " with brutal force, the spikes on the tip extending to puncture flesh.
          Miss: Unfortunately, you lose your sense of depth as you whirl, and the tip swings harmlessly through the air in front of your target.
          */
-        //Grow Dragon Wings
+        // Grow Dragon Wings
         if (
             this.player.wingType != WING_TYPE_DRACONIC_LARGE &&
             changes < changeLimit &&
@@ -3306,7 +3306,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.player.wingType = WING_TYPE_DRACONIC_SMALL;
                 this.player.wingDesc = "small, draconic";
             }
-            //(If Small Dragon Wings Present)
+            // (If Small Dragon Wings Present)
             else if (this.player.wingType == WING_TYPE_DRACONIC_SMALL) {
                 this.outputText(
                     "\n\nA not-unpleasant tingling sensation fills your wings, almost but not quite drowning out the odd, tickly feeling as they swell larger and stronger.  You spread them wide - they stretch further than your arms do - and beat them experimentally, the powerful thrusts sending gusts of wind, and almost lifting you off your feet.  <b>You now have fully-grown dragon wings, capable of winging you through the air elegantly!</b>"
@@ -3320,7 +3320,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.player.wingType = WING_TYPE_DRACONIC_SMALL;
                 this.player.wingDesc = "small, draconic";
             }
-            //(If other wings present)
+            // (If other wings present)
             else {
                 this.outputText(
                     "\n\nA sensation of numbness suddenly fills your wings.  When it dies away, they feel... different.  Looking back, you realize that they have been replaced by new, small wings, ones that you can only describe as draconic.  <b>Your wings have changed into dragon wings.</b>"
@@ -3330,8 +3330,8 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             }
             changes++;
         }
-        //Get Dragon Breath (Tainted version)
-        //Can only be obtained if you are considered a dragon-morph, once you do get it though, it won't just go away even if you aren't a dragon-morph anymore.
+        // Get Dragon Breath (Tainted version)
+        // Can only be obtained if you are considered a dragon-morph, once you do get it though, it won't just go away even if you aren't a dragon-morph anymore.
 
         if (
             this.player.dragonScore() >= 4 &&
@@ -3393,13 +3393,13 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         }
     }
 
-    //Get Egg (Ovilixer Ember) (Z)
-    //Spying or watching Ember lay, increases lust by a small amount, while helping Ember lay, increases lust by a moderate amount.
-    //Player always gets the egg.
+    // Get Egg (Ovilixer Ember) (Z)
+    // Spying or watching Ember lay, increases lust by a small amount, while helping Ember lay, increases lust by a moderate amount.
+    // Player always gets the egg.
     private emberIsAnEggFactory(): void {
         this.clearOutput();
         this.outputText("You ask Ember if she would be willing to lay an egg for you.");
-        //(Low Affection)
+        // (Low Affection)
         if (this.emberAffection() <= 25) {
             this.outputText(
                 '\n\nEmber\'s eyes darken.  "<i>How dare you!  Asking me to do something... so... so embarrassing!</i>"'
@@ -3441,7 +3441,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nShe pants, looking at the slick egg for a bit before licking it clean of her juices, then lays down, clearly intent on waiting until she's cooled down a bit"
             );
-            //[(if Ember has a dick)
+            // [(if Ember has a dick)
             if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3)
                 this.outputText(" and her throbbing cock is soft enough to hide");
             this.outputText(" before she presents the egg to you.");
@@ -3457,11 +3457,11 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 '\n\nEmber mumbles quietly, "<i>Next time, fertilize it for me will you?</i>"  You start at that; did she really just say it aloud?  But, knowing her temper, you decide against asking.  '
             );
-            //git a dragon egg, small libido-based lust damage
+            // git a dragon egg, small libido-based lust damage
             this.dynStats("lus", 10 + this.player.lib / 10);
             this.inventory.takeItem(this.consumables.DRGNEGG, this.camp.returnToCampUseOneHour);
         }
-        //(Medium Affection)
+        // (Medium Affection)
         else if (this.emberAffection() < 75) {
             this.outputText("\n\nEmber gasps");
             if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 1)
@@ -3481,7 +3481,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nYou blink at the offer, then give her your most winning smile.  You could agree, or just smooth-talk your way out of it."
             );
-            //[Watch][Fob Off]
+            // [Watch][Fob Off]
             this.simpleChoices(
                 "Watch",
                 this.watchMediumAffectionEmberEggLay,
@@ -3495,7 +3495,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 undefined
             );
         }
-        //(High Affection)
+        // (High Affection)
         else {
             this.outputText(
                 '\n\nDespite Ember\'s growing embarrassment, she smirks and looks you over.  "<i>F-Fine... but I expect you to help with it.</i>"'
@@ -3523,7 +3523,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 " and then lean forward to give her a great, wet, sloppy lick, straight up the center of her pussy"
             );
-            //(E.Herm:
+            // (E.Herm:
             if (this.flags[kFLAGS.EMBER_GENDER] == 3)
                 this.outputText(
                     " not stopping until you have slurped your way to the very tip of her cock"
@@ -3581,13 +3581,13 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nYou just smile and tell her you understand exactly what she meant.  One quick kiss and you head back to the camp proper, leaving one adorably flustered dragon behind you.  "
             );
-            //git a dragon egg, small libido-based lust damage
+            // git a dragon egg, small libido-based lust damage
             this.dynStats("lus", 10 + this.player.lib / 10);
             this.inventory.takeItem(this.consumables.DRGNEGG, this.camp.returnToCampUseOneHour);
         }
     }
 
-    //[Fob Off]
+    // [Fob Off]
     private dontWatchEmberLayEgg(): void {
         this.clearOutput();
         this.outputText(
@@ -3601,17 +3601,17 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "  \"<i>H-here's your egg.  Use it while it's fresh, okay?</i>\"  Her eyes glaze over a bit at the suggestion, and she giggles.  "
         );
-        //git a dragon egg, no Ember affection change
+        // git a dragon egg, no Ember affection change
         this.inventory.takeItem(this.consumables.DRGNEGG, this.camp.returnToCampUseOneHour);
     }
 
-    //[Watch]
+    // [Watch]
     private watchMediumAffectionEmberEggLay(): void {
         this.clearOutput();
         this.outputText(
             'Ember fails to hide her arousal when you accept.  "<i>Okay, then follow me.</i>"  The two of you move into a secluded spot.  Once she is certain nobody is around to spy, Ember turns to face you'
         );
-        //(if Ember has a cock:
+        // (if Ember has a cock:
         if (this.flags[kFLAGS.EMBER_GENDER] == 3) this.outputText(", cock poking straight out");
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0 || this.flags[kFLAGS.EMBER_INTERNAL_DICK] > 0)
             this.outputText(" of its hiding place");
@@ -3683,12 +3683,12 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nYes, you did, because she asked and she seemed to need your help, as you point out.  Ember doesn't bother coming up with something to say, she just unfurls her wings and jumps into the air with a gust of wind."
         );
         this.outputText("\n\nYou shake your head and sigh softly.  ");
-        //git an egg, moderate lib-based lust damage, Ember affection up
+        // git an egg, moderate lib-based lust damage, Ember affection up
         this.inventory.takeItem(this.consumables.DRGNEGG, this.camp.returnToCampUseOneHour);
         this.emberAffection(5);
     }
 
-    //Get Milk
+    // Get Milk
     private getMilkFromEmber(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("ember-drink-her-milk"));
@@ -3705,13 +3705,13 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.emberMF("his", "her") +
                 " milk."
         );
-        //Summary:
-        //Usable only through Follower menu
-        //Restore Health and Fatigue
-        //May cause/intensify heat/rut if PC is a dragon-morph
-        //Restores the use of the PC's Dragonbreath weapon
+        // Summary:
+        // Usable only through Follower menu
+        // Restore Health and Fatigue
+        // May cause/intensify heat/rut if PC is a dragon-morph
+        // Restores the use of the PC's Dragonbreath weapon
 
-        //(Low Affection)
+        // (Low Affection)
         if (this.emberAffection() <= 25) {
             this.outputText(
                 '\n\n"<i>What!?  Why should I let you do that!?  Aren\'t you a bit too old to be suckling from a teat?</i>"'
@@ -3743,10 +3743,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.emberMF("him", "her") +
                     "self and "
             );
-            //noEmberkids:
+            // noEmberkids:
             if (this.flags[kFLAGS.EMBER_EGGS] == 0 && this.emberChildren() == 0)
                 this.outputText(this.emberMF("he", "she") + " has no offspring to feed them with");
-            //(1+ EmberEggs:
+            // (1+ EmberEggs:
             else if (this.flags[kFLAGS.EMBER_EGGS] > 0)
                 this.outputText(this.emberMF("his", "her") + " children haven't hatched yet");
             else
@@ -3819,7 +3819,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.emberMF("his", "her") +
                     " flesh being pleasantly cooler than yours, your focus is on the milk."
             );
-            //(If Ember is male/herm)
+            // (If Ember is male/herm)
             if (this.flags[kFLAGS.EMBER_GENDER] != 2) {
                 this.outputText("\n\nYou feel something poking your ");
                 if (!this.player.isTaur()) this.outputText("belly");
@@ -3834,7 +3834,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                         "?"
                 );
             }
-            //(else)
+            // (else)
             else {
                 this.outputText(
                     "\n\nEmber hums and moans as you continue to suckle; one of her hands slowly snakes its way under you to touch her soft netherlips.  In a moment of boldness, you reach down to push her hand away and stroke her moist folds yourself.  Ember doesn't protest, she just settles down and lets you continue your caresses on the new target."
@@ -3856,14 +3856,14 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "\n\nYou shake your head with good temper.  Still, you got your fill of her milk, and you feel refreshed and renewed, new vitality flowing through your veins."
             );
-            //(PC's D.Breath timer = not ready: Your throat feels soothed as the scratching and soreness die down; you feel like you could shout to the mountaintops!)
+            // (PC's D.Breath timer = not ready: Your throat feels soothed as the scratching and soreness die down; you feel like you could shout to the mountaintops!)
             if (this.player.findStatusAffect(StatusAffects.DragonBreathCooldown) >= 0) {
                 this.player.removeStatusAffect(StatusAffects.DragonBreathCooldown);
                 this.outputText(
                     "  Your throat feels soothed as the scratching and soreness die down; you feel like you could shout to the mountaintops!"
                 );
             }
-            //(no new PG, PC has dragon-morph status and is opposite Ember's sex:
+            // (no new PG, PC has dragon-morph status and is opposite Ember's sex:
             if (
                 EmberScene.rand(2) == 0 &&
                 this.player.dragonScore() >= 4 &&
@@ -3909,7 +3909,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText("!</b>");
             }
         }
-        //(Medium Affection)
+        // (Medium Affection)
         else if (this.emberAffection() < 75) {
             this.outputText(
                 '\n\n"<i>Okay.  I guess I can give you a treat... but no funny ideas!</i>"  That said, Ember walks into ' +
@@ -3944,7 +3944,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.emberMF("his", "her") +
                     ' nipples she gasps in pleasure.  "<i>What are you doing?  Ah!  Are you going to get started or not?  If you keep this up...</i>"'
             );
-            //(if Ember has a dick)
+            // (if Ember has a dick)
             if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3) {
                 this.outputText(
                     "\n\nYou feel a poke; looking down, you spot Ember's shaft, poking at you.  When you look up again, " +
@@ -4028,7 +4028,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     "  Your throat feels soothed as the scratching and soreness die down; you feel like you could shout to the mountaintops!"
                 );
             }
-            //(no new PG, PC has dragon-morph status and is opposite Ember's sex:
+            // (no new PG, PC has dragon-morph status and is opposite Ember's sex:
             if (
                 EmberScene.rand(2) == 0 &&
                 this.player.dragonScore() >= 4 &&
@@ -4074,7 +4074,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText("!</b>");
             }
         }
-        //(High Affection)
+        // (High Affection)
         else {
             this.outputText(
                 "\n\nEmber's tail waggles at your request even as she forces a frown, and you swear you can see "
@@ -4251,7 +4251,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 );
                 if (this.player.tou > 40) this.dynStats("tou", -1);
             }
-            //(corrupt jerk)
+            // (corrupt jerk)
             else {
                 this.outputText(
                     "\n\nOh, of all the... your stomach gurgles in protest as you contemplate drinking twice what you expected.  Not particularly warming to the idea of throwing up as the undigested milk begins to curdle in your gut, you only assume the motions of lowering yourself into Ember's lap again and taking the nipple into your mouth."
@@ -4277,7 +4277,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     "\n\nYeah, yeah.  You finish draining the second breast and then lift it, planting a kiss on the sensitized nipple."
                 );
             }
-            //merge wuss and jerk forks
+            // merge wuss and jerk forks
             this.outputText(
                 "\n\nEmber gets so flustered that " +
                     this.emberMF("he", "she") +
@@ -4288,7 +4288,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.emberMF("his", "her") +
                     " lap to leave."
             );
-            //(no new PG, PC has dragon-morph status and is opposite Ember's sex:
+            // (no new PG, PC has dragon-morph status and is opposite Ember's sex:
             if (
                 EmberScene.rand(2) == 0 &&
                 this.player.dragonScore() >= 4 &&
@@ -4336,15 +4336,15 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         }
         this.emberAffection(1);
         this.doNext(this.camp.returnToCampUseOneHour);
-        //reset Dragonbreath counter to ready, increase lust slightly if low or med affection, add heat/rut if high dragon-score, damage toughness slightly if high affection and low PC corruption
+        // reset Dragonbreath counter to ready, increase lust slightly if low or med affection, add heat/rut if high dragon-score, damage toughness slightly if high affection and low PC corruption
         if (this.emberAffection() < 75) this.dynStats("lus", 20);
         this.fatigue(-50);
         this.HPChange(this.player.maxHP() * 0.33, false);
     }
 
-    //Sparring text outputs (Z) (FENCODED TO HERE)
-    //PC shouldn't get gems for this fight, XP shouldn't be a problem with the new level scaled encounter system.
-    //Winning gets you affection.
+    // Sparring text outputs (Z) (FENCODED TO HERE)
+    // PC shouldn't get gems for this fight, XP shouldn't be a problem with the new level scaled encounter system.
+    // Winning gets you affection.
     private decideToSparEmbra(): void {
         this.clearOutput();
         this.outputText(
@@ -4352,7 +4352,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.emberMF("he", "she") +
                 "'d feel about sparring with you."
         );
-        //(Low Affection)
+        // (Low Affection)
         if (this.emberAffection() <= 25) {
             this.outputText(
                 '\n\n"<i>Ha!  You have to be joking.  We both know you\'ll end up hurting yourself.</i>"'
@@ -4366,7 +4366,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\n"<i>Well, if you\'re so set on being knocked about...</i>"  Ember leads you to an isolated clearing on the outskirts of the camp and assumes a battle pose.'
             );
         }
-        //(Medium Affection)
+        // (Medium Affection)
         else if (this.emberAffection() < 75) {
             this.outputText(
                 '\n\n"<i>Are you sure?  I should have you know that I won\'t be holding back at all!</i>" Ember warns you, assuming ' +
@@ -4384,7 +4384,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\nEmber smiles at you.  "<i>Ha!  Flattery won\'t earn you any mercy!  So get ready!</i>"'
             );
         }
-        //(High Affection)
+        // (High Affection)
         else {
             this.outputText(
                 "\n\n\"<i>Well... don't expect me to go easy on you!  We dragons are very competitive!  And I don't mind beating you up, even if you are my friend!</i>\" Ember warns you, dropping into " +
@@ -4436,10 +4436,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\n"<i>Argh!  I\'ll win next time!</i>" comes the yell from the distance.'
             );
             this.outputText("\n\nMaybe not.");
-            //(+Affection)
+            // (+Affection)
             this.emberAffection(10);
         }
-        //Medium affection
+        // Medium affection
         else if (this.emberAffection() < 75) {
             this.outputText(
                 "Ember lies on " +
@@ -4482,10 +4482,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.emberMF("he", "she") +
                     " actually enjoyed your little sparring session."
             );
-            //(+ Affection)
+            // (+ Affection)
             this.emberAffection(8);
         }
-        //High affection
+        // High affection
         else {
             this.outputText(
                 "Ember lies on " +
@@ -4511,7 +4511,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
 
     public loseToEmberSpar(): void {
         this.clearOutput();
-        //Low affection
+        // Low affection
         if (this.emberAffection() <= 25) {
             this.outputText(
                 "Panting, you drop your fighting stance and sit on the floor, lifting a hand and saying you've had enough."
@@ -4527,10 +4527,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.emberMF("his", "her") +
                     " den.  You decide to head back as well and rest for a while."
             );
-            //(PC automatically rests and gets some HP back)
+            // (PC automatically rests and gets some HP back)
             this.emberAffection(-10);
         }
-        //(Lose)
+        // (Lose)
         else if (this.emberAffection() < 75) {
             this.outputText(
                 "Panting, you drop your fighting stance and sit on the floor, lifting a hand and saying you've had enough."
@@ -4550,7 +4550,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
             this.emberAffection(-5);
         }
-        //High Affection
+        // High Affection
         else {
             this.outputText(
                 "Panting, you drop your fighting stance and sit on the floor, lifting a hand and saying you've had enough."
@@ -4573,7 +4573,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.HPChange(this.player.maxHP() * 0.33, false);
     }
 
-    //[Catch Anal] - a dragon coq up the date (Z)
+    // [Catch Anal] - a dragon coq up the date (Z)
     private catchAnal(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("ember-fucks-your-ass"));
@@ -4582,7 +4582,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.emberMF("he", "she") +
                 " feels in the mood to ride your ass."
         );
-        //(Low affection)
+        // (Low affection)
         if (this.emberAffection() <= 25) {
             this.outputText(
                 "\n\n\"<i>What!?  That is just gross!  Not to mention, it'd never fit!</i>\"  Ember doesn't bother waiting for your reply, shooing you out of " +
@@ -4592,7 +4592,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //(Moderate affection)
+        // (Moderate affection)
         if (this.emberAffection() < 75) {
             this.outputText(
                 '\n\n"<i>If that\'s what you really have in mind.  Maybe, just maybe... I can do that for you...</i>" Ember replies, as ' +
@@ -4607,7 +4607,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(", growing slowly but steadily.");
             this.outputText("\n\nYou smile at " + this.emberMF("him", "her") + ".");
         }
-        //(High affection)
+        // (High affection)
         else {
             this.outputText(
                 "\n\nEmber swallows audibly, " +
@@ -4631,7 +4631,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.buttDescript() +
                 ","
         );
-        //PC has balls:
+        // PC has balls:
         if (this.player.balls > 0) {
             this.outputText(
                 " testicles swaying lightly as you arch your backside up at " +
@@ -4721,7 +4721,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.emberMF("his", "her") +
                 " shaft through your [asshole] and begins pushing past the opening "
         );
-        //(PC has a virgin/tight asshole:)
+        // (PC has a virgin/tight asshole:)
         if (this.player.ass.analLooseness == 0 || this.player.analCapacity() < 25)
             this.outputText(
                 ", leaving both of you wincing as the sensitive head of " +
@@ -4730,7 +4730,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.emberMF("he", "she") +
                     " whimpers."
             );
-        //(PC has a loose asshole:)
+        // (PC has a loose asshole:)
         if (this.player.analCapacity() < 50) {
             this.outputText(", causing you to gasp as " + this.emberMF("his", "her") + " ");
             if (
@@ -4746,7 +4746,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     " remarks with a gasp of pleasure."
             );
         }
-        //(PC has a gaping asshole:)
+        // (PC has a gaping asshole:)
         else {
             this.outputText(
                 "; the looseness of your " +
@@ -4782,14 +4782,14 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.emberMF("himself", "herself") +
                 " ever deeper into your bowels."
         );
-        //(PC has prick:
+        // (PC has prick:
         if (this.player.hasCock())
             this.outputText(
                 "  You can feel the dragon's member rubbing against your prostate, making " +
                     this.sMultiCockDesc() +
                     " jump to painful erectness, bubble pre-cum, and drool it down the shaft to pool on the ground."
             );
-        //(PC has cunt:
+        // (PC has cunt:
         if (this.player.hasVagina()) {
             this.outputText(
                 "  The stimulus is starting to make you wet as well, your [vagina] drooling feminine lubricant "
@@ -4824,7 +4824,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.emberMF("his", "her") +
                 " word, the dragon finally begins pistoning into you, slapping against your butt in a lewd sonata of raw pleasure and ferocious sex."
         );
-        //(if PC has balls:
+        // (if PC has balls:
         if (this.player.balls > 0)
             this.outputText(
                 "  " +
@@ -5026,7 +5026,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.emberMF("him", "her") +
                 "self, but the act might be getting a bit tiresome.  Grabbing a handful of dried grass, you wipe the worst smears of sexual fluids from your body, redress yourself, and head lazily back to the camp."
         );
-        //(+Affection, minus lust, reset hours since cum, slimefeed)
+        // (+Affection, minus lust, reset hours since cum, slimefeed)
         this.emberAffection(6);
         this.player.orgasm();
         this.dynStats("sen", 3);
@@ -5034,7 +5034,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Blow Ember] - your shipment of dragon dildoes has arrived
+    // [Blow Ember] - your shipment of dragon dildoes has arrived
     private suckEmberCock(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("ember-give-her-a-blowjob"));
@@ -5044,14 +5044,14 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 " cock."
         );
 
-        //(Low Affection)
+        // (Low Affection)
         if (this.emberAffection() <= 25)
             this.outputText(
                 '\n\n"<i>Huh... I guess I could do something like that.</i>"\n\nYou note that, despite the lack of verbal enthusiasm, Ember\'s shaft is already starting to poke out of ' +
                     this.emberMF("his", "her") +
                     " groin, but keep it to yourself."
             );
-        //(Medium Affection)
+        // (Medium Affection)
         else if (this.emberAffection() < 75)
             this.outputText(
                 "\n\n\"<i>I suppose I would like that... don't think I accept you just because I'm okay with it though!</i>\"\n\nYou bite back a smile and insist you understand; " +
@@ -5060,7 +5060,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.emberMF("his", "her") +
                     " eyes, you ask the inscrutable dragon to lead the way."
             );
-        //(High Affection)
+        // (High Affection)
         else
             this.outputText(
                 "\n\nEven before Ember replies, " +
@@ -5220,7 +5220,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.emberMF("his", "her") +
                     " genital slit.  You guide it as deep into the strangely pussy-like orifice as you can, tickling and caressing."
             );
-            //(DemonTongue:
+            // (DemonTongue:
             if (this.player.tongueType > TONUGE_HUMAN)
                 this.outputText(
                     "  Your inhuman length slithers deeper and deeper inside, and you realize you can feel two rounded objects; " +
@@ -5391,14 +5391,14 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 "increasingly leery of " + this.emberMF("his", "her") + " batty behavior"
             );
         this.outputText(", then pick yourself up to head back to the camp.");
-        //(+Affection, lust, reset hours since cum, slimefeed)
+        // (+Affection, lust, reset hours since cum, slimefeed)
         this.player.slimeFeed();
         this.emberAffection(6);
         this.dynStats("lus", 10 + this.player.lib / 10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Get Blown - put your dick in the knife drawer, it'll be fun! (Z, with reservation)
+    // Get Blown - put your dick in the knife drawer, it'll be fun! (Z, with reservation)
     private stickDickInKnifeDrawer(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("ember-gives-you-a-blowjob"));
@@ -5408,7 +5408,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 " kinky tongue to work on your cock."
         );
 
-        //(Low Affection)
+        // (Low Affection)
         if (this.emberAffection() <= 25) {
             this.outputText(
                 '\n\n"<i>Ah.  And... what makes you think I would ever consider that?</i>"  Ember huffs indignantly and walks away.'
@@ -5416,18 +5416,18 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //(Medium Affection)
+        // (Medium Affection)
         else if (this.emberAffection() < 75) {
             this.outputText(
                 '\n\n"<i>No way!  Doing something like that is below me; think of something else!</i>"  Ember crosses ' +
                     this.emberMF("his", "her") +
                     ' arms, awaiting your reply.</i>"'
             );
-            //Sex menu hooooo
+            // Sex menu hooooo
             this.emberSexMenu(false);
             return;
         }
-        //(High Affection)
+        // (High Affection)
         else {
             this.outputText(
                 "\n\nEmber looks at your crotch, then back at you; " +
@@ -5472,7 +5472,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
         this.outputText(" sniffing your musk with obvious delight.");
 
-        //(if Ember chose a dragon cock)
+        // (if Ember chose a dragon cock)
         if (this.player.cocks[x].cockType == CockTypesEnum.DRAGON)
             this.outputText(
                 '\n\n"<i>Such a magnificent, beautiful cock... it feels powerful... and familiar.</i>"'
@@ -5635,7 +5635,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 " can."
         );
 
-        //(Low Cum Amount)
+        // (Low Cum Amount)
         if (this.player.cumQ() < 250) {
             this.outputText(
                 "\n\nEmber sucks every single drop of cum out of you, taking you for everything you're worth, drinking it like a thirsty person in the desert.  Even when you feel you've given " +
@@ -5648,7 +5648,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 " into your ass to tickle your prostate, drawing a few last drops out of you."
             );
         }
-        //(Medium Cum Amount)
+        // (Medium Cum Amount)
         else if (this.player.cumQ() < 1000) {
             this.outputText(
                 "\n\nEmber drinks all you have to offer with a smile.  Once you've given all you can, Ember lets go of you, licking " +
@@ -5660,7 +5660,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     " belly is visibly bulging by the time you have finished."
             );
         }
-        //(High Cum Amount)
+        // (High Cum Amount)
         else {
             this.outputText(
                 "\n\nEmber insists on drinking every single drop, even though " +
@@ -5726,13 +5726,13 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     " dementia is getting worse..."
             );
 
-        //lose lust, reset hours since cum
+        // lose lust, reset hours since cum
         this.player.orgasm();
         this.dynStats("sen", -1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Pitch Anal - horses are terrible people, so no centaurs unless rewritten (Z)
+    // Pitch Anal - horses are terrible people, so no centaurs unless rewritten (Z)
     private stickItInEmbersButt(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("ember-fuck-her-in-her-buttz"));
@@ -5744,7 +5744,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 " ass to your hungry touch, you ask if Ember would be willing to be the catcher in a bout of anal sex."
         );
 
-        //(Low Affection)
+        // (Low Affection)
         if (this.emberAffection() <= 25) {
             this.outputText(
                 "\n\n" +
@@ -5756,7 +5756,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //(Medium Affection)
+        // (Medium Affection)
         else if (this.emberAffection() < 75) {
             this.outputText(
                 '\n\n"<i>Ewww!  How can you ask something like that of me!?  Think of something else.</i>"  Ember\'s protest is emphasized by a small puff of smoke that escapes ' +
@@ -5765,11 +5765,11 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.emberMF("his", "her") +
                     " nipples getting hard..."
             );
-            //TO ZE SEX MENU
+            // TO ZE SEX MENU
             this.emberSexMenu(false);
             return;
         }
-        //(High Affection)
+        // (High Affection)
         else {
             this.outputText(
                 "\n\n\"<i>I would, b-but it would never fit... and... and... well, it just won't fit!</i>\" Ember's eyes lock onto your crotch; "
@@ -5782,7 +5782,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.flags[kFLAGS.EMBER_GENDER] >= 2) this.outputText("dripping pussy");
             this.outputText(" make it obvious that the idea is at least partially arousing.");
         }
-        //(first time and corr < 40)
+        // (first time and corr < 40)
         if (this.flags[kFLAGS.TIMES_BUTTFUCKED_EMBER] == 0)
             this.outputText(
                 "\n\nYou ask if " +
@@ -5851,7 +5851,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 ", while the others press into Ember's tight pucker, slowly stretching it to accommodate you."
         );
 
-        //First Time
+        // First Time
         if (this.flags[kFLAGS.TIMES_BUTTFUCKED_EMBER] == 1) {
             this.outputText(
                 "\n\nThe dragon moans softly and growls with more than a hint of nervousness tinged pain; " +
@@ -5893,7 +5893,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     " fingers from the puckered rose, now blooming, and turns to you."
             );
         }
-        //(else)
+        // (else)
         else {
             this.outputText(
                 "\n\nThe dragon moans softly and growls, stretching " +
@@ -6129,19 +6129,19 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 " ass, sending waves of renewed pleasure through you."
         );
 
-        //(Low Cum Amount)
+        // (Low Cum Amount)
         if (this.player.cumQ() < 250)
             this.outputText(
                 "\n\nAll too soon you're spent, but even so you came far more than usual, leaving Ember with a slick, squelching, cum filled rosebud."
             );
-        //(Medium Cum Amount)
+        // (Medium Cum Amount)
         else if (this.player.cumQ() < 1000)
             this.outputText(
                 "\n\nYour orgasm lasts far longer than usual, filling Ember's tight little hole to the brim, even to the point of slightly distending " +
                     this.emberMF("his", "her") +
                     " belly."
             );
-        //(High Cum Amount)
+        // (High Cum Amount)
         else
             this.outputText(
                 "\n\nYour thunderous orgasm threatens to rip Ember's tender little hole apart as you spew jets of cum with such force that you manage to rock " +
@@ -6234,7 +6234,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     " didn't really put any effort into scattering them, and you know it could have been worse."
             );
         }
-        //(else str >=80)
+        // (else str >=80)
         else {
             this.outputText(
                 "grab " +
@@ -6259,7 +6259,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             /*OLD
              \"<i>Asshole!  Bite me!</i>\" " + emberMF("he","she") + " shrieks, turning hurriedly toward the stream.");
              outputText("\n\nWhat a " + emberMF("bastard","bitch") + ".");*/
-            //New
+            // New
             this.outputText(
                 '"<i>What do you think you\'re doing!?</i>" Ember yells at you, obviously mad at your little stunt, one hand reaching behind to prevent any more cum from spilling.'
             );
@@ -6320,7 +6320,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Eat Ember Out - b-baka! (Z)
+    // Eat Ember Out - b-baka! (Z)
     private slurpDraggieCunnies(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("ember-eat-out-her-vagoo"));
@@ -6328,7 +6328,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             "You contemplate the possibilities, and then offer to get down on your knees before the dragon and pleasure her orally.  You would love to have a taste of some dragon juice."
         );
 
-        //(Low Affection)
+        // (Low Affection)
         if (this.emberAffection() <= 25) {
             this.outputText(
                 '\n\n"<i>I suppose I could enjoy that... barely,</i>" Ember replies, trying to hide her obvious excitement.  "<i>But don\'t think you\'ll be getting any points '
@@ -6339,7 +6339,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 " just because you're offering to do this,</i>\" the dragon hastily adds."
             );
         }
-        //(Medium Affection)
+        // (Medium Affection)
         else if (this.emberAffection() < 75) {
             this.outputText(
                 '\n\nEmber\'s claws move to tease at her netherlips, as she imagines you kneeling in front of her, pleasuring her.  "<i>F-fine, if you really want to do that...</i>" Ember replies, trying to sound casual despite her moistening honeypot'
@@ -6348,7 +6348,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(" and slowly hardening shaft");
             this.outputText(".");
         }
-        //(High Affection)
+        // (High Affection)
         else {
             this.outputText(
                 "\n\nThe mere suggestion of what you're offering is enough to make Ember nearly juice herself with anticipation.  Ember quickly covers her nethers, trying to hide her dripping love hole"
@@ -6453,14 +6453,14 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.gender == 0) this.outputText("empty crotch");
         this.outputText(" in sympathy, you head back to camp.");
 
-        //Moderate lust gain and slimefeed, ala blowing Urta or drinking Lover Urta's fluids at Tel'Adre*/
+        // Moderate lust gain and slimefeed, ala blowing Urta or drinking Lover Urta's fluids at Tel'Adre*/
         this.player.slimeFeed();
         this.emberAffection(6);
         this.dynStats("lus", 10 + this.player.lib / 10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Get Eaten Out - actually halfway likeable
+    // Get Eaten Out - actually halfway likeable
     private getEatenOutByEmbra(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("ember-eats-your-vagoo-out"));
@@ -6471,27 +6471,27 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.emberMF("his", "hers") +
                 " to use and eat you out."
         );
-        //(Low Affection)
+        // (Low Affection)
         if (this.emberAffection() <= 25) {
             this.outputText(
                 '\n\n"<i>No way!  I have no idea what\'s been there!  Plus, that is just gross!</i>"  Ember spins on ' +
                     this.emberMF("his", "her") +
                     " heels and walks away."
             );
-            //End scene
+            // End scene
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //(Medium Affection)
+        // (Medium Affection)
         else if (this.emberAffection() < 75) {
             this.outputText(
                 "\n\n\"<i>I'd rather not.  Why don't you think of something that would make both of us feel good?</i>\" Ember suggests, surprisingly calm."
             );
-            //Display other Ember sex options
+            // Display other Ember sex options
             this.emberSexMenu(false);
             return;
         }
-        //(High Affection)
+        // (High Affection)
         else
             this.outputText(
                 '\n\n"<i>I guess I could do that... if you asked nicely...</i>" Ember replies, although ' +
@@ -6659,22 +6659,22 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.emberMF("him", "her") +
                 " leave.  Shaking off your pleasurable fantasies, you manage to pull yourself back upright, redress yourself, and return to camp."
         );
-        //minus some fukkin' lust, reset hours since cum
+        // minus some fukkin' lust, reset hours since cum
         this.player.orgasm();
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Penetrate Her - seems not to accommodate centaurs, more's the pity (Z)
+    // Penetrate Her - seems not to accommodate centaurs, more's the pity (Z)
     private penetrateEmbrah(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("ember-fuck-her-in-the-vagoo-with-your-penor"));
-        //Besides emptying the PC's lust, this scene is also capable of increasing Cum output, I'll leave the decision of how much and how far the threshold should go to you Fen.
-        //Don't know if you should make this increase libido. Probably not unless one of Ember's scenes is able to reduce it as well
+        // Besides emptying the PC's lust, this scene is also capable of increasing Cum output, I'll leave the decision of how much and how far the threshold should go to you Fen.
+        // Don't know if you should make this increase libido. Probably not unless one of Ember's scenes is able to reduce it as well
         this.outputText(
             "Your eyes are drawn to the dragon's crotch, and you ask if she has any feminine itches she'd like scratched."
         );
 
-        //(Low Affection)
+        // (Low Affection)
         if (this.emberAffection() <= 25) {
             this.outputText(
                 '\n\n"<i>By you?  Ha!  Funny joke!</i>"  Ember laughs forcibly as she walks away.'
@@ -6682,13 +6682,13 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //(Medium Affection)
+        // (Medium Affection)
         else if (this.emberAffection() < 75) {
             this.outputText(
                 '\n\n"<i>I might... what\'s it to you?</i>"  She turns away, as if to give you the cold shoulder - but continues looking at you expectantly.  You gracefully offer to help, if Ember is in the mood for a little carnal relief.  She averts her gaze, and shakes her head.  "<i>N-no... such a thing...!</i>"  Looks like the chink in her scaly armor isn\'t that wide yet, even if... well, even if it is that wide, and drooling moisture.  Metaphorically, of course.'
             );
         }
-        //(High Affection)
+        // (High Affection)
         else {
             this.outputText("\n\nYou can see Ember's vagina moisten");
             if (this.flags[kFLAGS.EMBER_GENDER] == 3) {
@@ -6701,7 +6701,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             }
             this.outputText(' in anticipation.  "<i>Yeah... maybe... why do you ask?</i>"');
         }
-        //(First Time)
+        // (First Time)
         if (this.flags[kFLAGS.EMBER_PUSSY_FUCK_COUNT] == 0) {
             this.outputText(
                 "\n\nEmber's tail slips into her hands, and she twists it nervously.  \"<i>I can't... I mean, I've never... and you...</i>\"  Ember seems at a loss for words; could she have been holding onto her virginity?"
@@ -6755,7 +6755,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
 
         var x: number;
         // var y: number;
-        //If the PC is too big
+        // If the PC is too big
         if (this.player.cockThatFits(this.emberVaginalCapacity()) == -1) {
             this.outputText(
                 "\n\nEmber looks at your " +
@@ -6786,9 +6786,9 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //(else if PC has multiple fit cocks){
-        //as usual take the biggest one that fits, unless...
-        //If the PC has a fit dragon cock, always take that one!
+        // (else if PC has multiple fit cocks){
+        // as usual take the biggest one that fits, unless...
+        // If the PC has a fit dragon cock, always take that one!
         x = this.player.cockThatFits(this.emberVaginalCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         if (
@@ -6801,7 +6801,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     " in her hand and stroking it into a full erection."
             );
         }
-        //(if PC has a dragon cock)
+        // (if PC has a dragon cock)
         if (this.player.cocks[x].cockType == CockTypesEnum.DRAGON) {
             this.outputText(
                 '\n\n"<i>What a wonderful tool you have... I guess this might just be good enough to make me orgasm,</i>" Ember remarks, admiring your dick.'
@@ -6842,7 +6842,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 " with her dripping pussy; then finally, with a sigh, letting gravity help your erect shaft inside her inviting depths.  You grit your teeth as her walls close around your prick, the firm muscles inside hungrily swallowing your length and starting to instinctively ripple and surge around it, beginning to milk you.  Your own instincts in turn compel you to buck and thrust, striving to bury yourself further into Ember's eager depths."
         );
 
-        //(First time)
+        // (First time)
         if (this.flags[kFLAGS.EMBER_PUSSY_FUCK_COUNT] == 0) {
             this.outputText(
                 "\n\nEmber hisses in pain as you tear her hymen apart; scolding yourself for your carelessness, you stop and begin to withdraw.  Ember opens " +
@@ -6908,17 +6908,17 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\n"<i>Ah!  Don\'t stop!  F-fuck me!  Deeper!  Ha-harder!</i>" Ember pleads, not caring that you seem to be taking charge.  You eagerly obey, fucking her with everything you have - but your orgasm is here, and, with a cry, you release yourself into her waiting depths.  Ember screams in delight as you fill her up.'
         );
 
-        //(Low Cum Amount)
+        // (Low Cum Amount)
         if (this.player.cumQ() < 250)
             this.outputText(
                 "\n\nHer throbbing pussy milks you dry, seemingly sucking the jism out of you like a thirsty mouth slurping a drink through a straw."
             );
-        //(Medium Cum Amount)
+        // (Medium Cum Amount)
         else if (this.player.cumQ() < 1000)
             this.outputText(
                 "\n\nHer vaginal walls work in tandem with your powerful throbs to bring your spunk deep into her womb, filling her until you've been drained dry and she's sporting a small pot-belly."
             );
-        //(Large Cum Amount)
+        // (Large Cum Amount)
         else
             this.outputText(
                 "\n\nDespite her contractions helping milk your cock of all its virile sperm, you really feel like there's no need.  Your powerful jets of cum fill her almost instantly and force thick gobs straight through her cervix and into her waiting womb, filling her to capacity and beyond.  The backflow spurts out of her stretched pussy and into your crotch as you finish up, leaving her with a sizeable belly."
@@ -6941,12 +6941,12 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nYou meet Ember's gaze through half-lidded eyes.  Slowly she rolls over and gets up on all fours, lifting her tail to give you a perfect sight of her cum-painted, dripping, used cunny.  \"<i>Ha... haha... that's all you've got?  C-couldn't even make me... cum...</i>\" Ember teases you, swaying her hips side to side enticingly."
         );
 
-        //[(corr >= 60)
+        // [(corr >= 60)
         if (this.player.cor >= 66) {
             this.outputText(
                 '\n\n"<i>Nor you, me,</i>" you say, folding your arms.  "<i>You were the one in charge, so the failure is all yours... luckily, my stamina was enough to finish, even though you became useless halfway through.</i>"  Picking up your gear, you leave the dragon behind you; she hurls breathless insults at you, but you only answer with a negligent wave.'
             );
-            //end scene, reset hours since cum, Ember preg check, minus some fuckin Ember affection
+            // end scene, reset hours since cum, Ember preg check, minus some fuckin Ember affection
             this.player.orgasm();
             this.dynStats("sen", -2);
             this.emberAffection(-5);
@@ -6954,7 +6954,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.flags[kFLAGS.EMBER_PUSSY_FUCK_COUNT]++;
             return;
         }
-        //else
+        // else
         this.outputText(
             "\n\nShe has a point... furthermore, you can't resist the golden opportunity before you, as the sight manages to stir a brief flush of second life into your loins.  You pounce on the startled dragon, pulling her tail out of the way and roughly grabbing at her generous mounds, before thrusting yourself once more into her cum-slickened pussy.  You begin to pound her, slowly and deliberately, draping her tail carelessly over your shoulder and doing your best to lean over her as you do her doggy-style."
         );
@@ -6974,17 +6974,17 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nUnable to move, you push yourself as deep into her as you can, and her quivering fuck-hole is only too happy to accept a few extra inches, sucking your shaft deep inside her and holding it there as her muscles massage you in ways you didn't think possible.  Ember looks back at you, with a lusty gaze of deep pleasure as she works to bring you to your second orgasm.  You groan and gasp as you find yourself releasing yourself into her depths again, dredging up reserves you didn't even know you had."
         );
 
-        //(Low Cum Amount)
+        // (Low Cum Amount)
         if (this.player.cumQ() < 250)
             this.outputText(
                 "\n\nYou work overtime to push the last of your seed past her cervix to settle into her belly, and don't stop until she has developed a bit of a bulge."
             );
-        //(Medium Cum Amount)
+        // (Medium Cum Amount)
         else if (this.player.cumQ() < 1000)
             this.outputText(
                 "\n\nYour addition to her womb inflates her until she's sporting a pregnant-looking belly; with all the cum you've just given her, she might as well be."
             );
-        //(High Cum Amount)
+        // (High Cum Amount)
         else {
             this.outputText("\n\nBy the time your overworked ");
             if (this.player.balls == 0) this.outputText("prick is ");
@@ -7006,7 +7006,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.penetrateEmbrahPartII);
     }
 
-    //PART II!
+    // PART II!
     private penetrateEmbrahPartII(): void {
         this.clearOutput();
         this.outputText(
@@ -7034,14 +7034,14 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nYou smile to yourself and start re-dressing, wincing at a deep aching sensation in [balls]; Ember gave you quite a workout."
         );
 
-        //(if PC gained increased cum output)
+        // (if PC gained increased cum output)
         if (this.player.cumQ() < 1000) {
             this.outputText(
                 "\n\nYou wouldn't be surprised if you'll make even more cum than before when you're fully recovered."
             );
             this.player.cumMultiplier += 1 + EmberScene.rand(3);
         }
-        //(else if already at Ember-given ceiling)
+        // (else if already at Ember-given ceiling)
         else
             this.outputText(
                 "\n\nStill, you don't think you could produce any more cum than you already do..."
@@ -7052,7 +7052,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
-    //Get Penetrated - also horse-proof, sorry folks! (Z)
+    // Get Penetrated - also horse-proof, sorry folks! (Z)
     private getPenetratedByEmberLastSexSceneWoooo(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("ember-sticks-her-penor-in-your-vagoo"));
@@ -7068,7 +7068,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 " to scratch them for you?"
         );
 
-        //(Low Affection)
+        // (Low Affection)
         if (this.emberAffection() <= 25) {
             this.outputText(
                 '\n\n"<i>Ha!  I\'m much more than you can handle!  Talk to me when you have something that can take even half of me.</i>"  Ember mocks you, as ' +
@@ -7078,13 +7078,13 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //(Medium Affection)
+        // (Medium Affection)
         else if (this.emberAffection() < 75) {
             this.outputText(
                 '\n\n"<i>Are you questioning my dragonhood!?  I\'ll have you know no cock in this world is a match for mine!</i>" Ember boasts proudly.'
             );
         }
-        //(High Affection)
+        // (High Affection)
         else {
             this.outputText("Ember's cock jumps ");
             if (
@@ -7162,7 +7162,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         else this.outputText("human-like ");
         this.outputText("cock begins making its way past your labia.");
 
-        //(if Ember has a dragon cock)
+        // (if Ember has a dragon cock)
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0 || this.flags[kFLAGS.EMBER_INTERNAL_DICK] > 0) {
             this.outputText(
                 "\n\nFirst comes the tapered spear-like head of Ember's penis; it slowly stretches you, sliding into you without resistance.  Then comes " +
@@ -7176,7 +7176,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     " cock where a bulbous knot sits; thankfully it hasn't inflated yet, but still, you can't help but groan as you are stretched even more by its entrance."
             );
         }
-        //else
+        // else
         else {
             this.outputText(
                 "\n\nEmber's member drives itself inside you, tamping down your heat with its surprisingly cool flesh."
@@ -7192,7 +7192,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 ' hips make contact with yours.  "<i>I\'m going to start moving now.</i>"  You nod your permission.'
         );
 
-        //(if Ember has a dragon cock)
+        // (if Ember has a dragon cock)
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0 || this.flags[kFLAGS.EMBER_INTERNAL_DICK] > 0) {
             this.outputText(
                 "\n\nThe way back as Ember slowly pulls " +
@@ -7346,7 +7346,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.emberMF("him", "her") +
                 " you're not quite done yet.  Surely, just one or two more...?"
         );
-        //[(has History: Slut or Whore)
+        // [(has History: Slut or Whore)
         if (
             this.player.findPerk(PerkLib.HistoryWhore) >= 0 ||
             this.player.findPerk(PerkLib.HistorySlut) >= 0
@@ -7376,7 +7376,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.getPenetratedByEmberLastSexSceneWooooPartII);
     }
 
-    //Part II
+    // Part II
     private getPenetratedByEmberLastSexSceneWooooPartII(): void {
         this.clearOutput();
         this.outputText(
@@ -7445,24 +7445,24 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.emberMF("he", "she") +
                 "'s gone, and then burst out laughing.  Totally worth it... even if you are, as the saying goes, going to be sleeping on the couch for a week as a result."
         );
-        //slimefeed, preg check, reduce lust, reset hours since cum, drain massive libido
+        // slimefeed, preg check, reduce lust, reset hours since cum, drain massive libido
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Breeding Setup
-    //Note: I don't know if it's possible to go into rut as well as heat... But impregnating or being impregnated by Ember should clear the heat/rut status. For simplicity's sake, having either of those stats qualifies you for the scenes, either male or female variant, granted you have the required parts.
+    // Breeding Setup
+    // Note: I don't know if it's possible to go into rut as well as heat... But impregnating or being impregnated by Ember should clear the heat/rut status. For simplicity's sake, having either of those stats qualifies you for the scenes, either male or female variant, granted you have the required parts.
 
-    //This scene only appears if PC and Ember have matching parts (ie: M/F, M/H, F/H, H/H)
-    //This scene leads right into Breeding Ember or Bred by Ember, pick the one that fits appropriately.
-    //Occurs the next time the PC is in the camp after they go into heat/rut, if they're still in heat then. It's possible to get impregnated by something else in the meantime...
-    //If the PC waits/rests, trigger this anyways.
-    //Ember must not be pregnant if you're going to breed her and the PC must not be pregnant to be bred.
+    // This scene only appears if PC and Ember have matching parts (ie: M/F, M/H, F/H, H/H)
+    // This scene leads right into Breeding Ember or Bred by Ember, pick the one that fits appropriately.
+    // Occurs the next time the PC is in the camp after they go into heat/rut, if they're still in heat then. It's possible to get impregnated by something else in the meantime...
+    // If the PC waits/rests, trigger this anyways.
+    // Ember must not be pregnant if you're going to breed her and the PC must not be pregnant to be bred.
 
     /* ONE OF THESE SHOULD BE TRUE
-     //Female Breeding Scene:
-     //PC not pregnant, Ember has dick, PC is in heat.
-     //Male scene
-     //PC has dick, ember not pregnant, PC is in rut*/
+     // Female Breeding Scene:
+     // PC not pregnant, Ember has dick, PC is in heat.
+     // Male scene
+     // PC has dick, ember not pregnant, PC is in rut*/
     public emberRapesYourHeatness(): void {
         this.outputText(
             '\nA pair of scaly, clawed hands suddenly grab your [hips] and you feel Ember take a big whiff of your scent. "<i>So good... you smell so good, y\'know [name]?</i>"'
@@ -7497,7 +7497,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
         this.dynStats("lus", 10 + this.player.lib / 10);
         this.outputText("\n\nWhat do you say?");
-        //[Accept] [Deny]
+        // [Accept] [Deny]
         this.simpleChoices(
             "Accept",
             this.timeToPuffTheMagicDragon,
@@ -7512,7 +7512,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
     }
 
-    //[=Deny=]
+    // [=Deny=]
     private fuckOffEmberIWantANap(): void {
         this.clearOutput();
         this.dynStats("lus", 10 + this.player.lib / 10);
@@ -7564,12 +7564,12 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 "'ll get over it."
         );
         this.emberAffection(-10);
-        //Set some cooldown so this doesn't proc all the goddamn time!
+        // Set some cooldown so this doesn't proc all the goddamn time!
         this.player.createStatusAffect(StatusAffects.EmberFuckCooldown, 12, 0, 0, 0);
         this.doNext(this.playerMenu);
     }
 
-    //[=Accept=]
+    // [=Accept=]
     private timeToPuffTheMagicDragon(): void {
         this.clearOutput();
         this.outputText(
@@ -7613,7 +7613,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.emberMF("he", "she") +
                 "'ll do with you!"
         );
-        //(if PC and Ember are herms AND not pregnant){
+        // (if PC and Ember are herms AND not pregnant){
         if (
             this.player.pregnancyIncubation == 0 &&
             !this.pregnancy.isPregnant &&
@@ -7621,7 +7621,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.gender == 3
         ) {
             this.outputText("\n\n(Who should bear the kids?)");
-            //[Ember] [You]
+            // [Ember] [You]
             this.simpleChoices(
                 "Ember",
                 this.breedEmberPregnantAsIfThereWasAnyOtherKindOfBreeding,
@@ -7635,9 +7635,9 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 undefined
             );
         }
-        //[Play appropriate breeding scene.]
-        //Female Breeding Scene:
-        //PC not pregnant, Ember has dick, PC is in heat.
+        // [Play appropriate breeding scene.]
+        // Female Breeding Scene:
+        // PC not pregnant, Ember has dick, PC is in heat.
         else if (
             this.player.pregnancyIncubation == 0 &&
             (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3) &&
@@ -7645,18 +7645,18 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         ) {
             this.getKnockedUpByEmbrahBroBaby();
         }
-        //Male scene
-        //PC has dick, ember not pregnant, PC is in rut
+        // Male scene
+        // PC has dick, ember not pregnant, PC is in rut
         else {
             this.breedEmberPregnantAsIfThereWasAnyOtherKindOfBreeding();
         }
     }
 
-    //Bred by Ember
-    //Only available to Medium/High Affection Ember.
-    //Only occurs if the PC has a pussy and is in heat; Ember must have a dick; both must not be pregnant.
-    //In case Ember and the PC are herms, both being able to impregnate and be impregnated. One of the scenes will be randomly choosen.
-    //Ember never fails to impregnate the PC or be impregnated - unless the player is on contraceptives.
+    // Bred by Ember
+    // Only available to Medium/High Affection Ember.
+    // Only occurs if the PC has a pussy and is in heat; Ember must have a dick; both must not be pregnant.
+    // In case Ember and the PC are herms, both being able to impregnate and be impregnated. One of the scenes will be randomly choosen.
+    // Ember never fails to impregnate the PC or be impregnated - unless the player is on contraceptives.
     private getKnockedUpByEmbrahBroBaby(): void {
         this.clearOutput();
         this.outputText(
@@ -7705,7 +7705,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         else this.outputText("dragon eggs");
         this.outputText(".  You want to breed!");
 
-        //(if PC has a dick)
+        // (if PC has a dick)
         if (this.player.hasCock()) {
             this.outputText(
                 "\n\nOne of Ember's roaming hands find your erect [cock biggest] and begins stroking, not caring that you're smearing " +
@@ -7754,7 +7754,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
         this.player.cuntChange(20, true, true, false);
 
-        //(if Ember has a vagina)
+        // (if Ember has a vagina)
         if (this.flags[kFLAGS.EMBER_GENDER] == 3)
             this.outputText(
                 "\n\nYour bedroll is growing slick underneath you as lubricant drools from the herm dragon's neglected cunt, her tail thrashing around madly before sliding into the wet orifice to help goad her on in her goal to breed you.  "
@@ -7854,7 +7854,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 " taste as well."
         );
 
-        //(if Ember has a pussy)
+        // (if Ember has a pussy)
         if (this.flags[kFLAGS.EMBER_GENDER] == 2)
             this.outputText(
                 "\n\nYou hear the wet splattering of femcum on your wet bedroll; Ember's orgasm ressurging with renewed vigor.  "
@@ -7870,7 +7870,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 " that you know is about to father your child.  You break the kiss, throwing your head back to moan towards the sky as you finally achieve orgasm."
         );
 
-        //(if PC has a dick)
+        // (if PC has a dick)
         if (this.player.hasCock())
             this.outputText(
                 "\n\nYou cum into your chests and bellies, glueing you to the dragon with your thick spunk.  "
@@ -7916,7 +7916,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(".  Yawning, you curl up to the dragon for a quick nap of your own.");
         this.player.orgasm();
         this.dynStats("sen", -2);
-        //Preg shit goez hurdur
+        // Preg shit goez hurdur
         this.player.knockUp(PregnancyStore.PREGNANCY_EMBER, PregnancyStore.INCUBATION_EMBER, 0); //Will always impregnate unless contraceptives are in use
         this.player.createStatusAffect(StatusAffects.EmberFuckCooldown, 36, 0, 0, 0);
         this.doNext(
@@ -7927,10 +7927,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
     }
 
-    //Breeding Ember
+    // Breeding Ember
     private breedEmberPregnantAsIfThereWasAnyOtherKindOfBreeding(): void {
         this.clearOutput();
-        //Silently steal her virginity.
+        // Silently steal her virginity.
         this.flags[kFLAGS.EMBER_PUSSY_FUCK_COUNT]++;
         var x: number = this.player.cockThatFits(this.emberVaginalCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
@@ -8000,7 +8000,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             "face, nipping lightly at her lip, rolling your tongue over hers and savoring her inhuman tastes; Ember answers in kind with a kiss of her own, purring and moaning into your mouth.  Her vibrating breasts massage your hands as you knead, lift, and then roll them about."
         );
 
-        //(if Ember has a dick)
+        // (if Ember has a dick)
         if (this.emberHasCock()) {
             this.outputText(
                 "\n\nYou feel something poke your [chest] and look down to see Ember's painfully erect "
@@ -8024,7 +8024,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             "her eyes roll to the back of her head.  With a muffled roar she finally caves, a veritable wave of dragon juices crashing into your lower body and pooling on your bedroll, filling the whole tent with the delicious smell of sex and pheromones."
         );
 
-        //(If Ember has a dick)
+        // (If Ember has a dick)
         if (this.emberHasCock())
             this.outputText(
                 "  Ember's cock wets the side of the tent with continuous jets of cum, only adding to the already overpowering smell of sex as she empties herself on top of you."
@@ -8080,17 +8080,17 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nEmber growls and purrs as she feels your hot seed drive itself into her womb, looking for her fertile eggs to impregnate.  Her pussy lips clamp down on your shaft, holding it in place with a watertight seal to prevent any of your seed from spilling as her walls work to milk you."
         );
 
-        //(Low Cum Amount)
+        // (Low Cum Amount)
         if (this.player.cumQ() < 250)
             this.outputText(
                 "  Though you usually don't cum that much, Ember's contracting walls literally suck the cum out of you; forcing you to give up more than you usually would... something you're quite glad to do!"
             );
-        //(Medium Cum Amount)
+        // (Medium Cum Amount)
         else if (this.player.cumQ() < 1000)
             this.outputText(
                 "  Your generous helping of cum works its way towards her awaiting womb.  In fact, due to the delicious massage your shaft is receiving from Ember's contracting, almost sucking vaginal walls, you find yourself pumping out even more cum that you would usually have, quickly filling her to the brim and beyond.  It's not until Ember's belly is slightly distended that you stop."
             );
-        //(High Cum Amount)
+        // (High Cum Amount)
         else
             this.outputText(
                 "  You dump a huge load of jism into Ember's awaiting belly, but her contracting walls seem to milk you for ever more!  Ember is filled to the brim, her belly already slightly distended, but you still continue to fill her with your seed.  Ember's tightly sealed pussy lips means the cum has nowhere to go, so instead it gathers in her womb, distending her belly until she looks at least a few months pregnant; and by the look of pleasure on Ember's panting face, you don't think she minds it."
@@ -8121,7 +8121,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nFiguring you'll still have some time before Ember's constricting nether lips feel like letting you go, you snuggle close to her for a quick nap of your own..."
         );
 
-        //knock dat phat bitch up.
+        // knock dat phat bitch up.
         this.pregnancy.knockUp(PregnancyStore.PREGNANCY_PLAYER, PregnancyStore.INCUBATION_EMBER);
         this.player.createStatusAffect(StatusAffects.EmberFuckCooldown, 36, 0, 0, 0);
         this.player.removeStatusAffect(StatusAffects.Rut);
@@ -8135,7 +8135,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
     }
 
-    //Bred/Breeding Aftermath
+    // Bred/Breeding Aftermath
     private emberBreedingAfterMathWatchOutForRadioactiveFallout(
         emberPregged: boolean = true
     ): void {
@@ -8263,7 +8263,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.emberMF("he", "she") +
                 " really feels.  Still, you're quite certain your efforts took."
         );
-        //(if PC now pregnant:
+        // (if PC now pregnant:
         if (!emberPregged)
             this.outputText(
                 "  You touch your belly with a smirk.  Very certain they took indeed..."
@@ -8272,7 +8272,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     private emberPregUpdate(): boolean {
-        //trace("EMBER PREG: " + flags[kFLAGS.EMBER_INCUBATION] + "EMBER AFF: " + emberAffection());
+        // trace("EMBER PREG: " + flags[kFLAGS.EMBER_INCUBATION] + "EMBER AFF: " + emberAffection());
         switch (this.pregnancy.eventTriggered()) {
             case 1: //
                 this.outputText(
@@ -8377,7 +8377,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     public emberGivesBirth(): void {
-        //Ember Gives Live Birth
+        // Ember Gives Live Birth
         if (this.flags[kFLAGS.EMBER_OVIPOSITION] == 0) {
             this.outputText(
                 "\nA roar interrupts your daily routine and you quickly run to check its source.  You see Ember doubling over and sitting inside her den, her face twisted in pain. She suddenly looks up at you."
@@ -8496,9 +8496,9 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             else if (roll < 80) this.flags[kFLAGS.EMBER_CHILDREN_FEMALES]++;
             else this.flags[kFLAGS.EMBER_CHILDREN_HERMS]++;
         }
-        //Ember Lays Egg
+        // Ember Lays Egg
         else {
-            //Ignore all the effects of Dragon Milk.
+            // Ignore all the effects of Dragon Milk.
             this.outputText(
                 "\nA roar interrupts your daily routine and you quickly run to check its source.  You see Ember doubling over and sitting inside her den, her face twisted in pain. She suddenly looks up at you."
             );
@@ -8602,10 +8602,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     public giveBirthToEmberKids(): void {
         var roll: number = EmberScene.rand(100);
         this.outputText("\n");
-        //PC Gives Live Birth
+        // PC Gives Live Birth
         if (this.flags[kFLAGS.EMBER_OVIPOSITION] == 0) {
-            //40% chance of boy, 40% chance of girl and 20% chance of both
-            //(If the PC has no pussy)
+            // 40% chance of boy, 40% chance of girl and 20% chance of both
+            // (If the PC has no pussy)
             if (!this.player.hasVagina()) {
                 this.outputText(
                     "A terribly painful ripping feeling comes from your crotch. Reaching down to touch the tender spot you feel a spike of pleasure and moistness.  <b>You've grown a vagina!</b>\n\n"
@@ -8786,9 +8786,9 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             else if (roll < 80) this.flags[kFLAGS.EMBER_CHILDREN_FEMALES]++;
             else this.flags[kFLAGS.EMBER_CHILDREN_HERMS]++;
         }
-        //PC Lays Egg
+        // PC Lays Egg
         else {
-            //(If the PC has no pussy)
+            // (If the PC has no pussy)
             if (!this.player.hasVagina()) {
                 this.outputText(
                     "A terribly painful ripping feeling comes from your crotch. Reaching down to touch the tender spot you feel a spike of pleasure and moistness.  <b>You've grown a vagina!</b>\n\n"
@@ -8972,15 +8972,15 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.genderCheck();
     }
 
-    //Requirements (Either)
-    //1 Lust Draft,
-    //Libido >= 50,
-    //Min Lust >= 40.
+    // Requirements (Either)
+    // 1 Lust Draft,
+    // Libido >= 50,
+    // Min Lust >= 40.
     //
-    //Don't meet the reqs? No LustFuck for you!
-    //Not centaur compatible as is the case will all Ember material, centaurs awkward bodies require that the entirety of the content be re-written and I'm not doing that - LD.
+    // Don't meet the reqs? No LustFuck for you!
+    // Not centaur compatible as is the case will all Ember material, centaurs awkward bodies require that the entirety of the content be re-written and I'm not doing that - LD.
 
-    //Note: This scene is meant for Tainted Ember after you've been through the lost dragon city dungeon. While we do not have the dungeon and post-quest Ember, this scene may be accessed from regular Ember's pool of scenes if her affection is High.
+    // Note: This scene is meant for Tainted Ember after you've been through the lost dragon city dungeon. While we do not have the dungeon and post-quest Ember, this scene may be accessed from regular Ember's pool of scenes if her affection is High.
 
     private highAffectionEmberLustFuck(): void {
         this.clearOutput();
@@ -9061,7 +9061,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 " trills, anxious to hear what's on your mind."
         );
 
-        //1st time:
+        // 1st time:
         if (this.flags[kFLAGS.TIMES_EMBER_LUSTY_FUCKED] == 0) {
             this.outputText(
                 "\n\nYou smile and take the offered book, flipping through a few pages and showing the ones that you like the most to Ember."
@@ -9087,7 +9087,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     " eyes in good-natured exasperation."
             );
 
-            //if PC has Libido or Min Lust requirements fulfilled:
+            // if PC has Libido or Min Lust requirements fulfilled:
             if (this.player.lib >= 50 || this.player.minLust() >= 40) {
                 this.outputText(
                     "\n\nYou're pretty confident in your libido, the real question is if " +
@@ -9154,7 +9154,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 " knees to hold them out of the way."
         );
 
-        //If Ember is male:
+        // If Ember is male:
         if (this.flags[kFLAGS.EMBER_GENDER] == 1) {
             this.outputText(
                 "\n\n\"<i>I... um... well, the postures you've shown me are kind of meant more for a female dragon in the receiving position, but since I'm a boy you'll kind of have to... er... use what I do have,</i>\" he looks away in shame, though whether it's due to what he's trying to say or at the fact he lacks the parts that the poses are for is hard to say.  He swivels one arm to use his hand to spread apart his ass-cheeks, letting you get a clear look at his anus; the invitation is obvious."
@@ -9219,7 +9219,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nYou're happy to finally hear that from her too.  But as much as you appreciate the feelings, you have more pressing matters to attend to."
             );
         }
-        //else if Ember has a pussy and the PC more than one cock:
+        // else if Ember has a pussy and the PC more than one cock:
         else {
             this.outputText(
                 "\n\nEmber's eyes are fixated on [eachCock], and she swallows softly.  Embarrassed, she says, \"<i>P-perhaps you'd like to use "
@@ -9508,7 +9508,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "shaft as his cock spurts dragon-seed onto the leaves below him, filling the air with the scent of spunk and matting them into a steaming morass."
             );
-        //{twin shafts} as {her cunt spasms wetly, drenching your lap with fresh femcum} {and/or} {[her] cock spurts dragon-seed onto the leaves below {her}, filling the air with the scent of spunk and matting them into a steaming morass}
+        // {twin shafts} as {her cunt spasms wetly, drenching your lap with fresh femcum} {and/or} {[her] cock spurts dragon-seed onto the leaves below {her}, filling the air with the scent of spunk and matting them into a steaming morass}
         else {
             if (this.player.cockTotal() == 1)
                 this.outputText(
@@ -9536,7 +9536,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 " does, obviously not sure if you'll manage it."
         );
 
-        //if PC has libido/lust:
+        // if PC has libido/lust:
         if (this.player.lib >= 50 || this.player.minLust() >= 40) {
             this.outputText(
                 "\n\nYou're not quite satisfied yet.  You look down at [oneCock], watching it throb, still as hard as when you first started fucking Ember.  \"<i>You-you're not sated yet?</i>\" Ember asks in awe, "
@@ -9555,7 +9555,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     ' stares at you with both parts adoration and lust.  "<i>Well, in that case...</i>"'
             );
         }
-        //Else:
+        // Else:
         else {
             this.outputText(
                 "\n\nWell, you don't feel like " +
@@ -9793,15 +9793,15 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
         this.player.orgasm();
         this.dynStats("sen", -5);
-        //[Yes] [No]
+        // [Yes] [No]
         this.menu();
         this.addButton(0, "Yes", this.stayWithEmberAfterLustFuck);
         this.addButton(1, "No", this.noStayingForCuddlesPostLustFuck);
     }
 
-    //[=No=]
-    //Less time used (Only 1 hour.)
-    //Fatigue stays gained, whereupon it's lost if PC stays and rests? (Sure!)
+    // [=No=]
+    // Less time used (Only 1 hour.)
+    // Fatigue stays gained, whereupon it's lost if PC stays and rests? (Sure!)
     private noStayingForCuddlesPostLustFuck(): void {
         this.clearOutput();
         this.outputText(
@@ -9811,14 +9811,14 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.emberMF("him", "her") +
                 'self to smile all the same.  "<i>I understand, you have other things to do... just know that I\'ll always be here for you, for better or worse.</i>"  You '
         );
-        //50 or less Corruption:
+        // 50 or less Corruption:
         if (this.player.cor < 50) this.outputText("thank her for being so understanding");
         else this.outputText("grunt an acknowledgement");
         this.outputText(" and then gather your things before heading off to wash yourself down.");
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[=Yes=]
+    // [=Yes=]
     private stayWithEmberAfterLustFuck(): void {
         this.clearOutput();
         var x: number = this.player.cockThatFits(this.emberVaginalCapacity());
@@ -9833,7 +9833,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 " wings."
         );
 
-        //If Ember is male:
+        // If Ember is male:
         if (this.flags[kFLAGS.EMBER_GENDER] == 1) {
             this.outputText(
                 "\n\nAs you embrace each other, you feel something stirring against your " +
@@ -9849,7 +9849,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.menu();
             this.addButton(0, "Next", this.frottingWithEmber);
         }
-        //else if Ember is female:
+        // else if Ember is female:
         else if (this.flags[kFLAGS.EMBER_GENDER] == 2) {
             this.outputText(
                 "\n\nEmber hugs you tightly, pressing you against her bosom.  You enjoy the feel of the dragon's "
@@ -9875,7 +9875,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.menu();
             this.addButton(0, "Next", this.penetrateWithEmber);
         } else {
-            //if Ember is herm:
+            // if Ember is herm:
             this.outputText(
                 "\n\nAs you embrace each other, you feel something stirring against your " +
                     this.player.skinFurScales() +
@@ -9893,14 +9893,14 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\n"<i>Hmm... [name], my mate?  Feel like trying something different?  Or if you aren\'t, can you at least put that cock inside me once more?  I want you...</i>"  Ember licks her lips in anticipation.'
             );
 
-            //[Frotting] [Penetrate]
+            // [Frotting] [Penetrate]
             this.menu();
             this.addButton(0, "Frotting", this.frottingWithFrottingEmberHerm);
             this.addButton(1, "Penetrate", this.penetrateEmberHerm);
         }
     }
 
-    //[=Frotting=]
+    // [=Frotting=]
     private frottingWithFrottingEmberHerm(): void {
         this.clearOutput();
         this.outputText(
@@ -9909,7 +9909,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.frottingWithEmber(false);
     }
 
-    //[=Penetrate=]
+    // [=Penetrate=]
     private penetrateEmberHerm(): void {
         this.clearOutput();
         this.outputText(
@@ -9918,7 +9918,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.penetrateWithEmber(false);
     }
 
-    //Frotting:
+    // Frotting:
     private frottingWithEmber(clear: boolean = true): void {
         var x: number = this.player.biggestCockIndex();
         if (clear) this.clearOutput();
@@ -9945,7 +9945,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 "self, mashing your shafts together."
         );
 
-        //if PC and Ember are male:
+        // if PC and Ember are male:
         if (this.player.gender == 1 && this.flags[kFLAGS.EMBER_GENDER] == 1)
             this.outputText(
                 '\n\n"<i>Sometimes I wonder what other dragons would say... I\'m supposed to breed and birth a new generation of dragons into Mareth.  Yet here am I fooling around with a guy...</i>" he smirks at you.  "<i>But heck if I care, I love you too much to let this bother me anymore... besides maybe if we try real hard you can still get me pregnant?  Or maybe you\'d prefer I got you pregnant?</i>"  You roll your eyes and kiss him, though it fails to wipe the smirk from his face.'
@@ -10047,12 +10047,12 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         else this.outputText(" hair");
         this.outputText(" before allowing yourself to also fall asleep.");
         this.player.orgasm();
-        //doNext(14);
+        // doNext(14);
         this.menu();
         this.addButton(0, "Next", this.emberJizzbangbangEnding);
     }
 
-    //Penetrate:
+    // Penetrate:
     private penetrateWithEmber(clear: boolean = true): void {
         if (clear) this.clearOutput();
         else this.outputText("\n\n");
@@ -10182,12 +10182,12 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nThe two of you collapse into each other's arms.  You move to pull out, but Ember stops you by holding your hips in place.  \"<i>Leave it inside... that's where it belongs.</i>\"  She smiles at you, panting a bit.  Too tired and happy to argue, you simply nod your head, rest against her, and allow sleep to claim you. You're dimly aware of Ember doing the same thing before you fade."
         );
         this.player.orgasm();
-        //doNext(14);
+        // doNext(14);
         this.menu();
         this.addButton(0, "Next", this.emberJizzbangbangEnding);
     }
 
-    //Frotting and Penetrate connect here.
+    // Frotting and Penetrate connect here.
     private emberJizzbangbangEnding(): void {
         this.clearOutput();
         this.outputText(
@@ -10257,7 +10257,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 " lips and gets up."
         );
 
-        //if Ember has a dick (male/herm):
+        // if Ember has a dick (male/herm):
         if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3) {
             this.outputText(
                 "\n\n\"<i>I doubt I'd be able to even get an erection after the last session.</i>\"  Then what's that bobbing between " +
@@ -10317,7 +10317,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outputText("\n\nYou head off yourself, ready to resume the rest of your day.");
-        //2 hours pass, PC's fatigue is healed some, Libido is reduced.
+        // 2 hours pass, PC's fatigue is healed some, Libido is reduced.
         this.fatigue(-20);
         this.dynStats("lib", -1);
         this.doNext(this.camp.returnToCampUseTwoHours);
