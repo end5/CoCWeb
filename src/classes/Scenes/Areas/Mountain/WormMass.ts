@@ -1,20 +1,26 @@
 import { trace } from "../../../../console";
-import { ANAL_LOOSENESS_VIRGIN, ANAL_WETNESS_DRY, BUTT_RATING_BUTTLESS, HIP_RATING_SLENDER } from "../../../../includes/appearanceDefs";
+import {
+    ANAL_LOOSENESS_VIRGIN,
+    ANAL_WETNESS_DRY,
+    BUTT_RATING_BUTTLESS,
+    HIP_RATING_SLENDER,
+} from "../../../../includes/appearanceDefs";
 import { Monster } from "../../../Monster";
 
 export class WormMass extends Monster {
-
-
     protected performCombatAction(): void {
         //Worms have different AI
-        if (WormMass.rand(2) == 0)
-            this.special1();
+        if (WormMass.rand(2) == 0) this.special1();
         else this.special2();
     }
 
-
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
-        this.outputText("Overcome by your " + (hpVictory ? "wounds" : "lust") + ", you sink to your knees as the colony of worms swarms all over your body...\n\n", true);
+        this.outputText(
+            "Overcome by your " +
+                (hpVictory ? "wounds" : "lust") +
+                ", you sink to your knees as the colony of worms swarms all over your body...\n\n",
+            true
+        );
         this.game.infest1();
     }
 
@@ -28,7 +34,8 @@ export class WormMass extends Monster {
         this.a = "the ";
         this.short = "worms";
         this.imageName = "worms";
-        this.long = "Before you stands the horrid mass of worms. It has shifted itself and now takes the shape of a humanoid composed completely of the worms in the colony. Its vaguely human shape lumbers towards you in a clearly aggressive manner.";
+        this.long =
+            "Before you stands the horrid mass of worms. It has shifted itself and now takes the shape of a humanoid composed completely of the worms in the colony. Its vaguely human shape lumbers towards you in a clearly aggressive manner.";
         this.plural = true;
         this.initGenderless();
         this.pronoun1 = "they";
@@ -56,6 +63,4 @@ export class WormMass extends Monster {
         this.drop = this.NO_DROP;
         this.checkMonster();
     }
-
 }
-

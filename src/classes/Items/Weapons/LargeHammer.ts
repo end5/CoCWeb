@@ -5,9 +5,18 @@ import { Weapon } from "../Weapon";
  */
 
 export class LargeHammer extends Weapon {
-
     public constructor() {
-        super("L.Hammr", "L.Hammr", "large hammer", "Marble's large hammer", "smash", 16, 90, "This two-handed warhammer looks pretty devastating.  You took it from Marble after she refused your advances.", "Large");
+        super(
+            "L.Hammr",
+            "L.Hammr",
+            "large hammer",
+            "Marble's large hammer",
+            "smash",
+            16,
+            90,
+            "This two-handed warhammer looks pretty devastating.  You took it from Marble after she refused your advances.",
+            "Large"
+        );
     }
 
     public canUse(): boolean {
@@ -31,4 +40,3 @@ export class LargeHammer extends Weapon {
             }
     */
 }
-

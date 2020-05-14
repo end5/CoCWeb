@@ -1,5 +1,11 @@
 import { trace } from "../../../../console";
-import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, BUTT_RATING_TIGHT, HIP_RATING_SLENDER, WING_TYPE_IMP } from "../../../../includes/appearanceDefs";
+import {
+    ANAL_LOOSENESS_TIGHT,
+    ANAL_WETNESS_DRY,
+    BUTT_RATING_TIGHT,
+    HIP_RATING_SLENDER,
+    WING_TYPE_IMP,
+} from "../../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../../CockTypesEnum";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
 import { Monster } from "../../../Monster";
@@ -29,7 +35,8 @@ export class ImpHorde extends Monster {
         this.a = "the ";
         this.short = "imp horde";
         this.imageName = "impmob";
-        this.long = "Imps of all shapes and sizes fill the room around you, keeping you completely surrounded by their myriad forms.  You can see more than a few sporting disproportionate erections, and there's even some with exotic dog-dicks, horse-pricks, and the odd spiny cat-cock.  Escape is impossible, you'll have to fight or seduce your way out of this one!";
+        this.long =
+            "Imps of all shapes and sizes fill the room around you, keeping you completely surrounded by their myriad forms.  You can see more than a few sporting disproportionate erections, and there's even some with exotic dog-dicks, horse-pricks, and the odd spiny cat-cock.  Escape is impossible, you'll have to fight or seduce your way out of this one!";
         this.plural = true;
         this.pronoun1 = "they";
         this.pronoun2 = "them";
@@ -54,7 +61,7 @@ export class ImpHorde extends Monster {
         this.armorName = "skin";
         this.bonusHP = 450;
         this.lust = 10;
-        this.lustVuln = .5;
+        this.lustVuln = 0.5;
         this.temperment = ImpHorde.TEMPERMENT_RANDOM_GRAPPLES;
         this.level = 10;
         this.gems = 20 + ImpHorde.rand(25);
@@ -63,6 +70,4 @@ export class ImpHorde extends Monster {
         this.wingDesc = "imp wings";
         this.checkMonster();
     }
-
 }
-

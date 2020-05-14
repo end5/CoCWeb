@@ -104,6 +104,5 @@ export const Sprites: Record<number, string> = {
     103: "venus",
     104: "kitsune black",
     105: "kitsune blonde",
-    106: "kitsune red"
-
+    106: "kitsune red",
 };

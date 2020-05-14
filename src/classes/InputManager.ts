@@ -47,7 +47,7 @@ export class InputManager {
 
     // A flag to determine if we're listening for keyCodes to execute, or keyCodes to bind a method against
     private _bindingMode: boolean;
-    private _bindingFunc: string = '';
+    private _bindingFunc: string = "";
     private _bindingSlot: boolean = false;
 
     /**
@@ -67,7 +67,7 @@ export class InputManager {
         this._availableCheatControlMethods = 0;
 
         // this._stage.addEventListener(KeyboardEvent.KEY_DOWN, this.KeyHandler);
-        document.body.addEventListener('keydown', this.KeyHandler);
+        document.body.addEventListener("keydown", this.KeyHandler);
 
         // this._mainView = mainView;
         // this._mainText = (this._stage.getChildByName("mainView") as MovieClip).mainText as TextField;
@@ -109,7 +109,8 @@ export class InputManager {
 
         // this.HideBindingPane();
 
-        this._mainView.mainText.innerHTML = "<b>Hit the key that you want to bind " + funcName + " to!</b>";
+        this._mainView.mainText.innerHTML =
+            "<b>Hit the key that you want to bind " + funcName + " to!</b>";
     }
 
     /**
@@ -133,12 +134,23 @@ export class InputManager {
      * @param	func		A function object that defines the BoundControlMethods action
      * @param	isCheat		Differentiates between a cheat method (not displayed in the UI) and normal controls.
      */
-    public AddBindableControl(name: string, desc: string, func: any, isCheat: boolean = false): void {
+    public AddBindableControl(
+        name: string,
+        desc: string,
+        func: any,
+        isCheat: boolean = false
+    ): void {
         if (isCheat) {
-            this._cheatControlMethods.push(new BoundControlMethod(func, name, desc, this._availableCheatControlMethods++));
-        }
-        else {
-            this._controlMethods[name] = new BoundControlMethod(func, name, desc, this._availableControlMethods++);
+            this._cheatControlMethods.push(
+                new BoundControlMethod(func, name, desc, this._availableCheatControlMethods++)
+            );
+        } else {
+            this._controlMethods[name] = new BoundControlMethod(
+                func,
+                name,
+                desc,
+                this._availableControlMethods++
+            );
         }
     }
 
@@ -193,11 +205,18 @@ export class InputManager {
         // If the key is already bound to a method, remove it from that method
         if (this._keysToControlMethods[keyCode] != undefined) {
             if (this._controlMethods[this._keysToControlMethods[keyCode]].PrimaryKey == keyCode) {
-                this._controlMethods[this._keysToControlMethods[keyCode]].PrimaryKey = this._controlMethods[this._keysToControlMethods[keyCode]].SecondaryKey;
-                this._controlMethods[this._keysToControlMethods[keyCode]].SecondaryKey = InputManager.UNBOUNDKEY;
-            }
-            else if (this._controlMethods[this._keysToControlMethods[keyCode]].SecondaryKey == keyCode) {
-                this._controlMethods[this._keysToControlMethods[keyCode]].SecondaryKey = InputManager.UNBOUNDKEY;
+                this._controlMethods[
+                    this._keysToControlMethods[keyCode]
+                ].PrimaryKey = this._controlMethods[
+                    this._keysToControlMethods[keyCode]
+                ].SecondaryKey;
+                this._controlMethods[this._keysToControlMethods[keyCode]].SecondaryKey =
+                    InputManager.UNBOUNDKEY;
+            } else if (
+                this._controlMethods[this._keysToControlMethods[keyCode]].SecondaryKey == keyCode
+            ) {
+                this._controlMethods[this._keysToControlMethods[keyCode]].SecondaryKey =
+                    InputManager.UNBOUNDKEY;
             }
         }
     }
@@ -214,7 +233,7 @@ export class InputManager {
         //     return;
         // }
 
-        if (this._mainView.mainText.getElementsByTagName('input').length > 0) {
+        if (this._mainView.mainText.getElementsByTagName("input").length > 0) {
             return;
         }
 
@@ -283,7 +302,8 @@ export class InputManager {
                 this._controlMethods[key].Description,
                 this._controlMethods[key].Index,
                 this._controlMethods[key].PrimaryKey,
-                this._controlMethods[key].SecondaryKey);
+                this._controlMethods[key].SecondaryKey
+            );
         }
 
         // Elbullshito mode -- 126 is the maximum keycode in as3 we're likely to see
@@ -305,7 +325,8 @@ export class InputManager {
                 this._defaultControlMethods[key].Description,
                 this._defaultControlMethods[key].Index,
                 this._defaultControlMethods[key].PrimaryKey,
-                this._defaultControlMethods[key].SecondaryKey);
+                this._defaultControlMethods[key].SecondaryKey
+            );
         }
 
         // Elbullshito mode -- 126 is the maximum keycode in as3 we're likely to see
@@ -331,7 +352,6 @@ export class InputManager {
 
         return Object.keys(this._controlMethods).map((key) => this._controlMethods[key]);
     }
-
 
     /**
      * Get an array of the currently active keyCodes.

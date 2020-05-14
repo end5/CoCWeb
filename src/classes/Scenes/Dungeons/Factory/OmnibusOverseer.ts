@@ -1,4 +1,14 @@
-import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_SLIME_DROOLING, BUTT_RATING_TIGHT, HIP_RATING_AMPLE, LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS, TAIL_TYPE_DEMONIC, VAGINA_LOOSENESS_NORMAL, VAGINA_WETNESS_DROOLING, WING_TYPE_BAT_LIKE_TINY } from "../../../../includes/appearanceDefs";
+import {
+    ANAL_LOOSENESS_TIGHT,
+    ANAL_WETNESS_SLIME_DROOLING,
+    BUTT_RATING_TIGHT,
+    HIP_RATING_AMPLE,
+    LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS,
+    TAIL_TYPE_DEMONIC,
+    VAGINA_LOOSENESS_NORMAL,
+    VAGINA_WETNESS_DROOLING,
+    WING_TYPE_BAT_LIKE_TINY,
+} from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
 import { Monster } from "../../../Monster";
@@ -6,7 +16,6 @@ import { PerkLib } from "../../../PerkLib";
 import { StatusAffects } from "../../../StatusAffects";
 
 export class OmnibusOverseer extends Monster {
-
     public defeated(hpVictory: boolean): void {
         this.game.omnibusVictoryEvent();
     }
@@ -21,12 +30,15 @@ export class OmnibusOverseer extends Monster {
     }
 
     private lustAura(): void {
-        this.outputText("The demoness blinks her eyes closed and knits her eyebrows in concentration.  The red orbs open wide and she smiles, licking her lips.   The air around her grows warmer, and muskier, as if her presence has saturated it with lust.");
+        this.outputText(
+            "The demoness blinks her eyes closed and knits her eyebrows in concentration.  The red orbs open wide and she smiles, licking her lips.   The air around her grows warmer, and muskier, as if her presence has saturated it with lust."
+        );
         if (this.findStatusAffect(StatusAffects.LustAura) >= 0) {
-            this.outputText("  Your eyes cross with unexpected feelings as the taste of desire in the air worms its way into you.  The intense aura quickly subsides, but it's already done its job.");
-            this.game.dynStats("lus", (8 + Math.floor(this.player.lib / 20 + this.player.cor / 25)));
-        }
-        else {
+            this.outputText(
+                "  Your eyes cross with unexpected feelings as the taste of desire in the air worms its way into you.  The intense aura quickly subsides, but it's already done its job."
+            );
+            this.game.dynStats("lus", 8 + Math.floor(this.player.lib / 20 + this.player.cor / 25));
+        } else {
             this.createStatusAffect(StatusAffects.LustAura, 0, 0, 0, 0);
         }
         this.game.combatRoundOver();
@@ -34,29 +46,54 @@ export class OmnibusOverseer extends Monster {
 
     private milkAttack(): void {
         if (OmnibusOverseer.rand(2) == 0)
-            this.outputText("The demoness grips her sizable breasts and squeezes, spraying milk at you.\n");
-        else this.outputText("Your foe curls up to pinch her nipples, tugging hard and squirting milk towards you.\n");
-        if ((this.player.spe > 50 && OmnibusOverseer.rand(4) == 0) || (this.player.findPerk(PerkLib.Evade) >= 0 && OmnibusOverseer.rand(3) == 0) || (this.player.findPerk(PerkLib.Misdirection) >= 0 && OmnibusOverseer.rand(4) == 0 && this.player.armorName == "red, high-society bodysuit")) {
+            this.outputText(
+                "The demoness grips her sizable breasts and squeezes, spraying milk at you.\n"
+            );
+        else
+            this.outputText(
+                "Your foe curls up to pinch her nipples, tugging hard and squirting milk towards you.\n"
+            );
+        if (
+            (this.player.spe > 50 && OmnibusOverseer.rand(4) == 0) ||
+            (this.player.findPerk(PerkLib.Evade) >= 0 && OmnibusOverseer.rand(3) == 0) ||
+            (this.player.findPerk(PerkLib.Misdirection) >= 0 &&
+                OmnibusOverseer.rand(4) == 0 &&
+                this.player.armorName == "red, high-society bodysuit")
+        ) {
             this.outputText("You sidestep the gushing fluids.");
         }
         //You didn't dodge
         else {
             if (OmnibusOverseer.rand(2) == 0) {
-                this.outputText("The milk splatters across your face and chest, soaking you with demonic cream.  Some managed to get into your mouth, and you swallow without thinking.  It makes you tingle with warmth.  ");
-            }
-            else {
-                this.outputText("The milk splashes into your " + this.player.armorName + ", soaking you effectively.  ");
+                this.outputText(
+                    "The milk splatters across your face and chest, soaking you with demonic cream.  Some managed to get into your mouth, and you swallow without thinking.  It makes you tingle with warmth.  "
+                );
+            } else {
+                this.outputText(
+                    "The milk splashes into your " +
+                        this.player.armorName +
+                        ", soaking you effectively.  "
+                );
                 if (this.player.cocks.length > 0) {
-                    this.outputText("Your " + this.cockDescript(0) + " gets hard as the milk lubricates and stimulates it.  ");
+                    this.outputText(
+                        "Your " +
+                            this.cockDescript(0) +
+                            " gets hard as the milk lubricates and stimulates it.  "
+                    );
                     this.game.dynStats("lus", 5);
                 }
                 if (this.player.vaginas.length > 0) {
-                    this.outputText("You rub your thighs together as the milk slides between your pussy lips, stimulating you far more than it should.  ");
+                    this.outputText(
+                        "You rub your thighs together as the milk slides between your pussy lips, stimulating you far more than it should.  "
+                    );
                     this.game.dynStats("lus", 5);
                 }
             }
             this.game.dynStats("lus", 7 + this.player.sens / 20);
-            if (this.player.biggestLactation() > 1) this.outputText("Milk dribbles from your " + this.allBreastsDescript() + " in sympathy.");
+            if (this.player.biggestLactation() > 1)
+                this.outputText(
+                    "Milk dribbles from your " + this.allBreastsDescript() + " in sympathy."
+                );
         }
         this.game.combatRoundOver();
     }
@@ -66,7 +103,8 @@ export class OmnibusOverseer extends Monster {
         this.a = "the ";
         this.short = "Omnibus Overseer";
         this.imageName = "omnibusoverseer";
-        this.long = "The 'woman' before you is clothed only in a single strip of fabric that wraps around her bountiful chest.  She has striking red eyes that contrast visibly with her blue skin and dark make-up.  Shiny black gloss encapsulates her kissable bubbly black lips.  Her most striking feature is her crotch, which appears neither male nor female.  She has a puffy wet vulva, but a cock-shaped protrusion sprouts from where a clit should be.";
+        this.long =
+            "The 'woman' before you is clothed only in a single strip of fabric that wraps around her bountiful chest.  She has striking red eyes that contrast visibly with her blue skin and dark make-up.  Shiny black gloss encapsulates her kissable bubbly black lips.  Her most striking feature is her crotch, which appears neither male nor female.  She has a puffy wet vulva, but a cock-shaped protrusion sprouts from where a clit should be.";
         // this.plural = false;
         this.createCock(10, 1.5);
         this.balls = 0;
@@ -107,6 +145,4 @@ export class OmnibusOverseer extends Monster {
         this.tailType = TAIL_TYPE_DEMONIC;
         this.checkMonster();
     }
-
 }
-

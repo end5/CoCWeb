@@ -3,7 +3,6 @@
  * @author Gedan
  */
 export class room {
-
     public RoomName?: string; // Index name
     public RoomDisplayName?: string; // Header text
 

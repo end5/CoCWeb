@@ -9,14 +9,17 @@ export class ItemSlotClass {
     private _itype: ItemType = ItemType.NOTHING;
     private _unlocked: boolean = false;
 
-
     public setItemAndQty(itype: ItemType, quant: number): void {
         if (itype == undefined) itype = ItemType.NOTHING;
         if (quant == 0 && itype == ItemType.NOTHING) {
             this.emptySlot();
             return;
         }
-        if (quant < 0 || quant == 0 && itype != ItemType.NOTHING || quant > 0 && itype == ItemType.NOTHING) {
+        if (
+            quant < 0 ||
+            (quant == 0 && itype != ItemType.NOTHING) ||
+            (quant > 0 && itype == ItemType.NOTHING)
+        ) {
             CoC_Settings.error("Inconsistent setItemAndQty call: " + quant + " " + itype);
             quant = 0;
             itype = ItemType.NOTHING;
@@ -25,20 +28,16 @@ export class ItemSlotClass {
         this._itype = itype;
     }
 
-
     public emptySlot(): void {
         this._quantity = 0;
         this._itype = ItemType.NOTHING;
     }
 
     public removeOneItem(): void {
-        if (this._quantity == 0)
-            CoC_Settings.error("Tried to remove item from empty slot!");
-        if (this._quantity > 0)
-            this._quantity -= 1;
+        if (this._quantity == 0) CoC_Settings.error("Tried to remove item from empty slot!");
+        if (this._quantity > 0) this._quantity -= 1;
 
-        if (this._quantity == 0)
-            this._itype = ItemType.NOTHING;
+        if (this._quantity == 0) this._itype = ItemType.NOTHING;
     }
 
     public get quantity(): number {
@@ -46,7 +45,10 @@ export class ItemSlotClass {
     }
 
     public set quantity(value: number) {
-        if (value > 0 && this._itype == undefined) CoC_Settings.error("ItemSlotClass.quantity set with no item; use setItemAndQty instead!");
+        if (value > 0 && this._itype == undefined)
+            CoC_Settings.error(
+                "ItemSlotClass.quantity set with no item; use setItemAndQty instead!"
+            );
         if (value == 0) this._itype = ItemType.NOTHING;
         this._quantity = value;
     }

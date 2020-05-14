@@ -12,7 +12,23 @@ export class ArmorWithPerk extends Armor {
     private playerPerkV3: number;
     private playerPerkV4: number;
 
-    public constructor(id: string, shortName: string, name: string, longName: string, def: number, value: number, description: string, perk: string, playerPerk: PerkType, playerPerkV1: number, playerPerkV2: number, playerPerkV3: number, playerPerkV4: number, playerPerkDesc: string = "", supportsBulge: boolean = false) {
+    public constructor(
+        id: string,
+        shortName: string,
+        name: string,
+        longName: string,
+        def: number,
+        value: number,
+        description: string,
+        perk: string,
+        playerPerk: PerkType,
+        playerPerkV1: number,
+        playerPerkV2: number,
+        playerPerkV3: number,
+        playerPerkV4: number,
+        playerPerkDesc: string = "",
+        supportsBulge: boolean = false
+    ) {
         super(id, shortName, name, longName, def, value, description, perk, supportsBulge);
         this.playerPerk = playerPerk;
         this.playerPerkV1 = playerPerkV1;
@@ -21,14 +37,24 @@ export class ArmorWithPerk extends Armor {
         this.playerPerkV4 = playerPerkV4;
     }
 
-    public playerEquip(): Armor { //This item is being equipped by the player. Add any perks, etc.
-        while (this.game.player.findPerk(this.playerPerk) >= 0) this.game.player.removePerk(this.playerPerk);
-        this.game.player.createPerk(this.playerPerk, this.playerPerkV1, this.playerPerkV2, this.playerPerkV3, this.playerPerkV4);
+    public playerEquip(): Armor {
+        //This item is being equipped by the player. Add any perks, etc.
+        while (this.game.player.findPerk(this.playerPerk) >= 0)
+            this.game.player.removePerk(this.playerPerk);
+        this.game.player.createPerk(
+            this.playerPerk,
+            this.playerPerkV1,
+            this.playerPerkV2,
+            this.playerPerkV3,
+            this.playerPerkV4
+        );
         return super.playerEquip();
     }
 
-    public playerRemove() { //This item is being removed by the player. Remove any perks, etc.
-        while (this.game.player.findPerk(this.playerPerk) >= 0) this.game.player.removePerk(this.playerPerk);
+    public playerRemove() {
+        //This item is being removed by the player. Remove any perks, etc.
+        while (this.game.player.findPerk(this.playerPerk) >= 0)
+            this.game.player.removePerk(this.playerPerk);
         return super.playerRemove();
     }
 
@@ -45,4 +71,3 @@ export class ArmorWithPerk extends Armor {
             }
     */
 }
-

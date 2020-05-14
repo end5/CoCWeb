@@ -10,6 +10,4 @@ export class AbstractFarmContent extends BaseContent {
     protected get farm(): Farm {
         return kGAMECLASS.farm;
     }
-
 }
-

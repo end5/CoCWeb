@@ -1,9 +1,19 @@
-import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_DRY, BUTT_RATING_LARGE, HIP_RATING_AMPLE, LOWER_BODY_TYPE_HARPY, SKIN_TYPE_PLAIN, TAIL_TYPE_HARPY, VAGINA_LOOSENESS_LOOSE, VAGINA_WETNESS_SLAVERING, WING_TYPE_FEATHERED_LARGE } from "../../../../includes/appearanceDefs";
+import {
+    ANAL_LOOSENESS_STRETCHED,
+    ANAL_WETNESS_DRY,
+    BUTT_RATING_LARGE,
+    HIP_RATING_AMPLE,
+    LOWER_BODY_TYPE_HARPY,
+    SKIN_TYPE_PLAIN,
+    TAIL_TYPE_HARPY,
+    VAGINA_LOOSENESS_LOOSE,
+    VAGINA_WETNESS_SLAVERING,
+    WING_TYPE_FEATHERED_LARGE,
+} from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 import { Monster } from "../../../Monster";
 
 export class HarpyQueen extends Monster {
-
     protected performCombatAction(): void {
         this.game.harpyQueenAI();
     }
@@ -21,7 +31,8 @@ export class HarpyQueen extends Monster {
         this.a = "the ";
         this.short = "Harpy Queen";
         this.imageName = "harpyqueen";
-        this.long = "You face the Harpy Queen, a broodmother of epic proportions - literally.  Her hips are amazingly wide, thrice her own width at the least, and the rest of her body is lushly voluptuous, with plush, soft thighs and a tremendous butt.  Her wide wings beat occasionally, sending ripples through her jiggly body.  She wields a towering whitewood staff in one hand, using the other to cast eldritch spells.";
+        this.long =
+            "You face the Harpy Queen, a broodmother of epic proportions - literally.  Her hips are amazingly wide, thrice her own width at the least, and the rest of her body is lushly voluptuous, with plush, soft thighs and a tremendous butt.  Her wide wings beat occasionally, sending ripples through her jiggly body.  She wields a towering whitewood staff in one hand, using the other to cast eldritch spells.";
         // this.plural = false;
         this.createVagina(false, VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_LOOSE);
         this.createBreastRow(Appearance.breastCupInverse("D"));
@@ -45,7 +56,7 @@ export class HarpyQueen extends Monster {
         this.armorDef = 20;
         this.bonusHP = 1000;
         this.lust = 20;
-        this.lustVuln = .15;
+        this.lustVuln = 0.15;
         this.temperment = HarpyQueen.TEMPERMENT_LOVE_GRAPPLES;
         this.level = 20;
         this.gems = HarpyQueen.rand(25) + 160;
@@ -55,6 +66,4 @@ export class HarpyQueen extends Monster {
         this.drop = this.NO_DROP;
         this.checkMonster();
     }
-
 }
-

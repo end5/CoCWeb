@@ -11,4 +11,3 @@ export class AbstractLakeContent extends BaseContent {
         return kGAMECLASS.lake;
     }
 }
-

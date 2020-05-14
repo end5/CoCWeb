@@ -5,9 +5,17 @@ import { Armor } from "../Armor";
  */
 
 export class ComfortableUnderclothes extends Armor {
-
     public constructor() {
-        super("c.under", "c.under", "comfortable underclothes", "comfortable underclothes", 0, 0, "comfortable underclothes", "");
+        super(
+            "c.under",
+            "c.under",
+            "comfortable underclothes",
+            "comfortable underclothes",
+            0,
+            0,
+            "comfortable underclothes",
+            ""
+        );
     }
 
     public playerRemove(): undefined {
@@ -25,4 +33,3 @@ export class ComfortableUnderclothes extends Armor {
             }
     */
 }
-

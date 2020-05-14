@@ -6,15 +6,12 @@ import { PerkType } from "../PerkType";
  */
 
 export class SpellcastingAffinityPerk extends PerkType {
-
     public desc(params?: PerkClass): string {
-        if (params)
-            return "Reduces spell costs by " + params.value1 + "%.";
-        return '';
+        if (params) return "Reduces spell costs by " + params.value1 + "%.";
+        return "";
     }
 
     public constructor() {
         super("Spellcasting Affinity", "Spellcasting Affinity", "Reduces spell costs.");
     }
 }
-

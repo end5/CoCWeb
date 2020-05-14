@@ -263,6 +263,4 @@ export class NPCAwareContent extends BaseContent {
     public vapulaSlave(): boolean {
         return kGAMECLASS.vapula.vapulaSlave();
     }
-
 }
-

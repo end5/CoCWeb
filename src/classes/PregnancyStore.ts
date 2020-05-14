@@ -82,8 +82,8 @@ export class PregnancyStore {
     public static INCUBATION_SALAMANDER: number = 336;
 
     private static MAX_FLAG_VALUE: number = 2999;
-    private static PREG_TYPE_MASK: number = 0x0000FFFF; //Should be safe with 65535 different pregnancy types
-    private static PREG_NOTICE_MASK: number = 0x7FFF0000; //Use upper half to store the latest stages of pregnancy the player has noticed
+    private static PREG_TYPE_MASK: number = 0x0000ffff; //Should be safe with 65535 different pregnancy types
+    private static PREG_NOTICE_MASK: number = 0x7fff0000; //Use upper half to store the latest stages of pregnancy the player has noticed
 
     private _pregnancyTypeFlag: number;
     private _pregnancyIncubationFlag: number;
@@ -93,29 +93,75 @@ export class PregnancyStore {
     private _buttPregnancyEventValue: number[][];
 
     //All the flags are passed through the constructor so that they can be different in every class that uses PregnancyStore but the pregnancy code remains the same
-    public constructor(pregType: number, pregInc: number, buttPregType: number, buttPregInc: number) {
+    public constructor(
+        pregType: number,
+        pregInc: number,
+        buttPregType: number,
+        buttPregInc: number
+    ) {
         this._pregnancyTypeFlag = pregType;
         this._pregnancyIncubationFlag = pregInc;
         this._buttPregnancyTypeFlag = buttPregType;
         this._buttPregnancyIncubationFlag = buttPregInc;
         this._pregnancyEventValue = [];
         this._buttPregnancyEventValue = [];
-        if (pregType < 0 || pregType > PregnancyStore.MAX_FLAG_VALUE || pregInc < 0 || pregInc > PregnancyStore.MAX_FLAG_VALUE || buttPregType < 0 || buttPregType > PregnancyStore.MAX_FLAG_VALUE || buttPregInc < 0 || buttPregInc > PregnancyStore.MAX_FLAG_VALUE || pregType == buttPregType || pregInc == buttPregInc) {
-            trace("Error: PregnancyStore created with invalid values for its flags. PregnancyStore(" + pregType + ", " + pregInc + ", " + buttPregType + ", " + buttPregInc + ")");
+        if (
+            pregType < 0 ||
+            pregType > PregnancyStore.MAX_FLAG_VALUE ||
+            pregInc < 0 ||
+            pregInc > PregnancyStore.MAX_FLAG_VALUE ||
+            buttPregType < 0 ||
+            buttPregType > PregnancyStore.MAX_FLAG_VALUE ||
+            buttPregInc < 0 ||
+            buttPregInc > PregnancyStore.MAX_FLAG_VALUE ||
+            pregType == buttPregType ||
+            pregInc == buttPregInc
+        ) {
+            trace(
+                "Error: PregnancyStore created with invalid values for its flags. PregnancyStore(" +
+                    pregType +
+                    ", " +
+                    pregInc +
+                    ", " +
+                    buttPregType +
+                    ", " +
+                    buttPregInc +
+                    ")"
+            );
         }
     }
 
-    public get type(): number { return (this._pregnancyTypeFlag == 0 ? 0 : kGAMECLASS.flags[this._pregnancyTypeFlag] & PregnancyStore.PREG_TYPE_MASK); }
+    public get type(): number {
+        return this._pregnancyTypeFlag == 0
+            ? 0
+            : kGAMECLASS.flags[this._pregnancyTypeFlag] & PregnancyStore.PREG_TYPE_MASK;
+    }
 
-    public get incubation(): number { return (this._pregnancyIncubationFlag == 0 ? 0 : kGAMECLASS.flags[this._pregnancyIncubationFlag]); }
+    public get incubation(): number {
+        return this._pregnancyIncubationFlag == 0
+            ? 0
+            : kGAMECLASS.flags[this._pregnancyIncubationFlag];
+    }
 
-    public get buttType(): number { return (this._buttPregnancyTypeFlag == 0 ? 0 : kGAMECLASS.flags[this._buttPregnancyTypeFlag] & PregnancyStore.PREG_TYPE_MASK); }
+    public get buttType(): number {
+        return this._buttPregnancyTypeFlag == 0
+            ? 0
+            : kGAMECLASS.flags[this._buttPregnancyTypeFlag] & PregnancyStore.PREG_TYPE_MASK;
+    }
 
-    public get buttIncubation(): number { return (this._buttPregnancyIncubationFlag == 0 ? 0 : kGAMECLASS.flags[this._buttPregnancyIncubationFlag]); }
+    public get buttIncubation(): number {
+        return this._buttPregnancyIncubationFlag == 0
+            ? 0
+            : kGAMECLASS.flags[this._buttPregnancyIncubationFlag];
+    }
 
-    public get isPregnant(): boolean { return this.type != 0; } //At birth the incubation can be zero so a check vs. type is safer
+    public get isPregnant(): boolean {
+        return this.type != 0;
+    } //At birth the incubation can be zero so a check vs. type is safer
 
-    public get isButtPregnant(): boolean { return this.buttType != 0; } //At birth the incubation can be zero so a check vs. type is safer
+    public get isButtPregnant(): boolean {
+        return this.buttType != 0;
+    } //At birth the incubation can be zero so a check vs. type is safer
 
     /* Using this function adds a series of events which happen during the pregnancy. They must be added in descending order (ex. 500, 450, 350, 225, 100, 25)
        to work properly. For NPCs who have multiple pregnancy types each type has its own set of events. Events can be used to see how far along the NPC
@@ -144,10 +190,13 @@ export class PregnancyStore {
 
     public knockUpForce(newPregType: number = 0, newPregIncubation: number = 0): void {
         if (this._pregnancyTypeFlag == 0 || this._pregnancyIncubationFlag == 0) return; //Check that these variables were provided by the containing class
-        if (newPregType != 0) newPregType = (kGAMECLASS.flags[this._pregnancyTypeFlag] & PregnancyStore.PREG_NOTICE_MASK) + newPregType;
+        if (newPregType != 0)
+            newPregType =
+                (kGAMECLASS.flags[this._pregnancyTypeFlag] & PregnancyStore.PREG_NOTICE_MASK) +
+                newPregType;
         //If a pregnancy 'continues' an existing pregnancy then do not change the value for last noticed stage
         kGAMECLASS.flags[this._pregnancyTypeFlag] = newPregType;
-        kGAMECLASS.flags[this._pregnancyIncubationFlag] = (newPregType == 0 ? 0 : newPregIncubation); //Won't allow incubation time without pregnancy type
+        kGAMECLASS.flags[this._pregnancyIncubationFlag] = newPregType == 0 ? 0 : newPregIncubation; //Won't allow incubation time without pregnancy type
     }
 
     public buttKnockUp(newPregType: number = 0, newPregIncubation: number = 0): void {
@@ -156,22 +205,27 @@ export class PregnancyStore {
 
     public buttKnockUpForce(newPregType: number = 0, newPregIncubation: number = 0): void {
         if (this._buttPregnancyTypeFlag == 0 || this._buttPregnancyIncubationFlag == 0) return; //Check that these variables were provided by the containing class
-        if (newPregType != 0) newPregType = (kGAMECLASS.flags[this._buttPregnancyTypeFlag] & PregnancyStore.PREG_NOTICE_MASK) + newPregType;
+        if (newPregType != 0)
+            newPregType =
+                (kGAMECLASS.flags[this._buttPregnancyTypeFlag] & PregnancyStore.PREG_NOTICE_MASK) +
+                newPregType;
         //If a pregnancy 'continues' an existing pregnancy then do not change the value for last noticed stage
         kGAMECLASS.flags[this._buttPregnancyTypeFlag] = newPregType;
-        kGAMECLASS.flags[this._buttPregnancyIncubationFlag] = (newPregType == 0 ? 0 : newPregIncubation); //Won't allow incubation time without pregnancy type
+        kGAMECLASS.flags[this._buttPregnancyIncubationFlag] =
+            newPregType == 0 ? 0 : newPregIncubation; //Won't allow incubation time without pregnancy type
     }
 
     //The containing class is responsible for calling pregnancyAdvance, usually once per timeChange()
-    public pregnancyAdvance(): void //Separate function so it can be called more often than timeChange if neccessary
-    {
+    public pregnancyAdvance(): void { //Separate function so it can be called more often than timeChange if neccessary
         if (this.incubation != 0) {
             kGAMECLASS.flags[this._pregnancyIncubationFlag]--;
-            if (kGAMECLASS.flags[this._pregnancyIncubationFlag] < 0) kGAMECLASS.flags[this._pregnancyIncubationFlag] = 0;
+            if (kGAMECLASS.flags[this._pregnancyIncubationFlag] < 0)
+                kGAMECLASS.flags[this._pregnancyIncubationFlag] = 0;
         }
         if (this.buttIncubation != 0) {
             kGAMECLASS.flags[this._buttPregnancyIncubationFlag]--;
-            if (kGAMECLASS.flags[this._buttPregnancyIncubationFlag] < 0) kGAMECLASS.flags[this._buttPregnancyIncubationFlag] = 0;
+            if (kGAMECLASS.flags[this._buttPregnancyIncubationFlag] < 0)
+                kGAMECLASS.flags[this._buttPregnancyIncubationFlag] = 0;
         }
     }
 
@@ -186,7 +240,8 @@ export class PregnancyStore {
         for (var i: number = 0; i < this._pregnancyEventValue.length; i++) {
             pregEventVector = this._pregnancyEventValue[i];
             if (pregEventVector[0] == pregType) {
-                for (var j: number = 1; j < pregEventVector.length; j++) { //Skip element zero, the pregnancy type
+                for (var j: number = 1; j < pregEventVector.length; j++) {
+                    //Skip element zero, the pregnancy type
                     if (incubationValue > pregEventVector[j]) return j; //Will always find a value that is < incubationValue as last value is -1
                 }
             }
@@ -203,7 +258,8 @@ export class PregnancyStore {
         for (var i: number = 0; i < this._buttPregnancyEventValue.length; i++) {
             pregEventVector = this._buttPregnancyEventValue[i];
             if (pregEventVector[0] == pregType) {
-                for (var j: number = 1; j < pregEventVector.length; j++) { //Skip element zero, the pregnancy type
+                for (var j: number = 1; j < pregEventVector.length; j++) {
+                    //Skip element zero, the pregnancy type
                     if (incubationValue > pregEventVector[j]) return j; //Will always find a value that is < incubationValue as last value is -1
                 }
             }
@@ -215,9 +271,12 @@ export class PregnancyStore {
     //This function updates the noticed pregnancy event, so it only triggers once per event per pregnancy.
     public eventTriggered(): number {
         var currentStage: number = this.event;
-        var lastNoticed: number = kGAMECLASS.flags[this._pregnancyTypeFlag] & PregnancyStore.PREG_NOTICE_MASK;
+        var lastNoticed: number =
+            kGAMECLASS.flags[this._pregnancyTypeFlag] & PregnancyStore.PREG_NOTICE_MASK;
         if (currentStage * 65536 == lastNoticed) return 0; //Player has already noticed this stage
-        kGAMECLASS.flags[this._pregnancyTypeFlag] = (kGAMECLASS.flags[this._pregnancyTypeFlag] & PregnancyStore.PREG_TYPE_MASK) + (currentStage * 65536);
+        kGAMECLASS.flags[this._pregnancyTypeFlag] =
+            (kGAMECLASS.flags[this._pregnancyTypeFlag] & PregnancyStore.PREG_TYPE_MASK) +
+            currentStage * 65536;
         //Strip off the old noticed value by ANDing with PREG_TYPE_MASK
         return currentStage;
     }
@@ -225,9 +284,12 @@ export class PregnancyStore {
     //Same as eventTriggered, but for butts
     public buttEventTriggered(): number {
         var currentStage: number = this.buttEvent;
-        var lastNoticed: number = kGAMECLASS.flags[this._buttPregnancyTypeFlag] & PregnancyStore.PREG_NOTICE_MASK;
+        var lastNoticed: number =
+            kGAMECLASS.flags[this._buttPregnancyTypeFlag] & PregnancyStore.PREG_NOTICE_MASK;
         if (currentStage * 65536 == lastNoticed) return 0; //Player has already noticed this stage
-        kGAMECLASS.flags[this._buttPregnancyTypeFlag] = (kGAMECLASS.flags[this._buttPregnancyTypeFlag] & PregnancyStore.PREG_TYPE_MASK) + (currentStage * 65536);
+        kGAMECLASS.flags[this._buttPregnancyTypeFlag] =
+            (kGAMECLASS.flags[this._buttPregnancyTypeFlag] & PregnancyStore.PREG_TYPE_MASK) +
+            currentStage * 65536;
         //Strip off the old noticed value by ANDing with PREG_TYPE_MASK
         return currentStage;
     }

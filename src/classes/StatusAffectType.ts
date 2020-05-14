@@ -32,9 +32,7 @@ export class StatusAffectType {
         StatusAffectType.STATUSAFFECT_LIBRARY[id] = this;
     }
 
-
     public toString(): string {
-        return "\"" + this._id + "\"";
+        return '"' + this._id + '"';
     }
 }
-

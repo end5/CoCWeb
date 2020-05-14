@@ -5,8 +5,18 @@ import { NameView } from "./NameView";
 import { StatView, StatViewWithBar } from "./StatView";
 import { TimeView } from "./TimeView";
 
-export type StatKeys = 'str' | 'tou' | 'spe' | 'inte' | 'lib' | 'sens' | 'cor' | 'hp' | 'lust' | 'fatigue';
-export type OtherKeys = 'level' | 'xp' | 'gems';
+export type StatKeys =
+    | "str"
+    | "tou"
+    | "spe"
+    | "inte"
+    | "lib"
+    | "sens"
+    | "cor"
+    | "hp"
+    | "lust"
+    | "fatigue";
+export type OtherKeys = "level" | "xp" | "gems";
 
 export class StatsView {
     private model: GameModel;
@@ -20,29 +30,28 @@ export class StatsView {
     public constructor(model: GameModel) {
         this.model = model;
 
-        this.element = loadId('statsPanel');
+        this.element = loadId("statsPanel");
 
-        this.name = new NameView('nameDisplay');
+        this.name = new NameView("nameDisplay");
 
-        this.stats.str = new StatViewWithBar('strengthPanel', 'Strength');
-        this.stats.tou = new StatViewWithBar('toughnessPanel', 'Toughness');
-        this.stats.spe = new StatViewWithBar('speedPanel', 'Speed');
-        this.stats.inte = new StatViewWithBar('intelligencePanel', 'Intelligence');
-        this.stats.lib = new StatViewWithBar('libidoPanel', 'Libido');
-        this.stats.sens = new StatViewWithBar('sensitivityPanel', 'Sensitivity');
-        this.stats.cor = new StatViewWithBar('corruptionPanel', 'Corruption');
+        this.stats.str = new StatViewWithBar("strengthPanel", "Strength");
+        this.stats.tou = new StatViewWithBar("toughnessPanel", "Toughness");
+        this.stats.spe = new StatViewWithBar("speedPanel", "Speed");
+        this.stats.inte = new StatViewWithBar("intelligencePanel", "Intelligence");
+        this.stats.lib = new StatViewWithBar("libidoPanel", "Libido");
+        this.stats.sens = new StatViewWithBar("sensitivityPanel", "Sensitivity");
+        this.stats.cor = new StatViewWithBar("corruptionPanel", "Corruption");
 
-        this.stats.hp = new StatViewWithBar('hpPanel', 'HP');
-        this.stats.lust = new StatViewWithBar('lustPanel', 'Lust');
-        this.stats.fatigue = new StatViewWithBar('fatiguePanel', 'Fatigue');
+        this.stats.hp = new StatViewWithBar("hpPanel", "HP");
+        this.stats.lust = new StatViewWithBar("lustPanel", "Lust");
+        this.stats.fatigue = new StatViewWithBar("fatiguePanel", "Fatigue");
 
-        this.stats.level = new StatView('levelPanel', 'Level');
-        this.stats.xp = new StatView('xpPanel', 'Experience');
-        this.stats.gems = new StatView('gemsPanel', 'Gems');
+        this.stats.level = new StatView("levelPanel", "Level");
+        this.stats.xp = new StatView("xpPanel", "Experience");
+        this.stats.gems = new StatView("gemsPanel", "Gems");
 
         this.time = new TimeView();
-
-    };
+    }
 
     public setName(name: string) {
         this.name.setText(name);
@@ -80,21 +89,20 @@ export class StatsView {
 
         this.time.setDay(this.model.time.days);
         this.time.setHour(this.model.time.hours);
-
-    };
+    }
 
     // <- showStats
     public show() {
         // make all the stats DOs visible.
         this.refresh();
-        this.element.classList.remove('hidden');
-    };
+        this.element.classList.remove("hidden");
+    }
 
     // <- hideStats
     public hide() {
         // body...
-        this.element.classList.add('hidden');
-    };
+        this.element.classList.add("hidden");
+    }
 
     // <- hideUpDown
     public hideUpDown() {
@@ -103,13 +111,18 @@ export class StatsView {
         }
 
         this.hideLevelUp();
-    };
+    }
 
     public showUpDown() {
-        const allStats = ["str", "tou", "spe", "inte", "lib", "sens", "cor", "lust"] as (Extract<StatKeys, keyof Player>)[];
+        const allStats = ["str", "tou", "spe", "inte", "lib", "sens", "cor", "lust"] as Extract<
+            StatKeys,
+            keyof Player
+        >[];
 
         for (const statName of allStats) {
-            const oldStatName = 'old' + statName.charAt(0).toUpperCase() + statName.substr(1) as keyof Player;
+            const oldStatName = ("old" +
+                statName.charAt(0).toUpperCase() +
+                statName.substr(1)) as keyof Player;
 
             if (this.model.player[statName] > this.model.oldStats[oldStatName]) {
                 this.showStatUp(statName);
@@ -118,21 +131,21 @@ export class StatsView {
                 this.showStatDown(statName);
             }
         }
-    };
+    }
 
     public showLevelUp(): void {
         this.stats.level.showUp();
-    };
+    }
 
     public hideLevelUp(): void {
         this.stats.level.hideArrows();
-    };
+    }
 
     public showStatUp(statName: StatKeys | OtherKeys): void {
         this.stats[statName].showUp();
-    };
+    }
 
     public showStatDown(statName: StatKeys | OtherKeys): void {
         this.stats[statName].showDown();
-    };
+    }
 }

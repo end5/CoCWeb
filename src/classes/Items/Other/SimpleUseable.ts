@@ -6,7 +6,15 @@ export class SimpleUseable extends Useable {
     private canUseFunction: any;
     private canUseText: string;
 
-    public constructor(id: string, shortName: string, longName: string, value: number, description: string, useText: string, useFunction?: any) {
+    public constructor(
+        id: string,
+        shortName: string,
+        longName: string,
+        value: number,
+        description: string,
+        useText: string,
+        useFunction?: any
+    ) {
         super(id, shortName, longName, value, description);
         this.canUseFunction = useFunction;
         this.canUseText = useText;
@@ -16,11 +24,9 @@ export class SimpleUseable extends Useable {
         this.clearOutput();
         if (this.canUseFunction != undefined) {
             this.canUseFunction();
-        }
-        else {
+        } else {
             this.outputText(this.canUseText);
         }
         return false;
     }
 }
-

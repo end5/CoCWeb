@@ -2,7 +2,13 @@ import { PerkType } from "./PerkType";
 
 export class PerkClass {
     //constructor
-    public constructor(perk: PerkType, value1: number = 0, value2: number = 0, value3: number = 0, value4: number = 0) {
+    public constructor(
+        perk: PerkType,
+        value1: number = 0,
+        value2: number = 0,
+        value3: number = 0,
+        value4: number = 0
+    ) {
         this._ptype = perk;
         this.value1 = value1;
         this.value2 = value2;
@@ -16,7 +22,6 @@ export class PerkClass {
     public value3: number;
     public value4: number;
     //MEMBER FUNCTIONS
-
 
     public get ptype(): PerkType {
         return this._ptype;

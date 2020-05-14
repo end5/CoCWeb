@@ -19,7 +19,11 @@ export class ImageManager {
         });
     }
 
-    private loadImages(imageSets: Record<ImageSetKey, string[]>, exts: string[], callback: (imageTable: Record<ImageSetKey, string[]>) => void) {
+    private loadImages(
+        imageSets: Record<ImageSetKey, string[]>,
+        exts: string[],
+        callback: (imageTable: Record<ImageSetKey, string[]>) => void
+    ) {
         const keys = Object.keys(ImageSets) as ImageSetKey[];
 
         const imageTable = {} as Record<ImageSetKey, string[]>;
@@ -32,8 +36,7 @@ export class ImageManager {
 
         const img = new Image();
         img.onload = () => {
-            if (!imageTable[keys[keyIndex]])
-                imageTable[keys[keyIndex]] = [];
+            if (!imageTable[keys[keyIndex]]) imageTable[keys[keyIndex]] = [];
             imageTable[keys[keyIndex]].push(img.src);
 
             fileExtIndex++;
@@ -43,7 +46,10 @@ export class ImageManager {
                 fileIndex++;
             }
 
-            img.src = imageSets[keys[keyIndex]][pathListIndex] + (fileExtIndex > 0 ? "_" + fileIndex : '') + exts[fileExtIndex];
+            img.src =
+                imageSets[keys[keyIndex]][pathListIndex] +
+                (fileExtIndex > 0 ? "_" + fileIndex : "") +
+                exts[fileExtIndex];
         };
         img.onerror = () => {
             fileExtIndex++;
@@ -70,9 +76,11 @@ export class ImageManager {
             }
 
             if (keyIndex < keys.length)
-                img.src = imageSets[keys[keyIndex]][pathListIndex] + (fileExtIndex > 0 ? "_" + fileIndex : '') + exts[fileExtIndex];
-            else
-                callback(imageTable);
+                img.src =
+                    imageSets[keys[keyIndex]][pathListIndex] +
+                    (fileExtIndex > 0 ? "_" + fileIndex : "") +
+                    exts[fileExtIndex];
+            else callback(imageTable);
         };
     }
 
@@ -81,12 +89,12 @@ export class ImageManager {
     }
 
     public showImage(imageID: ImageSetKey, align: string = "left"): string {
-        if (!(imageID in ImageManager.imageTable)) return '';
+        if (!(imageID in ImageManager.imageTable)) return "";
         var imageString: string = "";
 
         var imageIndex: number = 0;
         var image = new Image();
-        if (ImageManager.imageTable[imageID] === undefined) throw new Error('Image not found');
+        if (ImageManager.imageTable[imageID] === undefined) throw new Error("Image not found");
 
         // More than 1 image? Pick one at random.
         imageIndex = Math.floor(Math.random() * ImageManager.imageTable[imageID].length);
@@ -100,15 +108,31 @@ export class ImageManager {
 
             if (ratio >= 1) {
                 scaler = this.MAXSIZE / image.width;
-                imageString = "<img src='" + image.src + "' width='" + this.MAXSIZE + "' height='" + Math.ceil(image.height * scaler) + "' align='" + align + "' id='img'>";
-            }
-            else {
+                imageString =
+                    "<img src='" +
+                    image.src +
+                    "' width='" +
+                    this.MAXSIZE +
+                    "' height='" +
+                    Math.ceil(image.height * scaler) +
+                    "' align='" +
+                    align +
+                    "' id='img'>";
+            } else {
                 scaler = this.MAXSIZE / image.height;
-                imageString = "<img src='" + image.src + "' width='" + Math.ceil(image.width * scaler) + "' height='" + this.MAXSIZE + "' align='" + align + "' id='img'>";
+                imageString =
+                    "<img src='" +
+                    image.src +
+                    "' width='" +
+                    Math.ceil(image.width * scaler) +
+                    "' height='" +
+                    this.MAXSIZE +
+                    "' align='" +
+                    align +
+                    "' id='img'>";
             }
         }
 
         return imageString;
     }
 }
-

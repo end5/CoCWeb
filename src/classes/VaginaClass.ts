@@ -2,7 +2,11 @@ import { Utils } from "./internals/Utils";
 
 export class VaginaClass {
     //constructor
-    public constructor(vaginalWetness: number = 1, vaginalLooseness: number = 0, virgin: boolean = false) {
+    public constructor(
+        vaginalWetness: number = 1,
+        vaginalLooseness: number = 0,
+        virgin: boolean = false
+    ) {
         this.virgin = virgin;
         this.vaginalWetness = vaginalWetness;
         this.vaginalLooseness = vaginalLooseness;
@@ -35,22 +39,30 @@ export class VaginaClass {
     public validate(): string {
         var error: string = "";
         error += Utils.validateNonNegativeNumberFields(this, "VaginaClass.validate", [
-            "vaginalWetness", "vaginalLooseness", "type",
-            "fullness", "labiaPierced", "clitPierced"
+            "vaginalWetness",
+            "vaginalLooseness",
+            "type",
+            "fullness",
+            "labiaPierced",
+            "clitPierced",
         ]);
         if (this.labiaPierced) {
             if (this.labiaPShort == "") error += "Labia pierced but labiaPShort = ''. ";
             if (this.labiaPLong == "") error += "Labia pierced but labiaPLong = ''. ";
         } else {
-            if (this.labiaPShort != "") error += "Labia not pierced but labiaPShort = '" + this.labiaPShort + "'. ";
-            if (this.labiaPLong != "") error += "Labia not pierced but labiaPLong = '" + this.labiaPShort + "'. ";
+            if (this.labiaPShort != "")
+                error += "Labia not pierced but labiaPShort = '" + this.labiaPShort + "'. ";
+            if (this.labiaPLong != "")
+                error += "Labia not pierced but labiaPLong = '" + this.labiaPShort + "'. ";
         }
         if (this.clitPierced) {
             if (this.clitPShort == "") error += "Clit pierced but labiaPShort = ''. ";
             if (this.clitPLong == "") error += "Clit pierced but labiaPLong = ''. ";
         } else {
-            if (this.clitPShort != "") error += "Clit not pierced but labiaPShort = '" + this.labiaPShort + "'. ";
-            if (this.clitPLong != "") error += "Clit not pierced but labiaPLong = '" + this.labiaPShort + "'. ";
+            if (this.clitPShort != "")
+                error += "Clit not pierced but labiaPShort = '" + this.labiaPShort + "'. ";
+            if (this.clitPLong != "")
+                error += "Clit not pierced but labiaPLong = '" + this.labiaPShort + "'. ";
         }
         return error;
     }
@@ -62,7 +74,7 @@ export class VaginaClass {
         if (this.vaginalWetness == 3) return 0.7;
         if (this.vaginalWetness == 4) return 0.6;
         if (this.vaginalWetness == 5) return 0.5;
-        return .5;
+        return 0.5;
     }
     public capacity(): number {
         if (this.vaginalLooseness == 0) return 8;

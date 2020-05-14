@@ -1,11 +1,19 @@
-import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_SLIME_DROOLING, BUTT_RATING_LARGE, HIP_RATING_AMPLE, HORNS_DEMON, TAIL_TYPE_DEMONIC, VAGINA_LOOSENESS_LOOSE, VAGINA_WETNESS_SLICK } from "../../../../includes/appearanceDefs";
+import {
+    ANAL_LOOSENESS_STRETCHED,
+    ANAL_WETNESS_SLIME_DROOLING,
+    BUTT_RATING_LARGE,
+    HIP_RATING_AMPLE,
+    HORNS_DEMON,
+    TAIL_TYPE_DEMONIC,
+    VAGINA_LOOSENESS_LOOSE,
+    VAGINA_WETNESS_SLICK,
+} from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 import { CockTypesEnum } from "../../../CockTypesEnum";
 import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
 
 export class Farmers extends Monster {
-
     protected performCombatAction(): void {
         this.createStatusAffect(StatusAffects.Attacks, 4, 0, 0, 0);
         this.eAttack();
@@ -25,7 +33,8 @@ export class Farmers extends Monster {
         this.a = "the ";
         this.short = "farmers";
         this.imageName = "farmers";
-        this.long = "This is a group of thirty angry villagers, almost all human-looking but for the tiny horn-like protrusions growing from their heads and the white fuzz that almost passes off as hair.  They are all armed with pitchforks or other crude farming tools they use in their everyday task.  Rebecc is staring from behind them with horrified eyes at the combat, paralyzed by the sudden turn of events.";
+        this.long =
+            "This is a group of thirty angry villagers, almost all human-looking but for the tiny horn-like protrusions growing from their heads and the white fuzz that almost passes off as hair.  They are all armed with pitchforks or other crude farming tools they use in their everyday task.  Rebecc is staring from behind them with horrified eyes at the combat, paralyzed by the sudden turn of events.";
         this.plural = true;
         this.pronoun1 = "they";
         this.pronoun2 = "them";
@@ -61,6 +70,4 @@ export class Farmers extends Monster {
         this.drop = this.NO_DROP;
         this.checkMonster();
     }
-
 }
-

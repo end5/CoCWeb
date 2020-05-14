@@ -10,6 +10,4 @@ export class TelAdreAbstractContent extends BaseContent {
     protected get telAdre(): TelAdre {
         return kGAMECLASS.telAdre;
     }
-
 }
-

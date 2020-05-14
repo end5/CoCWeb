@@ -63,26 +63,41 @@ export class ItemType {
         return this._id;
     }
 
-    public constructor(_id: string, _shortName?: string, _longName?: string, _value: number = 0, _description?: string) {
-
+    public constructor(
+        _id: string,
+        _shortName?: string,
+        _longName?: string,
+        _value: number = 0,
+        _description?: string
+    ) {
         this._id = _id;
         this._shortName = _shortName || _id;
         this._longName = _longName || this.shortName;
         this._description = _description || this.longName;
         this._value = _value;
         if (ItemType.ITEM_LIBRARY[_id] != undefined) {
-            CoC_Settings.error("Duplicate itemid " + _id + ", old item is " + (ItemType.ITEM_LIBRARY[_id] as ItemType).longName);
+            CoC_Settings.error(
+                "Duplicate itemid " +
+                    _id +
+                    ", old item is " +
+                    (ItemType.ITEM_LIBRARY[_id] as ItemType).longName
+            );
         }
         if (ItemType.ITEM_SHORT_LIBRARY[this._shortName] != undefined) {
-            trace("WARNING: Item with duplicate shortname: '" + _id + "' and '" + (ItemType.ITEM_SHORT_LIBRARY[this._shortName] as ItemType)._id + "' share " + this._shortName);
+            trace(
+                "WARNING: Item with duplicate shortname: '" +
+                    _id +
+                    "' and '" +
+                    (ItemType.ITEM_SHORT_LIBRARY[this._shortName] as ItemType)._id +
+                    "' share " +
+                    this._shortName
+            );
         }
         ItemType.ITEM_LIBRARY[_id] = this;
         ItemType.ITEM_SHORT_LIBRARY[this._shortName] = this;
     }
 
-
     public toString(): string {
-        return "\"" + this._id + "\"";
+        return '"' + this._id + '"';
     }
 }
-

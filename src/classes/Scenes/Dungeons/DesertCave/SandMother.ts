@@ -1,11 +1,17 @@
-import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_NORMAL, BUTT_RATING_LARGE, HIP_RATING_CURVY, VAGINA_LOOSENESS_LOOSE, VAGINA_WETNESS_WET } from "../../../../includes/appearanceDefs";
+import {
+    ANAL_LOOSENESS_TIGHT,
+    ANAL_WETNESS_NORMAL,
+    BUTT_RATING_LARGE,
+    HIP_RATING_CURVY,
+    VAGINA_LOOSENESS_LOOSE,
+    VAGINA_WETNESS_WET,
+} from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 import { Monster } from "../../../Monster";
 import { PerkLib } from "../../../PerkLib";
 import { StatusAffects } from "../../../StatusAffects";
 
 export class SandMother extends Monster {
-
     public defeated(hpVictory: boolean): void {
         this.game.defeatTheSandMother();
     }
@@ -19,7 +25,8 @@ export class SandMother extends Monster {
         this.a = "the ";
         this.short = "Sand Mother";
         this.imageName = "sandmother";
-        this.long = "The Sand Mother is a towering woman of imposing stature and bust.  She wears a much silkier, regal-looking robe than her sisters, and it barely serves to contain her four milk-laden breasts, straining under their jiggling weight.  Dangling around her in a way that reminds you oddly of a halo, the Sand Mother's blonde-white hair fans around her, hanging long behind her.  The queen witch is brandishing a pearly white scepter rather threateningly, though from the way she holds it, it's clear she doesn't intend to use it as a physical weapon.";
+        this.long =
+            "The Sand Mother is a towering woman of imposing stature and bust.  She wears a much silkier, regal-looking robe than her sisters, and it barely serves to contain her four milk-laden breasts, straining under their jiggling weight.  Dangling around her in a way that reminds you oddly of a halo, the Sand Mother's blonde-white hair fans around her, hanging long behind her.  The queen witch is brandishing a pearly white scepter rather threateningly, though from the way she holds it, it's clear she doesn't intend to use it as a physical weapon.";
         // this.plural = false;
         this.createVagina(false, VAGINA_WETNESS_WET, VAGINA_LOOSENESS_LOOSE);
         this.createStatusAffect(StatusAffects.BonusVCapacity, 70, 0, 0, 0);
@@ -45,7 +52,7 @@ export class SandMother extends Monster {
         this.armorDef = 1;
         this.bonusHP = 130;
         this.lust = 20;
-        this.lustVuln = .6;
+        this.lustVuln = 0.6;
         this.temperment = SandMother.TEMPERMENT_LOVE_GRAPPLES;
         this.level = 7;
         this.gems = SandMother.rand(15) + 55;
@@ -54,6 +61,4 @@ export class SandMother extends Monster {
         this.drop = this.NO_DROP;
         this.checkMonster();
     }
-
 }
-

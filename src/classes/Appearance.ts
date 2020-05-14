@@ -6,7 +6,167 @@ import { StatusAffects } from "./StatusAffects";
 import { CockTypesEnum, CockTypesGroup } from "./CockTypesEnum";
 import { CoC } from "./CoC";
 import { trace } from "../console";
-import { ANAL_WETNESS_DRY, ANAL_WETNESS_NORMAL, ANAL_WETNESS_MOIST, ANAL_WETNESS_SLIMY, ANAL_WETNESS_DROOLING, ANAL_WETNESS_SLIME_DROOLING, ANAL_LOOSENESS_VIRGIN, ANAL_LOOSENESS_TIGHT, ANAL_LOOSENESS_NORMAL, ANAL_LOOSENESS_LOOSE, ANAL_LOOSENESS_STRETCHED, ANAL_LOOSENESS_GAPING, GENDER_NONE, GENDER_MALE, GENDER_FEMALE, GENDER_HERM, SKIN_TYPE_PLAIN, SKIN_TYPE_FUR, SKIN_TYPE_SCALES, SKIN_TYPE_GOO, SKIN_TYPE_UNDEFINED, HAIR_NORMAL, HAIR_FEATHER, HAIR_GHOST, HAIR_GOO, HAIR_ANEMONE, FACE_HUMAN, FACE_HORSE, FACE_DOG, FACE_COW_MINOTAUR, FACE_SHARK_TEETH, FACE_SNAKE_FANGS, FACE_CAT, FACE_LIZARD, FACE_BUNNY, FACE_KANGAROO, FACE_SPIDER_FANGS, FACE_FOX, FACE_DRAGON, FACE_RACCOON_MASK, FACE_RACCOON, FACE_BUCKTEETH, FACE_MOUSE, TONUGE_HUMAN, TONUGE_SNAKE, TONUGE_DEMONIC, TONUGE_DRACONIC, EYES_HUMAN, EYES_FOUR_SPIDER_EYES, EYES_BLACK_EYES_SAND_TRAP, EARS_HUMAN, EARS_HORSE, EARS_DOG, EARS_COW, EARS_ELFIN, EARS_CAT, EARS_LIZARD, EARS_BUNNY, EARS_KANGAROO, EARS_FOX, EARS_DRAGON, EARS_RACCOON, EARS_MOUSE, HORNS_NONE, HORNS_DEMON, HORNS_COW_MINOTAUR, HORNS_DRACONIC_X2, HORNS_DRACONIC_X4_12_INCH_LONG, HORNS_ANTLERS, ANTENNAE_NONE, ANTENNAE_BEE, ARM_TYPE_HUMAN, ARM_TYPE_HARPY, ARM_TYPE_SPIDER, TAIL_TYPE_NONE, TAIL_TYPE_HORSE, TAIL_TYPE_DOG, TAIL_TYPE_DEMONIC, TAIL_TYPE_COW, TAIL_TYPE_SPIDER_ADBOMEN, TAIL_TYPE_BEE_ABDOMEN, TAIL_TYPE_SHARK, TAIL_TYPE_CAT, TAIL_TYPE_LIZARD, TAIL_TYPE_RABBIT, TAIL_TYPE_HARPY, TAIL_TYPE_KANGAROO, TAIL_TYPE_FOX, TAIL_TYPE_DRACONIC, TAIL_TYPE_RACCOON, TAIL_TYPE_MOUSE, WING_TYPE_NONE, WING_TYPE_BEE_LIKE_SMALL, WING_TYPE_BEE_LIKE_LARGE, WING_TYPE_HARPY, WING_TYPE_IMP, WING_TYPE_BAT_LIKE_TINY, WING_TYPE_BAT_LIKE_LARGE, WING_TYPE_SHARK_FIN, WING_TYPE_FEATHERED_LARGE, WING_TYPE_DRACONIC_SMALL, WING_TYPE_DRACONIC_LARGE, WING_TYPE_GIANT_DRAGONFLY, LOWER_BODY_TYPE_HUMAN, LOWER_BODY_TYPE_HOOFED, LOWER_BODY_TYPE_DOG, LOWER_BODY_TYPE_NAGA, LOWER_BODY_TYPE_CENTAUR, LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS, LOWER_BODY_TYPE_DEMONIC_CLAWS, LOWER_BODY_TYPE_BEE, LOWER_BODY_TYPE_GOO, LOWER_BODY_TYPE_CAT, LOWER_BODY_TYPE_LIZARD, LOWER_BODY_TYPE_PONY, LOWER_BODY_TYPE_BUNNY, LOWER_BODY_TYPE_HARPY, LOWER_BODY_TYPE_KANGAROO, LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS, LOWER_BODY_TYPE_DRIDER_LOWER_BODY, LOWER_BODY_TYPE_FOX, LOWER_BODY_TYPE_DRAGON, LOWER_BODY_TYPE_RACCOON, PIERCING_TYPE_NONE, PIERCING_TYPE_STUD, PIERCING_TYPE_RING, PIERCING_TYPE_LADDER, PIERCING_TYPE_HOOP, PIERCING_TYPE_CHAIN, VAGINA_TYPE_HUMAN, VAGINA_TYPE_BLACK_SAND_TRAP, VAGINA_WETNESS_DRY, VAGINA_WETNESS_NORMAL, VAGINA_WETNESS_WET, VAGINA_WETNESS_SLICK, VAGINA_WETNESS_DROOLING, VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_TIGHT, VAGINA_LOOSENESS_NORMAL, VAGINA_LOOSENESS_LOOSE, VAGINA_LOOSENESS_GAPING, VAGINA_LOOSENESS_GAPING_WIDE, VAGINA_LOOSENESS_LEVEL_CLOWN_CAR, HIP_RATING_BOYISH, HIP_RATING_SLENDER, HIP_RATING_AVERAGE, HIP_RATING_AMPLE, HIP_RATING_CURVY, HIP_RATING_FERTILE, HIP_RATING_INHUMANLY_WIDE, BUTT_RATING_BUTTLESS, BUTT_RATING_TIGHT, BUTT_RATING_AVERAGE, BUTT_RATING_NOTICEABLE, BUTT_RATING_LARGE, BUTT_RATING_JIGGLY, BUTT_RATING_EXPANSIVE, BUTT_RATING_HUGE, BUTT_RATING_INCONCEIVABLY_BIG } from "../includes/appearanceDefs";
+import {
+    ANAL_WETNESS_DRY,
+    ANAL_WETNESS_NORMAL,
+    ANAL_WETNESS_MOIST,
+    ANAL_WETNESS_SLIMY,
+    ANAL_WETNESS_DROOLING,
+    ANAL_WETNESS_SLIME_DROOLING,
+    ANAL_LOOSENESS_VIRGIN,
+    ANAL_LOOSENESS_TIGHT,
+    ANAL_LOOSENESS_NORMAL,
+    ANAL_LOOSENESS_LOOSE,
+    ANAL_LOOSENESS_STRETCHED,
+    ANAL_LOOSENESS_GAPING,
+    GENDER_NONE,
+    GENDER_MALE,
+    GENDER_FEMALE,
+    GENDER_HERM,
+    SKIN_TYPE_PLAIN,
+    SKIN_TYPE_FUR,
+    SKIN_TYPE_SCALES,
+    SKIN_TYPE_GOO,
+    SKIN_TYPE_UNDEFINED,
+    HAIR_NORMAL,
+    HAIR_FEATHER,
+    HAIR_GHOST,
+    HAIR_GOO,
+    HAIR_ANEMONE,
+    FACE_HUMAN,
+    FACE_HORSE,
+    FACE_DOG,
+    FACE_COW_MINOTAUR,
+    FACE_SHARK_TEETH,
+    FACE_SNAKE_FANGS,
+    FACE_CAT,
+    FACE_LIZARD,
+    FACE_BUNNY,
+    FACE_KANGAROO,
+    FACE_SPIDER_FANGS,
+    FACE_FOX,
+    FACE_DRAGON,
+    FACE_RACCOON_MASK,
+    FACE_RACCOON,
+    FACE_BUCKTEETH,
+    FACE_MOUSE,
+    TONUGE_HUMAN,
+    TONUGE_SNAKE,
+    TONUGE_DEMONIC,
+    TONUGE_DRACONIC,
+    EYES_HUMAN,
+    EYES_FOUR_SPIDER_EYES,
+    EYES_BLACK_EYES_SAND_TRAP,
+    EARS_HUMAN,
+    EARS_HORSE,
+    EARS_DOG,
+    EARS_COW,
+    EARS_ELFIN,
+    EARS_CAT,
+    EARS_LIZARD,
+    EARS_BUNNY,
+    EARS_KANGAROO,
+    EARS_FOX,
+    EARS_DRAGON,
+    EARS_RACCOON,
+    EARS_MOUSE,
+    HORNS_NONE,
+    HORNS_DEMON,
+    HORNS_COW_MINOTAUR,
+    HORNS_DRACONIC_X2,
+    HORNS_DRACONIC_X4_12_INCH_LONG,
+    HORNS_ANTLERS,
+    ANTENNAE_NONE,
+    ANTENNAE_BEE,
+    ARM_TYPE_HUMAN,
+    ARM_TYPE_HARPY,
+    ARM_TYPE_SPIDER,
+    TAIL_TYPE_NONE,
+    TAIL_TYPE_HORSE,
+    TAIL_TYPE_DOG,
+    TAIL_TYPE_DEMONIC,
+    TAIL_TYPE_COW,
+    TAIL_TYPE_SPIDER_ADBOMEN,
+    TAIL_TYPE_BEE_ABDOMEN,
+    TAIL_TYPE_SHARK,
+    TAIL_TYPE_CAT,
+    TAIL_TYPE_LIZARD,
+    TAIL_TYPE_RABBIT,
+    TAIL_TYPE_HARPY,
+    TAIL_TYPE_KANGAROO,
+    TAIL_TYPE_FOX,
+    TAIL_TYPE_DRACONIC,
+    TAIL_TYPE_RACCOON,
+    TAIL_TYPE_MOUSE,
+    WING_TYPE_NONE,
+    WING_TYPE_BEE_LIKE_SMALL,
+    WING_TYPE_BEE_LIKE_LARGE,
+    WING_TYPE_HARPY,
+    WING_TYPE_IMP,
+    WING_TYPE_BAT_LIKE_TINY,
+    WING_TYPE_BAT_LIKE_LARGE,
+    WING_TYPE_SHARK_FIN,
+    WING_TYPE_FEATHERED_LARGE,
+    WING_TYPE_DRACONIC_SMALL,
+    WING_TYPE_DRACONIC_LARGE,
+    WING_TYPE_GIANT_DRAGONFLY,
+    LOWER_BODY_TYPE_HUMAN,
+    LOWER_BODY_TYPE_HOOFED,
+    LOWER_BODY_TYPE_DOG,
+    LOWER_BODY_TYPE_NAGA,
+    LOWER_BODY_TYPE_CENTAUR,
+    LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS,
+    LOWER_BODY_TYPE_DEMONIC_CLAWS,
+    LOWER_BODY_TYPE_BEE,
+    LOWER_BODY_TYPE_GOO,
+    LOWER_BODY_TYPE_CAT,
+    LOWER_BODY_TYPE_LIZARD,
+    LOWER_BODY_TYPE_PONY,
+    LOWER_BODY_TYPE_BUNNY,
+    LOWER_BODY_TYPE_HARPY,
+    LOWER_BODY_TYPE_KANGAROO,
+    LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS,
+    LOWER_BODY_TYPE_DRIDER_LOWER_BODY,
+    LOWER_BODY_TYPE_FOX,
+    LOWER_BODY_TYPE_DRAGON,
+    LOWER_BODY_TYPE_RACCOON,
+    PIERCING_TYPE_NONE,
+    PIERCING_TYPE_STUD,
+    PIERCING_TYPE_RING,
+    PIERCING_TYPE_LADDER,
+    PIERCING_TYPE_HOOP,
+    PIERCING_TYPE_CHAIN,
+    VAGINA_TYPE_HUMAN,
+    VAGINA_TYPE_BLACK_SAND_TRAP,
+    VAGINA_WETNESS_DRY,
+    VAGINA_WETNESS_NORMAL,
+    VAGINA_WETNESS_WET,
+    VAGINA_WETNESS_SLICK,
+    VAGINA_WETNESS_DROOLING,
+    VAGINA_WETNESS_SLAVERING,
+    VAGINA_LOOSENESS_TIGHT,
+    VAGINA_LOOSENESS_NORMAL,
+    VAGINA_LOOSENESS_LOOSE,
+    VAGINA_LOOSENESS_GAPING,
+    VAGINA_LOOSENESS_GAPING_WIDE,
+    VAGINA_LOOSENESS_LEVEL_CLOWN_CAR,
+    HIP_RATING_BOYISH,
+    HIP_RATING_SLENDER,
+    HIP_RATING_AVERAGE,
+    HIP_RATING_AMPLE,
+    HIP_RATING_CURVY,
+    HIP_RATING_FERTILE,
+    HIP_RATING_INHUMANLY_WIDE,
+    BUTT_RATING_BUTTLESS,
+    BUTT_RATING_TIGHT,
+    BUTT_RATING_AVERAGE,
+    BUTT_RATING_NOTICEABLE,
+    BUTT_RATING_LARGE,
+    BUTT_RATING_JIGGLY,
+    BUTT_RATING_EXPANSIVE,
+    BUTT_RATING_HUGE,
+    BUTT_RATING_INCONCEIVABLY_BIG,
+} from "../includes/appearanceDefs";
 
 export class Appearance extends Utils {
     // Eventually, this should contain the entire char appearance.
@@ -23,10 +183,8 @@ export class Appearance extends Utils {
     }
 
     public static hairOrFur(i_creature: Creature): string {
-        if (i_creature.skinType == 1)
-            return "fur";
-        else
-            return "hair";
+        if (i_creature.skinType == 1) return "fur";
+        else return "hair";
     }
 
     public static hairDescription(i_creature: Creature): string {
@@ -36,23 +194,18 @@ export class Appearance extends Utils {
         // LENGTH ADJECTIVE!
         //
         if (i_creature.hairLength == 0) {
-            options = ["shaved",
-                "bald",
-                "smooth",
-                "hairless",
-                "glabrous"];
+            options = ["shaved", "bald", "smooth", "hairless", "glabrous"];
             description = Appearance.randomChoice(options) + " head";
             return description;
         }
         if (i_creature.hairLength < 1) {
-            options = ["close-cropped, ",
-                "trim, ",
-                "very short, "];
+            options = ["close-cropped, ", "trim, ", "very short, "];
             description += Appearance.randomChoice(options);
         }
         if (i_creature.hairLength >= 1 && i_creature.hairLength < 3) description += "short, ";
         if (i_creature.hairLength >= 3 && i_creature.hairLength < 6) description += "shaggy, ";
-        if (i_creature.hairLength >= 6 && i_creature.hairLength < 10) description += "moderately long, ";
+        if (i_creature.hairLength >= 6 && i_creature.hairLength < 10)
+            description += "moderately long, ";
         if (i_creature.hairLength >= 10 && i_creature.hairLength < 16) {
             if (Appearance.rand(2) == 0) description += "long, ";
             else description += "shoulder-length, ";
@@ -61,8 +214,10 @@ export class Appearance extends Utils {
             if (Appearance.rand(2) == 0) description += "very long, ";
             else description += "flowing locks of ";
         }
-        if (i_creature.hairLength >= 26 && i_creature.hairLength < 40) description += "ass-length, ";
-        if (i_creature.hairLength >= 40 && i_creature.hairLength < i_creature.tallness) description += "obscenely long, ";
+        if (i_creature.hairLength >= 26 && i_creature.hairLength < 40)
+            description += "ass-length, ";
+        if (i_creature.hairLength >= 40 && i_creature.hairLength < i_creature.tallness)
+            description += "obscenely long, ";
         else if (i_creature.hairLength >= i_creature.tallness) {
             if (Appearance.rand(2) == 0) description += "floor-length, ";
             else description += "floor-dragging, ";
@@ -113,13 +268,21 @@ export class Appearance extends Utils {
 
     public static nippleDescription(i_creature: Creature, i_rowNum: number): string {
         //DEBUG SHIT!
-        if (i_rowNum > (i_creature.breastRows.length - 1)) {
-            CoC_Settings.error("<B>Error: Invalid breastRows (" + i_rowNum + ") passed to nippleDescription()</b>");
-            return "<B>Error: Invalid breastRows (" + i_rowNum + ") passed to nippleDescription()</b>";
+        if (i_rowNum > i_creature.breastRows.length - 1) {
+            CoC_Settings.error(
+                "<B>Error: Invalid breastRows (" + i_rowNum + ") passed to nippleDescription()</b>"
+            );
+            return (
+                "<B>Error: Invalid breastRows (" + i_rowNum + ") passed to nippleDescription()</b>"
+            );
         }
         if (i_rowNum < 0) {
-            CoC_Settings.error("<B>Error: Invalid breastRows (" + i_rowNum + ") passed to nippleDescription()</b>");
-            return "<B>Error: Invalid breastRows (" + i_rowNum + ") passed to nippleDescription()</b>";
+            CoC_Settings.error(
+                "<B>Error: Invalid breastRows (" + i_rowNum + ") passed to nippleDescription()</b>"
+            );
+            return (
+                "<B>Error: Invalid breastRows (" + i_rowNum + ") passed to nippleDescription()</b>"
+            );
         }
         var haveDescription: boolean = false;
         var description: string = "";
@@ -128,46 +291,34 @@ export class Appearance extends Utils {
         //Size descriptors 33% chance
         if (Appearance.rand(4) == 0) {
             //TINAHHHH
-            if (i_creature.nippleLength < .25) {
-                options = ["tiny ",
-                    "itty-bitty ",
-                    "teeny-tiny ",
-                    "dainty "];
+            if (i_creature.nippleLength < 0.25) {
+                options = ["tiny ", "itty-bitty ", "teeny-tiny ", "dainty "];
                 description += Appearance.randomChoice(options);
             }
             //Prominant
-            if (i_creature.nippleLength >= .4 && i_creature.nippleLength < 1) {
-                options = ["prominent ",
+            if (i_creature.nippleLength >= 0.4 && i_creature.nippleLength < 1) {
+                options = [
+                    "prominent ",
                     "pencil eraser-sized ",
                     "eye-catching ",
                     "pronounced ",
-                    "striking "];
+                    "striking ",
+                ];
                 description += Appearance.randomChoice(options);
             }
             //Big 'uns
             if (i_creature.nippleLength >= 1 && i_creature.nippleLength < 2) {
-                options = ["forwards-jutting ",
-                    "over-sized ",
-                    "fleshy ",
-                    "large protruding "];
+                options = ["forwards-jutting ", "over-sized ", "fleshy ", "large protruding "];
                 description += Appearance.randomChoice(options);
             }
             //'Uge
             if (i_creature.nippleLength >= 2 && i_creature.nippleLength < 3.2) {
-                options = ["elongated ",
-                    "massive ",
-                    "awkward ",
-                    "lavish ",
-                    "hefty "];
+                options = ["elongated ", "massive ", "awkward ", "lavish ", "hefty "];
                 description += Appearance.randomChoice(options);
             }
             //Massive
             if (i_creature.nippleLength >= 3.2) {
-                options = ["bulky ",
-                    "ponderous ",
-                    "thumb-sized ",
-                    "cock-sized ",
-                    "cow-like "];
+                options = ["bulky ", "ponderous ", "thumb-sized ", "cock-sized ", "cow-like "];
                 description += Appearance.randomChoice(options);
             }
             haveDescription = true;
@@ -178,16 +329,19 @@ export class Appearance extends Utils {
             if (i_creature.hasFuckableNipples()) {
                 //Fuckable and lactating?
                 if (i_creature.biggestLactation() > 1) {
-                    options = ["milk-lubricated ",
+                    options = [
+                        "milk-lubricated ",
                         "lactating ",
                         "lactating ",
                         "milk-slicked ",
-                        "milky "];
+                        "milky ",
+                    ];
                     description += Appearance.randomChoice(options);
                 }
                 //Just fuckable
                 else {
-                    options = ["wet ",
+                    options = [
+                        "wet ",
                         "mutated ",
                         "slimy ",
                         "damp ",
@@ -195,7 +349,8 @@ export class Appearance extends Utils {
                         "slippery ",
                         "oozing ",
                         "sloppy ",
-                        "dewy "];
+                        "dewy ",
+                    ];
                     description += Appearance.randomChoice(options);
                 }
                 haveDescription = true;
@@ -204,24 +359,17 @@ export class Appearance extends Utils {
             else if (i_creature.biggestLactation() > 0) {
                 //Light lactation
                 if (i_creature.biggestLactation() <= 1) {
-                    options = ["milk moistened ",
-                        "slightly lactating ",
-                        "milk-dampened "];
+                    options = ["milk moistened ", "slightly lactating ", "milk-dampened "];
                     description += Appearance.randomChoice(options);
                 }
                 //Moderate lactation
                 if (i_creature.biggestLactation() > 1 && i_creature.biggestLactation() <= 2) {
-                    options = ["lactating ",
-                        "milky ",
-                        "milk-seeping "];
+                    options = ["lactating ", "milky ", "milk-seeping "];
                     description += Appearance.randomChoice(options);
                 }
                 //Heavy lactation
                 if (i_creature.biggestLactation() > 2) {
-                    options = ["dripping ",
-                        "dribbling ",
-                        "milk-leaking ",
-                        "drooling "];
+                    options = ["dripping ", "dribbling ", "milk-leaking ", "drooling "];
                     description += Appearance.randomChoice(options);
                 }
                 haveDescription = true;
@@ -230,38 +378,32 @@ export class Appearance extends Utils {
         //Possible arousal descriptors
         else if (Appearance.rand(3) == 0 && !haveDescription) {
             if (i_creature.lust > 50 && i_creature.lust < 75) {
-                options = ["erect ",
-                    "perky ",
-                    "erect ",
-                    "firm ",
-                    "tender "];
+                options = ["erect ", "perky ", "erect ", "firm ", "tender "];
                 description += Appearance.randomChoice(options);
                 haveDescription = true;
             }
             if (i_creature.lust >= 75) {
-                options = ["throbbing ",
-                    "trembling ",
-                    "needy ",
-                    "throbbing "];
+                options = ["throbbing ", "trembling ", "needy ", "throbbing "];
                 description += Appearance.randomChoice(options);
                 haveDescription = true;
             }
         }
-        if (!haveDescription && Appearance.rand(2) == 0 && i_creature.nipplesPierced > 0 && i_rowNum == 0) {
+        if (
+            !haveDescription &&
+            Appearance.rand(2) == 0 &&
+            i_creature.nipplesPierced > 0 &&
+            i_rowNum == 0
+        ) {
             if (i_creature.nipplesPierced == 5) description += "chained ";
             else description += "pierced ";
             haveDescription = true;
         }
         if (!haveDescription && i_creature.skinType == 3) {
-            options = ["slime-slick ",
-                "goopy ",
-                "slippery "];
+            options = ["slime-slick ", "goopy ", "slippery "];
             description += Appearance.randomChoice(options);
         }
         if (!haveDescription && i_creature.findStatusAffect(StatusAffects.BlackNipples) >= 0) {
-            options = ["black ",
-                "ebony ",
-                "sable "];
+            options = ["black ", "ebony ", "sable "];
             description += Appearance.randomChoice(options);
         }
 
@@ -270,20 +412,22 @@ export class Appearance extends Utils {
         choice = Appearance.rand(5);
         if (choice == 0) description += "nipple";
         if (choice == 1) {
-            if (i_creature.nippleLength < .5) description += "perky nipple";
+            if (i_creature.nippleLength < 0.5) description += "perky nipple";
             else description += "cherry-like nub";
         }
         if (choice == 2) {
             if (i_creature.hasFuckableNipples()) description += "fuckable nip";
             else {
-                if (i_creature.biggestLactation() >= 1 && i_creature.nippleLength >= 1) description += "teat";
+                if (i_creature.biggestLactation() >= 1 && i_creature.nippleLength >= 1)
+                    description += "teat";
                 else description += "nipple";
             }
         }
         if (choice == 3) {
             if (i_creature.hasFuckableNipples()) description += "nipple-hole";
             else {
-                if (i_creature.biggestLactation() >= 1 && i_creature.nippleLength >= 1) description += "teat";
+                if (i_creature.biggestLactation() >= 1 && i_creature.nippleLength >= 1)
+                    description += "teat";
                 else description += "nipple";
             }
         }
@@ -320,68 +464,49 @@ export class Appearance extends Utils {
         var description: string = "";
         var options: any[];
         if (i_character.hipRating <= 1) {
-            options = ["tiny ",
-                "narrow ",
-                "boyish "];
+            options = ["tiny ", "narrow ", "boyish "];
             description = Appearance.randomChoice(options);
-        }
-        else if (i_character.hipRating > 1 && i_character.hipRating < 4) {
-            options = ["slender ",
-                "narrow ",
-                "thin "];
+        } else if (i_character.hipRating > 1 && i_character.hipRating < 4) {
+            options = ["slender ", "narrow ", "thin "];
             description = Appearance.randomChoice(options);
             if (i_character.thickness < 30) {
                 if (Appearance.rand(2) == 0) description = "slightly-flared ";
                 else description = "curved ";
             }
-        }
-        else if (i_character.hipRating >= 4 && i_character.hipRating < 6) {
-            options = ["well-formed ",
-                "pleasant "];
+        } else if (i_character.hipRating >= 4 && i_character.hipRating < 6) {
+            options = ["well-formed ", "pleasant "];
             description = Appearance.randomChoice(options);
             if (i_character.thickness < 30) {
                 if (Appearance.rand(2) == 0) description = "flared ";
                 else description = "curvy ";
             }
-        }
-        else if (i_character.hipRating >= 6 && i_character.hipRating < 10) {
-            options = ["ample ",
-                "noticeable ",
-                "girly "];
+        } else if (i_character.hipRating >= 6 && i_character.hipRating < 10) {
+            options = ["ample ", "noticeable ", "girly "];
             description = Appearance.randomChoice(options);
             if (i_character.thickness < 30) {
                 if (Appearance.rand(2) == 0) description = "flared ";
                 else description = "waspish ";
             }
-        }
-        else if (i_character.hipRating >= 10 && i_character.hipRating < 15) {
-            options = ["flared ",
-                "curvy ",
-                "wide "];
+        } else if (i_character.hipRating >= 10 && i_character.hipRating < 15) {
+            options = ["flared ", "curvy ", "wide "];
             description = Appearance.randomChoice(options);
             if (i_character.thickness < 30) {
                 if (Appearance.rand(2) == 0) description = "flared ";
                 else description = "waspish ";
             }
-        }
-        else if (i_character.hipRating >= 15 && i_character.hipRating < 20) {
+        } else if (i_character.hipRating >= 15 && i_character.hipRating < 20) {
             if (i_character.thickness < 40) {
                 if (Appearance.rand(2) == 0) description = "flared, ";
                 else description = "waspish, ";
             }
-            options = ["fertile ",
-                "child-bearing ",
-                "voluptuous "];
+            options = ["fertile ", "child-bearing ", "voluptuous "];
             description += Appearance.randomChoice(options);
-        }
-        else if (i_character.hipRating >= 20) {
+        } else if (i_character.hipRating >= 20) {
             if (i_character.thickness < 40) {
                 if (Appearance.rand(2) == 0) description = "flaring, ";
                 else description = "incredibly waspish, ";
             }
-            options = ["broodmother-sized ",
-                "cow-like ",
-                "inhumanly-wide "];
+            options = ["broodmother-sized ", "cow-like ", "inhumanly-wide "];
             description += Appearance.randomChoice(options);
         }
         //Taurs
@@ -390,8 +515,7 @@ export class Appearance extends Utils {
         else if (i_character.isNaga() && Appearance.rand(3) == 0) description += "sides";
         //Non taurs or taurs who didn't roll flanks
         else {
-            options = ["hips",
-                "thighs"];
+            options = ["hips", "thighs"];
             description += Appearance.randomChoice(options);
         }
 
@@ -466,24 +590,77 @@ export class Appearance extends Utils {
     */
 
     public static cockDescript(creature: Creature, cockIndex: number = 0): string {
-        if (creature.cocks.length == 0) return "<b>ERROR: CockDescript Called But No Cock Present</b>";
+        if (creature.cocks.length == 0)
+            return "<b>ERROR: CockDescript Called But No Cock Present</b>";
         var cockType: CockTypesEnum = CockTypesEnum.HUMAN;
-        if (cockIndex != 99) { //CockIndex 99 forces a human cock description
-            if (creature.cocks.length <= cockIndex) return "<b>ERROR: CockDescript called with index of " + cockIndex + " - out of BOUNDS</b>";
+        if (cockIndex != 99) {
+            //CockIndex 99 forces a human cock description
+            if (creature.cocks.length <= cockIndex)
+                return (
+                    "<b>ERROR: CockDescript called with index of " +
+                    cockIndex +
+                    " - out of BOUNDS</b>"
+                );
             cockType = creature.cocks[cockIndex].cockType;
         }
-        var isPierced: boolean = (creature.cocks.length == 1) && (creature.cocks[cockIndex].isPierced); //Only describe as pierced or sock covered if the creature has just one cock
-        var hasSock: boolean = (creature.cocks.length == 1) && (creature.cocks[cockIndex].sock != "");
-        var isGooey: boolean = (creature.skinType == CoC.SKIN_TYPE_GOO);
-        return Appearance.cockDescription(cockType, creature.cocks[cockIndex].cockLength, creature.cocks[cockIndex].cockThickness, creature.lust, creature.cumQ(), isPierced, hasSock, isGooey);
+        var isPierced: boolean = creature.cocks.length == 1 && creature.cocks[cockIndex].isPierced; //Only describe as pierced or sock covered if the creature has just one cock
+        var hasSock: boolean = creature.cocks.length == 1 && creature.cocks[cockIndex].sock != "";
+        var isGooey: boolean = creature.skinType == CoC.SKIN_TYPE_GOO;
+        return Appearance.cockDescription(
+            cockType,
+            creature.cocks[cockIndex].cockLength,
+            creature.cocks[cockIndex].cockThickness,
+            creature.lust,
+            creature.cumQ(),
+            isPierced,
+            hasSock,
+            isGooey
+        );
     }
 
     //This function takes all the variables independently so that a creature object is not required for a cockDescription.
     //This allows a single cockDescription function to produce output for both cockDescript and the old NPCCockDescript.
-    public static cockDescription(cockType: CockTypesEnum, length: number, girth: number, lust: number = 50, cumQ: number = 10, isPierced: boolean = false, hasSock: boolean = false, isGooey: boolean = false): string {
+    public static cockDescription(
+        cockType: CockTypesEnum,
+        length: number,
+        girth: number,
+        lust: number = 50,
+        cumQ: number = 10,
+        isPierced: boolean = false,
+        hasSock: boolean = false,
+        isGooey: boolean = false
+    ): string {
         if (Appearance.rand(2) == 0) {
-            if (cockType == CockTypesEnum.HUMAN) return Appearance.cockAdjective(cockType, length, girth, lust, cumQ, isPierced, hasSock, isGooey) + " " + Appearance.cockNoun(cockType);
-            else return Appearance.cockAdjective(cockType, length, girth, lust, cumQ, isPierced, hasSock, isGooey) + ", " + Appearance.cockNoun(cockType);
+            if (cockType == CockTypesEnum.HUMAN)
+                return (
+                    Appearance.cockAdjective(
+                        cockType,
+                        length,
+                        girth,
+                        lust,
+                        cumQ,
+                        isPierced,
+                        hasSock,
+                        isGooey
+                    ) +
+                    " " +
+                    Appearance.cockNoun(cockType)
+                );
+            else
+                return (
+                    Appearance.cockAdjective(
+                        cockType,
+                        length,
+                        girth,
+                        lust,
+                        cumQ,
+                        isPierced,
+                        hasSock,
+                        isGooey
+                    ) +
+                    ", " +
+                    Appearance.cockNoun(cockType)
+                );
         }
         return Appearance.cockNoun(cockType);
     }
@@ -499,7 +676,8 @@ export class Appearance extends Utils {
         if (cockType == CockTypesEnum.HUMAN) {
             // Yeah, this is kind of messy
             // there is no other easy way to preserve the weighting fenoxo did
-            return Appearance.randomChoice("cock",
+            return Appearance.randomChoice(
+                "cock",
                 "cock",
                 "cock",
                 "cock",
@@ -509,19 +687,21 @@ export class Appearance extends Utils {
                 "pecker",
                 "shaft",
                 "shaft",
-                "shaft");
-        }
-        else if (cockType == CockTypesEnum.BEE) {
-            return Appearance.randomChoice("bee prick",
+                "shaft"
+            );
+        } else if (cockType == CockTypesEnum.BEE) {
+            return Appearance.randomChoice(
+                "bee prick",
                 "bee prick",
                 "bee prick",
                 "bee prick",
                 "insectoid cock",
                 "insectoid cock",
-                "furred monster");
-        }
-        else if (cockType == CockTypesEnum.DOG) {
-            return Appearance.randomChoice("dog-shaped dong",
+                "furred monster"
+            );
+        } else if (cockType == CockTypesEnum.DOG) {
+            return Appearance.randomChoice(
+                "dog-shaped dong",
                 "canine shaft",
                 "pointed prick",
                 "knotty dog-shaft",
@@ -531,10 +711,11 @@ export class Appearance extends Utils {
                 "pointed shaft",
                 "canine member",
                 "canine cock",
-                "knotted dog-cock");
-        }
-        else if (cockType == CockTypesEnum.FOX) {
-            return Appearance.randomChoice("fox-shaped dong",
+                "knotted dog-cock"
+            );
+        } else if (cockType == CockTypesEnum.FOX) {
+            return Appearance.randomChoice(
+                "fox-shaped dong",
                 "vulpine shaft",
                 "pointed prick",
                 "knotty fox-shaft",
@@ -544,20 +725,22 @@ export class Appearance extends Utils {
                 "pointed shaft",
                 "vulpine member",
                 "vulpine cock",
-                "knotted fox-cock");
-        }
-        else if (cockType == CockTypesEnum.HORSE) {
-            return Appearance.randomChoice("flared horse-cock",
+                "knotted fox-cock"
+            );
+        } else if (cockType == CockTypesEnum.HORSE) {
+            return Appearance.randomChoice(
+                "flared horse-cock",
                 "equine prick",
                 "bestial horse-shaft",
                 "flat-tipped horse-member",
                 "animalistic stallion-prick",
                 "equine dong",
                 "beast cock",
-                "flared stallion-cock");
-        }
-        else if (cockType == CockTypesEnum.DEMON) {
-            return Appearance.randomChoice("nub-covered demon-dick",
+                "flared stallion-cock"
+            );
+        } else if (cockType == CockTypesEnum.DEMON) {
+            return Appearance.randomChoice(
+                "nub-covered demon-dick",
                 "nubby shaft",
                 "corrupted cock",
                 "perverse pecker",
@@ -567,10 +750,11 @@ export class Appearance extends Utils {
                 "cursed cock",
                 "infernal prick",
                 "unholy cock",
-                "blighted cock");
-        }
-        else if (cockType == CockTypesEnum.TENTACLE) {
-            return Appearance.randomChoice("twisting tentacle-prick",
+                "blighted cock"
+            );
+        } else if (cockType == CockTypesEnum.TENTACLE) {
+            return Appearance.randomChoice(
+                "twisting tentacle-prick",
                 "wriggling plant-shaft",
                 "sinuous tentacle-cock",
                 "squirming cock-tendril",
@@ -580,10 +764,11 @@ export class Appearance extends Utils {
                 "smooth shaft",
                 "undulating tentacle-dick",
                 "slithering vine-prick",
-                "vine-shaped cock");
-        }
-        else if (cockType == CockTypesEnum.CAT) {
-            return Appearance.randomChoice("feline dick",
+                "vine-shaped cock"
+            );
+        } else if (cockType == CockTypesEnum.CAT) {
+            return Appearance.randomChoice(
+                "feline dick",
                 "spined cat-cock",
                 "pink kitty-cock",
                 "spiny prick",
@@ -593,10 +778,11 @@ export class Appearance extends Utils {
                 "spined shaft",
                 "feline shaft",
                 "barbed dick",
-                "nubby kitten-prick");
-        }
-        else if (cockType == CockTypesEnum.LIZARD) {
-            return Appearance.randomChoice("reptilian dick",
+                "nubby kitten-prick"
+            );
+        } else if (cockType == CockTypesEnum.LIZARD) {
+            return Appearance.randomChoice(
+                "reptilian dick",
                 "purple cock",
                 "inhuman cock",
                 "reptilian prick",
@@ -606,10 +792,11 @@ export class Appearance extends Utils {
                 "serpentine shaft",
                 "reptilian shaft",
                 "bulbous snake-shaft",
-                "bulging snake-dick");
-        }
-        else if (cockType == CockTypesEnum.ANEMONE) {
-            return Appearance.randomChoice("anemone dick",
+                "bulging snake-dick"
+            );
+        } else if (cockType == CockTypesEnum.ANEMONE) {
+            return Appearance.randomChoice(
+                "anemone dick",
                 "tentacle-ringed cock",
                 "blue member",
                 "stinger-laden shaft",
@@ -619,10 +806,11 @@ export class Appearance extends Utils {
                 "blue cock",
                 "tentacle-ringed dick",
                 "near-transparent shaft",
-                "squirming shaft");
-        }
-        else if (cockType == CockTypesEnum.KANGAROO) {
-            return Appearance.randomChoice("kangaroo-like dick",
+                "squirming shaft"
+            );
+        } else if (cockType == CockTypesEnum.KANGAROO) {
+            return Appearance.randomChoice(
+                "kangaroo-like dick",
                 "pointed cock",
                 "marsupial member",
                 "tapered shaft",
@@ -632,10 +820,11 @@ export class Appearance extends Utils {
                 "marsupial cock",
                 "tapered kangaroo-dick",
                 "curved kangaroo-cock",
-                "squirming shaft");
-        }
-        else if (cockType == CockTypesEnum.DRAGON) {
-            return Appearance.randomChoice("dragon-like dick",
+                "squirming shaft"
+            );
+        } else if (cockType == CockTypesEnum.DRAGON) {
+            return Appearance.randomChoice(
+                "dragon-like dick",
                 "segmented shaft",
                 "pointed prick",
                 "knotted dragon-cock",
@@ -645,10 +834,11 @@ export class Appearance extends Utils {
                 "draconic cock",
                 "tapered dick",
                 "unusual endowment",
-                "scaly shaft");
-        }
-        else if (cockType == CockTypesEnum.DISPLACER) {
-            return Appearance.randomChoice("coerl cock",
+                "scaly shaft"
+            );
+        } else if (cockType == CockTypesEnum.DISPLACER) {
+            return Appearance.randomChoice(
+                "coerl cock",
                 "tentacle-tipped phallus",
                 "starfish-tipped shaft",
                 "alien member",
@@ -659,49 +849,92 @@ export class Appearance extends Utils {
                 "coerl cock",
                 "animal dong",
                 "star-capped tool",
-                "knotted erection");
+                "knotted erection"
+            );
         }
-        return Appearance.randomChoice("cock",
-            "prick",
-            "pecker",
-            "shaft");
+        return Appearance.randomChoice("cock", "prick", "pecker", "shaft");
     }
 
     //New cock adjectives.  The old one sucked dicks
     //This function handles all cockAdjectives. Previously there were separate functions for the player, monsters and NPCs.
-    public static cockAdjective(cockType: CockTypesEnum, length: number, girth: number, lust: number = 50, cumQ: number = 10, isPierced: boolean = false, hasSock: boolean = false, isGooey: boolean = false): string {
+    public static cockAdjective(
+        cockType: CockTypesEnum,
+        length: number,
+        girth: number,
+        lust: number = 50,
+        cumQ: number = 10,
+        isPierced: boolean = false,
+        hasSock: boolean = false,
+        isGooey: boolean = false
+    ): string {
         //First, the three possible special cases
         if (isPierced && Appearance.rand(5) == 0) return "pierced";
-        if (hasSock && Appearance.rand(5) == 0) return Appearance.randomChoice("sock-sheathed", "garment-wrapped", "smartly dressed", "cloth-shrouded", "fabric swaddled", "covered");
-        if (isGooey && Appearance.rand(4) == 0) return Appearance.randomChoice("goopey", "gooey", "slimy");
+        if (hasSock && Appearance.rand(5) == 0)
+            return Appearance.randomChoice(
+                "sock-sheathed",
+                "garment-wrapped",
+                "smartly dressed",
+                "cloth-shrouded",
+                "fabric swaddled",
+                "covered"
+            );
+        if (isGooey && Appearance.rand(4) == 0)
+            return Appearance.randomChoice("goopey", "gooey", "slimy");
         //Length 1/3 chance
         if (Appearance.rand(3) == 0) {
-            if (length < 3) return Appearance.randomChoice("little", "toy-sized", "mini", "budding", "tiny");
+            if (length < 3)
+                return Appearance.randomChoice("little", "toy-sized", "mini", "budding", "tiny");
             if (length < 5) return Appearance.randomChoice("short", "small");
             if (length < 7) return Appearance.randomChoice("fair-sized", "nice");
             if (length < 9) {
-                if (cockType == CockTypesEnum.HORSE) return Appearance.randomChoice("sizable", "pony-sized", "colt-like");
+                if (cockType == CockTypesEnum.HORSE)
+                    return Appearance.randomChoice("sizable", "pony-sized", "colt-like");
                 return Appearance.randomChoice("sizable", "long", "lengthy");
             }
             if (length < 13) {
-                if (cockType == CockTypesEnum.DOG) return Appearance.randomChoice("huge", "foot-long", "mastiff-like");
+                if (cockType == CockTypesEnum.DOG)
+                    return Appearance.randomChoice("huge", "foot-long", "mastiff-like");
                 return Appearance.randomChoice("huge", "foot-long", "cucumber-length");
             }
-            if (length < 18) return Appearance.randomChoice("massive", "knee-length", "forearm-length");
+            if (length < 18)
+                return Appearance.randomChoice("massive", "knee-length", "forearm-length");
             if (length < 30) return Appearance.randomChoice("enormous", "giant", "arm-like");
             if (cockType == CockTypesEnum.TENTACLE && Appearance.rand(2) == 0) return "coiled";
-            return Appearance.randomChoice("towering", "freakish", "monstrous", "massive")
+            return Appearance.randomChoice("towering", "freakish", "monstrous", "massive");
         }
         //Hornyness 1/2
         else if (lust > 75 && Appearance.rand(2) == 0) {
-            if (lust > 90) { //Uber horny like a baws!
+            if (lust > 90) {
+                //Uber horny like a baws!
                 if (cumQ < 50) return Appearance.randomChoice("throbbing", "pulsating"); //Weak as shit cum
                 if (cumQ < 200) return Appearance.randomChoice("dribbling", "leaking", "drooling"); //lots of cum? drippy.
-                return Appearance.randomChoice("very drippy", "pre-gushing", "cum-bubbling", "pre-slicked", "pre-drooling"); //Tons of cum
-            }
-            else {//A little less lusty, but still lusty.
-                if (cumQ < 50) return Appearance.randomChoice("turgid", "blood-engorged", "rock-hard", "stiff", "eager"); //Weak as shit cum
-                if (cumQ < 200) return Appearance.randomChoice("turgid", "blood-engorged", "rock-hard", "stiff", "eager", "fluid-beading", "slowly-oozing"); //A little drippy
+                return Appearance.randomChoice(
+                    "very drippy",
+                    "pre-gushing",
+                    "cum-bubbling",
+                    "pre-slicked",
+                    "pre-drooling"
+                ); //Tons of cum
+            } else {
+                //A little less lusty, but still lusty.
+                if (cumQ < 50)
+                    return Appearance.randomChoice(
+                        "turgid",
+                        "blood-engorged",
+                        "rock-hard",
+                        "stiff",
+                        "eager"
+                    ); //Weak as shit cum
+                if (cumQ < 200)
+                    return Appearance.randomChoice(
+                        "turgid",
+                        "blood-engorged",
+                        "rock-hard",
+                        "stiff",
+                        "eager",
+                        "fluid-beading",
+                        "slowly-oozing"
+                    ); //A little drippy
                 return Appearance.randomChoice("dribbling", "drooling", "fluid-leaking", "leaking"); //uber drippy
             }
         }
@@ -858,7 +1091,12 @@ export class Appearance extends Utils {
     */
 
     //Cock adjectives for single cock
-    private static cockAdjectives(i_cockLength: number, i_cockThickness: number, i_cockType: CockTypesEnum, i_creature: Creature): string {
+    private static cockAdjectives(
+        i_cockLength: number,
+        i_cockThickness: number,
+        i_cockType: CockTypesEnum,
+        i_creature: Creature
+    ): string {
         var description: string = "";
         var rando: number = 0;
         var descripts: number = 0;
@@ -869,34 +1107,27 @@ export class Appearance extends Utils {
                 if (rando == 0) description = "little";
                 else if (rando == 1) description = "toy-sized";
                 else description = "tiny";
-            }
-            else if (i_cockLength < 5) {
+            } else if (i_cockLength < 5) {
                 if (Appearance.rand(2) == 0) description = "short";
                 else description = "small";
-            }
-            else if (i_cockLength < 7) {
+            } else if (i_cockLength < 7) {
                 if (Appearance.rand(2) == 0) description = "fair-sized";
                 else description = "nice";
-            }
-            else if (i_cockLength < 9) {
+            } else if (i_cockLength < 9) {
                 rando = Appearance.rand(3);
                 if (rando == 0) description = "long";
                 else if (rando == 1) description = "lengthy";
                 else if (rando == 2) description = "sizable";
-            }
-            else if (i_cockLength < 13) {
+            } else if (i_cockLength < 13) {
                 if (Appearance.rand(2) == 0) description = "huge";
                 else description = "foot-long";
-            }
-            else if (i_cockLength < 18) {
+            } else if (i_cockLength < 18) {
                 if (Appearance.rand(2) == 0) description = "massive";
                 else description = "forearm-length";
-            }
-            else if (i_cockLength < 30) {
+            } else if (i_cockLength < 30) {
                 if (Appearance.rand(2) == 0) description = "enormous";
                 else description = "monster-length";
-            }
-            else {
+            } else {
                 rando = Appearance.rand(3);
                 if (rando == 0) description = "towering";
                 else if (rando == 1) description = "freakish";
@@ -906,21 +1137,18 @@ export class Appearance extends Utils {
         }
         //thickness go!
         else if (Appearance.rand(4) == 0 && descripts == 0) {
-            if (i_cockThickness <= .75) description += "narrow";
+            if (i_cockThickness <= 0.75) description += "narrow";
             else if (i_cockThickness <= 1.1) description += "nice";
             else if (i_cockThickness <= 1.4) {
                 if (Appearance.rand(2) == 0) description += "ample";
                 else description += "big";
-            }
-            else if (i_cockThickness <= 2) {
+            } else if (i_cockThickness <= 2) {
                 if (Appearance.rand(2) == 0) description += "broad";
                 else description += "girthy";
-            }
-            else if (i_cockThickness <= 3.5) {
+            } else if (i_cockThickness <= 3.5) {
                 if (Appearance.rand(2) == 0) description += "fat";
                 else description += "distended";
-            }
-            else {
+            } else {
                 if (Appearance.rand(2) == 0) description += "inhumanly distended";
                 else description += "monstrously thick";
             }
@@ -961,7 +1189,12 @@ export class Appearance extends Utils {
         }
         //A little less lusty, but still lusty.
         else if (i_creature.lust > 75) {
-            if (descripts == 0 && i_creature.cumQ() > 50 && i_creature.cumQ() < 200 && Appearance.rand(2) == 0) {
+            if (
+                descripts == 0 &&
+                i_creature.cumQ() > 50 &&
+                i_creature.cumQ() < 200 &&
+                Appearance.rand(2) == 0
+            ) {
                 description += "pre-leaking";
                 descripts = 1;
             }
@@ -992,7 +1225,8 @@ export class Appearance extends Utils {
         var options: any[];
         var description: string = "";
         if (cockType == CockTypesEnum.HUMAN) {
-            options = ["cock",
+            options = [
+                "cock",
                 "cock",
                 "cock",
                 "cock",
@@ -1002,21 +1236,23 @@ export class Appearance extends Utils {
                 "pecker",
                 "shaft",
                 "shaft",
-                "shaft"];
+                "shaft",
+            ];
             description += Appearance.randomChoice(options);
-        }
-        else if (cockType == CockTypesEnum.BEE) {
-            options = ["bee prick",
+        } else if (cockType == CockTypesEnum.BEE) {
+            options = [
+                "bee prick",
                 "bee prick",
                 "bee prick",
                 "bee prick",
                 "insectoid cock",
                 "insectoid cock",
-                "furred monster"];
+                "furred monster",
+            ];
             description += Appearance.randomChoice(options);
-        }
-        else if (cockType == CockTypesEnum.DOG) {
-            options = ["doggie dong",
+        } else if (cockType == CockTypesEnum.DOG) {
+            options = [
+                "doggie dong",
                 "canine shaft",
                 "pointed prick",
                 "dog-shaft",
@@ -1026,20 +1262,22 @@ export class Appearance extends Utils {
                 "pointed shaft",
                 "canine cock",
                 "canine cock",
-                "dog cock"];
+                "dog cock",
+            ];
             description += Appearance.randomChoice(options);
-        }
-        else if (cockType == CockTypesEnum.HORSE) {
-            options = ["horsecock",
+        } else if (cockType == CockTypesEnum.HORSE) {
+            options = [
+                "horsecock",
                 "equine prick",
                 "horse-shaft",
                 "horse-prick",
                 "stallion-prick",
-                "equine dong"];
+                "equine dong",
+            ];
             description += Appearance.randomChoice(options);
-        }
-        else if (cockType == CockTypesEnum.DEMON) {
-            options = ["demon-dick",
+        } else if (cockType == CockTypesEnum.DEMON) {
+            options = [
+                "demon-dick",
                 "nubby shaft",
                 "corrupted cock",
                 "perverse pecker",
@@ -1049,11 +1287,12 @@ export class Appearance extends Utils {
                 "cursed cock",
                 "infernal prick",
                 "unholy cock",
-                "blighted cock"];
+                "blighted cock",
+            ];
             description += Appearance.randomChoice(options);
-        }
-        else if (cockType == CockTypesEnum.TENTACLE) {
-            options = ["tentacle prick",
+        } else if (cockType == CockTypesEnum.TENTACLE) {
+            options = [
+                "tentacle prick",
                 "plant-like shaft",
                 "tentacle cock",
                 "cock-tendril",
@@ -1063,11 +1302,12 @@ export class Appearance extends Utils {
                 "smooth inhuman shaft",
                 "tentacle dick",
                 "vine prick",
-                "vine-like cock"];
+                "vine-like cock",
+            ];
             description += Appearance.randomChoice(options);
-        }
-        else if (cockType == CockTypesEnum.CAT) {
-            options = ["feline dick",
+        } else if (cockType == CockTypesEnum.CAT) {
+            options = [
+                "feline dick",
                 "cat-cock",
                 "kitty-cock",
                 "spiny prick",
@@ -1077,11 +1317,12 @@ export class Appearance extends Utils {
                 "spined shaft",
                 "feline shaft",
                 "'barbed' dick",
-                "kitten-prick"];
+                "kitten-prick",
+            ];
             description += Appearance.randomChoice(options);
-        }
-        else if (cockType == CockTypesEnum.LIZARD) {
-            options = ["reptile-dick",
+        } else if (cockType == CockTypesEnum.LIZARD) {
+            options = [
+                "reptile-dick",
                 "purple cock",
                 "inhuman cock",
                 "reptilian prick",
@@ -1091,10 +1332,10 @@ export class Appearance extends Utils {
                 "serpentine shaft",
                 "reptilian shaft",
                 "snake-shaft",
-                "snake dick"];
+                "snake dick",
+            ];
             description += Appearance.randomChoice(options);
-        }
-        else {
+        } else {
             description += Appearance.randomChoice("cock", "prick", "pecker", "shaft");
         }
         return description;
@@ -1168,7 +1409,12 @@ export class Appearance extends Utils {
      * @param    i_withArticle    Show description with article in front
      * @return    Full description of balls
      */
-    public static ballsDescription(i_forcedSize: boolean, i_plural: boolean, i_creature: Creature, i_withArticle: boolean = false): string {
+    public static ballsDescription(
+        i_forcedSize: boolean,
+        i_plural: boolean,
+        i_creature: Creature,
+        i_withArticle: boolean = false
+    ): string {
         if (i_creature.balls == 0) return "prostate";
 
         // var haveDescription: boolean = false;
@@ -1176,57 +1422,34 @@ export class Appearance extends Utils {
         var description: string = "";
         var options: any[];
 
-        if (i_plural && (i_creature.findStatusAffect(StatusAffects.Uniball) < 0)) {
+        if (i_plural && i_creature.findStatusAffect(StatusAffects.Uniball) < 0) {
             if (i_creature.balls == 1) {
                 if (i_withArticle) {
-                    options = ["a single",
-                        "a solitary",
-                        "a lone",
-                        "an individual"];
-                }
-                else {
-                    options = ["single",
-                        "solitary",
-                        "lone",
-                        "individual"];
+                    options = ["a single", "a solitary", "a lone", "an individual"];
+                } else {
+                    options = ["single", "solitary", "lone", "individual"];
                 }
                 description += Appearance.randomChoice(options);
-            }
-            else if (i_creature.balls == 2) {
+            } else if (i_creature.balls == 2) {
                 if (i_withArticle) {
-                    options = ["a pair of",
-                        "two",
-                        "a duo of"];
-                }
-                else {
-                    options = ["pair of",
-                        "two",
-                        "duo of"];
+                    options = ["a pair of", "two", "a duo of"];
+                } else {
+                    options = ["pair of", "two", "duo of"];
                 }
                 description += Appearance.randomChoice(options);
-            }
-            else if (i_creature.balls == 3) {
-                options = ["three",
-                    "triple"];
-                (i_withArticle) ? options.push("a trio of") : options.push("trio of");
+            } else if (i_creature.balls == 3) {
+                options = ["three", "triple"];
+                i_withArticle ? options.push("a trio of") : options.push("trio of");
                 description += Appearance.randomChoice(options);
-            }
-            else if (i_creature.balls == 4) {
-                options = ["four",
-                    "quadruple"];
-                (i_withArticle) ? options.push("a quartette of") : options.push("quartette of");
+            } else if (i_creature.balls == 4) {
+                options = ["four", "quadruple"];
+                i_withArticle ? options.push("a quartette of") : options.push("quartette of");
                 description += Appearance.randomChoice(options);
-            }
-            else {
+            } else {
                 if (i_withArticle) {
-                    options = ["a multitude of",
-                        "many",
-                        "a large handful of"];
-                }
-                else {
-                    options = ["multitude of",
-                        "many",
-                        "large handful of"];
+                    options = ["a multitude of", "many", "a large handful of"];
+                } else {
+                    options = ["multitude of", "many", "large handful of"];
                 }
                 description += Appearance.randomChoice(options);
             }
@@ -1235,51 +1458,39 @@ export class Appearance extends Utils {
         if (i_creature.ballSize > 1 && (Appearance.rand(3) <= 1 || i_forcedSize)) {
             if (description) description += " ";
 
-            if (i_creature.ballSize >= 18)
-                description += "hideously swollen and oversized";
-            else if (i_creature.ballSize >= 15)
-                description += "beachball-sized";
-            else if (i_creature.ballSize >= 12)
-                description += "watermelon-sized";
-            else if (i_creature.ballSize >= 9)
-                description += "basketball-sized";
-            else if (i_creature.ballSize >= 7)
-                description += "soccerball-sized";
-            else if (i_creature.ballSize >= 5)
-                description += "cantaloupe-sized";
-            else if (i_creature.ballSize >= 4)
-                description += "grapefruit-sized";
-            else if (i_creature.ballSize >= 3)
-                description += "apple-sized";
-            else if (i_creature.ballSize >= 2)
-                description += "baseball-sized";
-            else if (i_creature.ballSize > 1)
-                description += "large";
-
+            if (i_creature.ballSize >= 18) description += "hideously swollen and oversized";
+            else if (i_creature.ballSize >= 15) description += "beachball-sized";
+            else if (i_creature.ballSize >= 12) description += "watermelon-sized";
+            else if (i_creature.ballSize >= 9) description += "basketball-sized";
+            else if (i_creature.ballSize >= 7) description += "soccerball-sized";
+            else if (i_creature.ballSize >= 5) description += "cantaloupe-sized";
+            else if (i_creature.ballSize >= 4) description += "grapefruit-sized";
+            else if (i_creature.ballSize >= 3) description += "apple-sized";
+            else if (i_creature.ballSize >= 2) description += "baseball-sized";
+            else if (i_creature.ballSize > 1) description += "large";
         }
         //UNIBALL
         if (i_creature.findStatusAffect(StatusAffects.Uniball) >= 0) {
             if (description) description += " ";
-            options = ["tightly-compressed",
+            options = [
+                "tightly-compressed",
                 "snug",
                 "cute",
                 "pleasantly squeezed",
-                "compressed-together"];
+                "compressed-together",
+            ];
             description += Appearance.randomChoice(options);
-
         }
         //Descriptive
         if (i_creature.hoursSinceCum >= 48 && Appearance.rand(2) == 0 && !i_forcedSize) {
             if (description) description += " ";
-            options = ["overflowing",
-                "swollen",
-                "cum-engorged"];
+            options = ["overflowing", "swollen", "cum-engorged"];
             description += Appearance.randomChoice(options);
-
         }
         //lusty
-        if (i_creature.lust > 90 && (description == "") && Appearance.rand(2) == 0 && !i_forcedSize) {
-            options = ["eager",
+        if (i_creature.lust > 90 && description == "" && Appearance.rand(2) == 0 && !i_forcedSize) {
+            options = [
+                "eager",
                 "full",
                 "needy",
                 "desperate",
@@ -1287,29 +1498,19 @@ export class Appearance extends Utils {
                 "heated",
                 "trembling",
                 "quivering",
-                "quaking"];
+                "quaking",
+            ];
             description += Appearance.randomChoice(options);
-
         }
         //Slimy skin
         if (i_creature.skinType == 3) {
             if (description) description += " ";
-            options = ["goopey",
-                "gooey",
-                "slimy"];
+            options = ["goopey", "gooey", "slimy"];
             description += Appearance.randomChoice(options);
-
         }
         if (description) description += " ";
 
-        options = ["nut",
-            "gonad",
-            "teste",
-            "testicle",
-            "testicle",
-            "ball",
-            "ball",
-            "ball"];
+        options = ["nut", "gonad", "teste", "testicle", "testicle", "ball", "ball", "ball"];
 
         // I don't know how this was ever supposed to work.
         //if (i_creature.balls == 4 && i_plural) options.push("quads", "quads", "quads");
@@ -1318,12 +1519,10 @@ export class Appearance extends Utils {
         if (i_plural) description += "s";
 
         if (i_creature.findStatusAffect(StatusAffects.Uniball) >= 0 && Appearance.rand(2) == 0) {
-            if (Appearance.rand(3) == 0)
-                description += " merged into a cute, spherical package";
+            if (Appearance.rand(3) == 0) description += " merged into a cute, spherical package";
             else if (Appearance.rand(2) == 0)
                 description += " combined into a round, girlish shape";
-            else
-                description += " squeezed together into a perky, rounded form";
+            else description += " squeezed together into a perky, rounded form";
         }
         return description;
     }
@@ -1335,12 +1534,7 @@ export class Appearance extends Utils {
         var options: any[];
         var description: string = "";
 
-        options = ["scrotum",
-            "sack",
-            "nutsack",
-            "ballsack",
-            "beanbag",
-            "pouch"];
+        options = ["scrotum", "sack", "nutsack", "ballsack", "beanbag", "pouch"];
 
         description += Appearance.randomChoice(options);
 
@@ -1356,13 +1550,25 @@ export class Appearance extends Utils {
     */
 
     public static vaginaDescript(i_creature: Creature, i_vaginaIndex: number = 0): string {
-        if (i_vaginaIndex > (i_creature.vaginas.length - 1)) {
-            CoC_Settings.error("<B>Error: Invalid vagina number (" + i_vaginaIndex + ") passed to vaginaDescript()</b>");
-            return "<B>Error: Invalid vagina number (" + i_vaginaIndex + ") passed to vaginaDescript()</b>";
+        if (i_vaginaIndex > i_creature.vaginas.length - 1) {
+            CoC_Settings.error(
+                "<B>Error: Invalid vagina number (" +
+                    i_vaginaIndex +
+                    ") passed to vaginaDescript()</b>"
+            );
+            return (
+                "<B>Error: Invalid vagina number (" +
+                i_vaginaIndex +
+                ") passed to vaginaDescript()</b>"
+            );
         }
         if (i_vaginaIndex < 0) {
-            CoC_Settings.error("<B>Error: Invalid vaginaNum (" + i_vaginaIndex + ") passed to vaginaDescript()</b>");
-            return "<B>Error: Invalid vaginaNum (" + i_vaginaIndex + ") passed to vaginaDescript()</b>";
+            CoC_Settings.error(
+                "<B>Error: Invalid vaginaNum (" + i_vaginaIndex + ") passed to vaginaDescript()</b>"
+            );
+            return (
+                "<B>Error: Invalid vaginaNum (" + i_vaginaIndex + ") passed to vaginaDescript()</b>"
+            );
         }
         if (i_creature.vaginas.length <= 0) {
             CoC_Settings.error("ERROR: Called vaginaDescription with no vaginas");
@@ -1376,7 +1582,11 @@ export class Appearance extends Utils {
 
         //Very confusing way to display values.
         if (i_creature.vaginas[i_vaginaIndex].vaginalLooseness == 0) weighting = 61;
-        if (i_creature.vaginas[i_vaginaIndex].vaginalLooseness == 4 || i_creature.vaginas[i_vaginaIndex].vaginalLooseness == 5) weighting = 10;
+        if (
+            i_creature.vaginas[i_vaginaIndex].vaginalLooseness == 4 ||
+            i_creature.vaginas[i_vaginaIndex].vaginalLooseness == 5
+        )
+            weighting = 10;
 
         //tightness descript - 40% display rate
         if (Appearance.rand(100) + weighting > 60) {
@@ -1384,31 +1594,22 @@ export class Appearance extends Utils {
                 if (i_creature.vaginas[i_vaginaIndex].virgin) description += "virgin";
                 else description += "tight";
             }
-            if (i_creature.vaginas[i_vaginaIndex].vaginalLooseness == 2)
-                description += "loose";
+            if (i_creature.vaginas[i_vaginaIndex].vaginalLooseness == 2) description += "loose";
             if (i_creature.vaginas[i_vaginaIndex].vaginalLooseness == 3)
                 description += "very loose";
-            if (i_creature.vaginas[i_vaginaIndex].vaginalLooseness == 4)
-                description += "gaping";
+            if (i_creature.vaginas[i_vaginaIndex].vaginalLooseness == 4) description += "gaping";
             if (i_creature.vaginas[i_vaginaIndex].vaginalLooseness == 5)
                 description += "gaping-wide";
-
         }
         //wetness descript - 30% display rate
         if (Appearance.rand(100) + weighting > 70) {
             if (description != "") description += ", ";
-            if (i_creature.vaginas[i_vaginaIndex].vaginalWetness == 0)
-                description += "dry";
-            if (i_creature.vaginas[i_vaginaIndex].vaginalWetness == 1)
-                description += "moist";
-            if (i_creature.vaginas[i_vaginaIndex].vaginalWetness == 2)
-                description += "wet";
-            if (i_creature.vaginas[i_vaginaIndex].vaginalWetness == 3)
-                description += "slick";
-            if (i_creature.vaginas[i_vaginaIndex].vaginalWetness == 4)
-                description += "drooling";
-            if (i_creature.vaginas[i_vaginaIndex].vaginalWetness == 5)
-                description += "slavering";
+            if (i_creature.vaginas[i_vaginaIndex].vaginalWetness == 0) description += "dry";
+            if (i_creature.vaginas[i_vaginaIndex].vaginalWetness == 1) description += "moist";
+            if (i_creature.vaginas[i_vaginaIndex].vaginalWetness == 2) description += "wet";
+            if (i_creature.vaginas[i_vaginaIndex].vaginalWetness == 3) description += "slick";
+            if (i_creature.vaginas[i_vaginaIndex].vaginalWetness == 4) description += "drooling";
+            if (i_creature.vaginas[i_vaginaIndex].vaginalWetness == 5) description += "slavering";
         }
         if (i_creature.vaginas[i_vaginaIndex].labiaPierced > 0 && Appearance.rand(3) == 0) {
             if (description != "") description += ", ";
@@ -1417,34 +1618,26 @@ export class Appearance extends Utils {
         if (description == "" && i_creature.skinType == 3) {
             // if (description != "")
             //     description += ", ";
-            if (Appearance.rand(2) == 0)
-                description += "gooey";
-            else
-                description += "slimy";
+            if (Appearance.rand(2) == 0) description += "gooey";
+            else description += "slimy";
         }
         if (i_creature.vaginaType() == 5 && Math.floor(Math.random() * 2) == 0) {
             if (description != "") description += ", ";
-            options = ["black",
+            options = [
+                "black",
                 "onyx",
                 "ebony",
                 "dusky",
                 "sable",
                 "obsidian",
                 "midnight-hued",
-                "jet black"];
+                "jet black",
+            ];
             description += Appearance.randomChoice(options);
         }
 
-        if (description != "")
-            description += " ";
-        options = ["vagina",
-            "pussy",
-            "cooter",
-            "twat",
-            "cunt",
-            "snatch",
-            "fuck-hole",
-            "muff"];
+        if (description != "") description += " ";
+        options = ["vagina", "pussy", "cooter", "twat", "cunt", "snatch", "fuck-hole", "muff"];
         description += Appearance.randomChoice(options);
         //Something that would be nice to have but needs a variable in Creature or Character.
         //if(i_creature.bunnyScore() >= 3) description += "rabbit hole";
@@ -1459,34 +1652,22 @@ export class Appearance extends Utils {
         //Length Adjective - 50% chance
         if (Appearance.rand(2) == 0) {
             //small clits!
-            if (i_creature.clitLength <= .5) {
-                options = ["tiny ",
-                    "little ",
-                    "petite ",
-                    "diminutive ",
-                    "miniature "];
+            if (i_creature.clitLength <= 0.5) {
+                options = ["tiny ", "little ", "petite ", "diminutive ", "miniature "];
                 description += Appearance.randomChoice(options);
             }
             //"average".
-            if (i_creature.clitLength > .5 && i_creature.clitLength < 1.5) {
+            if (i_creature.clitLength > 0.5 && i_creature.clitLength < 1.5) {
                 //no size comment
             }
             //Biggies!
             if (i_creature.clitLength >= 1.5 && i_creature.clitLength < 4) {
-                options = ["large ",
-                    "large ",
-                    "substantial ",
-                    "substantial ",
-                    "considerable "];
+                options = ["large ", "large ", "substantial ", "substantial ", "considerable "];
                 description += Appearance.randomChoice(options);
             }
             //'Uge
             if (i_creature.clitLength >= 4) {
-                options = ["monster ",
-                    "tremendous ",
-                    "colossal ",
-                    "enormous ",
-                    "bulky "];
+                options = ["monster ", "tremendous ", "colossal ", "enormous ", "bulky "];
                 description += Appearance.randomChoice(options);
             }
         }
@@ -1505,18 +1686,13 @@ export class Appearance extends Utils {
              }*/
             //Horny descriptors - 75% chance
             if (i_creature.lust > 70 && Appearance.rand(4) < 3 && !haveDescription) {
-                options = ["throbbing ",
-                    "pulsating ",
-                    "hard "];
+                options = ["throbbing ", "pulsating ", "hard "];
                 description += Appearance.randomChoice(options);
                 haveDescription = true;
             }
             //High libido - always use if no other descript
             if (i_creature.lib > 50 && Appearance.rand(2) == 0 && !haveDescription) {
-                options = ["insatiable ",
-                    "greedy ",
-                    "demanding ",
-                    "rapacious"];
+                options = ["insatiable ", "greedy ", "demanding ", "rapacious"];
                 description += Appearance.randomChoice(options);
                 haveDescription = true;
             }
@@ -1526,14 +1702,14 @@ export class Appearance extends Utils {
                 description += "pierced ";
                 haveDescription = true;
             }
-        }
-        else {
+        } else {
             CoC_Settings.error("ERROR: CLITDESCRIPT WITH NO CLIT");
-            return ("ERROR: CLITDESCRIPT WITH NO CLIT");
+            return "ERROR: CLITDESCRIPT WITH NO CLIT";
         }
 
         //Clit nouns
-        options = ["clit",
+        options = [
+            "clit",
             "clitty",
             "button",
             "pleasure-buzzer",
@@ -1542,7 +1718,8 @@ export class Appearance extends Utils {
             "button",
             "clit",
             "clit",
-            "button"];
+            "button",
+        ];
         description += Appearance.randomChoice(options);
 
         return description;
@@ -1558,12 +1735,9 @@ export class Appearance extends Utils {
         var description: string = "";
         var options: any[];
         if (i_character.buttRating <= 1) {
-            if (i_character.tone >= 60)
-                description += "incredibly tight, perky ";
+            if (i_character.tone >= 60) description += "incredibly tight, perky ";
             else {
-                options = ["tiny",
-                    "very small",
-                    "dainty"];
+                options = ["tiny", "very small", "dainty"];
                 description = Appearance.randomChoice(options);
                 //Soft PC's buns!
                 if (i_character.tone <= 30 && Appearance.rand(3) == 0) description += " yet soft";
@@ -1572,116 +1746,122 @@ export class Appearance extends Utils {
         }
         if (i_character.buttRating > 1 && i_character.buttRating < 4) {
             if (i_character.tone >= 65) {
-                options = ["perky, muscular ",
+                options = [
+                    "perky, muscular ",
                     "tight, toned ",
                     "compact, muscular ",
                     "tight ",
-                    "muscular, toned "];
+                    "muscular, toned ",
+                ];
                 description = Appearance.randomChoice(options);
             }
             //Nondescript
             else if (i_character.tone >= 30) {
-                options = ["tight ",
-                    "firm ",
-                    "compact ",
-                    "petite "];
+                options = ["tight ", "firm ", "compact ", "petite "];
                 description = Appearance.randomChoice(options);
             }
             //FLABBAH
             else {
-                options = ["small, heart-shaped ",
+                options = [
+                    "small, heart-shaped ",
                     "soft, compact ",
                     "soft, heart-shaped ",
                     "small, cushy ",
                     "small ",
                     "petite ",
-                    "snug ",];
+                    "snug ",
+                ];
                 description = Appearance.randomChoice(options);
             }
         }
         if (i_character.buttRating >= 4 && i_character.buttRating < 6) {
             //TOIGHT LIKE A TIGER
             if (i_character.tone >= 65) {
-                options = ["nicely muscled ",
+                options = [
+                    "nicely muscled ",
                     "nice, toned ",
                     "muscly ",
                     "nice toned ",
                     "toned ",
-                    "fair "];
+                    "fair ",
+                ];
                 description = Appearance.randomChoice(options);
             }
             //Nondescript
             else if (i_character.tone >= 30) {
-                options = ["nice ",
-                    "fair "];
+                options = ["nice ", "fair "];
                 description = Appearance.randomChoice(options);
             }
             //FLABBAH
             else {
-                options = ["nice, cushiony ",
+                options = [
+                    "nice, cushiony ",
                     "soft ",
                     "nicely-rounded, heart-shaped ",
                     "cushy ",
-                    "soft, squeezable "];
+                    "soft, squeezable ",
+                ];
                 description = Appearance.randomChoice(options);
             }
         }
         if (i_character.buttRating >= 6 && i_character.buttRating < 8) {
             //TOIGHT LIKE A TIGER
             if (i_character.tone >= 65) {
-                options = ["full, toned ",
+                options = [
+                    "full, toned ",
                     "muscly handful of ",
                     "shapely, toned ",
                     "muscular, hand-filling ",
                     "shapely, chiseled ",
                     "full ",
-                    "chiseled "];
+                    "chiseled ",
+                ];
                 description = Appearance.randomChoice(options);
             }
             //Nondescript
             else if (i_character.tone >= 30) {
-                options = ["handful of ",
-                    "full ",
-                    "shapely ",
-                    "hand-filling "];
+                options = ["handful of ", "full ", "shapely ", "hand-filling "];
                 description = Appearance.randomChoice(options);
             }
             //FLABBAH
             else {
                 if (Appearance.rand(8) == 0) return "supple, handful of ass";
-                options = ["somewhat jiggly ",
+                options = [
+                    "somewhat jiggly ",
                     "soft, hand-filling ",
                     "cushiony, full ",
                     "plush, shapely ",
                     "full ",
                     "soft, shapely ",
-                    "rounded, spongy "];
+                    "rounded, spongy ",
+                ];
                 description = Appearance.randomChoice(options);
             }
         }
         if (i_character.buttRating >= 8 && i_character.buttRating < 10) {
             //TOIGHT LIKE A TIGER
             if (i_character.tone >= 65) {
-                options = ["large, muscular ",
+                options = [
+                    "large, muscular ",
                     "substantial, toned ",
                     "big-but-tight ",
                     "squeezable, toned ",
                     "large, brawny ",
                     "big-but-fit ",
                     "powerful, squeezable ",
-                    "large "];
+                    "large ",
+                ];
                 description = Appearance.randomChoice(options);
             }
             //Nondescript
             else if (i_character.tone >= 30) {
-                options = ["squeezable ",
-                    "large ",
-                    "substantial "];
+                options = ["squeezable ", "large ", "substantial "];
                 description = Appearance.randomChoice(options);
             }
             //FLABBAH
             else {
-                options = ["large, bouncy ",
+                options = [
+                    "large, bouncy ",
                     "soft, eye-catching ",
                     "big, slappable ",
                     "soft, pinchable ",
@@ -1689,33 +1869,34 @@ export class Appearance extends Utils {
                     "squeezable ",
                     "cushiony ",
                     "plush ",
-                    "pleasantly plump "];
+                    "pleasantly plump ",
+                ];
                 description = Appearance.randomChoice(options);
             }
         }
         if (i_character.buttRating >= 10 && i_character.buttRating < 13) {
             //TOIGHT LIKE A TIGER
             if (i_character.tone >= 65) {
-                options = ["thick, muscular ",
+                options = [
+                    "thick, muscular ",
                     "big, burly ",
                     "heavy, powerful ",
                     "spacious, muscular ",
                     "toned, cloth-straining ",
                     "thick ",
-                    "thick, strong "];
+                    "thick, strong ",
+                ];
                 description = Appearance.randomChoice(options);
             }
             //Nondescript
             else if (i_character.tone >= 30) {
-                options = ["jiggling ",
-                    "spacious ",
-                    "heavy ",
-                    "cloth-straining "];
+                options = ["jiggling ", "spacious ", "heavy ", "cloth-straining "];
                 description = Appearance.randomChoice(options);
             }
             //FLABBAH
             else {
-                options = ["super-soft, jiggling ",
+                options = [
+                    "super-soft, jiggling ",
                     "spacious, cushy ",
                     "plush, cloth-straining ",
                     "squeezable, over-sized ",
@@ -1724,34 +1905,35 @@ export class Appearance extends Utils {
                     "slappable, thick ",
                     "jiggling ",
                     "spacious ",
-                    "soft, plump "];
+                    "soft, plump ",
+                ];
                 description = Appearance.randomChoice(options);
             }
         }
         if (i_character.buttRating >= 13 && i_character.buttRating < 16) {
             //TOIGHT LIKE A TIGER
             if (i_character.tone >= 65) {
-                options = ["expansive, muscled ",
+                options = [
+                    "expansive, muscled ",
                     "voluminous, rippling ",
                     "generous, powerful ",
                     "big, burly ",
                     "well-built, voluminous ",
                     "powerful ",
                     "muscular ",
-                    "powerful, expansive "];
+                    "powerful, expansive ",
+                ];
                 description = Appearance.randomChoice(options);
             }
             //Nondescript
             else if (i_character.tone >= 30) {
-                options = ["expansive ",
-                    "generous ",
-                    "voluminous ",
-                    "wide "];
+                options = ["expansive ", "generous ", "voluminous ", "wide "];
                 description = Appearance.randomChoice(options);
             }
             //FLABBAH
             else {
-                options = ["pillow-like ",
+                options = [
+                    "pillow-like ",
                     "generous, cushiony ",
                     "wide, plush ",
                     "soft, generous ",
@@ -1761,32 +1943,34 @@ export class Appearance extends Utils {
                     "wide, jiggling ",
                     "wide ",
                     "voluminous ",
-                    "soft, padded "];
+                    "soft, padded ",
+                ];
                 description = Appearance.randomChoice(options);
             }
         }
         if (i_character.buttRating >= 16 && i_character.buttRating < 20) {
             if (i_character.tone >= 65) {
-                options = ["huge, toned ",
+                options = [
+                    "huge, toned ",
                     "vast, muscular ",
                     "vast, well-built ",
                     "huge, muscular ",
                     "strong, immense ",
-                    "muscle-bound "];
+                    "muscle-bound ",
+                ];
                 description = Appearance.randomChoice(options);
             }
             //Nondescript
             else if (i_character.tone >= 30) {
                 if (Appearance.rand(5) == 0) return "jiggling expanse of ass";
                 if (Appearance.rand(5) == 0) return "copious ass-flesh";
-                options = ["huge ",
-                    "vast ",
-                    "giant "];
+                options = ["huge ", "vast ", "giant "];
                 description = Appearance.randomChoice(options);
             }
             //FLABBAH
             else {
-                options = ["vast, cushiony ",
+                options = [
+                    "vast, cushiony ",
                     "huge, plump ",
                     "expansive, jiggling ",
                     "huge, cushiony ",
@@ -1796,32 +1980,33 @@ export class Appearance extends Utils {
                     "giant, slappable ",
                     "giant ",
                     "huge ",
-                    "swollen, pillow-like "];
+                    "swollen, pillow-like ",
+                ];
                 description = Appearance.randomChoice(options);
             }
         }
         if (i_character.buttRating >= 20) {
             if (i_character.tone >= 65) {
                 if (Appearance.rand(7) == 0) return "colossal, muscly ass";
-                options = ["ginormous, muscle-bound ",
+                options = [
+                    "ginormous, muscle-bound ",
                     "colossal yet toned ",
                     "strong, tremdously large ",
                     "tremendous, muscled ",
                     "ginormous, toned ",
-                    "colossal, well-defined "];
+                    "colossal, well-defined ",
+                ];
                 description = Appearance.randomChoice(options);
             }
             //Nondescript
             else if (i_character.tone >= 30) {
-                options = ["ginormous ",
-                    "colossal ",
-                    "tremendous ",
-                    "gigantic "];
+                options = ["ginormous ", "colossal ", "tremendous ", "gigantic "];
                 description = Appearance.randomChoice(options);
             }
             //FLABBAH
             else {
-                options = ["ginormous, jiggly ",
+                options = [
+                    "ginormous, jiggly ",
                     "plush, ginormous ",
                     "seam-destroying ",
                     "tremendous, rounded ",
@@ -1833,11 +2018,13 @@ export class Appearance extends Utils {
                     "gigantic ",
                     "ginormous ",
                     "colossal ",
-                    "tremendous "];
+                    "tremendous ",
+                ];
                 description = Appearance.randomChoice(options);
             }
         }
-        options = ["butt",
+        options = [
+            "butt",
             "butt",
             "butt",
             "butt",
@@ -1849,7 +2036,8 @@ export class Appearance extends Utils {
             "backside",
             "derriere",
             "rump",
-            "bottom"];
+            "bottom",
+        ];
 
         description += Appearance.randomChoice(options);
         //if(rando == 2) desc += "cheeks";
@@ -1867,59 +2055,45 @@ export class Appearance extends Utils {
         var description: string = "";
         var options: any[];
         if (i_creature.buttRating <= 1) {
-            options = ["insignificant ",
-                "very small "];
+            options = ["insignificant ", "very small "];
             description = Appearance.randomChoice(options);
         }
         if (i_creature.buttRating > 1 && i_creature.buttRating < 4) {
-            options = ["tight ",
-                "firm ",
-                "compact "];
+            options = ["tight ", "firm ", "compact "];
             description = Appearance.randomChoice(options);
         }
         if (i_creature.buttRating >= 4 && i_creature.buttRating < 6) {
-            options = ["regular ",
-                "unremarkable "];
+            options = ["regular ", "unremarkable "];
             description = Appearance.randomChoice(options);
         }
         if (i_creature.buttRating >= 6 && i_creature.buttRating < 8) {
             if (Appearance.rand(3) == 0) return "handful of ass";
-            options = ["full ",
-                "shapely "];
+            options = ["full ", "shapely "];
             description = Appearance.randomChoice(options);
         }
         if (i_creature.buttRating >= 8 && i_creature.buttRating < 10) {
-            options = ["squeezable ",
-                "large ",
-                "substantial "];
+            options = ["squeezable ", "large ", "substantial "];
             description = Appearance.randomChoice(options);
         }
         if (i_creature.buttRating >= 10 && i_creature.buttRating < 13) {
-            options = ["jiggling ",
-                "spacious ",
-                "heavy "];
+            options = ["jiggling ", "spacious ", "heavy "];
             description = Appearance.randomChoice(options);
         }
         if (i_creature.buttRating >= 13 && i_creature.buttRating < 16) {
             if (Appearance.rand(3) == 0) return "generous amount of ass";
-            options = ["expansive ",
-                "voluminous "];
+            options = ["expansive ", "voluminous "];
             description = Appearance.randomChoice(options);
         }
         if (i_creature.buttRating >= 16 && i_creature.buttRating < 20) {
             if (Appearance.rand(3) == 2) return "jiggling expanse of ass";
-            options = ["huge ",
-                "vast "];
+            options = ["huge ", "vast "];
             description = Appearance.randomChoice(options);
         }
         if (i_creature.buttRating >= 20) {
-            options = ["ginormous ",
-                "colossal ",
-                "tremendous "];
+            options = ["ginormous ", "colossal ", "tremendous "];
             description = Appearance.randomChoice(options);
         }
-        options = ["butt ",
-            "ass "];
+        options = ["butt ", "ass "];
         description += Appearance.randomChoice(options);
         if (Appearance.rand(2) == 0) description += "cheeks";
         return description;
@@ -1955,17 +2129,22 @@ export class Appearance extends Utils {
         ANAL_TIGHTNESS_DESCRIPTORS[ANAL_LOOSENESS_GAPING] = "gaping ";
 
         //25% tightness description
-        if (Appearance.rand(4) == 0 || (i_creature.ass.analLooseness <= 1 && Appearance.rand(4) <= 2)) {
+        if (
+            Appearance.rand(4) == 0 ||
+            (i_creature.ass.analLooseness <= 1 && Appearance.rand(4) <= 2)
+        ) {
             description += ANAL_TIGHTNESS_DESCRIPTORS[i_creature.ass.analLooseness];
         }
 
         //asshole descriptor
-        description += Appearance.randomChoice("ass",
+        description += Appearance.randomChoice(
+            "ass",
             "anus",
             "pucker",
             "backdoor",
             "asshole",
-            "butthole");
+            "butthole"
+        );
 
         return description;
     }
@@ -2076,22 +2255,113 @@ export class Appearance extends Utils {
     */
 
     public static BREAST_CUP_NAMES: any[] = [
-        "flat",//0
+        "flat", //0
         //				1			2			3			4			5				6			7		8			9
-        "A-cup", "B-cup", "C-cup", "D-cup", "DD-cup", "big DD-cup", "E-cup", "big E-cup", "EE-cup",// 1-9
-        "big EE-cup", "F-cup", "big F-cup", "FF-cup", "big FF-cup", "G-cup", "big G-cup", "GG-cup", "big GG-cup", "H-cup",//10-19
-        "big H-cup", "HH-cup", "big HH-cup", "HHH-cup", "I-cup", "big I-cup", "II-cup", "big II-cup", "J-cup", "big J-cup",//20-29
-        "JJ-cup", "big JJ-cup", "K-cup", "big K-cup", "KK-cup", "big KK-cup", "L-cup", "big L-cup", "LL-cup", "big LL-cup",//30-39
-        "M-cup", "big M-cup", "MM-cup", "big MM-cup", "MMM-cup", "large MMM-cup", "N-cup", "large N-cup", "NN-cup", "large NN-cup",//40-49
-        "O-cup", "large O-cup", "OO-cup", "large OO-cup", "P-cup", "large P-cup", "PP-cup", "large PP-cup", "Q-cup", "large Q-cup",//50-59
-        "QQ-cup", "large QQ-cup", "R-cup", "large R-cup", "RR-cup", "large RR-cup", "S-cup", "large S-cup", "SS-cup", "large SS-cup",//60-69
-        "T-cup", "large T-cup", "TT-cup", "large TT-cup", "U-cup", "large U-cup", "UU-cup", "large UU-cup", "V-cup", "large V-cup",//70-79
-        "VV-cup", "large VV-cup", "W-cup", "large W-cup", "WW-cup", "large WW-cup", "X-cup", "large X-cup", "XX-cup", "large XX-cup",//80-89
-        "Y-cup", "large Y-cup", "YY-cup", "large YY-cup", "Z-cup", "large Z-cup", "ZZ-cup", "large ZZ-cup", "ZZZ-cup", "large ZZZ-cup"//90-99
+        "A-cup",
+        "B-cup",
+        "C-cup",
+        "D-cup",
+        "DD-cup",
+        "big DD-cup",
+        "E-cup",
+        "big E-cup",
+        "EE-cup", // 1-9
+        "big EE-cup",
+        "F-cup",
+        "big F-cup",
+        "FF-cup",
+        "big FF-cup",
+        "G-cup",
+        "big G-cup",
+        "GG-cup",
+        "big GG-cup",
+        "H-cup", //10-19
+        "big H-cup",
+        "HH-cup",
+        "big HH-cup",
+        "HHH-cup",
+        "I-cup",
+        "big I-cup",
+        "II-cup",
+        "big II-cup",
+        "J-cup",
+        "big J-cup", //20-29
+        "JJ-cup",
+        "big JJ-cup",
+        "K-cup",
+        "big K-cup",
+        "KK-cup",
+        "big KK-cup",
+        "L-cup",
+        "big L-cup",
+        "LL-cup",
+        "big LL-cup", //30-39
+        "M-cup",
+        "big M-cup",
+        "MM-cup",
+        "big MM-cup",
+        "MMM-cup",
+        "large MMM-cup",
+        "N-cup",
+        "large N-cup",
+        "NN-cup",
+        "large NN-cup", //40-49
+        "O-cup",
+        "large O-cup",
+        "OO-cup",
+        "large OO-cup",
+        "P-cup",
+        "large P-cup",
+        "PP-cup",
+        "large PP-cup",
+        "Q-cup",
+        "large Q-cup", //50-59
+        "QQ-cup",
+        "large QQ-cup",
+        "R-cup",
+        "large R-cup",
+        "RR-cup",
+        "large RR-cup",
+        "S-cup",
+        "large S-cup",
+        "SS-cup",
+        "large SS-cup", //60-69
+        "T-cup",
+        "large T-cup",
+        "TT-cup",
+        "large TT-cup",
+        "U-cup",
+        "large U-cup",
+        "UU-cup",
+        "large UU-cup",
+        "V-cup",
+        "large V-cup", //70-79
+        "VV-cup",
+        "large VV-cup",
+        "W-cup",
+        "large W-cup",
+        "WW-cup",
+        "large WW-cup",
+        "X-cup",
+        "large X-cup",
+        "XX-cup",
+        "large XX-cup", //80-89
+        "Y-cup",
+        "large Y-cup",
+        "YY-cup",
+        "large YY-cup",
+        "Z-cup",
+        "large Z-cup",
+        "ZZ-cup",
+        "large ZZ-cup",
+        "ZZZ-cup",
+        "large ZZZ-cup", //90-99
     ];
 
     public static breastCup(size: number): string {
-        return Appearance.BREAST_CUP_NAMES[Math.min(Math.floor(size), Appearance.BREAST_CUP_NAMES.length - 1)];
+        return Appearance.BREAST_CUP_NAMES[
+            Math.min(Math.floor(size), Appearance.BREAST_CUP_NAMES.length - 1)
+        ];
     }
 
     /**
@@ -2116,210 +2386,176 @@ export class Appearance extends Utils {
         return result;
     }
 
-    public static DEFAULT_GENDER_NAMES: Record<string, any> = Appearance.createMapFromPairs(
-        [
-            [GENDER_NONE, "genderless"],
-            [GENDER_MALE, "male"],
-            [GENDER_FEMALE, "female"],
-            [GENDER_HERM, "hermaphrodite"]
-        ]
-    );
-    public static DEFAULT_SKIN_NAMES: Record<string, any> = Appearance.createMapFromPairs(
-        [
-            [SKIN_TYPE_PLAIN, "skin"],
-            [SKIN_TYPE_FUR, "fur"],
-            [SKIN_TYPE_SCALES, "scales"],
-            [SKIN_TYPE_GOO, "goo"],
-            [SKIN_TYPE_UNDEFINED, "undefined flesh"]
-        ]
-    );
-    public static DEFAULT_SKIN_DESCS: Record<string, any> = Appearance.createMapFromPairs(
-        [
-            [SKIN_TYPE_PLAIN, "skin"],
-            [SKIN_TYPE_FUR, "fur"],
-            [SKIN_TYPE_SCALES, "scales"],
-            [SKIN_TYPE_GOO, "skin"],
-            [SKIN_TYPE_UNDEFINED, "skin"]
-        ]
-    );
-    public static DEFAULT_HAIR_NAMES: Record<string, any> = Appearance.createMapFromPairs(
-        [
-            [HAIR_NORMAL, "normal"],
-            [HAIR_FEATHER, "feather"],
-            [HAIR_GHOST, "transparent"],
-            [HAIR_GOO, "goopy"],
-            [HAIR_ANEMONE, "tentacle"]
-        ]
-    );
-    public static DEFAULT_FACE_NAMES: Record<string, any> = Appearance.createMapFromPairs(
-        [
-            [FACE_HUMAN, "human"],
-            [FACE_HORSE, "horse"],
-            [FACE_DOG, "dog"],
-            [FACE_COW_MINOTAUR, "cow"],
-            [FACE_SHARK_TEETH, "shark"],
-            [FACE_SNAKE_FANGS, "snake"],
-            [FACE_CAT, "cat"],
-            [FACE_LIZARD, "lizard"],
-            [FACE_BUNNY, "bunny"],
-            [FACE_KANGAROO, "kangaroo"],
-            [FACE_SPIDER_FANGS, "spider"],
-            [FACE_FOX, "fox"],
-            [FACE_DRAGON, "dragon"],
-            [FACE_RACCOON_MASK, "raccoon mask"],
-            [FACE_RACCOON, "racoon"],
-            [FACE_BUCKTEETH, "buckteeth"],
-            [FACE_MOUSE, "mouse"]
-        ]
-    );
-    public static DEFAULT_TONGUE_NAMES: Record<string, any> = Appearance.createMapFromPairs(
-        [
-            [TONUGE_HUMAN, "human"],
-            [TONUGE_SNAKE, "snake"],
-            [TONUGE_DEMONIC, "demonic"],
-            [TONUGE_DRACONIC, "draconic"]
-        ]
-    );
-    public static DEFAULT_EYES_NAMES: Record<string, any> = Appearance.createMapFromPairs(
-        [
-            [EYES_HUMAN, "human"],
-            [EYES_FOUR_SPIDER_EYES, "4 spider"],
-            [EYES_BLACK_EYES_SAND_TRAP, "sandtrap black"]
-        ]
-    );
-    public static DEFAULT_EARS_NAMES: Record<string, any> = Appearance.createMapFromPairs(
-        [
-            [EARS_HUMAN, "human"],
-            [EARS_HORSE, "horse"],
-            [EARS_DOG, "dog"],
-            [EARS_COW, "cow"],
-            [EARS_ELFIN, "elfin"],
-            [EARS_CAT, "cat"],
-            [EARS_LIZARD, "lizard"],
-            [EARS_BUNNY, "bunny"],
-            [EARS_KANGAROO, "kangaroo"],
-            [EARS_FOX, "fox"],
-            [EARS_DRAGON, "dragon"],
-            [EARS_RACCOON, "raccoon"],
-            [EARS_MOUSE, "mouse"]
-        ]
-    );
-    public static DEFAULT_HORNS_NAMES: Record<string, any> = Appearance.createMapFromPairs(
-        [
-            [HORNS_NONE, "non-existant"],
-            [HORNS_DEMON, "demon"],
-            [HORNS_COW_MINOTAUR, "cow"],
-            [HORNS_DRACONIC_X2, "2 draconic"],
-            [HORNS_DRACONIC_X4_12_INCH_LONG, "four 12\" long draconic"],
-            [HORNS_ANTLERS, "deer"]
-        ]
-    );
-    public static DEFAULT_ANTENNAE_NAMES: Record<string, any> = Appearance.createMapFromPairs(
-        [
-            [ANTENNAE_NONE, "non-existant"],
-            [ANTENNAE_BEE, "bee"]
-        ]
-    );
-    public static DEFAULT_ARM_NAMES: Record<string, any> = Appearance.createMapFromPairs(
-        [
-            [ARM_TYPE_HUMAN, "human"],
-            [ARM_TYPE_HARPY, "harpy"],
-            [ARM_TYPE_SPIDER, "spider"]
-        ]
-    );
-    public static DEFAULT_TAIL_NAMES: Record<string, any> = Appearance.createMapFromPairs(
-        [
-            [TAIL_TYPE_NONE, "non-existant"],
-            [TAIL_TYPE_HORSE, "horse"],
-            [TAIL_TYPE_DOG, "dog"],
-            [TAIL_TYPE_DEMONIC, "demonic"],
-            [TAIL_TYPE_COW, "cow"],
-            [TAIL_TYPE_SPIDER_ADBOMEN, "spider abdomen"],
-            [TAIL_TYPE_BEE_ABDOMEN, "bee abdomen"],
-            [TAIL_TYPE_SHARK, "shark"],
-            [TAIL_TYPE_CAT, "cat"],
-            [TAIL_TYPE_LIZARD, "lizard"],
-            [TAIL_TYPE_RABBIT, "rabbit"],
-            [TAIL_TYPE_HARPY, "harpy"],
-            [TAIL_TYPE_KANGAROO, "kangaroo"],
-            [TAIL_TYPE_FOX, "fox"],
-            [TAIL_TYPE_DRACONIC, "draconic"],
-            [TAIL_TYPE_RACCOON, "raccoon"],
-            [TAIL_TYPE_MOUSE, "mouse"]
-        ]
-    );
-    public static DEFAULT_WING_NAMES: Record<string, any> = Appearance.createMapFromPairs(
-        [
-            [WING_TYPE_NONE, "non-existant"],
-            [WING_TYPE_BEE_LIKE_SMALL, "small bee-like"],
-            [WING_TYPE_BEE_LIKE_LARGE, "large bee-like"],
-            [WING_TYPE_HARPY, "harpy"],
-            [WING_TYPE_IMP, "imp"],
-            [WING_TYPE_BAT_LIKE_TINY, "tiny bat-like"],
-            [WING_TYPE_BAT_LIKE_LARGE, "large bat-like"],
-            [WING_TYPE_SHARK_FIN, "shark fin"],
-            [WING_TYPE_FEATHERED_LARGE, "large feathered"],
-            [WING_TYPE_DRACONIC_SMALL, "small draconic"],
-            [WING_TYPE_DRACONIC_LARGE, "large draconic"],
-            [WING_TYPE_GIANT_DRAGONFLY, "giant dragonfly"]
-        ]
-    );
-    public static DEFAULT_WING_DESCS: Record<string, any> = Appearance.createMapFromPairs(
-        [
-            [WING_TYPE_NONE, "non-existant"],
-            [WING_TYPE_BEE_LIKE_SMALL, "small bee-like"],
-            [WING_TYPE_BEE_LIKE_LARGE, "large bee-like"],
-            [WING_TYPE_HARPY, "large feathery"],
-            [WING_TYPE_IMP, "small"],
-            [WING_TYPE_BAT_LIKE_TINY, "tiny, bat-like"],
-            [WING_TYPE_BAT_LIKE_LARGE, "large, bat-like"],
-            [WING_TYPE_SHARK_FIN, ""],
-            [WING_TYPE_FEATHERED_LARGE, "large, feathered"],
-            [WING_TYPE_DRACONIC_SMALL, "small, draconic"],
-            [WING_TYPE_DRACONIC_LARGE, "large, draconic"],
-            [WING_TYPE_GIANT_DRAGONFLY, "giant dragonfly"]
-        ]
-    );
-    public static DEFAULT_LOWER_BODY_NAMES: Record<string, any> = Appearance.createMapFromPairs(
-        [
-            [LOWER_BODY_TYPE_HUMAN, "human"],
-            [LOWER_BODY_TYPE_HOOFED, "hoofed"],
-            [LOWER_BODY_TYPE_DOG, "dog"],
-            [LOWER_BODY_TYPE_NAGA, "naga"],
-            [LOWER_BODY_TYPE_CENTAUR, "centaur"],
-            [LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS, "demonic high-heels"],
-            [LOWER_BODY_TYPE_DEMONIC_CLAWS, "demonic claws"],
-            [LOWER_BODY_TYPE_BEE, "bee"],
-            [LOWER_BODY_TYPE_GOO, "goo"],
-            [LOWER_BODY_TYPE_CAT, "cat"],
-            [LOWER_BODY_TYPE_LIZARD, "lizard"],
-            [LOWER_BODY_TYPE_PONY, "pony"],
-            [LOWER_BODY_TYPE_BUNNY, "bunny"],
-            [LOWER_BODY_TYPE_HARPY, "harpy"],
-            [LOWER_BODY_TYPE_KANGAROO, "kangaroo"],
-            [LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS, "chitinous spider legs"],
-            [LOWER_BODY_TYPE_DRIDER_LOWER_BODY, "drider"],
-            [LOWER_BODY_TYPE_FOX, "fox"],
-            [LOWER_BODY_TYPE_DRAGON, "dragon"],
-            [LOWER_BODY_TYPE_RACCOON, "raccoon"]
-        ]
-    );
-    public static DEFAULT_PIERCING_NAMES: Record<string, any> = Appearance.createMapFromPairs(
-        [
-            [PIERCING_TYPE_NONE, "none"],
-            [PIERCING_TYPE_STUD, "stud"],
-            [PIERCING_TYPE_RING, "ring"],
-            [PIERCING_TYPE_LADDER, "ladder"],
-            [PIERCING_TYPE_HOOP, "hoop"],
-            [PIERCING_TYPE_CHAIN, "chain"]
-        ]
-    );
-    public static DEFAULT_VAGINA_TYPE_NAMES: Record<string, any> = Appearance.createMapFromPairs(
-        [
-            [VAGINA_TYPE_HUMAN, "human"],
-            [VAGINA_TYPE_BLACK_SAND_TRAP, "black sandtrap"]
-        ]
-    );
+    public static DEFAULT_GENDER_NAMES: Record<string, any> = Appearance.createMapFromPairs([
+        [GENDER_NONE, "genderless"],
+        [GENDER_MALE, "male"],
+        [GENDER_FEMALE, "female"],
+        [GENDER_HERM, "hermaphrodite"],
+    ]);
+    public static DEFAULT_SKIN_NAMES: Record<string, any> = Appearance.createMapFromPairs([
+        [SKIN_TYPE_PLAIN, "skin"],
+        [SKIN_TYPE_FUR, "fur"],
+        [SKIN_TYPE_SCALES, "scales"],
+        [SKIN_TYPE_GOO, "goo"],
+        [SKIN_TYPE_UNDEFINED, "undefined flesh"],
+    ]);
+    public static DEFAULT_SKIN_DESCS: Record<string, any> = Appearance.createMapFromPairs([
+        [SKIN_TYPE_PLAIN, "skin"],
+        [SKIN_TYPE_FUR, "fur"],
+        [SKIN_TYPE_SCALES, "scales"],
+        [SKIN_TYPE_GOO, "skin"],
+        [SKIN_TYPE_UNDEFINED, "skin"],
+    ]);
+    public static DEFAULT_HAIR_NAMES: Record<string, any> = Appearance.createMapFromPairs([
+        [HAIR_NORMAL, "normal"],
+        [HAIR_FEATHER, "feather"],
+        [HAIR_GHOST, "transparent"],
+        [HAIR_GOO, "goopy"],
+        [HAIR_ANEMONE, "tentacle"],
+    ]);
+    public static DEFAULT_FACE_NAMES: Record<string, any> = Appearance.createMapFromPairs([
+        [FACE_HUMAN, "human"],
+        [FACE_HORSE, "horse"],
+        [FACE_DOG, "dog"],
+        [FACE_COW_MINOTAUR, "cow"],
+        [FACE_SHARK_TEETH, "shark"],
+        [FACE_SNAKE_FANGS, "snake"],
+        [FACE_CAT, "cat"],
+        [FACE_LIZARD, "lizard"],
+        [FACE_BUNNY, "bunny"],
+        [FACE_KANGAROO, "kangaroo"],
+        [FACE_SPIDER_FANGS, "spider"],
+        [FACE_FOX, "fox"],
+        [FACE_DRAGON, "dragon"],
+        [FACE_RACCOON_MASK, "raccoon mask"],
+        [FACE_RACCOON, "racoon"],
+        [FACE_BUCKTEETH, "buckteeth"],
+        [FACE_MOUSE, "mouse"],
+    ]);
+    public static DEFAULT_TONGUE_NAMES: Record<string, any> = Appearance.createMapFromPairs([
+        [TONUGE_HUMAN, "human"],
+        [TONUGE_SNAKE, "snake"],
+        [TONUGE_DEMONIC, "demonic"],
+        [TONUGE_DRACONIC, "draconic"],
+    ]);
+    public static DEFAULT_EYES_NAMES: Record<string, any> = Appearance.createMapFromPairs([
+        [EYES_HUMAN, "human"],
+        [EYES_FOUR_SPIDER_EYES, "4 spider"],
+        [EYES_BLACK_EYES_SAND_TRAP, "sandtrap black"],
+    ]);
+    public static DEFAULT_EARS_NAMES: Record<string, any> = Appearance.createMapFromPairs([
+        [EARS_HUMAN, "human"],
+        [EARS_HORSE, "horse"],
+        [EARS_DOG, "dog"],
+        [EARS_COW, "cow"],
+        [EARS_ELFIN, "elfin"],
+        [EARS_CAT, "cat"],
+        [EARS_LIZARD, "lizard"],
+        [EARS_BUNNY, "bunny"],
+        [EARS_KANGAROO, "kangaroo"],
+        [EARS_FOX, "fox"],
+        [EARS_DRAGON, "dragon"],
+        [EARS_RACCOON, "raccoon"],
+        [EARS_MOUSE, "mouse"],
+    ]);
+    public static DEFAULT_HORNS_NAMES: Record<string, any> = Appearance.createMapFromPairs([
+        [HORNS_NONE, "non-existant"],
+        [HORNS_DEMON, "demon"],
+        [HORNS_COW_MINOTAUR, "cow"],
+        [HORNS_DRACONIC_X2, "2 draconic"],
+        [HORNS_DRACONIC_X4_12_INCH_LONG, 'four 12" long draconic'],
+        [HORNS_ANTLERS, "deer"],
+    ]);
+    public static DEFAULT_ANTENNAE_NAMES: Record<string, any> = Appearance.createMapFromPairs([
+        [ANTENNAE_NONE, "non-existant"],
+        [ANTENNAE_BEE, "bee"],
+    ]);
+    public static DEFAULT_ARM_NAMES: Record<string, any> = Appearance.createMapFromPairs([
+        [ARM_TYPE_HUMAN, "human"],
+        [ARM_TYPE_HARPY, "harpy"],
+        [ARM_TYPE_SPIDER, "spider"],
+    ]);
+    public static DEFAULT_TAIL_NAMES: Record<string, any> = Appearance.createMapFromPairs([
+        [TAIL_TYPE_NONE, "non-existant"],
+        [TAIL_TYPE_HORSE, "horse"],
+        [TAIL_TYPE_DOG, "dog"],
+        [TAIL_TYPE_DEMONIC, "demonic"],
+        [TAIL_TYPE_COW, "cow"],
+        [TAIL_TYPE_SPIDER_ADBOMEN, "spider abdomen"],
+        [TAIL_TYPE_BEE_ABDOMEN, "bee abdomen"],
+        [TAIL_TYPE_SHARK, "shark"],
+        [TAIL_TYPE_CAT, "cat"],
+        [TAIL_TYPE_LIZARD, "lizard"],
+        [TAIL_TYPE_RABBIT, "rabbit"],
+        [TAIL_TYPE_HARPY, "harpy"],
+        [TAIL_TYPE_KANGAROO, "kangaroo"],
+        [TAIL_TYPE_FOX, "fox"],
+        [TAIL_TYPE_DRACONIC, "draconic"],
+        [TAIL_TYPE_RACCOON, "raccoon"],
+        [TAIL_TYPE_MOUSE, "mouse"],
+    ]);
+    public static DEFAULT_WING_NAMES: Record<string, any> = Appearance.createMapFromPairs([
+        [WING_TYPE_NONE, "non-existant"],
+        [WING_TYPE_BEE_LIKE_SMALL, "small bee-like"],
+        [WING_TYPE_BEE_LIKE_LARGE, "large bee-like"],
+        [WING_TYPE_HARPY, "harpy"],
+        [WING_TYPE_IMP, "imp"],
+        [WING_TYPE_BAT_LIKE_TINY, "tiny bat-like"],
+        [WING_TYPE_BAT_LIKE_LARGE, "large bat-like"],
+        [WING_TYPE_SHARK_FIN, "shark fin"],
+        [WING_TYPE_FEATHERED_LARGE, "large feathered"],
+        [WING_TYPE_DRACONIC_SMALL, "small draconic"],
+        [WING_TYPE_DRACONIC_LARGE, "large draconic"],
+        [WING_TYPE_GIANT_DRAGONFLY, "giant dragonfly"],
+    ]);
+    public static DEFAULT_WING_DESCS: Record<string, any> = Appearance.createMapFromPairs([
+        [WING_TYPE_NONE, "non-existant"],
+        [WING_TYPE_BEE_LIKE_SMALL, "small bee-like"],
+        [WING_TYPE_BEE_LIKE_LARGE, "large bee-like"],
+        [WING_TYPE_HARPY, "large feathery"],
+        [WING_TYPE_IMP, "small"],
+        [WING_TYPE_BAT_LIKE_TINY, "tiny, bat-like"],
+        [WING_TYPE_BAT_LIKE_LARGE, "large, bat-like"],
+        [WING_TYPE_SHARK_FIN, ""],
+        [WING_TYPE_FEATHERED_LARGE, "large, feathered"],
+        [WING_TYPE_DRACONIC_SMALL, "small, draconic"],
+        [WING_TYPE_DRACONIC_LARGE, "large, draconic"],
+        [WING_TYPE_GIANT_DRAGONFLY, "giant dragonfly"],
+    ]);
+    public static DEFAULT_LOWER_BODY_NAMES: Record<string, any> = Appearance.createMapFromPairs([
+        [LOWER_BODY_TYPE_HUMAN, "human"],
+        [LOWER_BODY_TYPE_HOOFED, "hoofed"],
+        [LOWER_BODY_TYPE_DOG, "dog"],
+        [LOWER_BODY_TYPE_NAGA, "naga"],
+        [LOWER_BODY_TYPE_CENTAUR, "centaur"],
+        [LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS, "demonic high-heels"],
+        [LOWER_BODY_TYPE_DEMONIC_CLAWS, "demonic claws"],
+        [LOWER_BODY_TYPE_BEE, "bee"],
+        [LOWER_BODY_TYPE_GOO, "goo"],
+        [LOWER_BODY_TYPE_CAT, "cat"],
+        [LOWER_BODY_TYPE_LIZARD, "lizard"],
+        [LOWER_BODY_TYPE_PONY, "pony"],
+        [LOWER_BODY_TYPE_BUNNY, "bunny"],
+        [LOWER_BODY_TYPE_HARPY, "harpy"],
+        [LOWER_BODY_TYPE_KANGAROO, "kangaroo"],
+        [LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS, "chitinous spider legs"],
+        [LOWER_BODY_TYPE_DRIDER_LOWER_BODY, "drider"],
+        [LOWER_BODY_TYPE_FOX, "fox"],
+        [LOWER_BODY_TYPE_DRAGON, "dragon"],
+        [LOWER_BODY_TYPE_RACCOON, "raccoon"],
+    ]);
+    public static DEFAULT_PIERCING_NAMES: Record<string, any> = Appearance.createMapFromPairs([
+        [PIERCING_TYPE_NONE, "none"],
+        [PIERCING_TYPE_STUD, "stud"],
+        [PIERCING_TYPE_RING, "ring"],
+        [PIERCING_TYPE_LADDER, "ladder"],
+        [PIERCING_TYPE_HOOP, "hoop"],
+        [PIERCING_TYPE_CHAIN, "chain"],
+    ]);
+    public static DEFAULT_VAGINA_TYPE_NAMES: Record<string, any> = Appearance.createMapFromPairs([
+        [VAGINA_TYPE_HUMAN, "human"],
+        [VAGINA_TYPE_BLACK_SAND_TRAP, "black sandtrap"],
+    ]);
     public static DEFAULT_VAGINA_WETNESS_SCALES: any[] = [
         [VAGINA_WETNESS_DRY, "dry"],
         [VAGINA_WETNESS_NORMAL, "normal"],
@@ -2334,7 +2570,7 @@ export class Appearance extends Utils {
         [VAGINA_LOOSENESS_LOOSE, "loose"],
         [VAGINA_LOOSENESS_GAPING, "gaping"],
         [VAGINA_LOOSENESS_GAPING_WIDE, "gaping wide"],
-        [VAGINA_LOOSENESS_LEVEL_CLOWN_CAR, "clown-car level"]
+        [VAGINA_LOOSENESS_LEVEL_CLOWN_CAR, "clown-car level"],
     ];
     public static DEFAULT_ANAL_WETNESS_SCALES: any[] = [
         [ANAL_WETNESS_DRY, "dry"],
@@ -2350,7 +2586,7 @@ export class Appearance extends Utils {
         [ANAL_LOOSENESS_NORMAL, "normal"],
         [ANAL_LOOSENESS_LOOSE, "loose"],
         [ANAL_LOOSENESS_STRETCHED, "stretched"],
-        [ANAL_LOOSENESS_GAPING, "gaping"]
+        [ANAL_LOOSENESS_GAPING, "gaping"],
     ];
     public static DEFAULT_HIP_RATING_SCALES: any[] = [
         [HIP_RATING_BOYISH, "boyish"],
@@ -2359,7 +2595,7 @@ export class Appearance extends Utils {
         [HIP_RATING_AMPLE, "ample"],
         [HIP_RATING_CURVY, "curvy"],
         [HIP_RATING_FERTILE, "fertile"],
-        [HIP_RATING_INHUMANLY_WIDE, "inhumanly wide"]
+        [HIP_RATING_INHUMANLY_WIDE, "inhumanly wide"],
     ];
     public static DEFAULT_BUTT_RATING_SCALES: any[] = [
         [BUTT_RATING_BUTTLESS, "buttless"],
@@ -2370,7 +2606,7 @@ export class Appearance extends Utils {
         [BUTT_RATING_JIGGLY, "jiggly"],
         [BUTT_RATING_EXPANSIVE, "expansive"],
         [BUTT_RATING_HUGE, "huge"],
-        [BUTT_RATING_INCONCEIVABLY_BIG, "inconceivably big"]
+        [BUTT_RATING_INCONCEIVABLY_BIG, "inconceivably big"],
     ];
 
     /**
@@ -2383,7 +2619,12 @@ export class Appearance extends Utils {
      *      value = 10  ->   "big"
      *      value > 10  ->   "more than big"
      */
-    public static describeByScale(value: number, scale: any[], lessThan: string = "less than", moreThan: string = "more than"): string {
+    public static describeByScale(
+        value: number,
+        scale: any[],
+        lessThan: string = "less than",
+        moreThan: string = "more than"
+    ): string {
         if (scale.length == 0) return "undescribeale";
         if (scale.length == 1) return "about " + scale[0][1];
         if (value < scale[0][0]) return lessThan + " " + scale[0][1];
@@ -2402,7 +2643,7 @@ export class Appearance extends Utils {
      * numberOfThings(3,"hoof","hooves") = "3 hooves"
      */
     public static numberOfThings(n: number, name: string, pluralForm?: string): string {
-        pluralForm = pluralForm || (name + "s");
+        pluralForm = pluralForm || name + "s";
         if (n == 0) return "no " + pluralForm;
         if (n == 1) return "one " + name;
         return n + " " + pluralForm;
@@ -2416,16 +2657,16 @@ export class Appearance extends Utils {
     public static feetsAndInches(n: number): string {
         var feet: number = Math.floor(n / 12);
         var inches: number = n - feet * 12;
-        if (feet > 0) return feet + "'" + inches + "\"";
-        else return inches + "\"";
+        if (feet > 0) return feet + "'" + inches + '"';
+        else return inches + '"';
     }
 
     /**
      * 13 -> 13" (2'1")
      */
     public static inchesAndFeetsAndInches(n: number): string {
-        if (n < 12) return n + "\"";
-        return n + "\" (" + Appearance.feetsAndInches(n) + ")";
+        if (n < 12) return n + '"';
+        return n + '" (' + Appearance.feetsAndInches(n) + ")";
     }
 
     public static allBreastsDescript(creature: Creature): string {
@@ -2449,7 +2690,6 @@ export class Appearance extends Utils {
         }
         storage += Appearance.biggestBreastSizeDescript(creature);
         return storage;
-
     }
 
     public static tailDescript(i_creature: Creature): string {
@@ -2470,10 +2710,8 @@ export class Appearance extends Utils {
                 else if (i_creature.tailVenom > 5) descript += "bundle ";
 
                 descript += "of kitsune tails";
-            }
-            else descript += "kitsune tail";
-        }
-        else {
+            } else descript += "kitsune tail";
+        } else {
             descript += Appearance.DEFAULT_TAIL_NAMES[i_creature.tailType];
             descript += " tail";
         }
@@ -2492,12 +2730,10 @@ export class Appearance extends Utils {
         if (i_creature.tailType == TAIL_TYPE_FOX && i_creature.tailVenom >= 1) {
             if (i_creature.tailVenom == 1) {
                 descript += "your kitsune tail";
-            }
-            else {
+            } else {
                 descript += "one of your kitsune tails";
             }
-        }
-        else {
+        } else {
             descript += "your " + Appearance.DEFAULT_TAIL_NAMES[i_creature.tailType] + " tail";
         }
 
@@ -2512,14 +2748,14 @@ export class Appearance extends Utils {
         if (creature.breastRows.length - 1 < temp142) {
             CoC_Settings.error("");
             return "<b>ERROR, biggestBreastSizeDescript() working with invalid breastRow</b>";
-        }
-        else if (temp142 < 0) {
+        } else if (temp142 < 0) {
             CoC_Settings.error("");
             return "ERROR SHIT SON!  BIGGESTBREASTSIZEDESCRIPT PASSED NEGATIVE!";
         }
         if (creature.breastRows[temp142].breastRating < 1) return "flat breasts";
         //50% of the time size-descript them
-        if (Appearance.rand(2) == 0) descript += Appearance.breastSize(creature.breastRows[temp142].breastRating);
+        if (Appearance.rand(2) == 0)
+            descript += Appearance.breastSize(creature.breastRows[temp142].breastRating);
         //Nouns!
         temp14 = Appearance.rand(10);
         if (temp14 == 0) descript += "breasts";
@@ -2540,7 +2776,11 @@ export class Appearance extends Utils {
         if (temp14 == 5) descript += "tits";
         if (temp14 == 6) descript += "tits";
         if (temp14 == 7) {
-            if (creature.breastRows[temp142].lactationMultiplier >= 1 && creature.breastRows[temp142].lactationMultiplier < 2.5) descript += "milk jugs";
+            if (
+                creature.breastRows[temp142].lactationMultiplier >= 1 &&
+                creature.breastRows[temp142].lactationMultiplier < 2.5
+            )
+                descript += "milk jugs";
             if (creature.breastRows[temp142].lactationMultiplier >= 2.5) descript += "udders";
             if (creature.breastRows[temp142].lactationMultiplier < 1) descript += "jugs";
         }
@@ -2565,27 +2805,60 @@ export class Appearance extends Utils {
         }
         //C-D
         else if (val <= 4) {
-            descript += Appearance.randomChoice("nice ", "hand-filling ", "well-rounded ", "supple ", "softball-sized ");
+            descript += Appearance.randomChoice(
+                "nice ",
+                "hand-filling ",
+                "well-rounded ",
+                "supple ",
+                "softball-sized "
+            );
         }
         //DD->big EE
         else if (val < 11) {
-            descript += Appearance.randomChoice("big ", "large ", "pillowy ", "jiggly ", "volleyball-sized ");
+            descript += Appearance.randomChoice(
+                "big ",
+                "large ",
+                "pillowy ",
+                "jiggly ",
+                "volleyball-sized "
+            );
         }
         //F->big FF
         else if (val < 15) {
-            descript += Appearance.randomChoice("soccerball-sized ", "hand-overflowing ", "generous ", "jiggling ");
+            descript += Appearance.randomChoice(
+                "soccerball-sized ",
+                "hand-overflowing ",
+                "generous ",
+                "jiggling "
+            );
         }
         //G -> HHH
         else if (val < 24) {
-            descript += Appearance.randomChoice("basketball-sized ", "whorish ", "cushiony ", "wobbling ");
+            descript += Appearance.randomChoice(
+                "basketball-sized ",
+                "whorish ",
+                "cushiony ",
+                "wobbling "
+            );
         }
         //I -> KK
         else if (val < 35) {
-            descript += Appearance.randomChoice("massive motherly ", "luscious ", "smothering ", "prodigious ");
+            descript += Appearance.randomChoice(
+                "massive motherly ",
+                "luscious ",
+                "smothering ",
+                "prodigious "
+            );
         }
         //K- > MMM+
         else {
-            descript += Appearance.randomChoice("mountainous ", "monumental ", "back-breaking ", "exercise-ball-sized ", "immense ");
+            descript += Appearance.randomChoice(
+                "mountainous ",
+                "monumental ",
+                "back-breaking ",
+                "exercise-ball-sized ",
+                "immense "
+            );
         }
         return descript;
     }
@@ -2603,13 +2876,10 @@ export class Appearance extends Utils {
         return Appearance.assholeDescript(creature);
     }
 
-
     public static multiCockDescriptLight(creature: Creature): string {
         if (creature.cocks.length < 1) {
-
             CoC_Settings.error("");
             return "<B>Error: multiCockDescriptLight() called with no penises present.</B>";
-
         }
         //Get cock counts
         var descript: string = "";
@@ -2646,7 +2916,12 @@ export class Appearance extends Utils {
             // averageLength += creature.cocks[currCock].cockLength;
             // averageThickness += creature.cocks[currCock].cockThickness;
             //If cocks are matched make sure they still are
-            if (same && currCock > 0 && creature.cocks[currCock].cockType != creature.cocks[currCock - 1].cockType) same = false;
+            if (
+                same &&
+                currCock > 0 &&
+                creature.cocks[currCock].cockType != creature.cocks[currCock - 1].cockType
+            )
+                same = false;
             currCock++;
         }
         //Crunch averages
@@ -2663,41 +2938,73 @@ export class Appearance extends Utils {
         if (currCock == 2) {
             //For cocks that are the same
             if (same) {
-                descript += Appearance.randomChoice("pair of ", "two ", "brace of ", "matching ", "twin ");
+                descript += Appearance.randomChoice(
+                    "pair of ",
+                    "two ",
+                    "brace of ",
+                    "matching ",
+                    "twin "
+                );
                 descript += creature.cockAdjective();
-                if (normalCocks == 2) descript += " " + Appearance.cockNoun(CockTypesEnum.HUMAN) + "s";
-                if (horseCocks == 2) descript += ", " + Appearance.cockNoun(CockTypesEnum.HORSE) + "s";
+                if (normalCocks == 2)
+                    descript += " " + Appearance.cockNoun(CockTypesEnum.HUMAN) + "s";
+                if (horseCocks == 2)
+                    descript += ", " + Appearance.cockNoun(CockTypesEnum.HORSE) + "s";
                 if (dogCocks == 2) descript += ", " + Appearance.cockNoun(CockTypesEnum.DOG) + "s";
                 //Failsafe
-                if (creature.cocks[0].cockType.Index > 2) descript += ", " + Appearance.cockNoun(creature.cocks[0].cockType) + "s";
+                if (creature.cocks[0].cockType.Index > 2)
+                    descript += ", " + Appearance.cockNoun(creature.cocks[0].cockType) + "s";
             }
             //Nonidentical
             else {
                 descript += Appearance.randomChoice("pair of ", "two ", "brace of ");
                 descript += creature.cockAdjective() + ", ";
-                descript += Appearance.randomChoice("mutated cocks", "mutated dicks", "mixed cocks", "mismatched dicks");
+                descript += Appearance.randomChoice(
+                    "mutated cocks",
+                    "mutated dicks",
+                    "mixed cocks",
+                    "mismatched dicks"
+                );
             }
         }
         if (currCock == 3) {
             //For samecocks
             if (same) {
-                descript += Appearance.randomChoice("three ", "group of ", "<i>ménage à trois</i> of ", "triad of ", "triumvirate of ");
+                descript += Appearance.randomChoice(
+                    "three ",
+                    "group of ",
+                    "<i>ménage à trois</i> of ",
+                    "triad of ",
+                    "triumvirate of "
+                );
                 descript += creature.cockAdjective();
-                if (normalCocks == 3) descript += " " + Appearance.cockNoun(CockTypesEnum.HUMAN) + "s";
-                if (horseCocks == 3) descript += ", " + Appearance.cockNoun(CockTypesEnum.HORSE) + "s";
+                if (normalCocks == 3)
+                    descript += " " + Appearance.cockNoun(CockTypesEnum.HUMAN) + "s";
+                if (horseCocks == 3)
+                    descript += ", " + Appearance.cockNoun(CockTypesEnum.HORSE) + "s";
                 if (dogCocks == 3) descript += ", " + Appearance.cockNoun(CockTypesEnum.DOG) + "s";
                 //Tentacles
-                if (creature.cocks[0].cockType.Index > 2) descript += ", " + Appearance.cockNoun(creature.cocks[0].cockType) + "s";
-            }
-            else {
+                if (creature.cocks[0].cockType.Index > 2)
+                    descript += ", " + Appearance.cockNoun(creature.cocks[0].cockType) + "s";
+            } else {
                 descript += Appearance.randomChoice("three ", "group of ");
                 descript += creature.cockAdjective() + ", ";
-                descript += Appearance.randomChoice("mutated cocks", "mutated dicks", "mixed cocks", "mismatched dicks");
+                descript += Appearance.randomChoice(
+                    "mutated cocks",
+                    "mutated dicks",
+                    "mixed cocks",
+                    "mismatched dicks"
+                );
             }
         }
         //Large numbers of cocks!
         if (currCock > 3) {
-            descript += Appearance.randomChoice("bundle of ", "obscene group of ", "cluster of ", "wriggling bunch of ");
+            descript += Appearance.randomChoice(
+                "bundle of ",
+                "obscene group of ",
+                "cluster of ",
+                "wriggling bunch of "
+            );
             //Cock adjectives and nouns
             descripted = false;
             //Same
@@ -2726,7 +3033,12 @@ export class Appearance extends Utils {
             //If mixed
             if (!descripted) {
                 descript += creature.cockAdjective() + ", ";
-                descript += Appearance.randomChoice("mutated cocks", "mutated dicks", "mixed cocks", "mismatched dicks");
+                descript += Appearance.randomChoice(
+                    "mutated cocks",
+                    "mutated dicks",
+                    "mixed cocks",
+                    "mismatched dicks"
+                );
             }
         }
         return descript;
@@ -2771,7 +3083,12 @@ export class Appearance extends Utils {
             averageLength += creature.cocks[currCock].cockLength;
             averageThickness += creature.cocks[currCock].cockThickness;
             //If cocks are matched make sure they still are
-            if (same && currCock > 0 && creature.cocks[currCock].cockType != creature.cocks[currCock - 1].cockType) same = false;
+            if (
+                same &&
+                currCock > 0 &&
+                creature.cocks[currCock].cockType != creature.cocks[currCock - 1].cockType
+            )
+                same = false;
             currCock++;
         }
         //Crunch averages
@@ -2788,10 +3105,23 @@ export class Appearance extends Utils {
         if (currCock == 2) {
             //For cocks that are the same
             if (same) {
-                descript += Appearance.randomChoice("a pair of ", "two ", "a brace of ", "matching ", "twin ");
-                descript += Appearance.cockAdjectives(averageLength, averageThickness, creature.cocks[0].cockType, creature);
-                if (normalCocks == 2) descript += " " + Appearance.cockNoun(CockTypesEnum.HUMAN) + "s";
-                if (horseCocks == 2) descript += ", " + Appearance.cockNoun(CockTypesEnum.HORSE) + "s";
+                descript += Appearance.randomChoice(
+                    "a pair of ",
+                    "two ",
+                    "a brace of ",
+                    "matching ",
+                    "twin "
+                );
+                descript += Appearance.cockAdjectives(
+                    averageLength,
+                    averageThickness,
+                    creature.cocks[0].cockType,
+                    creature
+                );
+                if (normalCocks == 2)
+                    descript += " " + Appearance.cockNoun(CockTypesEnum.HUMAN) + "s";
+                if (horseCocks == 2)
+                    descript += ", " + Appearance.cockNoun(CockTypesEnum.HORSE) + "s";
                 if (dogCocks == 2) descript += ", " + Appearance.cockNoun(CockTypesEnum.DOG) + "s";
                 //Tentacles
                 if (creature.cocks[0].cockType.Index > 2)
@@ -2800,65 +3130,135 @@ export class Appearance extends Utils {
             //Nonidentical
             else {
                 descript += Appearance.randomChoice("a pair of ", "two ", "a brace of ");
-                descript += Appearance.cockAdjectives(averageLength, averageThickness, creature.cocks[0].cockType, creature) + ", ";
-                descript += Appearance.randomChoice("mutated cocks", "mutated dicks", "mixed cocks", "mismatched dicks");
+                descript +=
+                    Appearance.cockAdjectives(
+                        averageLength,
+                        averageThickness,
+                        creature.cocks[0].cockType,
+                        creature
+                    ) + ", ";
+                descript += Appearance.randomChoice(
+                    "mutated cocks",
+                    "mutated dicks",
+                    "mixed cocks",
+                    "mismatched dicks"
+                );
             }
         }
         if (currCock == 3) {
             //For samecocks
             if (same) {
-                descript += Appearance.randomChoice("three ", "a group of ", "a <i>ménage à trois</i> of ", "a triad of ", "a triumvirate of ");
-                descript += Appearance.cockAdjectives(averageLength, averageThickness, creature.cocks[currCock - 1].cockType, creature);
+                descript += Appearance.randomChoice(
+                    "three ",
+                    "a group of ",
+                    "a <i>ménage à trois</i> of ",
+                    "a triad of ",
+                    "a triumvirate of "
+                );
+                descript += Appearance.cockAdjectives(
+                    averageLength,
+                    averageThickness,
+                    creature.cocks[currCock - 1].cockType,
+                    creature
+                );
                 if (normalCocks == 3)
                     descript += " " + Appearance.cockNoun(CockTypesEnum.HUMAN) + "s";
                 if (horseCocks == 3)
                     descript += ", " + Appearance.cockNoun(CockTypesEnum.HORSE) + "s";
-                if (dogCocks == 3)
-                    descript += ", " + Appearance.cockNoun(CockTypesEnum.DOG) + "s";
+                if (dogCocks == 3) descript += ", " + Appearance.cockNoun(CockTypesEnum.DOG) + "s";
                 //Tentacles
-                if (creature.cocks[0].cockType.Index > 2) descript += ", " + Appearance.cockNoun(creature.cocks[0].cockType) + "s";   // Not sure what's going on here, referencing index *may* be a bug.
-
-            }
-            else {
+                if (creature.cocks[0].cockType.Index > 2)
+                    descript += ", " + Appearance.cockNoun(creature.cocks[0].cockType) + "s"; // Not sure what's going on here, referencing index *may* be a bug.
+            } else {
                 descript += Appearance.randomChoice("three ", "a group of ");
-                descript += Appearance.cockAdjectives(averageLength, averageThickness, creature.cocks[0].cockType, creature);
-                descript += Appearance.randomChoice(", mutated cocks", ", mutated dicks", ", mixed cocks", ", mismatched dicks");
+                descript += Appearance.cockAdjectives(
+                    averageLength,
+                    averageThickness,
+                    creature.cocks[0].cockType,
+                    creature
+                );
+                descript += Appearance.randomChoice(
+                    ", mutated cocks",
+                    ", mutated dicks",
+                    ", mixed cocks",
+                    ", mismatched dicks"
+                );
             }
         }
         //Large numbers of cocks!
         if (currCock > 3) {
-            descript += Appearance.randomChoice("a bundle of ", "an obscene group of ", "a cluster of ", "a wriggling group of ");
+            descript += Appearance.randomChoice(
+                "a bundle of ",
+                "an obscene group of ",
+                "a cluster of ",
+                "a wriggling group of "
+            );
             //Cock adjectives and nouns
             descripted = false;
             //If same types...
             if (same) {
                 if (creature.cocks[0].cockType == CockTypesEnum.HUMAN) {
-                    descript += Appearance.cockAdjectives(averageLength, averageThickness, CockTypesEnum.HUMAN, creature) + " ";
+                    descript +=
+                        Appearance.cockAdjectives(
+                            averageLength,
+                            averageThickness,
+                            CockTypesEnum.HUMAN,
+                            creature
+                        ) + " ";
                     descript += Appearance.cockNoun(CockTypesEnum.HUMAN) + "s";
                     descripted = true;
                 }
                 if (creature.cocks[0].cockType == CockTypesEnum.DOG) {
-                    descript += Appearance.cockAdjectives(averageLength, averageThickness, CockTypesEnum.DOG, creature) + ", ";
+                    descript +=
+                        Appearance.cockAdjectives(
+                            averageLength,
+                            averageThickness,
+                            CockTypesEnum.DOG,
+                            creature
+                        ) + ", ";
                     descript += Appearance.cockNoun(CockTypesEnum.DOG) + "s";
                     descripted = true;
                 }
                 if (creature.cocks[0].cockType == CockTypesEnum.HORSE) {
-                    descript += Appearance.cockAdjectives(averageLength, averageThickness, CockTypesEnum.HORSE, creature) + ", ";
+                    descript +=
+                        Appearance.cockAdjectives(
+                            averageLength,
+                            averageThickness,
+                            CockTypesEnum.HORSE,
+                            creature
+                        ) + ", ";
                     descript += Appearance.cockNoun(CockTypesEnum.HORSE) + "s";
                     descripted = true;
                 }
                 //TODO More group cock type descriptions!
                 if (creature.cocks[0].cockType.Index > 2) {
-                    descript += Appearance.cockAdjectives(averageLength, averageThickness, CockTypesEnum.HUMAN, creature) + ", ";
+                    descript +=
+                        Appearance.cockAdjectives(
+                            averageLength,
+                            averageThickness,
+                            CockTypesEnum.HUMAN,
+                            creature
+                        ) + ", ";
                     descript += Appearance.cockNoun(creature.cocks[0].cockType) + "s";
                     descripted = true;
                 }
             }
             //If mixed
             if (!descripted) {
-                descript += Appearance.cockAdjectives(averageLength, averageThickness, creature.cocks[0].cockType, creature) + ", ";
+                descript +=
+                    Appearance.cockAdjectives(
+                        averageLength,
+                        averageThickness,
+                        creature.cocks[0].cockType,
+                        creature
+                    ) + ", ";
                 // rando = Appearance.rand(4);
-                descript += Appearance.randomChoice("mutated cocks", "mutated dicks", "mixed cocks", "mismatched dicks");
+                descript += Appearance.randomChoice(
+                    "mutated cocks",
+                    "mutated dicks",
+                    "mixed cocks",
+                    "mismatched dicks"
+                );
             }
         }
         return descript;

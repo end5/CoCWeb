@@ -16,8 +16,12 @@ export class BreastRowClass {
     public validate(): string {
         var error: string = "";
         error += Utils.validateNonNegativeNumberFields(this, "BreastRowClass.validate", [
-            "breasts", "nipplesPerBreast", "breastRating", "lactationMultiplier",
-            "milkFullness", "fullness"
+            "breasts",
+            "nipplesPerBreast",
+            "breastRating",
+            "lactationMultiplier",
+            "milkFullness",
+            "fullness",
         ]);
         return error;
     }

@@ -1,14 +1,11 @@
 import { trace } from "../../console";
 import { BaseContent } from "../BaseContent";
 
-
 /**
  * ...
  * @author Gedan
  */
 export class TestContent extends BaseContent {
-
-
     public cheatSheet(): void {
         this.clearOutput();
 
@@ -104,6 +101,4 @@ export class TestContent extends BaseContent {
         trace("Spammed!");
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-
 }
-

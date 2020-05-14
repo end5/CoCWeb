@@ -28,11 +28,10 @@ export class CoC_Settings {
     }
 
     public static appendButtonEvent(inString: string): void {
+        CoC_Settings.buttonEvents.unshift(inString); // Push the new item onto the head of the array
 
-        CoC_Settings.buttonEvents.unshift(inString);  // Push the new item onto the head of the array
-
-        if (CoC_Settings.buttonEvents.length > CoC_Settings.bufferSize)  // if the array has become too long, pop the last item
-        {
+        if (CoC_Settings.buttonEvents.length > CoC_Settings.bufferSize) {
+            // if the array has become too long, pop the last item
             CoC_Settings.buttonEvents.pop();
         }
     }
@@ -45,4 +44,3 @@ export class CoC_Settings {
         return retStr;
     }
 }
-

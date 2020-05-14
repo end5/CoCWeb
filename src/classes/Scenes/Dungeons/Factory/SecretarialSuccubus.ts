@@ -1,4 +1,14 @@
-import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_SLIME_DROOLING, BUTT_RATING_LARGE, HIP_RATING_CURVY, LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS, TAIL_TYPE_DEMONIC, VAGINA_LOOSENESS_NORMAL, VAGINA_WETNESS_SLAVERING, WING_TYPE_BAT_LIKE_TINY } from "../../../../includes/appearanceDefs";
+import {
+    ANAL_LOOSENESS_STRETCHED,
+    ANAL_WETNESS_SLIME_DROOLING,
+    BUTT_RATING_LARGE,
+    HIP_RATING_CURVY,
+    LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS,
+    TAIL_TYPE_DEMONIC,
+    VAGINA_LOOSENESS_NORMAL,
+    VAGINA_WETNESS_SLAVERING,
+    WING_TYPE_BAT_LIKE_TINY,
+} from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
 import { StatusAffects } from "../../../StatusAffects";
@@ -7,16 +17,51 @@ import { AbstractSuccubus } from "../../Monsters/AbstractSuccubus";
 export class SecretarialSuccubus extends AbstractSuccubus {
     public defeated(hpVictory: boolean): void {
         if (this.player.gender > 0) {
-            var dildo = (this.player.hasKeyItem("Deluxe Dildo") >= 0 ? this.game.succubusGetsDildoed : undefined);
+            var dildo =
+                this.player.hasKeyItem("Deluxe Dildo") >= 0
+                    ? this.game.succubusGetsDildoed
+                    : undefined;
 
             if (hpVictory) {
-                this.outputText("You smile in satisfaction as the " + this.short + " collapses, unable to continue fighting.  Now would be the perfect opportunity to taste the fruits of her sex-ready form...\n\nDo you rape her?", true);
+                this.outputText(
+                    "You smile in satisfaction as the " +
+                        this.short +
+                        " collapses, unable to continue fighting.  Now would be the perfect opportunity to taste the fruits of her sex-ready form...\n\nDo you rape her?",
+                    true
+                );
                 this.game.dynStats("lus", 1);
-                this.game.simpleChoices("Yes", this.game.succubusVictoryRape, "Dildo Rape", dildo, "", undefined, "", undefined, "No", this.game.cleanupAfterCombat);
+                this.game.simpleChoices(
+                    "Yes",
+                    this.game.succubusVictoryRape,
+                    "Dildo Rape",
+                    dildo,
+                    "",
+                    undefined,
+                    "",
+                    undefined,
+                    "No",
+                    this.game.cleanupAfterCombat
+                );
             } else if (this.player.lust >= 33) {
-                this.outputText("You smile in satisfaction as the " + this.short + " gives up on fighting you and starts masturbating, begging for you to fuck her.  Now would be the perfect opportunity to taste the fruits of her sex-ready form...\n\nDo you fuck her?", true);
+                this.outputText(
+                    "You smile in satisfaction as the " +
+                        this.short +
+                        " gives up on fighting you and starts masturbating, begging for you to fuck her.  Now would be the perfect opportunity to taste the fruits of her sex-ready form...\n\nDo you fuck her?",
+                    true
+                );
                 this.game.dynStats("lus", 1);
-                this.game.simpleChoices("Yes", this.game.succubusVictoryRape, "Dildo Rape", dildo, "", undefined, "", undefined, "No", this.game.cleanupAfterCombat);
+                this.game.simpleChoices(
+                    "Yes",
+                    this.game.succubusVictoryRape,
+                    "Dildo Rape",
+                    dildo,
+                    "",
+                    undefined,
+                    "",
+                    undefined,
+                    "No",
+                    this.game.cleanupAfterCombat
+                );
             } else {
                 this.game.finishCombat();
             }
@@ -39,7 +84,8 @@ export class SecretarialSuccubus extends AbstractSuccubus {
         this.a = "the ";
         this.short = "secretarial succubus";
         this.imageName = "secretarialsuccubus";
-        this.long = "The succubus across from you balances gracefully on her spiked heels, twirling and moving unpredictably.  Sexy dark stockings hug every curve of her perfectly shaped flesh until they disappear into her tiny miniskirt.  Her impressive breasts wobble delightfully as she moves, despite the inadequate efforts of her straining vest.  A pair of foot-long horns curve up from her otherwise perfect face and forehead, wreathed in lustrous blonde hair.  The very air around her is filled with an unidentifiable fragrance that makes you tingle and shiver.";
+        this.long =
+            "The succubus across from you balances gracefully on her spiked heels, twirling and moving unpredictably.  Sexy dark stockings hug every curve of her perfectly shaped flesh until they disappear into her tiny miniskirt.  Her impressive breasts wobble delightfully as she moves, despite the inadequate efforts of her straining vest.  A pair of foot-long horns curve up from her otherwise perfect face and forehead, wreathed in lustrous blonde hair.  The very air around her is filled with an unidentifiable fragrance that makes you tingle and shiver.";
         // this.plural = false;
         this.createVagina(false, VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_NORMAL);
         this.createStatusAffect(StatusAffects.BonusVCapacity, 30, 0, 0, 0);
@@ -77,6 +123,4 @@ export class SecretarialSuccubus extends AbstractSuccubus {
         this.special3 = this.whipAttack;
         this.checkMonster();
     }
-
 }
-

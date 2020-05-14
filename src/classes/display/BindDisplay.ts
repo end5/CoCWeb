@@ -41,7 +41,7 @@ export class BindDisplay {
      * @param	maxWidth	Defines the maximum available width that the control can consume for positining math
      */
     public constructor() {
-        this.element = document.createElement('tr');
+        this.element = document.createElement("tr");
 
         // this._maxWidth = maxWidth;
 
@@ -63,17 +63,17 @@ export class BindDisplay {
         // this.InitButtons();
         // this.InitLabel();
 
-        const labelCell = document.createElement('td');
+        const labelCell = document.createElement("td");
         this.element.appendChild(labelCell);
 
-        this._nameLabel = document.createElement('p');
+        this._nameLabel = document.createElement("p");
         labelCell.appendChild(this._nameLabel);
 
-        const button1 = document.createElement('td');
+        const button1 = document.createElement("td");
         button1.className = "controlButton";
         button1.innerHTML = '<a class="button"></a>';
 
-        const button2 = document.createElement('td');
+        const button2 = document.createElement("td");
         button2.className = "controlButton";
         button2.innerHTML = '<a class="button"></a>';
 

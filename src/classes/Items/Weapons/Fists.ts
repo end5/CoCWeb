@@ -5,12 +5,11 @@ import { Weapon } from "../Weapon";
  */
 
 export class Fists extends Weapon {
-
     public constructor() {
         super("Fists  ", "Fists", "fists", "fists", "punch", 0);
     }
 
-    public useText(): void { } //No text for equipping fists
+    public useText(): void {} //No text for equipping fists
 
     public playerRemove() {
         return undefined;
@@ -27,4 +26,3 @@ export class Fists extends Weapon {
             }
     */
 }
-

@@ -17,8 +17,14 @@ export class Swamp extends BaseContent {
     public rogar: Rogar = new Rogar();
     public exploreSwamp(): void {
         //Discover 'Bog' at after 25 explores of swamp
-        if ((this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00272] >= 25) && this.flags[kFLAGS.BOG_EXPLORED] == 0) {
-            this.outputText("While exploring the swamps, you find yourself into a particularly dark, humid area of this already fetid biome.  You judge that you could find your way back here pretty easily in the future, if you wanted to.  With your newfound discovery fresh in your mind, you return to camp.\n\n(<b>Bog exploration location unlocked! (Page 2)</b>)", true);
+        if (
+            this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00272] >= 25 &&
+            this.flags[kFLAGS.BOG_EXPLORED] == 0
+        ) {
+            this.outputText(
+                "While exploring the swamps, you find yourself into a particularly dark, humid area of this already fetid biome.  You judge that you could find your way back here pretty easily in the future, if you wanted to.  With your newfound discovery fresh in your mind, you return to camp.\n\n(<b>Bog exploration location unlocked! (Page 2)</b>)",
+                true
+            );
             this.flags[kFLAGS.BOG_EXPLORED]++;
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
@@ -26,16 +32,34 @@ export class Swamp extends BaseContent {
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00272]++;
         /*  SPECIAL SCENE OVERWRITES */
         //KIHA X HEL THREESOME!
-        if (!kGAMECLASS.kihaFollower.followerKiha() && this.player.cor < 60 && this.flags[kFLAGS.KIHA_AFFECTION_LEVEL] >= 1 && this.flags[kFLAGS.HEL_FUCKBUDDY] > 0 && this.player.hasCock() && this.flags[kFLAGS.KIHA_AND_HEL_WHOOPIE] == 0) {
+        if (
+            !kGAMECLASS.kihaFollower.followerKiha() &&
+            this.player.cor < 60 &&
+            this.flags[kFLAGS.KIHA_AFFECTION_LEVEL] >= 1 &&
+            this.flags[kFLAGS.HEL_FUCKBUDDY] > 0 &&
+            this.player.hasCock() &&
+            this.flags[kFLAGS.KIHA_AND_HEL_WHOOPIE] == 0
+        ) {
             kGAMECLASS.kihaFollower.kihaXSalamander();
             return;
         }
         //Helia monogamy fucks
-        if (this.flags[kFLAGS.PC_PROMISED_HEL_MONOGAMY_FUCKS] == 1 && this.flags[kFLAGS.HEL_RAPED_TODAY] == 0 && Swamp.rand(10) == 0 && this.player.gender > 0 && !kGAMECLASS.helFollower.followerHel()) {
+        if (
+            this.flags[kFLAGS.PC_PROMISED_HEL_MONOGAMY_FUCKS] == 1 &&
+            this.flags[kFLAGS.HEL_RAPED_TODAY] == 0 &&
+            Swamp.rand(10) == 0 &&
+            this.player.gender > 0 &&
+            !kGAMECLASS.helFollower.followerHel()
+        ) {
             kGAMECLASS.helScene.helSexualAmbush();
             return;
         }
-        if (this.flags[kFLAGS.TOOK_EMBER_EGG] == 0 && this.flags[kFLAGS.EGG_BROKEN] == 0 && this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00272] > 0 && (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00272] % 40 == 0)) {
+        if (
+            this.flags[kFLAGS.TOOK_EMBER_EGG] == 0 &&
+            this.flags[kFLAGS.EGG_BROKEN] == 0 &&
+            this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00272] > 0 &&
+            this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00272] % 40 == 0
+        ) {
             kGAMECLASS.emberScene.findEmbersEgg();
             return;
         }
@@ -80,4 +104,3 @@ export class Swamp extends BaseContent {
         }
     }
 }
-

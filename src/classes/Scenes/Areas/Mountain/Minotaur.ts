@@ -1,5 +1,14 @@
 import { trace } from "../../../../console";
-import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_NORMAL, BUTT_RATING_AVERAGE, FACE_COW_MINOTAUR, HIP_RATING_AVERAGE, LOWER_BODY_TYPE_HOOFED, SKIN_TYPE_FUR, TAIL_TYPE_COW } from "../../../../includes/appearanceDefs";
+import {
+    ANAL_LOOSENESS_STRETCHED,
+    ANAL_WETNESS_NORMAL,
+    BUTT_RATING_AVERAGE,
+    FACE_COW_MINOTAUR,
+    HIP_RATING_AVERAGE,
+    LOWER_BODY_TYPE_HOOFED,
+    SKIN_TYPE_FUR,
+    TAIL_TYPE_COW,
+} from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 import { CockTypesEnum } from "../../../CockTypesEnum";
 import { ChainedDrop } from "../../../internals/ChainedDrop";
@@ -7,12 +16,10 @@ import { WeightedDrop } from "../../../internals/WeightedDrop";
 import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
 
-
 /**
  * ...
  * @author Fake-Name
  */
-
 
 export class Minotaur extends Monster {
     public hasAxe: boolean;
@@ -32,16 +39,28 @@ export class Minotaur extends Monster {
             this.removeStatusAffect(StatusAffects.PhyllaFight);
             this.game.desert.antsScene.phyllaPCLostToMino();
         } else if (pcCameWorms) {
-            this.outputText("\n\nThe minotaur picks you up and forcibly tosses you from his cave, grunting in displeasure.", false);
+            this.outputText(
+                "\n\nThe minotaur picks you up and forcibly tosses you from his cave, grunting in displeasure.",
+                false
+            );
             this.game.cleanupAfterCombat();
-        } else
-            this.game.mountain.minotaurScene.getRapedByMinotaur();
+        } else this.game.mountain.minotaurScene.getRapedByMinotaur();
     }
 
     public get long(): string {
-        return "An angry-looking minotaur looms over you.  Covered in shaggy " + this.hairColor + " fur, the beast is an imposing sight.  Wearing little but an obviously distended loincloth, he is clearly already plotting his method of punishment.  Like most minotaurs he has hooves, a cow-like tail and face, prominent horns, and impressive musculature. " +
-            (this.ballSize > 4 ? ("  Barely visible below the tattered shreds of loincloth are " + Appearance.ballsDescription(true, true, this) + ", swollen with the minotaur's long pent-up need.") : "") +
-            (this.hasAxe ? "<b>This minotaur seems to have found a deadly looking axe somewhere!</b>" : "");
+        return (
+            "An angry-looking minotaur looms over you.  Covered in shaggy " +
+            this.hairColor +
+            " fur, the beast is an imposing sight.  Wearing little but an obviously distended loincloth, he is clearly already plotting his method of punishment.  Like most minotaurs he has hooves, a cow-like tail and face, prominent horns, and impressive musculature. " +
+            (this.ballSize > 4
+                ? "  Barely visible below the tattered shreds of loincloth are " +
+                  Appearance.ballsDescription(true, true, this) +
+                  ", swollen with the minotaur's long pent-up need."
+                : "") +
+            (this.hasAxe
+                ? "<b>This minotaur seems to have found a deadly looking axe somewhere!</b>"
+                : "")
+        );
     }
 
     public constructor(axe: boolean = false) {
@@ -90,7 +109,8 @@ export class Minotaur extends Monster {
         if (this.hasAxe) {
             this.drop = new WeightedDrop(this.consumables.MINOBLO, 1);
         } else {
-            this.drop = new ChainedDrop().add(this.consumables.MINOCUM, 1 / 5)
+            this.drop = new ChainedDrop()
+                .add(this.consumables.MINOCUM, 1 / 5)
                 .add(this.consumables.MINOBLO, 1 / 2)
                 .elseDrop(undefined);
         }
@@ -98,6 +118,4 @@ export class Minotaur extends Monster {
         this.tailType = TAIL_TYPE_COW;
         this.checkMonster();
     }
-
 }
-

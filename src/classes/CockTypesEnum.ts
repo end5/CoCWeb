@@ -1,5 +1,3 @@
-
-
 /* Cock types
  * 0 - human
  * 1 - horse
@@ -38,7 +36,7 @@ export enum CockTypesEnum {
     DISPLACER,
     FOX,
     BEE,
-    UNDEFINED
+    UNDEFINED,
 }
 
 export const CockTypesGroup: Record<CockTypesEnum, string> = {
@@ -56,4 +54,4 @@ export const CockTypesGroup: Record<CockTypesEnum, string> = {
     [CockTypesEnum.FOX]: "mammal",
     [CockTypesEnum.BEE]: "insect",
     [CockTypesEnum.UNDEFINED]: "",
-}
+};

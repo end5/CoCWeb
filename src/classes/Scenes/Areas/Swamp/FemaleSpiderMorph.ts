@@ -1,4 +1,13 @@
-import { ANAL_LOOSENESS_VIRGIN, ANAL_WETNESS_DRY, BUTT_RATING_LARGE, HIP_RATING_CURVY, LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS, TAIL_TYPE_SPIDER_ADBOMEN, VAGINA_LOOSENESS_LOOSE, VAGINA_WETNESS_DROOLING } from "../../../../includes/appearanceDefs";
+import {
+    ANAL_LOOSENESS_VIRGIN,
+    ANAL_WETNESS_DRY,
+    BUTT_RATING_LARGE,
+    HIP_RATING_CURVY,
+    LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS,
+    TAIL_TYPE_SPIDER_ADBOMEN,
+    VAGINA_LOOSENESS_LOOSE,
+    VAGINA_WETNESS_DROOLING,
+} from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
 import { StatusAffects } from "../../../StatusAffects";
@@ -27,7 +36,8 @@ export class FemaleSpiderMorph extends AbstractSpiderMorph {
         this.a = "the ";
         this.short = "female spider-morph";
         this.imageName = "femalespidermorph";
-        this.long = "The female spider-morph is completely nude, save for her thigh-high stockings and forearm-length gloves, which upon closer inspection, appear to be actually be part of her body - her exoskeleton.  Her exposed skin is pale as the full moon, save for the dusky skin of her nipples and the black-skinned delta of her sex.  Her breasts and ass are both full and well-rounded, and just above her ass-cheeks there's a bulbous spider-abdomen.  The spider-girl is currently eyeing you with a strange expression and her fangs bared.";
+        this.long =
+            "The female spider-morph is completely nude, save for her thigh-high stockings and forearm-length gloves, which upon closer inspection, appear to be actually be part of her body - her exoskeleton.  Her exposed skin is pale as the full moon, save for the dusky skin of her nipples and the black-skinned delta of her sex.  Her breasts and ass are both full and well-rounded, and just above her ass-cheeks there's a bulbous spider-abdomen.  The spider-girl is currently eyeing you with a strange expression and her fangs bared.";
         // this.plural = false;
         this.createVagina(false, VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_LOOSE);
         this.createStatusAffect(StatusAffects.BonusVCapacity, 40, 0, 0, 0);
@@ -53,16 +63,15 @@ export class FemaleSpiderMorph extends AbstractSpiderMorph {
         this.armorValue = 50;
         this.bonusHP = 200;
         this.lust = 20;
-        this.lustVuln = .6;
+        this.lustVuln = 0.6;
         this.temperment = FemaleSpiderMorph.TEMPERMENT_RANDOM_GRAPPLES;
         this.level = 13;
         this.gems = FemaleSpiderMorph.rand(10) + 10;
-        this.drop = new WeightedDrop().add(this.consumables.S_GOSSR, 5)
+        this.drop = new WeightedDrop()
+            .add(this.consumables.S_GOSSR, 5)
             .add(this.useables.T_SSILK, 1)
             .add(undefined, 4);
         this.tailType = TAIL_TYPE_SPIDER_ADBOMEN;
         this.checkMonster();
     }
-
 }
-

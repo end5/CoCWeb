@@ -1,4 +1,12 @@
-import { ANAL_LOOSENESS_NORMAL, ANAL_WETNESS_DRY, BUTT_RATING_NOTICEABLE, HAIR_ANEMONE, HIP_RATING_CURVY, VAGINA_LOOSENESS_LOOSE, VAGINA_WETNESS_SLICK } from "../../../includes/appearanceDefs";
+import {
+    ANAL_LOOSENESS_NORMAL,
+    ANAL_WETNESS_DRY,
+    BUTT_RATING_NOTICEABLE,
+    HAIR_ANEMONE,
+    HIP_RATING_CURVY,
+    VAGINA_LOOSENESS_LOOSE,
+    VAGINA_WETNESS_SLICK,
+} from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
 import { CockTypesEnum } from "../../CockTypesEnum";
 import { WeightedDrop } from "../../internals/WeightedDrop";
@@ -7,7 +15,10 @@ import { StatusAffects } from "../../StatusAffects";
 
 export class Anemone extends Monster {
     public eAttack(): void {
-        this.outputText("Giggling playfully, the anemone launches several tentacles at you.  Most are aimed for your crotch, but a few attempt to caress your chest and face.\n", false);
+        this.outputText(
+            "Giggling playfully, the anemone launches several tentacles at you.  Most are aimed for your crotch, but a few attempt to caress your chest and face.\n",
+            false
+        );
         super.eAttack();
     }
 
@@ -19,9 +30,10 @@ export class Anemone extends Monster {
     //Apply the effects of AnemoneVenom()
     public applyVenom(str: number = 1): void {
         //First application
-        if (this.player.findStatusAffect(StatusAffects.AnemoneVenom) < 0) this.player.createStatusAffect(StatusAffects.AnemoneVenom, 0, 0, 0, 0);
+        if (this.player.findStatusAffect(StatusAffects.AnemoneVenom) < 0)
+            this.player.createStatusAffect(StatusAffects.AnemoneVenom, 0, 0, 0, 0);
         //Gain some lust
-        this.game.dynStats("lus", (2 * str));
+        this.game.dynStats("lus", 2 * str);
 
         //Loop through applying 1 point of venom at a time.
         while (str > 0) {
@@ -50,7 +62,6 @@ export class Anemone extends Monster {
         this.game.statScreenRefresh();
     }
 
-
     public defeated(hpVictory: boolean): void {
         this.game.anemoneScene.defeatAnemone();
     }
@@ -65,7 +76,10 @@ export class Anemone extends Monster {
     }
 
     public outputAttack(damage: number): void {
-        this.outputText("You jink and dodge valiantly but the tentacles are too numerous and coming from too many directions.  A few get past your guard and caress your skin, leaving a tingling, warm sensation that arouses you further.", false);
+        this.outputText(
+            "You jink and dodge valiantly but the tentacles are too numerous and coming from too many directions.  A few get past your guard and caress your skin, leaving a tingling, warm sensation that arouses you further.",
+            false
+        );
     }
 
     public constructor() {
@@ -73,7 +87,8 @@ export class Anemone extends Monster {
         this.a = "the ";
         this.short = "anemone";
         this.imageName = "anemone";
-        this.long = "The anemone is a blue androgyne humanoid of medium height and slender build, with colorful tentacles sprouting on her head where hair would otherwise be.  Her feminine face contains two eyes of solid color, lighter than her skin.  Two feathery gills sprout from the middle of her chest, along the line of her spine and below her collarbone, and drape over her pair of small B-cup breasts.  Though you wouldn't describe her curves as generous, she sways her girly hips back and forth in a way that contrasts them to her slim waist quite attractively.  Protruding from her groin is a blue shaft with its head flanged by diminutive tentacles, and below that is a dark-blue pussy ringed by small feelers.  Further down are a pair of legs ending in flat sticky feet; proof of her aquatic heritage.  She smiles broadly and innocently as she regards you from her deep eyes.";
+        this.long =
+            "The anemone is a blue androgyne humanoid of medium height and slender build, with colorful tentacles sprouting on her head where hair would otherwise be.  Her feminine face contains two eyes of solid color, lighter than her skin.  Two feathery gills sprout from the middle of her chest, along the line of her spine and below her collarbone, and drape over her pair of small B-cup breasts.  Though you wouldn't describe her curves as generous, she sways her girly hips back and forth in a way that contrasts them to her slim waist quite attractively.  Protruding from her groin is a blue shaft with its head flanged by diminutive tentacles, and below that is a dark-blue pussy ringed by small feelers.  Further down are a pair of legs ending in flat sticky feet; proof of her aquatic heritage.  She smiles broadly and innocently as she regards you from her deep eyes.";
         // this.plural = false;
         this.createCock(7, 1, CockTypesEnum.ANEMONE);
         this.createVagina(false, VAGINA_WETNESS_SLICK, VAGINA_LOOSENESS_LOOSE);
@@ -97,13 +112,11 @@ export class Anemone extends Monster {
         this.armorName = "clammy skin";
         this.bonusHP = 120;
         this.lust = 30;
-        this.lustVuln = .9;
+        this.lustVuln = 0.9;
         this.temperment = Anemone.TEMPERMENT_RANDOM_GRAPPLES;
         this.level = 4;
         this.gems = Anemone.rand(5) + 1;
         this.drop = new WeightedDrop(this.consumables.DRYTENT, 1);
         this.checkMonster();
     }
-
 }
-

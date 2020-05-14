@@ -18,6 +18,6 @@ export class TimeModel {
         this._hours = value;
     }
     public get totalTime(): number {
-        return (this._days * 24 + this._hours);
+        return this._days * 24 + this._hours;
     }
 }

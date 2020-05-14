@@ -16,7 +16,6 @@ import { Consumable } from "./Consumable";
  * Overridden "equip" and "unequip" should call "equipped" and "unequipped" if equipped/unequipped succesfully.
  */
 export class Equipable extends Consumable {
-
     /**
      * Called on attempt to equip item.
      * @param output Print "equipping" scene to output
@@ -28,16 +27,12 @@ export class Equipable extends Consumable {
     /**
      * Called after item succesfully equipped. By default, does nothing. Should add perks/effects/etc.
      */
-    public equipEffect(player: Player, output: boolean): void {
-
-    }
+    public equipEffect(player: Player, output: boolean): void {}
 
     /**
      * Called after item succesfully unequipped. By default, does nothing. Should remove perks/effects/etc.
      */
-    public unequipEffect(player: Player, output: boolean): void {
-
-    }
+    public unequipEffect(player: Player, output: boolean): void {}
 
     protected equipped(player: Player, output: boolean): void {
         this.equipEffect(player, output);
@@ -63,7 +58,9 @@ export class Equipable extends Consumable {
         if (this.game.debug && !(this instanceof GooArmor)) {
             if (output) {
                 this.clearOutput();
-                this.outputText("You cannot equip anything in debug mode.  Please restart the game in normal mode to equip items.");
+                this.outputText(
+                    "You cannot equip anything in debug mode.  Please restart the game in normal mode to equip items."
+                );
             }
             return;
         }
@@ -74,4 +71,3 @@ export class Equipable extends Consumable {
         return this;
     }
 }
-

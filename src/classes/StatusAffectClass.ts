@@ -2,7 +2,13 @@ import { StatusAffectType } from "./StatusAffectType";
 
 export class StatusAffectClass {
     //constructor
-    public constructor(stype: StatusAffectType, value1: number = 0, value2: number = 0, value3: number = 0, value4: number = 0) {
+    public constructor(
+        stype: StatusAffectType,
+        value1: number = 0,
+        value2: number = 0,
+        value3: number = 0,
+        value4: number = 0
+    ) {
         this._stype = stype;
         this.value1 = value1;
         this.value2 = value2;
@@ -21,6 +27,18 @@ export class StatusAffectClass {
     }
 
     public toString(): string {
-        return "[" + this._stype + "," + this.value1 + "," + this.value2 + "," + this.value3 + "," + this.value4 + "]";
+        return (
+            "[" +
+            this._stype +
+            "," +
+            this.value1 +
+            "," +
+            this.value2 +
+            "," +
+            this.value3 +
+            "," +
+            this.value4 +
+            "]"
+        );
     }
 }

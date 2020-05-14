@@ -1,9 +1,18 @@
-import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_SLIME_DROOLING, BUTT_RATING_LARGE, HIP_RATING_CURVY, LOWER_BODY_TYPE_HARPY, SKIN_TYPE_PLAIN, TAIL_TYPE_HARPY, VAGINA_LOOSENESS_GAPING_WIDE, VAGINA_WETNESS_SLAVERING } from "../../../../includes/appearanceDefs";
+import {
+    ANAL_LOOSENESS_STRETCHED,
+    ANAL_WETNESS_SLIME_DROOLING,
+    BUTT_RATING_LARGE,
+    HIP_RATING_CURVY,
+    LOWER_BODY_TYPE_HARPY,
+    SKIN_TYPE_PLAIN,
+    TAIL_TYPE_HARPY,
+    VAGINA_LOOSENESS_GAPING_WIDE,
+    VAGINA_WETNESS_SLAVERING,
+} from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 import { Monster } from "../../../Monster";
 
 export class HarpyMob extends Monster {
-
     protected performCombatAction(): void {
         this.game.harpyHordeAI();
     }
@@ -21,7 +30,8 @@ export class HarpyMob extends Monster {
         this.a = "the ";
         this.short = "harpy horde";
         this.imageName = "harpymob";
-        this.long = "You are surrounded by a wing of particularly large and muscular harpies, perhaps a dozen of them in total.  All of them are clad in simple brown shifts that give them good camouflage in the mountains, and are using their talon-like claws as weapons against you. While not a great threat to a champion of your ability individually, a whole brood of them together is... something else entirely.";
+        this.long =
+            "You are surrounded by a wing of particularly large and muscular harpies, perhaps a dozen of them in total.  All of them are clad in simple brown shifts that give them good camouflage in the mountains, and are using their talon-like claws as weapons against you. While not a great threat to a champion of your ability individually, a whole brood of them together is... something else entirely.";
         this.plural = true;
         this.pronoun1 = "they";
         this.pronoun2 = "them";
@@ -48,7 +58,7 @@ export class HarpyMob extends Monster {
         this.armorDef = 20;
         this.bonusHP = 1000;
         this.lust = 20;
-        this.lustVuln = .2;
+        this.lustVuln = 0.2;
         this.temperment = HarpyMob.TEMPERMENT_LOVE_GRAPPLES;
         this.level = 18;
         this.gems = HarpyMob.rand(25) + 140;
@@ -57,6 +67,4 @@ export class HarpyMob extends Monster {
         this.drop = this.NO_DROP;
         this.checkMonster();
     }
-
 }
-

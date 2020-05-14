@@ -1,9 +1,19 @@
-import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_DRY, BUTT_RATING_LARGE, HIP_RATING_AMPLE, HORNS_DRACONIC_X2, LOWER_BODY_TYPE_LIZARD, TAIL_TYPE_HARPY, VAGINA_LOOSENESS_LOOSE, VAGINA_WETNESS_SLAVERING, WING_TYPE_FEATHERED_LARGE } from "../../../../includes/appearanceDefs";
+import {
+    ANAL_LOOSENESS_STRETCHED,
+    ANAL_WETNESS_DRY,
+    BUTT_RATING_LARGE,
+    HIP_RATING_AMPLE,
+    HORNS_DRACONIC_X2,
+    LOWER_BODY_TYPE_LIZARD,
+    TAIL_TYPE_HARPY,
+    VAGINA_LOOSENESS_LOOSE,
+    VAGINA_WETNESS_SLAVERING,
+    WING_TYPE_FEATHERED_LARGE,
+} from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 import { Monster } from "../../../Monster";
 
 export class PhoenixPlatoon extends Monster {
-
     protected performCombatAction(): void {
         this.game.phoenixPlatoonAI();
     }
@@ -21,7 +31,8 @@ export class PhoenixPlatoon extends Monster {
         this.a = "the ";
         this.short = "phoenix platoon";
         this.imageName = "phoenixmob";
-        this.long = "You are faced with a platoon of heavy infantry, all armed to the teeth and protected by chain vests and shields. They look like a cross between salamander and harpy, humanoid save for crimson wings, scaled feet, and long fiery tails. They stand in a tight-knit shield wall, each phoenix protecting herself and the warrior next to her with their tower-shield. Their scimitars cut great swaths through the room as they slowly advance upon you.";
+        this.long =
+            "You are faced with a platoon of heavy infantry, all armed to the teeth and protected by chain vests and shields. They look like a cross between salamander and harpy, humanoid save for crimson wings, scaled feet, and long fiery tails. They stand in a tight-knit shield wall, each phoenix protecting herself and the warrior next to her with their tower-shield. Their scimitars cut great swaths through the room as they slowly advance upon you.";
         this.plural = true;
         this.pronoun1 = "they";
         this.pronoun2 = "them";
@@ -50,7 +61,7 @@ export class PhoenixPlatoon extends Monster {
         this.armorDef = 20;
         this.bonusHP = 1000;
         this.lust = 20;
-        this.lustVuln = .15;
+        this.lustVuln = 0.15;
         this.temperment = PhoenixPlatoon.TEMPERMENT_LOVE_GRAPPLES;
         this.level = 20;
         this.gems = PhoenixPlatoon.rand(25) + 160;
@@ -62,6 +73,4 @@ export class PhoenixPlatoon extends Monster {
         this.drop = this.NO_DROP;
         this.checkMonster();
     }
-
 }
-

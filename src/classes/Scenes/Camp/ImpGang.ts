@@ -23,6 +23,4 @@ export class ImpGang extends Monster {
         this.short = "imp gang";
         this.skinTone = "imp mob";
     }
-
 }
-

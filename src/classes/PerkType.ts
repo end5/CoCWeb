@@ -55,14 +55,17 @@ export class PerkType {
         this._desc = desc;
         this._longDesc = longDesc || this._desc;
         if (PerkType.PERK_LIBRARY[id] != undefined) {
-            CoC_Settings.error("Duplicate perk id " + id + ", old perk is " + (PerkType.PERK_LIBRARY[id] as PerkType)._name);
+            CoC_Settings.error(
+                "Duplicate perk id " +
+                    id +
+                    ", old perk is " +
+                    (PerkType.PERK_LIBRARY[id] as PerkType)._name
+            );
         }
         PerkType.PERK_LIBRARY[id] = this;
     }
 
-
     public toString(): string {
-        return "\"" + this._id + "\"";
+        return '"' + this._id + '"';
     }
 }
-

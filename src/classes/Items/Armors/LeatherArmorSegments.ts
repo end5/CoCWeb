@@ -5,12 +5,23 @@ import { Armor } from "../Armor";
  */
 
 export class LeatherArmorSegments extends Armor {
-
     public constructor() {
-        super("UrtaLta", "UrtaLta", "leather armor segments", "leather armor segments", 5, 76, undefined, "Light", true);
+        super(
+            "UrtaLta",
+            "UrtaLta",
+            "leather armor segments",
+            "leather armor segments",
+            5,
+            76,
+            undefined,
+            "Light",
+            true
+        );
     }
     public removeText(): void {
-        this.outputText("You have your old set of " + this.game.armors.LEATHRA.longName + " left over.  ");
+        this.outputText(
+            "You have your old set of " + this.game.armors.LEATHRA.longName + " left over.  "
+        );
     }
 
     public playerRemove(): Armor {
@@ -26,4 +37,3 @@ export class LeatherArmorSegments extends Armor {
             }
     */
 }
-

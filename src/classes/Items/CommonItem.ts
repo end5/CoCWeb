@@ -7,7 +7,6 @@ import { ItemType } from "../ItemType";
  */
 
 export class CommonItem extends ItemType {
-
     public get game(): CoC {
         return kGAMECLASS;
     }
@@ -22,4 +21,3 @@ export class CommonItem extends ItemType {
         kGAMECLASS.outputText(text);
     }
 }
-

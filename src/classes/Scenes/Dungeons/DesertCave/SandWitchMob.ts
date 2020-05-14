@@ -1,9 +1,15 @@
-import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_NORMAL, BUTT_RATING_LARGE, HIP_RATING_CURVY, VAGINA_LOOSENESS_LOOSE, VAGINA_WETNESS_WET } from "../../../../includes/appearanceDefs";
+import {
+    ANAL_LOOSENESS_TIGHT,
+    ANAL_WETNESS_NORMAL,
+    BUTT_RATING_LARGE,
+    HIP_RATING_CURVY,
+    VAGINA_LOOSENESS_LOOSE,
+    VAGINA_WETNESS_WET,
+} from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 import { Monster } from "../../../Monster";
 
 export class SandWitchMob extends Monster {
-
     protected performCombatAction(): void {
         this.game.sandWitchMobAI();
     }
@@ -21,7 +27,8 @@ export class SandWitchMob extends Monster {
         this.a = "the ";
         this.short = "sand witches";
         this.imageName = "sandwitchmob";
-        this.long = "You are surrounded by a veritable tribe of sand witches.  Like the ones that roam the sands, they have simple robes, blond hair, and four big breasts that push at the concealing cloth immodestly.  Glowering at you hatefully, the pack of female spellcasters readies itself to drag you down with sheer numbers.";
+        this.long =
+            "You are surrounded by a veritable tribe of sand witches.  Like the ones that roam the sands, they have simple robes, blond hair, and four big breasts that push at the concealing cloth immodestly.  Glowering at you hatefully, the pack of female spellcasters readies itself to drag you down with sheer numbers.";
         this.plural = true;
         this.pronoun1 = "they";
         this.pronoun2 = "them";
@@ -50,14 +57,11 @@ export class SandWitchMob extends Monster {
         this.armorValue = 5;
         this.bonusHP = 80;
         this.lust = 30;
-        this.lustVuln = .5;
+        this.lustVuln = 0.5;
         this.temperment = SandWitchMob.TEMPERMENT_LOVE_GRAPPLES;
         this.level = 4;
         this.gems = SandWitchMob.rand(15) + 5;
         this.drop = this.NO_DROP;
         this.checkMonster();
-
     }
-
 }
-

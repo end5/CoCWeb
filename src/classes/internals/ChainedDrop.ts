@@ -32,4 +32,3 @@ export class ChainedDrop implements RandomDrop {
         return this.defaultItem;
     }
 }
-

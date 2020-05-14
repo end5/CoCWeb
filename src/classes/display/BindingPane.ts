@@ -37,16 +37,16 @@ export class BindingPane {
         this._inputManager = inputManager;
         // this._mainView = mainView;
 
-        this.element = document.createElement('div');
+        this.element = document.createElement("div");
 
         this._functions = [];
 
         /* This is a super super fucking annoying fix. The TextField class, whilst it supports being bound to a
-        *  doesn't include a scrollbar by default, it has to be attached as a sperate, distinct component. It's
-        *  literally bolted onto the side, and isn't part of the sizing information of the TextField itself.
-        *  ScrollPanes on the other hand, DO feature a scrollbar as a core part of their functionality. And
-        *  for ScrollPanes, the UIScrollBar is included in the total sizing information. Whoever wrote this shit
-        *  was literally on crack, I SWEAR TO GOD. */
+         *  doesn't include a scrollbar by default, it has to be attached as a sperate, distinct component. It's
+         *  literally bolted onto the side, and isn't part of the sizing information of the TextField itself.
+         *  ScrollPanes on the other hand, DO feature a scrollbar as a core part of their functionality. And
+         *  for ScrollPanes, the UIScrollBar is included in the total sizing information. Whoever wrote this shit
+         *  was literally on crack, I SWEAR TO GOD. */
         // this.width = width + uiscrollwidth + 3;
         // this.height = height - 3;
 
@@ -132,15 +132,18 @@ export class BindingPane {
         // helpLabel.htmlText += "<b>Reset Ctrls</b> will reset all of the control bindings to their defaults.\n\n";
         // helpLabel.htmlText += "<b>Clear Ctrls</b> will remove all of the current control bindings, leaving everything Unbound.\n\n";
         var helpLabel = "<b>Keyboard Control Bindings:</b>\n\n";
-        helpLabel += "Click a button next to the action you wish to bind to a new key, then hit the key you want to bind the selected action to.\n\n"
+        helpLabel +=
+            "Click a button next to the action you wish to bind to a new key, then hit the key you want to bind the selected action to.\n\n";
         helpLabel += "Custom bindings are stored inside your save game files.\n\n";
         helpLabel += "Duplicate keys are automatically unbound from their old control action.\n\n";
-        helpLabel += "<b>Reset Ctrls</b> will reset all of the control bindings to their defaults.\n\n";
-        helpLabel += "<b>Clear Ctrls</b> will remove all of the current control bindings, leaving everything Unbound.\n\n";
+        helpLabel +=
+            "<b>Reset Ctrls</b> will reset all of the control bindings to their defaults.\n\n";
+        helpLabel +=
+            "<b>Clear Ctrls</b> will remove all of the current control bindings, leaving everything Unbound.\n\n";
 
         this.element.innerHTML = helpLabel;
 
-        const table = document.createElement('table');
+        const table = document.createElement("table");
 
         //helpLabel.height *= 2;
 
@@ -163,19 +166,25 @@ export class BindingPane {
                 return () => {
                     inMan.ListenForNewBind(funcName, InputManager.PRIMARYKEY);
                     // _stage.focus = _stage;
-                }
-            }
+                };
+            };
 
             var genSecondaryCallback = function (funcName: string, inMan: InputManager) {
                 return () => {
                     inMan.ListenForNewBind(funcName, InputManager.SECONDARYKEY);
                     // _stage.focus = _stage;
-                }
-            }
+                };
+            };
             // ... Warned you.
 
-            newLabel.button1Callback = genPrimaryCallback(this._functions[i].Name, this._inputManager);
-            newLabel.button2Callback = genSecondaryCallback(this._functions[i].Name, this._inputManager);
+            newLabel.button1Callback = genPrimaryCallback(
+                this._functions[i].Name,
+                this._inputManager
+            );
+            newLabel.button2Callback = genSecondaryCallback(
+                this._functions[i].Name,
+                this._inputManager
+            );
 
             // this._content.addChild(newLabel);
             table.appendChild(newLabel.element);

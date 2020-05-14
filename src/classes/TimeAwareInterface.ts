@@ -21,5 +21,4 @@ export interface TimeAwareInterface {
         When this function returns true it is responsible for calling doNext, menu, choices, etc.
         Returning false indicates the function has produced no screen output. */
     timeChangeLarge(): boolean;
-
 }

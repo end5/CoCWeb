@@ -19,14 +19,21 @@ export class BoundControlMethod {
 
     /**
      * Define a new bindable control method with "Unbound" keys.
-     * 	
+     *
      * @param	func			The function closure used by this BoundControlMethod
      * @param	name			The friendly name used for this BoundControlMethod
      * @param	desc			A Description of what the BoundControlMethod does
      * @param 	primaryKey		The primary bound key code
      * @param	secondarykey 	The secondary bound key code
      */
-    public constructor(func: any, name: string, desc: string, index: number, primaryKey: number = -1, secondaryKey: number = -1) {
+    public constructor(
+        func: any,
+        name: string,
+        desc: string,
+        index: number,
+        primaryKey: number = -1,
+        secondaryKey: number = -1
+    ) {
         this._funcToCall = func;
         this._shortName = name;
         this._descript = desc;
@@ -77,4 +84,3 @@ export class BoundControlMethod {
         return this._index;
     }
 }
-

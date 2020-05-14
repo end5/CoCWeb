@@ -1,4 +1,12 @@
-import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, BUTT_RATING_AVERAGE, HIP_RATING_SLENDER, LOWER_BODY_TYPE_LIZARD, SKIN_TYPE_SCALES, TAIL_TYPE_COW } from "../../../../includes/appearanceDefs";
+import {
+    ANAL_LOOSENESS_TIGHT,
+    ANAL_WETNESS_DRY,
+    BUTT_RATING_AVERAGE,
+    HIP_RATING_SLENDER,
+    LOWER_BODY_TYPE_LIZARD,
+    SKIN_TYPE_SCALES,
+    TAIL_TYPE_COW,
+} from "../../../../includes/appearanceDefs";
 import { ChainedDrop } from "../../../internals/ChainedDrop";
 import { Monster } from "../../../Monster";
 import { Player } from "../../../Player";
@@ -9,16 +17,16 @@ import { StatusAffects } from "../../../StatusAffects";
  * @author ...
  */
 export class Basilisk extends Monster {
-
     public static basiliskSpeed(player: Player, amount: number = 0): void {
         if (player.spe - amount < 1) {
             amount = player.spe - 1;
             if (amount < 0) amount = 0;
         }
         player.spe -= amount;
-        if (player.findStatusAffect(StatusAffects.BasiliskSlow) >= 0) player.addStatusValue(StatusAffects.BasiliskSlow, 1, amount);
+        if (player.findStatusAffect(StatusAffects.BasiliskSlow) >= 0)
+            player.addStatusValue(StatusAffects.BasiliskSlow, 1, amount);
         else player.createStatusAffect(StatusAffects.BasiliskSlow, amount, 0, 0, 0);
-        Basilisk.showStatDown('spe');
+        Basilisk.showStatDown("spe");
         // speUp.visible = false;
         // speDown.visible = true;
     }
@@ -27,10 +35,16 @@ export class Basilisk extends Monster {
     //(Check vs. Intelligence/Sensitivity, loss = recurrent speed loss each
     //round, one time lust increase):
     private compulsion(): void {
-        this.outputText("The basilisk opens its mouth and, staring at you, utters words in its strange, dry, sibilant tongue.  The sounds bore into your mind, working and buzzing at the edges of your resolve, suggesting, compelling, then demanding you look into the basilisk's eyes.  ", false);
+        this.outputText(
+            "The basilisk opens its mouth and, staring at you, utters words in its strange, dry, sibilant tongue.  The sounds bore into your mind, working and buzzing at the edges of your resolve, suggesting, compelling, then demanding you look into the basilisk's eyes.  ",
+            false
+        );
         //Success:
         if (this.player.inte / 5 + Basilisk.rand(20) < 24) {
-            this.outputText("You can't help yourself... you glimpse the reptile's grey, slit eyes. You look away quickly, but you can picture them in your mind's eye, staring in at your thoughts, making you feel sluggish and unable to coordinate. Something about the helplessness of it feels so good... you can't banish the feeling that really, you want to look in the basilisk's eyes forever, for it to have total control over you.", false);
+            this.outputText(
+                "You can't help yourself... you glimpse the reptile's grey, slit eyes. You look away quickly, but you can picture them in your mind's eye, staring in at your thoughts, making you feel sluggish and unable to coordinate. Something about the helplessness of it feels so good... you can't banish the feeling that really, you want to look in the basilisk's eyes forever, for it to have total control over you.",
+                false
+            );
             this.game.dynStats("lus", 3);
             //apply status here
             Basilisk.basiliskSpeed(this.player, 20);
@@ -38,18 +52,28 @@ export class Basilisk extends Monster {
         }
         //Failure:
         else {
-            this.outputText("You concentrate, focus your mind and resist the basilisk's psychic compulsion.", false);
+            this.outputText(
+                "You concentrate, focus your mind and resist the basilisk's psychic compulsion.",
+                false
+            );
         }
         this.game.combatRoundOver();
     }
 
-
-
     //Special 3: basilisk tail swipe (Small physical damage):
     private basiliskTailSwipe(): void {
-        var damage: number = Math.floor((this.str + 20) - Math.random() * (this.player.tou + this.player.armorDef));
+        var damage: number = Math.floor(
+            this.str + 20 - Math.random() * (this.player.tou + this.player.armorDef)
+        );
         damage = this.player.takeDamage(damage);
-        this.outputText("The basilisk suddenly whips its tail at you, swiping your " + this.player.feet() + " from under you!  You quickly stagger upright, being sure to hold the creature's feet in your vision. (" + damage + ")", false);
+        this.outputText(
+            "The basilisk suddenly whips its tail at you, swiping your " +
+                this.player.feet() +
+                " from under you!  You quickly stagger upright, being sure to hold the creature's feet in your vision. (" +
+                damage +
+                ")",
+            false
+        );
         if (damage == 0) this.outputText("  The fall didn't harm you at all.", false);
         this.game.combatRoundOver();
     }
@@ -58,7 +82,12 @@ export class Basilisk extends Monster {
     //Noun: claw
 
     protected performCombatAction(): void {
-        if (this.player.findStatusAffect(StatusAffects.BasiliskCompulsion) < 0 && Basilisk.rand(3) == 0 && this.findStatusAffect(StatusAffects.Blind) < 0) this.compulsion();
+        if (
+            this.player.findStatusAffect(StatusAffects.BasiliskCompulsion) < 0 &&
+            Basilisk.rand(3) == 0 &&
+            this.findStatusAffect(StatusAffects.Blind) < 0
+        )
+            this.compulsion();
         else if (Basilisk.rand(3) == 0) this.basiliskTailSwipe();
         else this.eAttack();
     }
@@ -81,7 +110,8 @@ export class Basilisk extends Monster {
         this.a = "the ";
         this.short = "basilisk";
         this.imageName = "basilisk";
-        this.long = "You are fighting a basilisk!  From what you can tell while not looking directly at it, the basilisk is a male reptilian biped standing a bit over 6' tall.  It has a thin but ropy build, its tightly muscled yellow underbelly the only part of its frame not covered in those deceptive, camouflaging grey-green scales.  A long, whip-like tail flits restlessly through the dirt behind its skinny legs, and sharp sickle-shaped index claws decorate each hand and foot.  You don't dare to look at its face, but you have the impression of a cruel jaw, a blunt lizard snout and a crown of dull spines.";
+        this.long =
+            "You are fighting a basilisk!  From what you can tell while not looking directly at it, the basilisk is a male reptilian biped standing a bit over 6' tall.  It has a thin but ropy build, its tightly muscled yellow underbelly the only part of its frame not covered in those deceptive, camouflaging grey-green scales.  A long, whip-like tail flits restlessly through the dirt behind its skinny legs, and sharp sickle-shaped index claws decorate each hand and foot.  You don't dare to look at its face, but you have the impression of a cruel jaw, a blunt lizard snout and a crown of dull spines.";
         // this.plural = false;
         this.createCock(6, 2);
         this.balls = 2;
@@ -110,7 +140,7 @@ export class Basilisk extends Monster {
         this.armorValue = 70;
         this.bonusHP = 200;
         this.lust = 30;
-        this.lustVuln = .5;
+        this.lustVuln = 0.5;
         this.temperment = Basilisk.TEMPERMENT_RANDOM_GRAPPLES;
         this.level = 12;
         this.gems = Basilisk.rand(10) + 10;
@@ -119,6 +149,4 @@ export class Basilisk extends Monster {
         this.tailRecharge = 0;
         this.checkMonster();
     }
-
 }
-

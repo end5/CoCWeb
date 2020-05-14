@@ -20,22 +20,42 @@ export class Plains extends BaseContent {
         this.outputText("", true);
         this.flags[kFLAGS.TIMES_EXPLORED_PLAINS]++;
         //Dem Kangasluts!  Force Sheila relationship phase!
-        if (this.flags[kFLAGS.SHEILA_DEMON] == 0 && this.flags[kFLAGS.SHEILA_XP] == 3 && this.model.time.hours == 20 && this.flags[kFLAGS.SHEILA_CLOCK] >= 0) {
+        if (
+            this.flags[kFLAGS.SHEILA_DEMON] == 0 &&
+            this.flags[kFLAGS.SHEILA_XP] == 3 &&
+            this.model.time.hours == 20 &&
+            this.flags[kFLAGS.SHEILA_CLOCK] >= 0
+        ) {
             kGAMECLASS.sheilaScene.sheilaXPThreeSexyTime();
             return;
         }
         //Add some holiday cheer
-        if (this.isHolidays() && this.date.fullYear > this.flags[kFLAGS.CANDY_CANE_YEAR_MET] && Plains.rand(5) == 0) {
+        if (
+            this.isHolidays() &&
+            this.date.fullYear > this.flags[kFLAGS.CANDY_CANE_YEAR_MET] &&
+            Plains.rand(5) == 0
+        ) {
             kGAMECLASS.candyCaneTrapDiscovery();
             return;
         }
-        if (this.isHolidays() && this.date.fullYear > this.flags[kFLAGS.POLAR_PETE_YEAR_MET] && Plains.rand(4) == 0 && this.silly()) {
+        if (
+            this.isHolidays() &&
+            this.date.fullYear > this.flags[kFLAGS.POLAR_PETE_YEAR_MET] &&
+            Plains.rand(4) == 0 &&
+            this.silly()
+        ) {
             kGAMECLASS.polarPete();
             this.flags[kFLAGS.POLAR_PETE_YEAR_MET] = this.date.fullYear;
             return;
         }
         //Helia monogamy fucks
-        if (this.flags[kFLAGS.PC_PROMISED_HEL_MONOGAMY_FUCKS] == 1 && this.flags[kFLAGS.HEL_RAPED_TODAY] == 0 && Plains.rand(10) == 0 && this.player.gender > 0 && !kGAMECLASS.helScene.followerHel()) {
+        if (
+            this.flags[kFLAGS.PC_PROMISED_HEL_MONOGAMY_FUCKS] == 1 &&
+            this.flags[kFLAGS.HEL_RAPED_TODAY] == 0 &&
+            Plains.rand(10) == 0 &&
+            this.player.gender > 0 &&
+            !kGAMECLASS.helScene.followerHel()
+        ) {
             kGAMECLASS.helScene.helSexualAmbush();
             return;
         }
@@ -45,17 +65,32 @@ export class Plains extends BaseContent {
             return;
         }
         //Find Owca
-        if (this.player.level >= 8 && this.flags[kFLAGS.TIMES_EXPLORED_PLAINS] % 25 == 0 && this.flags[kFLAGS.OWCA_UNLOCKED] == 0) {
+        if (
+            this.player.level >= 8 &&
+            this.flags[kFLAGS.TIMES_EXPLORED_PLAINS] % 25 == 0 &&
+            this.flags[kFLAGS.OWCA_UNLOCKED] == 0
+        ) {
             kGAMECLASS.owca.gangbangVillageStuff();
             return;
         }
         //Bazaar!
-        if (this.flags[kFLAGS.TIMES_EXPLORED_PLAINS] % 10 == 0 && this.flags[kFLAGS.BAZAAR_ENTERED] == 0) {
+        if (
+            this.flags[kFLAGS.TIMES_EXPLORED_PLAINS] % 10 == 0 &&
+            this.flags[kFLAGS.BAZAAR_ENTERED] == 0
+        ) {
             kGAMECLASS.bazaar.findBazaar();
             return;
         }
         //Chance of threesomes!
-        if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00256] != 0 && this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00257] != 0 && this.flags[kFLAGS.HEL_FUCKBUDDY] == 1 && this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00260] == 0 && !kGAMECLASS.isabellaFollowerScene.isabellaFollower() && this.flags[kFLAGS.TIMES_EXPLORED_PLAINS] % 21 == 0 && !(this.player.tallness > 78 && this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00258] == 0)) {
+        if (
+            this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00256] != 0 &&
+            this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00257] != 0 &&
+            this.flags[kFLAGS.HEL_FUCKBUDDY] == 1 &&
+            this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00260] == 0 &&
+            !kGAMECLASS.isabellaFollowerScene.isabellaFollower() &&
+            this.flags[kFLAGS.TIMES_EXPLORED_PLAINS] % 21 == 0 &&
+            !(this.player.tallness > 78 && this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00258] == 0)
+        ) {
             //Hell/Izzy threesome intro
             if (this.flags[kFLAGS.HEL_ISABELLA_THREESOME_ENABLED] == 0) {
                 kGAMECLASS.helScene.salamanderXIsabellaPlainsIntro();
@@ -68,10 +103,14 @@ export class Plains extends BaseContent {
             }
         }
 
-        var choices: any[] = [this.plainsLoot, this.plainsLoot,
+        var choices: any[] = [
+            this.plainsLoot,
+            this.plainsLoot,
             this.gnollSpearThrowerScene.gnoll2Encounter,
             this.gnollScene.gnollEncounter,
-            this.bunnyGirl.bunnbunbunMeet, this.bunnyGirl.bunnbunbunMeet];
+            this.bunnyGirl.bunnbunbunMeet,
+            this.bunnyGirl.bunnbunbunMeet,
+        ];
 
         if (this.flags[kFLAGS.ISABELLA_PLAINS_DISABLED] == 0) {
             choices[choices.length] = kGAMECLASS.isabellaScene.isabellaGreeting;
@@ -83,7 +122,8 @@ export class Plains extends BaseContent {
         }
         choices[choices.length] = this.satyrScene.satyrEncounter;
         choices[choices.length] = this.satyrScene.satyrEncounter;
-        if (this.flags[kFLAGS.SHEILA_DISABLED] == 0 && this.flags[kFLAGS.SHEILA_CLOCK] >= 0) { //Aparently Sheila was supposed to be disabled after certain events - now fixed
+        if (this.flags[kFLAGS.SHEILA_DISABLED] == 0 && this.flags[kFLAGS.SHEILA_CLOCK] >= 0) {
+            //Aparently Sheila was supposed to be disabled after certain events - now fixed
             choices[choices.length] = kGAMECLASS.sheilaScene.sheilaEncounterRouter;
             choices[choices.length] = kGAMECLASS.sheilaScene.sheilaEncounterRouter;
         }
@@ -92,14 +132,18 @@ export class Plains extends BaseContent {
     }
 
     private plainsLoot(): void {
-        if (Plains.rand(2) == 0) { //OVI
-            this.outputText("While exploring the plains you nearly trip over a discarded, hexagonal bottle.  ");
+        if (Plains.rand(2) == 0) {
+            //OVI
+            this.outputText(
+                "While exploring the plains you nearly trip over a discarded, hexagonal bottle.  "
+            );
             this.inventory.takeItem(this.consumables.OVIELIX, this.camp.returnToCampUseOneHour);
-        }
-        else { //FIND KANGAAA
-            this.outputText("While exploring the plains you come across a strange-looking plant.  As you peer at it, you realize it has some fruit you can get at.  ");
+        } else {
+            //FIND KANGAAA
+            this.outputText(
+                "While exploring the plains you come across a strange-looking plant.  As you peer at it, you realize it has some fruit you can get at.  "
+            );
             this.inventory.takeItem(this.consumables.KANGAFT, this.camp.returnToCampUseOneHour);
         }
     }
 }
-

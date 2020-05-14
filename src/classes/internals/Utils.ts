@@ -9,9 +9,45 @@ export class Utils {
         bindToClass(this);
     }
 
-    private static NUMBER_WORDS_NORMAL: any[] = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
-    private static NUMBER_WORDS_CAPITAL: any[] = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"];
-    private static NUMBER_WORDS_POSITIONAL: any[] = ["zeroth", "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth"];
+    private static NUMBER_WORDS_NORMAL: any[] = [
+        "zero",
+        "one",
+        "two",
+        "three",
+        "four",
+        "five",
+        "six",
+        "seven",
+        "eight",
+        "nine",
+        "ten",
+    ];
+    private static NUMBER_WORDS_CAPITAL: any[] = [
+        "Zero",
+        "One",
+        "Two",
+        "Three",
+        "Four",
+        "Five",
+        "Six",
+        "Seven",
+        "Eight",
+        "Nine",
+        "Ten",
+    ];
+    private static NUMBER_WORDS_POSITIONAL: any[] = [
+        "zeroth",
+        "first",
+        "second",
+        "third",
+        "fourth",
+        "fifth",
+        "sixth",
+        "seventh",
+        "eighth",
+        "ninth",
+        "tenth",
+    ];
 
     // curryFunction(f,args1)(args2)=f(args1.concat(args2))
     // e.g. curryFunction(f,x,y)(z,w) = f(x,y,z,w)
@@ -22,11 +58,15 @@ export class Utils {
         };
     }
 
-    public static formatStringArray(stringList: any[]): string { //Changes an array of values into "1", "1 and 2" or "1, (x, )y and z"
+    public static formatStringArray(stringList: any[]): string {
+        //Changes an array of values into "1", "1 and 2" or "1, (x, )y and z"
         switch (stringList.length) {
-            case 0: return "";
-            case 1: return stringList[0];
-            case 2: return stringList[0] + " and " + stringList[1];
+            case 0:
+                return "";
+            case 1:
+                return stringList[0];
+            case 2:
+                return stringList[0] + " and " + stringList[1];
             default:
         }
         var concat: string = stringList[0];
@@ -43,9 +83,12 @@ export class Utils {
         if (number < 0) return number.toString(); //Can't really have the -10th of something
         if (number <= 10) return Utils.NUMBER_WORDS_POSITIONAL[number];
         switch (number % 10) {
-            case 1: return number.toString() + "st";
-            case 2: return number.toString() + "nd";
-            case 3: return number.toString() + "rd";
+            case 1:
+                return number.toString() + "st";
+            case 2:
+                return number.toString() + "nd";
+            case 3:
+                return number.toString() + "rd";
             default:
         }
         return number.toString() + "th";
@@ -62,11 +105,10 @@ export class Utils {
     // This lets you pre-construct the argument, to make things cleaner
     public static randomChoice(...args: any[]): any {
         var choice: number;
-        if ((args.length == 1) && (Array.isArray(args[0]))) {
+        if (args.length == 1 && Array.isArray(args[0])) {
             choice = Math.floor(Math.round(Math.random() * (args[0].length - 1)));
             return args[0][choice];
-        }
-        else {
+        } else {
             choice = Math.floor(Math.round(Math.random() * (args.length - 1)));
             return args[choice];
         }
@@ -76,20 +118,30 @@ export class Utils {
         return Math.floor(Math.random() * max);
     }
 
-    public static validateNonNegativeNumberFields(o: Record<string, any>, func: string, nnf: any[]): string {
+    public static validateNonNegativeNumberFields(
+        o: Record<string, any>,
+        func: string,
+        nnf: any[]
+    ): string {
         var error: string = "";
         for (var field of nnf) {
-            if (!(field in o) || !(typeof o[field] == 'number') && o[field] != undefined) error += "Misspelling in " + func + ".nnf: '" + field + "'. ";
+            if (!(field in o) || (!(typeof o[field] == "number") && o[field] != undefined))
+                error += "Misspelling in " + func + ".nnf: '" + field + "'. ";
             else if (o[field] == undefined) error += "Null '" + field + "'. ";
             else if (o[field] < 0) error += "Negative '" + field + "'. ";
         }
         return error;
     }
 
-    public static validateNonEmptyStringFields(o: Record<string, any>, func: string, nef: any[]): string {
+    public static validateNonEmptyStringFields(
+        o: Record<string, any>,
+        func: string,
+        nef: any[]
+    ): string {
         var error: string = "";
         for (var field of nef) {
-            if (!(field in o) || !(typeof o[field] == 'string') && o[field] != undefined) error += "Misspelling in " + func + ".nef: '" + field + "'. ";
+            if (!(field in o) || (!(typeof o[field] == "string") && o[field] != undefined))
+                error += "Misspelling in " + func + ".nef: '" + field + "'. ";
             else if (o[field] == undefined) error += "Null '" + field + "'. ";
             else if (o[field] == "") error += "Empty '" + field + "'. ";
         }
@@ -129,4 +181,3 @@ export class Utils {
     }
     */
 }
-

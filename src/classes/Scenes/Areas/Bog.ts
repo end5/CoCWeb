@@ -16,22 +16,35 @@ export class Bog extends BaseContent {
     public exploreBog(): void {
         this.flags[kFLAGS.BOG_EXPLORED]++;
         //Helia monogamy fucks
-        if (this.flags[kFLAGS.PC_PROMISED_HEL_MONOGAMY_FUCKS] == 1 && this.flags[kFLAGS.HEL_RAPED_TODAY] == 0 && Bog.rand(10) == 0 && this.player.gender > 0 && !kGAMECLASS.helFollower.followerHel()) {
+        if (
+            this.flags[kFLAGS.PC_PROMISED_HEL_MONOGAMY_FUCKS] == 1 &&
+            this.flags[kFLAGS.HEL_RAPED_TODAY] == 0 &&
+            Bog.rand(10) == 0 &&
+            this.player.gender > 0 &&
+            !kGAMECLASS.helFollower.followerHel()
+        ) {
             kGAMECLASS.helScene.helSexualAmbush();
             return;
         }
-        if ((this.isHalloween() && (this.date.fullYear > this.flags[kFLAGS.TREACLE_MINE_YEAR_DONE]) && this.flags[kFLAGS.BOG_EXPLORED] % 4 == 0) && (this.flags[kFLAGS.PHOUKA_LORE] > 0)) {
+        if (
+            this.isHalloween() &&
+            this.date.fullYear > this.flags[kFLAGS.TREACLE_MINE_YEAR_DONE] &&
+            this.flags[kFLAGS.BOG_EXPLORED] % 4 == 0 &&
+            this.flags[kFLAGS.PHOUKA_LORE] > 0
+        ) {
             this.phoukaScene.phoukaHalloween(); //Must have met them enough times to know what they're called, have some idea of their normal behaviour
             return;
         }
-        if (this.player.buttPregnancyIncubation == 0 && Bog.rand(3) == 0) this.frogGirlScene.findTheFrogGirl();
+        if (this.player.buttPregnancyIncubation == 0 && Bog.rand(3) == 0)
+            this.frogGirlScene.findTheFrogGirl();
         else if (Bog.rand(3) == 0) this.phoukaScene.phoukaEncounter();
         else if (Bog.rand(2) == 0) this.chameleonGirlScene.encounterChameleon();
         else {
             this.clearOutput();
-            this.outputText("You wander around through the humid muck, but you don't run into anything interesting.");
+            this.outputText(
+                "You wander around through the humid muck, but you don't run into anything interesting."
+            );
             this.doNext(this.camp.returnToCampUseOneHour);
         }
     }
 }
-
